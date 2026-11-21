@@ -1,0 +1,86 @@
+{
+  "base": "6462c2494a6c4f328f730004362af4962cb89954",
+  "openwave": "26fbb5fdd07049625d6bb7930af2f6bf545fb6fc",
+  "study": "Exploratory single-read component of local OBS-03",
+  "member": "Interval Echo, coherent recovered blank memories, reference vacancies, kappa=8; all native seams evolve uniformly after release.",
+  "setup": "Receiver cell 0, natural port order 0..11, quiet=12. Provide one sharp load in the common sender port; both parties have a prior scheduled release and terminal window. After setup choose the balanced bit and apply one addressed pi exchange to its destination. No variable setup latency.",
+  "station_rule": "First external edge of cell 0 in sorted incidence. Bit 0 at the sender endpoint, bit 1 at its smallest internal degree-five neighbor. Common launch at the smallest common neighbor. Single seam crossing, no continuum distance matching.",
+  "stations": [
+    {
+      "level": 0,
+      "cells": 20,
+      "contact": [
+        1,
+        82
+      ],
+      "ports": [
+        82,
+        74
+      ],
+      "launch": 78
+    },
+    {
+      "level": 2,
+      "cells": 320,
+      "contact": [
+        1,
+        38
+      ],
+      "ports": [
+        38,
+        39
+      ],
+      "launch": 40
+    }
+  ],
+  "exposures": [
+    0,
+    0.25,
+    1,
+    2,
+    4
+  ],
+  "early": 0,
+  "late": 4,
+  "trials": 65536,
+  "calibration_per_bit": 32768,
+  "alpha": 0.05,
+  "comparisons": 30,
+  "accuracy_target": 0.52,
+  "control_exposure": 2,
+  "minimum_law_shift": 0.02,
+  "numeric_tolerance": 1e-10,
+  "seeds": {
+    "setup": 1301,
+    "bits": 1302,
+    "detector": 1303,
+    "calibration": 1304,
+    "shuffle": 1305,
+    "clock": [
+      31,
+      32
+    ]
+  },
+  "streams": "PCG64 per role keyed by level, grid ordinal and cohort. Setup is deterministic; its independent stream permutes calibration trial order only. Randomly permute exactly balanced evaluation labels after setup.",
+  "decoder": "Precalibrate every station/window using labelled independent cohorts. Larger per-outcome count wins; tie goes to zero. Frozen 13-bit table per enrolled window, public before testing. Only a plain local outcome and this table reach the decoder.",
+  "decision": "At each station resolve if late lower > .52 and early upper < .52. Report all bounds and verdicts. Two-sided Hoeffding with Bonferroni over 10 native, 10 sham and 10 permuted-label accuracies. Without-replacement permutation bound uses N/2 draws. No between-station physical scale claim.",
+  "controls": "No encoding uses destination 0 under both labels and native calibration. Half exchange gives H=L/4+48I, hence baseline law at s/2. At s=2 require max absolute outcome shift >= .02. Kappa zero must agree at all settings to tolerance. Plant two sharp orthogonal receiver ports at s=0. Rebuild from NPZ incidence. Mutate quiet counts, complement, material gate and decoder side inputs.",
+  "budget": "At N=65536, ordinary simultaneous half-width < .0074. If true accuracy >= .535, probability of missing lower > .52 is <= exp(-2*N*(.015-width)^2) < .001. At chance the early upper falls below .52 with probability > .999. Fixed after inspecting only pilot exact laws.",
+  "development": "20-cell exact oracle on the whole retained grid: 0.5, 0.50749538, 0.56891840, 0.62142558, 0.69480754. No alternate geometry tried. Prior space panels showed transport at 2 and 4. Largest carrier geometry inspected without outcomes. Budget unchanged.",
+  "clock": "Separate 20-cell hardware probe. Prior appointment at reset count 0. Two independent stationary preparations; request a read at 1 and 2 posted ticks respectively, with at most eight local service records each. Retain tick, count, requested read, timeout, overflow or unavailable. Require an invariant joint source and detector before accepting any answer. Check contact between home hand and the arriving load for leakage. No exposure-to-tick conversion.",
+  "sources": {
+    "model/candidate_laws/interval_echo/SPEC.md": "bbfbe5373f649dcd504d9c178931bf2ddabc2c84b72d04292a82fcf1b434d738",
+    "model/candidate_laws/interval_echo/candidate.py": "7ae1cdf47840c033a88145845e4089c75c541bb072aa41d9aeb2cb40afc03be3",
+    "model/candidate_laws/interval_echo/clock.py": "e3a5f1fcc4fddc6c5dcbf012dd6dc9f03232296f37ce507cb0fe618b808f68b0",
+    "model/candidate_laws/interval_echo/EVALUATION.json": "993cb9fde8898ff3ed8dd082791fbad5423cb1985fe55bf0d7f8494680f69726",
+    "model/candidate_laws/contrast_memory_spherical_v1/SPEC.md": "12d3cca0a3f1fde6f9313a0a578a4a3f5de025abc5ac74b808b18af37d378d43",
+    "model/candidate_laws/contrast_memory_spherical_v1/candidate.py": "c1a2579ef2f1aa0f32f164b5f09c872586bfa38df68f9df7d9de3c3b36813628",
+    "model/candidate_laws/contrast_memory_spherical_v1/law.py": "218a99ebc1e921065a818b77f00608818fdacf80782406466787b2891b1d017f",
+    "model/executable_model/carrier.py": "327fc33189ff6242f7367f625a3f70d97167e79bd4f8a740266d7eb09e237bbd",
+    "model/experiments/interval_echo_space/instrument.py": "d8c334b57c0dae84cf191066f9573d04ffa46ee15262bd8405b1e34cf836ee44",
+    "model/experiments/interval_echo_optics/experiment.py": "15906b9cf354ed7c1a0f0fffe4f9f02bf7e17872286fbe45d8609beddb33d120",
+    "model/experiments/interval_echo_clock/publication.py": "5d15568cf674492315fc9e7454c606117dc4f9793f4418dce65c65117eee2238",
+    "model/executable_model/carriers/FEDERATION_LEVEL0.npz": "99870398e3d516f899c600e9bf25ba53c7f513142ba8facbe1cedd94b23f915b",
+    "model/executable_model/carriers/FEDERATION_LEVEL2.npz": "e7273bbd0e814abf49f3a333ecfe58a542262aee7d2399db677d15c19fcac673"
+  }
+}
