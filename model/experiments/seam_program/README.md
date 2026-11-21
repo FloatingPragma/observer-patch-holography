@@ -24,12 +24,18 @@ The spatial apertures failed their registered phase-control criterion. With phas
 
 The phase read is an absolute frequency available to the two native port observers. The four-mode run is finite.
 
+## Clocked scalar field and free release
+
+The scalar field result uses a three-dimensional spatial chart, a compact private register and a stationary material clock. A 20-cell execution supplies 144 complete distributions. A second instrument releases the same preparations under free exchange and reads every possible marker partner. At clock count three it detects an excess marker loss of 0.08355 to 0.08832 across all three private orders. The leakage theorem explains why this encoded field requires protection. [Continuum theorem, rest spectrum and free release](CLOCKED_FIELD.md)
+
 ## Reproduce
 
 ```
 python -B -O -W error -m model.experiments.seam_program
 python -B -O -W error -m model.experiments.seam_program.preparation
 python -B -O -W error -m model.experiments.seam_program.receiver
+python -B -O -W error -m model.experiments.seam_program.clocked_run
+python -B -O -W error -m model.experiments.seam_program.free_marker
 python -B -m pytest -q -W error model/experiments/seam_program
 ```
 

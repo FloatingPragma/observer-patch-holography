@@ -1,0 +1,146 @@
+{
+ "all_no_excess_over_hold": {
+  "-1": {
+   "all_data_contacts": [
+    0.0,
+    0.018573761,
+    0.0507593155,
+    0.0860471725
+   ],
+   "marker_contacts_closed": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "0": {
+   "all_data_contacts": [
+    0.0,
+    0.019408226,
+    0.0520887375,
+    0.0883216858
+   ],
+   "marker_contacts_closed": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "1": {
+   "all_data_contacts": [
+    0.0,
+    0.0179271698,
+    0.0490646362,
+    0.0835485458
+   ],
+   "marker_contacts_closed": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ]
+  }
+ },
+ "leakage": [
+  {
+   "d": 5,
+   "n": 12,
+   "nonzero_output_rows": 40,
+   "squared_singular_values": [
+    [
+     0.75,
+     4
+    ],
+    [
+     1.25,
+     6
+    ],
+    [
+     2.0,
+     1
+    ]
+   ]
+  },
+  {
+   "d": 5,
+   "n": 240,
+   "nonzero_output_rows": 1180,
+   "squared_singular_values": [
+    [
+     0.75,
+     4
+    ],
+    [
+     1.25,
+     234
+    ],
+    [
+     2.0,
+     1
+    ]
+   ]
+  },
+  {
+   "d": 5,
+   "n": 960,
+   "nonzero_output_rows": 4780,
+   "squared_singular_values": [
+    [
+     0.75,
+     4
+    ],
+    [
+     1.25,
+     954
+    ],
+    [
+     2.0,
+     1
+    ]
+   ]
+  },
+  {
+   "d": 5,
+   "n": 3840,
+   "nonzero_output_rows": 19180,
+   "squared_singular_values": [
+    [
+     0.75,
+     4
+    ],
+    [
+     1.25,
+     3834
+    ],
+    [
+     2.0,
+     1
+    ]
+   ]
+  },
+  {
+   "d": 5,
+   "n": 216,
+   "nonzero_output_rows": 1060,
+   "squared_singular_values": [
+    [
+     0.75,
+     4
+    ],
+    [
+     1.25,
+     210
+    ],
+    [
+     2.0,
+     1
+    ]
+   ]
+  }
+ ],
+ "terminal_queries": 215,
+ "terminal_worst_pi_contacts": 6592,
+ "two_emitter_and_counter_bound": 0.0468769073
+}
