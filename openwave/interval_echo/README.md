@@ -1,0 +1,20 @@
+# Interval Echo on the spherical screen
+
+The row 4 experiment asks whether a prepared adjacent pair persists when every seam of the 20-cell sphere acts freely. The observer occupies one cell and records one of its 30 occupied seams or a quiet outcome. Two-load states with separated ports and states outside the cell both occur in the model. The exchange-only arm uses the same initial pair, sphere and detector. The experiment identifies a bound excitation of the specified law. The electric charge, spin and particle species require separate measurements. [Interval Echo specification](../../model/candidate_laws/interval_echo/SPEC.md) · [Public criterion](https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L104)
+
+## Reproduce the author measurement
+
+Use Python 3.12 with NumPy 2.3.5 and SciPy 1.18.1. From this directory run
+
+```sh
+cd row_04
+python -B row_04_check.py --board FEDERATION_LEVEL0.npz
+python -B row_04_window.py --board FEDERATION_LEVEL0.npz
+python -B native_check.py
+```
+
+At native exposures 1, 7 and 37, 4,048, 4,052 and 4,028 of 4,096 simulated terminal records per setting show a pair in the launch cell. The control gives 1,780, 1,182 and 824. The saved receipt includes every simulated trial in draw order as compressed address bytes. The appointments are supplied exposures. Each trial has one terminal read. A separate calculation bounds the ensemble probability of a local pair above 94% throughout the interval from 0 to 37. [Frozen local design](row_04/ROW_04_DESIGN.md) · [Raw records](row_04/row_04_receipt.json) · [Window calculation](row_04/row_04_window.json)
+
+The third command uses the containing RER checkout to compare both generator matrices entry by entry with the pinned law, and both terminal branches with the 99-state native echo. To exercise the scientific rejection, append `--remove-contrast` to the first command. The local persistence gate rejects that alternative on the same board. The registered platform reproduction uses the recorded author settings and discloses prior knowledge of binding. An optional subsequent held release uses a different source and exposures. Its selector is the first commit on the first-parent history of official OpenWave main containing the M10.3 task. [Held release program](row_04/registered_release.py)
+
+The public repair simulator illustrates one patch comparing loads and retaining a repair record in a related mean-repair model. The sparse two-load simulation and its terminal seam record are reproduced by the commands above. [Public repair view](https://simulation.floatingpragma.io/patches?scene=repair)
