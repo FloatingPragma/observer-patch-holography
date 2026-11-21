@@ -113,5 +113,5 @@ eight-arm preparation, a birth-accessible bright sector and a moving
 two-pole clock on an ordinary capture-dark input. Those preparations and
 their clocks have distinct source maps. The torus replays use the native
 reflected routing, contact phases, capture and opening specified in the
-[simulator](../SPEC.md). [OpenWave internal-clock records](https://github.com/muellerberndt/openwave/blob/e615a5e55d16919a96cd4a4523a5743015ed1756/simulation/reports/ROW03_RESULTS.md) ·
-[OpenWave protected-pair records](https://github.com/muellerberndt/openwave/blob/e615a5e55d16919a96cd4a4523a5743015ed1756/simulation/reports/ROW04_RESULTS.md)
+[simulator](../SPEC.md). The records of those runs are the OpenWave
+internal-clock and protected-pair reports.

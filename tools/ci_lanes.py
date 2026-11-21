@@ -96,6 +96,7 @@ LANES: tuple[Lane, ...] = (
          "code/electromagnetism/test_neutral_packet_observables.py code/electromagnetism/test_whitney_quantum_packet.py",
          "python -m pytest -q -W error code/electromagnetism/test_whitney_interacting_quantum.py",
          env={"OPENBLAS_NUM_THREADS": "1"}),
+    lane("private_links", "push", "root", 0.5, "python tools/check_private_links.py"),
     pytest_lane("quantum_information", 2.5,
                 "code/quantum_information code/collar_alignment code/maxent",
                 env={**CODE, "OPENBLAS_NUM_THREADS": "1"}),
