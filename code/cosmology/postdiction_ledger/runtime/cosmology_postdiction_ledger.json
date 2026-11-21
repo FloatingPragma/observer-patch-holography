@@ -59,7 +59,7 @@
     },
     {
       "anchor_verified": true,
-      "corpus_input_id": "zero_running_dilation_cocycle",
+      "corpus_input_id": "zero_running_dilation_exponent",
       "source_file": "cosmology/oph_inflation_without_inflaton_observer_screen_synchronization.tex"
     },
     {
@@ -69,7 +69,7 @@
     },
     {
       "anchor_verified": true,
-      "corpus_input_id": "zero_isocurvature_rank_one_single_clock",
+      "corpus_input_id": "zero_isocurvature_single_clock",
       "source_file": "cosmology/oph_inflation_without_inflaton_observer_screen_synchronization.tex"
     },
     {
@@ -95,12 +95,12 @@
     {
       "anchor_verified": true,
       "corpus_input_id": "capacity_candidate_a",
-      "source_file": "flagship/from_observer_consensus_to_standard_physics.tex"
+      "source_file": "paper/tex_fragments/CLOSURE_PRINCIPLE.tex"
     },
     {
       "anchor_verified": true,
       "corpus_input_id": "capacity_candidate_b",
-      "source_file": "flagship/from_observer_consensus_to_standard_physics.tex"
+      "source_file": "paper/tex_fragments/CLOSURE_PRINCIPLE.tex"
     },
     {
       "anchor_verified": true,
@@ -114,13 +114,13 @@
     },
     {
       "anchor_verified": true,
-      "corpus_input_id": "flagship_planck_chain_capacity_coordinate_display",
-      "source_file": "flagship/from_observer_consensus_to_standard_physics.tex"
+      "corpus_input_id": "planck_chain_capacity_coordinate_display",
+      "source_file": "paper/tex_fragments/CLOSURE_PRINCIPLE.tex"
     },
     {
       "anchor_verified": true,
-      "corpus_input_id": "flagship_capacity_lambda_percent_display",
-      "source_file": "flagship/from_observer_consensus_to_standard_physics.tex"
+      "corpus_input_id": "capacity_lambda_percent_display",
+      "source_file": "cosmology/oph_cosmology_data_likelihood_contracts.tex"
     },
     {
       "anchor_verified": true,
@@ -203,11 +203,11 @@
   },
   "pins": {
     "code/cosmology/fixed_capacity_wlaw/runtime/official_desi_dr2_fz13_retrospective.json": "52abfd4ca15424420b4b4c55160660648279de0bdd1b404a242c4b3dab4c1473",
-    "code/cosmology/postdiction_ledger/build_cosmology_postdiction_ledger.py": "589686bdf739d7713e217f38d74c33a23f90c826d611ac0e4a870f6435855eaf",
-    "code/cosmology/postdiction_ledger/corpus_inputs.json": "9d6095bd043082c91cd021dea421f0e93b595e0e51862bc4e3db26e6e43eff03",
+    "code/cosmology/postdiction_ledger/build_cosmology_postdiction_ledger.py": "fa4f49993b8e1edd7a47c833be75e45fe5394f52032f06d2f14b4eb517abd82c",
+    "code/cosmology/postdiction_ledger/corpus_inputs.json": "a0f7209e675a2c160874120add9d861ef32ed992c55a653dbd59b1f1822f9590",
     "code/cosmology/postdiction_ledger/public_inputs.json": "ce7d58fa6c35bad5d14262a6ad1c0b1e4371010fc2254134e91193dcd9a7a436",
     "code/cosmology/postdiction_ledger/test_cosmology_postdiction_ledger.py": "8871e6b6826f0f6db5475c422773fad7f49e6f2a69d9b6a3373c0246ee7466ad",
-    "code/cosmology/postdiction_ledger/verify_cosmology_postdiction_ledger_independent.py": "fbd4e5a6c89bb8ac1cc1b7eb8e56a268c6918e07f72f81367b7f26c30f15ae98",
+    "code/cosmology/postdiction_ledger/verify_cosmology_postdiction_ledger_independent.py": "ba3faeaf68503a07f9e985cb83872d2e7b52584ed2571aa5729ddb556a802221",
     "code/cosmology/rar_deep_regime/receipts/sparc_deep_regime_diagnostic.json": "b52c06698523ada1b8fe6337f61d81b5a0c57421c03453679dccf1872f56f2e9",
     "code/cosmology/rar_deep_regime/receipts/sparc_full_rar_calibration.json": "204ec809099937ffdb95ba77ae26f1343b49e9378a6c030c6b3494d29f28525f",
     "code/cosmology/tilt_posterior/likelihood_slice.json": "c8d8481e3807f407217e52aad7aa21f5d1993877e5deeb826d4956443fe6680d"
@@ -215,7 +215,7 @@
   "promotes_nothing": true,
   "public_inputs_schema": "oph.cosmology.postdiction_ledger.public_inputs.v1",
   "row_count": 53,
-  "rows_sha256": "b55024f0b856357f72dd92debe322ffd50ea6816a3e9d22b41018c56b0b7b2c1",
+  "rows_sha256": "c056d9650c242d035369ac048fbf518c38741956f9939c8a48d06589c88ee76a",
   "schema": "oph.cosmology.postdiction_ledger.v1",
   "sections": [
     {
@@ -942,12 +942,12 @@
           "citation": "Planck Collaboration (2020), Planck 2018 results. VI, arXiv:1807.06209, Table 5; the same value is quoted in Planck 2018 results. X, arXiv:1807.06211",
           "class": "conditional_theorem_postdiction",
           "corpus_source_ids": [
-            "zero_running_dilation_cocycle",
+            "zero_running_dilation_exponent",
             "homogeneous_radial_source_family_theorem"
           ],
           "dataset": "Planck 2018 TT,TE,EE+lowE+lensing",
           "discriminates_from_baseline": true,
-          "epistemic_note": "Zero running is exact under the declared source dilation cocycle (pure power law), conditional on that cocycle. Generic slow-roll running is second order in the slow-roll parameters, of order 1e-3, so a running measurement at that level separates the branches. Seen data.",
+          "epistemic_note": "Zero running is exact for the fixed dilation exponent (pure power law), conditional on that exponent. Generic slow-roll running is second order in the slow-roll parameters, of order 1e-3, so a running measurement at that level separates the branches. Seen data.",
           "measurement": {
             "kind": "gaussian",
             "sigma": 0.0067,
@@ -956,8 +956,8 @@
           },
           "measurement_display": "-0.0045 +/- 0.0067",
           "oph_premises": [
-            "declared source dilation cocycle",
-            "scale-natural source embedding transporting refinement to dilation",
+            "covariance-survival cocycle with a fixed dilation exponent",
+            "physical dilation intertwiner transferring the cocycle to the curvature covariance",
             "homogeneous radial source family: exact power law"
           ],
           "oph_value": 0.0,
@@ -978,12 +978,12 @@
           "citation": "ACT Collaboration, Calabrese et al. (2025), ACT DR6 constraints on extended cosmological models, arXiv:2503.14454",
           "class": "conditional_theorem_postdiction",
           "corpus_source_ids": [
-            "zero_running_dilation_cocycle",
+            "zero_running_dilation_exponent",
             "homogeneous_radial_source_family_theorem"
           ],
           "dataset": "ACT DR6 P-ACT-LB",
           "discriminates_from_baseline": true,
-          "epistemic_note": "Zero running is exact under the declared source dilation cocycle (pure power law), conditional on that cocycle. Generic slow-roll running is second order in the slow-roll parameters, of order 1e-3, so a running measurement at that level separates the branches. Seen data.",
+          "epistemic_note": "Zero running is exact for the fixed dilation exponent (pure power law), conditional on that exponent. Generic slow-roll running is second order in the slow-roll parameters, of order 1e-3, so a running measurement at that level separates the branches. Seen data.",
           "measurement": {
             "kind": "gaussian",
             "sigma": 0.0052,
@@ -992,8 +992,8 @@
           },
           "measurement_display": "0.0062 +/- 0.0052",
           "oph_premises": [
-            "declared source dilation cocycle",
-            "scale-natural source embedding transporting refinement to dilation",
+            "covariance-survival cocycle with a fixed dilation exponent",
+            "physical dilation intertwiner transferring the cocycle to the curvature covariance",
             "homogeneous radial source family: exact power law"
           ],
           "oph_value": 0.0,
@@ -1123,11 +1123,11 @@
           "citation": "Planck Collaboration (2020), Planck 2018 results. X, arXiv:1807.06211, Table 14",
           "class": "shared_baseline",
           "corpus_source_ids": [
-            "zero_isocurvature_rank_one_single_clock"
+            "zero_isocurvature_single_clock"
           ],
           "dataset": "Planck 2018 TT,TE,EE+lowE+lensing",
           "discriminates_from_baseline": false,
-          "epistemic_note": "Zero source-side isocurvature follows from the rank-one single-clock normal form. Adiabatic initial conditions are the single-field baseline as well, so a bound satisfied by zero supports nothing. Seen data.",
+          "epistemic_note": "Zero source-side isocurvature follows for a Gaussian single-clock source. Adiabatic initial conditions are the single-field baseline as well, so a bound satisfied by zero supports nothing. Seen data.",
           "measurement": {
             "confidence_level": 0.95,
             "k_pivot_mpc_inverse": 0.002,
@@ -1137,7 +1137,7 @@
           },
           "measurement_display": "< 3.5 (95 percent CL) at k = 0.002 Mpc^-1",
           "oph_premises": [
-            "rank-one single-clock normal form",
+            "Gaussian single-clock source",
             "one common release clock"
           ],
           "oph_value": 0.0,
@@ -1158,11 +1158,11 @@
           "citation": "Planck Collaboration (2020), Planck 2018 results. X, arXiv:1807.06211, Table 14",
           "class": "shared_baseline",
           "corpus_source_ids": [
-            "zero_isocurvature_rank_one_single_clock"
+            "zero_isocurvature_single_clock"
           ],
           "dataset": "Planck 2018 TT,TE,EE+lowE+lensing",
           "discriminates_from_baseline": false,
-          "epistemic_note": "Zero source-side isocurvature follows from the rank-one single-clock normal form. Adiabatic initial conditions are the single-field baseline as well, so a bound satisfied by zero supports nothing. Seen data.",
+          "epistemic_note": "Zero source-side isocurvature follows for a Gaussian single-clock source. Adiabatic initial conditions are the single-field baseline as well, so a bound satisfied by zero supports nothing. Seen data.",
           "measurement": {
             "confidence_level": 0.95,
             "k_pivot_mpc_inverse": 0.05,
@@ -1172,7 +1172,7 @@
           },
           "measurement_display": "< 3.8 (95 percent CL) at k = 0.05 Mpc^-1",
           "oph_premises": [
-            "rank-one single-clock normal form",
+            "Gaussian single-clock source",
             "one common release clock"
           ],
           "oph_value": 0.0,
@@ -1193,11 +1193,11 @@
           "citation": "Planck Collaboration (2020), Planck 2018 results. X, arXiv:1807.06211, Table 14",
           "class": "shared_baseline",
           "corpus_source_ids": [
-            "zero_isocurvature_rank_one_single_clock"
+            "zero_isocurvature_single_clock"
           ],
           "dataset": "Planck 2018 TT,TE,EE+lowE+lensing",
           "discriminates_from_baseline": false,
-          "epistemic_note": "Zero source-side isocurvature follows from the rank-one single-clock normal form. Adiabatic initial conditions are the single-field baseline as well, so a bound satisfied by zero supports nothing. Seen data.",
+          "epistemic_note": "Zero source-side isocurvature follows for a Gaussian single-clock source. Adiabatic initial conditions are the single-field baseline as well, so a bound satisfied by zero supports nothing. Seen data.",
           "measurement": {
             "confidence_level": 0.95,
             "k_pivot_mpc_inverse": 0.1,
@@ -1207,7 +1207,7 @@
           },
           "measurement_display": "< 3.9 (95 percent CL) at k = 0.1 Mpc^-1",
           "oph_premises": [
-            "rank-one single-clock normal form",
+            "Gaussian single-clock source",
             "one common release clock"
           ],
           "oph_value": 0.0,
@@ -1228,11 +1228,11 @@
           "citation": "Planck Collaboration (2020), Planck 2018 results. X, arXiv:1807.06211, Table 14",
           "class": "shared_baseline",
           "corpus_source_ids": [
-            "zero_isocurvature_rank_one_single_clock"
+            "zero_isocurvature_single_clock"
           ],
           "dataset": "Planck 2018 TT,TE,EE+lowE+lensing",
           "discriminates_from_baseline": false,
-          "epistemic_note": "Zero source-side isocurvature follows from the rank-one single-clock normal form. Adiabatic initial conditions are the single-field baseline as well, so a bound satisfied by zero supports nothing. Seen data.",
+          "epistemic_note": "Zero source-side isocurvature follows for a Gaussian single-clock source. Adiabatic initial conditions are the single-field baseline as well, so a bound satisfied by zero supports nothing. Seen data.",
           "measurement": {
             "confidence_level": 0.95,
             "k_pivot_mpc_inverse": 0.002,
@@ -1242,7 +1242,7 @@
           },
           "measurement_display": "< 2.5 (95 percent CL) at k = 0.002 Mpc^-1",
           "oph_premises": [
-            "rank-one single-clock normal form",
+            "Gaussian single-clock source",
             "one common release clock"
           ],
           "oph_value": 0.0,
@@ -1267,7 +1267,7 @@
           ],
           "dataset": "Planck 2018 temperature + polarization (68 percent CL, statistical)",
           "discriminates_from_baseline": false,
-          "epistemic_note": "The MaxEnt Gaussian release gives zero primordial non-Gaussianity at the source; the standard nonlinear transfer of order unity is not computed here. Gaussian initial conditions are the single-field baseline as well, so agreement supports nothing. Seen data.",
+          "epistemic_note": "The Gaussian screen covariance gives zero primordial non-Gaussianity at the source; the standard nonlinear transfer of order unity is not computed here. Gaussian initial conditions are the single-field baseline as well, so agreement supports nothing. Seen data.",
           "measurement": {
             "kind": "gaussian",
             "sigma": 5.1,
@@ -1276,7 +1276,7 @@
           },
           "measurement_display": "-0.9 +/- 5.1",
           "oph_premises": [
-            "MaxEnt covariance theorem (Gaussian release)",
+            "screen covariance theorem: the entropy-maximizing law at fixed energy is Gaussian",
             "nonlinear transfer of order unity not computed"
           ],
           "oph_value": 0.0,
@@ -1301,7 +1301,7 @@
           ],
           "dataset": "Planck 2018 temperature + polarization (68 percent CL, statistical)",
           "discriminates_from_baseline": false,
-          "epistemic_note": "The MaxEnt Gaussian release gives zero primordial non-Gaussianity at the source; the standard nonlinear transfer of order unity is not computed here. Gaussian initial conditions are the single-field baseline as well, so agreement supports nothing. Seen data.",
+          "epistemic_note": "The Gaussian screen covariance gives zero primordial non-Gaussianity at the source; the standard nonlinear transfer of order unity is not computed here. Gaussian initial conditions are the single-field baseline as well, so agreement supports nothing. Seen data.",
           "measurement": {
             "kind": "gaussian",
             "sigma": 47.0,
@@ -1310,7 +1310,7 @@
           },
           "measurement_display": "-26 +/- 47",
           "oph_premises": [
-            "MaxEnt covariance theorem (Gaussian release)",
+            "screen covariance theorem: the entropy-maximizing law at fixed energy is Gaussian",
             "nonlinear transfer of order unity not computed"
           ],
           "oph_value": 0.0,
@@ -1335,7 +1335,7 @@
           ],
           "dataset": "Planck 2018 temperature + polarization (68 percent CL, statistical)",
           "discriminates_from_baseline": false,
-          "epistemic_note": "The MaxEnt Gaussian release gives zero primordial non-Gaussianity at the source; the standard nonlinear transfer of order unity is not computed here. Gaussian initial conditions are the single-field baseline as well, so agreement supports nothing. Seen data.",
+          "epistemic_note": "The Gaussian screen covariance gives zero primordial non-Gaussianity at the source; the standard nonlinear transfer of order unity is not computed here. Gaussian initial conditions are the single-field baseline as well, so agreement supports nothing. Seen data.",
           "measurement": {
             "kind": "gaussian",
             "sigma": 24.0,
@@ -1344,7 +1344,7 @@
           },
           "measurement_display": "-38 +/- 24",
           "oph_premises": [
-            "MaxEnt covariance theorem (Gaussian release)",
+            "screen covariance theorem: the entropy-maximizing law at fixed energy is Gaussian",
             "nonlinear transfer of order unity not computed"
           ],
           "oph_value": 0.0,
@@ -1686,15 +1686,15 @@
             "capacity_candidate_a",
             "capacity_lambda_dictionary",
             "flagship_lambda_planck_central_display",
-            "flagship_capacity_lambda_percent_display"
+            "capacity_lambda_percent_display"
           ],
           "dataset": "Planck 2018 TT,TE,EE+lowE+lensing base-LambdaCDM centrals",
           "discriminates_from_baseline": false,
           "epistemic_note": "Target-informed declared map: the capacity coordinate N = 3 pi/(Lambda l_P^2) is read from the data and both candidates were exposed after it, so the residual carries no predictive weight. Large N explains the small dimensional constant, not the closeness of the residual: a relative capacity residual delta gives a relative constant residual -delta/(1+delta). The DESI display is a base-LambdaCDM posterior display whose centrals (H0 = 68.17, Omega_Lambda = 0.6972) differ from the Planck 2018 centrals; that shift moves the coordinate by about four percent, larger than the candidate spread. Seen data. Central-value display without an uncertainty; percent residuals only.",
           "extras": {
-            "flagship_planck_chain_capacity_coordinate_display": 3.3129e+122,
             "percent_residual_in_capacity": -0.6186487374535222,
-            "percent_residual_in_lambda": 0.6224998247600534
+            "percent_residual_in_lambda": 0.6224998247600534,
+            "planck_chain_capacity_coordinate_display": 3.3129e+122
           },
           "measurement": {
             "capacity_coordinate": 3.3125933167309256e+122,
@@ -1786,15 +1786,15 @@
             "capacity_candidate_b",
             "capacity_lambda_dictionary",
             "flagship_lambda_planck_central_display",
-            "flagship_capacity_lambda_percent_display"
+            "capacity_lambda_percent_display"
           ],
           "dataset": "Planck 2018 TT,TE,EE+lowE+lensing base-LambdaCDM centrals",
           "discriminates_from_baseline": false,
           "epistemic_note": "Target-informed declared map: the capacity coordinate N = 3 pi/(Lambda l_P^2) is read from the data and both candidates were exposed after it, so the residual carries no predictive weight. Large N explains the small dimensional constant, not the closeness of the residual: a relative capacity residual delta gives a relative constant residual -delta/(1+delta). The DESI display is a base-LambdaCDM posterior display whose centrals (H0 = 68.17, Omega_Lambda = 0.6972) differ from the Planck 2018 centrals; that shift moves the coordinate by about four percent, larger than the candidate spread. Seen data. Central-value display without an uncertainty; percent residuals only.",
           "extras": {
-            "flagship_planck_chain_capacity_coordinate_display": 3.3129e+122,
             "percent_residual_in_capacity": -0.37714610688325345,
-            "percent_residual_in_lambda": 0.37857388354673766
+            "percent_residual_in_lambda": 0.37857388354673766,
+            "planck_chain_capacity_coordinate_display": 3.3129e+122
           },
           "measurement": {
             "capacity_coordinate": 3.3125933167309256e+122,

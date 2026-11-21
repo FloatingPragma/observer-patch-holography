@@ -270,8 +270,9 @@ class Expected:
             "Lambda_lP2_desi_dr2_display_std": desi_std,
             "capacity_coordinate_desi_dr2_display": 3.0 * math.pi / desi_mean,
         }
-        flagship_lambda = fl(typed["flagship_lambda_planck_central_display"]["value"])
-        require(abs(lambda_planck - flagship_lambda) / flagship_lambda < 1e-4, "flagship Lambda display cross-check")
+        display = typed["flagship_lambda_planck_central_display"]
+        rounded = float("%.*e" % (int(display["significant_digits"]) - 1, lambda_planck))
+        require(rounded == fl(display["value"]), "flagship Lambda display cross-check")
         require(round(float(self.exact["ns_P_C"]), 5) == fl(typed["edge_center_paper_display"]["value"]), "n_s paper display")
         require(round(self.derived["ns_clock_branch_P_C"], 5) == fl(typed["clock_branch_paper_display"]["value"]), "clock display")
 
@@ -463,13 +464,13 @@ class Expected:
     def capacity(self) -> None:
         d = self.derived
         lp = d["planck_length_m"]
-        percent_display = [fl(v) for v in self.typed["flagship_capacity_lambda_percent_display"]["values"]]
+        percent_display = [fl(v) for v in self.typed["capacity_lambda_percent_display"]["values"]]
         for index, candidate_id in enumerate(("capacity_candidate_a", "capacity_candidate_b")):
             n = fl(self.typed[candidate_id]["value"])
             lambda_candidate = 3.0 * math.pi / (n * lp**2)
             lambda_lp2_candidate = 3.0 * math.pi / n
             pct_lambda = 100.0 * (lambda_candidate - d["Lambda_planck_central_m_minus_2"]) / d["Lambda_planck_central_m_minus_2"]
-            require(round(pct_lambda, 2) == percent_display[index], f"{candidate_id}: flagship percent display")
+            require(round(pct_lambda, 2) == percent_display[index], f"{candidate_id}: percent display")
             self.add("capacity_lambda", {
                 "row_id": f"lambda_{candidate_id}_planck2018_central",
                 "class": "closure_candidate_display",
@@ -490,7 +491,7 @@ class Expected:
                 "extras": {
                     "percent_residual_in_lambda": pct_lambda,
                     "percent_residual_in_capacity": 100.0 * (n - d["capacity_coordinate_planck_central"]) / d["capacity_coordinate_planck_central"],
-                    "flagship_planck_chain_capacity_coordinate_display": fl(self.typed["flagship_planck_chain_capacity_coordinate_display"]["value"]),
+                    "planck_chain_capacity_coordinate_display": fl(self.typed["planck_chain_capacity_coordinate_display"]["value"]),
                 },
             })
             mean, std = d["Lambda_lP2_desi_dr2_display_mean"], d["Lambda_lP2_desi_dr2_display_std"]

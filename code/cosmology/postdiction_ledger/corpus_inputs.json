@@ -46,29 +46,29 @@
     },
     "clock_branch_diagnostic_alternative": {
       "kind": "statement",
-      "statement": "theta = e (P_star - varphi) is a diagnostic alternative clock branch",
+      "statement": "theta = e (P_star - varphi) is a diagnostic clock choice; neither the survival cocycle nor a particle/memory fixed point selects it",
       "source_file": "cosmology/oph_inflation_without_inflaton_observer_screen_synchronization.tex",
-      "anchor_text": "The \\(e(P_\\star-\\varphi)\\) clock branch is a diagnostic alternative."
+      "anchor_text": "The diagnostic clock choice \\(\\theta=e(P_\\star-\\varphi)\\)"
     },
     "clock_branch_paper_display": {
       "kind": "display",
       "value": 0.96484,
       "decimals": 5,
       "source_file": "cosmology/oph_inflation_without_inflaton_observer_screen_synchronization.tex",
-      "anchor_text": "The diagnostic \\(e(P_\\star-\\varphi)\\) branch gives \\(0.96484\\)."
+      "anchor_text": "The diagnostic clock choice \\(\\theta=e(P_\\star-\\varphi)\\) gives \\(0.96484\\)."
     },
     "edge_center_paper_display": {
       "kind": "display",
       "value": 0.96602,
       "decimals": 5,
       "source_file": "cosmology/oph_inflation_without_inflaton_observer_screen_synchronization.tex",
-      "anchor_text": "the edge-center value is \\(n_s=0.96602\\)"
+      "anchor_text": "the declared density gives \\(n_s=0.96602\\)"
     },
-    "zero_running_dilation_cocycle": {
+    "zero_running_dilation_exponent": {
       "kind": "statement",
-      "statement": "dn_s/dlnk = 0 exactly under the declared source dilation cocycle",
+      "statement": "dn_s/dlnk = 0 exactly for the fixed dilation exponent of the covariance-survival cocycle",
       "source_file": "cosmology/oph_inflation_without_inflaton_observer_screen_synchronization.tex",
-      "anchor_text": "the dilation cocycle gives zero running"
+      "anchor_text": "The fixed dilation exponent gives zero running."
     },
     "homogeneous_radial_source_family_theorem": {
       "kind": "statement",
@@ -77,29 +77,30 @@
       "source_file": "paper/tex_fragments/SCREEN_SPECTRUM_THEOREMS.tex",
       "anchor_text": "\\begin{theorem}[homogeneous radial source family]"
     },
-    "zero_isocurvature_rank_one_single_clock": {
+    "zero_isocurvature_single_clock": {
       "kind": "statement",
-      "statement": "beta_iso = 0 at the source under the rank-one single-clock normal form",
+      "statement": "beta_iso = 0 at the source: a Gaussian single-clock source has no independent isocurvature mode",
       "source_file": "cosmology/oph_inflation_without_inflaton_observer_screen_synchronization.tex",
-      "anchor_text": "the rank-one single-clock normal form gives zero source-side isocurvature"
+      "anchor_text": "A Gaussian single-clock source has no independent isocurvature mode."
     },
     "zero_tensor_scalar_screen_field": {
       "kind": "statement",
       "statement": "r = 0 for linear tensors under zero initial tensor amplitude and velocity, no tensor forcing, and positive scalar power; the scalar source alone does not determine tensor initial data",
       "source_file": "cosmology/oph_inflation_without_inflaton_observer_screen_synchronization.tex",
-      "anchor_text": "A zero linear primordial tensor amplitude additionally requires zero initial tensor amplitude and velocity and no tensor forcing"
+      "anchor_text": "Zero linear tensors requires both zero initial tensor amplitude and velocity and zero forcing"
     },
     "gaussian_maxent_release": {
       "kind": "statement",
-      "statement": "f_NL = 0 at the source: the MaxEnt covariance theorem gives a Gaussian release",
+      "statement": "f_NL = 0 at the source: the entropy-maximizing screen law at fixed expected energy is Gaussian",
+      "label": "thm:oph-screen-maxent",
       "source_file": "cosmology/oph_inflation_without_inflaton_observer_screen_synchronization.tex",
-      "anchor_text": "the MaxEnt covariance theorem"
+      "anchor_text": "\\begin{theorem}[Screen covariance]"
     },
     "flat_branch_small_loop_holonomy": {
       "kind": "statement",
-      "statement": "Omega_K = 0: vanishing spatial curvature holonomy identifies a flat FLRW branch without selecting it",
+      "statement": "Omega_K = 0: vanishing small-loop holonomy of the spatial connection identifies a flat FLRW branch without selecting it",
       "source_file": "cosmology/oph_inflation_without_inflaton_observer_screen_synchronization.tex",
-      "anchor_text": "spatial curvature holonomy identifies a flat FLRW branch without selecting it"
+      "anchor_text": "vanishing area-normalized small-loop holonomy of the spatial Levi--Civita connection identifies \\(K=0\\) and hence \\(\\kappa=0\\). It does not select that sector from the raw FLRW fiber."
     },
     "fixed_capacity_cpl_point": {
       "kind": "statement",
@@ -111,46 +112,47 @@
       "kind": "value",
       "value": 3.2921e+122,
       "symbol": "N (capacity closure candidate, first)",
-      "source_file": "flagship/from_observer_consensus_to_standard_physics.tex",
-      "anchor_text": "N=3.2921\\times10^{122}"
+      "source_file": "paper/tex_fragments/CLOSURE_PRINCIPLE.tex",
+      "anchor_text": "the finite-presence candidate is \\(3.2921\\times10^{122}\\)"
     },
     "capacity_candidate_b": {
       "kind": "value",
       "value": 3.3001e+122,
       "symbol": "N (capacity closure candidate, second)",
-      "source_file": "flagship/from_observer_consensus_to_standard_physics.tex",
-      "anchor_text": "$3.3001\\times10^{122}$"
+      "source_file": "paper/tex_fragments/CLOSURE_PRINCIPLE.tex",
+      "anchor_text": "the exponential candidate is \\(3.3001\\times10^{122}\\)"
     },
     "capacity_lambda_dictionary": {
       "kind": "statement",
       "statement": "Lambda = 3 pi / (N l_P^2): the record capacity read as the de Sitter horizon entropy in nats",
       "source_file": "flagship/from_observer_consensus_to_standard_physics.tex",
-      "anchor_text": "N=\\frac{3\\pi}{\\Lambda\\,\\ell_P^{2}}"
+      "anchor_text": "N=\\frac{3\\pi}{\\Lambda\\ell_P^2}"
     },
     "flagship_lambda_planck_central_display": {
       "kind": "display",
-      "value": 1.0891e-52,
+      "value": 1.089e-52,
       "unit": "m^-2",
+      "significant_digits": 4,
       "source_file": "flagship/from_observer_consensus_to_standard_physics.tex",
-      "anchor_text": "1.0891\\times10^{-52}",
+      "anchor_text": "against $1.089\\times10^{-52}$",
       "note": "Lambda = 3 Omega_Lambda H0^2/c^2 at the Planck base-LambdaCDM centrals; recomputed here from the public centrals and cross-checked to four significant digits"
     },
-    "flagship_planck_chain_capacity_coordinate_display": {
+    "planck_chain_capacity_coordinate_display": {
       "kind": "display",
       "value": 3.3129e+122,
-      "source_file": "flagship/from_observer_consensus_to_standard_physics.tex",
-      "anchor_text": "3.3129\\times10^{122}",
+      "source_file": "paper/tex_fragments/CLOSURE_PRINCIPLE.tex",
+      "anchor_text": "comparison coordinate \\(3.3129\\times10^{122}\\)",
       "note": "coordinate read back from the weighted Planck chain in the flagship; the ledger recomputes the central-value coordinate from the public centrals instead"
     },
-    "flagship_capacity_lambda_percent_display": {
+    "capacity_lambda_percent_display": {
       "kind": "display",
       "values": [
         0.62,
         0.38
       ],
       "decimals": 2,
-      "source_file": "flagship/from_observer_consensus_to_standard_physics.tex",
-      "anchor_text": "distances of $+0.62$ and $+0.38$",
+      "source_file": "cosmology/oph_cosmology_data_likelihood_contracts.tex",
+      "anchor_text": "differing from the Planck-central value by \\(+0.62\\) and \\(+0.38\\) percent",
       "note": "flagship percent distances of the candidate Lambda values from the Planck-central Lambda"
     },
     "btfr_exponent_four": {
@@ -166,7 +168,7 @@
       "uncertainty": 0.1,
       "decimals": 2,
       "source_file": "cosmology/oph_dark_matter_paper.tex",
-      "anchor_text": "\\(\\log M_b\\) is \\(3.75\\pm0.10\\)"
+      "anchor_text": "The ordinary least-squares exponent is \\(3.75\\pm0.10\\)"
     },
     "a0_dictionary": {
       "kind": "statement",

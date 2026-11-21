@@ -279,9 +279,10 @@ def derive_constants(
     n_planck = 3.0 * math.pi / lambda_lp2_planck
     a_ds = c**2 * math.sqrt(lambda_planck / 3.0)
     c_h0 = c * h0_si
-    flagship_lambda = float(typed["flagship_lambda_planck_central_display"]["value"])
+    flagship_lambda = typed["flagship_lambda_planck_central_display"]
+    digits = int(flagship_lambda["significant_digits"])
     require(
-        abs(lambda_planck - flagship_lambda) / flagship_lambda < 1e-4,
+        float(f"{lambda_planck:.{digits - 1}e}") == float(flagship_lambda["value"]),
         "Planck-central Lambda disagrees with the flagship display",
     )
 
@@ -538,8 +539,8 @@ def primordial_rows(items: dict[str, Any], consts: dict[str, Any]) -> list[dict[
         )
 
     running_note = (
-        "Zero running is exact under the declared source dilation cocycle "
-        "(pure power law), conditional on that cocycle. Generic slow-roll "
+        "Zero running is exact for the fixed dilation exponent (pure power "
+        "law), conditional on that exponent. Generic slow-roll "
         "running is second order in the slow-roll parameters, of order 1e-3, "
         "so a running measurement at that level separates the branches. Seen data."
     )
@@ -553,13 +554,13 @@ def primordial_rows(items: dict[str, Any], consts: dict[str, Any]) -> list[dict[
                 theory=Fraction(0),
                 theory_display="0 (exact)",
                 premises=[
-                    "declared source dilation cocycle",
-                    "scale-natural source embedding transporting refinement to dilation",
+                    "covariance-survival cocycle with a fixed dilation exponent",
+                    "physical dilation intertwiner transferring the cocycle to the curvature covariance",
                     "homogeneous radial source family: exact power law",
                 ],
                 item_id=item_id,
                 item=items[item_id],
-                corpus_ids=["zero_running_dilation_cocycle", "homogeneous_radial_source_family_theorem"],
+                corpus_ids=["zero_running_dilation_exponent", "homogeneous_radial_source_family_theorem"],
                 discriminates=True,
                 prospective="Simons Observatory",
                 note=running_note,
@@ -601,8 +602,8 @@ def primordial_rows(items: dict[str, Any], consts: dict[str, Any]) -> list[dict[
         )
 
     iso_note = (
-        "Zero source-side isocurvature follows from the rank-one single-clock "
-        "normal form. Adiabatic initial conditions are the single-field "
+        "Zero source-side isocurvature follows for a Gaussian single-clock "
+        "source. Adiabatic initial conditions are the single-field "
         "baseline as well, so a bound satisfied by zero supports nothing. "
         "Seen data."
     )
@@ -620,10 +621,10 @@ def primordial_rows(items: dict[str, Any], consts: dict[str, Any]) -> list[dict[
                 row_class="shared_baseline",
                 theory=Fraction(0),
                 theory_display="0 (exact)",
-                premises=["rank-one single-clock normal form", "one common release clock"],
+                premises=["Gaussian single-clock source", "one common release clock"],
                 item_id=item_id,
                 item=items[item_id],
-                corpus_ids=["zero_isocurvature_rank_one_single_clock"],
+                corpus_ids=["zero_isocurvature_single_clock"],
                 discriminates=False,
                 prospective="LiteBIRD (bound tightening only; zero is the shared baseline)",
                 note=iso_note,
@@ -631,7 +632,7 @@ def primordial_rows(items: dict[str, Any], consts: dict[str, Any]) -> list[dict[
         )
 
     fnl_note = (
-        "The MaxEnt Gaussian release gives zero primordial non-Gaussianity at "
+        "The Gaussian screen covariance gives zero primordial non-Gaussianity at "
         "the source; the standard nonlinear transfer of order unity is not "
         "computed here. Gaussian initial conditions are the single-field "
         "baseline as well, so agreement supports nothing. Seen data."
@@ -645,7 +646,7 @@ def primordial_rows(items: dict[str, Any], consts: dict[str, Any]) -> list[dict[
                 row_class="shared_baseline",
                 theory=Fraction(0),
                 theory_display="0 at the source (transfer not computed)",
-                premises=["MaxEnt covariance theorem (Gaussian release)", "nonlinear transfer of order unity not computed"],
+                premises=["screen covariance theorem: the entropy-maximizing law at fixed energy is Gaussian", "nonlinear transfer of order unity not computed"],
                 item_id=item_id,
                 item=items[item_id],
                 corpus_ids=["gaussian_maxent_release"],
@@ -781,7 +782,7 @@ def capacity_rows(
     }
     desi_h0 = float(desi_display["combined"]["H0_km_s_Mpc"]["weighted_mean"])
     desi_omega_lambda = float(desi_display["combined"]["OmegaLambda"]["weighted_mean"])
-    percent_display = [float(v) for v in typed["flagship_capacity_lambda_percent_display"]["values"]]
+    percent_display = [float(v) for v in typed["capacity_lambda_percent_display"]["values"]]
     premises = [
         "capacity read as de Sitter horizon entropy in nats: Lambda = 3 pi/(N l_P^2)",
         "candidate N from the closure hypothesis (declared, target-informed map)",
@@ -806,7 +807,7 @@ def capacity_rows(
         pct_capacity_planck = 100.0 * (n_candidate - n_planck) / n_planck
         require(
             round(pct_lambda_planck, 2) == percent_display[index],
-            f"{candidate_id}: percent residual disagrees with the flagship display",
+            f"{candidate_id}: percent residual disagrees with the paper display",
         )
         rows.append(
             make_row(
@@ -833,7 +834,7 @@ def capacity_rows(
                 dataset="Planck 2018 TT,TE,EE+lowE+lensing base-LambdaCDM centrals",
                 citation=items["planck2018_vi_h0"]["citation"],
                 public_input_ids=["planck2018_vi_h0", "planck2018_vi_omega_lambda", "codata2022_planck_length", "si_speed_of_light", "iau2015_megaparsec"],
-                corpus_source_ids=[candidate_id, "capacity_lambda_dictionary", "flagship_lambda_planck_central_display", "flagship_capacity_lambda_percent_display"],
+                corpus_source_ids=[candidate_id, "capacity_lambda_dictionary", "flagship_lambda_planck_central_display", "capacity_lambda_percent_display"],
                 sigma_distance=None,
                 sigma_distance_kind="none_central_value_display",
                 verdict="not_evaluable",
@@ -843,8 +844,8 @@ def capacity_rows(
                 extras={
                     "percent_residual_in_lambda": pct_lambda_planck,
                     "percent_residual_in_capacity": pct_capacity_planck,
-                    "flagship_planck_chain_capacity_coordinate_display": float(
-                        typed["flagship_planck_chain_capacity_coordinate_display"]["value"]
+                    "planck_chain_capacity_coordinate_display": float(
+                        typed["planck_chain_capacity_coordinate_display"]["value"]
                     ),
                 },
             )
