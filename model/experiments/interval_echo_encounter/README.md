@@ -112,6 +112,145 @@ This gives occupation-reflection symmetry on the entire blank-collar free load s
 
 The doubled load above the empty background exposes the cost. Its free generator changes from L/2 + 24κI to L/2 + 4κ diag(dᵥ). The shifts relative to the native law are 0 at gateways and −32 on the other ports at κ = 8. Thus a single diagonal reference of this kind cannot preserve all three properties: the binary free energy, occupation reflection and native doubled-load propagation. The construction supplies the first two and gives a distinct prediction for the third. Equivalence of protocols using occupied collars, doubled clock fuel or interventions that split a double requires a separate calculation.
 
+## How many frequencies can a pair of port observers see?
+
+Two observers ask whether ports 0 and 1 each hold a load. On the 20-cell
+federation, a positive first reading followed by free release puts **at
+least 36.72% of the prepared state's weight outside any two energy
+levels**, at simultaneous 99% confidence. The conclusion uses the two
+observers' public yes/no records. The full generator supplies a separate
+exact result on each registered federation.
+
+| Federation | Minimum native energies contributing to a sharp seam return | Minimum distinct positive frequencies in its continuous-exposure return probability |
+| --- | ---: | ---: |
+| 20 cells | 28 | 27 |
+| 80 cells | 63 | 62 |
+| 320 cells | 127 | 126 |
+
+**The exact bound.** In the binary two-load sector every off-diagonal
+transition exchanges one occupied port with an adjacent vacancy with matrix
+element $-1/2$. The contrast term is diagonal. From a source configuration
+$e$, a configuration at graph distance $j$ has zero amplitude in $H^i e$
+for $i<j$. Its entry in $H^j e$ equals $(-1/2)^j$ times the positive number
+of shortest paths. Along a shortest path of length $D$ the successive
+shells therefore certify $D+1$ independent vectors. The spectral theorem
+identifies the dimension of their full cyclic span with the number of
+distinct energies having positive local weight. Any two-token
+configuration is reachable on a connected port graph because edge swaps
+generate all permutations of port occupancies. To go from $\{a,b\}$ to
+$\{u,v\}$ costs at least
+$\min(d(a,u)+d(b,v),d(a,v)+d(b,u))$ moves. Breadth-first searches on the
+port table give witnesses of 27, 62 and 126 moves from seam $(0,1)$.
+The proof uses adjacency to count powers of the operator. Physical distance
+plays no part. [Source generator](../../candidate_laws/contrast_memory_spherical_v1/sectors.py)
+· [Witness seams and carrier digests](return_lines.json)
+
+After a positive read the state is $e$. Write $p_j=\|\Pi_j e\|^2$ for its
+nonzero energy weights. The return probability is
+$P(t)=|\sum_j p_j e^{-itE_j}|^2$. Each gap carries positive weight.
+Subtracting the least visible energy from each of the others gives
+the stated number of distinct positive gaps. The bound holds for every
+real diagonal contrast potential with the same exchanges. It concerns
+continuous exposures and places no lower bound on the weight of each gap.
+
+**The local experiment.** Each cohort starts with an equal mixture of the
+36 nonadjacent binary placements in cell zero. One reference interval later,
+the two endpoints and their courier report whether both loads occupy
+$(0,1)$. At a booked reading from zero through 16 intervals later they ask
+the same question. All four ordered answer pairs are retained. A separate
+reference seam carries a sharp double load. Each isolated native gate of
+duration $\pi$ swaps the occupied endpoint. Addressing the endpoints
+against blanks checks the alternating pointer with the native echo. A
+five-bit register suffices for the 17 intervals including the first approach.
+Matched gate durations, an equipped reference channel, sharp read services
+with the material source held fixed, and the prepared cohorts are supplied.
+The receiver uses the booking and both public words. It has no slot
+amplitudes, eigenvalues, or calibrated physical time units.
+
+For a real symmetric free generator one propagated column at the measured
+seam suffices to calculate every launch-to-seam amplitude by transposition.
+For launch $x$, let $a=\langle e|U_1|x\rangle$,
+$c=\langle e|U_j|e\rangle$ and $b=\langle e|U_{j+1}|x\rangle$, with one
+clock interval per subscript unit. The two joint terminal-yes probabilities
+are $|ca|^2$ and $|b-ca|^2$. Subtraction from their respective first
+branch probabilities gives both terminal-no outcomes. The code averages
+over all 36 inputs and propagates the full 28,680-state sector. Switched
+controls park the post-read state or leave only seam $(1,5)$ active. The
+exchange-only arm uses $\kappa=0$ at both exposures.
+[Protocol](return_protocol.json) · [Public counts](return_counts.npz)
+
+| Law or switched control | Minimum measured moment rank | Required positive gap frequencies, lower bound | Lower bound on weight outside any two levels |
+| --- | ---: | ---: | ---: |
+| Native $\kappa=8$ | 17 | 8 | 0.3672 |
+| Exchange only | 17 | 8 | 0.5483 |
+| Park after first read | 1 | 0 | 0 |
+| Isolate one swap | 2 | 1 | 0 |
+
+Condition on the positive first records within each independent cohort.
+For $K_{ab}=P((a-b)\pi)$, $0\le a,b\le16$, each spectral difference adds
+a positive rank-one matrix. Its sample uses the same conditional return
+probability on each matching diagonal. Conditional binomial Hoeffding
+bounds give radii $r_j$ simultaneous with the four unconditional bin
+checks under a 1% family budget. $P(0)=1$ by repeatability.
+The matrix error is at most $2\sum_{j=1}^{16} r_j$ by row sums.
+In the native experiment this is 0.013095, versus the smallest measured
+eigenvalue 0.157956. Thus at least 17 distinct sampled phases contribute.
+A set of $s$ energy levels gives at most $1+s(s-1)$ phases, so **at
+least five energies** contribute on the evidence of the public records
+alone under the freely evolving sharp-state model. Sampling can fold
+distinct frequencies onto the same phase. The count gives no individual
+frequency value or rest-energy assignment.
+
+There is also a bound on spectral weight. If the best $s$ levels have
+total weight $1-\epsilon$, their mutual differences account for a positive
+matrix of rank at most $r=1+s(s-1)$. The positive remainder has trace
+$17[1-(1-\epsilon)^2]$. By the minimum trace on a complementary subspace,
+the sum of the smallest $17-r$ eigenvalues of $K$ cannot exceed that
+trace. Lowering each measured eigenvalue by the error bound and flooring
+it at zero gives a conservative lower bound on $\epsilon$. For the native
+preparation the bounds outside the best one, two, three and four levels
+are 52.98%, 36.72%, 18.20% and 3.80%.
+
+**Allowing free motion during the read.** The acquisition switches the
+material source off during both sharp interrogations. There is a finite
+tolerance to this choice. Each of the four reversible single-seam stages
+has a Hermitian involution $G$. Running $\pi(I-G)/(2u)$ for duration
+$u$ implements it. With the free source active throughout two interrogations
+of duration $\tau=4u$ each, the total variation error of the two public
+words is at most $\delta=2\|H\|\tau$ by Duhamel's formula and contraction
+under readout. This compares equal free intervals *between* interrogations,
+with the reference booked on those intervals. On the binary federation
+the exchange is half the token-graph Laplacian, with degree at most 12,
+so its spectrum lies in $[0,12]$. Subtracting $16$ times the adjacency
+projector gives $-16I\le H\le12I$ in the registered energy convention.
+For the native positive-herald probability $p>0.000060$ and
+$\tau=2^{-32}$, every conditional return probability changes by less than
+$2\delta/(p-\delta)<0.00025$. Thus the finite width can perturb the
+17-by-17 return matrix by less than 0.00425 in operator norm. This is
+smaller than the measured 0.14486 margin above the rank-error threshold.
+The bound costs a supplied peak stage-generator norm $4\pi/\tau$.
+It describes an instrument tolerance. The archived counts use the sharp
+switched service.
+
+Three returns alone give another test. Write $d_j=1-P(j\pi)$.
+For a single gap of any amplitude or frequency,
+$d_1d_3-(d_2-d_1)^2=0$ by the cosine triple-angle identity. The native
+joint records give a lower bound of 0.48358 on that excess. The isolated
+swap and parked controls satisfy the single-gap test. Across all arms the
+acquisition represents $37{,}383{,}395{,}344{,}384$ independent simulated
+starts from aggregate binomial draws. At the first native appointment
+33,225,892 of $2^{39}$ starts gave a positive herald. [Detector, finite
+sector and reader](return_lines.py) · [Independent checks](test_return_lines.py)
+
+This is a spectrum of one locally formed **state**. A many-mode localized
+preparation may belong to a single particle
+species. Adding a constant to this entire number sector leaves every
+reported probability invariant. Identifying a rest mass requires a
+mobile dispersion and an operational energy or clock comparison linking
+sectors. The [torus experiment](../../benchmarks/eight_slot_torus/formed_clocks/README.md#fringes-after-a-marked-birth)
+uses the same principle of comparing local records with distinct dynamics
+and distinct instruments.
+
 ### Replay and numerical accuracy
 
 From the repository root, set the BLAS thread count to one. The short checks are
@@ -120,6 +259,7 @@ From the repository root, set the BLAS thread count to one. The short checks are
 python -B -O -m model.experiments.interval_echo_encounter.confinement
 python -B -O -m model.experiments.interval_echo_encounter.sign_read
 python -B -O -m model.experiments.interval_echo_encounter.conjugation
+python -B -O -W error -m model.experiments.interval_echo_encounter.return_lines
 python -m pytest -q model/experiments/interval_echo_encounter
 ```
 

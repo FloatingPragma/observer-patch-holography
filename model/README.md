@@ -53,6 +53,14 @@ python -m pytest -q model                      # every test
 The last column names the row of the [observation ledger](../docs/registers/OBSERVATION_LEDGER_V3.md). Each result
 is a statement about one construction, with everything its makers supplied listed beside it. Interval Echo shares the reference candidate’s seam operator and adds a patch clock. The scalar channel acts on a different state space. Each candidate has its own premise evaluation.
 
+On Interval Echo, the two endpoints of a seam can repeat a local pair
+measurement after an ordinary separated encounter. Seventeen bookings on
+the 20-cell federation require at least eight positive gap frequencies in
+the return probability under the free generator. The local preparation has at least 36.72% of its
+weight outside every two-level description. These bounds concern the
+formed state and are consistent with one species occupying many modes.
+[Public return records and all-size operator bound](experiments/interval_echo_encounter/README.md#how-many-frequencies-can-a-pair-of-port-observers-see)
+
 ## Supplied, and open
 
 Supplied by the makers of the construction, and listed with every result: the couplings `κ` of the main candidate

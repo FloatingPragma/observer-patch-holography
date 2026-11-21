@@ -93,6 +93,7 @@ jobs:
           python -B -O -W error -m model.experiments.seam_program.preparation
           python -B -O -W error -m model.experiments.seam_program.receiver
           python -B -O -m model.experiments.contrast_clock
+          python -B -O -W error -m model.experiments.interval_echo_encounter.return_lines
       - name: Torus capture, continuum and local detector acquisitions
         run: |
           python -B -O -W error -m model.benchmarks.eight_slot_torus.formed_clocks.fringe
