@@ -424,6 +424,57 @@ source. Principal-cone agreement alone fixes no lower-order dynamics:
 $-\omega^2+\xi^Ta\xi+m^2$ has the same principal cone for every
 $m^2\geq0$.
 
+\paragraph{A radial readout tested on the free federation.}
+In the Interval Echo experiment, six disjoint internal seams per cell carry
+signed contrast $d=\pm2$. A mobile load of amount $q=1$ or $2$ occupies a
+single port. The native write with $|d|=2$ has endpoint loads $(1,1)$,
+orthogonal to this entire sector. On a signed seam the echo therefore acts
+as the identity, and the sign evolves independently even when the load visits
+an endpoint. Two quadrature preparations of the sign give a stationary patch
+hand of angle $\theta=bt$, where $b$ multiplies exchange. The other seams
+have blank memory. In hand units the kinetic operator is $K=L_{\rm active}/2$,
+where the active graph omits the six signed bonds per cell. The contrast and
+the original degree references contribute the scalar $5\kappa q^2/b$.
+All terms act throughout flight.
+
+Let $P$ average over the twelve ports of each cell. Removing a matching
+subtracts an internal Laplacian of norm two from the icosahedral Laplacian.
+Positivity of the external contacts gives
+$K\geq g(I-P)$ with $g=(3-\sqrt{5})/2$. For energy $E=\langle K\rangle$
+the weight $\eta$ orthogonal to cell averages is at most $E/g$ at every
+exposure. Consider any partition of each cell into two depth bins of six
+ports each. The signed difference operator $D$ for these bins, with
+independent sign choices in each angular region, has $PDP=0$ and norm one.
+The joint region and depth distribution is within
+$\sqrt{\eta(1-\eta)}+\eta/2$ in total variation of its equal-depth
+distribution with the same angular marginal. A finite depth contrast cannot
+survive on any family with $E\to0$ in this encoding. The bound permits
+polarized, finite-energy preparations with full depth contrast. It concerns
+a particular detector dictionary for the interval in
+Proposition~\ref{prop:smooth-effective-descriptions}.
+
+There is also a bound for arbitrary quantum instruments on the ports.
+For $\eta<1$, the unit cell-mean wave $\chi=P\psi/\|P\psi\|$ has overlap
+$\sqrt{1-\eta}$ with the incident wave. Their pure-state trace distance
+is $\sqrt{\eta}$. Tensoring the same clock state, applying an instrument
+and recording its complete outcome cannot increase this distance. Thus two
+preparations with the same normalized cell means up to phase, each of energy
+at most $e<g$, give distributions at that exposure within
+$2\sqrt{e/g}$ in total variation. A coherent port analyzer cannot recover
+an independent soft depth label hidden from the occupation reader. The
+bound compares incident states at the readout and allows distinct cell-mean
+waves, including different angular phases, to be distinguished.
+
+For a cell-uniform source whose amplitude varies by at most $h/2$ across
+each external contact before normalization and equals one on one twentieth
+of the cells, $E\leq 5h^2/16$ when the amplitude on a cell is replicated
+on its twelve ports. Spectral calculus gives
+$\|(e^{-i\theta K}-I)\psi\|^2\leq2|\theta|E$. At $\theta=O(h^{-1})$ the
+complete joint record approaches that of a stationary load with the same
+running clocks. This bound makes no assertion at $\theta=O(h^{-2})$.
+The executable implementation, clock preparations and finite tests are in
+\texttt{model/experiments/interval\_echo\_space}.
+
 Kinematic and Newtonian precursors are finite identities. On the declared
 Hermitian Lorentz module, $p=m\,u$ has Lorentz square $m^2$ and
 $p_0^2=m^2+|\mathbf p|^2$ in every oriented chart; no coordinate is identified
