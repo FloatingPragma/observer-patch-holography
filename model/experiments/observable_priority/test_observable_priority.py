@@ -1,6 +1,8 @@
 """Regression checks for rank-blind recovery, physical separation and certified replay."""
 
+from ast import literal_eval
 from pathlib import Path
+import re
 from tempfile import TemporaryDirectory
 from types import SimpleNamespace
 import unittest
@@ -11,7 +13,7 @@ from .closure import certificate, validate
 from .equipment import install
 from .observed import Screen, reconstruct
 from .priority import authenticate, observe, recover_document
-from .source import board_hash, canonical, read
+from .source import ROOT, board_hash, canonical, read
 
 
 class PriorityTests(unittest.TestCase):
@@ -29,6 +31,38 @@ class PriorityTests(unittest.TestCase):
         shuffled = dict(self.document, rows=self.document["rows"][::-1])
         recovered = recover_document(0, self.screen, shuffled)
         self.assertEqual(recovered, self.relation)
+
+    def test_installed_lean_charts_match_executable_federations(self):
+        lean = ROOT / "Lean/ObserverPatchHolography/ObservablePriority"
+
+        def literal(path, name):
+            # Read the whole constant so an appended or computed entry cannot
+            # silently disappear from the comparison. Rows contain nested tuples.
+            match = re.search(rf"^def {name}\b[^\n]*?:=\s*(.*?)(?=^(?:def|theorem|end)\b|\Z)",
+                              path.read_text(encoding="utf-8"), re.MULTILINE | re.DOTALL)
+            self.assertIsNotNone(match, f"{path.name} is missing literal {name}")
+            return literal_eval(match[1].strip().translate(str.maketrans("⟨⟩", "[]")))
+
+        chart = literal(lean / "PriorityCellData.lean", "originalChart")
+        for level in range(3):
+            screen, service = install(level, "native")
+            cells = cell_inputs(screen, range(len(screen.edges)))
+            blocks = sorted(lean.glob(f"Screen{len(cells)}Block*.lean"),
+                            key=lambda path: int(path.stem.split("Block")[1]))
+            rows = [row for block in blocks for row in literal(block, "rows")]
+            self.assertEqual(len(rows), len(cells))
+            for cell, (inner, boundary) in enumerate(cells):
+                with self.subTest(level=level, cell=cell):
+                    inner = sorted(inner, key=service.rank.__getitem__)
+                    self.assertEqual(chart, [(screen.edges[e][0] % 12, screen.edges[e][1] % 12)
+                                             for e in inner])
+                    self.assertEqual([service.rank[e] for e in inner], list(range(1, len(chart) + 1)))
+                    self.assertEqual([service.rank[e] for _, _, e in boundary], [0, 0, 0])
+                    slots = [u % 12 for u, _, _ in boundary]
+                    remote = [v for _, v, _ in boundary]
+                    occupied = set(range(12 * cell, 12 * cell + 12)) | set(remote)
+                    spare = [v for v in range(screen.n) if v not in occupied][:3]
+                    self.assertEqual(rows[cell], [cell, slots, remote, spare])
 
     def test_bad_wedges(self):
         screen = Screen(4, [(0, 1), (0, 2), (0, 3)])
