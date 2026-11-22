@@ -8326,7 +8326,11 @@
         "book/22-chapter-21.md",
         "code/quantum_information/gibbs.py",
         "code/quantum_information/test_gibbs.py",
-        "code/collar_alignment/test_gibbs_energy_origins.py"
+        "code/collar_alignment/test_gibbs_energy_origins.py",
+        "model/experiments/interval_echo_consensus/offer_service.py",
+        "model/experiments/interval_echo_consensus/modular_standard.py",
+        "model/experiments/interval_echo_consensus/modular_standard.json",
+        "model/experiments/interval_echo_consensus/standard_observers.py"
       ],
       "falsifier": "The collar weights differ from the Gibbs state of K at one, the rescaling identity fails, the two-declaration inhabitant fails, a dictionary direction fails, the entropy identity fails, a KMS identity fails, or the module is presented as deriving a temperature or as identifying the collar weights with the record reference.",
       "scope_if_false": "Only the collar reading falls. The Gibbs ledger reading and the collar states are separately assessed.",
@@ -18109,11 +18113,11 @@
           }
         ]
       },
-      "owner_section": "CollarTemperatureReading Lean module. Native parity-conditioned collar experiment in model/experiments/interval_echo_consensus/collar_reference.py and model/experiments/interval_echo_consensus/collar_reference.json",
+      "owner_section": "CollarTemperatureReading Lean module. Native parity-conditioned collar experiment in model/experiments/interval_echo_consensus/collar_reference.py and model/experiments/interval_echo_consensus/collar_reference.json. The separate finite comparison standard and its observer tests are implemented in model/experiments/interval_echo_consensus/offer_service.py, model/experiments/interval_echo_consensus/modular_standard.py, model/experiments/interval_echo_consensus/modular_standard.json, model/experiments/interval_echo_consensus/standard_observers.py",
       "falsifiers": {
         "physical_identification": "A collar temperature is presented as derived, or the collar weights as the record reference without declaration",
         "phenomenological": "No phenomenological prediction; the gravitation-route energy identification stays open on the declared clause",
-        "mathematical": "The Gibbs identity at one, the rescaling identity, the two-declaration inhabitant, a dictionary direction, the entropy identity, or a KMS identity fails. The separate source exclusion fails if the native even magnitude-two population obeys the held Gibbs equality in the independent-address experiment or its ratio falls below 3456/625 for an enrolled fair-walk endpoint source with a calibration signal. The rotational bound would fail if a rotation-invariant two-address source on the twelve-port cell passed the held equality at coupling greater than 2.47463 with the declared parity reader"
+        "mathematical": "The Gibbs identity at one, the rescaling identity, the two-declaration inhabitant, a dictionary direction, the entropy identity, or a KMS identity fails. The separate source exclusion fails if the native even magnitude-two population obeys the held Gibbs equality in the independent-address experiment or its ratio falls below 3456/625 for an enrolled fair-walk endpoint source with a calibration signal. The rotational bound would fail if a rotation-invariant two-address source on the twelve-port cell passed the held equality at coupling greater than 2.47463 with the declared parity reader. The separate finite standard fails if its common signed-record rule at positive exchange split gives a magnitude-one energy different from its number of independent witnesses, or if its buffered source disagrees with the registered mode weights. At 17 offers a mismatch exceeding the frozen phase tolerance or a failed reunion read contradicts the measured clock transfer"
       },
       "depends_on": [
         {
@@ -18122,7 +18126,7 @@
         }
       ],
       "matrix_summary": {
-        "oph_specific_delta": "Settles that the committed collar surface pins no beta, proves the two-direction dictionary between modular normalization, energy, and beta on the collar objects, and records the KMS parameter trade and the tick conversion. A separate native five-mode collar reading resolves both contrast parities and rejects the single-temperature quadratic-energy assignment for independent addresses (held population factor 6.63255) and for fair-walk endpoints (factor at least 5.5296 at every resolved length). With the fixed parity filter, every rotation-invariant distribution of two launch addresses on the twelve-port cell that satisfies the held magnitude equality has apparent coupling at most 2.47463",
+        "oph_specific_delta": "Settles that the committed collar surface pins no beta, proves the two-direction dictionary between modular normalization, energy, and beta on the collar objects, and records the KMS parameter trade and the tick conversion. A separate native five-mode collar reading resolves both contrast parities and rejects the single-temperature quadratic-energy assignment for independent addresses (held population factor 6.63255) and for fair-walk endpoints (factor at least 5.5296 at every resolved length). With the fixed parity filter, every rotation-invariant distribution of two launch addresses on the twelve-port cell that satisfies the held magnitude equality has apparent coupling at most 2.47463. A separate finite source compares signed qutrit histories for both contrast and exchange parity. It gives magnitude-one energy equal to the witness count exactly. On a shielded twelve-port cell this count is eight. At 17 offers the magnitude-two energy differs from 32 by 7.66×10⁻¹³ and the native phase gate and 24 material reunion tests pass. A separate one-port stationarity calibration of a native single-load source gives exact five-mode gaps of 8 and 32 at finite depth with the same comparator and blank-sector conventions. The historical pin supplied its strength. The later comparison rule and use of one cell as the standard were chosen with its results known. A fair parity comparator approaches four",
         "falsifier": "A Gibbs, rescaling, inhabitant, dictionary, entropy, KMS, or conversion statement fails"
       }
     },

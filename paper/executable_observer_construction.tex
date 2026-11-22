@@ -1824,6 +1824,44 @@ at most $1-x$. The nonzero fraction among accepted records is therefore
 at least $x/(2-x)\geq1/11$. The five Gibbs weights at
 $\beta=\log 2$, $\kappa=8$ assign only $0.5825\%$ to nonzero contrast.
 
+\paragraph{A standard from neighboring repair records.}
+Two independently supplied qutrits each start uniformly and receive idle,
+downward or upward offers with probabilities $1/2,1/4,1/4$. A saturated
+offer rejects that history. Finite patch buffers retain signed differences
+from surviving pairs, with fresh loads from supplied reservoirs.
+Let $w_j$ be the probability of the individual signed word $+j$.
+Require the same signed word from all $m$ other seams at the endpoints
+of the read seam. An independent pair from the same source admits the
+exchange-even outcome on a zero word and the exchange-odd outcome on
+one specified signed unit. The exact even weights at magnitudes zero and one
+are proportional to $w_0^m w_0$ and $w_1^m w_0$, and the odd weight at
+magnitude one is proportional to $w_1^m w_1$. Taking negative logarithms
+of the mode weights, relative to the zero mode and in units of the
+exchange splitting, therefore gives $\kappa=m$ exactly.
+
+A protected complete cell has $m=8$ on every seam. With symmetric offers,
+17 is the first horizon whose magnitude-two phase at exposure $\pi$ agrees
+with the quadratic prediction within $10^{-11}$. The error is
+$2.41\times10^{-12}$. This level tests the contrast profile and was used
+to choose the horizon. Biased offers retain $\kappa=8$ but give a
+magnitude-two energy of $29.6761$ against $32$. Keeping the symmetric
+source while admitting odd parity by an independent fair coin gives
+$\kappa\simeq4$. The common comparator and the use of the protected cell
+as a standard for every seam are design choices made after the earlier
+pair experiments. Counting neighbors on the deployed sphere instead gives
+$m=8,9,10$ according to the seam address.
+
+An exact preparation follows by requiring the initial weights $(a,b,a)$
+to be stationary under one surviving offer, which gives
+$r(2+r)=2+2r$ and $r=b/a=\sqrt2$.
+An isolated single-load exchange pulse of the prescribed angle
+$2\arcsin\sqrt{\sqrt2-1}$ selects the middle load with probability
+$\sqrt2-1$, and a fair choice of the two remaining loads completes the
+initial distribution. At every finite offer depth this preparation gives
+$w_1/w_0=1/\sqrt2$ and $w_2/w_0=1/4$, so the eight-witness comparator
+yields energies $8$ and $32$ exactly and, with the specified coin,
+spectator-load and blank-memory actions, the full $99$-state seam generator.
+
 \subsection{Relation to the dark-sector carrier of the theory}
 
 The dark-sector paper of the theory takes a recovery defect on an overlap
@@ -1868,8 +1906,9 @@ middle-band midpoint of
 $\tfrac12|\widehat\kappa|\sqrt{3-\sqrt{6+2\cos q}}$.
 With the scale fixed by the collar, the largest discrepancy across the
 rest line, four held wave numbers and one short-wavelength challenge is
-$0.03514\%$. This is a prediction for a prepared one-dimensional
-material channel. The origin of its coupling remains open.
+$0.03514\%$. This checks the independently read scale of the prepared
+one-dimensional channel. The neighboring-record standard above supplies
+a possible microscopic origin for that scale.
 
 \paragraph{The patch clock.}
 A travelling observer patch carries a hand of five positions, an elapsed

@@ -34,6 +34,13 @@ REPLAY_REGIONAL_CONSENSUS = {
     "model/candidate_laws/interval_echo/EVALUATION.json": "768e20a009f611483bd51a027cc47593a13084e276fb35a561a9cde6953d94cc",
 }
 
+# Candidate and evaluation metadata now also record the separate comparison standard.
+REPLAY_MODULAR_STANDARD = {
+    "model/candidate_laws/interval_echo/candidate.py": "6afe9f5a24481beb0331a7f6930fce6d22c72cb6147d4491aa68b49edeb6107d",
+    "model/candidate_laws/interval_echo/SPEC.md": "846dc2cbe46a714dd87d735d3a9d4d21e11bd022da8a6d106b3b351ce0c5c00a",
+    "model/candidate_laws/interval_echo/EVALUATION.json": "661a1fbd55b9766acad1b657da24578b3a2ab35cad2016aad129a5d6d165cce6"
+}
+
 
 def require(ok, message):
     if not ok:
@@ -45,7 +52,8 @@ def sources():
     actual = {name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest() for name in frozen}
     reviewed = frozen | REPLAY_UPDATES
     radial = reviewed | REPLAY_70E58E24
-    if actual in (frozen, reviewed, radial, radial | REPLAY_REGIONAL_CONSENSUS):
+    regional = radial | REPLAY_REGIONAL_CONSENSUS
+    if actual in (frozen, reviewed, radial, regional, regional | REPLAY_MODULAR_STANDARD):
         return
     mismatches = [name for name, expected in reviewed.items() if actual.get(name) != expected]
     raise ValueError(f"unverified replay source: {', '.join(mismatches)}")

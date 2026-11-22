@@ -606,7 +606,7 @@
           "results": {
             "interval_echo": {
               "status": "demonstrated",
-              "note": "The two unequal-leg schedules meet the ±0.006 equivalence criterion. The initial equal-leg result was unresolved. An independent equal-leg replication gives oscillator minus hand +0.000046 ± 0.000497 (SE). The matched raw-positive oscillator disagrees by +0.03204 ± 0.00044. The guide and gate schedule are supplied. Both hands independently read the material posted bit. For one trip followed by rest the raw-minus-accepted fractional gap shrinks as 1/T. Sustained slow travel gives a 0.0520% gap that the tested terminal-only reader missed.",
+              "note": "The two unequal-leg schedules meet the ±0.006 equivalence criterion. The initial equal-leg result was unresolved. An independent equal-leg replication gives oscillator minus hand +0.000046 ± 0.000497 (SE). The matched raw-positive oscillator disagrees by +0.03204 ± 0.00044. The guide and gate schedule are supplied. Both hands independently read the material posted bit. For one trip followed by rest the raw-minus-accepted fractional gap shrinks as 1/T. Sustained slow travel gives a 0.0520% gap that the tested terminal-only reader missed. At the separately derived 17-offer standard, 24 material journeys reproduce the published words, seeded pointers and both reunion quadratures within the recorded precision. A three-rail parked-arm test distinguishes the fair-parity control at coupling near four from the common signed-record standard.",
               "evidence": [
                 "model/experiments/interval_echo_clock/results.json",
                 "model/experiments/interval_echo_clock/replication.json",
@@ -614,7 +614,9 @@
                 "model/experiments/interval_echo_clock/PUBLICATION.md",
                 "model/experiments/interval_echo_clock/publication.json",
                 "model/experiments/interval_echo_clock/DURATION.md",
-                "model/experiments/interval_echo_clock/duration.json"
+                "model/experiments/interval_echo_clock/duration.json",
+                "model/experiments/interval_echo_consensus/standard_observers.py",
+                "model/experiments/interval_echo_consensus/modular_standard.json"
               ]
             },
             "contrast_memory_spherical_v1": {

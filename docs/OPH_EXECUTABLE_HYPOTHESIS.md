@@ -85,7 +85,7 @@ after a pulse its seam record swings at the difference of its two levels
 
 ### Supplied
 
-- the coupling `kappa`. A patch can measure its supplied value of 8 on an empty seam. With the tested parity readout, any rotation-invariant distribution of two launch addresses on one cell excludes 8 as the coupling inferred from a thermal reference. [Memory-reference test](../model/experiments/interval_echo_consensus/README.md)
+- the coupling `kappa`. The pinned law assigns 8. A separate finite construction recovers 8 by using the same repair records to compare the eight overlaps of a standard seam and to read one exchange-parity unit. The choice of parity reader and of the complete cell as the common standard enters this derivation. [Memory-reference test](../model/experiments/interval_echo_consensus/README.md)
 - the coherent generator on the private seam memory;
 - the reference registers of the degree term on ports with five seams;
 - the emitter with its fuel, coupling and duration, and the reader;

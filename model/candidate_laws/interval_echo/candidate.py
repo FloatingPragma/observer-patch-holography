@@ -39,12 +39,14 @@ def response(car):
 
 PARAMETERS = {
     "kappa": {**contrast.PARAMETERS["kappa"],
-              "source": "../../experiments/interval_echo_consensus/collar_reference.py",
-              "note": "The specification supplies 8 in exchange units. The earlier search compared pair "
-                      "persistence across strengths. An empty-seam reading predicts channel frequencies "
-                      "at this setting. With the tested local parity filter, any rotation-invariant "
-                      "distribution of two launch addresses on one twelve-port cell that passes the "
-                      "held magnitude-two population test can infer at most 2.47463."},
+              "source": "../../experiments/interval_echo_consensus/modular_standard.py",
+              "note": "The historical specification supplies 8 in exchange units. Its design search "
+                      "compared pair persistence across strengths. A later experimental law, developed "
+                      "with those results known, uses the same signed record to compare contrast and "
+                      "exchange parity. Its eight incident witnesses on a shielded reference cell give "
+                      "magnitude-one energy 8 exactly. Calibrating the source on one-port stationarity "
+                      "gives magnitude-two energy 32 and recovers the whole seam operator. A fair parity comparison approaches 4. The "
+                      "comparator and the choice to deploy one standard across the screen are design inputs."},
     "age_bits": {"value": 3, "provenance": "designed", "quantity": "moving interval register width",
                  "note": "the reference replay uses three bits, the baseline comparison four, and the clock-trip precision profile five"},
     "precision_age_bits": {"value": 5, "provenance": "designed", "quantity": "interval width on clock-trip entry",

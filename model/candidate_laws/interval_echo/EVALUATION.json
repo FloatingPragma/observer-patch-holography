@@ -9,8 +9,8 @@
    "value": 8.0,
    "provenance": "designed",
    "quantity": "agreement energy in units of the exchange",
-   "note": "The specification supplies 8 in exchange units. The earlier search compared pair persistence across strengths. An empty-seam reading predicts channel frequencies at this setting. With the tested local parity filter, any rotation-invariant distribution of two launch addresses on one twelve-port cell that passes the held magnitude-two population test can infer at most 2.47463.",
-   "source": "../../experiments/interval_echo_consensus/collar_reference.py"
+   "note": "The historical specification supplies 8 in exchange units. Its design search compared pair persistence across strengths. A later experimental law, developed with those results known, uses the same signed record to compare contrast and exchange parity. Its eight incident witnesses on a shielded reference cell give magnitude-one energy 8 exactly. Calibrating the source on one-port stationarity gives magnitude-two energy 32 and recovers the whole seam operator. A fair parity comparison approaches 4. The comparator and the choice to deploy one standard across the screen are design inputs.",
+   "source": "../../experiments/interval_echo_consensus/modular_standard.py"
   },
   "age_bits": {
    "value": 3,
@@ -1088,10 +1088,12 @@
      ],
      "premises": [],
      "status": "partial",
-     "note": "Two overlapping two-cell observers realize the unique accessible minimizer in both orders for a frozen faithful reference, weights and constraints. Selection and refinement of general source-derived covers and constraints remain open.",
+     "note": "Two overlapping two-cell observers realize the unique accessible minimizer in both orders for a frozen faithful reference, weights and constraints. Selection and refinement of general source-derived covers and constraints remain open. A separately specified finite comparison service generates stationary probabilities for five local record modes. Its signed comparator, standard cell and deployment rule are supplied. The existing cover and refinement obligations still apply.",
      "evidence": [
       "model/candidate_laws/interval_echo/projection.json",
-      "model/candidate_laws/interval_echo/projection.py"
+      "model/candidate_laws/interval_echo/projection.py",
+      "model/experiments/interval_echo_consensus/offer_service.py",
+      "model/experiments/interval_echo_consensus/modular_standard.json"
      ]
     }
    ]
@@ -1290,10 +1292,12 @@
       "PR-11"
      ],
      "status": "demonstrated",
-     "note": "The rotation-selected service on each of the one- and bound-two-load sectors gives 12 independent visible closed directions. All 66 brackets and 720 covariance checks pass per sector. An extended service reaches 17 visible directions.",
+     "note": "The rotation-selected service on each of the one- and bound-two-load sectors gives 12 independent visible closed directions. All 66 brackets and 720 covariance checks pass per sector. An extended service reaches 17 visible directions. The 17-offer comparison standard also reproduces all twelve guarded directions on the binary pair sector. The fair-parity control retains this finite current rank at coupling near four.",
      "evidence": [
       "model/candidate_laws/interval_echo/currents.json",
-      "model/candidate_laws/interval_echo/CURRENTS.md"
+      "model/candidate_laws/interval_echo/CURRENTS.md",
+      "model/experiments/interval_echo_consensus/standard_observers.py",
+      "model/experiments/interval_echo_consensus/modular_standard.json"
      ]
     },
     {
@@ -1816,7 +1820,7 @@
       "model/experiments/interval_echo_clock/REPLICATION.md"
      ],
      "status": "demonstrated",
-     "note": "The two unequal-leg schedules meet the ±0.006 equivalence criterion. The initial equal-leg result was unresolved. An independent equal-leg replication gives oscillator minus hand +0.000046 ± 0.000497 (SE). The matched raw-positive oscillator disagrees by +0.03204 ± 0.00044. The guide and gate schedule are supplied. Both hands independently read the material posted bit. For one trip followed by rest the raw-minus-accepted fractional gap shrinks as 1/T. Sustained slow travel gives a 0.0520% gap that the tested terminal-only reader missed.",
+     "note": "The two unequal-leg schedules meet the ±0.006 equivalence criterion. The initial equal-leg result was unresolved. An independent equal-leg replication gives oscillator minus hand +0.000046 ± 0.000497 (SE). The matched raw-positive oscillator disagrees by +0.03204 ± 0.00044. The guide and gate schedule are supplied. Both hands independently read the material posted bit. For one trip followed by rest the raw-minus-accepted fractional gap shrinks as 1/T. Sustained slow travel gives a 0.0520% gap that the tested terminal-only reader missed. At the separately derived 17-offer standard, 24 material journeys reproduce the published words, seeded pointers and both reunion quadratures within the recorded precision. A three-rail parked-arm test distinguishes the fair-parity control at coupling near four from the common signed-record standard.",
      "evidence": [
       "model/experiments/interval_echo_clock/results.json",
       "model/experiments/interval_echo_clock/replication.json",
@@ -1824,7 +1828,9 @@
       "model/experiments/interval_echo_clock/PUBLICATION.md",
       "model/experiments/interval_echo_clock/publication.json",
       "model/experiments/interval_echo_clock/DURATION.md",
-      "model/experiments/interval_echo_clock/duration.json"
+      "model/experiments/interval_echo_clock/duration.json",
+      "model/experiments/interval_echo_consensus/standard_observers.py",
+      "model/experiments/interval_echo_consensus/modular_standard.json"
      ]
     },
     {
@@ -1924,7 +1930,7 @@
       "label": "Free persistence of a prepared pair",
       "source": "model/candidate_laws/interval_echo/openwave/row_04/README.md"
      },
-     "note": "RER demonstrated free persistence of a prepared pair of unassigned species. At held exposure 37 its launch patch has adjacent-pair probability 0.98027 at κ = 8 versus 0.20291 at κ = 0. The corresponding seeded terminal records gave 4,028 versus 824 detections in 4,096 draws per arm. The native probability is at least 0.94 throughout [0,37]. OpenWave reproduced the probabilities and graded M10 partially validated. The strength was supplied and assessed during the earlier persistence search. For any rotation-invariant distribution of two launch addresses on one twelve-port cell, the tested local parity filter can infer at most κ = 2.47463 while matching the held magnitude-two population. Selecting 8 requires a different physical reference.",
+     "note": "Free persistence is demonstrated locally for a prepared pair of unassigned species. At held exposure 37 the launch patch has adjacent-pair probability 0.98027 at κ = 8 versus 0.20291 at κ = 0. Seeded records gave 4,028 versus 824 detections in 4,096 draws per arm. The native probability stays at least 0.94 through exposure 37. OpenWave reproduced the probabilities and partially validated the historical pin, whose design search compared strengths using persistence. A later law uses the same signed-record comparison for exchange parity and eight incident witnesses on a shielded standard cell. Its magnitude-one energy is exactly 8, reproducing the binary-pair generator. With a one-port preparation calibrated by stationarity, its magnitude-two energy is exactly 32 and the complete seam generator agrees. A direct simulation recorded 104 transitions from lower modes into magnitude two. The 17-offer digital realization also passes the phase-gate tolerance and all 24 material reunion comparisons. The target was known when the comparator and uniform deployment were chosen. Using fair parity instead approaches 4.",
      "evidence": [
       "model/candidate_laws/interval_echo/openwave/row_04/README.md",
       "model/candidate_laws/interval_echo/openwave/row_04/results.json",
@@ -1939,7 +1945,12 @@
       "openwave/interval_echo/row_04/ROW_04_DESIGN.md",
       "model/experiments/interval_echo_consensus/README.md",
       "model/experiments/interval_echo_consensus/collar_reference.py",
-      "model/experiments/interval_echo_consensus/collar_reference.json"
+      "model/experiments/interval_echo_consensus/collar_reference.json",
+      "model/experiments/interval_echo_consensus/offer_service.py",
+      "model/experiments/interval_echo_consensus/modular_standard.py",
+      "model/experiments/interval_echo_consensus/modular_standard.json",
+      "model/experiments/interval_echo_consensus/standard_observers.py",
+      "model/experiments/interval_echo_consensus/rare_transitions.json"
      ]
     },
     {
@@ -2364,7 +2375,7 @@
       "label": "Low-energy Klein–Gordon dispersion of free matter on a prepared record channel",
       "source": "model/candidate_laws/interval_echo/openwave/row_30_autonomous/README.md"
      },
-     "note": "On the prepared 194-cell record channel the continuum Klein–Gordon envelope agrees with four held frequencies within 1.19% using packet speed. The competing parabola misses by 6.68% at the last held point. The continuum misses by 18.03% on a separate microscopic challenge. An empty-seam measurement independently sets the scale of the exact four-site dispersion, forecasting rest, the four held frequencies and that challenge within 0.036%. This finite prediction tests transfer of the supplied coupling. Its overall frequency scale is proportional to |κ|. A freely established background and a matter branch in additional directions remain open.",
+     "note": "On the prepared 194-cell channel the continuum Klein–Gordon envelope fits four held frequencies within 1.19% using packet speed. The competing parabola misses by 6.68% at the last held point. The continuum misses by 18.03% at the separate microscopic challenge. In the published candidate an empty-seam measurement forecasts rest and all five moving frequencies from the exact four-site dispersion within 0.036%. The later eight-witness common-unit standard forecasts those same archived frequencies within 0.032%, with its scale fixed by the comparison rule. Fair parity gives about 50% discrepancies. The forecasts share the prepared one-dimensional material background. A freely established background and a matter branch in additional directions remain open.",
      "evidence": [
       "model/candidate_laws/interval_echo/openwave/row_30/README.md",
       "model/candidate_laws/interval_echo/openwave/row_30/results.json",
@@ -2383,7 +2394,10 @@
       "model/candidate_laws/interval_echo/openwave/row_30_selective/CHANNEL_REVIEW.md",
       "model/candidate_laws/interval_echo/openwave/row_30_route/README.md",
       "model/candidate_laws/interval_echo/openwave/submission/ROW_30_DECISION.md",
-      "model/candidate_laws/interval_echo/openwave/row_30_selective/channel_review.json"
+      "model/candidate_laws/interval_echo/openwave/row_30_selective/channel_review.json",
+      "model/experiments/interval_echo_consensus/offer_service.py",
+      "model/experiments/interval_echo_consensus/modular_standard.py",
+      "model/experiments/interval_echo_consensus/modular_standard.json"
      ]
     },
     {

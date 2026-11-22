@@ -82,8 +82,11 @@ def main(argv=None):
     argv = list(sys.argv[1:] if argv is None else argv)
     if argv[:1] == ['--clock-trip']:
         return clock.trip_cli(argv[1:], default_bits=5)
+    if argv[:1] == ['--repair-standard']:
+        from model.experiments.interval_echo_consensus.modular_standard import main as repair_standard
+        return repair_standard(argv[1:])
     parser = argparse.ArgumentParser(description=__doc__,
-                                     epilog="For a material journey, use --clock-trip [--level 0|1|2] [--age-bits 3|4|5] OUT BACK ...")
+                                     epilog="Use --clock-trip [--level 0|1|2] [--age-bits 3|4|5] OUT BACK ... for a material journey. Use --repair-standard to reconstruct and test the seam generator from local offers.")
     parser.add_argument("--full", action="store_true",
                         help="also replay 80/320-cell trips, bulk, repair forks, port currents and the two-patch information projection")
     parser.add_argument("--seed", type=int, default=cohorts.SEED)
