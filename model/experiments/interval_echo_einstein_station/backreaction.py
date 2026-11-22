@@ -363,7 +363,77 @@ def ordered_collar_control(
         seed=2026112209,
         calibration_counts=calibration_counts.tolist(),
         calibrated_scores=calibrated_score.tolist(),
+        repeated_quadrature=persistent_word_covariance(
+            board, (a, b, c), swap, reference, output["quadrature"]
+        ),
         arms=arms,
+    )
+
+
+def persistent_word_covariance(board, ports, swap, reference, response):
+    """Use two fresh loads and an identical, nonadaptive service on one persistent word."""
+    a, b, c = ports
+    used = set(ports)
+    rails = []
+    for v in (a, c, a):
+        spare = min(p for p in board.neighbours[v] if p // 12 == a // 12 and p not in used)
+        used.add(spare)
+        rails.append(spare)
+    # Two empty spares receive the old outer occupation. The last supplies a fresh
+    # sharp unit at a. These blank-seam swaps never touch the retained collar or b.
+    words = [law.SRC.index(w) for w in ((0, 0), (1, 0), (0, 1))]
+    np.testing.assert_allclose(
+        abs(swap[:, words]) ** 2,
+        np.eye(law.DIM)[:, [words[0], words[2], words[1]]],
+        rtol=0,
+        atol=3e-13,
+    )
+    transfers = list(zip((a, c, a), rails, strict=True))
+    for outcome in (a, c):
+        loads = {p: int(p in (b, outcome, rails[2])) for p in used}
+        for u, v in transfers:
+            loads[u], loads[v] = loads[v], loads[u]
+        np.testing.assert_array_equal(
+            [loads[p] for p in (*ports, *rails)],
+            [1, 1, 0, int(outcome == a), int(outcome == c), 0],
+        )
+
+    distribution = response.reshape(9, 2)
+    weights = reference.ravel()
+    marginal = weights @ distribution
+    same_word = np.einsum("w,wx,wy->xy", weights, distribution, distribution)
+    new_word = np.outer(marginal, marginal)
+    between = float(weights @ (distribution[:, 0] - marginal[0]) ** 2)
+    within = float(weights @ np.prod(distribution, axis=1))
+    np.testing.assert_allclose(within + between, np.prod(marginal), atol=3e-13)
+    np.testing.assert_allclose(same_word[0, 0] - new_word[0, 0], between, atol=3e-13)
+    seed, shots = 2026112242, 2**20
+    rng = np.random.default_rng(seed)
+    measurements = {}
+    for name, joint in (("same_word", same_word), ("independent_words", new_word)):
+        counts = rng.multinomial(shots, joint.ravel()).reshape(2, 2)
+        frequencies = counts / shots
+        measured = frequencies[0, 0] - frequencies[0].sum() * frequencies[:, 0].sum()
+        measurements[name] = dict(
+            joint=joint.tolist(),
+            pair_counts=counts.tolist(),
+            measured_covariance=float(measured),
+        )
+    # Two preparations, each with three bounded sample means (R1, R2, R1*R2).
+    radius = 3 * np.sqrt(np.log(12 / 0.01) / (2 * shots))
+    return dict(
+        reset_swaps=[list(edge) for edge in transfers],
+        probe_outcomes=["return on AB", "other on BC"],
+        source_reference=reference.tolist(),
+        return_given_word=response[:, :, 0].tolist(),
+        return_probability=float(marginal[0]),
+        between_word_variance=between,
+        within_word_variance=within,
+        seed=seed,
+        paired_trials_per_cohort=shots,
+        simultaneous_covariance_radius=float(radius),
+        family_failure_probability=0.01,
+        acquisitions=measurements,
     )
 
 
@@ -521,6 +591,65 @@ def joint_clock_lapse(board, ports, native, records, source, splitter, inverse):
     )
 
 
+def paired_word_power(units, score):
+    """Acquire two independently prepared words conditional on one retained tag."""
+    # The reverse arm exchanges the two conditional word distributions.
+    # Its equal mixture with the forward arm is the independent-tag control,
+    # even on the complete tag-and-word record of one acquisition.
+    forward = units[[0, 2]] / 36
+    reverse = forward[::-1]
+    reference = units[1] / 36
+    np.testing.assert_array_equal(units[[0, 2]] + units[[2, 0]], 2 * units[[1, 1]])
+    centered = (score - np.sum(reference * score)).ravel()
+    product = np.outer(centered, centered)
+    shots = 2**20
+    rng = np.random.default_rng(2026112261)
+
+    def acquire(pair):
+        counts = rng.multinomial(shots, pair.ravel()).reshape(9, 9)
+        measured = float(np.sum(counts * product) / shots)
+        se = float(
+            np.sqrt(np.sum(counts * (product - measured) ** 2) / (shots * (shots - 1)))
+        )
+        return dict(measured_nats_squared=measured, se_nats_squared=se)
+
+    rows = []
+    for strength in (-1, -0.5, 0, 0.5, 1):
+        weight = (1 + strength) / 2
+        conditional = (weight * forward + (1 - weight) * reverse).reshape(2, 9)
+        # Each tag rail is fair. Repeat the native categorical preparation
+        # conditional on the same rail, saving the first classical word.
+        pair = np.einsum("ti,tj->ij", conditional, conditional) / 2
+        np.testing.assert_allclose(pair.sum(axis=0), reference.ravel(), atol=1e-15)
+        expected = (strength * np.log(3) / 12) ** 2
+        np.testing.assert_allclose(np.sum(pair * product), expected, atol=1e-15)
+        rows.append(
+            dict(
+                tag_correlation=strength,
+                predicted_nats_squared=expected,
+                **acquire(pair),
+            )
+        )
+    independent = np.outer(reference.ravel(), reference.ravel())
+    repeated = np.diag(reference.ravel())
+    return dict(
+        shots_per_arm=shots,
+        seed=2026112261,
+        shots_are_complete=True,
+        design="Two successive conditionally independent categorical preparations with one supplied tag and a saved classical first word. Mean of centred word-score products.",
+        one_write_midpoint_identity="P_independent=(P_forward+P_reverse)/2 on the complete tag and word. Every fixed one-preparation mean obeys the same identity.",
+        one_write_uniform_amplitude_error_lower_bound_nats=float(np.log(3) / 24),
+        fresh_independent_tag_per_write=dict(
+            predicted_nats_squared=0, **acquire(independent)
+        ),
+        reused_identical_word=dict(
+            predicted_nats_squared=float(reference.ravel() @ centered**2),
+            **acquire(repeated),
+        ),
+        arms=rows,
+    )
+
+
 def tagged_fluctuations(board, ports, native, source, clock):
     """Distinguish variance within a cut preparation from variance of its conditional means."""
     from scipy.linalg import expm
@@ -625,6 +754,7 @@ def tagged_fluctuations(board, ports, native, source, clock):
         untagged_trace_distance=0,
         tagged_trace_distance=tv,
         equal_prior_optimal_tag_and_word_success=(1 + tv) / 2,
+        two_writes_with_one_tag=paired_word_power(units, score),
         preparations=outputs,
     )
 

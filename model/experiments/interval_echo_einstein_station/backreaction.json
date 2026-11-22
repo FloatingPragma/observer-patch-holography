@@ -78,6 +78,115 @@
           0.0017216101665967032
         ]
       ],
+      "repeated_quadrature": {
+        "reset_swaps": [
+          [
+            0,
+            7
+          ],
+          [
+            5,
+            4
+          ],
+          [
+            0,
+            10
+          ]
+        ],
+        "probe_outcomes": [
+          "return on AB",
+          "other on BC"
+        ],
+        "source_reference": [
+          [
+            0.1111111111111111,
+            0.16666666666666666,
+            0.05555555555555555
+          ],
+          [
+            0.05555555555555555,
+            0.1111111111111111,
+            0.16666666666666666
+          ],
+          [
+            0.16666666666666666,
+            0.05555555555555555,
+            0.1111111111111111
+          ]
+        ],
+        "return_given_word": [
+          [
+            0.4999999999999938,
+            0.06698729810760222,
+            0.4999999999996289
+          ],
+          [
+            0.9330127018923912,
+            0.49999999999999567,
+            0.0669872981077852
+          ],
+          [
+            0.5000000000003654,
+            0.9330127018922072,
+            0.499999999999996
+          ]
+        ],
+        "return_probability": 0.4037749551350809,
+        "between_word_variance": 0.07407407407411043,
+        "within_word_variance": 0.16666666666663116,
+        "seed": 2026112242,
+        "paired_trials_per_cohort": 1048576,
+        "simultaneous_covariance_radius": 0.005516095431400683,
+        "family_failure_probability": 0.01,
+        "acquisitions": {
+          "same_word": {
+            "joint": [
+              [
+                0.23710828846844706,
+                0.16666666666663116
+              ],
+              [
+                0.16666666666663116,
+                0.429558378198278
+              ]
+            ],
+            "pair_counts": [
+              [
+                248220,
+                174468
+              ],
+              [
+                175344,
+                450544
+              ]
+            ],
+            "measured_covariance": 0.07388927286956459
+          },
+          "independent_words": {
+            "joint": [
+              [
+                0.16303421439433657,
+                0.2407407407407417
+              ],
+              [
+                0.2407407407407417,
+                0.35548430412416715
+              ]
+            ],
+            "pair_counts": [
+              [
+                171315,
+                253160
+              ],
+              [
+                251976,
+                372125
+              ]
+            ],
+            "measured_covariance": -3.6061269383935723e-05
+          }
+        }
+      },
       "arms": [
         {
           "direction": -1,
@@ -1256,6 +1365,56 @@
       "untagged_trace_distance": 0,
       "tagged_trace_distance": 0.08333333333333333,
       "equal_prior_optimal_tag_and_word_success": 0.5416666666666666,
+      "two_writes_with_one_tag": {
+        "shots_per_arm": 1048576,
+        "seed": 2026112261,
+        "shots_are_complete": true,
+        "design": "Two successive conditionally independent categorical preparations with one supplied tag and a saved classical first word. Mean of centred word-score products.",
+        "one_write_midpoint_identity": "P_independent=(P_forward+P_reverse)/2 on the complete tag and word. Every fixed one-preparation mean obeys the same identity.",
+        "one_write_uniform_amplitude_error_lower_bound_nats": 0.04577551202783791,
+        "fresh_independent_tag_per_write": {
+          "predicted_nats_squared": 0,
+          "measured_nats_squared": 3.622198130286399e-05,
+          "se_nats_squared": 0.00015151519938373962
+        },
+        "reused_identical_word": {
+          "predicted_nats_squared": 0.15467123982314282,
+          "measured_nats_squared": 0.15437928584771865,
+          "se_nats_squared": 0.0002023396002221849
+        },
+        "arms": [
+          {
+            "tag_correlation": -1,
+            "predicted_nats_squared": 0.008381590005642932,
+            "measured_nats_squared": 0.008516289864413863,
+            "se_nats_squared": 0.00015672742209761742
+          },
+          {
+            "tag_correlation": -0.5,
+            "predicted_nats_squared": 0.002095397501410733,
+            "measured_nats_squared": 0.001864192984834919,
+            "se_nats_squared": 0.00015191912408421668
+          },
+          {
+            "tag_correlation": 0,
+            "predicted_nats_squared": 0.0,
+            "measured_nats_squared": 8.661383558757726e-05,
+            "se_nats_squared": 0.00015081530984945433
+          },
+          {
+            "tag_correlation": 0.5,
+            "predicted_nats_squared": 0.002095397501410733,
+            "measured_nats_squared": 0.0021150593114540647,
+            "se_nats_squared": 0.00015254556368697817
+          },
+          {
+            "tag_correlation": 1,
+            "predicted_nats_squared": 0.008381590005642932,
+            "measured_nats_squared": 0.008509293099939834,
+            "se_nats_squared": 0.0001565979789837716
+          }
+        ]
+      },
       "preparations": [
         {
           "preparation": "conditionally_prepared",

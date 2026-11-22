@@ -50,25 +50,25 @@ def regional_operators(parent):
     return stars, np.array(effects), min(floors)
 
 
-def read_star(psi, ports, operator, rng):
+def read_star(psi, ports, operator, rng, shots=SHOTS):
     """Estimate a vacuum-centred real observable. All complementary clicks count zero."""
     ids = list(ports)
     diagonal = np.diag(operator)[ids]
     probs = abs(psi[ids]) ** 2
     p = np.r_[probs, max(0.0, 1 - probs.sum())]
-    counts = rng.multinomial(SHOTS, p / p.sum())
+    counts = rng.multinomial(shots, p / p.sum())
     record = hashlib.sha256(np.asarray(counts, dtype="<i8").tobytes())
-    total = float(diagonal @ counts[:-1] / SHOTS)
+    total = float(diagonal @ counts[:-1] / shots)
     variance = float((diagonal**2 @ probs) - (diagonal @ probs) ** 2)
     for i, j in combinations(ports, 2):
         plus, minus = (abs(psi[i] + sign * psi[j]) ** 2 / 2 for sign in (1, -1))
         chances = np.array([plus, minus, max(0.0, 1 - plus - minus)])
-        outcomes = rng.multinomial(SHOTS, chances / chances.sum())
+        outcomes = rng.multinomial(shots, chances / chances.sum())
         record.update(np.asarray(outcomes, dtype="<i8").tobytes())
         weight = operator[i, j]
-        total += weight * (outcomes[0] - outcomes[1]) / SHOTS
+        total += weight * (outcomes[0] - outcomes[1]) / shots
         variance += weight**2 * (plus + minus - (plus - minus) ** 2)
-    return total, variance / SHOTS, record.hexdigest()
+    return total, variance / shots, record.hexdigest()
 
 
 def run():

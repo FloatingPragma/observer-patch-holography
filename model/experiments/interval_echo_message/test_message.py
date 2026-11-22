@@ -42,7 +42,7 @@ def test_replay_accepts_only_complete_source_versions(tmp_path, monkeypatch):
     monkeypatch.setattr(channel, "REPLAY_NESTED_CAP", {})
     monkeypatch.setattr(channel, "REPLAY_JOINT_READ", {})
     monkeypatch.setattr(channel, "REPLAY_DIRECTIONAL_CHARGE", {})
-    monkeypatch.setattr(channel, "REPLAY_DARK_OBSERVATIONS", {})
+    monkeypatch.setattr(channel, "REPLAY_EVALUATIONS", ())
     for name in ("a", "b", "reader"):
         (tmp_path / name).write_bytes(b"old")
     channel.sources()
@@ -95,8 +95,11 @@ def test_replay_accepts_only_complete_source_versions(tmp_path, monkeypatch):
     (tmp_path / "b").write_bytes(b"directional")
     channel.sources()
     dark = hashlib.sha256(b"dark").hexdigest()
-    monkeypatch.setattr(channel, "REPLAY_DARK_OBSERVATIONS", {"b": dark})
+    second = hashlib.sha256(b"second evaluation").hexdigest()
+    monkeypatch.setattr(channel, "REPLAY_EVALUATIONS", ({"b": dark}, {"b": second}))
     (tmp_path / "b").write_bytes(b"dark")
+    channel.sources()
+    (tmp_path / "b").write_bytes(b"second evaluation")
     channel.sources()
     (tmp_path / "a").write_bytes(b"gravity")
     with pytest.raises(ValueError):

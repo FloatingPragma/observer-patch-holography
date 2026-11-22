@@ -112,7 +112,7 @@ Sources · [SPEC.md](../candidate_laws/interval_echo/SPEC.md) · [recovering_obs
 | [PATCH-07](EVIDENCE.md#patch-07) Three spatial response components reach neighbouring patches | Demonstrated | Demonstrated | Open |
 | [PATCH-08](EVIDENCE.md#patch-08) Two kinds of material hand agree on the same accepted repair events | Demonstrated | Open | Open |
 | [PATCH-09](EVIDENCE.md#patch-09) Optically ranged reunion on held native links and motion schedules | Demonstrated | Open | Open |
-| [PATCH-10](EVIDENCE.md#patch-10) Excess gravity predicted from retained patch records | **Demonstrated** · [A local record distinguishes fluctuations between retained histories](../experiments/interval_echo_einstein_station/README.md). Full criterion · Partial | Open | Open |
+| [PATCH-10](EVIDENCE.md#patch-10) Excess gravity predicted from retained patch records | **Demonstrated** · [Two writes under one retained history measure its charge variance](../experiments/interval_echo_einstein_station/README.md). Full criterion · Partial | Open | Open |
 
 ## OpenWave empirical criteria
 

@@ -673,16 +673,18 @@
           "results": {
             "interval_echo": {
               "status": "partial",
-              "note": "On two prepared histories with identical untagged collar states, the patch measures a between-history charge amplitude of 0.09156 ± 0.00037 nats using its local tag and word registers. A separate tagged interferometer gives 0.09086 ± 0.00091 nats. The unconditional variance of the word score is identical in both sources. A responsive common metric, physical cut count, variance in mass units and held orbital and shear predictions from that source require further evidence. Galaxy-level force and shear comparisons use astrophysically fitted scales.",
+              "note": "On two prepared histories with identical untagged collar states, the patch measures a between-history charge amplitude of 0.09156 ± 0.00037 nats using its local tag and word registers. A separate tagged interferometer gives 0.09086 ± 0.00091 nats. The unconditional variance of the word score is identical in both sources. A responsive common metric, physical cut count, variance in mass units and held orbital and shear predictions from that source require further evidence. Galaxy-level force and shear comparisons use astrophysically fitted scales. The full tag-and-word midpoint identity excludes a one-preparation mean proportional to the positive fluctuation amplitude on both reversed arms and their mixture. Two independent writes under the same retained tag give a centred product of 0.00851 ± 0.00016 nats² against 0.00838 predicted at full correlation. In the Bullet Cluster the western lensing peak lies 162 kpc outside the allowed region for two gas-centred monotone radial contributions to total convergence. A merger source transport law is missing. A surviving native eigenword correlates two freshly reset probe returns without conditioning the second service on the first outcome. Its covariance is 0.07389 ± 0.00552 versus 2/27 predicted and is consistent with zero for independently replaced words. This is a contact readout. In the same 22 galaxies the outer weak shear exceeds centre predictions from SPARC and stellar masses, and the cross-shear control is large. Matched-radius orbital data and lens-source weights are needed.",
               "evidence": [
                 "model/experiments/interval_echo_einstein_station/README.md",
                 "model/experiments/interval_echo_einstein_station/backreaction.json",
                 "model/experiments/interval_echo_einstein_station/volume.json",
                 "code/cosmology/rar_deep_regime/receipts/held_galaxies.json",
-                "code/cosmology/rar_deep_regime/receipts/lensing_profile.json"
+                "code/cosmology/rar_deep_regime/receipts/lensing_profile.json",
+                "code/cosmology/rar_deep_regime/receipts/bullet_cluster.json",
+                "code/cosmology/rar_deep_regime/receipts/stellar_lensing.json"
               ],
               "demonstrated_measurement": {
-                "label": "A local record distinguishes fluctuations between retained histories",
+                "label": "Two writes under one retained history measure its charge variance",
                 "source": "model/experiments/interval_echo_einstein_station/README.md"
               }
             },

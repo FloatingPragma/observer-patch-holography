@@ -68,10 +68,11 @@ REPLAY_DIRECTIONAL_CHARGE = {
 }
 
 
-# The macroscopic dark-gravity assessment and official state criterion change evaluation metadata.
-REPLAY_DARK_OBSERVATIONS = {
-    "model/candidate_laws/interval_echo/EVALUATION.json": "7a1b0f8fef54157548ac1c40c4e107934b766d5f5994b94791506fd77a245530",
-}
+# Reviewed evaluation-only updates share the same complete law and instrument manifest.
+REPLAY_EVALUATIONS = (
+    {"model/candidate_laws/interval_echo/EVALUATION.json": "7a1b0f8fef54157548ac1c40c4e107934b766d5f5994b94791506fd77a245530"},
+    {"model/candidate_laws/interval_echo/EVALUATION.json": "41c5457f88cc152a719a8678a783838c00d6255b62fd9cfbed3379aedb61683c"},
+)
 
 
 def require(ok, message):
@@ -90,8 +91,9 @@ def sources():
     nested = gravity | REPLAY_NESTED_CAP
     joint = nested | REPLAY_JOINT_READ
     directional = joint | REPLAY_DIRECTIONAL_CHARGE
-    if actual in (frozen, reviewed, radial, regional, standard, gravity, nested, joint, directional,
-                  directional | REPLAY_DARK_OBSERVATIONS):
+    if actual in (frozen, reviewed, radial, regional, standard, gravity, nested, joint, directional):
+        return
+    if any(actual == (directional | update) for update in REPLAY_EVALUATIONS):
         return
     mismatches = [name for name, expected in reviewed.items() if actual.get(name) != expected]
     raise ValueError(f"unverified replay source: {', '.join(mismatches)}")

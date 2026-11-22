@@ -1,0 +1,424 @@
+{
+  "primary_paper": "https://doi.org/10.1086/589327",
+  "catalogue": "https://vizier.cfa.harvard.edu/viz-bin/asu-tsv?-source=J%2FApJ%2F682%2F964&-out.all&-out.max=unlimited",
+  "outer_shear_same_22_lenses": {
+    "sources": [
+      "https://doi.org/10.1086/519237",
+      "https://doi.org/10.1088/0004-637X/705/2/1099"
+    ],
+    "source_pdf_sha256": {
+      "Gavazzi published": "9d2fbe8b2a5ea0de7734113d1645222c2ff43b3122cf84cb5033cc32cd05012e",
+      "astro-ph/0701589v2": "562896a54435d24f1beae72266b593ba899e2fbcf4de400a87dbe486da9c4a12",
+      "0911.2471": "31f2d6b38c8143a9d8216a0cdfda3ca95e7f5536d3f784f479f47c01228e1668"
+    },
+    "spectra_and_stellar_population_table_sha256": "d4ef6db30aba6a4482c1652971bd5e29ba6f7feaf0091f519cfbad603c2d21be",
+    "a0_m_s2": 8.750402247718735e-11,
+    "outer_centre_floor_physical_kpc": 154.7905,
+    "selection": "All 22 lenses from Gavazzi Table 1, their unchanged radial shear stack in Table 2 and their exact SDSS matches in Auger Table 4. Use bin centres beyond 10 times the largest measured effective radius and g_bar < 0.1*a_lo even for the largest Salpeter + 1 quoted log-mass-error. a_lo is the lower SPARC scale interval endpoint.",
+    "channels": "Compact stellar baryons plus frozen SPARC square-root exterior, Chabrier and Salpeter stellar population models. A third control extends the measured central stellar field flat to the outer stack. All use zero slip, linear shear and complete uniform sky coverage at representative radii. Actual shape weights, per-lens fields of view, pair radii, perturbers and extended gas are unavailable here.",
+    "bound": "Separate feasibility bound for compact stars plus anomaly. Give each galaxy up to its Salpeter + 1 quoted error stellar mass and the SPARC upper interval scale. Allow any positive lens weights and radii in the ordered disjoint bin. Use the previous centre as a lower radius and D_ls/D_s <= 1 to bound reduced shear. The tighter upper bound assumes each lens's shape-weighted mean source efficiency in this bin equals its Table 1 value. The wider bound allows arbitrary positive source weights and any efficiency in [0,1]. These parameter ranges describe sensitivities.",
+    "bins_in_h_Msun_pc2": [
+      {
+        "centre_hinv_kpc": 164.5,
+        "tangential": 52.0,
+        "cross": 52.0,
+        "quoted_error": 17.0,
+        "chabrier": 21.2101,
+        "salpeter": 29.0778,
+        "inner_speed_extended_flat": 51.5056,
+        "ordered_bin_mass_box_bound": null
+      },
+      {
+        "centre_hinv_kpc": 287.5,
+        "tangential": 60.0,
+        "cross": 34.0,
+        "quoted_error": 17.0,
+        "chabrier": 11.6024,
+        "salpeter": 15.6988,
+        "inner_speed_extended_flat": 29.4702,
+        "ordered_bin_mass_box_bound": {
+          "per_lens_bin_mean_efficiency_calibrated": {
+            "bounding_lens": "J0216-0813",
+            "upper_esd": 58.0166,
+            "measured_minus_upper_in_quoted_shear_errors": 0.1167
+          },
+          "only_source_efficiency_at_most_one": {
+            "bounding_lens": "J0903+4116",
+            "upper_esd": 96.4176,
+            "measured_minus_upper_in_quoted_shear_errors": -2.1422
+          }
+        }
+      }
+    ],
+    "centre_conditional_chisq": {
+      "chabrier": 11.3853,
+      "salpeter": 8.6091,
+      "inner_speed_extended_flat": 3.226
+    },
+    "cross_zero_chisq": 13.3564
+  },
+  "sha256_scientific_fields_sorted": {
+    "4": "597131ad3336f5e363ff6812953862b4fd4274ea453437e6a3b7580ef0fc6c43",
+    "5": "f2db13ad32978d9d0ea25167ee0999a4ef4192e3d03cc7e4ea0925136cb85e7b"
+  },
+  "selection": "All Table 5 modeled A-grade lenses with good SDSS dispersion and a Table 4 single early-type galaxy with measured effective radius, dispersion and error. No selection on residuals.",
+  "inputs": "Flat Omega_m=0.3, Omega_Lambda=0.7. SDSS fibre radius 1.5 arcsec, survey median seeing FWHM 1.4 arcsec. Condition on a spherical isothermal total field, zero slip and isotropic spherical de Vaucouleurs starlight with each galaxy's measured intermediate-axis half-light radius. The spectral prediction precedes comparison with the arcs. The SLACS target selection itself favours strong lenses.",
+  "error_scope": "Independent quoted SDSS speed error and first-order propagation of the survey 2% Einstein-angle and 3.5% light-radius empirical errors. Shared photometric covariance, sight-line structure, anisotropy, rotation, individual seeing, profile variation and selection scatter are unmodeled. Conditional scores have no intrinsic-scatter fit or population significance assigned.",
+  "sie_einstein_radius_range_kpc": [
+    1.1432,
+    6.9168
+  ],
+  "primary_isothermal_ellipsoid_imaging": {
+    "galaxies": 53,
+    "predicted_to_measured_angle_median": 1.100586,
+    "median_absolute_fractional_angle_error": 0.161378,
+    "conditional_chisq": 163.20087,
+    "within_two_assigned_errors": 39,
+    "worst_object": "J0737+3216",
+    "worst_signed_speed_residual_in_assigned_errors": 4.07884
+  },
+  "same_arcs_light_traces_mass_imaging": {
+    "galaxies": 53,
+    "predicted_to_measured_angle_median": 1.140288,
+    "median_absolute_fractional_angle_error": 0.16844,
+    "conditional_chisq": 186.27472,
+    "within_two_assigned_errors": 39,
+    "worst_object": "J0737+3216",
+    "worst_signed_speed_residual_in_assigned_errors": 4.31554
+  },
+  "inverse_square_starlight_control": {
+    "galaxies": 53,
+    "predicted_to_measured_angle_median": 0.916293,
+    "median_absolute_fractional_angle_error": 0.123613,
+    "conditional_chisq": 169.97394,
+    "within_two_assigned_errors": 40,
+    "worst_object": "J0252+0039",
+    "worst_signed_speed_residual_in_assigned_errors": -5.76453
+  },
+  "object_columns": [
+    "name",
+    "predicted_angle_arcsec",
+    "SIE_measured_arcsec",
+    "LTM_measured_arcsec"
+  ],
+  "objects": [
+    [
+      "J0029-0055",
+      1.30541,
+      0.96,
+      0.95
+    ],
+    [
+      "J0037-0942",
+      1.79006,
+      1.53,
+      1.52
+    ],
+    [
+      "J0044+0113",
+      0.92993,
+      0.79,
+      0.76
+    ],
+    [
+      "J0109+1500",
+      0.93766,
+      0.69,
+      0.68
+    ],
+    [
+      "J0216-0813",
+      1.27668,
+      1.16,
+      1.15
+    ],
+    [
+      "J0252+0039",
+      0.64807,
+      1.04,
+      1.03
+    ],
+    [
+      "J0330-0020",
+      1.00911,
+      1.1,
+      1.04
+    ],
+    [
+      "J0405-0455",
+      0.83622,
+      0.8,
+      0.79
+    ],
+    [
+      "J0728+3835",
+      1.08571,
+      1.25,
+      1.25
+    ],
+    [
+      "J0737+3216",
+      1.59323,
+      1.0,
+      0.97
+    ],
+    [
+      "J0822+2652",
+      1.33202,
+      1.17,
+      1.14
+    ],
+    [
+      "J0912+0029",
+      1.6695,
+      1.63,
+      1.62
+    ],
+    [
+      "J0935-0003",
+      1.19967,
+      0.87,
+      0.81
+    ],
+    [
+      "J0936+0913",
+      1.33933,
+      1.09,
+      1.09
+    ],
+    [
+      "J0946+1006",
+      1.44221,
+      1.38,
+      1.39
+    ],
+    [
+      "J0956+5100",
+      1.79343,
+      1.33,
+      1.3
+    ],
+    [
+      "J0959+4416",
+      1.0974,
+      0.96,
+      0.96
+    ],
+    [
+      "J0959+0410",
+      1.0526,
+      0.99,
+      1.01
+    ],
+    [
+      "J1016+3859",
+      1.31708,
+      1.09,
+      1.06
+    ],
+    [
+      "J1020+1122",
+      1.3042,
+      1.2,
+      1.21
+    ],
+    [
+      "J1023+4230",
+      1.44392,
+      1.41,
+      1.4
+    ],
+    [
+      "J1029+0420",
+      1.29242,
+      1.01,
+      1.1
+    ],
+    [
+      "J1106+5228",
+      1.84897,
+      1.23,
+      1.23
+    ],
+    [
+      "J1112+0826",
+      1.95552,
+      1.49,
+      1.37
+    ],
+    [
+      "J1134+6027",
+      1.31725,
+      1.1,
+      0.88
+    ],
+    [
+      "J1142+1001",
+      0.91676,
+      0.98,
+      0.92
+    ],
+    [
+      "J1143-0144",
+      1.68585,
+      1.68,
+      1.66
+    ],
+    [
+      "J1153+4612",
+      1.43626,
+      1.05,
+      1.05
+    ],
+    [
+      "J1204+0358",
+      1.83846,
+      1.31,
+      1.27
+    ],
+    [
+      "J1205+4910",
+      1.42431,
+      1.22,
+      1.2
+    ],
+    [
+      "J1213+6708",
+      2.25449,
+      1.42,
+      1.38
+    ],
+    [
+      "J1218+0830",
+      1.27079,
+      1.45,
+      1.44
+    ],
+    [
+      "J1250+0523",
+      1.50622,
+      1.13,
+      1.11
+    ],
+    [
+      "J1402+6321",
+      1.33596,
+      1.35,
+      1.36
+    ],
+    [
+      "J1403+0006",
+      0.94644,
+      0.83,
+      0.83
+    ],
+    [
+      "J1416+5136",
+      1.21963,
+      1.37,
+      1.36
+    ],
+    [
+      "J1420+6019",
+      1.29088,
+      1.04,
+      1.07
+    ],
+    [
+      "J1430+4105",
+      1.67284,
+      1.52,
+      1.46
+    ],
+    [
+      "J1436-0000",
+      1.04536,
+      1.12,
+      1.08
+    ],
+    [
+      "J1443+0304",
+      1.08969,
+      0.81,
+      0.78
+    ],
+    [
+      "J1451-0239",
+      1.26813,
+      1.04,
+      1.03
+    ],
+    [
+      "J1525+3327",
+      1.07466,
+      1.31,
+      1.3
+    ],
+    [
+      "J1531-0105",
+      2.02855,
+      1.71,
+      1.71
+    ],
+    [
+      "J1538+5817",
+      0.91151,
+      1.0,
+      0.99
+    ],
+    [
+      "J1621+3931",
+      1.08698,
+      1.29,
+      1.29
+    ],
+    [
+      "J1627-0053",
+      1.70348,
+      1.23,
+      1.22
+    ],
+    [
+      "J1630+4520",
+      1.73153,
+      1.78,
+      1.78
+    ],
+    [
+      "J1636+4707",
+      1.19324,
+      1.09,
+      1.08
+    ],
+    [
+      "J2238-0754",
+      1.06505,
+      1.27,
+      1.28
+    ],
+    [
+      "J2300+0022",
+      1.32686,
+      1.24,
+      1.21
+    ],
+    [
+      "J2303+1422",
+      1.4742,
+      1.62,
+      1.6
+    ],
+    [
+      "J2321-0939",
+      1.69635,
+      1.6,
+      1.6
+    ],
+    [
+      "J2341+0000",
+      1.06023,
+      1.44,
+      1.47
+    ]
+  ]
+}

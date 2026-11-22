@@ -1067,6 +1067,264 @@ def sample_material_radar(source, hand_yes, legs, joint, shots, seed):
     )
 
 
+def occupied_source_radar():
+    """Let a travelling unit range past two written contacts sharing a parked load."""
+    board = federation(0)
+    baseline, _, hand_yes, source = radar_source_and_hand(board)
+    a, b, c = source["source_ports"]
+    hand = tuple(source["hand_seam"])
+    archived = json.loads(Path(__file__).with_name("backreaction.json").read_text())
+    tag_record = archived["correlated_contacts"]["tagged_fluctuations"]
+    tag = tuple(tag_record["native_tag_seam"])
+    fixed = {b, *tag}
+    marks = {(a, b), (b, c), hand}
+    idle = [e for e in board.seams if fixed.intersection(e) and e not in marks]
+    law = candidate.native_law
+    words = [law.SRC.index(w) for w in ((0, 0), (1, 0), (0, 1), (1, 1))]
+    full = sum(
+        f * m for f, m in zip((1, candidate.KAPPA), law.local_term_parts(), strict=True)
+    )
+    blank = full[np.ix_(words[1:3], words[1:3])]
+    for edge in idle:
+        baseline[np.ix_(edge, edge)] -= blank
+    free = sorted(set(range(board.n)) - fixed)
+    np.testing.assert_allclose(baseline[np.ix_(free, sorted(fixed))], 0, atol=1e-14)
+    gaps = np.array(source["source_word_energies"])
+    for gap, record in zip(gaps, (label(0, 1), label(2, 1), label(2, -1)), strict=True):
+        lifts = np.kron(record[:, None], np.eye(law.N_SRC)[:, words])
+        np.testing.assert_allclose(
+            full @ lifts, lifts * [gap, gap, gap, 0], rtol=0, atol=3e-13
+        )
+    (bridge,) = [e for e in board.external if e[0] < 12 and e not in idle]
+    remote = bridge[1]
+    sites = [
+        4,
+        7,
+        8,
+        remote,
+        *sorted(p for p in board.neighbours[remote] if p // 12 == remote // 12)[:2],
+    ]
+    protected = {a, b, c, *hand, *tag}
+    spares = [
+        min(
+            (p, q)
+            for p in board.neighbours[hand[0]]
+            for q in board.neighbours[hand[1]]
+            if p != q
+            and not {p, q}.intersection(protected | {origin})
+            and max(p, q) < 12
+        )
+        for origin in sites
+    ]
+    pairs = [(i, j) for i in range(len(sites)) for j in range(i + 1, len(sites))]
+    mixtures = np.array(source["source_units"]).reshape(3, 9) / 36
+    np.testing.assert_array_equal(
+        2 * np.array(source["source_units"])[1],
+        np.array(source["source_units"])[[0, 2]].sum(axis=0),
+    )
+
+    def trip(energy_a, energy_c):
+        h = baseline.copy()
+        h[a, a] -= energy_a
+        h[c, c] -= energy_c
+        unitary = radar._unitary(h, radar.DT)
+        legs = radar.first_hit(unitary, sites, radar.TICKS)
+        # Independent renewal amplitudes check complete hits and both timeouts.
+        np.testing.assert_allclose(
+            legs,
+            radar.renewal_prediction(unitary, sites, radar.TICKS),
+            rtol=0,
+            atol=6e-13,
+        )
+        return radar.round_trip_law(legs)
+
+    by_word = np.array([trip(x, y) for x in gaps for y in gaps])
+    occupied = np.einsum("sw,wijab->sijab", mixtures, by_word)
+    # The source word persists through outward transit, reflection and reunion.
+    np.testing.assert_allclose(
+        (occupied[0] + occupied[2]) / 2, occupied[1], rtol=0, atol=5e-15
+    )
+    joint_laws = [by_word[0], occupied[1], occupied[0], occupied[2]]
+    names = [
+        "vacant_reference",
+        "occupied_reference",
+        "occupied_minus",
+        "occupied_plus",
+    ]
+    shots, seed, alpha = 2**36, 2026112240, 0.01
+    rng = np.random.default_rng(seed)
+    n = np.arange(2, 2 * radar.TICKS + 1)
+    bins = np.add.outer(np.arange(radar.TICKS), np.arange(radar.TICKS)).ravel()
+    # Simultaneous uncertainty over four cohorts, 46 hand means and 15 distances each.
+    log_factor = np.log(2 * len(names) * (2 * len(n) + len(pairs)) / alpha)
+    lattice_error = (2 + 2 * len(n)) / radar.LATTICE
+    archive = []
+    for name, joint in zip(names, joint_laws, strict=True):
+        hand_counts = np.zeros((2, len(n), 2), dtype=np.int64)
+        conditional_bias_sum = np.zeros((2, len(n)))
+        retained = np.zeros((len(pairs), len(n)), dtype=np.int64)
+        totals = np.zeros((len(pairs), 2, 2, 3), dtype=np.int64)
+        success_floor = np.ones(len(pairs))
+        digest = hashlib.sha256()
+        for k, (i, j) in enumerate(pairs):
+            for direction, (start, end) in enumerate(((i, j), (j, i))):
+                p = joint[start, end]
+                ok = np.bincount(bins, weights=p[:-1, :-1].ravel(), minlength=len(n))
+                success_floor[k] = min(success_floor[k], ok.sum())
+                for axis, yes in enumerate(hand_yes):
+                    probabilities = np.r_[
+                        p[-1, -1], p[:-1, -1].sum(), ok * yes, ok * (1 - yes)
+                    ]
+                    weights = radar.acquisition_weights(probabilities)
+                    counts = rng.multinomial(shots, weights / radar.LATTICE)
+                    digest.update(counts.astype("<i8").tobytes())
+                    read = counts[2:].reshape(2, len(n)).T
+                    hand_counts[axis] += read
+                    duration_counts = read.sum(axis=1)
+                    retained[k] += duration_counts
+                    rounded = weights[2:].reshape(2, len(n))
+                    rounded_yes = rounded[0] / np.maximum(1, rounded.sum(axis=0))
+                    conditional_bias_sum[axis] += duration_counts * abs(
+                        rounded_yes - yes
+                    )
+                    totals[k, direction, axis] = [*counts[:2], read.sum()]
+        np.testing.assert_array_equal(totals.sum(axis=-1), shots)
+        exposure = hand_counts.sum(axis=-1)
+        xy = 2 * hand_counts[:, :, 0] / exposure - 1
+        phase = np.unwrap(np.arctan2(xy[1], xy[0]))
+        # Given all realized bin counts, the retained hand bits are independent.
+        # Weight each rounded conditional bias by its realized sample population
+        # to keep the joint confidence guarantee even on extremely rare paths.
+        xy_error = (
+            np.sqrt(2 * log_factor / exposure) + 2 * conditional_bias_sum / exposure
+        )
+        disk_radius = np.linalg.norm(xy_error, axis=0)
+        if np.any(disk_radius >= 1):
+            raise ValueError("Insufficient independent clock reads in a retained bin")
+        phase_bound = np.arcsin(disk_radius)
+        if abs(phase[0]) + phase_bound[0] >= np.pi or np.any(
+            abs(np.diff(phase)) + phase_bound[1:] + phase_bound[:-1] >= np.pi
+        ):
+            raise ValueError("The material clock does not identify its winding")
+        populations = retained.sum(axis=1)
+        frac = retained / np.maximum(1, populations)[:, None]
+        half_time = frac @ phase / (2 * source["hand_gap"])
+        width = (radar.TICKS - 1) * radar.DT
+        # Sparse dyads can have no returns, and a quantity smaller than the
+        # acquisition grid cannot bound a sampled conditional time nontrivially.
+        round_bias = width * np.minimum(
+            1, lattice_error / np.maximum(success_floor - lattice_error, lattice_error)
+        )
+        radius = (
+            width * np.sqrt(log_factor / (2 * np.maximum(1, populations)))
+            + round_bias
+            + frac @ phase_bound / (2 * source["hand_gap"])
+        )
+        exact, _ = radar.distance_statistics(joint, radar.DT)
+        ideal = np.array([exact[i, j] for i, j in pairs])
+
+        def retained_values(values):
+            return [
+                float(v) if k > 0 else None
+                for v, k in zip(values, populations, strict=True)
+            ]
+
+        archive.append(
+            dict(
+                name=name,
+                ideal_distance=ideal.tolist(),
+                material_hand_distance=retained_values(half_time),
+                simultaneous_radius=retained_values(radius),
+                min_max_return_probability=[min(success_floor), max(success_floor)],
+                hand_counts_by_axis_and_duration=hand_counts.tolist(),
+                returned_by_pair_duration=retained.tolist(),
+                all_terminal_counts=totals.tolist(),
+                acquisition_sha256=digest.hexdigest(),
+            )
+        )
+
+    # A fresh measurement after inspecting the first counts: repeat the outbound
+    # detector comparison on all 30 directions. Each +/- pair comprises two
+    # independent complete released preparations. Given m discordances, under
+    # equality their signs are independent fair bits, regardless of the common
+    # arrival rate. The conditional two-sided tail bound includes all quiet trials.
+    repeat_shots, repeat_seed = 2**39, 2026112241
+    repeat_rng = np.random.default_rng(repeat_seed)
+    replications = []
+    for i, j in pairs:
+        for start, end in ((i, j), (j, i)):
+            minus, plus = [
+                float(1 - arm[start, end, -1, -1]) for arm in occupied[[0, 2]]
+            ]
+            qm, qp = np.rint(np.array([minus, plus]) * radar.LATTICE) / radar.LATTICE
+            thresholds = np.array(
+                [(1 - qm) * qp, qm * (1 - qp), (1 - qm) * (1 - qp), qm * qp]
+            )
+            # Round each arm separately before multiplying independent probabilities.
+            # Equal native rates round identically; the contrast bias is <= 1/LATTICE.
+            counts = repeat_rng.multinomial(repeat_shots, thresholds)
+            discord = int(counts[0] + counts[1])
+            difference = int(counts[0] - counts[1])
+            bound = min(1.0, 2 * np.exp(-(difference**2) / (2 * max(discord, 1))))
+            replications.append(
+                dict(
+                    origin=sites[start],
+                    target=sites[end],
+                    ordered_counts=counts.tolist(),
+                    native_difference=plus - minus,
+                    sampled_difference=difference / repeat_shots,
+                    equal_rates_p_upper=float(bound),
+                    rejects_equal_rates=bool(bound < alpha / 30),
+                )
+            )
+    return dict(
+        cells=board.n // 12,
+        ports=board.n,
+        source_ports=[a, b, c],
+        shared_ordinary_port=b,
+        protected_tag_seam=tag,
+        hand_seam=hand,
+        spares_by_origin=spares,
+        remaining_bridge=bridge,
+        sites=sites,
+        dyads=[[sites[i], sites[j]] for i, j in pairs],
+        idle_blank_seams=idle,
+        source_units=source["source_units"],
+        signed_log_score_shifts_nats=[-np.log(3) / 12, 0, np.log(3) / 12],
+        clock_gap=source["hand_gap"],
+        dt=radar.DT,
+        attempts_per_leg=radar.TICKS,
+        shots_per_direction_and_quadrature=shots,
+        seed=seed,
+        simultaneous_failure_probability=alpha,
+        terminal_counts_axes=[
+            "dyad",
+            "direction",
+            "clock quadrature",
+            "outbound timeout / return timeout / both hits",
+        ],
+        acquisitions=archive,
+        largest_tag_blind_record_difference=float(
+            abs((occupied[0] + occupied[2]) / 2 - occupied[1]).max()
+        ),
+        independent_outward_replication=dict(
+            paired_enrollments_per_direction=repeat_shots,
+            seed=repeat_seed,
+            family_false_positive_bound=alpha,
+            directional_tests=30,
+            maximum_contrast_rounding_bias=1 / radar.LATTICE,
+            categories=[
+                "only plus arrived",
+                "only minus arrived",
+                "both timed out",
+                "both arrived",
+            ],
+            directions=replications,
+        ),
+        method="Full first-detection law per persistent ordered word. In the occupied arms the native two-load columns subtract the gap at each contact. Terminal material-hand winding uses only retained attempt ordering. Tag is a protected spectator during all flight.",
+    )
+
+
 def run():
     modes, readers, certificate = native_modes()
     screens = census(modes)
@@ -1129,6 +1387,7 @@ def run():
         entering_probe=crossing_probe(modes, home),
         joint_clock=joint_clock_experiment(readers, home, clock),
         radar_geometry=radar_geometry(),
+        occupied_source_radar=occupied_source_radar(),
     )
 
 
