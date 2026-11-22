@@ -1,0 +1,28 @@
+{
+  "parent": "fringe_protocol.json",
+  "member": "native marked rail-zero ordinary head-on capture, unchanged age cycle",
+  "sizes": [
+    32768,
+    65536,
+    131072
+  ],
+  "time_ratios": [
+    0.5,
+    1,
+    2
+  ],
+  "phases": [
+    "0",
+    "pi/2",
+    "pi",
+    "3pi/2"
+  ],
+  "shots_per_site": 1048576,
+  "seed": 5243326,
+  "alpha": 0.01,
+  "quadrature_nodes": [
+    65536,
+    131072
+  ],
+  "gate": "At each size test both time doublings using the full four-phase local click, miss and refusal records and one simultaneous 99% budget. A single undamped cosine frequency requires C(2t)=2C(t)^2-1. Count a rejection only if the lower confidence bound on the excess is positive. Compare the native finite curves to the gradient of the exact period dispersion, integrated on the two declared midpoint grids. Report convergence or disagreement, including the coarser sizes. Require absolute difference below 0.04 at the finest size to classify numerical weak-limit agreement and below 0.003 between quadrature grids. These tolerances do not certify quadrature error."
+}

@@ -53,6 +53,14 @@ python -m pytest -q model                      # every test
 The last column names the row of the [observation ledger](../docs/registers/OBSERVATION_LEDGER_V3.md). Each result
 is a statement about one construction, with everything its makers supplied listed beside it. Interval Echo shares the reference candidate’s seam operator and adds a patch clock. The scalar channel acts on a different state space. Each candidate has its own premise evaluation.
 
+On the 20-cell Interval Echo federation, a patch in cell zero records whether
+two initially separated loads reach the same seam and whether they return
+after free release. Conditional on a positive first reading, 17 bookings
+give simultaneous 99% lower bounds of eight positive gap frequencies and
+36.72% of the prepared state's weight outside any two energy levels. A
+single particle species can occupy many such levels.
+[Public return records and all-size operator bound](experiments/interval_echo_encounter/README.md#how-many-frequencies-can-one-patch-measure)
+
 ## Supplied, and open
 
 Supplied by the makers of the construction, and listed with every result: the couplings `κ` of the main candidate

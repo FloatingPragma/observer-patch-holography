@@ -1,0 +1,33 @@
+{
+  "parent": "fringe_protocol.json",
+  "source": "Supplied coherent age-zero matched rail-zero grating and fair enrollment, same four phase settings and same receiver. Axial strip with one private position, all apertures and original starts. Retain the exact age period 8192 in every member.",
+  "periods_per_side": [
+    4,
+    16,
+    64,
+    256,
+    1024,
+    4096
+  ],
+  "proper_clock_fractions": [
+    0.25,
+    0.5,
+    1
+  ],
+  "boosts": [
+    0,
+    1
+  ],
+  "laws": [
+    "native",
+    "zero_limit",
+    "resonant",
+    "detuned_resonant"
+  ],
+  "couplings": "mu=registered, 1/N, pi/(4L), pi/(4L)+1/N respectively, where L=8192. Only the first is the registered law. The smallest positive degeneracy of the complete age cycle selects the resonance; the dimensionless unit detuning is a control. Use the exact period product without fitting an output.",
+  "shots_per_site": 262144,
+  "seed": 1143810,
+  "alpha": 0.01,
+  "gates": "Resolve at the largest size at least one difference between the registered and resonant control from local counts. Check every finite forecast against all bins at 99% simultaneous confidence. For all finest-size panels check the measured coherent complex contrast against the precomputed frozen or Klein-Gordon limit with component allowance 0.02 plus its sampling interval. Compare the emergent cone slope with the free optical coefficient one half. Keep every failure and all smaller sizes.",
+  "limits": "The native and zero-limit families predict a frozen macroscopic grating. The smallest resonance predicts the massless bright wave. A 1/N detuning gives a finite dimensionless mass one in the effective first-order system. The finite velocity is the off-diagonal first derivative of the full-period unitary divided by L."
+}

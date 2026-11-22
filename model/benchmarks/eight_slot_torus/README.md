@@ -37,6 +37,11 @@ repository. `python -m model.benchmarks.eight_slot_torus run continuum --size 48
 | Matter · A pair formed in an encounter | Two constituents meet head-on, the capture forms a pair and sends a marker up the junction's wire, and the pair opens its hop and travels on. |
 | Matter · The matter-wave relation | Resting and moving matter packets coloured by phase, and the frequencies of fourteen directions at three periods against $\omega^2 = m^2 + c^2\vert k\vert^2$. |
 
+The [single-aperture grating measurements](formed_clocks/README.md#fringes-after-a-marked-birth)
+compare a normally formed pair, a coherently loaded pair, and a free scalar
+at an optical clock. The outgoing marker determines which phase comparisons
+are available to the material detector.
+
 ## Ranging with six local ports
 
 A station launches one constituent in its local equal-slot state. Five

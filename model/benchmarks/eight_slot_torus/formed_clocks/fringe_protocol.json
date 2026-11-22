@@ -1,0 +1,71 @@
+{
+  "base": "0ebb9ba9d6280fec258a7d65e2966c13352dfa8d",
+  "construction": "eight_slot_torus/torus",
+  "rail": 0,
+  "strip_sizes": [
+    32,
+    64,
+    128,
+    256,
+    512,
+    1024,
+    2048,
+    4096
+  ],
+  "cube_sizes": [
+    4,
+    8,
+    16,
+    32
+  ],
+  "strip_orders": [
+    [
+      0,
+      0,
+      1
+    ]
+  ],
+  "cube_orders": [
+    [
+      1,
+      0,
+      0
+    ],
+    [
+      1,
+      1,
+      1
+    ]
+  ],
+  "boosts": [
+    0,
+    1
+  ],
+  "phases": [
+    "0",
+    "pi/2",
+    "pi",
+    "3pi/2"
+  ],
+  "menus": [
+    "written",
+    "coherent",
+    "vertex_off"
+  ],
+  "windows": [
+    "ballistic",
+    "diffusive",
+    "diffusive_double"
+  ],
+  "schedule": "Measured in native optical returns on a separate equipped channel (one return per two services). After the birth appointment book n=N, or n=N^2/32, or n=N^2/16 mature-plus-opening services from age 0. Round to closest even service, ties up. Select no service using a measured mass. The counter starts at the natal vertex. Include every age wrap and use a wire longer than each run.",
+  "shots_per_volume": 1048576,
+  "seed": 386237,
+  "alpha": 0.01,
+  "source": "Prepare a superposition of translated sharp inward two-constituent approaches. Their natal weights have amplitudes exp(i b k.x) (1+exp(i(k.x+phase)))/sqrt(2V). Read the first write against refusal; the material reader has no which-site wire eraser. Coherent control supplies that same age-zero matched pair and a fair enrollment flag. Vertex-off retains the incidence, preparations and detector.",
+  "outcomes": [
+    "first_write_or_enrolled_and_local",
+    "first_write_or_enrolled_and_away",
+    "refused"
+  ],
+  "gates": "Report every planned panel. Check all primitive bin frequencies against the exact finite forecasts at simultaneous 99%. Test boost invariance for written births and resolve a coherent boost effect on at least one preregistered diffusive strip panel from the two largest sizes, with simultaneous intervals. Quantify ballistic freezing and compare both diffusive windows against the true periodic small-momentum coefficient. Include a one-opening extrapolation as a forecast control. A failed or unresolved separation remains visible. All sums are per original start."
+}
