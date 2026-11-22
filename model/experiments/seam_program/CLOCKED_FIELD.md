@@ -84,6 +84,39 @@ The free pair supplies a different experiment under the existing law. Release th
 
 Removing the contrast interaction changes the four-port correlation on both boards. The released pair and the programmed scalar use different preparations. To establish an interacting conformal field intrinsic to the chart, observers need local field insertions in one common vacuum whose connected responses survive refinement and satisfy conformal covariance. [Full-sector evolution and record analysis](local_correlations.py) · [Interacting four-dimensional comparison](../../benchmarks/conformal_correlator/README.md)
 
+### Do two excitations of the same scalar interact?
+
+Keep the marker isolated and launch two equal-slot, private-order-zero packets on different stations of the same 20-cell instrument. The third load is the stationary marker. The data calculation conditions on the two normalized packets. It does not measure a three-load emitter yield. After each of the twelve periods the readout resolves the unordered pair of occupied spatial stations. Two mobile loads can occupy one station on different slots. A marker query routed to a nominated mobile port reads its occupation, and undoing the swaps restores the configuration on each branch. The final commuting occupation queries give the stated joint readout. Outside-chart and clock-alarm outcomes remain on the denominator. [Experiment and inputs](two_scalar_protocol.json) · [Full pair-sector propagation](two_scalar.py)
+
+On a binary seam the native exchange generator is $(I-\mathrm{SWAP})/2$. Writing $b_a$ for the hard-core lowering operator, this equals $(n_a+n_b-b_a^\dagger b_b-b_b^\dagger b_a)/2-n_an_b$. At the enrolled quarter and full pulse durations the additional native contrast at $\kappa=8$ has the same unitary as zero contrast on all four binary configurations. For the contact control add $+n_an_b$ during the quarter pulse. This changes only the phase of a doubly occupied seam. Every singleton pulse, hard-core constraint, full routing swap, preparation and clock is identical. A second comparison evolves two symmetrized, unrestricted bosons by the measured one-excitation word. It retains double occupations and uses one common stopping clock.
+
+| Launch | Clock reading | Total variation from contact control | Total variation from free bosons |
+| --- | ---: | ---: | ---: |
+| Adjacent stations | 1 | 0.005578 | 0.007982 |
+| Adjacent stations | 2 | 0.013147 | 0.020713 |
+| Adjacent stations | 3 | 0.013609 | 0.022083 |
+| Opposite stations | 1 | 0.001825 | 0.002359 |
+| Opposite stations | 2 | 0.005706 | 0.007622 |
+| Opposite stations | 3 | 0.007768 | 0.010319 |
+
+These are differences of complete simulated population distributions conditional on launch. The three arms agree through one period for both launches. The contact control first differs at period two for adjacent launches and period three for opposite launches. The observed finite interaction comes from the exchange pulse acting on two occupied slots. [All period and clock probabilities](two_scalar.json)
+
+**Refinement bound.** Let the chart be a periodic cube with $N^3$ spatial stations, mesh and period duration $h=1/N$. Let each particle's spatial momentum lie in a set of $M$ modes independent of $N$. The coin and the conditional shift preserve this band in the free one-particle word. Private orders and coin polarizations can be retained as internal indices. Denote the symmetrized free two-particle step by $F$ and the physical two-mobile step by $V$ on the hard-core sector. Embed both in the two-boson space. Extend the hard-core coin unitarily on the double-slot complement within each address, then apply the common slot permutation. This extension preserves the physical hard-core evolution.
+
+For particles at distinct logical addresses every pulse in a coin block acts on at most one mobile load, and the routes are exact conjugations by full swaps. Thus $V=F$ on inputs at distinct spatial stations for one period. If $P$ tests coincident spatial stations, then $\|(V-F)\psi\|\le2\|P\psi\|$. For any normalized band-limited two-particle state, point evaluation in the first coordinate at a specified site has squared norm at most $M/N^3$ by Cauchy–Schwarz in its unitary Fourier transform. Evaluate that coordinate at the second particle's site and sum over all second sites and internal indices. This proves $\|P F^j\psi\|\le\sqrt{M/N^3}$, also for entangled packet inputs in the stated band. Telescoping gives
+
+$$
+\|V^n\psi-F^n\psi\|\le 2n\sqrt{M/N^3}.
+$$
+
+To start in the normalized hard-core projection of $\psi$, add at most $\sqrt{2M/N^3}$ to this norm bound whenever that projection has nonzero norm. The discarded double-slot probability is at most $M/N^3$. At bounded physical time $n/N$ the total norm and any resulting detector's probability difference tend to zero at least as fast as $N^{-1/2}$. For an independent stopped clock, averaging the bound uses its mean period count, also of order $N$ at bounded physical time. Sharp station launches in the table have bandwidth growing with refinement. The bound applies to every unitary change confined to a common logical address per period, however strong its contact phase.
+
+A continuum interacting theory could use a collective field in a many-load critical state, or a dynamical field that carries an interaction between separated stations. Both require an instrument identifying local field insertions and their state on the same refining chart. A decisive observable is a connected four-point function divided by two measured two-point functions at fixed separated physical configurations, compared with the matched free-field and free-composite predictions. A reproducible nonzero limit and conformal identities are distinct requirements. An exactly dimension-one scalar primary in a unitary four-dimensional conformal field theory saturates the unitarity bound and generates a free scalar sector. [Scalar unitarity bound and null descendant](https://arxiv.org/html/1602.07982#S7.SS3.SSS1)
+
+~~~sh
+OPENBLAS_NUM_THREADS=1 python -m model.experiments.seam_program.two_scalar --output /tmp/echo-two-scalar.json
+~~~
+
 ### A free quantum field on the programmed chart
 
 Canonical oscillator quantization of the positive-frequency branch at private order zero supplies a Gaussian vacuum. Fix the spatial average to zero on each periodic box of side $\ell$. For time separation $\tau>0$ its two-point function is $\ell^{-3}\sum_{k\ne0}\cos(k\cdot x)e^{-\tau\omega_h(k)}/(2\omega_h(k))$, with $\omega_h(k)=E(hk,0)/h$ from the compiled word. In the infinite-volume, zero-mesh limit it is
