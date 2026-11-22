@@ -1,5 +1,7 @@
 # Interval Echo filing packets
 
+The [proposed M10.4 task](M10_4_TASK.txt) contains the exact upstream Markdown for a one-load stability test on the Interval Echo law, including the known outcomes and the gates for an externally selected confirmation. Its relative links use the proposed OpenWave task directory. The [held verifier](../row_04_compact/gateway_confirmation.py) checks these bytes against the first official registration before deriving the settings. M10's owner decides whether to nominate this state and release the registration. The historical pair and its platform decision are listed below.
+
 | Row | Scientific decision | Filing state |
 | --- | --- | --- |
 | 4 · Particle stability | A prepared adjacent pair persists in free evolution. The portable contact instrument selects κ = 8 under its deployment and rate assumptions. | **OpenWave ⚠️ Partial. Full-credit resubmission HOLD** on the adopted pin. Independent evidence fixing the portable standard and its rate on that pin is open. [Resubmission assessment](../../../../../openwave/interval_echo/row_04/CHECKLIST.md) · [Official decision](https://github.com/openwave-labs/openwave/pull/745#pullrequestreview-6005365373) |

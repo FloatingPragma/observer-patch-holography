@@ -10,6 +10,14 @@ from . import gateway_confirmation as held
 from .gateway_release import ARMS, verify
 
 
+def test_owner_can_reproduce_the_exact_registration_bytes():
+    task = held.HERE.parent/"submission"/"M10_4_TASK.txt"
+    proposed = task.read_bytes().replace(b"\r\n", b"\n")
+    assert sha256(proposed).hexdigest() == held.TASK_SHA256
+    assert held.PREREG_SHA256.encode() in proposed
+    assert sha256(held.PROTOCOL.read_bytes().replace(b"\r\n", b"\n")).hexdigest() == held.PREREG_SHA256
+
+
 def test_offline_first_parent_registration_selects_only_the_earliest_copy(tmp_path, monkeypatch):
     def git(*args):
         return subprocess.run(["git", "-C", str(tmp_path), *args], check=True,
