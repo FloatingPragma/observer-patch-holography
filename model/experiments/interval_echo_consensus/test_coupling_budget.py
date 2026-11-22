@@ -37,15 +37,22 @@ def test_tail_and_held_counts():
     assert tail["lower_bound"] > .94
     assert tail["launch_lower"] > .945
     counts = json.loads(Path(__file__).with_name("persistence_counts.json").read_text())
+    from hashlib import sha256
+    repeat = counts.pop("portable_v1")
+    # Preserve each original observation from the submitted acquisition.
+    original_bytes = json.dumps(counts, sort_keys=True, separators=(",", ":")).encode("ascii")
+    assert sha256(original_bytes).hexdigest() == "8218b7b21e9ae99b967d2e374f4b3a8f002c5723f7cdd14d48e37793da58ab9a"
     replay = persistence_forecast.run()
     assert set(counts) == set(replay)
     for arm, rows in counts.items():
-        assert replay[arm]["counts"] == rows
         decision = persistence_forecast.infer_floor(rows[:2], rows[2:4], rows[4])
-        assert decision["resolved"] == (arm in ("installed", "reversed", "other_alias"))
-        assert replay[arm]["forecast"]["resolved"] == decision["resolved"]
+        assert replay[arm]["counts"] == rows and replay[arm]["forecast"] == decision
+        repeated = replay[arm]["portable_v1"]
+        assert repeated["counts"] == repeat["counts"][arm]
+        assert decision["resolved"] == repeated["forecast"]["resolved"] == (arm in ("installed", "reversed", "other_alias"))
         if decision["resolved"]:
             assert decision["home_probability_lower"] > .94036
+            assert repeated["forecast"]["home_probability_lower"] > .94036
 
 
 def test_inference_rejects_broken_acquisitions():

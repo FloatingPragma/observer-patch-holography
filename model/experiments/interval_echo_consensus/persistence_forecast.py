@@ -1,12 +1,13 @@
 """Predict the registered two-load home probability from independent one-load samples."""
 import json
+from pathlib import Path
 from math import asin, cos, expm1, hypot, log, pi, sin, sqrt
 
 import numpy as np
 
 from model.candidate_laws.interval_echo import candidate
 from .alias_window import REGISTERED_FLOOR
-from .coupling_budget import native_triangle, sampling_weights, triangle_forecast, SAMPLER_ERROR, SHOTS
+from .coupling_budget import native_triangle, portable_counts, triangle_forecast, SAMPLER_ERROR, SHOTS
 
 
 def infer_floor(quarter, irrational, full):
@@ -64,34 +65,45 @@ def infer_floor(quarter, irrational, full):
                 home_probability_lower=1-min(1., leakage)**2)
 
 
-def acquire(hamiltonian):
-    readings = []
-    weights = []
-    for t, seeds in ((pi/4, (74504, 74505)), (pi/(4*sqrt(2)), (74506, 74507)), (2*pi, (74508,))):
-        distributions = native_triangle(hamiltonian, t)
-        for row, seed in enumerate(seeds):
-            prob = sampling_weights(distributions[row])
-            readings.append(np.random.default_rng(seed).multinomial(SHOTS, prob).tolist())
-            weights.append(prob.tolist())
+def acquire(hamiltonian, cuts, stream):
+    """Validate the registered dyadic instrument against the native pulse and draw anew."""
+    if len(cuts) != 5:
+        raise ValueError("Expected five registered two-cut menus")
+    readings, weights = [], []
+    for t, count in ((pi/4, 2), (pi/(4*sqrt(2)), 2), (2*pi, 1)):
+        for actual in native_triangle(hamiltonian, t)[:count]:
+            menu = len(readings)
+            bounds = cuts[menu]
+            p = np.diff([0, *bounds, 2**36]) / 2**36
+            np.testing.assert_allclose(p, actual, rtol=0, atol=SAMPLER_ERROR)
+            weights.append(p.tolist())
+            readings.append(portable_counts(bounds, stream, menu))
     return dict(counts=readings, sampling_probabilities=weights,
                 forecast=infer_floor(readings[:2], readings[2:4], readings[4]))
 
 
 def run():
-    # Only acquisition receives the physical Hamiltonian. The inference has no
-    # parameter slot, pair dataset, model-labelled outcome, or trial-level truth.
+    archive = json.loads(Path(__file__).with_name("persistence_counts.json").read_text())
+    repeat = archive.pop("portable_v1")
+    materials = (("installed", candidate.KAPPA, True), ("other_alias", 16, True),
+                 ("reversed", -8, True), ("removed", 0, False),
+                 ("half_alias", 4, False), ("detuned", 8.25, False))
+    if repeat["materials_in_seed_order"] != [m[0] for m in materials] or repeat["draws_per_menu"] != SHOTS:
+        raise ValueError("Portable acquisition setting mismatch")
     exchange, contrast = candidate.native_law.local_term_parts()
     result = {}
-    for name, k, resolved in (("installed", candidate.KAPPA, True), ("other_alias", 16, True),
-                              ("reversed", -8, True), ("removed", 0, False),
-                              ("half_alias", 4, False), ("detuned", 8.25, False)):
-        acquired = acquire(exchange + k*contrast)
+    for stream, (name, k, resolved) in enumerate(materials):
+        acquired = acquire(exchange + k*contrast, repeat["cumulative_integer_cuts"][name], stream)
         independent = np.vstack([triangle_forecast(k, pi/4), triangle_forecast(k, pi/(4*sqrt(2))),
                                  triangle_forecast(k, 2*pi)[:1]])
         np.testing.assert_allclose(acquired["sampling_probabilities"], independent, rtol=0, atol=SAMPLER_ERROR)
-        if acquired["forecast"]["resolved"] != resolved:
+        original = archive[name]
+        original_forecast = infer_floor(original[:2], original[2:4], original[4])
+        if any(outcome["resolved"] != resolved for outcome in (original_forecast, acquired["forecast"])):
             raise ArithmeticError(f"Unexpected experimental decision for {name}")
-        result[name] = acquired
+        result[name] = dict(counts=original, forecast=original_forecast,
+                            sampling_probabilities=acquired["sampling_probabilities"],
+                            portable_v1=dict(counts=acquired["counts"], forecast=acquired["forecast"]))
     return result
 
 

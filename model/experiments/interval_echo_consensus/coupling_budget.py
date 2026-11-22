@@ -31,6 +31,21 @@ def sampling_weights(prob):
     return weights
 
 
+def portable_counts(cuts, arm, menu):
+    """PCG64 high-36-bit categorical sampler, version 1; no floating point draws."""
+    scale = 2**36
+    if (len(cuts) != 2 or any(type(v) is not int for v in cuts)
+            or not 0 <= cuts[0] <= cuts[1] <= scale):
+        raise ValueError("Invalid three-port integer cumulative cuts")
+    rng = np.random.PCG64([20261123, arm, menu])
+    first = below_second = 0
+    for start in range(0, SHOTS, 2**18):
+        ranks = rng.random_raw(min(2**18, SHOTS - start)) >> np.uint64(28)
+        first += int(np.count_nonzero(ranks < cuts[0]))
+        below_second += int(np.count_nonzero(ranks < cuts[1]))
+    return [first, below_second - first, SHOTS - below_second]
+
+
 def native_triangle(hamiltonian, duration):
     """Two terminal measurements, each on a fresh sharp input at the first port."""
     law = candidate.native_law
