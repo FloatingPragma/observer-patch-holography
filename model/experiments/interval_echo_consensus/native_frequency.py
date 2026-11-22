@@ -83,6 +83,49 @@ def coherent_check(exchange, contrast, cost):
     return results
 
 
+def echo_reference():
+    """Two ordinary free exposures with a stationary reference in the same load sector."""
+    law = candidate.native_law
+    seeds = np.eye(law.DIM)[:, [law.SRC.index(word) for word in WORDS]]
+    reference = law.echo() @ seeds
+    exchange, contrast = law.local_term_parts()
+    np.testing.assert_allclose(exchange@reference, 0, atol=3e-15, rtol=0)
+    np.testing.assert_allclose(contrast@reference, 0, atol=3e-15, rtol=0)
+    np.testing.assert_allclose(seeds.T@reference, 0, atol=3e-15, rtol=0)
+    inputs = (seeds+reference)/np.sqrt(2.)
+    exposures = (1/3, np.sqrt(2)/3)
+    data = {}
+    for k in (*HISTORICAL, *ADDITIONAL, 264., "pair-only"):
+        strength = candidate.KAPPA if k == "pair-only" else k
+        h = exchange+strength*contrast
+        if k == "pair-only":
+            h = h+16*np.outer(seeds[:,3],seeds[:,3])
+        rows = []
+        for t in exposures:
+            final = expm(-1j*t*h)@inputs
+            # Each read has two interfering output rays and the full orthogonal complement.
+            reads = []
+            for phase in (1, 1j):
+                ports = []
+                for sign in (1,-1):
+                    detector = (seeds+sign*phase*reference)/np.sqrt(2.)
+                    ports.append(abs(np.sum(detector.conj()*final, axis=0))**2)
+                other = final.copy()
+                for sign in (1,-1):
+                    detector = (seeds+sign*phase*reference)/np.sqrt(2.)
+                    other -= detector*np.sum(detector.conj()*final, axis=0)
+                probabilities = np.array([*ports, (abs(other)**2).sum(axis=0)])
+                np.testing.assert_allclose(probabilities.sum(axis=0), 1., atol=2e-13, rtol=0)
+                reads.append(probabilities)
+            amplitude = reads[0][0]-reads[0][1] - 1j*(reads[1][0]-reads[1][1])
+            one = np.exp(-1j*t*strength)*(1+np.exp(-1j*t))/2
+            expected = [1.,one,one,np.exp(-16j*t) if k=="pair-only" else 1.]
+            np.testing.assert_allclose(amplitude, expected, atol=2e-13, rtol=0)
+            rows.append(np.array(reads).tolist())
+        data[str(k)] = rows
+    return dict(exposures=list(exposures), words=WORDS, reference="native echo of each sharp input", outcomes=data)
+
+
 def compare():
     board = cell()
     edge = board.seams[0]
@@ -125,8 +168,14 @@ def compare():
 
 if __name__ == "__main__":
     p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument("--raw", choices=(*map(str,HISTORICAL), *map(str,ADDITIONAL), "pair-only"), help="print all 4 × 256 probabilities")
+    modes = p.add_mutually_exclusive_group()
+    modes.add_argument("--echo-reference", action="store_true", help="ordinary free exposures, both quadratures and quiet")
+    modes.add_argument("--raw", choices=(*map(str,HISTORICAL), *map(str,ADDITIONAL), "pair-only"), help="print all 4 × 256 probabilities")
     args = p.parse_args()
-    result = (panel(args.raw, *candidate.native_law.local_term_parts()).tolist()
-              if args.raw is not None else compare())
+    if args.echo_reference:
+        result = echo_reference()
+    elif args.raw is not None:
+        result = panel(args.raw, *candidate.native_law.local_term_parts()).tolist()
+    else:
+        result = compare()
     print(json.dumps(result, allow_nan=False))

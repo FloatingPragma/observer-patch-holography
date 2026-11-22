@@ -102,6 +102,16 @@ def test_receipt_rejects_lost_outcomes_and_nonfinite_numbers():
         record_release.source("missing")
 
 
+def test_unswitched_echo_reference_rejects_clock_alias_and_hidden_pair_only_term():
+    data = record_receipt.native_frequency.echo_reference()["outcomes"]
+    good, alias, hidden = (np.array(data[k]) for k in ("8.0","264.0","pair-only"))
+    assert good.shape == (2,2,3,4)
+    np.testing.assert_allclose(good.sum(axis=2), 1., atol=2e-13, rtol=0)
+    assert np.max(abs(good[:,:,:,1]-alias[:,:,:,1])) > .25
+    np.testing.assert_allclose(good[:,:,:,:3], hidden[:,:,:,:3], atol=2e-13, rtol=0)
+    assert np.max(abs(good[:,:,:,3]-hidden[:,:,:,3])) > .25
+
+
 def test_held_launch_predicts_all_bins_and_distinguishes_assembled():
     saved = json.loads(record_receipt.RECEIPT.read_text())
     for actual, row in zip((registered_forecast.compare(a) for a in record_receipt.ARMS[:3]),
