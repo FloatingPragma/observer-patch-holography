@@ -670,14 +670,19 @@
           "results": {
             "interval_echo": {
               "status": "partial",
-              "note": "A four-cell reader has a compiled regional modular meter. On the same two-gateway pair used for the energy-continuity test, the exact charge of an equal-mixture reference calibrated at port 0 predicts −0.01170 energy units at port 9. Its independently metered central energy gives +0.09979. Linear tomography at 262,144 preparations per setting did not resolve a physical modular generator. A geometrically normalized cap and weighted directional stress remain open.",
+              "note": "Six charge variations on a prepared 79-state cap agreed with an independent weighted seam-energy meter to 0.00000951 exchange units. With fresh simulated counts the held port-9 difference was +0.01377 ± 0.02042 units. The cap weights, coherent filters and reference were supplied. The isolated seam standard also fails the three-port Gibbs overlap test. Geometric normalization and one directional matter stress across caps remain open.",
               "evidence": [
                 "model/candidate_laws/interval_echo/prior_calibration.json",
                 "model/candidate_laws/interval_echo/currents.json",
                 "model/experiments/interval_echo_einstein_station/PAIR.md",
                 "model/experiments/interval_echo_einstein_station/pair.json",
-                "model/experiments/interval_echo_null_balance/README.md"
-              ]
+                "model/experiments/interval_echo_null_balance/README.md",
+                "model/experiments/interval_echo_einstein_station/cap.json"
+              ],
+              "demonstrated_measurement": {
+                "label": "A prepared cap measures a propagating pair’s weighted energy",
+                "source": "model/experiments/interval_echo_einstein_station/PAIR.md"
+              }
             },
             "contrast_memory_spherical_v1": {
               "status": "open",
@@ -711,15 +716,20 @@
           "results": {
             "interval_echo": {
               "status": "partial",
-              "note": "Assigning each complete cell its internal and reference energy and half its external seam energy gives an exact additive scalar Ward identity for any union of complete cells on the freely evolving federation. Internal currents cancel. Across 12 comparisons (three regions, two preparations and two exposures) on the intact 20-cell screen the largest discrepancy between the instantaneous energy slope and the cut currents is 2.7×10⁻⁸ in native units. Removing a cut current leaves a discrepancy up to 1.56. A separate three-cell finite-count test gave 0.0017 ± 0.0084 and a 20.5-standard-error omitted-gateway control. Momentum flux and covariant spacetime stress on the G1 domain remain open.",
+              "note": "The freely evolving sphere obeys exact additive patch energy continuity. Twelve scalar tests agree to 2.7×10⁻⁸ native units. Independently sampled one-load circulation changes at the measured rate, with a nonzero residual between the owners of a shared gateway. No nonzero time-reversal-odd occupation current supported on single native seams commutes with the full one-load generator in the certified family. A low-energy covariant stress and its connection remain open.",
               "evidence": [
                 "model/candidate_laws/interval_echo/CURRENTS.md",
                 "model/experiments/interval_echo_null_balance/README.md",
                 "model/experiments/interval_echo_null_balance/interval.json",
                 "model/experiments/interval_echo_null_balance/results.json",
                 "model/experiments/interval_echo_null_balance/regional.py",
-                "model/experiments/interval_echo_null_balance/regional.json"
-              ]
+                "model/experiments/interval_echo_null_balance/regional.json",
+                "model/experiments/interval_echo_null_balance/directional.json"
+              ],
+              "demonstrated_measurement": {
+                "label": "Patch energy continuity and the change in a seam current",
+                "source": "model/experiments/interval_echo_null_balance/README.md"
+              }
             },
             "contrast_memory_spherical_v1": {
               "status": "open",
@@ -754,12 +764,18 @@
           "results": {
             "interval_echo": {
               "status": "partial",
-              "note": "Four local instruments resolve a regional first-law variation and its number-sector entropy split. Varying the launch mixture changes regional entropy with slope −0.690 ± 0.008 nats (one standard error) while the complete instantaneous cut state is constant. No area functional of those cut registers alone cancels that variation. The physical vacuum, geometric area, fixed proper volume and small-ball stationarity remain open.",
+              "note": "The regional first law and number-sector split have finite measurements. For an interior swap mixed into the same prepared cap as G2, the entropy slope is +0.0000344891 nats per unit mixture. The complete instantaneous gateway state and every total-load probability stay fixed. The commuting control has zero slope. A physical area that responds, a measured fixed proper volume and vacuum stationarity on shrinking regions remain open.",
               "evidence": [
                 "model/candidate_laws/interval_echo/projection.json",
                 "model/experiments/interval_echo_einstein_station/README.md",
-                "model/experiments/interval_echo_einstein_station/results.json"
-              ]
+                "model/experiments/interval_echo_einstein_station/results.json",
+                "model/experiments/interval_echo_einstein_station/PAIR.md",
+                "model/experiments/interval_echo_einstein_station/cap.json"
+              ],
+              "demonstrated_measurement": {
+                "label": "Interior repair changes entropy at a fixed boundary readout",
+                "source": "model/experiments/interval_echo_einstein_station/PAIR.md"
+              }
             },
             "contrast_memory_spherical_v1": {
               "status": "open",
@@ -833,16 +849,21 @@
           "results": {
             "interval_echo": {
               "status": "open",
-              "note": "The same-source response of distinct matter preparations to geometry and one common Newton constant have not been measured.",
+              "note": "A prepared antisymmetric memory coin can carry energy 0, 32 or 33 while generating identical endpoint-load dynamics at every occupation. The free load probes cannot read that energy, on any screen size. A symmetric coin at 32 or 33 has a two-load contact response. The two outcomes constrain which excitations and probes a universal-gravity test must include. Varying a retained patch history gives signed changes in a measured logarithmic recovery remainder while its matter-probe marginal stays fixed. Its complete recovery switches the remainder off. Physical identification with the anomalous boost charge, a common vacuum, observable curvature response and shared Newton constant remain open.",
               "evidence": [
-                "model/candidate_laws/interval_echo/RESULTS.json"
+                "model/candidate_laws/interval_echo/RESULTS.json",
+                "model/experiments/interval_echo_einstein_station/README.md",
+                "model/experiments/interval_echo_einstein_station/backreaction.json",
+                "model/experiments/material_inertia/dark_collar.json"
               ]
             },
             "contrast_memory_spherical_v1": {
               "status": "open",
-              "note": "The tested bindings and load sectors have no calibrated geometry response across matter species.",
+              "note": "The same native seam generator admits an antisymmetric memory coin whose energies 0, 32 and 33 produce identical endpoint-load records. A common vacuum, responding geometry and physical gravitational calibration remain open.",
               "evidence": [
-                "model/candidate_laws/contrast_memory_spherical_v1/PROOF.md"
+                "model/candidate_laws/contrast_memory_spherical_v1/PROOF.md",
+                "model/experiments/interval_echo_einstein_station/README.md",
+                "model/experiments/interval_echo_einstein_station/backreaction.json"
               ]
             },
             "scalar_channel": {

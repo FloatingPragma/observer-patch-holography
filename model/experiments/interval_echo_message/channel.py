@@ -42,6 +42,13 @@ REPLAY_MODULAR_STANDARD = {
 }
 
 
+# Reviewed premise and evidence metadata for the regional gravitational and dark-sector instruments.
+REPLAY_GRAVITY_CAP = {
+    "model/candidate_laws/interval_echo/candidate.py": "c69c10a59f40c5e71f20854d0fec80faa5a3be16cf4f9232adae884dadb0b59e",
+    "model/candidate_laws/interval_echo/EVALUATION.json": "c2817432c2218a97220d56d107f8c81748178f5c5eb8788de665ec291e46920f"
+}
+
+
 def require(ok, message):
     if not ok:
         raise ValueError(message)
@@ -53,7 +60,8 @@ def sources():
     reviewed = frozen | REPLAY_UPDATES
     radial = reviewed | REPLAY_70E58E24
     regional = radial | REPLAY_REGIONAL_CONSENSUS
-    if actual in (frozen, reviewed, radial, regional, regional | REPLAY_MODULAR_STANDARD):
+    standard = regional | REPLAY_MODULAR_STANDARD
+    if actual in (frozen, reviewed, radial, regional, standard, standard | REPLAY_GRAVITY_CAP):
         return
     mismatches = [name for name, expected in reviewed.items() if actual.get(name) != expected]
     raise ValueError(f"unverified replay source: {', '.join(mismatches)}")

@@ -68,9 +68,9 @@ Sources · [recovering_observer_spacetime_and_einstein_dynamics_from_overlap_con
 | Requirement | Interval Echo | Contrast memory | Scalar channel |
 | --- | --- | --- | --- |
 | [G1](EVIDENCE.md#g1) Lorentzian event and geometry domain | Partial | Partial | Open |
-| [G2](EVIDENCE.md#g2) Cap modular charges measure the propagating matter stress | Partial | Open | Open |
-| [G3](EVIDENCE.md#g3) Independent matter Ward identity | Partial | Open | Open |
-| [G4](EVIDENCE.md#g4) Stationary generalized entropy at fixed proper volume | Partial | Open | Open |
+| [G2](EVIDENCE.md#g2) Cap modular charges measure the propagating matter stress | **Demonstrated** · [A prepared cap measures a propagating pair’s weighted energy](../experiments/interval_echo_einstein_station/PAIR.md). Full criterion · Partial | Open | Open |
+| [G3](EVIDENCE.md#g3) Independent matter Ward identity | **Demonstrated** · [Patch energy continuity and the change in a seam current](../experiments/interval_echo_null_balance/README.md). Full criterion · Partial | Open | Open |
+| [G4](EVIDENCE.md#g4) Stationary generalized entropy at fixed proper volume | **Demonstrated** · [Interior repair changes entropy at a fixed boundary readout](../experiments/interval_echo_einstein_station/PAIR.md). Full criterion · Partial | Open | Open |
 | [G5](EVIDENCE.md#g5) Small-ball control and sufficient null directions | Partial | Open | Open |
 | [G6](EVIDENCE.md#g6) Universal coupling and a shared positive Newton constant | Open | Open | Open |
 | [GR-NULL](EVIDENCE.md#gr-null) Null balance and tensor closure | Open | Open | Open |
@@ -152,7 +152,7 @@ Sources · [MODELS.md L94-L137](https://github.com/openwave-labs/openwave/blob/7
 | [OW-16](EVIDENCE.md#ow-16) Deuteron (binding + quadrupole) (static) | Open | Open | Open |
 | [OW-17](EVIDENCE.md#ow-17) Nuclear structure (levels, halos) (both) | Open | Open | Open |
 | [OW-18](EVIDENCE.md#ow-18) Mesons (π, K) (static) | Open | Open | Open |
-| [OW-19](EVIDENCE.md#ow-19) Dark matter candidate (static) | Partial | Partial | Open |
+| [OW-19](EVIDENCE.md#ow-19) Dark matter candidate (static) | **Demonstrated** · [Binding and local motion of a load-neutral pair](../experiments/material_inertia/README.md). Full criterion · Partial | **Demonstrated** · [Binding and local motion of a load-neutral pair](../experiments/material_inertia/README.md). Full criterion · Partial | Open |
 
 ### FORCES
 

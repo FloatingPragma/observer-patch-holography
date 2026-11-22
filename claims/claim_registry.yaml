@@ -1075,7 +1075,8 @@
         "code/quantum_information/entropy_response.py",
         "code/quantum_information/test_entropy_response.py",
         "code/quantum_information/test_entropy_response_audit.py",
-        "code/geometry/ENTROPY_FIRST_LAW_AUDIT.md"
+        "code/geometry/ENTROPY_FIRST_LAW_AUDIT.md",
+        "model/experiments/interval_echo_einstein_station/cap.json"
       ],
       "falsifier": "An explicit direct-sum block state violates the entropy split, the finite relative-entropy balance fails, a non-scalar generator mismatch has zero all-tangent defect, a wrong relative central normalization passes all sector transfers, or the analytic slope fails for a resolved nonconstant Gibbs family. The native regional extension fails if the counted filter family loses normalization or faithfulness, the complete tensor restriction or Shannon/bulk/edge split fails, the noncommuting remainder bound fails, or the exact occupation-fixed filter has zero bulk slope. The fair-source attachment fails if its exact all-sector entropy split, central modular action, same-support logarithm bound or complete native E contrast countercontrol fails.",
       "scope_if_false": "The entropy bridge and its generalized-entropy interface support fail.",
@@ -3294,7 +3295,8 @@
         "Lean/Dynamics/WardLimitManifest.lean",
         "Lean/docs/B5_WARD_BRIDGE.md",
         "model/experiments/interval_echo_null_balance/regional.py",
-        "model/experiments/interval_echo_null_balance/regional.json"
+        "model/experiments/interval_echo_null_balance/regional.json",
+        "model/experiments/interval_echo_null_balance/directional.json"
       ],
       "falsifier": "The finite claim fails if the regional sign identity, closed-graph conservation, neutral-load solvability equivalence, nineteen-dimensional cycle ambiguity, push-pull duality, fixed-charge equivalence, or two-state covariance counterexample fails. The promotion theorem fails if finite-residual vanishing and convergence do not imply zero limiting residual. The physical promotion fails if the residual is not derived from finite continuity and identified with distributional divergence on separating tests, or if concrete source, transport, chart, and common-tower evidence is absent.",
       "scope_if_false": "The B5 finite conservation bridge or its promotion boundary falls. The underlying seam-image theorem, thermodynamic data-processing package, and conditional Einstein tensor-completion implication are separately assessable.",
@@ -4002,7 +4004,11 @@
         "code/cosmology/rar_deep_regime/matched_observable_diagnostic.py",
         "code/cosmology/rar_deep_regime/runtime/matched_observable_receipt.json",
         "code/cosmology/rar_deep_regime/joint_likelihood/joint_rar_likelihood.py",
-        "code/cosmology/rar_deep_regime/joint_likelihood/runtime/joint_likelihood_fixed_frame_receipt.json"
+        "code/cosmology/rar_deep_regime/joint_likelihood/runtime/joint_likelihood_fixed_frame_receipt.json",
+        "model/experiments/material_inertia/dark_collar.json",
+        "model/experiments/interval_echo_einstein_station/backreaction.json",
+        "code/cosmology/rar_deep_regime/receipts/held_galaxies.json",
+        "code/cosmology/rar_deep_regime/receipts/lensing_profile.json"
       ],
       "falsifier": "A certified singularity-aware and tail-controlled replay can reject a specified fixed-input field law if its quadrupole prediction is excluded under the matching observable; the current local replay lacks that certificate. The full-RAR calibration falls if its source pins, exact cut census, unit conversion, deterministic fit, weighting-sensitivity rows, or non-evidence gates fail, but it cannot accept or reject a source value. The matched and penalized-objective seen-data diagnostics are not frozen physical exclusions. After the stress law, source value, covariance, intrinsic scatter, nuisance treatment, and comparison protocol are prospectively fixed, exclusion by the declared joint galaxy, cluster, CMB, BAO, lensing, and growth likelihood retires the corresponding continuation.",
       "scope_if_false": "The dark-sector continuation falls; the recovered relativity and Standard Model core survive, and the generic-dark-sector theorems survive as statements about whichever non-luminous charge exists.",
@@ -12092,7 +12098,7 @@
         }
       ],
       "matrix_summary": {
-        "oph_specific_delta": "Support-visible modular cap extraction, conditional boundary-aware collar recovery (or exact central-interface specialization), remainders, observer-overlap directions",
+        "oph_specific_delta": "Support-visible modular cap extraction, conditional boundary-aware collar recovery (or exact central-interface specialization), remainders, observer-overlap directions. On a prepared Interval Echo cap, six scalar modular variations agree with an independent weighted energy meter within 0.00000951 native units. Neighboring internal Gibbs states fail the isolated-seam restriction test. Geometric cap normalization and universal coupling remain open.",
         "falsifier": "No support-visible modular limit, failed collar rate/remainder, or failed tensor upgrade"
       }
     },
@@ -12396,7 +12402,7 @@
         }
       ],
       "matrix_summary": {
-        "oph_specific_delta": "The dropped-edge-term and changing-stress-channel defects are repaired exactly, with machine-verified split identities and normalization countermodels The growing fair canonical source supplies an exact all-sector entropy attachment and exposes the failure of a direct modular-clock/static-cut identification.",
+        "oph_specific_delta": "The dropped-edge-term and changing-stress-channel defects are repaired exactly, with machine-verified split identities and normalization countermodels The growing fair canonical source supplies an exact all-sector entropy attachment and exposes the failure of a direct modular-clock/static-cut identification. An interior exchange of the prepared Interval Echo cap gives a positive regional entropy slope while preserving its entire instantaneous cut marginal and all number-sector weights. Physical area and fixed proper volume remain independent premises.",
         "falsifier": "Exact split violated or multiplier identity fails"
       }
     },
@@ -14003,7 +14009,7 @@
         }
       ],
       "matrix_summary": {
-        "oph_specific_delta": "Connects the source-selected twelve-port seam incidence to exact regional and Gauss statements, supplies a covariance-without-conservation counterexample, and routes continuum promotion through a guarded manifest with shrinking scale, separating tests, and a finite residual whose zero continuum limit is derived while its physical meaning is separate. For the native free federation the shared-contact split yields an exact additive regional scalar energy with patch-readable boundary currents in the binary two-load sector",
+        "oph_specific_delta": "Connects the source-selected twelve-port seam incidence to exact regional and Gauss statements, supplies a covariance-without-conservation counterexample, and routes continuum promotion through a guarded manifest with shrinking scale, separating tests, and a finite residual whose zero continuum limit is derived while its physical meaning is separate. For the native free federation the shared-contact split yields an exact additive regional scalar energy with patch-readable boundary currents in the binary two-load sector. An exact full-sector commutator bound excludes every nonzero one-load time-reversal-odd occupation current supported on native edges as a conserved generator on the tested federations. Independent patch reads resolve a torque. A continuum stress tensor requires further evidence.",
         "falsifier": "A finite identity or counterexample fails, the finite-residual limit theorem fails, or a continuum Ward claim bypasses the guarded manifest and its concrete physical evidence"
       }
     },
@@ -14518,7 +14524,7 @@
         }
       ],
       "matrix_summary": {
-        "oph_specific_delta": "Record-repair collar stress as the dark gravitational component, with scalar collar CMI retained only as a recovery diagnostic rather than promoted to the source",
+        "oph_specific_delta": "Record-repair collar stress as the dark gravitational component, with scalar collar CMI retained only as a recovery diagnostic rather than promoted to the source. A finite patch reads signed changes in a logarithmic collar-recovery remainder under variations of its retained history. Full recovery switches that term off at fixed stored energy. The conditional deep profile transfers across held galaxies in SPARC. Its simple zero-slip spherical extension underpredicts six of seven primary KiDS-bright shear bins using the frozen rotation scale. Identifying the source requires an independently calibrated response of geometry to this charge.",
         "falsifier": "Once the stress law, source value, covariance, intrinsic scatter, nuisance treatment, and comparison protocol are fixed in advance, exclusion by the declared joint galaxy, cluster, CMB, BAO, lensing, and growth likelihood retires the continuation; a certified replay that excludes the quadrupole prediction of a specified fixed-input field law retires that law"
       }
     },

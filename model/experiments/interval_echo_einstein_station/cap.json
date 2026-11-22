@@ -1,0 +1,1106 @@
+{
+  "pole": 1,
+  "opposite_pole": 2,
+  "serviced_cells": [
+    0,
+    6,
+    4
+  ],
+  "gateways": [
+    [
+      1,
+      82
+    ],
+    [
+      3,
+      48
+    ]
+  ],
+  "seam_weights": [
+    0.9309016994374943,
+    0.7927050983124906,
+    0.7927050983124804,
+    0.5690983005625,
+    0.5690983005625044,
+    0.9309016994374982,
+    0.9309016994374926,
+    0.9309016994374932,
+    0.9309016994374949,
+    0.20729490168751175,
+    0.20729490168751352,
+    0.2072949016875134,
+    0.20729490168750964,
+    0.2072949016875133,
+    0.3454915028125225,
+    0.3454915028125204,
+    0.5690983005625003,
+    0.5690983005625039,
+    0.5690983005625146,
+    0.5690983005625053,
+    0.3454915028125237,
+    0.7927050983124897,
+    0.5690983005625143,
+    0.5690983005624974,
+    0.5690983005624985,
+    0.34549150281251984,
+    0.7927050983124763,
+    0.5690983005624979,
+    0.7927050983124829,
+    0.3454915028125186
+  ],
+  "repair_odds": [
+    0.06250000000000001,
+    0.04419417382415924
+  ],
+  "exchange_beta": 0.3465735902799726,
+  "wedge": {
+    "sector1_and_2": [
+      0.8089986126552445,
+      0.8089986126552445
+    ],
+    "certified_interval": [
+      0.8089986126552,
+      0.8089986126554
+    ],
+    "isolated_ratio": 0.7071067811865476,
+    "empty_and_full_mixed_readings": [
+      0,
+      0
+    ]
+  },
+  "three_port_recovery": {
+    "path": [
+      0,
+      1,
+      8
+    ],
+    "number_of_spectator_fibres": {
+      "1-2": 10,
+      "1-4": 10,
+      "2-4": 10,
+      "3-5": 1,
+      "3-6": 1,
+      "5-6": 1
+    },
+    "recovery": {
+      "eta": 2.0122934041599363e-07,
+      "outside_weight": 2.4192125910047555e-11,
+      "support_cross_norm": 0.0,
+      "positive_floor": 5.784142501164275e-10,
+      "operator_norm": 0.3864278591124708,
+      "relative_entropy": 1.8403668526994023e-09
+    },
+    "classical_recovery": {
+      "eta": 1.8659785607473927e-10,
+      "outside_weight": 2.4192125910047555e-11,
+      "support_cross_norm": 0.0,
+      "positive_floor": 6.55892704149256e-10,
+      "operator_norm": 0.10017374559106429,
+      "relative_entropy": 2.7695169952181835e-11
+    },
+    "independent_vacancy": {
+      "eta": 0.0,
+      "outside_weight": 0.0,
+      "support_cross_norm": 0.0,
+      "positive_floor": 5.919588248521502e-09,
+      "operator_norm": 0.0,
+      "relative_entropy": -0.0
+    },
+    "tangents": [
+      {
+        "port": 0,
+        "time": 1,
+        "signed_nats": -0.0010278259776795627,
+        "dephased_reference_nats": -5.554439808486082e-05,
+        "tangent_trace_norm": 0.108404468441954,
+        "eta_floor_bound_nats": 75.42746285496904
+      },
+      {
+        "port": 0,
+        "time": 4,
+        "signed_nats": 0.00031575020166217655,
+        "dephased_reference_nats": 6.042064108085152e-06,
+        "tangent_trace_norm": 0.0819585562676889,
+        "eta_floor_bound_nats": 57.02648652198458
+      },
+      {
+        "port": 0,
+        "time": 16,
+        "signed_nats": -0.0002693540389720298,
+        "dephased_reference_nats": -2.5239542319830702e-05,
+        "tangent_trace_norm": 0.08376330826940502,
+        "eta_floor_bound_nats": 58.282226866717366
+      },
+      {
+        "port": 9,
+        "time": 1,
+        "signed_nats": -8.963232548549909e-05,
+        "dephased_reference_nats": 3.7226064513977194e-05,
+        "tangent_trace_norm": 0.16073815779215914,
+        "eta_floor_bound_nats": 111.84106707498096
+      },
+      {
+        "port": 9,
+        "time": 4,
+        "signed_nats": 0.00010634611726253231,
+        "dephased_reference_nats": -5.648034556157597e-05,
+        "tangent_trace_norm": 0.15804634071643298,
+        "eta_floor_bound_nats": 109.96810984904866
+      },
+      {
+        "port": 9,
+        "time": 16,
+        "signed_nats": -0.0003528702936755483,
+        "dephased_reference_nats": 9.891155850074708e-05,
+        "tangent_trace_norm": 0.154413256207667,
+        "eta_floor_bound_nats": 107.44022192364785
+      }
+    ],
+    "direct_survey": {
+      "settings": 13,
+      "probability_grid": 8796093022208,
+      "simultaneous_critical_t": 3.0362832228211665,
+      "max_grid_charge_bias_nats": 3.403273334151491e-08,
+      "doses": [
+        {
+          "reference_trials_per_batch_setting": 34359738368,
+          "reference_batches": 16,
+          "accepted_reference_preparations": 7146825580544,
+          "expected_input_preparations": 531532449714484.06,
+          "matter_trials_per_setting": 536870912,
+          "reference_seed": 150751,
+          "matter_seed": 150761,
+          "packed_count_sha256": "db10dfd6f9ccd16ae76cea144055c68360de2fdb767ae1a79c78a8807a7cb7fe",
+          "minimum_batch_floor": 3.0302499092672803e-10,
+          "recovery": {
+            "eta": 2.0379208246232687e-07,
+            "outside_weight": 2.5037791353879375e-11,
+            "support_cross_norm": 0.0,
+            "positive_floor": 5.685436601405891e-10,
+            "operator_norm": 0.37310051695475627,
+            "relative_entropy": 1.8479935864217124e-09
+          },
+          "estimates": [
+            {
+              "port": 0,
+              "time": 1,
+              "signed_nats": -0.0008135990524858478,
+              "pooled_reference_nats": -0.0008111634440087339,
+              "mean_batch_reference_nats": -0.0007391412402159862,
+              "reference_standard_error": 0.0002801653643606168,
+              "matter_standard_error": 5.5893004869267695e-06,
+              "simultaneous_half_width": 0.0008508306613532553
+            },
+            {
+              "port": 0,
+              "time": 4,
+              "signed_nats": 0.00028622743376782223,
+              "pooled_reference_nats": 0.00028391698176911696,
+              "mean_batch_reference_nats": 0.0002944660213310432,
+              "reference_standard_error": 0.0002874650892027558,
+              "matter_standard_error": 5.199554391091292e-06,
+              "simultaneous_half_width": 0.0008729681932028613
+            },
+            {
+              "port": 0,
+              "time": 16,
+              "signed_nats": -8.536361150872108e-05,
+              "pooled_reference_nats": -8.188352070558189e-05,
+              "mean_batch_reference_nats": -7.771236692874417e-05,
+              "reference_standard_error": 0.00017242705688820623,
+              "matter_standard_error": 4.920122800748224e-06,
+              "simultaneous_half_width": 0.0005237504735761066
+            },
+            {
+              "port": 9,
+              "time": 1,
+              "signed_nats": -0.0002292858376575859,
+              "pooled_reference_nats": -0.00023242965209785519,
+              "mean_batch_reference_nats": -0.0002768462895025119,
+              "reference_standard_error": 0.0003063872409819376,
+              "matter_standard_error": 5.59321415837767e-06,
+              "simultaneous_half_width": 0.00093043343827656
+            },
+            {
+              "port": 9,
+              "time": 4,
+              "signed_nats": 0.0005402688642787651,
+              "pooled_reference_nats": 0.0005438270460073387,
+              "mean_batch_reference_nats": 0.0006415479636929585,
+              "reference_standard_error": 0.00037222256818152615,
+              "matter_standard_error": 5.233010087635186e-06,
+              "simultaneous_half_width": 0.00113028482300439
+            },
+            {
+              "port": 9,
+              "time": 16,
+              "signed_nats": -0.0007251983632389257,
+              "pooled_reference_nats": -0.0007229632804834718,
+              "mean_batch_reference_nats": -0.0007685582073991508,
+              "reference_standard_error": 0.00039815206878654984,
+              "matter_standard_error": 4.897329601842968e-06,
+              "simultaneous_half_width": 0.001208993892764298
+            }
+          ]
+        },
+        {
+          "reference_trials_per_batch_setting": 140737488355328,
+          "reference_batches": 16,
+          "accepted_reference_preparations": 29273397577908224,
+          "expected_input_preparations": 2.1771569140305267e+18,
+          "matter_trials_per_setting": 536870912,
+          "reference_seed": 150752,
+          "matter_seed": 150762,
+          "packed_count_sha256": "b803ab556392dfba32d86e2a436a9fb085bb21c72141306315c1051f50766d70",
+          "minimum_batch_floor": 5.746715758794884e-10,
+          "recovery": {
+            "eta": 2.01247553308603e-07,
+            "outside_weight": 2.419658923018081e-11,
+            "support_cross_norm": 0.0,
+            "positive_floor": 5.791758341879873e-10,
+            "operator_norm": 0.38510464050975607,
+            "relative_entropy": 1.839932992758174e-09
+          },
+          "estimates": [
+            {
+              "port": 0,
+              "time": 1,
+              "signed_nats": -0.0010274686582923325,
+              "pooled_reference_nats": -0.0010271078338144625,
+              "mean_batch_reference_nats": -0.0010270841218738087,
+              "reference_standard_error": 2.7131472726239912e-06,
+              "matter_standard_error": 6.093110567925008e-06,
+              "simultaneous_half_width": 2.0251614083276623e-05
+            },
+            {
+              "port": 0,
+              "time": 4,
+              "signed_nats": 0.0003202707890523416,
+              "pooled_reference_nats": 0.0003219242017402775,
+              "mean_batch_reference_nats": 0.0003219162347302786,
+              "reference_standard_error": 3.883485086230304e-06,
+              "matter_standard_error": 5.670007731292943e-06,
+              "simultaneous_half_width": 2.086667704070644e-05
+            },
+            {
+              "port": 0,
+              "time": 16,
+              "signed_nats": -0.0002699092839167366,
+              "pooled_reference_nats": -0.00027389186691804973,
+              "mean_batch_reference_nats": -0.00027388042792374364,
+              "reference_standard_error": 1.9843258951275337e-06,
+              "matter_standard_error": 5.376852620254456e-06,
+              "simultaneous_half_width": 1.7401927823350398e-05
+            },
+            {
+              "port": 9,
+              "time": 1,
+              "signed_nats": -9.31699861843984e-05,
+              "pooled_reference_nats": -9.456168867843704e-05,
+              "mean_batch_reference_nats": -9.45742804404621e-05,
+              "reference_standard_error": 3.820412782782472e-06,
+              "matter_standard_error": 6.097399622958538e-06,
+              "simultaneous_half_width": 2.1847283870557817e-05
+            },
+            {
+              "port": 9,
+              "time": 4,
+              "signed_nats": 9.626496625935176e-05,
+              "pooled_reference_nats": 9.930936617717068e-05,
+              "mean_batch_reference_nats": 9.935888084641228e-05,
+              "reference_standard_error": 4.666857124740575e-06,
+              "matter_standard_error": 5.708129201908127e-06,
+              "simultaneous_half_width": 2.2386756164634308e-05
+            },
+            {
+              "port": 9,
+              "time": 16,
+              "signed_nats": -0.0003424190536454248,
+              "pooled_reference_nats": -0.00034062263343037977,
+              "mean_batch_reference_nats": -0.0003406668510273901,
+              "reference_standard_error": 4.2403217170663555e-06,
+              "matter_standard_error": 5.352591827409966e-06,
+              "simultaneous_half_width": 2.073373915378482e-05
+            }
+          ]
+        }
+      ]
+    },
+    "held_survey": {
+      "fitted_eta": 5.855453041396024e-08,
+      "eta_batch_standard_error": 1.0144226262073401e-07,
+      "batch_reference_nats": [
+        -0.008413689269931078,
+        0.0005915005531982416,
+        0.0014493680469502888,
+        0.004017044805215494,
+        -0.0024913852713556004,
+        -0.00041378884366834916,
+        -0.001381788596234381,
+        -0.0015559870970831154,
+        0.0006087288115955815,
+        0.001685968056252061,
+        0.002375060077563631,
+        -0.0023303572334026044,
+        0.00414927960716819,
+        -0.00802332601597892,
+        -0.005542844783284737,
+        0.00928962809907545
+      ],
+      "pooled_reference_nats": 0.00044398906768869096,
+      "reference_standard_error": 0.0011378729708010785,
+      "reference_and_matter_nats": 0.0004581249864948232,
+      "matter_standard_error": 4.263766386847676e-05,
+      "combined_standard_error": 0.0011386715365107856,
+      "shots_per_matter_setting": 16777216
+    }
+  },
+  "fixed_cut_entropy": {
+    "gateway_ports": [
+      1,
+      3,
+      10
+    ],
+    "reference_entropy_nats": 0.2854027075603527,
+    "steps": [
+      0.001953125,
+      0.000244140625
+    ],
+    "trials": [
+      {
+        "edge": [
+          0,
+          1
+        ],
+        "tag": "exchange",
+        "slope_nats": 0.00010839237834631167,
+        "relative_entropy_nats": 0.0001083923783463045,
+        "finite_entropy_slopes": [
+          0.00010664426699236174,
+          0.00010813216908900358
+        ],
+        "sector_changes": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "gateway_trace_distance": 7.271138579758244e-05
+      },
+      {
+        "edge": [
+          0,
+          5
+        ],
+        "tag": "exchange",
+        "slope_nats": 3.448905413546989e-05,
+        "relative_entropy_nats": 3.448905413555234e-05,
+        "finite_entropy_slopes": [
+          3.4350962891949166e-05,
+          3.447156632319093e-05
+        ],
+        "sector_changes": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "gateway_trace_distance": 2.168404344971009e-19
+      },
+      {
+        "edge": null,
+        "tag": "load_phase",
+        "slope_nats": 0.0,
+        "relative_entropy_nats": 3.469446951953614e-17,
+        "finite_entropy_slopes": [
+          0.0,
+          0.0
+        ],
+        "sector_changes": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "gateway_trace_distance": 0.0
+      }
+    ]
+  },
+  "apparatus": {
+    "cells": [
+      0,
+      6
+    ],
+    "data": [
+      72,
+      73
+    ],
+    "ancilla": [
+      77,
+      76
+    ],
+    "phase_vacancies": {
+      "72": 79,
+      "73": 79,
+      "77": 81
+    },
+    "paths": [
+      [
+        [
+          0,
+          1,
+          82,
+          72
+        ],
+        [
+          0,
+          1,
+          82,
+          78,
+          80,
+          73
+        ]
+      ],
+      [
+        [
+          0,
+          1,
+          82,
+          72
+        ],
+        [
+          5,
+          1,
+          82,
+          78,
+          80,
+          73
+        ]
+      ],
+      [
+        [
+          0,
+          1,
+          82,
+          72
+        ],
+        [
+          7,
+          1,
+          82,
+          78,
+          80,
+          73
+        ]
+      ],
+      [
+        [
+          0,
+          1,
+          82,
+          72
+        ],
+        [
+          10,
+          0,
+          1,
+          82,
+          78,
+          80,
+          73
+        ]
+      ],
+      [
+        [
+          0,
+          1,
+          82,
+          72
+        ],
+        [
+          11,
+          0,
+          1,
+          82,
+          78,
+          80,
+          73
+        ]
+      ],
+      [
+        [
+          1,
+          82,
+          72
+        ],
+        [
+          5,
+          1,
+          82,
+          78,
+          80,
+          73
+        ]
+      ],
+      [
+        [
+          1,
+          82,
+          72
+        ],
+        [
+          7,
+          1,
+          82,
+          78,
+          80,
+          73
+        ]
+      ],
+      [
+        [
+          1,
+          82,
+          72
+        ],
+        [
+          8,
+          1,
+          82,
+          78,
+          80,
+          73
+        ]
+      ],
+      [
+        [
+          1,
+          82,
+          72
+        ],
+        [
+          9,
+          1,
+          82,
+          78,
+          80,
+          73
+        ]
+      ],
+      [
+        [
+          2,
+          3,
+          8,
+          1,
+          82,
+          72
+        ],
+        [
+          2,
+          3,
+          8,
+          1,
+          82,
+          78,
+          80,
+          73
+        ]
+      ],
+      [
+        [
+          2,
+          3,
+          8,
+          1,
+          82,
+          72
+        ],
+        [
+          4,
+          5,
+          1,
+          82,
+          78,
+          80,
+          73
+        ]
+      ],
+      [
+        [
+          2,
+          3,
+          8,
+          1,
+          82,
+          72
+        ],
+        [
+          6,
+          7,
+          1,
+          82,
+          78,
+          80,
+          73
+        ]
+      ],
+      [
+        [
+          2,
+          3,
+          8,
+          1,
+          82,
+          72
+        ],
+        [
+          10,
+          0,
+          1,
+          82,
+          78,
+          80,
+          73
+        ]
+      ],
+      [
+        [
+          2,
+          3,
+          8,
+          1,
+          82,
+          72
+        ],
+        [
+          11,
+          0,
+          1,
+          82,
+          78,
+          80,
+          73
+        ]
+      ],
+      [
+        [
+          3,
+          8,
+          1,
+          82,
+          72
+        ],
+        [
+          4,
+          5,
+          1,
+          82,
+          78,
+          80,
+          73
+        ]
+      ],
+      [
+        [
+          3,
+          8,
+          1,
+          82,
+          72
+        ],
+        [
+          6,
+          7,
+          1,
+          82,
+          78,
+          80,
+          73
+        ]
+      ],
+      [
+        [
+          3,
+          8,
+          1,
+          82,
+          72
+        ],
+        [
+          3,
+          8,
+          1,
+          82,
+          78,
+          80,
+          73
+        ]
+      ],
+      [
+        [
+          3,
+          8,
+          1,
+          82,
+          72
+        ],
+        [
+          9,
+          1,
+          82,
+          78,
+          80,
+          73
+        ]
+      ],
+      [
+        [
+          4,
+          5,
+          1,
+          82,
+          72
+        ],
+        [
+          4,
+          5,
+          1,
+          82,
+          78,
+          80,
+          73
+        ]
+      ],
+      [
+        [
+          4,
+          5,
+          1,
+          82,
+          72
+        ],
+        [
+          9,
+          1,
+          82,
+          78,
+          80,
+          73
+        ]
+      ],
+      [
+        [
+          4,
+          5,
+          1,
+          82,
+          72
+        ],
+        [
+          11,
+          0,
+          1,
+          82,
+          78,
+          80,
+          73
+        ]
+      ],
+      [
+        [
+          5,
+          1,
+          82,
+          72
+        ],
+        [
+          9,
+          1,
+          82,
+          78,
+          80,
+          73
+        ]
+      ],
+      [
+        [
+          5,
+          1,
+          82,
+          72
+        ],
+        [
+          11,
+          0,
+          1,
+          82,
+          78,
+          80,
+          73
+        ]
+      ],
+      [
+        [
+          6,
+          7,
+          1,
+          82,
+          72
+        ],
+        [
+          6,
+          7,
+          1,
+          82,
+          78,
+          80,
+          73
+        ]
+      ],
+      [
+        [
+          6,
+          7,
+          1,
+          82,
+          72
+        ],
+        [
+          8,
+          1,
+          82,
+          78,
+          80,
+          73
+        ]
+      ],
+      [
+        [
+          6,
+          7,
+          1,
+          82,
+          72
+        ],
+        [
+          10,
+          0,
+          1,
+          82,
+          78,
+          80,
+          73
+        ]
+      ],
+      [
+        [
+          7,
+          1,
+          82,
+          72
+        ],
+        [
+          8,
+          1,
+          82,
+          78,
+          80,
+          73
+        ]
+      ],
+      [
+        [
+          7,
+          1,
+          82,
+          72
+        ],
+        [
+          10,
+          0,
+          1,
+          82,
+          78,
+          80,
+          73
+        ]
+      ],
+      [
+        [
+          8,
+          1,
+          82,
+          72
+        ],
+        [
+          9,
+          1,
+          82,
+          78,
+          80,
+          73
+        ]
+      ],
+      [
+        [
+          10,
+          0,
+          1,
+          82,
+          72
+        ],
+        [
+          11,
+          0,
+          1,
+          82,
+          78,
+          80,
+          73
+        ]
+      ]
+    ]
+  },
+  "sweeps": [
+    {
+      "sweeps": 1,
+      "total_local_filters": 60,
+      "acceptance": 0.01344721238618745,
+      "min_reference_eigenvalue": 2.862362285898528e-10,
+      "max_operator_energy_error": 1.547774249863082
+    },
+    {
+      "sweeps": 4,
+      "total_local_filters": 240,
+      "acceptance": 0.013445776263030089,
+      "min_reference_eigenvalue": 3.2828877985366054e-10,
+      "max_operator_energy_error": 0.08101285681135167
+    },
+    {
+      "sweeps": 16,
+      "total_local_filters": 960,
+      "acceptance": 0.013445703944792355,
+      "min_reference_eigenvalue": 3.3007802098702265e-10,
+      "max_operator_energy_error": 0.00501324326125902
+    },
+    {
+      "sweeps": 64,
+      "total_local_filters": 3840,
+      "acceptance": 0.013445699475888934,
+      "min_reference_eigenvalue": 3.301871972309258e-10,
+      "max_operator_energy_error": 0.00031313522589237027
+    }
+  ],
+  "tangents": [
+    {
+      "port": 0,
+      "time": 1,
+      "read_energy": -0.038634495546941316,
+      "modular_energy": -0.03863728383491538,
+      "first_law_nats": -0.013390662177333146,
+      "flat_meter": -0.017412448149433324,
+      "reversed_pole_meter": 0.018815706245996378,
+      "dephased_charge": -0.004421209392060699
+    },
+    {
+      "port": 0,
+      "time": 4,
+      "read_energy": 0.3897762122460139,
+      "modular_energy": 0.3897770985304234,
+      "first_law_nats": 0.13508644844660017,
+      "flat_meter": 0.009655583225348874,
+      "reversed_pole_meter": -0.37878626023701756,
+      "dephased_charge": 0.3795340636485084
+    },
+    {
+      "port": 0,
+      "time": 16,
+      "read_energy": 0.09767124112964132,
+      "modular_energy": 0.09767191649675716,
+      "first_law_nats": 0.03385050676980711,
+      "flat_meter": 0.0049908373170943765,
+      "reversed_pole_meter": -0.0919906870585474,
+      "dephased_charge": 0.09750518527649865
+    },
+    {
+      "port": 9,
+      "time": 1,
+      "read_energy": -0.161500680358166,
+      "modular_energy": -0.16150344395677374,
+      "first_law_nats": -0.0559728284146796,
+      "flat_meter": 0.035793395488626034,
+      "reversed_pole_meter": 0.20224060144603562,
+      "dephased_charge": -0.13680082824740436
+    },
+    {
+      "port": 9,
+      "time": 4,
+      "read_energy": -0.17882488588870027,
+      "modular_energy": -0.17882142872819762,
+      "first_law_nats": -0.06197478457332489,
+      "flat_meter": 0.099791544569939,
+      "reversed_pole_meter": 0.2924072827392078,
+      "dephased_charge": -0.21913866371835722
+    },
+    {
+      "port": 9,
+      "time": 16,
+      "read_energy": 0.13200873183453532,
+      "modular_energy": 0.13199922715808354,
+      "first_law_nats": 0.0457474460703583,
+      "flat_meter": -0.09103307739995514,
+      "reversed_pole_meter": -0.23562227112111966,
+      "dephased_charge": 0.24712763401306848
+    }
+  ],
+  "held_count_survey": {
+    "modular": {
+      "signed": -0.18476753182588368,
+      "se": 0.013923431004631538
+    },
+    "energy": {
+      "signed": -0.18085663624586346,
+      "se": 0.013149521392864795
+    },
+    "residual": -0.003910895580020224,
+    "combined_se": 0.019151288306590335
+  },
+  "weak_reference_survey": {
+    "seed": 150721,
+    "batches": 16,
+    "settings": 4423,
+    "accepted_shots_per_batch_setting": 536870912,
+    "total_accepted_preparations": 37993280700416,
+    "expected_input_preparations": 47160423611387.28,
+    "one_sweep_acceptance": 0.8056178844679037,
+    "ideal_minimum": 0.011181729382828912,
+    "pooled_minimum": 0.011179989664383157,
+    "minimum_over_batches": 0.011165525157154313,
+    "exact_signed_energy": -0.17882142872679585,
+    "pooled_signed_energy": -0.17951746315432549,
+    "mean_raw_batch_signed_energy": -0.17953854677761366,
+    "estimated_standard_error": 0.0070660506667630145,
+    "batch_energies": [
+      -0.18023754608699738,
+      -0.20364095817454786,
+      -0.17922148583818298,
+      -0.18128426605366255,
+      -0.1489247959664607,
+      -0.2049008036412473,
+      -0.17673901880435816,
+      -0.13646329308374194,
+      -0.20662731658893096,
+      -0.1312570969989152,
+      -0.1565805328397203,
+      -0.17199934935321604,
+      -0.15345456580062067,
+      -0.2089115582230392,
+      -0.21000379328880858,
+      -0.2223703676993688
+    ],
+    "packed_count_sha256": "6818847093eb207e7edf279003e7ddb26f61ba810e6da2d677248236cf11f37b",
+    "sampled_reference_and_matter": -0.16709140770920783,
+    "sampled_matter_se": 0.013928781735752516,
+    "difference_from_sampled_material_meter": 0.013765228536655627,
+    "combined_se_including_material_meter": 0.02041690342654595
+  },
+  "shots_per_setting": 1048576
+}

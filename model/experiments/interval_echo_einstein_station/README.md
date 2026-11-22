@@ -8,7 +8,7 @@ Cell zero on the 20-cell sphere uses internal ports A = 1, B = 0, spare port D =
 
 The conserved total number of doubles gives a local algebra with a vacuum block and a two-dimensional occupied block on the support of these preparations. If their weights are q₀ and q₁, its entropy is H(q₀,q₁) + q₁ S(ρ₁). Here the weights are 1/4 and 3/4. At p = 3/4 the two terms are 0.562335 and 0.434936 nats, giving 0.997272 nats in total. Both A and B have fixed single-port populations as p changes. Only the phase-sensitive readouts see the variation. The modular reference K = −log ρ is obtained from the four calibrated settings at the reference p on this fixed, faithful support.
 
-A separate G2 comparison uses the bound pair that generates the two-gateway energy flux. Its local source-mixture modular charge and the independently metered central energy predict opposite signs on a held pulse direction. [Same-source energy comparison](PAIR.md)
+A separate G2 comparison uses the bound pair that generates the two-gateway energy flux. The original source-mixture reference gives the wrong sign for central energy on a held pulse. A prepared cap reads independently metered weighted seam energy on that same pair. [Same-source energy comparison](PAIR.md)
 
 | Source mixture p | Exact first-law slope tr(K dρ/dp) | Entropy slope at step 1/1024 | Expected finite slope at step 1/16 | Sampled slope at step 1/16 ± one SE |
 | --- | ---: | ---: | ---: | ---: |
@@ -31,3 +31,11 @@ From the RER repository root, replay the archived draws or run the exact control
 python -m model.experiments.interval_echo_einstein_station
 python -m pytest -q model/experiments/interval_echo_einstein_station
 ```
+
+## Can a load probe tell how much energy the collar stores?
+
+Prepare a single nonblank memory in the antisymmetric combination of its two coin states. Compare its zero-contrast mode with the even and odd combinations of the signed double contrast. A local interference measurement against the zero mode reads energies 32 and 33 in exchange units. With the agreement term removed the same apparatus reads 0 and 1. Preparation of the coin phase, coherent source interrogation and probe launch are supplied apparatus.
+
+On these three memory states the complete seam operator is precisely the measured energy times the identity on all nine load inputs. To see why, write the repair isometry as $W$. For $d=0,2,-2$ its two coin branches have the same endpoint word, so their difference is orthogonal to the image of $W$ for every endpoint input. The echo acts as the identity on this subspace. Across the five occupied-memory energies $0,8,9,32,33$, the dimensions of the coin subspaces with scalar action for **every** endpoint word are $2,0,0,1,1$. Zero energy has both coin components because the written-image projection commutes with the record generator. These statements follow by integer rank calculations on the native write and an independent check of the full 99-state columns.
+
+Other seams and degree references act trivially on the private coordinate of the marked seam. Changing its energy therefore multiplies the load evolution by a common phase. Every free load measurement, including a sequence of measurements on different patches that leaves this source intact, has identical statistics for the three preparations. On the 20-, 80- and 320-cell spheres, the observer across the first external contact compared its twelve port outcomes and the quiet outcome. A **blank** contact in the same position gave a total variation distance of 0.213–0.215 from the marked source at exposure 1.5. Thus the load probe senses the occupied contact while its stored energy can vary by 33 without changing the reading. A symmetric coin source can respond to two simultaneous loads on its marked endpoints. The measurement distinguishes a local material interaction from the common response of a calibrated geometry required by G6. [Operator proof and free-sphere rehearsal](backreaction.py) · [Patch probabilities and source energies](backreaction.json) · [Two-load comparison](../material_inertia/README.md)

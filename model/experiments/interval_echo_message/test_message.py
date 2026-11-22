@@ -38,6 +38,7 @@ def test_replay_accepts_only_complete_source_versions(tmp_path, monkeypatch):
     monkeypatch.setattr(channel, "REPLAY_70E58E24", {})
     monkeypatch.setattr(channel, "REPLAY_REGIONAL_CONSENSUS", {})
     monkeypatch.setattr(channel, "REPLAY_MODULAR_STANDARD", {})
+    monkeypatch.setattr(channel, "REPLAY_GRAVITY_CAP", {})
     for name in ("a", "b", "reader"):
         (tmp_path / name).write_bytes(b"old")
     channel.sources()
@@ -66,6 +67,13 @@ def test_replay_accepts_only_complete_source_versions(tmp_path, monkeypatch):
     with pytest.raises(ValueError):
         channel.sources()
     (tmp_path / "a").write_bytes(b"standard")
+    channel.sources()
+    gravity = hashlib.sha256(b"gravity").hexdigest()
+    monkeypatch.setattr(channel, "REPLAY_GRAVITY_CAP", {"a": gravity, "b": gravity})
+    (tmp_path / "a").write_bytes(b"gravity")
+    with pytest.raises(ValueError):
+        channel.sources()
+    (tmp_path / "b").write_bytes(b"gravity")
     channel.sources()
     (tmp_path / "reader").write_bytes(b"changed")
     with pytest.raises(ValueError):

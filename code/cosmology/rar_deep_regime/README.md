@@ -34,6 +34,35 @@ python3 code/cosmology/rar_deep_regime/rar_deep_regime_diagnostic.py \
 python3 -m pytest code/cosmology/rar_deep_regime
 ```
 
+## Predictions for held galaxies
+
+Five folds defined by galaxy name hold out every radius of a galaxy together.
+On the historical deep cut, each training fold fits one acceleration scale.
+Across 115 held galaxies (960 radii), the conditional deep law predicts total
+radial acceleration with an RMS log error of **0.15055 dex**. Each galaxy has
+equal weight. The empirical radial acceleration relation gives 0.15100 dex,
+a fitted constant multiplier of baryonic gravity gives 0.17525 dex, and
+baryons alone give 0.69277 dex. The conditional law improves on the fitted
+multiplier by 0.02471 dex (paired galaxy bootstrap range 0.01083–0.03867 dex).
+Its difference from the empirical relation is −0.00046 dex (−0.00203 to
++0.00117 dex). Both intervals condition on the five training fits. Removing
+the fractional velocity-error cut admits eight nonpositive excesses and gives
+RMS errors of 0.19301 and 0.19434 dex for the conditional and empirical laws.
+
+At the 97 matched outer rings, the ratio of the flat-speed and **single-ring**
+radial estimates of `a_0` equals `r v_bar²/(G M_b)`. Raising each measured
+outer speed by 20% after selection moves the flat-speed estimate by a median
+of 0.382 dex and preserves the ratio to within 2 × 10⁻¹⁵ dex. The published
+radial fit also includes interior radii. These retrospective tests establish
+transfer of a fitted acceleration law within SPARC. The catalogue provides
+rotation and baryonic data. Identifying the modular source requires an
+independent observable of collar charge and a calibrated map to acceleration.
+[Held-galaxy receipt](receipts/held_galaxies.json) · [SPARC observations](https://astroweb.case.edu/SPARC/)
+
+```bash
+python3 code/cosmology/rar_deep_regime/held_galaxies.py
+```
+
 ## Source-bound full-RAR calibration
 
 `sparc_full_rar_calibration.py` is deliberately separate from the conditional
@@ -76,4 +105,23 @@ assessment and the current certification boundary are documented in
 ```bash
 python3 code/cosmology/rar_deep_regime/qumond_quadrupole_crosscheck.py \
   --output code/cosmology/rar_deep_regime/receipts/qumond_quadrupole_crosscheck.json
+```
+
+## A rotation-calibrated prediction for an independent shear measurement
+
+Brouwer et al. release tangential and cross shear as excess surface densities in the same baryonic-acceleration bins, with multiplicative corrections and a full covariance for each stack. We use seven bin centres in the reliable-isolation, deep regime. For compact spherical baryons and negligible gravitational slip, projecting the paper’s proposed density gives $4G\Delta\Sigma=(4/\pi)g_b+\sqrt{a_0g_b}$. The scale comes from the existing deep rotation fit to 115 SPARC galaxies. [Public data and acknowledgments](https://kids.strw.leidenuniv.nl/sciencedata.php) · [Brouwer et al., Fig. 4](https://doi.org/10.1051/0004-6361/202040108)
+
+| Lens sample | Fixed projected profile χ² | Compact baryons χ² | Cross shear against zero χ² |
+| --- | ---: | ---: | ---: |
+| KiDS-bright | 71.10 | 739.66 | 4.32 |
+| GAMA | 16.66 | 58.02 | 6.43 |
+| KiDS-bright, hot-gas mass alternative | 43.00 | 764.71 | 5.77 |
+
+The primary projection underpredicts six of the seven KiDS-bright tangential bins. The lowest bin straddles the isolation floor. Restriction to the six bins wholly above it gives χ² = 40.67 for the fixed KiDS-bright profile. The statistic conditions on the published mass conventions, the bin-centre approximation and the supplied statistical covariance. The hot-gas column changes the baryonic binning while retaining the compact-source projection. An extended gas distribution needs its own lensing calculation. The stacks share KiDS source data. Each result stands separately. Curvature sourced by a measured modular charge, and the relativistic relation between the potential measured by orbits and the one measured by light, remain open. [Calibrated measurements, covariance and predictions](receipts/lensing_profile.json)
+
+To replay from the verified 2.3 MB public archive, run from the RER root.
+
+```sh
+curl -fsSLo /tmp/brouwer2021_rar.tar https://kids.strw.leidenuniv.nl/sci_data/brouwer2021_rar.tar
+python code/cosmology/rar_deep_regime/lensing_profile.py /tmp/brouwer2021_rar.tar
 ```

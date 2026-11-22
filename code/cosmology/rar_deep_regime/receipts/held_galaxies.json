@@ -1,0 +1,195 @@
+{
+  "source_file_receipts_sha256": "9a3b202a4f9cdf022bf090383c3d919362ec3c6aeac7c4041c93d766c040c374",
+  "protocol": {
+    "split": "First eight bytes of SHA256(UTF8('OPH-deep-held-v1') + NUL + UTF8(galaxy)), big-endian, modulo five. Each galaxy is held once.",
+    "weighting": "Equal galaxy weights in training and scoring; equal weights per retained radius within a galaxy.",
+    "selection": "Quality <=2, inclination >=30 deg, positive speeds and baryon acceleration, gbar < 1.2e-11 m/s^2; primary relative velocity error <=0.10. Disk/bulge M/L 0.5/0.7.",
+    "interval": "4000 paired galaxy bootstrap draws, seed 20261122, conditional on the five training fits. Excludes refitting and shared catalogue systematics.",
+    "shared_inputs": "Observed and baryon accelerations use the same radius; the galaxy distance, orientation and baryonic mass model are catalogue inputs.",
+    "source_identification": "SPARC records rotation speeds and baryonic components. No independent measurement of the modular collar charge or conversion from that charge to acceleration is present.",
+    "scope": "Retrospective within-catalogue prediction. The empirical RAR was originally inferred using SPARC; holding out galaxies here tests transfer of fitted scale, not discovery on new observations."
+  },
+  "primary": {
+    "galaxies": 115,
+    "radii": 960,
+    "nonpositive_observed_excess_retained": 0,
+    "held_galaxies_per_fold": [
+      24,
+      21,
+      28,
+      17,
+      25
+    ],
+    "held_radii_per_fold": [
+      183,
+      224,
+      227,
+      151,
+      175
+    ],
+    "training_scales_m_s2_in_fold_order": {
+      "conditional_deep": [
+        7.809807874383715e-11,
+        8.285209434464969e-11,
+        8.089179714430327e-11,
+        8.478468624549298e-11,
+        8.443149621540657e-11
+      ],
+      "empirical_rar": [
+        1.0054062618071126e-10,
+        1.0646285140023338e-10,
+        1.0401486936698987e-10,
+        1.0836498848499861e-10,
+        1.0807763326945888e-10
+      ]
+    },
+    "training_baryon_multipliers_in_fold_order": [
+      4.620372133009631,
+      4.647200491975564,
+      4.653011468088609,
+      4.766907401449267,
+      4.716206870342986
+    ],
+    "held_total_acceleration": {
+      "conditional_deep": {
+        "rmse_dex": 0.15054569317897862,
+        "mean_observed_minus_predicted_dex": 0.0005247547810224112,
+        "mae_dex": 0.1130012667669552
+      },
+      "empirical_rar": {
+        "rmse_dex": 0.1510040204160559,
+        "mean_observed_minus_predicted_dex": 0.0008377659422056526,
+        "mae_dex": 0.11362095835848429
+      },
+      "baryons_only": {
+        "rmse_dex": 0.692770536870958,
+        "mean_observed_minus_predicted_dex": 0.6704022141220441,
+        "mae_dex": 0.6704022141220441
+      },
+      "rescaled_baryons": {
+        "rmse_dex": 0.17525318018787758,
+        "mean_observed_minus_predicted_dex": 0.000579020103500362,
+        "mae_dex": 0.13579672193504003
+      }
+    },
+    "paired_galaxy_differences": {
+      "empirical_rar": {
+        "conditional_minus_control_rmse_dex": -0.00045832723707728285,
+        "fixed_predictions_paired_galaxy_bootstrap_95pct": [
+          -0.0020331026294225737,
+          0.0011707302431266892
+        ]
+      },
+      "baryons_only": {
+        "conditional_minus_control_rmse_dex": -0.5422248436919794,
+        "fixed_predictions_paired_galaxy_bootstrap_95pct": [
+          -0.5715364253481999,
+          -0.5095502430272448
+        ]
+      },
+      "rescaled_baryons": {
+        "conditional_minus_control_rmse_dex": -0.024707487008898965,
+        "fixed_predictions_paired_galaxy_bootstrap_95pct": [
+          -0.03867330313623343,
+          -0.01083300989347128
+        ]
+      }
+    }
+  },
+  "without_relative_velocity_error_cut": {
+    "galaxies": 121,
+    "radii": 1240,
+    "nonpositive_observed_excess_retained": 8,
+    "held_galaxies_per_fold": [
+      27,
+      23,
+      29,
+      17,
+      25
+    ],
+    "held_radii_per_fold": [
+      249,
+      268,
+      273,
+      198,
+      252
+    ],
+    "training_scales_m_s2_in_fold_order": {
+      "conditional_deep": [
+        6.835452674484311e-11,
+        7.18761770954786e-11,
+        6.983167704049355e-11,
+        7.181659441704597e-11,
+        7.251013704034345e-11
+      ],
+      "empirical_rar": [
+        8.926083725652986e-11,
+        9.39386595580508e-11,
+        9.142608390869692e-11,
+        9.366009577010741e-11,
+        9.455570048914075e-11
+      ]
+    },
+    "training_baryon_multipliers_in_fold_order": [
+      4.4174116464183415,
+      4.445981726138483,
+      4.429666482149603,
+      4.4974862361428585,
+      4.477318996932552
+    ],
+    "held_total_acceleration": {
+      "conditional_deep": {
+        "rmse_dex": 0.19301320697758315,
+        "mean_observed_minus_predicted_dex": 0.0013341559285640794,
+        "mae_dex": 0.13323181484655597
+      },
+      "empirical_rar": {
+        "rmse_dex": 0.19434028006616305,
+        "mean_observed_minus_predicted_dex": 0.0013821720721973766,
+        "mae_dex": 0.1342809024849651
+      },
+      "baryons_only": {
+        "rmse_dex": 0.6815271074429392,
+        "mean_observed_minus_predicted_dex": 0.6488002931115744,
+        "mae_dex": 0.6521860101238312
+      },
+      "rescaled_baryons": {
+        "rmse_dex": 0.20883872710622015,
+        "mean_observed_minus_predicted_dex": 0.00050701103641591,
+        "mae_dex": 0.15120238073837808
+      }
+    },
+    "paired_galaxy_differences": {
+      "empirical_rar": {
+        "conditional_minus_control_rmse_dex": -0.0013270730885799054,
+        "fixed_predictions_paired_galaxy_bootstrap_95pct": [
+          -0.0028825764343013626,
+          0.0002907882776598745
+        ]
+      },
+      "baryons_only": {
+        "conditional_minus_control_rmse_dex": -0.48851390046535603,
+        "fixed_predictions_paired_galaxy_bootstrap_95pct": [
+          -0.5323954657744856,
+          -0.4373565985458386
+        ]
+      },
+      "rescaled_baryons": {
+        "conditional_minus_control_rmse_dex": -0.015825520128637,
+        "fixed_predictions_paired_galaxy_bootstrap_95pct": [
+          -0.031051193901110944,
+          -0.0020888497532462135
+        ]
+      }
+    }
+  },
+  "shared_ring_inputs": {
+    "outer_channel_b_galaxies": 97,
+    "control": "Multiply only outer Vobs by 1.2 after selection, holding baryons, radii and membership fixed.",
+    "max_original_ratio_minus_baryon_geometry_abs_dex": 1.5265566588595902e-15,
+    "max_perturbed_minus_original_ratio_abs_dex": 1.7763568394002505e-15,
+    "median_individual_btfr_log_scale_increase_dex": 0.3818529507730819,
+    "mean_log10_geometry_ratio": 0.050913602677999006,
+    "scope": "Single-ring ratio only. The published channel A fit also uses interior deep radii."
+  }
+}

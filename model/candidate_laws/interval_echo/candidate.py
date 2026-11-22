@@ -93,6 +93,11 @@ PREMISES = {
                       "collar parity separates coherent preparations with identical single-collar margins. "
                       "The collar comparison retains its bypass and rejected records. The quantum state "
                       "and measurement representation are supplied."},
+    "PR-23": {"status": "partial", "evidence": ["../../experiments/interval_echo_einstein_station/PAIR.md",
+                                                "../../experiments/interval_echo_einstein_station/cap.json"],
+              "note": "A prepared finite cap supplies a faithful state and a readable modular charge. "
+                      "Six weighted pair-energy variations agree with an independent meter. "
+                      "Geometrically normalized modular flow on compatible nested caps remains open."},
     "PR-54": {"status": "partial", "evidence": ["CURRENTS.md", "currents.json", "prior_calibration.json"],
               "note": "A declared family of twelve closed current operators acts measurably on the native bound "
                       "pair. Its completeness and a source-selected physical connection, field strength and "
@@ -120,11 +125,16 @@ JOINT = {
         "evidence": ["prior_calibration.json", "../../experiments/interval_echo_einstein_station/PAIR.md",
                      "../../experiments/interval_echo_einstein_station/pair.json",
                      "../../experiments/interval_echo_null_balance/interval.json",
-                     "../../experiments/interval_echo_null_balance/regional.json"],
-        "note": "The frozen free dynamics conserve additive regional scalar energy through local cut currents. "
-                "A distinct three-cell experiment resolves the measured balance. On the same serviced pair "
-                "the reference modular meter calibrated at one port predicts the wrong sign at a held port. "
-                "Geometric cap normalization, directional matter stress and covariant conservation remain open.",
+                     "../../experiments/interval_echo_null_balance/regional.json",
+                     "../../experiments/interval_echo_einstein_station/cap.json",
+                     "../../experiments/interval_echo_null_balance/directional.json",
+                     "../../experiments/interval_echo_einstein_station/backreaction.json"],
+        "note": "The native free generator obeys additive patch energy continuity. On the earlier pair, "
+                "a prepared cap reads weighted seam energy at a held port where the flat reference failed. "
+                "An interior exchange changes this cap's entropy with its complete gateway state fixed. "
+                "Time-reversal-odd one-load seam currents exhibit torque. Load probes are exactly blind to "
+                "an antisymmetric collar's stored energy. Physical area, a conserved directional stress "
+                "and the common curvature response to matter remain open.",
     },
 }
 

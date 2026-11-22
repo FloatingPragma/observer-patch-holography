@@ -612,20 +612,36 @@
           "results": {
             "interval_echo": {
               "status": "partial",
-              "note": "A written seam with empty endpoints retains a label and has a resolved energy level. Its electric neutrality and inertial mass as a propagating dark particle remain unmeasured.",
+              "note": "In a supplied uniformly filled medium a freely released excess and vacancy have zero relative load charge. A separated upper spectral band has an all-exposure lower bound of 85.47% for binding at the selected degree type on 20, 80 and 320 cells. At exposure 32 on 20 cells, 99.44% of terminal outcomes were adjacent, and in 6.83% both constituents had changed sites and were adjacent. Most motion stayed within the launch cell. An electromagnetic charge measurement and an independent inertial mass for this same excitation remain open. This test addresses OpenWave’s particle criterion. The OPH dark-sector paper assigns gravitational stress to anomalous modular charge on an overlap collar. Pair binding provides no measurement of that source. OpenWave lists OPH as untested on Row 19 at the cited revision.",
               "evidence": [
                 "model/candidate_laws/interval_echo/SPEC.md",
                 "model/candidate_laws/contrast_memory_spherical_v1/collar.py",
-                "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json"
-              ]
+                "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json",
+                "model/experiments/material_inertia/README.md",
+                "model/experiments/material_inertia/dark_collar.json",
+                "model/experiments/material_inertia/neutral_defect.py",
+                "cosmology/oph_dark_matter_paper.pdf"
+              ],
+              "demonstrated_measurement": {
+                "label": "Binding and local motion of a load-neutral pair",
+                "source": "model/experiments/material_inertia/README.md"
+              }
             },
             "contrast_memory_spherical_v1": {
               "status": "partial",
-              "note": "A written seam with empty endpoints retains a label and has a resolved energy level. Its electric neutrality and inertial mass as a propagating dark particle remain unmeasured.",
+              "note": "This candidate and Interval Echo use the same native free generator in the filled sector. In a supplied uniformly filled medium a freely released excess and vacancy have zero relative load charge. A separated upper spectral band has an all-exposure lower bound of 85.47% for binding at the selected degree type on 20, 80 and 320 cells. At exposure 32 on 20 cells, 99.44% of terminal outcomes were adjacent, and in 6.83% both constituents had changed sites and were adjacent. Most motion stayed within the launch cell. An electromagnetic charge measurement and an independent inertial mass for this same excitation remain open. This test addresses OpenWave’s particle criterion. The OPH dark-sector paper assigns gravitational stress to anomalous modular charge on an overlap collar. Pair binding provides no measurement of that source. OpenWave lists OPH as untested on Row 19 at the cited revision.",
               "evidence": [
                 "model/candidate_laws/contrast_memory_spherical_v1/collar.py",
-                "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json"
-              ]
+                "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json",
+                "model/experiments/material_inertia/README.md",
+                "model/experiments/material_inertia/dark_collar.json",
+                "model/experiments/material_inertia/neutral_defect.py",
+                "cosmology/oph_dark_matter_paper.pdf"
+              ],
+              "demonstrated_measurement": {
+                "label": "Binding and local motion of a load-neutral pair",
+                "source": "model/experiments/material_inertia/README.md"
+              }
             },
             "scalar_channel": {
               "status": "open",
