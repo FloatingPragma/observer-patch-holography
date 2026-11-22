@@ -18,13 +18,14 @@ from .gateway_release import ARMS
 HERE = Path(__file__).parent
 PROTOCOL = HERE/"gateway_confirmation.json"
 TASK = "openwave/xperiments/m10_oph/research/tasks/m10_4_task_details.md"
-TASK_SHA256 = "f7dca7249ef997d399af6264f611035b2342939e4cec053a37a375b6ac6625b4"
+TASK_SHA256 = "af312744a6842aa093c8fdfc3961053bb6a5dd29f407f4b1ba11bff742cf3640"
 PREREG_SHA256 = "2558d1c0f77bfdbd9dacf6d48cc92eac2317fdf720cae573359e3ff171d358be"
 
 
 def verify_anchor(checkout, anchor):
     """Read the local copy of official origin/main. There is no network access."""
-    selection(anchor)
+    if type(anchor) is not str or not re.fullmatch(r"[0-9a-f]{40}", anchor):
+        raise ValueError("Expected a lowercase 40-hex official commit")
     protocol = PROTOCOL.read_bytes().replace(b"\r\n", b"\n")
     if sha256(protocol).hexdigest() != PREREG_SHA256:
         raise ValueError("Held gates differ from the registered protocol")
@@ -50,10 +51,14 @@ def verify_anchor(checkout, anchor):
     raise ValueError("The registered upstream task is absent")
 
 
-def selection(anchor):
+def selector_digest(anchor):
     if not isinstance(anchor, str) or not re.fullmatch(r"[0-9a-f]{40}", anchor):
         raise ValueError("Expected the lowercase 40-hex official first-parent registration anchor")
-    digest = sha256(("OPH-M10.4-gateway-v1:" + anchor).encode("ascii")).digest()
+    return sha256(("OPH-M10.4-gateway-v1:" + anchor).encode("ascii")).digest()
+
+
+def selection(anchor):
+    digest = selector_digest(anchor)
     return dict(home=digest[0] % 20, start=digest[1] % 12,
                 direction=1 if digest[2] % 2 == 0 else -1, exposure=15+digest[3] % 24)
 
@@ -66,12 +71,13 @@ def acquisition(anchor):
     protected = certify(chart, **order)
     preparation = prepare_layout(chart, **order)
     row, = scored_appointments(preparation, home=home, exposures=(settings["exposure"],))["readings"]
-    return dict(anchor=anchor, settings=settings, floor_ppt=protected["joint_home_floor_ppt"],
+    return dict(anchor=anchor, selector_sha256=selector_digest(anchor).hex(),
+                settings=settings, floor_ppt=protected["joint_home_floor_ppt"],
                 bins={arm: [*row[arm]["ports"], row[arm]["exterior_quiet"], row[arm]["source_exhaustion"]]
                       for arm in ARMS})
 
 
-def check(actual, independent):
+def check(actual, independent, comparison=None):
     gates = json.loads(PROTOCOL.read_text(encoding="utf-8"))["gates"]
     if (set(independent) != {"anchor", "settings", "bins"} or independent["anchor"] != actual["anchor"]
             or set(independent["settings"]) != set(actual["settings"])
@@ -79,6 +85,7 @@ def check(actual, independent):
             or set(independent["bins"]) != set(ARMS)):
         raise ValueError("Independent calculation describes a different acquisition")
     home = {}
+    worst = {"absolute": -1., "arm": None, "outcome": None}
     for arm in ARMS:
         rows = []
         for payload in (actual["bins"][arm], independent["bins"][arm]):
@@ -89,9 +96,15 @@ def check(actual, independent):
                     or abs(values.sum()-1) > gates["normalization_tolerance"]):
                 raise ValueError("Invalid terminal law")
             rows.append(values)
-        if np.max(abs(rows[0]-rows[1])) > gates["independent_bin_tolerance"]:
-            raise ArithmeticError(f"Independent terminal law differs for {arm}")
+        differences = abs(rows[0]-rows[1])
+        idx = int(np.argmax(differences))
+        if differences[idx] > worst["absolute"]:
+            worst = {"absolute": float(differences[idx]), "arm": arm, "outcome": idx}
         home[arm] = rows[0][:12].sum()
+    if comparison is not None:
+        comparison.update(worst)
+    if worst["absolute"] > gates["independent_bin_tolerance"]:
+        raise ArithmeticError(f"Independent terminal law differs for {worst['arm']}")
     if (actual["floor_ppt"] <= round(SCORE*gates["exact_joint_home_strictly_above"])
             or home["coherent"] <= gates["coherent_terminal_home_strictly_above"]
             or home["stochastic_swap"] >= gates["stochastic_swap_home_strictly_below"]
@@ -105,11 +118,26 @@ def main():
     parser.add_argument("--openwave-checkout", type=Path, required=True,
                         help="trusted checkout with the fetched official refs/remotes/origin/main")
     parser.add_argument("--compare", type=Path, required=True, help="independent calculation of all four arms")
+    parser.add_argument("--record", type=Path, required=True, help="new output file for the complete pass or failure")
     args = parser.parse_args()
     verify_anchor(args.openwave_checkout, args.anchor)
-    receipt = acquisition(args.anchor)
-    check(receipt, json.loads(args.compare.read_text(encoding="utf-8")))
-    print(json.dumps(receipt, indent=2, allow_nan=False))
+    with args.record.open("x", encoding="utf-8") as destination:
+        result = {"anchor": args.anchor, "selector_sha256": selector_digest(args.anchor).hex(),
+                  "settings": selection(args.anchor), "comparison": {}}
+        try:
+            result["acquisition"] = acquisition(args.anchor)
+            contents = args.compare.read_bytes()
+            result["independent_sha256"] = sha256(contents).hexdigest()
+            check(result["acquisition"], json.loads(contents), result["comparison"])
+        except (ValueError, KeyError, TypeError, ArithmeticError, OSError) as failure:
+            result.update(passed=False, reason=str(failure))
+            raise
+        else:
+            result["passed"] = True
+        finally:
+            json.dump(result, destination, indent=2, allow_nan=False)
+            destination.write("\n")
+    print("Held release passed with all independent bins verified.")
 
 
 if __name__ == "__main__":

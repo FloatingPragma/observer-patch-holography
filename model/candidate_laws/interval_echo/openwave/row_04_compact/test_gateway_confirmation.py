@@ -2,6 +2,7 @@ from copy import deepcopy
 from hashlib import sha256
 import json
 import subprocess
+import sys
 
 import pytest
 
@@ -85,3 +86,28 @@ def test_held_verifier_rejects_changed_control_failure_and_bin_permutation():
 def test_invalid_anchors(anchor):
     with pytest.raises(ValueError):
         held.selection(anchor)
+
+
+def test_held_gate_failure_retains_original_evidence(tmp_path, monkeypatch):
+    # No flight is executed in this synthetic file-custody test.
+    anchor = "0"*40
+    settings = held.selection(anchor)
+    bins = {arm: [.5, *([0.0]*11), .5, 0.0] for arm in ARMS}
+    peer = {"anchor": anchor, "settings": settings, "bins": bins}
+    reference = tmp_path/"independent.json"
+    reference.write_text(json.dumps(peer), encoding="utf-8")
+    receipt = tmp_path/"held.json"
+    monkeypatch.setattr(sys, "argv", ["gateway_confirmation", anchor, "--openwave-checkout", str(tmp_path),
+                                      "--compare", str(reference), "--record", str(receipt)])
+    monkeypatch.setattr(held, "verify_anchor", lambda *args: None)
+    monkeypatch.setattr(held, "acquisition", lambda _: dict(peer, floor_ppt=500_000_000_000))
+    with pytest.raises(ArithmeticError, match="scientific gates"):
+        held.main()
+    original = receipt.read_bytes()
+    result = json.loads(original)
+    assert result["passed"] is False and result["acquisition"]["bins"] == bins
+    assert result["comparison"] == {"absolute": 0., "arm": "coherent", "outcome": 0}
+    assert result["independent_sha256"] == sha256(reference.read_bytes()).hexdigest()
+    with pytest.raises(FileExistsError):
+        held.main()
+    assert receipt.read_bytes() == original
