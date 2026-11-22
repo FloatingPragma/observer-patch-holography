@@ -7,7 +7,10 @@ Use --write to regenerate its compact results. The active candidate remains inde
 from argparse import ArgumentParser
 from collections import Counter
 from decimal import Decimal, localcontext
+import base64
+import hashlib
 import json
+import zlib
 from math import pi
 from pathlib import Path
 
@@ -242,7 +245,7 @@ def local_spectrum(operator):
     return response
 
 
-def pair_release(energy, home, times, original):
+def pair_release(energy, home, times, original, *, launch_index=0, seed=917421, record_draw_hash=False):
     board = federation(0)
     sector = PairSector(board)
     edges = sorted(
@@ -250,15 +253,8 @@ def pair_release(energy, home, times, original):
     )
     gateways = {v for e in board.external for v in e}
     # Cell 13 reproduces the published registration. Cell 7 uses a second internal launch.
-    source = next(
-        e
-        for e in edges
-        if (
-            any(p in gateways for p in e)
-            if original
-            else all(p not in gateways for p in e)
-        )
-    )
+    candidates = [e for e in edges if any(p in gateways for p in e) == original]
+    source = candidates[launch_index % len(candidates)]
     patch = [sector.index(*e) for e in edges]
     initial = sector.index(*source)
     report = []
@@ -277,7 +273,7 @@ def pair_release(energy, home, times, original):
         for index, t in enumerate(times):
             state = expm_multiply(-1j * (t - previous) * h, state)
             p = pair.local_law(state, patch)
-            draw = np.random.default_rng([917421, arm, index]).choice(
+            draw = np.random.default_rng([seed, arm, index]).choice(
                 len(p), size=pair.SHOTS, p=p / p.sum()
             )
             counts = np.bincount(draw, minlength=len(p))
@@ -290,6 +286,8 @@ def pair_release(energy, home, times, original):
                     norm_error=abs(np.vdot(state, state).real - 1),
                 )
             )
+            if record_draw_hash:
+                readings[-1]["draw_bytes_sha256"] = hashlib.sha256(draw.astype(np.uint8).tobytes()).hexdigest()
             previous = t
         report.append(readings)
     native, control = report
@@ -307,6 +305,50 @@ def pair_release(energy, home, times, original):
         control_upper=upper,
         passes=bool(lower > 0.8 and upper < 0.65),
     )
+
+
+def registered_pair_release(energy):
+    """Reproduce the externally enrolled launch with the standard's binary-sector energy.
+
+    Sampling uses the same registered streams for direct comparison of every
+    encoded outcome, rather than claiming statistically independent repeats.
+    """
+    commit = "bb697927ff37446130d4c6e8c68126b6a3eac00d"
+    times = (3, 11, 29)
+    key = hashlib.sha256(b"M10.3:row4:" + bytes.fromhex(commit)).digest()
+    eligible = [cell_id for cell_id in range(20) if cell_id not in (0, 13)]
+    home = eligible[int.from_bytes(key[:4], "big") % len(eligible)]
+    launch_index = int.from_bytes(key[4:8], "big")
+    seed = int.from_bytes(key[8:16], "big")
+    calculated = pair_release(energy, home, times, True, launch_index=launch_index,
+                              seed=seed, record_draw_hash=True)
+    file = HERE.parents[2] / "openwave/interval_echo/row_04/registered_release.json"
+    payload = file.read_bytes()
+    archived = json.loads(payload)
+    if (archived["registration_commit"] != commit or archived["cell"] != home
+            or archived["launch"] != list(calculated["source"]) or archived["shots"] != pair.SHOTS
+            or not np.isclose(archived["simultaneous_radius"], pair.MARGIN, rtol=2e-15, atol=0)
+            or archived["outcomes"] != [list(edge) for edge in calculated["addresses"]] + ["quiet"]
+            or [arm["kappa"] for arm in archived["arms"]] != [8,0]):
+        raise ValueError("The deposited Row 4 acquisition differs from its externally registered design")
+    cells_and_quiet = len(calculated["addresses"]) + 1
+    for arm, native in zip(archived["arms"], (calculated["native"], calculated["exchange_only"]), strict=True):
+        for deposited, derived in zip(arm["records"], native, strict=True):
+            raw = zlib.decompress(base64.b64decode(deposited["draws_zlib_base64"], validate=True))
+            observed = np.frombuffer(raw, dtype=np.uint8)
+            if (observed.size != pair.SHOTS or observed.max() >= cells_and_quiet
+                    or deposited["exposure"] != derived["exposure"]
+                    or deposited["counts"] != derived["counts"]
+                    or np.bincount(observed,minlength=cells_and_quiet).tolist() != deposited["counts"]
+                    or hashlib.sha256(raw).hexdigest() != derived["draw_bytes_sha256"]):
+                raise ValueError("The derived pair replay changed a registered draw or outcome count")
+    if not archived["passed"] or not calculated["passes"]:
+        raise ValueError("The registered finite patch-persistence gates failed")
+    return dict(registration_commit=commit, deposit_sha256=hashlib.sha256(payload).hexdigest(),
+                home_cell=home, seed=seed, shots_per_setting=pair.SHOTS, simultaneous_radius=float(pair.MARGIN),
+                checked_count_bins=2*len(times)*cells_and_quiet, checked_draws=2*len(times)*pair.SHOTS,
+                scope="Freely released two-load pair on the registered finite home patch",
+                native_lower_threshold=0.80, final_control_upper_threshold=0.65, **calculated)
 
 
 def wave_forecast(e1):
@@ -480,6 +522,7 @@ def run():
                 "mean_pairs_per_held_odd",
             )
         },
+        registered_row_04_pair=registered_pair_release(a),
         standard_pair=[
             pair_release(a, 13, (1, 7, 37), True),
             pair_release(a, 7, (2, 11, 29), False),
