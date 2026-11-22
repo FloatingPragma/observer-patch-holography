@@ -199,6 +199,10 @@ def test_openwave_rows_distinguish_free_stability_from_electron_identity_and_dri
         else:
             assert row['status'] == 'demonstrated'
             assert ev.criterion(result, 'SM-e')['status'] == 'open'
+            filing = row['filing']
+            assert filing['decision'] in row['sources'] and filing['review'] in row['evidence']
+            grade += (f". OpenWave · [⚠️ Partial]({filing['decision']})"
+                      f". Resubmission · [HOLD]({ev.report.local_link(filing['review'])})")
         scorecard_row = next(line for line in scorecard.splitlines() if line.startswith(f'| [{key}]'))
         assert grade in scorecard_row
         assert grade in ledger.split(f'### {key}\n', 1)[1].split('\n### ', 1)[0]

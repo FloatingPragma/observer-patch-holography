@@ -2,6 +2,8 @@
 
 The row 4 experiment asks whether a prepared adjacent pair persists when every seam of the 20-cell sphere acts freely. The observer occupies one cell and records one of its 30 occupied seams or a quiet outcome. Two-load states with separated ports and states outside the cell both occur in the model. The exchange-only arm uses the same initial pair, sphere and detector. The experiment identifies a bound excitation of the specified law. The electric charge, spin and particle species require separate measurements. [Interval Echo specification](../../model/candidate_laws/interval_echo/SPEC.md) · [Public criterion](https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L104)
 
+OpenWave awarded **⚠️ Partial** on the adopted Interval Echo pin. **Full-credit resubmission is on HOLD.** The portable contact instrument and the all-time adjacency bound strengthen the evidence for the pair. The adopted specification supplies the coupling tested in the release. [Resubmission assessment and clearing condition](row_04/CHECKLIST.md) · [Maintainer decision](https://github.com/openwave-labs/openwave/pull/745#pullrequestreview-6005365373)
+
 ## Reproduce the author measurement
 
 Use Python 3.12 with NumPy 2.3.5 and SciPy 1.18.1. From this directory run
