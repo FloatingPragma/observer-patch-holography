@@ -13,6 +13,7 @@ evaluation of a candidate only through the evidence the candidate cites.
 | [interval_echo_space](interval_echo_space/README.md) | Interval Echo and its shared contrast sector | three spatial response components transmitted to neighbouring patches and a forecast at untrained stations |
 | [interval_echo_encounter](interval_echo_encounter/README.md) | Interval Echo and its shared contrast sector | pair formation and confinement, phase-sensitive bound-pair transfer between patches, a local read of the interaction sign, and excess and vacancy records on a common background |
 | [interval_echo_consensus](interval_echo_consensus/README.md) | Interval Echo | strict intercell arbitration, a local phase read and asynchronous convergence of sharp repairs across a complete screen |
+| [observable_priority](observable_priority/README.md) | Interval Echo | which incident priorities addressed repairs reveal, and how many boundary decisions a cell needs for exact replay |
 | [interval_echo_gauge](interval_echo_gauge/README.md) | Interval Echo | which covering-group elements the guarded bound-pair currents distinguish |
 | [interval_echo_null_balance](interval_echo_null_balance/README.md) | Interval Echo | how much of a patch's measured energy change comes through each physical gateway |
 | [interval_echo_einstein_station](interval_echo_einstein_station/README.md) | Interval Echo | which local perturbations change interior entropy at fixed cut state, and whether the pair's regional modular charge predicts its energy |

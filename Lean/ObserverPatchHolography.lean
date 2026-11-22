@@ -1,5 +1,7 @@
 import ObserverPatchHolography.AbstractRewriting
 import ObserverPatchHolography.CoreAxioms
+import ObserverPatchHolography.ObservablePriority.InstalledDiscovery
+import ObserverPatchHolography.ObservablePriority.PriorityQuantum
 import ObserverPatchHolography.Primitives
 import ObserverPatchHolography.Rule90
 import ObserverPatchHolography.BoundaryFiber
