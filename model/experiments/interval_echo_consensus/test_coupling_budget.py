@@ -1,0 +1,112 @@
+import json
+from fractions import Fraction
+from pathlib import Path
+
+import numpy as np
+import pytest
+import sympy as sp
+
+from . import alias_window, coupling_budget, persistence_forecast
+
+
+def test_fractional_degree_and_constant_odds():
+    t = sp.Symbol("t", positive=True)
+    # Unnormalized masses from three independent words of a binary source.
+    masses = (t**3, t**2*(1-t), (1-t)**3)
+    assert coupling_budget.mixture_exponent(masses, t) == sp.Rational(1, 2)
+    assert coupling_budget.mixture_exponent((2*masses[0], *masses[1:]), t) is None
+    assert coupling_budget.mixture_exponent((t, t, t), t) is None
+    assert coupling_budget.finite_resolution(9)[0] == [8]
+    assert coupling_budget.finite_resolution(17)[0] == [8, 16]
+
+
+def test_native_standard_and_other_material():
+    result = coupling_budget.run()
+    assert result["selected"] == 8
+    assert min(result["alternate_material_second_pulse_tv"]) > .1
+    assert result["word_sources"]["8_fair"]["exponent"] is None
+    assert result["word_sources"]["16_common"]["degree"] == 17
+
+
+def test_tail_and_held_counts():
+    exchange, adjacent, home, launch = alias_window.setup()
+    assert adjacent[launch] == 1 and exchange[launch, launch] == 4.5
+    tail = alias_window.uniform_tail(exchange, adjacent, home, launch)
+    assert list(map(Fraction, tail["squared_norm_bounds"])) == [
+        Fraction(17,4), Fraction(107,4), Fraction(5,16), Fraction(7003,16), Fraction(118043,256)]
+    assert tail["lower_bound"] > .94
+    assert tail["launch_lower"] > .945
+    counts = json.loads(Path(__file__).with_name("persistence_counts.json").read_text())
+    from hashlib import sha256
+    repeat = counts.pop("portable_v1")
+    # Preserve each original observation from the submitted acquisition.
+    original_bytes = json.dumps(counts, sort_keys=True, separators=(",", ":")).encode("ascii")
+    assert sha256(original_bytes).hexdigest() == "8218b7b21e9ae99b967d2e374f4b3a8f002c5723f7cdd14d48e37793da58ab9a"
+    replay = persistence_forecast.run()
+    assert set(counts) == set(replay)
+    for arm, rows in counts.items():
+        decision = persistence_forecast.infer_floor(rows[:2], rows[2:4], rows[4])
+        assert replay[arm]["counts"] == rows and replay[arm]["forecast"] == decision
+        repeated = replay[arm]["portable_v1"]
+        assert repeated["counts"] == repeat["counts"][arm]
+        assert decision["resolved"] == repeated["forecast"]["resolved"] == (arm in ("installed", "reversed", "other_alias"))
+        if decision["resolved"]:
+            assert decision["home_probability_lower"] > .94036
+            assert repeated["forecast"]["home_probability_lower"] > .94036
+
+
+def test_inference_rejects_broken_acquisitions():
+    rows = json.loads(Path(__file__).with_name("persistence_counts.json").read_text())["installed"]
+    quarter, irrational, full = rows[:2], rows[2:4], rows[4]
+    infer = persistence_forecast.infer_floor
+    assert not infer(quarter, irrational, [2**24-1, 1, 0])["resolved"]
+    assert not infer(quarter, irrational, [2**24-1, 0, 1])["resolved"]
+    assert not infer([[2**24, 0, 0]]*2, irrational, full)["resolved"]
+    assert not infer(quarter, quarter, full)["resolved"]
+    with pytest.raises(ValueError):
+        infer(quarter, irrational, [2**24-1, 0, 0])
+    with pytest.raises(ValueError):
+        infer(quarter, irrational, np.array(full, float))
+    with pytest.raises(ValueError, match="two recombiners"):
+        infer(rows[:1], rows[1:4], full)
+    # Preserve both return sums, both spectator counts and every shot total.
+    for offset in (0, 2):
+        changed = np.array(rows)
+        changed[offset] += [-2**20, 2**20, 0]
+        changed[offset+1] += [2**20, 0, -2**20]
+        assert infer(changed[:2], changed[2:4], changed[4]) == {
+            "resolved": False, "reason": "return counts disagree with a common phase"}
+
+
+@pytest.mark.parametrize("quarter", [
+    [[13254489, 2294244, 1228483], [7078486, 7160126, 2538604]],  # k = 1/2
+    [[14812534, 736199, 1228483], [6152519, 7160126, 3464571]],  # k = 1/20
+])
+def test_individually_consistent_pulses_must_share_an_alias(quarter):
+    # Each quarter histogram is rounded from one material. The other pulses
+    # are the installed k=8 readings; the smaller offset passes even a sum-deficit check.
+    rows = json.loads(Path(__file__).with_name("persistence_counts.json").read_text())["installed"]
+    assert persistence_forecast.infer_floor(quarter, rows[2:4], rows[4]) == {
+        "resolved": False, "reason": "quarter-port counts disagree with the full-pulse alias range"}
+
+
+@pytest.mark.parametrize("damage", ["empty", "skip", "duplicate", "truncate", "nan", "lost_norm"])
+def test_window_requires_every_normalized_grid_state(monkeypatch, damage):
+    def damaged_steps(h, start, ticks, *, degree):
+        for tick in ticks:
+            if damage == "empty" or (damage == "truncate" and tick == ticks[-1]):
+                return
+            if damage == "skip" and tick == 2:
+                continue
+            if damage == "duplicate" and tick == 2:
+                tick = 1
+            state = start.copy()
+            if damage == "nan":
+                state[0] = np.nan
+            if damage == "lost_norm":
+                state *= 0.99
+            yield tick, state, 1e-10
+
+    monkeypatch.setattr(alias_window, "checked_steps", damaged_steps)
+    with pytest.raises((ValueError, ArithmeticError)):
+        alias_window.finite_window(*alias_window.setup(), 8)
