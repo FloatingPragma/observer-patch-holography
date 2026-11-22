@@ -8,7 +8,7 @@ papers. Each package states its own replay and claim boundary.
   realization receipts and event logs, a property table with the status of
   every property (proved in Lean, computed, or declared), a standard-library
   generator that rebuilds the poset from its definitions, and a checker.
-- [`local_domain/`](local_domain/) is the complete 11-file local-domain
+- The [archived local-domain package](https://github.com/FloatingPragma/observer-patch-holography/tree/512b47075b0dd00a570b08cc9b576bec7559acb5/evidence/local_domain) contains the complete 11-file local-domain
   family used by the spacetime, particle, and cosmology papers. It contains
   the compressed stage-one arrays, all four staged receipts, the five
   downstream finite-interface receipts, the binding manifest, and a

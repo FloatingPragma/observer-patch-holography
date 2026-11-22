@@ -10,7 +10,7 @@ law and the product of its marginals is 0.03634 for positive contact and
 ## Law and source map
 
 The experimental member `contrast-square-scalar-contact-v1` takes the tensor
-product of the two register families in the [construction manual](../../construction_manual/README.md).
+product of the two register families in the [construction manual](https://github.com/FloatingPragma/observer-patch-holography/blob/512b47075b0dd00a570b08cc9b576bec7559acb5/model/construction_manual/README.md).
 Each port carries its load, each seam its eleven-state memory, and the scalar
 even algebra uses the 432 link registers. In the manual's port labels set
 
