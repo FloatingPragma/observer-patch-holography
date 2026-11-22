@@ -1,7 +1,7 @@
 """Read all four blank endpoint occupations on the historical local law, before any free release."""
 import argparse
 import json
-from math import comb
+from math import comb, isclose, pi, sin
 
 import numpy as np
 from scipy.linalg import expm
@@ -43,6 +43,19 @@ def kernel(energy):
     # Complete digital clock response, including fractional and negative energies.
     times = np.arange(SIZE)*2*np.pi/SIZE
     return abs(np.fft.ifft(np.exp(-1j*energy*times)))**2
+
+
+def line_probability(energy, bin_index):
+    """Squared geometric sum of the digital clock for one spectral line."""
+    if float(energy).is_integer():
+        return float(int(energy) % SIZE == bin_index)
+    delta = energy - bin_index
+    return (sin(pi*delta) / (SIZE*sin(pi*delta/SIZE)))**2
+
+
+def seventeen_read_probability(x, y, equal_zero):
+    # Both required unequal-word bins occur, and the equal-word read is zero.
+    return equal_zero * sum(comb(16, m)*x**m*y**(16-m) for m in range(1, 16))
 
 
 def panel(arm, exchange, contrast):
@@ -146,11 +159,16 @@ def compare():
         if not defect < 1e-10:
             raise ArithmeticError("Stored line representation loses native detector outcomes")
         distances = (np.sum(abs(raw-expected), axis=1)/2).tolist()
-        # Sixteen independent 01 preparations: all in the two predicted bins
-        # with both seen. One 11 preparation must also read zero. Sum mutually
-        # exclusive counts to avoid cancellation on near-zero controls.
         x, y = raw[1, cost:cost+2]
-        acceptance = raw[3,0]*sum(comb(16,m)*x**m*y**(16-m) for m in range(1,16))
+        native_acceptance = seventeen_read_probability(x, y, raw[3, 0])
+        x, y = (sum(line_probability(e, b) for e in lines[1])/len(lines[1])
+                for b in (cost, cost+1))
+        acceptance = seventeen_read_probability(x, y, line_probability(equal[1], 0))
+        # Integer rivals have exact spectral zeros. Allow numerical leakage
+        # only when the independently calculated probability is exactly zero.
+        if not isclose(native_acceptance, acceptance, rel_tol=2e-12,
+                       abs_tol=1e-24 if acceptance == 0 else 0.):
+            raise ArithmeticError("Native seventeen-read probability disagrees with the spectral lines")
         results.append(dict(arm=arm, equal_weight_lines=lines, four_word_TV=distances,
                             seventeen_read_acceptance=float(acceptance),
                             max_reconstruction_TV=defect, meets_source=max(distances) < 1e-10))

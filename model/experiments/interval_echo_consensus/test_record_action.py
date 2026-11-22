@@ -102,6 +102,19 @@ def test_receipt_rejects_lost_outcomes_and_nonfinite_numbers():
         record_release.source("missing")
 
 
+def test_rare_probability_keeps_its_scale_and_ideal_zeros():
+    rare = {"seventeen_read_acceptance": 1.29756556034833e-39}
+    for value in (0., -1e-39, 1e-12, 1.3e-39, float("nan")):
+        with pytest.raises(ValueError):
+            record_receipt.verify(rare, {"seventeen_read_acceptance": value})
+    with pytest.raises(ValueError):
+        record_receipt.verify({"seventeen_read_acceptance": 0.}, rare)
+    for value in (-1e-30, sign_graph.FREQUENCY_LEAKAGE_LIMIT, 1e-15):
+        with pytest.raises(ValueError):
+            record_receipt.verify({"maximum_forbidden_read_probability": 2e-29},
+                                  {"maximum_forbidden_read_probability": value})
+
+
 def test_unswitched_echo_reference_rejects_clock_alias_and_hidden_pair_only_term():
     data = record_receipt.native_frequency.echo_reference()["outcomes"]
     good, alias, hidden = (np.array(data[k]) for k in ("8.0","264.0","pair-only"))
@@ -129,8 +142,8 @@ def test_held_launch_predicts_all_bins_and_distinguishes_assembled():
     assert [row["arm"] for row in panel["alternatives"] if row["meets_source"]] == [8.]
     by_arm = {row["arm"]: row for row in panel["alternatives"]}
     assert abs(by_arm[8.]["seventeen_read_acceptance"]-(1-2**-15)) < 2e-12
-    assert by_arm[.5]["seventeen_read_acceptance"] < 2e-39
-    assert max(r["seventeen_read_acceptance"] for k, r in by_arm.items() if k not in (8.,.5)) < 1e-24
+    assert by_arm[.5]["seventeen_read_acceptance"] == pytest.approx(1.29756556034833e-39, rel=2e-12, abs=0)
+    assert all(r["seventeen_read_acceptance"] == 0 for k, r in by_arm.items() if k not in (8.,.5))
     rival = panel["alternatives"][-1]
     assert max(rival["four_word_TV"][:3]) < 1e-10 and rival["four_word_TV"][3] > .999999
     assert len(saved["release"]) == 8

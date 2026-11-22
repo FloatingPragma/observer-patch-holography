@@ -12,6 +12,9 @@ from .record_action import addresses, changes, signed_table
 from .record_release import source
 
 
+FREQUENCY_LEAKAGE_LIMIT = 1e-23
+
+
 def common_width(board):
     """Largest number of distinct bystander sign addresses injectable at every contact."""
     return min(len(addresses(board, e))-1 for e in board.seams)
@@ -91,7 +94,7 @@ def frequency_read(walsh, moves):
     residual = probabilities.copy()
     residual[records, np.arange(size)] = 0.
     leakage = float(residual.sum(axis=0).max())
-    if not leakage < 1e-23 or np.any(records > size//2):
+    if not leakage < FREQUENCY_LEAKAGE_LIMIT or np.any(records > size//2):
         raise ArithmeticError("A Fourier read is ambiguous on the finite unit-rate graph")
     return records, leakage
 

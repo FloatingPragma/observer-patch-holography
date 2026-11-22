@@ -37,8 +37,18 @@ def verify(actual, saved, path="receipt"):
         for i, (a, b) in enumerate(zip(actual, saved, strict=True)):
             verify(a, b, f"{path}/{i}")
     elif isinstance(actual, float):
+        # Acceptance is computed from spectral lines and can be exactly zero
+        # or many orders of magnitude below the detector's rounding tolerance.
+        field = path.rsplit("/", 1)[-1]
+        acceptance = field == "seventeen_read_acceptance"
+        if acceptance and not (0 <= actual <= 1 and 0 <= saved <= 1):
+            raise ValueError(f"Invalid probability at {path}")
+        if field == "maximum_forbidden_read_probability" and not (
+            0 <= actual < sign_graph.FREQUENCY_LEAKAGE_LIMIT and 0 <= saved < sign_graph.FREQUENCY_LEAKAGE_LIMIT
+        ):
+            raise ValueError(f"Clock leakage exceeds its registered limit at {path}")
         if not (math.isfinite(actual) and math.isfinite(saved)
-                and math.isclose(actual, saved, abs_tol=2e-11, rel_tol=2e-12)):
+                and math.isclose(actual, saved, abs_tol=0. if acceptance else 2e-11, rel_tol=2e-12)):
             raise ValueError(f"Different measurement at {path}")
     elif actual != saved:
         raise ValueError(f"Different result at {path}")
