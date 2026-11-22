@@ -154,3 +154,27 @@ def test_complete_history_rejects_incompatible_middle_appointment(mutation):
         cohort=slice(None) if mutation=="reverse_signal" else slice(1,2)
         counts[cohort,mid]=counts[cohort,mid][:,[1,0,2],:]
     assert read(counts,config["shots"],error,distortion)["rate_interval"] is None
+
+
+def test_deposited_clock_records_and_archive_identity(tmp_path):
+    from . import dwell_records
+    dwell_records.verify()
+    path = tmp_path / "dwell_counts.npz"
+    path.write_bytes((HERE / path.name).read_bytes() + b"changed")
+    with pytest.raises(ValueError, match="Changed acquisition archive"):
+        dwell_records.records(path)
+
+def test_deposited_record_replay_rejects_changes_to_control_inputs(tmp_path, monkeypatch):
+    import json
+    from . import dwell_records
+    manifest = "dwell_controls_sources.json"
+    for name in [manifest, *json.loads((HERE / manifest).read_text())]:
+        (tmp_path / name).write_bytes((HERE / name).read_bytes())
+    bad = tmp_path / "dwell_controls_protocol.json"
+    bad.write_bytes(bad.read_bytes() + b" ")
+    monkeypatch.setattr(dwell_records.dwell, "HERE", tmp_path)
+    with pytest.raises(ValueError, match="Changed control source: dwell_controls_protocol"):
+        dwell_records.verify()
+    (tmp_path / manifest).write_text("{}")
+    with pytest.raises(ValueError, match="Changed control source manifest"):
+        dwell_records.verify()
