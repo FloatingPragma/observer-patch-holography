@@ -16,6 +16,15 @@ BOARD_SHA = "99870398e3d516f899c600e9bf25ba53c7f513142ba8facbe1cedd94b23f915b"
 
 
 def check(times):
+    spec = json.loads((HERE/"protocol.json").read_text(encoding="utf-8"))
+    receipt = json.loads((HERE/"results.json").read_text(encoding="utf-8"))
+    scheduled = spec["exposures"]
+    if (not scheduled or any(type(t) is not int or t <= 0 for t in scheduled)
+            or scheduled != sorted(set(scheduled)) or any(type(t) is not int for t in times)
+            or times not in (scheduled[:1], scheduled)
+            or spec["board_level"] != 0 or spec["launch"] != receipt["launch"]
+            or set(receipt["appointments"]) != set(map(str, scheduled))):
+        raise ValueError("Expected the registered launch and the first or complete appointment sequence")
     if hashlib.sha256(BOARD.read_bytes()).hexdigest() != BOARD_SHA:
         raise ValueError("Unexpected carrier bytes")
     with np.load(BOARD, allow_pickle=False) as data:
@@ -36,7 +45,6 @@ def check(times):
                 cols.append(index[tuple(sorted((dest, fixed)))])
     adjacency = sparse.csr_matrix((np.ones(len(rows)), (rows, cols)), shape=(len(index),)*2)
     exchange = (sparse.diags(np.asarray(adjacency.sum(axis=1)).ravel())-adjacency)/2
-    spec = json.loads((HERE/"protocol.json").read_text(encoding="utf-8"))
     edge = tuple(spec["launch"])
     masked = np.array([len(set(pair).intersection(edge)) == 1 for pair in positions], dtype=float)
     adjacent = np.array([b in neighbors[a] for a, b in positions], dtype=float)
@@ -49,7 +57,6 @@ def check(times):
          + sparse.kron(sign_hops, sparse.diags(masked), format="csr"))
     state = np.zeros(h.shape[0], complex)
     state[index[edge]] = 1
-    receipt = json.loads((HERE/"results.json").read_text(encoding="utf-8"))
     seams = [e for e in edges if e[0]//12 == e[1]//12 == edge[0]//12]
     if seams != list(map(tuple, receipt["seams"])) or width != receipt["tagged_signs"]:
         raise ValueError("Detector or tagged register mismatch")
@@ -67,7 +74,7 @@ def check(times):
         if target.shape != observed.shape or not np.isfinite(target).all() or np.any(target < 0):
             raise ValueError("Invalid stored joint distribution")
         errors[t] = float(abs(target-observed).sum())
-        if abs(observed.sum()-1) > 1e-9 or errors[t] > 1e-9:
+        if not np.isfinite(observed).all() or abs(observed.sum()-1) > 1e-9 or errors[t] > 1e-9:
             raise ArithmeticError(f"Independent sharp-word distribution differs at {t}: {errors[t]}")
         previous = t
     return errors

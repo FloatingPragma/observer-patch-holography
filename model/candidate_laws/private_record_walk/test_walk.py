@@ -1,4 +1,5 @@
 import json
+from hashlib import sha256
 from math import comb
 
 import numpy as np
@@ -73,6 +74,13 @@ def test_every_sector_and_joint_read_against_the_full_graph():
     second = (literal @ first).reshape(start.shape)
     assert np.linalg.norm(first.reshape(start.shape)[:, changed]) == 0
     assert np.linalg.norm(second[:, changed])**2/4 == pytest.approx(2*width/64)
+    # In the union rule, both occupied ends enable precisely the extra tagged
+    # flips on the launch. Apply these columns directly to the sharp input.
+    rival_first = first.reshape(start.shape).copy()
+    launch = pairs.index(*edge)
+    for j in tags:
+        rival_first[launch] += (start[launch] - start[launch, np.arange(size) ^ (1 << j)])/2
+    assert np.linalg.norm(rival_first[:, changed])**2 == pytest.approx(width/4)
 
 
 def test_archived_joint_marginals_and_historical_source():
@@ -86,6 +94,17 @@ def test_archived_joint_marginals_and_historical_source():
     ref, launch, home, _ = source("primitive")
     assert not (odd != ref).nnz and launch == pairs.index(*spec["launch"])
     assert not (odd != pairs.hamiltonian(8)).nnz
+    archived = (HERE.parents[2]/"openwave/interval_echo/row_04/row_04_receipt.json").read_bytes()
+    assert sha256(archived).hexdigest() == "7f6e458fd0b7cf9b9e50fb15a5c4b77f944a2457a9c53cdcca88efdf4d4c3bdd"
+    historical = json.loads(archived)
+    assert historical["source"] == result["launch"] and historical["addresses"] == [*result["seams"], "quiet"]
+    for arm in historical["arms"]:
+        assert arm["strength"] in (0, 8)
+        for j, (t, record) in enumerate(zip(spec["exposures"], arm["readings"], strict=True)):
+            actual = (result["appointments"][str(t)]["odd_home_and_quiet"] if arm["strength"] == 8
+                      else result["controls"]["all_even"]["home_and_quiet"][j])
+            assert record["exposure"] == t
+            np.testing.assert_allclose(actual, record["probabilities"], rtol=0, atol=5.1e-10)
     assert result["first_changed_word_quartic"] == 9*width/64
     times = spec["exposures"]
     probs = []
@@ -113,6 +132,9 @@ def test_archived_joint_marginals_and_historical_source():
 
 def test_direct_sharp_word_readout_first_appointment():
     from .check_words import check
+    for times in ([], [7], [1, 1], [True]):
+        with pytest.raises(ValueError):
+            check(times)
     assert check([1])[1] < 1e-9
 
 
@@ -129,6 +151,9 @@ def test_certified_interpolation_interior_minimum_and_receipt_rejections():
             fourth_derivative_bound(sparse.csr_matrix([[value]]), 0)
     with pytest.raises(ValueError):
         certified_window(p+2, p, bound, 4, 1e-12)
+    for home in ([], [-1], [0, 0], [2]):
+        with pytest.raises(ValueError):
+            joint_read(np.ones((1, 2)), home)
     for wrong in ({"p": [float("nan")]}, {"p": [.5, 0.]}, {"p": [False]}, {"p": [.5], "extra": 1}):
         with pytest.raises(ValueError):
             check_receipt({"p": [.5]}, wrong)

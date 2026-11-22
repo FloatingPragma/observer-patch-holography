@@ -9,6 +9,7 @@ from scipy.sparse.linalg import expm_multiply
 
 from model.executable_model import Carrier, cell, federation
 from .record_action import addresses, changes, signed_table
+from .record_release import source
 
 
 FREQUENCY_LEAKAGE_LIMIT = 1e-23
@@ -238,8 +239,6 @@ def microscopic_path(private=False):
 
 
 def full_projection(arm, reverse=False):
-    from .record_release import source
-
     board = federation(0)
     walk = PrivateRecordWalk(board, arm, reverse)
     offers, rest = walk.offers, walk.rest

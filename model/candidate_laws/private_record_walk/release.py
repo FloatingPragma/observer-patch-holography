@@ -1,7 +1,7 @@
 """Coherent sharp-sign and odd-sign releases on the unweighted private graph."""
 import argparse
 import json
-from math import comb, isqrt
+from math import comb, exp, expm1, factorial, isqrt, log1p
 from pathlib import Path
 
 import numpy as np
@@ -9,10 +9,36 @@ from scipy import sparse
 
 from model.executable_model import federation
 from model.experiments.interval_echo_consensus.bounded_clock_flight import DetectorEvolution
-from model.experiments.interval_echo_encounter.check_transport import checked_steps
 from .probe import pair_source
 
 HERE = Path(__file__).parent
+
+
+def common_phase_steps(h, initial, grid, last_tick):
+    """Propagate one parity sector in the same energy reference as every other sector."""
+    step = h/grid
+    radius = float(abs(step).sum(axis=1).max())
+    degree = 24
+    unit = np.finfo(float).eps/2
+
+    def gamma(n):
+        return n*unit/(1-n*unit)
+
+    # Bound the Taylor tail and the sparse dot products on the real and
+    # imaginary parts. Symmetry bounds the norm of |step| by its maximum row sum.
+    entries = int(np.diff(step.indptr).max())
+    rounding = exp(radius)*expm1(log1p(gamma(degree))+radius*gamma(entries+4))
+    local = rounding + exp(radius)*radius**(degree+1)/factorial(degree+1)
+    state = initial
+    for tick in range(1, last_tick+1):
+        term = state
+        total = state.copy()
+        for order in range(1, degree+1):
+            term = (step @ term)*(-1j/order)
+            total += term
+        state = total
+        delta = expm1(tick*log1p(local))
+        yield tick, state, delta*(2+delta) + gamma(len(state)+8)*(1+delta)**2
 
 
 def word_transform(width):
@@ -30,6 +56,11 @@ def word_transform(width):
 
 def joint_read(sectors, home):
     """All home seams and exterior quiet, resolved by the final tagged word."""
+    home = np.asarray(home)
+    if (sectors.ndim != 2 or not len(sectors) or not np.isfinite(sectors).all() or home.ndim != 1
+            or not home.size or home.dtype.kind not in "iu" or np.any(home < 0)
+            or np.any(home >= sectors.shape[1]) or np.unique(home).size != home.size):
+        raise ValueError("Expected finite sector columns and distinct in-range home coordinates")
     transform, counts = word_transform(len(sectors)-1)
     amplitudes = transform @ sectors
     home_mask = np.zeros(sectors.shape[1], dtype=bool)
@@ -41,7 +72,8 @@ def joint_read(sectors, home):
 
 def fourth_derivative_bound(h, launch):
     """Bound the fourth derivative of any projection probability with integer launch moments."""
-    if (h.shape[0] != h.shape[1] or h.dtype.kind not in "fiu" or not np.isfinite(h.data).all()
+    if (type(launch) is bool or not isinstance(launch, (int, np.integer)) or not 0 <= launch < h.shape[0]
+            or h.shape[0] != h.shape[1] or h.dtype.kind not in "fiu" or not np.isfinite(h.data).all()
             or np.any(h.data < -128) or np.any(h.data > 128)):
         raise ValueError("Expected bounded real material entries")
     twice = (2*h.astype(float)).tocsr()
@@ -115,7 +147,7 @@ def experiment():
         current = np.empty(len(ticks)+1)
         slope = np.empty_like(current)
         current[0], slope[0] = 1., 0.
-        steps = checked_steps(h/grid, initial, ticks, degree=24, substeps=1, center=0)
+        steps = common_phase_steps(h, initial, grid, ticks.stop-1)
         for expected_tick, (tick, state, error) in zip(ticks, steps, strict=True):
             if tick != expected_tick or not np.isfinite(error) or error < 0:
                 raise ArithmeticError("Invalid propagation step or error enclosure")
@@ -147,7 +179,8 @@ def experiment():
         np.testing.assert_allclose([joint.sum(), joint[:, :-1].sum()],
                                    [1, sharp_home[grid*t]], atol=1e-8, rtol=0)
         reads[t] = {"weight_and_home_or_quiet": joint.tolist(), "changed_word": float(joint[1:].sum()),
-                    "sharp_home": float(joint[:, :-1].sum()), "odd_home": float(odd_home[grid*t])}
+                    "sharp_home": float(joint[:, :-1].sum()), "odd_home": float(odd_home[grid*t]),
+                    "odd_home_and_quiet": joint_read(np.array(states[-1:]), home)[0].tolist()}
     # OR agrees on every single. On a pair it counts a shared record once.
     rivals = {}
     for name, h in (("either_occupied", odd+sparse.diags(common, dtype=float)),
