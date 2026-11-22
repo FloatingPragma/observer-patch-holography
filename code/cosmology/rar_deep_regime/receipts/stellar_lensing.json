@@ -50,6 +50,27 @@
         }
       }
     ],
+    "disjoint_angle_normalization": {
+      "training_lenses": 35,
+      "held_inner_lenses": 18,
+      "held_outer_lenses": 22,
+      "median_angle_multiplier": 0.854722,
+      "order_statistic_median_interval": [
+        0.813838,
+        0.920107
+      ],
+      "minimum_interval_coverage": 0.95904,
+      "held_inner_median_absolute_fractional_angle_error_before_after": [
+        0.116009,
+        0.158213
+      ],
+      "held_outer_predictions_h_Msun_pc2": [
+        44.023,
+        25.1888
+      ],
+      "held_outer_conditional_chisq": 4.4133,
+      "scope": "Retrospective split by catalogue identity. Apply the median observed-to-predicted inner angle outside the shear sample to held inner angles and the flat stellar-speed shear control. The interval assumes independent draws from a common selected population. The exterior score uses the two quoted shear errors conditional on the multiplier."
+    },
     "centre_conditional_chisq": {
       "chabrier": 11.3853,
       "salpeter": 8.6091,

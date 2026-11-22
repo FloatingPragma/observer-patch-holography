@@ -432,6 +432,12 @@ def run():
         word_law="Two conditionally independent categorical preparations, each using the three-level native writer. The second preparation uses the opposite, a fresh independent, or the same fair tag. No tag is read by the flying detector.",
         supplied="Conditional preparations, physical tag protection, stationary central load, detector appointments and reference. Protected source words survive both flight legs.",
         between_word_score_covariance_nats_squared=amplitudes,
+        mutual_information_nats=[
+            float(np.sum(w * np.log(w / weights[1]))) for w in weights
+        ],
+        shared_small_strength_quartic_coefficient=float(
+            0.5 * np.sum((weights[2] - weights[1]) ** 2 / weights[1])
+        ),
         full_shared_vs_fresh_total_variation=1 / 72,
         ramsey_shots=2**22,
         seed=2026112255,

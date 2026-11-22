@@ -74,6 +74,7 @@ REPLAY_EVALUATIONS = (
     {"model/candidate_laws/interval_echo/EVALUATION.json": "41c5457f88cc152a719a8678a783838c00d6255b62fd9cfbed3379aedb61683c"},
     {"model/candidate_laws/interval_echo/EVALUATION.json": "8e50a50244e99f851faf42720b1e72555fc52f2508fb3eef46c23412736266e0"},
     {"model/candidate_laws/interval_echo/EVALUATION.json": "3aee1acfeeea03479956235d0050073b21f255b9389bf3dce2fc32384ffd017b"},
+    {"model/candidate_laws/interval_echo/EVALUATION.json": "5fded60f359db42455f4977d7be03134ea74afa9109dc2bf242de95573a6d128"},
 )
 
 

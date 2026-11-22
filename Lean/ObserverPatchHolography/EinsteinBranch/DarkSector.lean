@@ -20,11 +20,12 @@ records the algebraic consequences.
 * The candidate dark source is the anomalous modular energy carried on overlap
   collars, the Einstein branch's controlled finite-stage remainder.  Its
   rest-frame stress is bounded by the collar recovery defect
-  (`anomalousStress_abs_le`), vanishes exactly at full recovery
+  (`anomalousStress_abs_le`), vanishes at full recovery
   (`anomalousStress_eq_zero_of_recovered`), and tends to zero along any
   family whose recovery defect tends to zero at fixed radius and bounded
-  collar constant (`anomalousStress_tendsto_zero`).  The last statement is the
-  screening interface: where recovery saturates, the dark source switches off.
+  collar constant (`anomalousStress_tendsto_zero`). On shrinking balls, a
+  specified limiting stress fixes the fourth-order coefficient of the collar
+  energy (`anomalousStress_tendsto_iff_normalized_residual`).
 * A conserved comoving charge dilutes as the inverse cube of the scale factor
   (`comovingDensity_mul_scale_cubed`), the cold-background scaling.
 * The deep-regime anomalous density with linear enclosed mass,
@@ -222,6 +223,29 @@ theorem anomalousStress_tendsto_zero (A : ℕ → AnomalyRemainder) (ℓ Cmax : 
   rw [tendsto_zero_iff_abs_tendsto_zero]
   refine squeeze_zero (fun n => abs_nonneg _) hbound hlim
 
+/-- On one positive-radius family, including shrinking balls, the rest-frame
+stress tends to `s` exactly when the energy residual divided by the fourth
+power of the radius tends to zero. Setting `s = 0` tests screening. -/
+theorem anomalousStress_tendsto_iff_normalized_residual (A : ℕ → AnomalyRemainder) (s : ℝ) :
+    Tendsto (fun n => anomalousStress (A n)) atTop (𝓝 s) ↔
+      Tendsto (fun n => ((A n).anomalousEnergy - (8 * Real.pi ^ 2 / 15) * (A n).ell ^ 4 * s) /
+        (A n).ell ^ 4) atTop (𝓝 0) := by
+  let c : ℝ := 8 * Real.pi ^ 2 / 15
+  have hc : c ≠ 0 := by dsimp [c]; positivity
+  have hscale (n : ℕ) :
+      ((A n).anomalousEnergy - c * (A n).ell ^ 4 * s) / (A n).ell ^ 4 =
+        c * (anomalousStress (A n) - s) := by
+    dsimp [c, anomalousStress]
+    field_simp [(A n).ell_pos.ne', Real.pi_ne_zero]
+  change _ ↔ Tendsto (fun n => ((A n).anomalousEnergy - c * (A n).ell ^ 4 * s) /
+    (A n).ell ^ 4) atTop (𝓝 0)
+  simp_rw [hscale]
+  constructor
+  · intro h
+    simpa using (h.sub (tendsto_const_nhds (x := s))).const_mul c
+  · intro h
+    simpa [← mul_assoc, hc] using (h.const_mul c⁻¹).add (tendsto_const_nhds (x := s))
+
 /-! ## Cold scaling of a conserved comoving charge -/
 
 /-- A conserved modular charge `Q` in a comoving cell whose physical volume
@@ -368,6 +392,7 @@ theorem localHaloTidal_below_cassini :
 #print axioms anomalousStress_abs_le
 #print axioms anomalousStress_eq_zero_of_recovered
 #print axioms anomalousStress_tendsto_zero
+#print axioms anomalousStress_tendsto_iff_normalized_residual
 #print axioms comovingDensity_mul_scale_cubed
 #print axioms enclosedMass_hasDerivAt
 #print axioms deep_radial_acceleration

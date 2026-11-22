@@ -323,6 +323,210 @@ def angular_comparison_bound(x, errors):
     return np.linalg.eigvalsh(midpoint)[0] - np.linalg.norm(radius, np.inf)
 
 
+def gateway_profiles(base, source, hand_yes):
+    """Matched writes after transporting the retained tag to a neighbouring patch."""
+    from scipy.linalg import eigh, solve
+    from . import cap, shared_variance as shared
+
+    board = federation(0)
+    route = [(10, 20), (20, 13), (6, 10), (10, 20), (20, 19)]
+    rails = list(shared.TAG)
+    for a, b in route:
+        if b not in board.neighbours[a] or {a, b} & {
+            1,
+            *shared.TIPS,
+            *source["hand_seam"],
+        }:
+            raise ValueError("Tag transfer crosses a protected source or hand")
+        rails = [b if old == a else a if old == b else old for old in rails]
+    if rails != [19, 13] or rails[0] not in board.neighbours[rails[1]]:
+        raise ValueError("Both retained tag states require a common read seam")
+    # Tag has already been number-read onto a sharp rail. The native blank
+    # pi-swap can supply a phase on each branch without changing its weight.
+    # Only blank seams at the old and new tag rails change flight service.
+    native = candidate.native_law
+    words = [native.SRC.index(w) for w in [(1, 0), (0, 1)]]
+    blank = native.seam_term(candidate.KAPPA)[np.ix_(words, words)]
+    moved = base.toarray()
+    for edge in board.seams:
+        if 1 in edge:
+            continue
+        sign = int(bool(set(edge) & set(shared.TAG))) - int(
+            bool(set(edge) & set(rails))
+        )
+        if sign:
+            moved[np.ix_(edge, edge)] += sign * blank
+    hand_gap = source["hand_gap"]
+    initials = [9, 11]
+    detectors = [48, 20]
+    local = np.linalg.qr(cap.chord_coordinates())[0]
+    orig_cell = candidate.generator(cell()).toarray()
+    carrier = np.trace(local.T @ orig_cell @ local) / 3
+    frequencies = carrier + hand_gap * np.array([-0.5, 0, 0.5])
+    linewidth = hand_gap / 2
+    times = np.array([1, 1.5, 2])
+    shots = 2**36
+    rng = np.random.default_rng(2026112264)
+    clock_shots = 2**24
+    hand_p = hand_yes[:, np.rint(times / radar.DT).astype(int) - 2]
+    hand_bits = rng.binomial(clock_shots, np.round(hand_p, 12))
+    measured_time = (
+        np.unwrap(np.arctan2(*(2 * hand_bits / clock_shots - 1)[::-1])) / hand_gap
+    )
+    clock_radius = (
+        np.arcsin(
+            np.sqrt(2)
+            * (np.sqrt(2 * np.log(2 * hand_bits.size / 0.01) / clock_shots) + 1e-12)
+        )
+        / hand_gap
+    )
+    if max(abs(measured_time - times)) > clock_radius:
+        raise ValueError("Enrolled native hand failed dwell calibration")
+    weights = shared.source_words(source)[0].reshape(3, 81)
+    weights = np.vstack((np.eye(1, 81), weights))
+    rows = []
+    for fixed, matrix in ((shared.TAG, base.toarray()), (rails, moved)):
+        free = sorted(set(range(board.n)) - {1, *fixed})
+        if abs(matrix[np.ix_(free, [1, *fixed])]).max() > 1e-14:
+            raise ValueError("Protected registers couple to the flight")
+        home = [p for p in free if p < 12]
+        outside = [p for p in free if p >= 12]
+        ext = matrix[np.ix_(outside, outside)]
+        cut = matrix[np.ix_(outside, home)]
+        bridges = [(h, e) for h, e in board.external if h in home and e in outside]
+        if np.linalg.matrix_rank(cut) != len(bridges):
+            raise ValueError("Accessible home gateway rank disagrees with incidence")
+        # On the reachable free space the exterior block is word-independent.
+        # For one bridge (z-H_out)^(-1) B has one column direction at every z.
+        source_sites = [home.index(s) for s in initials]
+        receiver_sites = [outside.index(s) for s in detectors]
+        ext_fields = [
+            solve((w + 1j * linewidth) * np.eye(len(outside)) - ext, cut)
+            for w in frequencies
+        ]
+        dispersions, spectral_check, pulses = [], [], []
+        spectral_error = pulse_error = 0.0
+        init = np.eye(board.n)[:, initials]
+        masked = np.zeros((board.n, 3))
+        masked[:12] = local
+        for h in shared.word_generators(
+            sparse.csr_matrix(matrix), source["source_word_energies"]
+        ):
+            a = h.toarray()
+            levels, modes = eigh(a)
+            products = modes[detectors, :, None] * modes[initials].T[None, :, :]
+            spectrum, from_modes = [], []
+            for w, env in zip(frequencies, ext_fields, strict=True):
+                z = w + 1j * linewidth
+                hom = solve(
+                    z * np.eye(len(home)) - a[np.ix_(home, home)] - cut.T @ env,
+                    np.eye(len(home))[:, source_sites],
+                )
+                signal = (env @ hom)[receiver_sites]
+                direct = np.einsum("rms,m->rs", products, 1 / (z - levels))
+                spectral_error = max(
+                    spectral_error, float(np.max(abs(signal - direct)))
+                )
+                spectrum.append(abs(linewidth * signal) ** 2)
+                from_modes.append(abs(linewidth * direct) ** 2)
+            dispersions.append(spectrum)
+            spectral_check.append(from_modes)
+            native = expm_multiply(
+                -1j * h, init, start=times[0], stop=times[-1], num=len(times)
+            )[:, detectors, :]
+            check = np.einsum(
+                "rms,tm->trs", products, np.exp(-1j * times[:, None] * levels)
+            )
+            pulse_error = max(pulse_error, float(np.max(abs(native - check))))
+            pulses.append(abs(native) ** 2)
+        if max(spectral_error, pulse_error) > 1e-10:
+            raise ValueError("Independent gateway amplitudes disagree")
+        spectral = np.einsum("aw,wfrs->afrs", weights, dispersions)
+        probability = np.einsum("aw,wtrs->atrs", weights, pulses)
+        # Number detection is a genuine native measurement at each finite dwell.
+        # No frequency-projecting preparation or observer metric is presumed.
+        observed = []
+        for arm in probability:
+            by_time = []
+            for p in arm:
+                by_time.append(
+                    [
+                        rng.multinomial(
+                            shots,
+                            radar.acquisition_weights(np.r_[col, 1 - col.sum()])
+                            / radar.LATTICE,
+                        ).tolist()
+                        for col in p.T
+                    ]
+                )
+            observed.append(by_time)
+        q = np.array(observed)
+        arrive = q[..., :2].sum(axis=-1)
+        frac = q[..., 0] / np.maximum(1, arrive)
+        pair_change = frac[..., 0] - frac[..., 1]
+        # Given each port sum its two outcomes are binomial. Joint 99% intervals
+        # over 2 protocols x 4 arms x 3 dwells x 2 launches, plus lattice bias.
+        joint_log = np.log(2 * 2 * len(weights) * len(times) * len(initials) / 0.01)
+        hit_prob = probability.sum(axis=2)
+        radius = np.sqrt(joint_log / (2 * np.maximum(1, arrive))) + 2 / (
+            radar.LATTICE * hit_prob - 2
+        )
+        if np.any(arrive == 0) or np.any(hit_prob * radar.LATTICE <= 2):
+            raise ValueError("Two-port total unresolved")
+        fraction = spectral[:, :, 0, :] / spectral.sum(axis=2)
+        alt = np.einsum("aw,wfrs->afrs", weights, spectral_check)
+        fraction_error = np.max(abs(fraction - alt[:, :, 0, :] / alt.sum(axis=2)))
+        if fraction_error > 1e-10:
+            raise ValueError("Independent normalized spectral profiles disagree")
+        if len(bridges) == 1:
+            np.testing.assert_allclose(
+                fraction,
+                np.broadcast_to(fraction[:1, :, :1], fraction.shape),
+                atol=1e-13,
+                rtol=0,
+            )
+        y = matrix @ masked
+        leak_singular = np.linalg.svd(y - masked @ (masked.T @ y), compute_uv=False)
+        rows.append(
+            dict(
+                tag_rails=list(fixed),
+                open_bridges=bridges,
+                cut_rank=int(np.linalg.matrix_rank(cut)),
+                vacant_triplet_generator_leakage_singular_values=leak_singular.tolist(),
+                max_schur_spectral_disagreement=spectral_error,
+                max_pulse_amplitude_disagreement=pulse_error,
+                spectral_detector_48_fraction=fraction.tolist(),
+                normalized_spectral_max_disagreement=float(fraction_error),
+                counts_by_arm_time_launch=observed,
+                measured_detector_fraction_contrasts=pair_change.tolist(),
+                simultaneous_contrast_radii=radius.sum(axis=-1).tolist(),
+            )
+        )
+    return dict(
+        tag_transfer_swaps=route,
+        launch_ports=initials,
+        detector_outcomes=[*detectors, "elsewhere"],
+        arms=["vacant_reference", *shared.ARMS],
+        slow_carrier_frequency=float(carrier),
+        protected_overlap_eigenvalues=np.linalg.eigvalsh(
+            local[[1, *shared.TAG]].T @ local[[1, *shared.TAG]]
+        ).tolist(),
+        susceptibility_frequencies=frequencies.tolist(),
+        lorentzian_width=linewidth,
+        pulse_dwells=times.tolist(),
+        shots=shots,
+        seed=2026112264,
+        clock_shots=clock_shots,
+        clock_yes_by_quadrature_and_dwell=hand_bits.tolist(),
+        measured_material_hand_dwells=measured_time.tolist(),
+        simultaneous_99pct_dwell_radius=float(clock_radius),
+        calibrating_frequency_index=1,
+        held_frequency_indices=[0, 2],
+        protocols=rows,
+        scope="Single-frequency transfer is a resolvent forecast with supplied frequency and linewidth. The finite counts measure native pulse scattering after physical tag transfer. Neither output establishes a null bundle, affine distance or spacetime Ricci curvature.",
+    )
+
+
 def candidate_geometry():
     """Measure clocked ranges among six stations on the physically matched two-write station."""
     from scipy.optimize import brentq
@@ -457,6 +661,7 @@ def candidate_geometry():
         controls_at_dimensionless_curvatures=[-0.5, 0, 0.5],
         control_kernel=controls,
         angular_comparison_control_lower_bounds=angular_controls,
+        gateway_scattering=gateway_profiles(base, source, hand_yes),
         between_grid_eigenvalue_allowance=between_grid,
         chebyshev_half_step_truncation_in_exact_arithmetic=tail,
         maximum_each_direction_record_mass_error_in_exact_arithmetic=mass_error,
