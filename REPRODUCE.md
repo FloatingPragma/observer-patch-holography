@@ -26,6 +26,12 @@ The main replay compares fresh clock decisions and reunion words with the deposi
 
 The station experiment tests whether ranges inferred from simulated observer records predict held clock and pulse measurements. Its three-dimensional fit uses the recorded times and station labels. [Source-free chart and held flights](model/experiments/interval_echo_space/README.md#can-a-source-free-chart-predict-clocks-and-pulses-at-other-stations)
 
+The programmed scalar experiment reconstructs three directions from eight anonymous stations, then uses the chart to predict independent clock-stopped detector records. Run its published protocol from the repository root. [Scalar result and continuum limit](model/experiments/seam_program/CLOCKED_FIELD.md)
+
+```sh
+python -m model.experiments.seam_program.blind_chart --output /tmp/echo-blind-chart.json
+```
+
 ## Theory certificates
 
 These packages check conditional theorems on their own declared carriers. Their replay establishes no transfer
