@@ -79,7 +79,7 @@ def finite_window(exchange, adjacent, patch, launch, strength):
     grid_floor = 1.
     readings = {}
     # One time unit of the scaled matrix is 1/8 of a native exposure.
-    for tick, state, error in checked_steps(h / 8, start, range(1, 297), degree=52, steps_per_unit=1):
+    for tick, state, error in checked_steps(h / 8, start, range(1, 297), degree=20):
         if not 0 <= error < 1e-5:
             raise ArithmeticError("The Taylor probability enclosure exceeded its budget")
         local = abs(state[patch])**2
