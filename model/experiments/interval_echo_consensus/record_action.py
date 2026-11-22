@@ -152,7 +152,8 @@ def run():
         by_word = local_flags(board, edge, words, metric)
         counts = [sum(by_word[d]) for d in (1, 2)]
         for other in board.seams:
-            if counts != [sum(bits) for d, bits in sorted(local_flags(board, other, words, metric).items()) if d > 0]:
+            other_flags = local_flags(board, other, words, metric)
+            if counts != [sum(other_flags[d]) for d in (1, 2)]:
                 raise ArithmeticError("The primitive seam chart selected a strength")
         native = material_generator(by_word)
         gate = compiled_gate(by_word, 1/3)
@@ -163,6 +164,17 @@ def run():
             raise ArithmeticError("Unexpected complete-collar transfer")
         result["readers"][metric] = dict(counts=counts, full_operator_error=error,
                                          phase_read=[ramsey(gate, d) for d in (1, 2)])
+    square = local_flags(board, edge, words, "square")
+    zero = {d: [False]*len(bits) for d, bits in square.items()}
+    exchange = material_generator(zero)
+    action = material_generator(square)-exchange
+    # Compare complete generators, avoiding wrapped single-exposure phases.
+    result["relative_rate_controls"] = {}
+    for rate in (0.5, 1., 2.):
+        residual = float(np.linalg.norm(exchange + rate*action - pin, ord=2))
+        result["relative_rate_controls"][str(rate)] = residual
+        if (residual < 1e-12) != (rate == 1.):
+            raise ArithmeticError("An independently rescaled record clock escaped the full-collar test")
     counts = {}
     for level in range(3):
         actual = federation(level)
