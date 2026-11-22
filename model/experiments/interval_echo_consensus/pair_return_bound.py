@@ -8,6 +8,7 @@ from sympy import integer_nthroot
 
 from model.candidate_laws.contrast_memory_spherical_v1.sectors import PairSector
 from model.executable_model import federation
+from .bounded_clock_flight import DetectorEvolution
 
 
 DEGREE = 19
@@ -72,7 +73,24 @@ def home_bound(sector, home):
             "upper_decimal": float(upper), "excluded_absolute_strength_through": str(delta)}
 
 
+def positive_clock_controls(sector):
+    """Same clock and vacuum fringe records, distinct forecasts on the enrolled release."""
+    detector = [sector.index(a, b) for a, b in sector.car.seams if a//12 == b//12 == 13]
+    arms = []
+    for strength in (.5, 8):
+        flight = DetectorEvolution(sector.hamiltonian(strength), [37])
+        laws = flight.read(sector.index(156, 157), detector)[0]
+        arms.append({"strength": strength, "seams_and_quiet": laws.tolist(),
+                     "home": float(1-laws[-1]), "error": flight.probability_error})
+    weak, strong = arms
+    worst_error = (strong["home"] - strong["error"] - weak["home"] - weak["error"])/2
+    if worst_error <= .2817:
+        raise ArithmeticError("The two indistinguishable clock sources lost their gap")
+    return {"arms": arms, "worst_absolute_error_lower": .2817}
+
+
 if __name__ == "__main__":
     import json
     sector = PairSector(federation(0))
-    print(json.dumps([home_bound(sector, home) for home in range(sector.car.cells)], indent=2))
+    print(json.dumps({"clock_controls": positive_clock_controls(sector),
+                      "home_bounds": [home_bound(sector, home) for home in range(sector.car.cells)]}, indent=2))

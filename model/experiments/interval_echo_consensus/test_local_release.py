@@ -42,6 +42,7 @@ def test_compact_flight_and_bounded_retries():
 
 def test_pair_certificate_and_compressed_return_on_a_small_graph():
     sector = PairSector(federation(0))
+    assert pair.positive_clock_controls(sector)["worst_absolute_error_lower"] == .2817
     for home in (1, 13):
         assert Fraction(pair.home_bound(sector, home)["probability_upper"]) < Fraction(94, 100)
     matrix = 5*np.eye(3) + np.array([[1, -.5, -.5], [-.5, .5, 0], [-.5, 0, .5]])
@@ -102,10 +103,11 @@ def test_exception_on_federated_two_load_operator():
         assert {key: w for key, w in evolved.items() if w} == {key: 12*w for key, w in amp.items()}
 
 
-def test_archived_clock_journeys_with_exchange_alone():
-    """Same discrete transcripts at zero. The reference contains the adopted clock's records."""
+@pytest.mark.parametrize("strength", [0., .5, 1., 1.5, 4., 128.])
+def test_archived_clock_journeys_across_strengths(strength):
+    """Compare the complete publications to the archived runs at strength eight."""
     archived = json.loads((publication.HERE / "publication.json").read_text(encoding="utf-8"))
-    with patch.object(clock, "KAPPA", 0):
+    with patch.object(clock, "KAPPA", strength):
         clock._primitives.cache_clear()
         clock._dimer_pulse.cache_clear()
         try:
