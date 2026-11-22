@@ -422,6 +422,52 @@ intertwiner nor a compatible initialization. The criterion compares record laws 
 ignores the state encodings that produce them, which is the form a test of the executable
 model takes (Section~\ref{sec:cms-test}).
 
+\section{Testing the electron assignment of a two-load resonance}
+\label{sec:electron-resonance}
+
+A scattering resonance gives a specific excitation on which to test a species
+assignment. On a programmed homogeneous cubic guide the relative address
+$r\ne0$ of two binary loads carries one complex amplitude. Set the site
+spacing to $h$, the time per unit exposure to $h^2$, and the effective
+nearest-neighbour attraction to its two-body threshold
+$\kappa_*=0.9682678127$. In the cubic-symmetric channel the outgoing
+amplitude tends to $f(k)=i/k$ at fixed positive momentum $k$.
+On a periodic cube of unit side with 32 sites per side, the probability of
+$\max_j |r_j|<1/4$ at time $1/8$, starting uniformly on distinct pairs,
+is $0.55714$ at threshold and $0.10297$ with exchange alone. Here $r_j$
+denotes the shortest signed separation along axis $j$ in physical units.
+
+The half-turns about two perpendicular axes act on the relative coordinate by
+$R_x(x,y,z)=(x,-y,-z)$ and $R_y(x,y,z)=(-x,y,-z)$. They preserve the
+Hamiltonian and obey $R_xR_y=R_yR_x$ on every address. The evolved packets
+on cubes of side 8, 16 and 32 give relative sign $+1$ for the two orders.
+For spin half the operators $-i\sigma_x$ and $-i\sigma_y$ give $-1$.
+Rephasing either turn cancels in the comparison. These signs are calculated
+in the specified representations. An observer measurement would also require
+coherent control of the two paths. The positive sign excludes an electron
+assignment for the resonance itself under this spatial action. It leaves
+the identities of its constituents undetermined.
+The calculation and its exchange and unmodified-contrast controls are
+reproducible in \path{model/experiments/seam_program/electron_rotation.py}.
+
+The electron components in the five-level exterior code have
+$(T_3,Y)=(-1/2,-1/2)$ and $(0,-1)$, both with $Q=T_3+Y=-1$.
+Identifying them with a single massive charged lepton requires both chiral
+components on the same propagating branch, a spinor response and a signed
+electromagnetic current with a conjugate channel. The relative-coordinate
+scattering data supply no charged rest energy or generation discriminator.
+
+An independent conformal calculation illustrates the observable distinction.
+For two pairs of dimension-two gauge-invariant scalar insertions in Euclidean
+$SU(2)$ supersymmetric Yang--Mills theory with $\mathcal N=4$, the normalized
+four-point function at coupling $a=0.01$ is $0.984374$ on the regular
+tetrahedron and $0.977909$ on the skew configuration through one loop,
+against the free value $1$ \cite{edenfourpoint}. The positions and
+polarizations are specified in \path{model/benchmarks/conformal_correlator}.
+These observables test the interaction of scalar operators in a supplied
+relativistic conformal vacuum. An electron measurement requires a charged
+spinor source and a physical mass scale.
+
 \section{What a particle reading of the model requires}
 \label{sec:particle-joins}
 
@@ -526,6 +572,12 @@ B.\ M\"uller, M.\ Poneder, J.\ Kim, and D.\ A.\ Friedman,
 \emph{An Executable Observer for Observer Patch Holography: Specification, Memory and Agreed Records}.
 GitHub PDF:
 \url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2072/paper/executable_observer_construction.pdf}
+
+\bibitem{edenfourpoint}
+B. Eden, P. Heslop, G. P. Korchemsky and E. Sokatchev,
+\emph{Hidden symmetry of four-point correlation functions and amplitudes in
+$\mathcal N=4$ SYM}, Nucl. Phys. B \textbf{862}, 193--231 (2012),
+\href{https://arxiv.org/abs/1108.3557}{arXiv:1108.3557}.
 
 \bibitem{ophbasis}
 B.\ M\"uller et al.,

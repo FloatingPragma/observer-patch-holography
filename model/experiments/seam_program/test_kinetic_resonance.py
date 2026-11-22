@@ -140,3 +140,33 @@ def test_guide_archive():
             np.testing.assert_allclose(
                 m["separation_probabilities"], k["separation_probabilities"], atol=1e-9
             )
+
+
+def test_electron_rotation_sign_and_same_source_scattering():
+    from . import electron_rotation
+
+    saved = json.loads((cube.HERE / "electron_rotation.json").read_text())
+    protocol = cube.HERE / "electron_rotation_protocol.json"
+    assert saved["protocol_sha256"] == sha256(protocol.read_bytes()).hexdigest()
+    np.testing.assert_array_equal(saved["spinor_control_order_comparison_real"], -np.eye(2))
+    np.testing.assert_array_equal(saved["spinor_control_order_comparison_imag"], np.zeros((2, 2)))
+    packet_archive = json.loads((cube.HERE / "cubic_resonance.json").read_text())
+    comparison = {(p["n"], p["arm"]): sum(p["readouts"][-1]["separation_bins"][:5])
+                  for p in packet_archive["packets"]}
+    assert [row["n"] for row in saved["cubes"]] == [8, 16, 32]
+    for row in saved["cubes"]:
+        n = row["n"]
+        x, y = electron_rotation.address_turns(n)
+        np.testing.assert_array_equal(x[x], np.arange(n**3 - 1))
+        np.testing.assert_array_equal(y[y], np.arange(n**3 - 1))
+        np.testing.assert_array_equal(x[y], y[x])
+        assert row["addresses"] == n**3 - 1 and row["order_mismatches"] == 0
+        for arm in row["arms"]:
+            assert arm["turn_symmetry_mismatches"] == [0, 0]
+            np.testing.assert_allclose(arm["order_overlap"], [1, 0], atol=1e-12, rtol=0)
+            np.testing.assert_allclose(arm["probability_separation_below_quarter"],
+                                       comparison[n, arm["arm"]], atol=1e-11, rtol=0)
+    rerun = electron_rotation.cube(8, packet_archive["kappa_star"])
+    for measured, archived in zip(rerun["arms"], saved["cubes"][0]["arms"], strict=True):
+        np.testing.assert_allclose(measured["probability_separation_below_quarter"],
+                                   archived["probability_separation_below_quarter"], atol=1e-12)
