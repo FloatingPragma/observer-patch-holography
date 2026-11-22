@@ -1,0 +1,31 @@
+{
+  "base": "0ebb9ba9d6280fec258a7d65e2966c13352dfa8d",
+  "tag": [
+    0,
+    1
+  ],
+  "geometry_levels": [
+    0,
+    1,
+    2
+  ],
+  "flight_level": 0,
+  "clock_cell": "lowest index at maximum dual graph distance from cell zero",
+  "clock_dimers": "lexicographically first two disjoint internal seams with both endpoints of original degree five, taking the first eligible seam at each choice",
+  "strengths": [
+    8,
+    0,
+    -8
+  ],
+  "arms": [
+    "native",
+    "always_ticking"
+  ],
+  "last_tick": 96,
+  "shots": 1048576,
+  "seed": 9106043,
+  "alpha": 0.01,
+  "preparation": "On vacuum isolate the far cell by writing zero on its three boundary seams. Inside that cell write zero on all non-dimer seams incident to either dimer. Supply one unit per isolated dimer with initial X-parity components (even+odd)/sqrt(2) and (even+i odd)/sqrt(2). At the tag apply the native echo to one sharp double on the first endpoint and vacancy on the second. For the other quadrature use an inverse half exchange of the double before the echo. The other memories start blank. All contacts act during flight.",
+  "observables": "At each integer appointment 0 through 96 on separate ensembles read both local reference dimer positions. On the tagged endpoints test occupation (1,1). If present read the sign +2/-2, else record quiet. Retain all twelve joint bins in both quadratures at every appointment for each law and arm. The always-ticking alternative applies the same sign term for every tag occupation. Measurements create no switch in flight.",
+  "gates": "For kappa=8 seek a unique low branch in each sign parity and an all-time lower bound above 0.9 on tag survival. Compare the relative branch frequency with the free reference rate one. Infer its interval from the endpoint phase advances on the measured dimer hand including finite-shot and off-line errors. Report an unresolved result if visibility or spectral isolation is inadequate. Report worst signal and clock residuals, unconditional survival and all changed-law records including failed controls. No external mass, time or frequency data."
+}

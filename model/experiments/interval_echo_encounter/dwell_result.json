@@ -1,0 +1,234 @@
+{
+ "arms": {
+  "always_ticking_-8": {
+   "branch_difference": 1.0,
+   "isolated_energies": [],
+   "isolation": null,
+   "observed": {
+    "hand_elapsed": 95.9995079,
+    "minimum_tag_probability": 0.84140873,
+    "minimum_visibility": 0.84125941,
+    "quiet_at_last": 0.148630142,
+    "rate_interval": [
+     0.999663773,
+     1.00030751
+    ]
+   },
+   "positive_gate": false,
+   "spectral_weights": []
+  },
+  "always_ticking_0": {
+   "branch_difference": 1.0,
+   "isolated_energies": [],
+   "isolation": null,
+   "observed": {
+    "hand_elapsed": 96.0008244,
+    "minimum_tag_probability": 0.000142097473,
+    "minimum_visibility": 0.000142100673,
+    "quiet_at_last": 0.987800121,
+    "rate_interval": null
+   },
+   "positive_gate": false,
+   "spectral_weights": []
+  },
+  "always_ticking_8": {
+   "branch_difference": 1.0,
+   "isolated_energies": [],
+   "isolation": null,
+   "observed": {
+    "hand_elapsed": 96.001719,
+    "minimum_tag_probability": 0.89091301,
+    "minimum_visibility": 0.890874953,
+    "quiet_at_last": 0.0866293907,
+    "rate_interval": [
+     0.999675212,
+     1.00029949
+    ]
+   },
+   "positive_gate": false,
+   "spectral_weights": []
+  },
+  "native_-8": {
+   "branch_difference": 0.00243399665,
+   "isolated_energies": [
+    20.570673,
+    20.573107
+   ],
+   "isolation": [
+    {
+     "gap": 16.5,
+     "survival": 0.96748186,
+     "weight": 0.991803279
+    },
+    {
+     "gap": 15.5,
+     "survival": 0.963230949,
+     "weight": 0.990721649
+    }
+   ],
+   "observed": {
+    "hand_elapsed": 95.9998866,
+    "minimum_tag_probability": 0.992984772,
+    "minimum_visibility": 0.992927507,
+    "quiet_at_last": 0.00637960434,
+    "rate_interval": [
+     0.00190636603,
+     0.00293775426
+    ]
+   },
+   "positive_gate": false,
+   "spectral_weights": [
+    0.997651264,
+    0.997477508
+   ]
+  },
+  "native_0": {
+   "branch_difference": null,
+   "isolated_energies": [],
+   "isolation": [
+    null,
+    null
+   ],
+   "observed": {
+    "hand_elapsed": 95.9990717,
+    "minimum_tag_probability": 0.000248908997,
+    "minimum_visibility": 0.000258250356,
+    "quiet_at_last": 0.992936611,
+    "rate_interval": null
+   },
+   "positive_gate": false,
+   "spectral_weights": []
+  },
+  "native_8": {
+   "branch_difference": 0.00260641131,
+   "isolated_energies": [
+    -11.5753678,
+    -11.5727614
+   ],
+   "isolation": [
+    {
+     "gap": 19.5,
+     "survival": 0.976608997,
+     "weight": 0.994117647
+    },
+    {
+     "gap": 20.5,
+     "survival": 0.978811666,
+     "weight": 0.994674556
+    }
+   ],
+   "observed": {
+    "hand_elapsed": 95.9988683,
+    "minimum_tag_probability": 0.991756439,
+    "minimum_visibility": 0.991910625,
+    "quiet_at_last": 0.00529432297,
+    "rate_interval": [
+     0.00221402816,
+     0.00298083118
+    ]
+   },
+   "positive_gate": true,
+   "spectral_weights": [
+    0.997294673,
+    0.99748874
+   ]
+  }
+ },
+ "component_error": 0.00498929489,
+ "geometry": {
+  "0": {
+   "boundary_writes": 18,
+   "cells": 20,
+   "clock_cell": 13,
+   "clock_dimers": [
+    [
+     156,
+     161
+    ],
+    [
+     158,
+     160
+    ]
+   ],
+   "complement_saving": 3,
+   "distance": 5,
+   "positive_parities": [
+    {
+     "gap": 19.5,
+     "survival": 0.976608997,
+     "weight": 0.994117647
+    },
+    {
+     "gap": 20.5,
+     "survival": 0.978811666,
+     "weight": 0.994674556
+    }
+   ],
+   "removed_mobile_ports": 12,
+   "sharp_exchange": 4.5
+  },
+  "1": {
+   "boundary_writes": 18,
+   "cells": 80,
+   "clock_cell": 52,
+   "clock_dimers": [
+    [
+     624,
+     629
+    ],
+    [
+     626,
+     628
+    ]
+   ],
+   "complement_saving": 3,
+   "distance": 11,
+   "positive_parities": [
+    {
+     "gap": 19.5,
+     "survival": 0.976608997,
+     "weight": 0.994117647
+    },
+    {
+     "gap": 20.5,
+     "survival": 0.978811666,
+     "weight": 0.994674556
+    }
+   ],
+   "removed_mobile_ports": 12,
+   "sharp_exchange": 4.5
+  },
+  "2": {
+   "boundary_writes": 18,
+   "cells": 320,
+   "clock_cell": 208,
+   "clock_dimers": [
+    [
+     2496,
+     2501
+    ],
+    [
+     2498,
+     2500
+    ]
+   ],
+   "complement_saving": 3,
+   "distance": 23,
+   "positive_parities": [
+    {
+     "gap": 19.5,
+     "survival": 0.976608997,
+     "weight": 0.994117647
+    },
+    {
+     "gap": 20.5,
+     "survival": 0.978811666,
+     "weight": 0.994674556
+    }
+   ],
+   "removed_mobile_ports": 12,
+   "sharp_exchange": 4.5
+  }
+ },
+ "pair_words": 25878
+}
