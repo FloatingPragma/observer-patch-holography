@@ -138,6 +138,28 @@ On the historical 99-state seam, prepare the four sharp endpoint words 00, 01, 1
 
 A second meter uses ordinary free contact exposure without a coherently switched free Hamiltonian. For each sharp blank input $b$, the native echo supplies an orthogonal state $r=Ub$ of the same total load. Since $G_k$ vanishes on blank, $h_k r=0$ for every real $k$. Prepare $(b+r)/\sqrt2$. After free exposure read the two complementary superpositions of $b,r$ in each of the real and imaginary quadratures, retaining every other state as quiet. The port differences recover the complex return amplitude relative to $r$. On 01 and 10 it is $e^{-ikt}(1+e^{-it})/2$. Agreement with the portable source at $t=1/3$ and $t=\sqrt2/3$ fixes $k=8$ among **all real strengths in this family** at the level of exact outcome laws. Indeed the two phase differences must both be integer turns, which forces their common strength difference to vanish. The periodic impostor 264 therefore fails this meter. The occupied-pair addition gives a different return on 11. This test uses coherent preparation and quadrature readout on one seam. Finite phase precision admits nearby strengths and, over an unbounded coupling range, distant strengths whose phases nearly coincide at both exposures. [Free-exposure meter and all outcomes](native_frequency.py)
 
+### Free release from every internal seam
+
+The complete launch panel uses every internal seam of every cell on the pinned
+20-cell federation. For each sharp launch use its own 30 home seams and a quiet
+outcome. Use exposures 1, 7 and 37 from the historical experiment and 5, 17
+and 31 from the proposed confirmation. Generate the uniform contact strength
+from the common number of signed-record addresses before propagation. Compare
+both signs and exchange alone with the same detector. Prior exposure includes
+the published cell-13 and cell-7 releases, the positive and negative sign
+comparisons and a cell-1 technical pilot. This is a retrospective census.
+
+For each three-exposure menu the gates on 4,096 independent simulated draws
+are a home fraction above $0.80+m$ at each exposure and an exchange-only home
+fraction below $0.65-m$ at the final exposure, with
+$m=\sqrt{\log(800)/8192}$. Report the extreme probabilities and their
+launches across the entire panel, including any failures. Enclose numerical
+home probabilities to absolute error below $10^{-5}$. Compare all individual
+outcome vectors with the OpenWave maintainer's independent implementation
+to total absolute difference below $10^{-9}$. A comparison of prospective
+gates over all launches uses computed probabilities. Seeded counts test the
+sampler.
+
 ## Reproduce
 
 From the RER repository root, run:
