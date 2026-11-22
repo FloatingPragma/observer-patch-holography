@@ -11,6 +11,9 @@ ROOT = HERE.parents[1]
 STATUS = {"demonstrated": "Demonstrated", "partial": "Partial", "open": "Open", "counterexample": "Counterexample"}
 FILES = ("theorem_criteria.json", "observer_criteria.json", "openwave_criteria.json")
 READOUTS = {
+    "private_record_walk": ("Home-pair probability with eight sharp comparison signs at exposure 37",
+                            "model/candidate_laws/private_record_walk/results.json",
+                            "appointments/37/sharp_home", None),
     "interval_echo": ("Traveller/home elapsed ratio on alternating 2- and 6-service handoffs",
                       "model/candidate_laws/interval_echo/RESULTS.json",
                       "cohorts/panels/alternating_2_6/three_bits/ratio",
