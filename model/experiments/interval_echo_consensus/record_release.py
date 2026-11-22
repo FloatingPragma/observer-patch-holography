@@ -53,7 +53,7 @@ def source(arm):
     diagonal += reference[i] + reference[j] - 2*onsite.max()
     if not np.array_equal(diagonal, -2*contact):
         raise ArithmeticError("The one-load reference fails on binary pairs")
-    h = exchange + sparse.diags(diagonal, format="csr")
+    h = exchange + sparse.diags(diagonal, dtype=np.int64, format="csr")
     home = edges[np.all(edges//12 == 13, axis=1)]
     gateways = np.unique(edges[edges[:, 0]//12 != edges[:, 1]//12])
     launch = tuple(home[np.isin(home, gateways).any(axis=1)][0])

@@ -32,7 +32,7 @@ def compare(arm):
         launch_multiplicity = max(launch_multiplicity, int(active[launch]))
     if not np.array_equal(index[i, j], np.arange(len(i))):
         raise ValueError("Wrong input order")
-    h = exchange + sparse.diags(penalties)
+    h = exchange + sparse.diags(penalties, dtype=np.int64)
     readings = []
     for t, state in zip(pair.EXPOSURES, pair.evolve(h, launch, pair.EXPOSURES), strict=True):
         p = pair.local_law(state, patch)

@@ -254,7 +254,7 @@ def full_projection(arm, reverse=False):
     sector = PairSector(board)
     if not np.array_equal(i, sector.aa) or not np.array_equal(j, sector.bb):
         raise ArithmeticError("Independent pair order differs")
-    projected = sector.exchange()+sparse.diags(diagonal-2*rest, format="csr")
+    projected = sector.exchange()+sparse.diags(diagonal-2*rest, dtype=np.int64, format="csr")
     reference, _, _, _ = source(arm)
     if (projected != reference).nnz:
         raise ArithmeticError("Microscopic graph disagrees on a material matrix element")
