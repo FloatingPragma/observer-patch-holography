@@ -68,7 +68,7 @@ Sources · [recovering_observer_spacetime_and_einstein_dynamics_from_overlap_con
 | Requirement | Interval Echo | Contrast memory | Scalar channel |
 | --- | --- | --- | --- |
 | [G1](EVIDENCE.md#g1) Lorentzian event and geometry domain | Partial | Partial | Open |
-| [G2](EVIDENCE.md#g2) Cap modular charges measure the propagating matter stress | **Demonstrated** · [A prepared cap measures a propagating pair’s weighted energy](../experiments/interval_echo_einstein_station/PAIR.md). Full criterion · Partial | Open | Open |
+| [G2](EVIDENCE.md#g2) Cap modular charges measure the propagating matter stress | **Demonstrated** · [Regional modular energy predicted from repair across the boundary](../experiments/interval_echo_einstein_station/PAIR.md). Full criterion · Partial | Open | Open |
 | [G3](EVIDENCE.md#g3) Independent matter Ward identity | **Demonstrated** · [Patch energy continuity and the change in a seam current](../experiments/interval_echo_null_balance/README.md). Full criterion · Partial | Open | Open |
 | [G4](EVIDENCE.md#g4) Stationary generalized entropy at fixed proper volume | **Demonstrated** · [Interior repair changes entropy at a fixed boundary readout](../experiments/interval_echo_einstein_station/PAIR.md). Full criterion · Partial | Open | Open |
 | [G5](EVIDENCE.md#g5) Small-ball control and sufficient null directions | Partial | Open | Open |

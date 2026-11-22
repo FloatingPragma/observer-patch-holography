@@ -1,0 +1,298 @@
+{
+  "preparation": {
+    "integer_part": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      -1,
+      -1,
+      -2,
+      2,
+      -2,
+      2
+    ],
+    "sqrt5_part": [
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      -1,
+      -1,
+      0,
+      0,
+      0,
+      0
+    ],
+    "native_interior_pulses": {
+      "slow": {
+        "rotations": 8,
+        "port_phases": 0
+      },
+      "high": {
+        "rotations": 8,
+        "port_phases": 0
+      },
+      "in_phase": {
+        "rotations": 8,
+        "port_phases": 0
+      },
+      "quadrature": {
+        "rotations": 8,
+        "port_phases": 8
+      }
+    },
+    "cap_station_transport": {
+      "old_bridge": [
+        1,
+        82
+      ],
+      "actual_bridge": [
+        60,
+        260
+      ],
+      "registered_edges": 61,
+      "seam_filter_paths": 30
+    }
+  },
+  "screens": [
+    {
+      "cells": 20,
+      "antipodal_gateway_triples": 0,
+      "matching_home": null
+    },
+    {
+      "cells": 80,
+      "antipodal_gateway_triples": 24,
+      "matching_home": 5
+    },
+    {
+      "cells": 320,
+      "antipodal_gateway_triples": 104,
+      "matching_home": 11
+    }
+  ],
+  "cap_charge": {
+    "pole": 0,
+    "native_source_acceptance": 0.013445699408111406,
+    "common_reference_minimum": 3.301909684581947e-10,
+    "high_minus_slow_nats": 0.4410392373617036,
+    "finite_entropy_contrasts": [
+      {
+        "fraction": 1.52587890625e-05,
+        "nats": 0.40038815722436993
+      },
+      {
+        "fraction": 9.5367431640625e-07,
+        "nats": 0.4379428999964148
+      },
+      {
+        "fraction": 5.960464477539063e-08,
+        "nats": 0.4408429078757763
+      }
+    ],
+    "measured_nats": 0.4352393115394282,
+    "standard_error_nats": 0.008876938129808035,
+    "weak_reference_shots": 37993280700416,
+    "weak_reference_count_digest": "a3d21b9808a7f53976040935abfd27c4800c8c7ca42d53fb6c188a8a536931a3",
+    "independent_weighted_energy": 1.2725424859373575,
+    "measured_weighted_energy": 1.2708940825240163,
+    "energy_standard_error": 0.009020547802225963
+  },
+  "interior_clock": {
+    "home": 5,
+    "return_port": 64,
+    "trials_per_arm_and_setting": 1048576,
+    "settings": [
+      "in_phase",
+      "quadrature",
+      "slow_population"
+    ],
+    "arms": [
+      "coherent",
+      "dephased"
+    ],
+    "calibrated_gap": 2.2369926323148905,
+    "calibrated_gap_standard_error": 0.0030132265759566634,
+    "appointments": [
+      {
+        "exposure": 0.25,
+        "coherent_probabilities": [
+          0.9238884302992602,
+          0.7651765424362087,
+          0.49999999999999317
+        ],
+        "dephased_probabilities": [
+          0.49999999999999456,
+          0.49999999999999867,
+          0.4999999999999968
+        ],
+        "return_counts": [
+          [
+            968806,
+            524138
+          ],
+          [
+            802513,
+            524292
+          ],
+          [
+            523681,
+            524468
+          ]
+        ],
+        "phase": 0.5592481580787226,
+        "phase_standard_error": 0.0007533066439891658
+      },
+      {
+        "exposure": 0.75,
+        "coherent_probabilities": [
+          0.4469725838006412,
+          0.9971801415294226,
+          0.49999999999999173
+        ],
+        "dephased_probabilities": [
+          0.4999999999999948,
+          0.499999999999996,
+          0.49999999999999667
+        ],
+        "return_counts": [
+          [
+            467471,
+            523631
+          ],
+          [
+            1045667,
+            523840
+          ],
+          [
+            524017,
+            523792
+          ]
+        ],
+        "phase": 1.679342471156753,
+        "phase_standard_error": 0.0009648348296989783,
+        "held_phase_residual": 0.001597996920585265,
+        "held_phase_standard_error": 0.0024572635893416552
+      },
+      {
+        "exposure": 4.0,
+        "coherent_probabilities": [
+          0.05661943724614885,
+          0.7311139904291355,
+          0.49999999999999617
+        ],
+        "dephased_probabilities": [
+          0.4999999999999968,
+          0.49999999999999534,
+          0.4999999999999971
+        ],
+        "return_counts": [
+          [
+            59221,
+            524494
+          ],
+          [
+            766444,
+            524495
+          ],
+          [
+            524659,
+            524612
+          ]
+        ],
+        "phase": 2.6615299327912414,
+        "phase_standard_error": 0.0007958988320674755,
+        "held_phase_residual": -0.003255289288734286,
+        "held_phase_standard_error": 0.012079155819829076
+      }
+    ]
+  },
+  "entering_probe": {
+    "home": 5,
+    "gateway": 60,
+    "receiver_port": 260,
+    "cells": 80,
+    "two_load_states": 460320,
+    "receiver_outcomes": [
+      "one_at_entry",
+      "one_elsewhere",
+      "quiet",
+      "two_in_receiver"
+    ],
+    "appointments": [
+      {
+        "exposure": 0.5,
+        "probabilities": [
+          [
+            0.7139975105950027,
+            0.26052867107345196,
+            0.025473818331545373,
+            1.5625951353462864e-39
+          ],
+          [
+            0.710431327950943,
+            0.2601441646373252,
+            0.029424507411731433,
+            1.4128207251372978e-39
+          ]
+        ],
+        "counts": [
+          [
+            2994665,
+            1092635,
+            107004,
+            0
+          ],
+          [
+            2977946,
+            1093036,
+            123322,
+            0
+          ]
+        ],
+        "quiet_difference": 0.0039506890801860595,
+        "measured_difference": 0.003890514373779297,
+        "standard_error": 0.00011283275985563355
+      },
+      {
+        "exposure": 1.0,
+        "probabilities": [
+          [
+            0.31383043551141054,
+            0.615844317376832,
+            0.07032524711175714,
+            1.688850405773413e-37
+          ],
+          [
+            0.3113103228307755,
+            0.6091035892348993,
+            0.07958608793432431,
+            1.3452367897951772e-37
+          ]
+        ],
+        "counts": [
+          [
+            1313795,
+            2585021,
+            295488,
+            0
+          ],
+          [
+            1305648,
+            2555137,
+            333519,
+            0
+          ]
+        ],
+        "quiet_difference": 0.009260840822567173,
+        "measured_difference": 0.009067296981811523,
+        "standard_error": 0.0001818353103800205
+      }
+    ]
+  }
+}

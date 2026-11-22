@@ -630,10 +630,12 @@
           "results": {
             "interval_echo": {
               "status": "partial",
-              "note": "Patch clocks, distinct overlapping owners and spherical refinements provide finite measurements. The jointly authenticated causal order and count-volume convergence have not been established.",
+              "note": "Patch clocks, distinct overlapping owners and spherical refinements provide finite measurements. The jointly authenticated causal order and count-volume convergence have not been established. On the 80- and 320-cell screens two interior one-load modes have identical complete one-load gateway histories and different energies. An event or volume count from that exterior history alone cannot distinguish them. Inside the cell, two phase-quadrature readings resolve a freely running beat of 2.23699 ± 0.00301 radians per native exposure. Held phase tests pass across a full revolution. This calibrates a material hand in native units.",
               "evidence": [
                 "model/candidate_laws/interval_echo/RESULTS.json",
-                "model/candidate_laws/interval_echo/observations.json"
+                "model/candidate_laws/interval_echo/observations.json",
+                "model/experiments/interval_echo_einstein_station/volume.py",
+                "model/experiments/interval_echo_einstein_station/volume.json"
               ]
             },
             "contrast_memory_spherical_v1": {
@@ -670,7 +672,7 @@
           "results": {
             "interval_echo": {
               "status": "partial",
-              "note": "Six charge variations on a prepared 79-state cap agreed with an independent weighted seam-energy meter to 0.00000951 exchange units. With fresh simulated counts the held port-9 difference was +0.01377 ± 0.02042 units. The cap weights, coherent filters and reference were supplied. The isolated seam standard also fails the three-port Gibbs overlap test. Geometric normalization and one directional matter stress across caps remain open.",
+              "note": "Six charge variations on a prepared 79-state cap agreed with an independent weighted seam-energy meter to 0.00000951 exchange units. With fresh simulated counts the held port-9 difference was +0.01377 ± 0.02042 units. The cap weights, coherent filters and reference were supplied. The isolated seam standard also fails the three-port Gibbs overlap test. Geometric normalization and one directional matter stress across caps remain open. Restrictions of one prepared state agree on a four-port overlap. On a held six-port charge, tracing the independently specified parent Gibbs operator gives a discrepancy of +0.00063 ± 0.02196 native units. Keeping only the weighted interior seams gives +0.56132 ± 0.02010. The induced regional generator contains a coupling between nonadjacent ports.",
               "evidence": [
                 "model/candidate_laws/interval_echo/prior_calibration.json",
                 "model/candidate_laws/interval_echo/currents.json",
@@ -680,7 +682,7 @@
                 "model/experiments/interval_echo_einstein_station/cap.json"
               ],
               "demonstrated_measurement": {
-                "label": "A prepared cap measures a propagating pair’s weighted energy",
+                "label": "Regional modular energy predicted from repair across the boundary",
                 "source": "model/experiments/interval_echo_einstein_station/PAIR.md"
               }
             },
@@ -764,13 +766,15 @@
           "results": {
             "interval_echo": {
               "status": "partial",
-              "note": "The regional first law and number-sector split have finite measurements. For an interior swap mixed into the same prepared cap as G2, the entropy slope is +0.0000344891 nats per unit mixture. The complete instantaneous gateway state and every total-load probability stay fixed. The commuting control has zero slope. A physical area that responds, a measured fixed proper volume and vacuum stationarity on shrinking regions remain open.",
+              "note": "The regional first law and number-sector split have finite measurements. For an interior swap mixed into the same prepared cap as G2, the entropy slope is +0.0000344891 nats per unit mixture. The complete instantaneous gateway state and every total-load probability stay fixed. The commuting control has zero slope. A physical area that responds, a measured fixed proper volume and vacuum stationarity on shrinking regions remain open. Two stationary interior modes have identical full exterior one-load histories. Against the prepared cap their first-law slopes differ by 0.4410 nats, with a sampled difference of 0.4352 ± 0.0089. A second load entering the region distinguishes them.",
               "evidence": [
                 "model/candidate_laws/interval_echo/projection.json",
                 "model/experiments/interval_echo_einstein_station/README.md",
                 "model/experiments/interval_echo_einstein_station/results.json",
                 "model/experiments/interval_echo_einstein_station/PAIR.md",
-                "model/experiments/interval_echo_einstein_station/cap.json"
+                "model/experiments/interval_echo_einstein_station/cap.json",
+                "model/experiments/interval_echo_einstein_station/volume.py",
+                "model/experiments/interval_echo_einstein_station/volume.json"
               ],
               "demonstrated_measurement": {
                 "label": "Interior repair changes entropy at a fixed boundary readout",
@@ -809,12 +813,14 @@
           "results": {
             "interval_echo": {
               "status": "partial",
-              "note": "A finite patch recovered its rank-three angular frame in all 32 high-budget count tables. Under a common orthonormal-frame null lift, 160 of 220 nine-port subsets span the required nine contractions. Every eleven-port subset does. Averaging opposite directions retains six. Directly assigning pair gauge currents to stress still fails the tensor test. Physical null directions, regional stress and shrinking-ball remainders remain open.",
+              "note": "A finite patch recovered its rank-three angular frame in all 32 high-budget count tables. Under a common orthonormal-frame null lift, 160 of 220 nine-port subsets span the required nine contractions. Every eleven-port subset does. Averaging opposite directions retains six. Directly assigning pair gauge currents to stress still fails the tensor test. Physical null directions, regional stress and shrinking-ball remainders remain open. Nested regions of 6, 11 and 12 ports now share a compatible state derived from a common cell. Their chord radii have a supplied scale. Proper shrinking radii and a controlled physical curvature remainder are open. For the two represented finite cell references, an operator bound transfers to every subset of the twelve ports, at most 0.001443 native energy units for a normalized-state contrast. This bounds service approximation on one cell only.",
               "evidence": [
                 "model/candidate_laws/interval_echo/CURRENTS.md",
                 "model/candidate_laws/interval_echo/prior_calibration.json",
                 "model/experiments/interval_echo_angular/README.md",
-                "model/experiments/interval_echo_angular/results.json"
+                "model/experiments/interval_echo_angular/results.json",
+                "model/experiments/interval_echo_einstein_station/PAIR.md",
+                "model/experiments/interval_echo_einstein_station/cap.json"
               ]
             },
             "contrast_memory_spherical_v1": {
@@ -849,7 +855,7 @@
           "results": {
             "interval_echo": {
               "status": "open",
-              "note": "A prepared antisymmetric memory coin can carry energy 0, 32 or 33 while generating identical endpoint-load dynamics at every occupation. The free load probes cannot read that energy, on any screen size. A symmetric coin at 32 or 33 has a two-load contact response. The two outcomes constrain which excitations and probes a universal-gravity test must include. Varying a retained patch history gives signed changes in a measured logarithmic recovery remainder while its matter-probe marginal stays fixed. Its complete recovery switches the remainder off. Physical identification with the anomalous boost charge, a common vacuum, observable curvature response and shared Newton constant remain open.",
+              "note": "A prepared antisymmetric memory coin can carry energy 0, 32 or 33 while generating identical endpoint-load dynamics at every occupation. The free load probes cannot read that energy, on any screen size. A symmetric coin at 32 or 33 has a two-load contact response. The two outcomes constrain which excitations and probes a universal-gravity test must include. Varying a retained patch history gives signed changes in a measured logarithmic recovery remainder while its matter-probe marginal stays fixed. Its complete recovery switches the remainder off. Physical identification with the anomalous boost charge, a common vacuum, observable curvature response and shared Newton constant remain open. For two correlated written contacts, every single-load propagation channel at fixed exposure is identical across the tested histories, even when the joint logarithmic charge varies. Local coincidence measurements respond through a material contact. This excludes a metric inferred solely from this one-load channel at fixed clock calibration as a universal response to that finite charge. A three-level control holds even the complete total-energy distribution fixed. Opposite signed charge changes of 0.09155 nats yield distinct two-contact phase readings while the one-load channel is identical.",
               "evidence": [
                 "model/candidate_laws/interval_echo/RESULTS.json",
                 "model/experiments/interval_echo_einstein_station/README.md",

@@ -3,6 +3,16 @@
   "archive_sha256": "73adc2d4e848fa0a6a43187f7b5447e749b92eaec4a795b9902b0beaf8a78733",
   "calibration_source": "runtime/matched_observable_receipt.json",
   "fitted_sparc_a0_m_s2": 8.750402247718735e-11,
+  "sparc_cluster_bootstrap_95pct_m_s2": [
+    7.390242699918679e-11,
+    1.037927571023286e-10
+  ],
+  "mass_and_bin_protocol": {
+    "systematic": "Brouwer et al. Fig. 4 quotes ±0.2 dex on stellar masses. Scan a common total compact-baryon rescaling -0.200 to +0.200 dex by 0.005 dex, holding observed memberships and covariances fixed. Gas fractions and galaxy-by-galaxy rebinning are unavailable here.",
+    "bins": "Use the six wholly above the isolation floor. Uniform sky area assumes uniform background pair density and weights. Independent bin means allow any nonnegative within-bin weights, including different edge mixtures in each bin.",
+    "scores": "Lowest scores on the mass grid and bin-edge mixtures use the observed shear. These are feasibility/sensitivity diagnostics, with no fitted degrees of freedom assigned.",
+    "shape": "Subtract the mean of the upper three from the lower three ESDs after dividing by sqrt(gbar_center / 1e-12 m/s²). A common fractional pair distribution in every bin and positive compact and isothermal amplitudes predict a nonpositive difference."
+  },
   "four_G_m_s2_per_Msun_pc2": 5.579488000000001e-13,
   "minimum_inclusive_gbar_m_s2": 1e-13,
   "maximum_exclusive_gbar_m_s2": 1.2e-11,
@@ -117,7 +127,42 @@
       "bins": 7,
       "wholly_above_isolation_floor": {
         "bins": 6,
-        "chisq_profile": 40.672103628869564
+        "chisq_profile": 40.672103628869564,
+        "controls": {
+          "centers": {
+            "nominal_mass_chisq": 40.672103628869564,
+            "lowest_sampled_chisq": 27.008973649731388,
+            "total_mass_shift_dex_at_lowest": 0.115
+          },
+          "uniform_sky_area": {
+            "nominal_mass_chisq": 46.59988977086721,
+            "lowest_sampled_chisq": 27.097462804365687,
+            "total_mass_shift_dex_at_lowest": 0.14
+          },
+          "independent_bin_means": {
+            "nominal_mass_chisq": 14.658221588124793,
+            "lowest_sampled_chisq": 4.925826042552543,
+            "total_mass_shift_dex_at_lowest": 0.135,
+            "upper_edge_mixture_at_lowest": [
+              1.0,
+              1.0,
+              0.6447687936636509,
+              0.5244976711717378,
+              0.30052434933628897,
+              0.0
+            ]
+          },
+          "low_minus_high_normalized_esd": {
+            "tangential": 4.252061274366164,
+            "assigned_statistical_se": 1.7452654684052074,
+            "standardized_excess_over_zero_upper_bound": 2.43634068933457,
+            "cross_over_same_statistical_se": -1.2781322907924386
+          },
+          "center_chisq_nominal_mass_at_sparc_interval_endpoints": [
+            56.23305877980361,
+            29.106961300912708
+          ]
+        }
       },
       "projected_baryons": [
         0.2962588064290402,
@@ -251,7 +296,42 @@
       "bins": 7,
       "wholly_above_isolation_floor": {
         "bins": 6,
-        "chisq_profile": 16.658085342260243
+        "chisq_profile": 16.658085342260243,
+        "controls": {
+          "centers": {
+            "nominal_mass_chisq": 16.65808534226024,
+            "lowest_sampled_chisq": 13.655248121459573,
+            "total_mass_shift_dex_at_lowest": 0.2
+          },
+          "uniform_sky_area": {
+            "nominal_mass_chisq": 17.280392285734212,
+            "lowest_sampled_chisq": 13.799597804529487,
+            "total_mass_shift_dex_at_lowest": 0.2
+          },
+          "independent_bin_means": {
+            "nominal_mass_chisq": 12.571395419891626,
+            "lowest_sampled_chisq": 8.186446196719114,
+            "total_mass_shift_dex_at_lowest": 0.2,
+            "upper_edge_mixture_at_lowest": [
+              1.0,
+              1.0,
+              0.01406008348828185,
+              1.0,
+              0.0,
+              0.0
+            ]
+          },
+          "low_minus_high_normalized_esd": {
+            "tangential": 15.668827264196421,
+            "assigned_statistical_se": 7.625878154998183,
+            "standardized_excess_over_zero_upper_bound": 2.0546915313519265,
+            "cross_over_same_statistical_se": -0.22886165075125187
+          },
+          "center_chisq_nominal_mass_at_sparc_interval_endpoints": [
+            18.292230311879273,
+            15.153537204490284
+          ]
+        }
       },
       "projected_baryons": [
         0.2962588064290402,
@@ -385,7 +465,42 @@
       "bins": 7,
       "wholly_above_isolation_floor": {
         "bins": 6,
-        "chisq_profile": 31.221049194938722
+        "chisq_profile": 31.221049194938722,
+        "controls": {
+          "centers": {
+            "nominal_mass_chisq": 31.22104919493873,
+            "lowest_sampled_chisq": 18.775542095477565,
+            "total_mass_shift_dex_at_lowest": 0.105
+          },
+          "uniform_sky_area": {
+            "nominal_mass_chisq": 37.28389984652324,
+            "lowest_sampled_chisq": 18.855143975465992,
+            "total_mass_shift_dex_at_lowest": 0.13
+          },
+          "independent_bin_means": {
+            "nominal_mass_chisq": 9.070795844572128,
+            "lowest_sampled_chisq": 1.1972913543709187,
+            "total_mass_shift_dex_at_lowest": 0.11,
+            "upper_edge_mixture_at_lowest": [
+              1.0,
+              1.0,
+              0.8720404554810662,
+              0.4830522734864946,
+              0.2594832407435013,
+              0.0
+            ]
+          },
+          "low_minus_high_normalized_esd": {
+            "tangential": 3.488417001933114,
+            "assigned_statistical_se": 1.6319190937841797,
+            "standardized_excess_over_zero_upper_bound": 2.137616389942463,
+            "cross_over_same_statistical_se": -1.62958099208907
+          },
+          "center_chisq_nominal_mass_at_sparc_interval_endpoints": [
+            47.21901595532111,
+            19.977415323923015
+          ]
+        }
       },
       "projected_baryons": [
         0.2962588064290402,

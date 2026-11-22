@@ -95,7 +95,8 @@ PREMISES = {
                       "and measurement representation are supplied."},
     "PR-23": {"status": "partial", "evidence": ["../../experiments/interval_echo_einstein_station/PAIR.md",
                                                 "../../experiments/interval_echo_einstein_station/cap.json"],
-              "note": "A prepared finite cap supplies a faithful state and a readable modular charge. "
+              "note": "One parent Gibbs operator predicts the modular response of compatible nested and overlapping regions. "
+                      "A prepared finite cap supplies a faithful state and a readable modular charge. "
                       "Six weighted pair-energy variations agree with an independent meter. "
                       "Geometrically normalized modular flow on compatible nested caps remains open."},
     "PR-54": {"status": "partial", "evidence": ["CURRENTS.md", "currents.json", "prior_calibration.json"],
@@ -128,12 +129,15 @@ JOINT = {
                      "../../experiments/interval_echo_null_balance/regional.json",
                      "../../experiments/interval_echo_einstein_station/cap.json",
                      "../../experiments/interval_echo_null_balance/directional.json",
-                     "../../experiments/interval_echo_einstein_station/backreaction.json"],
+                     "../../experiments/interval_echo_einstein_station/backreaction.json",
+                     "../../experiments/interval_echo_einstein_station/volume.json"],
         "note": "The native free generator obeys additive patch energy continuity. On the earlier pair, "
                 "a prepared cap reads weighted seam energy at a held port where the flat reference failed. "
                 "An interior exchange changes this cap's entropy with its complete gateway state fixed. "
                 "Time-reversal-odd one-load seam currents exhibit torque. Load probes are exactly blind to "
-                "an antisymmetric collar's stored energy. Physical area, a conserved directional stress "
+                "an antisymmetric collar's stored energy. A parent Hamiltonian predicts held modular changes on "
+                "nested patches. Two interior modes with identical exterior single-load histories yield different "
+                "entropy slopes. Physical area, a conserved directional stress "
                 "and the common curvature response to matter remain open.",
     },
 }

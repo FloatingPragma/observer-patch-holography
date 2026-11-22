@@ -9,7 +9,7 @@ from pathlib import Path
 import mpmath as mp
 import networkx as nx
 import numpy as np
-from scipy.linalg import eigh, expm, svd
+from scipy.linalg import eigh, expm, logm, svd
 
 from model.candidate_laws.contrast_memory_spherical_v1 import candidate, law
 from model.executable_model import cell, federation
@@ -31,7 +31,7 @@ WORD_INDEX = {w: i for i, w in enumerate(WORDS)}
 SHOTS = 2**20
 
 
-def cap_geometry(pole):
+def chord_coordinates():
     car = cell()
     levels, axes = eigh(candidate.response(car))
     triplet = np.isclose(levels, levels[1])
@@ -39,6 +39,12 @@ def cap_geometry(pole):
         raise ValueError("The native first nonconstant eigenspace is not a triplet.")
     coordinates = axes[:, triplet]
     coordinates /= np.linalg.norm(coordinates, axis=1)[:, None]
+    return coordinates
+
+
+def cap_geometry(pole):
+    car = cell()
+    coordinates = chord_coordinates()
     midpoints = np.array([(coordinates[i] + coordinates[j]) / 2 for i, j in car.seams])
     squared = np.sum((midpoints - coordinates[pole]) ** 2, axis=1)
     return (4 - squared) / 4, int(
@@ -237,13 +243,13 @@ def native_energy(indices, weights):
     )
 
 
-def flights():
+def flights(times=(1, 4, 16)):
     sector, cells, links, _, internal, bonds = hardware()
     eigen, v = eigh((sum(internal) + sum(b.h for b in bonds)).toarray())
     prepared = {}
     for port, sign, wave in states(sector):
         coefficients = v.T @ wave
-        for time in (1, 4, 16):
+        for time in times:
             state = marginal(sector, v @ (np.exp(-1j * time * eigen) * coefficients))
             read, _ = rays(state)
             np.testing.assert_allclose(read, state, atol=1e-13)
@@ -832,6 +838,407 @@ def wedge(beta):
     )
 
 
+class CapRestriction:
+    """Partial trace in the native zero-, one- and two-load word algebra."""
+
+    def __init__(self, parent_words, ports):
+        self.ports = tuple(sorted(ports))
+        self.words = (
+            [()] + [(i,) for i in self.ports] + list(combinations(self.ports, 2))
+        )
+        position = {word: i for i, word in enumerate(self.words)}
+        exterior_groups = {}
+        for i, word in enumerate(parent_words):
+            outside = tuple(p for p in word if p not in ports)
+            inside = tuple(p for p in word if p in ports)
+            exterior_groups.setdefault(outside, []).append((position[inside], i))
+        self.fibres = [
+            tuple(zip(*pairs, strict=True)) for pairs in exterior_groups.values()
+        ]
+        self.parent_size = len(parent_words)
+
+    def reduce(self, rho):
+        reduced = np.zeros((len(self.words), len(self.words)), dtype=rho.dtype)
+        for loc, orig in self.fibres:
+            reduced[np.ix_(loc, loc)] += rho[np.ix_(orig, orig)]
+        return reduced
+
+    def lift(self, observable):
+        lifted = np.zeros((self.parent_size, self.parent_size), dtype=observable.dtype)
+        for loc, orig in self.fibres:
+            lifted[np.ix_(orig, orig)] = observable[np.ix_(loc, loc)]
+        return lifted
+
+    def charge(self, rho):
+        state = self.reduce(rho)
+        k = np.zeros_like(state)
+        floors = []
+        for number in range(3):
+            ids = [i for i, word in enumerate(self.words) if len(word) == number]
+            block = np.ix_(ids, ids)
+            values, vectors = eigh(state[block])
+            if min(values) <= 0:
+                raise ArithmeticError("Nested modular reading has no faithful support.")
+            floors.append(float(min(values)))
+            k[block] = (vectors * -np.log(values)) @ vectors.conj().T
+        return k - k[0, 0] * np.eye(len(k)), floors
+
+
+def collar_witness(ref, gibbs, region, acceptance):
+    """Direct record test for an off-seam entry of a marginal modular charge."""
+    pair = next(
+        (i, j)
+        for i, j in combinations(region.ports, 2)
+        if j not in cell().neighbours[i]
+    )
+    first, second = (region.ports.index(p) for p in pair)
+    n = len(region.ports)
+    local = region.reduce(ref)
+    single = local[1 : 1 + n, 1 : 1 + n]
+    shots = 2**47
+    batches = 16
+    checksum = hashlib.sha256()
+
+    def record(state):
+        vals, axes = eigh(state)
+        if min(vals) <= 0:
+            raise ArithmeticError(
+                "Direct collar witness reconstruction lost positive support."
+            )
+        k = (axes * -np.log(vals)) @ axes.conj().T
+        return 2 * float(k[first, second].real), float(min(vals))
+
+    samples = []
+    for seed in np.random.SeedSequence(150821).spawn(batches):
+        rng = np.random.default_rng(seed)
+
+        def draw(probs):
+            counts = rng.multinomial(shots, grid_distribution(np.asarray(probs), 2**43))
+            checksum.update(counts.astype("<u8").tobytes())
+            return counts / shots
+
+        words = draw(local.diagonal().real)
+        estimate = np.diag(words[1 : 1 + n]).astype(complex)
+        for i, j in combinations(range(n), 2):
+            base = (single[i, i] + single[j, j]).real / 2
+            for offset, phase in ((single[i, j].real, 1), (single[i, j].imag, 1j)):
+                plus, minus, _quiet = draw([base + offset, base - offset, 1 - 2 * base])
+                estimate[i, j] += phase * (plus - minus) / 2
+            estimate[j, i] = estimate[i, j].conj()
+        samples.append(estimate)
+    values, floors = zip(*(record(s) for s in samples), strict=True)
+    pooled, _ = record(np.mean(samples, axis=0))
+    from scipy.stats import t
+
+    se = np.std(values, ddof=1) / np.sqrt(batches)
+    limit = region.reduce(gibbs)[1 : 1 + n, 1 : 1 + n]
+    settings = n * (n - 1) + 1
+    delta = np.zeros_like(ref)
+    i, j = (WORD_INDEX[(p,)] for p in pair)
+    delta[i, j] = delta[j, i] = 1
+    seam_distances = [
+        np.linalg.norm(CapRestriction(WORDS, edge).reduce(delta), ord="nuc") / 2
+        for edge in cell().seams
+    ]
+    np.testing.assert_array_equal(seam_distances, 0)
+    return dict(
+        nonadjacent_ports=pair,
+        native_one_seam_signed_energy=0,
+        maximum_signed_seam_trace_distance=float(max(seam_distances)),
+        exact_signed_nats=record(single)[0],
+        exact_gibbs_limit_nats=record(limit)[0],
+        direct_signed_nats=pooled,
+        between_batch_se_nats=float(se),
+        half_width_95_nats=float(t.ppf(0.975, batches - 1) * se),
+        minimum_batch_floor=min(floors),
+        packed_count_sha256=checksum.hexdigest(),
+        source_seed=150821,
+        settings=settings,
+        trials_per_batch_setting=shots,
+        batches=batches,
+        accepted_preparations=shots * batches * settings,
+        expected_input_preparations=shots * batches * settings / acceptance,
+    )
+
+
+def switched_boundary(region, pair, pole, beta, odds):
+    source_weights, _ = cap_geometry(pole)
+    edges = cell().seams
+    crossing = np.array([(i in region.ports) != (j in region.ports) for i, j in edges])
+    indices = [seam_indices(edge) for edge in edges]
+    native = NativeFilter()
+    single = [WORD_INDEX[(p,)] for p in region.ports]
+    local_pair = [1 + region.ports.index(p) for p in pair]
+    closed = native_energy(indices, np.where(crossing, 0, source_weights))[0]
+    contact = native_energy(indices, np.where(crossing, source_weights, 0))[0]
+    # Upper blocks of exp(A+sB) give its first three Taylor coefficients at s=0.
+    shift = np.diag(np.ones(2), 1)
+    terms = expm(-beta * (np.kron(np.eye(3), closed) + np.kron(shift, contact)))[
+        : len(WORDS)
+    ]
+    one = slice(1, 1 + len(single))
+    s0, s1, s2 = [region.reduce(term)[one, one] for term in np.hsplit(terms, 3)]
+    expanded = np.kron(np.eye(3), s0) + np.kron(shift, s1) + np.kron(shift @ shift, s2)
+    coefficients = np.hsplit((-logm(expanded))[: len(single)], 3)
+    np.testing.assert_allclose(
+        coefficients[1], np.diag(coefficients[1].diagonal()), atol=3e-10, rtol=0
+    )
+    loc = tuple(i - 1 for i in local_pair)
+    linear, quadratic = (float(2 * coefficients[i][loc].real) for i in (1, 2))
+    measures = []
+    for fraction in (0.0, 0.125, 0.25, 0.5):
+        weights = np.where(crossing, fraction * source_weights, source_weights)
+        ham, _, _ = native_energy(indices, weights)
+        gibbs = expm(-beta * ham)
+        gibbs /= gibbs.trace()
+        kg = region.charge(gibbs)[0]
+        filters = [
+            (pair_indices, native.success(odds, w / 256))
+            for pair_indices, w in zip(indices, weights, strict=True)
+        ]
+        source, _, acceptance, _, _ = prepared_charge(filters, 64)
+        k = region.charge(source)[0]
+        row = dict(
+            crossing_exposure=fraction,
+            preparation_acceptance=acceptance,
+            signed_nats=float(2 * k[tuple(local_pair)]),
+            gibbs_signed_nats=float(2 * kg[tuple(local_pair)]),
+            quadratic_prediction_nats=quadratic * fraction**2,
+        )
+        if fraction == 0:
+            one = slice(1, 1 + len(single))
+            difference = kg[one, one] - beta * ham[np.ix_(single, single)]
+            central = difference.trace() / len(single)
+            row["gibbs_one_load_error_modulo_scalar_nats"] = float(
+                np.linalg.norm(difference - central * np.eye(len(single)), 2)
+            )
+            np.testing.assert_allclose(
+                difference, central * np.eye(len(single)), atol=2e-11, rtol=0
+            )
+        measures.append(row)
+    return dict(
+        crossing_seams=int(crossing.sum()),
+        linear_coefficient_nats=linear,
+        quadratic_coefficient_nats=quadratic,
+        controls=measures,
+    )
+
+
+def nested_caps(
+    reference, matter, weak_batches, weak_pooled, pole, beta, energy, acceptance, odds
+):
+    graph = nx.Graph(cell().seams)
+    coordinates = chord_coordinates()
+    neighbour = min(graph.neighbors(pole))
+    scopes = [(pole, h) for h in (1, 2, 3)] + [(neighbour, 1)]
+    regions = [
+        CapRestriction(WORDS, nx.single_source_shortest_path_length(graph, p, cutoff=h))
+        for p, h in scopes
+    ]
+    indices = [seam_indices(edge) for edge in cell().seams]
+    midpoints = np.array(
+        [(coordinates[i] + coordinates[j]) / 2 for i, j in cell().seams]
+    )
+    fitted = []
+    for weak in [weak_pooled, *weak_batches]:
+        density = np.linalg.matrix_power(weak, 64)
+        fitted.append(density / density.trace())
+    results = []
+    gibbs = expm(-beta * energy)
+    gibbs /= gibbs.trace()
+    _, _, new_matter = flights((8,))
+    for index, (region, (center, shell)) in enumerate(
+        zip(regions, scopes, strict=True)
+    ):
+        r = float(
+            max(
+                np.linalg.norm(
+                    coordinates[list(region.ports)] - coordinates[center], axis=1
+                )
+            )
+        )
+        squared = np.sum((midpoints - coordinates[center]) ** 2, axis=1)
+        enclosed = np.array(
+            [i in region.ports and j in region.ports for i, j in cell().seams]
+        )
+        weights = np.where(enclosed, (r * r - squared) / (2 * r), 0)
+        meter, word, projectors = native_energy(indices, weights)
+        k, floors = region.charge(reference)
+        k = region.lift(k / beta)
+        expected_k = region.lift(region.charge(gibbs)[0] / beta)
+        rows = []
+        for p, time in ((p, time) for p in (0, 9) for time in (1, 4, 16)):
+            tangent = matter[p, 1, time] - matter[p, -1, time]
+            rows.append(
+                dict(
+                    port=p,
+                    time=time,
+                    modular_energy=float(np.trace(k @ tangent).real),
+                    seam_energy=float(np.trace(meter @ tangent).real),
+                    effective_forecast=float(np.trace(expected_k @ tangent).real),
+                )
+            )
+        recovered = [region.lift(region.charge(s)[0] / beta) for s in fitted]
+
+        def held_survey(time, data, start, forecast=False):
+            instruments = [(recovered[0], None), (meter, (word, weights, projectors))]
+            if forecast:
+                instruments.append((expected_k, None))
+            signed, variances = [], []
+            for i, (op, instrument) in enumerate(instruments):
+                reads = [
+                    read_charge(
+                        data[9, sign, time],
+                        op,
+                        start + 2 * i + j,
+                        seam_meter=instrument,
+                        shots=2**24,
+                    )
+                    for j, sign in enumerate((1, -1))
+                ]
+                signed.append(reads[0][0] - reads[1][0])
+                variances.append(reads[0][1] + reads[1][1])
+            tangent = data[9, 1, time] - data[9, -1, time]
+            ref_se = float(
+                np.std([np.trace(op @ tangent).real for op in recovered[1:]], ddof=1)
+                / np.sqrt(len(recovered) - 1)
+            )
+            result = dict(
+                seed=start,
+                shots_per_setting=2**24,
+                modular_energy=signed[0],
+                seam_energy=signed[1],
+                difference=signed[0] - signed[1],
+                reference_se=ref_se,
+                combined_se=float(np.sqrt(variances[0] + variances[1] + ref_se**2)),
+            )
+            if forecast:
+                result.update(
+                    exact_effective_forecast=float(np.trace(expected_k @ tangent).real),
+                    exact_charge=float(np.trace(k @ tangent).real),
+                    read_effective_forecast=signed[2],
+                    difference_from_forecast=signed[0] - signed[2],
+                    forecast_comparison_se=float(
+                        np.sqrt(variances[0] + variances[2] + ref_se**2)
+                    ),
+                )
+            return result
+
+        results.append(
+            dict(
+                pole=center,
+                shell=shell,
+                ports=region.ports,
+                radius=r,
+                internal_seams=int(enclosed.sum()),
+                positive_floor=min(floors),
+                tangents=rows,
+                held_finite=held_survey(4, matter, 150801 + 4 * index),
+                new_time_eight=held_survey(8, new_matter, 150871 + 6 * index, True),
+            )
+        )
+
+    routes = []
+    for left, right, overlap in [
+        (regions[0], regions[3], set(regions[0].ports) & set(regions[3].ports)),
+        (regions[1], regions[2], set(regions[0].ports)),
+    ]:
+        target = CapRestriction(WORDS, overlap)
+        sub = [CapRestriction(parent.words, overlap) for parent in (left, right)]
+        errors = [[], []]
+        for state in [reference, *matter.values()]:
+            direct = target.reduce(state)
+            for index, (parent, child) in enumerate(
+                zip((left, right), sub, strict=True)
+            ):
+                errors[index].append(
+                    float(
+                        np.linalg.norm(child.reduce(parent.reduce(state)) - direct, 2)
+                    )
+                )
+        if np.max(errors) > 3e-13:
+            raise ArithmeticError("Common-reference overlap reduction failed.")
+        routes.append(
+            dict(
+                ports=target.ports,
+                parent_sizes=[len(left.ports), len(right.ports)],
+                reference_error=[d[0] for d in errors],
+                max_matter_error=[max(d[1:]) for d in errors],
+            )
+        )
+    witness = collar_witness(reference, gibbs, regions[0], acceptance)
+    return dict(
+        regions=results,
+        overlap_routes=routes,
+        off_seam_witness=witness,
+        cross_cut_repair=switched_boundary(
+            regions[0], witness["nonadjacent_ports"], pole, beta, odds
+        ),
+        all_patch_error=regional_order_bound(reference, gibbs, beta),
+    )
+
+
+def regional_order_bound(source, gibbs, beta):
+    """Certify both quadratic forms for the stored binary matrices with integer arithmetic."""
+    denominator = 4000
+    low, high = denominator - 1, denominator + 1
+    forbidden = np.not_equal.outer([len(w) for w in WORDS], [len(w) for w in WORDS])
+    np.testing.assert_array_equal(source[forbidden], 0)
+    np.testing.assert_array_equal(gibbs[forbidden], 0)
+    values = []
+    for part in BLOCKS:
+        a, b = source[part, part], gibbs[part, part]
+        # Symmetrize the limiting matrix before using its machine entries as dyadic data.
+        values.extend(eigh(a, (b + b.T) / 2, eigvals_only=True, driver="gvd").tolist())
+        scale = max(float(x).as_integer_ratio()[1] for x in np.r_[a.ravel(), b.ravel()])
+
+        def integer(x):
+            numerator, divisor = float(x).as_integer_ratio()
+            return numerator * (scale // divisor)
+
+        for multiplier, orientation in ((low, 1), (high, -1)):
+            matrix = [
+                [
+                    orientation
+                    * (
+                        denominator * (integer(a[i, j]) + integer(a[j, i]))
+                        - multiplier * (integer(b[i, j]) + integer(b[j, i]))
+                    )
+                    for j in range(len(a))
+                ]
+                for i in range(len(a))
+            ]
+            previous = 1
+            # Fraction-free elimination gives the successive leading principal minors.
+            for k in range(len(matrix)):
+                pivot = matrix[k][k]
+                if pivot <= 0:
+                    raise ArithmeticError(
+                        "A parent Loewner bound is not positive definite."
+                    )
+                for i in range(k + 1, len(matrix)):
+                    for j in range(i, len(matrix)):
+                        numerator = pivot * matrix[i][j] - matrix[i][k] * matrix[k][j]
+                        value, remainder = divmod(numerator, previous)
+                        if remainder:
+                            raise ArithmeticError(
+                                "Nonintegral leading minor elimination."
+                            )
+                        matrix[i][j] = matrix[j][i] = value
+                previous = pivot
+    return dict(
+        lower_numerator=low,
+        upper_numerator=high,
+        denominator=denominator,
+        generalized_eigenvalue_extrema=[min(values), max(values)],
+        certified_sector_dimensions=[1, 12, 66],
+        modular_operator_error_nats=max(
+            -np.log(low / denominator), np.log(high / denominator)
+        ),
+        maximum_two_state_energy_error=np.log(high / low) / beta,
+    )
+
+
 def measure():
     cells, links, matter = flights()
     pole = links[0][0]
@@ -937,6 +1344,17 @@ def measure():
         repair_odds=odds.tolist(),
         exchange_beta=beta,
         wedge=wedge(beta),
+        nested_caps=nested_caps(
+            reference,
+            matter,
+            weak_batches,
+            weak_pooled,
+            pole,
+            beta,
+            energy,
+            rows[-1]["acceptance"],
+            odds,
+        ),
         three_port_recovery=collar_measurement(
             reference,
             matter,

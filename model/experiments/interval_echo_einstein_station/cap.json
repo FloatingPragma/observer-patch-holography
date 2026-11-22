@@ -68,6 +68,466 @@
       0
     ]
   },
+  "nested_caps": {
+    "regions": [
+      {
+        "pole": 1,
+        "shell": 1,
+        "ports": [
+          0,
+          1,
+          5,
+          7,
+          8,
+          9
+        ],
+        "radius": 1.0514622242382834,
+        "internal_seams": 10,
+        "positive_floor": 3.72724310027081e-10,
+        "tangents": [
+          {
+            "port": 0,
+            "time": 1,
+            "modular_energy": 0.13910519765915497,
+            "seam_energy": 0.04879675465355105,
+            "effective_forecast": 0.13910756961026777
+          },
+          {
+            "port": 0,
+            "time": 4,
+            "modular_energy": 0.864147303747459,
+            "seam_energy": 0.1683227864913368,
+            "effective_forecast": 0.8641465605771879
+          },
+          {
+            "port": 0,
+            "time": 16,
+            "modular_energy": 0.20756662111422272,
+            "seam_energy": 0.12026230927253564,
+            "effective_forecast": 0.2075650700010631
+          },
+          {
+            "port": 9,
+            "time": 1,
+            "modular_energy": -0.10738839032963632,
+            "seam_energy": 0.0002909106613671608,
+            "effective_forecast": -0.10738548032765505
+          },
+          {
+            "port": 9,
+            "time": 4,
+            "modular_energy": -0.44150307788805376,
+            "seam_energy": -0.0789193549815099,
+            "effective_forecast": -0.4415036328031221
+          },
+          {
+            "port": 9,
+            "time": 16,
+            "modular_energy": 0.14246915730833032,
+            "seam_energy": 0.05569816142062847,
+            "effective_forecast": 0.1424769441585093
+          }
+        ],
+        "held_finite": {
+          "seed": 150801,
+          "shots_per_setting": 16777216,
+          "modular_energy": -0.44322412353321283,
+          "seam_energy": -0.07419258554289598,
+          "difference": -0.36903153799031685,
+          "reference_se": 0.014810756773516363,
+          "combined_se": 0.016107733805272747
+        },
+        "new_time_eight": {
+          "seed": 150871,
+          "shots_per_setting": 16777216,
+          "modular_energy": 0.6860479263433739,
+          "seam_energy": 0.12472363512248208,
+          "difference": 0.5613242912208918,
+          "reference_se": 0.017736732467637677,
+          "combined_se": 0.020098492548544802,
+          "exact_effective_forecast": 0.6869946859057399,
+          "exact_charge": 0.6869995272961877,
+          "read_effective_forecast": 0.6854211089217692,
+          "difference_from_forecast": 0.0006268174216046418,
+          "forecast_comparison_se": 0.02195791406321032
+        }
+      },
+      {
+        "pole": 1,
+        "shell": 2,
+        "ports": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "radius": 1.7013016167040915,
+        "internal_seams": 25,
+        "positive_floor": 3.301966605618141e-10,
+        "tangents": [
+          {
+            "port": 0,
+            "time": 1,
+            "modular_energy": -0.11558677319650834,
+            "seam_energy": -0.023000622065195653,
+            "effective_forecast": -0.11558377764732297
+          },
+          {
+            "port": 0,
+            "time": 4,
+            "modular_energy": 0.4009725837548034,
+            "seam_energy": 0.427531805841857,
+            "effective_forecast": 0.4009717388984234
+          },
+          {
+            "port": 0,
+            "time": 16,
+            "modular_energy": 0.02236482706523857,
+            "seam_energy": 0.12590033529861944,
+            "effective_forecast": 0.022364472285122283
+          },
+          {
+            "port": 9,
+            "time": 1,
+            "modular_energy": -0.2931562990380273,
+            "seam_energy": -0.16414502997066538,
+            "effective_forecast": -0.29315329449061234
+          },
+          {
+            "port": 9,
+            "time": 4,
+            "modular_energy": -0.2960772233755422,
+            "seam_energy": -0.2065862011387598,
+            "effective_forecast": -0.29608061394015783
+          },
+          {
+            "port": 9,
+            "time": 16,
+            "modular_energy": 0.23602965283562227,
+            "seam_energy": 0.15683744004208688,
+            "effective_forecast": 0.23603915032135758
+          }
+        ],
+        "held_finite": {
+          "seed": 150805,
+          "shots_per_setting": 16777216,
+          "modular_energy": -0.3031072072234977,
+          "seam_energy": -0.21183186218863526,
+          "difference": -0.09127534503486245,
+          "reference_se": 0.014754102415409932,
+          "combined_se": 0.015647452904632417
+        },
+        "new_time_eight": {
+          "seed": 150877,
+          "shots_per_setting": 16777216,
+          "modular_energy": 0.4504278459035973,
+          "seam_energy": 0.36639791054098225,
+          "difference": 0.08402993536261505,
+          "reference_se": 0.016474439605466292,
+          "combined_se": 0.017966784316761263,
+          "exact_effective_forecast": 0.43531854071449827,
+          "exact_charge": 0.4353217323286971,
+          "read_effective_forecast": 0.4364221445945162,
+          "difference_from_forecast": 0.014005701309081076,
+          "forecast_comparison_se": 0.01804324968923276
+        }
+      },
+      {
+        "pole": 1,
+        "shell": 3,
+        "ports": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "radius": 2.0,
+        "internal_seams": 30,
+        "positive_floor": 3.301871972378268e-10,
+        "tangents": [
+          {
+            "port": 0,
+            "time": 1,
+            "modular_energy": -0.03863728383520848,
+            "seam_energy": -0.038634495546941316,
+            "effective_forecast": -0.03863449554743659
+          },
+          {
+            "port": 0,
+            "time": 4,
+            "modular_energy": 0.38977709853052356,
+            "seam_energy": 0.3897762122460139,
+            "effective_forecast": 0.38977621224619363
+          },
+          {
+            "port": 0,
+            "time": 16,
+            "modular_energy": 0.09767191649692492,
+            "seam_energy": 0.09767124112964132,
+            "effective_forecast": 0.09767124112965903
+          },
+          {
+            "port": 9,
+            "time": 1,
+            "modular_energy": -0.16150344395678262,
+            "seam_energy": -0.161500680358166,
+            "effective_forecast": -0.16150068035791654
+          },
+          {
+            "port": 9,
+            "time": 4,
+            "modular_energy": -0.17882142872851814,
+            "seam_energy": -0.17882488588870027,
+            "effective_forecast": -0.17882488588891954
+          },
+          {
+            "port": 9,
+            "time": 16,
+            "modular_energy": 0.1319992271581102,
+            "seam_energy": 0.13200873183453532,
+            "effective_forecast": 0.13200873183484874
+          }
+        ],
+        "held_finite": {
+          "seed": 150809,
+          "shots_per_setting": 16777216,
+          "modular_energy": -0.18163670494334383,
+          "seam_energy": -0.17655059857046496,
+          "difference": -0.005086106372878874,
+          "reference_se": 0.007066050666747761,
+          "combined_se": 0.00853590221470607
+        },
+        "new_time_eight": {
+          "seed": 150883,
+          "shots_per_setting": 16777216,
+          "modular_energy": 0.36650421275013656,
+          "seam_energy": 0.35583528137817666,
+          "difference": 0.0106689313719599,
+          "reference_se": 0.00868746056873647,
+          "combined_se": 0.01087937867903371,
+          "exact_effective_forecast": 0.35271087589910066,
+          "exact_charge": 0.35271438317066195,
+          "read_effective_forecast": 0.3505908144222687,
+          "difference_from_forecast": 0.015913398327867867,
+          "forecast_comparison_se": 0.010996074530174635
+        }
+      },
+      {
+        "pole": 0,
+        "shell": 1,
+        "ports": [
+          0,
+          1,
+          5,
+          7,
+          10,
+          11
+        ],
+        "radius": 1.0514622242382765,
+        "internal_seams": 10,
+        "positive_floor": 4.550375243480475e-10,
+        "tangents": [
+          {
+            "port": 0,
+            "time": 1,
+            "modular_energy": 0.09095857988241447,
+            "seam_energy": -0.004251682726114633,
+            "effective_forecast": 0.09096364281566419
+          },
+          {
+            "port": 0,
+            "time": 4,
+            "modular_energy": 0.8261909664577002,
+            "seam_energy": 0.20176326424602029,
+            "effective_forecast": 0.8261914883782225
+          },
+          {
+            "port": 0,
+            "time": 16,
+            "modular_energy": 0.2876305553993156,
+            "seam_energy": -0.03948813189926534,
+            "effective_forecast": 0.287629641450949
+          },
+          {
+            "port": 9,
+            "time": 1,
+            "modular_energy": -0.10660525215579697,
+            "seam_energy": 0.037904964137168984,
+            "effective_forecast": -0.10661060086829988
+          },
+          {
+            "port": 9,
+            "time": 4,
+            "modular_energy": -1.7049646925021769,
+            "seam_energy": -0.20841888097807215,
+            "effective_forecast": -1.7049620879743381
+          },
+          {
+            "port": 9,
+            "time": 16,
+            "modular_energy": 0.15802394920640084,
+            "seam_energy": 0.11254870513670967,
+            "effective_forecast": 0.158024494724875
+          }
+        ],
+        "held_finite": {
+          "seed": 150813,
+          "shots_per_setting": 16777216,
+          "modular_energy": -1.6890404228188274,
+          "seam_energy": -0.2070502905686702,
+          "difference": -1.4819901322501572,
+          "reference_se": 0.009043419612751227,
+          "combined_se": 0.011064941316703363
+        },
+        "new_time_eight": {
+          "seed": 150889,
+          "shots_per_setting": 16777216,
+          "modular_energy": 0.17369453160793213,
+          "seam_energy": 0.1398348492115007,
+          "difference": 0.033859682396431445,
+          "reference_se": 0.01013929274230842,
+          "combined_se": 0.012060175686771604,
+          "exact_effective_forecast": 0.17506723897243404,
+          "exact_charge": 0.17506922496113408,
+          "read_effective_forecast": 0.16636499297887752,
+          "difference_from_forecast": 0.0073295386290546105,
+          "forecast_comparison_se": 0.013602691103273154
+        }
+      }
+    ],
+    "overlap_routes": [
+      {
+        "ports": [
+          0,
+          1,
+          5,
+          7
+        ],
+        "parent_sizes": [
+          6,
+          6
+        ],
+        "reference_error": [
+          1.1102230246251565e-16,
+          1.1102230246251565e-16
+        ],
+        "max_matter_error": [
+          1.1102230246251565e-16,
+          1.1102230246251565e-16
+        ]
+      },
+      {
+        "ports": [
+          0,
+          1,
+          5,
+          7,
+          8,
+          9
+        ],
+        "parent_sizes": [
+          11,
+          12
+        ],
+        "reference_error": [
+          1.1102230246251565e-16,
+          0.0
+        ],
+        "max_matter_error": [
+          1.1102230246251565e-16,
+          0.0
+        ]
+      }
+    ],
+    "off_seam_witness": {
+      "nonadjacent_ports": [
+        0,
+        8
+      ],
+      "native_one_seam_signed_energy": 0,
+      "maximum_signed_seam_trace_distance": 0.0,
+      "exact_signed_nats": 0.004597566692355168,
+      "exact_gibbs_limit_nats": 0.004594053108609854,
+      "direct_signed_nats": 0.004599020451656063,
+      "between_batch_se_nats": 7.144518842777587e-06,
+      "half_width_95_nats": 1.5228181440681543e-05,
+      "minimum_batch_floor": 1.0897316268855832e-06,
+      "packed_count_sha256": "66f6d1a08911a8b0994e9cbfa266b76d2b7f6fc71d4c86f5f7c2f7e0a47c1d86",
+      "source_seed": 150821,
+      "settings": 31,
+      "trials_per_batch_setting": 140737488355328,
+      "batches": 16,
+      "accepted_preparations": 69805794224242688,
+      "expected_input_preparations": 5.191681871918948e+18
+    },
+    "cross_cut_repair": {
+      "crossing_seams": 10,
+      "linear_coefficient_nats": 1.4303298431876677e-16,
+      "quadratic_coefficient_nats": 0.006546925718150399,
+      "controls": [
+        {
+          "crossing_exposure": 0.0,
+          "preparation_acceptance": 0.021313452637618645,
+          "signed_nats": 4.419497746242479e-06,
+          "gibbs_signed_nats": 5.924728576164962e-16,
+          "quadratic_prediction_nats": 0.0,
+          "gibbs_one_load_error_modulo_scalar_nats": 7.758122724953243e-13
+        },
+        {
+          "crossing_exposure": 0.125,
+          "preparation_acceptance": 0.01793025870143313,
+          "signed_nats": 9.581713997624786e-05,
+          "gibbs_signed_nats": 9.150101884735127e-05,
+          "quadratic_prediction_nats": 0.00010229571434609998
+        },
+        {
+          "crossing_exposure": 0.25,
+          "preparation_acceptance": 0.016060483467353344,
+          "signed_nats": 0.0003381865272410688,
+          "gibbs_signed_nats": 0.00033397584258088964,
+          "quadratic_prediction_nats": 0.00040918285738439993
+        },
+        {
+          "crossing_exposure": 0.5,
+          "preparation_acceptance": 0.014342839334228882,
+          "signed_nats": 0.001191722107841691,
+          "gibbs_signed_nats": 0.0011877166920512801,
+          "quadratic_prediction_nats": 0.0016367314295375997
+        }
+      ]
+    },
+    "all_patch_error": {
+      "lower_numerator": 3999,
+      "upper_numerator": 4001,
+      "denominator": 4000,
+      "generalized_eigenvalue_extrema": [
+        0.9997955936705297,
+        1.0002079103264092
+      ],
+      "certified_sector_dimensions": [
+        1,
+        12,
+        66
+      ],
+      "modular_operator_error_nats": 0.00025003125520928253,
+      "maximum_two_state_energy_error": 0.0014426950709448868
+    }
+  },
   "three_port_recovery": {
     "path": [
       0,

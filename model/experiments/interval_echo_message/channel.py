@@ -49,6 +49,13 @@ REPLAY_GRAVITY_CAP = {
 }
 
 
+# Nested cap, boundary-volume and clock comparisons update the premise/evidence metadata.
+REPLAY_NESTED_CAP = {
+    "model/candidate_laws/interval_echo/candidate.py": "c666a31015ea2203ac919d55d98ddd5e47fe78076b3d87dd94bed2dd9990a503",
+    "model/candidate_laws/interval_echo/EVALUATION.json": "6ad745ce68fa19b1c2fbdc1ea31948403e1d33bc13b8b761440141a031b2661a",
+}
+
+
 def require(ok, message):
     if not ok:
         raise ValueError(message)
@@ -61,7 +68,8 @@ def sources():
     radial = reviewed | REPLAY_70E58E24
     regional = radial | REPLAY_REGIONAL_CONSENSUS
     standard = regional | REPLAY_MODULAR_STANDARD
-    if actual in (frozen, reviewed, radial, regional, standard, standard | REPLAY_GRAVITY_CAP):
+    gravity = standard | REPLAY_GRAVITY_CAP
+    if actual in (frozen, reviewed, radial, regional, standard, gravity, gravity | REPLAY_NESTED_CAP):
         return
     mismatches = [name for name, expected in reviewed.items() if actual.get(name) != expected]
     raise ValueError(f"unverified replay source: {', '.join(mismatches)}")
