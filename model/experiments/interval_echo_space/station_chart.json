@@ -1,0 +1,3294 @@
+{
+  "protocol_sha256": "35ce62d3cd940c53071d79fe4338d921ede647261743a01213c47140564942e2",
+  "flat_control": {
+    "anchor_gram_eigenvalues": [
+      9.0,
+      16.0,
+      25.0
+    ],
+    "stationary_clock_max_error": 0.0,
+    "coordinates": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        3.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        4.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        5.0
+      ],
+      [
+        1.0,
+        2.0,
+        1.0
+      ],
+      [
+        -2.0,
+        1.0,
+        3.0
+      ],
+      [
+        2.0,
+        -1.0,
+        1.0
+      ]
+    ],
+    "held_anchor_fractional_residuals": [
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "max_placement_error": 0.0,
+    "pulse_offset": 0.999999999999999,
+    "pulse_slope": 0.8,
+    "held": [
+      {
+        "stations": [
+          4,
+          5
+        ],
+        "echo": 3.7416573867739413,
+        "echo_prediction": 3.7416573867739413,
+        "echo_relative_error": 0.0,
+        "pulse": 3.9933259094191533,
+        "pulse_prediction": 3.9933259094191524,
+        "pulse_relative_error": 2.220446049250313e-16
+      },
+      {
+        "stations": [
+          4,
+          6
+        ],
+        "echo": 3.1622776601683795,
+        "echo_prediction": 3.1622776601683795,
+        "echo_relative_error": 0.0,
+        "pulse": 3.529822128134704,
+        "pulse_prediction": 3.529822128134703,
+        "pulse_relative_error": 2.220446049250313e-16
+      },
+      {
+        "stations": [
+          5,
+          6
+        ],
+        "echo": 4.898979485566356,
+        "echo_prediction": 4.898979485566356,
+        "echo_relative_error": 0.0,
+        "pulse": 4.919183588453085,
+        "pulse_prediction": 4.919183588453084,
+        "pulse_relative_error": 2.220446049250313e-16
+      }
+    ],
+    "passed": true,
+    "status": "evaluated"
+  },
+  "boards": [
+    {
+      "cells": 20,
+      "station_cells": [
+        0,
+        1,
+        4,
+        6,
+        2,
+        3,
+        15
+      ],
+      "local_port": 4,
+      "independent_propagator_error": 4.107825191113079e-13,
+      "exchange_off_max_interstation_probability": 0.0,
+      "population": {
+        "anchor_gram_eigenvalues": [
+          156.71529936539386,
+          269.7305411337998,
+          284.19969542429914
+        ],
+        "stationary_clock_max_error": 0.0,
+        "coordinates": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            14.017628341125944,
+            0.0,
+            0.0
+          ],
+          [
+            -3.8833682144831743,
+            14.758185368516736,
+            0.0
+          ],
+          [
+            -0.7138689695953115,
+            -0.22902878235640142,
+            16.754252727707588
+          ],
+          [
+            16.194625289522484,
+            11.956739521012246,
+            3.9108291949674454
+          ],
+          [
+            6.087881003875974,
+            17.005657920081827,
+            3.8298582380966617
+          ],
+          [
+            6.427479705907784,
+            5.999843208390341,
+            14.910993632098881
+          ]
+        ],
+        "held_anchor_fractional_residuals": [
+          [
+            -0.04071919352979181,
+            -0.0960024560132976,
+            -0.04020310472434041,
+            -0.029094277949169856
+          ],
+          [
+            -0.14812658840117243,
+            -0.13978000015240422,
+            -0.30689470437518496,
+            -0.10647220288790171
+          ],
+          [
+            -0.17617304215203522,
+            -0.16925972210537055,
+            -0.13932526103373066,
+            -0.37033277592905545
+          ]
+        ],
+        "max_placement_error": 0.37033277592905545,
+        "pulse_offset": 9.27089278012512,
+        "pulse_slope": 0.6646805389721416,
+        "held": [
+          {
+            "stations": [
+              4,
+              5
+            ],
+            "echo": 13.618666621281754,
+            "echo_prediction": 11.297982711606895,
+            "echo_relative_error": 0.17040463462468114,
+            "pulse": 19.720762814508305,
+            "pulse_prediction": 16.78044201817393,
+            "pulse_relative_error": 0.14909772121853326
+          },
+          {
+            "stations": [
+              4,
+              6
+            ],
+            "echo": 25.994754435238924,
+            "echo_prediction": 15.87089676655934,
+            "echo_relative_error": 0.3894577151671613,
+            "pulse": 26.603737610610644,
+            "pulse_prediction": 19.819968996893003,
+            "pulse_relative_error": 0.25499306574922764
+          },
+          {
+            "stations": [
+              5,
+              6
+            ],
+            "echo": 25.228465301714394,
+            "echo_prediction": 15.621614717010374,
+            "echo_relative_error": 0.3807940938861306,
+            "pulse": 25.782440413834458,
+            "pulse_prediction": 19.654276069842716,
+            "pulse_relative_error": 0.23768752087189793
+          }
+        ],
+        "passed": false,
+        "status": "evaluated",
+        "training_ranges": [
+          14.017628341125944,
+          15.260556479393527,
+          16.771018083372155,
+          21.377144182197085,
+          21.674684051809145,
+          21.0121233937865,
+          23.20020933214679,
+          22.310859500764025,
+          14.122879339275308,
+          22.262311795072378,
+          21.39642938554369,
+          22.701702533761072,
+          21.511083355527656,
+          15.748465835700326,
+          23.392752250469883,
+          25.215111648537317,
+          25.282555637544636,
+          15.331545773334653
+        ],
+        "training_pulse": [
+          18.560998112567113,
+          19.45127516201321,
+          20.44293071464587,
+          24.56275777514869,
+          23.460616299583933,
+          25.09448925897109
+        ],
+        "held_echo": [
+          13.618666621281754,
+          25.994754435238924,
+          25.228465301714394
+        ],
+        "held_pulse": [
+          19.720762814508305,
+          26.603737610610644,
+          25.782440413834458
+        ],
+        "euclidean_distortion_lower_bound": 0.05475202436648319
+      },
+      "acquisitions": [
+        {
+          "anchor_gram_eigenvalues": [
+            156.5526433487418,
+            269.71376421917483,
+            284.2125116340885
+          ],
+          "stationary_clock_max_error": 0.00035572194326682904,
+          "coordinates": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              14.014722990320188,
+              0.0,
+              0.0
+            ],
+            [
+              -3.8954200922790725,
+              14.756593927512462,
+              0.0
+            ],
+            [
+              -0.7100618680437916,
+              -0.21279819579856935,
+              16.750690306407723
+            ],
+            [
+              16.17161643825792,
+              11.955096569029058,
+              3.813140981960254
+            ],
+            [
+              6.050171785952426,
+              17.014508203359988,
+              3.6626479973734574
+            ],
+            [
+              6.406685114356504,
+              6.020705263448672,
+              14.907801989121927
+            ]
+          ],
+          "held_anchor_fractional_residuals": [
+            [
+              -0.04193431534660763,
+              -0.09876794690735713,
+              -0.041370399438008576,
+              -0.029822283155148233
+            ],
+            [
+              -0.15018972443621548,
+              -0.14141012922234253,
+              -0.3119408656216608,
+              -0.10707774259403369
+            ],
+            [
+              -0.1765384162112532,
+              -0.1693929886675235,
+              -0.13977618277626702,
+              -0.3713878644891835
+            ]
+          ],
+          "max_placement_error": 0.3713878644891835,
+          "pulse_offset": 9.274720539329715,
+          "pulse_slope": 0.6645776665891745,
+          "held": [
+            {
+              "stations": [
+                4,
+                5
+              ],
+              "echo": 13.621570377565423,
+              "echo_prediction": 11.316533748179983,
+              "echo_relative_error": 0.16921959550139754,
+              "pulse": 19.72072449823346,
+              "pulse_prediction": 16.795436131572814,
+              "pulse_relative_error": 0.14833574531821514
+            },
+            {
+              "stations": [
+                4,
+                6
+              ],
+              "echo": 25.999675886288742,
+              "echo_prediction": 15.926782060168112,
+              "echo_relative_error": 0.3874238229036039,
+              "pulse": 26.606826764080175,
+              "pulse_prediction": 19.859304197150564,
+              "pulse_relative_error": 0.2536011763732352
+            },
+            {
+              "stations": [
+                5,
+                6
+              ],
+              "echo": 25.237358296287482,
+              "echo_prediction": 15.73036214246414,
+              "echo_relative_error": 0.37670330001305485,
+              "pulse": 25.766278273105698,
+              "pulse_prediction": 19.72876790657122,
+              "pulse_relative_error": 0.23431829395541004
+            }
+          ],
+          "passed": false,
+          "status": "evaluated",
+          "training_ranges": [
+            14.014722990320188,
+            15.262089045632946,
+            16.767083725853063,
+            21.365066097286025,
+            21.682345642553045,
+            21.017542904777976,
+            23.206255397643883,
+            22.303591592800068,
+            14.127882377094721,
+            22.292456343135456,
+            21.41433482323847,
+            22.689531359182617,
+            21.507089057051683,
+            15.749254560353656,
+            23.385716285156917,
+            25.256868391786824,
+            25.38481338278695,
+            15.333001464860658
+          ],
+          "training_pulse": [
+            18.563000647657624,
+            19.45038726231473,
+            20.44421032102639,
+            24.564530156633538,
+            23.45721819849539,
+            25.09250518233405
+          ],
+          "held_echo": [
+            13.621570377565423,
+            25.999675886288742,
+            25.237358296287482
+          ],
+          "held_pulse": [
+            19.72072449823346,
+            26.606826764080175,
+            25.766278273105698
+          ],
+          "euclidean_distortion_lower_bound": 0.05400475710641306
+        },
+        {
+          "anchor_gram_eigenvalues": [
+            156.06963049873383,
+            269.8404498903116,
+            284.36351595595346
+          ],
+          "stationary_clock_max_error": 0.0004738930552576903,
+          "coordinates": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              14.000967062671013,
+              0.0,
+              0.0
+            ],
+            [
+              -3.9127641433762,
+              14.75364903373127,
+              0.0
+            ],
+            [
+              -0.7385942447412612,
+              -0.24213298130762156,
+              16.752984353952833
+            ],
+            [
+              16.183473198154296,
+              12.020004508664293,
+              3.9371964270804107
+            ],
+            [
+              6.066563126482835,
+              17.01934253443715,
+              3.9284081511655446
+            ],
+            [
+              6.436574367731064,
+              6.029290117494272,
+              14.922036967007672
+            ]
+          ],
+          "held_anchor_fractional_residuals": [
+            [
+              -0.039030886967360345,
+              -0.0917523009033685,
+              -0.03860443903871624,
+              -0.027881463751974422
+            ],
+            [
+              -0.1469744551202492,
+              -0.13859893202600926,
+              -0.3041138542807167,
+              -0.10612089624512544
+            ],
+            [
+              -0.17501217467424823,
+              -0.1683539300224678,
+              -0.1384981778758172,
+              -0.36720277509251165
+            ]
+          ],
+          "max_placement_error": 0.36720277509251165,
+          "pulse_offset": 9.288493820450489,
+          "pulse_slope": 0.6637520162689554,
+          "held": [
+            {
+              "stations": [
+                4,
+                5
+              ],
+              "echo": 13.619008200034934,
+              "echo_prediction": 11.28473869117134,
+              "echo_relative_error": 0.17139790758460716,
+              "pulse": 19.721570820838437,
+              "pulse_prediction": 16.778761879783758,
+              "pulse_relative_error": 0.14921777619991683
+            },
+            {
+              "stations": [
+                4,
+                6
+              ],
+              "echo": 25.98587595281255,
+              "echo_prediction": 15.860561699218184,
+              "echo_relative_error": 0.38964683245547715,
+              "pulse": 26.60057267321377,
+              "pulse_prediction": 19.81597362746473,
+              "pulse_relative_error": 0.25505462341346474
+            },
+            {
+              "stations": [
+                5,
+                6
+              ],
+              "echo": 25.246524768245532,
+              "echo_prediction": 15.54921332371244,
+              "echo_relative_error": 0.38410480387107127,
+              "pulse": 25.768387006925664,
+              "pulse_prediction": 19.60931551546073,
+              "pulse_relative_error": 0.2390165705680215
+            }
+          ],
+          "passed": false,
+          "status": "evaluated",
+          "training_ranges": [
+            14.000967062671013,
+            15.26367855571553,
+            16.7710057719503,
+            21.374135316314003,
+            21.676214908857332,
+            21.010570916377908,
+            23.207152464984354,
+            22.31537095096988,
+            14.131956297559977,
+            22.271279047912046,
+            21.383045561474013,
+            22.707076376137735,
+            21.48953035906012,
+            15.75174352574848,
+            23.385583324704783,
+            25.2176056401564,
+            25.2329774761046,
+            15.334967711427055
+          ],
+          "training_pulse": [
+            18.56256300985917,
+            19.44917903948425,
+            20.44296045382869,
+            24.564873294550672,
+            23.460129908799363,
+            25.09504807799651
+          ],
+          "held_echo": [
+            13.619008200034934,
+            25.98587595281255,
+            25.246524768245532
+          ],
+          "held_pulse": [
+            19.721570820838437,
+            26.60057267321377,
+            25.768387006925664
+          ],
+          "euclidean_distortion_lower_bound": 0.05528476937349924
+        }
+      ],
+      "post_run_corner_check": {
+        "tolerance": 0.05,
+        "five_station_subsets": [
+          {
+            "stations": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ],
+            "box": {
+              "site_indices": [
+                0,
+                1,
+                2,
+                4,
+                5
+              ],
+              "tolerance": 0.05,
+              "vertices": 1024,
+              "smallest_vertex_eigenvalue": -94.66075255304521,
+              "worst_vertex": 184,
+              "maximum_eigendecomposition_residual": 1.6468447046587595e-12,
+              "maximum_orthogonality_error": 2.872576560957543e-15,
+              "numerical_guard": 8.437500391734179e-07,
+              "excludes_three_dimensions": false
+            },
+            "curved_exact_gram_floor": -0.09996079450079565,
+            "curved_tolerance_gram_floor": -0.8305012627745503
+          },
+          {
+            "stations": [
+              0,
+              1,
+              2,
+              3,
+              5
+            ],
+            "box": {
+              "site_indices": [
+                0,
+                1,
+                2,
+                4,
+                5
+              ],
+              "tolerance": 0.05,
+              "vertices": 1024,
+              "smallest_vertex_eigenvalue": -77.37255509547457,
+              "worst_vertex": 184,
+              "maximum_eigendecomposition_residual": 1.4950298701506008e-12,
+              "maximum_orthogonality_error": 2.6434414219384955e-15,
+              "numerical_guard": 8.468757244792311e-07,
+              "excludes_three_dimensions": false
+            },
+            "curved_exact_gram_floor": -0.00675781957527391,
+            "curved_tolerance_gram_floor": -0.7614889492891667
+          },
+          {
+            "stations": [
+              0,
+              1,
+              2,
+              3,
+              6
+            ],
+            "box": {
+              "site_indices": [
+                0,
+                1,
+                2,
+                4,
+                5
+              ],
+              "tolerance": 0.05,
+              "vertices": 1024,
+              "smallest_vertex_eigenvalue": -74.21791137957133,
+              "worst_vertex": 184,
+              "maximum_eigendecomposition_residual": 1.6186188473808693e-12,
+              "maximum_orthogonality_error": 2.7193923685946902e-15,
+              "numerical_guard": 8.399782309838589e-07,
+              "excludes_three_dimensions": false
+            },
+            "curved_exact_gram_floor": 0.04241372676676945,
+            "curved_tolerance_gram_floor": -0.7178937861686077
+          },
+          {
+            "stations": [
+              0,
+              1,
+              2,
+              4,
+              5
+            ],
+            "box": {
+              "site_indices": [
+                0,
+                1,
+                2,
+                4,
+                5
+              ],
+              "tolerance": 0.05,
+              "vertices": 1024,
+              "smallest_vertex_eigenvalue": -74.40509704541749,
+              "worst_vertex": 340,
+              "maximum_eigendecomposition_residual": 1.6738070493822044e-12,
+              "maximum_orthogonality_error": 2.5919850267176384e-15,
+              "numerical_guard": 1.1853270244269657e-06,
+              "excludes_three_dimensions": false
+            },
+            "curved_exact_gram_floor": -0.08242558190676824,
+            "curved_tolerance_gram_floor": -0.7921828390040995
+          },
+          {
+            "stations": [
+              0,
+              1,
+              2,
+              4,
+              6
+            ],
+            "box": {
+              "site_indices": [
+                0,
+                1,
+                2,
+                4,
+                5
+              ],
+              "tolerance": 0.05,
+              "vertices": 1024,
+              "smallest_vertex_eigenvalue": -73.37907825861112,
+              "worst_vertex": 540,
+              "maximum_eigendecomposition_residual": 1.6091891013580492e-12,
+              "maximum_orthogonality_error": 2.943360160440707e-15,
+              "numerical_guard": 9.805365176909699e-07,
+              "excludes_three_dimensions": false
+            },
+            "curved_exact_gram_floor": -0.12512216795882197,
+            "curved_tolerance_gram_floor": -0.8297934940568671
+          },
+          {
+            "stations": [
+              0,
+              1,
+              2,
+              5,
+              6
+            ],
+            "box": {
+              "site_indices": [
+                0,
+                1,
+                2,
+                4,
+                5
+              ],
+              "tolerance": 0.05,
+              "vertices": 1024,
+              "smallest_vertex_eigenvalue": -50.79343094501816,
+              "worst_vertex": 540,
+              "maximum_eigendecomposition_residual": 1.6124154536646932e-12,
+              "maximum_orthogonality_error": 2.6712131250053876e-15,
+              "numerical_guard": 9.920254725254199e-07,
+              "excludes_three_dimensions": false
+            },
+            "curved_exact_gram_floor": -0.018748454881973076,
+            "curved_tolerance_gram_floor": -0.7433615304960792
+          },
+          {
+            "stations": [
+              0,
+              1,
+              3,
+              4,
+              5
+            ],
+            "box": {
+              "site_indices": [
+                0,
+                1,
+                2,
+                4,
+                5
+              ],
+              "tolerance": 0.05,
+              "vertices": 1024,
+              "smallest_vertex_eigenvalue": -74.20535518458728,
+              "worst_vertex": 340,
+              "maximum_eigendecomposition_residual": 2.7260775608031353e-12,
+              "maximum_orthogonality_error": 2.5827658857145556e-15,
+              "numerical_guard": 1.1317511829092696e-06,
+              "excludes_three_dimensions": false
+            },
+            "curved_exact_gram_floor": -0.12521347298789193,
+            "curved_tolerance_gram_floor": -0.8050358598395967
+          },
+          {
+            "stations": [
+              0,
+              1,
+              3,
+              4,
+              6
+            ],
+            "box": {
+              "site_indices": [
+                0,
+                1,
+                2,
+                4,
+                5
+              ],
+              "tolerance": 0.05,
+              "vertices": 1024,
+              "smallest_vertex_eigenvalue": -49.93640117082739,
+              "worst_vertex": 540,
+              "maximum_eigendecomposition_residual": 2.1265536287987693e-12,
+              "maximum_orthogonality_error": 2.4848136830909578e-15,
+              "numerical_guard": 1.0475148152620339e-06,
+              "excludes_three_dimensions": false
+            },
+            "curved_exact_gram_floor": -0.00944241005484242,
+            "curved_tolerance_gram_floor": -0.6951321851967847
+          },
+          {
+            "stations": [
+              0,
+              1,
+              3,
+              5,
+              6
+            ],
+            "box": {
+              "site_indices": [
+                0,
+                1,
+                2,
+                4,
+                5
+              ],
+              "tolerance": 0.05,
+              "vertices": 1024,
+              "smallest_vertex_eigenvalue": -15.361391471823037,
+              "worst_vertex": 184,
+              "maximum_eigendecomposition_residual": 2.08169620189437e-12,
+              "maximum_orthogonality_error": 2.6837715157491965e-15,
+              "numerical_guard": 1.0147657101534825e-06,
+              "excludes_three_dimensions": false
+            },
+            "curved_exact_gram_floor": 0.056977832511948434,
+            "curved_tolerance_gram_floor": -0.6480723167093968
+          },
+          {
+            "stations": [
+              0,
+              1,
+              4,
+              5,
+              6
+            ],
+            "box": {
+              "site_indices": [
+                0,
+                1,
+                2,
+                4,
+                5
+              ],
+              "tolerance": 0.05,
+              "vertices": 1024,
+              "smallest_vertex_eigenvalue": -57.25899901743878,
+              "worst_vertex": 298,
+              "maximum_eigendecomposition_residual": 2.693022585134411e-12,
+              "maximum_orthogonality_error": 2.9024927100008988e-15,
+              "numerical_guard": 1.2511774487016109e-06,
+              "excludes_three_dimensions": false
+            },
+            "curved_exact_gram_floor": -0.1600593612887781,
+            "curved_tolerance_gram_floor": -0.8015067252143894
+          },
+          {
+            "stations": [
+              0,
+              2,
+              3,
+              4,
+              5
+            ],
+            "box": {
+              "site_indices": [
+                0,
+                1,
+                2,
+                4,
+                5
+              ],
+              "tolerance": 0.05,
+              "vertices": 1024,
+              "smallest_vertex_eigenvalue": -47.378270333409084,
+              "worst_vertex": 184,
+              "maximum_eigendecomposition_residual": 2.5991299748523875e-12,
+              "maximum_orthogonality_error": 2.7100164829166275e-15,
+              "numerical_guard": 1.1511978211086315e-06,
+              "excludes_three_dimensions": false
+            },
+            "curved_exact_gram_floor": -0.055658076353236746,
+            "curved_tolerance_gram_floor": -0.7415503424505244
+          },
+          {
+            "stations": [
+              0,
+              2,
+              3,
+              4,
+              6
+            ],
+            "box": {
+              "site_indices": [
+                0,
+                1,
+                2,
+                4,
+                5
+              ],
+              "tolerance": 0.05,
+              "vertices": 1024,
+              "smallest_vertex_eigenvalue": 12.964207363761153,
+              "worst_vertex": 540,
+              "maximum_eigendecomposition_residual": 2.02185619033705e-12,
+              "maximum_orthogonality_error": 2.5581542965850748e-15,
+              "numerical_guard": 1.0100844298419046e-06,
+              "excludes_three_dimensions": true
+            },
+            "curved_exact_gram_floor": 0.10850147307915387,
+            "curved_tolerance_gram_floor": -0.5843950313422166
+          },
+          {
+            "stations": [
+              0,
+              2,
+              3,
+              5,
+              6
+            ],
+            "box": {
+              "site_indices": [
+                0,
+                1,
+                2,
+                4,
+                5
+              ],
+              "tolerance": 0.05,
+              "vertices": 1024,
+              "smallest_vertex_eigenvalue": -13.278354826784234,
+              "worst_vertex": 540,
+              "maximum_eigendecomposition_residual": 2.4871431778816336e-12,
+              "maximum_orthogonality_error": 2.758272928551194e-15,
+              "numerical_guard": 1.072576981618007e-06,
+              "excludes_three_dimensions": false
+            },
+            "curved_exact_gram_floor": 0.116766201468814,
+            "curved_tolerance_gram_floor": -0.5789300632060446
+          },
+          {
+            "stations": [
+              0,
+              2,
+              4,
+              5,
+              6
+            ],
+            "box": {
+              "site_indices": [
+                0,
+                1,
+                2,
+                4,
+                5
+              ],
+              "tolerance": 0.05,
+              "vertices": 1024,
+              "smallest_vertex_eigenvalue": -33.181300900562704,
+              "worst_vertex": 340,
+              "maximum_eigendecomposition_residual": 3.2934863013158463e-12,
+              "maximum_orthogonality_error": 2.852816868418912e-15,
+              "numerical_guard": 1.2636120350669501e-06,
+              "excludes_three_dimensions": false
+            },
+            "curved_exact_gram_floor": -0.08415624028963044,
+            "curved_tolerance_gram_floor": -0.7344238293636142
+          },
+          {
+            "stations": [
+              0,
+              3,
+              4,
+              5,
+              6
+            ],
+            "box": {
+              "site_indices": [
+                0,
+                1,
+                2,
+                4,
+                5
+              ],
+              "tolerance": 0.05,
+              "vertices": 1024,
+              "smallest_vertex_eigenvalue": -4.075991751921281,
+              "worst_vertex": 298,
+              "maximum_eigendecomposition_residual": 3.4888733659349925e-12,
+              "maximum_orthogonality_error": 2.9642266860634585e-15,
+              "numerical_guard": 1.2714418525748946e-06,
+              "excludes_three_dimensions": false
+            },
+            "curved_exact_gram_floor": 0.030292070533535942,
+            "curved_tolerance_gram_floor": -0.6123882402038355
+          },
+          {
+            "stations": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "box": {
+              "site_indices": [
+                0,
+                1,
+                2,
+                4,
+                5
+              ],
+              "tolerance": 0.05,
+              "vertices": 1024,
+              "smallest_vertex_eigenvalue": -40.19526147290823,
+              "worst_vertex": 184,
+              "maximum_eigendecomposition_residual": 1.986777104982633e-12,
+              "maximum_orthogonality_error": 2.611431020559182e-15,
+              "numerical_guard": 1.4352596894022503e-06,
+              "excludes_three_dimensions": false
+            },
+            "curved_exact_gram_floor": -0.10610046011756251,
+            "curved_tolerance_gram_floor": -0.7602376523650114
+          },
+          {
+            "stations": [
+              1,
+              2,
+              3,
+              4,
+              6
+            ],
+            "box": {
+              "site_indices": [
+                0,
+                1,
+                2,
+                4,
+                5
+              ],
+              "tolerance": 0.05,
+              "vertices": 1024,
+              "smallest_vertex_eigenvalue": -8.163246335117005,
+              "worst_vertex": 531,
+              "maximum_eigendecomposition_residual": 2.252969563066276e-12,
+              "maximum_orthogonality_error": 2.336390283787087e-15,
+              "numerical_guard": 1.351328027484998e-06,
+              "excludes_three_dimensions": false
+            },
+            "curved_exact_gram_floor": 0.06497981092017202,
+            "curved_tolerance_gram_floor": -0.6610480987801943
+          },
+          {
+            "stations": [
+              1,
+              2,
+              3,
+              5,
+              6
+            ],
+            "box": {
+              "site_indices": [
+                0,
+                1,
+                2,
+                4,
+                5
+              ],
+              "tolerance": 0.05,
+              "vertices": 1024,
+              "smallest_vertex_eigenvalue": 26.90043139632689,
+              "worst_vertex": 201,
+              "maximum_eigendecomposition_residual": 3.0582076316209216e-12,
+              "maximum_orthogonality_error": 2.6250402686469305e-15,
+              "numerical_guard": 1.6247808336708487e-06,
+              "excludes_three_dimensions": true
+            },
+            "curved_exact_gram_floor": 0.04200898903102726,
+            "curved_tolerance_gram_floor": -0.5833347948526229
+          },
+          {
+            "stations": [
+              1,
+              2,
+              4,
+              5,
+              6
+            ],
+            "box": {
+              "site_indices": [
+                0,
+                1,
+                2,
+                4,
+                5
+              ],
+              "tolerance": 0.05,
+              "vertices": 1024,
+              "smallest_vertex_eigenvalue": -55.699273105008906,
+              "worst_vertex": 340,
+              "maximum_eigendecomposition_residual": 2.4859249255621245e-12,
+              "maximum_orthogonality_error": 2.5138923400784525e-15,
+              "numerical_guard": 1.3906113664924557e-06,
+              "excludes_three_dimensions": false
+            },
+            "curved_exact_gram_floor": -0.1148685721642308,
+            "curved_tolerance_gram_floor": -0.7796254431449334
+          },
+          {
+            "stations": [
+              1,
+              3,
+              4,
+              5,
+              6
+            ],
+            "box": {
+              "site_indices": [
+                0,
+                1,
+                2,
+                4,
+                5
+              ],
+              "tolerance": 0.05,
+              "vertices": 1024,
+              "smallest_vertex_eigenvalue": -57.778945771299625,
+              "worst_vertex": 293,
+              "maximum_eigendecomposition_residual": 2.6646394699970916e-12,
+              "maximum_orthogonality_error": 2.712413875523205e-15,
+              "numerical_guard": 1.30756173173155e-06,
+              "excludes_three_dimensions": false
+            },
+            "curved_exact_gram_floor": -0.04601687266603505,
+            "curved_tolerance_gram_floor": -0.696776337277684
+          },
+          {
+            "stations": [
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "box": {
+              "site_indices": [
+                0,
+                1,
+                2,
+                4,
+                5
+              ],
+              "tolerance": 0.05,
+              "vertices": 1024,
+              "smallest_vertex_eigenvalue": -23.44755380058243,
+              "worst_vertex": 298,
+              "maximum_eigendecomposition_residual": 2.4439365036762025e-12,
+              "maximum_orthogonality_error": 2.506171905361637e-15,
+              "numerical_guard": 1.4165952483987596e-06,
+              "excludes_three_dimensions": false
+            },
+            "curved_exact_gram_floor": 0.021882220023069804,
+            "curved_tolerance_gram_floor": -0.6091546958441321
+          }
+        ],
+        "excluding_subsets": 2,
+        "curvature_comparison_length": 32.0,
+        "curved_exact_excluding_subsets": 8,
+        "curved_tolerance_excluding_subsets": 0
+      }
+    },
+    {
+      "cells": 80,
+      "station_cells": [
+        0,
+        3,
+        4,
+        16,
+        1,
+        7,
+        12
+      ],
+      "local_port": 4,
+      "independent_propagator_error": null,
+      "exchange_off_max_interstation_probability": 0.0,
+      "population": {
+        "anchor_gram_eigenvalues": [
+          176.38856473507545,
+          236.62510114006307,
+          267.1407733219745
+        ],
+        "stationary_clock_max_error": 0.0,
+        "coordinates": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            15.400781283836306,
+            0.0,
+            0.0
+          ],
+          [
+            -2.3799595292079014,
+            13.889587047810043,
+            0.0
+          ],
+          [
+            0.6682009131380648,
+            -0.5158878878209455,
+            15.610025834446006
+          ],
+          [
+            15.655590710917432,
+            4.258753244681968,
+            -0.31932231764694485
+          ],
+          [
+            2.9835997011431625,
+            15.684615120417023,
+            2.0403895667862093
+          ],
+          [
+            3.4618994284713454,
+            9.089571264689942,
+            15.606084090428597
+          ]
+        ],
+        "held_anchor_fractional_residuals": [
+          [
+            -0.24638818757131342,
+            -0.7106641414704447,
+            -0.17776275324057933,
+            -0.15477064260245
+          ],
+          [
+            -0.25218570857365186,
+            -0.18485864943438723,
+            -0.6121617345920776,
+            -0.17006319243709123
+          ],
+          [
+            -0.1523405420178423,
+            -0.1170210608241955,
+            -0.16681304665977903,
+            -0.3439987051784561
+          ]
+        ],
+        "max_placement_error": 0.7106641414704447,
+        "pulse_offset": 10.682122573199438,
+        "pulse_slope": 0.5899220006499004,
+        "held": [
+          {
+            "stations": [
+              4,
+              5
+            ],
+            "echo": 28.08936583062841,
+            "echo_prediction": 17.224921362163336,
+            "echo_relative_error": 0.38678140809496575,
+            "pulse": 28.44678929648232,
+            "pulse_prediction": 20.84348264420404,
+            "pulse_relative_error": 0.26728171580398674
+          },
+          {
+            "stations": [
+              4,
+              6
+            ],
+            "echo": 28.627138355135397,
+            "echo_prediction": 20.63108041515056,
+            "echo_relative_error": 0.27931740297578267,
+            "pulse": 29.130473730788125,
+            "pulse_prediction": 22.852850807274034,
+            "pulse_relative_error": 0.2155002002895423
+          },
+          {
+            "stations": [
+              5,
+              6
+            ],
+            "echo": 26.094664700905923,
+            "echo_prediction": 15.09143604819988,
+            "echo_relative_error": 0.4216658377803968,
+            "pulse": 26.71054335341374,
+            "pulse_prediction": 19.58489271943354,
+            "pulse_relative_error": 0.2667729570192179
+          }
+        ],
+        "passed": false,
+        "status": "evaluated",
+        "training_ranges": [
+          15.400781283836306,
+          14.092013189014548,
+          15.63283529386754,
+          21.533161850549433,
+          21.52368625256055,
+          21.69384032967029,
+          22.562698690966656,
+          21.470630434245642,
+          14.786631347887274,
+          24.668879203960124,
+          24.518867440253878,
+          21.458841924844105,
+          24.869189608482692,
+          15.503223685586152,
+          20.813099779228494,
+          26.48591656480692,
+          25.615410583594972,
+          15.249177244869628
+        ],
+        "training_pulse": [
+          19.603450624846467,
+          19.487047020310722,
+          19.643330836846054,
+          25.00130345343223,
+          22.959825273770484,
+          22.653652595314597
+        ],
+        "held_echo": [
+          28.08936583062841,
+          28.627138355135397,
+          26.094664700905923
+        ],
+        "held_pulse": [
+          28.44678929648232,
+          29.130473730788125,
+          26.71054335341374
+        ],
+        "euclidean_distortion_lower_bound": 0.045842380821461415
+      },
+      "acquisitions": [
+        {
+          "anchor_gram_eigenvalues": [
+            176.48600021356518,
+            236.78750575283823,
+            267.20455889683603
+          ],
+          "stationary_clock_max_error": 0.00042315537308468265,
+          "coordinates": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              15.401849413373188,
+              0.0,
+              0.0
+            ],
+            [
+              -2.3860915926399264,
+              13.896005911341602,
+              0.0
+            ],
+            [
+              0.6749412813565463,
+              -0.4891361938713618,
+              15.613259947399632
+            ],
+            [
+              15.669024328049026,
+              4.345461063178563,
+              -0.2877540097161425
+            ],
+            [
+              2.9899160318103064,
+              15.691084790951413,
+              2.037867074863569
+            ],
+            [
+              3.448094139836319,
+              9.096740495421278,
+              15.584619654860107
+            ]
+          ],
+          "held_anchor_fractional_residuals": [
+            [
+              -0.24520477674012509,
+              -0.7050243217671665,
+              -0.177644644949826,
+              -0.15444746184170866
+            ],
+            [
+              -0.25199079939807467,
+              -0.18479737358130766,
+              -0.611550798208054,
+              -0.17016892040897413
+            ],
+            [
+              -0.15293999501741673,
+              -0.11736502424769057,
+              -0.16753915395739305,
+              -0.3455022062904013
+            ]
+          ],
+          "max_placement_error": 0.7050243217671665,
+          "pulse_offset": 10.67213637176909,
+          "pulse_slope": 0.5904393164218343,
+          "held": [
+            {
+              "stations": [
+                4,
+                5
+              ],
+              "echo": 28.09153484068279,
+              "echo_prediction": 17.1724045604858,
+              "echo_relative_error": 0.38869824458233815,
+              "pulse": 28.438367866197723,
+              "pulse_prediction": 20.811399181781518,
+              "pulse_relative_error": 0.26819291178386284
+            },
+            {
+              "stations": [
+                4,
+                6
+              ],
+              "echo": 28.63045481064072,
+              "echo_prediction": 20.587812818664226,
+              "echo_relative_error": 0.2809121281925073,
+              "pulse": 29.12066335795324,
+              "pulse_prediction": 22.827990499041874,
+              "pulse_relative_error": 0.2160896124364129
+            },
+            {
+              "stations": [
+                5,
+                6
+              ],
+              "echo": 26.085679746247127,
+              "echo_prediction": 15.073480332368767,
+              "echo_relative_error": 0.4221549724217041,
+              "pulse": 26.703738497789423,
+              "pulse_prediction": 19.572111795310867,
+              "pulse_relative_error": 0.26706472964708383
+            }
+          ],
+          "passed": false,
+          "status": "evaluated",
+          "training_ranges": [
+            15.401849413373188,
+            14.099376347076763,
+            15.635494432044922,
+            21.54620008730372,
+            21.527645396663512,
+            21.68881597673864,
+            22.57232432695941,
+            21.468464396180888,
+            14.791612395008416,
+            24.6689280009401,
+            24.52361413852514,
+            21.449385115381084,
+            24.84023954723108,
+            15.50527467323791,
+            20.8046958480075,
+            26.472489163295585,
+            25.604429795881266,
+            15.24678840914196
+          ],
+          "training_pulse": [
+            19.603527184761337,
+            19.488419904883145,
+            19.643798345941832,
+            25.001159800309942,
+            22.96357395083639,
+            22.65080673342584
+          ],
+          "held_echo": [
+            28.09153484068279,
+            28.63045481064072,
+            26.085679746247127
+          ],
+          "held_pulse": [
+            28.438367866197723,
+            29.12066335795324,
+            26.703738497789423
+          ],
+          "euclidean_distortion_lower_bound": 0.04585847751002414
+        },
+        {
+          "anchor_gram_eigenvalues": [
+            176.2690326004422,
+            236.37469364402733,
+            267.63582259455285
+          ],
+          "stationary_clock_max_error": 0.0004214889791320786,
+          "coordinates": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              15.404284328748187,
+              0.0,
+              0.0
+            ],
+            [
+              -2.3869242589110247,
+              13.887001542317302,
+              0.0
+            ],
+            [
+              0.681840766929517,
+              -0.5437802716254718,
+              15.61027706636715
+            ],
+            [
+              15.65705602168782,
+              4.268408426502781,
+              -0.32375737618593414
+            ],
+            [
+              3.0074831049227027,
+              15.707385071897733,
+              2.0641320733787043
+            ],
+            [
+              3.492401315653431,
+              9.1252798324086,
+              15.6402100388064
+            ]
+          ],
+          "held_anchor_fractional_residuals": [
+            [
+              -0.2462301518226282,
+              -0.7099927574008815,
+              -0.17767700940650988,
+              -0.154678746570306
+            ],
+            [
+              -0.2512082431733311,
+              -0.18444677742839555,
+              -0.6094266520950729,
+              -0.16947155726033758
+            ],
+            [
+              -0.15042345278694946,
+              -0.11578663105733022,
+              -0.16500609873459016,
+              -0.33960154845562485
+            ]
+          ],
+          "max_placement_error": 0.7099927574008815,
+          "pulse_offset": 10.69332492509307,
+          "pulse_slope": 0.5891593378425746,
+          "held": [
+            {
+              "stations": [
+                4,
+                5
+              ],
+              "echo": 28.086687686655047,
+              "echo_prediction": 17.22103068035682,
+              "echo_relative_error": 0.38686146004538924,
+              "pulse": 28.42292545074691,
+              "pulse_prediction": 20.839255957698754,
+              "pulse_relative_error": 0.26681523357578485
+            },
+            {
+              "stations": [
+                4,
+                6
+              ],
+              "echo": 28.636782285567424,
+              "echo_prediction": 20.649849384377777,
+              "echo_relative_error": 0.27890469053204203,
+              "pulse": 29.121334137768812,
+              "pulse_prediction": 22.859376514941978,
+              "pulse_relative_error": 0.21502990189949467
+            },
+            {
+              "stations": [
+                5,
+                6
+              ],
+              "echo": 26.08972375974845,
+              "echo_prediction": 15.095335305258375,
+              "echo_relative_error": 0.4214068556544992,
+              "pulse": 26.703183279322676,
+              "pulse_prediction": 19.58688267805073,
+              "pulse_relative_error": 0.26649633966233444
+            }
+          ],
+          "passed": false,
+          "status": "evaluated",
+          "training_ranges": [
+            15.404284328748187,
+            14.090642968087051,
+            15.634620363283666,
+            21.534004081687318,
+            21.535185660042544,
+            21.706531732621187,
+            22.569357874027386,
+            21.464547316528556,
+            14.786271404671524,
+            24.665764682432766,
+            24.51264183696584,
+            21.478955575962992,
+            24.868718823506967,
+            15.505184551980737,
+            20.807363690393196,
+            26.486854943518445,
+            25.62701136010093,
+            15.247315196724792
+          ],
+          "training_pulse": [
+            19.604174920826768,
+            19.486933395594537,
+            19.64316694877045,
+            24.9997543440532,
+            22.957173714512404,
+            22.654754312746682
+          ],
+          "held_echo": [
+            28.086687686655047,
+            28.636782285567424,
+            26.08972375974845
+          ],
+          "held_pulse": [
+            28.42292545074691,
+            29.121334137768812,
+            26.703183279322676
+          ],
+          "euclidean_distortion_lower_bound": 0.04579043268207905
+        }
+      ],
+      "post_run_corner_check": {
+        "tolerance": 0.05,
+        "five_station_subsets": [
+          {
+            "stations": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ],
+            "box": {
+              "site_indices": [
+                0,
+                1,
+                2,
+                4,
+                5
+              ],
+              "tolerance": 0.05,
+              "vertices": 1024,
+              "smallest_vertex_eigenvalue": -26.061851028602746,
+              "worst_vertex": 184,
+              "maximum_eigendecomposition_residual": 1.927215372025727e-12,
+              "maximum_orthogonality_error": 2.7587514801909452e-15,
+              "numerical_guard": 8.086720186232613e-07,
+              "excludes_three_dimensions": false
+            },
+            "curved_exact_gram_floor": 0.10652640875679184,
+            "curved_tolerance_gram_floor": -0.6417319960133352
+          },
+          {
+            "stations": [
+              0,
+              1,
+              2,
+              3,
+              5
+            ],
+            "box": {
+              "site_indices": [
+                0,
+                1,
+                2,
+                4,
+                5
+              ],
+              "tolerance": 0.05,
+              "vertices": 1024,
+              "smallest_vertex_eigenvalue": -35.96918156700219,
+              "worst_vertex": 184,
+              "maximum_eigendecomposition_residual": 1.5866914084295227e-12,
+              "maximum_orthogonality_error": 3.4320766494579478e-15,
+              "numerical_guard": 7.97691053160141e-07,
+              "excludes_three_dimensions": false
+            },
+            "curved_exact_gram_floor": 0.10563280330785754,
+            "curved_tolerance_gram_floor": -0.6316451205193557
+          },
+          {
+            "stations": [
+              0,
+              1,
+              2,
+              3,
+              6
+            ],
+            "box": {
+              "site_indices": [
+                0,
+                1,
+                2,
+                4,
+                5
+              ],
+              "tolerance": 0.05,
+              "vertices": 1024,
+              "smallest_vertex_eigenvalue": -69.34932857043378,
+              "worst_vertex": 184,
+              "maximum_eigendecomposition_residual": 1.495572201755454e-12,
+              "maximum_orthogonality_error": 2.3063457107253163e-15,
+              "numerical_guard": 8.522676504470819e-07,
+              "excludes_three_dimensions": false
+            },
+            "curved_exact_gram_floor": 0.0234363824037028,
+            "curved_tolerance_gram_floor": -0.7246049052351187
+          },
+          {
+            "stations": [
+              0,
+              1,
+              2,
+              4,
+              5
+            ],
+            "box": {
+              "site_indices": [
+                0,
+                1,
+                2,
+                4,
+                5
+              ],
+              "tolerance": 0.05,
+              "vertices": 1024,
+              "smallest_vertex_eigenvalue": -54.35300024331865,
+              "worst_vertex": 540,
+              "maximum_eigendecomposition_residual": 1.6376748065172336e-12,
+              "maximum_orthogonality_error": 2.8741451768344267e-15,
+              "numerical_guard": 1.0131368025679008e-06,
+              "excludes_three_dimensions": false
+            },
+            "curved_exact_gram_floor": 0.005923155355470111,
+            "curved_tolerance_gram_floor": -0.7137163781135417
+          },
+          {
+            "stations": [
+              0,
+              1,
+              2,
+              4,
+              6
+            ],
+            "box": {
+              "site_indices": [
+                0,
+                1,
+                2,
+                4,
+                5
+              ],
+              "tolerance": 0.05,
+              "vertices": 1024,
+              "smallest_vertex_eigenvalue": -31.214501833641283,
+              "worst_vertex": 540,
+              "maximum_eigendecomposition_residual": 2.1143810627508824e-12,
+              "maximum_orthogonality_error": 3.1188633586995014e-15,
+              "numerical_guard": 9.803313098672886e-07,
+              "excludes_three_dimensions": false
+            },
+            "curved_exact_gram_floor": 0.04440527384006587,
+            "curved_tolerance_gram_floor": -0.6728200545131269
+          },
+          {
+            "stations": [
+              0,
+              1,
+              2,
+              5,
+              6
+            ],
+            "box": {
+              "site_indices": [
+                0,
+                1,
+                2,
+                4,
+                5
+              ],
+              "tolerance": 0.05,
+              "vertices": 1024,
+              "smallest_vertex_eigenvalue": -26.760303154149888,
+              "worst_vertex": 540,
+              "maximum_eigendecomposition_residual": 2.3310763360132884e-12,
+              "maximum_orthogonality_error": 2.5610367212470054e-15,
+              "numerical_guard": 9.902422609166593e-07,
+              "excludes_three_dimensions": false
+            },
+            "curved_exact_gram_floor": 0.0528699295799166,
+            "curved_tolerance_gram_floor": -0.6695474938321284
+          },
+          {
+            "stations": [
+              0,
+              1,
+              3,
+              4,
+              5
+            ],
+            "box": {
+              "site_indices": [
+                0,
+                1,
+                2,
+                4,
+                5
+              ],
+              "tolerance": 0.05,
+              "vertices": 1024,
+              "smallest_vertex_eigenvalue": 24.026701913425526,
+              "worst_vertex": 340,
+              "maximum_eigendecomposition_residual": 2.1660572190834487e-12,
+              "maximum_orthogonality_error": 3.382000425997194e-15,
+              "numerical_guard": 9.67853715162351e-07,
+              "excludes_three_dimensions": true
+            },
+            "curved_exact_gram_floor": 0.09197134510211841,
+            "curved_tolerance_gram_floor": -0.6199774931912803
+          },
+          {
+            "stations": [
+              0,
+              1,
+              3,
+              4,
+              6
+            ],
+            "box": {
+              "site_indices": [
+                0,
+                1,
+                2,
+                4,
+                5
+              ],
+              "tolerance": 0.05,
+              "vertices": 1024,
+              "smallest_vertex_eigenvalue": -12.541244012416117,
+              "worst_vertex": 540,
+              "maximum_eigendecomposition_residual": 2.3404052461420367e-12,
+              "maximum_orthogonality_error": 2.947997925196026e-15,
+              "numerical_guard": 1.0451213131940083e-06,
+              "excludes_three_dimensions": false
+            },
+            "curved_exact_gram_floor": 0.11712000188457083,
+            "curved_tolerance_gram_floor": -0.5908289784604234
+          },
+          {
+            "stations": [
+              0,
+              1,
+              3,
+              5,
+              6
+            ],
+            "box": {
+              "site_indices": [
+                0,
+                1,
+                2,
+                4,
+                5
+              ],
+              "tolerance": 0.05,
+              "vertices": 1024,
+              "smallest_vertex_eigenvalue": -5.824566250495815,
+              "worst_vertex": 184,
+              "maximum_eigendecomposition_residual": 2.442552018458949e-12,
+              "maximum_orthogonality_error": 2.5335243682554883e-15,
+              "numerical_guard": 1.0009578555418018e-06,
+              "excludes_three_dimensions": false
+            },
+            "curved_exact_gram_floor": 0.0807126996063926,
+            "curved_tolerance_gram_floor": -0.6329958717402242
+          },
+          {
+            "stations": [
+              0,
+              1,
+              4,
+              5,
+              6
+            ],
+            "box": {
+              "site_indices": [
+                0,
+                1,
+                2,
+                4,
+                5
+              ],
+              "tolerance": 0.05,
+              "vertices": 1024,
+              "smallest_vertex_eigenvalue": 31.237803932744352,
+              "worst_vertex": 298,
+              "maximum_eigendecomposition_residual": 1.7876893743688704e-12,
+              "maximum_orthogonality_error": 2.357275857063457e-15,
+              "numerical_guard": 1.1201807321120297e-06,
+              "excludes_three_dimensions": true
+            },
+            "curved_exact_gram_floor": 0.07406450309526544,
+            "curved_tolerance_gram_floor": -0.6149497496850296
+          },
+          {
+            "stations": [
+              0,
+              2,
+              3,
+              4,
+              5
+            ],
+            "box": {
+              "site_indices": [
+                0,
+                1,
+                2,
+                4,
+                5
+              ],
+              "tolerance": 0.05,
+              "vertices": 1024,
+              "smallest_vertex_eigenvalue": -5.117593397786694,
+              "worst_vertex": 184,
+              "maximum_eigendecomposition_residual": 1.571781723072892e-12,
+              "maximum_orthogonality_error": 2.4611334824111616e-15,
+              "numerical_guard": 9.317747875944779e-07,
+              "excludes_three_dimensions": false
+            },
+            "curved_exact_gram_floor": 0.11523829365750726,
+            "curved_tolerance_gram_floor": -0.6235678483877893
+          },
+          {
+            "stations": [
+              0,
+              2,
+              3,
+              4,
+              6
+            ],
+            "box": {
+              "site_indices": [
+                0,
+                1,
+                2,
+                4,
+                5
+              ],
+              "tolerance": 0.05,
+              "vertices": 1024,
+              "smallest_vertex_eigenvalue": -48.268124993882445,
+              "worst_vertex": 184,
+              "maximum_eigendecomposition_residual": 2.304331282585085e-12,
+              "maximum_orthogonality_error": 2.58290228870881e-15,
+              "numerical_guard": 9.741775656156733e-07,
+              "excludes_three_dimensions": false
+            },
+            "curved_exact_gram_floor": -0.007077180645607084,
+            "curved_tolerance_gram_floor": -0.7580677965519775
+          },
+          {
+            "stations": [
+              0,
+              2,
+              3,
+              5,
+              6
+            ],
+            "box": {
+              "site_indices": [
+                0,
+                1,
+                2,
+                4,
+                5
+              ],
+              "tolerance": 0.05,
+              "vertices": 1024,
+              "smallest_vertex_eigenvalue": -48.74846827164298,
+              "worst_vertex": 540,
+              "maximum_eigendecomposition_residual": 1.8948457606582756e-12,
+              "maximum_orthogonality_error": 2.553188809476902e-15,
+              "numerical_guard": 1.0564089235828387e-06,
+              "excludes_three_dimensions": false
+            },
+            "curved_exact_gram_floor": -0.007736199131004012,
+            "curved_tolerance_gram_floor": -0.7227789475716151
+          },
+          {
+            "stations": [
+              0,
+              2,
+              4,
+              5,
+              6
+            ],
+            "box": {
+              "site_indices": [
+                0,
+                1,
+                2,
+                4,
+                5
+              ],
+              "tolerance": 0.05,
+              "vertices": 1024,
+              "smallest_vertex_eigenvalue": 18.131208089791915,
+              "worst_vertex": 540,
+              "maximum_eigendecomposition_residual": 2.501029685079487e-12,
+              "maximum_orthogonality_error": 2.778678623733561e-15,
+              "numerical_guard": 1.1054855456470767e-06,
+              "excludes_three_dimensions": true
+            },
+            "curved_exact_gram_floor": 0.09010296644951618,
+            "curved_tolerance_gram_floor": -0.6263404728175938
+          },
+          {
+            "stations": [
+              0,
+              3,
+              4,
+              5,
+              6
+            ],
+            "box": {
+              "site_indices": [
+                0,
+                1,
+                2,
+                4,
+                5
+              ],
+              "tolerance": 0.05,
+              "vertices": 1024,
+              "smallest_vertex_eigenvalue": -1.2560128848502299,
+              "worst_vertex": 184,
+              "maximum_eigendecomposition_residual": 2.4025382217169345e-12,
+              "maximum_orthogonality_error": 3.0471480222699912e-15,
+              "numerical_guard": 1.1118442567020604e-06,
+              "excludes_three_dimensions": false
+            },
+            "curved_exact_gram_floor": 0.05592529895842674,
+            "curved_tolerance_gram_floor": -0.6647291611230643
+          },
+          {
+            "stations": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "box": {
+              "site_indices": [
+                0,
+                1,
+                2,
+                4,
+                5
+              ],
+              "tolerance": 0.05,
+              "vertices": 1024,
+              "smallest_vertex_eigenvalue": -25.182055559775222,
+              "worst_vertex": 897,
+              "maximum_eigendecomposition_residual": 2.643679739112514e-12,
+              "maximum_orthogonality_error": 2.574970489087608e-15,
+              "numerical_guard": 1.4281347826254986e-06,
+              "excludes_three_dimensions": false
+            },
+            "curved_exact_gram_floor": 0.004173043689232575,
+            "curved_tolerance_gram_floor": -0.7254054477588197
+          },
+          {
+            "stations": [
+              1,
+              2,
+              3,
+              4,
+              6
+            ],
+            "box": {
+              "site_indices": [
+                0,
+                1,
+                2,
+                4,
+                5
+              ],
+              "tolerance": 0.05,
+              "vertices": 1024,
+              "smallest_vertex_eigenvalue": 10.995734457695107,
+              "worst_vertex": 184,
+              "maximum_eigendecomposition_residual": 2.5770719924360096e-12,
+              "maximum_orthogonality_error": 2.231597855840465e-15,
+              "numerical_guard": 1.4640731322764631e-06,
+              "excludes_three_dimensions": true
+            },
+            "curved_exact_gram_floor": 0.03881518470922818,
+            "curved_tolerance_gram_floor": -0.7093781897003443
+          },
+          {
+            "stations": [
+              1,
+              2,
+              3,
+              5,
+              6
+            ],
+            "box": {
+              "site_indices": [
+                0,
+                1,
+                2,
+                4,
+                5
+              ],
+              "tolerance": 0.05,
+              "vertices": 1024,
+              "smallest_vertex_eigenvalue": 14.108741846758994,
+              "worst_vertex": 540,
+              "maximum_eigendecomposition_residual": 3.47245368202481e-12,
+              "maximum_orthogonality_error": 2.531809066434117e-15,
+              "numerical_guard": 1.8525099650092063e-06,
+              "excludes_three_dimensions": true
+            },
+            "curved_exact_gram_floor": -0.014998532249122648,
+            "curved_tolerance_gram_floor": -0.6193763056866081
+          },
+          {
+            "stations": [
+              1,
+              2,
+              4,
+              5,
+              6
+            ],
+            "box": {
+              "site_indices": [
+                0,
+                1,
+                2,
+                4,
+                5
+              ],
+              "tolerance": 0.05,
+              "vertices": 1024,
+              "smallest_vertex_eigenvalue": -27.673899128251637,
+              "worst_vertex": 897,
+              "maximum_eigendecomposition_residual": 2.8131749990665455e-12,
+              "maximum_orthogonality_error": 2.371902394865035e-15,
+              "numerical_guard": 1.5642438635608427e-06,
+              "excludes_three_dimensions": false
+            },
+            "curved_exact_gram_floor": -0.024149654413195942,
+            "curved_tolerance_gram_floor": -0.7604245281051838
+          },
+          {
+            "stations": [
+              1,
+              3,
+              4,
+              5,
+              6
+            ],
+            "box": {
+              "site_indices": [
+                0,
+                1,
+                2,
+                4,
+                5
+              ],
+              "tolerance": 0.05,
+              "vertices": 1024,
+              "smallest_vertex_eigenvalue": 4.432210982885414,
+              "worst_vertex": 184,
+              "maximum_eigendecomposition_residual": 2.818520269133485e-12,
+              "maximum_orthogonality_error": 2.7454060289270956e-15,
+              "numerical_guard": 1.462496508013079e-06,
+              "excludes_three_dimensions": true
+            },
+            "curved_exact_gram_floor": -0.0003354096994254985,
+            "curved_tolerance_gram_floor": -0.7278310013596277
+          },
+          {
+            "stations": [
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "box": {
+              "site_indices": [
+                0,
+                1,
+                2,
+                4,
+                5
+              ],
+              "tolerance": 0.05,
+              "vertices": 1024,
+              "smallest_vertex_eigenvalue": 11.349955570230337,
+              "worst_vertex": 897,
+              "maximum_eigendecomposition_residual": 2.833667235904406e-12,
+              "maximum_orthogonality_error": 2.167672936586122e-15,
+              "numerical_guard": 1.2714611873931878e-06,
+              "excludes_three_dimensions": true
+            },
+            "curved_exact_gram_floor": 0.027569028025477088,
+            "curved_tolerance_gram_floor": -0.678940787820573
+          }
+        ],
+        "excluding_subsets": 7,
+        "curvature_comparison_length": 32.0,
+        "curved_exact_excluding_subsets": 16,
+        "curved_tolerance_excluding_subsets": 0
+      }
+    },
+    {
+      "cells": 320,
+      "station_cells": [
+        0,
+        3,
+        16,
+        64,
+        1,
+        19,
+        48
+      ],
+      "local_port": 4,
+      "independent_propagator_error": null,
+      "exchange_off_max_interstation_probability": 0.0,
+      "population": {
+        "anchor_gram_eigenvalues": [
+          217.9229142823421,
+          229.06730921636694,
+          256.18968251316835
+        ],
+        "stationary_clock_max_error": 0.0,
+        "coordinates": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            15.284640041925442,
+            0.0,
+            0.0
+          ],
+          [
+            0.055227126116937864,
+            14.905402499305247,
+            0.0
+          ],
+          [
+            0.7317709208445583,
+            0.6755056892266524,
+            15.696936468053927
+          ],
+          [
+            15.731627729592748,
+            1.8320312421359064,
+            -0.732905130001368
+          ],
+          [
+            1.5526722543960616,
+            14.159763247463722,
+            0.5666772335241611
+          ],
+          [
+            3.2241453112910294,
+            8.600542406294789,
+            15.044660235918757
+          ]
+        ],
+        "held_anchor_fractional_residuals": [
+          [
+            -0.2584756591060503,
+            -0.8603481149055622,
+            -0.1816643877296228,
+            -0.1592397426245078
+          ],
+          [
+            -0.338040594911975,
+            -0.22598376900924122,
+            -0.8912332241955723,
+            -0.21753721869270837
+          ],
+          [
+            -0.1879965338356262,
+            -0.14254183177112523,
+            -0.20477691410280385,
+            -0.4504822753321387
+          ]
+        ],
+        "max_placement_error": 0.8912332241955723,
+        "pulse_offset": 11.567990483139493,
+        "pulse_slope": 0.53994541748763,
+        "held": [
+          {
+            "stations": [
+              4,
+              5
+            ],
+            "echo": 27.54290158086462,
+            "echo_prediction": 18.833604781941787,
+            "echo_relative_error": 0.31620839849980076,
+            "pulse": 28.21652266033973,
+            "pulse_prediction": 21.737109079922078,
+            "pulse_relative_error": 0.22963189541158147
+          },
+          {
+            "stations": [
+              4,
+              6
+            ],
+            "echo": 28.563655199714162,
+            "echo_prediction": 21.241031723985355,
+            "echo_relative_error": 0.2563615694325454,
+            "pulse": 29.037861597419557,
+            "pulse_prediction": 23.03698822521476,
+            "pulse_relative_error": 0.20665686252661464
+          },
+          {
+            "stations": [
+              5,
+              6
+            ],
+            "echo": 25.92349245080417,
+            "echo_prediction": 15.598421405976943,
+            "echo_relative_error": 0.3982901248518671,
+            "pulse": 26.665454786995703,
+            "pulse_prediction": 19.990286641337697,
+            "pulse_relative_error": 0.2503301818393652
+          }
+        ],
+        "passed": false,
+        "status": "evaluated",
+        "training_ranges": [
+          15.284640041925442,
+          14.905504812040222,
+          15.728496784463943,
+          21.38148553865321,
+          21.535919365484336,
+          21.707864776695125,
+          21.30976399274497,
+          21.41579141833447,
+          14.487360381038052,
+          25.49415562643361,
+          24.622993589785573,
+          21.197676505074575,
+          24.959768553682963,
+          16.238363722030037,
+          20.896417246725548,
+          26.496476652379087,
+          25.922747517889118,
+          15.164720578708033
+        ],
+        "training_pulse": [
+          19.434538553814573,
+          20.308099114362037,
+          19.682292670357036,
+          23.617091387640695,
+          22.85656257112109,
+          22.817974875594597
+        ],
+        "held_echo": [
+          27.54290158086462,
+          28.563655199714162,
+          25.92349245080417
+        ],
+        "held_pulse": [
+          28.21652266033973,
+          29.037861597419557,
+          26.665454786995703
+        ],
+        "euclidean_distortion_lower_bound": 0.04760147087236799
+      },
+      "acquisitions": [
+        {
+          "anchor_gram_eigenvalues": [
+            218.0311624228706,
+            228.90206303786627,
+            256.3370729214931
+          ],
+          "stationary_clock_max_error": 0.00039641410485558026,
+          "coordinates": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              15.287211974639732,
+              0.0,
+              0.0
+            ],
+            [
+              0.08456744730390345,
+              14.903760257173957,
+              0.0
+            ],
+            [
+              0.7276072651323435,
+              0.6792243437931312,
+              15.698772847796908
+            ],
+            [
+              15.72825696843613,
+              1.776467378399314,
+              -0.7021063472296102
+            ],
+            [
+              1.5758499250530218,
+              14.175699911910018,
+              0.5827145690264812
+            ],
+            [
+              3.222891005768297,
+              8.579207624650419,
+              15.050866792360218
+            ]
+          ],
+          "held_anchor_fractional_residuals": [
+            [
+              -0.2588615553023308,
+              -0.8646596858884109,
+              -0.18167664733220457,
+              -0.1596164677783969
+            ],
+            [
+              -0.33760846999585625,
+              -0.22607482605759233,
+              -0.8916985091286689,
+              -0.21760904380437485
+            ],
+            [
+              -0.18835543140601563,
+              -0.142789997497893,
+              -0.20493931170028046,
+              -0.4519370075239604
+            ]
+          ],
+          "max_placement_error": 0.8916985091286689,
+          "pulse_offset": 11.561642806797824,
+          "pulse_slope": 0.5404678375159657,
+          "held": [
+            {
+              "stations": [
+                4,
+                5
+              ],
+              "echo": 27.537345034527238,
+              "echo_prediction": 18.859542871674257,
+              "echo_relative_error": 0.31512849739045157,
+              "pulse": 28.208743344603732,
+              "pulse_prediction": 21.754619159191257,
+              "pulse_relative_error": 0.2287987134544628
+            },
+            {
+              "stations": [
+                4,
+                6
+              ],
+              "echo": 28.562096202991412,
+              "echo_prediction": 21.23246607096911,
+              "echo_relative_error": 0.2566208754403202,
+              "pulse": 29.03472025739437,
+              "pulse_prediction": 23.03710782930561,
+              "pulse_relative_error": 0.2065669093733158
+            },
+            {
+              "stations": [
+                5,
+                6
+              ],
+              "echo": 25.918743728342733,
+              "echo_prediction": 15.600028814091235,
+              "echo_relative_error": 0.3981178649090059,
+              "pulse": 26.67012607974965,
+              "pulse_prediction": 19.99295664513647,
+              "pulse_relative_error": 0.25036137491989907
+            }
+          ],
+          "passed": false,
+          "status": "evaluated",
+          "training_ranges": [
+            15.287211974639732,
+            14.90400018305359,
+            15.730296467905493,
+            21.377688886295687,
+            21.550576768387334,
+            21.710898543060104,
+            21.28949201901849,
+            21.421832413055526,
+            14.485235087517335,
+            25.494028816935014,
+            24.62770654267137,
+            21.194395275286794,
+            24.97043288904466,
+            16.240307366738108,
+            20.909861941301774,
+            26.480011279318347,
+            25.92341833285985,
+            15.162475176716171
+          ],
+          "training_pulse": [
+            19.435274829853,
+            20.30898883249172,
+            19.684557319946933,
+            23.61968120966332,
+            22.859736957435594,
+            22.819702288883263
+          ],
+          "held_echo": [
+            27.537345034527238,
+            28.562096202991412,
+            25.918743728342733
+          ],
+          "held_pulse": [
+            28.208743344603732,
+            29.03472025739437,
+            26.67012607974965
+          ],
+          "euclidean_distortion_lower_bound": 0.047668363027676186
+        },
+        {
+          "anchor_gram_eigenvalues": [
+            218.16641429482547,
+            229.0298926557729,
+            255.85584066375068
+          ],
+          "stationary_clock_max_error": 0.00036954792349419563,
+          "coordinates": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              15.281340196249008,
+              0.0,
+              0.0
+            ],
+            [
+              0.05335984780082272,
+              14.904840070073648,
+              0.0
+            ],
+            [
+              0.7195506630015585,
+              0.6523003286894669,
+              15.698166636827011
+            ],
+            [
+              15.747064488229292,
+              1.9172398526493195,
+              -0.6802571213730623
+            ],
+            [
+              1.5259174222733227,
+              14.143863850177565,
+              0.5705513411688365
+            ],
+            [
+              3.2107464026573354,
+              8.589443093018936,
+              15.052948689946458
+            ]
+          ],
+          "held_anchor_fractional_residuals": [
+            [
+              -0.2576106358889301,
+              -0.8558740605901293,
+              -0.1819294794250269,
+              -0.15910594798743993
+            ],
+            [
+              -0.3384789250917839,
+              -0.22586654707030285,
+              -0.8920226961614132,
+              -0.2174656984380101
+            ],
+            [
+              -0.18773570580858656,
+              -0.14224086316869244,
+              -0.20432474258322286,
+              -0.449615103446809
+            ]
+          ],
+          "max_placement_error": 0.8920226961614132,
+          "pulse_offset": 11.577710212294251,
+          "pulse_slope": 0.5393615773203967,
+          "held": [
+            {
+              "stations": [
+                4,
+                5
+              ],
+              "echo": 27.541963104331572,
+              "echo_prediction": 18.79616663201431,
+              "echo_relative_error": 0.31754441174680814,
+              "pulse": 28.242121812923983,
+              "pulse_prediction": 21.715640294514497,
+              "pulse_relative_error": 0.23109033951630642
+            },
+            {
+              "stations": [
+                4,
+                6
+              ],
+              "echo": 28.567365119278513,
+              "echo_prediction": 21.194606208296857,
+              "echo_relative_error": 0.25808326669953174,
+              "pulse": 29.040918378812727,
+              "pulse_prediction": 23.009266447485917,
+              "pulse_relative_error": 0.2076949445141273
+            },
+            {
+              "stations": [
+                5,
+                6
+              ],
+              "echo": 25.934292647661202,
+              "echo_prediction": 15.602245723246943,
+              "echo_relative_error": 0.39839324190498093,
+              "pulse": 26.67162321219442,
+              "pulse_prediction": 19.99296207532514,
+              "pulse_relative_error": 0.25040325006600117
+            }
+          ],
+          "passed": false,
+          "status": "evaluated",
+          "training_ranges": [
+            15.281340196249008,
+            14.904935584826603,
+            15.728181224573394,
+            21.387601700161184,
+            21.52217851796935,
+            21.699931824314284,
+            21.308346791977954,
+            21.422036455178393,
+            14.480205993162741,
+            25.496811562831795,
+            24.622700567720116,
+            21.213465889372767,
+            24.914930916708265,
+            16.23497367367031,
+            20.89624236325949,
+            26.476403015787078,
+            25.923321331818435,
+            15.160110470604852
+          ],
+          "training_pulse": [
+            19.43386299920207,
+            20.30776330398478,
+            19.682949968601008,
+            23.619603181830787,
+            22.861121458881147,
+            22.81430964385789
+          ],
+          "held_echo": [
+            27.541963104331572,
+            28.567365119278513,
+            25.934292647661202
+          ],
+          "held_pulse": [
+            28.242121812923983,
+            29.040918378812727,
+            26.67162321219442
+          ],
+          "euclidean_distortion_lower_bound": 0.0474387155907432
+        }
+      ],
+      "post_run_corner_check": {
+        "tolerance": 0.05,
+        "five_station_subsets": [
+          {
+            "stations": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ],
+            "box": {
+              "site_indices": [
+                0,
+                1,
+                2,
+                4,
+                5
+              ],
+              "tolerance": 0.05,
+              "vertices": 1024,
+              "smallest_vertex_eigenvalue": 5.21226998971286,
+              "worst_vertex": 184,
+              "maximum_eigendecomposition_residual": 1.8461351969182527e-12,
+              "maximum_orthogonality_error": 2.414433109127779e-15,
+              "numerical_guard": 8.145562465705169e-07,
+              "excludes_three_dimensions": true
+            },
+            "curved_exact_gram_floor": 0.1273501786046996,
+            "curved_tolerance_gram_floor": -0.588346589859534
+          },
+          {
+            "stations": [
+              0,
+              1,
+              2,
+              3,
+              5
+            ],
+            "box": {
+              "site_indices": [
+                0,
+                1,
+                2,
+                4,
+                5
+              ],
+              "tolerance": 0.05,
+              "vertices": 1024,
+              "smallest_vertex_eigenvalue": 16.44803373850289,
+              "worst_vertex": 184,
+              "maximum_eigendecomposition_residual": 1.970204769955134e-12,
+              "maximum_orthogonality_error": 2.3695893854339374e-15,
+              "numerical_guard": 8.039046768346004e-07,
+              "excludes_three_dimensions": true
+            },
+            "curved_exact_gram_floor": 0.20229391908427247,
+            "curved_tolerance_gram_floor": -0.5262343672692364
+          },
+          {
+            "stations": [
+              0,
+              1,
+              2,
+              3,
+              6
+            ],
+            "box": {
+              "site_indices": [
+                0,
+                1,
+                2,
+                4,
+                5
+              ],
+              "tolerance": 0.05,
+              "vertices": 1024,
+              "smallest_vertex_eigenvalue": -40.91032032613607,
+              "worst_vertex": 184,
+              "maximum_eigendecomposition_residual": 1.5687966604975747e-12,
+              "maximum_orthogonality_error": 2.599437009330383e-15,
+              "numerical_guard": 8.683209817097159e-07,
+              "excludes_three_dimensions": false
+            },
+            "curved_exact_gram_floor": 0.06540971468555465,
+            "curved_tolerance_gram_floor": -0.6592562699366482
+          },
+          {
+            "stations": [
+              0,
+              1,
+              2,
+              4,
+              5
+            ],
+            "box": {
+              "site_indices": [
+                0,
+                1,
+                2,
+                4,
+                5
+              ],
+              "tolerance": 0.05,
+              "vertices": 1024,
+              "smallest_vertex_eigenvalue": -8.318349229560713,
+              "worst_vertex": 540,
+              "maximum_eigendecomposition_residual": 2.1014293902255612e-12,
+              "maximum_orthogonality_error": 2.710865344682833e-15,
+              "numerical_guard": 1.0163139209417903e-06,
+              "excludes_three_dimensions": false
+            },
+            "curved_exact_gram_floor": 0.10227256891625391,
+            "curved_tolerance_gram_floor": -0.600045656954772
+          },
+          {
+            "stations": [
+              0,
+              1,
+              2,
+              4,
+              6
+            ],
+            "box": {
+              "site_indices": [
+                0,
+                1,
+                2,
+                4,
+                5
+              ],
+              "tolerance": 0.05,
+              "vertices": 1024,
+              "smallest_vertex_eigenvalue": -0.9610689240032206,
+              "worst_vertex": 540,
+              "maximum_eigendecomposition_residual": 2.1639292920450384e-12,
+              "maximum_orthogonality_error": 2.71143117796148e-15,
+              "numerical_guard": 9.858976562171199e-07,
+              "excludes_three_dimensions": false
+            },
+            "curved_exact_gram_floor": 0.08376001227117619,
+            "curved_tolerance_gram_floor": -0.6178449488962603
+          },
+          {
+            "stations": [
+              0,
+              1,
+              2,
+              5,
+              6
+            ],
+            "box": {
+              "site_indices": [
+                0,
+                1,
+                2,
+                4,
+                5
+              ],
+              "tolerance": 0.05,
+              "vertices": 1024,
+              "smallest_vertex_eigenvalue": 18.528829974220155,
+              "worst_vertex": 540,
+              "maximum_eigendecomposition_residual": 2.706039298378417e-12,
+              "maximum_orthogonality_error": 2.8894628933260605e-15,
+              "numerical_guard": 9.990106614256712e-07,
+              "excludes_three_dimensions": true
+            },
+            "curved_exact_gram_floor": 0.15522971597890833,
+            "curved_tolerance_gram_floor": -0.5480102340282332
+          },
+          {
+            "stations": [
+              0,
+              1,
+              3,
+              4,
+              5
+            ],
+            "box": {
+              "site_indices": [
+                0,
+                1,
+                2,
+                4,
+                5
+              ],
+              "tolerance": 0.05,
+              "vertices": 1024,
+              "smallest_vertex_eigenvalue": 10.406863412254678,
+              "worst_vertex": 340,
+              "maximum_eigendecomposition_residual": 1.7893319242816434e-12,
+              "maximum_orthogonality_error": 2.9556423932388416e-15,
+              "numerical_guard": 9.612632349344013e-07,
+              "excludes_three_dimensions": true
+            },
+            "curved_exact_gram_floor": 0.07538193053842457,
+            "curved_tolerance_gram_floor": -0.6406229287610786
+          },
+          {
+            "stations": [
+              0,
+              1,
+              3,
+              4,
+              6
+            ],
+            "box": {
+              "site_indices": [
+                0,
+                1,
+                2,
+                4,
+                5
+              ],
+              "tolerance": 0.05,
+              "vertices": 1024,
+              "smallest_vertex_eigenvalue": -11.202922830269335,
+              "worst_vertex": 540,
+              "maximum_eigendecomposition_residual": 2.865241005722801e-12,
+              "maximum_orthogonality_error": 3.147056699309264e-15,
+              "numerical_guard": 1.0411694348349197e-06,
+              "excludes_three_dimensions": false
+            },
+            "curved_exact_gram_floor": 0.10692300141124231,
+            "curved_tolerance_gram_floor": -0.5949245297823895
+          },
+          {
+            "stations": [
+              0,
+              1,
+              3,
+              5,
+              6
+            ],
+            "box": {
+              "site_indices": [
+                0,
+                1,
+                2,
+                4,
+                5
+              ],
+              "tolerance": 0.05,
+              "vertices": 1024,
+              "smallest_vertex_eigenvalue": -14.74720441444376,
+              "worst_vertex": 184,
+              "maximum_eigendecomposition_residual": 2.5401778582361846e-12,
+              "maximum_orthogonality_error": 2.4898746568309066e-15,
+              "numerical_guard": 9.9934951408081e-07,
+              "excludes_three_dimensions": false
+            },
+            "curved_exact_gram_floor": 0.06809552812257344,
+            "curved_tolerance_gram_floor": -0.6552320190899987
+          },
+          {
+            "stations": [
+              0,
+              1,
+              4,
+              5,
+              6
+            ],
+            "box": {
+              "site_indices": [
+                0,
+                1,
+                2,
+                4,
+                5
+              ],
+              "tolerance": 0.05,
+              "vertices": 1024,
+              "smallest_vertex_eigenvalue": 15.136904177148129,
+              "worst_vertex": 298,
+              "maximum_eigendecomposition_residual": 1.944396009484821e-12,
+              "maximum_orthogonality_error": 2.518182007794963e-15,
+              "numerical_guard": 1.1155639934824667e-06,
+              "excludes_three_dimensions": true
+            },
+            "curved_exact_gram_floor": 0.057159248110414174,
+            "curved_tolerance_gram_floor": -0.6324297929514958
+          },
+          {
+            "stations": [
+              0,
+              2,
+              3,
+              4,
+              5
+            ],
+            "box": {
+              "site_indices": [
+                0,
+                1,
+                2,
+                4,
+                5
+              ],
+              "tolerance": 0.05,
+              "vertices": 1024,
+              "smallest_vertex_eigenvalue": 18.16917020540799,
+              "worst_vertex": 184,
+              "maximum_eigendecomposition_residual": 1.7410508268688007e-12,
+              "maximum_orthogonality_error": 2.9001959854335213e-15,
+              "numerical_guard": 9.42679449615116e-07,
+              "excludes_three_dimensions": true
+            },
+            "curved_exact_gram_floor": 0.15876040179373446,
+            "curved_tolerance_gram_floor": -0.5688992662472273
+          },
+          {
+            "stations": [
+              0,
+              2,
+              3,
+              4,
+              6
+            ],
+            "box": {
+              "site_indices": [
+                0,
+                1,
+                2,
+                4,
+                5
+              ],
+              "tolerance": 0.05,
+              "vertices": 1024,
+              "smallest_vertex_eigenvalue": -35.33514425166547,
+              "worst_vertex": 184,
+              "maximum_eigendecomposition_residual": 2.4553981161266526e-12,
+              "maximum_orthogonality_error": 2.6937584814615606e-15,
+              "numerical_guard": 9.864657496917048e-07,
+              "excludes_three_dimensions": false
+            },
+            "curved_exact_gram_floor": 0.016705460232123964,
+            "curved_tolerance_gram_floor": -0.7236224485086287
+          },
+          {
+            "stations": [
+              0,
+              2,
+              3,
+              5,
+              6
+            ],
+            "box": {
+              "site_indices": [
+                0,
+                1,
+                2,
+                4,
+                5
+              ],
+              "tolerance": 0.05,
+              "vertices": 1024,
+              "smallest_vertex_eigenvalue": -28.30849917527678,
+              "worst_vertex": 540,
+              "maximum_eigendecomposition_residual": 2.28469047538464e-12,
+              "maximum_orthogonality_error": 2.984898609502626e-15,
+              "numerical_guard": 1.073191133415753e-06,
+              "excludes_three_dimensions": false
+            },
+            "curved_exact_gram_floor": 0.03902887371280159,
+            "curved_tolerance_gram_floor": -0.6695146466039372
+          },
+          {
+            "stations": [
+              0,
+              2,
+              4,
+              5,
+              6
+            ],
+            "box": {
+              "site_indices": [
+                0,
+                1,
+                2,
+                4,
+                5
+              ],
+              "tolerance": 0.05,
+              "vertices": 1024,
+              "smallest_vertex_eigenvalue": 30.624137904451132,
+              "worst_vertex": 540,
+              "maximum_eigendecomposition_residual": 2.835982483955251e-12,
+              "maximum_orthogonality_error": 2.8698950588887467e-15,
+              "numerical_guard": 1.1188154683105921e-06,
+              "excludes_three_dimensions": true
+            },
+            "curved_exact_gram_floor": 0.12376091211525092,
+            "curved_tolerance_gram_floor": -0.5837887341362904
+          },
+          {
+            "stations": [
+              0,
+              3,
+              4,
+              5,
+              6
+            ],
+            "box": {
+              "site_indices": [
+                0,
+                1,
+                2,
+                4,
+                5
+              ],
+              "tolerance": 0.05,
+              "vertices": 1024,
+              "smallest_vertex_eigenvalue": -5.080729823348521,
+              "worst_vertex": 184,
+              "maximum_eigendecomposition_residual": 2.2845247343472297e-12,
+              "maximum_orthogonality_error": 2.7163505282420345e-15,
+              "numerical_guard": 1.1147917981855925e-06,
+              "excludes_three_dimensions": false
+            },
+            "curved_exact_gram_floor": 0.04630836971129579,
+            "curved_tolerance_gram_floor": -0.6722481631908858
+          },
+          {
+            "stations": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ],
+            "box": {
+              "site_indices": [
+                0,
+                1,
+                2,
+                4,
+                5
+              ],
+              "tolerance": 0.05,
+              "vertices": 1024,
+              "smallest_vertex_eigenvalue": 11.024997330952411,
+              "worst_vertex": 184,
+              "maximum_eigendecomposition_residual": 2.4131191455045905e-12,
+              "maximum_orthogonality_error": 2.305737015416671e-15,
+              "numerical_guard": 1.406158820011714e-06,
+              "excludes_three_dimensions": true
+            },
+            "curved_exact_gram_floor": 0.036142729639431936,
+            "curved_tolerance_gram_floor": -0.700675929737415
+          },
+          {
+            "stations": [
+              1,
+              2,
+              3,
+              4,
+              6
+            ],
+            "box": {
+              "site_indices": [
+                0,
+                1,
+                2,
+                4,
+                5
+              ],
+              "tolerance": 0.05,
+              "vertices": 1024,
+              "smallest_vertex_eigenvalue": -5.705239900380864,
+              "worst_vertex": 184,
+              "maximum_eigendecomposition_residual": 3.0832970244527945e-12,
+              "maximum_orthogonality_error": 2.327829877437712e-15,
+              "numerical_guard": 1.4098529340098836e-06,
+              "excludes_three_dimensions": false
+            },
+            "curved_exact_gram_floor": 0.040709215104197116,
+            "curved_tolerance_gram_floor": -0.7180580458636467
+          },
+          {
+            "stations": [
+              1,
+              2,
+              3,
+              5,
+              6
+            ],
+            "box": {
+              "site_indices": [
+                0,
+                1,
+                2,
+                4,
+                5
+              ],
+              "tolerance": 0.05,
+              "vertices": 1024,
+              "smallest_vertex_eigenvalue": 14.752271370859336,
+              "worst_vertex": 540,
+              "maximum_eigendecomposition_residual": 3.4544948059735055e-12,
+              "maximum_orthogonality_error": 2.6382419946033068e-15,
+              "numerical_guard": 1.8402599443016362e-06,
+              "excludes_three_dimensions": true
+            },
+            "curved_exact_gram_floor": 0.0015508178292618635,
+            "curved_tolerance_gram_floor": -0.6128796255163457
+          },
+          {
+            "stations": [
+              1,
+              2,
+              4,
+              5,
+              6
+            ],
+            "box": {
+              "site_indices": [
+                0,
+                1,
+                2,
+                4,
+                5
+              ],
+              "tolerance": 0.05,
+              "vertices": 1024,
+              "smallest_vertex_eigenvalue": 9.52088908997227,
+              "worst_vertex": 540,
+              "maximum_eigendecomposition_residual": 2.9446874730161654e-12,
+              "maximum_orthogonality_error": 2.3405809413857625e-15,
+              "numerical_guard": 1.5523350549559678e-06,
+              "excludes_three_dimensions": true
+            },
+            "curved_exact_gram_floor": 0.014144955863238912,
+            "curved_tolerance_gram_floor": -0.7281390107023871
+          },
+          {
+            "stations": [
+              1,
+              3,
+              4,
+              5,
+              6
+            ],
+            "box": {
+              "site_indices": [
+                0,
+                1,
+                2,
+                4,
+                5
+              ],
+              "tolerance": 0.05,
+              "vertices": 1024,
+              "smallest_vertex_eigenvalue": 2.3118031733676476,
+              "worst_vertex": 184,
+              "maximum_eigendecomposition_residual": 2.9321921543093172e-12,
+              "maximum_orthogonality_error": 2.6868482269903026e-15,
+              "numerical_guard": 1.5108254341400717e-06,
+              "excludes_three_dimensions": true
+            },
+            "curved_exact_gram_floor": -0.008188459624301953,
+            "curved_tolerance_gram_floor": -0.7349859228091593
+          },
+          {
+            "stations": [
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "box": {
+              "site_indices": [
+                0,
+                1,
+                2,
+                4,
+                5
+              ],
+              "tolerance": 0.05,
+              "vertices": 1024,
+              "smallest_vertex_eigenvalue": 33.955585898462466,
+              "worst_vertex": 897,
+              "maximum_eigendecomposition_residual": 2.2819376154767444e-12,
+              "maximum_orthogonality_error": 2.493082545623994e-15,
+              "numerical_guard": 1.282916468957061e-06,
+              "excludes_three_dimensions": true
+            },
+            "curved_exact_gram_floor": 0.030192907006048986,
+            "curved_tolerance_gram_floor": -0.665024022382374
+          }
+        ],
+        "excluding_subsets": 12,
+        "curvature_comparison_length": 32.0,
+        "curved_exact_excluding_subsets": 20,
+        "curved_tolerance_excluding_subsets": 0
+      }
+    }
+  ],
+  "python": "3.12.6",
+  "numpy": "2.3.5",
+  "scipy": "1.18.1",
+  "source_sha256": {
+    "station_chart.py": "2498a2e7ea2db5a47c34e25521d420feea5527847fce2cb4d5d78e6137cd756e",
+    "shells.py": "08a4a03d950b80c51233ca6692ecca6eedcf51f24c694549ffac246e0c512583",
+    "shell_source.py": "ddb34b6c746458195a784463b8d347390e8484b1880ec26547da69acdfc378fb",
+    "shell_protocol.json": "5b69e8771135ac7db4551fd194370bc262a49eafd3c6565c088cc4a09ae06768",
+    "volume.py": "365954d728ceda48c790243bc25bc0cef14e9b720c556b1b9cec46a90c398092",
+    "refinement.py": "4218e0d7f1014f8a3a7ac2886edfb6fe7aa5b00c6737215770c3ffec29f3a9dc",
+    "candidate.py": "c666a31015ea2203ac919d55d98ddd5e47fe78076b3d87dd94bed2dd9990a503",
+    "law.py": "218a99ebc1e921065a818b77f00608818fdacf80782406466787b2891b1d017f",
+    "carrier.py": "327fc33189ff6242f7367f625a3f70d97167e79bd4f8a740266d7eb09e237bbd"
+  },
+  "source_free_pass": false,
+  "counts_sha256": "ca46ddfdebde188537a65a50b28cc4cabc4331933534d5bd2a79ab2d821d9949"
+}
