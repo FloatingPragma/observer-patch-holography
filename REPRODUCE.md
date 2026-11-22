@@ -86,14 +86,17 @@ receipt regeneration commands. The `neutral_packet` lane of the
   publication validation. On Ubuntu these are supplied by `ghostscript`,
   `librsvg2-bin`, and `poppler-utils`.
 
-CI runs the model on x86-64 Linux. Some exact seeded replays produce different counts
-on Apple Silicon with the same package versions. To run the Linux model suite on that
-host, use a container from the repository root.
+The full model gate runs on native x86-64 Linux in GitHub Actions. Exact seeded draws and long-time numerical receipts can depend on the host math libraries even with the same Python package versions. On Apple Silicon, the following Linux container command reproduces the station-chart tests and the archived electron-wall and loaded-clock counts. The complete native-runner command is in the executable model section above.
 
 ```sh
 docker run --rm --platform linux/amd64 -v "$PWD:/src:ro" -w /src \
   -e PYTHONDONTWRITEBYTECODE=1 -e OPENBLAS_NUM_THREADS=1 -e OMP_NUM_THREADS=1 \
-  python:3.12-slim sh -ec 'python -m pip install -r model/requirements.txt && python -m pytest -p no:cacheprovider -q -W error model'
+  python:3.12-slim sh -ec 'python -m pip install -r model/requirements.txt &&
+    python -m pytest -p no:cacheprovider -q -W error \
+      model/experiments/interval_echo_space/test_station_chart.py \
+      model/experiments/seam_program/test_blind_chart.py \
+      model/benchmarks/eight_slot_torus/electron_wall/test_electron_wall.py::test_published_counts_all_settings \
+      model/benchmarks/eight_slot_torus/formed_clocks/test_loaded_clock_archive.py::test_published_source_and_signed_counts_replay'
 ```
 
 ## Mandatory suite

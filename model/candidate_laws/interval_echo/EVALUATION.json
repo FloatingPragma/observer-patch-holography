@@ -1612,7 +1612,7 @@
       "https://github.com/FloatingPragma/observer-patch-holography/blob/374b2390801842d38de9b9c326e79a8ab29a6be5/model/observer_reconstruction/README.md"
      ],
      "status": "partial",
-     "note": "Relabelled local ports recover a rank-three Gram. On complete 20-, 80- and 320-cell screens, neighbouring patches decode all 144 held three-sign preparations. A short-range incidence survey plus the frozen hopping scale predicts 72 further words at held senders and previously untested dwell times. The signal is an occupation-probability contrast. Timing and addresses are supplied; a three-dimensional field with independently ranged physical scales and corresponding refined stations remains open. On a seven-station menu, every board has a five-site subset whose measured ranges exclude a three-dimensional Euclidean placement within 5%. On the programmed native scalar instrument anonymous one-period counts recover three binary station directions and predict 24 held clock-stopped distributions. Its spatial routing is supplied.",
+     "note": "Relabelled local ports recover a rank-three Gram. On complete 20-, 80- and 320-cell screens, neighbouring patches decode all 144 held three-sign preparations. A short-range incidence survey plus the frozen hopping scale predicts 72 further words at held senders and previously untested dwell times. The signal is an occupation-probability contrast. Timing and addresses are supplied; a three-dimensional field with independently ranged physical scales and corresponding refined stations remains open. On a seven-station menu, every board has a five-site subset whose measured ranges exclude a three-dimensional Euclidean placement within 5%. On the programmed native scalar instrument anonymous one-period counts recover three binary station directions and predict 24 held clock-stopped distributions. The largest absolute discrepancy is 0.001022. Dropping any recovered binary direction forces an error of at least 0.11377. The controller supplies the spatial routing.",
      "evidence": [
       "model/evaluation/patch_spatial_readout.json",
       "model/candidate_laws/interval_echo/candidate.py",
@@ -1623,8 +1623,13 @@
       "model/experiments/interval_echo_space/README.md",
       "model/experiments/interval_echo_space/station_chart.json",
       "model/experiments/seam_program/blind_chart.json",
-      "model/experiments/seam_program/CLOCKED_FIELD.md"
-     ]
+      "model/experiments/seam_program/CLOCKED_FIELD.md",
+      "model/experiments/seam_program/clocked_field.py"
+     ],
+     "demonstrated_measurement": {
+      "label": "Blind recovery of three programmed station directions",
+      "source": "model/experiments/seam_program/CLOCKED_FIELD.md"
+     }
     },
     {
      "id": "OBS-03",
@@ -1821,7 +1826,7 @@
       "tracking/observation_ledger.json"
      ],
      "status": "partial",
-     "note": "In free flight, stationary patch hands and one mobile load give joint angular-region and depth records on three nested federations. A uniform internal spectral gap forces every balanced within-cell depth contrast to vanish at low kinetic energy. The polarized control resolves depth and disabled exchange changes the angular counts. An independently refinable radial field with shared clock and physical regional transfer is unproved. A separate source-free test uses four calibrated anchors to predict three held echo times and free-pulse centroids. Every held path misses the 5% tolerance for both probes on 20, 80 and 320 cells. The protocol consequently stops before a localized-load intervention. On the free federation the round radial product of the measured angular screen fails at 5% for every assignment of radial positions on both station menus. Two retained direction coins move in free flight, but their reversal count hides which seam can advance it.",
+     "note": "The eight-station scalar instrument recovers a finite 3D chart from anonymous counts. At fixed bandwidth and bounded times its prescribed refinement converges to a flat 3+1D free Klein–Gordon propagator. This result concerns the programmed sector. In free flight, stationary patch hands and one mobile load give joint angular-region and depth records on three nested federations. A uniform internal spectral gap forces every balanced within-cell depth contrast to vanish at low kinetic energy. The polarized control resolves depth and disabled exchange changes the angular counts. An independently refinable radial field with shared clock and physical regional transfer is unproved. A separate source-free test uses four calibrated anchors to predict three held echo times and free-pulse centroids. Every held path misses the 5% tolerance for both probes on 20, 80 and 320 cells. The protocol consequently stops before a localized-load intervention. On the free federation the round radial product of the measured angular screen fails at 5% for every assignment of radial positions on both station menus. Two retained direction coins move in free flight, but their reversal count hides which seam can advance it.",
      "evidence": [
       "model/candidate_laws/interval_echo/SPEC.md",
       "model/candidate_laws/interval_echo/observations.json",
@@ -1832,8 +1837,15 @@
       "model/experiments/interval_echo_space/station_chart_protocol.json",
       "model/experiments/interval_echo_space/station_chart.json",
       "model/experiments/interval_echo_space/radial_product.json",
-      "model/experiments/interval_echo_space/collar_depth.json"
-     ]
+      "model/experiments/interval_echo_space/collar_depth.json",
+      "model/experiments/seam_program/CLOCKED_FIELD.md",
+      "model/experiments/seam_program/blind_chart.json",
+      "model/experiments/seam_program/clocked_field.py"
+     ],
+     "demonstrated_measurement": {
+      "label": "Clocked scalar propagation on a programmed 3D chart",
+      "source": "model/experiments/seam_program/CLOCKED_FIELD.md"
+     }
     },
     {
      "id": "PATCH-06",
