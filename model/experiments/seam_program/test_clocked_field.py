@@ -251,22 +251,3 @@ def test_triangulation_hypothesis_on_every_released_federation():
             u,v,w = (mid[tuple(sorted(edge))] for edge in ((a,b),(b,c),(c,a)))
             refined.extend(((a,u,w),(u,b,v),(w,v,c),(u,v,w)))
         faces = refined
-
-
-def test_axial_helicities_against_literal_step_and_mobile_dispersion():
-    from .photon_helicity import run
-
-    result = run()
-    saved = load(HERE / "photon_helicity.json")
-    assert (result["period"], result["private_order"]) == (saved["period"], saved["private_order"]) == (32, 0)
-    assert len(result["rows"]) == len(saved["rows"]) == 45
-    for fresh, stored in zip(result["rows"], saved["rows"], strict=True):
-        for row in (fresh, stored):
-            assert row["moving_rank"] == 2 and row["transverse_ranks"] == [1, 1]
-            assert row["moving_quarter_turn_error"] < 1e-13
-            assert max(row["transverse_unit_step_errors"]) < 1e-13
-            k = np.zeros(4)
-            k[row["axis"]] = 2 * np.pi * row["order"] / result["period"]
-            phase = eigenphase(k)
-            np.testing.assert_allclose(row["moving_phases"], [-phase, phase], atol=5e-14, rtol=0)
-        assert (fresh["axis"], fresh["order"]) == (stored["axis"], stored["order"])

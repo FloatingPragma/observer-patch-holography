@@ -422,93 +422,6 @@ intertwiner nor a compatible initialization. The criterion compares record laws 
 ignores the state encodings that produce them, which is the form a test of the executable
 model takes (Section~\ref{sec:cms-test}).
 
-\section{Testing the electron assignment of a two-load resonance}
-\label{sec:electron-resonance}
-
-A scattering resonance gives a specific excitation on which to test a species
-assignment. On a programmed homogeneous cubic guide the relative address
-$r\ne0$ of two binary loads carries one complex amplitude. Set the site
-spacing to $h$, the time per unit exposure to $h^2$, and the effective
-nearest-neighbour attraction to its two-body threshold
-$\kappa_*=0.9682678127$. In the cubic-symmetric channel the outgoing
-amplitude tends to $f(k)=i/k$ at fixed positive momentum $k$.
-On a periodic cube of unit side with 32 sites per side, the probability of
-$\max_j |r_j|<1/4$ at time $1/8$, starting uniformly on distinct pairs,
-is $0.55714$ at threshold and $0.10297$ with exchange alone. Here $r_j$
-denotes the shortest signed separation along axis $j$ in physical units.
-
-The half-turns about two perpendicular axes act on the relative coordinate by
-$R_x(x,y,z)=(x,-y,-z)$ and $R_y(x,y,z)=(-x,y,-z)$. They preserve the
-Hamiltonian and obey $R_xR_y=R_yR_x$ on every address. The evolved packets
-on cubes of side 8, 16 and 32 give relative sign $+1$ for the two orders.
-For spin half the operators $-i\sigma_x$ and $-i\sigma_y$ give $-1$.
-Rephasing either turn cancels in the comparison. These signs are calculated
-in the specified representations. An observer measurement would also require
-coherent control of the two paths. The positive sign excludes an electron
-assignment for the resonance itself under this spatial action. It leaves
-the identities of its constituents undetermined.
-The calculation and its exchange and unmodified-contrast controls are
-reproducible in \path{model/experiments/seam_program/electron_rotation.py}.
-
-The electron components in the five-level exterior code have
-$(T_3,Y)=(-1/2,-1/2)$ and $(0,-1)$, both with $Q=T_3+Y=-1$.
-Identifying them with a single massive charged lepton requires both chiral
-components on the same propagating branch, a spinor response and a signed
-electromagnetic current with a conjugate channel. The relative-coordinate
-scattering data supply no charged rest energy or generation discriminator.
-
-An independent conformal calculation illustrates the observable distinction.
-For two pairs of dimension-two gauge-invariant scalar insertions in Euclidean
-$SU(2)$ supersymmetric Yang--Mills theory with $\mathcal N=4$, the normalized
-four-point function at coupling $a=0.01$ is $0.984374$ on the regular
-tetrahedron and $0.977909$ on the skew configuration through one loop,
-against the free value $1$ \cite{edenfourpoint}. The positions and
-polarizations are specified in \path{model/benchmarks/conformal_correlator}.
-These observables test the interaction of scalar operators in a supplied
-relativistic conformal vacuum. An electron measurement requires a charged
-spinor source and a physical mass scale.
-
-More directly, a dilation by $\lambda$ preserves a sector of an internal
-charge commuting with dilations and maps each invariant mass $m$ to
-$m/\lambda$. A nonempty such sector has threshold zero in the conformal
-vacuum. This excludes a lowest charged excitation with the electron's
-positive rest energy, even when the threshold has continuous spectrum.
-On the Coulomb branch, a scalar expectation $vT^3$ instead gives the
-two charged roots mass $|gv|$, as follows from
-$[T^3,T^\pm]=\pm T^\pm$. Unbroken supersymmetry places charged fermions,
-scalars and a vector at this same mass \cite{coulombmassive}. Setting
-$|gv|$ from the electron mass calibrates the whole multiplet and leaves
-its laboratory species assignment undetermined.
-
-\section{Quark, neutrino and photon assignments}
-
-The five-level code splits the colour-triplet weak doublet by
-$T_3=\pm1/2$ at $Y=1/6$, giving charges $+2/3$ and $-1/3$.
-The corresponding weak singlets carry the same charges. The upper
-component of the colour-singlet lepton doublet is neutral.
-These three assignments determine up-type, down-type and neutral-lepton
-quantum numbers. Since the gauge currents act trivially on the family
-factor, they cannot distinguish the three up-type flavours or tag a
-neutrino by its charged-lepton partner. The guarded two-load currents on
-one cell have a colour triplet and a separate weak triplet. The weak
-centre acts trivially on the whole cell sector, excluding a weak
-doublet for this action. A physical matter assignment would require
-different or more extensive source records.
-
-There is also a polarization test for the massless wave on the programmed
-eight-slot chart. At axial momentum $k$, let $S(k)$ be the flip-flop shift
-and $e$ the equal socket vector. The one-load step is
-$U(k)=S(k)(2ee^*-I)$. A quarter-turn about the momentum fixes both $e$
-and $S(k)e$. It therefore fixes the entire dispersing plane, whereas
-photon helicities $\pm1$ require quarter-turn phases $\mp i$. The two
-transverse circular socket combinations have the latter phases, but
-each is odd under the transverse socket swap and hence has
-$U(k)=+I$ on this momentum line. Their axial group velocity vanishes.
-The literal step gives these characters for all 45 tested nonzero
-momenta on the three axes at period 32 and private order zero.
-This excludes a propagating photon for this one-load word and spatial
-action. The calculation uses \path{model/experiments/seam_program/photon_helicity.py}.
-
 \section{What a particle reading of the model requires}
 \label{sec:particle-joins}
 
@@ -613,18 +526,6 @@ B.\ M\"uller, M.\ Poneder, J.\ Kim, and D.\ A.\ Friedman,
 \emph{An Executable Observer for Observer Patch Holography: Specification, Memory and Agreed Records}.
 GitHub PDF:
 \url{https://github.com/FloatingPragma/observer-patch-holography/blob/r2072/paper/executable_observer_construction.pdf}
-
-\bibitem{coulombmassive}
-A. Herderschee, S. Koren and T. Trott,
-\emph{Constructing $\mathcal N=4$ Coulomb Branch Superamplitudes},
-JHEP \textbf{08} (2019) 107,
-\href{https://arxiv.org/abs/1902.07205}{arXiv:1902.07205}.
-
-\bibitem{edenfourpoint}
-B. Eden, P. Heslop, G. P. Korchemsky and E. Sokatchev,
-\emph{Hidden symmetry of four-point correlation functions and amplitudes in
-$\mathcal N=4$ SYM}, Nucl. Phys. B \textbf{862}, 193--231 (2012),
-\href{https://arxiv.org/abs/1108.3557}{arXiv:1108.3557}.
 
 \bibitem{ophbasis}
 B.\ M\"uller et al.,

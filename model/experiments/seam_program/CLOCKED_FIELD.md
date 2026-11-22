@@ -12,14 +12,6 @@ The equal-slot amplitude compressed to the source and receiver stations is a mat
 python -m model.experiments.seam_program.blind_chart --output /tmp/echo-blind-chart.json
 ```
 
-## Does the massless wave carry photon polarization?
-
-At nonzero momentum along a public coordinate axis, turn the six spatial sockets by a quarter revolution about that axis and fix the two private sockets. A photon of helicity +1 or −1 acquires a phase of −i or +i under that turn. The two dispersing modes of this eight-slot walk acquire phase +1. Each momentum also admits one transverse socket combination of each circular polarization. Both have unit eigenvalue under the walk throughout the axial momentum line, hence zero axial group velocity.
-
-Write $e$ for the uniform socket vector, $S(k)$ for the flip-flop shift and $U(k)=S(k)(2ee^*-I)$. At axial momentum the quarter-turn commutes with $S(k)$ and fixes $e$, so it acts as identity on the dispersing plane spanned by $e,S(k)e$. The orthogonal complement has $U=-S$ and $S^2=I$. On the transverse circular combinations the shift swaps opposite transverse sockets with zero momentum phase. Their socket amplitudes are odd under that swap, so $U=+I$ there. This excludes the photon assignment for the mobile one-load modes under this spatial action.
-
-The calculation sends each of the eight socket inputs through the literal update at 15 momenta along each of the three public axes on period 32, at private order zero. Every momentum gave two dispersing eigenphases. The largest error from identity for their quarter-turn was below $7\times10^{-15}$. This tests a necessary polarization property of a photon. No electromagnetic-current measurement is assumed. [All 45 momentum blocks](photon_helicity.json) · [Executable](photon_helicity.py)
-
 ## Which components compose
 
 The [eight-slot benchmark](../../benchmarks/eight_slot_torus/SPEC.md) supplies the Fourier dispersion on its index grid. The source map here implements its scalar sector with physical seam pulses and a stopped-clock receiver. Interval Echo also has an autonomous one-dimensional result: a load propagates along a prepared 194-cell path with intervening gates off. The static channel and the free binary-pair experiment have different carriers of information. The latter resolves a bound band with substantial linewidth under its tested spatial readers. [Autonomous path and material reference](../../candidate_laws/interval_echo/openwave/row_30_autonomous/README.md) · [Free pair and connected-region test](../../candidate_laws/interval_echo/openwave/row_30_branch/README.md)

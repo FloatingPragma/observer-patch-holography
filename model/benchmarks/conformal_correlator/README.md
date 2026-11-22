@@ -15,12 +15,6 @@ At $a=0.01$, the normalized values **through one loop** are **0.984374** for the
 
 The flat-space conformal vacuum has excitations at arbitrarily low energy. An exact dilation scales each nonzero energy by an arbitrary positive factor. A positive physical mass gap therefore requires a different regime or sector. The pure SU(2) lattice calculation uses its own action and displays gap bounds at finite volume. [Pure-gauge Hamiltonian and bounds](../../../code/yang_mills/README.md#finite-volume-gap-for-pure-su2-in-three-spatial-dimensions)
 
-## Electron mass in the conformal vacuum and on the Coulomb branch
-
-Suppose a nonempty charge sector has an internal charge that commutes with dilations. Let $m_{\rm th}$ be the infimum of its positive-energy invariant masses. Every dilation by $\lambda>0$ maps this sector to itself and multiplies each invariant mass by $1/\lambda$. Hence $m_{\rm th}=m_{\rm th}/\lambda$ for every $\lambda$, forcing $m_{\rm th}=0$. This argument permits a continuum of charged states and requires no isolated particle pole. It excludes the observed electron as a lowest massive charged excitation of this flat, dilation-invariant vacuum. Its measured rest energy is $0.51099895069(16)$ MeV. The two scalar four-point ratios are unchanged when every separation is multiplied by 1/2, 2 or 4. This numerical check probes the scalar insertions. The charged-sector conclusion follows from the symmetry. [CODATA mass calibration, Table XXXV](https://physics.nist.gov/cuu/pdf/JPCRD2022CODATA.pdf) · [Scalar evaluator](one_loop.py)
-
-On the Coulomb branch of the same gauge theory, choose a scalar expectation $vT^3$, where $T^3=\operatorname{diag}(1,-1)/2$. The raising and lowering matrices obey $[T^3,T^\pm]=\pm T^\pm$. The quadratic adjoint mass operator has eigenvalues $g^2v^2,0,g^2v^2$ on $T^-,T^3,T^+$. For each charged root, unbroken supersymmetry gives a massive multiplet with spin-1, spin-1/2 and spin-0 states of the same mass. Setting $|gv|$ from the electron's laboratory mass calibrates every member to that mass. This gives a charged fermion in a specified vacuum, with charged scalar and vector partners and an adjustable scale. It supplies no electron identification in Interval Echo. [Coulomb-branch multiplets](https://arxiv.org/abs/1902.07205) · [Spectrum, Eq. (6.46)](https://doi.org/10.1007/JHEP09(2018)125)
-
 Run from the repository root.
 
 ```sh

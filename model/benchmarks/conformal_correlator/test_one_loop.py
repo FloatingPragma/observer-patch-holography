@@ -57,15 +57,3 @@ def test_full_polarized_component_and_archive():
         assert fresh["interacting"]["connected_one_loop"] == pytest.approx(
             expected, rel=1e-12, abs=0
         )
-
-
-def test_coulomb_branch_adjoint_charges_and_mass_ratios():
-    # Twice T^3 keeps all entries integral. Its commutator divided by two
-    # gives the U(1) charge, and the squared action gives m^2/(g v)^2.
-    twice_cartan = np.diag([1, -1])
-    raising = np.array([[0, 1], [0, 0]])
-    for charge, root in ((-1, raising.T), (0, twice_cartan), (1, raising)):
-        first = twice_cartan @ root - root @ twice_cartan
-        np.testing.assert_array_equal(first, 2 * charge * root)
-        second = twice_cartan @ first - first @ twice_cartan
-        np.testing.assert_array_equal(second, 4 * charge**2 * root)

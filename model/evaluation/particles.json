@@ -4,47 +4,6 @@
   "purpose": "Identify all 17 elementary particle types on one frozen candidate. Each species has a local preparation or production channel, reproducible detection statistics, and a dictionary that distinguishes its nearest alternatives. A declaration of a field or an input mass cannot identify the excitation.",
   "reference": "Count six quark flavours, three charged leptons, three active neutrino flavour channels, four gauge-boson types and the Higgs. W covers both signs, and the gluon entry covers the eight colour components. Resolve conjugate partners where distinct. Neutrino flavour is defined by weak production and detection; its propagation can mix mass eigenstates. Composite hadrons provide evidence for confined quarks and gluons. A graviton and a sterile neutrino are outside this inventory.",
   "sources": ["https://pdg.lbl.gov/2026/listings/contents_listings.html", "paper/deriving_the_particle_zoo_from_observer_consistency.tex", "code/defect_particle_classes/PROOF.md", "claims/physical_identification_registry.json"],
-  "experiments": {
-    "interval_echo": {
-      "e": {
-        "note": "The programmed cubic threshold has a measurable two-load interaction. Its perpendicular spatial half-turns commute exactly on relative addresses at N = 8, 16 and 32. The spin-half control anticommutes. This excludes the threshold excitation itself as an electron under the specified rotations. The calculation supplies neither a signed electric-current measurement nor a charged rest energy. The separate exterior-code entries for left- and right-handed electrons give representation labels. The external four-dimensional conformal benchmark has zero charged threshold if dilations preserve the charge sector. Its Coulomb-branch charged fermions share an adjustable mass with scalar and vector partners.",
-        "evidence": [
-          "model/experiments/seam_program/electron_rotation.json",
-          "model/experiments/seam_program/INTERACTING_LIMITS.md",
-          "code/defect_particle_classes/model.py",
-          "model/benchmarks/conformal_correlator/README.md"
-        ]
-      },
-      "u": {
-        "note": "The five-level exterior code gives charge +2/3 on the up-type doublet component and singlet. It carries no up/charm/top discriminator. The guarded one-cell pair currents have no weak doublet.",
-        "evidence": [
-          "code/defect_particle_classes/model.py",
-          "model/experiments/interval_echo_gauge/result.json"
-        ]
-      },
-      "d": {
-        "note": "The five-level exterior code gives charge −1/3 on the down-type doublet component and singlet. It carries no down/strange/bottom discriminator. The guarded one-cell pair currents have no weak doublet.",
-        "evidence": [
-          "code/defect_particle_classes/model.py",
-          "model/experiments/interval_echo_gauge/result.json"
-        ]
-      },
-      "nu-e": {
-        "note": "The exterior code has a neutral member of its lepton doublet. It has no generation discriminator. Electron-flavour identification needs a weak production or detection event tagged by a charged lepton. The guarded one-cell pair currents have no weak doublet.",
-        "evidence": [
-          "code/defect_particle_classes/model.py",
-          "model/experiments/interval_echo_gauge/result.json"
-        ]
-      },
-      "photon": {
-        "note": "For the eight-slot one-load walk at private order zero, a quarter-turn about an axial momentum fixes both dispersing modes. The two transverse circular combinations have flat unit eigenvalue. The full socket update agrees at all 45 tested momenta. This excludes that mobile branch as a photon under the specified rotations.",
-        "evidence": [
-          "model/experiments/seam_program/photon_helicity.json",
-          "model/experiments/seam_program/CLOCKED_FIELD.md"
-        ]
-      }
-    }
-  },
   "families": [
     {"name":"Quarks","criterion":"Recover the spin-half colour-triplet sector, its electric and weak responses, and a flavour discriminator in colour-singlet production, decay or scattering records. Resolve the conjugate sector.", "types":[["u","Up","Light up-type flavour, charge +2/3."],["d","Down","Light down-type flavour, charge −1/3."],["s","Strange","Distinguish strangeness from light down flavour."],["c","Charm","Identify charm production or weak transitions separately from up."],["b","Bottom","Resolve bottom-flavoured production and decay."],["t","Top","Resolve the heavy up-type resonance and its weak decay."]]},
     {"name":"Charged leptons","criterion":"Resolve spin half, unit negative charge, colour neutrality and weak interactions. Discriminate the three generations and their positive-charge conjugates through spectral or decay measurements.", "types":[["e","Electron","Light stable charged-lepton branch."],["mu","Muon","Distinct mass and leptonic decay channel."],["tau","Tau","Third charged-lepton branch, with its weak decay channels."]]},

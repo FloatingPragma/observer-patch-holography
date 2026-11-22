@@ -804,9 +804,7 @@ Identify all 17 elementary particle types on one frozen candidate. Each species 
 
 Criterion · [contents_listings.html](https://pdg.lbl.gov/2026/listings/contents_listings.html) · [deriving_the_particle_zoo_from_observer_consistency.tex](../../paper/deriving_the_particle_zoo_from_observer_consistency.tex) · [PROOF.md](../../code/defect_particle_classes/PROOF.md) · [physical_identification_registry.json](../../claims/physical_identification_registry.json)
 
-- **Interval Echo · Open.** No species assignment is registered. The five-level exterior code gives charge +2/3 on the up-type doublet component and singlet. It carries no up/charm/top discriminator. The guarded one-cell pair currents have no weak doublet. [model.py](../../code/defect_particle_classes/model.py) · [result.json](../experiments/interval_echo_gauge/result.json)
-- **Contrast memory · Open.** No species assignment is registered.
-- **Scalar channel · Open.** No species assignment is registered.
+**All three candidates · Open.** No species assignment is registered.
 
 ### SM-d
 
@@ -814,9 +812,7 @@ Criterion · [contents_listings.html](https://pdg.lbl.gov/2026/listings/contents
 
 Criterion · [contents_listings.html](https://pdg.lbl.gov/2026/listings/contents_listings.html) · [deriving_the_particle_zoo_from_observer_consistency.tex](../../paper/deriving_the_particle_zoo_from_observer_consistency.tex) · [PROOF.md](../../code/defect_particle_classes/PROOF.md) · [physical_identification_registry.json](../../claims/physical_identification_registry.json)
 
-- **Interval Echo · Open.** No species assignment is registered. The five-level exterior code gives charge −1/3 on the down-type doublet component and singlet. It carries no down/strange/bottom discriminator. The guarded one-cell pair currents have no weak doublet. [model.py](../../code/defect_particle_classes/model.py) · [result.json](../experiments/interval_echo_gauge/result.json)
-- **Contrast memory · Open.** No species assignment is registered.
-- **Scalar channel · Open.** No species assignment is registered.
+**All three candidates · Open.** No species assignment is registered.
 
 ### SM-s
 
@@ -856,7 +852,7 @@ Criterion · [contents_listings.html](https://pdg.lbl.gov/2026/listings/contents
 
 Criterion · [contents_listings.html](https://pdg.lbl.gov/2026/listings/contents_listings.html) · [deriving_the_particle_zoo_from_observer_consistency.tex](../../paper/deriving_the_particle_zoo_from_observer_consistency.tex) · [PROOF.md](../../code/defect_particle_classes/PROOF.md) · [physical_identification_registry.json](../../claims/physical_identification_registry.json)
 
-- **Interval Echo · Open.** The freely released bare pair responds to the centre of the tested local SU(3) current. Its terminal records also distinguish all five alternative port-label permutations. A physical colour-singlet assignment, signed electromagnetic response, spatial spin half and an electron–positron identification require further evidence on the same excitation. The programmed cubic threshold has a measurable two-load interaction. Its perpendicular spatial half-turns commute exactly on relative addresses at N = 8, 16 and 32. The spin-half control anticommutes. This excludes the threshold excitation itself as an electron under the specified rotations. The calculation supplies neither a signed electric-current measurement nor a charged rest energy. The separate exterior-code entries for left- and right-handed electrons give representation labels. The external four-dimensional conformal benchmark has zero charged threshold if dilations preserve the charge sector. Its Coulomb-branch charged fermions share an adjustable mass with scalar and vector partners. [README.md](../candidate_laws/interval_echo/openwave/row_04_identity/README.md) · [README.md](../candidate_laws/interval_echo/openwave/row_04_conjugates/README.md) · [electron_rotation.json](../experiments/seam_program/electron_rotation.json) · [INTERACTING_LIMITS.md](../experiments/seam_program/INTERACTING_LIMITS.md) · [model.py](../../code/defect_particle_classes/model.py) · [README.md](../benchmarks/conformal_correlator/README.md)
+- **Interval Echo · Open.** The freely released bare pair responds to the centre of the tested local SU(3) current. Its terminal records also distinguish all five alternative port-label permutations. A physical colour-singlet assignment, signed electromagnetic response, spatial spin half and an electron–positron identification require further evidence on the same excitation. [README.md](../candidate_laws/interval_echo/openwave/row_04_identity/README.md) · [README.md](../candidate_laws/interval_echo/openwave/row_04_conjugates/README.md)
 - **Contrast memory · Open.** No species assignment is registered.
 - **Scalar channel · Open.** No species assignment is registered.
 
@@ -882,9 +878,7 @@ Criterion · [contents_listings.html](https://pdg.lbl.gov/2026/listings/contents
 
 Criterion · [contents_listings.html](https://pdg.lbl.gov/2026/listings/contents_listings.html) · [deriving_the_particle_zoo_from_observer_consistency.tex](../../paper/deriving_the_particle_zoo_from_observer_consistency.tex) · [PROOF.md](../../code/defect_particle_classes/PROOF.md) · [physical_identification_registry.json](../../claims/physical_identification_registry.json)
 
-- **Interval Echo · Open.** No species assignment is registered. The exterior code has a neutral member of its lepton doublet. It has no generation discriminator. Electron-flavour identification needs a weak production or detection event tagged by a charged lepton. The guarded one-cell pair currents have no weak doublet. [model.py](../../code/defect_particle_classes/model.py) · [result.json](../experiments/interval_echo_gauge/result.json)
-- **Contrast memory · Open.** No species assignment is registered.
-- **Scalar channel · Open.** No species assignment is registered.
+**All three candidates · Open.** No species assignment is registered.
 
 ### SM-nu-mu
 
@@ -908,9 +902,7 @@ Criterion · [contents_listings.html](https://pdg.lbl.gov/2026/listings/contents
 
 Criterion · [contents_listings.html](https://pdg.lbl.gov/2026/listings/contents_listings.html) · [deriving_the_particle_zoo_from_observer_consistency.tex](../../paper/deriving_the_particle_zoo_from_observer_consistency.tex) · [PROOF.md](../../code/defect_particle_classes/PROOF.md) · [physical_identification_registry.json](../../claims/physical_identification_registry.json)
 
-- **Interval Echo · Open.** No species assignment is registered. For the eight-slot one-load walk at private order zero, a quarter-turn about an axial momentum fixes both dispersing modes. The two transverse circular combinations have flat unit eigenvalue. The full socket update agrees at all 45 tested momenta. This excludes that mobile branch as a photon under the specified rotations. [photon_helicity.json](../experiments/seam_program/photon_helicity.json) · [CLOCKED_FIELD.md](../experiments/seam_program/CLOCKED_FIELD.md)
-- **Contrast memory · Open.** No species assignment is registered.
-- **Scalar channel · Open.** No species assignment is registered.
+**All three candidates · Open.** No species assignment is registered.
 
 ### SM-gluon
 

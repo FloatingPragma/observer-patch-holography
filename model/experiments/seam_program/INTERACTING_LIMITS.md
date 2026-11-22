@@ -76,27 +76,12 @@ The kinetic operator is the self-adjoint Fourier multiplier on the torus. Trigon
 
 The fixed width supplies a physical length and an instantaneous interaction in chart coordinates. For example a relative displacement with first component $3/16$ is inside whereas its dilation by two is outside. This precludes a scale-free local CFT interpretation of this program. On the original resonant word, homogeneous fixed-number symmetric binary states are invariant under every partial swap. At filling $p$ and $S$ slots, every two distinct occupation probes have covariance $-p(1-p)/(S-1)$ independently of distance. The three tested fillings yield no spatial density power law in that stationary family. Other states and operators require their own measurements.
 
-## Electron identification test
-
-Does the excitation responsible for the cubic scattering carry spin half? Reverse the order of half-turns about two perpendicular spatial axes. On binary relative addresses the two operations commute, while for a spinor their two orders differ by a minus sign. Independent phase conventions for the two turns cancel. The signed comparison is a calculation of the spatial representation. Detecting that sign requires a coherent path comparison.
-
-| Sites per side | Relative addresses tested | Addresses where the two orders differ | Close-pair probability at threshold | Exchange alone |
-| ---: | ---: | ---: | ---: | ---: |
-| 8 | 511 | 0 | 0.35508 | 0.05088 |
-| 16 | 4,095 | 0 | 0.50269 | 0.08352 |
-| 32 | 32,767 | 0 | 0.55714 | 0.10297 |
-
-The evolved source was uniform on distinct pairs. The separation reading uses time 1/8 and maximum coordinate distance below 1/4. The threshold, exchange and unmodified-contrast arms all gave order overlap +1. The spin-half control gave −1. This excludes the resonance itself as the electron under the specified spatial action. The charge and spin of any hypothetical constituents require their own sources and instruments. [Protocol](electron_rotation_protocol.json) · [All three arms](electron_rotation.json)
-
-The separate five-level matter code locates the two charge −1 colour singlets at occupation masks 23 and 7. The first is the lower weak-doublet component, the second a weak singlet. Conjugation gives charge +1 at masks 8 and 24, respectively. These are exact representation labels. A physical electron assignment requires a light stable massive branch carrying both chiral components, a signed current with its conjugate and a spinor response on the same source. The local four-point calculation in the supplied four-dimensional conformal theory measures interactions between scalar operators. [Exterior-code dictionary](../../../code/defect_particle_classes/model.py) · [Conformal observable](../../benchmarks/conformal_correlator/README.md)
-
 ## Reproduction
 
 Run from the RER root with the model dependencies. Each producer writes a separate result file.
 
 ```sh
 export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1
-python -m model.experiments.seam_program.electron_rotation --output /tmp/echo-electron-rotation.json
 python -m model.experiments.seam_program.cubic_resonance --output /tmp/echo-cubic-resonance.json
 python -m model.experiments.seam_program.guide_scaling --output /tmp/echo-guide-scaling.json
 python -m model.experiments.seam_program.range_scaling --output /tmp/echo-range-scaling.json
