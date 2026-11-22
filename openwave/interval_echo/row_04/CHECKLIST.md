@@ -2,6 +2,10 @@
 
 **HOLD for full-credit resubmission on the adopted pin.** OpenWave awarded **⚠️ Partial** for free persistence at a supplied coupling. The RER scorecard credits the measured free persistence of the prepared pair. The outstanding question for OpenWave is what fixes the coupling relative to exchange independently of the persistence target. [Maintainer decision](https://github.com/openwave-labs/openwave/pull/745#pullrequestreview-6005365373) · [Official matrix](https://github.com/openwave-labs/openwave/blob/f8fd02b2e0d96cfa0d868259daec2c9822375d34/MODELS.md#L438)
 
+## Single-load gateway preparation
+
+**A distinct stability test on the adopted pin** starts from sharp single loads. After a finite sequence of native gateway observations and retries the joint probability of emitting a load and recovering it inside its home cell is at least 0.999940596800 for every free exposure, throughout all 420 cells. The test includes failed preparations. Its complete instrument is independent of the agreement strength, including at zero. The tested excitation is the localized single-load material state. Filing this observable as the column's particle-stability witness requires the owner's nomination and release of the audited packet. The platform decision above applies to the historical two-load release. [Preparation, propagation and controls](../../../model/candidate_laws/interval_echo/openwave/row_04_compact/README.md#forming-the-excitation-from-sharp-addresses)
+
 ## Audit of PR #1242
 
 Codex replayed Mario Poneder’s research head `f6949928e` on 22 November 2026 (Asia/Bangkok) and checked the criterion at OpenWave revision `f8fd02b2e`. The adopted M10 pin is `4fe10f9a`. Its design sweep compared 8 and 128 with the persistence target known. [PR #1242](https://github.com/FloatingPragma/observer-patch-holography/pull/1242) · [Audited source](https://github.com/FloatingPragma/observer-patch-holography/commit/f6949928e763bde9d26b443da651ab9a45daf749) · [Design sweep](https://github.com/FloatingPragma/observer-patch-holography/blob/972d81b9b6068938e52457b59497766499222b5d/model/polynomial_sv/SPEC.md)
