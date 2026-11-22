@@ -202,6 +202,8 @@ The controller starts with a sharp load at port 5. Four layers each cover the ce
 
 At cell 13 on the 20-cell board, resolving the four accepted addresses at preparation keeps their starting occupation probabilities and erases interference. At exposure 1 the four-port probability drops to 0.44886. Disabling free exchange on seam (4,9) gives 0.93844 with the coherent preparation. The inverse preparation layers on a fresh coherent release give the source port with probability 1/4, versus 1/16 for the resolved mixture at zero exposure. The two terminal settings retain twelve local ports and quiet. The one-load profile, its signed preparation and this port measurement differ from the submitted two-load seam experiment.
 
+An addressed sequence of native π contacts transports all four amplitudes across one external seam. At each swap an occupied branch gains phase $e^{-i\pi\kappa}$ and a vacant seam contributes zero phase. The controller routes the four input addresses to their copies on the neighbor, avoiding the other three occupied rails on each route. Each branch takes the same number of hops. The complete four-column transfer therefore has one common phase for arbitrary strength and preserves an entangled reference. The 60, 240 and 960 directed interfaces need 16 or 20 contacts per transfer. Free release in the receiving cell again preserves the signed distribution. Removing the bridge leaves the recipient quiet. Adding one return trip on just one rail leaves the destination addresses unchanged and changes the inverse-preparation probability from 1/4 to 1/16 at strength 1/2. At strengths 0 and 8 that phase error is invisible. The transfer uses a supplied contact schedule between the two free releases. [Every route and control distribution](local_transport.py)
+
 ### Which compact states the carriers admit
 
 For a state supported in one cell to stay there, each configuration containing a gateway must have zero amplitude throughout flight. An exterior port has just one incoming external seam, so each outward amplitude tests a single internal source. On such states the isolated-cell generator suffices. For generator $A$ and gateway read $B$, the entire confined space is the common kernel of $BA^j$ for all $j\ge0$. Finite row-space iteration calculates it exactly. The table gives dimensions for blank memory and, for the pair, two **distinct** unit loads. [Polynomial rank certificate](confined_sectors.py)
@@ -221,6 +223,7 @@ Run the compact-state classification, observer readouts and pair bound from the 
 ```sh
 python -B -O -W error -m model.experiments.interval_echo_consensus.confined_sectors
 python -B -O -W error -m model.experiments.interval_echo_consensus.local_release
+python -B -O -W error -m model.experiments.interval_echo_consensus.local_transport
 python -B -O -W error -m model.experiments.interval_echo_consensus.pair_return_bound
 ```
 

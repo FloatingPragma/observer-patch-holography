@@ -14,6 +14,7 @@ from model.executable_model import cell, federation
 from model.experiments.interval_echo_clock import publication
 from . import confined_sectors
 from . import local_release as release
+from . import local_transport
 from . import pair_return_bound as pair
 
 
@@ -51,6 +52,25 @@ def test_pair_certificate_and_compressed_return_on_a_small_graph():
     assert np.linalg.norm(approx-exact, 2) < 6**(pair.DEGREE+1)/factorial(pair.DEGREE+1)
     with pytest.raises(ValueError):
         pair.compressed_polynomial(sparse.csr_matrix(matrix/3), idx)
+
+
+def test_transfer_with_a_noninteger_source_phase_on_every_chart():
+    result = local_transport.transport()
+    assert [sum(c.values()) for c in result["pulse_count_by_directed_interface"].values()] == [60, 240, 960]
+    kappa = np.sqrt(2)
+    h0, h1 = release.law.local_term_parts()
+    u = expm(-1j*np.pi*(h0+kappa*h1))
+    idx = [release.law.SRC.index(v) for v in ((1, 0), (0, 1))]
+    driven = u[np.ix_(idx, idx)]
+    np.testing.assert_allclose(u[:, release.law.SRC.index((0, 0))], np.eye(release.law.DIM)[:, 0],
+                               atol=1e-13, rtol=0)
+    np.testing.assert_allclose(np.delete(u[:, idx], idx, axis=0), 0, atol=1e-13, rtol=0)
+    for chart in result["charts"].values():
+        frame = np.eye(24, dtype=complex)[:, list(release.SUPPORT)]
+        for a, b in chart["pulses"]:
+            frame[[a, b]] = driven @ frame[[a, b]]
+        target = np.eye(24)[:, 12+np.array(release.SUPPORT)] * np.exp(-1j*np.pi*kappa*chart["hops_per_rail"])
+        np.testing.assert_allclose(frame, target, atol=1e-12, rtol=0)
 
 
 def test_exception_on_federated_two_load_operator():
