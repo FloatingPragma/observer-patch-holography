@@ -39,7 +39,7 @@ The archived eight-slot routing experiments supply the historical comparison. On
 
 Where a measurement demonstrates one part of a criterion, its scorecard cell names that measurement and links to its experiment. The separate full-criterion grade determines the category totals.
 
-The dark-sector test starts at the Einstein tower. On one finite overlap, vary the signed modular charge, compare with a fully recovered control and independently measure area and proper volume using the same vacuum and clocks. Repeat the curvature measurement with ordinary matter and a second radius before transferring the coupling to galaxies. Rotation curves and shear can then test a profile with frozen normalization. OW-19 asks for a neutral massive excitation. Its binding measurement has a separate physical interpretation.
+The dark-sector test starts at the Einstein tower. On one finite overlap, vary the signed modular charge, compare with a fully recovered control and independently measure area and proper volume using the same vacuum and clocks. Repeat the curvature measurement with ordinary matter and a second radius before transferring the coupling to galaxies. Rotation curves and shear can then test a profile with frozen normalization. To identify the origin of an excess, this comparison also needs an indicator of overlap recoverability determined independently of the gravity data. OW-19 asks for a neutral massive excitation. Its binding measurement has a separate physical interpretation.
 
 | Source | Coverage |
 | --- | --- |
