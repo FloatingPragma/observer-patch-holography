@@ -144,6 +144,10 @@ The experimental **primitive-collar Interval Echo** source sets the coefficient 
 
 The complete meter uses two quadratures at 32 equally spaced exposures over one native period. It retains both interference ports and the complementary outcome. Read the isolated primitive and every assembled address count, then challenge the calibration on donors with every published strength, reversed sign and a changed parity rate. The source for the primitive calibration takes no material coupling or release receipt. Its new ordering rule is to calibrate one homogeneous gate on the unassembled primitive. Preparing all available collars after assembly is a different calibration and is scored on the same boards. The historical strength sweep, earlier contact spectra and the 8, 9 and 10 address counts were known in formulating this comparison.
 
+On vacuum ports an occupied magnitude-one collar lies outside the image of the load write. The physical echo fixes it. Its native block on the two signs is $kI+(I-X)/2$, and every blank vacuum seam has zero action. These are full-column identities, including on seams sharing an empty port. With $m$ occupied collars the contrast contributes the same scalar $mk$ to both branches. The relative fringe is $e^{-imt}$ under the native common exposure, even on the zero-strength donor. A control halving the parity term gives frequency 4 on the elementary bank. Measuring all changed records on the assembled federation gives 8, 9 or 10 according to the contact. The uniform extension uses the published family's identical contact operator at every seam. The source function reads neither the pinned material coefficient nor a pair outcome. Its output produces the same full 99-state material matrix as the adopted pin. The experiment distinguishes the two apparatus prescriptions. It cannot establish that the historical material had to use the primitive calibration: setting the donor strength to zero retains every calibration fringe and removes the material attraction. The proposed source makes the identification explicitly and is available for a separate pin assessment. [Forward source and complete native records](primitive_collar.py)
+
+The matching equation has one real solution in the native family. For the material frequency use the even state $u=(|1,0\rangle+|0,1\rangle)/\sqrt2$ and the stationary native echo $r=U|1,0\rangle$. They carry the same total load. On $u$ exchange vanishes and squared contrast is one; on $r$ both generators vanish. Their relative frequency is therefore $k$ for every real $k$. Equating it to the measured vacuum frequency gives $k=8$, with neither a free-release observation nor an integer restriction on $k$ in the inference. Every other historical setting fails this equality while retaining the same vacuum fringes. Equating the two frequencies on a busy assembled contact instead gives a different prediction there.
+
 ### Free release from every internal seam
 
 The complete launch panel uses every internal seam of every cell on the pinned
@@ -200,6 +204,7 @@ python -m model.experiments.interval_echo_consensus.native_frequency --raw 0.5
 python -m model.experiments.interval_echo_consensus.native_frequency --echo-reference
 python -m model.experiments.interval_echo_consensus.record_receipt --extended
 python -O -W error -m model.experiments.interval_echo_consensus.row_four
+python -O -W error -m model.experiments.interval_echo_consensus.primitive_collar
 python -O -W error -m model.experiments.interval_echo_consensus.row_four --all-launches
 python -m pytest -q model/experiments/interval_echo_consensus
 ```

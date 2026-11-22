@@ -13,7 +13,7 @@ from model.candidate_laws.contrast_memory_spherical_v1 import law
 from model.candidate_laws.contrast_memory_spherical_v1.sectors import PairSector, doubled_hamiltonian
 from model.candidate_laws.interval_echo import candidate
 from model.executable_model import carrier, cell, federation
-from . import adjacency_bound, record_action, record_release
+from . import adjacency_bound, primitive_collar, record_action, record_release
 from .bounded_clock_flight import DetectorEvolution
 
 TIMES = (1, 5, 7, 17, 31, 37)
@@ -183,7 +183,7 @@ def compare_outcomes(actual, independent):
                 seam_index=int(worst[2]), exposure=TIMES[worst[3]])
 
 
-def census(costs):
+def census():
     path = carrier.HERE / "carriers/FEDERATION_LEVEL0.npz"
     if sha256(path.read_bytes()).hexdigest() != BOARD_HASH:
         raise ValueError("Incorrect launch carrier")
@@ -192,7 +192,7 @@ def census(costs):
     p = np.empty((3,20,30,len(TIMES),31))
     errors = []
     for dest, (outcomes, error) in zip(p.reshape(-1,len(TIMES),31),
-                                       home_rows(board, sector, costs["square"][1]), strict=True):
+                                       home_rows(board, sector, primitive_collar.calibrated_strength()), strict=True):
         dest[:] = outcomes
         errors.append(error)
     return p, gates(p, max(errors))
@@ -208,13 +208,16 @@ def main():
         parser.error("--outcomes and --compare require --all-launches")
     costs = source_costs()
     h0, h1 = law.local_term_parts()
+    forward = primitive_collar.material_term()
+    np.testing.assert_allclose(forward, h0+candidate.KAPPA*h1, atol=3e-14, rtol=0)
     result = dict(costs=costs, single_occupied_port_lines=cold_contact(costs, h0+candidate.KAPPA*h1),
+                  primitive_collar_frequency=primitive_collar.calibrated_strength(),
                   binary_and_doubled=check_free_blocks(federation(0), costs, candidate.KAPPA), spectra=[])
     for level in range(3):
         board = federation(level)
         result["spectra"].append(spectral(board, costs))
     if args.all_launches:
-        p, result["census"] = census(costs)
+        p, result["census"] = census()
         if args.outcomes:
             with args.outcomes.open("xb") as out:
                 np.save(out, p, allow_pickle=False)

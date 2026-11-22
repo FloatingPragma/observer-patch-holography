@@ -7,7 +7,7 @@ import pytest
 from model.candidate_laws.contrast_memory_spherical_v1 import law
 from model.candidate_laws.contrast_memory_spherical_v1.sectors import MultisetSector, PairSector
 from model.executable_model import cell
-from . import row_four
+from . import primitive_collar, row_four
 from .bounded_clock_flight import DetectorEvolution, coefficients
 
 
@@ -22,6 +22,24 @@ def test_contact_selection_precedes_release_and_exposes_doubled_load():
     for metric in ("unary", "word"):
         with pytest.raises(AssertionError):
             row_four.cold_contact({"square": costs[metric]}, exchange+8*contrast)
+
+
+def test_native_vacuum_calibration_is_blind_to_the_comparison_pin(monkeypatch):
+    monkeypatch.setattr(row_four.candidate, "KAPPA", -127)
+    assert primitive_collar.calibrated_strength() == 8
+    result = primitive_collar.controls()
+    assert {r["vacuum_frequency"] for r in result["donors"]} == {8}
+    assert [r["strength"] for r in result["donors"] if r["matches_standard"]] == [8]
+    assert result["half_parity_rate"] == 4
+    assert {n:r["frequency"] for n,r in result["assembled"].items()} == {8:8,9:9,10:10}
+    assert sum(r["seams"] for r in result["assembled"].values()) == 630
+    assert all(np.asarray(r["quadratures"]).shape == (32,2,3) for r in result["assembled"].values())
+    h0, h1 = law.local_term_parts()
+    np.testing.assert_allclose(primitive_collar.material_term(), h0+8*h1, atol=0, rtol=0)
+    # These contacts have identical calibration records and different material actions.
+    assert np.linalg.norm(h0-primitive_collar.material_term()) > 1
+    with pytest.raises(ValueError):
+        primitive_collar.fringe(primitive_collar.vacuum_block(h0), [(0,1),(0,1)])
 
 
 def test_inertia_against_every_eigenvalue_of_the_full_native_two_load_space():
@@ -78,3 +96,8 @@ def test_census_retains_a_failing_launch_and_rejects_missing_outcomes():
     for invalid in (p[...,:-1], p*0, p*np.nan):
         with pytest.raises(ValueError):
             row_four.gates(invalid, 1e-6)
+    assert row_four.compare_outcomes(p,p)["maximum_l1"] == 0
+    wrong = p.copy()
+    wrong[2,1,7,3,[0,30]] = [.9,.1]
+    with pytest.raises(ValueError):
+        row_four.compare_outcomes(p,wrong)
