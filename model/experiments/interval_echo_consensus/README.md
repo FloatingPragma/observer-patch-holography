@@ -94,6 +94,10 @@ The **home-cell** measurement distinguishes thirty named seams and quiet. For th
 
 The uniform and zero-response arms reproduce every archived elementary outcome in each of the two launches, 49,152 records in total. They use the original seeds. On the externally selected cell-7 launch the three full-outcome Monte Carlo probabilities for the uniform walk are 0.5267, 0.5426 and 0.3624. The assembled walk yields 0.0001 at **all three** appointments. It passes the home-cell persistence screen yet fails to reproduce the published outcome distribution. These are comparisons with a simulated source whose historical coupling and records were public. The new instrument supplies a prospective, pair-independent source for the uniform interaction and specifies its extra memory, operations and preparation. Its historical free-release equivalence covers the initialized binary sector. The broader claim that the earlier designer chose the historical pin using this instrument would require separate evidence. OpenWave determines its own row. [Enrolled-launch replay](registered_forecast.py) · [Complete outcomes](record_measurements.json)
 
+### Direct comparison on the historical local operator
+
+Test the independent contact forecast directly on the historical 99-state seam before evolving a free pair. With blank memory prepare the four sharp endpoint words 00, 01, 10 and 11 separately. Use a switchable contact and eight clock bits in the parity-gap time unit, and retain all 256 frequency outcomes for each input. The forecast gives bin zero for equal words. A sharp unequal word splits equally between the record cost and one bin above it from native exchange. Compare the full conditional probability vectors in total variation, with a numerical allowance of $10^{-10}$. Test all nine historical sweep strengths, the reversed sign, and the pair-only counterexample. All these settings and the expected historical strength are already disclosed. This comparison tests whether the earlier operator passes the new local specification.
+
 ## Reproduce
 
 From the RER repository root, run:
