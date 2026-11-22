@@ -194,6 +194,7 @@ assert_no_sorry darkStress_nonneg_of_charges_nonneg
 assert_no_sorry anomalousStress_abs_le
 assert_no_sorry anomalousStress_eq_zero_of_recovered
 assert_no_sorry anomalousStress_tendsto_zero
+assert_no_sorry anomalousStress_tendsto_iff_normalized_residual
 assert_no_sorry comovingDensity_mul_scale_cubed
 assert_no_sorry enclosedMass_hasDerivAt
 assert_no_sorry deep_radial_acceleration
@@ -243,6 +244,7 @@ assert_no_sorry localHaloTidal_below_cassini
 #print axioms luminousOnlyRelation_iff_darkStress_eq_zero
 #print axioms exists_dark_source_of_geometric_excess
 #print axioms anomalousStress_tendsto_zero
+#print axioms anomalousStress_tendsto_iff_normalized_residual
 
 /-! ## Collar-scale saturation and deep-profile characterization -/
 

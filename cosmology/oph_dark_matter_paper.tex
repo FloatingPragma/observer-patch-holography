@@ -157,6 +157,25 @@ on the collar model and the bounded observable class.
 \end{equation}
 \end{definition}
 
+On a family of positive shrinking proper radii $\ell_n$, let $E_n$
+denote the measured collar-energy variation on the corresponding ball
+in one fixed observer frame. Equation~\eqref{eq:tanom} gives the exact
+criterion for a finite rest-frame stress $\tau$,
+\[
+  \delta T^{\rm anom}_{00,n}\longrightarrow\tau
+  \quad\Longleftrightarrow\quad
+  \frac{E_n-(8\pi^2/15)\ell_n^4\tau}{\ell_n^4}\longrightarrow0 .
+\]
+This follows by multiplying the rescaled difference by the positive
+constant $15/(8\pi^2)$. In particular, a recovery bound
+$C_n\eta_n=o(\ell_n^4)$ forces $\tau=0$. For nonzero $\tau$ the
+leading collar coefficient belongs in the total stress of the Einstein
+equation, while the residual after its subtraction must satisfy the
+small-ball error bound. A fluctuation measured on a galactic cut
+requires a map to these local contractions, including their sign,
+normalization and transport. The galactic radius in the enclosed-mass
+profile and the local proper radius $\ell_n$ serve different measurements.
+
 The dark-sector adapter identifies this anomalous modular energy with the
 non-luminous charge of Section~\ref{sec:generic}. Its absence of an
 electromagnetic readout is a source-localization hypothesis: it is assigned to
@@ -418,7 +437,7 @@ require further geometric measurements.
 A separate outward
 detector in two directions resolves probability changes of order
 $10^{-7}$ under this intervention. The contact scatters the probe.
-The complete untagged flights remain identical under the two fluctuation
+The complete untagged flights of the single stored word remain identical under the two fluctuation
 preparations, whose reduced source states agree. This apparatus measures
 ordinary-load and contact responses; a universal metric coupling cannot
 be inferred from them. The two interventions also have different spatial
@@ -426,8 +445,8 @@ distributions of source stress and different native units. A measurement
 of their common gravitational coupling needs independently normalized
 source distributions and a geometric observable with the predicted
 response to each. The signed shift survives a precision test. The
-untagged fluctuation ensembles have identical record distributions
-at every precision.
+single-word fluctuation ensembles have identical tag-independent record
+distributions at every precision.
 
 The complete terminal outcomes distinguish the two interventions even
 where both increase the mean travel time. For one launch direction,
@@ -443,6 +462,121 @@ amount of added load fitted to this clock cannot reproduce the complete
 flight record. Universal gravitational coupling concerns normalized
 stress distributions and a geometrically calibrated response on a common
 domain.
+
+\paragraph{Two physical writes and the choice of modular reference.}
+Four collar memories surround one stationary ordinary load on a twenty-cell
+screen. A fair tag selects the conditional distributions $P_0+sD$ and
+$P_0-sD$ of one two-seam word, where $0\le s\le1$. Two writes are
+independent given that tag. Averaging over a shared tag gives
+\[
+ W_s=P_0\otimes P_0+s^2D\otimes D .
+\]
+Fresh independent tags give $W_0$ at every strength. Reversing the tag
+on the second write changes the sign of the connected term. Throughout,
+each word marginal and the joint histogram of the two stored energy sums
+are fixed. A receiver on an unmarked port detects a flying ordinary
+probe with no access to the tag. The measured shared-minus-independent
+arrival probability is $(1.034\pm0.214)\times10^{-9}$ against
+$1.067\times10^{-9}$ from native propagation. Halving $s$ on both writes
+gives $(0.245\pm0.214)\times10^{-9}$ against $0.267\times10^{-9}$.
+The receiver and count budget were chosen after inspecting a numerical
+forecast. These are fresh simulated binomial acquisitions with simultaneous
+99\% radii conditional on the preparation and numerical detector probabilities.
+
+For a faithful joint reference $R$ on the two physically readable words,
+the connected modular score is
+$L_R(i,j)=\log[R_1(i)R_2(j)/R(i,j)]$. The fixed marginals make the
+shared-minus-independent mean of any sum of two single-word generators
+exactly zero. The product reference gives $L_R=0$. Independent sharp
+word acquisitions calibrate $R$ and measure the mean contrast on held
+records. The reversed, product and shared references give
+$+0.003306\pm0.000232$, $+0.000001\pm0.000166$ and
+$-0.002949\pm0.000142$ nats, respectively, with joint 99\% coverage.
+The same positive between-history variance therefore admits all three
+signs of modular response under these reference choices. Identifying
+$L_R$ with the collar part of a boost charge requires a physical
+reference and the normalization in Eq.~\eqref{eq:tanom}.
+
+Protecting the words during flight leaves their projectors central
+in the block-preserving observable algebra. An equilibrium state in
+each word block may therefore be mixed with arbitrary block weights
+at the same temperature. Thermal calibration inside one block supplies
+no relative probabilities for the words. The mutual information of the
+writes is a different reference-independent statistic of their joint
+law. With $C=D\otimes D$ and $R=W_0$, it is
+$\sum (R+s^2 C)\log(1+s^2 C/R)
+ = (s^4/2)\sum C^2/R+O(s^6)$, since $\sum C=0$.
+The native probabilities give $0.001495$ nats at full strength and
+$0.00009559$ at half strength. Relative entropy detects the correlation
+while its first derivative about the product state vanishes. A source
+preparation or thermalization service that mixes the sectors can be
+tested through the relative frequencies of the written words.
+
+\begin{proposition}[Amplitude and initial acceleration on two writes]
+On the shared-tag family, any fixed unconditioned detector mean has
+uniform error at least $a/8$ as an estimator of the amplitude $sa$ at
+$s=0,1/2,1$. For the native mobile load, changing $s$ gives exactly
+zero change in the initial acceleration of every diagonal patch
+coordinate, for any launch state prepared independently of the words.
+\end{proposition}
+\begin{proof}
+The detector mean at half strength equals three quarters of its mean at
+zero strength plus one quarter of its mean at full strength. Applying
+the same interpolation to the target gives $a/4$ in place of $a/2$,
+hence $2e\ge a/4$ for maximum error $e$. For word $w$ the flight
+generator is $H_w=H_0+V_w$, where $V_w$ is diagonal and linear in
+the four stored energies. For diagonal $F$ the acceleration operator is
+$-[H_0,[H_0,F]]-[V_w,[H_0,F]]$. The four energy means are fixed.
+Averaging the operator therefore gives the same result for every $s$.
+\end{proof}
+There is a stronger short-time cancellation for this particular writer.
+Its signed one-word contrast $D$ annihilates every polynomial in the
+two energies of total degree at most two. Its two one-seam marginals
+vanish, and its antisymmetry kills the mixed quadratic term. Thus
+$D\otimes D$ annihilates every four-energy polynomial of degree below
+six. The $k$-fold commutator for $F$ has energy degree at most $k-1$
+for $k\ge1$. Position derivatives through order six agree with the
+independent-tag control. Real symmetric generators and a real launch
+give an even position mean, so the first possible contrast has order
+eight. Finite-duration scattering is consistent with this identity.
+
+Two balanced tracers with zero initial current give a change of
+$+9.68963$ in their relative projected angular acceleration upon adding
+the ordinary load, in native angular-coordinate units per exposure
+squared. Their prediction under the shared-tag intervention is zero.
+An independent instrument reads the mean half-trip among successful
+reunions for each of fifteen radar pairs. In all six five-station
+subsets of each of four source arms the inferred four ray directions
+give a positive fourth Gram eigenvalue throughout
+$|K|(6\ {\rm hand\ units})^2\le1$, with simultaneous 99\% sampling
+bounds. Four directions based at one point of a three-dimensional
+constant-sectional-curvature normal ball require a Gram matrix of
+rank at most three. The vacant control also fails this test.
+The exclusion extends to variable sectional curvature in the same
+bound if the reported lengths are minimizing geodesics in one convex
+comparison neighbourhood. The comparison angles bound every entry of
+the unit tangent Gram matrix. Even its least eigenvalue exceeds $0.029$
+after propagating the joint range uncertainties~\cite{dyerTriangulations}.
+A common gravitational calibration needs an independent geometry that
+recovers its source-free distances, and a cut stress in the same units
+and region as the ordinary calibrator.
+
+The exterior detector also diagnoses a restriction imposed by the
+apparatus. The parked load and protected tag leave one serviced
+connection from the home cell to the exterior. At a fixed complex
+frequency the exterior response to any home launch is then a scalar
+multiple of one exterior Green function. This follows by solving the
+exterior row of the resolvent equation. Changing the home source can
+change the transmitted amplitude, but the normalized exterior
+intensity pattern is fixed. Transporting the sharp tag to a neighbouring
+patch with five native swaps frees a second gateway on the same
+federation. Two exterior detectors then resolve different arrival
+fractions for two launch sites. At a held frequency one fraction
+changes by $-0.00651$ when adding ordinary occupancy. Changing the
+shared history at fixed occupancy changes its numerical forecast by
+less than $10^{-12}$. These frequency-resolved fractions diagnose the
+local propagation instrument. Identifying an optical area requires
+freely propagating ray bundles and a common physical length scale.
 
 \begin{premise}[Collar scale]
 \label{pre:scale}
@@ -969,6 +1103,18 @@ These are measurements of the total field in galaxy interiors. Stellar
 orbital anisotropy and radial profile variation enter the inference
 \cite{bolton2008}.
 
+The 35 eligible lenses outside the weak-shear sample give a median
+observed-to-predicted angle ratio of $0.855$. Using this factor as one
+common rescaling raises the median absolute error on 18 held inner
+lenses from $11.6\%$ to $15.8\%$. For the 22-lens outer stack, extending
+the spectroscopic circular speeds flat and applying the same factor
+gives central surface-density contrasts of $44.02$ and $25.19$ in
+$h\,M_\odot\,{\rm pc}^{-2}$. This
+increases the two-bin discrepancy from $\chi^2=3.23$ to $4.41$.
+The calibration and held galaxies are disjoint. The comparison tests
+the transfer of a single multiplicative correction within this
+spherical stellar and lensing model.
+
 The same experiment extends outward in 22 lenses with stellar spectra,
 stellar-population masses and a published weak-shear stack
 \cite{gavazzi2007,auger2009}. At $164.5$ and $287.5\,h^{-1}$ kpc the
@@ -1076,6 +1222,12 @@ rotation-calibrated scale. Identifying the source requires an independent
 physical charge measurement and a prospectively fixed likelihood.
 
 \begin{thebibliography}{99}
+
+\bibitem{dyerTriangulations}
+R. Dyer, G. Vegter and M. Wintraecken,
+\emph{Riemannian simplices and triangulations}, Geom. Dedicata
+\textbf{179} (2015), 91--138, Theorem 33.
+\href{https://doi.org/10.1007/s10711-015-0069-5}{doi:10.1007/s10711-015-0069-5}.
 
 \bibitem{ophEinstein}
 B. Mueller et al.,

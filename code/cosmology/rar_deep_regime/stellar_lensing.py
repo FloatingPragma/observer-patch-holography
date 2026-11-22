@@ -9,6 +9,7 @@ from pathlib import Path
 import numpy as np
 from scipy.integrate import quad, simpson
 from scipy.special import chndtr, gammaincinv, roots_legendre
+from scipy.stats import binom
 
 HERE = Path(__file__).resolve().parent
 RECEIPT = HERE / "receipts/stellar_lensing.json"
@@ -120,7 +121,45 @@ def summary(rows, lens_key, aperture_model):
     }
 
 
-def outer_shear(moments):
+def disjoint_angle_transfer(inner_rows, shear_names, bins):
+    """Estimate a common light-to-dynamics multiplier outside the shear sample."""
+    names = set(shear_names)
+    train = np.sort(
+        [r["bSIE"] / r["predicted_angle"] for r in inner_rows if r["name"] not in names]
+    )
+    held = np.array(
+        [r["predicted_angle"] / r["bSIE"] for r in inner_rows if r["name"] in names]
+    )
+    factor = float(np.median(train))
+    # Central order-statistic interval for the population median under independent sampling.
+    rank = int(binom.ppf(0.025, len(train), 0.5))
+    predictions = [factor * r["inner_speed_extended_flat"] for r in bins]
+    pulls = [
+        (r["tangential"] - p) / r["quoted_error"]
+        for r, p in zip(bins, predictions, strict=True)
+    ]
+    return dict(
+        training_lenses=len(train),
+        held_inner_lenses=len(held),
+        held_outer_lenses=len(names),
+        median_angle_multiplier=round(factor, 6),
+        order_statistic_median_interval=np.round(
+            [train[rank - 1], train[-rank]], 6
+        ).tolist(),
+        minimum_interval_coverage=round(
+            float(1 - 2 * binom.cdf(rank - 1, len(train), 0.5)), 6
+        ),
+        held_inner_median_absolute_fractional_angle_error_before_after=[
+            round(float(np.median(abs(held - 1))), 6),
+            round(float(np.median(abs(factor * held - 1))), 6),
+        ],
+        held_outer_predictions_h_Msun_pc2=np.round(predictions, 4).tolist(),
+        held_outer_conditional_chisq=round(float(np.dot(pulls, pulls)), 4),
+        scope="Retrospective split by catalogue identity. Apply the median observed-to-predicted inner angle outside the shear sample to held inner angles and the flat stellar-speed shear control. The interval assumes independent draws from a common selected population. The exterior score uses the two quoted shear errors conditional on the multiplier.",
+    )
+
+
+def outer_shear(moments, inner_rows):
     """Transfer the same 22 lenses' independent stellar masses and spectra to weak shear."""
     # Gavazzi et al. Table 2: centre in h^-1 kpc, (tangential, cross, se) in h Msun/pc².
     bins = np.array(
@@ -238,6 +277,9 @@ def outer_shear(moments):
         "channels": "Compact stellar baryons plus frozen SPARC square-root exterior, Chabrier and Salpeter stellar population models. A third control extends the measured central stellar field flat to the outer stack. All use zero slip, linear shear and complete uniform sky coverage at representative radii. Actual shape weights, per-lens fields of view, pair radii, perturbers and extended gas are unavailable here.",
         "bound": "Separate feasibility bound for compact stars plus anomaly. Give each galaxy up to its Salpeter + 1 quoted error stellar mass and the SPARC upper interval scale. Allow any positive lens weights and radii in the ordered disjoint bin. Use the previous centre as a lower radius and D_ls/D_s <= 1 to bound reduced shear. The tighter upper bound assumes each lens's shape-weighted mean source efficiency in this bin equals its Table 1 value. The wider bound allows arbitrary positive source weights and any efficiency in [0,1]. These parameter ranges describe sensitivities.",
         "bins_in_h_Msun_pc2": outputs,
+        "disjoint_angle_normalization": disjoint_angle_transfer(
+            inner_rows, lenses[:, 0], outputs
+        ),
         "centre_conditional_chisq": {
             key: round(
                 sum(
@@ -288,6 +330,7 @@ def build(path):
                 se_sigma=float(spec["e_sigma"]),
                 geometry=geometry,
                 bSIE=float(image["bSIE"]),
+                predicted_angle=geometry * (sigma / C_KM_S) ** 2 / k,
                 bLTM=float(image["bLTM"]),
                 re_error_dlog_k=0.5
                 * np.log(
@@ -310,7 +353,7 @@ def build(path):
     return {
         "primary_paper": "https://doi.org/10.1086/589327",
         "catalogue": CATALOGUE,
-        "outer_shear_same_22_lenses": outer_shear(moments),
+        "outer_shear_same_22_lenses": outer_shear(moments, rows),
         "sha256_scientific_fields_sorted": {
             str(i): digest for i, (_, digest) in TABLES.items()
         },
@@ -333,7 +376,7 @@ def build(path):
         "objects": [
             [
                 r["name"],
-                round(r["geometry"] * (r["sigma"] / C_KM_S) ** 2 / r["k"], 5),
+                round(r["predicted_angle"], 5),
                 r["bSIE"],
                 r["bLTM"],
             ]
