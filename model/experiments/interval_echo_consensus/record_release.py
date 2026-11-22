@@ -1,6 +1,7 @@
 """Free release generated from local record changes on the registered M10.3 board."""
 import argparse
 import base64
+import hashlib
 import json
 import zlib
 from math import acos, cos, pi, sqrt
@@ -61,13 +62,15 @@ def source(arm):
     return h, index[launch], index[home[:, 0], home[:, 1]], reference
 
 
-def release(arm):
+def release(arm, subdivisions=8):
+    if subdivisions not in (8, 16):
+        raise ValueError("Use the enrolled grid or its dyadic refinement")
     h, launch, home, reference = source(arm)
     start = np.zeros(h.shape[0], complex)
     start[launch] = 1
     speed = np.linalg.norm(h @ start - h[launch, launch]*start)
-    grid = range(1, 297)
-    samples = checked_steps(h/8, start, grid, degree=16)
+    grid = range(1, 37*subdivisions+1)
+    samples = checked_steps(h/subdivisions, start, grid, degree=16)
     floor, appointments = 1., {}
     for wanted, (tick, psi, error) in zip(grid, samples, strict=True):
         if tick != wanted or psi.shape != start.shape or not 0 <= error < 1e-5:
@@ -77,15 +80,18 @@ def release(arm):
             raise ArithmeticError("Norm outside the numerical enclosure")
         local = abs(psi[home])**2
         floor = min(floor, float(local.sum())-error)
-        if tick in (8, 56, 296):
-            appointments[tick//8] = [*local.tolist(), float(norm-local.sum())]
-    angle = acos(sqrt(max(0., floor))) + speed/16
+        if tick % subdivisions == 0 and tick//subdivisions in pair.EXPOSURES:
+            appointments[tick//subdivisions] = [*local.tolist(), float(norm-local.sum())]
+    angle = acos(sqrt(max(0., floor))) + speed/(2*subdivisions)
     continuous = float(cos(angle)**2) if angle < pi/2 else 0.
-    result = dict(arm=arm, continuous_floor=continuous, threshold_met=continuous > .94,
+    result = dict(arm=arm, subdivisions=subdivisions, continuous_floor=continuous, threshold_met=continuous > .94,
                   variance=float(speed**2), reference_span=int(reference.max()), appointments=appointments)
     if arm in ("primitive", "off"):
         root = Path(pair.__file__).parent
-        data = json.loads((root/"row_04_receipt.json").read_text())
+        receipt = (root/"row_04_receipt.json").read_bytes()
+        if hashlib.sha256(receipt).hexdigest() != "7f6e458fd0b7cf9b9e50fb15a5c4b77f944a2457a9c53cdcca88efdf4d4c3bdd":
+            raise ValueError("The historical launch, detector or elementary observation stream changed")
+        data = json.loads(receipt)
         arm_index = int(arm == "off")
         archived = data["arms"][arm_index]["readings"]
         discrepancies = []
@@ -96,7 +102,8 @@ def release(arm):
             discrepancies.append(float(np.max(abs(p-row["probabilities"]))))
             rng = np.random.default_rng([917421, arm_index, j])
             draws = rng.choice(len(p), size=pair.SHOTS, p=p/p.sum()).astype(np.uint8)
-            if draws.tobytes() != zlib.decompress(base64.b64decode(row["trials_zlib_base64"], validate=True)):
+            if (np.bincount(draws, minlength=len(p)).tolist() != row["counts"]
+                    or draws.tobytes() != zlib.decompress(base64.b64decode(row["trials_zlib_base64"], validate=True))):
                 raise ValueError("Changed registered elementary outcomes")
         if max(discrepancies) >= 5.1e-10:
             raise ArithmeticError("Complete distributions differ beyond archive rounding")
@@ -107,4 +114,6 @@ def release(arm):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("arm", choices=("primitive", "assembled", "off", "double", "untransported"))
-    print(json.dumps(release(parser.parse_args().arm), allow_nan=False))
+    parser.add_argument("--subdivisions", type=int, choices=(8, 16), default=8)
+    args = parser.parse_args()
+    print(json.dumps(release(args.arm, args.subdivisions), allow_nan=False))

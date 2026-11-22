@@ -72,6 +72,30 @@ class PrivateRecordWalk:
             mask ^= flip
 
 
+def frequency_read(walsh, moves):
+    """Eight controlled exposures and a Fourier read of the clock register."""
+    size = len(walsh)
+    if len(set(moves)) != len(moves) or any(not 0 < s < size for s in moves):
+        raise ValueError("This phase reader requires distinct nonidentity unit flips")
+    times = np.arange(size)*2*np.pi/size
+    unit = np.exp(-1j*times)[:, None]
+    # For each physical flip expose its even/odd subspaces, coherently
+    # controlled by the digital clock. No spectral value is supplied to the reader.
+    flight = np.ones((size, size), complex)
+    for move in moves:
+        parity = walsh[move]
+        flight *= (1+parity)/2 + unit*(1-parity)/2
+    probabilities = abs(np.fft.ifft(flight, axis=0))**2
+    np.testing.assert_allclose(probabilities.sum(axis=0), 1, rtol=0, atol=2e-13)
+    records = probabilities.argmax(axis=0)
+    residual = probabilities.copy()
+    residual[records, np.arange(size)] = 0.
+    leakage = float(residual.sum(axis=0).max())
+    if not leakage < 1e-23 or np.any(records > size//2):
+        raise ArithmeticError("A Fourier read is ambiguous on the finite unit-rate graph")
+    return records, leakage
+
+
 def witness_masks():
     """Exact character responses; single and joint masks challenge duplicated or coupled reads."""
     inventory = {}
@@ -114,6 +138,38 @@ def witness_masks():
     expected = np.array([int(s.bit_count() == 1) for s in range(1,len(bank))])
     if not np.array_equal(rates, expected):
         raise ArithmeticError("A correlated clock flip or a missing local rate escaped")
+    # Test all four binary occupations under a single held contact. The two
+    # equal-load inputs would expose a pair-only backreaction invisible at one load.
+    occupations, wrong_outcome = {}, 0.
+    for a, b in product((0, 1), repeat=2):
+        state[list(edge)] = (a, b)
+        word_changes = changes(readers, edge, state, signed_table())
+        character_action = np.zeros_like(walsh)
+        for j, changed in enumerate(word_changes):
+            if changed:
+                character_action += walsh - walsh[bank ^ (1 << (width-1-j))]
+        costs = character_action[0]//2
+        if not np.array_equal(costs, response*int(a != b)):
+            raise ArithmeticError("Binary contact action depends on equal loads or load orientation")
+        actual_moves = [1 << (width-1-j) for j, changed in enumerate(word_changes) if changed]
+        records, leakage = frequency_read(walsh, actual_moves)
+        wrong_outcome = max(wrong_outcome, leakage)
+        if not np.array_equal(records, costs):
+            raise ArithmeticError("The phase-register observations differ from the generator costs")
+        occupations[f"{a}{b}"] = int(records[-1])
+    # Competing simple graph: sixteen distinguishable flips enabled only on
+    # two occupied endpoints. It agrees on the entire one-load experiment.
+    joint_moves = [1 << j for j in range(width)]
+    joint_moves += [sum(1 << ((j+k) % width) for k in range(3)) for j in range(width)]
+    if len(set(joint_moves)) != len(joint_moves):
+        raise ArithmeticError("Pair-only challenge reused a microscopic destination")
+    extra = sum((1-walsh[s])//2 for s in joint_moves)
+    competing_records, leakage = frequency_read(walsh, joint_moves)
+    extreme, check_leakage = frequency_read(walsh, list(range(1, len(bank))))
+    wrong_outcome = max(wrong_outcome, leakage, check_leakage)
+    if (not np.array_equal(extra, competing_records) or not np.all(extreme[1:] == len(bank)//2)
+            or extreme[0] or extra[-1] != 2*width or extra[0] != 0 or occupations["11"] != 0):
+        raise ArithmeticError("The equal-load phase reference failed to distinguish the pair-only walk")
     duplicate = response + masks[:, 0]-masks[:, 1]
     nonlinear = response + masks[:, 0]*masks[:, 1]
     differing = [int(np.count_nonzero(other != response)) for other in (duplicate, nonlinear)]
@@ -122,7 +178,9 @@ def witness_masks():
         raise ArithmeticError("The masking controls were not discriminating")
     return dict(width=width, inventories=inventory, sign_patterns=len(masks), rejected_masks=differing,
                 recovered_single_rates=rates[expected == 1].tolist(),
-                recovered_zero_joint_rates=int(np.count_nonzero(rates == 0)))
+                recovered_zero_joint_rates=int(np.count_nonzero(rates == 0)),
+                equal_and_unequal_occupations=occupations, rival_equal_load_phase_rate=int(extra[-1]),
+                frequency_register_bits=width, maximum_forbidden_read_probability=wrong_outcome)
 
 
 def defects(pair, offers):
