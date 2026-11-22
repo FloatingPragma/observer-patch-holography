@@ -64,6 +64,10 @@ The executable checks the native triangle columns, both recombiners and every te
 
 Repeating the cohort with sixteen agreement words and one reporter produces 16 and satisfies the same quarter-pulse test. A reflecting bank can also store an arbitrary exponent across updates with one word per update. The historical freely released pair uses a supplied coupling. Its binding behavior was known when the repair standard and these comparisons were designed. The accepted law places no single-cohort bound on the material generator. [Executable comparison](coupling_budget.py) · [Native source and pair evidence](../../../openwave/interval_echo/README.md)
 
+## Free release over the full pulse-alias family
+
+The local persistence test concerns the sharp release (156,157) and the 30 internal seam records of cell 13 on the registered 20-cell board. Test whether the home probability exceeds 94% at every exposure in [0,37] for every nonzero quarter-pulse alias of either sign. Compare zero on the same board. Use bounded polynomial propagation on the grid of spacing 1/8 for the fourteen finite exceptions with absolute coupling below 64. Extend this calculation to unbounded strengths with a dressed home subspace and a time-uniform residual bound for absolute coupling at least 64. Count every quiet outcome. The earlier +8 window and several individual probabilities were known when this comparison was chosen. [Registered apparatus](../../../openwave/interval_echo/row_04/ROW_04_DESIGN.md)
+
 ## Direct acquisition from local repair offers
 
 The reversible service proposes a change from the current mode using fair bits. For each required comparison it generates fresh port loads and repair offers until a record matches the current or proposed value. A proposed change needs every relevant comparison to favor it. Rejections and timeouts leave the bank in its current mode. The reverse decision has the corresponding stationary odds. A finite timeout applied symmetrically preserves detailed balance. This acquisition generated the elementary offers directly.
