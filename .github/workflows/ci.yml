@@ -93,15 +93,15 @@ jobs:
           python -B -O -W error -m model.experiments.seam_program.preparation
           python -B -O -W error -m model.experiments.seam_program.receiver
           python -B -O -m model.experiments.contrast_clock
-          python -B -O -W error -m model.experiments.interval_echo_encounter.return_lines
-      - name: Torus capture, continuum and local detector acquisitions
+      - name: Tests of the model
+        run: python -B -m pytest -q -W error model
+      - name: Formed-pair return and torus detector acquisitions
         run: |
+          python -B -O -W error -m model.experiments.interval_echo_encounter.return_lines
           python -B -O -W error -m model.benchmarks.eight_slot_torus.formed_clocks.fringe
           python -B -O -W error -m model.benchmarks.eight_slot_torus.formed_clocks.fringe_resonance
           python -B -O -W error -m model.benchmarks.eight_slot_torus.formed_clocks.fringe_flight
           python -B -O -W error -m model.benchmarks.eight_slot_torus.formed_clocks.fringe_reference
-      - name: Tests of the model
-        run: python -B -m pytest -q -W error model
       - name: Theory certificates on the model pins
         run: python tools/ci_lanes.py run --tier push --profile model --buckets 1 --bucket 0
 

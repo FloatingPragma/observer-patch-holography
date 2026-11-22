@@ -112,14 +112,17 @@ This gives occupation-reflection symmetry on the entire blank-collar free load s
 
 The doubled load above the empty background exposes the cost. Its free generator changes from L/2 + 24κI to L/2 + 4κ diag(dᵥ). The shifts relative to the native law are 0 at gateways and −32 on the other ports at κ = 8. Thus a single diagonal reference of this kind cannot preserve all three properties: the binary free energy, occupation reflection and native doubled-load propagation. The construction supplies the first two and gives a distinct prediction for the third. Equivalence of protocols using occupied collars, doubled clock fuel or interventions that split a double requires a separate calculation.
 
-## How many frequencies can a pair of port observers see?
+<a id="how-many-frequencies-can-a-pair-of-port-observers-see"></a>
 
-Two observers ask whether ports 0 and 1 each hold a load. On the 20-cell
-federation, a positive first reading followed by free release puts **at
-least 36.72% of the prepared state's weight outside any two energy
-levels**, at simultaneous 99% confidence. The conclusion uses the two
-observers' public yes/no records. The full generator supplies a separate
-exact result on each registered federation.
+## How many frequencies can one patch measure?
+
+The observer occupies cell zero. Its two endpoint registers copy the same
+predicate of one load at each port of seam (0, 1). A courier brings the
+copies together to record agreement. On the 20-cell federation, the two
+public readings bound the energy content of the state prepared by a
+positive first reading. At simultaneous 99% confidence, **at least 36.72%
+of its weight lies outside any two energy levels**. The full generator
+supplies a separate exact result on each registered federation.
 
 | Federation | Minimum native energies contributing to a sharp seam return | Minimum distinct positive frequencies in its continuous-exposure return probability |
 | --- | ---: | ---: |
@@ -215,8 +218,11 @@ preparation the bounds outside the best one, two, three and four levels
 are 52.98%, 36.72%, 18.20% and 3.80%.
 
 **Allowing free motion during the read.** The acquisition switches the
-material source off during both sharp interrogations. There is a finite
-tolerance to this choice. Each of the four reversible single-seam stages
+material source off during both sharp interrogations. For the finite-window
+comparison, give each interrogation a fresh reader word in the same patch.
+After the four forward stages, the private word is fixed by the public
+yes/no result. Retaining it until both interrogations end gives the same
+sharp measurement on the loads. Each reversible single-seam stage
 has a Hermitian involution $G$. Running $\pi(I-G)/(2u)$ for duration
 $u$ implements it. With the free source active throughout two interrogations
 of duration $\tau=4u$ each, the total variation error of the two public
