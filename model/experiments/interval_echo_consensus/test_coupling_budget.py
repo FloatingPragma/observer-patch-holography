@@ -71,6 +71,18 @@ def test_inference_rejects_broken_acquisitions():
             "resolved": False, "reason": "return counts disagree with a common phase"}
 
 
+@pytest.mark.parametrize("quarter", [
+    [[13254489, 2294244, 1228483], [7078486, 7160126, 2538604]],  # k = 1/2
+    [[14812534, 736199, 1228483], [6152519, 7160126, 3464571]],  # k = 1/20
+])
+def test_individually_consistent_pulses_must_share_an_alias(quarter):
+    # Each quarter histogram is rounded from one material. The other pulses
+    # are the installed k=8 readings; the smaller offset passes even a sum-deficit check.
+    rows = json.loads(Path(__file__).with_name("persistence_counts.json").read_text())["installed"]
+    assert persistence_forecast.infer_floor(quarter, rows[2:4], rows[4]) == {
+        "resolved": False, "reason": "quarter-port counts disagree with the full-pulse alias range"}
+
+
 @pytest.mark.parametrize("damage", ["empty", "skip", "duplicate", "truncate", "nan", "lost_norm"])
 def test_window_requires_every_normalized_grid_state(monkeypatch, damage):
     def damaged_steps(h, start, ticks, *, degree):

@@ -50,6 +50,12 @@ def infer_floor(quarter, irrational, full):
         return dict(resolved=False, reason="another integer class is admissible")
     if zero_test_lower <= sin(delta*pi/(8*sqrt(2)))**2:
         return dict(resolved=False, reason="the zero class is admissible")
+    # All multiples of eight have the same quarter-pulse port probabilities.
+    # Their change for a detuning delta is at most (pi/4)*delta/2 per port.
+    quarter_reference = triangle_forecast(0, pi/4)
+    port_tolerance = sqrt(log(1200)/(2*shots)) + SAMPLER_ERROR + pi*delta/8
+    if np.max(np.abs(arms[:2]/shots - quarter_reference)) > port_tolerance:
+        return dict(resolved=False, reason="quarter-port counts disagree with the full-pulse alias range")
     # The alias_window certificate covers every nonzero signed alias on [0,37].
     # Removing the scalar part of the perturbation bounds its norm by delta.
     leakage = sqrt(1-float(REGISTERED_FLOOR)) + 37*delta
