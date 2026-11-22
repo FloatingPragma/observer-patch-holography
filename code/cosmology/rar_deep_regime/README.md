@@ -63,6 +63,51 @@ independent observable of collar charge and a calibrated map to acceleration.
 python3 code/cosmology/rar_deep_regime/held_galaxies.py
 ```
 
+### Can a single exterior profile fit individual rotation curves?
+
+The proposed density gives a constant anomalous contribution to squared
+orbital speed outside a compact baryonic source. We test this consequence
+using total photometric mass and the catalogue's radial Newtonian force
+from gas and stars. We select 151 deep-regime rings in 41 galaxies with no
+catalogued bulge contribution, beyond both four stellar disk scale lengths
+and the H I isodensity radius. These cuts are independent of measured speed.
+Gas can extend beyond that radius. Applying the compact-source asymptote
+here is a physical hypothesis. [SPARC tables and radius conventions](https://cdsarc.cds.unistra.fr/viz-bin/ReadMe/J/AJ/152/157?format=html&tex=true)
+
+| Distance and inclination allowance | Disk mass-to-light ratio | Lower bound on largest speed residual, in quoted errors |
+| --- | --- | ---: |
+| Catalogue values | 0.5 | 33.01 |
+| Within one quoted error | 0.4–0.6 | 6.00 |
+| Within two quoted errors | 0.4–0.6 | 3.32 |
+
+At the simultaneous 95% velocity threshold of 3.590 quoted errors, the
+one-error geometry box requires $a_0 \ge 1.373\times10^{-10}$ from NGC 0024
+and $a_0 \le 0.844\times10^{-10}\,\mathrm{m\,s^{-2}}$ from NGC 0801. In the
+two-error box, $a_0=1.146\times10^{-10}\,\mathrm{m\,s^{-2}}$ and one shared
+distance, inclination and disk mass-to-light ratio per galaxy reproduce all
+151 speeds within 3.590 quoted errors. The archive records those 41
+assignments and reprojects every speed. This is a feasibility result with
+a scale chosen from the data. The velocity threshold assumes marginal
+Gaussian errors and conditions on the chosen nuisance ranges. It gives no
+joint probability for the assigned distances, inclinations or stellar masses.
+[Galaxy assignments and bounds](receipts/held_galaxies.json)
+
+A second test fits the deep radial-acceleration scale on the **74 other**
+qualifying SPARC galaxies (584 radii) and transfers the result to all 41
+exterior galaxies. The fitted scale is $7.60\times10^{-11}\,\mathrm{m\,s^{-2}}$.
+Resampling the 74 training galaxies gives a 95% range of $(6.19,9.22)\times10^{-11}\,\mathrm{m\,s^{-2}}$ at catalogue inputs.
+With the fitted scale fixed, the largest exterior speed residual is at least
+6.25 quoted errors even in the two-error geometry box. This discrepancy
+tests transfer between the deep radial formula and its compact photometric
+exterior approximation on disjoint galaxies. [Fixed-scale transfer test](receipts/held_galaxies.json)
+
+For comparison, at the catalogue geometry a freely varying, nonnegative and
+nondecreasing spherical enclosed mass per galaxy accommodates all 151 speeds
+within 0.366 quoted errors. Including bulges extends that result to 237
+rings in 58 galaxies. The rotation data constrain the shape and normalization
+of the excess. Attribution to a modular source requires an independent
+charge observable linked to the same radii.
+
 ## Source-bound full-RAR calibration
 
 `sparc_full_rar_calibration.py` is deliberately separate from the conditional

@@ -41,6 +41,7 @@ def test_replay_accepts_only_complete_source_versions(tmp_path, monkeypatch):
     monkeypatch.setattr(channel, "REPLAY_GRAVITY_CAP", {})
     monkeypatch.setattr(channel, "REPLAY_NESTED_CAP", {})
     monkeypatch.setattr(channel, "REPLAY_JOINT_READ", {})
+    monkeypatch.setattr(channel, "REPLAY_DIRECTIONAL_CHARGE", {})
     for name in ("a", "b", "reader"):
         (tmp_path / name).write_bytes(b"old")
     channel.sources()
@@ -87,6 +88,10 @@ def test_replay_accepts_only_complete_source_versions(tmp_path, monkeypatch):
     joint = hashlib.sha256(b"joint").hexdigest()
     monkeypatch.setattr(channel, "REPLAY_JOINT_READ", {"b": joint})
     (tmp_path / "b").write_bytes(b"joint")
+    channel.sources()
+    directional = hashlib.sha256(b"directional").hexdigest()
+    monkeypatch.setattr(channel, "REPLAY_DIRECTIONAL_CHARGE", {"b": directional})
+    (tmp_path / "b").write_bytes(b"directional")
     channel.sources()
     (tmp_path / "a").write_bytes(b"gravity")
     with pytest.raises(ValueError):

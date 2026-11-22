@@ -71,7 +71,7 @@ Sources · [recovering_observer_spacetime_and_einstein_dynamics_from_overlap_con
 | [G2](EVIDENCE.md#g2) Cap modular charges measure the propagating matter stress | **Demonstrated** · [Regional modular energy predicted from repair across the boundary](../experiments/interval_echo_einstein_station/PAIR.md). Full criterion · Partial | Open | Open |
 | [G3](EVIDENCE.md#g3) Independent matter Ward identity | **Demonstrated** · [Patch energy continuity and the change in a seam current](../experiments/interval_echo_null_balance/README.md). Full criterion · Partial | Open | Open |
 | [G4](EVIDENCE.md#g4) Stationary generalized entropy at fixed proper volume | **Demonstrated** · [Interior repair changes entropy at a fixed boundary readout](../experiments/interval_echo_einstein_station/PAIR.md). Full criterion · Partial | Open | Open |
-| [G5](EVIDENCE.md#g5) Small-ball control and sufficient null directions | Partial | Open | Open |
+| [G5](EVIDENCE.md#g5) Small-ball control and sufficient null directions | **Demonstrated** · [Nine directions predict regional charge on the constant mode and slow triplet](../experiments/interval_echo_angular/README.md). Full criterion · Partial | Open | Open |
 | [G6](EVIDENCE.md#g6) Universal coupling and a shared positive Newton constant | Open | Open | Open |
 | [GR-NULL](EVIDENCE.md#gr-null) Null balance and tensor closure | Open | Open | Open |
 

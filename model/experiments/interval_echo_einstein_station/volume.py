@@ -19,6 +19,7 @@ from model.candidate_laws.contrast_memory_spherical_v1.sectors import (
 )
 from model.candidate_laws.interval_echo import candidate
 from model.executable_model import cell, federation
+from model.experiments.contact import radar
 from model.experiments.material_inertia.dark_collar import (
     common_pair_generator,
     label,
@@ -729,6 +730,343 @@ def joint_clock_experiment(readers, home, clock):
     )
 
 
+def radar_source_and_hand(board):
+    """Lift both source collars and an independent physical hand through the native gate."""
+    previous = json.loads(Path(__file__).with_name("backreaction.json").read_text())[
+        "correlated_contacts"
+    ]
+    source = previous["ordered_three_levels"]
+    a, b, c = previous["ports"]
+    marks = [(a, b), (b, c)]
+    hand = min(
+        edge for edge in board.seams if edge[1] < 12 and not set(edge) & {a, b, c}
+    )
+    marks.append(hand)
+    sites = tuple(sorted(set(range(12)) - {a, b, c, *hand})[:6])
+    law = candidate.native_law
+    exchange, contrast = law.local_term_parts()
+    native = exchange + candidate.KAPPA * contrast
+    energies = np.rint(source["source_energies"]).astype(int)
+    np.testing.assert_array_equal(energies, [0, 32, 33])
+    words = [law.SRC.index(w) for w in [(0, 0), (1, 0), (0, 1), (1, 1)]]
+    records = [label(0, 1), label(2, 1), label(2, -1)]
+    # Each marked word is scalar even when the single load reaches either endpoint.
+    for energy, memory in zip(energies, records, strict=True):
+        cols = np.kron(memory[:, None], np.eye(law.N_SRC)[:, words[:3]])
+        np.testing.assert_allclose(native @ cols, energy * cols, rtol=0, atol=2e-13)
+    h = candidate.generator(board).toarray()
+    blank = law.seam_term(candidate.KAPPA)[np.ix_(words[1:3], words[1:3])]
+    for edge in marks:
+        h[np.ix_(edge, edge)] -= blank
+    mixtures = (
+        np.array([row["source_units_of_1_over_36"] for row in source["arms"]]) / 36
+    )
+    tangent = (mixtures[2] - mixtures[0]) / 2
+    np.testing.assert_allclose(mixtures[1] + tangent, mixtures[2], atol=1e-15)
+    entropy_slope = -float(np.sum(tangent * np.log(mixtures[1])))
+    np.testing.assert_allclose(entropy_slope, np.log(3) / 12, atol=2e-15)
+    # Encode a sharp signed word by echo and remove the two metering units.
+    # At a successful reunion restore (1,1), read echo, then the enrolled quadrature.
+    both = np.eye(law.N_SRC)[:, words[3]]
+    levels = np.column_stack([np.kron(r, both) for r in records[1:]])
+    sharp = law.SRC.index((2, 0))
+    encoded = law.echo()[:, sharp]
+    initial = levels.T @ encoded
+    np.testing.assert_allclose(levels @ initial, encoded, rtol=0, atol=2e-14)
+    gap = energies[2] - energies[1]
+    n = np.arange(2, 2 * radar.TICKS + 1)
+    evolved = initial[:, None] * np.exp(
+        -1j * (energies[1:] - energies[1])[:, None] * radar.DT * n
+    )
+    decoded = law.echo() @ levels @ evolved
+    sine_read = expm(-1.5j * np.pi * native) @ decoded
+    yes = abs(np.vstack([decoded[sharp], sine_read[sharp]])) ** 2
+    np.testing.assert_allclose(
+        2 * yes - 1,
+        [np.cos(gap * radar.DT * n), np.sin(gap * radar.DT * n)],
+        atol=2e-13,
+    )
+    # Supply one metering load at each private spare after a successful return.
+    # Native swaps then feed the hand without touching the parked radar load.
+    swap = expm(-1j * np.pi * native)
+    rails = words[1:3]
+    np.testing.assert_allclose(
+        abs(swap[np.ix_(rails, rails)]) ** 2, [[0, 1], [1, 0]], atol=2e-13
+    )
+    spares = []
+    for site in sites:
+        eligible = set(range(12)) - {a, b, c, *hand, site}
+        spares.append(
+            min(
+                (p, q)
+                for p in board.neighbours[hand[0]]
+                if p in eligible
+                for q in board.neighbours[hand[1]]
+                if q in eligible and p != q
+            )
+        )
+    return (
+        h,
+        sites,
+        yes,
+        dict(
+            source_ports=[a, b, c],
+            hand_seam=hand,
+            terminal_spares_by_origin=spares,
+            source_word_energies=energies.tolist(),
+            hand_gap=int(gap),
+            source_units=np.rint(36 * mixtures).astype(int).tolist(),
+            interior_source_entropy_tangent=entropy_slope,
+            source_charge_tangent=source["arms"][2]["charge_change"],
+            source_derivatives="per unit epsilon at the middle preparation",
+        ),
+    )
+
+
+def five_site_rank_bound(lower, upper, relative_tolerance):
+    """All ten squared distances of a five-point subset vary independently in this box."""
+    subset = (0, 1, 2, 4, 5)
+    i, j = np.triu_indices(5, 1)
+    lo = ((1 - relative_tolerance) * lower[np.ix_(subset, subset)][i, j]) ** 2
+    hi = ((1 + relative_tolerance) * upper[np.ix_(subset, subset)][i, j]) ** 2
+    selectors = np.arange(1 << len(i))[:, None] & (1 << np.arange(len(i)))
+    squares = np.zeros((len(selectors), 5, 5))
+    squares[:, i, j] = squares[:, j, i] = np.where(selectors, hi, lo)
+    radii = squares[:, 0, 1:]
+    gram = (radii[:, :, None] + radii[:, None, :] - squares[:, 1:, 1:]) / 2
+    values, modes = np.linalg.eigh(gram)
+    rebuilt = (modes * values[:, None, :]) @ modes.transpose(0, 2, 1)
+    residual = float(np.linalg.norm(gram - rebuilt, axis=(1, 2)).max())
+    orthogonal = modes.transpose(0, 2, 1) @ modes - np.eye(4)
+    orthogonality_error = float(np.linalg.norm(orthogonal, axis=(1, 2)).max())
+    guard = 1e-9 * max(1, np.linalg.norm(gram, axis=(1, 2)).max())
+    if residual + abs(values).max() * orthogonality_error > guard / 10:
+        raise ValueError("Corner eigensolver exceeds its numerical guard")
+    # The anchor Gram depends affinely on the squared distances. Every box
+    # point is a convex combination of its vertices. A positive lower eigenvalue
+    # at every vertex forces four independent edge vectors throughout the box.
+    return dict(
+        site_indices=list(subset),
+        tolerance=relative_tolerance,
+        vertices=len(gram),
+        smallest_vertex_eigenvalue=float(values[:, 0].min()),
+        worst_vertex=int(values[:, 0].argmin()),
+        maximum_eigendecomposition_residual=residual,
+        maximum_orthogonality_error=orthogonality_error,
+        numerical_guard=float(guard),
+        excludes_three_dimensions=bool(np.all(values[:, 0] > guard)),
+    )
+
+
+def approximate_radar_embedding(distances, precision_run):
+    """Check a supplementary in-sample construction and its global lower bound."""
+    # Fifteen-distance minimax fit by SLSQP. Reproduction needs only these
+    # coordinates, the measured distances and the independent Gram lower bound.
+    xyz = np.array(
+        [
+            [0.50788223, 0.98866613, -1.72882015],
+            [1.00278738, -0.04574380, 1.27493344],
+            [-0.78366558, -0.39789148, 1.46656876],
+            [0.21597213, -1.65505773, 0.01993595],
+            [-0.56376765, -0.46392804, -2.00488774],
+            [-0.37920849, 1.57395501, 0.97226975],
+        ]
+    )
+    fit = np.linalg.norm(xyz[:, None] - xyz, axis=2)
+    i, j = np.triu_indices(6, 1)
+    errors = abs(fit[i, j] / distances[i, j] - 1)
+    fit_bound = five_site_rank_bound(distances, distances, 0.0442663)
+    sample_bound = five_site_rank_bound(
+        np.array(precision_run["distance_confidence_lower"]),
+        np.array(precision_run["distance_confidence_upper"]),
+        0.034,
+    )
+    if (
+        not fit_bound["excludes_three_dimensions"]
+        or not sample_bound["excludes_three_dimensions"]
+    ):
+        raise ValueError(
+            "Five-site rank obstruction did not exceed its numerical guard"
+        )
+    if errors.max() > 0.0442665:
+        raise ValueError("The coordinates exceed the claimed all-dyad relative error")
+    return dict(
+        sites_used_in_fit=6,
+        distances_used_in_fit=15,
+        coordinates=xyz.tolist(),
+        relative_errors=errors.tolist(),
+        maximum_relative_error=float(errors.max()),
+        exact_ensemble_lower_bound=fit_bound,
+        material_hand_interval_lower_bound=sample_bound,
+    )
+
+
+def radar_geometry():
+    """One-load projective first-hit histories with an independently decoded material clock."""
+    board = federation(0)
+    h, sites, hand_yes, source = radar_source_and_hand(board)
+    dt, ticks = radar.DT, radar.TICKS
+    unitary = radar._unitary(h, dt)
+    legs = radar.first_hit(unitary, sites, ticks)
+    np.testing.assert_allclose(
+        legs, radar.renewal_prediction(unitary, sites, ticks), rtol=0, atol=5e-13
+    )
+    joint = radar.round_trip_law(legs)
+    exact, _ = radar.distance_statistics(joint, dt)
+    geometry = radar.geometry_test(exact)
+    x = np.arange(6) / 5
+    xyz = np.column_stack((x, x**2, x**3))
+    calibration = radar.geometry_test(np.linalg.norm(xyz[:, None] - xyz, axis=2))
+    if not calibration["all_pairs_accepted"]:
+        raise ValueError(
+            "The radar calibration failed on a known three-dimensional geometry"
+        )
+
+    acquisitions = [
+        sample_material_radar(source, hand_yes, legs, joint, shots, seed)
+        for shots, seed in ((131072, 2026112214), (4194304, 2026112215))
+    ]
+    return dict(
+        cells=board.n // 12,
+        ports=board.n,
+        sites=sites,
+        source=source,
+        interval=dt,
+        attempts_per_leg=ticks,
+        exact_distances=exact.tolist(),
+        exact_held_geometry=geometry,
+        euclidean_calibration_accepted=calibration["accepted_pairs"],
+        exact_spectral_bound=radar.euclidean_error_bound(exact),
+        acquisitions=acquisitions,
+        approximate_embedding=approximate_radar_embedding(exact, acquisitions[1]),
+    )
+
+
+def sample_material_radar(source, hand_yes, legs, joint, shots, seed):
+    """Decode returned material hands and bound the fifteen conditional distance means."""
+    rng = np.random.default_rng(seed)
+    dt, ticks = radar.DT, radar.TICKS
+    n = np.arange(2, 2 * ticks + 1)
+    handset = np.zeros((2, len(n), 2), dtype=np.int64)
+    by_pair = np.zeros((6, 6, len(n)), dtype=np.int64)
+    bins = np.add.outer(np.arange(ticks), np.arange(ticks)).ravel()
+    failures = np.zeros((3, 2, 6, 6, 3), dtype=np.int64)
+    digest = hashlib.sha256()
+    successes = []
+    for left in range(6):
+        for right in range(6):
+            if left == right:
+                continue
+            p = joint[left, right]
+            returned = np.bincount(bins, weights=p[:-1, :-1].ravel(), minlength=len(n))
+            successes.append(float(returned.sum()))
+            for arm in range(3):
+                for axis, yes in enumerate(hand_yes):
+                    categories = np.r_[
+                        p[-1, -1],
+                        p[:-1, -1].sum(),
+                        returned * yes,
+                        returned * (1 - yes),
+                    ]
+                    if int(np.argmax(categories)) > 1:
+                        raise ValueError(
+                            "The rounding-remainder bin must lie outside the clock observations"
+                        )
+                    weights = radar.acquisition_weights(categories)
+                    counts = rng.multinomial(shots, weights / radar.LATTICE)
+                    digest.update(counts.astype("<i8").tobytes())
+                    retained = counts[2:].reshape(2, len(n)).T
+                    handset[axis] += retained
+                    by_pair[left, right] += retained.sum(axis=1)
+                    failures[arm, axis, left, right] = [
+                        counts[0],
+                        counts[1],
+                        retained.sum(),
+                    ]
+    np.testing.assert_array_equal(
+        failures.sum(axis=-1)[:, :, ~np.eye(6, dtype=bool)], shots
+    )
+    hand_counts = handset.sum(axis=-1)
+    if np.any(hand_counts == 0):
+        raise ValueError("A returned duration bin has no physical hand records")
+    xy = 2 * handset[:, :, 0] / hand_counts - 1
+    phases = np.unwrap(np.arctan2(xy[1], xy[0]))
+    # 46 conditional binary means share half the family error budget. Rounding
+    # the acquisition table changes each conditional binary probability by at
+    # most three lattice units divided by its physical duration-bin mass.
+    masses = [
+        np.convolve(legs[i, j, :-1], legs[j, i, :-1])
+        for i in range(6)
+        for j in range(6)
+        if i != j
+    ]
+    min_bin = np.min(masses, axis=0)
+    if np.any(min_bin <= 3 / radar.LATTICE):
+        raise ValueError(
+            "Insufficient true probability to bound material-hand rounding bias"
+        )
+    alpha = radar.CONFIDENCE_ALPHA
+    xy_radius = 2 * (
+        np.sqrt(np.log(4 * hand_counts.size / alpha) / (2 * hand_counts))
+        + 3 / (radar.LATTICE * min_bin - 3)
+    )
+    disk = np.linalg.norm(xy_radius, axis=0)
+    if np.any(disk >= 1):
+        raise ValueError("Quadratures fail to resolve the enrolled duration bins")
+    phase_radius = np.arcsin(disk)
+    if abs(phases[0]) + phase_radius[0] >= np.pi or np.any(
+        abs(np.diff(phases)) + phase_radius[:-1] + phase_radius[1:] >= np.pi
+    ):
+        raise ValueError(
+            "The adjacent material clock intervals do not identify a winding"
+        )
+    durations = phases / source["hand_gap"]
+    sym = by_pair + by_pair.transpose(1, 0, 2)
+    population = sym.sum(axis=2)
+    weights = sym / np.maximum(1, population)[:, :, None]
+    measured = weights @ (durations / 2)
+    # Half-trip times are in [dt,ticks*dt]. The existing two-preparation bound
+    # covers 30 dyads; using 15 consumes at most the other half of alpha.
+    calendar = weights @ (dt * n / 2)
+    # Categories rounded to the acquisition lattice have <= 48/LATTICE total L1 error.
+    # A returned conditional mean has bias <= range*error/(P(return)-error).
+    error = (2 + 2 * len(n)) / radar.LATTICE
+    rounding = (ticks - 1) * dt * error / (min(successes) - error)
+    calendar_intervals, _, _ = radar.confidence_envelopes(
+        calendar, population, dt, ticks
+    )
+    uncertainty = (
+        np.array(calendar_intervals["statistical_half_width"])
+        + weights @ (phase_radius / (2 * source["hand_gap"]))
+        + rounding * (1 - np.eye(6))
+    )
+    lower, upper = np.maximum(0, measured - uncertainty), measured + uncertainty
+    sampled_bound = radar.euclidean_error_bound(measured, lower, upper)
+    return dict(
+        shots_per_arm_direction_and_hand_setting=shots,
+        seed=seed,
+        clock_settings=["cosine", "sine"],
+        acquisition_digest=digest.hexdigest(),
+        count_columns=["outbound_timeout", "return_timeout", "both_hits"],
+        counts_by_arm_and_clock=failures.sum(axis=(2, 3)).tolist(),
+        counts_by_direction=failures.sum(axis=(0, 1)).tolist(),
+        duration_bins=n.tolist(),
+        hand_counts_setting_duration_yes_no=handset.tolist(),
+        measured_hand_phase=phases.tolist(),
+        phase_confidence_radii=phase_radius.tolist(),
+        successes_by_unordered_pair_duration=[
+            sym[i, j].tolist() for i in range(6) for j in range(i + 1, 6)
+        ],
+        exact_return_probability_range=[min(successes), max(successes)],
+        distance_units="half round-trip material hand radians / native hand gap",
+        sampled_hand_distances=measured.tolist(),
+        distance_confidence_lower=lower.tolist(),
+        distance_confidence_upper=upper.tolist(),
+        simultaneous_failure_probability=alpha,
+        sampled_hand_spectral_bound=sampled_bound,
+    )
+
+
 def run():
     modes, readers, certificate = native_modes()
     screens = census(modes)
@@ -790,6 +1128,7 @@ def run():
         interior_clock=clock,
         entering_probe=crossing_probe(modes, home),
         joint_clock=joint_clock_experiment(readers, home, clock),
+        radar_geometry=radar_geometry(),
     )
 
 

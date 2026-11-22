@@ -191,5 +191,391 @@
     "median_individual_btfr_log_scale_increase_dex": 0.3818529507730819,
     "mean_log10_geometry_ratio": 0.050913602677999006,
     "scope": "Single-ring ratio only. The published channel A fit also uses interior deep radii."
+  },
+  "compact_exterior_profile": {
+    "selection": "Bulge absent at every catalogue ring, quality <= 2, inclination >= 30 deg, measured positive disk scale length and HI isodensity radius, R >= max(4 Rdisk, RHI), nominal 0 < gbar < 1.2e-11 m/s^2. Includes every qualifying speed regardless of error or excess sign.",
+    "model": "V^2 = Vgas|Vgas| + Upsilon Vdisk|Vdisk| + sqrt(G Mphot a0), in consistent units. Mphot = Upsilon L_3.6 + 1.33 M_HI. Angular geometry and photometric flux held fixed as D varies. One common a0. RHI is the 1 solar mass/pc^2 crossing. An exterior compact source and settled spherical cuts are additional hypotheses.",
+    "geometry_boxes": "Widths multiply quoted distance and inclination errors. Width 0 uses Upsilon=0.5. Nonzero widths use [0.4,0.6]. Necessary intervals release shared parameters by ring. Witness uses one distance, inclination and mass-to-light ratio per galaxy.",
+    "simultaneous_velocity_threshold": "Bonferroni two-sided 95% threshold conditional on marginal Gaussian catalogue speed errors, selection and nuisance boxes. Includes no joint probability model for geometry, baryonic systematics or noncircular motions.",
+    "galaxies": 41,
+    "rings": 151,
+    "quoted_velocity_error_threshold": 3.5896471836599466,
+    "sensitivity_by_nuisance_box_width": {
+      "0": {
+        "minimum_maximum_velocity_error_lower_bound": 33.00679991180759,
+        "required_min_a0_m_s2": 3.2411545872520146e-10,
+        "largest_lower_bound_galaxy": "ESO444-G084",
+        "allowed_max_a0_m_s2": 4.358122464463577e-11,
+        "smallest_upper_bound_galaxy": "NGC0801"
+      },
+      "1": {
+        "minimum_maximum_velocity_error_lower_bound": 5.999464190696339,
+        "required_min_a0_m_s2": 1.372583659972302e-10,
+        "largest_lower_bound_galaxy": "NGC0024",
+        "allowed_max_a0_m_s2": 8.44058109068969e-11,
+        "smallest_upper_bound_galaxy": "NGC0801"
+      },
+      "2": {
+        "minimum_maximum_velocity_error_lower_bound": 3.31584089221528,
+        "required_min_a0_m_s2": 1.1153823794347996e-10,
+        "largest_lower_bound_galaxy": "NGC0024",
+        "allowed_max_a0_m_s2": 1.1767653783900897e-10,
+        "smallest_upper_bound_galaxy": "NGC0801"
+      }
+    },
+    "two_error_box_constructive_scale_m_s2": 1.1458683648741261e-10,
+    "two_error_box_shared_parameter_witness": [
+      {
+        "galaxy": "DDO154",
+        "rings": 2,
+        "distance_mpc": 3.764557635429839,
+        "inclination_deg": 59.53777355981244,
+        "disk_mass_to_light": 0.4,
+        "maximum_absolute_velocity_residual_in_quoted_errors": 1.9070678103415761
+      },
+      {
+        "galaxy": "DDO161",
+        "rings": 6,
+        "distance_mpc": 6.039220091382697,
+        "inclination_deg": 59.317943823566594,
+        "disk_mass_to_light": 0.4,
+        "maximum_absolute_velocity_residual_in_quoted_errors": 0.430777740504581
+      },
+      {
+        "galaxy": "DDO170",
+        "rings": 3,
+        "distance_mpc": 12.429259548873592,
+        "inclination_deg": 60.47507217688387,
+        "disk_mass_to_light": 0.4,
+        "maximum_absolute_velocity_residual_in_quoted_errors": 1.9842590628702972
+      },
+      {
+        "galaxy": "ESO116-G012",
+        "rings": 1,
+        "distance_mpc": 16.631772465589716,
+        "inclination_deg": 72.68713135574674,
+        "disk_mass_to_light": 0.4,
+        "maximum_absolute_velocity_residual_in_quoted_errors": 1.2373658581373495
+      },
+      {
+        "galaxy": "ESO444-G084",
+        "rings": 2,
+        "distance_mpc": 5.42651879930729,
+        "inclination_deg": 42.14353693148949,
+        "disk_mass_to_light": 0.4,
+        "maximum_absolute_velocity_residual_in_quoted_errors": 0.9608099117384044
+      },
+      {
+        "galaxy": "F565-V2",
+        "rings": 1,
+        "distance_mpc": 57.522581099308226,
+        "inclination_deg": 57.774215518721235,
+        "disk_mass_to_light": 0.4,
+        "maximum_absolute_velocity_residual_in_quoted_errors": 1.643388471188203
+      },
+      {
+        "galaxy": "F568-V1",
+        "rings": 1,
+        "distance_mpc": 80.6,
+        "inclination_deg": 32.53085098053599,
+        "disk_mass_to_light": 0.4,
+        "maximum_absolute_velocity_residual_in_quoted_errors": 2.2614591681720855
+      },
+      {
+        "galaxy": "F571-V1",
+        "rings": 2,
+        "distance_mpc": 80.1,
+        "inclination_deg": 26.70762742299906,
+        "disk_mass_to_light": 0.4,
+        "maximum_absolute_velocity_residual_in_quoted_errors": 1.3594614207923499
+      },
+      {
+        "galaxy": "F583-1",
+        "rings": 1,
+        "distance_mpc": 23.917506594663777,
+        "inclination_deg": 60.09988213638831,
+        "disk_mass_to_light": 0.4,
+        "maximum_absolute_velocity_residual_in_quoted_errors": 1.3126322366670575
+      },
+      {
+        "galaxy": "NGC0024",
+        "rings": 3,
+        "distance_mpc": 8.019898016336676,
+        "inclination_deg": 69.99899912581037,
+        "disk_mass_to_light": 0.584,
+        "maximum_absolute_velocity_residual_in_quoted_errors": 3.5891985650725546
+      },
+      {
+        "galaxy": "NGC0289",
+        "rings": 8,
+        "distance_mpc": 15.755168375249756,
+        "inclination_deg": 42.6962161683584,
+        "disk_mass_to_light": 0.4,
+        "maximum_absolute_velocity_residual_in_quoted_errors": 1.9048933007964826
+      },
+      {
+        "galaxy": "NGC0300",
+        "rings": 6,
+        "distance_mpc": 2.08,
+        "inclination_deg": 48.64367899368649,
+        "disk_mass_to_light": 0.4,
+        "maximum_absolute_velocity_residual_in_quoted_errors": 0.30082819474877925
+      },
+      {
+        "galaxy": "NGC0801",
+        "rings": 2,
+        "distance_mpc": 64.72441258655336,
+        "inclination_deg": 78.34709269109858,
+        "disk_mass_to_light": 0.4,
+        "maximum_absolute_velocity_residual_in_quoted_errors": 3.3686548488302366
+      },
+      {
+        "galaxy": "NGC2403",
+        "rings": 12,
+        "distance_mpc": 3.4676852773674316,
+        "inclination_deg": 68.73631092888652,
+        "disk_mass_to_light": 0.4,
+        "maximum_absolute_velocity_residual_in_quoted_errors": 3.0031483494420033
+      },
+      {
+        "galaxy": "NGC2903",
+        "rings": 2,
+        "distance_mpc": 7.1962141292934465,
+        "inclination_deg": 64.8988744474815,
+        "disk_mass_to_light": 0.4,
+        "maximum_absolute_velocity_residual_in_quoted_errors": 0.42326406894805046
+      },
+      {
+        "galaxy": "NGC2915",
+        "rings": 9,
+        "distance_mpc": 4.214412022981358,
+        "inclination_deg": 60.71684536823609,
+        "disk_mass_to_light": 0.4,
+        "maximum_absolute_velocity_residual_in_quoted_errors": 2.9075104838138084
+      },
+      {
+        "galaxy": "NGC3109",
+        "rings": 1,
+        "distance_mpc": 1.3431290791484805,
+        "inclination_deg": 69.5770246595686,
+        "disk_mass_to_light": 0.4,
+        "maximum_absolute_velocity_residual_in_quoted_errors": 2.028018178155056
+      },
+      {
+        "galaxy": "NGC3198",
+        "rings": 5,
+        "distance_mpc": 12.24863598417731,
+        "inclination_deg": 71.73074780467918,
+        "disk_mass_to_light": 0.4,
+        "maximum_absolute_velocity_residual_in_quoted_errors": 0.7286437903381255
+      },
+      {
+        "galaxy": "NGC3726",
+        "rings": 3,
+        "distance_mpc": 16.121218079912786,
+        "inclination_deg": 52.502253203774906,
+        "disk_mass_to_light": 0.4,
+        "maximum_absolute_velocity_residual_in_quoted_errors": 0.6867123944884078
+      },
+      {
+        "galaxy": "NGC3741",
+        "rings": 7,
+        "distance_mpc": 3.1828523663748634,
+        "inclination_deg": 67.71733442372178,
+        "disk_mass_to_light": 0.4,
+        "maximum_absolute_velocity_residual_in_quoted_errors": 1.9297742164508918
+      },
+      {
+        "galaxy": "NGC3769",
+        "rings": 3,
+        "distance_mpc": 16.379659225613405,
+        "inclination_deg": 69.47071864694743,
+        "disk_mass_to_light": 0.4,
+        "maximum_absolute_velocity_residual_in_quoted_errors": 1.0034924803350638
+      },
+      {
+        "galaxy": "NGC3917",
+        "rings": 1,
+        "distance_mpc": 16.539528769790103,
+        "inclination_deg": 78.22727973677648,
+        "disk_mass_to_light": 0.4,
+        "maximum_absolute_velocity_residual_in_quoted_errors": 1.529488279168091
+      },
+      {
+        "galaxy": "NGC3992",
+        "rings": 2,
+        "distance_mpc": 25.199943378617156,
+        "inclination_deg": 55.513731630059645,
+        "disk_mass_to_light": 0.4,
+        "maximum_absolute_velocity_residual_in_quoted_errors": 0.49478666901667945
+      },
+      {
+        "galaxy": "NGC4100",
+        "rings": 2,
+        "distance_mpc": 16.416223135394084,
+        "inclination_deg": 72.4247884045328,
+        "disk_mass_to_light": 0.4,
+        "maximum_absolute_velocity_residual_in_quoted_errors": 0.463427283793613
+      },
+      {
+        "galaxy": "NGC4183",
+        "rings": 5,
+        "distance_mpc": 15.661238056769102,
+        "inclination_deg": 81.00893402858456,
+        "disk_mass_to_light": 0.4,
+        "maximum_absolute_velocity_residual_in_quoted_errors": 0.44855390609534573
+      },
+      {
+        "galaxy": "NGC5055",
+        "rings": 7,
+        "distance_mpc": 9.9,
+        "inclination_deg": 45.59809969409145,
+        "disk_mass_to_light": 0.4,
+        "maximum_absolute_velocity_residual_in_quoted_errors": 0.8535870876917591
+      },
+      {
+        "galaxy": "NGC5585",
+        "rings": 1,
+        "distance_mpc": 6.316764147697469,
+        "inclination_deg": 50.49158038473486,
+        "disk_mass_to_light": 0.4,
+        "maximum_absolute_velocity_residual_in_quoted_errors": 0.5797765624363806
+      },
+      {
+        "galaxy": "NGC6015",
+        "rings": 10,
+        "distance_mpc": 18.584465398932473,
+        "inclination_deg": 59.519929149497685,
+        "disk_mass_to_light": 0.4,
+        "maximum_absolute_velocity_residual_in_quoted_errors": 1.004513237962637
+      },
+      {
+        "galaxy": "NGC6503",
+        "rings": 13,
+        "distance_mpc": 6.505743924750722,
+        "inclination_deg": 73.40388531794447,
+        "disk_mass_to_light": 0.4,
+        "maximum_absolute_velocity_residual_in_quoted_errors": 1.3993528330107523
+      },
+      {
+        "galaxy": "UGC00128",
+        "rings": 9,
+        "distance_mpc": 65.03508169259811,
+        "inclination_deg": 55.182677772061524,
+        "disk_mass_to_light": 0.4,
+        "maximum_absolute_velocity_residual_in_quoted_errors": 2.881314816000766
+      },
+      {
+        "galaxy": "UGC00634",
+        "rings": 1,
+        "distance_mpc": 32.00812345225171,
+        "inclination_deg": 36.45286719815933,
+        "disk_mass_to_light": 0.4,
+        "maximum_absolute_velocity_residual_in_quoted_errors": 0.4156792826584203
+      },
+      {
+        "galaxy": "UGC00891",
+        "rings": 1,
+        "distance_mpc": 11.333340219873037,
+        "inclination_deg": 57.10736548216202,
+        "disk_mass_to_light": 0.4,
+        "maximum_absolute_velocity_residual_in_quoted_errors": 0.28755061846082625
+      },
+      {
+        "galaxy": "UGC02259",
+        "rings": 1,
+        "distance_mpc": 14.16452108181819,
+        "inclination_deg": 41.503959093444564,
+        "disk_mass_to_light": 0.4,
+        "maximum_absolute_velocity_residual_in_quoted_errors": 0.6389572909410409
+      },
+      {
+        "galaxy": "UGC05005",
+        "rings": 2,
+        "distance_mpc": 53.7,
+        "inclination_deg": 30.67320612148115,
+        "disk_mass_to_light": 0.4,
+        "maximum_absolute_velocity_residual_in_quoted_errors": 1.8150780981169063
+      },
+      {
+        "galaxy": "UGC05716",
+        "rings": 2,
+        "distance_mpc": 22.592319805756222,
+        "inclination_deg": 47.48635847275185,
+        "disk_mass_to_light": 0.4,
+        "maximum_absolute_velocity_residual_in_quoted_errors": 1.1686954223641963
+      },
+      {
+        "galaxy": "UGC05721",
+        "rings": 1,
+        "distance_mpc": 7.800420974004222,
+        "inclination_deg": 58.10936256962848,
+        "disk_mass_to_light": 0.4,
+        "maximum_absolute_velocity_residual_in_quoted_errors": 1.275292410218794
+      },
+      {
+        "galaxy": "UGC05750",
+        "rings": 1,
+        "distance_mpc": 46.82907664336609,
+        "inclination_deg": 50.847541484388564,
+        "disk_mass_to_light": 0.4,
+        "maximum_absolute_velocity_residual_in_quoted_errors": 0.8408351657769696
+      },
+      {
+        "galaxy": "UGC06818",
+        "rings": 1,
+        "distance_mpc": 16.355418887872325,
+        "inclination_deg": 73.63617529876981,
+        "disk_mass_to_light": 0.4,
+        "maximum_absolute_velocity_residual_in_quoted_errors": 0.35374279139264075
+      },
+      {
+        "galaxy": "UGC08490",
+        "rings": 7,
+        "distance_mpc": 4.940881752652385,
+        "inclination_deg": 49.62172121621675,
+        "disk_mass_to_light": 0.4,
+        "maximum_absolute_velocity_residual_in_quoted_errors": 1.3152138037870809
+      },
+      {
+        "galaxy": "UGC11820",
+        "rings": 2,
+        "distance_mpc": 18.991642681293275,
+        "inclination_deg": 38.66072958328509,
+        "disk_mass_to_light": 0.4,
+        "maximum_absolute_velocity_residual_in_quoted_errors": 2.135679558149737
+      },
+      {
+        "galaxy": "UGCA442",
+        "rings": 2,
+        "distance_mpc": 4.470721867852516,
+        "inclination_deg": 70.48830346556352,
+        "disk_mass_to_light": 0.4,
+        "maximum_absolute_velocity_residual_in_quoted_errors": 0.22214063615399263
+      }
+    ],
+    "nonnegative_nondecreasing_enclosed_mass_control": {
+      "method": "At nominal geometry permit any nonnegative nondecreasing spherical mass per galaxy. At each ordered radius R, intersect the interval R[(V +/- k e)^2 - Vbar^2] with all preceding lower bounds and zero. Truncate the lower velocity endpoint at zero. Duplicate radii must share a mass. Fold fixed bulge M/L 0.7 into Vbar for the extended sample.",
+      "compact_sample_minimum_maximum_velocity_error": 0.3654198529384637,
+      "including_bulges_galaxies": 58,
+      "including_bulges_rings": 237,
+      "including_bulges_minimum_maximum_velocity_error": 0.3654198529384637
+    },
+    "amplitude_transfer_from_disjoint_galaxies": {
+      "training": "Same primary deep radial cut and equal-galaxy log-acceleration loss as the five-fold analysis. Exclude every exterior test galaxy. Transfer its single fitted a0 from gobs = gbar + sqrt(gbar a0) to the compact photometric exterior profile.",
+      "training_galaxies": 74,
+      "training_radii": 584,
+      "fitted_a0_m_s2": 7.602958639130262e-11,
+      "training_galaxy_bootstrap": "2000 galaxy-cluster resamples with replacement, refitting each calibration, seed 20261123. Conditions on the catalogue inputs.",
+      "training_galaxy_bootstrap_a0_95pct_m_s2": [
+        6.192209903394043e-11,
+        9.22122725278511e-11
+      ],
+      "minimum_maximum_velocity_error_lower_bound_by_geometry_box": {
+        "0": 47.426069120093175,
+        "1": 13.709933049875747,
+        "2": 6.2535991652143545
+      }
+    }
   }
 }

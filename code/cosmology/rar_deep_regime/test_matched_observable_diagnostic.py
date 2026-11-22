@@ -21,6 +21,7 @@ import pytest
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 
+import exterior_profile  # noqa: E402
 import matched_observable_diagnostic as mod  # noqa: E402
 import rar_deep_regime_diagnostic as base  # noqa: E402
 
@@ -281,3 +282,33 @@ def test_independent_verifier_passes() -> None:
     )
     assert proc.returncode == 0, proc.stdout + proc.stderr
     assert proc.stdout.startswith("PASS")
+
+
+def test_exterior_shared_scale_and_mutated_galaxy():
+    t1, t2 = synthetic_tables()
+    for meta in t1:
+        meta.update(dist_mpc=10, e_dist_mpc=1, disk_scale_kpc=1, hi_radius_kpc=3)
+    groups = exterior_profile.exterior_rings(t1, t2)
+    low, high = exterior_profile.scale_constraints(groups, width=0, k=0)
+    assert low[0] ** 2 == pytest.approx(A0_TRUE, rel=1e-12, abs=0)
+    assert high[0] ** 2 == pytest.approx(A0_TRUE, rel=1e-12, abs=0)
+    assert exterior_profile.joint_witness(groups, width=2, k=0.01, a0=A0_TRUE)
+    for ring in t2:
+        if ring["name"] == t1[0]["name"]:
+            ring["vobs_kms"] *= 2
+    changed = exterior_profile.exterior_rings(t1, t2)
+    assert exterior_profile.scale_gap(changed, width=1, k=1) > 0
+
+
+def test_generic_enclosed_mass_checks_neighbours_and_repeated_radii():
+    # M in arbitrary units is r V^2 here. Tied radii need the same M.
+    rings = np.array([[1, 1, 2], [2, 4, 6], [1, 1, 1], [0, 0, 0], [0, 0, 0]])
+    assert exterior_profile.minimum_error(
+        lambda k: exterior_profile.monotone_mass_gap([(None, rings)], k)
+    ) == pytest.approx(1)
+    # Endpoints can enclose different masses in decreasing radius order only by
+    # shifting measured speeds until the enclosed masses are ordered.
+    rings = np.array([[1, 2], [4, 1], [1, 1], [0, 0], [0, 0]])
+    assert exterior_profile.minimum_error(
+        lambda k: exterior_profile.monotone_mass_gap([(None, rings)], k)
+    ) == pytest.approx((4 - np.sqrt(2)) / (1 + np.sqrt(2)))

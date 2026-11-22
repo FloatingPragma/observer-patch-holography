@@ -367,6 +367,160 @@ def ordered_collar_control(
     )
 
 
+def joint_clock_lapse(board, ports, native, records, source, splitter, inverse):
+    """Test whether the contact fringe is a relabelled time on a local material hand."""
+    from scipy.linalg import expm
+    from model.experiments.material_inertia.dark_collar import label
+
+    a, b, c = ports
+    used = {a, b, c, *source["spare_ports"]}
+    clock_edge = next(
+        (u, v)
+        for u, v in board.seams
+        if u // 12 == a // 12 == v // 12 and not {u, v} & used
+    )
+    single = [law.SRC.index(w) for w in ((1, 0), (0, 1))]
+    clock_h = native[np.ix_(single, single)]
+    clock_gap = float(np.diff(np.linalg.eigvalsh(clock_h))[0])
+    energy = np.asarray(source["source_energies"])
+    harmonic = np.rint((energy[:, None] - energy[None, :]) / clock_gap).astype(int)
+    np.testing.assert_allclose(
+        harmonic * clock_gap, energy[:, None] - energy[None, :], atol=5e-13
+    )
+    clock = np.stack([np.eye(2), expm(-1j * (3 * np.pi / 2) * clock_h)])
+    # These two probe arms share the parked central load. Both marked
+    # generators are diagonal on this native reducing subspace.
+    inputs = np.eye(law.N_SRC)[:, [law.SRC.index((1, 1)), law.SRC.index((0, 1))]]
+    lifts = [np.kron(label(d, parity)[:, None], inputs) for d, parity in records]
+    bias_phase = KAPPA * (6 - board.degree[a]) * source["quadrature_reference_exposure"]
+    bias = np.exp(-1j * np.outer([0, bias_phase], [1, 0]))
+    cycle = harmonic[[0, 1, 2], [1, 2, 0]]
+    rng = np.random.default_rng(2026112223)
+    shots = 2**20
+    signs = np.array([1, -1])
+    values = np.array([[x, y] for x in signs for y in signs])
+    result = []
+    for t in (np.pi / 66, np.pi / 44, np.pi / 16, np.pi / 3):
+        contact = expm(-1j * t * native)
+        phases = []
+        for lift in lifts:
+            diagonal = np.diag(lift.conj().T @ contact @ lift)
+            np.testing.assert_allclose(
+                contact @ lift, lift * diagonal, rtol=0, atol=3e-13
+            )
+            phases.append(diagonal)
+        hand = abs(clock @ expm(-1j * t * clock_h)[:, 0]) ** 2
+        probe = np.empty((3, 3, 2, 2))
+        for i, left in enumerate(phases):
+            for j, right in enumerate(phases):
+                state = left * right[::-1] * splitter[:, 0]
+                for q in (0, 1):
+                    probe[i, j, q] = abs(inverse @ (bias[q] * state)) ** 2
+        row = []
+        for arm in source["arms"]:
+            weights = np.array(arm["source_units_of_1_over_36"]) / 36
+            forecast = np.array(arm["source_word_counts"]) / source["shots_per_setting"]
+            response = np.einsum("ij,ijqy->qy", weights, probe)
+            # Every trial records the hand and probe after a concurrent service.
+            # The generator and terminal effects factor across disjoint registers.
+            counts = np.empty((2, 2, 2, 2), dtype=int)
+            means = np.zeros(4)
+            cov = np.zeros((4, 4))
+            for p in (0, 1):
+                for q in (0, 1):
+                    probabilities = np.outer(hand[p], response[q]).ravel()
+                    np.testing.assert_allclose(probabilities.sum(), 1, atol=5e-13)
+                    hist = rng.multinomial(shots, probabilities / probabilities.sum())
+                    counts[p, q] = hist.reshape(2, 2)
+                    freq = hist / shots
+                    m = freq @ values
+                    ix = [p, 2 + q]
+                    means[ix] += m / 2
+                    centred = values - m
+                    cov[np.ix_(ix, ix)] += (centred.T * freq) @ centred / (4 * shots)
+            # The appointment does not enter the clock inversion or the forecast.
+            phase = float(np.arctan2(means[1], means[0]))
+            gradient = np.array([-means[1], means[0]]) / sum(means[:2] ** 2)
+            phase_se = float(np.sqrt(gradient @ cov[:2, :2] @ gradient))
+            predicted = np.exp(1j * harmonic * phase)
+            contrast = np.sum(forecast * predicted)
+            tangent = np.sum(1j * harmonic * forecast * predicted)
+            derivative = np.column_stack(
+                (-np.outer([tangent.real, tangent.imag], gradient), np.eye(2))
+            )
+            # Source-word calibration has independent multinomial error.
+            ray = np.stack([predicted.real.ravel(), predicted.imag.ravel()], axis=1)
+            ray -= forecast.ravel() @ ray
+            error = (
+                derivative @ cov @ derivative.T
+                + (ray.T * forecast.ravel()) @ ray / source["shots_per_setting"]
+            )
+            exact = np.sum(weights * np.exp(1j * harmonic * clock_gap * t))
+            np.testing.assert_allclose(
+                response @ signs, [exact.real, exact.imag], rtol=0, atol=4e-13
+            )
+            # The signed response reads source charge within this particular
+            # three-arm family. Abstain when the calibrated odd fringe is weak.
+            cycle_response = float(np.sin(cycle * phase).sum())
+            inverse_charge = None
+            if abs(cycle_response) >= 1.0:
+                slope = float(cycle @ np.cos(cycle * phase))
+                log_unit = np.log(3) / 12
+                direction = 2 - 18 * means[3] / cycle_response
+                jacobian = (
+                    18
+                    * log_unit
+                    * np.r_[
+                        means[3] * slope * gradient / cycle_response**2,
+                        0,
+                        -1 / cycle_response,
+                    ]
+                )
+                inverse_charge = dict(
+                    nats=float(log_unit * direction),
+                    se_nats=float(np.sqrt(jacobian @ cov @ jacobian)),
+                )
+            row.append(
+                dict(
+                    direction=arm["direction"],
+                    counts=counts.tolist(),
+                    inverse_charge=inverse_charge,
+                    clock_phase=phase,
+                    clock_phase_se=phase_se,
+                    measured_fringe=means[2:].tolist(),
+                    predicted_fringe=[float(contrast.real), float(contrast.imag)],
+                    difference=(means[2:] - [contrast.real, contrast.imag]).tolist(),
+                    difference_se=np.sqrt(error.diagonal()).tolist(),
+                    fringe_se=np.sqrt(cov.diagonal()[2:]).tolist(),
+                )
+            )
+        result.append(dict(appointment=float(t), arms=row))
+    moments = []
+    for arm in source["arms"]:
+        units = np.array(arm["source_units_of_1_over_36"])
+        moments.append([int(np.sum(units * harmonic**power)) for power in (1, 2, 3)])
+    np.testing.assert_array_equal(
+        moments, [[0, 16912, 19008], [0, 16912, 12672], [0, 16912, 6336]]
+    )
+    return dict(
+        clock_edge=list(clock_edge),
+        contact_edges=[[a, b], [b, c]],
+        calibrated_clock_gap=clock_gap,
+        inverse_min_abs_cycle_response=1.0,
+        moments_times_36=moments,
+        harmonic_numbers=harmonic.tolist(),
+        shots_per_setting=shots,
+        seed=2026112223,
+        count_axes=[
+            "clock setting X/Y",
+            "contact setting X/Y",
+            "clock original/other port",
+            "probe original/other port",
+        ],
+        appointments=result,
+    )
+
+
 def correlated_contacts():
     """Change a two-collar history at fixed marginals and compare three local probes."""
     from scipy.linalg import expm
@@ -489,9 +643,19 @@ def correlated_contacts():
                 ],
             )
         )
+    ordered = ordered_collar_control(
+        board, a, b, c, native, energies, label, splitter, inverse, shots
+    )
     return dict(
-        ordered_three_levels=ordered_collar_control(
-            board, a, b, c, native, energies, label, splitter, inverse, shots
+        ordered_three_levels=ordered,
+        joint_clock_lapse=joint_clock_lapse(
+            board,
+            (a, b, c),
+            native,
+            [(0, 1), (2, 1), (2, -1)],
+            ordered,
+            splitter,
+            inverse,
         ),
         ports=[a, b, c],
         remote_gateway=opposite,
