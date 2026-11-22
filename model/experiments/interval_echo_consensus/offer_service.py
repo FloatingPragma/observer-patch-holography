@@ -560,6 +560,23 @@ def exact_stationary_source(offers=17, witnesses=8):
     if any(sp.simplify(x) != 0 for x in identities):
         raise ValueError("Exact oriented source weights failed")
     m = int(witnesses)
+    # Write up/down = r². The killed transfer below acts on column masses.
+    r, down = sp.symbols("r down", positive=True)
+    idle = sp.symbols("idle", nonnegative=True)
+    up = down * r**2
+    killed = sp.Matrix([[idle, down, 0], [up, idle, down], [0, up, idle]])
+    masses = sp.Matrix([1, root * r, r**2])
+    residual = killed * masses - (idle + root * down * r) * masses
+    if any(sp.simplify(value) != 0 for value in residual):
+        raise ValueError("The proposed biased source is not conditionally stationary")
+    same_weight = masses.dot(masses)
+    unit_weight = masses[1] * (masses[0] + masses[2])
+    double_weight = masses[0] * masses[2]
+    # Parity cancels for either held mode. This checks the whole family
+    # against the event frequencies before substituting any numerical rates.
+    multiplier = sp.factor(double_weight * same_weight**3 / unit_weight**4)
+    if sp.simplify(multiplier - 1 - (up - down)**2 / (4 * up * down)) != 0:
+        raise ValueError("The stationary held-ratio factorization failed")
     ports = np.array([float(a), float(b), float(a)])
     probs = np.array([float(zero), float(unit), float(double)])
     beta = log(2) / 2
@@ -715,6 +732,13 @@ def exact_stationary_source(offers=17, witnesses=8):
         mode_probabilities=modes.tolist(),
         even_magnitude_gaps=[m, 4 * m],
         held_ratios=[1, 1],
+        stationary_offer_family=dict(
+            rates="Positive state-independent up and down probabilities p and q. Invalid boundary offers reject.",
+            conditional_endpoint_weights="1, sqrt(2*p/q), p/q",
+            held_even_and_odd_multiplier="(1 + (p-q)^2/(4*p*q))^m",
+            one_to_one=float(multiplier.subs(r, 1)**m),
+            two_to_one=float(multiplier.subs(r, root)**m),
+        ),
         mean_raw_pairs_per_held_odd=(m + 1) / (pair * raw_odd),
         one_batch_branches=batch,
         buffered_epoch_branches=dict(

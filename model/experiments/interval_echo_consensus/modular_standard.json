@@ -431,6 +431,13 @@
       1,
       1
     ],
+    "stationary_offer_family": {
+      "rates": "Positive state-independent up and down probabilities p and q. Invalid boundary offers reject.",
+      "conditional_endpoint_weights": "1, sqrt(2*p/q), p/q",
+      "held_even_and_odd_multiplier": "(1 + (p-q)^2/(4*p*q))^m",
+      "one_to_one": 1.0,
+      "two_to_one": 2.56578451395
+    },
     "mean_raw_pairs_per_held_odd": 17356750848.01,
     "one_batch_branches": {
       "any_source_failed": 0.942170098424,
