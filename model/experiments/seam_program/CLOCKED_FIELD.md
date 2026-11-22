@@ -2,6 +2,16 @@
 
 The programmed native seam instrument has a scalar sector with a local Lorentzian Klein–Gordon limit in three spatial chart coordinates. The material clock and the finite fuel source give an absolute receiver probability on the original preparation denominator. The chart describes this collection of records. Its periods, compact register and contact schedule are apparatus choices. Opening the free contacts gives a different, directly measurable evolution on the same preparation. [Protocol](clocked_protocol.json) · [Free-release protocol](free_marker_protocol.json)
 
+## Can observers recover the chart without its station labels?
+
+Eight anonymously labeled stations each prepare the protected equal-slot scalar at private order zero. After one routed period the detector reports the occupied station. From these count rows alone the decoder obtains twelve links. Each link partitions all stations by which endpoint is nearer in link count. There are three distinct partitions. Their binary labels take all eight possible values, and their Hamming distance equals the measured link distance. On this menu an edge sets the unit of chart length. The three recovered directions describe the routed instrument. [Blind protocol](blind_chart_protocol.json) · [Inference and native propagation](blind_chart.py)
+
+The equal-slot amplitude compressed to the source and receiver stations is a matrix $D$. The reversible reflection-and-shift walk gives $T_n(D)$ after $n$ periods, with $T_n$ the Chebyshev polynomial. The decoder calibrates the diagonal from one-period occupation counts (0.25000036), distributes the remaining weight over the measured neighbours, and averages the squared forecast amplitudes over the independently calibrated material-clock stopping law. Fresh measurements at clock readings 1, 2 and 3 give 24 complete distributions, each including unmatched and timeout outcomes. The largest absolute probability discrepancy against the counts is 0.001022, within the registered 0.01 tolerance. Identifying terminals along any one recovered direction forces an error of at least 0.11377 in the population probabilities. The shift-only control has the same one-period calibration and misses the held counts by up to 0.48203. These readings condition on successful preparation of the protected codeword. The full fuel and hand experiment below reports the original preparation denominator. [Calibration, held counts and controls](blind_chart.json)
+
+```sh
+python -m model.experiments.seam_program.blind_chart --output /tmp/echo-blind-chart.json
+```
+
 ## Which components compose
 
 The [eight-slot benchmark](../../benchmarks/eight_slot_torus/SPEC.md) supplies the Fourier dispersion on its index grid. The source map here implements its scalar sector with physical seam pulses and a stopped-clock receiver. Interval Echo also has an autonomous one-dimensional result: a load propagates along a prepared 194-cell path with intervening gates off. The static channel and the free binary-pair experiment have different carriers of information. The latter resolves a bound band with substantial linewidth under its tested spatial readers. [Autonomous path and material reference](../../candidate_laws/interval_echo/openwave/row_30_autonomous/README.md) · [Free pair and connected-region test](../../candidate_laws/interval_echo/openwave/row_30_branch/README.md)

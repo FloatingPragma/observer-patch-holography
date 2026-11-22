@@ -84,22 +84,91 @@ def test_held_clock_and_flight_results_follow_from_the_saved_counts():
                 fresh = archive[prefix + "independent_hands"]
                 phase = read_hand(fresh)
                 clock_error = np.max(np.abs(phase[4:] - calibration[:4].mean(axis=0)))
-                np.testing.assert_allclose(clock_error, observation["stationary_clock_max_error"])
+                np.testing.assert_allclose(
+                    clock_error, observation["stationary_clock_max_error"]
+                )
                 assert clock_error <= spec["clock_tolerance_radians"]
                 for (i, j), row in zip(HELD_PAIRS, observation["held"], strict=True):
                     assert row["stations"] == [i, j]
                     echo, pulse = [], []
                     for a, b in ((i, j), (j, i)):
                         returns = archive[f"{prefix}echo_hands_{a}_{b}"]
-                        half_time = (read_hand(fresh[a, 2:] + returns) - phase[a, 0]) / 2
+                        half_time = (
+                            read_hand(fresh[a, 2:] + returns) - phase[a, 0]
+                        ) / 2
                         echo.append(np.average(half_time, weights=returns.sum(axis=1)))
                         panel = archive[f"{prefix}free_{a}_{b}"]
                         pulse_time = read_hand(panel.sum(axis=1)) - phase[a, 0]
-                        pulse.append(np.average(pulse_time, weights=panel[:, 0].sum(axis=1)))
-                    for kind, observed in (("echo", np.mean(echo)), ("pulse", np.mean(pulse))):
+                        pulse.append(
+                            np.average(pulse_time, weights=panel[:, 0].sum(axis=1))
+                        )
+                    for kind, observed in (
+                        ("echo", np.mean(echo)),
+                        ("pulse", np.mean(pulse)),
+                    ):
                         np.testing.assert_allclose(observed, row[kind], rtol=1e-12)
                         error = abs(row[f"{kind}_prediction"] / observed - 1)
-                        np.testing.assert_allclose(error, row[f"{kind}_relative_error"], rtol=1e-12)
+                        np.testing.assert_allclose(
+                            error, row[f"{kind}_relative_error"], rtol=1e-12
+                        )
                         assert error > spec["relative_tolerance"]
                 assert not observation["passed"]
     assert not receipt["source_free_pass"]
+
+
+def test_round_product_accepts_an_actual_radial_coordinate_and_rejects_inconsistent_ranges():
+    from .radial_product import BOOK, control, triangle_certificate
+
+    book = json.loads(BOOK.read_text())
+    settings = json.loads(PROTOCOL.read_text())
+    assert control(settings, book)["passed"]
+    # Equal angular separations permit equal distances at a common radial level
+    # when the angular scale is free. A fourth short distance restricts that scale.
+    angles = np.ones((4, 4)) - np.eye(4)
+    paths = [(0, 1), (1, 2), (0, 2)]
+    assert not triangle_certificate(angles, paths, [1.0, 1.0, 1.0], 0.05, 256)[
+        "excludes_every_radius"
+    ]
+    assert triangle_certificate(
+        angles, [*paths, (0, 3)], [1.0, 1.0, 1.0, 0.1], 0.05, 256
+    )["excludes_every_radius"]
+    receipt = json.loads((HERE / "radial_product.json").read_text())
+    assert (
+        receipt["counts_sha256"]
+        == sha256((HERE / "radial_product_counts.npz").read_bytes()).hexdigest()
+    )
+    for board in receipt["boards"]:
+        for menu in board["menus"]:
+            for row in [menu["population"], *menu["acquisitions"]]:
+                assert (
+                    row["training_certificate"]["excludes_every_radius"]
+                    and not row["passed"]
+                )
+
+
+def test_collar_depth_uses_hidden_words_and_keeps_every_detector_outcome():
+    from .collar_depth import BOOK, lifted_operator
+    from .shell_source import Board
+    from .shells import protocol
+
+    spec = json.loads(BOOK.read_text())
+    board = Board(0, protocol("shell_protocol.json")["matching"])
+    h, sites = lifted_operator(board, True)
+    n = board.car.n
+    a, b = sites[0]
+    assert h[3 * n + a, 2 * n + b] == -4
+    assert np.max(abs(h[3 * n :, n + b].toarray())) == 0
+    receipt = json.loads((HERE / "collar_depth.json").read_text())
+    path = HERE / "collar_depth_counts.npz"
+    assert receipt["counts_sha256"] == sha256(path.read_bytes()).hexdigest()
+    with np.load(path, allow_pickle=False) as archive:
+        for level, row in enumerate(receipt["boards"]):
+            for panel in row["experiments"]:
+                step = spec["appointments"].index(panel["hand_radians"])
+                key = f"l{level}_t{step}_site{panel['launch_site']}_word{panel['word']}_transfer{int(panel['transfer'])}"
+                table = archive[key]
+                assert table.shape == (4, 12 * row["cells"], 4)
+                assert (
+                    table.sum() == spec["shots"]
+                    and table[3].sum() == panel["depth_two_count"]
+                )
