@@ -133,7 +133,7 @@ Sources · [MODELS.md L94-L137](https://github.com/openwave-labs/openwave/blob/7
 | [OW-01](EVIDENCE.md#ow-01) Charge quantization (static) | Open | Open | Open |
 | [OW-02](EVIDENCE.md#ow-02) Electron rest energy (mass) (static) | Partial | Partial | Partial |
 | [OW-03](EVIDENCE.md#ow-03) de Broglie clock (Zitterbewegung) (dynamic) | Open | Open | Partial |
-| [OW-04](EVIDENCE.md#ow-04) Particle stability (Derrick escape) (dynamic) | **Demonstrated** · [Free persistence of a prepared pair](../candidate_laws/interval_echo/openwave/row_04/README.md) | Demonstrated | Demonstrated |
+| [OW-04](EVIDENCE.md#ow-04) Particle stability (Derrick escape) (dynamic) | **Demonstrated** · [Free persistence of a prepared pair](../candidate_laws/interval_echo/openwave/row_04/README.md). OpenWave · [⚠️ Partial](https://github.com/openwave-labs/openwave/pull/745#pullrequestreview-6005365373). Resubmission · [HOLD](../../openwave/interval_echo/row_04/CHECKLIST.md) | Demonstrated | Demonstrated |
 | [OW-05](EVIDENCE.md#ow-05) Magnetic moment μ (g ≈ 2, magnetostatics) (dynamic) | Open | Open | Open |
 | [OW-06](EVIDENCE.md#ow-06) Angular momentum J (spin ℏ/2) (dynamic) | Open | Open | Open |
 | [OW-07](EVIDENCE.md#ow-07) Spin-½ statistics (720° double cover) (static) | Open | Open | Open |

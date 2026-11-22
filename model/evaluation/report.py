@@ -47,11 +47,15 @@ def table(*columns):
 def criterion_grade(case):
     grade = STATUS[case['status']]
     measurement = case.get('demonstrated_measurement')
-    if measurement is None:
-        return grade
-    source = local_link(measurement['source'])
-    linked = f"**Demonstrated** · [{measurement['label']}]({source})"
-    return linked if case['status'] == 'demonstrated' else f"{linked}. Full criterion · {grade}"
+    if measurement is not None:
+        source = local_link(measurement['source'])
+        linked = f"**Demonstrated** · [{measurement['label']}]({source})"
+        grade = linked if case['status'] == 'demonstrated' else f"{linked}. Full criterion · {grade}"
+    filing = case.get('filing')
+    if filing:
+        grade += (f". OpenWave · [{filing['official_status']}]({local_link(filing['decision'])})"
+                  f". Resubmission · [{filing['resubmission']}]({local_link(filing['review'])})")
+    return grade
 
 
 def short(result):
