@@ -1664,6 +1664,19 @@
      "status": "open",
      "note": "A held reciprocal optical comparison of the transported scalar oscillator is open.",
      "evidence": []
+    },
+    {
+     "id": "PATCH-10",
+     "title": "Excess gravity predicted from retained patch records",
+     "requires": "Specify the cut charge and its fluctuations on physical observer records. Use the gravitational response calibrated on ordinary matter to predict excess orbital and lensing signals on independent galaxies with one source law, geometry and uncertainty model.",
+     "sources": [
+      "cosmology/oph_dark_matter_paper.pdf",
+      "code/cosmology/rar_deep_regime/README.md"
+     ],
+     "context": "This compares the macroscopic observer measurements attributed to non-luminous gravity. OW-19 assesses a stable neutral massive state.",
+     "status": "open",
+     "note": "The scalar channel has no registered collar-to-gravity calibration.",
+     "evidence": []
     }
    ]
   },
@@ -1951,7 +1964,9 @@
      "regime": "static",
      "upstream_number": 19,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L121"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L121",
+      "https://github.com/openwave-labs/openwave/blob/f8fd02b2e0d96cfa0d868259daec2c9822375d34/MODELS.md#L121",
+      "https://github.com/openwave-labs/openwave/blob/f8fd02b2e0d96cfa0d868259daec2c9822375d34/MODELS.md#L454"
      ],
      "status": "open",
      "note": "The prepared four-seam state is persistent. Its dark-matter identification requires electric neutrality and a moving inertial-mass measurement on the same branch.",

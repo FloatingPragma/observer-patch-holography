@@ -1,0 +1,30 @@
+{
+  "source": "https://doi.org/10.1086/508162",
+  "inputs": "Section 3 western convergence peak relative to the BCG; Table 2 gas and BCG centres; 4.413 kpc per arcsec in Section 1.",
+  "domain": "Total convergence is a constant sheet plus two radially nonincreasing profiles centred on the tabulated plasma apertures. Flat sky over 2 arcmin.",
+  "coordinates_east_north_arcsec": {
+    "western_plasma": [
+      0.0,
+      0.0
+    ],
+    "eastern_plasma": [
+      75.60494963,
+      -5.9
+    ],
+    "western_bcg": [
+      -43.68285978,
+      -5.1
+    ],
+    "western_lensing_peak": [
+      -36.58285978,
+      1.4
+    ]
+  },
+  "segment_fraction_before_clipping_west_0_east_1": -0.482376,
+  "distance_from_allowed_peak_segment_arcsec": 36.6096,
+  "distance_from_allowed_peak_segment_kpc": 161.558,
+  "angular_separation_peak_to_western_bcg_arcsec": 9.626,
+  "central_peak_compatible": false,
+  "uncertainty": "Authors bootstrap the peak and report about eight sigma from its plasma centre. Table 2 supplies no joint centroid covariance to compute a new significance for the segment.",
+  "higher_resolution_comparison": "Cha et al. (2025), Section IV.2, report a roughly 150 kpc subcluster mass-peak to gas-core offset in a free-form JWST reconstruction. Their peak and centroid are distinct estimators."
+}

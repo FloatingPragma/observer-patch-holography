@@ -21,6 +21,7 @@ import pytest
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 
+import exterior_profile  # noqa: E402
 import matched_observable_diagnostic as mod  # noqa: E402
 import rar_deep_regime_diagnostic as base  # noqa: E402
 
@@ -281,3 +282,149 @@ def test_independent_verifier_passes() -> None:
     )
     assert proc.returncode == 0, proc.stdout + proc.stderr
     assert proc.stdout.startswith("PASS")
+
+
+def test_exterior_shared_scale_and_mutated_galaxy():
+    t1, t2 = synthetic_tables()
+    for meta in t1:
+        meta.update(dist_mpc=10, e_dist_mpc=1, disk_scale_kpc=1, hi_radius_kpc=3)
+    groups = exterior_profile.exterior_rings(t1, t2)
+    low, high = exterior_profile.scale_constraints(groups, width=0, k=0)
+    assert low[0] ** 2 == pytest.approx(A0_TRUE, rel=1e-12, abs=0)
+    assert high[0] ** 2 == pytest.approx(A0_TRUE, rel=1e-12, abs=0)
+    assert exterior_profile.joint_witness(groups, width=2, k=0.01, a0=A0_TRUE)
+    for ring in t2:
+        if ring["name"] == t1[0]["name"]:
+            ring["vobs_kms"] *= 2
+    changed = exterior_profile.exterior_rings(t1, t2)
+    assert exterior_profile.scale_gap(changed, width=1, k=1) > 0
+
+
+def test_generic_enclosed_mass_checks_neighbours_and_repeated_radii():
+    # M in arbitrary units is r V^2 here. Tied radii need the same M.
+    rings = np.array([[1, 1, 2], [2, 4, 6], [1, 1, 1], [0, 0, 0], [0, 0, 0]])
+    assert exterior_profile.minimum_error(
+        lambda k: exterior_profile.monotone_mass_gap([(None, rings)], k)
+    ) == pytest.approx(1)
+    # Endpoints can enclose different masses in decreasing radius order only by
+    # shifting measured speeds until the enclosed masses are ordered.
+    rings = np.array([[1, 2], [4, 1], [1, 1], [0, 0], [0, 0]])
+    assert exterior_profile.minimum_error(
+        lambda k: exterior_profile.monotone_mass_gap([(None, rings)], k)
+    ) == pytest.approx((4 - np.sqrt(2)) / (1 + np.sqrt(2)))
+
+
+def test_held_compact_and_force_predictions_use_only_baryons():
+    t1, t2 = synthetic_tables()
+    for meta in t1:
+        meta.update(dist_mpc=10, e_dist_mpc=1, disk_scale_kpc=1, hi_radius_kpc=3)
+    galaxy, rings = exterior_profile.exterior_rings(t1, t2)[0]
+    scales = (A0_TRUE, A0_TRUE)
+    prediction = exterior_profile.speed_envelopes(galaxy, rings, 0, scales)
+    for pair in prediction.values():
+        np.testing.assert_allclose(pair[0], rings[1], rtol=2e-12)
+        np.testing.assert_array_equal(pair[0], pair[1])
+    perturbed = rings.copy()
+    perturbed[1] *= 2
+    for key, pair in exterior_profile.speed_envelopes(
+        galaxy, perturbed, 0, scales
+    ).items():
+        np.testing.assert_array_equal(pair, prediction[key])
+    perturbed[0] *= 1.5
+    extended = exterior_profile.speed_envelopes(galaxy, perturbed, 0, scales)
+    np.testing.assert_array_equal(extended["compact_mass"], prediction["compact_mass"])
+    assert np.all(extended["local_force"] > prediction["local_force"])
+    with pytest.raises(ValueError, match="positive acceleration"):
+        exterior_profile.speed_envelopes(galaxy, rings, 1, (A0_TRUE, 0))
+
+
+def test_exterior_projection_bounds_contain_independent_physical_unit_calculation():
+    t1, t2 = synthetic_tables()
+    galaxy = t1[0]
+    galaxy.update(dist_mpc=10, e_dist_mpc=0.75, disk_scale_kpc=1, hi_radius_kpc=3)
+    rings = exterior_profile.exterior_rings([galaxy], t2[:25])[0][1]
+    scales = (0.8 * A0_TRUE, 1.1 * A0_TRUE)
+    bound = exterior_profile.speed_envelopes(galaxy, rings, 2, scales)
+    for distance in (8.5, 10, 11.5):
+        distance_ratio = distance / galaxy["dist_mpc"]
+        for ml in (0.4, 0.6):
+            radius = rings[0] * distance_ratio * base.KPC_M
+            baryon_sq = (rings[3] + ml * rings[4]) * distance_ratio * base.KM**2
+            mass = (
+                (ml * galaxy["L36_gsun"] + base.GAS_HELIUM * galaxy["MHI_gsun"])
+                * 1e9
+                * base.M_SUN
+                * distance_ratio**2
+            )
+            for a0 in scales:
+                force = np.sqrt(baryon_sq + radius * np.sqrt(baryon_sq / radius * a0))
+                compact = np.sqrt(baryon_sq + np.sqrt(base.G_SI * mass * a0))
+                for model, v in (("local_force", force), ("compact_mass", compact)):
+                    for angle in (56, 60, 64):
+                        # Catalogue correction conserves the projected line-of-sight speed.
+                        speed = (
+                            v
+                            / base.KM
+                            * np.sin(np.radians(angle))
+                            / np.sin(np.radians(60))
+                        )
+                        assert np.all(speed >= bound[model][0] - 1e-11)
+                        assert np.all(speed <= bound[model][1] + 1e-11)
+
+
+def test_broad_inclination_box_retains_physical_deprojection_and_shared_witness():
+    t1, t2 = synthetic_tables()
+    galaxy = dict(
+        t1[0],
+        dist_mpc=10,
+        e_dist_mpc=0.5,
+        disk_scale_kpc=1,
+        hi_radius_kpc=3,
+        inclination_deg=59.0,
+        e_inclination_deg=32.0,
+    )
+    groups = exterior_profile.exterior_rings([galaxy], t2[:25])
+    low, high, _, _ = exterior_profile.nuisance_bounds(galaxy, 2)
+    assert 0 < low < 1 and np.isposinf(high)
+    witness = exterior_profile.joint_witness(
+        groups, 2, 0.01, A0_TRUE, model="local_force"
+    )
+    assert witness and 0 < witness[0]["inclination_deg"] <= 90
+    assert witness[0]["maximum_absolute_velocity_residual_in_quoted_errors"] <= 0.01
+
+
+def test_external_witness_reprojects_every_held_ring_in_original_sparc_frame():
+    transfer = json.loads((HERE / "receipts/held_galaxies.json").read_text())[
+        "compact_exterior_profile"
+    ]["paired_baryon_source_transfer"]
+    two_boxes = transfer["geometry_and_calibration_sensitivity"]["two_error_box"]["local_force"]
+    baseline = two_boxes["shared_witness_after_omitting_limiting_ring"]
+    settings = {name: (d, i, ml) for name, d, i, ml in baseline["values"]}
+    external = transfer["external_geometry_sensitivity"]
+    assert external["Halpha_inclination_deg_and_quoted_error"]["DDO154"] == [59, 32]
+    fits = external["matched_catalogue_controls"]["both"]
+    for row in fits["matched_galaxy_witnesses"]:
+        settings[row["galaxy"]] = (row["distance_mpc"], row["inclination_deg"], row["disk_mass_to_light"])
+    tables = base.read_table1(), base.read_table2()
+    groups = exterior_profile.exterior_rings(*tables)
+    largest, total = 0.0, 0
+    for galaxy, (radius, speed, error, gas, disk) in groups:
+        name = galaxy["name"]
+        distance, tilt, ml = settings[name]
+        dc, de = external["TRGB_distance_Mpc_and_quoted_error"].get(name, (galaxy["dist_mpc"], galaxy["e_dist_mpc"]))
+        ic, ie = external["Halpha_inclination_deg_and_quoted_error"].get(name, (galaxy["inclination_deg"], galaxy["e_inclination_deg"]))
+        assert abs(distance - dc) <= 2 * de + 1e-9
+        assert abs(tilt - ic) <= 2 * ie + 1e-9 and 0.4 <= ml <= 0.6
+        # Work in SI units at the returned physical geometry and recover the
+        # catalogue deprojection. Do not call the forecast producer or its bounds.
+        ratio = distance / galaxy["dist_mpc"]
+        vbar2 = (gas + ml * disk) * ratio * 1e6
+        r_m = radius * ratio * base.KPC_M
+        gbar = vbar2 / r_m
+        physical = np.sqrt(r_m * (gbar + np.sqrt(gbar * transfer["scale_m_s2"])))
+        projected = physical / 1e3 * np.sin(np.radians(tilt)) / np.sin(np.radians(galaxy["inclination_deg"]))
+        largest = max(largest, np.max(abs(projected - speed)/error))
+        total += len(speed)
+    assert len(settings) == len(groups) == 41 and total == 151
+    assert largest == pytest.approx(fits["maximum_residual_over_solved_galaxies"], abs=1e-9)
+    assert largest < transfer["quoted_velocity_error_threshold"]

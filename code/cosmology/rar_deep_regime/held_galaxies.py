@@ -8,6 +8,7 @@ from pathlib import Path
 import numpy as np
 from scipy.optimize import minimize_scalar
 
+import exterior_profile
 import matched_observable_diagnostic as matched
 import rar_deep_regime_diagnostic as base
 import sparc_full_rar_calibration as empirical
@@ -23,6 +24,25 @@ def fold_for(name):
 
 def conditional_total(gbar, a0):
     return gbar + np.sqrt(gbar * a0)
+
+
+def fit_scale(model, train_bar, train_truth, train_weight):
+    def loss(log_a0):
+        residual = train_truth - np.log10(model(train_bar, 10.0**log_a0))
+        return np.average(residual**2, weights=train_weight)
+
+    result = minimize_scalar(
+        loss,
+        bounds=base.LOG10_A0_BOUNDS,
+        method="bounded",
+        options={"xatol": 1e-12},
+    )
+    if (
+        not result.success
+        or min(abs(result.x - bound) for bound in base.LOG10_A0_BOUNDS) < 1e-4
+    ):
+        raise ValueError("Training optimizer failed or reached boundary")
+    return 10.0**result.x
 
 
 def cross_predict(acc):
@@ -50,23 +70,7 @@ def cross_predict(acc):
         multipliers.append(float(10.0**log_multiplier))
         predictions["rescaled_baryons"][hold] = np.log10(gbar[hold]) + log_multiplier
         for name, model in models.items():
-
-            def loss(log_a0):
-                residual = train_truth - np.log10(model(train_bar, 10.0**log_a0))
-                return np.average(residual**2, weights=train_weight)
-
-            result = minimize_scalar(
-                loss,
-                bounds=base.LOG10_A0_BOUNDS,
-                method="bounded",
-                options={"xatol": 1e-12},
-            )
-            if (
-                not result.success
-                or min(abs(result.x - bound) for bound in base.LOG10_A0_BOUNDS) < 1e-4
-            ):
-                raise ValueError("Training optimizer failed or reached boundary")
-            a0 = 10.0**result.x
+            a0 = fit_scale(model, train_bar, train_truth, train_weight)
             fitted_scales[name].append(a0)
             predictions[name][hold] = np.log10(model(gbar[hold], a0))
 
@@ -164,9 +168,92 @@ def same_ring_control(t1, t2):
     }
 
 
+def training_sample(acc, excluded):
+    keep = ~np.isin(acc["names"], excluded) & (
+        acc["g_bar"] < matched.PRIMARY_FRACTION * base.DEEP_CUT_REFERENCE_A0_M_S2
+    )
+    galaxies, membership, counts = np.unique(
+        acc["names"][keep], return_inverse=True, return_counts=True
+    )
+    train_bar, train_truth = acc["g_bar"][keep], np.log10(acc["g_obs"][keep])
+    weights = 1.0 / counts[membership]
+    return galaxies, membership, train_bar, train_truth, weights
+
+
 def run():
     source = empirical.verify_source_snapshot()
     t1, t2 = base.read_table1(), base.read_table2()
+    acc = base.accelerations(t1, t2)
+    groups = exterior_profile.exterior_rings(t1, t2)
+    held = [galaxy["name"] for galaxy, _ in groups]
+    galaxies, membership, train_bar, train_truth, weights = training_sample(acc, held)
+    scale = fit_scale(conditional_total, train_bar, train_truth, weights)
+    rng = np.random.default_rng(20261123)
+    galaxy_draws = rng.multinomial(
+        len(galaxies), np.full(len(galaxies), 1.0 / len(galaxies)), size=2000
+    )
+    scales = [
+        fit_scale(conditional_total, train_bar, train_truth, draw[membership] * weights)
+        for draw in galaxy_draws
+    ]
+    exterior = exterior_profile.measure(groups, t1, t2)
+    exterior["amplitude_transfer_from_disjoint_galaxies"] = {
+        "training": "Same primary deep radial cut and equal-galaxy log-acceleration loss as the five-fold analysis. Exclude every exterior test galaxy. Transfer its single fitted a0 from gobs = gbar + sqrt(gbar a0) to the compact photometric exterior profile.",
+        "training_galaxies": len(galaxies),
+        "training_radii": len(train_bar),
+        "fitted_a0_m_s2": scale,
+        "training_galaxy_bootstrap": "2000 galaxy-cluster resamples with replacement, refitting each calibration, seed 20261123. Conditions on the catalogue inputs.",
+        "training_galaxy_bootstrap_a0_95pct_m_s2": np.percentile(
+            scales, [2.5, 97.5]
+        ).tolist(),
+        "minimum_maximum_velocity_error_lower_bound_by_geometry_box": {
+            str(width): exterior_profile.minimum_error(
+                lambda k: exterior_profile.fixed_scale_gap(groups, width, k, scale)
+            )
+            for width in (0, 1, 2)
+        },
+    }
+    exterior["paired_baryon_source_transfer"] = exterior_profile.compare_baryon_sources(
+        groups,
+        scale,
+        np.percentile(scales, [2.5, 97.5]),
+        exterior["quoted_velocity_error_threshold"],
+    )
+    exterior["paired_baryon_source_transfer"]["limiting_ring_primary_source_check"] = (
+        exterior_profile.ngc0024_projection_control(
+            groups,
+            scale,
+            np.percentile(scales, 97.5),
+            exterior["quoted_velocity_error_threshold"],
+        )
+    )
+    exterior["paired_baryon_source_transfer"]["external_geometry_sensitivity"] = (
+        exterior_profile.alternate_geometry(
+            groups, scale, exterior["quoted_velocity_error_threshold"]
+        )
+    )
+    # Probe two training-selection differences without fitting any held speed.
+    bulges = sorted({row["name"] for row in t2 if row["vbul_kms"] != 0})
+    training_variants = []
+    for error_cut in (True, False):
+        axes = acc if error_cut else base.accelerations(t1, t2, max_rel_error=np.inf)
+        for bulge_free in (False, True):
+            members, _, bars, truth, weight = training_sample(
+                axes, held + (bulges if bulge_free else [])
+            )
+            value = fit_scale(conditional_total, bars, truth, weight)
+            training_variants.append(
+                {
+                    "relative_velocity_error_cut": error_cut,
+                    "bulge_free_only": bulge_free,
+                    "training_galaxies": len(members),
+                    "training_rings": len(bars),
+                    "fitted_scale_m_s2": value,
+                }
+            )
+    exterior["paired_baryon_source_transfer"]["training_selection_sensitivity"] = (
+        training_variants
+    )
     return {
         "source_file_receipts_sha256": source["file_receipts_sha256"],
         "protocol": {
@@ -178,11 +265,12 @@ def run():
             "source_identification": "SPARC records rotation speeds and baryonic components. No independent measurement of the modular collar charge or conversion from that charge to acceleration is present.",
             "scope": "Retrospective within-catalogue prediction. The empirical RAR was originally inferred using SPARC; holding out galaxies here tests transfer of fitted scale, not discovery on new observations.",
         },
-        "primary": cross_predict(base.accelerations(t1, t2)),
+        "primary": cross_predict(acc),
         "without_relative_velocity_error_cut": cross_predict(
             base.accelerations(t1, t2, max_rel_error=np.inf)
         ),
         "shared_ring_inputs": same_ring_control(t1, t2),
+        "compact_exterior_profile": exterior,
     }
 
 

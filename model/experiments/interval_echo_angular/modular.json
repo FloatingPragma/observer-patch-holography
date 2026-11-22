@@ -1,0 +1,342 @@
+{
+  "cells": 20,
+  "reference_sweeps": 4,
+  "reference_rotations": 60,
+  "reference_acceptance": 0.012658294722249153,
+  "min_star_density_eigenvalue": 1.235112510198633e-13,
+  "shots_per_setting": 262144,
+  "settings_per_star": 16,
+  "calibration_ports": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    8,
+    9
+  ],
+  "held_ports": [
+    7,
+    10,
+    11
+  ],
+  "slow_state_variation_rank": 9,
+  "axial_coefficients": {
+    "scalar": 7.034584297277555,
+    "mixed": 6.552013739571309,
+    "transverse": 7.2857562872157455,
+    "anisotropy": -0.23106153063271684
+  },
+  "scalar_variation_contrast": -0.17415147972728473,
+  "max_axial_form_error": 1.829647544582258e-13,
+  "ninth_variation_singular_value": 0.2922722865775029,
+  "pure_triplet_observable_rank": 6,
+  "full_one_load_observable_rank": 12,
+  "slow_sector_held_operator_error": 2.6753423604168365e-13,
+  "full_sector_held_operator_error": 18.135891675114923,
+  "single_service_order_slow_sector_held_error": 0.014465897065843438,
+  "readings": [
+    {
+      "source": "constant_plus_real_triplet",
+      "exposure": 0.75,
+      "launch": {
+        "root": 0,
+        "splitters": 11,
+        "degree_pulses": 12,
+        "routing_swaps": 6
+      },
+      "measured": [
+        10.385516811780802,
+        8.631152427900131,
+        5.660128665811044,
+        3.7078692205403723,
+        5.635287588328812,
+        8.611392568225101,
+        5.659625578802941,
+        8.632675472880749,
+        5.638003270050114,
+        5.640170881311977,
+        8.64268425213578,
+        8.642689765824928
+      ],
+      "held_predictions": [
+        8.646727441541735,
+        8.657332479864916,
+        8.618285010574299
+      ],
+      "complete_count_hashes": [
+        "9d62e136e80bb4d81472eb04d88e7e2b8abff66ee67fee251208e601c5209686",
+        "aa4a8c5bcc24d1012bcf684aa2cd5d307059633a31db0491d7a58ea2b510f0cf",
+        "fce5870a9392fedf4a36654c887fe6b88180c54bab3e26a4c146f6f497fe5e3a",
+        "de41ce3c09e83c114b55a843178a50a1e82c2b908400c046d70b75139338fadf",
+        "60d5ec27d1b5bfa1723790a7e11c7a274889522832964803c4d02c5dae3fa53f",
+        "6d96e762a0b7a36a07d25a6d1f95ac680c2aef075e4c43095b9bbbda702cdcff",
+        "8ded1aeafd2ecd9a572abce2144d32080b5d75046fa14f63de1e973b785c2ff3",
+        "663394114624ccf6c6ed2fc6c6a79d2b2c6d387b876067e6531274e5c408563a",
+        "527d74c4b927ab6287d75c3d85efaf7d1978dc5a57b39fae2bd37b272ebda644",
+        "5b94318a74cbde17575bc956eefdbc5d3705f4d620ca7aa57e2db8b35103eead",
+        "bbbb139ec6731761c47c6db6ecf3102da300c946d326d3f079c5a0b6a135687f",
+        "abbbf022e828dad74e0f017f40174d075ce82ef489072cf430146e2f0530b416"
+      ],
+      "held_difference_standard_errors": [
+        0.03256163233693126,
+        0.03184857058465601,
+        0.03256163233693109
+      ],
+      "max_held_standardized_error": 0.7494942206244728,
+      "max_abs_exact_held_miss": 2.4868995751603507e-14
+    },
+    {
+      "source": "constant_plus_real_triplet",
+      "exposure": 2.0,
+      "launch": {
+        "root": 0,
+        "splitters": 11,
+        "degree_pulses": 12,
+        "routing_swaps": 6
+      },
+      "measured": [
+        0.9654864656474234,
+        4.413176778935013,
+        9.882382465039804,
+        13.13562779884226,
+        9.84634343644074,
+        4.4219889710310705,
+        9.874419350180627,
+        4.4199646651220075,
+        9.848461629479068,
+        9.85376937779285,
+        4.389508506061316,
+        4.416273010346668
+      ],
+      "held_predictions": [
+        4.397057818308994,
+        4.433570345681879,
+        4.426319028172634
+      ],
+      "complete_count_hashes": [
+        "0ea142dc25e5feeebd6b67be55e94967ff4dbf7d78ee3c9af652e85145c26dbb",
+        "a93c782b9c1643c926a8d7bf9637c147046296ccacbb0726e42b681b14e57266",
+        "70946e7916d58ea7bf7c547fb5df0c582f940d364818a6678b19a3489da1dcb1",
+        "5193955f2fedcbab7b7933c636bac4dcc5ba4837eb1fc137509b256e61e285b3",
+        "5dae3fa925788ec8b78effe8ec8daf779cde1aab7927d67b142813fc23680e55",
+        "e80790c7bfa60de936e7dd469a7b8df39c1c34196bd8f79bb8f4fc61f795880a",
+        "f362067816df75b73e2b88e90b980b6befb212dd9506105c79e0a543d662b775",
+        "789c5bc0ecd7df1eb30d115cf6fb5cb421bcffd89d15fea3789593cc53b5c7d3",
+        "b78f3832564d968261ccf107f711bbaf615466fdee5e07146f2d30e10ded248a",
+        "9acc5dc2248dec0966ffa54445af31f4769ffb1d6345409ed5ed86157c9af90c",
+        "0fdf14ec8252d6eac4c2c522f50d8d69f2fc13b24eca655bba798799c8612f49",
+        "704bbef95d5e092c9d50993e17111d48cebbe30fc50f87cd1e4d5164511881ff"
+      ],
+      "held_difference_standard_errors": [
+        0.02955231933649882,
+        0.026828792207997516,
+        0.02955231933649864
+      ],
+      "max_held_standardized_error": 1.6423340744884085,
+      "max_abs_exact_held_miss": 5.3290705182007514e-14
+    },
+    {
+      "source": "constant_plus_imaginary_triplet",
+      "exposure": 0.75,
+      "launch": {
+        "root": 5,
+        "splitters": 11,
+        "degree_pulses": 12,
+        "routing_swaps": 6
+      },
+      "measured": [
+        9.648149793251246,
+        9.683316973699874,
+        4.620759573043979,
+        4.597034807748985,
+        9.666942658670798,
+        12.67311147073614,
+        1.4048498650388204,
+        4.576768082098654,
+        4.622584609636383,
+        9.660521797613697,
+        4.623505709535234,
+        9.661300412296983
+      ],
+      "held_predictions": [
+        4.649274338700442,
+        4.618635573066902,
+        9.64595661755126
+      ],
+      "complete_count_hashes": [
+        "cf5d25af86de5b878e4d3df2fd9c64f2b9271cae471470264f42cf8cd0710905",
+        "014d9620ada9f13b54c6a512a5e7c494fae9f2de701b561c404a6700efe4257f",
+        "159f13162d3ce96da83b781004b3a2c0aaf2ed53320ef9ace6f66d776c8a2bcc",
+        "807f11c384f10e9a8aaf39f4f545148e8603a2d4d275201a7e4a3479d71c1448",
+        "23f0cae1b41a724e853605e7ddfb4b9e3bec52dfdcc66c7c3b7ed7288817037a",
+        "bfc8bc4a54da887406dd57b7c6687c5762f5e91a7153a4cbb21c32db4911a62f",
+        "cdc69a10df1ecaf92af0286c10708a1f64da3b134b6988f15395a1aa2fc2f26f",
+        "8f456af55c67448ed6b293cf8181d640a61db238809268929af7f89d938f8d74",
+        "138f073744098969b46dffcb921396644ec5f5df97a7f9de13c5dfee25d3a9a7",
+        "7aef968a269d4a03c23326ee90f0e0246deab7d1f1435a26dbde9622c9ca115f",
+        "0c0718e2a29cd04786e1161bf1634420a37a2ba6a02197722755d4360a2f7b45",
+        "ca0edf4cf47da5ce44e3087203c299cbe14b78479193f23304bc92691027ab86"
+      ],
+      "held_difference_standard_errors": [
+        0.02792630308491273,
+        0.0301906532751067,
+        0.030190653275107046
+      ],
+      "max_held_standardized_error": 2.5963428235139427,
+      "max_abs_exact_held_miss": 5.5067062021407764e-14
+    },
+    {
+      "source": "constant_plus_imaginary_triplet",
+      "exposure": 2.0,
+      "launch": {
+        "root": 5,
+        "splitters": 11,
+        "degree_pulses": 12,
+        "routing_swaps": 6
+      },
+      "measured": [
+        8.206328799836003,
+        8.231381732132444,
+        6.047472490516408,
+        6.050787605808128,
+        8.201396275364987,
+        9.449950326892049,
+        4.656337750514474,
+        6.049859852181451,
+        6.0843983378955535,
+        8.241978064428515,
+        6.060428151013317,
+        8.215864188888807
+      ],
+      "held_predictions": [
+        6.089711560710876,
+        6.085173617692389,
+        8.195302319439582
+      ],
+      "complete_count_hashes": [
+        "349e6f0a463fdc7154e7799ff34c9d41e621c7497244ef3ff9547dbdb93bad72",
+        "67cb4edfced36fea5ae494f2e014f534022cf9702d60d67e423b9a095362798e",
+        "f11b4772f55057232a40a26a01b10cfc2e98f0a8e20a445393203a684d0918e6",
+        "db19015362b33729bbc4a2ed67bf7d59be5ebd9f4c08b5eca74c7f8b8ea317ff",
+        "de10b4663f590bd7b84f1c85956168b32c4c1da9e5303acd3b67daa10a2eefcf",
+        "10d1050c0d7ef1e6eb682e6e479def7296239a98a382bec24909d078598a3b5f",
+        "69a844ebf408ff4ddf6dd8fcc705a9727827c84f726deb6cd75da21c3b8f9cec",
+        "2164ca233958a355674db7e98d39fed966277bc26601ec2d12dd05125aedf80d",
+        "71052d7bed27d9a5416287a064e2bc9f3001a725e83c6f678b25e9f58d206df5",
+        "aa738792a804a6c0d6487be35dfe6eecba1519b8d328e1555583ffc77ebd8ccc",
+        "e0801e34cf99b53ad57921c5a970b196c741814755539157fb15908cce4f5af9",
+        "8c1279bdb90c19870a41b44100d0cf7b8c039ff84ef4dabaa91f4526e193a625"
+      ],
+      "held_difference_standard_errors": [
+        0.032778434388120434,
+        0.03314205587251319,
+        0.033142055872513565
+      ],
+      "max_held_standardized_error": 1.2157904815572294,
+      "max_abs_exact_held_miss": 7.194245199571014e-14
+    },
+    {
+      "source": "sharp_port",
+      "exposure": 0.75,
+      "launch": {
+        "root": 0,
+        "splitters": 0,
+        "degree_pulses": 1,
+        "routing_swaps": 0
+      },
+      "measured": [
+        13.616851167345054,
+        11.508029317404636,
+        3.198819537154756,
+        1.056583046491091,
+        3.2129750308690745,
+        11.481098577898505,
+        3.2051566570489114,
+        11.515205773889681,
+        3.218740234149089,
+        3.2177759904486627,
+        11.51471483713432,
+        11.500565635513563
+      ],
+      "held_predictions": [
+        7.835079780366478,
+        5.527856651450071,
+        7.7870164564038165
+      ],
+      "complete_count_hashes": [
+        "149d6e010e6f9cd4d2d16f9a70cfc5360da3eecefe5aa42573099e7e841b6934",
+        "a76ecf0ab5e5dd71e27efecf08daa56a7344cf792f7b98d88bfdd9dfc0708cad",
+        "99cce29bf4914cfbf2377c42856c0c04f02aabd18582de73a560a958a2461a9d",
+        "166638f3217ba7f3ff42b5926b9b59e1458b02630011d88088328b5fafde97e7",
+        "64cabdfc89510b01c3b65ca745b35a555dab0c795fde9a161adbea4ca4a569ba",
+        "fa2218a6e3a45ce2336ddade161a74e885ba5c3775c709f58b598de008cecb5f",
+        "d62cac3ee70c869a2f83c3c038231dc829423726afdb35257550c04a41b13369",
+        "ea698ee541412031c3dd8262103d30e18b38abb8626b74b2583fe9f48a82c13c",
+        "de9493057fcfebd8b384a12f990602e85a7c068c4efd461ad8cb414f6ef5adf0",
+        "c2ef1f80399c1d96dc6269f2c093d63d7116e0aadbc3dc481338f208d0931f16",
+        "6be2c4f747e884008ce83da5c020e99c2f6646e097d403517c910b6a6de1850e",
+        "2ca953773023ed06b3c81ea2e06249c927562f33e77a321bd48620922789f865"
+      ],
+      "held_difference_standard_errors": [
+        0.026838685779492208,
+        0.024806429160036086,
+        0.026838685779492066
+      ],
+      "max_held_standardized_error": 241.34300616427538,
+      "max_abs_exact_held_miss": 5.992409868980811
+    },
+    {
+      "source": "sharp_port",
+      "exposure": 2.0,
+      "launch": {
+        "root": 0,
+        "splitters": 0,
+        "degree_pulses": 1,
+        "routing_swaps": 0
+      },
+      "measured": [
+        4.904841555933305,
+        5.133416652274547,
+        9.598234655142807,
+        9.663078562276638,
+        9.585156196447793,
+        5.117977476449342,
+        9.571178819415664,
+        5.128833009150355,
+        9.590666181556815,
+        9.590647567366123,
+        5.133759692021887,
+        5.1228399953632975
+      ],
+      "held_predictions": [
+        8.338196063611363,
+        10.344049629077608,
+        8.362502199277504
+      ],
+      "complete_count_hashes": [
+        "ecbdd6bf6709a3b113bcbed0367d6f1854e302b638b0c4f0283064ac855969bf",
+        "a6e3814eaee43a3fcfd8137ccab2aae5b82cef28054f0ed2dc75cc5b2fa73b87",
+        "5580701a7c4dfd33ffdb2613c55e8fbaad2a6c9b09c41ba968648a845084a254",
+        "4d86efa7b23dcc997369ed07615a645a2586be2b5934f3f145e092019a49616b",
+        "75800f427dc119923c8f85a02327e256f0c3570323a3831ae20d682585d66d6d",
+        "feece681c1e9d63708794a8b751ae13f2041ebff1f73b7357542d27b2574a8c0",
+        "9842d91d2a930bd8482f71a2f818491d687ef9899ae659339f28da0043f6a584",
+        "3bd60844334f272993ad4cd1a82b9a6f05866f80e929432c8c289246869d1601",
+        "0063e437c89e864e7366638f3ab59f7f07fb1dc321aaeb5e068e5d7b178f3014",
+        "266b8f30ee2234d3c9f314f61d4f3bc62e2d3238b72412030d5ff9d5a0320169",
+        "4c6eb49e766dcf70085042c1a4e6b1f0e92da3e95bdf33efaa44491c40d444f8",
+        "ad136f80482227fe39995dad60fca788fb0a1eebeec783547fb46a5c481fbfbe"
+      ],
+      "held_difference_standard_errors": [
+        0.032019723162458345,
+        0.031958058805756466,
+        0.03201972316245819
+      ],
+      "max_held_standardized_error": 163.03524468504995,
+      "max_abs_exact_held_miss": 5.188996279632883
+    }
+  ]
+}

@@ -34,6 +34,26 @@ python3 code/cosmology/rar_deep_regime/rar_deep_regime_diagnostic.py \
 python3 -m pytest code/cosmology/rar_deep_regime
 ```
 
+## Observer protocol for the dark-gravity prediction
+
+The target is a joint distribution of recorded orbital speeds, image shear and cosmological observables. The physical hypothesis is that gravitational measurements respond to stress carried by imperfectly recovered overlap records. A catalogue entry for distance, the number of telescope exposures, and a hidden simulation clock supply no measurement of the recovery defect. OpenWave row 19 has a separate acceptance test for a stable neutral massive state. [Dark-sector paper](../../../cosmology/oph_dark_matter_paper.pdf) · [Official state criterion](https://github.com/openwave-labs/openwave/blob/f8fd02b2e0d96cfa0d868259daec2c9822375d34/MODELS.md#L121)
+
+A mechanism-neutral comparison can ask whether one fixed process predicts both the magnitude and location of the excess gravitational signal on systems excluded from calibration, using independent baryonic measurements. For Interval Echo, the next source experiment would let two fresh probes encounter the same surviving word, vary its persistence at fixed ordinary stress, and acquire geometry on observers beyond both contact regions. Match the spatial stress profiles of collar and ordinary calibrators, retain missed flights, and measure area at fixed proper volume across refinements. A reproducible change confined to contact detectors qualifies as scattering. An ordinary-calibrated change in those independent geometry records is the gravitational prediction. [Native ranging and source controls](../../../model/experiments/interval_echo_einstein_station/README.md) · [Observer gravity benchmark](../../../model/evaluation/EVIDENCE.md#patch-10)
+
+1. **Specify the patch statistic.** Prepare or generate the reference and the record-recovery map in finite patches. Have overlapping observers read the same retained cut in a common frame and count it once. Measure the signed mean, its full variance and the variance between physically recorded histories. Repeat with an independent tag and with full recovery. Record which statistic the stress law couples to. Two ensembles with identical untagged states can have different between-history variances. A source that uses that difference requires the history record in the physical source. [Tagged source and complete readouts](../../../model/experiments/interval_echo_einstein_station/backreaction.json)
+2. **Calibrate the response with ordinary matter.** Use material clocks, held null directions and an area and proper-volume instrument on one refinement family. Vary ordinary matter to fix the coupling and vary the collar statistic independently at fixed ordinary energy. Predict what a separate geometry instrument reads, including its quiet and failure outcomes. Repeat at different radii with two independent and two correlated sources. Measure the number of distinct physical cuts per proper length and the per-cut stress variance in mass units. The deep branch then predicts the normalization from $a_0=G n^2 c$. In a simulation the source can be fully specified from independent inputs even if a telescope cannot directly resolve one microscopic cut. [Einstein requirements and local tests](../../../model/evaluation/EVIDENCE.md#g6)
+3. **Test the field seen by the same galaxies.** Before looking at comparison residuals, specify the outer radial domain, the baryonic mass distribution, allowable geometry and kinematic uncertainties, environmental selection, and how the two metric potentials govern orbits and light. Forward-model line-of-sight velocities and tangential shear at matched physical radii with the measured lens–source pair weights and their joint covariance. Use the same tracer and radial selection rule for every eligible galaxy. An inner velocity field may constrain a different disk orientation than the outer gas. Cross shear and independently observed velocity fields control measurement systematics. For a spherical $1/r^2$ excess with negligible slip extending along the line of sight, the ratio below equals one without fitting $a_0$ or the inner mass. A finite outer boundary has a calculable correction. Equal ratios are also possible for another mechanism producing the same field. [Prospective annular prediction and projection controls](receipts/lensing_profile.json) · [Disjoint rotation test](receipts/held_galaxies.json)
+4. **Test source attribution across scales.** Freeze the repair law, preparation and readout, conversions, nuisance distributions, intrinsic scatter and rejection rule before opening a fresh observational sample. Require the same source to predict held rotation curves and shear, merger lensing relative to galaxies and hot plasma, and the gravitational effects on CMB spectra and structure growth. Compare predictions with a collisionless-matter baseline on identical data, nuisance information and uncertainty budgets. A successful test of the field does not identify its carrier if both models give the same observer records. Source attribution needs an observable on which their predictions differ. [Cluster shear and gas measurements](https://arxiv.org/abs/astro-ph/0608407) · [Planck temperature, polarization and lensing](https://arxiv.org/abs/1807.06209)
+
+For a single spherical excess, write $v_A^2=v_{\rm obs}^2-v_{\rm bar}^2$ and $D(R)=\Delta\Sigma_{\rm obs}(R)-\Delta\Sigma_{\rm bar}(R)$. At $0<R_0<R$ the matched observable is
+
+$$
+\frac{4G\,[R^2D(R)-R_0^2D(R_0)]}
+     {R v_A^2(R)-R_0 v_A^2(R_0)}=1.
+$$
+
+When the denominator is poorly resolved, use the difference of the numerator and denominator with their joint covariance. For compact spherical baryons the annular differences also cancel their inner mass. Extended gas or disks require their own orbital and projected-light models. With a sharp outer cutoff $L$, radii $R_0=L/4$, $R=L/2$ give **1.014799** under the same zero-slip hypothesis. The released stacked acceleration bins and the disjoint SPARC catalogue measure different lenses. The matched ratio requires its own observation. [Numerical projection and cutoff checks](lensing_profile.py) · [Annular lensing statistic](https://arxiv.org/abs/0911.4973)
+
 ## Predictions for held galaxies
 
 Five folds defined by galaxy name hold out every radius of a galaxy together.
@@ -62,6 +82,102 @@ independent observable of collar charge and a calibrated map to acceleration.
 ```bash
 python3 code/cosmology/rar_deep_regime/held_galaxies.py
 ```
+
+### Can a single exterior profile fit individual rotation curves?
+
+The proposed density gives a constant anomalous contribution to squared
+orbital speed outside a compact baryonic source. We test this consequence
+using total photometric mass and the catalogue's radial Newtonian force
+from gas and stars. We select 151 deep-regime rings in 41 galaxies with no
+catalogued bulge contribution, beyond both four stellar disk scale lengths
+and the H I isodensity radius. These cuts are independent of measured speed.
+Gas can extend beyond that radius. Applying the compact-source asymptote
+here is a physical hypothesis. [SPARC tables and radius conventions](https://cdsarc.cds.unistra.fr/viz-bin/ReadMe/J/AJ/152/157?format=html&tex=true)
+
+| Distance and inclination allowance | Disk mass-to-light ratio | Lower bound on largest speed residual, in quoted errors |
+| --- | --- | ---: |
+| Catalogue values | 0.5 | 33.01 |
+| Within one quoted error | 0.4–0.6 | 6.00 |
+| Within two quoted errors | 0.4–0.6 | 3.32 |
+
+At the simultaneous 95% velocity threshold of 3.590 quoted errors, the
+one-error geometry box requires $a_0 \ge 1.373\times10^{-10}$ from NGC 0024
+and $a_0 \le 0.844\times10^{-10}\,\mathrm{m\,s^{-2}}$ from NGC 0801. In the
+two-error box, $a_0=1.146\times10^{-10}\,\mathrm{m\,s^{-2}}$ and one shared
+distance, inclination and disk mass-to-light ratio per galaxy reproduce all
+151 speeds within 3.590 quoted errors. The archive records those 41
+assignments and reprojects every speed. This is a feasibility result with
+a scale chosen from the data. The velocity threshold assumes marginal
+Gaussian errors and conditions on the chosen nuisance ranges. It gives no
+joint probability for the assigned distances, inclinations or stellar masses.
+[Galaxy assignments and bounds](receipts/held_galaxies.json)
+
+A second test fits the deep radial-acceleration scale on the **74 other**
+qualifying SPARC galaxies (584 radii) and transfers the result to all 41
+exterior galaxies. The fitted scale is $7.60\times10^{-11}\,\mathrm{m\,s^{-2}}$.
+Resampling the 74 training galaxies gives a 95% range of $(6.19,9.22)\times10^{-11}\,\mathrm{m\,s^{-2}}$ at catalogue inputs.
+With the fitted scale fixed, the largest exterior speed residual is at least
+6.25 quoted errors even in the two-error geometry box. This discrepancy
+tests transfer between the deep radial formula and its compact photometric
+exterior approximation on disjoint galaxies. [Fixed-scale transfer test](receipts/held_galaxies.json)
+
+### Is the outer discrepancy caused by replacing the disk force with a compact mass?
+
+Two predictions use the same 151 rings and the same acceleration scale fitted on
+74 other galaxies. One adds $\sqrt{G M_{\rm phot}a_0}$ to the baryonic squared speed.
+The other adds $\sqrt{R V_{\rm bar}^2 a_0}$ using the tabulated gas and
+disk force at each ring. Both terms scale linearly with distance at fixed
+angular size and flux. The archive lists both nominal speeds for every ring.
+At NGC 24's outermost ring (11.27 kpc), the compact and local-force values are
+81.11 and 83.12 km/s. SPARC records 110.00 ± 2.83 km/s. Taking the most
+favorable distance, inclination and mass-to-light ratio inside the two-error
+catalogue boxes raises the two predictions to 92.30 and 94.47 km/s.
+The respective residuals are at least 6.254 and 5.488 quoted speed errors.
+For the local-force prescription only that ring is incompatible with the
+3.590-error simultaneous comparison. A single parameter set per galaxy
+covers all other 150 rings. This diagnostic keeps the incompatible ring in
+the primary score. Even the upper end of the training-scale bootstrap
+interval gives at most 98.29 km/s in the original geometry boxes. Repeating
+the training calibration using only galaxies with zero catalogued bulge contribution or
+removing the training velocity-error cut lowers its scale.
+[Predictions, training variants and shared galaxy assignments](receipts/held_galaxies.json)
+
+The underlying H I publication gives 109.7 ± 2.0 km/s at 320 arcseconds and
+a kinematic inclination of 64° ± 3°. Its neutral-gas and optical isophotes
+give 76° and 78°. The same galaxy's inner Hα velocity field gives 75° ± 3°.
+An alternative stellar tip distance compilation gives 7.67 ± 0.32 Mpc.
+At the central Hα inclination, central alternative distance and disk
+mass-to-light ratio 0.5, the local-force prediction is 91.57 km/s in the
+SPARC speed frame. At 8.31 Mpc, 78° and 0.6, the three enrolled ring speeds
+are 105.02, 102.37 and 100.10 km/s, with a maximum residual of 3.499 quoted
+errors. This point uses the observed discrepancy to choose galaxy inputs.
+The H I publication and SPARC use the same outer observations. The stellar
+distance is independent of those speeds; the distance compilations can
+share underlying imaging. [Chemin et al., §5.1 and Table 7](https://arxiv.org/pdf/astro-ph/0609148)
+· [Dicaire et al., Table 4 and Appendix A](https://arxiv.org/pdf/0801.2971)
+· [Schombert et al., §2.3 and Table 2](https://doi.org/10.3847/1538-3881/ab9d88)
+
+A separate sensitivity check applies the same catalogue rule to all 41
+galaxies. Six have alternative TRGB distances in Schombert et al. Table 2
+and two have Hα inclinations in Dicaire et al. Table 4. Angles are restricted
+to the physically admissible range. All other geometry inputs keep their
+SPARC values. Changing only the distance boxes leaves one ring at least
+4.890 quoted errors from the held prediction. Changing only the inclination
+boxes leaves one at least 3.783 errors away. Combining both sources admits
+one assignment per galaxy for **all 151 rings**, with a maximum residual of
+3.5834 quoted errors. Those assignments consume the held speeds. The result
+quantifies sensitivity to projection and baryon geometry at a fixed scale.
+An independent prediction requires distances, inclination as a function of
+radius, and deprojected gas and stellar maps fixed before reading the outer
+speeds. These force substitutions supply no map from the observer's repair
+history to the gravitational source. [Complete geometry controls](receipts/held_galaxies.json)
+
+For comparison, at the catalogue geometry a freely varying, nonnegative and
+nondecreasing spherical enclosed mass per galaxy accommodates all 151 speeds
+within 0.366 quoted errors. Including bulges extends that result to 237
+rings in 58 galaxies. The rotation data constrain the shape and normalization
+of the excess. Attribution to a modular source requires an independent
+charge observable linked to the same radii.
 
 ## Source-bound full-RAR calibration
 
@@ -107,6 +223,10 @@ python3 code/cosmology/rar_deep_regime/qumond_quadrupole_crosscheck.py \
   --output code/cosmology/rar_deep_regime/receipts/qumond_quadrupole_crosscheck.json
 ```
 
+## Where can the lensing peaks occur in a cluster merger?
+
+The western Bullet subcluster tests every strict maximum allowed by a total convergence made of two circular, radially nonincreasing profiles centred on the X-ray plasma. Moving toward the line segment between the centres shortens the distance to both. The western peak lies 36.61 arcsec outside that segment, about 162 kpc at the authors' plate scale. Their bootstrap offset significance refers to the gas centre. The later JWST analysis reports about 150 kpc for the western peak. A dynamical source should predict its sky position before comparison with the lensing map. Replay with `python bullet_cluster.py --check` from this directory. [Calculation](bullet_cluster.py) · [Receipt](receipts/bullet_cluster.json) · [Clowe et al., §3 and Table 2](https://doi.org/10.1086/508162) · [Cha et al., §IV.2](https://arxiv.org/abs/2503.21870)
+
 ## A rotation-calibrated prediction for an independent shear measurement
 
 Brouwer et al. release tangential and cross shear as excess surface densities in the same baryonic-acceleration bins, with multiplicative corrections and a full covariance for each stack. We use seven bin centres in the reliable-isolation, deep regime. For compact spherical baryons and negligible gravitational slip, projecting the paper’s proposed density gives $4G\Delta\Sigma=(4/\pi)g_b+\sqrt{a_0g_b}$. The scale comes from the existing deep rotation fit to 115 SPARC galaxies. [Public data and acknowledgments](https://kids.strw.leidenuniv.nl/sciencedata.php) · [Brouwer et al., Fig. 4](https://doi.org/10.1051/0004-6361/202040108)
@@ -128,4 +248,23 @@ To replay from the verified 2.3 MB public archive, run from the RER root.
 ```sh
 curl -fsSLo /tmp/brouwer2021_rar.tar https://kids.strw.leidenuniv.nl/sci_data/brouwer2021_rar.tar
 python code/cosmology/rar_deep_regime/lensing_profile.py /tmp/brouwer2021_rar.tar
+```
+
+### Stellar motion and gravitational lensing in the same galaxies
+
+For 53 single early-type SLACS galaxies with well-measured spectra and modeled arcs, the stars supply a prediction of the Einstein angle. Assume a spherical total field with constant circular speed, equal weak-field metric potentials and an isotropic de Vaucouleurs stellar distribution. The Jeans equation then relates the circular speed to the dispersion measured through the seeing-convolved SDSS fibre. At observed Einstein radii of 1.14–6.92 kpc the median predicted/measured angle is 1.101. The median absolute fractional error is 16.1%. Comparing in the measured dispersion coordinate gives 39 of 53 within two assigned errors and χ² = 163.2. Trying the survey's alternate mass model for the same arc images gives a 16.8% median absolute angle error. Galaxy structure, orbital anisotropy and selection contribute additional uncertainty. [Bolton et al., Tables 3–5](https://doi.org/10.1086/589327) · [Per-galaxy predictions](receipts/stellar_lensing.json)
+
+For all 22 galaxies in the SLACS weak-lensing stack, published stellar-population masses supply the compact baryonic sources. Stellar photometry and background shear can share imaging systematics. The SPARC acceleration scale sets the isothermal excess. Requiring each lens to be deep and at least ten stellar effective radii out leaves two bin centres. The control extends each galaxy's spectroscopically inferred circular speed flat to the outer measurement. Predictions use complete-annulus pair weights with uniform source density and shape variance. Surface densities in the receipt are in $h M_\odot\,\mathrm{pc}^{-2}$, with $h=0.7$. [Gavazzi et al., Eq. 10 and Tables 1–2](https://doi.org/10.1086/519237) · [Auger et al., Table 4](https://doi.org/10.1088/0004-637X/705/2/1099) · [Matched stellar inputs](data/slacs_weak_lenses.dat)
+
+The complete bin comparisons, including both stellar-mass prescriptions, the spectroscopic control and measured cross shear, are archived with their units and conditional uncertainties. [Per-bin observations and forecasts](receipts/stellar_lensing.json)
+
+The nominal stellar-source predictions fall below both tangential measurements. The same two bins give χ² = 13.36 for the cross-shear zero control. The actual pair weights and extended gas are unmeasured here. At the outer bin, take each stellar mass up to its Salpeter estimate plus one quoted error and the SPARC scale up to its upper bootstrap endpoint. Allow arbitrary positive weights over galaxies and arbitrary radii within the ordered radial bin. If the weighted mean source efficiency for each lens in that bin equals its catalogue value, the conservative upper bound is 58.02, 0.12 quoted errors below the measured central value. Allowing arbitrary source efficiencies between zero and one raises the upper bound to 96.42. A tighter comparison needs the weighted pair radii, an independent outer shear control, and gas and environmental mass constraints. Both data sets compare different tracers of the same total metric. Resolving the proposed annular ratio additionally requires orbital measurements at the shear radii. [Calculation](stellar_lensing.py) · [Measurements and numerical bounds](receipts/stellar_lensing.json)
+
+A published satellite-velocity and weak-shear comparison uses common central galaxies, but selects satellites with radius and velocity cuts derived from lensing fits. Its radial velocity distributions therefore cannot serve directly as an independent orbital forecast for this annular test. A new reduction would select hosts and satellites without using shear, model orbital anisotropy and interlopers, and carry calibrated source weights into the same host and radius bins. [Ma et al., §3.2.1](https://arxiv.org/abs/2409.13329)
+
+Replay from the RER root using the public SLACS catalogue. The program verifies the scientific columns against pinned digests.
+
+```sh
+curl -fsSLo /tmp/bolton_slacs.tsv 'https://vizier.cfa.harvard.edu/viz-bin/asu-tsv?-source=J%2FApJ%2F682%2F964&-out.all&-out.max=unlimited'
+OPENBLAS_NUM_THREADS=1 python code/cosmology/rar_deep_regime/stellar_lensing.py /tmp/bolton_slacs.tsv
 ```

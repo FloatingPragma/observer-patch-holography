@@ -1,5 +1,31 @@
 {
   "public_data": "https://kids.strw.leidenuniv.nl/sci_data/brouwer2021_rar.tar",
+  "same_galaxy_annular_projection_control": {
+    "inner_over_outer": 0.5,
+    "test_core_masses": [
+      0,
+      80
+    ],
+    "scope": "Synthetic spherical excess, ordinary weak-field deflection, no gravitational slip. Observational comparison requires the same galaxies and matched physical annuli. The public acceleration stacks do not supply those pairs.",
+    "rows": [
+      {
+        "cutoff_over_outer": null,
+        "predicted_ratio": 1.0,
+        "shell_projection_ratios": [
+          1.0000000000000002,
+          0.9999999999999987
+        ]
+      },
+      {
+        "cutoff_over_outer": 2.0,
+        "predicted_ratio": 1.0147989689613282,
+        "shell_projection_ratios": [
+          1.0147989689613277,
+          1.0147989689613284
+        ]
+      }
+    ]
+  },
   "archive_sha256": "73adc2d4e848fa0a6a43187f7b5447e749b92eaec4a795b9902b0beaf8a78733",
   "calibration_source": "runtime/matched_observable_receipt.json",
   "fitted_sparc_a0_m_s2": 8.750402247718735e-11,
@@ -128,6 +154,39 @@
       "wholly_above_isolation_floor": {
         "bins": 6,
         "chisq_profile": 40.672103628869564,
+        "compact_core_projection": {
+          "bins": 6,
+          "curve": "A times the nominal compact-baryon ESD plus B times the frozen SPARC envelope ESD, using the acceleration bin centres. Allow A and B to have either sign.",
+          "observable": "B is the fitted signed envelope coefficient. At fixed nominal masses a positive B equals sqrt(a_lens/a_SPARC) under the compact, spherical, zero-slip transfer. A common baryonic mass rescaling m multiplies the physical envelope by sqrt(m).",
+          "precision": "Condition on the nominal baryonic acceleration bins, their centre approximation, frozen SPARC amplitude, and the published six-bin marginal tangential covariance. Use that covariance also for the cross-shear comparison. Replacing centres with actual means of g_bar and sqrt(g_bar) over source-lens pairs changes the projected vectors. These weights, baryonic mass errors and uncertainties common to lens stacks are outside the stated errors.",
+          "esd_weights_per_Msun_pc2": [
+            0.07179816466364962,
+            0.04495172815496517,
+            0.024155957522263273,
+            0.00825348337629257,
+            -0.004101987028267417,
+            -0.013561117249952914
+          ],
+          "envelope_relative_to_sparc": 1.7303051519406,
+          "conditional_standard_error": 0.12298044155578022,
+          "standardized_difference_from_frozen": 5.93838453254663,
+          "fixed_envelope_free_core": {
+            "compact_amplitude": 1.598495619301591,
+            "chisq": 37.060017166651114,
+            "residual_dimension": 5
+          },
+          "free_envelope_free_core": {
+            "compact_amplitude": -2.3863196648287435,
+            "chisq": 1.7956063102619773,
+            "residual_dimension": 4
+          },
+          "cross_shear": {
+            "envelope_relative_to_sparc": -0.1120804800718041,
+            "standardized_difference_from_zero": -0.9113683334838879,
+            "zero_envelope_free_core_chisq": 3.1496692447962618
+          },
+          "planted_controls": "ESD weights give 0 on the published compact vector, 1 on the reference envelope, and -0.75 on profiles with that signed envelope and each of three distinct compact amplitudes. A direct two-column GLS reproduces the profiled solution."
+        },
         "controls": {
           "centers": {
             "nominal_mass_chisq": 40.672103628869564,
@@ -297,6 +356,39 @@
       "wholly_above_isolation_floor": {
         "bins": 6,
         "chisq_profile": 16.658085342260243,
+        "compact_core_projection": {
+          "bins": 6,
+          "curve": "A times the nominal compact-baryon ESD plus B times the frozen SPARC envelope ESD, using the acceleration bin centres. Allow A and B to have either sign.",
+          "observable": "B is the fitted signed envelope coefficient. At fixed nominal masses a positive B equals sqrt(a_lens/a_SPARC) under the compact, spherical, zero-slip transfer. A common baryonic mass rescaling m multiplies the physical envelope by sqrt(m).",
+          "precision": "Condition on the nominal baryonic acceleration bins, their centre approximation, frozen SPARC amplitude, and the published six-bin marginal tangential covariance. Use that covariance also for the cross-shear comparison. Replacing centres with actual means of g_bar and sqrt(g_bar) over source-lens pairs changes the projected vectors. These weights, baryonic mass errors and uncertainties common to lens stacks are outside the stated errors.",
+          "esd_weights_per_Msun_pc2": [
+            0.0731222928717574,
+            0.04495905616339163,
+            0.023862842945188534,
+            0.007744184967090262,
+            -0.004357880656597223,
+            -0.013277316891226661
+          ],
+          "envelope_relative_to_sparc": 2.9366646392176303,
+          "conditional_standard_error": 0.5330133331776129,
+          "standardized_difference_from_frozen": 3.6334262553471377,
+          "fixed_envelope_free_core": {
+            "compact_amplitude": 1.8673833090281717,
+            "chisq": 16.266931585739535,
+            "residual_dimension": 5
+          },
+          "free_envelope_free_core": {
+            "compact_amplitude": -8.8146921635335,
+            "chisq": 3.0651452326936206,
+            "residual_dimension": 4
+          },
+          "cross_shear": {
+            "envelope_relative_to_sparc": -0.1280754079581784,
+            "standardized_difference_from_zero": -0.2402855613285392,
+            "zero_envelope_free_core_chisq": 5.961511439626108
+          },
+          "planted_controls": "ESD weights give 0 on the published compact vector, 1 on the reference envelope, and -0.75 on profiles with that signed envelope and each of three distinct compact amplitudes. A direct two-column GLS reproduces the profiled solution."
+        },
         "controls": {
           "centers": {
             "nominal_mass_chisq": 16.65808534226024,
@@ -466,6 +558,39 @@
       "wholly_above_isolation_floor": {
         "bins": 6,
         "chisq_profile": 31.221049194938722,
+        "compact_core_projection": {
+          "bins": 6,
+          "curve": "A times the nominal compact-baryon ESD plus B times the frozen SPARC envelope ESD, using the acceleration bin centres. Allow A and B to have either sign.",
+          "observable": "B is the fitted signed envelope coefficient. At fixed nominal masses a positive B equals sqrt(a_lens/a_SPARC) under the compact, spherical, zero-slip transfer. A common baryonic mass rescaling m multiplies the physical envelope by sqrt(m).",
+          "precision": "Condition on the nominal baryonic acceleration bins, their centre approximation, frozen SPARC amplitude, and the published six-bin marginal tangential covariance. Use that covariance also for the cross-shear comparison. Replacing centres with actual means of g_bar and sqrt(g_bar) over source-lens pairs changes the projected vectors. These weights, baryonic mass errors and uncertainties common to lens stacks are outside the stated errors.",
+          "esd_weights_per_Msun_pc2": [
+            0.0763284110512855,
+            0.04465144953758419,
+            0.0226326954169959,
+            0.006955302537923906,
+            -0.004498326417034475,
+            -0.012876110603697956
+          ],
+          "envelope_relative_to_sparc": 1.590671331549449,
+          "conditional_standard_error": 0.1129018703439896,
+          "standardized_difference_from_frozen": 5.231723174733869,
+          "fixed_envelope_free_core": {
+            "compact_amplitude": 1.5782108642767512,
+            "chisq": 27.53724529328216,
+            "residual_dimension": 5
+          },
+          "free_envelope_free_core": {
+            "compact_amplitude": -1.706872147183196,
+            "chisq": 0.1663179162346323,
+            "residual_dimension": 4
+          },
+          "cross_shear": {
+            "envelope_relative_to_sparc": -0.1351847709683095,
+            "standardized_difference_from_zero": -1.1973652035739384,
+            "zero_envelope_free_core_chisq": 4.187959060260699
+          },
+          "planted_controls": "ESD weights give 0 on the published compact vector, 1 on the reference envelope, and -0.75 on profiles with that signed envelope and each of three distinct compact amplitudes. A direct two-column GLS reproduces the profiled solution."
+        },
         "controls": {
           "centers": {
             "nominal_mass_chisq": 31.22104919493873,

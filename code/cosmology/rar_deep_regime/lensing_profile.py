@@ -8,6 +8,7 @@ import tarfile
 from pathlib import Path
 
 import numpy as np
+from scipy.integrate import quad
 from scipy.optimize import lsq_linear
 
 HERE = Path(__file__).resolve().parent
@@ -134,6 +135,80 @@ def mass_and_bin_controls(b, lower, density, cross, cov, a0, sparc_interval):
     return results
 
 
+def compact_core_projection(b, density, cross, cov, a0):
+    """Marginal six-bin GLS for a compact core and a signed isothermal envelope.
+
+    Work in the published ESD units, so unit amplitudes give the baryonic
+    compact core and the frozen projected SPARC anomaly. Project out one
+    common compact amplitude, with both signal coefficients unrestricted.
+    """
+    chol = np.linalg.cholesky(cov)
+    core = (4 / np.pi) * b / FOUR_G
+    envelope = np.sqrt(a0 * b) / FOUR_G
+    x, u = np.linalg.solve(chol, np.column_stack((core, envelope))).T
+    y, cross_y = np.linalg.solve(chol, np.column_stack((density, cross))).T
+
+    def remove_core(z):
+        return z - x * ((x @ z) / (x @ x))
+
+    u_perp = remove_core(u)
+    norm_sq = u_perp @ u_perp
+    if norm_sq <= np.finfo(float).eps * (u @ u):
+        raise ValueError("The two profiles are indistinguishable in these bins")
+    # W^T u_perp/(u_perp^T u_perp) is the unique minimum-variance linear
+    # coefficient read with zero core response and unit envelope response.
+    weights = np.linalg.solve(chol.T, u_perp) / norm_sq
+    scale = float(weights @ density)
+    sigma = float(1 / np.sqrt(norm_sq))
+    profiled_core = float(x @ (y - scale * u) / (x @ x))
+    residual_fixed = remove_core(y - u)
+    residual_free = remove_core(y - scale * u)
+    fixed_chisq = float(residual_fixed @ residual_fixed)
+    free_chisq = float(residual_free @ residual_free)
+    np.testing.assert_allclose(
+        fixed_chisq - free_chisq, ((scale - 1) / sigma) ** 2, rtol=2e-12, atol=1e-12
+    )
+    np.testing.assert_allclose(weights @ cov @ weights, sigma**2, rtol=1e-12)
+    np.testing.assert_allclose(weights @ core, 0.0, rtol=0, atol=1e-12)
+    np.testing.assert_allclose(weights @ envelope, 1.0, rtol=0, atol=1e-12)
+    # A known negative envelope must be recovered regardless of planted
+    # positive or negative core. This exercises response, sign, and units.
+    for injected_core in (-4.0, 0.0, 9.0):
+        synthetic = injected_core * core - 0.75 * envelope
+        np.testing.assert_allclose(weights @ synthetic, -0.75, rtol=0, atol=1e-12)
+    # Check the two-dimensional fit independently of the projection formula.
+    fitted = np.linalg.lstsq(np.column_stack((x, u)), y, rcond=None)[0]
+    np.testing.assert_allclose(fitted, [profiled_core, scale], rtol=1e-12, atol=1e-12)
+    cross_scale = float(weights @ cross)
+    cross_perp = remove_core(cross_y)
+    return dict(
+        bins=len(b),
+        curve="A times the nominal compact-baryon ESD plus B times the frozen SPARC envelope ESD, using the acceleration bin centres. Allow A and B to have either sign.",
+        observable="B is the fitted signed envelope coefficient. At fixed nominal masses a positive B equals sqrt(a_lens/a_SPARC) under the compact, spherical, zero-slip transfer. A common baryonic mass rescaling m multiplies the physical envelope by sqrt(m).",
+        precision="Condition on the nominal baryonic acceleration bins, their centre approximation, frozen SPARC amplitude, and the published six-bin marginal tangential covariance. Use that covariance also for the cross-shear comparison. Replacing centres with actual means of g_bar and sqrt(g_bar) over source-lens pairs changes the projected vectors. These weights, baryonic mass errors and uncertainties common to lens stacks are outside the stated errors.",
+        esd_weights_per_Msun_pc2=weights.tolist(),
+        envelope_relative_to_sparc=scale,
+        conditional_standard_error=sigma,
+        standardized_difference_from_frozen=float((scale - 1) / sigma),
+        fixed_envelope_free_core=dict(
+            compact_amplitude=float(x @ (y - u) / (x @ x)),
+            chisq=fixed_chisq,
+            residual_dimension=len(b) - 1,
+        ),
+        free_envelope_free_core=dict(
+            compact_amplitude=profiled_core,
+            chisq=free_chisq,
+            residual_dimension=len(b) - 2,
+        ),
+        cross_shear=dict(
+            envelope_relative_to_sparc=cross_scale,
+            standardized_difference_from_zero=cross_scale / sigma,
+            zero_envelope_free_core_chisq=float(cross_perp @ cross_perp),
+        ),
+        planted_controls="ESD weights give 0 on the published compact vector, 1 on the reference envelope, and -0.75 on profiles with that signed envelope and each of three distinct compact amplitudes. A direct two-column GLS reproduces the profiled solution.",
+    )
+
+
 def score(profile, a0, sparc_interval):
     b = np.array(profile["g_bar_m_s2"])
     density = np.array(profile["tangential_esd"])
@@ -157,6 +232,13 @@ def score(profile, a0, sparc_interval):
             chisq_profile=float(
                 residual @ np.linalg.solve(cov[np.ix_(isolated, isolated)], residual)
             ),
+            compact_core_projection=compact_core_projection(
+                b[isolated],
+                density[isolated],
+                np.array(profile["cross_esd"])[isolated],
+                cov[np.ix_(isolated, isolated)],
+                a0,
+            ),
             controls=mass_and_bin_controls(
                 b[isolated],
                 np.array(profile["lower_bin_edge_m_s2"])[isolated],
@@ -172,6 +254,71 @@ def score(profile, a0, sparc_interval):
         chisq_profile=quadratic(density - compact - envelope),
         chisq_baryons_only=quadratic(density - compact),
         chisq_cross_zero=quadratic(profile["cross_esd"]),
+    )
+
+
+def annular_orbit_shear_control():
+    """Directly project independent shells and compare two same-galaxy observables.
+
+    Units set G=1 and rho=A/r^2 outside a compact core. The core lies below
+    both measurements. The surface-density integral and projected cylinder
+    mass are evaluated separately from the closed-form annular prediction.
+    """
+    amplitude, core_radius = 1.7, 0.3
+    inner, outer = 1.0, 2.0
+
+    def observables(radius, core_mass, cutoff):
+        orbital_mass = core_mass + 4 * np.pi * amplitude * (radius - core_radius)
+        z_limit = np.sqrt(cutoff**2 - radius**2)
+
+        def column(z):
+            return 2 * amplitude / (radius**2 + z**2)
+
+        def projected_shell(r):
+            # Fraction of solid angle below the projected radius; rationalized at large r.
+            q = (radius / r) ** 2
+            return 4 * np.pi * amplitude * q / (1 + np.sqrt(1 - q))
+
+        sigma = quad(column, 0, z_limit, epsabs=1e-11, epsrel=1e-11)[0]
+        cylinder = (
+            orbital_mass
+            + quad(projected_shell, radius, cutoff, epsabs=1e-11, epsrel=1e-11)[0]
+        )
+        delta_sigma = cylinder / (np.pi * radius**2) - sigma
+        return orbital_mass, radius**2 * delta_sigma
+
+    rows = []
+    for cutoff in (np.inf, 4.0):
+        # Mean over the annulus of -R^2 Sigma'(R)/(pi A).
+        if np.isinf(cutoff):
+            prediction = 1.0
+        else:
+
+            def primitive(x):
+                return x * np.arccos(x) - 2 * np.sqrt(1 - x**2)
+
+            x0, x1 = inner / cutoff, outer / cutoff
+            prediction = float(
+                2 * (primitive(x1) - primitive(x0)) / (np.pi * (x1 - x0))
+            )
+        measured = []
+        for core_mass in (0.0, 80.0):
+            m0, shear0 = observables(inner, core_mass, cutoff)
+            m1, shear1 = observables(outer, core_mass, cutoff)
+            measured.append(float(4 * (shear1 - shear0) / (m1 - m0)))
+        np.testing.assert_allclose(measured, prediction, rtol=2e-12, atol=0)
+        rows.append(
+            dict(
+                cutoff_over_outer=None if np.isinf(cutoff) else cutoff / outer,
+                predicted_ratio=prediction,
+                shell_projection_ratios=measured,
+            )
+        )
+    return dict(
+        inner_over_outer=inner / outer,
+        test_core_masses=[0, 80],
+        scope="Synthetic spherical excess, ordinary weak-field deflection, no gravitational slip. Observational comparison requires the same galaxies and matched physical annuli. The public acceleration stacks do not supply those pairs.",
+        rows=rows,
     )
 
 
@@ -191,6 +338,7 @@ def build(path):
         }
     return dict(
         public_data=ARCHIVE,
+        same_galaxy_annular_projection_control=annular_orbit_shear_control(),
         archive_sha256=ARCHIVE_SHA256,
         calibration_source=str(CALIBRATION.relative_to(HERE)),
         fitted_sparc_a0_m_s2=a0,
@@ -217,7 +365,12 @@ def check(saved, actual):
             raise ValueError("Mismatched lensing receipt keys")
         for key, value in actual.items():
             check(saved[key], value)
-    elif isinstance(actual, (float, list)):
+    elif isinstance(actual, list):
+        if not isinstance(saved, list) or len(actual) != len(saved):
+            raise ValueError("Mismatched lensing receipt length")
+        for expected, measured in zip(saved, actual, strict=True):
+            check(expected, measured)
+    elif isinstance(actual, float):
         np.testing.assert_allclose(saved, actual, atol=0, rtol=2e-10)
     elif actual != saved:
         raise ValueError("Mismatched lensing data provenance")

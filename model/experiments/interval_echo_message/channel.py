@@ -62,6 +62,20 @@ REPLAY_JOINT_READ = {
 }
 
 
+# Directional modular charge, material radar and source discrimination extend evaluation metadata.
+REPLAY_DIRECTIONAL_CHARGE = {
+    "model/candidate_laws/interval_echo/EVALUATION.json": "8e59ded545e23fd3419c224933ca326ee0bc9926a023db87e85457e438ba32f4",
+}
+
+
+# Reviewed evaluation-only updates share the same complete law and instrument manifest.
+REPLAY_EVALUATIONS = (
+    {"model/candidate_laws/interval_echo/EVALUATION.json": "7a1b0f8fef54157548ac1c40c4e107934b766d5f5994b94791506fd77a245530"},
+    {"model/candidate_laws/interval_echo/EVALUATION.json": "41c5457f88cc152a719a8678a783838c00d6255b62fd9cfbed3379aedb61683c"},
+    {"model/candidate_laws/interval_echo/EVALUATION.json": "8e50a50244e99f851faf42720b1e72555fc52f2508fb3eef46c23412736266e0"},
+)
+
+
 def require(ok, message):
     if not ok:
         raise ValueError(message)
@@ -76,7 +90,11 @@ def sources():
     standard = regional | REPLAY_MODULAR_STANDARD
     gravity = standard | REPLAY_GRAVITY_CAP
     nested = gravity | REPLAY_NESTED_CAP
-    if actual in (frozen, reviewed, radial, regional, standard, gravity, nested, nested | REPLAY_JOINT_READ):
+    joint = nested | REPLAY_JOINT_READ
+    directional = joint | REPLAY_DIRECTIONAL_CHARGE
+    if actual in (frozen, reviewed, radial, regional, standard, gravity, nested, joint, directional):
+        return
+    if any(actual == (directional | update) for update in REPLAY_EVALUATIONS):
         return
     mismatches = [name for name, expected in reviewed.items() if actual.get(name) != expected]
     raise ValueError(f"unverified replay source: {', '.join(mismatches)}")

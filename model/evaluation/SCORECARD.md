@@ -71,8 +71,8 @@ Sources · [recovering_observer_spacetime_and_einstein_dynamics_from_overlap_con
 | [G2](EVIDENCE.md#g2) Cap modular charges measure the propagating matter stress | **Demonstrated** · [Regional modular energy predicted from repair across the boundary](../experiments/interval_echo_einstein_station/PAIR.md). Full criterion · Partial | Open | Open |
 | [G3](EVIDENCE.md#g3) Independent matter Ward identity | **Demonstrated** · [Patch energy continuity and the change in a seam current](../experiments/interval_echo_null_balance/README.md). Full criterion · Partial | Open | Open |
 | [G4](EVIDENCE.md#g4) Stationary generalized entropy at fixed proper volume | **Demonstrated** · [Interior repair changes entropy at a fixed boundary readout](../experiments/interval_echo_einstein_station/PAIR.md). Full criterion · Partial | Open | Open |
-| [G5](EVIDENCE.md#g5) Small-ball control and sufficient null directions | Partial | Open | Open |
-| [G6](EVIDENCE.md#g6) Universal coupling and a shared positive Newton constant | Open | Open | Open |
+| [G5](EVIDENCE.md#g5) Small-ball control and sufficient null directions | **Demonstrated** · [Nine directions predict regional charge on the constant mode and slow triplet](../experiments/interval_echo_angular/README.md). Full criterion · Partial | Open | Open |
+| [G6](EVIDENCE.md#g6) Universal coupling and a shared positive Newton constant | **Demonstrated** · [A material clock resolves a signed source change at fixed ordinary load](../experiments/interval_echo_einstein_station/README.md). Full criterion · Open | Open | Open |
 | [GR-NULL](EVIDENCE.md#gr-null) Null balance and tensor closure | Open | Open | Open |
 
 ## Clock dilation, three-dimensional fields, signal timing and bound-pair dynamics
@@ -112,6 +112,7 @@ Sources · [SPEC.md](../candidate_laws/interval_echo/SPEC.md) · [recovering_obs
 | [PATCH-07](EVIDENCE.md#patch-07) Three spatial response components reach neighbouring patches | Demonstrated | Demonstrated | Open |
 | [PATCH-08](EVIDENCE.md#patch-08) Two kinds of material hand agree on the same accepted repair events | Demonstrated | Open | Open |
 | [PATCH-09](EVIDENCE.md#patch-09) Optically ranged reunion on held native links and motion schedules | Demonstrated | Open | Open |
+| [PATCH-10](EVIDENCE.md#patch-10) Excess gravity predicted from retained patch records | **Demonstrated** · [Two writes under one retained history measure its charge variance](../experiments/interval_echo_einstein_station/README.md). Full criterion · Partial | Open | Open |
 
 ## OpenWave empirical criteria
 

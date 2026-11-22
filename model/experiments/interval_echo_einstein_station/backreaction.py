@@ -363,7 +363,399 @@ def ordered_collar_control(
         seed=2026112209,
         calibration_counts=calibration_counts.tolist(),
         calibrated_scores=calibrated_score.tolist(),
+        repeated_quadrature=persistent_word_covariance(
+            board, (a, b, c), swap, reference, output["quadrature"]
+        ),
         arms=arms,
+    )
+
+
+def persistent_word_covariance(board, ports, swap, reference, response):
+    """Use two fresh loads and an identical, nonadaptive service on one persistent word."""
+    a, b, c = ports
+    used = set(ports)
+    rails = []
+    for v in (a, c, a):
+        spare = min(p for p in board.neighbours[v] if p // 12 == a // 12 and p not in used)
+        used.add(spare)
+        rails.append(spare)
+    # Two empty spares receive the old outer occupation. The last supplies a fresh
+    # sharp unit at a. These blank-seam swaps never touch the retained collar or b.
+    words = [law.SRC.index(w) for w in ((0, 0), (1, 0), (0, 1))]
+    np.testing.assert_allclose(
+        abs(swap[:, words]) ** 2,
+        np.eye(law.DIM)[:, [words[0], words[2], words[1]]],
+        rtol=0,
+        atol=3e-13,
+    )
+    transfers = list(zip((a, c, a), rails, strict=True))
+    for outcome in (a, c):
+        loads = {p: int(p in (b, outcome, rails[2])) for p in used}
+        for u, v in transfers:
+            loads[u], loads[v] = loads[v], loads[u]
+        np.testing.assert_array_equal(
+            [loads[p] for p in (*ports, *rails)],
+            [1, 1, 0, int(outcome == a), int(outcome == c), 0],
+        )
+
+    distribution = response.reshape(9, 2)
+    weights = reference.ravel()
+    marginal = weights @ distribution
+    same_word = np.einsum("w,wx,wy->xy", weights, distribution, distribution)
+    new_word = np.outer(marginal, marginal)
+    between = float(weights @ (distribution[:, 0] - marginal[0]) ** 2)
+    within = float(weights @ np.prod(distribution, axis=1))
+    np.testing.assert_allclose(within + between, np.prod(marginal), atol=3e-13)
+    np.testing.assert_allclose(same_word[0, 0] - new_word[0, 0], between, atol=3e-13)
+    seed, shots = 2026112242, 2**20
+    rng = np.random.default_rng(seed)
+    measurements = {}
+    for name, joint in (("same_word", same_word), ("independent_words", new_word)):
+        counts = rng.multinomial(shots, joint.ravel()).reshape(2, 2)
+        frequencies = counts / shots
+        measured = frequencies[0, 0] - frequencies[0].sum() * frequencies[:, 0].sum()
+        measurements[name] = dict(
+            joint=joint.tolist(),
+            pair_counts=counts.tolist(),
+            measured_covariance=float(measured),
+        )
+    # Two preparations, each with three bounded sample means (R1, R2, R1*R2).
+    radius = 3 * np.sqrt(np.log(12 / 0.01) / (2 * shots))
+    return dict(
+        reset_swaps=[list(edge) for edge in transfers],
+        probe_outcomes=["return on AB", "other on BC"],
+        source_reference=reference.tolist(),
+        return_given_word=response[:, :, 0].tolist(),
+        return_probability=float(marginal[0]),
+        between_word_variance=between,
+        within_word_variance=within,
+        seed=seed,
+        paired_trials_per_cohort=shots,
+        simultaneous_covariance_radius=float(radius),
+        family_failure_probability=0.01,
+        acquisitions=measurements,
+    )
+
+
+def joint_clock_lapse(board, ports, native, records, source, splitter, inverse):
+    """Test whether the contact fringe is a relabelled time on a local material hand."""
+    from scipy.linalg import expm
+    from model.experiments.material_inertia.dark_collar import label
+
+    a, b, c = ports
+    used = {a, b, c, *source["spare_ports"]}
+    clock_edge = next(
+        (u, v)
+        for u, v in board.seams
+        if u // 12 == a // 12 == v // 12 and not {u, v} & used
+    )
+    single = [law.SRC.index(w) for w in ((1, 0), (0, 1))]
+    clock_h = native[np.ix_(single, single)]
+    clock_gap = float(np.diff(np.linalg.eigvalsh(clock_h))[0])
+    energy = np.asarray(source["source_energies"])
+    harmonic = np.rint((energy[:, None] - energy[None, :]) / clock_gap).astype(int)
+    np.testing.assert_allclose(
+        harmonic * clock_gap, energy[:, None] - energy[None, :], atol=5e-13
+    )
+    clock = np.stack([np.eye(2), expm(-1j * (3 * np.pi / 2) * clock_h)])
+    # These two probe arms share the parked central load. Both marked
+    # generators are diagonal on this native reducing subspace.
+    inputs = np.eye(law.N_SRC)[:, [law.SRC.index((1, 1)), law.SRC.index((0, 1))]]
+    lifts = [np.kron(label(d, parity)[:, None], inputs) for d, parity in records]
+    bias_phase = KAPPA * (6 - board.degree[a]) * source["quadrature_reference_exposure"]
+    bias = np.exp(-1j * np.outer([0, bias_phase], [1, 0]))
+    cycle = harmonic[[0, 1, 2], [1, 2, 0]]
+    rng = np.random.default_rng(2026112223)
+    shots = 2**20
+    signs = np.array([1, -1])
+    values = np.array([[x, y] for x in signs for y in signs])
+    result = []
+    for t in (np.pi / 66, np.pi / 44, np.pi / 16, np.pi / 3):
+        contact = expm(-1j * t * native)
+        phases = []
+        for lift in lifts:
+            diagonal = np.diag(lift.conj().T @ contact @ lift)
+            np.testing.assert_allclose(
+                contact @ lift, lift * diagonal, rtol=0, atol=3e-13
+            )
+            phases.append(diagonal)
+        hand = abs(clock @ expm(-1j * t * clock_h)[:, 0]) ** 2
+        probe = np.empty((3, 3, 2, 2))
+        for i, left in enumerate(phases):
+            for j, right in enumerate(phases):
+                state = left * right[::-1] * splitter[:, 0]
+                for q in (0, 1):
+                    probe[i, j, q] = abs(inverse @ (bias[q] * state)) ** 2
+        row = []
+        for arm in source["arms"]:
+            weights = np.array(arm["source_units_of_1_over_36"]) / 36
+            forecast = np.array(arm["source_word_counts"]) / source["shots_per_setting"]
+            response = np.einsum("ij,ijqy->qy", weights, probe)
+            # Every trial records the hand and probe after a concurrent service.
+            # The generator and terminal effects factor across disjoint registers.
+            counts = np.empty((2, 2, 2, 2), dtype=int)
+            means = np.zeros(4)
+            cov = np.zeros((4, 4))
+            for p in (0, 1):
+                for q in (0, 1):
+                    probabilities = np.outer(hand[p], response[q]).ravel()
+                    np.testing.assert_allclose(probabilities.sum(), 1, atol=5e-13)
+                    hist = rng.multinomial(shots, probabilities / probabilities.sum())
+                    counts[p, q] = hist.reshape(2, 2)
+                    freq = hist / shots
+                    m = freq @ values
+                    ix = [p, 2 + q]
+                    means[ix] += m / 2
+                    centred = values - m
+                    cov[np.ix_(ix, ix)] += (centred.T * freq) @ centred / (4 * shots)
+            # The appointment does not enter the clock inversion or the forecast.
+            phase = float(np.arctan2(means[1], means[0]))
+            gradient = np.array([-means[1], means[0]]) / sum(means[:2] ** 2)
+            phase_se = float(np.sqrt(gradient @ cov[:2, :2] @ gradient))
+            predicted = np.exp(1j * harmonic * phase)
+            contrast = np.sum(forecast * predicted)
+            tangent = np.sum(1j * harmonic * forecast * predicted)
+            derivative = np.column_stack(
+                (-np.outer([tangent.real, tangent.imag], gradient), np.eye(2))
+            )
+            # Source-word calibration has independent multinomial error.
+            ray = np.stack([predicted.real.ravel(), predicted.imag.ravel()], axis=1)
+            ray -= forecast.ravel() @ ray
+            error = (
+                derivative @ cov @ derivative.T
+                + (ray.T * forecast.ravel()) @ ray / source["shots_per_setting"]
+            )
+            exact = np.sum(weights * np.exp(1j * harmonic * clock_gap * t))
+            np.testing.assert_allclose(
+                response @ signs, [exact.real, exact.imag], rtol=0, atol=4e-13
+            )
+            # The signed response reads source charge within this particular
+            # three-arm family. Abstain when the calibrated odd fringe is weak.
+            cycle_response = float(np.sin(cycle * phase).sum())
+            inverse_charge = None
+            if abs(cycle_response) >= 1.0:
+                slope = float(cycle @ np.cos(cycle * phase))
+                log_unit = np.log(3) / 12
+                direction = 2 - 18 * means[3] / cycle_response
+                jacobian = (
+                    18
+                    * log_unit
+                    * np.r_[
+                        means[3] * slope * gradient / cycle_response**2,
+                        0,
+                        -1 / cycle_response,
+                    ]
+                )
+                inverse_charge = dict(
+                    nats=float(log_unit * direction),
+                    se_nats=float(np.sqrt(jacobian @ cov @ jacobian)),
+                )
+            row.append(
+                dict(
+                    direction=arm["direction"],
+                    counts=counts.tolist(),
+                    inverse_charge=inverse_charge,
+                    clock_phase=phase,
+                    clock_phase_se=phase_se,
+                    measured_fringe=means[2:].tolist(),
+                    predicted_fringe=[float(contrast.real), float(contrast.imag)],
+                    difference=(means[2:] - [contrast.real, contrast.imag]).tolist(),
+                    difference_se=np.sqrt(error.diagonal()).tolist(),
+                    fringe_se=np.sqrt(cov.diagonal()[2:]).tolist(),
+                )
+            )
+        result.append(dict(appointment=float(t), arms=row))
+    moments = []
+    for arm in source["arms"]:
+        units = np.array(arm["source_units_of_1_over_36"])
+        moments.append([int(np.sum(units * harmonic**power)) for power in (1, 2, 3)])
+    np.testing.assert_array_equal(
+        moments, [[0, 16912, 19008], [0, 16912, 12672], [0, 16912, 6336]]
+    )
+    return dict(
+        clock_edge=list(clock_edge),
+        contact_edges=[[a, b], [b, c]],
+        calibrated_clock_gap=clock_gap,
+        inverse_min_abs_cycle_response=1.0,
+        moments_times_36=moments,
+        harmonic_numbers=harmonic.tolist(),
+        shots_per_setting=shots,
+        seed=2026112223,
+        count_axes=[
+            "clock setting X/Y",
+            "contact setting X/Y",
+            "clock original/other port",
+            "probe original/other port",
+        ],
+        appointments=result,
+    )
+
+
+def paired_word_power(units, score):
+    """Acquire two independently prepared words conditional on one retained tag."""
+    # The reverse arm exchanges the two conditional word distributions.
+    # Its equal mixture with the forward arm is the independent-tag control,
+    # even on the complete tag-and-word record of one acquisition.
+    forward = units[[0, 2]] / 36
+    reverse = forward[::-1]
+    reference = units[1] / 36
+    np.testing.assert_array_equal(units[[0, 2]] + units[[2, 0]], 2 * units[[1, 1]])
+    centered = (score - np.sum(reference * score)).ravel()
+    product = np.outer(centered, centered)
+    shots = 2**20
+    rng = np.random.default_rng(2026112261)
+
+    def acquire(pair):
+        counts = rng.multinomial(shots, pair.ravel()).reshape(9, 9)
+        measured = float(np.sum(counts * product) / shots)
+        se = float(
+            np.sqrt(np.sum(counts * (product - measured) ** 2) / (shots * (shots - 1)))
+        )
+        return dict(measured_nats_squared=measured, se_nats_squared=se)
+
+    rows = []
+    for strength in (-1, -0.5, 0, 0.5, 1):
+        weight = (1 + strength) / 2
+        conditional = (weight * forward + (1 - weight) * reverse).reshape(2, 9)
+        # Each tag rail is fair. Repeat the native categorical preparation
+        # conditional on the same rail, saving the first classical word.
+        pair = np.einsum("ti,tj->ij", conditional, conditional) / 2
+        np.testing.assert_allclose(pair.sum(axis=0), reference.ravel(), atol=1e-15)
+        expected = (strength * np.log(3) / 12) ** 2
+        np.testing.assert_allclose(np.sum(pair * product), expected, atol=1e-15)
+        rows.append(
+            dict(
+                tag_correlation=strength,
+                predicted_nats_squared=expected,
+                **acquire(pair),
+            )
+        )
+    independent = np.outer(reference.ravel(), reference.ravel())
+    repeated = np.diag(reference.ravel())
+    return dict(
+        shots_per_arm=shots,
+        seed=2026112261,
+        shots_are_complete=True,
+        design="Two successive conditionally independent categorical preparations with one supplied tag and a saved classical first word. Mean of centred word-score products.",
+        one_write_midpoint_identity="P_independent=(P_forward+P_reverse)/2 on the complete tag and word. Every fixed one-preparation mean obeys the same identity.",
+        one_write_uniform_amplitude_error_lower_bound_nats=float(np.log(3) / 24),
+        fresh_independent_tag_per_write=dict(
+            predicted_nats_squared=0, **acquire(independent)
+        ),
+        reused_identical_word=dict(
+            predicted_nats_squared=float(reference.ravel() @ centered**2),
+            **acquire(repeated),
+        ),
+        arms=rows,
+    )
+
+
+def tagged_fluctuations(board, ports, native, source, clock):
+    """Distinguish variance within a cut preparation from variance of its conditional means."""
+    from scipy.linalg import expm
+
+    used = {*ports, *source["spare_ports"], *clock["clock_edge"]}
+    edge = next(e for e in board.seams if e[1] < 12 and not set(e) & used)
+    rails = [law.SRC.index(w) for w in ((1, 0), (0, 1))]
+    launch = np.eye(law.DIM)[:, rails[0]]
+    split = expm(-1j * np.pi / 2 * native) @ launch
+    probabilities = abs(split) ** 2
+    np.testing.assert_allclose(probabilities[rails], [0.5, 0.5], rtol=0, atol=3e-13)
+    np.testing.assert_allclose(
+        probabilities.sum(), probabilities[rails].sum(), atol=2e-13
+    )
+    # Measuring the occupied rail projects the tag to a sharp site. All contacts
+    # incident on its two ports are parked until the terminal number read.
+    tag = np.array([-1.0, 1.0])
+    units = np.array([arm["source_units_of_1_over_36"] for arm in source["arms"]])
+    if not np.array_equal(units[0] + units[2], 2 * units[1]):
+        raise ValueError(
+            "Ignoring the local tag must give identical physical source states"
+        )
+    orientation = (units[2] - units[0]) // 2
+    p0 = units[1] / 36
+    score = np.log((1 / 9) / p0)
+    log_unit = np.log(3) / 12
+    all_fringe = np.array(
+        [arm["readers"]["quadrature"]["probabilities"] for arm in source["arms"]]
+    )
+    fringe_slope = (all_fringe[2, 0] - all_fringe[0, 0]) / 2
+    np.testing.assert_allclose(fringe_slope, np.sqrt(3) / 36, atol=3e-13)
+    total_variance = float(np.sum(p0 * (score - np.sum(p0 * score)) ** 2))
+    shots = 2**20
+    rng = np.random.default_rng(2026112226)
+    outputs = []
+    for name, enrollment in (
+        ("conditionally_prepared", [0, 2]),
+        ("independent_local_tag", [1, 1]),
+    ):
+        joint = units[enrollment] / 72
+        np.testing.assert_allclose(joint.sum(axis=0), p0, rtol=0, atol=1e-15)
+        exact_means = np.sum(2 * joint * score, axis=(1, 2))
+        difference = float(tag @ exact_means / 2)
+        within = float(np.sum(joint * (score - exact_means[:, None, None]) ** 2))
+        np.testing.assert_allclose(
+            total_variance, within + difference**2, rtol=0, atol=1e-15
+        )
+        counts = rng.multinomial(shots, joint.ravel()).reshape(2, 3, 3)
+        totals = counts.sum(axis=(1, 2))
+        means = np.sum(counts * score, axis=(1, 2)) / totals
+        measured = float(tag @ means / 2)
+        variances = np.sum(
+            counts * (score - means[:, None, None]) ** 2, axis=(1, 2)
+        ) / (totals - 1)
+        noise = float(np.sum(variances / totals) / 4)
+        # Independent tagged interference read at the calibrated native source appointment.
+        fringe = rng.multinomial(shots, (all_fringe[enrollment] / 2).ravel()).reshape(
+            2, 2
+        )
+        attempts = fringe.sum(axis=1)
+        returns = fringe[:, 0] / attempts
+        factor = log_unit / fringe_slope
+        via_fringe = float(factor * (tag @ returns) / 2)
+        fringe_se = float(
+            factor * np.sqrt(np.sum(returns * (1 - returns) / (attempts - 1))) / 2
+        )
+        outputs.append(
+            dict(
+                preparation=name,
+                word_counts_by_tag=counts.tolist(),
+                fringe_counts_by_tag=fringe.tolist(),
+                exact_orientation_correlation=float(
+                    np.sum(tag[:, None, None] * joint * orientation)
+                ),
+                observed_orientation_correlation=float(
+                    np.sum(tag[:, None, None] * counts * orientation) / shots
+                ),
+                total_score_variance=total_variance,
+                within_tag_score_variance=within,
+                between_tag_mean_variance=difference**2,
+                conditional_mean_half_difference=difference,
+                word_estimate_nats=measured,
+                word_se_nats=float(np.sqrt(noise)),
+                noise_corrected_between_tag_variance=measured**2 - noise,
+                fringe_estimate_nats=via_fringe,
+                fringe_se_nats=fringe_se,
+            )
+        )
+    tv = float(np.abs(units[[0, 2]] - units[[1, 1]]).sum() / 144)
+    return dict(
+        native_tag_seam=list(edge),
+        tag_outcomes=list(edge),
+        tag_protocol="One sharp load, native half splitter, number read, both rails parked through the supplied conditional preparation and word or fringe read.",
+        source_reference="log[(1/9)/P0] in nats from the specified calibrated reference",
+        shots_per_preparation_per_read=shots,
+        seed=2026112226,
+        comparison="Same fair occupancy tag in both preparations. Conditional source uses P- and P+; independent source uses P0 for both tag values.",
+        observable="Z times oriented word cycle, with Z = -1 on the first parked port and +1 on the other",
+        orientation=orientation.tolist(),
+        orientation_simultaneous_half_width=float(np.sqrt(2 * np.log(4e6) / shots)),
+        orientation_simultaneous_failure_probability=1e-6,
+        untagged_trace_distance=0,
+        tagged_trace_distance=tv,
+        equal_prior_optimal_tag_and_word_success=(1 + tv) / 2,
+        two_writes_with_one_tag=paired_word_power(units, score),
+        preparations=outputs,
     )
 
 
@@ -489,9 +881,17 @@ def correlated_contacts():
                 ],
             )
         )
+    ordered = ordered_collar_control(
+        board, a, b, c, native, energies, label, splitter, inverse, shots
+    )
+    clock = joint_clock_lapse(
+        board, (a, b, c), native, [(0, 1), (2, 1), (2, -1)], ordered, splitter, inverse
+    )
     return dict(
-        ordered_three_levels=ordered_collar_control(
-            board, a, b, c, native, energies, label, splitter, inverse, shots
+        ordered_three_levels=ordered,
+        joint_clock_lapse=clock,
+        tagged_fluctuations=tagged_fluctuations(
+            board, (a, b, c), native, ordered, clock
         ),
         ports=[a, b, c],
         remote_gateway=opposite,
