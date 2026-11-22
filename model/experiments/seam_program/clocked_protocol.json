@@ -1,0 +1,64 @@
+{
+  "source": "802dc5934ae1f098066d5590599009506c6ef6ef",
+  "law": "Interval Echo, native blank-collar physical contacts, kappa eight; seam_program nominal, omit_mask_seven and shift_only words",
+  "fixture": {
+    "level": 0,
+    "shape": [
+      2,
+      2,
+      2,
+      3
+    ],
+    "marker": 0,
+    "fuel": 64,
+    "shots": 1048576,
+    "clock_seed": 306140,
+    "alarm_after_periods": 12,
+    "thresholds": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "private_orders": [
+      0,
+      1,
+      -1
+    ],
+    "receivers": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        1
+      ]
+    ],
+    "members": [
+      "nominal",
+      "omit_mask_seven",
+      "shift_only"
+    ]
+  },
+  "design": "Home fuel seam (0,1). Reserve the first neighboring cell of home as clock front and its first neighbor other than home as counter bank. Isolate both from data contacts, including the finite fuel exposure. The data program uses the first eligible ports in address order. Prepare an equal-slot scalar at spatial origin in each private Fourier order. Route the nominated spatial receiver back to the preparation rails, reverse the matching phase program, and read the home seam. Full native source and receiver stops and the quiet/fuel outcome count toward every distribution. One stationary fair repair publication is serviced per completed routed period. The clock opens the terminal detector at the registered count or declares timeout at its last opportunity.",
+  "predictions": [
+    "Exact scalar cosine transfer at fixed program period and the negative-binomial average of squared matched amplitudes at fixed clock reading. Include source stops before timing and timeout before receiver stops. Check the full native pair-state replay against the ideal absolute home probability within the finite emitter bound and one deterministic count quantum at every setting.",
+    "Evaluate both changed schedulers with the same clock and apparatus; report each control's largest absolute home probability change even if it falls below the emitter bound. Check all three spatial neighbor directions and both private signs without selecting a best mode.",
+    "For chart side one, h=1/N, one period h, c=1/2, compact circumference one, test N=16,32,64,128; Fourier vectors (1,0,0,0),(1,-1,2,1),(0,0,0,-2); chart time 1 via thresholds N/2. Compare exact fixed-period and public-clock match probabilities to the same KG transfer, report actual errors and their analytic bounds. Retain every branch including flat sectors. Resolve the uniform zero mode, Nyquist endpoint, and a sharp slot counterexample.",
+    "Report native gate, route-depth, clock, query, read-error and capacity budgets. Prove whether a uniformly bounded native depth per field period is possible for this single-port-per-slot encoding under spherical subdivision."
+  ],
+  "scope": "The compiler, private circle, cadence, isolation, and chart lengths are apparatus choices. The existing torus scalar cosine identity, its continuum scaling, driven 1D guide and unguided failures were known before this work. No laboratory mass or data select these choices. No change to the main candidate or OpenWave standing."
+}

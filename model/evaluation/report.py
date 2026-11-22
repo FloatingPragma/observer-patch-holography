@@ -23,7 +23,7 @@ def local_link(source, directory=HERE):
     if source.startswith('https://'):
         return source
     path, marker, fragment = source.partition('#')
-    return os.path.relpath(ROOT / path, directory) + marker + fragment
+    return Path(os.path.relpath(ROOT / path, directory)).as_posix() + marker + fragment
 
 
 def links(sources, directory=HERE):
