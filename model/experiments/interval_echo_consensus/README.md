@@ -148,6 +148,8 @@ On vacuum ports an occupied magnitude-one collar lies outside the image of the l
 
 The matching equation has one real solution in the native family. For the material frequency use the even state $u=(|1,0\rangle+|0,1\rangle)/\sqrt2$ and the stationary native echo $r=U|1,0\rangle$. They carry the same total load. On $u$ exchange vanishes and squared contrast is one; on $r$ both generators vanish. Their relative frequency is therefore $k$ for every real $k$. Equating it to the measured vacuum frequency gives $k=8$, with neither a free-release observation nor an integer restriction on $k$ in the inference. Every other historical setting fails this equality while retaining the same vacuum fringes. Equating the two frequencies on a busy assembled contact instead gives a different prediction there.
 
+The frequency can also be read with product preparations. A sharp stored sign has equal components in the two native parity characters. Read its two local quadratures at each exposure. On the vacuum sector the many-collar propagator factors exactly, so multiplying the complex single-collar coherences gives the collective fringe. The replay compares both procedures at every exposure. The apparatus supplies initialized sign records, a common exposure and phase-sensitive local terminal reads. If temporary loads write the signs, they must be returned to an isolated preparation register before free exposure. Exact frequency matching concerns the outcome laws. Finite samples place an interval on an unrestricted real material strength.
+
 ### Free release from every internal seam
 
 The complete launch panel uses every internal seam of every cell on the pinned

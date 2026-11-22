@@ -47,8 +47,15 @@ def fringe(block, addresses):
     if not -size/2 < span < size/2:
         raise ValueError("The sampled frequency can wrap")
     reads = []
+    local_product = []
     for tick in range(size):
         u = chars.T @ expm(-2j*pi*tick/size*block) @ chars
+        local_even, local_odd = np.diag(u)
+        # A sharp sign splits equally into even and odd parity. Local terminal
+        # quadratures reconstruct its coherence without a multi-collar cat state.
+        single = [(abs(local_even+z*local_odd)**2-abs(local_even-z*local_odd)**2)/4
+                  for z in (1.,1j)]
+        local_product.append((single[0]-1j*single[1])**len(addresses))
         even, odd = np.diag(u)**len(addresses)
         # The two product characters are exact eigenvectors. Their complementary
         # outcome has zero norm; both interference ports are retained.
@@ -57,7 +64,9 @@ def fringe(block, addresses):
     reads = np.array(reads)
     np.testing.assert_allclose(reads.sum(axis=-1), 1., rtol=0, atol=2e-12)
     differences = reads[:,:,0]-reads[:,:,1]
-    fourier = np.fft.ifft(differences[:,0]-1j*differences[:,1])
+    collective = differences[:,0]-1j*differences[:,1]
+    np.testing.assert_allclose(collective, local_product, atol=2e-12, rtol=0)
+    fourier = np.fft.ifft(local_product)
     peak = int(np.argmax(abs(fourier)))
     ideal = np.zeros(size)
     ideal[peak] = 1
@@ -138,7 +147,8 @@ def controls():
     half, _ = fringe(vacuum_block(h0/2), reference)
     if half*2 != unit:
         raise ArithmeticError("Halving the relative collar rate must change the calibration")
-    return dict(primitive=unit, donors=donor_frequencies,
+    _, single_reads = fringe(block, reference[:1])
+    return dict(primitive=unit, donors=donor_frequencies, single_collar_quadratures=single_reads.tolist(),
                 half_parity_rate=half, assembled=measured)
 
 
