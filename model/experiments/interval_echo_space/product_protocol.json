@@ -1,0 +1,14 @@
+{
+  "candidate": "Interval Echo at 033df6f255b7db3b723195c58e225acade1973cf, with the signed-hand matching and free flights of station_chart_protocol.json.",
+  "prior_information": "The original seven-station radar and free-pulse results, anchor pulse calibrations, and the native screen incidence are public. The flat fits failed. This follow-up tests a different, curved metric.",
+  "angular_step": 0.125,
+  "angular_shots": 16777216,
+  "seed": 9917453,
+  "far_marker_fraction": 0.5,
+  "radius_bins": 4096,
+  "relative_tolerance": 0.05,
+  "station_menus": "Use the published seven addresses and a fresh seven-site menu centered at floor(cells/2), applying the same three-neighbor and lowest unused second-neighbor placement rule to the inferred incidence. Analyze every menu and retain both flow directions, timeouts and quiet outcomes.",
+  "angular_reader": "Prepare a coherent constant port wave in each cell and measure its terminal cell after one eighth of a hand radian. Infer cell incidence from the largest gap between sorted symmetrized off-diagonal counts. Use the entire first positive eigenspace of that inferred graph Laplacian and normalize each row. Test the multiplicity. Before using the flight data, predict the above-gap incidence of an independent detector run at twice the angular calibration exposure. An arbitrary orthogonal frame changes no pairwise angle.",
+  "metric": "Test D(i,j)^2 = R^2 theta(i,j)^2 + (r_i-r_j)^2, the unit-lapse constant-density round-screen instance of the scalar radial product. Fit common R and station radii to the 18 training dyads on each board and menu. Pulse offset/slope use only the six anchors. Score the three remaining echo and pulse dyads and held clocks at the registered tolerances. Report best multistart fit as an estimate. Independently try to exclude every nonnegative R and every real radius assignment, including the collapsed R=0 control, by interval enclosures of all radial triangle differences. Run the certificate on calibration data alone and on the complete menu after scoring.",
+  "control": "An off-plane synthetic round cylinder has to pass the original holdouts and survive the triangle certificate. Disabling intercell exchange eliminates the angular detection contrast. Keep the registered curvature scope and source-free stop condition. A failed round product cannot decide general screen coefficients, lapse, matter backreaction or all candidate laws."
+}
