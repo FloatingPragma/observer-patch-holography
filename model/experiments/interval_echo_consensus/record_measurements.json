@@ -115,6 +115,464 @@
       },
       "untransported_word": 9
     },
+    "historical_contact": {
+      "bin_count": 256,
+      "words": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "predicted_cost": 8,
+      "alternatives": [
+        {
+          "arm": 0.0,
+          "equal_weight_lines": [
+            [
+              0
+            ],
+            [
+              0.0,
+              1.0
+            ],
+            [
+              0.0,
+              1.0
+            ],
+            [
+              0
+            ]
+          ],
+          "four_word_TV": [
+            0.0,
+            0.9999999999999947,
+            0.9999999999999947,
+            0.0
+          ],
+          "seventeen_read_acceptance": 0.0,
+          "max_reconstruction_TV": 5.384581669432012e-15,
+          "meets_source": false
+        },
+        {
+          "arm": 0.5,
+          "equal_weight_lines": [
+            [
+              0
+            ],
+            [
+              0.5,
+              1.5
+            ],
+            [
+              0.5,
+              1.5
+            ],
+            [
+              0
+            ]
+          ],
+          "four_word_TV": [
+            0.0,
+            0.9962882926508256,
+            0.9962882926508257,
+            0.0
+          ],
+          "seventeen_read_acceptance": 1.297565560348542e-39,
+          "max_reconstruction_TV": 5.351793024043795e-15,
+          "meets_source": false
+        },
+        {
+          "arm": 1.0,
+          "equal_weight_lines": [
+            [
+              0
+            ],
+            [
+              1.0,
+              2.0
+            ],
+            [
+              1.0,
+              2.0
+            ],
+            [
+              0
+            ]
+          ],
+          "four_word_TV": [
+            0.0,
+            0.9999999999999987,
+            0.9999999999999989,
+            0.0
+          ],
+          "seventeen_read_acceptance": 0.0,
+          "max_reconstruction_TV": 1.360023205165817e-15,
+          "meets_source": false
+        },
+        {
+          "arm": 2.0,
+          "equal_weight_lines": [
+            [
+              0
+            ],
+            [
+              2.0,
+              3.0
+            ],
+            [
+              2.0,
+              3.0
+            ],
+            [
+              0
+            ]
+          ],
+          "four_word_TV": [
+            0.0,
+            1.0000000000000022,
+            1.000000000000002,
+            0.0
+          ],
+          "seventeen_read_acceptance": 0.0,
+          "max_reconstruction_TV": 2.3314683517128303e-15,
+          "meets_source": false
+        },
+        {
+          "arm": 4.0,
+          "equal_weight_lines": [
+            [
+              0
+            ],
+            [
+              4.0,
+              5.0
+            ],
+            [
+              4.0,
+              5.0
+            ],
+            [
+              0
+            ]
+          ],
+          "four_word_TV": [
+            0.0,
+            0.9999999999999953,
+            0.9999999999999953,
+            0.0
+          ],
+          "seventeen_read_acceptance": 0.0,
+          "max_reconstruction_TV": 4.690692279041291e-15,
+          "meets_source": false
+        },
+        {
+          "arm": 8.0,
+          "equal_weight_lines": [
+            [
+              0
+            ],
+            [
+              8.0,
+              9.0
+            ],
+            [
+              8.0,
+              9.0
+            ],
+            [
+              0
+            ]
+          ],
+          "four_word_TV": [
+            0.0,
+            8.0491169285324e-15,
+            8.104628079763659e-15,
+            0.0
+          ],
+          "seventeen_read_acceptance": 0.9999694824221323,
+          "max_reconstruction_TV": 8.104628079763659e-15,
+          "meets_source": true
+        },
+        {
+          "arm": 16.0,
+          "equal_weight_lines": [
+            [
+              0
+            ],
+            [
+              16.0,
+              17.0
+            ],
+            [
+              16.0,
+              17.0
+            ],
+            [
+              0
+            ]
+          ],
+          "four_word_TV": [
+            0.0,
+            0.9999999999999948,
+            0.9999999999999949,
+            0.0
+          ],
+          "seventeen_read_acceptance": 0.0,
+          "max_reconstruction_TV": 5.245803791353908e-15,
+          "meets_source": false
+        },
+        {
+          "arm": 64.0,
+          "equal_weight_lines": [
+            [
+              0
+            ],
+            [
+              64.0,
+              65.0
+            ],
+            [
+              64.0,
+              65.0
+            ],
+            [
+              0
+            ]
+          ],
+          "four_word_TV": [
+            0.0,
+            1.0000000000000009,
+            1.0000000000000009,
+            0.0
+          ],
+          "seventeen_read_acceptance": 0.0,
+          "max_reconstruction_TV": 2.5812685322536207e-15,
+          "meets_source": false
+        },
+        {
+          "arm": 128.0,
+          "equal_weight_lines": [
+            [
+              0
+            ],
+            [
+              128.0,
+              129.0
+            ],
+            [
+              128.0,
+              129.0
+            ],
+            [
+              0
+            ]
+          ],
+          "four_word_TV": [
+            0.0,
+            1.00000000000004,
+            1.0000000000000397,
+            0.0
+          ],
+          "seventeen_read_acceptance": 0.0,
+          "max_reconstruction_TV": 3.985700658404471e-14,
+          "meets_source": false
+        },
+        {
+          "arm": -8.0,
+          "equal_weight_lines": [
+            [
+              0
+            ],
+            [
+              -8.0,
+              -7.0
+            ],
+            [
+              -8.0,
+              -7.0
+            ],
+            [
+              0
+            ]
+          ],
+          "four_word_TV": [
+            0.0,
+            0.9999999999999981,
+            0.999999999999998,
+            0.0
+          ],
+          "seventeen_read_acceptance": 0.0,
+          "max_reconstruction_TV": 1.9428902930940283e-15,
+          "meets_source": false
+        },
+        {
+          "arm": 7.0,
+          "equal_weight_lines": [
+            [
+              0
+            ],
+            [
+              7.0,
+              8.0
+            ],
+            [
+              7.0,
+              8.0
+            ],
+            [
+              0
+            ]
+          ],
+          "four_word_TV": [
+            0.0,
+            0.5000000000000004,
+            0.4999999999999995,
+            0.0
+          ],
+          "seventeen_read_acceptance": 1.0870438885937916e-33,
+          "max_reconstruction_TV": 1.9428902930940287e-15,
+          "meets_source": false
+        },
+        {
+          "arm": 9.0,
+          "equal_weight_lines": [
+            [
+              0
+            ],
+            [
+              9.0,
+              10.0
+            ],
+            [
+              9.0,
+              10.0
+            ],
+            [
+              0
+            ]
+          ],
+          "four_word_TV": [
+            0.0,
+            0.5000000000000009,
+            0.4999999999999992,
+            0.0
+          ],
+          "seventeen_read_acceptance": 1.272929424203438e-33,
+          "max_reconstruction_TV": 1.19348975147205e-15,
+          "meets_source": false
+        },
+        {
+          "arm": 10.0,
+          "equal_weight_lines": [
+            [
+              0
+            ],
+            [
+              10.0,
+              11.0
+            ],
+            [
+              10.0,
+              11.0
+            ],
+            [
+              0
+            ]
+          ],
+          "four_word_TV": [
+            0.0,
+            0.9999999999999928,
+            0.9999999999999929,
+            0.0
+          ],
+          "seventeen_read_acceptance": 0.0,
+          "max_reconstruction_TV": 7.24420523567916e-15,
+          "meets_source": false
+        },
+        {
+          "arm": "pair-only",
+          "equal_weight_lines": [
+            [
+              0
+            ],
+            [
+              8.0,
+              9.0
+            ],
+            [
+              8.0,
+              9.0
+            ],
+            [
+              16
+            ]
+          ],
+          "four_word_TV": [
+            0.0,
+            8.0491169285324e-15,
+            8.104628079763659e-15,
+            1.0
+          ],
+          "seventeen_read_acceptance": 1.1242892771986206e-32,
+          "max_reconstruction_TV": 8.104628079763659e-15,
+          "meets_source": false
+        }
+      ],
+      "outside_simple_graph": {
+        "strength": 264,
+        "max_TV": 6.51145803942742e-14
+      },
+      "coherent_probes": [
+        {
+          "arm": "native",
+          "sharp_TV": 0.0,
+          "recovered_off_diagonal": [
+            -0.5000000000000098,
+            2.4424906541753444e-14
+          ],
+          "coherent_TV": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "arm": "reversed_exchange",
+          "sharp_TV": 5.006274896385168e-34,
+          "recovered_off_diagonal": [
+            0.5000000000000044,
+            -2.26485497023532e-14
+          ],
+          "coherent_TV": [
+            1.000000000000016,
+            2.7755575615628914e-15
+          ]
+        },
+        {
+          "arm": "imaginary_exchange",
+          "sharp_TV": 1.665334536937739e-16,
+          "recovered_off_diagonal": [
+            -2.542410726391608e-14,
+            -0.5000000000000071
+          ],
+          "coherent_TV": [
+            0.5000000000000081,
+            0.500000000000008
+          ]
+        }
+      ]
+    },
     "readiness": {
       "feedback_log": [
         0.4999999999999998,

@@ -6,7 +6,7 @@ from pathlib import Path
 
 from model.executable_model import cell, federation
 from . import adjacency_bound, merged_signs, record_action, record_clock, record_readiness
-from . import record_release, registered_forecast, sign_graph
+from . import native_frequency, record_release, registered_forecast, sign_graph
 
 
 RECEIPT = Path(__file__).with_name("record_measurements.json")
@@ -14,7 +14,7 @@ ARMS = ("primitive", "assembled", "off", "double", "untransported")
 
 
 def circuit():
-    return dict(local=record_action.run(), readiness=record_readiness.check(),
+    return dict(local=record_action.run(), historical_contact=native_frequency.compare(), readiness=record_readiness.check(),
                 donor_error=record_clock.parity_clock(), marker_error=record_clock.prepare_marker(),
                 routed=record_clock.literal_lift(), shared=sign_graph.microscopic_path(),
                 private=sign_graph.microscopic_path(True), masks=sign_graph.witness_masks(),

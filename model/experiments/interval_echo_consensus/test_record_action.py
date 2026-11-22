@@ -109,6 +109,20 @@ def test_held_launch_predicts_all_bins_and_distinguishes_assembled():
         record_receipt.verify(actual, row)
         assert actual["launch"] == [87,92]
         assert actual["family_rejected"] == (actual["arm"] == "assembled")
+    panel = saved["circuit"]["historical_contact"]
+    actual_panel = json.loads(json.dumps(record_receipt.native_frequency.compare(), allow_nan=False))
+    record_receipt.verify(actual_panel, panel)
+    assert np.allclose([r["recovered_off_diagonal"] for r in panel["coherent_probes"]],
+                       [[-.5,0],[.5,0],[0,-.5]], atol=3e-12, rtol=0)
+    assert actual_panel["outside_simple_graph"]["strength"] == 264
+    assert actual_panel["outside_simple_graph"]["max_TV"] < 1e-10
+    assert [row["arm"] for row in panel["alternatives"] if row["meets_source"]] == [8.]
+    by_arm = {row["arm"]: row for row in panel["alternatives"]}
+    assert abs(by_arm[8.]["seventeen_read_acceptance"]-(1-2**-15)) < 2e-12
+    assert by_arm[.5]["seventeen_read_acceptance"] < 2e-39
+    assert max(r["seventeen_read_acceptance"] for k, r in by_arm.items() if k not in (8.,.5)) < 1e-24
+    rival = panel["alternatives"][-1]
+    assert max(rival["four_word_TV"][:3]) < 1e-10 and rival["four_word_TV"][3] > .999999
     assert len(saved["release"]) == 8
     for row in saved["release"].values():
         assert set(row["appointments"]) == {"1","7","37"}
