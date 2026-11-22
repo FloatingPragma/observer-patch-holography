@@ -1,0 +1,2192 @@
+{
+  "protocol_sha256": "b12d951a251da08e6c7d5eb04aefc529b7b3c8425c84997b19ac5c91371d4cb7",
+  "control": {
+    "passed": true,
+    "fitted_screen_radius": 3.0,
+    "radial": [
+      0.0,
+      0.9999999999999996,
+      2.0000000000000004,
+      -0.8000000000000007,
+      -1.299999999999999,
+      0.30000000000000066,
+      2.7999999999999994
+    ],
+    "maximum_training_error": 2.220446049250313e-16,
+    "stationary_clock_error": 0.0,
+    "held": [
+      {
+        "stations": [
+          4,
+          5
+        ],
+        "echo": 3.053912945476781,
+        "pulse": 3.443130356381425,
+        "echo_prediction": 3.0539129454767804,
+        "pulse_prediction": 3.4431303563814257,
+        "echo_relative_error": 1.1102230246251565e-16,
+        "pulse_relative_error": 2.220446049250313e-16
+      },
+      {
+        "stations": [
+          4,
+          6
+        ],
+        "echo": 6.545576914700564,
+        "pulse": 6.236461531760451,
+        "echo_prediction": 6.545576914700563,
+        "pulse_prediction": 6.236461531760452,
+        "echo_relative_error": 1.1102230246251565e-16,
+        "pulse_relative_error": 2.220446049250313e-16
+      },
+      {
+        "stations": [
+          5,
+          6
+        ],
+        "echo": 5.68195187820708,
+        "pulse": 5.545561502565664,
+        "echo_prediction": 5.681951878207079,
+        "pulse_prediction": 5.545561502565665,
+        "echo_relative_error": 1.1102230246251565e-16,
+        "pulse_relative_error": 2.220446049250313e-16
+      }
+    ],
+    "training_certificate": {
+      "excludes_every_radius": false,
+      "tested_intervals": 4096,
+      "surviving_intervals": 420,
+      "radius_upper": 3.153648016289864,
+      "padding": 7.797013056135462e-09,
+      "triangle_witnesses": [
+        {
+          "stations": [
+            0,
+            1,
+            2
+          ],
+          "intervals": 3613
+        },
+        {
+          "stations": [
+            0,
+            2,
+            5
+          ],
+          "intervals": 58
+        },
+        {
+          "stations": [
+            2,
+            3,
+            4
+          ],
+          "intervals": 5
+        }
+      ]
+    },
+    "complete_certificate": {
+      "excludes_every_radius": false,
+      "tested_intervals": 4096,
+      "surviving_intervals": 420,
+      "radius_upper": 3.153648016289864,
+      "padding": 7.797013056135462e-09,
+      "triangle_witnesses": [
+        {
+          "stations": [
+            0,
+            1,
+            2
+          ],
+          "intervals": 3613
+        },
+        {
+          "stations": [
+            0,
+            2,
+            5
+          ],
+          "intervals": 58
+        },
+        {
+          "stations": [
+            2,
+            3,
+            4
+          ],
+          "intervals": 5
+        }
+      ]
+    }
+  },
+  "boards": [
+    {
+      "cells": 20,
+      "first_angular_eigenvalue": 0.7639320225002078,
+      "angular_rank": 3,
+      "held_angular_classes_match": true,
+      "menus": [
+        {
+          "stations": [
+            0,
+            1,
+            4,
+            6,
+            2,
+            3,
+            15
+          ],
+          "angles": [
+            [
+              2.1073424255447017e-08,
+              0.7297276562269673,
+              0.729727656226968,
+              0.729727656226967,
+              1.2309594173407747,
+              1.2309594173407754,
+              1.2309594173407754
+            ],
+            [
+              0.7297276562269673,
+              1.4901161193847656e-08,
+              1.230959417340776,
+              1.2309594173407756,
+              0.7297276562269663,
+              1.230959417340776,
+              1.2309594173407747
+            ],
+            [
+              0.729727656226968,
+              1.230959417340776,
+              0.0,
+              1.2309594173407763,
+              1.2309594173407745,
+              0.7297276562269652,
+              1.9106332362490208
+            ],
+            [
+              0.729727656226967,
+              1.2309594173407756,
+              1.2309594173407763,
+              1.4901161193847656e-08,
+              1.9106332362490193,
+              1.9106332362490193,
+              0.7297276562269673
+            ],
+            [
+              1.2309594173407747,
+              0.7297276562269663,
+              1.2309594173407745,
+              1.9106332362490193,
+              0.0,
+              0.7297276562269672,
+              1.9106332362490184
+            ],
+            [
+              1.2309594173407754,
+              1.230959417340776,
+              0.7297276562269652,
+              1.9106332362490193,
+              0.7297276562269672,
+              2.1073424255447017e-08,
+              2.4118649973628283
+            ],
+            [
+              1.2309594173407754,
+              1.2309594173407747,
+              1.9106332362490208,
+              0.7297276562269673,
+              1.9106332362490184,
+              2.4118649973628283,
+              0.0
+            ]
+          ],
+          "population": {
+            "passed": false,
+            "fitted_screen_radius": 15.16088035493838,
+            "radial": [
+              0.0,
+              6.020680090322962,
+              5.413098255794142,
+              14.460778232994665,
+              13.939108677369292,
+              15.376027396835116,
+              4.25410656735707
+            ],
+            "maximum_training_error": 0.23927524551945623,
+            "stationary_clock_error": 0.0,
+            "held": [
+              {
+                "stations": [
+                  4,
+                  5
+                ],
+                "echo": 13.618666621281754,
+                "pulse": 19.720762814508305,
+                "echo_prediction": 11.15623794833338,
+                "pulse_prediction": 16.686227032524812,
+                "echo_relative_error": 0.18081275806402086,
+                "pulse_relative_error": 0.15387517260493722
+              },
+              {
+                "stations": [
+                  4,
+                  6
+                ],
+                "echo": 25.994754435238924,
+                "pulse": 26.603737610610644,
+                "echo_prediction": 30.54307634640323,
+                "pulse_prediction": 29.57228122791969,
+                "echo_relative_error": 0.17497075890813285,
+                "pulse_relative_error": 0.11158370529579531
+              },
+              {
+                "stations": [
+                  5,
+                  6
+                ],
+                "echo": 25.228465301714394,
+                "pulse": 25.782440413834458,
+                "echo_prediction": 38.22001091676332,
+                "pulse_prediction": 34.6749902358005,
+                "echo_relative_error": 0.5149558429210552,
+                "pulse_relative_error": 0.34490721899213383
+              }
+            ],
+            "training_certificate": {
+              "excludes_every_radius": true,
+              "tested_intervals": 4096,
+              "surviving_intervals": 0,
+              "radius_upper": 12.855627898948738,
+              "padding": 2.528255563754464e-08,
+              "triangle_witnesses": [
+                {
+                  "stations": [
+                    0,
+                    1,
+                    2
+                  ],
+                  "intervals": 4096
+                }
+              ]
+            },
+            "complete_certificate": {
+              "excludes_every_radius": true,
+              "tested_intervals": 4096,
+              "surviving_intervals": 0,
+              "radius_upper": 10.983155642813829,
+              "padding": 2.5994754435238926e-08,
+              "triangle_witnesses": [
+                {
+                  "stations": [
+                    0,
+                    1,
+                    2
+                  ],
+                  "intervals": 4096
+                }
+              ]
+            }
+          },
+          "acquisitions": [
+            {
+              "passed": false,
+              "fitted_screen_radius": 15.178517824380044,
+              "radial": [
+                0.0,
+                5.971118540595142,
+                5.4319600984699195,
+                14.4329323873368,
+                13.88551399627018,
+                15.372391372957475,
+                4.2472714318517495
+              ],
+              "maximum_training_error": 0.24113231183817607,
+              "stationary_clock_error": 0.00035572194326682904,
+              "held": [
+                {
+                  "stations": [
+                    4,
+                    5
+                  ],
+                  "echo": 13.621570377565423,
+                  "pulse": 19.72072449823346,
+                  "echo_prediction": 11.17553853668446,
+                  "pulse_prediction": 16.70173386291687,
+                  "echo_relative_error": 0.1795704733801875,
+                  "pulse_relative_error": 0.15308720709459844
+                },
+                {
+                  "stations": [
+                    4,
+                    6
+                  ],
+                  "echo": 25.999675886288742,
+                  "pulse": 26.606826764080175,
+                  "echo_prediction": 30.560258453401584,
+                  "pulse_prediction": 29.584385792653435,
+                  "echo_relative_error": 0.17540920844778385,
+                  "pulse_relative_error": 0.11190958827878839
+                },
+                {
+                  "stations": [
+                    5,
+                    6
+                  ],
+                  "echo": 25.237358296287482,
+                  "pulse": 25.766278273105698,
+                  "echo_prediction": 38.26164124767221,
+                  "pulse_prediction": 34.70255279957982,
+                  "echo_relative_error": 0.5160715633735982,
+                  "pulse_relative_error": 0.3468205393016197
+                }
+              ],
+              "training_certificate": {
+                "excludes_every_radius": true,
+                "tested_intervals": 4096,
+                "surviving_intervals": 0,
+                "radius_upper": 12.85176124199919,
+                "padding": 2.5384813382786953e-08,
+                "triangle_witnesses": [
+                  {
+                    "stations": [
+                      0,
+                      1,
+                      2
+                    ],
+                    "intervals": 4096
+                  }
+                ]
+              },
+              "complete_certificate": {
+                "excludes_every_radius": true,
+                "tested_intervals": 4096,
+                "surviving_intervals": 0,
+                "radius_upper": 10.987027187999294,
+                "padding": 2.5999675886288742e-08,
+                "triangle_witnesses": [
+                  {
+                    "stations": [
+                      0,
+                      1,
+                      2
+                    ],
+                    "intervals": 4096
+                  }
+                ]
+              }
+            },
+            {
+              "passed": false,
+              "fitted_screen_radius": 15.152717596747276,
+              "radial": [
+                0.0,
+                5.965899862588967,
+                5.4492280613456705,
+                14.482821479609017,
+                13.9266529859302,
+                15.405719008754055,
+                4.281832409794008
+              ],
+              "maximum_training_error": 0.23900320139818887,
+              "stationary_clock_error": 0.0004738930552576903,
+              "held": [
+                {
+                  "stations": [
+                    4,
+                    5
+                  ],
+                  "echo": 13.619008200034934,
+                  "pulse": 19.721570820838437,
+                  "echo_prediction": 11.155840724842076,
+                  "pulse_prediction": 16.69320559473974,
+                  "echo_relative_error": 0.18086247096807972,
+                  "pulse_relative_error": 0.15355598464290832
+                },
+                {
+                  "stations": [
+                    4,
+                    6
+                  ],
+                  "echo": 25.98587595281255,
+                  "pulse": 26.60057267321377,
+                  "echo_prediction": 30.515561880523716,
+                  "pulse_prediction": 29.543259546228185,
+                  "echo_relative_error": 0.17431338223643378,
+                  "pulse_relative_error": 0.11062494440120241
+                },
+                {
+                  "stations": [
+                    5,
+                    6
+                  ],
+                  "echo": 25.246524768245532,
+                  "pulse": 25.768387006925664,
+                  "echo_prediction": 38.20174823516763,
+                  "pulse_prediction": 34.64498123654201,
+                  "echo_relative_error": 0.5131487832819217,
+                  "pulse_relative_error": 0.34447612988855747
+                }
+              ],
+              "training_certificate": {
+                "excludes_every_radius": true,
+                "tested_intervals": 4096,
+                "surviving_intervals": 0,
+                "radius_upper": 12.851688172550782,
+                "padding": 2.52329774761046e-08,
+                "triangle_witnesses": [
+                  {
+                    "stations": [
+                      0,
+                      1,
+                      2
+                    ],
+                    "intervals": 4096
+                  }
+                ]
+              },
+              "complete_certificate": {
+                "excludes_every_radius": true,
+                "tested_intervals": 4096,
+                "surviving_intervals": 0,
+                "radius_upper": 10.991017790922507,
+                "padding": 2.598587595281255e-08,
+                "triangle_witnesses": [
+                  {
+                    "stations": [
+                      0,
+                      1,
+                      2
+                    ],
+                    "intervals": 4096
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "stations": [
+            10,
+            11,
+            14,
+            15,
+            12,
+            13,
+            5
+          ],
+          "angles": [
+            [
+              0.0,
+              0.7297276562269676,
+              0.729727656226966,
+              0.7297276562269659,
+              1.2309594173407747,
+              1.2309594173407743,
+              1.2309594173407747
+            ],
+            [
+              0.7297276562269676,
+              2.1073424255447017e-08,
+              1.2309594173407752,
+              1.230959417340775,
+              0.7297276562269662,
+              1.2309594173407745,
+              1.9106332362490193
+            ],
+            [
+              0.729727656226966,
+              1.2309594173407752,
+              0.0,
+              1.2309594173407739,
+              1.230959417340775,
+              0.7297276562269666,
+              1.230959417340774
+            ],
+            [
+              0.7297276562269659,
+              1.230959417340775,
+              1.2309594173407739,
+              0.0,
+              1.910633236249018,
+              1.9106332362490177,
+              0.729727656226967
+            ],
+            [
+              1.2309594173407747,
+              0.7297276562269662,
+              1.230959417340775,
+              1.910633236249018,
+              0.0,
+              0.7297276562269663,
+              2.411864997362827
+            ],
+            [
+              1.2309594173407743,
+              1.2309594173407745,
+              0.7297276562269666,
+              1.9106332362490177,
+              0.7297276562269663,
+              0.0,
+              1.9106332362490184
+            ],
+            [
+              1.2309594173407747,
+              1.9106332362490193,
+              1.230959417340774,
+              0.729727656226967,
+              2.411864997362827,
+              1.9106332362490184,
+              2.1073424255447017e-08
+            ]
+          ],
+          "population": {
+            "passed": false,
+            "fitted_screen_radius": 15.789513692779183,
+            "radial": [
+              0.0,
+              4.403695066500445,
+              -11.194486438541242,
+              -9.078889589287385,
+              -4.4623476951263426,
+              -2.665160680509655,
+              2.943332823833745
+            ],
+            "maximum_training_error": 0.20827662170965366,
+            "stationary_clock_error": 0.0,
+            "held": [
+              {
+                "stations": [
+                  4,
+                  5
+                ],
+                "echo": 13.666723357934012,
+                "pulse": 19.824074624245902,
+                "echo_prediction": 11.661363470859161,
+                "pulse_prediction": 17.117512748027117,
+                "echo_relative_error": 0.1467330416043484,
+                "pulse_relative_error": 0.13652903994361054
+              },
+              {
+                "stations": [
+                  4,
+                  6
+                ],
+                "echo": 26.620161622058895,
+                "pulse": 27.42790668239116,
+                "echo_prediction": 38.79556916995893,
+                "pulse_prediction": 34.88582938256151,
+                "echo_relative_error": 0.4573754179542937,
+                "pulse_relative_error": 0.2719100216626582
+              },
+              {
+                "stations": [
+                  5,
+                  6
+                ],
+                "echo": 25.60582660872057,
+                "pulse": 26.404696307818803,
+                "echo_prediction": 30.68487562184486,
+                "pulse_prediction": 29.574696538405796,
+                "echo_relative_error": 0.1983552060527709,
+                "pulse_relative_error": 0.12005440977741189
+              }
+            ],
+            "training_certificate": {
+              "excludes_every_radius": true,
+              "tested_intervals": 4096,
+              "surviving_intervals": 0,
+              "radius_upper": 13.880915528537107,
+              "padding": 2.7261157534659755e-08,
+              "triangle_witnesses": [
+                {
+                  "stations": [
+                    0,
+                    1,
+                    2
+                  ],
+                  "intervals": 4096
+                }
+              ]
+            },
+            "complete_certificate": {
+              "excludes_every_radius": true,
+              "tested_intervals": 4096,
+              "surviving_intervals": 0,
+              "radius_upper": 11.589027506405003,
+              "padding": 2.7261157534659755e-08,
+              "triangle_witnesses": [
+                {
+                  "stations": [
+                    0,
+                    1,
+                    2
+                  ],
+                  "intervals": 4096
+                }
+              ]
+            }
+          },
+          "acquisitions": [
+            {
+              "passed": false,
+              "fitted_screen_radius": 15.789587073954761,
+              "radial": [
+                0.0,
+                4.396027585046491,
+                -11.19446116377076,
+                -9.079883610196202,
+                -4.454316793053153,
+                -2.664515173094419,
+                2.942525320666639
+              ],
+              "maximum_training_error": 0.208501144211221,
+              "stationary_clock_error": 0.000326852606761463,
+              "held": [
+                {
+                  "stations": [
+                    4,
+                    5
+                  ],
+                  "echo": 13.648966752038312,
+                  "pulse": 19.824754938131086,
+                  "echo_prediction": 11.660280470334541,
+                  "pulse_prediction": 17.114793168573577,
+                  "echo_relative_error": 0.14570233174659786,
+                  "pulse_relative_error": 0.13669585213107216
+                },
+                {
+                  "stations": [
+                    4,
+                    6
+                  ],
+                  "echo": 26.625788384269583,
+                  "pulse": 27.418317732823166,
+                  "echo_prediction": 38.79405671676583,
+                  "pulse_prediction": 34.88310477791805,
+                  "echo_relative_error": 0.45701063032879863,
+                  "pulse_relative_error": 0.27225547233915814
+                },
+                {
+                  "stations": [
+                    5,
+                    6
+                  ],
+                  "echo": 25.60130185614522,
+                  "pulse": 26.405336023201244,
+                  "echo_prediction": 30.68474792187714,
+                  "pulse_prediction": 29.572796168627775,
+                  "echo_relative_error": 0.1985620143184912,
+                  "pulse_relative_error": 0.1199553053459883
+                }
+              ],
+              "training_certificate": {
+                "excludes_every_radius": true,
+                "tested_intervals": 4096,
+                "surviving_intervals": 0,
+                "radius_upper": 13.87902106446758,
+                "padding": 2.7243446548354047e-08,
+                "triangle_witnesses": [
+                  {
+                    "stations": [
+                      0,
+                      1,
+                      2
+                    ],
+                    "intervals": 4096
+                  }
+                ]
+              },
+              "complete_certificate": {
+                "excludes_every_radius": true,
+                "tested_intervals": 4096,
+                "surviving_intervals": 0,
+                "radius_upper": 11.591477104648375,
+                "padding": 2.7243446548354047e-08,
+                "triangle_witnesses": [
+                  {
+                    "stations": [
+                      0,
+                      1,
+                      2
+                    ],
+                    "intervals": 4096
+                  }
+                ]
+              }
+            },
+            {
+              "passed": false,
+              "fitted_screen_radius": 15.7845246333902,
+              "radial": [
+                0.0,
+                4.414095258918357,
+                -11.206576487456633,
+                -9.070978366500242,
+                -4.44075718283396,
+                -2.6802195441304257,
+                2.946850140236725
+              ],
+              "maximum_training_error": 0.20872748280398645,
+              "stationary_clock_error": 0.0004273326469785843,
+              "held": [
+                {
+                  "stations": [
+                    4,
+                    5
+                  ],
+                  "echo": 13.683375272179855,
+                  "pulse": 19.824485595827,
+                  "echo_prediction": 11.652172642659824,
+                  "pulse_prediction": 17.109848890156183,
+                  "echo_relative_error": 0.14844309895159713,
+                  "pulse_relative_error": 0.13693352559131422
+                },
+                {
+                  "stations": [
+                    4,
+                    6
+                  ],
+                  "echo": 26.630700133963646,
+                  "pulse": 27.449000241559865,
+                  "echo_prediction": 38.780310585846436,
+                  "pulse_prediction": 34.86935131314633,
+                  "echo_relative_error": 0.45622572409907103,
+                  "pulse_relative_error": 0.2703322892012472
+                },
+                {
+                  "stations": [
+                    5,
+                    6
+                  ],
+                  "echo": 25.610271072363602,
+                  "pulse": 26.403042017081198,
+                  "echo_prediction": 30.678905759720944,
+                  "pulse_prediction": 29.565746659538497,
+                  "echo_relative_error": 0.19791413659916213,
+                  "pulse_relative_error": 0.11978561562759382
+                }
+              ],
+              "training_certificate": {
+                "excludes_every_radius": true,
+                "tested_intervals": 4096,
+                "surviving_intervals": 0,
+                "radius_upper": 13.872396300210307,
+                "padding": 2.7262424988375054e-08,
+                "triangle_witnesses": [
+                  {
+                    "stations": [
+                      0,
+                      1,
+                      2
+                    ],
+                    "intervals": 4096
+                  }
+                ]
+              },
+              "complete_certificate": {
+                "excludes_every_radius": true,
+                "tested_intervals": 4096,
+                "surviving_intervals": 0,
+                "radius_upper": 11.593615423853288,
+                "padding": 2.7262424988375054e-08,
+                "triangle_witnesses": [
+                  {
+                    "stations": [
+                      0,
+                      1,
+                      2
+                    ],
+                    "intervals": 4096
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cells": 80,
+      "first_angular_eigenvalue": 0.1818850716164632,
+      "angular_rank": 3,
+      "held_angular_classes_match": true,
+      "menus": [
+        {
+          "stations": [
+            0,
+            3,
+            4,
+            16,
+            1,
+            7,
+            12
+          ],
+          "angles": [
+            [
+              0.0,
+              0.3755763008838503,
+              0.32263555948496064,
+              0.32263555948495964,
+              0.6465332446450311,
+              0.6169072492497434,
+              0.5258104164829986
+            ],
+            [
+              0.3755763008838503,
+              0.0,
+              0.6169072492497484,
+              0.6169072492497468,
+              0.3755763008838482,
+              0.7297276562269659,
+              0.8889795082106308
+            ],
+            [
+              0.32263555948496064,
+              0.6169072492497484,
+              0.0,
+              0.5258104164829971,
+              0.9502671881514122,
+              0.3755763008838488,
+              0.5258104164829969
+            ],
+            [
+              0.32263555948495964,
+              0.6169072492497468,
+              0.5258104164829971,
+              1.4901161193847656e-08,
+              0.727889594632678,
+              0.8889795082106261,
+              0.32263555948496137
+            ],
+            [
+              0.6465332446450311,
+              0.3755763008838482,
+              0.9502671881514122,
+              0.727889594632678,
+              0.0,
+              1.105303957110814,
+              1.0495283224839596
+            ],
+            [
+              0.6169072492497434,
+              0.7297276562269659,
+              0.3755763008838488,
+              0.8889795082106261,
+              1.105303957110814,
+              2.1073424255447017e-08,
+              0.8889795082106279
+            ],
+            [
+              0.5258104164829986,
+              0.8889795082106308,
+              0.5258104164829969,
+              0.32263555948496137,
+              1.0495283224839596,
+              0.8889795082106279,
+              0.0
+            ]
+          ],
+          "population": {
+            "passed": false,
+            "fitted_screen_radius": 31.439120375168525,
+            "radial": [
+              0.0,
+              7.223361906447977,
+              -5.940429770505159,
+              11.83822137740949,
+              -2.249315269352365,
+              5.00612266248082,
+              2.9579557720510476
+            ],
+            "maximum_training_error": 0.22588298438827892,
+            "stationary_clock_error": 0.0,
+            "held": [
+              {
+                "stations": [
+                  4,
+                  5
+                ],
+                "echo": 28.08936583062841,
+                "pulse": 28.44678929648232,
+                "echo_prediction": 35.49913912565884,
+                "pulse_prediction": 31.62384574755726,
+                "echo_relative_error": 0.26379282963201955,
+                "pulse_relative_error": 0.1116841840378735
+              },
+              {
+                "stations": [
+                  4,
+                  6
+                ],
+                "echo": 28.627138355135397,
+                "pulse": 29.130473730788125,
+                "echo_prediction": 33.40461054182915,
+                "pulse_prediction": 30.388237254966043,
+                "echo_relative_error": 0.1668861248870419,
+                "pulse_relative_error": 0.043176899071455166
+              },
+              {
+                "stations": [
+                  5,
+                  6
+                ],
+                "echo": 26.094664700905923,
+                "pulse": 26.71054335341374,
+                "echo_prediction": 28.023681181104262,
+                "pulse_prediction": 27.213908641131425,
+                "echo_relative_error": 0.07392378872495597,
+                "pulse_relative_error": 0.018845190869295925
+              }
+            ],
+            "training_certificate": {
+              "excludes_every_radius": true,
+              "tested_intervals": 4096,
+              "surviving_intervals": 0,
+              "radius_upper": 27.479270531648353,
+              "padding": 2.6485916564806922e-08,
+              "triangle_witnesses": [
+                {
+                  "stations": [
+                    0,
+                    1,
+                    2
+                  ],
+                  "intervals": 4096
+                }
+              ]
+            },
+            "complete_certificate": {
+              "excludes_every_radius": true,
+              "tested_intervals": 4096,
+              "surviving_intervals": 0,
+              "radius_upper": 26.68391259497835,
+              "padding": 2.8627138355135398e-08,
+              "triangle_witnesses": [
+                {
+                  "stations": [
+                    0,
+                    1,
+                    2
+                  ],
+                  "intervals": 4096
+                }
+              ]
+            }
+          },
+          "acquisitions": [
+            {
+              "passed": false,
+              "fitted_screen_radius": 31.431905662122894,
+              "radial": [
+                0.0,
+                7.234735988087179,
+                -5.941785656572336,
+                11.834580506403356,
+                -2.2515623074501248,
+                5.012358396292189,
+                2.95222629452496
+              ],
+              "maximum_training_error": 0.22592232526338862,
+              "stationary_clock_error": 0.00042315537308468265,
+              "held": [
+                {
+                  "stations": [
+                    4,
+                    5
+                  ],
+                  "echo": 28.09153484068279,
+                  "pulse": 28.438367866197723,
+                  "echo_prediction": 35.49306813687257,
+                  "pulse_prediction": 31.628639260217724,
+                  "echo_relative_error": 0.26347913484138696,
+                  "pulse_relative_error": 0.1121819440915246
+                },
+                {
+                  "stations": [
+                    4,
+                    6
+                  ],
+                  "echo": 28.63045481064072,
+                  "pulse": 29.12066335795324,
+                  "echo_prediction": 33.39658827963431,
+                  "pulse_prediction": 30.390795126417814,
+                  "echo_relative_error": 0.1664707564206147,
+                  "pulse_relative_error": 0.0436161687957457
+                },
+                {
+                  "stations": [
+                    5,
+                    6
+                  ],
+                  "echo": 26.085679746247127,
+                  "pulse": 26.703738497789423,
+                  "echo_prediction": 28.018161848387813,
+                  "pulse_prediction": 27.215160700927505,
+                  "echo_relative_error": 0.07408210638707646,
+                  "pulse_relative_error": 0.019151708034454318
+                }
+              ],
+              "training_certificate": {
+                "excludes_every_radius": true,
+                "tested_intervals": 4096,
+                "surviving_intervals": 0,
+                "radius_upper": 27.44728209227109,
+                "padding": 2.6472489163295585e-08,
+                "triangle_witnesses": [
+                  {
+                    "stations": [
+                      0,
+                      1,
+                      2
+                    ],
+                    "intervals": 4096
+                  }
+                ]
+              },
+              "complete_certificate": {
+                "excludes_every_radius": true,
+                "tested_intervals": 4096,
+                "surviving_intervals": 0,
+                "radius_upper": 26.685973078476515,
+                "padding": 2.8630454810640724e-08,
+                "triangle_witnesses": [
+                  {
+                    "stations": [
+                      0,
+                      1,
+                      2
+                    ],
+                    "intervals": 4096
+                  }
+                ]
+              }
+            },
+            {
+              "passed": false,
+              "fitted_screen_radius": 31.43818451314893,
+              "radial": [
+                0.0,
+                7.231414964697111,
+                -5.945058723737827,
+                11.849499234421307,
+                -2.2424585022753023,
+                5.006037475644774,
+                2.9714474738722405
+              ],
+              "maximum_training_error": 0.22624818906782784,
+              "stationary_clock_error": 0.0004214889791320786,
+              "held": [
+                {
+                  "stations": [
+                    4,
+                    5
+                  ],
+                  "echo": 28.086687686655047,
+                  "pulse": 28.42292545074691,
+                  "echo_prediction": 35.49670833901525,
+                  "pulse_prediction": 31.60654210569829,
+                  "echo_relative_error": 0.26382678993795916,
+                  "pulse_relative_error": 0.11200876069101873
+                },
+                {
+                  "stations": [
+                    4,
+                    6
+                  ],
+                  "echo": 28.636782285567424,
+                  "pulse": 29.121334137768812,
+                  "echo_prediction": 33.40467529423931,
+                  "pulse_prediction": 30.374001302293312,
+                  "echo_relative_error": 0.16649541701739468,
+                  "pulse_relative_error": 0.043015445604185354
+                },
+                {
+                  "stations": [
+                    5,
+                    6
+                  ],
+                  "echo": 26.08972375974845,
+                  "pulse": 26.703183279322676,
+                  "echo_prediction": 28.021862392048128,
+                  "pulse_prediction": 27.202666817107886,
+                  "echo_relative_error": 0.07405745841129252,
+                  "pulse_relative_error": 0.01870501852009454
+                }
+              ],
+              "training_certificate": {
+                "excludes_every_radius": true,
+                "tested_intervals": 4096,
+                "surviving_intervals": 0,
+                "radius_upper": 27.478750336666515,
+                "padding": 2.6486854943518448e-08,
+                "triangle_witnesses": [
+                  {
+                    "stations": [
+                      0,
+                      1,
+                      2
+                    ],
+                    "intervals": 4096
+                  }
+                ]
+              },
+              "complete_certificate": {
+                "excludes_every_radius": true,
+                "tested_intervals": 4096,
+                "surviving_intervals": 0,
+                "radius_upper": 26.681368452135434,
+                "padding": 2.8636782285567427e-08,
+                "triangle_witnesses": [
+                  {
+                    "stations": [
+                      0,
+                      1,
+                      2
+                    ],
+                    "intervals": 4096
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "stations": [
+            40,
+            43,
+            44,
+            56,
+            41,
+            47,
+            52
+          ],
+          "angles": [
+            [
+              0.0,
+              0.37557630088384547,
+              0.32263555948495715,
+              0.32263555948495926,
+              0.6465332446450283,
+              0.6169072492497387,
+              0.5258104164829955
+            ],
+            [
+              0.37557630088384547,
+              1.4901161193847656e-08,
+              0.6169072492497426,
+              0.6169072492497403,
+              0.3755763008838482,
+              0.7297276562269659,
+              0.8889795082106217
+            ],
+            [
+              0.32263555948495715,
+              0.6169072492497426,
+              1.4901161193847656e-08,
+              0.5258104164829942,
+              0.9502671881514068,
+              0.3755763008838446,
+              0.5258104164829953
+            ],
+            [
+              0.32263555948495926,
+              0.6169072492497403,
+              0.5258104164829942,
+              1.4901161193847656e-08,
+              0.7278895946326724,
+              0.8889795082106202,
+              0.32263555948495753
+            ],
+            [
+              0.6465332446450283,
+              0.3755763008838482,
+              0.9502671881514068,
+              0.7278895946326724,
+              0.0,
+              1.1053039571108139,
+              1.0495283224839504
+            ],
+            [
+              0.6169072492497387,
+              0.7297276562269659,
+              0.3755763008838446,
+              0.8889795082106202,
+              1.1053039571108139,
+              0.0,
+              0.8889795082106209
+            ],
+            [
+              0.5258104164829955,
+              0.8889795082106217,
+              0.5258104164829953,
+              0.32263555948495753,
+              1.0495283224839504,
+              0.8889795082106209,
+              0.0
+            ]
+          ],
+          "population": {
+            "passed": false,
+            "fitted_screen_radius": 31.432702505056188,
+            "radial": [
+              0.0,
+              7.220951043246943,
+              -5.942575320450203,
+              11.842077095735148,
+              -2.2664301909288325,
+              5.003625845874311,
+              2.9523569823637144
+            ],
+            "maximum_training_error": 0.22617820918792375,
+            "stationary_clock_error": 0.0,
+            "held": [
+              {
+                "stations": [
+                  4,
+                  5
+                ],
+                "echo": 28.10934530200305,
+                "pulse": 28.428671067032194,
+                "echo_prediction": 35.49518636778288,
+                "pulse_prediction": 31.620958244171945,
+                "echo_relative_error": 0.26275393419616644,
+                "pulse_relative_error": 0.11229111517779455
+              },
+              {
+                "stations": [
+                  4,
+                  6
+                ],
+                "echo": 28.602210339332117,
+                "pulse": 29.11060804640139,
+                "echo_prediction": 33.399754649275984,
+                "pulse_prediction": 30.384459736560977,
+                "echo_relative_error": 0.1677333413406361,
+                "pulse_relative_error": 0.04375902035880208
+              },
+              {
+                "stations": [
+                  5,
+                  6
+                ],
+                "echo": 26.09205957839569,
+                "pulse": 26.708428335714743,
+                "echo_prediction": 28.018218018528163,
+                "pulse_prediction": 27.20885541893857,
+                "echo_relative_error": 0.0738216327593908,
+                "pulse_relative_error": 0.018736672818544298
+              }
+            ],
+            "training_certificate": {
+              "excludes_every_radius": true,
+              "tested_intervals": 4096,
+              "surviving_intervals": 0,
+              "radius_upper": 27.448228992966648,
+              "padding": 2.6493585746943774e-08,
+              "triangle_witnesses": [
+                {
+                  "stations": [
+                    0,
+                    1,
+                    2
+                  ],
+                  "intervals": 4096
+                }
+              ]
+            },
+            "complete_certificate": {
+              "excludes_every_radius": true,
+              "tested_intervals": 4096,
+              "surviving_intervals": 0,
+              "radius_upper": 26.702892392124582,
+              "padding": 2.860221033933212e-08,
+              "triangle_witnesses": [
+                {
+                  "stations": [
+                    0,
+                    1,
+                    2
+                  ],
+                  "intervals": 4096
+                }
+              ]
+            }
+          },
+          "acquisitions": [
+            {
+              "passed": false,
+              "fitted_screen_radius": 31.43113154870181,
+              "radial": [
+                0.0,
+                7.223573143448071,
+                -5.933543840848189,
+                11.849806751842968,
+                -2.262720090013985,
+                5.028201028335657,
+                2.9595395811769256
+              ],
+              "maximum_training_error": 0.22654817285217144,
+              "stationary_clock_error": 0.00042499826303910027,
+              "held": [
+                {
+                  "stations": [
+                    4,
+                    5
+                  ],
+                  "echo": 28.109529680938408,
+                  "pulse": 28.428881868641888,
+                  "echo_prediction": 35.49776642201078,
+                  "pulse_prediction": 31.62262121464676,
+                  "echo_relative_error": 0.2628374371586326,
+                  "pulse_relative_error": 0.11234136329250721
+                },
+                {
+                  "stations": [
+                    4,
+                    6
+                  ],
+                  "echo": 28.606507215701114,
+                  "pulse": 29.066163687669885,
+                  "echo_prediction": 33.398668926756905,
+                  "pulse_prediction": 30.38405291466838,
+                  "echo_relative_error": 0.16751998679606506,
+                  "pulse_relative_error": 0.0453410102949896
+                },
+                {
+                  "stations": [
+                    5,
+                    6
+                  ],
+                  "echo": 26.10009658361153,
+                  "pulse": 26.697788194862937,
+                  "echo_prediction": 28.01810399644081,
+                  "pulse_prediction": 27.209261284583135,
+                  "echo_relative_error": 0.07348660211600944,
+                  "pulse_relative_error": 0.01915788251772166
+                }
+              ],
+              "training_certificate": {
+                "excludes_every_radius": true,
+                "tested_intervals": 4096,
+                "surviving_intervals": 0,
+                "radius_upper": 27.469276556145488,
+                "padding": 2.649943126321988e-08,
+                "triangle_witnesses": [
+                  {
+                    "stations": [
+                      0,
+                      1,
+                      2
+                    ],
+                    "intervals": 4096
+                  }
+                ]
+              },
+              "complete_certificate": {
+                "excludes_every_radius": true,
+                "tested_intervals": 4096,
+                "surviving_intervals": 0,
+                "radius_upper": 26.703067545655816,
+                "padding": 2.8606507215701117e-08,
+                "triangle_witnesses": [
+                  {
+                    "stations": [
+                      0,
+                      1,
+                      2
+                    ],
+                    "intervals": 4096
+                  }
+                ]
+              }
+            },
+            {
+              "passed": false,
+              "fitted_screen_radius": 31.437503724706314,
+              "radial": [
+                0.0,
+                7.213970646090634,
+                -5.952788109647649,
+                11.839141440728364,
+                -2.2645160858933755,
+                4.982556217125617,
+                2.947588269628178
+              ],
+              "maximum_training_error": 0.2263401818469315,
+              "stationary_clock_error": 0.0005851966108139095,
+              "held": [
+                {
+                  "stations": [
+                    4,
+                    5
+                  ],
+                  "echo": 28.110605757460302,
+                  "pulse": 28.393456076469885,
+                  "echo_prediction": 35.49568102099303,
+                  "pulse_prediction": 31.61575379667287,
+                  "echo_relative_error": 0.2627149100681616,
+                  "pulse_relative_error": 0.1134873370654359
+                },
+                {
+                  "stations": [
+                    4,
+                    6
+                  ],
+                  "echo": 28.61104351652679,
+                  "pulse": 29.10840703332527,
+                  "echo_prediction": 33.40368838361212,
+                  "pulse_prediction": 30.382041888129546,
+                  "echo_relative_error": 0.16751031343253597,
+                  "pulse_relative_error": 0.04375487993369509
+                },
+                {
+                  "stations": [
+                    5,
+                    6
+                  ],
+                  "echo": 26.099636135987097,
+                  "pulse": 26.71275162696918,
+                  "echo_prediction": 28.02128622720516,
+                  "pulse_prediction": 27.207875058727154,
+                  "echo_relative_error": 0.07362746672810605,
+                  "pulse_relative_error": 0.018535096596267397
+                }
+              ],
+              "training_certificate": {
+                "excludes_every_radius": true,
+                "tested_intervals": 4096,
+                "surviving_intervals": 0,
+                "radius_upper": 27.485825522266655,
+                "padding": 2.648856071987332e-08,
+                "triangle_witnesses": [
+                  {
+                    "stations": [
+                      0,
+                      1,
+                      2
+                    ],
+                    "intervals": 4096
+                  }
+                ]
+              },
+              "complete_certificate": {
+                "excludes_every_radius": true,
+                "tested_intervals": 4096,
+                "surviving_intervals": 0,
+                "radius_upper": 26.70408978062591,
+                "padding": 2.8611043516526794e-08,
+                "triangle_witnesses": [
+                  {
+                    "stations": [
+                      0,
+                      1,
+                      2
+                    ],
+                    "intervals": 4096
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cells": 320,
+      "first_angular_eigenvalue": 0.045289535529289396,
+      "angular_rank": 3,
+      "held_angular_classes_match": true,
+      "menus": [
+        {
+          "stations": [
+            0,
+            3,
+            16,
+            64,
+            1,
+            19,
+            48
+          ],
+          "angles": [
+            [
+              0.0,
+              0.16724165628231805,
+              0.14109002386287256,
+              0.14109002386287256,
+              0.29535376626481546,
+              0.27451894693914036,
+              0.22859656077165166
+            ],
+            [
+              0.16724165628231805,
+              2.1073424255447017e-08,
+              0.2745189469391379,
+              0.27451894693913914,
+              0.17606892238657215,
+              0.33484523156464313,
+              0.39095668390856025
+            ],
+            [
+              0.14109002386287256,
+              0.2745189469391379,
+              2.1073424255447017e-08,
+              0.22859656077165214,
+              0.4290690742870643,
+              0.1672416562823207,
+              0.22859656077165313
+            ],
+            [
+              0.14109002386287256,
+              0.27451894693913914,
+              0.22859656077165214,
+              0.0,
+              0.33526785591897856,
+              0.39095668390856286,
+              0.14109002386287178
+            ],
+            [
+              0.29535376626481546,
+              0.17606892238657215,
+              0.4290690742870643,
+              0.33526785591897856,
+              0.0,
+              0.5102821781103267,
+              0.4749250432642892
+            ],
+            [
+              0.27451894693914036,
+              0.33484523156464313,
+              0.1672416562823207,
+              0.39095668390856286,
+              0.5102821781103267,
+              0.0,
+              0.39095668390856403
+            ],
+            [
+              0.22859656077165166,
+              0.39095668390856025,
+              0.22859656077165313,
+              0.14109002386287178,
+              0.4749250432642892,
+              0.39095668390856403,
+              0.0
+            ]
+          ],
+          "population": {
+            "passed": false,
+            "fitted_screen_radius": 71.25489208345732,
+            "radial": [
+              0.0,
+              11.12512270072606,
+              10.213395115555471,
+              9.047722520037906,
+              4.889392334183567,
+              0.4042559352478555,
+              18.590734270292792
+            ],
+            "maximum_training_error": 0.2433355355318776,
+            "stationary_clock_error": 0.0,
+            "held": [
+              {
+                "stations": [
+                  4,
+                  5
+                ],
+                "echo": 27.54290158086462,
+                "pulse": 28.21652266033973,
+                "echo_prediction": 36.6356852267501,
+                "pulse_prediction": 31.349260837842476,
+                "echo_relative_error": 0.33013165367452335,
+                "pulse_relative_error": 0.11102495566918402
+              },
+              {
+                "stations": [
+                  4,
+                  6
+                ],
+                "echo": 28.563655199714162,
+                "pulse": 29.037861597419557,
+                "echo_prediction": 36.509203783391285,
+                "pulse_prediction": 31.28096776210366,
+                "echo_relative_error": 0.27816988155481703,
+                "pulse_relative_error": 0.07724763606158369
+              },
+              {
+                "stations": [
+                  5,
+                  6
+                ],
+                "echo": 25.92349245080417,
+                "pulse": 26.665454786995703,
+                "echo_prediction": 33.26849189132502,
+                "pulse_prediction": 29.531160226584817,
+                "echo_relative_error": 0.28333371571981236,
+                "pulse_relative_error": 0.10746883795834106
+              }
+            ],
+            "training_certificate": {
+              "excludes_every_radius": true,
+              "tested_intervals": 4096,
+              "surviving_intervals": 0,
+              "radius_upper": 61.08050798762153,
+              "padding": 2.649647665237909e-08,
+              "triangle_witnesses": [
+                {
+                  "stations": [
+                    0,
+                    1,
+                    2
+                  ],
+                  "intervals": 4096
+                }
+              ]
+            },
+            "complete_certificate": {
+              "excludes_every_radius": true,
+              "tested_intervals": 4096,
+              "surviving_intervals": 0,
+              "radius_upper": 56.674616405659194,
+              "padding": 2.8563655199714166e-08,
+              "triangle_witnesses": [
+                {
+                  "stations": [
+                    0,
+                    1,
+                    2
+                  ],
+                  "intervals": 4096
+                }
+              ]
+            }
+          },
+          "acquisitions": [
+            {
+              "passed": false,
+              "fitted_screen_radius": 71.25647819395954,
+              "radial": [
+                0.0,
+                11.125165755948442,
+                10.209000127451057,
+                9.054804009105547,
+                4.8892089806592045,
+                0.40021375044589197,
+                18.597336886504277
+              ],
+              "maximum_training_error": 0.24280245988570281,
+              "stationary_clock_error": 0.00039641410485558026,
+              "held": [
+                {
+                  "stations": [
+                    4,
+                    5
+                  ],
+                  "echo": 27.537345034527238,
+                  "pulse": 28.208743344603732,
+                  "echo_prediction": 36.63696111111228,
+                  "pulse_prediction": 31.362741951677208,
+                  "echo_relative_error": 0.3304463834540199,
+                  "pulse_relative_error": 0.1118092560361017
+                },
+                {
+                  "stations": [
+                    4,
+                    6
+                  ],
+                  "echo": 28.562096202991412,
+                  "pulse": 29.03472025739437,
+                  "echo_prediction": 36.512449173333955,
+                  "pulse_prediction": 31.29544725392124,
+                  "echo_relative_error": 0.27835327329756265,
+                  "pulse_relative_error": 0.077862881973217
+                },
+                {
+                  "stations": [
+                    5,
+                    6
+                  ],
+                  "echo": 25.918743728342733,
+                  "pulse": 26.67012607974965,
+                  "echo_prediction": 33.274831303849346,
+                  "pulse_prediction": 29.54561892529784,
+                  "echo_relative_error": 0.2838134306433442,
+                  "pulse_relative_error": 0.10781699482596463
+                }
+              ],
+              "training_certificate": {
+                "excludes_every_radius": true,
+                "tested_intervals": 4096,
+                "surviving_intervals": 0,
+                "radius_upper": 61.10660530569289,
+                "padding": 2.648001127931835e-08,
+                "triangle_witnesses": [
+                  {
+                    "stations": [
+                      0,
+                      1,
+                      2
+                    ],
+                    "intervals": 4096
+                  }
+                ]
+              },
+              "complete_certificate": {
+                "excludes_every_radius": true,
+                "tested_intervals": 4096,
+                "surviving_intervals": 0,
+                "radius_upper": 56.66318278342647,
+                "padding": 2.8562096202991415e-08,
+                "triangle_witnesses": [
+                  {
+                    "stations": [
+                      0,
+                      1,
+                      2
+                    ],
+                    "intervals": 4096
+                  }
+                ]
+              }
+            },
+            {
+              "passed": false,
+              "fitted_screen_radius": 71.22933959735812,
+              "radial": [
+                0.0,
+                11.130893604966394,
+                10.207537510672802,
+                9.049644386101361,
+                4.916011180335915,
+                0.3941873662727406,
+                18.59071812973969
+              ],
+              "maximum_training_error": 0.24491651674257686,
+              "stationary_clock_error": 0.00036954792349419563,
+              "held": [
+                {
+                  "stations": [
+                    4,
+                    5
+                  ],
+                  "echo": 27.541963104331572,
+                  "pulse": 28.242121812923983,
+                  "echo_prediction": 36.62725552085202,
+                  "pulse_prediction": 31.333044522938202,
+                  "echo_relative_error": 0.32987090942299546,
+                  "pulse_relative_error": 0.10944371426794741
+                },
+                {
+                  "stations": [
+                    4,
+                    6
+                  ],
+                  "echo": 28.567365119278513,
+                  "pulse": 29.040918378812727,
+                  "echo_prediction": 36.487965111701975,
+                  "pulse_prediction": 31.25791662815343,
+                  "echo_relative_error": 0.2772604319422618,
+                  "pulse_relative_error": 0.07634050068327558
+                },
+                {
+                  "stations": [
+                    5,
+                    6
+                  ],
+                  "echo": 25.934292647661202,
+                  "pulse": 26.67162321219442,
+                  "echo_prediction": 33.26562490716696,
+                  "pulse_prediction": 29.519910132772495,
+                  "echo_relative_error": 0.2826887302888097,
+                  "pulse_relative_error": 0.10679091024635579
+                }
+              ],
+              "training_certificate": {
+                "excludes_every_radius": true,
+                "tested_intervals": 4096,
+                "surviving_intervals": 0,
+                "radius_upper": 60.97078318648001,
+                "padding": 2.647640301578708e-08,
+                "triangle_witnesses": [
+                  {
+                    "stations": [
+                      0,
+                      1,
+                      2
+                    ],
+                    "intervals": 4096
+                  }
+                ]
+              },
+              "complete_certificate": {
+                "excludes_every_radius": true,
+                "tested_intervals": 4096,
+                "surviving_intervals": 0,
+                "radius_upper": 56.672685316555224,
+                "padding": 2.8567365119278515e-08,
+                "triangle_witnesses": [
+                  {
+                    "stations": [
+                      0,
+                      1,
+                      2
+                    ],
+                    "intervals": 4096
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "stations": [
+            160,
+            163,
+            176,
+            224,
+            161,
+            179,
+            208
+          ],
+          "angles": [
+            [
+              0.0,
+              0.1672416562823094,
+              0.14109002386286387,
+              0.1410900238628694,
+              0.29535376626480475,
+              0.2745189469391269,
+              0.22859656077164187
+            ],
+            [
+              0.1672416562823094,
+              0.0,
+              0.2745189469391244,
+              0.2745189469391289,
+              0.17606892238656707,
+              0.3348452315646279,
+              0.39095668390854216
+            ],
+            [
+              0.14109002386286387,
+              0.2745189469391244,
+              1.4901161193847656e-08,
+              0.22859656077164284,
+              0.42906907428704777,
+              0.16724165628231205,
+              0.2285965607716438
+            ],
+            [
+              0.1410900238628694,
+              0.2745189469391289,
+              0.22859656077164284,
+              2.1073424255447017e-08,
+              0.33526785591896674,
+              0.3909566839085454,
+              0.14109002386286468
+            ],
+            [
+              0.29535376626480475,
+              0.17606892238656707,
+              0.42906907428704777,
+              0.33526785591896674,
+              0.0,
+              0.5102821781103074,
+              0.47492504326426876
+            ],
+            [
+              0.2745189469391269,
+              0.3348452315646279,
+              0.16724165628231205,
+              0.3909566839085454,
+              0.5102821781103074,
+              0.0,
+              0.39095668390854654
+            ],
+            [
+              0.22859656077164187,
+              0.39095668390854216,
+              0.2285965607716438,
+              0.14109002386286468,
+              0.47492504326426876,
+              0.39095668390854654,
+              0.0
+            ]
+          ],
+          "population": {
+            "passed": false,
+            "fitted_screen_radius": 71.25489184590555,
+            "radial": [
+              0.0,
+              11.12512184209248,
+              10.213393577577179,
+              9.0477227778918,
+              4.8893897683618155,
+              0.4042529999700132,
+              18.59073428867585
+            ],
+            "maximum_training_error": 0.24333554350110553,
+            "stationary_clock_error": 0.0,
+            "held": [
+              {
+                "stations": [
+                  4,
+                  5
+                ],
+                "echo": 27.542901585297216,
+                "pulse": 28.216520540176617,
+                "echo_prediction": 36.63568515167293,
+                "pulse_prediction": 31.34926069262921,
+                "echo_relative_error": 0.33013165073463324,
+                "pulse_relative_error": 0.1110250340041743
+              },
+              {
+                "stations": [
+                  4,
+                  6
+                ],
+                "echo": 28.56365510594471,
+                "pulse": 29.037861488093004,
+                "echo_prediction": 36.50920464862901,
+                "pulse_prediction": 31.280968127382266,
+                "echo_relative_error": 0.2781699160423856,
+                "pulse_relative_error": 0.07724765269677492
+              },
+              {
+                "stations": [
+                  5,
+                  6
+                ],
+                "echo": 25.92349257287142,
+                "pulse": 26.665454862603518,
+                "echo_prediction": 33.26849342819832,
+                "pulse_prediction": 29.53116102556426,
+                "echo_relative_error": 0.28333376896187756,
+                "pulse_relative_error": 0.10746886478129047
+              }
+            ],
+            "training_certificate": {
+              "excludes_every_radius": true,
+              "tested_intervals": 4096,
+              "surviving_intervals": 0,
+              "radius_upper": 61.08050774554834,
+              "padding": 2.6496476788963536e-08,
+              "triangle_witnesses": [
+                {
+                  "stations": [
+                    0,
+                    1,
+                    2
+                  ],
+                  "intervals": 4096
+                }
+              ]
+            },
+            "complete_certificate": {
+              "excludes_every_radius": true,
+              "tested_intervals": 4096,
+              "surviving_intervals": 0,
+              "radius_upper": 56.67461641478223,
+              "padding": 2.8563655105944713e-08,
+              "triangle_witnesses": [
+                {
+                  "stations": [
+                    0,
+                    1,
+                    2
+                  ],
+                  "intervals": 4096
+                }
+              ]
+            }
+          },
+          "acquisitions": [
+            {
+              "passed": false,
+              "fitted_screen_radius": 71.26631228665869,
+              "radial": [
+                0.0,
+                11.117463467259341,
+                10.219809165682577,
+                9.057181704637305,
+                4.896256210496862,
+                0.4123430020108131,
+                18.587154084656607
+              ],
+              "maximum_training_error": 0.24370101048182158,
+              "stationary_clock_error": 0.00046104801677060436,
+              "held": [
+                {
+                  "stations": [
+                    4,
+                    5
+                  ],
+                  "echo": 27.548150143889693,
+                  "pulse": 28.2057681148736,
+                  "echo_prediction": 36.64131921784041,
+                  "pulse_prediction": 31.356185692063665,
+                  "echo_relative_error": 0.33008274698864404,
+                  "pulse_relative_error": 0.11169408910827605
+                },
+                {
+                  "stations": [
+                    4,
+                    6
+                  ],
+                  "echo": 28.553234364732475,
+                  "pulse": 29.05813849620644,
+                  "echo_prediction": 36.51031348495322,
+                  "pulse_prediction": 31.285418042609308,
+                  "echo_relative_error": 0.2786752288227261,
+                  "pulse_relative_error": 0.07664907876647509
+                },
+                {
+                  "stations": [
+                    5,
+                    6
+                  ],
+                  "echo": 25.917448643731767,
+                  "pulse": 26.66181111248314,
+                  "echo_prediction": 33.26585477025702,
+                  "pulse_prediction": 29.532802245341337,
+                  "echo_relative_error": 0.2835312313159535,
+                  "pulse_relative_error": 0.10768177453308825
+                }
+              ],
+              "training_certificate": {
+                "excludes_every_radius": true,
+                "tested_intervals": 4096,
+                "surviving_intervals": 0,
+                "radius_upper": 61.07190564113576,
+                "padding": 2.6501465986902157e-08,
+                "triangle_witnesses": [
+                  {
+                    "stations": [
+                      0,
+                      1,
+                      2
+                    ],
+                    "intervals": 4096
+                  }
+                ]
+              },
+              "complete_certificate": {
+                "excludes_every_radius": true,
+                "tested_intervals": 4096,
+                "surviving_intervals": 0,
+                "radius_upper": 56.685416295206764,
+                "padding": 2.8553234364732476e-08,
+                "triangle_witnesses": [
+                  {
+                    "stations": [
+                      0,
+                      1,
+                      2
+                    ],
+                    "intervals": 4096
+                  }
+                ]
+              }
+            },
+            {
+              "passed": false,
+              "fitted_screen_radius": 71.26846281742338,
+              "radial": [
+                0.0,
+                11.117255520354043,
+                10.225181188861153,
+                9.051338401992194,
+                4.894036123413818,
+                0.4200276293888576,
+                18.586383205563976
+              ],
+              "maximum_training_error": 0.24324753393642506,
+              "stationary_clock_error": 0.00039101256763984793,
+              "held": [
+                {
+                  "stations": [
+                    4,
+                    5
+                  ],
+                  "echo": 27.545100164567444,
+                  "pulse": 28.225540131732913,
+                  "echo_prediction": 36.64119763159461,
+                  "pulse_prediction": 31.3394939629071,
+                  "echo_relative_error": 0.33022560864483275,
+                  "pulse_relative_error": 0.11032397667647409
+                },
+                {
+                  "stations": [
+                    4,
+                    6
+                  ],
+                  "echo": 28.568205224828077,
+                  "pulse": 29.035487150662764,
+                  "echo_prediction": 36.51180374562417,
+                  "pulse_prediction": 31.269702982536835,
+                  "echo_relative_error": 0.2780573178567223,
+                  "pulse_relative_error": 0.07694776465367736
+                },
+                {
+                  "stations": [
+                    5,
+                    6
+                  ],
+                  "echo": 25.91890964258362,
+                  "pulse": 26.661849968684287,
+                  "echo_prediction": 33.261940144197034,
+                  "pulse_prediction": 29.516829072674867,
+                  "echo_relative_error": 0.2833078475473034,
+                  "pulse_relative_error": 0.10708105804150492
+                }
+              ],
+              "training_certificate": {
+                "excludes_every_radius": true,
+                "tested_intervals": 4096,
+                "surviving_intervals": 0,
+                "radius_upper": 61.09853590443696,
+                "padding": 2.6501304116450173e-08,
+                "triangle_witnesses": [
+                  {
+                    "stations": [
+                      0,
+                      1,
+                      2
+                    ],
+                    "intervals": 4096
+                  }
+                ]
+              },
+              "complete_certificate": {
+                "excludes_every_radius": true,
+                "tested_intervals": 4096,
+                "surviving_intervals": 0,
+                "radius_upper": 56.679140398451736,
+                "padding": 2.8568205224828078e-08,
+                "triangle_witnesses": [
+                  {
+                    "stations": [
+                      0,
+                      1,
+                      2
+                    ],
+                    "intervals": 4096
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "source_sha256": {
+    "radial_product.py": "17f5bc46248025a51a336152c99625b97e25d0c21bf2b7361a66a60a5aaf5860",
+    "station_chart.py": "2498a2e7ea2db5a47c34e25521d420feea5527847fce2cb4d5d78e6137cd756e",
+    "station_chart_protocol.json": "35ce62d3cd940c53071d79fe4338d921ede647261743a01213c47140564942e2",
+    "station_chart.json": "d524ed0b7e393a7aa8dc655474644c5fd2ca3f87c431fe768cdf1c79a1b55e64",
+    "shell_sources.json": "f3887b043ee81e424f9c8c29231e6cb0e3b759c6489eaa64a5bf6ced69ddc5a4",
+    "shell_source.py": "ddb34b6c746458195a784463b8d347390e8484b1880ec26547da69acdfc378fb",
+    "shells.py": "08a4a03d950b80c51233ca6692ecca6eedcf51f24c694549ffac246e0c512583"
+  },
+  "counts_sha256": "86914385b368d96d6da2a4622387a388db995eb0b043ba59831864ca5f6152d6"
+}

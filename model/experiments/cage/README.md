@@ -4,7 +4,7 @@ Mark four seams that form a ring on a cell with plus, minus, plus, minus. At eve
 meets one minus, so the port passes nothing on to its other seams. An object on the ring can move between the
 ring and the four ports and nowhere else: the signs of the law make a cage. This package builds that object on
 the [scalar channel](../../candidate_laws/scalar_channel/README.md), law 2 of the
-[construction manual](../../construction_manual/CONSTRUCTION_MANUAL.md) (sections 5.9, 6.6, 7.4 and 7.5), and
+[construction manual](https://github.com/FloatingPragma/observer-patch-holography/blob/512b47075b0dd00a570b08cc9b576bec7559acb5/model/construction_manual/CONSTRUCTION_MANUAL.md) (sections 5.9, 6.6, 7.4 and 7.5), and
 executes three experiments of an observer on it.
 
 The candidate is `A-native-caged-exciton-v1`: the free law of the scalar channel is unchanged, and the

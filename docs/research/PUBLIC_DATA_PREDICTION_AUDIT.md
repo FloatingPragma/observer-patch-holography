@@ -211,7 +211,7 @@ reference composition without protons beyond `1e19 eV`. In the photon-only
 branch `delta_gamma,2 = -d` to leading order, so the candidate magnitude is
 5.47094 times that quoted limit. This is not an OPH exclusion: source
 composition, lepton dispersion, interactions and shower response determine
-whether that bound applies. The [existing feasibility calculation](DISPERSION_FEASIBILITY.md)
+whether that bound applies. The [existing feasibility calculation](https://github.com/FloatingPragma/observer-patch-holography/blob/512b47075b0dd00a570b08cc9b576bec7559acb5/docs/research/DISPERSION_FEASIBILITY.md)
 shows that shared photon/lepton dispersion substantially changes the pair
 threshold; free shells alone do not supply the interaction rates.
 

@@ -8,7 +8,7 @@ ratio of two successive chain minima lies above the effective relative hop g and
 
 ## Source and observation
 
-The [construction manual, §§2.3 and 5](../../construction_manual/CONSTRUCTION_MANUAL.md) supplies the
+The [construction manual, §§2.3 and 5](https://github.com/FloatingPragma/observer-patch-holography/blob/512b47075b0dd00a570b08cc9b576bec7559acb5/model/construction_manual/CONSTRUCTION_MANUAL.md) supplies the
 20-, 80- and 320-cell carriers, the oriented seam-to-wedge incidence `C` and the hop magnitude
 `a = 1/√2`. Each wedge joins its two seams with opposite signs. The external one-quantum operator
 `D` has off-diagonal blocks `a C` and its transpose and zero diagonal. It is the hop of the scalar channel

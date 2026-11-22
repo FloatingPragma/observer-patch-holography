@@ -3,7 +3,7 @@
 ## Source and scope
 
 The law is `A-native-scalar-overlap-v3`, law 2 of the
-[construction manual](../../construction_manual/CONSTRUCTION_MANUAL.md): the
+[construction manual](https://github.com/FloatingPragma/observer-patch-holography/blob/512b47075b0dd00a570b08cc9b576bec7559acb5/model/construction_manual/CONSTRUCTION_MANUAL.md): the
 scalar channel written on ordinary registers. The manual distinguishes this
 scalar law from the separate load-and-memory law. No moving charged-owner
 Hamiltonian or interacting seven-species dynamics transfers through this

@@ -7,6 +7,8 @@ OPH results, OPH evidence or OPH predictions, and the cross-control verdict
 `NO_ADMISSIBLE_K7_GAUGE_VECTOR_ESTABLISHED_BY_PINNED_SOURCES` establishes no
 OPH physics.
 
+The upstream PDF contains the illustrations referenced by the Markdown manuscript. [K7 framework 3.5, illustrated edition](https://github.com/Arithmon/K7/blob/210480b2ba8a13c98e6a6f146fbfd965e4904c00/publications/papers/pdf/k7_framework_3_5_main.pdf)
+
 | Vendored file | Upstream repository | Upstream commit | Upstream path |
 | --- | --- | --- | --- |
 | `k7_gauge/ERRATUM_v3.5.md` | `Arithmon/K7` | `210480b2ba8a13c98e6a6f146fbfd965e4904c00` | `publications/ERRATUM_v3.5.md` |

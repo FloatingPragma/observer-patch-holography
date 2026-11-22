@@ -274,7 +274,7 @@ The first command runs short literal checks of both the lower bound and the
 full two-constituent circuit. The other commands regenerate the frozen
 sources, verify the original acquisitions and print the decisions, including
 unfavorable controls. Run at the repository root with
-[the model dependencies](../../model/requirements.txt).
+[the model dependencies](../../../requirements.txt).
 
 ```sh
 python -B -m pytest -q model/benchmarks/eight_slot_torus/formed_clocks/test_clock_loader_optimal_literal.py

@@ -1,0 +1,20 @@
+{
+  "levels": [0, 1, 2],
+  "seed": 732615049,
+  "replicas": 2,
+  "step": 0.5,
+  "appointments": 64,
+  "shots": 67108864,
+  "return_quota": 65536,
+  "relative_tolerance": 0.05,
+  "clock_tolerance_radians": 0.01,
+  "minimum_anchor_eigenvalue_ratio": 0.000001,
+  "source": "Registered signed-hand perfect matching from shell_protocol.json. All other seams evolve freely. One sharp unit is launched at local port 4. Every station has the same two synchronized material hands. Source-free means no additional localized gravitating load.",
+  "stations": "Four anchors are cell 0 and its three adjacent cells in increasing native address order. For each noncentral anchor take its lowest-address neighbor outside the four anchors and outside the previously chosen held cells. These three cells are the held stations. Use addresses for installation only. No carrier coordinate, hop count or eigenvector enters the chart.",
+  "calibration": "In both directions acquire first-hit and timeout records at half-unit appointments to 32. Timestamp hits with separately measured synchronized local material hands. Define the range as the average of the two conditional mean one-way times. Six anchor ranges set a Euclidean tetrahedron. Four ranges locate each held station by subtraction of squared ranges. Check all four residuals. From the six anchor pairs only, fit an affine map from radar range to the centroid of a freely propagated pulse on fresh unmonitored cohorts at the same uniformly weighted appointments. A positive slope is required.",
+  "held": "Withhold all three held-to-held dyads from both fits. Predict the half-round-trip material clock at reunion, the free pulse centroid, and the held stationary clock phases on the anchor time standard. Acquisitions for radar calibration, anchor free pulses, held free pulses, held echoes and clock standards use separate ensembles. Every leg has its full window. Preserve outward and return timeouts, missed snapshot detections and all four joint sign outcomes. Fixed return quota per held direction accumulates both classes of timeout. Check every pair on every board in the population laws and in two independent seeded acquisitions.",
+  "gate": "All anchor frames must be positive definite and well conditioned. Every anchor-to-held radius, held echo half-time and held free-pulse centroid must agree to 5% of the observed value. The maximum phase error of each held stationary clock against the anchor mean must be at most 0.01 radians. Missing or unresolved records do not pass. Report population residuals as the primary finite-law decision and the seeded acquisitions separately. These margins are diagnostic choices, not bounds from OPH.",
+  "controls": "A synthetic seven-station flat chart with one common clock and an affine pulse latency tests the inverse including held predictions. Disabling external exchange must give zero interstation arrivals with the phase hands running. Check native unitary propagation independently on the smallest board.",
+  "scope": "This is a static unit-lapse, locally flat, constant radar-speed chart, with a common empirical pulse latency. A conditional flight time and a windowed pulse centroid are candidate rulers. The microscopic placements are repeated on different boards. These placements do not define a refinement of fixed proper volume. Three components could describe a surface embedded in space. A separate low-energy depth test is needed to establish an independent radial coordinate.",
+  "source_gate": "Proceed to a matched localized-load acquisition only if the full source-free gate passes. Infer a common change of the chart from calibration paths and predict independent held clocks and free propagation on paths with endpoints outside the source contacts. Preserve the source-free calibration, windows and geometry tolerances."
+}

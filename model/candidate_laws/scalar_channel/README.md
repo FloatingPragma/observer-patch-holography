@@ -37,7 +37,7 @@ sectors and failure controls. Recording requires an explicit unused path
 through `--record`; existing evidence cannot be overwritten by that command.
 
 The construction is described in
-[the construction manual](../../construction_manual/CONSTRUCTION_MANUAL.md), whose
+[the construction manual](https://github.com/FloatingPragma/observer-patch-holography/blob/512b47075b0dd00a570b08cc9b576bec7559acb5/model/construction_manual/CONSTRUCTION_MANUAL.md), whose
 section 11 says which of its parts this package executes. No sibling checkout
 or network service is needed for replay.
 

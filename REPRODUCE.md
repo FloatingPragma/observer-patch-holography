@@ -24,9 +24,7 @@ python -m pytest -q -W error model
 
 The main replay compares fresh clock decisions and reunion words with the deposited results. Full verification includes every stationary record in the archive, the two-seam repair outcomes and the guarded port-current response. A mismatch returns a nonzero exit status. Use `--full --seed 42 --output /tmp/echo-42` to generate an independent realization. These commands run in a standalone RER checkout.
 
-Every test of the model compares distributions of admissible observer records with what observers in our world
-record. The state of the simulation is no physical space, so no test asks the carrier to be a three-dimensional
-lattice.
+The station experiment tests whether ranges inferred from simulated observer records predict held clock and pulse measurements. Its three-dimensional fit uses the recorded times and station labels. [Source-free chart and held flights](model/experiments/interval_echo_space/README.md#can-a-source-free-chart-predict-clocks-and-pulses-at-other-stations)
 
 ## Theory certificates
 
@@ -82,12 +80,24 @@ receipt regeneration commands. The `neutral_packet` lane of the
   the executable model alone runs on 3.11 or newer).
 - A clean virtual environment for each pin set: the mandatory suite installs
   `requirements.txt` and the executable model installs `model/requirements.txt`.
-  Their numpy and SciPy pins differ, and receipt checks are version
-  sensitive, so the two gates run in separate environments.
+  Their NumPy and SciPy pins differ, so the two gates run in separate environments.
 - Tectonic 0.15.0 and Pandoc 3.8.3 for the publication artifacts.
 - Ghostscript, `rsvg-convert`, and `pdftotext` on `PATH` for the book and
   publication validation. On Ubuntu these are supplied by `ghostscript`,
   `librsvg2-bin`, and `poppler-utils`.
+
+The full model gate runs on native x86-64 Linux in GitHub Actions. Exact seeded draws and long-time numerical receipts can depend on the host math libraries even with the same Python package versions. On Apple Silicon, the following Linux container command reproduces the station-chart tests and the archived electron-wall and loaded-clock counts. The complete native-runner command is in the executable model section above.
+
+```sh
+docker run --rm --platform linux/amd64 -v "$PWD:/src:ro" -w /src \
+  -e PYTHONDONTWRITEBYTECODE=1 -e OPENBLAS_NUM_THREADS=1 -e OMP_NUM_THREADS=1 \
+  python:3.12-slim sh -ec 'python -m pip install -r model/requirements.txt &&
+    python -m pytest -p no:cacheprovider -q -W error \
+      model/experiments/interval_echo_space/test_station_chart.py \
+      model/experiments/seam_program/test_blind_chart.py \
+      model/benchmarks/eight_slot_torus/electron_wall/test_electron_wall.py::test_published_counts_all_settings \
+      model/benchmarks/eight_slot_torus/formed_clocks/test_loaded_clock_archive.py::test_published_source_and_signed_counts_replay'
+```
 
 ## Mandatory suite
 
@@ -153,8 +163,8 @@ Full test execution (`python -m pytest code`) is **not** expected to be green
 from a clean clone, so it is not the documented gate here. A bare
 `python -m pytest` collects `code/` only (`testpaths` in `pytest.ini`); the
 regression tests under `tools/` run through the mandatory suite. The
-executable model has its own gate above (`python -m model` and
-`python -m pytest -q -W error model/candidate_laws/contrast_memory_spherical_v1`). Individual scientific
+executable model uses the full model replay, candidate evaluation and
+`python -m pytest -q -W error model` as specified above. Individual scientific
 test outcomes are tracked as their own issues, and some are not reproducible
 from the public checkout alone. In particular:
 
@@ -203,7 +213,7 @@ Einstein-branch axiom check. `Lean/README.md` documents the layout;
 ## Paper review and publication builds
 
 A new paper release follows the owner's approval of a recorded model
-milestone of the [executable model](model/candidate_laws/contrast_memory_spherical_v1/README.md); the
+milestone of the [executable model](model/README.md); the
 [paper set](docs/PAPER_SET.md) records the role of each paper. Correctness fixes, errata, review builds and their validation continue
 between releases. The publication commands below require that maintainer
 decision or an authorized scoped corrective release.

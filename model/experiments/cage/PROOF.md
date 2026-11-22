@@ -1,6 +1,6 @@
 # A cage in the flat branch of the scalar channel: statements and proofs
 
-The scalar law of the [construction manual](../../construction_manual/CONSTRUCTION_MANUAL.md) (law 2) holds an
+The scalar law of the [construction manual](https://github.com/FloatingPragma/observer-patch-holography/blob/512b47075b0dd00a570b08cc9b576bec7559acb5/model/construction_manual/CONSTRUCTION_MANUAL.md) (law 2) holds an
 object on a ring of four seams and couples it to nothing else. This page states and proves that, describes the
 three experiments of an observer on such a cage as laws on records, and gives the two operators of the observer
 as words on registers. The candidate is `A-native-caged-exciton-v1`: the free law of the scalar channel with

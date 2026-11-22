@@ -630,12 +630,15 @@
           "results": {
             "interval_echo": {
               "status": "partial",
-              "note": "Patch clocks, distinct overlapping owners and spherical refinements provide finite measurements. The jointly authenticated causal order and count-volume convergence have not been established. On the 80- and 320-cell screens two interior one-load modes have identical complete one-load gateway histories and different energies. An event or volume count from that exterior history alone cannot distinguish them. Inside the cell, two phase-quadrature readings resolve a freely running beat of 2.23699 ± 0.00301 radians per native exposure. Held phase tests pass across a full revolution. This calibrates a material hand in native units. For six detector addresses, a clocked first-hit radar ensemble admits a three-coordinate fit to all fifteen mean dyads with 4.427% worst distortion. A five-site Gram certificate excludes a fit below 4.42663%. This fit uses all dyads. The separate prespecified held trilateration tests fail their anchor domain, and the instrument supplies no proper-volume convergence.",
+              "note": "Patch clocks, distinct overlapping owners and spherical refinements provide finite measurements. The jointly authenticated causal order and count-volume convergence have not been established. On the 80- and 320-cell screens two interior one-load modes have identical complete one-load gateway histories and different energies. An event or volume count from that exterior history alone cannot distinguish them. Inside the cell, two phase-quadrature readings resolve a freely running beat of 2.23699 ± 0.00301 radians per native exposure. Held phase tests pass across a full revolution. This calibrates a material hand in native units. For six detector addresses, a clocked first-hit radar ensemble admits a three-coordinate fit to all fifteen mean dyads with 4.427% worst distortion. A five-site Gram certificate excludes a fit below 4.42663%. This fit uses all dyads. The separate prespecified held trilateration tests fail their anchor domain, and the instrument supplies no proper-volume convergence. In a seven-station source-free test on 20, 80 and 320 cells, a flat chart fitted to four anchors misses the 5% tolerance on all three held paths for both the clocked echo and the free pulse. The stationary hands agree within 0.00048 radians. At 5% distance uncertainty the weak-curvature comparison is inconclusive. For the round-screen, constant-lapse radial product, triangle bounds exclude every station depth assignment at 5% on both seven-station menus. The general screen tensor and lapse of the smooth-description theorem have wider scope.",
               "evidence": [
                 "model/candidate_laws/interval_echo/RESULTS.json",
                 "model/candidate_laws/interval_echo/observations.json",
                 "model/experiments/interval_echo_einstein_station/volume.py",
-                "model/experiments/interval_echo_einstein_station/volume.json"
+                "model/experiments/interval_echo_einstein_station/volume.json",
+                "model/experiments/interval_echo_space/station_chart_protocol.json",
+                "model/experiments/interval_echo_space/station_chart.json",
+                "model/experiments/interval_echo_space/radial_product.json"
               ]
             },
             "contrast_memory_spherical_v1": {

@@ -421,7 +421,7 @@ declared tensor slots, computes intersections, and tests modular invariance
 by all commutators with \(\log\rho\). This finite generator criterion is
 equivalent to invariance under all modular times.
 
-[expectations.py](expectations.py) separates the weighted projection
+[The archived expectations implementation](https://github.com/FloatingPragma/observer-patch-holography/blob/512b47075b0dd00a570b08cc9b576bec7559acb5/code/quantum_information/expectations.py) separates the weighted projection
 candidate from a validated expectation. Its recognizer accepts the **full
 linear superoperator**, not a callable tested on a few random states.
 It independently recomputes the full Choi matrix, unitality, reference
