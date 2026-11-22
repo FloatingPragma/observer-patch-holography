@@ -1,17 +1,30 @@
 """Read boundary histories and regional entropy for two freely evolving load modes."""
 
 import argparse
+import hashlib
 import json
+from math import lgamma, log
 from pathlib import Path
 
 import networkx as nx
 import numpy as np
 from scipy.linalg import expm
+from scipy import sparse
 from scipy.sparse.linalg import expm_multiply
+from scipy.special import jv
 
-from model.candidate_laws.contrast_memory_spherical_v1.sectors import PairSector
+from model.candidate_laws.contrast_memory_spherical_v1.sectors import (
+    PairSector,
+    pair_index,
+)
 from model.candidate_laws.interval_echo import candidate
 from model.executable_model import cell, federation
+from model.experiments.material_inertia.dark_collar import (
+    common_pair_generator,
+    label,
+    native_readouts,
+)
+from .backreaction import ordered_collar_control
 from . import cap
 
 ARCHIVE = Path(__file__).with_name("volume.json")
@@ -48,7 +61,9 @@ def native_modes():
         slow=slow,
         high=high,
         in_phase=(slow + high) / np.sqrt(2),
+        opposite=(slow - high) / np.sqrt(2),
         quadrature=(slow - 1j * high) / np.sqrt(2),
+        conjugate=(slow + 1j * high) / np.sqrt(2),
     )
     readers, pulses = {}, {}
     for name, target in targets.items():
@@ -368,6 +383,352 @@ def interior_clock(readers, home):
     )
 
 
+def marked_flights(base, starts, marks, gaps, times):
+    """Simultaneous Chebyshev flights with the two native contact energies in each branch."""
+    diagonal = base.diagonal()
+    off_radius = np.asarray(abs(base).sum(axis=1)).ravel() - abs(diagonal)
+    lower = diagonal - off_radius
+    lower[marks] -= np.max(gaps, axis=1)
+    lo, hi = lower.min(), (diagonal + off_radius).max()
+    center, radius = (hi + lo) / 2, (hi - lo) / 2
+    scaled = (base - center * sparse.eye(base.shape[0], format="csr")) / radius
+
+    def apply(v):
+        w = scaled @ v
+        w[marks] -= gaps / radius * v[marks]
+        return w
+
+    # Poisson's integral bounds |J_k(x)| by (x/2)^k/k!. Bound the omitted
+    # tail by a geometric series once its consecutive ratio is less than one.
+    limits = []
+    for t in times:
+        x = radius * t
+        k = max(2, int(x))
+        while log(2) + (k + 1) * log(x / 2) - lgamma(k + 2) - log(
+            1 - x / (2 * (k + 2))
+        ) > log(1e-13):
+            k += 1
+        limits.append(k)
+    coefficients = [
+        jv(np.arange(k + 1), radius * t) for k, t in zip(limits, times, strict=True)
+    ]
+    waves = [(coef[0] * starts).astype(complex) for coef in coefficients]
+    previous, current = starts, apply(starts)
+    for k in range(1, max(limits) + 1):
+        for wave, coef in zip(waves, coefficients, strict=True):
+            if k < len(coef):
+                component = wave.imag if k % 2 else wave.real
+                component += (2 if k % 4 in (0, 3) else -2) * coef[k] * current
+        if k < max(limits):
+            previous, current = current, 2 * apply(current) - previous
+    # The omitted common exp(-i center*t) has no effect on any register.
+    for wave in waves:
+        np.testing.assert_allclose(np.linalg.norm(wave, axis=0), 1, atol=2e-12, rtol=0)
+    return waves, dict(
+        gershgorin_bounds=[float(lo), float(hi)], orders=limits, norm_tail_bound=1e-13
+    )
+
+
+def clock_and_detector_measurement(sector, home, remote, readers):
+    """Commuting local effects, with every occupancy retained under all four analyzer choices."""
+    port = 12 * home
+    outside = np.r_[np.arange(port), np.arange(port + 12, sector.n)]
+    hi = np.arange(port, port + 12)[:, None]
+    one = pair_index(sector.n, np.minimum(hi, outside), np.maximum(hi, outside))
+    nh = (sector.aa // 12 == home).astype(int) + (sector.bb // 12 == home)
+    nr = (sector.aa // 12 == remote // 12).astype(int) + (
+        sector.bb // 12 == remote // 12
+    )
+    # Remote ordering: no unit, two units, one at entry, one elsewhere.
+    r = np.where(
+        nr < 1,
+        0,
+        np.where(
+            nr > 1, 1, np.where((sector.aa == remote) | (sector.bb == remote), 2, 3)
+        ),
+    )
+    outside_r = np.where(
+        outside // 12 != remote // 12, 0, np.where(outside == remote, 2, 3)
+    )
+    rays = np.stack(
+        [readers[key][4] for key in ("in_phase", "opposite", "quadrature", "conjugate")]
+    )
+
+    def read(wave):
+        prob = abs(wave) ** 2
+        block = wave[one]
+        target = abs(rays @ block) ** 2
+        table = np.zeros((4, 4, 4))
+        for n in (0, 2):
+            q = nh == n
+            table[:, n // 2, :] = np.bincount(r[q], weights=prob[q], minlength=4)
+        for j in (0, 2, 3):
+            allowed = outside_r == j
+            table[:, 2, j] = target[:, allowed].sum(axis=1)
+            table[:, 3, j] = np.sum(abs(block[:, allowed]) ** 2) - table[:, 2, j]
+        np.testing.assert_allclose(table.sum(axis=(1, 2)), 1, atol=3e-12, rtol=0)
+        np.testing.assert_allclose(
+            table.sum(axis=1),
+            np.broadcast_to(table[0].sum(axis=0), (4, 4)),
+            atol=3e-12,
+            rtol=0,
+        )
+        return table
+
+    return read
+
+
+def hand_summary(table, clock, trials=None):
+    clicks = table[:, 2, :]
+    r = table.mean(axis=0).sum(axis=0)
+
+    def hand(p):
+        z = p[0] - p[1] + 1j * (p[2] - p[3])
+        mass = p.sum() / 2
+        result = dict(
+            mass=float(mass),
+            phase=float(np.angle(z)) if abs(z) > 1e-14 else None,
+            visibility=float(abs(z) / mass) if mass > 1e-14 else None,
+        )
+        if result["phase"] is None:
+            return result
+        frequency = clock["calibrated_gap"]
+        reading = (result["phase"] % (2 * np.pi)) / frequency
+        result["native_exposure_mod_period"] = reading
+        if trials is not None:
+            variance = p * (1 - p) / trials
+            noise = variance.sum()
+            # Do not quote a delta-method phase error for a near-empty
+            # conditional bin or a phasor whose length is compatible with zero.
+            if trials * mass >= 100 and abs(z) ** 2 > 25 * noise:
+                se = (
+                    np.sqrt(
+                        z.imag**2 * variance[:2].sum() + z.real**2 * variance[2:].sum()
+                    )
+                    / abs(z) ** 2
+                )
+                result["phase_se"] = float(se)
+                result["native_exposure_se"] = float(
+                    np.hypot(se, reading * clock["calibrated_gap_standard_error"])
+                    / frequency
+                )
+        return result
+
+    xplus = table[0]
+    return dict(
+        all_trials=hand(clicks.sum(axis=1)),
+        receiver_probabilities=r.tolist(),
+        by_receiver=[hand(p) for p in clicks.T],
+        xplus_joint_vs_independent_tv=float(
+            abs(xplus - np.outer(xplus.sum(axis=1), xplus.sum(axis=0))).sum() / 2
+        ),
+    )
+
+
+def joint_clock_experiment(readers, home, clock):
+    board = federation(1)
+    gateway = 12 * home
+    remote = next(
+        b if a == gateway else a for a, b in board.external if gateway in (a, b)
+    )
+    regular = [
+        a
+        for a in board.neighbours[remote]
+        if a // 12 == remote // 12 and board.degree[a] == 5
+    ]
+    a, c = next(
+        (a, c) for a in regular for c in regular if a < c and c in board.neighbours[a]
+    )
+    edges = [(a, remote), (remote, c)]
+    source = json.loads(Path(__file__).with_name("backreaction.json").read_text())[
+        "correlated_contacts"
+    ]["ordered_three_levels"]
+    levels = np.rint(source["source_energies"]).astype(int)
+    mixtures = (
+        np.array([row["source_units_of_1_over_36"] for row in source["arms"]]) / 36
+    )
+    np.testing.assert_array_equal(levels, [0, 32, 33])
+    np.testing.assert_allclose(
+        mixtures + mixtures.transpose(0, 2, 1),
+        np.broadcast_to(mixtures[1] + mixtures[1].T, mixtures.shape),
+    )
+    law = candidate.native_law
+    ex, con = law.local_term_parts()
+    native = ex + candidate.KAPPA * con
+    rails = [law.SRC.index(w) for w in ((1, 0), (0, 1))]
+    prepared = ordered_collar_control(
+        board,
+        a,
+        remote,
+        c,
+        native,
+        native_readouts()[0],
+        label,
+        expm(-0.5j * np.pi * native)[np.ix_(rails, rails)],
+        expm(-1.5j * np.pi * native)[np.ix_(rails, rails)],
+        source["shots_per_setting"],
+    )
+    np.testing.assert_array_equal(
+        [row["source_units_of_1_over_36"] for row in prepared["arms"]],
+        np.rint(36 * mixtures),
+    )
+    inputs = np.eye(law.N_SRC)[
+        :, [law.SRC.index(w) for w in [(0, 0), (1, 0), (0, 1), (1, 1)]]
+    ]
+    for energy, rec in zip(
+        levels, [label(0, 1), label(2, 1), label(2, -1)], strict=True
+    ):
+        columns = np.kron(rec[:, None], inputs)
+        np.testing.assert_allclose(
+            native @ columns,
+            columns * (energy * np.array([1, 1, 1, 0])),
+            atol=3e-13,
+            rtol=0,
+        )
+    # A native signed echo phase on (4,5) gives the symmetry-breaking control.
+    signs = np.repeat([-9, *(d for _, d in law.LABELS)], law.N_SRC)
+    injection = np.eye(law.DIM, law.N_SRC) @ inputs[:, :3]
+    phase = law.echo() @ ((1 - 2 * (signs == 1))[:, None] * (law.echo() @ injection))
+    np.testing.assert_allclose(
+        phase, injection * np.array([1, -1, 1]), rtol=0, atol=1e-14
+    )
+    ref = np.arange(board.n)
+    ref[gateway : gateway + 12] = gateway + np.array(
+        [0, 1, 2, 3, 6, 7, 4, 5, 9, 8, 11, 10]
+    )
+    if {tuple(sorted((int(ref[i]), int(ref[j])))) for i, j in board.seams} != set(
+        board.seams
+    ):
+        raise ValueError("The proposed reflection is not a full-federation symmetry")
+    psi = readers["in_phase"].conj().T[:, 4]
+    np.testing.assert_allclose(psi.imag, 0, atol=2e-12, rtol=0)
+    psi = psi.real
+    np.testing.assert_allclose(
+        psi[ref[gateway : gateway + 12] - gateway], -psi, rtol=0, atol=2e-12
+    )
+    sector = PairSector(board)
+    free = sector.hamiltonian(candidate.KAPPA)
+    base = free.copy()
+    for edge in edges:
+        base += common_pair_generator(sector, edge) - free
+    del free
+    marks = np.array([sector.index(*e) for e in edges])
+    reflection = pair_index(
+        sector.n,
+        np.minimum(ref[sector.aa], ref[sector.bb]),
+        np.maximum(ref[sector.aa], ref[sector.bb]),
+    )
+    np.testing.assert_array_equal(reflection[marks], marks)
+    if (base[reflection][:, reflection] != base).nnz:
+        raise ValueError(
+            "The complete two-load base does not commute with the reflection"
+        )
+    starts = np.zeros((sector.P, 10))
+    ids = [sector.index(gateway + k, remote) for k in range(12)]
+    starts[ids] = psi[:, None]
+    starts[ids[4], 1:] *= -1
+    gaps = np.array([[0, 0], *[(int(i), int(j)) for i in levels for j in levels]]).T
+    times = [0.25, 0.75, 4.0]
+    waves, certificate = marked_flights(base, starts, marks, gaps, times)
+    read = clock_and_detector_measurement(sector, home, remote, readers)
+    trials = 2**22
+    rows = []
+    for it, (time, wave) in enumerate(zip(times, waves, strict=True)):
+        np.testing.assert_allclose(wave[reflection, 0], -wave[:, 0], rtol=0, atol=2e-12)
+        np.testing.assert_allclose(wave[marks, 0], 0, rtol=0, atol=2e-12)
+        null = read(wave[:, 0])
+        alternatives = np.stack([read(v) for v in wave[:, 1:].T])
+        contacts = (abs(wave[marks, 1:]) ** 2).T
+        rv = []
+        for control, branches in enumerate(
+            (np.broadcast_to(null, alternatives.shape), alternatives)
+        ):
+            arm_results = []
+            for arm, weights in enumerate(mixtures):
+                joint = np.einsum("w,wsij->sij", weights.ravel(), branches)
+                hist = []
+                word_hist = []
+                digest = hashlib.sha256()
+                for s in range(4):
+                    enrolled = weights.ravel()[:, None, None] * branches[:, s]
+                    prob = cap.grid_distribution(enrolled.reshape(-1))
+                    result = (
+                        np.random.default_rng([SEED, 6, it, control, arm, s])
+                        .multinomial(trials, prob)
+                        .reshape(enrolled.shape)
+                    )
+                    digest.update(result.astype("<u8").tobytes())
+                    hist.append(result.sum(axis=0).tolist())
+                    word_hist.append(result.sum(axis=(1, 2)).tolist())
+                arm_results.append(
+                    dict(
+                        direction=arm - 1,
+                        joint_counts=hist,
+                        source_counts=word_hist,
+                        source_and_joint_count_digest=digest.hexdigest(),
+                        exact=hand_summary(joint, clock),
+                        sampled=hand_summary(np.array(hist) / trials, clock, trials),
+                    )
+                )
+            diff = np.einsum(
+                "w,wsij->sij", (mixtures[2] - mixtures[0]).ravel(), branches
+            )
+            upper = 0.0
+            if control:
+                for i, j in ((0, 1), (0, 2), (1, 2)):
+                    v, w = wave[:, 1 + 3 * i + j], wave[:, 1 + 3 * j + i]
+                    shift = np.vdot(w, v)
+                    # Pure-state trace distance <= the aligned vector distance;
+                    # unchanged diagonal weights and opposite (i,j)/(j,i) terms cancel.
+                    upper += abs(
+                        mixtures[2, i, j] - mixtures[0, i, j]
+                    ) * np.linalg.norm(v - w * shift / abs(shift))
+            first, last = (
+                np.asarray(arm_results[k]["joint_counts"])[0, 2, 2] / trials
+                for k in (0, 2)
+            )
+            rv.append(
+                dict(
+                    arms=arm_results,
+                    maximum_reader_source_tv=float(
+                        abs(diff).sum(axis=(1, 2)).max() / 2
+                    ),
+                    any_load_measurement_source_tv_upper=float(
+                        upper + 2 * certificate["norm_tail_bound"] if control else 0
+                    ),
+                    xplus_entry_change=float(diff[0, 2, 2]),
+                    sampled_xplus_entry_change=float(last - first),
+                    sampled_xplus_entry_standard_error=float(
+                        np.sqrt((first * (1 - first) + last * (1 - last)) / trials)
+                    ),
+                )
+            )
+        rows.append(
+            dict(
+                exposure=time,
+                symmetric=rv[0],
+                local_phase_control=rv[1],
+                local_phase_contact_probabilities=contacts.tolist(),
+            )
+        )
+    return dict(
+        home=home,
+        receiver_port=remote,
+        marks=edges,
+        source_preparation_spares=prepared["spare_ports"],
+        declared_signed_charge=[row["charge_change"] for row in prepared["arms"]],
+        levels=levels.tolist(),
+        source_units=np.rint(36 * mixtures).astype(int).tolist(),
+        trials_per_arm_setting=trials,
+        home_bins=["zero", "two", "ray_click", "other_one"],
+        receiver_bins=["zero", "two", "one_at_entry", "one_elsewhere"],
+        settings=["x_plus", "x_minus", "y_plus", "y_minus"],
+        phase_control_port=gateway + 4,
+        solver=certificate,
+        appointments=rows,
+    )
+
+
 def run():
     modes, readers, certificate = native_modes()
     screens = census(modes)
@@ -421,12 +782,14 @@ def run():
         registered_edges=len(mapped_edges),
         seam_filter_paths=len(station["paths"]),
     )
+    clock = interior_clock(readers, home)
     return dict(
         preparation=certificate,
         screens=screens,
         cap_charge=cap_charge(modes),
-        interior_clock=interior_clock(readers, home),
+        interior_clock=clock,
         entering_probe=crossing_probe(modes, home),
+        joint_clock=joint_clock_experiment(readers, home, clock),
     )
 
 

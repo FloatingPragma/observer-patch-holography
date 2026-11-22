@@ -56,6 +56,12 @@ REPLAY_NESTED_CAP = {
 }
 
 
+# G6 now records the joint clock and load readout on the same history.
+REPLAY_JOINT_READ = {
+    "model/candidate_laws/interval_echo/EVALUATION.json": "801e9bb3b1ae0ed081c74a5685a6b01c9c41410239206211ade58e1fbccd3d17",
+}
+
+
 def require(ok, message):
     if not ok:
         raise ValueError(message)
@@ -69,7 +75,8 @@ def sources():
     regional = radial | REPLAY_REGIONAL_CONSENSUS
     standard = regional | REPLAY_MODULAR_STANDARD
     gravity = standard | REPLAY_GRAVITY_CAP
-    if actual in (frozen, reviewed, radial, regional, standard, gravity, gravity | REPLAY_NESTED_CAP):
+    nested = gravity | REPLAY_NESTED_CAP
+    if actual in (frozen, reviewed, radial, regional, standard, gravity, nested, nested | REPLAY_JOINT_READ):
         return
     mismatches = [name for name, expected in reviewed.items() if actual.get(name) != expected]
     raise ValueError(f"unverified replay source: {', '.join(mismatches)}")
