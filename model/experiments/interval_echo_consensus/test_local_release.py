@@ -22,6 +22,11 @@ def test_compact_flight_and_bounded_retries():
     result = release.appointments()
     assert result["cells_checked"] == {20: 20, 80: 80, 320: 320}
     budget = result["bounded_preparation"]
+    assert result["prepared"] == {"vacancy": 4, "denominator": 16,
+                                  "occupied": dict(zip(("0", "1", "2", "3", "8", "9", "10", "11"),
+                                                       (4, 4, 0, 0, 1, 1, 1, 1), strict=True))}
+    assert (budget["maximum_half_contacts"], budget["maximum_signed_queries"], budget["maximum_pi_swaps"]) == (
+        384, 64, 30)
     assert Fraction(budget["all_failed"]) == Fraction(3, 4)**16
     assert Fraction(budget["prepared"]) + Fraction(budget["all_failed"]) == 1
     for port, route in budget["failure_routes"].items():
@@ -40,6 +45,47 @@ def test_compact_flight_and_bounded_retries():
         release.all_cells(np.zeros(12, dtype=int))
 
 
+def test_reader_and_retry_reject_impossible_records():
+    state = np.eye(12)[0]
+    for vector, home in ((state, -1), (state, 1), (state[:9], 0), (state.reshape(12, 1), 0)):
+        with pytest.raises(ValueError):
+            release.record(vector, home)
+    _, herald = release.prepare()
+    for occupied in (herald["occupied"] | {"0": -3, "1": 11}, herald["occupied"] | {"12": 0},
+                     {v: n for v, n in herald["occupied"].items() if v != "2"}):
+        with pytest.raises(ValueError):
+            release.retry_budget(herald | {"occupied": occupied}, 16)
+
+
+def test_inverse_reader_from_forward_time_native_pulses():
+    strength = np.sqrt(2)
+    h0, h1 = release.law.local_term_parts()
+    words = [release.law.SRC.index(v) for v in ((0, 0), (1, 0), (0, 1))]
+    matchings = json.loads(release.PROTOCOL.read_text(encoding="utf-8"))["matchings"]
+    frames = []
+    for duration, sequence in ((np.pi/2, matchings), (3*np.pi/2, reversed(matchings))):
+        u = expm(-1j*duration*(h0+strength*h1))
+        np.testing.assert_allclose(np.delete(u[:, words], words, axis=0), 0, atol=2e-13, rtol=0)
+        np.testing.assert_allclose(u[words, words[0]], [1, 0, 0], atol=2e-13, rtol=0)
+        native = u[np.ix_(words[1:], words[1:])]
+        frame = np.eye(12, dtype=complex)
+        for layer in sequence:
+            for a, b in layer:
+                frame[[a, b]] = native @ frame[[a, b]]
+        frames.append(frame)
+    forward, inverse = frames
+    np.testing.assert_allclose(inverse @ forward, np.exp(-2j*np.pi*strength*len(matchings))*np.eye(12),
+                               atol=2e-13, rtol=0)
+    # All local port effects, including their off-diagonals, and the exterior quiet effect.
+    basis = np.eye(24, dtype=complex)
+    for j in range(12):
+        for k in range(j+1, 13):
+            for phase in (1, 1j):
+                state = (basis[j]+phase*basis[k])/np.sqrt(2)
+                expected = np.r_[abs(inverse @ state[:12])**2, np.linalg.norm(state[12:])**2]
+                np.testing.assert_allclose(release.record(state, 0, reverse=True), expected, atol=2e-13, rtol=0)
+
+
 def test_pair_certificate_and_compressed_return_on_a_small_graph():
     sector = PairSector(federation(0))
     assert pair.positive_clock_controls(sector)["worst_absolute_error_lower"] == .2817
@@ -53,6 +99,16 @@ def test_pair_certificate_and_compressed_return_on_a_small_graph():
     assert np.linalg.norm(approx-exact, 2) < 6**(pair.DEGREE+1)/factorial(pair.DEGREE+1)
     with pytest.raises(ValueError):
         pair.compressed_polynomial(sparse.csr_matrix(matrix/3), idx)
+
+
+def test_exact_certificates_reject_lossy_conversion():
+    for value in (5+1j, np.inf, np.nan, np.int64(2**62), np.uint64(2**63+6)):
+        with pytest.raises(ValueError):
+            pair.compressed_polynomial(sparse.csr_matrix([[value]]), [0])
+    for value in (2+1j, np.inf, 3.5):
+        with pytest.raises(ArithmeticError):
+            confined_sectors.integer_matrix(np.array([[value]]))
+    assert int(confined_sectors.integer_matrix(np.array([[2**63+6]], dtype=np.uint64))[0]) == 2**63+6
 
 
 def test_transfer_with_a_noninteger_source_phase_on_every_chart():
@@ -86,6 +142,7 @@ def test_exception_on_federated_two_load_operator():
     ids = np.flatnonzero(np.isin(local.aa, [0, 1, 2]) | np.isin(local.bb, [0, 1, 2]))
     modes = confined_sectors.confined_at(confined_sectors.integer_matrix(2*g.toarray()),
                                         sp.eye(local.P)[ids.tolist(), :])
+    assert modes.shape == (local.P, 2)
     # Act with each real touching seam of the extended 80-cell board, including outward moves.
     b = federation(1)
     for column in range(modes.cols):

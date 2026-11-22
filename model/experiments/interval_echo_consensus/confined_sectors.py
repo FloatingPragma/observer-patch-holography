@@ -10,9 +10,10 @@ from model.executable_model.carrier import automorphisms
 
 
 def integer_matrix(a):
-    if not np.array_equal(a, np.rint(a)):
+    if (a.dtype.kind not in "fiu" or not np.isfinite(a).all()
+            or (a.dtype.kind == "f" and not np.array_equal(a, np.rint(a)))):
         raise ArithmeticError("Expected an integer carrier operator")
-    return sp.Matrix(a.astype(int))
+    return sp.Matrix([[int(value) for value in row] for row in a])
 
 
 def boundary_classes():

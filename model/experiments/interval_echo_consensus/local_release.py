@@ -74,6 +74,12 @@ def retry_budget(herald, attempts):
     """Route each observed failure back to the source on ordinary sharp pi exchanges."""
     if type(attempts) is not int or attempts < 1:
         raise ValueError("Expected a positive attempt budget")
+    occupied = herald["occupied"]
+    addresses = {str(v) for edge in VACANCY for v in edge}
+    if (set(occupied) != addresses or type(herald["denominator"]) is not int
+            or herald["denominator"] <= 0
+            or any(type(n) is not int or n < 0 for n in (*occupied.values(), herald["vacancy"]))):
+        raise ValueError("Expected exact nonnegative weights for every vacancy readout")
     board = cell()
     routes = {5: [5]}
     queue = [5]
@@ -88,7 +94,7 @@ def retry_budget(herald, attempts):
         raise ArithmeticError("Lost a herald branch")
     return {"attempts": attempts, "all_failed": str(failure**attempts),
             "prepared": str(1 - failure**attempts), "failure_routes": paths,
-            "maximum_pi_swaps": (attempts-1)*max(len(p)-1 for p in paths.values()),
+            "maximum_pi_swaps": (attempts-1)*max((len(p)-1 for p in paths.values()), default=0),
             "maximum_half_contacts": 24*attempts, "maximum_signed_queries": 4*attempts}
 
 
@@ -152,8 +158,13 @@ def all_cells(signed):
 
 
 def record(state, home, reverse=False):
+    if (state.ndim != 1 or state.size % 12 or isinstance(home, bool)
+            or not isinstance(home, (int, np.integer)) or not 0 <= home < state.size//12):
+        raise ValueError("Expected a complete one-load vector and an existing home cell")
     local = state[12*home:12*(home+1)].copy()
     if reverse:
+        # A positive 3π/2 pulse is the inverse exchange up to a common
+        # phase on this entire matched cell. The quiet effect is exterior.
         for p in reversed(layers()):
             local = (local - 1j*local[p])/(1-1j)
     quiet = np.vdot(state[:12*home], state[:12*home]).real

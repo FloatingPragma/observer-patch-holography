@@ -17,13 +17,25 @@ DEGREE = 19
 def compressed_polynomial(exchange, indices):
     """Numerator of the compressed Taylor polynomial for exp(-i(K-6I))."""
     size = exchange.shape[0]
-    if (exchange.shape != (size, size) or len(indices) == 0 or len(set(indices)) != len(indices)
-            or any(not isinstance(j, (int, np.integer)) or not 0 <= j < size for j in indices)):
+    indices = list(indices)
+    if (exchange.shape != (size, size) or not indices
+            or any(isinstance(j, bool) or not isinstance(j, (int, np.integer))
+                   or not 0 <= j < size for j in indices) or len(set(indices)) != len(indices)):
         raise ValueError("Expected distinct coordinates of a square generator")
-    twice = (2 * exchange).tocsr()
-    if (twice - twice.T).nnz or not np.array_equal(twice.data, np.rint(twice.data)):
+    # The required row bound on 2K-12I implies |K_ij| <= 12. Check raw
+    # entries before doubling or coalescing them in a machine integer dtype.
+    entries = exchange.tocoo()
+    values = entries.data
+    if (values.dtype.kind not in "fiu" or not np.isfinite(values).all()
+            or np.any(values < -12) or np.any(values > 12)):
+        raise ValueError("Expected bounded real exchange entries")
+    doubled = 2 * values
+    if not np.array_equal(doubled, np.rint(doubled)):
+        raise ValueError("Expected half-integer exchange")
+    twice = sparse.csr_matrix((doubled.astype(np.int64), (entries.row, entries.col)), shape=entries.shape)
+    if twice.nnz != entries.nnz or (twice != twice.T).nnz:
         raise ValueError("Expected symmetric half-integer exchange")
-    b = twice.astype(np.int64) - 12 * sparse.eye(size, dtype=np.int64, format="csr")
+    b = twice - 12 * sparse.eye(size, dtype=np.int64, format="csr")
     if abs(b).sum(axis=1).max() > 12:
         raise ArithmeticError("The exchange spectrum exceeds the Taylor interval")
     power = np.zeros((size, len(indices)), dtype=np.int64)
@@ -46,8 +58,8 @@ def compressed_polynomial(exchange, indices):
 
 def home_bound(sector, home):
     indices = [sector.index(a, b) for a, b in sector.car.seams if a//12 == b//12 == home]
-    if len(set(indices)) != 30:
-        raise ValueError("Incomplete cell-13 detector")
+    if len(indices) != 30 or len(set(indices)) != 30:
+        raise ValueError(f"Expected 30 distinct internal seam states in cell {home}")
     real, imag, denom = compressed_polynomial(sector.exchange(), indices)
     # Each real and imaginary entry is rounded down by less than one unit.
     # The Frobenius error of the complex return block is < 2*30 / scale.
