@@ -1,0 +1,10 @@
+{
+  "parent": "gateway_protocol.json",
+  "energy_probes": [
+    -16,
+    -13,
+    -10
+  ],
+  "series_terms": 48,
+  "scope": "Test the Schur complement on the entire adjacent-pair subspace of the native 20-cell board at the three indicated shifted energies. For the prepared gateway-touching source seam, retain every column entry, summarized by its complete norm, the bridge seam and all receiving cell entries. Compare a positive path expansion against a residual-bounded independent linear solve. Require the one-intermediate-state bound 1/[4(6-E)] on the bridge and the three-intermediate-state bound 1/[16(6-E)^3] on each receiving seam incident at the far gateway. On each registered carrier enumerate all destination seams through five exchanges to test the fourth/fifth-order paths from both launch arms. Energy probes and matrix elements are source diagnostics, not read by either observer."
+}

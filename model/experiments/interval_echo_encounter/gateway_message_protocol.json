@@ -1,0 +1,11 @@
+{
+  "basis": "Derived communication experiment using the measured gateway cohorts for design. Receiver booking and threshold have been selected after seeing the gateway counts, before drawing any message frames. Reuse the original carrier, local pulses, receiver, public clock service and refusal policy. No particle comparison inputs.",
+  "booking": 32,
+  "admissions_per_frame": 131072,
+  "maximum_starts": 4294967296,
+  "threshold_minus": 155,
+  "frames_per_sign": 128,
+  "seed": 30685971,
+  "frames": "One bit for the sequence of live trials. Switch to its phase only after each herald. Communicate the live herald to the receiver. Allow at most the stated number of fresh separated launches to produce the required live launches. Stop on the required live count or cap. Report counts of attempted starts, admissions and every remote pair click per frame. Read only live yes/quiet and the public frame boundary; return erasure on shortage. Predict minus for at least the registered threshold of local pair clicks. Measure error on balanced signs. Run native, exchange, adjacency-blocked, and sender mark erased by the fair dephased preparation. The same threshold and apparatus apply to all. No fitting from the held-out frames.",
+  "claim": "Use the simultaneous enrollment and conditional gateway intervals and independent finite preparations to bound the probability of a native wrong bit or erasure below 0.01 for each sign. Keep wrong and erased frames in the receipt. Report the control results without treating one fixed decoder as an optimal decoder for other laws."
+}
