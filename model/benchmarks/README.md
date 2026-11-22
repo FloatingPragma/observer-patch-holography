@@ -10,3 +10,4 @@ given, which a candidate on the federation can be compared with.
 | Benchmark | What it shows |
 | --- | --- |
 | [eight_slot_torus](eight_slot_torus/README.md) | a walk on a supplied four-dimensional torus with eight slots per address: travelling clocks, signals, a pair formed in an encounter, its matter waves, six-station ranging, transverse pulse clocks and clocks formed by ordinary capture |
+| [Local conformal correlations](conformal_correlator/README.md) | Protected two-point functions and the one-loop interaction correction to a local four-point function in four-dimensional supersymmetric SU(2) gauge theory |

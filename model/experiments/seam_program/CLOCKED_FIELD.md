@@ -71,6 +71,36 @@ The zero private Fourier order has a massless wave equation in the flat 3+1D lim
 2. **Local quantum fields and their state.** Specify local operator insertions that observers can prepare and read, including how their normalization changes with refinement. In one common state recover convergent two- and four-point functions, positivity and spacelike locality. Control finite-volume and finite-band errors. The periodic chart admits a local flat-space comparison, while global conformal transformations need a compatible choice of domain. [Regional field-theory requirements](../../../docs/registers/OBSERVATION_LEDGER_V3.md)
 3. **Conformal symmetry and interactions.** Establish a scale-independent limit with conformal Ward identities, including an appropriately improved conserved stress tensor with vanishing flat-space trace at separated points. Extract scaling dimensions and operator-product coefficients from one set of measurements and use them to predict held four-point configurations in different channels. For an elementary candidate scalar with zero mean, compare its four-point function with the sum of the three pairwise products measured in the same state. A reproducible discrepancy that survives refinement rejects that Gaussian description. Conformal covariance, crossing and evidence distinguishing the theory from free-field composites are separate checks. [Conformal Ward identities and crossing](https://arxiv.org/abs/1602.07982)
 
+### What local correlations were measured?
+
+Pool the eight equally sampled scalar launches and mark four different stations in the one-period position read. The connected fourth moment is −0.00146312. The categorical identity for these exclusive flags is exactly $-6p_1p_2p_3p_4$ for any station probabilities. The same result holds for the shift-only population because it has the same one-period law. The statistic isolates a detector constraint here. [Protocol](correlation_protocol.json) · [Counts and moments](local_correlations.json)
+
+The free pair supplies a different experiment under the existing law. Release the same sharp pair, then read the 30 home seams and the quiet outcome after four native time units. Each of ports 0–3 receives a mark if it belongs to the reported seam. Quiet marks no ports. These are four functions of one patch detector read. Each arm includes all 16,384 trials. The connected fourth moment subtracts all three products of centered two-point functions.
+
+| Cells | Native contact, counts | Exchange only, counts | Native contact, forward probability | Exchange only, forward probability |
+| ---: | ---: | ---: | ---: | ---: |
+| 20 | −0.009655 | −0.00000433 | −0.0095330 | −0.00000463 |
+| 80 | −0.009393 | −0.00000790 | −0.0095326 | −0.00000588 |
+
+Removing the contrast interaction changes the four-port correlation on both boards. The released pair and the programmed scalar use different preparations. To establish an interacting conformal field intrinsic to the chart, observers need local field insertions in one common vacuum whose connected responses survive refinement and satisfy conformal covariance. [Full-sector evolution and record analysis](local_correlations.py) · [Interacting four-dimensional comparison](../../benchmarks/conformal_correlator/README.md)
+
+### A free quantum field on the programmed chart
+
+Canonical oscillator quantization of the positive-frequency branch at private order zero supplies a Gaussian vacuum. Fix the spatial average to zero on each periodic box of side $\ell$. For time separation $\tau>0$ its two-point function is $\ell^{-3}\sum_{k\ne0}\cos(k\cdot x)e^{-\tau\omega_h(k)}/(2\omega_h(k))$, with $\omega_h(k)=E(hk,0)/h$ from the compiled word. In the infinite-volume, zero-mesh limit it is
+
+$$
+G(\tau,x)=\frac{1}{4\pi^2 c(|x|^2+c^2\tau^2)},\qquad c=1/2 .
+$$
+
+At fixed mesh the decompactified sum is the Brillouin-zone integral. The omitted zero-mode cell contributes order $\ell^{-2}$ at fixed $\tau$. Throughout the zone $\omega_h(k)\ge |k|/\pi$ by the sine and arcsine bounds. This gives an integrable bound proportional to $e^{-\tau|k|/\pi}/|k|$. Pointwise dispersion convergence and dominated convergence then give the displayed Fourier integral. Wick's rule gives the four-point function and all its conformal weights in this supplied vacuum.
+
+At mesh 1/8, doubling the box side from 24 to 48 reduced the largest error over the six two-point measurements from 11.57% to 3.31%. The four-point error fell from 8.97% to 2.39%. Refining the mesh alone slightly increased the errors against infinite volume in both boxes. The oscillator vacuum and its field insertions are additional inputs to this comparison. The actual observer measurements above use the patch detector. [All four regulator settings](scalar_vacuum.json) · [Finite-mode evaluator](scalar_vacuum.py)
+
+~~~sh
+python -m model.experiments.seam_program.local_correlations --output /tmp/echo-local-correlations.json
+python -m model.experiments.seam_program.scalar_vacuum --output /tmp/echo-scalar-vacuum.json
+~~~
+
 ## Free release on the same source
 
 The autonomous four-port path illustrates why finite-wavelength agreement does not settle refinement. Its exact centered middle-band angular frequency has rest value $m_0=\sqrt{a^2+v^2}-a>0$ and squared-frequency curvature $c_0^2=a^3/(4\sqrt{a^2+v^2})$, with native $a=v=\kappa/2$. At cell spacing $h$ and time unit $\Delta t$, these become $m_0/\Delta t$ and speed $c_0h/\Delta t$. No common choice of time unit keeps both finite and positive as $h\to0$ with this cell fixed. Removing the rest phase gives $\omega(hp)-m_0=(c_0^2/2m_0)h^2p^2+O(h^4p^4)$, a Schrödinger envelope at time scale $h^2$. This statement concerns repetition of the same bulk cell, and preserves the finite path's measured band and clock comparison. In the programmed scalar register the phase per period vanishes through growing $P$. [Bulk matrix and native couplings](../../candidate_laws/interval_echo/openwave/row_30_autonomous/channel.py)

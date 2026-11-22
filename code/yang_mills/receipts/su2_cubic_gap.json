@@ -1,0 +1,102 @@
+{
+  "group": "SU(2)",
+  "spatial_dimension": 3,
+  "time": "continuous",
+  "energy_unit": "coefficient of the single-link electric Casimir",
+  "magnetic_coefficient": "1/512",
+  "representation_cutoff": null,
+  "electric_only": [
+    {
+      "side": 4,
+      "links": 192,
+      "plaquettes": 192,
+      "electric_gap": "3",
+      "vacuum_energy_upper": "0",
+      "spectral_gap_lower": "3",
+      "positive_bound": true
+    },
+    {
+      "side": 5,
+      "links": 375,
+      "plaquettes": 375,
+      "electric_gap": "3",
+      "vacuum_energy_upper": "0",
+      "spectral_gap_lower": "3",
+      "positive_bound": true
+    },
+    {
+      "side": 6,
+      "links": 648,
+      "plaquettes": 648,
+      "electric_gap": "3",
+      "vacuum_energy_upper": "0",
+      "spectral_gap_lower": "3",
+      "positive_bound": true
+    },
+    {
+      "side": 8,
+      "links": 1536,
+      "plaquettes": 1536,
+      "electric_gap": "3",
+      "vacuum_energy_upper": "0",
+      "spectral_gap_lower": "3",
+      "positive_bound": true
+    },
+    {
+      "side": 9,
+      "links": 2187,
+      "plaquettes": 2187,
+      "electric_gap": "3",
+      "vacuum_energy_upper": "0",
+      "spectral_gap_lower": "3",
+      "positive_bound": true
+    }
+  ],
+  "electric_and_magnetic": [
+    {
+      "side": 4,
+      "links": 192,
+      "plaquettes": 192,
+      "electric_gap": "3",
+      "vacuum_energy_upper": "3/8",
+      "spectral_gap_lower": "21/8",
+      "positive_bound": true
+    },
+    {
+      "side": 5,
+      "links": 375,
+      "plaquettes": 375,
+      "electric_gap": "3",
+      "vacuum_energy_upper": "375/512",
+      "spectral_gap_lower": "1161/512",
+      "positive_bound": true
+    },
+    {
+      "side": 6,
+      "links": 648,
+      "plaquettes": 648,
+      "electric_gap": "3",
+      "vacuum_energy_upper": "81/64",
+      "spectral_gap_lower": "111/64",
+      "positive_bound": true
+    },
+    {
+      "side": 8,
+      "links": 1536,
+      "plaquettes": 1536,
+      "electric_gap": "3",
+      "vacuum_energy_upper": "3",
+      "spectral_gap_lower": "0",
+      "positive_bound": false
+    },
+    {
+      "side": 9,
+      "links": 2187,
+      "plaquettes": 2187,
+      "electric_gap": "3",
+      "vacuum_energy_upper": "2187/512",
+      "spectral_gap_lower": "0",
+      "positive_bound": false
+    }
+  ]
+}

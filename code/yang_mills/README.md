@@ -1,5 +1,36 @@
 # Yang--Mills collar-gap certificates
 
+## Finite-volume gap for pure SU(2) in three spatial dimensions
+
+On the periodic cubic spatial lattice of side $L\ge3$, use continuous Hamiltonian time, normalized product Haar measure and the full gauge-invariant Hilbert space. In electric Casimir energy units the Hamiltonian is
+
+$$
+H=\sum_e C_2(e)+b\sum_p(1-\tfrac12\operatorname{Tr}U_p).
+$$
+
+$U_p$ is the oriented fundamental holonomy around an elementary plaquette. All SU(2) representations participate. The magnetic term is a nonnegative bounded multiplication operator. On a finite product of compact groups the electric Laplacian has compact resolvent, which is preserved by this perturbation and restriction to the closed invariant subspace. [Hamiltonian lattice gauge theory](https://journals.aps.org/prd/abstract/10.1103/PhysRevD.11.395)
+
+In the spin-network basis the electric energy is $\sum_e j_e(j_e+1)$. A vertex with a single nontrivial incident representation has no singlet. The nonempty support of any excited gauge-invariant basis state must therefore contain a cycle. Its length is at least $\min(4,L)$, and each occupied link costs at least $3/4$. A closed fundamental loop of minimal length attains this bound. The normalized constant Haar wavefunction is the unique electric vacuum. Its magnetic expectation is $3bL^3$, since each of the $3L^3$ plaquette holonomies has zero Haar-average trace. Positivity gives $E_1(H)\ge E_1(H_{\rm electric})$ by min-max, while the vacuum trial gives $E_0(H)\le3bL^3$. Hence
+
+$$
+E_1(H)-E_0(H)\ \ge\ \max\{0,\tfrac34\min(4,L)-3bL^3\}.
+$$
+
+| Side | Gap at $b=0$ | Gap lower bound at $b=1/512$ |
+| ---: | ---: | ---: |
+| 4 | 3 | 2.625 |
+| 5 | 3 | 2.267578125 |
+| 6 | 3 | 1.734375 |
+| 8 | 3 | Inconclusive |
+| 9 | 3 | Inconclusive |
+
+The three positive bounds apply to the entire finite-volume gauge-invariant spectrum. They also bound the connected Euclidean vacuum autocorrelation of a bounded Hermitian plaquette observable by its vacuum variance times $e^{-t(E_1-E_0)}$. The extensive vacuum estimate loses its positive lower bound at side eight. A continuum mass gap needs a nontrivial pure-gauge limit with a lower bound in common physical units through growing volume and removal of the cutoff. This benchmark supplies independent SU(2) links, a plaquette interaction and an electric energy unit. Their realization by Interval Echo observer records is open. [Exact finite results](receipts/su2_cubic_gap.json) · [Clay problem](https://www.claymath.org/millennium/yang-mills-the-maths-gap/)
+
+~~~sh
+python code/yang_mills/su2_cubic_gap.py --output /tmp/echo-su2-gap.json
+python -m pytest -q code/yang_mills/tests/test_su2_cubic_gap.py
+~~~
+
 ## Source-contract verifier
 
 `verify_collar_gap_certificate.py` checks the declared finite row arithmetic used

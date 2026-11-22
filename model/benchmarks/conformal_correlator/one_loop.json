@@ -1,0 +1,117 @@
+{
+  "theory": "Euclidean SU(2) N=4 supersymmetric Yang-Mills",
+  "coupling_a": 0.01,
+  "perturbative_order": 1,
+  "fixtures": [
+    {
+      "fixture": "regular",
+      "points": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "free": {
+        "two_point": [
+          0.00024060895909416413,
+          0.00024060895909416413
+        ],
+        "disconnected": 5.789267119637714e-08,
+        "normalized_connected_per_unit_coupling": -1.5626048257929719,
+        "connected_one_loop": -0.0,
+        "normalized_four_point_through_one_loop": 1.0
+      },
+      "interacting": {
+        "two_point": [
+          0.00024060895909416413,
+          0.00024060895909416413
+        ],
+        "disconnected": 5.789267119637714e-08,
+        "normalized_connected_per_unit_coupling": -1.5626048257929719,
+        "connected_one_loop": -9.046336738950471e-10,
+        "normalized_four_point_through_one_loop": 0.9843739517420703
+      },
+      "box": 0.5859768096723644,
+      "relative_quadrature_change": 1.4765966227514582e-14,
+      "relative_dilog_error": 6.661338147750939e-16,
+      "relative_permutation_error": 0.0,
+      "relative_dilation_error": 0.0,
+      "relative_inversion_error": 0.0
+    },
+    {
+      "fixture": "skew",
+      "points": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          2.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          1.0,
+          0.0
+        ],
+        [
+          2.0,
+          0.0,
+          1.0,
+          1.0
+        ]
+      ],
+      "free": {
+        "two_point": [
+          6.015223977354103e-05,
+          2.6734328788240457e-05
+        ],
+        "disconnected": 1.6081297554549205e-09,
+        "normalized_connected_per_unit_coupling": -2.209051039745891,
+        "connected_one_loop": -0.0,
+        "normalized_four_point_through_one_loop": 1.0
+      },
+      "interacting": {
+        "two_point": [
+          6.015223977354103e-05,
+          2.6734328788240457e-05
+        ],
+        "disconnected": 1.6081297554549205e-09,
+        "normalized_connected_per_unit_coupling": -2.209051039745891,
+        "connected_one_loop": -3.5524407083339973e-11,
+        "normalized_four_point_through_one_loop": 0.9779094896025411
+      },
+      "box": 0.1380656899841182,
+      "relative_quadrature_change": 2.1416313167321732e-11,
+      "relative_dilog_error": 6.661338147750939e-16,
+      "relative_permutation_error": 0.0,
+      "relative_dilation_error": 0.0,
+      "relative_inversion_error": 7.771561172376096e-16
+    }
+  ]
+}
