@@ -1,6 +1,7 @@
 import json
 from hashlib import sha256
 
+import mpmath as mp
 import numpy as np
 from scipy.sparse.linalg import expm_multiply
 
@@ -109,9 +110,10 @@ def test_cubic_green_function_and_archive():
             )
             rad = 4 * np.sin(h * m / 2) ** 2
             z = cube.scattering(h, r["kappa_eff"], rad, cube.outgoing_green(rad))
-            np.testing.assert_allclose(
-                [z.real, z.imag], r["real_momentum_response"][j], rtol=1e-10, atol=1e-12
-            )
+            # Scattering is a complex amplitude. At the pole its real component
+            # approaches zero, while roundoff in the resolvent perturbs both components.
+            archived = complex(*r["real_momentum_response"][j])
+            np.testing.assert_allclose(z, archived, rtol=1e-10, atol=1e-12)
             if r["n"] == 256 and r["arm"] == "critical":
                 assert abs(z - 1j / m) < 0.004 and abs(f - 1 / m) < 0.004
     for r in x["packets"]:
@@ -126,6 +128,36 @@ def test_cubic_green_function_and_archive():
                 np.testing.assert_allclose(
                     a["uniform_return"], b["uniform_return"], atol=1e-9
                 )
+
+
+def test_outgoing_green_at_the_finest_resonance_against_high_precision():
+    # Resolve the logarithmic saddle with Carlson's symmetric integral and
+    # independent high-precision quadrature on either side of the saddle.
+    with mp.workdps(40):
+        energy = 4 * mp.sin(mp.mpf(1) / 1024) ** 2
+        saddle = mp.sqrt(4 - energy)
+
+        def real_segment(sign, width):
+            def integrand(t):
+                if t == 0:
+                    return 0
+                offset = sign * width * t**2
+                v = saddle + offset
+                complementary = (offset * (2 * saddle + offset) / 4) ** 2
+                return 2 * width * t * mp.elliprf(0, complementary, 1) / (
+                    mp.pi**2 * mp.sqrt(4 + v**2)
+                )
+            return mp.quad(integrand, [0, 1])
+
+        real = real_segment(-1, saddle) + real_segment(1, mp.sqrt(8 - energy) - saddle)
+        imaginary = mp.quad(
+            lambda v: mp.elliprf(0, ((energy - v**2 - 4) / 4) ** 2, 1)
+            / (mp.pi**2 * mp.sqrt(4 - v**2)),
+            [0, mp.sqrt(energy)],
+        )
+        value = cube.outgoing_green(float(energy))
+        assert abs(value.real - float(real)) < 2e-14
+        assert abs(value.imag - float(imaginary)) < 2e-16
 
 
 def test_guide_archive():
