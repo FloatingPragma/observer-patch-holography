@@ -1,0 +1,424 @@
+{
+  "source_ports": [
+    0,
+    1,
+    5
+  ],
+  "hand_seam": [
+    2,
+    3
+  ],
+  "protected_tag_seam": [
+    6,
+    10
+  ],
+  "energies": [
+    0,
+    32,
+    33
+  ],
+  "source_units": [
+    [
+      [
+        4,
+        7,
+        1
+      ],
+      [
+        1,
+        4,
+        7
+      ],
+      [
+        7,
+        1,
+        4
+      ]
+    ],
+    [
+      [
+        4,
+        6,
+        2
+      ],
+      [
+        2,
+        4,
+        6
+      ],
+      [
+        6,
+        2,
+        4
+      ]
+    ],
+    [
+      [
+        4,
+        5,
+        3
+      ],
+      [
+        3,
+        4,
+        5
+      ],
+      [
+        5,
+        3,
+        4
+      ]
+    ]
+  ],
+  "hand_gap": 1,
+  "period": 0.5,
+  "appointments": 12,
+  "method": "Full native sparse flights and renewal per persistent word, independently checked by sparse projected Chebyshev evolutions. Ensemble material phase from both local quadratures; all timeout mass retained.",
+  "scope": "Three supplied screens, one fixed native home, unchanged local address/clock and fixed microscopic service duration. The remote dyad follows the actual surviving bridge. Physical scale matching, proper volume and observer-independent curvature require other measurements.",
+  "levels": [
+    {
+      "level": 0,
+      "cells": 20,
+      "ports": 240,
+      "home_gateways": [
+        [
+          1,
+          82
+        ],
+        [
+          3,
+          48
+        ],
+        [
+          10,
+          20
+        ]
+      ],
+      "serviced_bridge": [
+        3,
+        48
+      ],
+      "remote_gateway_local_ends": [
+        [
+          0,
+          3
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          8,
+          10
+        ]
+      ],
+      "sites": [
+        7,
+        8,
+        48,
+        53
+      ],
+      "arms": {
+        "vacant_reference": [
+          {
+            "return_probability": 0.006933907590708548,
+            "conditional_half_hand": 3.1969648519830094
+          },
+          {
+            "return_probability": 0.027566497418844964,
+            "conditional_half_hand": 2.586786538512851
+          }
+        ],
+        "occupied_reference": [
+          {
+            "return_probability": 0.007809889943341363,
+            "conditional_half_hand": 3.239837858533992
+          },
+          {
+            "return_probability": 0.02756634419819024,
+            "conditional_half_hand": 2.586782803196685
+          }
+        ],
+        "occupied_minus": [
+          {
+            "return_probability": 0.007809866203640088,
+            "conditional_half_hand": 3.2398359867032225
+          },
+          {
+            "return_probability": 0.027566344198626604,
+            "conditional_half_hand": 2.5867828032400557
+          }
+        ],
+        "occupied_plus": [
+          {
+            "return_probability": 0.007809913683042639,
+            "conditional_half_hand": 3.2398397303533804
+          },
+          {
+            "return_probability": 0.02756634419775388,
+            "conditional_half_hand": 2.586782803153314
+          }
+        ]
+      },
+      "contrasts": [
+        {
+          "sites": [
+            7,
+            8
+          ],
+          "added_unit_half_hand": 0.042873006550982584,
+          "signed_half_hand": 3.74365015787248e-06,
+          "added_unit_return_probability": 0.0008759823526328153,
+          "signed_return_probability": 4.7479402551058036e-08
+        },
+        {
+          "sites": [
+            48,
+            53
+          ],
+          "added_unit_half_hand": -3.7353161657094347e-06,
+          "signed_half_hand": -8.674172491396348e-11,
+          "added_unit_return_probability": -1.5322065472292423e-07,
+          "signed_return_probability": -8.727255029761238e-13
+        }
+      ],
+      "maximum_leg_absolute_disagreement": 4.218847493575595e-15,
+      "maximum_mean_absolute_disagreement": 1.7763568394002505e-15,
+      "dense_coarse_leg_disagreement": 1.5576429035490946e-13,
+      "chebyshev_half_step_uniform_truncation": 9.349604246403606e-19,
+      "conditional_mean_truncation_bound_in_exact_arithmetic": 3.559746778797752e-14
+    },
+    {
+      "level": 1,
+      "cells": 80,
+      "ports": 960,
+      "home_gateways": [
+        [
+          1,
+          38
+        ],
+        [
+          3,
+          192
+        ],
+        [
+          10,
+          56
+        ]
+      ],
+      "serviced_bridge": [
+        3,
+        192
+      ],
+      "remote_gateway_local_ends": [
+        [
+          0,
+          3
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          8,
+          10
+        ]
+      ],
+      "sites": [
+        7,
+        8,
+        192,
+        197
+      ],
+      "arms": {
+        "vacant_reference": [
+          {
+            "return_probability": 0.006933907590709445,
+            "conditional_half_hand": 3.196964851983218
+          },
+          {
+            "return_probability": 0.027566505038385668,
+            "conditional_half_hand": 2.586787196959556
+          }
+        ],
+        "occupied_reference": [
+          {
+            "return_probability": 0.007809889943342562,
+            "conditional_half_hand": 3.2398378585341945
+          },
+          {
+            "return_probability": 0.027566351818594584,
+            "conditional_half_hand": 2.586783461702078
+          }
+        ],
+        "occupied_minus": [
+          {
+            "return_probability": 0.007809866203641268,
+            "conditional_half_hand": 3.239835986703425
+          },
+          {
+            "return_probability": 0.02756635181903099,
+            "conditional_half_hand": 2.5867834617454513
+          }
+        ],
+        "occupied_plus": [
+          {
+            "return_probability": 0.007809913683043856,
+            "conditional_half_hand": 3.2398397303535846
+          },
+          {
+            "return_probability": 0.027566351818158183,
+            "conditional_half_hand": 2.5867834616587038
+          }
+        ]
+      },
+      "contrasts": [
+        {
+          "sites": [
+            7,
+            8
+          ],
+          "added_unit_half_hand": 0.04287300655097637,
+          "signed_half_hand": 3.743650159648837e-06,
+          "added_unit_return_probability": 0.0008759823526331163,
+          "signed_return_probability": 4.747940258748723e-08
+        },
+        {
+          "sites": [
+            192,
+            197
+          ],
+          "added_unit_half_hand": -3.7352574779880854e-06,
+          "signed_half_hand": -8.674749807369153e-11,
+          "added_unit_return_probability": -1.5321979108390282e-07,
+          "signed_return_probability": -8.728087697029707e-13
+        }
+      ],
+      "maximum_leg_absolute_disagreement": 5.218048215738236e-15,
+      "maximum_mean_absolute_disagreement": 1.5987211554602254e-14,
+      "dense_coarse_leg_disagreement": null,
+      "chebyshev_half_step_uniform_truncation": 9.349604246403606e-19,
+      "conditional_mean_truncation_bound_in_exact_arithmetic": 3.559746778797123e-14,
+      "largest_absolute_mean_change_from_preceding_screen_by_dyad": [
+        2.0872192862952943e-13,
+        6.585053955454612e-07
+      ]
+    },
+    {
+      "level": 2,
+      "cells": 320,
+      "ports": 3840,
+      "home_gateways": [
+        [
+          1,
+          38
+        ],
+        [
+          3,
+          768
+        ],
+        [
+          10,
+          200
+        ]
+      ],
+      "serviced_bridge": [
+        3,
+        768
+      ],
+      "remote_gateway_local_ends": [
+        [
+          0,
+          3
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          8,
+          10
+        ]
+      ],
+      "sites": [
+        7,
+        8,
+        768,
+        773
+      ],
+      "arms": {
+        "vacant_reference": [
+          {
+            "return_probability": 0.006933907590709533,
+            "conditional_half_hand": 3.196964851983228
+          },
+          {
+            "return_probability": 0.027566505037240896,
+            "conditional_half_hand": 2.586787196889063
+          }
+        ],
+        "occupied_reference": [
+          {
+            "return_probability": 0.0078098899433425364,
+            "conditional_half_hand": 3.2398378585341936
+          },
+          {
+            "return_probability": 0.027566351817449673,
+            "conditional_half_hand": 2.586783461631575
+          }
+        ],
+        "occupied_minus": [
+          {
+            "return_probability": 0.007809866203641258,
+            "conditional_half_hand": 3.2398359867034245
+          },
+          {
+            "return_probability": 0.02756635181788608,
+            "conditional_half_hand": 2.586783461674949
+          }
+        ],
+        "occupied_plus": [
+          {
+            "return_probability": 0.007809913683043818,
+            "conditional_half_hand": 3.2398397303535833
+          },
+          {
+            "return_probability": 0.027566351817013272,
+            "conditional_half_hand": 2.586783461588201
+          }
+        ]
+      },
+      "contrasts": [
+        {
+          "sites": [
+            7,
+            8
+          ],
+          "added_unit_half_hand": 0.04287300655096571,
+          "signed_half_hand": 3.7436501587606585e-06,
+          "added_unit_return_probability": 0.0008759823526330035,
+          "signed_return_probability": 4.7479402559731654e-08
+        },
+        {
+          "sites": [
+            768,
+            773
+          ],
+          "added_unit_half_hand": -3.735257488202137e-06,
+          "signed_half_hand": -8.674794216290138e-11,
+          "added_unit_return_probability": -1.532197912226807e-07,
+          "signed_return_probability": -8.728087697029707e-13
+        }
+      ],
+      "maximum_leg_absolute_disagreement": 3.9968028886505635e-15,
+      "maximum_mean_absolute_disagreement": 6.661338147750939e-15,
+      "dense_coarse_leg_disagreement": null,
+      "chebyshev_half_step_uniform_truncation": 9.349604246403606e-19,
+      "conditional_mean_truncation_bound_in_exact_arithmetic": 3.559746778797123e-14,
+      "largest_absolute_mean_change_from_preceding_screen_by_dyad": [
+        9.769962616701378e-15,
+        7.050315886658609e-11
+      ]
+    }
+  ]
+}
