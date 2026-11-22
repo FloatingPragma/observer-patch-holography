@@ -5,26 +5,27 @@ from math import asin, expm1, log, pi, sin, sqrt
 import numpy as np
 
 from model.candidate_laws.interval_echo import candidate
-from .coupling_budget import native_triangle
+from .alias_window import REGISTERED_FLOOR
+from .coupling_budget import native_triangle, sampling_weights, triangle_forecast, SAMPLER_ERROR, SHOTS
 
 
 def infer_floor(quarter, irrational, full):
     """A conservative 99% simultaneous inference, or an inconclusive reading."""
     arms = np.asarray([*quarter, *irrational, full])
     if (arms.shape != (5, 3) or not np.issubdtype(arms.dtype, np.integer)
-            or (arms < 0).any() or (arms > 2**24).any() or not np.all(arms.sum(axis=1) == 2**24)):
+            or (arms < 0).any() or (arms > SHOTS).any() or not np.all(arms.sum(axis=1) == SHOTS)):
         raise ValueError("Expected five complete three-port count vectors at the fixed exposure count")
-    shots = 2**24
+    shots = SHOTS
     if full[2] != 0:
         return dict(resolved=False, reason="full pulse populated the spectator output")
     if full[1] != 0:
         return dict(resolved=False, reason="dark port occupied")
     # Exact one-sided binomial upper bound for zero hits.
-    dark_upper = -expm1(log(1/300) / shots)
+    dark_upper = -expm1(log(1/300) / shots) + SAMPLER_ERROR
     delta = asin(sqrt(dark_upper)) / pi
     # Hoeffding for a sum of two independent frequencies, one bound for each duration.
-    radius = sqrt(log(300)/shots)
-    # A quiet spectator port after the last beam splitter provides an apparatus
+    radius = sqrt(log(300)/shots) + 2*SAMPLER_ERROR
+    # The spectator port after the last beam splitter provides an apparatus
     # check independent of strength. Grossly inconsistent histograms abstain.
     for j, t in enumerate((pi/4, pi/(4*sqrt(2)))):
         spectator = np.array([arms[2*j, 2], arms[2*j+1, 1]]) / shots
@@ -41,7 +42,7 @@ def infer_floor(quarter, irrational, full):
         return dict(resolved=False, reason="the zero class is admissible")
     # The alias_window certificate covers every nonzero signed alias on [0,37].
     # Removing the scalar part of the perturbation bounds its norm by delta.
-    leakage = sqrt(1-.94) + 37*delta
+    leakage = sqrt(1-float(REGISTERED_FLOOR)) + 37*delta
     return dict(resolved=True, distance_to_nonzero_alias_upper=delta,
                 quarter_deficit_upper=coarse_upper, irrational_deficit_lower=zero_test_lower,
                 home_probability_lower=1-min(1., leakage)**2)
@@ -49,14 +50,15 @@ def infer_floor(quarter, irrational, full):
 
 def acquire(hamiltonian):
     readings = []
+    weights = []
     for t, seeds in ((pi/4, (74504, 74505)), (pi/(4*sqrt(2)), (74506, 74507)), (2*pi, (74508,))):
         distributions = native_triangle(hamiltonian, t)
         for row, seed in enumerate(seeds):
-            prob = distributions[row]
-            np.testing.assert_allclose(prob.sum(), 1, atol=4e-12, rtol=0)
-            counts = np.random.default_rng(seed).multinomial(2**24, prob/prob.sum())
-            readings.append(counts.tolist())
-    return dict(counts=readings, forecast=infer_floor(readings[:2], readings[2:4], readings[4]))
+            prob = sampling_weights(distributions[row])
+            readings.append(np.random.default_rng(seed).multinomial(SHOTS, prob).tolist())
+            weights.append(prob.tolist())
+    return dict(counts=readings, sampling_probabilities=weights,
+                forecast=infer_floor(readings[:2], readings[2:4], readings[4]))
 
 
 def run():
@@ -68,6 +70,9 @@ def run():
                               ("reversed", -8, True), ("removed", 0, False),
                               ("half_alias", 4, False), ("detuned", 8.25, False)):
         acquired = acquire(exchange + k*contrast)
+        independent = np.vstack([triangle_forecast(k, pi/4), triangle_forecast(k, pi/(4*sqrt(2))),
+                                 triangle_forecast(k, 2*pi)[:1]])
+        np.testing.assert_allclose(acquired["sampling_probabilities"], independent, rtol=0, atol=SAMPLER_ERROR)
         if acquired["forecast"]["resolved"] != resolved:
             raise ArithmeticError(f"Unexpected experimental decision for {name}")
         result[name] = acquired

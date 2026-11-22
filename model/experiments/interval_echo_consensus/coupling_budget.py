@@ -14,6 +14,22 @@ from model.executable_model import federation
 from . import offer_service
 from .modular_standard import stationary_operator
 
+SHOTS = 2**24
+# Per-category probability allowance for dyadic cumulative cuts and numerical pulse columns.
+SAMPLER_ERROR = 1e-10
+
+
+def sampling_weights(prob):
+    """Round cumulative cuts to reproducible dyadic probabilities before the three-way draw."""
+    if np.any(prob < 0):
+        raise ValueError("A terminal probability is negative")
+    np.testing.assert_allclose(prob.sum(), 1, atol=4e-12, rtol=0)
+    scale = 2**36
+    cuts = np.rint(scale*np.cumsum(prob/prob.sum())[:-1]).astype(np.int64)
+    weights = np.diff(np.r_[0, cuts, scale])/scale
+    np.testing.assert_allclose(weights, prob, atol=SAMPLER_ERROR, rtol=0)
+    return weights
+
 
 def native_triangle(hamiltonian, duration):
     """Two terminal measurements, each on a fresh sharp input at the first port."""
@@ -158,11 +174,10 @@ def run():
         raise ArithmeticError("The second pulse failed to distinguish the material counterexample")
     # Sample the material derived operator, with every terminal address retained.
     acquired = native_triangle(derived, pi/4)
-    shots = 2**24
-    counts = [np.random.default_rng(seed).multinomial(shots, prob).tolist()
+    counts = [np.random.default_rng(seed).multinomial(SHOTS, sampling_weights(prob)).tolist()
               for seed, prob in zip((74504, 74505), acquired, strict=True)]
-    radius = sqrt(log(100) / shots)
-    deficit = 1.25-sum(row[0] for row in counts)/shots
+    radius = sqrt(log(100) / SHOTS) + 2*SAMPLER_ERROR
+    deficit = 1.25-sum(row[0] for row in counts)/SHOTS
     threshold = sin(float(distance)*pi/8)**2
     if deficit + radius >= threshold:
         raise ValueError("The two readings do not resolve the nearest bounded-budget rival")
@@ -172,7 +187,7 @@ def run():
             raise ArithmeticError("The persistent bank lost the alternative exponent")
     return dict(triangle=list(map(int, face)), word_budgets=budgets, word_sources=source_check(),
                 positive_candidates=size, selected=int(strength), nearest_rival=str(rivals[0]),
-                probabilities=rows, shots_per_arm=shots, terminal_counts=counts,
+                probabilities=rows, shots_per_arm=SHOTS, terminal_counts=counts,
                 alternate_material_second_pulse_tv=tv.tolist(),
                 observed_deficit=deficit, one_sided_99pct_radius=radius, nearest_competitor_deficit=threshold)
 

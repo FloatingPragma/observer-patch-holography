@@ -11,6 +11,8 @@ from model.candidate_laws.interval_echo.openwave.submission import row_04_check 
 from model.executable_model import carrier
 from model.experiments.interval_echo_encounter.check_transport import checked_steps
 
+REGISTERED_FLOOR = Fraction(94368, 100000)
+
 
 def setup():
     edges, indices, exchange, adjacent = pair.screen(carrier.HERE / "carriers/FEDERATION_LEVEL0.npz")
@@ -33,7 +35,7 @@ def upper_sqrt(value):
     return Fraction(isqrt(int(value * scale**2)) + 1, scale)
 
 
-def uniform_tail(exchange, adjacent, patch):
+def uniform_tail(exchange, adjacent, patch, launch):
     twice = (2 * exchange).astype(np.int64)
     if (twice != 2 * exchange).nnz:
         raise ArithmeticError("Exchange must be an integer half-matrix")
@@ -52,10 +54,18 @@ def uniform_tail(exchange, adjacent, patch):
     squares = [gram_bound(m, d) for m, d in ((x,2),(y,4),(r1,4),(r2,8),(r3,16))]
     nx, ny, n1, n2, n3 = map(upper_sqrt, squares)
     u = Fraction(1, 2*64)
-    error = 2*(u*nx + u**2*ny) + 37*(u*n1 + u**2*n2 + u**3*n3)
+    final_dressing = u*nx + u**2*ny
+    residual = 37*(u*n1 + u**2*n2 + u**3*n3)
+    error = 2*final_dressing + residual
     if error >= 1 or 1-error**2 <= Fraction(94, 100):
         raise ArithmeticError("The large-strength home bound missed its probability gate")
-    return dict(squared_norm_bounds=[str(s) for s in squares], lower_bound=float(1-error**2))
+    col = np.flatnonzero(patch == launch).item()
+    initial = [gram_bound(x[:, [col]], 2), gram_bound(y[:, [col]], 4)]
+    launch_error = u*upper_sqrt(initial[0]) + u**2*upper_sqrt(initial[1]) + final_dressing + residual
+    if launch_error >= 1 or 1-launch_error**2 <= REGISTERED_FLOOR:
+        raise ArithmeticError("The registered launch missed its sharper gate")
+    return dict(squared_norm_bounds=[str(s) for s in squares], lower_bound=float(1-error**2),
+                launch_squared_norms=[str(s) for s in initial], launch_lower=float(1-launch_error**2))
 
 
 def finite_window(exchange, adjacent, patch, launch, strength):
@@ -80,7 +90,7 @@ def finite_window(exchange, adjacent, patch, launch, strength):
                                      probability_error=error)
     angle = acos(sqrt(grid_floor)) + sqrt(variance)/16
     lower = cos(min(pi/2, angle))**2
-    if strength and lower <= 0.940001:
+    if strength and lower <= float(REGISTERED_FLOOR) + 1e-6:
         raise ArithmeticError(f"Strength {strength} missed the continuous home-cell gate: {lower}")
     if strength == 0 and 1-readings[37]["quiet"] + readings[37]["probability_error"] >= 0.65:
         raise ArithmeticError("Exchange alone did not clear the rejection control")
@@ -92,7 +102,7 @@ def main():
     parser.add_argument("--full", action="store_true", help="also propagate all fourteen finite aliases and zero")
     args = parser.parse_args()
     exchange, adjacent, patch, launch = setup()
-    print(json.dumps(dict(tail=uniform_tail(exchange, adjacent, patch))), flush=True)
+    print(json.dumps(dict(tail=uniform_tail(exchange, adjacent, patch, launch))), flush=True)
     if args.full:
         for k in range(-56, 57, 8):
             print(json.dumps(finite_window(exchange, adjacent, patch, launch, k), allow_nan=False), flush=True)

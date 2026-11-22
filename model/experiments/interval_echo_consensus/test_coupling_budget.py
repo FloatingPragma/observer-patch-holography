@@ -29,11 +29,11 @@ def test_native_standard_and_other_material():
 
 
 def test_tail_and_held_counts():
-    exchange, adjacent, patch, _ = alias_window.setup()
-    tail = alias_window.uniform_tail(exchange, adjacent, patch)
+    tail = alias_window.uniform_tail(*alias_window.setup())
     assert list(map(Fraction, tail["squared_norm_bounds"])) == [
         Fraction(17,4), Fraction(107,4), Fraction(5,16), Fraction(7003,16), Fraction(118043,256)]
     assert tail["lower_bound"] > .94
+    assert tail["launch_lower"] > .945
     counts = json.loads(Path(__file__).with_name("persistence_counts.json").read_text())
     replay = persistence_forecast.run()
     assert set(counts) == set(replay)
@@ -43,7 +43,7 @@ def test_tail_and_held_counts():
         assert decision["resolved"] == (arm in ("installed", "reversed", "other_alias"))
         assert replay[arm]["forecast"]["resolved"] == decision["resolved"]
         if decision["resolved"]:
-            assert decision["home_probability_lower"] > .9365
+            assert decision["home_probability_lower"] > .94036
 
 
 def test_inference_rejects_broken_acquisitions():
