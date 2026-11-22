@@ -660,6 +660,43 @@
               "evidence": []
             }
           }
+        },
+        {
+          "id": "PATCH-10",
+          "title": "Excess gravity predicted from retained patch records",
+          "requires": "Specify the cut charge and its fluctuations on physical observer records. Use the gravitational response calibrated on ordinary matter to predict excess orbital and lensing signals on independent galaxies with one source law, geometry and uncertainty model.",
+          "sources": [
+            "cosmology/oph_dark_matter_paper.pdf",
+            "code/cosmology/rar_deep_regime/README.md"
+          ],
+          "context": "This compares the macroscopic observer measurements attributed to non-luminous gravity. OW-19 assesses a stable neutral massive state.",
+          "results": {
+            "interval_echo": {
+              "status": "partial",
+              "note": "On two prepared histories with identical untagged collar states, the patch measures a between-history charge amplitude of 0.09156 ± 0.00037 nats using its local tag and word registers. A separate tagged interferometer gives 0.09086 ± 0.00091 nats. The unconditional variance of the word score is identical in both sources. A responsive common metric, physical cut count, variance in mass units and held orbital and shear predictions from that source require further evidence. Galaxy-level force and shear comparisons use astrophysically fitted scales.",
+              "evidence": [
+                "model/experiments/interval_echo_einstein_station/README.md",
+                "model/experiments/interval_echo_einstein_station/backreaction.json",
+                "model/experiments/interval_echo_einstein_station/volume.json",
+                "code/cosmology/rar_deep_regime/receipts/held_galaxies.json",
+                "code/cosmology/rar_deep_regime/receipts/lensing_profile.json"
+              ],
+              "demonstrated_measurement": {
+                "label": "A local record distinguishes fluctuations between retained histories",
+                "source": "model/experiments/interval_echo_einstein_station/README.md"
+              }
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "open",
+              "note": "No candidate-specific source calibration and independently tested gravitational response are registered.",
+              "evidence": []
+            },
+            "scalar_channel": {
+              "status": "open",
+              "note": "The scalar channel has no registered collar-to-gravity calibration.",
+              "evidence": []
+            }
+          }
         }
       ]
     }

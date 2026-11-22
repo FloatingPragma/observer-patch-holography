@@ -576,6 +576,1177 @@
         "1": 13.709933049875747,
         "2": 6.2535991652143545
       }
+    },
+    "paired_baryon_source_transfer": {
+      "comparison": "Fixed training scale and identical exterior selection. Compact extra squared speed sqrt(G Mphot a0); local-force extra sqrt(R Vbar\u00b2 a0) in consistent units. Both add to the same Vbar\u00b2. The force-equivalent mass R Vbar\u00b2/G does not measure the physical mass enclosed by a disk or a modular charge.",
+      "bounds": "Necessary per-ring residuals in catalogue speed units. The wide case allows every nuisance and every calibration inside the training bootstrap interval independently at each ring. Error fractions condition on the catalogue model. Shared galaxy constraints can only increase the required errors.",
+      "scale_m_s2": 7.602958639130262e-11,
+      "training_interval_m_s2": [
+        6.192209903394043e-11,
+        9.22122725278511e-11
+      ],
+      "quoted_velocity_error_threshold": 3.5896471836599466,
+      "geometry_and_calibration_sensitivity": {
+        "catalogue": {
+          "compact_mass": {
+            "rings_above_threshold": 55,
+            "galaxies_with_ring_above_threshold": 21,
+            "worst_ring_lower_bound": 47.42606912009315,
+            "limiting_ring": {
+              "galaxy": "NGC5055",
+              "radius_kpc": 43.17,
+              "observed_kms": 179.0,
+              "quoted_error_kms": 0.44,
+              "predicted_speed_interval_kms": [
+                199.867470412841,
+                199.867470412841
+              ]
+            }
+          },
+          "local_force": {
+            "rings_above_threshold": 43,
+            "galaxies_with_ring_above_threshold": 17,
+            "worst_ring_lower_bound": 50.227712719719875,
+            "limiting_ring": {
+              "galaxy": "NGC5055",
+              "radius_kpc": 43.17,
+              "observed_kms": 179.0,
+              "quoted_error_kms": 0.44,
+              "predicted_speed_interval_kms": [
+                201.10019359667675,
+                201.10019359667675
+              ]
+            }
+          }
+        },
+        "one_error_box": {
+          "compact_mass": {
+            "rings_above_threshold": 10,
+            "galaxies_with_ring_above_threshold": 5,
+            "worst_ring_lower_bound": 13.70993304987577,
+            "limiting_ring": {
+              "galaxy": "NGC2403",
+              "radius_kpc": 15.9,
+              "observed_kms": 133.0,
+              "quoted_error_kms": 0.67,
+              "predicted_speed_interval_kms": [
+                104.89104516231235,
+                123.81434485658323
+              ]
+            }
+          },
+          "local_force": {
+            "rings_above_threshold": 6,
+            "galaxies_with_ring_above_threshold": 4,
+            "worst_ring_lower_bound": 6.9119180636745385,
+            "limiting_ring": {
+              "galaxy": "NGC0024",
+              "radius_kpc": 11.27,
+              "observed_kms": 110.0,
+              "quoted_error_kms": 2.83,
+              "predicted_speed_interval_kms": [
+                75.68657510273903,
+                90.43927187980105
+              ]
+            }
+          }
+        },
+        "two_error_box": {
+          "compact_mass": {
+            "rings_above_threshold": 4,
+            "galaxies_with_ring_above_threshold": 2,
+            "worst_ring_lower_bound": 6.253599165214337,
+            "limiting_ring": {
+              "galaxy": "NGC0024",
+              "radius_kpc": 11.27,
+              "observed_kms": 110.0,
+              "quoted_error_kms": 2.83,
+              "predicted_speed_interval_kms": [
+                69.61598461816698,
+                92.30231436244343
+              ]
+            },
+            "shared_witness_after_omitting_limiting_ring": null
+          },
+          "local_force": {
+            "rings_above_threshold": 1,
+            "galaxies_with_ring_above_threshold": 1,
+            "worst_ring_lower_bound": 5.487964950332903,
+            "limiting_ring": {
+              "galaxy": "NGC0024",
+              "radius_kpc": 11.27,
+              "observed_kms": 110.0,
+              "quoted_error_kms": 2.83,
+              "predicted_speed_interval_kms": [
+                71.4584003131889,
+                94.46905919055789
+              ]
+            },
+            "shared_witness_after_omitting_limiting_ring": {
+              "galaxies": 41,
+              "rings": 150,
+              "maximum_residual": 3.5883053372503984,
+              "columns": [
+                "galaxy",
+                "distance_mpc",
+                "inclination_deg",
+                "disk_mass_to_light"
+              ],
+              "values": [
+                [
+                  "DDO154",
+                  4.110125396170925,
+                  64.31554078644521,
+                  0.4
+                ],
+                [
+                  "DDO161",
+                  6.376329186564339,
+                  59.317943823566594,
+                  0.4
+                ],
+                [
+                  "DDO170",
+                  11.937473945089344,
+                  60.47507217688387,
+                  0.4
+                ],
+                [
+                  "ESO116-G012",
+                  16.78652907792484,
+                  72.68713135574674,
+                  0.4
+                ],
+                [
+                  "ESO444-G084",
+                  5.5160116893959685,
+                  42.62415965924063,
+                  0.4
+                ],
+                [
+                  "F565-V2",
+                  57.34239645250538,
+                  57.53044808534849,
+                  0.4
+                ],
+                [
+                  "F568-V1",
+                  80.6,
+                  32.689555184464425,
+                  0.4
+                ],
+                [
+                  "F571-V1",
+                  80.1,
+                  26.786986706228696,
+                  0.4
+                ],
+                [
+                  "F583-1",
+                  23.364209594297535,
+                  60.09988213638834,
+                  0.4
+                ],
+                [
+                  "NGC0024",
+                  8.019716638039263,
+                  69.9972191076676,
+                  0.537
+                ],
+                [
+                  "NGC0289",
+                  17.140859951535766,
+                  42.69621616835838,
+                  0.4
+                ],
+                [
+                  "NGC0300",
+                  2.08,
+                  52.16202221307546,
+                  0.4
+                ],
+                [
+                  "NGC0801",
+                  67.0126255687587,
+                  79.78585581352634,
+                  0.4
+                ],
+                [
+                  "NGC2403",
+                  3.4798211112067436,
+                  68.99616373026024,
+                  0.43
+                ],
+                [
+                  "NGC2903",
+                  8.204549289035889,
+                  64.8988744474815,
+                  0.4
+                ],
+                [
+                  "NGC2915",
+                  4.325829593124301,
+                  62.220244461122995,
+                  0.4
+                ],
+                [
+                  "NGC3109",
+                  1.4193662701091263,
+                  75.25822515586282,
+                  0.4
+                ],
+                [
+                  "NGC3198",
+                  13.543979880107162,
+                  71.73074780467918,
+                  0.4
+                ],
+                [
+                  "NGC3726",
+                  16.184076312879803,
+                  52.50225320377492,
+                  0.4
+                ],
+                [
+                  "NGC3741",
+                  3.345876505459721,
+                  71.4130320840583,
+                  0.4
+                ],
+                [
+                  "NGC3769",
+                  16.379659225613405,
+                  69.47071864694743,
+                  0.4
+                ],
+                [
+                  "NGC3917",
+                  17.2558864394514,
+                  78.22727973677651,
+                  0.4
+                ],
+                [
+                  "NGC3992",
+                  26.532605998618003,
+                  56.7916452386424,
+                  0.4
+                ],
+                [
+                  "NGC4100",
+                  16.416223135394084,
+                  72.4247884045328,
+                  0.4
+                ],
+                [
+                  "NGC4183",
+                  16.221898613335853,
+                  81.00893402858452,
+                  0.4
+                ],
+                [
+                  "NGC5055",
+                  9.9,
+                  50.29892376081504,
+                  0.4
+                ],
+                [
+                  "NGC5585",
+                  7.051109837149882,
+                  50.49158038473487,
+                  0.4
+                ],
+                [
+                  "NGC6015",
+                  20.129768963803258,
+                  59.519929149497685,
+                  0.4
+                ],
+                [
+                  "NGC6503",
+                  6.868171547671402,
+                  77.7699561165306,
+                  0.4
+                ],
+                [
+                  "UGC00128",
+                  65.59578410231177,
+                  55.825249628858494,
+                  0.4
+                ],
+                [
+                  "UGC00634",
+                  33.15944331415298,
+                  38.35507563767943,
+                  0.4
+                ],
+                [
+                  "UGC00891",
+                  12.002768450724506,
+                  57.107365482162,
+                  0.4
+                ],
+                [
+                  "UGC02259",
+                  14.082524321933807,
+                  41.291902691754416,
+                  0.4
+                ],
+                [
+                  "UGC05005",
+                  53.7,
+                  29.950763567648604,
+                  0.4
+                ],
+                [
+                  "UGC05716",
+                  22.678324933878535,
+                  47.77105477022872,
+                  0.4
+                ],
+                [
+                  "UGC05721",
+                  8.282006985611066,
+                  58.14831455404513,
+                  0.4
+                ],
+                [
+                  "UGC05750",
+                  45.16009914305769,
+                  50.06310862482381,
+                  0.4
+                ],
+                [
+                  "UGC06818",
+                  16.355418887872325,
+                  73.63617529876981,
+                  0.4
+                ],
+                [
+                  "UGC08490",
+                  5.155838235665941,
+                  51.55615630177805,
+                  0.4
+                ],
+                [
+                  "UGC11820",
+                  19.029077324787007,
+                  38.80535415112875,
+                  0.4
+                ],
+                [
+                  "UGCA442",
+                  4.651991492521252,
+                  74.47831393470925,
+                  0.4
+                ]
+              ]
+            }
+          }
+        },
+        "two_error_box_and_training_interval": {
+          "compact_mass": {
+            "rings_above_threshold": 1,
+            "galaxies_with_ring_above_threshold": 1,
+            "worst_ring_lower_bound": 4.949904160333325,
+            "limiting_ring": {
+              "galaxy": "NGC0024",
+              "radius_kpc": 11.27,
+              "observed_kms": 110.0,
+              "quoted_error_kms": 2.83,
+              "predicted_speed_interval_kms": [
+                66.759836980423,
+                95.99177122625669
+              ]
+            }
+          },
+          "local_force": {
+            "rings_above_threshold": 1,
+            "galaxies_with_ring_above_threshold": 1,
+            "worst_ring_lower_bound": 4.139294017593048,
+            "limiting_ring": {
+              "galaxy": "NGC0024",
+              "radius_kpc": 11.27,
+              "observed_kms": 110.0,
+              "quoted_error_kms": 2.83,
+              "predicted_speed_interval_kms": [
+                68.4941095886068,
+                98.28579793021167
+              ]
+            }
+          }
+        }
+      },
+      "nominal_predictions_kms": {
+        "row_order": "Use the galaxy list consecutively, taking the listed number of radius and speed entries for each galaxy.",
+        "galaxies": [
+          "DDO154",
+          "DDO161",
+          "DDO170",
+          "ESO116-G012",
+          "ESO444-G084",
+          "F565-V2",
+          "F568-V1",
+          "F571-V1",
+          "F583-1",
+          "NGC0024",
+          "NGC0289",
+          "NGC0300",
+          "NGC0801",
+          "NGC2403",
+          "NGC2903",
+          "NGC2915",
+          "NGC3109",
+          "NGC3198",
+          "NGC3726",
+          "NGC3741",
+          "NGC3769",
+          "NGC3917",
+          "NGC3992",
+          "NGC4100",
+          "NGC4183",
+          "NGC5055",
+          "NGC5585",
+          "NGC6015",
+          "NGC6503",
+          "UGC00128",
+          "UGC00634",
+          "UGC00891",
+          "UGC02259",
+          "UGC05005",
+          "UGC05716",
+          "UGC05721",
+          "UGC05750",
+          "UGC06818",
+          "UGC08490",
+          "UGC11820",
+          "UGCA442"
+        ],
+        "ring_counts": [
+          2,
+          6,
+          3,
+          1,
+          2,
+          1,
+          1,
+          2,
+          1,
+          3,
+          8,
+          6,
+          2,
+          12,
+          2,
+          9,
+          1,
+          5,
+          3,
+          7,
+          3,
+          1,
+          2,
+          2,
+          5,
+          7,
+          1,
+          10,
+          13,
+          9,
+          1,
+          1,
+          1,
+          2,
+          2,
+          1,
+          1,
+          1,
+          7,
+          2,
+          2
+        ],
+        "radius_kpc": [
+          5.43,
+          5.92,
+          10.99,
+          11.46,
+          11.94,
+          12.41,
+          12.9,
+          13.37,
+          9.34,
+          10.83,
+          12.33,
+          9.86,
+          3.39,
+          4.44,
+          8.8,
+          17.63,
+          11.66,
+          13.59,
+          16.26,
+          8.49,
+          9.91,
+          11.27,
+          49.92,
+          52.99,
+          55.96,
+          59.03,
+          62.0,
+          65.07,
+          68.05,
+          71.12,
+          9.53,
+          9.96,
+          10.45,
+          10.93,
+          11.32,
+          11.8,
+          52.86,
+          59.82,
+          15.4,
+          15.9,
+          16.4,
+          16.89,
+          17.39,
+          17.89,
+          18.38,
+          18.88,
+          19.38,
+          19.87,
+          20.37,
+          20.87,
+          24.0,
+          24.96,
+          7.36,
+          7.7,
+          8.03,
+          8.37,
+          8.7,
+          9.03,
+          9.37,
+          9.7,
+          10.04,
+          6.45,
+          36.12,
+          38.19,
+          40.1,
+          42.17,
+          44.08,
+          27.52,
+          30.08,
+          32.52,
+          4.21,
+          4.67,
+          5.14,
+          5.61,
+          6.07,
+          6.54,
+          7.0,
+          31.82,
+          34.61,
+          37.16,
+          14.86,
+          41.44,
+          46.02,
+          21.95,
+          22.76,
+          16.95,
+          17.88,
+          18.93,
+          19.97,
+          21.02,
+          37.4,
+          40.29,
+          43.17,
+          45.92,
+          48.81,
+          51.7,
+          54.59,
+          10.96,
+          21.89,
+          22.63,
+          23.48,
+          24.34,
+          25.19,
+          25.93,
+          26.78,
+          27.64,
+          28.37,
+          29.23,
+          14.44,
+          15.18,
+          15.91,
+          16.65,
+          17.49,
+          18.23,
+          18.97,
+          19.71,
+          20.45,
+          21.29,
+          22.03,
+          22.76,
+          23.5,
+          33.74,
+          36.23,
+          38.82,
+          41.31,
+          43.8,
+          46.28,
+          48.77,
+          51.26,
+          53.75,
+          18.01,
+          7.39,
+          8.14,
+          22.72,
+          28.61,
+          11.4,
+          12.37,
+          6.74,
+          22.85,
+          6.98,
+          8.12,
+          8.46,
+          8.8,
+          9.13,
+          9.47,
+          9.77,
+          10.15,
+          13.14,
+          15.82,
+          5.48,
+          6.33
+        ],
+        "compact_mass": [
+          47.70659765673767,
+          47.472446850587424,
+          75.85254458783696,
+          75.44805610782689,
+          75.05550726262393,
+          74.67488145588042,
+          74.36205094300314,
+          74.0019518016234,
+          66.8085712893942,
+          66.29860705723814,
+          65.44257939392415,
+          90.70635688383636,
+          42.72189657982205,
+          41.45154819035124,
+          66.35028935451184,
+          95.43528498708663,
+          80.23506459960882,
+          79.04602767567387,
+          86.59432830295655,
+          84.16050363732394,
+          82.43803049859947,
+          81.11446463170435,
+          185.96720092145011,
+          185.13933879259426,
+          184.41632389395198,
+          183.41277237029868,
+          182.11966387120034,
+          180.9214739011348,
+          180.00390403699305,
+          179.14845804125414,
+          81.80063276836496,
+          81.24247209006447,
+          80.67909810666518,
+          80.15993058445662,
+          79.73345108111717,
+          79.47941570812473,
+          247.64827258549136,
+          245.85323765323454,
+          114.82052942274356,
+          114.40209013352474,
+          113.97238251839399,
+          113.47535691470249,
+          113.0285783637002,
+          112.55733773023915,
+          112.1121861213986,
+          111.66872112153483,
+          111.37829984749776,
+          111.2439783849855,
+          111.11128060156231,
+          110.9967653894433,
+          171.87229264870845,
+          171.02367491175977,
+          60.664189279073426,
+          60.6186688313695,
+          60.648723901556636,
+          60.713819356776156,
+          60.75617714181207,
+          60.83722142641992,
+          60.85855741707363,
+          60.9140469094547,
+          60.87395962878747,
+          56.329318809445525,
+          151.23669112914445,
+          151.04320935974658,
+          150.8901512481588,
+          150.98451723170902,
+          150.33019854205023,
+          169.76631438022343,
+          167.48271193841128,
+          165.769834856179,
+          42.36038697057989,
+          42.47275049131236,
+          42.5580824790929,
+          42.54639860549039,
+          42.504315478516695,
+          42.42855800398211,
+          42.35449662429332,
+          124.08924732493382,
+          123.343768596831,
+          122.75043686956309,
+          128.78159763356012,
+          228.0637453896212,
+          224.55033090855594,
+          160.84805305797482,
+          159.77875961009676,
+          114.02356259790061,
+          113.88941139332208,
+          113.2982518731748,
+          112.58439313473853,
+          112.15683852319196,
+          202.51416451504787,
+          201.08682435512247,
+          199.867470412841,
+          199.05645073503112,
+          197.91455777488392,
+          196.74786956718967,
+          195.43270690758973,
+          88.2128892794978,
+          144.71919564876833,
+          144.21692892731593,
+          143.68856039791925,
+          143.12363689910373,
+          142.69841883926568,
+          143.01473207060346,
+          141.42958456145763,
+          140.55227582371796,
+          139.88663209623172,
+          139.3187948168749,
+          110.4526678508527,
+          109.90380309784912,
+          109.43488970785684,
+          109.099409418066,
+          108.67077038178569,
+          108.24807358734284,
+          107.79416605443353,
+          107.4452734436038,
+          107.14114002273259,
+          106.82706742848832,
+          106.53346978940839,
+          106.26252366366418,
+          105.9732732124982,
+          124.09145691202872,
+          123.57211306985845,
+          123.34962151765963,
+          122.89376358688784,
+          122.20812157360852,
+          121.58495375065897,
+          120.9033383680942,
+          120.35457564442608,
+          119.93401551915903,
+          98.64151762459427,
+          57.79965226678222,
+          71.68868252887432,
+          98.48678921111002,
+          98.70203695524029,
+          71.80873782250765,
+          71.28821836504011,
+          63.03748238637613,
+          85.66354028899428,
+          76.04950667929612,
+          68.1910846514588,
+          68.17098705418911,
+          68.18584732877065,
+          67.91653830947526,
+          67.65249645018592,
+          67.59497522702719,
+          67.62339924865076,
+          83.91449151255752,
+          83.67582706977618,
+          49.81343334213781,
+          48.939137112658685
+        ],
+        "local_force": [
+          46.870832713873725,
+          46.68797797381906,
+          81.06670479507822,
+          80.46760534965539,
+          79.84560671763136,
+          79.17352833054302,
+          78.69807972334728,
+          77.95383314942949,
+          73.3951045420399,
+          74.02786187862466,
+          73.0498399775811,
+          96.77488300454368,
+          45.006012410422976,
+          42.93343920297506,
+          72.40473719680884,
+          102.88850815506397,
+          86.59376985596509,
+          85.57626556691355,
+          98.9309205989454,
+          87.12431950063251,
+          84.99830149791644,
+          83.1245775823283,
+          192.89960603888792,
+          192.79870065055968,
+          192.76144565293026,
+          191.75569267296515,
+          189.51499400175956,
+          187.35697023439965,
+          185.86609815174526,
+          184.4430559867094,
+          84.8029304364162,
+          83.9268351235472,
+          83.03232096556779,
+          82.14955217915836,
+          81.33732081894743,
+          81.17549271435828,
+          254.86775226547812,
+          256.55153684669324,
+          121.533267836982,
+          121.23667601353677,
+          120.87318690817598,
+          120.28164379942844,
+          119.79131461230085,
+          119.19304304526032,
+          118.60913698012219,
+          118.00027789029849,
+          117.78923042896318,
+          117.99343752512391,
+          118.19910218315232,
+          118.4434742454175,
+          173.57664972899175,
+          172.86012325331777,
+          58.96345918476831,
+          59.350207357808195,
+          60.01005645072653,
+          60.81431378604098,
+          61.49634715767068,
+          62.32331935594844,
+          62.91013298026154,
+          63.60988482909597,
+          63.92258031023825,
+          55.53635454365321,
+          154.60988127682623,
+          155.76782995971098,
+          156.8467551287775,
+          158.78633534957382,
+          158.10811278572515,
+          174.00987424817544,
+          171.30036314118604,
+          169.41288256086835,
+          39.32100157362206,
+          40.79246313285365,
+          42.089359297215964,
+          42.8558885090448,
+          43.40102960112254,
+          43.73497148595566,
+          44.00810125222306,
+          125.93834038358465,
+          125.33175452356761,
+          124.84354642023588,
+          134.1921965831042,
+          230.77952949751298,
+          227.01462163628693,
+          164.06540522048195,
+          162.6822485642026,
+          116.9717654300317,
+          117.83510999863628,
+          117.48437780272289,
+          116.63230299541586,
+          116.53835810856513,
+          202.33621015591427,
+          201.5982264482353,
+          201.10019359667675,
+          201.34207293669516,
+          200.61398091585934,
+          199.5859801171111,
+          197.87990272387975,
+          90.5696647703787,
+          148.8377940046463,
+          148.5243785384073,
+          148.23021544569755,
+          147.79541812602542,
+          147.65922416958048,
+          149.3314002464134,
+          145.9747908794037,
+          144.40485112232906,
+          143.21459089449613,
+          142.37423488865957,
+          112.07570967167537,
+          111.66497979863063,
+          111.37830124278895,
+          111.41843138173087,
+          111.25195646044602,
+          110.90140943052496,
+          110.3842104924027,
+          110.1335233657766,
+          109.97478241993281,
+          109.8407895981893,
+          109.6164430902058,
+          109.41531052578058,
+          109.11478965990369,
+          132.09586408078073,
+          132.25414588688068,
+          133.4010389981049,
+          133.47320657643218,
+          132.47103383595626,
+          131.48734104898048,
+          130.02632321622525,
+          128.93025045520343,
+          128.2606880289375,
+          101.13769523514513,
+          61.19884346088304,
+          77.83093812029031,
+          107.9122008114989,
+          114.09153558523687,
+          77.53013667775622,
+          77.05660483753738,
+          65.43118360872221,
+          106.38403074434206,
+          71.9012386561332,
+          68.68078506111787,
+          69.19957767908268,
+          69.82180940821645,
+          69.41418021153052,
+          68.99113399191116,
+          69.23491844933544,
+          69.90521067414147,
+          89.93860345538889,
+          92.70151957561288,
+          52.4985247882347,
+          50.73355897712908
+        ]
+      },
+      "limiting_ring_primary_source_check": {
+        "source": "Chemin et al. (2006), section 5.1 and table 7, https://arxiv.org/abs/astro-ph/0609148",
+        "HI_table_preprint_pdf_sha256": "56562396fbd9930ac3df95c0ef05114206b30992ed558e6ec13fe854be52100f",
+        "antecedent_HI_record": {
+          "angular_radius_arcsec": 320,
+          "rotational_speed_kms": 109.7,
+          "quoted_error_kms": 2.0,
+          "kinematic_inclination_deg": 64,
+          "kinematic_inclination_error_deg": 3,
+          "HI_isophotal_inclination_deg": 76,
+          "optical_inclination_deg": 78
+        },
+        "catalogue_ring_radius_kpc": 11.27,
+        "catalogue_angular_radius_arcsec": 318.43895430202406,
+        "lower_edge_of_speed_acceptance_band_kms": 99.84129847024235,
+        "model": "Projection sensitivity on the limiting ring only. Hold the tabulated angular baryonic-force profile fixed; maximize over its catalogue distance box and disk M/L. Use the published morphologies as independent angle estimates on the same target. A new joint velocity-field and baryonic-image reduction would have to redetermine the radii and deprojected material distributions.",
+        "readings": [
+          {
+            "scale_m_s2": 7.602958639130262e-11,
+            "highest_catalogue_frame_speed_by_inclination_deg": {
+              "70": 94.4690591905579,
+              "76": 97.54564670439845,
+              "78": 98.33501035002465
+            },
+            "minimum_inclination_to_enter_velocity_band_deg": 83.28045397375227
+          },
+          {
+            "scale_m_s2": 9.22122725278511e-11,
+            "highest_catalogue_frame_speed_by_inclination_deg": {
+              "70": 98.2857979302117,
+              "76": 101.48668572660638,
+              "78": 102.30794124065754
+            },
+            "minimum_inclination_to_enter_velocity_band_deg": 72.66221441588006
+          }
+        ]
+      },
+      "external_geometry_sensitivity": {
+        "distance_source": "Schombert, McGaugh & Lelli (2020), Table 2, TRGB entries; section 2.3 attributes distances and errors to Tully et al. (2019). https://doi.org/10.3847/1538-3881/ab9d88",
+        "distance_table_journal_pdf": "https://astroweb.case.edu/ssm/papers/AJv160n71.pdf",
+        "distance_table_pdf_sha256": "adada9659ecdf2625a2ba21ce729e46258a4d89994263070ece245875803d1d5",
+        "inclination_source": "Dicaire et al. (2008), Table 4 and Appendix A, inner H-alpha tilted-ring inclinations. https://doi.org/10.1111/j.1365-2966.2008.12868.x",
+        "inclination_table_preprint_pdf_sha256": "fb717555180ec414ea49f1afdeeb0dc908ef571a2cfa1174910cd5d3792f00b9",
+        "application": "Retain the original outer sample, force profiles and angular bins. Replace a geometry input for every available match within the stated table and method. Otherwise retain the catalogue input. Use twice the tabulated distance/inclination errors and disk M/L between 0.4 and 0.6. These conditional projection tests use a disjoint fixed scale. Stellar distances are independent of the ring velocities; independent imaging between the distance compilations is unverified. The angle of an inner H-alpha field may differ from that of its outer H I disk. Surface-density profiles would have to be redetermined in a complete image and velocity-field reduction.",
+        "TRGB_distance_Mpc_and_quoted_error": {
+          "DDO154": [
+            4.04,
+            0.15
+          ],
+          "NGC0024": [
+            7.67,
+            0.32
+          ],
+          "NGC2915": [
+            4.29,
+            0.2
+          ],
+          "NGC3741": [
+            3.23,
+            0.12
+          ],
+          "NGC6503": [
+            6.25,
+            0.29
+          ],
+          "UGCA442": [
+            4.37,
+            0.2
+          ]
+        },
+        "Halpha_inclination_deg_and_quoted_error": {
+          "DDO154": [
+            59.0,
+            32.0
+          ],
+          "NGC0024": [
+            75.0,
+            3.0
+          ]
+        },
+        "NGC0024_three_test_rings_in_ascending_radius": [
+          {
+            "distance_mpc": 7.67,
+            "inclination_deg": 75.0,
+            "disk_mass_to_light": 0.5,
+            "predictions_in_SPARC_frame_kms": [
+              95.97524779017286,
+              93.63324838304337,
+              91.56917352863213
+            ],
+            "worst_quoted_speed_errors": 6.51265953051868
+          },
+          {
+            "distance_mpc": 7.99,
+            "inclination_deg": 78.0,
+            "disk_mass_to_light": 0.6,
+            "predictions_in_SPARC_frame_kms": [
+              102.97559925314782,
+              100.37858724701084,
+              98.15091968558401
+            ],
+            "worst_quoted_speed_errors": 4.186954174705295
+          },
+          {
+            "distance_mpc": 8.31,
+            "inclination_deg": 78.0,
+            "disk_mass_to_light": 0.6,
+            "predictions_in_SPARC_frame_kms": [
+              105.0174455292387,
+              102.36893880656545,
+              100.09710005557861
+            ],
+            "worst_quoted_speed_errors": 3.499257930890951
+          }
+        ],
+        "matched_catalogue_controls": {
+          "distance_only": {
+            "rings_with_unavoidable_miss": 1,
+            "worst_ring_lower_bound": 4.889797191521928,
+            "galaxies_without_shared_witness": [
+              "NGC0024"
+            ],
+            "rings_in_solved_galaxies": 148,
+            "maximum_residual_over_solved_galaxies": 3.5811126286601773
+          },
+          "inclination_only": {
+            "rings_with_unavoidable_miss": 1,
+            "worst_ring_lower_bound": 3.782982756935134,
+            "galaxies_without_shared_witness": [
+              "NGC0024"
+            ],
+            "rings_in_solved_galaxies": 148,
+            "maximum_residual_over_solved_galaxies": 3.5811126286601773
+          },
+          "both": {
+            "rings_with_unavoidable_miss": 0,
+            "worst_ring_lower_bound": 3.154262994718201,
+            "galaxies_without_shared_witness": [],
+            "rings_in_solved_galaxies": 151,
+            "maximum_residual_over_solved_galaxies": 3.583394718659576,
+            "matched_galaxy_witnesses": [
+              {
+                "galaxy": "DDO154",
+                "rings": 2,
+                "distance_mpc": 4.04,
+                "inclination_deg": 65.36509361248247,
+                "disk_mass_to_light": 0.4,
+                "maximum_absolute_velocity_residual_in_quoted_errors": 1.1691656825753411
+              },
+              {
+                "galaxy": "NGC0024",
+                "rings": 3,
+                "distance_mpc": 8.30852712126985,
+                "inclination_deg": 80.96799063385905,
+                "disk_mass_to_light": 0.5660000000000001,
+                "maximum_absolute_velocity_residual_in_quoted_errors": 3.583394718659576
+              },
+              {
+                "galaxy": "NGC2915",
+                "rings": 9,
+                "distance_mpc": 4.490267206508798,
+                "inclination_deg": 61.47117141786277,
+                "disk_mass_to_light": 0.4,
+                "maximum_absolute_velocity_residual_in_quoted_errors": 3.0910534079735754
+              },
+              {
+                "galaxy": "NGC3741",
+                "rings": 7,
+                "distance_mpc": 3.2900126722171796,
+                "inclination_deg": 71.9923874473294,
+                "disk_mass_to_light": 0.4,
+                "maximum_absolute_velocity_residual_in_quoted_errors": 2.680947884247757
+              },
+              {
+                "galaxy": "NGC6503",
+                "rings": 13,
+                "distance_mpc": 6.829037642833022,
+                "inclination_deg": 77.9810210605318,
+                "disk_mass_to_light": 0.401,
+                "maximum_absolute_velocity_residual_in_quoted_errors": 3.5736686217504143
+              },
+              {
+                "galaxy": "UGCA442",
+                "rings": 2,
+                "distance_mpc": 4.637541300121008,
+                "inclination_deg": 74.59610429541982,
+                "disk_mass_to_light": 0.4,
+                "maximum_absolute_velocity_residual_in_quoted_errors": 1.306819007962977
+              }
+            ]
+          }
+        }
+      },
+      "training_selection_sensitivity": [
+        {
+          "relative_velocity_error_cut": true,
+          "bulge_free_only": false,
+          "training_galaxies": 74,
+          "training_rings": 584,
+          "fitted_scale_m_s2": 7.602958639130262e-11
+        },
+        {
+          "relative_velocity_error_cut": true,
+          "bulge_free_only": true,
+          "training_galaxies": 56,
+          "training_rings": 469,
+          "fitted_scale_m_s2": 6.808348355627417e-11
+        },
+        {
+          "relative_velocity_error_cut": false,
+          "bulge_free_only": false,
+          "training_galaxies": 80,
+          "training_rings": 776,
+          "fitted_scale_m_s2": 6.402791951825733e-11
+        },
+        {
+          "relative_velocity_error_cut": false,
+          "bulge_free_only": true,
+          "training_galaxies": 61,
+          "training_rings": 660,
+          "fitted_scale_m_s2": 5.4929330166560376e-11
+        }
+      ]
     }
   }
 }

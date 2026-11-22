@@ -168,13 +168,8 @@ def same_ring_control(t1, t2):
     }
 
 
-def run():
-    source = empirical.verify_source_snapshot()
-    t1, t2 = base.read_table1(), base.read_table2()
-    acc = base.accelerations(t1, t2)
-    groups = exterior_profile.exterior_rings(t1, t2)
-    held = [galaxy["name"] for galaxy, _ in groups]
-    keep = ~np.isin(acc["names"], held) & (
+def training_sample(acc, excluded):
+    keep = ~np.isin(acc["names"], excluded) & (
         acc["g_bar"] < matched.PRIMARY_FRACTION * base.DEEP_CUT_REFERENCE_A0_M_S2
     )
     galaxies, membership, counts = np.unique(
@@ -182,6 +177,16 @@ def run():
     )
     train_bar, train_truth = acc["g_bar"][keep], np.log10(acc["g_obs"][keep])
     weights = 1.0 / counts[membership]
+    return galaxies, membership, train_bar, train_truth, weights
+
+
+def run():
+    source = empirical.verify_source_snapshot()
+    t1, t2 = base.read_table1(), base.read_table2()
+    acc = base.accelerations(t1, t2)
+    groups = exterior_profile.exterior_rings(t1, t2)
+    held = [galaxy["name"] for galaxy, _ in groups]
+    galaxies, membership, train_bar, train_truth, weights = training_sample(acc, held)
     scale = fit_scale(conditional_total, train_bar, train_truth, weights)
     rng = np.random.default_rng(20261123)
     galaxy_draws = rng.multinomial(
@@ -195,7 +200,7 @@ def run():
     exterior["amplitude_transfer_from_disjoint_galaxies"] = {
         "training": "Same primary deep radial cut and equal-galaxy log-acceleration loss as the five-fold analysis. Exclude every exterior test galaxy. Transfer its single fitted a0 from gobs = gbar + sqrt(gbar a0) to the compact photometric exterior profile.",
         "training_galaxies": len(galaxies),
-        "training_radii": int(keep.sum()),
+        "training_radii": len(train_bar),
         "fitted_a0_m_s2": scale,
         "training_galaxy_bootstrap": "2000 galaxy-cluster resamples with replacement, refitting each calibration, seed 20261123. Conditions on the catalogue inputs.",
         "training_galaxy_bootstrap_a0_95pct_m_s2": np.percentile(
@@ -208,6 +213,47 @@ def run():
             for width in (0, 1, 2)
         },
     }
+    exterior["paired_baryon_source_transfer"] = exterior_profile.compare_baryon_sources(
+        groups,
+        scale,
+        np.percentile(scales, [2.5, 97.5]),
+        exterior["quoted_velocity_error_threshold"],
+    )
+    exterior["paired_baryon_source_transfer"]["limiting_ring_primary_source_check"] = (
+        exterior_profile.ngc0024_projection_control(
+            groups,
+            scale,
+            np.percentile(scales, 97.5),
+            exterior["quoted_velocity_error_threshold"],
+        )
+    )
+    exterior["paired_baryon_source_transfer"]["external_geometry_sensitivity"] = (
+        exterior_profile.alternate_geometry(
+            groups, scale, exterior["quoted_velocity_error_threshold"]
+        )
+    )
+    # Probe two training-selection differences without fitting any held speed.
+    bulges = sorted({row["name"] for row in t2 if row["vbul_kms"] != 0})
+    training_variants = []
+    for error_cut in (True, False):
+        axes = acc if error_cut else base.accelerations(t1, t2, max_rel_error=np.inf)
+        for bulge_free in (False, True):
+            members, _, bars, truth, weight = training_sample(
+                axes, held + (bulges if bulge_free else [])
+            )
+            value = fit_scale(conditional_total, bars, truth, weight)
+            training_variants.append(
+                {
+                    "relative_velocity_error_cut": error_cut,
+                    "bulge_free_only": bulge_free,
+                    "training_galaxies": len(members),
+                    "training_rings": len(bars),
+                    "fitted_scale_m_s2": value,
+                }
+            )
+    exterior["paired_baryon_source_transfer"]["training_selection_sensitivity"] = (
+        training_variants
+    )
     return {
         "source_file_receipts_sha256": source["file_receipts_sha256"],
         "protocol": {

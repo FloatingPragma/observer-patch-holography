@@ -1219,6 +1219,166 @@
         }
       ]
     },
+    "tagged_fluctuations": {
+      "native_tag_seam": [
+        6,
+        10
+      ],
+      "tag_outcomes": [
+        6,
+        10
+      ],
+      "tag_protocol": "One sharp load, native half splitter, number read, both rails parked through the supplied conditional preparation and word or fringe read.",
+      "source_reference": "log[(1/9)/P0] in nats from the specified calibrated reference",
+      "shots_per_preparation_per_read": 1048576,
+      "seed": 2026112226,
+      "comparison": "Same fair occupancy tag in both preparations. Conditional source uses P- and P+; independent source uses P0 for both tag values.",
+      "observable": "Z times oriented word cycle, with Z = -1 on the first parked port and +1 on the other",
+      "orientation": [
+        [
+          0,
+          -1,
+          1
+        ],
+        [
+          1,
+          0,
+          -1
+        ],
+        [
+          -1,
+          1,
+          0
+        ]
+      ],
+      "orientation_simultaneous_half_width": 0.0053847137183602916,
+      "orientation_simultaneous_failure_probability": 1e-06,
+      "untagged_trace_distance": 0,
+      "tagged_trace_distance": 0.08333333333333333,
+      "equal_prior_optimal_tag_and_word_success": 0.5416666666666666,
+      "preparations": [
+        {
+          "preparation": "conditionally_prepared",
+          "word_counts_by_tag": [
+            [
+              [
+                58040,
+                101371,
+                14679
+              ],
+              [
+                14624,
+                57886,
+                102229
+              ],
+              [
+                101842,
+                14690,
+                58313
+              ]
+            ],
+            [
+              [
+                58474,
+                72816,
+                43759
+              ],
+              [
+                44008,
+                58296,
+                72681
+              ],
+              [
+                72863,
+                43649,
+                58356
+              ]
+            ]
+          ],
+          "fringe_counts_by_tag": [
+            [
+              186802,
+              338194
+            ],
+            [
+              236301,
+              287279
+            ]
+          ],
+          "exact_orientation_correlation": 0.16666666666666666,
+          "observed_orientation_correlation": 0.16642093658447266,
+          "total_score_variance": 0.15467123982314282,
+          "within_tag_score_variance": 0.14628964981749992,
+          "between_tag_mean_variance": 0.00838159000564293,
+          "conditional_mean_half_difference": 0.0915510240556758,
+          "word_estimate_nats": 0.09156435604771745,
+          "word_se_nats": 0.0003738027945134766,
+          "noise_corrected_between_tag_variance": 0.008383891569903986,
+          "fringe_estimate_nats": 0.09086291556498616,
+          "fringe_se_nats": 0.0009073797300466538
+        },
+        {
+          "preparation": "independent_local_tag",
+          "word_counts_by_tag": [
+            [
+              [
+                58254,
+                87500,
+                29338
+              ],
+              [
+                28964,
+                58225,
+                87040
+              ],
+              [
+                87234,
+                29038,
+                58174
+              ]
+            ],
+            [
+              [
+                58218,
+                87543,
+                29029
+              ],
+              [
+                29401,
+                57885,
+                87766
+              ],
+              [
+                87400,
+                28909,
+                58658
+              ]
+            ]
+          ],
+          "fringe_counts_by_tag": [
+            [
+              212234,
+              311560
+            ],
+            [
+              211381,
+              313401
+            ]
+          ],
+          "exact_orientation_correlation": 0.0,
+          "observed_orientation_correlation": -0.00089263916015625,
+          "total_score_variance": 0.15467123982314282,
+          "within_tag_score_variance": 0.1546712398231428,
+          "between_tag_mean_variance": 0.0,
+          "conditional_mean_half_difference": 0.0,
+          "word_estimate_nats": -0.00027541765977526916,
+          "word_se_nats": 0.0003840277365534962,
+          "noise_corrected_between_tag_variance": -7.162241512631555e-08,
+          "fringe_estimate_nats": -0.00227226737228214,
+          "fringe_se_nats": 0.0009118366495233618
+        }
+      ]
+    },
     "ports": [
       0,
       1,

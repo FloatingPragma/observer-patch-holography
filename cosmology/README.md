@@ -35,6 +35,8 @@ The conditional primordial, background, capacity and dark-sector values are comp
 
 ## Dark-Gravity Structure
 
+The [observer protocol for dark gravity](../code/cosmology/rar_deep_regime/README.md#observer-protocol-for-the-dark-gravity-prediction) connects measurements of retained patch records to an independently calibrated gravitational response, a matched orbital and shear test, and cluster and cosmological observations.
+
 Under the collar-stress attachment, recovery defects bound a candidate dark source. Conserved comoving charge gives the familiar inverse-volume dilution. Two explicit scaling and composition premises select a spherical deep-acceleration law with baryonic Tully–Fisher scaling: the deep limit of Milgrom's modified dynamics, with `a_0` fitted.
 
 A physical interpretation must link this source to relativistic stress, abundance, lensing, cosmic expansion and calibrated readouts on the same process. The dark-sector paper states the hypotheses and compares the resulting formulas with galaxy data.

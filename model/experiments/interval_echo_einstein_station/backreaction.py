@@ -521,6 +521,114 @@ def joint_clock_lapse(board, ports, native, records, source, splitter, inverse):
     )
 
 
+def tagged_fluctuations(board, ports, native, source, clock):
+    """Distinguish variance within a cut preparation from variance of its conditional means."""
+    from scipy.linalg import expm
+
+    used = {*ports, *source["spare_ports"], *clock["clock_edge"]}
+    edge = next(e for e in board.seams if e[1] < 12 and not set(e) & used)
+    rails = [law.SRC.index(w) for w in ((1, 0), (0, 1))]
+    launch = np.eye(law.DIM)[:, rails[0]]
+    split = expm(-1j * np.pi / 2 * native) @ launch
+    probabilities = abs(split) ** 2
+    np.testing.assert_allclose(probabilities[rails], [0.5, 0.5], rtol=0, atol=3e-13)
+    np.testing.assert_allclose(
+        probabilities.sum(), probabilities[rails].sum(), atol=2e-13
+    )
+    # Measuring the occupied rail projects the tag to a sharp site. All contacts
+    # incident on its two ports are parked until the terminal number read.
+    tag = np.array([-1.0, 1.0])
+    units = np.array([arm["source_units_of_1_over_36"] for arm in source["arms"]])
+    if not np.array_equal(units[0] + units[2], 2 * units[1]):
+        raise ValueError(
+            "Ignoring the local tag must give identical physical source states"
+        )
+    orientation = (units[2] - units[0]) // 2
+    p0 = units[1] / 36
+    score = np.log((1 / 9) / p0)
+    log_unit = np.log(3) / 12
+    all_fringe = np.array(
+        [arm["readers"]["quadrature"]["probabilities"] for arm in source["arms"]]
+    )
+    fringe_slope = (all_fringe[2, 0] - all_fringe[0, 0]) / 2
+    np.testing.assert_allclose(fringe_slope, np.sqrt(3) / 36, atol=3e-13)
+    total_variance = float(np.sum(p0 * (score - np.sum(p0 * score)) ** 2))
+    shots = 2**20
+    rng = np.random.default_rng(2026112226)
+    outputs = []
+    for name, enrollment in (
+        ("conditionally_prepared", [0, 2]),
+        ("independent_local_tag", [1, 1]),
+    ):
+        joint = units[enrollment] / 72
+        np.testing.assert_allclose(joint.sum(axis=0), p0, rtol=0, atol=1e-15)
+        exact_means = np.sum(2 * joint * score, axis=(1, 2))
+        difference = float(tag @ exact_means / 2)
+        within = float(np.sum(joint * (score - exact_means[:, None, None]) ** 2))
+        np.testing.assert_allclose(
+            total_variance, within + difference**2, rtol=0, atol=1e-15
+        )
+        counts = rng.multinomial(shots, joint.ravel()).reshape(2, 3, 3)
+        totals = counts.sum(axis=(1, 2))
+        means = np.sum(counts * score, axis=(1, 2)) / totals
+        measured = float(tag @ means / 2)
+        variances = np.sum(
+            counts * (score - means[:, None, None]) ** 2, axis=(1, 2)
+        ) / (totals - 1)
+        noise = float(np.sum(variances / totals) / 4)
+        # Independent tagged interference read at the calibrated native source appointment.
+        fringe = rng.multinomial(shots, (all_fringe[enrollment] / 2).ravel()).reshape(
+            2, 2
+        )
+        attempts = fringe.sum(axis=1)
+        returns = fringe[:, 0] / attempts
+        factor = log_unit / fringe_slope
+        via_fringe = float(factor * (tag @ returns) / 2)
+        fringe_se = float(
+            factor * np.sqrt(np.sum(returns * (1 - returns) / (attempts - 1))) / 2
+        )
+        outputs.append(
+            dict(
+                preparation=name,
+                word_counts_by_tag=counts.tolist(),
+                fringe_counts_by_tag=fringe.tolist(),
+                exact_orientation_correlation=float(
+                    np.sum(tag[:, None, None] * joint * orientation)
+                ),
+                observed_orientation_correlation=float(
+                    np.sum(tag[:, None, None] * counts * orientation) / shots
+                ),
+                total_score_variance=total_variance,
+                within_tag_score_variance=within,
+                between_tag_mean_variance=difference**2,
+                conditional_mean_half_difference=difference,
+                word_estimate_nats=measured,
+                word_se_nats=float(np.sqrt(noise)),
+                noise_corrected_between_tag_variance=measured**2 - noise,
+                fringe_estimate_nats=via_fringe,
+                fringe_se_nats=fringe_se,
+            )
+        )
+    tv = float(np.abs(units[[0, 2]] - units[[1, 1]]).sum() / 144)
+    return dict(
+        native_tag_seam=list(edge),
+        tag_outcomes=list(edge),
+        tag_protocol="One sharp load, native half splitter, number read, both rails parked through the supplied conditional preparation and word or fringe read.",
+        source_reference="log[(1/9)/P0] in nats from the specified calibrated reference",
+        shots_per_preparation_per_read=shots,
+        seed=2026112226,
+        comparison="Same fair occupancy tag in both preparations. Conditional source uses P- and P+; independent source uses P0 for both tag values.",
+        observable="Z times oriented word cycle, with Z = -1 on the first parked port and +1 on the other",
+        orientation=orientation.tolist(),
+        orientation_simultaneous_half_width=float(np.sqrt(2 * np.log(4e6) / shots)),
+        orientation_simultaneous_failure_probability=1e-6,
+        untagged_trace_distance=0,
+        tagged_trace_distance=tv,
+        equal_prior_optimal_tag_and_word_success=(1 + tv) / 2,
+        preparations=outputs,
+    )
+
+
 def correlated_contacts():
     """Change a two-collar history at fixed marginals and compare three local probes."""
     from scipy.linalg import expm
@@ -646,16 +754,14 @@ def correlated_contacts():
     ordered = ordered_collar_control(
         board, a, b, c, native, energies, label, splitter, inverse, shots
     )
+    clock = joint_clock_lapse(
+        board, (a, b, c), native, [(0, 1), (2, 1), (2, -1)], ordered, splitter, inverse
+    )
     return dict(
         ordered_three_levels=ordered,
-        joint_clock_lapse=joint_clock_lapse(
-            board,
-            (a, b, c),
-            native,
-            [(0, 1), (2, 1), (2, -1)],
-            ordered,
-            splitter,
-            inverse,
+        joint_clock_lapse=clock,
+        tagged_fluctuations=tagged_fluctuations(
+            board, (a, b, c), native, ordered, clock
         ),
         ports=[a, b, c],
         remote_gateway=opposite,

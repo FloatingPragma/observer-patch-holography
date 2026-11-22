@@ -607,12 +607,14 @@
           "regime": "static",
           "upstream_number": 19,
           "sources": [
-            "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L121"
+            "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L121",
+            "https://github.com/openwave-labs/openwave/blob/f8fd02b2e0d96cfa0d868259daec2c9822375d34/MODELS.md#L121",
+            "https://github.com/openwave-labs/openwave/blob/f8fd02b2e0d96cfa0d868259daec2c9822375d34/MODELS.md#L454"
           ],
           "results": {
             "interval_echo": {
               "status": "partial",
-              "note": "In a supplied uniformly filled medium a freely released excess and vacancy have zero relative load charge. A separated upper spectral band has an all-exposure lower bound of 85.47% for binding at the selected degree type on 20, 80 and 320 cells. At exposure 32 on 20 cells, 99.44% of terminal outcomes were adjacent, and in 6.83% both constituents had changed sites and were adjacent. Most motion stayed within the launch cell. An electromagnetic charge measurement and an independent inertial mass for this same excitation remain open. This test addresses OpenWave’s particle criterion. The OPH dark-sector paper assigns gravitational stress to anomalous modular charge on an overlap collar. Pair binding provides no measurement of that source. OpenWave lists OPH as untested on Row 19 at the cited revision.",
+              "note": "In a supplied uniformly filled medium a freely released excess and vacancy have zero relative load charge. A separated upper spectral band has an all-exposure lower bound of 85.47% for binding at the selected degree type on 20, 80 and 320 cells. At exposure 32 on 20 cells, 99.44% of terminal outcomes were adjacent, and in 6.83% both constituents had changed sites and were adjacent. Most motion stayed within the launch cell. An electromagnetic charge measurement and an independent inertial mass for this same excitation remain open. This test addresses OpenWave’s particle criterion. The OPH dark-sector paper assigns gravitational stress to anomalous modular charge on an overlap collar. Pair binding provides no measurement of that source. OpenWave lists OPH as untested on Row 19 at the cited revision. The official static test asks for a stable neutral massive state. It does not specify an elementary particle or a relic abundance. PATCH-10 tracks gravitational observations sourced by patch records.",
               "evidence": [
                 "model/candidate_laws/interval_echo/SPEC.md",
                 "model/candidate_laws/contrast_memory_spherical_v1/collar.py",
@@ -629,7 +631,7 @@
             },
             "contrast_memory_spherical_v1": {
               "status": "partial",
-              "note": "This candidate and Interval Echo use the same native free generator in the filled sector. In a supplied uniformly filled medium a freely released excess and vacancy have zero relative load charge. A separated upper spectral band has an all-exposure lower bound of 85.47% for binding at the selected degree type on 20, 80 and 320 cells. At exposure 32 on 20 cells, 99.44% of terminal outcomes were adjacent, and in 6.83% both constituents had changed sites and were adjacent. Most motion stayed within the launch cell. An electromagnetic charge measurement and an independent inertial mass for this same excitation remain open. This test addresses OpenWave’s particle criterion. The OPH dark-sector paper assigns gravitational stress to anomalous modular charge on an overlap collar. Pair binding provides no measurement of that source. OpenWave lists OPH as untested on Row 19 at the cited revision.",
+              "note": "This candidate and Interval Echo use the same native free generator in the filled sector. In a supplied uniformly filled medium a freely released excess and vacancy have zero relative load charge. A separated upper spectral band has an all-exposure lower bound of 85.47% for binding at the selected degree type on 20, 80 and 320 cells. At exposure 32 on 20 cells, 99.44% of terminal outcomes were adjacent, and in 6.83% both constituents had changed sites and were adjacent. Most motion stayed within the launch cell. An electromagnetic charge measurement and an independent inertial mass for this same excitation remain open. This test addresses OpenWave’s particle criterion. The OPH dark-sector paper assigns gravitational stress to anomalous modular charge on an overlap collar. Pair binding provides no measurement of that source. OpenWave lists OPH as untested on Row 19 at the cited revision. The official static test asks for a stable neutral massive state. It does not specify an elementary particle or a relic abundance. PATCH-10 tracks gravitational observations sourced by patch records.",
               "evidence": [
                 "model/candidate_laws/contrast_memory_spherical_v1/collar.py",
                 "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json",

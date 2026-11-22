@@ -321,6 +321,20 @@ this complex response. The probe reads an oriented material correlation.
 Its identification with a gravitational source requires an independent
 metric response with the same normalization as ordinary matter.
 
+The cut amplitude in the galaxy prescription is a fluctuation. Its
+choice requires an observer record. Let a physical tag $T=\pm1$ on a
+disjoint parked seam select the oriented history, and compare with a tag
+independent of the histories. Both preparations give the same untagged
+word density and the same complete score variance, $0.154671$ nats$^2$.
+The variance between conditional means, $\operatorname{Var}_T
+\mathbb E[Q\mid T]$, is $(\log(3)/12)^2=0.008382$ nats$^2$ in the
+tagged selection and zero in the control. The within-tag variance supplies
+the complementary part of the total. Local word readings give a
+between-history amplitude of $0.09156\pm0.00037$ nats. Independent
+tagged interference readings give $0.09086\pm0.00091$ nats. The
+tag and its source preparation are supplied. A physical per-cut mass
+variance requires a specified cut record and a gravitational conversion.
+
 \begin{premise}[Collar scale]
 \label{pre:scale}
 The collars carrying \(\delta\langle E_C^{(\delta)}\rangle\) are
@@ -643,7 +657,35 @@ $a_0=7.603\times10^{-11}\,\mathrm{m\,s^{-2}}$ into the compact
 photometric prediction on the 41 exterior galaxies gives a worst-ring
 lower bound of $6.25$ quoted speed errors even with the wider geometry
 bounds. This checks transfer between the two baryonic prescriptions on
-disjoint galaxies. The speed tolerance is a simultaneous Gaussian
+disjoint galaxies.
+
+\paragraph{Sensitivity to disk geometry.}
+Using the measured radial baryonic force throughout the transfer
+reduces the worst-ring lower bound to $5.49$ speed errors. The limiting
+ring is NGC~0024 at $11.27$ kpc, measured at $110.0\pm2.83$ km/s.
+The most favourable speeds in the wider geometry boxes are $92.30$ km/s
+for the compact profile and $94.47$ km/s for the local-force prescription.
+The latter admits shared per-galaxy nuisance parameters that cover all
+150 other rings within tolerance. These parameters use the exterior
+speeds in their selection. The original outer H\,I velocity is
+$109.7\pm2.0$ km/s. Its fitted inclination is $64\pm3$ degrees, whereas
+inner H$\alpha$ kinematics give $75\pm3$ degrees
+\cite{chemin24,dicaire24}. A stellar distance estimate gives
+$7.67\pm0.32$ Mpc~\cite{schombert20}. Holding $a_0$ fixed, a distance
+of $8.31$ Mpc, inclination of $78$ degrees and disk mass-to-light ratio
+of $0.6$ put the outer ring within tolerance. The central stellar
+distance and inner inclination with a ratio of $0.5$ give $91.57$ km/s.
+
+Using the TRGB distances and H$\alpha$ inclinations for every
+catalogue match (six distances and two inclinations) admits one
+parameter set per galaxy for all 151 speeds at the unchanged scale.
+The maximum discrepancy is $3.583$ quoted errors against the $3.590$
+tolerance. Substituting only distances or only inclinations leaves a
+minimum worst-ring discrepancy of at least $4.890$ or $3.783$ errors,
+respectively. The combined assignments use the tested speeds and transfer
+inner inclinations to the outer gas. Their existence diagnoses sensitivity
+to geometry. Independent validation of the anomalous force requires a
+prediction made before selecting these inputs. The speed tolerance is a simultaneous Gaussian
 marginal-error reference. The geometry boxes are sensitivity choices.
 This comparison constrains extrapolation of the compact profile to finite
 galactic radii. The source strength and the galaxy parameters in the feasible
@@ -734,6 +776,16 @@ the reported bin centres and condition on the catalogue mass scales
 and covariance. They expose tension in this particular relativistic
 extension. The finite theorem does not fix gravitational slip.
 
+One diagnostic allows an arbitrary signed compact-core coefficient
+on the six isolated bin centres. Projecting out the baryonic-acceleration
+column with the published covariance gives an outer amplitude of
+$1.730\pm0.123$ times the frozen SPARC amplitude for KiDS-bright.
+At the frozen amplitude the minimum $\chi^2$ over all compact coefficients
+is $37.06$ in five residual dimensions. If both coefficients vary, the
+minimum is $1.80$ in four residual dimensions and the fitted compact
+coefficient is negative. This tests the bin-centre and fixed-mass
+prescription. Pair weighting and baryonic geometry affect the inference.
+
 A shape test eliminates two constant normalizations. For common
 within-bin sampling across logarithmic bins, the projected density
 divided by the square root of the bin-centre acceleration must be flat
@@ -771,6 +823,29 @@ is refitted, so it is only partially paired. Independent replay and synthetic
 controls verify the subtraction, fixed observation frame, covariance algebra
 and component enumeration~\cite{ophrar}. A physical test requires a
 calibrated covariance and intrinsic-scatter likelihood.
+
+\paragraph{A matched orbit and shear prediction.}
+Let $u(R)=v_{\rm obs}^2(R)-v_{\rm bar}^2(R)$ and
+$D(R)=\Delta\Sigma_{\rm obs}(R)-\Delta\Sigma_{\rm bar}(R)$
+be the excess squared circular speed and surface-density contrast
+of the same galaxy. Suppose the excess has $\rho=A/r^2$ outside
+$R_0$, extends along the line of sight, is spherical and has negligible
+gravitational slip. For $R>R_0$, the compensating annular lens statistic
+of Baldauf et al.\ \cite{baldauf2010} and the orbital mass difference obey
+\[
+ 4G\,[R^2D(R)-R_0^2D(R_0)] = R u(R)-R_0u(R_0).
+\]
+Indeed $d(Ru)/dR=4\pi GA$, while
+$d(R^2D)/dR=-R^2\Sigma'(R)=\pi A$ since $\Sigma(R)=\pi A/R$.
+Differencing removes an arbitrary spherical mass confined inside $R_0$.
+Neither $A$ nor $a_0$ is needed for the equality. If the outer density
+cuts off sharply at $L$, then $\Sigma(R)=2A\arccos(R/L)/R$ and the
+ratio of the two sides for $(R_0,R)=(L/4,L/2)$ is $1.014799$.
+Direct numerical projection of spherical shells recovers both predictions
+with two different compact cores. The comparison requires matched physical
+radii, a common galaxy sample, measured pair weights and baryonic
+subtraction, including extended disks and gas. A particle halo with
+the same density and metric response obeys the same relation.
 
 \section{Cosmological Scaling}
 \label{sec:cosmo}
@@ -853,6 +928,28 @@ F. Lelli, S. S. McGaugh, and J. M. Schombert,
 Astron. J. 152, 157 (2016), arXiv:1606.09251.
 \url{https://arxiv.org/abs/1606.09251}. CDS/VizieR catalogue:
 \url{https://cdsarc.cds.unistra.fr/ftp/J/AJ/152/157/}
+
+\bibitem{chemin24}
+L. Chemin, C. Carignan, N. Drouin and K. C. Freeman,
+\emph{H\,I studies of the Sculptor group galaxies. VIII. The background
+galaxies NGC 24 and NGC 45}, Sect. 5.1 and Table 7.
+\url{https://arxiv.org/abs/astro-ph/0609148}.
+
+\bibitem{dicaire24}
+I. Dicaire et al., \emph{H$\alpha$ kinematics of the SINGS nearby
+galaxies survey. II}, Table 4 and Appendix A.
+\url{https://arxiv.org/abs/0801.2971}.
+
+\bibitem{schombert20}
+J. Schombert, S. McGaugh and F. Lelli, \emph{Using the Baryonic
+Tully--Fisher Relation to Measure $H_0$}, Astron. J. 160, 71 (2020),
+Table 2. \url{https://astroweb.case.edu/ssm/papers/AJv160n71.pdf}.
+
+\bibitem{baldauf2010}
+T. Baldauf, R. E. Smith, U. Seljak and R. Mandelbaum,
+\emph{Algorithm for the direct reconstruction of the dark matter correlation
+function from weak lensing and galaxy clustering}, Phys. Rev. D 81,
+063531 (2010). \url{https://arxiv.org/abs/0911.4973}.
 
 \bibitem{brouwer2021}
 M. M. Brouwer et al.,

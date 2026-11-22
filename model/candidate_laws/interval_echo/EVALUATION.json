@@ -1888,6 +1888,29 @@
       "model/experiments/interval_echo_optics/results.json",
       "model/experiments/interval_echo_optics/README.md"
      ]
+    },
+    {
+     "id": "PATCH-10",
+     "title": "Excess gravity predicted from retained patch records",
+     "requires": "Specify the cut charge and its fluctuations on physical observer records. Use the gravitational response calibrated on ordinary matter to predict excess orbital and lensing signals on independent galaxies with one source law, geometry and uncertainty model.",
+     "sources": [
+      "cosmology/oph_dark_matter_paper.pdf",
+      "code/cosmology/rar_deep_regime/README.md"
+     ],
+     "context": "This compares the macroscopic observer measurements attributed to non-luminous gravity. OW-19 assesses a stable neutral massive state.",
+     "status": "partial",
+     "note": "On two prepared histories with identical untagged collar states, the patch measures a between-history charge amplitude of 0.09156 ± 0.00037 nats using its local tag and word registers. A separate tagged interferometer gives 0.09086 ± 0.00091 nats. The unconditional variance of the word score is identical in both sources. A responsive common metric, physical cut count, variance in mass units and held orbital and shear predictions from that source require further evidence. Galaxy-level force and shear comparisons use astrophysically fitted scales.",
+     "evidence": [
+      "model/experiments/interval_echo_einstein_station/README.md",
+      "model/experiments/interval_echo_einstein_station/backreaction.json",
+      "model/experiments/interval_echo_einstein_station/volume.json",
+      "code/cosmology/rar_deep_regime/receipts/held_galaxies.json",
+      "code/cosmology/rar_deep_regime/receipts/lensing_profile.json"
+     ],
+     "demonstrated_measurement": {
+      "label": "A local record distinguishes fluctuations between retained histories",
+      "source": "model/experiments/interval_echo_einstein_station/README.md"
+     }
     }
    ]
   },
@@ -2227,10 +2250,12 @@
      "regime": "static",
      "upstream_number": 19,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L121"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L121",
+      "https://github.com/openwave-labs/openwave/blob/f8fd02b2e0d96cfa0d868259daec2c9822375d34/MODELS.md#L121",
+      "https://github.com/openwave-labs/openwave/blob/f8fd02b2e0d96cfa0d868259daec2c9822375d34/MODELS.md#L454"
      ],
      "status": "partial",
-     "note": "In a supplied uniformly filled medium a freely released excess and vacancy have zero relative load charge. A separated upper spectral band has an all-exposure lower bound of 85.47% for binding at the selected degree type on 20, 80 and 320 cells. At exposure 32 on 20 cells, 99.44% of terminal outcomes were adjacent, and in 6.83% both constituents had changed sites and were adjacent. Most motion stayed within the launch cell. An electromagnetic charge measurement and an independent inertial mass for this same excitation remain open. This test addresses OpenWave’s particle criterion. The OPH dark-sector paper assigns gravitational stress to anomalous modular charge on an overlap collar. Pair binding provides no measurement of that source. OpenWave lists OPH as untested on Row 19 at the cited revision.",
+     "note": "In a supplied uniformly filled medium a freely released excess and vacancy have zero relative load charge. A separated upper spectral band has an all-exposure lower bound of 85.47% for binding at the selected degree type on 20, 80 and 320 cells. At exposure 32 on 20 cells, 99.44% of terminal outcomes were adjacent, and in 6.83% both constituents had changed sites and were adjacent. Most motion stayed within the launch cell. An electromagnetic charge measurement and an independent inertial mass for this same excitation remain open. This test addresses OpenWave’s particle criterion. The OPH dark-sector paper assigns gravitational stress to anomalous modular charge on an overlap collar. Pair binding provides no measurement of that source. OpenWave lists OPH as untested on Row 19 at the cited revision. The official static test asks for a stable neutral massive state. It does not specify an elementary particle or a relic abundance. PATCH-10 tracks gravitational observations sourced by patch records.",
      "evidence": [
       "model/candidate_laws/interval_echo/SPEC.md",
       "model/candidate_laws/contrast_memory_spherical_v1/collar.py",
