@@ -68,7 +68,7 @@ LANES: tuple[Lane, ...] = (
          "python -W error -m pytest -q code/yang_mills/tests/test_z2_finite_transfer_receipt.py "
          "code/yang_mills/tests/test_z2_finite_transfer_verifier.py code/yang_mills/tests/test_z2_transfer_spectrum.py "
          "code/yang_mills/tests/test_z2_kogut_precision.py code/yang_mills/tests/test_z2_full_space_controls.py "
-         "code/yang_mills/tests/test_kogut_susskind_fiber_rate_instances.py",
+         "code/yang_mills/tests/test_kogut_susskind_fiber_rate_instances.py code/yang_mills/tests/test_su2_cubic_gap.py",
          "python -W error -m pytest -q code/edge_sectors tools/test_post_r2029_audit_surfaces.py", env=BLAS1),
     pytest_lane("geometry", 2, "code/geometry", env={"OPENBLAS_NUM_THREADS": "1"}),
     lane("k7_gauge_kinetic_cross", "push", "root", 1,

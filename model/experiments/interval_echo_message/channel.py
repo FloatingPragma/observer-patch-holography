@@ -80,6 +80,7 @@ REPLAY_EVALUATIONS = (
     {"model/candidate_laws/interval_echo/EVALUATION.json": "284edfcb6c696e668563c09d7134b6d644c7784ec430955c9b0cecf331589388"},
     {"model/candidate_laws/interval_echo/EVALUATION.json": "11cbdf312c1265dd8c46330d55703c2f9e54bf6bfae9e885f8f4bb500e22029a"},
     {"model/candidate_laws/interval_echo/EVALUATION.json": "bed52a6bf26421a12a2e424c36270000febf3bfa09b10e9f7490a597b4ebabc0"},
+    {"model/candidate_laws/interval_echo/EVALUATION.json": "f5e5a7c4dd57c9ec39ebd26f56299708bb6788f8a2fbcfeb6ee4dcddf495f12e"},
 )
 
 

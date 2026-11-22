@@ -71,6 +71,69 @@ The zero private Fourier order has a massless wave equation in the flat 3+1D lim
 2. **Local quantum fields and their state.** Specify local operator insertions that observers can prepare and read, including how their normalization changes with refinement. In one common state recover convergent two- and four-point functions, positivity and spacelike locality. Control finite-volume and finite-band errors. The periodic chart admits a local flat-space comparison, while global conformal transformations need a compatible choice of domain. [Regional field-theory requirements](../../../docs/registers/OBSERVATION_LEDGER_V3.md)
 3. **Conformal symmetry and interactions.** Establish a scale-independent limit with conformal Ward identities, including an appropriately improved conserved stress tensor with vanishing flat-space trace at separated points. Extract scaling dimensions and operator-product coefficients from one set of measurements and use them to predict held four-point configurations in different channels. For an elementary candidate scalar with zero mean, compare its four-point function with the sum of the three pairwise products measured in the same state. A reproducible discrepancy that survives refinement rejects that Gaussian description. Conformal covariance, crossing and evidence distinguishing the theory from free-field composites are separate checks. [Conformal Ward identities and crossing](https://arxiv.org/abs/1602.07982)
 
+### What local correlations were measured?
+
+Pool the eight equally sampled scalar launches and mark four different stations in the one-period position read. The connected fourth moment is −0.00146312. The categorical identity for these exclusive flags is exactly $-6p_1p_2p_3p_4$ for any station probabilities. The same result holds for the shift-only population because it has the same one-period law. The statistic isolates a detector constraint here. [Protocol](correlation_protocol.json) · [Counts and moments](local_correlations.json)
+
+The free pair supplies a different experiment under the existing law. Release the same sharp pair, then read the 30 home seams and the quiet outcome after four native time units. Each of ports 0–3 receives a mark if it belongs to the reported seam. Quiet marks no ports. These are four functions of one patch detector read. Each arm includes all 16,384 trials. The connected fourth moment subtracts all three products of centered two-point functions.
+
+| Cells | Native contact, counts | Exchange only, counts | Native contact, forward probability | Exchange only, forward probability |
+| ---: | ---: | ---: | ---: | ---: |
+| 20 | −0.009655 | −0.00000433 | −0.0095330 | −0.00000463 |
+| 80 | −0.009393 | −0.00000790 | −0.0095326 | −0.00000588 |
+
+Removing the contrast interaction changes the four-port correlation on both boards. The released pair and the programmed scalar use different preparations. To establish an interacting conformal field intrinsic to the chart, observers need local field insertions in one common vacuum whose connected responses survive refinement and satisfy conformal covariance. [Full-sector evolution and record analysis](local_correlations.py) · [Interacting four-dimensional comparison](../../benchmarks/conformal_correlator/README.md)
+
+### Do two excitations of the same scalar interact?
+
+Keep the marker isolated and launch two equal-slot, private-order-zero packets on different stations of the same 20-cell instrument. The third load is the stationary marker. The data calculation conditions on the two normalized packets. It does not measure a three-load emitter yield. After each of the twelve periods the readout resolves the unordered pair of occupied spatial stations. Two mobile loads can occupy one station on different slots. A marker query routed to a nominated mobile port reads its occupation, and undoing the swaps restores the configuration on each branch. The final commuting occupation queries give the stated joint readout. Outside-chart and clock-alarm outcomes remain on the denominator. [Experiment and inputs](two_scalar_protocol.json) · [Full pair-sector propagation](two_scalar.py)
+
+On a binary seam the native exchange generator is $(I-\mathrm{SWAP})/2$. Writing $b_a$ for the hard-core lowering operator, this equals $(n_a+n_b-b_a^\dagger b_b-b_b^\dagger b_a)/2-n_an_b$. At the enrolled quarter and full pulse durations the additional native contrast at $\kappa=8$ has the same unitary as zero contrast on all four binary configurations. For the contact control add $+n_an_b$ during the quarter pulse. This changes only the phase of a doubly occupied seam. Every singleton pulse, hard-core constraint, full routing swap, preparation and clock is identical. A second comparison evolves two symmetrized, unrestricted bosons by the measured one-excitation word. It retains double occupations and uses one common stopping clock.
+
+| Launch | Clock reading | Total variation from contact control | Total variation from free bosons |
+| --- | ---: | ---: | ---: |
+| Adjacent stations | 1 | 0.005578 | 0.007982 |
+| Adjacent stations | 2 | 0.013147 | 0.020713 |
+| Adjacent stations | 3 | 0.013609 | 0.022083 |
+| Opposite stations | 1 | 0.001825 | 0.002359 |
+| Opposite stations | 2 | 0.005706 | 0.007622 |
+| Opposite stations | 3 | 0.007768 | 0.010319 |
+
+These are differences of complete simulated population distributions conditional on launch. The three arms agree through one period for both launches. The contact control first differs at period two for adjacent launches and period three for opposite launches. The observed finite interaction comes from the exchange pulse acting on two occupied slots. [All period and clock probabilities](two_scalar.json)
+
+**Refinement bound.** Let the chart be a periodic cube with $N^3$ spatial stations, mesh and period duration $h=1/N$. Let each particle's spatial momentum lie in a set of $M$ modes independent of $N$. The coin and the conditional shift preserve this band in the free one-particle word. Private orders and coin polarizations can be retained as internal indices. Denote the symmetrized free two-particle step by $F$ and the physical two-mobile step by $V$ on the hard-core sector. Embed both in the two-boson space. Extend the hard-core coin unitarily on the double-slot complement within each address, then apply the common slot permutation. This extension preserves the physical hard-core evolution.
+
+For particles at distinct logical addresses every pulse in a coin block acts on at most one mobile load, and the routes are exact conjugations by full swaps. Thus $V=F$ on inputs at distinct spatial stations for one period. If $P$ tests coincident spatial stations, then $\|(V-F)\psi\|\le2\|P\psi\|$. For any normalized band-limited two-particle state, point evaluation in the first coordinate at a specified site has squared norm at most $M/N^3$ by Cauchy–Schwarz in its unitary Fourier transform. Evaluate that coordinate at the second particle's site and sum over all second sites and internal indices. This proves $\|P F^j\psi\|\le\sqrt{M/N^3}$, also for entangled packet inputs in the stated band. Telescoping gives
+
+$$
+\|V^n\psi-F^n\psi\|\le 2n\sqrt{M/N^3}.
+$$
+
+To start in the normalized hard-core projection of $\psi$, add at most $\sqrt{2M/N^3}$ to this norm bound whenever that projection has nonzero norm. The discarded double-slot probability is at most $M/N^3$. At bounded physical time $n/N$ the total norm and any resulting detector's probability difference tend to zero at least as fast as $N^{-1/2}$. For an independent stopped clock, averaging the bound uses its mean period count, also of order $N$ at bounded physical time. Sharp station launches in the table have bandwidth growing with refinement. The bound applies to every unitary change confined to a common logical address per period, however strong its contact phase.
+
+A continuum interacting theory could use a collective field in a many-load critical state, or a dynamical field that carries an interaction between separated stations. Both require an instrument identifying local field insertions and their state on the same refining chart. A decisive observable is a connected four-point function divided by two measured two-point functions at fixed separated physical configurations, compared with the matched free-field and free-composite predictions. A reproducible nonzero limit and conformal identities are distinct requirements. An exactly dimension-one scalar primary in a unitary four-dimensional conformal field theory saturates the unitarity bound and generates a free scalar sector. [Scalar unitarity bound and null descendant](https://arxiv.org/html/1602.07982#S7.SS3.SSS1)
+
+~~~sh
+OPENBLAS_NUM_THREADS=1 python -m model.experiments.seam_program.two_scalar --output /tmp/echo-two-scalar.json
+~~~
+
+### A free quantum field on the programmed chart
+
+Canonical oscillator quantization of the positive-frequency branch at private order zero supplies a Gaussian vacuum. Fix the spatial average to zero on each periodic box of side $\ell$. For time separation $\tau>0$ its two-point function is $\ell^{-3}\sum_{k\ne0}\cos(k\cdot x)e^{-\tau\omega_h(k)}/(2\omega_h(k))$, with $\omega_h(k)=E(hk,0)/h$ from the compiled word. In the infinite-volume, zero-mesh limit it is
+
+$$
+G(\tau,x)=\frac{1}{4\pi^2 c(|x|^2+c^2\tau^2)},\qquad c=1/2 .
+$$
+
+At fixed mesh the decompactified sum is the Brillouin-zone integral. The omitted zero-mode cell contributes order $\ell^{-2}$ at fixed $\tau$. Throughout the zone $\omega_h(k)\ge |k|/\pi$ by the sine and arcsine bounds. This gives an integrable bound proportional to $e^{-\tau|k|/\pi}/|k|$. Pointwise dispersion convergence and dominated convergence then give the displayed Fourier integral. Wick's rule gives the four-point function and all its conformal weights in this supplied vacuum.
+
+At mesh 1/8, doubling the box side from 24 to 48 reduced the largest error over the six two-point measurements from 11.57% to 3.31%. The four-point error fell from 8.97% to 2.39%. Refining the mesh alone slightly increased the errors against infinite volume in both boxes. The oscillator vacuum and its field insertions are additional inputs to this comparison. The actual observer measurements above use the patch detector. [All four regulator settings](scalar_vacuum.json) · [Finite-mode evaluator](scalar_vacuum.py)
+
+~~~sh
+python -m model.experiments.seam_program.local_correlations --output /tmp/echo-local-correlations.json
+python -m model.experiments.seam_program.scalar_vacuum --output /tmp/echo-scalar-vacuum.json
+~~~
+
 ## Free release on the same source
 
 The autonomous four-port path illustrates why finite-wavelength agreement does not settle refinement. Its exact centered middle-band angular frequency has rest value $m_0=\sqrt{a^2+v^2}-a>0$ and squared-frequency curvature $c_0^2=a^3/(4\sqrt{a^2+v^2})$, with native $a=v=\kappa/2$. At cell spacing $h$ and time unit $\Delta t$, these become $m_0/\Delta t$ and speed $c_0h/\Delta t$. No common choice of time unit keeps both finite and positive as $h\to0$ with this cell fixed. Removing the rest phase gives $\omega(hp)-m_0=(c_0^2/2m_0)h^2p^2+O(h^4p^4)$, a Schrödinger envelope at time scale $h^2$. This statement concerns repetition of the same bulk cell, and preserves the finite path's measured band and clock comparison. In the programmed scalar register the phase per period vanishes through growing $P$. [Bulk matrix and native couplings](../../candidate_laws/interval_echo/openwave/row_30_autonomous/channel.py)
