@@ -18,6 +18,10 @@ With priority A, prepare one double in a superposition of the left and middle po
 
 The active observer occupies two cells. Other contacts are idle during service. The controller buffers both requests, with the stored priority, blank collars, finite window and phase-reference apparatus supplied. The endpoint excludes chronological attempt logs. The calculation certifies one intercell incidence, one total-load sector and a prepared priority. General convergence, arbitrary arrival with missing requests, and confluence of the clock’s transactions require separate arguments.
 
+## Does a local parity comparison fix the seam energy?
+
+Two loads placed using independently sampled addresses or the endpoints of a fair repair walk supply a local memory reference. One patch reads both signs of each contrast after emptying the measured ports. With independent addresses, the magnitude-one readings imply coupling 2.35050, and the magnitude-two even population exceeds its prediction by a factor of 6.63255. For the correlated source, a finite transfer inequality gives a factor of at least 5.5296 at every walk length with a calibration signal. Choosing the sharp walk length independently at random preserves the bound. A simultaneous coherent flight stopped at the first resolved neighbor-arrival peak gives a factor of 75.71450. For every rotation-invariant two-address source on this cell, the five equally probable neighbors bound the inferred coupling. With this parity filter, passing the held population test requires an inferred coupling of at most 2.47463. Sampling the seam independently and uniformly also bounds every coherent two-load state on the cell. With the same parity service, at least 11.3192% of accepted readings have nonzero contrast, while a five-mode state at β = ln 2 and κ = 8 requires 0.5825%. [Derivation and native replay](collar_reference.py) · [Complete outcomes](collar_reference.json)
+
 ## Reproduce
 
 From the RER repository root, run:
@@ -25,5 +29,6 @@ From the RER repository root, run:
 ```sh
 python -m model.experiments.interval_echo_consensus
 python -m model.experiments.interval_echo_consensus.phase
+python -m model.experiments.interval_echo_consensus.collar_reference
 python -m pytest -q model/experiments/interval_echo_consensus
 ```

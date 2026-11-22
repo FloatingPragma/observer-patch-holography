@@ -9,3 +9,15 @@ def test_sharp_quotient_and_unguarded_fork():
     assert result["joined_one_step_peaks"] == 284
     assert result["guarded_endpoint"] in result["unguarded_endpoints"]
     assert result["unguarded_endpoints"][0][1] != result["unguarded_endpoints"][1][1]
+
+
+def test_complete_coherent_sweep_and_joint_phase():
+    from .coherent_sweep import run
+
+    result = run()
+    assert result["legal_orders"] == 5
+    assert result["changed_by_unguarded_reverse"] == 192
+    assert {b["visit_layers"] for b in result["board_depths"]} == {12}
+    assert result["phase"]["plus_joint"] == [0., .5, .5, 0.]
+    assert result["phase"]["minus_joint"] == [.5, 0., 0., .5]
+    assert result["phase"]["premature_probe_joint"] == [.25] * 4

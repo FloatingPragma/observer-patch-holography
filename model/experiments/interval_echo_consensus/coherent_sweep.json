@@ -1,0 +1,95 @@
+{
+  "board_depths": [
+    {
+      "cells": 20,
+      "seams": 630,
+      "visit_layers": 12,
+      "maximum_incident_predecessors": 9
+    },
+    {
+      "cells": 80,
+      "seams": 2520,
+      "visit_layers": 12,
+      "maximum_incident_predecessors": 9
+    },
+    {
+      "cells": 320,
+      "seams": 10080,
+      "visit_layers": 12,
+      "maximum_incident_predecessors": 9
+    }
+  ],
+  "path": [
+    0,
+    1,
+    82,
+    72,
+    73
+  ],
+  "seams": [
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      82
+    ],
+    [
+      72,
+      73
+    ],
+    [
+      72,
+      82
+    ]
+  ],
+  "legal_orders": 5,
+  "input_flag_and_load_words": 3888,
+  "transcript_classes": 60,
+  "changed_by_unguarded_reverse": 192,
+  "phase": {
+    "written_edges": [
+      [
+        1,
+        82
+      ],
+      [
+        72,
+        73
+      ]
+    ],
+    "vacancy_ports": [
+      5,
+      77
+    ],
+    "premature_seam": [
+      0,
+      1
+    ],
+    "common_transcript": [
+      "quiet",
+      "write",
+      "write",
+      "quiet"
+    ],
+    "plus_joint": [
+      0.0,
+      0.5,
+      0.5,
+      0.0
+    ],
+    "minus_joint": [
+      0.5,
+      0.0,
+      0.0,
+      0.5
+    ],
+    "premature_probe_joint": [
+      0.25,
+      0.25,
+      0.25,
+      0.25
+    ]
+  }
+}

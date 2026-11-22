@@ -32,6 +32,7 @@ SOURCES = (
     "model/candidate_laws/contrast_memory_spherical_v1/common.py",
     "model/candidate_laws/contrast_memory_spherical_v1/collar.py",
     "model/candidate_laws/contrast_memory_spherical_v1/PROOF.md",
+    "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json",
     "model/candidate_laws/contrast_memory_spherical_v1/SPEC.md",
     "model/candidate_laws/interval_echo/__init__.py",
     "model/candidate_laws/interval_echo/candidate.py",

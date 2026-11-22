@@ -2,9 +2,10 @@
 
 The main candidate law of the [executable model](../model/README.md) is
 [Interval Echo](../model/candidate_laws/interval_echo/README.md). It runs the contrast-memory law, a simple
-local rule by which neighbouring observers settle their disagreements, and gives each observer patch a clock
-that travels with it: at a reunion the traveller's clock lags the resting one by the factor of special
-relativity. The contrast-memory law alone is the reference candidate, A-contrast-memory-spherical-v1, and the
+local rule by which neighbouring observers settle their disagreements. A finite observer patch carries a
+material clock. On calibrated reciprocal journeys, its elapsed count at reunion agrees with the
+special-relativistic rate within the stated precision. The contrast-memory law alone is the reference
+candidate, A-contrast-memory-spherical-v1, and the
 [scalar channel](../model/candidate_laws/scalar_channel/README.md) is a further candidate on the same carrier.
 The executable observer is a candidate and may change as the research goes on.
 The hypothesis is
@@ -15,15 +16,14 @@ our Universe. The [specification](../model/candidate_laws/interval_echo/SPEC.md)
 [executable-model paper](../paper/executable_observer_construction.pdf)
 state the laws and what their observers read.
 
-The theory around the model is finished. The model reproduces particle
-stability: bound objects persist in free evolution, read on the observers'
-agreed records. Under the scalar channel an object on four seams is kept for
+The model produces a bound pair that persists in free evolution and can be
+detected on the observers' agreed records. Under the scalar channel an object on four seams is kept for
 every interval and carries a prepared clock, which an observer reads from
 counts in units of its own reference. The couplings are supplied. The other
 observables of the theory on this model are work in progress.
 
-The outputs of the model meet the premises of finite theorems of the theory
-as they stand. Its cell is the twelve-port carrier whose slow response has
+The following outputs meet specific premises of the finite theorems.
+Its cell is the twelve-port carrier whose slow response has
 rank three, and one load of its law moves on that response. Its write is the
 seam rule that four requirements single out. Its readers are complete
 instruments with orthogonal projectors, its reading of the presence of a
@@ -85,7 +85,7 @@ after a pulse its seam record swings at the difference of its two levels
 
 ### Supplied
 
-- the coupling `kappa`;
+- the coupling `kappa`. A patch can measure its supplied value of 8 on an empty seam. With the tested parity readout, any rotation-invariant distribution of two launch addresses on one cell excludes 8 as the coupling inferred from a thermal reference. [Memory-reference test](../model/experiments/interval_echo_consensus/README.md)
 - the coherent generator on the private seam memory;
 - the reference registers of the degree term on ports with five seams;
 - the emitter with its fuel, coupling and duration, and the reader;
@@ -123,10 +123,10 @@ progress.
 
 | Observable | What the model has to supply |
 | --- | --- |
-| Clocks and energy | An observer clock normalized to proper time, from each port observer's own count of events, and a clock that starts with no supplied phase. |
+| Clocks and energy | Proper-time normalization from each finite patch’s own retained events across general observer motion, and a clock that starts with no supplied phase. |
 | Interacting fields | A record of currents that later events read, and the twelve port currents from the law's own services on the bound object. |
 | Particles | A selection of the couplings, the class of an object as a record, one limiting speed for all objects, and one law that carries the objects of both candidate laws, moving and interacting. |
-| Gravity | A refinement map that preserves seams, and the regional response that the Einstein theorem consumes. |
+| Gravity | A patch union has an additive material energy and a measurable boundary flux. The Einstein comparison also requires a common metric, momentum transport and matched entropy, area and stress under refinement. [Regional continuity experiment](../model/experiments/interval_echo_null_balance/README.md) |
 | Independent comparison | Complete joint observations and interventions, input ancestry, uncertainties and rejection criteria compared with independent measurements. |
 
 These requirements are conjunctive. An exact identity, a finite transition,

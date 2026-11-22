@@ -115,9 +115,9 @@ Sources · [SPEC.md](../candidate_laws/interval_echo/SPEC.md) · [recovering_obs
 
 ## OpenWave empirical criteria
 
-Assess the 31 OpenWave physical targets on each of the three RER candidate laws. The criterion number follows upstream row order. A partial entry names the finite measurement and the missing step to the physical target. These local assessments are independent of the upstream M10 column, which evaluates a different candidate.
+Assess the 31 OpenWave physical targets locally on all three RER laws. The public M10 column at the cited revision pins Interval Echo. OpenWave partially validated Row 4 and marked the other 30 rows as not yet tested. Each RER grade describes the measurement and scope named in its entry.
 
-Sources · [MODELS.md L94-L137](https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L94-L137) · [MODELS.md L426-L430](https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L426-L430)
+Sources · [MODELS.md L94-L137](https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L94-L137) · [MODELS.md L426-L438](https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L426-L438)
 
 **Interval Echo** · 1 demonstrated, 6 partial, 24 open of 31.
 

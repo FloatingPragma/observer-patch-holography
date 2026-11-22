@@ -38,7 +38,13 @@ def response(car):
     return generator(car).toarray()
 
 PARAMETERS = {
-    "kappa": contrast.PARAMETERS["kappa"],
+    "kappa": {**contrast.PARAMETERS["kappa"],
+              "source": "../../experiments/interval_echo_consensus/collar_reference.py",
+              "note": "The specification supplies 8 in exchange units. The earlier search compared pair "
+                      "persistence across strengths. An empty-seam reading predicts channel frequencies "
+                      "at this setting. With the tested local parity filter, any rotation-invariant "
+                      "distribution of two launch addresses on one twelve-port cell that passes the "
+                      "held magnitude-two population test can infer at most 2.47463."},
     "age_bits": {"value": 3, "provenance": "designed", "quantity": "moving interval register width",
                  "note": "the reference replay uses three bits, the baseline comparison four, and the clock-trip precision profile five"},
     "precision_age_bits": {"value": 5, "provenance": "designed", "quantity": "interval width on clock-trip entry",
@@ -62,11 +68,15 @@ PARAMETERS = {
 
 PREMISES = {
     "PR-01": {"status": "partial", "evidence": ["CONSENSUS.md", "consensus.py", "consensus.json",
-                                                "../../experiments/interval_echo_consensus/phase.json"],
+                                                "../../experiments/interval_echo_consensus/phase.json",
+                                                "../../experiments/interval_echo_consensus/ASYNCHRONOUS.md",
+                                                "../../experiments/interval_echo_consensus/coherent_sweep.json"],
               "note": "Two freely ordered strict writes can end in distinguishable terminal seam records. "
                       "The strict contrast guard and stored priority give identical material endpoint channels on the "
                       "six-dimensional intercell two-unit input. The priority service preserves relative phase within "
-                      "one accepted address. General schedules and coupled clock transactions remain open."},
+                      "one accepted address. A protected sweep with stored local precedences preserves the "
+                      "full addressed coherent instrument under every legal schedule, including untouched "
+                      "entangled references. Interleaved free and clock transactions remain open."},
     "PR-43": {"status": "fulfilled", "evidence": ["SPEC.md", "../contrast_memory_spherical_v1/law.py"],
               "note": "The supplied free Hamiltonian generates a continuous group of conjugations on "
                       "the finite matrix algebra. Clock measurement and conditional services are separate "
@@ -74,9 +84,13 @@ PREMISES = {
     "PR-44": {"status": "partial", "evidence": ["SPEC.md", "clock.py"],
               "note": "Port and seam registers and the addressed patch give finite subsystems. "
                       "The routing and cadence are supplied."},
-    "PR-02": {"status": "partial", "evidence": ["SPEC.md", "clock.py"],
-              "note": "Local pointer branches have normalized weights on the declared preparations. "
-                      "The quantum state and measurement representation is supplied."},
+    "PR-02": {"status": "partial", "evidence": ["SPEC.md", "clock.py",
+                                                "../../experiments/interval_echo_consensus/coherent_sweep.json",
+                                                "../../experiments/interval_echo_consensus/collar_reference.json"],
+              "note": "Local pointer branches give normalized public outcome partitions. Addressed joint "
+                      "collar parity separates coherent preparations with identical single-collar margins. "
+                      "The collar comparison retains its bypass and rejected records. The quantum state "
+                      "and measurement representation are supplied."},
     "PR-54": {"status": "partial", "evidence": ["CURRENTS.md", "currents.json", "prior_calibration.json"],
               "note": "A declared family of twelve closed current operators acts measurably on the native bound "
                       "pair. Its completeness and a source-selected physical connection, field strength and "
@@ -101,10 +115,14 @@ JOINT = {
     },
     "einstein-together": {
         "status": "partial",
-        "evidence": ["prior_calibration.json"],
-        "note": "The earlier matched pair experiment diagnoses how regional modular energy changes during "
-                "propagation under opposite current pulses. The reference is a supplied thermal state. "
-                "Geometric cap normalization, directional matter stress and independent conservation remain open.",
+        "evidence": ["prior_calibration.json", "../../experiments/interval_echo_einstein_station/PAIR.md",
+                     "../../experiments/interval_echo_einstein_station/pair.json",
+                     "../../experiments/interval_echo_null_balance/interval.json",
+                     "../../experiments/interval_echo_null_balance/regional.json"],
+        "note": "The frozen free dynamics conserve additive regional scalar energy through local cut currents. "
+                "A distinct three-cell experiment resolves the measured balance. On the same serviced pair "
+                "the reference modular meter calibrated at one port predicts the wrong sign at a held port. "
+                "Geometric cap normalization, directional matter stress and covariant conservation remain open.",
     },
 }
 

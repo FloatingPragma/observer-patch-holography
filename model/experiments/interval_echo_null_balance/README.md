@@ -30,10 +30,24 @@ The fresh interval ran from 1.125 to 1.375 after a positive port-nine pulse. Use
 
 The two directions here are physical intercell contacts. They have no independently measured null vectors or pressures attached. A covariant matter Ward identity on the reconstructed observer geometry, common cap normalization, and curvature measured on the same state remain open. The earlier angular counterexample to identifying gauge currents directly with null stress still applies. [Einstein hypotheses G1–G6](../../../paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex) · [Earlier angular test](../../../../LAW/current-interval-clock/theorem-calibration/search/ledger/README.md)
 
-From the RER root the following commands replay the two measurements and test the operator, meter and archive controls.
+## Additive regional energy on the free sphere
+
+On the complete spherical federation a patch can predict its energy uptake from the boundaries it shares with other patches. Define $A_i$ as the sum of the internal seam and degree-reference energies of cell $i$. Assign half of each external contact energy $h_{ij}$ to each owner. This linear allocation is symmetric under exchanging the owners and counts their common energy once. The assigned energy is $Q_i=A_i+\tfrac12\sum_jh_{ij}$. The interiors of distinct cells commute, and the external contacts have disjoint port supports. Expanding the commutator with the free Hamiltonian gives
+
+$$
+\frac{d Q_i}{dt}=\sum_j J_{j\to i},\qquad
+J_{j\to i}=\frac{i}{2}[h_{ij},A_i-A_j]=-J_{i\to j}.
+$$
+
+Both sides are in the Heisenberg picture at the same exposure. Summing over any union of cells cancels every interior current and counts each interior contact in full. This operator identity applies to arbitrary states of the local free Hamiltonian on every equipped federation. In the binary sector each directed current is half the difference of two physical responses. Expose the shared contact and independently read each owner's internal and reference energies at the 19 forward angles above. A sharp patch word counts the occupied degree-five reference ports. Separate antisymmetric-port interrogations supply the exchange contribution. Reading a boundary contact includes the shared endpoint pair in the instrument's aperture. Source preparation, isolated interrogation and appointment exposure are supplied.
+
+On the 20-cell sphere all 630 contacts and 180 degree references act throughout free flight. The identity agrees entry by entry on all 28,680 configurations with two distinct occupied ports for cell 0, cell 6 and their union. Across two current-pulsed preparations and two appointments the boundary predictions agreed with 12 uninterrupted regional slopes to $2.7\times10^{-8}$ native energy units per exposure. At exposure 3/8 after the positive port-zero pulse the two cell predictions were +0.973951 and −1.399897. The independent union reading gave −0.425946. Omitting the first boundary current gave a maximum discrepancy of 1.55871. Omitting the allocated contact storage gave 2.88367. These comparisons use finite detector outcome probabilities. The conserved regional quantity is scalar energy in native exposure units. A covariant stress identity additionally needs momentum transport and a matched observer metric. [Measurement design](PROTOCOL.md#regional-energy-on-the-free-federation) · [Complete boundary readings](regional.json) · [Full-sphere replay](regional.py)
+
+From the RER root run the measurements and their operator and detector checks:
 
 ```sh
 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -m model.experiments.interval_echo_null_balance
 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -m model.experiments.interval_echo_null_balance.interval
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -m model.experiments.interval_echo_null_balance.regional
 python -m pytest -q model/experiments/interval_echo_null_balance
 ```

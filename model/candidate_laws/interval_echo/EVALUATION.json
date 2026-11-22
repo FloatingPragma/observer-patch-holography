@@ -9,7 +9,8 @@
    "value": 8.0,
    "provenance": "designed",
    "quantity": "agreement energy in units of the exchange",
-   "note": "tested at 0 to 128; the headline values are 8 and 128"
+   "note": "The specification supplies 8 in exchange units. The earlier search compared pair persistence across strengths. An empty-seam reading predicts channel frequencies at this setting. With the tested local parity filter, any rotation-invariant distribution of two launch addresses on one twelve-port cell that passes the held magnitude-two population test can infer at most 2.47463.",
+   "source": "../../experiments/interval_echo_consensus/collar_reference.py"
   },
   "age_bits": {
    "value": 3,
@@ -112,9 +113,13 @@
    "requirement": "The stress that observers infer from modular flow is the stress carried by the excitations that propagate and interact under the law.",
    "status": "partial",
    "evidence": [
-    "prior_calibration.json"
+    "prior_calibration.json",
+    "../../experiments/interval_echo_einstein_station/PAIR.md",
+    "../../experiments/interval_echo_einstein_station/pair.json",
+    "../../experiments/interval_echo_null_balance/interval.json",
+    "../../experiments/interval_echo_null_balance/regional.json"
    ],
-   "note": "The earlier matched pair experiment diagnoses how regional modular energy changes during propagation under opposite current pulses. The reference is a supplied thermal state. Geometric cap normalization, directional matter stress and independent conservation remain open."
+   "note": "The frozen free dynamics conserve additive regional scalar energy through local cut currents. A distinct three-cell experiment resolves the measured balance. On the same serviced pair the reference modular meter calibrated at one port predicts the wrong sign at a held port. Geometric cap normalization, directional matter stress and covariant conservation remain open."
   },
   "matter-together": {
    "requirement": "Gauge currents act on those excitations through the law's operations; detector, generator, clock and currents refer to the same object.",
@@ -177,9 +182,11 @@
     "CONSENSUS.md",
     "consensus.py",
     "consensus.json",
-    "../../experiments/interval_echo_consensus/phase.json"
+    "../../experiments/interval_echo_consensus/phase.json",
+    "../../experiments/interval_echo_consensus/ASYNCHRONOUS.md",
+    "../../experiments/interval_echo_consensus/coherent_sweep.json"
    ],
-   "note": "Two freely ordered strict writes can end in distinguishable terminal seam records. The strict contrast guard and stored priority give identical material endpoint channels on the six-dimensional intercell two-unit input. The priority service preserves relative phase within one accepted address. General schedules and coupled clock transactions remain open."
+   "note": "Two freely ordered strict writes can end in distinguishable terminal seam records. The strict contrast guard and stored priority give identical material endpoint channels on the six-dimensional intercell two-unit input. The priority service preserves relative phase within one accepted address. A protected sweep with stored local precedences preserves the full addressed coherent instrument under every legal schedule, including untouched entangled references. Interleaved free and clock transactions remain open."
   },
   {
    "id": "PR-02",
@@ -190,9 +197,11 @@
    "status": "partial",
    "evidence": [
     "SPEC.md",
-    "clock.py"
+    "clock.py",
+    "../../experiments/interval_echo_consensus/coherent_sweep.json",
+    "../../experiments/interval_echo_consensus/collar_reference.json"
    ],
-   "note": "Local pointer branches have normalized weights on the declared preparations. The quantum state and measurement representation is supplied."
+   "note": "Local pointer branches give normalized public outcome partitions. Addressed joint collar parity separates coherent preparations with identical single-collar margins. The collar comparison retains its bypass and rejected records. The quantum state and measurement representation are supplied."
   },
   {
    "id": "PR-03",
@@ -1213,7 +1222,7 @@
       "PR-01"
      ],
      "status": "partial",
-     "note": "For the optional asynchronous sharp service, occupied and ready edge flags determine a unique consistent normal form on any equipped finite screen. An exhaustive intercell path checked 19,683 material states and all 284 one-step forks. Forward, reverse and shuffled service agreed on nine whole-screen preparations. The supplied priority changes physical endpoints when reversed. Coherent and clock transactions still need a common joining and descent argument.",
+     "note": "Occupied and ready flags determine the consistent asynchronous sharp endpoint. All 284 one-step forks on 19,683 path states join. For one protected coherent sweep, stored local priorities order conflicting visits. Disjoint visits commute, giving exactly the same full addressed instrument for every legal schedule, including arbitrary untouched references. Five legal schedules agree on 3,888 path inputs. Removing precedence changes 192 endpoints. Unrestricted interleaving with clocks and free evolution still lacks a common descent and joining proof.",
      "evidence": [
       "model/candidate_laws/interval_echo/consensus.json",
       "model/candidate_laws/interval_echo/CONSENSUS.md",
@@ -1221,7 +1230,9 @@
       "model/experiments/interval_echo_consensus/phase.json",
       "model/experiments/interval_echo_consensus/README.md",
       "model/experiments/interval_echo_consensus/ASYNCHRONOUS.md",
-      "model/experiments/interval_echo_consensus/asynchronous.json"
+      "model/experiments/interval_echo_consensus/asynchronous.json",
+      "model/experiments/interval_echo_consensus/coherent_sweep.py",
+      "model/experiments/interval_echo_consensus/coherent_sweep.json"
      ]
     },
     {
@@ -1259,10 +1270,12 @@
       "PR-65"
      ],
      "status": "partial",
-     "note": "Complete sharp measurements and local fair-sign branches have normalized operational tables. The circuit uses the quantum instrument rule for these branches; a derivation for the entire event grammar remains open.",
+     "note": "Complete sharp instruments and fair-sign branches give normalized additive public event weights on the declared menus. Two separated accepted collars have fair single-sign marginals. The addressed joint parity distinguishes two coherent preparations with even probabilities 0 and 1, both becoming 1/2 after a premature local sign reading. The calculation uses the supplied quantum state and instrument. A derivation for the entire event grammar remains open.",
      "evidence": [
       "model/candidate_laws/interval_echo/clock.py",
-      "model/candidate_laws/interval_echo/projection.json"
+      "model/candidate_laws/interval_echo/projection.json",
+      "model/experiments/interval_echo_consensus/ASYNCHRONOUS.md",
+      "model/experiments/interval_echo_consensus/coherent_sweep.json"
      ]
     },
     {
@@ -1400,12 +1413,14 @@
       "PR-28"
      ],
      "status": "partial",
-     "note": "The full 630-state serviced two-load sector satisfies scalar patch-energy continuity. Independently measured fluxes through two physical gateways reproduce the held regional energy change within 0.0017 ± 0.0084 native energy units (one standard error). Omitting one gateway leaves a 20.5-standard-error discrepancy. Momentum flux, the spacetime metric and the covariant stress identity remain open.",
+     "note": "Assigning each complete cell its internal and reference energy and half its external seam energy gives an exact additive scalar Ward identity for any union of complete cells on the freely evolving federation. Internal currents cancel. Across 12 comparisons (three regions, two preparations and two exposures) on the intact 20-cell screen the largest discrepancy between the instantaneous energy slope and the cut currents is 2.7×10⁻⁸ in native units. Removing a cut current leaves a discrepancy up to 1.56. A separate three-cell finite-count test gave 0.0017 ± 0.0084 and a 20.5-standard-error omitted-gateway control. Momentum flux and covariant spacetime stress on the G1 domain remain open.",
      "evidence": [
       "model/candidate_laws/interval_echo/CURRENTS.md",
       "model/experiments/interval_echo_null_balance/README.md",
       "model/experiments/interval_echo_null_balance/interval.json",
-      "model/experiments/interval_echo_null_balance/results.json"
+      "model/experiments/interval_echo_null_balance/results.json",
+      "model/experiments/interval_echo_null_balance/regional.py",
+      "model/experiments/interval_echo_null_balance/regional.json"
      ]
     },
     {
@@ -1833,12 +1848,12 @@
   {
    "id": "openwave",
    "title": "OpenWave empirical criteria",
-   "purpose": "Assess the 31 OpenWave physical targets on each of the three RER candidate laws. The criterion number follows upstream row order. A partial entry names the finite measurement and the missing step to the physical target. These local assessments are independent of the upstream M10 column, which evaluates a different candidate.",
-   "source_revision": "26fbb5fdd07049625d6bb7930af2f6bf545fb6fc",
-   "source_sha256": "07d76807c5e109beb19a7600c67a5daa675e88dfaa70116e4866d6afa5049fe3",
+   "purpose": "Assess the 31 OpenWave physical targets locally on all three RER laws. The public M10 column at the cited revision pins Interval Echo. OpenWave partially validated Row 4 and marked the other 30 rows as not yet tested. Each RER grade describes the measurement and scope named in its entry.",
+   "source_revision": "753232cac4976ab2ca208eb99d73fe7ac88ef333",
+   "source_sha256": "6ac023816ad83e294f7d1e2b901f4f73314beb4cf268b353b539d4b900acff4e",
    "sources": [
-    "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L94-L137",
-    "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L426-L430"
+    "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L94-L137",
+    "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L426-L438"
    ],
    "criteria": [
     {
@@ -1849,7 +1864,7 @@
      "regime": "static",
      "upstream_number": 1,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L101"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L101"
      ],
      "status": "open",
      "note": "Integer port loads and their conserved populations are measured in the coherent blank sector. Establishing an electric topological charge and excluding physical half-charge daughters requires a charge readout.",
@@ -1865,7 +1880,7 @@
      "regime": "static",
      "upstream_number": 2,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L102"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L102"
      ],
      "status": "partial",
      "note": "The free contrast interaction binds localized loads and has measurable binding energies. Electron identification, rest-energy calibration and an independent physical prediction from 511 keV remain open.",
@@ -1883,7 +1898,7 @@
      "regime": "dynamic",
      "upstream_number": 3,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L103"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L103"
      ],
      "status": "open",
      "note": "A spontaneously starting oscillation tied to an independently measured rest energy remains open.",
@@ -1899,14 +1914,17 @@
      "regime": "dynamic",
      "upstream_number": 4,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L104"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L104",
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L438",
+      "https://github.com/openwave-labs/openwave/pull/745#pullrequestreview-6005365373",
+      "https://github.com/openwave-labs/openwave/pull/746"
      ],
      "status": "demonstrated",
      "demonstrated_measurement": {
       "label": "Free persistence of a prepared pair",
       "source": "model/candidate_laws/interval_echo/openwave/row_04/README.md"
      },
-     "note": "The original patch detects an adjacent pair with probability 98.39% at exposure 150, versus 14.96% under exchange alone. At a second source it recorded 4,028 of 4,096 pairs at exposure 37, versus 824 of 4,096. The finite ensemble probability stays at least 94% over the entire interval [0,37]. This tests a prepared bound excitation of unassigned species.",
+     "note": "RER demonstrated free persistence of a prepared pair of unassigned species. At held exposure 37 its launch patch has adjacent-pair probability 0.98027 at κ = 8 versus 0.20291 at κ = 0. The corresponding seeded terminal records gave 4,028 versus 824 detections in 4,096 draws per arm. The native probability is at least 0.94 throughout [0,37]. OpenWave reproduced the probabilities and graded M10 partially validated. The strength was supplied and assessed during the earlier persistence search. For any rotation-invariant distribution of two launch addresses on one twelve-port cell, the tested local parity filter can infer at most κ = 2.47463 while matching the held magnitude-two population. Selecting 8 requires a different physical reference.",
      "evidence": [
       "model/candidate_laws/interval_echo/openwave/row_04/README.md",
       "model/candidate_laws/interval_echo/openwave/row_04/results.json",
@@ -1917,7 +1935,11 @@
       "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json",
       "model/candidate_laws/interval_echo/openwave/submission/ROW_04.md",
       "model/candidate_laws/interval_echo/openwave/submission/ROW_04_PLATFORM_AUDIT.md",
-      "model/candidate_laws/interval_echo/openwave/row_04_large/README.md"
+      "model/candidate_laws/interval_echo/openwave/row_04_large/README.md",
+      "openwave/interval_echo/row_04/ROW_04_DESIGN.md",
+      "model/experiments/interval_echo_consensus/README.md",
+      "model/experiments/interval_echo_consensus/collar_reference.py",
+      "model/experiments/interval_echo_consensus/collar_reference.json"
      ]
     },
     {
@@ -1928,7 +1950,7 @@
      "regime": "dynamic",
      "upstream_number": 5,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L105"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L105"
      ],
      "status": "open",
      "note": "The electron dipole, gyromagnetic factor and field-driven precession require an electromagnetic readout.",
@@ -1944,7 +1966,7 @@
      "regime": "dynamic",
      "upstream_number": 6,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L106"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L106"
      ],
      "status": "open",
      "note": "Field angular momentum has yet to be measured on an identified electron.",
@@ -1960,7 +1982,7 @@
      "regime": "static",
      "upstream_number": 7,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L107"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L107"
      ],
      "status": "open",
      "note": "A physical rotation or exchange phase and its polar control remain unmeasured.",
@@ -1976,7 +1998,7 @@
      "regime": "both",
      "upstream_number": 8,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L110"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L110"
      ],
      "status": "open",
      "note": "The free contrast term preserves load. An identified conjugate pair converting into outgoing field quanta has yet to be measured.",
@@ -1992,7 +2014,7 @@
      "regime": "both",
      "upstream_number": 9,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L111"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L111"
      ],
      "status": "open",
      "note": "Production in a decay, electric neutrality and lightness have yet to be established for the same excitation.",
@@ -2008,7 +2030,7 @@
      "regime": "both",
      "upstream_number": 10,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L112"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L112"
      ],
      "status": "open",
      "note": "A flavour-tagged source, transitions and a mixing-angle determination remain open.",
@@ -2024,7 +2046,7 @@
      "regime": "static",
      "upstream_number": 11,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L113"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L113"
      ],
      "status": "open",
      "note": "No three minima have been identified as charged leptons and compared on a common mass scale.",
@@ -2040,7 +2062,7 @@
      "regime": "static",
      "upstream_number": 12,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L114"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L114"
      ],
      "status": "open",
      "note": "An electric response tied to fractional string winding remains unmeasured.",
@@ -2056,7 +2078,7 @@
      "regime": "static",
      "upstream_number": 13,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L115"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L115"
      ],
      "status": "partial",
      "note": "Three ordinary loads bind on a triangular face in the free contrast interaction. The constituent charge, colour and baryon identity remain open.",
@@ -2074,7 +2096,7 @@
      "regime": "static",
      "upstream_number": 14,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L116"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L116"
      ],
      "status": "open",
      "note": "The neutron and proton identities, mass order and resolved electric profile remain open.",
@@ -2090,7 +2112,7 @@
      "regime": "static",
      "upstream_number": 15,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L117"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L117"
      ],
      "status": "open",
      "note": "A common field-based prediction for both identified baryon energies remains open.",
@@ -2106,7 +2128,7 @@
      "regime": "static",
      "upstream_number": 16,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L118"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L118"
      ],
      "status": "open",
      "note": "No deuteron binding and electric quadrupole measurement exists on the identified constituents.",
@@ -2122,7 +2144,7 @@
      "regime": "both",
      "upstream_number": 17,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L119"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L119"
      ],
      "status": "open",
      "note": "Identified nuclear species with binding, spectroscopy and halo lifetime records remain open.",
@@ -2138,7 +2160,7 @@
      "regime": "static",
      "upstream_number": 18,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L120"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L120"
      ],
      "status": "open",
      "note": "Meson assignments and a decay tagged by strangeness remain open.",
@@ -2154,7 +2176,7 @@
      "regime": "static",
      "upstream_number": 19,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L121"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L121"
      ],
      "status": "partial",
      "note": "A written seam with empty endpoints retains a label and has a resolved energy level. Its electric neutrality and inertial mass as a propagating dark particle remain unmeasured.",
@@ -2172,7 +2194,7 @@
      "regime": "static",
      "upstream_number": 20,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L124"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L124"
      ],
      "status": "open",
      "note": "The bare two-load interaction vanishes beyond adjacent ports. The tested written and bare source sectors have no identified elementary electric charge with the required far field.",
@@ -2188,7 +2210,7 @@
      "regime": "dynamic",
      "upstream_number": 21,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L125"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L125"
      ],
      "status": "partial",
      "note": "Guided finite-patch reunion counts track the calibrated time-dilation target on the tested service menu. A boost and a signal-speed limit on freely evolving spherical states remain open. Free contrast clusters retain the known ring inertia mismatch.",
@@ -2206,7 +2228,7 @@
      "regime": "static",
      "upstream_number": 22,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L126"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L126"
      ],
      "status": "open",
      "note": "A colour-source separation scan and a measured confining tension remain open.",
@@ -2222,7 +2244,7 @@
      "regime": "static",
      "upstream_number": 23,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L127"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L127"
      ],
      "status": "open",
      "note": "A scale scan of a physical coupling referred to the same core radius remains open.",
@@ -2238,7 +2260,7 @@
      "regime": "dynamic",
      "upstream_number": 24,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L128"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L128"
      ],
      "status": "open",
      "note": "Muon, electron and neutral decay-product records remain open.",
@@ -2254,7 +2276,7 @@
      "regime": "dynamic",
      "upstream_number": 25,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L129"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L129"
      ],
      "status": "open",
      "note": "A tagged beta decay and its parity asymmetry remain open.",
@@ -2270,7 +2292,7 @@
      "regime": "both",
      "upstream_number": 26,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L130"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L130"
      ],
      "status": "open",
      "note": "Attractive contact phases are available for adjacent loads. The one-load energy shift is common to all paths. Neither measurement supplies an attractive inverse-square force between distant masses.",
@@ -2286,7 +2308,7 @@
      "regime": "both",
      "upstream_number": 27,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L131"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L131"
      ],
      "status": "open",
      "note": "The guided reunion experiment changes the motion of the patch. Testing gravitational clock rates or light paths requires a measured source of curvature.",
@@ -2303,7 +2325,7 @@
      "regime": "static",
      "upstream_number": 28,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L132"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L132"
      ],
      "status": "open",
      "note": "A constant shift of the free load generator drops out of probabilities. A vacuum contribution linked to measured acceleration and an independent falsification test remain open.",
@@ -2319,7 +2341,7 @@
      "regime": "dynamic",
      "upstream_number": 29,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L135"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L135"
      ],
      "status": "open",
      "note": "A measured electric current, transverse electromagnetic wave and recovery of Maxwell dynamics remain open.",
@@ -2335,14 +2357,14 @@
      "regime": "dynamic",
      "upstream_number": 30,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L136"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L136"
      ],
      "status": "partial",
      "demonstrated_measurement": {
       "label": "Low-energy Klein–Gordon dispersion of free matter on a prepared record channel",
       "source": "model/candidate_laws/interval_echo/openwave/row_30_autonomous/README.md"
      },
-     "note": "Under free evolution on a prepared 194-cell channel, four held frequencies agree with the low-energy Klein–Gordon envelope within 1.19% using packet speed, or 1.62% using a local stationary reference and independently measured seam coefficients. A separately calibrated parabola misses by 6.68% at the last held point. With shortest internal routes between the same gateways, 62 modes fill the periodic gap. The origin of a corresponding matter branch on an independently established background is open.",
+     "note": "On the prepared 194-cell record channel the continuum Klein–Gordon envelope agrees with four held frequencies within 1.19% using packet speed. The competing parabola misses by 6.68% at the last held point. The continuum misses by 18.03% on a separate microscopic challenge. An empty-seam measurement independently sets the scale of the exact four-site dispersion, forecasting rest, the four held frequencies and that challenge within 0.036%. This finite prediction tests transfer of the supplied coupling. Its overall frequency scale is proportional to |κ|. A freely established background and a matter branch in additional directions remain open.",
      "evidence": [
       "model/candidate_laws/interval_echo/openwave/row_30/README.md",
       "model/candidate_laws/interval_echo/openwave/row_30/results.json",
@@ -2360,7 +2382,8 @@
       "model/candidate_laws/interval_echo/openwave/row_30_selective/README.md",
       "model/candidate_laws/interval_echo/openwave/row_30_selective/CHANNEL_REVIEW.md",
       "model/candidate_laws/interval_echo/openwave/row_30_route/README.md",
-      "model/candidate_laws/interval_echo/openwave/submission/ROW_30_DECISION.md"
+      "model/candidate_laws/interval_echo/openwave/submission/ROW_30_DECISION.md",
+      "model/candidate_laws/interval_echo/openwave/row_30_selective/channel_review.json"
      ]
     },
     {
@@ -2371,7 +2394,7 @@
      "regime": "static",
      "upstream_number": 31,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L137"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L137"
      ],
      "status": "partial",
      "note": "A load bound to a static seam has discrete levels in the free contrast interaction. The computed spacings and shell multiplicities fail the hydrogenic comparison, and the level count at fixed record number is bounded under refinement.",

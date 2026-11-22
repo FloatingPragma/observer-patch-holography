@@ -1670,12 +1670,12 @@
   {
    "id": "openwave",
    "title": "OpenWave empirical criteria",
-   "purpose": "Assess the 31 OpenWave physical targets on each of the three RER candidate laws. The criterion number follows upstream row order. A partial entry names the finite measurement and the missing step to the physical target. These local assessments are independent of the upstream M10 column, which evaluates a different candidate.",
-   "source_revision": "26fbb5fdd07049625d6bb7930af2f6bf545fb6fc",
-   "source_sha256": "07d76807c5e109beb19a7600c67a5daa675e88dfaa70116e4866d6afa5049fe3",
+   "purpose": "Assess the 31 OpenWave physical targets locally on all three RER laws. The public M10 column at the cited revision pins Interval Echo. OpenWave partially validated Row 4 and marked the other 30 rows as not yet tested. Each RER grade describes the measurement and scope named in its entry.",
+   "source_revision": "753232cac4976ab2ca208eb99d73fe7ac88ef333",
+   "source_sha256": "6ac023816ad83e294f7d1e2b901f4f73314beb4cf268b353b539d4b900acff4e",
    "sources": [
-    "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L94-L137",
-    "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L426-L430"
+    "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L94-L137",
+    "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L426-L438"
    ],
    "criteria": [
     {
@@ -1686,7 +1686,7 @@
      "regime": "static",
      "upstream_number": 1,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L101"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L101"
      ],
      "status": "open",
      "note": "Electric topological charge and a forbidden splitting channel have yet to be identified.",
@@ -1700,7 +1700,7 @@
      "regime": "static",
      "upstream_number": 2,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L102"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L102"
      ],
      "status": "partial",
      "note": "A prepared four-seam branch has a measured single-addition gap. Two separated additions give the sum in joint phase records. The 511 keV anchor alone supplies a scale. An independent electron observable and identification remain open.",
@@ -1716,7 +1716,7 @@
      "regime": "dynamic",
      "upstream_number": 3,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L103"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L103"
      ],
      "status": "partial",
      "note": "After a finite preparation pulse two local clocks resolve a free line at about 4.89898, agreeing with a separate fuel-gap measurement. Autonomous onset and the electron rest-energy identification remain open.",
@@ -1733,7 +1733,10 @@
      "regime": "dynamic",
      "upstream_number": 4,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L104"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L104",
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L438",
+      "https://github.com/openwave-labs/openwave/pull/745#pullrequestreview-6005365373",
+      "https://github.com/openwave-labs/openwave/pull/746"
      ],
      "status": "demonstrated",
      "note": "With the registered cage preparation and terminal reader on one cell, the four-seam excitation persists at five free waits. Its invariant subspace keeps it localized for all times under the scalar channel's free generator.",
@@ -1750,7 +1753,7 @@
      "regime": "dynamic",
      "upstream_number": 5,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L105"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L105"
      ],
      "status": "open",
      "note": "The electron dipole, gyromagnetic factor and field-driven precession require an electromagnetic readout.",
@@ -1764,7 +1767,7 @@
      "regime": "dynamic",
      "upstream_number": 6,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L106"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L106"
      ],
      "status": "open",
      "note": "Field angular momentum has yet to be measured on an identified electron.",
@@ -1778,7 +1781,7 @@
      "regime": "static",
      "upstream_number": 7,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L107"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L107"
      ],
      "status": "open",
      "note": "The scalar register construction uses fermionic operators. An interference measurement of a dynamically selected two-core exchange or 2π rotation remains open.",
@@ -1794,7 +1797,7 @@
      "regime": "both",
      "upstream_number": 8,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L110"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L110"
      ],
      "status": "open",
      "note": "Local instruments distinguish adding and removing an object from the filled reference. The sharp cage occupations persist during free evolution. A radiative annihilation channel requires different evidence.",
@@ -1808,7 +1811,7 @@
      "regime": "both",
      "upstream_number": 9,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L111"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L111"
      ],
      "status": "open",
      "note": "The scalar law supports neutral excitations relative to its supplied gauge reference. A light neutral product released in a weak decay remains unidentified.",
@@ -1822,7 +1825,7 @@
      "regime": "both",
      "upstream_number": 10,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L112"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L112"
      ],
      "status": "open",
      "note": "The resolved bands belong to one scalar channel. Three flavour-labelled channels, their oscillations and mixing angles remain open.",
@@ -1836,7 +1839,7 @@
      "regime": "static",
      "upstream_number": 11,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L113"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L113"
      ],
      "status": "open",
      "note": "Several scalar lines have measured frequencies for a supplied level parameter. A charged-lepton family assignment and three mass ratios remain open.",
@@ -1850,7 +1853,7 @@
      "regime": "static",
      "upstream_number": 12,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L114"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L114"
      ],
      "status": "open",
      "note": "An electric response tied to fractional string winding remains unmeasured.",
@@ -1864,7 +1867,7 @@
      "regime": "static",
      "upstream_number": 13,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L115"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L115"
      ],
      "status": "open",
      "note": "A three-quark identification remains open.",
@@ -1878,7 +1881,7 @@
      "regime": "static",
      "upstream_number": 14,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L116"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L116"
      ],
      "status": "open",
      "note": "The neutron and proton identities, mass order and resolved electric profile remain open.",
@@ -1892,7 +1895,7 @@
      "regime": "static",
      "upstream_number": 15,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L117"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L117"
      ],
      "status": "open",
      "note": "A common field-based prediction for both identified baryon energies remains open.",
@@ -1906,7 +1909,7 @@
      "regime": "static",
      "upstream_number": 16,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L118"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L118"
      ],
      "status": "open",
      "note": "No deuteron binding and electric quadrupole measurement exists on the identified constituents.",
@@ -1920,7 +1923,7 @@
      "regime": "both",
      "upstream_number": 17,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L119"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L119"
      ],
      "status": "open",
      "note": "Identified nuclear species with binding, spectroscopy and halo lifetime records remain open.",
@@ -1934,7 +1937,7 @@
      "regime": "static",
      "upstream_number": 18,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L120"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L120"
      ],
      "status": "open",
      "note": "Meson assignments and a decay tagged by strangeness remain open.",
@@ -1948,7 +1951,7 @@
      "regime": "static",
      "upstream_number": 19,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L121"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L121"
      ],
      "status": "open",
      "note": "The prepared four-seam state is persistent. Its dark-matter identification requires electric neutrality and a moving inertial-mass measurement on the same branch.",
@@ -1965,7 +1968,7 @@
      "regime": "static",
      "upstream_number": 20,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L124"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L124"
      ],
      "status": "open",
      "note": "The elementary free scalar law is quadratic. Green kernels of the seam operator alone establish no charged far-field potential measured by a unit source and a test object.",
@@ -1981,7 +1984,7 @@
      "regime": "dynamic",
      "upstream_number": 21,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L125"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L125"
      ],
      "status": "partial",
      "note": "Four one-cell wave bands follow a relativistic scalar dispersion. The continuous-duration equal-term test has influence at arbitrarily early times. Native boosts, contraction and a finite operational signal-speed bound on the sphere remain open.",
@@ -1997,7 +2000,7 @@
      "regime": "static",
      "upstream_number": 22,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L126"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L126"
      ],
      "status": "open",
      "note": "A colour-source separation scan and a measured confining tension remain open.",
@@ -2011,7 +2014,7 @@
      "regime": "static",
      "upstream_number": 23,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L127"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L127"
      ],
      "status": "open",
      "note": "A scale scan of a physical coupling referred to the same core radius remains open.",
@@ -2025,7 +2028,7 @@
      "regime": "dynamic",
      "upstream_number": 24,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L128"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L128"
      ],
      "status": "open",
      "note": "Muon, electron and neutral decay-product records remain open.",
@@ -2039,7 +2042,7 @@
      "regime": "dynamic",
      "upstream_number": 25,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L129"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L129"
      ],
      "status": "open",
      "note": "A tagged beta decay and its parity asymmetry remain open.",
@@ -2053,7 +2056,7 @@
      "regime": "both",
      "upstream_number": 26,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L130"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L130"
      ],
      "status": "open",
      "note": "A sourced gravitoelectromagnetic force law and its strength remain unmeasured.",
@@ -2067,7 +2070,7 @@
      "regime": "both",
      "upstream_number": 27,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L131"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L131"
      ],
      "status": "open",
      "note": "A sourced gravitational field with independent clock or light propagation records remains open.",
@@ -2081,7 +2084,7 @@
      "regime": "static",
      "upstream_number": 28,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L132"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L132"
      ],
      "status": "open",
      "note": "A derived cosmological constant, acceleration observable and falsification test remain open.",
@@ -2095,7 +2098,7 @@
      "regime": "dynamic",
      "upstream_number": 29,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L135"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L135"
      ],
      "status": "open",
      "note": "The exports distinguish gapped propagating seam modes and a gapless scalar branch. The measured modes have yet to furnish Maxwell dynamics and a transverse electromagnetic signal at a common speed.",
@@ -2109,7 +2112,7 @@
      "regime": "dynamic",
      "upstream_number": 30,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L136"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L136"
      ],
      "status": "partial",
      "note": "The measured one-cell scalar bands agree with the square of the first-order seam operator, ω² = m² + λ. A multi-cell matter wave with independently reconstructed physical momentum and the third spatial direction remains open.",
@@ -2125,7 +2128,7 @@
      "regime": "static",
      "upstream_number": 31,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L137"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L137"
      ],
      "status": "open",
      "note": "Free scalar excitations have discrete cage levels. The quadratic matter sector supplies no hydrogen-like bound spectrum around another excitation.",

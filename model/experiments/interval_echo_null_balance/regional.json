@@ -1,0 +1,351 @@
+{
+  "cells": 20,
+  "active_seams": 630,
+  "degree_reference_ports": 180,
+  "states": 28680,
+  "checked_regions": [
+    {
+      "cells": [
+        0
+      ],
+      "boundary": 3,
+      "nonzero_operator_residual_entries": 0
+    },
+    {
+      "cells": [
+        6
+      ],
+      "boundary": 3,
+      "nonzero_operator_residual_entries": 0
+    },
+    {
+      "cells": [
+        0,
+        6
+      ],
+      "boundary": 4,
+      "nonzero_operator_residual_entries": 0
+    }
+  ],
+  "native_column_error": 0.0,
+  "readings": [
+    {
+      "port": 0,
+      "sign": 1,
+      "exposure": 0.375,
+      "currents": [
+        {
+          "ports": [
+            1,
+            82
+          ],
+          "inflow_to_first": 1.399806246
+        },
+        {
+          "ports": [
+            3,
+            48
+          ],
+          "inflow_to_first": -0.200487437
+        },
+        {
+          "ports": [
+            10,
+            20
+          ],
+          "inflow_to_first": -0.225368207
+        },
+        {
+          "ports": [
+            72,
+            182
+          ],
+          "inflow_to_first": -6.5177e-05
+        },
+        {
+          "ports": [
+            80,
+            192
+          ],
+          "inflow_to_first": -2.552e-05
+        }
+      ],
+      "regions": [
+        {
+          "cells": [
+            0
+          ],
+          "inflow": 0.973950603,
+          "free_slope": 0.973950629,
+          "residual": -2.7e-08,
+          "step_change": 7.9e-08,
+          "omit_first_residual": -1.399806273,
+          "omit_storage_residual": -1.149776376
+        },
+        {
+          "cells": [
+            6
+          ],
+          "inflow": -1.399896944,
+          "free_slope": -1.399896952,
+          "residual": 8e-09,
+          "step_change": 2.4e-08,
+          "omit_first_residual": 1.399806254,
+          "omit_storage_residual": -1.484258885
+        },
+        {
+          "cells": [
+            0,
+            6
+          ],
+          "inflow": -0.425946341,
+          "free_slope": -0.425946322,
+          "residual": -1.9e-08,
+          "step_change": 5.5e-08,
+          "omit_first_residual": 0.200487418,
+          "omit_storage_residual": -2.634035261
+        }
+      ]
+    },
+    {
+      "port": 0,
+      "sign": 1,
+      "exposure": 1.125,
+      "currents": [
+        {
+          "ports": [
+            1,
+            82
+          ],
+          "inflow_to_first": 1.406839493
+        },
+        {
+          "ports": [
+            3,
+            48
+          ],
+          "inflow_to_first": -0.215755418
+        },
+        {
+          "ports": [
+            10,
+            20
+          ],
+          "inflow_to_first": -0.165567451
+        },
+        {
+          "ports": [
+            72,
+            182
+          ],
+          "inflow_to_first": -0.000866888
+        },
+        {
+          "ports": [
+            80,
+            192
+          ],
+          "inflow_to_first": -0.000397694
+        }
+      ],
+      "regions": [
+        {
+          "cells": [
+            0
+          ],
+          "inflow": 1.025516624,
+          "free_slope": 1.025516618,
+          "residual": 6e-09,
+          "step_change": 1.7e-08,
+          "omit_first_residual": -1.406839487,
+          "omit_storage_residual": -1.105977172
+        },
+        {
+          "cells": [
+            6
+          ],
+          "inflow": -1.408104075,
+          "free_slope": -1.408104064,
+          "residual": -1e-08,
+          "step_change": 3.1e-08,
+          "omit_first_residual": 1.406839482,
+          "omit_storage_residual": -1.436635311
+        },
+        {
+          "cells": [
+            0,
+            6
+          ],
+          "inflow": -0.382587451,
+          "free_slope": -0.382587447,
+          "residual": -5e-09,
+          "step_change": 1.4e-08,
+          "omit_first_residual": 0.215755413,
+          "omit_storage_residual": -2.542612483
+        }
+      ]
+    },
+    {
+      "port": 9,
+      "sign": -1,
+      "exposure": 0.375,
+      "currents": [
+        {
+          "ports": [
+            1,
+            82
+          ],
+          "inflow_to_first": 1.55870779
+        },
+        {
+          "ports": [
+            3,
+            48
+          ],
+          "inflow_to_first": -0.217624001
+        },
+        {
+          "ports": [
+            10,
+            20
+          ],
+          "inflow_to_first": -0.269015374
+        },
+        {
+          "ports": [
+            72,
+            182
+          ],
+          "inflow_to_first": -7.0811e-05
+        },
+        {
+          "ports": [
+            80,
+            192
+          ],
+          "inflow_to_first": -2.548e-05
+        }
+      ],
+      "regions": [
+        {
+          "cells": [
+            0
+          ],
+          "inflow": 1.072068415,
+          "free_slope": 1.072068439,
+          "residual": -2.4e-08,
+          "step_change": 7.3e-08,
+          "omit_first_residual": -1.558707814,
+          "omit_storage_residual": -1.243744047
+        },
+        {
+          "cells": [
+            6
+          ],
+          "inflow": -1.558804081,
+          "free_slope": -1.558804086,
+          "residual": 6e-09,
+          "step_change": 1.7e-08,
+          "omit_first_residual": 1.558707795,
+          "omit_storage_residual": -1.639928145
+        },
+        {
+          "cells": [
+            0,
+            6
+          ],
+          "inflow": -0.486735666,
+          "free_slope": -0.486735648,
+          "residual": -1.8e-08,
+          "step_change": 5.7e-08,
+          "omit_first_residual": 0.217623983,
+          "omit_storage_residual": -2.883672192
+        }
+      ]
+    },
+    {
+      "port": 9,
+      "sign": -1,
+      "exposure": 1.125,
+      "currents": [
+        {
+          "ports": [
+            1,
+            82
+          ],
+          "inflow_to_first": 1.25842755
+        },
+        {
+          "ports": [
+            3,
+            48
+          ],
+          "inflow_to_first": -0.189952395
+        },
+        {
+          "ports": [
+            10,
+            20
+          ],
+          "inflow_to_first": -0.117166026
+        },
+        {
+          "ports": [
+            72,
+            182
+          ],
+          "inflow_to_first": -0.000864328
+        },
+        {
+          "ports": [
+            80,
+            192
+          ],
+          "inflow_to_first": -0.000394431
+        }
+      ],
+      "regions": [
+        {
+          "cells": [
+            0
+          ],
+          "inflow": 0.951309129,
+          "free_slope": 0.951309121,
+          "residual": 8e-09,
+          "step_change": 2.4e-08,
+          "omit_first_residual": -1.258427542,
+          "omit_storage_residual": -1.032708788
+        },
+        {
+          "cells": [
+            6
+          ],
+          "inflow": -1.259686309,
+          "free_slope": -1.259686297,
+          "residual": -1.2e-08,
+          "step_change": 3.6e-08,
+          "omit_first_residual": 1.258427538,
+          "omit_storage_residual": -1.283723005
+        },
+        {
+          "cells": [
+            0,
+            6
+          ],
+          "inflow": -0.30837718,
+          "free_slope": -0.308377175,
+          "residual": -4e-09,
+          "step_change": 1.2e-08,
+          "omit_first_residual": 0.18995239,
+          "omit_storage_residual": -2.316431792
+        }
+      ]
+    }
+  ],
+  "maximum": {
+    "residual": 2.7e-08,
+    "step_change": 7.9e-08,
+    "omit_first_residual": 1.558707814,
+    "omit_storage_residual": 2.883672192
+  }
+}

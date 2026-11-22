@@ -116,7 +116,7 @@ Register crosswalk · PR-01
 
 Criterion · [reality_as_consensus_protocol.tex](../../paper/reality_as_consensus_protocol.tex) · [ObserverConfluence.lean](../../Lean/ObservableNormalForms/ObservableNormalForms/ObserverConfluence.lean) · [premise_register.json](../../tracking/premise_register.json)
 
-- **Interval Echo · Partial.** For the optional asynchronous sharp service, occupied and ready edge flags determine a unique consistent normal form on any equipped finite screen. An exhaustive intercell path checked 19,683 material states and all 284 one-step forks. Forward, reverse and shuffled service agreed on nine whole-screen preparations. The supplied priority changes physical endpoints when reversed. Coherent and clock transactions still need a common joining and descent argument. [consensus.json](../candidate_laws/interval_echo/consensus.json) · [CONSENSUS.md](../candidate_laws/interval_echo/CONSENSUS.md) · [results.json](../experiments/interval_echo_consensus/results.json) · [phase.json](../experiments/interval_echo_consensus/phase.json) · [README.md](../experiments/interval_echo_consensus/README.md) · [ASYNCHRONOUS.md](../experiments/interval_echo_consensus/ASYNCHRONOUS.md) · [asynchronous.json](../experiments/interval_echo_consensus/asynchronous.json)
+- **Interval Echo · Partial.** Occupied and ready flags determine the consistent asynchronous sharp endpoint. All 284 one-step forks on 19,683 path states join. For one protected coherent sweep, stored local priorities order conflicting visits. Disjoint visits commute, giving exactly the same full addressed instrument for every legal schedule, including arbitrary untouched references. Five legal schedules agree on 3,888 path inputs. Removing precedence changes 192 endpoints. Unrestricted interleaving with clocks and free evolution still lacks a common descent and joining proof. [consensus.json](../candidate_laws/interval_echo/consensus.json) · [CONSENSUS.md](../candidate_laws/interval_echo/CONSENSUS.md) · [results.json](../experiments/interval_echo_consensus/results.json) · [phase.json](../experiments/interval_echo_consensus/phase.json) · [README.md](../experiments/interval_echo_consensus/README.md) · [ASYNCHRONOUS.md](../experiments/interval_echo_consensus/ASYNCHRONOUS.md) · [asynchronous.json](../experiments/interval_echo_consensus/asynchronous.json) · [coherent_sweep.py](../experiments/interval_echo_consensus/coherent_sweep.py) · [coherent_sweep.json](../experiments/interval_echo_consensus/coherent_sweep.json)
 - **Contrast memory · Partial.** Strict classical writes lower squared load. The native echo unwrites the event and preserves the multiset. The general quotient, overlaps and termination of accepted transactions remain open. [law.py](../candidate_laws/contrast_memory_spherical_v1/law.py) · [PROOF.md](../candidate_laws/contrast_memory_spherical_v1/PROOF.md)
 - **Scalar channel · Open.** The routed circuit has retained outcomes and branches. A well-founded accepted-repair relation with all diamonds and consistent normal forms is unspecified. [OBLIGATIONS.json](../candidate_laws/scalar_channel/OBLIGATIONS.json)
 
@@ -140,7 +140,7 @@ Register crosswalk · PR-02, PR-03, PR-64, PR-65
 
 Criterion · [observers_are_all_you_need.tex](../../paper/observers_are_all_you_need.tex) · [OperationalBornBridge.lean](../../Lean/EventAlgebra/OperationalBornBridge.lean) · [premise_register.json](../../tracking/premise_register.json)
 
-- **Interval Echo · Partial.** Complete sharp measurements and local fair-sign branches have normalized operational tables. The circuit uses the quantum instrument rule for these branches; a derivation for the entire event grammar remains open. [clock.py](../candidate_laws/interval_echo/clock.py) · [projection.json](../candidate_laws/interval_echo/projection.json)
+- **Interval Echo · Partial.** Complete sharp instruments and fair-sign branches give normalized additive public event weights on the declared menus. Two separated accepted collars have fair single-sign marginals. The addressed joint parity distinguishes two coherent preparations with even probabilities 0 and 1, both becoming 1/2 after a premature local sign reading. The calculation uses the supplied quantum state and instrument. A derivation for the entire event grammar remains open. [clock.py](../candidate_laws/interval_echo/clock.py) · [projection.json](../candidate_laws/interval_echo/projection.json) · [ASYNCHRONOUS.md](../experiments/interval_echo_consensus/ASYNCHRONOUS.md) · [coherent_sweep.json](../experiments/interval_echo_consensus/coherent_sweep.json)
 - **Contrast memory · Partial.** Presence and addressed instruments distinguish updates sharing one effect. The outcome predictions use a finite quantum instrument and its state. [presence_results.json](../candidate_laws/contrast_memory_spherical_v1/presence_results.json) · [reader.py](../candidate_laws/contrast_memory_spherical_v1/reader.py)
 - **Scalar channel · Partial.** Finite source-on instruments give normalized branch and failure outcomes conditional on the prescribed state and quantum channels. Extension to the whole operational effect theory remains open. [instruments.py](../candidate_laws/scalar_channel/instruments.py) · [OBLIGATIONS.json](../candidate_laws/scalar_channel/OBLIGATIONS.json)
 
@@ -216,7 +216,7 @@ Register crosswalk · PR-25, PR-28
 
 Criterion · [recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex](../../paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex) · [premise_register.json](../../tracking/premise_register.json)
 
-- **Interval Echo · Partial.** The full 630-state serviced two-load sector satisfies scalar patch-energy continuity. Independently measured fluxes through two physical gateways reproduce the held regional energy change within 0.0017 ± 0.0084 native energy units (one standard error). Omitting one gateway leaves a 20.5-standard-error discrepancy. Momentum flux, the spacetime metric and the covariant stress identity remain open. [CURRENTS.md](../candidate_laws/interval_echo/CURRENTS.md) · [README.md](../experiments/interval_echo_null_balance/README.md) · [interval.json](../experiments/interval_echo_null_balance/interval.json) · [results.json](../experiments/interval_echo_null_balance/results.json)
+- **Interval Echo · Partial.** Assigning each complete cell its internal and reference energy and half its external seam energy gives an exact additive scalar Ward identity for any union of complete cells on the freely evolving federation. Internal currents cancel. Across 12 comparisons (three regions, two preparations and two exposures) on the intact 20-cell screen the largest discrepancy between the instantaneous energy slope and the cut currents is 2.7×10⁻⁸ in native units. Removing a cut current leaves a discrepancy up to 1.56. A separate three-cell finite-count test gave 0.0017 ± 0.0084 and a 20.5-standard-error omitted-gateway control. Momentum flux and covariant spacetime stress on the G1 domain remain open. [CURRENTS.md](../candidate_laws/interval_echo/CURRENTS.md) · [README.md](../experiments/interval_echo_null_balance/README.md) · [interval.json](../experiments/interval_echo_null_balance/interval.json) · [results.json](../experiments/interval_echo_null_balance/results.json) · [regional.py](../experiments/interval_echo_null_balance/regional.py) · [regional.json](../experiments/interval_echo_null_balance/regional.json)
 - **Contrast memory · Open.** Conservation of load within the candidate does not supply an independently conserved spacetime stress tensor. [PROOF.md](../candidate_laws/contrast_memory_spherical_v1/PROOF.md)
 - **Scalar channel · Open.** Finite source/work accounting has no covariant stress-divergence identity on a matched geometry. [OBLIGATIONS.json](../candidate_laws/scalar_channel/OBLIGATIONS.json) · [instruments.py](../candidate_laws/scalar_channel/instruments.py)
 
@@ -470,13 +470,13 @@ Criterion · [PROTOCOL.md](../experiments/interval_echo_optics/PROTOCOL.md) · [
 
 ## OpenWave empirical criteria
 
-Assess the 31 OpenWave physical targets on each of the three RER candidate laws. The criterion number follows upstream row order. A partial entry names the finite measurement and the missing step to the physical target. These local assessments are independent of the upstream M10 column, which evaluates a different candidate.
+Assess the 31 OpenWave physical targets locally on all three RER laws. The public M10 column at the cited revision pins Interval Echo. OpenWave partially validated Row 4 and marked the other 30 rows as not yet tested. Each RER grade describes the measurement and scope named in its entry.
 
 ### OW-01
 
 **Charge quantization.** Exhibit an integer topological electric charge and exclude division of one unit between two half-charged excitations.
 
-Criterion · [MODELS.md L101](https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L101)
+Criterion · [MODELS.md L101](https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L101)
 
 - **Interval Echo · Open.** Integer port loads and their conserved populations are measured in the coherent blank sector. Establishing an electric topological charge and excluding physical half-charge daughters requires a charge readout. [SPEC.md](../candidate_laws/interval_echo/SPEC.md)
 - **Contrast memory · Open.** Integer port loads and their conserved populations are measured in the coherent blank sector. Establishing an electric topological charge and excluding physical half-charge daughters requires a charge readout.
@@ -486,7 +486,7 @@ Criterion · [MODELS.md L101](https://github.com/openwave-labs/openwave/blob/26f
 
 **Electron rest energy (mass).** Select a localized state dynamically. With its energy anchored at 511 keV, predict and independently measure another physical quantity fixed by that anchor.
 
-Criterion · [MODELS.md L102](https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L102)
+Criterion · [MODELS.md L102](https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L102)
 
 - **Interval Echo · Partial.** The free contrast interaction binds localized loads and has measurable binding energies. Electron identification, rest-energy calibration and an independent physical prediction from 511 keV remain open. [SPEC.md](../candidate_laws/interval_echo/SPEC.md) · [RESULTS.json](../candidate_laws/contrast_memory_spherical_v1/RESULTS.json) · [README.md](../experiments/material_inertia/README.md)
 - **Contrast memory · Partial.** The free contrast interaction binds localized loads and has measurable binding energies. Electron identification, rest-energy calibration and an independent physical prediction from 511 keV remain open. [RESULTS.json](../candidate_laws/contrast_memory_spherical_v1/RESULTS.json) · [README.md](../experiments/material_inertia/README.md)
@@ -496,7 +496,7 @@ Criterion · [MODELS.md L102](https://github.com/openwave-labs/openwave/blob/26f
 
 **de Broglie clock (Zitterbewegung).** Measure an internally initiated, frequency-rigid oscillation whose angular frequency equals the measured rest energy divided by ℏ.
 
-Criterion · [MODELS.md L103](https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L103)
+Criterion · [MODELS.md L103](https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L103)
 
 - **Interval Echo · Open.** A spontaneously starting oscillation tied to an independently measured rest energy remains open. [SPEC.md](../candidate_laws/interval_echo/SPEC.md)
 - **Contrast memory · Open.** A spontaneously starting oscillation tied to an independently measured rest energy remains open.
@@ -506,9 +506,9 @@ Criterion · [MODELS.md L103](https://github.com/openwave-labs/openwave/blob/26f
 
 **Particle stability (Derrick escape).** Release the prepared particle state and measure its persistence under free evolution. Identify the excitation and the domain of the measurement. The separate SM-e entry assesses its identification as an electron.
 
-Criterion · [MODELS.md L104](https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L104)
+Criterion · [MODELS.md L104](https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L104) · [MODELS.md L438](https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L438) · [745](https://github.com/openwave-labs/openwave/pull/745#pullrequestreview-6005365373) · [746](https://github.com/openwave-labs/openwave/pull/746)
 
-- **Interval Echo** · **Demonstrated** · [Free persistence of a prepared pair](../candidate_laws/interval_echo/openwave/row_04/README.md). The original patch detects an adjacent pair with probability 98.39% at exposure 150, versus 14.96% under exchange alone. At a second source it recorded 4,028 of 4,096 pairs at exposure 37, versus 824 of 4,096. The finite ensemble probability stays at least 94% over the entire interval [0,37]. This tests a prepared bound excitation of unassigned species. [README.md](../candidate_laws/interval_echo/openwave/row_04/README.md) · [results.json](../candidate_laws/interval_echo/openwave/row_04/results.json) · [README.md](../candidate_laws/interval_echo/openwave/row_04_compact/README.md) · [results.json](../candidate_laws/interval_echo/openwave/row_04_compact/results.json) · [SPEC.md](../candidate_laws/interval_echo/SPEC.md) · [PROOF.md](../candidate_laws/contrast_memory_spherical_v1/PROOF.md) · [RESULTS.json](../candidate_laws/contrast_memory_spherical_v1/RESULTS.json) · [ROW_04.md](../candidate_laws/interval_echo/openwave/submission/ROW_04.md) · [ROW_04_PLATFORM_AUDIT.md](../candidate_laws/interval_echo/openwave/submission/ROW_04_PLATFORM_AUDIT.md) · [README.md](../candidate_laws/interval_echo/openwave/row_04_large/README.md)
+- **Interval Echo** · **Demonstrated** · [Free persistence of a prepared pair](../candidate_laws/interval_echo/openwave/row_04/README.md). RER demonstrated free persistence of a prepared pair of unassigned species. At held exposure 37 its launch patch has adjacent-pair probability 0.98027 at κ = 8 versus 0.20291 at κ = 0. The corresponding seeded terminal records gave 4,028 versus 824 detections in 4,096 draws per arm. The native probability is at least 0.94 throughout [0,37]. OpenWave reproduced the probabilities and graded M10 partially validated. The strength was supplied and assessed during the earlier persistence search. For any rotation-invariant distribution of two launch addresses on one twelve-port cell, the tested local parity filter can infer at most κ = 2.47463 while matching the held magnitude-two population. Selecting 8 requires a different physical reference. [README.md](../candidate_laws/interval_echo/openwave/row_04/README.md) · [results.json](../candidate_laws/interval_echo/openwave/row_04/results.json) · [README.md](../candidate_laws/interval_echo/openwave/row_04_compact/README.md) · [results.json](../candidate_laws/interval_echo/openwave/row_04_compact/results.json) · [SPEC.md](../candidate_laws/interval_echo/SPEC.md) · [PROOF.md](../candidate_laws/contrast_memory_spherical_v1/PROOF.md) · [RESULTS.json](../candidate_laws/contrast_memory_spherical_v1/RESULTS.json) · [ROW_04.md](../candidate_laws/interval_echo/openwave/submission/ROW_04.md) · [ROW_04_PLATFORM_AUDIT.md](../candidate_laws/interval_echo/openwave/submission/ROW_04_PLATFORM_AUDIT.md) · [README.md](../candidate_laws/interval_echo/openwave/row_04_large/README.md) · [ROW_04_DESIGN.md](../../openwave/interval_echo/row_04/ROW_04_DESIGN.md) · [README.md](../experiments/interval_echo_consensus/README.md) · [collar_reference.py](../experiments/interval_echo_consensus/collar_reference.py) · [collar_reference.json](../experiments/interval_echo_consensus/collar_reference.json)
 - **Contrast memory · Demonstrated.** The registered seam emitter prepares a pair that retains adjacency during free flight. The finite records resolve the pair and the binding theorem bounds loss of adjacency for all times on the spherical federation. [PROOF.md](../candidate_laws/contrast_memory_spherical_v1/PROOF.md) · [RESULTS.json](../candidate_laws/contrast_memory_spherical_v1/RESULTS.json)
 - **Scalar channel · Demonstrated.** With the registered cage preparation and terminal reader on one cell, the four-seam excitation persists at five free waits. Its invariant subspace keeps it localized for all times under the scalar channel's free generator. [results.json](../experiments/cage/results.json) · [PROOF.md](../experiments/cage/PROOF.md)
 
@@ -516,7 +516,7 @@ Criterion · [MODELS.md L104](https://github.com/openwave-labs/openwave/blob/26f
 
 **Magnetic moment μ (g ≈ 2, magnetostatics).** Measure a static magnetic dipole sourced by internal circulation in the stationary electron, its gyromagnetic factor near two and its Larmor response.
 
-Criterion · [MODELS.md L105](https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L105)
+Criterion · [MODELS.md L105](https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L105)
 
 - **Interval Echo · Open.** The electron dipole, gyromagnetic factor and field-driven precession require an electromagnetic readout. [SPEC.md](../candidate_laws/interval_echo/SPEC.md)
 - **Contrast memory · Open.** The electron dipole, gyromagnetic factor and field-driven precession require an electromagnetic readout.
@@ -526,7 +526,7 @@ Criterion · [MODELS.md L105](https://github.com/openwave-labs/openwave/blob/26f
 
 **Angular momentum J (spin ℏ/2).** Measure angular momentum of magnitude ℏ/2 carried by the field of the same electron state.
 
-Criterion · [MODELS.md L106](https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L106)
+Criterion · [MODELS.md L106](https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L106)
 
 - **Interval Echo · Open.** Field angular momentum has yet to be measured on an identified electron. [SPEC.md](../candidate_laws/interval_echo/SPEC.md)
 - **Contrast memory · Open.** Field angular momentum has yet to be measured on an identified electron.
@@ -536,7 +536,7 @@ Criterion · [MODELS.md L106](https://github.com/openwave-labs/openwave/blob/26f
 
 **Spin-½ statistics (720° double cover).** Interfere a full rotation, or a two-core exchange, with a reference and recover a minus sign. A dynamically selected half-turn discriminated from a polar control provides intermediate evidence.
 
-Criterion · [MODELS.md L107](https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L107)
+Criterion · [MODELS.md L107](https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L107)
 
 - **Interval Echo · Open.** A physical rotation or exchange phase and its polar control remain unmeasured. [SPEC.md](../candidate_laws/interval_echo/SPEC.md)
 - **Contrast memory · Open.** A physical rotation or exchange phase and its polar control remain unmeasured.
@@ -546,7 +546,7 @@ Criterion · [MODELS.md L107](https://github.com/openwave-labs/openwave/blob/26f
 
 **Antimatter + annihilation.** Observe a particle and its conjugate convert into radiation. Resolve the two- and three-photon positronium channels as follow-up measurements.
 
-Criterion · [MODELS.md L110](https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L110)
+Criterion · [MODELS.md L110](https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L110)
 
 - **Interval Echo · Open.** The free contrast term preserves load. An identified conjugate pair converting into outgoing field quanta has yet to be measured. [SPEC.md](../candidate_laws/interval_echo/SPEC.md)
 - **Contrast memory · Open.** The free contrast term preserves load. An identified conjugate pair converting into outgoing field quanta has yet to be measured.
@@ -556,7 +556,7 @@ Criterion · [MODELS.md L110](https://github.com/openwave-labs/openwave/blob/26f
 
 **Neutrinos (neutral states).** Identify electrically neutral, light excitations among the products of a decay.
 
-Criterion · [MODELS.md L111](https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L111)
+Criterion · [MODELS.md L111](https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L111)
 
 - **Interval Echo · Open.** Production in a decay, electric neutrality and lightness have yet to be established for the same excitation. [SPEC.md](../candidate_laws/interval_echo/SPEC.md)
 - **Contrast memory · Open.** Production in a decay, electric neutrality and lightness have yet to be established for the same excitation.
@@ -566,7 +566,7 @@ Criterion · [MODELS.md L111](https://github.com/openwave-labs/openwave/blob/26f
 
 **Neutrino oscillations (PMNS).** Distinguish three neutrino flavours through production and detection, observe their oscillations and extract the PMNS angles.
 
-Criterion · [MODELS.md L112](https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L112)
+Criterion · [MODELS.md L112](https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L112)
 
 - **Interval Echo · Open.** A flavour-tagged source, transitions and a mixing-angle determination remain open. [SPEC.md](../candidate_laws/interval_echo/SPEC.md)
 - **Contrast memory · Open.** A flavour-tagged source, transitions and a mixing-angle determination remain open.
@@ -576,7 +576,7 @@ Criterion · [MODELS.md L112](https://github.com/openwave-labs/openwave/blob/26f
 
 **Lepton mass spectrum (μ, τ).** Resolve precisely three charged-lepton minima and compare their relative masses with 1, 207 and 3477.
 
-Criterion · [MODELS.md L113](https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L113)
+Criterion · [MODELS.md L113](https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L113)
 
 - **Interval Echo · Open.** No three minima have been identified as charged leptons and compared on a common mass scale. [SPEC.md](../candidate_laws/interval_echo/SPEC.md)
 - **Contrast memory · Open.** No three minima have been identified as charged leptons and compared on a common mass scale.
@@ -586,7 +586,7 @@ Criterion · [MODELS.md L113](https://github.com/openwave-labs/openwave/blob/26f
 
 **Quarks.** Recover fractional electric charge from a partial winding of a quark string.
 
-Criterion · [MODELS.md L114](https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L114)
+Criterion · [MODELS.md L114](https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L114)
 
 - **Interval Echo · Open.** An electric response tied to fractional string winding remains unmeasured. [SPEC.md](../candidate_laws/interval_echo/SPEC.md)
 - **Contrast memory · Open.** An electric response tied to fractional string winding remains unmeasured.
@@ -596,7 +596,7 @@ Criterion · [MODELS.md L114](https://github.com/openwave-labs/openwave/blob/26f
 
 **Baryons: bound state (p, n).** Recover a persistent bound composite whose three constituents are identified as quarks.
 
-Criterion · [MODELS.md L115](https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L115)
+Criterion · [MODELS.md L115](https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L115)
 
 - **Interval Echo · Partial.** Three ordinary loads bind on a triangular face in the free contrast interaction. The constituent charge, colour and baryon identity remain open. [SPEC.md](../candidate_laws/interval_echo/SPEC.md) · [catalogue.py](../candidate_laws/contrast_memory_spherical_v1/catalogue.py) · [RESULTS.json](../candidate_laws/contrast_memory_spherical_v1/RESULTS.json)
 - **Contrast memory · Partial.** Three ordinary loads bind on a triangular face in the free contrast interaction. The constituent charge, colour and baryon identity remain open. [catalogue.py](../candidate_laws/contrast_memory_spherical_v1/catalogue.py) · [RESULTS.json](../candidate_laws/contrast_memory_spherical_v1/RESULTS.json)
@@ -606,7 +606,7 @@ Criterion · [MODELS.md L115](https://github.com/openwave-labs/openwave/blob/26f
 
 **Baryons: mass ordering + charge profile.** Distinguish neutron and proton, obtain a heavier neutron and resolve the positive-core and negative-shell charge distribution.
 
-Criterion · [MODELS.md L116](https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L116)
+Criterion · [MODELS.md L116](https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L116)
 
 - **Interval Echo · Open.** The neutron and proton identities, mass order and resolved electric profile remain open. [SPEC.md](../candidate_laws/interval_echo/SPEC.md)
 - **Contrast memory · Open.** The neutron and proton identities, mass order and resolved electric profile remain open.
@@ -616,7 +616,7 @@ Criterion · [MODELS.md L116](https://github.com/openwave-labs/openwave/blob/26f
 
 **Baryons: exact masses.** Predict the proton and neutron rest energies from the field and compare with 938.3 and 939.6 MeV, respectively.
 
-Criterion · [MODELS.md L117](https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L117)
+Criterion · [MODELS.md L117](https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L117)
 
 - **Interval Echo · Open.** A common field-based prediction for both identified baryon energies remains open. [SPEC.md](../candidate_laws/interval_echo/SPEC.md)
 - **Contrast memory · Open.** A common field-based prediction for both identified baryon energies remains open.
@@ -626,7 +626,7 @@ Criterion · [MODELS.md L117](https://github.com/openwave-labs/openwave/blob/26f
 
 **Deuteron (binding + quadrupole).** Demonstrate deuteron binding below the sum of the proton and neutron masses and measure its electric quadrupole.
 
-Criterion · [MODELS.md L118](https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L118)
+Criterion · [MODELS.md L118](https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L118)
 
 - **Interval Echo · Open.** No deuteron binding and electric quadrupole measurement exists on the identified constituents. [SPEC.md](../candidate_laws/interval_echo/SPEC.md)
 - **Contrast memory · Open.** No deuteron binding and electric quadrupole measurement exists on the identified constituents.
@@ -636,7 +636,7 @@ Criterion · [MODELS.md L118](https://github.com/openwave-labs/openwave/blob/26f
 
 **Nuclear structure (levels, halos).** Recover nuclear binding across species, excitation levels and lifetimes of halo nuclei.
 
-Criterion · [MODELS.md L119](https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L119)
+Criterion · [MODELS.md L119](https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L119)
 
 - **Interval Echo · Open.** Identified nuclear species with binding, spectroscopy and halo lifetime records remain open. [SPEC.md](../candidate_laws/interval_echo/SPEC.md)
 - **Contrast memory · Open.** Identified nuclear species with binding, spectroscopy and halo lifetime records remain open.
@@ -646,7 +646,7 @@ Criterion · [MODELS.md L119](https://github.com/openwave-labs/openwave/blob/26f
 
 **Mesons (π, K).** Identify pion and kaon states and a strange decay such as Λ⁰ → p + π⁻.
 
-Criterion · [MODELS.md L120](https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L120)
+Criterion · [MODELS.md L120](https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L120)
 
 - **Interval Echo · Open.** Meson assignments and a decay tagged by strangeness remain open. [SPEC.md](../candidate_laws/interval_echo/SPEC.md)
 - **Contrast memory · Open.** Meson assignments and a decay tagged by strangeness remain open.
@@ -656,7 +656,7 @@ Criterion · [MODELS.md L120](https://github.com/openwave-labs/openwave/blob/26f
 
 **Dark matter candidate.** Demonstrate a stable massive excitation with measured neutrality as a dark-matter candidate.
 
-Criterion · [MODELS.md L121](https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L121)
+Criterion · [MODELS.md L121](https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L121)
 
 - **Interval Echo · Partial.** A written seam with empty endpoints retains a label and has a resolved energy level. Its electric neutrality and inertial mass as a propagating dark particle remain unmeasured. [SPEC.md](../candidate_laws/interval_echo/SPEC.md) · [collar.py](../candidate_laws/contrast_memory_spherical_v1/collar.py) · [RESULTS.json](../candidate_laws/contrast_memory_spherical_v1/RESULTS.json)
 - **Contrast memory · Partial.** A written seam with empty endpoints retains a label and has a resolved energy level. Its electric neutrality and inertial mass as a propagating dark particle remain unmeasured. [collar.py](../candidate_laws/contrast_memory_spherical_v1/collar.py) · [RESULTS.json](../candidate_laws/contrast_memory_spherical_v1/RESULTS.json)
@@ -666,7 +666,7 @@ Criterion · [MODELS.md L121](https://github.com/openwave-labs/openwave/blob/26f
 
 **Electric force (Coulomb 1/r, electrostatics).** Measure an inverse-distance far-field potential sourced by one elementary electric charge. A strength claim also needs α derived from the mechanism.
 
-Criterion · [MODELS.md L124](https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L124)
+Criterion · [MODELS.md L124](https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L124)
 
 - **Interval Echo · Open.** The bare two-load interaction vanishes beyond adjacent ports. The tested written and bare source sectors have no identified elementary electric charge with the required far field. [SPEC.md](../candidate_laws/interval_echo/SPEC.md)
 - **Contrast memory · Open.** The bare two-load interaction vanishes beyond adjacent ports. The tested written and bare source sectors have no identified elementary electric charge with the required far field.
@@ -676,7 +676,7 @@ Criterion · [MODELS.md L124](https://github.com/openwave-labs/openwave/blob/26f
 
 **Lorentz covariance (+ Coulomb = EM).** Establish Lorentz covariance without a preferred inertial frame, including contraction of boosted states and an operational signal-speed bound.
 
-Criterion · [MODELS.md L125](https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L125)
+Criterion · [MODELS.md L125](https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L125)
 
 - **Interval Echo · Partial.** Guided finite-patch reunion counts track the calibrated time-dilation target on the tested service menu. A boost and a signal-speed limit on freely evolving spherical states remain open. Free contrast clusters retain the known ring inertia mismatch. [RESULTS.json](../candidate_laws/interval_echo/RESULTS.json) · [SPEC.md](../candidate_laws/interval_echo/SPEC.md) · [README.md](../experiments/material_inertia/README.md)
 - **Contrast memory · Open.** The free-cluster ring experiment finds a rest-mass versus kinetic-mass mismatch. Covariance, a native boost, and an observer signal-speed bound on the sphere remain open. [README.md](../experiments/material_inertia/README.md)
@@ -686,7 +686,7 @@ Criterion · [MODELS.md L125](https://github.com/openwave-labs/openwave/blob/26f
 
 **Strong force: confinement.** Measure a linear confining potential between identified colour charges and recover a string tension near 1 GeV/fm.
 
-Criterion · [MODELS.md L126](https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L126)
+Criterion · [MODELS.md L126](https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L126)
 
 - **Interval Echo · Open.** A colour-source separation scan and a measured confining tension remain open. [SPEC.md](../candidate_laws/interval_echo/SPEC.md)
 - **Contrast memory · Open.** A colour-source separation scan and a measured confining tension remain open.
@@ -696,7 +696,7 @@ Criterion · [MODELS.md L126](https://github.com/openwave-labs/openwave/blob/26f
 
 **Running coupling.** Resolve a coupling that changes with measurement scale, including the onset near the physical core radius.
 
-Criterion · [MODELS.md L127](https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L127)
+Criterion · [MODELS.md L127](https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L127)
 
 - **Interval Echo · Open.** A scale scan of a physical coupling referred to the same core radius remains open. [SPEC.md](../candidate_laws/interval_echo/SPEC.md)
 - **Contrast memory · Open.** A scale scan of a physical coupling referred to the same core radius remains open.
@@ -706,7 +706,7 @@ Criterion · [MODELS.md L127](https://github.com/openwave-labs/openwave/blob/26f
 
 **Weak force: muon decay.** Observe an identified muon decay into an electron with neutral products.
 
-Criterion · [MODELS.md L128](https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L128)
+Criterion · [MODELS.md L128](https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L128)
 
 - **Interval Echo · Open.** Muon, electron and neutral decay-product records remain open. [SPEC.md](../candidate_laws/interval_echo/SPEC.md)
 - **Contrast memory · Open.** Muon, electron and neutral decay-product records remain open.
@@ -716,7 +716,7 @@ Criterion · [MODELS.md L128](https://github.com/openwave-labs/openwave/blob/26f
 
 **Weak force: beta decay (n → p).** Resolve neutron decay into a proton, an electron and an antineutrino, and measure parity violation.
 
-Criterion · [MODELS.md L129](https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L129)
+Criterion · [MODELS.md L129](https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L129)
 
 - **Interval Echo · Open.** A tagged beta decay and its parity asymmetry remain open. [SPEC.md](../candidate_laws/interval_echo/SPEC.md)
 - **Contrast memory · Open.** A tagged beta decay and its parity asymmetry remain open.
@@ -726,7 +726,7 @@ Criterion · [MODELS.md L129](https://github.com/openwave-labs/openwave/blob/26f
 
 **Gravity: Newton limit (GEM).** Recover an attractive inverse-square force between masses from the gravitoelectromagnetic limit. Credit for the strength requires G to follow from the mechanism.
 
-Criterion · [MODELS.md L130](https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L130)
+Criterion · [MODELS.md L130](https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L130)
 
 - **Interval Echo · Open.** Attractive contact phases are available for adjacent loads. The one-load energy shift is common to all paths. Neither measurement supplies an attractive inverse-square force between distant masses. [SPEC.md](../candidate_laws/interval_echo/SPEC.md)
 - **Contrast memory · Open.** Attractive contact phases are available for adjacent loads. The one-load energy shift is common to all paths. Neither measurement supplies an attractive inverse-square force between distant masses.
@@ -736,7 +736,7 @@ Criterion · [MODELS.md L130](https://github.com/openwave-labs/openwave/blob/26f
 
 **Gravity: local metric phenomena.** Measure local curved-metric phenomena with material clocks and light, such as bending, gravitational redshift or Shapiro delay.
 
-Criterion · [MODELS.md L131](https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L131)
+Criterion · [MODELS.md L131](https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L131)
 
 - **Interval Echo · Open.** The guided reunion experiment changes the motion of the patch. Testing gravitational clock rates or light paths requires a measured source of curvature. [SPEC.md](../candidate_laws/interval_echo/SPEC.md) · [RESULTS.json](../candidate_laws/interval_echo/RESULTS.json)
 - **Contrast memory · Open.** A sourced gravitational field with independent clock or light propagation records remains open.
@@ -746,7 +746,7 @@ Criterion · [MODELS.md L131](https://github.com/openwave-labs/openwave/blob/26f
 
 **Cosmology: Λ / cosmic acceleration.** Obtain a cosmological constant that explains acceleration from the model dynamics, identify outstanding gaps and give a falsification test.
 
-Criterion · [MODELS.md L132](https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L132)
+Criterion · [MODELS.md L132](https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L132)
 
 - **Interval Echo · Open.** A constant shift of the free load generator drops out of probabilities. A vacuum contribution linked to measured acceleration and an independent falsification test remain open. [SPEC.md](../candidate_laws/interval_echo/SPEC.md)
 - **Contrast memory · Open.** A constant shift of the free load generator drops out of probabilities. A vacuum contribution linked to measured acceleration and an independent falsification test remain open.
@@ -756,7 +756,7 @@ Criterion · [MODELS.md L132](https://github.com/openwave-labs/openwave/blob/26f
 
 **EM waves (Maxwell).** Recover Maxwell dynamics and measure transverse electromagnetic disturbances travelling at the limiting speed.
 
-Criterion · [MODELS.md L135](https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L135)
+Criterion · [MODELS.md L135](https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L135)
 
 - **Interval Echo · Open.** A measured electric current, transverse electromagnetic wave and recovery of Maxwell dynamics remain open. [SPEC.md](../candidate_laws/interval_echo/SPEC.md)
 - **Contrast memory · Open.** A measured electric current, transverse electromagnetic wave and recovery of Maxwell dynamics remain open.
@@ -766,9 +766,9 @@ Criterion · [MODELS.md L135](https://github.com/openwave-labs/openwave/blob/26f
 
 **Quantum wave equation (Klein-Gordon).** Recover the Klein–Gordon energy–momentum relation for propagating matter using independently identifiable spatial and temporal observables.
 
-Criterion · [MODELS.md L136](https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L136)
+Criterion · [MODELS.md L136](https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L136)
 
-- **Interval Echo** · **Demonstrated** · [Low-energy Klein–Gordon dispersion of free matter on a prepared record channel](../candidate_laws/interval_echo/openwave/row_30_autonomous/README.md). Full criterion · Partial. Under free evolution on a prepared 194-cell channel, four held frequencies agree with the low-energy Klein–Gordon envelope within 1.19% using packet speed, or 1.62% using a local stationary reference and independently measured seam coefficients. A separately calibrated parabola misses by 6.68% at the last held point. With shortest internal routes between the same gateways, 62 modes fill the periodic gap. The origin of a corresponding matter branch on an independently established background is open. [README.md](../candidate_laws/interval_echo/openwave/row_30/README.md) · [results.json](../candidate_laws/interval_echo/openwave/row_30/results.json) · [patch_time.json](../candidate_laws/interval_echo/openwave/row_30/patch_time.json) · [README.md](../candidate_laws/interval_echo/openwave/row_30_free/README.md) · [results.json](../candidate_laws/interval_echo/openwave/row_30_free/results.json) · [README.md](../candidate_laws/interval_echo/openwave/row_30_branch/README.md) · [README.md](../candidate_laws/interval_echo/openwave/row_30_memory/README.md) · [README.md](../candidate_laws/interval_echo/openwave/row_30_arrows/README.md) · [CLOCK.md](../candidate_laws/interval_echo/openwave/row_30_arrows/CLOCK.md) · [PHASE_SPECTRUM.md](../candidate_laws/interval_echo/openwave/row_30_arrows/PHASE_SPECTRUM.md) · [SPEC.md](../candidate_laws/interval_echo/SPEC.md) · [README.md](../experiments/material_inertia/README.md) · [README.md](../candidate_laws/interval_echo/openwave/row_30_autonomous/README.md) · [README.md](../candidate_laws/interval_echo/openwave/row_30_selective/README.md) · [CHANNEL_REVIEW.md](../candidate_laws/interval_echo/openwave/row_30_selective/CHANNEL_REVIEW.md) · [README.md](../candidate_laws/interval_echo/openwave/row_30_route/README.md) · [ROW_30_DECISION.md](../candidate_laws/interval_echo/openwave/submission/ROW_30_DECISION.md)
+- **Interval Echo** · **Demonstrated** · [Low-energy Klein–Gordon dispersion of free matter on a prepared record channel](../candidate_laws/interval_echo/openwave/row_30_autonomous/README.md). Full criterion · Partial. On the prepared 194-cell record channel the continuum Klein–Gordon envelope agrees with four held frequencies within 1.19% using packet speed. The competing parabola misses by 6.68% at the last held point. The continuum misses by 18.03% on a separate microscopic challenge. An empty-seam measurement independently sets the scale of the exact four-site dispersion, forecasting rest, the four held frequencies and that challenge within 0.036%. This finite prediction tests transfer of the supplied coupling. Its overall frequency scale is proportional to |κ|. A freely established background and a matter branch in additional directions remain open. [README.md](../candidate_laws/interval_echo/openwave/row_30/README.md) · [results.json](../candidate_laws/interval_echo/openwave/row_30/results.json) · [patch_time.json](../candidate_laws/interval_echo/openwave/row_30/patch_time.json) · [README.md](../candidate_laws/interval_echo/openwave/row_30_free/README.md) · [results.json](../candidate_laws/interval_echo/openwave/row_30_free/results.json) · [README.md](../candidate_laws/interval_echo/openwave/row_30_branch/README.md) · [README.md](../candidate_laws/interval_echo/openwave/row_30_memory/README.md) · [README.md](../candidate_laws/interval_echo/openwave/row_30_arrows/README.md) · [CLOCK.md](../candidate_laws/interval_echo/openwave/row_30_arrows/CLOCK.md) · [PHASE_SPECTRUM.md](../candidate_laws/interval_echo/openwave/row_30_arrows/PHASE_SPECTRUM.md) · [SPEC.md](../candidate_laws/interval_echo/SPEC.md) · [README.md](../experiments/material_inertia/README.md) · [README.md](../candidate_laws/interval_echo/openwave/row_30_autonomous/README.md) · [README.md](../candidate_laws/interval_echo/openwave/row_30_selective/README.md) · [CHANNEL_REVIEW.md](../candidate_laws/interval_echo/openwave/row_30_selective/CHANNEL_REVIEW.md) · [README.md](../candidate_laws/interval_echo/openwave/row_30_route/README.md) · [ROW_30_DECISION.md](../candidate_laws/interval_echo/openwave/submission/ROW_30_DECISION.md) · [channel_review.json](../candidate_laws/interval_echo/openwave/row_30_selective/channel_review.json)
 - **Contrast memory · Open.** Free bound clusters have measured resting and moving energies on a ring. The tested branches have incompatible kinetic and rest-mass ratios. A Klein–Gordon branch on the sphere remains open. [README.md](../experiments/material_inertia/README.md)
 - **Scalar channel · Partial.** The measured one-cell scalar bands agree with the square of the first-order seam operator, ω² = m² + λ. A multi-cell matter wave with independently reconstructed physical momentum and the third spatial direction remains open. [PROOF.md](../candidate_laws/scalar_channel/PROOF.md)
 
@@ -776,7 +776,7 @@ Criterion · [MODELS.md L136](https://github.com/openwave-labs/openwave/blob/26f
 
 **Orbital quantization (atomic structure).** Observe standing-wave bound levels with a hydrogen-like spectrum, including characteristic spacings.
 
-Criterion · [MODELS.md L137](https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L137)
+Criterion · [MODELS.md L137](https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L137)
 
 - **Interval Echo · Partial.** A load bound to a static seam has discrete levels in the free contrast interaction. The computed spacings and shell multiplicities fail the hydrogenic comparison, and the level count at fixed record number is bounded under refinement. [SPEC.md](../candidate_laws/interval_echo/SPEC.md) · [collar.py](../candidate_laws/contrast_memory_spherical_v1/collar.py)
 - **Contrast memory · Partial.** A load bound to a static seam has discrete levels in the free contrast interaction. The computed spacings and shell multiplicities fail the hydrogenic comparison, and the level count at fixed record number is bounded under refinement. [collar.py](../candidate_laws/contrast_memory_spherical_v1/collar.py)
@@ -938,7 +938,7 @@ Every premise assigned to the law is fulfilled by one unchanged law on one proce
 
 The stress that observers infer from modular flow is the stress carried by the excitations that propagate and interact under the law.
 
-- **Interval Echo · Partial.** The earlier matched pair experiment diagnoses how regional modular energy changes during propagation under opposite current pulses. The reference is a supplied thermal state. Geometric cap normalization, directional matter stress and independent conservation remain open. [prior_calibration.json](../candidate_laws/interval_echo/prior_calibration.json)
+- **Interval Echo · Partial.** The frozen free dynamics conserve additive regional scalar energy through local cut currents. A distinct three-cell experiment resolves the measured balance. On the same serviced pair the reference modular meter calibrated at one port predicts the wrong sign at a held port. Geometric cap normalization, directional matter stress and covariant conservation remain open. [prior_calibration.json](../candidate_laws/interval_echo/prior_calibration.json) · [PAIR.md](../experiments/interval_echo_einstein_station/PAIR.md) · [pair.json](../experiments/interval_echo_einstein_station/pair.json) · [interval.json](../experiments/interval_echo_null_balance/interval.json) · [regional.json](../experiments/interval_echo_null_balance/regional.json)
 - **Contrast memory · Open.** No joint realization is registered.
 - **Scalar channel · Open.** No joint realization is registered.
 

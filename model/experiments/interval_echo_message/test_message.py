@@ -35,6 +35,8 @@ def test_replay_accepts_only_complete_source_versions(tmp_path, monkeypatch):
     monkeypatch.setattr(channel, "ROOT", tmp_path)
     monkeypatch.setattr(channel, "SPEC", {"sources": {"a": old, "b": old, "reader": old}})
     monkeypatch.setattr(channel, "REPLAY_UPDATES", {"a": new, "b": new})
+    monkeypatch.setattr(channel, "REPLAY_70E58E24", {})
+    monkeypatch.setattr(channel, "REPLAY_REGIONAL_CONSENSUS", {})
     for name in ("a", "b", "reader"):
         (tmp_path / name).write_bytes(b"old")
     channel.sources()
@@ -49,6 +51,13 @@ def test_replay_accepts_only_complete_source_versions(tmp_path, monkeypatch):
     with pytest.raises(ValueError):
         channel.sources()
     (tmp_path / "b").write_bytes(b"latest")
+    channel.sources()
+    regional = hashlib.sha256(b"regional").hexdigest()
+    monkeypatch.setattr(channel, "REPLAY_REGIONAL_CONSENSUS", {"a": regional, "b": regional})
+    (tmp_path / "b").write_bytes(b"regional")
+    with pytest.raises(ValueError):
+        channel.sources()
+    (tmp_path / "a").write_bytes(b"regional")
     channel.sources()
     (tmp_path / "reader").write_bytes(b"changed")
     with pytest.raises(ValueError):

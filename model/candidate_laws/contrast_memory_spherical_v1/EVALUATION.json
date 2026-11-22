@@ -1700,12 +1700,12 @@
   {
    "id": "openwave",
    "title": "OpenWave empirical criteria",
-   "purpose": "Assess the 31 OpenWave physical targets on each of the three RER candidate laws. The criterion number follows upstream row order. A partial entry names the finite measurement and the missing step to the physical target. These local assessments are independent of the upstream M10 column, which evaluates a different candidate.",
-   "source_revision": "26fbb5fdd07049625d6bb7930af2f6bf545fb6fc",
-   "source_sha256": "07d76807c5e109beb19a7600c67a5daa675e88dfaa70116e4866d6afa5049fe3",
+   "purpose": "Assess the 31 OpenWave physical targets locally on all three RER laws. The public M10 column at the cited revision pins Interval Echo. OpenWave partially validated Row 4 and marked the other 30 rows as not yet tested. Each RER grade describes the measurement and scope named in its entry.",
+   "source_revision": "753232cac4976ab2ca208eb99d73fe7ac88ef333",
+   "source_sha256": "6ac023816ad83e294f7d1e2b901f4f73314beb4cf268b353b539d4b900acff4e",
    "sources": [
-    "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L94-L137",
-    "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L426-L430"
+    "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L94-L137",
+    "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L426-L438"
    ],
    "criteria": [
     {
@@ -1716,7 +1716,7 @@
      "regime": "static",
      "upstream_number": 1,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L101"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L101"
      ],
      "status": "open",
      "note": "Integer port loads and their conserved populations are measured in the coherent blank sector. Establishing an electric topological charge and excluding physical half-charge daughters requires a charge readout.",
@@ -1730,7 +1730,7 @@
      "regime": "static",
      "upstream_number": 2,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L102"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L102"
      ],
      "status": "partial",
      "note": "The free contrast interaction binds localized loads and has measurable binding energies. Electron identification, rest-energy calibration and an independent physical prediction from 511 keV remain open.",
@@ -1747,7 +1747,7 @@
      "regime": "dynamic",
      "upstream_number": 3,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L103"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L103"
      ],
      "status": "open",
      "note": "A spontaneously starting oscillation tied to an independently measured rest energy remains open.",
@@ -1761,7 +1761,10 @@
      "regime": "dynamic",
      "upstream_number": 4,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L104"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L104",
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L438",
+      "https://github.com/openwave-labs/openwave/pull/745#pullrequestreview-6005365373",
+      "https://github.com/openwave-labs/openwave/pull/746"
      ],
      "status": "demonstrated",
      "note": "The registered seam emitter prepares a pair that retains adjacency during free flight. The finite records resolve the pair and the binding theorem bounds loss of adjacency for all times on the spherical federation.",
@@ -1778,7 +1781,7 @@
      "regime": "dynamic",
      "upstream_number": 5,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L105"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L105"
      ],
      "status": "open",
      "note": "The electron dipole, gyromagnetic factor and field-driven precession require an electromagnetic readout.",
@@ -1792,7 +1795,7 @@
      "regime": "dynamic",
      "upstream_number": 6,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L106"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L106"
      ],
      "status": "open",
      "note": "Field angular momentum has yet to be measured on an identified electron.",
@@ -1806,7 +1809,7 @@
      "regime": "static",
      "upstream_number": 7,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L107"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L107"
      ],
      "status": "open",
      "note": "A physical rotation or exchange phase and its polar control remain unmeasured.",
@@ -1820,7 +1823,7 @@
      "regime": "both",
      "upstream_number": 8,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L110"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L110"
      ],
      "status": "open",
      "note": "The free contrast term preserves load. An identified conjugate pair converting into outgoing field quanta has yet to be measured.",
@@ -1834,7 +1837,7 @@
      "regime": "both",
      "upstream_number": 9,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L111"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L111"
      ],
      "status": "open",
      "note": "Production in a decay, electric neutrality and lightness have yet to be established for the same excitation.",
@@ -1848,7 +1851,7 @@
      "regime": "both",
      "upstream_number": 10,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L112"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L112"
      ],
      "status": "open",
      "note": "A flavour-tagged source, transitions and a mixing-angle determination remain open.",
@@ -1862,7 +1865,7 @@
      "regime": "static",
      "upstream_number": 11,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L113"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L113"
      ],
      "status": "open",
      "note": "No three minima have been identified as charged leptons and compared on a common mass scale.",
@@ -1876,7 +1879,7 @@
      "regime": "static",
      "upstream_number": 12,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L114"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L114"
      ],
      "status": "open",
      "note": "An electric response tied to fractional string winding remains unmeasured.",
@@ -1890,7 +1893,7 @@
      "regime": "static",
      "upstream_number": 13,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L115"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L115"
      ],
      "status": "partial",
      "note": "Three ordinary loads bind on a triangular face in the free contrast interaction. The constituent charge, colour and baryon identity remain open.",
@@ -1907,7 +1910,7 @@
      "regime": "static",
      "upstream_number": 14,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L116"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L116"
      ],
      "status": "open",
      "note": "The neutron and proton identities, mass order and resolved electric profile remain open.",
@@ -1921,7 +1924,7 @@
      "regime": "static",
      "upstream_number": 15,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L117"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L117"
      ],
      "status": "open",
      "note": "A common field-based prediction for both identified baryon energies remains open.",
@@ -1935,7 +1938,7 @@
      "regime": "static",
      "upstream_number": 16,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L118"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L118"
      ],
      "status": "open",
      "note": "No deuteron binding and electric quadrupole measurement exists on the identified constituents.",
@@ -1949,7 +1952,7 @@
      "regime": "both",
      "upstream_number": 17,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L119"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L119"
      ],
      "status": "open",
      "note": "Identified nuclear species with binding, spectroscopy and halo lifetime records remain open.",
@@ -1963,7 +1966,7 @@
      "regime": "static",
      "upstream_number": 18,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L120"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L120"
      ],
      "status": "open",
      "note": "Meson assignments and a decay tagged by strangeness remain open.",
@@ -1977,7 +1980,7 @@
      "regime": "static",
      "upstream_number": 19,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L121"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L121"
      ],
      "status": "partial",
      "note": "A written seam with empty endpoints retains a label and has a resolved energy level. Its electric neutrality and inertial mass as a propagating dark particle remain unmeasured.",
@@ -1994,7 +1997,7 @@
      "regime": "static",
      "upstream_number": 20,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L124"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L124"
      ],
      "status": "open",
      "note": "The bare two-load interaction vanishes beyond adjacent ports. The tested written and bare source sectors have no identified elementary electric charge with the required far field.",
@@ -2008,7 +2011,7 @@
      "regime": "dynamic",
      "upstream_number": 21,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L125"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L125"
      ],
      "status": "open",
      "note": "The free-cluster ring experiment finds a rest-mass versus kinetic-mass mismatch. Covariance, a native boost, and an observer signal-speed bound on the sphere remain open.",
@@ -2024,7 +2027,7 @@
      "regime": "static",
      "upstream_number": 22,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L126"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L126"
      ],
      "status": "open",
      "note": "A colour-source separation scan and a measured confining tension remain open.",
@@ -2038,7 +2041,7 @@
      "regime": "static",
      "upstream_number": 23,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L127"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L127"
      ],
      "status": "open",
      "note": "A scale scan of a physical coupling referred to the same core radius remains open.",
@@ -2052,7 +2055,7 @@
      "regime": "dynamic",
      "upstream_number": 24,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L128"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L128"
      ],
      "status": "open",
      "note": "Muon, electron and neutral decay-product records remain open.",
@@ -2066,7 +2069,7 @@
      "regime": "dynamic",
      "upstream_number": 25,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L129"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L129"
      ],
      "status": "open",
      "note": "A tagged beta decay and its parity asymmetry remain open.",
@@ -2080,7 +2083,7 @@
      "regime": "both",
      "upstream_number": 26,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L130"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L130"
      ],
      "status": "open",
      "note": "Attractive contact phases are available for adjacent loads. The one-load energy shift is common to all paths. Neither measurement supplies an attractive inverse-square force between distant masses.",
@@ -2094,7 +2097,7 @@
      "regime": "both",
      "upstream_number": 27,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L131"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L131"
      ],
      "status": "open",
      "note": "A sourced gravitational field with independent clock or light propagation records remains open.",
@@ -2108,7 +2111,7 @@
      "regime": "static",
      "upstream_number": 28,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L132"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L132"
      ],
      "status": "open",
      "note": "A constant shift of the free load generator drops out of probabilities. A vacuum contribution linked to measured acceleration and an independent falsification test remain open.",
@@ -2122,7 +2125,7 @@
      "regime": "dynamic",
      "upstream_number": 29,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L135"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L135"
      ],
      "status": "open",
      "note": "A measured electric current, transverse electromagnetic wave and recovery of Maxwell dynamics remain open.",
@@ -2136,7 +2139,7 @@
      "regime": "dynamic",
      "upstream_number": 30,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L136"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L136"
      ],
      "status": "open",
      "note": "Free bound clusters have measured resting and moving energies on a ring. The tested branches have incompatible kinetic and rest-mass ratios. A Klein–Gordon branch on the sphere remains open.",
@@ -2152,7 +2155,7 @@
      "regime": "static",
      "upstream_number": 31,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L137"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L137"
      ],
      "status": "partial",
      "note": "A load bound to a static seam has discrete levels in the free contrast interaction. The computed spacings and shell multiplicities fail the hydrogenic comparison, and the level count at fixed record number is bounded under refinement.",

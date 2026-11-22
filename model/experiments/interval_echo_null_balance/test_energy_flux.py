@@ -53,3 +53,41 @@ def test_finite_counts_and_withheld_gate():
     assert all(g["excludes_zero_at_4se"] for g in result["gateways"])
     assert not result["endpoint_minus_both"]["excludes_zero_at_4se"]
     assert result["endpoint_minus_first"]["excludes_zero_at_4se"]
+
+
+def test_signed_cut_and_refusing_shared_storage_on_independent_single_load():
+    from scipy import sparse
+    from model.executable_model import federation
+
+    board = federation(0)
+    flight = board.laplacian()/2
+
+    def term(a, b):
+        return sparse.csr_matrix(([KAPPA + .5, KAPPA + .5, -.5, -.5],
+                                  ([a, b, a, b], [a, b, b, a])), shape=flight.shape)
+
+    def bracket(a, b):
+        return a @ b - b @ a
+
+    inside = [sparse.diags(KAPPA * (6 - board.degree) * (np.arange(board.n)//12 == cell))
+              for cell in range(board.cells)]
+    links = {}
+    for a, b in board.seams:
+        l, r = a//12, b//12
+        if l == r:
+            inside[l] = inside[l] + term(a, b)
+        else:
+            links[(l, r)] = term(a, b)
+
+    owners = (0, 6)
+    core = sum(inside[c] for c in owners)
+    allocated, incoming = core.copy(), sparse.csr_matrix(flight.shape)
+    for (l, r), bond in links.items():
+        allocated += ((l in owners) + (r in owners)) * .5 * bond
+        orientation = int(l in owners) - int(r in owners)
+        incoming += .5 * orientation * bracket(bond, inside[l] - inside[r])
+    assert (bracket(flight, allocated) - incoming).count_nonzero() == 0
+    assert (bracket(flight, allocated) + incoming).count_nonzero() > 0
+    assert (bracket(flight, core) - incoming).count_nonzero() > 0
+    missing = np.isin(np.arange(board.n)//12, owners) * (6-board.degree) * KAPPA
+    assert (bracket(flight, allocated-sparse.diags(missing)) - incoming).count_nonzero() > 0

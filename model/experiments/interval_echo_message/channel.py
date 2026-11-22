@@ -28,6 +28,12 @@ REPLAY_70E58E24 = {
     "model/candidate_laws/interval_echo/EVALUATION.json": "7d95fd5f067232b9f9f3aba664148865ee6773b90ffa52e92f882b06bdae80d9",
 }
 
+# The regional conservation, coherent-sweep and coupling evidence changes metadata only.
+REPLAY_REGIONAL_CONSENSUS = {
+    "model/candidate_laws/interval_echo/candidate.py": "c55b45990fedd5b79ebf5d8e206334b7e90c519e72811b5687149c7f58d9a4a4",
+    "model/candidate_laws/interval_echo/EVALUATION.json": "768e20a009f611483bd51a027cc47593a13084e276fb35a561a9cde6953d94cc",
+}
+
 
 def require(ok, message):
     if not ok:
@@ -38,10 +44,11 @@ def sources():
     frozen = SPEC["sources"]
     actual = {name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest() for name in frozen}
     reviewed = frozen | REPLAY_UPDATES
-    if actual == frozen or actual == (reviewed | REPLAY_70E58E24):
+    radial = reviewed | REPLAY_70E58E24
+    if actual in (frozen, reviewed, radial, radial | REPLAY_REGIONAL_CONSENSUS):
         return
-    for name, expected in reviewed.items():
-        require(actual.get(name) == expected, f"unverified replay source: {name}")
+    mismatches = [name for name, expected in reviewed.items() if actual.get(name) != expected]
+    raise ValueError(f"unverified replay source: {', '.join(mismatches)}")
 
 
 def encode(board, station):

@@ -368,7 +368,7 @@
           "results": {
             "interval_echo": {
               "status": "partial",
-              "note": "For the optional asynchronous sharp service, occupied and ready edge flags determine a unique consistent normal form on any equipped finite screen. An exhaustive intercell path checked 19,683 material states and all 284 one-step forks. Forward, reverse and shuffled service agreed on nine whole-screen preparations. The supplied priority changes physical endpoints when reversed. Coherent and clock transactions still need a common joining and descent argument.",
+              "note": "Occupied and ready flags determine the consistent asynchronous sharp endpoint. All 284 one-step forks on 19,683 path states join. For one protected coherent sweep, stored local priorities order conflicting visits. Disjoint visits commute, giving exactly the same full addressed instrument for every legal schedule, including arbitrary untouched references. Five legal schedules agree on 3,888 path inputs. Removing precedence changes 192 endpoints. Unrestricted interleaving with clocks and free evolution still lacks a common descent and joining proof.",
               "evidence": [
                 "model/candidate_laws/interval_echo/consensus.json",
                 "model/candidate_laws/interval_echo/CONSENSUS.md",
@@ -376,7 +376,9 @@
                 "model/experiments/interval_echo_consensus/phase.json",
                 "model/experiments/interval_echo_consensus/README.md",
                 "model/experiments/interval_echo_consensus/ASYNCHRONOUS.md",
-                "model/experiments/interval_echo_consensus/asynchronous.json"
+                "model/experiments/interval_echo_consensus/asynchronous.json",
+                "model/experiments/interval_echo_consensus/coherent_sweep.py",
+                "model/experiments/interval_echo_consensus/coherent_sweep.json"
               ]
             },
             "contrast_memory_spherical_v1": {
@@ -447,10 +449,12 @@
           "results": {
             "interval_echo": {
               "status": "partial",
-              "note": "Complete sharp measurements and local fair-sign branches have normalized operational tables. The circuit uses the quantum instrument rule for these branches; a derivation for the entire event grammar remains open.",
+              "note": "Complete sharp instruments and fair-sign branches give normalized additive public event weights on the declared menus. Two separated accepted collars have fair single-sign marginals. The addressed joint parity distinguishes two coherent preparations with even probabilities 0 and 1, both becoming 1/2 after a premature local sign reading. The calculation uses the supplied quantum state and instrument. A derivation for the entire event grammar remains open.",
               "evidence": [
                 "model/candidate_laws/interval_echo/clock.py",
-                "model/candidate_laws/interval_echo/projection.json"
+                "model/candidate_laws/interval_echo/projection.json",
+                "model/experiments/interval_echo_consensus/ASYNCHRONOUS.md",
+                "model/experiments/interval_echo_consensus/coherent_sweep.json"
               ]
             },
             "contrast_memory_spherical_v1": {
@@ -703,12 +707,14 @@
           "results": {
             "interval_echo": {
               "status": "partial",
-              "note": "The full 630-state serviced two-load sector satisfies scalar patch-energy continuity. Independently measured fluxes through two physical gateways reproduce the held regional energy change within 0.0017 ± 0.0084 native energy units (one standard error). Omitting one gateway leaves a 20.5-standard-error discrepancy. Momentum flux, the spacetime metric and the covariant stress identity remain open.",
+              "note": "Assigning each complete cell its internal and reference energy and half its external seam energy gives an exact additive scalar Ward identity for any union of complete cells on the freely evolving federation. Internal currents cancel. Across 12 comparisons (three regions, two preparations and two exposures) on the intact 20-cell screen the largest discrepancy between the instantaneous energy slope and the cut currents is 2.7×10⁻⁸ in native units. Removing a cut current leaves a discrepancy up to 1.56. A separate three-cell finite-count test gave 0.0017 ± 0.0084 and a 20.5-standard-error omitted-gateway control. Momentum flux and covariant spacetime stress on the G1 domain remain open.",
               "evidence": [
                 "model/candidate_laws/interval_echo/CURRENTS.md",
                 "model/experiments/interval_echo_null_balance/README.md",
                 "model/experiments/interval_echo_null_balance/interval.json",
-                "model/experiments/interval_echo_null_balance/results.json"
+                "model/experiments/interval_echo_null_balance/results.json",
+                "model/experiments/interval_echo_null_balance/regional.py",
+                "model/experiments/interval_echo_null_balance/regional.json"
               ]
             },
             "contrast_memory_spherical_v1": {

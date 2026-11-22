@@ -13,6 +13,11 @@ WAVES = ("kg_velocity", "kg_frequency", "parabola_velocity", "parabola_frequency
          "cosine_velocity", "lattice_kg_velocity", "native_band")
 
 
+def finite_channel_frequency(coupling, q):
+    """Midpoint-relative half-gap of the period-four written-memory channel."""
+    return abs(coupling) / 2 * np.sqrt(3 - np.sqrt(6 + 2*np.cos(q)))
+
+
 def predict(mass, freq, speed, anchor, q):
     return np.stack(np.broadcast_arrays(
         np.sqrt(mass**2 + speed*freq/anchor*q**2),
@@ -21,7 +26,7 @@ def predict(mass, freq, speed, anchor, q):
         mass + (freq-mass)*(q/anchor)**2,
         mass + speed*(1-np.cos(q))/np.sin(anchor),
         np.sqrt(mass**2 + 4*speed*freq/np.sin(anchor)*np.sin(q/2)**2),
-        4*np.sqrt(3-np.sqrt(6+2*np.cos(q))),
+        finite_channel_frequency(8, q),
     ), axis=-1)
 
 
@@ -137,7 +142,17 @@ def run():
                          models={name:dict(percent_error=point_error[i],
                                            count_only_95_percent_error=ci(ratios[:,i]))
                                  for i,name in enumerate(WAVES)}))
-    summary = dict(spatial_fits=spatial_modes, c_from_calibration_line=np.sqrt(
+    # This scale is read from fuel counts on empty ports in a separate experiment.
+    seam_archive = HERE.parents[2] / "contrast_memory_spherical_v1" / "RESULTS.json"
+    seam = json.loads(seam_archive.read_text())["collar"]["reading"]["sampled"]
+    ratio = seam["rate_symmetric"] / (seam["rate_antisymmetric"] - seam["rate_symmetric"])
+    measured = [(0., r["rest_frequency"]), *((row["q"], row["observed"]) for row in r["held_and_challenge"])]
+    from_seam = []
+    for q, observed in measured:
+        value = finite_channel_frequency(ratio, q)
+        from_seam.append(dict(q=q, observed=observed, predicted=value, percent_error=100*(value/observed-1)))
+    summary = dict(seam_ratio=ratio, frequencies_from_seam=from_seam,
+        spatial_fits=spatial_modes, c_from_calibration_line=np.sqrt(
         r["calibration_frequency"]**2-r["rest_frequency"]**2)/anchor,
         c_from_calibration_line_95=ci(c_frequency), c_from_packet_95=ci(c_speed),
         count_only_mass_95=ci(mass), packet_speed_95=ci(speed), rows=rows)

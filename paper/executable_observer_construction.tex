@@ -61,28 +61,19 @@ Daniel Ari Friedman\textsuperscript{3,4}\qquad Brieuc de La Fournière}
 \end{center}
 
 \begin{abstract}
-In Observer Patch Holography, space, time, fields and particles are how
-observers describe the records they agree on. This paper specifies
-candidate laws of an executable model of such observers. Its ports, seams
-and cells are the hardware of a computation and no space. In the reference
-candidate, A-contrast-memory-spherical-v1, an exchange of loads plus an
-energy of agreement is realized exactly by a private seam memory. On every
-federation of complete cells a pair of loads on one seam is read as a pair
-on some seam with probability at least $1-40/(2\kappa-6)^2$ at every later
-reading, for every coupling $\kappa>3$. Readings on up to $320$ cells lie
-far below this bound, the pair is read on other seams, and the law without
-the agreement energy loses it. The main candidate law, Interval Echo,
-runs this seam at $\kappa=8$ and lets an observer carry its own clock: a
-travelling clock, compared at reunion with the clock kept at home, runs
-slow by the relativistic factor to about one part in a thousand, and
-overlapping observers agree on every shared reading. Under the second
-candidate, the scalar channel, a cage on four seams keeps its excitation
-for every interval and, after a pulse, carries a clock that an observer
-reads in units of its own reference. These outputs supply the premises of finite
-theorems on the three-direction carrier, the native seam rule, projective
-instruments, record algebras and clock comparison, and under one declared
-service the gauge type of the port response. All three are candidate
-native repair laws with supplied couplings.
+We construct finite observers whose records are stored on overlapping patches of
+a spherical federation. A local repair writes the disagreement between two
+ports into a private memory. Its coherent evolution realizes an exchange of
+loads with an agreement energy. We prove a size-independent bound on the
+loss of a prepared adjacent pair and exhibit a local measurement that
+distinguishes the sign of the interaction. A second patch can detect phase
+transported by the bound excitation. In the Interval Echo candidate, a
+finite patch carries its own clock. With a calibrated handoff rule, the
+traveller and home patches read the predicted clock difference at reunion.
+Separate measurements of the two owners' energy responses determine the
+current through their shared boundary. These results connect overlap repair
+to matter, clocks and conservation through records that finite observers can
+compare. The coupling and experimental services are specified inputs.
 \end{abstract}
 
 
@@ -1787,6 +1778,52 @@ one load, started off the seam & $0.502209$, $0.564749$ & $0.062540$ & $8.030$ \
 A load on the cell shifts the reading, as the last line shows, and with a
 load started on a port of the seam the reading of the coupling is lost.
 
+\paragraph{Testing a reference for the coupling.}
+On one cell of the twenty-cell sphere, place two units at independent,
+uniformly drawn port addresses. On a chosen seam a fair controller either
+accepts the input or accepts only its even component under exchange.
+Each rejected preparation gives a public outcome. After the native write,
+four contacts empty the two read ports into exterior spares. The accepted
+memory state, resolved at a fixed coin value, assigns probabilities
+$(204,40,20,2,1)/267$ to the five levels in the order above. A single
+positive-temperature Gibbs reference would imply
+\[
+  \beta=\log(p_{1+}/p_{1-}),\qquad
+  \kappa=\beta^{-1}\log(p_0/p_{1+}),\qquad
+  p_{2+}=p_0(p_{1+}/p_0)^4 .
+\]
+Here $\beta=\log 2$ in exchange units. The first three populations imply
+$\kappa=\log_2(204/40)$. The held even population at magnitude two is
+$132651/20000$ times the prediction. The parity ratio itself is two at
+both magnitudes. Thus this phase-sensitive reference resolves a parity
+imbalance at both magnitudes while failing the common-temperature
+identification of the contrast energies. Its construction uses supplied
+local preparation and isolated contacts.
+
+More generally, sample the two emission addresses from any joint law invariant
+under the rotations of the twelve-port cell and retain the same seam and parity
+instrument. Conditional on the first address, the return probability $d$ and
+the probability $e$ at each of its five neighbors obey $d+5e\leq1$.
+The even-mode weights are proportional to
+$(8+2d+4e,\,2(1-d-e),\,d)$, giving, for $R=p_0/p_{1+}\geq11/2$,
+\[
+ D=\frac{p_{2+}p_0^3}{p_{1+}^4}\ \geq\ \frac{(2R-11)R^3}{20}.
+\]
+A Gibbs reference would require $D=1$ and $\beta=\log 2$, which bounds
+the inferred $\kappa=\log_2 R$ by $2.47463$ and excludes $8$ for this family.
+
+Coherence cannot produce the thermal weights for $\kappa=8$ at this
+temperature either. Choose one of the thirty internal seams uniformly,
+independently of the two-load state, or fix the seam in a rotation-invariant
+state. A double, an adjacent pair and a nonadjacent pair have nonzero
+contrast on five, eight and ten seams respectively. The contrast test
+is diagonal in the load basis, so its probability $x$ is at least $1/6$
+for every pure or mixed state under this sampling. The fair bypass accepts
+at least $x/2$ with nonzero contrast, while the zero-contrast weight is
+at most $1-x$. The nonzero fraction among accepted records is therefore
+at least $x/(2-x)\geq1/11$. The five Gibbs weights at
+$\beta=\log 2$, $\kappa=8$ assign only $0.5825\%$ to nonzero contrast.
+
 \subsection{Relation to the dark-sector carrier of the theory}
 
 The dark-sector paper of the theory takes a recovery defect on an overlap
@@ -1820,6 +1857,19 @@ held probabilities to below $10^{-10}$, while the best Gram matrix of rank
 two has a relative error of $0.577$. What Interval Echo adds is a clock
 that a finite observer carries. The measurements below are computed from
 sampled material histories on the federations \cite{ophrepo}.
+
+\paragraph{A wave prediction from a collar.}
+The sampled rates of the empty-port collar in Table~\ref{tab:collar}
+give $\widehat\kappa=8.001733$ in exchange units. A separate experiment
+prepares one unit in a period-four channel of written memories on the
+320-cell sphere and releases it to free evolution. For wave number $q$
+the channel's four-site generator predicts a frequency relative to the
+middle-band midpoint of
+$\tfrac12|\widehat\kappa|\sqrt{3-\sqrt{6+2\cos q}}$.
+With the scale fixed by the collar, the largest discrepancy across the
+rest line, four held wave numbers and one short-wavelength challenge is
+$0.03514\%$. This is a prediction for a prepared one-dimensional
+material channel. The origin of its coupling remains open.
 
 \paragraph{The patch clock.}
 A travelling observer patch carries a hand of five positions, an elapsed
@@ -1879,6 +1929,20 @@ $34$ conserved mobile doubles through $2{,}399$ transfers. Every shared
 checkpoint reading agrees. The preparation probabilities, the matching
 schedule, the tag protection and the gate windows belong to the
 experiment.
+
+\paragraph{Coherent repair under local precedence.}
+During a protected sweep, each seam applies its strict repair instrument
+once all higher-priority seams at its endpoints have completed. The
+outcome and completion bit stay on that seam. Incomparable visits act on
+disjoint material registers, so exchanging their order preserves every
+branch operator. Every fair schedule therefore gives the same instrument
+for the supplied precedence. On a four-seam path, five legal orders
+agreed on all $3{,}888$ load and occupancy words. In one common outcome
+record, two local unwrite probes distinguished opposite prepared phases
+by joint even parity with probability zero or one. Probing a seam before
+its predecessors completed gave one half for either phase. The claim
+applies to the protected repair sweep with free propagation and clock
+service suspended.
 
 \paragraph{Port currents.}
 On one cell the port currents selected by the rotations of the cell give

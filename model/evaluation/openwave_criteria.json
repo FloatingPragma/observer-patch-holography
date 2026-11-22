@@ -3,12 +3,12 @@
     {
       "id": "openwave",
       "title": "OpenWave empirical criteria",
-      "purpose": "Assess the 31 OpenWave physical targets on each of the three RER candidate laws. The criterion number follows upstream row order. A partial entry names the finite measurement and the missing step to the physical target. These local assessments are independent of the upstream M10 column, which evaluates a different candidate.",
-      "source_revision": "26fbb5fdd07049625d6bb7930af2f6bf545fb6fc",
-      "source_sha256": "07d76807c5e109beb19a7600c67a5daa675e88dfaa70116e4866d6afa5049fe3",
+      "purpose": "Assess the 31 OpenWave physical targets locally on all three RER laws. The public M10 column at the cited revision pins Interval Echo. OpenWave partially validated Row 4 and marked the other 30 rows as not yet tested. Each RER grade describes the measurement and scope named in its entry.",
+      "source_revision": "753232cac4976ab2ca208eb99d73fe7ac88ef333",
+      "source_sha256": "6ac023816ad83e294f7d1e2b901f4f73314beb4cf268b353b539d4b900acff4e",
       "sources": [
-        "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L94-L137",
-        "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L426-L430"
+        "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L94-L137",
+        "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L426-L438"
       ],
       "criteria": [
         {
@@ -19,7 +19,7 @@
           "regime": "static",
           "upstream_number": 1,
           "sources": [
-            "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L101"
+            "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L101"
           ],
           "results": {
             "interval_echo": {
@@ -49,7 +49,7 @@
           "regime": "static",
           "upstream_number": 2,
           "sources": [
-            "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L102"
+            "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L102"
           ],
           "results": {
             "interval_echo": {
@@ -86,7 +86,7 @@
           "regime": "dynamic",
           "upstream_number": 3,
           "sources": [
-            "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L103"
+            "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L103"
           ],
           "results": {
             "interval_echo": {
@@ -119,7 +119,10 @@
           "regime": "dynamic",
           "upstream_number": 4,
           "sources": [
-            "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L104"
+            "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L104",
+            "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L438",
+            "https://github.com/openwave-labs/openwave/pull/745#pullrequestreview-6005365373",
+            "https://github.com/openwave-labs/openwave/pull/746"
           ],
           "results": {
             "interval_echo": {
@@ -128,7 +131,7 @@
                 "label": "Free persistence of a prepared pair",
                 "source": "model/candidate_laws/interval_echo/openwave/row_04/README.md"
               },
-              "note": "The original patch detects an adjacent pair with probability 98.39% at exposure 150, versus 14.96% under exchange alone. At a second source it recorded 4,028 of 4,096 pairs at exposure 37, versus 824 of 4,096. The finite ensemble probability stays at least 94% over the entire interval [0,37]. This tests a prepared bound excitation of unassigned species.",
+              "note": "RER demonstrated free persistence of a prepared pair of unassigned species. At held exposure 37 its launch patch has adjacent-pair probability 0.98027 at κ = 8 versus 0.20291 at κ = 0. The corresponding seeded terminal records gave 4,028 versus 824 detections in 4,096 draws per arm. The native probability is at least 0.94 throughout [0,37]. OpenWave reproduced the probabilities and graded M10 partially validated. The strength was supplied and assessed during the earlier persistence search. For any rotation-invariant distribution of two launch addresses on one twelve-port cell, the tested local parity filter can infer at most κ = 2.47463 while matching the held magnitude-two population. Selecting 8 requires a different physical reference.",
               "evidence": [
                 "model/candidate_laws/interval_echo/openwave/row_04/README.md",
                 "model/candidate_laws/interval_echo/openwave/row_04/results.json",
@@ -139,7 +142,11 @@
                 "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json",
                 "model/candidate_laws/interval_echo/openwave/submission/ROW_04.md",
                 "model/candidate_laws/interval_echo/openwave/submission/ROW_04_PLATFORM_AUDIT.md",
-                "model/candidate_laws/interval_echo/openwave/row_04_large/README.md"
+                "model/candidate_laws/interval_echo/openwave/row_04_large/README.md",
+                "openwave/interval_echo/row_04/ROW_04_DESIGN.md",
+                "model/experiments/interval_echo_consensus/README.md",
+                "model/experiments/interval_echo_consensus/collar_reference.py",
+                "model/experiments/interval_echo_consensus/collar_reference.json"
               ]
             },
             "contrast_memory_spherical_v1": {
@@ -168,7 +175,7 @@
           "regime": "dynamic",
           "upstream_number": 5,
           "sources": [
-            "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L105"
+            "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L105"
           ],
           "results": {
             "interval_echo": {
@@ -198,7 +205,7 @@
           "regime": "dynamic",
           "upstream_number": 6,
           "sources": [
-            "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L106"
+            "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L106"
           ],
           "results": {
             "interval_echo": {
@@ -228,7 +235,7 @@
           "regime": "static",
           "upstream_number": 7,
           "sources": [
-            "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L107"
+            "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L107"
           ],
           "results": {
             "interval_echo": {
@@ -260,7 +267,7 @@
           "regime": "both",
           "upstream_number": 8,
           "sources": [
-            "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L110"
+            "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L110"
           ],
           "results": {
             "interval_echo": {
@@ -290,7 +297,7 @@
           "regime": "both",
           "upstream_number": 9,
           "sources": [
-            "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L111"
+            "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L111"
           ],
           "results": {
             "interval_echo": {
@@ -320,7 +327,7 @@
           "regime": "both",
           "upstream_number": 10,
           "sources": [
-            "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L112"
+            "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L112"
           ],
           "results": {
             "interval_echo": {
@@ -350,7 +357,7 @@
           "regime": "static",
           "upstream_number": 11,
           "sources": [
-            "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L113"
+            "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L113"
           ],
           "results": {
             "interval_echo": {
@@ -380,7 +387,7 @@
           "regime": "static",
           "upstream_number": 12,
           "sources": [
-            "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L114"
+            "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L114"
           ],
           "results": {
             "interval_echo": {
@@ -410,7 +417,7 @@
           "regime": "static",
           "upstream_number": 13,
           "sources": [
-            "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L115"
+            "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L115"
           ],
           "results": {
             "interval_echo": {
@@ -445,7 +452,7 @@
           "regime": "static",
           "upstream_number": 14,
           "sources": [
-            "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L116"
+            "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L116"
           ],
           "results": {
             "interval_echo": {
@@ -475,7 +482,7 @@
           "regime": "static",
           "upstream_number": 15,
           "sources": [
-            "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L117"
+            "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L117"
           ],
           "results": {
             "interval_echo": {
@@ -505,7 +512,7 @@
           "regime": "static",
           "upstream_number": 16,
           "sources": [
-            "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L118"
+            "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L118"
           ],
           "results": {
             "interval_echo": {
@@ -535,7 +542,7 @@
           "regime": "both",
           "upstream_number": 17,
           "sources": [
-            "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L119"
+            "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L119"
           ],
           "results": {
             "interval_echo": {
@@ -565,7 +572,7 @@
           "regime": "static",
           "upstream_number": 18,
           "sources": [
-            "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L120"
+            "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L120"
           ],
           "results": {
             "interval_echo": {
@@ -595,7 +602,7 @@
           "regime": "static",
           "upstream_number": 19,
           "sources": [
-            "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L121"
+            "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L121"
           ],
           "results": {
             "interval_echo": {
@@ -633,7 +640,7 @@
           "regime": "static",
           "upstream_number": 20,
           "sources": [
-            "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L124"
+            "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L124"
           ],
           "results": {
             "interval_echo": {
@@ -665,7 +672,7 @@
           "regime": "dynamic",
           "upstream_number": 21,
           "sources": [
-            "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L125"
+            "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L125"
           ],
           "results": {
             "interval_echo": {
@@ -701,7 +708,7 @@
           "regime": "static",
           "upstream_number": 22,
           "sources": [
-            "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L126"
+            "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L126"
           ],
           "results": {
             "interval_echo": {
@@ -731,7 +738,7 @@
           "regime": "static",
           "upstream_number": 23,
           "sources": [
-            "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L127"
+            "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L127"
           ],
           "results": {
             "interval_echo": {
@@ -761,7 +768,7 @@
           "regime": "dynamic",
           "upstream_number": 24,
           "sources": [
-            "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L128"
+            "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L128"
           ],
           "results": {
             "interval_echo": {
@@ -791,7 +798,7 @@
           "regime": "dynamic",
           "upstream_number": 25,
           "sources": [
-            "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L129"
+            "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L129"
           ],
           "results": {
             "interval_echo": {
@@ -821,7 +828,7 @@
           "regime": "both",
           "upstream_number": 26,
           "sources": [
-            "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L130"
+            "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L130"
           ],
           "results": {
             "interval_echo": {
@@ -851,7 +858,7 @@
           "regime": "both",
           "upstream_number": 27,
           "sources": [
-            "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L131"
+            "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L131"
           ],
           "results": {
             "interval_echo": {
@@ -882,7 +889,7 @@
           "regime": "static",
           "upstream_number": 28,
           "sources": [
-            "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L132"
+            "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L132"
           ],
           "results": {
             "interval_echo": {
@@ -912,7 +919,7 @@
           "regime": "dynamic",
           "upstream_number": 29,
           "sources": [
-            "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L135"
+            "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L135"
           ],
           "results": {
             "interval_echo": {
@@ -942,7 +949,7 @@
           "regime": "dynamic",
           "upstream_number": 30,
           "sources": [
-            "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L136"
+            "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L136"
           ],
           "results": {
             "interval_echo": {
@@ -951,7 +958,7 @@
                 "label": "Low-energy Klein–Gordon dispersion of free matter on a prepared record channel",
                 "source": "model/candidate_laws/interval_echo/openwave/row_30_autonomous/README.md"
               },
-              "note": "Under free evolution on a prepared 194-cell channel, four held frequencies agree with the low-energy Klein–Gordon envelope within 1.19% using packet speed, or 1.62% using a local stationary reference and independently measured seam coefficients. A separately calibrated parabola misses by 6.68% at the last held point. With shortest internal routes between the same gateways, 62 modes fill the periodic gap. The origin of a corresponding matter branch on an independently established background is open.",
+              "note": "On the prepared 194-cell record channel the continuum Klein–Gordon envelope agrees with four held frequencies within 1.19% using packet speed. The competing parabola misses by 6.68% at the last held point. The continuum misses by 18.03% on a separate microscopic challenge. An empty-seam measurement independently sets the scale of the exact four-site dispersion, forecasting rest, the four held frequencies and that challenge within 0.036%. This finite prediction tests transfer of the supplied coupling. Its overall frequency scale is proportional to |κ|. A freely established background and a matter branch in additional directions remain open.",
               "evidence": [
                 "model/candidate_laws/interval_echo/openwave/row_30/README.md",
                 "model/candidate_laws/interval_echo/openwave/row_30/results.json",
@@ -969,7 +976,8 @@
                 "model/candidate_laws/interval_echo/openwave/row_30_selective/README.md",
                 "model/candidate_laws/interval_echo/openwave/row_30_selective/CHANNEL_REVIEW.md",
                 "model/candidate_laws/interval_echo/openwave/row_30_route/README.md",
-                "model/candidate_laws/interval_echo/openwave/submission/ROW_30_DECISION.md"
+                "model/candidate_laws/interval_echo/openwave/submission/ROW_30_DECISION.md",
+                "model/candidate_laws/interval_echo/openwave/row_30_selective/channel_review.json"
               ]
             },
             "contrast_memory_spherical_v1": {
@@ -996,7 +1004,7 @@
           "regime": "static",
           "upstream_number": 31,
           "sources": [
-            "https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#L137"
+            "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L137"
           ],
           "results": {
             "interval_echo": {
