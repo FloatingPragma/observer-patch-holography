@@ -64,6 +64,8 @@ Test the time reference on the native written sign doublet at fixed absolute con
 
 An additional realization uses one stored sign doublet in each physical seam. A unit load interchange moves the loads. For each computed discrepancy another reversible move flips its witness sign if the predicate is true. Every move contributes the same unweighted exchange Laplacian. Test whether restricting this graph to the common odd sign character recovers the free material generator. Compare parking all signs in the even character, a single uncalibrated sign, and an ordinary sharp sign with its entire outcome retained. Count every sign register and conditional move. In this realization the sign bank is a declared preparation.
 
+Use the published, independently selected cell-7 launch as a second apparatus. Compare the complete 31 outcomes at exposures 3, 11 and 29 for the uniform aperture, the assembled aperture and the zero-clock control. Compare model probabilities with the archived elementary records using multinomial deviance and 9,999 parametric draws per setting (seed words 45731 and the appointment index). Reject a three-appointment forecast if any upper-tail Monte Carlo probability is at most 0.01/3. The registration and historical counts are public and known. The assembled predictions have yet to be computed on this launch. Reproduce the stream itself only for the historical laws. The separate strength and sign controls concern the energy reference as well as the detector.
+
 ## Reproduce
 
 From the RER repository root, run:
