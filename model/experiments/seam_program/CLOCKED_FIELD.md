@@ -117,6 +117,8 @@ A continuum interacting theory could use a collective field in a many-load criti
 OPENBLAS_NUM_THREADS=1 python -m model.experiments.seam_program.two_scalar --output /tmp/echo-two-scalar.json
 ~~~
 
+The systematic refinement search finds a local three-dimensional scattering resonance with quadratic time scaling and a finite-range interaction on the ballistic chart with a programmed survey. The resonance survives removal of the mesh in the two-load channel. The relativistic interacting conformal sector is open. [Interaction limits, selection and controls](INTERACTING_LIMITS.md)
+
 ### A free quantum field on the programmed chart
 
 Canonical oscillator quantization of the positive-frequency branch at private order zero supplies a Gaussian vacuum. Fix the spatial average to zero on each periodic box of side $\ell$. For time separation $\tau>0$ its two-point function is $\ell^{-3}\sum_{k\ne0}\cos(k\cdot x)e^{-\tau\omega_h(k)}/(2\omega_h(k))$, with $\omega_h(k)=E(hk,0)/h$ from the compiled word. In the infinite-volume, zero-mesh limit it is
