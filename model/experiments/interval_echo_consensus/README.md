@@ -62,6 +62,8 @@ For the binary release use the original board, launch (156,157), the thirty inte
 
 Test the time reference on the native written sign doublet at fixed absolute contrast one. Park its two parity states on separate rails. Exchange the rails under the change flag, expose the same active rail, then undo the exchange. Check that all charges of a donor law contribute only a common phase. Compare the donor strengths 0, −8, 1/2, 8 and 16, change the clock orientation and timing, and test the operation on arbitrary coherent inputs. For the free binary sector build a static microscopic graph. Each load interchange also interchanges the clocks for every flag it changes. Each exposed sign rail has one native flip. Test the reducing subspace and its orthogonal complement on a literal small graph and verify the affected flags for the registered federation. These tests address continuous composition and whether any interaction strength entered through the clock itself.
 
+An additional realization uses one stored sign doublet in each physical seam. A unit load interchange moves the loads. For each computed discrepancy another reversible move flips its witness sign if the predicate is true. Every move contributes the same unweighted exchange Laplacian. Test whether restricting this graph to the common odd sign character recovers the free material generator. Compare parking all signs in the even character, a single uncalibrated sign, and an ordinary sharp sign with its entire outcome retained. Count every sign register and conditional move. In this realization the sign bank is a declared preparation.
+
 ## Reproduce
 
 From the RER repository root, run:
