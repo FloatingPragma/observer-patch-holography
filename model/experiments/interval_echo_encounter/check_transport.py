@@ -28,12 +28,14 @@ def terminal_labels(sector, home, internal):
     return labels
 
 
-def checked_steps(h, start, exposures, *, degree=24):
+def checked_steps(h, start, exposures, *, degree=24, steps_per_unit=8):
     # Center the Gershgorin interval. All matrix entries and the step are dyadic.
     off = np.asarray(abs(h).sum(axis=1)).ravel() - abs(h.diagonal())
     low, high = min(h.diagonal() - off), max(h.diagonal() + off)
     center = (low + high) / 2
-    step = 1 / 8
+    if type(steps_per_unit) is not int or steps_per_unit < 1 or steps_per_unit & (steps_per_unit - 1):
+        raise ValueError("The propagator needs a positive power of two for a dyadic step")
+    step = 1 / steps_per_unit
     matrix = ((h - center * eye(h.shape[0], format="csr")) * step).tocsr()
     radius = float(np.asarray(abs(matrix).sum(axis=1)).max())
     terms = max(np.diff(matrix.indptr))
@@ -47,18 +49,18 @@ def checked_steps(h, start, exposures, *, degree=24):
     tail = math.exp(radius) * radius**(degree+1) / math.factorial(degree+1)
     local_error = rounding + tail
     state = start.copy()
-    for k in range(1, 8 * max(exposures) + 1):
+    for k in range(1, steps_per_unit * max(exposures) + 1):
         term = state
         total = state.copy()
         for j in range(1, degree + 1):
             term = (matrix @ term) * (-1j / j)
             total += term
         state = total
-        if k % 8 == 0 and k//8 in exposures:
+        if k % steps_per_unit == 0 and k//steps_per_unit in exposures:
             delta = math.expm1(k * math.log1p(local_error))
             # L1 error for a complete orthogonal read and its numerical sums.
             probability_error = delta*(2+delta) + gamma(len(state)+8)*(1+delta)**2
-            yield k//8, state, probability_error
+            yield k//steps_per_unit, state, probability_error
 
 
 def verify():
