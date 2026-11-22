@@ -1,6 +1,6 @@
 """Predict the registered two-load home probability from independent one-load samples."""
 import json
-from math import asin, expm1, log, pi, sin, sqrt
+from math import asin, cos, expm1, hypot, log, pi, sin, sqrt
 
 import numpy as np
 
@@ -11,9 +11,12 @@ from .coupling_budget import native_triangle, sampling_weights, triangle_forecas
 
 def infer_floor(quarter, irrational, full):
     """A conservative 99% simultaneous inference, or an inconclusive reading."""
-    arms = np.asarray([*quarter, *irrational, full])
-    if (arms.shape != (5, 3) or not np.issubdtype(arms.dtype, np.integer)
-            or (arms < 0).any() or (arms > SHOTS).any() or not np.all(arms.sum(axis=1) == SHOTS)):
+    pulses = tuple(map(np.asarray, (quarter, irrational, full)))
+    if any(p.shape != shape or not np.issubdtype(p.dtype, np.integer)
+           for p, shape in zip(pulses, ((2, 3), (2, 3), (3,)), strict=True)):
+        raise ValueError("Expected two recombiners at each short pulse and one at the full pulse")
+    arms = np.vstack(pulses)
+    if (arms < 0).any() or (arms > SHOTS).any() or not np.all(arms.sum(axis=1) == SHOTS):
         raise ValueError("Expected five complete three-port count vectors at the fixed exposure count")
     shots = SHOTS
     if full[2] != 0:
@@ -32,6 +35,13 @@ def infer_floor(quarter, irrational, full):
         target = np.array([sin(t/2)**2, 1-sin(t/2)**2])/2
         if np.max(abs(spectator-target)) > radius:
             return dict(resolved=False, reason="spectator counts disagree with the instrument")
+        # The two return ports measure orthogonal quadratures of one unit phase.
+        c, s = cos(t/2), sin(t/2)
+        returns = arms[2*j:2*j+2, 0] / shots
+        real = (4*returns[0] - 1 - c*c)/(2*c)
+        imag = (1 + s*s - 4*returns[1])/(2*s)
+        if abs(hypot(real, imag) - 1) > 2*radius*hypot(1/c, 1/s):
+            return dict(resolved=False, reason="return counts disagree with a common phase")
     coarse_upper = 1.25 - (int(arms[0, 0]) + int(arms[1, 0])) / shots + radius
     zero_test_lower = 1.25 - (int(arms[2, 0]) + int(arms[3, 0])) / shots - radius
     if coarse_upper < 0 or zero_test_lower > 1:

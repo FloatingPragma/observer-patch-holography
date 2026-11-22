@@ -79,20 +79,27 @@ def finite_window(exchange, adjacent, patch, launch, strength):
     grid_floor = 1.
     readings = {}
     # One time unit of the scaled matrix is 1/8 of a native exposure.
-    for tick, state, error in checked_steps(h / 8, start, range(1, 297), degree=20):
+    ticks = range(1, 297)
+    samples = checked_steps(h / 8, start, ticks, degree=20)
+    for expected, (tick, state, error) in zip(ticks, samples, strict=True):
+        if tick != expected or state.shape != start.shape:
+            raise ValueError("Unexpected exposure or state dimension on the registered grid")
         if not 0 <= error < 1e-5:
             raise ArithmeticError("The Taylor probability enclosure exceeded its budget")
+        norm_squared = float(np.vdot(state, state).real)
+        if not abs(norm_squared - 1) <= error:
+            raise ArithmeticError("Propagated state fails the normalization enclosure")
         local = abs(state[patch])**2
         home = float(local.sum())
         grid_floor = min(grid_floor, home-error)
         if tick in (8, 56, 296):
-            readings[tick//8] = dict(seams=local.tolist(), quiet=float(np.vdot(state, state).real-home),
+            readings[tick//8] = dict(seams=local.tolist(), quiet=norm_squared-home,
                                      probability_error=error)
-    angle = acos(sqrt(grid_floor)) + sqrt(variance)/16
-    lower = cos(min(pi/2, angle))**2
+    angle = acos(sqrt(max(0., grid_floor))) + sqrt(variance)/16
+    lower = cos(angle)**2 if angle < pi/2 else 0.
     if strength and lower <= float(REGISTERED_FLOOR) + 1e-6:
         raise ArithmeticError(f"Strength {strength} missed the continuous home-cell gate: {lower}")
-    if strength == 0 and 1-readings[37]["quiet"] + readings[37]["probability_error"] >= 0.65:
+    if strength == 0 and sum(readings[37]["seams"]) + readings[37]["probability_error"] >= 0.65:
         raise ArithmeticError("Exchange alone did not clear the rejection control")
     return dict(strength=strength, continuous_lower=lower, readings=readings)
 

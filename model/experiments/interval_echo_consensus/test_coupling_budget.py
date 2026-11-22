@@ -29,7 +29,9 @@ def test_native_standard_and_other_material():
 
 
 def test_tail_and_held_counts():
-    tail = alias_window.uniform_tail(*alias_window.setup())
+    exchange, adjacent, home, launch = alias_window.setup()
+    assert adjacent[launch] == 1 and exchange[launch, launch] == 4.5
+    tail = alias_window.uniform_tail(exchange, adjacent, home, launch)
     assert list(map(Fraction, tail["squared_norm_bounds"])) == [
         Fraction(17,4), Fraction(107,4), Fraction(5,16), Fraction(7003,16), Fraction(118043,256)]
     assert tail["lower_bound"] > .94
@@ -58,3 +60,34 @@ def test_inference_rejects_broken_acquisitions():
         infer(quarter, irrational, [2**24-1, 0, 0])
     with pytest.raises(ValueError):
         infer(quarter, irrational, np.array(full, float))
+    with pytest.raises(ValueError, match="two recombiners"):
+        infer(rows[:1], rows[1:4], full)
+    # Preserve both return sums, both spectator counts and every shot total.
+    for offset in (0, 2):
+        changed = np.array(rows)
+        changed[offset] += [-2**20, 2**20, 0]
+        changed[offset+1] += [2**20, 0, -2**20]
+        assert infer(changed[:2], changed[2:4], changed[4]) == {
+            "resolved": False, "reason": "return counts disagree with a common phase"}
+
+
+@pytest.mark.parametrize("damage", ["empty", "skip", "duplicate", "truncate", "nan", "lost_norm"])
+def test_window_requires_every_normalized_grid_state(monkeypatch, damage):
+    def damaged_steps(h, start, ticks, *, degree):
+        for tick in ticks:
+            if damage == "empty" or (damage == "truncate" and tick == ticks[-1]):
+                return
+            if damage == "skip" and tick == 2:
+                continue
+            if damage == "duplicate" and tick == 2:
+                tick = 1
+            state = start.copy()
+            if damage == "nan":
+                state[0] = np.nan
+            if damage == "lost_norm":
+                state *= 0.99
+            yield tick, state, 1e-10
+
+    monkeypatch.setattr(alias_window, "checked_steps", damaged_steps)
+    with pytest.raises((ValueError, ArithmeticError)):
+        alias_window.finite_window(*alias_window.setup(), 8)
