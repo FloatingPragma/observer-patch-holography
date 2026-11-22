@@ -70,10 +70,13 @@ def draws(rng, joint, shots):
     return rng.multinomial(shots,p).astype(np.int32).reshape(joint.shape)
 
 
-def run(spec):
+def run(spec, *, observe=None):
     from .shell_source import prepare
     rng = np.random.default_rng(spec["seed"])
     shots = spec["shots"]
+    if observe is None:
+        def observe(key, index, probabilities):
+            return draws(rng, probabilities, shots)
     panels = len(spec["launches"])*len(spec["laws"])*sum(4*4**l+1 for l in spec["levels"])
     # Union of the two-sided subset tests on each twenty-region distribution.
     tv_budget = np.sqrt((20*np.log(2)+np.log(panels/.01))/(2*shots))
@@ -102,11 +105,12 @@ def run(spec):
             path = expm_multiply(step,initial,start=0,stop=ns[-1]/rate,num=len(ns))
             exact = np.empty((len(initial.T),len(ns),20,2))
             for i,name in enumerate(spec["launches"]):
+                key = f"{level}_{name}_{member}"
                 counts = []
                 for n,state in enumerate(path[:,:,i]):
                     region = np.bincount(board.bins,weights=abs(state)**2,minlength=40).reshape(20,2)
                     exact[i,n] = region
-                    counts.append(draws(rng,region[:,:,None]*hand[n],shots))
+                    counts.append(observe(key, n, region[:,:,None]*hand[n]))
                     if member=="native":
                         uniform = state.reshape(-1,12).mean(axis=1,keepdims=True)
                         eta = np.linalg.norm(state.reshape(-1,12)-uniform)**2
@@ -116,7 +120,7 @@ def run(spec):
                               "depth contrast violates projection bound")
                         check(np.linalg.norm(state-initial[:,i])**2 <= 2*n*energy[i]+1e-11,
                               "ballistic-time displacement bound failed")
-                records[f"{level}_{name}_{member}"] = np.asarray(counts)
+                records[key] = np.asarray(counts)
             sets[member] = exact
         check(np.max(abs(sets["native"]-sets["half_rate_contrast_reversed"]))<1e-11,
               "same-clock equivalence failed")

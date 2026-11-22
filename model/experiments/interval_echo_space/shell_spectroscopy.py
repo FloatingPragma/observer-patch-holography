@@ -65,7 +65,7 @@ def extract(data, hand, eta, shots, time_count):
                 squared_shift=(line**2-rest**2)/duration**2),times_interval(first,second)
 
 
-def run(spec,base):
+def run(spec,base, *, observe=None):
     board = Board(spec["level"],base["matching"])
     kinetic = (board.inside+board.outside).toarray()
     values, vectors = np.linalg.eigh(kinetic)
@@ -78,6 +78,9 @@ def run(spec,base):
     delta = np.sqrt(2*np.log(2*marginals/.01)/shots)
     eta = float(np.arcsin(np.sqrt(2)*(delta+1e-8)))
     rng = np.random.default_rng(spec["seed"])
+    if observe is None:
+        def observe(key, index, probabilities):
+            return draws(rng, probabilities, shots)
     results = dict(multiplicity=rank,projector_port=selected,phase_error_99=eta,
         kinetic_spectrum=(np.round(values,10)+0.).tolist(),members={})
     records = {}
@@ -106,12 +109,14 @@ def run(spec,base):
                     # Bound preparation/eigensolver error throughout the observed interval.
                     check(np.max(abs(phases@weights*fuel.conj()-np.exp(-1j*frequency*theta)))<1e-10,
                           "eigenline visibility or phase lost")
+                    key = f"{member}_{reference}_{amount}_{name}"
                     trials = []
-                    for phi in (0.,np.pi/2):
+                    for analyzer_index, phi in enumerate((0., np.pi/2)):
                         probabilities = analyzer(phases,weights,fuel,phi)
-                        trials.append([draws(rng,p[:,None]*s,shots) for p,s in zip(probabilities,clock,strict=True)])
+                        trials.append([observe(key, (analyzer_index, n), p[:, None]*hand)
+                                       for n, (p, hand) in enumerate(zip(probabilities, clock, strict=True))])
                     rows = np.asarray(trials)
-                    records[f"{member}_{reference}_{amount}_{name}"] = rows
+                    records[key] = rows
                     modes.append(rows)
                 arm_data.append(modes)
             hand = read_hand(sum(c.sum(axis=(0,2),dtype=np.int64) for modes in arm_data for c in modes),

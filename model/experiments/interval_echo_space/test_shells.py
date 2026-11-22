@@ -188,3 +188,24 @@ def test_all_low_modes_and_optimal_coherent_depth_reader():
         optimum = np.linalg.eigvalsh(first-second).clip(min=0).sum()
         np.testing.assert_allclose(optimum,2*np.sqrt(eta*(1-eta)),atol=1e-13)
         assert optimum <= 2*np.sqrt(np.vdot(incident,kinetic@incident).real/gap)
+
+
+def test_published_shell_acquisitions_and_native_bin_gate(monkeypatch, tmp_path):
+    from . import shell_archive
+    shell_archive.main()
+
+    shell = HERE / "shell_counts.npz"
+    with np.load(shell, allow_pickle=False) as archived:
+        counts = {key: archived[key] for key in archived.files}
+    first = next(iter(counts.values()))[0].reshape(-1)
+    occupied = np.flatnonzero(first)
+    first[occupied[0]] -= 1
+    first[occupied[1]] += 1
+    np.savez_compressed(tmp_path / shell.name, **counts)
+    monkeypatch.setattr(shell_archive.shells, "HERE", tmp_path)
+    with pytest.raises(ValueError, match="changed published acquisition"):
+        shell_archive.replay("shell", None, (), 1)
+
+    with pytest.raises(ValueError, match="simultaneous detector bound"):
+        shell_archive.check_cohort(np.array([1, 99], dtype=np.int32),
+                                   np.array([0.99, 0.01]), 100, 0.2)

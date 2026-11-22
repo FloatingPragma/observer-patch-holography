@@ -65,7 +65,7 @@ Could a coherent detector recover depth from port phases? At any exposure with $
 
 The slow modes can also be counted. The compressed form $J^*KJ=L_{\rm dual}/24$ follows by summing the three external contacts per cell. Write $E=E_{\rm int}+E_{\rm ext}$. The incidence matrix of an external matching has norm at most $\sqrt2$. The triangle inequality bounds the square root of the compressed form on $J^*\psi$ by $\sqrt{E_{\rm ext}}+\sqrt{E_{\rm int}/g}$. For a spectral subspace below $e<g$, projection to cell means is injective and has squared norm at least $1-e/g$ on unit vectors. The min-max principle sandwiches its dimension between the counting functions of $L_{\rm dual}/24$ at $e$ and $(1+1/g)e/(1-e/g)$. The cell means account for all soft degrees of freedom up to this energy comparison.
 
-For either smooth launch the squared unnormalized cell amplitudes sum to at least one twentieth of the cell count. Adjacent amplitudes differ by at most $h/2$. There are three external ends per cell, giving $E\le5h^2/16$. The spectral bound $\|(e^{-i\theta K}-I)\psi\|^2\le2|\theta|E$ makes every terminal measurement of these waves converge to its parked-signal value at $\theta=O(h^{-1})$, including the synchronized clock read. The finite slower-time data support detectable transport. They determine neither a limiting equation on that scale nor a physical ruler. A freely propagating radial field would require an independently refinable family of distinguishable depth records on the same clock. A higher band, another collective preparation or a depth stored across cells would require its own propagation and detector analysis. [Smooth-description hypotheses](../../../paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex)
+For either smooth launch the squared unnormalized cell amplitudes sum to at least one twentieth of the cell count. Adjacent amplitudes differ by at most $h/2$. There are three external ends per cell, giving $E\le5h^2/16$. The spectral bound $\|(e^{-i\theta K}-I)\psi\|^2\le2|\theta|E$ makes every terminal measurement of these waves converge to its parked-signal value at $\theta=O(h^{-1})$, including the synchronized clock read. The finite slower-time data support detectable transport. They determine neither a limiting equation on that scale nor a physical ruler. A freely propagating radial field would require an independently refinable family of distinguishable depth records on the same clock. A higher band, another collective preparation or a depth stored across cells would require its own propagation and detector analysis. [Smooth-description hypotheses](../../../paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf#page=8)
 
 ## Do the two moving loads have distinct relativistic masses?
 
@@ -90,7 +90,15 @@ For depth stored inside a cell, a detectable pair of states with matched cell me
 
 ## Reproduce
 
-Run the following from the repository root to regenerate the source, probabilities, counts and analysis and compare them with the retained files.
+From the repository root, run the following to read the three published acquisitions on any supported platform.
+
+```sh
+python -B -O -W error -m model.experiments.interval_echo_space.shell_archive
+```
+
+This replay verifies the published count files by SHA-256, calculates each joint detector probability from the frozen protocols, checks every measured bin against a simultaneous 99% sampling bound, and feeds the original counts into the experiment’s readers. It compares every resulting summary with the stored result at publication precision.
+
+The following commands regenerate the acquisitions from their seeds and require exact count equality. On macOS arm64 six cohorts differed from the archived draws by a single trial moving between two bins. The three archival reads reproduce the published statistics on that platform.
 
 ```sh
 python -m model.experiments.interval_echo_space

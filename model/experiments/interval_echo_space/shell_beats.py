@@ -55,9 +55,9 @@ def window_read(rest, line, hand, width, eta, component_error):
             "squared_shift_interval":list(shift),"minimum_window_visibility":float(min(abs(means)))},shift
 
 
-def run(base, spec, repeat):
+def run(base, spec, repeat, *, observe=None):
     spec = {**spec,"seed":repeat["seed"]}
-    data,endpoint = acquire(spec,base)
+    data,endpoint = acquire(spec,base,observe=observe)
     width,alpha,shots = repeat["window"],repeat["alpha"],spec["shots"]
     settings = len(spec["loads"])*len(spec["reference_terms"])*len(spec["law_members"])
     point_marginals = 8*(spec["clock_steps"]+1)*settings
