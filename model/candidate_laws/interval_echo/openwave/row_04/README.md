@@ -1,5 +1,33 @@
 # Row 4 · Free stability of a localized Interval Echo pair
 
+## Two loads on a connected board, independent of coupling
+
+On the 20-cell federation, a cell-13 observer starting with one load on 156 and one on 157 can prepare a pair whose probability of detection on an original home seam is at least **99.4771841% at every free exposure, for every real contrast strength**. This includes failed preparations. The terminal measurement is the M10.3 instrument with all 30 seam addresses and quiet. The observer prepares eleven neutral seam records before release. These records persist during flight. The full board of 240 ports stays connected and the positive-interference combination of the same two pair configurations can reach another cell. [Protocol](PROTOCOL.md#connected-release-from-the-historical-sharp-pair) · [Source operators and full-board certificate](open_pair.py)
+
+The launch seam fixes a degree-six endpoint $a=157$ and a degree-five endpoint $b=156$. Among the neighbors of $b$, only $c=166$ has the degree of $a$ and is distinct from and nonadjacent to $a$. Their second common neighbor is 163. A neutral record on an empty contact makes its exchange and contrast columns vanish for every subsequent load word. Four native sharp swaps allow the same two loads to write the eleven contacts touching the three-port path while leaving both routes to 163 live. The final detector also operates on written contacts. Its echo, flag and inverse echo measure the same binary occupancy on both blank and neutral records. [Native 99-state checks and preparation route](corridor_pair.py) · [Open contacts](open_pair.py)
+
+Write $X=ab$, $Y=ac$ and $Z=bc$. During preparation the observer addresses the two path contacts and the degree reference at $b$. The contrast on these three words is $2I$. Twice the exchange is the path Laplacian with diagonal $(1,2,1)$ and off-diagonals $-1$. Its eigenvectors include $D=(X-Z)/\sqrt2$ with eigenvalue 1 for twice the exchange. For the bright combination $(X+Z)/\sqrt2$ the survival amplitude under a pulse of length $2\pi/3$ followed by an occupied read at $b$ is $1/3$. The corresponding dark amplitude is $e^{-i\pi/3}$. The common strength-dependent phase cancels from every record. Three occupied reads from $X$ leave the unnormalized vector $(-13X+14Z)/27$ up to phase. A first vacancy leaves the sharp separated pair $Y$ and a single addressed swap restores $X$. The first-vacancy probabilities in an attempt are $4/9$, $4/81$ and $4/729$. With failure probability $f=364/729$ and eight attempts, the exhausted fraction $f^8=0.0038635883$ contributes to quiet. The acquisition uses at most 24 pulses and local occupancy queries and seven retry swaps in addition to the initial writes and swaps. Flight has no intermediate query. [Acquisition and complete instrument](open_pair_release.py)
+
+During release the complete native generator has $H D=(1+3\kappa)D$. The two paths into each of $ac$ and $b\,163$ cancel. The detector contains both components of $D$, so the joint probability is bounded below by its initial, unconditioned dark weight $(1-f^8)/(1+9^{-3})$. More generally $R$ occupied reads and $M$ attempts give loss at most $9^{-R}+2^{-M}$. The orthogonal bright state has probability $t^8/18432+O(t^{10})$ of reaching a different cell at short exposure. A competing Poisson swap law also loses home detections. At exposure one the single jump into $Y$ with no other jumps has conditional probability at least $(e^{-1}-e^{-2})/2$ in a prepared ensemble. [Exact flight and path counts](open_pair.py) · [All 1,116 outcome probabilities, in trillionths](connected_records.json)
+
+| Strength, exposure 37 | Prepared coherent pair | Dephased pair | Random swaps | Sharp unfiltered pair |
+| --- | ---: | ---: | ---: | ---: |
+| 0 | 0.995196 | 0.652907 | 0.123196 | 0.655440 |
+| 1/2 | 0.995945 | 0.926296 | 0.123196 | 0.929889 |
+| 8 | 0.996110 | 0.986455 | 0.123196 | 0.990281 |
+
+With all twelve boundary contacts of a different three-port path written, a closed-corridor control gives an all-strength, all-time joint floor of $2975/3072$. The closed path provides a check of the instrument and a comparison for geometric confinement. In the connected experiment the eleven written contacts also constitute deliberately prepared material structure. The result concerns a composite localized relative to that structure. It supplies neither its charge and mass nor evidence of a freely translating particle on an initially uniform board. The historical sharp, blank-memory data below retain their coupling-selection history. [Closed source and analytic time law](corridor_release.py) · [OpenWave review](https://github.com/openwave-labs/openwave/pull/745#pullrequestreview-6005365373)
+
+Reproduce the source alone with the first command. The second emits every registered detector bin for each of the nine settings and four arms. The last command checks the independent obstruction for the blank-memory preparation.
+
+```sh
+python -B -O -W error -m model.candidate_laws.interval_echo.openwave.row_04.open_pair_release
+python -B -O -W error -m model.candidate_laws.interval_echo.openwave.row_04.open_pair_release --full
+python -B -O -W error -m model.experiments.interval_echo_consensus.pair_window
+```
+
+## Release on blank memories
+
 An initially adjacent pair of unit loads was released on the complete spherical federation with every seam active. After 150 native time units on 20 cells, a one-cell observer could still detect the pair on one of its 30 internal seams with probability **98.3881%**. Only **2.8306%** lay on its starting seam. The material distribution moved within the patch while the constituents overwhelmingly stayed together. Removing the contrast interaction lowered the same local detection probability to **14.9559%**. [Frozen test](PROTOCOL.md) · [Measurements, detector counts and addresses](results.json)
 
 | Sphere and last exposure | Preparation or interaction | Adjacent anywhere, lowest over tested times | On a seam in the original cell, at last time | Both in original cell, at last time |
