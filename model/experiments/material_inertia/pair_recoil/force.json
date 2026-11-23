@@ -1,0 +1,363 @@
+{
+  "protocol_sha256": "b592b79626c47dcca4817615832b94503404064b12fbe1a5921f398dd59d6915",
+  "connected_cross_seam": [
+    [
+      -17.0,
+      0.0,
+      15.5
+    ],
+    [
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      15.5,
+      0.0,
+      -17.0
+    ]
+  ],
+  "configurations_per_pair": 132,
+  "records": [
+    {
+      "distance": 1,
+      "path": [
+        0,
+        1
+      ],
+      "gateways": [
+        10,
+        20
+      ],
+      "reverse": false,
+      "operator_norm": 17.0,
+      "expectation": -17.0,
+      "counts": [
+        {
+          "time": 0.0078125,
+          "probability": 0.4337927797042003,
+          "click": 29810439945,
+          "quiet": 38909036791,
+          "sampled_connected_energy": -16.947457280009985,
+          "standard_error": 0.0004839816596724736
+        },
+        {
+          "time": 0.00390625,
+          "probability": 0.46682177141891806,
+          "click": 32079650142,
+          "quiet": 36639826594,
+          "sampled_connected_energy": -16.987981095910072,
+          "standard_error": 0.0009744101381323762
+        }
+      ]
+    },
+    {
+      "distance": 1,
+      "path": [
+        0,
+        1
+      ],
+      "gateways": [
+        10,
+        20
+      ],
+      "reverse": true,
+      "operator_norm": 17.0,
+      "expectation": 15.499999999999996,
+      "counts": [
+        {
+          "time": 0.0078125,
+          "probability": 0.5603952745110727,
+          "click": 38510191626,
+          "quiet": 30209285110,
+          "sampled_connected_energy": 15.461643256247044,
+          "standard_error": 0.00048470606245504987
+        },
+        {
+          "time": 0.00390625,
+          "probability": 0.5302544754314175,
+          "click": 36438629210,
+          "quiet": 32280847526,
+          "sampled_connected_energy": 15.48894377052784,
+          "standard_error": 0.0009747731002813168
+        }
+      ]
+    },
+    {
+      "distance": 2,
+      "path": [
+        0,
+        1,
+        2
+      ],
+      "gateways": [
+        10,
+        24
+      ],
+      "reverse": false,
+      "operator_norm": 0.0,
+      "expectation": 0.0,
+      "counts": [
+        {
+          "time": 0.0078125,
+          "probability": 0.5,
+          "click": 34359872913,
+          "quiet": 34359603823,
+          "sampled_connected_energy": 0.0005012191832065582,
+          "standard_error": 0.00048828125
+        },
+        {
+          "time": 0.00390625,
+          "probability": 0.5,
+          "click": 34359925866,
+          "quiet": 34359550870,
+          "sampled_connected_energy": 0.001396968960762024,
+          "standard_error": 0.0009765625
+        }
+      ]
+    },
+    {
+      "distance": 2,
+      "path": [
+        0,
+        1,
+        2
+      ],
+      "gateways": [
+        10,
+        24
+      ],
+      "reverse": true,
+      "operator_norm": 0.0,
+      "expectation": 0.0,
+      "counts": [
+        {
+          "time": 0.0078125,
+          "probability": 0.5,
+          "click": 34359672343,
+          "quiet": 34359804393,
+          "sampled_connected_energy": -0.0002459622919559479,
+          "standard_error": 0.00048828125
+        },
+        {
+          "time": 0.00390625,
+          "probability": 0.5,
+          "click": 34359744396,
+          "quiet": 34359732340,
+          "sampled_connected_energy": 4.4912099838256836e-05,
+          "standard_error": 0.0009765625
+        }
+      ]
+    },
+    {
+      "distance": 3,
+      "path": [
+        0,
+        4,
+        3,
+        8
+      ],
+      "gateways": [
+        3,
+        104
+      ],
+      "reverse": false,
+      "operator_norm": 0.0,
+      "expectation": 0.0,
+      "counts": [
+        {
+          "time": 0.0078125,
+          "probability": 0.5,
+          "click": 34359558739,
+          "quiet": 34359917997,
+          "sampled_connected_energy": -0.0006691701710224152,
+          "standard_error": 0.00048828125
+        },
+        {
+          "time": 0.00390625,
+          "probability": 0.5,
+          "click": 34359564741,
+          "quiet": 34359911995,
+          "sampled_connected_energy": -0.0012936219573020935,
+          "standard_error": 0.0009765625
+        }
+      ]
+    },
+    {
+      "distance": 3,
+      "path": [
+        0,
+        4,
+        3,
+        8
+      ],
+      "gateways": [
+        3,
+        104
+      ],
+      "reverse": true,
+      "operator_norm": 0.0,
+      "expectation": 0.0,
+      "counts": [
+        {
+          "time": 0.0078125,
+          "probability": 0.5,
+          "click": 34359740577,
+          "quiet": 34359736159,
+          "sampled_connected_energy": 8.229166269302368e-06,
+          "standard_error": 0.00048828125
+        },
+        {
+          "time": 0.00390625,
+          "probability": 0.5,
+          "click": 34359740008,
+          "quiet": 34359736728,
+          "sampled_connected_energy": 1.2218952178955078e-05,
+          "standard_error": 0.0009765625
+        }
+      ]
+    },
+    {
+      "distance": 4,
+      "path": [
+        0,
+        4,
+        7,
+        17,
+        12
+      ],
+      "gateways": [
+        3,
+        154
+      ],
+      "reverse": false,
+      "operator_norm": 0.0,
+      "expectation": 0.0,
+      "counts": [
+        {
+          "time": 0.0078125,
+          "probability": 0.5,
+          "click": 34359758839,
+          "quiet": 34359717897,
+          "sampled_connected_energy": 7.626041769981384e-05,
+          "standard_error": 0.00048828125
+        },
+        {
+          "time": 0.00390625,
+          "probability": 0.5,
+          "click": 34359570917,
+          "quiet": 34359905819,
+          "sampled_connected_energy": -0.001247607171535492,
+          "standard_error": 0.0009765625
+        }
+      ]
+    },
+    {
+      "distance": 4,
+      "path": [
+        0,
+        4,
+        7,
+        17,
+        12
+      ],
+      "gateways": [
+        3,
+        154
+      ],
+      "reverse": true,
+      "operator_norm": 0.0,
+      "expectation": 0.0,
+      "counts": [
+        {
+          "time": 0.0078125,
+          "probability": 0.5,
+          "click": 34359893211,
+          "quiet": 34359583525,
+          "sampled_connected_energy": 0.0005768351256847382,
+          "standard_error": 0.00048828125
+        },
+        {
+          "time": 0.00390625,
+          "probability": 0.5,
+          "click": 34359823937,
+          "quiet": 34359652799,
+          "sampled_connected_energy": 0.000637538731098175,
+          "standard_error": 0.0009765625
+        }
+      ]
+    },
+    {
+      "distance": 5,
+      "path": [
+        0,
+        1,
+        2,
+        9,
+        18,
+        13
+      ],
+      "gateways": [
+        10,
+        159
+      ],
+      "reverse": false,
+      "operator_norm": 0.0,
+      "expectation": 0.0,
+      "counts": [
+        {
+          "time": 0.0078125,
+          "probability": 0.5,
+          "click": 34359737932,
+          "quiet": 34359738804,
+          "sampled_connected_energy": -1.6242265701293945e-06,
+          "standard_error": 0.00048828125
+        },
+        {
+          "time": 0.00390625,
+          "probability": 0.49999999999999994,
+          "click": 34359689995,
+          "quiet": 34359786741,
+          "sampled_connected_energy": -0.00036040693521499634,
+          "standard_error": 0.0009765624999999999
+        }
+      ]
+    },
+    {
+      "distance": 5,
+      "path": [
+        0,
+        1,
+        2,
+        9,
+        18,
+        13
+      ],
+      "gateways": [
+        10,
+        159
+      ],
+      "reverse": true,
+      "operator_norm": 0.0,
+      "expectation": 0.0,
+      "counts": [
+        {
+          "time": 0.0078125,
+          "probability": 0.5,
+          "click": 34359740981,
+          "quiet": 34359735755,
+          "sampled_connected_energy": 9.734183549880981e-06,
+          "standard_error": 0.00048828125
+        },
+        {
+          "time": 0.00390625,
+          "probability": 0.5,
+          "click": 34359713610,
+          "quiet": 34359763126,
+          "sampled_connected_energy": -0.00018446147441864014,
+          "standard_error": 0.0009765625
+        }
+      ]
+    }
+  ]
+}

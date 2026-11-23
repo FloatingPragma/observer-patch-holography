@@ -1,0 +1,207 @@
+{
+  "dwarf_figure_data_sha256": "86e1973373db576b93c22694931b8de6b759a3cd438016869b84e72aea5729c7",
+  "lens_archive_sha256": "73adc2d4e848fa0a6a43187f7b5447e749b92eaec4a795b9902b0beaf8a78733",
+  "cases": {
+    "central": {
+      "mass_solar": 1470000000.0,
+      "radius_kpc": 9.94806185933532,
+      "allowed_speed_kms": 26.93701704763301,
+      "max_halo_to_baryonic_total_mass": 1.141718546277296,
+      "min_gt_m_s2": 6.71289579831627e-11,
+      "min_gt_at_low_scale": 5.6694455596889943e-11,
+      "lens_mass_factor": 1.0,
+      "surveys": {
+        "KiDS-bright": {
+          "sublinear_shared_profile": {
+            "upper_by_bin": [
+              2.6944316069586742,
+              3.870026156347572,
+              5.654011947522228,
+              8.416158025338847,
+              13.85001272107891,
+              24.43701596645535
+            ],
+            "weighted_upper": 5.03731468445591,
+            "gap_over_statistical_se": 17.66938177330618
+          },
+          "largest_allowed_gbar_m_s2": 4.9999999999999294e-12,
+          "upper_by_bin": [
+            1.429085363098109,
+            2.5214837371452306,
+            4.448915649730448,
+            7.849683964579314,
+            13.85001272107891,
+            24.43701596645535
+          ],
+          "weighted_upper": 3.913810202893951,
+          "observed": 17.299519702510167,
+          "statistical_se": 0.6939804219171518,
+          "cross_over_statistical_se": -0.292428554390592,
+          "gap_over_statistical_se": 19.288309982344455
+        },
+        "GAMA": {
+          "sublinear_shared_profile": {
+            "upper_by_bin": [
+              2.6944316069586742,
+              3.870026156347572,
+              5.654011947522228,
+              8.416158025338847,
+              13.85001272107891,
+              24.43701596645535
+            ],
+            "weighted_upper": 4.9650746328634145,
+            "gap_over_statistical_se": 5.9409803601141515
+          },
+          "largest_allowed_gbar_m_s2": 4.9999999999999294e-12,
+          "upper_by_bin": [
+            1.429085363098109,
+            2.5214837371452306,
+            4.448915649730448,
+            7.849683964579314,
+            13.85001272107891,
+            24.43701596645535
+          ],
+          "weighted_upper": 3.835349630387535,
+          "observed": 22.726228441504986,
+          "statistical_se": 2.9895998188925685,
+          "cross_over_statistical_se": -0.037904905336333075,
+          "gap_over_statistical_se": 6.318865385172241
+        }
+      }
+    },
+    "dwarf_two_errors": {
+      "mass_solar": 1190000000.0,
+      "radius_kpc": 10.327276415599691,
+      "allowed_speed_kms": 30.598810160225415,
+      "max_halo_to_baryonic_total_mass": 1.889238683699246,
+      "min_gt_m_s2": 2.4516267905571443e-11,
+      "min_gt_at_low_scale": 2.0705467564720766e-11,
+      "lens_mass_factor": 1.0,
+      "surveys": {
+        "KiDS-bright": {
+          "sublinear_shared_profile": {
+            "upper_by_bin": [
+              3.574532294151025,
+              5.039071510257452,
+              7.206865001026988,
+              10.589444913150508,
+              18.68405752615023,
+              32.96622330099461
+            ],
+            "weighted_upper": 6.597089403549351,
+            "gap_over_statistical_se": 15.421804363579705
+          },
+          "largest_allowed_gbar_m_s2": 4.9999999999999294e-12,
+          "upper_by_bin": [
+            1.9278764338798637,
+            3.4015526299389407,
+            6.001712605075383,
+            10.589444913150508,
+            18.68405752615023,
+            32.96622330099461
+          ],
+          "weighted_upper": 5.279840275237509,
+          "observed": 17.299519702510167,
+          "statistical_se": 0.6939804219171518,
+          "cross_over_statistical_se": -0.292428554390592,
+          "gap_over_statistical_se": 17.319911409125574
+        },
+        "GAMA": {
+          "sublinear_shared_profile": {
+            "upper_by_bin": [
+              3.574532294151025,
+              5.039071510257452,
+              7.206865001026988,
+              10.589444913150508,
+              18.68405752615023,
+              32.96622330099461
+            ],
+            "weighted_upper": 6.501703106767131,
+            "gap_over_statistical_se": 5.426989001072348
+          },
+          "largest_allowed_gbar_m_s2": 4.9999999999999294e-12,
+          "upper_by_bin": [
+            1.9278764338798637,
+            3.4015526299389407,
+            6.001712605075383,
+            10.589444913150508,
+            18.68405752615023,
+            32.96622330099461
+          ],
+          "weighted_upper": 5.173994751499221,
+          "observed": 22.726228441504986,
+          "statistical_se": 2.9895998188925685,
+          "cross_over_statistical_se": -0.037904905336333075,
+          "gap_over_statistical_se": 5.871098057701784
+        }
+      }
+    },
+    "tilt_and_lens_mass": {
+      "mass_solar": 1190000000.0,
+      "radius_kpc": 10.327276415599691,
+      "allowed_speed_kms": 34.71339662063836,
+      "max_halo_to_baryonic_total_mass": 2.431487111903494,
+      "min_gt_m_s2": 1.4800761952509426e-11,
+      "min_gt_at_low_scale": 1.2500136551012044e-11,
+      "lens_mass_factor": 1.5848931924611136,
+      "surveys": {
+        "KiDS-bright": {
+          "sublinear_shared_profile": {
+            "upper_by_bin": [
+              5.768077486082249,
+              8.122974249180334,
+              11.60353714190656,
+              19.932976126853678,
+              35.169820106341206,
+              62.053766504343834
+            ],
+            "weighted_upper": 11.362407054013381,
+            "gap_over_statistical_se": 8.555158706199878
+          },
+          "largest_allowed_gbar_m_s2": 7.924465962305457e-12,
+          "upper_by_bin": [
+            3.6289262796323642,
+            6.402891551247222,
+            11.297286596074489,
+            19.932976126853678,
+            35.169820106341206,
+            62.053766504343834
+          ],
+          "weighted_upper": 9.938474681445658,
+          "observed": 17.299519702510167,
+          "statistical_se": 0.6939804219171518,
+          "cross_over_statistical_se": -0.292428554390592,
+          "gap_over_statistical_se": 10.606992342419826
+        },
+        "GAMA": {
+          "sublinear_shared_profile": {
+            "upper_by_bin": [
+              5.768077486082249,
+              8.122974249180334,
+              11.60353714190656,
+              19.932976126853678,
+              35.169820106341206,
+              62.053766504343834
+            ],
+            "weighted_upper": 11.17818360238821,
+            "gap_over_statistical_se": 3.862739342616931
+          },
+          "largest_allowed_gbar_m_s2": 7.924465962305457e-12,
+          "upper_by_bin": [
+            3.6289262796323642,
+            6.402891551247222,
+            11.297286596074489,
+            19.932976126853678,
+            35.169820106341206,
+            62.053766504343834
+          ],
+          "weighted_upper": 9.739237014588394,
+          "observed": 22.726228441504986,
+          "statistical_se": 2.9895998188925685,
+          "cross_over_statistical_se": -0.037904905336333075,
+          "gap_over_statistical_se": 4.344056801464263
+        }
+      }
+    }
+  }
+}

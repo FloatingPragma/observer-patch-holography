@@ -1,0 +1,3 @@
+# Independent admission and overlap measurements
+
+The source apparatus uses the exact upper-band projector and its calibrated two-address Gram matrix. Verify this calibration on separate ensembles by presenting each sharp source and its four coherent equal-weight combinations to the same filter. Record both admission and rejection. Apply the real and imaginary polarization identities to the four coherent admission rates. Use 2⁵² synthetic copies of each state at each frozen placement and independent seeds (770409,8,bridge,source). Require finite-count agreement with the generator Gram within five sampling standard errors, while retaining the mathematically calibrated orthonormal source and analyzer specified in the primary experiment.

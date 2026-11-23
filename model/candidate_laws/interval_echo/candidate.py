@@ -232,7 +232,9 @@ JOINT = {
                      "../../experiments/interval_echo_einstein_station/native_volume_curvature/README.md",
                      "../../experiments/interval_echo_einstein_station/native_tidal_response/README.md",
                      "../../experiments/interval_echo_einstein_station/native_tidal_response/ROUTING.md",
-                     "../../experiments/interval_echo_einstein_station/dark_curvature/results.json"],
+                     "../../experiments/interval_echo_einstein_station/dark_curvature/results.json",
+                     "../../experiments/interval_echo_einstein_station/collar_scaling/ancestor.json",
+                     "../../experiments/material_inertia/pair_recoil/clock.json"],
         "note": "The native free generator obeys additive patch energy continuity. On the earlier pair, "
                 "a prepared cap reads weighted seam energy at a held port where the flat reference failed. "
                 "An interior exchange changes this cap's entropy with its complete gateway state fixed. "
@@ -242,7 +244,10 @@ JOINT = {
                 "entropy slopes. On a matched free-flight calibration the same source deflects the unit tag and leaves "
                 "the double tag transparent. Both species detect a supplied routing change. Free evolution conserves "
                 "the routing flags. Shared and fresh collar preparations agree in initial four-tracer focusing while "
-                "their later chord volumes differ. Physical area, a conserved directional stress "
+                "their later chord volumes differ. A prepared ancestor-tagged collar on shrinking clocked annuli "
+                "transfers a fourth-power charge coefficient with zero cross charge between far annuli. "
+                "Nearby separated cuts retain joint charge. The protected routes bypass the source. "
+                "Physical area, a conserved directional stress "
                 "and the common curvature response to matter remain open.",
     },
 }

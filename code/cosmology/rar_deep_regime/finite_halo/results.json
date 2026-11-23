@@ -1,0 +1,198 @@
+{
+  "archive_sha256": "73adc2d4e848fa0a6a43187f7b5447e749b92eaec4a795b9902b0beaf8a78733",
+  "sparc_a0_m_s2": 8.750402247718735e-11,
+  "weak_shear_ceiling": 1.2732395447351628,
+  "public_data": "https://kids.strw.leidenuniv.nl/sci_data/brouwer2021_rar.tar",
+  "controlled_metric": [
+    {
+      "outer_over_turn": 2.0,
+      "orbital_beta2": 1.000002000004e-06,
+      "outer_over_inner_clock_rate": 1.000000693148807,
+      "deflection_rad": 5.260599396582338e-06,
+      "shear_factor": 1.0078301744498237
+    },
+    {
+      "outer_over_turn": 10.0,
+      "orbital_beta2": 1.000002000004e-06,
+      "outer_over_inner_clock_rate": 1.000000693148807,
+      "deflection_rad": 6.08303415456543e-06,
+      "shear_factor": 1.000053372104716
+    },
+    {
+      "outer_over_turn": 100.0,
+      "orbital_beta2": 1.000002000004e-06,
+      "outer_over_inner_clock_rate": 1.000000693148807,
+      "deflection_rad": 6.263202247216499e-06,
+      "shear_factor": 1.000000053054831
+    },
+    {
+      "outer_over_turn": 1000.0,
+      "orbital_beta2": 1.000002000004e-06,
+      "outer_over_inner_clock_rate": 1.000000693148807,
+      "deflection_rad": 6.281202563988282e-06,
+      "shear_factor": 1.0000000000530516
+    }
+  ],
+  "surveys": {
+    "KiDS-bright": {
+      "common_edge_arbitrary_bin_weights": {
+        "nominal": {
+          "weighted_upper": 16.622888450408077,
+          "relaxed_upper": 17.423892400151033,
+          "gap_over_statistical_se": 0.9750004909834009
+        },
+        "high_mass_calibration": {
+          "weighted_upper": 23.182349367055398,
+          "relaxed_upper": 24.2806068551787,
+          "gap_over_statistical_se": -8.476938943455568
+        }
+      },
+      "common_cutoff": {
+        "max_weighted_prediction": 14.526868537868493,
+        "maximizing_edge_acceleration": 2.2906223734413877e-13,
+        "gap_over_statistical_se": 3.995287297849271
+      },
+      "bins": 6,
+      "centres": [
+        2.2906223734413877e-13,
+        4.041582967480835e-13,
+        7.130984605939526e-13,
+        1.2581936795384525e-12,
+        2.219961790286236e-12,
+        3.916909161504293e-12
+      ],
+      "positive_weights": [
+        0.4402667926161721,
+        0.25432217708591753,
+        0.14589347214208787,
+        0.08408967935797455,
+        0.04807926148317815,
+        0.027348617314669886
+      ],
+      "weighted_signal": 17.299519702510167,
+      "statistical_se": 0.6939804219171518,
+      "cross_over_statistical_se": -0.292428554390592,
+      "envelopes": {
+        "centres": {
+          "upper_by_bin": [
+            10.739323441036104,
+            14.49309197167645,
+            19.653505445976503,
+            26.81557514523641,
+            36.871476446185596,
+            51.1859394775787
+          ],
+          "weighted_upper": 16.70893148222653,
+          "observed_minus_upper": 0.5905882202836412,
+          "gap_over_statistical_se": 0.8510156794511796
+        },
+        "bin_edge": {
+          "upper_by_bin": [
+            12.210289895863122,
+            16.51002301465846,
+            22.443829085131526,
+            30.718217327593226,
+            42.40162082715399,
+            59.14256943331999
+          ],
+          "weighted_upper": 19.08824947860863,
+          "observed_minus_upper": -1.7887297760984655,
+          "gap_over_statistical_se": -2.577493139009628
+        },
+        "mass_and_bin_edge": {
+          "upper_by_bin": [
+            16.88419836230454,
+            22.888613741299167,
+            31.216863772564167,
+            42.90136117660641,
+            59.51945849946062,
+            83.52981597001403
+          ],
+          "weighted_upper": 26.562608866421783,
+          "observed_minus_upper": -9.263089163911614,
+          "gap_over_statistical_se": -13.347767273206236
+        }
+      }
+    },
+    "GAMA": {
+      "common_edge_arbitrary_bin_weights": {
+        "nominal": {
+          "weighted_upper": 16.484394634227172,
+          "relaxed_upper": 17.28364285612556,
+          "gap_over_statistical_se": 2.0878492726126683
+        },
+        "high_mass_calibration": {
+          "weighted_upper": 22.98462818681587,
+          "relaxed_upper": 24.08047839435956,
+          "gap_over_statistical_se": -0.08643288766541359
+        }
+      },
+      "common_cutoff": {
+        "max_weighted_prediction": 14.40801520619911,
+        "maximizing_edge_acceleration": 2.2906223734413877e-13,
+        "gap_over_statistical_se": 2.7823835092374254
+      },
+      "bins": 6,
+      "centres": [
+        2.2906223734413877e-13,
+        4.041582967480835e-13,
+        7.130984605939526e-13,
+        1.2581936795384525e-12,
+        2.219961790286236e-12,
+        3.916909161504293e-12
+      ],
+      "positive_weights": [
+        0.44764182646157663,
+        0.25406608765902383,
+        0.14484334397752752,
+        0.08144066584427703,
+        0.04612580741215817,
+        0.0258822686454368
+      ],
+      "weighted_signal": 22.726228441504986,
+      "statistical_se": 2.9895998188925685,
+      "cross_over_statistical_se": -0.037904905336333075,
+      "envelopes": {
+        "centres": {
+          "upper_by_bin": [
+            10.739323441036104,
+            14.49309197167645,
+            19.653505445976503,
+            26.81557514523641,
+            36.871476446185596,
+            51.1859394775787
+          ],
+          "weighted_upper": 16.545666137920797,
+          "observed_minus_upper": 6.180562303584191,
+          "gap_over_statistical_se": 2.067354387877119
+        },
+        "bin_edge": {
+          "upper_by_bin": [
+            12.210289895863122,
+            16.51002301465846,
+            22.443829085131526,
+            30.718217327593226,
+            42.40162082715399,
+            59.14256943331999
+          ],
+          "weighted_upper": 18.89957762085441,
+          "observed_minus_upper": 3.8266508206505785,
+          "gap_over_statistical_se": 1.2799876413118318
+        },
+        "mass_and_bin_edge": {
+          "upper_by_bin": [
+            16.88419836230454,
+            22.888613741299167,
+            31.216863772564167,
+            42.90136117660641,
+            59.51945849946062,
+            83.52981597001403
+          ],
+          "weighted_upper": 26.296088512451647,
+          "observed_minus_upper": -3.569860070946662,
+          "gap_over_statistical_se": -1.1940929512997622
+        }
+      }
+    }
+  }
+}

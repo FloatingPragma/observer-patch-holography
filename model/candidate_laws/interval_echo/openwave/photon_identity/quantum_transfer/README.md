@@ -26,14 +26,14 @@ An instantaneous four-path receiver gives almost identical records for the two c
 
 Give the receiver a clock qubit that selects between the same circuit at an early or a late time, with relative phase i. Recombine the two times locally and retain both clock outcomes and all four path outcomes. The clock separation π/(2ω₀) is independently calibrated from the lowest box frequency. Closing paths does work through external controls. The clock read accesses relative field phase through the two interaction times. All field occupations are traced over. On comparing source and receiver records after the run, use the source path result k = 0 to identify the packet. Averaging all four local source outcomes makes the remote marginal exactly independent of the sign. The intact joint table exhibits the difference.
 
-| Side | Early wait | Ideal probability contrast for + and − at the receiver | Measured difference in units of one simulated standard error |
-| ---: | ---: | ---: | ---: |
-| 4 | 4 | +8.8681 × 10⁻⁷ and −8.8681 × 10⁻⁷ | +21.8 |
-| 6 | 6 | −9.0819 × 10⁻⁸ and +9.0819 × 10⁻⁸ | −1.8 |
-| 8 | 8 | −5.3075 × 10⁻⁸ and +5.3075 × 10⁻⁸ | −2.5 |
-| 4 | 7.25 | −1.4468 × 10⁻⁶ and +1.4468 × 10⁻⁶ | −33.9 |
-| 6 | 12 | −2.5418 × 10⁻⁶ and +2.5418 × 10⁻⁶ | −60.9 |
-| 8 | 16 | −1.4694 × 10⁻⁶ and +1.4694 × 10⁻⁶ | −34.7 |
+| Side and early wait | Ideal probability contrast for + and − at the receiver | Measured difference in units of one simulated standard error |
+| --- | ---: | ---: |
+| 4 at 4 | +8.8681 × 10⁻⁷ and −8.8681 × 10⁻⁷ | +21.8 |
+| 6 at 6 | −9.0819 × 10⁻⁸ and +9.0819 × 10⁻⁸ | −1.8 |
+| 8 at 8 | −5.3075 × 10⁻⁸ and +5.3075 × 10⁻⁸ | −2.5 |
+| 4 at 7.25 | −1.4468 × 10⁻⁶ and +1.4468 × 10⁻⁶ | −33.9 |
+| 6 at 12 | −2.5418 × 10⁻⁶ and +2.5418 × 10⁻⁶ | −60.9 |
+| 8 at 16 | −1.4694 × 10⁻⁶ and +1.4694 × 10⁻⁶ | −34.7 |
 
 The observable subtracts path-3 clicks from path-1 clicks for one clock outcome and reverses that subtraction for the other. Each setting enrolled 2⁴⁹ simulated launches per sign using exact multinomial aggregation. The lower three rows reuse the maxima of the independently calculated earlier number-resolved survey. The fixed-side waits and their weak larger-box count contrasts are also reported. With both circuits at the same field phase the two-time contrast is zero. A direct calculation on the span of the evolved source links and both sets of detector links keeps every reachable Fock occupation through the chosen cap. It needs no factorization of the field into independent spatial detectors. [Local pointer probabilities and raw count multiplicities](results.json)
 

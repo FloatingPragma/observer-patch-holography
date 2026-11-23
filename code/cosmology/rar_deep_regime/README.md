@@ -272,3 +272,5 @@ Replay from the RER root using the public SLACS catalogue. The program verifies 
 curl -fsSLo /tmp/bolton_slacs.tsv 'https://vizier.cfa.harvard.edu/viz-bin/asu-tsv?-source=J%2FApJ%2F682%2F964&-out.all&-out.max=unlimited'
 OPENBLAS_NUM_THREADS=1 python code/cosmology/rar_deep_regime/stellar_lensing.py /tmp/bolton_slacs.tsv
 ```
+
+A static spherical branch with vanishing radial pressure gives exact circular, clock and bending measurements after an outer edge is specified. The public rotation and shear records also test the larger class of shared normalized profiles with sublinear enclosed-mass growth. At generous mass, inclination and bin-weight settings, the outer speed of AGC 114905 bounds the weighted excess surface densities at 11.36 and 11.18 M☉/pc² against measured KiDS-bright and GAMA values of 17.30 ± 0.69 and 22.73 ± 2.99. The physical identification of the measured dwarf radius with this branch is a hypothesis. [Relativistic source and cross-data bounds](finite_halo/README.md) · [External gas-rich galaxy sample](udg_transfer/README.md)

@@ -1,0 +1,15 @@
+{
+  "source": "Mancera Piña et al. 2019, ApJL 883 L33, Table 1",
+  "doi": "10.3847/2041-8213/ab40c7",
+  "source_pdf_sha256": "1cc4a0c31051c4cfd37f06c2d10cd9bc5affa9ec8fcd607d4a2d22390e17466d",
+  "columns": ["agc", "distance_mpc", "inclination_deg", "log10_mass_solar", "error_log10_mass", "speed_kms", "speed_error_low", "speed_error_high"],
+  "table": [
+    [114905, 76, 33, 9.21, 0.20, 19, 4, 6],
+    [122966, 90, 34, 9.21, 0.14, 37, 5, 6],
+    [219533, 96, 42, 9.36, 0.27, 37, 6, 5],
+    [248945, 84, 66, 9.05, 0.20, 27, 3, 3],
+    [334315, 73, 52, 9.32, 0.14, 26, 3, 4],
+    [749290, 97, 39, 9.17, 0.17, 26, 6, 6]
+  ],
+  "notes": "Distance error 5 Mpc and inclination error 5 degrees for all six. Circular-speed error bars incorporate the source's inclination variations; they are not to be propagated independently again."
+}

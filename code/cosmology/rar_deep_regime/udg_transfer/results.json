@@ -1,0 +1,298 @@
+{
+  "acceleration_scale": 7.602958639130262e-11,
+  "training_interval": [
+    6.192209903394043e-11,
+    9.22122725278511e-11
+  ],
+  "calibration_sha256": "a64ef377cb96ff3ddb5fc791c5ef32771206a402f2821fc72cde4e0f8fac3ab1",
+  "source_sha256": "200a233b8398dfc55255a1b144eb331f7ba46a70cc9187f6912b5ab1404f74cc",
+  "six_galaxies": [
+    {
+      "agc": 114905,
+      "observed_kms": 19,
+      "predicted_kms": 63.60240903100068,
+      "ratio": 3.3474952121579307,
+      "effective_a0_m_s2": 6.054841372639223e-13,
+      "needed_tilt_deg": 9.36367589883752,
+      "bounds": [
+        {
+          "width": 1,
+          "lower_prediction_kms": 53.850448647366086,
+          "upper_observation_kms": 25,
+          "minimum_gap_kms": 28.850448647366086
+        },
+        {
+          "width": 2,
+          "lower_prediction_kms": 47.99426287588809,
+          "upper_observation_kms": 31,
+          "minimum_gap_kms": 16.99426287588809
+        }
+      ]
+    },
+    {
+      "agc": 122966,
+      "observed_kms": 37,
+      "predicted_kms": 63.60240903100068,
+      "ratio": 1.7189840278648834,
+      "effective_a0_m_s2": 8.707535670986946e-12,
+      "needed_tilt_deg": 18.984012193217694,
+      "bounds": [
+        {
+          "width": 1,
+          "lower_prediction_kms": 55.74287008948923,
+          "upper_observation_kms": 43,
+          "minimum_gap_kms": 12.74287008948923
+        },
+        {
+          "width": 2,
+          "lower_prediction_kms": 51.42677921216268,
+          "upper_observation_kms": 49,
+          "minimum_gap_kms": 2.4267792121626783
+        }
+      ]
+    },
+    {
+      "agc": 219533,
+      "observed_kms": 37,
+      "predicted_kms": 69.33836000393266,
+      "ratio": 1.8740097298360179,
+      "effective_a0_m_s2": 6.164463170649736e-12,
+      "needed_tilt_deg": 20.919641684735616,
+      "bounds": [
+        {
+          "width": 1,
+          "lower_prediction_kms": 56.38834210400593,
+          "upper_observation_kms": 42,
+          "minimum_gap_kms": 14.388342104005929
+        },
+        {
+          "width": 2,
+          "lower_prediction_kms": 48.27133677919257,
+          "upper_observation_kms": 47,
+          "minimum_gap_kms": 1.2713367791925734
+        }
+      ]
+    },
+    {
+      "agc": 248945,
+      "observed_kms": 27,
+      "predicted_kms": 58.00608644542081,
+      "ratio": 2.148373572052623,
+      "effective_a0_m_s2": 3.5689743162942007e-12,
+      "needed_tilt_deg": 25.16500340733451,
+      "bounds": [
+        {
+          "width": 1,
+          "lower_prediction_kms": 49.112192870576656,
+          "upper_observation_kms": 30,
+          "minimum_gap_kms": 19.112192870576656
+        },
+        {
+          "width": 2,
+          "lower_prediction_kms": 43.77128796970686,
+          "upper_observation_kms": 33,
+          "minimum_gap_kms": 10.771287969706862
+        }
+      ]
+    },
+    {
+      "agc": 334315,
+      "observed_kms": 26,
+      "predicted_kms": 67.76002623587674,
+      "ratio": 2.6061548552260283,
+      "effective_a0_m_s2": 1.6480931634534776e-12,
+      "needed_tilt_deg": 17.599723106099116,
+      "bounds": [
+        {
+          "width": 1,
+          "lower_prediction_kms": 59.386718164807725,
+          "upper_observation_kms": 30,
+          "minimum_gap_kms": 29.386718164807725
+        },
+        {
+          "width": 2,
+          "lower_prediction_kms": 54.788489331344394,
+          "upper_observation_kms": 34,
+          "minimum_gap_kms": 20.788489331344394
+        }
+      ]
+    },
+    {
+      "agc": 749290,
+      "observed_kms": 26,
+      "predicted_kms": 62.15464144754982,
+      "ratio": 2.39056313259807,
+      "effective_a0_m_s2": 2.3279934704141245e-12,
+      "needed_tilt_deg": 15.26310884250657,
+      "bounds": [
+        {
+          "width": 1,
+          "lower_prediction_kms": 53.541351054530054,
+          "upper_observation_kms": 32,
+          "minimum_gap_kms": 21.541351054530054
+        },
+        {
+          "width": 2,
+          "lower_prediction_kms": 48.55001024759696,
+          "upper_observation_kms": 38,
+          "minimum_gap_kms": 10.550010247596958
+        }
+      ]
+    }
+  ],
+  "median_predicted_to_measured": 2.2694683523253465,
+  "misses": [
+    6,
+    6
+  ],
+  "ring_inputs_sha256": "86e1973373db576b93c22694931b8de6b759a3cd438016869b84e72aea5729c7",
+  "resolved_rings": {
+    "figure7": [
+      {
+        "radius_kpc": 1.1254977005334619,
+        "gbar_m_s2": 1.3478796860346897e-12,
+        "selected": true,
+        "baryonic_kms": 6.8418436062699355,
+        "observed_kms": 9.945448444191786,
+        "plotted_error_kms": 1.8040320616996208,
+        "predicted_kms": 19.95948413932761,
+        "prediction_at_scale_floor_kms": 19.081180563078195,
+        "standardized_residual": 5.55091891532203,
+        "scale_floor_residual": 5.064063057881256,
+        "signed_inverse_a0_m_s2": 1.669754757988156e-12
+      },
+      {
+        "radius_kpc": 3.3764930738427954,
+        "gbar_m_s2": 1.5141505448971776e-12,
+        "selected": true,
+        "baryonic_kms": 12.560089462770456,
+        "observed_kms": 16.822881384454003,
+        "plotted_error_kms": 1.828164521884439,
+        "predicted_kms": 35.715938904302014,
+        "prediction_at_scale_floor_kms": 34.15551612035918,
+        "standardized_residual": 10.33444052418947,
+        "scale_floor_residual": 9.480894377076638,
+        "signed_inverse_a0_m_s2": 9.545041096828278e-13
+      },
+      {
+        "radius_kpc": 5.627488447152128,
+        "gbar_m_s2": 1.5027097777614286e-12,
+        "selected": true,
+        "baryonic_kms": 16.153630136790515,
+        "observed_kms": 22.731340775646633,
+        "plotted_error_kms": 1.7681052807526,
+        "predicted_kms": 46.01095937565212,
+        "prediction_at_scale_floor_kms": 43.99978610720825,
+        "standardized_residual": 13.166421057289325,
+        "scale_floor_residual": 12.028947350074443,
+        "signed_inverse_a0_m_s2": 1.443802065683926e-12
+      },
+      {
+        "radius_kpc": 7.878483820461462,
+        "gbar_m_s2": 1.5137617690501612e-12,
+        "selected": true,
+        "baryonic_kms": 19.183390289474982,
+        "observed_kms": 24.67072812009209,
+        "plotted_error_kms": 2.173489371246852,
+        "predicted_kms": 54.553062314890944,
+        "prediction_at_scale_floor_kms": 52.169610374749816,
+        "standardized_residual": 13.748553174500433,
+        "scale_floor_residual": 12.651951566196349,
+        "signed_inverse_a0_m_s2": 6.472920139395139e-13
+      },
+      {
+        "radius_kpc": 10.129479193770797,
+        "gbar_m_s2": 1.3779654690191799e-12,
+        "selected": true,
+        "baryonic_kms": 20.753339861983896,
+        "observed_kms": 24.251202098536766,
+        "plotted_error_kms": 1.830896491852812,
+        "predicted_kms": 60.24907347206645,
+        "prediction_at_scale_floor_kms": 57.60138623862559,
+        "standardized_residual": 19.661336145278714,
+        "scale_floor_residual": 18.215220952408643,
+        "signed_inverse_a0_m_s2": 1.8407907996672261e-13
+      }
+    ],
+    "figure8": [
+      {
+        "radius_kpc": 1.1053402035736386,
+        "gbar_m_s2": 1.6266850473419502e-12,
+        "selected": true,
+        "baryonic_kms": 7.448605839643964,
+        "observed_kms": 10.807457075296966,
+        "plotted_error_kms": 1.8040321376506512,
+        "predicted_kms": 20.851561051947222,
+        "prediction_at_scale_floor_kms": 19.944746405549857,
+        "standardized_residual": 5.567585946517814,
+        "scale_floor_residual": 5.064926028508655,
+        "signed_inverse_a0_m_s2": 1.9870065006679714e-12
+      },
+      {
+        "radius_kpc": 3.316020610720916,
+        "gbar_m_s2": 1.8252143866498475e-12,
+        "selected": true,
+        "baryonic_kms": 13.665981387034945,
+        "observed_kms": 18.125504768928238,
+        "plotted_error_kms": 1.8281646524430215,
+        "predicted_kms": 37.31108356499988,
+        "prediction_at_scale_floor_kms": 35.70091401095623,
+        "standardized_residual": 10.494447953817225,
+        "scale_floor_residual": 9.613690549448892,
+        "signed_inverse_a0_m_s2": 1.0518386745260636e-12
+      },
+      {
+        "radius_kpc": 5.526701017868194,
+        "gbar_m_s2": 1.8128910286627406e-12,
+        "selected": true,
+        "baryonic_kms": 17.583045824285897,
+        "observed_kms": 24.823184621868126,
+        "plotted_error_kms": 1.768105210818156,
+        "predicted_kms": 48.075981380976984,
+        "prediction_at_scale_floor_kms": 46.00028696564987,
+        "standardized_residual": 13.151251756307579,
+        "scale_floor_residual": 11.977286314303917,
+        "signed_inverse_a0_m_s2": 1.7879212662935683e-12
+      },
+      {
+        "radius_kpc": 7.737381425015472,
+        "gbar_m_s2": 1.822457880842271e-12,
+        "selected": true,
+        "baryonic_kms": 20.859362232860306,
+        "observed_kms": 27.188826250212543,
+        "plotted_error_kms": 2.1734892553010887,
+        "predicted_kms": 56.969204026751,
+        "prediction_at_scale_floor_kms": 54.51042835718723,
+        "standardized_residual": 13.701644810943888,
+        "scale_floor_residual": 12.570387472741329,
+        "signed_inverse_a0_m_s2": 8.903101077544445e-13
+      },
+      {
+        "radius_kpc": 9.94806185933532,
+        "gbar_m_s2": 1.6593656815854863e-12,
+        "selected": true,
+        "baryonic_kms": 22.569168717270777,
+        "observed_kms": 26.93701704763301,
+        "plotted_error_kms": 1.830896556296203,
+        "predicted_kms": 62.90660848359713,
+        "prediction_at_scale_floor_kms": 60.17442363902347,
+        "standardized_residual": 19.645889502751867,
+        "scale_floor_residual": 18.153623413125974,
+        "signed_inverse_a0_m_s2": 2.99043167759707e-13
+      }
+    ]
+  },
+  "followup": {
+    "mass_solar": 1470000000.0,
+    "mass_error_solar": 140000000.0,
+    "observed_tilt_deg": 31,
+    "error_tilt_deg": 2,
+    "observed_distance_mpc": 78.7,
+    "error_distance_mpc": 1.5,
+    "asymptotic_prediction_kms": 62.058732205959174,
+    "required_tilt_deg": 12.917968421281277,
+    "max_abs_baryonic_two_curve_discrepancy_kms": 0.050077399906893305,
+    "sign_of_residual": "positive means predicted speed is higher than observed",
+    "data_geometry": "Independent optical 31-degree inclination; gas rotation and kinematic-model uncertainties remain correlated across rings."
+  }
+}

@@ -83,9 +83,530 @@
       },
       "status": {
         "en": "Certified root of the declared map. $P_C$ is defined from the measured endpoint. The relative gap is {relative_gap_scientific}, about {sigma_scientific} measurement standard uncertainties. Same-scheme transport, target-independent map selection, and the typed same-quantity bridge remain open, so this row is diagnostic.",
-        "fr": "Racine certifi\u00e9e de l\u2019application d\u00e9clar\u00e9e. $P_C$ est d\u00e9fini \u00e0 partir de la limite mesur\u00e9e. L\u2019\u00e9cart relatif vaut {relative_gap_scientific}, soit environ {sigma_scientific} \u00e9carts-types de mesure. Le transport dans le m\u00eame sch\u00e9ma, la s\u00e9lection de l\u2019application ind\u00e9pendante de la cible et le pont typ\u00e9 \u00e9tablissant qu\u2019il s\u2019agit de la m\u00eame grandeur restent ouverts ; cette ligne est donc diagnostique."
+        "fr": "Racine certifiée de l’application déclarée. $P_C$ est défini à partir de la limite mesurée. L’écart relatif vaut {relative_gap_scientific}, soit environ {sigma_scientific} écarts-types de mesure. Le transport dans le même schéma, la sélection de l’application indépendante de la cible et le pont typé établissant qu’il s’agit de la même grandeur restent ouverts ; cette ligne est donc diagnostique."
       }
     }
   ],
-  "comparison_table_surfaces": []
+  "comparison_table_surfaces": [
+    {
+      "path": "code/cosmology/rar_deep_regime/finite_halo/README.md",
+      "heading": "## Can one profile fit the dwarf and the lensing stacks?",
+      "label_column": "Survey",
+      "comparison_column": "Measured weighted ΔΣ",
+      "rows": [
+        {
+          "label": "KiDS-bright",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-DM-CONT"
+          }
+        },
+        {
+          "label": "GAMA",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-DM-CONT"
+          }
+        }
+      ]
+    },
+    {
+      "path": "code/cosmology/rar_deep_regime/udg_transfer/README.md",
+      "heading": "## Transfer between catalogues",
+      "label_column": "AGC",
+      "comparison_column": "Measured circular speed (km/s)",
+      "rows": [
+        {
+          "label": "114905",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-DM-DEEP-PROFILE-CHARACTERIZATION"
+          }
+        },
+        {
+          "label": "122966",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-DM-DEEP-PROFILE-CHARACTERIZATION"
+          }
+        },
+        {
+          "label": "219533",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-DM-DEEP-PROFILE-CHARACTERIZATION"
+          }
+        },
+        {
+          "label": "248945",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-DM-DEEP-PROFILE-CHARACTERIZATION"
+          }
+        },
+        {
+          "label": "334315",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-DM-DEEP-PROFILE-CHARACTERIZATION"
+          }
+        },
+        {
+          "label": "749290",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-DM-DEEP-PROFILE-CHARACTERIZATION"
+          }
+        }
+      ]
+    },
+    {
+      "path": "code/cosmology/rar_deep_regime/udg_transfer/README.md",
+      "heading": "## Resolved outer rotation at a measured inclination",
+      "label_column": "Radius (kpc)",
+      "comparison_column": "Measured circular speed (km/s)",
+      "rows": [
+        {
+          "label": "1.11",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-DM-DEEP-PROFILE-CHARACTERIZATION"
+          }
+        },
+        {
+          "label": "3.32",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-DM-DEEP-PROFILE-CHARACTERIZATION"
+          }
+        },
+        {
+          "label": "5.53",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-DM-DEEP-PROFILE-CHARACTERIZATION"
+          }
+        },
+        {
+          "label": "7.74",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-DM-DEEP-PROFILE-CHARACTERIZATION"
+          }
+        },
+        {
+          "label": "9.95",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-DM-DEEP-PROFILE-CHARACTERIZATION"
+          }
+        }
+      ]
+    },
+    {
+      "path": "code/matched_einstein_limit/finite_entropy_region/README.md",
+      "heading": "## One equilibrium across shrinking regions and moving observers",
+      "label_column": "Reference radius",
+      "comparison_column": "Curved-plane product, reversible",
+      "rows": [
+        {
+          "label": "1/4",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-GR-D4D-ENTROPY-BRIDGE"
+          }
+        },
+        {
+          "label": "1/8",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-GR-D4D-ENTROPY-BRIDGE"
+          }
+        },
+        {
+          "label": "1/16",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-GR-D4D-ENTROPY-BRIDGE"
+          }
+        },
+        {
+          "label": "1/32",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-GR-D4D-ENTROPY-BRIDGE"
+          }
+        }
+      ]
+    },
+    {
+      "path": "code/matched_einstein_limit/quantum_stress_control/README.md",
+      "heading": "# One Maxwell quantum and the optical response of its box",
+      "label_column": "Box side",
+      "comparison_column": "Measured spatial stress trace at launch",
+      "rows": [
+        {
+          "label": "4",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-GR-D4C-LOCAL-STRESS"
+          }
+        },
+        {
+          "label": "6",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-GR-D4C-LOCAL-STRESS"
+          }
+        },
+        {
+          "label": "8",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-GR-D4C-LOCAL-STRESS"
+          }
+        }
+      ]
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/family_projector/README.md",
+      "heading": "## Bind the theorem to the cell",
+      "label_column": "Charge",
+      "comparison_column": "−√5 comparison",
+      "rows": [
+        {
+          "label": "Vacancy",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-WRITTEN-FIELD-ORBITAL-DOUBLET"
+          }
+        },
+        {
+          "label": "Excess",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-WRITTEN-FIELD-ORBITAL-DOUBLET"
+          }
+        }
+      ]
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/photon_identity/quantum_transfer/README.md",
+      "heading": "## Reception using two local pointers",
+      "label_column": "Side and early wait",
+      "comparison_column": "Measured difference in units of one simulated standard error",
+      "rows": [
+        {
+          "label": "4 at 4",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-EM-CARRIER-MODE-OSCILLATORS"
+          }
+        },
+        {
+          "label": "6 at 6",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-EM-CARRIER-MODE-OSCILLATORS"
+          }
+        },
+        {
+          "label": "8 at 8",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-EM-CARRIER-MODE-OSCILLATORS"
+          }
+        },
+        {
+          "label": "4 at 7.25",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-EM-CARRIER-MODE-OSCILLATORS"
+          }
+        },
+        {
+          "label": "6 at 12",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-EM-CARRIER-MODE-OSCILLATORS"
+          }
+        },
+        {
+          "label": "8 at 16",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-EM-CARRIER-MODE-OSCILLATORS"
+          }
+        }
+      ]
+    },
+    {
+      "path": "model/experiments/interval_echo_einstein_station/autonomous_selection/README.md",
+      "heading": "## Fixed ancestral region",
+      "label_column": "Descendant cells",
+      "comparison_column": "Measured slope, nats",
+      "rows": [
+        {
+          "label": "5",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-GR-D4D-ENTROPY-BRIDGE"
+          }
+        },
+        {
+          "label": "20",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-GR-D4D-ENTROPY-BRIDGE"
+          }
+        },
+        {
+          "label": "80",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-GR-D4D-ENTROPY-BRIDGE"
+          }
+        }
+      ]
+    },
+    {
+      "path": "model/experiments/interval_echo_einstein_station/dark_curvature/README.md",
+      "heading": "# Does the correlated native collar change the release focusing of four tracers?",
+      "label_column": "Change of preparation",
+      "comparison_column": "Measured change in release focusing",
+      "rows": [
+        {
+          "label": "Vacant to ordinary load with fresh tags",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-DM-CONT"
+          }
+        },
+        {
+          "label": "Fresh to reversed tags, matched ordinary energies",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-DM-CONT"
+          }
+        },
+        {
+          "label": "Fresh to shared tags, matched ordinary energies",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-DM-CONT"
+          }
+        }
+      ]
+    },
+    {
+      "path": "model/experiments/interval_echo_einstein_station/field_stress_curvature/README.md",
+      "heading": "## Local energy leaving a face",
+      "label_column": "Instrument",
+      "comparison_column": "Measured transfer per unit exposure",
+      "rows": [
+        {
+          "label": "Endpoint ring-energy clicks",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-GR-D4C-LOCAL-STRESS"
+          }
+        },
+        {
+          "label": "Window-averaged spectral current",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-GR-D4C-LOCAL-STRESS"
+          }
+        }
+      ]
+    },
+    {
+      "path": "model/experiments/interval_echo_einstein_station/hidden_entropy/README.md",
+      "heading": "# A stationary repair state with a measurable entropy slope",
+      "label_column": "Board",
+      "comparison_column": "External clicks for either dark launch",
+      "rows": [
+        {
+          "label": "20",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-GR-D4D-ENTROPY-BRIDGE"
+          }
+        },
+        {
+          "label": "80",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-GR-D4D-ENTROPY-BRIDGE"
+          }
+        },
+        {
+          "label": "320",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-GR-D4D-ENTROPY-BRIDGE"
+          }
+        }
+      ]
+    },
+    {
+      "path": "model/experiments/interval_echo_einstein_station/repair_stationarity/README.md",
+      "heading": "# When finite repair makes regional entropy stationary",
+      "label_column": "320-cell survey",
+      "comparison_column": "Derivative at the reference",
+      "rows": [
+        {
+          "label": "Regional entropy, independent repair",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-GR-D4D-ENTROPY-BRIDGE"
+          }
+        },
+        {
+          "label": "Regional entropy, correlated repair",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-GR-D4D-ENTROPY-BRIDGE"
+          }
+        },
+        {
+          "label": "Seam mismatch, correlated repair",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-GR-D4D-ENTROPY-BRIDGE"
+          }
+        }
+      ]
+    },
+    {
+      "path": "model/experiments/interval_echo_einstein_station/shape_stationarity/README.md",
+      "heading": "## Independent geometry and matter readings",
+      "label_column": "Shape comparison",
+      "comparison_column": "Population change with common source, nats",
+      "rows": [
+        {
+          "label": "Five-cell cycle to path",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-GR-D4D-ENTROPY-BRIDGE"
+          }
+        },
+        {
+          "label": "Cycle plus one cell to six-cell path",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-GR-D4D-ENTROPY-BRIDGE"
+          }
+        }
+      ]
+    },
+    {
+      "path": "model/experiments/material_inertia/pair_recoil/README.md",
+      "heading": "## Two independent reads of the freely moving bound branch",
+      "label_column": "Bridge ports",
+      "comparison_column": "Measured J at wait 1/8",
+      "rows": [
+        {
+          "label": "1, 82",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-GEOMETRY-INTERNAL-ENERGY-INERTIA-PRECURSOR"
+          }
+        },
+        {
+          "label": "60, 190",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-GEOMETRY-INTERNAL-ENERGY-INERTIA-PRECURSOR"
+          }
+        },
+        {
+          "label": "121, 188",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-GEOMETRY-INTERNAL-ENERGY-INERTIA-PRECURSOR"
+          }
+        }
+      ]
+    },
+    {
+      "path": "model/experiments/observer_expansion_reconstruction/README.md",
+      "heading": "## Reading volume and elapsed time",
+      "label_column": "Prepared history",
+      "comparison_column": "Reference deceleration parameter",
+      "rows": [
+        {
+          "label": "Dust",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-COSMO-FLRW-RECORD-DENSITY"
+          }
+        },
+        {
+          "label": "Coasting",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-COSMO-FLRW-RECORD-DENSITY"
+          }
+        },
+        {
+          "label": "de Sitter",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-COSMO-FLRW-RECORD-DENSITY"
+          }
+        }
+      ]
+    }
+  ]
 }

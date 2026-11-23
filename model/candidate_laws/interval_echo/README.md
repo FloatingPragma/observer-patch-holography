@@ -62,6 +62,8 @@ A separate six-oscillator semiclassical model supplies the gravitational couplin
 
 Four independently launched tracers detect ordinary matter in their initial focusing. Shared and fresh collar words give the same initial focusing and distinguishable later signed volumes. The registered ruler uses chord coordinates. Assigning anomalous gravitational stress to the collar requires a physical shrinking-radius series and universal coupling. [Native four-tracer records](../../experiments/interval_echo_einstein_station/dark_curvature/results.json)
 
+An ancestor-correlated native collar on shrinking routed annuli gives a charge proportional to the fourth power of radius at the two finest resolutions. Its distant cross charge vanishes and its near cross charge is measurable. The protected rulers bypass the source. Independent phase pulses on the filled, bound excess–vacancy pair resolve a small kinetic matrix element across three bridges. When each of two pairs is confined to a cell, their static connected energy is exactly zero beyond contact. Two dimer clocks have different rate changes at contact. [Collar scaling and spatial extent](../../experiments/interval_echo_einstein_station/collar_scaling/README.md) · [Pair transport, force and clocks](../../experiments/material_inertia/pair_recoil/README.md)
+
 ## Reproduce or inspect
 
 Run from the RER repository root.

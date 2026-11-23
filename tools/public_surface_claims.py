@@ -967,7 +967,8 @@ def check_comparison_table_surfaces(
         if isinstance(row, dict) and isinstance(row.get("row_id"), str)
     }
 
-    declared_paths: set[str] = set()
+    parsed_surfaces: dict[str, tuple[str, list[dict[str, Any]]]] = {}
+    claimed_tables: set[tuple[str, int]] = set()
     for index, declaration in enumerate(declarations):
         label = f"comparison table surface {index}"
         if not isinstance(declaration, dict):
@@ -978,21 +979,29 @@ def check_comparison_table_surfaces(
             issues.append(f"{label}: path must be a nonempty string")
             continue
         label = f"comparison table surface {relative}"
-        if relative in declared_paths:
-            issues.append(f"{label}: duplicate surface declaration")
-            continue
-        declared_paths.add(relative)
         surface = root / relative
         if not surface.is_file():
             issues.append(f"{label}: declared surface does not exist")
             continue
-        text = surface.read_text(encoding="utf-8")
+        if relative not in parsed_surfaces:
+            text = surface.read_text(encoding="utf-8")
+            parsed_surfaces[relative] = (text, comparison_tables(text))
+        text, tables = parsed_surfaces[relative]
         heading = declaration.get("heading")
-        if not isinstance(heading, str) or heading not in text:
+        if not isinstance(heading, str) or not heading:
             issues.append(f"{label}: declared heading {heading!r} is absent")
             continue
-        heading_offset = text.find(heading)
-        tables = comparison_tables(text)
+        pattern = re.escape(heading)
+        if heading.startswith("#"):
+            pattern = r"^[ \t]*" + pattern + r"[ \t]*$"
+        matches = list(re.finditer(pattern, text, re.MULTILINE))
+        if not matches:
+            issues.append(f"{label}: declared heading {heading!r} is absent")
+            continue
+        if len(matches) > 1:
+            issues.append(f"{label}: declared heading {heading!r} is ambiguous")
+            continue
+        heading_offset = matches[0].start()
         below_heading = [
             table for table in tables if table["offset"] > heading_offset
         ]
@@ -1002,13 +1011,13 @@ def check_comparison_table_surfaces(
             )
             continue
         table = below_heading[0]
-        for other in tables:
-            if other is table:
-                continue
+        key = (relative, table["offset"])
+        if key in claimed_tables:
             issues.append(
-                f"{relative}:{other['line']}: governed comparison table is not "
-                f"declared in {MANIFEST_RELATIVE.as_posix()}"
+                f"{relative}:{table['line']}: duplicate declaration for the same governed comparison table"
             )
+            continue
+        claimed_tables.add(key)
         headers = table["headers"]
         label_column = declaration.get("label_column")
         comparison_column = declaration.get("comparison_column")
@@ -1074,10 +1083,13 @@ def check_comparison_table_surfaces(
 
     for surface in iter_published_readmes(root):
         relative = surface.relative_to(root).as_posix()
-        if relative in declared_paths:
-            continue
-        text = surface.read_text(encoding="utf-8", errors="ignore")
-        for table in comparison_tables(text):
+        if relative not in parsed_surfaces:
+            text = surface.read_text(encoding="utf-8", errors="ignore")
+            parsed_surfaces[relative] = ("", comparison_tables(text))
+    for relative, (_, tables) in parsed_surfaces.items():
+        for table in tables:
+            if (relative, table["offset"]) in claimed_tables:
+                continue
             issues.append(
                 f"{relative}:{table['line']}: governed comparison table is not "
                 f"declared in {MANIFEST_RELATIVE.as_posix()}"

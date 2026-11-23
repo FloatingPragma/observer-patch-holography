@@ -1,0 +1,319 @@
+{
+  "protocol_sha256": "25f0c694066e3fef6421b6838b5e020cb86e4d9a116d5407dd0d12e63fbc219c",
+  "native_exposure": 0.015625,
+  "shots_per_bearing": 4294967296,
+  "panels": [
+    {
+      "level": 1,
+      "cells": 80,
+      "host_sha256": "39bae3eacd040f3ed7f8f2d59974327a94b7cb2d31452f20ebc16f19962ea324",
+      "radius": 3,
+      "census": [
+        {
+          "radius": 3,
+          "anchors": 24,
+          "labels": 72,
+          "ordered_pairs": 544,
+          "minimum_pairs_per_anchor": 19,
+          "maximum_pairs_per_anchor": 24
+        },
+        {
+          "radius": 6,
+          "anchors": 71,
+          "labels": 426,
+          "ordered_pairs": 5056,
+          "minimum_pairs_per_anchor": 61,
+          "maximum_pairs_per_anchor": 83
+        }
+      ],
+      "dimensions": {
+        "labels": 2.564784618783526,
+        "ordered_pairs": 3.2163179069267636
+      },
+      "bearings": [
+        {
+          "vacancy": 39,
+          "degree": 5,
+          "closer_neighbours": 1,
+          "quadratic_inward_probability_coefficient": 0.25,
+          "probabilities": [
+            6.062592820170498e-05,
+            0.9995132325076006,
+            0.0001216820689849529,
+            0.0003044594952126569
+          ],
+          "counts": [
+            260235,
+            4292875980,
+            523213,
+            1307868
+          ],
+          "closer_interval_99": [
+            6.0208113555347265e-05,
+            6.0974946298911134e-05
+          ],
+          "norm_error_bound": 1.4113988995391657e-10,
+          "probability_error_bound": 5.646595598953482e-10
+        },
+        {
+          "vacancy": 39,
+          "degree": 5,
+          "closer_neighbours": 1,
+          "quadratic_inward_probability_coefficient": 0.25,
+          "probabilities": [
+            6.062592820170498e-05,
+            0.9995132325076006,
+            0.0001216820689849529,
+            0.0003044594952126569
+          ],
+          "counts": [
+            260232,
+            4292876017,
+            523601,
+            1307446
+          ],
+          "closer_interval_99": [
+            6.020741727263461e-05,
+            6.0974245597767664e-05
+          ],
+          "norm_error_bound": 1.4113988995391657e-10,
+          "probability_error_bound": 5.646595598953482e-10
+        }
+      ]
+    },
+    {
+      "level": 3,
+      "cells": 1280,
+      "host_sha256": "8c25ed8277cf50f33ad0f53c5c3df7e13e93df23b555d28d3f010deadd695d39",
+      "radius": 6,
+      "census": [
+        {
+          "radius": 6,
+          "anchors": 71,
+          "labels": 426,
+          "ordered_pairs": 5107,
+          "minimum_pairs_per_anchor": 63,
+          "maximum_pairs_per_anchor": 84
+        },
+        {
+          "radius": 12,
+          "anchors": 286,
+          "labels": 3432,
+          "ordered_pairs": 84363,
+          "minimum_pairs_per_anchor": 260,
+          "maximum_pairs_per_anchor": 340
+        }
+      ],
+      "dimensions": {
+        "labels": 3.0101242172737073,
+        "ordered_pairs": 4.046062435000964
+      },
+      "bearings": [
+        {
+          "vacancy": 12,
+          "degree": 5,
+          "closer_neighbours": 1,
+          "quadratic_inward_probability_coefficient": 0.25,
+          "probabilities": [
+            6.0625928736528e-05,
+            0.9995132325118976,
+            0.00012168206898480919,
+            0.00030445949038100873
+          ],
+          "counts": [
+            260353,
+            4292875650,
+            524128,
+            1307165
+          ],
+          "closer_interval_99": [
+            6.023550068545369e-05,
+            6.1002507200446996e-05
+          ],
+          "norm_error_bound": 1.4113988995391657e-10,
+          "probability_error_bound": 5.646595598953482e-10
+        },
+        {
+          "vacancy": 3076,
+          "degree": 5,
+          "closer_neighbours": 2,
+          "quadratic_inward_probability_coefficient": 0.5,
+          "probabilities": [
+            0.00012206031693299305,
+            0.9995124342713019,
+            6.104592138429548e-05,
+            0.0003044594903808898
+          ],
+          "counts": [
+            524333,
+            4292872029,
+            262212,
+            1308722
+          ],
+          "closer_interval_99": [
+            0.00012153746178913864,
+            0.00012262581229493215
+          ],
+          "norm_error_bound": 1.4113988995391657e-10,
+          "probability_error_bound": 5.646595598953482e-10
+        }
+      ]
+    },
+    {
+      "level": 5,
+      "cells": 20480,
+      "host_sha256": "fe58adce37f3f12b59fc61cdd1b219c57501c645ba5df5f3c80bf63302767dae",
+      "radius": 12,
+      "census": [
+        {
+          "radius": 12,
+          "anchors": 286,
+          "labels": 3432,
+          "ordered_pairs": 84401,
+          "minimum_pairs_per_anchor": 260,
+          "maximum_pairs_per_anchor": 342
+        },
+        {
+          "radius": 24,
+          "anchors": 1158,
+          "labels": 27792,
+          "ordered_pairs": 1399117,
+          "minimum_pairs_per_anchor": 1099,
+          "maximum_pairs_per_anchor": 1339
+        }
+      ],
+      "dimensions": {
+        "labels": 3.017548201210847,
+        "ordered_pairs": 4.051112709125288
+      },
+      "bearings": [
+        {
+          "vacancy": 72,
+          "degree": 5,
+          "closer_neighbours": 1,
+          "quadratic_inward_probability_coefficient": 0.25,
+          "probabilities": [
+            6.0625928736528e-05,
+            0.9995132325118976,
+            0.00012168206898480919,
+            0.00030445949038100873
+          ],
+          "counts": [
+            260048,
+            4292877131,
+            522543,
+            1307574
+          ],
+          "closer_interval_99": [
+            6.01647119573184e-05,
+            6.093126923662533e-05
+          ],
+          "norm_error_bound": 1.4113988995391657e-10,
+          "probability_error_bound": 5.646595598953482e-10
+        },
+        {
+          "vacancy": 12456,
+          "degree": 5,
+          "closer_neighbours": 5,
+          "quadratic_inward_probability_coefficient": 1.25,
+          "probabilities": [
+            0.0003047419101025654,
+            0.9993907985994852,
+            3.1449062183600616e-14,
+            0.00030445949038088876
+          ],
+          "counts": [
+            1309639,
+            4292349661,
+            0,
+            1307996
+          ],
+          "closer_interval_99": [
+            0.0003040650597791912,
+            0.00030578481638546116
+          ],
+          "norm_error_bound": 1.4113988995391657e-10,
+          "probability_error_bound": 5.646595598953482e-10
+        }
+      ]
+    },
+    {
+      "level": 7,
+      "cells": 327680,
+      "host_sha256": "578bc497a10c989ce558768f89f95cac99071900b9838926e380d06a425c8700",
+      "radius": 24,
+      "census": [
+        {
+          "radius": 24,
+          "anchors": 1158,
+          "labels": 27792,
+          "ordered_pairs": 1399117,
+          "minimum_pairs_per_anchor": 1099,
+          "maximum_pairs_per_anchor": 1339
+        },
+        {
+          "radius": 48,
+          "anchors": 4630,
+          "labels": 222240,
+          "ordered_pairs": 22613253,
+          "minimum_pairs_per_anchor": 4499,
+          "maximum_pairs_per_anchor": 5297
+        }
+      ],
+      "dimensions": {
+        "labels": 2.999376940158362,
+        "ordered_pairs": 4.014580027193209
+      },
+      "bearings": [
+        {
+          "vacancy": 288,
+          "degree": 5,
+          "closer_neighbours": 1,
+          "quadratic_inward_probability_coefficient": 0.25,
+          "probabilities": [
+            6.0625928736528e-05,
+            0.9995132325118976,
+            0.00012168206898480919,
+            0.00030445949038100873
+          ],
+          "counts": [
+            259494,
+            4292878235,
+            522736,
+            1306831
+          ],
+          "closer_interval_99": [
+            6.003613211296969e-05,
+            6.080187272902664e-05
+          ],
+          "norm_error_bound": 1.4113988995391657e-10,
+          "probability_error_bound": 5.646595598953482e-10
+        },
+        {
+          "vacancy": 197076,
+          "degree": 5,
+          "closer_neighbours": 5,
+          "quadratic_inward_probability_coefficient": 1.25,
+          "probabilities": [
+            0.0003047419101025654,
+            0.9993907985994852,
+            3.1449062183600616e-14,
+            0.00030445949038088876
+          ],
+          "counts": [
+            1311212,
+            4292347657,
+            0,
+            1308427
+          ],
+          "closer_interval_99": [
+            0.00030443078636616946,
+            0.00030615157500197806
+          ],
+          "norm_error_bound": 1.4113988995391657e-10,
+          "probability_error_bound": 5.646595598953482e-10
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "shear_inversions": {
+    "KiDS-bright": {
+      "centre_a0": 1.5303584425277295e-10,
+      "central_inputs_two_error_range": [
+        1.2743479324547956e-10,
+        1.8097861892843747e-10
+      ],
+      "generous_shear_floor": 3.139155653380285e-11
+    },
+    "GAMA": {
+      "centre_a0": 2.812854349107191e-10,
+      "central_inputs_two_error_range": [
+        1.456539508687308e-10,
+        4.611504850881406e-10
+      ],
+      "generous_shear_floor": 3.648970967139154e-11
+    }
+  },
+  "dwarf": {
+    "spherical_untrimmed_upper": 2.6987896488533773e-12,
+    "spherical_generous_upper": 9.194536606002775e-12,
+    "measured_disk_force_inversion": 2.9904316775970675e-13,
+    "radius_kpc": 9.94806185933532,
+    "untrimmed_dark_speed_from_lens_kms": [
+      [
+        "KiDS-bright",
+        73.91890641323974
+      ],
+      [
+        "GAMA",
+        86.06846417498188
+      ]
+    ]
+  }
+}

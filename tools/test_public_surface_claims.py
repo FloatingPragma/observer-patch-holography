@@ -552,6 +552,47 @@ def test_governed_table_heading_must_stay_in_place(tmp_path) -> None:
     )
 
 
+def test_separate_tables_in_one_readme_require_individual_declarations(tmp_path) -> None:
+    root = _table_fixture_root(tmp_path)
+    second = "## Held observations"
+    surface = root / TABLE_README
+    second_table = second + TABLE_TEXT.split(TABLE_HEADING, 1)[1]
+    surface.write_text(TABLE_TEXT + "\n" + second_table, encoding="utf-8")
+    assert any(
+        "governed comparison table is not declared" in issue
+        for issue in claims.check_repository(root)
+    )
+
+    def add_second(manifest):
+        declaration = dict(_surface(manifest, TABLE_README), heading=second)
+        manifest["comparison_table_surfaces"].append(declaration)
+
+    _edit_manifest(root, add_second)
+    assert claims.check_repository(root) == []
+    _edit_manifest(root, add_second)
+    assert any(
+        "duplicate declaration for the same governed comparison table" in issue
+        for issue in claims.check_repository(root)
+    )
+
+
+def test_colliding_table_selectors_cannot_cover_another_table(tmp_path) -> None:
+    root = _table_fixture_root(tmp_path)
+    def add_colliding_selector(manifest):
+        duplicate = dict(_surface(manifest, TABLE_README), heading="# Fixture lane")
+        manifest["comparison_table_surfaces"].append(duplicate)
+
+    _edit_manifest(root, add_colliding_selector)
+    assert any(
+        "duplicate declaration for the same governed comparison table" in issue
+        for issue in claims.check_repository(root)
+    )
+    (root / TABLE_README).write_text(
+        TABLE_TEXT + "\n" + TABLE_HEADING + "\n", encoding="utf-8"
+    )
+    assert any("is ambiguous" in issue for issue in claims.check_repository(root))
+
+
 def test_live_governed_rows_name_lanes_or_carry_no_comparison() -> None:
     """Every declared row resolves through a lane or shows no comparison value."""
     manifest = claims.load_json(
@@ -561,11 +602,11 @@ def test_live_governed_rows_name_lanes_or_carry_no_comparison() -> None:
     manifest_rows = {row["row_id"]: row for row in manifest["rows"]}
     for surface in manifest["comparison_table_surfaces"]:
         text = (REPO_ROOT / surface["path"]).read_text(encoding="utf-8")
-        tables = claims.comparison_tables(text)
-        assert len(tables) == 1, surface["path"]
-        headers = tables[0]["headers"]
+        offset = text.index(surface["heading"])
+        table = next(t for t in claims.comparison_tables(text) if t["offset"] > offset)
+        headers = table["headers"]
         comparison_index = headers.index(surface["comparison_column"])
-        rendered = {cells[0]: cells for cells in tables[0]["rows"]}
+        rendered = {cells[0]: cells for cells in table["rows"]}
         assert len(rendered) == len(surface["rows"])
         for row in surface["rows"]:
             cells = rendered[row["label"]]

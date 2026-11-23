@@ -5,6 +5,7 @@
 \usepackage{lmodern}
 \usepackage{amsmath,amssymb,amsthm,mathtools}
 \usepackage{booktabs,tabularx}
+\usepackage{graphicx}
 \usepackage{xcolor}
 \usepackage{hyperref}
 \usepackage{xurl}
@@ -51,7 +52,7 @@ record at fixed ordinary load also shifts a local round-trip clock reading.
 Under scale covariance and independent-source composition the
 resulting galactic profile gives flat rotation curves and a fourth-power
 baryonic mass law with one undetermined scale. Galaxy rotation and
-lensing constrain its normalization and spatial distribution. Identifying
+lensing constrain its normalization and spatial distribution. A common spherical exterior carried through the measured disk of AGC~114905 gives too little shear on two isolated lens samples under the tested mass and optical calibrations. Identifying
 the fluctuations as a source of gravity requires their independently
 measured effect on geometry with the coupling calibrated on ordinary matter.
 \end{abstract}
@@ -863,10 +864,124 @@ Premise~\ref{pre:universal} supplies no readout-dependent coupling. That fact
 does not imply equality of masses inferred from null geodesics and timelike
 orbits. Those observables contract different components of the metric response
 and can differ in the presence of pressure, anisotropic stress, or gravitational
-slip. No relativistic refinement limit is supplied that turns the weak-field
-density \eqref{eq:profile} into a full \(T_{ab}^{\rm anom}\). A lensing law and
-the relation between lensing and dynamical mass are therefore physical
-constructions that this paper does not supply.
+slip. A static spherical exterior makes the extra stress assumption and its
+observable consequences explicit. Write $m(r)=b+hr$ on an annulus,
+$b=GM_b/c^2$, $h=\sqrt{GM_ba_0}/c^2$, with Schwarzschild mass length
+$m(R_t)$ beyond a finite edge $R_t$. Use areal radius and static proper
+clocks with $g_{tt}=-e^{2\Phi}$, $g_{rr}=(1-2m/r)^{-1}$ in units with
+$c=1$. Specify zero radial pressure. The radial Einstein equation and
+stress conservation give respectively
+\[
+ \beta^2=\frac{v_{\rm circ}^2}{c^2}=r\Phi'
+          =\frac{m}{r-2m},\qquad p_t=\tfrac12\rho\beta^2 .
+\]
+Here $\rho$ is the energy density and $p_t$ either tangential pressure.
+At the edge the radial pressure and both fundamental forms match the
+vacuum exterior. The density may jump there. This is the static
+tangential-stress branch of the Einstein-cluster type
+\cite{lakeCluster,pressureOptics}. The calculation specifies a stress
+law without assigning a constituent dark particle. In a scale-free
+annulus $m=hr$, choosing $p_r=w\rho$ instead gives
+$r\Phi'=h(1+w)/(1-2h)$. The same enclosed mass can therefore give
+different circular speeds. The radial closure and the location and
+normalization of the match are physical hypotheses.
+
+For the specified zero-radial-pressure annulus the clock function is
+\[
+ 2[\Phi(r)-\Phi(R_t)]
+   =-\log\frac{r}{R_t}
+     +\frac{1}{1-2h}\log\frac{(1-2h)r-2b}{(1-2h)R_t-2b}.
+\]
+A null probe turning at areal radius $r_0$ has asymptotic bending
+\[
+ \alpha=2\int_0^1
+ \frac{\sqrt{g_{rr}(r_0/u)}\,du}
+ {\sqrt{\exp(2\Phi(r_0)-2\Phi(r_0/u))-u^2}}-\pi .
+\]
+The same metric predicts the circular, light and clock readings. For
+$b=0$, $h=10^{-6}$ and $R_t/r_0=2,10,100$, the predicted angles are
+$5.261,6.083,6.263$ microradians. These synthetic tests use the
+supplied relativistic source. They fix neither the radial pressure nor
+a spacetime metric for native collars.
+
+\paragraph{Weak shear of a finite edge.}
+For spherical excess density $A/r^2$ with a sharp cutoff at $R_t$,
+integrate its column and cylinder mass separately. At projected ratio
+$y=R/R_t$, its differential surface density divided by the unlimited
+value $\pi A/R$ is
+\[
+ F(y)=
+ \begin{cases}
+ [4y/(1+\sqrt{1-y^2})+2\arccos y]/\pi,& 0\le y\le 1,\\
+ 4/(\pi y),&y\ge1 .
+ \end{cases}
+\]
+It increases up to $4/\pi$ at the edge and decreases beyond it. The
+same ceiling holds for nonnegative mixtures of truncated profiles of
+unit total weight. For the six isolated bins of KiDS-bright and GAMA
+\cite{brouwer2021}, choose positive weights inversely proportional to
+the diagonal variances and propagate the full published covariance.
+At nominal masses and bin centres, with the full-SPARC deep scale
+$8.7504\times10^{-11}\,\mathrm{m\,s^{-2}}$, even the maximum over a
+common distribution of $g_t=GM_b/R_t^2$ lies $4.00$ and $2.78$
+statistical errors below the two weighted shear measurements.
+Allowing arbitrary nonnegative sampling weights within the published
+bins reduces the gaps to $0.98$ and $2.09$ errors. These are
+retrospective comparisons on the same survey imaging. They distinguish
+an assumption about within-bin sampling from the shear measurement.
+
+\paragraph{One normalized mass profile for dwarf orbits and galaxy shear.}
+Take the outer measured ring of AGC~114905 at $r_d=9.95$ kpc with
+$v_d=26.94\pm1.83\,\mathrm{km\,s^{-1}}$, and its total baryonic
+mass $(1.47\pm0.14)\times10^9 M_\odot$. Assign its entire observed
+squared speed to the positive spherical excess, giving
+$f_d=M_A(r_d)/M_d\le v_d^2r_d/(GM_d)$. This conservative upper
+bound uses only a nonnegative baryonic contribution to the squared
+speed. It accommodates the measured disk's extended baryon distribution
+in this inequality.
+
+Suppose a single $f(x)=M_A(R)/M_b$, $x=R/\sqrt{GM_b}$, connects all
+the compared radii and galaxies, with $f$ nondecreasing and $f/x$
+nonincreasing. A linear deep mass profile and sublinear universal tapers
+belong to this family. At any $x$ one has
+$f(x)\le[v_d^2r_d/(GM_d)]\max(1,x/x_d)$.
+A thin spherical shell of mass $dM$ outside projected radius $R$ makes
+the following contribution to the weak differential surface density,
+where $z=\sqrt{1-R^2/r^2}$:
+\[
+ \frac{\pi R^2\,d\Delta\Sigma}{dM}
+ =1-z-\frac{1-z^2}{2z}=-\frac{(1-z)^2}{2z}\le0 .
+\]
+Enclosed positive shells give their full mass divided by $\pi R^2$.
+Hence ordinary weak-field stress optics imply
+$\Delta\Sigma\le M(<R)/(\pi R^2)$. Combining the bounds gives a
+test independent of $a_0$ and of a particular edge. Treat the lens
+baryons as compact and allow every measured bin its most favorable
+pair weighting. The result in $M_\odot\,\mathrm{pc^{-2}}$ is
+\begin{center}
+\begin{tabular}{lrrr}
+\toprule
+Lens selection & Measured weighted $\Delta\Sigma$ & Central ceiling & Generous ceiling\\
+\midrule
+KiDS-bright & $17.30\pm0.69$ & $5.04$ & $11.36$\\
+GAMA & $22.73\pm2.99$ & $4.97$ & $11.18$\\
+\bottomrule
+\end{tabular}
+\end{center}
+The generous ceiling lowers the dwarf mass by two quoted errors,
+raises its distance and speed by two quoted errors, permits a further
+inclination change from $31^\circ$ to $27^\circ$, and increases each
+lens mass by $0.2$ dex. These settings are sensitivity bounds. The
+statistical errors use the published shear covariance conditional on
+calibration and membership. With one sharp edge acceleration the
+generous ceilings are lower, $9.94$ and $9.74$. The measured dwarf
+ring lies inside its observed baryonic disk. These comparisons
+disfavor a universal spherical sublinear extension to that radius and
+the isolated lens apertures under the stated optical and baryonic
+assumptions. They leave the far exterior of the dwarf, distributed or
+environment-dependent collar sources and different pressure laws
+undetermined. The public archive, metric solver and projection checks
+are bound in \path{code/cosmology/rar_deep_regime/finite_halo}.
 
 \section{Comparison with Rotation-Curve Data}
 \label{sec:data}
@@ -972,6 +1087,57 @@ This comparison constrains extrapolation of the compact profile to finite
 galactic radii. The source strength and the galaxy parameters in the feasible
 solution were selected with the velocities in view. None independently
 measures a collar charge~\cite{ophrar,sparc2016}.
+
+\paragraph{External gas-rich ultra-diffuse galaxies.}
+Fix $a_0=7.603\times10^{-11}\,\mathrm{m\,s^{-2}}$ at the value
+estimated from 74 SPARC training galaxies above. For the six gas-rich
+ultra-diffuse galaxies of Mancera Pi\~na et al.~\cite{mancera2019},
+the measured baryonic masses then predict limiting circular speeds
+$(G M_b a_0)^{1/4}$ of $58.0$--$69.3\,\mathrm{km\,s^{-1}}$.
+The reported circular speeds are $19$--$37\,\mathrm{km\,s^{-1}}$
+(Fig.~\ref{fig:udg-transfer}). The median predicted-to-measured ratio
+is $2.27$. Even at the lower endpoint of the training bootstrap range,
+decreasing each log mass and increasing each speed by twice its
+corresponding quoted uncertainty leaves all six measured speeds
+below prediction. These input ranges have no joint confidence
+assignment. The sample was published for its unusually slow rotation
+and constrains transfer to these galaxies. Comparing the limiting
+law with measurements at approximately $8$--$18$~kpc assumes the
+deep exterior profile holds at those finite radii.
+
+In AGC~114905 deep optical imaging gives an inclination of
+$31\pm2$ degrees, and the updated stars-and-gas mass is
+$(1.47\pm0.14)\times10^9\,M_\odot$~\cite{mancera2024}.
+Using the local radial force of the observed disc, the transferred
+law gives $v_{\rm circ}^2=v_{\rm bar}^2+\sqrt{R v_{\rm bar}^2 a_0}$.
+All five measured rings meet the specified acceleration cut.
+At $9.95$~kpc the baryonic speed is $22.57\,\mathrm{km\,s^{-1}}$,
+the predicted speed is $62.91\,\mathrm{km\,s^{-1}}$, and the
+pressure-corrected H\,I speed is $26.94\pm1.83\,\mathrm{km\,s^{-1}}$.
+The outer discrepancy is $19.65$ plotted speed-error widths, or
+$18.15$ at the lower training-scale endpoint. At the authors'
+alternative distance and inclination from their baryons-only fit,
+the directly plotted photometric force at $10.13$~kpc predicts
+$60.25\,\mathrm{km\,s^{-1}}$ against $24.25\pm1.83\,\mathrm{km\,s^{-1}}$.
+Both reductions use the same H\,I observations. The quoted residual
+units condition on the adopted geometry and mass model. They exclude
+shared inclination and force uncertainties and inter-ring covariance.
+
+\begin{figure}[htbp]
+\centering
+\IfFileExists{code/cosmology/rar_deep_regime/udg_transfer/comparison.pdf}
+  {\includegraphics[width=\linewidth]{code/cosmology/rar_deep_regime/udg_transfer/comparison.pdf}}
+  {\includegraphics[width=\linewidth]{../code/cosmology/rar_deep_regime/udg_transfer/comparison.pdf}}
+\caption{Transfer from SPARC to gas-rich ultra-diffuse galaxies.
+Left, the six measured circular speeds with their reported errors and
+the limiting speeds calculated from the independent baryonic masses.
+Right, the resolved circular speed of AGC~114905 at its optically
+measured inclination and the radial prediction using the measured disc
+force. The band varies only the SPARC training scale over its
+galaxy-bootstrap interval. Observations from
+Refs.~\cite{mancera2019,mancera2024}.}
+\label{fig:udg-transfer}
+\end{figure}
 
 \paragraph{Radial acceleration.}
 On fixed absolute subsets \(g_{\rm bar}<f a_{\rm ref}\), with the
@@ -1235,6 +1401,21 @@ suppresses compact sources only in its stated fixed-parameter limit and does
 not force a nonzero galactic defect. The physical location, density and
 statistics of those cuts must therefore be supplied separately.
 
+Native collar measurements supply a finite fourth-order precursor.
+Place two conserved words uniformly on distinct cells and select
+independent fair correlation tags in the twenty ancestral patches.
+The normalized connected modular-charge changes are $0.001713$ and
+$0.001761$ on the two finest surveyed annuli. On doubling the latter
+radius the coefficient is $0.001765$. The mixed charge vanishes for
+far annuli in distinct ancestors and survives between adjacent
+disjoint annuli in the same ancestor. A local co-located preparation
+fails the fourth-power test. The observed scaling arises because two
+admissions to the approximately quadratic screen region are required.
+The routing radius, conditional writer and selected modular reference
+are specified. A locally normalized gravitating stress requires
+independent geometric response at fixed ordinary matter on proper
+three-dimensional balls.
+
 The profile theorem determines the exponents and leaves \(a_0=Gn^2c\).
 A constant-capacity horizon dictionary supplies a separate dimensional scale,
 \begin{equation}
@@ -1251,8 +1432,40 @@ select \(n\) or the per-cut variance constant. In this paragraph the
 \(c\) in \(a_{\rm dS}\) is the speed of light, distinct from the variance
 constant in the per-cut dictionary.
 
-A covariant completion must determine pressure, anisotropic stress,
-gravitational slip, exchange, abundance and perturbations before lensing,
+Reversing the calibration tests whether the choice of training
+instrument accounts for the discrepancy. With the SPARC scale
+withheld, the covariance-weighted shear mean at nominal masses and
+bin centres gives untrimmed spherical scales of $1.530\times10^{-10}$
+(KiDS-bright) and $2.813\times10^{-10}\,\mathrm{m\,s^{-2}}$ (GAMA).
+At the measured outer AGC~114905 ring, assigning its entire rotation
+to the untrimmed anomaly gives $a_0\le2.699\times10^{-12}\,\mathrm{m\,s^{-2}}$.
+The generous dwarf allowance gives $9.195\times10^{-12}$. Giving the
+lenses the upper bin edges, $+0.2$ dex mass, maximum spherical edge
+enhancement and a two-statistical-error downward shift, their respective
+lower amplitudes are $3.139\times10^{-11}$ and $3.649\times10^{-11}$
+in the same units. The physical meaning of these comparisons depends on
+the region where the exterior law applies. The common sublinear-profile
+bound in Section~\ref{sec:lensing} eliminates the amplitude altogether.
+
+Rotation and lensing are independent ways to calibrate the effective
+profile. A source-based normalization instead requires a measured cut
+density per unit proper length, a calibrated variance per unit source
+mass and the same Newton coupling seen by ordinary matter. The change
+$n\mapsto\lambda n$, $c_{\rm var}\mapsto c_{\rm var}/\lambda^2$ preserves
+$a_0$ for every $\lambda>0$. Even exact profile measurements under this
+dictionary would therefore leave the underlying number and distribution
+of record-making patches underdetermined. On the protected native annuli,
+the variance of the connected modular defect conditional on two
+32-unit words runs from $0.00690305$ to $0.00900036$ nats squared as
+their joint writer changes. Conditioning on two 65-unit words gives
+the same three variance values, with independent held samples in both
+bins. The count of distinct occupied word radii per normalized routed
+length nearly doubles between adjacent annuli. Neither conditional
+word-energy variance nor this radial count identifies the variance per
+unit baryonic mass or the proper density of gravitating cuts.
+
+The static spherical example fixes two pressures on its declared domain. A physical source completion must determine gravitational
+slip, exchange, abundance and perturbations before lensing,
 clusters or cosmology can test the same source. The static deep law neither
 specifies the transition to Newtonian dynamics nor establishes those
 quantities. The held galaxy and weak-lensing comparisons test a conditional profile with a
@@ -1260,6 +1473,16 @@ rotation-calibrated scale. Identifying the source requires an independent
 physical charge measurement and a prospectively fixed likelihood.
 
 \begin{thebibliography}{99}
+
+\bibitem{lakeCluster}
+K. Lake, \emph{Galactic halos are Einstein clusters of WIMPs},
+\href{https://arxiv.org/abs/gr-qc/0607057}{arXiv:gr-qc/0607057}.
+
+\bibitem{pressureOptics}
+T. Faber and M. Visser, \emph{Combining rotation curves and gravitational
+lensing: How to measure the equation of state of dark matter in the galactic
+halo}, Mon. Not. R. Astron. Soc. \textbf{372} (2006) 136--142,
+\href{https://arxiv.org/abs/astro-ph/0512213}{arXiv:astro-ph/0512213}.
 
 \bibitem{dyerTriangulations}
 R. Dyer, G. Vegter and M. Wintraecken,
@@ -1307,6 +1530,19 @@ galaxies survey. II}, Table 4 and Appendix A.
 J. Schombert, S. McGaugh and F. Lelli, \emph{Using the Baryonic
 Tully--Fisher Relation to Measure $H_0$}, Astron. J. 160, 71 (2020),
 Table 2. \url{https://astroweb.case.edu/ssm/papers/AJv160n71.pdf}.
+
+\bibitem{mancera2019}
+P.~E. Mancera Pi\~na et al.,
+\emph{Off the Baryonic Tully--Fisher Relation: A Population of
+Baryon-dominated Ultra-diffuse Galaxies},
+Astrophys. J. Lett. \textbf{883}, L33 (2019).
+\url{https://doi.org/10.3847/2041-8213/ab40c7}
+
+\bibitem{mancera2024}
+P.~E. Mancera Pi\~na, G. Golini, I. Trujillo and M. Montes,
+\emph{Exploring the nature of dark matter with the extreme galaxy AGC~114905},
+Astron. Astrophys. \textbf{689}, A344 (2024).
+\url{https://doi.org/10.1051/0004-6361/202450230}
 
 \bibitem{baldauf2010}
 T. Baldauf, R. E. Smith, U. Seljak and R. Mandelbaum,
