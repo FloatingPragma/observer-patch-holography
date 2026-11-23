@@ -60,16 +60,30 @@ def detector(port_pairs, lookup, receiver, states, doubles):
     return np.array(bins).T
 
 
+def cohort_probabilities(bins):
+    rows = np.asarray(bins)
+    if (
+        rows.shape != (2, 6)
+        or rows.dtype.kind != "f"
+        or not np.isfinite(rows).all()
+        or (rows < 0).any()
+        or (rows > 1).any()
+        or not np.all(rows[:, 0] == 0.5)
+    ):
+        raise ValueError("Expected two probability rows with exact half source refusal")
+    # NumPy draws the last bin as the remainder. Check the independently
+    # computed last observation against that remainder before sampling.
+    np.testing.assert_allclose(rows[:, -1], 1 - rows[:, :-1].sum(axis=1), atol=protocol.TOL, rtol=0)
+    return rows
+
+
 def draw(source, dest, bins):
-    if bins.shape != (2, 6) or not np.isfinite(bins).all() or (bins < 0).any():
-        raise ValueError("Invalid multinomial")
-    np.testing.assert_allclose(bins.sum(axis=1), 1.0, atol=protocol.TOL, rtol=0)
+    # Renormalization can move the binomial sampler across p=1/2 and change
+    # its deterministic seed replay even when the input differs only by roundoff.
     return np.array(
         [
-            np.random.Generator(np.random.PCG64([41029, source, dest, i])).multinomial(
-                SHOTS, row / row.sum()
-            )
-            for i, row in enumerate(bins)
+            np.random.Generator(np.random.PCG64([41029, source, dest, i])).multinomial(SHOTS, row)
+            for i, row in enumerate(cohort_probabilities(bins))
         ]
     )
 
@@ -89,12 +103,13 @@ def decision(counts, forecast):
         counts.shape != (2, 6)
         or counts.dtype.kind not in "iu"
         or (counts < 0).any()
+        or (counts > SHOTS).any()
         or not np.all(counts.sum(axis=1) == SHOTS)
     ):
         raise ValueError("Expected two enrolled cohorts")
     finals = counts[:, 4:]
     admission = finals.sum(axis=1)
-    expected = np.asarray(forecast)[:, 4:]
+    expected = cohort_probabilities(forecast)[:, 4:]
     if min(admission) == 0 or min(expected.sum(axis=1)) == 0:
         return 1.0, False
     fraction = finals[:, 0] / admission

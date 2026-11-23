@@ -62,13 +62,28 @@ def test_receiver_refusals_and_binding_crossings():
     }
     n = check.SHOTS
     # Differential admission alone gives the same conditional readout.
-    counts = np.array([[0, n - 200, 0, 0, 100, 100], [0, n - 20000, 0, 0, 10000, 10000]])
+    half = n // 2
+    counts = np.array(
+        [[half, half - 200, 0, 0, 100, 100], [half, half - 20000, 0, 0, 10000, 10000]]
+    )
     assert check.decision(counts, counts / n) == (1.0, False)
     assert check.admission_floor(counts / n) == 0
-    counts[1] = [0, n, 0, 0, 0, 0]
+    counts[1] = [half, half, 0, 0, 0, 0]
     assert check.decision(counts, counts / n) == (1.0, False)
     with pytest.raises(ValueError):
         check.decision(counts[:, 1:], counts / n)
+    bad = counts.astype(np.uint64)
+    bad[0] = [2**63, 2**63, 0, 0, half, half]
+    with pytest.raises(ValueError, match="enrolled cohorts"):
+        check.decision(bad, counts / n)
+    invalid = counts / n
+    invalid[0, 0] = np.nextafter(0.5, 1)
+    with pytest.raises(ValueError, match="half source refusal"):
+        check.draw(2, 1, invalid)
+    invalid = counts / n
+    invalid[0, -1] = 0.25
+    with pytest.raises(AssertionError):
+        check.draw(2, 1, invalid)
 
 
 def test_frozen_held_out_counts_and_verdict():
@@ -79,8 +94,11 @@ def test_frozen_held_out_counts_and_verdict():
     }
     trials = load(check.COUNTS)
     routes = [(r["source"], r["receiver"]) for r in trials]
-    assert len(routes) == len(set(routes)) == 6 and set(routes) == forecast.keys()
+    board = federation(0)
+    scheduled = {(s, d) for s in (2, 3) for d in phase.receivers(board, s) if s != d}
+    assert len(routes) == 6 and set(routes) == scheduled == forecast.keys()
     for key, row in zip(routes, trials, strict=True):
+        np.testing.assert_array_equal(check.draw(*key, forecast[key]), row["counts"])
         p, passed = check.decision(np.array(row["counts"]), forecast[key])
         assert np.isclose(p, row["p_value"], rtol=1e-9, atol=1e-300) and passed == row["passed"]
     exchanged = deepcopy(trials)

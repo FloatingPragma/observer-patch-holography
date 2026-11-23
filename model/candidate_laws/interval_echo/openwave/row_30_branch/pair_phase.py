@@ -61,22 +61,33 @@ def apparatus():
     # In each admitted rail the first basis state occupies its first port.
     columns = [law.SRC.index(word) for word in ((1, 0), (0, 1))]
     exchange, contrast = law.local_term_parts()
+    term = exchange + candidate.KAPPA * contrast
 
-    def splitter(duration):
-        local = expm(-1j * duration * (exchange + candidate.KAPPA * contrast)) @ blank[:, columns]
+    def splitter(gate):
+        local = gate[:, columns]
         matrix = local[columns]
         np.testing.assert_allclose(local, blank[:, columns] @ matrix, rtol=0, atol=1e-12)
         return matrix
 
-    half = splitter(np.pi / 2)
+    half = splitter(expm(-0.5j * np.pi * term))
+    full = expm(-1j * np.pi * term)
+    occupied = law.SRC.index((1, 1))
+    np.testing.assert_allclose(full[:, occupied], blank[:, occupied], rtol=0, atol=1e-13)
+    swapped = splitter(full)[:, 0]
+    analyzer_pulses = np.kron(half, half)
     inputs = []
-    for second, sign in ((splitter(3 * np.pi / 2), 1), (half, -1)):
+    for second, sign in ((splitter(expm(-1.5j * np.pi * term)), 1), (half, -1)):
         prepared = np.kron(half[:, 0], second[:, 0])
+        # Equal-duration alternative: address wx (+) or the occupied uw (-)
+        # for pi, then apply the identical two half pulses to both signs.
+        initial = np.array([1.0, 0.0])
+        timed = analyzer_pulses @ np.kron(initial, swapped if sign == 1 else initial)
+        np.testing.assert_allclose(timed, prepared, rtol=0, atol=1e-13)
         source = prepared[[0, 3]]
         np.testing.assert_allclose(abs(prepared) ** 2, 0.25, rtol=0, atol=1e-13)
         np.testing.assert_allclose(source[1], sign * source[0], rtol=0, atol=1e-13)
         inputs.append(source)
-    analyzer = np.kron(half, half)[:, [0, 3]]
+    analyzer = analyzer_pulses[:, [0, 3]]
     # Removing cross terms at the receiver leaves a fair binary flag for each word.
     np.testing.assert_allclose(abs(analyzer) ** 2, 0.25, rtol=0, atol=1e-13)
     return np.array(inputs).T, analyzer

@@ -22,6 +22,8 @@ Each table entry gives equal flags / all local admissions out of 67,108,864 simu
 
 The source and receiver each address four ports. Together they use at most four rail pulses and five binary queries per launch, or ten echoes including the inverse operations. The supplied controller isolates the addressed contacts during preparation and readout. Each dephasing control makes one additional signed query on rail $uv$ and leaves its flag unread. The two words give opposite signed contrasts on that rail, so discarding this flag removes exactly their off-diagonal element.
 
+The registered source pulses have different total durations for the two signs. An equivalent source can release them on the same schedule. First offer a pulse of duration $\pi$ on $wx$ for plus or $uw$ for minus. On the sharp input the first choice swaps the second rail up to its native phase. The second choice acts on the blank-memory word $(1,1)$, whose seam generator vanishes. Now offer $\pi/2$ on $uv$ and $\pi/2$ on $wx$ for both. Each source uses three sequential pulses totaling $2\pi$ before its flag read. The native columns give the same four joint amplitudes as the registered source, including the rejected words. Thus a sign-dependent release time is unnecessary for the predicted phase signal.
+
 | Source → receiver | Plus | Minus | Two-sided p | Predicted direction detected |
 | --- | ---: | ---: | ---: | --- |
 | 2 → 1 | 122 / 590 | 1,350 / 1,987 | 2.23 × 10⁻⁹⁴ | Yes |
@@ -50,6 +52,8 @@ There is also an exact obstruction to rigid motion. In the adjacent subspace a s
 ## Replay
 
 From the repository root, set `OPENBLAS_NUM_THREADS=1` and `OMP_NUM_THREADS=1` for the extended calculations. The forecast uses the registered Chebyshev expansion. The second implementation constructs the exchange graph from the hashed board, advances it by sparse matrix exponentials, and recomputes the receiver flags separately. It checks 1,728 receiver probabilities and 288 association probabilities before drawing the six multinomial count tables. The data are simulated counts and the appointments use native exposure units.
+
+Both replays use the exact source refusal probability of one half. The sampler checks the independently calculated last bin against the probability remaining after the first five. Passing those probabilities directly to NumPy's multinomial sampler with PCG64 reproduces every archived count from either solver and from the rounded forecasts. The Fisher decisions measure detectability at the stated simulated sample budget.
 
 ```sh
 python -B -O -W error -m model.candidate_laws.interval_echo.openwave.row_30_branch.pair_phase
