@@ -47,7 +47,9 @@ def verify_columns():
     occupied = sp.eye(99) - blank
     ready = u.T * hit
     r, dd = map(sp.Matrix, law._label_ops())
-    native_echo, _, commit, probes = local_ops()
+    native_echo, native_pair, commit, probes = local_ops()
+    check(np.array_equal(native_pair, np.array(pair.diagonal(), dtype=bool).ravel()), "pair flag")
+    check(tuple(flag for flag, _ in probes) == (False, False, True), "repair branch flags")
     check(np.allclose(np.array(u, float), native_echo, atol=1e-14, rtol=0), "echo mismatch")
     check(np.allclose(np.array(hit, float), commit, atol=1e-14, rtol=0), "commit mismatch")
     for exact, (_, actual) in zip([occupied, quiet, ready], probes, strict=True):
@@ -149,20 +151,23 @@ def return_floor(moves, strength, odd=0):
     return ((gap**2 - v2) / (gap**2 + v2)) ** 2
 
 
+def six_probe_record(board, a, b, occupied):
+    hit = np.ones_like(occupied[a])
+    for port, partner in ((a, b), (b, a)):
+        probes = [q for q in board.neighbours[port] if q != partner and q // 12 == port // 12][:3]
+        check(len(set(probes)) == 3, "endpoint needs three distinct blank probe seams")
+        for q in probes:
+            hit &= occupied[port] ^ occupied[q]
+    return hit
+
+
 def reader_census(board):
     """Enumerate the six contrast flags on each possible binary pair, for every seam."""
     left, right = np.triu_indices(board.n, 1)
     occupied = [(left == p) | (right == p) for p in range(board.n)]
     counts = {"internal": {}, "intercell": {}}
     for a, b in board.seams:
-        hit = np.ones(left.size, dtype=bool)
-        for port, partner in ((a, b), (b, a)):
-            probes = [q for q in board.neighbours[port] if q != partner and q // 12 == port // 12][
-                :3
-            ]
-            check(len(set(probes)) == 3, "endpoint needs three distinct blank probe seams")
-            for q in probes:
-                hit &= occupied[port] ^ occupied[q]
+        hit = six_probe_record(board, a, b, occupied)
         check(np.array_equal(hit, (left == a) & (right == b)), "aliased six-probe reading")
         moves = int(board.degree[a] + board.degree[b] - 2)
         table = counts["internal" if a // 12 == b // 12 else "intercell"]
@@ -235,12 +240,34 @@ def strict_flight(board, tag, home, strengths=STRENGTHS, times=TIMES):
     return rows
 
 
+def comparison_panel(rows, width):
+    settings = {(k, t) for k in STRENGTHS for t in TIMES}
+    panel = {(row["kappa"], row["t"]): row for row in rows}
+    check(
+        len(rows) == len(settings) and panel.keys() == settings, "incomplete or repeated settings"
+    )
+    for row in rows:
+        for reader in ("six_probe", "pair_flag"):
+            bins = np.asarray(row[reader])
+            check(
+                bins.shape == (width,)
+                and bins.dtype.kind in "ifu"
+                and np.isfinite(bins).all()
+                and bins.min() >= -1e-11
+                and bins.max() <= 1 + 1e-11
+                and abs(bins.sum() - 1) <= 1e-11,
+                "invalid comparison bins",
+            )
+    return panel
+
+
 def cross_check(board, tag, home, rows):
     """Construct the joint signed-memory Hamiltonian from individual allowed load hops."""
     from model.candidate_laws.interval_echo.openwave.photon_identity.native_emission.neutral_pair import (
         chebyshev_flight,
     )
 
+    panel = comparison_panel(rows, len(home) + 1)
     words = list(combinations(range(board.n), 2))
     indices = {w: i for i, w in enumerate(words)}
     n = len(words)
@@ -262,7 +289,15 @@ def cross_check(board, tag, home, rows):
     flip = sparse.diags(-out / 2)
     initial = np.zeros(2 * n)
     initial[indices[tag]] = 1
-    side = [indices[e] for e in home]
+    # Assign every word a terminal record. This counts quiet directly as well.
+    flags = np.full(n, len(home))
+    for slot, edge in enumerate(home):
+        if edge != tag:
+            flags[indices[edge]] = slot
+    left, right = np.asarray(words).T
+    occupied = [(left == p) | (right == p) for p in range(board.n)]
+    six = flags.copy()
+    six[six_probe_record(board, *tag, occupied)] = home.index(tag)
     worst = 0.0
     for k in STRENGTHS:
         diagonal = exchange + sparse.diags(k * (np.asarray(cost) + 4 * out) + out / 2)
@@ -275,12 +310,12 @@ def cross_check(board, tag, home, rows):
                 state, _, tail = chebyshev_flight(h, off_radius, initial, t)
                 check(tail < 1e-14, "Chebyshev series did not stabilize")
             check(abs(np.vdot(state, state).real - 1) < 1e-10, "joint flight norm")
-            visible = (abs(state.reshape(2, n)[:, side]) ** 2).sum(axis=0)
-            row = next(r for r in rows if r["kappa"] == k and r["t"] == t)
-            for reader in ("six_probe", "pair_flag"):
-                if reader == "pair_flag":
-                    visible[home.index(tag)] = 0
-                worst = max(worst, float(np.max(abs(complete_bins(visible) - row[reader]))))
+            probabilities = (abs(state.reshape(2, n)) ** 2).sum(axis=0)
+            for reader, records in (("six_probe", six), ("pair_flag", flags)):
+                bins = np.bincount(records, weights=probabilities, minlength=len(home) + 1)
+                error = np.max(abs(bins - panel[k, t][reader]))
+                check(np.isfinite(error), "nonfinite comparison error")
+                worst = max(worst, float(error))
     check(worst < 2e-10, "joint propagation disagrees with parity sectors")
     return {
         "dimension": 2 * n,

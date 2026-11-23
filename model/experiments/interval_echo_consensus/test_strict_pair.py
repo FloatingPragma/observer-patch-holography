@@ -1,6 +1,7 @@
 from fractions import Fraction
 
 import numpy as np
+import pytest
 
 from model.executable_model import federation
 from . import strict_pair as pair
@@ -13,6 +14,7 @@ def test_native_repair_and_all_binary_readers():
     sources = pair.strict_scheduler(board)
     assert sources[156] == [156, 157, 2]
     assert {sign for _, _, sign in sources} == {-2, 2}
+    assert len({(a, b) for a, b, _ in sources}) == 202
 
 
 def test_return_estimate_including_vacuous_regime():
@@ -40,3 +42,28 @@ def test_weak_and_strong_flights_through_both_readers():
         np.testing.assert_allclose(flags[-1], direct[-1] + direct[marked], atol=1e-12, rtol=0)
         expected = (1, 0) if row["t"] == 0 else reference[row["kappa"]]
         np.testing.assert_allclose((direct[marked], flags[:-1].sum()), expected, atol=2e-10, rtol=0)
+
+
+@pytest.mark.parametrize(
+    "damage", ["nan", "broadcast", "renormalize", "missing", "duplicate", "extra"]
+)
+def test_independent_replay_rejects_invalid_panel(damage):
+    rows = [
+        {"kappa": k, "t": t, "pair_flag": [0, 1], "six_probe": [1, 0]}
+        for k in pair.STRENGTHS
+        for t in pair.TIMES
+    ]
+    if damage == "nan":
+        rows[0]["pair_flag"] = [np.nan, 1]
+    elif damage == "broadcast":
+        rows[0]["six_probe"] = [1]
+    elif damage == "renormalize":
+        rows[0]["pair_flag"] = [0.1, 1]
+    elif damage == "missing":
+        rows.pop()
+    elif damage == "duplicate":
+        rows[1] = rows[0]
+    else:
+        rows.append(rows[0])
+    with pytest.raises(ArithmeticError):
+        pair.comparison_panel(rows, 2)
