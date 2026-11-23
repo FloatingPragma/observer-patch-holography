@@ -4,7 +4,7 @@ from __future__ import annotations
 import os
 from pathlib import Path
 
-from .assessment import ROOT, SHORT, STATUS, DECISIONS
+from .assessment import ROOT, SHORT, STATUS, DECISIONS, comparison_studies
 
 HERE = Path(__file__).resolve().parent
 CHECKS = {
@@ -131,8 +131,8 @@ def scorecard(results):
             cells = [f"[{key}](EVIDENCE.md#{key.lower()}) {row['title']}{regime}"]
             for case in cases:
                 grade = criterion_grade(case)
-                if 'comparison' in case:
-                    grade += f". Comparison · {comparison_link(case['comparison'])}"
+                for study in comparison_studies(case):
+                    grade += f". Comparison · {comparison_link(study)}"
                 cells.append(grade)
             if group['id'] == 'observer_benchmarks':
                 cells.append(row['context'])
@@ -159,7 +159,7 @@ def evidence_ledger(results):
                 lines.extend([row['context'], ''])
             lines.extend(['Criterion · ' + links(row['sources']), ''])
             if all(c['status'] == 'open' and c['note'] == row['note'] and c['evidence'] == row['evidence']
-                   and 'comparison' not in c for c in cases):
+                   and not comparison_studies(c) for c in cases):
                 detail = links(row['evidence'])
                 lines.extend([f"**All three candidates · Open.** {row['note']} {detail}".rstrip() if len(results) == 3
                               else f"**All listed candidates · Open.** {row['note']} {detail}".rstrip(), ''])
@@ -169,8 +169,7 @@ def evidence_ledger(results):
                     if 'demonstrated_measurement' in c:
                         heading = f"**{short(r)}** · {criterion_grade(c)}."
                     lines.append(f"- {heading} {c['note']} {links(c['evidence'])}".rstrip())
-                    if 'comparison' in c:
-                        comparison = c['comparison']
+                    for comparison in comparison_studies(c):
                         lines.append(f"  - **{comparison['law']}** · {comparison['finding']} "
                                      f"[Comparison study]({local_link(comparison['source'])})")
                 lines.append('')

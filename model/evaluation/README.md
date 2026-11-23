@@ -38,7 +38,7 @@ The archived eight-slot routing experiments supply the historical comparison. On
 
 ## What is scored
 
-Each grade applies to the named registered law. Some rows also link a comparison on a different construction. The evidence ledger gives its law, its finding and its source alongside the registered result. For Interval Echo the written-field comparison traces a signed load, a field received in a distant cell and the orbital states that can accompany the load. The pinned-law dark-contact check uses the original 99-state operator. [Electron and related row studies](../candidate_laws/interval_echo/openwave/electron_field/README.md) · [Pinned dark-contact calculation](../candidate_laws/interval_echo/openwave/electron_field/dark_contact.py)
+Each grade applies to the named registered law. A row can link multiple comparisons, each with its own construction, finding and evidence. The photon row gives separate entries for the written field and the controlled quantized Maxwell box. The evidence ledger gives its law, its finding and its source alongside the registered result. For Interval Echo the written-field comparison traces a signed load, a field received in a distant cell and the orbital states that can accompany the load. The pinned-law dark-contact check uses the original 99-state operator. [Electron and related row studies](../candidate_laws/interval_echo/openwave/electron_field/README.md) · [Pinned dark-contact calculation](../candidate_laws/interval_echo/openwave/electron_field/dark_contact.py)
 
 Where a measurement demonstrates one part of a criterion, its scorecard cell names that measurement and links to its experiment. The separate full-criterion grade determines the category totals.
 

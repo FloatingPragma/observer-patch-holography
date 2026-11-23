@@ -340,8 +340,7 @@ def main(argv=None):
                 if row.get('role') or args.criterion.casefold().startswith('joint-'):
                     source = (INDEX.parent / r['candidate'] / source).resolve().relative_to(ROOT)
                 print('  ', source)
-            if 'comparison' in row:
-                study = row['comparison']
+            for study in assessment.comparison_studies(row):
                 print(f"  Comparison · {study['law']} · {study['finding']} ({study['source']})")
         return 0
     print(report.scorecard(results), end='')

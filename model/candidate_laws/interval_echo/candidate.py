@@ -73,20 +73,34 @@ PARTICLE_IDENTIFICATIONS = {
     "photon": {
         "status": "open",
         "note": "A scalar material load carries a message to an independent receiver. Its orbital angular "
-                "patterns and single-load clicks give concrete alternatives to intrinsic vector polarization.",
+                "patterns and single-load clicks give concrete alternatives to intrinsic vector polarization. A charged "
+                "dipole writes a neutral mark. Uniform material makes all free memory terms independent, so "
+                "a calibrated distant receiver cannot see that mark. Preparing a neutral excess–vacancy pair on "
+                "blank seams costs at least 80 native units above the unit-filled reference.",
         "evidence": ["model/experiments/interval_echo_message/README.md",
-                     "model/candidate_laws/interval_echo/openwave/mediator_controls/README.md"],
+                     "model/candidate_laws/interval_echo/openwave/mediator_controls/README.md",
+                     "model/candidate_laws/interval_echo/openwave/photon_identity/native_emission/README.md",
+                     "model/candidate_laws/interval_echo/openwave/photon_identity/native_emission/NEUTRAL_PAIR.md"],
         "comparison": {
             "law": "Written-field Laplacian extension",
-            "label": "Signed probe response and polarization test",
+            "label": "Signed probes and remote field-energy detections",
             "finding": "Four source seams and six independent probe seams detect field transport on 80- and "
                        "320-cell spheres. Every tested nonzero frequency has one resolved response pattern. "
                        "At the lowest 80-cell frequency, counts bound a second measured component below 0.97% of the first "
                        "at 99% confidence on these probes. The smaller spectrum is complete. The guided packet has "
-                       "quadratic long-wave dispersion. A separate quantized Wilson–Maxwell cube resolves a "
-                       "model field quantum in a joint matter-and-field count.",
+                       "quadratic long-wave dispersion. Two independent ground-silent energy probes detect the parked source "
+                       "on the 320-cell sphere.",
             "source": "model/candidate_laws/interval_echo/openwave/photon_identity/README.md",
         },
+        "additional_comparisons": [{
+            "law": "Finite quantized Wilson–Maxwell field with controlled charge circuits",
+            "label": "Identified model photon in local emission and reception records",
+            "finding": "A local charged-circuit herald prepares over 99.99999% one-quantum occupation. "
+                       "A disjoint receiver distinguishes opposite quarter-turn windings by interfering "
+                       "two interaction times, with the global field count unread. The transverse field, "
+                       "quantization, clock and charged path operations belong to this comparison.",
+            "source": "model/candidate_laws/interval_echo/openwave/photon_identity/quantum_transfer/README.md",
+        }],
     },
 }
 LABELLING = contrast.LABELLING

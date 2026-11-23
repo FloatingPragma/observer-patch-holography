@@ -237,7 +237,7 @@ Sources · [contents_listings.html](https://pdg.lbl.gov/2026/listings/contents_l
 
 | Requirement | Interval Echo | Contrast memory | Private record walk | Scalar channel |
 | --- | --- | --- | --- | --- |
-| [SM-photon](EVIDENCE.md#sm-photon) Photon | Open. Comparison · [Written-field Laplacian extension · Signed probe response and polarization test](../candidate_laws/interval_echo/openwave/photon_identity/README.md) | Open | Open | Open |
+| [SM-photon](EVIDENCE.md#sm-photon) Photon | Open. Comparison · [Written-field Laplacian extension · Signed probes and remote field-energy detections](../candidate_laws/interval_echo/openwave/photon_identity/README.md). Comparison · [Finite quantized Wilson–Maxwell field with controlled charge circuits · Identified model photon in local emission and reception records](../candidate_laws/interval_echo/openwave/photon_identity/quantum_transfer/README.md) | Open | Open | Open |
 | [SM-gluon](EVIDENCE.md#sm-gluon) Gluon | Open | Open | Open | Open |
 | [SM-W](EVIDENCE.md#sm-w) W boson | Open | Open | Open | Open |
 | [SM-Z](EVIDENCE.md#sm-z) Z boson | Open | Open | Open | Open |

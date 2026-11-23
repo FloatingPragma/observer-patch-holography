@@ -82,6 +82,14 @@ def species_group(candidate):
     return {**group, "criteria": rows}
 
 
+def comparison_studies(record):
+    additional = record.get("additional_comparisons", [])
+    if not isinstance(additional, list):
+        raise ValueError("Additional comparisons must be a list of studies")
+    primary = [record["comparison"]] if "comparison" in record else []
+    return primary + additional
+
+
 def definitions():
     return [group for file in FILES for group in read_json(HERE / file)["groups"]]
 
@@ -115,8 +123,7 @@ def for_candidate(candidate, register_ids, known_laws, shared=None):
                 if (not isinstance(measurement, dict) or not isinstance(measurement.get("label"), str)
                         or not measurement["label"].strip() or measurement.get("source") not in record["evidence"]):
                     raise ValueError(f"{key}: demonstrated measurement needs a label and a listed evidence source")
-            if "comparison" in record:
-                comparison = record["comparison"]
+            for comparison in comparison_studies(record):
                 if (not isinstance(comparison, dict) or
                         any(not isinstance(comparison.get(field), str) or not comparison[field].strip()
                             for field in ("law", "finding", "source"))):

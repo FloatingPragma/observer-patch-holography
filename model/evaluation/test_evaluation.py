@@ -236,3 +236,17 @@ def test_pinned_dark_contact_control_uses_all_native_load_columns():
     from model.candidate_laws.interval_echo.openwave.electron_field import dark_contact
 
     dark_contact.run()
+
+
+def test_photon_comparisons_keep_each_construction_and_evidence_visible():
+    result = ev.evaluate('interval_echo')
+    photon = ev.criterion(result, 'SM-photon')
+    studies = ev.assessment.comparison_studies(photon)
+    assert photon['status'] == 'open'
+    assert len(studies) == len({s['law'] for s in studies}) == 2
+    scorecard = ev.report.scorecard([result])
+    evidence = ev.report.evidence_ledger([result])
+    for study in studies:
+        assert ev.report.comparison_link(study) in scorecard
+        assert study['finding'] in evidence
+        assert study['source'] not in photon['evidence']

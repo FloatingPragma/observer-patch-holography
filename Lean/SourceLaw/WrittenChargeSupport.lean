@@ -3,7 +3,9 @@ import Mathlib
 /-! A zero of a positive contact and ring Laplacian with a nonnegative
 occupation cost is constant along every enabled transition and vanishes on
 every state with positive cost. Real and imaginary parts give the same
-conclusion for complex amplitudes. -/
+conclusion for complex amplitudes. Complementary charged source branches
+produce equal energy-click weights when their sum is a stationary ground
+state and the receiver annihilates that ground state. -/
 namespace SourceLaw.WrittenChargeSupport
 
 theorem zero_energy_support {V E : Type*} [Fintype V] [Fintype E]
@@ -33,5 +35,14 @@ theorem zero_energy_support {V E : Type*} [Fintype V] [Fintype E]
     have h0 : cost v * (amp v)^2 = 0 := le_antisymm (by linarith) (hv v)
     have hsq := (mul_eq_zero.mp h0).resolve_left (ne_of_gt positive)
     exact sq_eq_zero_iff.mp hsq
+
+/-- A ring-energy reader, or a product of two such readers, gives the same
+unconditional click weight on complementary stay branches. The moved
+branches are treated separately by their source-face-cut evolution. -/
+theorem complementary_source_energy_click {V W : Type*} [AddCommGroup V]
+    [NormedAddCommGroup W] (flight : V →+ V) (read : V →+ W) (ground source : V)
+    (stationary : flight ground = ground) (quiet : read ground = 0) :
+    ‖read (flight (ground - source))‖ ^ 2 = ‖read (flight source)‖ ^ 2 := by
+  simp [map_sub, stationary, quiet]
 
 end SourceLaw.WrittenChargeSupport
