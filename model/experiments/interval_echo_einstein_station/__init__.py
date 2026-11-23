@@ -7,7 +7,7 @@ from numbers import Integral, Real
 # generators. NumPy's samplers use floating-point arithmetic, so a draw can
 # move by a unit between platforms while the seed, the law and the total stay
 # fixed. Every other integer (cells, ports, classes, flags, shot budgets) is exact.
-SAMPLED_FIELDS = frozenset({"reads", "counts", "selected_shots", "total_shots",
+SAMPLED_FIELDS = frozenset({"reads", "readings", "counts", "selected_shots", "total_shots",
                             "flag_counts", "interior_counts"})
 
 

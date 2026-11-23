@@ -95,7 +95,7 @@ def test_raw_sample_completeness_and_frozen_controls():
                     assert abs(q["measured_shared_change"] - expected) <= radius
                     assert abs(q["measured_reverse_change"] + expected) <= radius
     local = json.loads((measure.HERE / "ancestor.json").read_text())
-    assert local == ancestor.experiment([r["geometry"] for r in local["panels"]])
+    assert_same_replay(ancestor.experiment([r["geometry"] for r in local["panels"]]), local)
     for panel in local["panels"]:
         for setting, data in zip(
             panel["geometry"]["settings"], panel["arms"], strict=True
