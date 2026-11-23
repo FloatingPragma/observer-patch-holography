@@ -38,6 +38,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 
+# CI cuts this list into six contiguous shards of equal step count. The three longest steps (the Whitney
+# controls, the invariant-metric phase mutation gates and the B20 random-scan mutation gates) sit in
+# different sixths, so no shard carries two of them.
 MANDATORY_STEPS: list[tuple[str, list[str]]] = [
     (
         "Replay the retrospective ACT tilt posterior audit",
@@ -141,16 +144,6 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
         [
             sys.executable,
             "code/b20_random_scan/validate_random_scan.py",
-        ],
-    ),
-    (
-        "Execute the B20 random-scan mutation gates",
-        [
-            sys.executable,
-            "-m",
-            "pytest",
-            "-q",
-            "code/b20_random_scan/test_b20_preflight.py",
         ],
     ),
     (
@@ -406,23 +399,6 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
         ],
     ),
     (
-        "Replay the invariant-metric phase certificate independently",
-        [
-            sys.executable,
-            "code/b14_jacobi/verify_invariant_metric_phase.py",
-        ],
-    ),
-    (
-        "Execute the invariant-metric phase mutation gates",
-        [
-            sys.executable,
-            "-m",
-            "pytest",
-            "-q",
-            "code/b14_jacobi/test_invariant_metric_phase.py",
-        ],
-    ),
-    (
         "Validate the port-dual metric-selector certificate",
         [
             sys.executable,
@@ -560,6 +536,23 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
         ],
     ),
     (
+        "Replay the invariant-metric phase certificate independently",
+        [
+            sys.executable,
+            "code/b14_jacobi/verify_invariant_metric_phase.py",
+        ],
+    ),
+    (
+        "Execute the invariant-metric phase mutation gates",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "code/b14_jacobi/test_invariant_metric_phase.py",
+        ],
+    ),
+    (
         "Validate the named-law N closure verdict",
         [
             sys.executable,
@@ -679,6 +672,16 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
         [sys.executable, "tools/check_null_models.py", "--check"],
     ),
     ("Verify receipt promotion", [sys.executable, "tools/verify_receipt_promotion.py"]),
+    (
+        "Execute the B20 random-scan mutation gates",
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "-q",
+            "code/b20_random_scan/test_b20_preflight.py",
+        ],
+    ),
     (
         "Validate source-bound canonical book PDF assets",
         [sys.executable, "tools/book_pdf_assets.py"],
