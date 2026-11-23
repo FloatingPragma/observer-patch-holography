@@ -4,22 +4,33 @@ import math
 from numbers import Integral, Real
 
 
-def assert_same_replay(actual, stored, path="$", rel=1e-9, absolute=1e-12):
-    """Require a fresh replay to reproduce its stored record.
-
-    Structure, keys, counts, labels and flags must agree exactly. Floating
-    readouts may differ in their last digits between BLAS and libm builds, so
-    they agree to a relative 1e-9 (absolute 1e-12 near zero).
-    """
+def _mismatches(actual, stored, path, rel, absolute):
     if isinstance(stored, dict):
-        assert isinstance(actual, dict) and actual.keys() == stored.keys(), f"{path}: keys differ"
+        if not isinstance(actual, dict) or actual.keys() != stored.keys():
+            yield f"{path}: keys differ"
+            return
         for key, value in stored.items():
-            assert_same_replay(actual[key], value, f"{path}.{key}", rel, absolute)
+            yield from _mismatches(actual[key], value, f"{path}.{key}", rel, absolute)
     elif isinstance(stored, list):
-        assert isinstance(actual, (list, tuple)) and len(actual) == len(stored), f"{path}: length differs"
+        if not isinstance(actual, (list, tuple)) or len(actual) != len(stored):
+            yield f"{path}: length differs"
+            return
         for index, (left, right) in enumerate(zip(actual, stored)):
-            assert_same_replay(left, right, f"{path}[{index}]", rel, absolute)
-    elif isinstance(stored, float) and isinstance(actual, Real) and not isinstance(actual, (bool, Integral)):
-        assert math.isclose(float(actual), stored, rel_tol=rel, abs_tol=absolute), f"{path}: {actual!r} != {stored!r}"
+            yield from _mismatches(left, right, f"{path}[{index}]", rel, absolute)
     else:
-        assert actual == stored, f"{path}: {actual!r} != {stored!r}"
+        if isinstance(stored, float):
+            equal = (isinstance(actual, Real) and not isinstance(actual, Integral)
+                     and math.isfinite(stored) and math.isclose(float(actual), stored, rel_tol=rel, abs_tol=absolute))
+        elif type(stored) is int:
+            equal = isinstance(actual, Integral) and not isinstance(actual, bool) and actual == stored
+        else:
+            equal = type(actual) is type(stored) and actual == stored
+        if not equal:
+            yield f"{path}: {actual!r} != {stored!r}"
+
+
+def assert_same_replay(actual, stored, rel=1e-9, absolute=1e-12):
+    """Compare structures and typed counts exactly and allow rounding only on finite readouts."""
+    found = list(_mismatches(actual, stored, "$", rel, absolute))
+    if found:
+        raise AssertionError(f"{len(found)} replay mismatch(es): " + "; ".join(found[:12]))

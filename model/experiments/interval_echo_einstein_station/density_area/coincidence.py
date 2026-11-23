@@ -1,6 +1,7 @@
 """Calibrate the curvature of boundary log multiplicity with two disjoint tagged rays."""
 
 import argparse
+from copy import deepcopy
 import json
 import math
 from fractions import Fraction
@@ -9,6 +10,7 @@ from pathlib import Path
 import numpy as np
 
 from .measure import HERE, class_law, conditional_mean_energy, weighted_score
+from .. import assert_same_replay
 
 
 TAG_SHOTS, INFO_SHOTS = 2**38, 2**34
@@ -71,6 +73,22 @@ def run():
                                variance_transfer=tests[0], fixed_two_ray_law=tests[1]))
     return dict(seed=761937, tag_trials_per_arm=TAG_SHOTS, interior_trials_per_arm=INFO_SHOTS,
                 panels=panels)
+
+
+def verify_replay(actual, stored):
+    """Check both finite differences at their own recorded scores, then compare every input."""
+    def primitive_readings(record):
+        record = deepcopy(record)
+        for panel in record["panels"]:
+            for arm in ("variance_transfer", "fixed_two_ray_law"):
+                test = panel[arm]
+                left, right = test["arms"]
+                slope = (right["bulk_score"]-left["bulk_score"])/(2*test["displacement"])
+                if not math.isfinite(slope) or slope != test.pop("measured_bulk_slope"):
+                    raise ValueError("Reported bulk slope differs from its two sampled scores")
+        return record
+
+    assert_same_replay(primitive_readings(actual), primitive_readings(stored))
 
 
 if __name__ == '__main__':
