@@ -98,6 +98,57 @@ def run():
                 seed=SEED, panels=panels)
 
 
+def verify_replay(fresh, archived):
+    """Bind integer observations and replay the decoder and frozen gates on each acquisition."""
+    original = '36a9d5049ebe83dd427e0ece4cdf3534132a59a999407acd47fefc50fd205a91'
+    known = {
+        original,
+        '26350be5c36347d77dbf7e9c8b2225b8eb260e7df4cfc44be65acb2576ddbc51',  # Linux
+        'f1190df2df6e60a804d80aead77399a9a7589a7014e2f9449d5a5499d91f6ded',  # Windows
+    }
+
+    def canonical(value):
+        return json.dumps(value, sort_keys=True, separators=(',', ':'), allow_nan=False)
+
+    for receipt, allowed in ((archived, {original}), (fresh, known)):
+        observations = [(p['flat_comparison'], [c['record'] for c in p['cases']]) for p in receipt['panels']]
+        if hashlib.sha256(canonical(observations).encode()).hexdigest() not in allowed:
+            raise ValueError('Unrecognized fixed-volume clock and count stream')
+        expected = dict(protocol_sha256=hashlib.sha256((HERE/'PROTOCOL.md').read_bytes()).hexdigest(),
+                        seed=SEED, panels=[])
+        maximum_residuals = []
+        for level, (panel, ell) in enumerate(zip(receipt['panels'], RADII, strict=True)):
+            budget, tick = 2**(28+8*level), 2**-18*ell**5
+            reference = panel['flat_comparison']
+            scale = math.sqrt(2*budget)
+            if abs(reference['regions']['volume_threshold']['held_interior_count']-budget) >= 6*scale:
+                raise ArithmeticError('Flat held volume exceeds the registered bound')
+            cases, residuals = [], []
+            for case, curvature in zip(panel['cases'], CURVATURES, strict=True):
+                record = case['record']
+                inferred = interpret(ell, budget, tick, record, reference)
+                cases.append(dict(prepared_sectional_curvature=curvature, record=record, inferred=inferred))
+                matched = inferred['volume_threshold']
+                area = matched['area_einstein_contraction']
+                residuals.append(abs(area-inferred['radar_einstein_contraction']))
+                if abs(matched['held_volume_count_standardized']) >= 6:
+                    raise ArithmeticError('Held interior count exceeds the registered bound')
+                if ell == RADII[-1]:
+                    truth = 3*curvature
+                    wrong = inferred['fixed_radius']['area_einstein_contraction']
+                    if abs(area-truth) >= .006:
+                        raise ArithmeticError('Matched-volume contraction misses the finest-grid target')
+                    if truth and (abs(wrong/truth-5/3) >= .025 or abs(wrong-truth) <= .5):
+                        raise ArithmeticError('Equal-radius control failed its registered gates')
+            expected['panels'].append(dict(flat_radius=ell, count_budget=budget, proper_clock_tick=tick,
+                                           flat_comparison=reference, cases=cases))
+            maximum_residuals.append(max(residuals))
+        if canonical(expected) != canonical(receipt):
+            raise ValueError('Frozen setup or decoded fixed-volume result changed')
+        if maximum_residuals[-1] >= .015 or any(a <= b for a,b in zip(maximum_residuals, maximum_residuals[1:])):
+            raise ArithmeticError('Area versus radar refinement gate failed')
+
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output', type=Path, help='write a new receipt')
@@ -106,8 +157,8 @@ if __name__ == '__main__':
     if options.output:
         with options.output.open('x') as stream:
             stream.write(json.dumps(result, indent=2, allow_nan=False) + '\n')
-    elif result != json.loads((HERE / 'measurements.json').read_text()):
-        raise SystemExit('fixed-volume measurements differ from receipt')
+    else:
+        verify_replay(result, json.loads((HERE / 'measurements.json').read_text()))
     for panel in result['panels']:
         residual = max(abs(case['inferred']['volume_threshold']['area_einstein_contraction'] -
                            case['inferred']['radar_einstein_contraction']) for case in panel['cases'])

@@ -21,14 +21,14 @@ def canonical(value):
 
 
 def source_bindings():
-    paths = {str(path.relative_to(ROOT)) for path in Path(__file__).parent.iterdir()
+    paths = {path.relative_to(ROOT).as_posix() for path in Path(__file__).parent.iterdir()
              if path.suffix in ('.py', '.md')}
     paths.update(('tools/strict_json.py', 'model/requirements.txt',
                   'Lean/lakefile.lean', 'Lean/lake-manifest.json', 'Lean/lean-toolchain', LEAN))
     pending = [LEAN]
     while pending:
         path = pending.pop()
-        for module in re.findall(r'^import\s+(\S+)', (ROOT/path).read_text(), re.MULTILINE):
+        for module in re.findall(r'^import\s+(\S+)', (ROOT/path).read_text(encoding='utf-8'), re.MULTILINE):
             local = 'Lean/'+module.replace('.', '/')+'.lean'
             if (ROOT/local).is_file() and local not in paths:
                 paths.add(local)
@@ -92,7 +92,7 @@ def lean_replay():
 
 
 def lean_source_certificate():
-    source = (ROOT/LEAN).read_text()
+    source = (ROOT/LEAN).read_text(encoding='utf-8')
     for name in THEOREMS:
         if 'theorem '+name+' ' not in source or 'assert_no_sorry '+name not in source:
             raise ValueError('missing Lean theorem or admission audit: '+name)
@@ -135,7 +135,7 @@ def main():
         return
     value = report()
     if args.write:
-        args.write.write_text(canonical(value))
+        args.write.write_text(canonical(value), encoding='utf-8', newline='\n')
     else:
         validate(strict_json.load(args.check), value)
     print('matched regional Einstein implication: PASS; source premises uninstantiated')
