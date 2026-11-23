@@ -188,11 +188,13 @@ PREMISES = {
                                                 "../../experiments/interval_echo_einstein_station/volume_calibration/README.md",
                                                 "../../experiments/interval_echo_einstein_station/density_area/README.md",
                                                 "../../experiments/interval_echo_einstein_station/autonomous_selection/README.md",
-                                                "../../experiments/interval_echo_einstein_station/proper_ball_ruler/README.md"],
+                                                "../../experiments/interval_echo_einstein_station/proper_ball_ruler/README.md",
+                                                "../../experiments/interval_echo_einstein_station/native_volume_curvature/README.md"],
               "note": "Sharp monitoring selects a two-load equilibrium with stationary interior entropy plus "
                       "independently accessible exterior word capacity. The capacity coefficient transfers to different "
                       "shapes at fixed launch volume. At finite filling, the transmission coefficient varies with density. "
-                      "Material-clock range balls have quadratic accessible volume growth. Distinct stationary preparations "
+                      "Material-clock range balls have quadratic accessible volume growth. A three-dimensional curved "
+                      "ruler fitted to their volumes fails held station distances at all four sizes. Distinct stationary preparations "
                       "preserve total energy statistics and exterior records. The comparison "
                       "requires a physical area coefficient at fixed proper volume and autonomous vacuum selection."},
     "PR-54": {"status": "partial", "evidence": ["CURRENTS.md", "currents.json", "prior_calibration.json"],
@@ -226,14 +228,21 @@ JOINT = {
                      "../../experiments/interval_echo_einstein_station/cap.json",
                      "../../experiments/interval_echo_null_balance/directional.json",
                      "../../experiments/interval_echo_einstein_station/backreaction.json",
-                     "../../experiments/interval_echo_einstein_station/volume.json"],
+                     "../../experiments/interval_echo_einstein_station/volume.json",
+                     "../../experiments/interval_echo_einstein_station/native_volume_curvature/README.md",
+                     "../../experiments/interval_echo_einstein_station/native_tidal_response/README.md",
+                     "../../experiments/interval_echo_einstein_station/native_tidal_response/ROUTING.md",
+                     "../../experiments/interval_echo_einstein_station/dark_curvature/results.json"],
         "note": "The native free generator obeys additive patch energy continuity. On the earlier pair, "
                 "a prepared cap reads weighted seam energy at a held port where the flat reference failed. "
                 "An interior exchange changes this cap's entropy with its complete gateway state fixed. "
                 "Time-reversal-odd one-load seam currents exhibit torque. Load probes are exactly blind to "
                 "an antisymmetric collar's stored energy. A parent Hamiltonian predicts held modular changes on "
                 "nested patches. Two interior modes with identical exterior single-load histories yield different "
-                "entropy slopes. Physical area, a conserved directional stress "
+                "entropy slopes. On a matched free-flight calibration the same source deflects the unit tag and leaves "
+                "the double tag transparent. Both species detect a supplied routing change. Free evolution conserves "
+                "the routing flags. Shared and fresh collar preparations agree in initial four-tracer focusing while "
+                "their later chord volumes differ. Physical area, a conserved directional stress "
                 "and the common curvature response to matter remain open.",
     },
 }

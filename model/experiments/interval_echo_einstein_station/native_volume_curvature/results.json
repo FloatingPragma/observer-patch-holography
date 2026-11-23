@@ -1,0 +1,257 @@
+{
+  "protocol_sha256": "35f68ffc29d53cccfb1f3037375840ed74447af469b802df0d924b21c4734f4e",
+  "native_archive_sha256": "49a7d7540b7d177be389c952ec984914442cc96fd95da24204c48a9397863ae6",
+  "panels": [
+    {
+      "cells": 80,
+      "radius_swaps": 3,
+      "relative_radius": 0.09375,
+      "home_range_swaps": 32,
+      "volume_doubling_ratio": 2.9583333333333335,
+      "fitted_angle": 1.2905079524071243,
+      "independently_sampled_angle": 1.290637201623573,
+      "curvature_in_home_range_units": 189.48673709238372,
+      "predicted_fixed_volume_area_over_flat": 0.6933850403758863,
+      "predicted_fraction_on_last_shell": 0.6428664840940875,
+      "observed_fraction_on_last_shell": 0.4583333333333333,
+      "distance_test": {
+        "full_eigenvalues": [
+          -0.6427415034691901,
+          -0.28444317108457756,
+          -0.2844431710845769,
+          -0.28401209690131435,
+          0.147552441107315,
+          0.1873349117791441,
+          0.3478192012090888,
+          0.3478192012090894,
+          0.8885974345614104,
+          1.6610298111450468,
+          3.9343009102176483,
+          5.981186031310919
+        ],
+        "strongest_submatrix": {
+          "relative_error_lower_bound": 0.09113236804273443,
+          "indices": [
+            0,
+            1,
+            6,
+            8,
+            11
+          ],
+          "addresses": [
+            0,
+            3,
+            1,
+            4,
+            7
+          ],
+          "least_eigenvalue": -0.2844431710845773,
+          "fifth_largest_eigenvalue": -0.2844431710845773,
+          "distance_angle_norm": 3.1212090412398172,
+          "interval_witness_vector": [
+            0.49999999999999967,
+            0.4999999999999997,
+            8.936636824147373e-16,
+            -0.5000000000000001,
+            -0.5000000000000001
+          ],
+          "quadratic_form_ceiling_at_five_percent": -0.18067260852986977,
+          "interval_relative_error_lower_bound": 0.13696641912863788
+        },
+        "excludes_five_percent_ranges": true
+      }
+    },
+    {
+      "cells": 1280,
+      "radius_swaps": 6,
+      "relative_radius": 0.046875,
+      "home_range_swaps": 128,
+      "volume_doubling_ratio": 4.028169014084507,
+      "fitted_angle": 1.0640858657895385,
+      "independently_sampled_angle": 1.0640091415260444,
+      "curvature_in_home_range_units": 515.3126307945003,
+      "predicted_fixed_volume_area_over_flat": 0.7857653434142082,
+      "predicted_fraction_on_last_shell": 0.37949973752549804,
+      "observed_fraction_on_last_shell": 0.352112676056338,
+      "distance_test": {
+        "full_eigenvalues": [
+          -0.4986406986548938,
+          -0.28003231469857937,
+          -0.06905842028316567,
+          -0.013967340074490409,
+          0.04784539252210979,
+          0.06224763996404758,
+          0.09294522765776647,
+          0.352227852458867,
+          0.9060694080708656,
+          1.656201327031804,
+          3.9213180258724396,
+          5.822843900133231
+        ],
+        "strongest_submatrix": {
+          "relative_error_lower_bound": 0.057956842993336595,
+          "indices": [
+            0,
+            1,
+            3,
+            5,
+            6
+          ],
+          "addresses": [
+            0,
+            12,
+            806,
+            3076,
+            3
+          ],
+          "least_eigenvalue": -0.30056430676772355,
+          "fifth_largest_eigenvalue": -0.30056430676772355,
+          "distance_angle_norm": 5.186002053325782,
+          "interval_witness_vector": [
+            -0.30308482593642205,
+            0.4907855506774856,
+            0.4907855506774857,
+            0.5235780936403989,
+            -0.3902110385924121
+          ],
+          "quadratic_form_ceiling_at_five_percent": -0.06847903695747642,
+          "interval_relative_error_lower_bound": 0.06452411261513641
+        },
+        "excludes_five_percent_ranges": true
+      }
+    },
+    {
+      "cells": 20480,
+      "radius_swaps": 12,
+      "relative_radius": 0.0234375,
+      "home_range_swaps": 512,
+      "volume_doubling_ratio": 4.048951048951049,
+      "fitted_angle": 1.0600341007696439,
+      "independently_sampled_angle": 1.0604241548506694,
+      "curvature_in_home_range_units": 2045.5829864348013,
+      "predicted_fixed_volume_area_over_flat": 0.7873013858724,
+      "predicted_fraction_on_last_shell": 0.20135655434236266,
+      "observed_fraction_on_last_shell": 0.1958041958041958,
+      "distance_test": {
+        "full_eigenvalues": [
+          -0.4410092871064062,
+          -0.15747401883500498,
+          -0.08973487597411571,
+          0.0039013063575642887,
+          0.13684712229458712,
+          0.17676464662002256,
+          0.28632690944629213,
+          0.428189425899567,
+          0.5883538638384345,
+          2.5555771715590656,
+          3.8162460312147237,
+          4.696011704685271
+        ],
+        "strongest_submatrix": {
+          "relative_error_lower_bound": 0.05488352907335647,
+          "indices": [
+            0,
+            2,
+            3,
+            4,
+            6
+          ],
+          "addresses": [
+            0,
+            110,
+            12396,
+            24601,
+            49322
+          ],
+          "least_eigenvalue": -0.33402085117834796,
+          "fifth_largest_eigenvalue": -0.33402085117834796,
+          "distance_angle_norm": 6.085994410671021,
+          "interval_witness_vector": [
+            0.5894888943641307,
+            -0.3929468926900516,
+            -0.3466249818461805,
+            -0.4228710847028511,
+            -0.4462362049732823
+          ],
+          "quadratic_form_ceiling_at_five_percent": -0.08142842218935042,
+          "interval_relative_error_lower_bound": 0.06587550715403039
+        },
+        "excludes_five_percent_ranges": true
+      }
+    },
+    {
+      "cells": 327680,
+      "radius_swaps": 24,
+      "relative_radius": 0.01171875,
+      "home_range_swaps": 2048,
+      "volume_doubling_ratio": 3.998272884283247,
+      "fitted_angle": 1.0699291338360308,
+      "independently_sampled_angle": 1.0706122816512866,
+      "curvature_in_home_range_units": 8335.80310659887,
+      "predicted_fixed_volume_area_over_flat": 0.7835423313886856,
+      "predicted_fraction_on_last_shell": 0.10312100746960084,
+      "observed_fraction_on_last_shell": 0.1001727115716753,
+      "distance_test": {
+        "full_eigenvalues": [
+          -0.40033210540018965,
+          -0.16732345974418994,
+          -0.0935702543223074,
+          -0.0719476182795118,
+          0.0374085700525398,
+          0.12322327599495456,
+          0.2466653592282683,
+          0.312718497076197,
+          0.5603809531293353,
+          3.0962573262685544,
+          3.354150394211761,
+          5.002369061784589
+        ],
+        "strongest_submatrix": {
+          "relative_error_lower_bound": 0.05017712090548191,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "addresses": [
+            0,
+            288,
+            434,
+            197054,
+            393313
+          ],
+          "least_eigenvalue": -0.3012406948936591,
+          "fifth_largest_eigenvalue": -0.3012406948936591,
+          "distance_angle_norm": 6.003546824878671,
+          "interval_witness_vector": [
+            0.5768718366539312,
+            -0.4796471989037051,
+            -0.20403823527710258,
+            -0.3737758038612726,
+            -0.5057840405273915
+          ],
+          "quadratic_form_ceiling_at_five_percent": -0.06755771792472198,
+          "interval_relative_error_lower_bound": 0.06418362127651048
+        },
+        "excludes_five_percent_ranges": true
+      }
+    }
+  ],
+  "training_cells": 1280,
+  "fixed_curvature_transfer": [
+    {
+      "cells": 20480,
+      "predicted": 6.743564927869768,
+      "observed": 4.048951048951049,
+      "relative_error": 0.6655091272631722
+    },
+    {
+      "cells": 327680,
+      "predicted": 7.6668932701905925,
+      "observed": 3.998272884283247,
+      "relative_error": 0.9175512757841697
+    }
+  ]
+}

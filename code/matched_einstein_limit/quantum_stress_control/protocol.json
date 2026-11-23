@@ -1,0 +1,18 @@
+{
+  "question": "Does changing the quantum stress of the independently heralded Wilson-Maxwell field change the vacuum-calibrated weak optical propagation law of that same box?",
+  "parent": "model/candidate_laws/interval_echo/openwave/photon_identity/quantum_transfer/measure.py",
+  "source": "Existing four oriented charged Wilson circuits at z=0, winding +1, pointer 0 followed by a total-number-one filter; fresh vacuum control.",
+  "sides": [4, 6, 8],
+  "times_in_side_units": [0.125, 0.5, 1.0, 1.5],
+  "source_stress_times_in_side_units": [0.0, 0.5, 1.0],
+  "ports": "Oriented individual face Wilson loops in xy, xz, yz planes with base (side/2, side/2, 0); receiver parallel with base z=1 or side-1. Measure signed susceptibility between the loops.",
+  "weak_limit": "Evaluate the zero-amplitude Wilson kick commutator separately in each state. Test finite kicks on adjacent xz faces at t=side/2 for every box.",
+  "finite_kicks": [0.12, 0.06, 0.03],
+  "clock_control": "Increase all free propagation frequencies by 20% at fixed states and quadrature coefficients. This changes the law as a detector control only.",
+  "records": "Independent ensembles for counter, electric/magnetic squared quadratures, and signed receiver. Multinomially sample exact capped probabilities, stored as sufficient statistics.",
+  "enrollments_per_quadrature": 268435456,
+  "enrollments_per_kick_sign": 1099511627776,
+  "enrollments_per_spectrometer": 1048576,
+  "seed": 45319208,
+  "criteria": "Verify spectral energy equals the sum of three integrated Maxwell stress components at every tested time (closure 1e-10); field-square records resolve positive stress trace above five standard errors. Report exact weak-limit discrepancy and finite-pulse sampling errors. A changed-clock control must differ in at least one registered channel. Interpret equivalence only for this box's retarded optical readout."
+}

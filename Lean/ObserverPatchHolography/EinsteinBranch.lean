@@ -3,6 +3,7 @@ import ObserverPatchHolography.EinsteinBranch.Entropy
 import ObserverPatchHolography.EinsteinBranch.SmallBall
 import ObserverPatchHolography.EinsteinBranch.TileCapacity
 import ObserverPatchHolography.EinsteinBranch.QuantitativeSmallBall
+import ObserverPatchHolography.EinsteinBranch.QuantumScalarStress
 import ObserverPatchHolography.EinsteinBranch.Tensor
 import ObserverPatchHolography.EinsteinBranch.Manifest
 import ObserverPatchHolography.EinsteinBranch.Composition
