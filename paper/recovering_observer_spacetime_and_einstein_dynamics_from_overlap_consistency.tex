@@ -868,6 +868,72 @@ give $\nabla\phi=0$. Connectedness makes $\phi$ constant; set
 $\Lambda=-\phi$. Its value requires one reference condition.
 \end{proof}
 
+\subsection{Reconstruction from clocks, radar and a scalar field}
+
+On a controlled homogeneous source an observer can recover a coupled
+field and geometry from local records. Take a diagonal Bianchi~I metric
+with scale factors $a_i(t)$ and a spatially uniform canonical scalar
+$\phi(t)$ with potential $m^2\phi^2/2$. The forward source integrates
+the Einstein and scalar equations. A comoving observer has a proper clock,
+a calibrated scalar meter and three reflecting neighbours at known comoving
+separation $d$, one on each principal axis. For a round trip centred on
+clock reading $t$, emission and reception at $t-\delta_i,t+\delta_i$
+satisfy $\int_{t-\delta_i}^{t+\delta_i}du/a_i(u)=2d$.
+Thus $\delta_i/d=a_i(t)+O(d^2)$ on the smooth test histories. The
+scalar meter and the three radar arms have separate records.
+
+Centred clock differences give $H_i=\dot a_i/a_i$, $\ddot a_i/a_i$,
+$\dot\phi$ and $\ddot\phi$. The geometry reader uses
+$G_{00}=\sum_{i<j}H_iH_j$ and
+$G_{ii}=-(\ddot a_j/a_j+\ddot a_k/a_k+H_jH_k)$ in an orthonormal
+frame with $\{i,j,k\}=\{1,2,3\}$. At one appointment on one launch,
+the scalar equation gives $m^2$. The potential convention $V(0)=0$
+fixes its additive constant. The axial null readings
+$G_{00}+G_{ii}=\kappa\dot\phi^2$ give the common coupling, and
+$G_{00}-\kappa(\dot\phi^2+m^2\phi^2)/2$ gives the vacuum term.
+At the finest arm spacing and differencing interval, both $1/80$ in
+their respective source units, the measured values are $0.69994$,
+$1.60092$ and $0.11985$, against input values $0.7$, $1.6$ and $0.12$.
+Using those coefficients at six held appointments on two fresh launches
+gives maximum absolute Einstein-component and scalar-equation residuals
+of $2.79\times10^{-4}$ and $5.12\times10^{-5}$ in source units.
+Evolving from the first measured state of each launch predicts the
+later arm lengths and scalar values within $4.42\times10^{-5}$.
+Removing the matter term from geometry and adjusting the third initial
+expansion rate to the vacuum constraint leaves an Einstein residual of
+$0.5884$ under the frozen calibration. The computation and integer records
+are in \path{code/matched_einstein_limit/observer_field.py} and its
+companion receipt. The clock, scalar calibration, action and homogeneous
+geometry are supplied. The experiment tests recovery of their coupled
+equations on this family. Off-diagonal stress and spatial gradients
+require a larger family of measurements.
+
+\paragraph{Matter records on the free repair screen.}
+Twelve directional modular readings on each group of one, four or sixteen
+cells are obtained from the same smooth one-load preparation and a
+supplied common angular frame. At sixteen cells per group the
+least-squares quadratic residual is $14.2\%$ of the directional RMS
+variation, down from $93.7\%$ for individual cells. A fit using nine
+directions misses the other three by $75.2\%$ of the directional
+variation on the sixteen-cell groups. At two further sizes with 64 and
+256 cells per group, the same forecast gives relative errors of $42.5\%$
+and $73.3\%$, although its absolute RMS error falls at each size. The
+relative errors exclude monotonic improvement for this flight schedule.
+The regional readings constrain
+a proposed angular stress instrument. A curvature measurement on the
+same material state is needed to evaluate the null balance.
+
+Two co-located material clocks provide a further control. Their
+calibrated gaps agree in the absence of an incoming load. After a load
+crosses one cell boundary, the hand with a resident metering load lags
+the empty hand by about $2.8\times10^{-4}$ radians on each of the
+20-, 80- and 320-cell screens. The native Hamiltonian isolates the lag
+to double occupation of the meter contact. A common lapse cannot
+account for the difference between the two clocks. The integer readings
+and detector controls are in the experiment packages
+\path{interval_echo_macro_balance} and \path{interval_echo_metric_response}
+under \path{model/experiments}.
+
 \subsection{The small-ball input and its normalization}
 The missing physical step in the preceding theorem is its null-balance
 premise. Under (G1)--(G6), a sufficiently small cap has a tangent causal

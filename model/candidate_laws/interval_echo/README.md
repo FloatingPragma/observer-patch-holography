@@ -10,6 +10,10 @@ The extension also transports three separately prepared orbital bands. Their sca
 
 Interval Echo is the main candidate under test. Its elementary interaction is the κ = 8 contrast-memory seam. Its distinguishing rule is carried by an observer. The patch remembers how many of its own repair opportunities elapsed since the last verified handoff, then uses fresh local repairs to decide whether the closing mark advances its hand. Both patch owners read the two elapsed words on one signed seam at reunion. [Executable specification](SPEC.md) · [Reference interaction](../contrast_memory_spherical_v1/SPEC.md)
 
+## Can observers measure gravity?
+
+A receiving clock with a resident load lags a co-located empty clock after matter crosses a cell boundary. The lag follows from a local collision. Pooling directional readings across many cells improves the fit to a stress tensor. An independent response of geometry to that stress is still needed. On a controlled Einstein–scalar source the same physical question can be answered with radar and a scalar meter, including forecasts of subsequent readings. [Clock comparison](../../experiments/interval_echo_metric_response/README.md) · [Directional matter measurements](../../experiments/interval_echo_macro_balance/README.md) · [Coupled field reconstruction](../../../code/matched_einstein_limit/README.md#reconstructing-an-einsteinscalar-field-on-a-controlled-source)
+
 ## What changes when the clock carries more memory
 
 The three-bit clock accepts a closing primary unconditionally at interval length 8. Giving three physical fields one extra bit apiece extends the working range from 7 to 15. This costs one additional echosahedron at each travelling checkpoint. At length 16 the wider clock also overflows and releases the closing primary. The three-bit layout is the default for comparison with the registered radar runs.

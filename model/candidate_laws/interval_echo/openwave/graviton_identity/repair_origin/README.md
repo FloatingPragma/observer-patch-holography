@@ -32,3 +32,19 @@ From the repository root, use a fresh output path and compare the complete recei
 .venv/bin/python -B -W error model/candidate_laws/interval_echo/openwave/graviton_identity/repair_origin/measure.py --output /tmp/oph-quadrupole.json
 cmp /tmp/oph-quadrupole.json model/candidate_laws/interval_echo/openwave/graviton_identity/repair_origin/results.json
 ```
+
+## What survives coarse-graining?
+
+Distribute a single load uniformly over every descendant of one base face and open all contacts. At a stop, each cell can undo a prepared local quadrupole and read its sharp return. Five such ensembles span the local orbital quadrupole. Summing their return frequencies over cells retains the quiet outcomes. The upper bound below applies at every stop. The peak readings use six free-flight appointments. [Instrument and all count records](coarse_response.json) · [Acquisition and replay](coarse_response.py)
+
+| Cells | Descendants in initial region | Native upper bound | Largest native sampled reading | Largest sampled reading with slower internal exchange |
+| ---: | ---: | ---: | ---: | ---: |
+| 20 | 1 | 4.167% | 1.100% | 13.068% |
+| 80 | 4 | 2.083% | 0.664% | 7.281% |
+| 320 | 16 | 1.042% | 0.343% | 3.905% |
+
+Let $Q$ project onto the local five-dimensional quadrupole in every cell. The free one-load generator above its common offset is the sum of the internal and crossing half-Laplacians. The internal kinetic operator has eigenvalue three on $Q$ and is positive on its orthogonal complement. The crossing term is positive. Thus $H-48I\geq 3Q$, and the orbital return probability is at most one third of the conserved excess energy. A normalized collective excitation in a spectral interval $[0,\epsilon]$ above the uniform reference has orbital weight at most $\epsilon/3$. By taking the adjoint of the product of projections, the same bound controls the low-energy spectral weight of any normalized preparation in the orbital quadrupole space. The statement uses native exchange units and these normalized one-load operators.
+
+The uniform face covers $4^l$ cells and meets $3\,2^l$ crossing seams. Only these contribute to the initial excess energy, measured with an antisymmetric two-port analyzer. Their total click probability is $2^{-l}/8$. Reducing the internal kinetic coefficient to one sixteenth keeps the same graph and still transmits the load. Its sampled orbital weight exceeds the native bound on each board. This constrains a proposed soft orbital graviton readout. A rescaled tidal operator, a many-load collective state or a distinct metric field would require its own spectral measurement.
+
+Replay from the repository root with `python -m model.candidate_laws.interval_echo.openwave.graviton_identity.repair_origin.coarse_response`.

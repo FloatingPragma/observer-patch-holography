@@ -74,7 +74,7 @@ Sources · [recovering_observer_spacetime_and_einstein_dynamics_from_overlap_con
 | [G4](EVIDENCE.md#g4) Stationary generalized entropy at fixed proper volume | **Demonstrated** · [Interior repair changes entropy at a fixed boundary readout](../experiments/interval_echo_einstein_station/PAIR.md). Full criterion · Partial | Open | Open | Open |
 | [G5](EVIDENCE.md#g5) Small-ball control and sufficient null directions | **Demonstrated** · [Nine directions predict regional charge on the constant mode and slow triplet](../experiments/interval_echo_angular/README.md). Full criterion · Partial | Open | Open | Open |
 | [G6](EVIDENCE.md#g6) Universal coupling and a shared positive Newton constant | **Demonstrated** · [A tag-independent traveller detects shared repair history at fixed ordinary occupancy](../experiments/interval_echo_einstein_station/README.md). Full criterion · Open | Open | Open | Open |
-| [GR-NULL](EVIDENCE.md#gr-null) Null balance and tensor closure | Open | Open | Open | Open |
+| [GR-NULL](EVIDENCE.md#gr-null) Null balance and tensor closure | Open. Comparison · [Homogeneous Bianchi I Einstein–scalar source · Coupled field and geometry from radar and scalar records](../../code/matched_einstein_limit/README.md) | Open | Open | Open |
 
 ## Clock dilation, three-dimensional fields, signal timing and bound-pair dynamics
 
@@ -170,7 +170,7 @@ Sources · [MODELS.md L94-L137](https://github.com/openwave-labs/openwave/blob/7
 | [OW-25](EVIDENCE.md#ow-25) Weak force: beta decay (n → p) (dynamic) | Open | Open | Open | Open |
 | [OW-26](EVIDENCE.md#ow-26) Gravity: Newton limit (GEM) (both) | Open | Open | Open | Open |
 | [OW-27](EVIDENCE.md#ow-27) Gravity: local metric phenomena (both) | Open | Open | Open | Open |
-| [OW-28](EVIDENCE.md#ow-28) Cosmology: Λ / cosmic acceleration (static) | Open | Open | Open | Open |
+| [OW-28](EVIDENCE.md#ow-28) Cosmology: Λ / cosmic acceleration (static) | Open. Comparison · [Layered OPH order with a calibrated four-volume counter and independent proper clock · Recovering the sign and rate of expansion](../experiments/observer_expansion_reconstruction/README.md) | Open | Open | Open |
 
 ### WAVES + QUANTUM EMERGENCE
 

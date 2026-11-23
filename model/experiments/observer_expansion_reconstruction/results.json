@@ -1,0 +1,1060 @@
+{
+  "protocol_sha256": "a1b4d0794923aebbd128393bff7d0547d9f02da44d692138316e6c853f3a5bca",
+  "flat_count_mean_per_site": 262144,
+  "proper_clock_ticks_per_time_unit": 1000000000,
+  "seed": 2026112313,
+  "layered_comparison": [
+    {
+      "aperture": {
+        "q": 5,
+        "receiver": 31,
+        "aperture_size": 39,
+        "raw_writes": [
+          39,
+          39,
+          39,
+          39
+        ],
+        "source_sha256": "afc5ad6461788ba27b477104ca95c4d9b927dd4e7c25efc2d0699787971dbd59"
+      },
+      "panels": [
+        {
+          "conformal_step": "1/8",
+          "histories": {
+            "dust": {
+              "marker_totals": [
+                10224533,
+                16607926,
+                26234231,
+                40435110
+              ],
+              "proper_clock_intervals": [
+                132975260,
+                149576823,
+                167154948
+              ],
+              "reader": {
+                "scale_estimates": [
+                  1.000022423,
+                  1.128957825,
+                  1.265656787,
+                  1.410225375
+                ],
+                "deceleration_parameters": [
+                  0.500252,
+                  0.4938287
+                ],
+                "clock_absolute_residuals": [
+                  8.60055e-05,
+                  8.65902e-05,
+                  8.76871e-05
+                ],
+                "clock_margins": [
+                  0.0015234841,
+                  0.0015167871,
+                  0.001511177
+                ],
+                "clock_intervals_accepted": [
+                  true,
+                  true,
+                  true
+                ]
+              }
+            },
+            "coasting": {
+              "marker_totals": [
+                10218781,
+                16856903,
+                27789670,
+                45813869
+              ],
+              "proper_clock_intervals": [
+                133148453,
+                150876964,
+                170965998
+              ],
+              "reader": {
+                "scale_estimates": [
+                  0.999881748,
+                  1.133165424,
+                  1.28401387,
+                  1.454950138
+                ],
+                "deceleration_parameters": [
+                  0.0096032,
+                  -0.0001207
+                ],
+                "clock_absolute_residuals": [
+                  0.0001669953,
+                  0.0001967419,
+                  0.0002192525
+                ],
+                "clock_margins": [
+                  0.0015234924,
+                  0.0015165942,
+                  0.0015105146
+                ],
+                "clock_intervals_accepted": [
+                  true,
+                  true,
+                  true
+                ]
+              }
+            },
+            "de_sitter": {
+              "marker_totals": [
+                10228345,
+                17442617,
+                32303547,
+                67025869
+              ],
+              "proper_clock_intervals": [
+                133531393,
+                154150679,
+                182321557
+              ],
+              "reader": {
+                "scale_estimates": [
+                  1.000115619,
+                  1.142883016,
+                  1.333249473,
+                  1.600145524
+                ],
+                "deceleration_parameters": [
+                  -1.0027014,
+                  -1.0106838
+                ],
+                "clock_absolute_residuals": [
+                  0.0004060217,
+                  0.0006076016,
+                  0.0010156303
+                ],
+                "clock_margins": [
+                  0.0015234787,
+                  0.0015161542,
+                  0.001508828
+                ],
+                "clock_intervals_accepted": [
+                  true,
+                  true,
+                  true
+                ]
+              }
+            },
+            "dust_with_varying_density": {
+              "marker_totals": [
+                10228345,
+                17442617,
+                32303547,
+                67025869
+              ],
+              "proper_clock_intervals": [
+                132975260,
+                149576823,
+                167154948
+              ],
+              "reader": {
+                "scale_estimates": [
+                  1.000115619,
+                  1.142883016,
+                  1.333249473,
+                  1.600145524
+                ],
+                "deceleration_parameters": [
+                  -1.1817876,
+                  -1.3419332
+                ],
+                "clock_absolute_residuals": [
+                  0.0009621547,
+                  0.0051814576,
+                  0.0161822393
+                ],
+                "clock_margins": [
+                  0.0015234787,
+                  0.0015161542,
+                  0.001508828
+                ],
+                "clock_intervals_accepted": [
+                  true,
+                  false,
+                  false
+                ]
+              }
+            },
+            "exact_static_control": {
+              "scale_estimates": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "deceleration_parameters": [
+                null,
+                null
+              ],
+              "clock_absolute_residuals": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "clock_margins": [
+                0.0015234854,
+                0.0015234854,
+                0.0015234854
+              ],
+              "clock_intervals_accepted": [
+                true,
+                true,
+                true
+              ]
+            }
+          }
+        },
+        {
+          "conformal_step": "1/16",
+          "histories": {
+            "dust": {
+              "marker_totals": [
+                10224876,
+                13075303,
+                16602945,
+                20942755
+              ],
+              "proper_clock_intervals": [
+                64473470,
+                68501790,
+                72652181
+              ],
+              "reader": {
+                "scale_estimates": [
+                  1.00003081,
+                  1.063437102,
+                  1.128873167,
+                  1.196347429
+                ],
+                "deceleration_parameters": [
+                  0.4796293,
+                  0.4775736
+                ],
+                "clock_absolute_residuals": [
+                  9.9022e-06,
+                  7.9059e-06,
+                  1.09626e-05
+                ],
+                "clock_margins": [
+                  0.0002124259,
+                  0.0002106778,
+                  0.0002090796
+                ],
+                "clock_intervals_accepted": [
+                  true,
+                  true,
+                  true
+                ]
+              }
+            },
+            "coasting": {
+              "marker_totals": [
+                10228181,
+                13123817,
+                16853083,
+                21644813
+              ],
+              "proper_clock_intervals": [
+                64494459,
+                68653994,
+                73081796
+              ],
+              "reader": {
+                "scale_estimates": [
+                  1.00011161,
+                  1.064422164,
+                  1.133101221,
+                  1.206250003
+                ],
+                "deceleration_parameters": [
+                  -0.051561,
+                  -0.008807
+                ],
+                "clock_absolute_residuals": [
+                  2.22215e-05,
+                  1.86118e-05,
+                  2.29297e-05
+                ],
+                "clock_margins": [
+                  0.0002124235,
+                  0.0002106523,
+                  0.0002089827
+                ],
+                "clock_intervals_accepted": [
+                  true,
+                  true,
+                  true
+                ]
+              }
+            },
+            "de_sitter": {
+              "marker_totals": [
+                10221228,
+                13236097,
+                17438499,
+                23456287
+              ],
+              "proper_clock_intervals": [
+                64538521,
+                68992872,
+                74107972
+              ],
+              "reader": {
+                "scale_estimates": [
+                  0.999941601,
+                  1.066691546,
+                  1.142815555,
+                  1.230732543
+                ],
+                "deceleration_parameters": [
+                  -0.968429,
+                  -1.0137855
+                ],
+                "clock_absolute_residuals": [
+                  4.37648e-05,
+                  5.42249e-05,
+                  6.54061e-05
+                ],
+                "clock_margins": [
+                  0.0002124285,
+                  0.0002105936,
+                  0.0002087627
+                ],
+                "clock_intervals_accepted": [
+                  true,
+                  true,
+                  true
+                ]
+              }
+            },
+            "dust_with_varying_density": {
+              "marker_totals": [
+                10221228,
+                13236097,
+                17438499,
+                23456287
+              ],
+              "proper_clock_intervals": [
+                64473470,
+                68501790,
+                72652181
+              ],
+              "reader": {
+                "scale_estimates": [
+                  0.999941601,
+                  1.066691546,
+                  1.142815555,
+                  1.230732543
+                ],
+                "deceleration_parameters": [
+                  -1.060206,
+                  -1.1909451
+                ],
+                "clock_absolute_residuals": [
+                  0.0001088158,
+                  0.0005453069,
+                  0.0015211971
+                ],
+                "clock_margins": [
+                  0.0002124285,
+                  0.0002105936,
+                  0.0002087627
+                ],
+                "clock_intervals_accepted": [
+                  true,
+                  false,
+                  false
+                ]
+              }
+            },
+            "exact_static_control": {
+              "scale_estimates": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "deceleration_parameters": [
+                null,
+                null
+              ],
+              "clock_absolute_residuals": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "clock_margins": [
+                0.0002124268,
+                0.0002124268,
+                0.0002124268
+              ],
+              "clock_intervals_accepted": [
+                true,
+                true,
+                true
+              ]
+            }
+          }
+        }
+      ],
+      "amplitude_trials": [
+        {
+          "preparation": "de_sitter",
+          "prepared_initial_rate": "1/2",
+          "marker_totals": [
+            10226815,
+            11602814,
+            13238664,
+            15151051
+          ],
+          "proper_clock_intervals": [
+            63497397,
+            65579645,
+            67803104
+          ],
+          "forecast": {
+            "hubble_rate": 0.49700645,
+            "fractional_errors_on_held_scales": [
+              -0.00037992,
+              -0.00041339
+            ],
+            "passes_constant_rate_forecast": true,
+            "de_sitter_lambda_in_clock_units": 0.74104622
+          }
+        },
+        {
+          "preparation": "de_sitter",
+          "prepared_initial_rate": "3/4",
+          "marker_totals": [
+            10222225,
+            12389980,
+            15156014,
+            18751411
+          ],
+          "proper_clock_intervals": [
+            64012292,
+            67241138,
+            70813101
+          ],
+          "forecast": {
+            "hubble_rate": 0.75112062,
+            "fractional_errors_on_held_scales": [
+              0.00012888,
+              0.00010016
+            ],
+            "passes_constant_rate_forecast": true,
+            "de_sitter_lambda_in_clock_units": 1.69254656
+          }
+        },
+        {
+          "preparation": "de_sitter",
+          "prepared_initial_rate": "5/4",
+          "marker_totals": [
+            10218698,
+            14152059,
+            20171118,
+            29759009
+          ],
+          "proper_clock_intervals": [
+            65076512,
+            70842717,
+            77730999
+          ],
+          "forecast": {
+            "hubble_rate": 1.25099263,
+            "fractional_errors_on_held_scales": [
+              2.58e-05,
+              4.668e-05
+            ],
+            "passes_constant_rate_forecast": true,
+            "de_sitter_lambda_in_clock_units": 4.69494765
+          }
+        },
+        {
+          "preparation": "dust",
+          "prepared_initial_rate": "1",
+          "marker_totals": [
+            10225556,
+            13080737,
+            16602320,
+            20941452
+          ],
+          "proper_clock_intervals": [
+            64473470,
+            68501790,
+            72652181
+          ],
+          "forecast": {
+            "hubble_rate": 0.95485249,
+            "fractional_errors_on_held_scales": [
+              0.00582557,
+              0.01728138
+            ],
+            "passes_constant_rate_forecast": false,
+            "de_sitter_lambda_in_clock_units": null
+          }
+        }
+      ]
+    },
+    {
+      "aperture": {
+        "q": 8,
+        "receiver": 146,
+        "aperture_size": 105,
+        "raw_writes": [
+          105,
+          105,
+          105,
+          105
+        ],
+        "source_sha256": "253ab71d0583dd91324a169cb01617e42c76f88c487bf3f4179f04cd5a8ba17b"
+      },
+      "panels": [
+        {
+          "conformal_step": "1/8",
+          "histories": {
+            "dust": {
+              "marker_totals": [
+                27521479,
+                44706227,
+                70603778,
+                108833439
+              ],
+              "proper_clock_intervals": [
+                132975260,
+                149576823,
+                167154948
+              ],
+              "reader": {
+                "scale_estimates": [
+                  0.999966929,
+                  1.128910986,
+                  1.265536513,
+                  1.410127178
+                ],
+                "deceleration_parameters": [
+                  0.5054343,
+                  0.4877223
+                ],
+                "clock_absolute_residuals": [
+                  7.96097e-05,
+                  7.61457e-05,
+                  7.40327e-05
+                ],
+                "clock_margins": [
+                  0.0015005845,
+                  0.0014965023,
+                  0.0014930846
+                ],
+                "clock_intervals_accepted": [
+                  true,
+                  true,
+                  true
+                ]
+              }
+            },
+            "coasting": {
+              "marker_totals": [
+                27522977,
+                45393865,
+                74825108,
+                123355829
+              ],
+              "proper_clock_intervals": [
+                133148453,
+                150876964,
+                170965998
+              ],
+              "reader": {
+                "scale_estimates": [
+                  0.999980535,
+                  1.133227187,
+                  1.284042897,
+                  1.454981977
+                ],
+                "deceleration_parameters": [
+                  0.0091212,
+                  -0.0019843
+                ],
+                "clock_absolute_residuals": [
+                  0.0001770297,
+                  0.0002024163,
+                  0.0002230567
+                ],
+                "clock_margins": [
+                  0.001500584,
+                  0.0014963817,
+                  0.0014926776
+                ],
+                "clock_intervals_accepted": [
+                  true,
+                  true,
+                  true
+                ]
+              }
+            },
+            "de_sitter": {
+              "marker_totals": [
+                27522258,
+                46949227,
+                86989704,
+                180402001
+              ],
+              "proper_clock_intervals": [
+                133531393,
+                154150679,
+                182321557
+              ],
+              "reader": {
+                "scale_estimates": [
+                  0.999974005,
+                  1.142812038,
+                  1.333320812,
+                  1.600029656
+                ],
+                "deceleration_parameters": [
+                  -1.0037762,
+                  -1.002084
+                ],
+                "clock_absolute_residuals": [
+                  0.0003927346,
+                  0.0006076241,
+                  0.0010128473
+                ],
+                "clock_margins": [
+                  0.0015005842,
+                  0.0014961172,
+                  0.0014916489
+                ],
+                "clock_intervals_accepted": [
+                  true,
+                  true,
+                  true
+                ]
+              }
+            },
+            "dust_with_varying_density": {
+              "marker_totals": [
+                27522258,
+                46949227,
+                86989704,
+                180402001
+              ],
+              "proper_clock_intervals": [
+                132975260,
+                149576823,
+                167154948
+              ],
+              "reader": {
+                "scale_estimates": [
+                  0.999974005,
+                  1.142812038,
+                  1.333320812,
+                  1.600029656
+                ],
+                "deceleration_parameters": [
+                  -1.1827314,
+                  -1.3334752
+                ],
+                "clock_absolute_residuals": [
+                  0.0009488676,
+                  0.0051814801,
+                  0.0161794563
+                ],
+                "clock_margins": [
+                  0.0015005842,
+                  0.0014961172,
+                  0.0014916489
+                ],
+                "clock_intervals_accepted": [
+                  true,
+                  false,
+                  false
+                ]
+              }
+            },
+            "exact_static_control": {
+              "scale_estimates": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "deceleration_parameters": [
+                null,
+                null
+              ],
+              "clock_absolute_residuals": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "clock_margins": [
+                0.0015005833,
+                0.0015005833,
+                0.0015005833
+              ],
+              "clock_intervals_accepted": [
+                true,
+                true,
+                true
+              ]
+            }
+          }
+        },
+        {
+          "conformal_step": "1/16",
+          "histories": {
+            "dust": {
+              "marker_totals": [
+                27517769,
+                35208895,
+                44704747,
+                56376239
+              ],
+              "proper_clock_intervals": [
+                64473470,
+                68501790,
+                72652181
+              ],
+              "reader": {
+                "scale_estimates": [
+                  0.999933227,
+                  1.063483592,
+                  1.128901643,
+                  1.196304454
+                ],
+                "deceleration_parameters": [
+                  0.5210279,
+                  0.4912013
+                ],
+                "clock_absolute_residuals": [
+                  8.3056e-06,
+                  1.02486e-05,
+                  1.05095e-05
+                ],
+                "clock_margins": [
+                  0.0002009769,
+                  0.000199909,
+                  0.0001989354
+                ],
+                "clock_intervals_accepted": [
+                  true,
+                  true,
+                  true
+                ]
+              }
+            },
+            "coasting": {
+              "marker_totals": [
+                27517091,
+                35353249,
+                45383683,
+                58265668
+              ],
+              "proper_clock_intervals": [
+                64494459,
+                68653994,
+                73081796
+              ],
+              "reader": {
+                "scale_estimates": [
+                  0.999927068,
+                  1.064571972,
+                  1.133163635,
+                  1.206204314
+                ],
+                "deceleration_parameters": [
+                  0.0517402,
+                  -0.0055289
+                ],
+                "clock_absolute_residuals": [
+                  2.1136e-05,
+                  2.52437e-05,
+                  2.34524e-05
+                ],
+                "clock_margins": [
+                  0.000200977,
+                  0.0001998919,
+                  0.0001988758
+                ],
+                "clock_intervals_accepted": [
+                  true,
+                  true,
+                  true
+                ]
+              }
+            },
+            "de_sitter": {
+              "marker_totals": [
+                27515634,
+                35636259,
+                46953310,
+                63157374
+              ],
+              "proper_clock_intervals": [
+                64538521,
+                68992872,
+                74107972
+              ],
+              "reader": {
+                "scale_estimates": [
+                  0.999913831,
+                  1.066696135,
+                  1.142836883,
+                  1.230760957
+                ],
+                "deceleration_parameters": [
+                  -0.9641266,
+                  -1.0117042
+                ],
+                "clock_absolute_residuals": [
+                  4.30404e-05,
+                  5.50348e-05,
+                  6.69605e-05
+                ],
+                "clock_margins": [
+                  0.0002009773,
+                  0.0001998584,
+                  0.0001987424
+                ],
+                "clock_intervals_accepted": [
+                  true,
+                  true,
+                  true
+                ]
+              }
+            },
+            "dust_with_varying_density": {
+              "marker_totals": [
+                27515634,
+                35636259,
+                46953310,
+                63157374
+              ],
+              "proper_clock_intervals": [
+                64473470,
+                68501790,
+                72652181
+              ],
+              "reader": {
+                "scale_estimates": [
+                  0.999913831,
+                  1.066696135,
+                  1.142836883,
+                  1.230760957
+                ],
+                "deceleration_parameters": [
+                  -1.0558735,
+                  -1.1888429
+                ],
+                "clock_absolute_residuals": [
+                  0.0001080914,
+                  0.0005461168,
+                  0.0015227515
+                ],
+                "clock_margins": [
+                  0.0002009773,
+                  0.0001998584,
+                  0.0001987424
+                ],
+                "clock_intervals_accepted": [
+                  true,
+                  false,
+                  false
+                ]
+              }
+            },
+            "exact_static_control": {
+              "scale_estimates": [
+                1.0,
+                1.0,
+                1.0,
+                1.0
+              ],
+              "deceleration_parameters": [
+                null,
+                null
+              ],
+              "clock_absolute_residuals": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "clock_margins": [
+                0.0002009757,
+                0.0002009757,
+                0.0002009757
+              ],
+              "clock_intervals_accepted": [
+                true,
+                true,
+                true
+              ]
+            }
+          }
+        }
+      ],
+      "amplitude_trials": [
+        {
+          "preparation": "de_sitter",
+          "prepared_initial_rate": "1/2",
+          "marker_totals": [
+            27519937,
+            31247998,
+            35639583,
+            40806057
+          ],
+          "proper_clock_intervals": [
+            63497397,
+            65579645,
+            67803104
+          ],
+          "forecast": {
+            "hubble_rate": 0.50019604,
+            "fractional_errors_on_held_scales": [
+              -7.272e-05,
+              -1.28e-06
+            ],
+            "passes_constant_rate_forecast": true,
+            "de_sitter_lambda_in_clock_units": 0.75058824
+          }
+        },
+        {
+          "preparation": "de_sitter",
+          "prepared_initial_rate": "3/4",
+          "marker_totals": [
+            27517529,
+            33351595,
+            40823148,
+            50480409
+          ],
+          "proper_clock_intervals": [
+            64012292,
+            67241138,
+            70813101
+          ],
+          "forecast": {
+            "hubble_rate": 0.75095881,
+            "fractional_errors_on_held_scales": [
+              -4.059e-05,
+              5.312e-05
+            ],
+            "passes_constant_rate_forecast": true,
+            "de_sitter_lambda_in_clock_units": 1.69181739
+          }
+        },
+        {
+          "preparation": "de_sitter",
+          "prepared_initial_rate": "5/4",
+          "marker_totals": [
+            27529151,
+            38111179,
+            54304563,
+            80111026
+          ],
+          "proper_clock_intervals": [
+            65076512,
+            70842717,
+            77730999
+          ],
+          "forecast": {
+            "hubble_rate": 1.24953751,
+            "fractional_errors_on_held_scales": [
+              -4.52e-06,
+              -7.803e-05
+            ],
+            "passes_constant_rate_forecast": true,
+            "de_sitter_lambda_in_clock_units": 4.68403198
+          }
+        },
+        {
+          "preparation": "dust",
+          "prepared_initial_rate": "1",
+          "marker_totals": [
+            27537800,
+            35211260,
+            44696183,
+            56384175
+          ],
+          "proper_clock_intervals": [
+            64473470,
+            68501790,
+            72652181
+          ],
+          "forecast": {
+            "hubble_rate": 0.95312968,
+            "fractional_errors_on_held_scales": [
+              0.00567659,
+              0.01697485
+            ],
+            "passes_constant_rate_forecast": false,
+            "de_sitter_lambda_in_clock_units": null
+          }
+        }
+      ]
+    }
+  ],
+  "interval_echo_clocks": [
+    {
+      "cells": 20,
+      "services": 33,
+      "home": {
+        "positives": 13,
+        "quiet": 20,
+        "reunion_ticks": 13,
+        "count_mismatches": 0,
+        "trigger_mismatches": 0
+      },
+      "traveller": {
+        "positives": 19,
+        "quiet": 14,
+        "reunion_ticks": 19,
+        "count_mismatches": 0,
+        "trigger_mismatches": 0
+      }
+    },
+    {
+      "cells": 80,
+      "services": 33,
+      "home": {
+        "positives": 13,
+        "quiet": 20,
+        "reunion_ticks": 13,
+        "count_mismatches": 0,
+        "trigger_mismatches": 0
+      },
+      "traveller": {
+        "positives": 19,
+        "quiet": 14,
+        "reunion_ticks": 19,
+        "count_mismatches": 0,
+        "trigger_mismatches": 0
+      }
+    },
+    {
+      "cells": 320,
+      "services": 33,
+      "home": {
+        "positives": 13,
+        "quiet": 20,
+        "reunion_ticks": 13,
+        "count_mismatches": 0,
+        "trigger_mismatches": 0
+      },
+      "traveller": {
+        "positives": 19,
+        "quiet": 14,
+        "reunion_ticks": 19,
+        "count_mismatches": 0,
+        "trigger_mismatches": 0
+      }
+    }
+  ]
+}
