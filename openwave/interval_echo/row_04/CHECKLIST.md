@@ -2,6 +2,10 @@
 
 **HOLD for full-credit resubmission on the adopted pin.** OpenWave awarded **⚠️ Partial** for free persistence at a supplied coupling. The RER scorecard credits the measured free persistence of the prepared pair. The outstanding question for OpenWave is what fixes the coupling relative to exchange independently of the persistence target. [Maintainer decision](https://github.com/openwave-labs/openwave/pull/745#pullrequestreview-6005365373) · [Official matrix](https://github.com/openwave-labs/openwave/blob/f8fd02b2e0d96cfa0d868259daec2c9822375d34/MODELS.md#L438)
 
+## Private record walk
+
+The separately registered [private record walk](../../../model/candidate_laws/private_record_walk/README.md) derives its prepared interaction from single-load write records and the equal-load predicate. On the enrolled cell-13 launch it certifies home persistence above 94.099% through exposure 37 for every state of the eight local comparison signs, with the other signs odd. Its detector also measures the joint material and sign outcomes. This candidate declares private signs, a portable aperture and a common rate for its microscopic moves. It has no OpenWave pin decision.
+
 ## Audit of PR #1242
 
 Codex replayed Mario Poneder’s research head `f6949928e` on 22 November 2026 (Asia/Bangkok) and checked the criterion at OpenWave revision `f8fd02b2e`. The adopted M10 pin is `4fe10f9a`. Its design sweep compared 8 and 128 with the persistence target known. [PR #1242](https://github.com/FloatingPragma/observer-patch-holography/pull/1242) · [Audited source](https://github.com/FloatingPragma/observer-patch-holography/commit/f6949928e763bde9d26b443da651ab9a45daf749) · [Design sweep](https://github.com/FloatingPragma/observer-patch-holography/blob/972d81b9b6068938e52457b59497766499222b5d/model/polynomial_sv/SPEC.md)

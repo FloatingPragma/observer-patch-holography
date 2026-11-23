@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 629,
+  "surface_count": 630,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -1232,6 +1232,11 @@
     },
     {
       "path": "model/candidate_laws/interval_echo/openwave/submission/ROW_30_DECISION.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/private_record_walk/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },

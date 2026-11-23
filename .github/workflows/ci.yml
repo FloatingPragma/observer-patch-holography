@@ -106,6 +106,8 @@ jobs:
           python -B -O -W error -m model.experiments.interval_echo_space.shell_beats
       - name: Tests of the model
         run: python -B -m pytest -q -W error model
+      - name: Regenerate private-record joint outcomes and continuous-time bounds
+        run: python -B -O -W error -m model run --law private_record_walk --check
       - name: Formed-pair return and torus detector acquisitions
         run: |
           python -B -O -W error -m model.experiments.interval_echo_encounter.return_lines
