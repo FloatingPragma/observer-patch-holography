@@ -991,6 +991,140 @@ are in \path{model/experiments/interval_echo_einstein_station}. A physical
 area per accessible boundary degree of freedom on shrinking geodesic
 balls of this source would connect the entropy and geometry tests.
 
+\paragraph{A fixed-volume test across observers.}
+Consider five four-dimensional constant-curvature sectors, with
+$K=-1,-1/2,0,1/2,1$. At each radius $\ell=2^{-j}$, $j\geq2$, assign
+the volume of a flat ball of radius $\ell$ to all five sectors. In the
+reference frame let $A_i$ be the corresponding surface area of sector
+$i$. Give each sector the same number of surface registers. Each
+register has $B=\ell^{-6}$ ordinary symbols, and each complete tile of
+area $1/B$ admits one additional symbol. There are
+$n_i=\lfloor B A_i\rfloor$ complete tiles. Refreshing the permitted
+symbols and proposing a uniform sector change accepts a contraction
+only when all lost tiles carry ordinary symbols. Its probability is
+$(1+1/B)^{-\max(n_i-n_j,0)}$ for a proposal from $i$ to $j$. This
+positive coarse kernel satisfies detailed balance with
+$p_{i,b}\propto(1+1/B)^{n_i}$, where the refreshed material bit $b$ is
+fair. Thus the observed bulk entropy gradient on a transfer from $j$
+to $i$ is $-(n_i-n_j)\log(1+1/B)$. With area coefficient one in the
+chosen units, the difference of two rounding errors costs at most one
+tile. Integration of $1/(1+t)$ then gives
+\[
+ \left|\delta S_{\rm bulk}+\delta A\right|
+ \leq \log(1+1/B)+\frac{|\delta A|}{2B}=O(\ell^6).
+\]
+Every spacelike rest slice through the centre, formed by the exponential
+map of a timelike observer's orthogonal plane, has the same area at
+fixed volume in a maximally symmetric spacetime. This proves the
+$o(\ell^4)$ stationarity bound on this family for a common sector
+ensemble. Across ten timelike observers, two launches and nine independent
+probability transfers, the largest measured $|\delta S_{\rm bulk}+\delta
+A|/\ell^4$ was $0.400$, $0.162$, $0.053$ and $0.044$ at radii $1/4$
+through $1/32$. At the finest radius the area term alone reached $2.515$.
+Clearing obstructing symbols on contraction gave a residual of $2.529$.
+The records use independent terminal bulk counts, an interior stopping
+population, a held interior count and a surface count.
+
+The distinction between frame symmetry and a directional matter response
+is measurable. Take the product of flat $(t,z)$ spacetime with a curved
+two-plane of sectional curvature $K$. Keep the reference-frame sector
+ensemble common to all observers. Expansion of the area element on the
+observer's rest slice, followed by restoration of the flat proper volume,
+gives the area contrast against the flat sector as
+$-(4\pi/15)K(1+u_x^2+u_y^2)\ell^4+O(\ell^6)$. The common scalar bulk
+reading lacks the transverse factor. For $K=1$ and $u=(3,2,2,0)$ the
+limiting normalized residual is $-32\pi/15$. At $\ell=1/32$ the
+largest measured magnitude for this observer was $6.750$, while the
+rest observer and both longitudinal boosts gave magnitudes below $0.043$.
+These two geometries and their surface alphabets are specified comparison
+sources. Their difference isolates which observer dependence a bulk
+readout needs on an anisotropic geometry.
+
+\paragraph{Exterior information and measured aperture on the registered material.}
+In a region containing two mobile loads, interleaving the free evolution
+with sharp occupation reads selects a uniform equilibrium on all allowed
+pair words. The regions contain one to three cells on each of three
+host meshes. A given interior word with $k$ loads on the exterior-facing
+rails admits $d_k=\binom{m}{k}$ exterior words on $m$ such rails. At
+equilibrium its probability is proportional to $d_k$. Consequently
+$\delta H_{\rm int}+\log(2)\,\delta\langle\log_2 d_k\rangle=0$ on every
+normalized interior transfer. An independent exterior observer measured
+the conditional cut-word capacity using exterior records alone. A single
+calibration gave $0.694068$ nats per cut bit. Across 54 held transfers
+the largest residual was $0.02583$ nats. Nine of these tests fixed both
+mean native preparation energy and mean occupied cut load. Interior
+entropy changed by $0.409$ to $0.476$ nats per unit transfer and the
+exterior measurement canceled it within $0.00373$ nats. Biasing the
+monitored controller against increasing cut load left a residual as
+large as $1.39151$ nats under the frozen calibration. Uniformity here is
+selected by the specified sequence of evolution and sharp reads.
+
+An independent aperture survey launches loads uniformly on the inside
+or outside of a region and records crossings, including quiet outcomes.
+Unitarity makes the two total crossing intensities equal. Their probability
+ratio therefore measures the fraction of accessible launch addresses.
+On successive refinements the blank ancestral patch had 12, 48 and 192
+addresses, with short-exposure apertures 3, 6 and 12. The dimensionless
+ratio of cubed aperture to squared launch volume halved at each step.
+It is invariant under an isotropic conversion of three-dimensional area
+and volume to physical units. On the occupied patch, a source variation
+preserving both register marginals and all three finite apertures on the
+calibrating board gave a bulk entropy slope of $+0.007654$ nats per
+unit transfer. Fresh memory samples on the three hosts gave $+0.00752$,
+$+0.00793$ and $+0.00741$, each with standard error $0.000275$.
+The corresponding held aperture slopes had magnitude below
+$9\times10^{-18}$ in the numerical outcome laws. These conditional
+word entropies and reciprocal flight measurements give operationally
+distinct tests of the proposed boundary and volume identifications.
+
+Equal-size regions permit an independent shape test. A five-cell cycle
+and an open five-cell path give 60 accessible launch addresses and
+apertures of five and seven seams. Extending both by the same cell gives
+72 addresses and six or eight seams. Native crossing probes resolve
+these aperture differences on three meshes. Training an aperture
+coefficient on the first shape pair misses by $0.079$ to $0.093$ nats
+when both observers query the same release supported on their common
+cells. At fixed shape, preserving mean native energy and mean cut
+load leaves both the blank aperture and the resident-conditioned
+short-exposure tag aperture fixed, while the interior entropy changes
+by $0.394$ to $0.445$ nats per unit transfer. Across all 24 held
+comparisons the separately measured exterior completion capacity
+cancels the interior change within $0.00604$ nats under one calibration.
+The shape choice is an apparatus setting. The monitored evolution
+selects a word equilibrium within each setting.
+
+Two gateway receivers also distinguish loss of information in the readout
+from a small signal in samples. Take two stationary equal-energy interior
+orbitals and vary the imbalance of their opposite circular combinations.
+Separate interior tomography gave a finite-difference entropy slope of $-0.5541$ nats
+per unit Bloch displacement. For each enrolled one-gateway launch the
+complete reduced state of its adjacent cell was insensitive to this
+displacement at both measured exposures, including a phased incident
+probe. The numerical trace distances were below $5\times10^{-16}$ with
+a configuration-cutoff allowance below $2.2\times10^{-13}$ per release.
+A phased load launched across two gateways and a joint sharp-occupation
+measurement on the two receiving cells distinguished the same preparations.
+A fixed decoder on fresh simulated records measured probability differences
+of $3.83$, $3.76$ and $3.88$ parts per million on the three host sizes,
+each over 37 standard errors. An observer confined to either enrolled
+single receiving cell lacked this joint record.
+
+A related comparison uses written binary heads and a positive ring
+Laplacian on twenty triangular faces. Apply opposite quarter-turns to
+a head strictly inside a ten-face disk. The two phase preparations agree
+in total mean energy and in every exterior reduced state at release.
+After one unit of free evolution their two held mixtures were
+distinguishable on the six perimeter heads for all twelve interior seam
+choices. The total-variation distances were $0.00653$ to $0.07928$.
+A sharp read of the source head with its outcome discarded erased the
+contrast under identical subsequent evolution. Yet the best common
+coefficient multiplying the perimeter word-entropy slope left $99.72\%$
+of the norm of the interior von Neumann entropy response. This
+comparison tests a different field preparation on the written-head
+extension. Both the native two-gateway read and the written perimeter
+demonstrate how interior phase enters an observer record. Neither
+experiment supplies a calibrated regional area for that phase variation.
+
 \subsection{The small-ball input and its normalization}
 The missing physical step in the preceding theorem is its null-balance
 premise. Under (G1)--(G6), a sufficiently small cap has a tangent causal

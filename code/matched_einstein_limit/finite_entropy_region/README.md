@@ -18,3 +18,36 @@ After 512 attempts from either of two opposite sharp states, six coarse outcomes
 This gives a fixed-proper-volume stationarity example at one physical size and in one rest frame, on a declared comparison process. Deriving an Einstein response on the registered repair requires a measured edge capacity per proper area, the corresponding bulk stress, and agreement of those identifications along a common refinement. The scalar bit and the sector label here supply a classical coarse entropy.
 
 Replay from the repository root with `PYTHONPATH=code python -m matched_einstein_limit.finite_entropy_region.measure`.
+
+## One equilibrium across shrinking regions and moving observers
+
+Five curvature sectors with two material-bit outcomes give nine independent probability transfers. At each flat reference radius, the source uses the first observer's equal-volume areas to determine which surface symbols are accessible. The same sector and bit counts are then read against ten separately surveyed rest spaces, including transverse boosts. Each survey stops an interior count at the flat volume target and checks the stop with another population. Surface counts have a separate random stream. The source prepares one ensemble per geometry family and radius. [Acquisition protocol](REFINEMENT_PROTOCOL.md) · [Source and reader](refinement.py) · [Counts and interpretations](refinement.json)
+
+| Reference radius | Constant-curvature spacetime, reversible | Same spacetime, cleared contraction | Curved-plane product, reversible |
+| ---: | ---: | ---: | ---: |
+| 1/4 | 0.400 | 2.802 | 7.365 |
+| 1/8 | 0.162 | 2.589 | 6.839 |
+| 1/16 | 0.053 | 2.555 | 6.791 |
+| 1/32 | 0.044 | 2.529 | 6.750 |
+
+Entries are the largest observed absolute value of $(\delta S_{\rm bulk}+\delta A)/\ell^4$ across the transfers, observers and two launches. The finite bound specified at the smallest radius was 0.25. The largest area slope alone there was 2.515 on the maximally symmetric spacetime. All held volume counts on both preparations were within 3.69 standard deviations of their targets.
+
+### Why the full refinement works in the symmetric example
+
+Write $B=\ell^{-6}$. All sectors have the same number of registers and $B$ ordinary symbols per register. A full tile of area $1/B$ admits one extra symbol. Sector $i$ has $n_i=\lfloor B A_i(u_0)\rfloor$ full tiles. The inaccessible fraction of the last tile contributes zero symbols. A uniform refresh of the allowed symbols precedes a symmetric sector proposal. Contraction succeeds when every symbol on a lost tile is ordinary. On the coarse sector the acceptance is $(1+1/B)^{-\max(n_i-n_j,0)}$ for a move from $i$ to $j$. The bit is separately refreshed. Detailed balance and positivity select $p_{i,b}\propto(1+1/B)^{n_i}$ from either launch. Clearing obstructing marks on contraction makes the sector probabilities equal. The computation uses the exact coarse transition kernel and samples independent terminal experiments in batches. A test enumerates all microscopic words for a small alphabet.
+
+For the transfer $j\to i$, let $\Delta A=A_i-A_j$. Its residual in the source frame is $\Delta A-(n_i-n_j)\log(1+1/B)$. The two floor errors differ by less than one tile. Integrating $1/(1+t)$ on $[0,1/B]$ gives $0\le 1-B\log(1+1/B)\le 1/(2B)$. Hence
+
+$$
+ |R(u_0)|\le \log(1+1/B)+|\Delta A|/(2B)=O(\ell^6).
+$$
+
+This bound holds uniformly on bounded areas for every normalized transfer. In a maximally symmetric four-spacetime, every observer's central exponential slice is a three-dimensional space form of the same sectional curvature. Hence $A_i(u)=A_i(u_0)$ at fixed proper volume, and the bound gives $R(u)=o(\ell^4)$ in every frame. The finite comparison uses a classical sector entropy, specified surface alphabets, calibrated geometry and dimensionless coefficient $\eta=1$. A separate Lean proof gives the sufficient bound $(1+|\Delta A|)/B$, the uniform-word transfer identity, and a lower bound on the errors of two frames sharing a scalar bulk readout. [Verified finite inequalities](../../../Lean/ObserverPatchHolography/EinsteinBranch/TileCapacity.lean)
+
+### Why a transverse boost distinguishes the two geometries
+
+On the product $\mathbb R^{1,1}_{t,z}\times M_K^2$, a rest-space vector projects onto the curved plane with principal stretches $\sqrt{1+u_x^2+u_y^2}$ and one. Write $b^2=1+u_x^2+u_y^2$, $f=b^2\cos^2\phi+\sin^2\phi$, $q^2=(1-\mu^2)f$ for spherical directions $(\mu,\phi)$. The angular exponential scales the component perpendicular to the projected ray by $s_K(rq)$, the ratio of the curved sine radius to the flat radius. The pullback metric has a rank-one correction $(s_K^2-1)ll^\top$, where $l$ is the pullback of that unit perpendicular, $|l|^2=b^2/f$, orthogonal to the radial direction. Thus the area density is $J=\sqrt{1+(s_K^2-1)b^2/f}$. Integrating $r^2 J$ over solid angle gives area and integrating over radius gives volume. Taylor expansion gives mean density $1-K b^2 r^2/9+O(r^4)$. Restoring the target volume then gives $\Delta A=-(4\pi/15)K b^2\ell^4+O(\ell^6)$ relative to flat space. The calculation uses the finite-radius integrals for all marker draws.
+
+For a source referenced to $u_0$, the limiting residual divided by $\ell^4$ is $-(4\pi/15)K(u_x^2+u_y^2)$. For $K=1$ and $u=(3,2,2,0)$ this is $-6.702$. At the smallest radius the maximum absolute observed residual for this observer was 6.750. For the rest frame and both boosts along the flat line it was below 0.043. More generally two observers sharing a scalar bulk slope have residuals whose difference is exactly their area-slope difference. Changing that common bulk slope cannot cancel two different leading area slopes. An anisotropic realization would require observer-dependent bulk readings of the shared state, together with a physical calibration of the corresponding boundaries.
+
+Replay the comparison with `PYTHONPATH=code python -m matched_einstein_limit.finite_entropy_region.refinement`.

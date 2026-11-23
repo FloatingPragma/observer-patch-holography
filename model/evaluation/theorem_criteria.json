@@ -775,7 +775,7 @@
           "results": {
             "interval_echo": {
               "status": "partial",
-              "note": "The regional first law and number-sector split have finite measurements. For an interior swap mixed into the same prepared cap as G2, the entropy slope is +0.0000344891 nats per unit mixture. The complete instantaneous gateway state and every total-load probability stay fixed. The commuting control has zero slope. A physical area that responds, a measured fixed proper volume and vacuum stationarity on shrinking regions remain open. Two stationary interior modes have identical full exterior one-load histories. Against the prepared cap their first-law slopes differ by 0.4410 nats, with a sampled difference of 0.4352 ± 0.0089. A second load entering the region distinguishes them. On a 20-cell sphere a local hand times first-hit out-and-back flights among six sites. All fifteen held-pair tests fail the Euclidean anchor-consistency domain. The entire enrolled radar law is identical across oriented ternary source histories with a nonzero interior register-entropy tangent. These readings cannot identify a fixed proper volume or an area response. Six stations on the two-write preparation also exclude treating their conditional hand ranges as minimizing distances in a convex weakly curved three-dimensional region. All 24 five-station checks require a fourth tangent direction over the enrolled curvature interval, including the source-free control. Independent native repair coins select a joint entropy maximum on every feasible tangent of the three-cell record algebra. Correlated coins preserve the owner tables and instantaneous cut and give an entropy slope of −ln 5 per triple, including 93 independent triples in a connected 279-cell region. Free equal-energy orbital mixtures have identical passive boundary histories and entropy slope −ln 3 at a three-to-one mixture. On another source a mixture preserving first-return tetrahedral volume changes the volume inferred by the free-pulse ruler. Both rulers miss a withheld path by over 50%.",
+              "note": "The regional first law and number-sector split have finite measurements. For an interior swap mixed into the same prepared cap as G2, the entropy slope is +0.0000344891 nats per unit mixture. The complete instantaneous gateway state and every total-load probability stay fixed. The commuting control has zero slope. A physical area that responds, a measured fixed proper volume and vacuum stationarity on shrinking regions remain open. Two stationary interior modes have identical full exterior one-load histories. Against the prepared cap their first-law slopes differ by 0.4410 nats, with a sampled difference of 0.4352 ± 0.0089. A second load entering the region distinguishes them. On a 20-cell sphere a local hand times first-hit out-and-back flights among six sites. All fifteen held-pair tests fail the Euclidean anchor-consistency domain. The entire enrolled radar law is identical across oriented ternary source histories with a nonzero interior register-entropy tangent. These readings cannot identify a fixed proper volume or an area response. Six stations on the two-write preparation also exclude treating their conditional hand ranges as minimizing distances in a convex weakly curved three-dimensional region. All 24 five-station checks require a fourth tangent direction over the enrolled curvature interval, including the source-free control. Independent native repair coins select a joint entropy maximum on every feasible tangent of the three-cell record algebra. Correlated coins preserve the owner tables and instantaneous cut and give an entropy slope of −ln 5 per triple, including 93 independent triples in a connected 279-cell region. Free equal-energy orbital mixtures have identical passive boundary histories and entropy slope −ln 3 at a three-to-one mixture. On another source a mixture preserving first-return tetrahedral volume changes the volume inferred by the free-pulse ruler. Both rulers miss a withheld path by over 50%. On nine monitored two-load regions an exterior observer reads the conditional boundary capacity. Its entropy gradient cancels the measured interior gradient within 0.02583 nats on 54 held transfers. Nine jointly energy- and cut-load-preserving variations cancel within 0.00373. A coherent probe across two gateways exposes a stationary orbital phase in joint sharp occupations at 37.6 to 38.8 standard errors. Reciprocal launch volume and aperture give relative cubed-area to squared-volume ratios of 1, 0.5 and 0.25. At equal launch volume, changing the shape on the same release or varying matter at fixed shape defeats the calibrated aperture as a compensating surface term. Across 24 shape and matter comparisons an independently read exterior-bit coefficient leaves at most 0.00604 nats. The physical area coefficient, common proper volume and autonomous vacuum selection require independent evidence.",
               "evidence": [
                 "model/candidate_laws/interval_echo/projection.json",
                 "model/experiments/interval_echo_einstein_station/README.md",
@@ -787,11 +787,15 @@
                 "model/experiments/interval_echo_einstein_station/refinement.json",
                 "model/experiments/interval_echo_einstein_station/repair_stationarity/README.md",
                 "model/experiments/interval_echo_einstein_station/hidden_entropy/README.md",
-                "model/experiments/interval_echo_einstein_station/regional_geometry/README.md"
+                "model/experiments/interval_echo_einstein_station/regional_geometry/README.md",
+                "model/experiments/interval_echo_einstein_station/equilibrium_refinement/README.md",
+                "model/experiments/interval_echo_einstein_station/volume_calibration/README.md",
+                "model/experiments/interval_echo_einstein_station/boundary_calibration/README.md",
+                "model/experiments/interval_echo_einstein_station/shape_stationarity/README.md"
               ],
               "demonstrated_measurement": {
-                "label": "Interior repair changes entropy at a fixed boundary readout",
-                "source": "model/experiments/interval_echo_einstein_station/PAIR.md"
+                "label": "Exterior word capacity cancels held entropy changes on monitored native regions",
+                "source": "model/experiments/interval_echo_einstein_station/equilibrium_refinement/README.md"
               },
               "comparison": {
                 "law": "Finite reversible repair on three equal-proper-volume geodesic balls",
@@ -805,6 +809,18 @@
                   "label": "Fixed-volume area and radar curvature",
                   "finding": "Volume-matched surface counts recover the rest-frame curvature measured by an independent radar triangle on five supplied geometries. Their largest difference falls from 0.0412 to 0.000628 in source units over four radii. Fixing coordinate radius gives a different leading coefficient. The test measures the geometric term.",
                   "source": "code/matched_einstein_limit/fixed_volume/README.md"
+                },
+                {
+                  "law": "Reversible surface-register repair on shrinking geodesic balls",
+                  "label": "One equilibrium tested across ten timelike observers",
+                  "finding": "On maximally symmetric four-spaces the measured maximum normalized stationarity residual falls from 0.400 to 0.044 over four radii. The exact tile-capacity error is O(ℓ⁶). On the curved-plane product, transverse boosts give residuals up to 6.750 at the smallest radius with the same rest-calibrated bulk readout. Both geometries and the surface alphabets are supplied.",
+                  "source": "code/matched_einstein_limit/finite_entropy_region/README.md"
+                },
+                {
+                  "law": "Positive written-ring extension on the 458-word field sector",
+                  "label": "Interior phase reaches a six-seam perimeter",
+                  "finding": "Opposite interior phase mixtures differ in their held perimeter distributions after free flight for all twelve source seams. Total variation at exposure one spans 0.00653 to 0.07928. Forgotten source-head reads erase the signal on the same law. The best common coefficient on perimeter word entropy leaves 99.72% of the interior entropy-slope norm.",
+                  "source": "model/experiments/interval_echo_einstein_station/written_field_records/README.md"
                 }
               ]
             },
