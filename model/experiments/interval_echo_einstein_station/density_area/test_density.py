@@ -4,10 +4,10 @@ from itertools import combinations
 from math import comb, log
 
 import numpy as np
+import pytest
 
 from model.executable_model import federation
 from . import coincidence, measure
-from .. import assert_same_replay
 
 
 def test_exact_sharp_word_reduction_and_isolated_tag():
@@ -54,7 +54,7 @@ def test_native_shape_count_and_recorded_hypotheses():
 
 def test_two_tag_complete_flags_and_independent_held_counts():
     observed = coincidence.run()
-    assert_same_replay(observed, json.loads((measure.HERE/'coincidence.json').read_text()))
+    coincidence.verify_replay(observed, json.loads((measure.HERE/'coincidence.json').read_text()))
     for row in observed['panels']:
         h = row['variance_transfer']
         assert h['exact_variance_slope'] > 0
@@ -63,3 +63,12 @@ def test_two_tag_complete_flags_and_independent_held_counts():
         np.testing.assert_allclose(blind['flag_slopes'], 0, atol=2e-15)
         assert blind['exact_bulk_slope'] > 0
         assert blind['exact_mean_energy_slope'] == '0'
+
+
+def test_bulk_slope_cannot_be_changed_with_its_primitive_scores_fixed():
+    raw = (measure.HERE/'coincidence.json').read_bytes()
+    original, changed = json.loads(raw), json.loads(raw)
+    changed['panels'][31]['fixed_two_ray_law']['measured_bulk_slope'] += 1e-12
+    for fresh, archive in ((changed, original), (original, changed)):
+        with pytest.raises(ValueError, match='two sampled scores'):
+            coincidence.verify_replay(fresh, archive)

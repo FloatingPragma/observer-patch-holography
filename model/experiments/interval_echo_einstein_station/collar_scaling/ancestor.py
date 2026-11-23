@@ -8,6 +8,7 @@ import numpy as np
 
 from model.executable_model.refinement import load_refinement
 from . import measure
+from .replay import verify_replay
 
 
 def support(directory, level):
@@ -149,8 +150,8 @@ def main():
         with args.output.open("x") as out:
             json.dump(result, out, separators=(",", ":"), allow_nan=False)
             out.write("\n")
-    elif result != json.loads(path.read_text()):
-        raise ValueError("Ancestor charge differs from the archived acquisition")
+    else:
+        verify_replay(result, json.loads(path.read_text()), name="readings")
     for panel in result["panels"]:
         for setting, arm in zip(
             panel["geometry"]["settings"], panel["arms"], strict=True

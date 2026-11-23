@@ -31,6 +31,8 @@ This experiment supplies curved geometry, light propagation, marker densities an
 
 Run from the repository root.
 
+Each enrolled seed drives a gamma stopping volume followed by independent Poisson reads. The deposited and replayed realizations have distinct counts at the largest budgets. Each complete set of clock ticks and integer counts has its own digest. Evaluating the same decoder and the original gates on each gives largest finest-grid area–radar discrepancies of 0.00062724 in the deposit and 0.00055380 on both replay platforms. The registered ceiling is 0.015. [Count verification and physical gates](measure.py)
+
 ```sh
 python code/matched_einstein_limit/fixed_volume/measure.py
 python -m pytest -q code/matched_einstein_limit/fixed_volume

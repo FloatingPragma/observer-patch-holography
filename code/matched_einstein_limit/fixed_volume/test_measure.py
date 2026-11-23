@@ -1,6 +1,7 @@
 import json
 import math
 
+import pytest
 from scipy.integrate import quad
 
 from . import measure
@@ -35,6 +36,7 @@ def _draws(value, path='$'):
 def test_three_channel_replay_and_refinement():
     receipt = measure.run()
     stored = json.loads((measure.HERE / 'measurements.json').read_text())
+    measure.verify_replay(receipt, stored)
     # Everything that is no draw replays exactly, the stored readouts follow
     # from the stored draws, and each fresh draw lies within six standard
     # deviations of the stored one.
@@ -71,6 +73,21 @@ def test_equal_radius_leading_coefficient_misses_equal_volume():
         if truth:
             assert abs(wrong_region / truth - 5 / 3) < 0.025
             assert abs(wrong_region - truth) > 0.5
+
+
+def test_same_total_count_mutation_and_changed_decoder_fail_even_when_gates_pass():
+    raw = (measure.HERE/'measurements.json').read_bytes()
+    archived, altered = json.loads(raw), json.loads(raw)
+    case = altered['panels'][-1]['cases'][0]
+    regions = case['record']['regions']
+    regions['volume_threshold']['surface_count'] += 1
+    regions['fixed_radius']['surface_count'] -= 1
+    with pytest.raises(ValueError, match='count stream'):
+        measure.verify_replay(altered, archived)
+    modified = json.loads(raw)
+    modified['panels'][0]['cases'][0]['inferred']['volume_threshold']['area_contrast'] += 1e-12
+    with pytest.raises(ValueError, match='decoded'):
+        measure.verify_replay(modified, archived)
 
 
 def test_volume_jacobian_and_independence_of_decoder_channels():
