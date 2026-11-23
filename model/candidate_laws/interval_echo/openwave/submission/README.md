@@ -5,6 +5,7 @@ The [proposed M10.4 task](M10_4_TASK.txt) contains the exact upstream Markdown f
 | Row | Scientific decision | Filing state |
 | --- | --- | --- |
 | 4 · Particle stability | A prepared adjacent pair persists in free evolution. The portable contact instrument selects κ = 8 under its deployment and rate assumptions. | **OpenWave ⚠️ Partial. Full-credit resubmission HOLD** on the adopted pin. Independent evidence fixing the portable standard and its rate on that pin is open. [Resubmission assessment](../../../../../openwave/interval_echo/row_04/CHECKLIST.md) · [Official decision](https://github.com/openwave-labs/openwave/pull/745#pullrequestreview-6005365373) |
+| 4 · Single-load preparation (proposed M10.4) | Free home-cell detection with probability at least 0.999940596800 including failed preparations, for every real coupling. | Registration prepared for owner review. Full-credit filing **HOLD** pending adjudication of the state and detector and the task-selected confirmation. [Proposed task](M10_4_TASK.txt) · [Local evidence](../row_04_compact/README.md) |
 | 30 · Quantum wave equation | A freely propagating matter envelope gives a predictive low-energy Klein–Gordon dispersion on a prepared 194-cell channel. | Hold the full row. Replacing the ordered route between the same physical gateways fills the measured spectral gap. [Decision and remaining experiment](ROW_30_DECISION.md) |
 
 ## Filed M10.3 package

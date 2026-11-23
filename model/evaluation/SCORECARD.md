@@ -117,7 +117,7 @@ Sources · [SPEC.md](../candidate_laws/interval_echo/SPEC.md) · [recovering_obs
 
 ## OpenWave empirical criteria
 
-Assess the 31 OpenWave physical targets locally on all three RER laws. The public M10 column at the cited revision pins Interval Echo. OpenWave partially validated Row 4 and marked the other 30 rows as not yet tested. Each RER grade describes the measurement and scope named in its entry.
+Assess the 31 OpenWave physical targets locally on every registered RER law. The public M10 column at the cited revision pins Interval Echo. OpenWave partially validated Row 4 and marked the other 30 rows as not yet tested. Each RER grade describes the measurement and scope named in its entry.
 
 Sources · [MODELS.md L94-L137](https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L94-L137) · [MODELS.md L426-L438](https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L426-L438)
 

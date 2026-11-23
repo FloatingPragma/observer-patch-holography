@@ -25,6 +25,7 @@ The remaining judgments are evidence-backed assessments. The evaluator checks th
 python -m model run --law interval_echo --full
 python -m model run --law contrast_memory_spherical_v1
 python -m model run --law scalar_channel --extended
+python -m model run --law private_record_walk --check
 python -m model.experiments.cage
 python -m model.evaluation.repair_band
 python -m model.evaluation.patch_spatial_readout
@@ -33,7 +34,7 @@ python -m model.evaluation.observer_encounter
 
 The band check measures the operator that carries the three slow directions. The patch readout reconstructs them from relabelled, exact port-detection probabilities and tests two held exposures. The encounter instrument evolves the complete two-load sector of the 20-cell sphere from a uniform ensemble of separated starts. It reports both the first detection rate and persistence conditional on that detection for the native contrast law and an exchange-only control.
 
-The archived eight-slot routing experiments supply the historical comparison. On the macOS arm64 replay, two tests still report seeded count differences in the electron-wall and loaded-clock archives. The historical rows identify the published results and apparatus. The three current candidate replays are independent of those count archives. [Electron-wall replay](../benchmarks/eight_slot_torus/electron_wall/test_electron_wall.py) · [Loaded-clock replay](../benchmarks/eight_slot_torus/formed_clocks/test_loaded_clock_archive.py)
+The archived eight-slot routing experiments supply the historical comparison. On the macOS arm64 replay, two tests still report seeded count differences in the electron-wall and loaded-clock archives. The historical rows identify the published results and apparatus. The registered candidate replays are independent of those count archives. [Electron-wall replay](../benchmarks/eight_slot_torus/electron_wall/test_electron_wall.py) · [Loaded-clock replay](../benchmarks/eight_slot_torus/formed_clocks/test_loaded_clock_archive.py)
 
 ## What is scored
 
