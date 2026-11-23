@@ -68,16 +68,19 @@ class DetectorEvolution:
             raise ArithmeticError("The rounding induction cannot establish bounded iterates")
         summation = (count+3)*u/(1-(count+3)*u)
         self.probability_error = 0.
+        self.amplitude_error = 0.
         for i, (c, coeff_error) in enumerate(series):
             self.weights[i,:len(c)] = c
             # Margin covers the final scalar arithmetic, magnitude squares and
             # summing 30 bins. Twice the home error covers the quiet complement.
             delta = coeff_error + (recurrence + 4*summation)*sum(abs(c)) + 1.e-13
+            self.amplitude_error = max(self.amplitude_error, delta)
             self.probability_error = max(self.probability_error, 2*delta*(2+delta) + 1.e-12)
         if self.probability_error >= 1.e-5:
             raise ArithmeticError("The terminal probability error exceeds the registered budget")
 
-    def read(self, launch, detector):
+    def amplitudes(self, launch, detector):
+        """Compressed amplitudes of the centered generator, in one common time gauge."""
         state = np.zeros(self.scaled.shape[0])
         state[launch] = 1.
         selected = np.empty((self.weights.shape[1], len(detector)))
@@ -87,8 +90,11 @@ class DetectorEvolution:
         for k in range(2, len(selected)):
             previous, state = state, 2*(self.scaled @ state)-previous
             selected[k] = state[detector]
+        return self.weights @ selected
+
+    def read(self, launch, detector):
         # The subtracted scalar centre has no effect on any detector probability.
-        ports = abs(self.weights @ selected)**2
+        ports = abs(self.amplitudes(launch, detector))**2
         p = np.column_stack((ports, 1-ports.sum(axis=1)))
         if not np.isfinite(p).all() or p.min() < 0 or p.max() > 1:
             raise ArithmeticError("Invalid terminal distribution")
