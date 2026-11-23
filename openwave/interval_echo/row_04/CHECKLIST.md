@@ -6,6 +6,10 @@
 
 The separately registered [private record walk](../../../model/candidate_laws/private_record_walk/README.md) derives its prepared interaction from single-load write records and the equal-load predicate. On the enrolled cell-13 launch it certifies home persistence above 94.099% through exposure 37 for every state of the eight local comparison signs, with the other signs odd. Its detector also measures the joint material and sign outcomes. This candidate declares private signs, a portable aperture and a common rate for its microscopic moves. It has no OpenWave pin decision.
 
+## Single-load gateway preparation
+
+**A distinct stability test on the adopted pin** starts from sharp single loads. After a finite sequence of native gateway observations and retries the joint probability of emitting a load and recovering it inside its home cell is at least 0.999940596800 for every free exposure, throughout all 420 cells. The test includes failed preparations. Its complete instrument is independent of the agreement strength, including at zero. The tested excitation is the localized single-load material state. Filing this observable as the column's particle-stability witness requires the owner's nomination and release of the audited packet. The platform decision above applies to the historical two-load release. [Preparation, propagation and controls](../../../model/candidate_laws/interval_echo/openwave/row_04_compact/README.md#forming-the-excitation-from-sharp-addresses)
+
 ## Audit of PR #1242
 
 Codex replayed Mario Poneder’s research head `f6949928e` on 22 November 2026 (Asia/Bangkok) and checked the criterion at OpenWave revision `f8fd02b2e`. The adopted M10 pin is `4fe10f9a`. Its design sweep compared 8 and 128 with the persistence target known. [PR #1242](https://github.com/FloatingPragma/observer-patch-holography/pull/1242) · [Audited source](https://github.com/FloatingPragma/observer-patch-holography/commit/f6949928e763bde9d26b443da651ab9a45daf749) · [Design sweep](https://github.com/FloatingPragma/observer-patch-holography/blob/972d81b9b6068938e52457b59497766499222b5d/model/polynomial_sv/SPEC.md)

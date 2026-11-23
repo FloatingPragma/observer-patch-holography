@@ -1,0 +1,21 @@
+{
+  "registration": "OPH-M10.4-gateway-v1",
+  "source_pin": "4fe10f9ac3e81423155fb3ac7baaf0fdb4c0b11c",
+  "prior_platform_revision": "f8fd02b2e0d96cfa0d868259daec2c9822375d34",
+  "claim": "The localized single-load material excitation is proposed for the stability test. The joint event is source acceptance and later home-cell detection. Include source exhaustion.",
+  "prior_information": "The cell-13 appointment distributions, the all-cell lower bounds with ascending starts, all comparator arms and the historical coupling sweep are known. The local protocol was committed before its enrolled replay and pushed after the initial calculation. An independent reviewer explored different preparation budgets. This is a held replication with a selected release, not a blind discovery of confinement or of the historical coupling.",
+  "anchor": "Use the first commit on the official OpenWave main first-parent chain that contains the exact registered M10.4 task as approved by its owner. Verify that its first parent lacks that task version. An amendment before execution requires an explicitly versioned replacement registration. Never choose between qualifying commits.",
+  "selector": "SHA-256 of ASCII 'OPH-M10.4-gateway-v1:' followed by the lowercase 40-hex Git anchor. Use unsigned digest bytes: home=byte[0]%20, start=byte[1]%12, direction=+1 if byte[2] is even and -1 otherwise, terminal exposure=15+byte[3]%24. The residues select settings and carry no claim of uniform sampling.",
+  "source": "20-cell Interval Echo federation, one unit on each of 48 ordered sharp trials until first acceptance, reusing the same load. Visit (start+direction*i)%12 for i=0,...,47. One unit of internal exposure before each three-gateway query; require 1024 clear rounds. Restore all free contacts and the degree reference for flight. Keep the entire source and terminal outcome partition.",
+  "arms": ["coherent", "dephased", "unfiltered_uniform", "stochastic_swap"],
+  "outcome_order": "twelve local ports followed by exterior quiet and source exhaustion",
+  "gates": {
+    "exact_joint_home_strictly_above": 0.94,
+    "coherent_terminal_home_strictly_above": 0.94,
+    "stochastic_swap_home_strictly_below": 0.80,
+    "minimum_coherent_minus_dephased": 0.05,
+    "normalization_tolerance": 2e-10,
+    "independent_bin_tolerance": 1e-9
+  },
+  "decision": "One registered selection, all four arms, no substitutions. A missing or invalid independent receipt is incomplete. A failed numerical or scientific gate rejects this held result. Upstream task registration, independent audit, nomination and release authorization are separate steps."
+}
