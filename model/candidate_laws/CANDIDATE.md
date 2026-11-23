@@ -2,6 +2,8 @@
 
 The table gives a reproducible measurement and the scientific reason for each candidate’s role. Interval Echo is active for the current experiment on clocked patches and bound matter. The common [scorecard](../evaluation/SCORECARD.md) compares all laws on the same requirements, and the [evidence ledger](../evaluation/EVIDENCE.md) links every assessment to its source.
 
+The electron search uses an experimental extension with written seam fields. It supplies a candidate charged constituent whose flux, distant-probe response and orbital transport are measured. The scorecard lists its evidence separately from results on the registered Interval Echo law. [Electron candidate and its exchange controls](interval_echo/openwave/electron_field/README.md)
+
 <!-- CANDIDATES:BEGIN -->
 | Candidate | Role | Measured example | Reason for its role |
 | --- | --- | --- | --- |

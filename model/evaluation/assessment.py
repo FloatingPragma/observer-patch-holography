@@ -115,6 +115,13 @@ def for_candidate(candidate, register_ids, known_laws, shared=None):
                 if (not isinstance(measurement, dict) or not isinstance(measurement.get("label"), str)
                         or not measurement["label"].strip() or measurement.get("source") not in record["evidence"]):
                     raise ValueError(f"{key}: demonstrated measurement needs a label and a listed evidence source")
+            if "comparison" in record:
+                comparison = record["comparison"]
+                if (not isinstance(comparison, dict) or
+                        any(not isinstance(comparison.get(field), str) or not comparison[field].strip()
+                            for field in ("law", "finding", "source"))):
+                    raise ValueError(f"{key}: a comparison needs its law, finding and source")
+                check_source(comparison["source"])
             for source in [*definition["sources"], *record["evidence"]]:
                 check_source(source)
             rows.append({**{k: v for k, v in definition.items() if k != "results"}, **record})

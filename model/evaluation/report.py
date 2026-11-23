@@ -58,6 +58,12 @@ def criterion_grade(case):
     return grade
 
 
+def comparison_link(comparison):
+    law = comparison['law']
+    label = f"{law} · {comparison['label']}" if 'label' in comparison else law
+    return f"[{label}]({local_link(comparison['source'])})"
+
+
 def short(result):
     return SHORT.get(result['candidate'], result['title'])
 
@@ -122,7 +128,12 @@ def scorecard(results):
                 lines.extend(['', *table(*headings)])
             key = row['id']
             regime = ' (' + row['regime'] + ')' if row.get('regime') else ''
-            cells = [f"[{key}](EVIDENCE.md#{key.lower()}) {row['title']}{regime}", *(criterion_grade(r) for r in cases)]
+            cells = [f"[{key}](EVIDENCE.md#{key.lower()}) {row['title']}{regime}"]
+            for case in cases:
+                grade = criterion_grade(case)
+                if 'comparison' in case:
+                    grade += f". Comparison · {comparison_link(case['comparison'])}"
+                cells.append(grade)
             if group['id'] == 'observer_benchmarks':
                 cells.append(row['context'])
             lines.append(table_row(*cells))
@@ -147,7 +158,8 @@ def evidence_ledger(results):
             if row.get('context'):
                 lines.extend([row['context'], ''])
             lines.extend(['Criterion · ' + links(row['sources']), ''])
-            if all(c['status'] == 'open' and c['note'] == row['note'] and c['evidence'] == row['evidence'] for c in cases):
+            if all(c['status'] == 'open' and c['note'] == row['note'] and c['evidence'] == row['evidence']
+                   and 'comparison' not in c for c in cases):
                 detail = links(row['evidence'])
                 lines.extend([f"**All three candidates · Open.** {row['note']} {detail}".rstrip() if len(results) == 3
                               else f"**All listed candidates · Open.** {row['note']} {detail}".rstrip(), ''])
@@ -157,6 +169,10 @@ def evidence_ledger(results):
                     if 'demonstrated_measurement' in c:
                         heading = f"**{short(r)}** · {criterion_grade(c)}."
                     lines.append(f"- {heading} {c['note']} {links(c['evidence'])}".rstrip())
+                    if 'comparison' in c:
+                        comparison = c['comparison']
+                        lines.append(f"  - **{comparison['law']}** · {comparison['finding']} "
+                                     f"[Comparison study]({local_link(comparison['source'])})")
                 lines.append('')
     lines.extend(['## Agreement across theorems and experiments', ''])
     for key, definition in results[0]['joint'].items():

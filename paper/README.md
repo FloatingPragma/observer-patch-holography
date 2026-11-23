@@ -19,7 +19,7 @@ Begin with the flagship synthesis,
 [*Observers Who Read Their Universe into Existence*](../flagship/from_observer_consensus_to_standard_physics.pdf).
 The construction paper,
 [*An Executable Observer for Observer Patch Holography: Specification, Memory and Agreed Records*](executable_observer_construction.pdf),
-specifies A-contrast-memory-spherical-v1, the candidate executable model of OPH. Its contrast-memory law
+specifies the contrast-memory reference interaction used by Interval Echo. The contrast-memory law
 is a candidate native repair law: every seam keeps a private memory of the
 contrast between the loads of its two ports, and on the loads the memory acts
 as an exchange plus an agreement energy. The paper proves that a pair of loads
@@ -37,10 +37,16 @@ spacetimes. The [specification](../model/candidate_laws/contrast_memory_spherica
 [proof of the binding theorem](../model/candidate_laws/contrast_memory_spherical_v1/PROOF.md) sit beside the
 code.
 
-The [particle paper](deriving_the_particle_zoo_from_observer_consistency.pdf)
-gives the defect classes and their statistics, and the bound objects of the
-executable model. It takes the gauge type and matter module from the gauge
-paper. The [geometry paper](recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf)
+The particle paper gives the defect classes, their statistics and the bound
+objects of the executable model. In a written-field extension a signed
+material load carries flux and changes a distant probe. It is a candidate
+for the electron's charge and field response. A four-face orbital doublet
+affects its motion, yet the two orbital labels stay at their original
+gateways when the material loads exchange. Spin attached to the
+travelling charge and its physical rest energy require separate
+measurements. [Particle paper](deriving_the_particle_zoo_from_observer_consistency.pdf)
+
+The [geometry paper](recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf)
 states the conditional stress and generalized-volume entropy relation. A
 common physical defect assignment, interacting continuum and Einstein
 realization on the executable model are work in progress.

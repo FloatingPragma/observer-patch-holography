@@ -11481,6 +11481,52 @@
         ],
         "boundary": []
       }
+    },
+    {
+      "claim_id": "OPH-WRITTEN-FIELD-ORBITAL-DOUBLET",
+      "statement": "On the proposed positive-Laplacian written-field extension, 855 neutral head-count sectors on one- through five-triangle fans yield two complementary four-face sectors with an excited orbital doublet. Eight of 128 signed releases across the gateway degree classes transmit an arbitrary input with joint probability above 10⁻¹² on the sampled grid. At gateway 14–24 and model time 30.8125 the recovered charge, source vacuum and receiving doublet have joint probability 0.120866–0.142314. A receiver-only read at 27.0625 has mean success 0.201402 and conditional reference–receiver negativity 0.322302. In either 160-state charge sector, the opposite-cell doublet detector has zero-dimensional all-time kernel. The charged formation energy is 3.54801145 above the empty-guide vacuum in model units, excluding the fixed compensator. Every doublet launch superposition has mean energy 17, standard deviation 8 and at most 1.1072% weight in the unique charged ground. On the corresponding two-load fixture the unsteered recovered-doublet probability for the tested identical inputs changes from 0.00482238 to 0.13019957 when only the odd-material-permutation amplitudes change sign. An eight-contact sequence exchanges the material origins and leaves different orbital inputs in their original cells. A separate phase-string preparation on one cell gives a reversed material winding amplitude in all 100 cases with one of its two endpoints inside the six-link contour. The winding branch carries 24/458 of the input weight. Each free 160-state gateway spectrum is simple. Resolving the energy before transport and pooling the outcomes gives a rank-one map per energy and zero transmitted reference entanglement. On a separate fully written cell the 1,954 excess states and 5,790 vacancy states have simple spectra. The first excited states have field energy correlated with the charge and zero linear energy slope under each material-link twist. Exact confinement to the nominated remote face and the faces touching the charge fails in all forty charge-sign and remote-face sectors. An addressed five-face turn of one parity-string endpoint reads enclosed material parity, including on a field with no prepared endpoint pair. In a parked-charge test a circuit of ring service weights gives geometric phase pi on two excess and four vacancy excited levels in the adiabatic limit. For two identical vacancies on the six-port perimeter, 2,818 endpoint-following exchange settings have energy at both vertex-disjoint endpoint faces at every read. Their filtered amplitudes are negative in 1,466 settings and positive in 1,352. Reversing the charge sign and every background head gives the same exchange counts and probabilities. For the same two prepared vacancies, the same six hops and the same final detector, changing only the intermediate face read at port 9 reverses the amplitude from -0.00223949 to +0.00296045. These measurements distinguish orbital transport, material exchange and strict same-cell attachment on the specified fixtures. A finite-radius bound branch, spinorial rotation, composite exchange and a rest energy in keV require independent observations.",
+      "owner_paper": "model/candidate_laws/interval_echo/openwave/electron_field/README.md",
+      "owner_medium": "protocol_record",
+      "tier": "finite_replay_on_a_supplied_written_field_extension",
+      "assumptions": [
+        "declared_interval_echo_written_field_fan_preparation"
+      ],
+      "imported_results": [
+        "finite_graph_laplacian_evolution",
+        "singular_values_of_a_projected_quantum_channel",
+        "partial_transpose_entanglement_negativity",
+        "full_column_rank_modulo_a_prime_implies_rational_full_rank"
+      ],
+      "oph_specific_delta": "The common 14–24 gateway and matched field inputs relate single-load coherent arrival to independently recorded separation, energy and material exchange. Charge conjugation and the sign-reversed material exchange are explicit controls. The one-cell preparations distinguish a co-located field cloud, a localized turn reading material parity and the transport-dependent signs of an endpoint-filtered two-charge exchange.",
+      "novelty_type": "finite_observer_comparison_on_a_proposed_written_field_extension",
+      "evidence": [
+        "model/candidate_laws/interval_echo/openwave/electron_field/replay.py",
+        "model/candidate_laws/interval_echo/openwave/electron_field/dressed_exchange/search.py",
+        "model/candidate_laws/interval_echo/openwave/electron_field/dressed_exchange/results.json",
+        "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+        "Lean/SourceLaw/DressedMaterialExchange.lean",
+        "model/candidate_laws/interval_echo/openwave/electron_field/flux_string/search.py",
+        "model/candidate_laws/interval_echo/openwave/electron_field/flux_string/results.json",
+        "model/candidate_laws/interval_echo/openwave/electron_field/endpoint_exchange/perimeter.py",
+        "model/candidate_laws/interval_echo/openwave/electron_field/endpoint_exchange/perimeter.json",
+        "model/candidate_laws/interval_echo/openwave/electron_field/endpoint_exchange/search.py",
+        "model/candidate_laws/interval_echo/openwave/electron_field/endpoint_exchange/results.json"
+      ],
+      "falsifier": "The archived receiver probabilities or source-traced negativity fail replay, a nonzero all-time dark state survives the exact derivative-rank certificate, the charged spectral moments differ, or the addressed exchange carries differently prepared orbital states with the swapped material origins. The simple-spectrum or confinement certificates fail, the calibrated endpoint turn differs from enclosed material parity, or the two matched vacancy filters give the same exchange-amplitude sign.",
+      "scope_if_false": "The affected preparation, detector or exchange comparison loses its finite-fixture result. The supplied local charge rule, the pinned two-load stability measurement and the experimental electron reference retain their separate domains.",
+      "status": "replayed_finite_orbital_transport_and_exchange__physical_electron_unidentified",
+      "claim_class": "emitted_artifact",
+      "gates": [],
+      "premise_dependencies": {
+        "classification": "explicit_edges",
+        "consumed": [],
+        "open": [],
+        "boundary": [
+          "PR-15",
+          "PR-47",
+          "PR-54"
+        ]
+      }
     }
   ],
   "claim_context": {
@@ -20825,6 +20871,34 @@
           "role": "supplies the count 4 of the transmutation exponent and the equal bare couplings of the plaquette action; the other forms of the chain are declared here"
         }
       ]
+    },
+    "OPH-WRITTEN-FIELD-ORBITAL-DOUBLET": {
+      "prior_work": {
+        "summary": "Finite graph dynamics, symmetric eigendecomposition and local quantum channels",
+        "overlap": "Graph Laplacians, evolution in spectral projectors and finite-dimensional quantum channels are standard.",
+        "imported_step": "Reported probability ranges use singular values, degenerate energy projectors and a partial transpose. An integer rank certificate tests exact invariance.",
+        "citations": [
+          {
+            "work": "Algebraic graph theory and symmetric spectral methods",
+            "keys": [
+              "biggs1993algebraic",
+              "parlett1998symmetric"
+            ]
+          },
+          {
+            "work": "Finite-dimensional states, quantum channels and partial traces",
+            "keys": [
+              "nielsen2010quantum"
+            ]
+          }
+        ]
+      },
+      "owner_section": "Larger collective preparations and Rest energy and the other OpenWave observables. The dressed exchange protocol tests identically prepared copies on the same gateway. The Lean theorem exchanged_loads_restored_heads covers the controlled material permutation and restoration of the four addressed heads for the stated bridge and buffer patterns. The numerical replay verifies records.zip against records.sha256 and reconstructs the spectral and channel measurements. The one-cell endpoint-exchange protocol specifies each intermediate face template, both compensators, and the probability that every filtered read succeeds.",
+      "falsifiers": {
+        "physical_identification": "A physical electron interpretation needs spin-½ rotations and fermionic exchange of the transported branch. The observed material permutation can leave orbital inputs behind. Opposite filtered exchange signs for identical prepared sources and orbital geometric phases on parked charges require independent identification of the exchange and physical rotation of a freely bound species.",
+        "phenomenological": "The model provides a finite-guide energy. A laboratory comparison requires an independently calibrated physical frequency and the rest branch of the same species."
+      },
+      "depends_on": []
     }
   },
   "official_executable_model": {

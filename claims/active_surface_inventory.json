@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 630,
+  "surface_count": 640,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -48,6 +48,11 @@
     {
       "path": "Lean/EventAlgebra/NativeBinarySourceWitnesses.lean",
       "glob": "Lean/EventAlgebra/NativeBinarySource*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/SourceLaw/WrittenChargeSymmetry.lean",
+      "glob": "Lean/SourceLaw/WrittenChargeSymmetry.lean",
       "allowlisted": false
     },
     {
@@ -287,6 +292,16 @@
     },
     {
       "path": "paper/tex_fragments/PRIOR_WORK_DE_SITTER_TIME_ADVANCE_SIGN_FROM_FIXED_SCREEN_CAPACITY_BIBITEMS.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/PRIOR_WORK_EXECUTABLE_OBSERVER_CONSTRUCTION.tex",
+      "glob": "paper/tex_fragments/*.tex",
+      "allowlisted": false
+    },
+    {
+      "path": "paper/tex_fragments/PRIOR_WORK_EXECUTABLE_OBSERVER_CONSTRUCTION_BIBITEMS.tex",
       "glob": "paper/tex_fragments/*.tex",
       "allowlisted": false
     },
@@ -987,6 +1002,41 @@
     },
     {
       "path": "model/candidate_laws/interval_echo/openwave/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/dressed_exchange/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/endpoint_exchange/DESIGN.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/endpoint_exchange/PERIMETER.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/endpoint_exchange/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/flux_string/DESIGN.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/flux_string/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },

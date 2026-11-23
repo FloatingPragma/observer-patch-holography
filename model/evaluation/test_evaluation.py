@@ -206,3 +206,33 @@ def test_openwave_rows_distinguish_free_stability_from_electron_identity_and_dri
         scorecard_row = next(line for line in scorecard.splitlines() if line.startswith(f'| [{key}]'))
         assert grade in scorecard_row
         assert grade in ledger.split(f'### {key}\n', 1)[1].split('\n### ', 1)[0]
+
+
+def test_written_field_comparison_is_scoped_to_the_separate_generator():
+    result = ev.evaluate('interval_echo')
+    rows = next(group['criteria'] for group in result['requirements'] if group['id'] == 'openwave')
+    electron = ev.criterion(result, 'SM-e')
+    assert electron['status'] == 'open'
+    study = electron['comparison']
+    assert study['law'] == 'Written-field Laplacian extension'
+    assert 'Strong candidate for the electron’s charge and field response' in ev.report.comparison_link(study)
+    assert study['source'] not in electron['evidence']
+    assert study['source'].endswith('interval_echo/openwave/electron_field/README.md')
+    for row in rows:
+        if 'comparison' in row:
+            assert row['comparison']['source'] not in row['evidence']
+            assert ev.report.criterion_grade(row) == ev.report.criterion_grade(
+                {key: value for key, value in row.items() if key != 'comparison'}
+            )
+    assert all('comparison' not in row for row in ev.assessment.species_group(laws.load('scalar_channel'))['criteria'])
+    ledger = ev.report.evidence_ledger([result])
+    electron_entry = ledger.split('### SM-e\n', 1)[1].split('\n### ', 1)[0]
+    assert study['finding'] in electron_entry
+    assert ev.report.local_link(study['source']) in electron_entry
+    assert ev.report.comparison_link(study) in ev.report.scorecard([result])
+
+
+def test_pinned_dark_contact_control_uses_all_native_load_columns():
+    from model.candidate_laws.interval_echo.openwave.electron_field import dark_contact
+
+    dark_contact.run()

@@ -18,6 +18,21 @@ PARTICLE_IDENTIFICATIONS = {
             "model/candidate_laws/interval_echo/openwave/row_04_identity/README.md",
             "model/candidate_laws/interval_echo/openwave/row_04_conjugates/README.md",
         ],
+        "comparison": {
+            "law": "Written-field Laplacian extension",
+            "label": "Strong candidate for the electron’s charge and field response",
+            "finding": "An independent boundary-flux read tracks the mobile signed load, and a probe detects "
+                       "the confined source 22 cells away. This makes the load a strong candidate for the "
+                       "electron’s charge and field response. Its three-input counts "
+                       "exclude spin-½ fermions with matched spin-independent transfers. A four-face orbital "
+                       "doublet can transfer coherently with the charge. During an addressed material exchange "
+                       "the two different orbital states stay in their original cells. In the complete finite "
+                       "one-cell sectors tested, all 5,790 vacancy and 1,954 excess energies are simple. Two "
+                       "vacancies with resolved field endpoints give either exchange sign under different "
+                       "intermediate reads of the same source. A freely transported spin doublet and an "
+                       "independently calibrated rest energy in keV are unresolved.",
+            "source": "model/candidate_laws/interval_echo/openwave/electron_field/README.md",
+        },
     },
 }
 LABELLING = contrast.LABELLING

@@ -10,6 +10,8 @@ software is a candidate for the native repair law, the simple local rule by whic
 their disagreements. Finding the correct law is the open problem of the project, and the
 official [scorecard](evaluation/SCORECARD.md) covers the axioms and finite theorem premises on one process, the patch-clock and field experiments, the 31 OpenWave phenomena, and identification of all Standard Model particle types, and it gives each law’s evidence and the scope of every measurement.
 
+The written-field extension of Interval Echo supplies a strong candidate for the electron’s charge and field sector. An independent boundary reading follows the signed material load, and a confined source changes the signal at a probe 22 cells away. The orbital information that can accompany the load during transport can also be left behind during exchange. Spin and a physically calibrated rest energy require independent measurements on the same excitation. [Evidence, controls and replay](candidate_laws/interval_echo/openwave/electron_field/README.md)
+
 ## What is where
 
 | Folder | What it holds |
@@ -46,7 +48,7 @@ python -m pytest -q model                      # every test
 | A clock carried by a patch | Both owners read a travelling nine-bit elapsed word and a home word on the same signed seam at reunion. The patch derives each handoff interval from its own repair record. | [Interval Echo](candidate_laws/interval_echo/SPEC.md) | finite guided comparison |
 | Particle stability | Two loads written on one seam are read as a pair at every later reading, on every number of cells, by a theorem; the same law without the agreement energy loses them. A second object, the excitation of a [cage](experiments/cage/README.md), is kept for every interval and read by a local detector. | contrast-memory reference and scalar channel | OL-K5, attained |
 | A clock inside an object | After a pulse the seam record of a cage swings at one line with no drive. An observer reads the line at 4.8990 of its own reference and reads the level difference of the two modes separately at the same value. | scalar channel | OL-K4, attained as a prepared clock |
-| A stable neutral object | A seam memory that holds a record while its ports are empty stays that way under every event, holds no load, and its level is read from its observers' own records. | contrast-memory reference | OL-K9, attained |
+| A stable seam record with zero material load | A seam memory that holds a record while its ports are empty stays that way under every event. Its observers read its level. Physical electric neutrality remains open. | contrast-memory reference | OL-K9, attained for the stored record |
 | Waves of an object | Every frequency of the scalar channel obeys `ω² = m² + λ`, with `λ` a level of the seams. One point of the relation is read from records. | scalar channel | OL-K8, partial |
 | What a reading leaves | Asking "is a pair there?" and asking "where is it?" give the same first answer and different later records. | contrast-memory reference | |
 

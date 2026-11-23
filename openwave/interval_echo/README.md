@@ -4,6 +4,8 @@ The row 4 experiment asks whether a prepared adjacent pair persists when every s
 
 OpenWave awarded **⚠️ Partial** on the adopted Interval Echo pin. **Full-credit resubmission is on HOLD.** The portable contact instrument and the all-time adjacency bound strengthen the evidence for the pair. The adopted specification supplies the coupling tested in the release. [Resubmission assessment and clearing condition](row_04/CHECKLIST.md) · [Maintainer decision](https://github.com/openwave-labs/openwave/pull/745#pullrequestreview-6005365373)
 
+The written-field extension supports a strong candidate for the electron’s charge and field sector. Its independent flux and remote-probe tests use a different law from the original two-load release. Spin, exchange and formation-energy tests determine the scope of that interpretation. For the pinned matter-wave study, both routes connect the same gateway ports through the same 194 cells. The shortest internal routes put 62 levels in the interval that is empty on the repeated four-port route. [Electron candidate and related rows](../../model/candidate_laws/interval_echo/openwave/electron_field/README.md) · [Matter-wave route comparison](../../model/candidate_laws/interval_echo/openwave/row_30_route/README.md)
+
 ## Reproduce the author measurement
 
 Use Python 3.12 with NumPy 2.3.5 and SciPy 1.18.1. From this directory run

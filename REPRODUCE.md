@@ -26,6 +26,12 @@ The main replay compares fresh clock decisions and reunion words with the deposi
 
 The station experiment tests whether ranges inferred from simulated observer records predict held clock and pulse measurements. Its three-dimensional fit uses the recorded times and station labels. [Source-free chart and held flights](model/experiments/interval_echo_space/README.md#can-a-source-free-chart-predict-clocks-and-pulses-at-other-stations)
 
+For the electron candidate, replay the signed-field measurements, the exchange of two charges with distinct field endpoints, and the energy and spin tests of the stationary charged states. The two-cell transport test resolves charge arrival and recovery of the same complete excited state independently. It uses the recorded board layouts, sources and probes. The reported energies are in model units. The laboratory calculation has its own measured inputs. [Experiments, units and controls](model/candidate_laws/interval_echo/openwave/electron_field/README.md)
+
+```sh
+python -B model/candidate_laws/interval_echo/openwave/electron_field/replay.py
+```
+
 The programmed scalar experiment reconstructs three directions from eight anonymous stations, then uses the chart to predict independent clock-stopped detector records. Run its published protocol from the repository root. [Scalar result and continuum limit](model/experiments/seam_program/CLOCKED_FIELD.md)
 
 ```sh

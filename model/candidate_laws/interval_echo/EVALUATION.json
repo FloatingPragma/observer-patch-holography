@@ -1977,7 +1977,12 @@
      "note": "Integer port loads and their conserved populations are measured in the coherent blank sector. Establishing an electric topological charge and excluding physical half-charge daughters requires a charge readout.",
      "evidence": [
       "model/candidate_laws/interval_echo/SPEC.md"
-     ]
+     ],
+     "comparison": {
+      "law": "Written-field Laplacian extension",
+      "finding": "In 18 half-transfer fixtures the sharp regional head flux follows the whole signed load. A head-independent control has 50% mismatch. The integer step is supplied by the alphabets.",
+      "source": "model/candidate_laws/interval_echo/openwave/electron_field/README.md#which-preparation-carries-the-charge"
+     }
     },
     {
      "id": "OW-02",
@@ -1995,7 +2000,12 @@
       "model/candidate_laws/interval_echo/SPEC.md",
       "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json",
       "model/experiments/material_inertia/README.md"
-     ]
+     ],
+     "comparison": {
+      "law": "Written-field Laplacian extension",
+      "finding": "The mobile four-face input has mean energy 17 and standard deviation 8 in native units. Its charged gate has a nondegenerate floor of 3.5480114451 with the external compensator held fixed. Other preparations have different formation edges. The 510.999 keV reconstruction uses laboratory inputs alone.",
+      "source": "model/candidate_laws/interval_echo/openwave/electron_field/README.md#rest-energy-and-the-other-openwave-observables"
+     }
     },
     {
      "id": "OW-03",
@@ -2011,7 +2021,12 @@
      "note": "A spontaneously starting oscillation tied to an independently measured rest energy remains open.",
      "evidence": [
       "model/candidate_laws/interval_echo/SPEC.md"
-     ]
+     ],
+     "comparison": {
+      "law": "Written-field Laplacian extension",
+      "finding": "In the repaired periodic medium a central-port oscillation has native angular frequency 16.49242250. Every nonzero translation-invariant one-end beat is at least 4, above the one-end formation edge 1.753788749.",
+      "source": "model/candidate_laws/interval_echo/openwave/electron_field/README.md#rest-energy-and-the-other-openwave-observables"
+     }
     },
     {
      "id": "OW-04",
@@ -2066,6 +2081,11 @@
       "decision": "https://github.com/openwave-labs/openwave/pull/745#pullrequestreview-6005365373",
       "resubmission": "HOLD",
       "review": "openwave/interval_echo/row_04/CHECKLIST.md"
+     },
+     "comparison": {
+      "law": "Written-field Laplacian extension",
+      "finding": "An oriented neutral dipole persists at every reading across all 630 intercell seams. Changing one neighbouring head permits separation. The prepared field orientation blocks the original moves.",
+      "source": "model/candidate_laws/interval_echo/openwave/electron_field/README.md#rest-energy-and-the-other-openwave-observables"
      }
     },
     {
@@ -2082,7 +2102,12 @@
      "note": "The electron dipole, gyromagnetic factor and field-driven precession require an electromagnetic readout.",
      "evidence": [
       "model/candidate_laws/interval_echo/SPEC.md"
-     ]
+     ],
+     "comparison": {
+      "law": "Written-field Laplacian extension",
+      "finding": "An imposed half-quantum twist changes a charge-return probability from 14.7898% to 93.3966%. The unique real resting ground has zero signed current and zero first-order magnetic slope. The measured response is orbital.",
+      "source": "model/candidate_laws/interval_echo/openwave/electron_field/README.md#rest-energy-and-the-other-openwave-observables"
+     }
     },
     {
      "id": "OW-06",
@@ -2098,7 +2123,12 @@
      "note": "Field angular momentum has yet to be measured on an identified electron.",
      "evidence": [
       "model/candidate_laws/interval_echo/SPEC.md"
-     ]
+     ],
+     "comparison": {
+      "law": "Written-field Laplacian extension",
+      "finding": "The four-face state transports a coherent pair of orbital modes. A 2% single-ring rate perturbation splits the parked degeneracy. A spinorial physical rotation and intrinsic angular momentum of this mobile state are unresolved.",
+      "source": "model/candidate_laws/interval_echo/openwave/electron_field/README.md#larger-collective-preparations"
+     }
     },
     {
      "id": "OW-07",
@@ -2114,7 +2144,12 @@
      "note": "A physical rotation or exchange phase and its polar control remain unmeasured.",
      "evidence": [
       "model/candidate_laws/interval_echo/SPEC.md"
-     ]
+     ],
+     "comparison": {
+      "law": "Written-field Laplacian extension",
+      "finding": "A fermionic spin singlet reproduces the two-charge counts. The matched three-input load gives 37.33% arrival where any spin-½ fermion input with the same spin-independent transfers gives zero. In a separate four-face preparation a fixed material exchange restores all 16 head inputs and leaves the different orbital states at their original cells.",
+      "source": "model/candidate_laws/interval_echo/openwave/electron_field/README.md#what-exchange-and-winding-measure"
+     }
     },
     {
      "id": "OW-08",
@@ -2130,7 +2165,12 @@
      "note": "The free contrast term preserves load. An identified conjugate pair converting into outgoing field quanta has yet to be measured.",
      "evidence": [
       "model/candidate_laws/interval_echo/SPEC.md"
-     ]
+     ],
+     "comparison": {
+      "law": "Written-field Laplacian extension",
+      "finding": "The free written law preserves excess and vacancy counts separately. An external pair-conversion contact sends a neutral disturbance to a probe six cell steps away. Spontaneous conversion and photon multiplicities have no measurement in this run.",
+      "source": "model/candidate_laws/interval_echo/openwave/electron_field/README.md#rest-energy-and-the-other-openwave-observables"
+     }
     },
     {
      "id": "OW-09",
@@ -2307,7 +2347,7 @@
       "https://github.com/openwave-labs/openwave/blob/f8fd02b2e0d96cfa0d868259daec2c9822375d34/MODELS.md#L454"
      ],
      "status": "partial",
-     "note": "In a supplied uniformly filled medium a freely released excess and vacancy have zero relative load charge. A separated upper spectral band has an all-exposure lower bound of 85.47% for binding at the selected degree type on 20, 80 and 320 cells. At exposure 32 on 20 cells, 99.44% of terminal outcomes were adjacent, and in 6.83% both constituents had changed sites and were adjacent. Most motion stayed within the launch cell. An electromagnetic charge measurement and an independent inertial mass for this same excitation remain open. This test addresses OpenWave’s particle criterion. The OPH dark-sector paper assigns gravitational stress to anomalous modular charge on an overlap collar. Pair binding provides no measurement of that source. OpenWave lists OPH as untested on Row 19 at the cited revision. The official static test asks for a stable neutral massive state. It does not specify an elementary particle or a relic abundance. PATCH-10 tracks gravitational observations sourced by patch records.",
+     "note": "In a supplied uniformly filled medium a freely released excess and vacancy have zero relative load charge. A separated upper spectral band has an all-exposure lower bound of 85.47% for binding at the selected degree type on 20, 80 and 320 cells. At exposure 32 on 20 cells, 99.44% of terminal outcomes were adjacent, and in 6.83% both constituents had changed sites and were adjacent. Most motion stayed within the launch cell. An electromagnetic charge measurement and an independent inertial mass for this same excitation remain open. This test addresses OpenWave’s particle criterion. The OPH dark-sector paper assigns gravitational stress to anomalous modular charge on an overlap collar. Pair binding provides no measurement of that source. OpenWave lists OPH as untested on Row 19 at the cited revision. The official static test asks for a stable neutral massive state. It does not specify an elementary particle or a relic abundance. PATCH-10 tracks gravitational observations sourced by patch records. A separate coin-odd contrast-two memory has fixed-address native gaps of 32 or 33. Every one of the nine two-port load inputs acquires the same energy shift. Excess and vacancy Ramsey probes return bright with probability one at π/32, against zero for the matched even-coin contact. This identifies a stored mode invisible to these probes. Electromagnetic neutrality and a finite inertial mass require independent evidence.",
      "evidence": [
       "model/candidate_laws/interval_echo/SPEC.md",
       "model/candidate_laws/contrast_memory_spherical_v1/collar.py",
@@ -2315,7 +2355,8 @@
       "model/experiments/material_inertia/README.md",
       "model/experiments/material_inertia/dark_collar.json",
       "model/experiments/material_inertia/neutral_defect.py",
-      "cosmology/oph_dark_matter_paper.pdf"
+      "cosmology/oph_dark_matter_paper.pdf",
+      "model/candidate_laws/interval_echo/openwave/electron_field/dark_contact.py"
      ],
      "demonstrated_measurement": {
       "label": "Binding and local motion of a load-neutral pair",
@@ -2336,7 +2377,12 @@
      "note": "The bare two-load interaction vanishes beyond adjacent ports. The tested written and bare source sectors have no identified elementary electric charge with the required far field.",
      "evidence": [
       "model/candidate_laws/interval_echo/SPEC.md"
-     ]
+     ],
+     "comparison": {
+      "law": "Written-field Laplacian extension",
+      "finding": "For clamped nonadjacent charges the ring ground energy is a sum of endpoint costs. Its connected static strength is exactly zero. The finite-temperature four-placement witness also rules out a distance-only potential on the measured guide.",
+      "source": "model/candidate_laws/interval_echo/openwave/electron_field/README.md#rest-energy-and-the-other-openwave-observables"
+     }
     },
     {
      "id": "OW-21",
@@ -2354,7 +2400,12 @@
       "model/candidate_laws/interval_echo/RESULTS.json",
       "model/candidate_laws/interval_echo/SPEC.md",
       "model/experiments/material_inertia/README.md"
-     ]
+     ],
+     "comparison": {
+      "law": "Directed ring extension",
+      "finding": "The two charged branches on the directed route have candidate relativistic masses from their first two dispersion coefficients. Their held-out sixth-order coefficients reject these exact mass shells on that route.",
+      "source": "model/candidate_laws/interval_echo/openwave/electron_field/README.md#rest-energy-and-the-other-openwave-observables"
+     }
     },
     {
      "id": "OW-22",
@@ -2370,7 +2421,12 @@
      "note": "A colour-source separation scan and a measured confining tension remain open.",
      "evidence": [
       "model/candidate_laws/interval_echo/SPEC.md"
-     ]
+     ],
+     "comparison": {
+      "law": "Directed ring extension",
+      "finding": "The separation energy can grow with the length of the written support. This is a bound in a signed load sector. Neither a colour-dependent potential nor its string tension in GeV/fm was measured.",
+      "source": "model/candidate_laws/interval_echo/openwave/electron_field/README.md#rest-energy-and-the-other-openwave-observables"
+     }
     },
     {
      "id": "OW-23",
@@ -2483,7 +2539,12 @@
      "note": "A measured electric current, transverse electromagnetic wave and recovery of Maxwell dynamics remain open.",
      "evidence": [
       "model/candidate_laws/interval_echo/SPEC.md"
-     ]
+     ],
+     "comparison": {
+      "law": "Written-field Laplacian extension",
+      "finding": "With material held at the source, a signed signal reaches independently injected material probes 22 cell steps away. On the twelve-face ordered guide the frequency ratio for doubled wave number is 3.942 and the long-wave branch is quadratic.",
+      "source": "model/candidate_laws/interval_echo/openwave/electron_field/README.md#which-preparation-carries-the-charge"
+     }
     },
     {
      "id": "OW-30",
@@ -2500,7 +2561,7 @@
       "label": "Low-energy Klein–Gordon dispersion of free matter on a prepared record channel",
       "source": "model/candidate_laws/interval_echo/openwave/row_30_autonomous/README.md"
      },
-     "note": "On the prepared 194-cell channel the continuum Klein–Gordon envelope fits four held frequencies within 1.19% using packet speed. The competing parabola misses by 6.68% at the last held point. The continuum misses by 18.03% at the separate microscopic challenge. In the published candidate an empty-seam measurement forecasts rest and all five moving frequencies from the exact four-site dispersion within 0.036%. The later eight-witness common-unit standard forecasts those same archived frequencies within 0.032%, with its scale fixed by the comparison rule. Fair parity gives about 50% discrepancies. The forecasts share the prepared one-dimensional material background. A freely established background and a matter branch in additional directions remain open.",
+     "note": "On the prepared 194-cell channel the continuum Klein–Gordon envelope fits four held frequencies within 1.19% using packet speed. The competing parabola misses by 6.68% at the last held point. The continuum misses by 18.03% at the separate microscopic challenge. In the published candidate an empty-seam measurement forecasts rest and all five moving frequencies from the exact four-site dispersion within 0.036%. The later eight-witness common-unit standard forecasts those same archived frequencies within 0.032%, with its scale fixed by the comparison rule. Fair parity gives about 50% discrepancies. The forecasts share the prepared one-dimensional material background. A freely established background and a matter branch in additional directions remain open. Shortest internal paths joining the same gateway port pairs through the same 194 cells put 62 modes in the original gap.",
      "evidence": [
       "model/candidate_laws/interval_echo/openwave/row_30/README.md",
       "model/candidate_laws/interval_echo/openwave/row_30/results.json",
@@ -2523,7 +2584,12 @@
       "model/experiments/interval_echo_consensus/offer_service.py",
       "model/experiments/interval_echo_consensus/modular_standard.py",
       "model/experiments/interval_echo_consensus/modular_standard.json"
-     ]
+     ],
+     "comparison": {
+      "law": "Directed ring extension",
+      "finding": "On a guided charge route the held-out sixth-order coefficient rejects the exact relativistic assignments obtained from lower orders for each sign. The signed excitations and generator differ from the registered one-unit matter channel.",
+      "source": "model/candidate_laws/interval_echo/openwave/electron_field/README.md#rest-energy-and-the-other-openwave-observables"
+     }
     },
     {
      "id": "OW-31",
@@ -2540,7 +2606,12 @@
      "evidence": [
       "model/candidate_laws/interval_echo/SPEC.md",
       "model/candidate_laws/contrast_memory_spherical_v1/collar.py"
-     ]
+     ],
+     "comparison": {
+      "law": "Written-field Laplacian extension",
+      "finding": "The static repaired field gives zero connected ground energy for clamped nonadjacent sources. A four-placement thermal witness on the five-loop guide has residual 0.517633 at inverse temperature one. Neither measurement supplies a hydrogenic standing-wave spectrum.",
+      "source": "model/candidate_laws/interval_echo/openwave/electron_field/README.md#rest-energy-and-the-other-openwave-observables"
+     }
     }
    ]
   },
@@ -2662,7 +2733,13 @@
      "evidence": [
       "model/candidate_laws/interval_echo/openwave/row_04_identity/README.md",
       "model/candidate_laws/interval_echo/openwave/row_04_conjugates/README.md"
-     ]
+     ],
+     "comparison": {
+      "law": "Written-field Laplacian extension",
+      "label": "Strong candidate for the electron’s charge and field response",
+      "finding": "An independent boundary-flux read tracks the mobile signed load, and a probe detects the confined source 22 cells away. This makes the load a strong candidate for the electron’s charge and field response. Its three-input counts exclude spin-½ fermions with matched spin-independent transfers. A four-face orbital doublet can transfer coherently with the charge. During an addressed material exchange the two different orbital states stay in their original cells. In the complete finite one-cell sectors tested, all 5,790 vacancy and 1,954 excess energies are simple. Two vacancies with resolved field endpoints give either exchange sign under different intermediate reads of the same source. A freely transported spin doublet and an independently calibrated rest energy in keV are unresolved.",
+      "source": "model/candidate_laws/interval_echo/openwave/electron_field/README.md"
+     }
     },
     {
      "id": "SM-mu",

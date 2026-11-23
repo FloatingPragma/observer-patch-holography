@@ -7,6 +7,8 @@ material clock. On calibrated reciprocal journeys, its elapsed count at reunion 
 special-relativistic rate within the stated precision. The contrast-memory law alone is the reference
 candidate, A-contrast-memory-spherical-v1, and the
 [scalar channel](../model/candidate_laws/scalar_channel/README.md) is a further candidate on the same carrier.
+In the experimental written-field extension the freely moving signed load and a separate boundary-flux reader agree at each transfer. A distant probe also detects the field from a confined source. These records give an explicit candidate for the charge and field part of the electron hypothesis. The four-face orbital states change the load’s motion and can separate from it during exchange. An identification needs a spin and rest energy measured on the same mobile excitation. [Charged excitation and its controls](../model/candidate_laws/interval_echo/openwave/electron_field/README.md)
+
 The executable observer is a candidate and may change as the research goes on.
 The hypothesis is
 that the agreed records of its observers reproduce the observable physics of

@@ -133,19 +133,19 @@ Sources · [MODELS.md L94-L137](https://github.com/openwave-labs/openwave/blob/7
 
 | Requirement | Interval Echo | Contrast memory | Private record walk | Scalar channel |
 | --- | --- | --- | --- | --- |
-| [OW-01](EVIDENCE.md#ow-01) Charge quantization (static) | Open | Open | Open | Open |
-| [OW-02](EVIDENCE.md#ow-02) Electron rest energy (mass) (static) | Partial | Partial | Open | Partial |
-| [OW-03](EVIDENCE.md#ow-03) de Broglie clock (Zitterbewegung) (dynamic) | Open | Open | Open | Partial |
-| [OW-04](EVIDENCE.md#ow-04) Particle stability (Derrick escape) (dynamic) | **Demonstrated** · [Free persistence of a prepared pair](../candidate_laws/interval_echo/openwave/row_04/README.md). OpenWave · [⚠️ Partial](https://github.com/openwave-labs/openwave/pull/745#pullrequestreview-6005365373). Resubmission · [HOLD](../../openwave/interval_echo/row_04/CHECKLIST.md) | Demonstrated | Demonstrated | Demonstrated |
-| [OW-05](EVIDENCE.md#ow-05) Magnetic moment μ (g ≈ 2, magnetostatics) (dynamic) | Open | Open | Open | Open |
-| [OW-06](EVIDENCE.md#ow-06) Angular momentum J (spin ℏ/2) (dynamic) | Open | Open | Open | Open |
-| [OW-07](EVIDENCE.md#ow-07) Spin-½ statistics (720° double cover) (static) | Open | Open | Open | Open |
+| [OW-01](EVIDENCE.md#ow-01) Charge quantization (static) | Open. Comparison · [Written-field Laplacian extension](../candidate_laws/interval_echo/openwave/electron_field/README.md#which-preparation-carries-the-charge) | Open | Open | Open |
+| [OW-02](EVIDENCE.md#ow-02) Electron rest energy (mass) (static) | Partial. Comparison · [Written-field Laplacian extension](../candidate_laws/interval_echo/openwave/electron_field/README.md#rest-energy-and-the-other-openwave-observables) | Partial | Open | Partial |
+| [OW-03](EVIDENCE.md#ow-03) de Broglie clock (Zitterbewegung) (dynamic) | Open. Comparison · [Written-field Laplacian extension](../candidate_laws/interval_echo/openwave/electron_field/README.md#rest-energy-and-the-other-openwave-observables) | Open | Open | Partial |
+| [OW-04](EVIDENCE.md#ow-04) Particle stability (Derrick escape) (dynamic) | **Demonstrated** · [Free persistence of a prepared pair](../candidate_laws/interval_echo/openwave/row_04/README.md). OpenWave · [⚠️ Partial](https://github.com/openwave-labs/openwave/pull/745#pullrequestreview-6005365373). Resubmission · [HOLD](../../openwave/interval_echo/row_04/CHECKLIST.md). Comparison · [Written-field Laplacian extension](../candidate_laws/interval_echo/openwave/electron_field/README.md#rest-energy-and-the-other-openwave-observables) | Demonstrated | Demonstrated | Demonstrated |
+| [OW-05](EVIDENCE.md#ow-05) Magnetic moment μ (g ≈ 2, magnetostatics) (dynamic) | Open. Comparison · [Written-field Laplacian extension](../candidate_laws/interval_echo/openwave/electron_field/README.md#rest-energy-and-the-other-openwave-observables) | Open | Open | Open |
+| [OW-06](EVIDENCE.md#ow-06) Angular momentum J (spin ℏ/2) (dynamic) | Open. Comparison · [Written-field Laplacian extension](../candidate_laws/interval_echo/openwave/electron_field/README.md#larger-collective-preparations) | Open | Open | Open |
+| [OW-07](EVIDENCE.md#ow-07) Spin-½ statistics (720° double cover) (static) | Open. Comparison · [Written-field Laplacian extension](../candidate_laws/interval_echo/openwave/electron_field/README.md#what-exchange-and-winding-measure) | Open | Open | Open |
 
 ### PARTICLE - FULL SPECTRUM
 
 | Requirement | Interval Echo | Contrast memory | Private record walk | Scalar channel |
 | --- | --- | --- | --- | --- |
-| [OW-08](EVIDENCE.md#ow-08) Antimatter + annihilation (both) | Open | Open | Open | Open |
+| [OW-08](EVIDENCE.md#ow-08) Antimatter + annihilation (both) | Open. Comparison · [Written-field Laplacian extension](../candidate_laws/interval_echo/openwave/electron_field/README.md#rest-energy-and-the-other-openwave-observables) | Open | Open | Open |
 | [OW-09](EVIDENCE.md#ow-09) Neutrinos (neutral states) (both) | Open | Open | Open | Open |
 | [OW-10](EVIDENCE.md#ow-10) Neutrino oscillations (PMNS) (both) | Open | Open | Open | Open |
 | [OW-11](EVIDENCE.md#ow-11) Lepton mass spectrum (μ, τ) (static) | Open | Open | Open | Open |
@@ -162,9 +162,9 @@ Sources · [MODELS.md L94-L137](https://github.com/openwave-labs/openwave/blob/7
 
 | Requirement | Interval Echo | Contrast memory | Private record walk | Scalar channel |
 | --- | --- | --- | --- | --- |
-| [OW-20](EVIDENCE.md#ow-20) Electric force (Coulomb 1/r, electrostatics) (static) | Open | Open | Open | Open |
-| [OW-21](EVIDENCE.md#ow-21) Lorentz covariance (+ Coulomb = EM) (dynamic) | Partial | Open | Open | Partial |
-| [OW-22](EVIDENCE.md#ow-22) Strong force: confinement (static) | Open | Open | Open | Open |
+| [OW-20](EVIDENCE.md#ow-20) Electric force (Coulomb 1/r, electrostatics) (static) | Open. Comparison · [Written-field Laplacian extension](../candidate_laws/interval_echo/openwave/electron_field/README.md#rest-energy-and-the-other-openwave-observables) | Open | Open | Open |
+| [OW-21](EVIDENCE.md#ow-21) Lorentz covariance (+ Coulomb = EM) (dynamic) | Partial. Comparison · [Directed ring extension](../candidate_laws/interval_echo/openwave/electron_field/README.md#rest-energy-and-the-other-openwave-observables) | Open | Open | Partial |
+| [OW-22](EVIDENCE.md#ow-22) Strong force: confinement (static) | Open. Comparison · [Directed ring extension](../candidate_laws/interval_echo/openwave/electron_field/README.md#rest-energy-and-the-other-openwave-observables) | Open | Open | Open |
 | [OW-23](EVIDENCE.md#ow-23) Running coupling (static) | Open | Open | Open | Open |
 | [OW-24](EVIDENCE.md#ow-24) Weak force: muon decay (dynamic) | Open | Open | Open | Open |
 | [OW-25](EVIDENCE.md#ow-25) Weak force: beta decay (n → p) (dynamic) | Open | Open | Open | Open |
@@ -176,9 +176,9 @@ Sources · [MODELS.md L94-L137](https://github.com/openwave-labs/openwave/blob/7
 
 | Requirement | Interval Echo | Contrast memory | Private record walk | Scalar channel |
 | --- | --- | --- | --- | --- |
-| [OW-29](EVIDENCE.md#ow-29) EM waves (Maxwell) (dynamic) | Open | Open | Open | Open |
-| [OW-30](EVIDENCE.md#ow-30) Quantum wave equation (Klein-Gordon) (dynamic) | **Demonstrated** · [Low-energy Klein–Gordon dispersion of free matter on a prepared record channel](../candidate_laws/interval_echo/openwave/row_30_autonomous/README.md). Full criterion · Partial | Open | Open | Partial |
-| [OW-31](EVIDENCE.md#ow-31) Orbital quantization (atomic structure) (static) | Partial | Partial | Open | Open |
+| [OW-29](EVIDENCE.md#ow-29) EM waves (Maxwell) (dynamic) | Open. Comparison · [Written-field Laplacian extension](../candidate_laws/interval_echo/openwave/electron_field/README.md#which-preparation-carries-the-charge) | Open | Open | Open |
+| [OW-30](EVIDENCE.md#ow-30) Quantum wave equation (Klein-Gordon) (dynamic) | **Demonstrated** · [Low-energy Klein–Gordon dispersion of free matter on a prepared record channel](../candidate_laws/interval_echo/openwave/row_30_autonomous/README.md). Full criterion · Partial. Comparison · [Directed ring extension](../candidate_laws/interval_echo/openwave/electron_field/README.md#rest-energy-and-the-other-openwave-observables) | Open | Open | Partial |
+| [OW-31](EVIDENCE.md#ow-31) Orbital quantization (atomic structure) (static) | Partial. Comparison · [Written-field Laplacian extension](../candidate_laws/interval_echo/openwave/electron_field/README.md#rest-energy-and-the-other-openwave-observables) | Partial | Open | Open |
 
 ## Standard Model particle identifications
 
@@ -211,7 +211,7 @@ Sources · [contents_listings.html](https://pdg.lbl.gov/2026/listings/contents_l
 
 | Requirement | Interval Echo | Contrast memory | Private record walk | Scalar channel |
 | --- | --- | --- | --- | --- |
-| [SM-e](EVIDENCE.md#sm-e) Electron | Open | Open | Open | Open |
+| [SM-e](EVIDENCE.md#sm-e) Electron | Open. Comparison · [Written-field Laplacian extension · Strong candidate for the electron’s charge and field response](../candidate_laws/interval_echo/openwave/electron_field/README.md) | Open | Open | Open |
 | [SM-mu](EVIDENCE.md#sm-mu) Muon | Open | Open | Open | Open |
 | [SM-tau](EVIDENCE.md#sm-tau) Tau | Open | Open | Open | Open |
 

@@ -133,6 +133,8 @@ décrivent les registres dont ils conviennent. La cellule native possède une r�
 
 Une histoire peut être le registre terminal commun de réparations locales. Si chaque réparation acceptée diminue d’une quantité fixe une mesure positive ou nulle du désaccord, la valeur initiale de cette mesure borne le nombre de réparations acceptées. Une borne polynomiale sur le temps de calcul exige aussi des bornes sur cette valeur initiale et sur le coût de la recherche et de l’exécution des réparations. Pour que le résultat soit unique, les réparations qui se chevauchent doivent pouvoir aboutir au même registre public. Interval Echo teste cette condition sur deux coutures. Une borne polynomiale pour l’histoire unique de toute la fédération reste une question ouverte. [Spécification de référence](model/candidate_laws/contrast_memory_spherical_v1/SPEC.md) · [Expérience sur l’ordre des réparations](model/candidate_laws/interval_echo/CONSENSUS.md)
 
+**Une piste solide pour la charge et le champ de l’électron.** Dans une extension d’Interval Echo, un excès ou un manque de matière se déplace. Le flux mesuré indépendamment à la frontière suit sa charge signée, et une sonde détecte l’effet de la source à 22 cellules de distance. Deux états orbitaux peuvent franchir une frontière avec la charge. Le choix de l’état modifie la probabilité de passage. Quand deux charges échangent leurs places, les états orbitaux peuvent rester dans leurs cellules d’origine. Identifier un électron exige encore de mesurer sur la même excitation un spin ½ qui l’accompagne et une énergie de repos étalonnée indépendamment. [Expériences et témoins](model/candidate_laws/interval_echo/openwave/electron_field/README.md) · [Article sur les particules](paper/deriving_the_particle_zoo_from_observer_consistency.pdf)
+
 Les observations suivantes proviennent de la loi de mémoire de contraste et du canal scalaire. Interval Echo ajoute à la première une horloge étalonnée sur des retrouvailles guidées. Pour ces expériences, le processus de
 réparation reproduit des valeurs et des structures observables réelles, dans
 les descriptions effectives des observateurs qui habitent le calcul :
@@ -146,10 +148,11 @@ les descriptions effectives des observateurs qui habitent le calcul :
   une hauteur fixe après une impulsion. Un observateur lit cette hauteur dans
   ses propres comptages, en unités de sa propre référence, et retrouve le même
   nombre par une seconde voie, à partir des deux niveaux de l’objet.
-- **Quelque chose qui reste et ne porte aucune charge.** Une note laissée
+- **Une trace qui persiste sur des ports vides.** Une note laissée
   dans la mémoire d’une couture, sans rien autour, n’est jamais effacée par
-  la loi. Elle ne porte aucune charge, ses observateurs lisent son niveau, et
-  la matière qui l’atteint s’y attache.
+  la loi. Ses ports ne portent aucune charge matérielle, ses observateurs
+  lisent son niveau et la matière qui l’atteint s’y attache. Sa neutralité
+  électrique physique reste à établir.
 - **Regarder change la suite.** Demander « une paire est-elle là ? » et
   demander « où est-elle ? » donnent la même première réponse et des registres
   ultérieurs différents.

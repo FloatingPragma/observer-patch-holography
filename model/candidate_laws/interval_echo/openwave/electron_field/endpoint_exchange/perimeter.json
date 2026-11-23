@@ -1,0 +1,2822 @@
+{
+  "physical_perimeter": [
+    4,
+    9,
+    8,
+    7,
+    10,
+    11
+  ],
+  "face_ports": [
+    [
+      0,
+      1,
+      5
+    ],
+    [
+      0,
+      1,
+      7
+    ],
+    [
+      0,
+      5,
+      11
+    ],
+    [
+      0,
+      7,
+      10
+    ],
+    [
+      0,
+      10,
+      11
+    ],
+    [
+      1,
+      5,
+      9
+    ],
+    [
+      1,
+      7,
+      8
+    ],
+    [
+      1,
+      8,
+      9
+    ],
+    [
+      2,
+      3,
+      4
+    ],
+    [
+      2,
+      3,
+      6
+    ],
+    [
+      2,
+      4,
+      11
+    ],
+    [
+      2,
+      6,
+      10
+    ],
+    [
+      2,
+      10,
+      11
+    ],
+    [
+      3,
+      4,
+      9
+    ],
+    [
+      3,
+      6,
+      8
+    ],
+    [
+      3,
+      8,
+      9
+    ],
+    [
+      4,
+      5,
+      9
+    ],
+    [
+      4,
+      5,
+      11
+    ],
+    [
+      6,
+      7,
+      8
+    ],
+    [
+      6,
+      7,
+      10
+    ]
+  ],
+  "fixtures": [
+    {
+      "sign": -1,
+      "sites_in_assignment_order": [
+        4,
+        11,
+        10,
+        7,
+        8,
+        9
+      ],
+      "hops": [
+        [
+          4,
+          11
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          11,
+          10
+        ],
+        [
+          8,
+          9
+        ],
+        [
+          10,
+          7
+        ],
+        [
+          9,
+          4
+        ]
+      ],
+      "starting_ports": [
+        4,
+        7
+      ],
+      "words_per_position": [
+        458,
+        248,
+        38,
+        15,
+        39,
+        46
+      ],
+      "normalization_denominator": 116148726720,
+      "assignments_considered": 15625,
+      "distinct_face_assignments": 9009,
+      "distinct_but_missing_endpoint_energy": 9009,
+      "resolved": {
+        "all": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        },
+        "disjoint_at_each_read": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        }
+      },
+      "uniform_or_stationary_endpoint_success": 0.0006777128740566039,
+      "position_only_accepted_words": 12,
+      "position_only_exchange_probability": 0.026200873362445413,
+      "position_only_xor_mask_with_unit_transition_amplitude": 1008205824,
+      "injection_paths": [
+        [
+          20,
+          10,
+          11,
+          4
+        ],
+        [
+          82,
+          1,
+          7
+        ]
+      ],
+      "direction": -1,
+      "matched_conjugate_control": "opposite charge and complementary background give identical exchange signs and probabilities"
+    },
+    {
+      "sign": 1,
+      "sites_in_assignment_order": [
+        4,
+        11,
+        10,
+        7,
+        8,
+        9
+      ],
+      "hops": [
+        [
+          4,
+          11
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          11,
+          10
+        ],
+        [
+          8,
+          9
+        ],
+        [
+          10,
+          7
+        ],
+        [
+          9,
+          4
+        ]
+      ],
+      "starting_ports": [
+        4,
+        7
+      ],
+      "words_per_position": [
+        458,
+        210,
+        390,
+        900,
+        441,
+        918
+      ],
+      "normalization_denominator": 13666998912840000,
+      "assignments_considered": 15625,
+      "distinct_face_assignments": 9009,
+      "distinct_but_missing_endpoint_energy": 9009,
+      "resolved": {
+        "all": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        },
+        "disjoint_at_each_read": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        }
+      },
+      "uniform_or_stationary_endpoint_success": 0.005285846492360635,
+      "position_only_accepted_words": 12,
+      "position_only_exchange_probability": 0.026200873362445413,
+      "position_only_xor_mask_with_unit_transition_amplitude": 1008205824,
+      "injection_paths": [
+        [
+          48,
+          3,
+          4
+        ],
+        [
+          20,
+          10,
+          7
+        ]
+      ],
+      "direction": -1,
+      "matched_conjugate_control": "opposite charge and complementary background give identical exchange signs and probabilities"
+    },
+    {
+      "sign": -1,
+      "sites_in_assignment_order": [
+        4,
+        9,
+        8,
+        7,
+        10,
+        11
+      ],
+      "hops": [
+        [
+          4,
+          9
+        ],
+        [
+          7,
+          10
+        ],
+        [
+          9,
+          8
+        ],
+        [
+          10,
+          11
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          11,
+          4
+        ]
+      ],
+      "starting_ports": [
+        4,
+        7
+      ],
+      "words_per_position": [
+        458,
+        46,
+        39,
+        15,
+        38,
+        248
+      ],
+      "normalization_denominator": 116148726720,
+      "assignments_considered": 15625,
+      "distinct_face_assignments": 9009,
+      "distinct_but_missing_endpoint_energy": 9009,
+      "resolved": {
+        "all": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        },
+        "disjoint_at_each_read": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        }
+      },
+      "uniform_or_stationary_endpoint_success": 0.0006777128740566039,
+      "position_only_accepted_words": 12,
+      "position_only_exchange_probability": 0.026200873362445413,
+      "position_only_xor_mask_with_unit_transition_amplitude": 1008205824,
+      "injection_paths": [
+        [
+          20,
+          10,
+          11,
+          4
+        ],
+        [
+          82,
+          1,
+          7
+        ]
+      ],
+      "direction": 1,
+      "matched_conjugate_control": "opposite charge and complementary background give identical exchange signs and probabilities"
+    },
+    {
+      "sign": 1,
+      "sites_in_assignment_order": [
+        4,
+        9,
+        8,
+        7,
+        10,
+        11
+      ],
+      "hops": [
+        [
+          4,
+          9
+        ],
+        [
+          7,
+          10
+        ],
+        [
+          9,
+          8
+        ],
+        [
+          10,
+          11
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          11,
+          4
+        ]
+      ],
+      "starting_ports": [
+        4,
+        7
+      ],
+      "words_per_position": [
+        458,
+        918,
+        441,
+        900,
+        390,
+        210
+      ],
+      "normalization_denominator": 13666998912840000,
+      "assignments_considered": 15625,
+      "distinct_face_assignments": 9009,
+      "distinct_but_missing_endpoint_energy": 9009,
+      "resolved": {
+        "all": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        },
+        "disjoint_at_each_read": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        }
+      },
+      "uniform_or_stationary_endpoint_success": 0.005285846492360635,
+      "position_only_accepted_words": 12,
+      "position_only_exchange_probability": 0.026200873362445413,
+      "position_only_xor_mask_with_unit_transition_amplitude": 1008205824,
+      "injection_paths": [
+        [
+          48,
+          3,
+          4
+        ],
+        [
+          20,
+          10,
+          7
+        ]
+      ],
+      "direction": 1,
+      "matched_conjugate_control": "opposite charge and complementary background give identical exchange signs and probabilities"
+    },
+    {
+      "sign": -1,
+      "sites_in_assignment_order": [
+        9,
+        4,
+        11,
+        10,
+        7,
+        8
+      ],
+      "hops": [
+        [
+          9,
+          4
+        ],
+        [
+          10,
+          7
+        ],
+        [
+          4,
+          11
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          11,
+          10
+        ],
+        [
+          8,
+          9
+        ]
+      ],
+      "starting_ports": [
+        9,
+        10
+      ],
+      "words_per_position": [
+        458,
+        918,
+        441,
+        475,
+        141,
+        97
+      ],
+      "normalization_denominator": 1204567676871300,
+      "assignments_considered": 15625,
+      "distinct_face_assignments": 9009,
+      "distinct_but_missing_endpoint_energy": 9009,
+      "resolved": {
+        "all": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        },
+        "disjoint_at_each_read": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        }
+      },
+      "uniform_or_stationary_endpoint_success": 0.0027121193537303105,
+      "position_only_accepted_words": 12,
+      "position_only_exchange_probability": 0.026200873362445413,
+      "position_only_xor_mask_with_unit_transition_amplitude": 1008205824,
+      "injection_paths": [
+        [
+          82,
+          1,
+          9
+        ],
+        [
+          20,
+          10
+        ]
+      ],
+      "direction": -1,
+      "matched_conjugate_control": "opposite charge and complementary background give identical exchange signs and probabilities"
+    },
+    {
+      "sign": 1,
+      "sites_in_assignment_order": [
+        9,
+        4,
+        11,
+        10,
+        7,
+        8
+      ],
+      "hops": [
+        [
+          9,
+          4
+        ],
+        [
+          10,
+          7
+        ],
+        [
+          4,
+          11
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          11,
+          10
+        ],
+        [
+          8,
+          9
+        ]
+      ],
+      "starting_ports": [
+        9,
+        10
+      ],
+      "words_per_position": [
+        458,
+        46,
+        39,
+        39,
+        124,
+        554
+      ],
+      "normalization_denominator": 2201324025888,
+      "assignments_considered": 15625,
+      "distinct_face_assignments": 9009,
+      "distinct_but_missing_endpoint_energy": 9009,
+      "resolved": {
+        "all": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        },
+        "disjoint_at_each_read": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        }
+      },
+      "uniform_or_stationary_endpoint_success": 0.001846823045323149,
+      "position_only_accepted_words": 12,
+      "position_only_exchange_probability": 0.026200873362445413,
+      "position_only_xor_mask_with_unit_transition_amplitude": 1008205824,
+      "injection_paths": [
+        [
+          48,
+          3,
+          9
+        ],
+        [
+          20,
+          10
+        ]
+      ],
+      "direction": -1,
+      "matched_conjugate_control": "opposite charge and complementary background give identical exchange signs and probabilities"
+    },
+    {
+      "sign": -1,
+      "sites_in_assignment_order": [
+        9,
+        8,
+        7,
+        10,
+        11,
+        4
+      ],
+      "hops": [
+        [
+          9,
+          8
+        ],
+        [
+          10,
+          11
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          11,
+          4
+        ],
+        [
+          7,
+          10
+        ],
+        [
+          4,
+          9
+        ]
+      ],
+      "starting_ports": [
+        9,
+        10
+      ],
+      "words_per_position": [
+        458,
+        97,
+        141,
+        475,
+        441,
+        918
+      ],
+      "normalization_denominator": 1204567676871300,
+      "assignments_considered": 15625,
+      "distinct_face_assignments": 9009,
+      "distinct_but_missing_endpoint_energy": 9009,
+      "resolved": {
+        "all": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        },
+        "disjoint_at_each_read": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        }
+      },
+      "uniform_or_stationary_endpoint_success": 0.0027121193537303105,
+      "position_only_accepted_words": 12,
+      "position_only_exchange_probability": 0.026200873362445413,
+      "position_only_xor_mask_with_unit_transition_amplitude": 1008205824,
+      "injection_paths": [
+        [
+          82,
+          1,
+          9
+        ],
+        [
+          20,
+          10
+        ]
+      ],
+      "direction": 1,
+      "matched_conjugate_control": "opposite charge and complementary background give identical exchange signs and probabilities"
+    },
+    {
+      "sign": 1,
+      "sites_in_assignment_order": [
+        9,
+        8,
+        7,
+        10,
+        11,
+        4
+      ],
+      "hops": [
+        [
+          9,
+          8
+        ],
+        [
+          10,
+          11
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          11,
+          4
+        ],
+        [
+          7,
+          10
+        ],
+        [
+          4,
+          9
+        ]
+      ],
+      "starting_ports": [
+        9,
+        10
+      ],
+      "words_per_position": [
+        458,
+        554,
+        124,
+        39,
+        39,
+        46
+      ],
+      "normalization_denominator": 2201324025888,
+      "assignments_considered": 15625,
+      "distinct_face_assignments": 9009,
+      "distinct_but_missing_endpoint_energy": 9009,
+      "resolved": {
+        "all": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        },
+        "disjoint_at_each_read": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        }
+      },
+      "uniform_or_stationary_endpoint_success": 0.001846823045323149,
+      "position_only_accepted_words": 12,
+      "position_only_exchange_probability": 0.026200873362445413,
+      "position_only_xor_mask_with_unit_transition_amplitude": 1008205824,
+      "injection_paths": [
+        [
+          48,
+          3,
+          9
+        ],
+        [
+          20,
+          10
+        ]
+      ],
+      "direction": 1,
+      "matched_conjugate_control": "opposite charge and complementary background give identical exchange signs and probabilities"
+    },
+    {
+      "sign": -1,
+      "sites_in_assignment_order": [
+        8,
+        9,
+        4,
+        11,
+        10,
+        7
+      ],
+      "hops": [
+        [
+          8,
+          9
+        ],
+        [
+          11,
+          10
+        ],
+        [
+          9,
+          4
+        ],
+        [
+          10,
+          7
+        ],
+        [
+          4,
+          11
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "starting_ports": [
+        8,
+        11
+      ],
+      "words_per_position": [
+        458,
+        554,
+        124,
+        465,
+        390,
+        778
+      ],
+      "normalization_denominator": 4439091375950400,
+      "assignments_considered": 15625,
+      "distinct_face_assignments": 9009,
+      "distinct_but_missing_endpoint_energy": 6744,
+      "resolved": {
+        "all": {
+          "counts": {
+            "positive": 1146,
+            "negative": 1119
+          },
+          "moving_vs_parked": {
+            "positive_vs_positive": 570,
+            "negative_vs_positive": 504,
+            "negative_vs_negative": 615,
+            "positive_vs_negative": 576
+          },
+          "max": {
+            "positive": {
+              "face_ids_in_site_order": [
+                7,
+                5,
+                8,
+                2,
+                19,
+                3
+              ],
+              "per_hop_numerators": [
+                -259,
+                68,
+                98,
+                298,
+                -182,
+                193
+              ],
+              "signed_numerator": 18066736626848,
+              "amplitude": 0.004069917714406126,
+              "six_read_success": 1.656423020203679e-05,
+              "parked_field_phase_with_position_checks": 1
+            },
+            "negative": {
+              "face_ids_in_site_order": [
+                7,
+                5,
+                8,
+                10,
+                19,
+                3
+              ],
+              "per_hop_numerators": [
+                259,
+                -68,
+                98,
+                298,
+                -182,
+                -193
+              ],
+              "signed_numerator": -18066736626848,
+              "amplitude": -0.004069917714406126,
+              "six_read_success": 1.656423020203679e-05,
+              "parked_field_phase_with_position_checks": -1
+            }
+          },
+          "initial_face_pairs_with_both_signs": 25,
+          "same_initial_state_examples": {
+            "initial_faces": [
+              2,
+              7
+            ],
+            "negative": {
+              "faces": [
+                7,
+                15,
+                8,
+                2,
+                19,
+                3
+              ],
+              "amplitude": -0.0019680943198574106,
+              "six_read_success": 3.873395251855004e-06
+            },
+            "positive": {
+              "faces": [
+                7,
+                5,
+                8,
+                2,
+                19,
+                3
+              ],
+              "amplitude": 0.004069917714406126,
+              "six_read_success": 1.656423020203679e-05
+            }
+          }
+        },
+        "disjoint_at_each_read": {
+          "counts": {
+            "positive": 570,
+            "negative": 624
+          },
+          "moving_vs_parked": {
+            "positive_vs_positive": 277,
+            "negative_vs_negative": 296,
+            "negative_vs_positive": 328,
+            "positive_vs_negative": 293
+          },
+          "max": {
+            "positive": {
+              "face_ids_in_site_order": [
+                6,
+                7,
+                8,
+                17,
+                19,
+                3
+              ],
+              "per_hop_numerators": [
+                -291,
+                68,
+                72,
+                298,
+                -182,
+                219
+              ],
+              "signed_numerator": 16922563991424,
+              "amplitude": 0.0038121684277789654,
+              "six_read_success": 1.4532628121754747e-05,
+              "parked_field_phase_with_position_checks": 1
+            },
+            "negative": {
+              "face_ids_in_site_order": [
+                7,
+                5,
+                8,
+                10,
+                19,
+                3
+              ],
+              "per_hop_numerators": [
+                259,
+                -68,
+                98,
+                298,
+                -182,
+                -193
+              ],
+              "signed_numerator": -18066736626848,
+              "amplitude": -0.004069917714406126,
+              "six_read_success": 1.656423020203679e-05,
+              "parked_field_phase_with_position_checks": -1
+            }
+          },
+          "initial_face_pairs_with_both_signs": 25,
+          "same_initial_state_examples": {
+            "initial_faces": [
+              7,
+              10
+            ],
+            "negative": {
+              "faces": [
+                7,
+                5,
+                8,
+                10,
+                19,
+                3
+              ],
+              "amplitude": -0.004069917714406126,
+              "six_read_success": 1.656423020203679e-05
+            },
+            "positive": {
+              "faces": [
+                7,
+                15,
+                8,
+                10,
+                19,
+                3
+              ],
+              "amplitude": 0.0019680943198574106,
+              "six_read_success": 3.873395251855004e-06
+            }
+          }
+        }
+      },
+      "uniform_or_stationary_endpoint_success": 0.0032951023458121357,
+      "position_only_accepted_words": 12,
+      "position_only_exchange_probability": 0.026200873362445413,
+      "position_only_xor_mask_with_unit_transition_amplitude": 1008205824,
+      "injection_paths": [
+        [
+          82,
+          1,
+          8
+        ],
+        [
+          20,
+          10,
+          11
+        ]
+      ],
+      "direction": -1,
+      "matched_conjugate_control": "opposite charge and complementary background give identical exchange signs and probabilities"
+    },
+    {
+      "sign": 1,
+      "sites_in_assignment_order": [
+        8,
+        9,
+        4,
+        11,
+        10,
+        7
+      ],
+      "hops": [
+        [
+          8,
+          9
+        ],
+        [
+          11,
+          10
+        ],
+        [
+          9,
+          4
+        ],
+        [
+          10,
+          7
+        ],
+        [
+          4,
+          11
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      "starting_ports": [
+        8,
+        11
+      ],
+      "words_per_position": [
+        458,
+        97,
+        141,
+        31,
+        38,
+        63
+      ],
+      "normalization_denominator": 464881394124,
+      "assignments_considered": 15625,
+      "distinct_face_assignments": 9009,
+      "distinct_but_missing_endpoint_energy": 9009,
+      "resolved": {
+        "all": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        },
+        "disjoint_at_each_read": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        }
+      },
+      "uniform_or_stationary_endpoint_success": 0.0011166927572904054,
+      "position_only_accepted_words": 12,
+      "position_only_exchange_probability": 0.026200873362445413,
+      "position_only_xor_mask_with_unit_transition_amplitude": 1008205824,
+      "injection_paths": [
+        [
+          20,
+          10,
+          7,
+          8
+        ],
+        [
+          82,
+          1,
+          0,
+          11
+        ]
+      ],
+      "direction": -1,
+      "matched_conjugate_control": "opposite charge and complementary background give identical exchange signs and probabilities"
+    },
+    {
+      "sign": -1,
+      "sites_in_assignment_order": [
+        8,
+        7,
+        10,
+        11,
+        4,
+        9
+      ],
+      "hops": [
+        [
+          8,
+          7
+        ],
+        [
+          11,
+          4
+        ],
+        [
+          7,
+          10
+        ],
+        [
+          4,
+          9
+        ],
+        [
+          10,
+          11
+        ],
+        [
+          9,
+          8
+        ]
+      ],
+      "starting_ports": [
+        8,
+        11
+      ],
+      "words_per_position": [
+        458,
+        778,
+        390,
+        465,
+        124,
+        554
+      ],
+      "normalization_denominator": 4439091375950400,
+      "assignments_considered": 15625,
+      "distinct_face_assignments": 9009,
+      "distinct_but_missing_endpoint_energy": 6744,
+      "resolved": {
+        "all": {
+          "counts": {
+            "positive": 1146,
+            "negative": 1119
+          },
+          "moving_vs_parked": {
+            "positive_vs_positive": 570,
+            "negative_vs_positive": 504,
+            "negative_vs_negative": 615,
+            "positive_vs_negative": 576
+          },
+          "max": {
+            "positive": {
+              "face_ids_in_site_order": [
+                7,
+                3,
+                19,
+                2,
+                8,
+                5
+              ],
+              "per_hop_numerators": [
+                193,
+                -182,
+                298,
+                98,
+                68,
+                -259
+              ],
+              "signed_numerator": 18066736626848,
+              "amplitude": 0.004069917714406126,
+              "six_read_success": 1.656423020203679e-05,
+              "parked_field_phase_with_position_checks": 1
+            },
+            "negative": {
+              "face_ids_in_site_order": [
+                7,
+                3,
+                19,
+                10,
+                8,
+                5
+              ],
+              "per_hop_numerators": [
+                -193,
+                -182,
+                298,
+                98,
+                -68,
+                259
+              ],
+              "signed_numerator": -18066736626848,
+              "amplitude": -0.004069917714406126,
+              "six_read_success": 1.656423020203679e-05,
+              "parked_field_phase_with_position_checks": -1
+            }
+          },
+          "initial_face_pairs_with_both_signs": 25,
+          "same_initial_state_examples": {
+            "initial_faces": [
+              2,
+              7
+            ],
+            "negative": {
+              "faces": [
+                7,
+                3,
+                19,
+                2,
+                8,
+                15
+              ],
+              "amplitude": -0.0019680943198574106,
+              "six_read_success": 3.873395251855004e-06
+            },
+            "positive": {
+              "faces": [
+                7,
+                3,
+                19,
+                2,
+                8,
+                5
+              ],
+              "amplitude": 0.004069917714406126,
+              "six_read_success": 1.656423020203679e-05
+            }
+          }
+        },
+        "disjoint_at_each_read": {
+          "counts": {
+            "negative": 624,
+            "positive": 570
+          },
+          "moving_vs_parked": {
+            "negative_vs_negative": 296,
+            "positive_vs_negative": 293,
+            "positive_vs_positive": 277,
+            "negative_vs_positive": 328
+          },
+          "max": {
+            "negative": {
+              "face_ids_in_site_order": [
+                7,
+                3,
+                19,
+                10,
+                8,
+                5
+              ],
+              "per_hop_numerators": [
+                -193,
+                -182,
+                298,
+                98,
+                -68,
+                259
+              ],
+              "signed_numerator": -18066736626848,
+              "amplitude": -0.004069917714406126,
+              "six_read_success": 1.656423020203679e-05,
+              "parked_field_phase_with_position_checks": -1
+            },
+            "positive": {
+              "face_ids_in_site_order": [
+                6,
+                3,
+                19,
+                17,
+                8,
+                7
+              ],
+              "per_hop_numerators": [
+                219,
+                -182,
+                298,
+                72,
+                68,
+                -291
+              ],
+              "signed_numerator": 16922563991424,
+              "amplitude": 0.0038121684277789654,
+              "six_read_success": 1.4532628121754747e-05,
+              "parked_field_phase_with_position_checks": 1
+            }
+          },
+          "initial_face_pairs_with_both_signs": 25,
+          "same_initial_state_examples": {
+            "initial_faces": [
+              7,
+              10
+            ],
+            "negative": {
+              "faces": [
+                7,
+                3,
+                19,
+                10,
+                8,
+                5
+              ],
+              "amplitude": -0.004069917714406126,
+              "six_read_success": 1.656423020203679e-05
+            },
+            "positive": {
+              "faces": [
+                7,
+                3,
+                19,
+                10,
+                8,
+                15
+              ],
+              "amplitude": 0.0019680943198574106,
+              "six_read_success": 3.873395251855004e-06
+            }
+          }
+        }
+      },
+      "uniform_or_stationary_endpoint_success": 0.0032951023458121357,
+      "position_only_accepted_words": 12,
+      "position_only_exchange_probability": 0.026200873362445413,
+      "position_only_xor_mask_with_unit_transition_amplitude": 1008205824,
+      "injection_paths": [
+        [
+          82,
+          1,
+          8
+        ],
+        [
+          20,
+          10,
+          11
+        ]
+      ],
+      "direction": 1,
+      "matched_conjugate_control": "opposite charge and complementary background give identical exchange signs and probabilities"
+    },
+    {
+      "sign": 1,
+      "sites_in_assignment_order": [
+        8,
+        7,
+        10,
+        11,
+        4,
+        9
+      ],
+      "hops": [
+        [
+          8,
+          7
+        ],
+        [
+          11,
+          4
+        ],
+        [
+          7,
+          10
+        ],
+        [
+          4,
+          9
+        ],
+        [
+          10,
+          11
+        ],
+        [
+          9,
+          8
+        ]
+      ],
+      "starting_ports": [
+        8,
+        11
+      ],
+      "words_per_position": [
+        458,
+        63,
+        38,
+        31,
+        141,
+        97
+      ],
+      "normalization_denominator": 464881394124,
+      "assignments_considered": 15625,
+      "distinct_face_assignments": 9009,
+      "distinct_but_missing_endpoint_energy": 9009,
+      "resolved": {
+        "all": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        },
+        "disjoint_at_each_read": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        }
+      },
+      "uniform_or_stationary_endpoint_success": 0.0011166927572904054,
+      "position_only_accepted_words": 12,
+      "position_only_exchange_probability": 0.026200873362445413,
+      "position_only_xor_mask_with_unit_transition_amplitude": 1008205824,
+      "injection_paths": [
+        [
+          20,
+          10,
+          7,
+          8
+        ],
+        [
+          82,
+          1,
+          0,
+          11
+        ]
+      ],
+      "direction": 1,
+      "matched_conjugate_control": "opposite charge and complementary background give identical exchange signs and probabilities"
+    },
+    {
+      "sign": -1,
+      "sites_in_assignment_order": [
+        7,
+        8,
+        9,
+        4,
+        11,
+        10
+      ],
+      "hops": [
+        [
+          7,
+          8
+        ],
+        [
+          4,
+          11
+        ],
+        [
+          8,
+          9
+        ],
+        [
+          11,
+          10
+        ],
+        [
+          9,
+          4
+        ],
+        [
+          10,
+          7
+        ]
+      ],
+      "starting_ports": [
+        4,
+        7
+      ],
+      "words_per_position": [
+        458,
+        63,
+        38,
+        92,
+        39,
+        326
+      ],
+      "normalization_denominator": 1282506746976,
+      "assignments_considered": 15625,
+      "distinct_face_assignments": 9009,
+      "distinct_but_missing_endpoint_energy": 9009,
+      "resolved": {
+        "all": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        },
+        "disjoint_at_each_read": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        }
+      },
+      "uniform_or_stationary_endpoint_success": 0.000880278275769331,
+      "position_only_accepted_words": 12,
+      "position_only_exchange_probability": 0.026200873362445413,
+      "position_only_xor_mask_with_unit_transition_amplitude": 1008205824,
+      "injection_paths": [
+        [
+          82,
+          1,
+          7
+        ],
+        [
+          20,
+          10,
+          11,
+          4
+        ]
+      ],
+      "direction": -1,
+      "matched_conjugate_control": "opposite charge and complementary background give identical exchange signs and probabilities"
+    },
+    {
+      "sign": 1,
+      "sites_in_assignment_order": [
+        7,
+        8,
+        9,
+        4,
+        11,
+        10
+      ],
+      "hops": [
+        [
+          7,
+          8
+        ],
+        [
+          4,
+          11
+        ],
+        [
+          8,
+          9
+        ],
+        [
+          11,
+          10
+        ],
+        [
+          9,
+          4
+        ],
+        [
+          10,
+          7
+        ]
+      ],
+      "starting_ports": [
+        4,
+        7
+      ],
+      "words_per_position": [
+        458,
+        778,
+        390,
+        168,
+        441,
+        195
+      ],
+      "normalization_denominator": 2007669237537600,
+      "assignments_considered": 15625,
+      "distinct_face_assignments": 9009,
+      "distinct_but_missing_endpoint_energy": 9009,
+      "resolved": {
+        "all": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        },
+        "disjoint_at_each_read": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        }
+      },
+      "uniform_or_stationary_endpoint_success": 0.004220731163050083,
+      "position_only_accepted_words": 12,
+      "position_only_exchange_probability": 0.026200873362445413,
+      "position_only_xor_mask_with_unit_transition_amplitude": 1008205824,
+      "injection_paths": [
+        [
+          20,
+          10,
+          7
+        ],
+        [
+          48,
+          3,
+          4
+        ]
+      ],
+      "direction": -1,
+      "matched_conjugate_control": "opposite charge and complementary background give identical exchange signs and probabilities"
+    },
+    {
+      "sign": -1,
+      "sites_in_assignment_order": [
+        7,
+        10,
+        11,
+        4,
+        9,
+        8
+      ],
+      "hops": [
+        [
+          7,
+          10
+        ],
+        [
+          4,
+          9
+        ],
+        [
+          10,
+          11
+        ],
+        [
+          9,
+          8
+        ],
+        [
+          11,
+          4
+        ],
+        [
+          8,
+          7
+        ]
+      ],
+      "starting_ports": [
+        4,
+        7
+      ],
+      "words_per_position": [
+        458,
+        326,
+        39,
+        92,
+        38,
+        63
+      ],
+      "normalization_denominator": 1282506746976,
+      "assignments_considered": 15625,
+      "distinct_face_assignments": 9009,
+      "distinct_but_missing_endpoint_energy": 9009,
+      "resolved": {
+        "all": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        },
+        "disjoint_at_each_read": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        }
+      },
+      "uniform_or_stationary_endpoint_success": 0.000880278275769331,
+      "position_only_accepted_words": 12,
+      "position_only_exchange_probability": 0.026200873362445413,
+      "position_only_xor_mask_with_unit_transition_amplitude": 1008205824,
+      "injection_paths": [
+        [
+          82,
+          1,
+          7
+        ],
+        [
+          20,
+          10,
+          11,
+          4
+        ]
+      ],
+      "direction": 1,
+      "matched_conjugate_control": "opposite charge and complementary background give identical exchange signs and probabilities"
+    },
+    {
+      "sign": 1,
+      "sites_in_assignment_order": [
+        7,
+        10,
+        11,
+        4,
+        9,
+        8
+      ],
+      "hops": [
+        [
+          7,
+          10
+        ],
+        [
+          4,
+          9
+        ],
+        [
+          10,
+          11
+        ],
+        [
+          9,
+          8
+        ],
+        [
+          11,
+          4
+        ],
+        [
+          8,
+          7
+        ]
+      ],
+      "starting_ports": [
+        4,
+        7
+      ],
+      "words_per_position": [
+        458,
+        195,
+        441,
+        168,
+        390,
+        778
+      ],
+      "normalization_denominator": 2007669237537600,
+      "assignments_considered": 15625,
+      "distinct_face_assignments": 9009,
+      "distinct_but_missing_endpoint_energy": 9009,
+      "resolved": {
+        "all": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        },
+        "disjoint_at_each_read": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        }
+      },
+      "uniform_or_stationary_endpoint_success": 0.004220731163050083,
+      "position_only_accepted_words": 12,
+      "position_only_exchange_probability": 0.026200873362445413,
+      "position_only_xor_mask_with_unit_transition_amplitude": 1008205824,
+      "injection_paths": [
+        [
+          20,
+          10,
+          7
+        ],
+        [
+          48,
+          3,
+          4
+        ]
+      ],
+      "direction": 1,
+      "matched_conjugate_control": "opposite charge and complementary background give identical exchange signs and probabilities"
+    },
+    {
+      "sign": -1,
+      "sites_in_assignment_order": [
+        10,
+        7,
+        8,
+        9,
+        4,
+        11
+      ],
+      "hops": [
+        [
+          10,
+          7
+        ],
+        [
+          9,
+          4
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          4,
+          11
+        ],
+        [
+          8,
+          9
+        ],
+        [
+          11,
+          10
+        ]
+      ],
+      "starting_ports": [
+        9,
+        10
+      ],
+      "words_per_position": [
+        458,
+        195,
+        441,
+        118,
+        141,
+        572
+      ],
+      "normalization_denominator": 374831281384560,
+      "assignments_considered": 15625,
+      "distinct_face_assignments": 9009,
+      "distinct_but_missing_endpoint_energy": 9009,
+      "resolved": {
+        "all": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        },
+        "disjoint_at_each_read": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        }
+      },
+      "uniform_or_stationary_endpoint_success": 0.002517509353062023,
+      "position_only_accepted_words": 12,
+      "position_only_exchange_probability": 0.026200873362445413,
+      "position_only_xor_mask_with_unit_transition_amplitude": 1008205824,
+      "injection_paths": [
+        [
+          20,
+          10
+        ],
+        [
+          82,
+          1,
+          9
+        ]
+      ],
+      "direction": -1,
+      "matched_conjugate_control": "opposite charge and complementary background give identical exchange signs and probabilities"
+    },
+    {
+      "sign": 1,
+      "sites_in_assignment_order": [
+        10,
+        7,
+        8,
+        9,
+        4,
+        11
+      ],
+      "hops": [
+        [
+          10,
+          7
+        ],
+        [
+          9,
+          4
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          4,
+          11
+        ],
+        [
+          8,
+          9
+        ],
+        [
+          11,
+          10
+        ]
+      ],
+      "starting_ports": [
+        9,
+        10
+      ],
+      "words_per_position": [
+        458,
+        326,
+        39,
+        124,
+        124,
+        85
+      ],
+      "normalization_denominator": 7610443763520,
+      "assignments_considered": 15625,
+      "distinct_face_assignments": 9009,
+      "distinct_but_missing_endpoint_energy": 9009,
+      "resolved": {
+        "all": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        },
+        "disjoint_at_each_read": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        }
+      },
+      "uniform_or_stationary_endpoint_success": 0.0016059785924104108,
+      "position_only_accepted_words": 12,
+      "position_only_exchange_probability": 0.026200873362445413,
+      "position_only_xor_mask_with_unit_transition_amplitude": 1008205824,
+      "injection_paths": [
+        [
+          20,
+          10
+        ],
+        [
+          48,
+          3,
+          9
+        ]
+      ],
+      "direction": -1,
+      "matched_conjugate_control": "opposite charge and complementary background give identical exchange signs and probabilities"
+    },
+    {
+      "sign": -1,
+      "sites_in_assignment_order": [
+        10,
+        11,
+        4,
+        9,
+        8,
+        7
+      ],
+      "hops": [
+        [
+          10,
+          11
+        ],
+        [
+          9,
+          8
+        ],
+        [
+          11,
+          4
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          4,
+          9
+        ],
+        [
+          7,
+          10
+        ]
+      ],
+      "starting_ports": [
+        9,
+        10
+      ],
+      "words_per_position": [
+        458,
+        572,
+        141,
+        118,
+        441,
+        195
+      ],
+      "normalization_denominator": 374831281384560,
+      "assignments_considered": 15625,
+      "distinct_face_assignments": 9009,
+      "distinct_but_missing_endpoint_energy": 9009,
+      "resolved": {
+        "all": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        },
+        "disjoint_at_each_read": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        }
+      },
+      "uniform_or_stationary_endpoint_success": 0.002517509353062023,
+      "position_only_accepted_words": 12,
+      "position_only_exchange_probability": 0.026200873362445413,
+      "position_only_xor_mask_with_unit_transition_amplitude": 1008205824,
+      "injection_paths": [
+        [
+          20,
+          10
+        ],
+        [
+          82,
+          1,
+          9
+        ]
+      ],
+      "direction": 1,
+      "matched_conjugate_control": "opposite charge and complementary background give identical exchange signs and probabilities"
+    },
+    {
+      "sign": 1,
+      "sites_in_assignment_order": [
+        10,
+        11,
+        4,
+        9,
+        8,
+        7
+      ],
+      "hops": [
+        [
+          10,
+          11
+        ],
+        [
+          9,
+          8
+        ],
+        [
+          11,
+          4
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          4,
+          9
+        ],
+        [
+          7,
+          10
+        ]
+      ],
+      "starting_ports": [
+        9,
+        10
+      ],
+      "words_per_position": [
+        458,
+        85,
+        124,
+        124,
+        39,
+        326
+      ],
+      "normalization_denominator": 7610443763520,
+      "assignments_considered": 15625,
+      "distinct_face_assignments": 9009,
+      "distinct_but_missing_endpoint_energy": 9009,
+      "resolved": {
+        "all": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        },
+        "disjoint_at_each_read": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        }
+      },
+      "uniform_or_stationary_endpoint_success": 0.0016059785924104108,
+      "position_only_accepted_words": 12,
+      "position_only_exchange_probability": 0.026200873362445413,
+      "position_only_xor_mask_with_unit_transition_amplitude": 1008205824,
+      "injection_paths": [
+        [
+          20,
+          10
+        ],
+        [
+          48,
+          3,
+          9
+        ]
+      ],
+      "direction": 1,
+      "matched_conjugate_control": "opposite charge and complementary background give identical exchange signs and probabilities"
+    },
+    {
+      "sign": -1,
+      "sites_in_assignment_order": [
+        11,
+        10,
+        7,
+        8,
+        9,
+        4
+      ],
+      "hops": [
+        [
+          11,
+          10
+        ],
+        [
+          8,
+          9
+        ],
+        [
+          10,
+          7
+        ],
+        [
+          9,
+          4
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          4,
+          11
+        ]
+      ],
+      "starting_ports": [
+        8,
+        11
+      ],
+      "words_per_position": [
+        458,
+        85,
+        124,
+        95,
+        390,
+        210
+      ],
+      "normalization_denominator": 37558963260000,
+      "assignments_considered": 15625,
+      "distinct_face_assignments": 9009,
+      "distinct_but_missing_endpoint_energy": 6744,
+      "resolved": {
+        "all": {
+          "counts": {
+            "positive": 1146,
+            "negative": 1119
+          },
+          "moving_vs_parked": {
+            "positive_vs_positive": 570,
+            "negative_vs_positive": 504,
+            "negative_vs_negative": 615,
+            "positive_vs_negative": 576
+          },
+          "max": {
+            "positive": {
+              "face_ids_in_site_order": [
+                2,
+                19,
+                3,
+                7,
+                5,
+                8
+              ],
+              "per_hop_numerators": [
+                -47,
+                45,
+                -76,
+                -73,
+                103,
+                -92
+              ],
+              "signed_numerator": 111191573520,
+              "amplitude": 0.002960453747093125,
+              "six_read_success": 8.764286388677722e-06,
+              "parked_field_phase_with_position_checks": 1
+            },
+            "negative": {
+              "face_ids_in_site_order": [
+                10,
+                19,
+                3,
+                7,
+                5,
+                8
+              ],
+              "per_hop_numerators": [
+                -47,
+                45,
+                -76,
+                -73,
+                103,
+                92
+              ],
+              "signed_numerator": -111191573520,
+              "amplitude": -0.002960453747093125,
+              "six_read_success": 8.764286388677722e-06,
+              "parked_field_phase_with_position_checks": -1
+            }
+          },
+          "initial_face_pairs_with_both_signs": 25,
+          "same_initial_state_examples": {
+            "initial_faces": [
+              2,
+              7
+            ],
+            "negative": {
+              "faces": [
+                2,
+                19,
+                3,
+                7,
+                15,
+                8
+              ],
+              "amplitude": -0.002239490886309411,
+              "six_read_success": 5.015319429862911e-06
+            },
+            "positive": {
+              "faces": [
+                2,
+                19,
+                3,
+                7,
+                5,
+                8
+              ],
+              "amplitude": 0.002960453747093125,
+              "six_read_success": 8.764286388677722e-06
+            }
+          }
+        },
+        "disjoint_at_each_read": {
+          "counts": {
+            "negative": 109,
+            "positive": 106
+          },
+          "moving_vs_parked": {
+            "negative_vs_positive": 64,
+            "positive_vs_negative": 46,
+            "positive_vs_positive": 60,
+            "negative_vs_negative": 45
+          },
+          "max": {
+            "negative": {
+              "face_ids_in_site_order": [
+                10,
+                19,
+                3,
+                7,
+                5,
+                8
+              ],
+              "per_hop_numerators": [
+                -47,
+                45,
+                -76,
+                -73,
+                103,
+                92
+              ],
+              "signed_numerator": -111191573520,
+              "amplitude": -0.002960453747093125,
+              "six_read_success": 8.764286388677722e-06,
+              "parked_field_phase_with_position_checks": -1
+            },
+            "positive": {
+              "face_ids_in_site_order": [
+                2,
+                19,
+                3,
+                7,
+                5,
+                8
+              ],
+              "per_hop_numerators": [
+                -47,
+                45,
+                -76,
+                -73,
+                103,
+                -92
+              ],
+              "signed_numerator": 111191573520,
+              "amplitude": 0.002960453747093125,
+              "six_read_success": 8.764286388677722e-06,
+              "parked_field_phase_with_position_checks": 1
+            }
+          },
+          "initial_face_pairs_with_both_signs": 15,
+          "same_initial_state_examples": {
+            "initial_faces": [
+              2,
+              7
+            ],
+            "negative": {
+              "faces": [
+                2,
+                19,
+                3,
+                7,
+                15,
+                8
+              ],
+              "amplitude": -0.002239490886309411,
+              "six_read_success": 5.015319429862911e-06
+            },
+            "positive": {
+              "faces": [
+                2,
+                19,
+                3,
+                7,
+                5,
+                8
+              ],
+              "amplitude": 0.002960453747093125,
+              "six_read_success": 8.764286388677722e-06
+            }
+          }
+        }
+      },
+      "uniform_or_stationary_endpoint_success": 0.0020313455096141846,
+      "position_only_accepted_words": 12,
+      "position_only_exchange_probability": 0.026200873362445413,
+      "position_only_xor_mask_with_unit_transition_amplitude": 1008205824,
+      "injection_paths": [
+        [
+          20,
+          10,
+          11
+        ],
+        [
+          82,
+          1,
+          8
+        ]
+      ],
+      "direction": -1,
+      "matched_conjugate_control": "opposite charge and complementary background give identical exchange signs and probabilities"
+    },
+    {
+      "sign": 1,
+      "sites_in_assignment_order": [
+        11,
+        10,
+        7,
+        8,
+        9,
+        4
+      ],
+      "hops": [
+        [
+          11,
+          10
+        ],
+        [
+          8,
+          9
+        ],
+        [
+          10,
+          7
+        ],
+        [
+          9,
+          4
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          4,
+          11
+        ]
+      ],
+      "starting_ports": [
+        8,
+        11
+      ],
+      "words_per_position": [
+        458,
+        572,
+        141,
+        148,
+        38,
+        248
+      ],
+      "normalization_denominator": 51520208543232,
+      "assignments_considered": 15625,
+      "distinct_face_assignments": 9009,
+      "distinct_but_missing_endpoint_energy": 9009,
+      "resolved": {
+        "all": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        },
+        "disjoint_at_each_read": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        }
+      },
+      "uniform_or_stationary_endpoint_success": 0.001736793220264008,
+      "position_only_accepted_words": 12,
+      "position_only_exchange_probability": 0.026200873362445413,
+      "position_only_xor_mask_with_unit_transition_amplitude": 1008205824,
+      "injection_paths": [
+        [
+          82,
+          1,
+          0,
+          11
+        ],
+        [
+          20,
+          10,
+          7,
+          8
+        ]
+      ],
+      "direction": -1,
+      "matched_conjugate_control": "opposite charge and complementary background give identical exchange signs and probabilities"
+    },
+    {
+      "sign": -1,
+      "sites_in_assignment_order": [
+        11,
+        4,
+        9,
+        8,
+        7,
+        10
+      ],
+      "hops": [
+        [
+          11,
+          4
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          4,
+          9
+        ],
+        [
+          7,
+          10
+        ],
+        [
+          9,
+          8
+        ],
+        [
+          10,
+          11
+        ]
+      ],
+      "starting_ports": [
+        8,
+        11
+      ],
+      "words_per_position": [
+        458,
+        210,
+        390,
+        95,
+        124,
+        85
+      ],
+      "normalization_denominator": 37558963260000,
+      "assignments_considered": 15625,
+      "distinct_face_assignments": 9009,
+      "distinct_but_missing_endpoint_energy": 6744,
+      "resolved": {
+        "all": {
+          "counts": {
+            "positive": 1146,
+            "negative": 1119
+          },
+          "moving_vs_parked": {
+            "positive_vs_positive": 570,
+            "negative_vs_positive": 504,
+            "negative_vs_negative": 615,
+            "positive_vs_negative": 576
+          },
+          "max": {
+            "positive": {
+              "face_ids_in_site_order": [
+                2,
+                8,
+                5,
+                7,
+                3,
+                19
+              ],
+              "per_hop_numerators": [
+                -92,
+                103,
+                -73,
+                -76,
+                45,
+                -47
+              ],
+              "signed_numerator": 111191573520,
+              "amplitude": 0.002960453747093125,
+              "six_read_success": 8.764286388677722e-06,
+              "parked_field_phase_with_position_checks": 1
+            },
+            "negative": {
+              "face_ids_in_site_order": [
+                10,
+                8,
+                5,
+                7,
+                3,
+                19
+              ],
+              "per_hop_numerators": [
+                92,
+                103,
+                -73,
+                -76,
+                45,
+                -47
+              ],
+              "signed_numerator": -111191573520,
+              "amplitude": -0.002960453747093125,
+              "six_read_success": 8.764286388677722e-06,
+              "parked_field_phase_with_position_checks": -1
+            }
+          },
+          "initial_face_pairs_with_both_signs": 25,
+          "same_initial_state_examples": {
+            "initial_faces": [
+              2,
+              7
+            ],
+            "negative": {
+              "faces": [
+                2,
+                8,
+                15,
+                7,
+                3,
+                19
+              ],
+              "amplitude": -0.002239490886309411,
+              "six_read_success": 5.015319429862911e-06
+            },
+            "positive": {
+              "faces": [
+                2,
+                8,
+                5,
+                7,
+                3,
+                19
+              ],
+              "amplitude": 0.002960453747093125,
+              "six_read_success": 8.764286388677722e-06
+            }
+          }
+        },
+        "disjoint_at_each_read": {
+          "counts": {
+            "positive": 106,
+            "negative": 109
+          },
+          "moving_vs_parked": {
+            "positive_vs_positive": 60,
+            "negative_vs_positive": 64,
+            "negative_vs_negative": 45,
+            "positive_vs_negative": 46
+          },
+          "max": {
+            "positive": {
+              "face_ids_in_site_order": [
+                2,
+                8,
+                5,
+                7,
+                3,
+                19
+              ],
+              "per_hop_numerators": [
+                -92,
+                103,
+                -73,
+                -76,
+                45,
+                -47
+              ],
+              "signed_numerator": 111191573520,
+              "amplitude": 0.002960453747093125,
+              "six_read_success": 8.764286388677722e-06,
+              "parked_field_phase_with_position_checks": 1
+            },
+            "negative": {
+              "face_ids_in_site_order": [
+                10,
+                8,
+                5,
+                7,
+                3,
+                19
+              ],
+              "per_hop_numerators": [
+                92,
+                103,
+                -73,
+                -76,
+                45,
+                -47
+              ],
+              "signed_numerator": -111191573520,
+              "amplitude": -0.002960453747093125,
+              "six_read_success": 8.764286388677722e-06,
+              "parked_field_phase_with_position_checks": -1
+            }
+          },
+          "initial_face_pairs_with_both_signs": 15,
+          "same_initial_state_examples": {
+            "initial_faces": [
+              2,
+              7
+            ],
+            "negative": {
+              "faces": [
+                2,
+                8,
+                15,
+                7,
+                3,
+                19
+              ],
+              "amplitude": -0.002239490886309411,
+              "six_read_success": 5.015319429862911e-06
+            },
+            "positive": {
+              "faces": [
+                2,
+                8,
+                5,
+                7,
+                3,
+                19
+              ],
+              "amplitude": 0.002960453747093125,
+              "six_read_success": 8.764286388677722e-06
+            }
+          }
+        }
+      },
+      "uniform_or_stationary_endpoint_success": 0.0020313455096141846,
+      "position_only_accepted_words": 12,
+      "position_only_exchange_probability": 0.026200873362445413,
+      "position_only_xor_mask_with_unit_transition_amplitude": 1008205824,
+      "injection_paths": [
+        [
+          20,
+          10,
+          11
+        ],
+        [
+          82,
+          1,
+          8
+        ]
+      ],
+      "direction": 1,
+      "matched_conjugate_control": "opposite charge and complementary background give identical exchange signs and probabilities"
+    },
+    {
+      "sign": 1,
+      "sites_in_assignment_order": [
+        11,
+        4,
+        9,
+        8,
+        7,
+        10
+      ],
+      "hops": [
+        [
+          11,
+          4
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          4,
+          9
+        ],
+        [
+          7,
+          10
+        ],
+        [
+          9,
+          8
+        ],
+        [
+          10,
+          11
+        ]
+      ],
+      "starting_ports": [
+        8,
+        11
+      ],
+      "words_per_position": [
+        458,
+        248,
+        38,
+        148,
+        141,
+        572
+      ],
+      "normalization_denominator": 51520208543232,
+      "assignments_considered": 15625,
+      "distinct_face_assignments": 9009,
+      "distinct_but_missing_endpoint_energy": 9009,
+      "resolved": {
+        "all": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        },
+        "disjoint_at_each_read": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        }
+      },
+      "uniform_or_stationary_endpoint_success": 0.001736793220264008,
+      "position_only_accepted_words": 12,
+      "position_only_exchange_probability": 0.026200873362445413,
+      "position_only_xor_mask_with_unit_transition_amplitude": 1008205824,
+      "injection_paths": [
+        [
+          82,
+          1,
+          0,
+          11
+        ],
+        [
+          20,
+          10,
+          7,
+          8
+        ]
+      ],
+      "direction": 1,
+      "matched_conjugate_control": "opposite charge and complementary background give identical exchange signs and probabilities"
+    }
+  ]
+}

@@ -32,6 +32,7 @@ REGISTRY = ROOT / "claims" / "axiom_registry.yaml"
 ACTIVE_GLOBS = [
     "Lean/EventAlgebra/NativeL2CountMoment.lean",
     "Lean/EventAlgebra/NativeBinarySource*.lean",
+    "Lean/SourceLaw/WrittenChargeSymmetry.lean",
     "README.md",
     "README_FR.md",
     "paper/*.tex",

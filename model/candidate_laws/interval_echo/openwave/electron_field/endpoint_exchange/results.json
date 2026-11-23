@@ -1,0 +1,4176 @@
+{
+  "initial_head_word": 690852833,
+  "face_ports": [
+    [
+      0,
+      1,
+      5
+    ],
+    [
+      0,
+      1,
+      7
+    ],
+    [
+      0,
+      5,
+      11
+    ],
+    [
+      0,
+      7,
+      10
+    ],
+    [
+      0,
+      10,
+      11
+    ],
+    [
+      1,
+      5,
+      9
+    ],
+    [
+      1,
+      7,
+      8
+    ],
+    [
+      1,
+      8,
+      9
+    ],
+    [
+      2,
+      3,
+      4
+    ],
+    [
+      2,
+      3,
+      6
+    ],
+    [
+      2,
+      4,
+      11
+    ],
+    [
+      2,
+      6,
+      10
+    ],
+    [
+      2,
+      10,
+      11
+    ],
+    [
+      3,
+      4,
+      9
+    ],
+    [
+      3,
+      6,
+      8
+    ],
+    [
+      3,
+      8,
+      9
+    ],
+    [
+      4,
+      5,
+      9
+    ],
+    [
+      4,
+      5,
+      11
+    ],
+    [
+      6,
+      7,
+      8
+    ],
+    [
+      6,
+      7,
+      10
+    ]
+  ],
+  "external_compensator_by_gateway": {
+    "1": 82,
+    "3": 48,
+    "10": 20
+  },
+  "fixtures": [
+    {
+      "sign": -1,
+      "sites_in_assignment_order": [
+        1,
+        10,
+        0,
+        5
+      ],
+      "hops": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          10,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          0,
+          10
+        ]
+      ],
+      "starting_ports": [
+        1,
+        10
+      ],
+      "words_per_position": [
+        458,
+        74,
+        132,
+        25,
+        161,
+        97
+      ],
+      "normalization_denominator": 1746661501200,
+      "assignments_considered": 625,
+      "distinct_face_assignments": 439,
+      "distinct_but_missing_endpoint_energy": 439,
+      "resolved": {
+        "all": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        },
+        "disjoint_at_each_read": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        }
+      },
+      "uniform_or_stationary_endpoint_success": 0.000339904062184018,
+      "position_only_accepted_words": 0,
+      "position_only_exchange_probability": 0.0,
+      "position_only_xor_mask_with_unit_transition_amplitude": 0
+    },
+    {
+      "sign": 1,
+      "sites_in_assignment_order": [
+        1,
+        10,
+        0,
+        5
+      ],
+      "hops": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          10,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          0,
+          10
+        ]
+      ],
+      "starting_ports": [
+        1,
+        10
+      ],
+      "words_per_position": [
+        458,
+        744,
+        420,
+        513,
+        256,
+        556
+      ],
+      "normalization_denominator": 10450085071749120,
+      "assignments_considered": 625,
+      "distinct_face_assignments": 439,
+      "distinct_but_missing_endpoint_energy": 0,
+      "resolved": {
+        "all": {
+          "counts": {
+            "negative": 215,
+            "positive": 224
+          },
+          "moving_vs_parked": {
+            "negative_vs_positive": 215,
+            "positive_vs_positive": 224
+          },
+          "max": {
+            "negative": {
+              "face_ids_in_site_order": [
+                1,
+                3,
+                2,
+                0
+              ],
+              "per_hop_numerators": [
+                -140,
+                -372,
+                -288,
+                196,
+                -236,
+                -289
+              ],
+              "signed_numerator": -200506926735360,
+              "amplitude": -0.019187109517166775,
+              "six_read_success": 0.0003681451716237519,
+              "parked_field_phase_with_position_checks": 1
+            },
+            "positive": {
+              "face_ids_in_site_order": [
+                6,
+                3,
+                4,
+                0
+              ],
+              "per_hop_numerators": [
+                -98,
+                -324,
+                -336,
+                -104,
+                -216,
+                -361
+              ],
+              "signed_numerator": 86517638258688,
+              "amplitude": 0.008279132434297667,
+              "six_read_success": 6.854403386463961e-05,
+              "parked_field_phase_with_position_checks": 1
+            }
+          },
+          "initial_face_pairs_with_both_signs": 25,
+          "same_initial_state_examples": {
+            "initial_faces": [
+              3,
+              6
+            ],
+            "negative": {
+              "faces": [
+                6,
+                3,
+                0,
+                2
+              ],
+              "amplitude": -0.001452287295159768,
+              "six_read_success": 2.109138387682475e-06
+            },
+            "positive": {
+              "faces": [
+                6,
+                3,
+                4,
+                0
+              ],
+              "amplitude": 0.008279132434297667,
+              "six_read_success": 6.854403386463961e-05
+            }
+          }
+        },
+        "disjoint_at_each_read": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        }
+      },
+      "uniform_or_stationary_endpoint_success": 0.008528048215092824,
+      "position_only_accepted_words": 122,
+      "position_only_exchange_probability": 0.2663755458515284,
+      "position_only_xor_mask_with_unit_transition_amplitude": 0
+    },
+    {
+      "sign": -1,
+      "sites_in_assignment_order": [
+        1,
+        10,
+        0,
+        7
+      ],
+      "hops": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          10,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          0,
+          10
+        ]
+      ],
+      "starting_ports": [
+        1,
+        10
+      ],
+      "words_per_position": [
+        458,
+        74,
+        131,
+        33,
+        195,
+        97
+      ],
+      "normalization_denominator": 2771333419140,
+      "assignments_considered": 625,
+      "distinct_face_assignments": 403,
+      "distinct_but_missing_endpoint_energy": 403,
+      "resolved": {
+        "all": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        },
+        "disjoint_at_each_read": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        }
+      },
+      "uniform_or_stationary_endpoint_success": 0.00040991330763750225,
+      "position_only_accepted_words": 0,
+      "position_only_exchange_probability": 0.0,
+      "position_only_xor_mask_with_unit_transition_amplitude": 0
+    },
+    {
+      "sign": 1,
+      "sites_in_assignment_order": [
+        1,
+        10,
+        0,
+        7
+      ],
+      "hops": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          10,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          0,
+          10
+        ]
+      ],
+      "starting_ports": [
+        1,
+        10
+      ],
+      "words_per_position": [
+        458,
+        744,
+        424,
+        616,
+        326,
+        556
+      ],
+      "normalization_denominator": 16131597373022208,
+      "assignments_considered": 625,
+      "distinct_face_assignments": 403,
+      "distinct_but_missing_endpoint_energy": 0,
+      "resolved": {
+        "all": {
+          "counts": {
+            "positive": 204,
+            "negative": 199
+          },
+          "moving_vs_parked": {
+            "positive_vs_positive": 204,
+            "negative_vs_positive": 199
+          },
+          "max": {
+            "positive": {
+              "face_ids_in_site_order": [
+                0,
+                4,
+                3,
+                18
+              ],
+              "per_hop_numerators": [
+                -126,
+                119,
+                357,
+                -200,
+                -116,
+                -361
+              ],
+              "signed_numerator": 44831256321600,
+              "amplitude": 0.0027790959125085697,
+              "six_read_success": 7.72337409092184e-06,
+              "parked_field_phase_with_position_checks": 1
+            },
+            "negative": {
+              "face_ids_in_site_order": [
+                0,
+                4,
+                3,
+                1
+              ],
+              "per_hop_numerators": [
+                -126,
+                369,
+                357,
+                200,
+                -284,
+                -361
+              ],
+              "signed_numerator": -340346011118400,
+              "amplitude": -0.02109809730855173,
+              "six_read_success": 0.00044512971004111775,
+              "parked_field_phase_with_position_checks": 1
+            }
+          },
+          "initial_face_pairs_with_both_signs": 25,
+          "same_initial_state_examples": {
+            "initial_faces": [
+              0,
+              4
+            ],
+            "negative": {
+              "faces": [
+                0,
+                4,
+                3,
+                1
+              ],
+              "amplitude": -0.02109809730855173,
+              "six_read_success": 0.00044512971004111775
+            },
+            "positive": {
+              "faces": [
+                0,
+                4,
+                3,
+                18
+              ],
+              "amplitude": 0.0027790959125085697,
+              "six_read_success": 7.72337409092184e-06
+            }
+          }
+        },
+        "disjoint_at_each_read": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        }
+      },
+      "uniform_or_stationary_endpoint_success": 0.008336516793312976,
+      "position_only_accepted_words": 129,
+      "position_only_exchange_probability": 0.2816593886462882,
+      "position_only_xor_mask_with_unit_transition_amplitude": 0
+    },
+    {
+      "sign": -1,
+      "sites_in_assignment_order": [
+        1,
+        10,
+        0,
+        11
+      ],
+      "hops": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          11
+        ],
+        [
+          10,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          11,
+          0
+        ],
+        [
+          0,
+          10
+        ]
+      ],
+      "starting_ports": [
+        1,
+        10
+      ],
+      "words_per_position": [
+        458,
+        74,
+        315,
+        92,
+        572,
+        97
+      ],
+      "normalization_denominator": 54495838837440,
+      "assignments_considered": 625,
+      "distinct_face_assignments": 439,
+      "distinct_but_missing_endpoint_energy": 439,
+      "resolved": {
+        "all": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        },
+        "disjoint_at_each_read": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        }
+      },
+      "uniform_or_stationary_endpoint_success": 6.403810051914075e-05,
+      "position_only_accepted_words": 0,
+      "position_only_exchange_probability": 0.0,
+      "position_only_xor_mask_with_unit_transition_amplitude": 0
+    },
+    {
+      "sign": 1,
+      "sites_in_assignment_order": [
+        1,
+        10,
+        0,
+        11
+      ],
+      "hops": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          11
+        ],
+        [
+          10,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          11,
+          0
+        ],
+        [
+          0,
+          10
+        ]
+      ],
+      "starting_ports": [
+        1,
+        10
+      ],
+      "words_per_position": [
+        458,
+        744,
+        103,
+        151,
+        85,
+        556
+      ],
+      "normalization_denominator": 250464571354560,
+      "assignments_considered": 625,
+      "distinct_face_assignments": 439,
+      "distinct_but_missing_endpoint_energy": 439,
+      "resolved": {
+        "all": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        },
+        "disjoint_at_each_read": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        }
+      },
+      "uniform_or_stationary_endpoint_success": 0.0010937091844335993,
+      "position_only_accepted_words": 36,
+      "position_only_exchange_probability": 0.07860262008733625,
+      "position_only_xor_mask_with_unit_transition_amplitude": 0
+    },
+    {
+      "sign": -1,
+      "sites_in_assignment_order": [
+        3,
+        10,
+        2,
+        4
+      ],
+      "hops": [
+        [
+          3,
+          2
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          10,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          2,
+          10
+        ]
+      ],
+      "starting_ports": [
+        3,
+        10
+      ],
+      "words_per_position": [
+        458,
+        413,
+        1138,
+        449,
+        437,
+        166
+      ],
+      "normalization_denominator": 7011221016988216,
+      "assignments_considered": 625,
+      "distinct_face_assignments": 439,
+      "distinct_but_missing_endpoint_energy": 0,
+      "resolved": {
+        "all": {
+          "counts": {
+            "negative": 282,
+            "positive": 157
+          },
+          "moving_vs_parked": {
+            "negative_vs_positive": 282,
+            "positive_vs_positive": 157
+          },
+          "max": {
+            "negative": {
+              "face_ids_in_site_order": [
+                9,
+                11,
+                8,
+                10
+              ],
+              "per_hop_numerators": [
+                321,
+                -388,
+                -201,
+                -314,
+                -160,
+                -136
+              ],
+              "signed_numerator": -171049320990720,
+              "amplitude": -0.024396509620259698,
+              "six_read_success": 0.000595189681651424,
+              "parked_field_phase_with_position_checks": 1
+            },
+            "positive": {
+              "face_ids_in_site_order": [
+                14,
+                11,
+                10,
+                8
+              ],
+              "per_hop_numerators": [
+                55,
+                -388,
+                -359,
+                -80,
+                160,
+                -148
+              ],
+              "signed_numerator": 14513112064000,
+              "amplitude": 0.002069983534798671,
+              "six_read_success": 4.2848318343376e-06,
+              "parked_field_phase_with_position_checks": 1
+            }
+          },
+          "initial_face_pairs_with_both_signs": 25,
+          "same_initial_state_examples": {
+            "initial_faces": [
+              11,
+              13
+            ],
+            "negative": {
+              "faces": [
+                13,
+                11,
+                8,
+                10
+              ],
+              "amplitude": -0.008940594403964053,
+              "six_read_success": 7.993422829619333e-05
+            },
+            "positive": {
+              "faces": [
+                13,
+                11,
+                12,
+                8
+              ],
+              "amplitude": 0.0017563919424707956,
+              "six_read_success": 3.0849126555763345e-06
+            }
+          }
+        },
+        "disjoint_at_each_read": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        }
+      },
+      "uniform_or_stationary_endpoint_success": 0.0035797563920111145,
+      "position_only_accepted_words": 79,
+      "position_only_exchange_probability": 0.17248908296943233,
+      "position_only_xor_mask_with_unit_transition_amplitude": 0
+    },
+    {
+      "sign": 1,
+      "sites_in_assignment_order": [
+        3,
+        10,
+        2,
+        4
+      ],
+      "hops": [
+        [
+          3,
+          2
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          10,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          2,
+          10
+        ]
+      ],
+      "starting_ports": [
+        3,
+        10
+      ],
+      "words_per_position": [
+        458,
+        143,
+        37,
+        28,
+        85,
+        362
+      ],
+      "normalization_denominator": 2087799393680,
+      "assignments_considered": 625,
+      "distinct_face_assignments": 439,
+      "distinct_but_missing_endpoint_energy": 439,
+      "resolved": {
+        "all": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        },
+        "disjoint_at_each_read": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        }
+      },
+      "uniform_or_stationary_endpoint_success": 0.0023247141182807275,
+      "position_only_accepted_words": 28,
+      "position_only_exchange_probability": 0.0611353711790393,
+      "position_only_xor_mask_with_unit_transition_amplitude": 0
+    },
+    {
+      "sign": -1,
+      "sites_in_assignment_order": [
+        3,
+        10,
+        2,
+        6
+      ],
+      "hops": [
+        [
+          3,
+          2
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          10,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          2,
+          10
+        ]
+      ],
+      "starting_ports": [
+        3,
+        10
+      ],
+      "words_per_position": [
+        458,
+        413,
+        255,
+        108,
+        106,
+        166
+      ],
+      "normalization_denominator": 91662863211360,
+      "assignments_considered": 625,
+      "distinct_face_assignments": 403,
+      "distinct_but_missing_endpoint_energy": 0,
+      "resolved": {
+        "all": {
+          "counts": {
+            "positive": 184,
+            "negative": 219
+          },
+          "moving_vs_parked": {
+            "positive_vs_positive": 184,
+            "negative_vs_positive": 219
+          },
+          "max": {
+            "positive": {
+              "face_ids_in_site_order": [
+                9,
+                11,
+                8,
+                19
+              ],
+              "per_hop_numerators": [
+                321,
+                59,
+                -93,
+                88,
+                55,
+                -136
+              ],
+              "signed_numerator": 1159375884480,
+              "amplitude": 0.01264826172630745,
+              "six_read_success": 0.00015997852469717394,
+              "parked_field_phase_with_position_checks": 1
+            },
+            "negative": {
+              "face_ids_in_site_order": [
+                8,
+                12,
+                11,
+                9
+              ],
+              "per_hop_numerators": [
+                63,
+                -221,
+                -105,
+                70,
+                97,
+                -160
+              ],
+              "signed_numerator": -1588224456000,
+              "amplitude": -0.017326803902446366,
+              "six_read_success": 0.00030021813347383067,
+              "parked_field_phase_with_position_checks": 1
+            }
+          },
+          "initial_face_pairs_with_both_signs": 25,
+          "same_initial_state_examples": {
+            "initial_faces": [
+              9,
+              12
+            ],
+            "negative": {
+              "faces": [
+                9,
+                12,
+                11,
+                19
+              ],
+              "amplitude": -0.01198901349465816,
+              "six_read_success": 0.00014373644457509545
+            },
+            "positive": {
+              "faces": [
+                9,
+                12,
+                8,
+                19
+              ],
+              "amplitude": 0.01264826172630745,
+              "six_read_success": 0.00015997852469717394
+            }
+          }
+        },
+        "disjoint_at_each_read": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        }
+      },
+      "uniform_or_stationary_endpoint_success": 0.012317856793067137,
+      "position_only_accepted_words": 79,
+      "position_only_exchange_probability": 0.17248908296943233,
+      "position_only_xor_mask_with_unit_transition_amplitude": 0
+    },
+    {
+      "sign": 1,
+      "sites_in_assignment_order": [
+        3,
+        10,
+        2,
+        6
+      ],
+      "hops": [
+        [
+          3,
+          2
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          10,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          2,
+          10
+        ]
+      ],
+      "starting_ports": [
+        3,
+        10
+      ],
+      "words_per_position": [
+        458,
+        143,
+        266,
+        237,
+        611,
+        362
+      ],
+      "normalization_denominator": 913232332148136,
+      "assignments_considered": 625,
+      "distinct_face_assignments": 403,
+      "distinct_but_missing_endpoint_energy": 0,
+      "resolved": {
+        "all": {
+          "counts": {
+            "negative": 207,
+            "positive": 196
+          },
+          "moving_vs_parked": {
+            "negative_vs_positive": 207,
+            "positive_vs_positive": 196
+          },
+          "max": {
+            "negative": {
+              "face_ids_in_site_order": [
+                8,
+                12,
+                11,
+                9
+              ],
+              "per_hop_numerators": [
+                -113,
+                131,
+                181,
+                -111,
+                -312,
+                298
+              ],
+              "signed_numerator": -27651720019248,
+              "amplitude": -0.030278954265892763,
+              "six_read_success": 0.0009168150714360256,
+              "parked_field_phase_with_position_checks": 1
+            },
+            "positive": {
+              "face_ids_in_site_order": [
+                8,
+                12,
+                11,
+                18
+              ],
+              "per_hop_numerators": [
+                -113,
+                35,
+                181,
+                111,
+                -126,
+                298
+              ],
+              "signed_numerator": 2983560512940,
+              "amplitude": 0.003267033380127889,
+              "six_read_success": 1.0673507106869862e-05,
+              "parked_field_phase_with_position_checks": 1
+            }
+          },
+          "initial_face_pairs_with_both_signs": 25,
+          "same_initial_state_examples": {
+            "initial_faces": [
+              8,
+              12
+            ],
+            "negative": {
+              "faces": [
+                8,
+                12,
+                11,
+                9
+              ],
+              "amplitude": -0.030278954265892763,
+              "six_read_success": 0.0009168150714360256
+            },
+            "positive": {
+              "faces": [
+                8,
+                12,
+                11,
+                18
+              ],
+              "amplitude": 0.003267033380127889,
+              "six_read_success": 1.0673507106869862e-05
+            }
+          }
+        },
+        "disjoint_at_each_read": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        }
+      },
+      "uniform_or_stationary_endpoint_success": 0.005439134019181946,
+      "position_only_accepted_words": 56,
+      "position_only_exchange_probability": 0.1222707423580786,
+      "position_only_xor_mask_with_unit_transition_amplitude": 0
+    },
+    {
+      "sign": -1,
+      "sites_in_assignment_order": [
+        3,
+        10,
+        2,
+        11
+      ],
+      "hops": [
+        [
+          3,
+          2
+        ],
+        [
+          2,
+          11
+        ],
+        [
+          10,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          11,
+          2
+        ],
+        [
+          2,
+          10
+        ]
+      ],
+      "starting_ports": [
+        3,
+        10
+      ],
+      "words_per_position": [
+        458,
+        413,
+        1099,
+        528,
+        572,
+        166
+      ],
+      "normalization_denominator": 10422004622405376,
+      "assignments_considered": 625,
+      "distinct_face_assignments": 439,
+      "distinct_but_missing_endpoint_energy": 0,
+      "resolved": {
+        "all": {
+          "counts": {
+            "positive": 218,
+            "negative": 221
+          },
+          "moving_vs_parked": {
+            "positive_vs_positive": 218,
+            "negative_vs_positive": 221
+          },
+          "max": {
+            "positive": {
+              "face_ids_in_site_order": [
+                9,
+                3,
+                8,
+                10
+              ],
+              "per_hop_numerators": [
+                321,
+                -338,
+                -108,
+                -396,
+                148,
+                -64
+              ],
+              "signed_numerator": 43952376619008,
+              "amplitude": 0.004217267043282493,
+              "six_read_success": 1.7785341314356664e-05,
+              "parked_field_phase_with_position_checks": 1
+            },
+            "negative": {
+              "face_ids_in_site_order": [
+                8,
+                11,
+                10,
+                12
+              ],
+              "per_hop_numerators": [
+                271,
+                388,
+                -316,
+                298,
+                -160,
+                -148
+              ],
+              "signed_numerator": -234469340139520,
+              "amplitude": -0.022497527935792162,
+              "six_read_success": 0.0005061387632217488,
+              "parked_field_phase_with_position_checks": 1
+            }
+          },
+          "initial_face_pairs_with_both_signs": 25,
+          "same_initial_state_examples": {
+            "initial_faces": [
+              11,
+              14
+            ],
+            "negative": {
+              "faces": [
+                14,
+                11,
+                8,
+                10
+              ],
+              "amplitude": -0.0007599128934038146,
+              "six_read_success": 5.774676055613573e-07
+            },
+            "positive": {
+              "faces": [
+                14,
+                11,
+                12,
+                10
+              ],
+              "amplitude": 0.0007209940125190367,
+              "six_read_success": 5.198323660883008e-07
+            }
+          }
+        },
+        "disjoint_at_each_read": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        }
+      },
+      "uniform_or_stationary_endpoint_success": 0.003297600034051666,
+      "position_only_accepted_words": 79,
+      "position_only_exchange_probability": 0.17248908296943233,
+      "position_only_xor_mask_with_unit_transition_amplitude": 0
+    },
+    {
+      "sign": 1,
+      "sites_in_assignment_order": [
+        3,
+        10,
+        2,
+        11
+      ],
+      "hops": [
+        [
+          3,
+          2
+        ],
+        [
+          2,
+          11
+        ],
+        [
+          10,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          11,
+          2
+        ],
+        [
+          2,
+          10
+        ]
+      ],
+      "starting_ports": [
+        3,
+        10
+      ],
+      "words_per_position": [
+        458,
+        143,
+        37,
+        28,
+        85,
+        362
+      ],
+      "normalization_denominator": 2087799393680,
+      "assignments_considered": 625,
+      "distinct_face_assignments": 439,
+      "distinct_but_missing_endpoint_energy": 439,
+      "resolved": {
+        "all": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        },
+        "disjoint_at_each_read": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        }
+      },
+      "uniform_or_stationary_endpoint_success": 0.0023247141182807275,
+      "position_only_accepted_words": 28,
+      "position_only_exchange_probability": 0.0611353711790393,
+      "position_only_xor_mask_with_unit_transition_amplitude": 0
+    },
+    {
+      "sign": -1,
+      "sites_in_assignment_order": [
+        3,
+        10,
+        6,
+        2
+      ],
+      "hops": [
+        [
+          3,
+          6
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          10,
+          6
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          6,
+          10
+        ]
+      ],
+      "starting_ports": [
+        3,
+        10
+      ],
+      "words_per_position": [
+        458,
+        255,
+        413,
+        108,
+        166,
+        106
+      ],
+      "normalization_denominator": 91662863211360,
+      "assignments_considered": 625,
+      "distinct_face_assignments": 403,
+      "distinct_but_missing_endpoint_energy": 0,
+      "resolved": {
+        "all": {
+          "counts": {
+            "positive": 182,
+            "negative": 221
+          },
+          "moving_vs_parked": {
+            "positive_vs_positive": 182,
+            "negative_vs_positive": 221
+          },
+          "max": {
+            "positive": {
+              "face_ids_in_site_order": [
+                15,
+                19,
+                11,
+                9
+              ],
+              "per_hop_numerators": [
+                91,
+                221,
+                -105,
+                -10,
+                -97,
+                -103
+              ],
+              "signed_numerator": 210975451050,
+              "amplitude": 0.0023016458755333023,
+              "six_read_success": 5.297573736359461e-06,
+              "parked_field_phase_with_position_checks": 1
+            },
+            "negative": {
+              "face_ids_in_site_order": [
+                14,
+                12,
+                9,
+                11
+              ],
+              "per_hop_numerators": [
+                223,
+                -221,
+                -53,
+                88,
+                97,
+                -79
+              ],
+              "signed_numerator": -1761385853656,
+              "amplitude": -0.019215915714901072,
+              "six_read_success": 0.00036925141676218197,
+              "parked_field_phase_with_position_checks": 1
+            }
+          },
+          "initial_face_pairs_with_both_signs": 25,
+          "same_initial_state_examples": {
+            "initial_faces": [
+              15,
+              19
+            ],
+            "negative": {
+              "faces": [
+                15,
+                19,
+                9,
+                11
+              ],
+              "amplitude": -0.007130594410659828,
+              "six_read_success": 5.084537664933318e-05
+            },
+            "positive": {
+              "faces": [
+                15,
+                19,
+                11,
+                9
+              ],
+              "amplitude": 0.0023016458755333023,
+              "six_read_success": 5.297573736359461e-06
+            }
+          }
+        },
+        "disjoint_at_each_read": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        }
+      },
+      "uniform_or_stationary_endpoint_success": 0.0024635948983619004,
+      "position_only_accepted_words": 29,
+      "position_only_exchange_probability": 0.06331877729257641,
+      "position_only_xor_mask_with_unit_transition_amplitude": 0
+    },
+    {
+      "sign": 1,
+      "sites_in_assignment_order": [
+        3,
+        10,
+        6,
+        2
+      ],
+      "hops": [
+        [
+          3,
+          6
+        ],
+        [
+          6,
+          2
+        ],
+        [
+          10,
+          6
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          6,
+          10
+        ]
+      ],
+      "starting_ports": [
+        3,
+        10
+      ],
+      "words_per_position": [
+        458,
+        266,
+        143,
+        237,
+        362,
+        611
+      ],
+      "normalization_denominator": 913232332148136,
+      "assignments_considered": 625,
+      "distinct_face_assignments": 403,
+      "distinct_but_missing_endpoint_energy": 0,
+      "resolved": {
+        "all": {
+          "counts": {
+            "positive": 261,
+            "negative": 142
+          },
+          "moving_vs_parked": {
+            "positive_vs_positive": 261,
+            "negative_vs_positive": 142
+          },
+          "max": {
+            "positive": {
+              "face_ids_in_site_order": [
+                14,
+                12,
+                9,
+                11
+              ],
+              "per_hop_numerators": [
+                -235,
+                131,
+                13,
+                -208,
+                -312,
+                -141
+              ],
+              "signed_numerator": 3662010218880,
+              "amplitude": 0.004009943680230961,
+              "six_read_success": 1.6079648318624225e-05,
+              "parked_field_phase_with_position_checks": 1
+            },
+            "negative": {
+              "face_ids_in_site_order": [
+                14,
+                19,
+                9,
+                11
+              ],
+              "per_hop_numerators": [
+                -235,
+                131,
+                -101,
+                -208,
+                -312,
+                -91
+              ],
+              "signed_numerator": -18361994501760,
+              "amplitude": -0.020106597034916948,
+              "six_read_success": 0.000404275244324531,
+              "parked_field_phase_with_position_checks": 1
+            }
+          },
+          "initial_face_pairs_with_both_signs": 25,
+          "same_initial_state_examples": {
+            "initial_faces": [
+              13,
+              19
+            ],
+            "negative": {
+              "faces": [
+                13,
+                19,
+                9,
+                11
+              ],
+              "amplitude": -0.010583934977668024,
+              "six_read_success": 0.00011201967961150466
+            },
+            "positive": {
+              "faces": [
+                13,
+                19,
+                11,
+                9
+              ],
+              "amplitude": 0.003745628192941747,
+              "six_read_success": 1.4029730559760057e-05
+            }
+          }
+        },
+        "disjoint_at_each_read": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        }
+      },
+      "uniform_or_stationary_endpoint_success": 0.00942384963905531,
+      "position_only_accepted_words": 98,
+      "position_only_exchange_probability": 0.21397379912663755,
+      "position_only_xor_mask_with_unit_transition_amplitude": 0
+    },
+    {
+      "sign": -1,
+      "sites_in_assignment_order": [
+        3,
+        10,
+        6,
+        7
+      ],
+      "hops": [
+        [
+          3,
+          6
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          10,
+          6
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          7,
+          6
+        ],
+        [
+          6,
+          10
+        ]
+      ],
+      "starting_ports": [
+        3,
+        10
+      ],
+      "words_per_position": [
+        458,
+        255,
+        394,
+        101,
+        195,
+        106
+      ],
+      "normalization_denominator": 96064677844200,
+      "assignments_considered": 625,
+      "distinct_face_assignments": 439,
+      "distinct_but_missing_endpoint_energy": 0,
+      "resolved": {
+        "all": {
+          "counts": {
+            "negative": 314,
+            "positive": 125
+          },
+          "moving_vs_parked": {
+            "negative_vs_positive": 314,
+            "positive_vs_positive": 125
+          },
+          "max": {
+            "negative": {
+              "face_ids_in_site_order": [
+                9,
+                19,
+                11,
+                18
+              ],
+              "per_hop_numerators": [
+                -155,
+                -160,
+                99,
+                -81,
+                -93,
+                -103
+              ],
+              "signed_numerator": -1904987224800,
+              "amplitude": -0.019830256734838105,
+              "six_read_success": 0.000393239082169592,
+              "parked_field_phase_with_position_checks": 1
+            },
+            "positive": {
+              "face_ids_in_site_order": [
+                8,
+                11,
+                19,
+                18
+              ],
+              "per_hop_numerators": [
+                -57,
+                -218,
+                -99,
+                11,
+                -99,
+                103
+              ],
+              "signed_numerator": 137984927058,
+              "amplitude": 0.001436375264608572,
+              "six_read_success": 2.0631739007793455e-06,
+              "parked_field_phase_with_position_checks": 1
+            }
+          },
+          "initial_face_pairs_with_both_signs": 24,
+          "same_initial_state_examples": {
+            "initial_faces": [
+              11,
+              14
+            ],
+            "negative": {
+              "faces": [
+                14,
+                11,
+                19,
+                18
+              ],
+              "amplitude": -0.01711050534507404,
+              "six_read_success": 0.00029276939316380735
+            },
+            "positive": {
+              "faces": [
+                14,
+                11,
+                9,
+                3
+              ],
+              "amplitude": 0.0014048984437222928,
+              "six_read_success": 1.9737396371733202e-06
+            }
+          }
+        },
+        "disjoint_at_each_read": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        }
+      },
+      "uniform_or_stationary_endpoint_success": 0.0022572329271375122,
+      "position_only_accepted_words": 29,
+      "position_only_exchange_probability": 0.06331877729257641,
+      "position_only_xor_mask_with_unit_transition_amplitude": 0
+    },
+    {
+      "sign": 1,
+      "sites_in_assignment_order": [
+        3,
+        10,
+        6,
+        7
+      ],
+      "hops": [
+        [
+          3,
+          6
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          10,
+          6
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          7,
+          6
+        ],
+        [
+          6,
+          10
+        ]
+      ],
+      "starting_ports": [
+        3,
+        10
+      ],
+      "words_per_position": [
+        458,
+        266,
+        115,
+        194,
+        326,
+        611
+      ],
+      "normalization_denominator": 541384098098480,
+      "assignments_considered": 625,
+      "distinct_face_assignments": 439,
+      "distinct_but_missing_endpoint_energy": 0,
+      "resolved": {
+        "all": {
+          "counts": {
+            "positive": 247,
+            "negative": 192
+          },
+          "moving_vs_parked": {
+            "positive_vs_positive": 247,
+            "negative_vs_positive": 192
+          },
+          "max": {
+            "positive": {
+              "face_ids_in_site_order": [
+                9,
+                3,
+                18,
+                19
+              ],
+              "per_hop_numerators": [
+                173,
+                -107,
+                -35,
+                119,
+                293,
+                129
+              ],
+              "signed_numerator": 2914085012055,
+              "amplitude": 0.005382657197154904,
+              "six_read_success": 2.897299850208349e-05,
+              "parked_field_phase_with_position_checks": 1
+            },
+            "negative": {
+              "face_ids_in_site_order": [
+                9,
+                11,
+                19,
+                18
+              ],
+              "per_hop_numerators": [
+                91,
+                107,
+                101,
+                113,
+                293,
+                -355
+              ],
+              "signed_numerator": -11559018549715,
+              "amplitude": -0.021350864553122444,
+              "six_read_success": 0.0004558594171657804,
+              "parked_field_phase_with_position_checks": 1
+            }
+          },
+          "initial_face_pairs_with_both_signs": 22,
+          "same_initial_state_examples": {
+            "initial_faces": [
+              4,
+              9
+            ],
+            "negative": {
+              "faces": [
+                9,
+                4,
+                19,
+                18
+              ],
+              "amplitude": -0.004827540341156426,
+              "six_read_success": 2.33051457454927e-05
+            },
+            "positive": {
+              "faces": [
+                9,
+                4,
+                18,
+                19
+              ],
+              "amplitude": 0.002883864398652871,
+              "six_read_success": 8.316673869817485e-06
+            }
+          }
+        },
+        "disjoint_at_each_read": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        }
+      },
+      "uniform_or_stationary_endpoint_success": 0.006799866604377722,
+      "position_only_accepted_words": 78,
+      "position_only_exchange_probability": 0.1703056768558952,
+      "position_only_xor_mask_with_unit_transition_amplitude": 0
+    },
+    {
+      "sign": -1,
+      "sites_in_assignment_order": [
+        3,
+        10,
+        6,
+        8
+      ],
+      "hops": [
+        [
+          3,
+          6
+        ],
+        [
+          6,
+          8
+        ],
+        [
+          10,
+          6
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          8,
+          6
+        ],
+        [
+          6,
+          10
+        ]
+      ],
+      "starting_ports": [
+        3,
+        10
+      ],
+      "words_per_position": [
+        458,
+        255,
+        132,
+        29,
+        48,
+        106
+      ],
+      "normalization_denominator": 2274702946560,
+      "assignments_considered": 625,
+      "distinct_face_assignments": 439,
+      "distinct_but_missing_endpoint_energy": 439,
+      "resolved": {
+        "all": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        },
+        "disjoint_at_each_read": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        }
+      },
+      "uniform_or_stationary_endpoint_success": 0.0028950570336259028,
+      "position_only_accepted_words": 29,
+      "position_only_exchange_probability": 0.06331877729257641,
+      "position_only_xor_mask_with_unit_transition_amplitude": 0
+    },
+    {
+      "sign": 1,
+      "sites_in_assignment_order": [
+        3,
+        10,
+        6,
+        8
+      ],
+      "hops": [
+        [
+          3,
+          6
+        ],
+        [
+          6,
+          8
+        ],
+        [
+          10,
+          6
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          8,
+          6
+        ],
+        [
+          6,
+          10
+        ]
+      ],
+      "starting_ports": [
+        3,
+        10
+      ],
+      "words_per_position": [
+        458,
+        266,
+        458,
+        611,
+        856,
+        611
+      ],
+      "normalization_denominator": 17830715794533824,
+      "assignments_considered": 625,
+      "distinct_face_assignments": 439,
+      "distinct_but_missing_endpoint_energy": 0,
+      "resolved": {
+        "all": {
+          "counts": {
+            "positive": 202,
+            "negative": 237
+          },
+          "moving_vs_parked": {
+            "positive_vs_positive": 202,
+            "negative_vs_positive": 237
+          },
+          "max": {
+            "positive": {
+              "face_ids_in_site_order": [
+                9,
+                3,
+                14,
+                18
+              ],
+              "per_hop_numerators": [
+                -235,
+                -235,
+                59,
+                -487,
+                491,
+                -45
+              ],
+              "signed_numerator": 35059902442875,
+              "amplitude": 0.0019662644420378765,
+              "six_read_success": 3.8661958560225215e-06,
+              "parked_field_phase_with_position_checks": 1
+            },
+            "negative": {
+              "face_ids_in_site_order": [
+                9,
+                11,
+                14,
+                18
+              ],
+              "per_hop_numerators": [
+                235,
+                235,
+                -137,
+                -487,
+                491,
+                -161
+              ],
+              "signed_numerator": -291267897620525,
+              "amplitude": -0.016335176948410336,
+              "six_read_success": 0.0002668380059358764,
+              "parked_field_phase_with_position_checks": 1
+            }
+          },
+          "initial_face_pairs_with_both_signs": 25,
+          "same_initial_state_examples": {
+            "initial_faces": [
+              11,
+              13
+            ],
+            "negative": {
+              "faces": [
+                13,
+                11,
+                14,
+                18
+              ],
+              "amplitude": -0.0033849335605011235,
+              "six_read_success": 1.1457775209006815e-05
+            },
+            "positive": {
+              "faces": [
+                13,
+                11,
+                18,
+                14
+              ],
+              "amplitude": 0.00127171183574001,
+              "six_read_success": 1.6172509931612261e-06
+            }
+          }
+        },
+        "disjoint_at_each_read": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        }
+      },
+      "uniform_or_stationary_endpoint_success": 0.008711003984306895,
+      "position_only_accepted_words": 146,
+      "position_only_exchange_probability": 0.31877729257641924,
+      "position_only_xor_mask_with_unit_transition_amplitude": 0
+    },
+    {
+      "sign": -1,
+      "sites_in_assignment_order": [
+        1,
+        10,
+        7,
+        0
+      ],
+      "hops": [
+        [
+          1,
+          7
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          10,
+          7
+        ],
+        [
+          7,
+          1
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          7,
+          10
+        ]
+      ],
+      "starting_ports": [
+        1,
+        10
+      ],
+      "words_per_position": [
+        458,
+        131,
+        74,
+        33,
+        97,
+        195
+      ],
+      "normalization_denominator": 2771333419140,
+      "assignments_considered": 625,
+      "distinct_face_assignments": 403,
+      "distinct_but_missing_endpoint_energy": 403,
+      "resolved": {
+        "all": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        },
+        "disjoint_at_each_read": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        }
+      },
+      "uniform_or_stationary_endpoint_success": 0.004299341643903224,
+      "position_only_accepted_words": 32,
+      "position_only_exchange_probability": 0.06986899563318777,
+      "position_only_xor_mask_with_unit_transition_amplitude": 0
+    },
+    {
+      "sign": 1,
+      "sites_in_assignment_order": [
+        1,
+        10,
+        7,
+        0
+      ],
+      "hops": [
+        [
+          1,
+          7
+        ],
+        [
+          7,
+          0
+        ],
+        [
+          10,
+          7
+        ],
+        [
+          7,
+          1
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          7,
+          10
+        ]
+      ],
+      "starting_ports": [
+        1,
+        10
+      ],
+      "words_per_position": [
+        458,
+        424,
+        744,
+        616,
+        556,
+        326
+      ],
+      "normalization_denominator": 16131597373022208,
+      "assignments_considered": 625,
+      "distinct_face_assignments": 403,
+      "distinct_but_missing_endpoint_energy": 0,
+      "resolved": {
+        "all": {
+          "counts": {
+            "positive": 226,
+            "negative": 177
+          },
+          "moving_vs_parked": {
+            "positive_vs_positive": 226,
+            "negative_vs_positive": 177
+          },
+          "max": {
+            "positive": {
+              "face_ids_in_site_order": [
+                1,
+                19,
+                18,
+                3
+              ],
+              "per_hop_numerators": [
+                271,
+                119,
+                -333,
+                352,
+                -116,
+                209
+              ],
+              "signed_numerator": 91644714919296,
+              "amplitude": 0.005681068824130132,
+              "six_read_success": 3.227454298450332e-05,
+              "parked_field_phase_with_position_checks": 1
+            },
+            "negative": {
+              "face_ids_in_site_order": [
+                6,
+                19,
+                1,
+                3
+              ],
+              "per_hop_numerators": [
+                -327,
+                369,
+                119,
+                -428,
+                -284,
+                191
+              ],
+              "signed_numerator": -333362355795504,
+              "amplitude": -0.020665179528532304,
+              "six_read_success": 0.00042704964494647056,
+              "parked_field_phase_with_position_checks": 1
+            }
+          },
+          "initial_face_pairs_with_both_signs": 25,
+          "same_initial_state_examples": {
+            "initial_faces": [
+              6,
+              19
+            ],
+            "negative": {
+              "faces": [
+                6,
+                19,
+                1,
+                3
+              ],
+              "amplitude": -0.020665179528532304,
+              "six_read_success": 0.00042704964494647056
+            },
+            "positive": {
+              "faces": [
+                6,
+                19,
+                18,
+                1
+              ],
+              "amplitude": 0.005681068824130132,
+              "six_read_success": 3.227454298450332e-05
+            }
+          }
+        },
+        "disjoint_at_each_read": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        }
+      },
+      "uniform_or_stationary_endpoint_success": 0.01434346646383978,
+      "position_only_accepted_words": 180,
+      "position_only_exchange_probability": 0.3930131004366812,
+      "position_only_xor_mask_with_unit_transition_amplitude": 0
+    },
+    {
+      "sign": -1,
+      "sites_in_assignment_order": [
+        1,
+        10,
+        7,
+        6
+      ],
+      "hops": [
+        [
+          1,
+          7
+        ],
+        [
+          7,
+          6
+        ],
+        [
+          10,
+          7
+        ],
+        [
+          7,
+          1
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          7,
+          10
+        ]
+      ],
+      "starting_ports": [
+        1,
+        10
+      ],
+      "words_per_position": [
+        458,
+        131,
+        62,
+        31,
+        106,
+        195
+      ],
+      "normalization_denominator": 2383584944520,
+      "assignments_considered": 625,
+      "distinct_face_assignments": 439,
+      "distinct_but_missing_endpoint_energy": 184,
+      "resolved": {
+        "all": {
+          "counts": {
+            "negative": 120,
+            "positive": 135
+          },
+          "moving_vs_parked": {
+            "negative_vs_positive": 120,
+            "positive_vs_positive": 135
+          },
+          "max": {
+            "negative": {
+              "face_ids_in_site_order": [
+                0,
+                4,
+                18,
+                19
+              ],
+              "per_hop_numerators": [
+                61,
+                -58,
+                -21,
+                -21,
+                99,
+                17
+              ],
+              "signed_numerator": -2625914214,
+              "amplitude": -0.0011016658835830999,
+              "six_read_success": 1.2136677190509323e-06,
+              "parked_field_phase_with_position_checks": 1
+            },
+            "positive": {
+              "face_ids_in_site_order": [
+                0,
+                3,
+                19,
+                18
+              ],
+              "per_hop_numerators": [
+                39,
+                58,
+                -29,
+                -11,
+                99,
+                183
+              ],
+              "signed_numerator": 13072828626,
+              "amplitude": 0.0054845239126279895,
+              "six_read_success": 3.0080002548188233e-05,
+              "parked_field_phase_with_position_checks": 1
+            }
+          },
+          "initial_face_pairs_with_both_signs": 25,
+          "same_initial_state_examples": {
+            "initial_faces": [
+              0,
+              4
+            ],
+            "negative": {
+              "faces": [
+                0,
+                4,
+                18,
+                19
+              ],
+              "amplitude": -0.0011016658835830999,
+              "six_read_success": 1.2136677190509323e-06
+            },
+            "positive": {
+              "faces": [
+                0,
+                4,
+                19,
+                18
+              ],
+              "amplitude": 0.004211312407001895,
+              "six_read_success": 1.7735152189368098e-05
+            }
+          }
+        },
+        "disjoint_at_each_read": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        }
+      },
+      "uniform_or_stationary_endpoint_success": 0.0026954374824305965,
+      "position_only_accepted_words": 25,
+      "position_only_exchange_probability": 0.05458515283842795,
+      "position_only_xor_mask_with_unit_transition_amplitude": 0
+    },
+    {
+      "sign": 1,
+      "sites_in_assignment_order": [
+        1,
+        10,
+        7,
+        6
+      ],
+      "hops": [
+        [
+          1,
+          7
+        ],
+        [
+          7,
+          6
+        ],
+        [
+          10,
+          7
+        ],
+        [
+          7,
+          1
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          7,
+          10
+        ]
+      ],
+      "starting_ports": [
+        1,
+        10
+      ],
+      "words_per_position": [
+        458,
+        424,
+        647,
+        575,
+        611,
+        326
+      ],
+      "normalization_denominator": 14390048917056800,
+      "assignments_considered": 625,
+      "distinct_face_assignments": 439,
+      "distinct_but_missing_endpoint_energy": 0,
+      "resolved": {
+        "all": {
+          "counts": {
+            "positive": 205,
+            "negative": 199,
+            "zero": 35
+          },
+          "moving_vs_parked": {
+            "positive_vs_positive": 205,
+            "negative_vs_positive": 199,
+            "zero_vs_positive": 35
+          },
+          "max": {
+            "positive": {
+              "face_ids_in_site_order": [
+                6,
+                3,
+                1,
+                18
+              ],
+              "per_hop_numerators": [
+                -327,
+                -110,
+                295,
+                438,
+                107,
+                191
+              ],
+              "signed_numerator": 94984711776900,
+              "amplitude": 0.006600721951981192,
+              "six_read_success": 4.3569530287366396e-05,
+              "parked_field_phase_with_position_checks": 1
+            },
+            "negative": {
+              "face_ids_in_site_order": [
+                1,
+                4,
+                18,
+                19
+              ],
+              "per_hop_numerators": [
+                271,
+                360,
+                145,
+                342,
+                -293,
+                119
+              ],
+              "signed_numerator": -168686559946800,
+              "amplitude": -0.011722445206343433,
+              "six_read_success": 0.00013741572161572415,
+              "parked_field_phase_with_position_checks": 1
+            },
+            "zero": {
+              "face_ids_in_site_order": [
+                0,
+                4,
+                3,
+                18
+              ],
+              "per_hop_numerators": [
+                -69,
+                0,
+                -285,
+                138,
+                191,
+                -101
+              ],
+              "signed_numerator": 0,
+              "amplitude": 0.0,
+              "six_read_success": 0.0,
+              "parked_field_phase_with_position_checks": 1
+            }
+          },
+          "initial_face_pairs_with_both_signs": 25,
+          "same_initial_state_examples": {
+            "initial_faces": [
+              3,
+              6
+            ],
+            "negative": {
+              "faces": [
+                6,
+                3,
+                18,
+                19
+              ],
+              "amplitude": -0.010649048311181299,
+              "six_read_success": 0.00011340222993387327
+            },
+            "positive": {
+              "faces": [
+                6,
+                3,
+                1,
+                18
+              ],
+              "amplitude": 0.006600721951981192,
+              "six_read_success": 4.3569530287366396e-05
+            }
+          }
+        },
+        "disjoint_at_each_read": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        }
+      },
+      "uniform_or_stationary_endpoint_success": 0.01577260145450787,
+      "position_only_accepted_words": 180,
+      "position_only_exchange_probability": 0.3930131004366812,
+      "position_only_xor_mask_with_unit_transition_amplitude": 0
+    },
+    {
+      "sign": -1,
+      "sites_in_assignment_order": [
+        1,
+        10,
+        7,
+        8
+      ],
+      "hops": [
+        [
+          1,
+          7
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          10,
+          7
+        ],
+        [
+          7,
+          1
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          7,
+          10
+        ]
+      ],
+      "starting_ports": [
+        1,
+        10
+      ],
+      "words_per_position": [
+        458,
+        131,
+        35,
+        16,
+        48,
+        195
+      ],
+      "normalization_denominator": 314485516800,
+      "assignments_considered": 625,
+      "distinct_face_assignments": 439,
+      "distinct_but_missing_endpoint_energy": 439,
+      "resolved": {
+        "all": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        },
+        "disjoint_at_each_read": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        }
+      },
+      "uniform_or_stationary_endpoint_success": 0.0009446795604279546,
+      "position_only_accepted_words": 15,
+      "position_only_exchange_probability": 0.03275109170305677,
+      "position_only_xor_mask_with_unit_transition_amplitude": 0
+    },
+    {
+      "sign": 1,
+      "sites_in_assignment_order": [
+        1,
+        10,
+        7,
+        8
+      ],
+      "hops": [
+        [
+          1,
+          7
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          10,
+          7
+        ],
+        [
+          7,
+          1
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          7,
+          10
+        ]
+      ],
+      "starting_ports": [
+        1,
+        10
+      ],
+      "words_per_position": [
+        458,
+        424,
+        1240,
+        946,
+        856,
+        326
+      ],
+      "normalization_denominator": 63567556965806080,
+      "assignments_considered": 625,
+      "distinct_face_assignments": 439,
+      "distinct_but_missing_endpoint_energy": 0,
+      "resolved": {
+        "all": {
+          "counts": {
+            "positive": 232,
+            "negative": 207
+          },
+          "moving_vs_parked": {
+            "positive_vs_positive": 232,
+            "negative_vs_positive": 207
+          },
+          "max": {
+            "positive": {
+              "face_ids_in_site_order": [
+                1,
+                19,
+                3,
+                6
+              ],
+              "per_hop_numerators": [
+                217,
+                92,
+                761,
+                -414,
+                -138,
+                275
+              ],
+              "signed_numerator": 238695559225200,
+              "amplitude": 0.0037549902909372124,
+              "six_read_success": 1.4099952085032732e-05,
+              "parked_field_phase_with_position_checks": 1
+            },
+            "negative": {
+              "face_ids_in_site_order": [
+                1,
+                3,
+                18,
+                6
+              ],
+              "per_hop_numerators": [
+                271,
+                396,
+                427,
+                290,
+                -306,
+                209
+              ],
+              "signed_numerator": -849880886667120,
+              "amplitude": -0.013369727062568778,
+              "six_read_success": 0.00017874960172758398,
+              "parked_field_phase_with_position_checks": 1
+            }
+          },
+          "initial_face_pairs_with_both_signs": 25,
+          "same_initial_state_examples": {
+            "initial_faces": [
+              1,
+              19
+            ],
+            "negative": {
+              "faces": [
+                1,
+                19,
+                18,
+                6
+              ],
+              "amplitude": -0.013369727062568778,
+              "six_read_success": 0.00017874960172758398
+            },
+            "positive": {
+              "faces": [
+                1,
+                19,
+                3,
+                6
+              ],
+              "amplitude": 0.0037549902909372124,
+              "six_read_success": 1.4099952085032732e-05
+            }
+          }
+        },
+        "disjoint_at_each_read": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        }
+      },
+      "uniform_or_stationary_endpoint_success": 0.007189837962824806,
+      "position_only_accepted_words": 180,
+      "position_only_exchange_probability": 0.3930131004366812,
+      "position_only_xor_mask_with_unit_transition_amplitude": 0
+    },
+    {
+      "sign": -1,
+      "sites_in_assignment_order": [
+        1,
+        3,
+        8,
+        6
+      ],
+      "hops": [
+        [
+          1,
+          8
+        ],
+        [
+          8,
+          6
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          8,
+          1
+        ],
+        [
+          6,
+          8
+        ],
+        [
+          8,
+          3
+        ]
+      ],
+      "starting_ports": [
+        1,
+        3
+      ],
+      "words_per_position": [
+        458,
+        35,
+        62,
+        17,
+        255,
+        132
+      ],
+      "normalization_denominator": 568706569200,
+      "assignments_considered": 625,
+      "distinct_face_assignments": 439,
+      "distinct_but_missing_endpoint_energy": 439,
+      "resolved": {
+        "all": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        },
+        "disjoint_at_each_read": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        }
+      },
+      "uniform_or_stationary_endpoint_success": 0.00011764869061214048,
+      "position_only_accepted_words": 0,
+      "position_only_exchange_probability": 0.0,
+      "position_only_xor_mask_with_unit_transition_amplitude": 0
+    },
+    {
+      "sign": 1,
+      "sites_in_assignment_order": [
+        1,
+        3,
+        8,
+        6
+      ],
+      "hops": [
+        [
+          1,
+          8
+        ],
+        [
+          8,
+          6
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          8,
+          1
+        ],
+        [
+          6,
+          8
+        ],
+        [
+          8,
+          3
+        ]
+      ],
+      "starting_ports": [
+        1,
+        3
+      ],
+      "words_per_position": [
+        458,
+        1240,
+        647,
+        749,
+        266,
+        458
+      ],
+      "normalization_denominator": 33528982656169280,
+      "assignments_considered": 625,
+      "distinct_face_assignments": 439,
+      "distinct_but_missing_endpoint_energy": 0,
+      "resolved": {
+        "all": {
+          "counts": {
+            "positive": 195,
+            "negative": 244
+          },
+          "moving_vs_parked": {
+            "positive_vs_positive": 195,
+            "negative_vs_positive": 244
+          },
+          "max": {
+            "positive": {
+              "face_ids_in_site_order": [
+                6,
+                9,
+                18,
+                14
+              ],
+              "per_hop_numerators": [
+                -297,
+                564,
+                -125,
+                -196,
+                -235,
+                82
+              ],
+              "signed_numerator": 79083039420000,
+              "amplitude": 0.00235864715106257,
+              "six_read_success": 5.5632163832155785e-06,
+              "parked_field_phase_with_position_checks": 1
+            },
+            "negative": {
+              "face_ids_in_site_order": [
+                1,
+                15,
+                14,
+                18
+              ],
+              "per_hop_numerators": [
+                101,
+                -564,
+                -495,
+                -86,
+                235,
+                326
+              ],
+              "signed_numerator": -185775992542800,
+              "amplitude": -0.005540758407372003,
+              "six_read_success": 3.070000372886353e-05,
+              "parked_field_phase_with_position_checks": 1
+            }
+          },
+          "initial_face_pairs_with_both_signs": 25,
+          "same_initial_state_examples": {
+            "initial_faces": [
+              7,
+              15
+            ],
+            "negative": {
+              "faces": [
+                7,
+                15,
+                18,
+                14
+              ],
+              "amplitude": -0.004845236528075461,
+              "six_read_success": 2.347631701299675e-05
+            },
+            "positive": {
+              "faces": [
+                7,
+                15,
+                6,
+                14
+              ],
+              "amplitude": 0.0018091640876140558,
+              "six_read_success": 3.273074695912399e-06
+            }
+          }
+        },
+        "disjoint_at_each_read": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        }
+      },
+      "uniform_or_stationary_endpoint_success": 0.004477987475628204,
+      "position_only_accepted_words": 131,
+      "position_only_exchange_probability": 0.28602620087336245,
+      "position_only_xor_mask_with_unit_transition_amplitude": 0
+    },
+    {
+      "sign": -1,
+      "sites_in_assignment_order": [
+        1,
+        3,
+        8,
+        7
+      ],
+      "hops": [
+        [
+          1,
+          8
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          8,
+          1
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          8,
+          3
+        ]
+      ],
+      "starting_ports": [
+        1,
+        3
+      ],
+      "words_per_position": [
+        458,
+        35,
+        131,
+        34,
+        394,
+        132
+      ],
+      "normalization_denominator": 3713247420960,
+      "assignments_considered": 625,
+      "distinct_face_assignments": 439,
+      "distinct_but_missing_endpoint_energy": 439,
+      "resolved": {
+        "all": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        },
+        "disjoint_at_each_read": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        }
+      },
+      "uniform_or_stationary_endpoint_success": 4.41545836733367e-05,
+      "position_only_accepted_words": 0,
+      "position_only_exchange_probability": 0.0,
+      "position_only_xor_mask_with_unit_transition_amplitude": 0
+    },
+    {
+      "sign": 1,
+      "sites_in_assignment_order": [
+        1,
+        3,
+        8,
+        7
+      ],
+      "hops": [
+        [
+          1,
+          8
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          8,
+          1
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          8,
+          3
+        ]
+      ],
+      "starting_ports": [
+        1,
+        3
+      ],
+      "words_per_position": [
+        458,
+        1240,
+        424,
+        430,
+        115,
+        458
+      ],
+      "normalization_denominator": 5453618995648000,
+      "assignments_considered": 625,
+      "distinct_face_assignments": 439,
+      "distinct_but_missing_endpoint_energy": 0,
+      "resolved": {
+        "all": {
+          "counts": {
+            "positive": 190,
+            "negative": 249
+          },
+          "moving_vs_parked": {
+            "positive_vs_positive": 190,
+            "negative_vs_positive": 249
+          },
+          "max": {
+            "positive": {
+              "face_ids_in_site_order": [
+                7,
+                14,
+                6,
+                18
+              ],
+              "per_hop_numerators": [
+                423,
+                396,
+                54,
+                -111,
+                -111,
+                62
+              ],
+              "signed_numerator": 6909823595664,
+              "amplitude": 0.001267016196250243,
+              "six_read_success": 1.6053300415604346e-06,
+              "parked_field_phase_with_position_checks": 1
+            },
+            "negative": {
+              "face_ids_in_site_order": [
+                7,
+                13,
+                18,
+                6
+              ],
+              "per_hop_numerators": [
+                -297,
+                396,
+                -136,
+                103,
+                111,
+                -120
+              ],
+              "signed_numerator": -21944818494720,
+              "amplitude": -0.004023900186689245,
+              "six_read_success": 1.619177271243774e-05,
+              "parked_field_phase_with_position_checks": 1
+            }
+          },
+          "initial_face_pairs_with_both_signs": 25,
+          "same_initial_state_examples": {
+            "initial_faces": [
+              7,
+              14
+            ],
+            "negative": {
+              "faces": [
+                7,
+                14,
+                18,
+                6
+              ],
+              "amplitude": -0.0017358000805326155,
+              "six_read_success": 3.0130019195770345e-06
+            },
+            "positive": {
+              "faces": [
+                7,
+                14,
+                6,
+                18
+              ],
+              "amplitude": 0.001267016196250243,
+              "six_read_success": 1.6053300415604346e-06
+            }
+          }
+        },
+        "disjoint_at_each_read": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        }
+      },
+      "uniform_or_stationary_endpoint_success": 0.0013881695712286322,
+      "position_only_accepted_words": 63,
+      "position_only_exchange_probability": 0.13755458515283842,
+      "position_only_xor_mask_with_unit_transition_amplitude": 0
+    },
+    {
+      "sign": -1,
+      "sites_in_assignment_order": [
+        1,
+        3,
+        8,
+        9
+      ],
+      "hops": [
+        [
+          1,
+          8
+        ],
+        [
+          8,
+          9
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          8,
+          1
+        ],
+        [
+          9,
+          8
+        ],
+        [
+          8,
+          3
+        ]
+      ],
+      "starting_ports": [
+        1,
+        3
+      ],
+      "words_per_position": [
+        458,
+        35,
+        86,
+        29,
+        320,
+        132
+      ],
+      "normalization_denominator": 1688705356800,
+      "assignments_considered": 625,
+      "distinct_face_assignments": 403,
+      "distinct_but_missing_endpoint_energy": 403,
+      "resolved": {
+        "all": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        },
+        "disjoint_at_each_read": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        }
+      },
+      "uniform_or_stationary_endpoint_success": 0.00011299315410842893,
+      "position_only_accepted_words": 0,
+      "position_only_exchange_probability": 0.0,
+      "position_only_xor_mask_with_unit_transition_amplitude": 0
+    },
+    {
+      "sign": 1,
+      "sites_in_assignment_order": [
+        1,
+        3,
+        8,
+        9
+      ],
+      "hops": [
+        [
+          1,
+          8
+        ],
+        [
+          8,
+          9
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          8,
+          1
+        ],
+        [
+          9,
+          8
+        ],
+        [
+          8,
+          3
+        ]
+      ],
+      "starting_ports": [
+        1,
+        3
+      ],
+      "words_per_position": [
+        458,
+        1240,
+        615,
+        680,
+        189,
+        458
+      ],
+      "normalization_denominator": 20558833712928000,
+      "assignments_considered": 625,
+      "distinct_face_assignments": 403,
+      "distinct_but_missing_endpoint_energy": 0,
+      "resolved": {
+        "all": {
+          "counts": {
+            "positive": 166,
+            "negative": 237
+          },
+          "moving_vs_parked": {
+            "positive_vs_positive": 166,
+            "negative_vs_positive": 237
+          },
+          "max": {
+            "positive": {
+              "face_ids_in_site_order": [
+                0,
+                14,
+                15,
+                7
+              ],
+              "per_hop_numerators": [
+                73,
+                544,
+                -468,
+                -53,
+                -181,
+                -326
+              ],
+              "signed_numerator": 58121880530688,
+              "amplitude": 0.0028271000846774325,
+              "six_read_success": 7.992494888783146e-06,
+              "parked_field_phase_with_position_checks": 1
+            },
+            "negative": {
+              "face_ids_in_site_order": [
+                6,
+                14,
+                15,
+                7
+              ],
+              "per_hop_numerators": [
+                229,
+                544,
+                -468,
+                -167,
+                -181,
+                326
+              ],
+              "signed_numerator": -574503767675136,
+              "amplitude": -0.02794437542990929,
+              "six_read_success": 0.0007808881181677181,
+              "parked_field_phase_with_position_checks": 1
+            }
+          },
+          "initial_face_pairs_with_both_signs": 25,
+          "same_initial_state_examples": {
+            "initial_faces": [
+              6,
+              8
+            ],
+            "negative": {
+              "faces": [
+                6,
+                8,
+                15,
+                7
+              ],
+              "amplitude": -0.004782677437115197,
+              "six_read_success": 2.2874003467490792e-05
+            },
+            "positive": {
+              "faces": [
+                6,
+                8,
+                7,
+                15
+              ],
+              "amplitude": 0.0021206377427579657,
+              "six_read_success": 4.4971044360095995e-06
+            }
+          }
+        },
+        "disjoint_at_each_read": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        }
+      },
+      "uniform_or_stationary_endpoint_success": 0.0031993947069710624,
+      "position_only_accepted_words": 97,
+      "position_only_exchange_probability": 0.21179039301310043,
+      "position_only_xor_mask_with_unit_transition_amplitude": 0
+    },
+    {
+      "sign": -1,
+      "sites_in_assignment_order": [
+        1,
+        3,
+        9,
+        4
+      ],
+      "hops": [
+        [
+          1,
+          9
+        ],
+        [
+          9,
+          4
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          9,
+          1
+        ],
+        [
+          4,
+          9
+        ],
+        [
+          9,
+          3
+        ]
+      ],
+      "starting_ports": [
+        1,
+        3
+      ],
+      "words_per_position": [
+        458,
+        86,
+        284,
+        226,
+        1138,
+        320
+      ],
+      "normalization_denominator": 920625391390720,
+      "assignments_considered": 625,
+      "distinct_face_assignments": 439,
+      "distinct_but_missing_endpoint_energy": 184,
+      "resolved": {
+        "all": {
+          "counts": {
+            "negative": 255
+          },
+          "moving_vs_parked": {
+            "negative_vs_positive": 255
+          },
+          "max": {
+            "negative": {
+              "face_ids_in_site_order": [
+                0,
+                15,
+                13,
+                16
+              ],
+              "per_hop_numerators": [
+                74,
+                84,
+                178,
+                -106,
+                -307,
+                -277
+              ],
+              "signed_numerator": -9973670536032,
+              "amplitude": -0.010833581855661748,
+              "six_read_success": 0.00011736649582332345,
+              "parked_field_phase_with_position_checks": 1
+            }
+          },
+          "initial_face_pairs_with_both_signs": 0
+        },
+        "disjoint_at_each_read": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        }
+      },
+      "uniform_or_stationary_endpoint_success": 0.0007205809043236701,
+      "position_only_accepted_words": 29,
+      "position_only_exchange_probability": 0.06331877729257641,
+      "position_only_xor_mask_with_unit_transition_amplitude": 0
+    },
+    {
+      "sign": 1,
+      "sites_in_assignment_order": [
+        1,
+        3,
+        9,
+        4
+      ],
+      "hops": [
+        [
+          1,
+          9
+        ],
+        [
+          9,
+          4
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          9,
+          1
+        ],
+        [
+          4,
+          9
+        ],
+        [
+          9,
+          3
+        ]
+      ],
+      "starting_ports": [
+        1,
+        3
+      ],
+      "words_per_position": [
+        458,
+        615,
+        103,
+        54,
+        37,
+        189
+      ],
+      "normalization_denominator": 10955573240220,
+      "assignments_considered": 625,
+      "distinct_face_assignments": 439,
+      "distinct_but_missing_endpoint_energy": 439,
+      "resolved": {
+        "all": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        },
+        "disjoint_at_each_read": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        }
+      },
+      "uniform_or_stationary_endpoint_success": 0.0016154193510580866,
+      "position_only_accepted_words": 31,
+      "position_only_exchange_probability": 0.06768558951965066,
+      "position_only_xor_mask_with_unit_transition_amplitude": 0
+    },
+    {
+      "sign": -1,
+      "sites_in_assignment_order": [
+        1,
+        3,
+        9,
+        5
+      ],
+      "hops": [
+        [
+          1,
+          9
+        ],
+        [
+          9,
+          5
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          9,
+          1
+        ],
+        [
+          5,
+          9
+        ],
+        [
+          9,
+          3
+        ]
+      ],
+      "starting_ports": [
+        1,
+        3
+      ],
+      "words_per_position": [
+        458,
+        86,
+        132,
+        83,
+        373,
+        320
+      ],
+      "normalization_denominator": 51508009006080,
+      "assignments_considered": 625,
+      "distinct_face_assignments": 439,
+      "distinct_but_missing_endpoint_energy": 269,
+      "resolved": {
+        "all": {
+          "counts": {
+            "negative": 110,
+            "positive": 60
+          },
+          "moving_vs_parked": {
+            "negative_vs_positive": 110,
+            "positive_vs_positive": 60
+          },
+          "max": {
+            "negative": {
+              "face_ids_in_site_order": [
+                0,
+                15,
+                13,
+                16
+              ],
+              "per_hop_numerators": [
+                74,
+                -78,
+                71,
+                -17,
+                247,
+                -277
+              ],
+              "signed_numerator": -476661762876,
+              "amplitude": -0.009254129058254512,
+              "six_read_success": 8.563890462683053e-05,
+              "parked_field_phase_with_position_checks": 1
+            },
+            "positive": {
+              "face_ids_in_site_order": [
+                0,
+                13,
+                15,
+                16
+              ],
+              "per_hop_numerators": [
+                16,
+                20,
+                -71,
+                -7,
+                -161,
+                -277
+              ],
+              "signed_numerator": 7092706880,
+              "amplitude": 0.00013770104915456502,
+              "six_read_success": 1.8961578938267934e-08,
+              "parked_field_phase_with_position_checks": 1
+            }
+          },
+          "initial_face_pairs_with_both_signs": 20,
+          "same_initial_state_examples": {
+            "initial_faces": [
+              0,
+              13
+            ],
+            "negative": {
+              "faces": [
+                0,
+                13,
+                16,
+                17
+              ],
+              "amplitude": -0.008298507939795247,
+              "six_read_success": 6.886523402684476e-05
+            },
+            "positive": {
+              "faces": [
+                0,
+                13,
+                15,
+                16
+              ],
+              "amplitude": 0.00013770104915456502,
+              "six_read_success": 1.8961578938267934e-08
+            }
+          }
+        },
+        "disjoint_at_each_read": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        }
+      },
+      "uniform_or_stationary_endpoint_success": 0.0037224836228435094,
+      "position_only_accepted_words": 29,
+      "position_only_exchange_probability": 0.06331877729257641,
+      "position_only_xor_mask_with_unit_transition_amplitude": 0
+    },
+    {
+      "sign": 1,
+      "sites_in_assignment_order": [
+        1,
+        3,
+        9,
+        5
+      ],
+      "hops": [
+        [
+          1,
+          9
+        ],
+        [
+          9,
+          5
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          9,
+          1
+        ],
+        [
+          5,
+          9
+        ],
+        [
+          9,
+          3
+        ]
+      ],
+      "starting_ports": [
+        1,
+        3
+      ],
+      "words_per_position": [
+        458,
+        615,
+        420,
+        168,
+        113,
+        189
+      ],
+      "normalization_denominator": 424462583966400,
+      "assignments_considered": 625,
+      "distinct_face_assignments": 439,
+      "distinct_but_missing_endpoint_energy": 0,
+      "resolved": {
+        "all": {
+          "counts": {
+            "positive": 207,
+            "negative": 232
+          },
+          "moving_vs_parked": {
+            "positive_vs_positive": 207,
+            "negative_vs_positive": 232
+          },
+          "max": {
+            "positive": {
+              "face_ids_in_site_order": [
+                7,
+                13,
+                5,
+                16
+              ],
+              "per_hop_numerators": [
+                372,
+                356,
+                24,
+                -105,
+                -105,
+                75
+              ],
+              "signed_numerator": 2628113040000,
+              "amplitude": 0.006191624749210024,
+              "six_read_success": 3.8336217035030085e-05,
+              "parked_field_phase_with_position_checks": 1
+            },
+            "negative": {
+              "face_ids_in_site_order": [
+                5,
+                13,
+                15,
+                16
+              ],
+              "per_hop_numerators": [
+                248,
+                -152,
+                162,
+                93,
+                93,
+                181
+              ],
+              "signed_numerator": -9559930946688,
+              "amplitude": -0.022522434974962962,
+              "six_read_success": 0.0005072600772014349,
+              "parked_field_phase_with_position_checks": 1
+            }
+          },
+          "initial_face_pairs_with_both_signs": 25,
+          "same_initial_state_examples": {
+            "initial_faces": [
+              7,
+              13
+            ],
+            "negative": {
+              "faces": [
+                7,
+                13,
+                15,
+                5
+              ],
+              "amplitude": -0.022522434974962962,
+              "six_read_success": 0.0005072600772014349
+            },
+            "positive": {
+              "faces": [
+                7,
+                13,
+                5,
+                16
+              ],
+              "amplitude": 0.006191624749210024,
+              "six_read_success": 3.8336217035030085e-05
+            }
+          }
+        },
+        "disjoint_at_each_read": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        }
+      },
+      "uniform_or_stationary_endpoint_success": 0.010173055730905428,
+      "position_only_accepted_words": 95,
+      "position_only_exchange_probability": 0.2074235807860262,
+      "position_only_xor_mask_with_unit_transition_amplitude": 0
+    },
+    {
+      "sign": -1,
+      "sites_in_assignment_order": [
+        1,
+        3,
+        9,
+        8
+      ],
+      "hops": [
+        [
+          1,
+          9
+        ],
+        [
+          9,
+          8
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          9,
+          1
+        ],
+        [
+          8,
+          9
+        ],
+        [
+          9,
+          3
+        ]
+      ],
+      "starting_ports": [
+        1,
+        3
+      ],
+      "words_per_position": [
+        458,
+        86,
+        35,
+        29,
+        132,
+        320
+      ],
+      "normalization_denominator": 1688705356800,
+      "assignments_considered": 625,
+      "distinct_face_assignments": 403,
+      "distinct_but_missing_endpoint_energy": 403,
+      "resolved": {
+        "all": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        },
+        "disjoint_at_each_read": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        }
+      },
+      "uniform_or_stationary_endpoint_success": 0.003004170805122066,
+      "position_only_accepted_words": 29,
+      "position_only_exchange_probability": 0.06331877729257641,
+      "position_only_xor_mask_with_unit_transition_amplitude": 0
+    },
+    {
+      "sign": 1,
+      "sites_in_assignment_order": [
+        1,
+        3,
+        9,
+        8
+      ],
+      "hops": [
+        [
+          1,
+          9
+        ],
+        [
+          9,
+          8
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          9,
+          1
+        ],
+        [
+          8,
+          9
+        ],
+        [
+          9,
+          3
+        ]
+      ],
+      "starting_ports": [
+        1,
+        3
+      ],
+      "words_per_position": [
+        458,
+        615,
+        1240,
+        680,
+        458,
+        189
+      ],
+      "normalization_denominator": 20558833712928000,
+      "assignments_considered": 625,
+      "distinct_face_assignments": 403,
+      "distinct_but_missing_endpoint_energy": 0,
+      "resolved": {
+        "all": {
+          "counts": {
+            "positive": 153,
+            "negative": 250
+          },
+          "moving_vs_parked": {
+            "positive_vs_positive": 153,
+            "negative_vs_positive": 250
+          },
+          "max": {
+            "positive": {
+              "face_ids_in_site_order": [
+                5,
+                13,
+                7,
+                14
+              ],
+              "per_hop_numerators": [
+                372,
+                -250,
+                -318,
+                -379,
+                -13,
+                165
+              ],
+              "signed_numerator": 24042331170000,
+              "amplitude": 0.001169440421850461,
+              "six_read_success": 1.3675909002577842e-06,
+              "parked_field_phase_with_position_checks": 1
+            },
+            "negative": {
+              "face_ids_in_site_order": [
+                5,
+                13,
+                7,
+                15
+              ],
+              "per_hop_numerators": [
+                372,
+                544,
+                -318,
+                -379,
+                -181,
+                165
+              ],
+              "signed_numerator": -728401260407040,
+              "amplitude": -0.035430086676025783,
+              "six_read_success": 0.0012552910418706996,
+              "parked_field_phase_with_position_checks": 1
+            }
+          },
+          "initial_face_pairs_with_both_signs": 25,
+          "same_initial_state_examples": {
+            "initial_faces": [
+              5,
+              13
+            ],
+            "negative": {
+              "faces": [
+                5,
+                13,
+                7,
+                15
+              ],
+              "amplitude": -0.035430086676025783,
+              "six_read_success": 0.0012552910418706996
+            },
+            "positive": {
+              "faces": [
+                5,
+                13,
+                7,
+                14
+              ],
+              "amplitude": 0.001169440421850461,
+              "six_read_success": 1.3675909002577842e-06
+            }
+          }
+        },
+        "disjoint_at_each_read": {
+          "counts": {},
+          "moving_vs_parked": {},
+          "max": {},
+          "initial_face_pairs_with_both_signs": 0
+        }
+      },
+      "uniform_or_stationary_endpoint_success": 0.005449458231177653,
+      "position_only_accepted_words": 122,
+      "position_only_exchange_probability": 0.2663755458515284,
+      "position_only_xor_mask_with_unit_transition_amplitude": 0
+    }
+  ]
+}

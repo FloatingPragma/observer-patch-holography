@@ -90,6 +90,8 @@ how the observers inside describe the records they agree on. The native cell has
 
 A history can be a common terminal record of local repairs. If a nonnegative disagreement measure decreases by a fixed amount at every accepted repair, its initial value bounds the number of accepted repairs. A polynomial running-time bound also requires bounds on that initial value and the cost of finding and serving the repairs. Uniqueness requires overlapping repairs to reach a common endpoint on the public records. Interval Echo tests that condition on a two-seam fork. A polynomial bound for its unique federation-wide history is open. [Reference specification](model/candidate_laws/contrast_memory_spherical_v1/SPEC.md) · [Interval Echo repair-order test](model/candidate_laws/interval_echo/CONSENSUS.md)
 
+**A strong candidate for the electron’s charge and field.** In a written-field extension of Interval Echo, a moving excess or vacancy carries a signed load that a separate boundary-flux measurement tracks. A probe detects a change from the source 22 cells away. Two orbital states can cross a cell boundary with the charge, and choosing between them changes how often it crosses. When two loads exchange, those states can stay in their original cells. Identifying an electron requires a physical spin-½ carried by the excitation and an independent rest-energy measurement. [Candidate and controls](model/candidate_laws/interval_echo/openwave/electron_field/README.md) · [Particle paper](paper/deriving_the_particle_zoo_from_observer_consistency.pdf)
+
 The contrast-memory reference and the scalar channel supplied the following observer records. Interval Echo uses the same contrast-memory interaction and a clock filter calibrated to a guided reunion comparison.
 
 - **Particles that hold together.** A pair of loads written on one seam is
@@ -100,10 +102,10 @@ The contrast-memory reference and the scalar channel supplied the following obse
   fixed pitch after a pulse. An observer reads that pitch from its own
   counts, in units of its own reference, and reads the same number a second
   way from the two levels of the object.
-- **Something that stays and holds no charge.** A note left in the memory of
+- **A record that persists on empty ports.** A note left in the memory of
   a seam with nothing around it is never erased by the law. It holds no
-  load, its observers read its level, and matter that reaches it sticks to
-  it.
+  material load, its observers read its level, and matter that reaches it sticks to
+  it. Its physical electric neutrality is a separate open question.
 - **Looking changes what comes later.** Asking "is a pair there?" and asking
   "where is it?" give the same first answer and different later records.
 - **Twelve force currents.** With one declared port service, the response of

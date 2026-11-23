@@ -24,6 +24,8 @@ both ([cage](../model/experiments/cage/README.md)). The
 [observation ledger](registers/OBSERVATION_LEDGER_V3.md) records these as
 particle persistence and an internal clock attained on this construction.
 
+The written-field extension of Interval Echo supplies a strong candidate for the charge and field response of the electron. The change in boundary flux follows each signed material transfer. A separately prepared probe detects the source at a distance of 22 cells on a 320-cell board. The source stays confined during that field measurement. At a different junction, two orbital preparations both transfer with a charge and give different crossing probabilities. Eight addressed contacts exchange two material loads while leaving different orbital states at their original gateways. Identifying the common charge as an electron requires a spin-resolved branch with fermionic exchange, a physical rest energy, and the electron’s colour and weak responses on the same excitation. The laboratory reconstruction of 510.999 keV uses measured inputs independent of the simulation. [Experimental evidence and replay](../model/candidate_laws/interval_echo/openwave/electron_field/README.md)
+
 The target is agreement between observers' measurement statistics and their
 effective interpretations. Every test of the model compares distributions of
 admissible observer records with what observers in our world record. The
