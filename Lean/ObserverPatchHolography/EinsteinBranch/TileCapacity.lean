@@ -1,5 +1,6 @@
 import Mathlib.Analysis.SpecialFunctions.Log.Basic
 import Mathlib.Algebra.Order.Floor.Ring
+import Mathlib.Data.Nat.Choose.Basic
 import Mathlib.Tactic.Linarith
 import Mathlib.Tactic.Ring
 import Mathlib.Tactic.FieldSimp
@@ -91,5 +92,33 @@ theorem no_isotropic_aperture_rescaling (h : ℝ) (hpos : 0 < h)
   have hhalf : 2*h = 1 := by
     nlinarith [congrArg (fun t : ℝ => 2*h*t) area]
   nlinarith [congrArg (fun t : ℝ => h*t) hhalf]
+
+/-- Splitting the middle occupancy equally between its two neighbouring
+classes preserves the mean cut load. These two classes have equal word
+multiplicities by complementing a subset. Their loss of log multiplicity
+pays a strictly positive interior entropy slope at the uniform word reference. -/
+theorem balanced_class_spread (r : ℕ) (hr : 0 < r) :
+    Real.log (((2*r).choose r : ℕ) : ℝ) -
+        (Real.log (((2*r).choose (r-1) : ℕ) : ℝ) +
+         Real.log (((2*r).choose (r+1) : ℕ) : ℝ))/2 > 0 := by
+  have hs : (2*r).choose (r-1) = (2*r).choose (r+1) :=
+    Nat.choose_symm_of_eq_add (by omega)
+  have hrel := Nat.choose_succ_right_eq (2*r) r
+  rw [show 2*r-r=r by omega] at hrel
+  have hp : 0 < (2*r).choose (r+1) := Nat.choose_pos (by omega)
+  have hlt : (2*r).choose (r+1) < (2*r).choose r := by
+    by_contra! h
+    have hle := Nat.mul_le_mul_right r h
+    nlinarith
+  have hlog := Real.log_lt_log (show 0 < (((2*r).choose (r+1) : ℕ) : ℝ) by exact_mod_cast hp)
+    (show (((2*r).choose (r+1) : ℕ) : ℝ) < (((2*r).choose r : ℕ) : ℝ) by exact_mod_cast hlt)
+  rw [hs]; linarith
+
+/-- At one host resolution, independent area and volume calibration
+constants also cancel from the ratio between two homothetic measurements. -/
+theorem two_radii_shape_ratio (a v : ℝ) (hv : v ≠ 0) :
+    (a/2)^3/(v/4)^2 = 2*(a^3/v^2) := by
+  field_simp
+  ring
 
 end OPH.EinsteinBranch.TileCapacity

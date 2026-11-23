@@ -17,7 +17,7 @@ The electron search uses an experimental extension with written seam fields. It 
 
 **[Interval Echo](interval_echo/README.md) is the main candidate under test.** It equips the contrast-memory seam with a finite observer clock. Its hand, elapsed count and interval memory move with the patch. At a confirmed handoff the patch uses its own preceding repair events to decide whether to post the closing mark. The guide, gate selection, prepared hand and cadence are supplied. [Specification](interval_echo/SPEC.md) · [Reunion data](interval_echo/RESULTS.json)
 
-Joint native gateway records resolve a stationary orbital phase. On monitored regions, independently readable exterior word capacity cancels held interior entropy variations. A physical area reading at fixed proper volume is required for the Einstein-tower interpretation. [Interval Echo gravity measurements](interval_echo/README.md#can-observers-measure-gravity)
+Joint native gateway records resolve a stationary orbital phase. On monitored regions, independently readable exterior word capacity cancels held interior entropy variations. On shrinking material-clock range balls the finest accessible volume doubling is four. The written-field quantum vacuum has readable flux entropy, while a shared proper geometry and Einstein response require independent evidence. [Interval Echo gravity measurements](interval_echo/README.md#can-observers-measure-gravity)
 
 **[A-contrast-memory-spherical-v1](contrast_memory_spherical_v1/README.md) is the reference candidate.** Loads
 0, 1 or 2 sit on the ports and an eleven-state memory on every seam. A seam event writes the contrast of its two

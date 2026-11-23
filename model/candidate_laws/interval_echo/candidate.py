@@ -185,10 +185,15 @@ PREMISES = {
     "PR-26": {"status": "partial", "evidence": ["../../experiments/interval_echo_einstein_station/equilibrium_refinement/README.md",
                                                 "../../experiments/interval_echo_einstein_station/shape_stationarity/README.md",
                                                 "../../experiments/interval_echo_einstein_station/boundary_calibration/README.md",
-                                                "../../experiments/interval_echo_einstein_station/volume_calibration/README.md"],
+                                                "../../experiments/interval_echo_einstein_station/volume_calibration/README.md",
+                                                "../../experiments/interval_echo_einstein_station/density_area/README.md",
+                                                "../../experiments/interval_echo_einstein_station/autonomous_selection/README.md",
+                                                "../../experiments/interval_echo_einstein_station/proper_ball_ruler/README.md"],
               "note": "Sharp monitoring selects a two-load equilibrium with stationary interior entropy plus "
                       "independently accessible exterior word capacity. The capacity coefficient transfers to different "
-                      "shapes at fixed launch volume. Two gateway records expose a trapped matter phase. The comparison "
+                      "shapes at fixed launch volume. At finite filling, the transmission coefficient varies with density. "
+                      "Material-clock range balls have quadratic accessible volume growth. Distinct stationary preparations "
+                      "preserve total energy statistics and exterior records. The comparison "
                       "requires a physical area coefficient at fixed proper volume and autonomous vacuum selection."},
     "PR-54": {"status": "partial", "evidence": ["CURRENTS.md", "currents.json", "prior_calibration.json"],
               "note": "A declared family of twelve closed current operators acts measurably on the native bound "

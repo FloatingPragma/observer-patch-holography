@@ -1,0 +1,1001 @@
+{
+  "replays": [
+    {
+      "level": 0,
+      "shape": "cycle5",
+      "resident": [
+        0,
+        1
+      ],
+      "routed_ports": [
+        2,
+        10,
+        20,
+        18,
+        14,
+        24,
+        29,
+        33,
+        27
+      ],
+      "terminal_tag_reads": [
+        true,
+        true
+      ],
+      "round_trip_hand": 50.265482457436974
+    },
+    {
+      "level": 0,
+      "shape": "cycle5",
+      "resident": [
+        17,
+        36
+      ],
+      "routed_ports": [
+        0,
+        10,
+        20,
+        18,
+        14,
+        24,
+        31,
+        32,
+        46,
+        38
+      ],
+      "terminal_tag_reads": [
+        true,
+        true
+      ],
+      "round_trip_hand": 56.548667764616596
+    },
+    {
+      "level": 0,
+      "shape": "cycle5",
+      "resident": [
+        58,
+        59
+      ],
+      "routed_ports": [
+        0,
+        5,
+        9,
+        3,
+        48,
+        55,
+        54,
+        50,
+        37,
+        45,
+        39
+      ],
+      "terminal_tag_reads": [
+        true,
+        true
+      ],
+      "round_trip_hand": 62.83185307179622
+    },
+    {
+      "level": 0,
+      "shape": "path5",
+      "resident": [
+        0,
+        1
+      ],
+      "routed_ports": [
+        2,
+        3,
+        48,
+        59,
+        50,
+        37,
+        45,
+        39,
+        104,
+        103,
+        106,
+        107
+      ],
+      "terminal_tag_reads": [
+        true,
+        true
+      ],
+      "round_trip_hand": 69.11503837897584
+    },
+    {
+      "level": 0,
+      "shape": "path5",
+      "resident": [
+        17,
+        36
+      ],
+      "routed_ports": [
+        0,
+        5,
+        9,
+        3,
+        48,
+        59,
+        50,
+        37,
+        45,
+        39,
+        104,
+        103,
+        106,
+        107
+      ],
+      "terminal_tag_reads": [
+        true,
+        true
+      ],
+      "round_trip_hand": 81.68140899333508
+    },
+    {
+      "level": 0,
+      "shape": "path5",
+      "resident": [
+        106,
+        107
+      ],
+      "routed_ports": [
+        0,
+        5,
+        9,
+        3,
+        48,
+        59,
+        50,
+        37,
+        45,
+        39,
+        104,
+        103,
+        96
+      ],
+      "terminal_tag_reads": [
+        true,
+        true
+      ],
+      "round_trip_hand": 75.39822368615546
+    },
+    {
+      "level": 0,
+      "shape": "cycle5_spur",
+      "resident": [
+        0,
+        1
+      ],
+      "routed_ports": [
+        2,
+        10,
+        20,
+        19,
+        22,
+        68,
+        67,
+        60,
+        190,
+        182,
+        72,
+        83,
+        74
+      ],
+      "terminal_tag_reads": [
+        true,
+        true
+      ],
+      "round_trip_hand": 75.39822368615546
+    },
+    {
+      "level": 0,
+      "shape": "cycle5_spur",
+      "resident": [
+        20,
+        81
+      ],
+      "routed_ports": [
+        0,
+        1,
+        82,
+        72,
+        182,
+        190,
+        60,
+        67,
+        68,
+        22,
+        23,
+        17,
+        21
+      ],
+      "terminal_tag_reads": [
+        true,
+        true
+      ],
+      "round_trip_hand": 75.39822368615546
+    },
+    {
+      "level": 0,
+      "shape": "cycle5_spur",
+      "resident": [
+        82,
+        83
+      ],
+      "routed_ports": [
+        0,
+        10,
+        20,
+        19,
+        22,
+        68,
+        67,
+        60,
+        190,
+        182,
+        72,
+        79,
+        78,
+        74
+      ],
+      "terminal_tag_reads": [
+        true,
+        true
+      ],
+      "round_trip_hand": 81.68140899333508
+    },
+    {
+      "level": 0,
+      "shape": "path6",
+      "resident": [
+        0,
+        1
+      ],
+      "routed_ports": [
+        2,
+        10,
+        20,
+        19,
+        22,
+        68,
+        67,
+        60,
+        190,
+        182,
+        72,
+        83,
+        74
+      ],
+      "terminal_tag_reads": [
+        true,
+        true
+      ],
+      "round_trip_hand": 75.39822368615546
+    },
+    {
+      "level": 0,
+      "shape": "path6",
+      "resident": [
+        20,
+        105
+      ],
+      "routed_ports": [
+        0,
+        5,
+        9,
+        3,
+        48,
+        59,
+        50,
+        37,
+        45,
+        39,
+        104,
+        103,
+        106,
+        107
+      ],
+      "terminal_tag_reads": [
+        true,
+        true
+      ],
+      "round_trip_hand": 81.68140899333508
+    },
+    {
+      "level": 0,
+      "shape": "path6",
+      "resident": [
+        106,
+        107
+      ],
+      "routed_ports": [
+        0,
+        5,
+        9,
+        3,
+        48,
+        59,
+        50,
+        37,
+        45,
+        39,
+        104,
+        103,
+        96
+      ],
+      "terminal_tag_reads": [
+        true,
+        true
+      ],
+      "round_trip_hand": 75.39822368615546
+    },
+    {
+      "level": 1,
+      "shape": "cycle5",
+      "resident": [
+        0,
+        1
+      ],
+      "routed_ports": [
+        2,
+        10,
+        56,
+        54,
+        50,
+        96,
+        101,
+        105,
+        99
+      ],
+      "terminal_tag_reads": [
+        true,
+        true
+      ],
+      "round_trip_hand": 50.265482457436974
+    },
+    {
+      "level": 1,
+      "shape": "cycle5",
+      "resident": [
+        53,
+        144
+      ],
+      "routed_ports": [
+        0,
+        10,
+        56,
+        54,
+        50,
+        96,
+        103,
+        104,
+        154,
+        146
+      ],
+      "terminal_tag_reads": [
+        true,
+        true
+      ],
+      "round_trip_hand": 56.548667764616596
+    },
+    {
+      "level": 1,
+      "shape": "cycle5",
+      "resident": [
+        202,
+        203
+      ],
+      "routed_ports": [
+        0,
+        5,
+        9,
+        3,
+        192,
+        199,
+        198,
+        194,
+        145,
+        153,
+        147
+      ],
+      "terminal_tag_reads": [
+        true,
+        true
+      ],
+      "round_trip_hand": 62.83185307179622
+    },
+    {
+      "level": 1,
+      "shape": "path5",
+      "resident": [
+        0,
+        1
+      ],
+      "routed_ports": [
+        2,
+        3,
+        192,
+        203,
+        194,
+        145,
+        153,
+        147,
+        180,
+        185,
+        189,
+        183
+      ],
+      "terminal_tag_reads": [
+        true,
+        true
+      ],
+      "round_trip_hand": 69.11503837897584
+    },
+    {
+      "level": 1,
+      "shape": "path5",
+      "resident": [
+        53,
+        144
+      ],
+      "routed_ports": [
+        0,
+        5,
+        9,
+        3,
+        192,
+        203,
+        194,
+        145,
+        153,
+        147,
+        180,
+        185,
+        189,
+        183
+      ],
+      "terminal_tag_reads": [
+        true,
+        true
+      ],
+      "round_trip_hand": 81.68140899333508
+    },
+    {
+      "level": 1,
+      "shape": "path5",
+      "resident": [
+        190,
+        191
+      ],
+      "routed_ports": [
+        0,
+        5,
+        9,
+        3,
+        192,
+        203,
+        194,
+        145,
+        153,
+        147,
+        180,
+        187,
+        186,
+        182
+      ],
+      "terminal_tag_reads": [
+        true,
+        true
+      ],
+      "round_trip_hand": 81.68140899333508
+    },
+    {
+      "level": 1,
+      "shape": "cycle5_spur",
+      "resident": [
+        0,
+        1
+      ],
+      "routed_ports": [
+        2,
+        3,
+        192,
+        199,
+        200,
+        238,
+        235,
+        229,
+        218,
+        227,
+        216,
+        15,
+        18,
+        22,
+        44,
+        43,
+        46,
+        47
+      ],
+      "terminal_tag_reads": [
+        true,
+        true
+      ],
+      "round_trip_hand": 106.81415022205357
+    },
+    {
+      "level": 1,
+      "shape": "cycle5_spur",
+      "resident": [
+        44,
+        201
+      ],
+      "routed_ports": [
+        0,
+        10,
+        56,
+        54,
+        50,
+        96,
+        103,
+        104,
+        154,
+        146
+      ],
+      "terminal_tag_reads": [
+        true,
+        true
+      ],
+      "round_trip_hand": 56.548667764616596
+    },
+    {
+      "level": 1,
+      "shape": "cycle5_spur",
+      "resident": [
+        202,
+        203
+      ],
+      "routed_ports": [
+        0,
+        5,
+        9,
+        3,
+        192,
+        199,
+        198,
+        194,
+        145,
+        153,
+        147
+      ],
+      "terminal_tag_reads": [
+        true,
+        true
+      ],
+      "round_trip_hand": 62.83185307179622
+    },
+    {
+      "level": 1,
+      "shape": "path6",
+      "resident": [
+        0,
+        1
+      ],
+      "routed_ports": [
+        2,
+        3,
+        192,
+        199,
+        200,
+        238,
+        235,
+        229,
+        218,
+        227,
+        216,
+        15,
+        18,
+        22,
+        44,
+        43,
+        46,
+        47
+      ],
+      "terminal_tag_reads": [
+        true,
+        true
+      ],
+      "round_trip_hand": 106.81415022205357
+    },
+    {
+      "level": 1,
+      "shape": "path6",
+      "resident": [
+        44,
+        189
+      ],
+      "routed_ports": [
+        0,
+        5,
+        9,
+        3,
+        192,
+        203,
+        194,
+        145,
+        153,
+        147,
+        180,
+        187,
+        188,
+        183
+      ],
+      "terminal_tag_reads": [
+        true,
+        true
+      ],
+      "round_trip_hand": 81.68140899333508
+    },
+    {
+      "level": 1,
+      "shape": "path6",
+      "resident": [
+        190,
+        191
+      ],
+      "routed_ports": [
+        0,
+        5,
+        9,
+        3,
+        192,
+        203,
+        194,
+        145,
+        153,
+        147,
+        180,
+        187,
+        186,
+        182
+      ],
+      "terminal_tag_reads": [
+        true,
+        true
+      ],
+      "round_trip_hand": 81.68140899333508
+    },
+    {
+      "level": 2,
+      "shape": "cycle5",
+      "resident": [
+        0,
+        1
+      ],
+      "routed_ports": [
+        2,
+        10,
+        200,
+        198,
+        194,
+        384,
+        389,
+        393,
+        387
+      ],
+      "terminal_tag_reads": [
+        true,
+        true
+      ],
+      "round_trip_hand": 50.265482457436974
+    },
+    {
+      "level": 2,
+      "shape": "cycle5",
+      "resident": [
+        197,
+        576
+      ],
+      "routed_ports": [
+        0,
+        10,
+        200,
+        198,
+        194,
+        384,
+        391,
+        392,
+        586,
+        578
+      ],
+      "terminal_tag_reads": [
+        true,
+        true
+      ],
+      "round_trip_hand": 56.548667764616596
+    },
+    {
+      "level": 2,
+      "shape": "cycle5",
+      "resident": [
+        778,
+        779
+      ],
+      "routed_ports": [
+        0,
+        5,
+        9,
+        3,
+        768,
+        775,
+        774,
+        770,
+        577,
+        585,
+        579
+      ],
+      "terminal_tag_reads": [
+        true,
+        true
+      ],
+      "round_trip_hand": 62.83185307179622
+    },
+    {
+      "level": 2,
+      "shape": "path5",
+      "resident": [
+        0,
+        1
+      ],
+      "routed_ports": [
+        2,
+        3,
+        768,
+        779,
+        770,
+        577,
+        585,
+        579,
+        612,
+        617,
+        621,
+        615
+      ],
+      "terminal_tag_reads": [
+        true,
+        true
+      ],
+      "round_trip_hand": 69.11503837897584
+    },
+    {
+      "level": 2,
+      "shape": "path5",
+      "resident": [
+        197,
+        576
+      ],
+      "routed_ports": [
+        0,
+        5,
+        9,
+        3,
+        768,
+        779,
+        770,
+        577,
+        585,
+        579,
+        612,
+        617,
+        621,
+        615
+      ],
+      "terminal_tag_reads": [
+        true,
+        true
+      ],
+      "round_trip_hand": 81.68140899333508
+    },
+    {
+      "level": 2,
+      "shape": "path5",
+      "resident": [
+        622,
+        623
+      ],
+      "routed_ports": [
+        0,
+        5,
+        9,
+        3,
+        768,
+        779,
+        770,
+        577,
+        585,
+        579,
+        612,
+        619,
+        618,
+        614
+      ],
+      "terminal_tag_reads": [
+        true,
+        true
+      ],
+      "round_trip_hand": 81.68140899333508
+    },
+    {
+      "level": 2,
+      "shape": "cycle5_spur",
+      "resident": [
+        0,
+        1
+      ],
+      "routed_ports": [
+        2,
+        10,
+        200,
+        199,
+        192,
+        231,
+        237,
+        229,
+        206,
+        210,
+        212,
+        34,
+        30,
+        27,
+        36,
+        47,
+        38
+      ],
+      "terminal_tag_reads": [
+        true,
+        true
+      ],
+      "round_trip_hand": 100.53096491487395
+    },
+    {
+      "level": 2,
+      "shape": "cycle5_spur",
+      "resident": [
+        44,
+        777
+      ],
+      "routed_ports": [
+        0,
+        10,
+        200,
+        198,
+        194,
+        384,
+        391,
+        392,
+        586,
+        578
+      ],
+      "terminal_tag_reads": [
+        true,
+        true
+      ],
+      "round_trip_hand": 56.548667764616596
+    },
+    {
+      "level": 2,
+      "shape": "cycle5_spur",
+      "resident": [
+        778,
+        779
+      ],
+      "routed_ports": [
+        0,
+        5,
+        9,
+        3,
+        768,
+        775,
+        774,
+        770,
+        577,
+        585,
+        579
+      ],
+      "terminal_tag_reads": [
+        true,
+        true
+      ],
+      "round_trip_hand": 62.83185307179622
+    },
+    {
+      "level": 2,
+      "shape": "path6",
+      "resident": [
+        0,
+        1
+      ],
+      "routed_ports": [
+        2,
+        10,
+        200,
+        199,
+        192,
+        231,
+        237,
+        229,
+        206,
+        210,
+        212,
+        34,
+        30,
+        27,
+        36,
+        47,
+        38
+      ],
+      "terminal_tag_reads": [
+        true,
+        true
+      ],
+      "round_trip_hand": 100.53096491487395
+    },
+    {
+      "level": 2,
+      "shape": "path6",
+      "resident": [
+        44,
+        621
+      ],
+      "routed_ports": [
+        0,
+        5,
+        9,
+        3,
+        768,
+        779,
+        770,
+        577,
+        585,
+        579,
+        612,
+        619,
+        620,
+        615
+      ],
+      "terminal_tag_reads": [
+        true,
+        true
+      ],
+      "round_trip_hand": 81.68140899333508
+    },
+    {
+      "level": 2,
+      "shape": "path6",
+      "resident": [
+        622,
+        623
+      ],
+      "routed_ports": [
+        0,
+        5,
+        9,
+        3,
+        768,
+        779,
+        770,
+        577,
+        585,
+        579,
+        612,
+        619,
+        618,
+        614
+      ],
+      "terminal_tag_reads": [
+        true,
+        true
+      ],
+      "round_trip_hand": 81.68140899333508
+    }
+  ]
+}
