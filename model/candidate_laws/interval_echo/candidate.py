@@ -232,10 +232,13 @@ JOINT = {
                      "../../experiments/interval_echo_einstein_station/native_volume_curvature/README.md",
                      "../../experiments/interval_echo_einstein_station/native_tidal_response/README.md",
                      "../../experiments/interval_echo_einstein_station/native_tidal_response/ROUTING.md",
+                     "../../experiments/interval_echo_einstein_station/mobile_collar_source/results.json",
                      "../../experiments/interval_echo_einstein_station/dark_curvature/results.json",
                      "../../experiments/interval_echo_einstein_station/collar_scaling/ancestor.json",
                      "../../experiments/material_inertia/pair_recoil/clock.json"],
-        "note": "The native free generator obeys additive patch energy continuity. On the earlier pair, "
+        "note": "An unprotected mobile load correlates independent armed seams. A fresh probe detects the "
+                "correlation at matched local states. The sharp modular reference measures shared information. "
+                "The native free generator obeys additive patch energy continuity. On the earlier pair, "
                 "a prepared cap reads weighted seam energy at a held port where the flat reference failed. "
                 "An interior exchange changes this cap's entropy with its complete gateway state fixed. "
                 "Time-reversal-odd one-load seam currents exhibit torque. Load probes are exactly blind to "

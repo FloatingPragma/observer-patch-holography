@@ -1,0 +1,376 @@
+{
+  "lens_only_forecast_at_central_distance_kms": {
+    "NGC2685": [
+      164.49923040038593,
+      172.25233291511034
+    ],
+    "NGC2824": [
+      205.6106413909064,
+      212.4031434760106
+    ],
+    "NGC2859": [
+      243.6867615136616,
+      252.29204993436147
+    ],
+    "NGC2974": [
+      279.50726846144175,
+      288.13853051500973
+    ],
+    "NGC3522": [
+      137.9958240676802,
+      143.91436906430016
+    ],
+    "NGC3626": [
+      235.7911021070645,
+      244.0242414255598
+    ],
+    "NGC3838": [
+      153.36226396138804,
+      160.2437286130609
+    ],
+    "NGC3941": [
+      199.33346667451,
+      206.75662605831508
+    ],
+    "NGC3945": [
+      276.73669535116994,
+      285.79007625865313
+    ],
+    "NGC3998": [
+      211.2086956670759,
+      219.10301253382752
+    ],
+    "NGC4203": [
+      217.93537217243636,
+      226.08408878253405
+    ],
+    "NGC4262": [
+      179.39606079893207,
+      186.15177043824653
+    ],
+    "NGC4278": [
+      251.67875377000598,
+      259.74592272303
+    ],
+    "NGC5582": [
+      195.998249160335,
+      204.94608785918777
+    ],
+    "NGC6798": [
+      207.33321357502487,
+      216.4411985120074
+    ],
+    "UGC6176": [
+      176.61424388961248,
+      183.55591039683733
+    ]
+  },
+  "lens_two_statistical_error_intervals_a0_m_s2": {
+    "KiDS-bright": [
+      1.274347932454796e-10,
+      1.8097861892843752e-10
+    ],
+    "GAMA": [
+      1.4565395086873075e-10,
+      4.611504850881406e-10
+    ]
+  },
+  "panels": {
+    "primary": {
+      "distance_only": {
+        "feasible": true,
+        "error_multiplier": 4.454410282845504,
+        "a0_m_s2": 1.456539508687308e-10,
+        "lower": "GAMA",
+        "upper": "NGC3626",
+        "witness": {
+          "NGC2859": {
+            "distance_mpc": 20.39455991543336,
+            "predicted_speed_kms": 215.0
+          },
+          "NGC3522": {
+            "distance_mpc": 19.37489657325181,
+            "predicted_speed_kms": 121.0
+          },
+          "NGC3626": {
+            "distance_mpc": 11.763974292886239,
+            "predicted_speed_kms": 169.0
+          },
+          "NGC3838": {
+            "distance_mpc": 24.829570454520432,
+            "predicted_speed_kms": 159.0
+          },
+          "NGC3941": {
+            "distance_mpc": 6.8357264728442395,
+            "predicted_speed_kms": 148.0
+          },
+          "NGC3998": {
+            "distance_mpc": 19.263489896887197,
+            "predicted_speed_kms": 246.00000000000003
+          },
+          "NGC4203": {
+            "distance_mpc": 12.501681609875025,
+            "predicted_speed_kms": 197.0
+          },
+          "NGC4262": {
+            "distance_mpc": 20.221467209899135,
+            "predicted_speed_kms": 198.0
+          },
+          "NGC4278": {
+            "distance_mpc": 15.933366351119325,
+            "predicted_speed_kms": 256.0
+          }
+        }
+      },
+      "distance_and_speed": {
+        "feasible": true,
+        "error_multiplier": 3.015250642832525,
+        "a0_m_s2": 1.456539508687308e-10,
+        "lower": "GAMA",
+        "upper": "NGC3626",
+        "witness": {
+          "NGC2859": {
+            "distance_mpc": 20.39455991543336,
+            "predicted_speed_kms": 215.0
+          },
+          "NGC3522": {
+            "distance_mpc": 19.37489657325181,
+            "predicted_speed_kms": 121.0
+          },
+          "NGC3626": {
+            "distance_mpc": 15.361873392918685,
+            "predicted_speed_kms": 193.1220051426602
+          },
+          "NGC3838": {
+            "distance_mpc": 24.829570454520432,
+            "predicted_speed_kms": 159.0
+          },
+          "NGC3941": {
+            "distance_mpc": 7.57559897146796,
+            "predicted_speed_kms": 155.80373530007813
+          },
+          "NGC3998": {
+            "distance_mpc": 19.263489896887197,
+            "predicted_speed_kms": 246.00000000000003
+          },
+          "NGC4203": {
+            "distance_mpc": 12.501681609875025,
+            "predicted_speed_kms": 197.0
+          },
+          "NGC4262": {
+            "distance_mpc": 20.221467209899135,
+            "predicted_speed_kms": 198.0
+          },
+          "NGC4278": {
+            "distance_mpc": 15.933366351119325,
+            "predicted_speed_kms": 256.0
+          }
+        }
+      }
+    },
+    "secondary": {
+      "distance_only": {
+        "feasible": true,
+        "error_multiplier": 4.454410282845504,
+        "a0_m_s2": 1.456539508687308e-10,
+        "lower": "GAMA",
+        "upper": "NGC3626",
+        "witness": {
+          "NGC2685": {
+            "distance_mpc": 12.33738504992678,
+            "predicted_speed_kms": 144.0
+          },
+          "NGC2824": {
+            "distance_mpc": 24.58295234905599,
+            "predicted_speed_kms": 162.0
+          },
+          "NGC2859": {
+            "distance_mpc": 20.39455991543336,
+            "predicted_speed_kms": 215.0
+          },
+          "NGC3522": {
+            "distance_mpc": 19.37489657325181,
+            "predicted_speed_kms": 121.0
+          },
+          "NGC3626": {
+            "distance_mpc": 11.763974292886239,
+            "predicted_speed_kms": 169.0
+          },
+          "NGC3838": {
+            "distance_mpc": 24.829570454520432,
+            "predicted_speed_kms": 159.0
+          },
+          "NGC3941": {
+            "distance_mpc": 6.8357264728442395,
+            "predicted_speed_kms": 148.0
+          },
+          "NGC3945": {
+            "distance_mpc": 16.72237806963486,
+            "predicted_speed_kms": 236.99999999999997
+          },
+          "NGC3998": {
+            "distance_mpc": 19.263489896887197,
+            "predicted_speed_kms": 246.00000000000003
+          },
+          "NGC4203": {
+            "distance_mpc": 12.501681609875025,
+            "predicted_speed_kms": 197.0
+          },
+          "NGC4262": {
+            "distance_mpc": 20.221467209899135,
+            "predicted_speed_kms": 198.0
+          },
+          "NGC4278": {
+            "distance_mpc": 15.933366351119325,
+            "predicted_speed_kms": 256.0
+          },
+          "NGC6798": {
+            "distance_mpc": 31.324076467148473,
+            "predicted_speed_kms": 190.0
+          },
+          "UGC6176": {
+            "distance_mpc": 26.125588484125604,
+            "predicted_speed_kms": 144.0
+          }
+        }
+      },
+      "distance_and_speed": {
+        "feasible": true,
+        "error_multiplier": 3.015250642832525,
+        "a0_m_s2": 1.456539508687308e-10,
+        "lower": "GAMA",
+        "upper": "NGC3626",
+        "witness": {
+          "NGC2685": {
+            "distance_mpc": 12.33738504992678,
+            "predicted_speed_kms": 144.0
+          },
+          "NGC2824": {
+            "distance_mpc": 24.58295234905599,
+            "predicted_speed_kms": 162.0
+          },
+          "NGC2859": {
+            "distance_mpc": 20.39455991543336,
+            "predicted_speed_kms": 215.0
+          },
+          "NGC3522": {
+            "distance_mpc": 19.37489657325181,
+            "predicted_speed_kms": 121.0
+          },
+          "NGC3626": {
+            "distance_mpc": 15.361873392918685,
+            "predicted_speed_kms": 193.1220051426602
+          },
+          "NGC3838": {
+            "distance_mpc": 24.829570454520432,
+            "predicted_speed_kms": 159.0
+          },
+          "NGC3941": {
+            "distance_mpc": 7.57559897146796,
+            "predicted_speed_kms": 155.80373530007813
+          },
+          "NGC3945": {
+            "distance_mpc": 16.72237806963486,
+            "predicted_speed_kms": 236.99999999999997
+          },
+          "NGC3998": {
+            "distance_mpc": 19.263489896887197,
+            "predicted_speed_kms": 246.00000000000003
+          },
+          "NGC4203": {
+            "distance_mpc": 12.501681609875025,
+            "predicted_speed_kms": 197.0
+          },
+          "NGC4262": {
+            "distance_mpc": 20.221467209899135,
+            "predicted_speed_kms": 198.0
+          },
+          "NGC4278": {
+            "distance_mpc": 15.933366351119325,
+            "predicted_speed_kms": 256.0
+          },
+          "NGC6798": {
+            "distance_mpc": 31.324076467148473,
+            "predicted_speed_kms": 190.0
+          },
+          "UGC6176": {
+            "distance_mpc": 26.125588484125604,
+            "predicted_speed_kms": 144.0
+          }
+        }
+      }
+    },
+    "primary_deep": {
+      "distance_only": {
+        "feasible": true,
+        "error_multiplier": 0.0,
+        "a0_m_s2": 1.7419178208444716e-10,
+        "lower": "NGC3838",
+        "upper": "NGC3838",
+        "witness": {
+          "NGC3838": {
+            "distance_mpc": 23.1,
+            "predicted_speed_kms": 159.0
+          }
+        }
+      },
+      "distance_and_speed": {
+        "feasible": true,
+        "error_multiplier": 0.0,
+        "a0_m_s2": 1.7419178208444716e-10,
+        "lower": "NGC3838",
+        "upper": "NGC3838",
+        "witness": {
+          "NGC3838": {
+            "distance_mpc": 23.1,
+            "predicted_speed_kms": 159.0
+          }
+        }
+      }
+    },
+    "secondary_deep": {
+      "distance_only": {
+        "feasible": true,
+        "error_multiplier": 0.7838781145985878,
+        "a0_m_s2": 1.456539508687308e-10,
+        "lower": "GAMA",
+        "upper": "NGC2685",
+        "witness": {
+          "NGC2685": {
+            "distance_mpc": 12.33738504992678,
+            "predicted_speed_kms": 144.0
+          },
+          "NGC3838": {
+            "distance_mpc": 24.829570454520432,
+            "predicted_speed_kms": 159.0
+          },
+          "NGC6798": {
+            "distance_mpc": 31.324076467148473,
+            "predicted_speed_kms": 190.0
+          }
+        }
+      },
+      "distance_and_speed": {
+        "feasible": true,
+        "error_multiplier": 0.5746454438196232,
+        "a0_m_s2": 1.4565395086873075e-10,
+        "lower": "GAMA",
+        "upper": "NGC2685",
+        "witness": {
+          "NGC2685": {
+            "distance_mpc": 13.34170186966581,
+            "predicted_speed_kms": 149.74645443819625
+          },
+          "NGC3838": {
+            "distance_mpc": 24.829570454520436,
+            "predicted_speed_kms": 159.0
+          },
+          "NGC6798": {
+            "distance_mpc": 31.9557973724775,
+            "predicted_speed_kms": 191.90632666453038
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+# Outer neutral-hydrogen orbits and weak lensing
+
+Nine of 16 early-type galaxies have a measured orbit outside five effective radii enclosing at least 90% of the modelled baryons, including an allowance for unlocated gas. Fourteen pass at 80%. Membership depends on photometry, geometry and the gas inventory. The comparison uses the outer neutral-hydrogen velocity and an independent galaxy sample for lensing. [Orbital measurements](https://arxiv.org/abs/1509.05236) · [Mass models](https://astroweb.case.edu/SPARC/) · [Lensing measurements](https://doi.org/10.1051/0004-6361/202040108)
+
+At published central distances, stellar mass-to-light ratio 0.8 and the released local force convention (gas force set to zero), NGC 4262 and NGC 3626 require incompatible excess masses for any single spherical increasing profile whose enclosed excess mass grows at most linearly in scaled radius. At one quoted speed error the first galaxy requires at least 1.99 baryonic masses of excess at the second galaxy's scaled radius. The second permits at most 0.51. The full primary sample first admits a shared profile at 4.443 quoted speed errors. The finite feasibility theorem constructs the least profile compatible with every lower bound. [Checked theorem](../../../../Lean/ObserverPatchHolography/EinsteinBranch/HaloStress.lean) With the stellar forces and nominal geometry, the shear ceilings also fall below both survey averages after dropping any one galaxy. Broader mass, inclination and distance allowances raise the ceilings above both observed averages, making the bound inconclusive.
+
+Enclosure and low acceleration select different orbits. Only NGC 3838 meets both the 90% cut and the point-mass acceleration cut at 1.2 × 10⁻¹¹ m/s². At 80%, NGC 2685 and NGC 6798 also enter. An explicit linear enclosed-mass profile accommodates these three with adjustments of at most 0.575 quoted errors to distances and speeds, at a scale of 1.457 × 10⁻¹⁰ m/s² admitted by both mean shears at two statistical errors. Extending that calculation to the nine primary galaxies requires 3.015 quoted errors at fixed inclinations and stellar mass-to-light ratio. The scales, geometries and inputs in these examples come from measurements. Using only the two shear intervals and central photometry and distances forecasts 235.79–244.02 km/s for NGC 3626, observed at 169 ± 8 km/s, and 153.36–160.24 km/s for NGC 3838, observed at 159 ± 14 km/s. Native patch records supply no independent estimate of this normalization.
+
+The full radial shear profiles distinguish agreement of the weighted averages from agreement across radii. At the three-orbit witness scale, the six-bin squared covariance distances are 24.38 for KiDS-bright and 12.89 for GAMA at bin centres. Even fitting an independent scale to each survey gives minima of 22.67 and 12.18 for five residual degrees of freedom. Allowing unknown pair weights within each bin lowers the fixed-scale distances to 4.39 and 8.05, respectively. The surveys’ effective radial pair weights would decide which comparison represents the measurement. [Six-bin predictions and residuals](shear_shape.json)
+
+## Reproduce
+
+From the repository root, run the following with NumPy, SciPy and Matplotlib installed. The first calculation checks the two photometric thresholds, intersects the orbital limits and propagates the published six-bin survey covariances. The second reconstructs the distances and velocities of a common linear-profile example. The figure displays the binding pair and lensing intervals.
+
+```sh
+PYTHONPATH=code python -m cosmology.rar_deep_regime.outer_orbit_transfer.measure --output /tmp/orbit-shape-results.json
+PYTHONPATH=code python -m cosmology.rar_deep_regime.outer_orbit_transfer.linear_profile > /tmp/linear-profile-results.json
+PYTHONPATH=code python -m cosmology.rar_deep_regime.outer_orbit_transfer.shear_shape --output /tmp/orbit-shear-shape.json
+PYTHONPATH=code python -m cosmology.rar_deep_regime.outer_orbit_transfer.figure
+```
+
+The sixteen input records and source digests are in [inputs.json](inputs.json). To rebuild them from the original catalog, model archive and Table 1 paper, download the three URLs listed in that file, then use the following command with Poppler installed. NGC 2974 has 305 km/s in the orbital reduction and 310 km/s in the source H I table. It fails the five-effective-radius cut. The reconstructed stellar and observed accelerations of all 16 agree with the two-decimal catalog entries to within 0.005 dex.
+
+```sh
+PYTHONPATH=code python -m cosmology.rar_deep_regime.outer_orbit_transfer.acquire --catalog ETG_Lelli2017.mrt --profiles Rotmod_ETG.zip --hi 1509.05236.pdf --output /tmp/outer-orbit-inputs.json
+```
+
+The bounds assume the published stellar profiles, a nonnegative spherical excess, and ordinary weak-field shear. A speed-only upper bound permits an unknown nonnegative baryonic force. Lower bounds and constructive witnesses use the local gas-force approximation of the published mass models. The enclosure includes calibrated atomic gas plus helium. Unmeasured gas, the adopted stellar mass-to-light ratio, environmental effects and pair distributions within lens bins affect comparisons. The inclination contributes to the published speed error. Moving it independently in the generous sensitivity box counts some of that allowance twice. The two lens selections share imaging. The reported error multipliers describe interval intersections and have no joint probability interpretation. [Selection and test definitions](PROTOCOL.md) · [Orbital and lens bounds](results.json) · [Example distances and speeds](linear.json)

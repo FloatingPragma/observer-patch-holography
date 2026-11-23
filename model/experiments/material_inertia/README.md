@@ -71,6 +71,8 @@ On the 20-cell screen, a regular excess at port 0 and a gateway vacancy at port 
 
 The conserved signed number, positive excitation energy and transport make this a candidate for further dark-sector tests. A physical electrical charge meter, inertial dispersion for the same moving excitation, response of geometry and cosmic abundance remain open. The public OpenWave static row asks for a stable neutral massive state. [Public row definition](https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L121)
 
+The lowest 24 lines of the same native bound band admit a free multi-cell flight on the 20-cell sphere. After one million exchange times, an adjacent regular excess and gateway vacancy are detected at least two cells from their filtered launch with probabilities of 6.8287%, 12.6035% and 18.8158%. All sharp-launch baselines lie below 1.6 × 10⁻¹² for the three admitted preparations after filtering. The cluster concentrates on twelve cells with the same local gateway motif. The 80-cell refinement has a connected 56-cell region of this type for a future dispersion measurement. [Energy lines, filter admissions and terminal counts](pair_spectrum/README.md)
+
 ## Reading a stationary collar by contact
 
 At the same coupling an evacuated written seam has positive signed-contrast-two even and odd energy gaps of 32 and 33 in exchange units. An empty-port phase comparison reads both. The free Hamiltonian preserves the location of the occupied memory. Superpositions over different addresses of the same empty-port eigenmode all have the same energy. This gives a flat band for the bare collar, distinct from the mobile particle–vacancy branch above.

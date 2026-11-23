@@ -39,6 +39,10 @@ The [observer protocol for dark gravity](../code/cosmology/rar_deep_regime/READM
 
 Under the collar-stress attachment, recovery defects bound a candidate dark source. Conserved comoving charge gives the familiar inverse-volume dilution. Two explicit scaling and composition premises select a spherical deep-acceleration law with baryonic Tully–Fisher scaling: the deep limit of Milgrom's modified dynamics, with `a_0` fitted.
 
+A freely moving material defect creates correlations between two independently prepared seam memories. A second probe detects the correlations after the first defect departs. With the first defect in contact, the record entropy varies with exposure. Measuring the same source through gravitational focusing requires a physical stress and a calibrated geometry. [Native records and controls](../model/experiments/interval_echo_einstein_station/mobile_collar_source/README.md)
+
+A lensing-calibrated scale accommodates three low-acceleration galaxy orbits and two survey averages. The six individual KiDS-bright bins disagree with the predicted shape at nominal bin centres. Their actual pair weights matter to that comparison. [Outer orbits and resolved shear profiles](../code/cosmology/rar_deep_regime/outer_orbit_transfer/README.md)
+
 A physical interpretation must link this source to relativistic stress, abundance, lensing, cosmic expansion and calibrated readouts on the same process. The dark-sector paper states the hypotheses and compares the resulting formulas with galaxy data.
 
 ## Reproducibility
