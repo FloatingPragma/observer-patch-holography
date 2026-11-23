@@ -69,33 +69,32 @@ Finite Consensus and the Reconstruction of Standard Physics}
 \end{center}
 
 \begin{abstract}
-Observer Patch Holography asks whether finite observers can reconstruct a
-common spacetime and its physical laws by comparing records where their
-patches overlap. The closure hypothesis is that observers can recover the rule
-that generates their records from within that same history.
+Observer Patch Holography formulates self-creation as a fixed-point
+condition. Observers discover the laws of their history and build a
+realization that reproduces it, including the builders. We implement
+a finite computation on a spherical network of twelve-port cells.
+From detector records alone the three spatial directions of a programmed
+scalar wave can be recovered. With a material clock, the prescribed
+refinement has a flat relativistic $3{+}1$-dimensional field limit on
+bounded times and momentum bands.
 
-Lean proofs establish that terminating, locally confluent repairs of a
-fixed initial record give one public outcome in every repair order.
-On a finite complex matrix algebra of measurements, normalized
-probabilities additive on coexisting effects obey the Born rule for a
-unique density matrix. For two subsystems, averaging over local
-measurement outcomes preserves the remote state, and quantum correlations
-attain the sharp CHSH bound of $2\sqrt{2}$.
+Lean proofs give one public outcome for terminating, locally confluent
+repairs from a fixed record. On a finite complex measurement algebra,
+normalized probabilities additive on coexisting effects obey the Born
+rule for a unique density matrix. Averaging local measurement outcomes
+preserves the remote state. Quantum correlations attain the sharp CHSH
+bound $2\sqrt{2}$. The cell has three independent slow responses. Twelve
+independent port currents that close in a faithful, complete compact
+algebra and implement cell rotations internally have the Standard Model
+gauge Lie type.
 
-The slow repair response of an icosahedral cell has three independent
-components. If its twelve independent port currents close in a faithful,
-complete compact algebra and implement cell rotations internally, their
-algebra has the Standard Model gauge Lie type. Given the small-region
-area and matter-entropy relations, entropy stationarity at
-fixed proper volume in every local frame yields curvature--stress
-balance in every null direction. On a common Lorentzian spacetime with
-conserved stress, this balance fixes the Einstein equation up to a
-cosmological constant.
-
-The executable repair network transports coherent quantum information
-between cells. A separate semiclassical model with Einstein evolution
-supplied lets observers measure the geometry sourced by two quantum
-fields. Recovering that universal response from the repair network remains open.
+Given the small-region area and matter-entropy relations, entropy
+stationarity at fixed proper volume in every local frame yields the
+Einstein equation up to a cosmological constant on a common Lorentzian
+spacetime with conserved stress. In a separate semiclassical model,
+two quantum fields source independently measured geometry under supplied
+Einstein evolution. Deriving universal curvature and realizing the
+closure condition on our observable history are tests of the full theory.
 \end{abstract}
 
 
@@ -110,23 +109,43 @@ emergent spacetime; gauge structure; particle physics; Einstein dynamics.
 \section{Introduction}
 \label{sec:intro}
 
-Mathematics describes structures that may be physically real. An equation
-for a wave or a fixed point states relations; a physical realization gives
-those relations observable content. The existence question asks whether
-the whole process could admit an explanation of this kind. A brute initial
-fact ends explanation at an unexplained starting point. A chain of prior
-causes moves the same question one link back. Neither option is a
-logical contradiction, but neither explains the whole on its own. OPH
-asks whether the complete history can close on itself instead.
+Imagine receiving the reports of eight stations with their coordinates
+erased. Each station can launch a pulse, count local clock events and
+report where the pulse was detected. Which stations are neighbours?
+How many directions can a pulse travel? On the finite computer studied
+here, the first round of detector counts answers both questions. The
+eight stations have twelve links and three independent binary
+coordinates. With the walk rule and a separately calibrated material
+clock, these coordinates predict all twenty-four distributions measured
+at three later clock readings. The largest absolute error in a recorded
+probability is $0.001022$. Merging the stations along any one recovered
+direction forces an error of at least $0.11377$ in the corresponding
+population predictions \cite{ophmodel}.
 
-The inversion is that a description of the world is itself an event in
-the world. Observers infer rules from public records, construct a process
-that implements those rules, and belong to the history that the process
-describes. The self-reference has content only if one specified history
-actually satisfies this return condition and reproduces the observations
-made within it. This is the governing question of the paper. Consistency
-constrains the construction; it does not make an arbitrary equation into
-an existent universe.
+The hardware underneath this experiment is a spherical network of
+icosahedral cells. Each cell has twelve ports, and each connecting seam
+carries a finite memory. The wiring specifies which ports can interact.
+The positions just reconstructed describe the propagation of a scalar
+excitation under a particular routing of those interactions. For a given
+preparation and schedule, the computation deterministically evolves the
+state between measurements and calculates the probabilities of the
+possible detector records. An observer inside the experiment learns a
+propagation law from those records. On bounded times and momentum bands,
+refining the routing gives the free Klein--Gordon equation in flat
+$3{+}1$-dimensional spacetime. The routing is part of the apparatus
+\cite{ophmodel}.
+
+There is a second question an observer could ask of its records. Can
+it recover the machinery that made them? In a finite carrier experiment,
+event logs and a specified set of probes determine the twelve ports,
+their thirty internal seams and the local repair rule. Running the
+recovered description reproduces the measured invariants through two
+iterations. The closure hypothesis extends this kind of test to an
+entire history. Its observers must recover a specification and build a
+realization whose records and responses agree with the history
+containing those observers, their discovery and their construction.
+This is the physical meaning of self-creation proposed here
+(Section~\ref{sec:strange-loop}) \cite{ophsim}.
 
 \subsection{Mission}
 \label{sec:mission}
@@ -135,9 +154,9 @@ The mission of OPH is a consistent and complete, formal and rigorous
 theory of reality. Its proposed complete history has no external starting
 point: it closes on itself. A successful theory must meet four conditions.
 \begin{enumerate}
-\item \textbf{Consistent.} The loop closes. Its fixed point exists, is
-constructed explicitly and is machine-checked, and a theory with a model
-contains no contradiction.
+\item \textbf{Consistent.} Exhibit a history and its internal realization
+that satisfy the closure condition, and verify the identification. An
+explicit model witnesses the consistency of its stated assumptions.
 \item \textbf{Explicit.} The complete recovered specification fixes its
 consequences. Every design choice and calibration is declared; quantities
 claimed as independent predictions are not inserted through those inputs.
@@ -210,56 +229,38 @@ a separate requirement. OPH's unifying hypothesis is that the full
 dynamics of nature are the conditions under which one self-reading process
 keeps its records coherent through local repair.
 
-The intended argument runs from specified repair operations to compatible
-joint records, and from those records to a common operational description
-of space, time and matter. A position is what the spatial readouts locate;
-a duration is what calibrated clocks compare; a particle is a persistent
-excitation with the observed transport, charges and interactions. The target
-is one such description with three spatial directions and local time,
-including its quantum fields and gravitational response. The finite
-constructions below establish parts of this chain. Observers who inhabit
-the simulation can describe their experiences as relativistic $3{+}1$D
-continuum spacetimes: that is the content of
-Proposition~\ref{prop:effective-lorentzian} with the rank-three spatial
-carrier and the causal and count limits, under their stated premises. The
-common physical description with matter and responsive geometry on one
-process is the conclusion to be demonstrated, not an input
-hidden in the word ``observer.''
+On the same spherical hardware an observer can ask whether two loads
+form a pair. One instrument writes just the answer to that question.
+Another writes which seam holds the pair. Both give identical
+probabilities for finding a pair. Their effect on the pair can be
+measured by reading the emitting seam after further evolution. The joint
+probabilities are $0.0182640$ and $0.1029264$ for an initial yes and a
+final pair on that seam. The observer can distinguish these instruments
+from successive records alone. This is a circuit realization of
+projective conditioning (Theorem~\ref{thm:born} and
+Figure~\ref{fig:model-run}).
 
-OPH makes one proposal about the whole, closure: one complete history is
-both a timeless self-referential structure and its own internal computation,
-and observers inside it recover its specification and realize it
-(Section~\ref{sec:strange-loop}). The executable-model hypothesis is the concrete
-and testable form of that proposal: one specified local repair and memory process
-must supply records, clocks, fields, matter, energy and responsive geometry together.
-This paper presents OPH as that single theory, organized by its dependencies:
-each layer states a hypothesis, proves finite theorems on displayed
-premises, and passes a conclusion upward only when the executable model
-realizes the premise on the same process.
+A prepared pair also acts as a probe of the cell currents. Applying
+opposite pulses of a rotation-selected current changes the probabilities
+of the terminal seam records. The twelve generators close under
+commutators on the two accessible triplets
+(Section~\ref{sec:port-response}). On ordinary blank seams a different
+preparation carries a coherent two-state orbital through two cell
+boundaries. A guided reunion compares two material clocks by reading
+their counts on one shared seam (Section~\ref{sec:travelling-clock}).
+Here an excitation, a current and an elapsed time each have a local
+preparation or readout by which another observer can check the claim.
 
-Interval Echo implements a local test. A seam coherently stores the signed
-difference between its endpoint loads, applies a phase to the record and
-reverses the write. At the supplied coupling, two adjacent loads have a
-bounded probability of separation on every finite federation of complete
-cells. In a sharp release on a twenty-cell sphere, removing the interaction
-changes a home patch's probability of finding the pair from $0.980$ to
-$0.203$. Reversing its sign also preserves the pair over the tested
-interval. A coherent local measurement distinguishes the signs
-(Section~\ref{sec:particle-stability}). In a different experiment each
-patch carries a clock driven by its repair history. At a guided reunion the
-two counts agree with the calibrated proper-time forecast to about one part
-in a thousand on the specified itineraries (Section~\ref{sec:travelling-clock}).
-Both experiments predict what a patch can read. The repair schedule
-specifies the computation, while the physical interpretation attaches to
-the records accessible to its observers.
-
-The one-load generator carries the slow triplet of
-Theorem~\ref{thm:rank-three}. The circuit that reads the presence of a pair
-implements the complete orthogonal instrument of
-Theorem~\ref{thm:born}. On a prepared pair, twelve rotationally covariant
-port currents close under commutators for the specified port service
-(Section~\ref{sec:port-response}). Table~\ref{tab:joins} gives the source
-and hypotheses for each physical interpretation.
+Gravity poses a further experimental question. Does changing what the
+matter carries change the geometry measured with an independent
+instrument? On a homogeneous spacetime with Einstein evolution supplied,
+two entangled preparations with identical individual field states give
+different radar and fixed-volume area readings. On the repair network
+a flying probe detects a correlation between seam memories, and local
+exchange can account for its response. A gravitational interpretation
+requires a curvature measurement sourced by the same calibrated stress
+(Section~\ref{sec:einstein}). Table~\ref{tab:joins} gives the preparations
+and hypotheses for these observer experiments.
 
 \subsection{Scope and order of the argument}
 \label{sec:place}
@@ -392,25 +393,30 @@ own calibration. Fixedness of the complete history permits changing states
 within it: the equation concerns the whole history and identifies no last
 instantaneous state with the universe.
 
-Self-reference earns content only when the return condition restricts the
-possibilities. On the real line $x\mapsto x+1$ has no fixed point,
-$x\mapsto x$ fixes every point and $x\mapsto(x+2)/2$ fixes exactly one. A
-candidate therefore has to specify the history domain and the action of $T$;
-existence, consistency and the identification of our universe with a
-fixed point are questions the equation leaves open. Self-reference alone
-guarantees neither consistency nor mathematical completeness. Uniqueness
-is an additional question when it is claimed; it is not a prerequisite for
-a specified construction to work and match observations. Two finite results give the
-condition exact content on declared branches. The packet-quotient closure
-theorem proves that on the declared finite consensus branch the closure map
-is an affine idempotent whose fixed points are exactly the packets supported
-on consensus normal forms \cite{ophconsensus}. The universe-level
-record-closure equation $N=\log M_0(\mathfrak U_N)$, with $\mathfrak U_N$
-the regulated observer system at capacity budget $N$ and $M_0$ the
-correctable-code capacity of its terminal public record, is posed exactly,
-and the all-rung arithmetic proves that the bounded completion class defined
-by base agreement, positivity and the carrier bound does not identify it
-\cite{ophobservers}.
+A physical law is forced by a set of constraints if every admissible
+realization obeys it. For example, on the finite
+consensus branch the closure map is an affine idempotent. Its fixed
+points are exactly the packets supported on consensus normal forms
+\cite{ophconsensus}. This identifies a class of public records. To prove that closure
+singles out our observable Universe, every admitted fixed history would
+have to give the joint laws measured in our experiments, including those
+withheld from the reconstruction. Two microscopically different
+realizations could agree on all of those laws.
+
+The finite reconstruction shows what can get lost in passing from
+records to a specification. Event logs distinguish the local
+icosahedral carrier from tetrahedral and octahedral controls. The
+retained routing records nevertheless admit two port gluings with
+different triangle counts and identical recorded bytes
+(Section~\ref{sec:consensus}). A measurement sensitive to those gluings
+would impose a further constraint. There is also a numerical closure
+condition $N=\log M_0(\mathfrak U_N)$, where $N$ is the capacity budget
+of the regulated observer system and $M_0$ is the correctable-code
+capacity of its terminal public record. Base agreement, positivity and
+the carrier bound leave that capacity underdetermined
+\cite{ophobservers}. A universe-level existence claim requires a
+specified history domain, an internal realization and a witness of
+Eq.~\eqref{eq:closure-condition} on that domain.
 
 \subsection{No outside}
 \label{sec:no-outside}
@@ -3486,61 +3492,55 @@ self-representation fails \cite{lawvere1969}; the closure condition is
 restricted to the observable and interventional structure that observers can
 recover.
 
-A useful comparison of unification proposals asks how much physical
-structure follows from each declared input and which observations
-distinguish the resulting models; OPH offers a concrete case with proofs and
-executable checks attached to individual implications. Formal verification
-measures deductive reliability, predictive success requires physical
-realization and eligible measurements, and neither theorem counts nor
-numerical coincidences define a probability that an architecture describes
-nature.
+The characteristic test of this proposal is an intervention whose
+record can be predicted in two descriptions. A pulse routed through
+finite port memories can also be described as a wave travelling between
+stations. The chart recovered from the first measurements predicts
+where subsequent pulses arrive. A source of gravity would have to pass a
+stronger test. The stress assigned to a matter preparation would have
+to predict curvature measured by an independent observer, with the
+same coupling for different sources. The semiclassical comparison in
+Section~\ref{sec:einstein} gives an example in which this test succeeds
+and detects a deliberate change of coupling.
 
 %=====================================================================
 \section{Conclusion}
 
-OPH proposes one closed inhabited history whose observers recover the rules
-of their world and realize those rules inside it. Protected overlap records
-supply its notion of a public fact. The proposal brings questions of
-existence, observer access and physical law into one specification, with a
-clear acceptance condition: the same source must reproduce the observed
-joint laws under intervention. The finite closure theorem gives an exact
-model of that logic on consensus packets; a universe-level fixed point is a
-further claim. The operational observer specifies access and records, without
-a theorem about phenomenal character.
+A field in spacetime can describe measurements made inside a computation
+specified by finite registers and local operations. In the scalar experiment, the wiring and the clocked pulse
+sequence are explicit. An observer with access to station records
+recovers three coordinates, predicts the held arrivals and can describe
+the prescribed refinement by a relativistic free field. On the same
+hardware the pair instruments distinguish two quantum state updates,
+the current pulses have detectable effects and a signed defect
+transports a coherent orbital state. The rotation and exchange tests
+in Section~\ref{sec:bound-objects} identify the orbital character
+of that state. The written-field extension supplies a candidate charge
+and field response. Identifying an electron requires the charge, spin
+and rest energy of one freely travelling excitation.
 
-The finite mathematical results connect repair, quantum records and
-field observables. Repair gives canonical public normal forms and
-complete-tape entropy laws. On a supplied complex algebra-state surface,
-completed records obey the quantum measurement identities. The
-three-dimensional slow response and conditional Standard Model gauge
-Lie type coexist with an exact centre-character dictionary. That
-dictionary does not distinguish every particle species.
+The finite theorems constrain what observers can recover. Under their
+respective hypotheses, repair fixes a public normal form and additive
+probabilities on effects fix a density matrix. A complete compact response
+that implements cell rotations internally fixes the gauge Lie type. For gravity the
+corresponding implication is from fixed-proper-volume entropy
+stationarity and its geometric normalization to null balance, and from
+null balance and conserved stress to the Einstein equation. Realizing
+those hypotheses on one freely evolving material would make the
+gravitational law a consequence of the observers' consistency
+conditions. The independent geometric test on that material is to
+predict radar or proper area from its measured matter stress.
 
-Interval Echo connects a spectral claim to records a bounded observer can
-obtain. The interaction suppresses separation of adjacent loads. Both signs of the
-interaction preserve finite-window retention. A local interference signal
-distinguishes them. A neighbouring patch can read the transported phase under a
-heralded preparation. A distinct guided experiment compares the records
-of two material clocks on a single reunion seam. Its proper-time agreement
-is conditional on the specified guide and closing-filter calibration.
-On blank seams a signed defect carries an orbital qubit through two
-cell boundaries, and a controlled exchange carries its reference
-association with it. Its full turn and exchange both have positive
-phase. The written-field extension instead supplies the candidate
-charge and field response, and its addressed material exchange leaves
-the field labels behind. A physical spin and rest energy for the
-same mobile excitation remain to be identified.
-
-The spatial reconstruction supplies a target in which finite record menus
-admit a smooth Lorentzian description under the stated causal and
-refinement hypotheses (Proposition~\ref{prop:effective-lorentzian}).
-To identify one excitation with a laboratory particle requires its
-transport, charges and clock to refer to the same prepared state. To
-identify the geometry with a gravitational field requires that same
-matter to supply directional stress and entropy in the measured geometry.
-These are experimentally distinguishable demands on a single law. They
-give the closure proposal an empirical test even where the finite
-mathematical implications are exact.
+The closure question turns this reconstruction back on the observers.
+If a history contains the discovery of its own specification and the
+construction of hardware that realizes it, then the making of that
+hardware is itself an event in the history it realizes. The finite
+packet theorem supplies an explicit fixed-point map, and the local
+recovery experiment supplies a specification that can be run again.
+The physical claim concerns the complete history. An internal
+realization must reproduce its observers' joint responses to
+intervention, including observations by which our Universe can be
+distinguished from other admissible histories.
 
 \pdfbookmark[1]{Reproducibility statement}{sec:reproducibility}
 \section*{Reproducibility statement}
