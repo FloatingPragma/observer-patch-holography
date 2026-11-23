@@ -35,3 +35,34 @@ The complete material endpoint and its address-labelled record define the same q
 On a four-seam path crossing a cell boundary, the five legal orders gave identical material columns and outcome addresses for all 3,888 sharp load and initial occupancy words. An unguarded reverse sweep changed 192. The test also prepared a coherent superposition of double placements on the native edges (1,82) and (72,73); both written signs vary together while the outcome addresses agree. Unwriting these two contacts and reading each restored rail against a local vacancy gives a fair bit at either meter. The joint even-parity probability is zero or one according to the prepared relative sign. Interrogating seam (0,1) before it becomes eligible reveals which placement occurred and gives even parity with probability one half for either sign. These are complete simulated outcome laws. [Instrument and replay](coherent_sweep.py) · [Joint receiver probabilities and board depths](coherent_sweep.json)
 
 Run `python -B -m model.experiments.interval_echo_consensus.coherent_sweep` to reproduce the finite branch and schedule comparisons.
+
+## What the observer can read after a strict repair
+
+Put two load units at one port of the 20-cell screen, with every other port vacant and every seam memory blank. A strict repair produces unit loads at both ends of the selected seam $e=(a,b)$. Its memory contains the signed input difference $+2$ or $-2$ with the coin in equal superposition. This follows by applying the native write to $|2,0\rangle$ or $|0,2\rangle$. The priority service selects the seam. Over all 240 input ports it selects an internal seam 180 times and an intercell seam 60 times. Forward, reverse and shuffled visits agree with the serial priority rule on this domain. Starting at port 156 selects $(156,157)$ with positive sign. After release the generator acts freely on all 630 seams.
+
+The usual detector echoes a seam, copies the flag for two unit loads, and undoes the echo. On the signed memory this flag is silent throughout the released sector. On a blank seam it detects the two occupied endpoints exactly. To read the repaired address, each endpoint probes three distinct internal neighbours other than its partner, using the first three in port order. The native contrast-one flag on a blank binary seam reads the exclusive OR of its occupations and the inverse echo restores its memory. An empty endpoint cannot yield three yes flags with only two units in the entire system. Both occupied endpoints give six yes flags. Thus their conjunction detects precisely the repaired address. For an intercell seam the two endpoint patches must compare their three records. In the home cell at port 156 the terminal menu has 30 seam addresses and a quiet outcome. It uses this conjunction at the repaired seam and the usual flags elsewhere. These effects are diagonal on the binary sector, so their terminal probabilities apply also to coherent load states.
+
+### Probability of detecting both loads at any exposure
+
+In each sign-reversal parity $\delta=0,1$, the signed seam contributes zero at the launch word $|e\rangle$ and $4\kappa+\delta$ on every other binary word. The exact local columns also give $(I-\mathrm{SWAP})/2$ and $\kappa(n_i-n_j)^2$ on each blank seam. The degree references $6-d_i$ use the full board. The written memory occupies both parities with equal weights, and the terminal occupation effects preserve parity. [Local columns, observer effects and full-sector replay](strict_pair.py)
+
+Write $m=d_a+d_b-2$. At launch the energy expectation is $E=m/2+10\kappa$, with $m$ outgoing moves of amplitude $-1/2$. The squared norm of the off-diagonal column is $v^2=m/4$. For any other pair word the all-blank contrast including degree references is $12-2\mathbf{1}_{\rm adjacent}\ge10$. Replacing the blank seam subtracts at most one unit of contrast there and adds the signed contribution. Since blank exchange is positive, the complementary compression satisfies $H_\perp\ge(13\kappa+\delta)I$ for $\kappa\ge0$.
+
+Set $g=3\kappa+\delta-m/2$. For $g>0$, the variational principle puts the lowest eigenvalue at or below $E$, while interlacing puts the second at or above $E+g$. The projected eigenvector equation bounds the norm of the complementary component by $v/g$ times the launch component. The launch weight in the lowest eigenstate is therefore at least $w=g^2/(g^2+v^2)$. For $g>v$, the triangle inequality bounds the return amplitude at every exposure by $w-(1-w)$ from below. Squaring and taking the weaker parity gives a bound on the observer's six-flag probability.
+
+At $\kappa=8$ the single-seam probability is at least $(717/727)^2$ across all 630 seams, and at least $(84/85)^2$ on $(156,157)$. More generally $m\le10$ gives a floor of $(333/343)^2>0.94$ for every $\kappa\ge6$. These bounds apply to finite-system evolution at any real exposure. They require the signed record to remain on its seam. They establish localized material persistence. Translation, a physical lifetime and particle identity require other observables.
+
+| Coupling at exposure 37 | Six probes detect both loads on $(156,157)$ | Usual pair flags fire anywhere in the home cell |
+| ---: | ---: | ---: |
+| 0 | 0.026225144 | 0.138412107 |
+| 0.5 | 0.051562485 | 0.337981290 |
+| 8 | 0.995772511 | 0.003069252 |
+
+The discrepancy input, priority, free-flight exposure and terminal apparatus are supplied. The consensus rule specifies the write independently of persistence. The value eight and the row target were known when this comparison was designed. The write also succeeds at zero and half strength, where the same apparatus records dispersion. Exposure is a generator parameter. This experiment supplies neither a clock calibration nor an independent determination of eight.
+
+Run the module from the repository root with NumPy, SciPy and SymPy. The default checks the local operators, every input address and the reader on all 28,680 binary words for every seam. The extended replay returns all 31 outcomes of both terminal menus at exposures 0, 1, 7 and 37 for each coupling. It compares two 28,680-state parity evolutions against direct Chebyshev propagation of all 57,360 signed amplitudes. A spurious six-flag hit, an observed return below the bound, or a discrepancy above $2\times10^{-10}$ between the two numerical calculations rejects the corresponding check.
+
+```sh
+python -B -O -W error -m model.experiments.interval_echo_consensus.strict_pair
+python -B -O -W error -m model.experiments.interval_echo_consensus.strict_pair --cross-check
+```
