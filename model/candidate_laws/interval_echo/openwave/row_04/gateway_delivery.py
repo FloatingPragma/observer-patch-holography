@@ -134,21 +134,36 @@ def challenge_contacts(board, ports, written, pulse):
     return records
 
 
-def switches_from_records(source, records):
-    """Infer gateway mediation, relay agreement and the unwanted contacts from blank trials."""
-    seen = {(p, q): click for p, q, _, click in records}
-    require(
-        len(seen) == len(records) and all(type(c) is int and c in (0, 1) for c in seen.values()),
-        "duplicate or invalid contact record",
-    )
+def contact_receipts(board, ports, written, records):
+    """Bind each record to its dispatched contact and to a distinct blank meter."""
+    expected = {(p, q) for p in ports for q in board.neighbours[p]}
+    seen = {}
+    for p, q, witness, click in records:
+        require(
+            all(type(x) is int for x in (p, q, witness, click))
+            and (p, q) in expected
+            and click in (0, 1),
+            "invalid contact record",
+        )
+        require((p, q) not in seen, "duplicate contact record")
+        meters = [r for r in board.neighbours[q] if r != p and link(q, r) not in written]
+        require(meters and witness == min(meters), "wrong endpoint meter")
+        seen[p, q] = click
+    require(seen.keys() == expected, "incomplete contact panel")
     require(
         all(seen.get((q, p), click) == click for (p, q), click in seen.items()),
         "inconsistent reciprocal contact",
     )
+    return seen
+
+
+def switches_from_records(board, source, records):
+    """Infer the relays, common receiver and unwanted contacts from successful blank trials."""
+    seen = contact_receipts(board, (source, *board.neighbours[source]), set(), records)
+    require(all(seen.values()), "blank contact did not transfer")
     arrivals = {}
-    for p, q, _, click in records:
-        if click:
-            arrivals.setdefault(p, set()).add(q)
+    for p, q in seen:
+        arrivals.setdefault(p, set()).add(q)
     require(source in arrivals and arrivals[source] <= arrivals.keys(), "missing neighbour trials")
     relays = sorted(q for q in arrivals[source] if any(r // 12 != q // 12 for r in arrivals[q]))
     require(len(relays) == 2, "calibration needs two gateway neighbours")
@@ -207,6 +222,7 @@ def replay_installation(board, initial, transcript):
     memories = set()
     for op, edge in transcript:
         a, b = edge
+        edge = (a, b)
         require(
             type(a) is int
             and type(b) is int
@@ -295,7 +311,7 @@ def compare_nomination(board):
     swap, contrast = law.local_term_parts()
     pulse = expm(-1j * np.pi * (swap + candidate.KAPPA * contrast))
     before = challenge_contacts(board, (source, *board.neighbours[source]), set(), pulse)
-    measured_relays, measured_sink, cut = switches_from_records(source, before)
+    measured_relays, measured_sink, cut = switches_from_records(board, source, before)
     require(
         (measured_relays, measured_sink) == (relays, sink), "record and carrier selectors disagree"
     )
@@ -307,8 +323,9 @@ def compare_nomination(board):
     actions = commission(source, relays, live, cut)
     pair, written = replay_installation(board, initial, actions)
     after = challenge_contacts(board, (source, *relays), written, pulse)
+    installed = contact_receipts(board, (source, *relays), written, after)
     require(
-        all(click == (link(p, q) in live) for p, q, _, click in after),
+        all(click == (link(p, q) in live) for (p, q), click in installed.items()),
         "installed circuit misroutes",
     )
     a, c = relays
@@ -338,6 +355,13 @@ def compare_nomination(board):
     require(
         with_bypass == [(sink, direct), (sink, written)], "unexpected direct-receipt alternatives"
     )
+    matched = {
+        name: {
+            rule: two_attempts(board, source, relays, sink, mask, stop_on_receipt=stop)
+            for rule, stop in (("two_attempts", False), ("stop_on_receipt", True))
+        }
+        for name, mask in (("blank", set()), ("ten_writes", direct), ("eleven_writes", written))
+    }
     return {
         "source": source,
         "relays": relays,
@@ -349,8 +373,8 @@ def compare_nomination(board):
         "filed_setup": setup,
         "challenges_before_and_after": {"blank": before, "installed": after},
         "two_attempt_bins_source_relays_receiver_other": {
-            "passive": two_attempts(board, source, relays, sink, written),
-            "blank": two_attempts(board, source, relays, sink, set()),
+            "passive": matched["eleven_writes"]["two_attempts"],
+            "blank": matched["blank"]["two_attempts"],
             "first_relay_unavailable": two_attempts(
                 board, source, relays, sink, written | {link(source, relays[0])}
             ),
@@ -358,9 +382,8 @@ def compare_nomination(board):
                 board, source, relays, sink, written | {link(source, relays[1])}
             ),
         },
-        "stop_on_receipt_with_direct_link": two_attempts(
-            board, source, relays, sink, direct, stop_on_receipt=True
-        ),
+        "stop_on_receipt_with_direct_link": matched["ten_writes"]["stop_on_receipt"],
+        "matched_delivery_controls": matched,
         "addressed_blank_delivery": [
             replay_installation(
                 board, (source,), [("swap", link(source, p)), ("swap", link(p, sink))]
@@ -400,15 +423,49 @@ def survey(board):
     return {"cells": board.cells, "counts": dict(counts), "homes": homes}
 
 
+def verified_installation(board, comparison):
+    """Recover the state actually prepared before passing it to either pair flight."""
+    b, station_relays, sinks = station(board, 13)
+    require(type(comparison["source"]) is int and comparison["source"] == b, "wrong launch station")
+    panels = comparison["challenges_before_and_after"]
+    relays, d, cut = switches_from_records(board, b, panels["blank"])
+    require(
+        relays == station_relays
+        and sinks == [d]
+        and all(type(p) is int for p in comparison["relays"])
+        and tuple(comparison["relays"]) == relays
+        and type(comparison["receiver"]) is int
+        and comparison["receiver"] == d,
+        "wrong relay layout",
+    )
+    initial = link(b, relays[0])
+    pair, written = replay_installation(board, initial, comparison["actions"])
+    require(
+        pair == initial
+        and written == cut
+        and json.dumps(sorted(cut)) == json.dumps(comparison["neutral_writes"]),
+        "wrong commissioned state",
+    )
+    installed = contact_receipts(board, (b, *relays), written, panels["installed"])
+    require(
+        all(click == (link(p, q) not in cut) for (p, q), click in installed.items()),
+        "wrong installed observation",
+    )
+    setup = seal_path((relays[0], b, relays[1]), sorted(cut))
+    require(
+        json.dumps(setup, sort_keys=True) == json.dumps(comparison["filed_setup"], sort_keys=True),
+        "wrong filed preparation transcript",
+    )
+    return b, relays, d, cut, setup
+
+
 def replay_filing(board, comparison):
     """Hand the generated installation to the registered acquisition and full independent replay."""
     from tools.strict_json import loads
     from . import open_pair, open_pair_check, open_pair_release
     from .corridor_release import monitored_source
 
-    a, c = comparison["relays"]
-    b = comparison["source"]
-    setup = comparison["filed_setup"]
+    b, (a, c), _, _, setup = verified_installation(board, comparison)
     require((a, b, c) == open_pair.PATH and setup == open_pair.seal_from_sharp(), "source map")
     exchange, contrast = open_pair.source_parts()
     require(np.array_equal(contrast, 2 * np.eye(3)), "nonuniform acquisition phase")
@@ -443,9 +500,14 @@ def direct_link_pair_control(board, comparison):
     from model.executable_model.carrier import Carrier
     from . import open_pair_check as filed
 
-    a, c = comparison["relays"]
-    b, d = comparison["source"], comparison["receiver"]
-    written = set(comparison["neutral_writes"]) - {link(b, d)}
+    b, (a, c), d, cut, _ = verified_installation(board, comparison)
+    shortcut = link(b, d)
+    initial = link(b, a)
+    # Leave the shortcut blank from the start. The same sharp swaps restore
+    # the source loads without erasing a memory before the free flight.
+    actions = [(op, e) for op, e in comparison["actions"] if (op, tuple(e)) != ("echo", shortcut)]
+    pair, written = replay_installation(board, initial, actions)
+    require(pair == initial and written == cut - {shortcut}, "wrong direct-link preparation")
     live = Carrier("blank delivery contacts", board.n, [e for e in board.seams if e not in written])
     pairs = PairSector(live)
     exchange = pairs.exchange()
@@ -476,7 +538,11 @@ def direct_link_pair_control(board, comparison):
             direct = np.r_[
                 abs(state[home]) ** 2, np.vdot(state[quiet], state[quiet]).real + exhaustion
             ]
-            np.testing.assert_allclose(direct, expected, rtol=0, atol=2e-10)
+            require(
+                np.isfinite(direct).all() and min(direct) >= 0 and abs(direct.sum() - 1) < 2e-10,
+                "invalid direct-link probabilities",
+            )
+            np.testing.assert_allclose(direct, expected, rtol=0, atol=2e-10, equal_nan=False)
             output.append({"kappa": k, "exposure": t, "bins": direct.tolist()})
     return output
 

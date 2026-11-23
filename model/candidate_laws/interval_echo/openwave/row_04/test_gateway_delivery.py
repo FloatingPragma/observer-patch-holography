@@ -1,3 +1,5 @@
+import json
+
 import numpy as np
 import pytest
 
@@ -19,14 +21,19 @@ def test_station_ancestry_and_one_load_controls():
     assert len(mask) == 11 and len(mask.intersection(board.external)) == 2
     assert not tidal_mask.intersection(board.external)
     before = report["challenges_before_and_after"]["blank"]
-    assert delivery.switches_from_records(156, before[::-1]) == ((157, 166), 163, mask)
+    assert delivery.switches_from_records(board, 156, before[::-1]) == ((157, 166), 163, mask)
     with pytest.raises(ArithmeticError, match="duplicate"):
-        delivery.switches_from_records(156, before + before[:1])
+        delivery.switches_from_records(board, 156, before + before[:1])
     inconsistent = [(p, q, r, 0 if (p, q) == (156, 157) else hit) for p, q, r, hit in before]
     with pytest.raises(ArithmeticError, match="inconsistent reciprocal"):
-        delivery.switches_from_records(156, inconsistent)
+        delivery.switches_from_records(board, 156, inconsistent)
     assert report["addressed_blank_delivery"] == [(163,), (163,)]
     assert report["stop_on_receipt_with_direct_link"] == ["17/75", "32/75", "26/75", "0"]
+    matched = report["matched_delivery_controls"]
+    assert matched["ten_writes"]["two_attempts"][-2:] == ["11/75", "2/25"]
+    assert matched["blank"]["stop_on_receipt"][-2:] == ["4/15", "38/75"]
+    assert matched["ten_writes"]["stop_on_receipt"] == report["stop_on_receipt_with_direct_link"]
+    assert matched["eleven_writes"]["two_attempts"] == matched["eleven_writes"]["stop_on_receipt"]
     assert report["two_attempt_bins_source_relays_receiver_other"] == {
         "passive": ["32/75", "38/75", "1/15", "0"],
         "blank": ["14/75", "4/25", "1/15", "44/75"],
@@ -62,6 +69,41 @@ def test_missing_write_crosstalk_and_invalid_echo():
         delivery.replay_installation(board, (156, 157), [("echo", (152, 166))] * 2)
     with pytest.raises(ArithmeticError, match="previously written"):
         delivery.replay_installation(board, (156, 157), [("swap", (157, 156))])
+
+
+def test_pair_replay_binds_commissioning_and_dispatched_meters():
+    board = federation(0)
+    report = json.dumps(delivery.compare_nomination(board))
+    assert len(delivery.verified_installation(board, json.loads(report))[3]) == 11
+
+    def reject(message, mutate):
+        receipt = json.loads(report)
+        mutate(receipt)
+        with pytest.raises(ArithmeticError, match=message):
+            delivery.verified_installation(board, receipt)
+
+    reject("wrong relay layout", lambda r: r.__setitem__("receiver", 163.0))
+    reject("wrong commissioned state", lambda r: r["neutral_writes"].pop())
+    reject("wrong commissioned state", lambda r: r["actions"].pop())
+    reject("wrong filed preparation", lambda r: r["filed_setup"]["neutral_edges"].reverse())
+    for panel in ("blank", "installed"):
+
+        def records(r):
+            return r["challenges_before_and_after"][panel]
+
+        reject("incomplete", lambda r: records(r).pop())
+        reject("wrong endpoint meter", lambda r: records(r)[0].__setitem__(2, -1))
+        reject("invalid contact", lambda r: records(r)[0].__setitem__(3, True))
+        reject("invalid contact", lambda r: records(r).append([0, 1, 2, 1]))
+
+    def flip_unpaired(r, panel):
+        trials = r["challenges_before_and_after"][panel]
+        dispatch = {p for p, _, _, _ in trials}
+        trial = next(row for row in trials if row[1] not in dispatch)
+        trial[3] = 1 - trial[3]
+
+    reject("blank contact did not transfer", lambda r: flip_unpaired(r, "blank"))
+    reject("wrong installed observation", lambda r: flip_unpaired(r, "installed"))
 
 
 def test_pair_control_with_direct_receiver(monkeypatch):
