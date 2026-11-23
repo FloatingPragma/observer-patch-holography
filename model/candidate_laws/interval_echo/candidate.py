@@ -34,6 +34,35 @@ PARTICLE_IDENTIFICATIONS = {
             "source": "model/candidate_laws/interval_echo/openwave/electron_field/README.md",
         },
     },
+    "mu": {
+        "status": "open",
+        "note": "A distinct muon rest branch and a weak decay channel require measurements on Interval Echo.",
+        "evidence": [],
+        "comparison": {
+            "law": "Written-field Laplacian extension",
+            "label": "Three moving bands and a charged-mode conversion test",
+            "finding": "The 48-cell route resolves three propagating bands with minimum-energy ratios "
+                       "1 : 4.56155 : 10.40388. On a fully written pair of cells, three energy-heralded "
+                       "inputs cross the same bridge. Opening the bridge does work and produces lower charged "
+                       "modes plus neutral excitation. All six separated downward channels miss the isolated "
+                       "parent energy. An autonomous weak decay and a muon identification are unresolved.",
+            "source": "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/README.md",
+        },
+    },
+    "tau": {
+        "status": "open",
+        "note": "A third charged-lepton mass and weak daughter tags require measurements on Interval Echo.",
+        "evidence": [],
+        "comparison": {
+            "law": "Written-field Laplacian extension",
+            "label": "Geometric lepton-ratio and full-cell spectral bounds",
+            "finding": "Exact spectral bounds exclude a Koide-balanced triplet among the 5,790 vacancy "
+                       "and 1,954 excess levels on the tested cell backgrounds. All connected pinned "
+                       "single-configuration-per-port guides of the three stored federations have energy "
+                       "span below 1,273. This excludes the observed tau/electron hierarchy on these guides.",
+            "source": "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/README.md",
+        },
+    },
 }
 LABELLING = contrast.LABELLING
 FEDERATION_LEVELS = contrast.FEDERATION_LEVELS

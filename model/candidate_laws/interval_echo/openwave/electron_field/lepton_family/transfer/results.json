@@ -1,0 +1,1018 @@
+{
+  "construction": "Gauss-projected field extension, two fully active matched cells with one open 3\u201348 seam",
+  "selected_modes": "first three nondegenerate charged-cell eigenvalues in each sign, without laboratory inputs",
+  "verified_archived_dependencies": {
+    "experiments/interval_echo_electron_flux_binding/search.py": "9fc05ffcdd7400bbaf46c46d0a693348d584b5b752235ce377bf64b48449f720",
+    "experiments/interval_echo_electron_flux_binding/bridge.py": "7e55becdaaa1ce9aeccd62dca3785397ff3ed130346bb9fde00365feffbf477c",
+    "experiments/interval_echo_electron_flux_binding/free_bridge.py": "939e3bcc3ee8d306891fe7e6aa29efb50d349669f394fc8fe963d909cd300053",
+    "experiments/interval_echo_electron_flux_binding/free_bridge.json": "0863a72a9e0cdf6afd206f66685b5a61c1c683d0dba6063f378caf9d52273c8d"
+  },
+  "sectors": [
+    {
+      "sign": -1,
+      "bridge": [
+        3,
+        48
+      ],
+      "joint_dimension": 2211780,
+      "charged_dimension": 5790,
+      "neutral_dimension": 191,
+      "lowest_four_native_energies": [
+        4.343759681488111,
+        4.620847023178331,
+        4.720238696891122,
+        4.768855751779099
+      ],
+      "first_three_relative_to_ground_energy": [
+        1.0,
+        1.0637897494355153,
+        1.0866712348308447
+      ],
+      "preparation": {
+        "method": "charged anchor, uniform accessible heads, optional dual parity string, heralded native energy",
+        "seed_port": 0,
+        "accessible_anchor_words": 458,
+        "source_settings": 191,
+        "unmodified_source_three_weights": [
+          0.05823375513528929,
+          0.0001516893297696133,
+          0.0008348391880735515
+        ],
+        "finite_delay_step_native": 0.057119866428905326,
+        "charged_spectrum_upper_bound_native": 55.0,
+        "inputs": [
+          {
+            "level": 0,
+            "selected_face_pair": null,
+            "ideal_herald_probability": 0.05823375513528929,
+            "ideal_no_herald_probability": 0.9417662448647107,
+            "selected_source_three_weights": [
+              0.05823375513528929,
+              0.0001516893297696133,
+              0.0008348391880735515
+            ],
+            "nearest_gap_native": 0.27708734169022,
+            "finite_filter_delay_branches": 5057,
+            "longest_delay_native": 288.79804466454533,
+            "finite_herald_probability_range": [
+              0.05823375513528929,
+              0.058821810926789724
+            ],
+            "finite_heralded_fidelity_lower": 0.9900027594826631
+          },
+          {
+            "level": 1,
+            "selected_face_pair": [
+              7,
+              13
+            ],
+            "ideal_herald_probability": 0.033436803034026685,
+            "ideal_no_herald_probability": 0.9665631969659734,
+            "selected_source_three_weights": [
+              0.0011876724189205322,
+              0.033436803034026685,
+              0.0007122039283132881
+            ],
+            "nearest_gap_native": 0.09939167371279112,
+            "finite_filter_delay_branches": 18846,
+            "longest_delay_native": 1076.423882852721,
+            "finite_herald_probability_range": [
+              0.033436803034026685,
+              0.033774540052165125
+            ],
+            "finite_heralded_fidelity_lower": 0.9900002481864505
+          },
+          {
+            "level": 2,
+            "selected_face_pair": [
+              12,
+              16
+            ],
+            "ideal_herald_probability": 0.027209473680750343,
+            "ideal_no_herald_probability": 0.9727905263192497,
+            "selected_source_three_weights": [
+              0.004004760768670803,
+              0.0024053878781895546,
+              0.027209473680750343
+            ],
+            "nearest_gap_native": 0.04861705488797696,
+            "finite_filter_delay_branches": 42848,
+            "longest_delay_native": 2447.4149168793065,
+            "finite_herald_probability_range": [
+              0.027209473680750343,
+              0.027484305385926788
+            ],
+            "finite_heralded_fidelity_lower": 0.9900004129150315
+          }
+        ]
+      },
+      "times": [
+        {
+          "time_native": 0.39269908169872414,
+          "records": [
+            {
+              "input_level": 0,
+              "right_charge": 0.007307568106802987,
+              "left_charge": 0.9926924318931977,
+              "right_three_energies": [
+                0.0005871055070793941,
+                9.055508763893771e-08,
+                1.9439552130094684e-05
+              ],
+              "right_other_energy": 0.00670093249250586,
+              "right_three_energies_and_left_neutral_ground": [
+                0.0005819139474899733,
+                8.978782745518197e-08,
+                1.927078506809153e-05
+              ],
+              "matching_level_given_right_charge": 0.08034211908785738,
+              "herald_and_arrive_matching_level": 3.418935833784129e-05
+            },
+            {
+              "input_level": 1,
+              "right_charge": 0.0037886104084879435,
+              "left_charge": 0.9962113895915012,
+              "right_three_energies": [
+                0.0002889731419321957,
+                4.5021653651240795e-08,
+                9.609647801679824e-06
+              ],
+              "right_other_energy": 0.003489982597100417,
+              "right_three_energies_and_left_neutral_ground": [
+                8.97878274551809e-08,
+                1.4323732354588695e-11,
+                3.02684870966355e-09
+              ],
+              "matching_level_given_right_charge": 1.1883421306760649e-05,
+              "herald_and_arrive_matching_level": 1.5053801654027067e-09
+            },
+            {
+              "input_level": 2,
+              "right_charge": 0.005332618443693583,
+              "left_charge": 0.9946673815563043,
+              "right_three_energies": [
+                0.000407124814728553,
+                6.343466243215689e-08,
+                1.3541476767472725e-05
+              ],
+              "right_other_energy": 0.004911888717535125,
+              "right_three_energies_and_left_neutral_ground": [
+                1.9270785068091523e-05,
+                3.0268487096635434e-09,
+                6.434538916530918e-07
+              ],
+              "matching_level_given_right_charge": 0.0025393672752805022,
+              "herald_and_arrive_matching_level": 3.6845645570304133e-07
+            }
+          ],
+          "channel": {
+            "three_level_acceptance_range_all_pure_inputs": [
+              0.00028771121770858695,
+              0.0006424267247671762
+            ],
+            "equal_prior_three_level_acceptance": 0.00044199771728103764,
+            "equal_prior_correct_label_unconditional": 0.0002002306685001727,
+            "correct_label_given_three_level_click_equal_prior": 0.4530129018129273,
+            "optimal_label_guess_given_three_level_click_equal_prior": 0.4574952845374143,
+            "choi_partial_transpose_negativity_unconditional": 1.8131694116597746e-13,
+            "choi_partial_transpose_negativity_given_three_level_click": 4.102214425028123e-10,
+            "choi_overlap_phase_corrected_identity_given_three_level_click_bounds": [
+              0.158941723970816,
+              0.15894174118137602
+            ],
+            "neutral_ground_transfer_singular_values": [
+              0.024925581275275808,
+              3.644549705393352e-06,
+              2.7386813053089807e-08
+            ],
+            "optimal_uniform_exact_inverse_filter_and_neutral_ground_probability": 7.500375292048902e-16,
+            "correct_label_given_right_charge_equal_prior": 0.03656335926484344
+          }
+        },
+        {
+          "time_native": 0.7853981633974483,
+          "records": [
+            {
+              "input_level": 0,
+              "right_charge": 0.008868329683670044,
+              "left_charge": 0.9911316703163392,
+              "right_three_energies": [
+                0.0020841162279490255,
+                3.9453900995635223e-07,
+                6.569981282214008e-05
+              ],
+              "right_other_energy": 0.006718119103888922,
+              "right_three_energies_and_left_neutral_ground": [
+                0.0020645726844267737,
+                3.9111158151628376e-07,
+                6.508925614705826e-05
+              ],
+              "matching_level_given_right_charge": 0.23500662495516755,
+              "herald_and_arrive_matching_level": 0.00012136591409186631
+            },
+            {
+              "input_level": 1,
+              "right_charge": 0.004513695342999616,
+              "left_charge": 0.9954863046570052,
+              "right_three_energies": [
+                0.0010026210495328188,
+                1.9192774336423213e-07,
+                3.180642156170625e-05
+              ],
+              "right_other_energy": 0.003479075944161727,
+              "right_three_energies_and_left_neutral_ground": [
+                3.911115815162816e-07,
+                8.664139097713213e-11,
+                1.2424098930329159e-08
+              ],
+              "matching_level_given_right_charge": 4.2521200209468465e-05,
+              "herald_and_arrive_matching_level": 6.4174501516350516e-09
+            },
+            {
+              "input_level": 2,
+              "right_charge": 0.006195789360640433,
+              "left_charge": 0.9938042106393492,
+              "right_three_energies": [
+                0.0013615240976227725,
+                2.5845928934032435e-07,
+                4.3201906737546194e-05
+              ],
+              "right_other_energy": 0.004790804896990773,
+              "right_three_energies_and_left_neutral_ground": [
+                6.508925614705826e-05,
+                1.2424098930329118e-08,
+                2.068466334404994e-06
+              ],
+              "matching_level_given_right_charge": 0.006972784938750822,
+              "herald_and_arrive_matching_level": 1.1755011443334942e-06
+            }
+          ],
+          "channel": {
+            "three_level_acceptance_range_all_pure_inputs": [
+              0.0010023181024469538,
+              0.002258692707245503
+            ],
+            "equal_prior_three_level_acceptance": 0.001529938147422889,
+            "equal_prior_correct_label_unconditional": 0.0007091700208099787,
+            "correct_label_given_three_level_click_equal_prior": 0.4635285563697743,
+            "optimal_label_guess_given_three_level_click_equal_prior": 0.46847440279487845,
+            "choi_partial_transpose_negativity_unconditional": -0.0,
+            "choi_partial_transpose_negativity_given_three_level_click": -0.0,
+            "choi_overlap_phase_corrected_identity_given_three_level_click_bounds": [
+              0.16219349936588698,
+              0.162193519651963
+            ],
+            "neutral_ground_transfer_singular_values": [
+              0.04687885199810924,
+              7.373115520945724e-06,
+              1.426225166301708e-06
+            ],
+            "optimal_uniform_exact_inverse_filter_and_neutral_ground_probability": 2.034118224992335e-12,
+            "correct_label_given_right_charge_equal_prior": 0.1086694367584229
+          }
+        },
+        {
+          "time_native": 1.5707963267948966,
+          "records": [
+            {
+              "input_level": 0,
+              "right_charge": 0.015046074097561514,
+              "left_charge": 0.9849539259024372,
+              "right_three_energies": [
+                0.007691207829028494,
+                5.362399071633365e-07,
+                0.00022682475989730974
+              ],
+              "right_other_energy": 0.007127505268728547,
+              "right_three_energies_and_left_neutral_ground": [
+                0.007620904762828354,
+                5.282606342231299e-07,
+                0.00022489427247769842
+              ],
+              "matching_level_given_right_charge": 0.5111770538385818,
+              "herald_and_arrive_matching_level": 0.00044788791341026523
+            },
+            {
+              "input_level": 1,
+              "right_charge": 0.007640371686421729,
+              "left_charge": 0.9923596283135806,
+              "right_three_energies": [
+                0.003596308478415287,
+                2.2747062625072213e-07,
+                0.0001092157265583424
+              ],
+              "right_other_energy": 0.003934620010821849,
+              "right_three_energies_and_left_neutral_ground": [
+                5.282606342231369e-07,
+                3.2691062891110615e-11,
+                1.250651127075974e-08
+              ],
+              "matching_level_given_right_charge": 2.977219376054401e-05,
+              "herald_and_arrive_matching_level": 7.605890525972095e-09
+            },
+            {
+              "input_level": 2,
+              "right_charge": 0.010938676917342498,
+              "left_charge": 0.9890613230826468,
+              "right_three_energies": [
+                0.004924212233926634,
+                2.7656637934061634e-07,
+                0.00014996209523666297
+              ],
+              "right_other_energy": 0.005864226021799861,
+              "right_three_energies_and_left_neutral_ground": [
+                0.00022489427247769842,
+                1.2506511270759962e-08,
+                7.052971264821807e-06
+              ],
+              "matching_level_given_right_charge": 0.013709344957332881,
+              "herald_and_arrive_matching_level": 4.080389683452157e-06
+            }
+          ],
+          "channel": {
+            "three_level_acceptance_range_all_pure_inputs": [
+              0.003557833399158667,
+              0.008266269015113702
+            ],
+            "equal_prior_three_level_acceptance": 0.005566257133325164,
+            "equal_prior_correct_label_unconditional": 0.002613799131630469,
+            "correct_label_given_three_level_click_equal_prior": 0.4695793006006967,
+            "optimal_label_guess_given_three_level_click_equal_prior": 0.4742006845392583,
+            "choi_partial_transpose_negativity_unconditional": 2.115071726190875e-09,
+            "choi_partial_transpose_negativity_given_three_level_click": 3.7998095947237993e-07,
+            "choi_overlap_phase_corrected_identity_given_three_level_click_bounds": [
+              0.16377855760303012,
+              0.16377856518990966
+            ],
+            "neutral_ground_transfer_singular_values": [
+              0.08988226324542171,
+              8.104843440110031e-05,
+              5.573383792867611e-06
+            ],
+            "optimal_uniform_exact_inverse_filter_and_neutral_ground_probability": 3.106260690259936e-11,
+            "correct_label_given_right_charge_equal_prior": 0.23320055853899513
+          }
+        },
+        {
+          "time_native": 3.141592653589793,
+          "records": [
+            {
+              "input_level": 0,
+              "right_charge": 0.03945154639062032,
+              "left_charge": 0.9605484536093694,
+              "right_three_energies": [
+                0.03013434681874058,
+                3.7096747948885885e-06,
+                0.0008481843150553179
+              ],
+              "right_other_energy": 0.008465305582029532,
+              "right_three_energies_and_left_neutral_ground": [
+                0.029930430957380353,
+                3.6770709864262303e-06,
+                0.0008436323542322124
+              ],
+              "matching_level_given_right_charge": 0.7638318285517214,
+              "herald_and_arrive_matching_level": 0.001754836173804423
+            },
+            {
+              "input_level": 1,
+              "right_charge": 0.019246680838247043,
+              "left_charge": 0.9807533191617849,
+              "right_three_energies": [
+                0.013731795709946685,
+                1.8794848195659174e-06,
+                0.00043582942768329946
+              ],
+              "right_other_energy": 0.005077176215797494,
+              "right_three_energies_and_left_neutral_ground": [
+                3.677070986426232e-06,
+                3.8205557075171283e-10,
+                1.2237421049278956e-07
+              ],
+              "matching_level_given_right_charge": 9.765241266073271e-05,
+              "herald_and_arrive_matching_level": 6.284396371726876e-08
+            },
+            {
+              "input_level": 2,
+              "right_charge": 0.026055069267893437,
+              "left_charge": 0.9739449307321241,
+              "right_three_energies": [
+                0.018420683513055675,
+                2.6967541242989444e-06,
+                0.0005994227101794841
+              ],
+              "right_other_energy": 0.007032266290533981,
+              "right_three_energies_and_left_neutral_ground": [
+                0.0008436323542322124,
+                1.2237421049278974e-07,
+                3.044900299601569e-05
+              ],
+              "matching_level_given_right_charge": 0.023005991809744577,
+              "herald_and_arrive_matching_level": 1.6309976456272714e-05
+            }
+          ],
+          "channel": {
+            "three_level_acceptance_range_all_pure_inputs": [
+              0.013610244794062528,
+              0.032236801547528615
+            ],
+            "equal_prior_three_level_acceptance": 0.021392849469466606,
+            "equal_prior_correct_label_unconditional": 0.010245216337913211,
+            "correct_label_given_three_level_click_equal_prior": 0.47890844800903737,
+            "optimal_label_guess_given_three_level_click_equal_prior": 0.48281305166657906,
+            "choi_partial_transpose_negativity_unconditional": 2.9104796686460823e-07,
+            "choi_partial_transpose_negativity_given_three_level_click": 1.3604918189136635e-05,
+            "choi_overlap_phase_corrected_identity_given_three_level_click_bounds": [
+              0.16754168256516414,
+              0.167541696340346
+            ],
+            "neutral_ground_transfer_singular_values": [
+              0.1779195079864317,
+              0.0006260532353228575,
+              2.6009667626964747e-05
+            ],
+            "optimal_uniform_exact_inverse_filter_and_neutral_ground_probability": 6.76502810065178e-10,
+            "correct_label_given_right_charge_equal_prior": 0.362648419402947
+          }
+        }
+      ],
+      "max_eigenpair_residual": 4.3854738661358184e-14,
+      "max_total_norm_error": 3.197442310920451e-14,
+      "max_archived_observable_discrepancy": 1.214306433183765e-17,
+      "series_precision": {
+        "upper_spectrum_bound_native": 71.0,
+        "chebyshev_highest_degree": 177,
+        "operator_norm_series_tail_bound": 3.298237503217424e-14
+      },
+      "controls": {
+        "bridge_off_arrival": 0,
+        "seam_only_at_pi_over_8_arrival": [
+          0.02924684739875084,
+          0.014508373775466567,
+          0.020035541837077255
+        ],
+        "seam_only_given_arrival_right_state": "fixed uniform gateway state for every input",
+        "seam_only_three_level_channel": {
+          "three_level_acceptance_range_all_pure_inputs": [
+            0.0004184086677424512,
+            0.0009227780689289051
+          ],
+          "equal_prior_three_level_acceptance": 0.0006365075523034122,
+          "equal_prior_correct_label_unconditional": 0.0002889402920285214,
+          "correct_label_given_three_level_click_equal_prior": 0.4539463687161225,
+          "optimal_label_guess_given_three_level_click_equal_prior": 0.45848091507499994,
+          "choi_partial_transpose_negativity_unconditional": 1.0419486677375139e-20,
+          "choi_partial_transpose_negativity_given_three_level_click": 1.6369776980129763e-17,
+          "choi_overlap_phase_corrected_identity_given_three_level_click_bounds": [
+            0.1588300207539934,
+            0.15883003706679133
+          ],
+          "neutral_ground_transfer_singular_values": [
+            0.029934156087334168,
+            2.633691337956893e-19,
+            9.991824574220019e-21
+          ],
+          "optimal_uniform_exact_inverse_filter_and_neutral_ground_probability": 9.983655832198705e-41
+        },
+        "seam_only_three_right_energies": [
+          [
+            0.0008480631714845228,
+            1.2686095893623747e-07,
+            2.7289662653191412e-05
+          ],
+          [
+            0.0004206955132412179,
+            6.293143957251478e-08,
+            1.3537480487411517e-05
+          ],
+          [
+            0.0005809653574315949,
+            8.690605232095158e-08,
+            1.869477316146883e-05
+          ]
+        ],
+        "neutral_ground_transfer_initial_derivative": [
+          [
+            -0.11598695201873209,
+            0.0014185969736384963,
+            -0.020806264617229706
+          ],
+          [
+            0.0014185969736384963,
+            -1.7350377250117685e-05,
+            0.0002544743482349373
+          ],
+          [
+            -0.020806264617229706,
+            0.0002544743482349373,
+            -0.0037323219533544655
+          ]
+        ],
+        "neutral_ground_transfer_initial_derivative_rank": 1
+      }
+    },
+    {
+      "sign": 1,
+      "bridge": [
+        3,
+        48
+      ],
+      "joint_dimension": 734704,
+      "charged_dimension": 1954,
+      "neutral_dimension": 188,
+      "lowest_four_native_energies": [
+        5.450005605280314,
+        5.730242062378882,
+        5.919776353695682,
+        5.995808647154457
+      ],
+      "first_three_relative_to_ground_energy": [
+        1.0,
+        1.0514194805280672,
+        1.0861963789468811
+      ],
+      "preparation": {
+        "method": "charged anchor, uniform accessible heads, optional dual parity string, heralded native energy",
+        "seed_port": 0,
+        "accessible_anchor_words": 458,
+        "source_settings": 191,
+        "unmodified_source_three_weights": [
+          0.06193210234533044,
+          0.0011277834797788098,
+          0.0039121052242146025
+        ],
+        "finite_delay_step_native": 0.05927533308659987,
+        "charged_spectrum_upper_bound_native": 53.0,
+        "inputs": [
+          {
+            "level": 0,
+            "selected_face_pair": null,
+            "ideal_herald_probability": 0.06193210234533044,
+            "ideal_no_herald_probability": 0.9380678976546696,
+            "selected_source_three_weights": [
+              0.06193210234533044,
+              0.0011277834797788098,
+              0.0039121052242146025
+            ],
+            "nearest_gap_native": 0.28023645709856826,
+            "finite_filter_delay_branches": 4663,
+            "longest_delay_native": 276.3416028497286,
+            "finite_herald_probability_range": [
+              0.06193210234533044,
+              0.06255752865524673
+            ],
+            "finite_heralded_fidelity_lower": 0.9900023814341675
+          },
+          {
+            "level": 1,
+            "selected_face_pair": [
+              2,
+              8
+            ],
+            "ideal_herald_probability": 0.03821801691301475,
+            "ideal_no_herald_probability": 0.9617819830869853,
+            "selected_source_three_weights": [
+              0.0022254923016714256,
+              0.03821801691301475,
+              0.002872686191687875
+            ],
+            "nearest_gap_native": 0.1895342913168001,
+            "finite_filter_delay_branches": 8886,
+            "longest_delay_native": 526.6613344744399,
+            "finite_herald_probability_range": [
+              0.03821801691301475,
+              0.03860403262410777
+            ],
+            "finite_heralded_fidelity_lower": 0.9900006376315215
+          },
+          {
+            "level": 2,
+            "selected_face_pair": [
+              10,
+              16
+            ],
+            "ideal_herald_probability": 0.02830643153766804,
+            "ideal_no_herald_probability": 0.971693568462332,
+            "selected_source_three_weights": [
+              0.005562739085002921,
+              0.00199493796367727,
+              0.02830643153766804
+            ],
+            "nearest_gap_native": 0.07603229345877516,
+            "finite_filter_delay_branches": 25871,
+            "longest_delay_native": 1533.4528669503386,
+            "finite_herald_probability_range": [
+              0.02830643153766804,
+              0.028592335013182237
+            ],
+            "finite_heralded_fidelity_lower": 0.9900006951029923
+          }
+        ]
+      },
+      "times": [
+        {
+          "time_native": 0.39269908169872414,
+          "records": [
+            {
+              "input_level": 0,
+              "right_charge": 0.18709431878677232,
+              "left_charge": 0.8129056812132296,
+              "right_three_energies": [
+                0.09075152718107646,
+                0.0013723517585421954,
+                6.0510898497478386e-05
+              ],
+              "right_other_energy": 0.09490992894865619,
+              "right_three_energies_and_left_neutral_ground": [
+                0.08685553233063825,
+                0.0013137546342656434,
+                5.797547883218124e-05
+              ],
+              "matching_level_given_right_charge": 0.48505763173121347,
+              "herald_and_arrive_matching_level": 0.005620432869373465
+            },
+            {
+              "input_level": 1,
+              "right_charge": 0.20710849414660015,
+              "left_charge": 0.7928915058534102,
+              "right_three_energies": [
+                0.09808500168154557,
+                0.0014890348194742291,
+                6.74846728331245e-05
+              ],
+              "right_other_energy": 0.10746697297274722,
+              "right_three_energies_and_left_neutral_ground": [
+                0.0013137546342656434,
+                1.9985025767373304e-05,
+                9.148720388658613e-07
+              ],
+              "matching_level_given_right_charge": 0.007189636647255169,
+              "herald_and_arrive_matching_level": 5.690795791473395e-05
+            },
+            {
+              "input_level": 2,
+              "right_charge": 0.20943259638373457,
+              "left_charge": 0.7905674036162571,
+              "right_three_energies": [
+                0.09950477551153376,
+                0.001510393030604499,
+                6.849266491306406e-05
+              ],
+              "right_other_energy": 0.10834893517668324,
+              "right_three_energies_and_left_neutral_ground": [
+                5.797547883218132e-05,
+                9.148720388658486e-07,
+                5.192029934961385e-08
+              ],
+              "matching_level_given_right_charge": 0.0003270391815587666,
+              "herald_and_arrive_matching_level": 1.9387829301940854e-06
+            }
+          ],
+          "channel": {
+            "three_level_acceptance_range_all_pure_inputs": [
+              0.087812514347607,
+              0.10699725886078544
+            ],
+            "equal_prior_three_level_acceptance": 0.09763652407300681,
+            "equal_prior_correct_label_unconditional": 0.030769684888487914,
+            "correct_label_given_three_level_click_equal_prior": 0.31514523054385024,
+            "optimal_label_guess_given_three_level_click_equal_prior": 0.34510193859921706,
+            "choi_partial_transpose_negativity_unconditional": 2.2546120340554073e-11,
+            "choi_partial_transpose_negativity_given_three_level_click": 2.3091891640566207e-10,
+            "choi_overlap_phase_corrected_identity_given_three_level_click_bounds": [
+              0.10574432918155767,
+              0.10574437878642011
+            ],
+            "neutral_ground_transfer_singular_values": [
+              0.2993674244469161,
+              6.650470986771272e-05,
+              2.0302559503870648e-06
+            ],
+            "optimal_uniform_exact_inverse_filter_and_neutral_ground_probability": 4.121939224082084e-12,
+            "correct_label_given_right_charge_equal_prior": 0.15292186846675052
+          }
+        },
+        {
+          "time_native": 0.7853981633974483,
+          "records": [
+            {
+              "input_level": 0,
+              "right_charge": 0.3278510017433628,
+              "left_charge": 0.6721489982566403,
+              "right_three_energies": [
+                0.18024577348876614,
+                0.002755927562198026,
+                6.0143779105430476e-05
+              ],
+              "right_other_energy": 0.1447891569132932,
+              "right_three_energies_and_left_neutral_ground": [
+                0.17156668321276589,
+                0.0026243949213385015,
+                5.709084160823688e-05
+              ],
+              "matching_level_given_right_charge": 0.5497795417134642,
+              "herald_and_arrive_matching_level": 0.011162999691019512
+            },
+            {
+              "input_level": 1,
+              "right_charge": 0.37368403304884634,
+              "left_charge": 0.6263159669511602,
+              "right_three_energies": [
+                0.19502091041699499,
+                0.002996536153417586,
+                5.6496784443310245e-05
+              ],
+              "right_other_energy": 0.17561008969399047,
+              "right_three_energies_and_left_neutral_ground": [
+                0.002624394921338498,
+                4.0521270685513135e-05,
+                1.027730498452325e-06
+              ],
+              "matching_level_given_right_charge": 0.0080189033739793,
+              "herald_and_arrive_matching_level": 0.00011452166939177345
+            },
+            {
+              "input_level": 2,
+              "right_charge": 0.38668226844389353,
+              "left_charge": 0.6133177315560974,
+              "right_three_energies": [
+                0.19725785641954038,
+                0.00302765846842674,
+                5.010857059959389e-05
+              ],
+              "right_other_energy": 0.18634664498532683,
+              "right_three_energies_and_left_neutral_ground": [
+                5.7090841608236556e-05,
+                1.0277304984523173e-06,
+                2.281320565285165e-07
+              ],
+              "matching_level_given_right_charge": 0.00012958590214452644,
+              "herald_and_arrive_matching_level": 1.4183948231278099e-06
+            }
+          ],
+          "channel": {
+            "three_level_acceptance_range_all_pure_inputs": [
+              0.17095748256035304,
+              0.214887699581666
+            ],
+            "equal_prior_three_level_acceptance": 0.19382380388116408,
+            "equal_prior_correct_label_unconditional": 0.06109747273759444,
+            "correct_label_given_three_level_click_equal_prior": 0.3152217194904197,
+            "optimal_label_guess_given_three_level_click_equal_prior": 0.3445494561818752,
+            "choi_partial_transpose_negativity_unconditional": 1.5473431109322635e-09,
+            "choi_partial_transpose_negativity_given_three_level_click": 7.98324602008616e-09,
+            "choi_overlap_phase_corrected_identity_given_three_level_click_bounds": [
+              0.10534458177684088,
+              0.10534461375528875
+            ],
+            "neutral_ground_transfer_singular_values": [
+              0.42068075814567607,
+              0.00039675533693201245,
+              4.374448735349874e-05
+            ],
+            "optimal_uniform_exact_inverse_filter_and_neutral_ground_probability": 1.913580173820411e-09,
+            "correct_label_given_right_charge_equal_prior": 0.16843365536250407
+          }
+        },
+        {
+          "time_native": 1.5707963267948966,
+          "records": [
+            {
+              "input_level": 0,
+              "right_charge": 0.6584043652789523,
+              "left_charge": 0.34159563472104965,
+              "right_three_energies": [
+                0.5714055362627335,
+                0.007246640223818461,
+                0.0008510526537941377
+              ],
+              "right_other_energy": 0.07890113613860616,
+              "right_three_energies_and_left_neutral_ground": [
+                0.5455866740499878,
+                0.00692005698945673,
+                0.0007994429113934175
+              ],
+              "matching_level_given_right_charge": 0.8678641369891902,
+              "herald_and_arrive_matching_level": 0.03538834615251203
+            },
+            {
+              "input_level": 1,
+              "right_charge": 0.677508482224157,
+              "left_charge": 0.32249151777585067,
+              "right_three_energies": [
+                0.5584704472310678,
+                0.007395950553396627,
+                0.0008311368850288283
+              ],
+              "right_other_energy": 0.11081094755466392,
+              "right_three_energies_and_left_neutral_ground": [
+                0.0069200569894567205,
+                9.41128833921553e-05,
+                9.861594607258143e-06
+              ],
+              "matching_level_given_right_charge": 0.010916395510085497,
+              "herald_and_arrive_matching_level": 0.00028265856333753306
+            },
+            {
+              "input_level": 2,
+              "right_charge": 0.6560649881255657,
+              "left_charge": 0.34393501187443226,
+              "right_three_energies": [
+                0.5316465926132465,
+                0.007016237297487344,
+                0.0008822097734227939
+              ],
+              "right_other_energy": 0.116519948441409,
+              "right_three_energies_and_left_neutral_ground": [
+                0.0007994429113934224,
+                9.861594607258248e-06,
+                3.3734294797236727e-07
+              ],
+              "matching_level_given_right_charge": 0.0013446987560536395,
+              "herald_and_arrive_matching_level": 2.4972210553253947e-05
+            }
+          ],
+          "channel": {
+            "three_level_acceptance_range_all_pure_inputs": [
+              0.5119590114066345,
+              0.6019159589862563
+            ],
+            "equal_prior_three_level_acceptance": 0.5619152678313318,
+            "equal_prior_correct_label_unconditional": 0.19322789886318428,
+            "correct_label_given_three_level_click_equal_prior": 0.3438737295908194,
+            "optimal_label_guess_given_three_level_click_equal_prior": 0.3438737295908194,
+            "choi_partial_transpose_negativity_unconditional": -0.0,
+            "choi_partial_transpose_negativity_given_three_level_click": -0.0,
+            "choi_overlap_phase_corrected_identity_given_three_level_click_bounds": [
+              0.11589693127913847,
+              0.11589700705118935
+            ],
+            "neutral_ground_transfer_singular_values": [
+              0.7490918733680585,
+              0.0010282977214538982,
+              0.00039385907596206393
+            ],
+            "optimal_uniform_exact_inverse_filter_and_neutral_ground_probability": 1.5512497171769084e-07,
+            "correct_label_given_right_charge_equal_prior": 0.2910091097507632
+          }
+        },
+        {
+          "time_native": 3.141592653589793,
+          "records": [
+            {
+              "input_level": 0,
+              "right_charge": 0.7642819860755892,
+              "left_charge": 0.23571801392441644,
+              "right_three_energies": [
+                0.6536730716834691,
+                0.008565591886545576,
+                0.008573767582741794
+              ],
+              "right_other_energy": 0.09346955492283271,
+              "right_three_energies_and_left_neutral_ground": [
+                0.6276155576814355,
+                0.008245466867977226,
+                0.00780171718670218
+              ],
+              "matching_level_given_right_charge": 0.8552773499738346,
+              "herald_and_arrive_matching_level": 0.04048334757588713
+            },
+            {
+              "input_level": 1,
+              "right_charge": 0.7012891193330342,
+              "left_charge": 0.2987108806669699,
+              "right_three_energies": [
+                0.562712340870751,
+                0.009025440126140462,
+                0.0085355419303559
+              ],
+              "right_other_energy": 0.12101579640578686,
+              "right_three_energies_and_left_neutral_ground": [
+                0.008245466867977242,
+                0.00016719553540581907,
+                0.00010870526188644868
+              ],
+              "matching_level_given_right_charge": 0.012869784910856979,
+              "herald_and_arrive_matching_level": 0.0003449344233882381
+            },
+            {
+              "input_level": 2,
+              "right_charge": 0.6885150601061681,
+              "left_charge": 0.3114849398938168,
+              "right_three_energies": [
+                0.541811390166113,
+                0.008953868407331535,
+                0.007833257094804723
+              ],
+              "right_other_energy": 0.12991654443791878,
+              "right_three_energies_and_left_neutral_ground": [
+                0.00780171718670218,
+                0.00010870526188644861,
+                0.00014573534186184425
+              ],
+              "matching_level_given_right_charge": 0.011377030872203209,
+              "herald_and_arrive_matching_level": 0.00022173155567104232
+            }
+          ],
+          "channel": {
+            "three_level_acceptance_range_all_pure_inputs": [
+              0.525476552936664,
+              0.6892929710856588
+            ],
+            "equal_prior_three_level_acceptance": 0.603228089916084,
+            "equal_prior_correct_label_unconditional": 0.22351058963480477,
+            "correct_label_given_three_level_click_equal_prior": 0.3705241738094419,
+            "optimal_label_guess_given_three_level_click_equal_prior": 0.37093336700425267,
+            "choi_partial_transpose_negativity_unconditional": 2.0859814275325815e-05,
+            "choi_partial_transpose_negativity_given_three_level_click": 3.458030987619899e-05,
+            "choi_overlap_phase_corrected_identity_given_three_level_click_bounds": [
+              0.12684947231473864,
+              0.12684954704984816
+            ],
+            "neutral_ground_transfer_singular_values": [
+              0.8124729938292368,
+              0.011033720354673659,
+              0.00248163356009546
+            ],
+            "optimal_uniform_exact_inverse_filter_and_neutral_ground_probability": 6.158505126592067e-06,
+            "correct_label_given_right_charge_equal_prior": 0.3112836337000327
+          }
+        }
+      ],
+      "max_eigenpair_residual": 5.1992846573158843e-14,
+      "max_total_norm_error": 1.509903313490213e-14,
+      "max_archived_observable_discrepancy": 9.992007221626409e-16,
+      "series_precision": {
+        "upper_spectrum_bound_native": 68.0,
+        "chebyshev_highest_degree": 170,
+        "operator_norm_series_tail_bound": 6.139250346570046e-14
+      },
+      "controls": {
+        "bridge_off_arrival": 0,
+        "seam_only_at_pi_over_8_arrival": [
+          0.34990334033120224,
+          0.3764398873896465,
+          0.37848696427867856
+        ],
+        "seam_only_given_arrival_right_state": "fixed uniform gateway state for every input",
+        "seam_only_three_level_channel": {
+          "three_level_acceptance_range_all_pure_inputs": [
+            0.11521614273866126,
+            0.13535095312764328
+          ],
+          "equal_prior_three_level_acceptance": 0.1257770691536996,
+          "equal_prior_correct_label_unconditional": 0.03988339683667223,
+          "correct_label_given_three_level_click_equal_prior": 0.3170959309596785,
+          "optimal_label_guess_given_three_level_click_equal_prior": 0.3425747839074629,
+          "choi_partial_transpose_negativity_unconditional": 4.79638240226757e-18,
+          "choi_partial_transpose_negativity_given_three_level_click": 3.813399719472227e-17,
+          "choi_overlap_phase_corrected_identity_given_three_level_click_bounds": [
+            0.10633913245457273,
+            0.10633917078654967
+          ],
+          "neutral_ground_transfer_singular_values": [
+            0.34152868938004205,
+            9.652229233508464e-18,
+            5.836994868766993e-20
+          ],
+          "optimal_uniform_exact_inverse_filter_and_neutral_ground_probability": 3.407050909801221e-39
+        },
+        "seam_only_three_right_energies": [
+          [
+            0.11755835046044386,
+            0.0018149085649277834,
+            0.00012877020764266256
+          ],
+          [
+            0.12647393467908485,
+            0.0019525505962796194,
+            0.0001385360951920659
+          ],
+          [
+            0.127161698854507,
+            0.001963168549727717,
+            0.00013928945329322515
+          ]
+        ],
+        "neutral_ground_transfer_initial_derivative": [
+          [
+            -1.3438951494337679,
+            -0.16698060095663267,
+            0.04447811185060566
+          ],
+          [
+            -0.16698060095663267,
+            -0.020747542029291584,
+            0.005526459299566426
+          ],
+          [
+            0.04447811185060566,
+            0.005526459299566426,
+            -0.0014720660571090826
+          ]
+        ],
+        "neutral_ground_transfer_initial_derivative_rank": 1
+      }
+    }
+  ]
+}

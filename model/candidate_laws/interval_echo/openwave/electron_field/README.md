@@ -86,6 +86,10 @@ Changing the one-cell preparation also faces a geometric constraint. On all 420 
 
 In this net-neutral orbital pair, fixing the distant charge and reading only the local material port and its five incident heads destroys the encoded qubit's entanglement with a reference. Extending the local read to the five surrounding triangular faces preserves some entanglement for 42 of 54 occupied excess-port settings and 39 of 54 vacancy-port settings at separations of at least two links. A physical 72° turn of just the surrounding faces with the other port and exterior heads fixed takes all 9,654 tested sharp inputs per sign out of the allowed charge–flux sector. This identifies local orbital information shared by a charged end and its surroundings; intrinsic spin of that end remains unresolved. [Two-mobile-charge and local-end experiments in the replay](replay.py)
 
+## The charged-lepton family
+
+Three separately prepared packets propagate on a 48-cell written route. Their band-minimum ratios are 1 : 4.56155 : 10.40388, with Koide quotient 0.394540. The balanced geometric register has quotient 2/3 and its independent phase read selects ratios 1 : 206.77032 : 3477.47284. Exact spectral bounds exclude balance anywhere in the two fully written one-cell sectors tested. At a matched two-cell gateway, three energy-heralded inputs undergo charged-mode conversion and excite the neutral field when the gate is opened. Conservation of the isolated parent energy in a separated decay channel and weak-flavour tags are unresolved. [Search, geometric constraints and reproduction](lepton_family/README.md)
+
 ## Reproduction
 
 From the repository root, use the dependencies in `model/requirements.txt` and run

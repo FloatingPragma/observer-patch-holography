@@ -1,0 +1,589 @@
+{
+  "construction": "one scalar configuration per physical port; native degree reference one; fixed external compensator",
+  "federations": [
+    {
+      "all_degree_six_cycle_sizes": [],
+      "cells": 20,
+      "degree_six_component_sizes": {
+        "2": 18,
+        "6": 4
+      },
+      "largest_consecutive_unpinned_run_bound": 6,
+      "one_pin_path_screen": {
+        "all_distinct_template_triples_tested": 70,
+        "by_unpinned_length": {
+          "1": {
+            "E_max": 13.65685424949238,
+            "E_min": 2.3431457505076203,
+            "all_triples": 0,
+            "examples": [
+              0,
+              1
+            ],
+            "physical_paths": 284
+          },
+          "2": {
+            "E_max": 14.928203230275509,
+            "E_min": 1.0717967697244914,
+            "all_triples": 1,
+            "examples": [
+              0,
+              1,
+              82
+            ],
+            "physical_paths": 348
+          },
+          "3": {
+            "E_max": 15.391036260090292,
+            "E_min": 0.6089637399097063,
+            "all_triples": 4,
+            "examples": [
+              0,
+              1,
+              82,
+              72
+            ],
+            "physical_paths": 136
+          },
+          "4": {
+            "E_max": 15.608452130361233,
+            "E_min": 0.39154786963877175,
+            "all_triples": 10,
+            "examples": [
+              0,
+              1,
+              82,
+              72,
+              182
+            ],
+            "physical_paths": 104
+          },
+          "5": {
+            "E_max": 15.727406610312546,
+            "E_min": 0.272593389687453,
+            "all_triples": 20,
+            "examples": [
+              0,
+              1,
+              82,
+              72,
+              182,
+              190
+            ],
+            "physical_paths": 72
+          },
+          "6": {
+            "E_max": 15.79942329745459,
+            "E_min": 0.2005767025454107,
+            "all_triples": 35,
+            "examples": [
+              0,
+              1,
+              82,
+              72,
+              182,
+              190,
+              60
+            ],
+            "physical_paths": 40
+          }
+        },
+        "closest_to_balance": {
+          "Q": 0.5378763245879078,
+          "absolute_delta_from_balance": 0.12879034207875883,
+          "active_ports": [
+            0,
+            1,
+            82,
+            72,
+            182,
+            190,
+            60
+          ],
+          "energies": [
+            0.2005767025454107,
+            1.745348140255762,
+            15.79942329745459
+          ],
+          "indices": [
+            0,
+            1,
+            6
+          ],
+          "ratios": [
+            1.0,
+            8.701649384532153,
+            78.76998224097133
+          ]
+        },
+        "inequivalent_spectra": 6,
+        "physical_paths_count": 984
+      },
+      "physical_ports": 240,
+      "pinned_connected_subgraphs": {
+        "block_count": 21,
+        "certified_ratio_ceiling": 440.9448818897638,
+        "certified_strict_lower_bound": "127/1000",
+        "lowest_block": [
+          6,
+          0
+        ],
+        "lowest_block_energy": 0.12735634822423542,
+        "upper_bound": 56
+      },
+      "pinned_open_paths": {
+        "block_count": 14,
+        "certified_ratio_ceiling": 137.14285714285714,
+        "certified_strict_lower_bound": "7/40",
+        "lowest_block": [
+          6
+        ],
+        "lowest_block_energy": 0.175815391781751,
+        "upper_bound": 24
+      },
+      "pinned_simple_cycles": {
+        "block_count": 7,
+        "certified_ratio_ceiling": 48.582995951417004,
+        "certified_strict_lower_bound": "247/500",
+        "lowest_block": [
+          6
+        ],
+        "lowest_block_energy": 0.49484138186106935,
+        "upper_bound": 24
+      },
+      "seam_sha256": "4dadf98983c609e5d305099dc18c19c4f668f9425f12ba75511dbd148c2d60b8",
+      "untwisted_unpinned_ground": 0,
+      "untwisted_unpinned_positive_ratio_upper": 13.928203230275509
+    },
+    {
+      "all_degree_six_cycle_sizes": [],
+      "cells": 80,
+      "degree_six_component_sizes": {
+        "2": 76,
+        "4": 16,
+        "6": 4
+      },
+      "largest_consecutive_unpinned_run_bound": 6,
+      "one_pin_path_screen": {
+        "all_distinct_template_triples_tested": 70,
+        "by_unpinned_length": {
+          "1": {
+            "E_max": 13.65685424949238,
+            "E_min": 2.3431457505076203,
+            "all_triples": 0,
+            "examples": [
+              0,
+              1
+            ],
+            "physical_paths": 1152
+          },
+          "2": {
+            "E_max": 14.928203230275509,
+            "E_min": 1.0717967697244914,
+            "all_triples": 1,
+            "examples": [
+              0,
+              1,
+              38
+            ],
+            "physical_paths": 1344
+          },
+          "3": {
+            "E_max": 15.391036260090292,
+            "E_min": 0.6089637399097063,
+            "all_triples": 4,
+            "examples": [
+              12,
+              13,
+              302,
+              303
+            ],
+            "physical_paths": 424
+          },
+          "4": {
+            "E_max": 15.608452130361233,
+            "E_min": 0.39154786963877175,
+            "all_triples": 10,
+            "examples": [
+              12,
+              13,
+              302,
+              303,
+              792
+            ],
+            "physical_paths": 264
+          },
+          "5": {
+            "E_max": 15.727406610312546,
+            "E_min": 0.272593389687453,
+            "all_triples": 20,
+            "examples": [
+              24,
+              25,
+              298,
+              288,
+              746,
+              754
+            ],
+            "physical_paths": 72
+          },
+          "6": {
+            "E_max": 15.79942329745459,
+            "E_min": 0.2005767025454107,
+            "all_triples": 35,
+            "examples": [
+              24,
+              25,
+              298,
+              288,
+              746,
+              754,
+              252
+            ],
+            "physical_paths": 40
+          }
+        },
+        "closest_to_balance": {
+          "Q": 0.5378763245879078,
+          "absolute_delta_from_balance": 0.12879034207875883,
+          "active_ports": [
+            24,
+            25,
+            298,
+            288,
+            746,
+            754,
+            252
+          ],
+          "energies": [
+            0.2005767025454107,
+            1.745348140255762,
+            15.79942329745459
+          ],
+          "indices": [
+            0,
+            1,
+            6
+          ],
+          "ratios": [
+            1.0,
+            8.701649384532153,
+            78.76998224097133
+          ]
+        },
+        "inequivalent_spectra": 6,
+        "physical_paths_count": 3296
+      },
+      "physical_ports": 960,
+      "pinned_connected_subgraphs": {
+        "block_count": 21,
+        "certified_ratio_ceiling": 440.9448818897638,
+        "certified_strict_lower_bound": "127/1000",
+        "lowest_block": [
+          6,
+          0
+        ],
+        "lowest_block_energy": 0.12735634822423542,
+        "upper_bound": 56
+      },
+      "pinned_open_paths": {
+        "block_count": 14,
+        "certified_ratio_ceiling": 137.14285714285714,
+        "certified_strict_lower_bound": "7/40",
+        "lowest_block": [
+          6
+        ],
+        "lowest_block_energy": 0.175815391781751,
+        "upper_bound": 24
+      },
+      "pinned_simple_cycles": {
+        "block_count": 7,
+        "certified_ratio_ceiling": 48.582995951417004,
+        "certified_strict_lower_bound": "247/500",
+        "lowest_block": [
+          6
+        ],
+        "lowest_block_energy": 0.49484138186106935,
+        "upper_bound": 24
+      },
+      "seam_sha256": "52825a1e46714d3487d4411c20d5ac879750db0ccea164e71f0ad7c7b7576f71",
+      "untwisted_unpinned_ground": 0,
+      "untwisted_unpinned_positive_ratio_upper": 13.928203230275509
+    },
+    {
+      "all_degree_six_cycle_sizes": [],
+      "cells": 320,
+      "degree_six_component_sizes": {
+        "2": 340,
+        "4": 12,
+        "6": 4,
+        "8": 8,
+        "12": 12
+      },
+      "largest_consecutive_unpinned_run_bound": 12,
+      "one_pin_path_screen": {
+        "all_distinct_template_triples_tested": 1001,
+        "by_unpinned_length": {
+          "1": {
+            "E_max": 13.65685424949238,
+            "E_min": 2.3431457505076203,
+            "all_triples": 0,
+            "examples": [
+              0,
+              1
+            ],
+            "physical_paths": 4592
+          },
+          "2": {
+            "E_max": 14.928203230275509,
+            "E_min": 1.0717967697244914,
+            "all_triples": 1,
+            "examples": [
+              0,
+              1,
+              38
+            ],
+            "physical_paths": 5424
+          },
+          "3": {
+            "E_max": 15.391036260090292,
+            "E_min": 0.6089637399097063,
+            "all_triples": 4,
+            "examples": [
+              48,
+              49,
+              1202,
+              1203
+            ],
+            "physical_paths": 1736
+          },
+          "4": {
+            "E_max": 15.608452130361233,
+            "E_min": 0.39154786963877175,
+            "all_triples": 10,
+            "examples": [
+              48,
+              49,
+              1202,
+              1203,
+              3168
+            ],
+            "physical_paths": 1448
+          },
+          "5": {
+            "E_max": 15.727406610312546,
+            "E_min": 0.272593389687453,
+            "all_triples": 20,
+            "examples": [
+              97,
+              96,
+              1162,
+              1152,
+              2978,
+              2986
+            ],
+            "physical_paths": 1136
+          },
+          "6": {
+            "E_max": 15.79942329745459,
+            "E_min": 0.2005767025454107,
+            "all_triples": 35,
+            "examples": [
+              97,
+              96,
+              1162,
+              1152,
+              2978,
+              2986,
+              1009
+            ],
+            "physical_paths": 944
+          },
+          "7": {
+            "E_max": 15.846282243225843,
+            "E_min": 0.1537177567741562,
+            "all_triples": 56,
+            "examples": [
+              100,
+              98,
+              241,
+              240,
+              1011,
+              1010,
+              1045,
+              1044
+            ],
+            "physical_paths": 744
+          },
+          "8": {
+            "E_max": 15.878462024097663,
+            "E_min": 0.12153797590233485,
+            "all_triples": 84,
+            "examples": [
+              100,
+              98,
+              241,
+              240,
+              1011,
+              1010,
+              1045,
+              1044,
+              1028
+            ],
+            "physical_paths": 584
+          },
+          "9": {
+            "E_max": 15.901506724761102,
+            "E_min": 0.09849327523889807,
+            "all_triples": 120,
+            "examples": [
+              100,
+              99,
+              98,
+              241,
+              240,
+              1011,
+              1010,
+              1045,
+              1044,
+              1028
+            ],
+            "physical_paths": 408
+          },
+          "10": {
+            "E_max": 15.91857153504746,
+            "E_min": 0.08142846495253926,
+            "all_triples": 165,
+            "examples": [
+              120,
+              130,
+              133,
+              132,
+              99,
+              98,
+              241,
+              240,
+              1011,
+              1010,
+              1045
+            ],
+            "physical_paths": 312
+          },
+          "11": {
+            "E_max": 15.931558890990484,
+            "E_min": 0.06844110900951711,
+            "all_triples": 220,
+            "examples": [
+              120,
+              130,
+              133,
+              132,
+              99,
+              98,
+              241,
+              240,
+              1011,
+              1010,
+              1045,
+              1044
+            ],
+            "physical_paths": 216
+          },
+          "12": {
+            "E_max": 15.941670992784431,
+            "E_min": 0.05832900721556763,
+            "all_triples": 286,
+            "examples": [
+              120,
+              130,
+              133,
+              132,
+              99,
+              98,
+              241,
+              240,
+              1011,
+              1010,
+              1045,
+              1044,
+              1028
+            ],
+            "physical_paths": 120
+          }
+        },
+        "closest_to_balance": {
+          "Q": 0.669634316052968,
+          "absolute_delta_from_balance": 0.002967649386301341,
+          "active_ports": [
+            120,
+            130,
+            133,
+            132,
+            99,
+            98,
+            241,
+            240,
+            1011,
+            1010,
+            1045,
+            1044,
+            1028
+          ],
+          "energies": [
+            0.05832900721556763,
+            0.5198700585166812,
+            15.480129941483316
+          ],
+          "indices": [
+            0,
+            1,
+            11
+          ],
+          "ratios": [
+            1.0,
+            8.912719131244382,
+            265.39333824546515
+          ]
+        },
+        "inequivalent_spectra": 12,
+        "physical_paths_count": 17664
+      },
+      "physical_ports": 3840,
+      "pinned_connected_subgraphs": {
+        "block_count": 78,
+        "certified_ratio_ceiling": 1272.7272727272727,
+        "certified_strict_lower_bound": "11/250",
+        "lowest_block": [
+          12,
+          0
+        ],
+        "lowest_block_energy": 0.04428962895839738,
+        "upper_bound": 56
+      },
+      "pinned_open_paths": {
+        "block_count": 26,
+        "certified_ratio_ceiling": 444.44444444444446,
+        "certified_strict_lower_bound": "27/500",
+        "lowest_block": [
+          12
+        ],
+        "lowest_block_energy": 0.05414687383548578,
+        "upper_bound": 24
+      },
+      "pinned_simple_cycles": {
+        "block_count": 13,
+        "certified_ratio_ceiling": 137.14285714285714,
+        "certified_strict_lower_bound": "7/40",
+        "lowest_block": [
+          12
+        ],
+        "lowest_block_energy": 0.1758153917817521,
+        "upper_bound": 24
+      },
+      "seam_sha256": "ee40a97c9f9405c00de156d98edabe73c4e04f59b787d80abc2308769c5032f8",
+      "untwisted_unpinned_ground": 0,
+      "untwisted_unpinned_positive_ratio_upper": 57.69548054098106
+    }
+  ],
+  "minimum_max_to_min_ratio_for_exact_positive_Koide": 67.94112549695429
+}

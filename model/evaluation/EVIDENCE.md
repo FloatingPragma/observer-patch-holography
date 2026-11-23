@@ -626,6 +626,7 @@ Criterion · [MODELS.md L110](https://github.com/openwave-labs/openwave/blob/753
 Criterion · [MODELS.md L111](https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L111)
 
 - **Interval Echo · Open.** Production in a decay, electric neutrality and lightness have yet to be established for the same excitation. [SPEC.md](../candidate_laws/interval_echo/SPEC.md)
+  - **Written-field Laplacian extension** · Six downward charged-mode channels produce positive neutral field energy after a bridge switch. The separated daughter and neutral spectra miss the isolated parent energy in every channel. The experiment supplies neither neutrino flavour tags nor a neutrino mass. [Comparison study](../candidate_laws/interval_echo/openwave/electron_field/lepton_family/README.md)
 - **Contrast memory · Open.** Production in a decay, electric neutrality and lightness have yet to be established for the same excitation.
 - **Private record walk · Open.** Awaiting candidate-specific assessment.
 - **Scalar channel · Open.** The scalar law supports neutral excitations relative to its supplied gauge reference. A light neutral product released in a weak decay remains unidentified.
@@ -648,6 +649,7 @@ Criterion · [MODELS.md L112](https://github.com/openwave-labs/openwave/blob/753
 Criterion · [MODELS.md L113](https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L113)
 
 - **Interval Echo · Open.** No three minima have been identified as charged leptons and compared on a common mass scale. [SPEC.md](../candidate_laws/interval_echo/SPEC.md)
+  - **Written-field Laplacian extension** · Three independently prepared orbital bands have minimum-energy ratios 1 : 4.56155 : 10.40388 on the 48-cell route. Exact inequalities exclude the balanced Koide value for every triplet from the two fully written one-cell sectors. The three family characters of the independent geometric register have a different observable and source. [Comparison study](../candidate_laws/interval_echo/openwave/electron_field/lepton_family/README.md)
 - **Contrast memory · Open.** No three minima have been identified as charged leptons and compared on a common mass scale.
 - **Private record walk · Open.** Awaiting candidate-specific assessment.
 - **Scalar channel · Open.** Several scalar lines have measured frequencies for a supplied level parameter. A charged-lepton family assignment and three mass ratios remain open.
@@ -948,7 +950,11 @@ Criterion · [contents_listings.html](https://pdg.lbl.gov/2026/listings/contents
 
 Criterion · [contents_listings.html](https://pdg.lbl.gov/2026/listings/contents_listings.html) · [deriving_the_particle_zoo_from_observer_consistency.tex](../../paper/deriving_the_particle_zoo_from_observer_consistency.tex) · [PROOF.md](../../code/defect_particle_classes/PROOF.md) · [physical_identification_registry.json](../../claims/physical_identification_registry.json)
 
-**All listed candidates · Open.** No species assignment is registered.
+- **Interval Echo · Open.** A distinct muon rest branch and a weak decay channel require measurements on Interval Echo.
+  - **Written-field Laplacian extension** · The 48-cell route resolves three propagating bands with minimum-energy ratios 1 : 4.56155 : 10.40388. On a fully written pair of cells, three energy-heralded inputs cross the same bridge. Opening the bridge does work and produces lower charged modes plus neutral excitation. All six separated downward channels miss the isolated parent energy. An autonomous weak decay and a muon identification are unresolved. [Comparison study](../candidate_laws/interval_echo/openwave/electron_field/lepton_family/README.md)
+- **Contrast memory · Open.** No species assignment is registered.
+- **Private record walk · Open.** No species assignment is registered.
+- **Scalar channel · Open.** No species assignment is registered.
 
 ### SM-tau
 
@@ -956,7 +962,11 @@ Criterion · [contents_listings.html](https://pdg.lbl.gov/2026/listings/contents
 
 Criterion · [contents_listings.html](https://pdg.lbl.gov/2026/listings/contents_listings.html) · [deriving_the_particle_zoo_from_observer_consistency.tex](../../paper/deriving_the_particle_zoo_from_observer_consistency.tex) · [PROOF.md](../../code/defect_particle_classes/PROOF.md) · [physical_identification_registry.json](../../claims/physical_identification_registry.json)
 
-**All listed candidates · Open.** No species assignment is registered.
+- **Interval Echo · Open.** A third charged-lepton mass and weak daughter tags require measurements on Interval Echo.
+  - **Written-field Laplacian extension** · Exact spectral bounds exclude a Koide-balanced triplet among the 5,790 vacancy and 1,954 excess levels on the tested cell backgrounds. All connected pinned single-configuration-per-port guides of the three stored federations have energy span below 1,273. This excludes the observed tau/electron hierarchy on these guides. [Comparison study](../candidate_laws/interval_echo/openwave/electron_field/lepton_family/README.md)
+- **Contrast memory · Open.** No species assignment is registered.
+- **Private record walk · Open.** No species assignment is registered.
+- **Scalar channel · Open.** No species assignment is registered.
 
 ### SM-nu-e
 

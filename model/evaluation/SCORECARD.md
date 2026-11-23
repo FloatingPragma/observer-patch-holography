@@ -146,9 +146,9 @@ Sources · [MODELS.md L94-L137](https://github.com/openwave-labs/openwave/blob/7
 | Requirement | Interval Echo | Contrast memory | Private record walk | Scalar channel |
 | --- | --- | --- | --- | --- |
 | [OW-08](EVIDENCE.md#ow-08) Antimatter + annihilation (both) | Open. Comparison · [Written-field Laplacian extension](../candidate_laws/interval_echo/openwave/electron_field/README.md#rest-energy-and-the-other-openwave-observables) | Open | Open | Open |
-| [OW-09](EVIDENCE.md#ow-09) Neutrinos (neutral states) (both) | Open | Open | Open | Open |
+| [OW-09](EVIDENCE.md#ow-09) Neutrinos (neutral states) (both) | Open. Comparison · [Written-field Laplacian extension](../candidate_laws/interval_echo/openwave/electron_field/lepton_family/README.md) | Open | Open | Open |
 | [OW-10](EVIDENCE.md#ow-10) Neutrino oscillations (PMNS) (both) | Open | Open | Open | Open |
-| [OW-11](EVIDENCE.md#ow-11) Lepton mass spectrum (μ, τ) (static) | Open | Open | Open | Open |
+| [OW-11](EVIDENCE.md#ow-11) Lepton mass spectrum (μ, τ) (static) | Open. Comparison · [Written-field Laplacian extension](../candidate_laws/interval_echo/openwave/electron_field/lepton_family/README.md) | Open | Open | Open |
 | [OW-12](EVIDENCE.md#ow-12) Quarks (static) | Open | Open | Open | Open |
 | [OW-13](EVIDENCE.md#ow-13) Baryons: bound state (p, n) (static) | Partial | Partial | Open | Open |
 | [OW-14](EVIDENCE.md#ow-14) Baryons: mass ordering + charge profile (static) | Open | Open | Open | Open |
@@ -212,8 +212,8 @@ Sources · [contents_listings.html](https://pdg.lbl.gov/2026/listings/contents_l
 | Requirement | Interval Echo | Contrast memory | Private record walk | Scalar channel |
 | --- | --- | --- | --- | --- |
 | [SM-e](EVIDENCE.md#sm-e) Electron | Open. Comparison · [Written-field Laplacian extension · Strong candidate for the electron’s charge and field response](../candidate_laws/interval_echo/openwave/electron_field/README.md) | Open | Open | Open |
-| [SM-mu](EVIDENCE.md#sm-mu) Muon | Open | Open | Open | Open |
-| [SM-tau](EVIDENCE.md#sm-tau) Tau | Open | Open | Open | Open |
+| [SM-mu](EVIDENCE.md#sm-mu) Muon | Open. Comparison · [Written-field Laplacian extension · Three moving bands and a charged-mode conversion test](../candidate_laws/interval_echo/openwave/electron_field/lepton_family/README.md) | Open | Open | Open |
+| [SM-tau](EVIDENCE.md#sm-tau) Tau | Open. Comparison · [Written-field Laplacian extension · Geometric lepton-ratio and full-cell spectral bounds](../candidate_laws/interval_echo/openwave/electron_field/lepton_family/README.md) | Open | Open | Open |
 
 ### Active neutrinos
 

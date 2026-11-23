@@ -1,0 +1,496 @@
+{
+  "geometry": {
+    "sphere_cells": 320,
+    "ring_cells": 48,
+    "active_seams": 144,
+    "active_elementary_field_loops": 0,
+    "motif_degrees": [
+      6,
+      5,
+      6
+    ],
+    "ordered_pair_dimension": 20592
+  },
+  "model_status": "comparison with an explicitly supplied C3 label",
+  "sha256": {
+    "cyclic_hops/measure.py": "4888f66acd22e952dd6cfc140f2175777f22df90b2ff83fd915c12973f6c972c",
+    "cyclic_hops/DESIGN.md": "30744c73e78609250e4b1a5cbd5bfa9506237b61f79001f18a86e73d405b4be2",
+    "bands/measure.py": "1545429dd9088a31fd6fbcd55123389d252c70a0729e5607b254a5dd79c26423",
+    "bands/route.json": "3f7633d416f9daa7b575f73d8b2c0f1c600508c4971be1f4211adc672a7cb312"
+  },
+  "hop": 4,
+  "degree_five_energy": 8,
+  "neutral_reference": 0,
+  "unshifted_guide_threshold": 1.7537887487646755,
+  "low_band_curvature_at_zero": 0.7574643749636687,
+  "asymptotic_n_squared_nontrivial_splitting": 1.6613052730688496,
+  "periodic_guides": [
+    {
+      "cells": 12,
+      "verified_physical_route": false,
+      "total_shifts": [
+        {
+          "total_seam_shift_modulo_three": 0,
+          "three_character_thresholds": [
+            1.7537887487646755,
+            1.7537887487646755,
+            1.7537887487646755
+          ],
+          "threshold_ratios": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "threshold_Q": 0.33333333333333337,
+          "minimum_momenta": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "splitting_from_trivial_character": 0.0
+        },
+        {
+          "total_seam_shift_modulo_three": 1,
+          "three_character_thresholds": [
+            1.7537887487646755,
+            1.7653173558498523,
+            1.7653173558498523
+          ],
+          "threshold_ratios": [
+            1.0,
+            1.0065735437596446,
+            1.0065735437596446
+          ],
+          "threshold_Q": 0.3333341274483213,
+          "minimum_momenta": [
+            0.0,
+            0.17453292519943295,
+            -0.174532925199433
+          ],
+          "splitting_from_trivial_character": 0.011528607085176779
+        },
+        {
+          "total_seam_shift_modulo_three": 2,
+          "three_character_thresholds": [
+            1.7537887487646755,
+            1.7653173558498523,
+            1.7653173558498523
+          ],
+          "threshold_ratios": [
+            1.0,
+            1.0065735437596446,
+            1.0065735437596446
+          ],
+          "threshold_Q": 0.3333341274483213,
+          "minimum_momenta": [
+            0.0,
+            -0.174532925199433,
+            0.17453292519943295
+          ],
+          "splitting_from_trivial_character": 0.011528607085176779
+        }
+      ]
+    },
+    {
+      "cells": 24,
+      "verified_physical_route": false,
+      "total_shifts": [
+        {
+          "total_seam_shift_modulo_three": 0,
+          "three_character_thresholds": [
+            1.7537887487646755,
+            1.7537887487646755,
+            1.7537887487646755
+          ],
+          "threshold_ratios": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "threshold_Q": 0.33333333333333337,
+          "minimum_momenta": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "splitting_from_trivial_character": 0.0
+        },
+        {
+          "total_seam_shift_modulo_three": 1,
+          "three_character_thresholds": [
+            1.7537887487646755,
+            1.7566724450561046,
+            1.7566724450561078
+          ],
+          "threshold_ratios": [
+            1.0,
+            1.0016442666161818,
+            1.0016442666161836
+          ],
+          "threshold_Q": 0.3333333833043462,
+          "minimum_momenta": [
+            0.0,
+            0.08726646259971647,
+            -0.08726646259971574
+          ],
+          "splitting_from_trivial_character": 0.0028836962914291497
+        },
+        {
+          "total_seam_shift_modulo_three": 2,
+          "three_character_thresholds": [
+            1.7537887487646755,
+            1.7566724450561078,
+            1.7566724450561046
+          ],
+          "threshold_ratios": [
+            1.0,
+            1.0016442666161836,
+            1.0016442666161818
+          ],
+          "threshold_Q": 0.3333333833043463,
+          "minimum_momenta": [
+            0.0,
+            -0.08726646259971574,
+            0.08726646259971647
+          ],
+          "splitting_from_trivial_character": 0.0028836962914322584
+        }
+      ]
+    },
+    {
+      "cells": 48,
+      "verified_physical_route": true,
+      "total_shifts": [
+        {
+          "total_seam_shift_modulo_three": 0,
+          "three_character_thresholds": [
+            1.7537887487646755,
+            1.7537887487646755,
+            1.7537887487646755
+          ],
+          "threshold_ratios": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "threshold_Q": 0.33333333333333337,
+          "minimum_momenta": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "splitting_from_trivial_character": 0.0,
+          "real_space_controls": {
+            "all_seam_placements_gauge_proof_checked_on_nonuniform_representative": true,
+            "integer_global_cyclic_shift_symmetry": true,
+            "real_space_dimension": 432,
+            "max_off_character_matrix_element": 4.225652195575758e-15,
+            "max_whole_character_spectrum_error": 2.4868995751603507e-14
+          }
+        },
+        {
+          "total_seam_shift_modulo_three": 1,
+          "three_character_thresholds": [
+            1.7537887487646755,
+            1.754509769266681,
+            1.7545097692666818
+          ],
+          "threshold_ratios": [
+            1.0,
+            1.000411121637377,
+            1.0004111216373774
+          ],
+          "threshold_Q": 0.3333333364618512,
+          "minimum_momenta": [
+            0.0,
+            0.04363323129985824,
+            -0.04363323129985843
+          ],
+          "splitting_from_trivial_character": 0.0007210205020053984,
+          "real_space_controls": {
+            "all_seam_placements_gauge_proof_checked_on_nonuniform_representative": true,
+            "integer_global_cyclic_shift_symmetry": true,
+            "real_space_dimension": 432,
+            "max_off_character_matrix_element": 4.225652195575758e-15,
+            "max_whole_character_spectrum_error": 3.907985046680551e-14
+          }
+        },
+        {
+          "total_seam_shift_modulo_three": 2,
+          "three_character_thresholds": [
+            1.7537887487646755,
+            1.7545097692666818,
+            1.754509769266681
+          ],
+          "threshold_ratios": [
+            1.0,
+            1.0004111216373774,
+            1.000411121637377
+          ],
+          "threshold_Q": 0.33333333646185115,
+          "minimum_momenta": [
+            0.0,
+            -0.04363323129985843,
+            0.04363323129985824
+          ],
+          "splitting_from_trivial_character": 0.0007210205020062865,
+          "real_space_controls": {
+            "all_seam_placements_gauge_proof_checked_on_nonuniform_representative": true,
+            "integer_global_cyclic_shift_symmetry": true,
+            "real_space_dimension": 432,
+            "max_off_character_matrix_element": 4.225652195575758e-15,
+            "max_whole_character_spectrum_error": 3.197442310920451e-14
+          }
+        }
+      ]
+    },
+    {
+      "cells": 96,
+      "verified_physical_route": false,
+      "total_shifts": [
+        {
+          "total_seam_shift_modulo_three": 0,
+          "three_character_thresholds": [
+            1.7537887487646755,
+            1.7537887487646755,
+            1.7537887487646755
+          ],
+          "threshold_ratios": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "threshold_Q": 0.33333333333333337,
+          "minimum_momenta": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "splitting_from_trivial_character": 0.0
+        },
+        {
+          "total_seam_shift_modulo_three": 1,
+          "three_character_thresholds": [
+            1.7537887487646755,
+            1.7539690099153893,
+            1.7539690099153893
+          ],
+          "threshold_ratios": [
+            1.0,
+            1.0001027838448848,
+            1.0001027838448848
+          ],
+          "threshold_Q": 0.33333333352894906,
+          "minimum_momenta": [
+            0.0,
+            0.02181661564992912,
+            -0.021816615649928896
+          ],
+          "splitting_from_trivial_character": 0.00018026115071378968
+        },
+        {
+          "total_seam_shift_modulo_three": 2,
+          "three_character_thresholds": [
+            1.7537887487646755,
+            1.7539690099153893,
+            1.7539690099153893
+          ],
+          "threshold_ratios": [
+            1.0,
+            1.0001027838448848,
+            1.0001027838448848
+          ],
+          "threshold_Q": 0.33333333352894906,
+          "minimum_momenta": [
+            0.0,
+            -0.021816615649928896,
+            0.02181661564992912
+          ],
+          "splitting_from_trivial_character": 0.00018026115071378968
+        }
+      ]
+    },
+    {
+      "cells": 192,
+      "verified_physical_route": false,
+      "total_shifts": [
+        {
+          "total_seam_shift_modulo_three": 0,
+          "three_character_thresholds": [
+            1.7537887487646755,
+            1.7537887487646755,
+            1.7537887487646755
+          ],
+          "threshold_ratios": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "threshold_Q": 0.33333333333333337,
+          "minimum_momenta": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "splitting_from_trivial_character": 0.0
+        },
+        {
+          "total_seam_shift_modulo_three": 1,
+          "three_character_thresholds": [
+            1.7537887487646755,
+            1.7538338144289063,
+            1.7538338144289063
+          ],
+          "threshold_ratios": [
+            1.0,
+            1.000025696175929,
+            1.000025696175929
+          ],
+          "threshold_Q": 0.33333333334556076,
+          "minimum_momenta": [
+            0.0,
+            0.010908307824964561,
+            -0.01090830782496546
+          ],
+          "splitting_from_trivial_character": 4.506566423079228e-05
+        },
+        {
+          "total_seam_shift_modulo_three": 2,
+          "three_character_thresholds": [
+            1.7537887487646755,
+            1.7538338144289063,
+            1.7538338144289063
+          ],
+          "threshold_ratios": [
+            1.0,
+            1.000025696175929,
+            1.000025696175929
+          ],
+          "threshold_Q": 0.33333333334556076,
+          "minimum_momenta": [
+            0.0,
+            -0.01090830782496546,
+            0.010908307824964561
+          ],
+          "splitting_from_trivial_character": 4.506566423079228e-05
+        }
+      ]
+    },
+    {
+      "cells": 384,
+      "verified_physical_route": false,
+      "total_shifts": [
+        {
+          "total_seam_shift_modulo_three": 0,
+          "three_character_thresholds": [
+            1.7537887487646755,
+            1.7537887487646755,
+            1.7537887487646755
+          ],
+          "threshold_ratios": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "threshold_Q": 0.33333333333333337,
+          "minimum_momenta": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "splitting_from_trivial_character": 0.0
+        },
+        {
+          "total_seam_shift_modulo_three": 1,
+          "three_character_thresholds": [
+            1.7537887487646755,
+            1.7538000152042679,
+            1.7538000152042679
+          ],
+          "threshold_ratios": [
+            1.0,
+            1.0000064240574016,
+            1.0000064240574016
+          ],
+          "threshold_Q": 0.3333333333340976,
+          "minimum_momenta": [
+            0.0,
+            0.00545415391248228,
+            -0.005454153912482408
+          ],
+          "splitting_from_trivial_character": 1.126643959237228e-05
+        },
+        {
+          "total_seam_shift_modulo_three": 2,
+          "three_character_thresholds": [
+            1.7537887487646755,
+            1.7538000152042679,
+            1.7538000152042679
+          ],
+          "threshold_ratios": [
+            1.0,
+            1.0000064240574016,
+            1.0000064240574016
+          ],
+          "threshold_Q": 0.3333333333340976,
+          "minimum_momenta": [
+            0.0,
+            -0.005454153912482408,
+            0.00545415391248228
+          ],
+          "splitting_from_trivial_character": 1.126643959237228e-05
+        }
+      ]
+    }
+  ],
+  "separate_additive_register": {
+    "register_phase_example_radians": 0.1308996938995747,
+    "register_a_example": 1.0,
+    "register_effect_eigenvalues": [
+      5.77015536488898,
+      0.019343616589961695,
+      0.21050101852105776
+    ],
+    "field_charged_floor": 1.7537887487646755,
+    "scales": [
+      0.01,
+      0.1,
+      1.0,
+      10.0,
+      100.0,
+      10000.0
+    ],
+    "Q_of_total_thresholds": [
+      0.3333520760939645,
+      0.3348287770338902,
+      0.37553289287033637,
+      0.5324985408012153,
+      0.639964723942252,
+      0.6663445186400622
+    ],
+    "Q_of_isolated_balanced_register": 0.6666666666666669,
+    "historical_single_load_register": {
+      "read_phase": 0.2222222222222222,
+      "isolated_effects_in_increasing_order": [
+        6.0300559011053995e-05,
+        0.01246836564004783,
+        0.2096935560231633
+      ],
+      "isolated_ratios": [
+        1.0,
+        206.77031597272907,
+        3477.4728371046003
+      ],
+      "isolated_Q": 0.666666666666667,
+      "illustrative_unit_coupling_total_ratios": [
+        1.0,
+        1.0070747622697755,
+        1.1195275360470678
+      ],
+      "illustrative_unit_coupling_total_Q": 0.3335595297820017
+    },
+    "small_scale_limit": 0.3333333333333333,
+    "large_scale_limit": 0.6666666666666666,
+    "inter_character_transitions": 0
+  }
+}

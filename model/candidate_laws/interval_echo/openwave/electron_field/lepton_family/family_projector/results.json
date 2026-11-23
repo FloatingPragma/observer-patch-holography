@@ -1,0 +1,1031 @@
+{
+  "design_sha256": "618709b878856a737f49be1ffc7eafa33521c18e89507d886398b4223cb10725",
+  "executable_sha256": "d5a1f5d99a44ff5d698cbe83235ae427cea3839efbd04ed66f2012302da39ce4",
+  "archived_dependency_sha256": {
+    "experiments/interval_echo_electron_flux_binding/search.py": "9fc05ffcdd7400bbaf46c46d0a693348d584b5b752235ce377bf64b48449f720",
+    "experiments/interval_echo_electron_flux_binding/bridge.py": "7e55becdaaa1ce9aeccd62dca3785397ff3ed130346bb9fde00365feffbf477c",
+    "experiments/interval_echo_electron_flux_binding/free_bridge.py": "939e3bcc3ee8d306891fe7e6aa29efb50d349669f394fc8fe963d909cd300053",
+    "experiments/interval_echo_electron_flux_binding/free_bridge.json": "0863a72a9e0cdf6afd206f66685b5a61c1c683d0dba6063f378caf9d52273c8d"
+  },
+  "finite_port_theorem": {
+    "lean_file": "Lean/Screen/A5FamilyBand.lean",
+    "lean_sha256": "da86f97b63a871bedc4a5418c4b7b154ab3d354b7fdb41e9184f4c3b343e1521",
+    "lean_to_physical_port": [
+      0,
+      1,
+      5,
+      7,
+      11,
+      9,
+      10,
+      8,
+      4,
+      6,
+      2,
+      3
+    ],
+    "projector_rank": 3,
+    "physical_antipodes": [
+      3,
+      2,
+      1,
+      0,
+      7,
+      6,
+      5,
+      4,
+      11,
+      10,
+      9,
+      8
+    ],
+    "scalar_control_hopping": 4,
+    "scalar_control": [
+      {
+        "adjacency_sign": 1,
+        "energy": 11.05572809000084,
+        "max_leakage_bound": 4.809241497001822e-15
+      },
+      {
+        "adjacency_sign": -1,
+        "energy": 28.94427190999916,
+        "max_leakage_bound": 6.504940676629057e-15
+      }
+    ]
+  },
+  "embedding": "normalized equal coherent sum of the connected head words at each charge port",
+  "geometry": "source cell of the 3\u201348 matched bridge on the 20-cell board",
+  "native_generator": "one half of the archived integer charged-sector matrix",
+  "sectors": [
+    {
+      "charge_sign": -1,
+      "sharp_configurations": 5790,
+      "reachable_word_counts_by_port": [
+        458,
+        744,
+        299,
+        191,
+        933,
+        441,
+        196,
+        449,
+        99,
+        240,
+        556,
+        1184
+      ],
+      "exact_head_contrast_certificate": {
+        "same_port_reference_state_indices": [
+          0,
+          458,
+          2301,
+          4575,
+          2295,
+          459,
+          2373,
+          460,
+          2294,
+          2292,
+          465,
+          461
+        ],
+        "independent_contrast_rows": [
+          2290,
+          21,
+          469,
+          2312,
+          463,
+          6,
+          517,
+          19,
+          528,
+          503,
+          14
+        ],
+        "independent_address_columns": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "nonzero_integer_minor_determinant": -8589934592,
+        "real_contrast_rank": 11,
+        "integer_kernel_in_sharp_word_coordinates": [
+          [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ]
+        ]
+      },
+      "whole_spectrum_bound": {
+        "upper_native_gershgorin": 55.0,
+        "strict_lower_native_fraction": [
+          4343,
+          1000
+        ],
+        "min_positive_ground_witness_entry": 2672084,
+        "native_ground_witness_scale": 1000000000,
+        "ground_witness_int64_le_sha256": "294d78137277292490b925fdc771a9783d5e1d850fe04da9420061253d0c0d82",
+        "minimum_integer_margin": 4040376,
+        "max_to_min_ratio_bound": 12.664057103384756,
+        "all_triplets_koide_upper_bound": 0.4745849992462862,
+        "koide_target": "2/3"
+      },
+      "native_low_energies": [
+        4.343759681488111,
+        4.620847023178331,
+        4.720238696891122,
+        4.768855751779099,
+        4.846179727357385,
+        4.872767671217566,
+        4.945948979612924,
+        5.042087726838843,
+        5.083162551929786,
+        5.10418118806158,
+        5.145004566175821,
+        5.177502981490992,
+        5.23901234640995,
+        5.261880403241093,
+        5.299620721912034,
+        5.3550402344130665,
+        5.362792636785454,
+        5.3901875964026855,
+        5.403144989132666,
+        5.444250642126266,
+        5.448218102864849,
+        5.4875283919521305,
+        5.50539562417096,
+        5.528900609055633
+      ],
+      "low_eigenpair_residual": 4.3854738661358184e-14,
+      "canonical_plus_sqrt5": {
+        "leakage_singular_values": [
+          8.509792820130123,
+          6.746117572634295,
+          5.967264554107698
+        ],
+        "leakage_operator_norm": 8.509792820130123,
+        "smallest_initial_escape_probability_coefficient": 35.60824625871014,
+        "projected_native_energies": [
+          12.557488045563815,
+          13.496844705654974,
+          16.03365310907546
+        ],
+        "leakage_into_other_uniform_port_modes_singular_values": [
+          7.210807069044482,
+          4.773990790619856,
+          4.276115574194121
+        ],
+        "leakage_into_orthogonal_head_patterns_singular_values": [
+          4.784395535987275,
+          4.649277877154618,
+          3.994597091135591
+        ],
+        "three_ground_level_weights": [
+          0.10343196353418788,
+          0.007664607198364604,
+          0.0015490057023033398
+        ],
+        "triplet_to_lowest_three_principal_singular_values": [
+          0.32253338499783785,
+          0.08991633389147007,
+          0.02308343337135897
+        ],
+        "low_groups_projector_weights": [
+          {
+            "low_level_indices": [
+              0
+            ],
+            "total_projector_weight": 0.10343196353418788
+          },
+          {
+            "low_level_indices": [
+              1
+            ],
+            "total_projector_weight": 0.007664607198364604
+          },
+          {
+            "low_level_indices": [
+              2
+            ],
+            "total_projector_weight": 0.0015490057023033398
+          },
+          {
+            "low_level_indices": [
+              3
+            ],
+            "total_projector_weight": 0.0040683848810067836
+          },
+          {
+            "low_level_indices": [
+              4
+            ],
+            "total_projector_weight": 0.007662330957158002
+          },
+          {
+            "low_level_indices": [
+              5
+            ],
+            "total_projector_weight": 0.0019376718466254778
+          },
+          {
+            "low_level_indices": [
+              6
+            ],
+            "total_projector_weight": 0.0009472772098720456
+          },
+          {
+            "low_level_indices": [
+              7
+            ],
+            "total_projector_weight": 0.0004243210702315025
+          },
+          {
+            "low_level_indices": [
+              8
+            ],
+            "total_projector_weight": 0.0013374046192137783
+          },
+          {
+            "low_level_indices": [
+              9
+            ],
+            "total_projector_weight": 0.0013421413033740772
+          },
+          {
+            "low_level_indices": [
+              10
+            ],
+            "total_projector_weight": 0.0017111015470125995
+          },
+          {
+            "low_level_indices": [
+              11
+            ],
+            "total_projector_weight": 0.0017257291429147988
+          },
+          {
+            "low_level_indices": [
+              12
+            ],
+            "total_projector_weight": 0.0008491911021608334
+          },
+          {
+            "low_level_indices": [
+              13
+            ],
+            "total_projector_weight": 0.0006464705596514833
+          },
+          {
+            "low_level_indices": [
+              14
+            ],
+            "total_projector_weight": 0.00018782932504397005
+          },
+          {
+            "low_level_indices": [
+              15
+            ],
+            "total_projector_weight": 0.000471506542175807
+          },
+          {
+            "low_level_indices": [
+              16
+            ],
+            "total_projector_weight": 0.003333639886261637
+          },
+          {
+            "low_level_indices": [
+              17
+            ],
+            "total_projector_weight": 0.004382679455122919
+          },
+          {
+            "low_level_indices": [
+              18
+            ],
+            "total_projector_weight": 0.00015178250603935532
+          },
+          {
+            "low_level_indices": [
+              19
+            ],
+            "total_projector_weight": 0.0006994574003469779
+          },
+          {
+            "low_level_indices": [
+              20
+            ],
+            "total_projector_weight": 0.0017736946126787128
+          },
+          {
+            "low_level_indices": [
+              21
+            ],
+            "total_projector_weight": 0.006048575068631176
+          },
+          {
+            "low_level_indices": [
+              22
+            ],
+            "total_projector_weight": 0.002568519665987194
+          },
+          {
+            "low_level_indices": [
+              23
+            ],
+            "total_projector_weight": 0.0018354655775148477
+          }
+        ]
+      },
+      "comparison_minus_sqrt5": {
+        "leakage_singular_values": [
+          8.61242738806725,
+          7.471638107288594,
+          6.1110451799740595
+        ],
+        "leakage_operator_norm": 8.61242738806725,
+        "smallest_initial_escape_probability_coefficient": 37.34487319168419,
+        "projected_native_energies": [
+          23.160942997861593,
+          25.27541421809558,
+          27.47565692374846
+        ],
+        "leakage_into_other_uniform_port_modes_singular_values": [
+          7.069549998234626,
+          5.413927944800722,
+          4.021315621625461
+        ],
+        "leakage_into_orthogonal_head_patterns_singular_values": [
+          5.438928124014334,
+          5.126425119440697,
+          4.0027301647141735
+        ],
+        "three_ground_level_weights": [
+          0.0937905658514922,
+          0.0008074295057874684,
+          0.0009834473423440775
+        ],
+        "triplet_to_lowest_three_principal_singular_values": [
+          0.3077453628201486,
+          0.029532894869918908,
+          0.0014291546176580408
+        ],
+        "low_groups_projector_weights": [
+          {
+            "low_level_indices": [
+              0
+            ],
+            "total_projector_weight": 0.0937905658514922
+          },
+          {
+            "low_level_indices": [
+              1
+            ],
+            "total_projector_weight": 0.0008074295057874684
+          },
+          {
+            "low_level_indices": [
+              2
+            ],
+            "total_projector_weight": 0.0009834473423440775
+          },
+          {
+            "low_level_indices": [
+              3
+            ],
+            "total_projector_weight": 3.3298927666939724e-05
+          },
+          {
+            "low_level_indices": [
+              4
+            ],
+            "total_projector_weight": 0.0008438565398560288
+          },
+          {
+            "low_level_indices": [
+              5
+            ],
+            "total_projector_weight": 0.0005988499072594744
+          },
+          {
+            "low_level_indices": [
+              6
+            ],
+            "total_projector_weight": 0.0005294042816631572
+          },
+          {
+            "low_level_indices": [
+              7
+            ],
+            "total_projector_weight": 0.00011670942125929837
+          },
+          {
+            "low_level_indices": [
+              8
+            ],
+            "total_projector_weight": 0.00010269004213204237
+          },
+          {
+            "low_level_indices": [
+              9
+            ],
+            "total_projector_weight": 0.00017953359654279948
+          },
+          {
+            "low_level_indices": [
+              10
+            ],
+            "total_projector_weight": 2.5610752666464382e-05
+          },
+          {
+            "low_level_indices": [
+              11
+            ],
+            "total_projector_weight": 5.283565740545828e-05
+          },
+          {
+            "low_level_indices": [
+              12
+            ],
+            "total_projector_weight": 0.00014859444023697824
+          },
+          {
+            "low_level_indices": [
+              13
+            ],
+            "total_projector_weight": 0.00030366370729966043
+          },
+          {
+            "low_level_indices": [
+              14
+            ],
+            "total_projector_weight": 3.99178685084034e-05
+          },
+          {
+            "low_level_indices": [
+              15
+            ],
+            "total_projector_weight": 6.84091693914861e-05
+          },
+          {
+            "low_level_indices": [
+              16
+            ],
+            "total_projector_weight": 0.00011343894690157228
+          },
+          {
+            "low_level_indices": [
+              17
+            ],
+            "total_projector_weight": 0.0002680385213897129
+          },
+          {
+            "low_level_indices": [
+              18
+            ],
+            "total_projector_weight": 7.232482041435186e-05
+          },
+          {
+            "low_level_indices": [
+              19
+            ],
+            "total_projector_weight": 9.622960347948012e-05
+          },
+          {
+            "low_level_indices": [
+              20
+            ],
+            "total_projector_weight": 0.00011867810166991735
+          },
+          {
+            "low_level_indices": [
+              21
+            ],
+            "total_projector_weight": 0.000271742527814691
+          },
+          {
+            "low_level_indices": [
+              22
+            ],
+            "total_projector_weight": 0.000451580895942305
+          },
+          {
+            "low_level_indices": [
+              23
+            ],
+            "total_projector_weight": 4.227880084078071e-05
+          }
+        ]
+      }
+    },
+    {
+      "charge_sign": 1,
+      "sharp_configurations": 1954,
+      "reachable_word_counts_by_port": [
+        458,
+        74,
+        118,
+        188,
+        36,
+        122,
+        202,
+        129,
+        334,
+        160,
+        97,
+        36
+      ],
+      "exact_head_contrast_certificate": {
+        "same_port_reference_state_indices": [
+          0,
+          479,
+          916,
+          1548,
+          919,
+          464,
+          917,
+          477,
+          946,
+          926,
+          458,
+          459
+        ],
+        "independent_contrast_rows": [
+          21,
+          831,
+          918,
+          470,
+          6,
+          678,
+          19,
+          643,
+          478,
+          14
+        ],
+        "independent_address_columns": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "nonzero_integer_minor_determinant": -1073741824,
+        "real_contrast_rank": 10,
+        "integer_kernel_in_sharp_word_coordinates": [
+          [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ]
+        ]
+      },
+      "whole_spectrum_bound": {
+        "upper_native_gershgorin": 53.0,
+        "strict_lower_native_fraction": [
+          5450,
+          1000
+        ],
+        "min_positive_ground_witness_entry": 5226238,
+        "native_ground_witness_scale": 1000000000,
+        "ground_witness_int64_le_sha256": "22602990f69327ffdbcece91e524d9ec51ec2017dc194bfb6df0fd8bf3595117",
+        "minimum_integer_margin": 49800,
+        "max_to_min_ratio_bound": 9.724770642201834,
+        "all_triplets_koide_upper_bound": 0.44753430454654985,
+        "koide_target": "2/3"
+      },
+      "native_low_energies": [
+        5.450005605280314,
+        5.730242062378882,
+        5.919776353695682,
+        5.995808647154457,
+        6.206470019742072,
+        6.2324416944581476,
+        6.288769368130538,
+        6.409801999264407,
+        6.457776352806163,
+        6.590269368983222,
+        6.606894727898789,
+        6.653328916075115,
+        6.6910758311003455,
+        6.738060523292978,
+        6.790225052040209,
+        6.864446341878789,
+        6.896964125549901,
+        6.959086583674025,
+        7.000626781447593,
+        7.058106344048376,
+        7.07760999721134,
+        7.097389959663817,
+        7.143373117086391,
+        7.156953949829561
+      ],
+      "low_eigenpair_residual": 5.1992846573158843e-14,
+      "canonical_plus_sqrt5": {
+        "leakage_singular_values": [
+          7.52127353952194,
+          6.529882742494129,
+          5.03091572925878
+        ],
+        "leakage_operator_norm": 7.52127353952194,
+        "smallest_initial_escape_probability_coefficient": 25.310113074903402,
+        "projected_native_energies": [
+          11.638622057322774,
+          13.587356422540923,
+          17.330818347655978
+        ],
+        "leakage_into_other_uniform_port_modes_singular_values": [
+          6.322902678328887,
+          3.761042104032859,
+          2.1032670437914702
+        ],
+        "leakage_into_orthogonal_head_patterns_singular_values": [
+          5.470364342092277,
+          4.850794892056782,
+          3.5377495666700924
+        ],
+        "three_ground_level_weights": [
+          0.09086425652120918,
+          0.007948593819971195,
+          0.014729446931133067
+        ],
+        "triplet_to_lowest_three_principal_singular_values": [
+          0.3034748734367384,
+          0.12831453841664944,
+          0.0705739165399743
+        ],
+        "low_groups_projector_weights": [
+          {
+            "low_level_indices": [
+              0
+            ],
+            "total_projector_weight": 0.09086425652120918
+          },
+          {
+            "low_level_indices": [
+              1
+            ],
+            "total_projector_weight": 0.007948593819971195
+          },
+          {
+            "low_level_indices": [
+              2
+            ],
+            "total_projector_weight": 0.014729446931133067
+          },
+          {
+            "low_level_indices": [
+              3
+            ],
+            "total_projector_weight": 0.006734599648078378
+          },
+          {
+            "low_level_indices": [
+              4
+            ],
+            "total_projector_weight": 0.006201182797287787
+          },
+          {
+            "low_level_indices": [
+              5
+            ],
+            "total_projector_weight": 0.0025871205057117082
+          },
+          {
+            "low_level_indices": [
+              6
+            ],
+            "total_projector_weight": 0.00920595497268115
+          },
+          {
+            "low_level_indices": [
+              7
+            ],
+            "total_projector_weight": 0.0003652048541906484
+          },
+          {
+            "low_level_indices": [
+              8
+            ],
+            "total_projector_weight": 4.5891443415073686e-05
+          },
+          {
+            "low_level_indices": [
+              9
+            ],
+            "total_projector_weight": 0.0035860343906339355
+          },
+          {
+            "low_level_indices": [
+              10
+            ],
+            "total_projector_weight": 0.0007048038615231479
+          },
+          {
+            "low_level_indices": [
+              11
+            ],
+            "total_projector_weight": 0.0018185056589437314
+          },
+          {
+            "low_level_indices": [
+              12
+            ],
+            "total_projector_weight": 0.00020518714694043612
+          },
+          {
+            "low_level_indices": [
+              13
+            ],
+            "total_projector_weight": 0.0022676634173141616
+          },
+          {
+            "low_level_indices": [
+              14
+            ],
+            "total_projector_weight": 0.0005795432987618929
+          },
+          {
+            "low_level_indices": [
+              15
+            ],
+            "total_projector_weight": 3.6279183754023034e-05
+          },
+          {
+            "low_level_indices": [
+              16
+            ],
+            "total_projector_weight": 0.0010857393874256637
+          },
+          {
+            "low_level_indices": [
+              17
+            ],
+            "total_projector_weight": 0.0012226739564201604
+          },
+          {
+            "low_level_indices": [
+              18
+            ],
+            "total_projector_weight": 0.0012436909850573013
+          },
+          {
+            "low_level_indices": [
+              19
+            ],
+            "total_projector_weight": 0.0031474339871279556
+          },
+          {
+            "low_level_indices": [
+              20
+            ],
+            "total_projector_weight": 0.0014341029229607023
+          },
+          {
+            "low_level_indices": [
+              21
+            ],
+            "total_projector_weight": 0.0012275134229528775
+          },
+          {
+            "low_level_indices": [
+              22
+            ],
+            "total_projector_weight": 0.0053960527470960475
+          },
+          {
+            "low_level_indices": [
+              23
+            ],
+            "total_projector_weight": 0.0016742075777291142
+          }
+        ]
+      },
+      "comparison_minus_sqrt5": {
+        "leakage_singular_values": [
+          8.428046721807792,
+          5.772164036495555,
+          5.093103319348888
+        ],
+        "leakage_operator_norm": 8.428046721807792,
+        "smallest_initial_escape_probability_coefficient": 25.93970142156266,
+        "projected_native_energies": [
+          21.12311013763352,
+          25.887581602839468,
+          28.432511432007377
+        ],
+        "leakage_into_other_uniform_port_modes_singular_values": [
+          6.599117134299144,
+          3.2351233190855195,
+          1.9329745893493864
+        ],
+        "leakage_into_orthogonal_head_patterns_singular_values": [
+          5.954916951057112,
+          4.904964521852664,
+          3.6081958332617816
+        ],
+        "three_ground_level_weights": [
+          0.01173968446779514,
+          0.0004041626070860394,
+          0.0005252715199281765
+        ],
+        "triplet_to_lowest_three_principal_singular_values": [
+          0.10970003899032618,
+          0.025089222631871296,
+          0.0023560450035315307
+        ],
+        "low_groups_projector_weights": [
+          {
+            "low_level_indices": [
+              0
+            ],
+            "total_projector_weight": 0.01173968446779514
+          },
+          {
+            "low_level_indices": [
+              1
+            ],
+            "total_projector_weight": 0.0004041626070860394
+          },
+          {
+            "low_level_indices": [
+              2
+            ],
+            "total_projector_weight": 0.0005252715199281765
+          },
+          {
+            "low_level_indices": [
+              3
+            ],
+            "total_projector_weight": 0.0010899028769384709
+          },
+          {
+            "low_level_indices": [
+              4
+            ],
+            "total_projector_weight": 0.000548809252241297
+          },
+          {
+            "low_level_indices": [
+              5
+            ],
+            "total_projector_weight": 0.0006595484084683641
+          },
+          {
+            "low_level_indices": [
+              6
+            ],
+            "total_projector_weight": 0.00021293177570070153
+          },
+          {
+            "low_level_indices": [
+              7
+            ],
+            "total_projector_weight": 1.211103325798907e-05
+          },
+          {
+            "low_level_indices": [
+              8
+            ],
+            "total_projector_weight": 0.00025580397388428965
+          },
+          {
+            "low_level_indices": [
+              9
+            ],
+            "total_projector_weight": 0.0009844198908292043
+          },
+          {
+            "low_level_indices": [
+              10
+            ],
+            "total_projector_weight": 0.000674390134435961
+          },
+          {
+            "low_level_indices": [
+              11
+            ],
+            "total_projector_weight": 0.0004960241944655326
+          },
+          {
+            "low_level_indices": [
+              12
+            ],
+            "total_projector_weight": 4.0067228780882715e-05
+          },
+          {
+            "low_level_indices": [
+              13
+            ],
+            "total_projector_weight": 0.0006931383917517012
+          },
+          {
+            "low_level_indices": [
+              14
+            ],
+            "total_projector_weight": 5.487016756111353e-05
+          },
+          {
+            "low_level_indices": [
+              15
+            ],
+            "total_projector_weight": 0.00010943842027034368
+          },
+          {
+            "low_level_indices": [
+              16
+            ],
+            "total_projector_weight": 0.00015990589601061844
+          },
+          {
+            "low_level_indices": [
+              17
+            ],
+            "total_projector_weight": 0.00014702153484312107
+          },
+          {
+            "low_level_indices": [
+              18
+            ],
+            "total_projector_weight": 0.00022409484579293248
+          },
+          {
+            "low_level_indices": [
+              19
+            ],
+            "total_projector_weight": 0.0006100344351915594
+          },
+          {
+            "low_level_indices": [
+              20
+            ],
+            "total_projector_weight": 0.000543516174553374
+          },
+          {
+            "low_level_indices": [
+              21
+            ],
+            "total_projector_weight": 3.933613266633548e-05
+          },
+          {
+            "low_level_indices": [
+              22
+            ],
+            "total_projector_weight": 0.00030564844891085727
+          },
+          {
+            "low_level_indices": [
+              23
+            ],
+            "total_projector_weight": 0.00011986230460297732
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,940 @@
+{
+  "design_sha256": "aa37edb5e29f09781826f9fcb4c178eee3d54b09fae34b4cbc62cb7f0f2b0033",
+  "route_sha256": "3f7633d416f9daa7b575f73d8b2c0f1c600508c4971be1f4211adc672a7cb312",
+  "executable_sha256": "1545429dd9088a31fd6fbcd55123389d252c70a0729e5607b254a5dd79c26423",
+  "law": "written positive contact Laplacian, load-one reference",
+  "geometry": {
+    "sphere_cells": 320,
+    "ring_cells": 48,
+    "active_seams": 144,
+    "active_elementary_field_loops": 0,
+    "motif_degrees": [
+      6,
+      5,
+      6
+    ],
+    "ordered_pair_dimension": 20592
+  },
+  "energy_unit": "native generator energy",
+  "speed_unit": "route cells per native time",
+  "spectrum": {
+    "complete_sorted_bands": [
+      {
+        "band": 1,
+        "minimum": 1.7537887487646755,
+        "minimum_momentum_over_pi": 0,
+        "zero_cell_momentum_energy": 1.7537887487646755,
+        "maximum": 3.9999999999999982,
+        "minimum_ratio_to_lowest": 1.0,
+        "zero_momentum_ratio_to_lowest": 1.0,
+        "curvature_at_minimum": 0.7574643749636687
+      },
+      {
+        "band": 2,
+        "minimum": 7.999999999999999,
+        "minimum_momentum_over_pi": 1,
+        "zero_cell_momentum_energy": 12.000000000000002,
+        "maximum": 12.000000000000002,
+        "minimum_ratio_to_lowest": 4.561552812808839,
+        "zero_momentum_ratio_to_lowest": 6.842329219213259,
+        "curvature_at_minimum": 2.6666666666666647
+      },
+      {
+        "band": 3,
+        "minimum": 18.246211251235316,
+        "minimum_momentum_over_pi": 0,
+        "zero_cell_momentum_energy": 18.246211251235316,
+        "maximum": 19.999999999999986,
+        "minimum_ratio_to_lowest": 10.403882032022093,
+        "zero_momentum_ratio_to_lowest": 10.403882032022093,
+        "curvature_at_minimum": 1.2425356250363353
+      }
+    ],
+    "neutral_vacuum_energy": 0,
+    "koide_Q_of_band_minima": 0.39454011200521827,
+    "koide_Q_at_zero_cell_momentum": 0.3898492961570686,
+    "max_norm_isolated_band_commutator": 1.2182457733184855e-14,
+    "homogeneous_folded_chain_max_energy_error": 8.881784197001252e-15,
+    "homogeneous_folded_energies_at_0_and_pi": [
+      [
+        -1.7763568394002513e-15,
+        12.0,
+        12.000000000000002
+      ],
+      [
+        3.9999999999999973,
+        4.0,
+        15.999999999999995
+      ]
+    ]
+  },
+  "releases": {
+    "time_samples": [
+      0,
+      2,
+      4
+    ],
+    "momentum_standard_deviation": 0.23,
+    "max_local_source_gram_error": 9.103828801926284e-15,
+    "records": [
+      {
+        "source": "local_three_port_profile",
+        "band": 1,
+        "central_momentum_over_pi": 0.5,
+        "local_load_speeds_plus_projectile": [
+          0.9857455748345878,
+          7.043825226190309e-10
+        ],
+        "local_load_speeds_minus_projectile": [
+          7.043825245386822e-10,
+          0.9857455748345924
+        ],
+        "isolated_pure_band_prediction": 1.0118448255156014,
+        "projectile_band_weights_at_0_and_4": [
+          [
+            0.9900050610292662,
+            0.009349223916784348,
+            0.0006457150539508688
+          ],
+          [
+            0.9900050700575793,
+            0.009349210677120214,
+            0.0006457192652719833
+          ]
+        ],
+        "encounter_probability_at_0_2_4": [
+          3.8831022809160876e-13,
+          2.6607210169609356e-10,
+          1.237690675347596e-07
+        ],
+        "cut_guide_local_cell_speed": -9.172350379227368e-17
+      },
+      {
+        "source": "local_three_port_profile",
+        "band": 2,
+        "central_momentum_over_pi": 0.5,
+        "local_load_speeds_plus_projectile": [
+          -1.810490737153991,
+          7.962654576494057e-09
+        ],
+        "local_load_speeds_minus_projectile": [
+          7.962654578757567e-09,
+          -1.8104907371539842
+        ],
+        "isolated_pure_band_prediction": -1.8367757530073283,
+        "projectile_band_weights_at_0_and_4": [
+          [
+            0.009318797779287721,
+            0.9905830916072762,
+            9.811061343886853e-05
+          ],
+          [
+            0.009318896104705094,
+            0.9905829494455871,
+            9.815444971123172e-05
+          ]
+        ],
+        "encounter_probability_at_0_2_4": [
+          3.890190348132411e-13,
+          9.678700805966096e-10,
+          1.2035281866718758e-06
+        ],
+        "cut_guide_local_cell_speed": -4.1752625662416776e-16
+      },
+      {
+        "source": "local_three_port_profile",
+        "band": 3,
+        "central_momentum_over_pi": 0.5,
+        "local_load_speeds_plus_projectile": [
+          0.8247452190734661,
+          5.6900333299330075e-11
+        ],
+        "local_load_speeds_minus_projectile": [
+          5.6900331269220195e-11,
+          0.8247452190734712
+        ],
+        "isolated_pure_band_prediction": 0.8249309274917271,
+        "projectile_band_weights_at_0_and_4": [
+          [
+            0.0006761411914483544,
+            6.768447594266275e-05,
+            0.9992561743326108
+          ],
+          [
+            0.0006761413566635689,
+            6.768456557769135e-05,
+            0.9992561740777612
+          ]
+        ],
+        "encounter_probability_at_0_2_4": [
+          3.95120751246175e-13,
+          3.587004112675802e-11,
+          2.9693110049461818e-09
+        ],
+        "cut_guide_local_cell_speed": 6.310056643865636e-17
+      },
+      {
+        "source": "local_three_port_profile",
+        "band": 1,
+        "central_momentum_over_pi": -0.5,
+        "local_load_speeds_plus_projectile": [
+          -0.9857455866008817,
+          -1.8552365626577039e-09
+        ],
+        "local_load_speeds_minus_projectile": [
+          -1.8552363906037593e-09,
+          -0.9857455866008814
+        ],
+        "isolated_pure_band_prediction": -1.0118448255156014,
+        "projectile_band_weights_at_0_and_4": [
+          [
+            0.9900050610292661,
+            0.009349223916784343,
+            0.0006457150539508698
+          ],
+          [
+            0.990005091991354,
+            0.009349180854591075,
+            0.0006457271540240571
+          ]
+        ],
+        "encounter_probability_at_0_2_4": [
+          3.8831022809157923e-13,
+          5.426279105607782e-10,
+          3.0045368760338053e-07
+        ],
+        "cut_guide_local_cell_speed": -2.7300210703185e-16
+      },
+      {
+        "source": "local_three_port_profile",
+        "band": 2,
+        "central_momentum_over_pi": -0.5,
+        "local_load_speeds_plus_projectile": [
+          1.8104906126035565,
+          -2.4057794379568603e-08
+        ],
+        "local_load_speeds_minus_projectile": [
+          -2.4057794339342796e-08,
+          1.8104906126035625
+        ],
+        "isolated_pure_band_prediction": 1.8367757530073288,
+        "projectile_band_weights_at_0_and_4": [
+          [
+            0.009318797779287714,
+            0.990583091607276,
+            9.811061343886869e-05
+          ],
+          [
+            0.009319127540127212,
+            0.9905826222987217,
+            9.825016115462357e-05
+          ]
+        ],
+        "encounter_probability_at_0_2_4": [
+          3.890190348131621e-13,
+          4.031497574543459e-09,
+          3.6425727729285374e-06
+        ],
+        "cut_guide_local_cell_speed": -3.3480163086352377e-16
+      },
+      {
+        "source": "local_three_port_profile",
+        "band": 3,
+        "central_momentum_over_pi": -0.5,
+        "local_load_speeds_plus_projectile": [
+          -0.8247452192393673,
+          -2.252300536602653e-11
+        ],
+        "local_load_speeds_minus_projectile": [
+          -2.2522944191697385e-11,
+          -0.8247452192393621
+        ],
+        "isolated_pure_band_prediction": -0.824930927491727,
+        "projectile_band_weights_at_0_and_4": [
+          [
+            0.0006761411914483549,
+            6.76844759426627e-05,
+            0.9992561743326115
+          ],
+          [
+            0.000676141331400035,
+            6.768434438926225e-05,
+            0.9992561743242134
+          ]
+        ],
+        "encounter_probability_at_0_2_4": [
+          3.951207512461406e-13,
+          9.168683091640396e-12,
+          1.8074693567688826e-09
+        ],
+        "cut_guide_local_cell_speed": -4.445228907190568e-17
+      },
+      {
+        "source": "band_wavepacket",
+        "band": 1,
+        "central_momentum_over_pi": 0.5,
+        "local_load_speeds_plus_projectile": [
+          1.0118448254406924,
+          5.335345574134947e-12
+        ],
+        "local_load_speeds_minus_projectile": [
+          5.335326663825787e-12,
+          1.0118448254406975
+        ],
+        "isolated_pure_band_prediction": 1.0118448255156014,
+        "projectile_band_weights_at_0_and_4": [
+          [
+            0.9999999999999994,
+            2.3981928631309052e-15,
+            9.676184964615283e-16
+          ],
+          [
+            0.9999999996501165,
+            2.9783224335825697e-10,
+            5.2029182526052354e-11
+          ]
+        ],
+        "encounter_probability_at_0_2_4": [
+          4.1088396017117454e-13,
+          4.574018835270224e-11,
+          7.510781065241852e-09
+        ],
+        "cut_guide_local_cell_speed": null
+      },
+      {
+        "source": "band_wavepacket",
+        "band": 2,
+        "central_momentum_over_pi": 0.5,
+        "local_load_speeds_plus_projectile": [
+          -1.8367756626944145,
+          1.3149760220989531e-08
+        ],
+        "local_load_speeds_minus_projectile": [
+          1.3149760201491785e-08,
+          -1.8367756626944143
+        ],
+        "isolated_pure_band_prediction": -1.8367757530073283,
+        "projectile_band_weights_at_0_and_4": [
+          [
+            2.483755591069855e-15,
+            1.0,
+            1.1014399836543132e-15
+          ],
+          [
+            1.7187467645078372e-07,
+            0.9999997536223217,
+            7.450300698795799e-08
+          ]
+        ],
+        "encounter_probability_at_0_2_4": [
+          3.944254991514742e-13,
+          1.7778634475529154e-09,
+          2.0189330148262175e-06
+        ],
+        "cut_guide_local_cell_speed": null
+      },
+      {
+        "source": "band_wavepacket",
+        "band": 3,
+        "central_momentum_over_pi": 0.5,
+        "local_load_speeds_plus_projectile": [
+          0.8249309273826739,
+          3.698550615491702e-11
+        ],
+        "local_load_speeds_minus_projectile": [
+          3.698551705219291e-11,
+          0.8249309273826779
+        ],
+        "isolated_pure_band_prediction": 0.8249309274917271,
+        "projectile_band_weights_at_0_and_4": [
+          [
+            1.3966985102044876e-15,
+            1.4288471261182348e-15,
+            0.9999999999999996
+          ],
+          [
+            1.0271085124853172e-10,
+            1.0527808700227953e-10,
+            0.9999999997920135
+          ]
+        ],
+        "encounter_probability_at_0_2_4": [
+          3.205570736636198e-13,
+          2.1225789094587482e-11,
+          1.7748893972913674e-09
+        ],
+        "cut_guide_local_cell_speed": null
+      },
+      {
+        "source": "band_wavepacket",
+        "band": 1,
+        "central_momentum_over_pi": -0.5,
+        "local_load_speeds_plus_projectile": [
+          -1.0118448254199408,
+          -7.600689130186217e-12
+        ],
+        "local_load_speeds_minus_projectile": [
+          -7.60077928933927e-12,
+          -1.011844825419943
+        ],
+        "isolated_pure_band_prediction": -1.0118448255156014,
+        "projectile_band_weights_at_0_and_4": [
+          [
+            0.9999999999999996,
+            2.398192863127703e-15,
+            9.67618496460468e-16
+          ],
+          [
+            0.9999999995599279,
+            3.7488049098857065e-10,
+            6.516214972052232e-11
+          ]
+        ],
+        "encounter_probability_at_0_2_4": [
+          4.108839601710576e-13,
+          5.69069882780267e-11,
+          9.308103270730913e-09
+        ],
+        "cut_guide_local_cell_speed": null
+      },
+      {
+        "source": "band_wavepacket",
+        "band": 2,
+        "central_momentum_over_pi": -0.5,
+        "local_load_speeds_plus_projectile": [
+          1.8367756678515081,
+          -1.2861569082676078e-08
+        ],
+        "local_load_speeds_minus_projectile": [
+          -1.2861569174983664e-08,
+          1.8367756678515152
+        ],
+        "isolated_pure_band_prediction": 1.8367757530073288,
+        "projectile_band_weights_at_0_and_4": [
+          [
+            2.483755591073078e-15,
+            1.0000000000000007,
+            1.1014399836555844e-15
+          ],
+          [
+            1.5924403256346728e-07,
+            0.9999997700871914,
+            7.066878167152625e-08
+          ]
+        ],
+        "encounter_probability_at_0_2_4": [
+          3.944254991514512e-13,
+          1.6836535848584018e-09,
+          1.8850035881294426e-06
+        ],
+        "cut_guide_local_cell_speed": null
+      },
+      {
+        "source": "band_wavepacket",
+        "band": 3,
+        "central_momentum_over_pi": -0.5,
+        "local_load_speeds_plus_projectile": [
+          -0.8249309274481322,
+          -1.4534355237361557e-11
+        ],
+        "local_load_speeds_minus_projectile": [
+          -1.4534358015640656e-11,
+          -0.8249309274481297
+        ],
+        "isolated_pure_band_prediction": -0.824930927491727,
+        "projectile_band_weights_at_0_and_4": [
+          [
+            1.3966985102072545e-15,
+            1.4288471261165349e-15,
+            1.0000000000000002
+          ],
+          [
+            4.1488803254946905e-11,
+            4.2221149551003574e-11,
+            0.9999999999162928
+          ]
+        ],
+        "encounter_probability_at_0_2_4": [
+          3.205570736635724e-13,
+          8.559346297036262e-12,
+          7.537813360483156e-10
+        ],
+        "cut_guide_local_cell_speed": null
+      }
+    ]
+  },
+  "encounters": {
+    "time_samples": [
+      0,
+      2,
+      4,
+      6,
+      8,
+      10,
+      12
+    ],
+    "records": [
+      {
+        "projectile_band": 2,
+        "direction": "toward",
+        "momentum_over_pi_plus_minus": [
+          -0.5,
+          -0.5
+        ],
+        "inclusive_projectile_band_weights": [
+          [
+            0.00011671413450048594,
+            0.9998409943049558,
+            4.229156054673259e-05
+          ],
+          [
+            0.0538689925741357,
+            0.9310755939653134,
+            0.015055413460554397
+          ],
+          [
+            0.44796795985619914,
+            0.517423574680301,
+            0.03460846546350394
+          ],
+          [
+            0.6941695120849037,
+            0.303353324342284,
+            0.002477163572816571
+          ],
+          [
+            0.7053574441332517,
+            0.2945762544476511,
+            6.630141910194659e-05
+          ],
+          [
+            0.7054011063955302,
+            0.29455965654311705,
+            3.9237061357745216e-05
+          ],
+          [
+            0.7054055382561434,
+            0.29456729343837157,
+            2.7168305490194144e-05
+          ]
+        ],
+        "mean_minimal_cell_distance": [
+          9.972766768383178,
+          4.52778802030614,
+          2.7271398748962867,
+          7.04510828514321,
+          12.72539360303849,
+          18.290688859291876,
+          21.24237940448086
+        ],
+        "encounter_probability_within_one_cell": [
+          0.0029368205497225944,
+          0.14612307352076223,
+          0.3504087809464169,
+          0.050037872720039005,
+          0.00045552074590633263,
+          0.00017305059225636418,
+          0.00016243176825514778
+        ],
+        "total_energy": 12.7492098601127,
+        "max_energy_drift": 7.993605777301127e-14,
+        "max_norm_error": 5.10702591327572e-15
+      },
+      {
+        "projectile_band": 2,
+        "direction": "apart",
+        "momentum_over_pi_plus_minus": [
+          0.5,
+          0.5
+        ],
+        "inclusive_projectile_band_weights": [
+          [
+            0.00011671413450048591,
+            0.9998409943049559,
+            4.2291560546732605e-05
+          ],
+          [
+            0.00045451103080854967,
+            0.9994983067281737,
+            4.718224102089775e-05
+          ],
+          [
+            0.0005165737947669942,
+            0.9994594508434101,
+            2.3975361826539027e-05
+          ],
+          [
+            0.000541996561888125,
+            0.9994268847290815,
+            3.111870903419327e-05
+          ],
+          [
+            0.0005660118296935558,
+            0.9993925886437637,
+            4.1399526547014555e-05
+          ],
+          [
+            0.0023011553219519304,
+            0.9969384695017953,
+            0.0007603751762570347
+          ],
+          [
+            0.08247890220970772,
+            0.899010859942258,
+            0.018510237848038884
+          ]
+        ],
+        "mean_minimal_cell_distance": [
+          9.972766768383176,
+          15.656872114380011,
+          20.640115273287815,
+          20.381817836188137,
+          15.223371057912779,
+          9.545067626780252,
+          4.3083066365881075
+        ],
+        "encounter_probability_within_one_cell": [
+          0.0029368205497225944,
+          0.0004049442889120641,
+          0.0002772474733826465,
+          0.0001973827839643453,
+          0.00022783438209415067,
+          0.008372297347010742,
+          0.17413923139461404
+        ],
+        "total_energy": 12.749209860112698,
+        "max_energy_drift": 6.394884621840902e-14,
+        "max_norm_error": 4.218847493575595e-15
+      },
+      {
+        "projectile_band": 3,
+        "direction": "toward",
+        "momentum_over_pi_plus_minus": [
+          0.5,
+          -0.5
+        ],
+        "inclusive_projectile_band_weights": [
+          [
+            6.03110119111452e-05,
+            6.134334117347444e-05,
+            0.9998783456469195
+          ],
+          [
+            0.0066069073968340036,
+            0.006449226476330157,
+            0.9869438661268397
+          ],
+          [
+            0.05476247472856225,
+            0.04196729350521955,
+            0.903270231766222
+          ],
+          [
+            0.15151850265236805,
+            0.10437686497321533,
+            0.7441046323744204
+          ],
+          [
+            0.20780605932291618,
+            0.13835000469812278,
+            0.6538439359789645
+          ],
+          [
+            0.2181878577264823,
+            0.14379569836652187,
+            0.6380164439069993
+          ],
+          [
+            0.21864959240033413,
+            0.14421873681155245,
+            0.6371316707881166
+          ]
+        ],
+        "mean_minimal_cell_distance": [
+          9.67842577656048,
+          6.091750860224493,
+          3.4004747992073074,
+          3.496711183194817,
+          6.462984470464173,
+          10.358830385985186,
+          13.99888730000602
+        ],
+        "encounter_probability_within_one_cell": [
+          0.0037331225802312794,
+          0.054735345033541154,
+          0.2066183567379931,
+          0.21143120828319356,
+          0.059371438242339515,
+          0.005135964186206445,
+          0.0008819687287806929
+        ],
+        "total_energy": 21.880824173397535,
+        "max_energy_drift": 8.171241461241152e-14,
+        "max_norm_error": 3.774758283725532e-15
+      },
+      {
+        "projectile_band": 3,
+        "direction": "apart",
+        "momentum_over_pi_plus_minus": [
+          -0.5,
+          0.5
+        ],
+        "inclusive_projectile_band_weights": [
+          [
+            6.031101191114515e-05,
+            6.134334117347444e-05,
+            0.9998783456469188
+          ],
+          [
+            0.0003290414033064503,
+            0.0007791629016526945,
+            0.998891795695044
+          ],
+          [
+            0.00044480081707371134,
+            0.0008510889806617603,
+            0.9987041102022678
+          ],
+          [
+            0.0004929474796966324,
+            0.0006771750113544569,
+            0.9988298775089519
+          ],
+          [
+            0.00036187465285884775,
+            0.0007873158701636847,
+            0.9988508094769801
+          ],
+          [
+            0.0004247176349736697,
+            0.0007453792311402504,
+            0.998829903133889
+          ],
+          [
+            0.0004946863397566275,
+            0.0007275726345013629,
+            0.9987777410257447
+          ]
+        ],
+        "mean_minimal_cell_distance": [
+          9.678425776560477,
+          13.346263393479475,
+          16.98727026850644,
+          20.199358424267846,
+          21.430298432487806,
+          19.619392197974772,
+          16.23594943320868
+        ],
+        "encounter_probability_within_one_cell": [
+          0.003733122580231279,
+          0.0008396456866416121,
+          0.000695545747763126,
+          0.0006985172336560326,
+          0.000680585590210839,
+          0.0006913183904865036,
+          0.0007121274992304656
+        ],
+        "total_energy": 21.880824173397528,
+        "max_energy_drift": 9.237055564881302e-14,
+        "max_norm_error": 3.3306690738754696e-15
+      }
+    ]
+  },
+  "addressed_sources": {
+    "initial_condition": "one sharp compensated pair with its open arc of oriented heads",
+    "addressing": "one native contact at a time, or the entire native degree term alone",
+    "compensator_circuit": {
+      "sharp_seed_port_on_route": 90,
+      "output_ports_first_last": [
+        90,
+        128
+      ],
+      "empty_phase_sink_ports": [
+        129,
+        130
+      ],
+      "retained_probability_before_normalization": 0.9966199157220669,
+      "native_fractional_contacts": 38,
+      "native_full_swaps": 3146,
+      "global_degree_holds": 78,
+      "total_addressed_duration": 1277.6155017497529,
+      "prepared_vector_l2_error": 9.371891953631981e-15
+    },
+    "releases": [
+      {
+        "band": 1,
+        "central_momentum_over_pi": 0.5,
+        "source_circuit": {
+          "sharp_seed_port_on_route": 18,
+          "output_ports_first_last": [
+            18,
+            56
+          ],
+          "empty_phase_sink_ports": [
+            57,
+            58
+          ],
+          "retained_probability_before_normalization": 0.9974422180505078,
+          "native_fractional_contacts": 38,
+          "native_full_swaps": 3146,
+          "global_degree_holds": 78,
+          "total_addressed_duration": 1277.931607948845,
+          "prepared_vector_l2_error": 3.7351925748945184e-15
+        },
+        "target_band_weight_at_times_0_and_4": [
+          0.9888580726784625,
+          0.9888577729688396
+        ],
+        "local_load_speeds_plus_projectile": [
+          0.9826496371313669,
+          -0.0003185521999020612
+        ]
+      },
+      {
+        "band": 2,
+        "central_momentum_over_pi": 0.5,
+        "source_circuit": {
+          "sharp_seed_port_on_route": 18,
+          "output_ports_first_last": [
+            18,
+            56
+          ],
+          "empty_phase_sink_ports": [
+            57,
+            58
+          ],
+          "retained_probability_before_normalization": 0.9974422180505083,
+          "native_fractional_contacts": 38,
+          "native_full_swaps": 3146,
+          "global_degree_holds": 78,
+          "total_addressed_duration": 1277.8398867733763,
+          "prepared_vector_l2_error": 4.510951734902794e-15
+        },
+        "target_band_weight_at_times_0_and_4": [
+          0.9894571989081379,
+          0.9894533023947764
+        ],
+        "local_load_speeds_plus_projectile": [
+          -1.8053983684967734,
+          -0.0003197240075155727
+        ]
+      },
+      {
+        "band": 3,
+        "central_momentum_over_pi": 0.5,
+        "source_circuit": {
+          "sharp_seed_port_on_route": 18,
+          "output_ports_first_last": [
+            18,
+            56
+          ],
+          "empty_phase_sink_ports": [
+            57,
+            58
+          ],
+          "retained_probability_before_normalization": 0.9974422180505074,
+          "native_fractional_contacts": 38,
+          "native_full_swaps": 3146,
+          "global_degree_holds": 78,
+          "total_addressed_duration": 1277.9392395579812,
+          "prepared_vector_l2_error": 1.116255155370852e-14
+        },
+        "target_band_weight_at_times_0_and_4": [
+          0.9991511379908051,
+          0.9991510667019399
+        ],
+        "local_load_speeds_plus_projectile": [
+          0.8227499368977736,
+          -0.00031859160415794054
+        ]
+      },
+      {
+        "band": 1,
+        "central_momentum_over_pi": -0.5,
+        "source_circuit": {
+          "sharp_seed_port_on_route": 18,
+          "output_ports_first_last": [
+            18,
+            56
+          ],
+          "empty_phase_sink_ports": [
+            57,
+            58
+          ],
+          "retained_probability_before_normalization": 0.9974422180505078,
+          "native_fractional_contacts": 38,
+          "native_full_swaps": 3146,
+          "global_degree_holds": 78,
+          "total_addressed_duration": 1277.931607948845,
+          "prepared_vector_l2_error": 8.544085955799406e-15
+        },
+        "target_band_weight_at_times_0_and_4": [
+          0.9888580726784633,
+          0.9888581785379326
+        ],
+        "local_load_speeds_plus_projectile": [
+          -0.9826497854522289,
+          -0.0003185177713125981
+        ]
+      },
+      {
+        "band": 2,
+        "central_momentum_over_pi": -0.5,
+        "source_circuit": {
+          "sharp_seed_port_on_route": 18,
+          "output_ports_first_last": [
+            18,
+            56
+          ],
+          "empty_phase_sink_ports": [
+            57,
+            58
+          ],
+          "retained_probability_before_normalization": 0.9974422180505085,
+          "native_fractional_contacts": 38,
+          "native_full_swaps": 3146,
+          "global_degree_holds": 78,
+          "total_addressed_duration": 1277.8398867733763,
+          "prepared_vector_l2_error": 7.496544416108945e-15
+        },
+        "target_band_weight_at_times_0_and_4": [
+          0.9894571989081374,
+          0.989445645201193
+        ],
+        "local_load_speeds_plus_projectile": [
+          1.8053959589493354,
+          -0.0003153324109377421
+        ]
+      },
+      {
+        "band": 3,
+        "central_momentum_over_pi": -0.5,
+        "source_circuit": {
+          "sharp_seed_port_on_route": 18,
+          "output_ports_first_last": [
+            18,
+            56
+          ],
+          "empty_phase_sink_ports": [
+            57,
+            58
+          ],
+          "retained_probability_before_normalization": 0.9974422180505074,
+          "native_fractional_contacts": 38,
+          "native_full_swaps": 3146,
+          "global_degree_holds": 78,
+          "total_addressed_duration": 1277.9392395579812,
+          "prepared_vector_l2_error": 7.846514976445713e-15
+        },
+        "target_band_weight_at_times_0_and_4": [
+          0.9991511379908056,
+          0.9991511127821756
+        ],
+        "local_load_speeds_plus_projectile": [
+          -0.8227499500314335,
+          -0.00031862926250753753
+        ]
+      }
+    ]
+  }
+}

@@ -60,7 +60,9 @@ def compare(actual, expected, path):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--verify-only", action="store_true", help="verify the archive without numerical dependencies")
+    mode = parser.add_mutually_exclusive_group()
+    mode.add_argument("--family-only", action="store_true", help="replay only the charged-family experiments")
+    mode.add_argument("--verify-only", action="store_true", help="verify the archive without numerical dependencies")
     args = parser.parse_args()
     digests = {}
     for entry in (HERE / "records.sha256").read_text().splitlines():
@@ -87,12 +89,20 @@ def main():
             studies.extend((HERE / directory, "search", "results")
                            for directory in ("flux_string", "dressed_exchange", "endpoint_exchange"))
             studies.append((HERE / "endpoint_exchange", "perimeter", "perimeter"))
+            if args.family_only:
+                studies = []
+            family = HERE / "lepton_family"
+            studies.extend((family / folder, "measure", "results")
+                           for folder in ("bands", "family_projector", "cyclic_charge", "cyclic_hops", "transfer", "decay"))
+            studies.append((family / "hierarchy", "search", "results"))
             for local, stem, record in studies:
                 output = root / f"{local.name}_{stem}.json"
                 subprocess.run([sys.executable, "-B", "-W", "error", str(local / f"{stem}.py"),
                                 "--output", str(output)], cwd=root, env=env, check=True)
                 compare(json.loads(output.read_text()), json.loads((local / f"{record}.json").read_text()), stem)
                 print(f"Reproduced {local.name}/{stem}.", flush=True)
+            if args.family_only:
+                return
             subprocess.run([sys.executable, "-B", "-W", "error", str(HERE / "dark_contact.py")],
                            cwd=root, env=env, check=True)
 

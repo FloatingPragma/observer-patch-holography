@@ -2186,7 +2186,12 @@
      "note": "Production in a decay, electric neutrality and lightness have yet to be established for the same excitation.",
      "evidence": [
       "model/candidate_laws/interval_echo/SPEC.md"
-     ]
+     ],
+     "comparison": {
+      "law": "Written-field Laplacian extension",
+      "finding": "Six downward charged-mode channels produce positive neutral field energy after a bridge switch. The separated daughter and neutral spectra miss the isolated parent energy in every channel. The experiment supplies neither neutrino flavour tags nor a neutrino mass.",
+      "source": "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/README.md"
+     }
     },
     {
      "id": "OW-10",
@@ -2218,7 +2223,12 @@
      "note": "No three minima have been identified as charged leptons and compared on a common mass scale.",
      "evidence": [
       "model/candidate_laws/interval_echo/SPEC.md"
-     ]
+     ],
+     "comparison": {
+      "law": "Written-field Laplacian extension",
+      "finding": "Three independently prepared orbital bands have minimum-energy ratios 1 : 4.56155 : 10.40388 on the 48-cell route. Exact inequalities exclude the balanced Koide value for every triplet from the two fully written one-cell sectors. The three family characters of the independent geometric register have a different observable and source.",
+      "source": "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/README.md"
+     }
     },
     {
      "id": "OW-12",
@@ -2753,8 +2763,14 @@
       "claims/physical_identification_registry.json"
      ],
      "status": "open",
-     "note": "No species assignment is registered.",
-     "evidence": []
+     "note": "A distinct muon rest branch and a weak decay channel require measurements on Interval Echo.",
+     "evidence": [],
+     "comparison": {
+      "law": "Written-field Laplacian extension",
+      "label": "Three moving bands and a charged-mode conversion test",
+      "finding": "The 48-cell route resolves three propagating bands with minimum-energy ratios 1 : 4.56155 : 10.40388. On a fully written pair of cells, three energy-heralded inputs cross the same bridge. Opening the bridge does work and produces lower charged modes plus neutral excitation. All six separated downward channels miss the isolated parent energy. An autonomous weak decay and a muon identification are unresolved.",
+      "source": "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/README.md"
+     }
     },
     {
      "id": "SM-tau",
@@ -2768,8 +2784,14 @@
       "claims/physical_identification_registry.json"
      ],
      "status": "open",
-     "note": "No species assignment is registered.",
-     "evidence": []
+     "note": "A third charged-lepton mass and weak daughter tags require measurements on Interval Echo.",
+     "evidence": [],
+     "comparison": {
+      "law": "Written-field Laplacian extension",
+      "label": "Geometric lepton-ratio and full-cell spectral bounds",
+      "finding": "Exact spectral bounds exclude a Koide-balanced triplet among the 5,790 vacancy and 1,954 excess levels on the tested cell backgrounds. All connected pinned single-configuration-per-port guides of the three stored federations have energy span below 1,273. This excludes the observed tau/electron hierarchy on these guides.",
+      "source": "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/README.md"
+     }
     },
     {
      "id": "SM-nu-e",

@@ -156,4 +156,30 @@ theorem koide_quotient_phase_independent {a b : ℝ} (ha : a ≠ 0) (δ : ℝ) :
       root_square_sum (cos_coords_sum_zero δ) (cos_coords_sq_sum δ)]
   exact koide_formula ha
 
+/-- Normalize the lightest positive square-root energy to one. Exact balance
+forces a minimum span even when the phase and the middle root are unknown. -/
+theorem balanced_ordered_roots_span {middle largest : ℝ}
+    (h1 : 1 ≤ middle) (h2 : middle ≤ largest)
+    (balance : 3 * (1 + middle^2 + largest^2) = 2 * (1 + middle + largest)^2) :
+    4 + 3 * Real.sqrt 2 ≤ largest := by
+  have lower : 0 ≤ largest^2 - 8*largest - 2 := by
+    nlinarith [mul_nonneg (sub_nonneg.mpr h1)
+      (show 0 ≤ 3 + 4*largest - middle by linarith)]
+  have h4 : 4 ≤ largest := by
+    by_contra! small
+    nlinarith [mul_nonneg (show 0 ≤ largest by linarith)
+      (show 0 ≤ 4-largest by linarith)]
+  have hr := Real.sq_sqrt (show 0 ≤ (2 : ℝ) by norm_num)
+  have hp : 0 < Real.sqrt (2 : ℝ) := Real.sqrt_pos.2 (by norm_num)
+  by_contra! small
+  nlinarith [mul_pos (show 0 < 4 + 3*Real.sqrt 2 - largest by linarith)
+    (show 0 < largest - 4 + 3*Real.sqrt 2 by linarith)]
+
+/-- The boundary spectrum has two equal light roots. -/
+theorem minimal_span_balances :
+    let largest := 4 + 3*Real.sqrt (2 : ℝ)
+    3 * (1 + 1^2 + largest^2) = 2 * (1 + 1 + largest)^2 := by
+  dsimp
+  nlinarith [Real.sq_sqrt (show 0 ≤ (2 : ℝ) by norm_num)]
+
 end OPH.KoideCirculant
