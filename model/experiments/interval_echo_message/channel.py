@@ -68,7 +68,7 @@ REPLAY_DIRECTIONAL_CHARGE = {
 }
 
 
-# Reviewed evaluation-only updates share the same complete law and instrument manifest.
+# Each reviewed metadata update is matched against the complete law and instrument manifest.
 REPLAY_EVALUATIONS = (
     {"model/candidate_laws/interval_echo/EVALUATION.json": "7a1b0f8fef54157548ac1c40c4e107934b766d5f5994b94791506fd77a245530"},
     {"model/candidate_laws/interval_echo/EVALUATION.json": "41c5457f88cc152a719a8678a783838c00d6255b62fd9cfbed3379aedb61683c"},
@@ -85,6 +85,12 @@ REPLAY_EVALUATIONS = (
     {"model/candidate_laws/interval_echo/EVALUATION.json": "03513c4549fd56c40c2867da9c51ae9476b2e68a2c6657dc497883ab175839ae"},
     {"model/candidate_laws/interval_echo/EVALUATION.json": "2414fb6856f0472fdba6de899155f1f66073ac1629617430cf125238e5f00a32"},
     {"model/candidate_laws/interval_echo/EVALUATION.json": "2364858507fdf8615607557a4d4dc191f170b79b2f054155f882170fe7bf384f"},
+    # The native message reader replays the complete metadata profile at 5f3df4f03.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "9b08035ebb2796af7227cfda6915b2f354fb1d2d97bdecaa47ecfeada1941eec",
+        "model/candidate_laws/interval_echo/candidate.py": "7cd3ab08a927cf89c1323922091f92b505151a693502d46d3d86c4dace2b1b1c",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "5f99c88503cf532871010f207af0e77d3e7f48f57d17eb4942bf6be84208acc1",
+    },
 )
 
 
