@@ -1,4 +1,5 @@
 from fractions import Fraction
+from itertools import permutations
 import json
 
 import numpy as np
@@ -7,7 +8,8 @@ from scipy.linalg import expm
 
 from model.executable_model import cell
 from .gateway_bound import (
-    ATTEMPTS, ROUNDS, SCALE, SCORE, board_charts, certify, dark_projector, internal_pulse, success_intervals,
+    ATTEMPTS, ROUNDS, SCALE, SCORE, arbitrary_sweep_floor, board_charts, certify, dark_projector, internal_pulse,
+    least_protected_sweep, success_intervals,
 )
 from .gateway_release import HERE, experiment, verify
 
@@ -65,3 +67,26 @@ def test_one_step_enclosure_and_conditional_weights_from_a_second_solver():
 def test_reject_malformed_gateway_instruments(chart):
     with pytest.raises(ValueError):
         success_intervals(chart, Fraction(1))
+
+
+def test_minimizing_order_matches_every_permutation_including_idle_ports():
+    weights = tuple(Fraction(i, 16) for i in (2, 0, 1, 2))
+    upper = tuple(Fraction(i, 16) for i in (4, 0, 2, 3))
+    results = []
+    for order in permutations(range(4)):
+        recovered, reach = Fraction(0), Fraction(1)
+        for j in order:
+            recovered += reach*weights[j]
+            reach *= 1-upper[j]
+        results.append((recovered, reach))
+    assert least_protected_sweep(weights, upper) == min(results)
+    assert len(set(results)) > 1
+    with pytest.raises(ValueError):
+        least_protected_sweep(upper, weights)
+
+
+def test_every_order_in_every_complete_native_chart():
+    charts = set().union(*board_charts().values())
+    for tips in charts:
+        floor = arbitrary_sweep_floor(tips)
+        assert 94*SCORE//100 < floor <= certify(tips)["joint_home_floor_ppt"]
