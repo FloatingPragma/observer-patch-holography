@@ -88,7 +88,7 @@ In this net-neutral orbital pair, fixing the distant charge and reading only the
 
 ## The charged-lepton family
 
-Three separately prepared packets propagate on a 48-cell written route. Their band-minimum ratios are 1 : 4.56155 : 10.40388, with Koide quotient 0.394540. The balanced geometric register has quotient 2/3 and its independent phase read selects ratios 1 : 206.77032 : 3477.47284. Exact spectral bounds exclude balance anywhere in the two fully written one-cell sectors tested. At a matched two-cell gateway, three energy-heralded inputs undergo charged-mode conversion and excite the neutral field when the gate is opened. Conservation of the isolated parent energy in a separated decay channel and weak-flavour tags are unresolved. [Search, geometric constraints and reproduction](lepton_family/README.md)
+Three separately prepared packets propagate on a 48-cell written route. Their band-minimum ratios are 1 : 4.56155 : 10.40388, with Koide quotient 0.394540. The balanced geometric register has quotient 2/3 and its independent phase read selects ratios 1 : 206.77032 : 3477.47284. Exact spectral bounds exclude balance anywhere in the two fully written one-cell sectors tested. At a matched two-cell gateway, three energy-heralded inputs undergo charged-mode conversion and excite the neutral field when the gate is opened. A separate first-order mass and transport construction on a seven-cell natural degree-six path carries the signed charge with exactly the geometric ratios. Appending one native degree-five port compresses them to 1 : 1.00133 : 1.32433. An unconfined pole, spin carried by the load and weak-flavour tags are unresolved. [Search, geometric constraints and reproduction](lepton_family/README.md)
 
 ## Reproduction
 

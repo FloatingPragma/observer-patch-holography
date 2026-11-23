@@ -1,0 +1,551 @@
+{
+  "route": {
+    "sphere_cells": 320,
+    "ring_cells": 48,
+    "active_seams": 144,
+    "active_elementary_field_loops": 0,
+    "motif_degrees": [
+      6,
+      5,
+      6
+    ],
+    "ordered_pair_dimension": 20592
+  },
+  "source_phase": "2/9",
+  "effect_eigenvalues_increasing": [
+    6.0300559011033374e-05,
+    0.012468365640047833,
+    0.2096935560231633
+  ],
+  "comparison_mass_coupling": 1,
+  "orbital_grading_components": "vertex and incidence row",
+  "records": [
+    {
+      "degree_five_cost": 8,
+      "physical_momenta": 48,
+      "charged_vertex_kinetic_floor": 1.7537887487646755,
+      "lowest_positive_energies_by_character": [
+        1.3243068950967645,
+        1.324365587330934,
+        1.340805778702611
+      ],
+      "ratios": [
+        1.0,
+        1.0000443192090798,
+        1.012458504646418
+      ],
+      "Q": 0.3333361679598636,
+      "vertex_weights_at_positive_poles": [
+        0.5000227668372155,
+        0.504707297501279,
+        0.5781968422846687
+      ],
+      "common_rest_energy_times_curvature": 0.37873218748183435,
+      "squared_dispersion_difference_checks": [
+        [
+          0.37873130101617747,
+          0.378731301013957,
+          0.3787313010072957
+        ],
+        [
+          0.37873196593984915,
+          0.37873196593096736,
+          0.3787319659132038
+        ]
+      ],
+      "group_velocities_at_pi_over_two": [
+        0.31705132493226335,
+        0.3170419490313232,
+        0.31443202297551337
+      ],
+      "group_velocities_at_minus_pi_over_two": [
+        -0.31705132493226346,
+        -0.31704194903132327,
+        -0.3144320229755134
+      ],
+      "additional_auxiliary_negative_modes_each_momentum": 3,
+      "largest_summed_vertex_weight_of_extra_modes": 9.559367224253306e-31,
+      "maximum_full_spectrum_error": 6.217248937900877e-15
+    },
+    {
+      "degree_five_cost": 0,
+      "physical_momenta": 48,
+      "charged_vertex_kinetic_floor": 0.0,
+      "lowest_positive_energies_by_character": [
+        6.0300559011033374e-05,
+        0.012468365640047833,
+        0.2096935560231633
+      ],
+      "ratios": [
+        1.0,
+        206.77031597279984,
+        3477.4728371057895
+      ],
+      "Q": 0.6666666666666697,
+      "vertex_weights_at_positive_poles": [
+        0.9999999999999991,
+        0.9999999999999989,
+        1.0000000000000009
+      ],
+      "common_rest_energy_times_curvature": 0.44444444444444486,
+      "squared_dispersion_difference_checks": [
+        [
+          0.4444440329293905,
+          0.4444440329293904,
+          0.4444440329293836
+        ],
+        [
+          0.444444341511144,
+          0.444444341511144,
+          0.44444434151136303
+        ]
+      ],
+      "group_velocities_at_pi_over_two": [
+        0.6439505497670517,
+        0.6439038546209876,
+        0.6311342654534895
+      ],
+      "group_velocities_at_minus_pi_over_two": [
+        -0.6439505497670517,
+        -0.6439038546209876,
+        -0.6311342654534895
+      ],
+      "additional_auxiliary_negative_modes_each_momentum": 0,
+      "largest_summed_vertex_weight_of_extra_modes": 0.0,
+      "maximum_full_spectrum_error": 1.1268763699945339e-14
+    }
+  ],
+  "physical_degree_six_path": {
+    "board_cells": 320,
+    "board_sha256": "ee40a97c9f9405c00de156d98edabe73c4e04f59b787d80abc2308769c5032f8",
+    "ordered_ports": [
+      130,
+      133,
+      132,
+      99,
+      98,
+      241,
+      240,
+      1011,
+      1010,
+      1045,
+      1044,
+      1028
+    ],
+    "ordered_distinct_cells": [
+      10,
+      11,
+      8,
+      20,
+      84,
+      87,
+      85
+    ],
+    "frozen_compensator_outside_active_path": true,
+    "native_sign_sectors": [
+      {
+        "sign": -1,
+        "auxiliary_anchor_ports": [
+          130,
+          133,
+          132,
+          99,
+          98,
+          241,
+          240,
+          1011,
+          1010,
+          1045,
+          1044
+        ],
+        "max_regional_flux_minus_charge_on_all_grades": 0,
+        "reference_head_counts_minus_charge": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "initial_word": 1710,
+        "written_words_in_port_order": [
+          1710,
+          1711,
+          1709,
+          1705,
+          1697,
+          1713,
+          1681,
+          1745,
+          1617,
+          1873,
+          1361,
+          337
+        ],
+        "enabled_directed_hops": 22
+      },
+      {
+        "sign": 1,
+        "auxiliary_anchor_ports": [
+          130,
+          133,
+          132,
+          99,
+          98,
+          241,
+          240,
+          1011,
+          1010,
+          1045,
+          1044
+        ],
+        "max_regional_flux_minus_charge_on_all_grades": 0,
+        "reference_head_counts_minus_charge": [
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          0
+        ],
+        "initial_word": 337,
+        "written_words_in_port_order": [
+          337,
+          336,
+          338,
+          342,
+          350,
+          334,
+          366,
+          302,
+          430,
+          174,
+          686,
+          1710
+        ],
+        "enabled_directed_hops": 22
+      }
+    ],
+    "physical_degrees": [
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6
+    ],
+    "charged_kinetic_spectrum": [
+      0.0,
+      0.2725933896874539,
+      1.07179676972449,
+      2.343145750507618,
+      4.0,
+      5.929447639179835,
+      8.0,
+      10.070552360820164,
+      12.000000000000002,
+      13.656854249492383,
+      14.928203230275507,
+      15.727406610312546
+    ],
+    "middle_cut_seam": [
+      241,
+      240
+    ],
+    "rest_ratios": [
+      1.0,
+      206.77031597279984,
+      3477.4728371057895
+    ],
+    "rest_Q": 0.6666666666666697,
+    "modes": [
+      {
+        "rest_charged_vertex_energy": 6.0300559011033374e-05,
+        "local_source_weight_in_the_rest_mode": 0.08333333333333333,
+        "homologous_positive_spatial_levels": [
+          6.0300559011033374e-05,
+          0.522104772362417,
+          1.0352761821662118,
+          1.5307337306480757,
+          2.000000000909039,
+          2.435045716781513,
+          2.828427125388978,
+          3.17341336173785,
+          3.4641016156625892,
+          3.695518130537116,
+          3.863703305626826,
+          3.9657794459536833
+        ],
+        "local_source_reads": [
+          {
+            "time": 1,
+            "source_vertex": 0.0010904314411633335,
+            "distal_vertex_same_character": 9.166926195735226e-30,
+            "other_vertices": 0.5282391126146478,
+            "auxiliary": 0.4706704559441885,
+            "cut_distal": 5.698809102413927e-33
+          },
+          {
+            "time": 2,
+            "source_vertex": 0.0034408891119863043,
+            "distal_vertex_same_character": 6.732949847730538e-17,
+            "other_vertices": 0.5022089359369475,
+            "auxiliary": 0.4943501749510658,
+            "cut_distal": 9.51697124157017e-33
+          },
+          {
+            "time": 4,
+            "source_vertex": 0.00012768286650365816,
+            "distal_vertex_same_character": 1.965705646993263e-05,
+            "other_vertices": 0.49903051664356374,
+            "auxiliary": 0.5008221434334622,
+            "cut_distal": 1.801030144966025e-31
+          },
+          {
+            "time": 8,
+            "source_vertex": 2.704626933673974e-06,
+            "distal_vertex_same_character": 0.1484667425706942,
+            "other_vertices": 0.4701339412300855,
+            "auxiliary": 0.3813966115722858,
+            "cut_distal": 1.8953803743520205e-31
+          },
+          {
+            "time": 12,
+            "source_vertex": 0.23938108426132926,
+            "distal_vertex_same_character": 0.015152549620028134,
+            "other_vertices": 0.4764382146218822,
+            "auxiliary": 0.2690281514967601,
+            "cut_distal": 2.4354008995492456e-31
+          }
+        ],
+        "two_positive_energy_mode_source_reads": [
+          {
+            "time": 0,
+            "distal_charge_same_character": 7.703719777548943e-34
+          },
+          {
+            "time": 1,
+            "distal_charge_same_character": 0.01100514798426513
+          },
+          {
+            "time": 2,
+            "distal_charge_same_character": 0.04108885373355349
+          },
+          {
+            "time": 4,
+            "distal_charge_same_character": 0.12348759564454846
+          },
+          {
+            "time": 8,
+            "distal_charge_same_character": 0.12481975389627926
+          },
+          {
+            "time": 12,
+            "distal_charge_same_character": 1.4371043491385306e-05
+          }
+        ]
+      },
+      {
+        "rest_charged_vertex_energy": 0.012468365640047833,
+        "local_source_weight_in_the_rest_mode": 0.08333333333333333,
+        "homologous_positive_spatial_levels": [
+          0.012468365640047833,
+          0.5222536259607853,
+          1.035351259170637,
+          1.5307845082340465,
+          2.000038864657818,
+          2.4350776372267,
+          2.828454606342788,
+          3.1734378552229283,
+          3.464124053803751,
+          3.6955391635908983,
+          3.863723423126614,
+          3.9657990456469525
+        ],
+        "local_source_reads": [
+          {
+            "time": 1,
+            "source_vertex": 0.0011394702160169754,
+            "distal_vertex_same_character": 9.625395638145239e-30,
+            "other_vertices": 0.5282199603620938,
+            "auxiliary": 0.47064056942188964,
+            "cut_distal": 7.08277443761867e-33
+          },
+          {
+            "time": 2,
+            "source_vertex": 0.0034690123462079708,
+            "distal_vertex_same_character": 6.732766698013157e-17,
+            "other_vertices": 0.5022479314750133,
+            "auxiliary": 0.4942830561787786,
+            "cut_distal": 1.6724572827663835e-32
+          },
+          {
+            "time": 4,
+            "source_vertex": 0.00016379209128372088,
+            "distal_vertex_same_character": 1.965447737946162e-05,
+            "other_vertices": 0.49914076219249076,
+            "auxiliary": 0.500675791238846,
+            "cut_distal": 1.2159350023597717e-31
+          },
+          {
+            "time": 8,
+            "source_vertex": 4.215809885248799e-05,
+            "distal_vertex_same_character": 0.14913927636207713,
+            "other_vertices": 0.46938258780973746,
+            "auxiliary": 0.38143597772933274,
+            "cut_distal": 4.769457457303629e-31
+          },
+          {
+            "time": 12,
+            "source_vertex": 0.23871314780334998,
+            "distal_vertex_same_character": 0.01554065944227111,
+            "other_vertices": 0.4768547327543063,
+            "auxiliary": 0.26889146000007286,
+            "cut_distal": 5.220527318457095e-31
+          }
+        ],
+        "two_positive_energy_mode_source_reads": [
+          {
+            "time": 0,
+            "distal_charge_same_character": 2.4074124304840452e-34
+          },
+          {
+            "time": 1,
+            "distal_charge_same_character": 0.01062984844883093
+          },
+          {
+            "time": 2,
+            "distal_charge_same_character": 0.03981620884732034
+          },
+          {
+            "time": 4,
+            "distal_charge_same_character": 0.12133845239034569
+          },
+          {
+            "time": 8,
+            "distal_charge_same_character": 0.13313015582510598
+          },
+          {
+            "time": 12,
+            "distal_charge_same_character": 0.0011459209109246974
+          }
+        ]
+      },
+      {
+        "rest_charged_vertex_energy": 0.2096935560231633,
+        "local_source_weight_in_the_rest_mode": 0.08333333333333333,
+        "homologous_positive_spatial_levels": [
+          0.2096935560231633,
+          0.5626408953543045,
+          1.0562992744303716,
+          1.5450298178175261,
+          2.0109628011073797,
+          2.4440579016499333,
+          2.8361895894734612,
+          3.1803339051517536,
+          3.470442534812764,
+          3.7014626348147868,
+          3.8693894373289885,
+          3.9713194278161743
+        ],
+        "local_source_reads": [
+          {
+            "time": 1,
+            "source_vertex": 0.014857557348339875,
+            "distal_vertex_same_character": 9.778795432803922e-30,
+            "other_vertices": 0.5228546562780869,
+            "auxiliary": 0.46228778637357343,
+            "cut_distal": 2.1499161611567598e-31
+          },
+          {
+            "time": 2,
+            "source_vertex": 0.010999230944308533,
+            "distal_vertex_same_character": 6.681318640988193e-17,
+            "other_vertices": 0.5130254585710284,
+            "auxiliary": 0.4759753104846633,
+            "cut_distal": 5.954414912338861e-32
+          },
+          {
+            "time": 4,
+            "source_vertex": 0.008675027320665241,
+            "distal_vertex_same_character": 1.8940139667991455e-05,
+            "other_vertices": 0.5271325758273336,
+            "auxiliary": 0.4641734567123332,
+            "cut_distal": 7.498125257230309e-31
+          },
+          {
+            "time": 8,
+            "source_vertex": 0.005631167920079805,
+            "distal_vertex_same_character": 0.3202368583819728,
+            "other_vertices": 0.2951877798845808,
+            "auxiliary": 0.37894419381336725,
+            "cut_distal": 3.4644495119369635e-31
+          },
+          {
+            "time": 12,
+            "source_vertex": 0.12565203616493417,
+            "distal_vertex_same_character": 0.06832819460288816,
+            "other_vertices": 0.5319433552970173,
+            "auxiliary": 0.27407641393516025,
+            "cut_distal": 1.1289759016201347e-30
+          }
+        ],
+        "two_positive_energy_mode_source_reads": [
+          {
+            "time": 0,
+            "distal_charge_same_character": 7.703719777548943e-34
+          },
+          {
+            "time": 1,
+            "distal_charge_same_character": 0.005900606941036784
+          },
+          {
+            "time": 2,
+            "distal_charge_same_character": 0.022874977314937237
+          },
+          {
+            "time": 4,
+            "distal_charge_same_character": 0.08056710962478836
+          },
+          {
+            "time": 8,
+            "distal_charge_same_character": 0.18664785403166945
+          },
+          {
+            "time": 12,
+            "distal_charge_same_character": 0.13967392384218977
+          }
+        ]
+      }
+    ],
+    "one_pinned_port_control": {
+      "extra_port": 120,
+      "charged_kinetic_floor": 0.05832900721556757,
+      "Dirac_threshold_ratios": [
+        1.0,
+        1.0013316963698882,
+        1.324330400996967
+      ],
+      "Q": 0.3348530027152802
+    }
+  },
+  "code_sha256": "c492734a1b550f9065c3f7a8233934665da8436c6893c5a083604b31ab059418"
+}

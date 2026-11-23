@@ -131,6 +131,8 @@ def census(level):
     return {"cells": board.cells, "physical_ports": board.n, "seam_sha256": seam_digest(board),
             "degree_six_component_sizes": dict(sorted(sizes.items())), "all_degree_six_cycle_sizes": cycle_sizes,
             "largest_consecutive_unpinned_run_bound": limit,
+            "maximum_distinct_cells_in_a_degree_six_component":
+                max(len({v//12 for v in component}) for component in nx.connected_components(high)),
             "pinned_simple_cycles": enclosure(middle, 24),
             "pinned_open_paths": enclosure(middle+ends, 24),
             "pinned_connected_subgraphs": enclosure(branches, 56),

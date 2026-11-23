@@ -1,0 +1,36 @@
+# Putting the register read in a mass operator
+
+A specific first-order wave equation on the 48-cell guide gives all three propagating register characters a common relation between rest energy and curvature. Whether their energies reproduce the register hierarchy depends on the charged guide's own formation energy.
+
+| Kinetic term in the squared equation | Three lowest positive-energy ratios | Koide quotient | Rest energy × band curvature, each character |
+|---|---:|---:|---:|
+| All written-guide bonds and the degree-five port cost of 8 | 1 : 1.000044 : 1.012459 | 0.333336 | 0.378732 |
+| The same bonds with the degree cost removed | 1 : 206.770316 : 3477.472837 | 2/3 | 0.444444 |
+
+The common curvature product is the quadratic, near-rest check on one spatial direction in cell and generator units. The two-component grading distinguishes vertices from incidence rows. It does not supply a physical spatial spin. The mass coupling is set to one for the displayed spectra. Neither construction has a laboratory time calibration. [Full dispersion, source weights and checks](results.json)
+
+## Where the energies enter
+
+The 432-state single-load register gives a compressed cyclic amplitude \(M\) with diagonal numerator 32, cyclic numerators \(16\sqrt2 e^{\pm i\theta}\), and common denominator \(96\sqrt3\). The measured exclusive read on that register gives \(\theta=1/12+1/6-2/72=2/9\). The comparison installs the positive effect \(F=M^\dagger M\) as a mass operator. This installation is an explicit law choice. The eigenvalues of \(F\) come from the geometric source and analyzer without using laboratory lepton masses. The historical mass compiler implements a related free fermion construction with a programmed phase and separately named clock and scalar background. [Historical single-load compression](https://github.com/FloatingPragma/observer-patch-holography/blob/3bcacf1276ddb3ead35be2b9adcd63b6643e2d35/model/lepton_register_round/PROOF.md) · [Historical mass compiler](https://github.com/FloatingPragma/observer-patch-holography/blob/3bcacf1276ddb3ead35be2b9adcd63b6643e2d35/model/lepton_mass_compiler/PROOF.md)
+
+Let \(B\) be the oriented, contact-weighted bond incidence. An additional row with entry \(\sqrt8\) at the degree-five port retains its native cost. Then \(B^\dagger B\) equals the measured three-port kinetic and degree operator. Put \(\mu F\) on the vertex block of a first-order generator, \(-\mu F\) on its auxiliary block, and \(B\otimes I\) between them. For a kinetic eigenvalue \(\lambda(k)\) and a register effect \(f_j\), the paired branches obey
+
+\[
+E_j(k)^2=\lambda(k)+(\mu f_j)^2.
+\]
+
+The calculation diagonalizes the full matrices at all 48 physical momenta. It separately measures the vertex projection of each rest state. With the degree term present these weights are 0.500023, 0.504707 and 0.578197. The three unpaired auxiliary modes at \(-\mu f_j\) have zero vertex weight. Reading their energies as those of a mobile charged end would give a spurious match. At positive momentum \(\pi/2\) all three positive branches have nonzero slope, with the opposite slope under momentum reversal. These are Bloch spectra in a declared linear comparison with a signed-end vertex source. Formation by the native contact, transported physical spin, interacting field response and weak decay require additional operators or demonstrations.
+
+If the retained guide has \(\lambda(0)>0\), for any two effects \(f_h>f_l>0\) and finite positive \(\mu\), the ratio of the charged rest energies is strictly less than \(f_h/f_l\). For a gapless kinetic ground, \(\lambda(0)=0\), the three gaps reproduce the effect ratios exactly. At either stationary minimum, \(E_j(0)E_j''(0)=\lambda''(0)/2\) for every character. The positive guide floor can therefore destroy the target hierarchy even when the common-curvature test succeeds. Conversely a source-derived gapless charged kinetic sector would be a precise place where the finite register and a common spatial dynamics could meet. [Proof of ratio compression](../../../../../../../Lean/ObserverPatchHolography/KoideCirculant.lean) · [Route and native band controls](../bands/README.md)
+
+## A physical seven-cell path with a zero charged kinetic threshold
+
+The longest connected degree-six component in the three stored boards has twelve ports. The selected path crosses seven real cells of the 320-cell federation. All twelve native degree penalties vanish on these ports. Preparing the path heads toward the initial excess, or away from the initial vacancy, realizes exactly one head word per charge position. Each interior position has two allowed material hops with weight four. The uniform vertex state has exactly zero kinetic energy. The surrounding seams and the compensator stay outside the prepared active path.
+
+In the first-order comparison, anchor the auxiliary amplitude of an edge to its left port and give it that port's signed load and head word. One incidence entry changes only the grade. Its other entry moves the load and reverses the intervening head. Direct integer checks on every vertex and auxiliary state give regional head flux equal to signed material load for both signs in every traversed cell. This is an explicit assignment of the added auxiliary states. It provides a charge and flux reader on superpositions of both grades.
+
+On this path the three positive uniform rest states have native energies 0.0000603006, 0.0124684 and 0.209694. The mass effect, its scale and the incidence evolution are installed comparison rules. Each of the eleven higher spatial modes obeys the same squared-energy increment for all three characters. A sharp charge at the first port reaches the last port at native time 8 with probabilities 14.8467%, 14.9139% and 32.0237%. Cutting the central seam gives zero within numerical precision. The sharp source spans positive and negative energies. A second preparation uses only the two lowest positive spatial modes of each character and starts with zero distal charge amplitude. Its distal readings at time 8 are 12.4820%, 13.3130% and 18.6648%. This second source is distributed over the route.
+
+Adding one adjacent native degree-five port with the same bonds and mass law raises the kinetic floor to 0.0583290 and compresses the ratios to 1 : 1.001332 : 1.324330. The result establishes a guided, charged three-character realization in the first-order comparison on an actual gapless route. An unconfined mass pole would have to survive changes of the charged medium. The addressed path has no active ring through which to test a freely propagating sourced field. [All head words, charge readings and matched controls](results.json)
+
+For the inherited positive written kinetic law, exact zero energy constrains where a single charge can go. The full configuration component of a nonzero zero-energy state must keep the charge inside one degree-six region, even when it contains additional ring and head states. The seven-cell path attains the largest such region on the stored boards. A larger mobile vacuum needs asymptotically small positive floors or different dynamics. [General support result](../hierarchy/README.md#how-far-can-a-zero-cost-charged-component-extend)

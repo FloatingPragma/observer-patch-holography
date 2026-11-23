@@ -1,0 +1,274 @@
+{
+  "design_sha256": "6c3650f27243322313520912ec0d8ccac1c5ad04d0f9e46b91ba8f5be3d5600a",
+  "executable_sha256": "37634317ac19a9c74ccfe8b3b6218373ad390e552c59149540fb4ac012081cd2",
+  "scalar_certificate_sha256": "5c73bcd4bce010eff343f4c47a10d5f3fffd4952616af9bd88d340c5cdf71755",
+  "source_digests": {
+    "experiments/interval_echo_electron_flux_binding/search.py": "9fc05ffcdd7400bbaf46c46d0a693348d584b5b752235ce377bf64b48449f720",
+    "experiments/interval_echo_electron_flux_binding/bridge.py": "7e55becdaaa1ce9aeccd62dca3785397ff3ed130346bb9fde00365feffbf477c",
+    "experiments/interval_echo_electron_flux_binding/free_bridge.py": "939e3bcc3ee8d306891fe7e6aa29efb50d349669f394fc8fe963d909cd300053",
+    "experiments/interval_echo_electron_flux_binding/free_bridge.json": "0863a72a9e0cdf6afd206f66685b5a61c1c683d0dba6063f378caf9d52273c8d"
+  },
+  "scope": "every finite-dimensional unitary per transition with fixed positive weights and scalar port costs",
+  "opposite_sign_pooling_with_independent_neutral_subtractions": {
+    "strict_lower_gap": 2.843,
+    "upper_gap": 55.0,
+    "ratio_upper": 19.34576151952163,
+    "koide_upper": 0.5214004055712833
+  },
+  "sectors": [
+    {
+      "charge_sign": -1,
+      "verified_scalar_keys": {
+        "upper_native_gershgorin": 55.0,
+        "strict_lower_native_fraction": [
+          4343,
+          1000
+        ],
+        "min_positive_ground_witness_entry": 2672084,
+        "native_ground_witness_scale": 1000000000,
+        "ground_witness_int64_le_sha256": "294d78137277292490b925fdc771a9783d5e1d850fe04da9420061253d0c0d82",
+        "minimum_integer_margin": 4040376,
+        "max_to_min_ratio_bound": 12.664057103384756,
+        "all_triplets_koide_upper_bound": 0.4745849992462862
+      },
+      "unitary_controls": {
+        "vertices": 5790,
+        "edges": 25500,
+        "matter_edges": 8266,
+        "ring_edges": 17234,
+        "tree_edges": 5789,
+        "pure_gauge_full_matrix_conjugacy_entry_errors": 0,
+        "pure_gauge_spectrum_complex_multiplicity_factor": 2,
+        "pure_gauge_ground_and_ceiling": [
+          4.343759681488111,
+          40.92969591396489
+        ],
+        "scalar_ceiling_eigenpair_residual": 3.842418017512195e-10,
+        "curved_real_matrix_dimension": 23160,
+        "curved_examples": [
+          {
+            "closing_contact": "material",
+            "chords_of_this_kind": 3606,
+            "fundamental_cycle_state_ids": [
+              6,
+              484,
+              2327,
+              4575,
+              2292,
+              459,
+              0,
+              185,
+              1199,
+              3259,
+              5140,
+              4597,
+              2326,
+              483,
+              6
+            ],
+            "cycle_charge_ports": [
+              0,
+              10,
+              2,
+              3,
+              9,
+              5,
+              0,
+              0,
+              5,
+              9,
+              3,
+              2,
+              10,
+              7,
+              0
+            ],
+            "cycle_head_words": [
+              20519330,
+              20519338,
+              20515242,
+              20515754,
+              20646826,
+              18549674,
+              18549672,
+              152767396,
+              152767398,
+              154864550,
+              154733478,
+              154732966,
+              154737062,
+              20519334,
+              20519330
+            ]
+          },
+          {
+            "closing_contact": "ring",
+            "chords_of_this_kind": 16105,
+            "fundamental_cycle_state_ids": [
+              1,
+              373,
+              2,
+              4,
+              374,
+              3,
+              1
+            ],
+            "cycle_charge_ports": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cycle_head_words": [
+              19732912,
+              556603816,
+              19737000,
+              19768232,
+              556635048,
+              19764144,
+              19732912
+            ]
+          }
+        ],
+        "curved_rooted_holonomy_commutator": "minus identity",
+        "curved_extrema": [
+          5.737574424407885,
+          39.261268558588725
+        ],
+        "curved_eigenpair_residuals": [
+          4.430169001034118e-11,
+          1.8962410413970972e-10
+        ]
+      },
+      "matched_neutral": {
+        "neutral_sharp_configurations": 191,
+        "charged_reference_port": 3,
+        "neutral_trial_head_word": 87562662,
+        "flippable_faces_at_trial": 3,
+        "all_connections_neutral_ground_range": [
+          0,
+          1.5
+        ],
+        "charged_gap_strict_lower_at_largest_vacuum": 2.843,
+        "charged_gap_upper_at_largest_vacuum": 53.5,
+        "all_gap_ratio_upper": 18.818149841716497,
+        "all_gap_koide_upper": 0.5182498054270498
+      }
+    },
+    {
+      "charge_sign": 1,
+      "verified_scalar_keys": {
+        "upper_native_gershgorin": 53.0,
+        "strict_lower_native_fraction": [
+          5450,
+          1000
+        ],
+        "min_positive_ground_witness_entry": 5226238,
+        "native_ground_witness_scale": 1000000000,
+        "ground_witness_int64_le_sha256": "22602990f69327ffdbcece91e524d9ec51ec2017dc194bfb6df0fd8bf3595117",
+        "minimum_integer_margin": 49800,
+        "max_to_min_ratio_bound": 9.724770642201834,
+        "all_triplets_koide_upper_bound": 0.44753430454654985
+      },
+      "unitary_controls": {
+        "vertices": 1954,
+        "edges": 7410,
+        "matter_edges": 2565,
+        "ring_edges": 4845,
+        "tree_edges": 1953,
+        "pure_gauge_full_matrix_conjugacy_entry_errors": 0,
+        "pure_gauge_spectrum_complex_multiplicity_factor": 2,
+        "pure_gauge_ground_and_ceiling": [
+          5.450005605280314,
+          40.63299372642348
+        ],
+        "scalar_ceiling_eigenpair_residual": 7.519289866096661e-11,
+        "curved_real_matrix_dimension": 7816,
+        "curved_examples": [
+          {
+            "closing_contact": "material",
+            "chords_of_this_kind": 1192,
+            "fundamental_cycle_state_ids": [
+              7,
+              6,
+              464,
+              465,
+              7
+            ],
+            "cycle_charge_ports": [
+              0,
+              0,
+              5,
+              5,
+              0
+            ],
+            "cycle_head_words": [
+              20550562,
+              20519330,
+              20519328,
+              20550560,
+              20550562
+            ]
+          },
+          {
+            "closing_contact": "ring",
+            "chords_of_this_kind": 4265,
+            "fundamental_cycle_state_ids": [
+              1,
+              373,
+              2,
+              4,
+              374,
+              3,
+              1
+            ],
+            "cycle_charge_ports": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cycle_head_words": [
+              19732912,
+              556603816,
+              19737000,
+              19768232,
+              556635048,
+              19764144,
+              19732912
+            ]
+          }
+        ],
+        "curved_rooted_holonomy_commutator": "minus identity",
+        "curved_extrema": [
+          6.814622187104007,
+          39.53451080304044
+        ],
+        "curved_eigenpair_residuals": [
+          4.0942487023614356e-11,
+          1.0925792491689809e-10
+        ]
+      },
+      "matched_neutral": {
+        "neutral_sharp_configurations": 188,
+        "charged_reference_port": 3,
+        "neutral_trial_head_word": 96262560,
+        "flippable_faces_at_trial": 2,
+        "all_connections_neutral_ground_range": [
+          0,
+          1.0
+        ],
+        "charged_gap_strict_lower_at_largest_vacuum": 4.45,
+        "charged_gap_upper_at_largest_vacuum": 52.0,
+        "all_gap_ratio_upper": 11.685393258426966,
+        "all_gap_koide_upper": 0.4661403389180645
+      }
+    }
+  ]
+}

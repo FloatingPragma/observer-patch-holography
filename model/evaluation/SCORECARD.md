@@ -213,7 +213,7 @@ Sources · [contents_listings.html](https://pdg.lbl.gov/2026/listings/contents_l
 | --- | --- | --- | --- | --- |
 | [SM-e](EVIDENCE.md#sm-e) Electron | Open. Comparison · [Written-field Laplacian extension · Strong candidate for the electron’s charge and field response](../candidate_laws/interval_echo/openwave/electron_field/README.md) | Open | Open | Open |
 | [SM-mu](EVIDENCE.md#sm-mu) Muon | Open. Comparison · [Written-field Laplacian extension · Three moving bands and a charged-mode conversion test](../candidate_laws/interval_echo/openwave/electron_field/lepton_family/README.md) | Open | Open | Open |
-| [SM-tau](EVIDENCE.md#sm-tau) Tau | Open. Comparison · [Written-field Laplacian extension · Geometric lepton-ratio and full-cell spectral bounds](../candidate_laws/interval_echo/openwave/electron_field/lepton_family/README.md) | Open | Open | Open |
+| [SM-tau](EVIDENCE.md#sm-tau) Tau | Open. Comparison · [Written-field Laplacian extension · Geometric ratios on a seven-cell guide and full-cell bounds](../candidate_laws/interval_echo/openwave/electron_field/lepton_family/README.md) | Open | Open | Open |
 
 ### Active neutrinos
 

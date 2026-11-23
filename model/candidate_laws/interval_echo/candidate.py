@@ -30,7 +30,9 @@ PARTICLE_IDENTIFICATIONS = {
                        "one-cell sectors tested, all 5,790 vacancy and 1,954 excess energies are simple. Two "
                        "vacancies with resolved field endpoints give either exchange sign under different "
                        "intermediate reads of the same source. A freely transported spin doublet and an "
-                       "independently calibrated rest energy in keV are unresolved.",
+                       "independently calibrated rest energy in keV are unresolved. A separate first-order mass "
+                       "construction realizes the geometric family ratios on a guided seven-cell charge, "
+                       "with strong dependence on the guide and a supplied register mass operator.",
             "source": "model/candidate_laws/interval_echo/openwave/electron_field/README.md",
         },
     },
@@ -45,7 +47,8 @@ PARTICLE_IDENTIFICATIONS = {
                        "1 : 4.56155 : 10.40388. On a fully written pair of cells, three energy-heralded "
                        "inputs cross the same bridge. Opening the bridge does work and produces lower charged "
                        "modes plus neutral excitation. All six separated downward channels miss the isolated "
-                       "parent energy. An autonomous weak decay and a muon identification are unresolved.",
+                       "parent energy. A separate first-order register comparison yields the geometric ratios on a "
+                       "seven-cell charge path. An autonomous weak decay and a muon identification are unresolved.",
             "source": "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/README.md",
         },
     },
@@ -55,11 +58,12 @@ PARTICLE_IDENTIFICATIONS = {
         "evidence": [],
         "comparison": {
             "law": "Written-field Laplacian extension",
-            "label": "Geometric lepton-ratio and full-cell spectral bounds",
+            "label": "Geometric ratios on a seven-cell guide and full-cell bounds",
             "finding": "Exact spectral bounds exclude a Koide-balanced triplet among the 5,790 vacancy "
                        "and 1,954 excess levels on the tested cell backgrounds. All connected pinned "
                        "single-configuration-per-port guides of the three stored federations have energy "
-                       "span below 1,273. This excludes the observed tau/electron hierarchy on these guides.",
+                       "span below 1,273. A first-order generator with the cyclic read installed as a mass operator reaches a ratio "
+                       "of 3477.47284 on an unpinned seven-cell path, falling to 1.32433 upon adding one pinned port.",
             "source": "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/README.md",
         },
     },

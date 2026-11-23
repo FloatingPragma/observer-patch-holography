@@ -182,4 +182,14 @@ theorem minimal_span_balances :
   dsimp
   nlinarith [Real.sq_sqrt (show 0 ≤ (2 : ℝ) by norm_num)]
 
+/-- A positive common kinetic floor in a squared dispersion strictly compresses
+every unequal squared rest-energy ratio. The positive numerators and denominators
+are cross-multiplied so the comparison is independent of an overall unit. -/
+theorem kinetic_floor_compresses_ratio {floor light heavy : ℝ}
+    (hf : 0 < floor) (hl : 0 < light) (hh : light < heavy) :
+    (floor + heavy^2) * light^2 < (floor + light^2) * heavy^2 := by
+  have diff : 0 < heavy^2 - light^2 := by
+    nlinarith [mul_pos (sub_pos.mpr hh) (show 0 < heavy + light by linarith)]
+  nlinarith [mul_pos hf diff]
+
 end OPH.KoideCirculant
