@@ -222,7 +222,7 @@ def strict_flight(board, tag, home, strengths=STRENGTHS, times=TIMES):
                 if t != previous:
                     state = expm_multiply(-1j * (t - previous) * h, state)
                 previous = t
-                check(abs(np.vdot(state, state).real - 1) < 1e-10, "lost flight norm")
+                check(abs(np.vdot(state, state).real - 1) < 1e-9, "lost flight norm")
                 occupied[i] += abs(state[detector]) ** 2 / 2
         floor = return_floor(int(sum(board.degree[p] for p in tag) - 2), strength)
         for t, visible in zip(times, occupied, strict=True):

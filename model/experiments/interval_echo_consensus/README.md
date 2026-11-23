@@ -1,6 +1,6 @@
 # Strict repair and retained phase on an intercell wedge
 
-A strict repair on an isolated double leaves a sign in one seam memory. At coupling eight, six neighbouring contrast probes detect both units at that seam with probability at least 97.26% at every free-flight exposure on the 20-cell screen. The usual pair flag on the written seam is silent. [Readout, derivation and weaker-coupling controls](ASYNCHRONOUS.md#what-the-observer-can-read-after-a-strict-repair)
+A strict repair on an isolated double leaves a sign in one seam memory. At coupling eight, six neighbouring contrast probes detect both units at that seam with probability at least 97.26% at every free-flight exposure on the 20-cell screen. The usual pair flag on the written seam is silent. The double, the priority rule, the exposure and the reader are supplied, and the value eight was known when the comparison was designed. [Readout, derivation and weaker-coupling controls](ASYNCHRONOUS.md#what-the-observer-can-read-after-a-strict-repair)
 
 A complementary service settles sharp discrepancies across the entire sphere with local priority checks and asynchronous requests. The proof covers every sharp load and signed collar configuration in that service. The measurements include every branch on a five-port path and nine complete-screen preparations. [Asynchronous sharp consensus](ASYNCHRONOUS.md)
 
