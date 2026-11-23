@@ -775,7 +775,7 @@
           "results": {
             "interval_echo": {
               "status": "partial",
-              "note": "The regional first law and number-sector split have finite measurements. For an interior swap mixed into the same prepared cap as G2, the entropy slope is +0.0000344891 nats per unit mixture. The complete instantaneous gateway state and every total-load probability stay fixed. The commuting control has zero slope. A physical area that responds, a measured fixed proper volume and vacuum stationarity on shrinking regions remain open. Two stationary interior modes have identical full exterior one-load histories. Against the prepared cap their first-law slopes differ by 0.4410 nats, with a sampled difference of 0.4352 ± 0.0089. A second load entering the region distinguishes them. On a 20-cell sphere a local hand times first-hit out-and-back flights among six sites. All fifteen held-pair tests fail the Euclidean anchor-consistency domain. The entire enrolled radar law is identical across oriented ternary source histories with a nonzero interior register-entropy tangent. These readings cannot identify a fixed proper volume or an area response. Six stations on the two-write preparation also exclude treating their conditional hand ranges as minimizing distances in a convex weakly curved three-dimensional region. All 24 five-station checks require a fourth tangent direction over the enrolled curvature interval, including the source-free control.",
+              "note": "The regional first law and number-sector split have finite measurements. For an interior swap mixed into the same prepared cap as G2, the entropy slope is +0.0000344891 nats per unit mixture. The complete instantaneous gateway state and every total-load probability stay fixed. The commuting control has zero slope. A physical area that responds, a measured fixed proper volume and vacuum stationarity on shrinking regions remain open. Two stationary interior modes have identical full exterior one-load histories. Against the prepared cap their first-law slopes differ by 0.4410 nats, with a sampled difference of 0.4352 ± 0.0089. A second load entering the region distinguishes them. On a 20-cell sphere a local hand times first-hit out-and-back flights among six sites. All fifteen held-pair tests fail the Euclidean anchor-consistency domain. The entire enrolled radar law is identical across oriented ternary source histories with a nonzero interior register-entropy tangent. These readings cannot identify a fixed proper volume or an area response. Six stations on the two-write preparation also exclude treating their conditional hand ranges as minimizing distances in a convex weakly curved three-dimensional region. All 24 five-station checks require a fourth tangent direction over the enrolled curvature interval, including the source-free control. Independent native repair coins select a joint entropy maximum on every feasible tangent of the three-cell record algebra. Correlated coins preserve the owner tables and instantaneous cut and give an entropy slope of −ln 5 per triple, including 93 independent triples in a connected 279-cell region. Free equal-energy orbital mixtures have identical passive boundary histories and entropy slope −ln 3 at a three-to-one mixture. On another source a mixture preserving first-return tetrahedral volume changes the volume inferred by the free-pulse ruler. Both rulers miss a withheld path by over 50%.",
               "evidence": [
                 "model/candidate_laws/interval_echo/projection.json",
                 "model/experiments/interval_echo_einstein_station/README.md",
@@ -784,12 +784,29 @@
                 "model/experiments/interval_echo_einstein_station/cap.json",
                 "model/experiments/interval_echo_einstein_station/volume.py",
                 "model/experiments/interval_echo_einstein_station/volume.json",
-                "model/experiments/interval_echo_einstein_station/refinement.json"
+                "model/experiments/interval_echo_einstein_station/refinement.json",
+                "model/experiments/interval_echo_einstein_station/repair_stationarity/README.md",
+                "model/experiments/interval_echo_einstein_station/hidden_entropy/README.md",
+                "model/experiments/interval_echo_einstein_station/regional_geometry/README.md"
               ],
               "demonstrated_measurement": {
                 "label": "Interior repair changes entropy at a fixed boundary readout",
                 "source": "model/experiments/interval_echo_einstein_station/PAIR.md"
-              }
+              },
+              "comparison": {
+                "law": "Finite reversible repair on three equal-proper-volume geodesic balls",
+                "label": "Stationary generalized entropy on all five probability transfers",
+                "finding": "Uniform microscopic equilibrium makes generalized entropy stationary on every coarse probability transfer. The maximum measured residual is 0.0072 nats per unit transfer. Halving acceptance of tile exposure gives a residual of 1.39 nats. This construction supplies one binary register per calibrated area tile at one reference volume and in one rest frame.",
+                "source": "code/matched_einstein_limit/finite_entropy_region/README.md"
+              },
+              "additional_comparisons": [
+                {
+                  "law": "Ultrastatic constant-curvature geodesic balls with independent volume and area counters",
+                  "label": "Fixed-volume area and radar curvature",
+                  "finding": "Volume-matched surface counts recover the rest-frame curvature measured by an independent radar triangle on five supplied geometries. Their largest difference falls from 0.0412 to 0.000628 in source units over four radii. Fixing coordinate radius gives a different leading coefficient. The test measures the geometric term.",
+                  "source": "code/matched_einstein_limit/fixed_volume/README.md"
+                }
+              ]
             },
             "contrast_memory_spherical_v1": {
               "status": "open",
@@ -923,7 +940,7 @@
           "results": {
             "interval_echo": {
               "status": "open",
-              "note": "A nine-direction angular design and two-gateway energy balance exist on specified finite fixtures. No regional measurement yet supplies both curvature and null stress on one state, calibrated frame, refinement tower and positive coupling. The slow-sector modular charge occupies the nine-dimensional angular design on a supplied symmetric reference. A source-sensitive curvature and one independently normalized conserved stress tensor are needed to test null balance. Coarse pooling reduces the native matter-side angular discrepancy. Independent regional curvature and stress with a common physical normalization are still needed.",
+              "note": "A nine-direction angular design and two-gateway energy balance exist on specified finite fixtures. No regional measurement yet supplies both curvature and null stress on one state, calibrated frame, refinement tower and positive coupling. The slow-sector modular charge occupies the nine-dimensional angular design on a supplied symmetric reference. A source-sensitive curvature and one independently normalized conserved stress tensor are needed to test null balance. Coarse pooling reduces the native matter-side angular discrepancy. Independent regional curvature and stress with a common physical normalization are still needed. The ten-observer theorem derives the tensor equation from matched bulk, fixed-volume area and stationarity remainders of order o(ℓ⁴). G4 records the native equilibrium and volume controls.",
               "evidence": [
                 "model/candidate_laws/interval_echo/RESULTS.json",
                 "model/experiments/interval_echo_angular/README.md",

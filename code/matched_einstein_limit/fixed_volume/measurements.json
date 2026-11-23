@@ -1,0 +1,786 @@
+{
+  "protocol_sha256": "946d9c4785d1c8089e435f9cd1022edef92ff8b9b982ea2fbdceb42ee79fb801",
+  "seed": 2026112315,
+  "panels": [
+    {
+      "flat_radius": 0.5,
+      "count_budget": 268435456,
+      "proper_clock_tick": 1.1920928955078125e-07,
+      "flat_comparison": {
+        "regions": {
+          "volume_threshold": {
+            "radial_round_trip_ticks": 8388475,
+            "held_interior_count": 268411329,
+            "surface_count": 268421704
+          },
+          "fixed_radius": {
+            "radial_round_trip_ticks": 8388608,
+            "held_interior_count": 268447111,
+            "surface_count": 268452503
+          }
+        },
+        "triangle": {
+          "radial_ticks": 8388608,
+          "mirror_link_ticks": 11863283
+        }
+      },
+      "cases": [
+        {
+          "prepared_sectional_curvature": -1.0,
+          "record": {
+            "regions": {
+              "volume_threshold": {
+                "radial_round_trip_ticks": 8254481,
+                "held_interior_count": 268404027,
+                "surface_count": 281581566
+              },
+              "fixed_radius": {
+                "radial_round_trip_ticks": 8388608,
+                "held_interior_count": 282176731,
+                "surface_count": 291553188
+              }
+            },
+            "triangle": {
+              "radial_ticks": 8388608,
+              "mirror_link_ticks": 12099858
+            }
+          },
+          "inferred": {
+            "radar_einstein_contraction": -2.90024657849267,
+            "volume_threshold": {
+              "area_contrast": 0.15401440032368705,
+              "area_einstein_contraction": -2.941458374261856,
+              "held_volume_count_standardized": -1.3564245010932618
+            },
+            "fixed_radius": {
+              "area_contrast": 0.27035527783964547,
+              "area_einstein_contraction": -5.16340546309948,
+              "held_volume_count_standardized": 593.0510702300522
+            }
+          }
+        },
+        {
+          "prepared_sectional_curvature": -0.5,
+          "record": {
+            "regions": {
+              "volume_threshold": {
+                "radial_round_trip_ticks": 8320382,
+                "held_interior_count": 268479711,
+                "surface_count": 275114884
+              },
+              "fixed_radius": {
+                "radial_round_trip_ticks": 8388608,
+                "held_interior_count": 275219204,
+                "surface_count": 279767439
+              }
+            },
+            "triangle": {
+              "radial_ticks": 8388608,
+              "mirror_link_ticks": 11984185
+            }
+          },
+          "inferred": {
+            "radar_einstein_contraction": -1.4750194071708052,
+            "volume_threshold": {
+              "area_contrast": 0.07833259223831494,
+              "area_einstein_contraction": -1.496042311191559,
+              "held_volume_count_standardized": 1.909973791590006
+            },
+            "fixed_radius": {
+              "area_contrast": 0.1324225955212067,
+              "area_einstein_contraction": -2.5290852785110474,
+              "held_volume_count_standardized": 292.77552567509025
+            }
+          }
+        },
+        {
+          "prepared_sectional_curvature": 0.0,
+          "record": {
+            "regions": {
+              "volume_threshold": {
+                "radial_round_trip_ticks": 8388712,
+                "held_interior_count": 268425425,
+                "surface_count": 268464061
+              },
+              "fixed_radius": {
+                "radial_round_trip_ticks": 8388608,
+                "held_interior_count": 268406477,
+                "surface_count": 268410353
+              }
+            },
+            "triangle": {
+              "radial_ticks": 8388608,
+              "mirror_link_ticks": 11863283
+            }
+          },
+          "inferred": {
+            "radar_einstein_contraction": 2.4644550080665795e-06,
+            "volume_threshold": {
+              "area_contrast": 0.0004957185686681526,
+              "area_einstein_contraction": -0.009467527270317078,
+              "held_volume_count_standardized": -0.4329216383106847
+            },
+            "fixed_radius": {
+              "area_contrast": -0.0004932959763288863,
+              "area_einstein_contraction": 0.009421259164810182,
+              "held_volume_count_standardized": -1.2506864875491308
+            }
+          }
+        },
+        {
+          "prepared_sectional_curvature": 0.5,
+          "record": {
+            "regions": {
+              "volume_threshold": {
+                "radial_round_trip_ticks": 8459718,
+                "held_interior_count": 268373121,
+                "surface_count": 261648065
+              },
+              "fixed_radius": {
+                "radial_round_trip_ticks": 8388608,
+                "held_interior_count": 261826300,
+                "surface_count": 257407102
+              }
+            },
+            "triangle": {
+              "radial_ticks": 8388608,
+              "mirror_link_ticks": 11736977
+            }
+          },
+          "inferred": {
+            "radar_einstein_contraction": 1.524980081694082,
+            "volume_threshold": {
+              "area_contrast": -0.07927423164423299,
+              "area_einstein_contraction": 1.5140262991189957,
+              "held_volume_count_standardized": -2.690277173172817
+            },
+            "fixed_radius": {
+              "area_contrast": -0.12926813452524452,
+              "area_einstein_contraction": 2.468839511275292,
+              "held_volume_count_standardized": -285.24041903807114
+            }
+          }
+        },
+        {
+          "prepared_sectional_curvature": 1.0,
+          "record": {
+            "regions": {
+              "volume_threshold": {
+                "radial_round_trip_ticks": 8534656,
+                "held_interior_count": 268398004,
+                "surface_count": 254719332
+              },
+              "fixed_radius": {
+                "radial_round_trip_ticks": 8388608,
+                "held_interior_count": 255312248,
+                "surface_count": 246806638
+              }
+            },
+            "triangle": {
+              "radial_ticks": 8388608,
+              "mirror_link_ticks": 11605106
+            }
+          },
+          "inferred": {
+            "radar_einstein_contraction": 3.099730051691722,
+            "volume_threshold": {
+              "area_contrast": -0.16036358182115287,
+              "area_einstein_contraction": 3.062718808650971,
+              "held_volume_count_standardized": -1.6163673809203232
+            },
+            "fixed_radius": {
+              "area_contrast": -0.25332901799900986,
+              "area_einstein_contraction": 4.838227853178978,
+              "held_volume_count_standardized": -566.3763041822235
+            }
+          }
+        }
+      ]
+    },
+    {
+      "flat_radius": 0.25,
+      "count_budget": 68719476736,
+      "proper_clock_tick": 3.725290298461914e-09,
+      "flat_comparison": {
+        "regions": {
+          "volume_threshold": {
+            "radial_round_trip_ticks": 134217654,
+            "held_interior_count": 68718915190,
+            "surface_count": 68719095961
+          },
+          "fixed_radius": {
+            "radial_round_trip_ticks": 134217728,
+            "held_interior_count": 68719738907,
+            "surface_count": 68719490407
+          }
+        },
+        "triangle": {
+          "radial_ticks": 134217728,
+          "mirror_link_ticks": 189812531
+        }
+      },
+      "cases": [
+        {
+          "prepared_sectional_curvature": -1.0,
+          "record": {
+            "regions": {
+              "volume_threshold": {
+                "radial_round_trip_ticks": 133664518,
+                "held_interior_count": 68719769410,
+                "surface_count": 69573935906
+              },
+              "fixed_radius": {
+                "radial_round_trip_ticks": 134217728,
+                "held_interior_count": 69583537178,
+                "surface_count": 70163234881
+              }
+            },
+            "triangle": {
+              "radial_ticks": 134217728,
+              "mirror_link_ticks": 190790382
+            }
+          },
+          "inferred": {
+            "radar_einstein_contraction": -2.975003001883863,
+            "volume_threshold": {
+              "area_contrast": 0.009770006331408159,
+              "area_einstein_contraction": -2.9854940192308277,
+              "held_volume_count_standardized": 0.7894583514289535
+            },
+            "fixed_radius": {
+              "area_contrast": 0.016500624162942623,
+              "area_einstein_contraction": -5.042219327297062,
+              "held_volume_count_standardized": 2330.7151714067286
+            }
+          }
+        },
+        {
+          "prepared_sectional_curvature": -0.5,
+          "record": {
+            "regions": {
+              "volume_threshold": {
+                "radial_round_trip_ticks": 133939376,
+                "held_interior_count": 68719339795,
+                "surface_count": 69147911659
+              },
+              "fixed_radius": {
+                "radial_round_trip_ticks": 134217728,
+                "held_interior_count": 69150298056,
+                "surface_count": 69438612244
+              }
+            },
+            "triangle": {
+              "radial_ticks": 134217728,
+              "mirror_link_ticks": 190304139
+            }
+          },
+          "inferred": {
+            "radar_einstein_contraction": -1.4937515350032342,
+            "volume_threshold": {
+              "area_contrast": 0.00490095497873255,
+              "area_einstein_contraction": -1.4976215246133506,
+              "held_volume_count_standardized": -0.3693844212435417
+            },
+            "fixed_radius": {
+              "area_contrast": 0.008218877629243058,
+              "area_einstein_contraction": -2.511504002613947,
+              "held_volume_count_standardized": 1162.0966981954175
+            }
+          }
+        },
+        {
+          "prepared_sectional_curvature": 0.0,
+          "record": {
+            "regions": {
+              "volume_threshold": {
+                "radial_round_trip_ticks": 134217958,
+                "held_interior_count": 68719795733,
+                "surface_count": 68719214460
+              },
+              "fixed_radius": {
+                "radial_round_trip_ticks": 134217728,
+                "held_interior_count": 68719077465,
+                "surface_count": 68719597434
+              }
+            },
+            "triangle": {
+              "radial_ticks": 134217728,
+              "mirror_link_ticks": 189812531
+            }
+          },
+          "inferred": {
+            "radar_einstein_contraction": 7.541008457678799e-07,
+            "volume_threshold": {
+              "area_contrast": 1.354330699024056e-06,
+              "area_einstein_contraction": -0.0004138529766350985,
+              "held_volume_count_standardized": 0.8604619670034984
+            },
+            "fixed_radius": {
+              "area_contrast": 1.2232166661697366e-06,
+              "area_einstein_contraction": -0.00037378747947514057,
+              "held_volume_count_standardized": -1.0769929185147629
+            }
+          }
+        },
+        {
+          "prepared_sectional_curvature": 0.5,
+          "record": {
+            "regions": {
+              "volume_threshold": {
+                "radial_round_trip_ticks": 134498800,
+                "held_interior_count": 68719071898,
+                "surface_count": 68289092464
+              },
+              "fixed_radius": {
+                "radial_round_trip_ticks": 134217728,
+                "held_interior_count": 68291356049,
+                "surface_count": 68006905058
+              }
+            },
+            "triangle": {
+              "radial_ticks": 134217728,
+              "mirror_link_ticks": 189315518
+            }
+          },
+          "inferred": {
+            "radar_einstein_contraction": 1.506248432826137,
+            "volume_threshold": {
+              "area_contrast": -0.004914530389917202,
+              "area_einstein_contraction": 1.5017698646988722,
+              "held_volume_count_standardized": -1.0920093348770123
+            },
+            "fixed_radius": {
+              "area_contrast": -0.008144171797445301,
+              "area_einstein_contraction": 2.48867558198981,
+              "held_volume_count_standardized": -1154.8120153196082
+            }
+          }
+        },
+        {
+          "prepared_sectional_curvature": 1.0,
+          "record": {
+            "regions": {
+              "volume_threshold": {
+                "radial_round_trip_ticks": 134783324,
+                "held_interior_count": 68720099978,
+                "surface_count": 67856124416
+              },
+              "fixed_radius": {
+                "radial_round_trip_ticks": 134217728,
+                "held_interior_count": 67865459368,
+                "surface_count": 67299839573
+              }
+            },
+            "triangle": {
+              "radial_ticks": 134217728,
+              "mirror_link_ticks": 188813056
+            }
+          },
+          "inferred": {
+            "radar_einstein_contraction": 3.0249954773462377,
+            "volume_threshold": {
+              "area_contrast": -0.009862942774012604,
+              "area_einstein_contraction": 3.0138933041598652,
+              "held_volume_count_standardized": 1.6811319142161034
+            },
+            "fixed_radius": {
+              "area_contrast": -0.016225256807072666,
+              "area_einstein_contraction": 4.958073261659592,
+              "held_volume_count_standardized": -2303.62500062518
+            }
+          }
+        }
+      ]
+    },
+    {
+      "flat_radius": 0.125,
+      "count_budget": 17592186044416,
+      "proper_clock_tick": 1.1641532182693481e-10,
+      "flat_comparison": {
+        "regions": {
+          "volume_threshold": {
+            "radial_round_trip_ticks": 2147483651,
+            "held_interior_count": 17592184853429,
+            "surface_count": 17592182169273
+          },
+          "fixed_radius": {
+            "radial_round_trip_ticks": 2147483648,
+            "held_interior_count": 17592190217939,
+            "surface_count": 17592188036195
+          }
+        },
+        "triangle": {
+          "radial_ticks": 2147483648,
+          "mirror_link_ticks": 3037000500
+        }
+      },
+      "cases": [
+        {
+          "prepared_sectional_curvature": -1.0,
+          "record": {
+            "regions": {
+              "volume_threshold": {
+                "radial_round_trip_ticks": 2145252738,
+                "held_interior_count": 17592190095423,
+                "surface_count": 17647095512173
+              },
+              "fixed_radius": {
+                "radial_round_trip_ticks": 2147483648,
+                "held_interior_count": 17647240960182,
+                "surface_count": 17683998667245
+              }
+            },
+            "triangle": {
+              "radial_ticks": 2147483648,
+              "mirror_link_ticks": 3040944129
+            }
+          },
+          "inferred": {
+            "radar_einstein_contraction": -2.993750103418506,
+            "volume_threshold": {
+              "area_contrast": 0.0006128976602280191,
+              "area_einstein_contraction": -2.996603665451403,
+              "held_volume_count_standardized": 0.6829487133822851
+            },
+            "fixed_radius": {
+              "area_contrast": 0.001024714905029082,
+              "area_einstein_contraction": -5.010076950384246,
+              "held_volume_count_standardized": 9281.564778278533
+            }
+          }
+        },
+        {
+          "prepared_sectional_curvature": -0.5,
+          "record": {
+            "regions": {
+              "volume_threshold": {
+                "radial_round_trip_ticks": 2146366507,
+                "held_interior_count": 17592180293977,
+                "surface_count": 17619651189917
+              },
+              "fixed_radius": {
+                "radial_round_trip_ticks": 2147483648,
+                "held_interior_count": 17619687378965,
+                "surface_count": 17638046066107
+              }
+            },
+            "triangle": {
+              "radial_ticks": 2147483648,
+              "mirror_link_ticks": 3038975012
+            }
+          },
+          "inferred": {
+            "radar_einstein_contraction": -1.4984372125135508,
+            "volume_threshold": {
+              "area_contrast": 0.0003065866616811404,
+              "area_einstein_contraction": -1.4989757243165514,
+              "held_volume_count_standardized": -0.9694515256165478
+            },
+            "fixed_radius": {
+              "area_contrast": 0.0005118296893145676,
+              "area_einstein_contraction": -2.502458114322508,
+              "held_volume_count_standardized": 4636.378324336477
+            }
+          }
+        },
+        {
+          "prepared_sectional_curvature": 0.0,
+          "record": {
+            "regions": {
+              "volume_threshold": {
+                "radial_round_trip_ticks": 2147483891,
+                "held_interior_count": 17592190356115,
+                "surface_count": 17592184742378
+              },
+              "fixed_radius": {
+                "radial_round_trip_ticks": 2147483648,
+                "held_interior_count": 17592188902108,
+                "surface_count": 17592176009847
+              }
+            },
+            "triangle": {
+              "radial_ticks": 2147483648,
+              "mirror_link_ticks": 3037000500
+            }
+          },
+          "inferred": {
+            "radar_einstein_contraction": -1.8169657778344117e-08,
+            "volume_threshold": {
+              "area_contrast": 2.87188859890192e-08,
+              "area_einstein_contraction": -0.00014041352187632583,
+              "held_volume_count_standardized": 0.7268980983102931
+            },
+            "fixed_radius": {
+              "area_contrast": -1.3422822507292517e-07,
+              "area_einstein_contraction": 0.0006562739872606472,
+              "held_volume_count_standardized": 0.48177084725917513
+            }
+          }
+        },
+        {
+          "prepared_sectional_curvature": 0.5,
+          "record": {
+            "regions": {
+              "volume_threshold": {
+                "radial_round_trip_ticks": 2148603587,
+                "held_interior_count": 17592179602658,
+                "surface_count": 17564683306367
+              },
+              "fixed_radius": {
+                "radial_round_trip_ticks": 2147483648,
+                "held_interior_count": 17564717110028,
+                "surface_count": 17546421533131
+              }
+            },
+            "triangle": {
+              "radial_ticks": 2147483648,
+              "mirror_link_ticks": 3035020581
+            }
+          },
+          "inferred": {
+            "radar_einstein_contraction": 1.501562594413457,
+            "volume_threshold": {
+              "area_contrast": -0.0003069197365148656,
+              "area_einstein_contraction": 1.5006042070672265,
+              "held_volume_count_standardized": -1.0859991942793588
+            },
+            "fixed_radius": {
+              "area_contrast": -0.0005108081417630116,
+              "area_einstein_contraction": 2.497463523322949,
+              "held_volume_count_standardized": -4630.916065626894
+            }
+          }
+        },
+        {
+          "prepared_sectional_curvature": 1.0,
+          "record": {
+            "regions": {
+              "volume_threshold": {
+                "radial_round_trip_ticks": 2149726483,
+                "held_interior_count": 17592181639418,
+                "surface_count": 17537126792087
+              },
+              "fixed_radius": {
+                "radial_round_trip_ticks": 2147483648,
+                "held_interior_count": 17537289789678,
+                "surface_count": 17500757636902
+              }
+            },
+            "triangle": {
+              "radial_ticks": 2147483648,
+              "mirror_link_ticks": 3033035245
+            }
+          },
+          "inferred": {
+            "radar_einstein_contraction": 3.0062501791147014,
+            "volume_threshold": {
+              "area_contrast": -0.0006144829303457041,
+              "area_einstein_contraction": 3.0043544312866293,
+              "held_volume_count_standardized": -0.7426271335871647
+            },
+            "fixed_radius": {
+              "area_contrast": -0.0010204710702540973,
+              "area_einstein_contraction": 4.989327824278007,
+              "held_volume_count_standardized": -9254.816529031737
+            }
+          }
+        }
+      ]
+    },
+    {
+      "flat_radius": 0.0625,
+      "count_budget": 4503599627370496,
+      "proper_clock_tick": 3.637978807091713e-12,
+      "flat_comparison": {
+        "regions": {
+          "volume_threshold": {
+            "radial_round_trip_ticks": 34359738574,
+            "held_interior_count": 4503599787286789,
+            "surface_count": 4503599674199139
+          },
+          "fixed_radius": {
+            "radial_round_trip_ticks": 34359738368,
+            "held_interior_count": 4503599562425012,
+            "surface_count": 4503599566477623
+          }
+        },
+        "triangle": {
+          "radial_ticks": 34359738368,
+          "mirror_link_ticks": 48592008000
+        }
+      },
+      "cases": [
+        {
+          "prepared_sectional_curvature": -1.0,
+          "record": {
+            "regions": {
+              "volume_threshold": {
+                "radial_round_trip_ticks": 34350796658,
+                "held_interior_count": 4503599724432338,
+                "surface_count": 4507117014478619
+              },
+              "fixed_radius": {
+                "radial_round_trip_ticks": 34359738368,
+                "held_interior_count": 4507119305282855,
+                "surface_count": 4509466738943512
+              }
+            },
+            "triangle": {
+              "radial_ticks": 34359738368,
+              "mirror_link_ticks": 48607814901
+            }
+          },
+          "inferred": {
+            "radar_einstein_contraction": -2.9984374652224233,
+            "volume_threshold": {
+              "area_contrast": 3.83375636174224e-05,
+              "area_einstein_contraction": -2.9990647017370975,
+              "held_volume_count_standardized": 1.0227126877405828
+            },
+            "fixed_radius": {
+              "area_contrast": 6.394976880049334e-05,
+              "area_einstein_contraction": -5.002652130106925,
+              "held_volume_count_standardized": 37085.83294483363
+            }
+          }
+        },
+        {
+          "prepared_sectional_curvature": -0.5,
+          "record": {
+            "regions": {
+              "volume_threshold": {
+                "radial_round_trip_ticks": 34355266027,
+                "held_interior_count": 4503599687820949,
+                "surface_count": 4505358502732412
+              },
+              "fixed_radius": {
+                "radial_round_trip_ticks": 34359738368,
+                "held_interior_count": 4505359247582375,
+                "surface_count": 4506532384099434
+              }
+            },
+            "triangle": {
+              "radial_ticks": 34359738368,
+              "mirror_link_ticks": 48599914152
+            }
+          },
+          "inferred": {
+            "radar_einstein_contraction": -1.4996093174802354,
+            "volume_threshold": {
+              "area_contrast": 1.917050823313007e-05,
+              "area_einstein_contraction": -1.4996674053176662,
+              "held_volume_count_standardized": 0.6369490212514799
+            },
+            "fixed_radius": {
+              "area_contrast": 3.1966506854747435e-05,
+              "area_einstein_contraction": -2.5006707077844226,
+              "held_volume_count_standardized": 18540.611626692866
+            }
+          }
+        },
+        {
+          "prepared_sectional_curvature": 0.0,
+          "record": {
+            "regions": {
+              "volume_threshold": {
+                "radial_round_trip_ticks": 34359738292,
+                "held_interior_count": 4503599579423482,
+                "surface_count": 4503599558581712
+              },
+              "fixed_radius": {
+                "radial_round_trip_ticks": 34359738368,
+                "held_interior_count": 4503599652131990,
+                "surface_count": 4503599608601842
+              }
+            },
+            "triangle": {
+              "radial_ticks": 34359738368,
+              "mirror_link_ticks": 48592008000
+            }
+          },
+          "inferred": {
+            "radar_einstein_contraction": -7.267863111337647e-08,
+            "volume_threshold": {
+              "area_contrast": -1.260182442044102e-09,
+              "area_einstein_contraction": 9.858134745854842e-05,
+              "held_volume_count_standardized": -0.5052038839019288
+            },
+            "fixed_radius": {
+              "area_contrast": 4.591366764166146e-10,
+              "area_einstein_contraction": -3.591726937202111e-05,
+              "held_volume_count_standardized": 0.26090473413035287
+            }
+          }
+        },
+        {
+          "prepared_sectional_curvature": 0.5,
+          "record": {
+            "regions": {
+              "volume_threshold": {
+                "radial_round_trip_ticks": 34364213736,
+                "held_interior_count": 4503599625708228,
+                "surface_count": 4501840118900244
+              },
+              "fixed_radius": {
+                "radial_round_trip_ticks": 34359738368,
+                "held_interior_count": 4501840654687947,
+                "surface_count": 4500668250639197
+              }
+            },
+            "triangle": {
+              "radial_ticks": 34359738368,
+              "mirror_link_ticks": 48584096440
+            }
+          },
+          "inferred": {
+            "radar_einstein_contraction": 1.5003907171409878,
+            "volume_threshold": {
+              "area_contrast": -1.9178429679750102e-05,
+              "area_einstein_contraction": 1.500287082957641,
+              "held_volume_count_standardized": -0.0175148393951267
+            },
+            "fixed_radius": {
+              "area_contrast": -3.1950138032999396e-05,
+              "area_einstein_contraction": 2.4993902102545467,
+              "held_volume_count_standardized": -18533.7887965484
+            }
+          }
+        },
+        {
+          "prepared_sectional_curvature": 1.0,
+          "record": {
+            "regions": {
+              "volume_threshold": {
+                "radial_round_trip_ticks": 34368692040,
+                "held_interior_count": 4503599675658499,
+                "surface_count": 4500079890762191
+              },
+              "fixed_radius": {
+                "radial_round_trip_ticks": 34359738368,
+                "held_interior_count": 4500082567220057,
+                "surface_count": 4497738598831836
+              }
+            },
+            "triangle": {
+              "radial_ticks": 34359738368,
+              "mirror_link_ticks": 48576179472
+            }
+          },
+          "inferred": {
+            "radar_einstein_contraction": 3.0015625509854544,
+            "volume_threshold": {
+              "area_contrast": -3.8364193029823375e-05,
+              "area_einstein_contraction": 3.001147863086544,
+              "held_volume_count_standardized": 0.5087967868336492
+            },
+            "fixed_radius": {
+              "area_contrast": -6.38821388112134e-05,
+              "area_einstein_contraction": 4.997361582286715,
+              "held_volume_count_standardized": -37058.25034106367
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

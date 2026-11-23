@@ -1,0 +1,533 @@
+{
+  "outcome_order": [
+    "000",
+    "001",
+    "010",
+    "011",
+    "100",
+    "101",
+    "110",
+    "111"
+  ],
+  "preparations_per_setting": 4194304,
+  "central_difference_step": "1/64",
+  "feasible_joint_tangent_dimension": 4,
+  "equal_rail_and_unequal_rail_seam_energy": [
+    0.0,
+    32.5
+  ],
+  "exact_comparator_energy_slope_per_theta": -65.0,
+  "apparatus": [
+    {
+      "cells": 20,
+      "regional_cells": [
+        0,
+        1,
+        4
+      ],
+      "cut_ports": [
+        1,
+        14,
+        22,
+        24,
+        37,
+        50,
+        56,
+        68,
+        82,
+        94
+      ],
+      "occupied_region_loads": [
+        6,
+        6,
+        6
+      ],
+      "complete_material_word_count": 8,
+      "branches_per_mode_per_order": 128,
+      "owner_orders": 2,
+      "accessible_tables": [
+        [
+          "3/8",
+          "1/8",
+          "1/8",
+          "3/8"
+        ],
+        [
+          "3/8",
+          "1/8",
+          "1/8",
+          "3/8"
+        ]
+      ],
+      "common_cut_distribution": {
+        "0200020000": "1"
+      },
+      "joint_word_counts": {
+        "independent": [
+          36,
+          12,
+          12,
+          4,
+          4,
+          12,
+          12,
+          36
+        ],
+        "common": [
+          48,
+          0,
+          0,
+          16,
+          16,
+          0,
+          0,
+          48
+        ],
+        "disjoint": [
+          32,
+          16,
+          16,
+          0,
+          0,
+          16,
+          16,
+          32
+        ]
+      },
+      "routed_disagreement_counts": {
+        "independent": [
+          80,
+          48
+        ],
+        "common": [
+          128,
+          0
+        ],
+        "disjoint": [
+          64,
+          64
+        ]
+      }
+    },
+    {
+      "cells": 80,
+      "regional_cells": [
+        0,
+        3,
+        4
+      ],
+      "cut_ports": [
+        3,
+        22,
+        27,
+        36,
+        44,
+        48,
+        50,
+        87,
+        96,
+        192
+      ],
+      "occupied_region_loads": [
+        6,
+        6,
+        6
+      ],
+      "complete_material_word_count": 8,
+      "branches_per_mode_per_order": 128,
+      "owner_orders": 2,
+      "accessible_tables": [
+        [
+          "3/8",
+          "1/8",
+          "1/8",
+          "3/8"
+        ],
+        [
+          "3/8",
+          "1/8",
+          "1/8",
+          "3/8"
+        ]
+      ],
+      "common_cut_distribution": {
+        "0000002000": "1/2",
+        "2000002000": "1/2"
+      },
+      "joint_word_counts": {
+        "independent": [
+          36,
+          12,
+          12,
+          4,
+          4,
+          12,
+          12,
+          36
+        ],
+        "common": [
+          48,
+          0,
+          0,
+          16,
+          16,
+          0,
+          0,
+          48
+        ],
+        "disjoint": [
+          32,
+          16,
+          16,
+          0,
+          0,
+          16,
+          16,
+          32
+        ]
+      },
+      "routed_disagreement_counts": {
+        "independent": [
+          80,
+          48
+        ],
+        "common": [
+          128,
+          0
+        ],
+        "disjoint": [
+          64,
+          64
+        ]
+      }
+    },
+    {
+      "cells": 320,
+      "regional_cells": [
+        0,
+        3,
+        16
+      ],
+      "cut_ports": [
+        3,
+        22,
+        27,
+        36,
+        44,
+        192,
+        194,
+        231,
+        384,
+        768
+      ],
+      "occupied_region_loads": [
+        6,
+        6,
+        6
+      ],
+      "complete_material_word_count": 8,
+      "branches_per_mode_per_order": 128,
+      "owner_orders": 2,
+      "accessible_tables": [
+        [
+          "3/8",
+          "1/8",
+          "1/8",
+          "3/8"
+        ],
+        [
+          "3/8",
+          "1/8",
+          "1/8",
+          "3/8"
+        ]
+      ],
+      "common_cut_distribution": {
+        "0000002000": "1/2",
+        "2000002000": "1/2"
+      },
+      "joint_word_counts": {
+        "independent": [
+          36,
+          12,
+          12,
+          4,
+          4,
+          12,
+          12,
+          36
+        ],
+        "common": [
+          48,
+          0,
+          0,
+          16,
+          16,
+          0,
+          0,
+          48
+        ],
+        "disjoint": [
+          32,
+          16,
+          16,
+          0,
+          0,
+          16,
+          16,
+          32
+        ]
+      },
+      "routed_disagreement_counts": {
+        "independent": [
+          80,
+          48
+        ],
+        "common": [
+          128,
+          0
+        ],
+        "disjoint": [
+          64,
+          64
+        ]
+      }
+    }
+  ],
+  "acquisitions": [
+    {
+      "cells": 20,
+      "theta": "1/16",
+      "exact_entropy_slope": -2.220446049250313e-16,
+      "finite_entropy_slope": 0.008426990281407143,
+      "measured_entropy_slope": 0.020293123106945643,
+      "entropy_slope_standard_error": 0.014853045801174566,
+      "joint_minus_counts": [
+        1147809,
+        425310,
+        425519,
+        99059,
+        98064,
+        425300,
+        426453,
+        1146790
+      ],
+      "joint_plus_counts": [
+        1211588,
+        360449,
+        361405,
+        164340,
+        164142,
+        360062,
+        359771,
+        1212547
+      ],
+      "exact_routed_mismatch_slope": -2.0,
+      "measured_routed_mismatch_slope": -1.9983367919921875,
+      "routed_slope_standard_error": 0.010675396049353246,
+      "routed_minus_counts": [
+        2489846,
+        1704458
+      ],
+      "routed_plus_counts": [
+        2751772,
+        1442532
+      ]
+    },
+    {
+      "cells": 20,
+      "theta": "1/8",
+      "exact_entropy_slope": -1.6094379124341003,
+      "finite_entropy_slope": -1.6119501915908074,
+      "measured_entropy_slope": -1.5891150368433955,
+      "entropy_slope_standard_error": 0.01721622274686314,
+      "joint_minus_counts": [
+        1278304,
+        295255,
+        293913,
+        229637,
+        229335,
+        294775,
+        294233,
+        1278852
+      ],
+      "joint_plus_counts": [
+        1343452,
+        230122,
+        229336,
+        295605,
+        294496,
+        229089,
+        229405,
+        1342799
+      ],
+      "exact_routed_mismatch_slope": -2.0,
+      "measured_routed_mismatch_slope": -2.0081710815429688,
+      "routed_slope_standard_error": 0.009543369280123079,
+      "routed_minus_counts": [
+        3013203,
+        1181101
+      ],
+      "routed_plus_counts": [
+        3276418,
+        917886
+      ]
+    },
+    {
+      "cells": 80,
+      "theta": "1/16",
+      "exact_entropy_slope": -2.220446049250313e-16,
+      "finite_entropy_slope": 0.008426990281407143,
+      "measured_entropy_slope": 0.02307118349427384,
+      "entropy_slope_standard_error": 0.014853045801174566,
+      "joint_minus_counts": [
+        1147820,
+        425747,
+        426202,
+        97931,
+        98263,
+        425973,
+        426014,
+        1146354
+      ],
+      "joint_plus_counts": [
+        1213925,
+        361037,
+        359780,
+        164126,
+        163945,
+        360360,
+        360716,
+        1210415
+      ],
+      "exact_routed_mismatch_slope": -2.0,
+      "measured_routed_mismatch_slope": -1.9941253662109375,
+      "routed_slope_standard_error": 0.010675396049353246,
+      "routed_minus_counts": [
+        2490337,
+        1703967
+      ],
+      "routed_plus_counts": [
+        2751711,
+        1442593
+      ]
+    },
+    {
+      "cells": 80,
+      "theta": "1/8",
+      "exact_entropy_slope": -1.6094379124341003,
+      "finite_entropy_slope": -1.6119501915908074,
+      "measured_entropy_slope": -1.6453247016296544,
+      "entropy_slope_standard_error": 0.01721622274686314,
+      "joint_minus_counts": [
+        1277012,
+        295553,
+        294149,
+        229712,
+        230141,
+        294141,
+        295194,
+        1278402
+      ],
+      "joint_plus_counts": [
+        1344493,
+        229049,
+        229237,
+        294003,
+        294778,
+        229299,
+        228901,
+        1344544
+      ],
+      "exact_routed_mismatch_slope": -2.0,
+      "measured_routed_mismatch_slope": -1.9887542724609375,
+      "routed_slope_standard_error": 0.009543369280123079,
+      "routed_minus_counts": [
+        3015395,
+        1178909
+      ],
+      "routed_plus_counts": [
+        3276065,
+        918239
+      ]
+    },
+    {
+      "cells": 320,
+      "theta": "1/16",
+      "exact_entropy_slope": -2.220446049250313e-16,
+      "finite_entropy_slope": 0.008426990281407143,
+      "measured_entropy_slope": 0.0024181580949900194,
+      "entropy_slope_standard_error": 0.014853045801174566,
+      "joint_minus_counts": [
+        1148553,
+        426063,
+        425858,
+        98038,
+        98195,
+        426429,
+        425462,
+        1145706
+      ],
+      "joint_plus_counts": [
+        1213247,
+        360054,
+        360782,
+        163557,
+        163797,
+        359746,
+        360237,
+        1212884
+      ],
+      "exact_routed_mismatch_slope": -2.0,
+      "measured_routed_mismatch_slope": -1.999481201171875,
+      "routed_slope_standard_error": 0.010675396049353246,
+      "routed_minus_counts": [
+        2490206,
+        1704098
+      ],
+      "routed_plus_counts": [
+        2752282,
+        1442022
+      ]
+    },
+    {
+      "cells": 320,
+      "theta": "1/8",
+      "exact_entropy_slope": -1.6094379124341003,
+      "finite_entropy_slope": -1.6119501915908074,
+      "measured_entropy_slope": -1.5841679773986286,
+      "entropy_slope_standard_error": 0.01721622274686314,
+      "joint_minus_counts": [
+        1278666,
+        294529,
+        294832,
+        229354,
+        230029,
+        293971,
+        294278,
+        1278645
+      ],
+      "joint_plus_counts": [
+        1343233,
+        228723,
+        229608,
+        294909,
+        296317,
+        229924,
+        229030,
+        1342560
+      ],
+      "exact_routed_mismatch_slope": -2.0,
+      "measured_routed_mismatch_slope": -1.9923324584960938,
+      "routed_slope_standard_error": 0.009543369280123079,
+      "routed_minus_counts": [
+        3015672,
+        1178632
+      ],
+      "routed_plus_counts": [
+        3276811,
+        917493
+      ]
+    }
+  ]
+}

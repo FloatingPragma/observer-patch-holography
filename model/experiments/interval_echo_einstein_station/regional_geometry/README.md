@@ -1,0 +1,26 @@
+# Holding a measured tetrahedral volume fixed
+
+Four stations on two neighbouring cells can assign a positive tetrahedral volume and surface area from their clocked first-return distances. An observer changes the correlations of two written source registers while preserving the probabilities of each register separately. Calibrating that change to hold the first-return volume fixed to first order on 20 cells gives a regional source-register entropy slope of **+0.0917051 nats**. An independent sharp-word acquisition gave **+0.091654 ± 0.000277 nats** per unit mixture, with one first-order standard error. The surface area inferred from first returns increases. Its derivative on the 20-cell screen is **+1.826 × 10⁻⁷ squared hand units**. Hence any positive multiplier of this area adds to the measured entropy slope for this preparation. [Design](DESIGN.md) · [Source counts, ranging probabilities and clock moments](results.json)
+
+| Screen | First-return log-volume slope | Free-pulse log-volume slope | First-return withheld range error | Free-pulse withheld range error |
+| ---: | ---: | ---: | ---: | ---: |
+| 20 cells | zero by calibration | +2.97542 × 10⁻⁷ | 51.18% | 66.85% |
+| 80 cells | +8.42 × 10⁻¹⁴ | +2.97543 × 10⁻⁷ | 51.18% | 66.85% |
+| 320 cells | +8.42 × 10⁻¹⁴ | +2.97543 × 10⁻⁷ | 51.18% | 66.85% |
+
+All three screens use the source mixture calibrated on the first. The two volume slopes are fractional changes per unit mixture, so calibrating the units of the two rulers to agree at the reference leaves the discrepancy intact. The geometric slopes are calculated from complete finite observer-outcome probabilities. The simulated finite samples in this experiment measure the source charge. The area and volume numbers carry no claim of finite-shot detection of these small derivatives.
+
+## How the clocks, areas and source are compared
+
+The source uses the existing three physically prepared words with contact energies 0, 32 and 33. Let $F$ cycle the word order, with first row $(0,1,0)$. At the reference the nine word probabilities form $(4I+6F+2F^T)/36$. The first tangent is $(F^T-F)/36$, and the second is $(2I-F-F^T)/36$. The two weights calibrated from the six first-return distance derivatives are +0.999979 and −0.00650848. A regional observer reads the ordered source words on fresh preparations. Their common reference determines the score $-\log p_{ij}$, whose expectation change is the first derivative of the word-register entropy. Each arm preserves the two marginal distributions and the mean stored energy. The mixture of the two words persists through the outward and return legs. [Native word preparation and sharp read](../backreaction.py)
+
+For one ruler, source and receiver make repeated occupancy reads, fail or turn around at a detected hit, then measure the material hand on reunion. For the other ruler, they prepare a fresh pulse at each appointment, make a single terminal detection and take the clock centroid of the arrivals. The enrolled appointments are uniformly weighted. Both probability laws retain missed detections. The six distances on either menu determine the Gram matrix of the same four labelled vertices. The square root of its determinant divided by six gives the volume, and the three-vertex submatrices give the four triangular face areas. Two further station locations are inferred from their four anchor ranges. Their mutual range is withheld. On the smallest board the first-return chart predicts 1.6501 hand units against 3.3799 observed. The free-pulse chart predicts 1.0312 against 3.1111. A planted Euclidean tetrahedron recovers the held path, and uniform rescaling gives the required cubic volume and quadratic area response. [Readout and derivatives](measure.py) · [Decoder controls](test_geometry.py)
+
+Removing the resident load keeps the source words and moving tracer while making the entire travel law independent of the chosen word. Restoring the stored energy during double occupancy in the comparison law gives the same source-independent responses. Both changes give zero area and volume derivatives on either menu. The native 20-cell derivatives are independently checked by projected Chebyshev evolution for the return ruler and dense unitary powers for the free-pulse ruler.
+
+The experiment holds one operational volume fixed and shows that the result depends on the ruler. The withheld distances independently expose the failure of a common flat chart. The four vertices supply neither a physical cap identification nor evidence that their inferred tetrahedron encloses the written registers in proper geometry. The tested two-term combination of register entropy and first-return area fails stationarity for a positive area coefficient. Establishing G4 still requires an observer-calibrated proper volume, a physical boundary area and a vacuum identified independently of this preparation.
+
+```sh
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 .venv/bin/python -m model.experiments.interval_echo_einstein_station.regional_geometry.measure
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 .venv/bin/python -m pytest -q model/experiments/interval_echo_einstein_station/regional_geometry
+```

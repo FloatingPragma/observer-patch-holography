@@ -2,6 +2,10 @@
 
 A one-cell Interval Echo observer resolves an entropy change carried entirely by coherence between two of its ports. A double crosses a real intercell contact during the preparation. Every endpoint and memory on the three seams crossing the cell boundary has the same terminal joint state for all the tested preparations. Consequently any area reading derived from those instantaneous registers has zero variation, while the entropy of the cell changes. [Frozen protocol](PROTOCOL.md) · [Full probabilities, apparatus and block counts](results.json)
 
+## Does the repair force stationary entropy?
+
+Independent native repair coins maximize the joint entropy of a three-cell record. Correlating the coins preserves both owners’ records and changes the entropy. Free orbital mixtures give an entropy change invisible throughout a passive exterior history. A first-return ruler and a free-pulse ruler also disagree about which perturbation preserves regional volume. [Constrained equilibrium](repair_stationarity/README.md) · [Free orbital variations](hidden_entropy/README.md) · [Regional geometry](regional_geometry/README.md)
+
 ## What the patch measures
 
 Cell zero on the 20-cell sphere uses internal ports A = 1, B = 0, spare port D = 5 and detector vacancy 7. A connects to port C = 82 in the neighbouring cell. A supplied sharp source puts a double at A, B or C with probabilities 4p/5, 4(1−p)/5 and 1/5. A native half contact splits A and B, then a π/3 contact transfers amplitude across A–C. The contact and detector use the registered 99-state contrast-memory generator and echo. The measurement uses four settings on fresh preparations. Two record A or B directly. Two combine an internal contact and a final occupancy read to reveal different components of the A–B coherence. At every setting the reader uses only ports of its own cell and retains quiet outcomes. The 80- and 320-cell embeddings exercise the same apparatus and local incidence. The finite samples below use one 20-cell realization of the design.
