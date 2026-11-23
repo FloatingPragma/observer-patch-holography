@@ -1,0 +1,3111 @@
+{
+  "protocol_sha256": "b58a7eeff34d4f1e86be1f5001a004eaf6d9403323d71eeb457c38fe65211cf5",
+  "shots": 268435456,
+  "seed": 861221,
+  "outcomes": [
+    "outside_in_band",
+    "outside_in_complement",
+    "home"
+  ],
+  "centre_outcomes": [
+    "outside_dark",
+    "outside_bright",
+    "home"
+  ],
+  "simultaneous_99_percent_probability_radius": 0.00015083243642168863,
+  "calibration": {
+    "triplet_energy": 1.3819660112501044,
+    "sharp_port_colour_fraction": 0.25,
+    "compiled_centre_error": 7.831896976595552e-05,
+    "pulse_subdivisions": 512
+  },
+  "boards": [
+    {
+      "cells": 20,
+      "constraints": {
+        "bridges": 30,
+        "cells_with_antipodal_gateways": 0,
+        "locally_forced_bridges": 30,
+        "empty_background_undecided_components": [],
+        "largest_possible_flow_component_for_signed_sectors": 1,
+        "largest_diameter_in_unconstrained_edges": 0
+      },
+      "arms": {
+        "one_load": [
+          {
+            "exposure": 0.0625,
+            "source": "projected_gateway",
+            "outside_probability": 0.0007632758281621749,
+            "outside_colour_probability": 0.00019066335600229293,
+            "colour_given_arrival": 0.2497961404874756,
+            "centre_dark_probability": 0.00014299580487940177,
+            "energy_read": [
+              51330,
+              153511,
+              268230615
+            ],
+            "centre_read": [
+              38745,
+              166363,
+              268230348
+            ]
+          },
+          {
+            "exposure": 0.0625,
+            "source": "uniform_cell",
+            "outside_probability": 0.00024307000324697668,
+            "outside_colour_probability": 6.083694041509302e-05,
+            "colour_given_arrival": 0.2502856773868485,
+            "centre_dark_probability": 4.5627381483368964e-05,
+            "energy_read": [
+              16371,
+              48838,
+              268370247
+            ],
+            "centre_read": [
+              12089,
+              52696,
+              268370671
+            ]
+          },
+          {
+            "exposure": 0.125,
+            "source": "projected_gateway",
+            "outside_probability": 0.003032902091943451,
+            "outside_colour_probability": 0.000755735679140385,
+            "colour_given_arrival": 0.24917905564703463,
+            "centre_dark_probability": 0.00056679497363735,
+            "energy_read": [
+              202645,
+              611804,
+              267621007
+            ],
+            "centre_read": [
+              152137,
+              661423,
+              267621896
+            ]
+          },
+          {
+            "exposure": 0.125,
+            "source": "uniform_cell",
+            "outside_probability": 0.0009595406153747433,
+            "outside_colour_probability": 0.00024098843999773923,
+            "colour_given_arrival": 0.2511498066224352,
+            "centre_dark_probability": 0.00018074004747376177,
+            "energy_read": [
+              64736,
+              192772,
+              268177948
+            ],
+            "centre_read": [
+              48529,
+              209688,
+              268177239
+            ]
+          },
+          {
+            "exposure": 0.25,
+            "source": "projected_gateway",
+            "outside_probability": 0.011818760477496122,
+            "outside_colour_probability": 0.0029148484598903773,
+            "colour_given_arrival": 0.246628947717528,
+            "centre_dark_probability": 0.002186110182986955,
+            "energy_read": [
+              783282,
+              2386846,
+              265265328
+            ],
+            "centre_read": [
+              587559,
+              2585982,
+              265261915
+            ]
+          },
+          {
+            "exposure": 0.25,
+            "source": "uniform_cell",
+            "outside_probability": 0.003640695998741189,
+            "outside_colour_probability": 0.000927339699828956,
+            "colour_given_arrival": 0.2547149501495302,
+            "centre_dark_probability": 0.0006954998437236384,
+            "energy_read": [
+              249404,
+              728062,
+              267457990
+            ],
+            "centre_read": [
+              185724,
+              790568,
+              267459164
+            ]
+          },
+          {
+            "exposure": 0.5,
+            "source": "projected_gateway",
+            "outside_probability": 0.04288314947212642,
+            "outside_colour_probability": 0.010085528785034544,
+            "colour_given_arrival": 0.23518628900123179,
+            "centre_dark_probability": 0.0075640562129787375,
+            "energy_read": [
+              2707517,
+              8804800,
+              256923139
+            ],
+            "centre_read": [
+              2030333,
+              9486924,
+              256918199
+            ]
+          },
+          {
+            "exposure": 0.5,
+            "source": "uniform_cell",
+            "outside_probability": 0.011781777721200263,
+            "outside_colour_probability": 0.0031911191608638215,
+            "colour_given_arrival": 0.27085209349364026,
+            "centre_dark_probability": 0.0023933224932402306,
+            "energy_read": [
+              855715,
+              2307919,
+              265271822
+            ],
+            "centre_read": [
+              642633,
+              2516482,
+              265276341
+            ]
+          },
+          {
+            "exposure": 1.0,
+            "source": "projected_gateway",
+            "outside_probability": 0.1299614021732442,
+            "outside_colour_probability": 0.022939232370813047,
+            "colour_given_arrival": 0.17650803998124037,
+            "centre_dark_probability": 0.017204219750016306,
+            "energy_read": [
+              6154262,
+              28735795,
+              233545399
+            ],
+            "centre_read": [
+              4615896,
+              30258238,
+              233561322
+            ]
+          },
+          {
+            "exposure": 1.0,
+            "source": "uniform_cell",
+            "outside_probability": 0.020714474990875868,
+            "outside_colour_probability": 0.007715293850152658,
+            "colour_given_arrival": 0.3724590583903779,
+            "centre_dark_probability": 0.005786432100367525,
+            "energy_read": [
+              2074073,
+              3490659,
+              262870724
+            ],
+            "centre_read": [
+              1553723,
+              4007903,
+              262873830
+            ]
+          },
+          {
+            "exposure": 2.0,
+            "source": "projected_gateway",
+            "outside_probability": 0.39155548979122745,
+            "outside_colour_probability": 0.014390774840001721,
+            "colour_given_arrival": 0.03675283635449653,
+            "centre_dark_probability": 0.010792951758642134,
+            "energy_read": [
+              3864300,
+              101235711,
+              163335445
+            ],
+            "centre_read": [
+              2897359,
+              102212972,
+              163325125
+            ]
+          },
+          {
+            "exposure": 2.0,
+            "source": "uniform_cell",
+            "outside_probability": 0.03480125153347921,
+            "outside_colour_probability": 0.01739893755071674,
+            "colour_given_arrival": 0.499951489789922,
+            "centre_dark_probability": 0.013049148047517464,
+            "energy_read": [
+              4668718,
+              4671672,
+              259095066
+            ],
+            "centre_read": [
+              3505634,
+              5840600,
+              259089222
+            ]
+          },
+          {
+            "exposure": 4.0,
+            "source": "projected_gateway",
+            "outside_probability": 0.5843551398030731,
+            "outside_colour_probability": 0.019758179755882434,
+            "colour_given_arrival": 0.033811937998082665,
+            "centre_dark_probability": 0.014818393815695812,
+            "energy_read": [
+              5301289,
+              151562467,
+              111571700
+            ],
+            "centre_read": [
+              3975990,
+              152901995,
+              111557471
+            ]
+          },
+          {
+            "exposure": 4.0,
+            "source": "uniform_cell",
+            "outside_probability": 0.05808120636867149,
+            "outside_colour_probability": 0.003558187418817548,
+            "colour_given_arrival": 0.06126228501921757,
+            "centre_dark_probability": 0.0026686645882809676,
+            "energy_read": [
+              954530,
+              14639868,
+              252841058
+            ],
+            "centre_read": [
+              716727,
+              14871676,
+              252847053
+            ]
+          }
+        ],
+        "vacancy": [
+          {
+            "exposure": 0.0625,
+            "source": "projected_gateway",
+            "outside_probability": 0.0007680106681131467,
+            "outside_colour_probability": 0.00018844007317361355,
+            "colour_given_arrival": 0.24536127035393177,
+            "centre_dark_probability": 0.00014132836906403183,
+            "energy_read": [
+              50526,
+              154896,
+              268230034
+            ],
+            "centre_read": [
+              38007,
+              168417,
+              268229032
+            ]
+          },
+          {
+            "exposure": 0.0625,
+            "source": "uniform_cell",
+            "outside_probability": 0.00023121311642824096,
+            "outside_colour_probability": 5.6632378051648535e-05,
+            "colour_given_arrival": 0.2449358363681971,
+            "centre_dark_probability": 4.2473982553644964e-05,
+            "energy_read": [
+              15236,
+              46589,
+              268373631
+            ],
+            "centre_read": [
+              11361,
+              50606,
+              268373489
+            ]
+          },
+          {
+            "exposure": 0.125,
+            "source": "projected_gateway",
+            "outside_probability": 0.0031002600804131367,
+            "outside_colour_probability": 0.0007265061323428064,
+            "colour_given_arrival": 0.23433715672202352,
+            "centre_dark_probability": 0.0005448731490504297,
+            "energy_read": [
+              195149,
+              638132,
+              267602175
+            ],
+            "centre_read": [
+              145897,
+              687289,
+              267602270
+            ]
+          },
+          {
+            "exposure": 0.125,
+            "source": "uniform_cell",
+            "outside_probability": 0.0008062048200321658,
+            "outside_colour_probability": 0.0001864419038280568,
+            "colour_given_arrival": 0.2312587312745391,
+            "centre_dark_probability": 0.0001398304382886688,
+            "energy_read": [
+              49954,
+              165928,
+              268219574
+            ],
+            "centre_read": [
+              37736,
+              179493,
+              268218227
+            ]
+          },
+          {
+            "exposure": 0.25,
+            "source": "projected_gateway",
+            "outside_probability": 0.012528597655961024,
+            "outside_colour_probability": 0.0027250655327470293,
+            "colour_given_arrival": 0.21750762595927575,
+            "centre_dark_probability": 0.0020437749163042646,
+            "energy_read": [
+              730585,
+              2634646,
+              265070225
+            ],
+            "centre_read": [
+              550017,
+              2812906,
+              265072533
+            ]
+          },
+          {
+            "exposure": 0.25,
+            "source": "uniform_cell",
+            "outside_probability": 0.0026427180607256086,
+            "outside_colour_probability": 0.0005587171719826065,
+            "colour_given_arrival": 0.21141762350131288,
+            "centre_dark_probability": 0.0004190348429313446,
+            "energy_read": [
+              149287,
+              558891,
+              267727278
+            ],
+            "centre_read": [
+              112331,
+              596827,
+              267726298
+            ]
+          },
+          {
+            "exposure": 0.5,
+            "source": "projected_gateway",
+            "outside_probability": 0.04873356488724418,
+            "outside_colour_probability": 0.011012140496525196,
+            "colour_given_arrival": 0.22596624158327439,
+            "centre_dark_probability": 0.008259009049019349,
+            "energy_read": [
+              2958667,
+              10127430,
+              255349359
+            ],
+            "centre_read": [
+              2216200,
+              10865867,
+              255353389
+            ]
+          },
+          {
+            "exposure": 0.5,
+            "source": "uniform_cell",
+            "outside_probability": 0.011293190738544418,
+            "outside_colour_probability": 0.0024697841241460437,
+            "colour_given_arrival": 0.21869675110653225,
+            "centre_dark_probability": 0.0018523251037933458,
+            "energy_read": [
+              663135,
+              2372342,
+              265399979
+            ],
+            "centre_read": [
+              496434,
+              2535573,
+              265403449
+            ]
+          },
+          {
+            "exposure": 1.0,
+            "source": "projected_gateway",
+            "outside_probability": 0.18169567511255752,
+            "outside_colour_probability": 0.04026324236315945,
+            "colour_given_arrival": 0.22159714224467383,
+            "centre_dark_probability": 0.030197093912599275,
+            "energy_read": [
+              10812343,
+              37957529,
+              219665584
+            ],
+            "centre_read": [
+              8106993,
+              40667472,
+              219660991
+            ]
+          },
+          {
+            "exposure": 1.0,
+            "source": "uniform_cell",
+            "outside_probability": 0.04140819056056503,
+            "outside_colour_probability": 0.009049344819141186,
+            "colour_given_arrival": 0.21853997232516853,
+            "centre_dark_probability": 0.006786961520229346,
+            "energy_read": [
+              2429883,
+              8682514,
+              257323059
+            ],
+            "centre_read": [
+              1823390,
+              9292366,
+              257319700
+            ]
+          },
+          {
+            "exposure": 2.0,
+            "source": "projected_gateway",
+            "outside_probability": 0.5407600805358727,
+            "outside_colour_probability": 0.12093703203366978,
+            "colour_given_arrival": 0.22364267701459356,
+            "centre_dark_probability": 0.09070191955795581,
+            "energy_read": [
+              32457493,
+              112704823,
+              123273140
+            ],
+            "centre_read": [
+              24337957,
+              120811017,
+              123286482
+            ]
+          },
+          {
+            "exposure": 2.0,
+            "source": "uniform_cell",
+            "outside_probability": 0.1264979997800622,
+            "outside_colour_probability": 0.027153062469685362,
+            "colour_given_arrival": 0.21465210925781808,
+            "centre_dark_probability": 0.020364672515865084,
+            "energy_read": [
+              7283285,
+              26666920,
+              234485251
+            ],
+            "centre_read": [
+              5467983,
+              28489290,
+              234478183
+            ]
+          },
+          {
+            "exposure": 4.0,
+            "source": "projected_gateway",
+            "outside_probability": 0.7995459833786722,
+            "outside_colour_probability": 0.17797788897203196,
+            "colour_given_arrival": 0.2225986905968109,
+            "centre_dark_probability": 0.1334817135328556,
+            "energy_read": [
+              47781361,
+              166855896,
+              53798199
+            ],
+            "centre_read": [
+              35837802,
+              178786047,
+              53811607
+            ]
+          },
+          {
+            "exposure": 4.0,
+            "source": "uniform_cell",
+            "outside_probability": 0.1626473749355759,
+            "outside_colour_probability": 0.03449763922562507,
+            "colour_given_arrival": 0.21210080543439125,
+            "centre_dark_probability": 0.025873056125355127,
+            "energy_read": [
+              9261304,
+              34398234,
+              224775918
+            ],
+            "centre_read": [
+              6947846,
+              36711823,
+              224775787
+            ]
+          }
+        ],
+        "excess": [
+          {
+            "exposure": 0.0625,
+            "source": "projected_gateway",
+            "outside_probability": 0.0007586155037883767,
+            "outside_colour_probability": 0.00019293314592393437,
+            "colour_given_arrival": 0.2543227036100161,
+            "centre_dark_probability": 0.00014469811993210625,
+            "energy_read": [
+              51840,
+              151982,
+              268231634
+            ],
+            "centre_read": [
+              38900,
+              164340,
+              268232216
+            ]
+          },
+          {
+            "exposure": 0.0625,
+            "source": "uniform_cell",
+            "outside_probability": 0.0002553214267267696,
+            "outside_colour_probability": 6.518048757457548e-05,
+            "colour_given_arrival": 0.2552879654880196,
+            "centre_dark_probability": 4.8885018069724086e-05,
+            "energy_read": [
+              17441,
+              51068,
+              268366947
+            ],
+            "centre_read": [
+              13012,
+              55306,
+              268367138
+            ]
+          },
+          {
+            "exposure": 0.125,
+            "source": "projected_gateway",
+            "outside_probability": 0.0029701458256952504,
+            "outside_colour_probability": 0.0007877241118816716,
+            "colour_given_arrival": 0.26521395180900975,
+            "centre_dark_probability": 0.0005907859014953571,
+            "energy_read": [
+              210771,
+              585652,
+              267639033
+            ],
+            "centre_read": [
+              158578,
+              640197,
+              267636681
+            ]
+          },
+          {
+            "exposure": 0.125,
+            "source": "uniform_cell",
+            "outside_probability": 0.0011349081372174533,
+            "outside_colour_probability": 0.000303231262639871,
+            "colour_given_arrival": 0.2671857330967137,
+            "centre_dark_probability": 0.00022742181953029622,
+            "energy_read": [
+              81251,
+              223400,
+              268130805
+            ],
+            "centre_read": [
+              61200,
+              244287,
+              268129969
+            ]
+          },
+          {
+            "exposure": 0.25,
+            "source": "projected_gateway",
+            "outside_probability": 0.011361853621072098,
+            "outside_colour_probability": 0.0032364192862850477,
+            "colour_given_arrival": 0.28484958477925376,
+            "centre_dark_probability": 0.0024272839867718133,
+            "energy_read": [
+              868221,
+              2181248,
+              265385987
+            ],
+            "centre_read": [
+              651321,
+              2396379,
+              265387756
+            ]
+          },
+          {
+            "exposure": 0.25,
+            "source": "uniform_cell",
+            "outside_probability": 0.005452155394948842,
+            "outside_colour_probability": 0.0015679142545978757,
+            "colour_given_arrival": 0.2875769564547761,
+            "centre_dark_probability": 0.0011759270371710787,
+            "energy_read": [
+              420472,
+              1040885,
+              266974099
+            ],
+            "centre_read": [
+              314900,
+              1147269,
+              266973287
+            ]
+          },
+          {
+            "exposure": 0.5,
+            "source": "projected_gateway",
+            "outside_probability": 0.04520494145576473,
+            "outside_colour_probability": 0.012441469516890282,
+            "colour_given_arrival": 0.27522366175531665,
+            "centre_dark_probability": 0.00933098647140822,
+            "energy_read": [
+              3337653,
+              8795874,
+              256301929
+            ],
+            "centre_read": [
+              2503628,
+              9627085,
+              256304743
+            ]
+          },
+          {
+            "exposure": 0.5,
+            "source": "uniform_cell",
+            "outside_probability": 0.020063597006239338,
+            "outside_colour_probability": 0.005663722734709827,
+            "colour_given_arrival": 0.28228850155575463,
+            "centre_dark_probability": 0.004247759909039339,
+            "energy_read": [
+              1520163,
+              3867583,
+              263047710
+            ],
+            "centre_read": [
+              1138656,
+              4248147,
+              263048653
+            ]
+          },
+          {
+            "exposure": 1.0,
+            "source": "projected_gateway",
+            "outside_probability": 0.1664416383839549,
+            "outside_colour_probability": 0.046498423500687516,
+            "colour_given_arrival": 0.27936773485384053,
+            "centre_dark_probability": 0.03487340677143343,
+            "energy_read": [
+              12480575,
+              32197112,
+              223757769
+            ],
+            "centre_read": [
+              9359978,
+              35308168,
+              223767310
+            ]
+          },
+          {
+            "exposure": 1.0,
+            "source": "uniform_cell",
+            "outside_probability": 0.07563533364271292,
+            "outside_colour_probability": 0.021289635291233035,
+            "colour_given_arrival": 0.28147737658964084,
+            "centre_dark_probability": 0.015967108649772875,
+            "energy_read": [
+              5717247,
+              14595593,
+              248122616
+            ],
+            "centre_read": [
+              4285266,
+              16018198,
+              248131992
+            ]
+          },
+          {
+            "exposure": 2.0,
+            "source": "projected_gateway",
+            "outside_probability": 0.4902303497438489,
+            "outside_colour_probability": 0.13689086042236284,
+            "colour_given_arrival": 0.2792378327736949,
+            "centre_dark_probability": 0.10266706849445972,
+            "energy_read": [
+              36749388,
+              94851393,
+              136834675
+            ],
+            "centre_read": [
+              27561602,
+              104043094,
+              136830760
+            ]
+          },
+          {
+            "exposure": 2.0,
+            "source": "uniform_cell",
+            "outside_probability": 0.234560004278444,
+            "outside_colour_probability": 0.06722429254636234,
+            "colour_given_arrival": 0.28659742206757893,
+            "centre_dark_probability": 0.05041787402046061,
+            "energy_read": [
+              18051159,
+              44909489,
+              205474808
+            ],
+            "centre_read": [
+              13531706,
+              49418635,
+              205485115
+            ]
+          },
+          {
+            "exposure": 4.0,
+            "source": "projected_gateway",
+            "outside_probability": 0.7388929593987412,
+            "outside_colour_probability": 0.20557943414693944,
+            "colour_given_arrival": 0.2782262728747956,
+            "centre_dark_probability": 0.15418257744975114,
+            "energy_read": [
+              55193763,
+              143153013,
+              70088680
+            ],
+            "centre_read": [
+              41393517,
+              156964794,
+              70077145
+            ]
+          },
+          {
+            "exposure": 4.0,
+            "source": "uniform_cell",
+            "outside_probability": 0.3052314061181129,
+            "outside_colour_probability": 0.08862664587091543,
+            "colour_given_arrival": 0.29035886902352476,
+            "centre_dark_probability": 0.06646934095950088,
+            "energy_read": [
+              23792667,
+              58140602,
+              186502187
+            ],
+            "centre_read": [
+              17846830,
+              64096246,
+              186492380
+            ]
+          }
+        ],
+        "exchange_only": [
+          {
+            "exposure": 0.0625,
+            "source": "projected_gateway",
+            "outside_probability": 0.0007632758281621749,
+            "outside_colour_probability": 0.00019066335600229293,
+            "colour_given_arrival": 0.2497961404874756,
+            "centre_dark_probability": 0.00014299580487940177,
+            "energy_read": [
+              51670,
+              153921,
+              268229865
+            ],
+            "centre_read": [
+              38266,
+              166070,
+              268231120
+            ]
+          },
+          {
+            "exposure": 0.0625,
+            "source": "uniform_cell",
+            "outside_probability": 0.00024307000324697668,
+            "outside_colour_probability": 6.083694041509302e-05,
+            "colour_given_arrival": 0.2502856773868485,
+            "centre_dark_probability": 4.5627381483368964e-05,
+            "energy_read": [
+              16166,
+              49036,
+              268370254
+            ],
+            "centre_read": [
+              12166,
+              52878,
+              268370412
+            ]
+          },
+          {
+            "exposure": 0.125,
+            "source": "projected_gateway",
+            "outside_probability": 0.003032902091943451,
+            "outside_colour_probability": 0.000755735679140385,
+            "colour_given_arrival": 0.24917905564703463,
+            "centre_dark_probability": 0.00056679497363735,
+            "energy_read": [
+              203752,
+              611252,
+              267620452
+            ],
+            "centre_read": [
+              152640,
+              661101,
+              267621715
+            ]
+          },
+          {
+            "exposure": 0.125,
+            "source": "uniform_cell",
+            "outside_probability": 0.0009595406153747433,
+            "outside_colour_probability": 0.00024098843999773923,
+            "colour_given_arrival": 0.2511498066224352,
+            "centre_dark_probability": 0.00018074004747376177,
+            "energy_read": [
+              64634,
+              193274,
+              268177548
+            ],
+            "centre_read": [
+              48277,
+              208403,
+              268178776
+            ]
+          },
+          {
+            "exposure": 0.25,
+            "source": "projected_gateway",
+            "outside_probability": 0.011818760477496122,
+            "outside_colour_probability": 0.0029148484598903773,
+            "colour_given_arrival": 0.246628947717528,
+            "centre_dark_probability": 0.002186110182986955,
+            "energy_read": [
+              783172,
+              2390788,
+              265261496
+            ],
+            "centre_read": [
+              586831,
+              2583681,
+              265264944
+            ]
+          },
+          {
+            "exposure": 0.25,
+            "source": "uniform_cell",
+            "outside_probability": 0.003640695998741189,
+            "outside_colour_probability": 0.000927339699828956,
+            "colour_given_arrival": 0.2547149501495302,
+            "centre_dark_probability": 0.0006954998437236384,
+            "energy_read": [
+              249142,
+              727554,
+              267458760
+            ],
+            "centre_read": [
+              186182,
+              791687,
+              267457587
+            ]
+          },
+          {
+            "exposure": 0.5,
+            "source": "projected_gateway",
+            "outside_probability": 0.04288314947212642,
+            "outside_colour_probability": 0.010085528785034544,
+            "colour_given_arrival": 0.23518628900123179,
+            "centre_dark_probability": 0.0075640562129787375,
+            "energy_read": [
+              2704624,
+              8800599,
+              256930233
+            ],
+            "centre_read": [
+              2031966,
+              9480629,
+              256922861
+            ]
+          },
+          {
+            "exposure": 0.5,
+            "source": "uniform_cell",
+            "outside_probability": 0.011781777721200263,
+            "outside_colour_probability": 0.0031911191608638215,
+            "colour_given_arrival": 0.27085209349364026,
+            "centre_dark_probability": 0.0023933224932402306,
+            "energy_read": [
+              856672,
+              2306667,
+              265272117
+            ],
+            "centre_read": [
+              641684,
+              2520204,
+              265273568
+            ]
+          },
+          {
+            "exposure": 1.0,
+            "source": "projected_gateway",
+            "outside_probability": 0.1299614021732442,
+            "outside_colour_probability": 0.022939232370813047,
+            "colour_given_arrival": 0.17650803998124037,
+            "centre_dark_probability": 0.017204219750016306,
+            "energy_read": [
+              6158930,
+              28726325,
+              233550201
+            ],
+            "centre_read": [
+              4620024,
+              30273730,
+              233541702
+            ]
+          },
+          {
+            "exposure": 1.0,
+            "source": "uniform_cell",
+            "outside_probability": 0.020714474990875868,
+            "outside_colour_probability": 0.007715293850152658,
+            "colour_given_arrival": 0.3724590583903779,
+            "centre_dark_probability": 0.005786432100367525,
+            "energy_read": [
+              2072426,
+              3489796,
+              262873234
+            ],
+            "centre_read": [
+              1551630,
+              4006588,
+              262877238
+            ]
+          },
+          {
+            "exposure": 2.0,
+            "source": "projected_gateway",
+            "outside_probability": 0.39155548979122745,
+            "outside_colour_probability": 0.014390774840001721,
+            "colour_given_arrival": 0.03675283635449653,
+            "centre_dark_probability": 0.010792951758642134,
+            "energy_read": [
+              3866168,
+              101254111,
+              163315177
+            ],
+            "centre_read": [
+              2897313,
+              102207226,
+              163330917
+            ]
+          },
+          {
+            "exposure": 2.0,
+            "source": "uniform_cell",
+            "outside_probability": 0.03480125153347921,
+            "outside_colour_probability": 0.01739893755071674,
+            "colour_given_arrival": 0.499951489789922,
+            "centre_dark_probability": 0.013049148047517464,
+            "energy_read": [
+              4669547,
+              4674344,
+              259091565
+            ],
+            "centre_read": [
+              3501673,
+              5839646,
+              259094137
+            ]
+          },
+          {
+            "exposure": 4.0,
+            "source": "projected_gateway",
+            "outside_probability": 0.5843551398030731,
+            "outside_colour_probability": 0.019758179755882434,
+            "colour_given_arrival": 0.033811937998082665,
+            "centre_dark_probability": 0.014818393815695812,
+            "energy_read": [
+              5304810,
+              151548210,
+              111582436
+            ],
+            "centre_read": [
+              3976450,
+              152882627,
+              111576379
+            ]
+          },
+          {
+            "exposure": 4.0,
+            "source": "uniform_cell",
+            "outside_probability": 0.05808120636867149,
+            "outside_colour_probability": 0.003558187418817548,
+            "colour_given_arrival": 0.06126228501921757,
+            "centre_dark_probability": 0.0026686645882809676,
+            "energy_read": [
+              955517,
+              14634045,
+              252845894
+            ],
+            "centre_read": [
+              715823,
+              14871595,
+              252848038
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "cells": 80,
+      "constraints": {
+        "bridges": 120,
+        "cells_with_antipodal_gateways": 24,
+        "locally_forced_bridges": 108,
+        "empty_background_undecided_components": [],
+        "largest_possible_flow_component_for_signed_sectors": 2,
+        "largest_diameter_in_unconstrained_edges": 1
+      },
+      "arms": {
+        "one_load": [
+          {
+            "exposure": 0.0625,
+            "source": "projected_gateway",
+            "outside_probability": 0.0007632758416972271,
+            "outside_colour_probability": 0.00019063676332841322,
+            "colour_given_arrival": 0.24976129586980192,
+            "centre_dark_probability": 0.00014297263503922812,
+            "energy_read": [
+              51368,
+              154046,
+              268230042
+            ],
+            "centre_read": [
+              38758,
+              165656,
+              268231042
+            ]
+          },
+          {
+            "exposure": 0.0625,
+            "source": "uniform_cell",
+            "outside_probability": 0.0002430699998074717,
+            "outside_colour_probability": 6.0833986743629004e-05,
+            "colour_given_arrival": 0.2502735294022863,
+            "centre_dark_probability": 4.562480797397006e-05,
+            "energy_read": [
+              16297,
+              49181,
+              268369978
+            ],
+            "centre_read": [
+              12152,
+              53064,
+              268370240
+            ]
+          },
+          {
+            "exposure": 0.125,
+            "source": "projected_gateway",
+            "outside_probability": 0.0030329029561306947,
+            "outside_colour_probability": 0.0007553132226472478,
+            "colour_given_arrival": 0.24903969351227065,
+            "centre_dark_probability": 0.0005664653445334322,
+            "energy_read": [
+              203550,
+              611873,
+              267620033
+            ],
+            "centre_read": [
+              152041,
+              662192,
+              267621223
+            ]
+          },
+          {
+            "exposure": 0.125,
+            "source": "uniform_cell",
+            "outside_probability": 0.0009595403971261394,
+            "outside_colour_probability": 0.00024094156843097644,
+            "colour_given_arrival": 0.25110101581195093,
+            "centre_dark_probability": 0.00018070347483710664,
+            "energy_read": [
+              64721,
+              192322,
+              268178413
+            ],
+            "centre_read": [
+              47906,
+              208031,
+              268179519
+            ]
+          },
+          {
+            "exposure": 0.25,
+            "source": "projected_gateway",
+            "outside_probability": 0.011818815256227785,
+            "outside_colour_probability": 0.002908279580402074,
+            "colour_given_arrival": 0.24607200614880498,
+            "centre_dark_probability": 0.002181134171620115,
+            "energy_read": [
+              781016,
+              2391492,
+              265262948
+            ],
+            "centre_read": [
+              586197,
+              2584462,
+              265264797
+            ]
+          },
+          {
+            "exposure": 0.25,
+            "source": "uniform_cell",
+            "outside_probability": 0.003640682503343545,
+            "outside_colour_probability": 0.0009266140675913959,
+            "colour_given_arrival": 0.254516582190402,
+            "centre_dark_probability": 0.0006949501614699561,
+            "energy_read": [
+              249291,
+              728575,
+              267457590
+            ],
+            "centre_read": [
+              187354,
+              790963,
+              267457139
+            ]
+          },
+          {
+            "exposure": 0.5,
+            "source": "projected_gateway",
+            "outside_probability": 0.042886517325905364,
+            "outside_colour_probability": 0.009991814918000653,
+            "colour_given_arrival": 0.232982660775888,
+            "centre_dark_probability": 0.007493599804797007,
+            "energy_read": [
+              2682798,
+              8829904,
+              256922754
+            ],
+            "centre_read": [
+              2010840,
+              9503642,
+              256920974
+            ]
+          },
+          {
+            "exposure": 0.5,
+            "source": "uniform_cell",
+            "outside_probability": 0.011781026466574807,
+            "outside_colour_probability": 0.003180950989850863,
+            "colour_given_arrival": 0.2700062680341034,
+            "centre_dark_probability": 0.002385677587103334,
+            "energy_read": [
+              854349,
+              2307251,
+              265273856
+            ],
+            "centre_read": [
+              640090,
+              2522896,
+              265272470
+            ]
+          },
+          {
+            "exposure": 1.0,
+            "source": "projected_gateway",
+            "outside_probability": 0.13014062726499434,
+            "outside_colour_probability": 0.021996209954319525,
+            "colour_given_arrival": 0.16901877927428846,
+            "centre_dark_probability": 0.016496571904386394,
+            "energy_read": [
+              5903377,
+              29030736,
+              233501343
+            ],
+            "centre_read": [
+              4426391,
+              30504477,
+              233504588
+            ]
+          },
+          {
+            "exposure": 1.0,
+            "source": "uniform_cell",
+            "outside_probability": 0.0206878826658886,
+            "outside_colour_probability": 0.007620548222119859,
+            "colour_given_arrival": 0.3683580550601763,
+            "centre_dark_probability": 0.005715326192554429,
+            "energy_read": [
+              2047951,
+              3507708,
+              262879797
+            ],
+            "centre_read": [
+              1535302,
+              4016775,
+              262883379
+            ]
+          },
+          {
+            "exposure": 2.0,
+            "source": "projected_gateway",
+            "outside_probability": 0.39576937551135716,
+            "outside_colour_probability": 0.011961491204196623,
+            "colour_given_arrival": 0.03022338751890966,
+            "centre_dark_probability": 0.00897088754988891,
+            "energy_read": [
+              3211803,
+              103030096,
+              162193557
+            ],
+            "centre_read": [
+              2406785,
+              103832334,
+              162196337
+            ]
+          },
+          {
+            "exposure": 2.0,
+            "source": "uniform_cell",
+            "outside_probability": 0.034806144598094065,
+            "outside_colour_probability": 0.01716259101556511,
+            "colour_given_arrival": 0.4930908382339166,
+            "centre_dark_probability": 0.012871758458391487,
+            "energy_read": [
+              4610233,
+              4734460,
+              259090763
+            ],
+            "centre_read": [
+              3457624,
+              5889418,
+              259088414
+            ]
+          },
+          {
+            "exposure": 4.0,
+            "source": "projected_gateway",
+            "outside_probability": 0.5821451656849068,
+            "outside_colour_probability": 0.019936062777960218,
+            "colour_given_arrival": 0.034245861604819815,
+            "centre_dark_probability": 0.01495155741348921,
+            "energy_read": [
+              5352047,
+              150912629,
+              112170780
+            ],
+            "centre_read": [
+              4012913,
+              152259452,
+              112163091
+            ]
+          },
+          {
+            "exposure": 4.0,
+            "source": "uniform_cell",
+            "outside_probability": 0.059464649923267346,
+            "outside_colour_probability": 0.0031450381036538227,
+            "colour_given_arrival": 0.05288920573335842,
+            "centre_dark_probability": 0.0023587596583768957,
+            "energy_read": [
+              843292,
+              15117681,
+              252474483
+            ],
+            "centre_read": [
+              633926,
+              15337163,
+              252464367
+            ]
+          }
+        ],
+        "vacancy": [
+          {
+            "exposure": 0.0625,
+            "source": "projected_gateway",
+            "outside_probability": 0.0007680131549133343,
+            "outside_colour_probability": 0.00018761635756293197,
+            "colour_given_arrival": 0.24428794788561056,
+            "centre_dark_probability": 0.0001407074037089377,
+            "energy_read": [
+              50338,
+              155833,
+              268229285
+            ],
+            "centre_read": [
+              37446,
+              168709,
+              268229301
+            ]
+          },
+          {
+            "exposure": 0.0625,
+            "source": "uniform_cell",
+            "outside_probability": 0.00023121324452539952,
+            "outside_colour_probability": 5.654318351505044e-05,
+            "colour_given_arrival": 0.24454993324934288,
+            "centre_dark_probability": 4.240675364839159e-05,
+            "energy_read": [
+              14976,
+              46812,
+              268373668
+            ],
+            "centre_read": [
+              11534,
+              50756,
+              268373166
+            ]
+          },
+          {
+            "exposure": 0.125,
+            "source": "projected_gateway",
+            "outside_probability": 0.003100406531583161,
+            "outside_colour_probability": 0.0007157027304750734,
+            "colour_given_arrival": 0.2308415761560191,
+            "centre_dark_probability": 0.0005367584365659823,
+            "energy_read": [
+              192559,
+              638882,
+              267604015
+            ],
+            "centre_read": [
+              144065,
+              687202,
+              267604189
+            ]
+          },
+          {
+            "exposure": 0.125,
+            "source": "uniform_cell",
+            "outside_probability": 0.0008062140985033948,
+            "outside_colour_probability": 0.00018536443637281119,
+            "colour_given_arrival": 0.22991961653475185,
+            "centre_dark_probability": 0.00013902124823605974,
+            "energy_read": [
+              49780,
+              166469,
+              268219207
+            ],
+            "centre_read": [
+              37270,
+              179754,
+              268218432
+            ]
+          },
+          {
+            "exposure": 0.25,
+            "source": "projected_gateway",
+            "outside_probability": 0.012535479897912767,
+            "outside_colour_probability": 0.002648197471839558,
+            "colour_given_arrival": 0.21125616995967572,
+            "centre_dark_probability": 0.001986079003919093,
+            "energy_read": [
+              711776,
+              2654076,
+              265069604
+            ],
+            "centre_read": [
+              531260,
+              2832606,
+              265071590
+            ]
+          },
+          {
+            "exposure": 0.25,
+            "source": "uniform_cell",
+            "outside_probability": 0.0026433705147477977,
+            "outside_colour_probability": 0.0005536085191343281,
+            "colour_given_arrival": 0.20943281164923924,
+            "centre_dark_probability": 0.0004152001645857442,
+            "energy_read": [
+              148555,
+              560875,
+              267726026
+            ],
+            "centre_read": [
+              111519,
+              597607,
+              267726330
+            ]
+          },
+          {
+            "exposure": 0.5,
+            "source": "projected_gateway",
+            "outside_probability": 0.0489182852892534,
+            "outside_colour_probability": 0.0108124299842026,
+            "colour_given_arrival": 0.22103043719273469,
+            "centre_dark_probability": 0.008109040630617178,
+            "energy_read": [
+              2901947,
+              10232499,
+              255301010
+            ],
+            "centre_read": [
+              2176699,
+              10952201,
+              255306556
+            ]
+          },
+          {
+            "exposure": 0.5,
+            "source": "uniform_cell",
+            "outside_probability": 0.011308391591625656,
+            "outside_colour_probability": 0.0024508914113222577,
+            "colour_given_arrival": 0.21673209593637055,
+            "centre_dark_probability": 0.001838141049942825,
+            "energy_read": [
+              656951,
+              2380172,
+              265398333
+            ],
+            "centre_read": [
+              492671,
+              2540671,
+              265402114
+            ]
+          },
+          {
+            "exposure": 1.0,
+            "source": "projected_gateway",
+            "outside_probability": 0.18463142501424926,
+            "outside_colour_probability": 0.03988942664244566,
+            "colour_given_arrival": 0.2160489561263318,
+            "centre_dark_probability": 0.02991603018477963,
+            "energy_read": [
+              10701062,
+              38857427,
+              218876967
+            ],
+            "centre_read": [
+              8023866,
+              41528431,
+              218883159
+            ]
+          },
+          {
+            "exposure": 1.0,
+            "source": "uniform_cell",
+            "outside_probability": 0.04164055914443808,
+            "outside_colour_probability": 0.009067528665751895,
+            "colour_given_arrival": 0.21775713035695493,
+            "centre_dark_probability": 0.006800544502733009,
+            "energy_read": [
+              2434728,
+              8741581,
+              257259147
+            ],
+            "centre_read": [
+              1824511,
+              9352837,
+              257258108
+            ]
+          },
+          {
+            "exposure": 2.0,
+            "source": "projected_gateway",
+            "outside_probability": 0.5683710548522323,
+            "outside_colour_probability": 0.1242156872260279,
+            "colour_given_arrival": 0.21854682106977116,
+            "centre_dark_probability": 0.09315852866105029,
+            "energy_read": [
+              33339540,
+              119230535,
+              115865381
+            ],
+            "centre_read": [
+              25008184,
+              127578076,
+              115849196
+            ]
+          },
+          {
+            "exposure": 2.0,
+            "source": "uniform_cell",
+            "outside_probability": 0.12865295572553137,
+            "outside_colour_probability": 0.027625426609901332,
+            "colour_given_arrival": 0.2147282699733499,
+            "centre_dark_probability": 0.020718758621608043,
+            "energy_read": [
+              7417165,
+              27120933,
+              233897358
+            ],
+            "centre_read": [
+              5566646,
+              28973135,
+              233895675
+            ]
+          },
+          {
+            "exposure": 4.0,
+            "source": "projected_gateway",
+            "outside_probability": 0.6733802904216794,
+            "outside_colour_probability": 0.14540736135162174,
+            "colour_given_arrival": 0.21593646772845965,
+            "centre_dark_probability": 0.10905176779026174,
+            "energy_read": [
+              39038411,
+              141717496,
+              87679549
+            ],
+            "centre_read": [
+              29277390,
+              151492894,
+              87665172
+            ]
+          },
+          {
+            "exposure": 4.0,
+            "source": "uniform_cell",
+            "outside_probability": 0.15259005648379337,
+            "outside_colour_probability": 0.03294578791849317,
+            "colour_given_arrival": 0.21591045103251763,
+            "centre_dark_probability": 0.024708969858827826,
+            "energy_read": [
+              8851641,
+              32108231,
+              227475584
+            ],
+            "centre_read": [
+              6630652,
+              34328295,
+              227476509
+            ]
+          }
+        ],
+        "excess": [
+          {
+            "exposure": 0.0625,
+            "source": "projected_gateway",
+            "outside_probability": 0.0007586169401774712,
+            "outside_colour_probability": 0.0001937272441325589,
+            "colour_given_arrival": 0.25536899306155525,
+            "centre_dark_probability": 0.00014529042110849347,
+            "energy_read": [
+              52136,
+              152207,
+              268231113
+            ],
+            "centre_read": [
+              39078,
+              164815,
+              268231563
+            ]
+          },
+          {
+            "exposure": 0.0625,
+            "source": "uniform_cell",
+            "outside_probability": 0.0002553217297928033,
+            "outside_colour_probability": 6.527097554631676e-05,
+            "colour_given_arrival": 0.25564207010223905,
+            "centre_dark_probability": 4.895249981210617e-05,
+            "energy_read": [
+              17462,
+              50769,
+              268367225
+            ],
+            "centre_read": [
+              13232,
+              55306,
+              268366918
+            ]
+          },
+          {
+            "exposure": 0.125,
+            "source": "projected_gateway",
+            "outside_probability": 0.0029702363283244924,
+            "outside_colour_probability": 0.000798994093080946,
+            "colour_given_arrival": 0.26900017532667436,
+            "centre_dark_probability": 0.0005992249461006277,
+            "energy_read": [
+              214314,
+              582796,
+              267638346
+            ],
+            "centre_read": [
+              160705,
+              637546,
+              267637205
+            ]
+          },
+          {
+            "exposure": 0.125,
+            "source": "uniform_cell",
+            "outside_probability": 0.001134925630167998,
+            "outside_colour_probability": 0.00030461211444580754,
+            "colour_given_arrival": 0.26839830412563437,
+            "centre_dark_probability": 0.00022845566956486982,
+            "energy_read": [
+              81490,
+              223207,
+              268130759
+            ],
+            "centre_read": [
+              61107,
+              243905,
+              268130444
+            ]
+          },
+          {
+            "exposure": 0.25,
+            "source": "projected_gateway",
+            "outside_probability": 0.011367140354424253,
+            "outside_colour_probability": 0.003347596852717343,
+            "colour_given_arrival": 0.2944977143186598,
+            "centre_dark_probability": 0.002510611639676183,
+            "energy_read": [
+              899030,
+              2150556,
+              265385870
+            ],
+            "centre_read": [
+              674253,
+              2378970,
+              265382233
+            ]
+          },
+          {
+            "exposure": 0.25,
+            "source": "uniform_cell",
+            "outside_probability": 0.005452924883814252,
+            "outside_colour_probability": 0.0015853581886088465,
+            "colour_given_arrival": 0.29073538007365846,
+            "centre_dark_probability": 0.0011890008278637495,
+            "energy_read": [
+              425787,
+              1038242,
+              266971427
+            ],
+            "centre_read": [
+              318827,
+              1146589,
+              266970040
+            ]
+          },
+          {
+            "exposure": 0.5,
+            "source": "projected_gateway",
+            "outside_probability": 0.045399590620187495,
+            "outside_colour_probability": 0.01283222820863923,
+            "colour_given_arrival": 0.282650747139848,
+            "centre_dark_probability": 0.009623841338068715,
+            "energy_read": [
+              3446017,
+              8747838,
+              256241601
+            ],
+            "centre_read": [
+              2584869,
+              9605029,
+              256245558
+            ]
+          },
+          {
+            "exposure": 0.5,
+            "source": "uniform_cell",
+            "outside_probability": 0.020087815739503304,
+            "outside_colour_probability": 0.0057362200731260774,
+            "colour_given_arrival": 0.28555718289697496,
+            "centre_dark_probability": 0.004302100400474091,
+            "energy_read": [
+              1538712,
+              3852637,
+              263044107
+            ],
+            "centre_read": [
+              1157577,
+              4237304,
+              263040575
+            ]
+          },
+          {
+            "exposure": 1.0,
+            "source": "projected_gateway",
+            "outside_probability": 0.16975234615222556,
+            "outside_colour_probability": 0.048789773704006605,
+            "colour_given_arrival": 0.28741737484001745,
+            "centre_dark_probability": 0.036591077793010386,
+            "energy_read": [
+              13093907,
+              32471247,
+              222870302
+            ],
+            "centre_read": [
+              9826466,
+              35734811,
+              222874179
+            ]
+          },
+          {
+            "exposure": 1.0,
+            "source": "uniform_cell",
+            "outside_probability": 0.07613887478440602,
+            "outside_colour_probability": 0.02160315683157924,
+            "colour_given_arrival": 0.2837335972294113,
+            "centre_dark_probability": 0.016202124288838528,
+            "energy_read": [
+              5796056,
+              14644099,
+              247995301
+            ],
+            "centre_read": [
+              4349396,
+              16083736,
+              248002324
+            ]
+          },
+          {
+            "exposure": 2.0,
+            "source": "projected_gateway",
+            "outside_probability": 0.5219413733091927,
+            "outside_colour_probability": 0.15067574209784007,
+            "colour_given_arrival": 0.2886832694303031,
+            "centre_dark_probability": 0.11300295678431728,
+            "energy_read": [
+              40435647,
+              99675886,
+              128323923
+            ],
+            "centre_read": [
+              30342592,
+              109762241,
+              128330623
+            ]
+          },
+          {
+            "exposure": 2.0,
+            "source": "uniform_cell",
+            "outside_probability": 0.23975650645760907,
+            "outside_colour_probability": 0.06865551476271756,
+            "colour_given_arrival": 0.2863551683209749,
+            "centre_dark_probability": 0.05149086707090789,
+            "energy_read": [
+              18425618,
+              45926265,
+              204083573
+            ],
+            "centre_read": [
+              13822862,
+              50541844,
+              204070750
+            ]
+          },
+          {
+            "exposure": 4.0,
+            "source": "projected_gateway",
+            "outside_probability": 0.6227637677873021,
+            "outside_colour_probability": 0.18016989496566863,
+            "colour_given_arrival": 0.28930696402878014,
+            "centre_dark_probability": 0.13512291693772602,
+            "energy_read": [
+              48367779,
+              118811006,
+              101256671
+            ],
+            "centre_read": [
+              36279753,
+              130897678,
+              101258025
+            ]
+          },
+          {
+            "exposure": 4.0,
+            "source": "uniform_cell",
+            "outside_probability": 0.2874525615550881,
+            "outside_colour_probability": 0.08166229077314761,
+            "colour_given_arrival": 0.2840896262373284,
+            "centre_dark_probability": 0.06124579462963414,
+            "energy_read": [
+              21922658,
+              55237134,
+              191275664
+            ],
+            "centre_read": [
+              16442465,
+              60724332,
+              191268659
+            ]
+          }
+        ],
+        "exchange_only": [
+          {
+            "exposure": 0.0625,
+            "source": "projected_gateway",
+            "outside_probability": 0.0007632758416972271,
+            "outside_colour_probability": 0.00019063676332841322,
+            "colour_given_arrival": 0.24976129586980192,
+            "centre_dark_probability": 0.00014297263503922812,
+            "energy_read": [
+              51391,
+              153433,
+              268230632
+            ],
+            "centre_read": [
+              38366,
+              165971,
+              268231119
+            ]
+          },
+          {
+            "exposure": 0.0625,
+            "source": "uniform_cell",
+            "outside_probability": 0.0002430699998074717,
+            "outside_colour_probability": 6.0833986743629004e-05,
+            "colour_given_arrival": 0.2502735294022863,
+            "centre_dark_probability": 4.562480797397006e-05,
+            "energy_read": [
+              16525,
+              49086,
+              268369845
+            ],
+            "centre_read": [
+              12266,
+              52876,
+              268370314
+            ]
+          },
+          {
+            "exposure": 0.125,
+            "source": "projected_gateway",
+            "outside_probability": 0.0030329029561306947,
+            "outside_colour_probability": 0.0007553132226472478,
+            "colour_given_arrival": 0.24903969351227065,
+            "centre_dark_probability": 0.0005664653445334322,
+            "energy_read": [
+              202945,
+              611295,
+              267621216
+            ],
+            "centre_read": [
+              151696,
+              663237,
+              267620523
+            ]
+          },
+          {
+            "exposure": 0.125,
+            "source": "uniform_cell",
+            "outside_probability": 0.0009595403971261394,
+            "outside_colour_probability": 0.00024094156843097644,
+            "colour_given_arrival": 0.25110101581195093,
+            "centre_dark_probability": 0.00018070347483710664,
+            "energy_read": [
+              64899,
+              192412,
+              268178145
+            ],
+            "centre_read": [
+              48570,
+              209289,
+              268177597
+            ]
+          },
+          {
+            "exposure": 0.25,
+            "source": "projected_gateway",
+            "outside_probability": 0.011818815256227785,
+            "outside_colour_probability": 0.002908279580402074,
+            "colour_given_arrival": 0.24607200614880498,
+            "centre_dark_probability": 0.002181134171620115,
+            "energy_read": [
+              780809,
+              2394390,
+              265260257
+            ],
+            "centre_read": [
+              585577,
+              2587675,
+              265262204
+            ]
+          },
+          {
+            "exposure": 0.25,
+            "source": "uniform_cell",
+            "outside_probability": 0.003640682503343545,
+            "outside_colour_probability": 0.0009266140675913959,
+            "colour_given_arrival": 0.254516582190402,
+            "centre_dark_probability": 0.0006949501614699561,
+            "energy_read": [
+              248576,
+              728144,
+              267458736
+            ],
+            "centre_read": [
+              186823,
+              791019,
+              267457614
+            ]
+          },
+          {
+            "exposure": 0.5,
+            "source": "projected_gateway",
+            "outside_probability": 0.042886517325905364,
+            "outside_colour_probability": 0.009991814918000653,
+            "colour_given_arrival": 0.232982660775888,
+            "centre_dark_probability": 0.007493599804797007,
+            "energy_read": [
+              2679845,
+              8825691,
+              256929920
+            ],
+            "centre_read": [
+              2015018,
+              9501927,
+              256918511
+            ]
+          },
+          {
+            "exposure": 0.5,
+            "source": "uniform_cell",
+            "outside_probability": 0.011781026466574807,
+            "outside_colour_probability": 0.003180950989850863,
+            "colour_given_arrival": 0.2700062680341034,
+            "centre_dark_probability": 0.002385677587103334,
+            "energy_read": [
+              853870,
+              2308416,
+              265273170
+            ],
+            "centre_read": [
+              638907,
+              2520713,
+              265275836
+            ]
+          },
+          {
+            "exposure": 1.0,
+            "source": "projected_gateway",
+            "outside_probability": 0.13014062726499434,
+            "outside_colour_probability": 0.021996209954319525,
+            "colour_given_arrival": 0.16901877927428846,
+            "centre_dark_probability": 0.016496571904386394,
+            "energy_read": [
+              5906385,
+              29038335,
+              233490736
+            ],
+            "centre_read": [
+              4432874,
+              30502105,
+              233500477
+            ]
+          },
+          {
+            "exposure": 1.0,
+            "source": "uniform_cell",
+            "outside_probability": 0.0206878826658886,
+            "outside_colour_probability": 0.007620548222119859,
+            "colour_given_arrival": 0.3683580550601763,
+            "centre_dark_probability": 0.005715326192554429,
+            "energy_read": [
+              2046387,
+              3510265,
+              262878804
+            ],
+            "centre_read": [
+              1533254,
+              4019185,
+              262883017
+            ]
+          },
+          {
+            "exposure": 2.0,
+            "source": "projected_gateway",
+            "outside_probability": 0.39576937551135716,
+            "outside_colour_probability": 0.011961491204196623,
+            "colour_given_arrival": 0.03022338751890966,
+            "centre_dark_probability": 0.00897088754988891,
+            "energy_read": [
+              3208648,
+              103018681,
+              162208127
+            ],
+            "centre_read": [
+              2409223,
+              103826461,
+              162199772
+            ]
+          },
+          {
+            "exposure": 2.0,
+            "source": "uniform_cell",
+            "outside_probability": 0.034806144598094065,
+            "outside_colour_probability": 0.01716259101556511,
+            "colour_given_arrival": 0.4930908382339166,
+            "centre_dark_probability": 0.012871758458391487,
+            "energy_read": [
+              4606649,
+              4735241,
+              259093566
+            ],
+            "centre_read": [
+              3453583,
+              5886218,
+              259095655
+            ]
+          },
+          {
+            "exposure": 4.0,
+            "source": "projected_gateway",
+            "outside_probability": 0.5821451656849068,
+            "outside_colour_probability": 0.019936062777960218,
+            "colour_given_arrival": 0.034245861604819815,
+            "centre_dark_probability": 0.01495155741348921,
+            "energy_read": [
+              5350418,
+              150916571,
+              112168467
+            ],
+            "centre_read": [
+              4012222,
+              152261712,
+              112161522
+            ]
+          },
+          {
+            "exposure": 4.0,
+            "source": "uniform_cell",
+            "outside_probability": 0.059464649923267346,
+            "outside_colour_probability": 0.0031450381036538227,
+            "colour_given_arrival": 0.05288920573335842,
+            "centre_dark_probability": 0.0023587596583768957,
+            "energy_read": [
+              842907,
+              15109967,
+              252482582
+            ],
+            "centre_read": [
+              633509,
+              15335338,
+              252466609
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "cells": 320,
+      "constraints": {
+        "bridges": 480,
+        "cells_with_antipodal_gateways": 104,
+        "locally_forced_bridges": 432,
+        "empty_background_undecided_components": [],
+        "largest_possible_flow_component_for_signed_sectors": 4,
+        "largest_diameter_in_unconstrained_edges": 3
+      },
+      "arms": {
+        "one_load": [
+          {
+            "exposure": 0.0625,
+            "source": "projected_gateway",
+            "outside_probability": 0.0007632758416972271,
+            "outside_colour_probability": 0.00019063676332841322,
+            "colour_given_arrival": 0.24976129586980192,
+            "centre_dark_probability": 0.00014297263503922812,
+            "energy_read": [
+              51319,
+              153435,
+              268230702
+            ],
+            "centre_read": [
+              38365,
+              166079,
+              268231012
+            ]
+          },
+          {
+            "exposure": 0.0625,
+            "source": "uniform_cell",
+            "outside_probability": 0.0002430699998074717,
+            "outside_colour_probability": 6.0833986743629004e-05,
+            "colour_given_arrival": 0.2502735294022863,
+            "centre_dark_probability": 4.562480797397006e-05,
+            "energy_read": [
+              16546,
+              49173,
+              268369737
+            ],
+            "centre_read": [
+              12212,
+              52895,
+              268370349
+            ]
+          },
+          {
+            "exposure": 0.125,
+            "source": "projected_gateway",
+            "outside_probability": 0.0030329029561306947,
+            "outside_colour_probability": 0.0007553132226472478,
+            "colour_given_arrival": 0.24903969351227065,
+            "centre_dark_probability": 0.0005664653445334322,
+            "energy_read": [
+              202157,
+              611565,
+              267621734
+            ],
+            "centre_read": [
+              152503,
+              662608,
+              267620345
+            ]
+          },
+          {
+            "exposure": 0.125,
+            "source": "uniform_cell",
+            "outside_probability": 0.0009595403971261394,
+            "outside_colour_probability": 0.00024094156843097644,
+            "colour_given_arrival": 0.25110101581195093,
+            "centre_dark_probability": 0.00018070347483710664,
+            "energy_read": [
+              64804,
+              192827,
+              268177825
+            ],
+            "centre_read": [
+              48453,
+              208679,
+              268178324
+            ]
+          },
+          {
+            "exposure": 0.25,
+            "source": "projected_gateway",
+            "outside_probability": 0.011818815256227785,
+            "outside_colour_probability": 0.0029082795804020694,
+            "colour_given_arrival": 0.24607200614880462,
+            "centre_dark_probability": 0.0021811341716201113,
+            "energy_read": [
+              781433,
+              2391897,
+              265262126
+            ],
+            "centre_read": [
+              586338,
+              2586725,
+              265262393
+            ]
+          },
+          {
+            "exposure": 0.25,
+            "source": "uniform_cell",
+            "outside_probability": 0.003640682503343545,
+            "outside_colour_probability": 0.0009266140675913672,
+            "colour_given_arrival": 0.25451658219039414,
+            "centre_dark_probability": 0.0006949501614699347,
+            "energy_read": [
+              249253,
+              729088,
+              267457115
+            ],
+            "centre_read": [
+              186419,
+              791229,
+              267457808
+            ]
+          },
+          {
+            "exposure": 0.5,
+            "source": "projected_gateway",
+            "outside_probability": 0.042886517325905364,
+            "outside_colour_probability": 0.009991814917981734,
+            "colour_given_arrival": 0.23298266077544685,
+            "centre_dark_probability": 0.007493599804782814,
+            "energy_read": [
+              2681204,
+              8831243,
+              256923009
+            ],
+            "centre_read": [
+              2014501,
+              9504327,
+              256916628
+            ]
+          },
+          {
+            "exposure": 0.5,
+            "source": "uniform_cell",
+            "outside_probability": 0.01178102646657481,
+            "outside_colour_probability": 0.0031809509897425996,
+            "colour_given_arrival": 0.2700062680249137,
+            "centre_dark_probability": 0.002385677587022138,
+            "energy_read": [
+              853458,
+              2306767,
+              265275231
+            ],
+            "centre_read": [
+              640036,
+              2521494,
+              265273926
+            ]
+          },
+          {
+            "exposure": 1.0,
+            "source": "projected_gateway",
+            "outside_probability": 0.13014062726499753,
+            "outside_colour_probability": 0.021996209902527198,
+            "colour_given_arrival": 0.1690187788763123,
+            "centre_dark_probability": 0.01649657186554212,
+            "energy_read": [
+              5899461,
+              29033777,
+              233502218
+            ],
+            "centre_read": [
+              4430331,
+              30501959,
+              233503166
+            ]
+          },
+          {
+            "exposure": 1.0,
+            "source": "uniform_cell",
+            "outside_probability": 0.020687882665925958,
+            "outside_colour_probability": 0.00762054790065547,
+            "colour_given_arrival": 0.3683580395207344,
+            "centre_dark_probability": 0.005715325951455833,
+            "energy_read": [
+              2043433,
+              3506959,
+              262885064
+            ],
+            "centre_read": [
+              1533010,
+              4019165,
+              262883281
+            ]
+          },
+          {
+            "exposure": 2.0,
+            "source": "projected_gateway",
+            "outside_probability": 0.3957693755470183,
+            "outside_colour_probability": 0.011961458307913021,
+            "colour_given_arrival": 0.03022330439635538,
+            "centre_dark_probability": 0.008970862877839289,
+            "energy_read": [
+              3209034,
+              103028414,
+              162198008
+            ],
+            "centre_read": [
+              2410120,
+              103835751,
+              162189585
+            ]
+          },
+          {
+            "exposure": 2.0,
+            "source": "uniform_cell",
+            "outside_probability": 0.03480614449440182,
+            "outside_colour_probability": 0.017162271971196925,
+            "colour_given_arrival": 0.4930816733797472,
+            "centre_dark_probability": 0.012871519174750684,
+            "energy_read": [
+              4607312,
+              4736631,
+              259091513
+            ],
+            "centre_read": [
+              3455295,
+              5885037,
+              259095124
+            ]
+          },
+          {
+            "exposure": 4.0,
+            "source": "projected_gateway",
+            "outside_probability": 0.58214515209131,
+            "outside_colour_probability": 0.019933924439203318,
+            "colour_given_arrival": 0.0342421891990207,
+            "centre_dark_probability": 0.014949953662709401,
+            "energy_read": [
+              5354563,
+              150926049,
+              112154844
+            ],
+            "centre_read": [
+              4013570,
+              152257922,
+              112163964
+            ]
+          },
+          {
+            "exposure": 4.0,
+            "source": "uniform_cell",
+            "outside_probability": 0.05946513977929937,
+            "outside_colour_probability": 0.0031619786686927927,
+            "colour_given_arrival": 0.053173652335271576,
+            "centre_dark_probability": 0.0023714650980649755,
+            "energy_read": [
+              848663,
+              15112743,
+              252474050
+            ],
+            "centre_read": [
+              635742,
+              15319247,
+              252480467
+            ]
+          }
+        ],
+        "vacancy": [
+          {
+            "exposure": 0.0625,
+            "source": "projected_gateway",
+            "outside_probability": 0.0007680131549133343,
+            "outside_colour_probability": 0.00018761635756293197,
+            "colour_given_arrival": 0.24428794788561056,
+            "centre_dark_probability": 0.0001407074037089377,
+            "energy_read": [
+              50274,
+              155585,
+              268229597
+            ],
+            "centre_read": [
+              37764,
+              168757,
+              268228935
+            ]
+          },
+          {
+            "exposure": 0.0625,
+            "source": "uniform_cell",
+            "outside_probability": 0.00023121324452539952,
+            "outside_colour_probability": 5.654318351505044e-05,
+            "colour_given_arrival": 0.24454993324934288,
+            "centre_dark_probability": 4.240675364839159e-05,
+            "energy_read": [
+              15313,
+              46615,
+              268373528
+            ],
+            "centre_read": [
+              11439,
+              50625,
+              268373392
+            ]
+          },
+          {
+            "exposure": 0.125,
+            "source": "projected_gateway",
+            "outside_probability": 0.003100406531583161,
+            "outside_colour_probability": 0.0007157027304750734,
+            "colour_given_arrival": 0.2308415761560191,
+            "centre_dark_probability": 0.0005367584365659826,
+            "energy_read": [
+              192616,
+              640478,
+              267602362
+            ],
+            "centre_read": [
+              144341,
+              687720,
+              267603395
+            ]
+          },
+          {
+            "exposure": 0.125,
+            "source": "uniform_cell",
+            "outside_probability": 0.0008062140985033948,
+            "outside_colour_probability": 0.00018536443637281173,
+            "colour_given_arrival": 0.22991961653475254,
+            "centre_dark_probability": 0.00013902124823606007,
+            "energy_read": [
+              50084,
+              166659,
+              268218713
+            ],
+            "centre_read": [
+              37107,
+              178964,
+              268219385
+            ]
+          },
+          {
+            "exposure": 0.25,
+            "source": "projected_gateway",
+            "outside_probability": 0.012535479897912764,
+            "outside_colour_probability": 0.002648197471839846,
+            "colour_given_arrival": 0.21125616995969876,
+            "centre_dark_probability": 0.0019860790039193084,
+            "energy_read": [
+              710350,
+              2654217,
+              265070889
+            ],
+            "centre_read": [
+              533431,
+              2833192,
+              265068833
+            ]
+          },
+          {
+            "exposure": 0.25,
+            "source": "uniform_cell",
+            "outside_probability": 0.0026433705147477977,
+            "outside_colour_probability": 0.0005536085191356775,
+            "colour_given_arrival": 0.20943281164974972,
+            "centre_dark_probability": 0.00041520016458675623,
+            "energy_read": [
+              149016,
+              561003,
+              267725437
+            ],
+            "centre_read": [
+              111233,
+              597268,
+              267726955
+            ]
+          },
+          {
+            "exposure": 0.5,
+            "source": "projected_gateway",
+            "outside_probability": 0.048918285289253405,
+            "outside_colour_probability": 0.010812429984461849,
+            "colour_given_arrival": 0.22103043719803428,
+            "centre_dark_probability": 0.008109040630811621,
+            "energy_read": [
+              2900619,
+              10230598,
+              255304239
+            ],
+            "centre_read": [
+              2176451,
+              10953545,
+              255305460
+            ]
+          },
+          {
+            "exposure": 0.5,
+            "source": "uniform_cell",
+            "outside_probability": 0.011308391591625664,
+            "outside_colour_probability": 0.0024508914124713637,
+            "colour_given_arrival": 0.2167320960379857,
+            "centre_dark_probability": 0.0018381410508046532,
+            "energy_read": [
+              658636,
+              2378577,
+              265398243
+            ],
+            "centre_read": [
+              493920,
+              2540578,
+              265400958
+            ]
+          },
+          {
+            "exposure": 1.0,
+            "source": "projected_gateway",
+            "outside_probability": 0.18463142501425614,
+            "outside_colour_probability": 0.03988942666995728,
+            "colour_given_arrival": 0.2160489562753321,
+            "centre_dark_probability": 0.029916030205413214,
+            "energy_read": [
+              10712580,
+              38846332,
+              218876544
+            ],
+            "centre_read": [
+              8033043,
+              41523213,
+              218879200
+            ]
+          },
+          {
+            "exposure": 1.0,
+            "source": "uniform_cell",
+            "outside_probability": 0.04164055914446941,
+            "outside_colour_probability": 0.00906752878554675,
+            "colour_given_arrival": 0.2177571332336702,
+            "centre_dark_probability": 0.006800544592578601,
+            "energy_read": [
+              2434698,
+              8745287,
+              257255471
+            ],
+            "centre_read": [
+              1824887,
+              9354338,
+              257256231
+            ]
+          },
+          {
+            "exposure": 2.0,
+            "source": "projected_gateway",
+            "outside_probability": 0.5683710548497415,
+            "outside_colour_probability": 0.12421569018381096,
+            "colour_given_arrival": 0.21854682627469388,
+            "centre_dark_probability": 0.0931585308793596,
+            "energy_read": [
+              33349144,
+              119219318,
+              115866994
+            ],
+            "centre_read": [
+              25008428,
+              127564495,
+              115862533
+            ]
+          },
+          {
+            "exposure": 2.0,
+            "source": "uniform_cell",
+            "outside_probability": 0.12865295571804475,
+            "outside_colour_probability": 0.027625440455450317,
+            "colour_given_arrival": 0.21472837760520724,
+            "centre_dark_probability": 0.0207187690056383,
+            "energy_read": [
+              7412417,
+              27120061,
+              233902978
+            ],
+            "centre_read": [
+              5560745,
+              28971887,
+              233902824
+            ]
+          },
+          {
+            "exposure": 4.0,
+            "source": "projected_gateway",
+            "outside_probability": 0.6733802908245502,
+            "outside_colour_probability": 0.1454075386257513,
+            "colour_given_arrival": 0.21593673085931964,
+            "centre_dark_probability": 0.10905190074396377,
+            "energy_read": [
+              39022197,
+              141742989,
+              87670270
+            ],
+            "centre_read": [
+              29271432,
+              151483729,
+              87680295
+            ]
+          },
+          {
+            "exposure": 4.0,
+            "source": "uniform_cell",
+            "outside_probability": 0.15259005884927962,
+            "outside_colour_probability": 0.032946959367273806,
+            "colour_given_arrival": 0.2159181247830638,
+            "centre_dark_probability": 0.02470984843241838,
+            "energy_read": [
+              8846212,
+              32111383,
+              227477861
+            ],
+            "centre_read": [
+              6633445,
+              34326384,
+              227475627
+            ]
+          }
+        ],
+        "excess": [
+          {
+            "exposure": 0.0625,
+            "source": "projected_gateway",
+            "outside_probability": 0.0007586169401774712,
+            "outside_colour_probability": 0.0001937272441325589,
+            "colour_given_arrival": 0.25536899306155525,
+            "centre_dark_probability": 0.00014529042110849347,
+            "energy_read": [
+              52275,
+              150826,
+              268232355
+            ],
+            "centre_read": [
+              39000,
+              164497,
+              268231959
+            ]
+          },
+          {
+            "exposure": 0.0625,
+            "source": "uniform_cell",
+            "outside_probability": 0.0002553217297928033,
+            "outside_colour_probability": 6.527097554631676e-05,
+            "colour_given_arrival": 0.25564207010223905,
+            "centre_dark_probability": 4.895249981210617e-05,
+            "energy_read": [
+              17515,
+              50944,
+              268366997
+            ],
+            "centre_read": [
+              13106,
+              55302,
+              268367048
+            ]
+          },
+          {
+            "exposure": 0.125,
+            "source": "projected_gateway",
+            "outside_probability": 0.0029702363283244924,
+            "outside_colour_probability": 0.0007989940930809462,
+            "colour_given_arrival": 0.2690001753266744,
+            "centre_dark_probability": 0.0005992249461006278,
+            "energy_read": [
+              214960,
+              583228,
+              267637268
+            ],
+            "centre_read": [
+              160799,
+              636490,
+              267638167
+            ]
+          },
+          {
+            "exposure": 0.125,
+            "source": "uniform_cell",
+            "outside_probability": 0.001134925630167998,
+            "outside_colour_probability": 0.00030461211444580836,
+            "colour_given_arrival": 0.26839830412563503,
+            "centre_dark_probability": 0.00022845566956487045,
+            "energy_read": [
+              81474,
+              223005,
+              268130977
+            ],
+            "centre_read": [
+              61220,
+              243011,
+              268131225
+            ]
+          },
+          {
+            "exposure": 0.25,
+            "source": "projected_gateway",
+            "outside_probability": 0.011367140354424257,
+            "outside_colour_probability": 0.003347596852717815,
+            "colour_given_arrival": 0.29449771431870125,
+            "centre_dark_probability": 0.002510611639676537,
+            "energy_read": [
+              899424,
+              2151549,
+              265384483
+            ],
+            "centre_read": [
+              675033,
+              2376328,
+              265384095
+            ]
+          },
+          {
+            "exposure": 0.25,
+            "source": "uniform_cell",
+            "outside_probability": 0.005452924883814255,
+            "outside_colour_probability": 0.001585358188611343,
+            "colour_given_arrival": 0.29073538007411615,
+            "centre_dark_probability": 0.0011890008278656226,
+            "energy_read": [
+              425784,
+              1038813,
+              266970859
+            ],
+            "centre_read": [
+              318906,
+              1143256,
+              266973294
+            ]
+          },
+          {
+            "exposure": 0.5,
+            "source": "projected_gateway",
+            "outside_probability": 0.04539959062018748,
+            "outside_colour_probability": 0.012832228209101062,
+            "colour_given_arrival": 0.2826507471500207,
+            "centre_dark_probability": 0.009623841338415089,
+            "energy_read": [
+              3448165,
+              8742314,
+              256244977
+            ],
+            "centre_read": [
+              2584733,
+              9604068,
+              256246655
+            ]
+          },
+          {
+            "exposure": 0.5,
+            "source": "uniform_cell",
+            "outside_probability": 0.020087815739503224,
+            "outside_colour_probability": 0.005736220075853259,
+            "colour_given_arrival": 0.2855571830327391,
+            "centre_dark_probability": 0.004302100402519489,
+            "energy_read": [
+              1539456,
+              3853871,
+              263042129
+            ],
+            "centre_read": [
+              1153391,
+              4237429,
+              263044636
+            ]
+          },
+          {
+            "exposure": 1.0,
+            "source": "projected_gateway",
+            "outside_probability": 0.16975234615228663,
+            "outside_colour_probability": 0.048789773721818044,
+            "colour_given_arrival": 0.28741737494484004,
+            "centre_dark_probability": 0.03659107780636962,
+            "energy_read": [
+              13098260,
+              32470572,
+              222866624
+            ],
+            "centre_read": [
+              9822836,
+              35735511,
+              222877109
+            ]
+          },
+          {
+            "exposure": 1.0,
+            "source": "uniform_cell",
+            "outside_probability": 0.07613887478473252,
+            "outside_colour_probability": 0.02160315693123811,
+            "colour_given_arrival": 0.2837335985371037,
+            "centre_dark_probability": 0.016202124363586628,
+            "energy_read": [
+              5798450,
+              14641165,
+              247995841
+            ],
+            "centre_read": [
+              4348071,
+              16093376,
+              247994009
+            ]
+          },
+          {
+            "exposure": 2.0,
+            "source": "projected_gateway",
+            "outside_probability": 0.5219413733010614,
+            "outside_colour_probability": 0.15067573536680706,
+            "colour_given_arrival": 0.28868325653865284,
+            "centre_dark_probability": 0.1130029517361907,
+            "energy_read": [
+              40449037,
+              99659033,
+              128327386
+            ],
+            "centre_read": [
+              30343025,
+              109767201,
+              128325230
+            ]
+          },
+          {
+            "exposure": 2.0,
+            "source": "uniform_cell",
+            "outside_probability": 0.23975650643363516,
+            "outside_colour_probability": 0.06865547963718623,
+            "colour_given_arrival": 0.28635502184459016,
+            "centre_dark_probability": 0.05149084072761026,
+            "energy_read": [
+              18426350,
+              45930366,
+              204078740
+            ],
+            "centre_read": [
+              13821214,
+              50531545,
+              204082697
+            ]
+          },
+          {
+            "exposure": 4.0,
+            "source": "projected_gateway",
+            "outside_probability": 0.6227637690424113,
+            "outside_colour_probability": 0.18016848576439642,
+            "colour_given_arrival": 0.2893047006273845,
+            "centre_dark_probability": 0.13512186005906204,
+            "energy_read": [
+              48359637,
+              118828678,
+              101247141
+            ],
+            "centre_read": [
+              36273507,
+              130888836,
+              101273113
+            ]
+          },
+          {
+            "exposure": 4.0,
+            "source": "uniform_cell",
+            "outside_probability": 0.28745257315526784,
+            "outside_colour_probability": 0.08165607952155185,
+            "colour_given_arrival": 0.28406800685497857,
+            "centre_dark_probability": 0.06124113630037378,
+            "energy_read": [
+              21923328,
+              55238661,
+              191273467
+            ],
+            "centre_read": [
+              16436836,
+              60720783,
+              191277837
+            ]
+          }
+        ],
+        "exchange_only": [
+          {
+            "exposure": 0.0625,
+            "source": "projected_gateway",
+            "outside_probability": 0.0007632758416972271,
+            "outside_colour_probability": 0.00019063676332841322,
+            "colour_given_arrival": 0.24976129586980192,
+            "centre_dark_probability": 0.00014297263503922812,
+            "energy_read": [
+              50713,
+              153844,
+              268230899
+            ],
+            "centre_read": [
+              38209,
+              166754,
+              268230493
+            ]
+          },
+          {
+            "exposure": 0.0625,
+            "source": "uniform_cell",
+            "outside_probability": 0.0002430699998074717,
+            "outside_colour_probability": 6.0833986743629004e-05,
+            "colour_given_arrival": 0.2502735294022863,
+            "centre_dark_probability": 4.562480797397006e-05,
+            "energy_read": [
+              16314,
+              49076,
+              268370066
+            ],
+            "centre_read": [
+              12100,
+              52817,
+              268370539
+            ]
+          },
+          {
+            "exposure": 0.125,
+            "source": "projected_gateway",
+            "outside_probability": 0.0030329029561306947,
+            "outside_colour_probability": 0.0007553132226472478,
+            "colour_given_arrival": 0.24903969351227065,
+            "centre_dark_probability": 0.0005664653445334322,
+            "energy_read": [
+              202379,
+              611646,
+              267621431
+            ],
+            "centre_read": [
+              152660,
+              660687,
+              267622109
+            ]
+          },
+          {
+            "exposure": 0.125,
+            "source": "uniform_cell",
+            "outside_probability": 0.0009595403971261394,
+            "outside_colour_probability": 0.00024094156843097644,
+            "colour_given_arrival": 0.25110101581195093,
+            "centre_dark_probability": 0.00018070347483710664,
+            "energy_read": [
+              65102,
+              193513,
+              268176841
+            ],
+            "centre_read": [
+              48500,
+              208988,
+              268177968
+            ]
+          },
+          {
+            "exposure": 0.25,
+            "source": "projected_gateway",
+            "outside_probability": 0.011818815256227785,
+            "outside_colour_probability": 0.0029082795804020694,
+            "colour_given_arrival": 0.24607200614880462,
+            "centre_dark_probability": 0.0021811341716201113,
+            "energy_read": [
+              780927,
+              2391836,
+              265262693
+            ],
+            "centre_read": [
+              585118,
+              2590176,
+              265260162
+            ]
+          },
+          {
+            "exposure": 0.25,
+            "source": "uniform_cell",
+            "outside_probability": 0.003640682503343545,
+            "outside_colour_probability": 0.0009266140675913672,
+            "colour_given_arrival": 0.25451658219039414,
+            "centre_dark_probability": 0.0006949501614699347,
+            "energy_read": [
+              247928,
+              728500,
+              267459028
+            ],
+            "centre_read": [
+              186665,
+              791286,
+              267457505
+            ]
+          },
+          {
+            "exposure": 0.5,
+            "source": "projected_gateway",
+            "outside_probability": 0.042886517325905364,
+            "outside_colour_probability": 0.009991814917981734,
+            "colour_given_arrival": 0.23298266077544685,
+            "centre_dark_probability": 0.007493599804782814,
+            "energy_read": [
+              2681784,
+              8834075,
+              256919597
+            ],
+            "centre_read": [
+              2009828,
+              9498630,
+              256926998
+            ]
+          },
+          {
+            "exposure": 0.5,
+            "source": "uniform_cell",
+            "outside_probability": 0.01178102646657481,
+            "outside_colour_probability": 0.0031809509897425996,
+            "colour_given_arrival": 0.2700062680249137,
+            "centre_dark_probability": 0.002385677587022138,
+            "energy_read": [
+              854061,
+              2309251,
+              265272144
+            ],
+            "centre_read": [
+              640447,
+              2521339,
+              265273670
+            ]
+          },
+          {
+            "exposure": 1.0,
+            "source": "projected_gateway",
+            "outside_probability": 0.13014062726499753,
+            "outside_colour_probability": 0.021996209902527198,
+            "colour_given_arrival": 0.1690187788763123,
+            "centre_dark_probability": 0.01649657186554212,
+            "energy_read": [
+              5905047,
+              29029477,
+              233500932
+            ],
+            "centre_read": [
+              4428177,
+              30498076,
+              233509203
+            ]
+          },
+          {
+            "exposure": 1.0,
+            "source": "uniform_cell",
+            "outside_probability": 0.020687882665925958,
+            "outside_colour_probability": 0.00762054790065547,
+            "colour_given_arrival": 0.3683580395207344,
+            "centre_dark_probability": 0.005715325951455833,
+            "energy_read": [
+              2047013,
+              3505920,
+              262882523
+            ],
+            "centre_read": [
+              1532755,
+              4021556,
+              262881145
+            ]
+          },
+          {
+            "exposure": 2.0,
+            "source": "projected_gateway",
+            "outside_probability": 0.3957693755470183,
+            "outside_colour_probability": 0.011961458307913021,
+            "colour_given_arrival": 0.03022330439635538,
+            "centre_dark_probability": 0.008970862877839289,
+            "energy_read": [
+              3212247,
+              103032206,
+              162191003
+            ],
+            "centre_read": [
+              2407113,
+              103825880,
+              162202463
+            ]
+          },
+          {
+            "exposure": 2.0,
+            "source": "uniform_cell",
+            "outside_probability": 0.03480614449440182,
+            "outside_colour_probability": 0.017162271971196925,
+            "colour_given_arrival": 0.4930816733797472,
+            "centre_dark_probability": 0.012871519174750684,
+            "energy_read": [
+              4608707,
+              4738634,
+              259088115
+            ],
+            "centre_read": [
+              3456591,
+              5888376,
+              259090489
+            ]
+          },
+          {
+            "exposure": 4.0,
+            "source": "projected_gateway",
+            "outside_probability": 0.58214515209131,
+            "outside_colour_probability": 0.019933924439203318,
+            "colour_given_arrival": 0.0342421891990207,
+            "centre_dark_probability": 0.014949953662709401,
+            "energy_read": [
+              5351310,
+              150913705,
+              112170441
+            ],
+            "centre_read": [
+              4013184,
+              152259522,
+              112162750
+            ]
+          },
+          {
+            "exposure": 4.0,
+            "source": "uniform_cell",
+            "outside_probability": 0.05946513977929937,
+            "outside_colour_probability": 0.0031619786686927927,
+            "colour_given_arrival": 0.053173652335271576,
+            "centre_dark_probability": 0.0023714650980649755,
+            "energy_read": [
+              848903,
+              15114080,
+              252472473
+            ],
+            "centre_read": [
+              637902,
+              15325383,
+              252472171
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

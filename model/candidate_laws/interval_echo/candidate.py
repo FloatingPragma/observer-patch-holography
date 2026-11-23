@@ -12,11 +12,18 @@ PARTICLE_IDENTIFICATIONS = {
         "status": "open",
         "note": "The freely released bare pair responds to the centre of the tested local SU(3) current. "
                 "Its terminal records also distinguish all five alternative port-label permutations. "
+                "On a unit-filled background an independently prepared signed defect transports two coherent "
+                "orbital modes through two cell boundaries. A controlled full turn and opposite orders of "
+                "perpendicular half-turns give the ordinary positive relative phase. "
+                "Filtering the local colour band at both endpoints retains coherent transfer, but the leading "
+                "arrival from a localized launch has one quarter of its weight in that band. "
                 "A physical colour-singlet assignment, signed electromagnetic response, spatial spin half "
                 "and an electron–positron identification require further evidence on the same excitation.",
         "evidence": [
             "model/candidate_laws/interval_echo/openwave/row_04_identity/README.md",
             "model/candidate_laws/interval_echo/openwave/row_04_conjugates/README.md",
+            "model/experiments/interval_echo_angular/charged_orientation/README.md",
+            "model/experiments/interval_echo_gauge/singlet_flight/README.md",
         ],
         "comparison": {
             "law": "Written-field Laplacian extension",

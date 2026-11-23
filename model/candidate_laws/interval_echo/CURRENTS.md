@@ -21,6 +21,8 @@ The detector experiment starts the odd two-load source at port 1, applies $+0.41
 
 The earlier workspace gate compiler built the unit-gain two-load pulses on all 66 basis inputs from native exchanges, echo, addressable written-contrast phases and protected control windows. Its separate synthesis receipt is `LAW/current-interval-clock/theorem-calibration/search/current/sensitivity.json` in the research workspace, SHA-256 `68d4d36f7227624e11b81c0df548510599fe032dee248edfaa66ad83762f446e`. The replay here executes the ideal guarded operator and its terminal detector. Call `pulse(port_number, strength, loads=2)` to obtain that unitary on the complete 66-state binary pair sector. The one-load version uses `loads=1`.
 
+The one-load colour triplet also constrains propagation. A sharp gateway has exactly one-quarter weight in this band. On all three tested boards every everywhere-singlet single-load trajectory has zero probability current between cells. A colour filter at just the source and receiver permits coherent orbital transfer of signed defects under the specified extension of the one-load meter. [Colour and orbital transport](../../experiments/interval_echo_gauge/singlet_flight/README.md)
+
 From the RER repository root, print the full receipt with the first command. The second reruns the independent detector comparison, including the return pulse and a separate construction of the two-load Hamiltonian.
 
 ~~~sh

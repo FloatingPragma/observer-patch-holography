@@ -97,8 +97,8 @@ def congruence(source, order):
     return meters, weights
 
 
-def acquire(preparation):
-    source = measure.propagate(preparation)
+def survey_source(source):
+    """Read the fixed-volume aperture from a forward ADM geometry."""
     interior, weights = congruence(source, 4)
     rim, boundary_weights = congruence(source, 5)
     nodes, radial_weights = leggauss(6)
@@ -133,6 +133,10 @@ def acquire(preparation):
             )
         )
     return spheres
+
+
+def acquire(preparation):
+    return survey_source(measure.propagate(preparation))
 
 
 def run(primary):

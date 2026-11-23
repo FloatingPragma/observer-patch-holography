@@ -68,6 +68,10 @@ An ancestor-correlated native collar on shrinking routed annuli gives a charge p
 
 The free 20-cell neutral-pair band has an isolated cluster of 24 lines. A filtered pair retains at least 99.36999% probability on adjacent bound addresses. On three launch cells its probability of reaching an adjacent address two or more cells away rises to 6.8287%, 12.6035% and 18.8158% after one million exchange times. Its local spectral weight concentrates on a twelve-cell gateway motif. The inertial dispersion and response to a physical electrical field on the same moving branch are still open. [Free multi-cell pair flight](../../experiments/material_inertia/pair_spectrum/README.md)
 
+## Which angular state travels with a signed defect?
+
+On a unit-filled host with every seam blank, the two circular orientations of a three-gateway charge preparation both reach a receiver two cells away. At generator time 32 on the 320-cell host, the receiver recovers the encoded orbital on 2.997% of vacancy starts and 4.689% of excess starts. Tomography with six independent input preparations certifies transfer of coherent two-state information. A full turn of the receiver template gives positive phase. An addressed exchange interchanges the two independent orbital references with positive permutation sign. The signed load therefore carries spatial orientation under these operations. Identification of an electron requires a physical spin-half representation and an independently calibrated rest energy on the same excitation. [Protocol, readouts and controls](../../experiments/interval_echo_angular/charged_orientation/README.md)
+
 ## Reproduce or inspect
 
 Run from the RER repository root.

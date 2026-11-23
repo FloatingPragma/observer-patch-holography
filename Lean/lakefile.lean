@@ -150,7 +150,7 @@ lean_lib «SourceLaw» where
     `SourceLaw.TwoPointFlux, `SourceLaw.MatrixSeams,
     `SourceLaw.ScalarPacket, `SourceLaw.TransferMatrixLift,
     `SourceLaw.RecordRealization, `SourceLaw.SpinMarginalForce,
-    `SourceLaw.DressedMaterialExchange, `SourceLaw.WrittenChargeSymmetry, `SourceLaw.WrittenChargeSupport,
+    `SourceLaw.ColourSingletGateway, `SourceLaw.DressedMaterialExchange, `SourceLaw.WrittenChargeSymmetry, `SourceLaw.WrittenChargeSupport,
     `SourceLaw.RepairAdmissibility, `SourceLaw.CounterfamilyReader,
     `SourceLaw.StationaryWindow, `SourceLaw.GoldenCarrier,
     `SourceLaw.MatrixLimits, `SourceLaw.DynamicalResponse,

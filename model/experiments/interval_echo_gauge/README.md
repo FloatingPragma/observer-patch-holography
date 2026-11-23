@@ -29,6 +29,8 @@ For a local measurement, we used the same antipodal edge-pair source and the sam
 
 In this calibration the last word gives opposite phases to the two triplets. The terminal patch resolves their interference. The tiny calculated differences in the two identity arms come from finite pulse slicing. Calling the abelian charge of this pair a physical hypercharge would require an independent calibration against other matter. These words take place inside one complete cell using the pair’s currents. The source-to-loop equality required for a physical global quotient remains open. [All terminal distributions and counts](result.json)
 
+The corresponding guarded one-load current gives an independent colour test during free intercell transport, including its exact leading triplet weight and coherent singlet-filtered orbital readout. [Colour during transport](singlet_flight/README.md)
+
 From the RER repository root:
 
 ```sh

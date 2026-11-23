@@ -264,9 +264,10 @@
           "results": {
             "interval_echo": {
               "status": "open",
-              "note": "Field angular momentum has yet to be measured on an identified electron.",
+              "note": "A signed defect transmits two coherent orbital modes across two cell boundaries on each native host. These modes are spatial orientations. Field angular momentum of magnitude ℏ/2 on an identified electron remains unmeasured.",
               "evidence": [
-                "model/candidate_laws/interval_echo/SPEC.md"
+                "model/candidate_laws/interval_echo/SPEC.md",
+                "model/experiments/interval_echo_angular/charged_orientation/README.md"
               ],
               "comparison": {
                 "law": "Written-field Laplacian extension",
@@ -299,9 +300,10 @@
           "results": {
             "interval_echo": {
               "status": "open",
-              "note": "A physical rotation or exchange phase and its polar control remain unmeasured.",
+              "note": "On the freely arriving signed orbital, a controlled full template turn and opposite orders of perpendicular half-turns give positive relative phase. Two addressed orbital packets exchange with +SWAP. The same apparatus resolves the imposed spinorial and odd-permutation signs. This orbital construction fails the requested double-cover test.",
               "evidence": [
-                "model/candidate_laws/interval_echo/SPEC.md"
+                "model/candidate_laws/interval_echo/SPEC.md",
+                "model/experiments/interval_echo_angular/charged_orientation/README.md"
               ],
               "comparison": {
                 "law": "Written-field Laplacian extension",
@@ -953,11 +955,12 @@
           "results": {
             "interval_echo": {
               "status": "open",
-              "note": "Attractive contact phases are available for adjacent loads. The one-load energy shift is common to all paths. Neither measurement supplies an attractive inverse-square force between distant masses. In a uniformly filled 20-cell host with two pairs confined to their respective cells, the connected static energy is −17 or +15.5 exchange units at contact according to orientation. For every internal wavefunction the joint Hamiltonian factorizes at nonadjacent centres. The connected energy is exactly zero at separations two through five. An independent free-flight baseline measures the probability of an adjacent neutral pair arriving at least two cells away in the absence of a second source. A force measurement would require the source-induced change.",
+              "note": "Attractive contact phases are available for adjacent loads. The one-load energy shift is common to all paths. Neither measurement supplies an attractive inverse-square force between distant masses. In a uniformly filled 20-cell host with two pairs confined to their respective cells, the connected static energy is −17 or +15.5 exchange units at contact according to orientation. For every internal wavefunction the joint Hamiltonian factorizes at nonadjacent centres. The connected energy is exactly zero at separations two through five. An independent free-flight baseline measures the probability of an adjacent neutral pair arriving at least two cells away in the absence of a second source. A force measurement would require the source-induced change. A uniform launch over the whole federation resolves a local matter response to a freely formed collar. All enrolled distant readings include the uniform probability within their simultaneous intervals. These separations and exposures measure neither an inverse-square force nor a Newton constant.",
               "evidence": [
                 "model/candidate_laws/interval_echo/SPEC.md",
                 "model/experiments/material_inertia/pair_recoil/force.json",
-                "model/experiments/material_inertia/pair_spectrum/results.json"
+                "model/experiments/material_inertia/pair_spectrum/results.json",
+                "model/experiments/interval_echo_einstein_station/shared_geometry_probe/flight.json"
               ]
             },
             "contrast_memory_spherical_v1": {
@@ -985,13 +988,15 @@
           "results": {
             "interval_echo": {
               "status": "open",
-              "note": "The guided reunion experiment changes the motion of the patch. Testing gravitational clock rates or light paths requires a measured source of curvature. The two co-located hands agree in vacuum. Following a release across one boundary the occupied meter lags the empty one by about 0.00028 radians on the 20-, 80- and 320-cell screens. The lag follows from double occupation of the meter contact. This readout distinguishes a probe-dependent lag from a common gravitational lapse. A parked source changes the frequencies of co-located excess and vacancy dimer clocks by factors of 0.06438 and 0.06764 in one orientation and 2.09341 and 1.93679 in the reverse orientation. Both ratios are exactly one beyond contact on the four enrolled separations. A common gravitational rate and matter-sensitive optical propagation require different evidence. Equilibrating the hidden directions after the first of two native flights misses 38.9–39.3% of departures on the 327680-cell material. Preserving the conditional state and varying a midpoint phase predicts 32 held radial returns. Converting these radial records to proper distances and measuring curvature with independent clocks and light require additional evidence.",
+              "note": "The guided reunion experiment changes the motion of the patch. Testing gravitational clock rates or light paths requires a measured source of curvature. The two co-located hands agree in vacuum. Following a release across one boundary the occupied meter lags the empty one by about 0.00028 radians on the 20-, 80- and 320-cell screens. The lag follows from double occupation of the meter contact. This readout distinguishes a probe-dependent lag from a common gravitational lapse. A parked source changes the frequencies of co-located excess and vacancy dimer clocks by factors of 0.06438 and 0.06764 in one orientation and 2.09341 and 1.93679 in the reverse orientation. Both ratios are exactly one beyond contact on the four enrolled separations. A common gravitational rate and matter-sensitive optical propagation require different evidence. Equilibrating the hidden directions after the first of two native flights misses 38.9–39.3% of departures on the 327680-cell material. Preserving the conditional state and varying a midpoint phase predicts 32 held radial returns. Converting these radial records to proper distances and measuring curvature with independent clocks and light require additional evidence. Opposite native load signs share an ordinary-source calibration over 13,992 held frequencies. A uniform mixture over all ports responds locally to a freely formed collar on 20 and 80 cells. Neither a source-dependent unitary geometry of that complete propagation space nor a classical mixture of such geometries can account for this polarization. Independent proper clocks and ranges are needed to identify a geometric contribution.",
               "evidence": [
                 "model/candidate_laws/interval_echo/SPEC.md",
                 "model/candidate_laws/interval_echo/RESULTS.json",
                 "model/experiments/interval_echo_metric_response/README.md",
                 "model/experiments/material_inertia/pair_recoil/clock.json",
-                "model/experiments/interval_echo_einstein_station/relational_ruler/angular_equilibrium/results.json"
+                "model/experiments/interval_echo_einstein_station/relational_ruler/angular_equilibrium/results.json",
+                "model/experiments/interval_echo_einstein_station/shared_geometry_probe/results.json",
+                "model/experiments/interval_echo_einstein_station/shared_geometry_probe/flight.json"
               ]
             },
             "contrast_memory_spherical_v1": {

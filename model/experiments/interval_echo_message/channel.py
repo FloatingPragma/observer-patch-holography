@@ -91,6 +91,12 @@ REPLAY_EVALUATIONS = (
         "model/candidate_laws/interval_echo/candidate.py": "7cd3ab08a927cf89c1323922091f92b505151a693502d46d3d86c4dace2b1b1c",
         "model/candidate_laws/interval_echo/EVALUATION.json": "5f99c88503cf532871010f207af0e77d3e7f48f57d17eb4942bf6be84208acc1",
     },
+    # Source-bound orbital, colour and gravity readouts extend candidate and scoring metadata.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "9b08035ebb2796af7227cfda6915b2f354fb1d2d97bdecaa47ecfeada1941eec",
+        "model/candidate_laws/interval_echo/candidate.py": "babb7b616a19021a67f7f0d7ab146d7e41c0f2a6923f5b7e9a8578e28916ddef",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "ede7beb306d9f46eba035cf94f0b8fc09fe604a92b8d1bf55076b40242a23940",
+    },
 )
 
 
