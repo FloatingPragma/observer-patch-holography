@@ -75,6 +75,8 @@ def apparatus():
         np.testing.assert_allclose(source[1], sign * source[0], rtol=0, atol=1e-13)
         inputs.append(source)
     analyzer = np.kron(half, half)[:, [0, 3]]
+    # Removing cross terms at the receiver leaves a fair binary flag for each word.
+    np.testing.assert_allclose(abs(analyzer) ** 2, 0.25, rtol=0, atol=1e-13)
     return np.array(inputs).T, analyzer
 
 
@@ -122,6 +124,16 @@ def observe(sector, receiver, states, double_weights, analyzer):
             mixed[[1, 2]].sum(axis=0),
         ]
     )
+
+
+def dephased_controls(recorded):
+    """Exact six-bin laws on fresh launches when the word is read and forgotten."""
+    rows = np.asarray(recorded)
+    # Erasing input coherence gives the same mixture as averaging the two source signs.
+    source = np.broadcast_to(rows.mean(axis=0), rows.shape).copy()
+    receiver = rows.copy()
+    receiver[:, -2:] = rows[:, -2:].mean(axis=1, keepdims=True)
+    return source, receiver
 
 
 def forecast():
@@ -178,19 +190,30 @@ def forecast():
 
 
 def verify_forecast(actual, expected):
+    worst = 0.0
     if set(actual) != set(expected):
         raise ValueError("Prediction schema differs")
     for field in actual.keys() - {"association", "receiver"}:
-        if actual[field] != expected[field]:
+        if json.dumps(actual[field], sort_keys=True) != json.dumps(expected[field], sort_keys=True):
             raise ValueError(f"Wrong {field}")
     for field in ("association", "receiver"):
         for row, stored in zip(actual[field], expected[field], strict=True):
             if json.dumps(row[:-2]) != json.dumps(stored[:-2]):
                 raise ValueError("Wrong appointment")
             a, b = np.asarray(row[-2:]), np.asarray(stored[-2:])
-            if a.shape != b.shape or b.dtype.kind != "f":
+            if (
+                a.shape != b.shape
+                or b.dtype.kind != "f"
+                or any(type(v) is not float for group in stored[-2:] for v in group)
+                or not np.isfinite(b).all()
+                or (b < 0).any()
+                or (b > 1).any()
+                or np.max(abs(b.sum(axis=1) - 1)) > TOL
+            ):
                 raise ValueError("Wrong bin layout")
             np.testing.assert_allclose(a, b, rtol=0, atol=TOL, equal_nan=False)
+            worst = max(worst, float(abs(a - b).max()))
+    return worst
 
 
 def store_result(result, path):
