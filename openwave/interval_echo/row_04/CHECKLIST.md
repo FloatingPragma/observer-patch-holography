@@ -4,6 +4,8 @@
 
 ## Readiness by experiment
 
+For the proposed one-load state, the exact estimates cover every eligible home, port order and exposure. Coherent home probability is at least 0.999940596796, the dephased upper bound is 0.916447948118 and the random-swap upper bound is 0.559218518009. All three physical comparisons therefore follow before a task is selected. The registered numerical check compares two implementations on the 56 bins of the first official draw. M10's owner nominates the changed state and detector, and OpenWave adjudicates the candidate and the row. [Proofs and acquisition instructions](../../../model/candidate_laws/interval_echo/openwave/row_04_compact/README.md#dependence-on-the-source-order-and-the-flight-law)
+
 | Experiment | Replayed result | Filing decision |
 | --- | --- | --- |
 | Historical Interval Echo pair · M10.3 | The archived clock and vacuum fringes agree at κ = ½ and 8. At exposure 37 the original home-pair probabilities are 0.41682 and 0.98027. At zero coupling even the optimal preparation on the 30 cell-13 seams has return probability below 0.899 at exposure one. | **Partial, resubmission HOLD.** Those records cannot select the supplied coupling. Full credit for this pair requires independent evidence for its original selection. [Clock and return analysis](../../../model/experiments/interval_echo_consensus/README.md#what-the-adopted-clock-can-say-about-the-pair) |
