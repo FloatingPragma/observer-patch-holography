@@ -1,4 +1,5 @@
 from fractions import Fraction
+import json
 
 import numpy as np
 import pytest
@@ -89,3 +90,59 @@ def test_different_contact_rejects_the_exact_dark_claim(monkeypatch):
 def test_unphysical_release_rejected(rho):
     with pytest.raises(ValueError, match="accepted density"):
         opened.read_release(8, 1, rho)
+
+
+def test_raw_board_replay_and_quantized_receipt():
+    from . import open_pair_check as check, open_pair_release as release
+    rho, report = release.source()
+    report["home_seams_in_order"] = opened.geometry()[1]
+    report["appointments"] = [{"kappa": .5, "exposure": 1,
+                               "bins": release.terminal(rho, report["exhaustion"], .5, 1)}]
+    archive = json.loads(check.ARCHIVE.read_text())
+    result = check.verify(report, (.5,), (1,), archive)
+    assert result["checked_bins"] == 124 and result["max_archive_error"] < check.TOLERANCE
+    raw = report["appointments"][0]["bins"]["coherent"]
+    position = int(np.argmin(raw))
+    raw[position] = False  # numerically indistinguishable from this near-zero cell
+    with pytest.raises(ValueError, match="numeric terminal"):
+        check.verify(report, (.5,), (1,), archive)
+    raw[position] = 0.
+    edges = list(report["setup"]["neutral_edges"])
+    edges[0] = (156, 157)  # a live path seam substituted for an actual cut
+    report["setup"]["neutral_edges"] = edges
+    with pytest.raises(ValueError, match="contact installation"):
+        check.verify(report, (.5,), (1,), archive)
+    report["setup"] = opened.seal_from_sharp()
+    report["setup"]["final_pair"] = [156., 157]
+    with pytest.raises(ValueError, match="contact installation"):
+        check.verify(report, (.5,), (1,), archive)
+
+
+def test_external_raw_replay_rejects_duplicate_json_keys(tmp_path, monkeypatch):
+    import sys
+    from . import open_pair_check as check
+    receipt = tmp_path/"receipt.json"
+    receipt.write_text('{"setup": {}, "setup": {}}', encoding="utf-8")
+    monkeypatch.setattr(sys, "argv", ["check", "--receipt", str(receipt)])
+    with pytest.raises(ValueError, match="duplicate JSON key"):
+        check.main()
+
+
+@pytest.mark.parametrize("defect", ["missing arm", "noninteger", "duplicate", "reordered receiver", "wrong bins"])
+def test_raw_checker_rejects_corrupted_receipt(defect):
+    from . import open_pair_check as check
+    archive = json.loads(check.ARCHIVE.read_text())
+    row = archive["appointments"][0]
+    if defect == "missing arm":
+        row["bins"].pop("stochastic_swap")
+    elif defect == "noninteger":
+        row["bins"]["dephased"][3] = True
+    elif defect == "duplicate":
+        archive["appointments"][-1] = row
+    elif defect == "reordered receiver":
+        archive["outcome_order"].reverse()
+    else:
+        row["bins"]["coherent"].reverse()  # normalized and physical, wrong allocation
+    _, home, expected = check.independently_replay((0,), (1,))
+    with pytest.raises((ValueError, ArithmeticError)):
+        check.max_bin_error(check.archive_bins(archive, home), expected)

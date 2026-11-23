@@ -18,11 +18,14 @@ During release the complete native generator has $H D=(1+3\kappa)D$. The two pat
 
 With all twelve boundary contacts of a different three-port path written, a closed-corridor control gives an all-strength, all-time joint floor of $2975/3072$. The closed path provides a check of the instrument and a comparison for geometric confinement. In the connected experiment the eleven written contacts also constitute deliberately prepared material structure. The result concerns a composite localized relative to that structure. It supplies neither its charge and mass nor evidence of a freely translating particle on an initially uniform board. The historical sharp, blank-memory data below retain their coupling-selection history. [Closed source and analytic time law](corridor_release.py) · [OpenWave review](https://github.com/openwave-labs/openwave/pull/745#pullrequestreview-6005365373)
 
-Reproduce the source alone with the first command. The second emits every registered detector bin for each of the nine settings and four arms. The last command checks the independent obstruction for the blank-memory preparation.
+The independent reader reconstructs the 28,680 states from the hash-checked board and propagates with Chebyshev polynomials and Poisson uniformization. Its maximum absolute difference from the archived bins is below $1.8\times10^{-11}$. The receipt rounds individual probabilities to a trillionth. The numerical comparison allows $2\times10^{-10}$ for propagation. Both are separate from the exact bound on the protected weight. [Independent reader](open_pair_check.py)
+
+Reproduce the source alone with the first command. The second emits all nine settings and four arms. The third recomputes the same probabilities independently. The last command checks the obstruction for the blank-memory preparation.
 
 ```sh
 python -B -O -W error -m model.candidate_laws.interval_echo.openwave.row_04.open_pair_release
 python -B -O -W error -m model.candidate_laws.interval_echo.openwave.row_04.open_pair_release --full
+python -B -O -W error -m model.candidate_laws.interval_echo.openwave.row_04.open_pair_check --full
 python -B -O -W error -m model.experiments.interval_echo_consensus.pair_window
 ```
 
