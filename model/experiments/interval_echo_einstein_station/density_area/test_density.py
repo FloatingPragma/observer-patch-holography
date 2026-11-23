@@ -7,6 +7,7 @@ import numpy as np
 
 from model.executable_model import federation
 from . import coincidence, measure
+from .. import assert_same_replay
 
 
 def test_exact_sharp_word_reduction_and_isolated_tag():
@@ -53,7 +54,7 @@ def test_native_shape_count_and_recorded_hypotheses():
 
 def test_two_tag_complete_flags_and_independent_held_counts():
     observed = coincidence.run()
-    assert observed == json.loads((measure.HERE/'coincidence.json').read_text())
+    assert_same_replay(observed, json.loads((measure.HERE/'coincidence.json').read_text()))
     for row in observed['panels']:
         h = row['variance_transfer']
         assert h['exact_variance_slope'] > 0

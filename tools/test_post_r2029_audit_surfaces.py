@@ -231,13 +231,14 @@ def test_flagship_uses_mixed_verification_and_declared_closure_map_status() -> N
     assert "unproved premise" in flagship
     assert "come from the closure hypothesis directly" not in flagship
     # Compaction retains the mathematical and empirical boundaries without
-    # requiring the former historical comparison of two closure candidates.
-    assert "specify the history domain and the action of $T$" in flagship
-    assert "the identification of our universe with a fixed point" in flagship
-    assert "questions the equation leaves open" in flagship
-    assert "on the declared finite consensus branch the closure map" in flagship
-    assert "an affine idempotent whose fixed points are exactly the packets" in flagship
-    assert "supported on consensus normal forms" in flagship
+    # requiring the former historical comparison of two closure candidates:
+    # existence needs a specified domain and witness, and closure alone does
+    # not single out the observed Universe.
+    assert "A universe-level existence claim requires a specified history domain, an internal realization and a witness" in flagship
+    assert "To prove that closure singles out our observable Universe, every admitted fixed history would have to give the joint laws measured in our experiments" in flagship
+    assert "Two microscopically different realizations could agree on all of those laws" in flagship
+    assert "on the finite consensus branch the closure map is an affine idempotent" in flagship
+    assert "Its fixed points are exactly the packets supported on consensus normal forms" in flagship
     assert "Declaring a primitive fixes the model under study" in flagship
     assert "Its consequences require proofs, and its physical adequacy requires tests" in flagship
     assert "a specified input must remain distinguishable from a consequence" in flagship

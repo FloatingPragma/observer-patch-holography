@@ -9,6 +9,7 @@ from scipy.sparse.csgraph import shortest_path
 from model.executable_model import federation
 from model.executable_model.refinement import Refinement
 from . import ancestor, measure
+from .. import assert_same_replay
 
 
 def test_protected_reduction_matches_every_reached_station_on_direct_board():
@@ -82,7 +83,7 @@ def test_charge_difference_equals_full_reference_modular_expectation():
 
 def test_raw_sample_completeness_and_frozen_controls():
     primary = json.loads((measure.HERE / "results.json").read_text())
-    assert primary == measure.experiment([r["geometry"] for r in primary["panels"]])
+    assert_same_replay(measure.experiment([r["geometry"] for r in primary["panels"]]), primary)
     for panel in primary["panels"]:
         for row in panel["settings"]:
             for study in row["arms"].values():
@@ -138,7 +139,7 @@ def test_sharp_energy_controls_and_radial_mark_density():
     from . import source_scale
 
     record = source_scale.evaluate()
-    assert record == json.loads((measure.HERE / "source_scale.json").read_text())
+    assert_same_replay(record, json.loads((measure.HERE / "source_scale.json").read_text()))
     low, high = (record["energy_conditioned"][i] for i in (0, 2))
     assert sum(low["word_energy_sums"]) == 64 and sum(high["word_energy_sums"]) == 130
     assert [r["population"] for r in low["results"]] == [
