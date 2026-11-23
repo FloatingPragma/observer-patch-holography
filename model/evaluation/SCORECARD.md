@@ -13,6 +13,8 @@ Each row asks one question. Select its ID to see the acceptance criterion, the e
 
 Roles reflect the current investigation of patch clocks and bound matter on the spherical federation. Several rows use the same experiment at different scopes. Adding their grades would count the same evidence several times.
 
+The signed-defect experiment tests whether a transported orbital qubit acquires spinorial rotation and exchange phases. The gravity experiment tests how a second probe and an equal-energy seam source respond to a calibration on ordinary matter. The semiclassical comparison uses supplied Einstein evolution. [Matter and its controls](EVIDENCE.md#ft-matter) · [Universal coupling and its controls](EVIDENCE.md#g6) · [Null balance](EVIDENCE.md#gr-null)
+
 ## Common carrier and parameter checks
 
 These checks execute on each registered generator and its declared parameters at every evaluation. The cell spectral test concerns the finite response operator. Observer reconstruction is scored separately below.

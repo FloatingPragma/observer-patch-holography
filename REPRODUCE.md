@@ -24,6 +24,22 @@ python -m pytest -q -W error model
 
 The main replay compares fresh clock decisions and reunion words with the deposited results. Full verification includes every stationary record in the archive, the two-seam repair outcomes and the guarded port-current response. A mismatch returns a nonzero exit status. Use `--full --seed 42 --output /tmp/echo-42` to generate an independent realization. These commands run in a standalone RER checkout.
 
+For the archived electron-wall and loaded-clock multinomial counts, use Linux x86-64 with CPython 3.12 and the pinned model requirements above. On macOS ARM64 the archived frequencies can differ by one or more draws even when the calculated probabilities agree at the tested precision.
+
+### Replaying the matter and gravity experiments
+
+The following focused check runs the signed-defect rotation and exchange tests, the local colour filters, the native gravity probes and the separate homogeneous Einstein–scalar comparison. Run it from the checkout root with the model requirements installed.
+
+```sh
+python -m pytest -q -W error \
+  model/experiments/interval_echo_angular/charged_orientation \
+  model/experiments/interval_echo_gauge/singlet_flight \
+  model/experiments/interval_echo_einstein_station/shared_geometry_probe \
+  code/matched_einstein_limit/quantum_scalar_radar/species_transfer
+```
+
+To acquire fresh observer counts, follow the commands in the [orbital experiment](model/experiments/interval_echo_angular/charged_orientation/README.md), [colour experiment](model/experiments/interval_echo_gauge/singlet_flight/README.md), [native probe experiment](model/experiments/interval_echo_einstein_station/shared_geometry_probe/README.md) and [semiclassical comparison](code/matched_einstein_limit/quantum_scalar_radar/README.md). Choose an unused output path for each receipt. The protocols identify the preparations, the held readings, their controls and the evidence required to change an assessment. [Matter criterion](model/evaluation/EVIDENCE.md#ft-matter) · [Universal coupling criterion](model/evaluation/EVIDENCE.md#g6)
+
 The station experiment tests whether ranges inferred from simulated observer records predict held clock and pulse measurements. Its three-dimensional fit uses the recorded times and station labels. [Source-free chart and held flights](model/experiments/interval_echo_space/README.md#can-a-source-free-chart-predict-clocks-and-pulses-at-other-stations)
 
 For the electron candidate, replay the signed-field measurements, the exchange of two charges with distinct field endpoints, and the energy and spin tests of the stationary charged states. The two-cell transport test resolves charge arrival and recovery of the same complete excited state independently. It uses the recorded board layouts, sources and probes. The reported energies are in model units. The laboratory calculation has its own measured inputs. [Experiments, units and controls](model/candidate_laws/interval_echo/openwave/electron_field/README.md)
