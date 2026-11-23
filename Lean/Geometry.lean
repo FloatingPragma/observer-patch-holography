@@ -44,6 +44,7 @@ import Geometry.CelestialNullCone
 import Geometry.ObserverFrameHyperboloid
 import Geometry.ObserverRestSpace
 import Geometry.EinsteinTensorBridge
+import Geometry.VacuumTidalRead
 import Geometry.LorentzOverlapCocycle
 import Geometry.EventGermDisplacement
 import Geometry.CelestialSoldering

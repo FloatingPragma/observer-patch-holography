@@ -1,0 +1,1117 @@
+{
+  "law": "interval_echo",
+  "sector": "one unit load, blank cell, one position amplitude per port",
+  "north": 0,
+  "south": 3,
+  "proper_rotation": [
+    0,
+    5,
+    6,
+    3,
+    2,
+    11,
+    8,
+    1,
+    9,
+    4,
+    7,
+    10
+  ],
+  "commuting_ring_reflection": [
+    0,
+    1,
+    2,
+    3,
+    6,
+    7,
+    4,
+    5,
+    9,
+    8,
+    11,
+    10
+  ],
+  "northern_source": [
+    1,
+    5,
+    11,
+    10,
+    7
+  ],
+  "southern_outcomes_before_quiet": [
+    2,
+    6,
+    8,
+    9,
+    4
+  ],
+  "source_pulses": {
+    "circular_+1": {
+      "root": 1,
+      "splitters": 4,
+      "degree_pulses": 5,
+      "routing_swaps": 0
+    },
+    "circular_-1": {
+      "root": 1,
+      "splitters": 4,
+      "degree_pulses": 5,
+      "routing_swaps": 0
+    },
+    "circular_+2": {
+      "root": 1,
+      "splitters": 4,
+      "degree_pulses": 5,
+      "routing_swaps": 0
+    },
+    "circular_-2": {
+      "root": 1,
+      "splitters": 4,
+      "degree_pulses": 5,
+      "routing_swaps": 0
+    },
+    "standing_1_0": {
+      "root": 1,
+      "splitters": 4,
+      "degree_pulses": 5,
+      "routing_swaps": 0
+    },
+    "standing_1_1": {
+      "root": 1,
+      "splitters": 4,
+      "degree_pulses": 5,
+      "routing_swaps": 0
+    },
+    "standing_1_2": {
+      "root": 1,
+      "splitters": 4,
+      "degree_pulses": 5,
+      "routing_swaps": 0
+    },
+    "standing_1_3": {
+      "root": 1,
+      "splitters": 4,
+      "degree_pulses": 5,
+      "routing_swaps": 0
+    },
+    "standing_1_4": {
+      "root": 1,
+      "splitters": 4,
+      "degree_pulses": 5,
+      "routing_swaps": 0
+    },
+    "standing_2_0": {
+      "root": 1,
+      "splitters": 4,
+      "degree_pulses": 5,
+      "routing_swaps": 0
+    },
+    "standing_2_1": {
+      "root": 1,
+      "splitters": 4,
+      "degree_pulses": 5,
+      "routing_swaps": 0
+    },
+    "standing_2_2": {
+      "root": 1,
+      "splitters": 4,
+      "degree_pulses": 5,
+      "routing_swaps": 0
+    },
+    "standing_2_3": {
+      "root": 1,
+      "splitters": 4,
+      "degree_pulses": 5,
+      "routing_swaps": 0
+    },
+    "standing_2_4": {
+      "root": 1,
+      "splitters": 4,
+      "degree_pulses": 5,
+      "routing_swaps": 0
+    }
+  },
+  "collapsed_outcome": "quiet comprises both poles and the entire northern ring",
+  "no_hop_max_receiver_probability": 0.0,
+  "windows": [
+    {
+      "exposure": 0,
+      "orders": {
+        "1": {
+          "plain_circular_plus": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "plain_circular_minus": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "standing_0": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "standing_1": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "standing_0_density_dft_magnitudes": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "phase_analyzed_plus": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "phase_analyzed_minus": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "comparisons": {
+            "standing_orientation_0_vs_1": {
+              "total_variation": 0.0,
+              "optimal_accuracy": 0.5,
+              "mutual_information_bits": 0.0
+            },
+            "circular_sign_plain": {
+              "total_variation": 0.0,
+              "optimal_accuracy": 0.5,
+              "mutual_information_bits": 0.0
+            },
+            "circular_sign_after_seam_exchange": {
+              "total_variation": 0.0,
+              "optimal_accuracy": 0.5,
+              "mutual_information_bits": 0.0
+            }
+          }
+        },
+        "2": {
+          "plain_circular_plus": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "plain_circular_minus": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "standing_0": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "standing_1": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "standing_0_density_dft_magnitudes": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "phase_analyzed_plus": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "phase_analyzed_minus": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "comparisons": {
+            "standing_orientation_0_vs_1": {
+              "total_variation": 0.0,
+              "optimal_accuracy": 0.5,
+              "mutual_information_bits": 0.0
+            },
+            "circular_sign_plain": {
+              "total_variation": 0.0,
+              "optimal_accuracy": 0.5,
+              "mutual_information_bits": 0.0
+            },
+            "circular_sign_after_seam_exchange": {
+              "total_variation": 0.0,
+              "optimal_accuracy": 0.5,
+              "mutual_information_bits": 0.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "exposure": 0.25,
+      "orders": {
+        "1": {
+          "plain_circular_plus": [
+            0.008070405253,
+            0.008070405253,
+            0.008070405253,
+            0.008070405253,
+            0.008070405253,
+            0.959647973735
+          ],
+          "plain_circular_minus": [
+            0.008070405253,
+            0.008070405253,
+            0.008070405253,
+            0.008070405253,
+            0.008070405253,
+            0.959647973735
+          ],
+          "standing_0": [
+            0.016140810506,
+            0.001541310252,
+            0.010564297628,
+            0.010564297628,
+            0.001541310252,
+            0.959647973735
+          ],
+          "standing_1": [
+            0.001541310252,
+            0.016140810506,
+            0.001541310252,
+            0.010564297628,
+            0.010564297628,
+            0.959647973735
+          ],
+          "standing_0_density_dft_magnitudes": [
+            0.040352026265,
+            0.0,
+            0.020176013132,
+            0.020176013132,
+            0.0
+          ],
+          "phase_analyzed_plus": [
+            0.000394993748,
+            0.015745816758,
+            0.008070405253,
+            0.008070405253,
+            0.008070405253,
+            0.959647973735
+          ],
+          "phase_analyzed_minus": [
+            0.015745816758,
+            0.000394993748,
+            0.008070405253,
+            0.008070405253,
+            0.008070405253,
+            0.959647973735
+          ],
+          "comparisons": {
+            "standing_orientation_0_vs_1": {
+              "total_variation": 0.02362248763,
+              "optimal_accuracy": 0.511811243815,
+              "mutual_information_bits": 0.015579777998
+            },
+            "circular_sign_plain": {
+              "total_variation": 0.0,
+              "optimal_accuracy": 0.5,
+              "mutual_information_bits": 0.0
+            },
+            "circular_sign_after_seam_exchange": {
+              "total_variation": 0.01535082301,
+              "optimal_accuracy": 0.507675411505,
+              "mutual_information_bits": 0.013463686651
+            }
+          }
+        },
+        "2": {
+          "plain_circular_plus": [
+            0.001191271032,
+            0.001191271032,
+            0.001191271032,
+            0.001191271032,
+            0.001191271032,
+            0.994043644842
+          ],
+          "plain_circular_minus": [
+            0.001191271032,
+            0.001191271032,
+            0.001191271032,
+            0.001191271032,
+            0.001191271032,
+            0.994043644842
+          ],
+          "standing_0": [
+            0.002382542063,
+            0.001559394025,
+            0.000227512522,
+            0.000227512522,
+            0.001559394025,
+            0.994043644842
+          ],
+          "standing_1": [
+            0.001559394025,
+            0.002382542063,
+            0.001559394025,
+            0.000227512522,
+            0.000227512522,
+            0.994043644842
+          ],
+          "standing_0_density_dft_magnitudes": [
+            0.005956355158,
+            0.002978177579,
+            0.0,
+            0.0,
+            0.002978177579
+          ],
+          "phase_analyzed_plus": [
+            0.000491059488,
+            0.001891482575,
+            0.001191271032,
+            0.001191271032,
+            0.001191271032,
+            0.994043644842
+          ],
+          "phase_analyzed_minus": [
+            0.001891482575,
+            0.000491059488,
+            0.001191271032,
+            0.001191271032,
+            0.001191271032,
+            0.994043644842
+          ],
+          "comparisons": {
+            "standing_orientation_0_vs_1": {
+              "total_variation": 0.002155029541,
+              "optimal_accuracy": 0.50107751477,
+              "mutual_information_bits": 0.000928931005
+            },
+            "circular_sign_plain": {
+              "total_variation": 0.0,
+              "optimal_accuracy": 0.5,
+              "mutual_information_bits": 0.0
+            },
+            "circular_sign_after_seam_exchange": {
+              "total_variation": 0.001400423088,
+              "optimal_accuracy": 0.500700211544,
+              "mutual_information_bits": 0.00063381351
+            }
+          }
+        }
+      }
+    },
+    {
+      "exposure": 0.5,
+      "orders": {
+        "1": {
+          "plain_circular_plus": [
+            0.030978992193,
+            0.030978992193,
+            0.030978992193,
+            0.030978992193,
+            0.030978992193,
+            0.845105039036
+          ],
+          "plain_circular_minus": [
+            0.030978992193,
+            0.030978992193,
+            0.030978992193,
+            0.030978992193,
+            0.030978992193,
+            0.845105039036
+          ],
+          "standing_0": [
+            0.061957984386,
+            0.00591646104,
+            0.040552027249,
+            0.040552027249,
+            0.00591646104,
+            0.845105039036
+          ],
+          "standing_1": [
+            0.00591646104,
+            0.061957984386,
+            0.00591646104,
+            0.040552027249,
+            0.040552027249,
+            0.845105039036
+          ],
+          "standing_0_density_dft_magnitudes": [
+            0.154894960964,
+            0.0,
+            0.077447480482,
+            0.077447480482,
+            0.0
+          ],
+          "phase_analyzed_plus": [
+            0.0015162198,
+            0.060441764586,
+            0.030978992193,
+            0.030978992193,
+            0.030978992193,
+            0.845105039036
+          ],
+          "phase_analyzed_minus": [
+            0.060441764586,
+            0.0015162198,
+            0.030978992193,
+            0.030978992193,
+            0.030978992193,
+            0.845105039036
+          ],
+          "comparisons": {
+            "standing_orientation_0_vs_1": {
+              "total_variation": 0.090677089554,
+              "optimal_accuracy": 0.545338544777,
+              "mutual_information_bits": 0.059804409549
+            },
+            "circular_sign_plain": {
+              "total_variation": 0.0,
+              "optimal_accuracy": 0.5,
+              "mutual_information_bits": 0.0
+            },
+            "circular_sign_after_seam_exchange": {
+              "total_variation": 0.058925544786,
+              "optimal_accuracy": 0.529462772393,
+              "mutual_information_bits": 0.051681598455
+            }
+          }
+        },
+        "2": {
+          "plain_circular_plus": [
+            0.004736701593,
+            0.004736701593,
+            0.004736701593,
+            0.004736701593,
+            0.004736701593,
+            0.976316492037
+          ],
+          "plain_circular_minus": [
+            0.004736701593,
+            0.004736701593,
+            0.004736701593,
+            0.004736701593,
+            0.004736701593,
+            0.976316492037
+          ],
+          "standing_0": [
+            0.009473403185,
+            0.006200422882,
+            0.000904629507,
+            0.000904629507,
+            0.006200422882,
+            0.976316492037
+          ],
+          "standing_1": [
+            0.006200422882,
+            0.009473403185,
+            0.006200422882,
+            0.000904629507,
+            0.000904629507,
+            0.976316492037
+          ],
+          "standing_0_density_dft_magnitudes": [
+            0.023683507963,
+            0.011841753982,
+            0.0,
+            0.0,
+            0.011841753982
+          ],
+          "phase_analyzed_plus": [
+            0.001952538252,
+            0.007520864933,
+            0.004736701593,
+            0.004736701593,
+            0.004736701593,
+            0.976316492037
+          ],
+          "phase_analyzed_minus": [
+            0.007520864933,
+            0.001952538252,
+            0.004736701593,
+            0.004736701593,
+            0.004736701593,
+            0.976316492037
+          ],
+          "comparisons": {
+            "standing_orientation_0_vs_1": {
+              "total_variation": 0.008568773678,
+              "optimal_accuracy": 0.504284386839,
+              "mutual_information_bits": 0.003693591847
+            },
+            "circular_sign_plain": {
+              "total_variation": 0.0,
+              "optimal_accuracy": 0.5,
+              "mutual_information_bits": 0.0
+            },
+            "circular_sign_after_seam_exchange": {
+              "total_variation": 0.005568326681,
+              "optimal_accuracy": 0.502784163341,
+              "mutual_information_bits": 0.002520153165
+            }
+          }
+        }
+      }
+    },
+    {
+      "exposure": 1,
+      "orders": {
+        "1": {
+          "plain_circular_plus": [
+            0.104722009625,
+            0.104722009625,
+            0.104722009625,
+            0.104722009625,
+            0.104722009625,
+            0.476389951873
+          ],
+          "plain_circular_minus": [
+            0.104722009625,
+            0.104722009625,
+            0.104722009625,
+            0.104722009625,
+            0.104722009625,
+            0.476389951873
+          ],
+          "standing_0": [
+            0.209444019251,
+            0.020000124153,
+            0.137082890285,
+            0.137082890285,
+            0.020000124153,
+            0.476389951873
+          ],
+          "standing_1": [
+            0.020000124153,
+            0.209444019251,
+            0.020000124153,
+            0.137082890285,
+            0.137082890285,
+            0.476389951873
+          ],
+          "standing_0_density_dft_magnitudes": [
+            0.523610048127,
+            0.0,
+            0.261805024064,
+            0.261805024064,
+            0.0
+          ],
+          "phase_analyzed_plus": [
+            0.005125459972,
+            0.204318559279,
+            0.104722009625,
+            0.104722009625,
+            0.104722009625,
+            0.476389951873
+          ],
+          "phase_analyzed_minus": [
+            0.204318559279,
+            0.005125459972,
+            0.104722009625,
+            0.104722009625,
+            0.104722009625,
+            0.476389951873
+          ],
+          "comparisons": {
+            "standing_orientation_0_vs_1": {
+              "total_variation": 0.306526661229,
+              "optimal_accuracy": 0.653263330614,
+              "mutual_information_bits": 0.202164031466,
+              "sample": {
+                "counts_by_label": [
+                  [
+                    1678,
+                    173,
+                    1079,
+                    1181,
+                    143,
+                    3938
+                  ],
+                  [
+                    169,
+                    1699,
+                    158,
+                    1113,
+                    1112,
+                    3941
+                  ]
+                ],
+                "decision_by_outcome": [
+                  0,
+                  1,
+                  0,
+                  0,
+                  1,
+                  0
+                ],
+                "correct": 10687,
+                "total": 16384
+              }
+            },
+            "circular_sign_plain": {
+              "total_variation": 0.0,
+              "optimal_accuracy": 0.5,
+              "mutual_information_bits": 0.0,
+              "sample": {
+                "counts_by_label": [
+                  [
+                    833,
+                    877,
+                    825,
+                    860,
+                    890,
+                    3907
+                  ],
+                  [
+                    859,
+                    861,
+                    821,
+                    899,
+                    825,
+                    3927
+                  ]
+                ],
+                "decision_by_outcome": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "correct": 8192,
+                "total": 16384
+              }
+            },
+            "circular_sign_after_seam_exchange": {
+              "total_variation": 0.199193099308,
+              "optimal_accuracy": 0.599596549654,
+              "mutual_information_bits": 0.174705517118,
+              "sample": {
+                "counts_by_label": [
+                  [
+                    36,
+                    1717,
+                    828,
+                    834,
+                    861,
+                    3916
+                  ],
+                  [
+                    1702,
+                    31,
+                    830,
+                    873,
+                    846,
+                    3910
+                  ]
+                ],
+                "decision_by_outcome": [
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "correct": 9858,
+                "total": 16384
+              }
+            }
+          }
+        },
+        "2": {
+          "plain_circular_plus": [
+            0.018498079531,
+            0.018498079531,
+            0.018498079531,
+            0.018498079531,
+            0.018498079531,
+            0.907509602344
+          ],
+          "plain_circular_minus": [
+            0.018498079531,
+            0.018498079531,
+            0.018498079531,
+            0.018498079531,
+            0.018498079531,
+            0.907509602344
+          ],
+          "standing_0": [
+            0.036996159062,
+            0.02421430047,
+            0.003532818827,
+            0.003532818827,
+            0.02421430047,
+            0.907509602344
+          ],
+          "standing_1": [
+            0.02421430047,
+            0.036996159062,
+            0.02421430047,
+            0.003532818827,
+            0.003532818827,
+            0.907509602344
+          ],
+          "standing_0_density_dft_magnitudes": [
+            0.092490397656,
+            0.046245198828,
+            0.0,
+            0.0,
+            0.046245198828
+          ],
+          "phase_analyzed_plus": [
+            0.007625181187,
+            0.029370977875,
+            0.018498079531,
+            0.018498079531,
+            0.018498079531,
+            0.907509602344
+          ],
+          "phase_analyzed_minus": [
+            0.029370977875,
+            0.007625181187,
+            0.018498079531,
+            0.018498079531,
+            0.018498079531,
+            0.907509602344
+          ],
+          "comparisons": {
+            "standing_orientation_0_vs_1": {
+              "total_variation": 0.033463340235,
+              "optimal_accuracy": 0.516731670118,
+              "mutual_information_bits": 0.014424458541,
+              "sample": {
+                "counts_by_label": [
+                  [
+                    286,
+                    182,
+                    24,
+                    23,
+                    204,
+                    7473
+                  ],
+                  [
+                    196,
+                    287,
+                    202,
+                    30,
+                    26,
+                    7451
+                  ]
+                ],
+                "decision_by_outcome": [
+                  0,
+                  1,
+                  1,
+                  0,
+                  0,
+                  0
+                ],
+                "correct": 8475,
+                "total": 16384
+              }
+            },
+            "circular_sign_plain": {
+              "total_variation": 0.0,
+              "optimal_accuracy": 0.5,
+              "mutual_information_bits": 0.0,
+              "sample": {
+                "counts_by_label": [
+                  [
+                    121,
+                    158,
+                    153,
+                    159,
+                    153,
+                    7448
+                  ],
+                  [
+                    151,
+                    141,
+                    131,
+                    139,
+                    157,
+                    7473
+                  ]
+                ],
+                "decision_by_outcome": [
+                  0,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "correct": 8192,
+                "total": 16384
+              }
+            },
+            "circular_sign_after_seam_exchange": {
+              "total_variation": 0.021745796688,
+              "optimal_accuracy": 0.510872898344,
+              "mutual_information_bits": 0.009841868389,
+              "sample": {
+                "counts_by_label": [
+                  [
+                    63,
+                    243,
+                    128,
+                    146,
+                    138,
+                    7474
+                  ],
+                  [
+                    257,
+                    57,
+                    157,
+                    159,
+                    176,
+                    7386
+                  ]
+                ],
+                "decision_by_outcome": [
+                  1,
+                  0,
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "correct": 8386,
+                "total": 16384
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "exposure": 2,
+      "orders": {
+        "1": {
+          "plain_circular_plus": [
+            0.199554052502,
+            0.199554052502,
+            0.199554052502,
+            0.199554052502,
+            0.199554052502,
+            0.00222973749
+          ],
+          "plain_circular_minus": [
+            0.199554052502,
+            0.199554052502,
+            0.199554052502,
+            0.199554052502,
+            0.199554052502,
+            0.00222973749
+          ],
+          "standing_0": [
+            0.399108105004,
+            0.038111432731,
+            0.261219646021,
+            0.261219646021,
+            0.038111432731,
+            0.00222973749
+          ],
+          "standing_1": [
+            0.038111432731,
+            0.399108105004,
+            0.038111432731,
+            0.261219646021,
+            0.261219646021,
+            0.00222973749
+          ],
+          "standing_0_density_dft_magnitudes": [
+            0.99777026251,
+            0.0,
+            0.498885131255,
+            0.498885131255,
+            0.0
+          ],
+          "phase_analyzed_plus": [
+            0.009766870517,
+            0.389341234487,
+            0.199554052502,
+            0.199554052502,
+            0.199554052502,
+            0.00222973749
+          ],
+          "phase_analyzed_minus": [
+            0.389341234487,
+            0.009766870517,
+            0.199554052502,
+            0.199554052502,
+            0.199554052502,
+            0.00222973749
+          ],
+          "comparisons": {
+            "standing_orientation_0_vs_1": {
+              "total_variation": 0.584104885562,
+              "optimal_accuracy": 0.792052442781,
+              "mutual_information_bits": 0.385235652881
+            },
+            "circular_sign_plain": {
+              "total_variation": 0.0,
+              "optimal_accuracy": 0.5,
+              "mutual_information_bits": 0.0
+            },
+            "circular_sign_after_seam_exchange": {
+              "total_variation": 0.37957436397,
+              "optimal_accuracy": 0.689787181985,
+              "mutual_information_bits": 0.332911811568
+            }
+          }
+        },
+        "2": {
+          "plain_circular_plus": [
+            0.067148739198,
+            0.067148739198,
+            0.067148739198,
+            0.067148739198,
+            0.067148739198,
+            0.66425630401
+          ],
+          "plain_circular_minus": [
+            0.067148739198,
+            0.067148739198,
+            0.067148739198,
+            0.067148739198,
+            0.067148739198,
+            0.66425630401
+          ],
+          "standing_0": [
+            0.134297478396,
+            0.087898840761,
+            0.012824268036,
+            0.012824268036,
+            0.087898840761,
+            0.66425630401
+          ],
+          "standing_1": [
+            0.087898840761,
+            0.134297478396,
+            0.087898840761,
+            0.012824268036,
+            0.012824268036,
+            0.66425630401
+          ],
+          "standing_0_density_dft_magnitudes": [
+            0.33574369599,
+            0.167871847995,
+            0.0,
+            0.0,
+            0.167871847995
+          ],
+          "phase_analyzed_plus": [
+            0.027679700587,
+            0.106617777809,
+            0.067148739198,
+            0.067148739198,
+            0.067148739198,
+            0.66425630401
+          ],
+          "phase_analyzed_minus": [
+            0.106617777809,
+            0.027679700587,
+            0.067148739198,
+            0.067148739198,
+            0.067148739198,
+            0.66425630401
+          ],
+          "comparisons": {
+            "standing_orientation_0_vs_1": {
+              "total_variation": 0.12147321036,
+              "optimal_accuracy": 0.56073660518,
+              "mutual_information_bits": 0.052361338537
+            },
+            "circular_sign_plain": {
+              "total_variation": 0.0,
+              "optimal_accuracy": 0.5,
+              "mutual_information_bits": 0.0
+            },
+            "circular_sign_after_seam_exchange": {
+              "total_variation": 0.078938077221,
+              "optimal_accuracy": 0.539469038611,
+              "mutual_information_bits": 0.035726360273
+            }
+          }
+        }
+      }
+    }
+  ],
+  "separate_intercell_message_replay": {
+    "checked_windows": 10,
+    "max_abs_probability_replay_error": 1.5543122344752192e-15,
+    "endpoints": [
+      {
+        "cells": 20,
+        "exposure": 0,
+        "trials": 65536,
+        "native_correct": 32768,
+        "no_encoding_correct": 32768
+      },
+      {
+        "cells": 20,
+        "exposure": 4,
+        "trials": 65536,
+        "native_correct": 45559,
+        "no_encoding_correct": 32909
+      },
+      {
+        "cells": 320,
+        "exposure": 0,
+        "trials": 65536,
+        "native_correct": 32768,
+        "no_encoding_correct": 32768
+      },
+      {
+        "cells": 320,
+        "exposure": 4,
+        "trials": 65536,
+        "native_correct": 47252,
+        "no_encoding_correct": 32698
+      }
+    ]
+  }
+}

@@ -94,7 +94,7 @@ def main():
             family = HERE / "lepton_family"
             studies.extend((family / folder, "measure", "results")
                            for folder in ("bands", "family_projector", "cyclic_charge", "cyclic_hops", "covariant_field",
-                                          "clocked_charge", "dirac_read", "transfer", "decay"))
+                                          "clocked_charge", "dirac_read", "identity_audit", "transfer", "decay"))
             studies.append((family / "hierarchy", "search", "results"))
             for local, stem, record in studies:
                 output = root / f"{local.name}_{stem}.json"

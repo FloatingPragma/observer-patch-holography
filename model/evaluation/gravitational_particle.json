@@ -1,0 +1,62 @@
+{
+  "groups": [
+    {
+      "id": "gravitational_particle",
+      "title": "Hypothetical gravitational particle",
+      "purpose": "Track a quantum of the gravitational field alongside the Standard Model inventory. A classical spin-two wave and a quantum excitation receive distinct tests.",
+      "sources": [
+        "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
+        "claims/physical_identification_registry.json"
+      ],
+      "criteria": [
+        {
+          "id": "GR-graviton",
+          "title": "Graviton",
+          "requires": "Tie a prepared or emitted neutral excitation to two transverse tidal polarizations on independent observers, a massless spin-two propagation law, universal coupling to stress and a positive quantum one-particle response on the same construction.",
+          "sources": [
+            "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
+            "paper/archive/observer_patch_holography_as_string_vacuum_selector.tex",
+            "Lean/Geometry/VacuumTidalRead.lean"
+          ],
+          "results": {
+            "interval_echo": {
+              "status": "open",
+              "note": "On 20 native cells, a material receiver gives identical histories for the tested equal-energy quadrupole settings until ordinary material contact is restored. A remote contact signal can distinguish the orientations. Independent differential arm records tied to propagated curvature and a quantum-gravity response remain open.",
+              "evidence": [
+                "model/candidate_laws/interval_echo/openwave/graviton_identity/README.md",
+                "model/candidate_laws/interval_echo/openwave/mediator_controls/README.md"
+              ],
+              "comparison": {
+                "law": "Linearized Einstein vacuum chart",
+                "label": "Two classical tidal polarizations",
+                "finding": "All ten Einstein contractions vanish for either vacuum wave and flat space. Two normalized tidal arms distinguish arbitrary plus and cross amplitudes at nonzero wave scale. Each conditional result uses the supplied metric chart.",
+                "source": "model/candidate_laws/interval_echo/openwave/graviton_identity/README.md"
+              }
+            },
+            "contrast_memory_spherical_v1": {
+              "status": "open",
+              "note": "The contrast law supplies the material-contact dynamics of the native control. Free tidal reception and a quantum spin-two excitation require additional measurements.",
+              "evidence": [
+                "model/candidate_laws/interval_echo/openwave/graviton_identity/README.md"
+              ]
+            },
+            "scalar_channel": {
+              "status": "open",
+              "note": "The candidate oscillator and cage preparations have no registered stress source and quantum tidal detector for this species.",
+              "evidence": [
+                "model/candidate_laws/scalar_channel/README.md"
+              ]
+            },
+            "private_record_walk": {
+              "status": "open",
+              "note": "The two-load position and comparison-sign instrument reads material transport and parity. A propagated vacuum tidal response and a gravitational quantum counter require independent measurements.",
+              "evidence": [
+                "model/candidate_laws/private_record_walk/README.md"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

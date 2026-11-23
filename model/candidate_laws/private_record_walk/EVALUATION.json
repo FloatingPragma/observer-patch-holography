@@ -2038,10 +2038,36 @@
    ]
   },
   {
+   "id": "gravitational_particle",
+   "title": "Hypothetical gravitational particle",
+   "purpose": "Track a quantum of the gravitational field alongside the Standard Model inventory. A classical spin-two wave and a quantum excitation receive distinct tests.",
+   "sources": [
+    "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
+    "claims/physical_identification_registry.json"
+   ],
+   "criteria": [
+    {
+     "id": "GR-graviton",
+     "title": "Graviton",
+     "requires": "Tie a prepared or emitted neutral excitation to two transverse tidal polarizations on independent observers, a massless spin-two propagation law, universal coupling to stress and a positive quantum one-particle response on the same construction.",
+     "sources": [
+      "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
+      "paper/archive/observer_patch_holography_as_string_vacuum_selector.tex",
+      "Lean/Geometry/VacuumTidalRead.lean"
+     ],
+     "status": "open",
+     "note": "The two-load position and comparison-sign instrument reads material transport and parity. A propagated vacuum tidal response and a gravitational quantum counter require independent measurements.",
+     "evidence": [
+      "model/candidate_laws/private_record_walk/README.md"
+     ]
+    }
+   ]
+  },
+  {
    "id": "sm-inventory",
    "title": "Standard Model particle identifications",
    "purpose": "Identify all 17 elementary particle types on one frozen candidate. Each species has a local preparation or production channel, reproducible detection statistics, and a dictionary that distinguishes its nearest alternatives. A declaration of a field or an input mass cannot identify the excitation.",
-   "reference": "Count six quark flavours, three charged leptons, three active neutrino flavour channels, four gauge-boson types and the Higgs. W covers both signs, and the gluon entry covers the eight colour components. Resolve conjugate partners where distinct. Neutrino flavour is defined by weak production and detection; its propagation can mix mass eigenstates. Composite hadrons provide evidence for confined quarks and gluons. A graviton and a sterile neutrino are outside this inventory.",
+   "reference": "Count six quark flavours, three charged leptons, three active neutrino flavour channels, four gauge-boson types and the Higgs. W covers both signs, and the gluon entry covers the eight colour components. Resolve conjugate partners where distinct. Neutrino flavour is defined by weak production and detection; its propagation can mix mass eigenstates. Composite hadrons provide evidence for confined quarks and gluons. The hypothetical graviton has its own gravitational-particle assessment. A sterile neutrino is outside this inventory.",
    "sources": [
     "https://pdg.lbl.gov/2026/listings/contents_listings.html",
     "paper/deriving_the_particle_zoo_from_observer_consistency.tex",

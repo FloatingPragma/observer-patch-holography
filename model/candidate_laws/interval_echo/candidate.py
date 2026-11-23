@@ -32,7 +32,8 @@ PARTICLE_IDENTIFICATIONS = {
                        "intermediate reads of the same source. A freely transported spin doublet and an "
                        "independently calibrated rest energy in keV are unresolved. A separate first-order mass "
                        "construction realizes the geometric family ratios on a guided seven-cell charge, "
-                       "with strong dependence on the guide and a supplied register mass operator.",
+                       "with strong dependence on the guide and a supplied register mass operator. Each rest level "
+                       "has one state per charge sign. A spinless orbital realization gives identical charge and flux histories.",
             "source": "model/candidate_laws/interval_echo/openwave/electron_field/README.md",
         },
     },
@@ -41,15 +42,16 @@ PARTICLE_IDENTIFICATIONS = {
         "note": "A distinct muon rest branch and a weak decay channel require measurements on Interval Echo.",
         "evidence": [],
         "comparison": {
-            "law": "Written-field Laplacian extension",
-            "label": "Three moving bands and a charged-mode conversion test",
+            "law": "Written-field extension and first-order mass comparison",
+            "label": "Charged-mode conversion and conserved guided characters",
             "finding": "The 48-cell route resolves three propagating bands with minimum-energy ratios "
                        "1 : 4.56155 : 10.40388. On a fully written pair of cells, three energy-heralded "
                        "inputs cross the same bridge. Opening the bridge does work and produces lower charged "
                        "modes plus neutral excitation. All six separated downward channels miss the isolated "
                        "parent energy. A separate first-order register comparison yields the geometric ratios on a "
-                       "seven-cell charge path. An autonomous weak decay and a muon identification are unresolved.",
-            "source": "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/README.md",
+                       "seven-cell charge path. Its free law preserves every family character exactly. Five sequential distal "
+                       "reads distinguish all three resting branches with 34.46% optimal accuracy at equal priors.",
+            "source": "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/identity_audit/README.md",
         },
     },
     "tau": {
@@ -57,14 +59,33 @@ PARTICLE_IDENTIFICATIONS = {
         "note": "A third charged-lepton mass and weak daughter tags require measurements on Interval Echo.",
         "evidence": [],
         "comparison": {
-            "law": "Written-field Laplacian extension",
-            "label": "Geometric ratios on a seven-cell guide and full-cell bounds",
+            "law": "Written-field extension and first-order mass comparison",
+            "label": "Guided rest ratios and absolute energy control",
             "finding": "Exact spectral bounds exclude a Koide-balanced triplet among the 5,790 vacancy "
                        "and 1,954 excess levels on the tested cell backgrounds. All connected pinned "
                        "single-configuration-per-port guides of the three stored federations have energy "
                        "span below 1,273. A first-order generator with the cyclic read installed as a mass operator reaches a ratio "
-                       "of 3477.47284 on an unpinned seven-cell path, falling to 1.32433 upon adding one pinned port.",
-            "source": "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/README.md",
+                       "of 3477.47284 on an unpinned seven-cell path, falling to 1.32433 upon adding one pinned port. A common "
+                       "charged-sector energy offset preserves all charge and flux histories while changing the formation ratios.",
+            "source": "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/identity_audit/README.md",
+        },
+    },
+    "photon": {
+        "status": "open",
+        "note": "A scalar material load carries a message to an independent receiver. Its orbital angular "
+                "patterns and single-load clicks give concrete alternatives to intrinsic vector polarization.",
+        "evidence": ["model/experiments/interval_echo_message/README.md",
+                     "model/candidate_laws/interval_echo/openwave/mediator_controls/README.md"],
+        "comparison": {
+            "law": "Written-field Laplacian extension",
+            "label": "Signed probe response and polarization test",
+            "finding": "Four source seams and six independent probe seams detect field transport on 80- and "
+                       "320-cell spheres. Every tested nonzero frequency has one resolved response pattern. "
+                       "At the lowest 80-cell frequency, counts bound a second measured component below 0.97% of the first "
+                       "at 99% confidence on these probes. The smaller spectrum is complete. The guided packet has "
+                       "quadratic long-wave dispersion. A separate quantized Wilson–Maxwell cube resolves a "
+                       "model field quantum in a joint matter-and-field count.",
+            "source": "model/candidate_laws/interval_echo/openwave/photon_identity/README.md",
         },
     },
 }

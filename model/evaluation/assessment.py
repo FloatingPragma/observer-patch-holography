@@ -9,7 +9,7 @@ from urllib.parse import urlsplit
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
 STATUS = {"demonstrated": "Demonstrated", "partial": "Partial", "open": "Open", "counterexample": "Counterexample"}
-FILES = ("theorem_criteria.json", "observer_criteria.json", "openwave_criteria.json")
+FILES = ("theorem_criteria.json", "observer_criteria.json", "openwave_criteria.json", "gravitational_particle.json")
 READOUTS = {
     "private_record_walk": ("Home-pair probability with eight sharp comparison signs at exposure 37",
                             "model/candidate_laws/private_record_walk/results.json",

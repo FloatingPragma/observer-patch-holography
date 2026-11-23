@@ -180,11 +180,21 @@ Sources · [MODELS.md L94-L137](https://github.com/openwave-labs/openwave/blob/7
 | [OW-30](EVIDENCE.md#ow-30) Quantum wave equation (Klein-Gordon) (dynamic) | **Demonstrated** · [Low-energy Klein–Gordon dispersion of free matter on a prepared record channel](../candidate_laws/interval_echo/openwave/row_30_autonomous/README.md). Full criterion · Partial. Comparison · [Directed ring extension](../candidate_laws/interval_echo/openwave/electron_field/README.md#rest-energy-and-the-other-openwave-observables) | Open | Open | Partial |
 | [OW-31](EVIDENCE.md#ow-31) Orbital quantization (atomic structure) (static) | Partial. Comparison · [Written-field Laplacian extension](../candidate_laws/interval_echo/openwave/electron_field/README.md#rest-energy-and-the-other-openwave-observables) | Partial | Open | Open |
 
+## Hypothetical gravitational particle
+
+Track a quantum of the gravitational field alongside the Standard Model inventory. A classical spin-two wave and a quantum excitation receive distinct tests.
+
+Sources · [deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex](../../paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex) · [physical_identification_registry.json](../../claims/physical_identification_registry.json)
+
+| Requirement | Interval Echo | Contrast memory | Private record walk | Scalar channel |
+| --- | --- | --- | --- | --- |
+| [GR-graviton](EVIDENCE.md#gr-graviton) Graviton | Open. Comparison · [Linearized Einstein vacuum chart · Two classical tidal polarizations](../candidate_laws/interval_echo/openwave/graviton_identity/README.md) | Open | Open | Open |
+
 ## Standard Model particle identifications
 
 Identify all 17 elementary particle types on one frozen candidate. Each species has a local preparation or production channel, reproducible detection statistics, and a dictionary that distinguishes its nearest alternatives. A declaration of a field or an input mass cannot identify the excitation.
 
-Count six quark flavours, three charged leptons, three active neutrino flavour channels, four gauge-boson types and the Higgs. W covers both signs, and the gluon entry covers the eight colour components. Resolve conjugate partners where distinct. Neutrino flavour is defined by weak production and detection; its propagation can mix mass eigenstates. Composite hadrons provide evidence for confined quarks and gluons. A graviton and a sterile neutrino are outside this inventory.
+Count six quark flavours, three charged leptons, three active neutrino flavour channels, four gauge-boson types and the Higgs. W covers both signs, and the gluon entry covers the eight colour components. Resolve conjugate partners where distinct. Neutrino flavour is defined by weak production and detection; its propagation can mix mass eigenstates. Composite hadrons provide evidence for confined quarks and gluons. The hypothetical graviton has its own gravitational-particle assessment. A sterile neutrino is outside this inventory.
 
 Sources · [contents_listings.html](https://pdg.lbl.gov/2026/listings/contents_listings.html) · [deriving_the_particle_zoo_from_observer_consistency.tex](../../paper/deriving_the_particle_zoo_from_observer_consistency.tex) · [PROOF.md](../../code/defect_particle_classes/PROOF.md) · [physical_identification_registry.json](../../claims/physical_identification_registry.json)
 
@@ -212,8 +222,8 @@ Sources · [contents_listings.html](https://pdg.lbl.gov/2026/listings/contents_l
 | Requirement | Interval Echo | Contrast memory | Private record walk | Scalar channel |
 | --- | --- | --- | --- | --- |
 | [SM-e](EVIDENCE.md#sm-e) Electron | Open. Comparison · [Written-field Laplacian extension · Strong candidate for the electron’s charge and field response](../candidate_laws/interval_echo/openwave/electron_field/README.md) | Open | Open | Open |
-| [SM-mu](EVIDENCE.md#sm-mu) Muon | Open. Comparison · [Written-field Laplacian extension · Three moving bands and a charged-mode conversion test](../candidate_laws/interval_echo/openwave/electron_field/lepton_family/README.md) | Open | Open | Open |
-| [SM-tau](EVIDENCE.md#sm-tau) Tau | Open. Comparison · [Written-field Laplacian extension · Geometric ratios on a seven-cell guide and full-cell bounds](../candidate_laws/interval_echo/openwave/electron_field/lepton_family/README.md) | Open | Open | Open |
+| [SM-mu](EVIDENCE.md#sm-mu) Muon | Open. Comparison · [Written-field extension and first-order mass comparison · Charged-mode conversion and conserved guided characters](../candidate_laws/interval_echo/openwave/electron_field/lepton_family/identity_audit/README.md) | Open | Open | Open |
+| [SM-tau](EVIDENCE.md#sm-tau) Tau | Open. Comparison · [Written-field extension and first-order mass comparison · Guided rest ratios and absolute energy control](../candidate_laws/interval_echo/openwave/electron_field/lepton_family/identity_audit/README.md) | Open | Open | Open |
 
 ### Active neutrinos
 
@@ -227,7 +237,7 @@ Sources · [contents_listings.html](https://pdg.lbl.gov/2026/listings/contents_l
 
 | Requirement | Interval Echo | Contrast memory | Private record walk | Scalar channel |
 | --- | --- | --- | --- | --- |
-| [SM-photon](EVIDENCE.md#sm-photon) Photon | Open | Open | Open | Open |
+| [SM-photon](EVIDENCE.md#sm-photon) Photon | Open. Comparison · [Written-field Laplacian extension · Signed probe response and polarization test](../candidate_laws/interval_echo/openwave/photon_identity/README.md) | Open | Open | Open |
 | [SM-gluon](EVIDENCE.md#sm-gluon) Gluon | Open | Open | Open | Open |
 | [SM-W](EVIDENCE.md#sm-w) W boson | Open | Open | Open | Open |
 | [SM-Z](EVIDENCE.md#sm-z) Z boson | Open | Open | Open | Open |

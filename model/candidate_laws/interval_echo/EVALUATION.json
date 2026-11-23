@@ -2626,10 +2626,43 @@
    ]
   },
   {
+   "id": "gravitational_particle",
+   "title": "Hypothetical gravitational particle",
+   "purpose": "Track a quantum of the gravitational field alongside the Standard Model inventory. A classical spin-two wave and a quantum excitation receive distinct tests.",
+   "sources": [
+    "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
+    "claims/physical_identification_registry.json"
+   ],
+   "criteria": [
+    {
+     "id": "GR-graviton",
+     "title": "Graviton",
+     "requires": "Tie a prepared or emitted neutral excitation to two transverse tidal polarizations on independent observers, a massless spin-two propagation law, universal coupling to stress and a positive quantum one-particle response on the same construction.",
+     "sources": [
+      "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
+      "paper/archive/observer_patch_holography_as_string_vacuum_selector.tex",
+      "Lean/Geometry/VacuumTidalRead.lean"
+     ],
+     "status": "open",
+     "note": "On 20 native cells, a material receiver gives identical histories for the tested equal-energy quadrupole settings until ordinary material contact is restored. A remote contact signal can distinguish the orientations. Independent differential arm records tied to propagated curvature and a quantum-gravity response remain open.",
+     "evidence": [
+      "model/candidate_laws/interval_echo/openwave/graviton_identity/README.md",
+      "model/candidate_laws/interval_echo/openwave/mediator_controls/README.md"
+     ],
+     "comparison": {
+      "law": "Linearized Einstein vacuum chart",
+      "label": "Two classical tidal polarizations",
+      "finding": "All ten Einstein contractions vanish for either vacuum wave and flat space. Two normalized tidal arms distinguish arbitrary plus and cross amplitudes at nonzero wave scale. Each conditional result uses the supplied metric chart.",
+      "source": "model/candidate_laws/interval_echo/openwave/graviton_identity/README.md"
+     }
+    }
+   ]
+  },
+  {
    "id": "sm-inventory",
    "title": "Standard Model particle identifications",
    "purpose": "Identify all 17 elementary particle types on one frozen candidate. Each species has a local preparation or production channel, reproducible detection statistics, and a dictionary that distinguishes its nearest alternatives. A declaration of a field or an input mass cannot identify the excitation.",
-   "reference": "Count six quark flavours, three charged leptons, three active neutrino flavour channels, four gauge-boson types and the Higgs. W covers both signs, and the gluon entry covers the eight colour components. Resolve conjugate partners where distinct. Neutrino flavour is defined by weak production and detection; its propagation can mix mass eigenstates. Composite hadrons provide evidence for confined quarks and gluons. A graviton and a sterile neutrino are outside this inventory.",
+   "reference": "Count six quark flavours, three charged leptons, three active neutrino flavour channels, four gauge-boson types and the Higgs. W covers both signs, and the gluon entry covers the eight colour components. Resolve conjugate partners where distinct. Neutrino flavour is defined by weak production and detection; its propagation can mix mass eigenstates. Composite hadrons provide evidence for confined quarks and gluons. The hypothetical graviton has its own gravitational-particle assessment. A sterile neutrino is outside this inventory.",
    "sources": [
     "https://pdg.lbl.gov/2026/listings/contents_listings.html",
     "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
@@ -2747,7 +2780,7 @@
      "comparison": {
       "law": "Written-field Laplacian extension",
       "label": "Strong candidate for the electron’s charge and field response",
-      "finding": "An independent boundary-flux read tracks the mobile signed load, and a probe detects the confined source 22 cells away. This makes the load a strong candidate for the electron’s charge and field response. Its three-input counts exclude spin-½ fermions with matched spin-independent transfers. A four-face orbital doublet can transfer coherently with the charge. During an addressed material exchange the two different orbital states stay in their original cells. In the complete finite one-cell sectors tested, all 5,790 vacancy and 1,954 excess energies are simple. Two vacancies with resolved field endpoints give either exchange sign under different intermediate reads of the same source. A freely transported spin doublet and an independently calibrated rest energy in keV are unresolved. A separate first-order mass construction realizes the geometric family ratios on a guided seven-cell charge, with strong dependence on the guide and a supplied register mass operator.",
+      "finding": "An independent boundary-flux read tracks the mobile signed load, and a probe detects the confined source 22 cells away. This makes the load a strong candidate for the electron’s charge and field response. Its three-input counts exclude spin-½ fermions with matched spin-independent transfers. A four-face orbital doublet can transfer coherently with the charge. During an addressed material exchange the two different orbital states stay in their original cells. In the complete finite one-cell sectors tested, all 5,790 vacancy and 1,954 excess energies are simple. Two vacancies with resolved field endpoints give either exchange sign under different intermediate reads of the same source. A freely transported spin doublet and an independently calibrated rest energy in keV are unresolved. A separate first-order mass construction realizes the geometric family ratios on a guided seven-cell charge, with strong dependence on the guide and a supplied register mass operator. Each rest level has one state per charge sign. A spinless orbital realization gives identical charge and flux histories.",
       "source": "model/candidate_laws/interval_echo/openwave/electron_field/README.md"
      }
     },
@@ -2766,10 +2799,10 @@
      "note": "A distinct muon rest branch and a weak decay channel require measurements on Interval Echo.",
      "evidence": [],
      "comparison": {
-      "law": "Written-field Laplacian extension",
-      "label": "Three moving bands and a charged-mode conversion test",
-      "finding": "The 48-cell route resolves three propagating bands with minimum-energy ratios 1 : 4.56155 : 10.40388. On a fully written pair of cells, three energy-heralded inputs cross the same bridge. Opening the bridge does work and produces lower charged modes plus neutral excitation. All six separated downward channels miss the isolated parent energy. A separate first-order register comparison yields the geometric ratios on a seven-cell charge path. An autonomous weak decay and a muon identification are unresolved.",
-      "source": "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/README.md"
+      "law": "Written-field extension and first-order mass comparison",
+      "label": "Charged-mode conversion and conserved guided characters",
+      "finding": "The 48-cell route resolves three propagating bands with minimum-energy ratios 1 : 4.56155 : 10.40388. On a fully written pair of cells, three energy-heralded inputs cross the same bridge. Opening the bridge does work and produces lower charged modes plus neutral excitation. All six separated downward channels miss the isolated parent energy. A separate first-order register comparison yields the geometric ratios on a seven-cell charge path. Its free law preserves every family character exactly. Five sequential distal reads distinguish all three resting branches with 34.46% optimal accuracy at equal priors.",
+      "source": "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/identity_audit/README.md"
      }
     },
     {
@@ -2787,10 +2820,10 @@
      "note": "A third charged-lepton mass and weak daughter tags require measurements on Interval Echo.",
      "evidence": [],
      "comparison": {
-      "law": "Written-field Laplacian extension",
-      "label": "Geometric ratios on a seven-cell guide and full-cell bounds",
-      "finding": "Exact spectral bounds exclude a Koide-balanced triplet among the 5,790 vacancy and 1,954 excess levels on the tested cell backgrounds. All connected pinned single-configuration-per-port guides of the three stored federations have energy span below 1,273. A first-order generator with the cyclic read installed as a mass operator reaches a ratio of 3477.47284 on an unpinned seven-cell path, falling to 1.32433 upon adding one pinned port.",
-      "source": "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/README.md"
+      "law": "Written-field extension and first-order mass comparison",
+      "label": "Guided rest ratios and absolute energy control",
+      "finding": "Exact spectral bounds exclude a Koide-balanced triplet among the 5,790 vacancy and 1,954 excess levels on the tested cell backgrounds. All connected pinned single-configuration-per-port guides of the three stored federations have energy span below 1,273. A first-order generator with the cyclic read installed as a mass operator reaches a ratio of 3477.47284 on an unpinned seven-cell path, falling to 1.32433 upon adding one pinned port. A common charged-sector energy offset preserves all charge and flux histories while changing the formation ratios.",
+      "source": "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/identity_audit/README.md"
      }
     },
     {
@@ -2850,8 +2883,17 @@
       "claims/physical_identification_registry.json"
      ],
      "status": "open",
-     "note": "No species assignment is registered.",
-     "evidence": []
+     "note": "A scalar material load carries a message to an independent receiver. Its orbital angular patterns and single-load clicks give concrete alternatives to intrinsic vector polarization.",
+     "evidence": [
+      "model/experiments/interval_echo_message/README.md",
+      "model/candidate_laws/interval_echo/openwave/mediator_controls/README.md"
+     ],
+     "comparison": {
+      "law": "Written-field Laplacian extension",
+      "label": "Signed probe response and polarization test",
+      "finding": "Four source seams and six independent probe seams detect field transport on 80- and 320-cell spheres. Every tested nonzero frequency has one resolved response pattern. At the lowest 80-cell frequency, counts bound a second measured component below 0.97% of the first at 99% confidence on these probes. The smaller spectrum is complete. The guided packet has quadratic long-wave dispersion. A separate quantized Wilson–Maxwell cube resolves a model field quantum in a joint matter-and-field count.",
+      "source": "model/candidate_laws/interval_echo/openwave/photon_identity/README.md"
+     }
     },
     {
      "id": "SM-gluon",

@@ -49,6 +49,7 @@ The dark-sector test starts at the Einstein tower. One finite experiment now var
 | [Theorem criteria](theorem_criteria.json) | A1–A3, finite repair, consensus, quantum probabilities, current and matter premises, G1–G6 and their joint null balance |
 | [Observer criteria](observer_criteria.json) | Seven historical field, clock and pair experiments, plus finite patch measurements with their preparations and transfer limits |
 | [OpenWave criteria](openwave_criteria.json) | One row for each of 31 phenomena in the pinned OpenWave table, with its upstream number, dynamics, accepted outcome and local candidate evidence |
+| [Gravitational particle](gravitational_particle.json) | Separate assessment of the hypothetical graviton. The native contact and ideal tidal readers test different parts of the assignment |
 | [Particle criteria](particles.json) | A discriminator for each of 17 Standard Model particle types. A candidate can declare a species assignment in `PARTICLE_IDENTIFICATIONS` with a grade, evidence and explanation |
 | [Premise register](../../tracking/premise_register.json) and [roles](roles.json) | Complete formal assumption inventory and its law, designer or import owner. Each plugin declares evidence in `PREMISES` and same-process claims in `JOINT` |
 
