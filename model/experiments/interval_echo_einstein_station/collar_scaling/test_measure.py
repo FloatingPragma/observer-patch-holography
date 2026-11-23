@@ -4,6 +4,7 @@ from itertools import permutations
 import json
 
 import numpy as np
+import pytest
 from scipy.sparse.csgraph import shortest_path
 
 from model.executable_model import federation
@@ -83,7 +84,7 @@ def test_charge_difference_equals_full_reference_modular_expectation():
 
 def test_raw_sample_completeness_and_frozen_controls():
     primary = json.loads((measure.HERE / "results.json").read_text())
-    assert_same_replay(measure.experiment([r["geometry"] for r in primary["panels"]]), primary)
+    measure.verify_replay(measure.experiment([r["geometry"] for r in primary["panels"]]), primary, name="reads")
     for panel in primary["panels"]:
         for row in panel["settings"]:
             for study in row["arms"].values():
@@ -95,7 +96,7 @@ def test_raw_sample_completeness_and_frozen_controls():
                     assert abs(q["measured_shared_change"] - expected) <= radius
                     assert abs(q["measured_reverse_change"] + expected) <= radius
     local = json.loads((measure.HERE / "ancestor.json").read_text())
-    assert local == ancestor.experiment([r["geometry"] for r in local["panels"]])
+    ancestor.verify_replay(ancestor.experiment([r["geometry"] for r in local["panels"]]), local, name="readings")
     for panel in local["panels"]:
         for setting, data in zip(
             panel["geometry"]["settings"], panel["arms"], strict=True
@@ -133,6 +134,23 @@ def test_quartic_transfer_and_colocated_rejection():
         abs(near(-1, 1) / near(-1, 0) - 1) < 0.2
         and abs(near(-1, 0) / near(-2, 0) - 1) < 0.2
     )
+
+
+def test_same_total_single_trial_reassignment_is_rejected():
+    raw = (measure.HERE / "results.json").read_bytes()
+    original, changed = json.loads(raw), json.loads(raw)
+    counts = changed["panels"][0]["settings"][0]["arms"]["separated"]["reads"][0]["00"]
+    counts[0] -= 1
+    counts[1] += 1
+    for fresh, archive in ((changed, original), (original, changed), (changed, changed)):
+        with pytest.raises(ValueError, match="count stream"):
+            measure.verify_replay(fresh, archive, name="reads")
+
+
+@pytest.mark.parametrize("value,stored", [(True, 1), (1.0, 1), (True, 1.0), (float("inf"), float("inf"))])
+def test_numeric_type_and_finiteness_are_part_of_the_receipt(value, stored):
+    with pytest.raises(AssertionError):
+        assert_same_replay({"value": value}, {"value": stored})
 
 
 def test_sharp_energy_controls_and_radial_mark_density():

@@ -14,6 +14,7 @@ from model.executable_model.refinement import load_refinement
 from model.executable_model.symmetry import rotations
 from .. import shared_variance, volume
 from ..proper_ball_ruler.measure import pulse_calibration
+from .replay import verify_replay
 
 HERE = Path(__file__).resolve().parent
 SEED, SHOTS, REFERENCE_SHOTS = 762251, 2**48, 2**38
@@ -253,8 +254,8 @@ def main():
         with args.output.open("x") as stream:
             json.dump(report, stream, separators=(",", ":"), allow_nan=False)
             stream.write("\n")
-    elif report != json.loads(prior.read_text()):
-        raise ValueError("Archived collar charge or clock survey differs from replay")
+    else:
+        verify_replay(report, json.loads(prior.read_text()), name="reads")
     for panel in report["panels"]:
         geometry = panel["geometry"]
         print(
