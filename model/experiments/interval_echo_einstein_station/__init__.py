@@ -3,23 +3,43 @@
 import math
 from numbers import Integral, Real
 
+# Counts at or above this size are multinomial draws over 2**38 to 2**48 shots.
+# NumPy samples them with floating-point arithmetic, so their last units follow
+# the platform's libm; smaller integers (cells, ports, classes, flags) are exact.
+SAMPLED_COUNT = 2**32
 
-def assert_same_replay(actual, stored, path="$", rel=1e-9, absolute=1e-12):
+
+def _mismatches(actual, stored, path, rel, absolute):
+    if isinstance(stored, dict):
+        if not isinstance(actual, dict) or actual.keys() != stored.keys():
+            yield f"{path}: keys differ"
+            return
+        for key, value in stored.items():
+            yield from _mismatches(actual[key], value, f"{path}.{key}", rel, absolute)
+    elif isinstance(stored, list):
+        if not isinstance(actual, (list, tuple)) or len(actual) != len(stored):
+            yield f"{path}: length differs"
+            return
+        for index, (left, right) in enumerate(zip(actual, stored)):
+            yield from _mismatches(left, right, f"{path}[{index}]", rel, absolute)
+    elif isinstance(stored, float) and isinstance(actual, Real) and not isinstance(actual, (bool, Integral)):
+        if not math.isclose(float(actual), stored, rel_tol=rel, abs_tol=absolute):
+            yield f"{path}: {actual!r} != {stored!r}"
+    elif (isinstance(stored, int) and not isinstance(stored, bool) and abs(stored) >= SAMPLED_COUNT
+          and isinstance(actual, Integral) and not isinstance(actual, bool)):
+        if abs(int(actual) - stored) > max(1, 1e-9 * abs(stored)):
+            yield f"{path}: {actual!r} != {stored!r}"
+    elif actual != stored:
+        yield f"{path}: {actual!r} != {stored!r}"
+
+
+def assert_same_replay(actual, stored, rel=1e-6, absolute=1e-12):
     """Require a fresh replay to reproduce its stored record.
 
-    Structure, keys, counts, labels and flags must agree exactly. Floating
-    readouts may differ in their last digits between BLAS and libm builds, so
-    they agree to a relative 1e-9 (absolute 1e-12 near zero).
+    Structure, keys, labels, flags and ordinary counts agree exactly. Floating
+    readouts agree to a relative 1e-6 (absolute 1e-12 near zero), and sampled
+    counts of at least 2**32 to a relative 1e-9: both follow the platform's
+    floating-point libraries in their last digits.
     """
-    if isinstance(stored, dict):
-        assert isinstance(actual, dict) and actual.keys() == stored.keys(), f"{path}: keys differ"
-        for key, value in stored.items():
-            assert_same_replay(actual[key], value, f"{path}.{key}", rel, absolute)
-    elif isinstance(stored, list):
-        assert isinstance(actual, (list, tuple)) and len(actual) == len(stored), f"{path}: length differs"
-        for index, (left, right) in enumerate(zip(actual, stored)):
-            assert_same_replay(left, right, f"{path}[{index}]", rel, absolute)
-    elif isinstance(stored, float) and isinstance(actual, Real) and not isinstance(actual, (bool, Integral)):
-        assert math.isclose(float(actual), stored, rel_tol=rel, abs_tol=absolute), f"{path}: {actual!r} != {stored!r}"
-    else:
-        assert actual == stored, f"{path}: {actual!r} != {stored!r}"
+    found = list(_mismatches(actual, stored, "$", rel, absolute))
+    assert not found, f"{len(found)} replay mismatch(es): " + "; ".join(found[:12])
