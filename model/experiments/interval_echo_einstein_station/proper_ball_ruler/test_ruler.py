@@ -6,6 +6,7 @@ import numpy as np
 from scipy.spatial.distance import cdist
 
 from . import coarse, free_shapes, measure, route_audit
+from .. import assert_same_replay
 
 HERE = Path(__file__).resolve().parent
 
@@ -20,7 +21,7 @@ def test_range_decoder_controls_and_material_route_replay():
         assert measure.quartet_bound(d,quads)[0] == 0.
     cycle=np.array([[0,1,2,1],[1,0,1,2],[2,1,0,1],[1,2,1,0]])
     assert measure.quartet_bound(cycle,quads)[0]>.17
-    assert route_audit.run() == json.loads((HERE/'route_audit.json').read_text())
+    assert_same_replay(route_audit.run(), json.loads((HERE/'route_audit.json').read_text()))
 
 
 def test_heldball_growth_and_free_probabilities():
