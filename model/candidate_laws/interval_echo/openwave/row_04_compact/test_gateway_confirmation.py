@@ -1,4 +1,5 @@
 from copy import deepcopy
+from base64 import b64decode
 from hashlib import sha256
 import json
 import subprocess
@@ -47,12 +48,21 @@ def test_offline_first_parent_registration_selects_only_the_earliest_copy(tmp_pa
         return head
 
     prior = publish(b"proposal\n")
+    assert held.registration_anchor(tmp_path) is None
     with pytest.raises(ValueError, match="absent"):
         held.verify_anchor(tmp_path, prior)
-    first = publish(active)
+    git("switch", "-c", "approved-task")
+    side = publish(active)
+    git("switch", "-c", "platform", prior)
+    git("merge", "--no-ff", "approved-task", "-m", "register reviewed task")
+    first = git("rev-parse", "HEAD")
+    git("update-ref", "refs/remotes/origin/main", first)
     publish(b"revision\n")
     duplicate = publish(active)
+    assert held.registration_anchor(tmp_path) == first
     held.verify_anchor(tmp_path, first)
+    with pytest.raises(ValueError, match="first registered"):
+        held.verify_anchor(tmp_path, side)
     with pytest.raises(ValueError, match="first registered"):
         held.verify_anchor(tmp_path, duplicate)
     protocol.write_bytes(b"{}")
@@ -76,6 +86,15 @@ def test_held_verifier_rejects_changed_control_failure_and_bin_permutation():
             held.check(dict(both, floor_ppt=actual["floor_ppt"]), both)
     with pytest.raises(ArithmeticError, match="scientific gates"):
         held.check(dict(actual, floor_ppt=940_000_000_000), peer)
+    for floor in (True, 990_000_000_000., float("nan"), -1, held.SCORE+1):
+        with pytest.raises(ValueError, match="integer enclosure"):
+            held.check(dict(actual, floor_ppt=floor), peer)
+    invalid = deepcopy(peer)
+    invalid["bins"]["coherent"][0] -= .01
+    with pytest.raises(ValueError, match="independent terminal law"):
+        held.check(actual, invalid)
+    with pytest.raises(ArithmeticError, match="normalization"):
+        held.check(dict(invalid, floor_ppt=actual["floor_ppt"]), peer)
     for value in (float("nan"), True, -.001):
         false = deepcopy(peer)
         false["bins"]["coherent"][0] = value
@@ -114,8 +133,44 @@ def test_held_gate_failure_retains_original_evidence(tmp_path, monkeypatch):
     original = receipt.read_bytes()
     result = json.loads(original)
     assert result["passed"] is False and result["acquisition"]["bins"] == bins
+    assert result["status"] == "rejected"
     assert result["comparison"] == {"absolute": 0., "arm": "coherent", "outcome": 0}
     assert result["independent_sha256"] == sha256(reference.read_bytes()).hexdigest()
+    assert b64decode(result["independent_base64"], validate=True) == reference.read_bytes()
     with pytest.raises(FileExistsError):
         held.main()
     assert receipt.read_bytes() == original
+
+
+@pytest.mark.parametrize("data", [None, b"\xff", b'{"bins":{},"bins":{}}', b'{"p":NaN}', b"[]"])
+def test_incomplete_independent_calculation_retains_evidence(tmp_path, monkeypatch, data):
+    anchor = "0"*40
+    reference, receipt = tmp_path/"peer", tmp_path/"receipt"
+    if data is not None:
+        reference.write_bytes(data)
+    monkeypatch.setattr(sys, "argv", ["gate", anchor, "--openwave-checkout", str(tmp_path),
+                                      "--compare", str(reference), "--record", str(receipt)])
+    monkeypatch.setattr(held, "verify_anchor", lambda *args: None)
+    bins = {arm: [1., *([0.]*13)] for arm in ARMS}
+    monkeypatch.setattr(held, "acquisition", lambda _: {"anchor": anchor, "settings": {}, "bins": bins,
+                                                       "floor_ppt": held.SCORE})
+    with pytest.raises((ValueError, OSError)):
+        held.main()
+    result = json.loads(receipt.read_bytes())
+    assert result["status"] == "incomplete" and result["passed"] is None
+    assert result["acquisition"]["anchor"] == anchor
+    if data is not None:
+        assert b64decode(result["independent_base64"], validate=True) == data
+
+
+def test_nonfinite_native_output_keeps_an_incomplete_receipt(tmp_path, monkeypatch):
+    anchor, receipt = "0"*40, tmp_path/"receipt"
+    monkeypatch.setattr(sys, "argv", ["gate", anchor, "--openwave-checkout", str(tmp_path),
+                                      "--compare", str(tmp_path/"peer"), "--record", str(receipt)])
+    monkeypatch.setattr(held, "verify_anchor", lambda *args: None)
+    monkeypatch.setattr(held, "acquisition", lambda _: {"bins": [float("nan")]})
+    with pytest.raises(ValueError):
+        held.main()
+    result = json.loads(receipt.read_bytes())
+    assert (result["status"], result["stage"], result["passed"]) == ("incomplete", "acquisition", None)
+    assert result["invalid_acquisition_text"] == '{"bins": [NaN]}'

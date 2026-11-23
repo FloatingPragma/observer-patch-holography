@@ -168,3 +168,37 @@ def certify(gateways, pulse=Fraction(1), *, start=0, direction=1):
         "exhaustion_ceiling_ppt": ceil(reach_high*SCORE),
         "one_attempt_success_ppt": [(int(lo*SCORE), int(hi*SCORE)) for lo, hi in ranges],
     }
+
+
+def least_protected_sweep(weights, upper):
+    """Minimize the certified contribution over permutations of one complete sweep."""
+    if not weights or len(weights) != len(upper) or any(
+            not 0 <= q <= s <= 1 for q, s in zip(weights, upper, strict=True)):
+        raise ValueError("Expected confined weights and enclosing acceptance probabilities")
+    # Swapping adjacent i,j changes the contribution by reach*(q_i*s_j - q_j*s_i).
+    # A port with zero upper acceptance also has zero protected weight.
+    order = sorted(range(len(weights)), key=lambda i: weights[i]/upper[i] if upper[i] else 0)
+    reach, protected = Fraction(1), Fraction(0)
+    for i in order:
+        protected += reach*weights[i]
+        reach *= 1-upper[i]
+    return protected, reach
+
+
+def arbitrary_sweep_floor(gateways):
+    """Unit-pulse floor for four sweeps, each in any fixed permutation of the ports."""
+    tips = chart_key(gateways)
+    weights = tuple(map(Fraction, dark_projector(tips).diagonal()))
+    upper = tuple(hi for _, hi in success_intervals(tips, Fraction(1)))
+    one, exhausted = least_protected_sweep(weights, upper)
+    sweeps, remainder = divmod(ATTEMPTS, len(weights))
+    if remainder:
+        raise ArithmeticError("Incomplete source sweep")
+    return int(SCORE * one * sum(exhausted**i for i in range(sweeps)))
+
+
+if __name__ == "__main__":
+    boards = board_charts()
+    floors = {tips: arbitrary_sweep_floor(tips) for tips in set().union(*boards.values())}
+    for size, charts in boards.items():
+        print(f"{size} cells, every complete port order: joint home probability >= {min(floors[t] for t in charts)}/{SCORE}")
