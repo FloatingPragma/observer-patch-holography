@@ -118,6 +118,14 @@ def test_raw_board_replay_and_quantized_receipt():
         check.verify(report, (.5,), (1,), archive)
 
 
+def test_whole_archive_agrees_with_the_raw_board_replay():
+    from . import open_pair_check as check
+    archive = json.loads(check.ARCHIVE.read_text())
+    _, home, expected = check.independently_replay(check.STRENGTHS, check.TIMES)
+    assert len(expected) == 9
+    assert check.max_bin_error(check.archive_bins(archive, home), expected) < check.TOLERANCE
+
+
 def test_external_raw_replay_rejects_duplicate_json_keys(tmp_path, monkeypatch):
     import sys
     from . import open_pair_check as check

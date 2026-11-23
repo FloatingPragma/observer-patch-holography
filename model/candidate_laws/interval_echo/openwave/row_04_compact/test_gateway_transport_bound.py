@@ -14,6 +14,7 @@ def test_walk_and_poisson_bound():
     assert walk == Fraction(327415820588960477, 592297667290202112)
     assert 0 < early < Fraction(15, 1000)
     assert walk < ceiling < Fraction(559219, 10**6)
+    assert -(-ceiling.numerator * 10**12 // ceiling.denominator) == 559218518009
 
     # An off-protocol exposure compares the bound to the continuous-time law
     # directly, including initial ports outside this pilot's home.

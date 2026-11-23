@@ -11,7 +11,7 @@ from . import gateway_independent as peer
 
 
 def test_complete_published_pilot():
-    # Four already published appointments, all fourteen outcomes per arm.
+    # Four published appointments, all fourteen outcomes per arm.
     # No registration commit is selected or hashed here.
     public = json.loads(Path(__file__).with_name("gateway_results.json").read_text(encoding="utf-8"))
     expected = public["terminal_by_pulse"]["1.0"]

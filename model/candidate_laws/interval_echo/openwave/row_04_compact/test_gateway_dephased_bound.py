@@ -19,6 +19,7 @@ def test_continuous_dephased_window():
     assert midpoint == Fraction(2999545820205203, 4503599627370496)
     assert error < Fraction(208, 10**6)
     assert ceiling < Fraction(916448, 10**6)
+    assert -(-ceiling.numerator * 10**12 // ceiling.denominator) == 916447948118
     assert list(bound.CENTERS_TWICE) == list(range(31, 76, 2))
     gates = json.loads(PROTOCOL.read_text(encoding="utf-8"), parse_float=Fraction)["gates"]
     charts = {tuple(row) for row in gateway_table(federation(0))}

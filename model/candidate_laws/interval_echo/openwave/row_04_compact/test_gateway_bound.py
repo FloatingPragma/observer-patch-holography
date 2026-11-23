@@ -86,7 +86,10 @@ def test_minimizing_order_matches_every_permutation_including_idle_ports():
 
 
 def test_every_order_in_every_complete_native_chart():
-    charts = set().union(*board_charts().values())
-    for tips in charts:
-        floor = arbitrary_sweep_floor(tips)
+    boards = board_charts()
+    floors = {}
+    for tips in set().union(*boards.values()):
+        floor = floors[tips] = arbitrary_sweep_floor(tips)
         assert 94*SCORE//100 < floor <= certify(tips)["joint_home_floor_ppt"]
+    assert {size: min(floors[tips] for tips in charts) for size, charts in boards.items()} == {
+        20: 999940596796, 80: 999940596799, 320: 999940596799}

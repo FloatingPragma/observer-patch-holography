@@ -55,10 +55,18 @@ def verify_retry(kappa):
         raise ArithmeticError("The retry does not restore the original sharp pair")
 
 
+def flight_unitary(kappa, t):
+    """Exactly unitary flight from the spectrum of the real symmetric three-word generator."""
+    h = corridor_generator(kappa)
+    if not np.array_equal(h, h.T):
+        raise ArithmeticError("Expected a real symmetric corridor generator")
+    energies, modes = np.linalg.eigh(h)
+    return (modes*np.exp(-1j*t*energies)) @ modes.T
+
+
 def acquire(kappa):
     verify_retry(kappa)
-    h = corridor_generator(kappa)
-    return monitored_source(expm(-1j*float(PULSE)*h), ROUNDS, ATTEMPTS)
+    return monitored_source(flight_unitary(kappa, float(PULSE)), ROUNDS, ATTEMPTS)
 
 
 def analytic_home(kappa, t):
@@ -74,7 +82,7 @@ def terminal(kappa, t, source):
     if not isfinite(t) or t < 0:
         raise ValueError("Expected a finite nonnegative exposure")
     rho, exhaustion, _, _ = source
-    flight = expm(-1j*t*corridor_generator(kappa))
+    flight = flight_unitary(kappa, t)
     ports = {}
     for arm, density, failure in (("coherent", rho, exhaustion),
                                   ("dephased", np.diag(np.diag(rho)), exhaustion),

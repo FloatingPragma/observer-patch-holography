@@ -39,7 +39,7 @@ def registration_anchor(checkout):
     if base not in lineage:
         raise ValueError("Official first-parent history lacks the registration baseline")
     if git("ls-tree", base, "--", TASK) and sha256(git("show", base+":"+TASK)).hexdigest() == TASK_SHA256:
-        raise ValueError("Registration already present at the baseline")
+        raise ValueError("Registration present at the baseline")
     changes = git("log", "--first-parent", "--reverse", "--format=%H", base+"..refs/remotes/origin/main",
                   "--", TASK).decode().splitlines()
     for commit in changes:
