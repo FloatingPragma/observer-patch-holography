@@ -51,10 +51,12 @@ def apparatus():
     law = candidate.native_law
     echo = law.echo()
     blank = np.eye(law.DIM)[:, : law.N_SRC]
-    for magnitude in (0, 1):
-        flag = np.repeat([False, *(abs(d) == magnitude for _, d in law.LABELS)], law.N_SRC)
+    # On the admitted words the signed rail query records which word was
+    # occupied. Ignoring that flag implements the two dephasing controls.
+    for accepts in (lambda d: d == 0, lambda d: abs(d) == 1, lambda d: d > 0):
+        flag = np.repeat([False, *(accepts(d) for _, d in law.LABELS)], law.N_SRC)
         observed = echo.T @ (flag[:, None] * (echo @ blank))
-        expected = blank * [abs(a - b) == magnitude for a, b in law.SRC]
+        expected = blank * [accepts(a - b) for a, b in law.SRC]
         np.testing.assert_allclose(observed, expected, rtol=0, atol=1e-13)
     # In each admitted rail the first basis state occupies its first port.
     columns = [law.SRC.index(word) for word in ((1, 0), (0, 1))]

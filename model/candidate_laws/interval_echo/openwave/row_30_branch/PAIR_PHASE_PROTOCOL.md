@@ -20,6 +20,8 @@ At the receiver let $a,b$ be the unnormalized amplitudes on its two admitted wor
 
 Each table entry gives equal flags / all local admissions out of 67,108,864 simulated preparations of that sign. The Fisher test compares the flags within admissions. The six-route cutoff is 0.001667. Both source cells have two passing routes. At this budget the reciprocal routes between cells 2 and 3 miss the cutoff. The receiver can distinguish ensembles of preparations. A single remote launch rarely returns either flag.
 
+The source and receiver each address four ports. Together they use at most four rail pulses and five binary queries per launch, or ten echoes including the inverse operations. The supplied controller isolates the addressed contacts during preparation and readout. Each dephasing control makes one additional signed query on rail $uv$ and leaves its flag unread. The two words give opposite signed contrasts on that rail, so discarding this flag removes exactly their off-diagonal element.
+
 | Source → receiver | Plus | Minus | Two-sided p | Predicted direction detected |
 | --- | ---: | ---: | ---: | --- |
 | 2 → 1 | 122 / 590 | 1,350 / 1,987 | 2.23 × 10⁻⁹⁴ | Yes |
