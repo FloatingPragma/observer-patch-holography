@@ -1,0 +1,107 @@
+{
+  "scope": "Local gate audit on previously exposed material",
+  "material_seed_on_each_level": 927016,
+  "frozen_manifest_sha256": "3789a7be528ab9d20471486816df3f3ee39b003eb54c09eab3cd50d65629d4c9",
+  "verifier_sha256": "e07d70cd60580cedfbf176e4d19c1e24463207953933f902bddcb1d9e9346af9",
+  "calibrated_native_coupling": 8.0,
+  "perturbed_flight_coupling": 7.5,
+  "perturbed_flight": {
+    "bank_return": false,
+    "archived_passed": false,
+    "boards": [
+      {
+        "level": 0,
+        "failed_gates": [
+          "continuum",
+          "lattice",
+          "shape"
+        ],
+        "count_arrays": 38,
+        "lattice_max": 1.0003898570620962,
+        "far_count_fraction": 0.18394184112548828
+      },
+      {
+        "level": 1,
+        "failed_gates": [
+          "continuum",
+          "lattice",
+          "shape"
+        ],
+        "count_arrays": 54,
+        "lattice_max": 1.0005182373437336,
+        "far_count_fraction": 0.18454647064208984
+      },
+      {
+        "level": 2,
+        "failed_gates": [
+          "continuum",
+          "lattice",
+          "shape"
+        ],
+        "count_arrays": 54,
+        "lattice_max": 1.0005284162964045,
+        "far_count_fraction": 0.338134765625
+      }
+    ]
+  },
+  "missing_acquisition": {
+    "bank_return": false,
+    "archived_passed": false,
+    "boards": [
+      {
+        "level": 0,
+        "failed_gates": [
+          "records_complete"
+        ],
+        "count_arrays": 0,
+        "acquisition_error": "ArithmeticError"
+      },
+      {
+        "level": 1,
+        "failed_gates": [
+          "records_complete"
+        ],
+        "count_arrays": 0,
+        "acquisition_error": "ArithmeticError"
+      },
+      {
+        "level": 2,
+        "failed_gates": [
+          "records_complete"
+        ],
+        "count_arrays": 0,
+        "acquisition_error": "ArithmeticError"
+      }
+    ]
+  },
+  "ordinary_k_tolerance": 0.0048,
+  "ordinary_k_models": [
+    {
+      "level": 0,
+      "lines": 3,
+      "k_span": 0.28479334995496636,
+      "square_root_max": 0.001958958706776315,
+      "tangent_max": 0.002272629361135259,
+      "square_root_passes": true,
+      "tangent_passes": true
+    },
+    {
+      "level": 1,
+      "lines": 4,
+      "k_span": 0.3358210675040499,
+      "square_root_max": 0.0022613905325172823,
+      "tangent_max": 0.0026398506277871547,
+      "square_root_passes": true,
+      "tangent_passes": true
+    },
+    {
+      "level": 2,
+      "lines": 4,
+      "k_span": 0.3033957149911917,
+      "square_root_max": 0.0016077103020535333,
+      "tangent_max": 0.0018601475831623304,
+      "square_root_passes": true,
+      "tangent_passes": true
+    }
+  ]
+}

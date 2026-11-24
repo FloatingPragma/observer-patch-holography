@@ -1,0 +1,25 @@
+# Prospective OW-30 confirmation
+
+**Archived proposal, filing on hold.** The present audit supersedes the earlier release recommendation. The exact task and acquisition code are retained for comparison. [Findings and conditions for a successor](../../submission/row_30_cautions/README.md)
+
+[TASK.md](TASK.md) contains the proposed platform text. It requests state/decoder adjudication and freezes a confirmatory experiment. The original nine material runs and the later three-board local holdout have already been inspected. The primary ordinary-wave-number gate and the changed-reader positive gate supplement [the internal protocol](../HOLDOUT.md). No future registration setting has been derived or acquired here.
+
+The proposed source uses the local meter's **raw counts** to forecast the unanchored frequency intercept and spatial coefficient. It accepts that forecast only if the finite-lattice dispersion, ordinary low-wave-number dispersion, branch-shape comparison, independent pair-sum closure, responding control detector and remote source comparison all pass on all three fresh boards. The separate packet experiment uses odd-length strands. Two closed-ring preparations on surveyed boards give a supplementary zero-momentum frequency from measured pair sums. [Ring experiment](../rest/README.md) The local meters predict the zero-wave-number intercept. The enrolled open-strand frequencies are measured at nonzero wave number. The registration does not infer a three-dimensional isotropic field, free-space self-assembly, a Standard Model particle or a gravitational theory.
+
+### Source and task custody
+
+1. Review the exact [manifest](files.json), [launcher](verify.py), proposed task, public pin and source/decoder declaration. Publish the matching RER source commit on official RER main before requesting registration. The scientific inputs were developed after the adopted native-law pin. The manifest checks both the adopted native bytes and the new apparatus. The source commit must contain the manifest at this location, with all listed inputs matching it.
+2. For the owner's separate platform proposal use the exact bytes of TASK.md at `openwave/xperiments/m10_oph/research/tasks/m10_5_task_details.md`. Place the public full RER freeze commit ID and trailing LF in the adjacent `m10_5_task_details.source` file. A local source bundle can be reviewed before that commit is published. Only the publicly reachable source commit satisfies the registration custody gate. The formal number M10.4 already has a separate proposal in flight. [Open row-4 PR](https://github.com/openwave-labs/openwave/pull/749)
+3. The launcher checks independently contacted official Git remote tips, history through the baseline, the first exact task blob, its source pointer and current candidate. The launcher obtains no future settings until those conditions hold. It will not fetch into either user's checkout or submit anything. Formal acquisition uses the frozen RER source with its publicly versioned model wrapper. A development checkout with changed wrapper bytes will fail the source check. A nonshallow official OpenWave history is needed. A Git partial clone with full history is sufficient.
+4. After an eligible landing run the frozen platform code from the OpenWave checkout on the author's hardware. The [in-platform method note](../platform/METHOD_NOTE.md) gives the acquisition and replay commands. The receipt directory contains a draw record, complete raw NPY counts, native commissioning records, derived scores and the verdict. Every accepted or failed experiment retains its seed. Use a fresh output directory for a surviving draw and keep interrupted output as an incomplete release. A raw array stores the count of the indicated outcome. Its complement is the fixed recorded number of trials minus that count. The seed and archive are public only after acquisition.
+
+From a RER root containing these files, on any system with Git and Python 3.12, install the scientific dependencies in `model/requirements.txt`. These commands use the standard library for status and source validation. The release uses the pinned NumPy/SciPy versions.
+
+```sh
+python model/candidate_laws/interval_echo/openwave/row_30_collective/registration/verify.py check-sources
+python model/candidate_laws/interval_echo/openwave/row_30_collective/registration/verify.py status --openwave /path/to/openwave
+python model/candidate_laws/interval_echo/openwave/row_30_collective/registration/verify.py acquire --openwave /path/to/openwave --release /path/to/new-release
+python model/candidate_laws/interval_echo/openwave/row_30_collective/registration/verify.py replay --openwave /path/to/openwave --release /path/to/new-release
+```
+
+Fresh branches may score poorly, contain no sufficiently distant receiver, or have fewer than two low-wave-number modes with the required separation. Such outcomes reject the proposed claim on that draw. A reproducible numerical discrepancy in independently implemented software remains an audit finding. Maintainers decide eligibility and credit. The author retains release authority.

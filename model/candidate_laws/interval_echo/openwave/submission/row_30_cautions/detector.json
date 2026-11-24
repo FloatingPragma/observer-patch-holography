@@ -1,0 +1,160 @@
+{
+  "scope": "Post-hoc local detector audit of archived settings. No official board settings used.",
+  "open_strands": [
+    {
+      "dimers": 20,
+      "measured_lattice_max": 0.0005258990218575121,
+      "launch_label_lattice_max": 0.0018634821160325998,
+      "launch_label_shape_ratio": 0.4112259724545545,
+      "max_interior_recurrence_residual": 0.00012213636991378419,
+      "minimum_projector_eigengap": 0.9999386421532357,
+      "min_click_probability": 0.4962633250662111,
+      "max_click_probability": 0.5037387731596171
+    },
+    {
+      "dimers": 26,
+      "measured_lattice_max": 0.0005843881218101643,
+      "launch_label_lattice_max": 0.0017980619112538676,
+      "launch_label_shape_ratio": 0.3252053606013504,
+      "max_interior_recurrence_residual": 0.00029485806158506095,
+      "minimum_projector_eigengap": 0.999917186807108,
+      "min_click_probability": 0.49768424231569575,
+      "max_click_probability": 0.502317814490169
+    },
+    {
+      "dimers": 29,
+      "measured_lattice_max": 0.0005669162377159864,
+      "launch_label_lattice_max": 0.0014000162383531745,
+      "launch_label_shape_ratio": 0.33685053567869805,
+      "max_interior_recurrence_residual": 0.0003453723931542493,
+      "minimum_projector_eigengap": 0.9999705533025514,
+      "min_click_probability": 0.49819722578191583,
+      "max_click_probability": 0.5018033596524487
+    }
+  ],
+  "packets": [
+    {
+      "dimers": 13,
+      "wall_occupancy_range": [
+        0.9993772506713867,
+        1.0115165710449219
+      ],
+      "first_moment_slopes": [
+        0.7185073418751408,
+        -0.7202524802635366
+      ],
+      "normalized_centroid_slopes": [
+        0.7108355120338636,
+        -0.7116909105052606
+      ],
+      "half_signed_first_moment_slope": 0.7193799110693386,
+      "half_signed_normalized_centroid_slope": 0.711263211269562,
+      "forecast": 0.7231992449011689
+    },
+    {
+      "dimers": 29,
+      "wall_occupancy_range": [
+        0.9984397888183594,
+        1.0276813507080078
+      ],
+      "first_moment_slopes": [
+        0.7442275855660625,
+        -0.740773023343815
+      ],
+      "normalized_centroid_slopes": [
+        0.7250598693727038,
+        -0.7213767170828611
+      ],
+      "half_signed_first_moment_slope": 0.7425003044549388,
+      "half_signed_normalized_centroid_slope": 0.7232182932277824,
+      "forecast": 0.7422538991841564
+    },
+    {
+      "dimers": 49,
+      "wall_occupancy_range": [
+        1.0007991790771484,
+        1.046492576599121
+      ],
+      "first_moment_slopes": [
+        0.7396702578228681,
+        -0.7433674236574566
+      ],
+      "normalized_centroid_slopes": [
+        0.707313663773376,
+        -0.7095996001709243
+      ],
+      "half_signed_first_moment_slope": 0.7415188407401623,
+      "half_signed_normalized_centroid_slope": 0.7084566319721501,
+      "forecast": 0.7427221979133344
+    }
+  ],
+  "ring_counterexample": {
+    "dimers": 5,
+    "source": [
+      0,
+      1
+    ],
+    "terminal": [
+      2,
+      3
+    ],
+    "j": 8.0,
+    "flip_before": 1.0,
+    "flip_after_local": 0.0,
+    "responses": [
+      {
+        "t": 0.37,
+        "joint_product": -0.0007990627673022862,
+        "local_factors": 0.00027374736916162517
+      },
+      {
+        "t": 2.15,
+        "joint_product": 0.12645299791688777,
+        "local_factors": 0.16314450473813163
+      },
+      {
+        "t": 5.81,
+        "joint_product": 0.004326727700071556,
+        "local_factors": -0.0037756916890561106
+      }
+    ]
+  },
+  "ring_raw_counts": [
+    {
+      "seed": 312142,
+      "dimers": 17,
+      "arm": "native",
+      "pair_time_bins": 20480,
+      "shots_per_bin": 4194304,
+      "joint_product_binomial_residual_rms": 0.9935592571101318,
+      "local_factors_binomial_residual_rms": 6.308528504039306
+    },
+    {
+      "seed": 312142,
+      "dimers": 17,
+      "arm": "changed",
+      "pair_time_bins": 20480,
+      "shots_per_bin": 4194304,
+      "joint_product_binomial_residual_rms": 0.9892047810891653,
+      "local_factors_binomial_residual_rms": 6.334991611849437
+    },
+    {
+      "seed": 927016,
+      "dimers": 20,
+      "arm": "native",
+      "pair_time_bins": 20480,
+      "shots_per_bin": 4194304,
+      "joint_product_binomial_residual_rms": 0.9970854826137177,
+      "local_factors_binomial_residual_rms": 4.73162734757098
+    },
+    {
+      "seed": 927016,
+      "dimers": 20,
+      "arm": "changed",
+      "pair_time_bins": 20480,
+      "shots_per_bin": 4194304,
+      "joint_product_binomial_residual_rms": 0.9924502139913338,
+      "local_factors_binomial_residual_rms": 4.729587510067334
+    }
+  ]
+}
