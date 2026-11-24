@@ -4,6 +4,8 @@ The two-load pair from the stability experiment can reach another echosahedron w
 
 ## What neighboring observers detect
 
+A joint phase can also be read after free flight. Two disjoint seam words have identical single-load states for either source sign. Four of six held-out neighboring receivers distinguished the signs among admitted arrivals. The full pair has an all-time adjacent probability of at least 47/64 after source acceptance. Crossing into a neighboring cell requires amplitudes on separated configurations. [Preparation, range of efficiencies and all six tests](PAIR_PHASE_PROTOCOL.md#what-the-receivers-record)
+
 Starting on seam (0,1) in cell zero, the pair evolved freely on the 20-cell sphere. At exposure 256 a terminal detector in cell 4 registered an adjacent pair in **387 of 262,144** simulated trials. Parking the pair gave zero distant clicks. Exchange alone gave 1,456 clicks at that receiver and much weaker retention in the birth patch. A distant detection establishes transfer; the reader accepts any adjacent pair in its patch. Each setting uses an independent ensemble, and the simulated records include quiet.
 
 Repeating the release from the first cell of each gateway class gave transfer both within and between classes. At exposure 256, cell 2 detected 417 pairs from cell 1, of the same class, and cell 0 detected 345 from the same source, across classes. Each detector received 262,144 trials. The patch address identifies its gateway geometry. An adjacent-pair click carries no spectral-band label. [Every cell, both sources and all four appointments](classes.json)
