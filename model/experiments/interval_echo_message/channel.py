@@ -144,6 +144,12 @@ REPLAY_EVALUATIONS = (
         "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
         "model/candidate_laws/interval_echo/EVALUATION.json": "acddc0f6282bca3ff37745d040669dc61e277d2a0f16616105fc82d955ba526b",
     },
+    # Published candidate descriptions and scorecard, with the native message bank replayed.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "79fd7900f8b7dd8a8ba6aac02dc57abfbaced59cef208e6f5130793f7d176b91",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "7d9f6735d7dd0e59bfcd8bd23354e7cc6398fe805717a6a6cc7044537e05af0b",
+    },
 )
 
 

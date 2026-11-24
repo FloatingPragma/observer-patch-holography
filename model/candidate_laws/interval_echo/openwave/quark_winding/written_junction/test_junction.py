@@ -30,16 +30,20 @@ def saved(name):
     return json.loads((HERE / (name + ".json")).read_text())
 
 
-def compare(a, b):
+def compare(a, b, key=None):
     if isinstance(b, dict):
         assert a.keys() == b.keys()
         for k, v in b.items():
-            compare(a[k], v)
+            compare(a[k], v, key=k)
     elif isinstance(b, list):
         for u, v in zip(a, b, strict=True):
-            compare(u, v)
+            compare(u, v, key=key)
     elif isinstance(b, float):
-        assert a == pytest.approx(b, abs=2e-8, rel=0)
+        if key in ("phase", "expected_phase"):
+            delta = np.angle(np.exp(1j * (a - b)))
+            assert delta == pytest.approx(0, abs=2e-8, rel=0)
+        else:
+            assert a == pytest.approx(b, abs=2e-8, rel=0)
     else:
         assert a == b
 
@@ -246,3 +250,9 @@ def test_rotated_written_wall_components():
     assert result["largest_diagonal_difference"] == 0
     assert result["determinant_rotated_bright"] == pytest.approx(1)
     assert result["mixture_rotated_bright"] == pytest.approx(0.5)
+
+
+def test_phase_comparison_respects_two_pi_and_rejects_other_phases():
+    compare({"phase": -np.pi}, {"phase": np.pi})
+    with pytest.raises(AssertionError):
+        compare({"phase": 0.0}, {"phase": np.pi})

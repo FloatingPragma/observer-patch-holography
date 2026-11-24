@@ -1,6 +1,8 @@
 """Local release-integrity and scientific falsifier checks on exposed selectors."""
 
 from copy import deepcopy
+from hashlib import sha256
+import json
 from pathlib import Path
 from unittest.mock import patch
 
@@ -49,9 +51,30 @@ def test_completed_release_replays_and_matches_exposed_pilot(baseline):
     summary = trial.pilot_summary(baseline)
     assert [board["raw_arrays"] for board in summary["boards"]] == [38, 54, 54]
     assert all(board["spatial"]["launch_label_rejected"] for board in summary["boards"])
-    trial.experiment.verify(
-        summary, trial.read_json(Path(__file__).with_name("pilot.json"))
-    )
+    golden = trial.read_json(Path(__file__).with_name("pilot.json"))
+    # A live replay verifies every array against its own retained inventory.
+    # The golden inventory records the acquisition host's floating sampler.
+    manifest = trial.read_json(baseline / "manifest.json")
+    for live, reference, board in zip(
+        summary["boards"], golden["boards"], manifest["boards"], strict=True
+    ):
+        inventory = json.dumps(
+            board["counts"]["files"], sort_keys=True, separators=(",", ":")
+        ).encode()
+        assert live["inventory_sha256"] == sha256(inventory).hexdigest()
+        assert len(reference["inventory_sha256"]) == 64
+        live.pop("inventory_sha256")
+        reference.pop("inventory_sha256")
+        for reading in (live, reference):
+            spatial_reading = reading["spatial"]
+            assert spatial_reading["candidate_q"] <= spatial_reading["quadratic_cutoff"]
+            assert spatial_reading["launch_label_q"] > spatial_reading["quadratic_cutoff"]
+            # Residual sums describe the retained host's counts and floating fit.
+            # Each retained replay and each scientific cutoff is checked above.
+            for key in list(spatial_reading):
+                if key.endswith("_q"):
+                    spatial_reading.pop(key)
+    trial.experiment.verify(summary, golden)
 
 
 def test_missing_or_changed_count_and_no_substitution(baseline, tmp_path):

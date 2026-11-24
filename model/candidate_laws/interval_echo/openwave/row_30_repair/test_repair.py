@@ -5,12 +5,13 @@ import json
 
 import numpy as np
 from scipy.linalg import expm
+from scipy.stats import binom
 
 from model.executable_model import federation
 from model.candidate_laws.interval_echo.openwave.row_28_acceleration.experiment import (
     HERE as RANGE,
 )
-from .experiment import HERE, SHOTS, check_signed_collars, interval
+from .experiment import HERE, SHOTS, TAIL, check_signed_collars, interval
 
 
 def test_old_writes_independently_predict_home_return():
@@ -66,7 +67,21 @@ def test_sharp_line_and_changed_law_leave_distinguishable_home_readings():
             outcomes = m["hand_return_counts"]
             assert sum(outcomes) == SHOTS
             n = outcomes[1] + outcomes[3]
-            assert list(interval(n)) == m["measured_miss"]
+            # Check the Clopper-Pearson coverage equations directly. Quantile
+            # solvers may return neighbouring floating representations.
+            for lo, hi in (interval(n), m["measured_miss"]):
+                if n == 0:
+                    assert lo == 0
+                else:
+                    np.testing.assert_allclose(
+                        binom.sf(n - 1, SHOTS, lo), TAIL, rtol=1e-7, atol=1e-15
+                    )
+                if n == SHOTS:
+                    assert hi == 1
+                else:
+                    np.testing.assert_allclose(
+                        binom.cdf(n, SHOTS, hi), TAIL, rtol=1e-7, atol=1e-15
+                    )
             if m["law"] == "registered":
                 assert abs(var - m["variance"]) < 1e-9
                 assert m["measured_miss"][0] > 0.035

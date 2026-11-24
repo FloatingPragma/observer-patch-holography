@@ -28,16 +28,21 @@ def archive(name):
     return json.loads((HERE / (name + ".json")).read_text())
 
 
-def compare(a, b):
+def compare(a, b, key=None):
     if isinstance(b, dict):
         assert a.keys() == b.keys()
         for k in b:
-            compare(a[k], b[k])
+            compare(a[k], b[k], key=k)
     elif isinstance(b, list):
         for x, y in zip(a, b, strict=True):
-            compare(x, y)
+            compare(x, y, key=key)
     elif isinstance(b, float):
-        assert a == pytest.approx(b, abs=2e-8, rel=0)
+        if key == "phase_turns":
+            # Phase is measured modulo one turn, including its branch endpoint.
+            delta = np.angle(np.exp(2j * np.pi * (a - b))) / (2 * np.pi)
+            assert delta == pytest.approx(0, abs=2e-8, rel=0)
+        else:
+            assert a == pytest.approx(b, abs=2e-8, rel=0)
     else:
         assert a == b
 
@@ -171,3 +176,9 @@ def test_rotating_wall_records():
         assert max(map(int, r["all_energy_commutant_dimensions"])) < 9
         assert r["reads"][-1]["any_chart"] > 0.97
         assert r["core_pair_multiplicity"] == ({"3": 20} if n == "3" else {"1": 30})
+
+
+def test_phase_comparison_respects_one_turn_and_rejects_other_phases():
+    compare({"phase_turns": -0.5}, {"phase_turns": 0.5})
+    with pytest.raises(AssertionError):
+        compare({"phase_turns": 0.25}, {"phase_turns": 0.5})

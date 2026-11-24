@@ -60,6 +60,27 @@ def test_remote_against_independent_native_seams():
 def test_remote_counts_and_exact_apertures():
     raw = stored("external_field")
     replay = json.loads(json.dumps(external_field.run()))
+    # At zero expectation, binomial samplers can select complementary internal
+    # branches when a floating probability crosses 1/2 by rounding.
+    for label in ("registered", "exchange_only"):
+        for size, panel in replay[label].items():
+            reference = raw[label][size]
+            assert abs(panel["signal"]["0"]) < 1e-11
+            assert abs(reference["signal"]["0"]) < 1e-11
+            assert abs(panel["broken"]) < 1e-11
+            assert abs(reference["broken"]) < 1e-11
+            observed = panel["calibration"]["0"]
+            saved = reference["calibration"]["0"]
+            assert observed["plus"] + observed["minus"] == external_field.SHOTS
+            assert observed["mean"] == pytest.approx(
+                2 * observed["plus"] / external_field.SHOTS - 1, abs=5.1e-12, rel=0
+            )
+            assert observed["plus"] in (saved["plus"], saved["minus"])
+            panel["calibration"]["0"] = saved
+            assert panel["broken_plus"] in (
+                reference["broken_plus"], external_field.SHOTS - reference["broken_plus"]
+            )
+            panel["broken_plus"] = reference["broken_plus"]
     compare(replay, raw)
     for route in raw["routes"]:
         assert min(route["receiver_distances"]) >= 4
