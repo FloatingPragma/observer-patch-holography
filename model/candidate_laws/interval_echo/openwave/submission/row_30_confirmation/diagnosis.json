@@ -1,0 +1,647 @@
+{
+  "scope": "Post-hoc reanalysis of two existing local banks. Frozen v2 decisions are preserved.",
+  "method": "Even-hold fitted k replaces the original full-recurrence k in the candidate profile, lattice, continuum and shape gates. Every other physical input is fixed.",
+  "mode_columns": [
+    "launch",
+    "original_k",
+    "even_fit_k",
+    "fit_minus_original_k",
+    "odd_Q_reduction_replacing_only_this_mode"
+  ],
+  "attribution": "One-mode gains are conditional on keeping every other original k, so they need not add. Pair gains sum across both held receiver scans per pair.",
+  "gates": [
+    "changed",
+    "changed_reader",
+    "closure",
+    "commissioned",
+    "continuum",
+    "lattice",
+    "launch_label_rejected",
+    "live",
+    "meter",
+    "profile",
+    "quiet",
+    "shape",
+    "transport"
+  ],
+  "banks": {
+    "pilot": {
+      "source_commit": "f3c6d30df7ef81816eea64f553c4f57c506c4aa4",
+      "frozen_status": "passed",
+      "boards": [
+        {
+          "level": 0,
+          "seed": 927016,
+          "dimers": 20,
+          "frozen_status": "passed",
+          "hypothetical_all_gates_pass": true,
+          "hypothetical_failed_gates": [],
+          "odd_q": {
+            "original": 330.85047474238564,
+            "even_fit": 266.80728568574716,
+            "launch_labels": 3175986.2644713055,
+            "cutoff": 399.70445181885816
+          },
+          "dispersion": {
+            "original": {
+              "lattice_max": 0.0005258990019516574,
+              "low_k_continuum_max": 0.0019589586865933484,
+              "low_k_count": 3,
+              "lattice_over_parabola_rms": 0.02275586947535845
+            },
+            "even_fit": {
+              "lattice_max": 0.0005255035758970905,
+              "low_k_continuum_max": 0.0019546033895441184,
+              "low_k_count": 3,
+              "lattice_over_parabola_rms": 0.022740876026657846
+            }
+          },
+          "modes": [
+            [
+              1,
+              0.1423664391,
+              0.1423690123,
+              2.5732e-06,
+              6.32556
+            ],
+            [
+              2,
+              0.2847543972,
+              0.2847522997,
+              -2.0975e-06,
+              5.05319
+            ],
+            [
+              3,
+              0.427159789,
+              0.427150169,
+              -9.62e-06,
+              10.34754
+            ],
+            [
+              4,
+              0.5695705857,
+              0.5695838564,
+              1.32707e-05,
+              43.45829
+            ],
+            [
+              5,
+              0.7120484808,
+              0.7120479038,
+              -5.771e-07,
+              -1.14048
+            ]
+          ],
+          "largest_pair_q_reductions": [
+            {
+              "pair": [
+                1,
+                4
+              ],
+              "original": 77.93549,
+              "even_fit": 41.30908,
+              "reduction": 36.62641
+            },
+            {
+              "pair": [
+                1,
+                3
+              ],
+              "original": 56.21583,
+              "even_fit": 43.18817,
+              "reduction": 13.02766
+            },
+            {
+              "pair": [
+                2,
+                4
+              ],
+              "original": 47.11558,
+              "even_fit": 38.19808,
+              "reduction": 8.9175
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "seed": 927016,
+          "dimers": 26,
+          "frozen_status": "passed",
+          "hypothetical_all_gates_pass": true,
+          "hypothetical_failed_gates": [],
+          "odd_q": {
+            "original": 653.5787343433473,
+            "even_fit": 545.2628724548367,
+            "launch_labels": 2427423.265071461,
+            "cutoff": 732.174950905198
+          },
+          "dispersion": {
+            "original": {
+              "lattice_max": 0.0005843881018563479,
+              "low_k_continuum_max": 0.0022613905123520794,
+              "low_k_count": 4,
+              "lattice_over_parabola_rms": 0.03181407936244427
+            },
+            "even_fit": {
+              "lattice_max": 0.0005864301479352463,
+              "low_k_continuum_max": 0.0022669146327256584,
+              "low_k_count": 4,
+              "lattice_over_parabola_rms": 0.03294064362058389
+            }
+          },
+          "modes": [
+            [
+              1,
+              0.1119394477,
+              0.1119332622,
+              -6.1855e-06,
+              39.19074
+            ],
+            [
+              2,
+              0.2238722579,
+              0.2238725319,
+              2.74e-07,
+              -1.45825
+            ],
+            [
+              3,
+              0.3358205852,
+              0.335818284,
+              -2.3012e-06,
+              3.18517
+            ],
+            [
+              4,
+              0.4477605152,
+              0.4477721626,
+              1.16474e-05,
+              48.57251
+            ],
+            [
+              5,
+              0.5597455648,
+              0.5597478552,
+              2.2904e-06,
+              2.33991
+            ],
+            [
+              6,
+              0.6717379967,
+              0.6717411198,
+              3.1231e-06,
+              3.10292
+            ],
+            [
+              7,
+              0.7837405374,
+              0.7837499071,
+              9.3697e-06,
+              13.38311
+            ]
+          ],
+          "largest_pair_q_reductions": [
+            {
+              "pair": [
+                1,
+                4
+              ],
+              "original": 90.81393,
+              "even_fit": 56.46212,
+              "reduction": 34.35181
+            },
+            {
+              "pair": [
+                2,
+                4
+              ],
+              "original": 61.33562,
+              "even_fit": 40.55945,
+              "reduction": 20.77618
+            },
+            {
+              "pair": [
+                1,
+                7
+              ],
+              "original": 93.30511,
+              "even_fit": 78.82707,
+              "reduction": 14.47804
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "seed": 927016,
+          "dimers": 29,
+          "frozen_status": "passed",
+          "hypothetical_all_gates_pass": true,
+          "hypothetical_failed_gates": [],
+          "odd_q": {
+            "original": 702.3919816712554,
+            "even_fit": 637.1575386316485,
+            "launch_labels": 1475400.8527326179,
+            "cutoff": 807.4534268956553
+          },
+          "dispersion": {
+            "original": {
+              "lattice_max": 0.0005669162176946685,
+              "low_k_continuum_max": 0.0016077102818545796,
+              "low_k_count": 4,
+              "lattice_over_parabola_rms": 0.04795198480846885
+            },
+            "even_fit": {
+              "lattice_max": 0.0005731457229440906,
+              "low_k_continuum_max": 0.0016117765887262436,
+              "low_k_count": 4,
+              "lattice_over_parabola_rms": 0.04885571034019409
+            }
+          },
+          "modes": [
+            [
+              1,
+              0.101122641,
+              0.101124037,
+              1.3959e-06,
+              4.82957
+            ],
+            [
+              2,
+              0.2022479489,
+              0.2022515674,
+              3.6185e-06,
+              5.67686
+            ],
+            [
+              3,
+              0.3033862736,
+              0.3033843769,
+              -1.8967e-06,
+              -1.69985
+            ],
+            [
+              4,
+              0.404518356,
+              0.404527834,
+              9.4779e-06,
+              6.05754
+            ],
+            [
+              5,
+              0.5056858424,
+              0.5056788619,
+              -6.9806e-06,
+              23.68397
+            ],
+            [
+              6,
+              0.6068288171,
+              0.6068391867,
+              1.03696e-05,
+              23.82179
+            ],
+            [
+              7,
+              0.7080187025,
+              0.7080156243,
+              -3.0782e-06,
+              2.86398
+            ]
+          ],
+          "largest_pair_q_reductions": [
+            {
+              "pair": [
+                2,
+                6
+              ],
+              "original": 61.56289,
+              "even_fit": 42.9757,
+              "reduction": 18.58719
+            },
+            {
+              "pair": [
+                1,
+                5
+              ],
+              "original": 98.2191,
+              "even_fit": 83.87483,
+              "reduction": 14.34426
+            },
+            {
+              "pair": [
+                2,
+                5
+              ],
+              "original": 60.81639,
+              "even_fit": 48.70427,
+              "reduction": 12.11212
+            }
+          ]
+        }
+      ]
+    },
+    "validation": {
+      "source_commit": "f3c6d30df7ef81816eea64f553c4f57c506c4aa4",
+      "frozen_status": "rejected",
+      "boards": [
+        {
+          "level": 0,
+          "seed": 374621,
+          "dimers": 11,
+          "frozen_status": "passed",
+          "hypothetical_all_gates_pass": true,
+          "hypothetical_failed_gates": [],
+          "odd_q": {
+            "original": 120.58474472425702,
+            "even_fit": 92.43590407069681,
+            "launch_labels": 20289333.65774416,
+            "cutoff": 190.88725517409156
+          },
+          "dispersion": {
+            "original": {
+              "lattice_max": 0.0006144919288608719,
+              "low_k_continuum_max": 0.0028328288529237966,
+              "low_k_count": 2,
+              "lattice_over_parabola_rms": 0.030896066736722273
+            },
+            "even_fit": {
+              "lattice_max": 0.0006139288684021693,
+              "low_k_continuum_max": 0.002830483980728715,
+              "low_k_count": 2,
+              "lattice_over_parabola_rms": 0.031716585184649364
+            }
+          },
+          "modes": [
+            [
+              1,
+              0.240441414,
+              0.2404391928,
+              -2.2211e-06,
+              -5.52462
+            ],
+            [
+              2,
+              0.4809728089,
+              0.4809682011,
+              -4.6077e-06,
+              6.97221
+            ],
+            [
+              3,
+              0.7216580344,
+              0.7216531661,
+              -4.8682e-06,
+              8.4365
+            ],
+            [
+              4,
+              0.9625611968,
+              0.96255463,
+              -6.5667e-06,
+              18.26442
+            ]
+          ],
+          "largest_pair_q_reductions": [
+            {
+              "pair": [
+                2,
+                4
+              ],
+              "original": 29.61823,
+              "even_fit": 14.49274,
+              "reduction": 15.12549
+            },
+            {
+              "pair": [
+                1,
+                3
+              ],
+              "original": 23.54365,
+              "even_fit": 19.13281,
+              "reduction": 4.41085
+            },
+            {
+              "pair": [
+                2,
+                3
+              ],
+              "original": 22.52214,
+              "even_fit": 18.65848,
+              "reduction": 3.86366
+            }
+          ]
+        },
+        {
+          "level": 1,
+          "seed": 614357,
+          "dimers": 21,
+          "frozen_status": "rejected",
+          "hypothetical_all_gates_pass": true,
+          "hypothetical_failed_gates": [],
+          "odd_q": {
+            "original": 551.03050235957,
+            "even_fit": 303.43575940543246,
+            "launch_labels": 2540128.3996756817,
+            "cutoff": 416.57969948104267
+          },
+          "dispersion": {
+            "original": {
+              "lattice_max": 0.0005818676676199175,
+              "low_k_continuum_max": 0.0018070729896155768,
+              "low_k_count": 3,
+              "lattice_over_parabola_rms": 0.06794190577703871
+            },
+            "even_fit": {
+              "lattice_max": 0.0005887102816100054,
+              "low_k_continuum_max": 0.001805302185575286,
+              "low_k_count": 3,
+              "lattice_over_parabola_rms": 0.0689937329627498
+            }
+          },
+          "modes": [
+            [
+              1,
+              0.1361900508,
+              0.1361962168,
+              6.166e-06,
+              39.26186
+            ],
+            [
+              2,
+              0.2724049893,
+              0.2724054529,
+              4.637e-07,
+              -0.59884
+            ],
+            [
+              3,
+              0.4086312588,
+              0.4086271723,
+              -4.0865e-06,
+              3.51622
+            ],
+            [
+              4,
+              0.5448614379,
+              0.54487724,
+              1.58021e-05,
+              113.9685
+            ],
+            [
+              5,
+              0.6811416461,
+              0.6811553053,
+              1.36592e-05,
+              91.44584
+            ]
+          ],
+          "largest_pair_q_reductions": [
+            {
+              "pair": [
+                1,
+                4
+              ],
+              "original": 126.47136,
+              "even_fit": 51.88835,
+              "reduction": 74.58301
+            },
+            {
+              "pair": [
+                1,
+                5
+              ],
+              "original": 87.33126,
+              "even_fit": 37.18539,
+              "reduction": 50.14587
+            },
+            {
+              "pair": [
+                2,
+                4
+              ],
+              "original": 95.60639,
+              "even_fit": 46.25871,
+              "reduction": 49.34768
+            }
+          ]
+        },
+        {
+          "level": 2,
+          "seed": 801173,
+          "dimers": 37,
+          "frozen_status": "rejected",
+          "hypothetical_all_gates_pass": true,
+          "hypothetical_failed_gates": [],
+          "odd_q": {
+            "original": 1252.7891159664089,
+            "even_fit": 954.3365137091047,
+            "launch_labels": 692904.0694642817,
+            "cutoff": 1166.6418256063812
+          },
+          "dispersion": {
+            "original": {
+              "lattice_max": 0.0005963157983348566,
+              "low_k_continuum_max": 0.0028269772708462426,
+              "low_k_count": 6,
+              "lattice_over_parabola_rms": 0.08184441263587038
+            },
+            "even_fit": {
+              "lattice_max": 0.0005987810299554752,
+              "low_k_continuum_max": 0.002829609986296333,
+              "low_k_count": 6,
+              "lattice_over_parabola_rms": 0.0832453394074838
+            }
+          },
+          "modes": [
+            [
+              1,
+              0.0804160013,
+              0.0804165433,
+              5.42e-07,
+              0.35423
+            ],
+            [
+              2,
+              0.1608431356,
+              0.1608329067,
+              -1.02289e-05,
+              52.55587
+            ],
+            [
+              3,
+              0.2412761921,
+              0.2412536465,
+              -2.25456e-05,
+              121.20249
+            ],
+            [
+              4,
+              0.3216844771,
+              0.3216758753,
+              -8.6018e-06,
+              21.97834
+            ],
+            [
+              5,
+              0.402095241,
+              0.4021011796,
+              5.9386e-06,
+              13.70976
+            ],
+            [
+              6,
+              0.4825316463,
+              0.4825368032,
+              5.1569e-06,
+              4.67825
+            ],
+            [
+              7,
+              0.5629876326,
+              0.5629747799,
+              -1.28527e-05,
+              47.54117
+            ],
+            [
+              8,
+              0.6434293154,
+              0.6434191326,
+              -1.01828e-05,
+              36.43537
+            ]
+          ],
+          "largest_pair_q_reductions": [
+            {
+              "pair": [
+                1,
+                3
+              ],
+              "original": 162.37259,
+              "even_fit": 79.79519,
+              "reduction": 82.57739
+            },
+            {
+              "pair": [
+                2,
+                3
+              ],
+              "original": 105.99198,
+              "even_fit": 65.73838,
+              "reduction": 40.2536
+            },
+            {
+              "pair": [
+                1,
+                7
+              ],
+              "original": 100.76947,
+              "even_fit": 71.10224,
+              "reduction": 29.66723
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

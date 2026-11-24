@@ -1,0 +1,1354 @@
+{
+  "board_cells": 320,
+  "cases": {
+    "8": {
+      "memory": {
+        "0": {
+          "memory_dimension": 2,
+          "commutant_dimension": 4,
+          "commuting_algebra_abelian": false,
+          "crossing_matrix_element_magnitudes": []
+        },
+        "1": {
+          "memory_dimension": 4,
+          "commutant_dimension": 2,
+          "commuting_algebra_abelian": true,
+          "crossing_matrix_element_magnitudes": [
+            0.25,
+            4.25
+          ],
+          "right_material_plus_coin_commutes": true
+        },
+        "2": {
+          "memory_dimension": 4,
+          "commutant_dimension": 4,
+          "commuting_algebra_abelian": true,
+          "crossing_matrix_element_magnitudes": []
+        }
+      },
+      "sign_mark_cost": 8.5,
+      "local_phase_reads": [
+        {
+          "t": 0.0,
+          "x": 1.0,
+          "y": 0.5
+        },
+        {
+          "t": 0.0625,
+          "x": 0.93087676528,
+          "y": 0.24681794696
+        },
+        {
+          "t": 0.25,
+          "x": 0.23891988518,
+          "y": 0.07815734407
+        },
+        {
+          "t": 1.0,
+          "x": 0.23584242608,
+          "y": 0.14963081703
+        }
+      ],
+      "distances": {
+        "1": {
+          "10": {
+            "terminal_words": [
+              [
+                37,
+                42,
+                47
+              ],
+              [
+                193,
+                198,
+                203
+              ],
+              [
+                769,
+                774,
+                778,
+                772
+              ]
+            ],
+            "panels": {
+              "geodesic": {
+                "paths": [
+                  [
+                    0,
+                    3
+                  ],
+                  [
+                    0,
+                    16
+                  ],
+                  [
+                    0,
+                    64
+                  ]
+                ],
+                "written_links": 3,
+                "blank_energy": 488.0,
+                "written_energy": 513.5,
+                "written_zero_energy": 488.0
+              }
+            }
+          },
+          "11": {
+            "terminal_words": [
+              [
+                37,
+                42,
+                47
+              ],
+              [
+                193,
+                198,
+                202,
+                196
+              ],
+              [
+                769,
+                774,
+                778,
+                772
+              ]
+            ],
+            "panels": {
+              "geodesic": {
+                "paths": [
+                  [
+                    0,
+                    3
+                  ],
+                  [
+                    0,
+                    16
+                  ],
+                  [
+                    0,
+                    64
+                  ]
+                ],
+                "written_links": 3,
+                "blank_energy": 521.5,
+                "written_energy": 547.0,
+                "written_zero_energy": 521.5
+              }
+            }
+          }
+        },
+        "2": {
+          "10": {
+            "terminal_words": [
+              [
+                20,
+                14,
+                17
+              ],
+              [
+                236,
+                238,
+                232
+              ],
+              [
+                584,
+                583,
+                578,
+                581
+              ]
+            ],
+            "panels": {
+              "geodesic": {
+                "paths": [
+                  [
+                    0,
+                    3,
+                    1
+                  ],
+                  [
+                    0,
+                    16,
+                    19
+                  ],
+                  [
+                    0,
+                    64,
+                    48
+                  ]
+                ],
+                "written_links": 6,
+                "blank_energy": 488.0,
+                "written_energy": 539.0,
+                "written_zero_energy": 488.0
+              },
+              "detour": {
+                "paths": [
+                  [
+                    0,
+                    3,
+                    2,
+                    14,
+                    15,
+                    12,
+                    1
+                  ],
+                  [
+                    0,
+                    16,
+                    19
+                  ],
+                  [
+                    0,
+                    64,
+                    48
+                  ]
+                ],
+                "written_links": 10,
+                "blank_energy": 488.0,
+                "written_energy": 573.0,
+                "written_zero_energy": 488.0
+              }
+            }
+          },
+          "11": {
+            "terminal_words": [
+              [
+                20,
+                14,
+                17
+              ],
+              [
+                236,
+                238,
+                232,
+                233
+              ],
+              [
+                584,
+                583,
+                578,
+                581
+              ]
+            ],
+            "panels": {
+              "geodesic": {
+                "paths": [
+                  [
+                    0,
+                    3,
+                    1
+                  ],
+                  [
+                    0,
+                    16,
+                    19
+                  ],
+                  [
+                    0,
+                    64,
+                    48
+                  ]
+                ],
+                "written_links": 6,
+                "blank_energy": 521.5,
+                "written_energy": 572.5,
+                "written_zero_energy": 521.5
+              },
+              "detour": {
+                "paths": [
+                  [
+                    0,
+                    3,
+                    2,
+                    14,
+                    15,
+                    12,
+                    1
+                  ],
+                  [
+                    0,
+                    16,
+                    19
+                  ],
+                  [
+                    0,
+                    64,
+                    48
+                  ]
+                ],
+                "written_links": 10,
+                "blank_energy": 521.5,
+                "written_energy": 606.5,
+                "written_zero_energy": 521.5
+              }
+            }
+          }
+        },
+        "4": {
+          "10": {
+            "terminal_words": [
+              [
+                80,
+                74,
+                77
+              ],
+              [
+                361,
+                366,
+                371
+              ],
+              [
+                596,
+                595,
+                590,
+                593
+              ]
+            ],
+            "panels": {
+              "geodesic": {
+                "paths": [
+                  [
+                    0,
+                    3,
+                    1,
+                    12,
+                    6
+                  ],
+                  [
+                    0,
+                    16,
+                    19,
+                    18,
+                    30
+                  ],
+                  [
+                    0,
+                    64,
+                    48,
+                    51,
+                    49
+                  ]
+                ],
+                "written_links": 12,
+                "blank_energy": 488.0,
+                "written_energy": 590.0,
+                "written_zero_energy": 488.0
+              },
+              "detour": {
+                "paths": [
+                  [
+                    0,
+                    3,
+                    1,
+                    12,
+                    15,
+                    13,
+                    5,
+                    7,
+                    6
+                  ],
+                  [
+                    0,
+                    16,
+                    19,
+                    18,
+                    30
+                  ],
+                  [
+                    0,
+                    64,
+                    48,
+                    51,
+                    49
+                  ]
+                ],
+                "written_links": 16,
+                "blank_energy": 488.0,
+                "written_energy": 624.0,
+                "written_zero_energy": 488.0
+              }
+            }
+          },
+          "11": {
+            "terminal_words": [
+              [
+                80,
+                74,
+                77
+              ],
+              [
+                361,
+                368,
+                370,
+                364
+              ],
+              [
+                596,
+                595,
+                590,
+                593
+              ]
+            ],
+            "panels": {
+              "geodesic": {
+                "paths": [
+                  [
+                    0,
+                    3,
+                    1,
+                    12,
+                    6
+                  ],
+                  [
+                    0,
+                    16,
+                    19,
+                    18,
+                    30
+                  ],
+                  [
+                    0,
+                    64,
+                    48,
+                    51,
+                    49
+                  ]
+                ],
+                "written_links": 12,
+                "blank_energy": 521.5,
+                "written_energy": 623.5,
+                "written_zero_energy": 521.5
+              },
+              "detour": {
+                "paths": [
+                  [
+                    0,
+                    3,
+                    1,
+                    12,
+                    15,
+                    13,
+                    5,
+                    7,
+                    6
+                  ],
+                  [
+                    0,
+                    16,
+                    19,
+                    18,
+                    30
+                  ],
+                  [
+                    0,
+                    64,
+                    48,
+                    51,
+                    49
+                  ]
+                ],
+                "written_links": 16,
+                "blank_energy": 521.5,
+                "written_energy": 657.5,
+                "written_zero_energy": 521.5
+              }
+            }
+          }
+        },
+        "8": {
+          "10": {
+            "terminal_words": [
+              [
+                973,
+                978,
+                983
+              ],
+              [
+                481,
+                486,
+                491
+              ],
+              [
+                1400,
+                1399,
+                1394,
+                1397
+              ]
+            ],
+            "panels": {
+              "geodesic": {
+                "paths": [
+                  [
+                    0,
+                    3,
+                    2,
+                    17,
+                    28,
+                    31,
+                    29,
+                    26,
+                    81
+                  ],
+                  [
+                    0,
+                    16,
+                    32,
+                    35,
+                    34,
+                    46,
+                    41,
+                    43,
+                    40
+                  ],
+                  [
+                    0,
+                    64,
+                    67,
+                    65,
+                    76,
+                    70,
+                    71,
+                    68,
+                    116
+                  ]
+                ],
+                "written_links": 24,
+                "blank_energy": 488.0,
+                "written_energy": 692.0,
+                "written_zero_energy": 488.0
+              },
+              "detour": {
+                "paths": [
+                  [
+                    0,
+                    3,
+                    2,
+                    17,
+                    28,
+                    31,
+                    29,
+                    26,
+                    27,
+                    24,
+                    80,
+                    83,
+                    81
+                  ],
+                  [
+                    0,
+                    16,
+                    32,
+                    35,
+                    34,
+                    46,
+                    41,
+                    43,
+                    40
+                  ],
+                  [
+                    0,
+                    64,
+                    67,
+                    65,
+                    76,
+                    70,
+                    71,
+                    68,
+                    116
+                  ]
+                ],
+                "written_links": 28,
+                "blank_energy": 488.0,
+                "written_energy": 726.0,
+                "written_zero_energy": 488.0
+              }
+            }
+          },
+          "11": {
+            "terminal_words": [
+              [
+                973,
+                978,
+                983
+              ],
+              [
+                481,
+                488,
+                490,
+                484
+              ],
+              [
+                1400,
+                1399,
+                1394,
+                1397
+              ]
+            ],
+            "panels": {
+              "geodesic": {
+                "paths": [
+                  [
+                    0,
+                    3,
+                    2,
+                    17,
+                    28,
+                    31,
+                    29,
+                    26,
+                    81
+                  ],
+                  [
+                    0,
+                    16,
+                    32,
+                    35,
+                    34,
+                    46,
+                    41,
+                    43,
+                    40
+                  ],
+                  [
+                    0,
+                    64,
+                    67,
+                    65,
+                    76,
+                    70,
+                    71,
+                    68,
+                    116
+                  ]
+                ],
+                "written_links": 24,
+                "blank_energy": 521.5,
+                "written_energy": 725.5,
+                "written_zero_energy": 521.5
+              },
+              "detour": {
+                "paths": [
+                  [
+                    0,
+                    3,
+                    2,
+                    17,
+                    28,
+                    31,
+                    29,
+                    26,
+                    27,
+                    24,
+                    80,
+                    83,
+                    81
+                  ],
+                  [
+                    0,
+                    16,
+                    32,
+                    35,
+                    34,
+                    46,
+                    41,
+                    43,
+                    40
+                  ],
+                  [
+                    0,
+                    64,
+                    67,
+                    65,
+                    76,
+                    70,
+                    71,
+                    68,
+                    116
+                  ]
+                ],
+                "written_links": 28,
+                "blank_energy": 521.5,
+                "written_energy": 759.5,
+                "written_zero_energy": 521.5
+              }
+            }
+          }
+        }
+      }
+    },
+    "0": {
+      "memory": {
+        "0": {
+          "memory_dimension": 2,
+          "commutant_dimension": 4,
+          "commuting_algebra_abelian": false,
+          "crossing_matrix_element_magnitudes": []
+        },
+        "1": {
+          "memory_dimension": 4,
+          "commutant_dimension": 5,
+          "commuting_algebra_abelian": false,
+          "crossing_matrix_element_magnitudes": [
+            0.25
+          ],
+          "right_material_plus_coin_commutes": true
+        },
+        "2": {
+          "memory_dimension": 4,
+          "commutant_dimension": 6,
+          "commuting_algebra_abelian": false,
+          "crossing_matrix_element_magnitudes": []
+        }
+      },
+      "sign_mark_cost": 0.5,
+      "local_phase_reads": [
+        {
+          "t": 0.0,
+          "x": 1.0,
+          "y": 0.5
+        },
+        {
+          "t": 0.0625,
+          "x": 0.99951187768,
+          "y": 0.48438517054
+        },
+        {
+          "t": 0.25,
+          "x": 0.99222810543,
+          "y": 0.43814901019
+        },
+        {
+          "t": 1.0,
+          "x": 0.88507557647,
+          "y": 0.2896322538
+        }
+      ],
+      "distances": {
+        "1": {
+          "10": {
+            "terminal_words": [
+              [
+                37,
+                42,
+                47
+              ],
+              [
+                193,
+                198,
+                203
+              ],
+              [
+                769,
+                774,
+                778,
+                772
+              ]
+            ],
+            "panels": {
+              "geodesic": {
+                "paths": [
+                  [
+                    0,
+                    3
+                  ],
+                  [
+                    0,
+                    16
+                  ],
+                  [
+                    0,
+                    64
+                  ]
+                ],
+                "written_links": 3,
+                "blank_energy": 24.0,
+                "written_energy": 25.5,
+                "written_zero_energy": 24.0
+              }
+            }
+          },
+          "11": {
+            "terminal_words": [
+              [
+                37,
+                42,
+                47
+              ],
+              [
+                193,
+                198,
+                202,
+                196
+              ],
+              [
+                769,
+                774,
+                778,
+                772
+              ]
+            ],
+            "panels": {
+              "geodesic": {
+                "paths": [
+                  [
+                    0,
+                    3
+                  ],
+                  [
+                    0,
+                    16
+                  ],
+                  [
+                    0,
+                    64
+                  ]
+                ],
+                "written_links": 3,
+                "blank_energy": 25.5,
+                "written_energy": 27.0,
+                "written_zero_energy": 25.5
+              }
+            }
+          }
+        },
+        "2": {
+          "10": {
+            "terminal_words": [
+              [
+                20,
+                14,
+                17
+              ],
+              [
+                236,
+                238,
+                232
+              ],
+              [
+                584,
+                583,
+                578,
+                581
+              ]
+            ],
+            "panels": {
+              "geodesic": {
+                "paths": [
+                  [
+                    0,
+                    3,
+                    1
+                  ],
+                  [
+                    0,
+                    16,
+                    19
+                  ],
+                  [
+                    0,
+                    64,
+                    48
+                  ]
+                ],
+                "written_links": 6,
+                "blank_energy": 24.0,
+                "written_energy": 27.0,
+                "written_zero_energy": 24.0
+              },
+              "detour": {
+                "paths": [
+                  [
+                    0,
+                    3,
+                    2,
+                    14,
+                    15,
+                    12,
+                    1
+                  ],
+                  [
+                    0,
+                    16,
+                    19
+                  ],
+                  [
+                    0,
+                    64,
+                    48
+                  ]
+                ],
+                "written_links": 10,
+                "blank_energy": 24.0,
+                "written_energy": 29.0,
+                "written_zero_energy": 24.0
+              }
+            }
+          },
+          "11": {
+            "terminal_words": [
+              [
+                20,
+                14,
+                17
+              ],
+              [
+                236,
+                238,
+                232,
+                233
+              ],
+              [
+                584,
+                583,
+                578,
+                581
+              ]
+            ],
+            "panels": {
+              "geodesic": {
+                "paths": [
+                  [
+                    0,
+                    3,
+                    1
+                  ],
+                  [
+                    0,
+                    16,
+                    19
+                  ],
+                  [
+                    0,
+                    64,
+                    48
+                  ]
+                ],
+                "written_links": 6,
+                "blank_energy": 25.5,
+                "written_energy": 28.5,
+                "written_zero_energy": 25.5
+              },
+              "detour": {
+                "paths": [
+                  [
+                    0,
+                    3,
+                    2,
+                    14,
+                    15,
+                    12,
+                    1
+                  ],
+                  [
+                    0,
+                    16,
+                    19
+                  ],
+                  [
+                    0,
+                    64,
+                    48
+                  ]
+                ],
+                "written_links": 10,
+                "blank_energy": 25.5,
+                "written_energy": 30.5,
+                "written_zero_energy": 25.5
+              }
+            }
+          }
+        },
+        "4": {
+          "10": {
+            "terminal_words": [
+              [
+                80,
+                74,
+                77
+              ],
+              [
+                361,
+                366,
+                371
+              ],
+              [
+                596,
+                595,
+                590,
+                593
+              ]
+            ],
+            "panels": {
+              "geodesic": {
+                "paths": [
+                  [
+                    0,
+                    3,
+                    1,
+                    12,
+                    6
+                  ],
+                  [
+                    0,
+                    16,
+                    19,
+                    18,
+                    30
+                  ],
+                  [
+                    0,
+                    64,
+                    48,
+                    51,
+                    49
+                  ]
+                ],
+                "written_links": 12,
+                "blank_energy": 24.0,
+                "written_energy": 30.0,
+                "written_zero_energy": 24.0
+              },
+              "detour": {
+                "paths": [
+                  [
+                    0,
+                    3,
+                    1,
+                    12,
+                    15,
+                    13,
+                    5,
+                    7,
+                    6
+                  ],
+                  [
+                    0,
+                    16,
+                    19,
+                    18,
+                    30
+                  ],
+                  [
+                    0,
+                    64,
+                    48,
+                    51,
+                    49
+                  ]
+                ],
+                "written_links": 16,
+                "blank_energy": 24.0,
+                "written_energy": 32.0,
+                "written_zero_energy": 24.0
+              }
+            }
+          },
+          "11": {
+            "terminal_words": [
+              [
+                80,
+                74,
+                77
+              ],
+              [
+                361,
+                368,
+                370,
+                364
+              ],
+              [
+                596,
+                595,
+                590,
+                593
+              ]
+            ],
+            "panels": {
+              "geodesic": {
+                "paths": [
+                  [
+                    0,
+                    3,
+                    1,
+                    12,
+                    6
+                  ],
+                  [
+                    0,
+                    16,
+                    19,
+                    18,
+                    30
+                  ],
+                  [
+                    0,
+                    64,
+                    48,
+                    51,
+                    49
+                  ]
+                ],
+                "written_links": 12,
+                "blank_energy": 25.5,
+                "written_energy": 31.5,
+                "written_zero_energy": 25.5
+              },
+              "detour": {
+                "paths": [
+                  [
+                    0,
+                    3,
+                    1,
+                    12,
+                    15,
+                    13,
+                    5,
+                    7,
+                    6
+                  ],
+                  [
+                    0,
+                    16,
+                    19,
+                    18,
+                    30
+                  ],
+                  [
+                    0,
+                    64,
+                    48,
+                    51,
+                    49
+                  ]
+                ],
+                "written_links": 16,
+                "blank_energy": 25.5,
+                "written_energy": 33.5,
+                "written_zero_energy": 25.5
+              }
+            }
+          }
+        },
+        "8": {
+          "10": {
+            "terminal_words": [
+              [
+                973,
+                978,
+                983
+              ],
+              [
+                481,
+                486,
+                491
+              ],
+              [
+                1400,
+                1399,
+                1394,
+                1397
+              ]
+            ],
+            "panels": {
+              "geodesic": {
+                "paths": [
+                  [
+                    0,
+                    3,
+                    2,
+                    17,
+                    28,
+                    31,
+                    29,
+                    26,
+                    81
+                  ],
+                  [
+                    0,
+                    16,
+                    32,
+                    35,
+                    34,
+                    46,
+                    41,
+                    43,
+                    40
+                  ],
+                  [
+                    0,
+                    64,
+                    67,
+                    65,
+                    76,
+                    70,
+                    71,
+                    68,
+                    116
+                  ]
+                ],
+                "written_links": 24,
+                "blank_energy": 24.0,
+                "written_energy": 36.0,
+                "written_zero_energy": 24.0
+              },
+              "detour": {
+                "paths": [
+                  [
+                    0,
+                    3,
+                    2,
+                    17,
+                    28,
+                    31,
+                    29,
+                    26,
+                    27,
+                    24,
+                    80,
+                    83,
+                    81
+                  ],
+                  [
+                    0,
+                    16,
+                    32,
+                    35,
+                    34,
+                    46,
+                    41,
+                    43,
+                    40
+                  ],
+                  [
+                    0,
+                    64,
+                    67,
+                    65,
+                    76,
+                    70,
+                    71,
+                    68,
+                    116
+                  ]
+                ],
+                "written_links": 28,
+                "blank_energy": 24.0,
+                "written_energy": 38.0,
+                "written_zero_energy": 24.0
+              }
+            }
+          },
+          "11": {
+            "terminal_words": [
+              [
+                973,
+                978,
+                983
+              ],
+              [
+                481,
+                488,
+                490,
+                484
+              ],
+              [
+                1400,
+                1399,
+                1394,
+                1397
+              ]
+            ],
+            "panels": {
+              "geodesic": {
+                "paths": [
+                  [
+                    0,
+                    3,
+                    2,
+                    17,
+                    28,
+                    31,
+                    29,
+                    26,
+                    81
+                  ],
+                  [
+                    0,
+                    16,
+                    32,
+                    35,
+                    34,
+                    46,
+                    41,
+                    43,
+                    40
+                  ],
+                  [
+                    0,
+                    64,
+                    67,
+                    65,
+                    76,
+                    70,
+                    71,
+                    68,
+                    116
+                  ]
+                ],
+                "written_links": 24,
+                "blank_energy": 25.5,
+                "written_energy": 37.5,
+                "written_zero_energy": 25.5
+              },
+              "detour": {
+                "paths": [
+                  [
+                    0,
+                    3,
+                    2,
+                    17,
+                    28,
+                    31,
+                    29,
+                    26,
+                    27,
+                    24,
+                    80,
+                    83,
+                    81
+                  ],
+                  [
+                    0,
+                    16,
+                    32,
+                    35,
+                    34,
+                    46,
+                    41,
+                    43,
+                    40
+                  ],
+                  [
+                    0,
+                    64,
+                    67,
+                    65,
+                    76,
+                    70,
+                    71,
+                    68,
+                    116
+                  ]
+                ],
+                "written_links": 28,
+                "blank_energy": 25.5,
+                "written_energy": 39.5,
+                "written_zero_energy": 25.5
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

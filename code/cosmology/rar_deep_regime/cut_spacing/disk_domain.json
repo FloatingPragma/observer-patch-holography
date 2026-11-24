@@ -1,0 +1,71 @@
+{
+  "a0_m_s2": 8.374731945176364e-11,
+  "spacing_kpc": 0.5,
+  "outer": {
+    "figure8": {
+      "radius_kpc": 9.94806185933532,
+      "baryonic_kms": 22.569168717270777,
+      "circular_kms": 26.93701704763301,
+      "min_phase_model_kms": 62.968441495267314,
+      "central_excess_fraction_of_min": 0.06257435137016633,
+      "implied_to_fitted_smooth_a0": 0.003570778977970137,
+      "projected_inclination_deg": 12.72818551436411,
+      "spherical_equivalent_required_excess_msun": 500154758.3736108,
+      "spherical_equivalent_min_excess_msun": 7992967524.583407
+    },
+    "figure7": {
+      "radius_kpc": 10.129479193770797,
+      "baryonic_kms": 20.753339861983896,
+      "circular_kms": 24.251202098536766,
+      "min_phase_model_kms": 61.20036461120323,
+      "central_excess_fraction_of_min": 0.0474901866665276,
+      "implied_to_fitted_smooth_a0": 0.0021980295151147753,
+      "projected_inclination_deg": 13.422579394845357,
+      "spherical_equivalent_required_excess_msun": 370753342.1624747,
+      "spherical_equivalent_min_excess_msun": 7806946406.967735
+    }
+  },
+  "exterior_orbits": {
+    "NGC2685": {
+      "mass90_pass": false,
+      "radius_kpc": 24.98,
+      "enclosure_lower_bound": 0.8289150865663855,
+      "observed_kms": 144.0,
+      "observed_error_kms": 10.0,
+      "smooth_point_mass_kms": 147.91395987357097,
+      "phase_conditioned_speed_range_kms": [
+        146.78841013816137,
+        147.9606719686744
+      ]
+    },
+    "NGC3838": {
+      "mass90_pass": true,
+      "radius_kpc": 16.8,
+      "enclosure_lower_bound": 0.9555140754580626,
+      "observed_kms": 159.0,
+      "observed_error_kms": 14.0,
+      "smooth_point_mass_kms": 137.68828209026157,
+      "phase_conditioned_speed_range_kms": [
+        136.75989042186893,
+        138.3037476817289
+      ]
+    },
+    "NGC6798": {
+      "mass90_pass": false,
+      "radius_kpc": 27.13,
+      "enclosure_lower_bound": 0.89893657798775,
+      "observed_kms": 190.0,
+      "observed_error_kms": 8.0,
+      "smooth_point_mass_kms": 186.5703908478586,
+      "phase_conditioned_speed_range_kms": [
+        186.24239060334978,
+        187.50078952101666
+      ]
+    }
+  },
+  "outer_radius_stellar_half_mass_units": 3.5528792354769005,
+  "gas_mass_fraction_in_outer_cylinder": 0.6692432174527567,
+  "baryonic_mass_fraction_upper_in_outer_cylinder": 0.6890886244055914,
+  "gas_90pct_radius_kpc": 14.296085583169774,
+  "compact_asymptotic_anomalous_speed_kms": 63.576991206879434
+}

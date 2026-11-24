@@ -103,6 +103,47 @@ REPLAY_EVALUATIONS = (
         "model/candidate_laws/interval_echo/candidate.py": "babb7b616a19021a67f7f0d7ab146d7e41c0f2a6923f5b7e9a8578e28916ddef",
         "model/candidate_laws/interval_echo/EVALUATION.json": "ede7beb306d9f46eba035cf94f0b8fc09fe604a92b8d1bf55076b40242a23940",
     },
+    # Particle identifications and finite measurement reports extend the evaluation metadata.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "79fd7900f8b7dd8a8ba6aac02dc57abfbaced59cef208e6f5130793f7d176b91",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "f9569fafbbbb9e8a7ccf07b7974fa5457b147e3acef989b22f728c4ad63c33fa",
+    },
+    # Open-board binding and polarization results extend the evaluation.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "79fd7900f8b7dd8a8ba6aac02dc57abfbaced59cef208e6f5130793f7d176b91",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "d66e869b9473071496bc7ec07f5a7ef6392941862d66935fced07a5a222b203a",
+    },
+    # Common-reference constituent measurements extend the evaluation.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "79fd7900f8b7dd8a8ba6aac02dc57abfbaced59cef208e6f5130793f7d176b91",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "4654816e559c321f11c85942662ede04272bd971ebf07ee4f60a6d0497b5b0a6",
+    },
+    # Fixed-volume and collar measurements extend the evaluation.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "79fd7900f8b7dd8a8ba6aac02dc57abfbaced59cef208e6f5130793f7d176b91",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "019f7debc2dd8743744d492e312fae9cb36c2b46cad10319b44c8c23b11b081f",
+    },
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "79fd7900f8b7dd8a8ba6aac02dc57abfbaced59cef208e6f5130793f7d176b91",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "207c1d9e1916b53efbe40549e8590f0ce4c6d13625365783a190bf6f4c756c69",
+    },
+    # Correlation-energy and concurrent evidence updates replay the complete native message bank.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "79fd7900f8b7dd8a8ba6aac02dc57abfbaced59cef208e6f5130793f7d176b91",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "93a7bbe5c5f3d87a31d2d88fbe2ae8f5dee0d7f87feba76124bd340f9d1d3ba0",
+    },
+    # The signed area and independent clock observations extend the reviewed evaluation.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "79fd7900f8b7dd8a8ba6aac02dc57abfbaced59cef208e6f5130793f7d176b91",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "acddc0f6282bca3ff37745d040669dc61e277d2a0f16616105fc82d955ba526b",
+    },
 )
 
 

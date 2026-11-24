@@ -1,0 +1,145 @@
+{
+  "source": "https://github.com/FloatingPragma/observer-patch-holography/blob/3bcacf1276ddb3ead35be2b9adcd63b6643e2d35/model/lepton_register_round/PROOF.md",
+  "separate_clock_shots": 68719476736,
+  "seed": 178013,
+  "explicit_binomial_history_checks": [
+    1,
+    10,
+    100,
+    302
+  ],
+  "cadence_is_an_input": true,
+  "finite_register_comparisons": {
+    "phase_only": {
+      "N_fitted_from_muon": 302,
+      "real_root_using_muon": 302.2774574994622,
+      "integer_window_near_fit_within_one_ratio_uncertainty": [
+        302,
+        302
+      ],
+      "at_N": {
+        "1": {
+          "middle_ratio": 92.28790664420465,
+          "tau_MeV_electron_anchor": 862.8291805082989
+        },
+        "10": {
+          "middle_ratio": 204.92312516426895,
+          "tau_MeV_electron_anchor": 1762.4975233586836
+        },
+        "100": {
+          "middle_ratio": 206.75173857554844,
+          "tau_MeV_electron_anchor": 1776.839298821689
+        },
+        "301": {
+          "middle_ratio": 206.76826540488557,
+          "tau_MeV_electron_anchor": 1776.9688916098266
+        },
+        "302": {
+          "middle_ratio": 206.76827896223608,
+          "tau_MeV_electron_anchor": 1776.968997917672
+        },
+        "303": {
+          "middle_ratio": 206.76829238557815,
+          "tau_MeV_electron_anchor": 1776.9691031747102
+        },
+        "1000": {
+          "middle_ratio": 206.7701301881574,
+          "tau_MeV_electron_anchor": 1776.9835140133769
+        }
+      },
+      "clock_visibility_at_fit": 0.9997138828068468,
+      "clock_dark_probability_at_fit": 0.0001430585965843092,
+      "clock_dark_counts_given_fitted_N": 9838448
+    },
+    "all_returns_joint": {
+      "N_fitted_from_muon": 405309,
+      "real_root_using_muon": 405308.8328596438,
+      "integer_window_near_fit_within_one_ratio_uncertainty": [
+        404394,
+        406227
+      ],
+      "at_N": {
+        "1": {
+          "middle_ratio": 19.055418346480746,
+          "tau_MeV_electron_anchor": 142.10338713990615
+        },
+        "10": {
+          "middle_ratio": 143.18354557133634,
+          "tau_MeV_electron_anchor": 1204.1789749718948
+        },
+        "100": {
+          "middle_ratio": 198.7598707353873,
+          "tau_MeV_electron_anchor": 1704.315169688818
+        },
+        "301": {
+          "middle_ratio": 204.05829554930276,
+          "tau_MeV_electron_anchor": 1752.3677291214228
+        },
+        "302": {
+          "middle_ratio": 204.06719103354945,
+          "tau_MeV_electron_anchor": 1752.4484508512553
+        },
+        "303": {
+          "middle_ratio": 204.07602835445044,
+          "tau_MeV_electron_anchor": 1752.5286449330854
+        },
+        "1000": {
+          "middle_ratio": 205.94856558169246,
+          "tau_MeV_electron_anchor": 1769.5243704896282
+        },
+        "405309": {
+          "middle_ratio": 206.76828270083848,
+          "tau_MeV_electron_anchor": 1776.9665093131878
+        }
+      },
+      "clock_visibility_at_fit": 0.9999997867805949,
+      "clock_dark_probability_at_fit": 1.0660970256426193e-07,
+      "clock_dark_counts_given_fitted_N": 7408
+    },
+    "all_records": {
+      "N_fitted_from_muon": 11959296,
+      "real_root_using_muon": 11959296.46528315,
+      "integer_window_near_fit_within_one_ratio_uncertainty": [
+        11932302,
+        11986414
+      ],
+      "at_N": {
+        "1": {
+          "middle_ratio": 6.413972376570452,
+          "tau_MeV_electron_anchor": 25.534083436556436
+        },
+        "10": {
+          "middle_ratio": 18.676955565232088,
+          "tau_MeV_electron_anchor": 143.8219478489963
+        },
+        "100": {
+          "middle_ratio": 95.84868330764506,
+          "tau_MeV_electron_anchor": 814.2875935057974
+        },
+        "301": {
+          "middle_ratio": 148.9036754506352,
+          "tau_MeV_electron_anchor": 1274.7715223126247
+        },
+        "302": {
+          "middle_ratio": 149.04105301071945,
+          "tau_MeV_electron_anchor": 1275.9638213349208
+        },
+        "303": {
+          "middle_ratio": 149.17777984276918,
+          "tau_MeV_electron_anchor": 1277.1504725239772
+        },
+        "1000": {
+          "middle_ratio": 185.04378191845555,
+          "tau_MeV_electron_anchor": 1588.4265913681186
+        },
+        "11959296": {
+          "middle_ratio": 206.7682826999209,
+          "tau_MeV_electron_anchor": 1776.9673247017515
+        }
+      },
+      "clock_visibility_at_fit": 0.9999999927738428,
+      "clock_dark_probability_at_fit": 3.6130785948511684e-09,
+      "clock_dark_counts_given_fitted_N": 257
+    }
+  }
+}

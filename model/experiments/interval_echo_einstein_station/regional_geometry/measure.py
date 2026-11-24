@@ -42,7 +42,7 @@ def hand_times():
     return angles-angles[0]
 
 
-def read_word_laws(level, max_error_check):
+def read_word_laws(level, max_error_check, *, record_independent=None):
     config = json.loads((HERE.parent/"refinement.json").read_text())
     source = dict(source_ports=config["source_ports"], hand_seam=config["hand_seam"],
                   source_word_energies=config["energies"])
@@ -83,7 +83,10 @@ def read_word_laws(level, max_error_check):
             for _ in range(radar.TICKS):
                 releases = unitary @ releases
                 free.append(abs(releases[sites])**2)
-            alternate_laws.append(moments(independent,np.stack(free,axis=-1)))
+            free = np.stack(free, axis=-1)
+            alternate_laws.append(moments(independent, free))
+            if record_independent is not None:
+                record_independent(first, second, independent, free, hand)
         laws.append(moments(legs,intensity))
     layout = (3,3,len(PAIRS),2,2)
     alternate = np.array(alternate_laws).reshape(layout) if alternate_laws else None

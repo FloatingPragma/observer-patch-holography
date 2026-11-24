@@ -1,0 +1,907 @@
+{
+  "rest_energy_multiplicities_on_one_undressed_guide": [
+    1,
+    1,
+    1
+  ],
+  "family_rest_energies": [
+    6.0300559011033374e-05,
+    0.012468365640047833,
+    0.2096935560231633
+  ],
+  "single_contact": {
+    "light_character": {
+      "first_auxiliary_return_wait": 1.1107207342871694,
+      "balanced_contact_operator_distance_from_ideal_swap": 6.697708117014284e-05,
+      "incidence_return_probabilities_from_sharp_endpoint": [
+        1.1214823505179756e-09,
+        0.9999999988785175,
+        1.2325951622204462e-32
+      ],
+      "incidence_probabilities_at_laplacian_swap_wait": [
+        0.5212954368701129,
+        0.07727959644221377,
+        0.40142496668767313
+      ],
+      "contact_outcomes": [
+        "initial site",
+        "opposite site",
+        "auxiliary grade"
+      ]
+    },
+    "zero_mass_control": {
+      "first_auxiliary_return_wait": 1.1107207345395915,
+      "balanced_contact_operator_distance_from_ideal_swap": 0.0,
+      "incidence_return_probabilities_from_sharp_endpoint": [
+        4.930380657631324e-32,
+        1.0,
+        1.1093356479670479e-31
+      ],
+      "incidence_probabilities_at_laplacian_swap_wait": [
+        0.521295436778255,
+        0.07727959645204174,
+        0.4014249667697036
+      ],
+      "contact_outcomes": [
+        "initial site",
+        "opposite site",
+        "auxiliary grade"
+      ]
+    }
+  },
+  "flight_exposure": 8,
+  "sectors": [
+    {
+      "sign": -1,
+      "axes": [
+        {
+          "axes_as_port_permutations": [
+            [
+              1,
+              0,
+              3,
+              2,
+              6,
+              7,
+              4,
+              5,
+              11,
+              10,
+              9,
+              8
+            ],
+            [
+              2,
+              3,
+              0,
+              1,
+              7,
+              6,
+              5,
+              4,
+              9,
+              8,
+              11,
+              10
+            ]
+          ],
+          "reachable_sharp_words": 2496,
+          "pulse_counts_by_order": [
+            246,
+            258
+          ],
+          "variants": {
+            "light_character": {
+              "capture_probability": 0.03648118437568053,
+              "constructive_per_enrollment": 0.03648117500520152,
+              "destructive_per_enrollment": 9.370478861257435e-09,
+              "destructive_given_capture": 2.568578575947793e-07,
+              "operator_error_on_two_prepared_words_by_order": [
+                0.004354785348458429,
+                0.004767106668907193
+              ],
+              "destructive_bound_for_every_state_with_commuting_ideal_orders": 0.00028487446074917407,
+              "supplied_anticommuting_spin_destructive_given_capture": 0.9999997431421384
+            },
+            "zero_mass_control": {
+              "capture_probability": 0.03648118437568053,
+              "constructive_per_enrollment": 0.03648118437568053,
+              "destructive_per_enrollment": 0.0,
+              "destructive_given_capture": 0.0,
+              "operator_error_on_two_prepared_words_by_order": [
+                0.0,
+                0.0
+              ],
+              "destructive_bound_for_every_state_with_commuting_ideal_orders": 0.0,
+              "supplied_anticommuting_spin_destructive_given_capture": 1.0
+            }
+          }
+        },
+        {
+          "axes_as_port_permutations": [
+            [
+              1,
+              0,
+              3,
+              2,
+              6,
+              7,
+              4,
+              5,
+              11,
+              10,
+              9,
+              8
+            ],
+            [
+              3,
+              2,
+              1,
+              0,
+              5,
+              4,
+              7,
+              6,
+              10,
+              11,
+              8,
+              9
+            ]
+          ],
+          "reachable_sharp_words": 2496,
+          "pulse_counts_by_order": [
+            251,
+            273
+          ],
+          "variants": {
+            "light_character": {
+              "capture_probability": 0.03648118437568053,
+              "constructive_per_enrollment": 0.03648116695273449,
+              "destructive_per_enrollment": 1.742294592161064e-08,
+              "destructive_given_capture": 4.77587178699859e-07,
+              "operator_error_on_two_prepared_words_by_order": [
+                0.004524489584649382,
+                0.005613436009363976
+              ],
+              "destructive_bound_for_every_state_with_commuting_ideal_orders": 0.0003079321378758237,
+              "supplied_anticommuting_spin_destructive_given_capture": 0.9999995224128181
+            },
+            "zero_mass_control": {
+              "capture_probability": 0.03648118437568053,
+              "constructive_per_enrollment": 0.03648118437568053,
+              "destructive_per_enrollment": 0.0,
+              "destructive_given_capture": 0.0,
+              "operator_error_on_two_prepared_words_by_order": [
+                0.0,
+                0.0
+              ],
+              "destructive_bound_for_every_state_with_commuting_ideal_orders": 0.0,
+              "supplied_anticommuting_spin_destructive_given_capture": 1.0
+            }
+          }
+        },
+        {
+          "axes_as_port_permutations": [
+            [
+              2,
+              3,
+              0,
+              1,
+              7,
+              6,
+              5,
+              4,
+              9,
+              8,
+              11,
+              10
+            ],
+            [
+              3,
+              2,
+              1,
+              0,
+              5,
+              4,
+              7,
+              6,
+              10,
+              11,
+              8,
+              9
+            ]
+          ],
+          "reachable_sharp_words": 2496,
+          "pulse_counts_by_order": [
+            251,
+            253
+          ],
+          "variants": {
+            "light_character": {
+              "capture_probability": 0.03648118437568053,
+              "constructive_per_enrollment": 0.03648117393035812,
+              "destructive_per_enrollment": 1.0445322328106804e-08,
+              "destructive_given_capture": 2.86320811861305e-07,
+              "operator_error_on_two_prepared_words_by_order": [
+                0.004537941204473702,
+                0.0049403618047241535
+              ],
+              "destructive_bound_for_every_state_with_commuting_ideal_orders": 0.00028487446074917407,
+              "supplied_anticommuting_spin_destructive_given_capture": 0.999999713679186
+            },
+            "zero_mass_control": {
+              "capture_probability": 0.03648118437568053,
+              "constructive_per_enrollment": 0.03648118437568053,
+              "destructive_per_enrollment": 0.0,
+              "destructive_given_capture": 0.0,
+              "operator_error_on_two_prepared_words_by_order": [
+                0.0,
+                0.0
+              ],
+              "destructive_bound_for_every_state_with_commuting_ideal_orders": 0.0,
+              "supplied_anticommuting_spin_destructive_given_capture": 1.0
+            }
+          }
+        },
+        {
+          "axes_as_port_permutations": [
+            [
+              3,
+              9,
+              10,
+              0,
+              7,
+              8,
+              11,
+              4,
+              5,
+              1,
+              2,
+              6
+            ],
+            [
+              4,
+              2,
+              1,
+              7,
+              0,
+              11,
+              8,
+              3,
+              6,
+              10,
+              9,
+              5
+            ]
+          ],
+          "reachable_sharp_words": 2500,
+          "pulse_counts_by_order": [
+            292,
+            236
+          ],
+          "variants": {
+            "light_character": {
+              "capture_probability": 0.03648118437568053,
+              "constructive_per_enrollment": 0.03648113789959614,
+              "destructive_per_enrollment": 4.647608418796861e-08,
+              "destructive_given_capture": 1.2739741042769155e-06,
+              "operator_error_on_two_prepared_words_by_order": [
+                0.006391660096018469,
+                0.004557581703798005
+              ],
+              "destructive_bound_for_every_state_with_commuting_ideal_orders": 0.0003126513356068033,
+              "supplied_anticommuting_spin_destructive_given_capture": 0.9999987260258901
+            },
+            "zero_mass_control": {
+              "capture_probability": 0.03648118437568053,
+              "constructive_per_enrollment": 0.03648118437568053,
+              "destructive_per_enrollment": 0.0,
+              "destructive_given_capture": 0.0,
+              "operator_error_on_two_prepared_words_by_order": [
+                0.0,
+                0.0
+              ],
+              "destructive_bound_for_every_state_with_commuting_ideal_orders": 0.0,
+              "supplied_anticommuting_spin_destructive_given_capture": 1.0
+            }
+          }
+        },
+        {
+          "axes_as_port_permutations": [
+            [
+              3,
+              9,
+              10,
+              0,
+              7,
+              8,
+              11,
+              4,
+              5,
+              1,
+              2,
+              6
+            ],
+            [
+              7,
+              10,
+              9,
+              4,
+              3,
+              6,
+              5,
+              0,
+              11,
+              2,
+              1,
+              8
+            ]
+          ],
+          "reachable_sharp_words": 2500,
+          "pulse_counts_by_order": [
+            290,
+            252
+          ],
+          "variants": {
+            "light_character": {
+              "capture_probability": 0.03648118437568053,
+              "constructive_per_enrollment": 0.03648115617813932,
+              "destructive_per_enrollment": 2.8197541043856297e-08,
+              "destructive_given_capture": 7.729338157851486e-07,
+              "operator_error_on_two_prepared_words_by_order": [
+                0.00604500812249529,
+                0.004698722707671682
+              ],
+              "destructive_bound_for_every_state_with_commuting_ideal_orders": 0.0003294511412175626,
+              "supplied_anticommuting_spin_destructive_given_capture": 0.9999992270661798
+            },
+            "zero_mass_control": {
+              "capture_probability": 0.03648118437568053,
+              "constructive_per_enrollment": 0.03648118437568053,
+              "destructive_per_enrollment": 0.0,
+              "destructive_given_capture": 0.0,
+              "operator_error_on_two_prepared_words_by_order": [
+                0.0,
+                0.0
+              ],
+              "destructive_bound_for_every_state_with_commuting_ideal_orders": 0.0,
+              "supplied_anticommuting_spin_destructive_given_capture": 1.0
+            }
+          }
+        },
+        {
+          "axes_as_port_permutations": [
+            [
+              4,
+              2,
+              1,
+              7,
+              0,
+              11,
+              8,
+              3,
+              6,
+              10,
+              9,
+              5
+            ],
+            [
+              7,
+              10,
+              9,
+              4,
+              3,
+              6,
+              5,
+              0,
+              11,
+              2,
+              1,
+              8
+            ]
+          ],
+          "reachable_sharp_words": 2500,
+          "pulse_counts_by_order": [
+            261,
+            267
+          ],
+          "variants": {
+            "light_character": {
+              "capture_probability": 0.03648118437568053,
+              "constructive_per_enrollment": 0.03648117422001191,
+              "destructive_per_enrollment": 1.0155668468875988e-08,
+              "destructive_given_capture": 2.7838099674324356e-07,
+              "operator_error_on_two_prepared_words_by_order": [
+                0.005195713813757051,
+                0.005281223475134125
+              ],
+              "destructive_bound_for_every_state_with_commuting_ideal_orders": 0.0003126513356068033,
+              "supplied_anticommuting_spin_destructive_given_capture": 0.9999997216189992
+            },
+            "zero_mass_control": {
+              "capture_probability": 0.03648118437568053,
+              "constructive_per_enrollment": 0.03648118437568053,
+              "destructive_per_enrollment": 0.0,
+              "destructive_given_capture": 0.0,
+              "operator_error_on_two_prepared_words_by_order": [
+                0.0,
+                0.0
+              ],
+              "destructive_bound_for_every_state_with_commuting_ideal_orders": 0.0,
+              "supplied_anticommuting_spin_destructive_given_capture": 1.0
+            }
+          }
+        }
+      ],
+      "interior_rest_measurements": [
+        {
+          "region": [
+            241
+          ],
+          "rest_copies": 4,
+          "local_port_and_incident_head_records": 1,
+          "exterior_words_at_capture": 4,
+          "scalar_matrix_units_checked": 1,
+          "capture_probability_per_copy": 0.08333333333333333
+        },
+        {
+          "region": [
+            241,
+            240,
+            1011
+          ],
+          "rest_copies": 4,
+          "local_port_and_incident_head_records": 3,
+          "exterior_words_at_capture": 4,
+          "scalar_matrix_units_checked": 9,
+          "capture_probability_per_copy": 0.25
+        },
+        {
+          "region": [
+            133,
+            132,
+            99,
+            98,
+            241,
+            240,
+            1011,
+            1010,
+            1045,
+            1044
+          ],
+          "rest_copies": 4,
+          "local_port_and_incident_head_records": 10,
+          "exterior_words_at_capture": 4,
+          "scalar_matrix_units_checked": 100,
+          "capture_probability_per_copy": 0.8333333333333334
+        }
+      ]
+    },
+    {
+      "sign": 1,
+      "axes": [
+        {
+          "axes_as_port_permutations": [
+            [
+              1,
+              0,
+              3,
+              2,
+              6,
+              7,
+              4,
+              5,
+              11,
+              10,
+              9,
+              8
+            ],
+            [
+              2,
+              3,
+              0,
+              1,
+              7,
+              6,
+              5,
+              4,
+              9,
+              8,
+              11,
+              10
+            ]
+          ],
+          "reachable_sharp_words": 2496,
+          "pulse_counts_by_order": [
+            286,
+            298
+          ],
+          "variants": {
+            "light_character": {
+              "capture_probability": 0.03648118437568053,
+              "constructive_per_enrollment": 0.03648117740077394,
+              "destructive_per_enrollment": 6.97490643280655e-09,
+              "destructive_given_capture": 1.91191885684946e-07,
+              "operator_error_on_two_prepared_words_by_order": [
+                0.005153978429945621,
+                0.005570380398242766
+              ],
+              "destructive_bound_for_every_state_with_commuting_ideal_orders": 0.0003824882845382587,
+              "supplied_anticommuting_spin_destructive_given_capture": 0.99999980880811
+            },
+            "zero_mass_control": {
+              "capture_probability": 0.03648118437568053,
+              "constructive_per_enrollment": 0.03648118437568053,
+              "destructive_per_enrollment": 0.0,
+              "destructive_given_capture": 0.0,
+              "operator_error_on_two_prepared_words_by_order": [
+                0.0,
+                0.0
+              ],
+              "destructive_bound_for_every_state_with_commuting_ideal_orders": 0.0,
+              "supplied_anticommuting_spin_destructive_given_capture": 1.0
+            }
+          }
+        },
+        {
+          "axes_as_port_permutations": [
+            [
+              1,
+              0,
+              3,
+              2,
+              6,
+              7,
+              4,
+              5,
+              11,
+              10,
+              9,
+              8
+            ],
+            [
+              3,
+              2,
+              1,
+              0,
+              5,
+              4,
+              7,
+              6,
+              10,
+              11,
+              8,
+              9
+            ]
+          ],
+          "reachable_sharp_words": 2496,
+          "pulse_counts_by_order": [
+            271,
+            293
+          ],
+          "variants": {
+            "light_character": {
+              "capture_probability": 0.03648118437568053,
+              "constructive_per_enrollment": 0.03648116889437172,
+              "destructive_per_enrollment": 1.548130870370784e-08,
+              "destructive_given_capture": 4.2436420222223245e-07,
+              "operator_error_on_two_prepared_words_by_order": [
+                0.004926513451120851,
+                0.006013708839380361
+              ],
+              "destructive_bound_for_every_state_with_commuting_ideal_orders": 0.00035673904977036596,
+              "supplied_anticommuting_spin_destructive_given_capture": 0.9999995756357948
+            },
+            "zero_mass_control": {
+              "capture_probability": 0.03648118437568053,
+              "constructive_per_enrollment": 0.03648118437568053,
+              "destructive_per_enrollment": 0.0,
+              "destructive_given_capture": 0.0,
+              "operator_error_on_two_prepared_words_by_order": [
+                0.0,
+                0.0
+              ],
+              "destructive_bound_for_every_state_with_commuting_ideal_orders": 0.0,
+              "supplied_anticommuting_spin_destructive_given_capture": 1.0
+            }
+          }
+        },
+        {
+          "axes_as_port_permutations": [
+            [
+              2,
+              3,
+              0,
+              1,
+              7,
+              6,
+              5,
+              4,
+              9,
+              8,
+              11,
+              10
+            ],
+            [
+              3,
+              2,
+              1,
+              0,
+              5,
+              4,
+              7,
+              6,
+              10,
+              11,
+              8,
+              9
+            ]
+          ],
+          "reachable_sharp_words": 2496,
+          "pulse_counts_by_order": [
+            311,
+            313
+          ],
+          "variants": {
+            "light_character": {
+              "capture_probability": 0.03648118437568053,
+              "constructive_per_enrollment": 0.036481176601073154,
+              "destructive_per_enrollment": 7.774607202598226e-09,
+              "destructive_given_capture": 2.1311279596999644e-07,
+              "operator_error_on_two_prepared_words_by_order": [
+                0.0057458632838454414,
+                0.006143731098530834
+              ],
+              "destructive_bound_for_every_state_with_commuting_ideal_orders": 0.0004366783117152873,
+              "supplied_anticommuting_spin_destructive_given_capture": 0.9999997868871994
+            },
+            "zero_mass_control": {
+              "capture_probability": 0.03648118437568053,
+              "constructive_per_enrollment": 0.03648118437568053,
+              "destructive_per_enrollment": 0.0,
+              "destructive_given_capture": 0.0,
+              "operator_error_on_two_prepared_words_by_order": [
+                0.0,
+                0.0
+              ],
+              "destructive_bound_for_every_state_with_commuting_ideal_orders": 0.0,
+              "supplied_anticommuting_spin_destructive_given_capture": 1.0
+            }
+          }
+        },
+        {
+          "axes_as_port_permutations": [
+            [
+              3,
+              9,
+              10,
+              0,
+              7,
+              8,
+              11,
+              4,
+              5,
+              1,
+              2,
+              6
+            ],
+            [
+              4,
+              2,
+              1,
+              7,
+              0,
+              11,
+              8,
+              3,
+              6,
+              10,
+              9,
+              5
+            ]
+          ],
+          "reachable_sharp_words": 2500,
+          "pulse_counts_by_order": [
+            332,
+            276
+          ],
+          "variants": {
+            "light_character": {
+              "capture_probability": 0.03648118437568053,
+              "constructive_per_enrollment": 0.03648114195037863,
+              "destructive_per_enrollment": 4.2425301687343584e-08,
+              "destructive_given_capture": 1.1629365223028664e-06,
+              "operator_error_on_two_prepared_words_by_order": [
+                0.007218372516313016,
+                0.005362347131357502
+              ],
+              "destructive_bound_for_every_state_with_commuting_ideal_orders": 0.0004145716516218769,
+              "supplied_anticommuting_spin_destructive_given_capture": 0.9999988370634719
+            },
+            "zero_mass_control": {
+              "capture_probability": 0.03648118437568053,
+              "constructive_per_enrollment": 0.03648118437568053,
+              "destructive_per_enrollment": 0.0,
+              "destructive_given_capture": 0.0,
+              "operator_error_on_two_prepared_words_by_order": [
+                0.0,
+                0.0
+              ],
+              "destructive_bound_for_every_state_with_commuting_ideal_orders": 0.0,
+              "supplied_anticommuting_spin_destructive_given_capture": 1.0
+            }
+          }
+        },
+        {
+          "axes_as_port_permutations": [
+            [
+              3,
+              9,
+              10,
+              0,
+              7,
+              8,
+              11,
+              4,
+              5,
+              1,
+              2,
+              6
+            ],
+            [
+              7,
+              10,
+              9,
+              4,
+              3,
+              6,
+              5,
+              0,
+              11,
+              2,
+              1,
+              8
+            ]
+          ],
+          "reachable_sharp_words": 2500,
+          "pulse_counts_by_order": [
+            270,
+            232
+          ],
+          "variants": {
+            "light_character": {
+              "capture_probability": 0.03648118437568053,
+              "constructive_per_enrollment": 0.03648116210937428,
+              "destructive_per_enrollment": 2.2266306132847887e-08,
+              "destructive_given_capture": 6.103504180004443e-07,
+              "operator_error_on_two_prepared_words_by_order": [
+                0.005659843851118738,
+                0.004291263094808559
+              ],
+              "destructive_bound_for_every_state_with_commuting_ideal_orders": 0.0002826180382599319,
+              "supplied_anticommuting_spin_destructive_given_capture": 0.9999993896495788
+            },
+            "zero_mass_control": {
+              "capture_probability": 0.03648118437568053,
+              "constructive_per_enrollment": 0.03648118437568053,
+              "destructive_per_enrollment": 0.0,
+              "destructive_given_capture": 0.0,
+              "operator_error_on_two_prepared_words_by_order": [
+                0.0,
+                0.0
+              ],
+              "destructive_bound_for_every_state_with_commuting_ideal_orders": 0.0,
+              "supplied_anticommuting_spin_destructive_given_capture": 1.0
+            }
+          }
+        },
+        {
+          "axes_as_port_permutations": [
+            [
+              4,
+              2,
+              1,
+              7,
+              0,
+              11,
+              8,
+              3,
+              6,
+              10,
+              9,
+              5
+            ],
+            [
+              7,
+              10,
+              9,
+              4,
+              3,
+              6,
+              5,
+              0,
+              11,
+              2,
+              1,
+              8
+            ]
+          ],
+          "reachable_sharp_words": 2500,
+          "pulse_counts_by_order": [
+            261,
+            267
+          ],
+          "variants": {
+            "light_character": {
+              "capture_probability": 0.03648118437568053,
+              "constructive_per_enrollment": 0.036481174849282594,
+              "destructive_per_enrollment": 9.526397764907216e-09,
+              "destructive_given_capture": 2.611318115882719e-07,
+              "operator_error_on_two_prepared_words_by_order": [
+                0.005205506976690919,
+                0.0052865414021557805
+              ],
+              "destructive_bound_for_every_state_with_commuting_ideal_orders": 0.0003126513356068033,
+              "supplied_anticommuting_spin_destructive_given_capture": 0.9999997388681837
+            },
+            "zero_mass_control": {
+              "capture_probability": 0.03648118437568053,
+              "constructive_per_enrollment": 0.03648118437568053,
+              "destructive_per_enrollment": 0.0,
+              "destructive_given_capture": 0.0,
+              "operator_error_on_two_prepared_words_by_order": [
+                0.0,
+                0.0
+              ],
+              "destructive_bound_for_every_state_with_commuting_ideal_orders": 0.0,
+              "supplied_anticommuting_spin_destructive_given_capture": 1.0
+            }
+          }
+        }
+      ],
+      "interior_rest_measurements": [
+        {
+          "region": [
+            241
+          ],
+          "rest_copies": 4,
+          "local_port_and_incident_head_records": 1,
+          "exterior_words_at_capture": 4,
+          "scalar_matrix_units_checked": 1,
+          "capture_probability_per_copy": 0.08333333333333333
+        },
+        {
+          "region": [
+            241,
+            240,
+            1011
+          ],
+          "rest_copies": 4,
+          "local_port_and_incident_head_records": 3,
+          "exterior_words_at_capture": 4,
+          "scalar_matrix_units_checked": 9,
+          "capture_probability_per_copy": 0.25
+        },
+        {
+          "region": [
+            133,
+            132,
+            99,
+            98,
+            241,
+            240,
+            1011,
+            1010,
+            1045,
+            1044
+          ],
+          "rest_copies": 4,
+          "local_port_and_incident_head_records": 10,
+          "exterior_words_at_capture": 4,
+          "scalar_matrix_units_checked": 100,
+          "capture_probability_per_copy": 0.8333333333333334
+        }
+      ]
+    }
+  ]
+}

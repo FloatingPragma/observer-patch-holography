@@ -195,7 +195,14 @@ def test_openwave_rows_distinguish_free_stability_from_electron_identity_and_dri
         grade = f"**Demonstrated** · {link}"
         if key == 'OW-30':
             assert row['status'] == 'partial'
-            grade += ". Full criterion · Partial"
+            assert 'unread connector memories' in measurement['label']
+            assert any(path.endswith('row_30_cautions/README.md') for path in row['evidence'])
+            grade += '. Full criterion · Partial'
+            assert measurement['source'].endswith('row_30_collective/README.md')
+            filing = row['filing']
+            assert filing['decision'] in row['sources'] and filing['review'] in row['evidence']
+            grade += (f". OpenWave · [🚧 Not yet tested]({filing['decision']})"
+                      f". Full-credit submission · [HOLD]({ev.report.local_link(filing['review'])})")
         else:
             assert row['status'] == 'demonstrated'
             assert ev.criterion(result, 'SM-e')['status'] == 'open'

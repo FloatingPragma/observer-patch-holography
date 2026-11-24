@@ -20,6 +20,13 @@ The calculation supplies a finite-mode semiclassical positive control. The clock
 
 Run the source-constraint, record-reproduction and held-forecast checks from the repository root with `python -m pytest -q code/matched_einstein_limit/quantum_scalar_radar`. To generate fresh packets, set `PYTHONPATH=code` and run the two modules `matched_einstein_limit.quantum_scalar_radar.measure` and `matched_einstein_limit.quantum_scalar_radar.forecast` with `--output` pointing to a fresh file. The forecast reads the archived primary acquisition.
 
+
+## Reading the all-sky comparison
+
+At fixed radar spacing the ground and first x-oriented source calibrate the coupling from their temporal curvature and energy. The eleven held preparation–appointment pairs use the later x readings and every y, z and even-x reading. Diagonal symmetry makes the largest absolute null residual over all directions equal to the largest absolute axial residual. An additional calculation applies the Hamiltonian coupling 1.6 at every spacing. Its held maxima are 0.00010690, 0.00002767 and 0.00000716. The separate feedback-off control uses the three y-oriented appointments and the fitted coupling. These quantities compare physical readings inside the specified semiclassical box. [Axial and all-direction records](null_sky.json) · [Exact constraint propagation](../../../Lean/ObserverPatchHolography/EinsteinBranch/RayPairBalance.lean)
+
+From the repository root, run `PYTHONPATH=code python -m matched_einstein_limit.quantum_scalar_radar.null_sky` to recompute the table from the archived field counts and radar returns.
+
 ## Which curvature does the measured volume determine?
 
 In a nonrotating, orthogonal geodesic cohort with lengths measured by three radar arms, V is proportional to their product and Hᵢ is the fractional rate of length change. The timelike Ricci contraction is −V″/V + 2(H₁H₂ + H₂H₃ + H₃H₁). At proper time 0.35 on the y source, the radar volume gave −0.101728 and the independently read scalar stress gave −0.101733. The largest held difference was 0.00000499. Three inward-moving inertial mirrors in flat spacetime gave −14.20 from the uncorrected fractional volume acceleration. The independently measured expansion term cancels this value. The exact flat answer is zero. Clock rounding gives residuals from 7.1 × 10⁻¹⁵ to 6.6 × 10⁻⁸, without a monotone refinement trend. [Volume protocol](VOLUME_PROTOCOL.md) · [Clock-based reconstruction](volume.py) · [Held results](volume.json)

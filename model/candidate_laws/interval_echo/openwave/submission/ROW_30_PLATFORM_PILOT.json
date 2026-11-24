@@ -1,0 +1,89 @@
+{
+  "command": "pilot",
+  "source_commit": "cde430519410732a121256f1655a3cac298424a0",
+  "platform_head": "a40e29200597b39e4db1ccb933c7405d222c63f5",
+  "execution_root": "openwave/xperiments/m10_oph/research/scripts/m10_5/vendor",
+  "task_sha256": "748eecfa31fbd3c1d08851896bec4dece665683cf38a8eb893987c38df720b9f",
+  "imported_model_files": {
+    "model": "model/__init__.py",
+    "model.candidate_laws": "model/candidate_laws/__init__.py",
+    "model.candidate_laws.interval_echo": "model/candidate_laws/interval_echo/__init__.py",
+    "model.candidate_laws.interval_echo.openwave": "model/candidate_laws/interval_echo/openwave/__init__.py",
+    "model.candidate_laws.interval_echo.openwave.row_30_collective": "model/candidate_laws/interval_echo/openwave/row_30_collective/__init__.py",
+    "model.candidate_laws.contrast_memory_spherical_v1": "model/candidate_laws/contrast_memory_spherical_v1/__init__.py",
+    "model.executable_model.carrier": "model/executable_model/carrier.py",
+    "model.executable_model.symmetry": "model/executable_model/symmetry.py",
+    "model.executable_model": "model/executable_model/__init__.py",
+    "model.candidate_laws.contrast_memory_spherical_v1.law": "model/candidate_laws/contrast_memory_spherical_v1/law.py",
+    "model.candidate_laws.contrast_memory_spherical_v1.candidate": "model/candidate_laws/contrast_memory_spherical_v1/candidate.py",
+    "model.candidate_laws.interval_echo.candidate": "model/candidate_laws/interval_echo/candidate.py",
+    "model.candidate_laws.interval_echo.openwave.row_30_collective.experiment": "model/candidate_laws/interval_echo/openwave/row_30_collective/experiment.py",
+    "model.candidate_laws.interval_echo.openwave.row_30_collective.formation": "model/candidate_laws/interval_echo/openwave/row_30_collective/formation.py",
+    "model.candidate_laws.interval_echo.openwave.row_30_collective.holdout": "model/candidate_laws/interval_echo/openwave/row_30_collective/holdout.py"
+  },
+  "passed": true,
+  "external_registration": false,
+  "seed": 927016,
+  "boards": [
+    {
+      "level": 0,
+      "cells_in_strand": 5,
+      "dimers": 20,
+      "modes": 5,
+      "score": {
+        "lattice_max": 0.0005258990218575121,
+        "continuum_max": 0.011567029999600464,
+        "sum_closure": 8.606020543311388e-05,
+        "shape_rms_lattice": 2.7957526597698807e-05,
+        "shape_rms_parabola": 0.0012285853050249544,
+        "shape_rms_continuum": 0.0060344761312025345,
+        "min_native_amplitude": 0.4996103872677349,
+        "max_changed_amplitude": 0.00012395919076398478,
+        "far_count_difference": 0.18451499938964844,
+        "far_changed_count_difference": 0.001300811767578125,
+        "operational_pass": true,
+        "shape_pass": true
+      }
+    },
+    {
+      "level": 1,
+      "cells_in_strand": 7,
+      "dimers": 26,
+      "modes": 7,
+      "score": {
+        "lattice_max": 0.0005843881218101643,
+        "continuum_max": 0.016665308344430585,
+        "sum_closure": 0.0001474565368333458,
+        "shape_rms_lattice": 4.964207655907764e-05,
+        "shape_rms_parabola": 0.0015603807403491302,
+        "shape_rms_continuum": 0.007748346409913333,
+        "min_native_amplitude": 0.4995634480744165,
+        "max_changed_amplitude": 0.00011687339132386599,
+        "far_count_difference": 0.1847858428955078,
+        "far_changed_count_difference": 0.0017681121826171875,
+        "operational_pass": true,
+        "shape_pass": true
+      }
+    },
+    {
+      "level": 2,
+      "cells_in_strand": 9,
+      "dimers": 29,
+      "modes": 7,
+      "score": {
+        "lattice_max": 0.0005669162377159864,
+        "continuum_max": 0.01125994153411014,
+        "sum_closure": 0.00015741575825600762,
+        "shape_rms_lattice": 4.9143764171293755e-05,
+        "shape_rms_parabola": 0.0010248535962021894,
+        "shape_rms_continuum": 0.0051595122087733656,
+        "min_native_amplitude": 0.49952878384018373,
+        "max_changed_amplitude": 0.000167306578522058,
+        "far_count_difference": 0.3377399444580078,
+        "far_changed_count_difference": 0.0015707015991210938,
+        "operational_pass": true,
+        "shape_pass": true
+      }
+    }
+  ]
+}

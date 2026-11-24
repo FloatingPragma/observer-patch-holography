@@ -19,14 +19,16 @@
           "regime": "static",
           "upstream_number": 1,
           "sources": [
-            "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L101"
+            "https://github.com/openwave-labs/openwave/blob/d4fc3e4046c472f4ad38468df8dddfa1f97bac97/MODELS.md#L101"
           ],
           "results": {
             "interval_echo": {
               "status": "open",
-              "note": "Integer port loads and their conserved populations are measured in the coherent blank sector. Establishing an electric topological charge and excluding physical half-charge daughters requires a charge readout.",
+              "note": "Two compact vacancy modes share a single missing load over cells 5, 11 and 23 owner steps apart on three boards. Paired contact reads distinguish that state from independent preparations with the same local means on each board in a fresh precision replicate. At every free appointment the reduced state of the gateways and blank collars on either tested enclosing cut equals the filled host, even on a branch with the vacancy wholly inside. A single load and a doubled load also persist on empty hosts. The measurements select neither a topological electric unit nor an electric charge law excluding two half-charge daughters.",
               "evidence": [
-                "model/candidate_laws/interval_echo/SPEC.md"
+                "model/candidate_laws/interval_echo/SPEC.md",
+                "model/candidate_laws/interval_echo/openwave/row_01_charge/README.md",
+                "model/candidate_laws/interval_echo/openwave/row_01_charge/results.json"
               ],
               "comparison": {
                 "law": "Written-field Laplacian extension",
@@ -54,22 +56,44 @@
           "regime": "static",
           "upstream_number": 2,
           "sources": [
-            "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L102"
+            "https://github.com/openwave-labs/openwave/blob/d4fc3e4046c472f4ad38468df8dddfa1f97bac97/MODELS.md#L102"
           ],
           "results": {
             "interval_echo": {
               "status": "partial",
-              "note": "The free contrast interaction binds localized loads and has measurable binding energies. Electron identification, rest-energy calibration and an independent physical prediction from 511 keV remain open.",
+              "note": "Gateway monitoring holds a compact vacancy. With a material clock and six-seam storage, separate joint reads give 35 for one vacancy and 70 for two separated copies. A changed pair interaction shifts the two-copy reading. A vacancy and excess give 35 and 67 with this reference, or 43 each with five-seam storage. Independent storage readings account for the difference. A local phase flip lowers the mean vacancy energy. A local pulse releases charge from that same held vacancy. On 20, 80 and 320 cells the native one-vacancy spectrum excludes the relativistic recoil energy at pc = 511 keV with the six-seam anchor. Its identification with an electron rest threshold remains open. Preparing two vacancies and an excess gives a repulsively bound charged trimer. The upper-band configuration stays intact with probability at least 0.5745 at all exposures on the 20-cell board and 0.7298 on both refinements. Its host-referenced recoil target exceeds the whole sector ceiling on every board. Internal rearrangement is observed and translational inertia remains unresolved.",
               "evidence": [
                 "model/candidate_laws/interval_echo/SPEC.md",
                 "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json",
-                "model/experiments/material_inertia/README.md"
+                "model/experiments/material_inertia/README.md",
+                "model/candidate_laws/interval_echo/openwave/row_04_compact/anchored_vacancy.py",
+                "model/candidate_laws/interval_echo/openwave/row_04_compact/anchored_vacancy.json",
+                "model/candidate_laws/interval_echo/openwave/row_04_compact/README.md#a-511-kev-anchor-on-the-unit-filled-host",
+                "model/candidate_laws/interval_echo/openwave/row_04_compact/material_reference.py",
+                "model/candidate_laws/interval_echo/openwave/row_04_compact/material_reference.json",
+                "model/candidate_laws/interval_echo/openwave/row_04_compact/localized_release.json",
+                "model/candidate_laws/interval_echo/openwave/row_04_compact/README.md#can-the-held-vacancy-recoil-like-an-electron",
+                "model/candidate_laws/interval_echo/openwave/row_04_compact/README.md#measuring-energy-by-moving-the-same-load",
+                "model/candidate_laws/interval_echo/openwave/row_02_dressed/results.json",
+                "model/candidate_laws/interval_echo/openwave/row_02_dressed/README.md"
               ],
               "comparison": {
                 "law": "Written-field Laplacian extension",
                 "finding": "The mobile four-face input has mean energy 17 and standard deviation 8 in native units. Its charged gate has a nondegenerate floor of 3.5480114451 with the external compensator held fixed. Other preparations have different formation edges. The 510.999 keV reconstruction uses laboratory inputs alone.",
                 "source": "model/candidate_laws/interval_echo/openwave/electron_field/README.md#rest-energy-and-the-other-openwave-observables"
-              }
+              },
+              "demonstrated_measurement": {
+                "label": "Two separated vacancies give twice the anchored energy",
+                "source": "model/candidate_laws/interval_echo/openwave/row_04_compact/README.md#measuring-energy-by-moving-the-same-load"
+              },
+              "additional_comparisons": [
+                {
+                  "law": "First-order cyclic mass extension",
+                  "label": "Recoil of a locally prepared charge eleven links away",
+                  "finding": "From one untagged vacancy the ideal interferometer resolves three lines. The one-anchor heavy energy agrees within the tau uncertainty. The middle ratio is high by 9.83 ppm across an exact scale audit and simulated acquisitions. A finite clock changes the ratios, with cadence fitted from the muon. These are within-charge frequency differences. A scalar impulse on the same parked mode gives zero recoil while a mobile vacancy responds. On the moving unpinned guide two positive recoil gaps per branch recover the same ratios without a charged-sector energy zero and predict a third spatial mode. After a signed local source click, the same vacancy travels eleven links. Distal counts recover three dispersion masses and spatial reads identify their wavelengths. Shutters hold the source, and the register mass term is supplied.",
+                  "source": "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/arrival_spin/README.md#measuring-recoil-on-the-charge-that-arrives"
+                }
+              ]
             },
             "contrast_memory_spherical_v1": {
               "status": "partial",
@@ -96,14 +120,16 @@
           "regime": "dynamic",
           "upstream_number": 3,
           "sources": [
-            "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L103"
+            "https://github.com/openwave-labs/openwave/blob/d4fc3e4046c472f4ad38468df8dddfa1f97bac97/MODELS.md#L103"
           ],
           "results": {
             "interval_echo": {
-              "status": "open",
-              "note": "A spontaneously starting oscillation tied to an independently measured rest energy remains open.",
+              "status": "partial",
+              "note": "A sharp vacancy with monitored gateways gives a free internal beat at 2.237 and 2.232 per independently timed exchange unit on 80 and 320 cells. Halving the contrast shifts its mean energy relative to the uniform host from 34.62 to 18.62 while leaving the beat at 2.234. The full blank one-vacancy spectrum is contained in [32,54] on all three boards, so an internal frequency equal to the separately measured 35-unit vacancy transfer is excluded in this sector. Even without monitoring, a sharp vacancy on each larger board contributes a cosine at √5 with coefficient at least 1/40 in its free return probability. The material timer and terminal reads are supplied apparatus.",
               "evidence": [
-                "model/candidate_laws/interval_echo/SPEC.md"
+                "model/candidate_laws/interval_echo/SPEC.md",
+                "model/candidate_laws/interval_echo/openwave/row_03_clock/README.md",
+                "model/candidate_laws/interval_echo/openwave/row_03_clock/results.json"
               ],
               "comparison": {
                 "law": "Written-field Laplacian extension",
@@ -224,20 +250,43 @@
           "regime": "dynamic",
           "upstream_number": 5,
           "sources": [
-            "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L105"
+            "https://github.com/openwave-labs/openwave/blob/d4fc3e4046c472f4ad38468df8dddfa1f97bac97/MODELS.md#L105"
           ],
           "results": {
             "interval_echo": {
-              "status": "open",
-              "note": "The electron dipole, gyromagnetic factor and field-driven precession require an electromagnetic readout.",
+              "status": "partial",
+              "note": "Each owner on the 20-, 80- and 320-cell federations supports a compact stationary vacancy with signed material current. The measured precession frequency of a tilted current vector is 0.011053 per exchange unit, with 99% interval [0.010940,0.011161], against 0.011049 from the zero-field moments and applied flux. A probe constrained outside the source cell has exactly the same channel for either current and for no source. This strictly compact degenerate band has zero recoil under the owner momentum kick. An orthogonal, dispersive orbital carries the vacancy and its direction to another owner, with one-hop signed moment +0.001409 versus −0.000485 per launch. Its broad energy distribution separates this mobile preparation from the precisely stationary compact band. A static exterior dipole field and independent finite inertial mass and spin standards for an electron gyromagnetic factor are unresolved. On a ten-port orbital belt, flux splitting and independent small-momentum recoil gave g_orb = 0.63327 [0.61951, 0.64710] at simultaneous 99% coverage. Using the first finite recoil gap instead gave 0.70804 and missed the held second gap. These ratios exclude g near two for that orbital.",
               "evidence": [
-                "model/candidate_laws/interval_echo/SPEC.md"
+                "model/candidate_laws/interval_echo/SPEC.md",
+                "model/candidate_laws/interval_echo/openwave/row_05_dipole/README.md",
+                "model/candidate_laws/interval_echo/openwave/row_05_dipole/results.json",
+                "model/candidate_laws/interval_echo/openwave/row_05_dipole/exterior.json",
+                "model/candidate_laws/interval_echo/openwave/row_05_dipole/vector.json",
+                "model/candidate_laws/interval_echo/openwave/row_05_dipole/calibration.json",
+                "model/candidate_laws/interval_echo/openwave/row_05_counter/README.md",
+                "model/candidate_laws/interval_echo/openwave/row_05_counter/results.json",
+                "model/candidate_laws/interval_echo/openwave/row_05_counter/counts.npz",
+                "model/candidate_laws/interval_echo/openwave/row_05_counter/dispersive.json",
+                "model/candidate_laws/interval_echo/openwave/row_05_counter/beat.json",
+                "model/candidate_laws/interval_echo/openwave/row_05_dipole/transport.json",
+                "model/candidate_laws/interval_echo/openwave/row_05_dipole/orbital.json"
               ],
               "comparison": {
                 "law": "Written-field Laplacian extension",
                 "finding": "An imposed half-quantum twist changes a charge-return probability from 14.7898% to 93.3966%. The unique real resting ground has zero signed current and zero first-order magnetic slope. The measured response is orbital.",
                 "source": "model/candidate_laws/interval_echo/openwave/electron_field/README.md#rest-energy-and-the-other-openwave-observables"
-              }
+              },
+              "demonstrated_measurement": {
+                "label": "Stationary vacancy current and its precession in an applied flux",
+                "source": "model/candidate_laws/interval_echo/openwave/row_05_dipole/README.md"
+              },
+              "additional_comparisons": [
+                {
+                  "law": "Two material rings coupled by native contacts on a controlled schedule",
+                  "finding": "The source circulation rotates a probe on the adjacent ring. With weak, periodic contact an independent return-phase calibration predicts 40 held rotations within 0.017 radians. Reversing the source direction reverses the rotation. Reversing only the material probe charge preserves its sign at both contact durations. With continuous protection of the source momentum, the generators seen by the probe agree for opposite directions.",
+                  "source": "model/candidate_laws/interval_echo/openwave/row_05_counter/README.md"
+                }
+              ]
             },
             "contrast_memory_spherical_v1": {
               "status": "open",
@@ -333,20 +382,39 @@
           "regime": "both",
           "upstream_number": 8,
           "sources": [
-            "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L110"
+            "https://github.com/openwave-labs/openwave/blob/d4fc3e4046c472f4ad38468df8dddfa1f97bac97/MODELS.md#L110"
           ],
           "results": {
             "interval_echo": {
-              "status": "open",
-              "note": "The free contrast term preserves load. An identified conjugate pair converting into outgoing field quanta has yet to be measured.",
+              "status": "partial",
+              "note": "Observers prepare opposite phase walls on a closed four-dimer ring. During free registered evolution with fixed number guards the walls can disappear. On three-dimer wings 8,245,757 of 268,435,456 launches gave an ordered ring and excitation on both sides, against 914 on the ordered sham. After the source measurement the local energy rose at two radii on each side. The regional current has zero matrix elements within the wall-free wing subspace. These records identify annihilation of opposite order defects and energy transfer in neutral material. An electric particle–antiparticle assignment and outgoing radiation quanta remain open. A separate registered coincidence service erases an excess and a vacancy, whose free numbers are individually conserved. Before a source measurement the 65-unit wall surplus left 62.9782 units inside the ring and 1.1321 in the two guide interiors at exposure 32. On initially uniform unguarded receivers, restoring the ring consumes all four vacancies and doubles and excludes positive receiver energy. Remote material counts verify both receivers are active. The sourced outgoing energy on the disappearing-pair trials remains unresolved. OpenWave’s accepted liquid-crystal example leaves the outgoing radiation type open.",
               "evidence": [
-                "model/candidate_laws/interval_echo/SPEC.md"
+                "model/candidate_laws/interval_echo/SPEC.md",
+                "model/candidate_laws/interval_echo/openwave/row_08_annihilation/README.md",
+                "model/candidate_laws/interval_echo/openwave/row_08_annihilation/records.json",
+                "model/candidate_laws/interval_echo/openwave/row_08_annihilation/calorimeter.json",
+                "model/candidate_laws/interval_echo/openwave/row_08_annihilation/converter.json",
+                "model/candidate_laws/interval_echo/openwave/row_08_annihilation/walls.json",
+                "model/candidate_laws/interval_echo/openwave/row_08_annihilation/wall_flight.json",
+                "model/candidate_laws/interval_echo/openwave/row_08_annihilation/bare_receivers.json.gz",
+                "model/candidate_laws/interval_echo/openwave/row_08_annihilation/energy_budget.json"
               ],
               "comparison": {
                 "law": "Written-field Laplacian extension",
                 "finding": "The free written law preserves excess and vacancy counts separately. An external pair-conversion contact sends a neutral disturbance to a probe six cell steps away. Spontaneous conversion and photon multiplicities have no measurement in this run.",
                 "source": "model/candidate_laws/interval_echo/openwave/electron_field/README.md#rest-energy-and-the-other-openwave-observables"
-              }
+              },
+              "demonstrated_measurement": {
+                "label": "Opposite phase walls disappear and energy reaches two radii on both sides",
+                "source": "model/candidate_laws/interval_echo/openwave/row_08_annihilation/README.md"
+              },
+              "additional_comparisons": [
+                {
+                  "law": "Time-independent local conversion term added to the native encounter Hamiltonian",
+                  "finding": "The added term converts an initially separated pair without a trigger and conserves the total energy of the held system. After 64 exchange units, outer-dimer frequency-selective readings gave 1,017 hard/soft double clicks in 1,073,741,824 launches at the stated detector settings. Two wings above 16 energy units gave zero double clicks in that bank. The energy carriers are excitations of the prepared neutral medium.",
+                  "source": "model/candidate_laws/interval_echo/openwave/row_08_annihilation/README.md"
+                }
+              ]
             },
             "contrast_memory_spherical_v1": {
               "status": "open",
@@ -433,14 +501,18 @@
           "regime": "static",
           "upstream_number": 11,
           "sources": [
-            "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L113"
+            "https://github.com/openwave-labs/openwave/blob/d4fc3e4046c472f4ad38468df8dddfa1f97bac97/MODELS.md#L113"
           ],
           "results": {
             "interval_echo": {
               "status": "open",
-              "note": "No three minima have been identified as charged leptons and compared on a common mass scale.",
+              "note": "For all net negative-unit compositions of the registered blank-memory law, the maximum ratio between host-referenced composition ground energies is bounded above by 57.5625, 203.296875 and 759.546875 on the 20-, 80- and 320-cell boards. This excludes 3477 in those spectra. In the same architecture on any finite refinement a 3477 ratio of these minima needs at least 2319 defect ports in the heavier configuration. On a ten-port belt three dressings selected for closeness have first-wavelength recoil inertia ratios 1:168.56:3209.78 and second-wavelength ratios 1:164.91:3301.44. Their formation energies are in the ratios 1:2.01:2.81. Signed density records verify motion. Identifying three charged species with consistent recoil and formation energies requires another preparation.",
               "evidence": [
-                "model/candidate_laws/interval_echo/SPEC.md"
+                "model/candidate_laws/interval_echo/SPEC.md",
+                "model/candidate_laws/interval_echo/openwave/row_11_spectrum/README.md",
+                "model/candidate_laws/interval_echo/openwave/row_11_spectrum/results.json",
+                "model/candidate_laws/interval_echo/openwave/row_11_spectrum/transport.json",
+                "model/candidate_laws/interval_echo/openwave/row_11_spectrum/bounds.json"
               ],
               "comparison": {
                 "law": "Written-field Laplacian extension",
@@ -468,14 +540,56 @@
           "regime": "static",
           "upstream_number": 12,
           "sources": [
-            "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L114"
+            "https://github.com/openwave-labs/openwave/blob/d4fc3e4046c472f4ad38468df8dddfa1f97bac97/MODELS.md#L114"
           ],
           "results": {
             "interval_echo": {
-              "status": "open",
-              "note": "An electric response tied to fractional string winding remains unmeasured.",
+              "status": "partial",
+              "note": "Two polar probes covering the ten-port belt measure its integral total on moving period-three walls and same-load compact preparations. Subtracting the separately measured one-in-three bulk density gives identical fractional excesses on these controls. A stationary probe in an adjacent cell records a phase when material can enter the intervening gateway. With the registered open-boundary reference, changing the probe sign or using a matched compact preparation changes that phase outside a common fractional-charge calibration. Electric charge on the winding defect requires a field with an independent electric standard. A separate prepared written-head string has a fractional static signed-field response calibrated against an ordinary unit. Free relaxation of that polarization and the unresolved physical electric standard limit the identification. On a prepared ternary string, a differential signed contact probe recovers the same fractional material response after adding zero through four neutral pairs. All 7,590 ternary words at total 13 or 14 on the ten-port guide have simple spectrum within each translation momentum, including across histograms. On parked three-wall preparations a remote six-dimer material guide gives −0.3307 and +0.6656 ordinary units seven or eight native seams from an end belt. This is a segmented material-polarization measurement. The unit-calibrated unsplit electrode gives almost zero for two simultaneous units. The exact local port and memory symmetry algebra of the free seam and the echo is abelian. The complete uniform written-head cut gives zero imaginary response at a half turn on any state, while the two smooth wall apertures resolve opposite signed responses. A time-ordered circuit of native contacts sustains period-three material order on a twelve-port cell. Translating an equal-count compact control also gives the third-turn polarization shift. A common external material reference on the released 15-port ring and reservoir gives signed +⅔ and −⅓ readings on the same stationary states as the triple detections. A diagonal change of head phase removes every flat material twist of the unit-memory graph. The charge interpretation still depends on the smoothed periodic reference.",
               "evidence": [
-                "model/candidate_laws/interval_echo/SPEC.md"
+                "model/candidate_laws/interval_echo/SPEC.md",
+                "model/candidate_laws/interval_echo/openwave/row_12_charge/README.md",
+                "model/candidate_laws/interval_echo/openwave/row_12_charge/results.json",
+                "model/candidate_laws/interval_echo/openwave/row_12_charge/exterior.json",
+                "model/candidate_laws/interval_echo/openwave/row_12_charge/exterior_native.json",
+                "model/candidate_laws/interval_echo/openwave/row_12_flux/README.md",
+                "model/candidate_laws/interval_echo/openwave/row_12_flux/results.json",
+                "model/candidate_laws/interval_echo/openwave/row_12_flux/dressing.json",
+                "model/candidate_laws/interval_echo/openwave/row_12_flux/cycle.json",
+                "model/candidate_laws/interval_echo/openwave/quark_winding/written_junction/README.md",
+                "model/candidate_laws/interval_echo/openwave/quark_winding/written_junction/field.json",
+                "model/candidate_laws/interval_echo/openwave/quark_winding/written_junction/relaxation.json",
+                "model/candidate_laws/interval_echo/openwave/quark_winding/belt_walls/ternary.json",
+                "model/candidate_laws/interval_echo/openwave/quark_winding/belt_walls/external_field.json",
+                "model/candidate_laws/interval_echo/openwave/quark_winding/registers.json",
+                "model/candidate_laws/interval_echo/openwave/quark_winding/belt_walls/bulk_order.json",
+                "model/candidate_laws/interval_echo/openwave/quark_winding/belt_walls/routed_order.json",
+                "model/candidate_laws/interval_echo/openwave/quark_winding/written_junction/integer_cut.json",
+                "model/candidate_laws/interval_echo/openwave/quark_winding/written_junction/coupled_field.json",
+                "model/candidate_laws/interval_echo/openwave/quark_winding/written_junction/holonomy.json",
+                "model/candidate_laws/interval_echo/openwave/quark_winding/written_junction/reference_scan.json"
+              ],
+              "comparison": {
+                "law": "Written-field Laplacian extension",
+                "finding": "On two antipodal field-endpoint preparations a material tour resolves winding while both regional signed-charge meters read zero. An imposed third-turn phase is recovered from the receiver ports with zero excess flux on every cut of the 458-word field component. Calibrated whole loads coherently shared over three ports give fractional means and integer outcomes.",
+                "source": "model/candidate_laws/interval_echo/openwave/quark_winding/README.md"
+              },
+              "additional_comparisons": [
+                {
+                  "law": "Period-three material walls on native contacts",
+                  "finding": "On prepared ten-port belts a one-site slip in period-three order carries material excess −⅓ or +⅔ in two static cuts and the same signed current ratio at launch. On an intact cell, the probability of detecting each wall type exceeds 97% at exposure 16 when all six axes are accepted. A uniform regional voltage has integral sharp outcomes. The aligned written heads register −1 or +2 transported units per three wall circuits. The physical electric coupling is unresolved.",
+                  "source": "model/candidate_laws/interval_echo/openwave/quark_winding/belt_walls/README.md"
+                },
+                {
+                  "law": "Registered material exchanges with an externally threaded transport phase",
+                  "finding": "The sharp three- and four-load walls respond exactly as material charges −⅓ and +⅔ upon translation. Against 12 held opposite-twist splittings per freely dressed wall the rigid predictions miss by 0.01596 and 0.01373, above the declared 0.01 tolerance. Integer competitors miss by at least 0.37831 and 0.33070. Including all virtual excursions predicts 24 additional readings within 0.00035 exchange units. A full flux cycle gives the same momentum shift for a nonwinding control with equal total load. The flux and coherent reference are supplied.",
+                  "source": "model/candidate_laws/interval_echo/openwave/row_12_flux/README.md"
+                },
+                {
+                  "law": "Calibrated written-head wall receiver",
+                  "finding": "A signed test load measures −0.33360 or +0.66640 ordinary units at a partial density winding on a prepared 313-port guide. Both probe signs resolve the classes in a held aperture. The smooth-cut read cancels around both ends. Free release changes the polarization at quadratic order. A universal electric coupling and quark identity are unestablished.",
+                  "source": "model/candidate_laws/interval_echo/openwave/quark_winding/written_junction/README.md"
+                }
               ]
             },
             "contrast_memory_spherical_v1": {
@@ -498,16 +612,49 @@
           "regime": "static",
           "upstream_number": 13,
           "sources": [
-            "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L115"
+            "https://github.com/openwave-labs/openwave/blob/d4fc3e4046c472f4ad38468df8dddfa1f97bac97/MODELS.md#L115"
           ],
           "results": {
             "interval_echo": {
               "status": "partial",
-              "note": "Three ordinary loads bind on a triangular face in the free contrast interaction. The constituent charge, colour and baryon identity remain open.",
+              "note": "Three ordinary loads bind on a triangular face in the free contrast interaction. The constituent charge, colour and baryon identity remain open. On three connected ten-port guides, the registered low-energy subspace below the mean energy of three separated clusters has at most 0.181% or 0.149% probability of containing all three fractionally polarized wall records, for net material excess zero or one. This bound allows every configuration with the same ordinary load count. An upper-band composite or a different dressed-wall read requires separate evidence. With the exterior shuttered a sharp triangular face and finite energy filter at 100.448 give a persistent singlet component in three locally decoded colour triplets. At 32 free exchange units, 32,525 of 72,008 accepted face-and-three-triplet reads are antisymmetric singlet (524,288 total launches), above the one-third biseparable bound. A separate common half-turn gives a resolved dark-port signal on three-triplet records. The material loads are integral, and the fitted colour readers are supplied. The joined uppermost state gives simultaneous fractional wall records with probability at least 73.59% (neutral) or 70.55% (positive). Its energy exceeds the upper edge with a bridge deleted. Retaining the local cost of a hop into an empty site at each cut end puts a separated pair-plus-single trial above the entire joined spectrum in both cases. On the fully opened 80-cell board any stationary state confined to the three complete source owners has at most 21.10% or 24.70% joint wall probability in the neutral or positive sector. A separate threefold compact orbital on 128 owners supports an exact antisymmetric orbital singlet with zero energy gained relative to its separated fragments. With arbitrary tails and all wall charts and positions admitted, the lower-energy band below separated cluster trials yields at most 0.274% neutral or 0.226% positive three-wall reads on all three boards. In the separate three-ordinary-load sector, an open-board trimer band has at least 95.01% face probability and lies at least 26.5 native units below separated pair-plus-single configurations. Its positive ground state gives zero geometric phase under adiabatic scalar rotations. A separate fifteen-site mobile string coupled to a held commensurate reference gives at most 31.81% or 50.68% for three charged gap records in their shortest arc. Requiring three separate sets of material sites leaves only the widest arc, with at most 19.12% or 22.78% probability. On a complete 20-cell board with an outward prepared field the held 15-port extension yields 85.25% neutral and 20.27% positive tight triples on separate stationary lines. Opening a neighbouring reservoir gives 80.90% and 9.45% in the designated channels of one Hamiltonian. All 885,726 mobile-background sharp triples at lengths 12, 15 and 18 have jointly injective transfer to the complement within each sector. Binding against every fragmentation channel and physical constituent identifications remain open.",
               "evidence": [
                 "model/candidate_laws/interval_echo/SPEC.md",
                 "model/candidate_laws/contrast_memory_spherical_v1/catalogue.py",
-                "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json"
+                "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json",
+                "model/candidate_laws/interval_echo/openwave/row_13_walls/README.md",
+                "model/candidate_laws/interval_echo/openwave/row_13_walls/results.json",
+                "model/candidate_laws/interval_echo/openwave/row_13_baryon/README.md",
+                "model/candidate_laws/interval_echo/openwave/row_13_baryon/frames.json",
+                "model/candidate_laws/interval_echo/openwave/quark_winding/belt_walls/upper.json",
+                "model/candidate_laws/interval_echo/openwave/quark_winding/belt_walls/escape.json",
+                "model/candidate_laws/interval_echo/openwave/quark_winding/belt_walls/localized.json",
+                "model/candidate_laws/interval_echo/openwave/quark_winding/belt_walls/orbital_singlet.json",
+                "model/candidate_laws/interval_echo/openwave/quark_winding/written_junction/orientations.json",
+                "model/candidate_laws/interval_echo/openwave/quark_winding/belt_walls/free_spectrum.json",
+                "model/candidate_laws/interval_echo/openwave/quark_winding/belt_walls/ground_turn.json",
+                "model/candidate_laws/interval_echo/openwave/quark_winding/belt_walls/flavour_charge.json",
+                "model/candidate_laws/interval_echo/openwave/quark_winding/belt_walls/pinned_string.json",
+                "model/candidate_laws/interval_echo/openwave/quark_winding/written_junction/backgrounds.json",
+                "model/candidate_laws/interval_echo/openwave/quark_winding/written_junction/escape_census.json",
+                "model/candidate_laws/interval_echo/openwave/quark_winding/written_junction/coupled_field.json"
+              ],
+              "comparison": {
+                "law": "Interval Echo with three guarded one-load colour readers",
+                "finding": "At one free exchange time the three loads occupy a face with probability 0.98115. Each detected tip reads +1 material unit against empty. Every accepted face-supported state has collective-centre dark probability at least 63/256 in the ideal instrument across all 5,775 balanced routings. With a common port frame, reflection symmetry gives exactly zero three-triplet singlet overlap for the full 220-configuration ground state. The electromagnetic unit and quark flavours remain unassigned.",
+                "source": "model/candidate_laws/interval_echo/openwave/quark_winding/bound_face/README.md"
+              },
+              "additional_comparisons": [
+                {
+                  "law": "Period-three material walls on native contacts",
+                  "finding": "Across all 3,000 sharp placements per integer total, native exchanges force both three-wall spaces to leak. On an eighteen-site shared comparison string stationary three-gap probability reaches 94.19% or 97.80%, while the tightest triple reaches 43.65% or 14.88%. A rotation-independent colour triplet is excluded in the measured one-cell wall bands. A bound proton or neutron is unidentified.",
+                  "source": "model/candidate_laws/interval_echo/openwave/quark_winding/belt_walls/README.md"
+                },
+                {
+                  "law": "Three walls with active written contacts",
+                  "finding": "On 18 native ports, optimization over every stationary state yields at most 15.58% tight three-wall weight for the neutral source and 9.77% or 14.72% for two positive sectors. In the tested intact-cell components four-hop material records distinguish all joint matter and field configurations, excluding an exact internal colour triplet commuting with the full material read. Three degree-preserving rotations produce equal spectra on distinct Gauss backgrounds for each wall. Material hops, field flips and occupation measurements preserve each background and give identical probabilities on a three-copy determinant and its permutation mixture.",
+                  "source": "model/candidate_laws/interval_echo/openwave/quark_winding/written_junction/README.md"
+                }
               ]
             },
             "contrast_memory_spherical_v1": {
@@ -538,9 +685,11 @@
           "results": {
             "interval_echo": {
               "status": "open",
-              "note": "The neutron and proton identities, mass order and resolved electric profile remain open.",
+              "note": "The neutron and proton identities, mass order and resolved electric profile remain open. Restoring the common native reference places the positive three-wall upper spectral line 32.86 to 33.25 exchange units above the neutral line. Assigning these raw lines as rest masses gives the opposite ordering. The sector difference also changes by 48 when the neutral preparation contains a compensating whole material unit at rest. On the coupled 15-port written extension the neutral minus positive selected-line energy is 76.571 exchange units. Its derivative under a reservoir energy shift is 0.96893. The gateway-centred neutral material profile has a positive outermost shell. Both the reference contribution and the choice of centre enter this measurement.",
               "evidence": [
-                "model/candidate_laws/interval_echo/SPEC.md"
+                "model/candidate_laws/interval_echo/SPEC.md",
+                "model/candidate_laws/interval_echo/openwave/quark_winding/belt_walls/upper.json",
+                "model/candidate_laws/interval_echo/openwave/quark_winding/written_junction/mass_profile.json"
               ]
             },
             "contrast_memory_spherical_v1": {
@@ -658,9 +807,18 @@
           "results": {
             "interval_echo": {
               "status": "open",
-              "note": "Meson assignments and a decay tagged by strangeness remain open.",
+              "note": "Meson assignments and a decay tagged by strangeness remain open. An exact stationary compact excess–vacancy orbital singlet costs 102 native units both on nearby and on distant owners. Its connected binding energy is zero. The homogeneous blank-owner census excludes an exactly one-owner stationary state with two deviations at registered contrast.",
               "evidence": [
-                "model/candidate_laws/interval_echo/SPEC.md"
+                "model/candidate_laws/interval_echo/SPEC.md",
+                "model/candidate_laws/interval_echo/openwave/quark_winding/belt_walls/orbital_singlet.json",
+                "model/candidate_laws/interval_echo/openwave/quark_winding/belt_walls/localized.json"
+              ],
+              "additional_comparisons": [
+                {
+                  "law": "Compensated written-wall pairs",
+                  "finding": "The two prepared pairs have opposite endpoint field responses and zero enclosed total. On the 18-port native written cycle, stationary weight on the respective pairs of anomalous gaps reaches at most 40.66% and 26.93%. No strange decay or pion/kaon identification is measured.",
+                  "source": "model/candidate_laws/interval_echo/openwave/quark_winding/written_junction/README.md"
+                }
               ]
             },
             "contrast_memory_spherical_v1": {
@@ -691,7 +849,7 @@
           "results": {
             "interval_echo": {
               "status": "partial",
-              "note": "In a supplied uniformly filled medium a freely released excess and vacancy have zero relative load charge. A separated upper spectral band has an all-exposure lower bound of 85.47% for binding at the selected degree type on 20, 80 and 320 cells. At exposure 32 on 20 cells, 99.44% of terminal outcomes were adjacent, and in 6.83% both constituents had changed sites and were adjacent. Most motion stayed within the launch cell. An electromagnetic charge measurement and an independent inertial mass for this same excitation remain open. This test addresses OpenWave’s particle criterion. The OPH dark-sector paper assigns gravitational stress to anomalous modular charge on an overlap collar. Pair binding provides no measurement of that source. OpenWave lists OPH as untested on Row 19 at the cited revision. The official static test asks for a stable neutral massive state. It does not specify an elementary particle or a relic abundance. PATCH-10 tracks gravitational observations sourced by patch records. A separate coin-odd contrast-two memory has fixed-address native gaps of 32 or 33. Every one of the nine two-port load inputs acquires the same energy shift. Excess and vacancy Ramsey probes return bright with probability one at π/32, against zero for the matched even-coin contact. This identifies a stored mode invisible to these probes. Electromagnetic neutrality and a finite inertial mass require independent evidence. Matched collar correlations on a separate 20-cell native four-tracer instrument produce zero exact initial focusing contrast. At the later appointment their normalized chord volumes differ by −0.000005833 ± 0.000001756 at simultaneous 99% coverage. Testing anomalous gravitational stress requires a common proper curvature coupled to the collar, beyond this tracer geometry. This broader hypothesis is separate from the static particle criterion. Three free bound-pair preparations on a 20-cell uniformly filled host give measured intercell kinetic matrix elements near −1.02 to −1.04 × 10⁻⁶ exchange units. Their intact-pair terminal imbalance responds to the imposed phase. The branch polarizes under a spatially stepped signed-load impulse while its total relative load stays zero. Inertial mass from momentum dispersion and coupling to a physical electromagnetic field remain unmeasured. The lowest 24 lines of the free 20-cell bound band remain at least 99.36999% on adjacent high addresses. Three filtered sharp sources yield 6.8287%, 12.6035% and 18.8158% probability for an adjacent pair at least two owner steps from launch at one million exchange times. Time-zero probabilities are below 1.6 × 10⁻¹². The cluster has almost all its sharp-address weight on twelve cells of one gateway motif. A momentum-dispersion measurement across refinements and an independent electrical probe remain open.",
+              "note": "In a supplied uniformly filled medium a freely released excess and vacancy have zero relative load charge. A separated upper spectral band has an all-exposure lower bound of 85.47% for binding at the selected degree type on 20, 80 and 320 cells. At exposure 32 on 20 cells, 99.44% of terminal outcomes were adjacent, and in 6.83% both constituents had changed sites and were adjacent. Most motion stayed within the launch cell. An electromagnetic charge measurement and an independent inertial mass for this same excitation remain open. This test addresses OpenWave’s particle criterion. The OPH dark-sector paper assigns gravitational stress to anomalous modular charge on an overlap collar. Pair binding provides no measurement of that source. OpenWave lists OPH as untested on Row 19 at the cited revision. The official static test asks for a stable neutral massive state. It does not specify an elementary particle or a relic abundance. PATCH-10 tracks gravitational observations sourced by patch records. A separate coin-odd contrast-two memory has fixed-address native gaps of 32 or 33. Every one of the nine two-port load inputs acquires the same energy shift. Excess and vacancy Ramsey probes return bright with probability one at π/32, against zero for the matched even-coin contact. This identifies a stored mode invisible to these probes. Electromagnetic neutrality and a finite inertial mass require independent evidence. Matched collar correlations on a separate 20-cell native four-tracer instrument produce zero exact initial focusing contrast. At the later appointment their normalized chord volumes differ by −0.000005833 ± 0.000001756 at simultaneous 99% coverage. Testing anomalous gravitational stress requires a common proper curvature coupled to the collar, beyond this tracer geometry. This broader hypothesis is separate from the static particle criterion. Three free bound-pair preparations on a 20-cell uniformly filled host give measured intercell kinetic matrix elements near −1.02 to −1.04 × 10⁻⁶ exchange units. Their intact-pair terminal imbalance responds to the imposed phase. The branch polarizes under a spatially stepped signed-load impulse while its total relative load stays zero. Inertial mass from momentum dispersion and coupling to a physical electromagnetic field remain unmeasured. The lowest 24 lines of the free 20-cell bound band remain at least 99.36999% on adjacent high addresses. Three filtered sharp sources yield 6.8287%, 12.6035% and 18.8158% probability for an adjacent pair at least two owner steps from launch at one million exchange times. Time-zero probabilities are below 1.6 × 10⁻¹². The cluster has almost all its sharp-address weight on twelve cells of one gateway motif. A momentum-dispersion measurement across refinements and an independent electrical probe remain open. Independent opposite-sign contact probes on the same far-arriving pair resolve opposite spatial responses and a common scattering component of 0.219–0.224 single-charge response units at a 1/32 dwell. The whole-screen signed cancellation follows from the calibrated odd response and the equal constituent counts. On the 20-cell board a kinetic coefficient fixed at the first owner wavelength misses all six held peak forecasts on the moving band. A physical electrical response and a predictive inertial mass remain open. For the separate two-head collar proposal the connected preparation changes neither relative load nor the parked energy of 16. Its modular first variation has a calculable, reference-dependent sign. Physical mass and its gravitational effect need independent readings.",
               "evidence": [
                 "model/candidate_laws/interval_echo/SPEC.md",
                 "model/candidate_laws/contrast_memory_spherical_v1/collar.py",
@@ -706,7 +864,10 @@
                 "model/experiments/material_inertia/pair_recoil/results.json",
                 "model/experiments/material_inertia/pair_recoil/pulse.json",
                 "model/experiments/material_inertia/pair_spectrum/README.md",
-                "model/experiments/material_inertia/pair_spectrum/results.json"
+                "model/experiments/material_inertia/pair_spectrum/results.json",
+                "model/experiments/material_inertia/pair_spectrum/probe.json",
+                "model/experiments/material_inertia/pair_spectrum/dispersion.json",
+                "model/experiments/interval_echo_einstein_station/collar_pairing/results.json"
               ],
               "demonstrated_measurement": {
                 "label": "Multi-cell flight of the lowest load-neutral bound pair",
@@ -747,14 +908,20 @@
           "regime": "static",
           "upstream_number": 20,
           "sources": [
-            "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L124"
+            "https://github.com/openwave-labs/openwave/blob/d4fc3e4046c472f4ad38468df8dddfa1f97bac97/MODELS.md#L124"
           ],
           "results": {
             "interval_echo": {
               "status": "open",
-              "note": "The bare two-load interaction vanishes beyond adjacent ports. The tested written and bare source sectors have no identified elementary electric charge with the required far field.",
+              "note": "A constrained chain of native dimers transmits a static boundary interaction between independently signed material endpoints. On even-length guides its opposite-minus-like energy approaches 31.5 exchange units with an inverse-square correction. A constant plus inverse-distance forecast calibrated at four and six dimers misses all 19 held lengths on the 320-cell board. A pulse schedule calibrated from the dimer and contact energies produces an inverse-guide-length quasienergy magnitude. Two oppositely travelling material packets on the same critical guide move at a measured 0.955 wall spacings per exchange unit. The finite boundary phase and the packet speed are consistent with the scale of a critical one-dimensional mode. Keeping both charge signs fixed and adding one dimer reverses the signed interaction. A common electric potential depending only on physical distance and an electric strength remain unestablished.",
               "evidence": [
-                "model/candidate_laws/interval_echo/SPEC.md"
+                "model/candidate_laws/interval_echo/SPEC.md",
+                "model/candidate_laws/interval_echo/openwave/row_20_electric/README.md",
+                "model/candidate_laws/interval_echo/openwave/row_20_electric/records.json",
+                "model/candidate_laws/interval_echo/openwave/row_20_electric/neutral.json",
+                "model/candidate_laws/interval_echo/openwave/row_20_electric/schedule.json",
+                "model/candidate_laws/interval_echo/openwave/row_20_electric/flight.json",
+                "model/candidate_laws/interval_echo/openwave/row_20_electric/flight.npz"
               ],
               "comparison": {
                 "law": "Written-field Laplacian extension",
@@ -784,16 +951,18 @@
           "regime": "dynamic",
           "upstream_number": 21,
           "sources": [
-            "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L125"
+            "https://github.com/openwave-labs/openwave/blob/d4fc3e4046c472f4ad38468df8dddfa1f97bac97/MODELS.md#L125"
           ],
           "results": {
             "interval_echo": {
               "status": "partial",
-              "note": "Guided finite-patch reunion counts track the calibrated time-dilation target on the tested service menu. A boost and a signal-speed limit on freely evolving spherical states remain open. Free contrast clusters retain the known ring inertia mismatch.",
+              "note": "Guided finite-patch reunion counts track the calibrated time-dilation target on the tested service menu. A boost and a signal-speed limit on freely evolving spherical states remain open. Free contrast clusters retain the known ring inertia mismatch. In a spectrally selected bound pair on a supplied two-matching guide, the two endpoints contract with increasing centre speed. On 80 cells the measured length drops from 9.811 to 4.379 port spacings at 0.879 of the sharp single-load signal front. A midpoint fringe confirms the high-winding speed. The length ratio 0.446 misses the Lorentz forecast 0.477. Even allowing a free common speed misses the held widths on each board. These observations use the guide frame and its synchronized period-end appointments.",
               "evidence": [
                 "model/candidate_laws/interval_echo/RESULTS.json",
                 "model/candidate_laws/interval_echo/SPEC.md",
-                "model/experiments/material_inertia/README.md"
+                "model/experiments/material_inertia/README.md",
+                "model/candidate_laws/interval_echo/openwave/row_21_boost/README.md",
+                "model/candidate_laws/interval_echo/openwave/row_21_boost/results.json"
               ],
               "comparison": {
                 "law": "Directed ring extension",
@@ -825,20 +994,33 @@
           "regime": "static",
           "upstream_number": 22,
           "sources": [
-            "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L126"
+            "https://github.com/openwave-labs/openwave/blob/d4fc3e4046c472f4ad38468df8dddfa1f97bac97/MODELS.md#L126"
           ],
           "results": {
             "interval_echo": {
               "status": "open",
-              "note": "A colour-source separation scan and a measured confining tension remain open.",
+              "note": "On the 20-, 80- and 320-cell federations a locally decoded triplet and antitriplet give a colour-dependent contact. On the largest board the selected octet contact is −0.176961 ± 0.000149 and the singlet contact −0.000015 ± 0.000049 exchange units. At separations of two through 22 owner steps the connected operator is zero on all nine allowed fixed-source colours. A separate domain in a prepared polarized medium costs 17 units per displaced cell. The same outer wall records also occur at cost 34 for every tested length of at least two when extra interior walls are admitted. With a fourth load freely moving on 924 exterior ports, the 80-cell singlet gains 0.10937 exchange units at two steps relative to its best isolated-source binding, 0.00305 at four and less than 0.000001 at ten. This finite-range attraction saturates on the tested placements. A colour-selected separation energy and a physical string tension require an independent measurement. The stationary determinant of three native compact orbitals has exactly zero connected energy on the nearest eligible owners and at pair distances 15, 15 and 16 on the 320-cell board. Its material has zero amplitude on the gateways. On a second fixed period-three string the measured rung contribution changes by −17 native units per translated material unit. Translating the whole ring removes the endpoints while retaining the full contribution. This measures a bulk bias in the supplied reference. Above any blank homogeneous host, the full native energy of an arbitrary state is at most 198 times its expected number of material deviations plus 33 times its expected number of written seams. Unbounded linear growth requires an increasing number of excitations.",
               "evidence": [
-                "model/candidate_laws/interval_echo/SPEC.md"
+                "model/candidate_laws/interval_echo/SPEC.md",
+                "model/candidate_laws/interval_echo/openwave/row_22_confinement/README.md",
+                "model/candidate_laws/interval_echo/openwave/row_22_confinement/records.json",
+                "model/candidate_laws/interval_echo/openwave/row_22_confinement/dressing.json",
+                "model/candidate_laws/interval_echo/openwave/quark_winding/belt_walls/orbital_singlet.json",
+                "model/candidate_laws/interval_echo/openwave/quark_winding/belt_walls/pinned_string.json",
+                "model/candidate_laws/interval_echo/openwave/quark_winding/belt_walls/free_spectrum.json"
               ],
               "comparison": {
                 "law": "Directed ring extension",
                 "finding": "The separation energy can grow with the length of the written support. This is a bound in a signed load sector. Neither a colour-dependent potential nor its string tension in GeV/fm was measured.",
                 "source": "model/candidate_laws/interval_echo/openwave/electron_field/README.md#rest-energy-and-the-other-openwave-observables"
-              }
+              },
+              "additional_comparisons": [
+                {
+                  "law": "Static separation of written density walls",
+                  "finding": "Native sharp-wall contact energy rises by four exchange units per three sites of separation within a fixed Gauss sector. The positive-Laplacian law reverses the slope. A separate three-arm trial with the same endpoint words has distance-independent blank-trail energy. No minimum colour potential or tension in physical units follows.",
+                  "source": "model/candidate_laws/interval_echo/openwave/quark_winding/written_junction/README.md"
+                }
+              ]
             },
             "contrast_memory_spherical_v1": {
               "status": "open",
@@ -860,14 +1042,17 @@
           "regime": "static",
           "upstream_number": 23,
           "sources": [
-            "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L127"
+            "https://github.com/openwave-labs/openwave/blob/d4fc3e4046c472f4ad38468df8dddfa1f97bac97/MODELS.md#L127"
           ],
           "results": {
             "interval_echo": {
-              "status": "open",
-              "note": "A scale scan of a physical coupling referred to the same core radius remains open.",
+              "status": "partial",
+              "note": "Scattering from one empty seam write measures a two-port effective interaction at two spatial cutoffs on 20 and 80 cells. Using the coarse interaction at the finer cutoff misses a held third-port return by 0.09734 and 0.09738. Matching the interaction at the finer cutoff predicts both returns within 0.000004. An independent bound-load measurement gives a core radius of 0.538 links. Halving the spectrometer linewidth moves the first ten-percent change of the scattering amplitude from kR about 0.89 to 0.30 or 0.33. At fixed probe energy the first resolved ten-percent change of the cutoff-matched interaction is bracketed by kR = 0.113–0.184 and 0.124–0.135 on 20 and 80 cells, at both spectrometer widths. Fresh held receiver counts resolve the predicted change. This lies below the specified core window [0.5,2]. Its identification as a gauge coupling requires a further physical measurement. The written impurity, cutoff and instrument are supplied.",
               "evidence": [
-                "model/candidate_laws/interval_echo/SPEC.md"
+                "model/candidate_laws/interval_echo/SPEC.md",
+                "model/candidate_laws/interval_echo/openwave/row_23_coupling/README.md",
+                "model/candidate_laws/interval_echo/openwave/row_23_coupling/results.json",
+                "model/candidate_laws/interval_echo/openwave/row_23_coupling/cutoffs.json"
               ]
             },
             "contrast_memory_spherical_v1": {
@@ -925,9 +1110,17 @@
           "results": {
             "interval_echo": {
               "status": "open",
-              "note": "A tagged beta decay and its parity asymmetry remain open.",
+              "note": "A tagged beta decay and its parity asymmetry remain open. A whole unit can also enter by free evolution on an intact reservoir patch. For the held 15-port extension the infinite-time probability of the designated tight positive triple from the neutral preparation is below one part in a billion. The ordinary material transfer supplies the change of ring charge.",
               "evidence": [
-                "model/candidate_laws/interval_echo/SPEC.md"
+                "model/candidate_laws/interval_echo/SPEC.md",
+                "model/candidate_laws/interval_echo/openwave/quark_winding/written_junction/reservoir.json"
+              ],
+              "additional_comparisons": [
+                {
+                  "law": "Native core conversion with a reservoir",
+                  "finding": "An addressed single-unit transfer converts a neutral three-wall preparation to a positive one and leaves a reservoir vacancy. The local orientation reversal gives identical complete records and exchange alone reproduces the blank-contact law. A free parity-violating decay with a neutral emitted particle is unverified.",
+                  "source": "model/candidate_laws/interval_echo/openwave/quark_winding/written_junction/README.md"
+                }
               ]
             },
             "contrast_memory_spherical_v1": {
@@ -955,12 +1148,13 @@
           "results": {
             "interval_echo": {
               "status": "open",
-              "note": "Attractive contact phases are available for adjacent loads. The one-load energy shift is common to all paths. Neither measurement supplies an attractive inverse-square force between distant masses. In a uniformly filled 20-cell host with two pairs confined to their respective cells, the connected static energy is −17 or +15.5 exchange units at contact according to orientation. For every internal wavefunction the joint Hamiltonian factorizes at nonadjacent centres. The connected energy is exactly zero at separations two through five. An independent free-flight baseline measures the probability of an adjacent neutral pair arriving at least two cells away in the absence of a second source. A force measurement would require the source-induced change. A uniform launch over the whole federation resolves a local matter response to a freely formed collar. All enrolled distant readings include the uniform probability within their simultaneous intervals. These separations and exposures measure neither an inverse-square force nor a Newton constant.",
+              "note": "Attractive contact phases are available for adjacent loads. The one-load energy shift is common to all paths. Neither measurement supplies an attractive inverse-square force between distant masses. In a uniformly filled 20-cell host with two pairs confined to their respective cells, the connected static energy is −17 or +15.5 exchange units at contact according to orientation. For every internal wavefunction the joint Hamiltonian factorizes at nonadjacent centres. The connected energy is exactly zero at separations two through five. An independent free-flight baseline measures the probability of an adjacent neutral pair arriving at least two cells away in the absence of a second source. A force measurement would require the source-induced change. A uniform launch over the whole federation resolves a local matter response to a freely formed collar. All enrolled distant readings include the uniform probability within their simultaneous intervals. These separations and exposures measure neither an inverse-square force nor a Newton constant. For two separated written heads, all initial first and second probe energy moments depend only on the individual head marginals. The change in connected correlations gives no static mean energy gradient in this product-launch experiment at any separation.",
               "evidence": [
                 "model/candidate_laws/interval_echo/SPEC.md",
                 "model/experiments/material_inertia/pair_recoil/force.json",
                 "model/experiments/material_inertia/pair_spectrum/results.json",
-                "model/experiments/interval_echo_einstein_station/shared_geometry_probe/flight.json"
+                "model/experiments/interval_echo_einstein_station/shared_geometry_probe/flight.json",
+                "model/experiments/interval_echo_einstein_station/collar_pairing/README.md"
               ]
             },
             "contrast_memory_spherical_v1": {
@@ -983,12 +1177,12 @@
           "regime": "both",
           "upstream_number": 27,
           "sources": [
-            "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L131"
+            "https://github.com/openwave-labs/openwave/blob/d4fc3e4046c472f4ad38468df8dddfa1f97bac97/MODELS.md#L131"
           ],
           "results": {
             "interval_echo": {
               "status": "open",
-              "note": "The guided reunion experiment changes the motion of the patch. Testing gravitational clock rates or light paths requires a measured source of curvature. The two co-located hands agree in vacuum. Following a release across one boundary the occupied meter lags the empty one by about 0.00028 radians on the 20-, 80- and 320-cell screens. The lag follows from double occupation of the meter contact. This readout distinguishes a probe-dependent lag from a common gravitational lapse. A parked source changes the frequencies of co-located excess and vacancy dimer clocks by factors of 0.06438 and 0.06764 in one orientation and 2.09341 and 1.93679 in the reverse orientation. Both ratios are exactly one beyond contact on the four enrolled separations. A common gravitational rate and matter-sensitive optical propagation require different evidence. Equilibrating the hidden directions after the first of two native flights misses 38.9–39.3% of departures on the 327680-cell material. Preserving the conditional state and varying a midpoint phase predicts 32 held radial returns. Converting these radial records to proper distances and measuring curvature with independent clocks and light require additional evidence. Opposite native load signs share an ordinary-source calibration over 13,992 held frequencies. A uniform mixture over all ports responds locally to a freely formed collar on 20 and 80 cells. Neither a source-dependent unitary geometry of that complete propagation space nor a classical mixture of such geometries can account for this polarization. Independent proper clocks and ranges are needed to identify a geometric contribution.",
+              "note": "The guided reunion experiment changes the motion of the patch. Testing gravitational clock rates or light paths requires a measured source of curvature. The two co-located hands agree in vacuum. Following a release across one boundary the occupied meter lags the empty one by about 0.00028 radians on the 20-, 80- and 320-cell screens. The lag follows from double occupation of the meter contact. This readout distinguishes a probe-dependent lag from a common gravitational lapse. A parked source changes the frequencies of co-located excess and vacancy dimer clocks by factors of 0.06438 and 0.06764 in one orientation and 2.09341 and 1.93679 in the reverse orientation. Both ratios are exactly one beyond contact on the four enrolled separations. A common gravitational rate and matter-sensitive optical propagation require different evidence. Equilibrating the hidden directions after the first of two native flights misses 38.9–39.3% of departures on the 327680-cell material. Preserving the conditional state and varying a midpoint phase predicts 32 held radial returns. Converting these radial records to proper distances and measuring curvature with independent clocks and light require additional evidence. Opposite native load signs share an ordinary-source calibration over 13,992 held frequencies. A uniform mixture over all ports responds locally to a freely formed collar on 20 and 80 cells. Neither a source-dependent unitary geometry of that complete propagation space nor a classical mixture of such geometries can account for this polarization. Independent proper clocks and ranges are needed to identify a geometric contribution. On a ten-port guide a source of fixed energy gives two locally calibrated clocks frequency ratios of 32.016 and 1 beside an even-parity collar. Of 268,435,456 launches per tag, 2,763 and 195,545,892 complete a two-leg signal by 64 emitter ticks. An empty write delays both tags, with 52.611% and 52.508% of attempts completing, against 72.85% on the blank. The difference in source-induced shifts exceeds a simultaneous 99% counting bound at two detector cadences. Both signals are material. On two adjacent cells a freely moving mediator communicates a parked source change to radar probes three to six links away. Out of every launch, the fraction of unit probes returning by 64 ticks falls by 3.923 percentage points for a mediator launched at the receiver-side gateway and rises by 10.314 points for the reverse launch. The double tag and empty-mediator controls show no resolved shift. An independent calibration with a stored mediator predicts held clock and return probabilities. Extracting gravity requires independent exterior clocks, ranges and signal propagation on the same source. The correlated collar changes the calculated probability of a completed material return from 0.053209 to 0.038839 on the 80-cell excess pair of source and probe settings. The first two probe energy moments fix the uniform clock rescaling to one. A common metric and independent optical signal are unverified.",
               "evidence": [
                 "model/candidate_laws/interval_echo/SPEC.md",
                 "model/candidate_laws/interval_echo/RESULTS.json",
@@ -996,7 +1190,13 @@
                 "model/experiments/material_inertia/pair_recoil/clock.json",
                 "model/experiments/interval_echo_einstein_station/relational_ruler/angular_equilibrium/results.json",
                 "model/experiments/interval_echo_einstein_station/shared_geometry_probe/results.json",
-                "model/experiments/interval_echo_einstein_station/shared_geometry_probe/flight.json"
+                "model/experiments/interval_echo_einstein_station/shared_geometry_probe/flight.json",
+                "model/candidate_laws/interval_echo/openwave/row_27_metric/README.md",
+                "model/candidate_laws/interval_echo/openwave/row_27_metric/results.json",
+                "model/candidate_laws/interval_echo/openwave/row_27_metric/counts.npz",
+                "model/candidate_laws/interval_echo/openwave/row_27_metric/exterior.json",
+                "model/candidate_laws/interval_echo/openwave/row_27_metric/exterior.npz",
+                "model/experiments/interval_echo_einstein_station/collar_pairing/results.json"
               ]
             },
             "contrast_memory_spherical_v1": {
@@ -1019,21 +1219,38 @@
           "regime": "static",
           "upstream_number": 28,
           "sources": [
-            "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L132"
+            "https://github.com/openwave-labs/openwave/blob/d4fc3e4046c472f4ad38468df8dddfa1f97bac97/MODELS.md#L132"
           ],
           "results": {
             "interval_echo": {
               "status": "open",
-              "note": "A constant shift of the free load generator drops out of probabilities. A vacuum contribution linked to measured acceleration and an independent falsification test remain open. On three boards the ordinary clock's positive publication digits and counter increments agree at all 198 examined home and travel service readings. These marks supply one clock channel. An independently calibrated four-volume or distance response on the same events is still needed. The horizon dictionary gives a positive vacuum term only after independently identifying the physical capacity and horizon.",
+              "note": "A local observer sends labelled queries to two reflectors on matched preparations. On the same source clock both first echoes return at tick 4. The next pair, emitted at tick 4, returns at ticks 8 and 114. The changed-law control gives 8 and 8. Local repairs change routes, producing apparent recession in this relay. Of 67 measurable dense cohorts, 27 initially accelerate and all 201 constant-rate forecasts miss the 1% tolerance. Under the OPH horizon interpretation an independently selected de Sitter horizon entropy N in nats gives ΛℓP² = 3π/N once the physical area unit is calibrated. The same 25 cut coins accompany farthest ranges of 41 and 72 steps on one component. These readouts do not identify a common horizon radius. The physical Λ and an alternative that predicts the astronomical distance and redshift records remain open. The original free seam term lets a local phase probe decode a sender bit across each of all 25 nominal cuts. Two controlled durations of π/32 and π/33 give zero-error decoding for coherent writes at ideal timing. At six of eight 20-cell preparations the same finite tetrahedron measured by a single clock kept constant positive volume across all ten surveys. Direct global closure N=ln M0(U_N) needs the completed universe-wide readback and horizon identification. One declared pricing law has a unique macroscopic fixed point with N≈3.30294×10^122 conditional on its physical premises.",
               "evidence": [
                 "model/candidate_laws/interval_echo/SPEC.md",
-                "model/experiments/observer_expansion_reconstruction/results.json"
+                "model/experiments/observer_expansion_reconstruction/results.json",
+                "model/candidate_laws/interval_echo/openwave/row_28_acceleration/README.md",
+                "model/candidate_laws/interval_echo/openwave/row_28_acceleration/results.json",
+                "model/candidate_laws/interval_echo/openwave/row_28_acceleration/records.npz",
+                "model/candidate_laws/interval_echo/openwave/row_28_acceleration/signals.json",
+                "model/candidate_laws/interval_echo/openwave/row_28_acceleration/signals.npz",
+                "model/candidate_laws/interval_echo/openwave/row_28_acceleration/homogeneity.json",
+                "model/candidate_laws/interval_echo/openwave/row_28_acceleration/capacity.json",
+                "model/candidate_laws/interval_echo/openwave/row_28_acceleration/radar.json",
+                "cosmology/oph_cosmological_vacuum_and_structure_formation.tex",
+                "model/candidate_laws/interval_echo/openwave/row_28_acceleration/cut_signal.json",
+                "model/candidate_laws/interval_echo/openwave/row_28_acceleration/paired_probe.json",
+                "model/candidate_laws/interval_echo/openwave/row_28_acceleration/volume.json",
+                "model/candidate_laws/interval_echo/openwave/row_28_acceleration/CAPACITY_CLOSURE.md"
               ],
               "comparison": {
                 "law": "Layered OPH order with a calibrated four-volume counter and independent proper clock",
                 "label": "Recovering the sign and rate of expansion",
                 "finding": "Observers classify all 24 interior readings and use one interval to forecast the scale at two later epochs. A varying marker density makes dust and de Sitter count laws identical. The independent clock detects the difference. The density and expansion histories belong to the comparison.",
                 "source": "model/experiments/observer_expansion_reconstruction/README.md"
+              },
+              "demonstrated_measurement": {
+                "label": "One observer distinguishes route delays from a common expansion by timing two labelled echoes",
+                "source": "model/candidate_laws/interval_echo/openwave/row_28_acceleration/README.md"
               }
             },
             "contrast_memory_spherical_v1": {
@@ -1056,14 +1273,23 @@
           "regime": "dynamic",
           "upstream_number": 29,
           "sources": [
-            "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L135"
+            "https://github.com/openwave-labs/openwave/blob/d4fc3e4046c472f4ad38468df8dddfa1f97bac97/MODELS.md#L135"
           ],
           "results": {
             "interval_echo": {
               "status": "open",
-              "note": "A measured electric current, transverse electromagnetic wave and recovery of Maxwell dynamics remain open.",
+              "note": "Two transverse components of a prepared material dipole arrive three cells away on the unshuttered 80-cell board, with measured transverse transfer singular values 0.17834 and 0.02821 at time 64. The longitudinal response is 0.17950. Across 23,608 exact-frequency, direction and material comparisons none meet the specified two-transverse and weak-longitudinal response criterion. The first sampled receiving-cell population above 0.5% occurs at 17.5 and 35.5 exchange units for the two transverse preparations, versus 13.5 for the independent sharp pulse. A separate face-circulation source on a five-cell loop conveys its orientation two cells away even when both loads start in the source cell. On a single bridge a source-cell reflection makes the two signs indistinguishable to every exterior measurement. The received orientation accompanies material. Neither a Maxwell field nor a common limiting speed is identified by these preparations.",
               "evidence": [
-                "model/candidate_laws/interval_echo/SPEC.md"
+                "model/candidate_laws/interval_echo/SPEC.md",
+                "model/candidate_laws/interval_echo/openwave/row_29_maxwell/README.md",
+                "model/candidate_laws/interval_echo/openwave/row_29_maxwell/results.json",
+                "model/candidate_laws/interval_echo/openwave/row_29_maxwell/survey.json",
+                "model/candidate_laws/interval_echo/openwave/row_29_maxwell/counts.npz",
+                "model/candidate_laws/interval_echo/openwave/row_29_maxwell/flight.npz",
+                "model/candidate_laws/interval_echo/openwave/row_29_circulation/README.md",
+                "model/candidate_laws/interval_echo/openwave/row_29_circulation/results.json",
+                "model/candidate_laws/interval_echo/openwave/row_29_circulation/precision.json",
+                "model/candidate_laws/interval_echo/openwave/row_29_circulation/flight.json"
               ],
               "comparison": {
                 "law": "Written-field Laplacian extension",
@@ -1091,17 +1317,35 @@
           "regime": "dynamic",
           "upstream_number": 30,
           "sources": [
-            "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L136"
+            "https://github.com/openwave-labs/openwave/blob/d4fc3e4046c472f4ad38468df8dddfa1f97bac97/MODELS.md#L136",
+            "https://github.com/openwave-labs/openwave/blob/d4fc3e4046c472f4ad38468df8dddfa1f97bac97/MODELS.md#L467"
           ],
           "results": {
             "interval_echo": {
               "status": "partial",
               "demonstrated_measurement": {
-                "label": "Low-energy Klein–Gordon dispersion of free matter on a prepared record channel",
-                "source": "model/candidate_laws/interval_echo/openwave/row_30_autonomous/README.md"
+                "label": "Dispersion of a traveling domain wall on a strand with unread connector memories",
+                "source": "model/candidate_laws/interval_echo/openwave/row_30_collective/README.md"
               },
-              "note": "On the prepared 194-cell channel the continuum Klein–Gordon envelope fits four held frequencies within 1.19% using packet speed. The competing parabola misses by 6.68% at the last held point. The continuum misses by 18.03% at the separate microscopic challenge. In the published candidate an empty-seam measurement forecasts rest and all five moving frequencies from the exact four-site dispersion within 0.036%. The later eight-witness common-unit standard forecasts those same archived frequencies within 0.032%, with its scale fixed by the comparison rule. Fair parity gives about 50% discrepancies. The forecasts share the prepared one-dimensional material background. A freely established background and a matter branch in additional directions remain open. Shortest internal paths joining the same gateway port pairs through the same 194 cells put 62 modes in the original gap.",
+              "filing": {
+                "official_status": "🚧 Not yet tested",
+                "decision": "https://github.com/openwave-labs/openwave/blob/d4fc3e4046c472f4ad38468df8dddfa1f97bac97/MODELS.md#L467",
+                "stage_label": "Full-credit submission",
+                "resubmission": "HOLD",
+                "review": "model/candidate_laws/interval_echo/openwave/submission/ROW_30_DECISION.md"
+              },
+              "note": "The v3 coherent-strand observer uses wave numbers fitted on even receiver holds for every dispersion forecast and tests the spatial profiles on odd holds. On three local validation materials fixed before acquisition, all 22 frequencies agree within 0.000575 with the lattice law predicted by independent coupling meters. Fourteen ordinary low-wave-number lines agree within 0.003165. Measured profiles pass and launch labels fail on all three. On two of its own validation boards the separate v2 full-record recurrence failed its spatial threshold. The v3 source, declaration and decoder are frozen for a public candidate decision. The verifier distinguishes completed rejection, missing records, corrupt evidence and unaccepted binding. These measurements require coherent unread connecting memories. A two-ensemble local readout on exposed 17- and 20-dimer rings gave rest frequencies 15.000082 and 14.999985, and near 7 at half contrast. On the prepared 194-cell channel the continuum Klein–Gordon envelope fits four held frequencies within 1.19% using packet speed. The competing parabola misses by 6.68% at the last held point. The continuum misses by 18.03% at the separate microscopic challenge. In the published candidate an empty-seam measurement forecasts rest and all five moving frequencies from the exact four-site dispersion within 0.036%. The later eight-witness common-unit standard forecasts those same archived frequencies within 0.032%, with its scale fixed by the comparison rule. Fair parity gives about 50% discrepancies. The forecasts share the prepared one-dimensional material background. This single-load gap depends on the prepared route. Shortest internal paths joining the same gateway port pairs through the same 194 cells put 62 modes in the original gap. Locally commissioned empty repairs split a single-load spectrum into coordination bands on 20, 80 and 320 cells in two independent preparations per size. In the selected one-write band, all 30 constant and low spatial-mode preparations fail the single-frequency test. The strongest two adjacent clock bins hold 34.23–50.07% of the tagged zero-mode counts, below the 80% pure-line floor after leakage accounting. A uniform preparation restricted to connected one-write ports passes the frequency filter on over 97% of launches. The joint frequency and spatial return counts still reject a single rest frequency on all six media at simultaneous 99% confidence. Free transport depends strongly on the deposited records. On 27 independently prepared local sharp-repair histories, a uniform wave gave 36.48–59.11% home misses at one quarter exchange unit, with zero on exchange-only material. The squared frequency width is κ² times the spatial variance of the incident write count on that wave. A separate frequency-gated detector four cells from the source gave 2,220 of 4,194,304 mid-gap arrivals on the shortest path and zero anywhere on the repeated path.",
               "evidence": [
+                "model/candidate_laws/interval_echo/openwave/submission/row_30_confirmation/README.md",
+                "model/candidate_laws/interval_echo/openwave/submission/row_30_confirmation/PACKAGE.json",
+                "model/candidate_laws/interval_echo/openwave/submission/row_30_confirmation/v2/validation.json",
+                "model/candidate_laws/interval_echo/openwave/submission/row_30_confirmation/diagnosis.json",
+                "model/candidate_laws/interval_echo/openwave/submission/row_30_confirmation/validation.json",
+                "model/candidate_laws/interval_echo/openwave/submission/row_30_cautions/README.md",
+                "model/candidate_laws/interval_echo/openwave/submission/row_30_cautions/memory.json",
+                "model/candidate_laws/interval_echo/openwave/submission/row_30_cautions/detector.json",
+                "model/candidate_laws/interval_echo/openwave/submission/row_30_cautions/ring_repair.json",
+                "model/candidate_laws/interval_echo/openwave/submission/row_30_cautions/gates.json",
                 "model/candidate_laws/interval_echo/openwave/row_30/README.md",
                 "model/candidate_laws/interval_echo/openwave/row_30/results.json",
                 "model/candidate_laws/interval_echo/openwave/row_30/patch_time.json",
@@ -1122,7 +1366,21 @@
                 "model/candidate_laws/interval_echo/openwave/row_30_selective/channel_review.json",
                 "model/experiments/interval_echo_consensus/offer_service.py",
                 "model/experiments/interval_echo_consensus/modular_standard.py",
-                "model/experiments/interval_echo_consensus/modular_standard.json"
+                "model/experiments/interval_echo_consensus/modular_standard.json",
+                "model/candidate_laws/interval_echo/openwave/row_30_formed/README.md",
+                "model/candidate_laws/interval_echo/openwave/row_30_formed/results.json",
+                "model/candidate_laws/interval_echo/openwave/row_30_repair/README.md",
+                "model/candidate_laws/interval_echo/openwave/row_30_repair/results.json",
+                "model/candidate_laws/interval_echo/openwave/row_30_route/receiver.json",
+                "model/candidate_laws/interval_echo/openwave/row_30_collective/README.md",
+                "model/candidate_laws/interval_echo/openwave/row_30_collective/formation.json",
+                "model/candidate_laws/interval_echo/openwave/row_30_collective/rest/README.md",
+                "model/candidate_laws/interval_echo/openwave/row_30_collective/rest/results.json",
+                "model/candidate_laws/interval_echo/openwave/row_30_collective/coupling_meter.json",
+                "model/candidate_laws/interval_echo/openwave/row_30_collective/holdout.json",
+                "model/candidate_laws/interval_echo/openwave/row_30_collective/propagating_control.json",
+                "model/candidate_laws/interval_echo/openwave/row_30_optical/README.md",
+                "model/candidate_laws/interval_echo/openwave/row_30_local_routes/README.md"
               ],
               "comparison": {
                 "law": "Directed ring extension",
@@ -1154,15 +1412,18 @@
           "regime": "static",
           "upstream_number": 31,
           "sources": [
-            "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L137"
+            "https://github.com/openwave-labs/openwave/blob/d4fc3e4046c472f4ad38468df8dddfa1f97bac97/MODELS.md#L137"
           ],
           "results": {
             "interval_echo": {
               "status": "partial",
-              "note": "A load bound to a static seam has discrete levels in the free contrast interaction. The computed spacings and shell multiplicities fail the hydrogenic comparison, and the level count at fixed record number is bounded under refinement.",
+              "note": "A load bound to a static seam has discrete levels in the free contrast interaction. The computed spacings and shell multiplicities fail the hydrogenic comparison, and the level count at fixed record number is bounded under refinement. A freely moving amount-one and amount-two pair gives 1,032,974 adjacent detections among 1,034,018 bound-window clicks on the 20-cell board. An isolated cell has a relative standing-wave level at −30.1213. On 20, 80 and 320 cells all negative levels of the mixed pair lie in [−32,−24] relative to the separated reference. The second and third hydrogenic levels would fall in the empty spectral gap. The analogous test also excludes these two levels for each equal-amount pair on the empty host. A separate mobile load mediates attraction between two stationary written cores. Calibrating an inverse-distance law at three links predicts 0.05415 exchange units at four; the gains are 0.001893 and 0.000204 on 20 and 80 cells. All 18 held distance settings miss that prediction. Other media and longer-range interactions are outside these experiments.",
               "evidence": [
                 "model/candidate_laws/interval_echo/SPEC.md",
-                "model/candidate_laws/contrast_memory_spherical_v1/collar.py"
+                "model/candidate_laws/contrast_memory_spherical_v1/collar.py",
+                "model/candidate_laws/interval_echo/openwave/row_31_orbitals/README.md",
+                "model/candidate_laws/interval_echo/openwave/row_31_orbitals/results.json",
+                "model/candidate_laws/interval_echo/openwave/row_31_orbitals/mediator.json"
               ],
               "comparison": {
                 "law": "Written-field Laplacian extension",

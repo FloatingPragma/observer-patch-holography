@@ -1,0 +1,359 @@
+{
+  "gates": {
+    "native": {
+      "commutator": 0.0,
+      "squared_change_from_initial_count": 0.0,
+      "surviving_pair": 0.5,
+      "offdiagonal_material": 0.0,
+      "coherent_material_read": 0.5,
+      "full_reversal": 1.0,
+      "reversal_after_mark_read": 0.5
+    },
+    "no_mark": {
+      "commutator": 4.69041575982,
+      "squared_change_from_initial_count": 0.5,
+      "surviving_pair": 0.5,
+      "offdiagonal_material": 0.5,
+      "coherent_material_read": 1.0,
+      "full_reversal": 1.0,
+      "reversal_after_mark_read": 1.0
+    }
+  },
+  "native_charge_commutators": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "bare_vacancy_echo_commutator": 2.0,
+  "coupling": 8.0,
+  "core_reads": [
+    {
+      "shift": 1,
+      "pairs": 0,
+      "addresses": [],
+      "aperture_units": -0.33333333333,
+      "joint": [
+        {
+          "vacancies": 0,
+          "compensating_marks": 0,
+          "probability": 1.0
+        }
+      ],
+      "reverse_after_read": 1.0
+    },
+    {
+      "shift": 1,
+      "pairs": 1,
+      "addresses": [
+        [
+          866,
+          901
+        ]
+      ],
+      "aperture_units": -0.33333333333,
+      "joint": [
+        {
+          "vacancies": 0,
+          "compensating_marks": 1,
+          "probability": 0.5
+        },
+        {
+          "vacancies": 1,
+          "compensating_marks": 0,
+          "probability": 0.5
+        }
+      ],
+      "reverse_after_read": 0.5
+    },
+    {
+      "shift": 1,
+      "pairs": 2,
+      "addresses": [
+        [
+          866,
+          901
+        ],
+        [
+          905,
+          904
+        ]
+      ],
+      "aperture_units": -0.33333333333,
+      "joint": [
+        {
+          "vacancies": 0,
+          "compensating_marks": 2,
+          "probability": 0.25
+        },
+        {
+          "vacancies": 1,
+          "compensating_marks": 1,
+          "probability": 0.5
+        },
+        {
+          "vacancies": 2,
+          "compensating_marks": 0,
+          "probability": 0.25
+        }
+      ],
+      "reverse_after_read": 0.25
+    },
+    {
+      "shift": 1,
+      "pairs": 3,
+      "addresses": [
+        [
+          866,
+          901
+        ],
+        [
+          905,
+          904
+        ],
+        [
+          870,
+          871
+        ]
+      ],
+      "aperture_units": -0.33333333333,
+      "joint": [
+        {
+          "vacancies": 0,
+          "compensating_marks": 3,
+          "probability": 0.125
+        },
+        {
+          "vacancies": 1,
+          "compensating_marks": 2,
+          "probability": 0.375
+        },
+        {
+          "vacancies": 2,
+          "compensating_marks": 1,
+          "probability": 0.375
+        },
+        {
+          "vacancies": 3,
+          "compensating_marks": 0,
+          "probability": 0.125
+        }
+      ],
+      "reverse_after_read": 0.125
+    },
+    {
+      "shift": 1,
+      "pairs": 4,
+      "addresses": [
+        [
+          866,
+          901
+        ],
+        [
+          905,
+          904
+        ],
+        [
+          870,
+          871
+        ],
+        [
+          911,
+          910
+        ]
+      ],
+      "aperture_units": -0.33333333333,
+      "joint": [
+        {
+          "vacancies": 0,
+          "compensating_marks": 4,
+          "probability": 0.0625
+        },
+        {
+          "vacancies": 1,
+          "compensating_marks": 3,
+          "probability": 0.25
+        },
+        {
+          "vacancies": 2,
+          "compensating_marks": 2,
+          "probability": 0.375
+        },
+        {
+          "vacancies": 3,
+          "compensating_marks": 1,
+          "probability": 0.25
+        },
+        {
+          "vacancies": 4,
+          "compensating_marks": 0,
+          "probability": 0.0625
+        }
+      ],
+      "reverse_after_read": 0.0625
+    },
+    {
+      "shift": -2,
+      "pairs": 0,
+      "addresses": [],
+      "aperture_units": 0.66666666667,
+      "joint": [
+        {
+          "vacancies": 0,
+          "compensating_marks": 0,
+          "probability": 1.0
+        }
+      ],
+      "reverse_after_read": 1.0
+    },
+    {
+      "shift": -2,
+      "pairs": 1,
+      "addresses": [
+        [
+          866,
+          901
+        ]
+      ],
+      "aperture_units": 0.66666666667,
+      "joint": [
+        {
+          "vacancies": 0,
+          "compensating_marks": 1,
+          "probability": 0.5
+        },
+        {
+          "vacancies": 1,
+          "compensating_marks": 0,
+          "probability": 0.5
+        }
+      ],
+      "reverse_after_read": 0.5
+    },
+    {
+      "shift": -2,
+      "pairs": 2,
+      "addresses": [
+        [
+          866,
+          901
+        ],
+        [
+          905,
+          904
+        ]
+      ],
+      "aperture_units": 0.66666666667,
+      "joint": [
+        {
+          "vacancies": 0,
+          "compensating_marks": 2,
+          "probability": 0.25
+        },
+        {
+          "vacancies": 1,
+          "compensating_marks": 1,
+          "probability": 0.5
+        },
+        {
+          "vacancies": 2,
+          "compensating_marks": 0,
+          "probability": 0.25
+        }
+      ],
+      "reverse_after_read": 0.25
+    },
+    {
+      "shift": -2,
+      "pairs": 3,
+      "addresses": [
+        [
+          866,
+          901
+        ],
+        [
+          905,
+          904
+        ],
+        [
+          870,
+          871
+        ]
+      ],
+      "aperture_units": 0.66666666667,
+      "joint": [
+        {
+          "vacancies": 0,
+          "compensating_marks": 3,
+          "probability": 0.125
+        },
+        {
+          "vacancies": 1,
+          "compensating_marks": 2,
+          "probability": 0.375
+        },
+        {
+          "vacancies": 2,
+          "compensating_marks": 1,
+          "probability": 0.375
+        },
+        {
+          "vacancies": 3,
+          "compensating_marks": 0,
+          "probability": 0.125
+        }
+      ],
+      "reverse_after_read": 0.125
+    },
+    {
+      "shift": -2,
+      "pairs": 4,
+      "addresses": [
+        [
+          866,
+          901
+        ],
+        [
+          905,
+          904
+        ],
+        [
+          870,
+          871
+        ],
+        [
+          911,
+          910
+        ]
+      ],
+      "aperture_units": 0.66666666667,
+      "joint": [
+        {
+          "vacancies": 0,
+          "compensating_marks": 4,
+          "probability": 0.0625
+        },
+        {
+          "vacancies": 1,
+          "compensating_marks": 3,
+          "probability": 0.25
+        },
+        {
+          "vacancies": 2,
+          "compensating_marks": 2,
+          "probability": 0.375
+        },
+        {
+          "vacancies": 3,
+          "compensating_marks": 1,
+          "probability": 0.25
+        },
+        {
+          "vacancies": 4,
+          "compensating_marks": 0,
+          "probability": 0.0625
+        }
+      ],
+      "reverse_after_read": 0.0625
+    }
+  ]
+}

@@ -1,0 +1,604 @@
+{
+  "seed": 311942,
+  "shots": 1048576,
+  "studies": [
+    {
+      "cells": 20,
+      "first": [
+        0,
+        1
+      ],
+      "fitted_coefficient": 0.21655670020752193,
+      "independent_three_link_calibration": {
+        "seed": 311963,
+        "quadratures": [
+          {
+            "wait": 0.125,
+            "real_imag_plus": [
+              1048554,
+              529098
+            ]
+          },
+          {
+            "wait": 8,
+            "real_imag_plus": [
+              963425,
+              810481
+            ]
+          }
+        ],
+        "inferred_gain": 0.07219765331765911,
+        "gain_sampling_allowance": 0.0006631386163105287,
+        "coulomb_dark_probability_floor": 0.9997918520713477
+      },
+      "samples": [
+        {
+          "distance": 2,
+          "second": [
+            2,
+            10
+          ],
+          "reference": -6.13616268238955,
+          "ground_pair": -6.476227028295814,
+          "single_core_energies": [
+            -6.136162569142763,
+            -6.13616268238955
+          ],
+          "gain": 0.34006434590626444,
+          "largest_residual": 3.2715898081955896e-15,
+          "coulomb_gain": 0.10827835010376097,
+          "wait": 29.01404251707999,
+          "dark_probability": 0.9519781922645585,
+          "dark_count": 997881,
+          "cut_only_dark_count": 0,
+          "free_amplitude_residual_bound": 1.898440915868648e-13
+        },
+        {
+          "distance": 3,
+          "second": [
+            2,
+            3
+          ],
+          "reference": -6.136162682379675,
+          "ground_pair": -6.208348249115516,
+          "single_core_energies": [
+            -6.136162569142763,
+            -6.136162682379675
+          ],
+          "gain": 0.07218556673584064,
+          "largest_residual": 3.0051464300034175e-15,
+          "coulomb_gain": 0.07218556673584064,
+          "wait": 43.521063775619986,
+          "dark_probability": 1.0,
+          "dark_count": 1048576,
+          "cut_only_dark_count": 0,
+          "free_amplitude_residual_bound": 2.615743388705109e-13
+        },
+        {
+          "distance": 4,
+          "second": [
+            14,
+            15
+          ],
+          "reference": -6.136162569142763,
+          "ground_pair": -6.138055248977406,
+          "single_core_energies": [
+            -6.136162569142763,
+            -6.13608650601613
+          ],
+          "gain": 0.0018926798346434737,
+          "largest_residual": 3.729558181624756e-15,
+          "coulomb_gain": 0.054139175051880484,
+          "wait": 58.02808503415998,
+          "dark_probability": 0.0030125495753773306,
+          "dark_count": 3118,
+          "cut_only_dark_count": 0,
+          "free_amplitude_residual_bound": 4.3283823860633685e-13,
+          "fresh_meter_calibration": {
+            "wait": 58.01837057440533,
+            "dark": 3119
+          }
+        },
+        {
+          "distance": 5,
+          "second": [
+            12,
+            22
+          ],
+          "reference": -6.1379782862253185,
+          "ground_pair": -6.138018542870921,
+          "single_core_energies": [
+            -6.136162569142763,
+            -6.1379782862253185
+          ],
+          "gain": 4.0256645602809726e-05,
+          "largest_residual": 4.923833260910418e-15,
+          "coulomb_gain": 0.04331134004150439,
+          "wait": 72.53510629269998,
+          "dark_probability": 2.1316277844561603e-06,
+          "dark_count": 3,
+          "cut_only_dark_count": 0,
+          "free_amplitude_residual_bound": 7.143015378953374e-13,
+          "fresh_meter_calibration": {
+            "wait": 72.52296321800667,
+            "dark": 1
+          }
+        },
+        {
+          "distance": 6,
+          "second": [
+            24,
+            25
+          ],
+          "reference": -6.136162569142763,
+          "ground_pair": -6.1361626207633275,
+          "single_core_energies": [
+            -6.136162569142763,
+            -6.136086506016134
+          ],
+          "gain": 5.162056471164078e-08,
+          "largest_residual": 4.764066718590792e-15,
+          "coulomb_gain": 0.03609278336792032,
+          "wait": 87.04212755123997,
+          "dark_probability": 5.047130183744435e-12,
+          "dark_count": 0,
+          "cut_only_dark_count": 0,
+          "free_amplitude_residual_bound": 8.29349005964394e-13,
+          "fresh_meter_calibration": {
+            "wait": 87.027555861608,
+            "dark": 0
+          }
+        },
+        {
+          "distance": 7,
+          "second": [
+            25,
+            32
+          ],
+          "reference": -6.136162569142763,
+          "ground_pair": -6.136162594225406,
+          "single_core_energies": [
+            -6.136162569142763,
+            -6.136130029545604
+          ],
+          "gain": 2.5082643517748693e-08,
+          "largest_residual": 3.839166399496912e-15,
+          "coulomb_gain": 0.030936671458217418,
+          "wait": 101.54914880977996,
+          "dark_probability": 1.6219564734030019e-12,
+          "dark_count": 0,
+          "cut_only_dark_count": 0,
+          "free_amplitude_residual_bound": 7.797281600160382e-13,
+          "fresh_meter_calibration": {
+            "wait": 101.53214850520932,
+            "dark": 0
+          }
+        },
+        {
+          "distance": 8,
+          "second": [
+            27,
+            32
+          ],
+          "reference": -6.1380542754078204,
+          "ground_pair": -6.13805427540879,
+          "single_core_energies": [
+            -6.136162569142763,
+            -6.1380542754078204
+          ],
+          "gain": 9.698908343125368e-13,
+          "largest_residual": 2.893670367004396e-15,
+          "coulomb_gain": 0.027069587525940242,
+          "wait": 116.05617006831996,
+          "dark_probability": 3.167540583618333e-21,
+          "dark_count": 0,
+          "cut_only_dark_count": 0,
+          "free_amplitude_residual_bound": 6.7165660046944e-13,
+          "fresh_meter_calibration": {
+            "wait": 116.03674114881066,
+            "dark": 0
+          }
+        },
+        {
+          "distance": 9,
+          "second": [
+            38,
+            39
+          ],
+          "reference": -6.1361626824451285,
+          "ground_pair": -6.136162682498913,
+          "single_core_energies": [
+            -6.136162569142763,
+            -6.1361626824451285
+          ],
+          "gain": 5.3784532383360784e-11,
+          "largest_residual": 7.57168677218092e-15,
+          "coulomb_gain": 0.02406185557861355,
+          "wait": 130.56319132685994,
+          "dark_probability": 1.2328104773719324e-17,
+          "dark_count": 0,
+          "cut_only_dark_count": 0,
+          "free_amplitude_residual_bound": 1.977167177406624e-12,
+          "fresh_meter_calibration": {
+            "wait": 130.541333792412,
+            "dark": 0
+          }
+        },
+        {
+          "distance": 10,
+          "second": [
+            97,
+            104
+          ],
+          "reference": -6.136162569142763,
+          "ground_pair": -6.136162569142763,
+          "single_core_energies": [
+            -6.136162569142763,
+            -6.136130029545604
+          ],
+          "gain": 0.0,
+          "largest_residual": 3.188095963419639e-15,
+          "coulomb_gain": 0.021655670020752193,
+          "wait": 145.07021258539996,
+          "dark_probability": 0.0,
+          "dark_count": 0,
+          "cut_only_dark_count": 0,
+          "free_amplitude_residual_bound": 9.24995518311885e-13,
+          "fresh_meter_calibration": {
+            "wait": 145.04592643601333,
+            "dark": 0
+          }
+        },
+        {
+          "distance": 11,
+          "second": [
+            96,
+            97
+          ],
+          "reference": -6.136162569142763,
+          "ground_pair": -6.13616256914276,
+          "single_core_energies": [
+            -6.136162569142763,
+            -6.1360865060161345
+          ],
+          "gain": -2.6645352591003757e-15,
+          "largest_residual": 2.9073179235276535e-15,
+          "coulomb_gain": 0.019686972746138356,
+          "wait": 159.57723384393995,
+          "dark_probability": 4.519858271874933e-26,
+          "dark_count": 0,
+          "cut_only_dark_count": 0,
+          "free_amplitude_residual_bound": 9.278835042829006e-13,
+          "fresh_meter_calibration": {
+            "wait": 159.55051907961465,
+            "dark": 0
+          }
+        },
+        {
+          "distance": 12,
+          "second": [
+            96,
+            101
+          ],
+          "reference": -6.137978175928892,
+          "ground_pair": -6.137978175928892,
+          "single_core_energies": [
+            -6.136162569142763,
+            -6.137978175928892
+          ],
+          "gain": 0.0,
+          "largest_residual": 5.130417746907194e-15,
+          "coulomb_gain": 0.01804639168396016,
+          "wait": 174.08425510247994,
+          "dark_probability": 0.0,
+          "dark_count": 0,
+          "cut_only_dark_count": 0,
+          "free_amplitude_residual_bound": 1.7862499036697647e-12,
+          "fresh_meter_calibration": {
+            "wait": 174.055111723216,
+            "dark": 0
+          }
+        }
+      ]
+    },
+    {
+      "cells": 80,
+      "first": [
+        2,
+        3
+      ],
+      "fitted_coefficient": 0.21655691620077455,
+      "independent_three_link_calibration": {
+        "seed": 312023,
+        "quadratures": [
+          {
+            "wait": 0.125,
+            "real_imag_plus": [
+              1048553,
+              528607
+            ]
+          },
+          {
+            "wait": 8,
+            "real_imag_plus": [
+              963692,
+              810715
+            ]
+          }
+        ],
+        "inferred_gain": 0.07220963106627641,
+        "gain_sampling_allowance": 0.0006631386163105287,
+        "coulomb_dark_probability_floor": 0.9997919211137685
+      },
+      "samples": [
+        {
+          "distance": 2,
+          "second": [
+            0,
+            10
+          ],
+          "reference": -6.136162682430077,
+          "ground_pair": -6.476227066264493,
+          "single_core_energies": [
+            -6.136162682430077,
+            -6.136162682430057
+          ],
+          "gain": 0.3400643838344166,
+          "largest_residual": 6.311224965485089e-15,
+          "coulomb_gain": 0.10827845810038728,
+          "wait": 29.014013578556458,
+          "dark_probability": 0.9519800610765886,
+          "dark_count": 998500,
+          "cut_only_dark_count": 0,
+          "free_amplitude_residual_bound": 3.6622793369181774e-13
+        },
+        {
+          "distance": 3,
+          "second": [
+            0,
+            1
+          ],
+          "reference": -6.136162682430081,
+          "ground_pair": -6.2083483211636725,
+          "single_core_energies": [
+            -6.136162682430077,
+            -6.136162682430081
+          ],
+          "gain": 0.07218563873359152,
+          "largest_residual": 4.1578236594342e-15,
+          "coulomb_gain": 0.07218563873359152,
+          "wait": 43.52102036783469,
+          "dark_probability": 1.0,
+          "dark_count": 1048576,
+          "cut_only_dark_count": 0,
+          "free_amplitude_residual_bound": 3.6190545633620154e-13
+        },
+        {
+          "distance": 4,
+          "second": [
+            38,
+            39
+          ],
+          "reference": -6.136162682430078,
+          "ground_pair": -6.136366513861599,
+          "single_core_energies": [
+            -6.136162682430077,
+            -6.136162682430078
+          ],
+          "gain": 0.00020383143152091776,
+          "largest_residual": 3.1703441558948004e-15,
+          "coulomb_gain": 0.05413922905019364,
+          "wait": 58.028027157112916,
+          "dark_probability": 3.49746088323855e-05,
+          "dark_count": 31,
+          "cut_only_dark_count": 0,
+          "free_amplitude_residual_bound": 3.679376335513154e-13,
+          "fresh_meter_calibration": {
+            "wait": 58.00874679641805,
+            "dark": 34
+          }
+        },
+        {
+          "distance": 5,
+          "second": [
+            36,
+            46
+          ],
+          "reference": -6.136162682430077,
+          "ground_pair": -6.1362389211754005,
+          "single_core_energies": [
+            -6.136162682430077,
+            -6.136128405428982
+          ],
+          "gain": 7.623874532391994e-05,
+          "largest_residual": 2.788807113642147e-15,
+          "coulomb_gain": 0.04331138324015491,
+          "wait": 72.53503394639115,
+          "dark_probability": 7.645150162225811e-06,
+          "dark_count": 13,
+          "cut_only_dark_count": 0,
+          "free_amplitude_residual_bound": 4.045724373159405e-13,
+          "fresh_meter_calibration": {
+            "wait": 72.51093349552256,
+            "dark": 6
+          }
+        },
+        {
+          "distance": 6,
+          "second": [
+            36,
+            37
+          ],
+          "reference": -6.136162682430077,
+          "ground_pair": -6.136167040547013,
+          "single_core_energies": [
+            -6.136162682430077,
+            -6.136162682430028
+          ],
+          "gain": 4.358116936664658e-06,
+          "largest_residual": 3.3637734667001396e-14,
+          "coulomb_gain": 0.03609281936679576,
+          "wait": 87.04204073566937,
+          "dark_probability": 3.5974593136439824e-08,
+          "dark_count": 0,
+          "cut_only_dark_count": 0,
+          "free_amplitude_residual_bound": 5.855794142281547e-12,
+          "fresh_meter_calibration": {
+            "wait": 87.01312019462708,
+            "dark": 0
+          }
+        },
+        {
+          "distance": 7,
+          "second": [
+            12,
+            22
+          ],
+          "reference": -6.136162682430077,
+          "ground_pair": -6.136162766011055,
+          "single_core_energies": [
+            -6.136162682430077,
+            -6.136162658938755
+          ],
+          "gain": 8.358097858263136e-08,
+          "largest_residual": 9.491721973578713e-15,
+          "coulomb_gain": 0.030936702314396363,
+          "wait": 101.54904752494761,
+          "dark_probability": 1.8009705890429258e-11,
+          "dark_count": 0,
+          "cut_only_dark_count": 0,
+          "free_amplitude_residual_bound": 1.9277506515770684e-12,
+          "fresh_meter_calibration": {
+            "wait": 101.51530689373159,
+            "dark": 0
+          }
+        },
+        {
+          "distance": 8,
+          "second": [
+            12,
+            13
+          ],
+          "reference": -6.136162682430077,
+          "ground_pair": -6.136162696946953,
+          "single_core_energies": [
+            -6.136162682430077,
+            -6.136162569131304
+          ],
+          "gain": 1.4516876589709682e-08,
+          "largest_residual": 9.658473507448144e-15,
+          "coulomb_gain": 0.02706961452509682,
+          "wait": 116.05605431422583,
+          "dark_probability": 7.096136827005277e-13,
+          "dark_count": 0,
+          "cut_only_dark_count": 0,
+          "free_amplitude_residual_bound": 2.2418486519458263e-12,
+          "fresh_meter_calibration": {
+            "wait": 116.0174935928361,
+            "dark": 0
+          }
+        },
+        {
+          "distance": 9,
+          "second": [
+            13,
+            17
+          ],
+          "reference": -6.138019737524477,
+          "ground_pair": -6.138019737524498,
+          "single_core_energies": [
+            -6.136162682430077,
+            -6.138019737524477
+          ],
+          "gain": 2.1316282072803006e-14,
+          "largest_residual": 3.2035114137045074e-15,
+          "coulomb_gain": 0.024061879577863838,
+          "wait": 130.56306110350408,
+          "dark_probability": 1.936437895992275e-24,
+          "dark_count": 0,
+          "cut_only_dark_count": 0,
+          "free_amplitude_residual_bound": 8.365205129065487e-13,
+          "fresh_meter_calibration": {
+            "wait": 130.5196802919406,
+            "dark": 0
+          }
+        },
+        {
+          "distance": 10,
+          "second": [
+            61,
+            65
+          ],
+          "reference": -6.136162682430077,
+          "ground_pair": -6.136162682430076,
+          "single_core_energies": [
+            -6.136162682430077,
+            -6.135887331338327
+          ],
+          "gain": -8.881784197001252e-16,
+          "largest_residual": 2.7608924224540518e-15,
+          "coulomb_gain": 0.021655691620077456,
+          "wait": 145.0700678927823,
+          "dark_probability": 4.1504584533442104e-27,
+          "dark_count": 0,
+          "cut_only_dark_count": 0,
+          "free_amplitude_residual_bound": 8.01045702340155e-13,
+          "fresh_meter_calibration": {
+            "wait": 145.02186699104513,
+            "dark": 0
+          }
+        },
+        {
+          "distance": 11,
+          "second": [
+            60,
+            65
+          ],
+          "reference": -6.136162682430077,
+          "ground_pair": -6.1361626824300775,
+          "single_core_energies": [
+            -6.136162682430077,
+            -6.135883648389503
+          ],
+          "gain": 8.881784197001252e-16,
+          "largest_residual": 3.715280481460592e-15,
+          "coulomb_gain": 0.019686992381888594,
+          "wait": 159.57707468206056,
+          "dark_probability": 5.022054728546496e-27,
+          "dark_count": 0,
+          "cut_only_dark_count": 0,
+          "free_amplitude_residual_bound": 1.1857471817096776e-12,
+          "fresh_meter_calibration": {
+            "wait": 159.52405369014963,
+            "dark": 0
+          }
+        },
+        {
+          "distance": 12,
+          "second": [
+            108,
+            109
+          ],
+          "reference": -6.137981798434997,
+          "ground_pair": -6.137981798434996,
+          "single_core_energies": [
+            -6.136162682430077,
+            -6.137981798434997
+          ],
+          "gain": -8.881784197001252e-16,
+          "largest_residual": 3.0488258938854384e-15,
+          "coulomb_gain": 0.01804640968339788,
+          "wait": 174.08408147133875,
+          "dark_probability": 5.976660172815661e-27,
+          "dark_count": 0,
+          "cut_only_dark_count": 0,
+          "free_amplitude_residual_bound": 1.0615041106061597e-12,
+          "fresh_meter_calibration": {
+            "wait": 174.02624038925416,
+            "dark": 0
+          }
+        }
+      ]
+    }
+  ]
+}

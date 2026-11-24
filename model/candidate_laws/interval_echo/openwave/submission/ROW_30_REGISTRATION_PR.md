@@ -1,0 +1,9 @@
+# M10.5 · Register a prospective collective matter-wave test
+
+This proposal adds a backlog row, task terms and a source pointer for M10.5. It asks the maintainers to accept the stated preparation and detector on the adopted Interval Echo interaction for a prospective test of row 30. The separate M10.4 proposal concerns row 4. The comparison table is unchanged.
+
+A strand of loaded dimers supports a traveling change in their alternating orientation. Two independent local instruments measure exchange and conditional phase. These determine the collective dispersion before the strand's wave numbers and pair frequencies are compared. On previously examined boards, all eleven lines at ordinary wave number up to 0.50 radians per dimer agreed with the long-wavelength prediction within 0.002262 clock units. Two retrospectively selected rings also allowed a zero-wave-number frequency to be inferred from observed pair transitions. These results motivate the proposed test. The claim concerns this prepared one-dimensional material.
+
+The task specifies the commissioning, enrollment, detectors, controls, numerical thresholds and selection of fresh public inputs from its first accepted commit. Every board and failed trial contributes to the record. The source pointer fixes the apparatus, code and measurements supplied by the author. After registration, the author can run the frozen port inside an OpenWave checkout and return the complete result for independent adjudication.
+
+The criterion and the adopted interaction are described in the [current comparison table](https://github.com/openwave-labs/openwave/blob/d4fc3e4046c472f4ad38468df8dddfa1f97bac97/MODELS.md#L136) and the [M10 canonical specification](https://github.com/openwave-labs/openwave/blob/d4fc3e4046c472f4ad38468df8dddfa1f97bac97/openwave/xperiments/m10_oph/research/m10_theory_canonical.md#1-specification-of-record-and-the-pin).

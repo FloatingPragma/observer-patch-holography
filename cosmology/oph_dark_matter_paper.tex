@@ -44,17 +44,23 @@
 \end{center}
 
 \begin{abstract}
-Observer Patch Holography proposes a gravitational source in the records
-shared by overlapping observers. Full recovery of those records switches
-off the proposed excess. In a finite model, successive probes detect
-correlations carried by a surviving repair record. Changing the signed
-record at fixed ordinary load also shifts a local round-trip clock reading.
-Under scale covariance and independent-source composition the
-resulting galactic profile gives flat rotation curves and a fourth-power
-baryonic mass law with one undetermined scale. Galaxy rotation and
-lensing constrain its normalization and spatial distribution. A common spherical exterior carried through the measured disk of AGC~114905 gives too little shear on two isolated lens samples under the tested mass and optical calibrations. Identifying
-the fluctuations as a source of gravity requires their independently
-measured effect on geometry with the coupling calibrated on ordinary matter.
+Observer Patch Holography proposes that correlations retained across
+overlapping regions supply part of the stress seen by gravity. In a
+finite model, probes detect such a correlation at fixed ordinary load.
+Complete recovery of the shared record switches off its anomalous
+contribution under the stated recovery bound. If surviving fluctuations
+supply positive active mass, with additive source variance and a constant
+mean number of contributing layers per radial length, a compact spherical
+exterior has a flat asymptotic rotation curve and a fourth-power
+baryonic mass law. The acceleration scale requires calibration. Applying a fit from 121 galaxies to the local disk force gives a mean
+speed of at least 63 km/s across all cut phases in the outer measured
+ring of AGC~114905. The measured circular speed is $27\pm2$ km/s.
+The ring encloses about two thirds of its modeled gas. Three outer orbits selected by baryonic enclosure and acceleration
+in a separate sample agree within two quoted speed errors at nominal
+geometry. The weak-lensing profiles retain
+discrepancies at the rotation calibration. Identifying the proposed
+source requires an independent signed stress measurement that predicts
+geometry with the coupling measured on ordinary matter.
 \end{abstract}
 
 \section{What Sources Gravity in OPH}
@@ -224,14 +230,22 @@ entirely on the collar, and its expectation is the remainder bounded in
 clause, and the Gibbs condition are model premises; the receipt is the
 finite counterpart of \eqref{eq:split}, at exactly that strength.
 
-In the weak-field limit the anomalous density enters the Poisson equation
+For a static weak field with pressures negligible compared with the
+rest-energy densities, take $\Phi$ relative to the common vacuum
+potential. The anomalous mass density then enters the Poisson equation
 beside the baryons,
 \begin{equation}
 \nabla^2\Phi=4\pi G\,(\rho_b+\rho_A),
 \label{eq:poisson}
 \end{equation}
 with the attractive sign of Proposition~\ref{prop:sign} whenever the
-anomalous charge is nonnegative.
+anomalous charge is nonnegative. In units $c=1$, the equation for the
+unsubtracted potential includes $-\Lambda$, and appreciable principal
+pressures add $4\pi G\sum_i p_i$ at this order. The identification
+of the full stress enters before taking the slow-motion limit.
+The ordinary and overlap terms partition the same regional modular
+variation; counting the measured overlap variation in both terms would
+overestimate the source.
 
 \section{Galactic-Scale Collars and the Solar System}
 \label{sec:solar}
@@ -239,11 +253,16 @@ anomalous charge is nonnegative.
 The collars in \eqref{eq:split} are overlaps between physical observer
 patches. Their recovery defect measures how well the records on an
 overlap determine neighbouring records. The relevant density counts
-records made and retained by the modeled system. Two observers
-reconstructing the same region from compatible records should agree
-on its gravitational response after translating their measurements
-into a common frame. An observer's distance from that region supplies
-no measure of its recovery defect.
+records made and retained by the modeled system. Consider two patches
+carrying the same fair bit. Suppose their shared region retains that bit
+in four fifths of the trials and carries a blank in the rest. Reading the
+retained bits and guessing on the blanks gives one wrong reconstruction
+in ten trials on average. No predictor reading only this record can do
+better. Reading the same blank a second time supplies no missing bit.
+The exact result for retention probability $p$ is $(1-p)/2$. Here $p$
+describes the local record channel. Telescopes at different distances
+viewing otherwise identical galaxies would infer the same intrinsic
+gravitational response after accounting for distance and projection.
 
 The galactic hypothesis assigns small defects to densely recorded
 regions where repair saturates, and persistent defects to sparsely
@@ -633,15 +652,10 @@ nonzero dark source on sparse cuts. What is not established is that physical
 collars satisfy \eqref{eq:envelope}: the envelope is the conditional mixing
 branch of the collar-recovery claim, taken here as a hypothesis.
 
-The delimitation has a positive counterpart in which the defect is computed
-rather than admitted. In the erasure-record model, a source bit perfectly
-correlated with its complement and a collar record carrying the bit with
-probability \(p\), the minimum prediction error over all predictors,
-deterministic or randomized, is exactly \((1-p)/2\): an unrecorded cut
-carries an order-one defect necessarily, a saturated record carries none,
-and the defect falls below \(\varepsilon\) exactly when
-\(p>1-2\varepsilon\), the mechanism-side counterpart of the settled-cut
-threshold. With unit collar radius and collar constant, and anomalous energy
+In the erasure example at the start of this section, randomizing the
+predictor leaves the same minimum error. A saturated record recovers
+the bit exactly, and the defect falls below \(\varepsilon\) precisely
+when \(p>1-2\varepsilon\). With unit collar radius and collar constant, and anomalous energy
 equal to the model defect, the unrecorded instance carries stress
 \(15/(16\pi^2)\) exactly. The identification of the model
 defect with \(\eta_\delta\) is a modeling premise, and the record density
@@ -708,6 +722,187 @@ semiclassical source the field Hamiltonian specifies how the correlation
 enters the stress. Applying the result to a collar requires an independent
 determination of the stress carried by its modular charge and a measured
 response of the same geometry to ordinary and collar stress.
+
+\paragraph{A measured correlation energy and its gravitational coupling.}
+\label{par:seam-energy-test}
+Which part of a joint record is physical energy? For a finite pair
+with Hamiltonian $h$ choose a faithful thermal reference
+$\sigma=e^{-\beta h}/Z$ restricted to the admitted product sector.
+Set $K=-\log\sigma+\log(\sigma_A\otimes\sigma_B)$.
+If two preparations have identical marginal density matrices, their
+difference annihilates both local logarithms and the constant $\log Z$.
+Consequently $\Delta\langle K\rangle/\beta=\Delta\langle h\rangle$.
+The choice of physical Hamiltonian and inverse temperature fixes the
+units before any geometric measurement.
+
+There is an interacting example on the 99-state repair seam. Two even
+memory words of magnitudes 0 and 2 and two endpoint-load words
+$(2,0),(1,1)$ give four exact eigenwords with energy rows $(0,0)$ and
+$(32,0)$. The high state puts probabilities $3/8$ on each off-diagonal
+word and $1/8$ on each diagonal word. Interchanging these probabilities
+gives the low state. Every one-register distribution stays uniform,
+and the two mean energies are 12 and 4. Reversing the coin phase gives
+energy rows $(0,0),(32,32)$ and means 16 and 16. These statements
+follow by acting on the full native contact matrix.
+
+Place this internal energy homogeneously in a comoving cell with
+volume $W$ and supply a semiclassical flat Einstein geometry. The
+energy is independent of strain, hence its pressure is zero.
+With $q=\log a$ and $W=V_0e^{3q}$, the canonical constraint reads
+$-\kappa p^2/(12W)+\Lambda W/\kappa+E=0$ and
+$\dot q=-\kappa p/(6W)$. Eliminating $p$ gives the exact identity
+\[
+ \Delta[W(G_{00}-\Lambda)]
+   =\kappa\Delta E=\kappa\,\Delta\langle K\rangle/\beta .
+\]
+Here $G_{00}=3\dot q^2$ comes from the changing metric. The source
+appears once in the total energy. A vacuum and an ordinary one-load
+preparation give $\kappa=1.60000105$ by radar. The interacting states
+give integrated curvature differences $12.79997$--$12.80000$ at three
+held appointments. Independent thermometer and joint-state counts give
+$7.95234\pm0.02032$ energy units (one counting standard error), or
+$12.72375\pm0.03251$ in curvature units. The exact forecast is 12.8.
+Both reversed-coin geometries agree. Keeping the interacting
+Hamiltonian and the ordinary calibration while coupling gravity to the
+same charge 8 in all four words also gives zero curvature difference.
+These two gravitational laws give identical source counts.
+The physical repair seam supplies the matter operator. The homogeneous
+metric, its constraint and the choice of gravitating charge supply the
+gravitational law. Spectral and clock data are in
+\path{code/matched_einstein_limit/seam_overlap/}.
+
+The corresponding test for a \emph{spatial} collar uses both
+measurements on the same rest-frame balls. At common proper
+volume $4\pi\ell^3/3$ the measured difference in temporal curvature is
+estimated by $-15\Delta A_\ell/(4\pi\ell^4)$ from the rim areas.
+At matched ordinary stress, inserting Eq.~\eqref{eq:tanom} shows that
+the estimated residual tends to zero if and only if
+\[
+ \Delta A_\ell+\frac{\kappa}{2\pi}\Delta E_{C,\ell}=o(\ell^4).
+\]
+Thus positive collar charge requires a \emph{smaller} rim at the same
+volume. In natural units the coefficient $\kappa/(2\pi)=4G_N$ is
+fixed by ordinary matter. The identification with physical curvature
+requires a controlled geodesic-ball expansion in the measured frame.
+It is the regional charge and this area difference that must be read
+independently; the thermal energy of a whole cell supplies no regional
+area measurement.
+
+For a controlled comparison give the homogeneous seam density
+difference $\Delta E/V_0$ the leading diamond weight
+$8\pi^2\ell^4/15$ when both cells have volume $V_0=(2\pi)^3$.
+Send independent spacelike geodesic rulers from the central observer,
+adjust each aperture to the same measured interior volume, then read
+its rim on a separate angular grid. The couplings inferred from the two
+rim areas and the exact source energy are $1.62320,1.60575,1.60143$
+at radii $0.4,0.2,0.1$. The ordinary radar calibration is $1.60000105$.
+At radius $0.1$ the excess energy reduces the area by
+$4.32691\times10^{-6}$ in box units. Using the finite thermal counts
+gives a leading decrease of $(4.29729\pm0.01098)\times10^{-6}$,
+with counting error only. Holding the gravitational charge fixed gives
+identical rims. This survey supplies the regional weight and reads
+the areas independently. Identifying that weight with the native
+spatial modular charge is the physical source premise.
+
+Two native tests give different outcomes from the homogeneous example.
+In a guarded annulus the timing routes avoid the two marked words.
+Changing their correlation preserves every clock range but changes the
+charge read by a separate word instrument. On the $327{,}680$-cell board
+the lower bounds on $\Delta K/(2\pi\ell^4)$ are $0.001298$ and
+$0.0002452$ for globally shared and spatially grouped tags, respectively,
+at simultaneous $99\%$ coverage within each calibrated count family.
+Here $\ell$ is the relative routed radius. Any area constructed solely
+from those invariant ranges has zero change.
+
+A second native experiment uses two material rulers that respond to the
+words. On one transfer preserving both tetrahedral volumes, the source
+charge increases by $0.161753$ nats per unit transfer, while the two
+areas \emph{increase} by $7.25151\times10^{-8}$ and
+$2.82552\times10^{-7}$ in their respective squared clock units.
+The full single-word marginals and mean stored energy are fixed.
+Any area increasing in both readings also fails the required sign.
+The area derivatives follow from the conditional flight laws. Direct
+clock counts do not resolve their small finite differences, while a
+separate word measurement resolves the positive charge. These
+measurements exclude the indicated metric and stress assignments.
+Their regional algebras and tetrahedra have no established
+identification with the proper geodesic balls of the Einstein argument.
+The finite range comparisons give no asymptotic lower bound on the residual
+along a sequence of physical balls.
+
+There is an exact restriction on such an identification in free repair
+dynamics. Each of two private seams has three antisymmetric memory
+words of energies $0,32,33$ that act as scalars on all nine endpoint
+load inputs. For fixed labels $i,j$ their only effect on all remaining
+degrees of freedom is a phase. Every material clock or flight instrument
+restricted to those remaining degrees has the same outcome law for
+every distribution of the labels. The result extends through successive
+classically selected Hamiltonian contacts by conditioning on each material record.
+A direct read of the private memories can distinguish their joint
+distribution.
+
+For example, put $P_{ij}(t)=(1+tT_{ij})/9$ with $T_{01}=T_{12}=T_{20}=1$,
+$T_{ji}=-T_{ij}$ and $T_{ii}=0$. For $|t|<1$ both marginals and the
+complete total-energy histogram are fixed. Pair the labels with
+probability $f$, otherwise read two independent labels, and discard the
+pairing bit. At fixed reference $P(ft_0)$ the signed slope of the
+joint modular expectation relative to the product is
+$-(f/3)\log[(1+ft_0)/(1-ft_0)]$. Even if $f=a\ell^2+o(\ell^2)$
+for positive $a$, Eq.~\eqref{eq:tanom} gives a finite nonzero slope
+$-5t_0a^2/(4\pi^2)$ for $0<t_0<1$. The identical material records
+give zero geometric slope. This rules out the indicated correlated
+reference as a temporal source for that instrument with unchanged
+ordinary stress, at any nonzero coupling. The Gibbs reference of the
+additive protected two-seam Hamiltonian factorizes.
+
+A boundary clock gives a sign test for a regional source. Take the local
+geodesic rest slice and a smooth, strictly convex, nontrapping ball. Its
+incoming spatial geodesics have a mean length \(\bar L\) to first exit,
+weighted by inward normal flux. Integrating the conserved geodesic phase
+volume from the boundary gives \(4\pi V=\pi A\bar L\): each unit tangent
+sphere has solid angle \(4\pi\), and the projected solid angle of the inward
+hemisphere is \(\pi\). At equal proper volume \(V=4\pi\ell^3/3\),
+\[
+ \Delta A=-\frac{4V}{\bar L_0\bar L_1}\Delta\bar L,\qquad
+ \Delta\bar L=\frac{\kappa}{6\pi^2\ell}\Delta K+o(\ell^3)
+\]
+where the second relation is the predicted collar response for matched
+ordinary stress, \(\Delta K=O(\ell^4)\), and a common positive coupling.
+It follows by using \(\bar L_i=(4\ell/3)[1+O(\ell^2)]\) and
+\(\Delta A=-\kappa\Delta K/(2\pi)+o(\ell^4)\). At fixed volume a positive
+collar charge must lengthen the mean chord. The chord units, flux and
+conversion from physical flight time to geodesic length are independent
+apparatus inputs.
+
+On the declared uniform triangular refinement, protected clock paths and
+their boundary exits have identical distributions for shared and fresh
+word tags. The ideal reversed-tag reference gives a positive joint-admission
+contrast \(c=\sum(P_0-P_-)\log(P_0/P_-)\ge101/33696\) nats, with \(P_0\)
+the product of the common marginals and \(P_-\) the reversed-tag law. In
+full routed balls with \(M\) of \(N\) stations, the shared-minus-fresh
+contrast is \(cM(M-1)/[N(N-1)]\). The ball population has a uniform lower
+bound \(M/N\ge\alpha\ell_{\rm route}^2\) for some \(\alpha>0\) on
+mesoscopic shrinking balls, from the bounded cost of traversing a dyadic
+triangular ancestor. Here \(\ell_{\rm route}\) uses the greatest station
+range as the unit. The signed discrepancy per fourth power of that radius
+therefore persists under refinement. This excludes the tested charge and
+protected route geometry as a source pair at positive coupling. It identifies
+neither the source charge nor a proper length for distant galaxies.
+
+Energy alone also fails to ensure visibility to a particular ruler.
+A single protected memory has two zero-energy coin states at
+magnitude zero and two antisymmetric-coin reversal parities at
+magnitude two. Regard the magnitude as one bit and the within-pair
+label as another, ordering the energies $(0,0)$ and $(33,32)$.
+The same $3/8,1/8$ preparation pair has a thermal correlation energy
+difference $(33-32)/4=1/4$. Every endpoint-load probe has identical
+records because each word acts by a scalar at all loads. On $N$
+such seams the energy contrast is $N/4$ and all joint material
+records coincide. If their common proper volume grows as $Nv+o(N)$
+with $v>0$, the limiting density contrast is $1/(4v)$. These two
+bits are logical registers inside one memory. Identifying a spatial
+collar requires a separate choice of regional algebra and metric
+instrument.
 
 In the native two-write experiment compare tetrahedra formed from the
 terminal positions of four balanced material tracers in the same
@@ -905,6 +1100,18 @@ v^4=GM_b\,a_0 .
 \(\sqrt{GM_ba_0}/r=\sqrt{(GM_b/r^2)a_0}\) for \(r>0\). Multiplying by \(r\)
 removes the radius; squaring gives \eqref{eq:btfr}.
 \end{proof}
+
+The effect of orbital radius has a separate explanation. Compare two
+orbits at $r$ and $2r$ in this smooth deep exterior. Both enclose the
+same baryonic mass, so the baryonic acceleration at the outer orbit
+is one quarter as large. The enclosed anomalous mass doubles between
+the two orbits, so its acceleration is one half as large. Both
+accelerations decrease, while their ratio doubles. Explicitly
+$a_A/a_b=r/r_M$ with $r_M=\sqrt{GM_b/a_0}$. This radius is measured
+from the galaxy's mass centre. Identifying a sparse physical collar
+and establishing that its charge gravitates are additional source
+measurements. A rotation curve alone cannot infer the local density of
+retained records.
 
 The exponents \(1/2\) in \eqref{eq:deep} and \(4\) in \eqref{eq:btfr} are
 the parameter-free content of the profile. The constant \(a_0\) collects
@@ -1339,6 +1546,122 @@ fixed-prediction galaxy-bootstrap interval $[-0.00203,+0.00117]$.
 These retrospective splits test transfer across galaxies. Neither
 catalogue measures the modular charge independently.
 
+\paragraph{Finite collar spacing against resolved rotation and lensing.}
+\label{par:empirical-cut-spacing}
+The arithmetic-progression construction predicts an individual enclosed
+mass that departs from the smooth profile by at most one cut amplitude.
+As a specified galaxy model set $N_s(R)=\lfloor R/s+\phi\rfloor$ with
+one uniform phase $\phi$ per galaxy and common spacing $s$. On the
+local-force disk prescription multiply the smooth anomalous squared
+speed by $s N_s(R)/R$. The disk prescription extends the compact-source
+theorem. A shared phase fixes the counts on every ring; integrating it
+exactly gives a mixture with breakpoints at the measured fractional
+radii. The average multiplier equals one at every radius.
+
+Using all positive-error rings in the deep cut with quality at most two
+and inclination at least $30^\circ$ gives 1,240 measurements in 121
+SPARC galaxies. The conditional linear-speed likelihood uses published
+ring errors and fits independent ring scatter and common galaxy scatter.
+All five galaxy-held-out training folds select $s=0.5$ kpc from a
+ten-value grid including the smooth limit. The full-sample fit gives
+$a_0=8.37\times10^{-11}\,{\rm m\,s^{-2}}$ and fractional scatter
+$0.049$ per ring and $0.162$ per galaxy. The held mean log predictive
+density gain over the smooth profile is $0.470$ nats per galaxy
+(fixed-prediction galaxy-bootstrap interval $[0.092,0.895]$).
+A smooth comparison allowing additional inner-ring scatter proportional
+to inverse radius reduces that difference to $0.052$ nats with interval
+$[-0.481,0.735]$. The score improves in four of the five held folds. The bootstrap
+resamples held galaxies at fixed predictions and therefore does not
+propagate new training fits or a fresh choice of spacing. The
+small-radius scatter comparison was chosen after examining the spacing
+fit. These retrospective comparisons condition on the catalogue disk
+force and model the speed uncertainties. The spacing has no independent
+measurement in the source.
+
+Applied at $9.95$ kpc in the fiducial AGC~114905 reduction, the fitted
+model predicts a mean speed of at least $62.97$ km/s for every phase;
+the reported speed is $26.94\pm1.83$ km/s. At fixed fitted scale and
+baryonic force the one-cut bound requires $s\geq8.77$ kpc even to reach
+the upper two-error speed with the deterministic mean. With the fitted common scatter, ring scatter
+and plotted measurement error, the conditional lower-tail probability
+for this single outer speed is $0.00036$. The comparison was motivated
+by the published slow rotation. This probability has no sample-selection
+or population significance attached to it.
+
+The gas distribution itself tests the exterior assumption. At the
+fiducial distance of 78.7 Mpc, integrate the published gas surface
+density of AGC~114905~\cite{mancera2024} with the cylindrical area
+measure $2\pi R\,\dd R$. The outer speed point encloses $66.9\%$ of
+the fitted gas profile, including its outer extrapolation. Gas supplies
+$94\%$ of the reported baryonic mass. Even assigning every star to
+the interior yields at most $68.9\%$ baryonic enclosure at the nominal
+parameters. A sphere of the same radius contains no more mass than
+this cylinder. The fitted gas profile reaches $90\%$ cylindrical
+enclosure at 14.30 kpc. These quantities use photometry and gas
+surface density independently of the speed residual.
+
+The central outer-ring excess $v^2-v_b^2$ is $6.26\%$ of the least
+value from the fitted disk prescription. The equivalent spherical
+excess mass $R(v^2-v_b^2)/G$ is $0.50$ billion solar masses, against
+a predicted minimum of $7.99$ billion. Keeping $v\sin i$ fixed would
+require $i\simeq12.7^\circ$ at the minimum speed; the independent
+photometric estimate is $31\pm2^\circ$. This projection check neglects
+changes in pressure support and disk geometry. The authors' second
+reduction of the same gas data gives $24.25\pm1.83$ km/s at 10.13 kpc,
+against a minimum of $61.20$ km/s at that geometry.
+
+Even a spherical exterior leaves the interior acceleration undetermined.
+Let $M_A(r)=Cr$ for $r\ge R_s$ with $C,R_s>0$. Inside $R_s$, the
+profiles $C R_s(r/R_s)^3$ and $C R_s(r/R_s)^5$ both match the
+exterior continuously and have finite nonnegative density. The first
+gives four times the acceleration of the second at $R_s/2$. An
+interior disk prediction therefore requires an independent relation
+between the extended baryonic distribution and the proposed collar
+stress. The measured galaxy constrains such a relation. It cannot
+decide the compact asymptote at an unmeasured radius.
+
+The same rotation-fitted parameters can be transferred to the sixteen
+early-type galaxies with exterior H~I measurements described above.
+Select the orbit by its baryonic enclosure, radius beyond five effective
+radii and point-mass acceleration at most
+$1.2\times10^{-11}\,{\rm m\,s^{-2}}$. At nominal geometry, with the
+catalogued baryonic mass treated as compact, NGC~3838 alone qualifies
+at $90\%$ enclosure. Its allowed phases predict $136.8$--$138.3$ km/s,
+against $159\pm14$ km/s. At $80\%$ enclosure, NGC~2685 gives
+$146.8$--$148.0$ against $144\pm10$ km/s, and NGC~6798 gives
+$186.2$--$187.5$ against $190\pm8$ km/s. None of these galaxies
+enters the rotation fit. The predicted ranges vary the cut phase at
+fixed mass and distance. The acceleration scale itself comes from the
+local-force extension fitted on disks. This comparison tests transfer of
+that normalization to compact exteriors; a measurement of the physical
+cut statistics would provide an independent normalization. Figure~\ref{fig:gas-enclosure-transfer}
+compares this selection with the measured radial domain of the dwarf.
+
+\begin{figure}[htbp]
+\centering
+\IfFileExists{code/cosmology/rar_deep_regime/cut_spacing/comparison.pdf}
+  {\includegraphics[width=\linewidth]{code/cosmology/rar_deep_regime/cut_spacing/comparison.pdf}}
+  {\includegraphics[width=\linewidth]{../code/cosmology/rar_deep_regime/cut_spacing/comparison.pdf}}
+\caption{Left: integrated fiducial gas surface density of AGC~114905;
+the points locate the radii of the measured speeds. Right: the three
+early-type galaxies passing the deep exterior cuts at $80\%$ enclosure.
+The percentages give conservative lower bounds on baryonic enclosure,
+rounded down. The phase ranges condition on the rotation calibration,
+mass and geometry. The measured intervals show published speed errors.}
+\label{fig:gas-enclosure-transfer}
+\end{figure}
+
+For a compact spherical source with phase independent of lens selection
+and weights, the mean enclosed mass is linear in $R$ at every spacing.
+Weak shear, including an annular average, is a linear projection of the
+mass distribution, so the phase-averaged prediction at fixed $a_0$ is
+identical to the smooth one. At the rotation-fitted normalization the
+six bins wholly above the published isolation threshold give $\chi^2=44.37$ for KiDS-bright and $17.07$
+for GAMA with their separate published covariances, bin-centre
+evaluation and zero slip. The exact phase mixture, comparison fits and
+input assumptions are in the \texttt{cut\_spacing} study of the
+\href{https://github.com/FloatingPragma/observer-patch-holography/tree/main/code/cosmology/rar_deep_regime}{galaxy data comparison}.
+
 \paragraph{An independent weak-lensing observable.}
 Transfer the primary SPARC radial fit
 $a_0=8.75\times10^{-11}\,{\rm m\,s^{-2}}$ to the isolated
@@ -1560,6 +1883,42 @@ are specified. A locally normalized gravitating stress requires
 independent geometric response at fixed ordinary matter on proper
 three-dimensional balls.
 
+\paragraph{Which collar record the observer retains.}
+\label{par:collar-index-variation}
+Let $\sigma$ be the faithful joint state of two written seam heads after
+a freely moving vacancy or excess has passed, $\pi=\sigma_A\otimes\sigma_B$
+and $D=\sigma-\pi$. Sample the heads from the same preparation with probability
+$f$, and otherwise independently from the two marginals. A range receiver can
+supply $f$ by selecting a uniformly launched port in a clocked ball.
+Discarding its hit flag gives $\rho_f=\pi+fD$. To measure a modular
+variation, hold this reference fixed and change the joint component in
+the source by $D$ per unit source variation. The observed tangent is $fD$.
+Since both partial traces of $D$ vanish, the first-law slope in nats is
+\[
+ E(f)=-f\,{\rm Tr}\,D(\log\rho_f-\log\pi)
+      =-f^2 J+O(f^3),\qquad
+ J=\int_0^\infty {\rm Tr}\,[D(\pi+tI)^{-1}D(\pi+tI)^{-1}]\,dt .
+\]
+The resolvent derivative of the matrix logarithm gives the expansion.
+Faithfulness makes $J$ finite and $J>0$ for $D\ne0$. Keeping the flag
+instead yields the direct sum $f\sigma\oplus(1-f)\pi$ and slope $fE(1)$.
+Strengthening these correlations has negative modular variation in this
+reference convention. Weakening them reverses the sign. The single-head
+marginals and the ordinary energy of the two parked heads agree in both arms.
+
+Four prepared sources on 20 and 80 cells give $J=0.00500$ to $0.13209$.
+Using the independent clocked-range census on the 327680-cell mesh,
+the doubling exponent of the unflagged magnitude is $3.977$ to $3.996$;
+the flag-preserving exponent is $1.9994$. The smaller meshes and the finite
+bounds are in the
+\texttt{collar\_pairing} package of the
+\href{https://github.com/FloatingPragma/observer-patch-holography/tree/main/model/experiments/interval_echo_einstein_station}{finite Einstein station}.
+For a fixed source, if $f/\ell^2\to a$ on physical balls, the resulting
+coefficient is $E(f)/\ell^4\to-a^2J$. The calculation uses a supplied sampling
+instrument, separate source and ranging preparations, and a graph-range
+radius. A physical anomalous stress requires a selected regional algebra,
+a common proper radius and a gravitational response to this same signed charge.
+
 The profile theorem determines the exponents and leaves \(a_0=Gn^2c\).
 A constant-capacity horizon dictionary supplies a separate dimensional scale,
 \begin{equation}
@@ -1608,13 +1967,35 @@ length nearly doubles between adjacent annuli. Neither conditional
 word-energy variance nor this radial count identifies the variance per
 unit baryonic mass or the proper density of gravitating cuts.
 
-The static spherical example fixes two pressures on its declared domain. A physical source completion must determine gravitational
-slip, exchange, abundance and perturbations before lensing,
-clusters or cosmology can test the same source. The static deep law neither
-specifies the transition to Newtonian dynamics nor establishes those
-quantities. The held galaxy and weak-lensing comparisons test a conditional profile with a
-rotation-calibrated scale. Identifying the source requires an independent
-physical charge measurement and a prospectively fixed likelihood.
+The rotation data test several distinct claims. The fitted spacing gives
+little held predictive gain over a smooth model with extra inner-ring
+scatter. In the gas-rich dwarf the nominal excess squared speed is about
+one sixteenth of even the least excess allowed by the tested disk
+prescription. The retained exterior sample has only one qualifying orbit
+at $90\%$ baryonic enclosure and two additional orbits at $80\%$.
+Its speed intervals provide a limited test at a normalization fixed on
+other galaxies. At this same normalization the two separate six-bin
+mean-shear profiles give covariance-weighted squared residuals of 44.37
+and 17.07 for nominal masses, negligible slip and bin-centre evaluation.
+The surveys share imaging, and their statistics are reported separately.
+Variation of mass calibration and weights within each bin affects the
+comparison. These measurements give no independent estimate of local
+record density.
+
+Measurements of a joint thermal reference identify a signed interaction
+energy on one repair seam. In the supplied homogeneous Einstein geometry
+the coupling measured on ordinary matter predicts its curvature exactly
+(p.~\pageref{par:seam-energy-test}).
+A galactic explanation must predict the signed regional overlap stress and the
+ordinary stress on the same regions, with the same clock and ruler.
+Matching the weak gravitational response to an ordinary source fixes
+the coupling before the overlap source is varied. If a positive
+overlap stress measured in this way gave no corresponding geometric
+response at that coupling, the proposed identification would fail on
+that domain. Predictions for a gas disk, a lens or a merging cluster
+also require the spatial distribution, pressures and transport of that
+stress. The static spherical calculation specifies these only on its
+declared branch.
 
 \begin{thebibliography}{99}
 

@@ -1,0 +1,133 @@
+{
+  "native_pi_swap_operator_error": 0.0,
+  "axis": [
+    0,
+    3
+  ],
+  "fifth_turn_swaps": [
+    [
+      11,
+      5
+    ],
+    [
+      10,
+      11
+    ],
+    [
+      7,
+      10
+    ],
+    [
+      1,
+      7
+    ],
+    [
+      4,
+      9
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      6,
+      2
+    ],
+    [
+      8,
+      6
+    ]
+  ],
+  "fifth_turn_permutation": [
+    0,
+    7,
+    4,
+    3,
+    9,
+    1,
+    2,
+    10,
+    6,
+    8,
+    11,
+    5
+  ],
+  "cases": {
+    "3": {
+      "wall_band": [
+        {
+          "energy": 5.2117804663,
+          "multiplicity": 1
+        },
+        {
+          "energy": 5.40487922124,
+          "multiplicity": 2
+        },
+        {
+          "energy": 5.82981641938,
+          "multiplicity": 2
+        },
+        {
+          "energy": 6.41803488582,
+          "multiplicity": 2
+        },
+        {
+          "energy": 6.91324361457,
+          "multiplicity": 2
+        },
+        {
+          "energy": 7.10289888803,
+          "multiplicity": 1
+        }
+      ],
+      "smallest_three_level_span": 0.18965527345,
+      "wall_eigenpair_residual": 0.0,
+      "intact_cell_multiplicity_weights": {
+        "1": 0.05,
+        "3": 0.3,
+        "4": 0.4,
+        "5": 0.25
+      },
+      "full_turn_source_bright_x": 1,
+      "spinor_control_bright_x": 0
+    },
+    "4": {
+      "wall_band": [
+        {
+          "energy": -9.78745666108,
+          "multiplicity": 1
+        },
+        {
+          "energy": -9.61918056669,
+          "multiplicity": 2
+        },
+        {
+          "energy": -9.15990441652,
+          "multiplicity": 2
+        },
+        {
+          "energy": -8.56940397396,
+          "multiplicity": 2
+        },
+        {
+          "energy": -8.05163044048,
+          "multiplicity": 2
+        },
+        {
+          "energy": -7.84276608165,
+          "multiplicity": 1
+        }
+      ],
+      "smallest_three_level_span": 0.16827609439,
+      "wall_eigenpair_residual": 0.0,
+      "intact_cell_multiplicity_weights": {
+        "1": 0.03333333333,
+        "3": 0.2,
+        "4": 0.26666666667,
+        "5": 0.5
+      },
+      "full_turn_source_bright_x": 1,
+      "spinor_control_bright_x": 0
+    }
+  }
+}

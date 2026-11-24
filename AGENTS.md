@@ -89,6 +89,12 @@ openwave-labs/openwave. Read them in full before such work.
   the alphabet, routing and symmetry of the candidate.
 - State claims on observers' records. Simulator state, its evolution parameter
   and its schedule serve derivation and audit, never a reader.
+- When a row names a conventional quantity such as Λ, explain how observers
+  could infer it from their own clock, signal or detector records. Give the
+  physical assumptions, units and independent measurements that fix its value.
+  OPH may predict the observations by another mechanism. In that case specify
+  which joint records agree, which observation distinguishes the explanations,
+  and which clauses of the published row that evidence satisfies.
 - Nothing in this repository authorizes posting upstream, opening an upstream
   pull request, moving the pin or recording a cell award. Never link the private
   OpenWave research repository; `python tools/check_private_links.py` fails on

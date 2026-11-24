@@ -1,0 +1,3151 @@
+{
+  "boards": [
+    {
+      "cells": 20,
+      "material": "unit",
+      "survey": {
+        "paths": [
+          {
+            "path": [
+              0,
+              1
+            ],
+            "port_axes": [
+              10,
+              8
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": [
+              {
+                "index": 19,
+                "frequency": 1.3819660113,
+                "multiplicity": 30,
+                "full": [
+                  0.413296275,
+                  0.010210669,
+                  0.005168649
+                ],
+                "transverse_longitudinal": [
+                  0.03156956,
+                  0.008984136,
+                  0.399023739
+                ]
+              }
+            ]
+          },
+          {
+            "path": [
+              0,
+              1,
+              2
+            ],
+            "port_axes": [
+              10,
+              0
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": [
+              {
+                "index": 19,
+                "frequency": 1.3819660113,
+                "multiplicity": 30,
+                "full": [
+                  0.082035268,
+                  0.04912714,
+                  0.000837801
+                ],
+                "transverse_longitudinal": [
+                  0.044828038,
+                  0.004863312,
+                  0.080189619
+                ]
+              }
+            ]
+          },
+          {
+            "path": [
+              0,
+              1,
+              2,
+              9
+            ],
+            "port_axes": [
+              10,
+              8
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": [
+              {
+                "index": 19,
+                "frequency": 1.3819660113,
+                "multiplicity": 30,
+                "full": [
+                  0.016075473,
+                  0.005385859,
+                  0.001291789
+                ],
+                "transverse_longitudinal": [
+                  0.005187985,
+                  0.000932301,
+                  0.012158647
+                ]
+              },
+              {
+                "index": 33,
+                "frequency": 1.5659044407,
+                "multiplicity": 2,
+                "full": [
+                  0.086967665,
+                  0.086967665,
+                  0.0
+                ],
+                "transverse_longitudinal": [
+                  0.086967665,
+                  0.003060474,
+                  0.085423723
+                ]
+              },
+              {
+                "index": 42,
+                "frequency": 1.6339745962,
+                "multiplicity": 3,
+                "full": [
+                  0.046802482,
+                  0.012540687,
+                  0.0
+                ],
+                "transverse_longitudinal": [
+                  0.030027902,
+                  0.000687854,
+                  0.033653543
+                ]
+              },
+              {
+                "index": 89,
+                "frequency": 4.106795173,
+                "multiplicity": 2,
+                "full": [
+                  0.002136868,
+                  0.002136868,
+                  0.0
+                ],
+                "transverse_longitudinal": [
+                  0.002136868,
+                  7.5198e-05,
+                  0.002098932
+                ]
+              }
+            ]
+          },
+          {
+            "path": [
+              0,
+              1,
+              5
+            ],
+            "port_axes": [
+              10,
+              8
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": [
+              {
+                "index": 19,
+                "frequency": 1.3819660113,
+                "multiplicity": 30,
+                "full": [
+                  0.071192453,
+                  0.012237139,
+                  0.000923565
+                ],
+                "transverse_longitudinal": [
+                  0.009816773,
+                  0.005320791,
+                  0.067964729
+                ]
+              },
+              {
+                "index": 33,
+                "frequency": 1.5659044407,
+                "multiplicity": 2,
+                "full": [
+                  0.086967665,
+                  0.086967665,
+                  0.0
+                ],
+                "transverse_longitudinal": [
+                  0.086967665,
+                  0.003060474,
+                  0.085423723
+                ]
+              },
+              {
+                "index": 42,
+                "frequency": 1.6339745962,
+                "multiplicity": 3,
+                "full": [
+                  0.091437914,
+                  0.032094744,
+                  0.0
+                ],
+                "transverse_longitudinal": [
+                  0.089129282,
+                  0.001158699,
+                  0.033653543
+                ]
+              },
+              {
+                "index": 80,
+                "frequency": 4.0,
+                "multiplicity": 3,
+                "full": [
+                  0.00338896,
+                  0.001189526,
+                  0.0
+                ],
+                "transverse_longitudinal": [
+                  0.003303395,
+                  4.2945e-05,
+                  0.0012473
+                ]
+              },
+              {
+                "index": 89,
+                "frequency": 4.106795173,
+                "multiplicity": 2,
+                "full": [
+                  0.002136868,
+                  0.002136868,
+                  0.0
+                ],
+                "transverse_longitudinal": [
+                  0.002136868,
+                  7.5198e-05,
+                  0.002098932
+                ]
+              }
+            ]
+          },
+          {
+            "path": [
+              0,
+              1,
+              5,
+              19
+            ],
+            "port_axes": [
+              10,
+              1
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": [
+              {
+                "index": 19,
+                "frequency": 1.3819660113,
+                "multiplicity": 30,
+                "full": [
+                  0.026272797,
+                  0.002637545,
+                  0.001963952
+                ],
+                "transverse_longitudinal": [
+                  0.004048298,
+                  0.002584521,
+                  0.025609591
+                ]
+              },
+              {
+                "index": 42,
+                "frequency": 1.6339745962,
+                "multiplicity": 3,
+                "full": [
+                  0.078897227,
+                  0.044635432,
+                  0.0
+                ],
+                "transverse_longitudinal": [
+                  0.01294931,
+                  0.009570302,
+                  0.073346197
+                ]
+              },
+              {
+                "index": 80,
+                "frequency": 4.0,
+                "multiplicity": 3,
+                "full": [
+                  0.002924165,
+                  0.001654321,
+                  0.0
+                ],
+                "transverse_longitudinal": [
+                  0.00047994,
+                  0.000354704,
+                  0.002718427
+                ]
+              }
+            ]
+          },
+          {
+            "path": [
+              0,
+              4
+            ],
+            "port_axes": [
+              3,
+              0
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": [
+              {
+                "index": 19,
+                "frequency": 1.3819660113,
+                "multiplicity": 30,
+                "full": [
+                  0.371076287,
+                  0.009436488,
+                  0.00393187
+                ],
+                "transverse_longitudinal": [
+                  0.021544606,
+                  0.008595041,
+                  0.35930468
+                ]
+              },
+              {
+                "index": 42,
+                "frequency": 1.6339745962,
+                "multiplicity": 3,
+                "full": [
+                  0.129896326,
+                  0.027110942,
+                  0.0
+                ],
+                "transverse_longitudinal": [
+                  0.020739235,
+                  0.005975573,
+                  0.12703934
+                ]
+              },
+              {
+                "index": 80,
+                "frequency": 4.0,
+                "multiplicity": 3,
+                "full": [
+                  0.004814342,
+                  0.001004812,
+                  0.0
+                ],
+                "transverse_longitudinal": [
+                  0.000768657,
+                  0.000221472,
+                  0.004708454
+                ]
+              }
+            ]
+          },
+          {
+            "path": [
+              0,
+              4,
+              3
+            ],
+            "port_axes": [
+              3,
+              1
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": [
+              {
+                "index": 19,
+                "frequency": 1.3819660113,
+                "multiplicity": 30,
+                "full": [
+                  0.136988342,
+                  0.012535143,
+                  0.000540366
+                ],
+                "transverse_longitudinal": [
+                  0.009295986,
+                  0.005801508,
+                  0.132876507
+                ]
+              },
+              {
+                "index": 33,
+                "frequency": 1.5659044407,
+                "multiplicity": 2,
+                "full": [
+                  0.086967665,
+                  0.086967665,
+                  0.0
+                ],
+                "transverse_longitudinal": [
+                  0.086967665,
+                  0.003060474,
+                  0.085423723
+                ]
+              },
+              {
+                "index": 42,
+                "frequency": 1.6339745962,
+                "multiplicity": 3,
+                "full": [
+                  0.036058406,
+                  0.01627735,
+                  0.0
+                ],
+                "transverse_longitudinal": [
+                  0.008037238,
+                  0.002569888,
+                  0.029144823
+                ]
+              },
+              {
+                "index": 89,
+                "frequency": 4.106795173,
+                "multiplicity": 2,
+                "full": [
+                  0.002136868,
+                  0.002136868,
+                  0.0
+                ],
+                "transverse_longitudinal": [
+                  0.002136868,
+                  7.5198e-05,
+                  0.002098932
+                ]
+              }
+            ]
+          },
+          {
+            "path": [
+              0,
+              4,
+              3,
+              8
+            ],
+            "port_axes": [
+              3,
+              8
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": [
+              {
+                "index": 19,
+                "frequency": 1.3819660113,
+                "multiplicity": 30,
+                "full": [
+                  0.056189386,
+                  0.003953022,
+                  0.001141096
+                ],
+                "transverse_longitudinal": [
+                  0.004120571,
+                  0.001155235,
+                  0.055315088
+                ]
+              }
+            ]
+          },
+          {
+            "path": [
+              0,
+              4,
+              7
+            ],
+            "port_axes": [
+              3,
+              10
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": [
+              {
+                "index": 19,
+                "frequency": 1.3819660113,
+                "multiplicity": 30,
+                "full": [
+                  0.134108076,
+                  0.02483031,
+                  0.000176404
+                ],
+                "transverse_longitudinal": [
+                  0.020158396,
+                  0.006104099,
+                  0.1296852
+                ]
+              },
+              {
+                "index": 42,
+                "frequency": 1.6339745962,
+                "multiplicity": 3,
+                "full": [
+                  0.129896326,
+                  0.027110942,
+                  0.0
+                ],
+                "transverse_longitudinal": [
+                  0.031225675,
+                  0.003968811,
+                  0.12703934
+                ]
+              },
+              {
+                "index": 80,
+                "frequency": 4.0,
+                "multiplicity": 3,
+                "full": [
+                  0.004814342,
+                  0.001004812,
+                  0.0
+                ],
+                "transverse_longitudinal": [
+                  0.001157316,
+                  0.000147096,
+                  0.004708454
+                ]
+              }
+            ]
+          },
+          {
+            "path": [
+              0,
+              4,
+              7,
+              17
+            ],
+            "port_axes": [
+              3,
+              0
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": [
+              {
+                "index": 19,
+                "frequency": 1.3819660113,
+                "multiplicity": 30,
+                "full": [
+                  0.054437925,
+                  0.001619377,
+                  0.000168127
+                ],
+                "transverse_longitudinal": [
+                  0.001897565,
+                  0.001535087,
+                  0.0535233
+                ]
+              },
+              {
+                "index": 33,
+                "frequency": 1.5659044407,
+                "multiplicity": 2,
+                "full": [
+                  0.086967665,
+                  0.086967665,
+                  0.0
+                ],
+                "transverse_longitudinal": [
+                  0.086967665,
+                  0.003060474,
+                  0.085423723
+                ]
+              },
+              {
+                "index": 42,
+                "frequency": 1.6339745962,
+                "multiplicity": 3,
+                "full": [
+                  0.036058406,
+                  0.01627735,
+                  0.0
+                ],
+                "transverse_longitudinal": [
+                  0.008037238,
+                  0.002569888,
+                  0.029144823
+                ]
+              },
+              {
+                "index": 89,
+                "frequency": 4.106795173,
+                "multiplicity": 2,
+                "full": [
+                  0.002136868,
+                  0.002136868,
+                  0.0
+                ],
+                "transverse_longitudinal": [
+                  0.002136868,
+                  7.5198e-05,
+                  0.002098932
+                ]
+              }
+            ]
+          },
+          {
+            "path": [
+              0,
+              6
+            ],
+            "port_axes": [
+              1,
+              10
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": [
+              {
+                "index": 19,
+                "frequency": 1.3819660113,
+                "multiplicity": 30,
+                "full": [
+                  0.412552662,
+                  0.017948826,
+                  0.005575181
+                ],
+                "transverse_longitudinal": [
+                  0.028789383,
+                  0.0136511,
+                  0.398266777
+                ]
+              }
+            ]
+          },
+          {
+            "path": [
+              0,
+              6,
+              15
+            ],
+            "port_axes": [
+              1,
+              2
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": [
+              {
+                "index": 19,
+                "frequency": 1.3819660113,
+                "multiplicity": 30,
+                "full": [
+                  0.080409871,
+                  0.028056107,
+                  0.001645051
+                ],
+                "transverse_longitudinal": [
+                  0.025009572,
+                  0.004984976,
+                  0.077545244
+                ]
+              }
+            ]
+          },
+          {
+            "path": [
+              0,
+              6,
+              15,
+              10
+            ],
+            "port_axes": [
+              1,
+              1
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": [
+              {
+                "index": 19,
+                "frequency": 1.3819660113,
+                "multiplicity": 30,
+                "full": [
+                  0.013007611,
+                  0.004210827,
+                  0.003331228
+                ],
+                "transverse_longitudinal": [
+                  0.004496854,
+                  0.000304914,
+                  0.010756051
+                ]
+              },
+              {
+                "index": 33,
+                "frequency": 1.5659044407,
+                "multiplicity": 2,
+                "full": [
+                  0.086967665,
+                  0.086967665,
+                  0.0
+                ],
+                "transverse_longitudinal": [
+                  0.086967665,
+                  0.003060474,
+                  0.085423723
+                ]
+              },
+              {
+                "index": 42,
+                "frequency": 1.6339745962,
+                "multiplicity": 3,
+                "full": [
+                  0.091437914,
+                  0.032094744,
+                  0.0
+                ],
+                "transverse_longitudinal": [
+                  0.01797181,
+                  0.005746445,
+                  0.084133858
+                ]
+              },
+              {
+                "index": 80,
+                "frequency": 4.0,
+                "multiplicity": 3,
+                "full": [
+                  0.00338896,
+                  0.001189526,
+                  0.0
+                ],
+                "transverse_longitudinal": [
+                  0.000666088,
+                  0.00021298,
+                  0.00311825
+                ]
+              },
+              {
+                "index": 89,
+                "frequency": 4.106795173,
+                "multiplicity": 2,
+                "full": [
+                  0.002136868,
+                  0.002136868,
+                  0.0
+                ],
+                "transverse_longitudinal": [
+                  0.002136868,
+                  7.5198e-05,
+                  0.002098932
+                ]
+              }
+            ]
+          },
+          {
+            "path": [
+              0,
+              6,
+              16
+            ],
+            "port_axes": [
+              1,
+              0
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": [
+              {
+                "index": 19,
+                "frequency": 1.3819660113,
+                "multiplicity": 30,
+                "full": [
+                  0.070763338,
+                  0.046543434,
+                  7.014e-05
+                ],
+                "transverse_longitudinal": [
+                  0.039905253,
+                  0.003768463,
+                  0.067891523
+                ]
+              },
+              {
+                "index": 33,
+                "frequency": 1.5659044407,
+                "multiplicity": 2,
+                "full": [
+                  0.086967665,
+                  0.086967665,
+                  0.0
+                ],
+                "transverse_longitudinal": [
+                  0.086967665,
+                  0.003060474,
+                  0.085423723
+                ]
+              },
+              {
+                "index": 42,
+                "frequency": 1.6339745962,
+                "multiplicity": 3,
+                "full": [
+                  0.112345511,
+                  0.026121885,
+                  0.0
+                ],
+                "transverse_longitudinal": [
+                  0.065317759,
+                  0.001581102,
+                  0.084133858
+                ]
+              },
+              {
+                "index": 89,
+                "frequency": 4.106795173,
+                "multiplicity": 2,
+                "full": [
+                  0.002136868,
+                  0.002136868,
+                  0.0
+                ],
+                "transverse_longitudinal": [
+                  0.002136868,
+                  7.5198e-05,
+                  0.002098932
+                ]
+              }
+            ]
+          },
+          {
+            "path": [
+              0,
+              6,
+              16,
+              11
+            ],
+            "port_axes": [
+              1,
+              10
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": [
+              {
+                "index": 19,
+                "frequency": 1.3819660113,
+                "multiplicity": 30,
+                "full": [
+                  0.03808798,
+                  0.003376232,
+                  0.000408682
+                ],
+                "transverse_longitudinal": [
+                  0.004292607,
+                  0.00059613,
+                  0.035379554
+                ]
+              }
+            ]
+          }
+        ],
+        "pass_at_all_three": [],
+        "finite_pass_at_all_three": {
+          "256": [],
+          "512": []
+        },
+        "eligible_frequencies": [
+          1.381966011,
+          1.565904441,
+          1.633974596,
+          4.0,
+          4.106795173
+        ],
+        "passing_frequencies": []
+      },
+      "flight": {
+        "path": [
+          0,
+          1,
+          2,
+          9
+        ],
+        "readings": {
+          "1": {
+            "sharp": [
+              [
+                0.5,
+                0.5,
+                0.5
+              ],
+              [
+                0.5,
+                0.5,
+                0.5
+              ]
+            ],
+            "x": [
+              [
+                9.0,
+                11.0,
+                11.5
+              ],
+              [
+                17.0,
+                18.5,
+                19.0
+              ]
+            ],
+            "y": [
+              [
+                4.5,
+                6.0,
+                6.5
+              ],
+              [
+                9.0,
+                9.0,
+                9.5
+              ]
+            ],
+            "z": [
+              [
+                0.5,
+                0.5,
+                0.5
+              ],
+              [
+                0.5,
+                0.5,
+                0.5
+              ]
+            ]
+          },
+          "2": {
+            "sharp": [
+              [
+                2.0,
+                2.5,
+                2.5
+              ],
+              [
+                3.5,
+                3.5,
+                3.5
+              ]
+            ],
+            "x": [
+              [
+                10.5,
+                12.5,
+                13.0
+              ],
+              [
+                15.5,
+                16.0,
+                17.0
+              ]
+            ],
+            "y": [
+              [
+                13.5,
+                15.5,
+                17.0
+              ],
+              [
+                24.5,
+                26.0,
+                26.5
+              ]
+            ],
+            "z": [
+              [
+                2.5,
+                4.0,
+                4.5
+              ],
+              [
+                6.5,
+                6.5,
+                7.0
+              ]
+            ]
+          },
+          "3": {
+            "sharp": [
+              [
+                5.5,
+                6.0,
+                6.0
+              ],
+              [
+                8.0,
+                8.0,
+                8.0
+              ]
+            ],
+            "x": [
+              [
+                19.0,
+                19.5,
+                21.5
+              ],
+              [
+                26.5,
+                26.5,
+                27.0
+              ]
+            ],
+            "y": [
+              [
+                25.5,
+                30.0,
+                37.5
+              ],
+              [
+                55.5,
+                null,
+                null
+              ]
+            ],
+            "z": [
+              [
+                8.5,
+                10.5,
+                11.0
+              ],
+              [
+                15.5,
+                15.5,
+                15.5
+              ]
+            ]
+          }
+        }
+      }
+    },
+    {
+      "cells": 20,
+      "material": "vacancy",
+      "survey": {
+        "paths": [
+          {
+            "path": [
+              0,
+              1
+            ],
+            "port_axes": [
+              10,
+              8
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": []
+          },
+          {
+            "path": [
+              0,
+              1,
+              2
+            ],
+            "port_axes": [
+              10,
+              0
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": []
+          },
+          {
+            "path": [
+              0,
+              1,
+              2,
+              9
+            ],
+            "port_axes": [
+              10,
+              8
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": []
+          },
+          {
+            "path": [
+              0,
+              1,
+              5
+            ],
+            "port_axes": [
+              10,
+              8
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": []
+          },
+          {
+            "path": [
+              0,
+              1,
+              5,
+              19
+            ],
+            "port_axes": [
+              10,
+              1
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": []
+          },
+          {
+            "path": [
+              0,
+              4
+            ],
+            "port_axes": [
+              3,
+              0
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": []
+          },
+          {
+            "path": [
+              0,
+              4,
+              3
+            ],
+            "port_axes": [
+              3,
+              1
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": []
+          },
+          {
+            "path": [
+              0,
+              4,
+              3,
+              8
+            ],
+            "port_axes": [
+              3,
+              8
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": []
+          },
+          {
+            "path": [
+              0,
+              4,
+              7
+            ],
+            "port_axes": [
+              3,
+              10
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": []
+          },
+          {
+            "path": [
+              0,
+              4,
+              7,
+              17
+            ],
+            "port_axes": [
+              3,
+              0
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": []
+          },
+          {
+            "path": [
+              0,
+              6
+            ],
+            "port_axes": [
+              1,
+              10
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": []
+          },
+          {
+            "path": [
+              0,
+              6,
+              15
+            ],
+            "port_axes": [
+              1,
+              2
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": []
+          },
+          {
+            "path": [
+              0,
+              6,
+              15,
+              10
+            ],
+            "port_axes": [
+              1,
+              1
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": []
+          },
+          {
+            "path": [
+              0,
+              6,
+              16
+            ],
+            "port_axes": [
+              1,
+              0
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": []
+          },
+          {
+            "path": [
+              0,
+              6,
+              16,
+              11
+            ],
+            "port_axes": [
+              1,
+              10
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": []
+          }
+        ],
+        "pass_at_all_three": [],
+        "finite_pass_at_all_three": {
+          "256": [],
+          "512": []
+        },
+        "eligible_frequencies": [],
+        "passing_frequencies": []
+      }
+    },
+    {
+      "cells": 80,
+      "material": "unit",
+      "survey": {
+        "paths": [
+          {
+            "path": [
+              0,
+              3
+            ],
+            "port_axes": [
+              1,
+              2
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": [
+              {
+                "index": 80,
+                "frequency": 1.3819660113,
+                "multiplicity": 120,
+                "full": [
+                  0.37113922,
+                  0.026820591,
+                  0.005877344
+                ],
+                "transverse_longitudinal": [
+                  0.044745959,
+                  0.016676241,
+                  0.356046558
+                ]
+              }
+            ]
+          },
+          {
+            "path": [
+              0,
+              3,
+              1
+            ],
+            "port_axes": [
+              1,
+              10
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": [
+              {
+                "index": 80,
+                "frequency": 1.3819660113,
+                "multiplicity": 120,
+                "full": [
+                  0.137609587,
+                  0.018243507,
+                  7.5823e-05
+                ],
+                "transverse_longitudinal": [
+                  0.021955935,
+                  0.006959444,
+                  0.13330372
+                ]
+              }
+            ]
+          },
+          {
+            "path": [
+              0,
+              3,
+              1,
+              18
+            ],
+            "port_axes": [
+              1,
+              0
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": [
+              {
+                "index": 80,
+                "frequency": 1.3819660113,
+                "multiplicity": 120,
+                "full": [
+                  0.058444823,
+                  0.039274616,
+                  7.2098e-05
+                ],
+                "transverse_longitudinal": [
+                  0.045212422,
+                  0.003644791,
+                  0.052126116
+                ]
+              },
+              {
+                "index": 172,
+                "frequency": 1.6339745962,
+                "multiplicity": 13,
+                "full": [
+                  0.14811737,
+                  0.007693527,
+                  0.0
+                ],
+                "transverse_longitudinal": [
+                  0.022520107,
+                  0.001780704,
+                  0.139328478
+                ]
+              }
+            ]
+          },
+          {
+            "path": [
+              0,
+              3,
+              1,
+              25
+            ],
+            "port_axes": [
+              1,
+              2
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": [
+              {
+                "index": 80,
+                "frequency": 1.3819660113,
+                "multiplicity": 120,
+                "full": [
+                  0.055909721,
+                  0.001170346,
+                  0.0
+                ],
+                "transverse_longitudinal": [
+                  0.009832257,
+                  0.0,
+                  0.051514368
+                ]
+              }
+            ]
+          },
+          {
+            "path": [
+              0,
+              3,
+              2
+            ],
+            "port_axes": [
+              1,
+              3
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": [
+              {
+                "index": 80,
+                "frequency": 1.3819660113,
+                "multiplicity": 120,
+                "full": [
+                  0.134408456,
+                  0.07638715,
+                  2.0158e-05
+                ],
+                "transverse_longitudinal": [
+                  0.077310222,
+                  0.006322832,
+                  0.130048321
+                ]
+              }
+            ]
+          },
+          {
+            "path": [
+              0,
+              3,
+              2,
+              5
+            ],
+            "port_axes": [
+              1,
+              1
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": []
+          },
+          {
+            "path": [
+              0,
+              3,
+              2,
+              24
+            ],
+            "port_axes": [
+              1,
+              10
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": []
+          },
+          {
+            "path": [
+              0,
+              4
+            ],
+            "port_axes": [
+              10,
+              8
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": [
+              {
+                "index": 80,
+                "frequency": 1.3819660113,
+                "multiplicity": 120,
+                "full": [
+                  0.358059746,
+                  0.026513735,
+                  0.020680172
+                ],
+                "transverse_longitudinal": [
+                  0.055015505,
+                  0.008680925,
+                  0.342082157
+                ]
+              }
+            ]
+          },
+          {
+            "path": [
+              0,
+              4,
+              7
+            ],
+            "port_axes": [
+              10,
+              3
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": [
+              {
+                "index": 80,
+                "frequency": 1.3819660113,
+                "multiplicity": 120,
+                "full": [
+                  0.08949738,
+                  0.001461908,
+                  0.0
+                ],
+                "transverse_longitudinal": [
+                  0.005742905,
+                  0.0,
+                  0.087753205
+                ]
+              }
+            ]
+          },
+          {
+            "path": [
+              0,
+              4,
+              7,
+              5
+            ],
+            "port_axes": [
+              10,
+              2
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": []
+          },
+          {
+            "path": [
+              0,
+              4,
+              7,
+              6
+            ],
+            "port_axes": [
+              10,
+              1
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": []
+          },
+          {
+            "path": [
+              0,
+              4,
+              8
+            ],
+            "port_axes": [
+              10,
+              0
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": [
+              {
+                "index": 80,
+                "frequency": 1.3819660113,
+                "multiplicity": 120,
+                "full": [
+                  0.150255882,
+                  0.047481519,
+                  0.000422981
+                ],
+                "transverse_longitudinal": [
+                  0.037998205,
+                  0.016846037,
+                  0.140778754
+                ]
+              }
+            ]
+          },
+          {
+            "path": [
+              0,
+              4,
+              8,
+              11
+            ],
+            "port_axes": [
+              10,
+              1
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": [
+              {
+                "index": 80,
+                "frequency": 1.3819660113,
+                "multiplicity": 120,
+                "full": [
+                  0.036050808,
+                  0.003663672,
+                  0.0
+                ],
+                "transverse_longitudinal": [
+                  0.002913047,
+                  0.0,
+                  0.035102421
+                ]
+              }
+            ]
+          },
+          {
+            "path": [
+              0,
+              16
+            ],
+            "port_axes": [
+              3,
+              0
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": [
+              {
+                "index": 80,
+                "frequency": 1.3819660113,
+                "multiplicity": 120,
+                "full": [
+                  0.360249449,
+                  0.025048766,
+                  0.00624673
+                ],
+                "transverse_longitudinal": [
+                  0.030927329,
+                  0.014086984,
+                  0.343876716
+                ]
+              },
+              {
+                "index": 172,
+                "frequency": 1.6339745962,
+                "multiplicity": 13,
+                "full": [
+                  0.224585888,
+                  0.070966058,
+                  0.0
+                ],
+                "transverse_longitudinal": [
+                  0.072001444,
+                  0.007789736,
+                  0.219998893
+                ]
+              },
+              {
+                "index": 285,
+                "frequency": 3.3660254038,
+                "multiplicity": 13,
+                "full": [
+                  0.003623296,
+                  0.001144912,
+                  0.0
+                ],
+                "transverse_longitudinal": [
+                  0.001161616,
+                  0.000125674,
+                  0.003549293
+                ]
+              },
+              {
+                "index": 319,
+                "frequency": 4.0,
+                "multiplicity": 21,
+                "full": [
+                  0.008410902,
+                  0.002634626,
+                  0.0
+                ],
+                "transverse_longitudinal": [
+                  0.002661884,
+                  0.000292957,
+                  0.008247351
+                ]
+              }
+            ]
+          },
+          {
+            "path": [
+              0,
+              16,
+              12
+            ],
+            "port_axes": [
+              3,
+              1
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": [
+              {
+                "index": 80,
+                "frequency": 1.3819660113,
+                "multiplicity": 120,
+                "full": [
+                  0.129111284,
+                  0.064556083,
+                  0.00023902
+                ],
+                "transverse_longitudinal": [
+                  0.051676927,
+                  0.009249564,
+                  0.121648619
+                ]
+              },
+              {
+                "index": 172,
+                "frequency": 1.6339745962,
+                "multiplicity": 13,
+                "full": [
+                  0.176592803,
+                  0.03415869,
+                  0.0
+                ],
+                "transverse_longitudinal": [
+                  0.090119268,
+                  0.002355523,
+                  0.138686358
+                ]
+              },
+              {
+                "index": 319,
+                "frequency": 4.0,
+                "multiplicity": 21,
+                "full": [
+                  0.006538435,
+                  0.001387204,
+                  0.0
+                ],
+                "transverse_longitudinal": [
+                  0.003428027,
+                  9.3111e-05,
+                  0.005130564
+                ]
+              }
+            ]
+          },
+          {
+            "path": [
+              0,
+              16,
+              12,
+              15
+            ],
+            "port_axes": [
+              3,
+              0
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": [
+              {
+                "index": 80,
+                "frequency": 1.3819660113,
+                "multiplicity": 120,
+                "full": [
+                  0.056857826,
+                  0.008630511,
+                  0.000731843
+                ],
+                "transverse_longitudinal": [
+                  0.012482336,
+                  0.004325081,
+                  0.054278273
+                ]
+              },
+              {
+                "index": 172,
+                "frequency": 1.6339745962,
+                "multiplicity": 13,
+                "full": [
+                  0.044880578,
+                  0.002475587,
+                  0.0
+                ],
+                "transverse_longitudinal": [
+                  0.017031577,
+                  0.000229569,
+                  0.041528953
+                ]
+              }
+            ]
+          },
+          {
+            "path": [
+              0,
+              16,
+              19
+            ],
+            "port_axes": [
+              3,
+              10
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": [
+              {
+                "index": 80,
+                "frequency": 1.3819660113,
+                "multiplicity": 120,
+                "full": [
+                  0.134927006,
+                  0.016906125,
+                  0.001405238
+                ],
+                "transverse_longitudinal": [
+                  0.021536908,
+                  0.003169733,
+                  0.130589621
+                ]
+              },
+              {
+                "index": 172,
+                "frequency": 1.6339745962,
+                "multiplicity": 13,
+                "full": [
+                  0.128987181,
+                  0.021984787,
+                  0.0
+                ],
+                "transverse_longitudinal": [
+                  0.050356456,
+                  0.00198173,
+                  0.113678524
+                ]
+              }
+            ]
+          },
+          {
+            "path": [
+              0,
+              16,
+              19,
+              17
+            ],
+            "port_axes": [
+              3,
+              0
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": [
+              {
+                "index": 80,
+                "frequency": 1.3819660113,
+                "multiplicity": 120,
+                "full": [
+                  0.047461716,
+                  0.004387059,
+                  0.000801403
+                ],
+                "transverse_longitudinal": [
+                  0.006532286,
+                  0.002504618,
+                  0.044067207
+                ]
+              },
+              {
+                "index": 172,
+                "frequency": 1.6339745962,
+                "multiplicity": 13,
+                "full": [
+                  0.034385481,
+                  0.020509304,
+                  0.0
+                ],
+                "transverse_longitudinal": [
+                  0.031583596,
+                  0.00078577,
+                  0.022813648
+                ]
+              }
+            ]
+          },
+          {
+            "path": [
+              0,
+              16,
+              19,
+              18
+            ],
+            "port_axes": [
+              3,
+              2
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": [
+              {
+                "index": 80,
+                "frequency": 1.3819660113,
+                "multiplicity": 120,
+                "full": [
+                  0.058444823,
+                  0.039274616,
+                  7.2098e-05
+                ],
+                "transverse_longitudinal": [
+                  0.042523778,
+                  0.002124822,
+                  0.055114785
+                ]
+              },
+              {
+                "index": 172,
+                "frequency": 1.6339745962,
+                "multiplicity": 13,
+                "full": [
+                  0.14811737,
+                  0.007693527,
+                  0.0
+                ],
+                "transverse_longitudinal": [
+                  0.075724666,
+                  0.000529572,
+                  0.106463651
+                ]
+              }
+            ]
+          }
+        ],
+        "pass_at_all_three": [],
+        "finite_pass_at_all_three": {
+          "256": [],
+          "512": []
+        },
+        "eligible_frequencies": [
+          1.381966011,
+          1.633974596,
+          3.366025404,
+          4.0
+        ],
+        "passing_frequencies": []
+      },
+      "flight": {
+        "path": [
+          0,
+          3,
+          1,
+          18
+        ],
+        "readings": {
+          "1": {
+            "sharp": [
+              [
+                0.5,
+                0.5,
+                0.5
+              ],
+              [
+                0.5,
+                0.5,
+                0.5
+              ]
+            ],
+            "x": [
+              [
+                9.0,
+                11.5,
+                13.0
+              ],
+              [
+                23.5,
+                27.0,
+                28.0
+              ]
+            ],
+            "y": [
+              [
+                4.5,
+                6.0,
+                6.5
+              ],
+              [
+                9.0,
+                9.0,
+                9.5
+              ]
+            ],
+            "z": [
+              [
+                0.5,
+                0.5,
+                0.5
+              ],
+              [
+                0.5,
+                0.5,
+                0.5
+              ]
+            ]
+          },
+          "2": {
+            "sharp": [
+              [
+                2.0,
+                2.5,
+                2.5
+              ],
+              [
+                3.5,
+                4.0,
+                4.0
+              ]
+            ],
+            "x": [
+              [
+                19.0,
+                21.0,
+                22.5
+              ],
+              [
+                28.5,
+                29.0,
+                29.5
+              ]
+            ],
+            "y": [
+              [
+                13.0,
+                15.0,
+                15.5
+              ],
+              [
+                21.0,
+                22.0,
+                22.0
+              ]
+            ],
+            "z": [
+              [
+                3.5,
+                4.0,
+                4.0
+              ],
+              [
+                6.5,
+                6.5,
+                7.0
+              ]
+            ]
+          },
+          "3": {
+            "sharp": [
+              [
+                6.5,
+                7.5,
+                8.0
+              ],
+              [
+                13.0,
+                13.5,
+                14.0
+              ]
+            ],
+            "x": [
+              [
+                10.5,
+                12.5,
+                13.0
+              ],
+              [
+                17.0,
+                17.5,
+                17.5
+              ]
+            ],
+            "y": [
+              [
+                23.0,
+                25.5,
+                26.5
+              ],
+              [
+                35.0,
+                35.5,
+                35.5
+              ]
+            ],
+            "z": [
+              [
+                10.0,
+                10.5,
+                12.0
+              ],
+              [
+                15.0,
+                15.0,
+                15.0
+              ]
+            ]
+          }
+        }
+      }
+    },
+    {
+      "cells": 80,
+      "material": "vacancy",
+      "survey": {
+        "paths": [
+          {
+            "path": [
+              0,
+              3
+            ],
+            "port_axes": [
+              1,
+              2
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": []
+          },
+          {
+            "path": [
+              0,
+              3,
+              1
+            ],
+            "port_axes": [
+              1,
+              10
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": []
+          },
+          {
+            "path": [
+              0,
+              3,
+              1,
+              18
+            ],
+            "port_axes": [
+              1,
+              0
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": [
+              {
+                "index": 148,
+                "frequency": -14.040437517,
+                "multiplicity": 12,
+                "full": [
+                  0.110738934,
+                  0.012711623,
+                  0.0
+                ],
+                "transverse_longitudinal": [
+                  0.027196466,
+                  0.00182146,
+                  0.104195212
+                ]
+              },
+              {
+                "index": 234,
+                "frequency": -14.0381302049,
+                "multiplicity": 13,
+                "full": [
+                  0.105541682,
+                  0.005482056,
+                  0.0
+                ],
+                "transverse_longitudinal": [
+                  0.016046801,
+                  0.001268849,
+                  0.099279119
+                ]
+              },
+              {
+                "index": 422,
+                "frequency": 2.545830757,
+                "multiplicity": 12,
+                "full": [
+                  0.051114546,
+                  0.005867393,
+                  0.0
+                ],
+                "transverse_longitudinal": [
+                  0.012553263,
+                  0.000840744,
+                  0.048094114
+                ]
+              },
+              {
+                "index": 527,
+                "frequency": 3.5431957481,
+                "multiplicity": 13,
+                "full": [
+                  0.049330468,
+                  0.002562328,
+                  0.0
+                ],
+                "transverse_longitudinal": [
+                  0.007500318,
+                  0.000593063,
+                  0.046403328
+                ]
+              }
+            ]
+          },
+          {
+            "path": [
+              0,
+              3,
+              1,
+              25
+            ],
+            "port_axes": [
+              1,
+              2
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": []
+          },
+          {
+            "path": [
+              0,
+              3,
+              2
+            ],
+            "port_axes": [
+              1,
+              3
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": []
+          },
+          {
+            "path": [
+              0,
+              3,
+              2,
+              5
+            ],
+            "port_axes": [
+              1,
+              1
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": []
+          },
+          {
+            "path": [
+              0,
+              3,
+              2,
+              24
+            ],
+            "port_axes": [
+              1,
+              10
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": []
+          },
+          {
+            "path": [
+              0,
+              4
+            ],
+            "port_axes": [
+              10,
+              8
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": []
+          },
+          {
+            "path": [
+              0,
+              4,
+              7
+            ],
+            "port_axes": [
+              10,
+              3
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": []
+          },
+          {
+            "path": [
+              0,
+              4,
+              7,
+              5
+            ],
+            "port_axes": [
+              10,
+              2
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": []
+          },
+          {
+            "path": [
+              0,
+              4,
+              7,
+              6
+            ],
+            "port_axes": [
+              10,
+              1
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": []
+          },
+          {
+            "path": [
+              0,
+              4,
+              8
+            ],
+            "port_axes": [
+              10,
+              0
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": []
+          },
+          {
+            "path": [
+              0,
+              4,
+              8,
+              11
+            ],
+            "port_axes": [
+              10,
+              1
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": []
+          },
+          {
+            "path": [
+              0,
+              16
+            ],
+            "port_axes": [
+              3,
+              0
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": [
+              {
+                "index": 148,
+                "frequency": -14.040437517,
+                "multiplicity": 12,
+                "full": [
+                  0.113128322,
+                  0.003207337,
+                  0.0
+                ],
+                "transverse_longitudinal": [
+                  0.015388582,
+                  0.000829752,
+                  0.10571752
+                ]
+              },
+              {
+                "index": 234,
+                "frequency": -14.0381302049,
+                "multiplicity": 13,
+                "full": [
+                  0.16002966,
+                  0.050567177,
+                  0.0
+                ],
+                "transverse_longitudinal": [
+                  0.051304945,
+                  0.005550611,
+                  0.156761177
+                ]
+              },
+              {
+                "index": 422,
+                "frequency": 2.545830757,
+                "multiplicity": 12,
+                "full": [
+                  0.052217432,
+                  0.001480433,
+                  0.0
+                ],
+                "transverse_longitudinal": [
+                  0.007103016,
+                  0.000382994,
+                  0.048796776
+                ]
+              },
+              {
+                "index": 527,
+                "frequency": 3.5431957481,
+                "multiplicity": 13,
+                "full": [
+                  0.074798296,
+                  0.023635235,
+                  0.0
+                ],
+                "transverse_longitudinal": [
+                  0.02398007,
+                  0.002594371,
+                  0.073270598
+                ]
+              }
+            ]
+          },
+          {
+            "path": [
+              0,
+              16,
+              12
+            ],
+            "port_axes": [
+              3,
+              1
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": [
+              {
+                "index": 148,
+                "frequency": -14.040437517,
+                "multiplicity": 12,
+                "full": [
+                  0.032639396,
+                  0.017690823,
+                  0.0
+                ],
+                "transverse_longitudinal": [
+                  0.01410638,
+                  0.001440474,
+                  0.031923344
+                ]
+              },
+              {
+                "index": 234,
+                "frequency": -14.0381302049,
+                "multiplicity": 13,
+                "full": [
+                  0.125831977,
+                  0.024339925,
+                  0.0
+                ],
+                "transverse_longitudinal": [
+                  0.06421488,
+                  0.001678438,
+                  0.098821573
+                ]
+              },
+              {
+                "index": 422,
+                "frequency": 2.545830757,
+                "multiplicity": 12,
+                "full": [
+                  0.015065595,
+                  0.008165677,
+                  0.0
+                ],
+                "transverse_longitudinal": [
+                  0.006511181,
+                  0.00066489,
+                  0.014735082
+                ]
+              },
+              {
+                "index": 527,
+                "frequency": 3.5431957481,
+                "multiplicity": 13,
+                "full": [
+                  0.058814206,
+                  0.011376547,
+                  0.0
+                ],
+                "transverse_longitudinal": [
+                  0.030014209,
+                  0.000784507,
+                  0.04618947
+                ]
+              }
+            ]
+          },
+          {
+            "path": [
+              0,
+              16,
+              12,
+              15
+            ],
+            "port_axes": [
+              3,
+              0
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": [
+              {
+                "index": 148,
+                "frequency": -14.040437517,
+                "multiplicity": 12,
+                "full": [
+                  0.032678326,
+                  0.013526592,
+                  0.0
+                ],
+                "transverse_longitudinal": [
+                  0.013904655,
+                  0.001118713,
+                  0.03195206
+                ]
+              },
+              {
+                "index": 234,
+                "frequency": -14.0381302049,
+                "multiplicity": 13,
+                "full": [
+                  0.031979853,
+                  0.001763991,
+                  0.0
+                ],
+                "transverse_longitudinal": [
+                  0.012135925,
+                  0.00016358,
+                  0.029591638
+                ]
+              },
+              {
+                "index": 422,
+                "frequency": 2.545830757,
+                "multiplicity": 12,
+                "full": [
+                  0.015083564,
+                  0.006243564,
+                  0.0
+                ],
+                "transverse_longitudinal": [
+                  0.006418069,
+                  0.000516372,
+                  0.014748336
+                ]
+              }
+            ]
+          },
+          {
+            "path": [
+              0,
+              16,
+              19
+            ],
+            "port_axes": [
+              3,
+              10
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": [
+              {
+                "index": 148,
+                "frequency": -14.040437517,
+                "multiplicity": 12,
+                "full": [
+                  0.09533534,
+                  0.007354536,
+                  0.0
+                ],
+                "transverse_longitudinal": [
+                  0.026249797,
+                  0.00093997,
+                  0.085478685
+                ]
+              },
+              {
+                "index": 234,
+                "frequency": -14.0381302049,
+                "multiplicity": 13,
+                "full": [
+                  0.091910382,
+                  0.015665356,
+                  0.0
+                ],
+                "transverse_longitudinal": [
+                  0.035881714,
+                  0.00141209,
+                  0.081002131
+                ]
+              },
+              {
+                "index": 422,
+                "frequency": 2.545830757,
+                "multiplicity": 12,
+                "full": [
+                  0.044004601,
+                  0.003394685,
+                  0.0
+                ],
+                "transverse_longitudinal": [
+                  0.012116303,
+                  0.000433869,
+                  0.039454996
+                ]
+              },
+              {
+                "index": 527,
+                "frequency": 3.5431957481,
+                "multiplicity": 13,
+                "full": [
+                  0.042959161,
+                  0.00732203,
+                  0.0
+                ],
+                "transverse_longitudinal": [
+                  0.01677121,
+                  0.000660015,
+                  0.037860615
+                ]
+              }
+            ]
+          },
+          {
+            "path": [
+              0,
+              16,
+              19,
+              17
+            ],
+            "port_axes": [
+              3,
+              0
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": [
+              {
+                "index": 148,
+                "frequency": -14.040437517,
+                "multiplicity": 12,
+                "full": [
+                  0.022802395,
+                  0.007021982,
+                  0.0
+                ],
+                "transverse_longitudinal": [
+                  0.0086383,
+                  0.000652293,
+                  0.021531011
+                ]
+              },
+              {
+                "index": 234,
+                "frequency": -14.0381302049,
+                "multiplicity": 13,
+                "full": [
+                  0.024501525,
+                  0.014613994,
+                  0.0
+                ],
+                "transverse_longitudinal": [
+                  0.02250503,
+                  0.000559904,
+                  0.016255965
+                ]
+              },
+              {
+                "index": 422,
+                "frequency": 2.545830757,
+                "multiplicity": 12,
+                "full": [
+                  0.010525061,
+                  0.003241186,
+                  0.0
+                ],
+                "transverse_longitudinal": [
+                  0.003987241,
+                  0.000301083,
+                  0.00993822
+                ]
+              },
+              {
+                "index": 527,
+                "frequency": 3.5431957481,
+                "multiplicity": 13,
+                "full": [
+                  0.011452079,
+                  0.006830621,
+                  0.0
+                ],
+                "transverse_longitudinal": [
+                  0.010518912,
+                  0.0002617,
+                  0.007598082
+                ]
+              }
+            ]
+          },
+          {
+            "path": [
+              0,
+              16,
+              19,
+              18
+            ],
+            "port_axes": [
+              3,
+              2
+            ],
+            "pass_lines": [],
+            "finite_filter_pass": {
+              "256": [],
+              "512": []
+            },
+            "possible_two_mode_lines": [
+              {
+                "index": 148,
+                "frequency": -14.040437517,
+                "multiplicity": 12,
+                "full": [
+                  0.110738934,
+                  0.012711623,
+                  0.0
+                ],
+                "transverse_longitudinal": [
+                  0.050858945,
+                  0.000974013,
+                  0.091414357
+                ]
+              },
+              {
+                "index": 234,
+                "frequency": -14.0381302049,
+                "multiplicity": 13,
+                "full": [
+                  0.105541682,
+                  0.005482056,
+                  0.0
+                ],
+                "transverse_longitudinal": [
+                  0.053957944,
+                  0.000377349,
+                  0.075861142
+                ]
+              },
+              {
+                "index": 422,
+                "frequency": 2.545830757,
+                "multiplicity": 12,
+                "full": [
+                  0.051114546,
+                  0.005867393,
+                  0.0
+                ],
+                "transverse_longitudinal": [
+                  0.023475319,
+                  0.000449582,
+                  0.042194766
+                ]
+              },
+              {
+                "index": 527,
+                "frequency": 3.5431957481,
+                "multiplicity": 13,
+                "full": [
+                  0.049330468,
+                  0.002562328,
+                  0.0
+                ],
+                "transverse_longitudinal": [
+                  0.025220089,
+                  0.000176374,
+                  0.035457703
+                ]
+              }
+            ]
+          }
+        ],
+        "pass_at_all_three": [],
+        "finite_pass_at_all_three": {
+          "256": [],
+          "512": []
+        },
+        "eligible_frequencies": [
+          -14.040437517,
+          -14.038130205,
+          2.545830757,
+          3.543195748
+        ],
+        "passing_frequencies": []
+      }
+    }
+  ],
+  "shots": 33554432,
+  "simultaneous_99_probability_error": 0.0004457853985418186,
+  "launches": [
+    "sharp",
+    "x",
+    "y",
+    "z"
+  ],
+  "thresholds": [
+    0.001,
+    0.005
+  ],
+  "times": [
+    0.0,
+    0.5,
+    1.0,
+    1.5,
+    2.0,
+    2.5,
+    3.0,
+    3.5,
+    4.0,
+    4.5,
+    5.0,
+    5.5,
+    6.0,
+    6.5,
+    7.0,
+    7.5,
+    8.0,
+    8.5,
+    9.0,
+    9.5,
+    10.0,
+    10.5,
+    11.0,
+    11.5,
+    12.0,
+    12.5,
+    13.0,
+    13.5,
+    14.0,
+    14.5,
+    15.0,
+    15.5,
+    16.0,
+    16.5,
+    17.0,
+    17.5,
+    18.0,
+    18.5,
+    19.0,
+    19.5,
+    20.0,
+    20.5,
+    21.0,
+    21.5,
+    22.0,
+    22.5,
+    23.0,
+    23.5,
+    24.0,
+    24.5,
+    25.0,
+    25.5,
+    26.0,
+    26.5,
+    27.0,
+    27.5,
+    28.0,
+    28.5,
+    29.0,
+    29.5,
+    30.0,
+    30.5,
+    31.0,
+    31.5,
+    32.0,
+    32.5,
+    33.0,
+    33.5,
+    34.0,
+    34.5,
+    35.0,
+    35.5,
+    36.0,
+    36.5,
+    37.0,
+    37.5,
+    38.0,
+    38.5,
+    39.0,
+    39.5,
+    40.0,
+    40.5,
+    41.0,
+    41.5,
+    42.0,
+    42.5,
+    43.0,
+    43.5,
+    44.0,
+    44.5,
+    45.0,
+    45.5,
+    46.0,
+    46.5,
+    47.0,
+    47.5,
+    48.0,
+    48.5,
+    49.0,
+    49.5,
+    50.0,
+    50.5,
+    51.0,
+    51.5,
+    52.0,
+    52.5,
+    53.0,
+    53.5,
+    54.0,
+    54.5,
+    55.0,
+    55.5,
+    56.0,
+    56.5,
+    57.0,
+    57.5,
+    58.0,
+    58.5,
+    59.0,
+    59.5,
+    60.0,
+    60.5,
+    61.0,
+    61.5,
+    62.0,
+    62.5,
+    63.0,
+    63.5,
+    64.0
+  ]
+}

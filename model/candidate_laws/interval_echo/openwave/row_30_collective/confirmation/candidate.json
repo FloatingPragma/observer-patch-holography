@@ -1,0 +1,31 @@
+{
+  "protocol": "oph-ow30-confirmation-v3",
+  "row": "OW-30",
+  "candidate": "Interval Echo coherent open-strand orientation wall",
+  "ancestry": {
+    "pin": "4fe10f9ac3e81423155fb3ac7baaf0fdb4c0b11c",
+    "retained": "Seam exchange, contrast coupling 8 and spherical 20/80/320-cell carriers",
+    "changed": "State, written memory, preparation and decoder relative to the two-load M10.3 pair"
+  },
+  "state": "Longest open strand of disjoint equal-degree load dimers under seeded two-stage matching. One unit per dimer. Connecting coin-even, sign-even magnitude-two memories remain unread in free flight. Exterior contacts carry idle zero writes.",
+  "preparation": "The addressed, load-conserving commissioning circuit prepares each trial. The temporal and spatial spectra use random maximally mixed orientations, local source and terminal Pauli factors and retained product signs. Remote interventions compare two wall preparations.",
+  "decoder": "Local clock quadratures, temporal upper-band pair sums, distributed spatial scans with wave numbers fitted on even holds only for every dispersion forecast and physical gate, and odd-hold profile validation. Interior recurrence is recorded as a diagnostic. A stationary end node supplies the boundary condition for the independent test. All enrolled pairs, addresses, signs and source-only wavelength foils count.",
+  "controls": "Zero contrast during flight, propagating coupling mutation in the pilot, matched lattice tangent, identical-data replacement of the inferred wave numbers by the source sine labels.",
+  "scope": "Constituent dispersion along a commissioned coherent strand in dimer-clock units.",
+  "implementation": {
+    "model/candidate_laws/contrast_memory_spherical_v1/law.py": "218a99ebc1e921065a818b77f00608818fdacf80782406466787b2891b1d017f",
+    "model/candidate_laws/interval_echo/candidate.py": "babb7b616a19021a67f7f0d7ab146d7e41c0f2a6923f5b7e9a8578e28916ddef",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/confirmation/acquire.py": "a92d828b187d52e0bfa44a53caf099593a511b2c2610b1a080a7df5dc9b99748",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/confirmation/spatial.py": "1d22c519984317f63b2425af44daa60bd2b0d357e074c3b89f1ba204085f6bdc",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/coupling_meter.json": "6a21312354b9692049a8a1a731eeb0b52e0d8a5f218e69d92ca426af24bfc8ed",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/coupling_meter.py": "9eb635f44a1fe0a745db6026322e442332052bf8a94bf8138ab12f624b6cec3b",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/experiment.py": "d8d608bfaf3a06ba296957695d288398faed525225cad9627ce0fd458cbb47a5",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/formation.py": "996f1fbf29bb85fdfeb9ca3cc163be272ebedce80c8dad1a5759d1604cd4f7f7",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/holdout.py": "74fa4a9ddbd2a51f56084f4621b3552e5fa22349f95f445e07e3503741400fae",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/registration/verify.py": "e07d70cd60580cedfbf176e4d19c1e24463207953933f902bddcb1d9e9346af9",
+    "model/executable_model/carrier.py": "327fc33189ff6242f7367f625a3f70d97167e79bd4f8a740266d7eb09e237bbd",
+    "model/executable_model/carriers/FEDERATION_LEVEL0.npz": "99870398e3d516f899c600e9bf25ba53c7f513142ba8facbe1cedd94b23f915b",
+    "model/executable_model/carriers/FEDERATION_LEVEL1.npz": "c7d4ad87b09d9158a3d9be60c537d1aaecc69e951e6a9979e505e0162e134d4b",
+    "model/executable_model/carriers/FEDERATION_LEVEL2.npz": "e7273bbd0e814abf49f3a333ecfe58a542262aee7d2399db677d15c19fcac673"
+  }
+}

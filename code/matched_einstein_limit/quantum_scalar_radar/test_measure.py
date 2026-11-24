@@ -117,3 +117,22 @@ def test_reserved_matter_meter_cross_check():
     for row in saved.values():
         assert abs(row["comparisons"][-1]["discrepancy"]) < 0.00005
     assert saved["z"]["reserved_change"] > 0 > saved["y"]["reserved_change"]
+
+
+def test_all_sky_bound_on_held_reads_and_feedback_control():
+    from . import null_sky
+
+    surveys = null_sky.run()['surveys']
+    generator = np.random.default_rng(15343)
+    sky = generator.normal(size=(256, 3))
+    sky /= np.linalg.norm(sky, axis=1)[:, None]
+    for survey in surveys:
+        for read in survey['held']:
+            along_rays = sky**2 @ read['axial']
+            assert max(along_rays) <= read['all_sky_max'] + 1e-14
+            assert min(along_rays) >= read['all_sky_min'] - 1e-14
+    assert surveys[-1]['held_all_sky_max_abs'] < 7.1e-6
+    assert surveys[-1]['decoupled_all_sky_max_abs'] > 0.04
+    fixed = [survey['held_fixed_hamiltonian_coupling_max_abs'] for survey in surveys]
+    assert fixed[0] > fixed[1] > fixed[2]
+    assert fixed[2] < 7.2e-6

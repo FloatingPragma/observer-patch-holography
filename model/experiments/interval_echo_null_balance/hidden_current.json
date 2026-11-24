@@ -1,0 +1,859 @@
+{
+  "boards": [
+    {
+      "cells": 20,
+      "gateways": [
+        1,
+        3,
+        10
+      ],
+      "selected_ports": [
+        4,
+        5
+      ],
+      "kinetic_current_magnitude": "sqrt(3)/4",
+      "all_internal_seams": [
+        {
+          "ports": [
+            0,
+            1
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            0,
+            5
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            0,
+            7
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            0,
+            10
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            0,
+            11
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            1,
+            5
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            1,
+            7
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            1,
+            8
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            1,
+            9
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            2,
+            3
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            2,
+            4
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            2,
+            6
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            2,
+            10
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            2,
+            11
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            3,
+            4
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            3,
+            6
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            3,
+            8
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            3,
+            9
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            4,
+            5
+          ],
+          "number_current": "-sqrt(3)/12",
+          "kinetic_current": "-sqrt(3)/4"
+        },
+        {
+          "ports": [
+            4,
+            9
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            4,
+            11
+          ],
+          "number_current": "sqrt(3)/12",
+          "kinetic_current": "sqrt(3)/4"
+        },
+        {
+          "ports": [
+            5,
+            9
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            5,
+            11
+          ],
+          "number_current": "-sqrt(3)/12",
+          "kinetic_current": "-sqrt(3)/4"
+        },
+        {
+          "ports": [
+            6,
+            7
+          ],
+          "number_current": "sqrt(3)/12",
+          "kinetic_current": "sqrt(3)/4"
+        },
+        {
+          "ports": [
+            6,
+            8
+          ],
+          "number_current": "-sqrt(3)/12",
+          "kinetic_current": "-sqrt(3)/4"
+        },
+        {
+          "ports": [
+            6,
+            10
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            7,
+            8
+          ],
+          "number_current": "sqrt(3)/12",
+          "kinetic_current": "sqrt(3)/4"
+        },
+        {
+          "ports": [
+            7,
+            10
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            8,
+            9
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            10,
+            11
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        }
+      ],
+      "all_null_error_floor_per_unit_coupling": "sqrt(3)/2",
+      "quadrature_reads": [
+        {
+          "preparation": "positive",
+          "yes_probabilities": [
+            0.022329099369260183,
+            0.3110042339640733
+          ],
+          "kinetic_current": -0.43301270189221963,
+          "operator_current": -0.4330127018922201
+        },
+        {
+          "preparation": "negative",
+          "yes_probabilities": [
+            0.3110042339640731,
+            0.022329099369260284
+          ],
+          "kinetic_current": 0.4330127018922192,
+          "operator_current": 0.4330127018922204
+        },
+        {
+          "preparation": "standing",
+          "yes_probabilities": [
+            0.24999999999999983,
+            0.2500000000000001
+          ],
+          "kinetic_current": -4.163336342344337e-16,
+          "operator_current": 4.209723372069018e-17
+        }
+      ]
+    },
+    {
+      "cells": 80,
+      "gateways": [
+        1,
+        3,
+        10
+      ],
+      "selected_ports": [
+        4,
+        5
+      ],
+      "kinetic_current_magnitude": "sqrt(3)/4",
+      "all_internal_seams": [
+        {
+          "ports": [
+            0,
+            1
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            0,
+            5
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            0,
+            7
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            0,
+            10
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            0,
+            11
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            1,
+            5
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            1,
+            7
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            1,
+            8
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            1,
+            9
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            2,
+            3
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            2,
+            4
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            2,
+            6
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            2,
+            10
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            2,
+            11
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            3,
+            4
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            3,
+            6
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            3,
+            8
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            3,
+            9
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            4,
+            5
+          ],
+          "number_current": "-sqrt(3)/12",
+          "kinetic_current": "-sqrt(3)/4"
+        },
+        {
+          "ports": [
+            4,
+            9
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            4,
+            11
+          ],
+          "number_current": "sqrt(3)/12",
+          "kinetic_current": "sqrt(3)/4"
+        },
+        {
+          "ports": [
+            5,
+            9
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            5,
+            11
+          ],
+          "number_current": "-sqrt(3)/12",
+          "kinetic_current": "-sqrt(3)/4"
+        },
+        {
+          "ports": [
+            6,
+            7
+          ],
+          "number_current": "sqrt(3)/12",
+          "kinetic_current": "sqrt(3)/4"
+        },
+        {
+          "ports": [
+            6,
+            8
+          ],
+          "number_current": "-sqrt(3)/12",
+          "kinetic_current": "-sqrt(3)/4"
+        },
+        {
+          "ports": [
+            6,
+            10
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            7,
+            8
+          ],
+          "number_current": "sqrt(3)/12",
+          "kinetic_current": "sqrt(3)/4"
+        },
+        {
+          "ports": [
+            7,
+            10
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            8,
+            9
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            10,
+            11
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        }
+      ],
+      "all_null_error_floor_per_unit_coupling": "sqrt(3)/2",
+      "quadrature_reads": [
+        {
+          "preparation": "positive",
+          "yes_probabilities": [
+            0.022329099369260183,
+            0.3110042339640733
+          ],
+          "kinetic_current": -0.43301270189221963,
+          "operator_current": -0.4330127018922201
+        },
+        {
+          "preparation": "negative",
+          "yes_probabilities": [
+            0.3110042339640731,
+            0.022329099369260284
+          ],
+          "kinetic_current": 0.4330127018922192,
+          "operator_current": 0.4330127018922204
+        },
+        {
+          "preparation": "standing",
+          "yes_probabilities": [
+            0.24999999999999983,
+            0.2500000000000001
+          ],
+          "kinetic_current": -4.163336342344337e-16,
+          "operator_current": 4.209723372069018e-17
+        }
+      ]
+    },
+    {
+      "cells": 320,
+      "gateways": [
+        1,
+        3,
+        10
+      ],
+      "selected_ports": [
+        4,
+        5
+      ],
+      "kinetic_current_magnitude": "sqrt(3)/4",
+      "all_internal_seams": [
+        {
+          "ports": [
+            0,
+            1
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            0,
+            5
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            0,
+            7
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            0,
+            10
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            0,
+            11
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            1,
+            5
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            1,
+            7
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            1,
+            8
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            1,
+            9
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            2,
+            3
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            2,
+            4
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            2,
+            6
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            2,
+            10
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            2,
+            11
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            3,
+            4
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            3,
+            6
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            3,
+            8
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            3,
+            9
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            4,
+            5
+          ],
+          "number_current": "-sqrt(3)/12",
+          "kinetic_current": "-sqrt(3)/4"
+        },
+        {
+          "ports": [
+            4,
+            9
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            4,
+            11
+          ],
+          "number_current": "sqrt(3)/12",
+          "kinetic_current": "sqrt(3)/4"
+        },
+        {
+          "ports": [
+            5,
+            9
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            5,
+            11
+          ],
+          "number_current": "-sqrt(3)/12",
+          "kinetic_current": "-sqrt(3)/4"
+        },
+        {
+          "ports": [
+            6,
+            7
+          ],
+          "number_current": "sqrt(3)/12",
+          "kinetic_current": "sqrt(3)/4"
+        },
+        {
+          "ports": [
+            6,
+            8
+          ],
+          "number_current": "-sqrt(3)/12",
+          "kinetic_current": "-sqrt(3)/4"
+        },
+        {
+          "ports": [
+            6,
+            10
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            7,
+            8
+          ],
+          "number_current": "sqrt(3)/12",
+          "kinetic_current": "sqrt(3)/4"
+        },
+        {
+          "ports": [
+            7,
+            10
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            8,
+            9
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        },
+        {
+          "ports": [
+            10,
+            11
+          ],
+          "number_current": "0",
+          "kinetic_current": "0"
+        }
+      ],
+      "all_null_error_floor_per_unit_coupling": "sqrt(3)/2",
+      "quadrature_reads": [
+        {
+          "preparation": "positive",
+          "yes_probabilities": [
+            0.022329099369260183,
+            0.3110042339640733
+          ],
+          "kinetic_current": -0.43301270189221963,
+          "operator_current": -0.4330127018922201
+        },
+        {
+          "preparation": "negative",
+          "yes_probabilities": [
+            0.3110042339640731,
+            0.022329099369260284
+          ],
+          "kinetic_current": 0.4330127018922192,
+          "operator_current": 0.4330127018922204
+        },
+        {
+          "preparation": "standing",
+          "yes_probabilities": [
+            0.24999999999999983,
+            0.2500000000000001
+          ],
+          "kinetic_current": -4.163336342344337e-16,
+          "operator_current": 4.209723372069018e-17
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,2629 @@
+{
+  "native": {
+    "geometry": {
+      "owners": [
+        0,
+        1,
+        2
+      ],
+      "addresses": [
+        1,
+        8,
+        7,
+        6,
+        10,
+        2,
+        11,
+        4,
+        5,
+        9,
+        13,
+        20,
+        19,
+        18,
+        22,
+        14,
+        23,
+        16,
+        17,
+        21,
+        24,
+        34,
+        31,
+        30,
+        32,
+        27,
+        33,
+        28,
+        29,
+        35
+      ],
+      "bridges": [
+        [
+          10,
+          20
+        ],
+        [
+          14,
+          24
+        ]
+      ],
+      "local_bridges": [
+        [
+          4,
+          11
+        ],
+        [
+          15,
+          20
+        ]
+      ]
+    },
+    "sectors": {
+      "10": {
+        "placements": 3000,
+        "whole_excess": 0,
+        "reached_complement": 73960,
+        "min_unique_exits": 14,
+        "squared_leakage_norm_lower": 3.5,
+        "orderings": [
+          {
+            "order": [
+              3,
+              3,
+              4
+            ],
+            "placements_by_distance": [
+              {
+                "distance": 4.5,
+                "count": 10,
+                "connected_energy_values": [
+                  -15.5,
+                  0.5
+                ],
+                "bare_contact_values": [
+                  8.5
+                ],
+                "mean_connected_energy": -2.7,
+                "pulse_half_survival": 0.6,
+                "pulse_pi_survival": 0.2
+              },
+              {
+                "distance": 5.5,
+                "count": 30,
+                "connected_energy_values": [
+                  -15.5,
+                  0.0,
+                  0.5,
+                  1.0
+                ],
+                "bare_contact_values": [
+                  0.0,
+                  8.5,
+                  17.0
+                ],
+                "mean_connected_energy": -1.73333333333,
+                "pulse_half_survival": 0.68333333333,
+                "pulse_pi_survival": 0.4
+              },
+              {
+                "distance": 6.5,
+                "count": 60,
+                "connected_energy_values": [
+                  -32.0,
+                  -16.0,
+                  0.0,
+                  0.5,
+                  1.0
+                ],
+                "bare_contact_values": [
+                  0.0,
+                  8.5,
+                  17.0
+                ],
+                "mean_connected_energy": -2.75,
+                "pulse_half_survival": 0.68333333333,
+                "pulse_pi_survival": 0.53333333333
+              },
+              {
+                "distance": 7.5,
+                "count": 100,
+                "connected_energy_values": [
+                  -16.0,
+                  -15.5,
+                  0.0,
+                  0.5,
+                  1.0
+                ],
+                "bare_contact_values": [
+                  0.0,
+                  8.5,
+                  17.0
+                ],
+                "mean_connected_energy": -2.45,
+                "pulse_half_survival": 0.63,
+                "pulse_pi_survival": 0.3
+              },
+              {
+                "distance": 8.5,
+                "count": 140,
+                "connected_energy_values": [
+                  -15.5,
+                  0.0,
+                  0.5,
+                  1.0
+                ],
+                "bare_contact_values": [
+                  0.0,
+                  8.5,
+                  17.0
+                ],
+                "mean_connected_energy": -2.77142857143,
+                "pulse_half_survival": 0.61785714286,
+                "pulse_pi_survival": 0.27142857143
+              },
+              {
+                "distance": 9.5,
+                "count": 160,
+                "connected_energy_values": [
+                  -32.0,
+                  -16.0,
+                  0.0,
+                  0.5,
+                  1.0
+                ],
+                "bare_contact_values": [
+                  0.0,
+                  8.5,
+                  17.0
+                ],
+                "mean_connected_energy": -2.76875,
+                "pulse_half_survival": 0.665625,
+                "pulse_pi_survival": 0.4875
+              },
+              {
+                "distance": 10.5,
+                "count": 160,
+                "connected_energy_values": [
+                  -16.0,
+                  -15.5,
+                  0.0,
+                  0.5,
+                  1.0
+                ],
+                "bare_contact_values": [
+                  0.0,
+                  8.5,
+                  17.0
+                ],
+                "mean_connected_energy": -2.95625,
+                "pulse_half_survival": 0.60625,
+                "pulse_pi_survival": 0.2875
+              },
+              {
+                "distance": 11.5,
+                "count": 140,
+                "connected_energy_values": [
+                  -15.5,
+                  0.0,
+                  0.5,
+                  1.0
+                ],
+                "bare_contact_values": [
+                  0.0,
+                  8.5,
+                  17.0
+                ],
+                "mean_connected_energy": -2.99285714286,
+                "pulse_half_survival": 0.58928571429,
+                "pulse_pi_survival": 0.21428571429
+              },
+              {
+                "distance": 12.5,
+                "count": 100,
+                "connected_energy_values": [
+                  -32.0,
+                  -16.0,
+                  0.0,
+                  0.5,
+                  1.0
+                ],
+                "bare_contact_values": [
+                  0.0,
+                  8.5,
+                  17.0
+                ],
+                "mean_connected_energy": -3.39,
+                "pulse_half_survival": 0.63,
+                "pulse_pi_survival": 0.42
+              },
+              {
+                "distance": 13.5,
+                "count": 60,
+                "connected_energy_values": [
+                  -16.0,
+                  -15.5,
+                  0.0,
+                  0.5,
+                  1.0
+                ],
+                "bare_contact_values": [
+                  0.0,
+                  8.5,
+                  17.0
+                ],
+                "mean_connected_energy": -3.26666666667,
+                "pulse_half_survival": 0.58333333333,
+                "pulse_pi_survival": 0.26666666667
+              },
+              {
+                "distance": 14.5,
+                "count": 30,
+                "connected_energy_values": [
+                  -15.5,
+                  0.0,
+                  0.5,
+                  1.0
+                ],
+                "bare_contact_values": [
+                  0.0,
+                  8.5,
+                  17.0
+                ],
+                "mean_connected_energy": -3.8,
+                "pulse_half_survival": 0.55,
+                "pulse_pi_survival": 0.13333333333
+              },
+              {
+                "distance": 15.5,
+                "count": 10,
+                "connected_energy_values": [
+                  -16.0,
+                  0.5,
+                  1.0
+                ],
+                "bare_contact_values": [
+                  0.0,
+                  8.5,
+                  17.0
+                ],
+                "mean_connected_energy": -5.9,
+                "pulse_half_survival": 0.6,
+                "pulse_pi_survival": 0.4
+              }
+            ],
+            "free_flight": {
+              "near": {
+                "source_bits": 154281540,
+                "layer_sizes": [
+                  1,
+                  39,
+                  679,
+                  6961,
+                  46717
+                ],
+                "cross_block_norm_upper": [
+                  3.1224989992,
+                  6.0827625303,
+                  7.82623792125,
+                  9.21954445729
+                ],
+                "reads": [
+                  {
+                    "time": 0.03125,
+                    "ball_outside_three_walls": 0.00776622457,
+                    "amplitude_error_upper": 5.44571e-05,
+                    "full_outside_bounds": [
+                      0.00775662934,
+                      0.00777582572
+                    ]
+                  },
+                  {
+                    "time": 0.0625,
+                    "ball_outside_three_walls": 0.02788627945,
+                    "amplitude_error_upper": 0.00087131363,
+                    "full_outside_bounds": [
+                      0.02759603408,
+                      0.02817804319
+                    ]
+                  },
+                  {
+                    "time": 0.125,
+                    "ball_outside_three_walls": 0.07441441513,
+                    "amplitude_error_upper": 0.01394101805,
+                    "full_outside_bounds": [
+                      0.0670028249,
+                      0.08221470933
+                    ]
+                  }
+                ]
+              },
+              "far": {
+                "source_bits": 320939154,
+                "layer_sizes": [
+                  1,
+                  39,
+                  677,
+                  6897,
+                  45811
+                ],
+                "cross_block_norm_upper": [
+                  3.1224989992,
+                  6.0827625303,
+                  7.93725393319,
+                  9.35414346693
+                ],
+                "reads": [
+                  {
+                    "time": 0.03125,
+                    "ball_outside_three_walls": 0.00774844468,
+                    "amplitude_error_upper": 5.60359e-05,
+                    "full_outside_bounds": [
+                      0.00773858267,
+                      0.00775831296
+                    ]
+                  },
+                  {
+                    "time": 0.0625,
+                    "ball_outside_three_walls": 0.02764572352,
+                    "amplitude_error_upper": 0.00089657433,
+                    "full_outside_bounds": [
+                      0.02734838048,
+                      0.02794467425
+                    ]
+                  },
+                  {
+                    "time": 0.125,
+                    "ball_outside_three_walls": 0.07247186899,
+                    "amplitude_error_upper": 0.01434518923,
+                    "full_outside_bounds": [
+                      0.0649540315,
+                      0.08040127539
+                    ]
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "order": [
+              3,
+              4,
+              3
+            ],
+            "placements_by_distance": [
+              {
+                "distance": 4.0,
+                "count": 4,
+                "connected_energy_values": [
+                  0.0,
+                  1.0
+                ],
+                "bare_contact_values": [
+                  0.0,
+                  17.0
+                ],
+                "mean_connected_energy": 0.5,
+                "pulse_half_survival": 0.625,
+                "pulse_pi_survival": 0.5
+              },
+              {
+                "distance": 5.0,
+                "count": 18,
+                "connected_energy_values": [
+                  0.0,
+                  0.5,
+                  1.0
+                ],
+                "bare_contact_values": [
+                  0.0,
+                  8.5,
+                  17.0
+                ],
+                "mean_connected_energy": 0.5,
+                "pulse_half_survival": 0.66666666667,
+                "pulse_pi_survival": 0.44444444444
+              },
+              {
+                "distance": 6.0,
+                "count": 44,
+                "connected_energy_values": [
+                  -15.5,
+                  0.0,
+                  0.5,
+                  1.0
+                ],
+                "bare_contact_values": [
+                  0.0,
+                  8.5,
+                  17.0
+                ],
+                "mean_connected_energy": -2.43181818182,
+                "pulse_half_survival": 0.65909090909,
+                "pulse_pi_survival": 0.31818181818
+              },
+              {
+                "distance": 7.0,
+                "count": 80,
+                "connected_energy_values": [
+                  -16.0,
+                  -15.5,
+                  0.0,
+                  0.5,
+                  1.0
+                ],
+                "bare_contact_values": [
+                  0.0,
+                  8.5,
+                  17.0
+                ],
+                "mean_connected_energy": -3.55,
+                "pulse_half_survival": 0.6875,
+                "pulse_pi_survival": 0.45
+              },
+              {
+                "distance": 8.0,
+                "count": 120,
+                "connected_energy_values": [
+                  -32.0,
+                  -16.0,
+                  0.0,
+                  0.5,
+                  1.0
+                ],
+                "bare_contact_values": [
+                  0.0,
+                  8.5,
+                  17.0
+                ],
+                "mean_connected_energy": -3.26666666667,
+                "pulse_half_survival": 0.65833333333,
+                "pulse_pi_survival": 0.43333333333
+              },
+              {
+                "distance": 9.0,
+                "count": 152,
+                "connected_energy_values": [
+                  -16.0,
+                  -15.5,
+                  0.0,
+                  0.5,
+                  1.0
+                ],
+                "bare_contact_values": [
+                  0.0,
+                  8.5,
+                  17.0
+                ],
+                "mean_connected_energy": -3.31578947368,
+                "pulse_half_survival": 0.60526315789,
+                "pulse_pi_survival": 0.26315789474
+              },
+              {
+                "distance": 10.0,
+                "count": 164,
+                "connected_energy_values": [
+                  -16.0,
+                  -15.5,
+                  0.0,
+                  0.5,
+                  1.0
+                ],
+                "bare_contact_values": [
+                  0.0,
+                  8.5,
+                  17.0
+                ],
+                "mean_connected_energy": -3.64634146341,
+                "pulse_half_survival": 0.625,
+                "pulse_pi_survival": 0.32926829268
+              },
+              {
+                "distance": 11.0,
+                "count": 152,
+                "connected_energy_values": [
+                  -32.0,
+                  -16.0,
+                  0.0,
+                  0.5,
+                  1.0
+                ],
+                "bare_contact_values": [
+                  0.0,
+                  8.5,
+                  17.0
+                ],
+                "mean_connected_energy": -3.55263157895,
+                "pulse_half_survival": 0.63486842105,
+                "pulse_pi_survival": 0.40789473684
+              },
+              {
+                "distance": 12.0,
+                "count": 120,
+                "connected_energy_values": [
+                  -16.0,
+                  -15.5,
+                  0.0,
+                  0.5,
+                  1.0
+                ],
+                "bare_contact_values": [
+                  0.0,
+                  8.5,
+                  17.0
+                ],
+                "mean_connected_energy": -3.26666666667,
+                "pulse_half_survival": 0.575,
+                "pulse_pi_survival": 0.23333333333
+              },
+              {
+                "distance": 13.0,
+                "count": 80,
+                "connected_energy_values": [
+                  -16.0,
+                  -15.5,
+                  0.0,
+                  0.5,
+                  1.0
+                ],
+                "bare_contact_values": [
+                  0.0,
+                  8.5,
+                  17.0
+                ],
+                "mean_connected_energy": -3.55,
+                "pulse_half_survival": 0.5875,
+                "pulse_pi_survival": 0.25
+              },
+              {
+                "distance": 14.0,
+                "count": 44,
+                "connected_energy_values": [
+                  -32.0,
+                  -16.0,
+                  0.0,
+                  0.5,
+                  1.0
+                ],
+                "bare_contact_values": [
+                  0.0,
+                  8.5,
+                  17.0
+                ],
+                "mean_connected_energy": -3.95454545455,
+                "pulse_half_survival": 0.64772727273,
+                "pulse_pi_survival": 0.40909090909
+              },
+              {
+                "distance": 15.0,
+                "count": 18,
+                "connected_energy_values": [
+                  -16.0,
+                  -15.5,
+                  0.5,
+                  1.0
+                ],
+                "bare_contact_values": [
+                  0.0,
+                  8.5,
+                  17.0
+                ],
+                "mean_connected_energy": -4.83333333333,
+                "pulse_half_survival": 0.55555555556,
+                "pulse_pi_survival": 0.22222222222
+              },
+              {
+                "distance": 16.0,
+                "count": 4,
+                "connected_energy_values": [
+                  -15.5,
+                  1.0
+                ],
+                "bare_contact_values": [
+                  8.5,
+                  17.0
+                ],
+                "mean_connected_energy": -7.25,
+                "pulse_half_survival": 0.375,
+                "pulse_pi_survival": 0.0
+              }
+            ],
+            "free_flight": {}
+          },
+          {
+            "order": [
+              4,
+              3,
+              3
+            ],
+            "placements_by_distance": [
+              {
+                "distance": 4.5,
+                "count": 10,
+                "connected_energy_values": [
+                  -15.5,
+                  0.5
+                ],
+                "bare_contact_values": [
+                  8.5
+                ],
+                "mean_connected_energy": -2.7,
+                "pulse_half_survival": 0.6,
+                "pulse_pi_survival": 0.2
+              },
+              {
+                "distance": 5.5,
+                "count": 30,
+                "connected_energy_values": [
+                  -15.5,
+                  0.0,
+                  0.5,
+                  1.0
+                ],
+                "bare_contact_values": [
+                  0.0,
+                  8.5,
+                  17.0
+                ],
+                "mean_connected_energy": -1.73333333333,
+                "pulse_half_survival": 0.68333333333,
+                "pulse_pi_survival": 0.4
+              },
+              {
+                "distance": 6.5,
+                "count": 60,
+                "connected_energy_values": [
+                  -32.0,
+                  -16.0,
+                  0.0,
+                  0.5,
+                  1.0
+                ],
+                "bare_contact_values": [
+                  0.0,
+                  8.5,
+                  17.0
+                ],
+                "mean_connected_energy": -2.75,
+                "pulse_half_survival": 0.68333333333,
+                "pulse_pi_survival": 0.53333333333
+              },
+              {
+                "distance": 7.5,
+                "count": 100,
+                "connected_energy_values": [
+                  -16.0,
+                  -15.5,
+                  0.0,
+                  0.5,
+                  1.0
+                ],
+                "bare_contact_values": [
+                  0.0,
+                  8.5,
+                  17.0
+                ],
+                "mean_connected_energy": -2.45,
+                "pulse_half_survival": 0.63,
+                "pulse_pi_survival": 0.3
+              },
+              {
+                "distance": 8.5,
+                "count": 140,
+                "connected_energy_values": [
+                  -15.5,
+                  0.0,
+                  0.5,
+                  1.0
+                ],
+                "bare_contact_values": [
+                  0.0,
+                  8.5,
+                  17.0
+                ],
+                "mean_connected_energy": -2.77142857143,
+                "pulse_half_survival": 0.61785714286,
+                "pulse_pi_survival": 0.27142857143
+              },
+              {
+                "distance": 9.5,
+                "count": 160,
+                "connected_energy_values": [
+                  -32.0,
+                  -16.0,
+                  0.0,
+                  0.5,
+                  1.0
+                ],
+                "bare_contact_values": [
+                  0.0,
+                  8.5,
+                  17.0
+                ],
+                "mean_connected_energy": -2.76875,
+                "pulse_half_survival": 0.665625,
+                "pulse_pi_survival": 0.4875
+              },
+              {
+                "distance": 10.5,
+                "count": 160,
+                "connected_energy_values": [
+                  -16.0,
+                  -15.5,
+                  0.0,
+                  0.5,
+                  1.0
+                ],
+                "bare_contact_values": [
+                  0.0,
+                  8.5,
+                  17.0
+                ],
+                "mean_connected_energy": -2.95625,
+                "pulse_half_survival": 0.60625,
+                "pulse_pi_survival": 0.2875
+              },
+              {
+                "distance": 11.5,
+                "count": 140,
+                "connected_energy_values": [
+                  -15.5,
+                  0.0,
+                  0.5,
+                  1.0
+                ],
+                "bare_contact_values": [
+                  0.0,
+                  8.5,
+                  17.0
+                ],
+                "mean_connected_energy": -2.99285714286,
+                "pulse_half_survival": 0.58928571429,
+                "pulse_pi_survival": 0.21428571429
+              },
+              {
+                "distance": 12.5,
+                "count": 100,
+                "connected_energy_values": [
+                  -32.0,
+                  -16.0,
+                  0.0,
+                  0.5,
+                  1.0
+                ],
+                "bare_contact_values": [
+                  0.0,
+                  8.5,
+                  17.0
+                ],
+                "mean_connected_energy": -3.39,
+                "pulse_half_survival": 0.63,
+                "pulse_pi_survival": 0.42
+              },
+              {
+                "distance": 13.5,
+                "count": 60,
+                "connected_energy_values": [
+                  -16.0,
+                  -15.5,
+                  0.0,
+                  0.5,
+                  1.0
+                ],
+                "bare_contact_values": [
+                  0.0,
+                  8.5,
+                  17.0
+                ],
+                "mean_connected_energy": -3.26666666667,
+                "pulse_half_survival": 0.58333333333,
+                "pulse_pi_survival": 0.26666666667
+              },
+              {
+                "distance": 14.5,
+                "count": 30,
+                "connected_energy_values": [
+                  -15.5,
+                  0.0,
+                  0.5,
+                  1.0
+                ],
+                "bare_contact_values": [
+                  0.0,
+                  8.5,
+                  17.0
+                ],
+                "mean_connected_energy": -3.8,
+                "pulse_half_survival": 0.55,
+                "pulse_pi_survival": 0.13333333333
+              },
+              {
+                "distance": 15.5,
+                "count": 10,
+                "connected_energy_values": [
+                  -16.0,
+                  0.5,
+                  1.0
+                ],
+                "bare_contact_values": [
+                  0.0,
+                  8.5,
+                  17.0
+                ],
+                "mean_connected_energy": -5.9,
+                "pulse_half_survival": 0.6,
+                "pulse_pi_survival": 0.4
+              }
+            ],
+            "free_flight": {}
+          }
+        ]
+      },
+      "11": {
+        "placements": 3000,
+        "whole_excess": 1,
+        "reached_complement": 83080,
+        "min_unique_exits": 18,
+        "squared_leakage_norm_lower": 4.5,
+        "orderings": [
+          {
+            "order": [
+              3,
+              4,
+              4
+            ],
+            "placements_by_distance": [
+              {
+                "distance": 4.5,
+                "count": 8,
+                "connected_energy_values": [
+                  -15.5,
+                  0.5
+                ],
+                "bare_contact_values": [
+                  8.5
+                ],
+                "mean_connected_energy": -7.5,
+                "pulse_half_survival": 0.5,
+                "pulse_pi_survival": 0.0
+              },
+              {
+                "distance": 5.5,
+                "count": 28,
+                "connected_energy_values": [
+                  -16.0,
+                  -15.5,
+                  0.0,
+                  0.5,
+                  1.0
+                ],
+                "bare_contact_values": [
+                  0.0,
+                  8.5,
+                  17.0
+                ],
+                "mean_connected_energy": -5.21428571429,
+                "pulse_half_survival": 0.625,
+                "pulse_pi_survival": 0.35714285714
+              },
+              {
+                "distance": 6.5,
+                "count": 60,
+                "connected_energy_values": [
+                  -32.0,
+                  -16.0,
+                  0.0,
+                  0.5,
+                  1.0
+                ],
+                "bare_contact_values": [
+                  0.0,
+                  8.5,
+                  17.0
+                ],
+                "mean_connected_energy": -5.36666666667,
+                "pulse_half_survival": 0.64166666667,
+                "pulse_pi_survival": 0.43333333333
+              },
+              {
+                "distance": 7.5,
+                "count": 100,
+                "connected_energy_values": [
+                  -16.0,
+                  -15.5,
+                  0.0,
+                  0.5,
+                  1.0
+                ],
+                "bare_contact_values": [
+                  0.0,
+                  8.5,
+                  17.0
+                ],
+                "mean_connected_energy": -4.64,
+                "pulse_half_survival": 0.58,
+                "pulse_pi_survival": 0.2
+              },
+              {
+                "distance": 8.5,
+                "count": 140,
+                "connected_energy_values": [
+                  -16.0,
+                  -15.5,
+                  0.0,
+                  0.5,
+                  1.0
+                ],
+                "bare_contact_values": [
+                  0.0,
+                  8.5,
+                  17.0
+                ],
+                "mean_connected_energy": -4.31428571429,
+                "pulse_half_survival": 0.59642857143,
+                "pulse_pi_survival": 0.3
+              },
+              {
+                "distance": 9.5,
+                "count": 164,
+                "connected_energy_values": [
+                  -32.0,
+                  -16.0,
+                  0.0,
+                  0.5,
+                  1.0
+                ],
+                "bare_contact_values": [
+                  0.0,
+                  8.5,
+                  17.0
+                ],
+                "mean_connected_energy": -4.01219512195,
+                "pulse_half_survival": 0.625,
+                "pulse_pi_survival": 0.40243902439
+              },
+              {
+                "distance": 10.5,
+                "count": 164,
+                "connected_energy_values": [
+                  -16.0,
+                  -15.5,
+                  0.0,
+                  0.5,
+                  1.0
+                ],
+                "bare_contact_values": [
+                  0.0,
+                  8.5,
+                  17.0
+                ],
+                "mean_connected_energy": -3.82926829268,
+                "pulse_half_survival": 0.57926829268,
+                "pulse_pi_survival": 0.21951219512
+              },
+              {
+                "distance": 11.5,
+                "count": 140,
+                "connected_energy_values": [
+                  -16.0,
+                  -15.5,
+                  0.0,
+                  0.5,
+                  1.0
+                ],
+                "bare_contact_values": [
+                  0.0,
+                  8.5,
+                  17.0
+                ],
+                "mean_connected_energy": -3.42857142857,
+                "pulse_half_survival": 0.59642857143,
+                "pulse_pi_survival": 0.3
+              },
+              {
+                "distance": 12.5,
+                "count": 100,
+                "connected_energy_values": [
+                  -32.0,
+                  -16.0,
+                  0.0,
+                  0.5,
+                  1.0
+                ],
+                "bare_contact_values": [
+                  0.0,
+                  8.5,
+                  17.0
+                ],
+                "mean_connected_energy": -3.38,
+                "pulse_half_survival": 0.61,
+                "pulse_pi_survival": 0.36
+              },
+              {
+                "distance": 13.5,
+                "count": 60,
+                "connected_energy_values": [
+                  -16.0,
+                  -15.5,
+                  0.0,
+                  0.5,
+                  1.0
+                ],
+                "bare_contact_values": [
+                  0.0,
+                  8.5,
+                  17.0
+                ],
+                "mean_connected_energy": -3.3,
+                "pulse_half_survival": 0.59166666667,
+                "pulse_pi_survival": 0.23333333333
+              },
+              {
+                "distance": 14.5,
+                "count": 28,
+                "connected_energy_values": [
+                  -16.0,
+                  -15.5,
+                  0.0,
+                  0.5,
+                  1.0
+                ],
+                "bare_contact_values": [
+                  0.0,
+                  8.5,
+                  17.0
+                ],
+                "mean_connected_energy": -3.0,
+                "pulse_half_survival": 0.625,
+                "pulse_pi_survival": 0.35714285714
+              },
+              {
+                "distance": 15.5,
+                "count": 8,
+                "connected_energy_values": [
+                  -16.0,
+                  0.5,
+                  1.0
+                ],
+                "bare_contact_values": [
+                  0.0,
+                  8.5,
+                  17.0
+                ],
+                "mean_connected_energy": -3.5,
+                "pulse_half_survival": 0.5625,
+                "pulse_pi_survival": 0.25
+              }
+            ],
+            "free_flight": {
+              "near": {
+                "source_bits": 154297924,
+                "layer_sizes": [
+                  1,
+                  41,
+                  749,
+                  8046,
+                  56531
+                ],
+                "cross_block_norm_upper": [
+                  3.20156211872,
+                  6.32455532034,
+                  8.26135582093,
+                  9.74679434481
+                ],
+                "reads": [
+                  {
+                    "time": 0.03125,
+                    "ball_outside_three_walls": 0.00816161075,
+                    "amplitude_error_upper": 6.47879e-05,
+                    "full_outside_bounds": [
+                      0.00814990886,
+                      0.00817332104
+                    ]
+                  },
+                  {
+                    "time": 0.0625,
+                    "ball_outside_three_walls": 0.0286276632,
+                    "amplitude_error_upper": 0.0010366064,
+                    "full_outside_bounds": [
+                      0.02827795613,
+                      0.02897951937
+                    ]
+                  },
+                  {
+                    "time": 0.125,
+                    "ball_outside_three_walls": 0.07273601563,
+                    "amplitude_error_upper": 0.01658570243,
+                    "full_outside_bounds": [
+                      0.06406490083,
+                      0.08195730147
+                    ]
+                  }
+                ]
+              },
+              "far": {
+                "source_bits": 321070226,
+                "layer_sizes": [
+                  1,
+                  41,
+                  750,
+                  8069,
+                  56713
+                ],
+                "cross_block_norm_upper": [
+                  3.20156211872,
+                  6.2449979984,
+                  8.15475321515,
+                  9.48683298051
+                ],
+                "reads": [
+                  {
+                    "time": 0.03125,
+                    "ball_outside_three_walls": 0.00818590152,
+                    "amplitude_error_upper": 6.14632e-05,
+                    "full_outside_bounds": [
+                      0.00817478341,
+                      0.00819702718
+                    ]
+                  },
+                  {
+                    "time": 0.0625,
+                    "ball_outside_three_walls": 0.02888555845,
+                    "amplitude_error_upper": 0.00098341118,
+                    "full_outside_bounds": [
+                      0.02855224929,
+                      0.02922080179
+                    ]
+                  },
+                  {
+                    "time": 0.125,
+                    "ball_outside_three_walls": 0.07324886542,
+                    "amplitude_error_upper": 0.01573457888,
+                    "full_outside_bounds": [
+                      0.06497946351,
+                      0.08201342128
+                    ]
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "order": [
+              4,
+              3,
+              4
+            ],
+            "placements_by_distance": [
+              {
+                "distance": 5.0,
+                "count": 20,
+                "connected_energy_values": [
+                  -32.0,
+                  1.0
+                ],
+                "bare_contact_values": [
+                  0.0,
+                  17.0
+                ],
+                "mean_connected_energy": -5.6,
+                "pulse_half_survival": 0.5,
+                "pulse_pi_survival": 0.2
+              },
+              {
+                "distance": 6.0,
+                "count": 40,
+                "connected_energy_values": [
+                  -15.5,
+                  0.5
+                ],
+                "bare_contact_values": [
+                  8.5
+                ],
+                "mean_connected_energy": -2.7,
+                "pulse_half_survival": 0.6,
+                "pulse_pi_survival": 0.2
+              },
+              {
+                "distance": 7.0,
+                "count": 80,
+                "connected_energy_values": [
+                  -15.5,
+                  0.0,
+                  0.5,
+                  1.0
+                ],
+                "bare_contact_values": [
+                  0.0,
+                  8.5,
+                  17.0
+                ],
+                "mean_connected_energy": -4.35,
+                "pulse_half_survival": 0.675,
+                "pulse_pi_survival": 0.4
+              },
+              {
+                "distance": 8.0,
+                "count": 120,
+                "connected_energy_values": [
+                  -32.0,
+                  -16.0,
+                  0.0,
+                  0.5,
+                  1.0
+                ],
+                "bare_contact_values": [
+                  0.0,
+                  8.5,
+                  17.0
+                ],
+                "mean_connected_energy": -3.76666666667,
+                "pulse_half_survival": 0.65,
+                "pulse_pi_survival": 0.46666666667
+              },
+              {
+                "distance": 9.0,
+                "count": 160,
+                "connected_energy_values": [
+                  -16.0,
+                  -15.5,
+                  0.0,
+                  0.5,
+                  1.0
+                ],
+                "bare_contact_values": [
+                  0.0,
+                  8.5,
+                  17.0
+                ],
+                "mean_connected_energy": -2.75,
+                "pulse_half_survival": 0.61875,
+                "pulse_pi_survival": 0.275
+              },
+              {
+                "distance": 10.0,
+                "count": 160,
+                "connected_energy_values": [
+                  -15.5,
+                  0.0,
+                  0.5,
+                  1.0
+                ],
+                "bare_contact_values": [
+                  0.0,
+                  8.5,
+                  17.0
+                ],
+                "mean_connected_energy": -3.575,
+                "pulse_half_survival": 0.625,
+                "pulse_pi_survival": 0.3
+              },
+              {
+                "distance": 11.0,
+                "count": 160,
+                "connected_energy_values": [
+                  -32.0,
+                  -16.0,
+                  0.0,
+                  0.5,
+                  1.0
+                ],
+                "bare_contact_values": [
+                  0.0,
+                  8.5,
+                  17.0
+                ],
+                "mean_connected_energy": -3.55,
+                "pulse_half_survival": 0.65,
+                "pulse_pi_survival": 0.45
+              },
+              {
+                "distance": 12.0,
+                "count": 120,
+                "connected_energy_values": [
+                  -16.0,
+                  -15.5,
+                  0.0,
+                  0.5,
+                  1.0
+                ],
+                "bare_contact_values": [
+                  0.0,
+                  8.5,
+                  17.0
+                ],
+                "mean_connected_energy": -2.73333333333,
+                "pulse_half_survival": 0.56666666667,
+                "pulse_pi_survival": 0.2
+              },
+              {
+                "distance": 13.0,
+                "count": 80,
+                "connected_energy_values": [
+                  -15.5,
+                  0.0,
+                  0.5,
+                  1.0
+                ],
+                "bare_contact_values": [
+                  0.0,
+                  8.5,
+                  17.0
+                ],
+                "mean_connected_energy": -2.8,
+                "pulse_half_survival": 0.625,
+                "pulse_pi_survival": 0.3
+              },
+              {
+                "distance": 14.0,
+                "count": 40,
+                "connected_energy_values": [
+                  -16.0,
+                  0.5,
+                  1.0
+                ],
+                "bare_contact_values": [
+                  0.0,
+                  8.5,
+                  17.0
+                ],
+                "mean_connected_energy": -5.9,
+                "pulse_half_survival": 0.6,
+                "pulse_pi_survival": 0.4
+              },
+              {
+                "distance": 15.0,
+                "count": 20,
+                "connected_energy_values": [
+                  0.0,
+                  0.5
+                ],
+                "bare_contact_values": [
+                  0.0,
+                  8.5
+                ],
+                "mean_connected_energy": 0.4,
+                "pulse_half_survival": 0.6,
+                "pulse_pi_survival": 0.2
+              }
+            ],
+            "free_flight": {}
+          },
+          {
+            "order": [
+              4,
+              4,
+              3
+            ],
+            "placements_by_distance": [
+              {
+                "distance": 4.5,
+                "count": 8,
+                "connected_energy_values": [
+                  -15.5,
+                  0.5
+                ],
+                "bare_contact_values": [
+                  8.5
+                ],
+                "mean_connected_energy": -7.5,
+                "pulse_half_survival": 0.5,
+                "pulse_pi_survival": 0.0
+              },
+              {
+                "distance": 5.5,
+                "count": 28,
+                "connected_energy_values": [
+                  -16.0,
+                  -15.5,
+                  0.0,
+                  0.5,
+                  1.0
+                ],
+                "bare_contact_values": [
+                  0.0,
+                  8.5,
+                  17.0
+                ],
+                "mean_connected_energy": -5.21428571429,
+                "pulse_half_survival": 0.625,
+                "pulse_pi_survival": 0.35714285714
+              },
+              {
+                "distance": 6.5,
+                "count": 60,
+                "connected_energy_values": [
+                  -32.0,
+                  -16.0,
+                  0.0,
+                  0.5,
+                  1.0
+                ],
+                "bare_contact_values": [
+                  0.0,
+                  8.5,
+                  17.0
+                ],
+                "mean_connected_energy": -5.36666666667,
+                "pulse_half_survival": 0.64166666667,
+                "pulse_pi_survival": 0.43333333333
+              },
+              {
+                "distance": 7.5,
+                "count": 100,
+                "connected_energy_values": [
+                  -16.0,
+                  -15.5,
+                  0.0,
+                  0.5,
+                  1.0
+                ],
+                "bare_contact_values": [
+                  0.0,
+                  8.5,
+                  17.0
+                ],
+                "mean_connected_energy": -4.64,
+                "pulse_half_survival": 0.58,
+                "pulse_pi_survival": 0.2
+              },
+              {
+                "distance": 8.5,
+                "count": 140,
+                "connected_energy_values": [
+                  -16.0,
+                  -15.5,
+                  0.0,
+                  0.5,
+                  1.0
+                ],
+                "bare_contact_values": [
+                  0.0,
+                  8.5,
+                  17.0
+                ],
+                "mean_connected_energy": -4.31428571429,
+                "pulse_half_survival": 0.59642857143,
+                "pulse_pi_survival": 0.3
+              },
+              {
+                "distance": 9.5,
+                "count": 164,
+                "connected_energy_values": [
+                  -32.0,
+                  -16.0,
+                  0.0,
+                  0.5,
+                  1.0
+                ],
+                "bare_contact_values": [
+                  0.0,
+                  8.5,
+                  17.0
+                ],
+                "mean_connected_energy": -4.01219512195,
+                "pulse_half_survival": 0.625,
+                "pulse_pi_survival": 0.40243902439
+              },
+              {
+                "distance": 10.5,
+                "count": 164,
+                "connected_energy_values": [
+                  -16.0,
+                  -15.5,
+                  0.0,
+                  0.5,
+                  1.0
+                ],
+                "bare_contact_values": [
+                  0.0,
+                  8.5,
+                  17.0
+                ],
+                "mean_connected_energy": -3.82926829268,
+                "pulse_half_survival": 0.57926829268,
+                "pulse_pi_survival": 0.21951219512
+              },
+              {
+                "distance": 11.5,
+                "count": 140,
+                "connected_energy_values": [
+                  -16.0,
+                  -15.5,
+                  0.0,
+                  0.5,
+                  1.0
+                ],
+                "bare_contact_values": [
+                  0.0,
+                  8.5,
+                  17.0
+                ],
+                "mean_connected_energy": -3.42857142857,
+                "pulse_half_survival": 0.59642857143,
+                "pulse_pi_survival": 0.3
+              },
+              {
+                "distance": 12.5,
+                "count": 100,
+                "connected_energy_values": [
+                  -32.0,
+                  -16.0,
+                  0.0,
+                  0.5,
+                  1.0
+                ],
+                "bare_contact_values": [
+                  0.0,
+                  8.5,
+                  17.0
+                ],
+                "mean_connected_energy": -3.38,
+                "pulse_half_survival": 0.61,
+                "pulse_pi_survival": 0.36
+              },
+              {
+                "distance": 13.5,
+                "count": 60,
+                "connected_energy_values": [
+                  -16.0,
+                  -15.5,
+                  0.0,
+                  0.5,
+                  1.0
+                ],
+                "bare_contact_values": [
+                  0.0,
+                  8.5,
+                  17.0
+                ],
+                "mean_connected_energy": -3.3,
+                "pulse_half_survival": 0.59166666667,
+                "pulse_pi_survival": 0.23333333333
+              },
+              {
+                "distance": 14.5,
+                "count": 28,
+                "connected_energy_values": [
+                  -16.0,
+                  -15.5,
+                  0.0,
+                  0.5,
+                  1.0
+                ],
+                "bare_contact_values": [
+                  0.0,
+                  8.5,
+                  17.0
+                ],
+                "mean_connected_energy": -3.0,
+                "pulse_half_survival": 0.625,
+                "pulse_pi_survival": 0.35714285714
+              },
+              {
+                "distance": 15.5,
+                "count": 8,
+                "connected_energy_values": [
+                  -16.0,
+                  0.5,
+                  1.0
+                ],
+                "bare_contact_values": [
+                  0.0,
+                  8.5,
+                  17.0
+                ],
+                "mean_connected_energy": -3.5,
+                "pulse_half_survival": 0.5625,
+                "pulse_pi_survival": 0.25
+              }
+            ],
+            "free_flight": {}
+          }
+        ]
+      }
+    }
+  },
+  "single_string": [
+    {
+      "length": 12,
+      "loads": 4,
+      "dimension": 495,
+      "three_wall_words": 36,
+      "closest_arc": 5.0,
+      "farthest_arc": 6.5,
+      "sources": [
+        [
+          0,
+          1,
+          5,
+          8
+        ],
+        [
+          0,
+          1,
+          4,
+          8
+        ]
+      ],
+      "reads": [
+        {
+          "time": 0,
+          "kappa": 8.0,
+          "three_wall": [
+            1.0,
+            1.0
+          ],
+          "arc_weights": {
+            "5.0": [
+              1.0,
+              0.0
+            ],
+            "6.5": [
+              0.0,
+              1.0
+            ]
+          },
+          "breakup": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "time": 1,
+          "kappa": 8.0,
+          "three_wall": [
+            0.34810988853,
+            0.4287422495
+          ],
+          "arc_weights": {
+            "5.0": [
+              0.13606405833,
+              0.1060229151
+            ],
+            "6.5": [
+              0.21204583021,
+              0.3227193344
+            ]
+          },
+          "breakup": [
+            0.65189011147,
+            0.5712577505
+          ]
+        },
+        {
+          "time": 4,
+          "kappa": 8.0,
+          "three_wall": [
+            0.41047333648,
+            0.4589666978
+          ],
+          "arc_weights": {
+            "5.0": [
+              0.29699409071,
+              0.05673962288
+            ],
+            "6.5": [
+              0.11347924577,
+              0.40222707491
+            ]
+          },
+          "breakup": [
+            0.58952666352,
+            0.5410333022
+          ]
+        },
+        {
+          "time": 16,
+          "kappa": 8.0,
+          "three_wall": [
+            0.34727722477,
+            0.4492246171
+          ],
+          "arc_weights": {
+            "5.0": [
+              0.21691329655,
+              0.06518196411
+            ],
+            "6.5": [
+              0.13036392822,
+              0.38404265299
+            ]
+          },
+          "breakup": [
+            0.65272277523,
+            0.5507753829
+          ]
+        },
+        {
+          "time": 0,
+          "kappa": 0.0,
+          "three_wall": [
+            1.0,
+            1.0
+          ],
+          "arc_weights": {
+            "5.0": [
+              1.0,
+              0.0
+            ],
+            "6.5": [
+              0.0,
+              1.0
+            ]
+          },
+          "breakup": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "time": 1,
+          "kappa": 0.0,
+          "three_wall": [
+            0.13358210655,
+            0.13969864147
+          ],
+          "arc_weights": {
+            "5.0": [
+              0.06997807851,
+              0.03180201402
+            ],
+            "6.5": [
+              0.06360402804,
+              0.10789662745
+            ]
+          },
+          "breakup": [
+            0.86641789345,
+            0.86030135853
+          ]
+        },
+        {
+          "time": 4,
+          "kappa": 0.0,
+          "three_wall": [
+            0.10593097752,
+            0.1279784221
+          ],
+          "arc_weights": {
+            "5.0": [
+              0.05846406337,
+              0.02373345707
+            ],
+            "6.5": [
+              0.04746691415,
+              0.10424496503
+            ]
+          },
+          "breakup": [
+            0.89406902248,
+            0.8720215779
+          ]
+        },
+        {
+          "time": 16,
+          "kappa": 0.0,
+          "three_wall": [
+            0.15528650313,
+            0.1602596278
+          ],
+          "arc_weights": {
+            "5.0": [
+              0.0965392763,
+              0.02937361341
+            ],
+            "6.5": [
+              0.05874722682,
+              0.13088601438
+            ]
+          },
+          "breakup": [
+            0.84471349687,
+            0.8397403722
+          ]
+        }
+      ]
+    },
+    {
+      "length": 12,
+      "loads": 5,
+      "dimension": 792,
+      "three_wall_words": 72,
+      "closest_arc": 3.5,
+      "farthest_arc": 6.5,
+      "sources": [
+        [
+          0,
+          1,
+          2,
+          5,
+          8
+        ],
+        [
+          0,
+          1,
+          2,
+          5,
+          9
+        ]
+      ],
+      "reads": [
+        {
+          "time": 0,
+          "kappa": 8.0,
+          "three_wall": [
+            1.0,
+            1.0
+          ],
+          "arc_weights": {
+            "3.5": [
+              1.0,
+              0.0
+            ],
+            "5.0": [
+              0.0,
+              0.0
+            ],
+            "6.5": [
+              0.0,
+              1.0
+            ]
+          },
+          "breakup": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "time": 1,
+          "kappa": 8.0,
+          "three_wall": [
+            0.59701697813,
+            0.39863764709
+          ],
+          "arc_weights": {
+            "3.5": [
+              0.49398808956,
+              0.2029671037
+            ],
+            "5.0": [
+              0.00062018003,
+              0.00027369628
+            ],
+            "6.5": [
+              0.10240870854,
+              0.19539684711
+            ]
+          },
+          "breakup": [
+            0.40298302187,
+            0.60136235291
+          ]
+        },
+        {
+          "time": 4,
+          "kappa": 8.0,
+          "three_wall": [
+            0.20988962889,
+            0.13345765183
+          ],
+          "arc_weights": {
+            "3.5": [
+              0.17140839763,
+              0.07373723328
+            ],
+            "5.0": [
+              0.00064914129,
+              0.0005409977
+            ],
+            "6.5": [
+              0.03783208997,
+              0.05917942085
+            ]
+          },
+          "breakup": [
+            0.79011037111,
+            0.86654234817
+          ]
+        },
+        {
+          "time": 16,
+          "kappa": 8.0,
+          "three_wall": [
+            0.20791182358,
+            0.2112571559
+          ],
+          "arc_weights": {
+            "3.5": [
+              0.1556655135,
+              0.10230182898
+            ],
+            "5.0": [
+              0.00038883759,
+              0.00018890332
+            ],
+            "6.5": [
+              0.05185747248,
+              0.1087664236
+            ]
+          },
+          "breakup": [
+            0.79208817642,
+            0.7887428441
+          ]
+        },
+        {
+          "time": 0,
+          "kappa": 0.0,
+          "three_wall": [
+            1.0,
+            1.0
+          ],
+          "arc_weights": {
+            "3.5": [
+              1.0,
+              0.0
+            ],
+            "5.0": [
+              0.0,
+              0.0
+            ],
+            "6.5": [
+              0.0,
+              1.0
+            ]
+          },
+          "breakup": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "time": 1,
+          "kappa": 0.0,
+          "three_wall": [
+            0.15485870098,
+            0.14773633027
+          ],
+          "arc_weights": {
+            "3.5": [
+              0.0827858471,
+              0.03970818381
+            ],
+            "5.0": [
+              0.01790609025,
+              0.00848025504
+            ],
+            "6.5": [
+              0.05416676363,
+              0.09954789143
+            ]
+          },
+          "breakup": [
+            0.84514129902,
+            0.85226366973
+          ]
+        },
+        {
+          "time": 4,
+          "kappa": 0.0,
+          "three_wall": [
+            0.13324553414,
+            0.11780435999
+          ],
+          "arc_weights": {
+            "3.5": [
+              0.05614457014,
+              0.03782513294
+            ],
+            "5.0": [
+              0.0191393615,
+              0.01767711446
+            ],
+            "6.5": [
+              0.0579616025,
+              0.0623021126
+            ]
+          },
+          "breakup": [
+            0.86675446586,
+            0.88219564001
+          ]
+        },
+        {
+          "time": 16,
+          "kappa": 0.0,
+          "three_wall": [
+            0.13531317475,
+            0.12535575357
+          ],
+          "arc_weights": {
+            "3.5": [
+              0.04936673976,
+              0.04119878826
+            ],
+            "5.0": [
+              0.02206963637,
+              0.01360921556
+            ],
+            "6.5": [
+              0.06387679862,
+              0.07054774975
+            ]
+          },
+          "breakup": [
+            0.86468682525,
+            0.87464424643
+          ]
+        }
+      ]
+    },
+    {
+      "length": 15,
+      "loads": 5,
+      "dimension": 3003,
+      "three_wall_words": 90,
+      "closest_arc": 5.0,
+      "farthest_arc": 9.5,
+      "sources": [
+        [
+          0,
+          1,
+          5,
+          8,
+          11
+        ],
+        [
+          0,
+          1,
+          4,
+          8,
+          12
+        ]
+      ],
+      "reads": [
+        {
+          "time": 0,
+          "kappa": 8.0,
+          "three_wall": [
+            1.0,
+            1.0
+          ],
+          "arc_weights": {
+            "5.0": [
+              1.0,
+              0.0
+            ],
+            "6.5": [
+              0.0,
+              0.0
+            ],
+            "8.0": [
+              0.0,
+              0.0
+            ],
+            "9.5": [
+              0.0,
+              1.0
+            ]
+          },
+          "breakup": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "time": 1,
+          "kappa": 8.0,
+          "three_wall": [
+            0.38800392049,
+            0.60479755579
+          ],
+          "arc_weights": {
+            "5.0": [
+              0.11883581809,
+              0.02401747608
+            ],
+            "6.5": [
+              0.10731182268,
+              0.17019328973
+            ],
+            "8.0": [
+              0.13783880364,
+              0.17022784076
+            ],
+            "9.5": [
+              0.02401747608,
+              0.24035894922
+            ]
+          },
+          "breakup": [
+            0.61199607951,
+            0.39520244421
+          ]
+        },
+        {
+          "time": 4,
+          "kappa": 8.0,
+          "three_wall": [
+            0.5091976409,
+            0.52003905354
+          ],
+          "arc_weights": {
+            "5.0": [
+              0.15699851779,
+              0.03384526601
+            ],
+            "6.5": [
+              0.15293232872,
+              0.20658610186
+            ],
+            "8.0": [
+              0.16542152837,
+              0.18890736988
+            ],
+            "9.5": [
+              0.03384526601,
+              0.09070031579
+            ]
+          },
+          "breakup": [
+            0.4908023591,
+            0.47996094646
+          ]
+        },
+        {
+          "time": 16,
+          "kappa": 8.0,
+          "three_wall": [
+            0.55270047043,
+            0.52222816672
+          ],
+          "arc_weights": {
+            "5.0": [
+              0.13026087559,
+              0.10928644511
+            ],
+            "6.5": [
+              0.16079562483,
+              0.13750665874
+            ],
+            "8.0": [
+              0.15235752489,
+              0.1940372285
+            ],
+            "9.5": [
+              0.10928644511,
+              0.08139783436
+            ]
+          },
+          "breakup": [
+            0.44729952957,
+            0.47777183328
+          ]
+        },
+        {
+          "time": 0,
+          "kappa": 0.0,
+          "three_wall": [
+            1.0,
+            1.0
+          ],
+          "arc_weights": {
+            "5.0": [
+              1.0,
+              0.0
+            ],
+            "6.5": [
+              0.0,
+              0.0
+            ],
+            "8.0": [
+              0.0,
+              0.0
+            ],
+            "9.5": [
+              0.0,
+              1.0
+            ]
+          },
+          "breakup": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "time": 1,
+          "kappa": 0.0,
+          "three_wall": [
+            0.08893768339,
+            0.08333345169
+          ],
+          "arc_weights": {
+            "5.0": [
+              0.03339430709,
+              0.00591849295
+            ],
+            "6.5": [
+              0.02259355187,
+              0.02190514404
+            ],
+            "8.0": [
+              0.02703133148,
+              0.02038316148
+            ],
+            "9.5": [
+              0.00591849295,
+              0.03512665323
+            ]
+          },
+          "breakup": [
+            0.91106231661,
+            0.91666654831
+          ]
+        },
+        {
+          "time": 4,
+          "kappa": 0.0,
+          "three_wall": [
+            0.07738609627,
+            0.10674774426
+          ],
+          "arc_weights": {
+            "5.0": [
+              0.02316072341,
+              0.01245196159
+            ],
+            "6.5": [
+              0.01951475027,
+              0.02645502969
+            ],
+            "8.0": [
+              0.022258661,
+              0.03388033007
+            ],
+            "9.5": [
+              0.01245196159,
+              0.03396042291
+            ]
+          },
+          "breakup": [
+            0.92261390373,
+            0.89325225574
+          ]
+        },
+        {
+          "time": 16,
+          "kappa": 0.0,
+          "three_wall": [
+            0.10088879035,
+            0.10316994402
+          ],
+          "arc_weights": {
+            "5.0": [
+              0.03966447185,
+              0.01006166839
+            ],
+            "6.5": [
+              0.02756144185,
+              0.03421225763
+            ],
+            "8.0": [
+              0.02360120826,
+              0.03230752929
+            ],
+            "9.5": [
+              0.01006166839,
+              0.02658848871
+            ]
+          },
+          "breakup": [
+            0.89911120965,
+            0.89683005598
+          ]
+        }
+      ]
+    },
+    {
+      "length": 15,
+      "loads": 6,
+      "dimension": 5005,
+      "three_wall_words": 150,
+      "closest_arc": 3.5,
+      "farthest_arc": 9.5,
+      "sources": [
+        [
+          0,
+          1,
+          2,
+          5,
+          8,
+          11
+        ],
+        [
+          0,
+          1,
+          4,
+          5,
+          8,
+          12
+        ]
+      ],
+      "reads": [
+        {
+          "time": 0,
+          "kappa": 8.0,
+          "three_wall": [
+            1.0,
+            1.0
+          ],
+          "arc_weights": {
+            "3.5": [
+              1.0,
+              0.0
+            ],
+            "5.0": [
+              0.0,
+              0.0
+            ],
+            "6.5": [
+              0.0,
+              0.0
+            ],
+            "8.0": [
+              0.0,
+              0.0
+            ],
+            "9.5": [
+              0.0,
+              1.0
+            ]
+          },
+          "breakup": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "time": 1,
+          "kappa": 8.0,
+          "three_wall": [
+            0.59289424829,
+            0.87517041936
+          ],
+          "arc_weights": {
+            "3.5": [
+              0.48246150306,
+              0.00020867083
+            ],
+            "5.0": [
+              0.00052210751,
+              0.03366814231
+            ],
+            "6.5": [
+              0.10935718325,
+              0.21944468485
+            ],
+            "8.0": [
+              0.00044911905,
+              0.22822810092
+            ],
+            "9.5": [
+              0.00010433541,
+              0.39362082045
+            ]
+          },
+          "breakup": [
+            0.40710575171,
+            0.12482958064
+          ]
+        },
+        {
+          "time": 4,
+          "kappa": 8.0,
+          "three_wall": [
+            0.10019374902,
+            0.64618963477
+          ],
+          "arc_weights": {
+            "3.5": [
+              0.06841138321,
+              0.00068920366
+            ],
+            "5.0": [
+              0.00032595298,
+              0.06539123493
+            ],
+            "6.5": [
+              0.03028787868,
+              0.29752846883
+            ],
+            "8.0": [
+              0.00082393232,
+              0.12728533917
+            ],
+            "9.5": [
+              0.00034460183,
+              0.15529538818
+            ]
+          },
+          "breakup": [
+            0.89980625098,
+            0.35381036523
+          ]
+        },
+        {
+          "time": 16,
+          "kappa": 8.0,
+          "three_wall": [
+            0.08564735984,
+            0.60622464179
+          ],
+          "arc_weights": {
+            "3.5": [
+              0.04221738077,
+              0.00055777271
+            ],
+            "5.0": [
+              0.00042789033,
+              0.1088938635
+            ],
+            "6.5": [
+              0.04195859089,
+              0.18638449821
+            ],
+            "8.0": [
+              0.00076461149,
+              0.15332051259
+            ],
+            "9.5": [
+              0.00027888635,
+              0.15706799478
+            ]
+          },
+          "breakup": [
+            0.91435264016,
+            0.39377535821
+          ]
+        },
+        {
+          "time": 0,
+          "kappa": 0.0,
+          "three_wall": [
+            1.0,
+            1.0
+          ],
+          "arc_weights": {
+            "3.5": [
+              1.0,
+              0.0
+            ],
+            "5.0": [
+              0.0,
+              0.0
+            ],
+            "6.5": [
+              0.0,
+              0.0
+            ],
+            "8.0": [
+              0.0,
+              0.0
+            ],
+            "9.5": [
+              0.0,
+              1.0
+            ]
+          },
+          "breakup": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "time": 1,
+          "kappa": 0.0,
+          "three_wall": [
+            0.08050536091,
+            0.09096554329
+          ],
+          "arc_weights": {
+            "3.5": [
+              0.03580808812,
+              0.00707494016
+            ],
+            "5.0": [
+              0.0063344168,
+              0.00430302768
+            ],
+            "6.5": [
+              0.02586304285,
+              0.03242766825
+            ],
+            "8.0": [
+              0.00896234307,
+              0.01812238448
+            ],
+            "9.5": [
+              0.00353747008,
+              0.02903752272
+            ]
+          },
+          "breakup": [
+            0.91949463909,
+            0.90903445671
+          ]
+        },
+        {
+          "time": 4,
+          "kappa": 0.0,
+          "three_wall": [
+            0.0696957449,
+            0.10379175316
+          ],
+          "arc_weights": {
+            "3.5": [
+              0.02864277368,
+              0.00767918096
+            ],
+            "5.0": [
+              0.00564098177,
+              0.01383927175
+            ],
+            "6.5": [
+              0.0225341334,
+              0.03705584394
+            ],
+            "8.0": [
+              0.00903826557,
+              0.03278823965
+            ],
+            "9.5": [
+              0.00383959048,
+              0.01242921686
+            ]
+          },
+          "breakup": [
+            0.9303042551,
+            0.89620824684
+          ]
+        },
+        {
+          "time": 16,
+          "kappa": 0.0,
+          "three_wall": [
+            0.06523939807,
+            0.12421525787
+          ],
+          "arc_weights": {
+            "3.5": [
+              0.0216563248,
+              0.01044376045
+            ],
+            "5.0": [
+              0.00708025515,
+              0.01580289843
+            ],
+            "6.5": [
+              0.0200984501,
+              0.04957797646
+            ],
+            "8.0": [
+              0.0111824878,
+              0.03261662023
+            ],
+            "9.5": [
+              0.00522188023,
+              0.0157740023
+            ]
+          },
+          "breakup": [
+            0.93476060193,
+            0.87578474213
+          ]
+        }
+      ]
+    }
+  ]
+}

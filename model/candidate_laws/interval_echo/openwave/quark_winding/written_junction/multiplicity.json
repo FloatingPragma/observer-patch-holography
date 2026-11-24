@@ -1,0 +1,106 @@
+{
+  "prime": 65521,
+  "laws": {
+    "native": [
+      {
+        "length": 12,
+        "gauss": 2832,
+        "ring": {
+          "dimension": 118,
+          "distinct_energies_at_least": 118,
+          "maximum_multiplicity_at_most": 1
+        },
+        "reservoir": {
+          "dimension": 263,
+          "distinct_energies_at_least": 263,
+          "maximum_multiplicity_at_most": 1
+        }
+      },
+      {
+        "length": 12,
+        "gauss": 2864,
+        "ring": {
+          "dimension": 145,
+          "distinct_energies_at_least": 145,
+          "maximum_multiplicity_at_most": 1
+        }
+      },
+      {
+        "length": 15,
+        "gauss": 6928,
+        "ring": {
+          "dimension": 250,
+          "distinct_energies_at_least": 250,
+          "maximum_multiplicity_at_most": 1
+        },
+        "reservoir": {
+          "dimension": 562,
+          "distinct_energies_at_least": 562,
+          "maximum_multiplicity_at_most": 1
+        }
+      },
+      {
+        "length": 15,
+        "gauss": 6960,
+        "ring": {
+          "dimension": 312,
+          "distinct_energies_at_least": 312,
+          "maximum_multiplicity_at_most": 1
+        }
+      }
+    ],
+    "extension": [
+      {
+        "length": 12,
+        "gauss": 652,
+        "ring": {
+          "dimension": 127,
+          "distinct_energies_at_least": 127,
+          "maximum_multiplicity_at_most": 1
+        },
+        "reservoir": {
+          "dimension": 284,
+          "distinct_energies_at_least": 284,
+          "maximum_multiplicity_at_most": 1
+        }
+      },
+      {
+        "length": 12,
+        "gauss": 1676,
+        "ring": {
+          "dimension": 157,
+          "distinct_energies_at_least": 157,
+          "maximum_multiplicity_at_most": 1
+        }
+      },
+      {
+        "length": 15,
+        "gauss": 4748,
+        "ring": {
+          "dimension": 470,
+          "distinct_energies_at_least": 470,
+          "maximum_multiplicity_at_most": 1
+        },
+        "reservoir": {
+          "dimension": 1478,
+          "distinct_energies_at_least": 1478,
+          "maximum_multiplicity_at_most": 1
+        }
+      },
+      {
+        "length": 15,
+        "gauss": 5772,
+        "ring": {
+          "dimension": 492,
+          "distinct_energies_at_least": 492,
+          "maximum_multiplicity_at_most": 1
+        }
+      }
+    ]
+  },
+  "three_identical_copies": {
+    "dimension": 381,
+    "distinct_energies_at_least": 127,
+    "maximum_multiplicity_at_most": 255
+  }
+}

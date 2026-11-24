@@ -29,8 +29,11 @@ Einstein equation up to a cosmological constant, provided their geometric
 normalizations and conservation laws hold on the same refinement tower.
 In an executable spherical model, finite patches compare a prepared
 modular charge with the energy of propagating matter and measure energy
-currents and directional torques at shared boundaries. A covariant
-stress tensor requires a common physical metric and momentum transport.
+currents and directional torques at shared boundaries. Two stationary
+states with identical passive exterior records carry opposite internal
+currents, limiting which local stress those records can resolve.
+A separate homogeneous Einstein--scalar Hamiltonian gives exact null
+balance in every direction and permits a test with clock and field readings.
 \end{abstract}
 
 \input{tex_fragments/INTERPRETATION_CONVENTIONS.tex}
@@ -454,16 +457,26 @@ common-metric limit with these errors, together with compatible source,
 reference and instrument refinement maps. These are attachment conditions,
 without an impossibility claim for emergent tensor geometry.
 
-After the Einstein attachment, the static spherical pressureless weak-field limit gives
+For the Newtonian transfer set $E_{ab}=G_{ab}+\Lambda g_{ab}-8\pi G_NT_{ab}$
+and use a local orthonormal frame in units $c=1$. Trace reversal gives
+$R_{00}=(G_{00}+\sum_i G_{ii})/2$. At leading static weak-field order
+$R_{00}=\Delta\Phi$, so
 \[
- \Delta\Phi=4\pi G_N\rho+\tfrac12(E_{00}+E_{11}+E_{22}+E_{33}).
+ \Delta\Phi=4\pi G_N(\rho+\textstyle\sum_i p_i)-\Lambda
+             +\tfrac12(E_{00}+\textstyle\sum_i E_{ii}).
 \]
-An Einstein residual bounded componentwise by $\epsilon_E$ gives source
-error at most $2\epsilon_E$; for support inside radius $R$, regularity at the
-origin and zero potential at infinity imply
-$|\delta\Phi'(r)|\leq2\epsilon_E R^3/(3r^2)$ for $r\geq R$.
-This is the retained Newtonian transfer, with its boundary, weak-field and
-propagation assumptions.
+The density-only Poisson law uses negligible principal pressures and a
+potential relative to the same vacuum. In this limit the common vacuum
+has $\Phi_{\rm vac}=-\Lambda r^2/6$ up to an additive constant in the
+regular spherical frame. If each component of $E$ has magnitude at most
+$\epsilon_E$, its contribution to the local Poisson source is at most
+$2\epsilon_E$. For a spherical residual supported inside radius $R$,
+regularity at the origin gives
+$|\delta\Phi'(r)|\leq2\epsilon_E R^3/(3r^2)$ for $r\geq R$ by radial
+integration. The potential of this localized error may be normalized to
+zero at infinity. That boundary convention applies to the error after
+vacuum subtraction. Pressure, vacuum and higher weak-field orders must be
+accounted for separately when using the bound on data.
 
 \section*{Derivation map}
 \addcontentsline{toc}{section}{Derivation map}
@@ -868,6 +881,63 @@ give $\nabla\phi=0$. Connectedness makes $\phi$ constant; set
 $\Lambda=-\phi$. Its value requires one reference condition.
 \end{proof}
 
+\paragraph{Reading a null residual with three clocks.}
+\label{par:ray-pair-transfer}
+Fix a spatial direction $n$ of unit length in the reconstructed frame.
+Restrict the symmetric residual $G+\Lambda g-\kappa T$ to the plane
+spanned by the rest clock and $n$. Write its quadratic form as
+$Q(t,x)=dt^2+2jtx+px^2$. Three future unit timelike observations give
+\[
+ Q(1,1)=-\tfrac9{16}Q(1,0)
+ +\tfrac{81}{160}Q(5/3,4/3)+\tfrac9{160}Q(5/3,-4/3).
+\]
+Expansion gives the identity; reversal of $n$ gives the incoming ray.
+Errors at most $\epsilon$ on the three residuals bound the null error by
+$9\epsilon/8$. All terms refer to the same point, state, coupling and
+reference. Thus the fixed-volume regional estimates above can prove null
+balance without resolving the flight of a macroscopic light ray. Nine
+spanning directions then suffice for tensor completion. Calibrating a
+stress from the curvature on each ray would impose the target identity.
+
+At a faithful finite reference the empirical content has an equivalent
+linear form. Differentiate the geometry reader and the independently
+calibrated stress reader on the admissible state variations. Null balance
+to first order means that their difference, with the common coupling,
+annihilates this entire tangent space on each spanning ray. For all
+traceless Hermitian variations this holds precisely when the difference
+of the two derivative observables is scalar. More generally the
+difference must lie in the span of the constraint gradients when the
+tangent space is their joint kernel. This finite criterion applies
+locally on the specified state family; continuation of a first-order
+identity requires control along that family and a reference value.
+
+\paragraph{A current that a passive exterior cannot reconstruct.}
+\label{par:ray-pair-native-current}
+On each of the 20-, 80- and 320-cell Interval Echo boards, cell zero
+admits two orthonormal real modes $u,v$ of the cell Laplacian with
+eigenvalue six and zeros on every gateway. Extension by zero makes them
+exact eigenvectors of the free board generator at kinetic energy three
+above its uniform orbital. The stationary releases $(u\pm iv)/\sqrt2$
+therefore have identical vacuum histories on the passive exterior.
+Inside the cell two quadrature projections on seam $(4,5)$ resolve
+opposite kinetic-energy currents with magnitude $\sqrt3/4$. The
+number current is $\operatorname{Im}(\bar\psi_4\psi_5)$ in the native
+orientation. The symmetrized kinetic-energy current on an eigenstate is
+its energy times that number current. These currents circulate within
+the cell. Their divergence vanishes.
+
+Suppose a proposed local frame assigns $T_{0n}=\alpha J$ to this seam
+with the same nonzero conversion on both releases, and computes geometry
+from the passive exterior alone. Its geometric mixed component is the
+same on both states. Reversing a ray cancels all even residual terms and
+leaves $4(G_{0n}-\kappa T_{0n})$. At least one of the four state--ray
+residuals consequently has magnitude at least
+$\sqrt3\,|\kappa\alpha|/2$. This excludes that pair of instruments on
+these states for any positive coupling. Coarser observers may average
+away the circulating current; an active volume reconstruction can retain
+additional records. The actual rest-frame stress and responsive geometry
+of such observers require their own identification.
+
 \subsection{Reconstruction from clocks, radar and a scalar field}
 
 On a controlled homogeneous source an observer can recover a coupled
@@ -990,6 +1060,94 @@ fixed proper volume. The native repair, orbital and ranging records
 are in \path{model/experiments/interval_echo_einstein_station}. A physical
 area per accessible boundary degree of freedom on shrinking geodesic
 balls of this source would connect the entropy and geometry tests.
+
+\paragraph{When a boundary capacity implies stationarity.}
+\label{par:capacity-stationarity-test}
+A lossless encoding into a boundary of dimension $d$ gives the bound
+$S\leq\log d$. At fixed $d=2$, a diagonal bit with probabilities
+$(p,1-p)$ obeys the bound throughout its state space and has entropy
+derivative $-\log 3$ at $p=3/4$. The finite condition that converts
+a count into a first-variation law concerns the occupied reference
+and the variation of its accessible multiplicities.
+
+For example, let a finite regional word $i$ have $d_i>0$ exterior
+completions. Uniform equilibrium on the compatible full words gives
+$p_i^*=d_i/Z$, $Z=\sum_i d_i$. For any regional distribution $p$,
+\[
+ H(p)+\sum_i p_i\log d_i=\log Z-D(p\Vert p^*).
+\]
+The derivative of the right side vanishes at $p^*$ on every normalized
+two-sided variation. If $A_i,V_i$ are independently calibrated geometric
+readings on these words, then on fixed-mean-volume transfers
+$\delta p$ the generalized-entropy derivative is
+$\sum_i\delta p_i(\eta A_i-\log d_i)$. It vanishes on the whole
+fixed-volume tangent space exactly when $\log d_i-\eta A_i=c+\lambda V_i$.
+This follows by taking the annihilator of the normalization and volume
+constraints. Further linear constraints add their rows to this span.
+More quantitatively, if the measured reference is a faithful $p$,
+the largest residual over $\|\delta p\|_1\leq1$ at fixed volume obeys
+\[
+ e_{\rm stat}\ \leq\
+ \inf_{c,\lambda}\max_i|\log d_i-\eta A_i-c-\lambda V_i|
+ +\max_i|\log(p_i/p_i^*)|.
+\]
+Indeed, subtract the two constraint rows from the residual and apply
+the dual norm bound. Uniform control of these two errors by $o(\ell^4)$
+suffices for the stationarity term of the matched-regional theorem on
+this word algebra. For a nonlinear reconstruction use its area and volume
+gradients at the reference. The native monitored word equilibrium realizes the first
+identity with counted exterior completions. A common positive conversion
+to proper area and the physical choice of this equilibrium are independent
+identifications.
+
+Two material rulers give a direct test on a different native preparation.
+On a four-station tetrahedron each ruler assigns six ranges, a volume
+and a surface area. The ordered three-by-three collar word table admits
+four independent probability transfers preserving both one-word laws.
+At the faithful correlated reference there is a unit Frobenius transfer
+in the common kernel of both volume gradients and the first-return area
+gradient with regional word-entropy slope $+0.1769704$ nats.
+Choosing the free-pulse area instead gives $+0.1463704$ nats.
+The transfers calibrated on the twenty-cell board keep the corresponding
+three log-derivatives below $1.8\times10^{-13}$ in magnitude on the
+80- and 320-cell boards. At the uniform table the word-entropy gradient
+vanishes exactly. There, unit fixed-volume transfers change the respective
+log areas by $1.46\times10^{-7}$ and $6.05\times10^{-7}$ on the twenty-cell
+board. These population derivatives test both reconstructed tetrahedral
+volumes and the indicated source-word entropy. Their geometric domain is
+set by the held range checks. The full conditional word laws and independent
+Cayley--Menger check are in the
+\href{https://github.com/FloatingPragma/observer-patch-holography/tree/main/model/experiments/interval_echo_einstein_station/regional_geometry}{regional geometry experiment}.
+
+The sign test can hold both operational volumes fixed on a continuous
+family. The source has four independent fixed-marginal probability
+transfers. Solving two independent volume equations leaves two free
+directions. The volume Jacobian has a nonzero two-column minor by
+rational elimination on the deposited clock moments. The implicit
+function theorem supplies a local surface of exactly matched volumes.
+For one transfer the source charge rises by $0.161753$ nats per unit,
+and both areas increase, with slopes $7.25151\times10^{-8}$ and
+$2.82552\times10^{-7}$ in the respective squared clock units. For any
+differentiable area $F(A_1,A_2)$ with both partial derivatives
+nonnegative, $dF\ge0$ there. Thus a positive multiple of this area
+cannot cancel the measured charge. A second transfer increases the
+first area and decreases the second. Positive changes of ruler units
+cannot reconcile those signs.
+
+Rational bounds on the differentiated face areas certify the signs
+for the recorded population moments. Both signs persist on the
+finite preparations at transfer parameters $\pm1/32$ and on the two
+larger boards. Separate word counts give $0.16064\pm0.00328$ nats
+per unit (one counting standard error) on the first transfer.
+At $2^{60}$ simulated releases per edge and arm the two direct
+clock histograms give standard errors $0.0472$ and $0.0000780$
+on the area differences, far above the finite signals
+$4.53\times10^{-9}$ and $1.77\times10^{-8}$. The area signs follow
+from the population evolution. This result tests the two operational
+tetrahedra and the selected word charge.
+Transferring a local experiment to larger hosts keeps the station addresses
+fixed. It supplies no estimate of the error divided by the fourth power
+of a shrinking physical radius.
 
 \paragraph{A fixed-volume test across observers.}
 Consider five four-dimensional constant-curvature sectors, with
@@ -1355,6 +1513,70 @@ $9.99\times10^{-6}$. Exchanging the two most separated pressure
 directions raises it to $0.00108$. The pure odd and even mixed states
 have opposite measured parities and identical radar times.
 
+\paragraph{Exact null balance in the homogeneous quantum comparison.}
+\label{par:canonical-all-null}
+Use log lengths $\log a_i$ with canonical momenta $\pi_i$, physical
+volume $W=V_0 a_1a_2a_3$, expansion rates $H_i$, $\theta=\sum_i H_i$,
+$C=\sum_{i<j}H_iH_j$ and $P=\sum_i p_i$. In the implemented diagonal
+Hamiltonian the rates are $H_i=(\kappa/W)(\pi_i-\sum_j\pi_j/2)$, the
+gravitational kinetic energy is $-WC/\kappa$, and the scalar force on
+$\log a_i$ is $W p_i$. The canonical momentum update is therefore
+$(\kappa/W)\dot\pi_i=-C-\Lambda+\kappa p_i$. Differentiating the rate,
+including $\dot W/W=\theta$, gives
+\[
+ \dot H_i=(C+\Lambda)/2+\kappa(p_i-P/2)-\theta H_i .
+\]
+Substitution in the orthonormal Bianchi I spatial curvature gives
+$G_{ii}=\kappa p_i-\Lambda$. The independent oscillator moment
+equations give $\dot\rho=-\sum_i H_i(\rho+p_i)$. Consequently
+$D=C-\Lambda-\kappa\rho$ satisfies $\dot D=-\theta D$ and $WD$ is
+constant. The initial expansion sets $D=0$ and $W>0$ on the regular
+solution interval. This proves $G_{00}=\Lambda+\kappa\rho$ throughout.
+The standing-mode and diagonal metric symmetries set the off-diagonal
+terms to zero. For every $k=(1,n)$ with $\sum_i n_i^2=1$, these
+equations give $G(k,k)=\kappa T(k,k)$. Homogeneity in $k$ covers
+arbitrary null normalization.
+
+For the diagonal source each directional residual is a convex combination
+of the three axial residuals with weights $n_i^2$. The maximum absolute
+residual over the whole sky is attained on an axis. Table~\ref{tab:all-sky-radar}
+gives that maximum on eleven held preparation--appointment pairs at each
+spacing. The separate field and radar meters share the supplied proper
+clock and homogeneous geometry. One fit of the ground and $x$-oriented
+temporal readings at the first appointment sets the coupling at each
+spacing. A second calculation uses the Hamiltonian coupling $1.6$ at
+all spacings. The response survives this removal of the calibration fit.
+
+\begin{table}[htbp]
+\centering\small
+\begin{tabular}{ccccc}
+\hline
+Radar spacing & Fitted $\kappa$ & Held, fitted & Held, fixed & Feedback off\\
+\hline
+0.08 & 1.601006 & $8.76\times10^{-5}$ & $1.07\times10^{-4}$ & 0.04113\\
+0.04 & 1.600187 & $2.41\times10^{-5}$ & $2.77\times10^{-5}$ & 0.04111\\
+0.02 & 1.600004 & $7.09\times10^{-6}$ & $7.16\times10^{-6}$ & 0.04111\\
+\hline
+\end{tabular}
+\caption{Null residuals in the box units of the regulated semiclassical
+Hamiltonian. The final column uses the three separate appointments of the
+$y$-oriented control, with matter backreaction suppressed and the fitted
+coupling retained in the readout. The entries are measured maxima. The
+all-direction identity follows from diagonal symmetry; exact balance
+along the regular flow follows from the Hamiltonian and scalar equations.}
+\label{tab:all-sky-radar}
+\end{table}
+
+The ADM metric Hamiltonian and its matter coupling are inputs of this
+comparison. On the native repair model, the
+\hyperref[par:ray-pair-native-current]{opposite-current experiment}
+tests a different pair of instruments. The algebra and constraint
+propagation are formalized in
+\path{Lean/ObserverPatchHolography/EinsteinBranch/RayPairBalance.lean}.
+The archived quadrature counts, radar returns and analysis are in the
+\href{https://github.com/FloatingPragma/observer-patch-holography/tree/main/code/matched_einstein_limit/quantum_scalar_radar}
+{quantum scalar and radar comparison}.
+
 \paragraph{Transfer between fields and gravitating cross correlations.}
 In the same supplied classical geometry, prepare a second quantum
 scalar and read the density and pressure of each field independently.
@@ -1375,6 +1597,93 @@ this regulated Einstein source. The metric dynamics, oscillator
 action and proper rulers enter its preparation. The spectra,
 quadratures and geometry records are in
 \path{code/matched_einstein_limit/quantum_scalar_radar/species_transfer/}.
+
+\paragraph{An ordinary calibration applied to a seam correlation.}
+\label{par:seam-gibbs-curvature}
+Consider two preparations with the same full one-register density
+matrices. On a finite tensor product with physical Hamiltonian $h$, use
+a faithful joint thermal reference $\sigma=e^{-\beta h}/Z$, $\beta>0$.
+For $K=-\log\sigma+\log(\sigma_A\otimes\sigma_B)$ the two marginal
+logarithms and the scalar $\log Z$ cancel in the difference. Thus
+$\Delta\langle K\rangle=\beta\Delta\langle h\rangle$ exactly, including
+for coherent preparations. This argument applies to the two-field
+interaction at a fixed initial geometry on a finite regulator. In the
+oscillator calculation the independently measured covariance reads that
+energy. A thermal reference is a separate choice of meter.
+
+A realization uses the physical 99-state repair Hamiltonian on one
+seam. Four eigenwords combine two memory magnitudes (0 and 2) with
+two load words $(2,0)$ and $(1,1)$. In that order the energy rows are
+$(0,0)$ and $(32,0)$ for the even reversal and positive coin phase.
+Give each off-diagonal word probability $3/8$ and each diagonal word
+$1/8$, then exchange these probabilities. The full individual states
+are identical and the energy falls from 12 to 4. Blank memory with
+vacuum and with one symmetric load gives a separate 0-to-8 calibration.
+
+Embed the stationary seam as volume-independent internal energy
+$E=\langle h\rangle$ in a homogeneous flat cell. With $q=\log a$,
+proper volume $W=V_0e^{3q}$, conjugate momentum $p$ and unit lapse,
+supply the gravitational Hamiltonian
+\[
+ \mathcal H=-\kappa p^2/(12W)+\Lambda W/\kappa+E .
+\]
+Its flow preserves the imposed initial constraint $\mathcal H=0$.
+Hamilton's equations give $\dot q=-\kappa p/(6W)$ and
+$2\ddot q=\Lambda-3\dot q^2$. Hence $W(3\dot q^2-\Lambda)=\kappa E$
+and $G_{ii}=-\Lambda$ in the orthonormal frame. For every regular
+time and every null direction $k=(1,\mathbf n)$, $|\mathbf n|=1$,
+\[
+ \Delta[W(G_{00}-\Lambda)]=\Delta[W G_{kk}]
+ =\kappa\,\Delta\langle K\rangle/\beta .
+\]
+The two volumes are measured separately. The source prescription couples
+one geometry to the expectation in each preparation.
+
+Round-trip clocks on the two ordinary preparations give
+$\kappa=1.60000105$. At three later appointments the measured temporal
+differences are $12.799997$, $12.799988$ and $12.799973$. Joint
+reference and source counts with an ordinary two-level thermometer give
+an energy difference $7.95234\pm0.02032$ (one counting standard error),
+against the population value 8. A control assigns gravitational charge
+8 to all four words, keeping the matter Hamiltonian, counts and
+ordinary calibration fixed. Every held geometric difference then
+vanishes. The canonical metric and its coupling to the total energy
+are explicit inputs. The raw tapes and exact native column checks
+are in \path{code/matched_einstein_limit/seam_overlap/}.
+
+At the common initial cell volume, compare the two seam states on
+rest-frame balls of equal measured interior volume. Geodesic rim
+areas and the population energy contrast 8 give coupling estimates
+$1.62320,1.60575,1.60143$ on proper-volume radii $0.4,0.2,0.1$.
+The estimate uses the leading geodesic-ball expansion. The higher
+energy makes the smallest rim smaller by $4.32691\times10^{-6}$.
+The regional energy forecast here weights the homogeneous density by
+the ordinary diamond kernel. A separate spatial modular identification
+is needed to apply it to a physical collar.
+
+For an independently read geometry this coupling has a finite operator
+test. At a faithful reference, write $Q$ for the derivative of the
+volume-weighted temporal statistic, so a state tangent $X$ changes it
+by $\operatorname{Tr}(QX)$. It agrees with the ordinary calibration on
+every fixed-marginal tangent if and only if
+$Q-\kappa h=A\otimes I+I\otimes B$. Indeed the tangents with both
+partial traces zero are spanned by tensor products of traceless
+Hermitian operators. Their trace-orthogonal complement is precisely
+the space of the displayed local sums. On the four diagonal words
+this requires $(Q_{01}+Q_{10}-Q_{00}-Q_{11})/4=8\kappa$.
+The two ordinary observations alone leave that difference free.
+On the free repair law another sector gives an exact obstruction.
+Four private memory words act with energies $(0,0,33,32)$ times the
+identity on every endpoint-load input. The same two probability
+patterns differ by $1/4$ unit of Gibbs-measured energy when magnitude
+and within-pair index are the two logical registers. Conditioned on
+the word, material evolution differs only by a phase. Every read
+confined to the remaining degrees of freedom gives identical outcome
+probabilities. Repeating the preparation on $N$ such seams multiplies
+the energy change by $N$ and preserves equality of all joint material
+readouts. This sector tests two internal registers. For a spatial
+collar the choice of regional source and geometric ruler carries
+physical content.
 
 \paragraph{A moving volume and an equal-volume area comparison.}
 For an orthogonal, nonrotating, freely falling diagonal cohort with
@@ -1444,6 +1753,66 @@ readout, requires a further source map. The controlled instruments
 and registered-material experiments are archived in
 \path{code/matched_einstein_limit} and
 \path{model/experiments/interval_echo_einstein_station}.
+
+\paragraph{Which observations fix the volume?}
+The rank-three port-response completion carries its own Euclidean volume.
+For three independent displacements with observed Gram matrix \(G\), the
+parallelepiped volume is \(\sqrt{\det G}\) in calibrated length units cubed.
+On nine anonymous local port surveys across the three bundled screens,
+\(2^{20}\) simulated short-dwell detections per port preparation
+resolve all twenty triangular faces at each site. The three unit record
+vectors of a face have pairwise inner product \(1/\sqrt5\).
+With the origin as fourth vertex the tetrahedral volume is
+\((1-1/\sqrt5)\sqrt{1+2/\sqrt5}/6=0.1268075355\) in Gram units cubed
+on all 180 reconstructions. Quiet outcomes enter the port census.
+A ball has volume \(4\pi r^3/3\) in that completion. Applying this result to
+matter requires identifying displacements between physical events across
+patches. On the geodesic rest slice of a curved metric the corresponding
+prescription is \(V(r)=\int_0^r A(s)\,ds\), up to the cut locus, with \(s\)
+proper radial distance. One measured surface area and one length standard
+do not specify the function \(A(s)\).
+
+There is also a boundary-only volume measurement. On a smooth nontrapping
+three-dimensional rest region with strictly convex boundary, measure the
+proper length to first exit along each inward unit geodesic. Write \(\bar L\)
+for its mean when entry points and directions have flux measure
+\(\cos\theta\,d\Omega\,dA\), with angle measured from the inward normal.
+The Liouville measure of the unit tangent bundle is \(4\pi V\). Parametrizing
+it by entry and distance along the ray, its measure is the incoming flux
+times length. The incoming flux is \(\pi A\), hence \(V=A\bar L/4\) by
+Santal\'o's formula~\cite{pwsantalo2004integral}. In the five ultrastatic
+comparison charts a reflected null signal clocks twice the spatial length.
+At flat reference radius \(1/16\), sixteen angular clock readings and the
+independently counted rim area reproduce the held interior volume within
+\(4.26\times10^{-8}\) of the target in every chart. For varying lapse or
+time-dependent geometry the conversion from light time to spatial length
+requires separate evidence.
+
+The addressed sphere supplies a finite boundary clock with a different
+propagation law. Keep one station per cell, bypass the stored word port,
+and include the eleven accessible ports of every cell in the station ball.
+One- and two-unit blank loads both swap in one hand interval. Let \(C\)
+be the number of entering cut seams, chosen uniformly. After entry, choose
+each next neighbour uniformly and measure the number \(\tau\) of swaps to
+first exit. If \(L\) is the grounded graph Laplacian, \(d\) the port degrees
+and \(b\) the cut counts, the mean remaining durations satisfy \(Lt=d\)
+and \(L{\bf1}=b\). Symmetry gives \(C\,\mathbb E\tau={\bf1}^Td=53M\)
+for \(M\) cells, each with 25 internal edges and three gateways. The boundary
+clock therefore recovers enclosed station population exactly in expectation.
+On uniform midpoint subdivisions with this protected template the
+population of a full ball grows quadratically in its mesoscopic route
+radius \(r\). For the upper bound, intersect a Euclidean ball of radius
+\(r+1\) with each of the twenty triangular face planes. For the lower bound,
+a dyadic subtriangle of side proportional to \(r\) contains order \(r^2\)
+stations within reach: a segment through the subtriangle crosses each of
+its three families of parallel grid lines at most once per line, and each
+crossing costs at most four protected swaps plus a fixed endpoint cost.
+Disjoint subballs then bound the number of \(s\)-separated positions by a
+constant times \((r/s)^2\). A dense three-dimensional proper ball would
+require order \((r/s)^3\) at uniformly comparable distances. This separates
+two observable positions, a single routed station and a displacement in
+the three-dimensional cumulative record space. A physical volume
+identification must specify which observations locate the same events.
 
 \paragraph{Fourth-order collar charge and a third relational reading.}
 Two protected native words on distinct cells produce a signed change
@@ -1654,6 +2023,30 @@ entropy--area normalization and geometric stationarity. The static-product
 obstruction in Proposition~\ref{prop:static-product} excludes merely
 adjoining a fixed radial geometry.
 
+
+\section{What the observer measurements establish}
+The finite bound answers how accurately a common set of observers must
+measure three quantities: the matter contribution to regional entropy,
+the area deficit at equal proper volume and the variation of their sum.
+Errors smaller than the leading fourth power of the proper radius give
+the tensor equation in the common smooth limit. If the measurements are
+only derivatives at a single vacuum, this argument gives the linearized
+equation there. An equation for finite changes requires controlled
+contrasts between states or integration along an admitted family, with
+its changing geometry and the same calibration.
+
+Within the homogeneous Hamiltonian, independent field and radar records
+resolve the effect of turning off matter backreaction. On the repair
+sphere, a passive exterior gives the same observations for states with
+opposite internal currents. A physical macroscopic claim therefore needs
+a common choice of coarse stress and metric that handles precisely such
+variations. If their coarse momentum flux differs, the geometric mixed
+component must respond; if the flux averages to zero, that cancellation
+must follow from the declared stress measurement. The same test applies
+to the proposed overlap contribution. Its leading signed regional energy
+must enter a conserved total stress and predict geometry at the coupling
+calibrated on ordinary matter. A fit to a galactic orbit cannot supply
+either identification.
 
 \appendix
 
@@ -2055,6 +2448,12 @@ T.~Jacobson,
 \emph{Phys.\ Rev.\ Lett.} \textbf{116} (2016), 201101,
 doi:10.1103/PhysRevLett.116.201101,
 arXiv:1505.04753.
+
+\bibitem{pwsantalo2004integral}
+L.~A.~Santal\'o,
+\emph{Integral Geometry and Geometric Probability}, 2nd ed.
+(Cambridge University Press, 2004).
+\url{https://doi.org/10.1017/CBO9780511617331}
 
 \bibitem{mosco1994}
 U.~Mosco,

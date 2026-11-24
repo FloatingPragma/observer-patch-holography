@@ -1,0 +1,295 @@
+{
+  "3": {
+    "sharp_words": 20,
+    "exact_colour_certificate": {
+      "spatial_irrep_copies": 60,
+      "integer_operator_scale": 2,
+      "prime": 1009,
+      "source_seed": 12013,
+      "krylov_rank": 60,
+      "maximum_same_energy_spatial_multiplicity": 1
+    },
+    "all_energy_commutant_dimensions": {
+      "1": 60
+    },
+    "minimum_occupied_seams": 0,
+    "exhaust_intact_minimum": true,
+    "chart_multiplicity": {
+      "3": 20
+    },
+    "core_pair_multiplicity": {
+      "3": 20
+    },
+    "source_charts": [
+      {
+        "axis": [
+          0,
+          3
+        ],
+        "core_ends": [
+          1,
+          10
+        ]
+      },
+      {
+        "axis": [
+          5,
+          6
+        ],
+        "core_ends": [
+          1,
+          4
+        ]
+      },
+      {
+        "axis": [
+          8,
+          11
+        ],
+        "core_ends": [
+          4,
+          10
+        ]
+      }
+    ],
+    "gap_below": 13.73382561202,
+    "every_time_any_chart_lower": 0.93356023494,
+    "levels": [
+      {
+        "energy": 6.30956358302,
+        "dimension": 1,
+        "spatial_character_norm": 1.0,
+        "source_weight": 0.04920882901,
+        "chart_weight": 0.98417658029,
+        "fifth_turn_trace": 1.0,
+        "fifth_turn_identity_distance": 0.0
+      },
+      {
+        "energy": 6.66073164881,
+        "dimension": 3,
+        "spatial_character_norm": 1.0,
+        "source_weight": 0.14750850881,
+        "chart_weight": 0.98339005874,
+        "fifth_turn_trace": -0.61803398875,
+        "fifth_turn_identity_distance": 1.90211303259
+      },
+      {
+        "energy": 7.17176650256,
+        "dimension": 5,
+        "spatial_character_norm": 1.0,
+        "source_weight": 0.24753817322,
+        "chart_weight": 0.99015269286,
+        "fifth_turn_trace": 0.0,
+        "fifth_turn_identity_distance": 1.90211303259
+      },
+      {
+        "energy": 7.64073292466,
+        "dimension": 4,
+        "spatial_character_norm": 1.0,
+        "source_weight": 0.19824289641,
+        "chart_weight": 0.99121448207,
+        "fifth_turn_trace": -1.0,
+        "fifth_turn_identity_distance": 1.90211303259
+      },
+      {
+        "energy": 8.62453708591,
+        "dimension": 4,
+        "spatial_character_norm": 1.0,
+        "source_weight": 0.19862704436,
+        "chart_weight": 0.99313522179,
+        "fifth_turn_trace": -1.0,
+        "fifth_turn_identity_distance": 1.90211303259
+      },
+      {
+        "energy": 8.7404504054,
+        "dimension": 3,
+        "spatial_character_norm": 1.0,
+        "source_weight": 0.14905572779,
+        "chart_weight": 0.99370485196,
+        "fifth_turn_trace": 1.61803398875,
+        "fifth_turn_identity_distance": 1.17557050458
+      }
+    ],
+    "reads": [
+      {
+        "time": 0.0,
+        "any_chart": 1.0
+      },
+      {
+        "time": 0.015625,
+        "any_chart": 0.99927239967
+      },
+      {
+        "time": 0.0625,
+        "any_chart": 0.98946384468
+      },
+      {
+        "time": 0.25,
+        "any_chart": 0.97449856635
+      },
+      {
+        "time": 1.0,
+        "any_chart": 0.98021134678
+      },
+      {
+        "time": 4.0,
+        "any_chart": 0.98258356902
+      },
+      {
+        "time": 16.0,
+        "any_chart": 0.97502270343
+      }
+    ]
+  },
+  "4": {
+    "sharp_words": 30,
+    "exact_colour_certificate": {
+      "spatial_irrep_copies": 132,
+      "integer_operator_scale": 2,
+      "prime": 1009,
+      "source_seed": 12013,
+      "krylov_rank": 131,
+      "maximum_same_energy_spatial_multiplicity": 2
+    },
+    "all_energy_commutant_dimensions": {
+      "1": 130,
+      "2": 1
+    },
+    "minimum_occupied_seams": 1,
+    "exhaust_intact_minimum": true,
+    "chart_multiplicity": {
+      "2": 30
+    },
+    "core_pair_multiplicity": {
+      "1": 30
+    },
+    "source_charts": [
+      {
+        "axis": [
+          0,
+          3
+        ],
+        "core_ends": [
+          1,
+          8
+        ]
+      },
+      {
+        "axis": [
+          5,
+          6
+        ],
+        "core_ends": [
+          1,
+          8
+        ]
+      }
+    ],
+    "gap_below": 12.9567056904,
+    "every_time_any_chart_lower": 0.92433277268,
+    "levels": [
+      {
+        "energy": -8.65630117497,
+        "dimension": 1,
+        "spatial_character_norm": 1.0,
+        "source_weight": 0.03270277311,
+        "chart_weight": 0.98108319317,
+        "fifth_turn_trace": 1.0,
+        "fifth_turn_identity_distance": 0.0
+      },
+      {
+        "energy": -8.33756584679,
+        "dimension": 3,
+        "spatial_character_norm": 1.0,
+        "source_weight": 0.09843325346,
+        "chart_weight": 0.98433253459,
+        "fifth_turn_trace": -0.61803398875,
+        "fifth_turn_identity_distance": 1.90211303259
+      },
+      {
+        "energy": -7.80110250998,
+        "dimension": 5,
+        "spatial_character_norm": 1.0,
+        "source_weight": 0.16470080458,
+        "chart_weight": 0.98820482748,
+        "fifth_turn_trace": 0.0,
+        "fifth_turn_identity_distance": 1.90211303259
+      },
+      {
+        "energy": -7.35390543172,
+        "dimension": 4,
+        "spatial_character_norm": 1.0,
+        "source_weight": 0.13225479457,
+        "chart_weight": 0.99191095927,
+        "fifth_turn_trace": -1.0,
+        "fifth_turn_identity_distance": 1.90211303259
+      },
+      {
+        "energy": -6.36085173375,
+        "dimension": 4,
+        "spatial_character_norm": 1.0,
+        "source_weight": 0.1323524081,
+        "chart_weight": 0.99264306076,
+        "fifth_turn_trace": -1.0,
+        "fifth_turn_identity_distance": 1.90211303259
+      },
+      {
+        "energy": -6.24064099152,
+        "dimension": 3,
+        "spatial_character_norm": 1.0,
+        "source_weight": 0.09926966039,
+        "chart_weight": 0.99269660389,
+        "fifth_turn_trace": 1.61803398875,
+        "fifth_turn_identity_distance": 1.17557050458
+      },
+      {
+        "energy": -5.82141048306,
+        "dimension": 5,
+        "spatial_character_norm": 1.0,
+        "source_weight": 0.16509481641,
+        "chart_weight": 0.99056889847,
+        "fifth_turn_trace": 0.0,
+        "fifth_turn_identity_distance": 1.90211303259
+      },
+      {
+        "energy": -5.8181631962,
+        "dimension": 5,
+        "spatial_character_norm": 1.0,
+        "source_weight": 0.16505269806,
+        "chart_weight": 0.99031618838,
+        "fifth_turn_trace": 0.0,
+        "fifth_turn_identity_distance": 1.90211303259
+      }
+    ],
+    "reads": [
+      {
+        "time": 0.0,
+        "any_chart": 1.0
+      },
+      {
+        "time": 0.015625,
+        "any_chart": 0.99915350959
+      },
+      {
+        "time": 0.0625,
+        "any_chart": 0.98821141943
+      },
+      {
+        "time": 0.25,
+        "any_chart": 0.97314572337
+      },
+      {
+        "time": 1.0,
+        "any_chart": 0.98103788213
+      },
+      {
+        "time": 4.0,
+        "any_chart": 0.98068291137
+      },
+      {
+        "time": 16.0,
+        "any_chart": 0.97772285844
+      }
+    ]
+  }
+}

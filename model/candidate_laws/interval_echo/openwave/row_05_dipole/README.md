@@ -1,0 +1,76 @@
+# Stationary circulation and precession of a charged vacancy
+
+A vacancy can stay inside one cell of the freely evolving Interval Echo federation while its signed material current circulates indefinitely. In a supplied external flux, that same excitation exhibits precession. A nearby excess load confined outside its source cell cannot detect the circulation. OpenWave's electron magnetic moment criterion remains open. Its published dressed-charge coefficient uses a separate construction with a trap, regulator and external field. [OpenWave criterion and M10 entry](https://github.com/openwave-labs/openwave/blob/d4fc3e4046c472f4ad38468df8dddfa1f97bac97/MODELS.md#oph-m10) · [Protocol](PROTOCOL.md)
+
+## The source and its moment
+
+With one missing unit above the uniform unit-filled host, the blank-seam law acts by half the graph Laplacian plus the vacancy's native potential. On a non-gateway port this potential is 4κ. Let A be the isolated cell's adjacency matrix. Every vector in the kernel of A+I which vanishes at the three gateways extends by zero to a federation eigenstate of energy 3+4κ above the same host. The gateways and the complete exterior retain host occupations and blank collars. The simulation checks this statement on every owner of the 20-, 80- and 320-cell boards. The compact eigenspace has dimension two on all 20 smallest-board owners, on 56 of 80 and on 216 of 320. The other owners have dimension three. The source laboratory selects a coherent pair of conjugate orbitals in this degenerate excited space.
+
+At each oriented seam a local interferometer on independent copies compares the two combinations with relative phases ±π/2, retaining the complementary result for every trial. Half its signed frequency difference gives the directed vacancy current. Multiplying by the observed material charge −1 and summing with weights (rₐ × rᵦ)/2 gives the material current moment. The embedded icosahedron has radius one by convention. The maximum along the preselected gateway axis depends on the layout, taking values 0.138197, 0.198137 or 0.353553 in material units. For owner zero the simulated opposite-source measurements are +0.137996 and −0.138291, with +0.000160 on the real control. A proper third-turn port permutation of the positive source gives overlap −1/2−i√3/2. The physically resolved phase labels an angular mode modulo three. It does not determine a mechanical angular momentum ℏ/2. [Compact-state census and complete seam counts](results.json)
+
+## Does the current precess?
+
+An applied phase on each source seam encodes a uniform axial test flux through the triangular faces. The phase of an independently shuttled vacancy on opposite paths around one triangle calibrates this instrument. A separate isolated vacancy dimer measures the elapsed interval with two clock quadratures. A signed native echo compares vacancy occupation with unit occupation. At the longest primary appointment on 320 cells these give B = 0.031200 and t = 64.00012, with the phase and clock in exchange units. The zero-field moment difference forecasts a relative phase of −0.55169 radians in the compact doublet. The independently read fringe gives −0.55293. With the calibrated inputs the largest absolute mismatch across all five field settings and six waits is 0.00361 radians. Under the identical external field geometry, removing the contrast raises leakage from the doublet at the longest positive-field reading from 0.00564% to 8.40%. The opposite-circulation fringe and the contrast-dependent protection are measurable on this source. [Applied-flux reads](results.json) · [Independent charge, flux and clock calibrations](calibration.json)
+
+A rotating fringe can also occur with a fixed moment direction. On every two-dimensional compact real subspace the three imaginary antisymmetric moment operators have only one independent component. A second experiment therefore uses the first three-dimensional compact subspace on the 320-cell federation whose moment operators have rank three. At owner 8 prepare maximum x moment, which also has a longitudinal component. The following are signed y current components from all thirty seam readouts. Each simulated trial contributes a current reading or its explicit complement.
+
+| Applied flux | At exchange time 128 | First-order compact prediction |
+| --- | ---: | ---: |
+| −1/32 | −0.070103 | −0.069846 |
+| Zero | +0.000106 | 0 |
+| +1/32 | +0.069915 | +0.069846 |
+
+The simultaneous 99% bound on each measured component is ±0.001489 across all three fields, six times and three axes. The zero-field operators projected into the compact three-state subspace predict every component within 0.00060. These currents measure a reorientation of the material moment under external flux. Their anisotropic operator strengths depend on the gateway geometry. [Full-vector precession and all raw counts](vector.json)
+
+The three imaginary antisymmetric operators on a three-dimensional real orbital space also have a simple algebraic interpretation. In an orthonormal basis write each moment as a real linear combination of the three vector-rotation generators, whose squared generators sum to twice the identity. The principal strengths of this linear map are 0.41395, 0.22361 and 0.06039 material units. Along the applied axis the three moment levels are 0, +1/√8 and −1/√8. The linearized orbital Hamiltonian therefore predicts the angular frequency 0.011049 per exchange time at B = 1/32 for the transverse moment. Let Y(t) denote half the difference of the y moments between opposite applied fields. On the low-frequency sinusoidal branch the ratio Y(256)/[2 Y(128)] measures the cosine of 128 times that frequency. The count-based reading is **0.011053**, with interval [0.010940, 0.011161] induced by the simultaneous moment bounds. The shorter sampled intervals check the chosen slow branch against its predicted trajectory. The spatial template fixes only discrete physical turns, and this rotation algebra acts on three orbital modes. [Measured vector trajectory](vector.json)
+
+## Can an exterior probe see a static field?
+
+An independent extra load travels outside the source owner while a number aperture keeps the probe from entering the owner. This aperture retains all native contact energies across the gateways. A source vacancy on any support port and any exterior probe occupy nonadjacent sites. Their diagonal energy then adds, and their native exchanges are independent. Amplitudes transferring the vacancy onto a gateway cancel. Any exceptional term for adjacent vacancy and probe multiplies zero vacancy amplitude. Consequently the joint generator applied to a compact vacancy times any exterior probe state gives the vacancy energy plus the free exterior probe generator. This equality holds for either circulation at every time, including for time-dependent coherent controls acting only on the confined probe. It concerns receivers whose operation preserves this aperture.
+
+The code checks the intertwining equality against the original nine blank-seam columns for every exterior probe position on 20 cells and the three gateways plus a far control on 320 cells. The mobile probe's current and return counts are compatible with one common channel for both source signs and the absent source. Parking the vacancy directly on the gateway generates a connected shift of +15.5, detected by the same two-rail exterior phase apparatus. The controls distinguish contact sensitivity from an exterior field that would reveal the stationary direction. [Exterior measurements and native product-state check](exterior.json)
+
+The entire direct sum of the sources over different owners has energy 35 at κ = 8. Giving a coherent superposition opposite relative owner phases leaves it stationary. At time 16 the two compact momentum kicks each give 4,194,304 returns in 4,194,304 trials on both boards. A sharp gateway vacancy on 320 cells gives 54,927 returns. The compact band therefore supplies no finite translational recoil mass for a dimensionless electron g measurement. The record provides a signed material unit, stationary circulating current, applied-flux slope and precession. Electron identification also requires an independently sourced exterior magnetic field and a common inertial and angular calibration on a mobile excitation. [Recoil records](exterior.json) · [Charged mobile orbital study](../../../../experiments/interval_echo_angular/charged_orientation/README.md)
+
+## Can the vacancy carry its current to another cell?
+
+Yes, for a second preparation. Within the same isolated-cell orbital we prepared the two opposite current orientations orthogonal to every compact mode. Those states have amplitude at gateways and can leave the source. On the intact 320-cell board a receiver one hop away recorded the following at time 128. Missing arrivals contribute zero to both measurements. Each setting uses 134,217,728 simulated trials. [Transport protocol](TRANSPORT_PROTOCOL.md) · [All counts, both boards and exchange-only controls](transport.json)
+
+| Source orientation | Vacancy detected at the receiver | Axial material current moment per launch |
+| --- | ---: | ---: |
+| Positive | 7.583% | +0.001409 |
+| Negative | 3.053% | −0.000485 |
+
+The simultaneous 99% radius for each moment is 0.000293. Two hops away, at time 64, the positive source produced 1,257,865 positive and 839,878 negative orbital readings. Reversing the source gave 876,837 positive and 1,053,077 negative readings. The signed mode scores per launch are +0.00311 and −0.00131, each with simultaneous radius 0.000414. The independently sampled thirty-seam axial moment at that second receiver has too much uncertainty to resolve the difference. On 20 cells at two hops and time 64 the two resolved axial moments are both positive, +0.002128 and +0.001441. The receiving geometry and measurement interval matter.
+
+We also split the mobile vacancy coherently between the source and its neighbour. Reversing the prepared inter-owner phase from zero to π changes its mean energy by 1/6 on the 320-cell board. The native inter-owner hopping amplitude is −1/12. Short-time Ramsey reads give energy differences 0.1494 at time 1/128 and 0.1823 at time 1/64. The preparation has energy standard deviations 8.17–8.34 in exchange units. Its transfer and phase response establish motion of a current-carrying vacancy, while its broad spectrum leaves assignment to a single moving energy branch open.
+
+Every distant compact-mode counter was zero, including for a coherent superposition of compact and mobile orbitals at the source. Each receiving compact orbital is an exact eigenvector. Its overlap with a vacancy launched in a different owner therefore stays exactly zero. The sharp stationary orbital that precesses and the mobile vacancy occupy orthogonal sectors. To measure a particle g factor, the remaining experiment needs a moving branch whose own dipole response and dispersion curvature can both be resolved.
+
+## What gyromagnetic coefficient does a resolved vacancy orbital give?
+
+On the ten-port belt of one native cell a number guard keeps the two polar ports at host occupation. All thirty contacts contribute their projected terms. Opposite first-winding vacancy states are stationary, carry opposite circulation and occupy the same band as the zero-winding recoil reference. The source and quadrature receivers act within that cell. An independently shuttled vacancy calibrates the threaded flux, and a separate vacancy-dimer clock times the exposures. The projected radius, address guide and coherent response apparatus are supplied. The zero-field particle receives an angular phase kick of one or two windings on separate preparations. Its measured gaps are **0.881835 and 2.499711** per exchange unit. A common rigid-rotor inertia fitted only to the first would predict **3.527338** for the second. [Angular recoil and flux protocol](TRANSPORT_PROTOCOL.md) · [All outcomes and calibrations](orbital.json)
+
+| Observable on the registered guide | Reading | Interpretation |
+| --- | ---: | --- |
+| Opposite-winding frequency splitting at applied +1/32 | −0.031250 per exchange unit | Reversing the field gives +0.031248. The zero-winding comparison has no odd splitting. |
+| Orbital coefficient from the first recoil gap | 0.70804 [0.69956, 0.71668] | Common rigid-rotor inertia misses the held second gap by 41% of the measured value. |
+| Orbital coefficient from small momentum curvature | 0.63327 [0.61951, 0.64710] | An independently threaded winding of +1/16 gives inverse angular inertia 1.97191, with limiting-curvature interval [1.94748, 1.99751]. |
+
+For the small-momentum measurement the source compares a zero-winding vacancy that crosses a flat winding phase with an identical unthreaded reference. This flat phase sums to zero on each conducting triangle. The axial test field threads those triangles and uses a separate calibration. If C is the second derivative of energy with respect to dimensionless winding and f=qBR², the inferred absolute orbital coefficient for the first winding is the magnitude of the opposite-winding frequency splitting divided by |f|C. The shortest zero-field recoil gives the alternative calibration C=2Δ. The table uses simulated first-return quadratures, 33,554,432 samples per setting, simultaneous 99% counting bounds and the finite-twist correction for the stated native band. The observed second splitting and the curvature follow-up were available during this exploratory study. The exact native dispersion uses both the first and the second angular neighbours of each belt port. Its limiting curvature is 5(2π/10)². The spatial fifth-turn determines winding modulo five. Reading these ratios as a continuum gyromagnetic factor additionally assumes the lowest-winding angular momentum and the stated inertia and radius conventions.
+
+Removing contrast gives the same recoil and field response on this fixture. Adding a uniform covariant two-hop term changes the first-gap coefficient to 1.07258 [1.06037, 1.08499]. The native nearest-contact orbital therefore gives a measurable coefficient that misses the electron target under both calibrations. A stationary source that independently magnetizes its exterior remains a separate test. [Local generators and readout](orbital.py) · [Independent dispersion and receiver checks](test_orbital.py)
+
+## Replay
+
+From the repository root, run each module to regenerate and compare its records. NumPy and SciPy supply the material propagation. The tests also check every compact-space dimension with integer matrices and decode the signs, clock and field readings from the saved counts.
+
+```sh
+python -m model.candidate_laws.interval_echo.openwave.row_05_dipole.experiment
+python -m model.candidate_laws.interval_echo.openwave.row_05_dipole.exterior
+python -m model.candidate_laws.interval_echo.openwave.row_05_dipole.vector
+python -m model.candidate_laws.interval_echo.openwave.row_05_dipole.calibration
+python -m model.candidate_laws.interval_echo.openwave.row_05_dipole.transport
+python -m model.candidate_laws.interval_echo.openwave.row_05_dipole.orbital
+python -m pytest -q model/candidate_laws/interval_echo/openwave/row_05_dipole
+```

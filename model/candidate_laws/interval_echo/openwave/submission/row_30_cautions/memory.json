@@ -1,0 +1,49 @@
+{
+  "binary_words": [
+    "00",
+    "01",
+    "10",
+    "11"
+  ],
+  "energies_by_coin_and_sign_parity": {
+    "+1,+1": [
+      32,
+      32,
+      32,
+      0
+    ],
+    "+1,-1": [
+      33,
+      33,
+      33,
+      0
+    ],
+    "-1,+1": [
+      32,
+      32,
+      32,
+      32
+    ],
+    "-1,-1": [
+      33,
+      33,
+      33,
+      33
+    ]
+  },
+  "eigenvector_and_idle_residuals_below": 1e-12,
+  "detector_plus_probability": {
+    "pi/32": {
+      "unread": 0.0,
+      "read_sign": 0.001203818332,
+      "read_coin": 0.5,
+      "read_both": 0.500601909166
+    },
+    "pi": {
+      "unread": 1.0,
+      "read_sign": 0.5,
+      "read_coin": 1.0,
+      "read_both": 0.75
+    }
+  }
+}

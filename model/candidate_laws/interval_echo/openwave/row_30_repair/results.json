@@ -1,0 +1,2981 @@
+{
+ "shots": 4194304,
+ "outcomes": [
+  "hand0_hit",
+  "hand0_miss",
+  "hand1_hit",
+  "hand1_miss"
+ ],
+ "panels": [
+  {
+   "seed": 280210,
+   "cells": 20,
+   "home": 61,
+   "ports": 120,
+   "total_components": 7,
+   "uniform_components": [],
+   "last_commit": 35,
+   "zeros": 26,
+   "ones": 94,
+   "compilation_error_bound": true,
+   "measurements": [
+    {
+     "law": "registered",
+     "nominal_exposure": 0.0625,
+     "hand_return_counts": [
+      4017882,
+      172209,
+      4039,
+      174
+     ],
+     "variance": 10.8622222222,
+     "measured_time": [
+      0.06141591787632169,
+      0.06540130204294078
+     ],
+     "measured_miss": [
+      0.040705571071205336,
+      0.0414955435504531
+     ],
+     "predicted_miss": [
+      0.03772544906139391,
+      0.04646131233324824
+     ],
+     "compatible": true
+    },
+    {
+     "law": "registered",
+     "nominal_exposure": 0.25,
+     "hand_return_counts": [
+      2480955,
+      1648404,
+      39001,
+      25944
+     ],
+     "variance": 10.8622222222,
+     "measured_time": [
+      0.24752986629226778,
+      0.25150988436100324
+     ],
+     "measured_miss": [
+      0.3982217223229641,
+      0.4001701677126494
+     ],
+     "predicted_miss": [
+      0.0,
+      0.6871140017780492
+     ],
+     "compatible": true
+    },
+    {
+     "law": "exchange",
+     "nominal_exposure": 0.0625,
+     "hand_return_counts": [
+      4190111,
+      0,
+      4193,
+      0
+     ],
+     "variance": 0.0,
+     "measured_time": [
+      0.06126522860705743,
+      0.06525062951153549
+     ],
+     "measured_miss": [
+      0.0,
+      2.544780300437583e-06
+     ],
+     "predicted_miss": [
+      0.0,
+      0.0
+     ],
+     "compatible": true
+    },
+    {
+     "law": "exchange",
+     "nominal_exposure": 0.25,
+     "hand_return_counts": [
+      4128996,
+      0,
+      65308,
+      0
+     ],
+     "variance": 0.0,
+     "measured_time": [
+      0.24822985778547763,
+      0.2522098706529133
+     ],
+     "measured_miss": [
+      0.0,
+      2.544780300437583e-06
+     ],
+     "predicted_miss": [
+      0.0,
+      0.0
+     ],
+     "compatible": true
+    }
+   ]
+  },
+  {
+   "seed": 280211,
+   "cells": 20,
+   "home": 73,
+   "ports": 96,
+   "total_components": 7,
+   "uniform_components": [],
+   "last_commit": 23,
+   "zeros": 30,
+   "ones": 66,
+   "compilation_error_bound": true,
+   "measurements": [
+    {
+     "law": "registered",
+     "nominal_exposure": 0.0625,
+     "hand_return_counts": [
+      3971310,
+      218933,
+      3845,
+      216
+     ],
+     "variance": 13.75,
+     "measured_time": [
+      0.060261543916044547,
+      0.06424705830046808
+     ],
+     "measured_miss": [
+      0.051807668603519375,
+      0.05269315182836695
+     ],
+     "predicted_miss": [
+      0.04610608675788471,
+      0.05675566187862648
+     ],
+     "compatible": true
+    },
+    {
+     "law": "registered",
+     "nominal_exposure": 0.25,
+     "hand_return_counts": [
+      1922429,
+      2206322,
+      30609,
+      34944
+     ],
+     "variance": 13.75,
+     "measured_time": [
+      0.24870122215006796,
+      0.25268123153143096
+     ],
+     "measured_miss": [
+      0.5333670686360077,
+      0.535351654837898
+     ],
+     "predicted_miss": [
+      0.0,
+      0.8779073155633085
+     ],
+     "compatible": true
+    },
+    {
+     "law": "exchange",
+     "nominal_exposure": 0.0625,
+     "hand_return_counts": [
+      4190215,
+      0,
+      4089,
+      0
+     ],
+     "variance": 0.0,
+     "measured_time": [
+      0.06047579260151399,
+      0.06446128246676333
+     ],
+     "measured_miss": [
+      0.0,
+      2.544780300437583e-06
+     ],
+     "predicted_miss": [
+      0.0,
+      0.0
+     ],
+     "compatible": true
+    },
+    {
+     "law": "exchange",
+     "nominal_exposure": 0.25,
+     "hand_return_counts": [
+      4128698,
+      0,
+      65606,
+      0
+     ],
+     "variance": 0.0,
+     "measured_time": [
+      0.24880307666048085,
+      0.2527830852902834
+     ],
+     "measured_miss": [
+      0.0,
+      2.544780300437583e-06
+     ],
+     "predicted_miss": [
+      0.0,
+      0.0
+     ],
+     "compatible": true
+    }
+   ]
+  },
+  {
+   "seed": 280212,
+   "cells": 20,
+   "home": 0,
+   "ports": 144,
+   "total_components": 6,
+   "uniform_components": [],
+   "last_commit": 29,
+   "zeros": 34,
+   "ones": 110,
+   "compilation_error_bound": true,
+   "measurements": [
+    {
+     "law": "registered",
+     "nominal_exposure": 0.0625,
+     "hand_return_counts": [
+      4006802,
+      183393,
+      3895,
+      214
+     ],
+     "variance": 11.5432098765,
+     "measured_time": [
+      0.0606283791492925,
+      0.06461385165089453
+     ],
+     "measured_miss": [
+      0.04336949066210613,
+      0.044183629643112225
+     ],
+     "predicted_miss": [
+      0.03914425973294255,
+      0.04819232205590319
+     ],
+     "compatible": true
+    },
+    {
+     "law": "registered",
+     "nominal_exposure": 0.25,
+     "hand_return_counts": [
+      2311479,
+      1817901,
+      36170,
+      28754
+     ],
+     "variance": 11.5432098765,
+     "measured_time": [
+      0.24748931207458813,
+      0.25146933044555897
+     ],
+     "measured_miss": [
+      0.4392894995235623,
+      0.441264547453105
+     ],
+     "predicted_miss": [
+      0.0,
+      0.7299559331441947
+     ],
+     "compatible": true
+    },
+    {
+     "law": "exchange",
+     "nominal_exposure": 0.0625,
+     "hand_return_counts": [
+      4190144,
+      0,
+      4160,
+      0
+     ],
+     "variance": 0.0,
+     "measured_time": [
+      0.061015804441011796,
+      0.06500123322024522
+     ],
+     "measured_miss": [
+      0.0,
+      2.544780300437583e-06
+     ],
+     "predicted_miss": [
+      0.0,
+      0.0
+     ],
+     "compatible": true
+    },
+    {
+     "law": "exchange",
+     "nominal_exposure": 0.25,
+     "hand_return_counts": [
+      4128947,
+      0,
+      65357,
+      0
+     ],
+     "variance": 0.0,
+     "measured_time": [
+      0.24832420017742682,
+      0.25230421234607947
+     ],
+     "measured_miss": [
+      0.0,
+      2.544780300437583e-06
+     ],
+     "predicted_miss": [
+      0.0,
+      0.0
+     ],
+     "compatible": true
+    }
+   ]
+  },
+  {
+   "seed": 280213,
+   "cells": 20,
+   "home": 0,
+   "ports": 96,
+   "total_components": 4,
+   "uniform_components": [],
+   "last_commit": 29,
+   "zeros": 30,
+   "ones": 66,
+   "compilation_error_bound": true,
+   "measurements": [
+    {
+     "law": "registered",
+     "nominal_exposure": 0.0625,
+     "hand_return_counts": [
+      3971232,
+      218997,
+      3867,
+      208
+     ],
+     "variance": 13.75,
+     "measured_time": [
+      0.06036876015330205,
+      0.0643542622472949
+     ],
+     "measured_miss": [
+      0.051820966577094806,
+      0.052706556662956164
+     ],
+     "predicted_miss": [
+      0.046258319520545654,
+      0.056945227204162084
+     ],
+     "compatible": true
+    },
+    {
+     "law": "registered",
+     "nominal_exposure": 0.25,
+     "hand_return_counts": [
+      1902583,
+      2226651,
+      30012,
+      35058
+     ],
+     "variance": 13.75,
+     "measured_time": [
+      0.24777112703215415,
+      0.25175114330489584
+     ],
+     "measured_miss": [
+      0.5382417618058171,
+      0.5402249172031097
+     ],
+     "predicted_miss": [
+      0.0,
+      0.8714562746356802
+     ],
+     "compatible": true
+    },
+    {
+     "law": "exchange",
+     "nominal_exposure": 0.0625,
+     "hand_return_counts": [
+      4190205,
+      0,
+      4099,
+      0
+     ],
+     "variance": 0.0,
+     "measured_time": [
+      0.06055213234908725,
+      0.06453761351700135
+     ],
+     "measured_miss": [
+      0.0,
+      2.544780300437583e-06
+     ],
+     "predicted_miss": [
+      0.0,
+      0.0
+     ],
+     "compatible": true
+    },
+    {
+     "law": "exchange",
+     "nominal_exposure": 0.25,
+     "hand_return_counts": [
+      4129218,
+      0,
+      65086,
+      0
+     ],
+     "variance": 0.0,
+     "measured_time": [
+      0.24780199193547553,
+      0.2517820079787027
+     ],
+     "measured_miss": [
+      0.0,
+      2.544780300437583e-06
+     ],
+     "predicted_miss": [
+      0.0,
+      0.0
+     ],
+     "compatible": true
+    }
+   ]
+  },
+  {
+   "seed": 280214,
+   "cells": 20,
+   "home": 12,
+   "ports": 180,
+   "total_components": 6,
+   "uniform_components": [],
+   "last_commit": 23,
+   "zeros": 43,
+   "ones": 137,
+   "compilation_error_bound": true,
+   "measurements": [
+    {
+     "law": "registered",
+     "nominal_exposure": 0.0625,
+     "hand_return_counts": [
+      4005753,
+      184457,
+      3897,
+      197
+     ],
+     "variance": 11.6365432099,
+     "measured_time": [
+      0.06051397411499737,
+      0.06449945962768963
+     ],
+     "measured_miss": [
+      0.043618008866644783,
+      0.04443435858331925
+     ],
+     "predicted_miss": [
+      0.039322886724182354,
+      0.04841011773180645
+     ],
+     "compatible": true
+    },
+    {
+     "law": "registered",
+     "nominal_exposure": 0.25,
+     "hand_return_counts": [
+      2327900,
+      1800918,
+      36727,
+      28759
+     ],
+     "variance": 11.6365432099,
+     "measured_time": [
+      0.24857240466727357,
+      0.25255241500002695
+     ],
+     "measured_miss": [
+      0.43524264186773765,
+      0.43721568583718057
+     ],
+     "predicted_miss": [
+      0.0,
+      0.7422104043475345
+     ],
+     "compatible": true
+    },
+    {
+     "law": "exchange",
+     "nominal_exposure": 0.0625,
+     "hand_return_counts": [
+      4190093,
+      0,
+      4211,
+      0
+     ],
+     "variance": 0.0,
+     "measured_time": [
+      0.06140086504744568,
+      0.06538625088260729
+     ],
+     "measured_miss": [
+      0.0,
+      2.544780300437583e-06
+     ],
+     "predicted_miss": [
+      0.0,
+      0.0
+     ],
+     "compatible": true
+    },
+    {
+     "law": "exchange",
+     "nominal_exposure": 0.25,
+     "hand_return_counts": [
+      4129574,
+      0,
+      64730,
+      0
+     ],
+     "variance": 0.0,
+     "measured_time": [
+      0.24711436263267422,
+      0.25109438380267984
+     ],
+     "measured_miss": [
+      0.0,
+      2.544780300437583e-06
+     ],
+     "predicted_miss": [
+      0.0,
+      0.0
+     ],
+     "compatible": true
+    }
+   ]
+  },
+  {
+   "seed": 280215,
+   "cells": 20,
+   "home": 25,
+   "ports": 108,
+   "total_components": 5,
+   "uniform_components": [],
+   "last_commit": 22,
+   "zeros": 35,
+   "ones": 73,
+   "compilation_error_bound": true,
+   "measurements": [
+    {
+     "law": "registered",
+     "nominal_exposure": 0.0625,
+     "hand_return_counts": [
+      3966663,
+      223436,
+      3990,
+      215
+     ],
+     "variance": 14.0192043896,
+     "measured_time": [
+      0.061355685127377366,
+      0.06534107597514141
+     ],
+     "measured_miss": [
+      0.05287675611570842,
+      0.0537707793583889
+     ],
+     "predicted_miss": [
+      0.04860166437360738,
+      0.059854379234570154
+     ],
+     "compatible": true
+    },
+    {
+     "law": "registered",
+     "nominal_exposure": 0.25,
+     "hand_return_counts": [
+      1815624,
+      2313437,
+      28587,
+      36656
+     ],
+     "variance": 14.0192043896,
+     "measured_time": [
+      0.24810465594884928,
+      0.25208466974445504
+     ],
+     "measured_miss": [
+      0.559318286098403,
+      0.5612930537726226
+     ],
+     "predicted_miss": [
+      0.0,
+      0.8908739052951263
+     ],
+     "compatible": true
+    },
+    {
+     "law": "exchange",
+     "nominal_exposure": 0.0625,
+     "hand_return_counts": [
+      4190158,
+      0,
+      4146,
+      0
+     ],
+     "variance": 0.0,
+     "measured_time": [
+      0.06090968971224429,
+      0.06489513041520364
+     ],
+     "measured_miss": [
+      0.0,
+      2.544780300437583e-06
+     ],
+     "predicted_miss": [
+      0.0,
+      0.0
+     ],
+     "compatible": true
+    },
+    {
+     "law": "exchange",
+     "nominal_exposure": 0.25,
+     "hand_return_counts": [
+      4129704,
+      0,
+      64600,
+      0
+     ],
+     "variance": 0.0,
+     "measured_time": [
+      0.24686279830252447,
+      0.2508428213552226
+     ],
+     "measured_miss": [
+      0.0,
+      2.544780300437583e-06
+     ],
+     "predicted_miss": [
+      0.0,
+      0.0
+     ],
+     "compatible": true
+    }
+   ]
+  },
+  {
+   "seed": 280216,
+   "cells": 20,
+   "home": 0,
+   "ports": 84,
+   "total_components": 8,
+   "uniform_components": [],
+   "last_commit": 23,
+   "zeros": 25,
+   "ones": 59,
+   "compilation_error_bound": true,
+   "measurements": [
+    {
+     "law": "registered",
+     "nominal_exposure": 0.0625,
+     "hand_return_counts": [
+      3977670,
+      212633,
+      3820,
+      181
+     ],
+     "variance": 13.3786848073,
+     "measured_time": [
+      0.05979994132741352,
+      0.06378550909633673
+     ],
+     "measured_miss": [
+      0.05030338798504189,
+      0.05117667727362185
+     ],
+     "predicted_miss": [
+      0.044225386237713805,
+      0.05443239888209809
+     ],
+     "compatible": true
+    },
+    {
+     "law": "registered",
+     "nominal_exposure": 0.25,
+     "hand_return_counts": [
+      1993639,
+      2135702,
+      31437,
+      33526
+     ],
+     "variance": 13.3786848073,
+     "measured_time": [
+      0.2475646219141991,
+      0.25154463972399205
+     ],
+     "measured_miss": [
+      0.5161901542517724,
+      0.5181782673666018
+     ],
+     "predicted_miss": [
+      0.0,
+      0.8465323448205226
+     ],
+     "compatible": true
+    },
+    {
+     "law": "exchange",
+     "nominal_exposure": 0.0625,
+     "hand_return_counts": [
+      4190347,
+      0,
+      3957,
+      0
+     ],
+     "variance": 0.0,
+     "measured_time": [
+      0.05945923180167281,
+      0.06344483947003622
+     ],
+     "measured_miss": [
+      0.0,
+      2.544780300437583e-06
+     ],
+     "predicted_miss": [
+      0.0,
+      0.0
+     ],
+     "compatible": true
+    },
+    {
+     "law": "exchange",
+     "nominal_exposure": 0.25,
+     "hand_return_counts": [
+      4129177,
+      0,
+      65127,
+      0
+     ],
+     "variance": 0.0,
+     "measured_time": [
+      0.24788106621144432,
+      0.25186108166692944
+     ],
+     "measured_miss": [
+      0.0,
+      2.544780300437583e-06
+     ],
+     "predicted_miss": [
+      0.0,
+      0.0
+     ],
+     "compatible": true
+    }
+   ]
+  },
+  {
+   "seed": 280217,
+   "cells": 20,
+   "home": 0,
+   "ports": 144,
+   "total_components": 7,
+   "uniform_components": [],
+   "last_commit": 22,
+   "zeros": 52,
+   "ones": 92,
+   "compilation_error_bound": true,
+   "measurements": [
+    {
+     "law": "registered",
+     "nominal_exposure": 0.0625,
+     "hand_return_counts": [
+      3955432,
+      234667,
+      3974,
+      231
+     ],
+     "variance": 14.7654320988,
+     "measured_time": [
+      0.061355685127377366,
+      0.06534107597514141
+     ],
+     "measured_miss": [
+      0.05554779284627096,
+      0.05646271554783074
+     ],
+     "predicted_miss": [
+      0.051188680559443235,
+      0.0630403657613418
+     ],
+     "compatible": true
+    },
+    {
+     "law": "registered",
+     "nominal_exposure": 0.25,
+     "hand_return_counts": [
+      1688101,
+      2440618,
+      26906,
+      38679
+     ],
+     "variance": 14.7654320988,
+     "measured_time": [
+      0.24876272405765482,
+      0.25274273298513794
+     ],
+     "measured_miss": [
+      0.5901322269290556,
+      0.5920882137065218
+     ],
+     "predicted_miss": [
+      0.0,
+      0.943199399208011
+     ],
+     "compatible": true
+    },
+    {
+     "law": "exchange",
+     "nominal_exposure": 0.0625,
+     "hand_return_counts": [
+      4190288,
+      0,
+      4016,
+      0
+     ],
+     "variance": 0.0,
+     "measured_time": [
+      0.0599156642483819,
+      0.0639012185617583
+     ],
+     "measured_miss": [
+      0.0,
+      2.544780300437583e-06
+     ],
+     "predicted_miss": [
+      0.0,
+      0.0
+     ],
+     "compatible": true
+    },
+    {
+     "law": "exchange",
+     "nominal_exposure": 0.25,
+     "hand_return_counts": [
+      4129314,
+      0,
+      64990,
+      0
+     ],
+     "variance": 0.0,
+     "measured_time": [
+      0.2476167464622675,
+      0.2515967638838482
+     ],
+     "measured_miss": [
+      0.0,
+      2.544780300437583e-06
+     ],
+     "predicted_miss": [
+      0.0,
+      0.0
+     ],
+     "compatible": true
+    }
+   ]
+  },
+  {
+   "seed": 301121,
+   "cells": 20,
+   "home": 36,
+   "ports": 120,
+   "total_components": 6,
+   "uniform_components": [],
+   "last_commit": 23,
+   "zeros": 28,
+   "ones": 92,
+   "compilation_error_bound": true,
+   "measurements": [
+    {
+     "law": "registered",
+     "nominal_exposure": 0.0625,
+     "hand_return_counts": [
+      4008347,
+      181828,
+      3948,
+      181
+     ],
+     "variance": 11.4488888889,
+     "measured_time": [
+      0.06078059526202058,
+      0.06476605052333065
+     ],
+     "measured_miss": [
+      0.04299019288053525,
+      0.04380094372148763
+     ],
+     "predicted_miss": [
+      0.03900516809245075,
+      0.04802398217691659
+     ],
+     "compatible": true
+    },
+    {
+     "law": "registered",
+     "nominal_exposure": 0.25,
+     "hand_return_counts": [
+      2311413,
+      1817464,
+      36728,
+      28699
+     ],
+     "variance": 11.4488888889,
+     "measured_time": [
+      0.24845891466755649,
+      0.2524389258393102
+     ],
+     "measured_miss": [
+      0.4391722259994485,
+      0.44114721773292376
+     ],
+     "predicted_miss": [
+      0.0,
+      0.7295851531309274
+     ],
+     "compatible": true
+    },
+    {
+     "law": "exchange",
+     "nominal_exposure": 0.0625,
+     "hand_return_counts": [
+      4190065,
+      0,
+      4239,
+      0
+     ],
+     "variance": 0.0,
+     "measured_time": [
+      0.061611280885023295,
+      0.06559664346567914
+     ],
+     "measured_miss": [
+      0.0,
+      2.544780300437583e-06
+     ],
+     "predicted_miss": [
+      0.0,
+      0.0
+     ],
+     "compatible": true
+    },
+    {
+     "law": "exchange",
+     "nominal_exposure": 0.25,
+     "hand_return_counts": [
+      4129068,
+      0,
+      65236,
+      0
+     ],
+     "variance": 0.0,
+     "measured_time": [
+      0.2480911690137889,
+      0.25207118290943487
+     ],
+     "measured_miss": [
+      0.0,
+      2.544780300437583e-06
+     ],
+     "predicted_miss": [
+      0.0,
+      0.0
+     ],
+     "compatible": true
+    }
+   ]
+  },
+  {
+   "seed": 280220,
+   "cells": 80,
+   "home": 97,
+   "ports": 192,
+   "total_components": 25,
+   "uniform_components": [],
+   "last_commit": 34,
+   "zeros": 42,
+   "ones": 150,
+   "compilation_error_bound": true,
+   "measurements": [
+    {
+     "law": "registered",
+     "nominal_exposure": 0.0625,
+     "hand_return_counts": [
+      4016812,
+      173346,
+      3971,
+      175
+     ],
+     "variance": 10.9375,
+     "measured_time": [
+      0.06090968971224429,
+      0.06489513041520364
+     ],
+     "measured_miss": [
+      0.04097564550556902,
+      0.041768108323686756
+     ],
+     "predicted_miss": [
+      0.03740960924973537,
+      0.046061946345693786
+     ],
+     "compatible": true
+    },
+    {
+     "law": "registered",
+     "nominal_exposure": 0.25,
+     "hand_return_counts": [
+      2422893,
+      1706476,
+      37922,
+      27013
+     ],
+     "variance": 10.9375,
+     "measured_time": [
+      0.24751055556501234,
+      0.251490573777652
+     ],
+     "measured_miss": [
+      0.4123166427626851,
+      0.4142757970104168
+     ],
+     "predicted_miss": [
+      0.0,
+      0.6917696263954505
+     ],
+     "compatible": true
+    },
+    {
+     "law": "exchange",
+     "nominal_exposure": 0.0625,
+     "hand_return_counts": [
+      4190287,
+      0,
+      4017,
+      0
+     ],
+     "variance": 0.0,
+     "measured_time": [
+      0.059923371428892674,
+      0.0639089248478496
+     ],
+     "measured_miss": [
+      0.0,
+      2.544780300437583e-06
+     ],
+     "predicted_miss": [
+      0.0,
+      0.0
+     ],
+     "compatible": true
+    },
+    {
+     "law": "exchange",
+     "nominal_exposure": 0.25,
+     "hand_return_counts": [
+      4129278,
+      0,
+      65026,
+      0
+     ],
+     "variance": 0.0,
+     "measured_time": [
+      0.24768622928506867,
+      0.2516662461894098
+     ],
+     "measured_miss": [
+      0.0,
+      2.544780300437583e-06
+     ],
+     "predicted_miss": [
+      0.0,
+      0.0
+     ],
+     "compatible": true
+    }
+   ]
+  },
+  {
+   "seed": 280221,
+   "cells": 80,
+   "home": 12,
+   "ports": 408,
+   "total_components": 23,
+   "uniform_components": [],
+   "last_commit": 34,
+   "zeros": 94,
+   "ones": 314,
+   "compilation_error_bound": true,
+   "measurements": [
+    {
+     "law": "registered",
+     "nominal_exposure": 0.0625,
+     "hand_return_counts": [
+      4010159,
+      180060,
+      3915,
+      170
+     ],
+     "variance": 11.3479430988,
+     "measured_time": [
+      0.06044523060086426,
+      0.06443072395377596
+     ],
+     "measured_miss": [
+      0.042567943379320204,
+      0.04337490222908907
+     ],
+     "predicted_miss": [
+      0.03826692476629656,
+      0.04710892259617602
+     ],
+     "compatible": true
+    },
+    {
+     "law": "registered",
+     "nominal_exposure": 0.25,
+     "hand_return_counts": [
+      2374501,
+      1754547,
+      37712,
+      27544
+     ],
+     "variance": 11.3479430988,
+     "measured_time": [
+      0.24812970122493036,
+      0.25210971483479044
+     ],
+     "measured_miss": [
+      0.42390045128389287,
+      0.42586716507316175
+     ],
+     "predicted_miss": [
+      0.0,
+      0.7212674141477763
+     ],
+     "compatible": true
+    },
+    {
+     "law": "exchange",
+     "nominal_exposure": 0.0625,
+     "hand_return_counts": [
+      4190106,
+      0,
+      4198,
+      0
+     ],
+     "variance": 0.0,
+     "measured_time": [
+      0.0613029345138749,
+      0.06528833122293691
+     ],
+     "measured_miss": [
+      0.0,
+      2.544780300437583e-06
+     ],
+     "predicted_miss": [
+      0.0,
+      0.0
+     ],
+     "compatible": true
+    },
+    {
+     "law": "exchange",
+     "nominal_exposure": 0.25,
+     "hand_return_counts": [
+      4129080,
+      0,
+      65224,
+      0
+     ],
+     "variance": 0.0,
+     "measured_time": [
+      0.24806804689674417,
+      0.252048060963924
+     ],
+     "measured_miss": [
+      0.0,
+      2.544780300437583e-06
+     ],
+     "predicted_miss": [
+      0.0,
+      0.0
+     ],
+     "compatible": true
+    }
+   ]
+  },
+  {
+   "seed": 280222,
+   "cells": 80,
+   "home": 0,
+   "ports": 468,
+   "total_components": 13,
+   "uniform_components": [],
+   "last_commit": 29,
+   "zeros": 127,
+   "ones": 341,
+   "compilation_error_bound": true,
+   "measurements": [
+    {
+     "law": "registered",
+     "nominal_exposure": 0.0625,
+     "hand_return_counts": [
+      3988882,
+      201324,
+      3920,
+      178
+     ],
+     "variance": 12.6545401417,
+     "measured_time": [
+      0.06054450256257484,
+      0.06452998459882339
+     ],
+     "measured_miss": [
+      0.04761756135271717,
+      0.048468536659216084
+     ],
+     "predicted_miss": [
+      0.042802952549480855,
+      0.05269500993090281
+     ],
+     "compatible": true
+    },
+    {
+     "law": "registered",
+     "nominal_exposure": 0.25,
+     "hand_return_counts": [
+      2110674,
+      2018151,
+      33725,
+      31754
+     ],
+     "variance": 12.6545401417,
+     "measured_time": [
+      0.24855894238336196,
+      0.2525389528155976
+     ],
+     "measured_miss": [
+      0.4877410763334309,
+      0.4897298596757407
+     ],
+     "predicted_miss": [
+      0.0,
+      0.8070549737456716
+     ],
+     "compatible": true
+    },
+    {
+     "law": "exchange",
+     "nominal_exposure": 0.0625,
+     "hand_return_counts": [
+      4190310,
+      0,
+      3994,
+      0
+     ],
+     "variance": 0.0,
+     "measured_time": [
+      0.0597458631565631,
+      0.06373143723004743
+     ],
+     "measured_miss": [
+      0.0,
+      2.544780300437583e-06
+     ],
+     "predicted_miss": [
+      0.0,
+      0.0
+     ],
+     "compatible": true
+    },
+    {
+     "law": "exchange",
+     "nominal_exposure": 0.25,
+     "hand_return_counts": [
+      4128766,
+      0,
+      65538,
+      0
+     ],
+     "variance": 0.0,
+     "measured_time": [
+      0.24867238804562972,
+      0.2526523976398635
+     ],
+     "measured_miss": [
+      0.0,
+      2.544780300437583e-06
+     ],
+     "predicted_miss": [
+      0.0,
+      0.0
+     ],
+     "compatible": true
+    }
+   ]
+  },
+  {
+   "seed": 280223,
+   "cells": 80,
+   "home": 0,
+   "ports": 720,
+   "total_components": 12,
+   "uniform_components": [],
+   "last_commit": 29,
+   "zeros": 178,
+   "ones": 542,
+   "compilation_error_bound": true,
+   "measurements": [
+    {
+     "law": "registered",
+     "nominal_exposure": 0.0625,
+     "hand_return_counts": [
+      4000591,
+      189683,
+      3849,
+      181
+     ],
+     "variance": 11.910617284,
+     "measured_time": [
+      0.06002347772036223,
+      0.06400901954145721
+     ],
+     "measured_miss": [
+      0.04485471863181774,
+      0.04568196364579165
+     ],
+     "predicted_miss": [
+      0.03964610361714809,
+      0.04879964018723162
+     ],
+     "compatible": true
+    },
+    {
+     "law": "registered",
+     "nominal_exposure": 0.25,
+     "hand_return_counts": [
+      2241323,
+      1887726,
+      35420,
+      29835
+     ],
+     "variance": 11.910617284,
+     "measured_time": [
+      0.24812777475240475,
+      0.2521077883765517
+     ],
+     "measured_miss": [
+      0.4561912945878854,
+      0.45817327604788993
+     ],
+     "predicted_miss": [
+      0.0,
+      0.757019026736317
+     ],
+     "compatible": true
+    },
+    {
+     "law": "exchange",
+     "nominal_exposure": 0.0625,
+     "hand_return_counts": [
+      4190222,
+      0,
+      4082,
+      0
+     ],
+     "variance": 0.0,
+     "measured_time": [
+      0.060422299291903174,
+      0.06440779526384584
+     ],
+     "measured_miss": [
+      0.0,
+      2.544780300437583e-06
+     ],
+     "predicted_miss": [
+      0.0,
+      0.0
+     ],
+     "compatible": true
+    },
+    {
+     "law": "exchange",
+     "nominal_exposure": 0.25,
+     "hand_return_counts": [
+      4128864,
+      0,
+      65440,
+      0
+     ],
+     "variance": 0.0,
+     "measured_time": [
+      0.24848392526283938,
+      0.2524639362496316
+     ],
+     "measured_miss": [
+      0.0,
+      2.544780300437583e-06
+     ],
+     "predicted_miss": [
+      0.0,
+      0.0
+     ],
+     "compatible": true
+    }
+   ]
+  },
+  {
+   "seed": 280224,
+   "cells": 80,
+   "home": 72,
+   "ports": 312,
+   "total_components": 17,
+   "uniform_components": [],
+   "last_commit": 32,
+   "zeros": 92,
+   "ones": 220,
+   "compilation_error_bound": true,
+   "measurements": [
+    {
+     "law": "registered",
+     "nominal_exposure": 0.0625,
+     "hand_return_counts": [
+      3978274,
+      211786,
+      4019,
+      225
+     ],
+     "variance": 13.3070348455,
+     "measured_time": [
+      0.06164878202911693,
+      0.06563414048085975
+     ],
+     "measured_miss": [
+      0.05011271878638062,
+      0.05098444727673728
+     ],
+     "predicted_miss": [
+      0.04654091090076475,
+      0.05732458226720797
+     ],
+     "compatible": true
+    },
+    {
+     "law": "registered",
+     "nominal_exposure": 0.25,
+     "hand_return_counts": [
+      1987289,
+      2141669,
+      31412,
+      33934
+     ],
+     "variance": 13.3070348455,
+     "measured_time": [
+      0.24830302430364265,
+      0.25228303662909657
+     ],
+     "measured_miss": [
+      0.5177101771308101,
+      0.519698073110372
+     ],
+     "predicted_miss": [
+      0.0,
+      0.8469492615075298
+     ],
+     "compatible": true
+    },
+    {
+     "law": "exchange",
+     "nominal_exposure": 0.0625,
+     "hand_return_counts": [
+      4190196,
+      0,
+      4108,
+      0
+     ],
+     "variance": 0.0,
+     "measured_time": [
+      0.060620758642222494,
+      0.064606232009065
+     ],
+     "measured_miss": [
+      0.0,
+      2.544780300437583e-06
+     ],
+     "predicted_miss": [
+      0.0,
+      0.0
+     ],
+     "compatible": true
+    },
+    {
+     "law": "exchange",
+     "nominal_exposure": 0.25,
+     "hand_return_counts": [
+      4128806,
+      0,
+      65498,
+      0
+     ],
+     "variance": 0.0,
+     "measured_time": [
+      0.2485954812209827,
+      0.25257549138322966
+     ],
+     "measured_miss": [
+      0.0,
+      2.544780300437583e-06
+     ],
+     "predicted_miss": [
+      0.0,
+      0.0
+     ],
+     "compatible": true
+    }
+   ]
+  },
+  {
+   "seed": 280225,
+   "cells": 80,
+   "home": 12,
+   "ports": 432,
+   "total_components": 15,
+   "uniform_components": [],
+   "last_commit": 35,
+   "zeros": 124,
+   "ones": 308,
+   "compilation_error_bound": true,
+   "measurements": [
+    {
+     "law": "registered",
+     "nominal_exposure": 0.0625,
+     "hand_return_counts": [
+      3982030,
+      208256,
+      3806,
+      212
+     ],
+     "variance": 13.09739369,
+     "measured_time": [
+      0.05993107765132505,
+      0.06391663017618844
+     ],
+     "measured_miss": [
+      0.04927146816721524,
+      0.05013626844422676
+     ],
+     "predicted_miss": [
+      0.04347196899054577,
+      0.053507248880225546
+     ],
+     "compatible": true
+    },
+    {
+     "law": "registered",
+     "nominal_exposure": 0.25,
+     "hand_return_counts": [
+      2019711,
+      2109959,
+      31650,
+      32984
+     ],
+     "variance": 13.09739369,
+     "measured_time": [
+      0.24692861609236624,
+      0.25090863865212
+     ],
+     "measured_miss": [
+      0.5099229884965939,
+      0.5119118024785785
+     ],
+     "predicted_miss": [
+      0.0,
+      0.8245483182237087
+     ],
+     "compatible": true
+    },
+    {
+     "law": "exchange",
+     "nominal_exposure": 0.0625,
+     "hand_return_counts": [
+      4190152,
+      0,
+      4152,
+      0
+     ],
+     "variance": 0.0,
+     "measured_time": [
+      0.06095518932943567,
+      0.06494062491501483
+     ],
+     "measured_miss": [
+      0.0,
+      2.544780300437583e-06
+     ],
+     "predicted_miss": [
+      0.0,
+      0.0
+     ],
+     "compatible": true
+    },
+    {
+     "law": "exchange",
+     "nominal_exposure": 0.25,
+     "hand_return_counts": [
+      4129272,
+      0,
+      65032,
+      0
+     ],
+     "variance": 0.0,
+     "measured_time": [
+      0.2476978079148936,
+      0.2516778247330688
+     ],
+     "measured_miss": [
+      0.0,
+      2.544780300437583e-06
+     ],
+     "predicted_miss": [
+      0.0,
+      0.0
+     ],
+     "compatible": true
+    }
+   ]
+  },
+  {
+   "seed": 280226,
+   "cells": 80,
+   "home": 0,
+   "ports": 312,
+   "total_components": 24,
+   "uniform_components": [],
+   "last_commit": 40,
+   "zeros": 92,
+   "ones": 220,
+   "compilation_error_bound": true,
+   "measurements": [
+    {
+     "law": "registered",
+     "nominal_exposure": 0.0625,
+     "hand_return_counts": [
+      3978053,
+      212275,
+      3770,
+      206
+     ],
+     "variance": 13.3070348455,
+     "measured_time": [
+      0.059606587269999456,
+      0.06359217762976588
+     ],
+     "measured_miss": [
+      0.050224318232096145,
+      0.05109696068520119
+     ],
+     "predicted_miss": [
+      0.04372472848296324,
+      0.053813183910112354
+     ],
+     "compatible": true
+    },
+    {
+     "law": "registered",
+     "nominal_exposure": 0.25,
+     "hand_return_counts": [
+      2004793,
+      2124569,
+      31510,
+      33432
+     ],
+     "variance": 13.3070348455,
+     "measured_time": [
+      0.24752407322774642,
+      0.2515040913396501
+     ],
+     "measured_miss": [
+      0.5135132673214234,
+      0.5155017180697805
+     ],
+     "predicted_miss": [
+      0.0,
+      0.8417272801592383
+     ],
+     "compatible": true
+    },
+    {
+     "law": "exchange",
+     "nominal_exposure": 0.0625,
+     "hand_return_counts": [
+      4190251,
+      0,
+      4053,
+      0
+     ],
+     "variance": 0.0,
+     "measured_time": [
+      0.06020019461147573,
+      0.06418571604689972
+     ],
+     "measured_miss": [
+      0.0,
+      2.544780300437583e-06
+     ],
+     "predicted_miss": [
+      0.0,
+      0.0
+     ],
+     "compatible": true
+    },
+    {
+     "law": "exchange",
+     "nominal_exposure": 0.25,
+     "hand_return_counts": [
+      4129106,
+      0,
+      65198,
+      0
+     ],
+     "variance": 0.0,
+     "measured_time": [
+      0.24801794179390407,
+      0.2519979562329031
+     ],
+     "measured_miss": [
+      0.0,
+      2.544780300437583e-06
+     ],
+     "predicted_miss": [
+      0.0,
+      0.0
+     ],
+     "compatible": true
+    }
+   ]
+  },
+  {
+   "seed": 280227,
+   "cells": 80,
+   "home": 0,
+   "ports": 120,
+   "total_components": 31,
+   "uniform_components": [],
+   "last_commit": 37,
+   "zeros": 22,
+   "ones": 98,
+   "compilation_error_bound": true,
+   "measurements": [
+    {
+     "law": "registered",
+     "nominal_exposure": 0.0625,
+     "hand_return_counts": [
+      4038096,
+      151917,
+      4134,
+      157
+     ],
+     "variance": 9.5822222222,
+     "measured_time": [
+      0.06200021997958861,
+      0.06598553996488281
+     ],
+     "measured_miss": [
+      0.03588659495771415,
+      0.03663046020970136
+     ],
+     "predicted_miss": [
+      0.033867196411341075,
+      0.041721872179953795
+     ],
+     "compatible": true
+    },
+    {
+     "law": "registered",
+     "nominal_exposure": 0.25,
+     "hand_return_counts": [
+      2622796,
+      1506326,
+      41301,
+      23881
+     ],
+     "variance": 9.5822222222,
+     "measured_time": [
+      0.24798710299711424,
+      0.25196711766503493
+     ],
+     "measured_miss": [
+      0.36387253320753143,
+      0.36578775878875275
+     ],
+     "predicted_miss": [
+      0.0,
+      0.6083506470969843
+     ],
+     "compatible": true
+    },
+    {
+     "law": "exchange",
+     "nominal_exposure": 0.0625,
+     "hand_return_counts": [
+      4190211,
+      0,
+      4093,
+      0
+     ],
+     "variance": 0.0,
+     "measured_time": [
+      0.06050633967601714,
+      0.06449182605859781
+     ],
+     "measured_miss": [
+      0.0,
+      2.544780300437583e-06
+     ],
+     "predicted_miss": [
+      0.0,
+      0.0
+     ],
+     "compatible": true
+    },
+    {
+     "law": "exchange",
+     "nominal_exposure": 0.25,
+     "hand_return_counts": [
+      4129251,
+      0,
+      65053,
+      0
+     ],
+     "variance": 0.0,
+     "measured_time": [
+      0.24773832897985248,
+      0.2517183454965449
+     ],
+     "measured_miss": [
+      0.0,
+      2.544780300437583e-06
+     ],
+     "predicted_miss": [
+      0.0,
+      0.0
+     ],
+     "compatible": true
+    }
+   ]
+  },
+  {
+   "seed": 301121,
+   "cells": 80,
+   "home": 12,
+   "ports": 612,
+   "total_components": 15,
+   "uniform_components": [],
+   "last_commit": 37,
+   "zeros": 159,
+   "ones": 453,
+   "compilation_error_bound": true,
+   "measurements": [
+    {
+     "law": "registered",
+     "nominal_exposure": 0.0625,
+     "hand_return_counts": [
+      3995152,
+      195183,
+      3803,
+      166
+     ],
+     "variance": 12.30757401,
+     "measured_time": [
+      0.059552339410632156,
+      0.0635379361331365
+     ],
+     "measured_miss": [
+      0.04615679801901917,
+      0.046995328948268064
+     ],
+     "predicted_miss": [
+      0.040372308888166626,
+      0.04968652953856585
+     ],
+     "compatible": true
+    },
+    {
+     "law": "registered",
+     "nominal_exposure": 0.25,
+     "hand_return_counts": [
+      2171932,
+      1957069,
+      34380,
+      30923
+     ],
+     "variance": 12.30757401,
+     "measured_time": [
+      0.24822022905262045,
+      0.2522002419914043
+     ],
+     "measured_miss": [
+      0.47298100271304505,
+      0.47496759454734877
+     ],
+     "predicted_miss": [
+      0.0,
+      0.7828227779628829
+     ],
+     "compatible": true
+    },
+    {
+     "law": "exchange",
+     "nominal_exposure": 0.0625,
+     "hand_return_counts": [
+      4190309,
+      0,
+      3995,
+      0
+     ],
+     "variance": 0.0,
+     "measured_time": [
+      0.05975359150574097,
+      0.06373916467758346
+     ],
+     "measured_miss": [
+      0.0,
+      2.544780300437583e-06
+     ],
+     "predicted_miss": [
+      0.0,
+      0.0
+     ],
+     "compatible": true
+    },
+    {
+     "law": "exchange",
+     "nominal_exposure": 0.25,
+     "hand_return_counts": [
+      4129111,
+      0,
+      65193,
+      0
+     ],
+     "variance": 0.0,
+     "measured_time": [
+      0.24800830507000907,
+      0.2519883195805364
+     ],
+     "measured_miss": [
+      0.0,
+      2.544780300437583e-06
+     ],
+     "predicted_miss": [
+      0.0,
+      0.0
+     ],
+     "compatible": true
+    }
+   ]
+  },
+  {
+   "seed": 280230,
+   "cells": 320,
+   "home": 312,
+   "ports": 1068,
+   "total_components": 77,
+   "uniform_components": [],
+   "last_commit": 37,
+   "zeros": 267,
+   "ones": 801,
+   "compilation_error_bound": true,
+   "measurements": [
+    {
+     "law": "registered",
+     "nominal_exposure": 0.0625,
+     "hand_return_counts": [
+      3998898,
+      191286,
+      3945,
+      175
+     ],
+     "variance": 12.0,
+     "measured_time": [
+      0.06071214367998589,
+      0.06469760668425603
+     ],
+     "measured_miss": [
+      0.04523381947821167,
+      0.04606436966704416
+     ],
+     "predicted_miss": [
+      0.04079750434802811,
+      0.05022936372804829
+     ],
+     "compatible": true
+    },
+    {
+     "law": "registered",
+     "nominal_exposure": 0.25,
+     "hand_return_counts": [
+      2242685,
+      1886142,
+      35562,
+      29915
+     ],
+     "variance": 12.0,
+     "measured_time": [
+      0.24855509588646021,
+      0.2525351063471231
+     ],
+     "measured_miss": [
+      0.45583277558159646,
+      0.4578146339171377
+     ],
+     "predicted_miss": [
+      0.0,
+      0.7652877592530334
+     ],
+     "compatible": true
+    },
+    {
+     "law": "exchange",
+     "nominal_exposure": 0.0625,
+     "hand_return_counts": [
+      4190235,
+      0,
+      4069,
+      0
+     ],
+     "variance": 0.0,
+     "measured_time": [
+      0.060322832897395824,
+      0.06430834025113219
+     ],
+     "measured_miss": [
+      0.0,
+      2.544780300437583e-06
+     ],
+     "predicted_miss": [
+      0.0,
+      0.0
+     ],
+     "compatible": true
+    },
+    {
+     "law": "exchange",
+     "nominal_exposure": 0.25,
+     "hand_return_counts": [
+      4129442,
+      0,
+      64862,
+      0
+     ],
+     "variance": 0.0,
+     "measured_time": [
+      0.24736954289535826,
+      0.2513495621595001
+     ],
+     "measured_miss": [
+      0.0,
+      2.544780300437583e-06
+     ],
+     "predicted_miss": [
+      0.0,
+      0.0
+     ],
+     "compatible": true
+    }
+   ]
+  },
+  {
+   "seed": 280231,
+   "cells": 320,
+   "home": 0,
+   "ports": 720,
+   "total_components": 71,
+   "uniform_components": [],
+   "last_commit": 44,
+   "zeros": 202,
+   "ones": 518,
+   "compilation_error_bound": true,
+   "measurements": [
+    {
+     "law": "registered",
+     "nominal_exposure": 0.0625,
+     "hand_return_counts": [
+      3985408,
+      204782,
+      3925,
+      189
+     ],
+     "variance": 12.9180246914,
+     "measured_time": [
+      0.0606664678001875,
+      0.06465193598020934
+     ],
+     "measured_miss": [
+      0.048441173692042955,
+      0.04929906791748355
+     ],
+     "predicted_miss": [
+      0.04385740621670557,
+      0.05399570037286347
+     ],
+     "compatible": true
+    },
+    {
+     "law": "registered",
+     "nominal_exposure": 0.25,
+     "hand_return_counts": [
+      2055851,
+      2073264,
+      32273,
+      32916
+     ],
+     "variance": 12.9180246914,
+     "measured_time": [
+      0.24800059542902267,
+      0.25198060999677974
+     ],
+     "measured_miss": [
+      0.5011578022039893,
+      0.5031470719617596
+     ],
+     "predicted_miss": [
+      0.0,
+      0.8202200026644747
+     ],
+     "compatible": true
+    },
+    {
+     "law": "exchange",
+     "nominal_exposure": 0.0625,
+     "hand_return_counts": [
+      4190264,
+      0,
+      4040,
+      0
+     ],
+     "variance": 0.0,
+     "measured_time": [
+      0.06010037287254638,
+      0.06408590580942426
+     ],
+     "measured_miss": [
+      0.0,
+      2.544780300437583e-06
+     ],
+     "predicted_miss": [
+      0.0,
+      0.0
+     ],
+     "compatible": true
+    },
+    {
+     "law": "exchange",
+     "nominal_exposure": 0.25,
+     "hand_return_counts": [
+      4128995,
+      0,
+      65309,
+      0
+     ],
+     "variance": 0.0,
+     "measured_time": [
+      0.24823178348851768,
+      0.2522117963416845
+     ],
+     "measured_miss": [
+      0.0,
+      2.544780300437583e-06
+     ],
+     "predicted_miss": [
+      0.0,
+      0.0
+     ],
+     "compatible": true
+    }
+   ]
+  },
+  {
+   "seed": 280232,
+   "cells": 320,
+   "home": 12,
+   "ports": 528,
+   "total_components": 83,
+   "uniform_components": [],
+   "last_commit": 42,
+   "zeros": 138,
+   "ones": 390,
+   "compilation_error_bound": true,
+   "measurements": [
+    {
+     "law": "registered",
+     "nominal_exposure": 0.0625,
+     "hand_return_counts": [
+      3993897,
+      196415,
+      3790,
+      202
+     ],
+     "variance": 12.3553719008,
+     "measured_time": [
+      0.059730403558744906,
+      0.0637159794365048
+     ],
+     "measured_miss": [
+      0.046457820506085296,
+      0.047298934331217485
+     ],
+     "predicted_miss": [
+      0.04075450692591204,
+      0.05015942498472633
+     ],
+     "compatible": true
+    },
+    {
+     "law": "registered",
+     "nominal_exposure": 0.25,
+     "hand_return_counts": [
+      2167937,
+      1961027,
+      34327,
+      31013
+     ],
+     "variance": 12.3553719008,
+     "measured_time": [
+      0.24829147308770833,
+      0.25227148549870676
+     ],
+     "measured_miss": [
+      0.4739460203013658,
+      0.4759328085300201
+     ],
+     "predicted_miss": [
+      0.0,
+      0.7863070172033694
+     ],
+     "compatible": true
+    },
+    {
+     "law": "exchange",
+     "nominal_exposure": 0.0625,
+     "hand_return_counts": [
+      4190411,
+      0,
+      3893,
+      0
+     ],
+     "variance": 0.0,
+     "measured_time": [
+      0.05896025881535619,
+      0.06294592569318648
+     ],
+     "measured_miss": [
+      0.0,
+      2.544780300437583e-06
+     ],
+     "predicted_miss": [
+      0.0,
+      0.0
+     ],
+     "compatible": true
+    },
+    {
+     "law": "exchange",
+     "nominal_exposure": 0.25,
+     "hand_return_counts": [
+      4128510,
+      0,
+      65794,
+      0
+     ],
+     "variance": 0.0,
+     "measured_time": [
+      0.2491640457852075,
+      0.2531440517564308
+     ],
+     "measured_miss": [
+      0.0,
+      2.544780300437583e-06
+     ],
+     "predicted_miss": [
+      0.0,
+      0.0
+     ],
+     "compatible": true
+    }
+   ]
+  },
+  {
+   "seed": 280233,
+   "cells": 320,
+   "home": 12,
+   "ports": 612,
+   "total_components": 70,
+   "uniform_components": [],
+   "last_commit": 42,
+   "zeros": 147,
+   "ones": 465,
+   "compilation_error_bound": true,
+   "measurements": [
+    {
+     "law": "registered",
+     "nominal_exposure": 0.0625,
+     "hand_return_counts": [
+      4004286,
+      185968,
+      3863,
+      187
+     ],
+     "variance": 11.6801230296,
+     "measured_time": [
+      0.06017717303373805,
+      0.06416269711854422
+     ],
+     "measured_miss": [
+      0.043974295754870774,
+      0.0447938023200333
+     ],
+     "predicted_miss": [
+      0.039063788108726495,
+      0.04808533436845873
+     ],
+     "compatible": true
+    },
+    {
+     "law": "registered",
+     "nominal_exposure": 0.25,
+     "hand_return_counts": [
+      2288499,
+      1840511,
+      35985,
+      29309
+     ],
+     "variance": 11.6801230296,
+     "measured_time": [
+      0.24820289641922363,
+      0.25218290948645494
+     ],
+     "measured_miss": [
+      0.4448111911806605,
+      0.44678875854841626
+     ],
+     "predicted_miss": [
+      0.0,
+      0.7428116719145276
+     ],
+     "compatible": true
+    },
+    {
+     "law": "exchange",
+     "nominal_exposure": 0.0625,
+     "hand_return_counts": [
+      4190327,
+      0,
+      3977,
+      0
+     ],
+     "variance": 0.0,
+     "measured_time": [
+      0.059614333069508856,
+      0.06359992252165152
+     ],
+     "measured_miss": [
+      0.0,
+      2.544780300437583e-06
+     ],
+     "predicted_miss": [
+      0.0,
+      0.0
+     ],
+     "compatible": true
+    },
+    {
+     "law": "exchange",
+     "nominal_exposure": 0.25,
+     "hand_return_counts": [
+      4129240,
+      0,
+      65064,
+      0
+     ],
+     "variance": 0.0,
+     "measured_time": [
+      0.2477595517305443,
+      0.25173956808937514
+     ],
+     "measured_miss": [
+      0.0,
+      2.544780300437583e-06
+     ],
+     "predicted_miss": [
+      0.0,
+      0.0
+     ],
+     "compatible": true
+    }
+   ]
+  },
+  {
+   "seed": 280234,
+   "cells": 320,
+   "home": 672,
+   "ports": 300,
+   "total_components": 88,
+   "uniform_components": [],
+   "last_commit": 34,
+   "zeros": 81,
+   "ones": 219,
+   "compilation_error_bound": true,
+   "measurements": [
+    {
+     "law": "registered",
+     "nominal_exposure": 0.0625,
+     "hand_return_counts": [
+      3989061,
+      201129,
+      3913,
+      201
+     ],
+     "variance": 12.6144,
+     "measured_time": [
+      0.0606664678001875,
+      0.06465193598020934
+     ],
+     "measured_miss": [
+      0.047576725893736876,
+      0.048427356350319715
+     ],
+     "predicted_miss": [
+      0.04282658364557214,
+      0.052726587776156734
+     ],
+     "compatible": true
+    },
+    {
+     "law": "registered",
+     "nominal_exposure": 0.25,
+     "hand_return_counts": [
+      2100906,
+      2028324,
+      33038,
+      32036
+     ],
+     "variance": 12.6144,
+     "measured_time": [
+      0.2477788436080905,
+      0.2517588598234455
+     ],
+     "measured_miss": [
+      0.4902336364424604,
+      0.49222261850811044
+     ],
+     "predicted_miss": [
+      0.0,
+      0.7995325044333703
+     ],
+     "compatible": true
+    },
+    {
+     "law": "exchange",
+     "nominal_exposure": 0.0625,
+     "hand_return_counts": [
+      4190176,
+      0,
+      4128,
+      0
+     ],
+     "variance": 0.0,
+     "measured_time": [
+      0.06077299321258279,
+      0.06475844933300037
+     ],
+     "measured_miss": [
+      0.0,
+      2.544780300437583e-06
+     ],
+     "predicted_miss": [
+      0.0,
+      0.0
+     ],
+     "compatible": true
+    },
+    {
+     "law": "exchange",
+     "nominal_exposure": 0.25,
+     "hand_return_counts": [
+      4128943,
+      0,
+      65361,
+      0
+     ],
+     "variance": 0.0,
+     "measured_time": [
+      0.2483319000603393,
+      0.2523119121719826
+     ],
+     "measured_miss": [
+      0.0,
+      2.544780300437583e-06
+     ],
+     "predicted_miss": [
+      0.0,
+      0.0
+     ],
+     "compatible": true
+    }
+   ]
+  },
+  {
+   "seed": 280235,
+   "cells": 320,
+   "home": 12,
+   "ports": 840,
+   "total_components": 80,
+   "uniform_components": [],
+   "last_commit": 33,
+   "zeros": 224,
+   "ones": 616,
+   "compilation_error_bound": true,
+   "measurements": [
+    {
+     "law": "registered",
+     "nominal_exposure": 0.0625,
+     "hand_return_counts": [
+      3991078,
+      199113,
+      3941,
+      172
+     ],
+     "variance": 12.5155555556,
+     "measured_time": [
+      0.06065885192014365,
+      0.06464432096386587
+     ],
+     "measured_miss": [
+      0.047091217868277024,
+      0.04793773504264145
+     ],
+     "predicted_miss": [
+      0.04248111932218999,
+      0.05230110783905836
+     ],
+     "compatible": true
+    },
+    {
+     "law": "registered",
+     "nominal_exposure": 0.25,
+     "hand_return_counts": [
+      2142665,
+      1986424,
+      33982,
+      31233
+     ],
+     "variance": 12.5155555556,
+     "measured_time": [
+      0.24805070393514608,
+      0.25203071813100697
+     ],
+     "measured_miss": [
+      0.48005303722650383,
+      0.48204089589197824
+     ],
+     "predicted_miss": [
+      0.0,
+      0.794981616865214
+     ],
+     "compatible": true
+    },
+    {
+     "law": "exchange",
+     "nominal_exposure": 0.0625,
+     "hand_return_counts": [
+      4190241,
+      0,
+      4063,
+      0
+     ],
+     "variance": 0.0,
+     "measured_time": [
+      0.06027687180972285,
+      0.06426238443457408
+     ],
+     "measured_miss": [
+      0.0,
+      2.544780300437583e-06
+     ],
+     "predicted_miss": [
+      0.0,
+      0.0
+     ],
+     "compatible": true
+    },
+    {
+     "law": "exchange",
+     "nominal_exposure": 0.25,
+     "hand_return_counts": [
+      4128936,
+      0,
+      65368,
+      0
+     ],
+     "variance": 0.0,
+     "measured_time": [
+      0.24834537429750198,
+      0.25232538630939355
+     ],
+     "measured_miss": [
+      0.0,
+      2.544780300437583e-06
+     ],
+     "predicted_miss": [
+      0.0,
+      0.0
+     ],
+     "compatible": true
+    }
+   ]
+  },
+  {
+   "seed": 280236,
+   "cells": 320,
+   "home": 672,
+   "ports": 444,
+   "total_components": 79,
+   "uniform_components": [],
+   "last_commit": 34,
+   "zeros": 105,
+   "ones": 339,
+   "compilation_error_bound": true,
+   "measurements": [
+    {
+     "law": "registered",
+     "nominal_exposure": 0.0625,
+     "hand_return_counts": [
+      4006453,
+      183814,
+      3860,
+      177
+     ],
+     "variance": 11.5558802045,
+     "measured_time": [
+      0.0600773143170009,
+      0.06406284991575978
+     ],
+     "measured_miss": [
+      0.04346063732140362,
+      0.044275587953803756
+     ],
+     "predicted_miss": [
+      0.038529359622389445,
+      0.04742589558523547
+     ],
+     "compatible": true
+    },
+    {
+     "law": "registered",
+     "nominal_exposure": 0.25,
+     "hand_return_counts": [
+      2307730,
+      1821285,
+      36421,
+      28868
+     ],
+     "variance": 11.5558802045,
+     "measured_time": [
+      0.2481932666704535,
+      0.2521732798090563
+     ],
+     "measured_miss": [
+      0.4401232872888681,
+      0.44209873153446483
+     ],
+     "predicted_miss": [
+      0.0,
+      0.7348541734445342
+     ],
+     "compatible": true
+    },
+    {
+     "law": "exchange",
+     "nominal_exposure": 0.0625,
+     "hand_return_counts": [
+      4190170,
+      0,
+      4134,
+      0
+     ],
+     "variance": 0.0,
+     "measured_time": [
+      0.06081859172548593,
+      0.06480404269582576
+     ],
+     "measured_miss": [
+      0.0,
+      2.544780300437583e-06
+     ],
+     "predicted_miss": [
+      0.0,
+      0.0
+     ],
+     "compatible": true
+    },
+    {
+     "law": "exchange",
+     "nominal_exposure": 0.25,
+     "hand_return_counts": [
+      4129205,
+      0,
+      65099,
+      0
+     ],
+     "variance": 0.0,
+     "measured_time": [
+      0.24782706692016596,
+      0.25180708277697667
+     ],
+     "measured_miss": [
+      0.0,
+      2.544780300437583e-06
+     ],
+     "predicted_miss": [
+      0.0,
+      0.0
+     ],
+     "compatible": true
+    }
+   ]
+  },
+  {
+   "seed": 280237,
+   "cells": 320,
+   "home": 48,
+   "ports": 444,
+   "total_components": 86,
+   "uniform_components": [],
+   "last_commit": 33,
+   "zeros": 101,
+   "ones": 343,
+   "compilation_error_bound": true,
+   "measurements": [
+    {
+     "law": "registered",
+     "nominal_exposure": 0.0625,
+     "hand_return_counts": [
+      4011601,
+      178631,
+      3902,
+      170
+     ],
+     "variance": 11.2468143819,
+     "measured_time": [
+      0.060345800749644754,
+      0.0643313054720906
+     ],
+     "measured_miss": [
+      0.04222877489764152,
+      0.04303267226788494
+     ],
+     "predicted_miss": [
+      0.03781032124788621,
+      0.046545130983090245
+     ],
+     "compatible": true
+    },
+    {
+     "law": "registered",
+     "nominal_exposure": 0.25,
+     "hand_return_counts": [
+      2373259,
+      1756119,
+      37412,
+      27514
+     ],
+     "variance": 11.2468143819,
+     "measured_time": [
+      0.24749317465913492,
+      0.251473193001315
+     ],
+     "measured_miss": [
+      0.4242679808921391,
+      0.4262349163647139
+     ],
+     "predicted_miss": [
+      0.0,
+      0.7112346719236089
+     ],
+     "compatible": true
+    },
+    {
+     "law": "exchange",
+     "nominal_exposure": 0.0625,
+     "hand_return_counts": [
+      4190255,
+      0,
+      4049,
+      0
+     ],
+     "variance": 0.0,
+     "measured_time": [
+      0.060169497282175424,
+      0.06415502225074769
+     ],
+     "measured_miss": [
+      0.0,
+      2.544780300437583e-06
+     ],
+     "predicted_miss": [
+      0.0,
+      0.0
+     ],
+     "compatible": true
+    },
+    {
+     "law": "exchange",
+     "nominal_exposure": 0.25,
+     "hand_return_counts": [
+      4129458,
+      0,
+      64846,
+      0
+     ],
+     "variance": 0.0,
+     "measured_time": [
+      0.2473386255751078,
+      0.2513186450699534
+     ],
+     "measured_miss": [
+      0.0,
+      2.544780300437583e-06
+     ],
+     "predicted_miss": [
+      0.0,
+      0.0
+     ],
+     "compatible": true
+    }
+   ]
+  },
+  {
+   "seed": 301121,
+   "cells": 320,
+   "home": 1081,
+   "ports": 504,
+   "total_components": 75,
+   "uniform_components": [],
+   "last_commit": 42,
+   "zeros": 120,
+   "ones": 384,
+   "compilation_error_bound": true,
+   "measurements": [
+    {
+     "law": "registered",
+     "nominal_exposure": 0.0625,
+     "hand_return_counts": [
+      4005678,
+      184571,
+      3863,
+      192
+     ],
+     "variance": 11.6099773243,
+     "measured_time": [
+      0.060215537602677185,
+      0.06420105727344125
+     ],
+     "measured_miss": [
+      0.043643881551235525,
+      0.044460461007399574
+     ],
+     "predicted_miss": [
+      0.03887511964145031,
+      0.047853723051568556
+     ],
+     "compatible": true
+    },
+    {
+     "law": "registered",
+     "nominal_exposure": 0.25,
+     "hand_return_counts": [
+      2303089,
+      1826186,
+      36009,
+      29020
+     ],
+     "variance": 11.6099773243,
+     "measured_time": [
+      0.2476920186656986,
+      0.2516720355269554
+     ],
+     "measured_miss": [
+      0.4413277318363656,
+      0.4433037385996435
+     ],
+     "predicted_miss": [
+      0.0,
+      0.7353621880892497
+     ],
+     "compatible": true
+    },
+    {
+     "law": "exchange",
+     "nominal_exposure": 0.0625,
+     "hand_return_counts": [
+      4190268,
+      0,
+      4036,
+      0
+     ],
+     "variance": 0.0,
+     "measured_time": [
+      0.06006962623035556,
+      0.06405516271705196
+     ],
+     "measured_miss": [
+      0.0,
+      2.544780300437583e-06
+     ],
+     "predicted_miss": [
+      0.0,
+      0.0
+     ],
+     "compatible": true
+    },
+    {
+     "law": "exchange",
+     "nominal_exposure": 0.25,
+     "hand_return_counts": [
+      4128773,
+      0,
+      65531,
+      0
+     ],
+     "variance": 0.0,
+     "measured_time": [
+      0.24865893101894315,
+      0.25263894071254245
+     ],
+     "measured_miss": [
+      0.0,
+      2.544780300437583e-06
+     ],
+     "predicted_miss": [
+      0.0,
+      0.0
+     ],
+     "compatible": true
+    }
+   ]
+  }
+ ]
+}

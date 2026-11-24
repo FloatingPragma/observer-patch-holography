@@ -1,0 +1,4236 @@
+{
+  "prime": 1009,
+  "gate_classes": [
+    {
+      "gateways": [
+        0,
+        2,
+        8
+      ],
+      "boards": [
+        [
+          20,
+          12
+        ],
+        [
+          80,
+          56
+        ],
+        [
+          320,
+          216
+        ]
+      ],
+      "histograms": [
+        {
+          "counts": [
+            0,
+            1
+          ],
+          "words": 9,
+          "boundary_kernel_upper": 6,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [
+                6,
+                3,
+                2
+              ],
+              "compact_dimension": 2
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [
+                6,
+                3,
+                2
+              ],
+              "compact_dimension": 2
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [
+              6,
+              3,
+              2
+            ],
+            "compact_dimension": 2
+          }
+        },
+        {
+          "counts": [
+            0,
+            2
+          ],
+          "words": 36,
+          "boundary_kernel_upper": 12,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [
+                12,
+                0
+              ],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [
+                12,
+                0
+              ],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [
+              12,
+              0
+            ],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            0,
+            3
+          ],
+          "words": 84,
+          "boundary_kernel_upper": 4,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [
+                4,
+                0
+              ],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [
+                4,
+                0
+              ],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [
+              4,
+              0
+            ],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            0,
+            4
+          ],
+          "words": 126,
+          "boundary_kernel_upper": 0,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            0,
+            5
+          ],
+          "words": 126,
+          "boundary_kernel_upper": 0,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            0,
+            6
+          ],
+          "words": 84,
+          "boundary_kernel_upper": 0,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            0,
+            7
+          ],
+          "words": 36,
+          "boundary_kernel_upper": 0,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            0,
+            8
+          ],
+          "words": 9,
+          "boundary_kernel_upper": 0,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            0,
+            9
+          ],
+          "words": 1,
+          "boundary_kernel_upper": 0,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            1,
+            1
+          ],
+          "words": 72,
+          "boundary_kernel_upper": 27,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ],
+                [
+                  0,
+                  2,
+                  1
+                ]
+              ],
+              "successive_dimensions": [
+                27,
+                0
+              ],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [
+                27,
+                0
+              ],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [
+              27,
+              3,
+              1
+            ],
+            "compact_dimension": 1
+          }
+        },
+        {
+          "counts": [
+            1,
+            2
+          ],
+          "words": 252,
+          "boundary_kernel_upper": 29,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [
+                29,
+                0
+              ],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ]
+              ],
+              "successive_dimensions": [
+                29,
+                0
+              ],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [
+                29,
+                0
+              ],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [
+              29,
+              0
+            ],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            1,
+            3
+          ],
+          "words": 504,
+          "boundary_kernel_upper": 3,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [
+                3,
+                0
+              ],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ]
+              ],
+              "successive_dimensions": [
+                3,
+                0
+              ],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [
+                3,
+                0
+              ],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [
+              3,
+              0
+            ],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            1,
+            4
+          ],
+          "words": 630,
+          "boundary_kernel_upper": 0,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            1,
+            5
+          ],
+          "words": 504,
+          "boundary_kernel_upper": 0,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            1,
+            6
+          ],
+          "words": 252,
+          "boundary_kernel_upper": 0,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            1,
+            7
+          ],
+          "words": 72,
+          "boundary_kernel_upper": 0,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            1,
+            8
+          ],
+          "words": 9,
+          "boundary_kernel_upper": 0,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            2,
+            2
+          ],
+          "words": 756,
+          "boundary_kernel_upper": 9,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [
+                9,
+                0
+              ],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ]
+              ],
+              "successive_dimensions": [
+                9,
+                0
+              ],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [
+                9,
+                0
+              ],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [
+              9,
+              0
+            ],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            2,
+            3
+          ],
+          "words": 1260,
+          "boundary_kernel_upper": 0,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            2,
+            4
+          ],
+          "words": 1260,
+          "boundary_kernel_upper": 0,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            2,
+            5
+          ],
+          "words": 756,
+          "boundary_kernel_upper": 0,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            2,
+            6
+          ],
+          "words": 252,
+          "boundary_kernel_upper": 0,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            2,
+            7
+          ],
+          "words": 36,
+          "boundary_kernel_upper": 0,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            3,
+            3
+          ],
+          "words": 1680,
+          "boundary_kernel_upper": 0,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            3,
+            4
+          ],
+          "words": 1260,
+          "boundary_kernel_upper": 0,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            3,
+            5
+          ],
+          "words": 504,
+          "boundary_kernel_upper": 0,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            3,
+            6
+          ],
+          "words": 84,
+          "boundary_kernel_upper": 0,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            4,
+            4
+          ],
+          "words": 630,
+          "boundary_kernel_upper": 0,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            4,
+            5
+          ],
+          "words": 126,
+          "boundary_kernel_upper": 0,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [],
+            "compact_dimension": 0
+          }
+        }
+      ]
+    },
+    {
+      "gateways": [
+        0,
+        1,
+        4
+      ],
+      "boards": [
+        [
+          20,
+          8
+        ]
+      ],
+      "histograms": [
+        {
+          "counts": [
+            0,
+            1
+          ],
+          "words": 9,
+          "boundary_kernel_upper": 6,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [
+                6,
+                3,
+                2
+              ],
+              "compact_dimension": 2
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [
+                6,
+                3,
+                2
+              ],
+              "compact_dimension": 2
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [
+              6,
+              3,
+              2
+            ],
+            "compact_dimension": 2
+          }
+        },
+        {
+          "counts": [
+            0,
+            2
+          ],
+          "words": 36,
+          "boundary_kernel_upper": 12,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [
+                12,
+                0
+              ],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [
+                12,
+                0
+              ],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [
+              12,
+              0
+            ],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            0,
+            3
+          ],
+          "words": 84,
+          "boundary_kernel_upper": 7,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [
+                7,
+                0
+              ],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [
+                7,
+                0
+              ],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [
+              7,
+              0
+            ],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            0,
+            4
+          ],
+          "words": 126,
+          "boundary_kernel_upper": 0,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            0,
+            5
+          ],
+          "words": 126,
+          "boundary_kernel_upper": 0,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            0,
+            6
+          ],
+          "words": 84,
+          "boundary_kernel_upper": 0,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            0,
+            7
+          ],
+          "words": 36,
+          "boundary_kernel_upper": 0,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            0,
+            8
+          ],
+          "words": 9,
+          "boundary_kernel_upper": 0,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            0,
+            9
+          ],
+          "words": 1,
+          "boundary_kernel_upper": 0,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            1,
+            1
+          ],
+          "words": 72,
+          "boundary_kernel_upper": 27,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ],
+                [
+                  0,
+                  2,
+                  1
+                ]
+              ],
+              "successive_dimensions": [
+                27,
+                0
+              ],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [
+                27,
+                0
+              ],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [
+              27,
+              3,
+              1
+            ],
+            "compact_dimension": 1
+          }
+        },
+        {
+          "counts": [
+            1,
+            2
+          ],
+          "words": 252,
+          "boundary_kernel_upper": 32,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [
+                32,
+                0
+              ],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ]
+              ],
+              "successive_dimensions": [
+                32,
+                0
+              ],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [
+                32,
+                0
+              ],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [
+              32,
+              0
+            ],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            1,
+            3
+          ],
+          "words": 504,
+          "boundary_kernel_upper": 8,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [
+                8,
+                0
+              ],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ]
+              ],
+              "successive_dimensions": [
+                8,
+                0
+              ],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [
+                8,
+                0
+              ],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [
+              8,
+              0
+            ],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            1,
+            4
+          ],
+          "words": 630,
+          "boundary_kernel_upper": 0,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            1,
+            5
+          ],
+          "words": 504,
+          "boundary_kernel_upper": 0,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            1,
+            6
+          ],
+          "words": 252,
+          "boundary_kernel_upper": 0,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            1,
+            7
+          ],
+          "words": 72,
+          "boundary_kernel_upper": 0,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            1,
+            8
+          ],
+          "words": 9,
+          "boundary_kernel_upper": 0,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            2,
+            2
+          ],
+          "words": 756,
+          "boundary_kernel_upper": 16,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [
+                16,
+                0
+              ],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ]
+              ],
+              "successive_dimensions": [
+                16,
+                0
+              ],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [
+                16,
+                0
+              ],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [
+              16,
+              0
+            ],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            2,
+            3
+          ],
+          "words": 1260,
+          "boundary_kernel_upper": 0,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            2,
+            4
+          ],
+          "words": 1260,
+          "boundary_kernel_upper": 0,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            2,
+            5
+          ],
+          "words": 756,
+          "boundary_kernel_upper": 0,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            2,
+            6
+          ],
+          "words": 252,
+          "boundary_kernel_upper": 0,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            2,
+            7
+          ],
+          "words": 36,
+          "boundary_kernel_upper": 0,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            3,
+            3
+          ],
+          "words": 1680,
+          "boundary_kernel_upper": 0,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            3,
+            4
+          ],
+          "words": 1260,
+          "boundary_kernel_upper": 0,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            3,
+            5
+          ],
+          "words": 504,
+          "boundary_kernel_upper": 0,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            3,
+            6
+          ],
+          "words": 84,
+          "boundary_kernel_upper": 0,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            4,
+            4
+          ],
+          "words": 630,
+          "boundary_kernel_upper": 0,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            4,
+            5
+          ],
+          "words": 126,
+          "boundary_kernel_upper": 0,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [],
+            "compact_dimension": 0
+          }
+        }
+      ]
+    },
+    {
+      "gateways": [
+        0,
+        1,
+        2
+      ],
+      "boards": [
+        [
+          80,
+          24
+        ],
+        [
+          320,
+          104
+        ]
+      ],
+      "histograms": [
+        {
+          "counts": [
+            0,
+            1
+          ],
+          "words": 9,
+          "boundary_kernel_upper": 6,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [
+                6,
+                5
+              ],
+              "compact_dimension": 5
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [
+                6,
+                5
+              ],
+              "compact_dimension": 5
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [
+              6,
+              5
+            ],
+            "compact_dimension": 5
+          }
+        },
+        {
+          "counts": [
+            0,
+            2
+          ],
+          "words": 36,
+          "boundary_kernel_upper": 12,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [
+                12,
+                1,
+                0
+              ],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [
+                12,
+                1,
+                0
+              ],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [
+              12,
+              2,
+              1,
+              0
+            ],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            0,
+            3
+          ],
+          "words": 84,
+          "boundary_kernel_upper": 7,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [
+                7,
+                0
+              ],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [
+                7,
+                0
+              ],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [
+              7,
+              0
+            ],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            0,
+            4
+          ],
+          "words": 126,
+          "boundary_kernel_upper": 2,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [
+                2,
+                0
+              ],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [
+                2,
+                0
+              ],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [
+              2,
+              0
+            ],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            0,
+            5
+          ],
+          "words": 126,
+          "boundary_kernel_upper": 0,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            0,
+            6
+          ],
+          "words": 84,
+          "boundary_kernel_upper": 0,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            0,
+            7
+          ],
+          "words": 36,
+          "boundary_kernel_upper": 0,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            0,
+            8
+          ],
+          "words": 9,
+          "boundary_kernel_upper": 0,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            0,
+            9
+          ],
+          "words": 1,
+          "boundary_kernel_upper": 0,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ],
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            1,
+            1
+          ],
+          "words": 72,
+          "boundary_kernel_upper": 27,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ],
+                [
+                  0,
+                  2,
+                  1
+                ]
+              ],
+              "successive_dimensions": [
+                27,
+                2,
+                0
+              ],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [
+                27,
+                2,
+                0
+              ],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [
+              27,
+              12,
+              11,
+              10
+            ],
+            "compact_dimension": 10
+          }
+        },
+        {
+          "counts": [
+            1,
+            2
+          ],
+          "words": 252,
+          "boundary_kernel_upper": 32,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [
+                32,
+                0
+              ],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ]
+              ],
+              "successive_dimensions": [
+                32,
+                0
+              ],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [
+                32,
+                0
+              ],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [
+              32,
+              0
+            ],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            1,
+            3
+          ],
+          "words": 504,
+          "boundary_kernel_upper": 11,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [
+                11,
+                0
+              ],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ]
+              ],
+              "successive_dimensions": [
+                11,
+                0
+              ],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [
+                11,
+                0
+              ],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [
+              11,
+              0
+            ],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            1,
+            4
+          ],
+          "words": 630,
+          "boundary_kernel_upper": 1,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [
+                1,
+                0
+              ],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ]
+              ],
+              "successive_dimensions": [
+                1,
+                0
+              ],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [
+                1,
+                0
+              ],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [
+              1,
+              0
+            ],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            1,
+            5
+          ],
+          "words": 504,
+          "boundary_kernel_upper": 0,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            1,
+            6
+          ],
+          "words": 252,
+          "boundary_kernel_upper": 0,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            1,
+            7
+          ],
+          "words": 72,
+          "boundary_kernel_upper": 0,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            1,
+            8
+          ],
+          "words": 9,
+          "boundary_kernel_upper": 0,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            2,
+            2
+          ],
+          "words": 756,
+          "boundary_kernel_upper": 18,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [
+                18,
+                0
+              ],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ]
+              ],
+              "successive_dimensions": [
+                18,
+                0
+              ],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [
+                18,
+                0
+              ],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [
+              18,
+              0
+            ],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            2,
+            3
+          ],
+          "words": 1260,
+          "boundary_kernel_upper": 3,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [
+                3,
+                0
+              ],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ]
+              ],
+              "successive_dimensions": [
+                3,
+                0
+              ],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [
+                3,
+                0
+              ],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [
+              3,
+              0
+            ],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            2,
+            4
+          ],
+          "words": 1260,
+          "boundary_kernel_upper": 0,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            2,
+            5
+          ],
+          "words": 756,
+          "boundary_kernel_upper": 0,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            2,
+            6
+          ],
+          "words": 252,
+          "boundary_kernel_upper": 0,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            2,
+            7
+          ],
+          "words": 36,
+          "boundary_kernel_upper": 0,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            3,
+            3
+          ],
+          "words": 1680,
+          "boundary_kernel_upper": 0,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            3,
+            4
+          ],
+          "words": 1260,
+          "boundary_kernel_upper": 0,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            3,
+            5
+          ],
+          "words": 504,
+          "boundary_kernel_upper": 0,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            3,
+            6
+          ],
+          "words": 84,
+          "boundary_kernel_upper": 0,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            4,
+            4
+          ],
+          "words": 630,
+          "boundary_kernel_upper": 0,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [],
+            "compact_dimension": 0
+          }
+        },
+        {
+          "counts": [
+            4,
+            5
+          ],
+          "words": 126,
+          "boundary_kernel_upper": 0,
+          "native": [
+            {
+              "symbol_values": [
+                [
+                  0,
+                  1,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  0,
+                  2,
+                  1
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            },
+            {
+              "symbol_values": [
+                [
+                  1,
+                  0,
+                  2
+                ]
+              ],
+              "successive_dimensions": [],
+              "compact_dimension": 0
+            }
+          ],
+          "exchange_only": {
+            "successive_dimensions": [],
+            "compact_dimension": 0
+          }
+        }
+      ]
+    }
+  ]
+}

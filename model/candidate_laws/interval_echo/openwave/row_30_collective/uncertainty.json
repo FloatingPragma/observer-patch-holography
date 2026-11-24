@@ -1,0 +1,46 @@
+{
+  "bootstrap_replicates": 400,
+  "seed": 371093,
+  "interpretation": "Conditional on the held observer records; common bench clock and both measured couplings resampled jointly.",
+  "boards": [
+    {
+      "level": 0,
+      "dimers": 20,
+      "rms_ratio_percentile95": [
+        0.008386071123201722,
+        0.05859046605773435
+      ],
+      "fraction_below_half": 1.0,
+      "maximum_absolute_error_percentile95": [
+        0.00012517017472335468,
+        0.003907727192908572
+      ]
+    },
+    {
+      "level": 1,
+      "dimers": 26,
+      "rms_ratio_percentile95": [
+        0.027292058188088893,
+        0.05630667039265595
+      ],
+      "fraction_below_half": 1.0,
+      "maximum_absolute_error_percentile95": [
+        0.00015848290239208753,
+        0.0039642101290155995
+      ]
+    },
+    {
+      "level": 2,
+      "dimers": 29,
+      "rms_ratio_percentile95": [
+        0.04436635192950345,
+        0.0765363484814245
+      ],
+      "fraction_below_half": 1.0,
+      "maximum_absolute_error_percentile95": [
+        0.00017686509290899545,
+        0.003941388002404134
+      ]
+    }
+  ]
+}

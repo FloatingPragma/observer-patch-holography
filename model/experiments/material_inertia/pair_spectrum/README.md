@@ -22,6 +22,26 @@ The three gateway distances within a cell predict where the low cluster can be p
 
 OW-19 gains a source-resolved, multi-cell bound-state flight on the native law. Its remaining measurements are inertial dispersion with a calibrated spatial scale and electrical neutrality with a physical field probe on the same preparation. For OW-26 the flights provide a source-free baseline for subsequent force experiments. They provide no acceleration under a second source, force strength or clock reading.
 
+## Do independent charged probes see the moving pair?
+
+After a million exchange times, flag a common arrival cell at least two owner steps away. Test a randomly addressed port there or elsewhere on the board with a separately supplied excess or vacancy on a two-rail probe. One probe rail contacts the selected port and then interferes with the reference rail. The five signed echo bins include probes that changed occupation during contact. Each shot enrolls the original launch, including spectral-filter and arrival failures. Three disjoint choices of probe rails suffice to find two host loads, using local zero-contrast reads. The source of the fresh charged probe, the terminal shutters, and the phase reference are supplied apparatus. [Probe protocol](PROBE_PROTOCOL.md) · [Three-port circuit](probe.py) · [Complete probe counts](probe.json)
+
+At a contact duration of 1/32 the two-probe score, calibrated on sharp charges, gives +1.0005 for an independent single excess and −0.9991 for a single vacancy when the sampled ports are summed. On the three remote arrivals, regular ports contribute +0.9957 to +0.9997 and gateways −0.9969 to −0.9968. The net is −0.0012 to +0.0029, with sampling standard errors of 0.0025 to 0.0033. At half the contact duration the three net readings range from +0.0057 to +0.0079. Removing contrast from the probe–sample contact changes its unit-charge sensitivity from 0.47197 to 0.00782 at the original dwell, with the splitter, reader and incoming pair held fixed.
+
+The cancellation has a simple origin. Reflection about unit filling exchanges the two probes. Their difference vanishes on a host port and has opposite values on an excess and a vacancy. Once calibrated, the full-screen sum therefore vanishes on **any** one-excess, one-vacancy state. Where the opposite signs accumulate after free flight is a measurement of the bound branch. The probes also have a **common** change relative to an empty host, from +0.2191 to +0.2239 in the same units at 1/32 and +0.1169 to +0.1178 at 1/64. Thus the net sign cancels while the pair scatters both probes. Even in the short-contact limit the common response survives relative to the calibrated charge response. The native diagonal seam energies give slopes of 1.5 for the combined common change and 16.25 for one odd charge unit, a ratio of 6/65. These are local contact measurements. Identifying the interaction with electromagnetism requires an independent physical field and coupling.
+
+## Does a wavelength predict the pair’s kinetic energy?
+
+The cell-owner graph supplies a wavelength standard independent of the pair generator. Its first three nonconstant Laplacian shells have eigenvalues 0.763932, 2 and 3 in inverse squared owner steps. For each of the same three sharp launches, select the lowest unresolved doublet in the 24-line bound cluster. Probe the centre density with an owner-shell amplitude grating. Interfering 128 possible application times gives energy differences on the same bound sector. The rest and final band filters, centre-density grating and timing reference are specified measurement apparatus. The grating can excite multiple lines in an inhomogeneous medium. [Spatial and timing protocol](DISPERSION_PROTOCOL.md) · [Source, reader and controls](dispersion.py) · [Timing counts](dispersion.json)
+
+| Launch owner | Lowest-doublet admission | Measured peak bins, shells 1, 2, 3 | Shells 2 and 3 forecast from shell 1 |
+|---|---:|---:|---:|
+| 0 | 0.01224% | 19, 19, 23 | 49.74, 74.61 |
+| 5 | 0.02617% | 9, 9, 18 | 23.56, 35.34 |
+| 10 | 0.30687% | 9, 9, 18 | 23.56, 35.34 |
+
+One bin spans 0.000000374507 native energy units. Every held peak misses the prediction from a single positive kinetic coefficient in ΔE = Aλ. The maximum fraction in any three neighboring bins of the second shell is bounded above by 0.413, 0.457 and 0.409 for launch owners 0, 5 and 10. These upper bounds include the numerical allowance and a simultaneous 99% sampling allowance. The frequency profiles therefore also fail the declared majority criterion. A scalar reference particle on the same owner graph recovers its two held frequencies with the same timer. Halving the material generator's rates after preparation shifts the simulated timing spectrum while preserving the spatial profiles. These results exclude the specified single-line scalar reading of the pair’s centre-density response on this board. A mass from an internally resolved dispersing branch across refinements remains open. The study uses native exchange time and graph steps.
+
 ## Numerical checks and replay
 
 Let P be the 284 high sharp addresses and Q the other 57,076 ordered configurations. For shifted energy E, the Schur matrix is H_PP + H_PQ (E − H_QQ)⁻¹ H_QP. A row-sum bound gives H_QQ ≤ 27 on this board. Above 30, the number of eigenvalues of the Schur matrix below E equals the number of native upper-band lines below E. The linear solve residual bounds its operator error by 1.23 × 10⁻¹³ at the five reported counting thresholds. Two thresholds enclose exactly the 24 lines and two others bracket the next eight. The independent count at the filter setting also returns 24.
@@ -33,3 +53,5 @@ From the repository root, replay with single-thread BLAS.
 ```sh
 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -m model.experiments.material_inertia.pair_spectrum.measure --output /tmp/oph-pair-spectrum.json
 ```
+
+To reproduce the two follow-up receipts, run `python -m model.experiments.material_inertia.pair_spectrum.probe` and `python -m model.experiments.material_inertia.pair_spectrum.dispersion` with the same single-thread BLAS settings.

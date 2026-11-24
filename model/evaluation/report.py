@@ -54,7 +54,7 @@ def criterion_grade(case):
     filing = case.get('filing')
     if filing:
         grade += (f". OpenWave · [{filing['official_status']}]({local_link(filing['decision'])})"
-                  f". Resubmission · [{filing['resubmission']}]({local_link(filing['review'])})")
+                  f". {filing.get('stage_label', 'Resubmission')} · [{filing['resubmission']}]({local_link(filing['review'])})")
     return grade
 
 

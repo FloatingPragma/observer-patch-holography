@@ -1,0 +1,4406 @@
+{
+  "law": "positive written-field Laplacian, fixed one-cell component",
+  "inputs_sha256": {
+    "model/candidate_laws/interval_echo/openwave/quark_winding/measure.py": "232f5b61249cd84a1f827abd798002812b90ca966c76eef51e2cdf46d99a34bc",
+    "model/candidate_laws/interval_echo/openwave/quark_winding/DESIGN.md": "bab90c63216df563fc70c3c07a5bb8f4c12711c3d14e0ff530f2febd07bf142c",
+    "model/candidate_laws/interval_echo/openwave/electron_field/flux_string/search.py": "53a6458a0f14678f1effd1dc35151d07ac6b7de1341b79e9a35838ec062abb0a",
+    "model/executable_model/carrier.py": "327fc33189ff6242f7367f625a3f70d97167e79bd4f8a740266d7eb09e237bbd",
+    "model/executable_model/carriers/FEDERATION_LEVEL0.npz": "99870398e3d516f899c600e9bf25ba53c7f513142ba8facbe1cedd94b23f915b"
+  },
+  "field_words": 458,
+  "seed_head_word": 690852833,
+  "settings": [
+    {
+      "faces": [
+        0,
+        9
+      ],
+      "regions": [
+        [
+          0,
+          1,
+          5
+        ],
+        [
+          2,
+          3,
+          6
+        ]
+      ],
+      "cut_pair_multiplicities": [
+        {
+          "cut": [
+            0,
+            0
+          ],
+          "words": 458
+        }
+      ],
+      "ring_energy_by_face": [
+        0.3231441048034934,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.4410480349344978,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "panels": [
+        {
+          "contour": "enclosing",
+          "disk": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            16,
+            17
+          ],
+          "cycle": [
+            4,
+            9,
+            8,
+            7,
+            10,
+            11
+          ],
+          "sign": -1,
+          "compensator_path": [
+            4,
+            11,
+            10,
+            20
+          ],
+          "pre_tour_material_voltage_by_region": {
+            "bare": [
+              {
+                "pi_over_two": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                },
+                "pi": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                }
+              },
+              {
+                "pi_over_two": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                },
+                "pi": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                }
+              }
+            ],
+            "string": [
+              {
+                "pi_over_two": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                },
+                "pi": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                }
+              },
+              {
+                "pi_over_two": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                },
+                "pi": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                }
+              }
+            ]
+          },
+          "path_counts": {
+            "idle": 198,
+            "winding": 24,
+            "away": 236
+          },
+          "conditional_winding_overlap": -1.0,
+          "bare": {
+            "denominator": 1832,
+            "by_cuts_and_final_port": [
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 4,
+                "bright": 1124,
+                "dark": 236
+              },
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 7,
+                "bright": 38,
+                "dark": 38
+              },
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 10,
+                "bright": 35,
+                "dark": 35
+              },
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 11,
+                "bright": 163,
+                "dark": 163
+              }
+            ],
+            "inclusive_bright": 0.74235807860262
+          },
+          "string": {
+            "denominator": 1832,
+            "by_cuts_and_final_port": [
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 4,
+                "bright": 1028,
+                "dark": 332
+              },
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 7,
+                "bright": 38,
+                "dark": 38
+              },
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 10,
+                "bright": 35,
+                "dark": 35
+              },
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 11,
+                "bright": 163,
+                "dark": 163
+              }
+            ],
+            "inclusive_bright": 0.6899563318777293
+          },
+          "fully_dephased_bright_both_inputs": 0.7161572052401747
+        },
+        {
+          "contour": "enclosing",
+          "disk": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            16,
+            17
+          ],
+          "cycle": [
+            4,
+            9,
+            8,
+            7,
+            10,
+            11
+          ],
+          "sign": 1,
+          "compensator_path": [
+            4,
+            3,
+            48
+          ],
+          "pre_tour_material_voltage_by_region": {
+            "bare": [
+              {
+                "pi_over_two": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                },
+                "pi": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                }
+              },
+              {
+                "pi_over_two": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                },
+                "pi": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                }
+              }
+            ],
+            "string": [
+              {
+                "pi_over_two": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                },
+                "pi": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                }
+              },
+              {
+                "pi_over_two": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                },
+                "pi": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                }
+              }
+            ]
+          },
+          "path_counts": {
+            "idle": 400,
+            "winding": 24,
+            "away": 34
+          },
+          "conditional_winding_overlap": -1.0,
+          "bare": {
+            "denominator": 1832,
+            "by_cuts_and_final_port": [
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 4,
+                "bright": 1730,
+                "dark": 34
+              },
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 7,
+                "bright": 1,
+                "dark": 1
+              },
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 8,
+                "bright": 18,
+                "dark": 18
+              },
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 10,
+                "bright": 15,
+                "dark": 15
+              }
+            ],
+            "inclusive_bright": 0.962882096069869
+          },
+          "string": {
+            "denominator": 1832,
+            "by_cuts_and_final_port": [
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 4,
+                "bright": 1634,
+                "dark": 130
+              },
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 7,
+                "bright": 1,
+                "dark": 1
+              },
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 8,
+                "bright": 18,
+                "dark": 18
+              },
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 10,
+                "bright": 15,
+                "dark": 15
+              }
+            ],
+            "inclusive_bright": 0.9104803493449781
+          },
+          "fully_dephased_bright_both_inputs": 0.9366812227074236
+        },
+        {
+          "contour": "deformed",
+          "disk": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            10,
+            16,
+            17
+          ],
+          "cycle": [
+            2,
+            4,
+            9,
+            8,
+            7,
+            10,
+            11
+          ],
+          "sign": -1,
+          "compensator_path": [
+            2,
+            6,
+            3,
+            48
+          ],
+          "pre_tour_material_voltage_by_region": {
+            "bare": [
+              {
+                "pi_over_two": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                },
+                "pi": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                }
+              },
+              {
+                "pi_over_two": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                },
+                "pi": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                }
+              }
+            ],
+            "string": [
+              {
+                "pi_over_two": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                },
+                "pi": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                }
+              },
+              {
+                "pi_over_two": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                },
+                "pi": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                }
+              }
+            ]
+          },
+          "path_counts": {
+            "idle": 399,
+            "winding": 0,
+            "away": 59
+          },
+          "conditional_winding_overlap": null,
+          "bare": {
+            "denominator": 1832,
+            "by_cuts_and_final_port": [
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 2,
+                "bright": 1655,
+                "dark": 59
+              },
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 11,
+                "bright": 59,
+                "dark": 59
+              }
+            ],
+            "inclusive_bright": 0.9355895196506551
+          },
+          "string": {
+            "denominator": 1832,
+            "by_cuts_and_final_port": [
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 2,
+                "bright": 1655,
+                "dark": 59
+              },
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 11,
+                "bright": 59,
+                "dark": 59
+              }
+            ],
+            "inclusive_bright": 0.9355895196506551
+          },
+          "fully_dephased_bright_both_inputs": 0.935589519650655
+        },
+        {
+          "contour": "deformed",
+          "disk": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            10,
+            16,
+            17
+          ],
+          "cycle": [
+            2,
+            4,
+            9,
+            8,
+            7,
+            10,
+            11
+          ],
+          "sign": 1,
+          "compensator_path": [
+            2,
+            3,
+            48
+          ],
+          "pre_tour_material_voltage_by_region": {
+            "bare": [
+              {
+                "pi_over_two": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                },
+                "pi": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                }
+              },
+              {
+                "pi_over_two": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                },
+                "pi": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                }
+              }
+            ],
+            "string": [
+              {
+                "pi_over_two": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                },
+                "pi": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                }
+              },
+              {
+                "pi_over_two": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                },
+                "pi": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                }
+              }
+            ]
+          },
+          "path_counts": {
+            "idle": 399,
+            "winding": 0,
+            "away": 59
+          },
+          "conditional_winding_overlap": null,
+          "bare": {
+            "denominator": 1832,
+            "by_cuts_and_final_port": [
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 2,
+                "bright": 1655,
+                "dark": 59
+              },
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 7,
+                "bright": 2,
+                "dark": 2
+              },
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 8,
+                "bright": 26,
+                "dark": 26
+              },
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 9,
+                "bright": 4,
+                "dark": 4
+              },
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 10,
+                "bright": 27,
+                "dark": 27
+              }
+            ],
+            "inclusive_bright": 0.9355895196506551
+          },
+          "string": {
+            "denominator": 1832,
+            "by_cuts_and_final_port": [
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 2,
+                "bright": 1655,
+                "dark": 59
+              },
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 7,
+                "bright": 2,
+                "dark": 2
+              },
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 8,
+                "bright": 26,
+                "dark": 26
+              },
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 9,
+                "bright": 4,
+                "dark": 4
+              },
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 10,
+                "bright": 27,
+                "dark": 27
+              }
+            ],
+            "inclusive_bright": 0.9355895196506551
+          },
+          "fully_dephased_bright_both_inputs": 0.935589519650655
+        },
+        {
+          "contour": "exterior",
+          "disk": [
+            1
+          ],
+          "cycle": [
+            0,
+            1,
+            7
+          ],
+          "sign": -1,
+          "compensator_path": [
+            0,
+            10,
+            20
+          ],
+          "pre_tour_material_voltage_by_region": {
+            "bare": [
+              {
+                "pi_over_two": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                },
+                "pi": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                }
+              },
+              {
+                "pi_over_two": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                },
+                "pi": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                }
+              }
+            ],
+            "string": [
+              {
+                "pi_over_two": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                },
+                "pi": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                }
+              },
+              {
+                "pi_over_two": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                },
+                "pi": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                }
+              }
+            ]
+          },
+          "path_counts": {
+            "idle": 310,
+            "winding": 148,
+            "away": 0
+          },
+          "conditional_winding_overlap": 1.0,
+          "bare": {
+            "denominator": 1832,
+            "by_cuts_and_final_port": [
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 0,
+                "bright": 1832,
+                "dark": 0
+              }
+            ],
+            "inclusive_bright": 1.0
+          },
+          "string": {
+            "denominator": 1832,
+            "by_cuts_and_final_port": [
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 0,
+                "bright": 1832,
+                "dark": 0
+              }
+            ],
+            "inclusive_bright": 1.0
+          },
+          "fully_dephased_bright_both_inputs": 0.8384279475982532
+        },
+        {
+          "contour": "exterior",
+          "disk": [
+            1
+          ],
+          "cycle": [
+            0,
+            1,
+            7
+          ],
+          "sign": 1,
+          "compensator_path": [
+            0,
+            1,
+            82
+          ],
+          "pre_tour_material_voltage_by_region": {
+            "bare": [
+              {
+                "pi_over_two": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                },
+                "pi": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                }
+              },
+              {
+                "pi_over_two": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                },
+                "pi": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                }
+              }
+            ],
+            "string": [
+              {
+                "pi_over_two": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                },
+                "pi": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                }
+              },
+              {
+                "pi_over_two": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                },
+                "pi": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                }
+              }
+            ]
+          },
+          "path_counts": {
+            "idle": 255,
+            "winding": 148,
+            "away": 55
+          },
+          "conditional_winding_overlap": 1.0,
+          "bare": {
+            "denominator": 1832,
+            "by_cuts_and_final_port": [
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 0,
+                "bright": 1667,
+                "dark": 55
+              },
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 7,
+                "bright": 55,
+                "dark": 55
+              }
+            ],
+            "inclusive_bright": 0.9399563318777293
+          },
+          "string": {
+            "denominator": 1832,
+            "by_cuts_and_final_port": [
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 0,
+                "bright": 1667,
+                "dark": 55
+              },
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 7,
+                "bright": 55,
+                "dark": 55
+              }
+            ],
+            "inclusive_bright": 0.9399563318777293
+          },
+          "fully_dephased_bright_both_inputs": 0.7783842794759825
+        }
+      ],
+      "setting": "primary",
+      "calibrations_by_region": {
+        "near": [
+          {
+            "sign": -1,
+            "tips_inside": 1,
+            "word": 18549672,
+            "ports": [
+              8,
+              1,
+              3
+            ],
+            "compensator_path": [
+              8,
+              1,
+              82
+            ],
+            "reads": {
+              "written": {
+                "sharp": {
+                  "joint": [
+                    {
+                      "material": -1,
+                      "cut": -1,
+                      "probability": 1.0
+                    }
+                  ],
+                  "mean_cut": -1.0,
+                  "mean_material": -1.0,
+                  "material_voltage": {
+                    "pi_over_two": {
+                      "bright_x": 0.5,
+                      "bright_y": 0.0
+                    },
+                    "pi": {
+                      "bright_x": 0.0,
+                      "bright_y": 0.5
+                    }
+                  },
+                  "hypothetical_sharp_charge_at_same_mean": {
+                    "pi_over_two": {
+                      "bright_x": 0.5,
+                      "bright_y": 0.0
+                    },
+                    "pi": {
+                      "bright_x": 0.0,
+                      "bright_y": 0.5
+                    }
+                  }
+                },
+                "spread": {
+                  "joint": [
+                    {
+                      "material": -1,
+                      "cut": -1,
+                      "probability": 0.333333333333
+                    },
+                    {
+                      "material": 0,
+                      "cut": 0,
+                      "probability": 0.666666666667
+                    }
+                  ],
+                  "mean_cut": -0.333333333333,
+                  "mean_material": -0.333333333333,
+                  "material_voltage": {
+                    "pi_over_two": {
+                      "bright_x": 0.833333333333,
+                      "bright_y": 0.333333333333
+                    },
+                    "pi": {
+                      "bright_x": 0.666666666667,
+                      "bright_y": 0.5
+                    }
+                  },
+                  "hypothetical_sharp_charge_at_same_mean": {
+                    "pi_over_two": {
+                      "bright_x": 0.933012701892,
+                      "bright_y": 0.25
+                    },
+                    "pi": {
+                      "bright_x": 0.75,
+                      "bright_y": 0.066987298108
+                    }
+                  }
+                }
+              },
+              "unwritten": {
+                "sharp": {
+                  "joint": [
+                    {
+                      "material": -1,
+                      "cut": 0,
+                      "probability": 1.0
+                    }
+                  ],
+                  "mean_cut": 0.0,
+                  "mean_material": -1.0,
+                  "material_voltage": {
+                    "pi_over_two": {
+                      "bright_x": 0.5,
+                      "bright_y": 0.0
+                    },
+                    "pi": {
+                      "bright_x": 0.0,
+                      "bright_y": 0.5
+                    }
+                  },
+                  "hypothetical_sharp_charge_at_same_mean": {
+                    "pi_over_two": {
+                      "bright_x": 0.5,
+                      "bright_y": 0.0
+                    },
+                    "pi": {
+                      "bright_x": 0.0,
+                      "bright_y": 0.5
+                    }
+                  }
+                },
+                "spread": {
+                  "joint": [
+                    {
+                      "material": -1,
+                      "cut": 0,
+                      "probability": 0.333333333333
+                    },
+                    {
+                      "material": 0,
+                      "cut": 0,
+                      "probability": 0.666666666667
+                    }
+                  ],
+                  "mean_cut": 0.0,
+                  "mean_material": -0.333333333333,
+                  "material_voltage": {
+                    "pi_over_two": {
+                      "bright_x": 0.833333333333,
+                      "bright_y": 0.333333333333
+                    },
+                    "pi": {
+                      "bright_x": 0.666666666667,
+                      "bright_y": 0.5
+                    }
+                  },
+                  "hypothetical_sharp_charge_at_same_mean": {
+                    "pi_over_two": {
+                      "bright_x": 0.933012701892,
+                      "bright_y": 0.25
+                    },
+                    "pi": {
+                      "bright_x": 0.75,
+                      "bright_y": 0.066987298108
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "sign": -1,
+            "tips_inside": 2,
+            "word": 19732912,
+            "ports": [
+              9,
+              1,
+              5
+            ],
+            "compensator_path": [
+              9,
+              1,
+              82
+            ],
+            "reads": {
+              "written": {
+                "sharp": {
+                  "joint": [
+                    {
+                      "material": -1,
+                      "cut": -1,
+                      "probability": 1.0
+                    }
+                  ],
+                  "mean_cut": -1.0,
+                  "mean_material": -1.0,
+                  "material_voltage": {
+                    "pi_over_two": {
+                      "bright_x": 0.5,
+                      "bright_y": 0.0
+                    },
+                    "pi": {
+                      "bright_x": 0.0,
+                      "bright_y": 0.5
+                    }
+                  },
+                  "hypothetical_sharp_charge_at_same_mean": {
+                    "pi_over_two": {
+                      "bright_x": 0.5,
+                      "bright_y": 0.0
+                    },
+                    "pi": {
+                      "bright_x": 0.0,
+                      "bright_y": 0.5
+                    }
+                  }
+                },
+                "spread": {
+                  "joint": [
+                    {
+                      "material": -1,
+                      "cut": -1,
+                      "probability": 0.666666666667
+                    },
+                    {
+                      "material": 0,
+                      "cut": 0,
+                      "probability": 0.333333333333
+                    }
+                  ],
+                  "mean_cut": -0.666666666667,
+                  "mean_material": -0.666666666667,
+                  "material_voltage": {
+                    "pi_over_two": {
+                      "bright_x": 0.666666666667,
+                      "bright_y": 0.166666666667
+                    },
+                    "pi": {
+                      "bright_x": 0.333333333333,
+                      "bright_y": 0.5
+                    }
+                  },
+                  "hypothetical_sharp_charge_at_same_mean": {
+                    "pi_over_two": {
+                      "bright_x": 0.75,
+                      "bright_y": 0.066987298108
+                    },
+                    "pi": {
+                      "bright_x": 0.25,
+                      "bright_y": 0.066987298108
+                    }
+                  }
+                }
+              },
+              "unwritten": {
+                "sharp": {
+                  "joint": [
+                    {
+                      "material": -1,
+                      "cut": 0,
+                      "probability": 1.0
+                    }
+                  ],
+                  "mean_cut": 0.0,
+                  "mean_material": -1.0,
+                  "material_voltage": {
+                    "pi_over_two": {
+                      "bright_x": 0.5,
+                      "bright_y": 0.0
+                    },
+                    "pi": {
+                      "bright_x": 0.0,
+                      "bright_y": 0.5
+                    }
+                  },
+                  "hypothetical_sharp_charge_at_same_mean": {
+                    "pi_over_two": {
+                      "bright_x": 0.5,
+                      "bright_y": 0.0
+                    },
+                    "pi": {
+                      "bright_x": 0.0,
+                      "bright_y": 0.5
+                    }
+                  }
+                },
+                "spread": {
+                  "joint": [
+                    {
+                      "material": -1,
+                      "cut": 0,
+                      "probability": 0.666666666667
+                    },
+                    {
+                      "material": 0,
+                      "cut": 0,
+                      "probability": 0.333333333333
+                    }
+                  ],
+                  "mean_cut": 0.0,
+                  "mean_material": -0.666666666667,
+                  "material_voltage": {
+                    "pi_over_two": {
+                      "bright_x": 0.666666666667,
+                      "bright_y": 0.166666666667
+                    },
+                    "pi": {
+                      "bright_x": 0.333333333333,
+                      "bright_y": 0.5
+                    }
+                  },
+                  "hypothetical_sharp_charge_at_same_mean": {
+                    "pi_over_two": {
+                      "bright_x": 0.75,
+                      "bright_y": 0.066987298108
+                    },
+                    "pi": {
+                      "bright_x": 0.25,
+                      "bright_y": 0.066987298108
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "sign": 1,
+            "tips_inside": 1,
+            "word": 18549672,
+            "ports": [
+              7,
+              0,
+              6
+            ],
+            "compensator_path": [
+              7,
+              10,
+              20
+            ],
+            "reads": {
+              "written": {
+                "sharp": {
+                  "joint": [
+                    {
+                      "material": 1,
+                      "cut": 1,
+                      "probability": 1.0
+                    }
+                  ],
+                  "mean_cut": 1.0,
+                  "mean_material": 1.0,
+                  "material_voltage": {
+                    "pi_over_two": {
+                      "bright_x": 0.5,
+                      "bright_y": 1.0
+                    },
+                    "pi": {
+                      "bright_x": 0.0,
+                      "bright_y": 0.5
+                    }
+                  },
+                  "hypothetical_sharp_charge_at_same_mean": {
+                    "pi_over_two": {
+                      "bright_x": 0.5,
+                      "bright_y": 1.0
+                    },
+                    "pi": {
+                      "bright_x": 0.0,
+                      "bright_y": 0.5
+                    }
+                  }
+                },
+                "spread": {
+                  "joint": [
+                    {
+                      "material": 0,
+                      "cut": 0,
+                      "probability": 0.666666666667
+                    },
+                    {
+                      "material": 1,
+                      "cut": 1,
+                      "probability": 0.333333333333
+                    }
+                  ],
+                  "mean_cut": 0.333333333333,
+                  "mean_material": 0.333333333333,
+                  "material_voltage": {
+                    "pi_over_two": {
+                      "bright_x": 0.833333333333,
+                      "bright_y": 0.666666666667
+                    },
+                    "pi": {
+                      "bright_x": 0.666666666667,
+                      "bright_y": 0.5
+                    }
+                  },
+                  "hypothetical_sharp_charge_at_same_mean": {
+                    "pi_over_two": {
+                      "bright_x": 0.933012701892,
+                      "bright_y": 0.75
+                    },
+                    "pi": {
+                      "bright_x": 0.75,
+                      "bright_y": 0.933012701892
+                    }
+                  }
+                }
+              },
+              "unwritten": {
+                "sharp": {
+                  "joint": [
+                    {
+                      "material": 1,
+                      "cut": 0,
+                      "probability": 1.0
+                    }
+                  ],
+                  "mean_cut": 0.0,
+                  "mean_material": 1.0,
+                  "material_voltage": {
+                    "pi_over_two": {
+                      "bright_x": 0.5,
+                      "bright_y": 1.0
+                    },
+                    "pi": {
+                      "bright_x": 0.0,
+                      "bright_y": 0.5
+                    }
+                  },
+                  "hypothetical_sharp_charge_at_same_mean": {
+                    "pi_over_two": {
+                      "bright_x": 0.5,
+                      "bright_y": 1.0
+                    },
+                    "pi": {
+                      "bright_x": 0.0,
+                      "bright_y": 0.5
+                    }
+                  }
+                },
+                "spread": {
+                  "joint": [
+                    {
+                      "material": 0,
+                      "cut": 0,
+                      "probability": 0.666666666667
+                    },
+                    {
+                      "material": 1,
+                      "cut": 0,
+                      "probability": 0.333333333333
+                    }
+                  ],
+                  "mean_cut": 0.0,
+                  "mean_material": 0.333333333333,
+                  "material_voltage": {
+                    "pi_over_two": {
+                      "bright_x": 0.833333333333,
+                      "bright_y": 0.666666666667
+                    },
+                    "pi": {
+                      "bright_x": 0.666666666667,
+                      "bright_y": 0.5
+                    }
+                  },
+                  "hypothetical_sharp_charge_at_same_mean": {
+                    "pi_over_two": {
+                      "bright_x": 0.933012701892,
+                      "bright_y": 0.75
+                    },
+                    "pi": {
+                      "bright_x": 0.75,
+                      "bright_y": 0.933012701892
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "sign": 1,
+            "tips_inside": 2,
+            "word": 18549672,
+            "ports": [
+              7,
+              0,
+              1
+            ],
+            "compensator_path": [
+              7,
+              10,
+              20
+            ],
+            "reads": {
+              "written": {
+                "sharp": {
+                  "joint": [
+                    {
+                      "material": 1,
+                      "cut": 1,
+                      "probability": 1.0
+                    }
+                  ],
+                  "mean_cut": 1.0,
+                  "mean_material": 1.0,
+                  "material_voltage": {
+                    "pi_over_two": {
+                      "bright_x": 0.5,
+                      "bright_y": 1.0
+                    },
+                    "pi": {
+                      "bright_x": 0.0,
+                      "bright_y": 0.5
+                    }
+                  },
+                  "hypothetical_sharp_charge_at_same_mean": {
+                    "pi_over_two": {
+                      "bright_x": 0.5,
+                      "bright_y": 1.0
+                    },
+                    "pi": {
+                      "bright_x": 0.0,
+                      "bright_y": 0.5
+                    }
+                  }
+                },
+                "spread": {
+                  "joint": [
+                    {
+                      "material": 0,
+                      "cut": 0,
+                      "probability": 0.333333333333
+                    },
+                    {
+                      "material": 1,
+                      "cut": 1,
+                      "probability": 0.666666666667
+                    }
+                  ],
+                  "mean_cut": 0.666666666667,
+                  "mean_material": 0.666666666667,
+                  "material_voltage": {
+                    "pi_over_two": {
+                      "bright_x": 0.666666666667,
+                      "bright_y": 0.833333333333
+                    },
+                    "pi": {
+                      "bright_x": 0.333333333333,
+                      "bright_y": 0.5
+                    }
+                  },
+                  "hypothetical_sharp_charge_at_same_mean": {
+                    "pi_over_two": {
+                      "bright_x": 0.75,
+                      "bright_y": 0.933012701892
+                    },
+                    "pi": {
+                      "bright_x": 0.25,
+                      "bright_y": 0.933012701892
+                    }
+                  }
+                }
+              },
+              "unwritten": {
+                "sharp": {
+                  "joint": [
+                    {
+                      "material": 1,
+                      "cut": 0,
+                      "probability": 1.0
+                    }
+                  ],
+                  "mean_cut": 0.0,
+                  "mean_material": 1.0,
+                  "material_voltage": {
+                    "pi_over_two": {
+                      "bright_x": 0.5,
+                      "bright_y": 1.0
+                    },
+                    "pi": {
+                      "bright_x": 0.0,
+                      "bright_y": 0.5
+                    }
+                  },
+                  "hypothetical_sharp_charge_at_same_mean": {
+                    "pi_over_two": {
+                      "bright_x": 0.5,
+                      "bright_y": 1.0
+                    },
+                    "pi": {
+                      "bright_x": 0.0,
+                      "bright_y": 0.5
+                    }
+                  }
+                },
+                "spread": {
+                  "joint": [
+                    {
+                      "material": 0,
+                      "cut": 0,
+                      "probability": 0.333333333333
+                    },
+                    {
+                      "material": 1,
+                      "cut": 0,
+                      "probability": 0.666666666667
+                    }
+                  ],
+                  "mean_cut": 0.0,
+                  "mean_material": 0.666666666667,
+                  "material_voltage": {
+                    "pi_over_two": {
+                      "bright_x": 0.666666666667,
+                      "bright_y": 0.833333333333
+                    },
+                    "pi": {
+                      "bright_x": 0.333333333333,
+                      "bright_y": 0.5
+                    }
+                  },
+                  "hypothetical_sharp_charge_at_same_mean": {
+                    "pi_over_two": {
+                      "bright_x": 0.75,
+                      "bright_y": 0.933012701892
+                    },
+                    "pi": {
+                      "bright_x": 0.25,
+                      "bright_y": 0.933012701892
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "far": [
+          {
+            "sign": -1,
+            "tips_inside": 1,
+            "word": 18549672,
+            "ports": [
+              8,
+              1,
+              3
+            ],
+            "compensator_path": [
+              8,
+              1,
+              82
+            ],
+            "reads": {
+              "written": {
+                "sharp": {
+                  "joint": [
+                    {
+                      "material": -1,
+                      "cut": -1,
+                      "probability": 1.0
+                    }
+                  ],
+                  "mean_cut": -1.0,
+                  "mean_material": -1.0,
+                  "material_voltage": {
+                    "pi_over_two": {
+                      "bright_x": 0.5,
+                      "bright_y": 0.0
+                    },
+                    "pi": {
+                      "bright_x": 0.0,
+                      "bright_y": 0.5
+                    }
+                  },
+                  "hypothetical_sharp_charge_at_same_mean": {
+                    "pi_over_two": {
+                      "bright_x": 0.5,
+                      "bright_y": 0.0
+                    },
+                    "pi": {
+                      "bright_x": 0.0,
+                      "bright_y": 0.5
+                    }
+                  }
+                },
+                "spread": {
+                  "joint": [
+                    {
+                      "material": -1,
+                      "cut": -1,
+                      "probability": 0.333333333333
+                    },
+                    {
+                      "material": 0,
+                      "cut": 0,
+                      "probability": 0.666666666667
+                    }
+                  ],
+                  "mean_cut": -0.333333333333,
+                  "mean_material": -0.333333333333,
+                  "material_voltage": {
+                    "pi_over_two": {
+                      "bright_x": 0.833333333333,
+                      "bright_y": 0.333333333333
+                    },
+                    "pi": {
+                      "bright_x": 0.666666666667,
+                      "bright_y": 0.5
+                    }
+                  },
+                  "hypothetical_sharp_charge_at_same_mean": {
+                    "pi_over_two": {
+                      "bright_x": 0.933012701892,
+                      "bright_y": 0.25
+                    },
+                    "pi": {
+                      "bright_x": 0.75,
+                      "bright_y": 0.066987298108
+                    }
+                  }
+                }
+              },
+              "unwritten": {
+                "sharp": {
+                  "joint": [
+                    {
+                      "material": -1,
+                      "cut": 0,
+                      "probability": 1.0
+                    }
+                  ],
+                  "mean_cut": 0.0,
+                  "mean_material": -1.0,
+                  "material_voltage": {
+                    "pi_over_two": {
+                      "bright_x": 0.5,
+                      "bright_y": 0.0
+                    },
+                    "pi": {
+                      "bright_x": 0.0,
+                      "bright_y": 0.5
+                    }
+                  },
+                  "hypothetical_sharp_charge_at_same_mean": {
+                    "pi_over_two": {
+                      "bright_x": 0.5,
+                      "bright_y": 0.0
+                    },
+                    "pi": {
+                      "bright_x": 0.0,
+                      "bright_y": 0.5
+                    }
+                  }
+                },
+                "spread": {
+                  "joint": [
+                    {
+                      "material": -1,
+                      "cut": 0,
+                      "probability": 0.333333333333
+                    },
+                    {
+                      "material": 0,
+                      "cut": 0,
+                      "probability": 0.666666666667
+                    }
+                  ],
+                  "mean_cut": 0.0,
+                  "mean_material": -0.333333333333,
+                  "material_voltage": {
+                    "pi_over_two": {
+                      "bright_x": 0.833333333333,
+                      "bright_y": 0.333333333333
+                    },
+                    "pi": {
+                      "bright_x": 0.666666666667,
+                      "bright_y": 0.5
+                    }
+                  },
+                  "hypothetical_sharp_charge_at_same_mean": {
+                    "pi_over_two": {
+                      "bright_x": 0.933012701892,
+                      "bright_y": 0.25
+                    },
+                    "pi": {
+                      "bright_x": 0.75,
+                      "bright_y": 0.066987298108
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "sign": -1,
+            "tips_inside": 2,
+            "word": 18549672,
+            "ports": [
+              8,
+              3,
+              6
+            ],
+            "compensator_path": [
+              8,
+              1,
+              82
+            ],
+            "reads": {
+              "written": {
+                "sharp": {
+                  "joint": [
+                    {
+                      "material": -1,
+                      "cut": -1,
+                      "probability": 1.0
+                    }
+                  ],
+                  "mean_cut": -1.0,
+                  "mean_material": -1.0,
+                  "material_voltage": {
+                    "pi_over_two": {
+                      "bright_x": 0.5,
+                      "bright_y": 0.0
+                    },
+                    "pi": {
+                      "bright_x": 0.0,
+                      "bright_y": 0.5
+                    }
+                  },
+                  "hypothetical_sharp_charge_at_same_mean": {
+                    "pi_over_two": {
+                      "bright_x": 0.5,
+                      "bright_y": 0.0
+                    },
+                    "pi": {
+                      "bright_x": 0.0,
+                      "bright_y": 0.5
+                    }
+                  }
+                },
+                "spread": {
+                  "joint": [
+                    {
+                      "material": -1,
+                      "cut": -1,
+                      "probability": 0.666666666667
+                    },
+                    {
+                      "material": 0,
+                      "cut": 0,
+                      "probability": 0.333333333333
+                    }
+                  ],
+                  "mean_cut": -0.666666666667,
+                  "mean_material": -0.666666666667,
+                  "material_voltage": {
+                    "pi_over_two": {
+                      "bright_x": 0.666666666667,
+                      "bright_y": 0.166666666667
+                    },
+                    "pi": {
+                      "bright_x": 0.333333333333,
+                      "bright_y": 0.5
+                    }
+                  },
+                  "hypothetical_sharp_charge_at_same_mean": {
+                    "pi_over_two": {
+                      "bright_x": 0.75,
+                      "bright_y": 0.066987298108
+                    },
+                    "pi": {
+                      "bright_x": 0.25,
+                      "bright_y": 0.066987298108
+                    }
+                  }
+                }
+              },
+              "unwritten": {
+                "sharp": {
+                  "joint": [
+                    {
+                      "material": -1,
+                      "cut": 0,
+                      "probability": 1.0
+                    }
+                  ],
+                  "mean_cut": 0.0,
+                  "mean_material": -1.0,
+                  "material_voltage": {
+                    "pi_over_two": {
+                      "bright_x": 0.5,
+                      "bright_y": 0.0
+                    },
+                    "pi": {
+                      "bright_x": 0.0,
+                      "bright_y": 0.5
+                    }
+                  },
+                  "hypothetical_sharp_charge_at_same_mean": {
+                    "pi_over_two": {
+                      "bright_x": 0.5,
+                      "bright_y": 0.0
+                    },
+                    "pi": {
+                      "bright_x": 0.0,
+                      "bright_y": 0.5
+                    }
+                  }
+                },
+                "spread": {
+                  "joint": [
+                    {
+                      "material": -1,
+                      "cut": 0,
+                      "probability": 0.666666666667
+                    },
+                    {
+                      "material": 0,
+                      "cut": 0,
+                      "probability": 0.333333333333
+                    }
+                  ],
+                  "mean_cut": 0.0,
+                  "mean_material": -0.666666666667,
+                  "material_voltage": {
+                    "pi_over_two": {
+                      "bright_x": 0.666666666667,
+                      "bright_y": 0.166666666667
+                    },
+                    "pi": {
+                      "bright_x": 0.333333333333,
+                      "bright_y": 0.5
+                    }
+                  },
+                  "hypothetical_sharp_charge_at_same_mean": {
+                    "pi_over_two": {
+                      "bright_x": 0.75,
+                      "bright_y": 0.066987298108
+                    },
+                    "pi": {
+                      "bright_x": 0.25,
+                      "bright_y": 0.066987298108
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "sign": 1,
+            "tips_inside": 1,
+            "word": 18549672,
+            "ports": [
+              4,
+              2,
+              9
+            ],
+            "compensator_path": [
+              4,
+              3,
+              48
+            ],
+            "reads": {
+              "written": {
+                "sharp": {
+                  "joint": [
+                    {
+                      "material": 1,
+                      "cut": 1,
+                      "probability": 1.0
+                    }
+                  ],
+                  "mean_cut": 1.0,
+                  "mean_material": 1.0,
+                  "material_voltage": {
+                    "pi_over_two": {
+                      "bright_x": 0.5,
+                      "bright_y": 1.0
+                    },
+                    "pi": {
+                      "bright_x": 0.0,
+                      "bright_y": 0.5
+                    }
+                  },
+                  "hypothetical_sharp_charge_at_same_mean": {
+                    "pi_over_two": {
+                      "bright_x": 0.5,
+                      "bright_y": 1.0
+                    },
+                    "pi": {
+                      "bright_x": 0.0,
+                      "bright_y": 0.5
+                    }
+                  }
+                },
+                "spread": {
+                  "joint": [
+                    {
+                      "material": 0,
+                      "cut": 0,
+                      "probability": 0.666666666667
+                    },
+                    {
+                      "material": 1,
+                      "cut": 1,
+                      "probability": 0.333333333333
+                    }
+                  ],
+                  "mean_cut": 0.333333333333,
+                  "mean_material": 0.333333333333,
+                  "material_voltage": {
+                    "pi_over_two": {
+                      "bright_x": 0.833333333333,
+                      "bright_y": 0.666666666667
+                    },
+                    "pi": {
+                      "bright_x": 0.666666666667,
+                      "bright_y": 0.5
+                    }
+                  },
+                  "hypothetical_sharp_charge_at_same_mean": {
+                    "pi_over_two": {
+                      "bright_x": 0.933012701892,
+                      "bright_y": 0.75
+                    },
+                    "pi": {
+                      "bright_x": 0.75,
+                      "bright_y": 0.933012701892
+                    }
+                  }
+                }
+              },
+              "unwritten": {
+                "sharp": {
+                  "joint": [
+                    {
+                      "material": 1,
+                      "cut": 0,
+                      "probability": 1.0
+                    }
+                  ],
+                  "mean_cut": 0.0,
+                  "mean_material": 1.0,
+                  "material_voltage": {
+                    "pi_over_two": {
+                      "bright_x": 0.5,
+                      "bright_y": 1.0
+                    },
+                    "pi": {
+                      "bright_x": 0.0,
+                      "bright_y": 0.5
+                    }
+                  },
+                  "hypothetical_sharp_charge_at_same_mean": {
+                    "pi_over_two": {
+                      "bright_x": 0.5,
+                      "bright_y": 1.0
+                    },
+                    "pi": {
+                      "bright_x": 0.0,
+                      "bright_y": 0.5
+                    }
+                  }
+                },
+                "spread": {
+                  "joint": [
+                    {
+                      "material": 0,
+                      "cut": 0,
+                      "probability": 0.666666666667
+                    },
+                    {
+                      "material": 1,
+                      "cut": 0,
+                      "probability": 0.333333333333
+                    }
+                  ],
+                  "mean_cut": 0.0,
+                  "mean_material": 0.333333333333,
+                  "material_voltage": {
+                    "pi_over_two": {
+                      "bright_x": 0.833333333333,
+                      "bright_y": 0.666666666667
+                    },
+                    "pi": {
+                      "bright_x": 0.666666666667,
+                      "bright_y": 0.5
+                    }
+                  },
+                  "hypothetical_sharp_charge_at_same_mean": {
+                    "pi_over_two": {
+                      "bright_x": 0.933012701892,
+                      "bright_y": 0.75
+                    },
+                    "pi": {
+                      "bright_x": 0.75,
+                      "bright_y": 0.933012701892
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "sign": 1,
+            "tips_inside": 2,
+            "word": 18549672,
+            "ports": [
+              4,
+              2,
+              3
+            ],
+            "compensator_path": [
+              4,
+              3,
+              48
+            ],
+            "reads": {
+              "written": {
+                "sharp": {
+                  "joint": [
+                    {
+                      "material": 1,
+                      "cut": 1,
+                      "probability": 1.0
+                    }
+                  ],
+                  "mean_cut": 1.0,
+                  "mean_material": 1.0,
+                  "material_voltage": {
+                    "pi_over_two": {
+                      "bright_x": 0.5,
+                      "bright_y": 1.0
+                    },
+                    "pi": {
+                      "bright_x": 0.0,
+                      "bright_y": 0.5
+                    }
+                  },
+                  "hypothetical_sharp_charge_at_same_mean": {
+                    "pi_over_two": {
+                      "bright_x": 0.5,
+                      "bright_y": 1.0
+                    },
+                    "pi": {
+                      "bright_x": 0.0,
+                      "bright_y": 0.5
+                    }
+                  }
+                },
+                "spread": {
+                  "joint": [
+                    {
+                      "material": 0,
+                      "cut": 0,
+                      "probability": 0.333333333333
+                    },
+                    {
+                      "material": 1,
+                      "cut": 1,
+                      "probability": 0.666666666667
+                    }
+                  ],
+                  "mean_cut": 0.666666666667,
+                  "mean_material": 0.666666666667,
+                  "material_voltage": {
+                    "pi_over_two": {
+                      "bright_x": 0.666666666667,
+                      "bright_y": 0.833333333333
+                    },
+                    "pi": {
+                      "bright_x": 0.333333333333,
+                      "bright_y": 0.5
+                    }
+                  },
+                  "hypothetical_sharp_charge_at_same_mean": {
+                    "pi_over_two": {
+                      "bright_x": 0.75,
+                      "bright_y": 0.933012701892
+                    },
+                    "pi": {
+                      "bright_x": 0.25,
+                      "bright_y": 0.933012701892
+                    }
+                  }
+                }
+              },
+              "unwritten": {
+                "sharp": {
+                  "joint": [
+                    {
+                      "material": 1,
+                      "cut": 0,
+                      "probability": 1.0
+                    }
+                  ],
+                  "mean_cut": 0.0,
+                  "mean_material": 1.0,
+                  "material_voltage": {
+                    "pi_over_two": {
+                      "bright_x": 0.5,
+                      "bright_y": 1.0
+                    },
+                    "pi": {
+                      "bright_x": 0.0,
+                      "bright_y": 0.5
+                    }
+                  },
+                  "hypothetical_sharp_charge_at_same_mean": {
+                    "pi_over_two": {
+                      "bright_x": 0.5,
+                      "bright_y": 1.0
+                    },
+                    "pi": {
+                      "bright_x": 0.0,
+                      "bright_y": 0.5
+                    }
+                  }
+                },
+                "spread": {
+                  "joint": [
+                    {
+                      "material": 0,
+                      "cut": 0,
+                      "probability": 0.333333333333
+                    },
+                    {
+                      "material": 1,
+                      "cut": 0,
+                      "probability": 0.666666666667
+                    }
+                  ],
+                  "mean_cut": 0.0,
+                  "mean_material": 0.666666666667,
+                  "material_voltage": {
+                    "pi_over_two": {
+                      "bright_x": 0.666666666667,
+                      "bright_y": 0.833333333333
+                    },
+                    "pi": {
+                      "bright_x": 0.333333333333,
+                      "bright_y": 0.5
+                    }
+                  },
+                  "hypothetical_sharp_charge_at_same_mean": {
+                    "pi_over_two": {
+                      "bright_x": 0.75,
+                      "bright_y": 0.933012701892
+                    },
+                    "pi": {
+                      "bright_x": 0.25,
+                      "bright_y": 0.933012701892
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "faces": [
+        1,
+        8
+      ],
+      "regions": [
+        [
+          0,
+          1,
+          7
+        ],
+        [
+          2,
+          3,
+          4
+        ]
+      ],
+      "cut_pair_multiplicities": [
+        {
+          "cut": [
+            0,
+            0
+          ],
+          "words": 458
+        }
+      ],
+      "ring_energy_by_face": [
+        0.0,
+        0.3231441048034934,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.14847161572052403,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "panels": [
+        {
+          "contour": "enclosing",
+          "disk": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            18,
+            19
+          ],
+          "cycle": [
+            5,
+            9,
+            8,
+            6,
+            10,
+            11
+          ],
+          "sign": -1,
+          "compensator_path": [
+            5,
+            1,
+            82
+          ],
+          "pre_tour_material_voltage_by_region": {
+            "bare": [
+              {
+                "pi_over_two": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                },
+                "pi": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                }
+              },
+              {
+                "pi_over_two": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                },
+                "pi": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                }
+              }
+            ],
+            "string": [
+              {
+                "pi_over_two": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                },
+                "pi": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                }
+              },
+              {
+                "pi_over_two": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                },
+                "pi": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                }
+              }
+            ]
+          },
+          "path_counts": {
+            "idle": 158,
+            "winding": 24,
+            "away": 276
+          },
+          "conditional_winding_overlap": -1.0,
+          "bare": {
+            "denominator": 1832,
+            "by_cuts_and_final_port": [
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 5,
+                "bright": 1004,
+                "dark": 276
+              },
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 6,
+                "bright": 13,
+                "dark": 13
+              },
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 10,
+                "bright": 40,
+                "dark": 40
+              },
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 11,
+                "bright": 223,
+                "dark": 223
+              }
+            ],
+            "inclusive_bright": 0.6986899563318777
+          },
+          "string": {
+            "denominator": 1832,
+            "by_cuts_and_final_port": [
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 5,
+                "bright": 908,
+                "dark": 372
+              },
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 6,
+                "bright": 13,
+                "dark": 13
+              },
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 10,
+                "bright": 40,
+                "dark": 40
+              },
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 11,
+                "bright": 223,
+                "dark": 223
+              }
+            ],
+            "inclusive_bright": 0.6462882096069869
+          },
+          "fully_dephased_bright_both_inputs": 0.6724890829694323
+        },
+        {
+          "contour": "enclosing",
+          "disk": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            18,
+            19
+          ],
+          "cycle": [
+            5,
+            9,
+            8,
+            6,
+            10,
+            11
+          ],
+          "sign": 1,
+          "compensator_path": [
+            5,
+            0,
+            1,
+            82
+          ],
+          "pre_tour_material_voltage_by_region": {
+            "bare": [
+              {
+                "pi_over_two": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                },
+                "pi": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                }
+              },
+              {
+                "pi_over_two": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                },
+                "pi": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                }
+              }
+            ],
+            "string": [
+              {
+                "pi_over_two": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                },
+                "pi": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                }
+              },
+              {
+                "pi_over_two": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                },
+                "pi": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                }
+              }
+            ]
+          },
+          "path_counts": {
+            "idle": 402,
+            "winding": 24,
+            "away": 32
+          },
+          "conditional_winding_overlap": -1.0,
+          "bare": {
+            "denominator": 1832,
+            "by_cuts_and_final_port": [
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 5,
+                "bright": 1736,
+                "dark": 32
+              },
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 6,
+                "bright": 7,
+                "dark": 7
+              },
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 8,
+                "bright": 16,
+                "dark": 16
+              },
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 10,
+                "bright": 9,
+                "dark": 9
+              }
+            ],
+            "inclusive_bright": 0.9650655021834061
+          },
+          "string": {
+            "denominator": 1832,
+            "by_cuts_and_final_port": [
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 5,
+                "bright": 1640,
+                "dark": 128
+              },
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 6,
+                "bright": 7,
+                "dark": 7
+              },
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 8,
+                "bright": 16,
+                "dark": 16
+              },
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 10,
+                "bright": 9,
+                "dark": 9
+              }
+            ],
+            "inclusive_bright": 0.9126637554585153
+          },
+          "fully_dephased_bright_both_inputs": 0.9388646288209608
+        },
+        {
+          "contour": "deformed",
+          "disk": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            11,
+            18,
+            19
+          ],
+          "cycle": [
+            2,
+            6,
+            8,
+            9,
+            5,
+            11,
+            10
+          ],
+          "sign": -1,
+          "compensator_path": [
+            2,
+            6,
+            3,
+            48
+          ],
+          "pre_tour_material_voltage_by_region": {
+            "bare": [
+              {
+                "pi_over_two": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                },
+                "pi": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                }
+              },
+              {
+                "pi_over_two": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                },
+                "pi": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                }
+              }
+            ],
+            "string": [
+              {
+                "pi_over_two": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                },
+                "pi": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                }
+              },
+              {
+                "pi_over_two": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                },
+                "pi": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                }
+              }
+            ]
+          },
+          "path_counts": {
+            "idle": 201,
+            "winding": 18,
+            "away": 239
+          },
+          "conditional_winding_overlap": -1.0,
+          "bare": {
+            "denominator": 1832,
+            "by_cuts_and_final_port": [
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 2,
+                "bright": 1115,
+                "dark": 239
+              },
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 5,
+                "bright": 12,
+                "dark": 12
+              },
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 9,
+                "bright": 20,
+                "dark": 20
+              },
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 10,
+                "bright": 32,
+                "dark": 32
+              },
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 11,
+                "bright": 175,
+                "dark": 175
+              }
+            ],
+            "inclusive_bright": 0.7390829694323144
+          },
+          "string": {
+            "denominator": 1832,
+            "by_cuts_and_final_port": [
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 2,
+                "bright": 1043,
+                "dark": 311
+              },
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 5,
+                "bright": 12,
+                "dark": 12
+              },
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 9,
+                "bright": 20,
+                "dark": 20
+              },
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 10,
+                "bright": 32,
+                "dark": 32
+              },
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 11,
+                "bright": 175,
+                "dark": 175
+              }
+            ],
+            "inclusive_bright": 0.6997816593886463
+          },
+          "fully_dephased_bright_both_inputs": 0.7194323144104804
+        },
+        {
+          "contour": "deformed",
+          "disk": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            11,
+            18,
+            19
+          ],
+          "cycle": [
+            2,
+            6,
+            8,
+            9,
+            5,
+            11,
+            10
+          ],
+          "sign": 1,
+          "compensator_path": [
+            2,
+            3,
+            48
+          ],
+          "pre_tour_material_voltage_by_region": {
+            "bare": [
+              {
+                "pi_over_two": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                },
+                "pi": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                }
+              },
+              {
+                "pi_over_two": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                },
+                "pi": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                }
+              }
+            ],
+            "string": [
+              {
+                "pi_over_two": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                },
+                "pi": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                }
+              },
+              {
+                "pi_over_two": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                },
+                "pi": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                }
+              }
+            ]
+          },
+          "path_counts": {
+            "idle": 358,
+            "winding": 18,
+            "away": 82
+          },
+          "conditional_winding_overlap": -1.0,
+          "bare": {
+            "denominator": 1832,
+            "by_cuts_and_final_port": [
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 2,
+                "bright": 1586,
+                "dark": 82
+              },
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 5,
+                "bright": 6,
+                "dark": 6
+              },
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 8,
+                "bright": 8,
+                "dark": 8
+              },
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 9,
+                "bright": 2,
+                "dark": 2
+              },
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 10,
+                "bright": 66,
+                "dark": 66
+              }
+            ],
+            "inclusive_bright": 0.9104803493449781
+          },
+          "string": {
+            "denominator": 1832,
+            "by_cuts_and_final_port": [
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 2,
+                "bright": 1514,
+                "dark": 154
+              },
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 5,
+                "bright": 6,
+                "dark": 6
+              },
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 8,
+                "bright": 8,
+                "dark": 8
+              },
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 9,
+                "bright": 2,
+                "dark": 2
+              },
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 10,
+                "bright": 66,
+                "dark": 66
+              }
+            ],
+            "inclusive_bright": 0.87117903930131
+          },
+          "fully_dephased_bright_both_inputs": 0.8908296943231442
+        },
+        {
+          "contour": "exterior",
+          "disk": [
+            0
+          ],
+          "cycle": [
+            0,
+            1,
+            5
+          ],
+          "sign": -1,
+          "compensator_path": [
+            0,
+            10,
+            20
+          ],
+          "pre_tour_material_voltage_by_region": {
+            "bare": [
+              {
+                "pi_over_two": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                },
+                "pi": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                }
+              },
+              {
+                "pi_over_two": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                },
+                "pi": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                }
+              }
+            ],
+            "string": [
+              {
+                "pi_over_two": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                },
+                "pi": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                }
+              },
+              {
+                "pi_over_two": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                },
+                "pi": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                }
+              }
+            ]
+          },
+          "path_counts": {
+            "idle": 310,
+            "winding": 148,
+            "away": 0
+          },
+          "conditional_winding_overlap": 1.0,
+          "bare": {
+            "denominator": 1832,
+            "by_cuts_and_final_port": [
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 0,
+                "bright": 1832,
+                "dark": 0
+              }
+            ],
+            "inclusive_bright": 1.0
+          },
+          "string": {
+            "denominator": 1832,
+            "by_cuts_and_final_port": [
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 0,
+                "bright": 1832,
+                "dark": 0
+              }
+            ],
+            "inclusive_bright": 1.0
+          },
+          "fully_dephased_bright_both_inputs": 0.8384279475982532
+        },
+        {
+          "contour": "exterior",
+          "disk": [
+            0
+          ],
+          "cycle": [
+            0,
+            1,
+            5
+          ],
+          "sign": 1,
+          "compensator_path": [
+            0,
+            1,
+            82
+          ],
+          "pre_tour_material_voltage_by_region": {
+            "bare": [
+              {
+                "pi_over_two": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                },
+                "pi": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                }
+              },
+              {
+                "pi_over_two": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                },
+                "pi": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                }
+              }
+            ],
+            "string": [
+              {
+                "pi_over_two": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                },
+                "pi": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                }
+              },
+              {
+                "pi_over_two": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                },
+                "pi": {
+                  "bright_x": 1.0,
+                  "bright_y": 0.5
+                }
+              }
+            ]
+          },
+          "path_counts": {
+            "idle": 262,
+            "winding": 148,
+            "away": 48
+          },
+          "conditional_winding_overlap": 1.0,
+          "bare": {
+            "denominator": 1832,
+            "by_cuts_and_final_port": [
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 0,
+                "bright": 1688,
+                "dark": 48
+              },
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 5,
+                "bright": 48,
+                "dark": 48
+              }
+            ],
+            "inclusive_bright": 0.9475982532751092
+          },
+          "string": {
+            "denominator": 1832,
+            "by_cuts_and_final_port": [
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 0,
+                "bright": 1688,
+                "dark": 48
+              },
+              {
+                "cut": [
+                  0,
+                  0
+                ],
+                "port": 5,
+                "bright": 48,
+                "dark": 48
+              }
+            ],
+            "inclusive_bright": 0.9475982532751092
+          },
+          "fully_dephased_bright_both_inputs": 0.7860262008733625
+        }
+      ],
+      "setting": "held",
+      "calibrations_by_region": {
+        "near": [
+          {
+            "sign": -1,
+            "tips_inside": 1,
+            "word": 18549672,
+            "ports": [
+              5,
+              1,
+              9
+            ],
+            "compensator_path": [
+              5,
+              1,
+              82
+            ],
+            "reads": {
+              "written": {
+                "sharp": {
+                  "joint": [
+                    {
+                      "material": -1,
+                      "cut": -1,
+                      "probability": 1.0
+                    }
+                  ],
+                  "mean_cut": -1.0,
+                  "mean_material": -1.0,
+                  "material_voltage": {
+                    "pi_over_two": {
+                      "bright_x": 0.5,
+                      "bright_y": 0.0
+                    },
+                    "pi": {
+                      "bright_x": 0.0,
+                      "bright_y": 0.5
+                    }
+                  },
+                  "hypothetical_sharp_charge_at_same_mean": {
+                    "pi_over_two": {
+                      "bright_x": 0.5,
+                      "bright_y": 0.0
+                    },
+                    "pi": {
+                      "bright_x": 0.0,
+                      "bright_y": 0.5
+                    }
+                  }
+                },
+                "spread": {
+                  "joint": [
+                    {
+                      "material": -1,
+                      "cut": -1,
+                      "probability": 0.333333333333
+                    },
+                    {
+                      "material": 0,
+                      "cut": 0,
+                      "probability": 0.666666666667
+                    }
+                  ],
+                  "mean_cut": -0.333333333333,
+                  "mean_material": -0.333333333333,
+                  "material_voltage": {
+                    "pi_over_two": {
+                      "bright_x": 0.833333333333,
+                      "bright_y": 0.333333333333
+                    },
+                    "pi": {
+                      "bright_x": 0.666666666667,
+                      "bright_y": 0.5
+                    }
+                  },
+                  "hypothetical_sharp_charge_at_same_mean": {
+                    "pi_over_two": {
+                      "bright_x": 0.933012701892,
+                      "bright_y": 0.25
+                    },
+                    "pi": {
+                      "bright_x": 0.75,
+                      "bright_y": 0.066987298108
+                    }
+                  }
+                }
+              },
+              "unwritten": {
+                "sharp": {
+                  "joint": [
+                    {
+                      "material": -1,
+                      "cut": 0,
+                      "probability": 1.0
+                    }
+                  ],
+                  "mean_cut": 0.0,
+                  "mean_material": -1.0,
+                  "material_voltage": {
+                    "pi_over_two": {
+                      "bright_x": 0.5,
+                      "bright_y": 0.0
+                    },
+                    "pi": {
+                      "bright_x": 0.0,
+                      "bright_y": 0.5
+                    }
+                  },
+                  "hypothetical_sharp_charge_at_same_mean": {
+                    "pi_over_two": {
+                      "bright_x": 0.5,
+                      "bright_y": 0.0
+                    },
+                    "pi": {
+                      "bright_x": 0.0,
+                      "bright_y": 0.5
+                    }
+                  }
+                },
+                "spread": {
+                  "joint": [
+                    {
+                      "material": -1,
+                      "cut": 0,
+                      "probability": 0.333333333333
+                    },
+                    {
+                      "material": 0,
+                      "cut": 0,
+                      "probability": 0.666666666667
+                    }
+                  ],
+                  "mean_cut": 0.0,
+                  "mean_material": -0.333333333333,
+                  "material_voltage": {
+                    "pi_over_two": {
+                      "bright_x": 0.833333333333,
+                      "bright_y": 0.333333333333
+                    },
+                    "pi": {
+                      "bright_x": 0.666666666667,
+                      "bright_y": 0.5
+                    }
+                  },
+                  "hypothetical_sharp_charge_at_same_mean": {
+                    "pi_over_two": {
+                      "bright_x": 0.933012701892,
+                      "bright_y": 0.25
+                    },
+                    "pi": {
+                      "bright_x": 0.75,
+                      "bright_y": 0.066987298108
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "sign": -1,
+            "tips_inside": 2,
+            "word": 20519330,
+            "ports": [
+              5,
+              0,
+              1
+            ],
+            "compensator_path": [
+              5,
+              1,
+              82
+            ],
+            "reads": {
+              "written": {
+                "sharp": {
+                  "joint": [
+                    {
+                      "material": -1,
+                      "cut": -1,
+                      "probability": 1.0
+                    }
+                  ],
+                  "mean_cut": -1.0,
+                  "mean_material": -1.0,
+                  "material_voltage": {
+                    "pi_over_two": {
+                      "bright_x": 0.5,
+                      "bright_y": 0.0
+                    },
+                    "pi": {
+                      "bright_x": 0.0,
+                      "bright_y": 0.5
+                    }
+                  },
+                  "hypothetical_sharp_charge_at_same_mean": {
+                    "pi_over_two": {
+                      "bright_x": 0.5,
+                      "bright_y": 0.0
+                    },
+                    "pi": {
+                      "bright_x": 0.0,
+                      "bright_y": 0.5
+                    }
+                  }
+                },
+                "spread": {
+                  "joint": [
+                    {
+                      "material": -1,
+                      "cut": -1,
+                      "probability": 0.666666666667
+                    },
+                    {
+                      "material": 0,
+                      "cut": 0,
+                      "probability": 0.333333333333
+                    }
+                  ],
+                  "mean_cut": -0.666666666667,
+                  "mean_material": -0.666666666667,
+                  "material_voltage": {
+                    "pi_over_two": {
+                      "bright_x": 0.666666666667,
+                      "bright_y": 0.166666666667
+                    },
+                    "pi": {
+                      "bright_x": 0.333333333333,
+                      "bright_y": 0.5
+                    }
+                  },
+                  "hypothetical_sharp_charge_at_same_mean": {
+                    "pi_over_two": {
+                      "bright_x": 0.75,
+                      "bright_y": 0.066987298108
+                    },
+                    "pi": {
+                      "bright_x": 0.25,
+                      "bright_y": 0.066987298108
+                    }
+                  }
+                }
+              },
+              "unwritten": {
+                "sharp": {
+                  "joint": [
+                    {
+                      "material": -1,
+                      "cut": 0,
+                      "probability": 1.0
+                    }
+                  ],
+                  "mean_cut": 0.0,
+                  "mean_material": -1.0,
+                  "material_voltage": {
+                    "pi_over_two": {
+                      "bright_x": 0.5,
+                      "bright_y": 0.0
+                    },
+                    "pi": {
+                      "bright_x": 0.0,
+                      "bright_y": 0.5
+                    }
+                  },
+                  "hypothetical_sharp_charge_at_same_mean": {
+                    "pi_over_two": {
+                      "bright_x": 0.5,
+                      "bright_y": 0.0
+                    },
+                    "pi": {
+                      "bright_x": 0.0,
+                      "bright_y": 0.5
+                    }
+                  }
+                },
+                "spread": {
+                  "joint": [
+                    {
+                      "material": -1,
+                      "cut": 0,
+                      "probability": 0.666666666667
+                    },
+                    {
+                      "material": 0,
+                      "cut": 0,
+                      "probability": 0.333333333333
+                    }
+                  ],
+                  "mean_cut": 0.0,
+                  "mean_material": -0.666666666667,
+                  "material_voltage": {
+                    "pi_over_two": {
+                      "bright_x": 0.666666666667,
+                      "bright_y": 0.166666666667
+                    },
+                    "pi": {
+                      "bright_x": 0.333333333333,
+                      "bright_y": 0.5
+                    }
+                  },
+                  "hypothetical_sharp_charge_at_same_mean": {
+                    "pi_over_two": {
+                      "bright_x": 0.75,
+                      "bright_y": 0.066987298108
+                    },
+                    "pi": {
+                      "bright_x": 0.25,
+                      "bright_y": 0.066987298108
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "sign": 1,
+            "tips_inside": 1,
+            "word": 18549672,
+            "ports": [
+              5,
+              0,
+              4
+            ],
+            "compensator_path": [
+              5,
+              0,
+              1,
+              82
+            ],
+            "reads": {
+              "written": {
+                "sharp": {
+                  "joint": [
+                    {
+                      "material": 1,
+                      "cut": 1,
+                      "probability": 1.0
+                    }
+                  ],
+                  "mean_cut": 1.0,
+                  "mean_material": 1.0,
+                  "material_voltage": {
+                    "pi_over_two": {
+                      "bright_x": 0.5,
+                      "bright_y": 1.0
+                    },
+                    "pi": {
+                      "bright_x": 0.0,
+                      "bright_y": 0.5
+                    }
+                  },
+                  "hypothetical_sharp_charge_at_same_mean": {
+                    "pi_over_two": {
+                      "bright_x": 0.5,
+                      "bright_y": 1.0
+                    },
+                    "pi": {
+                      "bright_x": 0.0,
+                      "bright_y": 0.5
+                    }
+                  }
+                },
+                "spread": {
+                  "joint": [
+                    {
+                      "material": 0,
+                      "cut": 0,
+                      "probability": 0.666666666667
+                    },
+                    {
+                      "material": 1,
+                      "cut": 1,
+                      "probability": 0.333333333333
+                    }
+                  ],
+                  "mean_cut": 0.333333333333,
+                  "mean_material": 0.333333333333,
+                  "material_voltage": {
+                    "pi_over_two": {
+                      "bright_x": 0.833333333333,
+                      "bright_y": 0.666666666667
+                    },
+                    "pi": {
+                      "bright_x": 0.666666666667,
+                      "bright_y": 0.5
+                    }
+                  },
+                  "hypothetical_sharp_charge_at_same_mean": {
+                    "pi_over_two": {
+                      "bright_x": 0.933012701892,
+                      "bright_y": 0.75
+                    },
+                    "pi": {
+                      "bright_x": 0.75,
+                      "bright_y": 0.933012701892
+                    }
+                  }
+                }
+              },
+              "unwritten": {
+                "sharp": {
+                  "joint": [
+                    {
+                      "material": 1,
+                      "cut": 0,
+                      "probability": 1.0
+                    }
+                  ],
+                  "mean_cut": 0.0,
+                  "mean_material": 1.0,
+                  "material_voltage": {
+                    "pi_over_two": {
+                      "bright_x": 0.5,
+                      "bright_y": 1.0
+                    },
+                    "pi": {
+                      "bright_x": 0.0,
+                      "bright_y": 0.5
+                    }
+                  },
+                  "hypothetical_sharp_charge_at_same_mean": {
+                    "pi_over_two": {
+                      "bright_x": 0.5,
+                      "bright_y": 1.0
+                    },
+                    "pi": {
+                      "bright_x": 0.0,
+                      "bright_y": 0.5
+                    }
+                  }
+                },
+                "spread": {
+                  "joint": [
+                    {
+                      "material": 0,
+                      "cut": 0,
+                      "probability": 0.666666666667
+                    },
+                    {
+                      "material": 1,
+                      "cut": 0,
+                      "probability": 0.333333333333
+                    }
+                  ],
+                  "mean_cut": 0.0,
+                  "mean_material": 0.333333333333,
+                  "material_voltage": {
+                    "pi_over_two": {
+                      "bright_x": 0.833333333333,
+                      "bright_y": 0.666666666667
+                    },
+                    "pi": {
+                      "bright_x": 0.666666666667,
+                      "bright_y": 0.5
+                    }
+                  },
+                  "hypothetical_sharp_charge_at_same_mean": {
+                    "pi_over_two": {
+                      "bright_x": 0.933012701892,
+                      "bright_y": 0.75
+                    },
+                    "pi": {
+                      "bright_x": 0.75,
+                      "bright_y": 0.933012701892
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "sign": 1,
+            "tips_inside": 2,
+            "word": 19732912,
+            "ports": [
+              10,
+              0,
+              7
+            ],
+            "compensator_path": [
+              10,
+              20
+            ],
+            "reads": {
+              "written": {
+                "sharp": {
+                  "joint": [
+                    {
+                      "material": 1,
+                      "cut": 1,
+                      "probability": 1.0
+                    }
+                  ],
+                  "mean_cut": 1.0,
+                  "mean_material": 1.0,
+                  "material_voltage": {
+                    "pi_over_two": {
+                      "bright_x": 0.5,
+                      "bright_y": 1.0
+                    },
+                    "pi": {
+                      "bright_x": 0.0,
+                      "bright_y": 0.5
+                    }
+                  },
+                  "hypothetical_sharp_charge_at_same_mean": {
+                    "pi_over_two": {
+                      "bright_x": 0.5,
+                      "bright_y": 1.0
+                    },
+                    "pi": {
+                      "bright_x": 0.0,
+                      "bright_y": 0.5
+                    }
+                  }
+                },
+                "spread": {
+                  "joint": [
+                    {
+                      "material": 0,
+                      "cut": 0,
+                      "probability": 0.333333333333
+                    },
+                    {
+                      "material": 1,
+                      "cut": 1,
+                      "probability": 0.666666666667
+                    }
+                  ],
+                  "mean_cut": 0.666666666667,
+                  "mean_material": 0.666666666667,
+                  "material_voltage": {
+                    "pi_over_two": {
+                      "bright_x": 0.666666666667,
+                      "bright_y": 0.833333333333
+                    },
+                    "pi": {
+                      "bright_x": 0.333333333333,
+                      "bright_y": 0.5
+                    }
+                  },
+                  "hypothetical_sharp_charge_at_same_mean": {
+                    "pi_over_two": {
+                      "bright_x": 0.75,
+                      "bright_y": 0.933012701892
+                    },
+                    "pi": {
+                      "bright_x": 0.25,
+                      "bright_y": 0.933012701892
+                    }
+                  }
+                }
+              },
+              "unwritten": {
+                "sharp": {
+                  "joint": [
+                    {
+                      "material": 1,
+                      "cut": 0,
+                      "probability": 1.0
+                    }
+                  ],
+                  "mean_cut": 0.0,
+                  "mean_material": 1.0,
+                  "material_voltage": {
+                    "pi_over_two": {
+                      "bright_x": 0.5,
+                      "bright_y": 1.0
+                    },
+                    "pi": {
+                      "bright_x": 0.0,
+                      "bright_y": 0.5
+                    }
+                  },
+                  "hypothetical_sharp_charge_at_same_mean": {
+                    "pi_over_two": {
+                      "bright_x": 0.5,
+                      "bright_y": 1.0
+                    },
+                    "pi": {
+                      "bright_x": 0.0,
+                      "bright_y": 0.5
+                    }
+                  }
+                },
+                "spread": {
+                  "joint": [
+                    {
+                      "material": 0,
+                      "cut": 0,
+                      "probability": 0.333333333333
+                    },
+                    {
+                      "material": 1,
+                      "cut": 0,
+                      "probability": 0.666666666667
+                    }
+                  ],
+                  "mean_cut": 0.0,
+                  "mean_material": 0.666666666667,
+                  "material_voltage": {
+                    "pi_over_two": {
+                      "bright_x": 0.666666666667,
+                      "bright_y": 0.833333333333
+                    },
+                    "pi": {
+                      "bright_x": 0.333333333333,
+                      "bright_y": 0.5
+                    }
+                  },
+                  "hypothetical_sharp_charge_at_same_mean": {
+                    "pi_over_two": {
+                      "bright_x": 0.75,
+                      "bright_y": 0.933012701892
+                    },
+                    "pi": {
+                      "bright_x": 0.25,
+                      "bright_y": 0.933012701892
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "far": [
+          {
+            "sign": -1,
+            "tips_inside": 1,
+            "word": 18549672,
+            "ports": [
+              6,
+              2,
+              7
+            ],
+            "compensator_path": [
+              6,
+              3,
+              48
+            ],
+            "reads": {
+              "written": {
+                "sharp": {
+                  "joint": [
+                    {
+                      "material": -1,
+                      "cut": -1,
+                      "probability": 1.0
+                    }
+                  ],
+                  "mean_cut": -1.0,
+                  "mean_material": -1.0,
+                  "material_voltage": {
+                    "pi_over_two": {
+                      "bright_x": 0.5,
+                      "bright_y": 0.0
+                    },
+                    "pi": {
+                      "bright_x": 0.0,
+                      "bright_y": 0.5
+                    }
+                  },
+                  "hypothetical_sharp_charge_at_same_mean": {
+                    "pi_over_two": {
+                      "bright_x": 0.5,
+                      "bright_y": 0.0
+                    },
+                    "pi": {
+                      "bright_x": 0.0,
+                      "bright_y": 0.5
+                    }
+                  }
+                },
+                "spread": {
+                  "joint": [
+                    {
+                      "material": -1,
+                      "cut": -1,
+                      "probability": 0.333333333333
+                    },
+                    {
+                      "material": 0,
+                      "cut": 0,
+                      "probability": 0.666666666667
+                    }
+                  ],
+                  "mean_cut": -0.333333333333,
+                  "mean_material": -0.333333333333,
+                  "material_voltage": {
+                    "pi_over_two": {
+                      "bright_x": 0.833333333333,
+                      "bright_y": 0.333333333333
+                    },
+                    "pi": {
+                      "bright_x": 0.666666666667,
+                      "bright_y": 0.5
+                    }
+                  },
+                  "hypothetical_sharp_charge_at_same_mean": {
+                    "pi_over_two": {
+                      "bright_x": 0.933012701892,
+                      "bright_y": 0.25
+                    },
+                    "pi": {
+                      "bright_x": 0.75,
+                      "bright_y": 0.066987298108
+                    }
+                  }
+                }
+              },
+              "unwritten": {
+                "sharp": {
+                  "joint": [
+                    {
+                      "material": -1,
+                      "cut": 0,
+                      "probability": 1.0
+                    }
+                  ],
+                  "mean_cut": 0.0,
+                  "mean_material": -1.0,
+                  "material_voltage": {
+                    "pi_over_two": {
+                      "bright_x": 0.5,
+                      "bright_y": 0.0
+                    },
+                    "pi": {
+                      "bright_x": 0.0,
+                      "bright_y": 0.5
+                    }
+                  },
+                  "hypothetical_sharp_charge_at_same_mean": {
+                    "pi_over_two": {
+                      "bright_x": 0.5,
+                      "bright_y": 0.0
+                    },
+                    "pi": {
+                      "bright_x": 0.0,
+                      "bright_y": 0.5
+                    }
+                  }
+                },
+                "spread": {
+                  "joint": [
+                    {
+                      "material": -1,
+                      "cut": 0,
+                      "probability": 0.333333333333
+                    },
+                    {
+                      "material": 0,
+                      "cut": 0,
+                      "probability": 0.666666666667
+                    }
+                  ],
+                  "mean_cut": 0.0,
+                  "mean_material": -0.333333333333,
+                  "material_voltage": {
+                    "pi_over_two": {
+                      "bright_x": 0.833333333333,
+                      "bright_y": 0.333333333333
+                    },
+                    "pi": {
+                      "bright_x": 0.666666666667,
+                      "bright_y": 0.5
+                    }
+                  },
+                  "hypothetical_sharp_charge_at_same_mean": {
+                    "pi_over_two": {
+                      "bright_x": 0.933012701892,
+                      "bright_y": 0.25
+                    },
+                    "pi": {
+                      "bright_x": 0.75,
+                      "bright_y": 0.066987298108
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "sign": -1,
+            "tips_inside": 2,
+            "word": 18549672,
+            "ports": [
+              9,
+              3,
+              4
+            ],
+            "compensator_path": [
+              9,
+              1,
+              82
+            ],
+            "reads": {
+              "written": {
+                "sharp": {
+                  "joint": [
+                    {
+                      "material": -1,
+                      "cut": -1,
+                      "probability": 1.0
+                    }
+                  ],
+                  "mean_cut": -1.0,
+                  "mean_material": -1.0,
+                  "material_voltage": {
+                    "pi_over_two": {
+                      "bright_x": 0.5,
+                      "bright_y": 0.0
+                    },
+                    "pi": {
+                      "bright_x": 0.0,
+                      "bright_y": 0.5
+                    }
+                  },
+                  "hypothetical_sharp_charge_at_same_mean": {
+                    "pi_over_two": {
+                      "bright_x": 0.5,
+                      "bright_y": 0.0
+                    },
+                    "pi": {
+                      "bright_x": 0.0,
+                      "bright_y": 0.5
+                    }
+                  }
+                },
+                "spread": {
+                  "joint": [
+                    {
+                      "material": -1,
+                      "cut": -1,
+                      "probability": 0.666666666667
+                    },
+                    {
+                      "material": 0,
+                      "cut": 0,
+                      "probability": 0.333333333333
+                    }
+                  ],
+                  "mean_cut": -0.666666666667,
+                  "mean_material": -0.666666666667,
+                  "material_voltage": {
+                    "pi_over_two": {
+                      "bright_x": 0.666666666667,
+                      "bright_y": 0.166666666667
+                    },
+                    "pi": {
+                      "bright_x": 0.333333333333,
+                      "bright_y": 0.5
+                    }
+                  },
+                  "hypothetical_sharp_charge_at_same_mean": {
+                    "pi_over_two": {
+                      "bright_x": 0.75,
+                      "bright_y": 0.066987298108
+                    },
+                    "pi": {
+                      "bright_x": 0.25,
+                      "bright_y": 0.066987298108
+                    }
+                  }
+                }
+              },
+              "unwritten": {
+                "sharp": {
+                  "joint": [
+                    {
+                      "material": -1,
+                      "cut": 0,
+                      "probability": 1.0
+                    }
+                  ],
+                  "mean_cut": 0.0,
+                  "mean_material": -1.0,
+                  "material_voltage": {
+                    "pi_over_two": {
+                      "bright_x": 0.5,
+                      "bright_y": 0.0
+                    },
+                    "pi": {
+                      "bright_x": 0.0,
+                      "bright_y": 0.5
+                    }
+                  },
+                  "hypothetical_sharp_charge_at_same_mean": {
+                    "pi_over_two": {
+                      "bright_x": 0.5,
+                      "bright_y": 0.0
+                    },
+                    "pi": {
+                      "bright_x": 0.0,
+                      "bright_y": 0.5
+                    }
+                  }
+                },
+                "spread": {
+                  "joint": [
+                    {
+                      "material": -1,
+                      "cut": 0,
+                      "probability": 0.666666666667
+                    },
+                    {
+                      "material": 0,
+                      "cut": 0,
+                      "probability": 0.333333333333
+                    }
+                  ],
+                  "mean_cut": 0.0,
+                  "mean_material": -0.666666666667,
+                  "material_voltage": {
+                    "pi_over_two": {
+                      "bright_x": 0.666666666667,
+                      "bright_y": 0.166666666667
+                    },
+                    "pi": {
+                      "bright_x": 0.333333333333,
+                      "bright_y": 0.5
+                    }
+                  },
+                  "hypothetical_sharp_charge_at_same_mean": {
+                    "pi_over_two": {
+                      "bright_x": 0.75,
+                      "bright_y": 0.066987298108
+                    },
+                    "pi": {
+                      "bright_x": 0.25,
+                      "bright_y": 0.066987298108
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "sign": 1,
+            "tips_inside": 1,
+            "word": 18549672,
+            "ports": [
+              5,
+              0,
+              4
+            ],
+            "compensator_path": [
+              5,
+              0,
+              1,
+              82
+            ],
+            "reads": {
+              "written": {
+                "sharp": {
+                  "joint": [
+                    {
+                      "material": 1,
+                      "cut": 1,
+                      "probability": 1.0
+                    }
+                  ],
+                  "mean_cut": 1.0,
+                  "mean_material": 1.0,
+                  "material_voltage": {
+                    "pi_over_two": {
+                      "bright_x": 0.5,
+                      "bright_y": 1.0
+                    },
+                    "pi": {
+                      "bright_x": 0.0,
+                      "bright_y": 0.5
+                    }
+                  },
+                  "hypothetical_sharp_charge_at_same_mean": {
+                    "pi_over_two": {
+                      "bright_x": 0.5,
+                      "bright_y": 1.0
+                    },
+                    "pi": {
+                      "bright_x": 0.0,
+                      "bright_y": 0.5
+                    }
+                  }
+                },
+                "spread": {
+                  "joint": [
+                    {
+                      "material": 0,
+                      "cut": 0,
+                      "probability": 0.666666666667
+                    },
+                    {
+                      "material": 1,
+                      "cut": 1,
+                      "probability": 0.333333333333
+                    }
+                  ],
+                  "mean_cut": 0.333333333333,
+                  "mean_material": 0.333333333333,
+                  "material_voltage": {
+                    "pi_over_two": {
+                      "bright_x": 0.833333333333,
+                      "bright_y": 0.666666666667
+                    },
+                    "pi": {
+                      "bright_x": 0.666666666667,
+                      "bright_y": 0.5
+                    }
+                  },
+                  "hypothetical_sharp_charge_at_same_mean": {
+                    "pi_over_two": {
+                      "bright_x": 0.933012701892,
+                      "bright_y": 0.75
+                    },
+                    "pi": {
+                      "bright_x": 0.75,
+                      "bright_y": 0.933012701892
+                    }
+                  }
+                }
+              },
+              "unwritten": {
+                "sharp": {
+                  "joint": [
+                    {
+                      "material": 1,
+                      "cut": 0,
+                      "probability": 1.0
+                    }
+                  ],
+                  "mean_cut": 0.0,
+                  "mean_material": 1.0,
+                  "material_voltage": {
+                    "pi_over_two": {
+                      "bright_x": 0.5,
+                      "bright_y": 1.0
+                    },
+                    "pi": {
+                      "bright_x": 0.0,
+                      "bright_y": 0.5
+                    }
+                  },
+                  "hypothetical_sharp_charge_at_same_mean": {
+                    "pi_over_two": {
+                      "bright_x": 0.5,
+                      "bright_y": 1.0
+                    },
+                    "pi": {
+                      "bright_x": 0.0,
+                      "bright_y": 0.5
+                    }
+                  }
+                },
+                "spread": {
+                  "joint": [
+                    {
+                      "material": 0,
+                      "cut": 0,
+                      "probability": 0.666666666667
+                    },
+                    {
+                      "material": 1,
+                      "cut": 0,
+                      "probability": 0.333333333333
+                    }
+                  ],
+                  "mean_cut": 0.0,
+                  "mean_material": 0.333333333333,
+                  "material_voltage": {
+                    "pi_over_two": {
+                      "bright_x": 0.833333333333,
+                      "bright_y": 0.666666666667
+                    },
+                    "pi": {
+                      "bright_x": 0.666666666667,
+                      "bright_y": 0.5
+                    }
+                  },
+                  "hypothetical_sharp_charge_at_same_mean": {
+                    "pi_over_two": {
+                      "bright_x": 0.933012701892,
+                      "bright_y": 0.75
+                    },
+                    "pi": {
+                      "bright_x": 0.75,
+                      "bright_y": 0.933012701892
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "sign": 1,
+            "tips_inside": 2,
+            "word": 19732912,
+            "ports": [
+              11,
+              2,
+              4
+            ],
+            "compensator_path": [
+              11,
+              0,
+              1,
+              82
+            ],
+            "reads": {
+              "written": {
+                "sharp": {
+                  "joint": [
+                    {
+                      "material": 1,
+                      "cut": 1,
+                      "probability": 1.0
+                    }
+                  ],
+                  "mean_cut": 1.0,
+                  "mean_material": 1.0,
+                  "material_voltage": {
+                    "pi_over_two": {
+                      "bright_x": 0.5,
+                      "bright_y": 1.0
+                    },
+                    "pi": {
+                      "bright_x": 0.0,
+                      "bright_y": 0.5
+                    }
+                  },
+                  "hypothetical_sharp_charge_at_same_mean": {
+                    "pi_over_two": {
+                      "bright_x": 0.5,
+                      "bright_y": 1.0
+                    },
+                    "pi": {
+                      "bright_x": 0.0,
+                      "bright_y": 0.5
+                    }
+                  }
+                },
+                "spread": {
+                  "joint": [
+                    {
+                      "material": 0,
+                      "cut": 0,
+                      "probability": 0.333333333333
+                    },
+                    {
+                      "material": 1,
+                      "cut": 1,
+                      "probability": 0.666666666667
+                    }
+                  ],
+                  "mean_cut": 0.666666666667,
+                  "mean_material": 0.666666666667,
+                  "material_voltage": {
+                    "pi_over_two": {
+                      "bright_x": 0.666666666667,
+                      "bright_y": 0.833333333333
+                    },
+                    "pi": {
+                      "bright_x": 0.333333333333,
+                      "bright_y": 0.5
+                    }
+                  },
+                  "hypothetical_sharp_charge_at_same_mean": {
+                    "pi_over_two": {
+                      "bright_x": 0.75,
+                      "bright_y": 0.933012701892
+                    },
+                    "pi": {
+                      "bright_x": 0.25,
+                      "bright_y": 0.933012701892
+                    }
+                  }
+                }
+              },
+              "unwritten": {
+                "sharp": {
+                  "joint": [
+                    {
+                      "material": 1,
+                      "cut": 0,
+                      "probability": 1.0
+                    }
+                  ],
+                  "mean_cut": 0.0,
+                  "mean_material": 1.0,
+                  "material_voltage": {
+                    "pi_over_two": {
+                      "bright_x": 0.5,
+                      "bright_y": 1.0
+                    },
+                    "pi": {
+                      "bright_x": 0.0,
+                      "bright_y": 0.5
+                    }
+                  },
+                  "hypothetical_sharp_charge_at_same_mean": {
+                    "pi_over_two": {
+                      "bright_x": 0.5,
+                      "bright_y": 1.0
+                    },
+                    "pi": {
+                      "bright_x": 0.0,
+                      "bright_y": 0.5
+                    }
+                  }
+                },
+                "spread": {
+                  "joint": [
+                    {
+                      "material": 0,
+                      "cut": 0,
+                      "probability": 0.333333333333
+                    },
+                    {
+                      "material": 1,
+                      "cut": 0,
+                      "probability": 0.666666666667
+                    }
+                  ],
+                  "mean_cut": 0.0,
+                  "mean_material": 0.666666666667,
+                  "material_voltage": {
+                    "pi_over_two": {
+                      "bright_x": 0.666666666667,
+                      "bright_y": 0.833333333333
+                    },
+                    "pi": {
+                      "bright_x": 0.333333333333,
+                      "bright_y": 0.5
+                    }
+                  },
+                  "hypothetical_sharp_charge_at_same_mean": {
+                    "pi_over_two": {
+                      "bright_x": 0.75,
+                      "bright_y": 0.933012701892
+                    },
+                    "pi": {
+                      "bright_x": 0.25,
+                      "bright_y": 0.933012701892
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

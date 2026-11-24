@@ -1,0 +1,44 @@
+# A charged three-defect excitation
+
+Two vacancies and one excess on the unit-filled host have the same net load as one vacancy. Registered Interval Echo holds a substantial part of a sharply prepared triplet together at every exposure. At exposure one on the 20-cell board, **97.89%** of its probability is on its original class of connected configurations. Exchange alone gives **3.65%** with the same preparation and detector. The excess can move between the two vacancies' common neighbours. An electron rest energy and translational inertia have yet to be identified on this excitation. [Protocol](PROTOCOL.md) · [Release and energy readout](measure.py) · [Complete records](results.json)
+
+## A charged composite held by its high energy
+
+The maximally costly arrangement has a degree-five excess touching two nonadjacent degree-six vacancies. Let $P$ select every such arrangement anywhere on the board. For a sharp launch in $P$ the host-referenced mean energy is 199.5 native units. A measurement of the signs on every seam determines the final three addresses. On a connected board these differences determine the loads up to a constant, and the conserved total fixes the constant. The detector counts the original arrangement, another maximizing arrangement in the home cell, a maximizing arrangement in a different cell, any remaining connected triplet, and breakup.
+
+| Cells | Maximizing configurations | Lower bound for population in this class at every exposure | Upper bound for energy anywhere in the three-defect sector |
+|---:|---:|---:|---:|
+| 20 | 104 | 57.45% | 201.257 |
+| 80 | 384 | 72.98% | 200.416 |
+| 320 | 1,504 | 72.98% | 200.416 |
+
+Write $H$ in blocks on $P$ and its complement. For defects at $a,b,x$ with holes at $a,b$, let $h$ be the indicator of the vacancy–vacancy seam and $u,v$ the indicators of the two unlike seams. The native potential divided by the contrast strength is $18+2(d_a+d_b-d_x-6+u+v-h)$. The kinetic diagonal is half the number of unequal contacts, $D=d_a+d_b+d_x-2h-u-v$, and each legal swap contributes $-1/2$ off diagonal. Enumerating the two degrees and the three adjacencies bounds the complementary block above by $B=192$ using its diagonal plus off-diagonal row sum. The maximizing block has a lower bound $L$ of 198.5 or 199 and an upper bound $A$ of 200.5 or 200. Complete counts of the cut degrees on its two sides bound the coupling norm $C$ by $\sqrt{7}$ or $\sqrt{14}/2$, respectively.
+
+For population $p$ in $P$, energy conservation gives $199.5\le Ap+B(1-p)+2C\sqrt{p(1-p)}$. Its lower root gives the all-exposure bounds. The top eigenvalue of the two-by-two real matrix with diagonal $A,B$ and off-diagonal $C$ bounds the whole spectrum. Since $B<L$, the min–max principle gives precisely $\operatorname{rank}P$ eigenvalues at or above $L$. These statements concern the entire native three-defect sector, with every host contact active.
+
+The first source is the excess at port 8 between vacancies at 1 and 3. At exposure one, the detector recorded 791,183 original arrangements and 235,316 different maximizing arrangements in home out of 1,048,576 enrollments. The upper bound on the absolute probability error from the finite computational neighbourhood is $6.10\times10^{-5}$ for either individual bin or their union. The remote maximizing bin had zero simulated clicks. All direct one-swap moves between maximizing configurations stay within a cell. Longer-time intercell transport by intermediate configurations remains open.
+
+For the flight calculation the 35,882 addresses within eight swaps of the source retain the actual diagonal of the full 6,825,840-address generator. Only the last shell couples to discarded addresses, with coupling norm at most 9. Duhamel's formula bounds the vector error by nine times the integral of the computed last-shell norm. A midpoint Taylor bound of order 18 on each of sixteen time intervals bounds that integral. The displayed probability error is twice the vector error; it covers any projection, including a union of detector bins. For the exchange-only control at exposure one the bound is 0.02963, still below the separation of the two responses. The estimates are analytic truncation bounds evaluated in floating-point arithmetic. Counts are seeded draws from the computed distributions.
+
+## Energy of assembling the dressing
+
+There is a competing breakup channel consisting of two vacancies in their interacting pair sector and one independently moving excess. Write their generator sum on a tensor product and compress to three distinct addresses. At an unlike contact the difference between the actual and separated generators on the two swapped configurations is $(2\kappa-1/2)I-\mathrm{SWAP}/2$. This follows from the native seam operator on $|0,2\rangle,|2,0\rangle$ and the two independent vacancy–background and excess–background contacts. Its eigenvalues at the registered $\kappa=8$ are 15 and 16. Every other term cancels. The complete-cell test checks this matrix identity on all 660 three-defect configurations.
+
+The full generator therefore lies above the sum of the separate ground energies plus 15 times the expected number of unlike contacts. Positivity of the exchange Laplacians and minima of the degree potentials bound the separate energies below by 48 each. Any state supported entirely on connected triplets consequently costs at least 111. On each board a sharp vacancy pair at ports 0 and 5 and one remote degree-six excess have mean energy 103 on that same board. The excess is 12, 30 or 62 links from the home cell. Thus these connected configurations can occur in an excited band above an accessible separated preparation. This energy ordering leaves weakly associated or extended states and alternative dressings open.
+
+For a direct same-charge work read, put the vacancies at 0 and 5 and let one excess interfere between port 11 and remote degree-five storage. These three home ports form a face. The two-arm frequency versus small exposure gives an assembly cost of **31.032** units at $t=1/32$ and **31.021** at $t=1/64$. The exact initial-slope energy difference is 31. Reversing the contrast strength preserves the material, the native swap routing and the complete detector. It gives **−33.031** and **−32.983** respectively, against −33. The phases at positive waits measure finite-time slopes. Both vacancy addresses are checked at the end and every unsuccessful outcome is counted. A ball of three swaps about the two starting words gives their return amplitudes: all interaction-picture paths of length at most seven agree with the unrestricted generator. A Dyson remainder bound with off-diagonal norm at most 9 controls the longer paths.
+
+## Exact confinement and the electron anchor
+
+A state confined to a single cell can never occupy an outgoing gateway: each exterior one-swap destination from a home-only word has a unique home-only predecessor. There are 252 possible interior words with all three defects off the three gateway ports. Let $A$ be twice the native generator restricted to those words, and $B$ its transfer from those words to ones touching a gateway, in the same units. Stationarity confined to home requires $Bv=BAv=0$. On all ten gateway layouts across all 420 cells the stacked integer matrix has rank 252 modulo 1009. Its rank is therefore 252 over the complex numbers. This excludes every exactly stationary triplet with one-cell support, including coherent preparations. The one-load compact eigenstate uses a different sector.
+
+If an upper-band rest line is assigned 511 keV using its native energy above the uniform host, the relativistic target at $pc=511$ keV is $\sqrt2$ times that line. The required host-referenced energy exceeds 280.72 units on 20 cells and 281.42 on the larger two boards. The entire sector ends below 201.257. This excludes that particular rest-energy assignment on these finite boards. Only the assembly work has a same-charge interferometric reading here. A charge-sector reference shift preserves that work and the free detection probabilities. The experiment supplies a sharp three-defect input. Free exchange preserves every individual load multiplicity, so an isolated bare vacancy has no dynamical route to create the added neutral pair in this blank sector.
+
+From the repository root, run the deposited experiment and its independent checks.
+
+```sh
+OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 python -m model.candidate_laws.interval_echo.openwave.row_02_dressed.measure
+python -m pytest -q model/candidate_laws/interval_echo/openwave/row_02_dressed
+```
+
+The [OpenWave static criterion](https://github.com/openwave-labs/openwave/blob/d4fc3e4046c472f4ad38468df8dddfa1f97bac97/MODELS.md#L83-L86) also permits an independent second use of the anchor. The physical reference and the mass of a mobile electron on the registered law remain open.

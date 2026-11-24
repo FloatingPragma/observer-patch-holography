@@ -1,0 +1,78 @@
+{
+  "masked_ordinary_contact": {
+    "contact_gap_mean": 8.5,
+    "local_energy_levels": [
+      8,
+      9
+    ],
+    "masked_ports": 80,
+    "maximum_range": 31,
+    "home_annulus_stations": 5
+  },
+  "boards": [
+    {
+      "cells": 80,
+      "relative_routed_radius": 0.1935483870967742,
+      "global_tag": {
+        "charge": 1.0459318586286525e-05,
+        "simultaneous_radius": 9.15244994278322e-09,
+        "per_coupling_residual_over_radius_fourth": 0.0011862201501679583,
+        "per_coupling_lower": 0.0011851821455928068
+      },
+      "ancestor_tag": {
+        "charge": 1.045786893147492e-06,
+        "simultaneous_radius": 2.894279766694187e-09,
+        "per_coupling_residual_over_radius_fourth": 0.00011860557408200522,
+        "per_coupling_lower": 0.00011827732583608437
+      }
+    },
+    {
+      "cells": 1280,
+      "relative_routed_radius": 0.09448818897637795,
+      "global_tag": {
+        "charge": 6.904343152815717e-07,
+        "simultaneous_radius": 2.3515699821277376e-09,
+        "per_coupling_residual_over_radius_fourth": 0.0013785813515997504,
+        "per_coupling_lower": 0.0013738860019443368
+      },
+      "ancestor_tag": {
+        "charge": 1.2114031155824665e-07,
+        "simultaneous_radius": 9.84982098337207e-10,
+        "per_coupling_residual_over_radius_fourth": 0.0002418793080599943,
+        "per_coupling_lower": 0.00023991260692366175
+      }
+    },
+    {
+      "cells": 20480,
+      "relative_routed_radius": 0.046966731898238745,
+      "global_tag": {
+        "charge": 4.256790699202302e-08,
+        "simultaneous_radius": 5.839292047000261e-10,
+        "per_coupling_residual_over_radius_fourth": 0.0013923264142434012,
+        "per_coupling_lower": 0.0013732270477675175
+      },
+      "ancestor_tag": {
+        "charge": 8.318904230283859e-09,
+        "simultaneous_radius": 2.584368669164972e-10,
+        "per_coupling_residual_over_radius_fourth": 0.0002720977120053355,
+        "per_coupling_lower": 0.0002636446659984088
+      }
+    },
+    {
+      "cells": 327680,
+      "relative_routed_radius": 0.02344894968246214,
+      "global_tag": {
+        "charge": 2.6098730711172994e-09,
+        "simultaneous_radius": 1.4476384213911591e-10,
+        "per_coupling_residual_over_radius_fourth": 0.001373870945191513,
+        "per_coupling_lower": 0.0012976653860667247
+      },
+      "ancestor_tag": {
+        "charge": 5.31079453362933e-10,
+        "simultaneous_radius": 6.532158497465275e-11,
+        "per_coupling_residual_over_radius_fourth": 0.0002795670941388597,
+        "per_coupling_lower": 0.0002451809668272681
+      }
+    }
+  ]
+}

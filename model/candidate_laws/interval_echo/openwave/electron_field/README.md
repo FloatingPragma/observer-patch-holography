@@ -6,7 +6,9 @@ OpenWave's M10 column at revision `f8fd02b2` awards partial credit to row 4 for 
 
 The first-order seven-cell comparison transports three charges with the geometric mass ordering. Each rest peak is simple at fixed charge sign. The signed source also drives a distant probe in the written-field experiments. Twenty-four independent source–receiver combinations resolve one response pattern at each frequency examined. [Charged-family identity test](lepton_family/identity_audit/README.md) · [Photon polarization test](../photon_identity/README.md)
 
-A terminal observer gates its rotation experiment on the signed change of an external seam head. The three guided charges all give the orbital order phase. Opening one source-side contact lets the field-circulation preparation transmit quantum information to the same flux-positive receiver on a different written medium. [Arrival-conditioned turns and circulation](lepton_family/arrival_spin/README.md)
+Two local states of one vacancy at the same port occur for each family character in the first-order comparison. Their energy magnitudes reproduce the register ratios on the negative branch. Local face controls exchange the light pair, and free evolution keeps its charge parked. [Stationary partners and signed energies](lepton_family/arrival_spin/README.md#two-stationary-states-of-one-negative-charge)
+
+A terminal observer gates its rotation experiment on the signed change of an external seam head. The three guided charges all give the orbital order phase. A staged source and receiver transmit quantum information between two triangular field windings through the positive-energy light branch of the same seven-cell guide. Laplacian contact pulses give +1 when the observer turns the received winding and charge together on six calibrated perpendicular axis pairs. Using the first-order flight generator for these pulses gives at most 1.28 destructive events per million captures for the vacancy. [Arrival-conditioned turns and circulation](lepton_family/arrival_spin/README.md)
 
 ## Which preparation carries the charge?
 
@@ -87,6 +89,8 @@ Removing a preparation cost changes the mass question. In the directed ring vers
 Three laboratory cyclotron-frequency ratios and a rubidium recoil measurement yield **510.999 keV** for the laboratory electron without an electron-mass input. The 256 corners of the specified measurement and chemical-correction box give 510.998864–510.999038 keV. This is a sensitivity envelope. These four physical inputs use no simulated excitation or seam-clock measurement and supply no model-to-SI calibration. [Carbon ion and electron frequency ratio](https://doi.org/10.1103/PhysRevLett.75.3598) · [Rubidium and hydrocarbon frequency ratios](https://doi.org/10.1023/A:1011922529114) · [Rubidium recoil](https://arxiv.org/abs/1012.3627) · [Laboratory reconstruction replay](replay.py)
 
 The charged-lepton assignment would also require colour-singlet behaviour against an independent sensitive control, chiral weak responses and separation from the heavier charged-lepton branches. Their joint observation belongs to the same mobile state as the charge, spin and field records. [Charged-lepton criteria](../../../../evaluation/particles.json)
+
+The registered law holds a monitored vacancy at 35 exchange units above the filled host. Two separated copies give 70, while a vacancy and excess give 102. In the separate first-order family comparison, one unlabeled vacancy resolves three lines. With only the electron scale supplied the middle and heavy energies are 105.6594145 and 1776.98497 MeV. The middle ratio is high by 9.83 ppm. [Registered-law anchor](../row_04_compact/README.md#a-511-kev-anchor-on-the-unit-filled-host) · [Unlabeled spectra and clock calibration](lepton_family/arrival_spin/README.md#one-electron-anchor-and-three-unlabeled-lines)
 
 ## Testing the complete electron on the written-field law
 

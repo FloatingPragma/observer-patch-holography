@@ -1,0 +1,1412 @@
+[
+  {
+    "length": 12,
+    "path": [
+      0,
+      5,
+      4,
+      2,
+      11,
+      10,
+      6,
+      3,
+      9,
+      8,
+      7,
+      1
+    ],
+    "extra_unit_at": null,
+    "law": "native",
+    "dimension": 194,
+    "wall_words": 24,
+    "stationary": {
+      "minimum_arc": 5.0,
+      "ground_energy": -12.49036993436,
+      "extrema": {
+        "any": {
+          "maximum": 0.65364961233,
+          "energy": 16.35072826774,
+          "ground_max": 0.02057442708
+        },
+        "tight": {
+          "maximum": 0.30450437394,
+          "energy": 44.72630583785,
+          "ground_max": 0.00827487279
+        },
+        "wider": {
+          "maximum": 0.65364961233,
+          "energy": 16.35072826774,
+          "ground_max": 0.02057442708
+        }
+      }
+    },
+    "separation": {
+      "1": [
+        {
+          "periods": 1,
+          "energy_change": 4.0,
+          "reference_change": 0.0,
+          "contact_change": 4.0
+        },
+        {
+          "periods": 2,
+          "energy_change": 8.0,
+          "reference_change": 0.0,
+          "contact_change": 8.0,
+          "release": [
+            {
+              "time": 0.0,
+              "material": -0.25,
+              "heads": -0.25
+            },
+            {
+              "time": 0.125,
+              "material": -0.1704299547,
+              "heads": -0.1704299547
+            },
+            {
+              "time": 1.0,
+              "material": 0.22000226687,
+              "heads": 0.22000226687
+            },
+            {
+              "time": 4.0,
+              "material": -0.10297382409,
+              "heads": -0.10297382409
+            }
+          ]
+        },
+        {
+          "periods": 3,
+          "energy_change": -12.0,
+          "reference_change": -24.0,
+          "contact_change": 12.0
+        }
+      ],
+      "-2": [
+        {
+          "periods": 1,
+          "energy_change": 8.0,
+          "reference_change": 0.0,
+          "contact_change": 8.0
+        },
+        {
+          "periods": 2,
+          "energy_change": 12.0,
+          "reference_change": 0.0,
+          "contact_change": 12.0,
+          "release": [
+            {
+              "time": 0.0,
+              "material": 0.0,
+              "heads": 0.0
+            },
+            {
+              "time": 0.125,
+              "material": -0.11495158786,
+              "heads": -0.11495158786
+            },
+            {
+              "time": 1.0,
+              "material": -0.25291130789,
+              "heads": -0.25291130789
+            },
+            {
+              "time": 4.0,
+              "material": -0.66502472992,
+              "heads": -0.66502472992
+            }
+          ]
+        },
+        {
+          "periods": 3,
+          "energy_change": 16.0,
+          "reference_change": 0.0,
+          "contact_change": 16.0
+        }
+      ]
+    }
+  },
+  {
+    "length": 12,
+    "path": [
+      0,
+      5,
+      4,
+      2,
+      11,
+      10,
+      6,
+      3,
+      9,
+      8,
+      7,
+      1
+    ],
+    "extra_unit_at": null,
+    "law": "positive_laplacian",
+    "dimension": 194,
+    "wall_words": 24,
+    "stationary": {
+      "minimum_arc": 5.0,
+      "ground_energy": 39.1109870038,
+      "extrema": {
+        "any": {
+          "maximum": 0.70077509463,
+          "energy": 76.80237586313,
+          "ground_max": 0.01436264552
+        },
+        "tight": {
+          "maximum": 0.33643240975,
+          "energy": 76.80237586313,
+          "ground_max": 0.00261028604
+        },
+        "wider": {
+          "maximum": 0.70077509463,
+          "energy": 76.80237586313,
+          "ground_max": 0.01436264552
+        }
+      }
+    },
+    "separation": {
+      "1": [
+        {
+          "periods": 1,
+          "energy_change": -4.0,
+          "reference_change": 0.0,
+          "contact_change": -4.0
+        },
+        {
+          "periods": 2,
+          "energy_change": -8.0,
+          "reference_change": 0.0,
+          "contact_change": -8.0,
+          "release": [
+            {
+              "time": 0.0,
+              "material": -0.25,
+              "heads": -0.25
+            },
+            {
+              "time": 0.125,
+              "material": -0.17175330116,
+              "heads": -0.17175330116
+            },
+            {
+              "time": 1.0,
+              "material": 0.11593798597,
+              "heads": 0.11593798597
+            },
+            {
+              "time": 4.0,
+              "material": 0.01001077412,
+              "heads": 0.01001077412
+            }
+          ]
+        },
+        {
+          "periods": 3,
+          "energy_change": -36.0,
+          "reference_change": -24.0,
+          "contact_change": -12.0
+        }
+      ],
+      "-2": [
+        {
+          "periods": 1,
+          "energy_change": -8.0,
+          "reference_change": 0.0,
+          "contact_change": -8.0
+        },
+        {
+          "periods": 2,
+          "energy_change": -12.0,
+          "reference_change": 0.0,
+          "contact_change": -12.0,
+          "release": [
+            {
+              "time": 0.0,
+              "material": 0.0,
+              "heads": 0.0
+            },
+            {
+              "time": 0.125,
+              "material": -0.06095640269,
+              "heads": -0.06095640269
+            },
+            {
+              "time": 1.0,
+              "material": -0.24773804943,
+              "heads": -0.24773804943
+            },
+            {
+              "time": 4.0,
+              "material": -0.24700624048,
+              "heads": -0.24700624048
+            }
+          ]
+        },
+        {
+          "periods": 3,
+          "energy_change": -16.0,
+          "reference_change": 0.0,
+          "contact_change": -16.0
+        }
+      ]
+    }
+  },
+  {
+    "length": 12,
+    "path": [
+      0,
+      5,
+      4,
+      2,
+      11,
+      10,
+      6,
+      3,
+      9,
+      8,
+      7,
+      1
+    ],
+    "extra_unit_at": 1,
+    "law": "native",
+    "dimension": 112,
+    "wall_words": 10,
+    "stationary": {
+      "minimum_arc": 3.5,
+      "ground_energy": 13.57707621744,
+      "extrema": {
+        "any": {
+          "maximum": 0.71518734991,
+          "energy": 68.03332300678,
+          "ground_max": 0.00027598065
+        },
+        "tight": {
+          "maximum": 0.36771429442,
+          "energy": 74.98378271482,
+          "ground_max": 0.00014039009
+        },
+        "wider": {
+          "maximum": 0.71518734991,
+          "energy": 68.03332300678,
+          "ground_max": 0.00027598065
+        }
+      }
+    },
+    "separation": {}
+  },
+  {
+    "length": 12,
+    "path": [
+      0,
+      5,
+      4,
+      2,
+      11,
+      10,
+      6,
+      3,
+      9,
+      8,
+      7,
+      1
+    ],
+    "extra_unit_at": 1,
+    "law": "positive_laplacian",
+    "dimension": 112,
+    "wall_words": 10,
+    "stationary": {
+      "minimum_arc": 3.5,
+      "ground_energy": 62.91467955851,
+      "extrema": {
+        "any": {
+          "maximum": 0.72045278429,
+          "energy": 123.57778087396,
+          "ground_max": 0.00062507241
+        },
+        "tight": {
+          "maximum": 0.21649554916,
+          "energy": 123.57778087396,
+          "ground_max": 7.384319e-05
+        },
+        "wider": {
+          "maximum": 0.72045278429,
+          "energy": 123.57778087396,
+          "ground_max": 0.00062507241
+        }
+      }
+    },
+    "separation": {}
+  },
+  {
+    "length": 12,
+    "path": [
+      0,
+      5,
+      4,
+      2,
+      11,
+      10,
+      6,
+      3,
+      9,
+      8,
+      7,
+      1
+    ],
+    "extra_unit_at": 2,
+    "law": "native",
+    "dimension": 209,
+    "wall_words": 22,
+    "stationary": {
+      "minimum_arc": 3.5,
+      "ground_energy": 8.02203205555,
+      "extrema": {
+        "any": {
+          "maximum": 0.5573051846,
+          "energy": 81.13621954276,
+          "ground_max": 0.00611497517
+        },
+        "tight": {
+          "maximum": 0.30562523061,
+          "energy": 95.62565392701,
+          "ground_max": 0.00017660531
+        },
+        "wider": {
+          "maximum": 0.5573051846,
+          "energy": 81.13621954276,
+          "ground_max": 0.00611497517
+        }
+      }
+    },
+    "separation": {}
+  },
+  {
+    "length": 12,
+    "path": [
+      0,
+      5,
+      4,
+      2,
+      11,
+      10,
+      6,
+      3,
+      9,
+      8,
+      7,
+      1
+    ],
+    "extra_unit_at": 2,
+    "law": "positive_laplacian",
+    "dimension": 209,
+    "wall_words": 22,
+    "stationary": {
+      "minimum_arc": 3.5,
+      "ground_energy": 62.8083945476,
+      "extrema": {
+        "any": {
+          "maximum": 0.53799896536,
+          "energy": 111.89495903453,
+          "ground_max": 0.0085912252
+        },
+        "tight": {
+          "maximum": 0.26748622063,
+          "energy": 113.17268501176,
+          "ground_max": 0.00024234676
+        },
+        "wider": {
+          "maximum": 0.53799896536,
+          "energy": 111.89495903453,
+          "ground_max": 0.0085912252
+        }
+      }
+    },
+    "separation": {}
+  },
+  {
+    "length": 15,
+    "path": [
+      34,
+      24,
+      14,
+      22,
+      68,
+      63,
+      62,
+      229,
+      236,
+      231,
+      108,
+      109,
+      113,
+      117,
+      116
+    ],
+    "extra_unit_at": null,
+    "law": "native",
+    "dimension": 724,
+    "wall_words": 60,
+    "stationary": {
+      "minimum_arc": 5.0,
+      "ground_energy": -47.2807828088,
+      "extrema": {
+        "any": {
+          "maximum": 0.52165871516,
+          "energy": 76.59009738014,
+          "ground_max": 0.24765267064
+        },
+        "tight": {
+          "maximum": 0.28546544172,
+          "energy": 64.5965605148,
+          "ground_max": 0.00337165893
+        },
+        "wider": {
+          "maximum": 0.51248110004,
+          "energy": 76.59009738014,
+          "ground_max": 0.24415946144
+        }
+      }
+    },
+    "separation": {
+      "1": [
+        {
+          "periods": 1,
+          "energy_change": 4.0,
+          "reference_change": 0.0,
+          "contact_change": 4.0
+        },
+        {
+          "periods": 2,
+          "energy_change": 8.0,
+          "reference_change": 0.0,
+          "contact_change": 8.0,
+          "release": [
+            {
+              "time": 0.0,
+              "material": -0.25,
+              "heads": -0.25
+            },
+            {
+              "time": 0.125,
+              "material": -0.14627985228,
+              "heads": -0.14627985228
+            },
+            {
+              "time": 1.0,
+              "material": 0.17290813376,
+              "heads": 0.17290813376
+            },
+            {
+              "time": 4.0,
+              "material": 0.11939384082,
+              "heads": 0.11939384082
+            }
+          ]
+        },
+        {
+          "periods": 3,
+          "energy_change": 12.0,
+          "reference_change": 0.0,
+          "contact_change": 12.0
+        },
+        {
+          "periods": 4,
+          "energy_change": 16.0,
+          "reference_change": 0.0,
+          "contact_change": 16.0
+        }
+      ],
+      "-2": [
+        {
+          "periods": 1,
+          "energy_change": 32.0,
+          "reference_change": 24.0,
+          "contact_change": 8.0
+        },
+        {
+          "periods": 2,
+          "energy_change": 36.0,
+          "reference_change": 24.0,
+          "contact_change": 12.0,
+          "release": [
+            {
+              "time": 0.0,
+              "material": 0.0,
+              "heads": 0.0
+            },
+            {
+              "time": 0.125,
+              "material": -0.08782651748,
+              "heads": -0.08782651748
+            },
+            {
+              "time": 1.0,
+              "material": -0.47328571796,
+              "heads": -0.47328571796
+            },
+            {
+              "time": 4.0,
+              "material": -0.77703491397,
+              "heads": -0.77703491397
+            }
+          ]
+        },
+        {
+          "periods": 3,
+          "energy_change": 40.0,
+          "reference_change": 24.0,
+          "contact_change": 16.0
+        },
+        {
+          "periods": 4,
+          "energy_change": 44.0,
+          "reference_change": 24.0,
+          "contact_change": 20.0
+        }
+      ]
+    }
+  },
+  {
+    "length": 15,
+    "path": [
+      34,
+      24,
+      14,
+      22,
+      68,
+      63,
+      62,
+      229,
+      236,
+      231,
+      108,
+      109,
+      113,
+      117,
+      116
+    ],
+    "extra_unit_at": null,
+    "law": "positive_laplacian",
+    "dimension": 724,
+    "wall_words": 60,
+    "stationary": {
+      "minimum_arc": 5.0,
+      "ground_energy": 8.95731235961,
+      "extrema": {
+        "any": {
+          "maximum": 0.46698512614,
+          "energy": 70.64056467016,
+          "ground_max": 0.02241542555
+        },
+        "tight": {
+          "maximum": 0.29332974156,
+          "energy": 134.51523983339,
+          "ground_max": 0.00029789801
+        },
+        "wider": {
+          "maximum": 0.46313870953,
+          "energy": 70.64056467016,
+          "ground_max": 0.02133286709
+        }
+      }
+    },
+    "separation": {
+      "1": [
+        {
+          "periods": 1,
+          "energy_change": -4.0,
+          "reference_change": 0.0,
+          "contact_change": -4.0
+        },
+        {
+          "periods": 2,
+          "energy_change": -8.0,
+          "reference_change": 0.0,
+          "contact_change": -8.0,
+          "release": [
+            {
+              "time": 0.0,
+              "material": -0.25,
+              "heads": -0.25
+            },
+            {
+              "time": 0.125,
+              "material": -0.1441002229,
+              "heads": -0.1441002229
+            },
+            {
+              "time": 1.0,
+              "material": 0.16554414248,
+              "heads": 0.16554414248
+            },
+            {
+              "time": 4.0,
+              "material": 0.20057550236,
+              "heads": 0.20057550236
+            }
+          ]
+        },
+        {
+          "periods": 3,
+          "energy_change": -12.0,
+          "reference_change": 0.0,
+          "contact_change": -12.0
+        },
+        {
+          "periods": 4,
+          "energy_change": -16.0,
+          "reference_change": 0.0,
+          "contact_change": -16.0
+        }
+      ],
+      "-2": [
+        {
+          "periods": 1,
+          "energy_change": 16.0,
+          "reference_change": 24.0,
+          "contact_change": -8.0
+        },
+        {
+          "periods": 2,
+          "energy_change": 12.0,
+          "reference_change": 24.0,
+          "contact_change": -12.0,
+          "release": [
+            {
+              "time": 0.0,
+              "material": 0.0,
+              "heads": 0.0
+            },
+            {
+              "time": 0.125,
+              "material": -0.03082836815,
+              "heads": -0.03082836815
+            },
+            {
+              "time": 1.0,
+              "material": -0.45648801559,
+              "heads": -0.45648801559
+            },
+            {
+              "time": 4.0,
+              "material": -0.71360002722,
+              "heads": -0.71360002722
+            }
+          ]
+        },
+        {
+          "periods": 3,
+          "energy_change": 8.0,
+          "reference_change": 24.0,
+          "contact_change": -16.0
+        },
+        {
+          "periods": 4,
+          "energy_change": 4.0,
+          "reference_change": 24.0,
+          "contact_change": -20.0
+        }
+      ]
+    }
+  },
+  {
+    "length": 15,
+    "path": [
+      34,
+      24,
+      14,
+      22,
+      68,
+      63,
+      62,
+      229,
+      236,
+      231,
+      108,
+      109,
+      113,
+      117,
+      116
+    ],
+    "extra_unit_at": 1,
+    "law": "native",
+    "dimension": 418,
+    "wall_words": 20,
+    "stationary": {
+      "minimum_arc": 3.5,
+      "ground_energy": -43.61237267446,
+      "extrema": {
+        "any": {
+          "maximum": 0.58057279104,
+          "energy": 75.21817309655,
+          "ground_max": 0.00161644998
+        },
+        "tight": {
+          "maximum": 0.251763075,
+          "energy": 49.206513049,
+          "ground_max": 0.00013056876
+        },
+        "wider": {
+          "maximum": 0.45021410619,
+          "energy": 49.206513049,
+          "ground_max": 0.00020249928
+        }
+      }
+    },
+    "separation": {}
+  },
+  {
+    "length": 15,
+    "path": [
+      34,
+      24,
+      14,
+      22,
+      68,
+      63,
+      62,
+      229,
+      236,
+      231,
+      108,
+      109,
+      113,
+      117,
+      116
+    ],
+    "extra_unit_at": 1,
+    "law": "positive_laplacian",
+    "dimension": 418,
+    "wall_words": 20,
+    "stationary": {
+      "minimum_arc": 3.5,
+      "ground_energy": 9.51264352798,
+      "extrema": {
+        "any": {
+          "maximum": 0.58072548016,
+          "energy": 123.61657574497,
+          "ground_max": 0.00088504716
+        },
+        "tight": {
+          "maximum": 0.23412066596,
+          "energy": 100.23917080678,
+          "ground_max": 1.941992e-05
+        },
+        "wider": {
+          "maximum": 0.4716689697,
+          "energy": 107.28289171241,
+          "ground_max": 0.0001523463
+        }
+      }
+    },
+    "separation": {}
+  },
+  {
+    "length": 15,
+    "path": [
+      34,
+      24,
+      14,
+      22,
+      68,
+      63,
+      62,
+      229,
+      236,
+      231,
+      108,
+      109,
+      113,
+      117,
+      116
+    ],
+    "extra_unit_at": 2,
+    "law": "native",
+    "dimension": 780,
+    "wall_words": 40,
+    "stationary": {
+      "minimum_arc": 3.5,
+      "ground_energy": -50.07775250238,
+      "extrema": {
+        "any": {
+          "maximum": 0.54457509026,
+          "energy": 3.28918104956,
+          "ground_max": 0.08749407978
+        },
+        "tight": {
+          "maximum": 0.21504431609,
+          "energy": 48.78476148777,
+          "ground_max": 4.331415e-05
+        },
+        "wider": {
+          "maximum": 0.53923034358,
+          "energy": 3.28918104956,
+          "ground_max": 0.00022688679
+        }
+      }
+    },
+    "separation": {}
+  },
+  {
+    "length": 15,
+    "path": [
+      34,
+      24,
+      14,
+      22,
+      68,
+      63,
+      62,
+      229,
+      236,
+      231,
+      108,
+      109,
+      113,
+      117,
+      116
+    ],
+    "extra_unit_at": 2,
+    "law": "positive_laplacian",
+    "dimension": 780,
+    "wall_words": 40,
+    "stationary": {
+      "minimum_arc": 3.5,
+      "ground_energy": 9.11942347607,
+      "extrema": {
+        "any": {
+          "maximum": 0.56069467454,
+          "energy": 42.22888338896,
+          "ground_max": 0.01240620028
+        },
+        "tight": {
+          "maximum": 0.23309253251,
+          "energy": 100.54104776347,
+          "ground_max": 2.524523e-05
+        },
+        "wider": {
+          "maximum": 0.55728471977,
+          "energy": 42.22888338896,
+          "ground_max": 0.00030668048
+        }
+      }
+    },
+    "separation": {}
+  },
+  {
+    "length": 18,
+    "path": [
+      34,
+      24,
+      14,
+      22,
+      68,
+      63,
+      62,
+      229,
+      233,
+      232,
+      231,
+      108,
+      109,
+      113,
+      112,
+      110,
+      111,
+      116
+    ],
+    "extra_unit_at": null,
+    "law": "native",
+    "dimension": 2702,
+    "wall_words": 120,
+    "stationary": {
+      "minimum_arc": 5.0,
+      "ground_energy": -56.68517509793,
+      "extrema": {
+        "any": {
+          "maximum": 0.4866366451,
+          "energy": 66.46141526525,
+          "ground_max": 0.18213203107
+        },
+        "tight": {
+          "maximum": 0.15583032419,
+          "energy": -42.44595700744,
+          "ground_max": 0.05237104699
+        },
+        "wider": {
+          "maximum": 0.29420877105,
+          "energy": -33.29852530882,
+          "ground_max": 0.16789280538
+        }
+      }
+    },
+    "separation": {
+      "1": [
+        {
+          "periods": 1,
+          "energy_change": 4.0,
+          "reference_change": 0.0,
+          "contact_change": 4.0
+        },
+        {
+          "periods": 2,
+          "energy_change": 8.0,
+          "reference_change": 0.0,
+          "contact_change": 8.0
+        },
+        {
+          "periods": 3,
+          "energy_change": 12.0,
+          "reference_change": 0.0,
+          "contact_change": 12.0,
+          "release": [
+            {
+              "time": 0.0,
+              "material": -0.33682408883,
+              "heads": -0.33682408883
+            },
+            {
+              "time": 0.125,
+              "material": -0.23717420606,
+              "heads": -0.23717420606
+            },
+            {
+              "time": 1.0,
+              "material": 0.12247822075,
+              "heads": 0.12247822075
+            },
+            {
+              "time": 4.0,
+              "material": 0.02999738184,
+              "heads": 0.02999738184
+            }
+          ]
+        },
+        {
+          "periods": 4,
+          "energy_change": -8.0,
+          "reference_change": -24.0,
+          "contact_change": 16.0
+        },
+        {
+          "periods": 5,
+          "energy_change": -4.0,
+          "reference_change": -24.0,
+          "contact_change": 20.0
+        }
+      ],
+      "-2": [
+        {
+          "periods": 1,
+          "energy_change": 32.0,
+          "reference_change": 24.0,
+          "contact_change": 8.0
+        },
+        {
+          "periods": 2,
+          "energy_change": 36.0,
+          "reference_change": 24.0,
+          "contact_change": 12.0
+        },
+        {
+          "periods": 3,
+          "energy_change": 40.0,
+          "reference_change": 24.0,
+          "contact_change": 16.0,
+          "release": [
+            {
+              "time": 0.0,
+              "material": 0.25,
+              "heads": 0.25
+            },
+            {
+              "time": 0.125,
+              "material": 0.18583399944,
+              "heads": 0.18583399944
+            },
+            {
+              "time": 1.0,
+              "material": -0.20724041268,
+              "heads": -0.20724041268
+            },
+            {
+              "time": 4.0,
+              "material": -0.14931863477,
+              "heads": -0.14931863477
+            }
+          ]
+        },
+        {
+          "periods": 4,
+          "energy_change": 20.0,
+          "reference_change": 0.0,
+          "contact_change": 20.0
+        },
+        {
+          "periods": 5,
+          "energy_change": 0.0,
+          "reference_change": -24.0,
+          "contact_change": 24.0
+        }
+      ]
+    }
+  },
+  {
+    "length": 18,
+    "path": [
+      34,
+      24,
+      14,
+      22,
+      68,
+      63,
+      62,
+      229,
+      233,
+      232,
+      231,
+      108,
+      109,
+      113,
+      112,
+      110,
+      111,
+      116
+    ],
+    "extra_unit_at": null,
+    "law": "positive_laplacian",
+    "dimension": 2702,
+    "wall_words": 120,
+    "stationary": {
+      "minimum_arc": 5.0,
+      "ground_energy": 15.19948514072,
+      "extrema": {
+        "any": {
+          "maximum": 0.56422389983,
+          "energy": 137.97705038725,
+          "ground_max": 0.05522839028
+        },
+        "tight": {
+          "maximum": 0.17748047417,
+          "energy": 35.56092000384,
+          "ground_max": 0.00024218931
+        },
+        "wider": {
+          "maximum": 0.31602630631,
+          "energy": 109.52524022663,
+          "ground_max": 0.01664133982
+        }
+      }
+    },
+    "separation": {
+      "1": [
+        {
+          "periods": 1,
+          "energy_change": -4.0,
+          "reference_change": 0.0,
+          "contact_change": -4.0
+        },
+        {
+          "periods": 2,
+          "energy_change": -8.0,
+          "reference_change": 0.0,
+          "contact_change": -8.0
+        },
+        {
+          "periods": 3,
+          "energy_change": -12.0,
+          "reference_change": 0.0,
+          "contact_change": -12.0,
+          "release": [
+            {
+              "time": 0.0,
+              "material": -0.33682408883,
+              "heads": -0.33682408883
+            },
+            {
+              "time": 0.125,
+              "material": -0.23693255632,
+              "heads": -0.23693255632
+            },
+            {
+              "time": 1.0,
+              "material": 0.11999794877,
+              "heads": 0.11999794877
+            },
+            {
+              "time": 4.0,
+              "material": 0.18314723504,
+              "heads": 0.18314723504
+            }
+          ]
+        },
+        {
+          "periods": 4,
+          "energy_change": -40.0,
+          "reference_change": -24.0,
+          "contact_change": -16.0
+        },
+        {
+          "periods": 5,
+          "energy_change": -44.0,
+          "reference_change": -24.0,
+          "contact_change": -20.0
+        }
+      ],
+      "-2": [
+        {
+          "periods": 1,
+          "energy_change": 16.0,
+          "reference_change": 24.0,
+          "contact_change": -8.0
+        },
+        {
+          "periods": 2,
+          "energy_change": 12.0,
+          "reference_change": 24.0,
+          "contact_change": -12.0
+        },
+        {
+          "periods": 3,
+          "energy_change": 8.0,
+          "reference_change": 24.0,
+          "contact_change": -16.0,
+          "release": [
+            {
+              "time": 0.0,
+              "material": 0.25,
+              "heads": 0.25
+            },
+            {
+              "time": 0.125,
+              "material": 0.21483962524,
+              "heads": 0.21483962524
+            },
+            {
+              "time": 1.0,
+              "material": -0.07237541314,
+              "heads": -0.07237541314
+            },
+            {
+              "time": 4.0,
+              "material": -0.0089448582,
+              "heads": -0.0089448582
+            }
+          ]
+        },
+        {
+          "periods": 4,
+          "energy_change": -20.0,
+          "reference_change": 0.0,
+          "contact_change": -20.0
+        },
+        {
+          "periods": 5,
+          "energy_change": -48.0,
+          "reference_change": -24.0,
+          "contact_change": -24.0
+        }
+      ]
+    }
+  },
+  {
+    "length": 18,
+    "path": [
+      34,
+      24,
+      14,
+      22,
+      68,
+      63,
+      62,
+      229,
+      233,
+      232,
+      231,
+      108,
+      109,
+      113,
+      112,
+      110,
+      111,
+      116
+    ],
+    "extra_unit_at": 1,
+    "law": "native",
+    "dimension": 1560,
+    "wall_words": 35,
+    "stationary": {
+      "minimum_arc": 3.5,
+      "ground_energy": -52.9212538533,
+      "extrema": {
+        "any": {
+          "maximum": 0.55981214987,
+          "energy": 65.1169373837,
+          "ground_max": 0.00416633243
+        },
+        "tight": {
+          "maximum": 0.09767021509,
+          "energy": 1.7087425676,
+          "ground_max": 3.673269e-05
+        },
+        "wider": {
+          "maximum": 0.26237085176,
+          "energy": 0.1075305748,
+          "ground_max": 0.00023238877
+        }
+      }
+    },
+    "separation": {}
+  },
+  {
+    "length": 18,
+    "path": [
+      34,
+      24,
+      14,
+      22,
+      68,
+      63,
+      62,
+      229,
+      233,
+      232,
+      231,
+      108,
+      109,
+      113,
+      112,
+      110,
+      111,
+      116
+    ],
+    "extra_unit_at": 1,
+    "law": "positive_laplacian",
+    "dimension": 1560,
+    "wall_words": 35,
+    "stationary": {
+      "minimum_arc": 3.5,
+      "ground_energy": 15.71279210507,
+      "extrema": {
+        "any": {
+          "maximum": 0.5691374468,
+          "energy": 139.44641089606,
+          "ground_max": 0.00048521238
+        },
+        "tight": {
+          "maximum": 0.13094078733,
+          "energy": 117.88853750773,
+          "ground_max": 1.97812e-06
+        },
+        "wider": {
+          "maximum": 0.29973035012,
+          "energy": 113.16829061236,
+          "ground_max": 6.67202e-05
+        }
+      }
+    },
+    "separation": {}
+  },
+  {
+    "length": 18,
+    "path": [
+      34,
+      24,
+      14,
+      22,
+      68,
+      63,
+      62,
+      229,
+      233,
+      232,
+      231,
+      108,
+      109,
+      113,
+      112,
+      110,
+      111,
+      116
+    ],
+    "extra_unit_at": 2,
+    "law": "native",
+    "dimension": 2911,
+    "wall_words": 65,
+    "stationary": {
+      "minimum_arc": 3.5,
+      "ground_energy": -59.37906343261,
+      "extrema": {
+        "any": {
+          "maximum": 0.44463280448,
+          "energy": 65.22886665644,
+          "ground_max": 0.0080186096
+        },
+        "tight": {
+          "maximum": 0.14720972692,
+          "energy": 27.54772795828,
+          "ground_max": 1.34868e-05
+        },
+        "wider": {
+          "maximum": 0.25050812084,
+          "energy": 32.95914639908,
+          "ground_max": 0.0012465154
+        }
+      }
+    },
+    "separation": {}
+  },
+  {
+    "length": 18,
+    "path": [
+      34,
+      24,
+      14,
+      22,
+      68,
+      63,
+      62,
+      229,
+      233,
+      232,
+      231,
+      108,
+      109,
+      113,
+      112,
+      110,
+      111,
+      116
+    ],
+    "extra_unit_at": 2,
+    "law": "positive_laplacian",
+    "dimension": 2911,
+    "wall_words": 65,
+    "stationary": {
+      "minimum_arc": 3.5,
+      "ground_energy": 15.40482767946,
+      "extrema": {
+        "any": {
+          "maximum": 0.44171093391,
+          "energy": 139.42310627159,
+          "ground_max": 0.00157255362
+        },
+        "tight": {
+          "maximum": 0.18563998542,
+          "energy": 66.96811735719,
+          "ground_max": 6.38066e-06
+        },
+        "wider": {
+          "maximum": 0.33249091011,
+          "energy": 65.90775168212,
+          "ground_max": 0.00043703437
+        }
+      }
+    },
+    "separation": {}
+  }
+]

@@ -743,7 +743,11 @@
         "model/experiments/interval_echo_einstein_station/autonomous_selection/dense.json",
         "code/matched_einstein_limit/quantum_scalar_radar/balls.json",
         "model/experiments/interval_echo_einstein_station/native_volume_curvature/results.json",
-        "model/experiments/interval_echo_einstein_station/mobile_collar_source/stationarity.json"
+        "model/experiments/interval_echo_einstein_station/mobile_collar_source/stationarity.json",
+        "model/experiments/interval_echo_einstein_station/regional_geometry/signed_area.json",
+        "model/experiments/interval_echo_einstein_station/regional_geometry/signed_counts.json",
+        "model/experiments/interval_echo_einstein_station/collar_scaling/signed_area.json",
+        "model/experiments/interval_echo_einstein_station/collar_scaling/clock_balls.json"
       ],
       "evidence_roles": {
         "Lean/ObserverPatchHolography/EinsteinBranch/RegisterSurface.lean": "statement",
@@ -758,9 +762,13 @@
         "model/experiments/interval_echo_einstein_station/autonomous_selection/dense.json": "no_go",
         "code/matched_einstein_limit/quantum_scalar_radar/balls.json": "conditional_consumer",
         "model/experiments/interval_echo_einstein_station/native_volume_curvature/results.json": "no_go",
-        "model/experiments/interval_echo_einstein_station/mobile_collar_source/stationarity.json": "no_go"
+        "model/experiments/interval_echo_einstein_station/mobile_collar_source/stationarity.json": "no_go",
+        "model/experiments/interval_echo_einstein_station/regional_geometry/signed_area.json": "no_go",
+        "model/experiments/interval_echo_einstein_station/regional_geometry/signed_counts.json": "conditional_consumer",
+        "model/experiments/interval_echo_einstein_station/collar_scaling/signed_area.json": "no_go",
+        "model/experiments/interval_echo_einstein_station/collar_scaling/clock_balls.json": "no_go"
       },
-      "notes": "The envelope identity and the rest-frame Einstein arithmetic are exact theorems once these fields are supplied. Evidence context: Lean/ObserverPatchHolography/EinsteinBranch/RegisterSurface.lean fields generalizedEntropyStationarity; bulkEntropyVariation; areaVariation; maxEntTangent; maxEntNormalization; maxEntConstraintSpeed; maxEntGibbsDifferential Native constrained entropy and the action area/volume identity have finite witnesses. A specified thermal-cavity functional fails stationarity on its comparison family; no fixed-volume vacuum entropy identification is supplied. The source-counted length-two reference sigma=C^2/171720 has spectral floor 40/4293. Weighting the midpoint of unchanged native histories constructs sixty-five independent normalized faithful state directions, with all return and filter outcomes retained. On every native two-port seam, the actual regional algebra has intrinsic sector dimensions 1,2,1 and exterior multiplicities 45,10,1. Its canonical tracial completion obeys the stated entropy split with the central Shannon term in the bulk. For a restricted tangent Y and |t|<1, the exact modular balance has 0<=D(R+tY||R)<=t^2||Y||_HS^2/[2(1-|t|)(40/4293)], including a noncommuting exact example. A source pair-occupation filter preserving all twelve mean occupations has strictly positive bulk-entropy slope between 0.011791769169 and 0.011791769170; the fixed native cut count eight has zero derivative and cannot cancel it with a positive constant. The original sigma differs from its regional completion and has nonzero cross-sector coherence, obstructing a sigma-preserving UCP retraction onto this regional algebra. These are postselected-history ensembles and finite modular/entropy premises, not causal quantum preparation, a geometric area, fixed proper volume, physical stress, a Newton normalization or a common small-ball refinement. On the monitored native two-load word algebra, uniform equilibrium cancels the interior entropy slope with the exterior log-completion slope on all normalized interior transfers. Independent exterior-only measurements generalize across held shapes. Single-cell and joint two-gateway readers have distinct phase sensitivity. A conditional shrinking-ball comparison gives an O(ℓ⁶) capacity remainder in every symmetric rest slice. The same scalar bulk gradient fails for transverse observers on an anisotropic product geometry. These fields and registers belong to specified comparisons. Physical area and vacuum selection on the registered material require further identifications. At finite filling the native completion entropy becomes extensive in transmitting contacts with a coefficient depending on filling. Two-tag flags and mean native energy are fixed on the five-class control. Stationary native preparations with identical full energy law have different interior gradients, including matched surveyed-volume and surveyed-area directions. The uniform ground of one connected written-field sector has a measured flux-center entropy; quantum field to physical area and autonomous geometric-vacuum selection are undischarged. A conserved single-cell half-filling bias also preserves every energy probability and the full reduced cut state, with a measured sharp interior entropy slope of −0.21540 ± 0.00021 nats under its specified spectral preparation. In the semiclassical comparison, measured boundary area at independently matched proper volume recovers the timelike Einstein contraction as the balls shrink. The measurement does not test entropy stationarity or select a native equilibrium. A mobile vacancy or excess creates a faithful two-seam sharp reference at exposure 4. Under continued native coupling the instantaneous joint entropy slopes are −4.14007 and +4.29523 nats per exposure on 20 cells, and +1.13942 and −1.09493 on 80 cells. Both marginal slopes also resolve at two symmetric exposure offsets. On removing the source the restored uniform material gives a scalar two-head Hamiltonian that freezes every generated state. This tests time stationarity of that preparation. Fixed-proper-volume variation of generalized entropy, including its area term, requires an independent geometric instrument."
+      "notes": "The envelope identity and the rest-frame Einstein arithmetic are exact theorems once these fields are supplied. Evidence context: Lean/ObserverPatchHolography/EinsteinBranch/RegisterSurface.lean fields generalizedEntropyStationarity; bulkEntropyVariation; areaVariation; maxEntTangent; maxEntNormalization; maxEntConstraintSpeed; maxEntGibbsDifferential Native constrained entropy and the action area/volume identity have finite witnesses. A specified thermal-cavity functional fails stationarity on its comparison family; no fixed-volume vacuum entropy identification is supplied. The source-counted length-two reference sigma=C^2/171720 has spectral floor 40/4293. Weighting the midpoint of unchanged native histories constructs sixty-five independent normalized faithful state directions, with all return and filter outcomes retained. On every native two-port seam, the actual regional algebra has intrinsic sector dimensions 1,2,1 and exterior multiplicities 45,10,1. Its canonical tracial completion obeys the stated entropy split with the central Shannon term in the bulk. For a restricted tangent Y and |t|<1, the exact modular balance has 0<=D(R+tY||R)<=t^2||Y||_HS^2/[2(1-|t|)(40/4293)], including a noncommuting exact example. A source pair-occupation filter preserving all twelve mean occupations has strictly positive bulk-entropy slope between 0.011791769169 and 0.011791769170; the fixed native cut count eight has zero derivative and cannot cancel it with a positive constant. The original sigma differs from its regional completion and has nonzero cross-sector coherence, obstructing a sigma-preserving UCP retraction onto this regional algebra. These are postselected-history ensembles and finite modular/entropy premises, not causal quantum preparation, a geometric area, fixed proper volume, physical stress, a Newton normalization or a common small-ball refinement. On the monitored native two-load word algebra, uniform equilibrium cancels the interior entropy slope with the exterior log-completion slope on all normalized interior transfers. Independent exterior-only measurements generalize across held shapes. Single-cell and joint two-gateway readers have distinct phase sensitivity. A conditional shrinking-ball comparison gives an O(ℓ⁶) capacity remainder in every symmetric rest slice. The same scalar bulk gradient fails for transverse observers on an anisotropic product geometry. These fields and registers belong to specified comparisons. Physical area and vacuum selection on the registered material require further identifications. At finite filling the native completion entropy becomes extensive in transmitting contacts with a coefficient depending on filling. Two-tag flags and mean native energy are fixed on the five-class control. Stationary native preparations with identical full energy law have different interior gradients, including matched surveyed-volume and surveyed-area directions. The uniform ground of one connected written-field sector has a measured flux-center entropy; quantum field to physical area and autonomous geometric-vacuum selection are undischarged. A conserved single-cell half-filling bias also preserves every energy probability and the full reduced cut state, with a measured sharp interior entropy slope of −0.21540 ± 0.00021 nats under its specified spectral preparation. In the semiclassical comparison, measured boundary area at independently matched proper volume recovers the timelike Einstein contraction as the balls shrink. The measurement does not test entropy stationarity or select a native equilibrium. A mobile vacancy or excess creates a faithful two-seam sharp reference at exposure 4. Under continued native coupling the instantaneous joint entropy slopes are −4.14007 and +4.29523 nats per exposure on 20 cells, and +1.13942 and −1.09493 on 80 cells. Both marginal slopes also resolve at two symmetric exposure offsets. On removing the source the restored uniform material gives a scalar two-head Hamiltonian that freezes every generated state. This tests time stationarity of that preparation. Fixed-proper-volume variation of generalized entropy, including its area term, requires an independent geometric instrument. The two tetrahedral rulers admit a common fixed-volume surface. A positive word charge increases both population areas, excluding every nondecreasing combination of them from the two-term stationarity identity. Their finite-shot area signs are unresolved. Protected annular ranges are exactly invariant on a positive measured word-charge variation. These assignments are excluded on their respective operational regions."
     },
     {
       "id": "PR-27",
@@ -786,7 +794,9 @@
         "model/experiments/interval_echo_einstein_station/relational_ruler/results.json",
         "model/experiments/interval_echo_einstein_station/relational_ruler/angular_equilibrium/results.json",
         "code/matched_einstein_limit/quantum_scalar_radar/species_transfer/results.json",
-        "code/matched_einstein_limit/quantum_scalar_radar/species_transfer/correlation.json"
+        "code/matched_einstein_limit/quantum_scalar_radar/species_transfer/correlation.json",
+        "model/experiments/interval_echo_einstein_station/collar_scaling/clock_balls.json",
+        "code/matched_einstein_limit/fixed_volume/chords.json"
       ],
       "evidence_roles": {
         "Lean/ObserverPatchHolography/EinsteinBranch/RegisterSurface.lean": "statement",
@@ -803,7 +813,9 @@
         "model/experiments/interval_echo_einstein_station/relational_ruler/results.json": "no_go",
         "model/experiments/interval_echo_einstein_station/relational_ruler/angular_equilibrium/results.json": "no_go",
         "code/matched_einstein_limit/quantum_scalar_radar/species_transfer/results.json": "conditional_consumer",
-        "code/matched_einstein_limit/quantum_scalar_radar/species_transfer/correlation.json": "conditional_consumer"
+        "code/matched_einstein_limit/quantum_scalar_radar/species_transfer/correlation.json": "conditional_consumer",
+        "model/experiments/interval_echo_einstein_station/collar_scaling/clock_balls.json": "no_go",
+        "code/matched_einstein_limit/fixed_volume/chords.json": "conditional_consumer"
       },
       "notes": "The radial integral and coefficient arithmetic are proved exactly in SmallBall.lean; the geometric identifications stay declared. Evidence context: Lean/ObserverPatchHolography/EinsteinBranch/RegisterSurface.lean fields fixedVolumeAreaExpansion; scalingFamily; commonScalingTail; bianchiConservation; smallBallNewton; smallBallRadius; coefficient arithmetic is exact in SmallBall.lean The metric dictionary supplies a screen-area measure and a necessary spherical focusing response. The screen slices are not small geodesic spheres and no physical common-radius tail receipt is supplied. The reciprocal launch survey measures equal accessible volume on equal-size patches of different aperture. Doubling aperture and quadrupling address volume also exclude a common isotropic length conversion that preserves three-dimensional area and volume across these particular refinements. The measured scaling pertains to the enrolled patches and readers. Independent material-hand routed balls shrink relative to the host range while their number of resolved microscopic steps grows. Their launch-volume doubling dimensions approach two. Independent area and volume calibration constants cancel from the same-host ratio comparison. Complete labelled charge records reveal field phase, but their diffusion-distance chart fails held three-dimensional distances on the prepared written cell. Fitting a curved homogeneous three-space separately to four native route-volume ratios requires at least 6.42% to 13.70% changes in held distances. The curvature fixed on 1,280 cells misses the two finer volume ratios by 66.55% and 91.76%. These blank-host records exclude the proposed identification of this routed volume and distance with a common three-dimensional constant-curvature ruler. The semiclassical quantum-scalar comparison gives positive fixed-volume area and expansion-corrected timelike Ricci curvature reads on its declared proper geometry. On the native four-tracer instrument the shared and fresh collar words have equal exact initial focusing. Their measured contrast is −0.00395 ± 0.06467 at simultaneous 99% coverage conditional on the clock, compared with an ordinary-load focusing contrast of −27.65519 in release-volume units. A later relative tetrahedral-volume difference of −0.000005833 ± 0.000001756 resolves delayed scattering. The instrument uses chord coordinates and supplies no shrinking proper-radius collar coefficient. For two distinguishable native tags, retaining the anchor and the second tag’s routed radius gives a finest doubling exponent of 2.999377 for distinct labels. Counting all ordered tag preparations in the same window gives 4.014580. At identical anchor and radius 24, two omitted bearings give observed inward probabilities 0.00006042 and 0.00030529 at exposure 1/64, with exact initial quadratic coefficients 0.25 and 1.25. Cubic label support therefore coexists with a preparation-dependent radial transport law. A geometric quotient would require additional state information or a justified coarse ensemble and proper volume calibration. A stationary native seam mark and a uniform radial launch permit a direct two-leg test on four federations. On 327,680 cells the two uninterrupted return probabilities are 0.832385 and 0.828294. Re-equilibrating the load within its reported midpoint window predicts 0.766509 and 0.761535, missing 39.30% and 38.88% of free departures. A controlled phase on one radial window preserves all midpoint populations. Calibration at three phases predicts the return at two held phases for both load sectors on all four boards with maximum absolute frequency error 0.00006341. The experiment measures coherence on the prepared graph. Its proper radial measure and Lorentzian causal interpretation remain open. A fixed-proper-volume rim recovers a second species' gravitational coupling and a change in the correlation contribution to matter energy in the independent homogeneous Einstein comparison."
     },
@@ -829,7 +841,11 @@
         "model/experiments/interval_echo_einstein_station/shared_geometry_probe/results.json",
         "model/experiments/interval_echo_einstein_station/shared_geometry_probe/flight.json",
         "code/matched_einstein_limit/quantum_scalar_radar/species_transfer/results.json",
-        "code/matched_einstein_limit/quantum_scalar_radar/species_transfer/correlation.json"
+        "code/matched_einstein_limit/quantum_scalar_radar/species_transfer/correlation.json",
+        "code/matched_einstein_limit/seam_overlap/protected.json",
+        "code/matched_einstein_limit/seam_overlap/results.json",
+        "code/matched_einstein_limit/seam_overlap/rim.json",
+        "model/experiments/interval_echo_einstein_station/collar_scaling/clock_balls.json"
       ],
       "evidence_roles": {
         "model/experiments/interval_echo_einstein_station/mobile_collar_source/results.json": "conditional_consumer",
@@ -844,9 +860,13 @@
         "model/experiments/interval_echo_einstein_station/shared_geometry_probe/results.json": "no_go",
         "model/experiments/interval_echo_einstein_station/shared_geometry_probe/flight.json": "no_go",
         "code/matched_einstein_limit/quantum_scalar_radar/species_transfer/results.json": "conditional_consumer",
-        "code/matched_einstein_limit/quantum_scalar_radar/species_transfer/correlation.json": "conditional_consumer"
+        "code/matched_einstein_limit/quantum_scalar_radar/species_transfer/correlation.json": "conditional_consumer",
+        "code/matched_einstein_limit/seam_overlap/protected.json": "no_go",
+        "code/matched_einstein_limit/seam_overlap/results.json": "conditional_consumer",
+        "code/matched_einstein_limit/seam_overlap/rim.json": "conditional_consumer",
+        "model/experiments/interval_echo_einstein_station/collar_scaling/clock_balls.json": "no_go"
       },
-      "notes": "The recorded resolution keeps type structural_rule and disposition axiomatize. The scale identification kappa = 8*pi*G_N is an equation between two declared fields of the register structure, couplingConstant and newtonConstant, and the row carries no measured number; measured attachment of either field belongs to the clock and energy calibration anchors row PR-15, which is filed as empirical_import. Removal requires a source-derived tower with physical readouts, owned by gravitation lane issue #729. No discharge beyond the finite theorems the repository carries is asserted. Lambda enters only through the vacuum reference and the numerical inputs P and N row. Evidence context: Lean/ObserverPatchHolography/EinsteinBranch/RegisterSurface.lean fields tower; readouts; protectedBoundaryFiber; typedCommonDomain; refinementNaturality; chartStep; chartBase; chartConnected; geometryReadout; stressReadout; couplingConstant; newtonConstant; vacuumLambda; vacuumReference; scaleIdentification Unit and double material tags have exactly matched free flights on three guarded federations. A 32-unit seam source reduces unit-tag entry by 22.44–27.52 percentage points at two ticks, with exact sham motion for the double tag. A different supplied internal matching increases exterior probability for both tags by about five points. Free native evolution conserves every blank/written seam flag. A shared positive coupling on a physically calibrated source refinement remains open. The measured fourth-order native coefficient uses disjoint protected routes and an independently prepared reference. All those lengths are exactly invariant across the source arms. In the filled confined-pair apparatus the native two-source Hamiltonian factorizes beyond contact and two receiving clocks respond with distinct contact factors. A native mobile source generates a faithful four-outcome sharp reference at a chosen exposure on two finite boards. The fresh-probe arrival contrast changes sign between boards. A common geometric ruler and autonomous equilibrium reference require separate measurements. One ordinary native calibration transfers between both load signs on nine bridge placements. The sources polarize an equilibrated two-port probe, and freely formed collars polarize an all-port probe near their armed bridge. A probe-only random-unitary geometry cannot generate these records. Identifying a shared geometric component alongside quantum contact needs independent stress and proper ranges. In a supplied homogeneous Einstein model, calibration on one quantized scalar predicts the second field's coupling by radar and fixed-proper-volume area and detects a deliberately halved coupling. With a bilinear interaction the same meters resolve the gravitational response to a change of cross-field correlation at equal individual initial states."
+      "notes": "The recorded resolution keeps type structural_rule and disposition axiomatize. The scale identification kappa = 8*pi*G_N is an equation between two declared fields of the register structure, couplingConstant and newtonConstant, and the row carries no measured number; measured attachment of either field belongs to the clock and energy calibration anchors row PR-15, which is filed as empirical_import. Removal requires a source-derived tower with physical readouts, owned by gravitation lane issue #729. No discharge beyond the finite theorems the repository carries is asserted. Lambda enters only through the vacuum reference and the numerical inputs P and N row. Evidence context: Lean/ObserverPatchHolography/EinsteinBranch/RegisterSurface.lean fields tower; readouts; protectedBoundaryFiber; typedCommonDomain; refinementNaturality; chartStep; chartBase; chartConnected; geometryReadout; stressReadout; couplingConstant; newtonConstant; vacuumLambda; vacuumReference; scaleIdentification Unit and double material tags have exactly matched free flights on three guarded federations. A 32-unit seam source reduces unit-tag entry by 22.44–27.52 percentage points at two ticks, with exact sham motion for the double tag. A different supplied internal matching increases exterior probability for both tags by about five points. Free native evolution conserves every blank/written seam flag. A shared positive coupling on a physically calibrated source refinement remains open. The measured fourth-order native coefficient uses disjoint protected routes and an independently prepared reference. All those lengths are exactly invariant across the source arms. In the filled confined-pair apparatus the native two-source Hamiltonian factorizes beyond contact and two receiving clocks respond with distinct contact factors. A native mobile source generates a faithful four-outcome sharp reference at a chosen exposure on two finite boards. The fresh-probe arrival contrast changes sign between boards. A common geometric ruler and autonomous equilibrium reference require separate measurements. One ordinary native calibration transfers between both load signs on nine bridge placements. The sources polarize an equilibrated two-port probe, and freely formed collars polarize an all-port probe near their armed bridge. A probe-only random-unitary geometry cannot generate these records. Identifying a shared geometric component alongside quantum contact needs independent stress and proper ranges. In a supplied homogeneous Einstein model, calibration on one quantized scalar predicts the second field's coupling by radar and fixed-proper-volume area and detects a deliberately halved coupling. With a bilinear interaction the same meters resolve the gravitational response to a change of cross-field correlation at equal individual initial states. A native seam has a fixed-marginal Gibbs-energy contrast of 8. Coupling its total energy to a homogeneous ADM geometry gives a volume-weighted curvature contrast of 12.8, and a sector-selective gravitational charge eliminates the response at fixed ordinary calibration. A different protected native encoding gives a Gibbs-energy contrast of 1/4 with identical remaining material records. For an independently reconstructed temporal curvature derivative, equality on all fixed-marginal tangents is equivalent to the residual operator being a sum of terms on the two individual registers."
     },
     {
       "id": "PR-29",
@@ -3198,15 +3218,28 @@
             "kind": "code",
             "path": "code/geometry/collar_recoverability_receipts.py",
             "symbol": "counterexample_receipt"
+          },
+          {
+            "kind": "receipt",
+            "path": "model/experiments/interval_echo_einstein_station/collar_pairing/results.json"
           }
         ],
         "mutation_tests": [
           {
             "path": "code/geometry/test_collar_recoverability_receipts.py",
             "name": "test_explicit_counterexample_rejects_width_ratio_alone"
+          },
+          {
+            "path": "model/experiments/interval_echo_einstein_station/collar_pairing/test_pairing.py",
+            "name": "test_modular_scaling_with_noncommuting_heads_and_visible_flag"
           }
         ],
-        "paper_anchors": [],
+        "paper_anchors": [
+          {
+            "file": "cosmology/oph_dark_matter_paper.tex",
+            "anchor": "par:collar-index-variation"
+          }
+        ],
         "claim_ids": [
           "OPH-GR-D2-COLLAR-RECOVERY"
         ],
@@ -3295,6 +3328,25 @@
           {
             "kind": "receipt",
             "path": "model/experiments/interval_echo_einstein_station/field_geometry_equilibrium/results.json"
+          },
+          {
+            "kind": "receipt",
+            "path": "model/experiments/interval_echo_einstein_station/regional_geometry/both_volumes.json"
+          },
+          {
+            "kind": "lean",
+            "module": "Lean/ObserverPatchHolography/EinsteinBranch/TileCapacity.lean",
+            "declaration": "fixed_volume_capacity_bound"
+          },
+          {
+            "kind": "lean",
+            "module": "Lean/ObserverPatchHolography/EinsteinBranch/OverlapCoupling.lean",
+            "declaration": "signed_area_lower_bound"
+          },
+          {
+            "kind": "lean",
+            "module": "Lean/ObserverPatchHolography/EinsteinBranch/OverlapCoupling.lean",
+            "declaration": "opposite_area_units"
           }
         ],
         "mutation_tests": [
@@ -3313,9 +3365,22 @@
           {
             "path": "model/experiments/interval_echo_einstein_station/density_area/test_density.py",
             "name": "test_two_tag_complete_flags_and_independent_held_counts"
+          },
+          {
+            "path": "model/experiments/interval_echo_einstein_station/regional_geometry/test_geometry.py",
+            "name": "test_both_rulers_at_fixed_volume_and_one_fixed_area"
+          },
+          {
+            "path": "model/experiments/interval_echo_einstein_station/regional_geometry/test_signed_area.py",
+            "name": "test_same_marginals_both_volumes_and_increasing_areas"
           }
         ],
-        "paper_anchors": [],
+        "paper_anchors": [
+          {
+            "file": "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
+            "anchor": "par:capacity-stationarity-test"
+          }
+        ],
         "claim_ids": [],
         "owner_issues": []
       },
@@ -3431,6 +3496,61 @@
             "kind": "lean",
             "module": "Lean/ObserverPatchHolography/EinsteinBranch/Composition.lean",
             "declaration": "composedEinsteinBranch"
+          },
+          {
+            "kind": "lean",
+            "module": "Lean/ObserverPatchHolography/EinsteinBranch/RayPairBalance.lean",
+            "declaration": "null_error_bound"
+          },
+          {
+            "kind": "lean",
+            "module": "Lean/ObserverPatchHolography/EinsteinBranch/RayPairBalance.lean",
+            "declaration": "opposite_flux_lower_bound"
+          },
+          {
+            "kind": "lean",
+            "module": "Lean/ObserverPatchHolography/EinsteinBranch/RayPairBalance.lean",
+            "declaration": "canonical_constraint_rate"
+          },
+          {
+            "kind": "lean",
+            "module": "Lean/ObserverPatchHolography/EinsteinBranch/RayPairBalance.lean",
+            "declaration": "propagate_constraint"
+          },
+          {
+            "kind": "lean",
+            "module": "Lean/ObserverPatchHolography/EinsteinBranch/RayPairBalance.lean",
+            "declaration": "canonical_null_balance"
+          },
+          {
+            "kind": "lean",
+            "module": "Lean/ObserverPatchHolography/EinsteinBranch/OverlapCoupling.lean",
+            "declaration": "cycle_modular"
+          },
+          {
+            "kind": "lean",
+            "module": "Lean/ObserverPatchHolography/EinsteinBranch/OverlapCoupling.lean",
+            "declaration": "zero_cycle_iff_separate"
+          },
+          {
+            "kind": "lean",
+            "module": "Lean/ObserverPatchHolography/EinsteinBranch/OverlapCoupling.lean",
+            "declaration": "volume_constraint"
+          },
+          {
+            "kind": "lean",
+            "module": "Lean/ObserverPatchHolography/EinsteinBranch/OverlapCoupling.lean",
+            "declaration": "held_response"
+          },
+          {
+            "kind": "lean",
+            "module": "Lean/ObserverPatchHolography/EinsteinBranch/OverlapCoupling.lean",
+            "declaration": "null_response"
+          },
+          {
+            "kind": "lean",
+            "module": "Lean/ObserverPatchHolography/EinsteinBranch/OverlapCoupling.lean",
+            "declaration": "regional_area_residual"
           }
         ],
         "mutation_tests": [
@@ -3441,9 +3561,38 @@
           {
             "path": "code/geometry/test_einstein_closure_receipts.py",
             "name": "test_consistent_charges_reconstruct_tracefree_part_exactly"
+          },
+          {
+            "path": "model/experiments/interval_echo_null_balance/test_energy_flux.py",
+            "name": "test_hidden_seam_currents_are_divergence_free"
+          },
+          {
+            "path": "code/matched_einstein_limit/seam_overlap/test_overlap.py",
+            "name": "test_independent_meter_and_changed_gravity"
+          },
+          {
+            "path": "code/matched_einstein_limit/seam_overlap/test_overlap.py",
+            "name": "test_smaller_rims_at_equal_volume_and_converging_coupling"
           }
         ],
-        "paper_anchors": [],
+        "paper_anchors": [
+          {
+            "file": "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
+            "anchor": "par:ray-pair-transfer"
+          },
+          {
+            "file": "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
+            "anchor": "par:ray-pair-native-current"
+          },
+          {
+            "file": "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
+            "anchor": "par:canonical-all-null"
+          },
+          {
+            "file": "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
+            "anchor": "par:seam-gibbs-curvature"
+          }
+        ],
         "claim_ids": [
           "OPH-GR-D4B-SOURCE-CAUSAL-CONTINUUM",
           "OPH-GR-D5",

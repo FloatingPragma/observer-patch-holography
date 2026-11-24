@@ -1,0 +1,550 @@
+{
+  "columns": [
+    "tight",
+    "other"
+  ],
+  "laws": {
+    "native": [
+      {
+        "length": 12,
+        "neutral_gauss": 2832,
+        "reservoir_port": 255,
+        "spokes": [
+          5
+        ],
+        "triangle_count": 0,
+        "dimension": 263,
+        "boundary_heads": 49,
+        "triangles_by_patch_ports": [
+          1551,
+          33,
+          16,
+          0
+        ],
+        "source_available": true,
+        "initial_neutral_tight": 0.44185882028,
+        "transfer_t2_coefficient": 12.18106160017,
+        "blocked_control_transfer": 0,
+        "blocked_control_removed_pairs": 90,
+        "terminal": [
+          {
+            "time": 0,
+            "read": {
+              "reservoir_full": [
+                0.44185882028,
+                0.55814117972
+              ],
+              "target_spoke": [
+                0.0,
+                0.0
+              ],
+              "other_spokes": [
+                0.0,
+                0.0
+              ]
+            }
+          },
+          {
+            "time": 0.0625,
+            "read": {
+              "reservoir_full": [
+                0.4059093562,
+                0.55759070261
+              ],
+              "target_spoke": [
+                0.00222629285,
+                0.03427364834
+              ],
+              "other_spokes": [
+                0.0,
+                0.0
+              ]
+            }
+          },
+          {
+            "time": 0.25,
+            "read": {
+              "reservoir_full": [
+                0.29029786542,
+                0.67880257708
+              ],
+              "target_spoke": [
+                0.00063809111,
+                0.03026146639
+              ],
+              "other_spokes": [
+                0.0,
+                0.0
+              ]
+            }
+          },
+          {
+            "time": 1,
+            "read": {
+              "reservoir_full": [
+                0.30041003282,
+                0.65646396029
+              ],
+              "target_spoke": [
+                0.00181481585,
+                0.04131119104
+              ],
+              "other_spokes": [
+                0.0,
+                0.0
+              ]
+            }
+          },
+          {
+            "time": 4,
+            "read": {
+              "reservoir_full": [
+                0.36692600397,
+                0.59974368081
+              ],
+              "target_spoke": [
+                0.00105979354,
+                0.03227052168
+              ],
+              "other_spokes": [
+                0.0,
+                0.0
+              ]
+            }
+          },
+          {
+            "time": 16,
+            "read": {
+              "reservoir_full": [
+                0.33909531464,
+                0.61526080789
+              ],
+              "target_spoke": [
+                0.0007388463,
+                0.04490503117
+              ],
+              "other_spokes": [
+                0.0,
+                0.0
+              ]
+            }
+          },
+          {
+            "time": 32,
+            "read": {
+              "reservoir_full": [
+                0.25247557242,
+                0.71083745858
+              ],
+              "target_spoke": [
+                0.00092851827,
+                0.03575845073
+              ],
+              "other_spokes": [
+                0.0,
+                0.0
+              ]
+            }
+          }
+        ],
+        "infinite_time": {
+          "reservoir_full": [
+            0.32722346827,
+            0.63514118645
+          ],
+          "target_spoke": [
+            0.00115690285,
+            0.03647844242
+          ],
+          "other_spokes": [
+            0.0,
+            0.0
+          ]
+        },
+        "largest_overlap_energy": 33.99533949745,
+        "largest_overlap": 0.94771570663,
+        "largest_overlap_read": {
+          "reservoir_full": [
+            0.33887497184,
+            0.64435405515
+          ],
+          "target_spoke": [
+            0.0007481613,
+            0.01602281171
+          ],
+          "other_spokes": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "length": 15,
+        "neutral_gauss": 6928,
+        "reservoir_port": 22,
+        "spokes": [
+          5
+        ],
+        "triangle_count": 0,
+        "dimension": 562,
+        "boundary_heads": 59,
+        "triangles_by_patch_ports": [
+          342,
+          36,
+          22,
+          0
+        ],
+        "source_available": false
+      }
+    ],
+    "extension": [
+      {
+        "length": 12,
+        "neutral_gauss": 652,
+        "reservoir_port": 289,
+        "spokes": [
+          10
+        ],
+        "triangle_count": 0,
+        "dimension": 284,
+        "boundary_heads": 49,
+        "triangles_by_patch_ports": [
+          1551,
+          33,
+          16,
+          0
+        ],
+        "source_available": true,
+        "initial_neutral_tight": 0.48470125908,
+        "transfer_t2_coefficient": 15.89336361511,
+        "blocked_control_transfer": 0,
+        "blocked_control_removed_pairs": 102,
+        "terminal": [
+          {
+            "time": 0,
+            "read": {
+              "reservoir_full": [
+                0.48470125908,
+                0.51529874092
+              ],
+              "target_spoke": [
+                0.0,
+                0.0
+              ],
+              "other_spokes": [
+                0.0,
+                0.0
+              ]
+            }
+          },
+          {
+            "time": 0.0625,
+            "read": {
+              "reservoir_full": [
+                0.46017248786,
+                0.48888896954
+              ],
+              "target_spoke": [
+                0.0064133815,
+                0.04452516111
+              ],
+              "other_spokes": [
+                0.0,
+                0.0
+              ]
+            }
+          },
+          {
+            "time": 0.25,
+            "read": {
+              "reservoir_full": [
+                0.48823161645,
+                0.49360389458
+              ],
+              "target_spoke": [
+                0.00237651974,
+                0.01578796923
+              ],
+              "other_spokes": [
+                0.0,
+                0.0
+              ]
+            }
+          },
+          {
+            "time": 1,
+            "read": {
+              "reservoir_full": [
+                0.46710725283,
+                0.49145779016
+              ],
+              "target_spoke": [
+                0.00712715603,
+                0.03430780099
+              ],
+              "other_spokes": [
+                0.0,
+                0.0
+              ]
+            }
+          },
+          {
+            "time": 4,
+            "read": {
+              "reservoir_full": [
+                0.42735811136,
+                0.47390563728
+              ],
+              "target_spoke": [
+                0.0070652332,
+                0.09167101816
+              ],
+              "other_spokes": [
+                0.0,
+                0.0
+              ]
+            }
+          },
+          {
+            "time": 16,
+            "read": {
+              "reservoir_full": [
+                0.43786936847,
+                0.50061794618
+              ],
+              "target_spoke": [
+                0.0070746469,
+                0.05443803845
+              ],
+              "other_spokes": [
+                0.0,
+                0.0
+              ]
+            }
+          },
+          {
+            "time": 32,
+            "read": {
+              "reservoir_full": [
+                0.44578449192,
+                0.46941006164
+              ],
+              "target_spoke": [
+                0.00927099773,
+                0.07553444871
+              ],
+              "other_spokes": [
+                0.0,
+                0.0
+              ]
+            }
+          }
+        ],
+        "infinite_time": {
+          "reservoir_full": [
+            0.45222716231,
+            0.48974774455
+          ],
+          "target_spoke": [
+            0.00698900277,
+            0.05103609037
+          ],
+          "other_spokes": [
+            0.0,
+            0.0
+          ]
+        },
+        "largest_overlap_energy": 94.86858138045,
+        "largest_overlap": 0.94918815483,
+        "largest_overlap_read": {
+          "reservoir_full": [
+            0.47566300763,
+            0.494257212
+          ],
+          "target_spoke": [
+            0.00507147078,
+            0.02500830959
+          ],
+          "other_spokes": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      {
+        "length": 15,
+        "neutral_gauss": 4748,
+        "reservoir_port": 41,
+        "spokes": [
+          10,
+          11
+        ],
+        "triangle_count": 1,
+        "dimension": 1478,
+        "boundary_heads": 56,
+        "triangles_by_patch_ports": [
+          343,
+          35,
+          21,
+          1
+        ],
+        "source_available": true,
+        "initial_neutral_tight": 0.85254591818,
+        "transfer_t2_coefficient": 16.28967725258,
+        "blocked_control_transfer": 0,
+        "blocked_control_removed_pairs": 1073,
+        "terminal": [
+          {
+            "time": 0,
+            "read": {
+              "reservoir_full": [
+                0.85254591818,
+                0.14745408182
+              ],
+              "target_spoke": [
+                0.0,
+                0.0
+              ],
+              "other_spokes": [
+                0.0,
+                0.0
+              ]
+            }
+          },
+          {
+            "time": 0.0625,
+            "read": {
+              "reservoir_full": [
+                0.80377042356,
+                0.14508114962
+              ],
+              "target_spoke": [
+                0.0,
+                0.00220420307
+              ],
+              "other_spokes": [
+                0.0,
+                0.04894422374
+              ]
+            }
+          },
+          {
+            "time": 0.25,
+            "read": {
+              "reservoir_full": [
+                0.83435243779,
+                0.14844297369
+              ],
+              "target_spoke": [
+                0.0,
+                0.00108797094
+              ],
+              "other_spokes": [
+                1.97e-09,
+                0.01611661562
+              ]
+            }
+          },
+          {
+            "time": 1,
+            "read": {
+              "reservoir_full": [
+                0.78607312498,
+                0.14200966541
+              ],
+              "target_spoke": [
+                0.0,
+                0.00188596654
+              ],
+              "other_spokes": [
+                3.49e-09,
+                0.07003123959
+              ]
+            }
+          },
+          {
+            "time": 4,
+            "read": {
+              "reservoir_full": [
+                0.7854580305,
+                0.12822619202
+              ],
+              "target_spoke": [
+                1e-11,
+                0.00353985624
+              ],
+              "other_spokes": [
+                1.115e-08,
+                0.08277591008
+              ]
+            }
+          },
+          {
+            "time": 16,
+            "read": {
+              "reservoir_full": [
+                0.8320301862,
+                0.1521086672
+              ],
+              "target_spoke": [
+                1e-11,
+                0.00274270899
+              ],
+              "other_spokes": [
+                7.47e-09,
+                0.01311843012
+              ]
+            }
+          },
+          {
+            "time": 32,
+            "read": {
+              "reservoir_full": [
+                0.80816846185,
+                0.1428224563
+              ],
+              "target_spoke": [
+                2e-11,
+                0.00411564471
+              ],
+              "other_spokes": [
+                6.23e-09,
+                0.04489343088
+              ]
+            }
+          }
+        ],
+        "infinite_time": {
+          "reservoir_full": [
+            0.77445102341,
+            0.17324767901
+          ],
+          "target_spoke": [
+            8e-11,
+            0.00356878999
+          ],
+          "other_spokes": [
+            7.53e-09,
+            0.04873249998
+          ]
+        },
+        "largest_overlap_energy": 127.4372991592,
+        "largest_overlap": 0.9566508187,
+        "largest_overlap_read": {
+          "reservoir_full": [
+            0.80895213129,
+            0.16332879098
+          ],
+          "target_spoke": [
+            0.0,
+            0.00138306404
+          ],
+          "other_spokes": [
+            5e-11,
+            0.02633601364
+          ]
+        }
+      }
+    ]
+  }
+}

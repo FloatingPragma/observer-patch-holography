@@ -1,0 +1,1773 @@
+{
+  "source_phase_turns": "1/3 and -1/3 supplied",
+  "field_words": 458,
+  "inputs_sha256": {
+    "model/candidate_laws/interval_echo/openwave/quark_winding/phase_control.py": "6e633bf7012dc1be5da9114c788c1391552a24e5ba9aa1e1f3882f61d0ed213d",
+    "model/candidate_laws/interval_echo/openwave/quark_winding/PHASE_CONTROL.md": "516e60bb7a06c10960b03556f32ec31d7bd582d2db8cd787615ffae75fbe65e5",
+    "model/candidate_laws/interval_echo/openwave/quark_winding/measure.py": "232f5b61249cd84a1f827abd798002812b90ca966c76eef51e2cdf46d99a34bc",
+    "model/candidate_laws/interval_echo/openwave/electron_field/flux_string/search.py": "53a6458a0f14678f1effd1dc35151d07ac6b7de1341b79e9a35838ec062abb0a",
+    "model/executable_model/carrier.py": "327fc33189ff6242f7367f625a3f70d97167e79bd4f8a740266d7eb09e237bbd"
+  },
+  "singleton_cut_values": [
+    [
+      0
+    ],
+    [
+      0
+    ],
+    [
+      0
+    ],
+    [
+      0
+    ],
+    [
+      0
+    ],
+    [
+      0
+    ],
+    [
+      0
+    ],
+    [
+      0
+    ],
+    [
+      0
+    ],
+    [
+      0
+    ],
+    [
+      0
+    ],
+    [
+      0
+    ]
+  ],
+  "settings": [
+    {
+      "setting": "primary",
+      "faces": [
+        0,
+        9
+      ],
+      "energy_by_face": [
+        0.242358078603,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.330786026201,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "panels": [
+        {
+          "contour": "enclosing",
+          "cycle": [
+            4,
+            9,
+            8,
+            7,
+            10,
+            11
+          ],
+          "sign": -1,
+          "outcomes": {
+            "uniform": [
+              {
+                "port": 4,
+                "heads": "forward",
+                "bright_x": 0.026200873362,
+                "dark_x": 0.0,
+                "bright_y": 0.013100436681,
+                "dark_y": 0.013100436681
+              },
+              {
+                "port": 4,
+                "heads": "mixed",
+                "bright_x": 0.561135371179,
+                "dark_x": 0.128820960699,
+                "bright_y": 0.344978165939,
+                "dark_y": 0.344978165939
+              },
+              {
+                "port": 4,
+                "heads": "reverse",
+                "bright_x": 0.026200873362,
+                "dark_x": 0.0,
+                "bright_y": 0.013100436681,
+                "dark_y": 0.013100436681
+              },
+              {
+                "port": 7,
+                "heads": "mixed",
+                "bright_x": 0.020742358079,
+                "dark_x": 0.020742358079,
+                "bright_y": 0.020742358079,
+                "dark_y": 0.020742358079
+              },
+              {
+                "port": 10,
+                "heads": "mixed",
+                "bright_x": 0.019104803493,
+                "dark_x": 0.019104803493,
+                "bright_y": 0.019104803493,
+                "dark_y": 0.019104803493
+              },
+              {
+                "port": 11,
+                "heads": "mixed",
+                "bright_x": 0.088973799127,
+                "dark_x": 0.088973799127,
+                "bright_y": 0.088973799127,
+                "dark_y": 0.088973799127
+              }
+            ],
+            "positive": [
+              {
+                "port": 4,
+                "heads": "forward",
+                "bright_x": 0.006550218341,
+                "dark_x": 0.019650655022,
+                "bright_y": 0.001755125715,
+                "dark_y": 0.024445747648
+              },
+              {
+                "port": 4,
+                "heads": "mixed",
+                "bright_x": 0.561135371179,
+                "dark_x": 0.128820960699,
+                "bright_y": 0.344978165939,
+                "dark_y": 0.344978165939
+              },
+              {
+                "port": 4,
+                "heads": "reverse",
+                "bright_x": 0.006550218341,
+                "dark_x": 0.019650655022,
+                "bright_y": 0.024445747648,
+                "dark_y": 0.001755125715
+              },
+              {
+                "port": 7,
+                "heads": "mixed",
+                "bright_x": 0.020742358079,
+                "dark_x": 0.020742358079,
+                "bright_y": 0.020742358079,
+                "dark_y": 0.020742358079
+              },
+              {
+                "port": 10,
+                "heads": "mixed",
+                "bright_x": 0.019104803493,
+                "dark_x": 0.019104803493,
+                "bright_y": 0.019104803493,
+                "dark_y": 0.019104803493
+              },
+              {
+                "port": 11,
+                "heads": "mixed",
+                "bright_x": 0.088973799127,
+                "dark_x": 0.088973799127,
+                "bright_y": 0.088973799127,
+                "dark_y": 0.088973799127
+              }
+            ],
+            "negative": [
+              {
+                "port": 4,
+                "heads": "forward",
+                "bright_x": 0.006550218341,
+                "dark_x": 0.019650655022,
+                "bright_y": 0.024445747648,
+                "dark_y": 0.001755125715
+              },
+              {
+                "port": 4,
+                "heads": "mixed",
+                "bright_x": 0.561135371179,
+                "dark_x": 0.128820960699,
+                "bright_y": 0.344978165939,
+                "dark_y": 0.344978165939
+              },
+              {
+                "port": 4,
+                "heads": "reverse",
+                "bright_x": 0.006550218341,
+                "dark_x": 0.019650655022,
+                "bright_y": 0.001755125715,
+                "dark_y": 0.024445747648
+              },
+              {
+                "port": 7,
+                "heads": "mixed",
+                "bright_x": 0.020742358079,
+                "dark_x": 0.020742358079,
+                "bright_y": 0.020742358079,
+                "dark_y": 0.020742358079
+              },
+              {
+                "port": 10,
+                "heads": "mixed",
+                "bright_x": 0.019104803493,
+                "dark_x": 0.019104803493,
+                "bright_y": 0.019104803493,
+                "dark_y": 0.019104803493
+              },
+              {
+                "port": 11,
+                "heads": "mixed",
+                "bright_x": 0.088973799127,
+                "dark_x": 0.088973799127,
+                "bright_y": 0.088973799127,
+                "dark_y": 0.088973799127
+              }
+            ]
+          },
+          "conjugate_total_variation_y": 0.045381243866
+        },
+        {
+          "contour": "enclosing",
+          "cycle": [
+            4,
+            9,
+            8,
+            7,
+            10,
+            11
+          ],
+          "sign": 1,
+          "outcomes": {
+            "uniform": [
+              {
+                "port": 4,
+                "heads": "forward",
+                "bright_x": 0.026200873362,
+                "dark_x": 0.0,
+                "bright_y": 0.013100436681,
+                "dark_y": 0.013100436681
+              },
+              {
+                "port": 4,
+                "heads": "mixed",
+                "bright_x": 0.89192139738,
+                "dark_x": 0.018558951965,
+                "bright_y": 0.455240174672,
+                "dark_y": 0.455240174672
+              },
+              {
+                "port": 4,
+                "heads": "reverse",
+                "bright_x": 0.026200873362,
+                "dark_x": 0.0,
+                "bright_y": 0.013100436681,
+                "dark_y": 0.013100436681
+              },
+              {
+                "port": 7,
+                "heads": "mixed",
+                "bright_x": 0.000545851528,
+                "dark_x": 0.000545851528,
+                "bright_y": 0.000545851528,
+                "dark_y": 0.000545851528
+              },
+              {
+                "port": 8,
+                "heads": "mixed",
+                "bright_x": 0.009825327511,
+                "dark_x": 0.009825327511,
+                "bright_y": 0.009825327511,
+                "dark_y": 0.009825327511
+              },
+              {
+                "port": 10,
+                "heads": "mixed",
+                "bright_x": 0.008187772926,
+                "dark_x": 0.008187772926,
+                "bright_y": 0.008187772926,
+                "dark_y": 0.008187772926
+              }
+            ],
+            "positive": [
+              {
+                "port": 4,
+                "heads": "forward",
+                "bright_x": 0.006550218341,
+                "dark_x": 0.019650655022,
+                "bright_y": 0.001755125715,
+                "dark_y": 0.024445747648
+              },
+              {
+                "port": 4,
+                "heads": "mixed",
+                "bright_x": 0.89192139738,
+                "dark_x": 0.018558951965,
+                "bright_y": 0.455240174672,
+                "dark_y": 0.455240174672
+              },
+              {
+                "port": 4,
+                "heads": "reverse",
+                "bright_x": 0.006550218341,
+                "dark_x": 0.019650655022,
+                "bright_y": 0.024445747648,
+                "dark_y": 0.001755125715
+              },
+              {
+                "port": 7,
+                "heads": "mixed",
+                "bright_x": 0.000545851528,
+                "dark_x": 0.000545851528,
+                "bright_y": 0.000545851528,
+                "dark_y": 0.000545851528
+              },
+              {
+                "port": 8,
+                "heads": "mixed",
+                "bright_x": 0.009825327511,
+                "dark_x": 0.009825327511,
+                "bright_y": 0.009825327511,
+                "dark_y": 0.009825327511
+              },
+              {
+                "port": 10,
+                "heads": "mixed",
+                "bright_x": 0.008187772926,
+                "dark_x": 0.008187772926,
+                "bright_y": 0.008187772926,
+                "dark_y": 0.008187772926
+              }
+            ],
+            "negative": [
+              {
+                "port": 4,
+                "heads": "forward",
+                "bright_x": 0.006550218341,
+                "dark_x": 0.019650655022,
+                "bright_y": 0.024445747648,
+                "dark_y": 0.001755125715
+              },
+              {
+                "port": 4,
+                "heads": "mixed",
+                "bright_x": 0.89192139738,
+                "dark_x": 0.018558951965,
+                "bright_y": 0.455240174672,
+                "dark_y": 0.455240174672
+              },
+              {
+                "port": 4,
+                "heads": "reverse",
+                "bright_x": 0.006550218341,
+                "dark_x": 0.019650655022,
+                "bright_y": 0.001755125715,
+                "dark_y": 0.024445747648
+              },
+              {
+                "port": 7,
+                "heads": "mixed",
+                "bright_x": 0.000545851528,
+                "dark_x": 0.000545851528,
+                "bright_y": 0.000545851528,
+                "dark_y": 0.000545851528
+              },
+              {
+                "port": 8,
+                "heads": "mixed",
+                "bright_x": 0.009825327511,
+                "dark_x": 0.009825327511,
+                "bright_y": 0.009825327511,
+                "dark_y": 0.009825327511
+              },
+              {
+                "port": 10,
+                "heads": "mixed",
+                "bright_x": 0.008187772926,
+                "dark_x": 0.008187772926,
+                "bright_y": 0.008187772926,
+                "dark_y": 0.008187772926
+              }
+            ]
+          },
+          "conjugate_total_variation_y": 0.045381243866
+        },
+        {
+          "contour": "deformed",
+          "cycle": [
+            2,
+            4,
+            9,
+            8,
+            7,
+            10,
+            11
+          ],
+          "sign": -1,
+          "outcomes": {
+            "uniform": [
+              {
+                "port": 2,
+                "heads": "mixed",
+                "bright_x": 0.903384279476,
+                "dark_x": 0.032205240175,
+                "bright_y": 0.467794759825,
+                "dark_y": 0.467794759825
+              },
+              {
+                "port": 11,
+                "heads": "mixed",
+                "bright_x": 0.032205240175,
+                "dark_x": 0.032205240175,
+                "bright_y": 0.032205240175,
+                "dark_y": 0.032205240175
+              }
+            ],
+            "positive": [
+              {
+                "port": 2,
+                "heads": "mixed",
+                "bright_x": 0.903384279476,
+                "dark_x": 0.032205240175,
+                "bright_y": 0.467794759825,
+                "dark_y": 0.467794759825
+              },
+              {
+                "port": 11,
+                "heads": "mixed",
+                "bright_x": 0.032205240175,
+                "dark_x": 0.032205240175,
+                "bright_y": 0.032205240175,
+                "dark_y": 0.032205240175
+              }
+            ],
+            "negative": [
+              {
+                "port": 2,
+                "heads": "mixed",
+                "bright_x": 0.903384279476,
+                "dark_x": 0.032205240175,
+                "bright_y": 0.467794759825,
+                "dark_y": 0.467794759825
+              },
+              {
+                "port": 11,
+                "heads": "mixed",
+                "bright_x": 0.032205240175,
+                "dark_x": 0.032205240175,
+                "bright_y": 0.032205240175,
+                "dark_y": 0.032205240175
+              }
+            ]
+          },
+          "conjugate_total_variation_y": 0.0
+        },
+        {
+          "contour": "deformed",
+          "cycle": [
+            2,
+            4,
+            9,
+            8,
+            7,
+            10,
+            11
+          ],
+          "sign": 1,
+          "outcomes": {
+            "uniform": [
+              {
+                "port": 2,
+                "heads": "mixed",
+                "bright_x": 0.903384279476,
+                "dark_x": 0.032205240175,
+                "bright_y": 0.467794759825,
+                "dark_y": 0.467794759825
+              },
+              {
+                "port": 7,
+                "heads": "mixed",
+                "bright_x": 0.001091703057,
+                "dark_x": 0.001091703057,
+                "bright_y": 0.001091703057,
+                "dark_y": 0.001091703057
+              },
+              {
+                "port": 8,
+                "heads": "mixed",
+                "bright_x": 0.014192139738,
+                "dark_x": 0.014192139738,
+                "bright_y": 0.014192139738,
+                "dark_y": 0.014192139738
+              },
+              {
+                "port": 9,
+                "heads": "mixed",
+                "bright_x": 0.002183406114,
+                "dark_x": 0.002183406114,
+                "bright_y": 0.002183406114,
+                "dark_y": 0.002183406114
+              },
+              {
+                "port": 10,
+                "heads": "mixed",
+                "bright_x": 0.014737991266,
+                "dark_x": 0.014737991266,
+                "bright_y": 0.014737991266,
+                "dark_y": 0.014737991266
+              }
+            ],
+            "positive": [
+              {
+                "port": 2,
+                "heads": "mixed",
+                "bright_x": 0.903384279476,
+                "dark_x": 0.032205240175,
+                "bright_y": 0.467794759825,
+                "dark_y": 0.467794759825
+              },
+              {
+                "port": 7,
+                "heads": "mixed",
+                "bright_x": 0.001091703057,
+                "dark_x": 0.001091703057,
+                "bright_y": 0.001091703057,
+                "dark_y": 0.001091703057
+              },
+              {
+                "port": 8,
+                "heads": "mixed",
+                "bright_x": 0.014192139738,
+                "dark_x": 0.014192139738,
+                "bright_y": 0.014192139738,
+                "dark_y": 0.014192139738
+              },
+              {
+                "port": 9,
+                "heads": "mixed",
+                "bright_x": 0.002183406114,
+                "dark_x": 0.002183406114,
+                "bright_y": 0.002183406114,
+                "dark_y": 0.002183406114
+              },
+              {
+                "port": 10,
+                "heads": "mixed",
+                "bright_x": 0.014737991266,
+                "dark_x": 0.014737991266,
+                "bright_y": 0.014737991266,
+                "dark_y": 0.014737991266
+              }
+            ],
+            "negative": [
+              {
+                "port": 2,
+                "heads": "mixed",
+                "bright_x": 0.903384279476,
+                "dark_x": 0.032205240175,
+                "bright_y": 0.467794759825,
+                "dark_y": 0.467794759825
+              },
+              {
+                "port": 7,
+                "heads": "mixed",
+                "bright_x": 0.001091703057,
+                "dark_x": 0.001091703057,
+                "bright_y": 0.001091703057,
+                "dark_y": 0.001091703057
+              },
+              {
+                "port": 8,
+                "heads": "mixed",
+                "bright_x": 0.014192139738,
+                "dark_x": 0.014192139738,
+                "bright_y": 0.014192139738,
+                "dark_y": 0.014192139738
+              },
+              {
+                "port": 9,
+                "heads": "mixed",
+                "bright_x": 0.002183406114,
+                "dark_x": 0.002183406114,
+                "bright_y": 0.002183406114,
+                "dark_y": 0.002183406114
+              },
+              {
+                "port": 10,
+                "heads": "mixed",
+                "bright_x": 0.014737991266,
+                "dark_x": 0.014737991266,
+                "bright_y": 0.014737991266,
+                "dark_y": 0.014737991266
+              }
+            ]
+          },
+          "conjugate_total_variation_y": 0.0
+        },
+        {
+          "contour": "exterior",
+          "cycle": [
+            0,
+            1,
+            7
+          ],
+          "sign": -1,
+          "outcomes": {
+            "uniform": [
+              {
+                "port": 0,
+                "heads": "forward",
+                "bright_x": 0.161572052402,
+                "dark_x": 0.0,
+                "bright_y": 0.080786026201,
+                "dark_y": 0.080786026201
+              },
+              {
+                "port": 0,
+                "heads": "mixed",
+                "bright_x": 0.676855895197,
+                "dark_x": 0.0,
+                "bright_y": 0.338427947598,
+                "dark_y": 0.338427947598
+              },
+              {
+                "port": 0,
+                "heads": "reverse",
+                "bright_x": 0.161572052402,
+                "dark_x": 0.0,
+                "bright_y": 0.080786026201,
+                "dark_y": 0.080786026201
+              }
+            ],
+            "positive": [
+              {
+                "port": 0,
+                "heads": "forward",
+                "bright_x": 0.161572052402,
+                "dark_x": 0.0,
+                "bright_y": 0.080786026201,
+                "dark_y": 0.080786026201
+              },
+              {
+                "port": 0,
+                "heads": "mixed",
+                "bright_x": 0.676855895197,
+                "dark_x": 0.0,
+                "bright_y": 0.338427947598,
+                "dark_y": 0.338427947598
+              },
+              {
+                "port": 0,
+                "heads": "reverse",
+                "bright_x": 0.161572052402,
+                "dark_x": 0.0,
+                "bright_y": 0.080786026201,
+                "dark_y": 0.080786026201
+              }
+            ],
+            "negative": [
+              {
+                "port": 0,
+                "heads": "forward",
+                "bright_x": 0.161572052402,
+                "dark_x": 0.0,
+                "bright_y": 0.080786026201,
+                "dark_y": 0.080786026201
+              },
+              {
+                "port": 0,
+                "heads": "mixed",
+                "bright_x": 0.676855895197,
+                "dark_x": 0.0,
+                "bright_y": 0.338427947598,
+                "dark_y": 0.338427947598
+              },
+              {
+                "port": 0,
+                "heads": "reverse",
+                "bright_x": 0.161572052402,
+                "dark_x": 0.0,
+                "bright_y": 0.080786026201,
+                "dark_y": 0.080786026201
+              }
+            ]
+          },
+          "conjugate_total_variation_y": 0.0
+        },
+        {
+          "contour": "exterior",
+          "cycle": [
+            0,
+            1,
+            7
+          ],
+          "sign": 1,
+          "outcomes": {
+            "uniform": [
+              {
+                "port": 0,
+                "heads": "forward",
+                "bright_x": 0.161572052402,
+                "dark_x": 0.0,
+                "bright_y": 0.080786026201,
+                "dark_y": 0.080786026201
+              },
+              {
+                "port": 0,
+                "heads": "mixed",
+                "bright_x": 0.586790393013,
+                "dark_x": 0.030021834061,
+                "bright_y": 0.308406113537,
+                "dark_y": 0.308406113537
+              },
+              {
+                "port": 0,
+                "heads": "reverse",
+                "bright_x": 0.161572052402,
+                "dark_x": 0.0,
+                "bright_y": 0.080786026201,
+                "dark_y": 0.080786026201
+              },
+              {
+                "port": 7,
+                "heads": "mixed",
+                "bright_x": 0.030021834061,
+                "dark_x": 0.030021834061,
+                "bright_y": 0.030021834061,
+                "dark_y": 0.030021834061
+              }
+            ],
+            "positive": [
+              {
+                "port": 0,
+                "heads": "forward",
+                "bright_x": 0.161572052402,
+                "dark_x": 0.0,
+                "bright_y": 0.080786026201,
+                "dark_y": 0.080786026201
+              },
+              {
+                "port": 0,
+                "heads": "mixed",
+                "bright_x": 0.586790393013,
+                "dark_x": 0.030021834061,
+                "bright_y": 0.308406113537,
+                "dark_y": 0.308406113537
+              },
+              {
+                "port": 0,
+                "heads": "reverse",
+                "bright_x": 0.161572052402,
+                "dark_x": 0.0,
+                "bright_y": 0.080786026201,
+                "dark_y": 0.080786026201
+              },
+              {
+                "port": 7,
+                "heads": "mixed",
+                "bright_x": 0.030021834061,
+                "dark_x": 0.030021834061,
+                "bright_y": 0.030021834061,
+                "dark_y": 0.030021834061
+              }
+            ],
+            "negative": [
+              {
+                "port": 0,
+                "heads": "forward",
+                "bright_x": 0.161572052402,
+                "dark_x": 0.0,
+                "bright_y": 0.080786026201,
+                "dark_y": 0.080786026201
+              },
+              {
+                "port": 0,
+                "heads": "mixed",
+                "bright_x": 0.586790393013,
+                "dark_x": 0.030021834061,
+                "bright_y": 0.308406113537,
+                "dark_y": 0.308406113537
+              },
+              {
+                "port": 0,
+                "heads": "reverse",
+                "bright_x": 0.161572052402,
+                "dark_x": 0.0,
+                "bright_y": 0.080786026201,
+                "dark_y": 0.080786026201
+              },
+              {
+                "port": 7,
+                "heads": "mixed",
+                "bright_x": 0.030021834061,
+                "dark_x": 0.030021834061,
+                "bright_y": 0.030021834061,
+                "dark_y": 0.030021834061
+              }
+            ]
+          },
+          "conjugate_total_variation_y": 0.0
+        }
+      ]
+    },
+    {
+      "setting": "held",
+      "faces": [
+        1,
+        8
+      ],
+      "energy_by_face": [
+        0.0,
+        0.242358078603,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.11135371179,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "panels": [
+        {
+          "contour": "enclosing",
+          "cycle": [
+            5,
+            9,
+            8,
+            6,
+            10,
+            11
+          ],
+          "sign": -1,
+          "outcomes": {
+            "uniform": [
+              {
+                "port": 5,
+                "heads": "forward",
+                "bright_x": 0.026200873362,
+                "dark_x": 0.0,
+                "bright_y": 0.013100436681,
+                "dark_y": 0.013100436681
+              },
+              {
+                "port": 5,
+                "heads": "mixed",
+                "bright_x": 0.495633187773,
+                "dark_x": 0.150655021834,
+                "bright_y": 0.323144104803,
+                "dark_y": 0.323144104803
+              },
+              {
+                "port": 5,
+                "heads": "reverse",
+                "bright_x": 0.026200873362,
+                "dark_x": 0.0,
+                "bright_y": 0.013100436681,
+                "dark_y": 0.013100436681
+              },
+              {
+                "port": 6,
+                "heads": "mixed",
+                "bright_x": 0.007096069869,
+                "dark_x": 0.007096069869,
+                "bright_y": 0.007096069869,
+                "dark_y": 0.007096069869
+              },
+              {
+                "port": 10,
+                "heads": "mixed",
+                "bright_x": 0.021834061135,
+                "dark_x": 0.021834061135,
+                "bright_y": 0.021834061135,
+                "dark_y": 0.021834061135
+              },
+              {
+                "port": 11,
+                "heads": "mixed",
+                "bright_x": 0.12172489083,
+                "dark_x": 0.12172489083,
+                "bright_y": 0.12172489083,
+                "dark_y": 0.12172489083
+              }
+            ],
+            "positive": [
+              {
+                "port": 5,
+                "heads": "forward",
+                "bright_x": 0.006550218341,
+                "dark_x": 0.019650655022,
+                "bright_y": 0.001755125715,
+                "dark_y": 0.024445747648
+              },
+              {
+                "port": 5,
+                "heads": "mixed",
+                "bright_x": 0.495633187773,
+                "dark_x": 0.150655021834,
+                "bright_y": 0.323144104803,
+                "dark_y": 0.323144104803
+              },
+              {
+                "port": 5,
+                "heads": "reverse",
+                "bright_x": 0.006550218341,
+                "dark_x": 0.019650655022,
+                "bright_y": 0.024445747648,
+                "dark_y": 0.001755125715
+              },
+              {
+                "port": 6,
+                "heads": "mixed",
+                "bright_x": 0.007096069869,
+                "dark_x": 0.007096069869,
+                "bright_y": 0.007096069869,
+                "dark_y": 0.007096069869
+              },
+              {
+                "port": 10,
+                "heads": "mixed",
+                "bright_x": 0.021834061135,
+                "dark_x": 0.021834061135,
+                "bright_y": 0.021834061135,
+                "dark_y": 0.021834061135
+              },
+              {
+                "port": 11,
+                "heads": "mixed",
+                "bright_x": 0.12172489083,
+                "dark_x": 0.12172489083,
+                "bright_y": 0.12172489083,
+                "dark_y": 0.12172489083
+              }
+            ],
+            "negative": [
+              {
+                "port": 5,
+                "heads": "forward",
+                "bright_x": 0.006550218341,
+                "dark_x": 0.019650655022,
+                "bright_y": 0.024445747648,
+                "dark_y": 0.001755125715
+              },
+              {
+                "port": 5,
+                "heads": "mixed",
+                "bright_x": 0.495633187773,
+                "dark_x": 0.150655021834,
+                "bright_y": 0.323144104803,
+                "dark_y": 0.323144104803
+              },
+              {
+                "port": 5,
+                "heads": "reverse",
+                "bright_x": 0.006550218341,
+                "dark_x": 0.019650655022,
+                "bright_y": 0.001755125715,
+                "dark_y": 0.024445747648
+              },
+              {
+                "port": 6,
+                "heads": "mixed",
+                "bright_x": 0.007096069869,
+                "dark_x": 0.007096069869,
+                "bright_y": 0.007096069869,
+                "dark_y": 0.007096069869
+              },
+              {
+                "port": 10,
+                "heads": "mixed",
+                "bright_x": 0.021834061135,
+                "dark_x": 0.021834061135,
+                "bright_y": 0.021834061135,
+                "dark_y": 0.021834061135
+              },
+              {
+                "port": 11,
+                "heads": "mixed",
+                "bright_x": 0.12172489083,
+                "dark_x": 0.12172489083,
+                "bright_y": 0.12172489083,
+                "dark_y": 0.12172489083
+              }
+            ]
+          },
+          "conjugate_total_variation_y": 0.045381243866
+        },
+        {
+          "contour": "enclosing",
+          "cycle": [
+            5,
+            9,
+            8,
+            6,
+            10,
+            11
+          ],
+          "sign": 1,
+          "outcomes": {
+            "uniform": [
+              {
+                "port": 5,
+                "heads": "forward",
+                "bright_x": 0.026200873362,
+                "dark_x": 0.0,
+                "bright_y": 0.013100436681,
+                "dark_y": 0.013100436681
+              },
+              {
+                "port": 5,
+                "heads": "mixed",
+                "bright_x": 0.89519650655,
+                "dark_x": 0.017467248908,
+                "bright_y": 0.456331877729,
+                "dark_y": 0.456331877729
+              },
+              {
+                "port": 5,
+                "heads": "reverse",
+                "bright_x": 0.026200873362,
+                "dark_x": 0.0,
+                "bright_y": 0.013100436681,
+                "dark_y": 0.013100436681
+              },
+              {
+                "port": 6,
+                "heads": "mixed",
+                "bright_x": 0.003820960699,
+                "dark_x": 0.003820960699,
+                "bright_y": 0.003820960699,
+                "dark_y": 0.003820960699
+              },
+              {
+                "port": 8,
+                "heads": "mixed",
+                "bright_x": 0.008733624454,
+                "dark_x": 0.008733624454,
+                "bright_y": 0.008733624454,
+                "dark_y": 0.008733624454
+              },
+              {
+                "port": 10,
+                "heads": "mixed",
+                "bright_x": 0.004912663755,
+                "dark_x": 0.004912663755,
+                "bright_y": 0.004912663755,
+                "dark_y": 0.004912663755
+              }
+            ],
+            "positive": [
+              {
+                "port": 5,
+                "heads": "forward",
+                "bright_x": 0.006550218341,
+                "dark_x": 0.019650655022,
+                "bright_y": 0.001755125715,
+                "dark_y": 0.024445747648
+              },
+              {
+                "port": 5,
+                "heads": "mixed",
+                "bright_x": 0.89519650655,
+                "dark_x": 0.017467248908,
+                "bright_y": 0.456331877729,
+                "dark_y": 0.456331877729
+              },
+              {
+                "port": 5,
+                "heads": "reverse",
+                "bright_x": 0.006550218341,
+                "dark_x": 0.019650655022,
+                "bright_y": 0.024445747648,
+                "dark_y": 0.001755125715
+              },
+              {
+                "port": 6,
+                "heads": "mixed",
+                "bright_x": 0.003820960699,
+                "dark_x": 0.003820960699,
+                "bright_y": 0.003820960699,
+                "dark_y": 0.003820960699
+              },
+              {
+                "port": 8,
+                "heads": "mixed",
+                "bright_x": 0.008733624454,
+                "dark_x": 0.008733624454,
+                "bright_y": 0.008733624454,
+                "dark_y": 0.008733624454
+              },
+              {
+                "port": 10,
+                "heads": "mixed",
+                "bright_x": 0.004912663755,
+                "dark_x": 0.004912663755,
+                "bright_y": 0.004912663755,
+                "dark_y": 0.004912663755
+              }
+            ],
+            "negative": [
+              {
+                "port": 5,
+                "heads": "forward",
+                "bright_x": 0.006550218341,
+                "dark_x": 0.019650655022,
+                "bright_y": 0.024445747648,
+                "dark_y": 0.001755125715
+              },
+              {
+                "port": 5,
+                "heads": "mixed",
+                "bright_x": 0.89519650655,
+                "dark_x": 0.017467248908,
+                "bright_y": 0.456331877729,
+                "dark_y": 0.456331877729
+              },
+              {
+                "port": 5,
+                "heads": "reverse",
+                "bright_x": 0.006550218341,
+                "dark_x": 0.019650655022,
+                "bright_y": 0.001755125715,
+                "dark_y": 0.024445747648
+              },
+              {
+                "port": 6,
+                "heads": "mixed",
+                "bright_x": 0.003820960699,
+                "dark_x": 0.003820960699,
+                "bright_y": 0.003820960699,
+                "dark_y": 0.003820960699
+              },
+              {
+                "port": 8,
+                "heads": "mixed",
+                "bright_x": 0.008733624454,
+                "dark_x": 0.008733624454,
+                "bright_y": 0.008733624454,
+                "dark_y": 0.008733624454
+              },
+              {
+                "port": 10,
+                "heads": "mixed",
+                "bright_x": 0.004912663755,
+                "dark_x": 0.004912663755,
+                "bright_y": 0.004912663755,
+                "dark_y": 0.004912663755
+              }
+            ]
+          },
+          "conjugate_total_variation_y": 0.045381243866
+        },
+        {
+          "contour": "deformed",
+          "cycle": [
+            2,
+            6,
+            8,
+            9,
+            5,
+            11,
+            10
+          ],
+          "sign": -1,
+          "outcomes": {
+            "uniform": [
+              {
+                "port": 2,
+                "heads": "forward",
+                "bright_x": 0.019650655022,
+                "dark_x": 0.0,
+                "bright_y": 0.009825327511,
+                "dark_y": 0.009825327511
+              },
+              {
+                "port": 2,
+                "heads": "mixed",
+                "bright_x": 0.569323144105,
+                "dark_x": 0.130458515284,
+                "bright_y": 0.349890829694,
+                "dark_y": 0.349890829694
+              },
+              {
+                "port": 2,
+                "heads": "reverse",
+                "bright_x": 0.019650655022,
+                "dark_x": 0.0,
+                "bright_y": 0.009825327511,
+                "dark_y": 0.009825327511
+              },
+              {
+                "port": 5,
+                "heads": "mixed",
+                "bright_x": 0.006550218341,
+                "dark_x": 0.006550218341,
+                "bright_y": 0.006550218341,
+                "dark_y": 0.006550218341
+              },
+              {
+                "port": 9,
+                "heads": "mixed",
+                "bright_x": 0.010917030568,
+                "dark_x": 0.010917030568,
+                "bright_y": 0.010917030568,
+                "dark_y": 0.010917030568
+              },
+              {
+                "port": 10,
+                "heads": "mixed",
+                "bright_x": 0.017467248908,
+                "dark_x": 0.017467248908,
+                "bright_y": 0.017467248908,
+                "dark_y": 0.017467248908
+              },
+              {
+                "port": 11,
+                "heads": "mixed",
+                "bright_x": 0.095524017467,
+                "dark_x": 0.095524017467,
+                "bright_y": 0.095524017467,
+                "dark_y": 0.095524017467
+              }
+            ],
+            "positive": [
+              {
+                "port": 2,
+                "heads": "forward",
+                "bright_x": 0.004912663755,
+                "dark_x": 0.014737991266,
+                "bright_y": 0.018334310736,
+                "dark_y": 0.001316344286
+              },
+              {
+                "port": 2,
+                "heads": "mixed",
+                "bright_x": 0.569323144105,
+                "dark_x": 0.130458515284,
+                "bright_y": 0.349890829694,
+                "dark_y": 0.349890829694
+              },
+              {
+                "port": 2,
+                "heads": "reverse",
+                "bright_x": 0.004912663755,
+                "dark_x": 0.014737991266,
+                "bright_y": 0.001316344286,
+                "dark_y": 0.018334310736
+              },
+              {
+                "port": 5,
+                "heads": "mixed",
+                "bright_x": 0.006550218341,
+                "dark_x": 0.006550218341,
+                "bright_y": 0.006550218341,
+                "dark_y": 0.006550218341
+              },
+              {
+                "port": 9,
+                "heads": "mixed",
+                "bright_x": 0.010917030568,
+                "dark_x": 0.010917030568,
+                "bright_y": 0.010917030568,
+                "dark_y": 0.010917030568
+              },
+              {
+                "port": 10,
+                "heads": "mixed",
+                "bright_x": 0.017467248908,
+                "dark_x": 0.017467248908,
+                "bright_y": 0.017467248908,
+                "dark_y": 0.017467248908
+              },
+              {
+                "port": 11,
+                "heads": "mixed",
+                "bright_x": 0.095524017467,
+                "dark_x": 0.095524017467,
+                "bright_y": 0.095524017467,
+                "dark_y": 0.095524017467
+              }
+            ],
+            "negative": [
+              {
+                "port": 2,
+                "heads": "forward",
+                "bright_x": 0.004912663755,
+                "dark_x": 0.014737991266,
+                "bright_y": 0.001316344286,
+                "dark_y": 0.018334310736
+              },
+              {
+                "port": 2,
+                "heads": "mixed",
+                "bright_x": 0.569323144105,
+                "dark_x": 0.130458515284,
+                "bright_y": 0.349890829694,
+                "dark_y": 0.349890829694
+              },
+              {
+                "port": 2,
+                "heads": "reverse",
+                "bright_x": 0.004912663755,
+                "dark_x": 0.014737991266,
+                "bright_y": 0.018334310736,
+                "dark_y": 0.001316344286
+              },
+              {
+                "port": 5,
+                "heads": "mixed",
+                "bright_x": 0.006550218341,
+                "dark_x": 0.006550218341,
+                "bright_y": 0.006550218341,
+                "dark_y": 0.006550218341
+              },
+              {
+                "port": 9,
+                "heads": "mixed",
+                "bright_x": 0.010917030568,
+                "dark_x": 0.010917030568,
+                "bright_y": 0.010917030568,
+                "dark_y": 0.010917030568
+              },
+              {
+                "port": 10,
+                "heads": "mixed",
+                "bright_x": 0.017467248908,
+                "dark_x": 0.017467248908,
+                "bright_y": 0.017467248908,
+                "dark_y": 0.017467248908
+              },
+              {
+                "port": 11,
+                "heads": "mixed",
+                "bright_x": 0.095524017467,
+                "dark_x": 0.095524017467,
+                "bright_y": 0.095524017467,
+                "dark_y": 0.095524017467
+              }
+            ]
+          },
+          "conjugate_total_variation_y": 0.0340359329
+        },
+        {
+          "contour": "deformed",
+          "cycle": [
+            2,
+            6,
+            8,
+            9,
+            5,
+            11,
+            10
+          ],
+          "sign": 1,
+          "outcomes": {
+            "uniform": [
+              {
+                "port": 2,
+                "heads": "forward",
+                "bright_x": 0.019650655022,
+                "dark_x": 0.0,
+                "bright_y": 0.009825327511,
+                "dark_y": 0.009825327511
+              },
+              {
+                "port": 2,
+                "heads": "mixed",
+                "bright_x": 0.826419213974,
+                "dark_x": 0.044759825328,
+                "bright_y": 0.435589519651,
+                "dark_y": 0.435589519651
+              },
+              {
+                "port": 2,
+                "heads": "reverse",
+                "bright_x": 0.019650655022,
+                "dark_x": 0.0,
+                "bright_y": 0.009825327511,
+                "dark_y": 0.009825327511
+              },
+              {
+                "port": 5,
+                "heads": "mixed",
+                "bright_x": 0.00327510917,
+                "dark_x": 0.00327510917,
+                "bright_y": 0.00327510917,
+                "dark_y": 0.00327510917
+              },
+              {
+                "port": 8,
+                "heads": "mixed",
+                "bright_x": 0.004366812227,
+                "dark_x": 0.004366812227,
+                "bright_y": 0.004366812227,
+                "dark_y": 0.004366812227
+              },
+              {
+                "port": 9,
+                "heads": "mixed",
+                "bright_x": 0.001091703057,
+                "dark_x": 0.001091703057,
+                "bright_y": 0.001091703057,
+                "dark_y": 0.001091703057
+              },
+              {
+                "port": 10,
+                "heads": "mixed",
+                "bright_x": 0.036026200873,
+                "dark_x": 0.036026200873,
+                "bright_y": 0.036026200873,
+                "dark_y": 0.036026200873
+              }
+            ],
+            "positive": [
+              {
+                "port": 2,
+                "heads": "forward",
+                "bright_x": 0.004912663755,
+                "dark_x": 0.014737991266,
+                "bright_y": 0.018334310736,
+                "dark_y": 0.001316344286
+              },
+              {
+                "port": 2,
+                "heads": "mixed",
+                "bright_x": 0.826419213974,
+                "dark_x": 0.044759825328,
+                "bright_y": 0.435589519651,
+                "dark_y": 0.435589519651
+              },
+              {
+                "port": 2,
+                "heads": "reverse",
+                "bright_x": 0.004912663755,
+                "dark_x": 0.014737991266,
+                "bright_y": 0.001316344286,
+                "dark_y": 0.018334310736
+              },
+              {
+                "port": 5,
+                "heads": "mixed",
+                "bright_x": 0.00327510917,
+                "dark_x": 0.00327510917,
+                "bright_y": 0.00327510917,
+                "dark_y": 0.00327510917
+              },
+              {
+                "port": 8,
+                "heads": "mixed",
+                "bright_x": 0.004366812227,
+                "dark_x": 0.004366812227,
+                "bright_y": 0.004366812227,
+                "dark_y": 0.004366812227
+              },
+              {
+                "port": 9,
+                "heads": "mixed",
+                "bright_x": 0.001091703057,
+                "dark_x": 0.001091703057,
+                "bright_y": 0.001091703057,
+                "dark_y": 0.001091703057
+              },
+              {
+                "port": 10,
+                "heads": "mixed",
+                "bright_x": 0.036026200873,
+                "dark_x": 0.036026200873,
+                "bright_y": 0.036026200873,
+                "dark_y": 0.036026200873
+              }
+            ],
+            "negative": [
+              {
+                "port": 2,
+                "heads": "forward",
+                "bright_x": 0.004912663755,
+                "dark_x": 0.014737991266,
+                "bright_y": 0.001316344286,
+                "dark_y": 0.018334310736
+              },
+              {
+                "port": 2,
+                "heads": "mixed",
+                "bright_x": 0.826419213974,
+                "dark_x": 0.044759825328,
+                "bright_y": 0.435589519651,
+                "dark_y": 0.435589519651
+              },
+              {
+                "port": 2,
+                "heads": "reverse",
+                "bright_x": 0.004912663755,
+                "dark_x": 0.014737991266,
+                "bright_y": 0.018334310736,
+                "dark_y": 0.001316344286
+              },
+              {
+                "port": 5,
+                "heads": "mixed",
+                "bright_x": 0.00327510917,
+                "dark_x": 0.00327510917,
+                "bright_y": 0.00327510917,
+                "dark_y": 0.00327510917
+              },
+              {
+                "port": 8,
+                "heads": "mixed",
+                "bright_x": 0.004366812227,
+                "dark_x": 0.004366812227,
+                "bright_y": 0.004366812227,
+                "dark_y": 0.004366812227
+              },
+              {
+                "port": 9,
+                "heads": "mixed",
+                "bright_x": 0.001091703057,
+                "dark_x": 0.001091703057,
+                "bright_y": 0.001091703057,
+                "dark_y": 0.001091703057
+              },
+              {
+                "port": 10,
+                "heads": "mixed",
+                "bright_x": 0.036026200873,
+                "dark_x": 0.036026200873,
+                "bright_y": 0.036026200873,
+                "dark_y": 0.036026200873
+              }
+            ]
+          },
+          "conjugate_total_variation_y": 0.0340359329
+        },
+        {
+          "contour": "exterior",
+          "cycle": [
+            0,
+            1,
+            5
+          ],
+          "sign": -1,
+          "outcomes": {
+            "uniform": [
+              {
+                "port": 0,
+                "heads": "forward",
+                "bright_x": 0.161572052402,
+                "dark_x": 0.0,
+                "bright_y": 0.080786026201,
+                "dark_y": 0.080786026201
+              },
+              {
+                "port": 0,
+                "heads": "mixed",
+                "bright_x": 0.676855895197,
+                "dark_x": 0.0,
+                "bright_y": 0.338427947598,
+                "dark_y": 0.338427947598
+              },
+              {
+                "port": 0,
+                "heads": "reverse",
+                "bright_x": 0.161572052402,
+                "dark_x": 0.0,
+                "bright_y": 0.080786026201,
+                "dark_y": 0.080786026201
+              }
+            ],
+            "positive": [
+              {
+                "port": 0,
+                "heads": "forward",
+                "bright_x": 0.161572052402,
+                "dark_x": 0.0,
+                "bright_y": 0.080786026201,
+                "dark_y": 0.080786026201
+              },
+              {
+                "port": 0,
+                "heads": "mixed",
+                "bright_x": 0.676855895197,
+                "dark_x": 0.0,
+                "bright_y": 0.338427947598,
+                "dark_y": 0.338427947598
+              },
+              {
+                "port": 0,
+                "heads": "reverse",
+                "bright_x": 0.161572052402,
+                "dark_x": 0.0,
+                "bright_y": 0.080786026201,
+                "dark_y": 0.080786026201
+              }
+            ],
+            "negative": [
+              {
+                "port": 0,
+                "heads": "forward",
+                "bright_x": 0.161572052402,
+                "dark_x": 0.0,
+                "bright_y": 0.080786026201,
+                "dark_y": 0.080786026201
+              },
+              {
+                "port": 0,
+                "heads": "mixed",
+                "bright_x": 0.676855895197,
+                "dark_x": 0.0,
+                "bright_y": 0.338427947598,
+                "dark_y": 0.338427947598
+              },
+              {
+                "port": 0,
+                "heads": "reverse",
+                "bright_x": 0.161572052402,
+                "dark_x": 0.0,
+                "bright_y": 0.080786026201,
+                "dark_y": 0.080786026201
+              }
+            ]
+          },
+          "conjugate_total_variation_y": 0.0
+        },
+        {
+          "contour": "exterior",
+          "cycle": [
+            0,
+            1,
+            5
+          ],
+          "sign": 1,
+          "outcomes": {
+            "uniform": [
+              {
+                "port": 0,
+                "heads": "forward",
+                "bright_x": 0.161572052402,
+                "dark_x": 0.0,
+                "bright_y": 0.080786026201,
+                "dark_y": 0.080786026201
+              },
+              {
+                "port": 0,
+                "heads": "mixed",
+                "bright_x": 0.598253275109,
+                "dark_x": 0.026200873362,
+                "bright_y": 0.312227074236,
+                "dark_y": 0.312227074236
+              },
+              {
+                "port": 0,
+                "heads": "reverse",
+                "bright_x": 0.161572052402,
+                "dark_x": 0.0,
+                "bright_y": 0.080786026201,
+                "dark_y": 0.080786026201
+              },
+              {
+                "port": 5,
+                "heads": "mixed",
+                "bright_x": 0.026200873362,
+                "dark_x": 0.026200873362,
+                "bright_y": 0.026200873362,
+                "dark_y": 0.026200873362
+              }
+            ],
+            "positive": [
+              {
+                "port": 0,
+                "heads": "forward",
+                "bright_x": 0.161572052402,
+                "dark_x": 0.0,
+                "bright_y": 0.080786026201,
+                "dark_y": 0.080786026201
+              },
+              {
+                "port": 0,
+                "heads": "mixed",
+                "bright_x": 0.598253275109,
+                "dark_x": 0.026200873362,
+                "bright_y": 0.312227074236,
+                "dark_y": 0.312227074236
+              },
+              {
+                "port": 0,
+                "heads": "reverse",
+                "bright_x": 0.161572052402,
+                "dark_x": 0.0,
+                "bright_y": 0.080786026201,
+                "dark_y": 0.080786026201
+              },
+              {
+                "port": 5,
+                "heads": "mixed",
+                "bright_x": 0.026200873362,
+                "dark_x": 0.026200873362,
+                "bright_y": 0.026200873362,
+                "dark_y": 0.026200873362
+              }
+            ],
+            "negative": [
+              {
+                "port": 0,
+                "heads": "forward",
+                "bright_x": 0.161572052402,
+                "dark_x": 0.0,
+                "bright_y": 0.080786026201,
+                "dark_y": 0.080786026201
+              },
+              {
+                "port": 0,
+                "heads": "mixed",
+                "bright_x": 0.598253275109,
+                "dark_x": 0.026200873362,
+                "bright_y": 0.312227074236,
+                "dark_y": 0.312227074236
+              },
+              {
+                "port": 0,
+                "heads": "reverse",
+                "bright_x": 0.161572052402,
+                "dark_x": 0.0,
+                "bright_y": 0.080786026201,
+                "dark_y": 0.080786026201
+              },
+              {
+                "port": 5,
+                "heads": "mixed",
+                "bright_x": 0.026200873362,
+                "dark_x": 0.026200873362,
+                "bright_y": 0.026200873362,
+                "dark_y": 0.026200873362
+              }
+            ]
+          },
+          "conjugate_total_variation_y": 0.0
+        }
+      ]
+    }
+  ]
+}

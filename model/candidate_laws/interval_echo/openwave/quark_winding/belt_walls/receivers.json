@@ -1,0 +1,442 @@
+{
+  "calibration_bright_y": {
+    "0,0": 0.5,
+    "0,1": 0.29744036855,
+    "0,2": 0.00030113595,
+    "1,0": 0.29744036855,
+    "1,1": 0.5,
+    "1,2": 0.29744036855,
+    "2,0": 0.00030113595,
+    "2,1": 0.29744036855,
+    "2,2": 0.5
+  },
+  "two_reference_signal": [
+    -0.49969886405,
+    0.0,
+    0.49969886405
+  ],
+  "cases": {
+    "3": {
+      "launch": [
+        0,
+        4,
+        7
+      ],
+      "contrast_and_voltage": [
+        {
+          "radius": 2,
+          "cut": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "signed_contrast_sum": -0.49969886405,
+          "unit_contrast_sum": 1.49909659215,
+          "relative_excess": -0.33333333333,
+          "regional_voltage_distribution": {
+            "0": 0.66666666667,
+            "1": 0.33333333333
+          },
+          "regional_voltage": {
+            "pi_over_two": {
+              "bright_x": 0.83333333333,
+              "bright_y": 0.66666666667
+            },
+            "pi": {
+              "bright_x": 0.66666666667,
+              "bright_y": 0.5
+            }
+          },
+          "sharp_fraction_voltage": {
+            "pi_over_two": {
+              "bright_x": 0.93301270189,
+              "bright_y": 0.25
+            },
+            "pi": {
+              "bright_x": 0.75,
+              "bright_y": 0.06698729811
+            }
+          },
+          "regional_full_turn_bright_x": 1.0,
+          "sharp_fraction_full_turn_bright_x": 0.25
+        },
+        {
+          "radius": 3,
+          "cut": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            9
+          ],
+          "signed_contrast_sum": -0.49969886405,
+          "unit_contrast_sum": 1.49909659215,
+          "relative_excess": -0.33333333333,
+          "regional_voltage_distribution": {
+            "-1": 0.33333333333,
+            "0": 0.66666666667
+          },
+          "regional_voltage": {
+            "pi_over_two": {
+              "bright_x": 0.83333333333,
+              "bright_y": 0.33333333333
+            },
+            "pi": {
+              "bright_x": 0.66666666667,
+              "bright_y": 0.5
+            }
+          },
+          "sharp_fraction_voltage": {
+            "pi_over_two": {
+              "bright_x": 0.93301270189,
+              "bright_y": 0.25
+            },
+            "pi": {
+              "bright_x": 0.75,
+              "bright_y": 0.06698729811
+            }
+          },
+          "regional_full_turn_bright_x": 1.0,
+          "sharp_fraction_full_turn_bright_x": 0.25
+        }
+      ],
+      "written_tour": {
+        "scheduled_steps": [
+          {
+            "old": 4,
+            "new": 3,
+            "material_step": -1,
+            "physical_seam": [
+              6,
+              10
+            ]
+          },
+          {
+            "old": 7,
+            "new": 6,
+            "material_step": -1,
+            "physical_seam": [
+              4,
+              11
+            ]
+          },
+          {
+            "old": 0,
+            "new": 9,
+            "material_step": -1,
+            "physical_seam": [
+              1,
+              9
+            ]
+          },
+          {
+            "old": 3,
+            "new": 2,
+            "material_step": -1,
+            "physical_seam": [
+              6,
+              7
+            ]
+          },
+          {
+            "old": 6,
+            "new": 5,
+            "material_step": -1,
+            "physical_seam": [
+              2,
+              11
+            ]
+          },
+          {
+            "old": 9,
+            "new": 8,
+            "material_step": -1,
+            "physical_seam": [
+              5,
+              9
+            ]
+          },
+          {
+            "old": 2,
+            "new": 1,
+            "material_step": -1,
+            "physical_seam": [
+              7,
+              8
+            ]
+          },
+          {
+            "old": 5,
+            "new": 4,
+            "material_step": -1,
+            "physical_seam": [
+              2,
+              10
+            ]
+          },
+          {
+            "old": 8,
+            "new": 7,
+            "material_step": -1,
+            "physical_seam": [
+              4,
+              5
+            ]
+          },
+          {
+            "old": 1,
+            "new": 0,
+            "material_step": -1,
+            "physical_seam": [
+              1,
+              8
+            ]
+          }
+        ],
+        "completed_prefix_counts": {
+          "0": 103,
+          "1": 184,
+          "2": 27,
+          "3": 95,
+          "4": 0,
+          "5": 37,
+          "6": 0,
+          "7": 12,
+          "8": 0,
+          "9": 0,
+          "10": 0
+        },
+        "archived_field_words": 458,
+        "aligned_head": 765039457,
+        "terminal_head": 724411105,
+        "changed_heads": 10,
+        "reverse_restores_head": true,
+        "winding_laps": 3,
+        "unit_material_crossings": -1,
+        "independent_head_crossings": -1,
+        "unwritten_control": {
+          "completed": 10,
+          "material_crossings": -1,
+          "head_crossings": 0
+        }
+      }
+    },
+    "4": {
+      "launch": [
+        0,
+        1,
+        4,
+        7
+      ],
+      "contrast_and_voltage": [
+        {
+          "radius": 2,
+          "cut": [
+            0,
+            1,
+            2,
+            9
+          ],
+          "signed_contrast_sum": 0.9993977281,
+          "unit_contrast_sum": 1.49909659215,
+          "relative_excess": 0.66666666667,
+          "regional_voltage_distribution": {
+            "0": 0.33333333333,
+            "1": 0.66666666667
+          },
+          "regional_voltage": {
+            "pi_over_two": {
+              "bright_x": 0.66666666667,
+              "bright_y": 0.83333333333
+            },
+            "pi": {
+              "bright_x": 0.33333333333,
+              "bright_y": 0.5
+            }
+          },
+          "sharp_fraction_voltage": {
+            "pi_over_two": {
+              "bright_x": 0.75,
+              "bright_y": 0.93301270189
+            },
+            "pi": {
+              "bright_x": 0.25,
+              "bright_y": 0.93301270189
+            }
+          },
+          "regional_full_turn_bright_x": 1.0,
+          "sharp_fraction_full_turn_bright_x": 0.25
+        },
+        {
+          "radius": 3,
+          "cut": [
+            0,
+            1,
+            2,
+            3,
+            8,
+            9
+          ],
+          "signed_contrast_sum": 0.9993977281,
+          "unit_contrast_sum": 1.49909659215,
+          "relative_excess": 0.66666666667,
+          "regional_voltage_distribution": {
+            "0": 1.0
+          },
+          "regional_voltage": {
+            "pi_over_two": {
+              "bright_x": 1.0,
+              "bright_y": 0.5
+            },
+            "pi": {
+              "bright_x": 1.0,
+              "bright_y": 0.5
+            }
+          },
+          "sharp_fraction_voltage": {
+            "pi_over_two": {
+              "bright_x": 0.75,
+              "bright_y": 0.93301270189
+            },
+            "pi": {
+              "bright_x": 0.25,
+              "bright_y": 0.93301270189
+            }
+          },
+          "regional_full_turn_bright_x": 1.0,
+          "sharp_fraction_full_turn_bright_x": 0.25
+        }
+      ],
+      "written_tour": {
+        "scheduled_steps": [
+          {
+            "old": 1,
+            "new": 3,
+            "material_step": 2,
+            "physical_seam": [
+              6,
+              8
+            ]
+          },
+          {
+            "old": 4,
+            "new": 6,
+            "material_step": 2,
+            "physical_seam": [
+              10,
+              11
+            ]
+          },
+          {
+            "old": 7,
+            "new": 9,
+            "material_step": 2,
+            "physical_seam": [
+              4,
+              9
+            ]
+          },
+          {
+            "old": 0,
+            "new": 2,
+            "material_step": 2,
+            "physical_seam": [
+              1,
+              7
+            ]
+          },
+          {
+            "old": 3,
+            "new": 5,
+            "material_step": 2,
+            "physical_seam": [
+              2,
+              6
+            ]
+          },
+          {
+            "old": 6,
+            "new": 8,
+            "material_step": 2,
+            "physical_seam": [
+              5,
+              11
+            ]
+          },
+          {
+            "old": 9,
+            "new": 1,
+            "material_step": 2,
+            "physical_seam": [
+              8,
+              9
+            ]
+          },
+          {
+            "old": 2,
+            "new": 4,
+            "material_step": 2,
+            "physical_seam": [
+              7,
+              10
+            ]
+          },
+          {
+            "old": 5,
+            "new": 7,
+            "material_step": 2,
+            "physical_seam": [
+              2,
+              4
+            ]
+          },
+          {
+            "old": 8,
+            "new": 0,
+            "material_step": 2,
+            "physical_seam": [
+              1,
+              5
+            ]
+          }
+        ],
+        "completed_prefix_counts": {
+          "0": 327,
+          "1": 103,
+          "2": 0,
+          "3": 8,
+          "4": 12,
+          "5": 0,
+          "6": 0,
+          "7": 4,
+          "8": 4,
+          "9": 0,
+          "10": 0
+        },
+        "archived_field_words": 458,
+        "aligned_head": 674076609,
+        "terminal_head": 291871649,
+        "changed_heads": 10,
+        "reverse_restores_head": true,
+        "winding_laps": 3,
+        "unit_material_crossings": 2,
+        "independent_head_crossings": 2,
+        "unwritten_control": {
+          "completed": 10,
+          "material_crossings": 2,
+          "head_crossings": 0
+        }
+      }
+    }
+  },
+  "unit_attachment": {
+    "removed": [],
+    "added": [
+      1
+    ]
+  }
+}

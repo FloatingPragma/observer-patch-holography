@@ -1,0 +1,2279 @@
+{
+  "geometry": {
+    "perimeter": [
+      1,
+      8,
+      7,
+      6,
+      10,
+      2,
+      11,
+      4,
+      5,
+      9
+    ],
+    "parked_unit": 0,
+    "source_contact_sites": [
+      7,
+      5
+    ]
+  },
+  "waits": [
+    0.0625,
+    0.125,
+    0.1875,
+    0.25,
+    0.3125,
+    0.375,
+    0.4375,
+    0.5,
+    0.5625,
+    0.625,
+    0.6875,
+    0.75,
+    0.8125,
+    0.875,
+    0.9375,
+    1.0,
+    1.0625,
+    1.125,
+    1.1875,
+    1.25,
+    1.3125,
+    1.375,
+    1.4375,
+    1.5,
+    1.5625,
+    1.625,
+    1.6875,
+    1.75,
+    1.8125,
+    1.875,
+    1.9375,
+    2.0,
+    2.0625,
+    2.125,
+    2.1875,
+    2.25,
+    2.3125,
+    2.375,
+    2.4375,
+    2.5,
+    2.5625,
+    2.625,
+    2.6875,
+    2.75,
+    2.8125,
+    2.875,
+    2.9375,
+    3.0,
+    3.0625,
+    3.125,
+    3.1875,
+    3.25,
+    3.3125,
+    3.375,
+    3.4375,
+    3.5,
+    3.5625,
+    3.625,
+    3.6875,
+    3.75,
+    3.8125,
+    3.875,
+    3.9375,
+    4.0,
+    4.0625,
+    4.125,
+    4.1875,
+    4.25,
+    4.3125,
+    4.375,
+    4.4375,
+    4.5,
+    4.5625,
+    4.625,
+    4.6875,
+    4.75,
+    4.8125,
+    4.875,
+    4.9375,
+    5.0,
+    5.0625,
+    5.125,
+    5.1875,
+    5.25,
+    5.3125,
+    5.375,
+    5.4375,
+    5.5,
+    5.5625,
+    5.625,
+    5.6875,
+    5.75,
+    5.8125,
+    5.875,
+    5.9375,
+    6.0
+  ],
+  "shots": 268435456,
+  "radar_deadlines": [
+    8,
+    16,
+    64,
+    256,
+    4096
+  ],
+  "simultaneous_cdf_error": 0.0001682723036987591,
+  "seed": 271124,
+  "contact_calibration": {
+    "sham": {
+      "odd_reversal": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "contrast_squared": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_energy": 0.0,
+      "energy_with_calibration_tag": [
+        0.0,
+        0.0
+      ],
+      "measured_potential": [
+        0.0,
+        0.0
+      ],
+      "native_potential": [
+        0.0,
+        0.0
+      ]
+    },
+    "coin_even": {
+      "odd_reversal": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "contrast_squared": [
+        4.0,
+        0.0,
+        4.0
+      ],
+      "source_energy": 32.0,
+      "energy_with_calibration_tag": [
+        0.0,
+        32.0
+      ],
+      "measured_potential": [
+        -32.0,
+        0.0
+      ],
+      "native_potential": [
+        -32.0,
+        0.0
+      ]
+    },
+    "coin_odd": {
+      "odd_reversal": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "contrast_squared": [
+        4.0,
+        4.0,
+        4.0
+      ],
+      "source_energy": 32.0,
+      "energy_with_calibration_tag": [
+        32.0,
+        32.0
+      ],
+      "measured_potential": [
+        0.0,
+        0.0
+      ],
+      "native_potential": [
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "banks": [
+    {
+      "contrast": 8.0,
+      "source": "sham",
+      "tags": {
+        "1": {
+          "clock_bonds": [
+            {
+              "frequency": 0.9999970736750797,
+              "fringe": 0.999998536465658,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 1.0000000971678165,
+              "fringe": 0.9999959443333634,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 1.0000007423862867,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.9999988476383402,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.9999993898347369,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.9999981927037341,
+              "fringe": 0.9999994492854906,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 1.0000008803850435,
+              "fringe": 0.9999949861641237,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.9999998185411336,
+              "fringe": 0.9999918010303608,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 1.00000304517438,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 1.000001218230471,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            }
+          ],
+          "radar": [
+            {
+              "cadence": 1.0,
+              "completed_by_deadline": [
+                1013259,
+                85369143,
+                195551844,
+                265733900,
+                268435456
+              ],
+              "unreturned": 0,
+              "oracle_cdf": [
+                0.003776781,
+                0.318008299,
+                0.728481767,
+                0.989932259,
+                1.0
+              ]
+            },
+            {
+              "cadence": 0.5,
+              "completed_by_deadline": [
+                488768,
+                39158159,
+                143243714,
+                242914225,
+                268435456
+              ],
+              "unreturned": 0,
+              "oracle_cdf": [
+                0.001820269,
+                0.145873208,
+                0.533652359,
+                0.904951896,
+                1.0
+              ]
+            }
+          ]
+        },
+        "2": {
+          "clock_bonds": [
+            {
+              "frequency": 1.0000029180932157,
+              "fringe": 0.999999738370259,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.9999984667984239,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 1.0000016521375055,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.9999992539919418,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 1.0000021529943584,
+              "fringe": 0.9999972727145082,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.9999994598119573,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.9999994108590823,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.9999968163828774,
+              "fringe": 0.9999954146201467,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 1.0000003693671233,
+              "fringe": 0.9999997510456112,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 1.0000014109840167,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            }
+          ],
+          "radar": [
+            {
+              "cadence": 1.0,
+              "completed_by_deadline": [
+                1013404,
+                85363943,
+                195555060,
+                265731964,
+                268435456
+              ],
+              "unreturned": 0,
+              "oracle_cdf": [
+                0.003776781,
+                0.318008299,
+                0.728481767,
+                0.989932259,
+                1.0
+              ]
+            },
+            {
+              "cadence": 0.5,
+              "completed_by_deadline": [
+                489132,
+                39164808,
+                143262087,
+                242917353,
+                268435456
+              ],
+              "unreturned": 0,
+              "oracle_cdf": [
+                0.001820269,
+                0.145873208,
+                0.533652359,
+                0.904951896,
+                1.0
+              ]
+            }
+          ]
+        }
+      },
+      "unit_clock_fixed_ruler_forecast": [
+        0.0037768,
+        0.3180083,
+        0.7284818,
+        0.9899323,
+        1.0
+      ]
+    },
+    {
+      "contrast": 8.0,
+      "source": "coin_even",
+      "tags": {
+        "1": {
+          "clock_bonds": [
+            {
+              "frequency": 0.9999995263102477,
+              "fringe": 0.9999998366966437,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 32.015670543075174,
+              "fringe": 0.0009755389215182088,
+              "frequency_enclosure": [
+                32.01,
+                32.02
+              ]
+            },
+            {
+              "frequency": 32.01540624424815,
+              "fringe": 0.0009758041614725604,
+              "frequency_enclosure": [
+                32.01,
+                32.02
+              ]
+            },
+            {
+              "frequency": 0.9999985646570946,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.9999987751144671,
+              "fringe": 0.9999977487666095,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 1.0000021912626402,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.9999958046979982,
+              "fringe": 0.9999985700752314,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 32.015600837254524,
+              "fringe": 0.0009756317848636847,
+              "frequency_enclosure": [
+                32.01,
+                32.02
+              ]
+            },
+            {
+              "frequency": 32.01572753134146,
+              "fringe": 0.000975542839202221,
+              "frequency_enclosure": [
+                32.01,
+                32.02
+              ]
+            },
+            {
+              "frequency": 1.000001424031082,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            }
+          ],
+          "radar": [
+            {
+              "cadence": 1.0,
+              "completed_by_deadline": [
+                1,
+                75,
+                2763,
+                47400,
+                8141726
+              ],
+              "unreturned": 260293730,
+              "oracle_cdf": [
+                8e-09,
+                2.77e-07,
+                1.0447e-05,
+                0.000177384,
+                0.030326219
+              ]
+            },
+            {
+              "cadence": 0.5,
+              "completed_by_deadline": [
+                1,
+                48,
+                3190,
+                52923,
+                6754391
+              ],
+              "unreturned": 261681065,
+              "oracle_cdf": [
+                4e-09,
+                1.75e-07,
+                1.2035e-05,
+                0.000198072,
+                0.0251656
+              ]
+            }
+          ]
+        },
+        "2": {
+          "clock_bonds": [
+            {
+              "frequency": 1.000000416819478,
+              "fringe": 0.9999939518928417,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 1.0000016950814794,
+              "fringe": 0.9999994364907919,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.9999984735587749,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.9999992135124001,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.999993982012395,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 1.0000004491796235,
+              "fringe": 0.9999953329795408,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 1.0000014463164757,
+              "fringe": 0.9999987416487901,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 1.0000016638888654,
+              "fringe": 0.9999996076312276,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.9999978261514407,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 1.0000020337480036,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            }
+          ],
+          "radar": [
+            {
+              "cadence": 1.0,
+              "completed_by_deadline": [
+                1014267,
+                85364270,
+                195545892,
+                265731550,
+                268435456
+              ],
+              "unreturned": 0,
+              "oracle_cdf": [
+                0.003776781,
+                0.318008299,
+                0.728481767,
+                0.989932259,
+                1.0
+              ]
+            },
+            {
+              "cadence": 0.5,
+              "completed_by_deadline": [
+                487644,
+                39158431,
+                143267287,
+                242925687,
+                268435456
+              ],
+              "unreturned": 0,
+              "oracle_cdf": [
+                0.001820269,
+                0.145873208,
+                0.533652359,
+                0.904951896,
+                1.0
+              ]
+            }
+          ]
+        }
+      },
+      "unit_clock_fixed_ruler_forecast": [
+        0.0142518,
+        0.1569467,
+        0.5958052,
+        0.8360829,
+        0.9989442
+      ]
+    },
+    {
+      "contrast": 8.0,
+      "source": "coin_odd",
+      "tags": {
+        "1": {
+          "clock_bonds": [
+            {
+              "frequency": 1.0000028163221444,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 1.0000001207499944,
+              "fringe": 0.9999983669475836,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 1.0000003365631207,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.9999946124158892,
+              "fringe": 0.9999989856636314,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 1.0000001390498885,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 1.0000037494138507,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 1.0000019221134753,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 1.00000355723371,
+              "fringe": 0.9999988705053988,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 1.0000002512497075,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 1.000000197155766,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            }
+          ],
+          "radar": [
+            {
+              "cadence": 1.0,
+              "completed_by_deadline": [
+                1013882,
+                85352162,
+                195546738,
+                265734372,
+                268435456
+              ],
+              "unreturned": 0,
+              "oracle_cdf": [
+                0.003776781,
+                0.318008299,
+                0.728481767,
+                0.989932259,
+                1.0
+              ]
+            },
+            {
+              "cadence": 0.5,
+              "completed_by_deadline": [
+                489537,
+                39159040,
+                143246006,
+                242917135,
+                268435456
+              ],
+              "unreturned": 0,
+              "oracle_cdf": [
+                0.001820269,
+                0.145873208,
+                0.533652359,
+                0.904951896,
+                1.0
+              ]
+            }
+          ]
+        },
+        "2": {
+          "clock_bonds": [
+            {
+              "frequency": 0.9999978397593828,
+              "fringe": 0.9999996555993633,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 1.000005024020956,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.999997627375679,
+              "fringe": 0.9999984531716161,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 1.00000239592637,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.9999997506802049,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.9999980213811444,
+              "fringe": 0.9999974577519795,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.9999972173933519,
+              "fringe": 0.9999983085556691,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.9999974401376269,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.9999997758002421,
+              "fringe": 0.9999966308645774,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 1.0000009776291574,
+              "fringe": 0.9999993817977815,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            }
+          ],
+          "radar": [
+            {
+              "cadence": 1.0,
+              "completed_by_deadline": [
+                1014470,
+                85371881,
+                195554792,
+                265732922,
+                268435456
+              ],
+              "unreturned": 0,
+              "oracle_cdf": [
+                0.003776781,
+                0.318008299,
+                0.728481767,
+                0.989932259,
+                1.0
+              ]
+            },
+            {
+              "cadence": 0.5,
+              "completed_by_deadline": [
+                489443,
+                39160689,
+                143248627,
+                242924111,
+                268435456
+              ],
+              "unreturned": 0,
+              "oracle_cdf": [
+                0.001820269,
+                0.145873208,
+                0.533652359,
+                0.904951896,
+                1.0
+              ]
+            }
+          ]
+        }
+      },
+      "unit_clock_fixed_ruler_forecast": [
+        0.0037768,
+        0.3180073,
+        0.7284793,
+        0.989932,
+        1.0
+      ]
+    },
+    {
+      "contrast": 8.0,
+      "source": "empty_write",
+      "tags": {
+        "1": {
+          "clock_bonds": [
+            {
+              "frequency": 1.0000010764877276,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 1.000002415618576,
+              "fringe": 0.9999967427055342,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": null,
+              "max_probability_upper": 5.6631134781603976e-08
+            },
+            {
+              "frequency": 1.0000001209870377,
+              "fringe": 0.9999988290568466,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.999997246122927,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 1.0000014828219213,
+              "fringe": 0.9999984596715307,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.9999957995065188,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 1.0000010829366242,
+              "fringe": 0.9999993984701022,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 1.0000005859501755,
+              "fringe": 0.9999983356970703,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.9999999186035898,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            }
+          ],
+          "radar": [
+            {
+              "cadence": 1.0,
+              "completed_by_deadline": [
+                59141,
+                11458025,
+                141226558,
+                258800237,
+                268428949
+              ],
+              "unreturned": 6507,
+              "oracle_cdf": [
+                0.000220698,
+                0.042673157,
+                0.526093733,
+                0.964086824,
+                0.999976137
+              ]
+            },
+            {
+              "cadence": 0.5,
+              "completed_by_deadline": [
+                28498,
+                4596750,
+                69826017,
+                219945025,
+                268429152
+              ],
+              "unreturned": 6304,
+              "oracle_cdf": [
+                0.000106726,
+                0.017121446,
+                0.260127623,
+                0.8193026,
+                0.999976137
+              ]
+            }
+          ]
+        },
+        "2": {
+          "clock_bonds": [
+            {
+              "frequency": 0.9999986727212972,
+              "fringe": 0.9999974982442531,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.9999996543761827,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": null,
+              "max_probability_upper": 5.6631134781603976e-08
+            },
+            {
+              "frequency": 0.9999984519490768,
+              "fringe": 0.9999978494320465,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.9999983738477547,
+              "fringe": 0.999998107246653,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 1.0000008062435384,
+              "fringe": 0.9999989542058738,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 1.000001269970492,
+              "fringe": 0.9999957434286378,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 1.0000009459524661,
+              "fringe": 0.9999986998461614,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.9999967522788202,
+              "fringe": 0.999996477011155,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.9999982729635362,
+              "fringe": 0.9999986355238187,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            }
+          ],
+          "radar": [
+            {
+              "cadence": 1.0,
+              "completed_by_deadline": [
+                59106,
+                11394688,
+                140948746,
+                258785422,
+                268435416
+              ],
+              "unreturned": 40,
+              "oracle_cdf": [
+                0.000220062,
+                0.042445305,
+                0.525048784,
+                0.96404021,
+                0.999999887
+              ]
+            },
+            {
+              "cadence": 0.5,
+              "completed_by_deadline": [
+                28412,
+                4578492,
+                69608504,
+                219898323,
+                268435427
+              ],
+              "unreturned": 29,
+              "oracle_cdf": [
+                0.000106446,
+                0.017039745,
+                0.259310868,
+                0.819183869,
+                0.999999888
+              ]
+            }
+          ]
+        }
+      },
+      "unit_clock_fixed_ruler_forecast": null
+    },
+    {
+      "contrast": 0,
+      "source": "sham",
+      "tags": {
+        "1": {
+          "clock_bonds": [
+            {
+              "frequency": 1.0000017144601658,
+              "fringe": 0.999999314742973,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.9999996203976894,
+              "fringe": 0.9999989026353986,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 1.000001308228721,
+              "fringe": 0.9999992610532115,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.9999981947081298,
+              "fringe": 0.9999961787577429,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 1.0000003900578078,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 1.0000003982036019,
+              "fringe": 0.999996592230424,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 1.0000010076714405,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.9999999380568929,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.9999991964932484,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.9999982181180066,
+              "fringe": 0.9999983390428191,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            }
+          ],
+          "radar": [
+            {
+              "cadence": 1.0,
+              "completed_by_deadline": [
+                1013309,
+                85370034,
+                195561089,
+                265733304,
+                268435456
+              ],
+              "unreturned": 0,
+              "oracle_cdf": [
+                0.003776781,
+                0.318008299,
+                0.728481767,
+                0.989932259,
+                1.0
+              ]
+            }
+          ]
+        },
+        "2": {
+          "clock_bonds": [
+            {
+              "frequency": 0.9999975238639813,
+              "fringe": 0.999999830649675,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 1.0000013557483265,
+              "fringe": 0.9999989154830463,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.9999982120598275,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.9999976969002515,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 1.0000002801157724,
+              "fringe": 0.9999979382796138,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.9999984361467534,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 1.0000000111424476,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 1.0000044577177514,
+              "fringe": 0.9999992513148828,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 1.0000011888094662,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 1.0000017444870968,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            }
+          ],
+          "radar": [
+            {
+              "cadence": 1.0,
+              "completed_by_deadline": [
+                1013731,
+                85370202,
+                195545929,
+                265728806,
+                268435456
+              ],
+              "unreturned": 0,
+              "oracle_cdf": [
+                0.003776781,
+                0.318008299,
+                0.728481767,
+                0.989932259,
+                1.0
+              ]
+            }
+          ]
+        }
+      },
+      "unit_clock_fixed_ruler_forecast": [
+        0.0037768,
+        0.3180083,
+        0.7284818,
+        0.9899323,
+        1.0
+      ]
+    },
+    {
+      "contrast": 0,
+      "source": "coin_even",
+      "tags": {
+        "1": {
+          "clock_bonds": [
+            {
+              "frequency": 1.0000016183156863,
+              "fringe": 0.9999939376783462,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 1.0000038208590862,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.9999985718135735,
+              "fringe": 0.9999963207602102,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.9999996186927905,
+              "fringe": 0.9999968084826858,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 1.0000029970192594,
+              "fringe": 0.9999979228261747,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.9999990819919972,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 1.0000008656197459,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.9999967022880293,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.9999999110395283,
+              "fringe": 0.9999987609769636,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.9999984457381595,
+              "fringe": 0.9999953760419628,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            }
+          ],
+          "radar": [
+            {
+              "cadence": 1.0,
+              "completed_by_deadline": [
+                1014884,
+                85354121,
+                195558989,
+                265733246,
+                268435456
+              ],
+              "unreturned": 0,
+              "oracle_cdf": [
+                0.003776781,
+                0.318008299,
+                0.728481767,
+                0.989932259,
+                1.0
+              ]
+            }
+          ]
+        },
+        "2": {
+          "clock_bonds": [
+            {
+              "frequency": 0.9999966060393349,
+              "fringe": 0.9999918376850099,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.9999955910526815,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.9999979975590193,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 1.0000029180978833,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.9999996073897741,
+              "fringe": 0.9999986295014364,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 1.0000019068553456,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.9999942904241131,
+              "fringe": 0.9999991709004141,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.9999969182181048,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.9999984233681954,
+              "fringe": 0.9999951543852924,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 1.00000114029942,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            }
+          ],
+          "radar": [
+            {
+              "cadence": 1.0,
+              "completed_by_deadline": [
+                1014622,
+                85370565,
+                195543923,
+                265731244,
+                268435456
+              ],
+              "unreturned": 0,
+              "oracle_cdf": [
+                0.003776781,
+                0.318008299,
+                0.728481767,
+                0.989932259,
+                1.0
+              ]
+            }
+          ]
+        }
+      },
+      "unit_clock_fixed_ruler_forecast": [
+        0.0037768,
+        0.3180083,
+        0.7284806,
+        0.9899321,
+        1.0
+      ]
+    },
+    {
+      "contrast": 0,
+      "source": "coin_odd",
+      "tags": {
+        "1": {
+          "clock_bonds": [
+            {
+              "frequency": 1.0000017891734367,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 1.0000040974754751,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 1.0000022725793263,
+              "fringe": 0.9999991742625357,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.9999984571279431,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 1.000000400319199,
+              "fringe": 0.9999991093716513,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.9999969714986728,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.9999983019436216,
+              "fringe": 0.9999987790204669,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 1.0000000743289421,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.999998605694385,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 1.0000009849656981,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            }
+          ],
+          "radar": [
+            {
+              "cadence": 1.0,
+              "completed_by_deadline": [
+                1014000,
+                85356025,
+                195557632,
+                265732699,
+                268435456
+              ],
+              "unreturned": 0,
+              "oracle_cdf": [
+                0.003776781,
+                0.318008299,
+                0.728481767,
+                0.989932259,
+                1.0
+              ]
+            }
+          ]
+        },
+        "2": {
+          "clock_bonds": [
+            {
+              "frequency": 0.999997723600828,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 1.0000012568546792,
+              "fringe": 0.9999998217001315,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.9999976413143443,
+              "fringe": 0.9999983344662184,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.9999982726130181,
+              "fringe": 0.9999998763402463,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.9999977079278742,
+              "fringe": 0.9999983235220647,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 1.000000673689091,
+              "fringe": 0.9999926585617465,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.9999994220407121,
+              "fringe": 0.9999966818108293,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 1.0000014901180072,
+              "fringe": 0.9999973065933889,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 1.0000004259806465,
+              "fringe": 0.9999975258753168,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 1.000002800320713,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            }
+          ],
+          "radar": [
+            {
+              "cadence": 1.0,
+              "completed_by_deadline": [
+                1013207,
+                85359498,
+                195546997,
+                265732239,
+                268435456
+              ],
+              "unreturned": 0,
+              "oracle_cdf": [
+                0.003776781,
+                0.318008299,
+                0.728481767,
+                0.989932259,
+                1.0
+              ]
+            }
+          ]
+        }
+      },
+      "unit_clock_fixed_ruler_forecast": [
+        0.0037768,
+        0.3180087,
+        0.7284825,
+        0.9899324,
+        1.0
+      ]
+    },
+    {
+      "contrast": 0,
+      "source": "empty_write",
+      "tags": {
+        "1": {
+          "clock_bonds": [
+            {
+              "frequency": 1.0000025217458468,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.9999986110173066,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": null,
+              "max_probability_upper": 5.6631134781603976e-08
+            },
+            {
+              "frequency": 1.0000000561695472,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.9999991580677952,
+              "fringe": 0.9999962747336762,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.9999982897116961,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 1.0000023768777369,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.9999979169056319,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.9999960104904873,
+              "fringe": 0.9999966434904686,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.9999977168368989,
+              "fringe": 0.9999977973690403,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            }
+          ],
+          "radar": [
+            {
+              "cadence": 1.0,
+              "completed_by_deadline": [
+                63727,
+                9934124,
+                108695421,
+                205638631,
+                268433874
+              ],
+              "unreturned": 1582,
+              "oracle_cdf": [
+                0.000236071,
+                0.036998024,
+                0.404938643,
+                0.766065291,
+                0.99999398
+              ]
+            }
+          ]
+        },
+        "2": {
+          "clock_bonds": [
+            {
+              "frequency": 1.0000015340388242,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 1.0000013359498967,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": null,
+              "max_probability_upper": 5.6631134781603976e-08
+            },
+            {
+              "frequency": 1.0000004312411432,
+              "fringe": 0.9999988289487278,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.9999977459802537,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.9999994250172302,
+              "fringe": 0.9999941167511166,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.9999949936060322,
+              "fringe": 0.999993285930745,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.9999961963936315,
+              "fringe": 0.9999983329211003,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 1.000002624323333,
+              "fringe": 1.0,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            },
+            {
+              "frequency": 0.9999967678055002,
+              "fringe": 0.9999967257410669,
+              "frequency_enclosure": [
+                0.99,
+                1.01
+              ]
+            }
+          ],
+          "radar": [
+            {
+              "cadence": 1.0,
+              "completed_by_deadline": [
+                63871,
+                9931309,
+                108706081,
+                205634471,
+                268433806
+              ],
+              "unreturned": 1650,
+              "oracle_cdf": [
+                0.000236071,
+                0.036998024,
+                0.404938643,
+                0.766065291,
+                0.99999398
+              ]
+            }
+          ]
+        }
+      },
+      "unit_clock_fixed_ruler_forecast": null
+    }
+  ],
+  "reference_clock": [
+    {
+      "spacing": 0.0625,
+      "transfers": 261946,
+      "measured_spacing": 0.06248655756961281,
+      "simultaneous_interval": [
+        0.06217998711686519,
+        0.06279366911778286
+      ]
+    },
+    {
+      "spacing": 0.5,
+      "transfers": 16429761,
+      "measured_spacing": 0.4999871102739904,
+      "simultaneous_interval": [
+        0.4996803517094208,
+        0.5002939308120341
+      ]
+    },
+    {
+      "spacing": 1.0,
+      "transfers": 61697339,
+      "measured_spacing": 0.9999801568879939,
+      "simultaneous_interval": [
+        0.9996733815444736,
+        1.0002869539706085
+      ]
+    }
+  ],
+  "timing_contrasts": [
+    {
+      "contrast": 8.0,
+      "source": "sham",
+      "cadence": 1.0,
+      "background_subtracted_tag_difference": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "simultaneous_difference_error": 0.0006730892147950364
+    },
+    {
+      "contrast": 8.0,
+      "source": "sham",
+      "cadence": 0.5,
+      "background_subtracted_tag_difference": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "simultaneous_difference_error": 0.0006730892147950364
+    },
+    {
+      "contrast": 8.0,
+      "source": "coin_even",
+      "cadence": 1.0,
+      "background_subtracted_tag_difference": [
+        -0.0037778951227664948,
+        -0.31802577897906303,
+        -0.7284429408609867,
+        -0.9897577986121178,
+        -0.9696697071194649
+      ],
+      "simultaneous_difference_error": 0.0006730892147950364
+    },
+    {
+      "contrast": 8.0,
+      "source": "coin_even",
+      "cadence": 0.5,
+      "background_subtracted_tag_difference": [
+        -0.001815255731344223,
+        -0.14585157483816147,
+        -0.533631905913353,
+        -0.9047598987817764,
+        -0.9748379327356815
+      ],
+      "simultaneous_difference_error": 0.0006730892147950364
+    },
+    {
+      "contrast": 8.0,
+      "source": "coin_odd",
+      "cadence": 1.0,
+      "background_subtracted_tag_difference": [
+        -1.650303602218628e-06,
+        -9.283050894737244e-05,
+        -1.802295446395874e-05,
+        -1.8104910850524902e-06,
+        0.0
+      ],
+      "simultaneous_difference_error": 0.0006730892147950364
+    },
+    {
+      "contrast": 8.0,
+      "source": "coin_odd",
+      "cadence": 0.5,
+      "background_subtracted_tag_difference": [
+        1.7061829566955566e-06,
+        1.862645149230957e-05,
+        5.868077278137207e-05,
+        -1.4334917068481445e-05,
+        0.0
+      ],
+      "simultaneous_difference_error": 0.0006730892147950364
+    },
+    {
+      "contrast": 8.0,
+      "source": "empty_write",
+      "cadence": 1.0,
+      "background_subtracted_tag_difference": [
+        6.705522537231445e-07,
+        0.0002165772020816803,
+        0.0010469108819961548,
+        4.797801375389099e-05,
+        -2.4091452360153198e-05
+      ],
+      "simultaneous_difference_error": 0.0006730892147950364
+    },
+    {
+      "contrast": 8.0,
+      "source": "empty_write",
+      "cadence": 0.5,
+      "background_subtracted_tag_difference": [
+        1.6763806343078613e-06,
+        9.27858054637909e-05,
+        0.0008787438273429871,
+        0.00018563121557235718,
+        -2.337619662284851e-05
+      ],
+      "simultaneous_difference_error": 0.0006730892147950364
+    },
+    {
+      "contrast": 0,
+      "source": "sham",
+      "cadence": 1.0,
+      "background_subtracted_tag_difference": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "simultaneous_difference_error": 0.0006730892147950364
+    },
+    {
+      "contrast": 0,
+      "source": "coin_even",
+      "cadence": 1.0,
+      "background_subtracted_tag_difference": [
+        2.5480985641479492e-06,
+        -6.063282489776611e-05,
+        -3.501772880554199e-07,
+        -9.298324584960938e-06,
+        0.0
+      ],
+      "simultaneous_difference_error": 0.0006730892147950364
+    },
+    {
+      "contrast": 0,
+      "source": "coin_odd",
+      "cadence": 1.0,
+      "background_subtracted_tag_difference": [
+        4.526227712631226e-06,
+        -1.2312084436416626e-05,
+        -1.685693860054016e-05,
+        -1.5042722225189209e-05,
+        0.0
+      ],
+      "simultaneous_difference_error": 0.0006730892147950364
+    },
+    {
+      "contrast": 0,
+      "source": "empty_write",
+      "cadence": 1.0,
+      "background_subtracted_tag_difference": [
+        1.0356307029724121e-06,
+        1.111254096031189e-05,
+        -9.618699550628662e-05,
+        -1.259148120880127e-06,
+        2.5331974029541016e-07
+      ],
+      "simultaneous_difference_error": 0.0006730892147950364
+    }
+  ]
+}

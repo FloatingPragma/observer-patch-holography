@@ -1,0 +1,1593 @@
+{
+  "draw": {
+    "binding": {
+      "mode": "validation",
+      "anchor": null,
+      "source_commit": "f3c6d30df7ef81816eea64f553c4f57c506c4aa4",
+      "candidate_pin": "f3c6d30df7ef81816eea64f553c4f57c506c4aa4",
+      "candidate_sha256": "63fda9c6e838dbd84c05b8eb84f87d5cb0c692b6a62f33297bba16d229d15a3f",
+      "protocol_sha256": "5080ffb1de3f605284a587977e7407154b1931134727f92bb2c299cd8f6f95db"
+    },
+    "seeds": [
+      374621,
+      614357,
+      801173
+    ]
+  },
+  "boards": [
+    {
+      "enrollment": {
+        "level": 0,
+        "seed": 374621,
+        "route": [
+          [
+            18,
+            19
+          ],
+          [
+            12,
+            13
+          ],
+          [
+            20,
+            10
+          ],
+          [
+            11,
+            4
+          ],
+          [
+            2,
+            6
+          ],
+          [
+            3,
+            48
+          ],
+          [
+            53,
+            49
+          ],
+          [
+            55,
+            58
+          ],
+          [
+            59,
+            52
+          ],
+          [
+            57,
+            51
+          ],
+          [
+            50,
+            37
+          ]
+        ],
+        "cells": [
+          0,
+          1,
+          3,
+          4
+        ],
+        "ineligible": null
+      },
+      "counts": {
+        "expected": 30,
+        "files": {
+          "clock_cos": {
+            "shape": [
+              16384
+            ],
+            "dtype": "<u8",
+            "trials": 1048576,
+            "sha256": "99249a0bba56eb6d6ab7a39ba697acbf4f9fc7f8770ac892b278741bdc64a049"
+          },
+          "clock_sin": {
+            "shape": [
+              16384
+            ],
+            "dtype": "<u8",
+            "trials": 1048576,
+            "sha256": "82452eb9443fac0a776f6850795d3a2f9f8b5eeef0f94dbbe3d2f62087293ec0"
+          },
+          "control_flight_0": {
+            "shape": [
+              2,
+              12
+            ],
+            "dtype": "<u8",
+            "trials": 1048576,
+            "sha256": "11b314f3358d751e5ca2062ff1b0b58962aff7517b1b167371fe1bc2e911cb74"
+          },
+          "control_flight_2": {
+            "shape": [
+              2,
+              12
+            ],
+            "dtype": "<u8",
+            "trials": 1048576,
+            "sha256": "9e5d137bd4b0a90cd02deb0c36f50ea55f3f43dd2d67d2c36e9794fe31a54361"
+          },
+          "control_flight_4": {
+            "shape": [
+              2,
+              12
+            ],
+            "dtype": "<u8",
+            "trials": 1048576,
+            "sha256": "7a4d6b5638af0aaadfb54856d0a832e682275b6df48a9c9f7644ad7f6bb0739d"
+          },
+          "control_flight_8": {
+            "shape": [
+              2,
+              12
+            ],
+            "dtype": "<u8",
+            "trials": 1048576,
+            "sha256": "c95a9b36d58de26aafff74f49ca27962b37040748554b36c41dfba40368b6827"
+          },
+          "native_flight_0": {
+            "shape": [
+              2,
+              12
+            ],
+            "dtype": "<u8",
+            "trials": 1048576,
+            "sha256": "11b314f3358d751e5ca2062ff1b0b58962aff7517b1b167371fe1bc2e911cb74"
+          },
+          "native_flight_2": {
+            "shape": [
+              2,
+              12
+            ],
+            "dtype": "<u8",
+            "trials": 1048576,
+            "sha256": "07940e2777c4db5bf67b85eb70cc49c7f3be5900981a8b9b9aa5e46613951f19"
+          },
+          "native_flight_4": {
+            "shape": [
+              2,
+              12
+            ],
+            "dtype": "<u8",
+            "trials": 1048576,
+            "sha256": "0073ae3ffbd5d93b9eef5294d22a77f11f02ab773f79ec61ae9cb1dd1b6ca090"
+          },
+          "native_flight_8": {
+            "shape": [
+              2,
+              12
+            ],
+            "dtype": "<u8",
+            "trials": 1048576,
+            "sha256": "8330e071a06bc7f00e0019672566e5f1624ad2126e67ebf6096e62aea023457b"
+          },
+          "p1_2_changed": {
+            "shape": [
+              16384
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "445c02fc2da430fed6ba874410e1ed5389985cbffd9b4c7b9a6971aa3919e402"
+          },
+          "p1_2_scan0": {
+            "shape": [
+              16384,
+              12
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "2aa98d6f579e7a30e7d29028a3e32c5577cddb1b10fe68ef71ebb3e58d0a8c15"
+          },
+          "p1_2_scan1": {
+            "shape": [
+              16384,
+              12
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "42110396b64c75bda9ca56c6f73c0037b03c041329706258fc7c6bb310d79a02"
+          },
+          "p1_2_sum": {
+            "shape": [
+              16384
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "e25244c5112f0fe8af96abd56d40dc19f9636c86cebfe24fef0451541530a941"
+          },
+          "p1_3_changed": {
+            "shape": [
+              16384
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "fd0f78663e7ae087f2c0b87199829e8c6e6d640553493c9a6698835ccc4d1d84"
+          },
+          "p1_3_scan0": {
+            "shape": [
+              16384,
+              12
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "54e1d7730c53e87eb38e5705ec2e558edbbc55ca928cde6d87f0a472cbb0364b"
+          },
+          "p1_3_scan1": {
+            "shape": [
+              16384,
+              12
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "86f6b775be8c4237e9e5020b2f086a0a4d710b15fdab97ac5e31a7553ff3e721"
+          },
+          "p1_3_sum": {
+            "shape": [
+              16384
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "141242215d0cb18182cac39aa756093c8d4b053554d5eff3ea76b3c83c9c413a"
+          },
+          "p1_4_changed": {
+            "shape": [
+              16384
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "8344b96860e987187e29db07a118fb4d061e26c68569756e7681852e19f75bfa"
+          },
+          "p1_4_scan0": {
+            "shape": [
+              16384,
+              12
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "0e56bb785864831784b5a1f0ceccfb518e19356f34d503e144e051ac77133766"
+          },
+          "p1_4_scan1": {
+            "shape": [
+              16384,
+              12
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "9ac9942230255b5bbf88f9a025ed76692724b38f001c9f0762bc6e384b11f54e"
+          },
+          "p1_4_sum": {
+            "shape": [
+              16384
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "c0ac2ae9b2a19ba91ffac59d121c7b70311a289a2f8c841e8d7ccd8850444f51"
+          },
+          "p2_3_changed": {
+            "shape": [
+              16384
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "9c20ccc607277f080c9ba9ce5ef305dc2f35e720c8ba09322634e637e27641d2"
+          },
+          "p2_3_scan0": {
+            "shape": [
+              16384,
+              12
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "8504652d04de32b3a45487e037dcc7522d4ad59138cdb2f868a41681589e3fba"
+          },
+          "p2_3_scan1": {
+            "shape": [
+              16384,
+              12
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "5c8af6b963c74ef68878d1e0efdd9dbc445846bd6822c69a071ca42028467310"
+          },
+          "p2_3_sum": {
+            "shape": [
+              16384
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "e6fdfd0c8e31c912b79906846b048ad8b467217449b3baebeacfb1c1d8779907"
+          },
+          "p2_4_changed": {
+            "shape": [
+              16384
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "140879f02e4815191d51c7607cbe89e159c3938d46dca4e35fa1d10c8c428dd9"
+          },
+          "p2_4_scan0": {
+            "shape": [
+              16384,
+              12
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "1b924eee4bbfe39f997d1b1de5d6ba0accbbaa204956d442836f5f97dee21f23"
+          },
+          "p2_4_scan1": {
+            "shape": [
+              16384,
+              12
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "9cfef497107a59d208ef2df3bdd3abfb7a737b2dcdd0b55ae34740cc61083a2d"
+          },
+          "p2_4_sum": {
+            "shape": [
+              16384
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "62df3f355295ae77f44cb75a092dffa2d22d38d694518a87e7a6c14c93324d1f"
+          }
+        },
+        "missing": [],
+        "invalid": {}
+      },
+      "status": "passed",
+      "native_gates": {
+        "changed_reader": true,
+        "meter": true,
+        "commissioned": true,
+        "lattice": true,
+        "closure": true,
+        "live": true,
+        "changed": true,
+        "transport": true,
+        "quiet": true,
+        "shape": true,
+        "continuum": true
+      },
+      "spatial": {
+        "records_complete": true,
+        "status": "pass",
+        "profile_pass": true,
+        "launch_label_rejected": true,
+        "projected_degrees_of_freedom": 100,
+        "quadratic_cutoff": 190.88725517409156,
+        "candidate_q": 120.58474472425704,
+        "even_trained_q": 92.43590407069681,
+        "even_recurrence_only_q": 134.20668213172252,
+        "launch_label_q": 20289333.65774416,
+        "even_trained_k": [
+          0.24043919284340542,
+          0.4809682011391009,
+          0.7216531661337838,
+          0.9625546300316714
+        ]
+      }
+    },
+    {
+      "enrollment": {
+        "level": 1,
+        "seed": 614357,
+        "route": [
+          [
+            693,
+            689
+          ],
+          [
+            685,
+            691
+          ],
+          [
+            684,
+            711
+          ],
+          [
+            710,
+            712
+          ],
+          [
+            719,
+            713
+          ],
+          [
+            709,
+            698
+          ],
+          [
+            699,
+            705
+          ],
+          [
+            704,
+            922
+          ],
+          [
+            919,
+            920
+          ],
+          [
+            921,
+            916
+          ],
+          [
+            917,
+            912
+          ],
+          [
+            913,
+            266
+          ],
+          [
+            268,
+            275
+          ],
+          [
+            264,
+            735
+          ],
+          [
+            740,
+            739
+          ],
+          [
+            732,
+            756
+          ],
+          [
+            761,
+            757
+          ],
+          [
+            763,
+            762
+          ],
+          [
+            758,
+            759
+          ],
+          [
+            764,
+            765
+          ],
+          [
+            760,
+            767
+          ]
+        ],
+        "cells": [
+          22,
+          57,
+          58,
+          59,
+          61,
+          63,
+          76
+        ],
+        "ineligible": null
+      },
+      "counts": {
+        "expected": 38,
+        "files": {
+          "clock_cos": {
+            "shape": [
+              16384
+            ],
+            "dtype": "<u8",
+            "trials": 1048576,
+            "sha256": "f9e6a2479e6baf63dc0c255699ded370f1981e2afcad542b07740dd19e7c7863"
+          },
+          "clock_sin": {
+            "shape": [
+              16384
+            ],
+            "dtype": "<u8",
+            "trials": 1048576,
+            "sha256": "0ce70f7d5f7e575e6e204d1ab14fa02c9a817e5400b7ff8a62ff2bd31e613221"
+          },
+          "control_flight_0": {
+            "shape": [
+              2,
+              22
+            ],
+            "dtype": "<u8",
+            "trials": 1048576,
+            "sha256": "8e30a96c6904918f985c6c48b96189217c59c6b0e35acbcccbe8478456bbedec"
+          },
+          "control_flight_2": {
+            "shape": [
+              2,
+              22
+            ],
+            "dtype": "<u8",
+            "trials": 1048576,
+            "sha256": "183c7be69f194e6ace61528e6f295ccd58380534d72362b1c2365de528fbe4b0"
+          },
+          "control_flight_4": {
+            "shape": [
+              2,
+              22
+            ],
+            "dtype": "<u8",
+            "trials": 1048576,
+            "sha256": "5dd1c3a5508784365e8b79b59056fc5f68acd2eb8cdda71329dcaaaaabac92c7"
+          },
+          "control_flight_8": {
+            "shape": [
+              2,
+              22
+            ],
+            "dtype": "<u8",
+            "trials": 1048576,
+            "sha256": "83c7658dae08902adfc7d6404c0431586ad68a8e02cd9b3d5af3ebb97f40ee18"
+          },
+          "native_flight_0": {
+            "shape": [
+              2,
+              22
+            ],
+            "dtype": "<u8",
+            "trials": 1048576,
+            "sha256": "8e30a96c6904918f985c6c48b96189217c59c6b0e35acbcccbe8478456bbedec"
+          },
+          "native_flight_2": {
+            "shape": [
+              2,
+              22
+            ],
+            "dtype": "<u8",
+            "trials": 1048576,
+            "sha256": "e176c453914cc4fb1c38b7bd38ca769a9f61814b03fa83f1b3f34fe0c1572d78"
+          },
+          "native_flight_4": {
+            "shape": [
+              2,
+              22
+            ],
+            "dtype": "<u8",
+            "trials": 1048576,
+            "sha256": "93ce745723442a74d53dbd84a1cbf809ce2e6aafc36fd3154625005d6a556847"
+          },
+          "native_flight_8": {
+            "shape": [
+              2,
+              22
+            ],
+            "dtype": "<u8",
+            "trials": 1048576,
+            "sha256": "20acc594b07312e525d41e251e8603cd637be229caa1ef3ca3e4f1debd7a247a"
+          },
+          "p1_2_changed": {
+            "shape": [
+              16384
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "a5aa3a4ead94132e803d0263980b8c089290576df3dc387551b5b7b050e883a7"
+          },
+          "p1_2_scan0": {
+            "shape": [
+              16384,
+              22
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "0ead6164825efe1b56aa0e57e310bd9d870163fd94eecb47edb6b709a9fa0291"
+          },
+          "p1_2_scan1": {
+            "shape": [
+              16384,
+              22
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "4e53cc199bb999c40e6217076ce162b93add0b3254007e0db5c0578e16a60eae"
+          },
+          "p1_2_sum": {
+            "shape": [
+              16384
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "68e514542d4e7b880c35977d74db805f7d429327fddc51c36aefc04c2bf227b2"
+          },
+          "p1_3_changed": {
+            "shape": [
+              16384
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "28abd16d3ce7bfdf446aabfdb1851e510ea7db6f481de9a874c7807ec0a7a099"
+          },
+          "p1_3_scan0": {
+            "shape": [
+              16384,
+              22
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "0183856270c13b3966febe9ed155ebf95da171221a314f1b81ababae6640c260"
+          },
+          "p1_3_scan1": {
+            "shape": [
+              16384,
+              22
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "8fa218f608d93e752b0eab7abcf2375bc53ac759f74d6155eea5ba6eae744c34"
+          },
+          "p1_3_sum": {
+            "shape": [
+              16384
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "bb95199fb421f6d38a1b6ca5e04bf849753c5e18e942051182204aebd2d539c0"
+          },
+          "p1_4_changed": {
+            "shape": [
+              16384
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "670970b823cb51361272b1673e2a823ebf89461c2d1c1475d84904347bed7369"
+          },
+          "p1_4_scan0": {
+            "shape": [
+              16384,
+              22
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "336e2636882f6dabf2ff26e53a94eb96adab1ea8090d9ce7149475b51243a252"
+          },
+          "p1_4_scan1": {
+            "shape": [
+              16384,
+              22
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "f4b0393470024d251c7494eeda08e1016a80ad0ea2207aabfe496c5664b21d81"
+          },
+          "p1_4_sum": {
+            "shape": [
+              16384
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "76e7b941b5e909087518a277928662c482b1e4b1309713c223ff0c6e8a874e31"
+          },
+          "p1_5_changed": {
+            "shape": [
+              16384
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "b785b005d13b1f42f6e22a0230957e258a7f6acfbf89cd63fd85db1539a46d19"
+          },
+          "p1_5_scan0": {
+            "shape": [
+              16384,
+              22
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "129183e07e832321ae226e0038bf31043dc811ca1fb8ed08ed91fd893aae69fc"
+          },
+          "p1_5_scan1": {
+            "shape": [
+              16384,
+              22
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "20dc152013d02a94387cd7e6d2cb8503de7eb7a40e8afdf8ae6a59ed1fceee2d"
+          },
+          "p1_5_sum": {
+            "shape": [
+              16384
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "e38c6680726269f96e34d488128c1f38eae9588cdc6e627ef3c03637d9011958"
+          },
+          "p2_3_changed": {
+            "shape": [
+              16384
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "cc77a37450182dd5105161ca7a8ab03c618f40bb5869f184ce4e9dbbe9114abc"
+          },
+          "p2_3_scan0": {
+            "shape": [
+              16384,
+              22
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "73209d206e97ae85e15b3d23b241f2199b45fcf79634d306624ff755ebdbdbce"
+          },
+          "p2_3_scan1": {
+            "shape": [
+              16384,
+              22
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "732c7ea15e6eafe3a88f8b07b179d91abd0a49acebc88e792c2d5b6db5553d3e"
+          },
+          "p2_3_sum": {
+            "shape": [
+              16384
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "c2f5c8fe061861f2f84eb28da12ad7b90fa5d62a56167aa1b94f3b1fcb3e92f0"
+          },
+          "p2_4_changed": {
+            "shape": [
+              16384
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "d4636495a89b4445e5da0a7182cfed35be378928d704efa9f5e949e35e77d155"
+          },
+          "p2_4_scan0": {
+            "shape": [
+              16384,
+              22
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "93e8aa830ff01efe3604b2c335678443ece37d3bf01dd0cf5e128acbf0413da0"
+          },
+          "p2_4_scan1": {
+            "shape": [
+              16384,
+              22
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "e17195869f67bee511e3c60de2f5f4a0d2e1bfdf0de0499f569e2e9e385a9cbf"
+          },
+          "p2_4_sum": {
+            "shape": [
+              16384
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "08878ef8ba45dc231f397283a9e579a6ba21afb2fa7adb5db159bf49086c5490"
+          },
+          "p2_5_changed": {
+            "shape": [
+              16384
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "0e7f2a3ff6bd4738a353751fa443997c465a9a0bd6b29cb45326d6ea5a82da13"
+          },
+          "p2_5_scan0": {
+            "shape": [
+              16384,
+              22
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "934d53443f2ba8ea9dcb3fa6f5b0b8486ce61b0965c818e3c06500c2a8ef733e"
+          },
+          "p2_5_scan1": {
+            "shape": [
+              16384,
+              22
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "90afc5b72729b54b9b5ca1698e0adea318a332964ed9be97eb6dce08b0456cb9"
+          },
+          "p2_5_sum": {
+            "shape": [
+              16384
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "fd0bd01cb784e7d35f17498016a87d4ebc6c5440c9bd4365356eeb69e8802188"
+          }
+        },
+        "missing": [],
+        "invalid": {}
+      },
+      "status": "rejected",
+      "native_gates": {
+        "changed_reader": true,
+        "meter": true,
+        "commissioned": true,
+        "lattice": true,
+        "closure": true,
+        "live": true,
+        "changed": true,
+        "transport": true,
+        "quiet": true,
+        "shape": true,
+        "continuum": true
+      },
+      "spatial": {
+        "records_complete": true,
+        "status": "physical_fail",
+        "profile_pass": false,
+        "launch_label_rejected": true,
+        "projected_degrees_of_freedom": 280,
+        "quadratic_cutoff": 416.57969948104267,
+        "candidate_q": 551.0305023595702,
+        "even_trained_q": 303.43575940543246,
+        "even_recurrence_only_q": 440.36893062738227,
+        "launch_label_q": 2540128.3996756817,
+        "even_trained_k": [
+          0.13619621680084007,
+          0.2724054529438709,
+          0.40862717232442985,
+          0.5448772399629043,
+          0.6811553052864887
+        ]
+      }
+    },
+    {
+      "enrollment": {
+        "level": 2,
+        "seed": 801173,
+        "route": [
+          [
+            2585,
+            2589
+          ],
+          [
+            2584,
+            2591
+          ],
+          [
+            2580,
+            2571
+          ],
+          [
+            2577,
+            2573
+          ],
+          [
+            2569,
+            2642
+          ],
+          [
+            2651,
+            2645
+          ],
+          [
+            2644,
+            2643
+          ],
+          [
+            2646,
+            2650
+          ],
+          [
+            2640,
+            2511
+          ],
+          [
+            2517,
+            2516
+          ],
+          [
+            2509,
+            2534
+          ],
+          [
+            2535,
+            2538
+          ],
+          [
+            2540,
+            2530
+          ],
+          [
+            2520,
+            2525
+          ],
+          [
+            2529,
+            2524
+          ],
+          [
+            2531,
+            2522
+          ],
+          [
+            2526,
+            2528
+          ],
+          [
+            2523,
+            2664
+          ],
+          [
+            2665,
+            2669
+          ],
+          [
+            2675,
+            2668
+          ],
+          [
+            2673,
+            2667
+          ],
+          [
+            2672,
+            2614
+          ],
+          [
+            2610,
+            2612
+          ],
+          [
+            2607,
+            2628
+          ],
+          [
+            2638,
+            2639
+          ],
+          [
+            2632,
+            2633
+          ],
+          [
+            2629,
+            2635
+          ],
+          [
+            2634,
+            2631
+          ],
+          [
+            2630,
+            2617
+          ],
+          [
+            2621,
+            2627
+          ],
+          [
+            2620,
+            2625
+          ],
+          [
+            2619,
+            3468
+          ],
+          [
+            3479,
+            3472
+          ],
+          [
+            3471,
+            3474
+          ],
+          [
+            3476,
+            3494
+          ],
+          [
+            3495,
+            3490
+          ],
+          [
+            3480,
+            3491
+          ]
+        ],
+        "cells": [
+          209,
+          210,
+          211,
+          214,
+          215,
+          217,
+          218,
+          219,
+          220,
+          222,
+          289,
+          290,
+          291
+        ],
+        "ineligible": null
+      },
+      "counts": {
+        "expected": 62,
+        "files": {
+          "clock_cos": {
+            "shape": [
+              16384
+            ],
+            "dtype": "<u8",
+            "trials": 1048576,
+            "sha256": "fba090b00d9a56fed336507cbaa0bf5d2f310c7b6dd291113b083d3032b48850"
+          },
+          "clock_sin": {
+            "shape": [
+              16384
+            ],
+            "dtype": "<u8",
+            "trials": 1048576,
+            "sha256": "488aa4e38e5eaec91ae5818a80cac84f5f63411612f0883f125ef6efae949c62"
+          },
+          "control_flight_0": {
+            "shape": [
+              2,
+              38
+            ],
+            "dtype": "<u8",
+            "trials": 1048576,
+            "sha256": "d86f46632e73b2d8054496807cc864a6b37aa5a20af30ae633a3d25c1430573e"
+          },
+          "control_flight_2": {
+            "shape": [
+              2,
+              38
+            ],
+            "dtype": "<u8",
+            "trials": 1048576,
+            "sha256": "4f72c6c9e797d8188d60da4827bb2f9a2ac80094363eb10934de07dd691379ab"
+          },
+          "control_flight_4": {
+            "shape": [
+              2,
+              38
+            ],
+            "dtype": "<u8",
+            "trials": 1048576,
+            "sha256": "4320ed21ea3b0c53b07c947f0721e8038b0b0b324968604d6d122f76d7d56c3b"
+          },
+          "control_flight_8": {
+            "shape": [
+              2,
+              38
+            ],
+            "dtype": "<u8",
+            "trials": 1048576,
+            "sha256": "b80df9e10ce6dfcdb15e1e2aaccf2649663946d69427a40120b44b353e670cec"
+          },
+          "native_flight_0": {
+            "shape": [
+              2,
+              38
+            ],
+            "dtype": "<u8",
+            "trials": 1048576,
+            "sha256": "d86f46632e73b2d8054496807cc864a6b37aa5a20af30ae633a3d25c1430573e"
+          },
+          "native_flight_2": {
+            "shape": [
+              2,
+              38
+            ],
+            "dtype": "<u8",
+            "trials": 1048576,
+            "sha256": "d8a24ee700ef8896e86abe6f932eeef6ebe516fbdb0a82e434527367bc929dea"
+          },
+          "native_flight_4": {
+            "shape": [
+              2,
+              38
+            ],
+            "dtype": "<u8",
+            "trials": 1048576,
+            "sha256": "6c09f5abe77a316f2eec3da233d29bea269cab250ad0bb3a81487d37a91dfbf7"
+          },
+          "native_flight_8": {
+            "shape": [
+              2,
+              38
+            ],
+            "dtype": "<u8",
+            "trials": 1048576,
+            "sha256": "42ea865404c771231dbf3664d953ece3141686fc4a9a91205c29e3f742105a84"
+          },
+          "p1_2_changed": {
+            "shape": [
+              16384
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "464ca383700306f9d84301751287474808326122e0d7ec1824c2a29890dc9ecc"
+          },
+          "p1_2_scan0": {
+            "shape": [
+              16384,
+              38
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "408af226d6e6b137f6955d927da7dbc3626b539da1ebc01fbe3a6c3b48875915"
+          },
+          "p1_2_scan1": {
+            "shape": [
+              16384,
+              38
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "d2856eaecaf2fe5435f0a3f709f3d9adf33aa0ed919bf1bd64464730a543d5ae"
+          },
+          "p1_2_sum": {
+            "shape": [
+              16384
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "83431f98fc23dc4ff81e3c4a7385fd3394c3daa303b6444767c98e154b8d3766"
+          },
+          "p1_3_changed": {
+            "shape": [
+              16384
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "59251ff80059b4222d2d6da99803beb0203c34ffbf112497f7f0248ea03edcab"
+          },
+          "p1_3_scan0": {
+            "shape": [
+              16384,
+              38
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "4ad95081731219397fecff6d1b91b3f0e5c00169db017404338e3afd2ab43a8e"
+          },
+          "p1_3_scan1": {
+            "shape": [
+              16384,
+              38
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "dc2ac099505c8eb9fa01f7bc24a52e9501dcc78575bb485e5721180a171d1d3e"
+          },
+          "p1_3_sum": {
+            "shape": [
+              16384
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "b36dd824ace09a42f89e668476cd64371f2ba0a194342069594e7ff7921baac7"
+          },
+          "p1_4_changed": {
+            "shape": [
+              16384
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "dd8d2351af43e5c9f066135cfab982177718706a484795a4ef95ac5d3f562aaf"
+          },
+          "p1_4_scan0": {
+            "shape": [
+              16384,
+              38
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "c1cc2a2a43bc972c12910d81169abbe652c3dbf1a70b2959ffebe92999daa8f0"
+          },
+          "p1_4_scan1": {
+            "shape": [
+              16384,
+              38
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "c14ba5ceca2eacf1c4e37bad6579db441c8f5fdaba0baf86118a453b0b6068e0"
+          },
+          "p1_4_sum": {
+            "shape": [
+              16384
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "e1dc5dce38e428a2a7ed63c25658f563b2d3b68d51cc80732684a205109b75a3"
+          },
+          "p1_5_changed": {
+            "shape": [
+              16384
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "55f7de488c0c1aaf64001f11bc5fcc70a36e13c713baf822d85c47128c664c35"
+          },
+          "p1_5_scan0": {
+            "shape": [
+              16384,
+              38
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "fb5f5a3a40193b0ddb65d90f87d2d3d2bea6dda767d7233fad7cd40d6134dd38"
+          },
+          "p1_5_scan1": {
+            "shape": [
+              16384,
+              38
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "e59ee9be61b42c1818eafd89a8f12250ef5708bf4988af83a2873f1657fbbdae"
+          },
+          "p1_5_sum": {
+            "shape": [
+              16384
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "b3af867f89ded0f1cd842bd551f1b96b6bf18cd8ce1dcca2fc01c863a7913d49"
+          },
+          "p1_6_changed": {
+            "shape": [
+              16384
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "e10fb9b686217c84dca8e596c6535be2f07954d8fc29104e308750fcf4df3659"
+          },
+          "p1_6_scan0": {
+            "shape": [
+              16384,
+              38
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "25a0e3a3abb0fa2d653cca70bedd206698e927a4ea5c616d6d5bf520313a0330"
+          },
+          "p1_6_scan1": {
+            "shape": [
+              16384,
+              38
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "218ed121e24246efc4c4d7794418077baea8456b2cb276205c980572ab6ebf46"
+          },
+          "p1_6_sum": {
+            "shape": [
+              16384
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "7181d5c0c903f8b1e0e278b796fbac4de5f1359e0dcb9fda3f96e83c7fdd61fb"
+          },
+          "p1_7_changed": {
+            "shape": [
+              16384
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "16401d6a05ef7af1a30e21499c213cb2e136c45aa80b62b7555cce67eeb0861a"
+          },
+          "p1_7_scan0": {
+            "shape": [
+              16384,
+              38
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "9085965241995ade787a69e8d67c140c2fd0d253d77f4a4cd9bdec455d4bf7c2"
+          },
+          "p1_7_scan1": {
+            "shape": [
+              16384,
+              38
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "94bd318904a9da603183f94cee0951b4e902b2ce0caefe7b237995c4cf7c002c"
+          },
+          "p1_7_sum": {
+            "shape": [
+              16384
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "f67163e4a755ab9e958b5df715dd28dfc66dc2616c2377862910b36c8f0b3280"
+          },
+          "p1_8_changed": {
+            "shape": [
+              16384
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "c7d2a8390672d603aab3885239bd3589bdc0acd895a2d72d3da933cd5777203e"
+          },
+          "p1_8_scan0": {
+            "shape": [
+              16384,
+              38
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "7312def734b36a5b3444e64dc0b1130939946f78a696d22329e3ce191756c833"
+          },
+          "p1_8_scan1": {
+            "shape": [
+              16384,
+              38
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "0be413e354ecfe58287ce6a7bef8634a9d1e6988ebb41e9aa900844ee47b9aeb"
+          },
+          "p1_8_sum": {
+            "shape": [
+              16384
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "d0308b215feaa8de7e7331ee460367fb1183e9fa351dc1a0378d70ca8c00f2e3"
+          },
+          "p2_3_changed": {
+            "shape": [
+              16384
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "50d854306940f152f65a972807d34a1c2a672870cb1e8735cc8ed1c52962ab65"
+          },
+          "p2_3_scan0": {
+            "shape": [
+              16384,
+              38
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "af964061cd5f7b719d4a3f6359f2bb65107bdf2d66e2904d492d82a4a271e129"
+          },
+          "p2_3_scan1": {
+            "shape": [
+              16384,
+              38
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "02814bef6b4bc81adb65338ab1cf0e65eb6a166ae3def6e994aa610488f8fd09"
+          },
+          "p2_3_sum": {
+            "shape": [
+              16384
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "56050747174a265d4f4c0f97bd74733c11d98b9f6a88eb8bd4c1552e7832bc4a"
+          },
+          "p2_4_changed": {
+            "shape": [
+              16384
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "12f3af76999abf873c444eb9fb0b1a6b3d9688be2507affc4aa6b0fa82daba02"
+          },
+          "p2_4_scan0": {
+            "shape": [
+              16384,
+              38
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "95ad2506ff360159a8b2325c628a34293e3957dc198810e78e59b28ada989f5d"
+          },
+          "p2_4_scan1": {
+            "shape": [
+              16384,
+              38
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "b2fcefc34382dae72d3488a4c2dce012327ca348561a136c4b3ddcba7331a064"
+          },
+          "p2_4_sum": {
+            "shape": [
+              16384
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "b178d6cd3eaaa2b7e7b7777ad1879c84449cb5d0ec61b98c90756e74f55d986f"
+          },
+          "p2_5_changed": {
+            "shape": [
+              16384
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "27696037b699e8016e7ec33d91bed8d5ca200ceb4a3eaffdcadcd3e1d3b354db"
+          },
+          "p2_5_scan0": {
+            "shape": [
+              16384,
+              38
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "16fd8a2afa43f9d2c7910b4713375dee255013d4ae8c1fd6b3ff78e7771159ff"
+          },
+          "p2_5_scan1": {
+            "shape": [
+              16384,
+              38
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "262af5f49d5372acd52bcfef9fd49d43044676125122ffd6592b261df638869c"
+          },
+          "p2_5_sum": {
+            "shape": [
+              16384
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "96d0cfe3aaf29915d8658b4c8c1e0fb2d93d31bd6f4fb7c724f3c62b023c6393"
+          },
+          "p2_6_changed": {
+            "shape": [
+              16384
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "528cd0fdd1795dd87644c777ba8abcc7a41f26bef65f891e1cc5cf29a91e4aca"
+          },
+          "p2_6_scan0": {
+            "shape": [
+              16384,
+              38
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "d9f50c39e0a28e5daf5a73301153a7422dc346618c8c3fee96a03ac9258c4140"
+          },
+          "p2_6_scan1": {
+            "shape": [
+              16384,
+              38
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "98ffdd65a62a14af32c39e46c0570cc01881c7899f3c396fcb6690ca928d0021"
+          },
+          "p2_6_sum": {
+            "shape": [
+              16384
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "2fc34cbef5085d6d7da8291a4510e4e3f306964340f2d6d778b5488b339a5074"
+          },
+          "p2_7_changed": {
+            "shape": [
+              16384
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "e351d9f4b8318b693e379e86c608d3a0081d42c79d773d1154ac0582e3bbd330"
+          },
+          "p2_7_scan0": {
+            "shape": [
+              16384,
+              38
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "838e039fdd2cd4666b83b14f0340ecf18e12c4236fecc9a8805d784bf9b12e36"
+          },
+          "p2_7_scan1": {
+            "shape": [
+              16384,
+              38
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "fe7e4f3bfe8e5f0a16c4739a102116dbfc407f23332965ca2e47858e0b06596a"
+          },
+          "p2_7_sum": {
+            "shape": [
+              16384
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "5fed93f36ac058a0d3d6501fff835acbc6b38ed465ead3f8554776754f86a695"
+          },
+          "p2_8_changed": {
+            "shape": [
+              16384
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "5b99d80db125c6c14ddfec1a92722d72c5a1a6cece80b1a6375bf6b784a39f71"
+          },
+          "p2_8_scan0": {
+            "shape": [
+              16384,
+              38
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "6a39d053b8549f8a3f3c2ff88425c35e9a6833316c6d3cb67b8c4cb599ce033c"
+          },
+          "p2_8_scan1": {
+            "shape": [
+              16384,
+              38
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "5a64eb5f44413c1cbed8da7c994063463d83702a58d787d1214a01e9a89f486f"
+          },
+          "p2_8_sum": {
+            "shape": [
+              16384
+            ],
+            "dtype": "<u8",
+            "trials": 4294967296,
+            "sha256": "7fb681fc907012728cd8e272a56dd8d72689feeff2853d9a9d22db3571752440"
+          }
+        },
+        "missing": [],
+        "invalid": {}
+      },
+      "status": "rejected",
+      "native_gates": {
+        "changed_reader": true,
+        "meter": true,
+        "commissioned": true,
+        "lattice": true,
+        "closure": true,
+        "live": true,
+        "changed": true,
+        "transport": true,
+        "quiet": true,
+        "shape": true,
+        "continuum": true
+      },
+      "spatial": {
+        "records_complete": true,
+        "status": "physical_fail",
+        "profile_pass": false,
+        "launch_label_rejected": true,
+        "projected_degrees_of_freedom": 936,
+        "quadratic_cutoff": 1166.6418256063812,
+        "candidate_q": 1252.7891159664086,
+        "even_trained_q": 954.3365137091048,
+        "even_recurrence_only_q": 1306.1872459107271,
+        "launch_label_q": 692904.0694642817,
+        "even_trained_k": [
+          0.08041654326452193,
+          0.16083290668137318,
+          0.2412536465238788,
+          0.3216758753283626,
+          0.40210117957545666,
+          0.48253680315656544,
+          0.5629747798553748,
+          0.6434191326228729
+        ]
+      }
+    }
+  ],
+  "metadata_sha256": {
+    "draw.json": "3d9e25307913a76037d42069671a9a5e2eb2e9229deb30b267958effe64fa121",
+    "result.json": "eafbb28e5eacd6ab179cde4fffc7df84899277e93bf3c652b95586b75d258502"
+  },
+  "status": "rejected"
+}

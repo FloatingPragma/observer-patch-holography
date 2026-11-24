@@ -1,0 +1,2951 @@
+{
+ "shots": 8388608,
+ "joint_order": [
+  "hand0_quiet",
+  "hand0_yes",
+  "hand1_quiet",
+  "hand1_yes"
+ ],
+ "panels": [
+  {
+   "cells": 20,
+   "shared_seams": 30,
+   "stationary_dimension": 70,
+   "source": 0,
+   "detector": 1,
+   "optical_at_detector": 0.064549722437,
+   "reference_at_detector": 0.064549722437,
+   "spatial": [
+    {
+     "index": 0,
+     "k2": 0.0,
+     "odd": 0,
+     "variance": 0.0,
+     "stationary_weight": 1.0,
+     "visits": [
+      [
+       0.25,
+       [
+        8258914,
+        0,
+        129694,
+        0
+       ]
+      ],
+      [
+       1.0,
+       [
+        6461600,
+        0,
+        1927008,
+        0
+       ]
+      ],
+      [
+       4.0,
+       [
+        1452441,
+        0,
+        6936167,
+        0
+       ]
+      ]
+     ]
+    },
+    {
+     "index": 1,
+     "k2": 0.0636610019,
+     "odd": 8767,
+     "variance": 0.0308173201,
+     "stationary_weight": 0.9320107333,
+     "visits": [
+      [
+       0.25,
+       [
+        8242233,
+        15767,
+        130354,
+        254
+       ]
+      ],
+      [
+       1.0,
+       [
+        6278443,
+        179091,
+        1877805,
+        53269
+       ]
+      ],
+      [
+       4.0,
+       [
+        1282711,
+        170074,
+        6118820,
+        817003
+       ]
+      ]
+     ]
+    },
+    {
+     "index": 2,
+     "k2": 0.1666666667,
+     "odd": 23217,
+     "variance": 0.0763888889,
+     "stationary_weight": 0.8,
+     "visits": [
+      [
+       0.25,
+       [
+        8219281,
+        38974,
+        129728,
+        625
+       ]
+      ],
+      [
+       1.0,
+       [
+        6031946,
+        431620,
+        1797182,
+        127860
+       ]
+      ],
+      [
+       4.0,
+       [
+        1074660,
+        378945,
+        5131535,
+        1803468
+       ]
+      ]
+     ]
+    },
+    {
+     "index": 3,
+     "k2": 0.25,
+     "odd": 34607,
+     "variance": 0.109375,
+     "stationary_weight": 0.6666666667,
+     "visits": [
+      [
+       0.25,
+       [
+        8201783,
+        56015,
+        129961,
+        849
+       ]
+      ],
+      [
+       1.0,
+       [
+        5862681,
+        601463,
+        1745574,
+        178890
+       ]
+      ],
+      [
+       4.0,
+       [
+        989288,
+        463223,
+        4722003,
+        2214094
+       ]
+      ]
+     ]
+    },
+    {
+     "index": 4,
+     "k2": 0.4166666667,
+     "odd": 58037,
+     "variance": 0.1649305556,
+     "stationary_weight": 0.2857142857,
+     "visits": [
+      [
+       0.25,
+       [
+        8174077,
+        83633,
+        129498,
+        1400
+       ]
+      ],
+      [
+       1.0,
+       [
+        5612283,
+        848831,
+        1674455,
+        253039
+       ]
+      ],
+      [
+       4.0,
+       [
+        949536,
+        502040,
+        4533517,
+        2403515
+       ]
+      ]
+     ]
+    },
+    {
+     "index": 5,
+     "k2": 0.4363389981,
+     "odd": 61221,
+     "variance": 0.1705715687,
+     "stationary_weight": 0.2258840036,
+     "visits": [
+      [
+       0.25,
+       [
+        8171268,
+        86630,
+        129295,
+        1415
+       ]
+      ],
+      [
+       1.0,
+       [
+        5589750,
+        870717,
+        1668163,
+        259978
+       ]
+      ],
+      [
+       4.0,
+       [
+        945780,
+        508604,
+        4508714,
+        2425510
+       ]
+      ]
+     ]
+    }
+   ],
+   "local_source_stationary": 0.614160401,
+   "occupation_by_hops": [
+    [
+     0,
+     [
+      8388608,
+      0,
+      0,
+      0,
+      0,
+      0
+     ]
+    ],
+    [
+     2,
+     [
+      7233648,
+      1145680,
+      9279,
+      1,
+      0,
+      0
+     ]
+    ],
+    [
+     8,
+     [
+      4072351,
+      4120009,
+      182863,
+      13131,
+      254,
+      0
+     ]
+    ],
+    [
+     32,
+     [
+      5248296,
+      1772699,
+      976139,
+      323365,
+      64597,
+      3512
+     ]
+    ]
+   ],
+   "interferometry": [
+    {
+     "internal_exchange": 1,
+     "phase": [
+      1,
+      0
+     ],
+     "appointment": 0.0,
+     "counts": [
+      8318341,
+      70267,
+      0,
+      0
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      1,
+      0
+     ],
+     "appointment": 0.125,
+     "counts": [
+      8288408,
+      67441,
+      32474,
+      285
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      1,
+      0
+     ],
+     "appointment": 0.25,
+     "counts": [
+      8198302,
+      59441,
+      129901,
+      964
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      1,
+      0
+     ],
+     "appointment": 0.5,
+     "counts": [
+      7840122,
+      35089,
+      511023,
+      2374
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      1,
+      0
+     ],
+     "appointment": 0.75,
+     "counts": [
+      7252463,
+      11451,
+      1122936,
+      1758
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      1,
+      0
+     ],
+     "appointment": 1.0,
+     "counts": [
+      6461376,
+      260,
+      1926896,
+      76
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      0.0,
+      1.0
+     ],
+     "appointment": 0.0,
+     "counts": [
+      8353851,
+      34757,
+      0,
+      0
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      0.0,
+      1.0
+     ],
+     "appointment": 0.125,
+     "counts": [
+      8308600,
+      47430,
+      32385,
+      193
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      0.0,
+      1.0
+     ],
+     "appointment": 0.25,
+     "counts": [
+      8199848,
+      57928,
+      129890,
+      942
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      0.0,
+      1.0
+     ],
+     "appointment": 0.5,
+     "counts": [
+      7809567,
+      65331,
+      509390,
+      4320
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      0.0,
+      1.0
+     ],
+     "appointment": 0.75,
+     "counts": [
+      7209230,
+      53602,
+      1117467,
+      8309
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      0.0,
+      1.0
+     ],
+     "appointment": 1.0,
+     "counts": [
+      6430423,
+      31055,
+      1917727,
+      9403
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      -1,
+      0
+     ],
+     "appointment": 0.0,
+     "counts": [
+      8388608,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      -1,
+      0
+     ],
+     "appointment": 0.125,
+     "counts": [
+      8353468,
+      2445,
+      32686,
+      9
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      -1,
+      0
+     ],
+     "appointment": 0.25,
+     "counts": [
+      8248705,
+      9319,
+      130424,
+      160
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      -1,
+      0
+     ],
+     "appointment": 0.5,
+     "counts": [
+      7843801,
+      30539,
+      512293,
+      1975
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      -1,
+      0
+     ],
+     "appointment": 0.75,
+     "counts": [
+      7213153,
+      48703,
+      1119133,
+      7619
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      -1,
+      0
+     ],
+     "appointment": 1.0,
+     "counts": [
+      6405553,
+      53380,
+      1913596,
+      16079
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      -0.0,
+      -1.0
+     ],
+     "appointment": 0.0,
+     "counts": [
+      8353591,
+      35017,
+      0,
+      0
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      -0.0,
+      -1.0
+     ],
+     "appointment": 0.125,
+     "counts": [
+      8333657,
+      21924,
+      32947,
+      80
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      -0.0,
+      -1.0
+     ],
+     "appointment": 0.25,
+     "counts": [
+      8247012,
+      10822,
+      130602,
+      172
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      -0.0,
+      -1.0
+     ],
+     "appointment": 0.5,
+     "counts": [
+      7875716,
+      84,
+      512803,
+      5
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      -0.0,
+      -1.0
+     ],
+     "appointment": 0.75,
+     "counts": [
+      7255948,
+      6639,
+      1124942,
+      1079
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      -0.0,
+      -1.0
+     ],
+     "appointment": 1.0,
+     "counts": [
+      6438554,
+      23165,
+      1920099,
+      6790
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      1,
+      0
+     ],
+     "appointment": 0.0,
+     "counts": [
+      8318549,
+      70059,
+      0,
+      0
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      1,
+      0
+     ],
+     "appointment": 0.125,
+     "counts": [
+      8295705,
+      60245,
+      32458,
+      200
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      1,
+      0
+     ],
+     "appointment": 0.25,
+     "counts": [
+      8220719,
+      37149,
+      130172,
+      568
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      1,
+      0
+     ],
+     "appointment": 0.5,
+     "counts": [
+      7875125,
+      328,
+      513126,
+      29
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      1,
+      0
+     ],
+     "appointment": 0.75,
+     "counts": [
+      7238665,
+      23722,
+      1122500,
+      3721
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      1,
+      0
+     ],
+     "appointment": 1.0,
+     "counts": [
+      6409118,
+      52316,
+      1911481,
+      15693
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      0.0,
+      1.0
+     ],
+     "appointment": 0.0,
+     "counts": [
+      8353833,
+      34775,
+      0,
+      0
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      0.0,
+      1.0
+     ],
+     "appointment": 0.125,
+     "counts": [
+      8297021,
+      58771,
+      32584,
+      232
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      0.0,
+      1.0
+     ],
+     "appointment": 0.25,
+     "counts": [
+      8189140,
+      68970,
+      129429,
+      1069
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      0.0,
+      1.0
+     ],
+     "appointment": 0.5,
+     "counts": [
+      7837396,
+      37411,
+      511370,
+      2431
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      0.0,
+      1.0
+     ],
+     "appointment": 0.75,
+     "counts": [
+      7261598,
+      721,
+      1126179,
+      110
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      0.0,
+      1.0
+     ],
+     "appointment": 1.0,
+     "counts": [
+      6441695,
+      19466,
+      1921746,
+      5701
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      -1,
+      0
+     ],
+     "appointment": 0.0,
+     "counts": [
+      8388608,
+      0,
+      0,
+      0
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      -1,
+      0
+     ],
+     "appointment": 0.125,
+     "counts": [
+      8346632,
+      9272,
+      32664,
+      40
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      -1,
+      0
+     ],
+     "appointment": 0.25,
+     "counts": [
+      8226411,
+      31929,
+      129770,
+      498
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      -1,
+      0
+     ],
+     "appointment": 0.5,
+     "counts": [
+      7808802,
+      65119,
+      510522,
+      4165
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      -1,
+      0
+     ],
+     "appointment": 0.75,
+     "counts": [
+      7228109,
+      36658,
+      1118320,
+      5521
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      -1,
+      0
+     ],
+     "appointment": 1.0,
+     "counts": [
+      6460481,
+      1041,
+      1926756,
+      330
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      -0.0,
+      -1.0
+     ],
+     "appointment": 0.0,
+     "counts": [
+      8353578,
+      35030,
+      0,
+      0
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      -0.0,
+      -1.0
+     ],
+     "appointment": 0.125,
+     "counts": [
+      8345031,
+      11052,
+      32479,
+      46
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      -0.0,
+      -1.0
+     ],
+     "appointment": 0.25,
+     "counts": [
+      8258808,
+      69,
+      129730,
+      1
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      -0.0,
+      -1.0
+     ],
+     "appointment": 0.5,
+     "counts": [
+      7848513,
+      27895,
+      510389,
+      1811
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      -0.0,
+      -1.0
+     ],
+     "appointment": 0.75,
+     "counts": [
+      7204265,
+      59846,
+      1115316,
+      9181
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      -0.0,
+      -1.0
+     ],
+     "appointment": 1.0,
+     "counts": [
+      6426361,
+      34500,
+      1917501,
+      10246
+     ]
+    }
+   ]
+  },
+  {
+   "cells": 80,
+   "shared_seams": 120,
+   "stationary_dimension": 280,
+   "source": 0,
+   "detector": 1,
+   "optical_at_detector": 0.035007002101,
+   "reference_at_detector": 0.032274861218,
+   "spatial": [
+    {
+     "index": 0,
+     "k2": -0.0,
+     "odd": 0,
+     "variance": 0.0,
+     "stationary_weight": 1.0,
+     "visits": [
+      [
+       0.25,
+       [
+        8259262,
+        0,
+        129346,
+        0
+       ]
+      ],
+      [
+       1.0,
+       [
+        6458589,
+        0,
+        1930019,
+        0
+       ]
+      ],
+      [
+       4.0,
+       [
+        1454332,
+        0,
+        6934276,
+        0
+       ]
+      ]
+     ]
+    },
+    {
+     "index": 1,
+     "k2": 0.0158971256,
+     "odd": 550,
+     "variance": 0.0078853831,
+     "stationary_weight": 0.9765478391,
+     "visits": [
+      [
+       0.25,
+       [
+        8254232,
+        4006,
+        130306,
+        64
+       ]
+      ],
+      [
+       1.0,
+       [
+        6416445,
+        46484,
+        1911821,
+        13858
+       ]
+      ],
+      [
+       4.0,
+       [
+        1410288,
+        42162,
+        6737089,
+        199069
+       ]
+      ]
+     ]
+    },
+    {
+     "index": 2,
+     "k2": 0.0181117545,
+     "odd": 622,
+     "variance": 0.0089738683,
+     "stationary_weight": 0.9745391535,
+     "visits": [
+      [
+       0.25,
+       [
+        8253788,
+        4541,
+        130211,
+        68
+       ]
+      ],
+      [
+       1.0,
+       [
+        6407657,
+        52596,
+        1912839,
+        15516
+       ]
+      ],
+      [
+       4.0,
+       [
+        1404106,
+        49495,
+        6697967,
+        237040
+       ]
+      ]
+     ]
+    },
+    {
+     "index": 3,
+     "k2": 0.0193966705,
+     "odd": 634,
+     "variance": 0.0096042775,
+     "stationary_weight": 0.9704715232,
+     "visits": [
+      [
+       0.25,
+       [
+        8253421,
+        4884,
+        130236,
+        67
+       ]
+      ],
+      [
+       1.0,
+       [
+        6404144,
+        56444,
+        1911099,
+        16921
+       ]
+      ],
+      [
+       4.0,
+       [
+        1396011,
+        55919,
+        6672366,
+        264312
+       ]
+      ]
+     ]
+    },
+    {
+     "index": 4,
+     "k2": 0.044838377,
+     "odd": 1622,
+     "variance": 0.0219165685,
+     "stationary_weight": 0.9464934977,
+     "visits": [
+      [
+       0.25,
+       [
+        8246868,
+        11450,
+        130123,
+        167
+       ]
+      ],
+      [
+       1.0,
+       [
+        6335188,
+        126653,
+        1888705,
+        38062
+       ]
+      ],
+      [
+       4.0,
+       [
+        1339093,
+        112418,
+        6400449,
+        536648
+       ]
+      ]
+     ]
+    },
+    {
+     "index": 5,
+     "k2": 0.0485279184,
+     "odd": 1748,
+     "variance": 0.0236752195,
+     "stationary_weight": 0.9108874599,
+     "visits": [
+      [
+       0.25,
+       [
+        8245621,
+        12236,
+        130553,
+        198
+       ]
+      ],
+      [
+       1.0,
+       [
+        6323180,
+        137835,
+        1886674,
+        40919
+       ]
+      ],
+      [
+       4.0,
+       [
+        1333629,
+        119819,
+        6364671,
+        570489
+       ]
+      ]
+     ]
+    }
+   ],
+   "local_source_stationary": 0.612772389,
+   "occupation_by_hops": [
+    [
+     0,
+     [
+      8388608,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ]
+    ],
+    [
+     2,
+     [
+      7231035,
+      1152197,
+      5373,
+      3,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ]
+    ],
+    [
+     8,
+     [
+      4072420,
+      4210604,
+      87435,
+      17514,
+      626,
+      9,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ]
+    ],
+    [
+     32,
+     [
+      4657740,
+      1852207,
+      1075859,
+      470431,
+      279827,
+      45340,
+      6496,
+      675,
+      31,
+      2,
+      0,
+      0
+     ]
+    ]
+   ],
+   "interferometry": [
+    {
+     "internal_exchange": 1,
+     "phase": [
+      1,
+      0
+     ],
+     "appointment": 0.0,
+     "counts": [
+      8369621,
+      18987,
+      0,
+      0
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      1,
+      0
+     ],
+     "appointment": 0.125,
+     "counts": [
+      8337649,
+      18516,
+      32389,
+      54
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      1,
+      0
+     ],
+     "appointment": 0.25,
+     "counts": [
+      8241596,
+      16258,
+      130504,
+      250
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      1,
+      0
+     ],
+     "appointment": 0.5,
+     "counts": [
+      7865813,
+      9660,
+      512535,
+      600
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      1,
+      0
+     ],
+     "appointment": 0.75,
+     "counts": [
+      7260729,
+      3116,
+      1124210,
+      553
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      1,
+      0
+     ],
+     "appointment": 1.0,
+     "counts": [
+      6459351,
+      99,
+      1929125,
+      33
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      0.0,
+      1.0
+     ],
+     "appointment": 0.0,
+     "counts": [
+      8379098,
+      9510,
+      0,
+      0
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      0.0,
+      1.0
+     ],
+     "appointment": 0.125,
+     "counts": [
+      8343060,
+      12791,
+      32705,
+      52
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      0.0,
+      1.0
+     ],
+     "appointment": 0.25,
+     "counts": [
+      8242459,
+      15724,
+      130166,
+      259
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      0.0,
+      1.0
+     ],
+     "appointment": 0.5,
+     "counts": [
+      7858310,
+      17664,
+      511475,
+      1159
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      0.0,
+      1.0
+     ],
+     "appointment": 0.75,
+     "counts": [
+      7248467,
+      14803,
+      1123150,
+      2188
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      0.0,
+      1.0
+     ],
+     "appointment": 1.0,
+     "counts": [
+      6451553,
+      8376,
+      1926224,
+      2455
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      -1,
+      0
+     ],
+     "appointment": 0.0,
+     "counts": [
+      8388583,
+      25,
+      0,
+      0
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      -1,
+      0
+     ],
+     "appointment": 0.125,
+     "counts": [
+      8355140,
+      701,
+      32766,
+      1
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      -1,
+      0
+     ],
+     "appointment": 0.25,
+     "counts": [
+      8256033,
+      2487,
+      130049,
+      39
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      -1,
+      0
+     ],
+     "appointment": 0.5,
+     "counts": [
+      7865874,
+      8296,
+      513883,
+      555
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      -1,
+      0
+     ],
+     "appointment": 0.75,
+     "counts": [
+      7249590,
+      13360,
+      1123561,
+      2097
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      -1,
+      0
+     ],
+     "appointment": 1.0,
+     "counts": [
+      6448032,
+      14660,
+      1921492,
+      4424
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      -0.0,
+      -1.0
+     ],
+     "appointment": 0.0,
+     "counts": [
+      8379200,
+      9408,
+      0,
+      0
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      -0.0,
+      -1.0
+     ],
+     "appointment": 0.125,
+     "counts": [
+      8349980,
+      5980,
+      32628,
+      20
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      -0.0,
+      -1.0
+     ],
+     "appointment": 0.25,
+     "counts": [
+      8255170,
+      2928,
+      130461,
+      49
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      -0.0,
+      -1.0
+     ],
+     "appointment": 0.5,
+     "counts": [
+      7875574,
+      54,
+      512977,
+      3
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      -0.0,
+      -1.0
+     ],
+     "appointment": 0.75,
+     "counts": [
+      7260255,
+      1906,
+      1126166,
+      281
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      -0.0,
+      -1.0
+     ],
+     "appointment": 1.0,
+     "counts": [
+      6454085,
+      6280,
+      1926360,
+      1883
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      1,
+      0
+     ],
+     "appointment": 0.0,
+     "counts": [
+      8369439,
+      19169,
+      0,
+      0
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      1,
+      0
+     ],
+     "appointment": 0.125,
+     "counts": [
+      8339582,
+      16423,
+      32545,
+      58
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      1,
+      0
+     ],
+     "appointment": 0.25,
+     "counts": [
+      8248769,
+      10013,
+      129672,
+      154
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      1,
+      0
+     ],
+     "appointment": 0.5,
+     "counts": [
+      7873672,
+      98,
+      514828,
+      10
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      1,
+      0
+     ],
+     "appointment": 0.75,
+     "counts": [
+      7254767,
+      6473,
+      1126344,
+      1024
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      1,
+      0
+     ],
+     "appointment": 1.0,
+     "counts": [
+      6444967,
+      14364,
+      1925004,
+      4273
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      0.0,
+      1.0
+     ],
+     "appointment": 0.0,
+     "counts": [
+      8379115,
+      9493,
+      0,
+      0
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      0.0,
+      1.0
+     ],
+     "appointment": 0.125,
+     "counts": [
+      8339891,
+      15951,
+      32712,
+      54
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      0.0,
+      1.0
+     ],
+     "appointment": 0.25,
+     "counts": [
+      8239503,
+      18695,
+      130122,
+      288
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      0.0,
+      1.0
+     ],
+     "appointment": 0.5,
+     "counts": [
+      7865492,
+      10284,
+      512172,
+      660
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      0.0,
+      1.0
+     ],
+     "appointment": 0.75,
+     "counts": [
+      7261631,
+      206,
+      1126744,
+      27
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      0.0,
+      1.0
+     ],
+     "appointment": 1.0,
+     "counts": [
+      6456453,
+      5206,
+      1925371,
+      1578
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      -1,
+      0
+     ],
+     "appointment": 0.0,
+     "counts": [
+      8388567,
+      41,
+      0,
+      0
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      -1,
+      0
+     ],
+     "appointment": 0.125,
+     "counts": [
+      8353367,
+      2573,
+      32654,
+      14
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      -1,
+      0
+     ],
+     "appointment": 0.25,
+     "counts": [
+      8249493,
+      8772,
+      130197,
+      146
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      -1,
+      0
+     ],
+     "appointment": 0.5,
+     "counts": [
+      7857761,
+      17847,
+      511816,
+      1184
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      -1,
+      0
+     ],
+     "appointment": 0.75,
+     "counts": [
+      7254414,
+      10129,
+      1122525,
+      1540
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      -1,
+      0
+     ],
+     "appointment": 1.0,
+     "counts": [
+      6461095,
+      343,
+      1927084,
+      86
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      -0.0,
+      -1.0
+     ],
+     "appointment": 0.0,
+     "counts": [
+      8379012,
+      9596,
+      0,
+      0
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      -0.0,
+      -1.0
+     ],
+     "appointment": 0.125,
+     "counts": [
+      8352637,
+      3027,
+      32931,
+      13
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      -0.0,
+      -1.0
+     ],
+     "appointment": 0.25,
+     "counts": [
+      8257673,
+      52,
+      130881,
+      2
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      -0.0,
+      -1.0
+     ],
+     "appointment": 0.5,
+     "counts": [
+      7867912,
+      7611,
+      512584,
+      501
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      -0.0,
+      -1.0
+     ],
+     "appointment": 0.75,
+     "counts": [
+      7246294,
+      16184,
+      1123659,
+      2471
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      -0.0,
+      -1.0
+     ],
+     "appointment": 1.0,
+     "counts": [
+      6452360,
+      9312,
+      1924182,
+      2754
+     ]
+    }
+   ]
+  },
+  {
+   "cells": 320,
+   "shared_seams": 480,
+   "stationary_dimension": 1120,
+   "source": 0,
+   "detector": 1,
+   "optical_at_detector": 0.017633640396,
+   "reference_at_detector": 0.016137430609,
+   "spatial": [
+    {
+     "index": 0,
+     "k2": -0.0,
+     "odd": 0,
+     "variance": 0.0,
+     "stationary_weight": 1.0,
+     "visits": [
+      [
+       0.25,
+       [
+        8258164,
+        0,
+        130444,
+        0
+       ]
+      ],
+      [
+       1.0,
+       [
+        6461109,
+        0,
+        1927499,
+        0
+       ]
+      ],
+      [
+       4.0,
+       [
+        1454527,
+        0,
+        6934081,
+        0
+       ]
+      ]
+     ]
+    },
+    {
+     "index": 1,
+     "k2": 0.0039176174,
+     "odd": 27,
+     "variance": 0.0019549718,
+     "stationary_weight": 0.9935485519,
+     "visits": [
+      [
+       0.25,
+       [
+        8257028,
+        1014,
+        130546,
+        20
+       ]
+      ],
+      [
+       1.0,
+       [
+        6450027,
+        11369,
+        1923933,
+        3279
+       ]
+      ],
+      [
+       4.0,
+       [
+        1443549,
+        9996,
+        6886947,
+        48116
+       ]
+      ]
+     ]
+    },
+    {
+     "index": 2,
+     "k2": 0.004772178,
+     "odd": 39,
+     "variance": 0.0023803956,
+     "stationary_weight": 0.993408933,
+     "visits": [
+      [
+       0.25,
+       [
+        8256529,
+        1194,
+        130861,
+        24
+       ]
+      ],
+      [
+       1.0,
+       [
+        6445167,
+        14169,
+        1925251,
+        4021
+       ]
+      ],
+      [
+       4.0,
+       [
+        1441412,
+        13845,
+        6867671,
+        65680
+       ]
+      ]
+     ]
+    },
+    {
+     "index": 3,
+     "k2": 0.0048756771,
+     "odd": 36,
+     "variance": 0.0024318955,
+     "stationary_weight": 0.9912684236,
+     "visits": [
+      [
+       0.25,
+       [
+        8256741,
+        1302,
+        130549,
+        16
+       ]
+      ],
+      [
+       1.0,
+       [
+        6447721,
+        14549,
+        1922029,
+        4309
+       ]
+      ],
+      [
+       4.0,
+       [
+        1437342,
+        14509,
+        6868305,
+        68452
+       ]
+      ]
+     ]
+    },
+    {
+     "index": 4,
+     "k2": 0.0117313843,
+     "odd": 115,
+     "variance": 0.0058312858,
+     "stationary_weight": 0.9863163067,
+     "visits": [
+      [
+       0.25,
+       [
+        8254963,
+        2937,
+        130667,
+        41
+       ]
+      ],
+      [
+       1.0,
+       [
+        6425198,
+        34488,
+        1918703,
+        10219
+       ]
+      ],
+      [
+       4.0,
+       [
+        1423119,
+        30587,
+        6788239,
+        146663
+       ]
+      ]
+     ]
+    },
+    {
+     "index": 5,
+     "k2": 0.0121064354,
+     "odd": 101,
+     "variance": 0.0060165762,
+     "stationary_weight": 0.9787994506,
+     "visits": [
+      [
+       0.25,
+       [
+        8254931,
+        3079,
+        130538,
+        60
+       ]
+      ],
+      [
+       1.0,
+       [
+        6426665,
+        34846,
+        1916491,
+        10606
+       ]
+      ],
+      [
+       4.0,
+       [
+        1419596,
+        33079,
+        6777805,
+        158128
+       ]
+      ]
+     ]
+    }
+   ],
+   "local_source_stationary": 0.614055936,
+   "occupation_by_hops": [
+    [
+     0,
+     [
+      8388608,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ]
+    ],
+    [
+     2,
+     [
+      7231229,
+      1152000,
+      5378,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ]
+    ],
+    [
+     8,
+     [
+      4074651,
+      4206172,
+      96403,
+      10808,
+      565,
+      9,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ]
+    ],
+    [
+     32,
+     [
+      4333901,
+      2100354,
+      1043369,
+      564862,
+      291691,
+      41030,
+      11353,
+      1655,
+      367,
+      24,
+      2,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ]
+    ]
+   ],
+   "interferometry": [
+    {
+     "internal_exchange": 1,
+     "phase": [
+      1,
+      0
+     ],
+     "appointment": 0.0,
+     "counts": [
+      8383986,
+      4622,
+      0,
+      0
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      1,
+      0
+     ],
+     "appointment": 0.125,
+     "counts": [
+      8351117,
+      4540,
+      32936,
+      15
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      1,
+      0
+     ],
+     "appointment": 0.25,
+     "counts": [
+      8254556,
+      4038,
+      129963,
+      51
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      1,
+      0
+     ],
+     "appointment": 0.5,
+     "counts": [
+      7872419,
+      2484,
+      513537,
+      168
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      1,
+      0
+     ],
+     "appointment": 0.75,
+     "counts": [
+      7262209,
+      818,
+      1125450,
+      131
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      1,
+      0
+     ],
+     "appointment": 1.0,
+     "counts": [
+      6459322,
+      26,
+      1929256,
+      4
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      0.0,
+      1.0
+     ],
+     "appointment": 0.0,
+     "counts": [
+      8386209,
+      2399,
+      0,
+      0
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      0.0,
+      1.0
+     ],
+     "appointment": 0.125,
+     "counts": [
+      8352643,
+      3176,
+      32780,
+      9
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      0.0,
+      1.0
+     ],
+     "appointment": 0.25,
+     "counts": [
+      8253917,
+      4057,
+      130581,
+      53
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      0.0,
+      1.0
+     ],
+     "appointment": 0.5,
+     "counts": [
+      7871553,
+      4386,
+      512385,
+      284
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      0.0,
+      1.0
+     ],
+     "appointment": 0.75,
+     "counts": [
+      7260794,
+      3574,
+      1123681,
+      559
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      0.0,
+      1.0
+     ],
+     "appointment": 1.0,
+     "counts": [
+      6458728,
+      2062,
+      1927189,
+      629
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      -1,
+      0
+     ],
+     "appointment": 0.0,
+     "counts": [
+      8388594,
+      14,
+      0,
+      0
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      -1,
+      0
+     ],
+     "appointment": 0.125,
+     "counts": [
+      8355394,
+      167,
+      33047,
+      0
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      -1,
+      0
+     ],
+     "appointment": 0.25,
+     "counts": [
+      8257446,
+      631,
+      130522,
+      9
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      -1,
+      0
+     ],
+     "appointment": 0.5,
+     "counts": [
+      7873840,
+      2093,
+      512537,
+      138
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      -1,
+      0
+     ],
+     "appointment": 0.75,
+     "counts": [
+      7262155,
+      3245,
+      1122711,
+      497
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      -1,
+      0
+     ],
+     "appointment": 1.0,
+     "counts": [
+      6456357,
+      3698,
+      1927479,
+      1074
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      -0.0,
+      -1.0
+     ],
+     "appointment": 0.0,
+     "counts": [
+      8386195,
+      2413,
+      0,
+      0
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      -0.0,
+      -1.0
+     ],
+     "appointment": 0.125,
+     "counts": [
+      8354608,
+      1564,
+      32431,
+      5
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      -0.0,
+      -1.0
+     ],
+     "appointment": 0.25,
+     "counts": [
+      8257582,
+      785,
+      130232,
+      9
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      -0.0,
+      -1.0
+     ],
+     "appointment": 0.5,
+     "counts": [
+      7874478,
+      17,
+      514113,
+      0
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      -0.0,
+      -1.0
+     ],
+     "appointment": 0.75,
+     "counts": [
+      7261432,
+      448,
+      1126650,
+      78
+     ]
+    },
+    {
+     "internal_exchange": 1,
+     "phase": [
+      -0.0,
+      -1.0
+     ],
+     "appointment": 1.0,
+     "counts": [
+      6457044,
+      1603,
+      1929466,
+      495
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      1,
+      0
+     ],
+     "appointment": 0.0,
+     "counts": [
+      8383744,
+      4864,
+      0,
+      0
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      1,
+      0
+     ],
+     "appointment": 0.125,
+     "counts": [
+      8351811,
+      4059,
+      32730,
+      8
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      1,
+      0
+     ],
+     "appointment": 0.25,
+     "counts": [
+      8256518,
+      2549,
+      129491,
+      50
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      1,
+      0
+     ],
+     "appointment": 0.5,
+     "counts": [
+      7874694,
+      25,
+      513887,
+      2
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      1,
+      0
+     ],
+     "appointment": 0.75,
+     "counts": [
+      7262221,
+      1684,
+      1124428,
+      275
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      1,
+      0
+     ],
+     "appointment": 1.0,
+     "counts": [
+      6457208,
+      3659,
+      1926657,
+      1084
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      0.0,
+      1.0
+     ],
+     "appointment": 0.0,
+     "counts": [
+      8386166,
+      2442,
+      0,
+      0
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      0.0,
+      1.0
+     ],
+     "appointment": 0.125,
+     "counts": [
+      8351553,
+      4064,
+      32976,
+      15
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      0.0,
+      1.0
+     ],
+     "appointment": 0.25,
+     "counts": [
+      8253696,
+      4752,
+      130078,
+      82
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      0.0,
+      1.0
+     ],
+     "appointment": 0.5,
+     "counts": [
+      7872510,
+      2594,
+      513345,
+      159
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      0.0,
+      1.0
+     ],
+     "appointment": 0.75,
+     "counts": [
+      7262047,
+      62,
+      1126488,
+      11
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      0.0,
+      1.0
+     ],
+     "appointment": 1.0,
+     "counts": [
+      6458297,
+      1340,
+      1928565,
+      406
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      -1,
+      0
+     ],
+     "appointment": 0.0,
+     "counts": [
+      8388601,
+      7,
+      0,
+      0
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      -1,
+      0
+     ],
+     "appointment": 0.125,
+     "counts": [
+      8355403,
+      643,
+      32557,
+      5
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      -1,
+      0
+     ],
+     "appointment": 0.25,
+     "counts": [
+      8255711,
+      2178,
+      130672,
+      47
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      -1,
+      0
+     ],
+     "appointment": 0.5,
+     "counts": [
+      7870918,
+      4452,
+      512936,
+      302
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      -1,
+      0
+     ],
+     "appointment": 0.75,
+     "counts": [
+      7260993,
+      2526,
+      1124708,
+      381
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      -1,
+      0
+     ],
+     "appointment": 1.0,
+     "counts": [
+      6461272,
+      85,
+      1927226,
+      25
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      -0.0,
+      -1.0
+     ],
+     "appointment": 0.0,
+     "counts": [
+      8386204,
+      2404,
+      0,
+      0
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      -0.0,
+      -1.0
+     ],
+     "appointment": 0.125,
+     "counts": [
+      8355190,
+      798,
+      32618,
+      2
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      -0.0,
+      -1.0
+     ],
+     "appointment": 0.25,
+     "counts": [
+      8258200,
+      15,
+      130393,
+      0
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      -0.0,
+      -1.0
+     ],
+     "appointment": 0.5,
+     "counts": [
+      7873678,
+      1911,
+      512888,
+      131
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      -0.0,
+      -1.0
+     ],
+     "appointment": 0.75,
+     "counts": [
+      7258106,
+      4173,
+      1125711,
+      618
+     ]
+    },
+    {
+     "internal_exchange": 2,
+     "phase": [
+      -0.0,
+      -1.0
+     ],
+     "appointment": 1.0,
+     "counts": [
+      6456284,
+      2282,
+      1929327,
+      715
+     ]
+    }
+   ]
+  }
+ ]
+}

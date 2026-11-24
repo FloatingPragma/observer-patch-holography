@@ -40,3 +40,13 @@ python -B -W error -m model.candidate_laws.interval_echo.openwave.row_30_route.e
 The replay compares new results with the complete archived receipt. Use `--output NEW.json` to retain a separate copy.
 
 An independent free control starts with every collar blank and proves that this subspace is invariant for arbitrary loads. Its single-unit angular frequencies are affine in the squared graph wave number on all three registered spheres. [Blank-collar certificate and its scope](BLANK.md)
+
+A uniform local commissioning service also yields exact coordination-dependent bands on six boards. A spatial return measurement on the largest one-write domain rules out a single rest frequency for its constant wave on every board. [Locally written medium and tagged transport](../row_30_formed/README.md)
+
+### Does a remote observer actually receive the in-gap response?
+
+An eigenmode in a spectral interval might reside almost entirely near its source. We tested a sharp launch at a gateway with a frequency filter centred on the original gap and a load detector in a separate cell. The temporal filter uses controlled native free holds, with the trimer as its supplied frequency reference. The registered interaction acts throughout each flight. The filter can reject a launch. We retain all rejections and every terminal cell. For a source in cell 208 and a detector four route cells away in cell 206, the shortest route gave **2,220 joint filter and detector successes in 4,194,304 launches** at the gap centre. The repeated four-port route gave zero successes anywhere on the same number of launches. At the separate passband setting the detector in cell 206 clicked 417 times on the four-port route. [Instrument and exploratory choices](PROTOCOL.md) · [All four-port and shortest-path outcomes](receiver.json)
+
+For a frequency mismatch δ the probability of passing all 8,192 balanced timing reads is cos(δ/16) raised to the power 16,384. The native spectral enclosure is [−16,8] in these units. At the gap centre of −4 the maximum probability of passing for any excitation confined outside (−5,−3) is therefore at most 1.25 × 10⁻¹⁴. This bound also controls the squared norm of any out-of-window contribution before a terminal location read. The centre-frequency response at a distinct cell on the shortest route is physically resolvable. The filter itself permits motion during its coherent holds. These data measure finite-distance transfer in the tested guides. Identifying an extended band at arbitrary distances or a particular group velocity would require a different measurement. [Receiver calculation](receiver.py) · [Independent filter checks](test_receiver.py)
+
+Replay with `python -B -m model.candidate_laws.interval_echo.openwave.row_30_route.receiver`.

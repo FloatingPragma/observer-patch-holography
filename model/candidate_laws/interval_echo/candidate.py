@@ -8,6 +8,25 @@ SUMMARY = ("A finite patch carries the signed contrast repair, its hand and its 
            "A completed handoff filters the fresh closing mark through a bounded first-return walk.")
 DOCUMENTS = {"readme": "README.md", "specification": "SPEC.md"}
 PARTICLE_IDENTIFICATIONS = {
+    **{
+        flavour: {
+            "status": "open",
+            "note": observation,
+            "evidence": ["model/candidate_laws/interval_echo/openwave/quark_winding/belt_walls/README.md",
+                         "model/candidate_laws/interval_echo/openwave/quark_winding/belt_walls/ternary.json",
+                         "model/candidate_laws/interval_echo/openwave/quark_winding/belt_walls/external_field.json",
+                         "model/candidate_laws/interval_echo/openwave/quark_winding/belt_walls/orbital_singlet.json",
+                         "model/candidate_laws/interval_echo/openwave/quark_winding/written_junction/README.md"],
+        }
+        for flavour, observation in {
+            "u": "A static signed-field receiver measures the positive wall at +0.66640 ordinary units. Four-hop material records exclude an independent exact colour triplet in the tested intact written-cell component. A remote polarization guide also gives +0.6656 on a parked three-wall preparation. The exact compact orbital triplet carries a whole material unit. Electric charge and light up flavour are unassigned.",
+            "d": "A static signed-field receiver measures the negative wall at −0.33360 ordinary units. Four-hop material records exclude an independent exact colour triplet in the tested intact written-cell component. A remote polarization guide also gives −0.3307 on a parked three-wall preparation. The exact compact orbital triplet carries a whole material unit. Electric charge and light down flavour are unassigned.",
+            "s": "Neutral vacancy pairs can accompany the −⅓ wall with the same charge. At least five vacancy counts are available on the prepared string. A strangeness-selective transition is unresolved.",
+            "c": "A stationary state on the finite belt gives a +⅔ wall with a vacancy in its core. The same charge occurs at five vacancy counts on a longer string. A charm-selective production or weak transition is unresolved.",
+            "b": "The −⅓ material wall has no independent bottom-flavoured production or decay record.",
+            "t": "The +⅔ material wall has no heavy resonance with a resolved top-like weak decay.",
+        }.items()
+    },
     "e": {
         "status": "open",
         "note": "The freely released bare pair responds to the centre of the tested local SU(3) current. "
@@ -17,10 +36,13 @@ PARTICLE_IDENTIFICATIONS = {
                 "perpendicular half-turns give the ordinary positive relative phase. "
                 "Filtering the local colour band at both endpoints retains coherent transfer, but the leading "
                 "arrival from a localized launch has one quarter of its weight in that band. "
+                "The compact 35-unit vacancy can release charge after a phase pulse, but its one-vacancy spectrum excludes the anchored relativistic recoil. "
+                "A repulsively bound two-vacancy and one-excess cluster rearranges inside its home cell. Its upper-band energy above the uniform host also fails this recoil test. "
                 "A physical colour-singlet assignment, signed electromagnetic response, spatial spin half "
                 "and an electron–positron identification require further evidence on the same excitation.",
         "evidence": [
             "model/candidate_laws/interval_echo/openwave/row_04_identity/README.md",
+            "model/candidate_laws/interval_echo/openwave/row_02_dressed/README.md",
             "model/candidate_laws/interval_echo/openwave/row_04_conjugates/README.md",
             "model/experiments/interval_echo_angular/charged_orientation/README.md",
             "model/experiments/interval_echo_gauge/singlet_flight/README.md",
@@ -40,7 +62,12 @@ PARTICLE_IDENTIFICATIONS = {
                        "independently calibrated rest energy in keV are unresolved. A separate first-order mass "
                        "construction realizes the geometric family ratios on a guided seven-cell charge, "
                        "with strong dependence on the guide and a supplied register mass operator. Each rest level "
-                       "has one state per charge sign. A spinless orbital realization gives identical charge and flux histories.",
+                       "on the undressed positive guide has one state per charge sign. A monitored two-face vacancy has localized "
+                       "negative-level partners. One unlabeled source resolves three frequencies. Their middle ratio exceeds "
+                       "the muon ratio by 9.83 ppm. Scalar forces on the charge position preserve the parked pair. "
+                       "Positive recoil frequencies on the moving guide independently recover the three dispersion parameters "
+                       "from port counts. Local source selection and distal charge reads join localization and finite-wavelength inertia on this guide. "
+                       "A spinless orbital realization gives identical charge and flux histories.",
             "source": "model/candidate_laws/interval_echo/openwave/electron_field/README.md",
         },
     },
@@ -57,7 +84,8 @@ PARTICLE_IDENTIFICATIONS = {
                        "modes plus neutral excitation. All six separated downward channels miss the isolated "
                        "parent energy. A separate first-order register comparison yields the geometric ratios on a "
                        "seven-cell charge path. Its free law preserves every family character exactly. Five sequential distal "
-                       "reads distinguish all three resting branches with 34.46% optimal accuracy at equal priors.",
+                       "reads distinguish all three resting branches with 34.46% optimal accuracy at equal priors. An unlabeled "
+                       "Ramsey spectrum gives a middle energy of 105.6594145 MeV with the electron anchor, 1.0390 keV high.",
             "source": "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/identity_audit/README.md",
         },
     },
@@ -73,7 +101,8 @@ PARTICLE_IDENTIFICATIONS = {
                        "single-configuration-per-port guides of the three stored federations have energy "
                        "span below 1,273. A first-order generator with the cyclic read installed as a mass operator reaches a ratio "
                        "of 3477.47284 on an unpinned seven-cell path, falling to 1.32433 upon adding one pinned port. A common "
-                       "charged-sector energy offset preserves all charge and flux histories while changing the formation ratios.",
+                       "charged-sector energy offset preserves all charge and flux histories while changing the formation ratios. "
+                       "An unlabeled vacancy spectrum gives a heavy energy of 1776.98497 MeV with the measured electron anchor.",
             "source": "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/identity_audit/README.md",
         },
     },

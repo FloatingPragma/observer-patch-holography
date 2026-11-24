@@ -5,9 +5,11 @@ tensor. Their exact rational decoder amplifies the largest measured error by
 at most `17/8`, and that constant is optimal for this frame. Applied to one
 common family of regional entropy, area and matter-stress readouts, this
 proves a conditional Einstein limit with quantified small-ball errors.
-The [proof](PROOF.md) states the physical inputs; the
+The [derivation from patch records to gravity](PROOF.md#from-patch-records-to-gravity) explains the physical inputs, the exact homogeneous null-balance result, and the domain of the galactic profile. The [matched small-ball proof](PROOF.md#the-common-source-interface) states the limiting estimates; the
 [Lean theorem](../../Lean/ObserverPatchHolography/EinsteinBranch/QuantitativeSmallBall.lean)
 checks the tensor algebra, error bounds, scaling and conservation consequence.
+
+The [galactic-outskirts example](PROOF.md#why-the-outskirts-of-a-galaxy-could-show-an-excess) explains what a local record retains and how a compact exterior makes an additional source visible in orbits.
 
 The required regional readouts must come from the same admitted state and
 refinement, in the same proper-time normalization. The area is that of actual

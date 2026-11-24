@@ -190,6 +190,13 @@ nature is the readout of observers from their records.
    on the simulator's parameter, on a global order of events or on a count of the events of the whole carrier says
    so and is labelled as audit.
 
+When a row uses an effective quantity, give the inference an observer would actually make. For OW-28,
+identify the emitter and receiver, the clock or spectral standard, the distance measurement and the records
+compared across directions and epochs. Explain how the proposed dynamics yields those readings and under
+which geometric and matter assumptions they fix Λ. An alternative OPH mechanism can be compared directly
+on the same records. State the domain and accuracy of observational equivalence, a discriminating experiment
+where possible, and the public criterion’s remaining clauses.
+
 Every protocol declares the preparations, settings, retained quantum references and outcome records each observer
 can access, and uses complete instruments with all complementary outcomes. The decoder maps the available records
 to the claimed readings and is specified before the run. Unread quantum state is never presumed recoverable from a

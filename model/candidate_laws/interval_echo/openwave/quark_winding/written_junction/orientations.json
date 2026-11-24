@@ -1,0 +1,159 @@
+{
+  "rotation": [
+    2,
+    10,
+    9,
+    1,
+    5,
+    11,
+    8,
+    6,
+    7,
+    0,
+    3,
+    4
+  ],
+  "panels": {
+    "minus": {
+      "states_per_orientation": 32582,
+      "backgrounds": [
+        [
+          1,
+          2,
+          2,
+          2,
+          2,
+          2,
+          4,
+          3,
+          0,
+          4,
+          1,
+          4
+        ],
+        [
+          4,
+          2,
+          1,
+          1,
+          4,
+          2,
+          3,
+          0,
+          4,
+          2,
+          2,
+          2
+        ],
+        [
+          2,
+          1,
+          4,
+          2,
+          2,
+          4,
+          0,
+          4,
+          3,
+          1,
+          2,
+          2
+        ]
+      ],
+      "degree_symmetric_mismatches": [
+        0,
+        0,
+        0
+      ],
+      "changed_owner_mismatches": [
+        0,
+        21586,
+        23120
+      ],
+      "lines": {
+        "lowest": {
+          "energy": 25.49825987244,
+          "wall_probability": 0.75519344063,
+          "residual": 1e-11
+        },
+        "highest": {
+          "energy": 147.80126102224,
+          "wall_probability": 0.6220819306,
+          "residual": 9e-11
+        }
+      }
+    },
+    "plus": {
+      "states_per_orientation": 13954,
+      "backgrounds": [
+        [
+          1,
+          2,
+          2,
+          2,
+          2,
+          2,
+          4,
+          3,
+          -1,
+          4,
+          1,
+          4
+        ],
+        [
+          4,
+          2,
+          1,
+          1,
+          4,
+          2,
+          3,
+          -1,
+          4,
+          2,
+          2,
+          2
+        ],
+        [
+          2,
+          1,
+          4,
+          2,
+          2,
+          4,
+          -1,
+          4,
+          3,
+          1,
+          2,
+          2
+        ]
+      ],
+      "degree_symmetric_mismatches": [
+        0,
+        0,
+        0
+      ],
+      "changed_owner_mismatches": [
+        0,
+        9944,
+        10539
+      ],
+      "lines": {
+        "lowest": {
+          "energy": 43.73392758837,
+          "wall_probability": 0.02757773201,
+          "residual": 3e-11
+        },
+        "highest": {
+          "energy": 163.63612346927,
+          "wall_probability": 0.02287670231,
+          "residual": 2e-11
+        }
+      }
+    }
+  },
+  "largest_diagonal_difference": 0.0,
+  "determinant_rotated_bright": 1.0,
+  "mixture_rotated_bright": 0.5
+}

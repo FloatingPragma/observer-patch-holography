@@ -97,7 +97,10 @@ def main():
                                           "clocked_charge", "dirac_read", "identity_audit", "arrival_spin", "transfer", "decay"))
             studies.append((family / "hierarchy", "search", "results"))
             studies.extend((family / "arrival_spin", stem, record) for stem, record in
-                           (("circulation", "circulation"), ("tomography", "counts")))
+                           (("circulation", "circulation"), ("tomography", "counts"), ("winding_turn", "winding_turn"), ("incidence_turn", "incidence_turn"), ("rest_partner", "rest_partner"),
+                            ("anchor_spectrum", "anchor_spectrum"), ("cadence_audit", "cadence_audit"),
+                            ("rest_impulse", "rest_impulse"), ("recoil", "recoil"),
+                            ("localized_recoil", "localized_recoil")))
             if not args.family_only:
                 studies.append((family / "arrival_spin", "pair_phase", "pair_phase"))
             for local, stem, record in studies:

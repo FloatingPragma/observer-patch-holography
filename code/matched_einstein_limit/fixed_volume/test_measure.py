@@ -6,6 +6,33 @@ from scipy.integrate import quad
 
 from . import measure
 
+
+def test_boundary_chord_reconstruction_and_launch_weights():
+    import numpy as np
+    from . import chords
+
+    replay = chords.run()
+    saved = json.loads((measure.HERE / "chords.json").read_text())
+    for panel, archive in zip(replay["panels"], saved["panels"], strict=True):
+        for case, original in zip(panel["cases"], archive["cases"], strict=True):
+            assert case["chord_round_trip_ticks"] == original["chord_round_trip_ticks"]
+            assert abs(case["boundary_volume"] - original["boundary_volume"]) < 1e-13
+        assert panel["maximum_clock_ratio_error_per_radius"] < 1e-7
+    errors = [row["maximum_fractional_difference"] for row in replay["panels"]]
+    assert all(a > b for a, b in zip(errors, errors[1:]))
+    assert errors[-1] < 4.3e-8
+    nodes, weights = np.polynomial.legendre.leggauss(16)
+    mu, weights = (1 + nodes) / 2, weights / 2
+    radius, tick = 0.5, 2.0**-42
+    expected, area = measure.spatial_measures(0, radius)
+    tapes = chords.clock_tapes(0., radius, tick, mu)
+    assert chords.boundary_volume(area, tick, tapes, mu, weights)[0] == pytest.approx(expected)
+    assert area / 4 * (weights @ tapes) * tick / 2 == pytest.approx(0.75 * expected)
+    central = chords.clock_tapes(0., radius, tick, np.ones_like(mu))
+    assert chords.boundary_volume(area, tick, central, mu, weights)[0] == pytest.approx(1.5 * expected)
+    with pytest.raises(ValueError, match="strictly convex"):
+        chords.clock_tapes(1., 2., tick, mu)
+
 # Poisson draws of the record. NumPy samples them (and the arrival Gamma) by
 # rejection, and the accept decisions follow the platform's libm: one platform
 # replays the stored record bit for bit, another can take a different stream

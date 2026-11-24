@@ -1,0 +1,1172 @@
+{
+  "boards": [
+    {
+      "cells": 20,
+      "ports": 240,
+      "route": [
+        0,
+        1,
+        82,
+        72
+      ],
+      "regional": [
+        {
+          "forming_sign": -1,
+          "curvature_nats": 0.005000189323561954,
+          "relative_upper": 15.357172023655238,
+          "product_min_eigenvalue": 1.9708625580482075e-05,
+          "formed_min_eigenvalue": 1.0187846186204235e-05,
+          "samples": [
+            {
+              "bank_size": 1,
+              "strengthening_slope_nats": -0.0019241652084037867,
+              "scaled_magnitude": 0.0019241652084037867,
+              "lower": 0.00030568788518766163,
+              "upper": null
+            },
+            {
+              "bank_size": 2,
+              "strengthening_slope_nats": -0.0004380497210607,
+              "scaled_magnitude": 0.0017521988842428,
+              "lower": 0.0005761525341510058,
+              "upper": 0.010000378647123907
+            },
+            {
+              "bank_size": 4,
+              "strengthening_slope_nats": -0.00014325446071982885,
+              "scaled_magnitude": 0.0022920713715172615,
+              "lower": 0.0010332478974617826,
+              "upper": 0.006666919098082605
+            },
+            {
+              "bank_size": 16,
+              "strengthening_slope_nats": -1.4120551817972467e-05,
+              "scaled_magnitude": 0.0036148612654009517,
+              "lower": 0.002551347076727408,
+              "upper": 0.005333535278466084
+            },
+            {
+              "bank_size": 64,
+              "strengthening_slope_nats": -1.1032560792833928e-06,
+              "scaled_magnitude": 0.004518936900744777,
+              "lower": 0.004032554444008842,
+              "upper": 0.005079557408062937
+            }
+          ],
+          "range_reads": [
+            {
+              "cells": 80,
+              "enrollments": [
+                {
+                  "radius": 0.09375,
+                  "hit": 0.025,
+                  "unflagged_slope_nats": -2.679454452289263e-06,
+                  "flagged_slope_nats": -4.810413021009467e-05,
+                  "unflagged_per_radius_fourth": -0.03468656335510699
+                },
+                {
+                  "radius": 0.1875,
+                  "hit": 0.07395833333333333,
+                  "unflagged_slope_nats": -1.8942396164734e-05,
+                  "flagged_slope_nats": -0.00014230805187153005,
+                  "unflagged_per_radius_fourth": -0.015326035494469226
+                }
+              ],
+              "unflagged_doubling_exponent": 2.821607642409944,
+              "flagged_doubling_exponent": 1.564784618783526
+            },
+            {
+              "cells": 1280,
+              "enrollments": [
+                {
+                  "radius": 0.046875,
+                  "hit": 0.004622395833333333,
+                  "unflagged_slope_nats": -1.0347371425496544e-07,
+                  "flagged_slope_nats": -8.894253241970628e-06,
+                  "unflagged_per_radius_fourth": -0.021432109313306597
+                },
+                {
+                  "radius": 0.09375,
+                  "hit": 0.018619791666666666,
+                  "unflagged_slope_nats": -1.539692311971325e-06,
+                  "flagged_slope_nats": -3.582755531272676e-05,
+                  "unflagged_per_radius_fourth": -0.019931906243427704
+                }
+              ],
+              "unflagged_doubling_exponent": 3.895305848238817,
+              "flagged_doubling_exponent": 2.0101242172737073
+            },
+            {
+              "cells": 20480,
+              "enrollments": [
+                {
+                  "radius": 0.0234375,
+                  "hit": 0.0011637369791666667,
+                  "unflagged_slope_nats": -6.7161383479012275e-09,
+                  "flagged_slope_nats": -2.2392222070454224e-06,
+                  "unflagged_per_radius_fourth": -0.022257403209604353
+                },
+                {
+                  "radius": 0.046875,
+                  "hit": 0.0047119140625,
+                  "unflagged_slope_nats": -1.0745572147533273e-07,
+                  "flagged_slope_nats": -9.066501104051047e-06,
+                  "unflagged_per_radius_fourth": -0.022256887032438222
+                }
+              ],
+              "unflagged_doubling_exponent": 3.9999665417000347,
+              "flagged_doubling_exponent": 2.017548201210847
+            },
+            {
+              "cells": 327680,
+              "enrollments": [
+                {
+                  "radius": 0.01171875,
+                  "hit": 0.00029449462890625,
+                  "unflagged_slope_nats": -4.3274384086207666e-10,
+                  "flagged_slope_nats": -5.666563190031904e-07,
+                  "unflagged_per_radius_fourth": -0.022945933877136393
+                },
+                {
+                  "radius": 0.0234375,
+                  "hit": 0.0011774698893229167,
+                  "unflagged_slope_nats": -6.874920929143458e-09,
+                  "flagged_slope_nats": -2.2656465949782136e-06,
+                  "unflagged_per_radius_fourth": -0.02278361153800701
+                }
+              ],
+              "unflagged_doubling_exponent": 3.9897579293599232,
+              "flagged_doubling_exponent": 1.999376940158362
+            }
+          ]
+        },
+        {
+          "forming_sign": 1,
+          "curvature_nats": 0.010460297254533372,
+          "relative_upper": 35.39132452296719,
+          "product_min_eigenvalue": 8.115708212882727e-06,
+          "formed_min_eigenvalue": 5.225368599090357e-09,
+          "samples": [
+            {
+              "bank_size": 1,
+              "strengthening_slope_nats": -0.004172674111581044,
+              "scaled_magnitude": 0.004172674111581044,
+              "lower": 0.00028743931119989047,
+              "upper": null
+            },
+            {
+              "bank_size": 2,
+              "strengthening_slope_nats": -0.0005213299033743844,
+              "scaled_magnitude": 0.0020853196134975375,
+              "lower": 0.0005595039698638253,
+              "upper": 0.020920594509066744
+            },
+            {
+              "bank_size": 4,
+              "strengthening_slope_nats": -0.000185235061181119,
+              "scaled_magnitude": 0.002963760978897904,
+              "lower": 0.001062192996169446,
+              "upper": 0.013947063006044496
+            },
+            {
+              "bank_size": 16,
+              "strengthening_slope_nats": -2.21312212254367e-05,
+              "scaled_magnitude": 0.005665592633711795,
+              "lower": 0.0032566733320472667,
+              "upper": 0.011157650404835597
+            },
+            {
+              "bank_size": 64,
+              "strengthening_slope_nats": -2.047944108700629e-06,
+              "scaled_magnitude": 0.008388379069237777,
+              "lower": 0.006735588115997371,
+              "upper": 0.010626333718891044
+            }
+          ],
+          "range_reads": [
+            {
+              "cells": 80,
+              "enrollments": [
+                {
+                  "radius": 0.09375,
+                  "hit": 0.025,
+                  "unflagged_slope_nats": -4.737387588051095e-06,
+                  "flagged_slope_nats": -0.00010431685278952611,
+                  "unflagged_per_radius_fourth": -0.06132729540158351
+                },
+                {
+                  "radius": 0.1875,
+                  "hit": 0.07395833333333333,
+                  "unflagged_slope_nats": -2.8980363057929325e-05,
+                  "flagged_slope_nats": -0.0003086040228356814,
+                  "unflagged_per_radius_fourth": -0.023447618189684646
+                }
+              ],
+              "unflagged_doubling_exponent": 2.6129120531351933,
+              "flagged_doubling_exponent": 1.564784618783526
+            },
+            {
+              "cells": 1280,
+              "enrollments": [
+                {
+                  "radius": 0.046875,
+                  "hit": 0.004622395833333333,
+                  "unflagged_slope_nats": -2.0747219298948383e-07,
+                  "flagged_slope_nats": -1.9287751427230087e-05,
+                  "unflagged_per_radius_fourth": -0.042972911058990815
+                },
+                {
+                  "radius": 0.09375,
+                  "hit": 0.018619791666666666,
+                  "unflagged_slope_nats": -2.810225505241457e-06,
+                  "flagged_slope_nats": -7.769432265053246e-05,
+                  "unflagged_per_radius_fourth": -0.036379444683753905
+                }
+              ],
+              "unflagged_doubling_exponent": 3.7596960099827856,
+              "flagged_doubling_exponent": 2.0101242172737073
+            },
+            {
+              "cells": 20480,
+              "enrollments": [
+                {
+                  "radius": 0.0234375,
+                  "hit": 0.0011637369791666667,
+                  "unflagged_slope_nats": -1.3890426563310097e-08,
+                  "flagged_slope_nats": -4.855895165658279e-06,
+                  "unflagged_per_radius_fourth": -0.046033123315514304
+                },
+                {
+                  "radius": 0.046875,
+                  "hit": 0.0047119140625,
+                  "unflagged_slope_nats": -2.1529490847414623e-07,
+                  "flagged_slope_nats": -1.9661281824588416e-05,
+                  "unflagged_per_radius_fourth": -0.04459319979223434
+                }
+              ],
+              "unflagged_doubling_exponent": 3.9541513924397487,
+              "flagged_doubling_exponent": 2.017548201210847
+            },
+            {
+              "cells": 327680,
+              "enrollments": [
+                {
+                  "radius": 0.01171875,
+                  "hit": 0.00029449462890625,
+                  "unflagged_slope_nats": -9.026311141661453e-10,
+                  "flagged_slope_nats": -1.228830114036776e-06,
+                  "unflagged_per_radius_fourth": -0.04786137179871156
+                },
+                {
+                  "radius": 0.0234375,
+                  "hit": 0.0011774698893229167,
+                  "unflagged_slope_nats": -1.421695221746766e-08,
+                  "flagged_slope_nats": -4.913198124343932e-06,
+                  "unflagged_per_radius_fourth": -0.04711523520279188
+                }
+              ],
+              "unflagged_doubling_exponent": 3.9773318978950765,
+              "flagged_doubling_exponent": 1.999376940158362
+            }
+          ]
+        }
+      ],
+      "material": [
+        {
+          "probe_sign": -1,
+          "preparations": [
+            {
+              "forming_sign": -1,
+              "formed": {
+                "mean_energy": 3.8146518421455227,
+                "energy_variance": 3.077396507430298,
+                "appointments": [
+                  {
+                    "time": 0.5,
+                    "return_amplitude": [
+                      -0.41973823147973166,
+                      -0.8091309961969261
+                    ],
+                    "relay_miss": 0.9879741563050246,
+                    "return_miss": 0.011880385311826407,
+                    "complete": 0.00014545838314894793
+                  },
+                  {
+                    "time": 1.0,
+                    "return_amplitude": [
+                      -0.41998978305666207,
+                      0.690382957762637
+                    ],
+                    "relay_miss": 0.9359957199563069,
+                    "return_miss": 0.05973112243133465,
+                    "complete": 0.004273157612358475
+                  },
+                  {
+                    "time": 2.0,
+                    "return_amplitude": [
+                      -0.3860078008617241,
+                      -0.6653320323254549
+                    ],
+                    "relay_miss": 0.80095200114461,
+                    "return_miss": 0.15661827751725185,
+                    "complete": 0.04242972133813821
+                  }
+                ]
+              },
+              "independent": {
+                "mean_energy": 3.814651842145522,
+                "energy_variance": 3.077396507430298,
+                "appointments": [
+                  {
+                    "time": 0.5,
+                    "return_amplitude": [
+                      -0.419735307872268,
+                      -0.8091333379774277
+                    ],
+                    "relay_miss": 0.9879697871660057,
+                    "return_miss": 0.011884270202715905,
+                    "complete": 0.0001459426312784211
+                  },
+                  {
+                    "time": 1.0,
+                    "return_amplitude": [
+                      -0.41999660972310077,
+                      0.6903530333682779
+                    ],
+                    "relay_miss": 0.9359714766052394,
+                    "return_miss": 0.05974382070530744,
+                    "complete": 0.004284702689453188
+                  },
+                  {
+                    "time": 2.0,
+                    "return_amplitude": [
+                      -0.38600174963791245,
+                      -0.6652542791018298
+                    ],
+                    "relay_miss": 0.8008005332846605,
+                    "return_miss": 0.15663317323803244,
+                    "complete": 0.04256629347730705
+                  }
+                ]
+              }
+            },
+            {
+              "forming_sign": 1,
+              "formed": {
+                "mean_energy": 0.1595808807780455,
+                "energy_variance": 17.23799203056791,
+                "appointments": [
+                  {
+                    "time": 0.5,
+                    "return_amplitude": [
+                      0.6744130740179862,
+                      -0.43505718509129276
+                    ],
+                    "relay_miss": 0.958081282625294,
+                    "return_miss": 0.04015417348779024,
+                    "complete": 0.0017645438869157493
+                  },
+                  {
+                    "time": 1.0,
+                    "return_amplitude": [
+                      0.40475411328909017,
+                      -0.7927284312004865
+                    ],
+                    "relay_miss": 0.9117534687914148,
+                    "return_miss": 0.07998158039474257,
+                    "complete": 0.008264950813842558
+                  },
+                  {
+                    "time": 2.0,
+                    "return_amplitude": [
+                      -0.5365540019064661,
+                      -0.7884014054927884
+                    ],
+                    "relay_miss": 0.9814432708526056,
+                    "return_miss": 0.006121653052254603,
+                    "complete": 0.012435076095139717
+                  }
+                ]
+              },
+              "independent": {
+                "mean_energy": 0.1595808807780455,
+                "energy_variance": 17.23799203056791,
+                "appointments": [
+                  {
+                    "time": 0.5,
+                    "return_amplitude": [
+                      0.6744158188044798,
+                      -0.43505939488114
+                    ],
+                    "relay_miss": 0.9580772665111341,
+                    "return_miss": 0.04015774595983049,
+                    "complete": 0.0017649875290353702
+                  },
+                  {
+                    "time": 1.0,
+                    "return_amplitude": [
+                      0.4047472825959055,
+                      -0.7927560138319676
+                    ],
+                    "relay_miss": 0.9117304651365905,
+                    "return_miss": 0.0799941048820518,
+                    "complete": 0.008275429981357753
+                  },
+                  {
+                    "time": 2.0,
+                    "return_amplitude": [
+                      -0.5365432432141868,
+                      -0.7883324344596462
+                    ],
+                    "relay_miss": 0.9813083130392622,
+                    "return_miss": 0.006137782854368046,
+                    "complete": 0.012553904106369692
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "probe_sign": 1,
+          "preparations": [
+            {
+              "forming_sign": -1,
+              "formed": {
+                "mean_energy": -23.71465184214553,
+                "energy_variance": 17.194611244594505,
+                "appointments": [
+                  {
+                    "time": 0.5,
+                    "return_amplitude": [
+                      0.78223692865418,
+                      -0.12200083706075941
+                    ],
+                    "relay_miss": 0.96686135922036,
+                    "return_miss": 0.031993049426828464,
+                    "complete": 0.0011455913528115825
+                  },
+                  {
+                    "time": 1.0,
+                    "return_amplitude": [
+                      0.9154511494967751,
+                      -0.012398327019479433
+                    ],
+                    "relay_miss": 0.9758213799711084,
+                    "return_miss": 0.021007032574204523,
+                    "complete": 0.00317158745468711
+                  },
+                  {
+                    "time": 2.0,
+                    "return_amplitude": [
+                      0.788416133759312,
+                      -0.15853335291202314
+                    ],
+                    "relay_miss": 0.9298930107459662,
+                    "return_miss": 0.04024182283663681,
+                    "complete": 0.029865166417396977
+                  }
+                ]
+              },
+              "independent": {
+                "mean_energy": -23.71465184214552,
+                "energy_variance": 17.1946112445945,
+                "appointments": [
+                  {
+                    "time": 0.5,
+                    "return_amplitude": [
+                      0.7822400130806976,
+                      -0.12200542492032977
+                    ],
+                    "relay_miss": 0.9668528437816438,
+                    "return_miss": 0.03200075769084264,
+                    "complete": 0.0011463985275135015
+                  },
+                  {
+                    "time": 1.0,
+                    "return_amplitude": [
+                      0.9154312289035252,
+                      -0.012429947723958404
+                    ],
+                    "relay_miss": 0.9757743718098187,
+                    "return_miss": 0.0210401505759592,
+                    "complete": 0.0031854776142221093
+                  },
+                  {
+                    "time": 2.0,
+                    "return_amplitude": [
+                      0.7884447274551761,
+                      -0.15862227723015568
+                    ],
+                    "relay_miss": 0.9297496126018617,
+                    "return_miss": 0.04025136855629364,
+                    "complete": 0.029999018841844603
+                  }
+                ]
+              }
+            },
+            {
+              "forming_sign": 1,
+              "formed": {
+                "mean_energy": -20.05958088077805,
+                "energy_variance": 2.114639076792294,
+                "appointments": [
+                  {
+                    "time": 0.5,
+                    "return_amplitude": [
+                      -0.7820344577664988,
+                      -0.5126803007689649
+                    ],
+                    "relay_miss": 0.9874175792550123,
+                    "return_miss": 0.012423922869105857,
+                    "complete": 0.0001584978758819171
+                  },
+                  {
+                    "time": 1.0,
+                    "return_amplitude": [
+                      0.4121520245349499,
+                      0.8186811266221986
+                    ],
+                    "relay_miss": 0.9251167205525432,
+                    "return_miss": 0.06917456275590113,
+                    "complete": 0.00570871669155562
+                  },
+                  {
+                    "time": 2.0,
+                    "return_amplitude": [
+                      -0.43804874364062213,
+                      0.564722294947637
+                    ],
+                    "relay_miss": 0.8018265732730582,
+                    "return_miss": 0.15781961887246687,
+                    "complete": 0.04035380785447498
+                  }
+                ]
+              },
+              "independent": {
+                "mean_energy": -20.059580880778054,
+                "energy_variance": 2.1146390767922942,
+                "appointments": [
+                  {
+                    "time": 0.5,
+                    "return_amplitude": [
+                      -0.7820315471122257,
+                      -0.5126846656733242
+                    ],
+                    "relay_miss": 0.9874094845401646,
+                    "return_miss": 0.012431249806349184,
+                    "complete": 0.00015926565348622527
+                  },
+                  {
+                    "time": 1.0,
+                    "return_amplitude": [
+                      0.4121329239526062,
+                      0.8186514423281172
+                    ],
+                    "relay_miss": 0.925072010927277,
+                    "return_miss": 0.06920597562713524,
+                    "complete": 0.005722013445587743
+                  },
+                  {
+                    "time": 2.0,
+                    "return_amplitude": [
+                      -0.4380232135739117,
+                      0.5646370730756001
+                    ],
+                    "relay_miss": 0.8016891292070525,
+                    "return_miss": 0.15782709293016411,
+                    "complete": 0.04048377786278345
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cells": 80,
+      "ports": 960,
+      "route": [
+        0,
+        1,
+        38,
+        39
+      ],
+      "regional": [
+        {
+          "forming_sign": -1,
+          "curvature_nats": 0.11146139659377378,
+          "relative_upper": 7.159199635367063,
+          "product_min_eigenvalue": 0.0018785707574419871,
+          "formed_min_eigenvalue": 4.111603820356097e-08,
+          "samples": [
+            {
+              "bank_size": 1,
+              "strengthening_slope_nats": -0.20082487481160358,
+              "scaled_magnitude": 0.20082487481160358,
+              "lower": 0.013660824783674926,
+              "upper": null
+            },
+            {
+              "bank_size": 2,
+              "strengthening_slope_nats": -0.015334568757864046,
+              "scaled_magnitude": 0.06133827503145618,
+              "lower": 0.024338676092041937,
+              "upper": 0.22292279318754757
+            },
+            {
+              "bank_size": 4,
+              "strengthening_slope_nats": -0.00452591577995305,
+              "scaled_magnitude": 0.0724146524792488,
+              "lower": 0.03995318669289402,
+              "upper": 0.14861519545836505
+            },
+            {
+              "bank_size": 16,
+              "strengthening_slope_nats": -0.00037185726682621614,
+              "scaled_magnitude": 0.09519546030751133,
+              "lower": 0.07700535310283035,
+              "upper": 0.11889215636669204
+            },
+            {
+              "bank_size": 64,
+              "strengthening_slope_nats": -2.601411725359951e-05,
+              "scaled_magnitude": 0.1065538242707436,
+              "lower": 0.10024746510015642,
+              "upper": 0.11323062511113527
+            }
+          ],
+          "range_reads": [
+            {
+              "cells": 80,
+              "enrollments": [
+                {
+                  "radius": 0.09375,
+                  "hit": 0.025,
+                  "unflagged_slope_nats": -6.495288881544778e-05,
+                  "flagged_slope_nats": -0.005020621870290089,
+                  "unflagged_per_radius_fourth": -0.840840004228975
+                },
+                {
+                  "radius": 0.1875,
+                  "hit": 0.07395833333333333,
+                  "unflagged_slope_nats": -0.0005085668634806517,
+                  "flagged_slope_nats": -0.014852673032941514,
+                  "unflagged_per_radius_fourth": -0.41147454277861717
+                }
+              ],
+              "unflagged_doubling_exponent": 2.9689718670287997,
+              "flagged_doubling_exponent": 1.564784618783526
+            },
+            {
+              "cells": 1280,
+              "enrollments": [
+                {
+                  "radius": 0.046875,
+                  "hit": 0.004622395833333333,
+                  "unflagged_slope_nats": -2.348909063874029e-06,
+                  "flagged_slope_nats": -0.0009282920645588446,
+                  "unflagged_per_radius_fourth": -0.4865204287527455
+                },
+                {
+                  "radius": 0.09375,
+                  "hit": 0.018619791666666666,
+                  "unflagged_slope_nats": -3.664254730863675e-05,
+                  "flagged_slope_nats": -0.003739317330476473,
+                  "unflagged_per_radius_fourth": -0.47435179860124804
+                }
+              ],
+              "unflagged_doubling_exponent": 3.96345703311603,
+              "flagged_doubling_exponent": 2.0101242172737073
+            },
+            {
+              "cells": 20480,
+              "enrollments": [
+                {
+                  "radius": 0.0234375,
+                  "hit": 0.0011637369791666667,
+                  "unflagged_slope_nats": -1.504208561839882e-07,
+                  "flagged_slope_nats": -0.00023370733315477955,
+                  "unflagged_per_radius_fourth": -0.49849742125505303
+                },
+                {
+                  "radius": 0.046875,
+                  "hit": 0.0047119140625,
+                  "unflagged_slope_nats": -2.4401268534950302e-06,
+                  "flagged_slope_nats": -0.000946269551724597,
+                  "unflagged_per_radius_fourth": -0.5054140159072404
+                }
+              ],
+              "unflagged_doubling_exponent": 4.019879631457806,
+              "flagged_doubling_exponent": 2.017548201210847
+            },
+            {
+              "cells": 327680,
+              "enrollments": [
+                {
+                  "radius": 0.01171875,
+                  "hit": 0.00029449462890625,
+                  "unflagged_slope_nats": -9.658104881158963e-09,
+                  "flagged_slope_nats": -5.9141846982787313e-05,
+                  "unflagged_per_radius_fourth": -0.512114130937231
+                },
+                {
+                  "radius": 0.0234375,
+                  "hit": 0.0011774698893229167,
+                  "unflagged_slope_nats": -1.539855855282184e-07,
+                  "flagged_slope_nats": -0.00023646524311770746,
+                  "unflagged_per_radius_fourth": -0.510310998378942
+                }
+              ],
+              "unflagged_doubling_exponent": 3.9949113670580343,
+              "flagged_doubling_exponent": 1.999376940158362
+            }
+          ]
+        },
+        {
+          "forming_sign": 1,
+          "curvature_nats": 0.1320928879090514,
+          "relative_upper": 6.437762341739177,
+          "product_min_eigenvalue": 0.0027031313240493916,
+          "formed_min_eigenvalue": 7.065604610011169e-09,
+          "samples": [
+            {
+              "bank_size": 1,
+              "strengthening_slope_nats": -0.2938484314540783,
+              "scaled_magnitude": 0.2938484314540783,
+              "lower": 0.01775976185307422,
+              "upper": null
+            },
+            {
+              "bank_size": 2,
+              "strengthening_slope_nats": -0.01924097778439295,
+              "scaled_magnitude": 0.0769639111375718,
+              "lower": 0.03130993326408969,
+              "upper": 0.2641857758181028
+            },
+            {
+              "bank_size": 4,
+              "strengthening_slope_nats": -0.00559287704190705,
+              "scaled_magnitude": 0.0894860326705128,
+              "lower": 0.05062115176960108,
+              "upper": 0.1761238505454019
+            },
+            {
+              "bank_size": 16,
+              "strengthening_slope_nats": -0.0004484099997645568,
+              "scaled_magnitude": 0.11479295993972655,
+              "lower": 0.0941932700041694,
+              "upper": 0.14089908043632152
+            },
+            {
+              "bank_size": 64,
+              "strengthening_slope_nats": -3.099349512994741e-05,
+              "scaled_magnitude": 0.1269493560522646,
+              "lower": 0.12002006516282747,
+              "upper": 0.13418960041554429
+            }
+          ],
+          "range_reads": [
+            {
+              "cells": 80,
+              "enrollments": [
+                {
+                  "radius": 0.09375,
+                  "hit": 0.025,
+                  "unflagged_slope_nats": -7.760381990716738e-05,
+                  "flagged_slope_nats": -0.007346210786351958,
+                  "unflagged_per_radius_fourth": -1.0046111489256537
+                },
+                {
+                  "radius": 0.1875,
+                  "hit": 0.07395833333333333,
+                  "unflagged_slope_nats": -0.0006146958167889415,
+                  "flagged_slope_nats": -0.021732540242957874,
+                  "unflagged_per_radius_fourth": -0.4973420376429638
+                }
+              ],
+              "unflagged_doubling_exponent": 2.985673093762973,
+              "flagged_doubling_exponent": 1.564784618783526
+            },
+            {
+              "cells": 1280,
+              "enrollments": [
+                {
+                  "radius": 0.046875,
+                  "hit": 0.004622395833333333,
+                  "unflagged_slope_nats": -2.78831959205785e-06,
+                  "flagged_slope_nats": -0.0013582837651848671,
+                  "unflagged_per_radius_fourth": -0.577533828061561
+                },
+                {
+                  "radius": 0.09375,
+                  "hit": 0.018619791666666666,
+                  "unflagged_slope_nats": -4.3696800276983756e-05,
+                  "flagged_slope_nats": -0.0054713965752517186,
+                  "unflagged_per_radius_fourth": -0.5656718030523274
+                }
+              ],
+              "unflagged_doubling_exponent": 3.970059806584243,
+              "flagged_doubling_exponent": 2.0101242172737073
+            },
+            {
+              "cells": 20480,
+              "enrollments": [
+                {
+                  "radius": 0.0234375,
+                  "hit": 0.0011637369791666667,
+                  "unflagged_slope_nats": -1.7833968231266795e-07,
+                  "flagged_slope_nats": -0.0003419622859532324,
+                  "unflagged_per_radius_fourth": -0.5910209128950142
+                },
+                {
+                  "radius": 0.046875,
+                  "hit": 0.0047119140625,
+                  "unflagged_slope_nats": -2.896692379706647e-06,
+                  "flagged_slope_nats": -0.0013845885564120388,
+                  "unflagged_per_radius_fourth": -0.5999806634554622
+                }
+              ],
+              "unflagged_doubling_exponent": 4.02170682526796,
+              "flagged_doubling_exponent": 2.017548201210847
+            },
+            {
+              "cells": 327680,
+              "enrollments": [
+                {
+                  "radius": 0.01171875,
+                  "hit": 0.00029449462890625,
+                  "unflagged_slope_nats": -1.1447058482722161e-08,
+                  "flagged_slope_nats": -8.653678477575243e-05,
+                  "unflagged_per_radius_fourth": -0.6069721212184082
+                },
+                {
+                  "radius": 0.0234375,
+                  "hit": 0.0011774698893229167,
+                  "unflagged_slope_nats": -1.8256695420267666e-07,
+                  "flagged_slope_nats": -0.0003459976800619463,
+                  "unflagged_per_radius_fourth": -0.6050301679250201
+                }
+              ],
+              "unflagged_doubling_exponent": 3.995376825920823,
+              "flagged_doubling_exponent": 1.999376940158362
+            }
+          ]
+        }
+      ],
+      "material": [
+        {
+          "probe_sign": -1,
+          "preparations": [
+            {
+              "forming_sign": -1,
+              "formed": {
+                "mean_energy": 3.4284941527230517,
+                "energy_variance": 4.931695982426369,
+                "appointments": [
+                  {
+                    "time": 0.5,
+                    "return_amplitude": [
+                      -0.2938422612514891,
+                      -0.7985045559010215
+                    ],
+                    "relay_miss": 0.958157296253727,
+                    "return_miss": 0.04009079004937059,
+                    "complete": 0.001751913696902363
+                  },
+                  {
+                    "time": 1.0,
+                    "return_amplitude": [
+                      -0.412099969265275,
+                      0.5780735195994302
+                    ],
+                    "relay_miss": 0.9066351754850509,
+                    "return_miss": 0.08400623588551676,
+                    "complete": 0.009358588629432365
+                  },
+                  {
+                    "time": 2.0,
+                    "return_amplitude": [
+                      -0.34172980376356765,
+                      -0.8843884027602286
+                    ],
+                    "relay_miss": 0.9420963176937829,
+                    "return_miss": 0.026723104016202474,
+                    "complete": 0.03118057829001468
+                  }
+                ]
+              },
+              "independent": {
+                "mean_energy": 3.4284941527230517,
+                "energy_variance": 4.931695982426369,
+                "appointments": [
+                  {
+                    "time": 0.5,
+                    "return_amplitude": [
+                      -0.2937567616928781,
+                      -0.7986316454318959
+                    ],
+                    "relay_miss": 0.9578973922408526,
+                    "return_miss": 0.04032552564110011,
+                    "complete": 0.0017770821180473453
+                  },
+                  {
+                    "time": 1.0,
+                    "return_amplitude": [
+                      -0.41338201532110747,
+                      0.5768181172777104
+                    ],
+                    "relay_miss": 0.9037262749106292,
+                    "return_miss": 0.08608971529526692,
+                    "complete": 0.010184009794103907
+                  },
+                  {
+                    "time": 2.0,
+                    "return_amplitude": [
+                      -0.33825084678998985,
+                      -0.8740046446902134
+                    ],
+                    "relay_miss": 0.9257337296907406,
+                    "return_miss": 0.03299709648662844,
+                    "complete": 0.04126917382263096
+                  }
+                ]
+              }
+            },
+            {
+              "forming_sign": 1,
+              "formed": {
+                "mean_energy": 0.4565362141974847,
+                "energy_variance": 16.96078598781914,
+                "appointments": [
+                  {
+                    "time": 0.5,
+                    "return_amplitude": [
+                      0.5775989473542579,
+                      -0.44114618034826325
+                    ],
+                    "relay_miss": 0.9566796645116612,
+                    "return_miss": 0.0414175151764291,
+                    "complete": 0.0019028203119097345
+                  },
+                  {
+                    "time": 1.0,
+                    "return_amplitude": [
+                      0.3897388854263534,
+                      -0.5768008432588786
+                    ],
+                    "relay_miss": 0.9000353981221249,
+                    "return_miss": 0.08813946489467743,
+                    "complete": 0.011825136983197742
+                  },
+                  {
+                    "time": 2.0,
+                    "return_amplitude": [
+                      -0.2966408596800047,
+                      -0.8682291576134933
+                    ],
+                    "relay_miss": 0.9223741209854185,
+                    "return_miss": 0.025030804223042942,
+                    "complete": 0.05259507479153853
+                  }
+                ]
+              },
+              "independent": {
+                "mean_energy": 0.4565362141974847,
+                "energy_variance": 16.96078598781914,
+                "appointments": [
+                  {
+                    "time": 0.5,
+                    "return_amplitude": [
+                      0.5777095640092403,
+                      -0.44131061775466496
+                    ],
+                    "relay_miss": 0.9563433660123768,
+                    "return_miss": 0.04172124960685954,
+                    "complete": 0.0019353843807636817
+                  },
+                  {
+                    "time": 1.0,
+                    "return_amplitude": [
+                      0.38807999700557516,
+                      -0.5784251315594952
+                    ],
+                    "relay_miss": 0.8962713974175296,
+                    "return_miss": 0.09083542868841982,
+                    "complete": 0.012893173894050567
+                  },
+                  {
+                    "time": 2.0,
+                    "return_amplitude": [
+                      -0.2921392720526901,
+                      -0.8547934769400566
+                    ],
+                    "relay_miss": 0.9012020615685357,
+                    "return_miss": 0.03314892878501108,
+                    "complete": 0.06564900964645326
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "probe_sign": 1,
+          "preparations": [
+            {
+              "forming_sign": -1,
+              "formed": {
+                "mean_energy": -23.590994152723045,
+                "energy_variance": 17.00964920421076,
+                "appointments": [
+                  {
+                    "time": 0.5,
+                    "return_amplitude": [
+                      0.6822074765959376,
+                      -0.10467762146858264
+                    ],
+                    "relay_miss": 0.9654271665111732,
+                    "return_miss": 0.03329538934565121,
+                    "complete": 0.0012774441431755593
+                  },
+                  {
+                    "time": 1.0,
+                    "return_amplitude": [
+                      0.8661494186493522,
+                      0.1584130715602715
+                    ],
+                    "relay_miss": 0.965286199499524,
+                    "return_miss": 0.02901433971506038,
+                    "complete": 0.005699460785415602
+                  },
+                  {
+                    "time": 2.0,
+                    "return_amplitude": [
+                      0.7131844831386778,
+                      0.07336826421093859
+                    ],
+                    "relay_miss": 0.8971404653240427,
+                    "return_miss": 0.04890701240620435,
+                    "complete": 0.05395252226975297
+                  }
+                ]
+              },
+              "independent": {
+                "mean_energy": -23.590994152723045,
+                "energy_variance": 17.00964920421076,
+                "appointments": [
+                  {
+                    "time": 0.5,
+                    "return_amplitude": [
+                      0.6823453947740419,
+                      -0.1049624290060071
+                    ],
+                    "relay_miss": 0.96479503097201,
+                    "return_miss": 0.03387202863058125,
+                    "complete": 0.0013329403974087469
+                  },
+                  {
+                    "time": 1.0,
+                    "return_amplitude": [
+                      0.8636860534015628,
+                      0.1565441893794974
+                    ],
+                    "relay_miss": 0.9600883280586751,
+                    "return_miss": 0.033073701108282616,
+                    "complete": 0.006837970833042287
+                  },
+                  {
+                    "time": 2.0,
+                    "return_amplitude": [
+                      0.7122771961871516,
+                      0.06827106081928498
+                    ],
+                    "relay_miss": 0.8807458769835872,
+                    "return_miss": 0.0541946477903386,
+                    "complete": 0.06505947522607425
+                  }
+                ]
+              }
+            },
+            {
+              "forming_sign": 1,
+              "formed": {
+                "mean_energy": -20.61903621419748,
+                "energy_variance": 5.263075701398995,
+                "appointments": [
+                  {
+                    "time": 0.5,
+                    "return_amplitude": [
+                      -0.5734260631405144,
+                      -0.5019476096916278
+                    ],
+                    "relay_miss": 0.9665438301250394,
+                    "return_miss": 0.03230511352599959,
+                    "complete": 0.0011510563489610238
+                  },
+                  {
+                    "time": 1.0,
+                    "return_amplitude": [
+                      0.4102734669437461,
+                      0.8094971772909401
+                    ],
+                    "relay_miss": 0.9691062621538779,
+                    "return_miss": 0.02701998300555878,
+                    "complete": 0.003873754840563362
+                  },
+                  {
+                    "time": 2.0,
+                    "return_amplitude": [
+                      -0.5794664268713884,
+                      0.539363864886796
+                    ],
+                    "relay_miss": 0.9069036222650739,
+                    "return_miss": 0.054257420047127594,
+                    "complete": 0.03883895768779842
+                  }
+                ]
+              },
+              "independent": {
+                "mean_energy": -20.61903621419748,
+                "energy_variance": 5.263075701398995,
+                "appointments": [
+                  {
+                    "time": 0.5,
+                    "return_amplitude": [
+                      -0.5732476251689258,
+                      -0.5023161022242354
+                    ],
+                    "relay_miss": 0.9657259567522875,
+                    "return_miss": 0.03305118385598609,
+                    "complete": 0.0012228593917264672
+                  },
+                  {
+                    "time": 1.0,
+                    "return_amplitude": [
+                      0.4070863124998991,
+                      0.8070791961914359
+                    ],
+                    "relay_miss": 0.9623811730116428,
+                    "return_miss": 0.032272049195350955,
+                    "complete": 0.00534677779300626
+                  },
+                  {
+                    "time": 2.0,
+                    "return_amplitude": [
+                      -0.580640343723864,
+                      0.5327690266187624
+                    ],
+                    "relay_miss": 0.8856920238083038,
+                    "return_miss": 0.061098652966967336,
+                    "complete": 0.053209323224728856
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

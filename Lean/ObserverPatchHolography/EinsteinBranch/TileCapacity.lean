@@ -85,6 +85,40 @@ theorem uniform_word_transfer (m n z : ℝ) (hm : 0 < m) (hn : 0 < n) (hz : 0 < 
   rw [Real.log_div hm.ne' hz.ne', Real.log_div hn.ne' hz.ne']
   ring
 
+open scoped BigOperators in
+/-- On any finite word algebra, normalized fixed-volume transfers annihilate
+the constant and volume parts of the entropy-area gradient. Uniform errors
+in the completion-count calibration and the reference log weights bound the
+entire first variation, with no dependence on the number of words. -/
+theorem fixed_volume_capacity_bound {ι : Type*} [Fintype ι]
+    (v volume area count prob : ι → ℝ) (Z η c volCoeff ea ep : ℝ)
+    (hZ : 0 < Z) (hd : ∀ i, 0 < count i) (hp : ∀ i, 0 < prob i)
+    (hnorm : ∑ i, v i = 0) (hvol : ∑ i, v i * volume i = 0)
+    (harea : ∀ i, |Real.log (count i) - η * area i - c - volCoeff * volume i| ≤ ea)
+    (href : ∀ i, |Real.log (prob i / (count i / Z))| ≤ ep) :
+    |∑ i, v i * (-Real.log (prob i) + η * area i)| ≤
+      (∑ i, |v i|) * (ea + ep) := by
+  let e := fun i => Real.log (count i) - η * area i - c - volCoeff * volume i
+  let b := fun i => Real.log (prob i / (count i / Z))
+  have decomp (i : ι) :
+      v i * (-Real.log (prob i) + η * area i) =
+        v i * (Real.log Z - c) - (v i * volume i) * volCoeff + v i * (-(e i + b i)) := by
+    dsimp [b, e]
+    rw [Real.log_div (hp i).ne' (div_pos (hd i) hZ).ne', Real.log_div (hd i).ne' hZ.ne']
+    ring
+  have each (i : ι) : |v i * (-(e i + b i))| ≤ |v i| * (ea + ep) := by
+    rw [abs_mul, abs_neg]
+    exact mul_le_mul_of_nonneg_left ((abs_add_le _ _).trans
+      (add_le_add (harea i) (href i))) (abs_nonneg _)
+  simp_rw [decomp]
+  rw [Finset.sum_add_distrib, Finset.sum_sub_distrib, ← Finset.sum_mul,
+      ← Finset.sum_mul, hnorm, hvol]
+  simp only [zero_mul, sub_zero, zero_add]
+  calc
+    _ ≤ ∑ i, |v i * (-(e i + b i))| := Finset.abs_sum_le_sum_abs _ _
+    _ ≤ ∑ i, |v i| * (ea + ep) := Finset.sum_le_sum (fun i _ => each i)
+    _ = _ := by rw [Finset.sum_mul]
+
 /-- An aperture doubling as accessible volume quadruples admits no positive
 isotropic length ratio preserving both a three-dimensional volume and area. -/
 theorem no_isotropic_aperture_rescaling (h : ℝ) (hpos : 0 < h)

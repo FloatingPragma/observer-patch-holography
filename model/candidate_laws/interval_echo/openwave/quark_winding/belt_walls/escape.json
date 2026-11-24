@@ -1,0 +1,196 @@
+{
+  "exterior_edges": [
+    [
+      61,
+      34
+    ],
+    [
+      62,
+      84
+    ],
+    [
+      254,
+      277
+    ],
+    [
+      746,
+      288
+    ],
+    [
+      745,
+      758
+    ]
+  ],
+  "one_belt": {
+    "3": {
+      "two": {
+        "local_ceiling": 0.47453559925,
+        "exact_blocks": [
+          {
+            "visible_loads": 1,
+            "dimension": 5,
+            "polynomial": "(5*lambda - 2)*(900*lambda**2 - 720*lambda + 139)**2/4050000",
+            "greatest_root_interval": [
+              "139811/294627",
+              "1694541/3570946"
+            ]
+          },
+          {
+            "visible_loads": 2,
+            "dimension": 5,
+            "polynomial": "(5*lambda - 2)*(900*lambda**2 - 720*lambda + 139)**2/4050000",
+            "greatest_root_interval": [
+              "139811/294627",
+              "1694541/3570946"
+            ]
+          }
+        ]
+      },
+      "one": {
+        "local_ceiling": 0.8,
+        "exact_blocks": [
+          {
+            "visible_loads": 1,
+            "dimension": 5,
+            "polynomial": "(5*lambda - 4)**5/3125",
+            "greatest_root_interval": [
+              "4/5",
+              "4/5"
+            ]
+          },
+          {
+            "visible_loads": 2,
+            "dimension": 5,
+            "polynomial": "(2*lambda - 1)**5/32",
+            "greatest_root_interval": [
+              "1/2",
+              "1/2"
+            ]
+          }
+        ]
+      }
+    },
+    "4": {
+      "two": {
+        "local_ceiling": 0.55555555556,
+        "exact_blocks": [
+          {
+            "visible_loads": 2,
+            "dimension": 10,
+            "polynomial": "(6*lambda - 1)*(9*lambda - 5)*(324*lambda**2 - 198*lambda + 29)**2*(324*lambda**2 - 90*lambda + 5)**2/595077871104",
+            "greatest_root_interval": [
+              "5/9",
+              "5/9"
+            ]
+          }
+        ]
+      },
+      "one": {
+        "local_ceiling": 0.66666666667,
+        "exact_blocks": [
+          {
+            "visible_loads": 2,
+            "dimension": 10,
+            "polynomial": "(3*lambda - 2)**5*(3*lambda - 1)**5/59049",
+            "greatest_root_interval": [
+              "2/3",
+              "2/3"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "sectors": [
+    {
+      "material": 10,
+      "orders": [
+        {
+          "loads": [
+            3,
+            3,
+            4
+          ],
+          "all_poles_empty": 0.12510224164,
+          "three_whole_owners": 0.21090471078
+        },
+        {
+          "loads": [
+            3,
+            4,
+            3
+          ],
+          "all_poles_empty": 0.12510224164,
+          "three_whole_owners": 0.15012268997
+        },
+        {
+          "loads": [
+            4,
+            3,
+            3
+          ],
+          "all_poles_empty": 0.12510224164,
+          "three_whole_owners": 0.21090471078
+        }
+      ],
+      "all_poles_empty_upper": 0.12510224164,
+      "three_whole_owners_upper": 0.21090471078,
+      "trial_escape_per_pole": [
+        0.34434818185,
+        0.3422052005,
+        0.24505002715,
+        0.2794684859,
+        0.34434818185,
+        0.3422052005
+      ],
+      "trial_escape_quadratic": 1.89762527775,
+      "exchange_only_quadratic": 1.89762527775,
+      "no_hopping_quadratic": 0
+    },
+    {
+      "material": 11,
+      "orders": [
+        {
+          "loads": [
+            3,
+            4,
+            4
+          ],
+          "all_poles_empty": 0.14646160471,
+          "three_whole_owners": 0.17575392565
+        },
+        {
+          "loads": [
+            4,
+            3,
+            4
+          ],
+          "all_poles_empty": 0.14646160471,
+          "three_whole_owners": 0.24691358025
+        },
+        {
+          "loads": [
+            4,
+            4,
+            3
+          ],
+          "all_poles_empty": 0.14646160471,
+          "three_whole_owners": 0.17575392565
+        }
+      ],
+      "all_poles_empty_upper": 0.14646160471,
+      "three_whole_owners_upper": 0.24691358025,
+      "trial_escape_per_pole": [
+        0.2531773911,
+        0.2391045544,
+        0.34355838031,
+        0.35005325225,
+        0.2531773911,
+        0.2391045544
+      ],
+      "trial_escape_quadratic": 1.67817552355,
+      "exchange_only_quadratic": 1.67817552355,
+      "no_hopping_quadratic": 0
+    }
+  ]
+}

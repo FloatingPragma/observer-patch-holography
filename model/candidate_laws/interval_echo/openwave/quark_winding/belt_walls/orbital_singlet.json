@@ -1,0 +1,176 @@
+{
+  "gates": {
+    "(0, 2, 8)": {
+      "boards": [
+        [
+          20,
+          12
+        ],
+        [
+          80,
+          56
+        ],
+        [
+          320,
+          216
+        ]
+      ],
+      "dimension": 2,
+      "twice_kinetic_polynomial": "(lambda - 6)**2",
+      "energy_three_dimension": 2
+    },
+    "(0, 1, 4)": {
+      "boards": [
+        [
+          20,
+          8
+        ]
+      ],
+      "dimension": 2,
+      "twice_kinetic_polynomial": "(lambda - 6)**2",
+      "energy_three_dimension": 2
+    },
+    "(0, 1, 2)": {
+      "boards": [
+        [
+          80,
+          24
+        ],
+        [
+          320,
+          104
+        ]
+      ],
+      "dimension": 5,
+      "twice_kinetic_polynomial": "(lambda - 6)**3*(lambda**2 - 10*lambda + 20)",
+      "energy_three_dimension": 3
+    }
+  },
+  "local_port_read_commutant": 1,
+  "detector": {
+    "triple_singlet_overlap": 1.0,
+    "pair_singlet_overlap": 1.0,
+    "triple_common_bright": 1.0,
+    "triple_one_end_bright": 0.33333333333,
+    "equal_colour_product_common_bright": 0.0,
+    "local_probabilities": [
+      0.33333333333,
+      0.33333333333,
+      0.33333333333
+    ]
+  },
+  "comparisons": [
+    {
+      "board": 80,
+      "eligible_cells": 24,
+      "placements": [
+        {
+          "owners": [
+            5,
+            6,
+            7
+          ],
+          "distances": [
+            1,
+            1,
+            2
+          ],
+          "unit_energies": {
+            "-1": 35.0,
+            "1": 67.0
+          },
+          "triple_positive_energy": 201.0,
+          "triple_negative_energy": 105.0,
+          "neutral_pair_energy": 102.0,
+          "triple_code_dimension": 27,
+          "pair_code_dimension": 9,
+          "energy_relative_to_independent_fragments": 0.0,
+          "maximum_gateway_amplitude": 0.0,
+          "triple_full_residual": 0.0,
+          "opposite_pair_full_residual": 0.0
+        },
+        {
+          "owners": [
+            5,
+            35,
+            47
+          ],
+          "distances": [
+            7,
+            7,
+            8
+          ],
+          "unit_energies": {
+            "-1": 35.0,
+            "1": 67.0
+          },
+          "triple_positive_energy": 201.0,
+          "triple_negative_energy": 105.0,
+          "neutral_pair_energy": 102.0,
+          "triple_code_dimension": 27,
+          "pair_code_dimension": 9,
+          "energy_relative_to_independent_fragments": 0.0,
+          "maximum_gateway_amplitude": 0.0,
+          "triple_full_residual": 0.0,
+          "opposite_pair_full_residual": 0.0
+        }
+      ]
+    },
+    {
+      "board": 320,
+      "eligible_cells": 104,
+      "placements": [
+        {
+          "owners": [
+            8,
+            11,
+            20
+          ],
+          "distances": [
+            1,
+            1,
+            2
+          ],
+          "unit_energies": {
+            "-1": 35.0,
+            "1": 67.0
+          },
+          "triple_positive_energy": 201.0,
+          "triple_negative_energy": 105.0,
+          "neutral_pair_energy": 102.0,
+          "triple_code_dimension": 27,
+          "pair_code_dimension": 9,
+          "energy_relative_to_independent_fragments": 0.0,
+          "maximum_gateway_amplitude": 0.0,
+          "triple_full_residual": 0.0,
+          "opposite_pair_full_residual": 0.0
+        },
+        {
+          "owners": [
+            8,
+            144,
+            178
+          ],
+          "distances": [
+            15,
+            15,
+            16
+          ],
+          "unit_energies": {
+            "-1": 35.0,
+            "1": 67.0
+          },
+          "triple_positive_energy": 201.0,
+          "triple_negative_energy": 105.0,
+          "neutral_pair_energy": 102.0,
+          "triple_code_dimension": 27,
+          "pair_code_dimension": 9,
+          "energy_relative_to_independent_fragments": 0.0,
+          "maximum_gateway_amplitude": 0.0,
+          "triple_full_residual": 0.0,
+          "opposite_pair_full_residual": 0.0
+        }
+      ]
+    }
+  ]
+}

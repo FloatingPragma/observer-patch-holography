@@ -1,0 +1,108 @@
+{
+  "faces": [
+    [
+      0,
+      1,
+      5
+    ],
+    [
+      0,
+      5,
+      11
+    ],
+    [
+      0,
+      11,
+      10
+    ],
+    [
+      0,
+      10,
+      7
+    ],
+    [
+      0,
+      7,
+      1
+    ]
+  ],
+  "well_strength": 4,
+  "panels": {
+    "8": [
+      {
+        "steps_per_face": 4,
+        "minimum_gap": 0.00391335187,
+        "minimum_overlap": 0.59527183061,
+        "cyclic_probability": 0.00388945066,
+        "geometric_phase": 0.0,
+        "reversed_phase": 0.0,
+        "bright_dark_miss": [
+          0.28215509289,
+          0.21978963244,
+          0.49805527467
+        ],
+        "supplied_negative_return": [
+          0.21978963244,
+          0.28215509289,
+          0.49805527467
+        ]
+      },
+      {
+        "steps_per_face": 12,
+        "minimum_gap": 0.00391335187,
+        "minimum_overlap": 0.61633061234,
+        "cyclic_probability": 0.00574128898,
+        "geometric_phase": 0.0,
+        "reversed_phase": 0.0,
+        "bright_dark_miss": [
+          0.28932096921,
+          0.21354967528,
+          0.49712935551
+        ],
+        "supplied_negative_return": [
+          0.21354967528,
+          0.28932096921,
+          0.49712935551
+        ]
+      }
+    ],
+    "0": [
+      {
+        "steps_per_face": 4,
+        "minimum_gap": 0.63101900345,
+        "minimum_overlap": 0.812034345,
+        "cyclic_probability": 0.013208901,
+        "geometric_phase": 0.0,
+        "reversed_phase": 0.0,
+        "bright_dark_miss": [
+          0.31076721677,
+          0.19583723373,
+          0.4933955495
+        ],
+        "supplied_negative_return": [
+          0.19583723373,
+          0.31076721677,
+          0.4933955495
+        ]
+      },
+      {
+        "steps_per_face": 12,
+        "minimum_gap": 0.63101900345,
+        "minimum_overlap": 0.93702933944,
+        "cyclic_probability": 0.17102789172,
+        "geometric_phase": 0.0,
+        "reversed_phase": 0.0,
+        "bright_dark_miss": [
+          0.49953456584,
+          0.08597938002,
+          0.41448605414
+        ],
+        "supplied_negative_return": [
+          0.08597938002,
+          0.49953456584,
+          0.41448605414
+        ]
+      }
+    ]
+  }
+}

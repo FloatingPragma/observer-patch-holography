@@ -1,0 +1,358 @@
+{
+  "scope": "Exploratory exposed closed rings, coherent unread connectors, mixed dimers, separate local measurements",
+  "fit": "Stored frequency and spatial reader on equally pooled raw counts",
+  "per_arm_shots": 2097152,
+  "sector_to_pooled_mean_gain": 2,
+  "worst_case_sector_mean_standard_error": 0.0009765625,
+  "native_input_residual": 0.0,
+  "direct_projector_checks": {
+    "5,8": {
+      "max_trace_error": 5.412337245047638e-14,
+      "single_sector_loss": 0.5,
+      "max_plain_arm_alone_error": 0.053237162725758624
+    },
+    "5,4": {
+      "max_trace_error": 1.1112204906238432e-14,
+      "single_sector_loss": 0.5,
+      "max_plain_arm_alone_error": 0.40164412688921775
+    },
+    "6,8": {
+      "max_trace_error": 3.802513859341161e-14,
+      "single_sector_loss": 0.5,
+      "max_plain_arm_alone_error": 0.12685030035654732
+    },
+    "6,4": {
+      "max_trace_error": 1.7319479184152442e-14,
+      "single_sector_loss": 0.5,
+      "max_plain_arm_alone_error": 0.40282634693621744
+    }
+  },
+  "rings": [
+    {
+      "dimers": 17,
+      "cells": 5,
+      "seed": 312142,
+      "circuit_sha256": "a05d0f3f563161467b1d00f9a84ed8ecec97b82ebc15f43085358dd29604b132",
+      "sector": 1,
+      "readings": {
+        "native": {
+          "clock_step": 0.07999999610154057,
+          "rest": 15.000081571034817,
+          "omega": [
+            15.000081571034817,
+            15.071840371778157,
+            15.275860149571779,
+            15.579887580743199
+          ],
+          "pair_lines": {
+            "0,1": [
+              0.07190866449190883,
+              30.071921942812974
+            ],
+            "0,2": [
+              0.2758547345852504,
+              30.275941720606596
+            ],
+            "1,2": [
+              0.2040260792698411,
+              30.34770052134994
+            ],
+            "0,3": [
+              0.5800059635595624,
+              30.579969151778016
+            ],
+            "1,3": [
+              0.5081200532882995,
+              30.651834309865624
+            ]
+          },
+          "held_sum_error": 0.00010635734426855947,
+          "max_difference_line_error": 0.00019995385118110054,
+          "spatial": [
+            {
+              "uniform_weight": 0.9999768509950653,
+              "spatial_gradient_norm": 0.005744953073900149
+            },
+            {
+              "uniform_weight": 1.1648560149902242e-06,
+              "spatial_gradient_norm": 0.3675920992826799
+            },
+            {
+              "uniform_weight": 2.6392837479392353e-06,
+              "spatial_gradient_norm": 0.7225316916040301
+            }
+          ]
+        },
+        "changed": {
+          "clock_step": 0.07999999610154057,
+          "rest": 6.999988312804999,
+          "omega": [
+            6.999988312804999,
+            7.076792952693816,
+            7.292114248620346,
+            7.607151494712697
+          ],
+          "pair_lines": {
+            "0,1": [
+              0.07676421403497441,
+              14.076781265498814
+            ],
+            "0,2": [
+              0.2921559388632867,
+              14.292102561425345
+            ],
+            "1,2": [
+              0.21534443110314033,
+              14.368907201314164
+            ],
+            "0,3": [
+              0.6071018958769052,
+              14.607139807517695
+            ],
+            "1,3": [
+              0.5302835122537429,
+              14.68382432750074
+            ]
+          },
+          "held_sum_error": 0.00012011990577143195,
+          "max_difference_line_error": 7.502976513806825e-05,
+          "spatial": [
+            {
+              "uniform_weight": 0.9999782034603757,
+              "spatial_gradient_norm": 0.006440577765387783
+            },
+            {
+              "uniform_weight": 2.81156567735551e-06,
+              "spatial_gradient_norm": 0.3675873975852244
+            },
+            {
+              "uniform_weight": 2.695843506482437e-06,
+              "spatial_gradient_norm": 0.7225095493289597
+            }
+          ]
+        }
+      },
+      "independent_half_rests": [
+        15.000137408554806,
+        15.000154699446826
+      ],
+      "count_sha256_uint64_le": {
+        "arm_shots": "291f6b4fa86b5fc9fd6e8a420eb811c2bf16f2db788344ba3eb0993378773e51",
+        "cos": "6db535dbfc3781336f7c4dce77ad287abfdbdd73ff86424cfc0ea8b482548459",
+        "dimers": "35e3a6176b50da27fcb868bf840f0e76290bd9bf55c40545e67bac66353d0674",
+        "hand_shots": "c6e8790d2e2c7e9d9e16dbd7f997d8fcf9f811b555c337a50ebb67de69b62f12",
+        "plain_changed_01_pair": "d549e6bfefc3f3877ba3a272bc4f7677b493c8cd6df497376341eabb4968388b",
+        "plain_changed_01_scan0": "4741ce3ddc7dbb82b4012fbfdd6dd94b5d0e4e08b870cffedc43dc43de22a011",
+        "plain_changed_01_scan1": "a11150b56489a9b805196a3fa3d65b6920e897d4f1d713bdf9f2e62aee177e9f",
+        "plain_changed_02_pair": "5c32fae8234b2a929d9a6bd2f9b22f4dcfedf9d58124af7f9649259a21a8ba23",
+        "plain_changed_02_scan0": "016ae25bd9b156d22105564414d129e6a0d196e2001787ea0aa38b61c6ad3b77",
+        "plain_changed_02_scan1": "efaa996422bce602a759a783ad69e0e440c51609e9ebce0bab45e3cd1268ffcd",
+        "plain_changed_03_pair": "e67e603029b2f461d67a7cb9fb061f07f8d0978be32a019c7c6656ecdd4239b2",
+        "plain_changed_12_pair": "38f20cf4cb61be018aa56eab9ee11ca3cefc7263b1a4809cafa70c3382ae47ed",
+        "plain_changed_12_scan0": "ebf98b92f195be19f83f8b6d01b71129d9aa274bca4f824585908a9f2302372e",
+        "plain_changed_12_scan1": "b80eca7618b0aa6c26374d3a9b33dc6246c500850a5f7dc428bf26d8367176b2",
+        "plain_changed_13_pair": "df578980dee6e0f6069a87188f5886ae9bd533b0805358ab688362ec7c67b6e9",
+        "plain_native_01_pair": "6eb8933c8d5c14f400e4a2e522e585f1497b0d15b1956dd15bc0660c03c49297",
+        "plain_native_01_scan0": "eb596e7f035ecd88d783651d2a552a895b655d9078b321af250d758bc654b553",
+        "plain_native_01_scan1": "f370ee2547efa7561f54838d7a7ce9e127f0d37ef15fc4c93302080c373b227c",
+        "plain_native_02_pair": "505262586c1c48f4a5aee3afd9d34d606e205bb01fb2d21aa4770fb7cb5a57f3",
+        "plain_native_02_scan0": "e82065daeb1cbcf3aec94566f317537ab2fd98570ece652182976122e29f0db8",
+        "plain_native_02_scan1": "18592182807b8320cd0230d2fed050c1cea67506afa47c8e6de51d3590decfae",
+        "plain_native_03_pair": "0045ffc5dec65067ae341fed1253b72b911364ad1c87864e35de90b338ac2c7d",
+        "plain_native_12_pair": "c9bd3150fb5827c7bf8fad3f92d164e935588853569d1e1541e481a6551241b9",
+        "plain_native_12_scan0": "6c6bad066536203dc9b2f8a0c6247524380a135044261e3a2d8187d151c9a3b9",
+        "plain_native_12_scan1": "afe1f6aae6723243cdcc3a879c2fe0d17c07cc9467ebaa051a0d1a418bdc82dd",
+        "plain_native_13_pair": "e6281e25610502bca0dbbbbd1052fc39d707f4c5450fa2de8c13559e5b122723",
+        "signed_changed_01_pair": "8cee208c343e131e8b09851e4da15eeb7a017d85d52e0fdb068c8325553daf36",
+        "signed_changed_01_scan0": "d81d4b9823672175bec246b51cb4b1acfb6fd2a43cae853dadc09175cd02dd96",
+        "signed_changed_01_scan1": "656615c8c12cd44a9e53cea6f62e951a23a925febfbf961542b07e93eb447ca1",
+        "signed_changed_02_pair": "5227daeae2839da9ebba06488c78c774388de56e4714ee12aa66879a945cf974",
+        "signed_changed_02_scan0": "4f0f8f5eb3790250fae87a2ed99d35dc0575e71fef249ae9025fe70829e0eda9",
+        "signed_changed_02_scan1": "044a6ecbfc309fa36662ef1ab4d8be9e9a778bafb7f6c5edeed4f3b060052e35",
+        "signed_changed_03_pair": "c538d576dc38127306e45592efffa417de3e70beca22eee64ee7ab4d17eccdaa",
+        "signed_changed_12_pair": "33f013d2376e50a7364819b952aba0df8e0aa5674ec72063a034f3b2ac33f84b",
+        "signed_changed_12_scan0": "723673075c4c67d465f6588064a8f80a924b8e0626e6f173960f686b567a191f",
+        "signed_changed_12_scan1": "4494d3494920d95b32cb6e1c1794e1ed12714be911708469fdedad88e1b13c46",
+        "signed_changed_13_pair": "f5d943fcd2fffb1c8206e9a2ddb2f570d70c618bd7d47f6b9fc4f7e0244a10fe",
+        "signed_native_01_pair": "daa28126e2bda2293ee924676fadaa9026be084414cad819b3290c39b4efd28f",
+        "signed_native_01_scan0": "b0b467bcdb10b3887d75a41c6ca3638c27f3d3acb25d4f57590b5a5783d80477",
+        "signed_native_01_scan1": "00d4c197fc7c969c4edf927b2ef0014ca48720b5489bc9f181dec56fe5712953",
+        "signed_native_02_pair": "4fa2d50e609baa36282dfb0d2f1afefe964edc4d5f9daf0f1b007d9ff4ad4b78",
+        "signed_native_02_scan0": "d5ea0f5f0ddf5e43c959594a3cd2edfa52abf53a6f32fed12aa7e6136f80479e",
+        "signed_native_02_scan1": "f4fd58e42b10768915cdfe4976dbb3c4bbc5645462199ee9f85517627e618d57",
+        "signed_native_03_pair": "3a20a059a98812a2ce99ab9985d0fc2230e0b67964bc779f06f245087d191e38",
+        "signed_native_12_pair": "cc9887cd01ee800f9072485ecaae7cf19ba30c6a9b3e87b29f6e6a7ea7d1dac3",
+        "signed_native_12_scan0": "cfe8f1b91757f41d44ee65d5dc4a23de15679f4e077255b4344c51bd39f87afe",
+        "signed_native_12_scan1": "5ae51349d9c390a4886acac61ac4157df75ea6e92bb7a80ccd586b6d5a53663e",
+        "signed_native_13_pair": "7e80c1bbe05d90766df67fc8b96a887e34ccf227b15ba604de387af608ba1e72",
+        "sin": "cf2732faf1ca13bb968685d094db0cb211736cbfc262c07715ca22b7cf89f1c8"
+      },
+      "detector_trials": 3676492005376,
+      "hand_trials": 8589934592,
+      "max_sampled_sector_mean_standard_error": 0.0009765627328251758
+    },
+    {
+      "dimers": 20,
+      "cells": 6,
+      "seed": 927016,
+      "circuit_sha256": "b8aa48c3f57610b3ab48513b5a979c9914e91300c107f50fe78881f5631f6f1b",
+      "sector": -1,
+      "readings": {
+        "native": {
+          "clock_step": 0.08000000388984392,
+          "rest": 14.999984757806684,
+          "omega": [
+            14.999984757806684,
+            15.052111240702784,
+            15.202341828501092,
+            15.433425919966885
+          ],
+          "pair_lines": {
+            "0,1": [
+              0.0522506911668042,
+              30.05209599850947
+            ],
+            "0,2": [
+              0.20231680059805307,
+              30.202326586307777
+            ],
+            "1,2": [
+              0.15019118622449024,
+              30.25445306920388
+            ],
+            "0,3": [
+              0.43343739224070876,
+              30.43341067777357
+            ],
+            "1,3": [
+              0.38126737887792556,
+              30.48550410034495
+            ]
+          },
+          "held_sum_error": 3.3060324717837375e-05,
+          "max_difference_line_error": 0.00012420827070475093,
+          "spatial": [
+            {
+              "uniform_weight": 0.9999576254838601,
+              "spatial_gradient_norm": 0.010093622636251841
+            },
+            {
+              "uniform_weight": 5.542101602386959e-06,
+              "spatial_gradient_norm": 0.3130523881602409
+            },
+            {
+              "uniform_weight": 1.7056881754703317e-07,
+              "spatial_gradient_norm": 0.618101662359139
+            }
+          ]
+        },
+        "changed": {
+          "clock_step": 0.08000000388984392,
+          "rest": 7.000006185593415,
+          "omega": [
+            7.000006185593415,
+            7.0556770284657215,
+            7.214913046193876,
+            7.456265116623165
+          ],
+          "pair_lines": {
+            "0,1": [
+              0.05567004052312953,
+              14.055683214059137
+            ],
+            "0,2": [
+              0.21492895276006302,
+              14.214919231787292
+            ],
+            "1,2": [
+              0.1593171233392263,
+              14.270590074659598
+            ],
+            "0,3": [
+              0.4563734839502603,
+              14.45627130221658
+            ],
+            "1,3": [
+              0.4004704819021414,
+              14.512025023432361
+            ]
+          },
+          "held_sum_error": 8.287834347520118e-05,
+          "max_difference_line_error": 0.00011760625530166102,
+          "spatial": [
+            {
+              "uniform_weight": 0.9999415298812495,
+              "spatial_gradient_norm": 0.011146780961491022
+            },
+            {
+              "uniform_weight": 6.633169456644535e-06,
+              "spatial_gradient_norm": 0.3130711011877739
+            },
+            {
+              "uniform_weight": 9.044103797665387e-06,
+              "spatial_gradient_norm": 0.6180838006010755
+            }
+          ]
+        }
+      },
+      "independent_half_rests": [
+        14.999933824220923,
+        14.999836625632684
+      ],
+      "count_sha256_uint64_le": {
+        "arm_shots": "291f6b4fa86b5fc9fd6e8a420eb811c2bf16f2db788344ba3eb0993378773e51",
+        "cos": "b17d72a9f8223d8a141127405455c4dd12858b828dfd9f35987f87cedafe86a9",
+        "dimers": "0c27700c82d333aa295692f1814040a962d7bc530253af661d97635dd5ed7af9",
+        "hand_shots": "c6e8790d2e2c7e9d9e16dbd7f997d8fcf9f811b555c337a50ebb67de69b62f12",
+        "plain_changed_01_pair": "5a9c9c6d4aa4f720a8c51edf413026618cd75c6e2823cfc2c3cb35432c9e7f5f",
+        "plain_changed_01_scan0": "fe60d1c3e114b4f00aa83e2e7331d93938be358208a640a95b12edbd21b1c6a6",
+        "plain_changed_01_scan1": "a8ea5e4a765780551f5fcaafd5688fc74e1520c42fc513198acf1f58d54ca42d",
+        "plain_changed_02_pair": "298d55364db7bd5fbc3c81c30ef37cf7a3f7d7974654bd750f5d4bfaaa7bcb4d",
+        "plain_changed_02_scan0": "358bb37d8d27618c02d44d2fbf884e9509dae1df5dc149812aa4a0b93a54069c",
+        "plain_changed_02_scan1": "ebe3be89d8b734cb71a52376b457e78cdb696f5be49470fcc8302440adfefc4d",
+        "plain_changed_03_pair": "0997b3cfe387ebce63a148533f08242d6875a6c0d271a656f58537a8e397c9f5",
+        "plain_changed_12_pair": "c2d9353acfbb810ab9e172e9ce2cba4844a033d48138e863f46dd7e7e50b23fb",
+        "plain_changed_12_scan0": "0a21bfa7e86534b421790b730189ef5366ebeec91879519c635637d62dc138ae",
+        "plain_changed_12_scan1": "697a200a5b98353e7c2cc5ff1ea270a76b21dea2b81523e27032da9e0307d1e7",
+        "plain_changed_13_pair": "3ef5fd5b0e40488da8e07caa8dafae9909f007aced3317fa732a1a4e6b7350c1",
+        "plain_native_01_pair": "0d89bbfbe24f95370f281acc0cae2bb39493542eb094009693fa044daab98737",
+        "plain_native_01_scan0": "63c708bf074fbf5042f2f5d45981236d1a8f2105919b8772a7928c7c6da490e3",
+        "plain_native_01_scan1": "c64a091d9e205fe1adf4819eee2f8118c6f243e7ff5ac3a09dda8525842e6758",
+        "plain_native_02_pair": "3a7acbe663b73cb85d550d691c98247170078c39c32b774369d159dceb243296",
+        "plain_native_02_scan0": "fadc3c7e915aae7fa085b34d23eda7aaad61661f3ae1d6e29f5a91d2dd5ef7a4",
+        "plain_native_02_scan1": "637bf068673dedcbbf4f3f40a716edde81f64f57555d5287c31e394b1cdd7523",
+        "plain_native_03_pair": "8f0b6ab6e6664e3fbc900b6462837e95e900695a2f96a36f3241c0871e1d3d66",
+        "plain_native_12_pair": "9072222ab84418c2e4e53545e83cb355155148d0801e355f43119f346d23d800",
+        "plain_native_12_scan0": "c70524dda25065dd886100eabb30274a4607e7afffb4392184ef05adfeef69ba",
+        "plain_native_12_scan1": "717e589e47a298ec92806693d34a810ddb3c34b4cf8f013377245cfb3c61ac0d",
+        "plain_native_13_pair": "6f9107f7789eae218cc6ae9370fc24359ceff737218fc387034e318390e9ed0e",
+        "signed_changed_01_pair": "a3f7302155fb159f3b004e75e9a4f334c1e9daaeb9b7c4ff701f0f34630929da",
+        "signed_changed_01_scan0": "51be2c42a88109aeb8a47d42ef3c1ccf188578f478c19ec2d6342e9e55f083da",
+        "signed_changed_01_scan1": "4c671859c39c1d2a99b4d3c3b8e06aee349ebb32d66e86899c678a260235a069",
+        "signed_changed_02_pair": "c8ea87651f8447e57598f73fe9e9fcab4e78b84c36f355841a464fe2b35f2b08",
+        "signed_changed_02_scan0": "235b01c10697737bd4fc871f2b14567dd7eb37fbd72f2116180077885b79d9e1",
+        "signed_changed_02_scan1": "8336102cb858b97ad72a9f4940c372938f19ffb06eadbfd6d2e825a73d3930ff",
+        "signed_changed_03_pair": "db795275ee352aa87b3eed4fbb605b03ac10d034941f18cf0f2b7d3da2a8a443",
+        "signed_changed_12_pair": "c5f90ed50a5f02d2f196967c663a21a0f2017c780cb0e68233821afbfa850919",
+        "signed_changed_12_scan0": "8e64b2cffdf8908fa19d0bc2932eb3713eca91f5ca596e538d4d1434ed2fc75e",
+        "signed_changed_12_scan1": "89b66f185188d5ef742b45bb933e67d3293d657fd5aaabfc136a9a88e98636a3",
+        "signed_changed_13_pair": "a53e0fee9abc1e101d0028255c72462cc9b09dfde8aa8dd0cf45a505bbbe8097",
+        "signed_native_01_pair": "e60c2a9de02ebd1593c576f4021a8e1707c54221396622637d8455c14fcfdf45",
+        "signed_native_01_scan0": "15dd948a1d4fa0420e2b5261258b1e0532a1c88b54bb17e1028f2032f25b1fb3",
+        "signed_native_01_scan1": "6d8c68b58927f057427481fdcbdc8d52246bbdaf2fdf11112047c0721ca79d60",
+        "signed_native_02_pair": "1f23b3b6b4f909d99f2db1b47ccf898668d79b880eabdab2de030b463304e8bd",
+        "signed_native_02_scan0": "66f379ea22b422fc7f912952989a1d30650b82595d5e84beb792bb5e438716db",
+        "signed_native_02_scan1": "2b16fd7bee1f36ebe43154cc0bb4dedd4e7458f2bfe6a739b09d46071052a994",
+        "signed_native_03_pair": "e65dac63039f4dee7448f15b3de043a2b931c85efe4e7a9f66951766150bcda6",
+        "signed_native_12_pair": "7ec0afbbf885b8e403fed6bfaec880495a6bf8207e094d26ed0feadf6c6fe198",
+        "signed_native_12_scan0": "5b391c9e40179e9a7a7d48068b42d5393a99357df57e1051ee874f6544087fa3",
+        "signed_native_12_scan1": "4c25c3831a554ab0d5dd2e40e11930f6a34b71d21cd6e6d8a99b083857ce375d",
+        "signed_native_13_pair": "7d74eb941f2c2fd36f8bc5e064be1ddd3452f9d844a6f9def12c0cc76990b1a7",
+        "sin": "ef21a8c0f5ca3d27f88cdfe25846dae70accb68c91b6463d4d3dbd2a0cad35cd"
+      },
+      "detector_trials": 4294967296000,
+      "hand_trials": 8589934592,
+      "max_sampled_sector_mean_standard_error": 0.0009765627328305049
+    }
+  ]
+}

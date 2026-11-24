@@ -1,0 +1,18 @@
+# Sending the direction of a current around a triangular face
+
+On a five-cell loop, a receiver two owner steps away can distinguish the direction of a source pulse around a triangle, even when both material loads start inside the source cell. A single bridge between two complete cells cannot convey the direction of this source. The paired material, guide shutters, ground-state selection and coherent current controls specify this finite experiment. [Protocol and follow-ups](PROTOCOL.md)
+
+The continuity equation defines a current on each seam from its registered exchange and the occupancy at its receiving end. Add the three oriented currents around the same triangle to obtain the face current. A coherent pulse of either sign changes the state, and a distinct receiver measures the sign of the corresponding current at its own face. It records +1, 0 or −1 in units of √3/2. A one-load uniform ground gives exactly zero response. More generally, on the uniform fixed-number state the current sum vanishes because the directed face has equal numbers of incoming and outgoing edges at every port. On the registered two-load cell the ground is adjacent with probability 98.61%. Its correlations allow the circulation pulse to excite the state. Across the isolated cell, the largest simulated signed contrast between launch directions is 0.21153. The exchange-only two-load ground gives zero. [All faces, times and controls](results.json)
+
+For the two-cell guide, a physical reflection of the source cell fixes the only gateway and reverses the selected triangle. Extended by the identity on the other cell, it preserves the Hamiltonian, ground state and every receiving-cell observable while interchanging the two launches. The receiving cell therefore has identical distributions for the two source signs at every time. The control also returns a sizable directed response at the source. Opening the complete five-cell loop breaks that single-gateway symmetry. Its registered correlated ground gives a simulated direction contrast of 0.000264 at time 24. In a fresh acquisition the simultaneous 99% interval is [0.000240, 0.000291]. The receiver face was selected from the initial survey. [Second acquisition and joint charge read](precision.json)
+
+A separate preparation accepts the two-load ground only when both loads occupy the source owner, with probability 0.19997. All other preparations count as failed launches. At the same two-step receiver the signed contrast at time 24 is between 0.00001746 and 0.00002060 per original launch (simultaneous 99% bounds). Four other measured times also resolve a sign. The source-confined state gives no arrival when the owner bridges are shut. Every nonzero terminal direction accompanies at least one load in the receiving owner. The experiment establishes that native material motion can carry the sense of a circulation. Testing Maxwell propagation requires independently identified electromagnetic fields, transverse modes and their common limiting speed. [Fresh localized measurements and simultaneous bounds](flight.json)
+
+From the repository root, run the following to regenerate and compare the signed detector records. The tests construct face currents from the microscopic continuity equation and decode the received signs on the original launch denominator.
+
+```sh
+python -m model.candidate_laws.interval_echo.openwave.row_29_circulation.experiment
+python -m model.candidate_laws.interval_echo.openwave.row_29_circulation.precision
+python -m model.candidate_laws.interval_echo.openwave.row_29_circulation.local_flight
+python -m pytest -q model/candidate_laws/interval_echo/openwave/row_29_circulation
+```

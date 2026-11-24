@@ -1,0 +1,298 @@
+{
+  "shots": 16777216,
+  "seed": 178036,
+  "source_success": 0.3333333333333621,
+  "launch_port": 4,
+  "clock_read_standard_error": 0.004737332628067586,
+  "time_step": 0.25,
+  "bins": [
+    "accepted Fourier output, home",
+    "accepted Fourier output, outside",
+    "other timing output",
+    "source failed"
+  ],
+  "flight_convention": "Unfiltered flights accept every timing output",
+  "boards": [
+    {
+      "cells": 20,
+      "degree_block_enclosures": [
+        [
+          32.0,
+          37.0
+        ],
+        [
+          50.0,
+          52.0
+        ]
+      ],
+      "vacancy_floor_lower_bound": 32.0,
+      "vacancy_floor_trial_upper_bound": 34.5
+    },
+    {
+      "cells": 80,
+      "degree_block_enclosures": [
+        [
+          32.5,
+          36.5
+        ],
+        [
+          50.0,
+          52.0
+        ]
+      ],
+      "vacancy_floor_lower_bound": 32.0,
+      "vacancy_floor_trial_upper_bound": 34.5
+    },
+    {
+      "cells": 320,
+      "degree_block_enclosures": [
+        [
+          32.5,
+          36.5
+        ],
+        [
+          50.0,
+          52.0
+        ]
+      ],
+      "vacancy_floor_lower_bound": 32.0,
+      "vacancy_floor_trial_upper_bound": 34.5
+    }
+  ],
+  "studies": {
+    "registered": {
+      "held_energy": 34.99999999999999,
+      "rest_anchor_clock_read": 34.994302998291076,
+      "target_kinetic": 14.495114907685627,
+      "target_total_in_host_reference": 49.49511490768562,
+      "closest_spectral_distance": 0.6884105902803253,
+      "closest_kinetic_line": 15.183525497965952,
+      "number_of_eigenvalues_in_one_percent_window": 0,
+      "kicked_probability_in_one_percent_window": 0.0,
+      "kicked_weight_remaining_at_rest_energy": 0.11111111111111334,
+      "rest_energy_component_outside_home": 1.7496599394640191e-28,
+      "homogeneous_energy_shift": "Any common sector shift cancels from delta",
+      "flight": [
+        {
+          "exposure": 0,
+          "pulse": false,
+          "counts": [
+            5595329,
+            0,
+            0,
+            11181887
+          ]
+        },
+        {
+          "exposure": 0,
+          "pulse": true,
+          "counts": [
+            5591427,
+            0,
+            0,
+            11185789
+          ]
+        },
+        {
+          "exposure": 8,
+          "pulse": false,
+          "counts": [
+            5591403,
+            0,
+            0,
+            11185813
+          ]
+        },
+        {
+          "exposure": 8,
+          "pulse": true,
+          "counts": [
+            5588714,
+            3467,
+            0,
+            11185035
+          ]
+        },
+        {
+          "exposure": 32,
+          "pulse": false,
+          "counts": [
+            5590948,
+            0,
+            0,
+            11186268
+          ]
+        },
+        {
+          "exposure": 32,
+          "pulse": true,
+          "counts": [
+            5589472,
+            3785,
+            0,
+            11183959
+          ]
+        },
+        {
+          "exposure": 128,
+          "pulse": false,
+          "counts": [
+            5591543,
+            0,
+            0,
+            11185673
+          ]
+        },
+        {
+          "exposure": 128,
+          "pulse": true,
+          "counts": [
+            5560995,
+            30460,
+            0,
+            11185761
+          ]
+        }
+      ],
+      "coherent_kick_time_filter": [
+        {
+          "appointments": 512,
+          "counts": [
+            16,
+            0,
+            5591672,
+            11185528
+          ],
+          "accepted_probability_given_source": 3.0519865562736646e-06
+        },
+        {
+          "appointments": 4096,
+          "counts": [
+            0,
+            0,
+            5591933,
+            11185283
+          ],
+          "accepted_probability_given_source": 4.425771001957497e-08
+        }
+      ]
+    },
+    "half_contrast": {
+      "held_energy": 18.999999999999993,
+      "rest_anchor_clock_read": 18.999999999999993,
+      "target_kinetic": 7.870057685088803,
+      "target_total_in_host_reference": 26.870057685088796,
+      "closest_spectral_distance": 0.0004895801186535209,
+      "closest_kinetic_line": 7.869568104970149,
+      "number_of_eigenvalues_in_one_percent_window": 4,
+      "kicked_probability_in_one_percent_window": 2.316089649589011e-06,
+      "kicked_weight_remaining_at_rest_energy": 0.11111111111110712,
+      "rest_energy_component_outside_home": 8.32685999173202e-29,
+      "homogeneous_energy_shift": "Any common sector shift cancels from delta",
+      "flight": [
+        {
+          "exposure": 0,
+          "pulse": false,
+          "counts": [
+            5591588,
+            0,
+            0,
+            11185628
+          ]
+        },
+        {
+          "exposure": 0,
+          "pulse": true,
+          "counts": [
+            5591946,
+            0,
+            0,
+            11185270
+          ]
+        },
+        {
+          "exposure": 8,
+          "pulse": false,
+          "counts": [
+            5592472,
+            0,
+            0,
+            11184744
+          ]
+        },
+        {
+          "exposure": 8,
+          "pulse": true,
+          "counts": [
+            5579134,
+            12309,
+            0,
+            11185773
+          ]
+        },
+        {
+          "exposure": 32,
+          "pulse": false,
+          "counts": [
+            5590881,
+            0,
+            0,
+            11186335
+          ]
+        },
+        {
+          "exposure": 32,
+          "pulse": true,
+          "counts": [
+            5561575,
+            31479,
+            0,
+            11184162
+          ]
+        },
+        {
+          "exposure": 128,
+          "pulse": false,
+          "counts": [
+            5591325,
+            0,
+            0,
+            11185891
+          ]
+        },
+        {
+          "exposure": 128,
+          "pulse": true,
+          "counts": [
+            5326783,
+            264024,
+            0,
+            11186409
+          ]
+        }
+      ],
+      "coherent_kick_time_filter": [
+        {
+          "appointments": 512,
+          "counts": [
+            21,
+            35,
+            5591324,
+            11185836
+          ],
+          "accepted_probability_given_source": 1.1720421729800753e-05
+        },
+        {
+          "appointments": 4096,
+          "counts": [
+            0,
+            3,
+            5591207,
+            11186006
+          ],
+          "accepted_probability_given_source": 1.0222388368889238e-06
+        }
+      ]
+    }
+  }
+}

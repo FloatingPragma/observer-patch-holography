@@ -1,0 +1,3231 @@
+{
+  "shots_per_setting": 4194304,
+  "seed": 492301,
+  "one_mean_simultaneous_99_percent_error": 0.001838698477133561,
+  "precision_shots": 268435456,
+  "precision_seed": 492302,
+  "precision_one_mean_simultaneous_99_percent_error": 0.0002298373096416951,
+  "positive_probe_calibration": {
+    "signed_contrast_bins": [
+      -2,
+      -1,
+      0,
+      1,
+      2
+    ],
+    "ternary_input_probabilities": [
+      [
+        6.1030189357953976e-05,
+        0.8406751487371033,
+        0.0,
+        0.15920279088416817,
+        6.103018935795446e-05
+      ],
+      [
+        0.0,
+        0.6311791475358496,
+        0.00012206037871590738,
+        0.36869879208542167,
+        0.0
+      ],
+      [
+        0.0,
+        0.3686987920854232,
+        0.00012206037871590761,
+        0.631179147535848,
+        0.0
+      ]
+    ]
+  },
+  "isolated_symmetric_total_two_challenge": [
+    {
+      "conversion_strength": 0.0,
+      "signed_word_counts": [
+        4108,
+        0,
+        0,
+        0,
+        4190196
+      ],
+      "split_probability": 0.0
+    },
+    {
+      "conversion_strength": 8.0,
+      "signed_word_counts": [
+        7497,
+        0,
+        337964,
+        0,
+        3848843
+      ],
+      "split_probability": 0.0808636438228583
+    }
+  ],
+  "boards": [
+    {
+      "cells": 20,
+      "owners_apart": 5,
+      "stations": [
+        {
+          "owner": 0,
+          "gateway_ports": [
+            1,
+            3,
+            10
+          ],
+          "integer_amplitudes_in_cell": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            -1,
+            -1,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "sample_port_and_probe_rails": [
+            4,
+            2,
+            11
+          ],
+          "sample_vacancy_probability_if_in_cell": 0.25,
+          "cuts": [
+            {
+              "owner_radius": 0,
+              "cut_oriented_from_inside": [
+                [
+                  1,
+                  82
+                ],
+                [
+                  3,
+                  48
+                ],
+                [
+                  10,
+                  20
+                ]
+              ],
+              "host_first_second_shared_signed_word": [
+                0,
+                0,
+                0
+              ],
+              "vacancy_at_first_inner_endpoint_signed_word": [
+                -1,
+                0,
+                0
+              ],
+              "copies_each": 4194304
+            },
+            {
+              "owner_radius": 1,
+              "cut_oriented_from_inside": [
+                [
+                  14,
+                  24
+                ],
+                [
+                  22,
+                  68
+                ],
+                [
+                  50,
+                  37
+                ],
+                [
+                  56,
+                  94
+                ],
+                [
+                  72,
+                  182
+                ],
+                [
+                  80,
+                  192
+                ]
+              ],
+              "host_first_second_shared_signed_word": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "vacancy_at_first_inner_endpoint_signed_word": [
+                -1,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "copies_each": 4194304
+            }
+          ]
+        },
+        {
+          "owner": 13,
+          "gateway_ports": [
+            1,
+            3,
+            10
+          ],
+          "integer_amplitudes_in_cell": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            -1,
+            -1,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "sample_port_and_probe_rails": [
+            160,
+            158,
+            167
+          ],
+          "sample_vacancy_probability_if_in_cell": 0.25,
+          "cuts": [
+            {
+              "owner_radius": 0,
+              "cut_oriented_from_inside": [
+                [
+                  166,
+                  152
+                ],
+                [
+                  157,
+                  170
+                ],
+                [
+                  159,
+                  226
+                ]
+              ],
+              "host_first_second_shared_signed_word": [
+                0,
+                0,
+                0
+              ],
+              "vacancy_at_first_inner_endpoint_signed_word": [
+                -1,
+                0,
+                0
+              ],
+              "copies_each": 4194304
+            },
+            {
+              "owner_radius": 1,
+              "cut_oriented_from_inside": [
+                [
+                  218,
+                  96
+                ],
+                [
+                  224,
+                  110
+                ],
+                [
+                  168,
+                  123
+                ],
+                [
+                  144,
+                  134
+                ],
+                [
+                  154,
+                  212
+                ],
+                [
+                  176,
+                  238
+                ]
+              ],
+              "host_first_second_shared_signed_word": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "vacancy_at_first_inner_endpoint_signed_word": [
+                -1,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "copies_each": 4194304
+            }
+          ]
+        }
+      ],
+      "free_eigenstates": {
+        "vacancy_in_host": {
+          "energy_above_host": 34.99999999999999,
+          "largest_component_residual": 3.552713678800501e-15
+        },
+        "single_on_empty": {
+          "energy_above_host": 50.99999999999999,
+          "largest_component_residual": 3.552713678800501e-15
+        },
+        "double_on_empty": {
+          "energy_above_host": 194.99999999999994,
+          "largest_component_residual": 2.842170943040401e-14
+        }
+      },
+      "source_signed_read": {
+        "vacancy": [
+          0,
+          1050528,
+          3143776,
+          0,
+          0
+        ],
+        "single": [
+          0,
+          0,
+          3146145,
+          1048159,
+          0
+        ],
+        "double": [
+          0,
+          0,
+          3145769,
+          0,
+          1048535
+        ]
+      },
+      "precision_positive_probes": {
+        "probe_signs": [
+          1,
+          1
+        ],
+        "joint_total_variation": 0.001373116616892002,
+        "shared": {
+          "counts": [
+            [
+              0,
+              1287,
+              0,
+              752,
+              0
+            ],
+            [
+              1241,
+              115811925,
+              18926,
+              60631505,
+              1275
+            ],
+            [
+              0,
+              19013,
+              4,
+              9647,
+              0
+            ],
+            [
+              740,
+              60619496,
+              9735,
+              31307105,
+              818
+            ],
+            [
+              0,
+              1289,
+              0,
+              698,
+              0
+            ]
+          ],
+          "mean_score_product": 0.09636591747403145
+        },
+        "independent_half_mean": {
+          "counts": [
+            [
+              0,
+              1352,
+              1,
+              740,
+              0
+            ],
+            [
+              1359,
+              115996971,
+              18801,
+              60437346,
+              1336
+            ],
+            [
+              1,
+              18928,
+              4,
+              9762,
+              0
+            ],
+            [
+              698,
+              60444399,
+              9999,
+              31491067,
+              700
+            ],
+            [
+              0,
+              1256,
+              0,
+              736,
+              0
+            ]
+          ],
+          "mean_score_product": 0.09911616519093513
+        },
+        "absolute_score_difference": 0.0027502477169036865
+      },
+      "joint_probe_settings": [
+        {
+          "terminal_contact_strength": 8.0,
+          "histories": [
+            {
+              "probe_signs": [
+                -1,
+                -1
+              ],
+              "joint_total_variation": 0.002152998031168196,
+              "shared": {
+                "counts": [
+                  [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    671243,
+                    204,
+                    1012066,
+                    0
+                  ],
+                  [
+                    0,
+                    193,
+                    0,
+                    297,
+                    0
+                  ],
+                  [
+                    0,
+                    1011091,
+                    322,
+                    1498888,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                ],
+                "mean_score_product": 0.03504133224487305
+              },
+              "independent_half_mean": {
+                "counts": [
+                  [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    676332,
+                    212,
+                    1007834,
+                    0
+                  ],
+                  [
+                    0,
+                    210,
+                    0,
+                    327,
+                    0
+                  ],
+                  [
+                    0,
+                    1008521,
+                    295,
+                    1500573,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                ],
+                "mean_score_product": 0.03827810287475586
+              },
+              "absolute_score_difference": 0.0032367706298828125
+            },
+            {
+              "probe_signs": [
+                -1,
+                1
+              ],
+              "joint_total_variation": 0.0017193944785105788,
+              "shared": {
+                "counts": [
+                  [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    17,
+                    1103587,
+                    186,
+                    580830,
+                    14
+                  ],
+                  [
+                    0,
+                    333,
+                    0,
+                    168,
+                    0
+                  ],
+                  [
+                    14,
+                    1651913,
+                    272,
+                    856950,
+                    20
+                  ],
+                  [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                ],
+                "mean_score_product": -0.06489896774291992
+              },
+              "independent_half_mean": {
+                "counts": [
+                  [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    19,
+                    1106889,
+                    179,
+                    576689,
+                    17
+                  ],
+                  [
+                    0,
+                    335,
+                    0,
+                    188,
+                    0
+                  ],
+                  [
+                    21,
+                    1649142,
+                    241,
+                    860565,
+                    19
+                  ],
+                  [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                ],
+                "mean_score_product": -0.061601877212524414
+              },
+              "absolute_score_difference": 0.003297090530395508
+            },
+            {
+              "probe_signs": [
+                1,
+                -1
+              ],
+              "joint_total_variation": 0.001719394478510579,
+              "shared": {
+                "counts": [
+                  [
+                    0,
+                    19,
+                    0,
+                    15,
+                    0
+                  ],
+                  [
+                    0,
+                    1102945,
+                    322,
+                    1653741,
+                    0
+                  ],
+                  [
+                    0,
+                    189,
+                    0,
+                    273,
+                    0
+                  ],
+                  [
+                    0,
+                    579799,
+                    178,
+                    856800,
+                    0
+                  ],
+                  [
+                    0,
+                    8,
+                    0,
+                    15,
+                    0
+                  ]
+                ],
+                "mean_score_product": -0.0652778148651123
+              },
+              "independent_half_mean": {
+                "counts": [
+                  [
+                    0,
+                    18,
+                    0,
+                    20,
+                    0
+                  ],
+                  [
+                    0,
+                    1106370,
+                    356,
+                    1649659,
+                    0
+                  ],
+                  [
+                    0,
+                    163,
+                    0,
+                    264,
+                    0
+                  ],
+                  [
+                    0,
+                    576602,
+                    160,
+                    860656,
+                    0
+                  ],
+                  [
+                    0,
+                    16,
+                    0,
+                    20,
+                    0
+                  ]
+                ],
+                "mean_score_product": -0.061806440353393555
+              },
+              "absolute_score_difference": 0.00347137451171875
+            },
+            {
+              "probe_signs": [
+                1,
+                1
+              ],
+              "joint_total_variation": 0.001373116616892002,
+              "shared": {
+                "counts": [
+                  [
+                    0,
+                    22,
+                    0,
+                    9,
+                    0
+                  ],
+                  [
+                    19,
+                    1808553,
+                    303,
+                    949004,
+                    18
+                  ],
+                  [
+                    0,
+                    288,
+                    0,
+                    152,
+                    0
+                  ],
+                  [
+                    14,
+                    947176,
+                    166,
+                    488532,
+                    7
+                  ],
+                  [
+                    0,
+                    29,
+                    0,
+                    12,
+                    0
+                  ]
+                ],
+                "mean_score_product": 0.09558320045471191
+              },
+              "independent_half_mean": {
+                "counts": [
+                  [
+                    0,
+                    14,
+                    0,
+                    12,
+                    0
+                  ],
+                  [
+                    18,
+                    1812977,
+                    263,
+                    944699,
+                    18
+                  ],
+                  [
+                    0,
+                    274,
+                    0,
+                    179,
+                    0
+                  ],
+                  [
+                    13,
+                    943489,
+                    171,
+                    492142,
+                    6
+                  ],
+                  [
+                    0,
+                    23,
+                    0,
+                    6,
+                    0
+                  ]
+                ],
+                "mean_score_product": 0.09940409660339355
+              },
+              "absolute_score_difference": 0.0038208961486816406
+            }
+          ]
+        },
+        {
+          "terminal_contact_strength": 0,
+          "histories": [
+            {
+              "probe_signs": [
+                -1,
+                -1
+              ],
+              "joint_total_variation": 7.626911327732202e-06,
+              "shared": {
+                "counts": [
+                  [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    1024144,
+                    249,
+                    1049462,
+                    0
+                  ],
+                  [
+                    0,
+                    253,
+                    0,
+                    262,
+                    0
+                  ],
+                  [
+                    0,
+                    1047157,
+                    250,
+                    1072527,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                ],
+                "mean_score_product": 1.239776611328125e-05
+              },
+              "independent_half_mean": {
+                "counts": [
+                  [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    1024180,
+                    257,
+                    1048624,
+                    0
+                  ],
+                  [
+                    0,
+                    257,
+                    1,
+                    250,
+                    0
+                  ],
+                  [
+                    0,
+                    1048013,
+                    251,
+                    1072471,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                ],
+                "mean_score_product": 3.337860107421875e-06
+              },
+              "absolute_score_difference": 9.059906005859375e-06
+            },
+            {
+              "probe_signs": [
+                -1,
+                1
+              ],
+              "joint_total_variation": 3.873045758168081e-06,
+              "shared": {
+                "counts": [
+                  [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    16,
+                    1050106,
+                    234,
+                    1022222,
+                    14
+                  ],
+                  [
+                    0,
+                    253,
+                    1,
+                    231,
+                    0
+                  ],
+                  [
+                    15,
+                    1075384,
+                    225,
+                    1045595,
+                    8
+                  ],
+                  [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                ],
+                "mean_score_product": -0.00045418739318847656
+              },
+              "independent_half_mean": {
+                "counts": [
+                  [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    16,
+                    1048829,
+                    216,
+                    1022492,
+                    14
+                  ],
+                  [
+                    0,
+                    265,
+                    0,
+                    259,
+                    0
+                  ],
+                  [
+                    14,
+                    1075365,
+                    201,
+                    1046620,
+                    13
+                  ],
+                  [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                ],
+                "mean_score_product": -0.0005741119384765625
+              },
+              "absolute_score_difference": 0.00011992454528808594
+            },
+            {
+              "probe_signs": [
+                1,
+                -1
+              ],
+              "joint_total_variation": 3.873045758168081e-06,
+              "shared": {
+                "counts": [
+                  [
+                    0,
+                    21,
+                    0,
+                    15,
+                    0
+                  ],
+                  [
+                    0,
+                    1050959,
+                    265,
+                    1075976,
+                    0
+                  ],
+                  [
+                    0,
+                    237,
+                    0,
+                    215,
+                    0
+                  ],
+                  [
+                    0,
+                    1021736,
+                    240,
+                    1044600,
+                    0
+                  ],
+                  [
+                    0,
+                    24,
+                    0,
+                    16,
+                    0
+                  ]
+                ],
+                "mean_score_product": -0.0005133152008056641
+              },
+              "independent_half_mean": {
+                "counts": [
+                  [
+                    0,
+                    16,
+                    0,
+                    22,
+                    0
+                  ],
+                  [
+                    0,
+                    1049448,
+                    251,
+                    1075555,
+                    0
+                  ],
+                  [
+                    0,
+                    220,
+                    0,
+                    241,
+                    0
+                  ],
+                  [
+                    0,
+                    1022604,
+                    263,
+                    1045657,
+                    0
+                  ],
+                  [
+                    0,
+                    12,
+                    0,
+                    15,
+                    0
+                  ]
+                ],
+                "mean_score_product": -0.0007281303405761719
+              },
+              "absolute_score_difference": 0.0002148151397705078
+            },
+            {
+              "probe_signs": [
+                1,
+                1
+              ],
+              "joint_total_variation": 1.966783511726259e-06,
+              "shared": {
+                "counts": [
+                  [
+                    0,
+                    23,
+                    0,
+                    21,
+                    0
+                  ],
+                  [
+                    17,
+                    1077222,
+                    212,
+                    1048544,
+                    19
+                  ],
+                  [
+                    0,
+                    220,
+                    0,
+                    209,
+                    0
+                  ],
+                  [
+                    15,
+                    1047757,
+                    214,
+                    1019774,
+                    23
+                  ],
+                  [
+                    0,
+                    20,
+                    0,
+                    14,
+                    0
+                  ]
+                ],
+                "mean_score_product": 0.00016570091247558594
+              },
+              "independent_half_mean": {
+                "counts": [
+                  [
+                    0,
+                    17,
+                    0,
+                    20,
+                    0
+                  ],
+                  [
+                    8,
+                    1078076,
+                    232,
+                    1047678,
+                    16
+                  ],
+                  [
+                    0,
+                    241,
+                    0,
+                    216,
+                    0
+                  ],
+                  [
+                    12,
+                    1047710,
+                    218,
+                    1019812,
+                    11
+                  ],
+                  [
+                    0,
+                    18,
+                    0,
+                    19,
+                    0
+                  ]
+                ],
+                "mean_score_product": 0.0005960464477539062
+              },
+              "absolute_score_difference": 0.0004303455352783203
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cells": 80,
+      "owners_apart": 11,
+      "stations": [
+        {
+          "owner": 0,
+          "gateway_ports": [
+            1,
+            3,
+            10
+          ],
+          "integer_amplitudes_in_cell": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            -1,
+            -1,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "sample_port_and_probe_rails": [
+            4,
+            2,
+            11
+          ],
+          "sample_vacancy_probability_if_in_cell": 0.25,
+          "cuts": [
+            {
+              "owner_radius": 0,
+              "cut_oriented_from_inside": [
+                [
+                  1,
+                  38
+                ],
+                [
+                  3,
+                  192
+                ],
+                [
+                  10,
+                  56
+                ]
+              ],
+              "host_first_second_shared_signed_word": [
+                0,
+                0,
+                0
+              ],
+              "vacancy_at_first_inner_endpoint_signed_word": [
+                -1,
+                0,
+                0
+              ],
+              "copies_each": 4194304
+            },
+            {
+              "owner_radius": 1,
+              "cut_oriented_from_inside": [
+                [
+                  44,
+                  22
+                ],
+                [
+                  36,
+                  27
+                ],
+                [
+                  48,
+                  87
+                ],
+                [
+                  50,
+                  96
+                ],
+                [
+                  194,
+                  145
+                ],
+                [
+                  200,
+                  238
+                ]
+              ],
+              "host_first_second_shared_signed_word": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "vacancy_at_first_inner_endpoint_signed_word": [
+                -1,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "copies_each": 4194304
+            }
+          ]
+        },
+        {
+          "owner": 52,
+          "gateway_ports": [
+            1,
+            3,
+            10
+          ],
+          "integer_amplitudes_in_cell": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            -1,
+            -1,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "sample_port_and_probe_rails": [
+            628,
+            626,
+            635
+          ],
+          "sample_vacancy_probability_if_in_cell": 0.25,
+          "cuts": [
+            {
+              "owner_radius": 0,
+              "cut_oriented_from_inside": [
+                [
+                  634,
+                  584
+                ],
+                [
+                  625,
+                  674
+                ],
+                [
+                  627,
+                  660
+                ]
+              ],
+              "host_first_second_shared_signed_word": [
+                0,
+                0,
+                0
+              ],
+              "vacancy_at_first_inner_endpoint_signed_word": [
+                -1,
+                0,
+                0
+              ],
+              "copies_each": 4194304
+            },
+            {
+              "owner_radius": 1,
+              "cut_oriented_from_inside": [
+                [
+                  672,
+                  483
+                ],
+                [
+                  576,
+                  530
+                ],
+                [
+                  578,
+                  613
+                ],
+                [
+                  662,
+                  637
+                ],
+                [
+                  668,
+                  658
+                ],
+                [
+                  680,
+                  718
+                ]
+              ],
+              "host_first_second_shared_signed_word": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "vacancy_at_first_inner_endpoint_signed_word": [
+                -1,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "copies_each": 4194304
+            }
+          ]
+        }
+      ],
+      "free_eigenstates": {
+        "vacancy_in_host": {
+          "energy_above_host": 34.99999999999999,
+          "largest_component_residual": 3.552713678800501e-15
+        },
+        "single_on_empty": {
+          "energy_above_host": 50.99999999999999,
+          "largest_component_residual": 3.552713678800501e-15
+        },
+        "double_on_empty": {
+          "energy_above_host": 194.99999999999994,
+          "largest_component_residual": 2.842170943040401e-14
+        }
+      },
+      "source_signed_read": {
+        "vacancy": [
+          0,
+          1048697,
+          3145607,
+          0,
+          0
+        ],
+        "single": [
+          0,
+          0,
+          3146988,
+          1047316,
+          0
+        ],
+        "double": [
+          0,
+          0,
+          3146264,
+          0,
+          1048040
+        ]
+      },
+      "precision_positive_probes": {
+        "probe_signs": [
+          1,
+          1
+        ],
+        "joint_total_variation": 0.001373116616892002,
+        "shared": {
+          "counts": [
+            [
+              0,
+              1336,
+              0,
+              775,
+              0
+            ],
+            [
+              1250,
+              115824473,
+              18964,
+              60610349,
+              1254
+            ],
+            [
+              0,
+              18880,
+              4,
+              9796,
+              0
+            ],
+            [
+              749,
+              60635982,
+              9693,
+              31299064,
+              792
+            ],
+            [
+              0,
+              1333,
+              0,
+              762,
+              0
+            ]
+          ],
+          "mean_score_product": 0.09640010446310043
+        },
+        "independent_half_mean": {
+          "counts": [
+            [
+              0,
+              1384,
+              0,
+              709,
+              0
+            ],
+            [
+              1328,
+              116005523,
+              18945,
+              60437185,
+              1322
+            ],
+            [
+              0,
+              19003,
+              2,
+              9827,
+              0
+            ],
+            [
+              711,
+              60431978,
+              9931,
+              31494852,
+              702
+            ],
+            [
+              0,
+              1326,
+              1,
+              727,
+              0
+            ]
+          ],
+          "mean_score_product": 0.09920899569988251
+        },
+        "absolute_score_difference": 0.002808891236782074
+      },
+      "joint_probe_settings": [
+        {
+          "terminal_contact_strength": 8.0,
+          "histories": [
+            {
+              "probe_signs": [
+                -1,
+                -1
+              ],
+              "joint_total_variation": 0.002152998031168196,
+              "shared": {
+                "counts": [
+                  [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    672449,
+                    181,
+                    1012819,
+                    0
+                  ],
+                  [
+                    0,
+                    196,
+                    1,
+                    282,
+                    0
+                  ],
+                  [
+                    0,
+                    1012399,
+                    303,
+                    1495674,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                ],
+                "mean_score_product": 0.03407120704650879
+              },
+              "independent_half_mean": {
+                "counts": [
+                  [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    676036,
+                    185,
+                    1007859,
+                    0
+                  ],
+                  [
+                    0,
+                    209,
+                    0,
+                    317,
+                    0
+                  ],
+                  [
+                    0,
+                    1006822,
+                    329,
+                    1502547,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                ],
+                "mean_score_product": 0.0390772819519043
+              },
+              "absolute_score_difference": 0.005006074905395508
+            },
+            {
+              "probe_signs": [
+                -1,
+                1
+              ],
+              "joint_total_variation": 0.0017193944785105788,
+              "shared": {
+                "counts": [
+                  [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    12,
+                    1103840,
+                    194,
+                    580646,
+                    11
+                  ],
+                  [
+                    0,
+                    344,
+                    0,
+                    164,
+                    0
+                  ],
+                  [
+                    25,
+                    1652854,
+                    284,
+                    855911,
+                    19
+                  ],
+                  [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                ],
+                "mean_score_product": -0.06526684761047363
+              },
+              "independent_half_mean": {
+                "counts": [
+                  [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    13,
+                    1107386,
+                    198,
+                    576784,
+                    8
+                  ],
+                  [
+                    0,
+                    338,
+                    0,
+                    159,
+                    0
+                  ],
+                  [
+                    21,
+                    1648741,
+                    274,
+                    860356,
+                    26
+                  ],
+                  [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                ],
+                "mean_score_product": -0.061460256576538086
+              },
+              "absolute_score_difference": 0.003806591033935547
+            },
+            {
+              "probe_signs": [
+                1,
+                -1
+              ],
+              "joint_total_variation": 0.001719394478510579,
+              "shared": {
+                "counts": [
+                  [
+                    0,
+                    10,
+                    0,
+                    20,
+                    0
+                  ],
+                  [
+                    0,
+                    1103907,
+                    347,
+                    1652272,
+                    0
+                  ],
+                  [
+                    0,
+                    184,
+                    0,
+                    261,
+                    0
+                  ],
+                  [
+                    0,
+                    579961,
+                    148,
+                    857158,
+                    0
+                  ],
+                  [
+                    0,
+                    16,
+                    0,
+                    20,
+                    0
+                  ]
+                ],
+                "mean_score_product": -0.0646514892578125
+              },
+              "independent_half_mean": {
+                "counts": [
+                  [
+                    0,
+                    13,
+                    0,
+                    24,
+                    0
+                  ],
+                  [
+                    0,
+                    1105132,
+                    328,
+                    1651017,
+                    0
+                  ],
+                  [
+                    0,
+                    161,
+                    0,
+                    247,
+                    0
+                  ],
+                  [
+                    0,
+                    577196,
+                    173,
+                    859988,
+                    0
+                  ],
+                  [
+                    0,
+                    7,
+                    0,
+                    18,
+                    0
+                  ]
+                ],
+                "mean_score_product": -0.06272625923156738
+              },
+              "absolute_score_difference": 0.0019252300262451172
+            },
+            {
+              "probe_signs": [
+                1,
+                1
+              ],
+              "joint_total_variation": 0.001373116616892002,
+              "shared": {
+                "counts": [
+                  [
+                    0,
+                    16,
+                    0,
+                    18,
+                    0
+                  ],
+                  [
+                    13,
+                    1810410,
+                    260,
+                    946848,
+                    16
+                  ],
+                  [
+                    0,
+                    303,
+                    0,
+                    169,
+                    0
+                  ],
+                  [
+                    14,
+                    946800,
+                    166,
+                    489227,
+                    15
+                  ],
+                  [
+                    0,
+                    19,
+                    0,
+                    10,
+                    0
+                  ]
+                ],
+                "mean_score_product": 0.09679532051086426
+              },
+              "independent_half_mean": {
+                "counts": [
+                  [
+                    0,
+                    20,
+                    0,
+                    13,
+                    0
+                  ],
+                  [
+                    15,
+                    1812025,
+                    296,
+                    945113,
+                    25
+                  ],
+                  [
+                    0,
+                    286,
+                    0,
+                    119,
+                    0
+                  ],
+                  [
+                    7,
+                    944424,
+                    171,
+                    491743,
+                    9
+                  ],
+                  [
+                    0,
+                    27,
+                    0,
+                    11,
+                    0
+                  ]
+                ],
+                "mean_score_product": 0.09876036643981934
+              },
+              "absolute_score_difference": 0.001965045928955078
+            }
+          ]
+        },
+        {
+          "terminal_contact_strength": 0,
+          "histories": [
+            {
+              "probe_signs": [
+                -1,
+                -1
+              ],
+              "joint_total_variation": 7.626911327732202e-06,
+              "shared": {
+                "counts": [
+                  [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    1025384,
+                    263,
+                    1046948,
+                    0
+                  ],
+                  [
+                    0,
+                    240,
+                    0,
+                    313,
+                    0
+                  ],
+                  [
+                    0,
+                    1048609,
+                    236,
+                    1072311,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                ],
+                "mean_score_product": 0.0005097389221191406
+              },
+              "independent_half_mean": {
+                "counts": [
+                  [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    1023970,
+                    294,
+                    1048216,
+                    0
+                  ],
+                  [
+                    0,
+                    255,
+                    0,
+                    293,
+                    0
+                  ],
+                  [
+                    0,
+                    1048480,
+                    253,
+                    1072543,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                ],
+                "mean_score_product": -4.363059997558594e-05
+              },
+              "absolute_score_difference": 0.0005533695220947266
+            },
+            {
+              "probe_signs": [
+                -1,
+                1
+              ],
+              "joint_total_variation": 3.873045758168081e-06,
+              "shared": {
+                "counts": [
+                  [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    17,
+                    1049925,
+                    225,
+                    1022788,
+                    16
+                  ],
+                  [
+                    0,
+                    262,
+                    0,
+                    288,
+                    0
+                  ],
+                  [
+                    11,
+                    1074377,
+                    205,
+                    1046176,
+                    14
+                  ],
+                  [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                ],
+                "mean_score_product": -0.0002536773681640625
+              },
+              "independent_half_mean": {
+                "counts": [
+                  [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    17,
+                    1049736,
+                    236,
+                    1022937,
+                    14
+                  ],
+                  [
+                    0,
+                    264,
+                    0,
+                    234,
+                    0
+                  ],
+                  [
+                    13,
+                    1074928,
+                    216,
+                    1045697,
+                    12
+                  ],
+                  [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                ],
+                "mean_score_product": -0.000579833984375
+              },
+              "absolute_score_difference": 0.0003261566162109375
+            },
+            {
+              "probe_signs": [
+                1,
+                -1
+              ],
+              "joint_total_variation": 3.873045758168081e-06,
+              "shared": {
+                "counts": [
+                  [
+                    0,
+                    15,
+                    0,
+                    19,
+                    0
+                  ],
+                  [
+                    0,
+                    1048735,
+                    299,
+                    1073596,
+                    0
+                  ],
+                  [
+                    0,
+                    248,
+                    1,
+                    226,
+                    0
+                  ],
+                  [
+                    0,
+                    1023799,
+                    244,
+                    1047091,
+                    0
+                  ],
+                  [
+                    0,
+                    13,
+                    0,
+                    18,
+                    0
+                  ]
+                ],
+                "mean_score_product": -0.00037407875061035156
+              },
+              "independent_half_mean": {
+                "counts": [
+                  [
+                    0,
+                    11,
+                    0,
+                    12,
+                    0
+                  ],
+                  [
+                    0,
+                    1049927,
+                    242,
+                    1075595,
+                    0
+                  ],
+                  [
+                    0,
+                    210,
+                    0,
+                    234,
+                    0
+                  ],
+                  [
+                    0,
+                    1021028,
+                    245,
+                    1046767,
+                    0
+                  ],
+                  [
+                    0,
+                    16,
+                    0,
+                    17,
+                    0
+                  ]
+                ],
+                "mean_score_product": 1.6927719116210938e-05
+              },
+              "absolute_score_difference": 0.0003910064697265625
+            },
+            {
+              "probe_signs": [
+                1,
+                1
+              ],
+              "joint_total_variation": 1.966783511726259e-06,
+              "shared": {
+                "counts": [
+                  [
+                    0,
+                    15,
+                    0,
+                    14,
+                    0
+                  ],
+                  [
+                    25,
+                    1077833,
+                    238,
+                    1047301,
+                    17
+                  ],
+                  [
+                    0,
+                    215,
+                    0,
+                    216,
+                    0
+                  ],
+                  [
+                    13,
+                    1049261,
+                    190,
+                    1018922,
+                    17
+                  ],
+                  [
+                    0,
+                    18,
+                    0,
+                    9,
+                    0
+                  ]
+                ],
+                "mean_score_product": 4.601478576660156e-05
+              },
+              "independent_half_mean": {
+                "counts": [
+                  [
+                    0,
+                    22,
+                    0,
+                    12,
+                    0
+                  ],
+                  [
+                    20,
+                    1076845,
+                    231,
+                    1047776,
+                    17
+                  ],
+                  [
+                    0,
+                    245,
+                    0,
+                    212,
+                    0
+                  ],
+                  [
+                    22,
+                    1047995,
+                    203,
+                    1020645,
+                    19
+                  ],
+                  [
+                    0,
+                    21,
+                    0,
+                    19,
+                    0
+                  ]
+                ],
+                "mean_score_product": 0.00040984153747558594
+              },
+              "absolute_score_difference": 0.0003638267517089844
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "cells": 320,
+      "owners_apart": 23,
+      "stations": [
+        {
+          "owner": 0,
+          "gateway_ports": [
+            1,
+            3,
+            10
+          ],
+          "integer_amplitudes_in_cell": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            -1,
+            -1,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "sample_port_and_probe_rails": [
+            4,
+            2,
+            11
+          ],
+          "sample_vacancy_probability_if_in_cell": 0.25,
+          "cuts": [
+            {
+              "owner_radius": 0,
+              "cut_oriented_from_inside": [
+                [
+                  1,
+                  38
+                ],
+                [
+                  3,
+                  768
+                ],
+                [
+                  10,
+                  200
+                ]
+              ],
+              "host_first_second_shared_signed_word": [
+                0,
+                0,
+                0
+              ],
+              "vacancy_at_first_inner_endpoint_signed_word": [
+                -1,
+                0,
+                0
+              ],
+              "copies_each": 4194304
+            },
+            {
+              "owner_radius": 1,
+              "cut_oriented_from_inside": [
+                [
+                  44,
+                  22
+                ],
+                [
+                  36,
+                  27
+                ],
+                [
+                  192,
+                  231
+                ],
+                [
+                  194,
+                  384
+                ],
+                [
+                  770,
+                  577
+                ],
+                [
+                  776,
+                  814
+                ]
+              ],
+              "host_first_second_shared_signed_word": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "vacancy_at_first_inner_endpoint_signed_word": [
+                -1,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "copies_each": 4194304
+            }
+          ]
+        },
+        {
+          "owner": 208,
+          "gateway_ports": [
+            1,
+            3,
+            10
+          ],
+          "integer_amplitudes_in_cell": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            -1,
+            -1,
+            1,
+            0,
+            0,
+            0,
+            0
+          ],
+          "sample_port_and_probe_rails": [
+            2500,
+            2498,
+            2507
+          ],
+          "sample_vacancy_probability_if_in_cell": 0.25,
+          "cuts": [
+            {
+              "owner_radius": 0,
+              "cut_oriented_from_inside": [
+                [
+                  2506,
+                  2312
+                ],
+                [
+                  2497,
+                  2690
+                ],
+                [
+                  2499,
+                  2532
+                ]
+              ],
+              "host_first_second_shared_signed_word": [
+                0,
+                0,
+                0
+              ],
+              "vacancy_at_first_inner_endpoint_signed_word": [
+                -1,
+                0,
+                0
+              ],
+              "copies_each": 4194304
+            },
+            {
+              "owner_radius": 1,
+              "cut_oriented_from_inside": [
+                [
+                  2688,
+                  1923
+                ],
+                [
+                  2304,
+                  2114
+                ],
+                [
+                  2306,
+                  2341
+                ],
+                [
+                  2534,
+                  2509
+                ],
+                [
+                  2540,
+                  2530
+                ],
+                [
+                  2696,
+                  2734
+                ]
+              ],
+              "host_first_second_shared_signed_word": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "vacancy_at_first_inner_endpoint_signed_word": [
+                -1,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "copies_each": 4194304
+            }
+          ]
+        }
+      ],
+      "free_eigenstates": {
+        "vacancy_in_host": {
+          "energy_above_host": 34.99999999999999,
+          "largest_component_residual": 3.552713678800501e-15
+        },
+        "single_on_empty": {
+          "energy_above_host": 50.99999999999999,
+          "largest_component_residual": 3.552713678800501e-15
+        },
+        "double_on_empty": {
+          "energy_above_host": 194.99999999999994,
+          "largest_component_residual": 2.842170943040401e-14
+        }
+      },
+      "source_signed_read": {
+        "vacancy": [
+          0,
+          1048742,
+          3145562,
+          0,
+          0
+        ],
+        "single": [
+          0,
+          0,
+          3146111,
+          1048193,
+          0
+        ],
+        "double": [
+          0,
+          0,
+          3145801,
+          0,
+          1048503
+        ]
+      },
+      "precision_positive_probes": {
+        "probe_signs": [
+          1,
+          1
+        ],
+        "joint_total_variation": 0.001373116616892002,
+        "shared": {
+          "counts": [
+            [
+              0,
+              1326,
+              0,
+              772,
+              0
+            ],
+            [
+              1320,
+              115807345,
+              18883,
+              60634264,
+              1306
+            ],
+            [
+              1,
+              19028,
+              7,
+              9817,
+              0
+            ],
+            [
+              743,
+              60626749,
+              9757,
+              31301333,
+              807
+            ],
+            [
+              0,
+              1221,
+              1,
+              776,
+              0
+            ]
+          ],
+          "mean_score_product": 0.09629005566239357
+        },
+        "independent_half_mean": {
+          "counts": [
+            [
+              0,
+              1338,
+              1,
+              682,
+              0
+            ],
+            [
+              1430,
+              116005075,
+              19034,
+              60430621,
+              1319
+            ],
+            [
+              0,
+              18854,
+              3,
+              9860,
+              0
+            ],
+            [
+              706,
+              60431914,
+              9574,
+              31502268,
+              722
+            ],
+            [
+              0,
+              1361,
+              1,
+              693,
+              0
+            ]
+          ],
+          "mean_score_product": 0.0992596447467804
+        },
+        "absolute_score_difference": 0.0029695890843868256
+      },
+      "joint_probe_settings": [
+        {
+          "terminal_contact_strength": 8.0,
+          "histories": [
+            {
+              "probe_signs": [
+                -1,
+                -1
+              ],
+              "joint_total_variation": 0.002152998031168196,
+              "shared": {
+                "counts": [
+                  [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    670881,
+                    222,
+                    1011534,
+                    0
+                  ],
+                  [
+                    0,
+                    213,
+                    0,
+                    334,
+                    0
+                  ],
+                  [
+                    0,
+                    1013388,
+                    315,
+                    1497417,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                ],
+                "mean_score_product": 0.034183502197265625
+              },
+              "independent_half_mean": {
+                "counts": [
+                  [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    676590,
+                    212,
+                    1008300,
+                    0
+                  ],
+                  [
+                    0,
+                    205,
+                    0,
+                    294,
+                    0
+                  ],
+                  [
+                    0,
+                    1007449,
+                    305,
+                    1500949,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                ],
+                "mean_score_product": 0.0385737419128418
+              },
+              "absolute_score_difference": 0.004390239715576172
+            },
+            {
+              "probe_signs": [
+                -1,
+                1
+              ],
+              "joint_total_variation": 0.0017193944785105788,
+              "shared": {
+                "counts": [
+                  [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    12,
+                    1104702,
+                    171,
+                    579653,
+                    18
+                  ],
+                  [
+                    0,
+                    365,
+                    0,
+                    193,
+                    0
+                  ],
+                  [
+                    17,
+                    1653761,
+                    230,
+                    855163,
+                    19
+                  ],
+                  [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                ],
+                "mean_score_product": -0.06521916389465332
+              },
+              "independent_half_mean": {
+                "counts": [
+                  [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    12,
+                    1106331,
+                    180,
+                    577982,
+                    18
+                  ],
+                  [
+                    0,
+                    332,
+                    0,
+                    151,
+                    0
+                  ],
+                  [
+                    15,
+                    1650482,
+                    244,
+                    858530,
+                    27
+                  ],
+                  [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                ],
+                "mean_score_product": -0.06284785270690918
+              },
+              "absolute_score_difference": 0.0023713111877441406
+            },
+            {
+              "probe_signs": [
+                1,
+                -1
+              ],
+              "joint_total_variation": 0.001719394478510579,
+              "shared": {
+                "counts": [
+                  [
+                    0,
+                    11,
+                    0,
+                    21,
+                    0
+                  ],
+                  [
+                    0,
+                    1104810,
+                    334,
+                    1652247,
+                    0
+                  ],
+                  [
+                    0,
+                    180,
+                    0,
+                    277,
+                    0
+                  ],
+                  [
+                    0,
+                    580245,
+                    157,
+                    855994,
+                    0
+                  ],
+                  [
+                    0,
+                    7,
+                    0,
+                    21,
+                    0
+                  ]
+                ],
+                "mean_score_product": -0.06477546691894531
+              },
+              "independent_half_mean": {
+                "counts": [
+                  [
+                    0,
+                    13,
+                    0,
+                    21,
+                    0
+                  ],
+                  [
+                    0,
+                    1107329,
+                    336,
+                    1648747,
+                    0
+                  ],
+                  [
+                    0,
+                    185,
+                    0,
+                    280,
+                    0
+                  ],
+                  [
+                    0,
+                    577772,
+                    169,
+                    859420,
+                    0
+                  ],
+                  [
+                    0,
+                    15,
+                    0,
+                    17,
+                    0
+                  ]
+                ],
+                "mean_score_product": -0.06193399429321289
+              },
+              "absolute_score_difference": 0.002841472625732422
+            },
+            {
+              "probe_signs": [
+                1,
+                1
+              ],
+              "joint_total_variation": 0.001373116616892002,
+              "shared": {
+                "counts": [
+                  [
+                    0,
+                    22,
+                    0,
+                    8,
+                    0
+                  ],
+                  [
+                    18,
+                    1808326,
+                    281,
+                    948101,
+                    22
+                  ],
+                  [
+                    0,
+                    271,
+                    0,
+                    162,
+                    0
+                  ],
+                  [
+                    8,
+                    946946,
+                    163,
+                    489946,
+                    11
+                  ],
+                  [
+                    0,
+                    11,
+                    0,
+                    8,
+                    0
+                  ]
+                ],
+                "mean_score_product": 0.09613633155822754
+              },
+              "independent_half_mean": {
+                "counts": [
+                  [
+                    0,
+                    19,
+                    0,
+                    14,
+                    0
+                  ],
+                  [
+                    24,
+                    1813622,
+                    271,
+                    944170,
+                    22
+                  ],
+                  [
+                    0,
+                    279,
+                    0,
+                    150,
+                    0
+                  ],
+                  [
+                    9,
+                    943691,
+                    154,
+                    491847,
+                    9
+                  ],
+                  [
+                    0,
+                    18,
+                    0,
+                    5,
+                    0
+                  ]
+                ],
+                "mean_score_product": 0.09956550598144531
+              },
+              "absolute_score_difference": 0.0034291744232177734
+            }
+          ]
+        },
+        {
+          "terminal_contact_strength": 0,
+          "histories": [
+            {
+              "probe_signs": [
+                -1,
+                -1
+              ],
+              "joint_total_variation": 7.626911327732202e-06,
+              "shared": {
+                "counts": [
+                  [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    1023086,
+                    258,
+                    1047823,
+                    0
+                  ],
+                  [
+                    0,
+                    262,
+                    0,
+                    258,
+                    0
+                  ],
+                  [
+                    0,
+                    1047776,
+                    275,
+                    1074566,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                ],
+                "mean_score_product": 0.0004894733428955078
+              },
+              "independent_half_mean": {
+                "counts": [
+                  [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    1023274,
+                    241,
+                    1049049,
+                    0
+                  ],
+                  [
+                    0,
+                    274,
+                    0,
+                    279,
+                    0
+                  ],
+                  [
+                    0,
+                    1048278,
+                    267,
+                    1072642,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                ],
+                "mean_score_product": -0.0003364086151123047
+              },
+              "absolute_score_difference": 0.0008258819580078125
+            },
+            {
+              "probe_signs": [
+                -1,
+                1
+              ],
+              "joint_total_variation": 3.873045758168081e-06,
+              "shared": {
+                "counts": [
+                  [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    21,
+                    1049256,
+                    223,
+                    1021846,
+                    7
+                  ],
+                  [
+                    0,
+                    274,
+                    0,
+                    251,
+                    0
+                  ],
+                  [
+                    20,
+                    1075014,
+                    225,
+                    1047157,
+                    10
+                  ],
+                  [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                ],
+                "mean_score_product": -0.00010657310485839844
+              },
+              "independent_half_mean": {
+                "counts": [
+                  [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    17,
+                    1049554,
+                    223,
+                    1022226,
+                    17
+                  ],
+                  [
+                    0,
+                    266,
+                    0,
+                    244,
+                    0
+                  ],
+                  [
+                    14,
+                    1076750,
+                    241,
+                    1044741,
+                    11
+                  ],
+                  [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                ],
+                "mean_score_product": -0.001116037368774414
+              },
+              "absolute_score_difference": 0.0010094642639160156
+            },
+            {
+              "probe_signs": [
+                1,
+                -1
+              ],
+              "joint_total_variation": 3.873045758168081e-06,
+              "shared": {
+                "counts": [
+                  [
+                    0,
+                    15,
+                    0,
+                    14,
+                    0
+                  ],
+                  [
+                    0,
+                    1050529,
+                    239,
+                    1075960,
+                    0
+                  ],
+                  [
+                    0,
+                    227,
+                    0,
+                    207,
+                    0
+                  ],
+                  [
+                    0,
+                    1021524,
+                    274,
+                    1045284,
+                    0
+                  ],
+                  [
+                    0,
+                    19,
+                    0,
+                    12,
+                    0
+                  ]
+                ],
+                "mean_score_product": -0.00039839744567871094
+              },
+              "independent_half_mean": {
+                "counts": [
+                  [
+                    0,
+                    13,
+                    0,
+                    10,
+                    0
+                  ],
+                  [
+                    0,
+                    1049977,
+                    292,
+                    1074750,
+                    0
+                  ],
+                  [
+                    0,
+                    202,
+                    0,
+                    208,
+                    0
+                  ],
+                  [
+                    0,
+                    1021246,
+                    271,
+                    1047299,
+                    0
+                  ],
+                  [
+                    0,
+                    15,
+                    0,
+                    21,
+                    0
+                  ]
+                ],
+                "mean_score_product": 0.00030517578125
+              },
+              "absolute_score_difference": 0.0007035732269287109
+            },
+            {
+              "probe_signs": [
+                1,
+                1
+              ],
+              "joint_total_variation": 1.966783511726259e-06,
+              "shared": {
+                "counts": [
+                  [
+                    0,
+                    25,
+                    0,
+                    19,
+                    0
+                  ],
+                  [
+                    20,
+                    1077035,
+                    227,
+                    1048440,
+                    12
+                  ],
+                  [
+                    0,
+                    249,
+                    0,
+                    227,
+                    0
+                  ],
+                  [
+                    23,
+                    1047444,
+                    230,
+                    1020314,
+                    13
+                  ],
+                  [
+                    0,
+                    12,
+                    0,
+                    14,
+                    0
+                  ]
+                ],
+                "mean_score_product": 0.00034928321838378906
+              },
+              "independent_half_mean": {
+                "counts": [
+                  [
+                    0,
+                    15,
+                    0,
+                    15,
+                    0
+                  ],
+                  [
+                    18,
+                    1077547,
+                    244,
+                    1046802,
+                    22
+                  ],
+                  [
+                    0,
+                    221,
+                    0,
+                    253,
+                    0
+                  ],
+                  [
+                    20,
+                    1048504,
+                    225,
+                    1020382,
+                    8
+                  ],
+                  [
+                    0,
+                    16,
+                    0,
+                    12,
+                    0
+                  ]
+                ],
+                "mean_score_product": 0.0006253719329833984
+              },
+              "absolute_score_difference": 0.0002760887145996094
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

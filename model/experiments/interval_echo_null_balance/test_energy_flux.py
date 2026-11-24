@@ -91,3 +91,20 @@ def test_signed_cut_and_refusing_shared_storage_on_independent_single_load():
     assert (bracket(flight, core) - incoming).count_nonzero() > 0
     missing = np.isin(np.arange(board.n)//12, owners) * (6-board.degree) * KAPPA
     assert (bracket(flight, allocated-sparse.diags(missing)) - incoming).count_nonzero() > 0
+
+
+def test_hidden_seam_currents_are_divergence_free():
+    import sympy as sp
+    from . import hidden_current
+    from model.executable_model import cell
+
+    modes = hidden_current.exact_modes(cell(), [1, 3, 10])
+    balance = [sp.S.Zero] * 12
+    for seam in hidden_current.seam_laws(cell(), *modes):
+        a, b = seam['ports']
+        flux = sp.sympify(seam['kinetic_current'])
+        if (a, b) == (4, 5):
+            assert abs(flux) == sp.sqrt(3)/4
+        balance[a] -= flux
+        balance[b] += flux
+    assert all(sp.simplify(value) == 0 for value in balance)

@@ -1,0 +1,3227 @@
+{
+  "ramsey_enrollments_per_quadrature_and_hold": 68719476736,
+  "studies": [
+    {
+      "cells": 20,
+      "ports": [
+        0,
+        1,
+        5
+      ],
+      "core": {
+        "radius_upper_simultaneous_99": 0.5388927035048641,
+        "counts_by_distance_then_failed_tag": [
+          [
+            8097871,
+            151294,
+            2348,
+            5,
+            5,
+            2,
+            1,
+            1,
+            2,
+            0,
+            3,
+            0,
+            2,
+            0,
+            0,
+            137074
+          ],
+          [
+            8027737,
+            153967,
+            2351,
+            27,
+            3,
+            4,
+            1,
+            6,
+            3,
+            1,
+            3,
+            0,
+            2,
+            0,
+            0,
+            204503
+          ]
+        ],
+        "radius_links": 0.5376245543539523,
+        "accepted_fraction": 0.9796404242515564
+      },
+      "frequency_shells": [
+        2.6645352591003757e-15,
+        0.15498804857415716,
+        0.17023240411659657,
+        1.3819660112500993,
+        1.6945337390484152,
+        3.1546942388991654
+      ],
+      "blank_band_gaps": [
+        [
+          0.17023240411659657,
+          1.3819660112500993
+        ],
+        [
+          1.6945337390484152,
+          2.9999999999999947
+        ],
+        [
+          3.0000000000000044,
+          3.1546942388991654
+        ],
+        [
+          3.423101838620327,
+          3.6180339887498922
+        ],
+        [
+          3.618033988749899,
+          3.86877948925866
+        ]
+      ],
+      "written": [
+        {
+          "width": 0.5,
+          "shells": [
+            {
+              "k": 7.300048299977713e-08,
+              "k_radius": 3.924685214037845e-08,
+              "vertex_parity": {
+                "real": [
+                  [
+                    1.24181358,
+                    -0.30626325
+                  ],
+                  [
+                    -0.30626325,
+                    4.31105195
+                  ]
+                ],
+                "imag": [
+                  [
+                    -1.71635074,
+                    0.15353844
+                  ],
+                  [
+                    0.15353844,
+                    -1.30675156
+                  ]
+                ]
+              },
+              "vertex_operator_error_bound": 0.0015531247651813503,
+              "inferred_parity": {
+                "real": [
+                  [
+                    -7.99996416,
+                    -1.298e-05
+                  ],
+                  [
+                    -1.298e-05,
+                    -8.99998869
+                  ]
+                ],
+                "imag": [
+                  [
+                    -6.742e-05,
+                    7.25e-06
+                  ],
+                  [
+                    7.25e-06,
+                    8.147e-05
+                  ]
+                ]
+              },
+              "inferred_operator_error_bound": 0.0015523416968614878,
+              "held_return": {
+                "real": -0.41237434,
+                "imag": -0.12878098
+              },
+              "single_pass_error": 0.6031509792634238,
+              "held_prediction_error": 2.53727201672627e-06,
+              "held_joint_error_bound": 0.00029630169286498355,
+              "constant_interaction_difference": 0.0,
+              "constant_interaction_joint_bound": 0.0031046833937229757
+            },
+            {
+              "k": 0.5567549704747271,
+              "k_radius": 0.299325142885823,
+              "vertex_parity": {
+                "real": [
+                  [
+                    1.01739166,
+                    -0.28803648
+                  ],
+                  [
+                    -0.28803648,
+                    3.94452342
+                  ]
+                ],
+                "imag": [
+                  [
+                    -1.94028508,
+                    0.16583231
+                  ],
+                  [
+                    0.16583231,
+                    -1.26516152
+                  ]
+                ]
+              },
+              "vertex_operator_error_bound": 0.0012937702825174858,
+              "inferred_parity": {
+                "real": [
+                  [
+                    -7.99993837,
+                    -7.63e-06
+                  ],
+                  [
+                    -7.63e-06,
+                    -9.00001803
+                  ]
+                ],
+                "imag": [
+                  [
+                    -5.759e-05,
+                    1.67e-06
+                  ],
+                  [
+                    1.67e-06,
+                    9.024e-05
+                  ]
+                ]
+              },
+              "inferred_operator_error_bound": 0.0015786121688747266,
+              "held_return": {
+                "real": -0.43373494,
+                "imag": -0.15816044
+              },
+              "single_pass_error": 0.6101622488357661,
+              "held_prediction_error": 2.5301618454879942e-06,
+              "held_joint_error_bound": 0.0002639780813288922,
+              "constant_interaction_difference": 3.545848238980213e-05,
+              "constant_interaction_joint_bound": 0.003130953865736214
+            },
+            {
+              "k": 0.5834936231298447,
+              "k_radius": 0.31370049910355574,
+              "vertex_parity": {
+                "real": [
+                  [
+                    1.00252486,
+                    -0.28665578
+                  ],
+                  [
+                    -0.28665578,
+                    3.90923998
+                  ]
+                ],
+                "imag": [
+                  [
+                    -1.96498854,
+                    0.1670738
+                  ],
+                  [
+                    0.1670738,
+                    -1.26122957
+                  ]
+                ]
+              },
+              "vertex_operator_error_bound": 0.0012696293421210348,
+              "inferred_parity": {
+                "real": [
+                  [
+                    -7.99993637,
+                    -6.95e-06
+                  ],
+                  [
+                    -6.95e-06,
+                    -9.00002105
+                  ]
+                ],
+                "imag": [
+                  [
+                    -5.575e-05,
+                    1.32e-06
+                  ],
+                  [
+                    1.32e-06,
+                    9.02e-05
+                  ]
+                ]
+              },
+              "inferred_operator_error_bound": 0.001579318920118383,
+              "held_return": {
+                "real": -0.43560544,
+                "imag": -0.16141157
+              },
+              "single_pass_error": 0.6055527607746128,
+              "held_prediction_error": 2.510555736170204e-06,
+              "held_joint_error_bound": 0.0002587358467173478,
+              "constant_interaction_difference": 3.8783707090190474e-05,
+              "constant_interaction_joint_bound": 0.003131660616979871
+            },
+            {
+              "k": 1.6625077511098103,
+              "k_radius": 0.8938049888004032,
+              "vertex_parity": {
+                "real": [
+                  [
+                    0.30480843,
+                    -0.19553242
+                  ],
+                  [
+                    -0.19553242,
+                    1.4785079
+                  ]
+                ],
+                "imag": [
+                  [
+                    -1.3561612,
+                    0.21605547
+                  ],
+                  [
+                    0.21605547,
+                    -1.51561986
+                  ]
+                ]
+              },
+              "vertex_operator_error_bound": 0.0005178299422738369,
+              "inferred_parity": {
+                "real": [
+                  [
+                    -7.9999746,
+                    2.118e-05
+                  ],
+                  [
+                    2.118e-05,
+                    -9.00004021
+                  ]
+                ],
+                "imag": [
+                  [
+                    -7.52e-06,
+                    1.428e-05
+                  ],
+                  [
+                    1.428e-05,
+                    1.139e-05
+                  ]
+                ]
+              },
+              "inferred_operator_error_bound": 0.0018168815949408386,
+              "held_return": {
+                "real": -0.44209536,
+                "imag": -0.54869526
+              },
+              "single_pass_error": 0.8184919245522537,
+              "held_prediction_error": 1.1713910938680312e-06,
+              "held_joint_error_bound": 0.00017624020677023983,
+              "constant_interaction_difference": 0.00010919837988930082,
+              "constant_interaction_joint_bound": 0.0033692232918023264
+            },
+            {
+              "k": 1.8409420083470394,
+              "k_radius": 0.9897356268290469,
+              "vertex_parity": {
+                "real": [
+                  [
+                    -0.22104753,
+                    -0.25656474
+                  ],
+                  [
+                    -0.25656474,
+                    1.35893906
+                  ]
+                ],
+                "imag": [
+                  [
+                    -1.42292487,
+                    0.27952914
+                  ],
+                  [
+                    0.27952914,
+                    -1.81616503
+                  ]
+                ]
+              },
+              "vertex_operator_error_bound": 0.0006018635939609063,
+              "inferred_parity": {
+                "real": [
+                  [
+                    -7.99996218,
+                    2.154e-05
+                  ],
+                  [
+                    2.154e-05,
+                    -9.00004006
+                  ]
+                ],
+                "imag": [
+                  [
+                    -2.358e-05,
+                    1.669e-05
+                  ],
+                  [
+                    1.669e-05,
+                    1.64e-06
+                  ]
+                ]
+              },
+              "inferred_operator_error_bound": 0.002044427623196742,
+              "held_return": {
+                "real": -0.3597054,
+                "imag": -0.55598576
+              },
+              "single_pass_error": 1.1744399610330138,
+              "held_prediction_error": 6.340737843847721e-07,
+              "held_joint_error_bound": 0.00026983082808345276,
+              "constant_interaction_difference": 0.00011095217648117962,
+              "constant_interaction_joint_bound": 0.00359676932005823
+            },
+            {
+              "k": 2.5118496128945162,
+              "k_radius": 1.3504320287365619,
+              "vertex_parity": {
+                "real": [
+                  [
+                    -0.31662751,
+                    -0.12890634
+                  ],
+                  [
+                    -0.12890634,
+                    0.15218837
+                  ]
+                ],
+                "imag": [
+                  [
+                    -1.19119872,
+                    0.13927654
+                  ],
+                  [
+                    0.13927654,
+                    -0.87775659
+                  ]
+                ]
+              },
+              "vertex_operator_error_bound": 0.0002798670589253883,
+              "inferred_parity": {
+                "real": [
+                  [
+                    -7.99990032,
+                    -1.4e-06
+                  ],
+                  [
+                    -1.4e-06,
+                    -9.00001945
+                  ]
+                ],
+                "imag": [
+                  [
+                    -5.58e-05,
+                    5.89e-05
+                  ],
+                  [
+                    5.89e-05,
+                    0.0001006
+                  ]
+                ]
+              },
+              "inferred_operator_error_bound": 0.0025627950270613333,
+              "held_return": {
+                "real": 0.34800706,
+                "imag": -1.07511245
+              },
+              "single_pass_error": 1.1721095747072268,
+              "held_prediction_error": 2.591993334942628e-06,
+              "held_joint_error_bound": 0.0001712081392705732,
+              "constant_interaction_difference": 0.00010538522526574468,
+              "constant_interaction_joint_bound": 0.004115136723922821
+            }
+          ]
+        },
+        {
+          "width": 0.25,
+          "shells": [
+            {
+              "k": 7.300048299977713e-08,
+              "k_radius": 3.924685214037845e-08,
+              "vertex_parity": {
+                "real": [
+                  [
+                    0.83155976,
+                    -0.27623698
+                  ],
+                  [
+                    -0.27623698,
+                    4.35073388
+                  ]
+                ],
+                "imag": [
+                  [
+                    -1.13216629,
+                    0.11522787
+                  ],
+                  [
+                    0.11522787,
+                    -0.70301247
+                  ]
+                ]
+              },
+              "vertex_operator_error_bound": 0.002549600701034686,
+              "inferred_parity": {
+                "real": [
+                  [
+                    -7.99997322,
+                    -3.185e-05
+                  ],
+                  [
+                    -3.185e-05,
+                    -8.99993599
+                  ]
+                ],
+                "imag": [
+                  [
+                    -0.00015386,
+                    5.1e-07
+                  ],
+                  [
+                    5.1e-07,
+                    0.00015247
+                  ]
+                ]
+              },
+              "inferred_operator_error_bound": 0.0023839965369452263,
+              "held_return": {
+                "real": -0.45446201,
+                "imag": -0.0804803
+              },
+              "single_pass_error": 1.792805263309892,
+              "held_prediction_error": 5.105211593998392e-06,
+              "held_joint_error_bound": 0.0014169536071102192,
+              "constant_interaction_difference": 0.0,
+              "constant_interaction_joint_bound": 0.004767993073890453
+            },
+            {
+              "k": 0.5567549704747271,
+              "k_radius": 0.299325142885823,
+              "vertex_parity": {
+                "real": [
+                  [
+                    0.37016404,
+                    -0.25711618
+                  ],
+                  [
+                    -0.25711618,
+                    3.99794438
+                  ]
+                ],
+                "imag": [
+                  [
+                    -1.54026626,
+                    0.14089513
+                  ],
+                  [
+                    0.14089513,
+                    -0.68882586
+                  ]
+                ]
+              },
+              "vertex_operator_error_bound": 0.0019101328597783606,
+              "inferred_parity": {
+                "real": [
+                  [
+                    -7.99987247,
+                    -1.996e-05
+                  ],
+                  [
+                    -1.996e-05,
+                    -9.00002701
+                  ]
+                ],
+                "imag": [
+                  [
+                    -0.0001256,
+                    -1.972e-05
+                  ],
+                  [
+                    -1.972e-05,
+                    0.00017503
+                  ]
+                ]
+              },
+              "inferred_operator_error_bound": 0.002542525557797699,
+              "held_return": {
+                "real": -0.49541317,
+                "imag": -0.11324805
+              },
+              "single_pass_error": 1.752456166382679,
+              "held_prediction_error": 5.391591368362742e-06,
+              "held_joint_error_bound": 0.001149909644496883,
+              "constant_interaction_difference": 0.00012088912170944706,
+              "constant_interaction_joint_bound": 0.004926522094742925
+            },
+            {
+              "k": 0.5834936231298447,
+              "k_radius": 0.31370049910355574,
+              "vertex_parity": {
+                "real": [
+                  [
+                    0.3283938,
+                    -0.25535771
+                  ],
+                  [
+                    -0.25535771,
+                    3.96370979
+                  ]
+                ],
+                "imag": [
+                  [
+                    -1.5965012,
+                    0.14317423
+                  ],
+                  [
+                    0.14317423,
+                    -0.68559974
+                  ]
+                ]
+              },
+              "vertex_operator_error_bound": 0.00183995557525566,
+              "inferred_parity": {
+                "real": [
+                  [
+                    -7.9998647,
+                    -1.749e-05
+                  ],
+                  [
+                    -1.749e-05,
+                    -9.00003555
+                  ]
+                ],
+                "imag": [
+                  [
+                    -0.00011717,
+                    -2.131e-05
+                  ],
+                  [
+                    -2.131e-05,
+                    0.00017248
+                  ]
+                ]
+              },
+              "inferred_operator_error_bound": 0.0025556262005231047,
+              "held_return": {
+                "real": -0.49951791,
+                "imag": -0.11764043
+              },
+              "single_pass_error": 1.6959835005337316,
+              "held_prediction_error": 5.362925396508795e-06,
+              "held_joint_error_bound": 0.0010859046668079942,
+              "constant_interaction_difference": 0.00013229812175023607,
+              "constant_interaction_joint_bound": 0.004939622737468331
+            },
+            {
+              "k": 1.6625077511098103,
+              "k_radius": 0.8938049888004032,
+              "vertex_parity": {
+                "real": [
+                  [
+                    0.30302827,
+                    -0.10215888
+                  ],
+                  [
+                    -0.10215888,
+                    1.07047715
+                  ]
+                ],
+                "imag": [
+                  [
+                    -0.83492737,
+                    0.1939152
+                  ],
+                  [
+                    0.1939152,
+                    -1.1594693
+                  ]
+                ]
+              },
+              "vertex_operator_error_bound": 0.0004971660929577476,
+              "inferred_parity": {
+                "real": [
+                  [
+                    -7.99999863,
+                    3.806e-05
+                  ],
+                  [
+                    3.806e-05,
+                    -9.00004834
+                  ]
+                ],
+                "imag": [
+                  [
+                    -9.94e-06,
+                    1.033e-05
+                  ],
+                  [
+                    1.033e-05,
+                    3.879e-05
+                  ]
+                ]
+              },
+              "inferred_operator_error_bound": 0.0026689334342756233,
+              "held_return": {
+                "real": -0.52092408,
+                "imag": -0.80620945
+              },
+              "single_pass_error": 1.8447676242145028,
+              "held_prediction_error": 1.4809142122416648e-06,
+              "held_joint_error_bound": 0.0004152988469245695,
+              "constant_interaction_difference": 0.00021927438587248266,
+              "constant_interaction_joint_bound": 0.00505292997122085
+            },
+            {
+              "k": 1.8409420083470394,
+              "k_radius": 0.9897356268290469,
+              "vertex_parity": {
+                "real": [
+                  [
+                    -0.38123426,
+                    -0.16518989
+                  ],
+                  [
+                    -0.16518989,
+                    0.94225003
+                  ]
+                ],
+                "imag": [
+                  [
+                    -0.95189734,
+                    0.45701053
+                  ],
+                  [
+                    0.45701053,
+                    -2.18825951
+                  ]
+                ]
+              },
+              "vertex_operator_error_bound": 0.0013493972583859491,
+              "inferred_parity": {
+                "real": [
+                  [
+                    -7.99997965,
+                    3.44e-06
+                  ],
+                  [
+                    3.44e-06,
+                    -9.00004508
+                  ]
+                ],
+                "imag": [
+                  [
+                    -6.097e-05,
+                    1.661e-05
+                  ],
+                  [
+                    1.661e-05,
+                    -4.64e-06
+                  ]
+                ]
+              },
+              "inferred_operator_error_bound": 0.0030995201631604263,
+              "held_return": {
+                "real": -0.27472302,
+                "imag": -0.50043779
+              },
+              "single_pass_error": 2.8130432657846285,
+              "held_prediction_error": 6.813448973189754e-07,
+              "held_joint_error_bound": 0.001187634272675804,
+              "constant_interaction_difference": 0.00020158335686297805,
+              "constant_interaction_joint_bound": 0.005483516700105653
+            },
+            {
+              "k": 2.5118496128945162,
+              "k_radius": 1.3504320287365619,
+              "vertex_parity": {
+                "real": [
+                  [
+                    -0.21656709,
+                    -0.0411518
+                  ],
+                  [
+                    -0.0411518,
+                    0.11862746
+                  ]
+                ],
+                "imag": [
+                  [
+                    -0.90074618,
+                    0.15802767
+                  ],
+                  [
+                    0.15802767,
+                    -0.65477751
+                  ]
+                ]
+              },
+              "vertex_operator_error_bound": 0.0002643812200922756,
+              "inferred_parity": {
+                "real": [
+                  [
+                    -7.99990435,
+                    1.034e-05
+                  ],
+                  [
+                    1.034e-05,
+                    -8.9999425
+                  ]
+                ],
+                "imag": [
+                  [
+                    -0.00015837,
+                    6.638e-05
+                  ],
+                  [
+                    6.638e-05,
+                    0.00018752
+                  ]
+                ]
+              },
+              "inferred_operator_error_bound": 0.0037803959502145396,
+              "held_return": {
+                "real": 0.68753593,
+                "imag": -1.43428833
+              },
+              "single_pass_error": 2.6843810306113043,
+              "held_prediction_error": 4.135758723330878e-06,
+              "held_joint_error_bound": 0.0003752563645258071,
+              "constant_interaction_difference": 0.00013198600528559307,
+              "constant_interaction_joint_bound": 0.006164392487159766
+            }
+          ]
+        }
+      ],
+      "cut_only": [
+        {
+          "width": 0.5,
+          "shells": [
+            {
+              "k": 7.300048299977713e-08,
+              "k_radius": 3.924685214037845e-08,
+              "vertex_parity": {
+                "real": [
+                  [
+                    -7.5e-06,
+                    -6.06e-06
+                  ],
+                  [
+                    -6.06e-06,
+                    -1.46916505
+                  ]
+                ],
+                "imag": [
+                  [
+                    4.99e-06,
+                    -8.17e-06
+                  ],
+                  [
+                    -8.17e-06,
+                    -0.14368983
+                  ]
+                ]
+              },
+              "vertex_operator_error_bound": 0.0007732543136417481,
+              "inferred_parity": {
+                "real": [
+                  [
+                    -7.5e-06,
+                    -4.3e-06
+                  ],
+                  [
+                    -4.3e-06,
+                    -0.99996815
+                  ]
+                ],
+                "imag": [
+                  [
+                    4.99e-06,
+                    -5.05e-06
+                  ],
+                  [
+                    -5.05e-06,
+                    3.303e-05
+                  ]
+                ]
+              },
+              "inferred_operator_error_bound": 0.0003845465405274611,
+              "held_return": {
+                "real": -0.38880581,
+                "imag": -0.26112757
+              },
+              "single_pass_error": 0.00012105547312338995,
+              "held_prediction_error": 1.2942561969395664e-06,
+              "held_joint_error_bound": 0.00010879142812669043,
+              "constant_interaction_difference": 0.0,
+              "constant_interaction_joint_bound": 0.0007690930810549222
+            },
+            {
+              "k": 0.5567549704747271,
+              "k_radius": 0.299325142885823,
+              "vertex_parity": {
+                "real": [
+                  [
+                    -9.79e-06,
+                    -4.78e-06
+                  ],
+                  [
+                    -4.78e-06,
+                    -1.50285505
+                  ]
+                ],
+                "imag": [
+                  [
+                    7e-06,
+                    -9.47e-06
+                  ],
+                  [
+                    -9.47e-06,
+                    -0.17285202
+                  ]
+                ]
+              },
+              "vertex_operator_error_bound": 0.000716644713485758,
+              "inferred_parity": {
+                "real": [
+                  [
+                    -9.79e-06,
+                    -3.43e-06
+                  ],
+                  [
+                    -3.43e-06,
+                    -0.9999746
+                  ]
+                ],
+                "imag": [
+                  [
+                    7e-06,
+                    -5.75e-06
+                  ],
+                  [
+                    -5.75e-06,
+                    3.835e-05
+                  ]
+                ]
+              },
+              "inferred_operator_error_bound": 0.0003509041882790037,
+              "held_return": {
+                "real": -0.35915566,
+                "imag": -0.28048484
+              },
+              "single_pass_error": 0.00015234727861979623,
+              "held_prediction_error": 1.4855731121736385e-06,
+              "held_joint_error_bound": 0.00011293091162477051,
+              "constant_interaction_difference": 8.592402167533223e-06,
+              "constant_interaction_joint_bound": 0.0007354507288064647
+            },
+            {
+              "k": 0.5834936231298447,
+              "k_radius": 0.31370049910355574,
+              "vertex_parity": {
+                "real": [
+                  [
+                    -1.016e-05,
+                    -4.64e-06
+                  ],
+                  [
+                    -4.64e-06,
+                    -1.50639068
+                  ]
+                ],
+                "imag": [
+                  [
+                    7.14e-06,
+                    -9.58e-06
+                  ],
+                  [
+                    -9.58e-06,
+                    -0.17613952
+                  ]
+                ]
+              },
+              "vertex_operator_error_bound": 0.0007114480939696784,
+              "inferred_parity": {
+                "real": [
+                  [
+                    -1.016e-05,
+                    -3.33e-06
+                  ],
+                  [
+                    -3.33e-06,
+                    -0.99997544
+                  ]
+                ],
+                "imag": [
+                  [
+                    7.14e-06,
+                    -5.79e-06
+                  ],
+                  [
+                    -5.79e-06,
+                    3.877e-05
+                  ]
+                ]
+              },
+              "inferred_operator_error_bound": 0.0003485855534428313,
+              "held_return": {
+                "real": -0.35650842,
+                "imag": -0.28091083
+              },
+              "single_pass_error": 0.00015449768677258406,
+              "held_prediction_error": 1.494477363616488e-06,
+              "held_joint_error_bound": 0.0001124828172655252,
+              "constant_interaction_difference": 9.526143311191137e-06,
+              "constant_interaction_joint_bound": 0.0007331320939702923
+            },
+            {
+              "k": 1.6625077511098103,
+              "k_radius": 0.8938049888004032,
+              "vertex_parity": {
+                "real": [
+                  [
+                    -3.31e-06,
+                    1.67e-06
+                  ],
+                  [
+                    1.67e-06,
+                    -1.28578967
+                  ]
+                ],
+                "imag": [
+                  [
+                    -3.37e-06,
+                    -6e-07
+                  ],
+                  [
+                    -6e-07,
+                    -0.81404858
+                  ]
+                ]
+              },
+              "vertex_operator_error_bound": 0.0003875473052152152,
+              "inferred_parity": {
+                "real": [
+                  [
+                    -3.31e-06,
+                    4.7e-07
+                  ],
+                  [
+                    4.7e-07,
+                    -1.00000331
+                  ]
+                ],
+                "imag": [
+                  [
+                    -3.37e-06,
+                    -5.1e-07
+                  ],
+                  [
+                    -5.1e-07,
+                    5.26e-06
+                  ]
+                ]
+              },
+              "inferred_operator_error_bound": 0.00015838491220453,
+              "held_return": {
+                "real": -0.32552205,
+                "imag": -0.59978318
+              },
+              "single_pass_error": 0.0017223706695388263,
+              "held_prediction_error": 1.3907672622327017e-06,
+              "held_joint_error_bound": 0.00018034297290229158,
+              "constant_interaction_difference": 4.586883388893103e-05,
+              "constant_interaction_joint_bound": 0.0005429314527319911
+            },
+            {
+              "k": 1.8409420083470394,
+              "k_radius": 0.9897356268290469,
+              "vertex_parity": {
+                "real": [
+                  [
+                    -3.89e-06,
+                    5.2e-07
+                  ],
+                  [
+                    5.2e-07,
+                    -1.17583751
+                  ]
+                ],
+                "imag": [
+                  [
+                    -1.61e-06,
+                    -1e-08
+                  ],
+                  [
+                    -1e-08,
+                    -0.69050601
+                  ]
+                ]
+              },
+              "vertex_operator_error_bound": 0.00043090872553808293,
+              "inferred_parity": {
+                "real": [
+                  [
+                    -3.89e-06,
+                    0.0
+                  ],
+                  [
+                    0.0,
+                    -1.00000058
+                  ]
+                ],
+                "imag": [
+                  [
+                    -1.61e-06,
+                    1.9e-07
+                  ],
+                  [
+                    1.9e-07,
+                    3.74e-06
+                  ]
+                ]
+              },
+              "inferred_operator_error_bound": 0.00019512182143452547,
+              "held_return": {
+                "real": -0.15302784,
+                "imag": -0.54872506
+              },
+              "single_pass_error": 0.0017927042735183473,
+              "held_prediction_error": 1.6560649386558532e-06,
+              "held_joint_error_bound": 0.00021718703753339247,
+              "constant_interaction_difference": 4.484498982389141e-05,
+              "constant_interaction_joint_bound": 0.0005796683619619866
+            },
+            {
+              "k": 2.5118496128945162,
+              "k_radius": 1.3504320287365619,
+              "vertex_parity": {
+                "real": [
+                  [
+                    1.92e-06,
+                    -2e-06
+                  ],
+                  [
+                    -2e-06,
+                    -0.41402885
+                  ]
+                ],
+                "imag": [
+                  [
+                    -2.42e-06,
+                    -1e-06
+                  ],
+                  [
+                    -1e-06,
+                    -0.62686027
+                  ]
+                ]
+              },
+              "vertex_operator_error_bound": 0.00025258001931929776,
+              "inferred_parity": {
+                "real": [
+                  [
+                    1.92e-06,
+                    -2.6e-06
+                  ],
+                  [
+                    -2.6e-06,
+                    -1.00000054
+                  ]
+                ],
+                "imag": [
+                  [
+                    -2.42e-06,
+                    9.5e-07
+                  ],
+                  [
+                    9.5e-07,
+                    1.32e-06
+                  ]
+                ]
+              },
+              "inferred_operator_error_bound": 0.00010759938434917961,
+              "held_return": {
+                "real": 0.16970039,
+                "imag": -1.05829238
+              },
+              "single_pass_error": 0.017960085496754,
+              "held_prediction_error": 1.1011103187222553e-06,
+              "held_joint_error_bound": 0.0001719041965609198,
+              "constant_interaction_difference": 4.641599991344272e-05,
+              "constant_interaction_joint_bound": 0.0004921459248766407
+            }
+          ]
+        },
+        {
+          "width": 0.25,
+          "shells": [
+            {
+              "k": 7.300048299977713e-08,
+              "k_radius": 3.924685214037845e-08,
+              "vertex_parity": {
+                "real": [
+                  [
+                    -1.86e-06,
+                    -8.69e-06
+                  ],
+                  [
+                    -8.69e-06,
+                    -1.50575953
+                  ]
+                ],
+                "imag": [
+                  [
+                    5.24e-06,
+                    -1.083e-05
+                  ],
+                  [
+                    -1.083e-05,
+                    -0.085689
+                  ]
+                ]
+              },
+              "vertex_operator_error_bound": 0.0010636421974407856,
+              "inferred_parity": {
+                "real": [
+                  [
+                    -1.86e-06,
+                    -5.93e-06
+                  ],
+                  [
+                    -5.93e-06,
+                    -0.99995183
+                  ]
+                ],
+                "imag": [
+                  [
+                    5.24e-06,
+                    -6.98e-06
+                  ],
+                  [
+                    -6.98e-06,
+                    3.918e-05
+                  ]
+                ]
+              },
+              "inferred_operator_error_bound": 0.0005055876515468211,
+              "held_return": {
+                "real": -0.48456845,
+                "imag": -0.35818904
+              },
+              "single_pass_error": 0.00035766633436738065,
+              "held_prediction_error": 1.4388905556541109e-06,
+              "held_joint_error_bound": 0.00043602312951061963,
+              "constant_interaction_difference": 0.0,
+              "constant_interaction_joint_bound": 0.0010111753030936422
+            },
+            {
+              "k": 0.5567549704747271,
+              "k_radius": 0.299325142885823,
+              "vertex_parity": {
+                "real": [
+                  [
+                    9e-08,
+                    -6.88e-06
+                  ],
+                  [
+                    -6.88e-06,
+                    -1.54699759
+                  ]
+                ],
+                "imag": [
+                  [
+                    1.259e-05,
+                    -1.207e-05
+                  ],
+                  [
+                    -1.207e-05,
+                    -0.10554446
+                  ]
+                ]
+              },
+              "vertex_operator_error_bound": 0.0009844690082940824,
+              "inferred_parity": {
+                "real": [
+                  [
+                    9e-08,
+                    -4.47e-06
+                  ],
+                  [
+                    -4.47e-06,
+                    -0.99995987
+                  ]
+                ],
+                "imag": [
+                  [
+                    1.259e-05,
+                    -7.77e-06
+                  ],
+                  [
+                    -7.77e-06,
+                    5.694e-05
+                  ]
+                ]
+              },
+              "inferred_operator_error_bound": 0.00045221017645018946,
+              "held_return": {
+                "real": -0.33151693,
+                "imag": -0.39064949
+              },
+              "single_pass_error": 0.0004735011486876146,
+              "held_prediction_error": 2.006748518776308e-06,
+              "held_joint_error_bound": 0.0004316792003088066,
+              "constant_interaction_difference": 1.9643696126165868e-05,
+              "constant_interaction_joint_bound": 0.0009577978279970106
+            },
+            {
+              "k": 0.5834936231298447,
+              "k_radius": 0.31370049910355574,
+              "vertex_parity": {
+                "real": [
+                  [
+                    1.5e-07,
+                    -6.73e-06
+                  ],
+                  [
+                    -6.73e-06,
+                    -1.55154319
+                  ]
+                ],
+                "imag": [
+                  [
+                    1.39e-05,
+                    -1.22e-05
+                  ],
+                  [
+                    -1.22e-05,
+                    -0.10744381
+                  ]
+                ]
+              },
+              "vertex_operator_error_bound": 0.0009770037459620596,
+              "inferred_parity": {
+                "real": [
+                  [
+                    1.5e-07,
+                    -4.32e-06
+                  ],
+                  [
+                    -4.32e-06,
+                    -0.99996151
+                  ]
+                ],
+                "imag": [
+                  [
+                    1.39e-05,
+                    -7.85e-06
+                  ],
+                  [
+                    -7.85e-06,
+                    5.857e-05
+                  ]
+                ]
+              },
+              "inferred_operator_error_bound": 0.0004482838371156491,
+              "held_return": {
+                "real": -0.31796557,
+                "imag": -0.38362419
+              },
+              "single_pass_error": 0.00047050721704702873,
+              "held_prediction_error": 2.021638899712476e-06,
+              "held_joint_error_bound": 0.0004172053044609863,
+              "constant_interaction_difference": 2.184144097207442e-05,
+              "constant_interaction_joint_bound": 0.0009538714886624702
+            },
+            {
+              "k": 1.6625077511098103,
+              "k_radius": 0.8938049888004032,
+              "vertex_parity": {
+                "real": [
+                  [
+                    -1.01e-06,
+                    1.12e-06
+                  ],
+                  [
+                    1.12e-06,
+                    -1.03802783
+                  ]
+                ],
+                "imag": [
+                  [
+                    -2.79e-06,
+                    1.6e-06
+                  ],
+                  [
+                    1.6e-06,
+                    -1.12788539
+                  ]
+                ]
+              },
+              "vertex_operator_error_bound": 0.00038631087789019555,
+              "inferred_parity": {
+                "real": [
+                  [
+                    -1.01e-06,
+                    9.9e-07
+                  ],
+                  [
+                    9.9e-07,
+                    -1.00000564
+                  ]
+                ],
+                "imag": [
+                  [
+                    -2.79e-06,
+                    5.6e-07
+                  ],
+                  [
+                    5.6e-07,
+                    7e-07
+                  ]
+                ]
+              },
+              "inferred_operator_error_bound": 0.00012981740586096084,
+              "held_return": {
+                "real": -0.43308105,
+                "imag": -0.94798898
+              },
+              "single_pass_error": 0.009768892400533403,
+              "held_prediction_error": 1.218550683041571e-06,
+              "held_joint_error_bound": 0.0006283585607313297,
+              "constant_interaction_difference": 6.786519053930634e-05,
+              "constant_interaction_joint_bound": 0.000635405057407782
+            },
+            {
+              "k": 1.8409420083470394,
+              "k_radius": 0.9897356268290469,
+              "vertex_parity": {
+                "real": [
+                  [
+                    -2.68e-06,
+                    1.37e-06
+                  ],
+                  [
+                    1.37e-06,
+                    -1.0158976
+                  ]
+                ],
+                "imag": [
+                  [
+                    -2.2e-07,
+                    -1.23e-06
+                  ],
+                  [
+                    -1.23e-06,
+                    -0.58864659
+                  ]
+                ]
+              },
+              "vertex_operator_error_bound": 0.0007253735320497904,
+              "inferred_parity": {
+                "real": [
+                  [
+                    -2.68e-06,
+                    2.2e-07
+                  ],
+                  [
+                    2.2e-07,
+                    -0.99999884
+                  ]
+                ],
+                "imag": [
+                  [
+                    -2.2e-07,
+                    -9.8e-07
+                  ],
+                  [
+                    -9.8e-07,
+                    5.15e-06
+                  ]
+                ]
+              },
+              "inferred_operator_error_bound": 0.00034576712333626055,
+              "held_return": {
+                "real": 0.0717534,
+                "imag": -0.60585735
+              },
+              "single_pass_error": 0.002788124297305435,
+              "held_prediction_error": 2.4274904413193064e-06,
+              "held_joint_error_bound": 0.0006380420782046644,
+              "constant_interaction_difference": 5.938748160091538e-05,
+              "constant_interaction_joint_bound": 0.0008513547748830817
+            },
+            {
+              "k": 2.5118496128945162,
+              "k_radius": 1.3504320287365619,
+              "vertex_parity": {
+                "real": [
+                  [
+                    2.61e-06,
+                    -1.6e-06
+                  ],
+                  [
+                    -1.6e-06,
+                    -0.23198204
+                  ]
+                ],
+                "imag": [
+                  [
+                    -2.7e-06,
+                    -1e-08
+                  ],
+                  [
+                    -1e-08,
+                    -0.55155684
+                  ]
+                ]
+              },
+              "vertex_operator_error_bound": 0.00024821297023767887,
+              "inferred_parity": {
+                "real": [
+                  [
+                    2.61e-06,
+                    -1.52e-06
+                  ],
+                  [
+                    -1.52e-06,
+                    -1.0000008
+                  ]
+                ],
+                "imag": [
+                  [
+                    -2.7e-06,
+                    1.54e-06
+                  ],
+                  [
+                    1.54e-06,
+                    2.59e-06
+                  ]
+                ]
+              },
+              "inferred_operator_error_bound": 0.00010716202879792057,
+              "held_return": {
+                "real": 0.51025429,
+                "imag": -1.49275909
+              },
+              "single_pass_error": 0.08349475192779811,
+              "held_prediction_error": 1.017772750269728e-06,
+              "held_joint_error_bound": 0.00043189307405453527,
+              "constant_interaction_difference": 6.281375516529784e-05,
+              "constant_interaction_joint_bound": 0.0006127496803447417
+            }
+          ]
+        }
+      ],
+      "two_resolutions": [
+        {
+          "cutoff_k": 0.75,
+          "retained_modes": 20,
+          "source_projection_weight": 0.09183240212125648,
+          "matched_parity": {
+            "real": [
+              [
+                7.63521684,
+                -0.69982222
+              ],
+              [
+                -0.69982222,
+                7.25704201
+              ]
+            ],
+            "imag": [
+              [
+                -2.50821125,
+                0.18846206
+              ],
+              [
+                0.18846206,
+                -1.76361826
+              ]
+            ]
+          },
+          "held_filtered_return": {
+            "real": -0.3830535,
+            "imag": -0.14950965
+          },
+          "matched_error": 2.157742079815744e-06,
+          "matched_joint_bound": 0.00041249914157789295,
+          "coarse_joint_bound": 0.00041249914157789295,
+          "bare_joint_bound": 0.0013032952460953926,
+          "bare_in_reduced_space_error": 1.9010304616354907,
+          "coarse_in_reduced_space_error": 2.157742079815744e-06
+        },
+        {
+          "cutoff_k": 2.25,
+          "retained_modes": 80,
+          "source_projection_weight": 0.3440002734870632,
+          "matched_parity": {
+            "real": [
+              [
+                -37.34325826,
+                -5.18084474
+              ],
+              [
+                -5.18084474,
+                11.23546217
+              ]
+            ],
+            "imag": [
+              [
+                -41.61032895,
+                -3.7637177
+              ],
+              [
+                -3.7637177,
+                -3.53671054
+              ]
+            ]
+          },
+          "held_filtered_return": {
+            "real": -0.21979831,
+            "imag": -0.0647454
+          },
+          "matched_error": 2.775570796738099e-06,
+          "matched_joint_bound": 0.00028539602901660427,
+          "coarse_joint_bound": 0.0001985111704014284,
+          "bare_joint_bound": 0.0005805247535403053,
+          "bare_in_reduced_space_error": 0.20652938834311932,
+          "coarse_in_reduced_space_error": 0.097339026871384
+        }
+      ]
+    },
+    {
+      "cells": 80,
+      "ports": [
+        2,
+        3,
+        4
+      ],
+      "core": {
+        "radius_upper_simultaneous_99": 0.540428079218506,
+        "counts_by_distance_then_failed_tag": [
+          [
+            8098421,
+            150932,
+            2243,
+            3,
+            1,
+            3,
+            3,
+            3,
+            0,
+            0,
+            1,
+            1,
+            3,
+            1,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            136991
+          ],
+          [
+            8027713,
+            154422,
+            2327,
+            18,
+            2,
+            2,
+            4,
+            4,
+            1,
+            0,
+            3,
+            4,
+            2,
+            1,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            204103
+          ]
+        ],
+        "radius_links": 0.5376783709106787,
+        "accepted_fraction": 0.9796692132949829
+      },
+      "frequency_shells": [
+        8.82629525192478e-17,
+        0.12480905249130819,
+        0.18790450263587802,
+        1.381966011250102,
+        1.779892982652303,
+        3.143757222277665
+      ],
+      "blank_band_gaps": [
+        [
+          0.18790450263587802,
+          1.381966011250102
+        ],
+        [
+          1.779892982652303,
+          2.9999999999999925
+        ],
+        [
+          3.6180339887498993,
+          3.9102261103697273
+        ]
+      ],
+      "written": [
+        {
+          "width": 0.5,
+          "shells": [
+            {
+              "k": 1.3286305168800528e-08,
+              "k_radius": 7.143758918582798e-09,
+              "vertex_parity": {
+                "real": [
+                  [
+                    1.24155624,
+                    -0.3060739
+                  ],
+                  [
+                    -0.3060739,
+                    4.31105751
+                  ]
+                ],
+                "imag": [
+                  [
+                    -1.71776402,
+                    0.15532849
+                  ],
+                  [
+                    0.15532849,
+                    -1.30899931
+                  ]
+                ]
+              },
+              "vertex_operator_error_bound": 0.0015535459154797425,
+              "inferred_parity": {
+                "real": [
+                  [
+                    -7.99994827,
+                    -4.36e-06
+                  ],
+                  [
+                    -4.36e-06,
+                    -9.00001351
+                  ]
+                ],
+                "imag": [
+                  [
+                    5.1e-07,
+                    -1.147e-05
+                  ],
+                  [
+                    -1.147e-05,
+                    3.478e-05
+                  ]
+                ]
+              },
+              "inferred_operator_error_bound": 0.0015524269238603775,
+              "held_return": {
+                "real": -0.41237006,
+                "imag": -0.12878379
+              },
+              "single_pass_error": 0.6026697713775111,
+              "held_prediction_error": 4.878723691999309e-06,
+              "held_joint_error_bound": 0.00029615831195243836,
+              "constant_interaction_difference": 0.0,
+              "constant_interaction_joint_bound": 0.003104853847720755
+            },
+            {
+              "k": 0.4996179590273116,
+              "k_radius": 0.2686337702875231,
+              "vertex_parity": {
+                "real": [
+                  [
+                    1.05130624,
+                    -0.29127408
+                  ],
+                  [
+                    -0.29127408,
+                    4.01540904
+                  ]
+                ],
+                "imag": [
+                  [
+                    -1.89407022,
+                    0.16541937
+                  ],
+                  [
+                    0.16541937,
+                    -1.27552945
+                  ]
+                ]
+              },
+              "vertex_operator_error_bound": 0.0013437707764541351,
+              "inferred_parity": {
+                "real": [
+                  [
+                    -7.99995408,
+                    2.1e-07
+                  ],
+                  [
+                    2.1e-07,
+                    -9.00001214
+                  ]
+                ],
+                "imag": [
+                  [
+                    1.456e-05,
+                    -9.59e-06
+                  ],
+                  [
+                    -9.59e-06,
+                    3.207e-05
+                  ]
+                ]
+              },
+              "inferred_operator_error_bound": 0.001576161993226343,
+              "held_return": {
+                "real": -0.42986905,
+                "imag": -0.1519036
+              },
+              "single_pass_error": 0.6160169269295611,
+              "held_prediction_error": 4.791771178360899e-06,
+              "held_joint_error_bound": 0.00027340759160575834,
+              "constant_interaction_difference": 1.6965400489639394e-05,
+              "constant_interaction_joint_bound": 0.0031285889170867207
+            },
+            {
+              "k": 0.6130326298589301,
+              "k_radius": 0.3296143857376387,
+              "vertex_parity": {
+                "real": [
+                  [
+                    0.98758682,
+                    -0.28571847
+                  ],
+                  [
+                    -0.28571847,
+                    3.869558
+                  ]
+                ],
+                "imag": [
+                  [
+                    -1.99566877,
+                    0.17061409
+                  ],
+                  [
+                    0.17061409,
+                    -1.25920799
+                  ]
+                ]
+              },
+              "vertex_operator_error_bound": 0.001243605818346579,
+              "inferred_parity": {
+                "real": [
+                  [
+                    -7.99995951,
+                    2.5e-06
+                  ],
+                  [
+                    2.5e-06,
+                    -9.00001142
+                  ]
+                ],
+                "imag": [
+                  [
+                    2.029e-05,
+                    -8.52e-06
+                  ],
+                  [
+                    -8.52e-06,
+                    3.217e-05
+                  ]
+                ]
+              },
+              "inferred_operator_error_bound": 0.0015797405742458339,
+              "held_return": {
+                "real": -0.4376928,
+                "imag": -0.16525001
+              },
+              "single_pass_error": 0.5985361334691427,
+              "held_prediction_error": 4.682407845985983e-06,
+              "held_joint_error_bound": 0.000252319410606024,
+              "constant_interaction_difference": 2.527229860407299e-05,
+              "constant_interaction_joint_bound": 0.0031321674981062116
+            },
+            {
+              "k": 1.6625077511098119,
+              "k_radius": 0.8938944592430997,
+              "vertex_parity": {
+                "real": [
+                  [
+                    0.30717773,
+                    -0.19807368
+                  ],
+                  [
+                    -0.19807368,
+                    1.48129894
+                  ]
+                ],
+                "imag": [
+                  [
+                    -1.35461853,
+                    0.21426811
+                  ],
+                  [
+                    0.21426811,
+                    -1.51378236
+                  ]
+                ]
+              },
+              "vertex_operator_error_bound": 0.0005176682408593789,
+              "inferred_parity": {
+                "real": [
+                  [
+                    -7.99996494,
+                    -6.23e-06
+                  ],
+                  [
+                    -6.23e-06,
+                    -9.00012712
+                  ]
+                ],
+                "imag": [
+                  [
+                    4.75e-06,
+                    6.97e-05
+                  ],
+                  [
+                    6.97e-05,
+                    3e-07
+                  ]
+                ]
+              },
+              "inferred_operator_error_bound": 0.0018168452674689785,
+              "held_return": {
+                "real": -0.44208077,
+                "imag": -0.54869889
+              },
+              "single_pass_error": 0.8196107949542718,
+              "held_prediction_error": 5.052940923669784e-06,
+              "held_joint_error_bound": 0.00017652047477627528,
+              "constant_interaction_difference": 0.00015664444255800766,
+              "constant_interaction_joint_bound": 0.003369272191329356
+            },
+            {
+              "k": 1.886739506477936,
+              "k_radius": 1.0144590241758746,
+              "vertex_parity": {
+                "real": [
+                  [
+                    -0.34774219,
+                    -0.29388746
+                  ],
+                  [
+                    -0.29388746,
+                    1.40709813
+                  ]
+                ],
+                "imag": [
+                  [
+                    -1.47684582,
+                    0.27447487
+                  ],
+                  [
+                    0.27447487,
+                    -1.83037986
+                  ]
+                ]
+              },
+              "vertex_operator_error_bound": 0.0006024766915258531,
+              "inferred_parity": {
+                "real": [
+                  [
+                    -7.99997906,
+                    -3.56e-05
+                  ],
+                  [
+                    -3.56e-05,
+                    -9.00008799
+                  ]
+                ],
+                "imag": [
+                  [
+                    1.368e-05,
+                    6.177e-05
+                  ],
+                  [
+                    6.177e-05,
+                    -4.595e-05
+                  ]
+                ]
+              },
+              "inferred_operator_error_bound": 0.0021127707783365622,
+              "held_return": {
+                "real": -0.36527305,
+                "imag": -0.55724502
+              },
+              "single_pass_error": 1.1994554433586289,
+              "held_prediction_error": 6.558231919301181e-06,
+              "held_joint_error_bound": 0.0002782939501865204,
+              "constant_interaction_difference": 0.00014600522896396099,
+              "constant_interaction_joint_bound": 0.0036651977021969397
+            },
+            {
+              "k": 2.5074916639054514,
+              "k_radius": 1.3482240329207902,
+              "vertex_parity": {
+                "real": [
+                  [
+                    -0.3104725,
+                    -0.12405337
+                  ],
+                  [
+                    -0.12405337,
+                    0.15808519
+                  ]
+                ],
+                "imag": [
+                  [
+                    -1.19829928,
+                    0.13673428
+                  ],
+                  [
+                    0.13673428,
+                    -0.87836831
+                  ]
+                ]
+              },
+              "vertex_operator_error_bound": 0.00028102614991901587,
+              "inferred_parity": {
+                "real": [
+                  [
+                    -7.99998934,
+                    -9.54e-05
+                  ],
+                  [
+                    -9.54e-05,
+                    -9.00000322
+                  ]
+                ],
+                "imag": [
+                  [
+                    4.42e-05,
+                    2.134e-05
+                  ],
+                  [
+                    2.134e-05,
+                    -6.012e-05
+                  ]
+                ]
+              },
+              "inferred_operator_error_bound": 0.0025543963914364484,
+              "held_return": {
+                "real": 0.33534678,
+                "imag": -1.08132922
+              },
+              "single_pass_error": 1.1889345629101276,
+              "held_prediction_error": 2.9282575807528614e-06,
+              "held_joint_error_bound": 0.00017192257447878081,
+              "constant_interaction_difference": 0.00016447157536357616,
+              "constant_interaction_joint_bound": 0.004106823315296826
+            }
+          ]
+        },
+        {
+          "width": 0.25,
+          "shells": [
+            {
+              "k": 1.3286305168800528e-08,
+              "k_radius": 7.143758918582798e-09,
+              "vertex_parity": {
+                "real": [
+                  [
+                    0.83020651,
+                    -0.27472244
+                  ],
+                  [
+                    -0.27472244,
+                    4.34899511
+                  ]
+                ],
+                "imag": [
+                  [
+                    -1.13416567,
+                    0.11794321
+                  ],
+                  [
+                    0.11794321,
+                    -0.70671322
+                  ]
+                ]
+              },
+              "vertex_operator_error_bound": 0.0025475309837450022,
+              "inferred_parity": {
+                "real": [
+                  [
+                    -7.999901,
+                    8.7e-07
+                  ],
+                  [
+                    8.7e-07,
+                    -9.00003202
+                  ]
+                ],
+                "imag": [
+                  [
+                    1.3e-07,
+                    -2.253e-05
+                  ],
+                  [
+                    -2.253e-05,
+                    1.951e-05
+                  ]
+                ]
+              },
+              "inferred_operator_error_bound": 0.0023842109328959735,
+              "held_return": {
+                "real": -0.45446097,
+                "imag": -0.08049245
+              },
+              "single_pass_error": 1.790310556180036,
+              "held_prediction_error": 7.081349258751735e-06,
+              "held_joint_error_bound": 0.0014142196107207977,
+              "constant_interaction_difference": 0.0,
+              "constant_interaction_joint_bound": 0.004768421865791947
+            },
+            {
+              "k": 0.4996179590273116,
+              "k_radius": 0.2686337702875231,
+              "vertex_parity": {
+                "real": [
+                  [
+                    0.45527756,
+                    -0.25996618
+                  ],
+                  [
+                    -0.25996618,
+                    4.06540374
+                  ]
+                ],
+                "imag": [
+                  [
+                    -1.4424799,
+                    0.14022709
+                  ],
+                  [
+                    0.14022709,
+                    -0.69968292
+                  ]
+                ]
+              },
+              "vertex_operator_error_bound": 0.0020495707594074602,
+              "inferred_parity": {
+                "real": [
+                  [
+                    -7.99990343,
+                    5.12e-06
+                  ],
+                  [
+                    5.12e-06,
+                    -9.00000844
+                  ]
+                ],
+                "imag": [
+                  [
+                    4.328e-05,
+                    -1.704e-05
+                  ],
+                  [
+                    -1.704e-05,
+                    1.409e-05
+                  ]
+                ]
+              },
+              "inferred_operator_error_bound": 0.002514319527245468,
+              "held_return": {
+                "real": -0.48722297,
+                "imag": -0.1053141
+              },
+              "single_pass_error": 1.835740132921857,
+              "held_prediction_error": 7.364631213380545e-06,
+              "held_joint_error_bound": 0.0012613315934953328,
+              "constant_interaction_difference": 4.5418685075335746e-05,
+              "constant_interaction_joint_bound": 0.004898530460141441
+            },
+            {
+              "k": 0.6130326298589301,
+              "k_radius": 0.3296143857376387,
+              "vertex_parity": {
+                "real": [
+                  [
+                    0.28177714,
+                    -0.25357331
+                  ],
+                  [
+                    -0.25357331,
+                    3.92522214
+                  ]
+                ],
+                "imag": [
+                  [
+                    -1.67005778,
+                    0.14995124
+                  ],
+                  [
+                    0.14995124,
+                    -0.68708372
+                  ]
+                ]
+              },
+              "vertex_operator_error_bound": 0.001762016940726278,
+              "inferred_parity": {
+                "real": [
+                  [
+                    -7.99991803,
+                    5.23e-06
+                  ],
+                  [
+                    5.23e-06,
+                    -8.99999903
+                  ]
+                ],
+                "imag": [
+                  [
+                    6.706e-05,
+                    -1.6e-05
+                  ],
+                  [
+                    -1.6e-05,
+                    2.114e-05
+                  ]
+                ]
+              },
+              "inferred_operator_error_bound": 0.0025694647987493896,
+              "held_return": {
+                "real": -0.50419191,
+                "imag": -0.12309096
+              },
+              "single_pass_error": 1.6179382232186017,
+              "held_prediction_error": 7.373212764589833e-06,
+              "held_joint_error_bound": 0.0010069658292850721,
+              "constant_interaction_difference": 7.06967007327751e-05,
+              "constant_interaction_joint_bound": 0.0049536757316453635
+            },
+            {
+              "k": 1.6625077511098119,
+              "k_radius": 0.8938944592430997,
+              "vertex_parity": {
+                "real": [
+                  [
+                    0.30630956,
+                    -0.1052726
+                  ],
+                  [
+                    -0.1052726,
+                    1.0722015
+                  ]
+                ],
+                "imag": [
+                  [
+                    -0.83284775,
+                    0.19162103
+                  ],
+                  [
+                    0.19162103,
+                    -1.15798446
+                  ]
+                ]
+              },
+              "vertex_operator_error_bound": 0.0004968520668434746,
+              "inferred_parity": {
+                "real": [
+                  [
+                    -7.99990046,
+                    -1.294e-05
+                  ],
+                  [
+                    -1.294e-05,
+                    -9.00026787
+                  ]
+                ],
+                "imag": [
+                  [
+                    1.886e-05,
+                    0.0001197
+                  ],
+                  [
+                    0.0001197,
+                    -3.939e-05
+                  ]
+                ]
+              },
+              "inferred_operator_error_bound": 0.0026690221015881767,
+              "held_return": {
+                "real": -0.52058723,
+                "imag": -0.80662231
+              },
+              "single_pass_error": 1.8465672905972714,
+              "held_prediction_error": 7.082876823831145e-06,
+              "held_joint_error_bound": 0.00041592110933922136,
+              "constant_interaction_difference": 0.00030930009831187403,
+              "constant_interaction_joint_bound": 0.005053233034484151
+            },
+            {
+              "k": 1.886739506477936,
+              "k_radius": 1.0144590241758746,
+              "vertex_parity": {
+                "real": [
+                  [
+                    -0.57126389,
+                    -0.29982789
+                  ],
+                  [
+                    -0.29982789,
+                    1.33127999
+                  ]
+                ],
+                "imag": [
+                  [
+                    -1.01134463,
+                    0.50895836
+                  ],
+                  [
+                    0.50895836,
+                    -2.43878259
+                  ]
+                ]
+              },
+              "vertex_operator_error_bound": 0.0015654271271086128,
+              "inferred_parity": {
+                "real": [
+                  [
+                    -8.00001066,
+                    -3.595e-05
+                  ],
+                  [
+                    -3.595e-05,
+                    -9.00005397
+                  ]
+                ],
+                "imag": [
+                  [
+                    -2.033e-05,
+                    7.092e-05
+                  ],
+                  [
+                    7.092e-05,
+                    -3.837e-05
+                  ]
+                ]
+              },
+              "inferred_operator_error_bound": 0.0033216249649637947,
+              "held_return": {
+                "real": -0.3373465,
+                "imag": -0.45714468
+              },
+              "single_pass_error": 2.5746710989574924,
+              "held_prediction_error": 1.060105131088356e-05,
+              "held_joint_error_bound": 0.0012908525213081888,
+              "constant_interaction_difference": 0.0001632866729116938,
+              "constant_interaction_joint_bound": 0.0057058358978597686
+            },
+            {
+              "k": 2.5074916639054514,
+              "k_radius": 1.3482240329207902,
+              "vertex_parity": {
+                "real": [
+                  [
+                    -0.20832992,
+                    -0.03299849
+                  ],
+                  [
+                    -0.03299849,
+                    0.11873716
+                  ]
+                ],
+                "imag": [
+                  [
+                    -0.89660597,
+                    0.14826924
+                  ],
+                  [
+                    0.14826924,
+                    -0.64700604
+                  ]
+                ]
+              },
+              "vertex_operator_error_bound": 0.00025543898167945244,
+              "inferred_parity": {
+                "real": [
+                  [
+                    -7.999936,
+                    -0.00011245
+                  ],
+                  [
+                    -0.00011245,
+                    -9.00001686
+                  ]
+                ],
+                "imag": [
+                  [
+                    0.0001026,
+                    4.707e-05
+                  ],
+                  [
+                    4.707e-05,
+                    -5.669e-05
+                  ]
+                ]
+              },
+              "inferred_operator_error_bound": 0.0037710608258010496,
+              "held_return": {
+                "real": 0.66928539,
+                "imag": -1.46738473
+              },
+              "single_pass_error": 2.736700915615971,
+              "held_prediction_error": 3.5708955780951678e-06,
+              "held_joint_error_bound": 0.00037194863290457476,
+              "constant_interaction_difference": 0.00020986434391709427,
+              "constant_interaction_joint_bound": 0.006155271758697023
+            }
+          ]
+        }
+      ],
+      "cut_only": [
+        {
+          "width": 0.5,
+          "shells": [
+            {
+              "k": 1.3286305168800528e-08,
+              "k_radius": 7.143758918582798e-09,
+              "vertex_parity": {
+                "real": [
+                  [
+                    -3.78e-06,
+                    -1.071e-05
+                  ],
+                  [
+                    -1.071e-05,
+                    -1.46909921
+                  ]
+                ],
+                "imag": [
+                  [
+                    -9.78e-06,
+                    -5.35e-06
+                  ],
+                  [
+                    -5.35e-06,
+                    -0.14387793
+                  ]
+                ]
+              },
+              "vertex_operator_error_bound": 0.0007735451494058924,
+              "inferred_parity": {
+                "real": [
+                  [
+                    -3.78e-06,
+                    -7.72e-06
+                  ],
+                  [
+                    -7.72e-06,
+                    -0.99999684
+                  ]
+                ],
+                "imag": [
+                  [
+                    -9.78e-06,
+                    -2.55e-06
+                  ],
+                  [
+                    -2.55e-06,
+                    1.933e-05
+                  ]
+                ]
+              },
+              "inferred_operator_error_bound": 0.00038476150062013547,
+              "held_return": {
+                "real": -0.38879236,
+                "imag": -0.26107412
+              },
+              "single_pass_error": 0.00012197895471849463,
+              "held_prediction_error": 7.568720863233722e-07,
+              "held_joint_error_bound": 0.00010874872783128386,
+              "constant_interaction_difference": 0.0,
+              "constant_interaction_joint_bound": 0.0007695230012402709
+            },
+            {
+              "k": 0.4996179590273116,
+              "k_radius": 0.2686337702875231,
+              "vertex_parity": {
+                "real": [
+                  [
+                    -3.87e-06,
+                    -9.95e-06
+                  ],
+                  [
+                    -9.95e-06,
+                    -1.49580428
+                  ]
+                ],
+                "imag": [
+                  [
+                    -9.37e-06,
+                    -4.49e-06
+                  ],
+                  [
+                    -4.49e-06,
+                    -0.16680187
+                  ]
+                ]
+              },
+              "vertex_operator_error_bound": 0.0007276830673494342,
+              "inferred_parity": {
+                "real": [
+                  [
+                    -3.87e-06,
+                    -7.07e-06
+                  ],
+                  [
+                    -7.07e-06,
+                    -0.99999986
+                  ]
+                ],
+                "imag": [
+                  [
+                    -9.37e-06,
+                    -1.9e-06
+                  ],
+                  [
+                    -1.9e-06,
+                    1.23e-05
+                  ]
+                ]
+              },
+              "inferred_operator_error_bound": 0.0003565141529523327,
+              "held_return": {
+                "real": -0.36478246,
+                "imag": -0.27883592
+              },
+              "single_pass_error": 0.00014918616371658867,
+              "held_prediction_error": 5.216568600747609e-07,
+              "held_joint_error_bound": 0.00011330814723573805,
+              "constant_interaction_difference": 7.767364415834458e-06,
+              "constant_interaction_joint_bound": 0.0007412756535724682
+            },
+            {
+              "k": 0.6130326298589301,
+              "k_radius": 0.3296143857376387,
+              "vertex_parity": {
+                "real": [
+                  [
+                    -3.9e-06,
+                    -9.62e-06
+                  ],
+                  [
+                    -9.62e-06,
+                    -1.51029776
+                  ]
+                ],
+                "imag": [
+                  [
+                    -9.45e-06,
+                    -4.16e-06
+                  ],
+                  [
+                    -4.16e-06,
+                    -0.18026121
+                  ]
+                ]
+              },
+              "vertex_operator_error_bound": 0.0007061860833241138,
+              "inferred_parity": {
+                "real": [
+                  [
+                    -3.9e-06,
+                    -6.79e-06
+                  ],
+                  [
+                    -6.79e-06,
+                    -1.00000047
+                  ]
+                ],
+                "imag": [
+                  [
+                    -9.45e-06,
+                    -1.63e-06
+                  ],
+                  [
+                    -1.63e-06,
+                    9.1e-06
+                  ]
+                ]
+              },
+              "inferred_operator_error_bound": 0.0003466533340200242,
+              "held_return": {
+                "real": -0.35368277,
+                "imag": -0.28106238
+              },
+              "single_pass_error": 0.0001588076225082425,
+              "held_prediction_error": 3.8039301741312133e-07,
+              "held_joint_error_bound": 0.00011170730796047924,
+              "constant_interaction_difference": 1.1011194366486154e-05,
+              "constant_interaction_joint_bound": 0.0007314148346401596
+            },
+            {
+              "k": 1.6625077511098119,
+              "k_radius": 0.8938944592430997,
+              "vertex_parity": {
+                "real": [
+                  [
+                    1.91e-06,
+                    -2.79e-06
+                  ],
+                  [
+                    -2.79e-06,
+                    -1.28703558
+                  ]
+                ],
+                "imag": [
+                  [
+                    -1.5e-06,
+                    2.1e-06
+                  ],
+                  [
+                    2.1e-06,
+                    -0.81397714
+                  ]
+                ]
+              },
+              "vertex_operator_error_bound": 0.000387373809888321,
+              "inferred_parity": {
+                "real": [
+                  [
+                    1.91e-06,
+                    -1e-06
+                  ],
+                  [
+                    -1e-06,
+                    -0.99999614
+                  ]
+                ],
+                "imag": [
+                  [
+                    -1.5e-06,
+                    1.99e-06
+                  ],
+                  [
+                    1.99e-06,
+                    -9.55e-06
+                  ]
+                ]
+              },
+              "inferred_operator_error_bound": 0.0001581735640900992,
+              "held_return": {
+                "real": -0.32550886,
+                "imag": -0.59999168
+              },
+              "single_pass_error": 0.0017313411645823098,
+              "held_prediction_error": 2.75269186367278e-07,
+              "held_joint_error_bound": 0.0001808392097037905,
+              "constant_interaction_difference": 3.111161810926268e-05,
+              "constant_interaction_joint_bound": 0.0005429350647102347
+            },
+            {
+              "k": 1.886739506477936,
+              "k_radius": 1.0144590241758746,
+              "vertex_parity": {
+                "real": [
+                  [
+                    3.26e-06,
+                    -5.06e-06
+                  ],
+                  [
+                    -5.06e-06,
+                    -1.19017395
+                  ]
+                ],
+                "imag": [
+                  [
+                    -3.7e-07,
+                    1.63e-06
+                  ],
+                  [
+                    1.63e-06,
+                    -0.67345475
+                  ]
+                ]
+              },
+              "vertex_operator_error_bound": 0.0004425652541026113,
+              "inferred_parity": {
+                "real": [
+                  [
+                    3.26e-06,
+                    -2.51e-06
+                  ],
+                  [
+                    -2.51e-06,
+                    -0.99998889
+                  ]
+                ],
+                "imag": [
+                  [
+                    -3.7e-07,
+                    2.5e-06
+                  ],
+                  [
+                    2.5e-06,
+                    -1.212e-05
+                  ]
+                ]
+              },
+              "inferred_operator_error_bound": 0.00020518545893639852,
+              "held_return": {
+                "real": -0.14110199,
+                "imag": -0.51318335
+              },
+              "single_pass_error": 0.0017644461862220098,
+              "held_prediction_error": 1.7256754344335628e-06,
+              "held_joint_error_bound": 0.00021914106753822708,
+              "constant_interaction_difference": 3.399336127866771e-05,
+              "constant_interaction_joint_bound": 0.000589946959556534
+            },
+            {
+              "k": 2.5074916639054514,
+              "k_radius": 1.3482240329207902,
+              "vertex_parity": {
+                "real": [
+                  [
+                    -1.17e-06,
+                    6.7e-07
+                  ],
+                  [
+                    6.7e-07,
+                    -0.41309785
+                  ]
+                ],
+                "imag": [
+                  [
+                    1.48e-06,
+                    5.2e-07
+                  ],
+                  [
+                    5.2e-07,
+                    -0.6320848
+                  ]
+                ]
+              },
+              "vertex_operator_error_bound": 0.0002541826279139328,
+              "inferred_parity": {
+                "real": [
+                  [
+                    -1.17e-06,
+                    1.08e-06
+                  ],
+                  [
+                    1.08e-06,
+                    -1.00000074
+                  ]
+                ],
+                "imag": [
+                  [
+                    1.48e-06,
+                    -6e-08
+                  ],
+                  [
+                    -6e-08,
+                    -1.25e-06
+                  ]
+                ]
+              },
+              "inferred_operator_error_bound": 0.00010799964039338107,
+              "held_return": {
+                "real": 0.15552119,
+                "imag": -1.06332306
+              },
+              "single_pass_error": 0.017412484748612095,
+              "held_prediction_error": 3.774847623400512e-06,
+              "held_joint_error_bound": 0.00017244682406318044,
+              "constant_interaction_difference": 2.6014786543001993e-05,
+              "constant_interaction_joint_bound": 0.0004927611410135166
+            }
+          ]
+        },
+        {
+          "width": 0.25,
+          "shells": [
+            {
+              "k": 1.3286305168800528e-08,
+              "k_radius": 7.143758918582798e-09,
+              "vertex_parity": {
+                "real": [
+                  [
+                    -1.17e-06,
+                    -8.26e-06
+                  ],
+                  [
+                    -8.26e-06,
+                    -1.50596957
+                  ]
+                ],
+                "imag": [
+                  [
+                    -8.21e-06,
+                    -6.64e-06
+                  ],
+                  [
+                    -6.64e-06,
+                    -0.08608861
+                  ]
+                ]
+              },
+              "vertex_operator_error_bound": 0.0010635274884972688,
+              "inferred_parity": {
+                "real": [
+                  [
+                    -1.17e-06,
+                    -5.93e-06
+                  ],
+                  [
+                    -5.93e-06,
+                    -1.00002049
+                  ]
+                ],
+                "imag": [
+                  [
+                    -8.21e-06,
+                    -3.74e-06
+                  ],
+                  [
+                    -3.74e-06,
+                    2.686e-05
+                  ]
+                ]
+              },
+              "inferred_operator_error_bound": 0.0005054796739435175,
+              "held_return": {
+                "real": -0.48428886,
+                "imag": -0.35803346
+              },
+              "single_pass_error": 0.00035802273767348745,
+              "held_prediction_error": 1.7373168717316435e-06,
+              "held_joint_error_bound": 0.00043541135444236253,
+              "constant_interaction_difference": 0.0,
+              "constant_interaction_joint_bound": 0.001010959347887035
+            },
+            {
+              "k": 0.4996179590273116,
+              "k_radius": 0.2686337702875231,
+              "vertex_parity": {
+                "real": [
+                  [
+                    -3.5e-06,
+                    -8.12e-06
+                  ],
+                  [
+                    -8.12e-06,
+                    -1.538339
+                  ]
+                ],
+                "imag": [
+                  [
+                    -6.71e-06,
+                    -5.19e-06
+                  ],
+                  [
+                    -5.19e-06,
+                    -0.1024671
+                  ]
+                ]
+              },
+              "vertex_operator_error_bound": 0.001000280916053887,
+              "inferred_parity": {
+                "real": [
+                  [
+                    -3.5e-06,
+                    -5.64e-06
+                  ],
+                  [
+                    -5.64e-06,
+                    -1.00001852
+                  ]
+                ],
+                "imag": [
+                  [
+                    -6.71e-06,
+                    -2.69e-06
+                  ],
+                  [
+                    -2.69e-06,
+                    1.141e-05
+                  ]
+                ]
+              },
+              "inferred_operator_error_bound": 0.00046164134122170816,
+              "held_return": {
+                "real": -0.36146161,
+                "imag": -0.39917714
+              },
+              "single_pass_error": 0.0004749511772785601,
+              "held_prediction_error": 1.865733486928524e-06,
+              "held_joint_error_bound": 0.00045290345103422906,
+              "constant_interaction_difference": 1.565842716476541e-05,
+              "constant_interaction_joint_bound": 0.0009671210151652257
+            },
+            {
+              "k": 0.6130326298589301,
+              "k_radius": 0.3296143857376387,
+              "vertex_parity": {
+                "real": [
+                  [
+                    -5.12e-06,
+                    -8.12e-06
+                  ],
+                  [
+                    -8.12e-06,
+                    -1.55671186
+                  ]
+                ],
+                "imag": [
+                  [
+                    -6.55e-06,
+                    -4.71e-06
+                  ],
+                  [
+                    -4.71e-06,
+                    -0.11042046
+                  ]
+                ]
+              },
+              "vertex_operator_error_bound": 0.0009699014427691977,
+              "inferred_parity": {
+                "real": [
+                  [
+                    -5.12e-06,
+                    -5.54e-06
+                  ],
+                  [
+                    -5.54e-06,
+                    -1.00001621
+                  ]
+                ],
+                "imag": [
+                  [
+                    -6.55e-06,
+                    -2.31e-06
+                  ],
+                  [
+                    -2.31e-06,
+                    5.94e-06
+                  ]
+                ]
+              },
+              "inferred_operator_error_bound": 0.00044553873319042004,
+              "held_return": {
+                "real": -0.30423343,
+                "imag": -0.37342897
+              },
+              "single_pass_error": 0.0004702919396680368,
+              "held_prediction_error": 1.7662222198999233e-06,
+              "held_joint_error_bound": 0.0003971427580833127,
+              "constant_interaction_difference": 2.1469358423890564e-05,
+              "constant_interaction_joint_bound": 0.0009510184071339375
+            },
+            {
+              "k": 1.6625077511098119,
+              "k_radius": 0.8938944592430997,
+              "vertex_parity": {
+                "real": [
+                  [
+                    1.68e-06,
+                    -1.17e-06
+                  ],
+                  [
+                    -1.17e-06,
+                    -1.03848309
+                  ]
+                ],
+                "imag": [
+                  [
+                    -8.6e-07,
+                    2.59e-06
+                  ],
+                  [
+                    2.59e-06,
+                    -1.12826829
+                  ]
+                ]
+              },
+              "vertex_operator_error_bound": 0.0003858712678603415,
+              "inferred_parity": {
+                "real": [
+                  [
+                    1.68e-06,
+                    4.6e-07
+                  ],
+                  [
+                    4.6e-07,
+                    -0.99999953
+                  ]
+                ],
+                "imag": [
+                  [
+                    -8.6e-07,
+                    1.56e-06
+                  ],
+                  [
+                    1.56e-06,
+                    -8.01e-06
+                  ]
+                ]
+              },
+              "inferred_operator_error_bound": 0.0001295019217712956,
+              "held_return": {
+                "real": -0.43343225,
+                "imag": -0.94909738
+              },
+              "single_pass_error": 0.009724771483452155,
+              "held_prediction_error": 2.494627609192552e-06,
+              "held_joint_error_bound": 0.000629743131093629,
+              "constant_interaction_difference": 4.247113554641192e-05,
+              "constant_interaction_joint_bound": 0.0006349815957148132
+            },
+            {
+              "k": 1.886739506477936,
+              "k_radius": 1.0144590241758746,
+              "vertex_parity": {
+                "real": [
+                  [
+                    4.42e-06,
+                    -1.183e-05
+                  ],
+                  [
+                    -1.183e-05,
+                    -1.10497992
+                  ]
+                ],
+                "imag": [
+                  [
+                    -4.71e-06,
+                    8.64e-06
+                  ],
+                  [
+                    8.64e-06,
+                    -0.51769141
+                  ]
+                ]
+              },
+              "vertex_operator_error_bound": 0.0008519438952905105,
+              "inferred_parity": {
+                "real": [
+                  [
+                    4.42e-06,
+                    -5.98e-06
+                  ],
+                  [
+                    -5.98e-06,
+                    -0.99998351
+                  ]
+                ],
+                "imag": [
+                  [
+                    -4.71e-06,
+                    9.3e-06
+                  ],
+                  [
+                    9.3e-06,
+                    -3.744e-05
+                  ]
+                ]
+              },
+              "inferred_operator_error_bound": 0.00041723980671970365,
+              "held_return": {
+                "real": 0.05645837,
+                "imag": -0.47992088
+              },
+              "single_pass_error": 0.002097191931674102,
+              "held_prediction_error": 3.4679481853708387e-06,
+              "held_joint_error_bound": 0.0005778415162450946,
+              "constant_interaction_difference": 7.624570916764656e-05,
+              "constant_interaction_joint_bound": 0.0009227194806632212
+            },
+            {
+              "k": 2.5074916639054514,
+              "k_radius": 1.3482240329207902,
+              "vertex_parity": {
+                "real": [
+                  [
+                    -7.2e-07,
+                    8e-07
+                  ],
+                  [
+                    8e-07,
+                    -0.22540555
+                  ]
+                ],
+                "imag": [
+                  [
+                    6.4e-07,
+                    1e-07
+                  ],
+                  [
+                    1e-07,
+                    -0.55230199
+                  ]
+                ]
+              },
+              "vertex_operator_error_bound": 0.00024097549343297052,
+              "inferred_parity": {
+                "real": [
+                  [
+                    -7.2e-07,
+                    7.7e-07
+                  ],
+                  [
+                    7.7e-07,
+                    -1.00000079
+                  ]
+                ],
+                "imag": [
+                  [
+                    6.4e-07,
+                    -9.6e-07
+                  ],
+                  [
+                    -9.6e-07,
+                    1e-07
+                  ]
+                ]
+              },
+              "inferred_operator_error_bound": 0.00010491378665639287,
+              "held_return": {
+                "real": 0.48427312,
+                "imag": -1.53123012
+              },
+              "single_pass_error": 0.07965421796826143,
+              "held_prediction_error": 5.18865511453189e-06,
+              "held_joint_error_bound": 0.00043470616606766004,
+              "constant_interaction_difference": 3.521620748427824e-05,
+              "constant_interaction_joint_bound": 0.0006103934605999104
+            }
+          ]
+        }
+      ],
+      "two_resolutions": [
+        {
+          "cutoff_k": 0.75,
+          "retained_modes": 80,
+          "source_projection_weight": 0.09183510744336401,
+          "matched_parity": {
+            "real": [
+              [
+                7.63681639,
+                -0.70255128
+              ],
+              [
+                -0.70255128,
+                7.26041114
+              ]
+            ],
+            "imag": [
+              [
+                -2.50835686,
+                0.18898516
+              ],
+              [
+                0.18898516,
+                -1.76424057
+              ]
+            ]
+          },
+          "held_filtered_return": {
+            "real": -0.3831735,
+            "imag": -0.14953771
+          },
+          "matched_error": 3.270867675004949e-06,
+          "matched_joint_bound": 0.0004123778967774491,
+          "coarse_joint_bound": 0.0004123778967774491,
+          "bare_joint_bound": 0.0013022840838901601,
+          "bare_in_reduced_space_error": 1.899565512986996,
+          "coarse_in_reduced_space_error": 3.270867675004949e-06
+        },
+        {
+          "cutoff_k": 2.25,
+          "retained_modes": 320,
+          "source_projection_weight": 0.34389708829160376,
+          "matched_parity": {
+            "real": [
+              [
+                -37.35834048,
+                -5.18202823
+              ],
+              [
+                -5.18202823,
+                11.21930582
+              ]
+            ],
+            "imag": [
+              [
+                -41.54812935,
+                -3.76097743
+              ],
+              [
+                -3.76097743,
+                -3.5308102
+              ]
+            ]
+          },
+          "held_filtered_return": {
+            "real": -0.21970644,
+            "imag": -0.06475068
+          },
+          "matched_error": 3.6720614231628386e-06,
+          "matched_joint_bound": 0.00028553262118005587,
+          "coarse_joint_bound": 0.00019882961530133376,
+          "bare_joint_bound": 0.0005799100669034824,
+          "bare_in_reduced_space_error": 0.20648326744801385,
+          "coarse_in_reduced_space_error": 0.09737527624863195
+        }
+      ]
+    }
+  ]
+}

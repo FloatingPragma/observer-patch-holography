@@ -1,0 +1,440 @@
+{
+  "scope": "Exposed v3 internal pilot",
+  "seeds": [
+    927016,
+    927016,
+    927016
+  ],
+  "status": "passed",
+  "boards": [
+    {
+      "level": 0,
+      "dimers": 20,
+      "status": "passed",
+      "raw_arrays": 38,
+      "inventory_sha256": "67bc7556c176c50bf2fc5abef74012374024cc29964f4c21eb31ddb481caacf9",
+      "failed_native_gates": [],
+      "spatial": {
+        "records_complete": true,
+        "status": "pass",
+        "profile_pass": true,
+        "launch_label_rejected": true,
+        "projected_degrees_of_freedom": 266,
+        "quadratic_cutoff": 399.70445181885816,
+        "candidate_q": 266.80728569092713,
+        "even_trained_q": 266.80728569092713,
+        "even_recurrence_only_q": 462.4649104122792,
+        "full_recurrence_diagnostic_q": 330.8504747413589,
+        "omega_from_pair_counts": [
+          15.010819935078437,
+          15.04290692014397,
+          15.095559358288877,
+          15.167484869859067,
+          15.256973378455903
+        ],
+        "launch_label_q": 3175986.2644713405,
+        "even_trained_k": [
+          0.14236901230954802,
+          0.2847522997040983,
+          0.4271501690070756,
+          0.5695838563573997,
+          0.7120479037718223
+        ]
+      },
+      "dispersion": {
+        "spatial_ruler": "even_hold_fit",
+        "meter": {
+          "source_sha256": "6a21312354b9692049a8a1a731eeb0b52e0d8a5f218e69d92ca426af24bfc8ed",
+          "h": 0.5000308295889321,
+          "j": 8.000286276528756,
+          "m": 15.000510893879648,
+          "c_squared": 16.00155913520649
+        },
+        "modes": [
+          {
+            "launch": 1,
+            "k": 0.14236901230954802,
+            "omega": 15.010819935078437,
+            "full_recurrence_diagnostic_k": 0.1423664390618084,
+            "low_k": true,
+            "lattice": 15.011299550461361,
+            "ordinary": 15.011317785260198,
+            "matched_tangent": 15.01130343016625,
+            "lattice_residual": -0.00047961538292362604,
+            "ordinary_residual": -0.0004978501817607395,
+            "tangent_residual": -0.0004834950878116473
+          },
+          {
+            "launch": 2,
+            "k": 0.2847522997040983,
+            "omega": 15.04290692014397,
+            "full_recurrence_diagnostic_k": 0.28475439716116063,
+            "low_k": true,
+            "lattice": 15.04340560292758,
+            "ordinary": 15.04369620316464,
+            "matched_tangent": 15.043466932707522,
+            "lattice_residual": -0.0004986827836095387,
+            "ordinary_residual": -0.0007892830206692736,
+            "tangent_residual": -0.0005600125635520925
+          },
+          {
+            "launch": 3,
+            "k": 0.4271501690070756,
+            "omega": 15.095559358288877,
+            "full_recurrence_diagnostic_k": 0.42715978901677476,
+            "low_k": true,
+            "lattice": 15.09605263199943,
+            "ordinary": 15.097513961678422,
+            "matched_tangent": 15.096356895760431,
+            "lattice_residual": -0.0004932737105534102,
+            "ordinary_residual": -0.0019546033895441184,
+            "tangent_residual": -0.0007975374715538663
+          },
+          {
+            "launch": 4,
+            "k": 0.5695838563573997,
+            "omega": 15.167484869859067,
+            "full_recurrence_diagnostic_k": 0.5695705856864378,
+            "low_k": false,
+            "lattice": 15.167986169507266,
+            "ordinary": 15.17256224939639,
+            "matched_tangent": 15.168921069929825,
+            "lattice_residual": -0.0005012996481994492,
+            "ordinary_residual": -0.005077379537324234,
+            "tangent_residual": -0.0014362000707581757
+          },
+          {
+            "launch": 5,
+            "k": 0.7120479037718223,
+            "omega": 15.256973378455903,
+            "full_recurrence_diagnostic_k": 0.7120484808261806,
+            "low_k": false,
+            "lattice": 15.2574988820318,
+            "ordinary": 15.268539977818888,
+            "matched_tangent": 15.25970023458978,
+            "lattice_residual": -0.0005255035758970905,
+            "ordinary_residual": -0.01156659936298432,
+            "tangent_residual": -0.002726856133875799
+          }
+        ],
+        "low_k_lines": 3,
+        "low_k_span": 0.28478115669752757,
+        "low_k_max": 0.0019546033895441184,
+        "lattice_max": 0.0005255035758970905,
+        "shape_rms_lattice": 2.79555419258948e-05,
+        "shape_rms_tangent": 0.0012293080482947893,
+        "gates": {
+          "lattice": true,
+          "continuum": true,
+          "shape": true
+        }
+      }
+    },
+    {
+      "level": 1,
+      "dimers": 26,
+      "status": "passed",
+      "raw_arrays": 54,
+      "inventory_sha256": "b03ecdfa14d94369f054323eae00b2b84ab13f4d169711a1b8233104cb1118ed",
+      "failed_native_gates": [],
+      "spatial": {
+        "records_complete": true,
+        "status": "pass",
+        "profile_pass": true,
+        "launch_label_rejected": true,
+        "projected_degrees_of_freedom": 550,
+        "quadratic_cutoff": 732.174950905198,
+        "candidate_q": 545.2628724355609,
+        "even_trained_q": 545.2628724355609,
+        "even_recurrence_only_q": 681.6531426730386,
+        "full_recurrence_diagnostic_q": 653.5787343431781,
+        "omega_from_pair_counts": [
+          15.006676940495488,
+          15.026650514990138,
+          15.059470714365826,
+          15.104805542914857,
+          15.161967603945193,
+          15.229920718303323,
+          15.307964294190086
+        ],
+        "launch_label_q": 2427423.2650714703,
+        "even_trained_k": [
+          0.1119332622090894,
+          0.22387253194175927,
+          0.33581828401042113,
+          0.4477721626091518,
+          0.5597478551927837,
+          0.6717411197599076,
+          0.7837499071401988
+        ]
+      },
+      "dispersion": {
+        "spatial_ruler": "even_hold_fit",
+        "meter": {
+          "source_sha256": "6a21312354b9692049a8a1a731eeb0b52e0d8a5f218e69d92ca426af24bfc8ed",
+          "h": 0.5000308295889321,
+          "j": 8.000286276528756,
+          "m": 15.000510893879648,
+          "c_squared": 16.00155913520649
+        },
+        "modes": [
+          {
+            "launch": 1,
+            "k": 0.1119332622090894,
+            "omega": 15.006676940495488,
+            "full_recurrence_diagnostic_k": 0.11193944768812375,
+            "low_k": true,
+            "lattice": 15.00718502114749,
+            "ordinary": 15.007191992338651,
+            "matched_tangent": 15.007186505896081,
+            "lattice_residual": -0.0005080806520023629,
+            "ordinary_residual": -0.0005150518431626949,
+            "tangent_residual": -0.0005095654005931038
+          },
+          {
+            "launch": 2,
+            "k": 0.22387253194175927,
+            "omega": 15.026650514990138,
+            "full_recurrence_diagnostic_k": 0.2238722578928688,
+            "low_k": true,
+            "lattice": 15.027107634073191,
+            "ordinary": 15.027218897337198,
+            "matched_tangent": 15.027131212823072,
+            "lattice_residual": -0.00045711908305356985,
+            "ordinary_residual": -0.0005683823470601368,
+            "tangent_residual": -0.0004806978329341405
+          },
+          {
+            "launch": 3,
+            "k": 0.33581828401042113,
+            "omega": 15.059470714365826,
+            "full_recurrence_diagnostic_k": 0.3358205851746959,
+            "low_k": true,
+            "lattice": 15.059979758266099,
+            "ordinary": 15.060540681702038,
+            "matched_tangent": 15.060097639112172,
+            "lattice_residual": -0.0005090439002728431,
+            "ordinary_residual": -0.0010699673362122297,
+            "tangent_residual": -0.0006269247463457361
+          },
+          {
+            "launch": 4,
+            "k": 0.4477721626091518,
+            "omega": 15.104805542914857,
+            "full_recurrence_diagnostic_k": 0.44776051519217364,
+            "low_k": true,
+            "lattice": 15.10530998400627,
+            "ordinary": 15.107072457547583,
+            "matched_tangent": 15.105676066514029,
+            "lattice_residual": -0.0005044410914134545,
+            "ordinary_residual": -0.0022669146327256584,
+            "tangent_residual": -0.0008705235991719462
+          },
+          {
+            "launch": 5,
+            "k": 0.5597478551927837,
+            "omega": 15.161967603945193,
+            "full_recurrence_diagnostic_k": 0.5597455647570306,
+            "low_k": false,
+            "lattice": 15.162432335290072,
+            "ordinary": 15.166703602440625,
+            "matched_tangent": 15.163306257297593,
+            "lattice_residual": -0.0004647313448788992,
+            "ordinary_residual": -0.00473599849543227,
+            "tangent_residual": -0.001338653352400243
+          },
+          {
+            "launch": 6,
+            "k": 0.6717411197599076,
+            "omega": 15.229920718303323,
+            "full_recurrence_diagnostic_k": 0.6717379966742925,
+            "low_k": false,
+            "lattice": 15.230507148451258,
+            "ordinary": 15.239285046456823,
+            "matched_tangent": 15.232270364300744,
+            "lattice_residual": -0.0005864301479352463,
+            "ordinary_residual": -0.009364328153500523,
+            "tangent_residual": -0.00234964599742149
+          },
+          {
+            "launch": 7,
+            "k": 0.7837499071401988,
+            "omega": 15.307964294190086,
+            "full_recurrence_diagnostic_k": 0.7837405373937804,
+            "low_k": false,
+            "lattice": 15.308545154262552,
+            "ordinary": 15.324637270388402,
+            "matched_tangent": 15.311707883393609,
+            "lattice_residual": -0.0005808600724659385,
+            "ordinary_residual": -0.016672976198316647,
+            "tangent_residual": -0.0037435892035233564
+          }
+        ],
+        "low_k_lines": 4,
+        "low_k_span": 0.3358389004000624,
+        "low_k_max": 0.0022669146327256584,
+        "lattice_max": 0.0005864301479352463,
+        "shape_rms_lattice": 5.1520070105847635e-05,
+        "shape_rms_tangent": 0.0015640274276258093,
+        "gates": {
+          "lattice": true,
+          "continuum": true,
+          "shape": true
+        }
+      }
+    },
+    {
+      "level": 2,
+      "dimers": 29,
+      "status": "passed",
+      "raw_arrays": 54,
+      "inventory_sha256": "bdc4eb0d4242deeaedf323af1b942b6a4eff50bb432ca3aed9b382f9b54fc19a",
+      "failed_native_gates": [],
+      "spatial": {
+        "records_complete": true,
+        "status": "pass",
+        "profile_pass": true,
+        "launch_label_rejected": true,
+        "projected_degrees_of_freedom": 616,
+        "quadratic_cutoff": 807.4534268956553,
+        "candidate_q": 637.1575386316485,
+        "even_trained_q": 637.1575386316485,
+        "even_recurrence_only_q": 748.5659460110332,
+        "full_recurrence_diagnostic_q": 702.3919816712555,
+        "omega_from_pair_counts": [
+          15.005443638377477,
+          15.021693310033841,
+          15.048633161187913,
+          15.085928331518657,
+          15.132947786166886,
+          15.18920417689848,
+          15.254281528984349
+        ],
+        "launch_label_q": 1475400.8527326179,
+        "even_trained_k": [
+          0.1011240369527183,
+          0.20225156741461808,
+          0.3033843768876145,
+          0.40452783395779573,
+          0.5056788618504118,
+          0.6068391866969972,
+          0.7080156243408119
+        ]
+      },
+      "dispersion": {
+        "spatial_ruler": "even_hold_fit",
+        "meter": {
+          "source_sha256": "6a21312354b9692049a8a1a731eeb0b52e0d8a5f218e69d92ca426af24bfc8ed",
+          "h": 0.5000308295889321,
+          "j": 8.000286276528756,
+          "m": 15.000510893879648,
+          "c_squared": 16.00155913520649
+        },
+        "modes": [
+          {
+            "launch": 1,
+            "k": 0.1011240369527183,
+            "omega": 15.005443638377477,
+            "full_recurrence_diagnostic_k": 0.10112264104946911,
+            "low_k": true,
+            "lattice": 15.00595950809964,
+            "ordinary": 15.005964152790147,
+            "matched_tangent": 15.005960497645834,
+            "lattice_residual": -0.0005158697221627762,
+            "ordinary_residual": -0.0005205144126705363,
+            "tangent_residual": -0.000516859268357095
+          },
+          {
+            "launch": 2,
+            "k": 0.20225156741461808,
+            "omega": 15.021693310033841,
+            "full_recurrence_diagnostic_k": 0.20224794887998362,
+            "low_k": true,
+            "lattice": 15.022238641005558,
+            "ordinary": 15.022312804600372,
+            "matched_tangent": 15.022254376969435,
+            "lattice_residual": -0.0005453309717164956,
+            "ordinary_residual": -0.0006194945665303209,
+            "tangent_residual": -0.0005610669355942122
+          },
+          {
+            "launch": 3,
+            "k": 0.3033843768876145,
+            "omega": 15.048633161187913,
+            "full_recurrence_diagnostic_k": 0.30338627359626197,
+            "low_k": true,
+            "lattice": 15.049148869884473,
+            "ordinary": 15.049523044458299,
+            "matched_tangent": 15.049227722289121,
+            "lattice_residual": -0.0005157086965592583,
+            "ordinary_residual": -0.0008898832703856385,
+            "tangent_residual": -0.0005945611012077023
+          },
+          {
+            "launch": 4,
+            "k": 0.40452783395779573,
+            "omega": 15.085928331518657,
+            "full_recurrence_diagnostic_k": 0.40451835604066083,
+            "low_k": true,
+            "lattice": 15.086363112913563,
+            "ordinary": 15.087540108107383,
+            "matched_tangent": 15.086608791329626,
+            "lattice_residual": -0.00043478139490638057,
+            "ordinary_residual": -0.0016117765887262436,
+            "tangent_residual": -0.0006804598109688698
+          },
+          {
+            "launch": 5,
+            "k": 0.5056788618504118,
+            "omega": 15.132947786166886,
+            "full_recurrence_diagnostic_k": 0.505685842444357,
+            "low_k": false,
+            "lattice": 15.133428251456305,
+            "ordinary": 15.136284337536592,
+            "matched_tangent": 15.13401713219744,
+            "lattice_residual": -0.0004804652894190298,
+            "ordinary_residual": -0.003336551369706342,
+            "tangent_residual": -0.001069346030554641
+          },
+          {
+            "launch": 6,
+            "k": 0.6068391866969972,
+            "omega": 15.18920417689848,
+            "full_recurrence_diagnostic_k": 0.6068288170884787,
+            "low_k": false,
+            "lattice": 15.189777322621424,
+            "ordinary": 15.195656024372273,
+            "matched_tangent": 15.190971341321921,
+            "lattice_residual": -0.0005731457229440906,
+            "ordinary_residual": -0.006451847473792682,
+            "tangent_residual": -0.0017671644234411588
+          },
+          {
+            "launch": 7,
+            "k": 0.7080156243408119,
+            "omega": 15.254281528984349,
+            "full_recurrence_diagnostic_k": 0.7080187025455524,
+            "low_k": false,
+            "lattice": 15.254741979420002,
+            "ordinary": 15.265539185997273,
+            "matched_tangent": 15.25689635420471,
+            "lattice_residual": -0.0004604504356535699,
+            "ordinary_residual": -0.011257657012924582,
+            "tangent_residual": -0.002614825220360828
+          }
+        ],
+        "low_k_lines": 4,
+        "low_k_span": 0.30340379700507747,
+        "low_k_max": 0.0016117765887262436,
+        "lattice_max": 0.0005731457229440906,
+        "shape_rms_lattice": 5.008096679769157e-05,
+        "shape_rms_tangent": 0.0010250790838771092,
+        "gates": {
+          "lattice": true,
+          "continuum": true,
+          "shape": true
+        }
+      }
+    }
+  ]
+}
