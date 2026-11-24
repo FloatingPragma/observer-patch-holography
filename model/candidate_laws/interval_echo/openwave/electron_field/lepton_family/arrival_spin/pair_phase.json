@@ -1,0 +1,115 @@
+{
+  "two_load_local_addresses": 66,
+  "exchange_graph_components": 1,
+  "perpendicular_axis_pairs": 15,
+  "routes": [
+    {
+      "source": 2,
+      "receiver": 1,
+      "exposure": 256,
+      "native_plus_minus_admission_per_enrollment": [
+        8.946390654733958e-06,
+        2.8573978153605235e-05
+      ],
+      "maximum_destructive_weight_over_15_axis_pairs": [
+        0.0,
+        0.0
+      ],
+      "source_word_to_receiver_word_singular_values": [
+        0.008340389635895269,
+        0.002340649127513417
+      ],
+      "computed_reference_partial_transpose_min_given_prepared_input": -9.760962862190103e-06
+    },
+    {
+      "source": 2,
+      "receiver": 3,
+      "exposure": 256,
+      "native_plus_minus_admission_per_enrollment": [
+        6.208310790593033e-06,
+        9.703252760414194e-06
+      ],
+      "maximum_destructive_weight_over_15_axis_pairs": [
+        0.0,
+        0.0
+      ],
+      "source_word_to_receiver_word_singular_values": [
+        0.005578608029988332,
+        0.000838009277850947
+      ],
+      "computed_reference_partial_transpose_min_given_prepared_input": -2.337462643312008e-06
+    },
+    {
+      "source": 2,
+      "receiver": 9,
+      "exposure": 256,
+      "native_plus_minus_admission_per_enrollment": [
+        5.1063576116599375e-05,
+        5.616683261579073e-05
+      ],
+      "maximum_destructive_weight_over_15_axis_pairs": [
+        0.0,
+        0.0
+      ],
+      "source_word_to_receiver_word_singular_values": [
+        0.014532786139428284,
+        0.001805254688519682
+      ],
+      "computed_reference_partial_transpose_min_given_prepared_input": -1.311769015772838e-05
+    },
+    {
+      "source": 3,
+      "receiver": 2,
+      "exposure": 256,
+      "native_plus_minus_admission_per_enrollment": [
+        8.066220723612981e-06,
+        7.84534282739445e-06
+      ],
+      "maximum_destructive_weight_over_15_axis_pairs": [
+        0.0,
+        0.0
+      ],
+      "source_word_to_receiver_word_singular_values": [
+        0.005578608029988364,
+        0.0008380092778510238
+      ],
+      "computed_reference_partial_transpose_min_given_prepared_input": -2.3374626433122356e-06
+    },
+    {
+      "source": 3,
+      "receiver": 4,
+      "exposure": 256,
+      "native_plus_minus_admission_per_enrollment": [
+        1.4816681067193307e-05,
+        0.00018111555562263203
+      ],
+      "maximum_destructive_weight_over_15_axis_pairs": [
+        0.0,
+        0.0
+      ],
+      "source_word_to_receiver_word_singular_values": [
+        0.019616255314504966,
+        0.002658383120584216
+      ],
+      "computed_reference_partial_transpose_min_given_prepared_input": -2.6073761008575213e-05
+    },
+    {
+      "source": 3,
+      "receiver": 8,
+      "exposure": 256,
+      "native_plus_minus_admission_per_enrollment": [
+        6.0669995991615694e-06,
+        5.418609325921646e-06
+      ],
+      "maximum_destructive_weight_over_15_axis_pairs": [
+        0.0,
+        0.0
+      ],
+      "source_word_to_receiver_word_singular_values": [
+        0.004714613502788372,
+        0.0008623441131544372
+      ],
+      "computed_reference_partial_transpose_min_given_prepared_input": -2.0328095999639866e-06
+    }
+  ]
+}

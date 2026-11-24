@@ -98,6 +98,8 @@ def main():
             studies.append((family / "hierarchy", "search", "results"))
             studies.extend((family / "arrival_spin", stem, record) for stem, record in
                            (("circulation", "circulation"), ("tomography", "counts")))
+            if not args.family_only:
+                studies.append((family / "arrival_spin", "pair_phase", "pair_phase"))
             for local, stem, record in studies:
                 output = root / f"{local.name}_{stem}.json"
                 subprocess.run([sys.executable, "-B", "-W", "error", str(local / f"{stem}.py"),

@@ -25,6 +25,14 @@ Open one existing source contact, 120–121, with the same weight. The receiver'
 
 Dark counts from the ring-bearing cell require a separate calibration. At exposure 8 one pair of commands sends 56.2% of heralded events to the destructive output on the even, symmetric-source preparation. The 38 accessible sharp configurations distribute as either two or four at each charge address. None of the fifteen half-turns preserves these address ranks on the entire sector. For each axis pair the calibration keeps the largest support closed under both commands on which every sharp address turns correctly. Ten pairs have such supports of eight or sixteen configurations and five have empty support. The two orders agree on every retained complete configuration, including its heads. The dark port outside those supports measures path-dependent routing. It cannot establish physical spin-½.
 
+## A remote two-load phase on blank Interval Echo
+
+The blank-memory experiment prepares a relative plus or minus sign between two disjoint occupied seam words. The receiver admits those same two words in a different cell. Its original counts distinguish the prepared phase on four of the six held-out routes. An additional terminal probe isolates the receiving cell after admission and compares geometric half-turns in opposite orders, before the phase analyzer mixes the words. The material preparation consists of two unit loads. Its signed relative amplitude and the electric charge of a vacancy in a written field are different observables. [Preparation and original detector](../../../row_30_branch/PAIR_PHASE_PROTOCOL.md) · [Additional terminal probe](pair_phase.py) · [Six route calculations](pair_phase.json)
+
+At agreement strength eight an addressed blank contact of exposure π acts as the exact port swap on the four binary words. Every icosahedral half-turn is compiled from these swaps. On all 66 possible local two-load addresses, each of the fifteen perpendicular pairs of turns acts identically in either order. The computed destructive output therefore vanishes for both incoming signs on every tested route. This result also covers a rephasing of an address-resolved rotation that preserves the isolated cell's generator. The quotient of two such lifts fixes all one-dimensional address projectors, hence is diagonal. Commutation with the nonzero exchange elements on the connected address graph equates all its phases. The remaining overall phase cancels in the comparison of orders.
+
+At exposure 256 the computed transfer matrix between the two sharp source words and the two admitted receiver words has two nonzero singular values on every held-out route. Thus the successful branch can in principle carry entanglement with a reference left at the sender. The smallest singular value over the six routes is 0.0008380. This channel calculation uses an ideal coherent source and retains the unnormalized success weights. The original counts compare the two specified source phases; they do not measure a reference system.
+
 ## Replay
 
 From the repository root, choose unused output paths.
@@ -33,6 +41,7 @@ From the repository root, choose unused output paths.
 python -B -m model.candidate_laws.interval_echo.openwave.electron_field.lepton_family.arrival_spin.measure --output /tmp/arrival-spin.json
 python -B -m model.candidate_laws.interval_echo.openwave.electron_field.lepton_family.arrival_spin.circulation --output /tmp/arrival-circulation.json
 python -B -m model.candidate_laws.interval_echo.openwave.electron_field.lepton_family.arrival_spin.tomography --output /tmp/arrival-counts.json
+python -B -m model.candidate_laws.interval_echo.openwave.electron_field.lepton_family.arrival_spin.pair_phase --output /tmp/arrival-pair-phase.json
 ```
 
 The exposures and couplings are in model units. The coherent launch, controlled rotations and local tomographic analyzers are specified simulation apparatus.
