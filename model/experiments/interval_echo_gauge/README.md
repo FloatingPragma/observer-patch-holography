@@ -31,6 +31,8 @@ In this calibration the last word gives opposite phases to the two triplets. The
 
 The corresponding guarded one-load current gives an independent colour test during free intercell transport, including its exact leading triplet weight and coherent singlet-filtered orbital readout. [Colour during transport](singlet_flight/README.md)
 
+Two rooted triangles also give an order-sensitive signal with every unmeasured contact open. A vacancy moves an excess mark by two overlapping transpositions. The shared mark distinguishes the orders, and its root-conditioned vacuum variance has an inverse-volume bound. [Measured paths and vacuum loops](loop_transport/README.md)
+
 From the RER repository root:
 
 ```sh

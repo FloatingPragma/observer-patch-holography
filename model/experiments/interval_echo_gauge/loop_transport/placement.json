@@ -1,0 +1,93 @@
+{
+  "protocol_sha256": "7e107f28e24b73c10c57b0ee09935a89c769da3255b4eb9e2c9f03eaacd2f1aa",
+  "rooted_triangles": 1200,
+  "eligible_pairs": 13500,
+  "home": [
+    136,
+    134,
+    135
+  ],
+  "remote": [
+    149,
+    144,
+    145
+  ],
+  "smaller_variance": 6.115724115426937e-11,
+  "home_mean": 6.452731849876774e-11,
+  "shots": 1073741824,
+  "seed": 624702,
+  "rows": [
+    {
+      "t": 0,
+      "sham": 6.115724115800957e-11,
+      "pulse": 6.115724115800956e-11,
+      "counts": [
+        0,
+        0
+      ],
+      "two_sided_p": 1.0,
+      "resolved": false,
+      "home_connected": 6.452731849460392e-11
+    },
+    {
+      "t": 0.5,
+      "sham": 6.115724115800957e-11,
+      "pulse": 6.115728487095015e-11,
+      "counts": [
+        0,
+        0
+      ],
+      "two_sided_p": 1.0,
+      "resolved": false,
+      "home_connected": 4.584423817245153e-14
+    },
+    {
+      "t": 1,
+      "sham": 6.115724115800957e-11,
+      "pulse": 6.11576836000695e-11,
+      "counts": [
+        0,
+        0
+      ],
+      "two_sided_p": 1.0,
+      "resolved": false,
+      "home_connected": 1.9827359071238764e-14
+    },
+    {
+      "t": 2,
+      "sham": 6.115724115800957e-11,
+      "pulse": 6.115734784792306e-11,
+      "counts": [
+        0,
+        0
+      ],
+      "two_sided_p": 1.0,
+      "resolved": false,
+      "home_connected": 8.606107507504282e-15
+    },
+    {
+      "t": 4,
+      "sham": 6.115724115800957e-11,
+      "pulse": 6.11509758095671e-11,
+      "counts": [
+        0,
+        1
+      ],
+      "two_sided_p": 1.0,
+      "resolved": false,
+      "home_connected": 3.791528196218583e-15
+    },
+    {
+      "t": 8,
+      "sham": 6.115724115800957e-11,
+      "pulse": 6.131096414317777e-11,
+      "counts": [
+        0,
+        0
+      ],
+      "two_sided_p": 1.0,
+      "resolved": false,
+      "home_connected": 1.5657875613291896e-15
+    }
+  ]
+}

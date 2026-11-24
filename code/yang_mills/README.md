@@ -1,5 +1,9 @@
 # Yang--Mills collar-gap certificates
 
+## Local gauge-vacuum measurements
+
+Two independent electric-vacuum holonomies have mean group-commutator trace one quarter in the normalized fundamental representation. A separate six-link rectangle detects the magnetic interaction between adjacent driven squares. With either drive alone the vacuum expectation vanishes, while with both it lies strictly above zero. Full-Haar bounds cover the finite cubic box at every finite positive coupling. A strong-coupling cutoff trajectory loses every bounded-variance correlation at positive physical time. On a decreasing-coupling trajectory the finite-volume bounds give no limiting mass. [Proof, clock and exact enclosures](LOOP_VACUUM.md)
+
 ## Finite-volume gap for pure SU(2) in three spatial dimensions
 
 On the periodic cubic spatial lattice of side $L\ge3$, use continuous Hamiltonian time, normalized product Haar measure and the full gauge-invariant Hilbert space. In electric Casimir energy units the Hamiltonian is

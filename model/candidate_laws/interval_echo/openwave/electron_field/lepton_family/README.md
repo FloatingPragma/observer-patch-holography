@@ -44,7 +44,9 @@ A first-order incidence generator can put the register effect in the mass block 
 
 The historical fermion mass compiler and joint spin detector already connect a three-character effect to free fermion propagation and spin, charge and energy readings on one constructed sector. The compiler programs the kick phase; an exclusive read on a different register gives the same numerical value. Transferring the interacting signed-load current, a physical spatial spin and the clock calibration to the same wave remains an operator and detector problem. [Finite theorem interfaces and their source maps](theorem_interfaces/README.md)
 
-Reproduce all ten numerical experiments from the repository root with the model dependencies installed.
+A flux pointer at the seventh cell enables a physical order test on each arriving charge. All three positive-energy inputs give constructive interference for all fifteen perpendicular pairs of geometric half-turns. On a separate circulating-field preparation the receiver can retain quantum information about the source after a single additional contact opens. The calibrated geometric orders agree on every eligible sharp configuration in that fixture. [Flux-triggered spin measurements and count tomography](arrival_spin/README.md)
+
+Reproduce the charged-family experiments from the repository root with the model dependencies installed.
 
 ```sh
 python -B model/candidate_laws/interval_echo/openwave/electron_field/replay.py --family-only

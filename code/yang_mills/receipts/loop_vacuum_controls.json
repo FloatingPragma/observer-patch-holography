@@ -1,0 +1,251 @@
+{
+  "haar_quadrature": [
+    0.25000000000000017,
+    0.33333333333333365,
+    0.06250000000000006,
+    0.06250000000000004
+  ],
+  "commutator_mean": "1/4",
+  "commutator_variance": "13/48",
+  "electric_weights": {
+    "one_spin_one_loop": "1/8",
+    "two_spin_one_loops": "7/48"
+  },
+  "electric_energies_per_loop_link": [
+    2,
+    4
+  ],
+  "electric_square_correlation": [
+    {
+      "time": 0,
+      "value": 0.27083333333333337
+    },
+    {
+      "time": 0.25,
+      "value": 0.019587941075850324
+    },
+    {
+      "time": 0.5,
+      "value": 0.002338376494327555
+    },
+    {
+      "time": 1,
+      "value": 4.194923986746054e-05
+    },
+    {
+      "time": 2,
+      "value": 1.4066898686764866e-08
+    }
+  ],
+  "rectangle_tilings": [
+    [
+      5,
+      0
+    ]
+  ],
+  "cubic_extent": [
+    3,
+    2,
+    2
+  ],
+  "magnetic": [
+    {
+      "active_faces": 2,
+      "coupling": "1/128",
+      "mixed_derivative": "7/216",
+      "remainder_bound": "1/2653056",
+      "rectangle_mean_interval": [
+        "13049/8150188032",
+        "19193/8150188032"
+      ],
+      "electric_unit_gap_floor": "191/64",
+      "rectangle_variance_floor": "1444756037778798449617/6310428670910823137280",
+      "rectangle_first_moment_ceiling": "879/760",
+      "connected_rectangle_correlations": [
+        {
+          "time": 0,
+          "lower": 0.228947368415507,
+          "upper": 0.2710526315789474
+        },
+        {
+          "time": 0.25,
+          "lower": 0.06475177480881326,
+          "upper": 0.12853731669743348
+        },
+        {
+          "time": 0.5,
+          "lower": 0.018313345857210027,
+          "upper": 0.06095436774597084
+        },
+        {
+          "time": 1,
+          "lower": 0.001464872205375722,
+          "upper": 0.013707429902700963
+        },
+        {
+          "time": 2,
+          "lower": 9.372680686103878e-06,
+          "upper": 0.0006931998167401456
+        }
+      ]
+    },
+    {
+      "active_faces": 11,
+      "coupling": "1/4096",
+      "mixed_derivative": "7/216",
+      "remainder_bound": "14641/44529649975296",
+      "rectangle_mean_interval": [
+        "54815153/34198771181027328",
+        "77303729/34198771181027328"
+      ],
+      "electric_unit_gap_floor": "12277/4096",
+      "rectangle_variance_floor": "1767491429879185902204499905276826667/7172886643142463102064239938132508672",
+      "rectangle_first_moment_ceiling": "55461/49064",
+      "connected_rectangle_correlations": [
+        {
+          "time": 0,
+          "lower": 0.2464128485243763,
+          "upper": 0.25358715147562366
+        },
+        {
+          "time": 0.25,
+          "lower": 0.07827060731341916,
+          "upper": 0.11986653835434448
+        },
+        {
+          "time": 0.5,
+          "lower": 0.024861885270586543,
+          "upper": 0.056658970825005206
+        },
+        {
+          "time": 1,
+          "lower": 0.002508446060785103,
+          "upper": 0.012659312414956396
+        },
+        {
+          "time": 2,
+          "lower": 2.55356069196442e-05,
+          "upper": 0.0006319649473048092
+        }
+      ]
+    }
+  ],
+  "switch_off_mean_for_two_face_source": [
+    0,
+    0
+  ],
+  "cofinal_strong_coupling": [
+    {
+      "spacing": "1",
+      "physical_side": 1,
+      "faces": 6,
+      "magnetic_ratio": "1/3072",
+      "g_squared": 110.85125168440815,
+      "physical_gap_floor": 166.1686243511392,
+      "log_connected_upper_at_unit_time": -166.1686243511392
+    },
+    {
+      "spacing": "1/2",
+      "physical_side": 2,
+      "faces": 240,
+      "magnetic_ratio": "1/122880",
+      "g_squared": 701.0848736066126,
+      "physical_gap_floor": 2101.885314426075,
+      "log_connected_upper_at_unit_time": -2101.885314426075
+    },
+    {
+      "spacing": "1/4",
+      "physical_side": 4,
+      "faces": 13056,
+      "magnetic_ratio": "1/6684672",
+      "g_squared": 5170.946528441384,
+      "physical_gap_floor": 31005.480160771578,
+      "log_connected_upper_at_unit_time": -31005.480160771578
+    },
+    {
+      "spacing": "1/8",
+      "physical_side": 8,
+      "faces": 798720,
+      "magnetic_ratio": "1/408944640",
+      "g_squared": 40444.75936385331,
+      "physical_gap_floor": 485021.13768370956,
+      "log_connected_upper_at_unit_time": -485021.13768370956
+    },
+    {
+      "spacing": "1/16",
+      "physical_side": 16,
+      "faces": 50528256,
+      "magnetic_ratio": "1/25870467072",
+      "g_squared": 321685.97776092135,
+      "physical_gap_floor": 7715437.122859598,
+      "log_connected_upper_at_unit_time": -7715437.122859598
+    }
+  ],
+  "running_coupling_comparison": [
+    {
+      "spacing": "1",
+      "physical_side": 1,
+      "links": 12,
+      "faces": 6,
+      "g_squared": "4",
+      "electric_clock": "2",
+      "magnetic_ratio": "1/4",
+      "log_density_floor": -36.25981497038378,
+      "log_physical_gap_floor": -34.468055501155725,
+      "log_plaquette_variance_floor": -37.646109331503666,
+      "log_physical_gap_ceiling": 38.33925651206361
+    },
+    {
+      "spacing": "1/2",
+      "physical_side": 2,
+      "links": 300,
+      "faces": 240,
+      "g_squared": "2",
+      "electric_clock": "2",
+      "magnetic_ratio": "1",
+      "log_density_floor": -4146.495374259594,
+      "log_physical_gap_floor": -4144.703614790366,
+      "log_plaquette_variance_floor": -4147.881668620715,
+      "log_physical_gap_ceiling": 4148.574815801274
+    },
+    {
+      "spacing": "1/4",
+      "physical_side": 4,
+      "links": 13872,
+      "faces": 13056,
+      "g_squared": "4/3",
+      "electric_clock": "8/3",
+      "magnetic_ratio": "9/4",
+      "log_density_floor": -484188.34610576363,
+      "log_physical_gap_floor": -484186.26666422194,
+      "log_plaquette_variance_floor": -484189.7324001248,
+      "log_physical_gap_ceiling": 484190.71322937775
+    },
+    {
+      "spacing": "1/8",
+      "physical_side": 8,
+      "links": 811200,
+      "faces": 798720,
+      "g_squared": "1",
+      "electric_clock": "4",
+      "magnetic_ratio": "4",
+      "log_density_floor": -51946843.49199794,
+      "log_physical_gap_floor": -51946841.00709129,
+      "log_plaquette_variance_floor": -51946844.8782923,
+      "log_physical_gap_ceiling": 51946846.264586665
+    },
+    {
+      "spacing": "1/16",
+      "physical_side": 16,
+      "links": 50725632,
+      "faces": 50528256,
+      "g_squared": "4/5",
+      "electric_clock": "32/5",
+      "magnetic_ratio": "25/4",
+      "log_density_floor": -5104649505.214648,
+      "log_physical_gap_floor": -5104649502.259738,
+      "log_plaquette_variance_floor": -5104649506.600943,
+      "log_physical_gap_ceiling": 5104649508.457241
+    }
+  ]
+}

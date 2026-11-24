@@ -1402,6 +1402,110 @@ excitations in a sufficiently small perturbation interval. This extends the
 fixed-spacing argument across the gauge groups without supplying a
 spatial-continuum construction or a numerical coupling threshold.
 
+\subsection{Two based loops and a magnetic response}
+
+Consider the full product-Haar $SU(2)$ Hamiltonian on an open cubic graph.
+In electric units its source is $H_E-b\sum_{p\in B}W_p$, with
+$H_E=\sum_e C_2(e)$ and $W_p=\operatorname{Tr}(U_p)/2$. The omitted
+constant $b|B|$ has no effect on vacuum correlations. For two edge-disjoint
+loops of equal link length $l$ based at one vertex, set
+$W=\operatorname{Tr}(UVU^{-1}V^{-1})/2$. Their holonomies $U,V$ are
+independent Haar variables in the electric vacuum. Schur averaging gives
+$\mathbb{E}(W\mid U)=(\operatorname{Tr}U)^2/4$ and $\mathbb{E}W=1/4$.
+Writing $x,y$ for the real parts of the unit quaternions and $c$ for the
+cosine between their axes gives
+$W=1-2(1-x^2)(1-y^2)(1-c^2)$ and $\mathbb{E}W^2=1/3$.
+The two one-loop centered conditional means have squared norm $1/16$ each.
+The remaining part has squared norm $7/48$. Each loop appears once in the
+fundamental and once in its conjugate, so its only spins are zero and one.
+Each spin-one loop costs $2l$ in electric units. With physical multiplier
+$\alpha=g^2/(2a)$, the connected vacuum correlation is exactly
+\[
+ C_W(t)=\tfrac18 e^{-2l\alpha t}+\tfrac7{48}e^{-4l\alpha t}.
+\]
+Noncommuting holonomy is visible at zero magnetic coupling.
+
+Two adjacent square faces $p,q$ give an interaction-sensitive measurement.
+Let $R$ be their outer six-link rectangle. With only one face driven,
+flipping the sign of a private link on the undriven face preserves the
+Hamiltonian and reverses $W_R$. Its vacuum mean vanishes. With both
+couplings present the mixed derivative at the electric point is $7/216$.
+Indeed the electric energies of $W_p,W_q,W_R$ are $3,3,9/2$, respectively.
+Integrating the private Haar links gives
+$I=\int W_R W_p W_q=1/16$. First-order perturbation of the constant vacuum
+in direction $p$ gives $W_p/3$. Differentiating the ground expectation twice,
+the two first-order vectors contribute $2I/9$, and the mixed ground derivative
+paired with $W_R$ contributes $4I/[3(9/2)]$.
+
+On the $3\times2\times2$ vertex box the only pair of elementary faces with
+boundary equal to $R$ modulo two is $p,q$. Center flips therefore preserve this
+quadratic coefficient with equal couplings on all eleven faces. Changing the
+sign on each link in direction $i$ by $(-1)^{\sum_{j<i}x_j}$ reverses
+all elementary traces and preserves the rectangle, so the expectation is even.
+For $F$ driven faces, the electric gap of at least three permits a vacuum
+Riesz contour of radius $3/2$. At complex coupling radius
+$\rho=3/(4F)$ its rank-one projection has norm at most two by the resolvent
+series. Cauchy's bound on the remaining even powers is
+$2(b/\rho)^4/[1-(b/\rho)^2]$. At $b=1/128$ on the two faces the
+exact rectangle mean lies between $1.6010$ and $2.3550$ in units of
+$10^{-6}$. At $b=1/4096$ on all eleven it lies between $1.6028$ and
+$2.2605$ in units of $10^{-9}$. Both intervals include the entire
+interacting gauge-invariant Hilbert space. The ground-state projection
+distance from the electric value is at most $D=Fb/(3/2-Fb)$. It gives
+$\operatorname{Var}(W_R)\ge 1/4-2D-\langle W_R\rangle^2$, while
+the electric double commutator gives the first centered energy moment
+$6(1-\langle W_R^2\rangle)/4$. These bound the connected rectangle
+correlation in the same vacuum.
+
+\subsection{Finite-volume bounds through two cutoff trajectories}
+
+Let $E,F$ count links and faces of an open cubic lattice. At every finite
+$b\ge0$ the gauge-invariant gap of the full Hamiltonian satisfies
+\[
+ 3\alpha d\ \leq\ \Delta_{a,F}\ \leq\ 4\alpha/d,
+ \qquad d=e^{-16bF}(3/5)^{2E}.
+\]
+For the lower bound use the single-link heat kernel at electric time four.
+Its departure from one is bounded by the character sum
+$\sum_{m\ge1}(m+1)^2 e^{-m(m+2)}<1/4$. The first term is below $1/5$
+and successive ratios are at most $9/400$. In the convention with potential
+$b\sum_p(1-W_p)$, the positive transfer kernel lies between the electric
+product kernel times $e^{-8bF}$ and the electric kernel by Feynman--Kac.
+Applying both bounds to the normalized positive vacuum compares its maximum
+and minimum amplitudes by a ratio at most $1/\sqrt d$. Its density weights
+both the gradient form of the ground-state transform and the variance.
+Comparison with the electric gap three on gauge-invariant functions gives
+the lower bound. A plaquette trace retains variance at least $d/4$ by the
+same density comparison with Haar. Its first physical energy moment is at
+most $\alpha$ by the electric double commutator, giving the upper bound.
+
+The finite-volume argument extends to any compact connected simple Lie group
+with a fixed bi-invariant Casimir normalization. Write $c_G>0$ for the first
+nonzero Casimir. The support of every nonconstant invariant spin network
+contains a cycle, giving electric gap at least $4c_G$ on these boxes.
+Choose heat time $s_G$ such that
+$\sum_{\lambda\ne\mathbf1}(\dim\lambda)^2 e^{-s_G c_\lambda}\le1/4$.
+Such a time exists by the compact-group heat trace and connectedness.
+For real normalized Wilson traces of a nontrivial representation the
+magnetic potential in the positive convention lies in $[0,2bF]$. The same
+comparison gives the full finite-volume gap floor
+$4c_G\alpha e^{-4s_G bF}(3/5)^{2E}$. A smooth nonconstant local trace retains
+positive variance by density comparison and has finite gradient energy.
+The group-dependent heat time and the whole-box exponent persist in the bound.
+
+For example take $n=2^j$, spatial spacing $1/n$ and $n^2+1$ vertices
+per direction. The physical side grows to infinity. In the convention
+$b=4/(g^2)^2$, choose $b=1/(512F)$. Min--max and the Haar vacuum trial
+state give the stronger physical gap floor $(3-1/512)\alpha$, which goes
+to infinity. At each fixed positive physical time every connected vacuum
+correlation with bounded variance tends to zero. Along the decreasing-coupling
+comparison $g^2=4/(1+j)$, the all-coupling floor $3\alpha d$ tends to zero
+and its ceiling diverges. This loss of control is explicit in the whole-box
+density comparison. The limiting correlations and spectrum on a physical
+weak-coupling trajectory remain undetermined. The finite estimates and Haar
+integrals are reproducible with
+\path{code/yang_mills/loop_vacuum_controls.py}.
+
 \section{Physical scope}
 
 A Clay-level conclusion through the stated repair-transfer route requires

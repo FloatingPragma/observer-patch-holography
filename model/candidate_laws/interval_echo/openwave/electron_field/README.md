@@ -6,6 +6,8 @@ OpenWave's M10 column at revision `f8fd02b2` awards partial credit to row 4 for 
 
 The first-order seven-cell comparison transports three charges with the geometric mass ordering. Each rest peak is simple at fixed charge sign. The signed source also drives a distant probe in the written-field experiments. Twenty-four independent source–receiver combinations resolve one response pattern at each frequency examined. [Charged-family identity test](lepton_family/identity_audit/README.md) · [Photon polarization test](../photon_identity/README.md)
 
+A terminal observer gates its rotation experiment on the signed change of an external seam head. The three guided charges all give the orbital order phase. Opening one source-side contact lets the field-circulation preparation transmit quantum information to the same flux-positive receiver on a different written medium. [Arrival-conditioned turns and circulation](lepton_family/arrival_spin/README.md)
+
 ## Which preparation carries the charge?
 
 The row 4 source releases a pair of loads on the prescribed κ = 8 seam. With every seam open, the one-cell observer finds adjacent loads in 16,093 of 16,384 trials at exposure 150, against 2,474 under exchange alone. A centre turn of the tested local SU(3) current changes the same pair's detector distribution by 0.196 in total variation. Its invariance under this colour probe fails. Neither its persistence nor this colour response identifies the physical electromagnetic current. [Pair persistence](../row_04/README.md) · [Colour probe and its inverse](../row_04_identity/README.md)

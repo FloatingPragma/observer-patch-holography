@@ -1692,6 +1692,53 @@ $12\kappa$, and the lowest level of the pair, written as a symmetric
 function of two ports, has no component on the slow level, to $10^{-16}$.
 
 
+\subsection{Order-sensitive vacancy loops}
+
+In a unit-filled blank-memory screen put one vacancy at $y$ and one excess
+at $x$. Between two distinct neighboring vacancy positions $y,z$ the full
+free generator has block $-P_{yz}/2$. The bijection $P_{yz}$ sends an
+excess at $z$ to $y$ and fixes every other excess address. Only the exchange
+on their common seam connects the two vacancy fibers. A triangle
+$(r,a,b,r)$ therefore exchanges the excess marks $a,b$ in the leading
+short-exposure transfer. The neighboring triangle $(r,b,c,r)$ exchanges
+$b,c$. Their commutator is a three-cycle. Its normalized trace is $-1/2$
+on the two-dimensional sum-zero plane of the three excess amplitudes.
+With a single vacancy and no excess each transport fiber is scalar. This
+finite noncommuting group is the material permutation group $S_3$.
+
+One observer protocol reads the vacancy after each of six ordinary free
+holds and measures the final excess. During each hold every contact remains
+open. At exposure $1/2$ per hold on the 240-port screen, the two orders
+completed with probabilities $3.0112\times10^{-10}$ and
+$3.1665\times10^{-9}$. Of $2^{42}$ simulated starts per order, 19 and
+3,560 respectively completed with the excess on the original shared spoke.
+Failed checkpoints are included in the denominator. The finite-wait
+operators include paths besides the leading six exchanges.
+
+The negative-eigenvalue test for one triangular exchange projects onto
+$(|a\rangle-|b\rangle)/\sqrt2$ in the excess register when the vacancy is
+at $r$. The isolated-cell sector ground is positive and rotation invariant,
+so this test has zero variance there. On the 20-owner federation, screening
+13,500 ordered pairs of disjoint triangles for their ground variances gave
+a largest smaller variance of $6.12\times10^{-11}$. A phase flip on the
+selected home triangle gave one remote click across six free waiting times
+and the sham gave zero, with $2^{30}$ trials per arm per time. The
+order-sensitive terminal mark is measurable, while these remote records
+leave a response unresolved.
+
+For any state of this sector the loop-click projector obeys $0\le A_r\le
+P_r$, where $P_r$ locates the vacancy. Its variance is at most
+$\langle P_r\rangle$. Since $\sum_r P_r=I$, the variance averaged over
+$N$ roots is at most $1/N$, for any one enrolled face per root. The sector
+vacuum's connected Euclidean correlation is bounded by the same variance
+at all positive times. More generally, for a binary read supported on a root
+vacancy, the average variance is at most the expected vacancy count divided by
+$N$. A preparation with subextensively many vacancies therefore loses this
+signal in a typical patch. A homogeneous local field with nonvanishing variance
+under refinement requires a different source or observable. The complete
+measurement and sector generator are given in
+\path{model/experiments/interval_echo_gauge/loop_transport}.
+
 \section{The unrecovered collar}
 \label{sec:collar}
 
@@ -2126,6 +2173,38 @@ at least one outgoing hop. The free generator separately conserves the
 counts of both signs, which excludes spontaneous conversion of such a
 pair to neutral material. A separately applied conversion pulse can
 launch a neutral signal. Its detection gives no photon multiplicity.
+
+\paragraph{A rotation conditioned on arriving flux.}
+On a seven-cell guide a pointer copies the signed change in the single
+boundary head of the receiving cell. On a tree of eleven contacts inside
+that cell, a pulse of duration $\pi/8$ swaps two allowed load addresses
+and reverses their shared head. Sequences of these physical contacts
+implement all fifteen proper half-turns on the twelve possible charged
+positions and their associated head words. An interferometer compares
+the orders of each perpendicular pair. For a sharp signed load under the
+written-contact Laplacian, the joint probability of arrival and constructive
+interference is $0.217111$ at exposure eight. A first-order incidence
+comparison uses the three eigenvalues of a geometric register effect as
+supplied masses. Its three positive-energy packets give probabilities
+$0.124820$, $0.133130$ and $0.186648$. All the destructive probabilities
+vanish. An imposed Pauli spin on the same charge sends the arriving
+probability to the destructive port.
+
+A triangular field circulation at the source gives a separate encoding.
+With equal-degree tips, their interchange commutes with the flight
+generator and acts only on unobserved registers after arrival. Tracing
+them cancels the receiver's coherence between even and odd source
+circulations. Opening one physical contact from one tip breaks that
+symmetry at the same coupling. At exposure eight, six source preparations
+and coherent measurements on nineteen receiving load-and-head records
+reconstruct a reference--receiver state with partially transposed
+minimum eigenvalue $-0.01430$ for either load sign, including misses in
+the normalization. The simultaneous 99\% finite-shot error bound is
+$0.00460$. The circulating sector has unequal dimensions at the twelve
+received charge addresses. For each actual pair of commands, the two
+orders agree wherever repeated commands implement the geometric
+address rotations. The transmitted information is a field-circulation
+encoding. These readings supply no spinor sign for it.
 
 \paragraph{Formation energy and the clock.}
 With the one-load degree reference, the bottom of the mobile one-end

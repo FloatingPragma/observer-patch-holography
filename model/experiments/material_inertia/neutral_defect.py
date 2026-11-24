@@ -56,7 +56,10 @@ def generators(board):
     cost = 2 * KAPPA * (board.degree[y] - board.degree[x] + adj)
     h = (kinetic + sparse.diags(cost)).tocsr()
     seam = free_seam(KAPPA)
-    for excess, vacancy in ((0, 1), (1, 0), board.external[0], (0, n - 1)):
+    samples = [(0, 1), (1, 0), (0, n - 1)]
+    if board.external:
+        samples.append(board.external[0])
+    for excess, vacancy in samples:
         start = ordered_index(excess, vacancy, n)
         occupation = np.ones(n, dtype=int)
         occupation[excess], occupation[vacancy] = 2, 0

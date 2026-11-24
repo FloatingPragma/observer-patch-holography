@@ -34,6 +34,7 @@ import EventAlgebra
 import ObserverPatchHolography.YangMillsLemma72
 import ObserverPatchHolography.YangMillsProp81
 import ObserverPatchHolography.YangMillsGap
+import ObserverPatchHolography.LoopVacuumBounds
 import ObserverPatchHolography.YangMillsGapWitness
 import ObserverPatchHolography.RepairGapChain
 import ObserverPatchHolography.ScalarSeamRepair

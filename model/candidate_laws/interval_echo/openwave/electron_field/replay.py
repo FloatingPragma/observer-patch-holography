@@ -94,8 +94,10 @@ def main():
             family = HERE / "lepton_family"
             studies.extend((family / folder, "measure", "results")
                            for folder in ("bands", "family_projector", "cyclic_charge", "cyclic_hops", "covariant_field",
-                                          "clocked_charge", "dirac_read", "identity_audit", "transfer", "decay"))
+                                          "clocked_charge", "dirac_read", "identity_audit", "arrival_spin", "transfer", "decay"))
             studies.append((family / "hierarchy", "search", "results"))
+            studies.extend((family / "arrival_spin", stem, record) for stem, record in
+                           (("circulation", "circulation"), ("tomography", "counts")))
             for local, stem, record in studies:
                 output = root / f"{local.name}_{stem}.json"
                 subprocess.run([sys.executable, "-B", "-W", "error", str(local / f"{stem}.py"),
