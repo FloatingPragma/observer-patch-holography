@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 776,
+  "surface_count": 874,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -1246,6 +1246,91 @@
       "allowlisted": false
     },
     {
+      "path": "model/candidate_laws/interval_echo/openwave/quark_winding/DESIGN.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/quark_winding/PHASE_CONTROL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/quark_winding/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/quark_winding/belt_walls/DESIGN.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/quark_winding/belt_walls/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/quark_winding/bound_face/DESIGN.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/quark_winding/bound_face/GROUND.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/quark_winding/bound_face/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/quark_winding/bound_face/ROUTINGS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/quark_winding/written_junction/DESIGN.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/quark_winding/written_junction/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_01_charge/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_01_charge/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_02_dressed/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_02_dressed/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_03_clock/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_03_clock/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/candidate_laws/interval_echo/openwave/row_04/PROTOCOL.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -1292,6 +1377,236 @@
     },
     {
       "path": "model/candidate_laws/interval_echo/openwave/row_04_large/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_05_counter/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_05_counter/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_05_dipole/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_05_dipole/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_05_dipole/TRANSPORT_PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_08_annihilation/BARE_PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_08_annihilation/CALORIMETER_PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_08_annihilation/CONVERTER_PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_08_annihilation/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_08_annihilation/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_08_annihilation/WALL_PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_11_spectrum/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_11_spectrum/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_12_charge/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_12_charge/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_12_flux/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_12_flux/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_13_baryon/FRAME_PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_13_baryon/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_13_baryon/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_13_walls/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_13_walls/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_20_electric/FLIGHT_PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_20_electric/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_20_electric/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_20_electric/SCHEDULE_PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_21_boost/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_21_boost/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_22_confinement/DRESSING_PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_22_confinement/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_22_confinement/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_23_coupling/CUTOFF_PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_23_coupling/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_23_coupling/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_27_metric/EXTERIOR_PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_27_metric/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_27_metric/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_28_acceleration/CAPACITY_CLOSURE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_28_acceleration/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_28_acceleration/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_28_acceleration/SIGNAL_PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_28_acceleration/VOLUME.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_29_circulation/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_29_circulation/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_29_maxwell/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_29_maxwell/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -1401,6 +1716,66 @@
       "allowlisted": false
     },
     {
+      "path": "model/candidate_laws/interval_echo/openwave/row_30_collective/HOLDOUT.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_30_collective/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_30_collective/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_30_collective/confirmation/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_30_collective/confirmation/TASK.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_30_collective/platform/METHOD_NOTE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_30_collective/registration/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_30_collective/registration/REVIEW.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_30_collective/registration/TASK.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_30_collective/rest/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_30_formed/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_30_formed/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/candidate_laws/interval_echo/openwave/row_30_free/PROTOCOL.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -1411,12 +1786,42 @@
       "allowlisted": false
     },
     {
+      "path": "model/candidate_laws/interval_echo/openwave/row_30_local_routes/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_30_local_routes/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/candidate_laws/interval_echo/openwave/row_30_memory/PROTOCOL.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
     {
       "path": "model/candidate_laws/interval_echo/openwave/row_30_memory/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_30_optical/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_30_optical/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_30_repair/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_30_repair/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -1447,6 +1852,21 @@
     },
     {
       "path": "model/candidate_laws/interval_echo/openwave/row_30_selective/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_31_orbitals/MEDIATOR_PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_31_orbitals/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_31_orbitals/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -1492,6 +1912,31 @@
     },
     {
       "path": "model/candidate_laws/interval_echo/openwave/submission/ROW_30_DECISION.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/submission/ROW_30_REGISTRATION_PR.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/submission/row_30_cautions/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/submission/row_30_confirmation/KNOWN_RESULTS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/submission/row_30_confirmation/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/submission/row_30_confirmation/REVIEW.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -1736,6 +2181,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/experiments/interval_echo_einstein_station/collar_pairing/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_einstein_station/collar_pairing/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/experiments/interval_echo_einstein_station/collar_scaling/ANCESTOR_PROTOCOL.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -1917,6 +2372,11 @@
     },
     {
       "path": "model/experiments/interval_echo_einstein_station/regional_geometry/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_einstein_station/regional_geometry/SIGNED_AREA_PROTOCOL.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -2126,6 +2586,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/experiments/interval_echo_quantum/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_quantum/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/experiments/interval_echo_space/FORECAST_PROTOCOL.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -2177,6 +2647,16 @@
     },
     {
       "path": "model/experiments/material_inertia/pair_recoil/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/material_inertia/pair_spectrum/DISPERSION_PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/material_inertia/pair_spectrum/PROBE_PROTOCOL.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -3316,6 +3796,11 @@
       "allowlisted": false
     },
     {
+      "path": "Lean/ObserverPatchHolography/EinsteinBranch/OverlapCoupling.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
       "path": "Lean/ObserverPatchHolography/EinsteinBranch/PerCutCollarComposition.lean",
       "glob": "Lean/ObserverPatchHolography/**/*.lean",
       "allowlisted": false
@@ -3327,6 +3812,11 @@
     },
     {
       "path": "Lean/ObserverPatchHolography/EinsteinBranch/QuantumScalarStress.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/EinsteinBranch/RayPairBalance.lean",
       "glob": "Lean/ObserverPatchHolography/**/*.lean",
       "allowlisted": false
     },
