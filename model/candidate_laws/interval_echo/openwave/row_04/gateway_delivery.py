@@ -329,8 +329,8 @@ def compare_nomination(board):
         "installed circuit misroutes",
     )
     a, c = relays
-    # The filed vacancy schedule can also consume the synthesized switches.
-    # Comparing its ordered record tests stricter equality than equal support.
+    # The filed vacancy schedule consumes the synthesized switches and
+    # must return the filed ordered record.
     setup = seal_path((a, source, c), sorted(written))
     require(
         pair == setup["final_pair"] and set(setup["neutral_edges"]) == written,
@@ -382,7 +382,6 @@ def compare_nomination(board):
                 board, source, relays, sink, written | {link(source, relays[1])}
             ),
         },
-        "stop_on_receipt_with_direct_link": matched["ten_writes"]["stop_on_receipt"],
         "matched_delivery_controls": matched,
         "addressed_blank_delivery": [
             replay_installation(

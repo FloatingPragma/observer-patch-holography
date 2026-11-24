@@ -1,9 +1,5 @@
 # Row 4 · Free stability of a localized Interval Echo pair
 
-## Why a packet router writes eleven memories
-
-A single-load routing experiment produces the filed eleven-memory state. Its source must reach either of two gateway ports, and every outward contact from either relay must lead to the same receiver. Native contact reads in cell 13 select exactly one of 32,768 local switch patterns. If the receiver also accepts direct deliveries, ten writes suffice. The tidal station supplies the source-port rule. Compulsory gateway transit and passive switching are separate apparatus choices made with the pair layout known. [Derivation, controls and replay](PROTOCOL.md#one-load-delivery-through-either-of-two-gateways)
-
 ## Two loads on a connected board, independent of coupling
 
 On the 20-cell federation, a cell-13 observer starting with one load on 156 and one on 157 can prepare a pair whose probability of detection on an original home seam is at least **99.4771841% at every free exposure, for every real contrast strength**. This includes failed preparations. The terminal measurement is the M10.3 instrument with all 30 seam addresses and quiet. The observer prepares eleven neutral seam records before release. These records persist during flight. The full board of 240 ports stays connected and the positive-interference combination of the same two pair configurations can reach another cell. [Protocol](PROTOCOL.md#connected-release-from-the-historical-sharp-pair) · [Source operators and full-board certificate](open_pair.py)
@@ -32,6 +28,10 @@ python -B -O -W error -m model.candidate_laws.interval_echo.openwave.row_04.open
 python -B -O -W error -m model.candidate_laws.interval_echo.openwave.row_04.open_pair_check --full
 python -B -O -W error -m model.experiments.interval_echo_consensus.pair_window
 ```
+
+## A one-load routing task with the same eleven writes
+
+The eleven-memory state is the only solution of a one-load routing task written with the pair layout known. A full exchange pulse offered on any contact of source 156 must move the load to gateway 157 or 166 and to no other port. From either gateway every open contact except the return must lead to one common receiver. These clauses fix each of the fifteen contacts on the three ports, so exactly one of 32,768 switch patterns passes, with receiver 163. If the receiver also accepts direct delivery, ten writes suffice. The source port follows the tidal station's port rule. Six ports of cell 13 tie under that rule and the lowest address selects 156. Compulsory gateway transit and passive switching are apparatus choices. [Task, controls and replay](PROTOCOL.md#one-load-delivery-through-either-of-two-gateways)
 
 ## Release on blank memories
 

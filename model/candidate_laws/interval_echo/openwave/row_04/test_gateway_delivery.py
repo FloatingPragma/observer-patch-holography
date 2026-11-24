@@ -28,11 +28,10 @@ def test_station_ancestry_and_one_load_controls():
     with pytest.raises(ArithmeticError, match="inconsistent reciprocal"):
         delivery.switches_from_records(board, 156, inconsistent)
     assert report["addressed_blank_delivery"] == [(163,), (163,)]
-    assert report["stop_on_receipt_with_direct_link"] == ["17/75", "32/75", "26/75", "0"]
     matched = report["matched_delivery_controls"]
+    assert matched["ten_writes"]["stop_on_receipt"] == ["17/75", "32/75", "26/75", "0"]
     assert matched["ten_writes"]["two_attempts"][-2:] == ["11/75", "2/25"]
     assert matched["blank"]["stop_on_receipt"][-2:] == ["4/15", "38/75"]
-    assert matched["ten_writes"]["stop_on_receipt"] == report["stop_on_receipt_with_direct_link"]
     assert matched["eleven_writes"]["two_attempts"] == matched["eleven_writes"]["stop_on_receipt"]
     assert report["two_attempt_bins_source_relays_receiver_other"] == {
         "passive": ["32/75", "38/75", "1/15", "0"],
@@ -111,9 +110,19 @@ def test_pair_control_with_direct_receiver(monkeypatch):
 
     board = federation(0)
     report = delivery.compare_nomination(board)
-    monkeypatch.setattr(open_pair_check, "TIMES", (1,))
-    monkeypatch.setattr(open_pair_check, "STRENGTHS", (0,))
-    (row,) = delivery.direct_link_pair_control(board, report)
-    assert len(row["bins"]) == 31
-    np.testing.assert_allclose(sum(row["bins"]), 1, rtol=0, atol=2e-10)
-    np.testing.assert_allclose(1 - row["bins"][-1], 0.982571099, rtol=0, atol=1e-9)
+    monkeypatch.setattr(open_pair_check, "TIMES", (1, 37))
+    rows = delivery.direct_link_pair_control(board, report)
+    home = {}
+    for row in rows:
+        assert len(row["bins"]) == 31
+        np.testing.assert_allclose(sum(row["bins"]), 1, rtol=0, atol=2e-10)
+        home[row["kappa"], row["exposure"]] = 1 - row["bins"][-1]
+    assert len(home) == 6
+    quoted = {
+        (0, 1): 0.982571099,
+        (0, 37): 0.526840130,
+        (0.5, 37): 0.940265361,
+        (8, 37): 0.996086764,
+    }
+    for setting, value in quoted.items():
+        np.testing.assert_allclose(home[setting], value, rtol=0, atol=1e-9)
