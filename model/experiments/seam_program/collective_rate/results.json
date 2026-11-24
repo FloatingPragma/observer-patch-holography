@@ -1,0 +1,156 @@
+{
+  "seam": [
+    0,
+    5
+  ],
+  "active_kappa": 8.0,
+  "clocks": [
+    {
+      "filling": 0.25,
+      "exposure": 0.001953125,
+      "exchange_quadrature": 0.0019528481195074019,
+      "symmetric_quadrature": 0.06438387273306795,
+      "adjacent_density_difference": 9.536061476094275e-07
+    },
+    {
+      "filling": 0.5,
+      "exposure": 0.001953125,
+      "exchange_quadrature": 0.001952758730812281,
+      "symmetric_quadrature": 0.031227481585751428,
+      "adjacent_density_difference": 9.535844362369705e-07
+    },
+    {
+      "filling": 0.75,
+      "exposure": 0.001953125,
+      "exchange_quadrature": 0.0019528481195074036,
+      "symmetric_quadrature": -0.001954633554115926,
+      "adjacent_density_difference": 9.536061475190483e-07
+    },
+    {
+      "filling": 0.25,
+      "exposure": 0.03125,
+      "exchange_quadrature": 0.03014938880273985,
+      "symmetric_quadrature": 0.7750450104902407,
+      "adjacent_density_difference": 0.00023976158510723725
+    },
+    {
+      "filling": 0.5,
+      "exposure": 0.03125,
+      "exchange_quadrature": 0.029801834407672777,
+      "symmetric_quadrature": 0.4149119322687501,
+      "adjacent_density_difference": 0.00023838743068660742
+    },
+    {
+      "filling": 0.75,
+      "exposure": 0.03125,
+      "exchange_quadrature": 0.0301493888027399,
+      "symmetric_quadrature": -0.03677487593848007,
+      "adjacent_density_difference": 0.00023976158510737727
+    }
+  ],
+  "exchange_only_control": [
+    {
+      "filling": 0.25,
+      "exposure": 0.001953125,
+      "exchange_quadrature": 0.0019531163076728427,
+      "symmetric_quadrature": 0.0019531142898195019,
+      "adjacent_density_difference": 9.536716258727427e-07
+    },
+    {
+      "filling": 0.5,
+      "exposure": 0.001953125,
+      "exchange_quadrature": 0.0019531163076733705,
+      "symmetric_quadrature": 2.1552753342885672e-18,
+      "adjacent_density_difference": 9.5367173956213e-07
+    },
+    {
+      "filling": 0.75,
+      "exposure": 0.001953125,
+      "exchange_quadrature": 0.0019531163076728425,
+      "symmetric_quadrature": -0.0019531105645533226,
+      "adjacent_density_difference": 9.53671625836261e-07
+    }
+  ],
+  "thermal_region": [
+    {
+      "beta": 0.0,
+      "filling": 0.5,
+      "minimum_regional_probability": 0.25,
+      "exchange_coherence": 1.4049960489233694e-18,
+      "swap_slope": -0.0,
+      "aligned_to_symmetric_slope": 0.0
+    },
+    {
+      "beta": 0.03125,
+      "filling": 0.4999999999999999,
+      "minimum_regional_probability": 0.20156447080477838,
+      "exchange_coherence": 0.0031673138582661567,
+      "swap_slope": 0.03094357415933402,
+      "aligned_to_symmetric_slope": 0.3508312890580587
+    },
+    {
+      "beta": 0.0625,
+      "filling": 0.49999999999999994,
+      "minimum_regional_probability": 0.11099280084553784,
+      "exchange_coherence": 0.003393791272073265,
+      "swap_slope": 0.05935639068353771,
+      "aligned_to_symmetric_slope": 1.1860136009659588
+    },
+    {
+      "beta": 0.125,
+      "filling": 0.49999999999999994,
+      "minimum_regional_probability": 0.0058084241310057,
+      "exchange_coherence": 0.0003888664618290783,
+      "swap_slope": 0.12566073024786384,
+      "aligned_to_symmetric_slope": 4.317166033332273
+    }
+  ],
+  "nested_gibbs_at_beta_one_sixteenth": [
+    {
+      "ports": [
+        0,
+        5
+      ],
+      "minimum_regional_probability": 0.11099280084553814,
+      "swap_per_energy": 0.05935639068353593,
+      "aligned_per_energy": 0.14825170012074446,
+      "fixed_marginal_operator_norm": 0.34379270281209395
+    },
+    {
+      "ports": [
+        0,
+        5,
+        1,
+        11
+      ],
+      "minimum_regional_probability": 0.01153460050499614,
+      "swap_per_energy": 0.05755803173448735,
+      "aligned_per_energy": 0.07015836542693102,
+      "fixed_marginal_operator_norm": 0.03186895377410204
+    },
+    {
+      "ports": [
+        0,
+        5,
+        1,
+        4,
+        7,
+        9,
+        10,
+        11
+      ],
+      "minimum_regional_probability": 0.000141411225325197,
+      "swap_per_energy": 0.06253324666914946,
+      "aligned_per_energy": 0.06250043384927038,
+      "fixed_marginal_operator_norm": 2.66703989436415e-05
+    }
+  ],
+  "regional_transfer": {
+    "native_energy_slope": 0.9999999999999996,
+    "modular_slopes": {
+      "0.25": 0.0,
+      "0.5": 0.0,
+      "0.75": 0.0
+    }
+  }
+}
