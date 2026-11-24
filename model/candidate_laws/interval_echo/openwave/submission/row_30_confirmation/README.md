@@ -32,7 +32,7 @@ Three fixed validation seeds, 785029, 514823 and 690271, occupy a different doma
 
 ## Reproduce from the frozen checkout
 
-The source bundle is a local, unsubmitted Git object with a public RER base. The OpenWave patch stages the exact source, port, canonical selection and proposed acceptance record for review. That local artifact cannot satisfy the official acceptance check. The working research checkout contains additional edits to the common candidate wrapper. The following commands keep the research checkout intact and use the version in the packet. [Package manifest](PACKAGE.json) · [Source Git bundle](SOURCE.bundle) · [Proposed OpenWave patch](OPENWAVE.patch)
+The source bundle reproduces the [published frozen RER commit](https://github.com/FloatingPragma/observer-patch-holography/tree/92370140edfbdb0ac2be647b2b8166d821e5f1a2). The OpenWave patch stages the exact source, port, canonical selection and proposed acceptance record for review. That local artifact cannot satisfy the official acceptance check. The working research checkout contains additional edits to the common candidate wrapper. The following commands keep the research checkout intact and use the version in the packet. [Package manifest](PACKAGE.json) · [Source Git bundle](SOURCE.bundle) · [Proposed OpenWave patch](OPENWAVE.patch)
 
 ```sh
 project=$(git rev-parse --show-toplevel)
@@ -52,4 +52,4 @@ export OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 OMP_NUM_THREADS=1
 
 The one-thread settings reproduce the archived validation counts and diagnostics. In a default-thread inspection on the review host, the 80-cell recurrence diagnostic differed from the archive by about 7.14 × 10⁻⁸, above the frozen absolute replay tolerance of 10⁻⁸. The verifier returned `invalid` (4). A fresh one-thread replay reproduced all 170 count arrays and passed every scientific gate.
 
-Use the pinned versions in `model/requirements.txt`. The source and OpenWave entry points compare every input to the frozen bytes. The public entry point additionally verifies its own launcher and vendor files against official OpenWave Git blobs. With the word `public` as the mode, an unaccepted candidate exits with code 5 before writing a draw. An open registration requires publishing the frozen source for independent inspection and a maintainer decision on the proposed pin. [Complete status contract](../../row_30_collective/confirmation/README.md)
+Use the pinned versions in `model/requirements.txt`. The source and OpenWave entry points compare every input to the frozen bytes. The public entry point additionally verifies its own launcher and vendor files against official OpenWave Git blobs. With the word `public` as the mode, an unaccepted candidate exits with code 5 before writing a draw. The frozen source is available for independent inspection. An open registration requires a maintainer decision on the proposed pin. [Complete status contract](../../row_30_collective/confirmation/README.md)

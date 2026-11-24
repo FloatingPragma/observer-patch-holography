@@ -1,6 +1,6 @@
 # Review of the proposed state and decoder
 
-**Author-side checks verified. Full-credit filing on HOLD.** OpenWave's row-30 cell for M10 is untested at its verified main revision. The source, registration and acceptance patch are local proposals. Source publication, a maintainer decision adopting this candidate, a public acquisition and the cell decision are outstanding. [Public cell](https://github.com/openwave-labs/openwave/blob/d4fc3e4046c472f4ad38468df8dddfa1f97bac97/MODELS.md#L467) · [Proposed package](PACKAGE.json)
+**Author-side checks verified. Full-credit filing on HOLD.** OpenWave's row-30 cell for M10 is untested at its verified main revision. The frozen source is published on RER main at its exact commit. The registration and acceptance patch are local proposals. A maintainer decision adopting this candidate, a public acquisition and the cell decision are outstanding. [Public cell](https://github.com/openwave-labs/openwave/blob/d4fc3e4046c472f4ad38468df8dddfa1f97bac97/MODELS.md#L467) · [Proposed package](PACKAGE.json) · [Published frozen source](https://github.com/FloatingPragma/observer-patch-holography/tree/92370140edfbdb0ac2be647b2b8166d821e5f1a2)
 
 | Artifact | Identity |
 | --- | --- |
