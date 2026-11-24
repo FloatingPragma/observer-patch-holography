@@ -14,12 +14,12 @@ Use a standing probe in modes ±2 and issue separate source-rim, probe-rim and i
 
 A second interferometer compares separately prepared two-ring product modes while the cycle acts. Reading their bare return phases calibrates the beat without using the standing-wave flight data. A fresh standing probe is then read after 20,000 to 96,000 cycles for both source signs. All 40 held rotations agree with the calibrated phase to 0.017 radians. The lowest observed probe visibility is 96.74%. For the shorter contact, the original source mode returns in at least 99.28% of the enrolled probes. The per-cycle spectral weights imply a conservative return bound of 98.15% throughout the sequence at cycle boundaries, including unsampled cycles. The two branches of the standing wave have distinct total fifth-turn momenta, so their source-return probabilities add.
 
-| Probe sign | Contact duration | Measured beat per cycle, source +1 | Independent finite spectrum |
+| Probe and contact | Contact duration | Measured beat per cycle, source +1 | Independent finite spectrum |
 | --- | ---: | ---: | ---: |
-| Vacancy | 1/512 | +0.00044282 | +0.00044281 |
-| Excess | 1/512 | +0.00009339 | +0.00009335 |
-| Vacancy | 1/1024 | +0.00008862 | +0.00008868 |
-| Excess | 1/1024 | +0.00003814 | +0.00003812 |
+| Vacancy, 1/512 | 1/512 | +0.00044282 | +0.00044281 |
+| Excess, 1/512 | 1/512 | +0.00009339 | +0.00009335 |
+| Vacancy, 1/1024 | 1/1024 | +0.00008862 | +0.00008868 |
+| Excess, 1/1024 | 1/1024 | +0.00003814 | +0.00003812 |
 
 Reversing source circulation reverses the precession. Holding its direction fixed and reversing the probe charge preserves the sign at both durations. This sign test distinguishes the material interaction from a coupling proportional to the product of the two signed orbital charges. Assigning an electron magnetic moment requires an independently sourced exterior field and mass and angular-momentum standards for that same charge. [Calibration and 40 held readings](beat.json)
 
