@@ -61,8 +61,10 @@ def compare(actual, saved, key=""):
             compare(v, saved[k], k)
     elif isinstance(actual, list):
         if key in BINS:
-            if (len(saved) != len(actual) or any(type(n) is not int or not 0 <= n <= flight.UNITS for n in saved)
-                    or abs(sum(saved) - flight.UNITS) > len(saved)/2
+            if (len(saved) != len(actual)
+                    or any(type(n) is not int or not 0 <= n <= flight.UNITS
+                           for bins in (actual, saved) for n in bins)
+                    or any(abs(sum(bins) - flight.UNITS) > len(bins)/2 for bins in (actual, saved))
                     or any(abs(a-b) > 2 for a, b in zip(actual, saved, strict=True))):
                 raise ValueError(f"Changed terminal law at {key}")
         else:
@@ -99,6 +101,8 @@ def main():
     if full:
         print("128-bank mean home and upper limit:", result["ensemble"]["mean_home"],
               result["ensemble"]["one_sided_upper_99"])
+        print("Independent-material mean at least 0.94:",
+              "rejected" if result["ensemble"]["reject_iid_mean_at_least_benchmark"] else "inconclusive")
 
 
 if __name__ == "__main__":

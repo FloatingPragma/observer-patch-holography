@@ -31,7 +31,7 @@ The probability at the original address of eleven writes and four openings, **al
 | 80 | 384 | 0.0000280621 to 0.0000289679 |
 | 320 | 1,504 | 0.000109905 to 0.000113458 |
 
-The upper bound sums the single-event probabilities. The lower subtracts each pairwise intersection once, treating shared contacts with conflicting requirements as impossible. These are bounds on local motifs, not on a chosen launch's home detection or on whole-board connectivity.
+The bounds count only the filed type of layout: a degree-five center, two nonadjacent degree-six tips and an internal common receiver. The upper bound sums the single-event probabilities. The lower subtracts each pairwise intersection once, treating shared contacts with conflicting requirements as impossible. As a different mechanism, writing the nine contacts leading away from the sharp launch seam isolates that pair. Its home probability is one under coherent flight and random swaps. This does not protect the specified dark ray.
 
 Even if the write count is correlated, a source invariant under **every permutation of the physical seams** is a mixture of uniform $k$-write placements. Among $N$ contacts its probability for this specified local mask is bounded by
 
@@ -62,7 +62,7 @@ The following two neutral masks were fixed for purposes other than persistence *
 | Blank control | 0.440929 | 0.440929 | 0.442706 | 0.009313 |
 | Filed eleven | 0.995945 | 0.995945 | 1 | 0.123196 |
 
-The tidal rule selects the center address for a matched-ray experiment. It closes both preparation contacts there and leaves both required external contacts open. The two archived spectroscopy materials have their own [matched flights](../commissioned_medium/README.md). None of these tests establishes a source independent of persistence that both selects the filed material and passes the pair measurement. A candidate for that role needs its original selection record and its actual complete output, including cases that do not prepare the pair. A geometry-dependent service can be tested this way without requiring it to reproduce the filed mask.
+The tidal rule puts a background parking site at 156; its active source placements were in cells 0, 1 and 4. The sham closes both pulse contacts at 156 and leaves both required external contacts open. The two archived spectroscopy materials have their own [matched flights](../commissioned_medium/README.md). None of these tests establishes a source independent of persistence that both selects the filed material and passes the pair measurement. A candidate for that role needs its original selection record and its actual complete output, including cases that do not prepare the pair. A geometry-dependent service can be tested this way without requiring it to reproduce the filed mask.
 
 **A two-contact test for another source.** Let $u$ be its frequency of both pulse contacts open, and $v$ its frequency of only the center-to-$c$ pulse contact open, before placing the loads. The other 628 contacts can be arbitrarily correlated. A necessary condition for 94% inclusive home detection at zero contrast with this acquisition is
 $u(364/729)^8+v(63/64)^8\leq0.06$.
@@ -80,3 +80,5 @@ python -B -m pytest -q model/candidate_laws/interval_echo/openwave/row_04/seam_o
 ```
 
 The first command verifies the exact census on all three pinned boards. The second derives the admission ceiling and checks the source losses against the regenerated history of every enrolled seed. Full replay checks the donor source blobs, propagates all 28,680 two-load configurations per material and compares each terminal bin with the archive. The pulse and terminal instruments reuse the [native material transfer](../commissioned_medium/experiment.py). The raw-board test constructs its own pair graph, pulse and two propagations for the two pre-layout donors and the first ensemble bank. Verification reads the receipt. `--record PATH` creates a separate first record and refuses an existing path.
+
+To decode the packed histories from the raw NPZ, order each seam's two port addresses from smaller to larger, then sort the 630 pairs lexicographically. Use two consecutive bits per seam in that order, least-significant bit first within each byte. Only `11` writes. Using NPZ storage order assigns the same number of writes to different contacts.

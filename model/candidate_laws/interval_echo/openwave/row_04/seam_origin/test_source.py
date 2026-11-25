@@ -158,6 +158,9 @@ def test_receipt_rejects_a_different_draw_and_a_changed_receiver():
         compare(row, {**row, "seed": row["seed"]+1})
     with pytest.raises(ValueError, match="terminal"):
         compare(row, {**row, "acquired": row["acquired"][::-1]})
+    invalid = [float("nan"), *row["acquired"][1:]]
+    with pytest.raises(ValueError, match="terminal"):
+        compare({**row, "acquired": invalid}, row)
 
 
 @pytest.mark.parametrize("mutation", ["missing_panel", "repeat_seed", "different_history", "shift_loss"])
