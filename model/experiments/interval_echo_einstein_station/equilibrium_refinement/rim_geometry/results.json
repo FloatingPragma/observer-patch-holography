@@ -1,0 +1,1488 @@
+{
+  "center": 0,
+  "rim": [
+    2,
+    4,
+    6,
+    8,
+    9
+  ],
+  "available_geodesic_rows": [
+    {
+      "origin": 0,
+      "distances": [
+        0,
+        1,
+        2,
+        3,
+        2,
+        1,
+        2,
+        1,
+        2,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "origin": 2,
+      "distances": [
+        2,
+        3,
+        0,
+        1,
+        1,
+        2,
+        1,
+        2,
+        2,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "origin": 4,
+      "distances": [
+        2,
+        2,
+        1,
+        1,
+        0,
+        1,
+        2,
+        3,
+        2,
+        1,
+        2,
+        1
+      ]
+    },
+    {
+      "origin": 6,
+      "distances": [
+        2,
+        2,
+        1,
+        1,
+        2,
+        3,
+        0,
+        1,
+        1,
+        2,
+        1,
+        2
+      ]
+    },
+    {
+      "origin": 8,
+      "distances": [
+        2,
+        1,
+        2,
+        1,
+        2,
+        2,
+        1,
+        1,
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "origin": 9,
+      "distances": [
+        2,
+        1,
+        2,
+        1,
+        1,
+        1,
+        2,
+        2,
+        1,
+        0,
+        3,
+        2
+      ]
+    }
+  ],
+  "geodesic_forks": [
+    {
+      "inner": 1,
+      "rim": [
+        8,
+        9
+      ],
+      "rim_separation": 1
+    },
+    {
+      "inner": 5,
+      "rim": [
+        4,
+        9
+      ],
+      "rim_separation": 1
+    },
+    {
+      "inner": 7,
+      "rim": [
+        6,
+        8
+      ],
+      "rim_separation": 1
+    },
+    {
+      "inner": 10,
+      "rim": [
+        2,
+        6
+      ],
+      "rim_separation": 1
+    },
+    {
+      "inner": 11,
+      "rim": [
+        2,
+        4
+      ],
+      "rim_separation": 1
+    }
+  ],
+  "arc_width_test": {
+    "consecutive_classes": [
+      {
+        "visible": 0,
+        "near": 0,
+        "far": 0
+      },
+      {
+        "visible": 1,
+        "near": 0,
+        "far": 0
+      },
+      {
+        "visible": 2,
+        "near": 1,
+        "far": 0
+      },
+      {
+        "visible": 3,
+        "near": 2,
+        "far": 1
+      },
+      {
+        "visible": 4,
+        "near": 3,
+        "far": 3
+      },
+      {
+        "visible": 5,
+        "near": 5,
+        "far": 5
+      }
+    ],
+    "required_overlap_per_single": 0.569323441926607,
+    "sharp_minimum_worst_pair_error_nats": 0.1938584683009468,
+    "attaining_uniform_arc_length": 3.22346144208289,
+    "fitted_full_rim_lottery_probability": 0.2091020453010887
+  },
+  "clocked_aperture": {
+    "single_coin_probability": "1/2",
+    "simulation_seed": 710162,
+    "independent_starts_per_word_and_receiver": 262144,
+    "analytic_ordinary_gain": 0.6437751649736401,
+    "sampled_ordinary_gain": 0.6437793562454908,
+    "measured_pair_classes": {
+      "1": {
+        "placements": 5,
+        "predicted_pair_capacity_nats": 2.373920920840298,
+        "sampled_pair_capacity_nats": 2.373753662898012,
+        "simultaneous_99_interval_nats": [
+          2.370152968262226,
+          2.377358467631131
+        ]
+      },
+      "2": {
+        "placements": 5,
+        "predicted_pair_capacity_nats": 2.5751006598945603,
+        "sampled_pair_capacity_nats": 2.5749494466648275,
+        "simultaneous_99_interval_nats": [
+          2.5712340531319406,
+          2.5786690812207933
+        ]
+      }
+    },
+    "records": [
+      {
+        "word": [
+          0,
+          1
+        ],
+        "rim_occupancy": 0,
+        "occupied_rim_separation": null,
+        "hit_probabilities": [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        "hits": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "mean_lit_panels": "0"
+      },
+      {
+        "word": [
+          0,
+          2
+        ],
+        "rim_occupancy": 1,
+        "occupied_rim_separation": null,
+        "hit_probabilities": [
+          "1",
+          "1/2",
+          "1/2",
+          "1/4",
+          "1/4"
+        ],
+        "hits": [
+          262144,
+          131447,
+          130940,
+          65064,
+          65058
+        ],
+        "mean_lit_panels": "5/2"
+      },
+      {
+        "word": [
+          0,
+          4
+        ],
+        "rim_occupancy": 1,
+        "occupied_rim_separation": null,
+        "hit_probabilities": [
+          "1/2",
+          "1",
+          "1/4",
+          "1/4",
+          "1/2"
+        ],
+        "hits": [
+          131552,
+          262144,
+          65558,
+          65362,
+          130723
+        ],
+        "mean_lit_panels": "5/2"
+      },
+      {
+        "word": [
+          0,
+          5
+        ],
+        "rim_occupancy": 0,
+        "occupied_rim_separation": null,
+        "hit_probabilities": [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        "hits": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "mean_lit_panels": "0"
+      },
+      {
+        "word": [
+          0,
+          6
+        ],
+        "rim_occupancy": 1,
+        "occupied_rim_separation": null,
+        "hit_probabilities": [
+          "1/2",
+          "1/4",
+          "1",
+          "1/2",
+          "1/4"
+        ],
+        "hits": [
+          130581,
+          65467,
+          262144,
+          131034,
+          65481
+        ],
+        "mean_lit_panels": "5/2"
+      },
+      {
+        "word": [
+          0,
+          7
+        ],
+        "rim_occupancy": 0,
+        "occupied_rim_separation": null,
+        "hit_probabilities": [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        "hits": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "mean_lit_panels": "0"
+      },
+      {
+        "word": [
+          0,
+          8
+        ],
+        "rim_occupancy": 1,
+        "occupied_rim_separation": null,
+        "hit_probabilities": [
+          "1/4",
+          "1/4",
+          "1/2",
+          "1",
+          "1/2"
+        ],
+        "hits": [
+          65067,
+          65280,
+          131103,
+          262144,
+          131315
+        ],
+        "mean_lit_panels": "5/2"
+      },
+      {
+        "word": [
+          0,
+          9
+        ],
+        "rim_occupancy": 1,
+        "occupied_rim_separation": null,
+        "hit_probabilities": [
+          "1/4",
+          "1/2",
+          "1/4",
+          "1/2",
+          "1"
+        ],
+        "hits": [
+          65554,
+          131232,
+          65133,
+          131089,
+          262144
+        ],
+        "mean_lit_panels": "5/2"
+      },
+      {
+        "word": [
+          0,
+          10
+        ],
+        "rim_occupancy": 0,
+        "occupied_rim_separation": null,
+        "hit_probabilities": [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        "hits": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "mean_lit_panels": "0"
+      },
+      {
+        "word": [
+          0,
+          11
+        ],
+        "rim_occupancy": 0,
+        "occupied_rim_separation": null,
+        "hit_probabilities": [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        "hits": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "mean_lit_panels": "0"
+      },
+      {
+        "word": [
+          1,
+          2
+        ],
+        "rim_occupancy": 1,
+        "occupied_rim_separation": null,
+        "hit_probabilities": [
+          "1",
+          "1/2",
+          "1/2",
+          "1/4",
+          "1/4"
+        ],
+        "hits": [
+          262144,
+          131002,
+          131115,
+          65203,
+          65916
+        ],
+        "mean_lit_panels": "5/2"
+      },
+      {
+        "word": [
+          1,
+          4
+        ],
+        "rim_occupancy": 1,
+        "occupied_rim_separation": null,
+        "hit_probabilities": [
+          "1/2",
+          "1",
+          "1/4",
+          "1/4",
+          "1/2"
+        ],
+        "hits": [
+          131323,
+          262144,
+          65278,
+          65353,
+          130976
+        ],
+        "mean_lit_panels": "5/2"
+      },
+      {
+        "word": [
+          1,
+          5
+        ],
+        "rim_occupancy": 0,
+        "occupied_rim_separation": null,
+        "hit_probabilities": [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        "hits": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "mean_lit_panels": "0"
+      },
+      {
+        "word": [
+          1,
+          6
+        ],
+        "rim_occupancy": 1,
+        "occupied_rim_separation": null,
+        "hit_probabilities": [
+          "1/2",
+          "1/4",
+          "1",
+          "1/2",
+          "1/4"
+        ],
+        "hits": [
+          130935,
+          64991,
+          262144,
+          130941,
+          65416
+        ],
+        "mean_lit_panels": "5/2"
+      },
+      {
+        "word": [
+          1,
+          7
+        ],
+        "rim_occupancy": 0,
+        "occupied_rim_separation": null,
+        "hit_probabilities": [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        "hits": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "mean_lit_panels": "0"
+      },
+      {
+        "word": [
+          1,
+          8
+        ],
+        "rim_occupancy": 1,
+        "occupied_rim_separation": null,
+        "hit_probabilities": [
+          "1/4",
+          "1/4",
+          "1/2",
+          "1",
+          "1/2"
+        ],
+        "hits": [
+          65850,
+          65697,
+          130881,
+          262144,
+          131171
+        ],
+        "mean_lit_panels": "5/2"
+      },
+      {
+        "word": [
+          1,
+          9
+        ],
+        "rim_occupancy": 1,
+        "occupied_rim_separation": null,
+        "hit_probabilities": [
+          "1/4",
+          "1/2",
+          "1/4",
+          "1/2",
+          "1"
+        ],
+        "hits": [
+          65590,
+          131031,
+          65555,
+          131159,
+          262144
+        ],
+        "mean_lit_panels": "5/2"
+      },
+      {
+        "word": [
+          1,
+          10
+        ],
+        "rim_occupancy": 0,
+        "occupied_rim_separation": null,
+        "hit_probabilities": [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        "hits": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "mean_lit_panels": "0"
+      },
+      {
+        "word": [
+          1,
+          11
+        ],
+        "rim_occupancy": 0,
+        "occupied_rim_separation": null,
+        "hit_probabilities": [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        "hits": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "mean_lit_panels": "0"
+      },
+      {
+        "word": [
+          2,
+          4
+        ],
+        "rim_occupancy": 2,
+        "occupied_rim_separation": 1,
+        "hit_probabilities": [
+          "1",
+          "1",
+          "5/8",
+          "7/16",
+          "5/8"
+        ],
+        "hits": [
+          262144,
+          262144,
+          164204,
+          114289,
+          164115
+        ],
+        "mean_lit_panels": "59/16"
+      },
+      {
+        "word": [
+          2,
+          5
+        ],
+        "rim_occupancy": 1,
+        "occupied_rim_separation": null,
+        "hit_probabilities": [
+          "1",
+          "1/2",
+          "1/2",
+          "1/4",
+          "1/4"
+        ],
+        "hits": [
+          262144,
+          131137,
+          131244,
+          65604,
+          65471
+        ],
+        "mean_lit_panels": "5/2"
+      },
+      {
+        "word": [
+          2,
+          6
+        ],
+        "rim_occupancy": 2,
+        "occupied_rim_separation": 1,
+        "hit_probabilities": [
+          "1",
+          "5/8",
+          "1",
+          "5/8",
+          "7/16"
+        ],
+        "hits": [
+          262144,
+          163951,
+          262144,
+          163497,
+          114997
+        ],
+        "mean_lit_panels": "59/16"
+      },
+      {
+        "word": [
+          2,
+          7
+        ],
+        "rim_occupancy": 1,
+        "occupied_rim_separation": null,
+        "hit_probabilities": [
+          "1",
+          "1/2",
+          "1/2",
+          "1/4",
+          "1/4"
+        ],
+        "hits": [
+          262144,
+          131233,
+          131028,
+          65279,
+          65666
+        ],
+        "mean_lit_panels": "5/2"
+      },
+      {
+        "word": [
+          2,
+          8
+        ],
+        "rim_occupancy": 2,
+        "occupied_rim_separation": 2,
+        "hit_probabilities": [
+          "1",
+          "5/8",
+          "3/4",
+          "1",
+          "5/8"
+        ],
+        "hits": [
+          262144,
+          163777,
+          196258,
+          262144,
+          164072
+        ],
+        "mean_lit_panels": "4"
+      },
+      {
+        "word": [
+          2,
+          9
+        ],
+        "rim_occupancy": 2,
+        "occupied_rim_separation": 2,
+        "hit_probabilities": [
+          "1",
+          "3/4",
+          "5/8",
+          "5/8",
+          "1"
+        ],
+        "hits": [
+          262144,
+          196528,
+          163547,
+          164080,
+          262144
+        ],
+        "mean_lit_panels": "4"
+      },
+      {
+        "word": [
+          2,
+          10
+        ],
+        "rim_occupancy": 1,
+        "occupied_rim_separation": null,
+        "hit_probabilities": [
+          "1",
+          "1/2",
+          "1/2",
+          "1/4",
+          "1/4"
+        ],
+        "hits": [
+          262144,
+          131101,
+          130582,
+          65746,
+          65432
+        ],
+        "mean_lit_panels": "5/2"
+      },
+      {
+        "word": [
+          2,
+          11
+        ],
+        "rim_occupancy": 1,
+        "occupied_rim_separation": null,
+        "hit_probabilities": [
+          "1",
+          "1/2",
+          "1/2",
+          "1/4",
+          "1/4"
+        ],
+        "hits": [
+          262144,
+          131368,
+          130998,
+          65571,
+          65828
+        ],
+        "mean_lit_panels": "5/2"
+      },
+      {
+        "word": [
+          4,
+          5
+        ],
+        "rim_occupancy": 1,
+        "occupied_rim_separation": null,
+        "hit_probabilities": [
+          "1/2",
+          "1",
+          "1/4",
+          "1/4",
+          "1/2"
+        ],
+        "hits": [
+          130487,
+          262144,
+          65637,
+          65742,
+          131630
+        ],
+        "mean_lit_panels": "5/2"
+      },
+      {
+        "word": [
+          4,
+          6
+        ],
+        "rim_occupancy": 2,
+        "occupied_rim_separation": 2,
+        "hit_probabilities": [
+          "3/4",
+          "1",
+          "1",
+          "5/8",
+          "5/8"
+        ],
+        "hits": [
+          196494,
+          262144,
+          262144,
+          163645,
+          164034
+        ],
+        "mean_lit_panels": "4"
+      },
+      {
+        "word": [
+          4,
+          7
+        ],
+        "rim_occupancy": 1,
+        "occupied_rim_separation": null,
+        "hit_probabilities": [
+          "1/2",
+          "1",
+          "1/4",
+          "1/4",
+          "1/2"
+        ],
+        "hits": [
+          131788,
+          262144,
+          65313,
+          65662,
+          130944
+        ],
+        "mean_lit_panels": "5/2"
+      },
+      {
+        "word": [
+          4,
+          8
+        ],
+        "rim_occupancy": 2,
+        "occupied_rim_separation": 2,
+        "hit_probabilities": [
+          "5/8",
+          "1",
+          "5/8",
+          "1",
+          "3/4"
+        ],
+        "hits": [
+          163847,
+          262144,
+          163719,
+          262144,
+          196446
+        ],
+        "mean_lit_panels": "4"
+      },
+      {
+        "word": [
+          4,
+          9
+        ],
+        "rim_occupancy": 2,
+        "occupied_rim_separation": 1,
+        "hit_probabilities": [
+          "5/8",
+          "1",
+          "7/16",
+          "5/8",
+          "1"
+        ],
+        "hits": [
+          163423,
+          262144,
+          114914,
+          164015,
+          262144
+        ],
+        "mean_lit_panels": "59/16"
+      },
+      {
+        "word": [
+          4,
+          10
+        ],
+        "rim_occupancy": 1,
+        "occupied_rim_separation": null,
+        "hit_probabilities": [
+          "1/2",
+          "1",
+          "1/4",
+          "1/4",
+          "1/2"
+        ],
+        "hits": [
+          130859,
+          262144,
+          65527,
+          65674,
+          130877
+        ],
+        "mean_lit_panels": "5/2"
+      },
+      {
+        "word": [
+          4,
+          11
+        ],
+        "rim_occupancy": 1,
+        "occupied_rim_separation": null,
+        "hit_probabilities": [
+          "1/2",
+          "1",
+          "1/4",
+          "1/4",
+          "1/2"
+        ],
+        "hits": [
+          131275,
+          262144,
+          65408,
+          66079,
+          131492
+        ],
+        "mean_lit_panels": "5/2"
+      },
+      {
+        "word": [
+          5,
+          6
+        ],
+        "rim_occupancy": 1,
+        "occupied_rim_separation": null,
+        "hit_probabilities": [
+          "1/2",
+          "1/4",
+          "1",
+          "1/2",
+          "1/4"
+        ],
+        "hits": [
+          131268,
+          65995,
+          262144,
+          131002,
+          65270
+        ],
+        "mean_lit_panels": "5/2"
+      },
+      {
+        "word": [
+          5,
+          7
+        ],
+        "rim_occupancy": 0,
+        "occupied_rim_separation": null,
+        "hit_probabilities": [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        "hits": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "mean_lit_panels": "0"
+      },
+      {
+        "word": [
+          5,
+          8
+        ],
+        "rim_occupancy": 1,
+        "occupied_rim_separation": null,
+        "hit_probabilities": [
+          "1/4",
+          "1/4",
+          "1/2",
+          "1",
+          "1/2"
+        ],
+        "hits": [
+          65397,
+          65417,
+          131140,
+          262144,
+          131141
+        ],
+        "mean_lit_panels": "5/2"
+      },
+      {
+        "word": [
+          5,
+          9
+        ],
+        "rim_occupancy": 1,
+        "occupied_rim_separation": null,
+        "hit_probabilities": [
+          "1/4",
+          "1/2",
+          "1/4",
+          "1/2",
+          "1"
+        ],
+        "hits": [
+          65544,
+          131002,
+          65647,
+          130869,
+          262144
+        ],
+        "mean_lit_panels": "5/2"
+      },
+      {
+        "word": [
+          5,
+          10
+        ],
+        "rim_occupancy": 0,
+        "occupied_rim_separation": null,
+        "hit_probabilities": [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        "hits": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "mean_lit_panels": "0"
+      },
+      {
+        "word": [
+          5,
+          11
+        ],
+        "rim_occupancy": 0,
+        "occupied_rim_separation": null,
+        "hit_probabilities": [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        "hits": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "mean_lit_panels": "0"
+      },
+      {
+        "word": [
+          6,
+          7
+        ],
+        "rim_occupancy": 1,
+        "occupied_rim_separation": null,
+        "hit_probabilities": [
+          "1/2",
+          "1/4",
+          "1",
+          "1/2",
+          "1/4"
+        ],
+        "hits": [
+          131374,
+          65692,
+          262144,
+          130920,
+          65424
+        ],
+        "mean_lit_panels": "5/2"
+      },
+      {
+        "word": [
+          6,
+          8
+        ],
+        "rim_occupancy": 2,
+        "occupied_rim_separation": 1,
+        "hit_probabilities": [
+          "5/8",
+          "7/16",
+          "1",
+          "1",
+          "5/8"
+        ],
+        "hits": [
+          163602,
+          114531,
+          262144,
+          262144,
+          163789
+        ],
+        "mean_lit_panels": "59/16"
+      },
+      {
+        "word": [
+          6,
+          9
+        ],
+        "rim_occupancy": 2,
+        "occupied_rim_separation": 2,
+        "hit_probabilities": [
+          "5/8",
+          "5/8",
+          "1",
+          "3/4",
+          "1"
+        ],
+        "hits": [
+          164095,
+          163610,
+          262144,
+          196946,
+          262144
+        ],
+        "mean_lit_panels": "4"
+      },
+      {
+        "word": [
+          6,
+          10
+        ],
+        "rim_occupancy": 1,
+        "occupied_rim_separation": null,
+        "hit_probabilities": [
+          "1/2",
+          "1/4",
+          "1",
+          "1/2",
+          "1/4"
+        ],
+        "hits": [
+          131169,
+          65083,
+          262144,
+          131525,
+          65726
+        ],
+        "mean_lit_panels": "5/2"
+      },
+      {
+        "word": [
+          6,
+          11
+        ],
+        "rim_occupancy": 1,
+        "occupied_rim_separation": null,
+        "hit_probabilities": [
+          "1/2",
+          "1/4",
+          "1",
+          "1/2",
+          "1/4"
+        ],
+        "hits": [
+          131473,
+          65414,
+          262144,
+          131197,
+          65931
+        ],
+        "mean_lit_panels": "5/2"
+      },
+      {
+        "word": [
+          7,
+          8
+        ],
+        "rim_occupancy": 1,
+        "occupied_rim_separation": null,
+        "hit_probabilities": [
+          "1/4",
+          "1/4",
+          "1/2",
+          "1",
+          "1/2"
+        ],
+        "hits": [
+          65459,
+          65420,
+          131330,
+          262144,
+          130932
+        ],
+        "mean_lit_panels": "5/2"
+      },
+      {
+        "word": [
+          7,
+          9
+        ],
+        "rim_occupancy": 1,
+        "occupied_rim_separation": null,
+        "hit_probabilities": [
+          "1/4",
+          "1/2",
+          "1/4",
+          "1/2",
+          "1"
+        ],
+        "hits": [
+          65593,
+          131198,
+          65746,
+          130742,
+          262144
+        ],
+        "mean_lit_panels": "5/2"
+      },
+      {
+        "word": [
+          7,
+          10
+        ],
+        "rim_occupancy": 0,
+        "occupied_rim_separation": null,
+        "hit_probabilities": [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        "hits": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "mean_lit_panels": "0"
+      },
+      {
+        "word": [
+          7,
+          11
+        ],
+        "rim_occupancy": 0,
+        "occupied_rim_separation": null,
+        "hit_probabilities": [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        "hits": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "mean_lit_panels": "0"
+      },
+      {
+        "word": [
+          8,
+          9
+        ],
+        "rim_occupancy": 2,
+        "occupied_rim_separation": 1,
+        "hit_probabilities": [
+          "7/16",
+          "5/8",
+          "5/8",
+          "1",
+          "1"
+        ],
+        "hits": [
+          115017,
+          163465,
+          163659,
+          262144,
+          262144
+        ],
+        "mean_lit_panels": "59/16"
+      },
+      {
+        "word": [
+          8,
+          10
+        ],
+        "rim_occupancy": 1,
+        "occupied_rim_separation": null,
+        "hit_probabilities": [
+          "1/4",
+          "1/4",
+          "1/2",
+          "1",
+          "1/2"
+        ],
+        "hits": [
+          65986,
+          65234,
+          131048,
+          262144,
+          131313
+        ],
+        "mean_lit_panels": "5/2"
+      },
+      {
+        "word": [
+          8,
+          11
+        ],
+        "rim_occupancy": 1,
+        "occupied_rim_separation": null,
+        "hit_probabilities": [
+          "1/4",
+          "1/4",
+          "1/2",
+          "1",
+          "1/2"
+        ],
+        "hits": [
+          65507,
+          65603,
+          130919,
+          262144,
+          130825
+        ],
+        "mean_lit_panels": "5/2"
+      },
+      {
+        "word": [
+          9,
+          10
+        ],
+        "rim_occupancy": 1,
+        "occupied_rim_separation": null,
+        "hit_probabilities": [
+          "1/4",
+          "1/2",
+          "1/4",
+          "1/2",
+          "1"
+        ],
+        "hits": [
+          65342,
+          130928,
+          65229,
+          131223,
+          262144
+        ],
+        "mean_lit_panels": "5/2"
+      },
+      {
+        "word": [
+          9,
+          11
+        ],
+        "rim_occupancy": 1,
+        "occupied_rim_separation": null,
+        "hit_probabilities": [
+          "1/4",
+          "1/2",
+          "1/4",
+          "1/2",
+          "1"
+        ],
+        "hits": [
+          65501,
+          130707,
+          65758,
+          131084,
+          262144
+        ],
+        "mean_lit_panels": "5/2"
+      },
+      {
+        "word": [
+          10,
+          11
+        ],
+        "rim_occupancy": 0,
+        "occupied_rim_separation": null,
+        "hit_probabilities": [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        "hits": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "mean_lit_panels": "0"
+      }
+    ]
+  }
+}
