@@ -1,0 +1,296 @@
+{
+  "energy_reference": "each formation referred to its unit-filled host",
+  "boards": [
+    {
+      "cells": 20,
+      "max_common_neighbours": 2,
+      "certified_parent_band_rank": 104,
+      "parent_floor": "397/2",
+      "parent_sharp_mean": "399/2",
+      "parent_sharp_variance": "15/4",
+      "sharp_upper_band_weight_lower": "15/16",
+      "vacancy_ceiling": "209/4",
+      "neutral_pair_ceiling": "942/7",
+      "independent_daughter_sum_ceiling": "5231/28",
+      "minimum_energy_deficit": "327/28"
+    },
+    {
+      "cells": 80,
+      "max_common_neighbours": 2,
+      "certified_parent_band_rank": 384,
+      "parent_floor": "199",
+      "parent_sharp_mean": "399/2",
+      "parent_sharp_variance": "15/4",
+      "sharp_upper_band_weight_lower": "15/16",
+      "vacancy_ceiling": "209/4",
+      "neutral_pair_ceiling": "942/7",
+      "independent_daughter_sum_ceiling": "5231/28",
+      "minimum_energy_deficit": "341/28"
+    },
+    {
+      "cells": 320,
+      "max_common_neighbours": 2,
+      "certified_parent_band_rank": 1504,
+      "parent_floor": "199",
+      "parent_sharp_mean": "399/2",
+      "parent_sharp_variance": "15/4",
+      "sharp_upper_band_weight_lower": "15/16",
+      "vacancy_ceiling": "209/4",
+      "neutral_pair_ceiling": "942/7",
+      "independent_daughter_sum_ceiling": "5231/28",
+      "minimum_energy_deficit": "341/28"
+    }
+  ],
+  "source": [
+    1,
+    3,
+    8
+  ],
+  "target": [
+    3,
+    82,
+    8
+  ],
+  "calibration": {
+    "charge_owner": 6,
+    "neutral_owner": 0,
+    "charge_ports": [
+      72,
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79,
+      80,
+      81,
+      82,
+      83
+    ],
+    "neutral_ports": [
+      0,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "joint_calibration_dimension": 1320,
+    "maximum_twice_hamiltonian_entry_error": 0,
+    "charged_sharp_mean": "51",
+    "neutral_sharp_mean": "133"
+  },
+  "release": {
+    "radius": 4,
+    "taylor_order": 64,
+    "probability_tick_denominator": 1000000000000,
+    "shots_per_setting": 4194304,
+    "seed": 18439,
+    "native": {
+      "ball_dimension": 1721,
+      "maximum_half_units_norm": 112,
+      "records": [
+        {
+          "exposure": "0",
+          "joint_probability_ticks": [
+            0,
+            0
+          ],
+          "central_probability_ticks": 0,
+          "simulated_click_and_other": [
+            0,
+            4194304
+          ]
+        },
+        {
+          "exposure": "1/16",
+          "joint_probability_ticks": [
+            892924183,
+            892929647
+          ],
+          "central_probability_ticks": 892926915,
+          "simulated_click_and_other": [
+            3588,
+            4190716
+          ]
+        },
+        {
+          "exposure": "1/8",
+          "joint_probability_ticks": [
+            2743162197,
+            2748074014
+          ],
+          "central_probability_ticks": 2745618105,
+          "simulated_click_and_other": [
+            11359,
+            4182945
+          ]
+        }
+      ]
+    },
+    "exchange_only_control": {
+      "ball_dimension": 1721,
+      "maximum_half_units_norm": 22,
+      "records": [
+        {
+          "exposure": "0",
+          "joint_probability_ticks": [
+            0,
+            0
+          ],
+          "central_probability_ticks": 0,
+          "simulated_click_and_other": [
+            0,
+            4194304
+          ]
+        },
+        {
+          "exposure": "1/16",
+          "joint_probability_ticks": [
+            964161290,
+            964165567
+          ],
+          "central_probability_ticks": 964163429,
+          "simulated_click_and_other": [
+            4037,
+            4190267
+          ]
+        },
+        {
+          "exposure": "1/8",
+          "joint_probability_ticks": [
+            3709175138,
+            3713936401
+          ],
+          "central_probability_ticks": 3711555770,
+          "simulated_click_and_other": [
+            15441,
+            4178863
+          ]
+        }
+      ]
+    },
+    "native_energy_read": {
+      "phase_route": [
+        82,
+        74
+      ],
+      "exact_initial_slope": 15.5,
+      "source_ball_dimension": 973,
+      "records": [
+        {
+          "exposure": "1/64",
+          "plus_minus_counts_p_d_other": [
+            [
+              1592327,
+              2598262,
+              3715
+            ],
+            [
+              2596494,
+              1594167,
+              3643
+            ]
+          ],
+          "slope_from_counts": 15.32182312,
+          "expected_finite_time_slope": 15.33640562,
+          "whole_board_amplitude_entry_error_upper": 7.706358000715987e-12
+        },
+        {
+          "exposure": "1/128",
+          "plus_minus_counts_p_d_other": [
+            [
+              1841891,
+              2351520,
+              893
+            ],
+            [
+              2350590,
+              1842813,
+              901
+            ]
+          ],
+          "slope_from_counts": 15.52438354,
+          "expected_finite_time_slope": 15.45897561,
+          "whole_board_amplitude_entry_error_upper": 2.9865929751790555e-14
+        }
+      ]
+    },
+    "exchange_only_energy_read": {
+      "phase_route": [
+        82,
+        74
+      ],
+      "exact_initial_slope": -0.5,
+      "source_ball_dimension": 973,
+      "records": [
+        {
+          "exposure": "1/64",
+          "plus_minus_counts_p_d_other": [
+            [
+              2111571,
+              2079084,
+              3649
+            ],
+            [
+              2078897,
+              2111686,
+              3721
+            ]
+          ],
+          "slope_from_counts": -0.49801636,
+          "expected_finite_time_slope": -0.49955261,
+          "whole_board_amplitude_entry_error_upper": 7.706358000715987e-12
+        },
+        {
+          "exposure": "1/128",
+          "plus_minus_counts_p_d_other": [
+            [
+              2104762,
+              2088641,
+              901
+            ],
+            [
+              2089192,
+              2104176,
+              936
+            ]
+          ],
+          "slope_from_counts": -0.47462463,
+          "expected_finite_time_slope": -0.49988811,
+          "whole_board_amplitude_entry_error_upper": 2.9865929751790555e-14
+        }
+      ]
+    },
+    "sealed_owner_edges": [
+      [
+        1,
+        82
+      ],
+      [
+        72,
+        182
+      ],
+      [
+        80,
+        192
+      ]
+    ],
+    "sealed_initial_charge": 0,
+    "required_receiver_charge": -1,
+    "sealed_click_and_other": [
+      0,
+      4194304
+    ],
+    "target_prepared_at_zero_click_and_other": [
+      4194304,
+      0
+    ]
+  }
+}
