@@ -1,0 +1,1124 @@
+{
+  "duration": 32,
+  "virtual_starts": 274877906944,
+  "banks": [
+    "three-path pointer",
+    "charge-path contacts"
+  ],
+  "counts_order": [
+    "matched local phase",
+    "other receiving charge",
+    "no receiving charge",
+    "source refusal"
+  ],
+  "terminals": [
+    [
+      4,
+      2,
+      6,
+      10,
+      9,
+      8,
+      3,
+      5,
+      0,
+      1
+    ],
+    [
+      160,
+      165,
+      164,
+      159,
+      158,
+      162,
+      166,
+      161,
+      156,
+      157
+    ]
+  ],
+  "max_aperture_errors": [
+    2.535722314411441e-15,
+    2.535722314411441e-15
+  ],
+  "forecasts_overlapping": 16,
+  "experiments": [
+    {
+      "source": 0,
+      "detector": 0,
+      "emitted": 1,
+      "analyzed": 1,
+      "counts": [
+        41165,
+        158057,
+        91625650854,
+        183252056868
+      ],
+      "match_probability": 1.4964995335110387e-07,
+      "remote_probability": 7.258484127963354e-07,
+      "match_interval99": [
+        1.468594746501302e-07,
+        1.526944109994361e-07
+      ],
+      "remote_interval99": [
+        7.183690318438148e-07,
+        7.31200867213079e-07
+      ],
+      "pointer_forecast99": [
+        1.4715543208665264e-07,
+        1.5127295765658242e-07
+      ],
+      "forecast_overlap": true
+    },
+    {
+      "source": 0,
+      "detector": 0,
+      "emitted": 1,
+      "analyzed": -1,
+      "counts": [
+        1551,
+        198467,
+        91625650743,
+        183252056183
+      ],
+      "match_probability": 5.57102807258807e-09,
+      "remote_probability": 7.258484127963354e-07,
+      "match_interval99": [
+        5.094182069826994e-09,
+        6.23006104711069e-09
+      ],
+      "remote_interval99": [
+        7.212520619026749e-07,
+        7.341094993837352e-07
+      ],
+      "pointer_forecast99": [
+        5.265182795311237e-09,
+        6.06852213579611e-09
+      ],
+      "forecast_overlap": true
+    },
+    {
+      "source": 0,
+      "detector": 0,
+      "emitted": -1,
+      "analyzed": 1,
+      "counts": [
+        1506,
+        197872,
+        91625894681,
+        183251812885
+      ],
+      "match_probability": 5.571028072539781e-09,
+      "remote_probability": 7.258484127963465e-07,
+      "match_interval99": [
+        4.938742078883741e-09,
+        6.058085506071419e-09
+      ],
+      "remote_interval99": [
+        7.189340457728881e-07,
+        7.317709026655915e-07
+      ],
+      "pointer_forecast99": [
+        5.172205053095646e-09,
+        5.968687536399025e-09
+      ],
+      "forecast_overlap": true
+    },
+    {
+      "source": 0,
+      "detector": 0,
+      "emitted": -1,
+      "analyzed": -1,
+      "counts": [
+        41222,
+        158344,
+        91625950410,
+        183251756968
+      ],
+      "match_probability": 1.4964995335101943e-07,
+      "remote_probability": 7.258484127963465e-07,
+      "match_interval99": [
+        1.470648215684405e-07,
+        1.5290379364087568e-07
+      ],
+      "remote_interval99": [
+        7.196149612999201e-07,
+        7.324578671625423e-07
+      ],
+      "pointer_forecast99": [
+        1.4720781904144094e-07,
+        1.5132607208499495e-07
+      ],
+      "forecast_overlap": true
+    },
+    {
+      "source": 1,
+      "detector": 0,
+      "emitted": 1,
+      "analyzed": 1,
+      "counts": [
+        41233,
+        157971,
+        91625607235,
+        183252100505
+      ],
+      "match_probability": 1.496499533512789e-07,
+      "remote_probability": 7.258484127976444e-07,
+      "match_interval99": [
+        1.4710445008172302e-07,
+        1.5294420065667265e-07
+      ],
+      "remote_interval99": [
+        7.183038379921717e-07,
+        7.311350938283922e-07
+      ],
+      "pointer_forecast99": [
+        1.4715543208665264e-07,
+        1.5127295765658242e-07
+      ],
+      "forecast_overlap": true
+    },
+    {
+      "source": 1,
+      "detector": 0,
+      "emitted": 1,
+      "analyzed": -1,
+      "counts": [
+        1572,
+        198529,
+        91625747967,
+        183251958876
+      ],
+      "match_probability": 5.571028072571297e-09,
+      "remote_probability": 7.258484127976444e-07,
+      "match_interval99": [
+        5.166761794110303e-09,
+        6.310275274844579e-09
+      ],
+      "remote_interval99": [
+        7.21552680825104e-07,
+        7.344127849389424e-07
+      ],
+      "pointer_forecast99": [
+        5.265182795311237e-09,
+        6.06852213579611e-09
+      ],
+      "forecast_overlap": true
+    },
+    {
+      "source": 1,
+      "detector": 0,
+      "emitted": -1,
+      "analyzed": 1,
+      "counts": [
+        1463,
+        197849,
+        91625426800,
+        183252280832
+      ],
+      "match_probability": 5.57102807253072e-09,
+      "remote_probability": 7.258484127955553e-07,
+      "match_interval99": [
+        4.7903267289270934e-09,
+        5.89363723287625e-09
+      ],
+      "remote_interval99": [
+        7.186950012983594e-07,
+        7.315297339402111e-07
+      ],
+      "pointer_forecast99": [
+        5.172205053095646e-09,
+        5.968687536399025e-09
+      ],
+      "forecast_overlap": true
+    },
+    {
+      "source": 1,
+      "detector": 0,
+      "emitted": -1,
+      "analyzed": -1,
+      "counts": [
+        40952,
+        157736,
+        91625335472,
+        183252372784
+      ],
+      "match_probability": 1.4964995335097033e-07,
+      "remote_probability": 7.258484127955553e-07,
+      "match_interval99": [
+        1.460921380317039e-07,
+        1.5191196873714306e-07
+      ],
+      "remote_interval99": [
+        7.16434953152412e-07,
+        7.292495845600322e-07
+      ],
+      "pointer_forecast99": [
+        1.4720781904144094e-07,
+        1.5132607208499495e-07
+      ],
+      "forecast_overlap": true
+    },
+    {
+      "source": 0,
+      "detector": 1,
+      "emitted": 1,
+      "analyzed": 1,
+      "counts": [
+        41409,
+        158282,
+        91625931849,
+        183251775404
+      ],
+      "match_probability": 1.496499533511034e-07,
+      "remote_probability": 7.258484127963354e-07,
+      "match_interval99": [
+        1.4773851334099038e-07,
+        1.535907058629397e-07
+      ],
+      "remote_interval99": [
+        7.20067698476041e-07,
+        7.329146246832538e-07
+      ],
+      "pointer_forecast99": [
+        1.4715543208665264e-07,
+        1.5127295765658242e-07
+      ],
+      "forecast_overlap": true
+    },
+    {
+      "source": 0,
+      "detector": 1,
+      "emitted": 1,
+      "analyzed": -1,
+      "counts": [
+        1552,
+        198301,
+        91625898444,
+        183251808647
+      ],
+      "match_probability": 5.571028072588049e-09,
+      "remote_probability": 7.258484127963354e-07,
+      "match_interval99": [
+        5.0976376634484305e-09,
+        6.233881355444061e-09
+      ],
+      "remote_interval99": [
+        7.206544467921532e-07,
+        7.335065814942914e-07
+      ],
+      "pointer_forecast99": [
+        5.265182795311237e-09,
+        6.06852213579611e-09
+      ],
+      "forecast_overlap": true
+    },
+    {
+      "source": 0,
+      "detector": 1,
+      "emitted": -1,
+      "analyzed": 1,
+      "counts": [
+        1563,
+        198262,
+        91625745896,
+        183251961223
+      ],
+      "match_probability": 5.571028072539763e-09,
+      "remote_probability": 7.258484127963465e-07,
+      "match_interval99": [
+        5.135653056972228e-09,
+        6.275900886885718e-09
+      ],
+      "remote_interval99": [
+        7.205530334274707e-07,
+        7.334042680468671e-07
+      ],
+      "pointer_forecast99": [
+        5.172205053095646e-09,
+        5.968687536399025e-09
+      ],
+      "forecast_overlap": true
+    },
+    {
+      "source": 0,
+      "detector": 1,
+      "emitted": -1,
+      "analyzed": -1,
+      "counts": [
+        40899,
+        158167,
+        91625694929,
+        183252012949
+      ],
+      "match_probability": 1.4964995335101896e-07,
+      "remote_probability": 7.258484127963465e-07,
+      "match_interval99": [
+        1.4590120755670075e-07,
+        1.517172734813725e-07
+      ],
+      "remote_interval99": [
+        7.178040188979834e-07,
+        7.306308307773535e-07
+      ],
+      "pointer_forecast99": [
+        1.4720781904144094e-07,
+        1.5132607208499495e-07
+      ],
+      "forecast_overlap": true
+    },
+    {
+      "source": 1,
+      "detector": 1,
+      "emitted": 1,
+      "analyzed": 1,
+      "counts": [
+        41107,
+        158592,
+        91625881052,
+        183251826193
+      ],
+      "match_probability": 1.496499533512784e-07,
+      "remote_probability": 7.258484127976444e-07,
+      "match_interval99": [
+        1.466505265888319e-07,
+        1.524813535438505e-07
+      ],
+      "remote_interval99": [
+        7.200966736767288e-07,
+        7.329438571431688e-07
+      ],
+      "pointer_forecast99": [
+        1.4715543208665264e-07,
+        1.5127295765658242e-07
+      ],
+      "forecast_overlap": true
+    },
+    {
+      "source": 1,
+      "detector": 1,
+      "emitted": 1,
+      "analyzed": -1,
+      "counts": [
+        1514,
+        198238,
+        91625885010,
+        183251822182
+      ],
+      "match_probability": 5.57102807257128e-09,
+      "remote_probability": 7.258484127976444e-07,
+      "match_interval99": [
+        4.966366918981747e-09,
+        6.08866786348947e-09
+      ],
+      "remote_interval99": [
+        7.20288634446426e-07,
+        7.331375221249529e-07
+      ],
+      "pointer_forecast99": [
+        5.265182795311237e-09,
+        6.06852213579611e-09
+      ],
+      "forecast_overlap": true
+    },
+    {
+      "source": 1,
+      "detector": 1,
+      "emitted": -1,
+      "analyzed": 1,
+      "counts": [
+        1559,
+        197708,
+        91625940924,
+        183251766753
+      ],
+      "match_probability": 5.571028072530699e-09,
+      "remote_probability": 7.258484127955553e-07,
+      "match_interval99": [
+        5.1218284600428075e-09,
+        6.260621874005384e-09
+      ],
+      "remote_interval99": [
+        7.185320165301892e-07,
+        7.313653006175344e-07
+      ],
+      "pointer_forecast99": [
+        5.172205053095646e-09,
+        5.968687536399025e-09
+      ],
+      "forecast_overlap": true
+    },
+    {
+      "source": 1,
+      "detector": 1,
+      "emitted": -1,
+      "analyzed": -1,
+      "counts": [
+        41092,
+        158230,
+        91625754486,
+        183251953136
+      ],
+      "match_probability": 1.4964995335096983e-07,
+      "remote_probability": 7.258484127955553e-07,
+      "match_interval99": [
+        1.4659648853299045e-07,
+        1.5242625224188284e-07
+      ],
+      "remote_interval99": [
+        7.187312201468208e-07,
+        7.315662746674724e-07
+      ],
+      "pointer_forecast99": [
+        1.4720781904144094e-07,
+        1.5132607208499495e-07
+      ],
+      "forecast_overlap": true
+    }
+  ],
+  "dephased": [
+    {
+      "detector": 0,
+      "analyzed": 1,
+      "counts": [
+        14658,
+        193485,
+        91625944826,
+        183251753975
+      ],
+      "match_probability": 5.359010119707671e-08,
+      "remote_probability": 7.563944308722863e-07,
+      "match_interval99": [
+        5.160335692964491e-08,
+        5.508674385498956e-08
+      ],
+      "remote_interval99": [
+        7.506814049836546e-07,
+        7.637973115994596e-07
+      ]
+    },
+    {
+      "detector": 0,
+      "analyzed": -1,
+      "counts": [
+        14885,
+        192892,
+        91625690856,
+        183252008311
+      ],
+      "match_probability": 5.3590101197089176e-08,
+      "remote_probability": 7.563944308722863e-07,
+      "match_interval99": [
+        5.241575833059963e-08,
+        5.59259843858649e-08
+      ],
+      "remote_interval99": [
+        7.493556714264383e-07,
+        7.624600446837727e-07
+      ]
+    },
+    {
+      "detector": 1,
+      "analyzed": 1,
+      "counts": [
+        14659,
+        193476,
+        91625374586,
+        183252324223
+      ],
+      "match_probability": 5.3590101197076537e-08,
+      "remote_probability": 7.563944308722863e-07,
+      "match_interval99": [
+        5.160693556345934e-08,
+        5.509044117679935e-08
+      ],
+      "remote_interval99": [
+        7.506524271467438e-07,
+        7.637680817757479e-07
+      ]
+    },
+    {
+      "detector": 1,
+      "analyzed": -1,
+      "counts": [
+        14740,
+        193407,
+        91625821094,
+        183251877703
+      ],
+      "match_probability": 5.3590101197089004e-08,
+      "remote_probability": 7.563944308722863e-07,
+      "match_interval99": [
+        5.1896811606131325e-08,
+        5.5389917540360366e-08
+      ],
+      "remote_interval99": [
+        7.506958939029928e-07,
+        7.638119265104079e-07
+      ]
+    }
+  ],
+  "filtered": {
+    "clock": {
+      "center": 16.43120649,
+      "tick": 0.03125,
+      "number_delays": 33554432,
+      "measured_line_weight": 0.9999998178494806
+    },
+    "virtual_starts": 4398046511104,
+    "count_order": [
+      "matched phase",
+      "other receiving charge",
+      "no receiving charge after clock",
+      "clock refusal",
+      "source refusal"
+    ],
+    "forecasts_overlapping": 16,
+    "experiments": [
+      {
+        "source": 0,
+        "detector": 0,
+        "emitted": 1,
+        "analyzed": 1,
+        "counts": [
+          20894,
+          52322,
+          265402293,
+          1465751044490,
+          2932029991105
+        ],
+        "match_probability": 4.8477109230897735e-09,
+        "remote_probability": 1.6810263103300973e-08,
+        "clock_probability": 6.036499060159589e-05,
+        "projected_input_norm_error": 1.6429961961363801e-16,
+        "clock_interval99": [
+          6.034750992887233e-05,
+          6.037677695481332e-05
+        ],
+        "match_interval99": [
+          4.622026297965837e-09,
+          4.881908888460349e-09
+        ],
+        "remote_interval99": [
+          1.6405473053379906e-08,
+          1.6891751594839525e-08
+        ],
+        "pointer_forecast99": [
+          4.5676176908355755e-09,
+          5.091909216232364e-09
+        ],
+        "forecast_overlap": true
+      },
+      {
+        "source": 0,
+        "detector": 0,
+        "emitted": 1,
+        "analyzed": -1,
+        "counts": [
+          81,
+          73775,
+          265433487,
+          1465749015891,
+          2932031987870
+        ],
+        "match_probability": 2.1661032790865022e-11,
+        "remote_probability": 1.6810263103300973e-08,
+        "clock_probability": 6.036499060159589e-05,
+        "projected_input_norm_error": 1.6429961961363801e-16,
+        "clock_interval99": [
+          6.035474726514846e-05,
+          6.0384016045698105e-05
+        ],
+        "match_interval99": [
+          1.1413870810852575e-11,
+          2.7905529764550598e-11
+        ],
+        "remote_interval99": [
+          1.6549932352572664e-08,
+          1.7038330593062092e-08
+        ],
+        "pointer_forecast99": [
+          4.805718466560463e-12,
+          3.6197535320114774e-11
+        ],
+        "forecast_overlap": true
+      },
+      {
+        "source": 0,
+        "detector": 1,
+        "emitted": 1,
+        "analyzed": 1,
+        "counts": [
+          21117,
+          52602,
+          265423412,
+          1465750580458,
+          2932030433515
+        ],
+        "match_probability": 4.847710923089759e-09,
+        "remote_probability": 1.6810263103300973e-08,
+        "clock_probability": 6.036499060159589e-05,
+        "projected_input_norm_error": 1.6429961961363801e-16,
+        "clock_interval99": [
+          6.035242560660514e-05,
+          6.038169382430221e-05
+        ],
+        "match_interval99": [
+          4.672039670676392e-09,
+          4.933304158784604e-09
+        ],
+        "remote_interval99": [
+          1.6519008646355552e-08,
+          1.7006953913730733e-08
+        ],
+        "pointer_forecast99": [
+          4.5676176908355755e-09,
+          5.091909216232364e-09
+        ],
+        "forecast_overlap": true
+      },
+      {
+        "source": 0,
+        "detector": 1,
+        "emitted": 1,
+        "analyzed": -1,
+        "counts": [
+          97,
+          74074,
+          265419418,
+          1465748658041,
+          2932032359474
+        ],
+        "match_probability": 2.166103279086495e-11,
+        "remote_probability": 1.6810263103300973e-08,
+        "clock_probability": 6.036499060159589e-05,
+        "projected_input_norm_error": 1.6429961961363801e-16,
+        "clock_interval99": [
+          6.035162034667659e-05,
+          6.038088836914045e-05
+        ],
+        "match_interval99": [
+          1.4292023145658762e-11,
+          3.230003981980496e-11
+        ],
+        "remote_interval99": [
+          1.662103510024987e-08,
+          1.711047325742766e-08
+        ],
+        "pointer_forecast99": [
+          4.805718466560463e-12,
+          3.6197535320114774e-11
+        ],
+        "forecast_overlap": true
+      },
+      {
+        "source": 0,
+        "detector": 0,
+        "emitted": -1,
+        "analyzed": 1,
+        "counts": [
+          94,
+          73745,
+          265417111,
+          1465751850480,
+          2932029169674
+        ],
+        "match_probability": 2.166103279086503e-11,
+        "remote_probability": 1.6810263103300973e-08,
+        "clock_probability": 6.036499060159593e-05,
+        "projected_input_norm_error": 1.6429961961363801e-16,
+        "clock_interval99": [
+          6.0351020380264817e-05,
+          6.0380288257270946e-05
+        ],
+        "match_interval99": [
+          1.3747337608160275e-11,
+          3.1481043111648896e-11
+        ],
+        "remote_interval99": [
+          1.6546095092933625e-08,
+          1.7034437147925016e-08
+        ],
+        "pointer_forecast99": [
+          4.805718466560463e-12,
+          3.6197535320114774e-11
+        ],
+        "forecast_overlap": true
+      },
+      {
+        "source": 0,
+        "detector": 0,
+        "emitted": -1,
+        "analyzed": -1,
+        "counts": [
+          21613,
+          52988,
+          265409185,
+          1465749684909,
+          2932031342409
+        ],
+        "match_probability": 4.8477109230897735e-09,
+        "remote_probability": 1.6810263103300973e-08,
+        "clock_probability": 6.036499060159593e-05,
+        "projected_input_norm_error": 1.6429961961363801e-16,
+        "clock_interval99": [
+          6.034939167267035e-05,
+          6.037865915483075e-05
+        ],
+        "match_interval99": [
+          4.783293140910647e-09,
+          5.0476053394288525e-09
+        ],
+        "remote_interval99": [
+          1.67180977729716e-08,
+          1.720895194086362e-08
+        ],
+        "pointer_forecast99": [
+          4.5676176908355755e-09,
+          5.091909216232364e-09
+        ],
+        "forecast_overlap": true
+      },
+      {
+        "source": 0,
+        "detector": 1,
+        "emitted": -1,
+        "analyzed": 1,
+        "counts": [
+          109,
+          73803,
+          265426538,
+          1465749877920,
+          2932031132734
+        ],
+        "match_probability": 2.1661032790864967e-11,
+        "remote_probability": 1.6810263103300973e-08,
+        "clock_probability": 6.036499060159593e-05,
+        "projected_input_norm_error": 1.6429961961363801e-16,
+        "clock_interval99": [
+          6.035318016837356e-05,
+          6.038244856899193e-05
+        ],
+        "match_interval99": [
+          1.649082071826062e-11,
+          3.555618540855512e-11
+        ],
+        "remote_interval99": [
+          1.6562572760125537e-08,
+          1.705115603653744e-08
+        ],
+        "pointer_forecast99": [
+          4.805718466560463e-12,
+          3.6197535320114774e-11
+        ],
+        "forecast_overlap": true
+      },
+      {
+        "source": 0,
+        "detector": 1,
+        "emitted": -1,
+        "analyzed": -1,
+        "counts": [
+          20989,
+          52337,
+          265443768,
+          1465749074105,
+          2932031919905
+        ],
+        "match_probability": 4.847710923089759e-09,
+        "remote_probability": 1.6810263103300973e-08,
+        "clock_probability": 6.036499060159593e-05,
+        "projected_input_norm_error": 1.6429961961363801e-16,
+        "clock_interval99": [
+          6.03569641171828e-05,
+          6.0386233435121386e-05
+        ],
+        "match_interval99": [
+          4.643331994701054e-09,
+          4.903804183121078e-09
+        ],
+        "remote_interval99": [
+          1.6430301666733295e-08,
+          1.6916945188847995e-08
+        ],
+        "pointer_forecast99": [
+          4.5676176908355755e-09,
+          5.091909216232364e-09
+        ],
+        "forecast_overlap": true
+      },
+      {
+        "source": 1,
+        "detector": 0,
+        "emitted": 1,
+        "analyzed": 1,
+        "counts": [
+          21181,
+          52929,
+          265422806,
+          1465749874828,
+          2932031139360
+        ],
+        "match_probability": 4.847710923089759e-09,
+        "remote_probability": 1.6810263103300923e-08,
+        "clock_probability": 6.0364990601595727e-05,
+        "projected_input_norm_error": 3.0351333832897482e-15,
+        "clock_interval99": [
+          6.035237672719019e-05,
+          6.0381644933022396e-05
+        ],
+        "match_interval99": [
+          4.686393958894945e-09,
+          4.9480536964168914e-09
+        ],
+        "remote_interval99": [
+          1.6607265910400282e-08,
+          1.7096502859546454e-08
+        ],
+        "pointer_forecast99": [
+          4.5676176908355755e-09,
+          5.091909216232364e-09
+        ],
+        "forecast_overlap": true
+      },
+      {
+        "source": 1,
+        "detector": 0,
+        "emitted": 1,
+        "analyzed": -1,
+        "counts": [
+          89,
+          73545,
+          265425173,
+          1465750930462,
+          2932030081835
+        ],
+        "match_probability": 2.1661032790864967e-11,
+        "remote_probability": 1.6810263103300923e-08,
+        "clock_probability": 6.0364990601595727e-05,
+        "projected_input_norm_error": 3.0351333832897482e-15,
+        "clock_interval99": [
+          6.035280663868597e-05,
+          6.03820749487717e-05
+        ],
+        "match_interval99": [
+          1.2844460673539117e-11,
+          3.01111718239832e-11
+        ],
+        "remote_interval99": [
+          1.6499822511076316e-08,
+          1.6987486525131957e-08
+        ],
+        "pointer_forecast99": [
+          4.805718466560463e-12,
+          3.6197535320114774e-11
+        ],
+        "forecast_overlap": true
+      },
+      {
+        "source": 1,
+        "detector": 1,
+        "emitted": 1,
+        "analyzed": 1,
+        "counts": [
+          21244,
+          52694,
+          265410825,
+          1465749832925,
+          2932031193416
+        ],
+        "match_probability": 4.847710923089741e-09,
+        "remote_probability": 1.6810263103300923e-08,
+        "clock_probability": 6.0364990601595727e-05,
+        "projected_input_norm_error": 3.0351333832897482e-15,
+        "clock_interval99": [
+          6.034961378983178e-05,
+          6.037888132585594e-05
+        ],
+        "match_interval99": [
+          4.700524252751786e-09,
+          4.9625724811521865e-09
+        ],
+        "remote_interval99": [
+          1.656844153268899e-08,
+          1.7057110694808604e-08
+        ],
+        "pointer_forecast99": [
+          4.5676176908355755e-09,
+          5.091909216232364e-09
+        ],
+        "forecast_overlap": true
+      },
+      {
+        "source": 1,
+        "detector": 1,
+        "emitted": 1,
+        "analyzed": -1,
+        "counts": [
+          85,
+          74160,
+          265392908,
+          1465749893615,
+          2932031150336
+        ],
+        "match_probability": 2.1661032790864887e-11,
+        "remote_probability": 1.6810263103300923e-08,
+        "clock_probability": 6.0364990601595727e-05,
+        "projected_input_norm_error": 3.0351333832897482e-15,
+        "clock_interval99": [
+          6.034561022471584e-05,
+          6.03748767900902e-05
+        ],
+        "match_interval99": [
+          1.2126898101496579e-11,
+          2.9010591007338324e-11
+        ],
+        "remote_interval99": [
+          1.6637738763125598e-08,
+          1.7127420897701962e-08
+        ],
+        "pointer_forecast99": [
+          4.805718466560463e-12,
+          3.6197535320114774e-11
+        ],
+        "forecast_overlap": true
+      },
+      {
+        "source": 1,
+        "detector": 0,
+        "emitted": -1,
+        "analyzed": 1,
+        "counts": [
+          95,
+          74074,
+          265417642,
+          1465750387467,
+          2932030631826
+        ],
+        "match_probability": 2.166103279086495e-11,
+        "remote_probability": 1.6810263103300916e-08,
+        "clock_probability": 6.0364990601595727e-05,
+        "projected_input_norm_error": 2.792677540144764e-15,
+        "clock_interval99": [
+          6.0351216125248115e-05,
+          6.0380484049757573e-05
+        ],
+        "match_interval99": [
+          1.3928660619903608e-11,
+          3.1754278205243454e-11
+        ],
+        "remote_interval99": [
+          1.662058365074614e-08,
+          1.71100152122515e-08
+        ],
+        "pointer_forecast99": [
+          4.805718466560463e-12,
+          3.6197535320114774e-11
+        ],
+        "forecast_overlap": true
+      },
+      {
+        "source": 1,
+        "detector": 0,
+        "emitted": -1,
+        "analyzed": -1,
+        "counts": [
+          21395,
+          52627,
+          265452594,
+          1465750045425,
+          2932030939063
+        ],
+        "match_probability": 4.847710923089756e-09,
+        "remote_probability": 1.6810263103300916e-08,
+        "clock_probability": 6.0364990601595727e-05,
+        "projected_input_norm_error": 2.792677540144764e-15,
+        "clock_interval99": [
+          6.035912890692091e-05,
+          6.03883987496482e-05
+        ],
+        "match_interval99": [
+          4.734393269114744e-09,
+          4.997370304035449e-09
+        ],
+        "remote_interval99": [
+          1.658740223408619e-08,
+          1.7076348769955575e-08
+        ],
+        "pointer_forecast99": [
+          4.5676176908355755e-09,
+          5.091909216232364e-09
+        ],
+        "forecast_overlap": true
+      },
+      {
+        "source": 1,
+        "detector": 1,
+        "emitted": -1,
+        "analyzed": 1,
+        "counts": [
+          92,
+          74379,
+          265417052,
+          1465749323106,
+          2932031696475
+        ],
+        "match_probability": 2.1661032790864887e-11,
+        "remote_probability": 1.6810263103300916e-08,
+        "clock_probability": 6.0364990601595727e-05,
+        "projected_input_norm_error": 2.792677540144764e-15,
+        "clock_interval99": [
+          6.035115064958866e-05,
+          6.038041855816256e-05
+        ],
+        "match_interval99": [
+          1.338542714765998e-11,
+          3.0933845614551425e-11
+        ],
+        "remote_interval99": [
+          1.6688753028317617e-08,
+          1.7179179531325962e-08
+        ],
+        "pointer_forecast99": [
+          4.805718466560463e-12,
+          3.6197535320114774e-11
+        ],
+        "forecast_overlap": true
+      },
+      {
+        "source": 1,
+        "detector": 1,
+        "emitted": -1,
+        "analyzed": -1,
+        "counts": [
+          21161,
+          52885,
+          265392002,
+          1465748655892,
+          2932032389164
+        ],
+        "match_probability": 4.847710923089741e-09,
+        "remote_probability": 1.6810263103300916e-08,
+        "clock_probability": 6.0364990601595727e-05,
+        "projected_input_norm_error": 2.792677540144764e-15,
+        "clock_interval99": [
+          6.034535900727223e-05,
+          6.037462551174491e-05
+        ],
+        "match_interval99": [
+          4.681908211714745e-09,
+          4.9434444980164625e-09
+        ],
+        "remote_interval99": [
+          1.6592819591797866e-08,
+          1.7081845348399657e-08
+        ],
+        "pointer_forecast99": [
+          4.5676176908355755e-09,
+          5.091909216232364e-09
+        ],
+        "forecast_overlap": true
+      }
+    ]
+  }
+}
