@@ -43,3 +43,5 @@ From the repository root run the following commands.
 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -m model.experiments.interval_echo_angular.charged_orientation.live_trimer.energy.measure
 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -m pytest -q model/experiments/interval_echo_angular/charged_orientation/live_trimer/energy
 ```
+
+An unrecorded uniform free wait before the same flight provides an operational finite-resolution test. Entanglement remains detectable for a timing width of two units. At width 64 the accepted reference–orbital negativity is at most 0.00111 while the dominant charge-transfer beat retains more than 99.99999% visibility. The synchronized comparison at the same mean wait retains negativity of at least 0.02741. [Random-wait experiment and full outcome banks](WAITING.md)
