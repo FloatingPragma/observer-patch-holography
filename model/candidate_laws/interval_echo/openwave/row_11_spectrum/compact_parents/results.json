@@ -1,0 +1,3406 @@
+{
+  "material": "filled blank host, kappa=8; signed load minus one",
+  "targets": {
+    "measured_muon": "206.7682827",
+    "register_middle": "206.77031597272938861255033931777507746217879491",
+    "register_heavy": "3477.4728371045985323130012255226483445993318602"
+  },
+  "measured_muon_ratio_standard_uncertainty": 4.6e-06,
+  "levels": [
+    {
+      "cells": 20,
+      "exotic_cells": 0,
+      "distinct_energies": 10,
+      "maximum": {
+        "pairs": 9,
+        "vacancies": 10,
+        "plus_branch": 0,
+        "minus_branch": 0,
+        "ordinary_branch": 19,
+        "twice_energy": [
+          1906,
+          0
+        ],
+        "energy": 953.0
+      },
+      "comparisons": {
+        "ordinary_compact": {
+          "measured_muon": {
+            "pairs": 9,
+            "vacancies": 10,
+            "plus_branch": 0,
+            "minus_branch": 0,
+            "ordinary_branch": 19,
+            "twice_energy": [
+              1906,
+              0
+            ],
+            "energy": 953.0,
+            "ratio_to_light": 27.228571428571428,
+            "ratio_offset": -179.53971127142856,
+            "certified_runner_up_separation_in_native_units": 102.0
+          },
+          "register_middle": {
+            "pairs": 9,
+            "vacancies": 10,
+            "plus_branch": 0,
+            "minus_branch": 0,
+            "ordinary_branch": 19,
+            "twice_energy": [
+              1906,
+              0
+            ],
+            "energy": 953.0,
+            "ratio_to_light": 27.228571428571428,
+            "ratio_offset": -179.54174454415795,
+            "certified_runner_up_separation_in_native_units": 101.999999999999
+          },
+          "register_heavy": {
+            "pairs": 9,
+            "vacancies": 10,
+            "plus_branch": 0,
+            "minus_branch": 0,
+            "ordinary_branch": 19,
+            "twice_energy": [
+              1906,
+              0
+            ],
+            "energy": 953.0,
+            "ratio_to_light": 27.228571428571428,
+            "ratio_offset": -3450.244265676027,
+            "certified_runner_up_separation_in_native_units": 101.999999999999
+          }
+        },
+        "ground": {
+          "measured_muon": {
+            "pairs": 9,
+            "vacancies": 10,
+            "plus_branch": 0,
+            "minus_branch": 0,
+            "ordinary_branch": 19,
+            "twice_energy": [
+              1906,
+              0
+            ],
+            "energy": 953.0,
+            "ratio_to_light": 29.2896543813038,
+            "ratio_offset": -177.4786283186962,
+            "certified_runner_up_separation_in_native_units": 101.999995864633
+          },
+          "register_middle": {
+            "pairs": 9,
+            "vacancies": 10,
+            "plus_branch": 0,
+            "minus_branch": 0,
+            "ordinary_branch": 19,
+            "twice_energy": [
+              1906,
+              0
+            ],
+            "energy": 953.0,
+            "ratio_to_light": 29.2896543813038,
+            "ratio_offset": -177.4806615914256,
+            "certified_runner_up_separation_in_native_units": 101.999995864593
+          },
+          "register_heavy": {
+            "pairs": 9,
+            "vacancies": 10,
+            "plus_branch": 0,
+            "minus_branch": 0,
+            "ordinary_branch": 19,
+            "twice_energy": [
+              1906,
+              0
+            ],
+            "energy": 953.0,
+            "ratio_to_light": 29.2896543813038,
+            "ratio_offset": -3448.1831827232945,
+            "certified_runner_up_separation_in_native_units": 101.999930450543
+          }
+        }
+      }
+    },
+    {
+      "cells": 80,
+      "exotic_cells": 24,
+      "distinct_energies": 10478,
+      "maximum": {
+        "pairs": 39,
+        "vacancies": 40,
+        "plus_branch": 24,
+        "minus_branch": 0,
+        "ordinary_branch": 55,
+        "twice_energy": [
+          8002,
+          24
+        ],
+        "energy": 4027.8328157299975
+      },
+      "comparisons": {
+        "ordinary_compact": {
+          "measured_muon": {
+            "pairs": 39,
+            "vacancies": 40,
+            "plus_branch": 24,
+            "minus_branch": 0,
+            "ordinary_branch": 55,
+            "twice_energy": [
+              8002,
+              24
+            ],
+            "energy": 4027.8328157299975,
+            "ratio_to_light": 115.08093759228564,
+            "ratio_offset": -91.68734510771435,
+            "certified_runner_up_separation_in_native_units": 0.618033988725
+          },
+          "register_middle": {
+            "pairs": 39,
+            "vacancies": 40,
+            "plus_branch": 24,
+            "minus_branch": 0,
+            "ordinary_branch": 55,
+            "twice_energy": [
+              8002,
+              24
+            ],
+            "energy": 4027.8328157299975,
+            "ratio_to_light": 115.08093759228564,
+            "ratio_offset": -91.68937838044374,
+            "certified_runner_up_separation_in_native_units": 0.618033988724
+          },
+          "register_heavy": {
+            "pairs": 39,
+            "vacancies": 40,
+            "plus_branch": 24,
+            "minus_branch": 0,
+            "ordinary_branch": 55,
+            "twice_energy": [
+              8002,
+              24
+            ],
+            "energy": 4027.8328157299975,
+            "ratio_to_light": 115.08093759228564,
+            "ratio_offset": -3362.391899512313,
+            "certified_runner_up_separation_in_native_units": 0.618033988724
+          }
+        },
+        "ground": {
+          "measured_muon": {
+            "pairs": 39,
+            "vacancies": 40,
+            "plus_branch": 24,
+            "minus_branch": 0,
+            "ordinary_branch": 55,
+            "twice_energy": [
+              8002,
+              24
+            ],
+            "energy": 4027.8328157299975,
+            "ratio_to_light": 123.56641052369582,
+            "ratio_offset": -83.20187217630416,
+            "certified_runner_up_separation_in_native_units": 0.618029853359
+          },
+          "register_middle": {
+            "pairs": 39,
+            "vacancies": 40,
+            "plus_branch": 24,
+            "minus_branch": 0,
+            "ordinary_branch": 55,
+            "twice_energy": [
+              8002,
+              24
+            ],
+            "energy": 4027.8328157299975,
+            "ratio_to_light": 123.56641052369582,
+            "ratio_offset": -83.20390544903356,
+            "certified_runner_up_separation_in_native_units": 0.618029853318
+          },
+          "register_heavy": {
+            "pairs": 39,
+            "vacancies": 40,
+            "plus_branch": 24,
+            "minus_branch": 0,
+            "ordinary_branch": 55,
+            "twice_energy": [
+              8002,
+              24
+            ],
+            "energy": 4027.8328157299975,
+            "ratio_to_light": 123.56641052369582,
+            "ratio_offset": -3353.906426580903,
+            "certified_runner_up_separation_in_native_units": 0.617964439267
+          }
+        },
+        "lower_compact": {
+          "measured_muon": {
+            "pairs": 39,
+            "vacancies": 40,
+            "plus_branch": 24,
+            "minus_branch": 0,
+            "ordinary_branch": 55,
+            "twice_energy": [
+              8002,
+              24
+            ],
+            "energy": 4027.8328157299975,
+            "ratio_to_light": 120.65894544295426,
+            "ratio_offset": -86.10933725704572,
+            "certified_runner_up_separation_in_native_units": 0.618033988621
+          },
+          "register_middle": {
+            "pairs": 39,
+            "vacancies": 40,
+            "plus_branch": 24,
+            "minus_branch": 0,
+            "ordinary_branch": 55,
+            "twice_energy": [
+              8002,
+              24
+            ],
+            "energy": 4027.8328157299975,
+            "ratio_to_light": 120.65894544295426,
+            "ratio_offset": -86.11137052977512,
+            "certified_runner_up_separation_in_native_units": 0.618033988621
+          },
+          "register_heavy": {
+            "pairs": 39,
+            "vacancies": 40,
+            "plus_branch": 24,
+            "minus_branch": 0,
+            "ordinary_branch": 55,
+            "twice_energy": [
+              8002,
+              24
+            ],
+            "energy": 4027.8328157299975,
+            "ratio_to_light": 120.65894544295426,
+            "ratio_offset": -3356.8138916616444,
+            "certified_runner_up_separation_in_native_units": 0.618033986986
+          }
+        },
+        "upper_compact": {
+          "measured_muon": {
+            "pairs": 39,
+            "vacancies": 40,
+            "plus_branch": 24,
+            "minus_branch": 0,
+            "ordinary_branch": 55,
+            "twice_energy": [
+              8002,
+              24
+            ],
+            "energy": 4027.8328157299975,
+            "ratio_to_light": 113.08408591564098,
+            "ratio_offset": -93.684196784359,
+            "certified_runner_up_separation_in_native_units": 0.618033988621
+          },
+          "register_middle": {
+            "pairs": 39,
+            "vacancies": 40,
+            "plus_branch": 24,
+            "minus_branch": 0,
+            "ordinary_branch": 55,
+            "twice_energy": [
+              8002,
+              24
+            ],
+            "energy": 4027.8328157299975,
+            "ratio_to_light": 113.08408591564098,
+            "ratio_offset": -93.6862300570884,
+            "certified_runner_up_separation_in_native_units": 0.618033988621
+          },
+          "register_heavy": {
+            "pairs": 39,
+            "vacancies": 40,
+            "plus_branch": 24,
+            "minus_branch": 0,
+            "ordinary_branch": 55,
+            "twice_energy": [
+              8002,
+              24
+            ],
+            "energy": 4027.8328157299975,
+            "ratio_to_light": 113.08408591564098,
+            "ratio_offset": -3364.3887511889575,
+            "certified_runner_up_separation_in_native_units": 0.618033986985
+          }
+        }
+      }
+    },
+    {
+      "cells": 320,
+      "exotic_cells": 104,
+      "distinct_energies": 698858,
+      "maximum": {
+        "pairs": 159,
+        "vacancies": 160,
+        "plus_branch": 104,
+        "minus_branch": 0,
+        "ordinary_branch": 215,
+        "twice_energy": [
+          32402,
+          104
+        ],
+        "energy": 16317.275534829989
+      },
+      "comparisons": {
+        "ordinary_compact": {
+          "measured_muon": {
+            "pairs": 71,
+            "vacancies": 72,
+            "plus_branch": 11,
+            "minus_branch": 29,
+            "ordinary_branch": 103,
+            "twice_energy": [
+              14514,
+              -18
+            ],
+            "energy": 7236.875388202502,
+            "ratio_to_light": 206.7678682343572,
+            "ratio_offset": -0.00041446564279112863,
+            "certified_runner_up_separation_in_native_units": 0.005429258657
+          },
+          "register_middle": {
+            "pairs": 71,
+            "vacancies": 72,
+            "plus_branch": 19,
+            "minus_branch": 32,
+            "ordinary_branch": 92,
+            "twice_energy": [
+              14503,
+              -13
+            ],
+            "energy": 7236.965558146251,
+            "ratio_to_light": 206.77044451846433,
+            "ratio_offset": 0.00012854573495246768,
+            "certified_runner_up_separation_in_native_units": 0.012288034699
+          },
+          "register_heavy": {
+            "pairs": 159,
+            "vacancies": 160,
+            "plus_branch": 104,
+            "minus_branch": 0,
+            "ordinary_branch": 215,
+            "twice_energy": [
+              32402,
+              104
+            ],
+            "energy": 16317.275534829989,
+            "ratio_to_light": 466.207872423714,
+            "ratio_offset": -3011.2649646808845,
+            "certified_runner_up_separation_in_native_units": 0.618033988644
+          }
+        },
+        "ground": {
+          "measured_muon": {
+            "pairs": 66,
+            "vacancies": 67,
+            "plus_branch": 11,
+            "minus_branch": 21,
+            "ordinary_branch": 101,
+            "twice_energy": [
+              13502,
+              -10
+            ],
+            "energy": 6739.819660112501,
+            "ratio_to_light": 206.76805274528917,
+            "ratio_offset": -0.00022995471081799224,
+            "certified_runner_up_separation_in_native_units": 0.019446492505
+          },
+          "register_middle": {
+            "pairs": 66,
+            "vacancies": 67,
+            "plus_branch": 53,
+            "minus_branch": 37,
+            "ordinary_branch": 43,
+            "twice_energy": [
+              13444,
+              16
+            ],
+            "energy": 6739.888543819999,
+            "ratio_to_light": 206.77016599917184,
+            "ratio_offset": -0.00014997355754076125,
+            "certified_runner_up_separation_in_native_units": 0.005020863194
+          },
+          "register_heavy": {
+            "pairs": 159,
+            "vacancies": 160,
+            "plus_branch": 104,
+            "minus_branch": 0,
+            "ordinary_branch": 215,
+            "twice_energy": [
+              32402,
+              104
+            ],
+            "energy": 16317.275534829989,
+            "ratio_to_light": 500.59073663535185,
+            "ratio_offset": -2976.882100469247,
+            "certified_runner_up_separation_in_native_units": 0.617964439188
+          }
+        },
+        "lower_compact": {
+          "measured_muon": {
+            "pairs": 67,
+            "vacancies": 68,
+            "plus_branch": 67,
+            "minus_branch": 5,
+            "ordinary_branch": 63,
+            "twice_energy": [
+              13666,
+              62
+            ],
+            "energy": 6902.318107302493,
+            "ratio_to_light": 206.76787295800085,
+            "ratio_offset": -0.00040974199913534903,
+            "certified_runner_up_separation_in_native_units": 0.005024998497
+          },
+          "register_middle": {
+            "pairs": 68,
+            "vacancies": 69,
+            "plus_branch": 33,
+            "minus_branch": 55,
+            "ordinary_branch": 49,
+            "twice_energy": [
+              13854,
+              -22
+            ],
+            "energy": 6902.403252247503,
+            "ratio_to_light": 206.7704235850364,
+            "ratio_offset": 0.00010761230703337787,
+            "certified_runner_up_separation_in_native_units": 0.005024998497
+          },
+          "register_heavy": {
+            "pairs": 159,
+            "vacancies": 160,
+            "plus_branch": 104,
+            "minus_branch": 0,
+            "ordinary_branch": 215,
+            "twice_energy": [
+              32402,
+              104
+            ],
+            "energy": 16317.275534829989,
+            "ratio_to_light": 488.80510900199255,
+            "ratio_offset": -2988.667728102606,
+            "certified_runner_up_separation_in_native_units": 0.618033986906
+          }
+        },
+        "upper_compact": {
+          "measured_muon": {
+            "pairs": 73,
+            "vacancies": 74,
+            "plus_branch": 16,
+            "minus_branch": 78,
+            "ordinary_branch": 53,
+            "twice_energy": [
+              14868,
+              -62
+            ],
+            "energy": 7364.681892697507,
+            "ratio_to_light": 206.7683436717395,
+            "ratio_offset": 6.097173951502555e-05,
+            "certified_runner_up_separation_in_native_units": 0.003787231541
+          },
+          "register_middle": {
+            "pairs": 72,
+            "vacancies": 73,
+            "plus_branch": 45,
+            "minus_branch": 26,
+            "ordinary_branch": 74,
+            "twice_energy": [
+              14687,
+              19
+            ],
+            "energy": 7364.742645786248,
+            "ratio_to_light": 206.77004935512338,
+            "ratio_offset": -0.0002666176060017733,
+            "certified_runner_up_separation_in_native_units": 0.002293446132
+          },
+          "register_heavy": {
+            "pairs": 159,
+            "vacancies": 160,
+            "plus_branch": 104,
+            "minus_branch": 0,
+            "ordinary_branch": 215,
+            "twice_energy": [
+              32402,
+              104
+            ],
+            "energy": 16317.275534829989,
+            "ratio_to_light": 458.1183661058871,
+            "ratio_offset": -3019.3544709987113,
+            "certified_runner_up_separation_in_native_units": 0.618033986905
+          }
+        }
+      }
+    }
+  ],
+  "held_source": {
+    "selection": "nearest measured muon ratio / ordinary compact vacancy on 320 owners",
+    "declared_arms": [
+      96,
+      1162
+    ],
+    "spectator_recipe": [
+      {
+        "owner": 11,
+        "signed_load": 1,
+        "compact_branch": 1,
+        "sharp_port": 132
+      },
+      {
+        "owner": 18,
+        "signed_load": -1,
+        "compact_branch": 1,
+        "sharp_port": 216
+      },
+      {
+        "owner": 19,
+        "signed_load": 1,
+        "compact_branch": 1,
+        "sharp_port": 229
+      },
+      {
+        "owner": 20,
+        "signed_load": -1,
+        "compact_branch": 1,
+        "sharp_port": 240
+      },
+      {
+        "owner": 21,
+        "signed_load": 1,
+        "compact_branch": 1,
+        "sharp_port": 252
+      },
+      {
+        "owner": 22,
+        "signed_load": -1,
+        "compact_branch": 1,
+        "sharp_port": 264
+      },
+      {
+        "owner": 23,
+        "signed_load": 1,
+        "compact_branch": 1,
+        "sharp_port": 276
+      },
+      {
+        "owner": 24,
+        "signed_load": -1,
+        "compact_branch": 1,
+        "sharp_port": 289
+      },
+      {
+        "owner": 25,
+        "signed_load": 1,
+        "compact_branch": 1,
+        "sharp_port": 300
+      },
+      {
+        "owner": 27,
+        "signed_load": -1,
+        "compact_branch": 1,
+        "sharp_port": 324
+      },
+      {
+        "owner": 28,
+        "signed_load": 1,
+        "compact_branch": 1,
+        "sharp_port": 337
+      },
+      {
+        "owner": 29,
+        "signed_load": -1,
+        "compact_branch": -1,
+        "sharp_port": 348
+      },
+      {
+        "owner": 30,
+        "signed_load": 1,
+        "compact_branch": -1,
+        "sharp_port": 360
+      },
+      {
+        "owner": 31,
+        "signed_load": -1,
+        "compact_branch": -1,
+        "sharp_port": 372
+      },
+      {
+        "owner": 33,
+        "signed_load": 1,
+        "compact_branch": -1,
+        "sharp_port": 396
+      },
+      {
+        "owner": 35,
+        "signed_load": -1,
+        "compact_branch": -1,
+        "sharp_port": 420
+      },
+      {
+        "owner": 36,
+        "signed_load": 1,
+        "compact_branch": -1,
+        "sharp_port": 432
+      },
+      {
+        "owner": 38,
+        "signed_load": -1,
+        "compact_branch": -1,
+        "sharp_port": 456
+      },
+      {
+        "owner": 39,
+        "signed_load": 1,
+        "compact_branch": -1,
+        "sharp_port": 468
+      },
+      {
+        "owner": 40,
+        "signed_load": -1,
+        "compact_branch": -1,
+        "sharp_port": 480
+      },
+      {
+        "owner": 41,
+        "signed_load": 1,
+        "compact_branch": -1,
+        "sharp_port": 492
+      },
+      {
+        "owner": 42,
+        "signed_load": -1,
+        "compact_branch": -1,
+        "sharp_port": 505
+      },
+      {
+        "owner": 43,
+        "signed_load": 1,
+        "compact_branch": -1,
+        "sharp_port": 516
+      },
+      {
+        "owner": 44,
+        "signed_load": -1,
+        "compact_branch": -1,
+        "sharp_port": 528
+      },
+      {
+        "owner": 45,
+        "signed_load": 1,
+        "compact_branch": -1,
+        "sharp_port": 540
+      },
+      {
+        "owner": 46,
+        "signed_load": -1,
+        "compact_branch": -1,
+        "sharp_port": 552
+      },
+      {
+        "owner": 47,
+        "signed_load": 1,
+        "compact_branch": -1,
+        "sharp_port": 564
+      },
+      {
+        "owner": 52,
+        "signed_load": -1,
+        "compact_branch": -1,
+        "sharp_port": 624
+      },
+      {
+        "owner": 55,
+        "signed_load": 1,
+        "compact_branch": -1,
+        "sharp_port": 660
+      },
+      {
+        "owner": 84,
+        "signed_load": -1,
+        "compact_branch": -1,
+        "sharp_port": 1009
+      },
+      {
+        "owner": 87,
+        "signed_load": 1,
+        "compact_branch": -1,
+        "sharp_port": 1044
+      },
+      {
+        "owner": 98,
+        "signed_load": -1,
+        "compact_branch": -1,
+        "sharp_port": 1176
+      },
+      {
+        "owner": 99,
+        "signed_load": 1,
+        "compact_branch": -1,
+        "sharp_port": 1188
+      },
+      {
+        "owner": 100,
+        "signed_load": -1,
+        "compact_branch": -1,
+        "sharp_port": 1200
+      },
+      {
+        "owner": 103,
+        "signed_load": 1,
+        "compact_branch": -1,
+        "sharp_port": 1236
+      },
+      {
+        "owner": 105,
+        "signed_load": -1,
+        "compact_branch": -1,
+        "sharp_port": 1260
+      },
+      {
+        "owner": 107,
+        "signed_load": 1,
+        "compact_branch": -1,
+        "sharp_port": 1284
+      },
+      {
+        "owner": 110,
+        "signed_load": -1,
+        "compact_branch": -1,
+        "sharp_port": 1320
+      },
+      {
+        "owner": 111,
+        "signed_load": 1,
+        "compact_branch": -1,
+        "sharp_port": 1332
+      },
+      {
+        "owner": 128,
+        "signed_load": -1,
+        "compact_branch": -1,
+        "sharp_port": 1536
+      },
+      {
+        "owner": 0,
+        "signed_load": 1,
+        "compact_branch": 0,
+        "sharp_port": 1
+      },
+      {
+        "owner": 1,
+        "signed_load": -1,
+        "compact_branch": 0,
+        "sharp_port": 13
+      },
+      {
+        "owner": 2,
+        "signed_load": 1,
+        "compact_branch": 0,
+        "sharp_port": 25
+      },
+      {
+        "owner": 3,
+        "signed_load": -1,
+        "compact_branch": 0,
+        "sharp_port": 36
+      },
+      {
+        "owner": 4,
+        "signed_load": 1,
+        "compact_branch": 0,
+        "sharp_port": 49
+      },
+      {
+        "owner": 5,
+        "signed_load": -1,
+        "compact_branch": 0,
+        "sharp_port": 61
+      },
+      {
+        "owner": 6,
+        "signed_load": 1,
+        "compact_branch": 0,
+        "sharp_port": 73
+      },
+      {
+        "owner": 7,
+        "signed_load": -1,
+        "compact_branch": 0,
+        "sharp_port": 84
+      },
+      {
+        "owner": 9,
+        "signed_load": 1,
+        "compact_branch": 0,
+        "sharp_port": 109
+      },
+      {
+        "owner": 10,
+        "signed_load": -1,
+        "compact_branch": 0,
+        "sharp_port": 121
+      },
+      {
+        "owner": 12,
+        "signed_load": 1,
+        "compact_branch": 0,
+        "sharp_port": 144
+      },
+      {
+        "owner": 13,
+        "signed_load": -1,
+        "compact_branch": 0,
+        "sharp_port": 156
+      },
+      {
+        "owner": 14,
+        "signed_load": 1,
+        "compact_branch": 0,
+        "sharp_port": 168
+      },
+      {
+        "owner": 15,
+        "signed_load": -1,
+        "compact_branch": 0,
+        "sharp_port": 181
+      },
+      {
+        "owner": 16,
+        "signed_load": 1,
+        "compact_branch": 0,
+        "sharp_port": 192
+      },
+      {
+        "owner": 17,
+        "signed_load": -1,
+        "compact_branch": 0,
+        "sharp_port": 204
+      },
+      {
+        "owner": 26,
+        "signed_load": 1,
+        "compact_branch": 0,
+        "sharp_port": 313
+      },
+      {
+        "owner": 32,
+        "signed_load": -1,
+        "compact_branch": 0,
+        "sharp_port": 384
+      },
+      {
+        "owner": 34,
+        "signed_load": 1,
+        "compact_branch": 0,
+        "sharp_port": 408
+      },
+      {
+        "owner": 37,
+        "signed_load": -1,
+        "compact_branch": 0,
+        "sharp_port": 445
+      },
+      {
+        "owner": 48,
+        "signed_load": 1,
+        "compact_branch": 0,
+        "sharp_port": 577
+      },
+      {
+        "owner": 49,
+        "signed_load": -1,
+        "compact_branch": 0,
+        "sharp_port": 589
+      },
+      {
+        "owner": 50,
+        "signed_load": 1,
+        "compact_branch": 0,
+        "sharp_port": 601
+      },
+      {
+        "owner": 51,
+        "signed_load": -1,
+        "compact_branch": 0,
+        "sharp_port": 612
+      },
+      {
+        "owner": 53,
+        "signed_load": 1,
+        "compact_branch": 0,
+        "sharp_port": 637
+      },
+      {
+        "owner": 54,
+        "signed_load": -1,
+        "compact_branch": 0,
+        "sharp_port": 649
+      },
+      {
+        "owner": 56,
+        "signed_load": 1,
+        "compact_branch": 0,
+        "sharp_port": 673
+      },
+      {
+        "owner": 57,
+        "signed_load": -1,
+        "compact_branch": 0,
+        "sharp_port": 685
+      },
+      {
+        "owner": 58,
+        "signed_load": 1,
+        "compact_branch": 0,
+        "sharp_port": 697
+      },
+      {
+        "owner": 59,
+        "signed_load": -1,
+        "compact_branch": 0,
+        "sharp_port": 708
+      },
+      {
+        "owner": 60,
+        "signed_load": 1,
+        "compact_branch": 0,
+        "sharp_port": 720
+      },
+      {
+        "owner": 61,
+        "signed_load": -1,
+        "compact_branch": 0,
+        "sharp_port": 732
+      },
+      {
+        "owner": 62,
+        "signed_load": 1,
+        "compact_branch": 0,
+        "sharp_port": 744
+      },
+      {
+        "owner": 63,
+        "signed_load": -1,
+        "compact_branch": 0,
+        "sharp_port": 757
+      },
+      {
+        "owner": 64,
+        "signed_load": 1,
+        "compact_branch": 0,
+        "sharp_port": 768
+      },
+      {
+        "owner": 65,
+        "signed_load": -1,
+        "compact_branch": 0,
+        "sharp_port": 780
+      },
+      {
+        "owner": 66,
+        "signed_load": 1,
+        "compact_branch": 0,
+        "sharp_port": 792
+      },
+      {
+        "owner": 67,
+        "signed_load": -1,
+        "compact_branch": 0,
+        "sharp_port": 805
+      },
+      {
+        "owner": 68,
+        "signed_load": 1,
+        "compact_branch": 0,
+        "sharp_port": 816
+      },
+      {
+        "owner": 69,
+        "signed_load": -1,
+        "compact_branch": 0,
+        "sharp_port": 828
+      },
+      {
+        "owner": 70,
+        "signed_load": 1,
+        "compact_branch": 0,
+        "sharp_port": 840
+      },
+      {
+        "owner": 71,
+        "signed_load": -1,
+        "compact_branch": 0,
+        "sharp_port": 853
+      },
+      {
+        "owner": 72,
+        "signed_load": 1,
+        "compact_branch": 0,
+        "sharp_port": 864
+      },
+      {
+        "owner": 73,
+        "signed_load": -1,
+        "compact_branch": 0,
+        "sharp_port": 876
+      },
+      {
+        "owner": 74,
+        "signed_load": 1,
+        "compact_branch": 0,
+        "sharp_port": 888
+      },
+      {
+        "owner": 75,
+        "signed_load": -1,
+        "compact_branch": 0,
+        "sharp_port": 901
+      },
+      {
+        "owner": 76,
+        "signed_load": 1,
+        "compact_branch": 0,
+        "sharp_port": 913
+      },
+      {
+        "owner": 77,
+        "signed_load": -1,
+        "compact_branch": 0,
+        "sharp_port": 925
+      },
+      {
+        "owner": 78,
+        "signed_load": 1,
+        "compact_branch": 0,
+        "sharp_port": 937
+      },
+      {
+        "owner": 79,
+        "signed_load": -1,
+        "compact_branch": 0,
+        "sharp_port": 948
+      },
+      {
+        "owner": 80,
+        "signed_load": 1,
+        "compact_branch": 0,
+        "sharp_port": 960
+      },
+      {
+        "owner": 81,
+        "signed_load": -1,
+        "compact_branch": 0,
+        "sharp_port": 972
+      },
+      {
+        "owner": 82,
+        "signed_load": 1,
+        "compact_branch": 0,
+        "sharp_port": 984
+      },
+      {
+        "owner": 83,
+        "signed_load": -1,
+        "compact_branch": 0,
+        "sharp_port": 997
+      },
+      {
+        "owner": 85,
+        "signed_load": 1,
+        "compact_branch": 0,
+        "sharp_port": 1020
+      },
+      {
+        "owner": 86,
+        "signed_load": -1,
+        "compact_branch": 0,
+        "sharp_port": 1032
+      },
+      {
+        "owner": 88,
+        "signed_load": 1,
+        "compact_branch": 0,
+        "sharp_port": 1056
+      },
+      {
+        "owner": 89,
+        "signed_load": -1,
+        "compact_branch": 0,
+        "sharp_port": 1068
+      },
+      {
+        "owner": 90,
+        "signed_load": 1,
+        "compact_branch": 0,
+        "sharp_port": 1080
+      },
+      {
+        "owner": 91,
+        "signed_load": -1,
+        "compact_branch": 0,
+        "sharp_port": 1093
+      },
+      {
+        "owner": 92,
+        "signed_load": 1,
+        "compact_branch": 0,
+        "sharp_port": 1105
+      },
+      {
+        "owner": 93,
+        "signed_load": -1,
+        "compact_branch": 0,
+        "sharp_port": 1117
+      },
+      {
+        "owner": 94,
+        "signed_load": 1,
+        "compact_branch": 0,
+        "sharp_port": 1129
+      },
+      {
+        "owner": 95,
+        "signed_load": -1,
+        "compact_branch": 0,
+        "sharp_port": 1140
+      },
+      {
+        "owner": 97,
+        "signed_load": 1,
+        "compact_branch": 0,
+        "sharp_port": 1164
+      },
+      {
+        "owner": 101,
+        "signed_load": -1,
+        "compact_branch": 0,
+        "sharp_port": 1213
+      },
+      {
+        "owner": 102,
+        "signed_load": 1,
+        "compact_branch": 0,
+        "sharp_port": 1224
+      },
+      {
+        "owner": 104,
+        "signed_load": -1,
+        "compact_branch": 0,
+        "sharp_port": 1248
+      },
+      {
+        "owner": 106,
+        "signed_load": 1,
+        "compact_branch": 0,
+        "sharp_port": 1273
+      },
+      {
+        "owner": 108,
+        "signed_load": -1,
+        "compact_branch": 0,
+        "sharp_port": 1297
+      },
+      {
+        "owner": 109,
+        "signed_load": 1,
+        "compact_branch": 0,
+        "sharp_port": 1308
+      },
+      {
+        "owner": 112,
+        "signed_load": -1,
+        "compact_branch": 0,
+        "sharp_port": 1345
+      },
+      {
+        "owner": 113,
+        "signed_load": 1,
+        "compact_branch": 0,
+        "sharp_port": 1357
+      },
+      {
+        "owner": 114,
+        "signed_load": -1,
+        "compact_branch": 0,
+        "sharp_port": 1369
+      },
+      {
+        "owner": 115,
+        "signed_load": 1,
+        "compact_branch": 0,
+        "sharp_port": 1380
+      },
+      {
+        "owner": 116,
+        "signed_load": -1,
+        "compact_branch": 0,
+        "sharp_port": 1393
+      },
+      {
+        "owner": 117,
+        "signed_load": 1,
+        "compact_branch": 0,
+        "sharp_port": 1405
+      },
+      {
+        "owner": 118,
+        "signed_load": -1,
+        "compact_branch": 0,
+        "sharp_port": 1417
+      },
+      {
+        "owner": 119,
+        "signed_load": 1,
+        "compact_branch": 0,
+        "sharp_port": 1428
+      },
+      {
+        "owner": 120,
+        "signed_load": -1,
+        "compact_branch": 0,
+        "sharp_port": 1441
+      },
+      {
+        "owner": 121,
+        "signed_load": 1,
+        "compact_branch": 0,
+        "sharp_port": 1453
+      },
+      {
+        "owner": 122,
+        "signed_load": -1,
+        "compact_branch": 0,
+        "sharp_port": 1465
+      },
+      {
+        "owner": 123,
+        "signed_load": 1,
+        "compact_branch": 0,
+        "sharp_port": 1476
+      },
+      {
+        "owner": 124,
+        "signed_load": -1,
+        "compact_branch": 0,
+        "sharp_port": 1488
+      },
+      {
+        "owner": 125,
+        "signed_load": 1,
+        "compact_branch": 0,
+        "sharp_port": 1500
+      },
+      {
+        "owner": 126,
+        "signed_load": -1,
+        "compact_branch": 0,
+        "sharp_port": 1512
+      },
+      {
+        "owner": 127,
+        "signed_load": 1,
+        "compact_branch": 0,
+        "sharp_port": 1525
+      },
+      {
+        "owner": 129,
+        "signed_load": -1,
+        "compact_branch": 0,
+        "sharp_port": 1548
+      },
+      {
+        "owner": 130,
+        "signed_load": 1,
+        "compact_branch": 0,
+        "sharp_port": 1561
+      },
+      {
+        "owner": 131,
+        "signed_load": -1,
+        "compact_branch": 0,
+        "sharp_port": 1572
+      },
+      {
+        "owner": 132,
+        "signed_load": 1,
+        "compact_branch": 0,
+        "sharp_port": 1584
+      },
+      {
+        "owner": 133,
+        "signed_load": -1,
+        "compact_branch": 0,
+        "sharp_port": 1596
+      },
+      {
+        "owner": 134,
+        "signed_load": 1,
+        "compact_branch": 0,
+        "sharp_port": 1608
+      },
+      {
+        "owner": 135,
+        "signed_load": -1,
+        "compact_branch": 0,
+        "sharp_port": 1620
+      },
+      {
+        "owner": 136,
+        "signed_load": 1,
+        "compact_branch": 0,
+        "sharp_port": 1632
+      },
+      {
+        "owner": 137,
+        "signed_load": -1,
+        "compact_branch": 0,
+        "sharp_port": 1645
+      },
+      {
+        "owner": 138,
+        "signed_load": 1,
+        "compact_branch": 0,
+        "sharp_port": 1656
+      },
+      {
+        "owner": 139,
+        "signed_load": -1,
+        "compact_branch": 0,
+        "sharp_port": 1668
+      },
+      {
+        "owner": 140,
+        "signed_load": 1,
+        "compact_branch": 0,
+        "sharp_port": 1681
+      },
+      {
+        "owner": 141,
+        "signed_load": -1,
+        "compact_branch": 0,
+        "sharp_port": 1692
+      },
+      {
+        "owner": 142,
+        "signed_load": 1,
+        "compact_branch": 0,
+        "sharp_port": 1704
+      },
+      {
+        "owner": 143,
+        "signed_load": -1,
+        "compact_branch": 0,
+        "sharp_port": 1716
+      }
+    ],
+    "occupied_neighbor_seams": 196,
+    "independent_inferred_formation": 7233.511429152917,
+    "storage_baselines": {
+      "vacancy": 34.994302998291076,
+      "opposite_signs": 101.95407736755509
+    }
+  },
+  "complete_storage_scan": {
+    "store_port": 1162,
+    "maximum_routed_seam_distance": 64,
+    "waits": [
+      0.015625,
+      0.03125,
+      0.0625,
+      0.125,
+      0.25,
+      0.5,
+      1.0,
+      2.0,
+      4.0,
+      8.0,
+      16.0,
+      32.0,
+      64.0,
+      128.0,
+      256.0,
+      512.0,
+      1024.0,
+      2048.0,
+      4096.0
+    ],
+    "shots_per_owner": 262144,
+    "clock_shots": 268435456,
+    "owner_groups": {
+      "-1,-1": {
+        "owners": 15,
+        "read_angular_frequency": 33.38196610641784,
+        "pooled_counts": [
+          [
+            [
+              3670221,
+              261939,
+              0
+            ],
+            [
+              2946680,
+              985480,
+              0
+            ]
+          ],
+          [
+            [
+              2956783,
+              975377,
+              0
+            ],
+            [
+              3664109,
+              268051,
+              0
+            ]
+          ],
+          [
+            [
+              996490,
+              2935670,
+              0
+            ],
+            [
+              3677528,
+              254632,
+              0
+            ]
+          ],
+          [
+            [
+              955996,
+              2976164,
+              0
+            ],
+            [
+              279223,
+              3652937,
+              0
+            ]
+          ],
+          [
+            [
+              1037233,
+              2894927,
+              0
+            ],
+            [
+              3698787,
+              233373,
+              0
+            ]
+          ],
+          [
+            [
+              875503,
+              3056657,
+              0
+            ],
+            [
+              330055,
+              3602105,
+              0
+            ]
+          ],
+          [
+            [
+              1208261,
+              2723899,
+              0
+            ],
+            [
+              3780071,
+              152089,
+              0
+            ]
+          ],
+          [
+            [
+              584542,
+              3347618,
+              0
+            ],
+            [
+              569096,
+              3363064,
+              0
+            ]
+          ],
+          [
+            [
+              1946993,
+              1985167,
+              0
+            ],
+            [
+              3932070,
+              90,
+              0
+            ]
+          ],
+          [
+            [
+              389,
+              3931771,
+              0
+            ],
+            [
+              1927012,
+              2005148,
+              0
+            ]
+          ],
+          [
+            [
+              3930577,
+              1583,
+              0
+            ],
+            [
+              2045842,
+              1886318,
+              0
+            ]
+          ],
+          [
+            [
+              3925706,
+              6454,
+              0
+            ],
+            [
+              2127349,
+              1804811,
+              0
+            ]
+          ],
+          [
+            [
+              3906337,
+              25823,
+              0
+            ],
+            [
+              2286288,
+              1645872,
+              0
+            ]
+          ],
+          [
+            [
+              3828576,
+              103584,
+              0
+            ],
+            [
+              2594335,
+              1337825,
+              0
+            ]
+          ],
+          [
+            [
+              3529771,
+              402389,
+              0
+            ],
+            [
+              3157323,
+              774837,
+              0
+            ]
+          ],
+          [
+            [
+              2488086,
+              1444074,
+              0
+            ],
+            [
+              3861648,
+              70512,
+              0
+            ]
+          ],
+          [
+            [
+              275926,
+              3656234,
+              0
+            ],
+            [
+              2970519,
+              961641,
+              0
+            ]
+          ],
+          [
+            [
+              2905647,
+              1026513,
+              0
+            ],
+            [
+              238560,
+              3693600,
+              0
+            ]
+          ],
+          [
+            [
+              897754,
+              3034406,
+              0
+            ],
+            [
+              316412,
+              3615748,
+              0
+            ]
+          ]
+        ]
+      },
+      "-1,0": {
+        "owners": 52,
+        "read_angular_frequency": 34.999999940271294,
+        "pooled_counts": [
+          [
+            [
+              12636755,
+              994733,
+              0
+            ],
+            [
+              10360789,
+              3270699,
+              0
+            ]
+          ],
+          [
+            [
+              9948262,
+              3683226,
+              0
+            ],
+            [
+              12869436,
+              762052,
+              0
+            ]
+          ],
+          [
+            [
+              2873153,
+              10758335,
+              0
+            ],
+            [
+              12375136,
+              1256352,
+              0
+            ]
+          ],
+          [
+            [
+              4559220,
+              9072268,
+              0
+            ],
+            [
+              385121,
+              13246367,
+              0
+            ]
+          ],
+          [
+            [
+              1493610,
+              12137878,
+              0
+            ],
+            [
+              11071514,
+              2559974,
+              0
+            ]
+          ],
+          [
+            [
+              8311385,
+              5320103,
+              0
+            ],
+            [
+              165844,
+              13465644,
+              0
+            ]
+          ],
+          [
+            [
+              656869,
+              12974619,
+              0
+            ],
+            [
+              3896485,
+              9735003,
+              0
+            ]
+          ],
+          [
+            [
+              11130700,
+              2500788,
+              0
+            ],
+            [
+              12090842,
+              1540646,
+              0
+            ]
+          ],
+          [
+            [
+              5467872,
+              8163616,
+              0
+            ],
+            [
+              13496839,
+              134649,
+              0
+            ]
+          ],
+          [
+            [
+              532857,
+              13098631,
+              0
+            ],
+            [
+              4173923,
+              9457565,
+              0
+            ]
+          ],
+          [
+            [
+              11583045,
+              2048443,
+              0
+            ],
+            [
+              11691372,
+              1940116,
+              0
+            ]
+          ],
+          [
+            [
+              6664674,
+              6966814,
+              0
+            ],
+            [
+              13629795,
+              1693,
+              0
+            ]
+          ],
+          [
+            [
+              6827,
+              13624661,
+              0
+            ],
+            [
+              6514907,
+              7116581,
+              0
+            ]
+          ],
+          [
+            [
+              13604518,
+              26970,
+              0
+            ],
+            [
+              7420034,
+              6211454,
+              0
+            ]
+          ],
+          [
+            [
+              13524252,
+              107236,
+              0
+            ],
+            [
+              8023621,
+              5607867,
+              0
+            ]
+          ],
+          [
+            [
+              13205083,
+              426405,
+              0
+            ],
+            [
+              9185422,
+              4446066,
+              0
+            ]
+          ],
+          [
+            [
+              11981619,
+              1649869,
+              0
+            ],
+            [
+              11262834,
+              2368654,
+              0
+            ]
+          ],
+          [
+            [
+              7828141,
+              5803347,
+              0
+            ],
+            [
+              13556113,
+              75375,
+              0
+            ]
+          ],
+          [
+            [
+              299281,
+              13332207,
+              0
+            ],
+            [
+              8815867,
+              4815621,
+              0
+            ]
+          ]
+        ]
+      },
+      "-1,1": {
+        "owners": 5,
+        "read_angular_frequency": 35.61803408850845,
+        "pooled_counts": [
+          [
+            [
+              1211594,
+              99126,
+              0
+            ],
+            [
+              1001824,
+              308896,
+              0
+            ]
+          ],
+          [
+            [
+              944422,
+              366298,
+              0
+            ],
+            [
+              1243138,
+              67582,
+              0
+            ]
+          ],
+          [
+            [
+              256629,
+              1054091,
+              0
+            ],
+            [
+              1174761,
+              135959,
+              0
+            ]
+          ],
+          [
+            [
+              486638,
+              824082,
+              0
+            ],
+            [
+              22042,
+              1288678,
+              0
+            ]
+          ],
+          [
+            [
+              87464,
+              1223256,
+              0
+            ],
+            [
+              981681,
+              329039,
+              0
+            ]
+          ],
+          [
+            [
+              987674,
+              323046,
+              0
+            ],
+            [
+              89828,
+              1220892,
+              0
+            ]
+          ],
+          [
+            [
+              334447,
+              976273,
+              0
+            ],
+            [
+              83889,
+              1226831,
+              0
+            ]
+          ],
+          [
+            [
+              312013,
+              998707,
+              0
+            ],
+            [
+              1214336,
+              96384,
+              0
+            ]
+          ],
+          [
+            [
+              357739,
+              952981,
+              0
+            ],
+            [
+              71121,
+              1239599,
+              0
+            ]
+          ],
+          [
+            [
+              269129,
+              1041591,
+              0
+            ],
+            [
+              1184916,
+              125804,
+              0
+            ]
+          ],
+          [
+            [
+              455617,
+              855103,
+              0
+            ],
+            [
+              31708,
+              1279012,
+              0
+            ]
+          ],
+          [
+            [
+              121998,
+              1188722,
+              0
+            ],
+            [
+              1036423,
+              274297,
+              0
+            ]
+          ],
+          [
+            [
+              866632,
+              444088,
+              0
+            ],
+            [
+              34925,
+              1275795,
+              0
+            ]
+          ],
+          [
+            [
+              136862,
+              1173858,
+              0
+            ],
+            [
+              255265,
+              1055455,
+              0
+            ]
+          ],
+          [
+            [
+              821362,
+              489358,
+              0
+            ],
+            [
+              1289500,
+              21220,
+              0
+            ]
+          ],
+          [
+            [
+              84043,
+              1226677,
+              0
+            ],
+            [
+              976637,
+              334083,
+              0
+            ]
+          ],
+          [
+            [
+              996107,
+              314613,
+              0
+            ],
+            [
+              95537,
+              1215183,
+              0
+            ]
+          ],
+          [
+            [
+              354609,
+              956111,
+              0
+            ],
+            [
+              72966,
+              1237754,
+              0
+            ]
+          ],
+          [
+            [
+              276094,
+              1034626,
+              0
+            ],
+            [
+              1189790,
+              120930,
+              0
+            ]
+          ]
+        ]
+      },
+      "1,-1": {
+        "owners": 14,
+        "read_angular_frequency": 65.3819658799597,
+        "pooled_counts": [
+          [
+            [
+              2793429,
+              876587,
+              0
+            ],
+            [
+              3399924,
+              270092,
+              0
+            ]
+          ],
+          [
+            [
+              997945,
+              2672071,
+              0
+            ],
+            [
+              3469008,
+              201008,
+              0
+            ]
+          ],
+          [
+            [
+              759975,
+              2910041,
+              0
+            ],
+            [
+              348678,
+              3321338,
+              0
+            ]
+          ],
+          [
+            [
+              1258035,
+              2411981,
+              0
+            ],
+            [
+              3577963,
+              92053,
+              0
+            ]
+          ],
+          [
+            [
+              361065,
+              3308951,
+              0
+            ],
+            [
+              742799,
+              2927217,
+              0
+            ]
+          ],
+          [
+            [
+              2368750,
+              1301266,
+              0
+            ],
+            [
+              3590093,
+              79923,
+              0
+            ]
+          ],
+          [
+            [
+              311477,
+              3358539,
+              0
+            ],
+            [
+              2857079,
+              812937,
+              0
+            ]
+          ],
+          [
+            [
+              2528157,
+              1141859,
+              0
+            ],
+            [
+              136427,
+              3533589,
+              0
+            ]
+          ],
+          [
+            [
+              526225,
+              3143791,
+              0
+            ],
+            [
+              550998,
+              3119018,
+              0
+            ]
+          ],
+          [
+            [
+              1868922,
+              1801094,
+              0
+            ],
+            [
+              3669694,
+              322,
+              0
+            ]
+          ],
+          [
+            [
+              1384,
+              3668632,
+              0
+            ],
+            [
+              1905142,
+              1764874,
+              0
+            ]
+          ],
+          [
+            [
+              3664462,
+              5554,
+              0
+            ],
+            [
+              1692407,
+              1977609,
+              0
+            ]
+          ],
+          [
+            [
+              3647601,
+              22415,
+              0
+            ],
+            [
+              1550189,
+              2119827,
+              0
+            ]
+          ],
+          [
+            [
+              3582253,
+              87763,
+              0
+            ],
+            [
+              1273487,
+              2396529,
+              0
+            ]
+          ],
+          [
+            [
+              3325012,
+              345004,
+              0
+            ],
+            [
+              766198,
+              2903818,
+              0
+            ]
+          ],
+          [
+            [
+              2423400,
+              1246616,
+              0
+            ],
+            [
+              97058,
+              3572958,
+              0
+            ]
+          ],
+          [
+            [
+              377125,
+              3292891,
+              0
+            ],
+            [
+              720894,
+              2949122,
+              0
+            ]
+          ],
+          [
+            [
+              2318726,
+              1351290,
+              0
+            ],
+            [
+              3605412,
+              64604,
+              0
+            ]
+          ],
+          [
+            [
+              254693,
+              3415323,
+              0
+            ],
+            [
+              2768410,
+              901606,
+              0
+            ]
+          ]
+        ]
+      },
+      "1,0": {
+        "owners": 51,
+        "read_angular_frequency": 67.00000003933046,
+        "pooled_counts": [
+          [
+            [
+              10026676,
+              3342668,
+              0
+            ],
+            [
+              12471182,
+              898162,
+              0
+            ]
+          ],
+          [
+            [
+              3346188,
+              10023156,
+              0
+            ],
+            [
+              12474828,
+              894516,
+              0
+            ]
+          ],
+          [
+            [
+              3338596,
+              10030748,
+              0
+            ],
+            [
+              900376,
+              12468968,
+              0
+            ]
+          ],
+          [
+            [
+              3354809,
+              10014535,
+              0
+            ],
+            [
+              12481158,
+              888186,
+              0
+            ]
+          ],
+          [
+            [
+              3311122,
+              10058222,
+              0
+            ],
+            [
+              912342,
+              12457002,
+              0
+            ]
+          ],
+          [
+            [
+              3401239,
+              9968105,
+              0
+            ],
+            [
+              12509088,
+              860256,
+              0
+            ]
+          ],
+          [
+            [
+              3223560,
+              10145784,
+              0
+            ],
+            [
+              965968,
+              12403376,
+              0
+            ]
+          ],
+          [
+            [
+              3581666,
+              9787678,
+              0
+            ],
+            [
+              12607094,
+              762250,
+              0
+            ]
+          ],
+          [
+            [
+              2873812,
+              10495532,
+              0
+            ],
+            [
+              1189750,
+              12179594,
+              0
+            ]
+          ],
+          [
+            [
+              4337958,
+              9031386,
+              0
+            ],
+            [
+              12944360,
+              424984,
+              0
+            ]
+          ],
+          [
+            [
+              1645775,
+              11723569,
+              0
+            ],
+            [
+              2294030,
+              11075314,
+              0
+            ]
+          ],
+          [
+            [
+              7597017,
+              5772327,
+              0
+            ],
+            [
+              13307161,
+              62183,
+              0
+            ]
+          ],
+          [
+            [
+              249148,
+              13120196,
+              0
+            ],
+            [
+              8493809,
+              4875535,
+              0
+            ]
+          ],
+          [
+            [
+              12388441,
+              980903,
+              0
+            ],
+            [
+              3202199,
+              10167145,
+              0
+            ]
+          ],
+          [
+            [
+              9741557,
+              3627787,
+              0
+            ],
+            [
+              740408,
+              12628936,
+              0
+            ]
+          ],
+          [
+            [
+              2792063,
+              10577281,
+              0
+            ],
+            [
+              1249021,
+              12120323,
+              0
+            ]
+          ],
+          [
+            [
+              4525631,
+              8843713,
+              0
+            ],
+            [
+              13010931,
+              358413,
+              0
+            ]
+          ],
+          [
+            [
+              1391946,
+              11977398,
+              0
+            ],
+            [
+              2595618,
+              10773726,
+              0
+            ]
+          ],
+          [
+            [
+              8372619,
+              4996725,
+              0
+            ],
+            [
+              13152103,
+              217241,
+              0
+            ]
+          ]
+        ]
+      },
+      "1,1": {
+        "owners": 6,
+        "read_angular_frequency": 67.61803381314213,
+        "pooled_counts": [
+          [
+            [
+              1173276,
+              399588,
+              0
+            ],
+            [
+              1471381,
+              101483,
+              0
+            ]
+          ],
+          [
+            [
+              380547,
+              1192317,
+              0
+            ],
+            [
+              1459907,
+              112957,
+              0
+            ]
+          ],
+          [
+            [
+              419152,
+              1153712,
+              0
+            ],
+            [
+              91578,
+              1481286,
+              0
+            ]
+          ],
+          [
+            [
+              344721,
+              1228143,
+              0
+            ],
+            [
+              1436879,
+              135985,
+              0
+            ]
+          ],
+          [
+            [
+              499267,
+              1073597,
+              0
+            ],
+            [
+              54403,
+              1518461,
+              0
+            ]
+          ],
+          [
+            [
+              210164,
+              1362700,
+              0
+            ],
+            [
+              1321284,
+              251580,
+              0
+            ]
+          ],
+          [
+            [
+              843877,
+              728987,
+              0
+            ],
+            [
+              2151,
+              1570713,
+              0
+            ]
+          ],
+          [
+            [
+              8523,
+              1564341,
+              0
+            ],
+            [
+              671016,
+              901848,
+              0
+            ]
+          ],
+          [
+            [
+              1538977,
+              33887,
+              0
+            ],
+            [
+              1015342,
+              557522,
+              0
+            ]
+          ],
+          [
+            [
+              1440132,
+              132732,
+              0
+            ],
+            [
+              1223985,
+              348879,
+              0
+            ]
+          ],
+          [
+            [
+              1085371,
+              487493,
+              0
+            ],
+            [
+              1513989,
+              58875,
+              0
+            ]
+          ],
+          [
+            [
+              227868,
+              1344996,
+              0
+            ],
+            [
+              1339374,
+              233490,
+              0
+            ]
+          ],
+          [
+            [
+              795080,
+              777784,
+              0
+            ],
+            [
+              43,
+              1572821,
+              0
+            ]
+          ],
+          [
+            [
+              175,
+              1572689,
+              0
+            ],
+            [
+              770522,
+              802342,
+              0
+            ]
+          ],
+          [
+            [
+              1572176,
+              688,
+              0
+            ],
+            [
+              818278,
+              754586,
+              0
+            ]
+          ],
+          [
+            [
+              1570282,
+              2582,
+              0
+            ],
+            [
+              851537,
+              721327,
+              0
+            ]
+          ],
+          [
+            [
+              1562377,
+              10487,
+              0
+            ],
+            [
+              915607,
+              657257,
+              0
+            ]
+          ],
+          [
+            [
+              1530699,
+              42165,
+              0
+            ],
+            [
+              1039909,
+              532955,
+              0
+            ]
+          ],
+          [
+            [
+              1407992,
+              164872,
+              0
+            ],
+            [
+              1266996,
+              305868,
+              0
+            ]
+          ]
+        ]
+      }
+    },
+    "dimer_counts": [
+      [
+        [
+          268418936,
+          16520,
+          0
+        ],
+        [
+          136314629,
+          132120827,
+          0
+        ]
+      ],
+      [
+        [
+          268369869,
+          65587,
+          0
+        ],
+        [
+          138403642,
+          130031814,
+          0
+        ]
+      ],
+      [
+        [
+          268173553,
+          261903,
+          0
+        ],
+        [
+          142603392,
+          125832064,
+          0
+        ]
+      ],
+      [
+        [
+          267389334,
+          1046122,
+          0
+        ],
+        [
+          150966579,
+          117468877,
+          0
+        ]
+      ],
+      [
+        [
+          264262859,
+          4172597,
+          0
+        ],
+        [
+          167420426,
+          101015030,
+          0
+        ]
+      ],
+      [
+        [
+          252005318,
+          16430138,
+          0
+        ],
+        [
+          198560619,
+          69874837,
+          0
+        ]
+      ],
+      [
+        [
+          206737640,
+          61697816,
+          0
+        ],
+        [
+          247166432,
+          21269024,
+          0
+        ]
+      ],
+      [
+        [
+          78376281,
+          190059175,
+          0
+        ],
+        [
+          256258810,
+          12176646,
+          0
+        ]
+      ],
+      [
+        [
+          46485844,
+          221949612,
+          0
+        ],
+        [
+          32642062,
+          235793394,
+          0
+        ]
+      ],
+      [
+        [
+          114669889,
+          153765567,
+          0
+        ],
+        [
+          267007568,
+          1427888,
+          0
+        ]
+      ],
+      [
+        [
+          5680611,
+          262754845,
+          0
+        ],
+        [
+          95578514,
+          172856942,
+          0
+        ]
+      ],
+      [
+        [
+          246191354,
+          22244102,
+          0
+        ],
+        [
+          208229142,
+          60206314,
+          0
+        ]
+      ],
+      [
+        [
+          186817816,
+          81617640,
+          0
+        ],
+        [
+          257706987,
+          10728469,
+          0
+        ]
+      ],
+      [
+        [
+          41215270,
+          227220186,
+          0
+        ],
+        [
+          231006130,
+          37429326,
+          0
+        ]
+      ],
+      [
+        [
+          128870206,
+          139565250,
+          0
+        ],
+        [
+          106102,
+          268329354,
+          0
+        ]
+      ],
+      [
+        [
+          425772,
+          268009684,
+          0
+        ],
+        [
+          144875031,
+          123560425,
+          0
+        ]
+      ],
+      [
+        [
+          266738445,
+          1697011,
+          0
+        ],
+        [
+          112941910,
+          155493546,
+          0
+        ]
+      ],
+      [
+        [
+          261690047,
+          6745409,
+          0
+        ],
+        [
+          92197144,
+          176238312,
+          0
+        ]
+      ],
+      [
+        [
+          242138564,
+          26296892,
+          0
+        ],
+        [
+          54410674,
+          214024782,
+          0
+        ]
+      ]
+    ],
+    "dimer_frequency": 1.0000000184402713,
+    "formation_in_dimer_units": 7236.875252687116,
+    "simultaneous_interval_99": [
+      7236.874457371793,
+      7236.876048002594
+    ]
+  },
+  "shots_per_apparatus": 262144,
+  "owner_phase_impulses": [
+    0,
+    "pi/2",
+    "pi"
+  ],
+  "spectroscopy": {
+    "0": {
+      "predicted_difference": 0,
+      "signed_gap_from_time_one": -0.00022888183194069725,
+      "bright_dark_else_by_wait": {
+        "0": [
+          [
+            262144,
+            0,
+            0
+          ],
+          [
+            130795,
+            131349,
+            0
+          ],
+          [
+            0,
+            262144,
+            0
+          ]
+        ],
+        "0.5": [
+          [
+            262144,
+            0,
+            0
+          ],
+          [
+            131590,
+            130554,
+            0
+          ],
+          [
+            0,
+            262144,
+            0
+          ]
+        ],
+        "1": [
+          [
+            262144,
+            0,
+            0
+          ],
+          [
+            131042,
+            131102,
+            0
+          ],
+          [
+            0,
+            262144,
+            0
+          ]
+        ],
+        "2": [
+          [
+            262144,
+            0,
+            0
+          ],
+          [
+            130816,
+            131328,
+            0
+          ],
+          [
+            0,
+            262144,
+            0
+          ]
+        ],
+        "4": [
+          [
+            262144,
+            0,
+            0
+          ],
+          [
+            131371,
+            130773,
+            0
+          ],
+          [
+            0,
+            262144,
+            0
+          ]
+        ],
+        "8": [
+          [
+            262144,
+            0,
+            0
+          ],
+          [
+            130903,
+            131241,
+            0
+          ],
+          [
+            0,
+            262144,
+            0
+          ]
+        ]
+      }
+    },
+    "-1": {
+      "predicted_difference": -1.618033988749895,
+      "signed_gap_from_time_one": -1.6205741650533407,
+      "bright_dark_else_by_wait": {
+        "0": [
+          [
+            262144,
+            0,
+            0
+          ],
+          [
+            131077,
+            131067,
+            0
+          ],
+          [
+            0,
+            262144,
+            0
+          ]
+        ],
+        "0.5": [
+          [
+            221537,
+            40607,
+            0
+          ],
+          [
+            36160,
+            225984,
+            0
+          ],
+          [
+            40657,
+            221487,
+            0
+          ]
+        ],
+        "1": [
+          [
+            124549,
+            137595,
+            0
+          ],
+          [
+            138,
+            262006,
+            0
+          ],
+          [
+            137272,
+            124872,
+            0
+          ]
+        ],
+        "2": [
+          [
+            583,
+            261561,
+            0
+          ],
+          [
+            143589,
+            118555,
+            0
+          ],
+          [
+            261556,
+            588,
+            0
+          ]
+        ],
+        "4": [
+          [
+            259848,
+            2296,
+            0
+          ],
+          [
+            106523,
+            155621,
+            0
+          ],
+          [
+            2276,
+            259868,
+            0
+          ]
+        ],
+        "8": [
+          [
+            253022,
+            9122,
+            0
+          ],
+          [
+            82954,
+            179190,
+            0
+          ],
+          [
+            9273,
+            252871,
+            0
+          ]
+        ]
+      }
+    },
+    "1": {
+      "predicted_difference": 0.6180339887498949,
+      "signed_gap_from_time_one": 0.6158439858874147,
+      "bright_dark_else_by_wait": {
+        "0": [
+          [
+            262144,
+            0,
+            0
+          ],
+          [
+            131317,
+            130827,
+            0
+          ],
+          [
+            0,
+            262144,
+            0
+          ]
+        ],
+        "0.5": [
+          [
+            255906,
+            6238,
+            0
+          ],
+          [
+            171133,
+            91011,
+            0
+          ],
+          [
+            6224,
+            255920,
+            0
+          ]
+        ],
+        "1": [
+          [
+            238058,
+            24086,
+            0
+          ],
+          [
+            206781,
+            55363,
+            0
+          ],
+          [
+            24261,
+            237883,
+            0
+          ]
+        ],
+        "2": [
+          [
+            173911,
+            88233,
+            0
+          ],
+          [
+            254723,
+            7421,
+            0
+          ],
+          [
+            87955,
+            174189,
+            0
+          ]
+        ],
+        "4": [
+          [
+            28219,
+            233925,
+            0
+          ],
+          [
+            212680,
+            49464,
+            0
+          ],
+          [
+            233780,
+            28364,
+            0
+          ]
+        ],
+        "8": [
+          [
+            161305,
+            100839,
+            0
+          ],
+          [
+            3513,
+            258631,
+            0
+          ],
+          [
+            101002,
+            161142,
+            0
+          ]
+        ]
+      }
+    }
+  }
+}
