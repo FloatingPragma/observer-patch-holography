@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 876,
+  "surface_count": 872,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -884,21 +884,6 @@
       "path": "docs/policies/STYLE_GUIDE.md",
       "glob": "docs/**/*.md",
       "allowlisted": true
-    },
-    {
-      "path": "docs/registers/OBSERVATION_LEDGER_V3.md",
-      "glob": "docs/**/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "docs/registers/PREMISE_REGISTER_V3.md",
-      "glob": "docs/**/*.md",
-      "allowlisted": false
-    },
-    {
-      "path": "docs/registers/SELECTION_LEDGER.md",
-      "glob": "docs/**/*.md",
-      "allowlisted": false
     },
     {
       "path": "docs/research/PUBLIC_DATA_PREDICTION_AUDIT.md",
@@ -2792,11 +2777,6 @@
     },
     {
       "path": "claims/public_surface_quantitative_claims.json",
-      "glob": "claims/*.json",
-      "allowlisted": false
-    },
-    {
-      "path": "claims/selection_ledger.json",
       "glob": "claims/*.json",
       "allowlisted": false
     },
