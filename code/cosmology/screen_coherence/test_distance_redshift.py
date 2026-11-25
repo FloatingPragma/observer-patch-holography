@@ -110,7 +110,11 @@ def test_survey_receipts_and_cohort():
                         if count
                         else None
                     )
-                    assert flash["equivalent_distances"][gate] == expected
+                    distance = flash["equivalent_distances"][gate]
+                    if expected is None:
+                        assert distance is None
+                    else:
+                        assert distance == pytest.approx(expected, rel=1e-15, abs=0)
         samples[name] = sample
     assert [len(samples[e]) for e in ("0", "4", "96", "transparent")] == [
         156,
