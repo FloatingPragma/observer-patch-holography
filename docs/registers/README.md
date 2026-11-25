@@ -4,7 +4,7 @@ OPH tracks progress in two places with two different questions.
 
 | | Model and law evaluation | Global completion ledger |
 | --- | --- | --- |
-| Question | How far does one candidate law satisfy the requirements on the executable model? | Which observed properties of the Universe does the current material demonstrate, and which theorem premises must the model still confirm? |
+| Question | How far does one candidate law satisfy the requirements on the executable model? | Which observed properties of the Universe does the current material demonstrate, and which theorem premises must the model confirm? |
 | Unit | One criterion per candidate law | One observable or one premise |
 | Lives in | [`model/evaluation/`](../../model/evaluation/README.md): [scorecard](../../model/evaluation/SCORECARD.md), criteria files, each candidate's `EVALUATION.json` | [`OBSERVABLES.json`](OBSERVABLES.json) in this folder |
 | Updated by | `python -m model evaluate --write` | Editing the ledger; `python tools/check_observables.py` validates it |
