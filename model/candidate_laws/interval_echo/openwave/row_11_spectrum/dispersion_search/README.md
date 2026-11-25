@@ -8,10 +8,7 @@ Use the 144-port route of the 320-cell federation. Terminate an active path afte
 
 An addressed source compiles the lowest $N/P$ standing modes of each short guide. The position detector requires at least one quarter of the probability between the two end periods. Independent local energy counters give the lowest **interior** formation energies 0.484396, 0.234986, 0.135452, 0.061016 and 0.034425. Their simultaneous intervals separate all five. Period 16 wins this screen independently of physical lepton masses. On that guide two lower lines near 0.03419676 put only 0.08% of their charge in the interior. Counting them as freely propagating would lower the apparent threshold. Numerical modes supply the synthesis targets; the momentum, energy and transfer records are measured in independent simulated banks.
 
-| Physical path | Resolved interior modes | Measured phase range, radians per motif | Lowest interior formation energy, negative-charge simultaneous 99% interval |
-|---|---:|---:|---:|
-| 96 ports | 4 | 0.635 to 2.520 | [0.03442265, 0.03443036] |
-| 144 ports | 7 | 0.396 to 2.752 | [0.03442081, 0.03442850] |
+The 96-port run resolves four interior modes from 0.635 to 2.520 radians per motif. Extending the same guide to 144 ports resolves seven modes and expands the measured range to 0.396–2.752 radians per motif. The lowest interior vacancy energies have simultaneous 99% intervals of [0.03442265, 0.03443036] and [0.03442081, 0.03442850], respectively, in native units. [Charge, phase and energy counts for both lengths](records.json)
 
 A spatial interferometer reads position and the real coherence between ports one period apart. A separate energy reader counts gradients and material positions. Coherent free waiting against another mode of the same charge resolves recoil frequencies to a simultaneous radius of $4.44\times10^{-10}$ native energy units. The apparatus uses positive-time native nearest-neighbor controls, including the phase gates needed for emission and detection. Higher counts reduce statistical error in this simulated experiment. They require $2^{38}$ launches per absolute-energy setting, $2^{26}$ per phase or momentum setting and $2^{34}$ per current setting.
 
