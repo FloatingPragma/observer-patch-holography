@@ -8,7 +8,14 @@ import sys
 from pathlib import Path
 
 import numpy as np
-from numba import njit
+
+try:
+    from numba import njit
+except ImportError:
+    # Small reference fixtures can also use the same implementation in Python.
+    def njit(function):
+        return function
+
 
 try:
     from isal.isal_zlib import decompress
@@ -27,8 +34,8 @@ def add_pair(moments, a, b):
         x, y = np.int64(a[k]), np.int64(b[k])
         moments[k, 0] += 1
         moments[k, 1] += x + y
-        moments[k, 2] += x*x + y*y
-        moments[k, 3] += x*y
+        moments[k, 2] += x * x + y * y
+        moments[k, 3] += x * y
 
 
 @njit
@@ -43,9 +50,9 @@ def measure_shard(raw, first, neighbors):
         for p in range(12):
             bit = (mask >> p) & 1
             initial += 2 * bit
-            if raw[i, 2+2*p] or raw[i, 3+2*p]:
+            if raw[i, 2 + 2 * p] or raw[i, 3 + 2 * p]:
                 change += 1 - 2 * bit
-        values[i] = (initial-12, initial+change-12, change)
+        values[i] = (initial - 12, initial + change - 12, change)
     for i in range(n):
         owner = first + i
         control = i ^ (n // 2)
@@ -53,7 +60,7 @@ def measure_shard(raw, first, neighbors):
         for j in range(3):
             peer = np.int64(neighbors[i, j])
             if first <= peer < owner:
-                add_pair(pairs[0], values[i], values[peer-first])
+                add_pair(pairs[0], values[i], values[peer - first])
             if peer == first + control:
                 touches_control = True
         if control < i and not touches_control:
@@ -62,43 +69,48 @@ def measure_shard(raw, first, neighbors):
     # actual boundary links and signed writes from the member reports.
     for k, shift in enumerate(REGION_SHIFTS):
         size = 1 << shift
+        if size > n:
+            continue
         for start in range(0, n, size):
             a, d, boundary, flux = 0, 0, 0, 0
-            for i in range(start, start+size):
-                a += values[i, 0]
-                d += values[i, 2]
+            for i in range(start, start + size):
+                a += int(values[i, 0])
+                d += int(values[i, 2])
                 for j in range(3):
-                    if (neighbors[i, j] >> shift) == ((first+i) >> shift):
+                    if (neighbors[i, j] >> shift) == ((first + i) >> shift):
                         continue
                     boundary += 1
-                    p = raw[i, 44+j] & 15
-                    mate = (raw[i, 26+p//2] >> (4*(p%2))) & 15
+                    p = int(raw[i, 44 + j]) & 15
+                    mate = (raw[i, 26 + p // 2] >> (4 * (p % 2))) & 15
                     if mate == 12:
-                        flux += 1 - 2*((raw[i, p//8] >> (p%8)) & 1)
+                        flux += 1 - 2 * ((int(raw[i, p // 8]) >> (p % 8)) & 1)
             if d != flux or abs(d) > boundary:
                 raise ValueError("Regional change differs from recorded boundary flux")
             scales[k, 0] += 1
             scales[k, 1] += a
             scales[k, 2] += d
-            scales[k, 3] += a*a
-            scales[k, 4] += (a+d)*(a+d)
-            scales[k, 5] += d*d
+            scales[k, 3] += a * a
+            scales[k, 4] += (a + d) * (a + d)
+            scales[k, 5] += d * d
             scales[k, 6] += boundary
     return values, pairs, scales
 
 
 def records(path, entry, rows, frame_size):
     data = path.read_bytes()
-    if len(data) != entry["bytes"] or hashlib.sha256(data).hexdigest() != entry["sha256"]:
+    if (
+        len(data) != entry["bytes"]
+        or hashlib.sha256(data).hexdigest() != entry["sha256"]
+    ):
         raise ValueError(f"Archive checksum failed for {path}")
     frames = rows // frame_size
-    offsets = struct.unpack_from(f"<{frames+1}I", data)
-    if offsets[0] != 4*(frames+1) or offsets[-1] != len(data):
+    offsets = struct.unpack_from(f"<{frames + 1}I", data)
+    if offsets[0] != 4 * (frames + 1) or offsets[-1] != len(data):
         raise ValueError("Invalid frame table")
     raw = np.empty((rows, 48), np.uint8)
     for i, (a, b) in enumerate(zip(offsets, offsets[1:])):
         frame = np.frombuffer(decompress(data[a:b]), dtype=np.uint8)
-        raw[i*frame_size:(i+1)*frame_size] = frame.reshape(frame_size, 48)
+        raw[i * frame_size : (i + 1) * frame_size] = frame.reshape(frame_size, 48)
     return raw
 
 
@@ -108,15 +120,18 @@ def describe_pairs(moments):
         mean = total / (2 * number)
         variance = squares / (2 * number) - mean**2
         covariance = products / number - mean**2
-        result[field] = dict(pairs=number, covariance=covariance,
-                             correlation=covariance/variance)
+        result[field] = dict(
+            pairs=number, covariance=covariance, correlation=covariance / variance
+        )
     return result
 
 
 def analyze(folder):
     manifest_data = (folder / "manifest.json").read_bytes()
     if hashlib.sha256(manifest_data).hexdigest() != MANIFEST_SHA:
-        raise ValueError("This analysis is registered to the published level-13 manifest")
+        raise ValueError(
+            "This analysis is registered to the published level-13 manifest"
+        )
     m = json.loads(manifest_data)
     n = m["observers_per_shard"]
     pairs = np.zeros((2, 3, 4), np.int64)
@@ -125,43 +140,63 @@ def analyze(folder):
     for index, entry in enumerate(m["shards"]):
         raw = records(folder / entry["file"], entry, n, m["observers_per_frame"])
         neighbors = raw[:, 32:44].view("<u4")
-        first = index*n
+        first = index * n
         values, local_pairs, local_scales = measure_shard(raw, first, neighbors)
         pairs += local_pairs
         scales += local_scales
         # Retain only boundary endpoints until the reciprocal shard arrives.
-        ii, jj = np.nonzero((neighbors < first) | (neighbors >= first+n))
+        ii, jj = np.nonzero((neighbors < first) | (neighbors >= first + n))
         left, right = [], []
         for i, j in zip(ii.tolist(), jj.tolist()):
-            owner, peer = first+i, int(neighbors[i,j])
+            owner, peer = first + i, int(neighbors[i, j])
             if owner < peer:
-                across[(owner,peer)] = values[i].copy()
+                across[(owner, peer)] = values[i].copy()
             else:
-                left.append(across.pop((peer,owner)))
+                left.append(across.pop((peer, owner)))
                 right.append(values[i])
         if left:
             accumulate_boundary(pairs[0], np.array(left), np.array(right))
-        if (index+1) % 64 == 0:
-            print(f"Read {index+1} of {len(m['shards'])} shards", file=sys.stderr, flush=True)
-    if across or pairs[0,0,0] != m["external_seams"]:
+        if (index + 1) % 64 == 0:
+            print(
+                f"Read {index + 1} of {len(m['shards'])} shards",
+                file=sys.stderr,
+                flush=True,
+            )
+    if across or pairs[0, 0, 0] != m["external_seams"]:
         raise ValueError("Incomplete census of contact pairs")
     regions = []
     for shift, row in zip(REGION_SHIFTS, scales.tolist()):
         count, initial, change, aa, ff, dd, boundary = row
         size = 1 << shift
-        if count*size != m["observers"] or change or initial+12*m["observers"] != m["initial_and_final_load"]:
+        if (
+            count * size != m["observers"]
+            or change
+            or initial + 12 * m["observers"] != m["initial_and_final_load"]
+        ):
             raise ValueError("Regional records fail the global load check")
         centered = initial / count
-        regions.append(dict(observers_per_region=size, regions=count,
-            mean_boundary_links=boundary/count, mean_load_per_observer=12+centered/size,
-            variance_initial_total_per_member=(aa/count-centered**2)/size,
-            variance_settled_total_per_member=(ff/count-centered**2)/size,
-            variance_change_total_per_member=dd/count/size))
-    return dict(archive=ARCHIVE+"/manifest.json", manifest_sha256=MANIFEST_SHA,
-                observers=m["observers"], seed=m["seed"], regions=regions,
-                contact_pairs=describe_pairs(pairs[0]), noncontact_control=describe_pairs(pairs[1]),
-                control="Within each shard pair opposite ID halves at the same offset, excluding direct contacts.",
-                region_check="Every region's change equals its signed boundary transfers.")
+        regions.append(
+            dict(
+                observers_per_region=size,
+                regions=count,
+                mean_boundary_links=boundary / count,
+                mean_load_per_observer=12 + centered / size,
+                variance_initial_total_per_member=(aa / count - centered**2) / size,
+                variance_settled_total_per_member=(ff / count - centered**2) / size,
+                variance_change_total_per_member=dd / count / size,
+            )
+        )
+    return dict(
+        archive=ARCHIVE + "/manifest.json",
+        manifest_sha256=MANIFEST_SHA,
+        observers=m["observers"],
+        seed=m["seed"],
+        regions=regions,
+        contact_pairs=describe_pairs(pairs[0]),
+        noncontact_control=describe_pairs(pairs[1]),
+        control="Within each shard pair opposite ID halves at the same offset, excluding direct contacts.",
+        region_check="Every region's change equals its signed boundary transfers.",
+    )
 
 
 @njit

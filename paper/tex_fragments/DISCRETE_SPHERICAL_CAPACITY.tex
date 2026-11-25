@@ -1,0 +1,50 @@
+\paragraph{Conditional level-202 physical screen.}
+Consider an OPH realization whose admissible whole screens are the uniform
+fourfold refinements of the twenty-face icosahedral sphere. Assume that each
+carrier cell represents one canonical screen cell of physical area
+\(a_{\mathrm{cell}}=P_\star\ell_P^2\), and that the area-law entropy of the
+complete screen equals its correctable public-record capacity in nats.
+These physical identifications give
+\[
+ C_L=20\,4^L,\qquad
+ N_L=\frac{C_La_{\mathrm{cell}}}{4\ell_P^2}
+     =5P_\star4^L,\qquad L\in\mathbb N_0.
+\]
+The benchmark near \(3.31\times10^{122}\) nats comes from fitting the
+Planck-2018 microwave-background data in flat cosmology with a cosmological
+constant and cold dark matter, then applying
+\(\Lambda=3\Omega_\Lambda H_0^2/c^2\) and the Gibbons--Hawking relation
+\(N=3\pi/(\Lambda\ell_P^2)\). Its uncertainty is about \(2.7\) percent.%
+\footnote{Planck Collaboration, \emph{Planck 2018 results. VI.
+Cosmological parameters}, \href{https://arxiv.org/abs/1807.06209}{arXiv:1807.06209};
+G.\ W.\ Gibbons and S.\ W.\ Hawking, \emph{Cosmological event horizons,
+thermodynamics, and particle creation},
+\href{https://doi.org/10.1103/PhysRevD.15.2738}{Physical Review D 15, 2738 (1977)}.}
+At the displayed gauge-width root \(P_\star=1.6309682414\), this benchmark
+selects \(L=202\) uniquely among integer levels. The adjacent capacities
+\(N_{201}\simeq8.42314\times10^{121}\) and
+\(N_{203}\simeq1.34770\times10^{123}\) nats lie far outside that uncertainty.
+The proposed realization therefore requires a level-202 physical screen
+under the stated premises, with
+\begin{align}
+ N_{202}&=5P_\star4^{202}
+          \simeq3.3692540340\times10^{122}\ \text{nats},
+          \label{eq:discrete-screen-capacity}\\
+ \Lambda_{202}\ell_P^2
+       &=\frac{3\pi}{5P_\star4^{202}}
+          \simeq2.7972892117\times10^{-122}.
+          \label{eq:discrete-screen-lambda}
+\end{align}
+Using the measured central value
+\(\ell_P=1.616255\times10^{-35}\,\mathrm m\) gives
+\(\Lambda_{202}\simeq1.07082\times10^{-52}\,\mathrm m^{-2}\).%
+\footnote{\href{https://physics.nist.gov/cuu/pdf/all.pdf}{CODATA 2022 recommended
+constants}. The displayed calculation is reproducible with
+\path{code/capacity_readback/discrete_spherical_refinement.py}.}
+The formula for \(\Lambda_{202}\) is exact under these identifications;
+the printed digits use the displayed root and central physical scale.
+This is an observation-selected discrete refinement of the horizon
+benchmark. Spherical topology alone does not enforce the chosen hierarchy,
+and the physical identification \(N_L=\log M_0\) requires an independent
+record-capacity construction. This comparison changes neither the
+electroweak bridge equation nor the native executable dynamics.

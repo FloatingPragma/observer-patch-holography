@@ -164,6 +164,8 @@ LANES: tuple[Lane, ...] = (
     lane("selection_certificates", "push", "model", 1,
          "python -m pytest -q -W error code/carrier_selection_reduction code/finite_instrument_calibration",
          env={**CODE, **BLAS1}),
+    lane("screen_coherence", "push", "model", 0.5,
+         "python -m pytest -q -W error code/cosmology/screen_coherence", env=BLAS1),
 )
 
 
