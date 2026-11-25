@@ -4125,7 +4125,9 @@
     "PR-15"
    ],
    "lean": [],
-   "model": [],
+   "model": [
+    "code/cosmology/guarded_slab/energy_exchange/energy.json"
+   ],
    "papers": [
     "flagship/from_observer_consensus_to_standard_physics.pdf",
     "docs/BASIS.md",
@@ -4291,7 +4293,8 @@
     "code/cosmology/postdiction_ledger/COSMOLOGY_POSTDICTION_LEDGER.md",
     "code/cosmology/screen_coherence/measurements.json",
     "code/cosmology/screen_coherence/survey.json",
-    "code/cosmology/guarded_slab/results.json"
+    "code/cosmology/guarded_slab/results.json",
+    "code/cosmology/guarded_slab/energy_exchange/energy.json"
    ],
    "papers": [
     "cosmology/oph_inflation_without_inflaton_observer_screen_synchronization.pdf",
@@ -5754,7 +5757,9 @@
     "Lean/Screen/PositionSpaceMaxwellAction.lean",
     "Lean/Screen/LocalFaceMaxwellAction.lean"
    ],
-   "model": [],
+   "model": [
+    "code/cosmology/guarded_slab/energy_exchange/README.md"
+   ],
    "papers": [
     "paper/observers_are_all_you_need.pdf",
     "flagship/from_observer_consensus_to_standard_physics.pdf"
@@ -7047,16 +7052,25 @@
    "kind": "premise",
    "name": "time-indexed net evolution and time-slice generation interface",
    "category": "Physical premises",
-   "status": "Open",
-   "what": "Evolution of regional algebras is indexed by time slices, and the algebra of one slice generates the algebra of the evolved region.",
+   "status": "Demonstrated",
+   "what": "On the guarded material ring, native clock readings index a reversible regional evolution whose transported position and energy generators span every evolved regional algebra.",
    "why": "This time-slice property is the quantum field theory form of deterministic evolution from initial data.",
    "premises": [],
    "lean": [
     "Lean/QFT/ScalarRegionalTimeSlice.lean",
-    "Lean/QFT/PathTimeSliceInterface.lean"
+    "Lean/QFT/PathTimeSliceInterface.lean",
+    "Lean/QFT/MaterialReleaseSlices.lean"
    ],
-   "model": [],
-   "papers": [],
+   "model": [
+    "code/cosmology/guarded_slab/energy_exchange/README.md",
+    "code/cosmology/guarded_slab/energy_exchange/energy_routes.py",
+    "code/cosmology/guarded_slab/energy_exchange/energy_release.py",
+    "code/cosmology/guarded_slab/energy_exchange/energy.json",
+    "code/cosmology/guarded_slab/energy_exchange/test_energy_release.py"
+   ],
+   "papers": [
+    "cosmology/oph_cosmology_finite_source_cmb_program.pdf"
+   ],
    "statement": "A source-selected time-indexed or Cauchy-region interface is realized together with net-compatible evolution and a proof that its slice algebra generates the evolved regional algebra.",
    "premise_kind": "derivable"
   },
@@ -7938,15 +7952,19 @@
    "kind": "premise",
    "name": "physical primordial source map",
    "category": "Physical premises",
-   "status": "Open",
-   "what": "One finite source in the model emits all data needed to turn screen fluctuations into physical primordial curvature perturbations for standard CMB transfer.",
+   "status": "Partial",
+   "what": "One finite material release produces local energy records on a common trigger, with a physical scale, radial curvature map and cosmological stress attachment required for primordial modes.",
    "why": "Every OPH prediction for the cosmic microwave background spectrum depends on this map from screen covariance to primordial curvature modes.",
    "premises": [],
    "lean": [],
    "model": [
     "code/cosmology/oph_radial_lift_330.py",
     "code/cosmology/screen_coherence/survey.json",
-    "code/cosmology/screen_coherence/measurements.json"
+    "code/cosmology/screen_coherence/measurements.json",
+    "code/cosmology/guarded_slab/energy_exchange/README.md",
+    "code/cosmology/guarded_slab/energy_exchange/energy_release.py",
+    "code/cosmology/guarded_slab/energy_exchange/energy.json",
+    "code/cosmology/guarded_slab/energy_exchange/precision.json"
    ],
    "papers": [
     "cosmology/oph_cosmology_finite_source_cmb_program.pdf",
@@ -8046,7 +8064,8 @@
     "code/cosmology/postdiction_ledger/COSMOLOGY_POSTDICTION_LEDGER.md",
     "code/cosmology/guarded_slab/guarded_release.py",
     "code/cosmology/guarded_slab/release.json",
-    "code/cosmology/guarded_slab/README.md"
+    "code/cosmology/guarded_slab/README.md",
+    "code/cosmology/guarded_slab/energy_exchange/energy.json"
    ],
    "papers": [
     "cosmology/oph_cosmology_finite_source_cmb_program.pdf"
@@ -8096,12 +8115,17 @@
    "kind": "premise",
    "name": "hot radiation state on a common clock",
    "category": "Physical premises",
-   "status": "Open",
-   "what": "The early universe begins in a hot thermal radiation state of declared particle species, read on one common physical clock.",
+   "status": "Partial",
+   "what": "Three material probes and their reservoirs have a common finite-temperature Gibbs preparation sampled on one tagged release, while a radiation state of physical species requires a separate identification.",
    "why": "Hot big bang physics, including nucleosynthesis and the cosmic microwave background, starts from this initial state.",
    "premises": [],
    "lean": [],
-   "model": [],
+   "model": [
+    "code/cosmology/guarded_slab/energy_exchange/README.md",
+    "code/cosmology/guarded_slab/energy_exchange/energy_release.py",
+    "code/cosmology/guarded_slab/energy_exchange/energy.json",
+    "code/cosmology/guarded_slab/energy_exchange/precision.json"
+   ],
    "papers": [
     "cosmology/oph_inflation_without_inflaton_observer_screen_synchronization.pdf",
     "cosmology/oph_cosmology_finite_source_cmb_program.pdf"
@@ -8313,15 +8337,21 @@
    "kind": "premise",
    "name": "public-record definition fixed before evaluation",
    "category": "Construction choices",
-   "status": "Open",
-   "what": "Which observer groups make a record public is fixed before evaluation and never switched between definitions after results are seen.",
+   "status": "Demonstrated",
+   "what": "The native material readout fixes the collective of three specified receivers before evaluation and decodes their joint energy word at every reported clock count.",
    "why": "It keeps the public-record capacity count free of post-hoc choices, which the capacity readback needs.",
    "premises": [],
    "lean": [],
    "model": [
-    "code/capacity_readback/F_READBACK_SPEC.md"
+    "code/capacity_readback/F_READBACK_SPEC.md",
+    "code/cosmology/guarded_slab/energy_exchange/README.md",
+    "code/cosmology/guarded_slab/energy_exchange/protocol.json",
+    "code/cosmology/guarded_slab/energy_exchange/energy_routes.py",
+    "code/cosmology/guarded_slab/energy_exchange/energy.json"
    ],
-   "papers": [],
+   "papers": [
+    "cosmology/oph_cosmology_finite_source_cmb_program.pdf"
+   ],
    "statement": "One nonempty family of authorized observer sets is frozen before evaluation and defines which records count as public. Collective, universal-local and quorum publicness are distinct contracts and are not interchanged after the result is seen.",
    "premise_kind": "declared"
   },

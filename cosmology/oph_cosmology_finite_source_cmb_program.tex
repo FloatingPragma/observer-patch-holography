@@ -55,7 +55,8 @@ can determine a three-dimensional spectrum. The source, stress, clock, radial ob
 therefore be supplied on the same physical process. On a 320-cell screen, independent sharp-load preparations give positive
 neighboring covariance in a six-tick survey of returned material markers.
 The average over pairs at least half a board diameter apart is consistent
-with zero. The survey variance depends on the return window.
+with zero. A common material release also correlates energies in three local heat exchanges.
+Each probe gains the energy its reservoir loses, and equal-temperature preparations give zero cross-covariance.
 
 \end{abstract}
 
@@ -333,6 +334,68 @@ how the receiver preparation can erase them. The nonzero third moment of
 the sharp preparation distinguishes these signs from a jointly Gaussian
 field. Identifying adiabatic radiation perturbations requires a clock shared
 by the physical species, their response at release, and a geometric map.
+
+\subsection{Energy exchange on a shared material release}
+
+Give each of the three receivers a second guarded dimer. The probe and
+its reservoir each have measured native energies 32 and 33. Two depths of
+the material energy filter give independent upper populations
+\(c=1/5\) and \(h=1/3\), equivalent to inverse temperatures \(\log 4\)
+and \(\log 2\) in inverse gap units. Each local service uses a fresh rail
+change to offer a complete swap with probability \(1/4\).
+Transporting both rails on native paths restores every intermediate
+register. Every realized contact preserves the sum of the two measured
+energies at its endpoints.
+
+The first root change sends the same tag as in the preceding experiment.
+The receiver at delay \(d\) freezes its contact after \(T+d\) services.
+Odd swap parity after \(n\) services has probability \((1-2^{-n})/2\),
+so the conditional upper population is
+\[
+ m_d(T)=(c+h)/2+(c-h)2^{-T-d}/2 .
+\]
+The three probe energies are independent given \(T\). Since
+\(\mathbb E[2^{-kT}]=1/(4\cdot 2^k-3)\), the unlimited-time
+cross-covariances in squared gap units, in the same pair order, are
+\[
+ 1/48750,\qquad 1/97500,\qquad 1/195000 .
+\]
+The joint third centered moment is \(-17/848250000\) in cubed gap units.
+In equilibrium at a common temperature the joint Gibbs law is invariant
+under every exchange, and all three cross-covariances vanish. Independent
+release ages give the same null result. The spatial correlation thus
+requires both the shared stopping event and a material response to it.
+
+At a cap of sixteen root appointments, the complete calculation retains
+the six energy labels, every first filter refusal and the common timeout.
+Port routes were checked on 20, 80 and 320 cells. An independent integer
+population simulation applied each local swap to the cohorts in their
+current joint energy states. Its three measured covariances, conditional
+on delivery and in units of \(10^{-6}\), were 20.49, 10.39 and 5.38, with
+simultaneous 99 percent half-widths below 3.27. The equal-temperature and
+parked-contact controls include zero in all three intervals.
+The saved counts and exact probabilities are in
+\nolinkurl{code/cosmology/guarded_slab/energy_exchange/}.
+These are finite material energy records. Their transfer to the sky needs
+a radiation species, stress and a physical distance and time calibration.
+
+\paragraph{Which captured data determine later readings?}
+After the third arrival, two successive native transpositions circulate
+the captured probe dimers by one place. A separate material marker changes
+rail after each completed stroke. Its position history counts the strokes.
+For any subset \(R\) of the slots, the sharp position and decoded energy
+differences give \(Z_i\) and \(X_i\) at each \(i\in R\).
+The local basis \(I,X_i,Z_i,Z_iX_i\) and its products span the regional
+matrix algebra of dimension \(4^{|R|}\). The full native exchange maps
+each local matrix to the same matrix at the transported slot, including
+off-diagonal entries. Thus the image of the slice generators generates
+the entire evolved regional algebra at every completed stroke. Transport
+preserves inclusion and composes by permutation multiplication.
+In separate energy-read cohorts, all eight sharp words occur. When the
+three registered readers pool their bits and report the stroke count,
+inverse rotation recovers each original word. Hiding the count identifies
+rotation orbits and leaves four distinguishable classes. The construction
+provides a time-indexed net on the finite coherent routing phase.
 
 \subsection{Exact Fourier control for the golden source population}
 The deterministic Cartesian population
