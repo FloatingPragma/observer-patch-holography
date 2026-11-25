@@ -26,6 +26,8 @@ Two finite rectilinear readouts supply the missing count factor in units of thre
 
 A complete two-rail energy transfer gives a directly calibrated finite isolation horizon. The same two thermal contrasts at separation three have positive covariance beyond the combined one-frame radii, and inside the combined two-frame radii. The two-level energy sector and common source preparation are specified. A physical primordial test needs the radiation horizon integrated from the early-time boundary and the curvature map on that history. [Energy transport, thermal words and controls](../code/cosmology/release_horizon/energy_cone/README.md)
 
+In a fixed material frame a vertex-minus-face contrast has nonzero degree six. Free propagation gives unit gain, one transverse projection gives zero, and a fair bypass gives 3/5 among accepted detections. After two encounters the accepted intensity quadrupole is 7/100 with polarization retained and 1/100 with polarization randomized. A physical sky prediction requires an independently fixed orientation and visibility history. [Angular transfer and complete detector banks](../code/cosmology/release_horizon/angular_transfer/README.md)
+
 ## Required constructions
 
 - **Finite source:** source-derived scalar amplitude, shape, clock, release surface, and background capacity, including the reserve-generator receipt that the tilt theorem consumes.

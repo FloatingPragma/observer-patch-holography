@@ -35,6 +35,8 @@ Two ranged boxes on the pulse board give 1, 16 and 256 publications per layer. I
 
 A clocked dimer transfer resolves a thermal correlation beyond a one-frame energy horizon. A held-state volume experiment measures two different work responses from drives with the same reference energy records. [Energy transport and volume work](../code/cosmology/release_horizon/energy_cone/README.md)
 
+A material detector measures the transport of a degree-six icosahedral pattern and the effect of polarization on repeated encounters. [Angular transfer and six-axis position readout](../code/cosmology/release_horizon/angular_transfer/README.md)
+
 The [physical CMB theorem program](physical_cmb_theorem_program.md) specifies the supplied and unsupplied physical-event, order-faithful-placement, count--volume, continuum, source, lift, stress, abundance, transfer, and likelihood inputs in one place.
 
 The [primordial source and coherence measurements](../code/cosmology/screen_coherence/README.md) test two Interval Echo instruments. A material exchange equilibrates sharp preparations at fixed total. A half-filled board of 1,310,720 cells retains 97.69% of its regional contrast after 512 service rounds. In a separate strict-repair preparation, neighboring observers acquire correlated changes in the number of markers they can reach. These material surveys supply a finite source for testing spatial covariance. Identifying a primordial curvature field requires independent volume and clock measurements.

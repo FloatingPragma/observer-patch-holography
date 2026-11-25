@@ -1275,7 +1275,7 @@ The register records each theorem assumption and its formal consumers. The role 
 | PR-113 horizon-scale coherence of the primordial source | law | Partial | Open | Open | Open |
 | PR-114 hot radiation state on a common clock | law | Partial | Open | Open | Open |
 | PR-115 source Euclidean slab data for a vacuum | law | Demonstrated | Open | Open | Open |
-| PR-116 screen-to-sky template map | law | Open | Open | Open | Open |
+| PR-116 screen-to-sky template map | law | Partial | Open | Open | Open |
 | PR-117 Integer port counting grammar and quadratic readback cost | designer | Open | Open | Open | Open |
 | PR-118 compact charge maps and sector realizations under refinement | law | Open | Open | Open | Open |
 | PR-119 Geometric cap modular flow on the support-visible subnet | law | Open | Open | Open | Open |
@@ -1302,7 +1302,7 @@ The register records each theorem assumption and its formal consumers. The role 
 | PR-141 source return map fixes the closure quantity | law | Open | Open | Open | Open |
 | PR-143 native repair acts as the declared census quotients | law | Open | Open | Open | Open |
 | PR-144 unique event labels and one commit per conflict | designer | Open | Open | Open | Open |
-| PR-145 six native axis steps commute on interpreted endpoints | law | Open | Open | Open | Open |
+| PR-145 six native axis steps commute on interpreted endpoints | law | Demonstrated | Open | Open | Open |
 | PR-146 primitive repair moves are scalar pair averaging | designer | Open | Open | Open | Open |
 | PR-147 every schedule word law is admissible | designer | Open | Open | Open | Open |
 | PR-148 Yang-Mills collar repair generator | law | Open | Open | Open | Open |

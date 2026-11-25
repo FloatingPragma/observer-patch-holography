@@ -163,9 +163,9 @@
  },
  "premise_counts": {
   "law": {
-   "fulfilled": 21,
-   "partial": 12,
-   "open": 108,
+   "fulfilled": 22,
+   "partial": 13,
+   "open": 106,
    "fails": 0
   },
   "designer": {
@@ -1468,9 +1468,19 @@
    "statement": "A source-derived map carries the A5-symmetric angular template of the screen to the observed CMB sky with a fixed frame and a nonzero transfer at the compared multipoles.",
    "type": "derivable",
    "role": "law",
-   "status": "open",
-   "evidence": [],
-   "note": ""
+   "status": "partial",
+   "evidence": [
+    "../../../code/cosmology/release_horizon/angular_transfer/README.md",
+    "../../../code/cosmology/release_horizon/angular_transfer/protocol.json",
+    "../../../code/cosmology/release_horizon/angular_transfer/rays.py",
+    "../../../code/cosmology/release_horizon/angular_transfer/polarimeter.py",
+    "../../../code/cosmology/release_horizon/angular_transfer/measure.py",
+    "../../../code/cosmology/release_horizon/angular_transfer/records.json",
+    "../../../code/cosmology/release_horizon/angular_transfer/detectors.npz",
+    "../../../code/cosmology/release_horizon/angular_transfer/test_angular_transfer.py",
+    "../../../Lean/ObserverPatchHolography/Provenance/ScreenAngularTransfer.lean"
+   ],
+   "note": "Two source orbits have the same monopole and second moment and a nonzero degree-six contrast. Thirty-two distinct detector addresses preserve the contrast in free transport. A native transverse analyzer cancels it after one encounter and a fair bypass gives raw gain one half. The frame and encounter frequency are supplied and the physical photon interaction, visibility and sky orientation require independent calibration."
   },
   {
    "id": "PR-117",
@@ -1754,9 +1764,19 @@
    "statement": "The native source emits six accepted positive port-axis step maps whose action descends to the observers' meaning quotient, and for every pair of them and every native presentation state the two orders give the same interpreted endpoint (fifteen endpoint diamonds).",
    "type": "derivable",
    "role": "law",
-   "status": "open",
-   "evidence": [],
-   "note": ""
+   "status": "fulfilled",
+   "evidence": [
+    "../../../code/cosmology/release_horizon/angular_transfer/README.md",
+    "../../../code/cosmology/release_horizon/angular_transfer/protocol.json",
+    "../../../code/cosmology/release_horizon/angular_transfer/rays.py",
+    "../../../code/cosmology/release_horizon/angular_transfer/polarimeter.py",
+    "../../../code/cosmology/release_horizon/angular_transfer/measure.py",
+    "../../../code/cosmology/release_horizon/angular_transfer/records.json",
+    "../../../code/cosmology/release_horizon/angular_transfer/detectors.npz",
+    "../../../code/cosmology/release_horizon/angular_transfer/test_angular_transfer.py",
+    "../../../Lean/ObserverPatchHolography/Provenance/ScreenAngularTransfer.lean"
+   ],
+   "note": "Accepted native port reads select full three-rail translations of a 125-station quotient on the registered carrier. Complete seam permutations preserve the internal state and restore every borrowed port. Two readers identify each terminal address, all fifteen positive pairs commute on the entire sector, and a reversible wiring control breaks one diamond at eight owners. The finite projection of the port-coordinate lattice and the route schedule are supplied."
   },
   {
    "id": "PR-146",
