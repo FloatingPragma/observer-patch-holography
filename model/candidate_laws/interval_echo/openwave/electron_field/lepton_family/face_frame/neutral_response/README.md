@@ -1,0 +1,32 @@
+# What two observers can tell from a neutral input
+
+Alice and Bob test independent copies from each preparation in a declared finite effective field. A charge measurement finds every input neutral. Either observer can then supply one of two targets, each able to exchange one signed unit of charge. On the **same trial**, they read the outgoing matter charge and whether the target changed. Which sign emerges, and how its probability varies with exposure, distinguish several neutral preparations. A separate material channel delivers the actual completed event from Bob to Alice. The signed response and the subsequent delivery have different physical origins.
+
+## Preparation and measurement
+
+Each of two distinguishable slots carries a colour-singlet sector of the five-mode exterior representation. The one-body preparations leave the first slot empty. In the mask order used by the field the neutral active, conjugate and sterile one-body examples occupy masks 15, 16 and 31. All sources use the same two-slot observables. The charge is the sum of the two slot charges. For a negative outgoing charge the weak current is the sum of the two copies of the exterior transfer from mode 3 to mode 4. Its adjoint governs the positive-charge target. The simulator couples the chosen current to an initially ready two-state target. The target acquires the opposite charge when spent. Its pointer commutes with the independent matter charge read. The experiment checks conservation of the combined charge on the full state space.
+
+Alice and Bob use different colour, weak and phase coordinate frames. Their known frame transformation rotates the state and apparatus together. The calculation recovers the entire outgoing distribution in a third coordinate system. Reusing Alice's mounting on Bob's incoming active state at Bob's own exposure changes the joint distribution by up to 0.713 in total variation distance. Each observer measures three signed charge standards and both current efficiencies in separate runs. The efficiency standards start **charged** and register conversion to neutral. The source identity and recipe are unavailable to the detector or rate forecast. [Observer frames](../observers.py)
+
+## Held records
+
+For each of eleven sources each observer tests both target signs on 1,048,576 independent copies per setting. Alice's signed rates and the separately measured efficiencies at both sites predict Bob's two rates if the source is a mixture of the one-body active, conjugate and sterile preparations. For each sign, dividing Alice's click probability by the measured efficiency estimates its active population. The two populations must sum to at most one. Intervals use two-sided exact binomial limits with a union bound over fewer than 1,024 elementary rates and at least 99% simultaneous coverage. Untouched targets, neutral matter and refusals are retained. The archived draw and fresh replay are tested against the model probabilities and classifications. [Records and calibrations](records.json)
+
+- On Bob's active input the negative-charge conversion probability is 0.817961, and the positive-charge channel is dark. The conjugate gives 0.717124 on the positive channel and a dark negative channel. Both rates vanish for the sterile input. The two-slot states with masks (7,8) and (24,23) exactly reproduce the respective active signatures. Each combines a charged weak singlet with an oppositely charged active constituent. Two charged singlets and one coherent two-slot preparation also reproduce the sterile signature. The finite representation explains these coincidences. [Neutral-current representation certificate](../../../../../../../../code/a5_closure/neutral_observer/README.md)
+- The oppositely charged active pair gives a different exposure dependence. Its two constituents couple coherently through the summed current. For dwell time *t* the pair yields one half of sin²(√2 *t*) for either target sign. Its coherent sum with the pair of neutral partners doubles the rate, while the coherent difference is dark. The undiluted pair already violates Alice's population sum, and each rate of the coherent sum is individually incompatible with her efficiency standard.
+- In a held preparation consisting of 40% charged active pairs and 60% sterile inputs, both of Alice's signed rates fit the one-body mixture jointly. Those counts predict a negative-charge fraction between 0.28859 and 0.30187 at Bob and a positive-charge fraction between 0.23436 and 0.24301. Bob observes intervals of 0.19873–0.20219 and 0.19387–0.19730, respectively. The stronger target exposure resolves the difference. Of the 22 signed settings, 16 have overlapping prediction and readout intervals, four have disjoint intervals, and two have no admissible one-body prediction at Alice.
+- For every Bob trial the spent bit and outgoing charge digit are bound to the same six-way orthogonal pointer. The previously checked scheduled Interval Echo apparatus retains and forwards this classical word. The joint record is diagonal for all 23,068,672 trials. The calculation checks the material channel once per possible word and composes it with the counts. Alice's independent field trials do not purport to be measurements on those same quanta. [Material word protocol and controls](../shared_report.py)
+
+These results identify charged-current **response classes** under two calibrated settings. They allow an active-neutrino interpretation within the supplied effective representation. The apparatus cannot count constituents or measure helicity, rest mass or generation identity; the result does not distinguish a Dirac from a Majorana mass term. A dark response allows several physically different preparations. Exterior matter sources, frame transport, weak target dynamics, dwell settings and the orthogonal field-pointer write are supplied here. The registered material law implements the scheduled report after that write. A native source and weak detector acting on the same freely propagating object remain open.
+
+## Reproduce
+
+From the repository root, run with one numerical thread.
+
+```sh
+export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1
+python -m model.candidate_laws.interval_echo.openwave.electron_field.lepton_family.face_frame.neutral_response.measure
+python -m pytest -q model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/neutral_response/test_neutral_response.py
+```
+
+Use the measurement command's `--write` flag to regenerate `records.json`.
