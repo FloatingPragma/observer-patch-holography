@@ -91,6 +91,22 @@ theorem phase_ratio_ne_base_scalar {K L : Type*} [Field K] [Field L] [Algebra K 
   apply (transcendental_iff_injective.mp hz)
   simpa using (div_eq_iff hq).mp h
 
+/-- A charge-sector energy offset removes the mean private-reference detuning.
+The remaining squared mismatch is fixed by the weight on each port type. -/
+theorem conjugate_detuning_variance (w shift κ : ℝ) :
+    w * (4*κ-shift)^2 + (1-w)*shift^2 =
+    (shift-4*κ*w)^2 + 16*κ^2*w*(1-w) := by ring
+
+/-- On the prepared cycle the energy excess is half the squared lattice momentum.
+Two different squared momenta therefore give different mass-shell slopes under
+any common choice of energy zero. -/
+theorem two_recoil_slopes (rest u v : ℝ) (hu : u ≠ 0) (hv : v ≠ 0) :
+    ((rest+v/2)^2-rest^2)/v - ((rest+u/2)^2-rest^2)/u = (v-u)/4 := by
+  field_simp
+  ring
+
+#print axioms conjugate_detuning_variance
+#print axioms two_recoil_slopes
 #print axioms phase_ratio_ne_base_scalar
 #print axioms attenuated_qubit
 #print axioms magnetic_gateway_exclusion
