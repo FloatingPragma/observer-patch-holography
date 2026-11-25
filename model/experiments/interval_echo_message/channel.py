@@ -283,6 +283,12 @@ REPLAY_EVALUATIONS = (
         "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
         "model/candidate_laws/interval_echo/EVALUATION.json": "138e99ca4157b157389fc89fe1c9009ffdaed25bdde76c3796638ee03aa573ba",
     },
+    # Charged formation-energy, magnetic rotations and coherent neutral conversion.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "c0c0a3409d3c254b591c01eb1e73fe0cd00426f3630e0faff2dcf087758fa967",
+    },
 )
 
 

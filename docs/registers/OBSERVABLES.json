@@ -2474,7 +2474,9 @@
     "PR-15"
    ],
    "lean": [
-    "Lean/SourceLaw/OrbitalMirrorCycle.lean"
+    "Lean/SourceLaw/OrbitalMirrorCycle.lean",
+    "Lean/SourceLaw/NeutralSpinTransfer.lean",
+    "Lean/SourceLaw/ChargedRegisterPole.lean"
    ],
    "model": [
     "model/evaluation/SCORECARD.md",
@@ -2492,7 +2494,12 @@
     "model/candidate_laws/interval_echo/openwave/row_08_annihilation/walls.json",
     "model/experiments/interval_echo_angular/charged_orientation/conical_cycle/README.md",
     "model/experiments/interval_echo_lepton_register/README.md",
-    "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/theorem_interfaces/README.md"
+    "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/theorem_interfaces/README.md",
+    "model/experiments/interval_echo_gauge/arrival_ladder/spin_transfer/README.md",
+    "model/experiments/interval_echo_lepton_register/pole_meter/README.md",
+    "model/experiments/interval_echo_angular/charged_orientation/flux_doublet/README.md",
+    "model/experiments/interval_echo_gauge/arrival_ladder/README.md",
+    "model/experiments/interval_echo_lepton_register/pole_meter/magnetic/README.md"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
@@ -2517,7 +2524,9 @@
     "PR-54"
    ],
    "lean": [
-    "Lean/SourceLaw/NeutralEjecta.lean"
+    "Lean/SourceLaw/NeutralEjecta.lean",
+    "Lean/SourceLaw/SilentSeamVacancy.lean",
+    "Lean/SourceLaw/ArrivalChargeLadder.lean"
    ],
    "model": [
     "model/evaluation/SCORECARD.md",
@@ -2533,7 +2542,10 @@
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/excited_bounds.json",
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/neutral_ejecta/README.md",
     "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/hierarchy/floor_calibration.json",
-    "model/experiments/interval_echo_lepton_register/README.md"
+    "model/experiments/interval_echo_lepton_register/README.md",
+    "model/experiments/interval_echo_gauge/arrival_ladder/spin_transfer/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/silent_seams/README.md",
+    "model/experiments/interval_echo_lepton_register/pole_meter/README.md"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
@@ -2558,7 +2570,9 @@
     "PR-54"
    ],
    "lean": [
-    "Lean/SourceLaw/NeutralEjecta.lean"
+    "Lean/SourceLaw/NeutralEjecta.lean",
+    "Lean/SourceLaw/SilentSeamVacancy.lean",
+    "Lean/SourceLaw/ArrivalChargeLadder.lean"
    ],
    "model": [
     "model/evaluation/SCORECARD.md",
@@ -2573,7 +2587,10 @@
     "model/candidate_laws/interval_echo/openwave/row_08_annihilation/walls.json",
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/excited_bounds.json",
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/neutral_ejecta/README.md",
-    "model/experiments/interval_echo_lepton_register/README.md"
+    "model/experiments/interval_echo_lepton_register/README.md",
+    "model/experiments/interval_echo_gauge/arrival_ladder/spin_transfer/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/silent_seams/README.md",
+    "model/experiments/interval_echo_lepton_register/pole_meter/README.md"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
@@ -3083,7 +3100,8 @@
    ],
    "lean": [
     "Lean/ObserverPatchHolography/KoideCirculant.lean",
-    "Lean/ObserverPatchHolography/LeptonRegisterCharacterisation.lean"
+    "Lean/ObserverPatchHolography/LeptonRegisterCharacterisation.lean",
+    "Lean/SourceLaw/ChargedRegisterPole.lean"
    ],
    "model": [
     "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/README.md",
@@ -3091,7 +3109,8 @@
     "code/particles/runs/leptons/koide_balance_comparison.json",
     "model/experiments/interval_echo_lepton_register/README.md",
     "model/experiments/interval_echo_lepton_register/results.json",
-    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/excited_bounds.json"
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/excited_bounds.json",
+    "model/experiments/interval_echo_lepton_register/pole_meter/README.md"
    ],
    "papers": [
     "extra/koide_identity_from_positive_c3_face_circulants.pdf",
@@ -3108,13 +3127,16 @@
    "why": "A tau mass measurement at higher precision decides a registered OPH test of the balance premise behind the Koide relation.",
    "premises": [],
    "lean": [
-    "Lean/ObserverPatchHolography/KoideCirculant.lean"
+    "Lean/ObserverPatchHolography/KoideCirculant.lean",
+    "Lean/SourceLaw/SilentSeamVacancy.lean"
    ],
    "model": [
     "code/particles/leptons/koide_balance_comparison_certificate.py",
     "code/particles/runs/leptons/koide_balance_comparison.json",
     "code/particles/data/particle_reference_values.json",
-    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/excited_bounds.json"
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/excited_bounds.json",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/silent_seams/README.md",
+    "model/experiments/interval_echo_lepton_register/pole_meter/README.md"
    ],
    "papers": [
     "docs/FROZEN_PREDICTION_LADDER.md",
@@ -3137,17 +3159,23 @@
     "PR-15",
     "PR-47"
    ],
-   "lean": [],
+   "lean": [
+    "Lean/SourceLaw/ChargedRegisterPole.lean"
+   ],
    "model": [
     "model/evaluation/SCORECARD.md",
     "model/candidate_laws/interval_echo/openwave/row_03_clock/moving_pair/recoil/README.md",
     "model/candidate_laws/interval_echo/openwave/row_03_clock/moving_pair/recoil/records.json",
     "model/candidate_laws/interval_echo/openwave/electron_field/README.md",
-    "model/candidate_laws/interval_echo/openwave/electron_field/replay.py"
+    "model/candidate_laws/interval_echo/openwave/electron_field/replay.py",
+    "model/experiments/interval_echo_lepton_register/pole_meter/README.md",
+    "model/experiments/interval_echo_gauge/arrival_ladder/spin_transfer/README.md",
+    "model/experiments/interval_echo_lepton_register/pole_meter/magnetic/README.md"
    ],
    "papers": [
     "docs/EMPIRICAL_STATUS.md",
-    "paper/deriving_the_particle_zoo_from_observer_consistency.pdf"
+    "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
+    "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
    ]
   },
   {
@@ -3162,7 +3190,9 @@
     "PR-50",
     "PR-15"
    ],
-   "lean": [],
+   "lean": [
+    "Lean/SourceLaw/SilentSeamVacancy.lean"
+   ],
    "model": [
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/README.md",
     "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/README.md",
@@ -3172,7 +3202,9 @@
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/bounds.json",
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/results.json",
     "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/hierarchy/floor_calibration.json",
-    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/excited_bounds.json"
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/excited_bounds.json",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/silent_seams/README.md",
+    "model/experiments/interval_echo_lepton_register/pole_meter/README.md"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
@@ -4482,7 +4514,9 @@
    "what": "The electron's rest energy is the energy equivalent of its mass and anchors the energy scale of the charged-lepton sector.",
    "why": "A recovery must select the electron state dynamically and let its energy fix a second, independently measured quantity such as inertia.",
    "premises": [],
-   "lean": [],
+   "lean": [
+    "Lean/SourceLaw/ChargedRegisterPole.lean"
+   ],
    "model": [
     "model/evaluation/SCORECARD.md",
     "model/evaluation/openwave_criteria.json",
@@ -4503,7 +4537,10 @@
     "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/arrival_spin/localized_recoil.py",
     "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/arrival_spin/localized_recoil.json",
     "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/arrival_spin/DESIGN.md",
-    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/excited_bounds.json"
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/excited_bounds.json",
+    "model/experiments/interval_echo_lepton_register/pole_meter/README.md",
+    "model/experiments/interval_echo_gauge/arrival_ladder/spin_transfer/README.md",
+    "model/experiments/interval_echo_lepton_register/pole_meter/magnetic/README.md"
    ],
    "papers": [
     "paper/executable_observer_construction.pdf",
@@ -4615,10 +4652,12 @@
    "category": "OpenWave Recovery",
    "status": "Open",
    "what": "The electron carries intrinsic spin angular momentum of magnitude hbar/2.",
-   "why": "A field model has to show this angular momentum in the field of the same electron state.",
+   "why": "A supplied magnetic flux gives a charged vacancy the half-turn sign of a spinor, while assigning angular momentum to the electromagnetic field of a freely traveling electron requires a further read.",
    "premises": [],
    "lean": [
-    "Lean/SourceLaw/OrbitalMirrorCycle.lean"
+    "Lean/SourceLaw/OrbitalMirrorCycle.lean",
+    "Lean/SourceLaw/MagneticVacancy.lean",
+    "Lean/SourceLaw/NeutralSpinTransfer.lean"
    ],
    "model": [
     "model/evaluation/SCORECARD.md",
@@ -4627,7 +4666,10 @@
     "model/experiments/interval_echo_angular/charged_orientation/README.md",
     "model/experiments/interval_echo_angular/charged_orientation/measure.json",
     "model/candidate_laws/interval_echo/openwave/electron_field/README.md",
-    "model/experiments/interval_echo_angular/charged_orientation/conical_cycle/README.md"
+    "model/experiments/interval_echo_angular/charged_orientation/conical_cycle/README.md",
+    "model/experiments/interval_echo_angular/charged_orientation/flux_doublet/README.md",
+    "model/experiments/interval_echo_gauge/arrival_ladder/spin_transfer/README.md",
+    "model/experiments/interval_echo_lepton_register/pole_meter/magnetic/README.md"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
@@ -4644,7 +4686,9 @@
    "premises": [
     "PR-47"
    ],
-   "lean": [],
+   "lean": [
+    "Lean/SourceLaw/MagneticVacancy.lean"
+   ],
    "model": [
     "model/evaluation/SCORECARD.md",
     "model/evaluation/openwave_criteria.json",
@@ -4659,9 +4703,12 @@
     "model/experiments/interval_echo_angular/charged_orientation/mobile_core_exchange/measure.py",
     "model/experiments/interval_echo_angular/charged_orientation/mobile_core_exchange/results.json.gz",
     "model/experiments/interval_echo_angular/charged_orientation/mobile_core_exchange/half_turns.py",
-    "model/experiments/interval_echo_angular/charged_orientation/mobile_core_exchange/half_turns.json.gz"
+    "model/experiments/interval_echo_angular/charged_orientation/mobile_core_exchange/half_turns.json.gz",
+    "model/experiments/interval_echo_angular/charged_orientation/flux_doublet/README.md"
    ],
-   "papers": []
+   "papers": [
+    "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
+   ]
   },
   {
    "id": "ow-08-antimatter-annihilation",
@@ -4745,7 +4792,9 @@
    "what": "The electron, muon and tau share one charge and spin and form three charged-lepton species with widely separated rest energies.",
    "why": "A recovery has to produce exactly three charged species from one dynamics, with consistent recoil and formation energies for each.",
    "premises": [],
-   "lean": [],
+   "lean": [
+    "Lean/SourceLaw/SilentSeamVacancy.lean"
+   ],
    "model": [
     "model/evaluation/SCORECARD.md",
     "model/evaluation/openwave_criteria.json",
@@ -4762,7 +4811,11 @@
     "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/arrival_spin/recoil.json",
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/excited_bounds.json",
     "model/experiments/interval_echo_lepton_register/README.md",
-    "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/hierarchy/floor_calibration.json"
+    "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/hierarchy/floor_calibration.json",
+    "model/experiments/interval_echo_lepton_register/pole_meter/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/silent_seams/README.md",
+    "model/experiments/interval_echo_gauge/arrival_ladder/spin_transfer/README.md",
+    "model/experiments/interval_echo_lepton_register/pole_meter/magnetic/README.md"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
@@ -5096,17 +5149,21 @@
    "category": "OpenWave Recovery",
    "status": "Open",
    "what": "The muon decays into an electron and two neutrinos with a mean lifetime of about 2.2 microseconds.",
-   "why": "Muon decay is the cleanest weak process and fixes the Fermi constant, so a model has to reproduce it on identified states.",
+   "why": "Observers can read reversible charge-to-neutral conversion with a material donor, while identifying muon decay requires a freely prepared heavy parent, weak daughter tags and a measured lifetime.",
    "premises": [],
    "lean": [
-    "Lean/SourceLaw/NeutralEjecta.lean"
+    "Lean/SourceLaw/NeutralEjecta.lean",
+    "Lean/SourceLaw/ArrivalChargeLadder.lean"
    ],
    "model": [
     "model/evaluation/SCORECARD.md",
     "model/evaluation/openwave_criteria.json",
     "model/candidate_laws/interval_echo/SPEC.md",
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/neutral_ejecta/README.md",
-    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/neutral_ejecta/results.json"
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/neutral_ejecta/results.json",
+    "model/experiments/interval_echo_gauge/arrival_ladder/README.md",
+    "model/experiments/interval_echo_gauge/arrival_ladder/spin_transfer/results.json",
+    "model/experiments/interval_echo_gauge/arrival_ladder/static.json"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
@@ -6440,13 +6497,19 @@
    "why": "It gives the matter table its meaning as spin-one-half fermions with chirality, as the weak interaction requires.",
    "premises": [],
    "lean": [
-    "Lean/Screen/FermionSectorAssembly.lean"
+    "Lean/Screen/FermionSectorAssembly.lean",
+    "Lean/SourceLaw/MagneticVacancy.lean"
    ],
    "model": [
     "model/experiments/interval_echo_angular/charged_orientation/README.md",
-    "model/experiments/interval_echo_gauge/loop_transport/HOLONOMY.md"
+    "model/experiments/interval_echo_gauge/loop_transport/HOLONOMY.md",
+    "model/experiments/interval_echo_angular/charged_orientation/flux_doublet/README.md",
+    "model/experiments/interval_echo_gauge/arrival_ladder/spin_transfer/README.md",
+    "model/experiments/interval_echo_lepton_register/pole_meter/magnetic/README.md"
    ],
-   "papers": [],
+   "papers": [
+    "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
+   ],
    "statement": "The parity-graded exterior component table is attached to a physical Lorentzian Spin structure, odd-Weyl fermion typing and fermion parity, so that the table grading has spacetime chirality meaning.",
    "premise_kind": "derivable"
   },
@@ -6582,15 +6645,21 @@
    "why": "It turns OPH's gauge classification into an actual gauge field theory, the form in which the standard-model forces are tested.",
    "premises": [],
    "lean": [
-    "Lean/SourceLaw/ColourSingletGateway.lean"
+    "Lean/SourceLaw/ColourSingletGateway.lean",
+    "Lean/SourceLaw/ArrivalChargeLadder.lean",
+    "Lean/SourceLaw/NeutralSpinTransfer.lean"
    ],
    "model": [
     "model/candidate_laws/interval_echo/CURRENTS.md",
     "model/candidate_laws/interval_echo/currents.json",
     "model/candidate_laws/interval_echo/prior_calibration.json",
-    "model/candidate_laws/interval_echo/openwave/electron_field/README.md"
+    "model/candidate_laws/interval_echo/openwave/electron_field/README.md",
+    "model/experiments/interval_echo_gauge/arrival_ladder/README.md",
+    "model/experiments/interval_echo_gauge/arrival_ladder/spin_transfer/README.md"
    ],
-   "papers": [],
+   "papers": [
+    "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
+   ],
    "statement": "The selected compact bracket and matter representation are realized by one source-produced gauge connection, current algebra, field strength, covariant matter operator and local action on one spacetime carrier.",
    "premise_kind": "derivable"
   },
@@ -7363,12 +7432,18 @@
    "what": "On gauge-invariant states a full 2 pi rotation acts as minus one raised to the number of quanta, and occupations are antisymmetric.",
    "why": "It is the spin-statistics link: excitations with odd quanta behave as fermions and obey Pauli exclusion.",
    "premises": [],
-   "lean": [],
+   "lean": [
+    "Lean/SourceLaw/MagneticVacancy.lean"
+   ],
    "model": [
     "code/defect_particle_classes/PROOF.md",
-    "code/defect_particle_classes/statistics.py"
+    "code/defect_particle_classes/statistics.py",
+    "model/experiments/interval_echo_angular/charged_orientation/flux_doublet/README.md",
+    "model/experiments/interval_echo_lepton_register/pole_meter/magnetic/README.md"
    ],
-   "papers": [],
+   "papers": [
+    "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
+   ],
    "statement": "On a Gauss-invariant state the code, register and link-end factors of the central element z = -1 of the binary icosahedral group multiply to +1, so the 2pi rotation equals (-1)^(number of quanta) (P2); occupations of the five-level code are lifted antisymmetrically, and the filled reference that would force the antisymmetric lift is not computed (P4).",
    "premise_kind": "derivable"
   },
@@ -8411,11 +8486,13 @@
    "premises": [],
    "lean": [
     "Lean/ObserverPatchHolography/LeptonRegisterCharacterisation.lean",
-    "Lean/ObserverPatchHolography/KoideCirculant.lean"
+    "Lean/ObserverPatchHolography/KoideCirculant.lean",
+    "Lean/SourceLaw/ChargedRegisterPole.lean"
    ],
    "model": [
     "model/experiments/interval_echo_lepton_register/README.md",
-    "model/experiments/interval_echo_lepton_register/results.json"
+    "model/experiments/interval_echo_lepton_register/results.json",
+    "model/experiments/interval_echo_lepton_register/pole_meter/README.md"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.tex"

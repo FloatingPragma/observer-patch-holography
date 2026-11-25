@@ -61,7 +61,7 @@
           "results": {
             "interval_echo": {
               "status": "partial",
-              "note": "Gateway monitoring holds a compact vacancy. With a material clock and six-seam storage, separate joint reads give 35 for one vacancy and 70 for two separated copies. A changed pair interaction shifts the two-copy reading. A vacancy and excess give 35 and 67 with this reference, or 43 each with five-seam storage. Independent storage readings account for the difference. A local phase flip lowers the mean vacancy energy. A local pulse releases charge from that same held vacancy. On 20, 80 and 320 cells the native one-vacancy spectrum excludes the relativistic recoil energy at pc = 511 keV with the six-seam anchor. Its identification with an electron rest threshold remains open. Preparing two vacancies and an excess gives a repulsively bound charged trimer. The upper-band configuration stays intact with probability at least 0.5745 at all exposures on the 20-cell board and 0.7298 on both refinements. Its host-referenced recoil target exceeds the whole sector ceiling on every board. Internal rearrangement is observed and translational inertia remains unresolved. A separate energy read on these ordered-pair launches gives 212.988–213.010 in empty-host exchange units. The full two-amount sector has spectral width at most 44, excluding an internal beat at that formation energy. Its inertial mass needs an independent motional measurement. On the same ordered pair that conveys a phase, a calibrated boundary impulse produces a current predicted by an independent swap measurement. At one clock unit the opposite-kick half-difference is 0.00828–0.00838 across three placements. Each freely chosen later adjacency reading succeeds with probability at least 0.84319. An exchange-only comparator calibrated to the same 213 formation energy and clock gives a different recoil. The current is measured per exchange time; a physical inertial mass requires its own ruler and momentum calibration.",
+              "note": "Gateway monitoring holds a compact vacancy. With a material clock and six-seam storage, separate joint reads give 35 for one vacancy and 70 for two separated copies. A changed pair interaction shifts the two-copy reading. A vacancy and excess give 35 and 67 with this reference, or 43 each with five-seam storage. Independent storage readings account for the difference. A local phase flip lowers the mean vacancy energy. A local pulse releases charge from that same held vacancy. On 20, 80 and 320 cells the native one-vacancy spectrum excludes the relativistic recoil energy at pc = 511 keV with the six-seam anchor. Its identification with an electron rest threshold remains open. Preparing two vacancies and an excess gives a repulsively bound charged trimer. The upper-band configuration stays intact with probability at least 0.5745 at all exposures on the 20-cell board and 0.7298 on both refinements. Its host-referenced recoil target exceeds the whole sector ceiling on every board. Internal rearrangement is observed and translational inertia remains unresolved. A separate energy read on these ordered-pair launches gives 212.988–213.010 in empty-host exchange units. The full two-amount sector has spectral width at most 44, excluding an internal beat at that formation energy. Its inertial mass needs an independent motional measurement. On the same ordered pair that conveys a phase, a calibrated boundary impulse produces a current predicted by an independent swap measurement. At one clock unit the opposite-kick half-difference is 0.00828–0.00838 across three placements. Each freely chosen later adjacency reading succeeds with probability at least 0.84319. An exchange-only comparator calibrated to the same 213 formation energy and clock gives a different recoil. The current is measured per exchange time; a physical inertial mass requires its own ruler and momentum calibration. A remote compact vacancy supplies one common free formation line in all three marked-edge preparations. The independent six-seam storage clock places it at 34.99430 ± 0.00474 native units. Conditioning the two magnetic ground-band directions onto that line produces two independent states whose compact supports leak under field-preserving spatial half-turns. An equalized material read coherently transfers any magnetic doublet input into the free 35-unit plane with common success probability 0.00131910. Only the identity of the sixty tested magnetic rotations preserves this whole energy plane.",
               "evidence": [
                 "model/candidate_laws/interval_echo/SPEC.md",
                 "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json",
@@ -85,7 +85,10 @@
                 "model/candidate_laws/interval_echo/openwave/row_03_clock/moving_pair/recoil/records.json",
                 "model/candidate_laws/interval_echo/openwave/row_03_clock/moving_pair/recoil/test_recoil.py",
                 "model/candidate_laws/interval_echo/openwave/row_11_spectrum/excited_bounds.json",
-                "model/experiments/interval_echo_lepton_register/README.md"
+                "model/experiments/interval_echo_lepton_register/README.md",
+                "model/experiments/interval_echo_lepton_register/pole_meter/README.md",
+                "model/experiments/interval_echo_gauge/arrival_ladder/spin_transfer/README.md",
+                "model/experiments/interval_echo_lepton_register/pole_meter/magnetic/README.md"
               ],
               "comparison": {
                 "law": "Written-field Laplacian extension",
@@ -348,13 +351,16 @@
           "results": {
             "interval_echo": {
               "status": "open",
-              "note": "A signed defect transmits two coherent orbital modes across two cell boundaries on each native host. These modes are spatial orientations. Field angular momentum of magnitude ℏ/2 on an identified electron remains unmeasured. A vacancy in a local scalar deformation gives 99.816% dark exits around a degeneracy and 0.194% on a displaced loop. A full material turn and opposite half-turn orders on the same source give zero dark exits.",
+              "note": "A signed defect transmits two coherent orbital modes across two cell boundaries on each native host. These modes are spatial orientations. Field angular momentum of magnitude ℏ/2 on an identified electron remains unmeasured. A vacancy in a local scalar deformation gives 99.816% dark exits around a degeneracy and 0.194% on a displaced loop. A full material turn and opposite half-turn orders on the same source give zero dark exits. Under one imposed flux quantum a guarded vacancy gives a lowest doublet with anticommuting field-preserving half-turns in all 15 perpendicular axis pairs. The native donor-driven neutral read preserves its state. Aligned doublets exchange with positive sign in the addressed material permutation. The free compact formation line and the magnetic doublet occupy different subspaces.",
               "evidence": [
                 "model/candidate_laws/interval_echo/SPEC.md",
                 "model/experiments/interval_echo_angular/charged_orientation/README.md",
                 "model/experiments/interval_echo_angular/charged_orientation/conical_cycle/README.md",
                 "model/experiments/interval_echo_angular/charged_orientation/conical_cycle/records.json",
-                "Lean/SourceLaw/OrbitalMirrorCycle.lean"
+                "Lean/SourceLaw/OrbitalMirrorCycle.lean",
+                "model/experiments/interval_echo_angular/charged_orientation/flux_doublet/README.md",
+                "model/experiments/interval_echo_gauge/arrival_ladder/spin_transfer/README.md",
+                "model/experiments/interval_echo_lepton_register/pole_meter/magnetic/README.md"
               ],
               "comparison": {
                 "law": "Written-field Laplacian extension",
@@ -362,8 +368,8 @@
                 "source": "model/candidate_laws/interval_echo/openwave/electron_field/README.md#larger-collective-preparations"
               },
               "demonstrated_measurement": {
-                "label": "An orbital sign from a charged vacancy and its independent spatial-turn control",
-                "source": "model/experiments/interval_echo_angular/charged_orientation/conical_cycle/README.md"
+                "label": "Magnetic spinor half-turns and coherent neutral conversion on one guarded vacancy",
+                "source": "model/experiments/interval_echo_gauge/arrival_ladder/spin_transfer/README.md"
               }
             },
             "contrast_memory_spherical_v1": {
@@ -391,7 +397,7 @@
           "results": {
             "interval_echo": {
               "status": "open",
-              "note": "On the freely arriving signed orbital, a controlled full template turn and opposite orders of perpendicular half-turns give positive relative phase. Two addressed orbital packets exchange with +SWAP. The same apparatus resolves the imposed spinorial and odd-permutation signs. This orbital construction fails the requested double-cover test. Two commuting native spatial half-turns on the twelve-port template give a negative relative order phase on the quarter of launches that pass both code filters. Repeating one half-turn twice gives positive phase, including on the accepted branch. For any coherent code with input-independent success and commuting full half-turns, anticommuting accepted unitaries require the two success probabilities to sum to at most one. The measured code attains the bound using a supplied filter and coherent reference. Two frame-preserving guided exchanges of energy-filtered trimers give phase +1. A further improper reflection gives the negative port. In transit the probability of two connected triples falls from 99.867% to 7.636%. All 15 proper template half-turns measurably change the selected trimer’s address distribution relative to idle, including its three closest axes.",
+              "note": "On the freely arriving signed orbital, a controlled full template turn and opposite orders of perpendicular half-turns give positive relative phase. Two addressed orbital packets exchange with +SWAP. The same apparatus resolves the imposed spinorial and odd-permutation signs. This orbital construction fails the requested double-cover test. Two commuting native spatial half-turns on the twelve-port template give a negative relative order phase on the quarter of launches that pass both code filters. Repeating one half-turn twice gives positive phase, including on the accepted branch. For any coherent code with input-independent success and commuting full half-turns, anticommuting accepted unitaries require the two success probabilities to sum to at most one. The measured code attains the bound using a supplied filter and coherent reference. Two frame-preserving guided exchanges of energy-filtered trimers give phase +1. A further improper reflection gives the negative port. In transit the probability of two connected triples falls from 99.867% to 7.636%. All 15 proper template half-turns measurably change the selected trimer’s address distribution relative to idle, including its three closest axes. The twelve-port magnetic rotation representation contains a doublet exactly once. A flux-preserving half-turn commutator has central sign −1, and matched aligned defects retain the positive material exchange sign.",
               "evidence": [
                 "model/candidate_laws/interval_echo/SPEC.md",
                 "model/experiments/interval_echo_angular/charged_orientation/README.md",
@@ -403,7 +409,9 @@
                 "model/experiments/interval_echo_angular/charged_orientation/mobile_core_exchange/measure.py",
                 "model/experiments/interval_echo_angular/charged_orientation/mobile_core_exchange/results.json.gz",
                 "model/experiments/interval_echo_angular/charged_orientation/mobile_core_exchange/half_turns.py",
-                "model/experiments/interval_echo_angular/charged_orientation/mobile_core_exchange/half_turns.json.gz"
+                "model/experiments/interval_echo_angular/charged_orientation/mobile_core_exchange/half_turns.json.gz",
+                "model/experiments/interval_echo_angular/charged_orientation/flux_doublet/README.md",
+                "model/experiments/interval_echo_angular/charged_orientation/flux_doublet/results.json"
               ],
               "comparison": {
                 "law": "Written-field Laplacian extension",
@@ -584,7 +592,7 @@
           "results": {
             "interval_echo": {
               "status": "open",
-              "note": "For all net negative-unit compositions of the registered blank-memory law, the maximum ratio between host-referenced composition ground energies is bounded above by 57.5625, 203.296875 and 759.546875 on the 20-, 80- and 320-cell boards. This excludes 3477 in those spectra. In the same architecture on any finite refinement a 3477 ratio of these minima needs at least 2319 defect ports in the heavier configuration. On a ten-port belt three dressings selected for closeness have first-wavelength recoil inertia ratios 1:168.56:3209.78 and second-wavelength ratios 1:164.91:3301.44. Their formation energies are in the ratios 1:2.01:2.81. Signed density records verify motion. Identifying three charged species with consistent recoil and formation energies requires another preparation. Including excited levels, any one conserved blank composition of charge −1 spans at most 481/28 in formation energy above the filled reference. A geometric three-port read on a single vacancy gives the Koide intensity ratios at the specified exposure. A free-release test excludes a free eigenstate inside its entire three-mode space.",
+              "note": "For all net negative-unit compositions of the registered blank-memory law, the maximum ratio between host-referenced composition ground energies is bounded above by 57.5625, 203.296875 and 759.546875 on the 20-, 80- and 320-cell boards. This excludes 3477 in those spectra. In the same architecture on any finite refinement a 3477 ratio of these minima needs at least 2319 defect ports in the heavier configuration. On a ten-port belt three dressings selected for closeness have first-wavelength recoil inertia ratios 1:168.56:3209.78 and second-wavelength ratios 1:164.91:3301.44. Their formation energies are in the ratios 1:2.01:2.81. Signed density records verify motion. Identifying three charged species with consistent recoil and formation energies requires another preparation. Including excited levels, any one conserved blank composition of charge −1 spans at most 481/28 in formation energy above the filled reference. A geometric three-port read on a single vacancy gives the Koide intensity ratios at the specified exposure. A free-release test excludes a free eigenstate inside its entire three-mode space. The three detector modes share a free formation line for every analyzer phase. Allowing arbitrary passive zero-contrast seam writes leaves the ratio of any two positive one-vacancy formation energies at most 122.289 on the filled reference. Uniform driven conversion couples equally to all three modes.",
               "evidence": [
                 "model/candidate_laws/interval_echo/SPEC.md",
                 "model/candidate_laws/interval_echo/openwave/row_11_spectrum/README.md",
@@ -594,7 +602,11 @@
                 "model/experiments/interval_echo_lepton_register/README.md",
                 "model/experiments/interval_echo_lepton_register/results.json",
                 "model/candidate_laws/interval_echo/openwave/row_11_spectrum/excited_bounds.json",
-                "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/hierarchy/floor_calibration.json"
+                "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/hierarchy/floor_calibration.json",
+                "model/experiments/interval_echo_lepton_register/pole_meter/README.md",
+                "model/candidate_laws/interval_echo/openwave/row_11_spectrum/silent_seams/README.md",
+                "model/experiments/interval_echo_gauge/arrival_ladder/spin_transfer/README.md",
+                "model/experiments/interval_echo_lepton_register/pole_meter/magnetic/README.md"
               ],
               "comparison": {
                 "law": "Written-field Laplacian extension",
@@ -602,8 +614,8 @@
                 "source": "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/README.md"
               },
               "demonstrated_measurement": {
-                "label": "Koide detector intensities and their loss from the three-mode space under free release",
-                "source": "model/experiments/interval_echo_lepton_register/README.md"
+                "label": "All three marked-edge preparations share a measured free formation line",
+                "source": "model/experiments/interval_echo_lepton_register/pole_meter/README.md"
               }
             },
             "contrast_memory_spherical_v1": {
@@ -1308,13 +1320,20 @@
           "results": {
             "interval_echo": {
               "status": "open",
-              "note": "A sharp unit vacancy gives zero neutral material response in a disjoint pristine receiver. Two independently detectable neutral load pairs and a charged remainder require two pre-existing pairs. On each of the three free boards a prepared two-pair source admits this coincidence at short time. The receiving records need independent weak-flavor tags, a heavy rest preparation and a lifetime.",
+              "note": "A sharp unit vacancy gives zero neutral material response in a disjoint pristine receiver. Two independently detectable neutral load pairs and a charged remainder require two pre-existing pairs. On each of the three free boards a prepared two-pair source admits this coincidence at short time. The receiving records need independent weak-flavor tags, a heavy rest preparation and a lifetime. A matched vacancy receiver reads both directions of charged-to-neutral conversion with a common donor. Under three fixed contacts the vacancy is resonant and the same-site positive control has donor-transfer probability at most 1/1025 at any wait. Under the coherent port circuit all three marked-edge modes have the same conversion probability. A free, energy-resolved heavy-parent decay and its laboratory rate require further evidence.",
               "evidence": [
                 "model/candidate_laws/interval_echo/SPEC.md",
                 "model/candidate_laws/interval_echo/openwave/row_11_spectrum/neutral_ejecta/README.md",
                 "model/candidate_laws/interval_echo/openwave/row_11_spectrum/neutral_ejecta/results.json",
-                "Lean/SourceLaw/NeutralEjecta.lean"
-              ]
+                "Lean/SourceLaw/NeutralEjecta.lean",
+                "model/experiments/interval_echo_gauge/arrival_ladder/README.md",
+                "model/experiments/interval_echo_gauge/arrival_ladder/static.json",
+                "model/experiments/interval_echo_gauge/arrival_ladder/spin_transfer/README.md"
+              ],
+              "demonstrated_measurement": {
+                "label": "An arriving charged vacancy exchanges a unit with a donor and a third observer detects neutral pairs",
+                "source": "model/experiments/interval_echo_gauge/arrival_ladder/README.md"
+              }
             },
             "contrast_memory_spherical_v1": {
               "status": "open",

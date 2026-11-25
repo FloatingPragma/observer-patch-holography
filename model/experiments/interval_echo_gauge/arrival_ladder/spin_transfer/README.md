@@ -1,0 +1,29 @@
+# Does the neutral receiver preserve the charged doublet?
+
+The two orbital states of the charged magnetic doublet survive a driven conversion to a region with zero material charge. The receiver can rotate the orbital state after conversion and recover its relative phase. The six-state process measurement uses the same vacancy throughout. The applied flux, the donor and the neutral region's extent are part of the apparatus. [Native pulse experiment](measure.py) · [Complete simulated records](results.json) · [Independent tests](test_transfer.py)
+
+On the twenty-cell federation, owner 6 holds the full vacancy wavefunction on its twelve ports. One quantum of applied flux fixes the magnetic ground doublet. Explicit private phases and addressed contacts prepare six chosen superpositions in this two-dimensional space. The two columns are fixed by the projected sharp ports 0 and 1 in the source chart. The ladder outside the cell visits all twelve vacancy addresses without recording their locations. It moves a double from the common donor to the target. At readout the aperture and target together carry zero excess load relative to unit filling. The donor has lost the balancing unit. The target remains parked during a compensated half-turn of the aperture. [Charged state and calibrated rotations](../../../interval_echo_angular/charged_orientation/flux_doublet/README.md) · [Donor and arrival circuit](../README.md) · [Protocol](PROTOCOL.md)
+
+For each preparation, the receiver tests the two eigenstates of each of the three Pauli operators by reversing their physical preparation pulses. Each test retains all twelve terminal vacancy addresses on each of the two target/donor outputs. The six separate settings recover the Pauli transfer matrix on the neutral branch without dividing by successful conversion. The inferred entanglement fidelity is its trace divided by four. It predicts what the channel would do to a doublet entangled with a retained reference. Six single-system states suffice to infer it.
+
+| Setting | Exact neutral code survival for the mixed input | Inferred identity entanglement fidelity |
+|---|---:|---:|
+| Coherent aperture, driven conversion | 1 | 1 |
+| Record and forget the occupied vacancy address | 1/6 | 1/12 |
+| Apply a compensated half-turn on the neutral side | 1 | 0 |
+| Zero conversion angle | 0 | 0 |
+
+In the half-turn experiment the fixed receiver reconstructs a unitary rotation. The measured matrix element converting the input Z component to the output Y component is 0.894254, compared with the independent magnetic calibration 0.894427. A unitary half-turn has zero identity fidelity. The address-recorded control has a physical vacancy in every trial, but erasing its coherences gives a small overlap with the original two-dimensional code. The coherent and address-recorded identity-fidelity estimates are 1.000030 and 0.083290. The linear estimators use independent banks and are reported unclipped. The simultaneous 99% sampling radius for every process entry and each identity fidelity is 0.002213 over all four settings. Each projector bank has 4,194,304 simulated starts. As a check on the receiver law, removing the contrast term while retaining the same loaded inputs, routes, pulses and terminal tests gives zero neutral conversions. [Read calibration and uncertainty](measure.py) · [Transfer identities](../../../../../Lean/SourceLaw/NeutralSpinTransfer.lean)
+
+The three marked-edge family modes all convert with probability one under the same drive. The conversion effect is the identity on their span and provides no flavor label. The magnetic doublet and its pulse-driven neutral encoding exhibit a common coherent degree of freedom. A physical lepton assignment requires independent free formation energies, a transported spin with fermionic exchange and a weak interaction whose daughter energies and rates agree on the same freely propagating states. [Free formation-energy meter](../../../interval_echo_lepton_register/pole_meter/README.md)
+
+## Round trip through the free compact energy line
+
+The two principal directions of the magnetic doublet have 0.131910% and 4.894136% weight in the freely stationary charged line at 35 native units in the filled-host storage convention. The phase-preserving energy test uses ten native basis rotations, routes two flag ports to one donor, reads that donor once and returns it to its initial state. Undoing the rotations prepares the entire admitted two-dimensional plane without recording either component. The two admitted charged states have the same free formation energy. On the aperture we convert each state to the neutral region, optionally apply a magnetic half-turn there, return it to the charged rail, and repeat the compact-mode read. All source refusals and both charge readings enter the counts. In the parked control 5,521 and 205,046 of 4,194,304 starts, respectively, passed the first selection and every one of those passed the final check. With the second half-turn only 299 of 5,438 and 10,805 of 205,362 selected events returned to that space. The invariant magnetic doublet and the free compact energy qubit are distinct subspaces of the same vacancy. The neutral middle stage has a parked target double; these reads assign the energy to the charged preparation under its released host Hamiltonian. [Five-outcome records](results.json) · [Common-donor instrument](aperture.py) · [Coherent transfer at equal success probability](../../../interval_echo_lepton_register/pole_meter/magnetic/README.md) · [Energy reference and pole projector](../../../interval_echo_lepton_register/pole_meter/README.md)
+
+From the repository root run the following commands.
+
+```sh
+OPENBLAS_NUM_THREADS=1 python -m model.experiments.interval_echo_gauge.arrival_ladder.spin_transfer.measure
+OPENBLAS_NUM_THREADS=1 python -m pytest -q model/experiments/interval_echo_gauge/arrival_ladder/spin_transfer
+```

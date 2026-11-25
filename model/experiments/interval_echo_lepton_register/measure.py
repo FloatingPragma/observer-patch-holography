@@ -56,10 +56,14 @@ def contact(state, a, b, exposure, speed):
     state[[a, b]] = expm(-1j * exposure * seam_block(speed)) @ state[[a, b]]
 
 
-def phase(state, port, angle, speed):
+def phase(state, port, angle, speed, owner=0):
     """A vacancy gains +kappa*t relative to the occupied private reference."""
     board = federation(0)
-    trail = min((route(port, q) for q in range(N) if board.degree[q] == 5), key=len)
+    if not 0 <= owner < board.cells:
+        raise ValueError("Phase owner outside the twenty-cell board")
+    trail = min(
+        (route(port, q) for q in range(N) if board.degree[owner * N + q] == 5), key=len
+    )
     swaps = list(zip(trail, trail[1:]))
     for a, b in swaps:
         contact(state, a, b, pi, speed)
@@ -69,7 +73,7 @@ def phase(state, port, angle, speed):
         contact(state, a, b, pi, speed)
 
 
-def rotate(state, a, b, angle, speed):
+def rotate(state, a, b, angle, speed, owner=0):
     """Native contact, flanked by private pulses, implements a real rail rotation."""
     trail = route(a, b)
     swaps = list(zip(trail[:-2], trail[1:-1]))
@@ -77,10 +81,10 @@ def rotate(state, a, b, angle, speed):
         contact(state, x, y, pi, speed)
     x, y = trail[-2:]
     exposure = 2 * (angle % (2 * pi))
-    phase(state, y, pi / 2, speed)
+    phase(state, y, pi / 2, speed, owner)
     contact(state, x, y, exposure, speed)
-    phase(state, x, (KAPPA + 0.5) * exposure, speed)
-    phase(state, y, (KAPPA + 0.5) * exposure - pi / 2, speed)
+    phase(state, x, (KAPPA + 0.5) * exposure, speed, owner)
+    phase(state, y, (KAPPA + 0.5) * exposure - pi / 2, speed, owner)
     for x, y in reversed(swaps):
         contact(state, x, y, pi, speed)
 
@@ -102,17 +106,17 @@ def addresses(edge):
     return (a, b, *tips)
 
 
-def reader(ports, angle, speed):
+def reader(ports, angle, speed, owner=0):
     a, b, plus, minus = ports
     unitary = PORT_BASIS.copy()
-    phase(unitary, plus, angle, speed)
-    phase(unitary, minus, -angle, speed)
-    rotate(unitary, a, b, -pi / 4, speed)
-    rotate(unitary, plus, minus, -pi / 4, speed)
-    rotate(unitary, a, plus, -atan(sqrt(2)), speed)
-    phase(unitary, plus, pi, speed)
-    phase(unitary, minus, pi / 2, speed)
-    rotate(unitary, plus, minus, -pi / 4, speed)
+    phase(unitary, plus, angle, speed, owner)
+    phase(unitary, minus, -angle, speed, owner)
+    rotate(unitary, a, b, -pi / 4, speed, owner)
+    rotate(unitary, plus, minus, -pi / 4, speed, owner)
+    rotate(unitary, a, plus, -atan(sqrt(2)), speed, owner)
+    phase(unitary, plus, pi, speed, owner)
+    phase(unitary, minus, pi / 2, speed, owner)
+    rotate(unitary, plus, minus, -pi / 4, speed, owner)
     return unitary
 
 
