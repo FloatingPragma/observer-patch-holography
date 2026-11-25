@@ -3162,8 +3162,8 @@ $(1+b\sigma_1+s\sigma_1\sigma_2\sigma_3)/8$.
 At $b=0$, $s=-1/2$, varying $s$ leaves all one- and two-guide
 marginals fixed. The entropy of the three released registers has slope
 $\log(3)/2$ nats. The timing survey that takes the earliest arrival over
-the eight corners gives the same range to every address, hence the same
-boundary count and enclosed address count.
+the eight corners keeps each address at its original range as $s$ varies.
+Both the boundary count and the enclosed address count are fixed.
 The finite modular response has an independent reader. On the occupied
 corner support the reference modular Hamiltonian is a constant plus
 $(\log(3)/2)\sigma_1\sigma_2\sigma_3$. The product of the three
@@ -3176,7 +3176,7 @@ At each of the six ranges
 the frequency-weighted mean time does respond on the eight body
 diagonals, with alternating slopes of magnitude $1/8$ appointment.
 The two timing protocols consequently yield different information
-about the release. Four points in the earliest-arrival metric force
+about the release. Direct pairwise parallel-arrival ranges among four active sites force
 distortion at least $\sqrt{2}$ in any Euclidean embedding, at every
 available scale. In particular, diffusion and parallel arrival give
 different rulers on these addresses.
@@ -3230,6 +3230,65 @@ and the protected marginals misses the signed response somewhere on
 this preparation. No choice of their common coupling repairs this
 loss of information. Regional observables outside this translation
 experiment require a separate test.
+
+Resolving individual contacts changes the information available. Ten
+directed four-tick contact-flux measurements together with eight
+independent regional readings determine all eighteen correlation
+coordinates at fixed single-head marginals and parity weights.
+The smallest singular value of this material map lies between
+$7.42\times10^{-13}$ and $8.34\times10^{-13}$ in the deposited units.
+One can use the reference density's modular operator $-\log\rho_0$
+and this material map to reconstruct the signed entropy derivative,
+without using the survey area or volume for the weights. The uniform
+error bound for the rounded reader is $1.59\times10^{-5}$ nats per
+unit Hilbert--Schmidt tangent. On a held variation, the two-charge
+material replay gives $0.0015940293$ nats per unit variation, compared
+with $0.0015940511$ from the spectrum. Absolute errors in the individual
+readings can be amplified by a factor of $2.27\times10^9$.
+This is a statement about the expectations of the instruments.
+It distinguishes informational completeness from a stress law.
+In particular, keeping two prescribed quadratic aperture readings
+at graph radius six, the regional readings and survey volume fixed
+leaves a tangent with entropy slope between $0.0007221$ and $0.0007314$
+nats per unit variation. Thus the contact-resolved information can
+recover what this candidate physical weighting omits. The calculation
+is in \path{correlation_rank/spatial_cuts/}.
+
+\paragraph{Finite same-source balance on the complete survey algebra.}
+Write $z$ for the thirteen measured marginal coordinates (the parity
+weight and the two single-head Pauli triples in each parity), and $x$
+for the eighteen two-head correlation coordinates. Together they
+parametrize the trace-one part of $M_4\oplus M_4$. Each of the eighteen
+material means $j$ is affine in this state. Thus
+$\delta j=B\,\delta x+C\,\delta z$, with $B$ the invertible native
+matrix above. For the faithful reference $\rho_*$ let
+$\delta\langle-\log\rho_*\rangle=k_x\delta x+k_z\delta z$.
+Set $w=k_xB^{-1}$ and $v=k_z-w C$. The finite first law gives
+\[
+    \delta S=w\,\delta j+v\,\delta z
+\]
+throughout the 31-dimensional trace-preserving tangent space. The reference was
+selected by the constrained survey equilibrium. Once it is prepared,
+the reference density and the material response operators fix these
+weights independently of the geometric variation under test. Since
+the selected source extremizes $S+\eta A$ at fixed surveyed volume,
+the entire 30-dimensional fixed-volume tangent space satisfies
+\[
+     \eta\,\delta A+w\,\delta j+v\,\delta z=0 .
+\]
+The coefficient $\eta$ comes from the ordinary transfer calibration.
+The rounded full reader has certified error below $1.783\times10^{-5}$
+nats per unit Hilbert--Schmidt variation. In a held native replay the
+two arms change both head marginals and the parity weight, with their
+survey volumes matched to numerical precision. The material and
+marginal terms give $+17.6617754$ and $-17.3273213$ nats per unit
+transfer. Their sum is $0.3344540635$. Direct entropy differencing
+gives $0.3344540613$, and the ordinary-calibrated area decrease gives
+$0.3344540641$. These values come from expected records in the
+two-arm calculation.
+This is an operational balance at one four-station survey. A
+stress-energy interpretation requires a physical generator for the
+weights on proper balls across radii and frames.
 
 \paragraph{Two stationary sources at matched survey geometry.}
 On the native 80-cell board, let the two outgoing heads seed the next

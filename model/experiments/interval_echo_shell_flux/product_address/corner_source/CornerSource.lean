@@ -31,7 +31,7 @@ theorem meanEnergy (b : ℚ) :
     (65/2:ℚ)*(22*((1-b)/2)+21*((1+b)/2)) = 2795/4-65*b/4 := by ring
 
 /-- A calibrated four-point Euclidean metric must obey Ptolemy. Min/max length
-ratios between the four native ranges and such a metric obey this finite bound. -/
+ratios between the six native pairwise ranges and such a metric obey this finite bound. -/
 theorem clockDistortion (lo hi : ℝ) (ptolemy : (2*lo)^2 ≤ 2*hi^2) :
     2*lo^2 ≤ hi^2 := by linarith [show (2*lo)^2 = 4*lo^2 by ring]
 
@@ -53,6 +53,22 @@ theorem clockSourceProjection :
     tripleContrast (fun x y z => -(x*y*z)/8) = -1/8 := by
   norm_num [tripleContrast]
 
+/-- Keeping a concentrated release fixed while halving the enclosing radius
+multiplies the fourth-order normalized coefficient by sixteen. -/
+theorem halfRadiusResponse (r d : ℝ) (hr : r ≠ 0) :
+    d / (r / 2)^4 = 16 * (d / r^4) := by
+  field_simp
+  ring
+
+/-- Any one proposed central density incurs a discrepancy on this pair of balls. -/
+theorem twoRadiusResidual (a c : ℝ) :
+    15 * |a| ≤ |a-c| + |16*a-c| := by
+  have h := abs_sub_le (16*a) c a
+  rw [show 16*a-a = 15*a by ring, abs_mul, abs_of_pos (by norm_num : (0:ℝ) < 15)] at h
+  simpa only [abs_sub_comm c a, add_comm] using h
+
+#print axioms halfRadiusResponse
+#print axioms twoRadiusResidual
 #print axioms twoGuideXY
 #print axioms twoGuideXZ
 #print axioms twoGuideYZ
