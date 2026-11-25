@@ -1196,9 +1196,9 @@ The register records each theorem assumption and its formal consumers. The role 
 | PR-26 stationary generalized entropy at fixed volume | law | Partial | Open | Open | Open |
 | PR-27 small-ball area law with positive Newton constant | law | Open | Open | Open | Open |
 | PR-28 physical refinement tower with Newton coupling | law | Open | Open | Open | Open |
-| PR-29 layered shell-cardinality law | law | Open | Open | Open | Open |
-| PR-30 layered shell equidistribution | law | Open | Open | Open | Open |
-| PR-31 layered steady sourcing | law | Open | Open | Open | Open |
+| PR-29 layered shell-cardinality law | law | Demonstrated | Open | Open | Open |
+| PR-30 layered shell equidistribution | law | Demonstrated | Open | Open | Open |
+| PR-31 layered steady sourcing | law | Demonstrated | Open | Open | Open |
 | PR-32 Cartesian joint carrier of an observer pair | designer | Open | Open | Open | Open |
 | PR-33 two-slot diamond region map | designer | Open | Open | Open | Open |
 | PR-34 two-observer slot split | designer | Open | Open | Open | Open |

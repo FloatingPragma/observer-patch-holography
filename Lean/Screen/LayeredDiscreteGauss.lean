@@ -35,14 +35,16 @@ that a finite carrier does not contain. A three-vertex chain witness
 satisfiable with a nonzero coefficient, so the shell theorems have
 instances.
 
-The content of the main theorem is exact bookkeeping from the declared
-premises to the shell exponent; the bridge theorems below record where
-the committed conservation receipts make contact. The equidistribution and cardinality premises do
-nearly all the work, and the `n ^ 2` law itself is not derived from the
-carrier: the committed `20 * n ^ 2` count (`faceCount` in
-`DiscreteRefinement`) is a subdivision count on one fixed screen, and
-identifying subdivision frequency with radial layer distance is exactly
-the open premise of the discrete route. The premises enter as named
+The theorem expresses the shell exponent in terms of the cardinality,
+equidistribution and conservation premises. The refinement tower's
+`20 * n ^ 2` face count is a subdivision count on one screen. An
+independent finite realization uses two routed octants on the 320-cell
+carrier: positive coordinate services give three faces per shell, a
+midpoint launch cycle fills their bins equally through depth four,
+and sharp packet arrivals balance every interior station.
+`ObserverPatchHolography.Provenance.RoutedOctant` proves the face
+criterion, occupation counts and path balance used by this construction.
+Its axis lengths are measured in routed hop units. The premises enter as named
 fields of `LayeredFluxData`, declared premises of the V3 program,
 parallel to the radial readout and shell-flux normalization fields of
 `RadialFluxData` in the continuum module. This module exists to make

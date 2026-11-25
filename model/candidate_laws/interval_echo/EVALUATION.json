@@ -163,9 +163,9 @@
  },
  "premise_counts": {
   "law": {
-   "fulfilled": 17,
+   "fulfilled": 20,
    "partial": 11,
-   "open": 113,
+   "open": 110,
    "fails": 0
   },
   "designer": {
@@ -524,9 +524,17 @@
    "statement": "The layered readout graph has exactly shellCoeff * n^2 outward boundary edges at shell n for every positive layer index up to a declared depth. The 20 * n^2 face count of the refinement tower is a subdivision count on one screen, and identifying subdivision frequency with radial layer distance is the declared step.",
    "type": "structural_rule",
    "role": "law",
-   "status": "open",
-   "evidence": [],
-   "note": ""
+   "status": "fulfilled",
+   "evidence": [
+    "../../../code/cosmology/release_horizon/radial_transport/README.md",
+    "../../../code/cosmology/release_horizon/radial_transport/protocol.json",
+    "../../../code/cosmology/release_horizon/radial_transport/carrier_routes.py",
+    "../../../code/cosmology/release_horizon/radial_transport/measure.py",
+    "../../../code/cosmology/release_horizon/radial_transport/records.json",
+    "../../../code/cosmology/release_horizon/radial_transport/test_radial_transport.py",
+    "../../../Lean/ObserverPatchHolography/Provenance/RoutedOctant.lean"
+   ],
+   "note": "On two disjoint 125-station embeddings, actual endpoint challenges on all 301 offered links give outward cuts of 3, 12, 27 and 48 edges through depth four. Axis return times calibrate the routed unit. Parking one crossing reduces the third cut to 26. This finite layered graph is specified by coordinate services on registered seams."
   },
   {
    "id": "PR-30",
@@ -534,9 +542,17 @@
    "statement": "Within one shell of the layered readout graph, up to the declared depth, every outward boundary edge carries the same outward flux. It is the discrete counterpart of PR-18.",
    "type": "structural_rule",
    "role": "law",
-   "status": "open",
-   "evidence": [],
-   "note": ""
+   "status": "fulfilled",
+   "evidence": [
+    "../../../code/cosmology/release_horizon/radial_transport/README.md",
+    "../../../code/cosmology/release_horizon/radial_transport/protocol.json",
+    "../../../code/cosmology/release_horizon/radial_transport/carrier_routes.py",
+    "../../../code/cosmology/release_horizon/radial_transport/measure.py",
+    "../../../code/cosmology/release_horizon/radial_transport/records.json",
+    "../../../code/cosmology/release_horizon/radial_transport/test_radial_transport.py",
+    "../../../Lean/ObserverPatchHolography/Provenance/RoutedOctant.lean"
+   ],
+   "note": "One 432-packet deterministic source cycle at each injector runs the same midpoint-direction preparation through four successive shells. Sharp receiver counts give respectively 144, 36, 16 and 9 pulses on every crossing edge. A single-face preparation concentrates traffic while preserving the incidence. This is current per injection on the routed octant."
   },
   {
    "id": "PR-31",
@@ -544,9 +560,17 @@
    "statement": "On the layered readout graph the vertex outflow of the flux equals a declared source supported in the layer-zero ball for every vertex up to the declared depth, so the flux is divergence-free outside the source region.",
    "type": "structural_rule",
    "role": "law",
-   "status": "open",
-   "evidence": [],
-   "note": ""
+   "status": "fulfilled",
+   "evidence": [
+    "../../../code/cosmology/release_horizon/radial_transport/README.md",
+    "../../../code/cosmology/release_horizon/radial_transport/protocol.json",
+    "../../../code/cosmology/release_horizon/radial_transport/carrier_routes.py",
+    "../../../code/cosmology/release_horizon/radial_transport/measure.py",
+    "../../../code/cosmology/release_horizon/radial_transport/records.json",
+    "../../../code/cosmology/release_horizon/radial_transport/test_radial_transport.py",
+    "../../../Lean/ObserverPatchHolography/Provenance/RoutedOctant.lean"
+   ],
+   "note": "Complete material hop counts give 432 net departures at the separate central injection station and zero net outflow at each of the 64 other stations through depth four. Layer-five terminal measurements recover the entire cycle. Parking packets at an interior collector gives a local net outflow of minus 144. Each complete cycle restores the transport register."
   },
   {
    "id": "PR-32",
@@ -1384,9 +1408,13 @@
     "../../../code/cosmology/release_horizon/contrast.py",
     "../../../code/cosmology/release_horizon/results.json",
     "../../../code/cosmology/release_horizon/background_clock/measure.py",
-    "../../../code/cosmology/release_horizon/background_clock/records.json"
+    "../../../code/cosmology/release_horizon/background_clock/records.json",
+    "../../../code/cosmology/release_horizon/radial_transport/README.md",
+    "../../../code/cosmology/release_horizon/radial_transport/thermal_span.py",
+    "../../../code/cosmology/release_horizon/radial_transport/records.json",
+    "../../../code/cosmology/release_horizon/radial_transport/test_radial_transport.py"
    ],
-   "note": "Two local thermal contrasts with disjoint post-reset circuit pasts correlate through a shared preparation history. A common bit contributes only a spatial monopole. The physical causal horizon of a record-density background on these same events is unidentified. Single-crest interventions measure disjoint tree inputs for the two edge contrasts over eight local marker strokes on the same timed history, whose angular census fails the fourth-power density test."
+   "note": "Two local thermal contrasts with disjoint post-reset circuit pasts correlate through a shared preparation history. A common bit contributes only a spatial monopole. The physical causal horizon of a record-density background on these same events is unidentified. Single-crest interventions measure disjoint tree inputs for the two edge contrasts over eight local marker strokes on the same timed history, whose angular census fails the fourth-power density test. Separate round trips between the same station addresses put all cross-contrast separations at three routed units, while their measured impulse radii are three, two, three and four units. The radial envelopes overlap."
   },
   {
    "id": "PR-114",
@@ -1961,9 +1989,16 @@
     "../../../code/cosmology/release_horizon/background_clock/measure.py",
     "../../../code/cosmology/release_horizon/background_clock/records.json",
     "../../../code/cosmology/release_horizon/background_clock/test_background_clock.py",
-    "../../../Lean/ObserverPatchHolography/Provenance/ScreenDensityClock.lean"
+    "../../../Lean/ObserverPatchHolography/Provenance/ScreenDensityClock.lean",
+    "../../../code/cosmology/release_horizon/radial_transport/README.md",
+    "../../../code/cosmology/release_horizon/radial_transport/protocol.json",
+    "../../../code/cosmology/release_horizon/radial_transport/carrier_routes.py",
+    "../../../code/cosmology/release_horizon/radial_transport/measure.py",
+    "../../../code/cosmology/release_horizon/radial_transport/records.json",
+    "../../../code/cosmology/release_horizon/radial_transport/test_radial_transport.py",
+    "../../../Lean/ObserverPatchHolography/Provenance/RoutedOctant.lean"
    ],
-   "note": "The declared layered circuit measures emitter and receiver periods and records at the same material addresses. At pulse ratios two and four the counts per base face are eight and sixty-four, whereas constant four-volume density requires sixteen and 256. The temporal period law holds at constant-cadence endpoints. A physical radial yield, common volume calibration and cosmological profile are unestablished."
+   "note": "The angular-only census gives one, eight and 64 changes per face. On the same 320-owner crest and marker schedule, three independently ranged axes give cubical counts of one, sixteen and 256 per box per layer at supplied widths one, two and four. A rectangular box gives 96 and a parked interior clock gives 252 at cadence four. Period ratios are two and four at the expanded receivers. Identifying the routed length and time units with the physical volume and radiation clock of the thermal source requires independent calibration."
   },
   {
    "id": "PR-171",

@@ -994,7 +994,10 @@
     "Lean/Screen/LayeredDiscreteGauss.lean",
     "Lean/Geometry/RestFiberShellTransport.lean"
    ],
-   "model": [],
+   "model": [
+    "code/cosmology/release_horizon/radial_transport/README.md",
+    "code/cosmology/release_horizon/radial_transport/records.json"
+   ],
    "papers": [
     "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf"
    ]
@@ -4046,7 +4049,9 @@
     "model/candidate_laws/interval_echo/openwave/row_28_acceleration/results.json",
     "model/candidate_laws/interval_echo/openwave/row_28_acceleration/homogeneity.json",
     "code/cosmology/release_horizon/background_clock/README.md",
-    "code/cosmology/release_horizon/background_clock/records.json"
+    "code/cosmology/release_horizon/background_clock/records.json",
+    "code/cosmology/release_horizon/radial_transport/README.md",
+    "code/cosmology/release_horizon/radial_transport/records.json"
    ],
    "papers": [
     "cosmology/oph_cosmology_finite_source_cmb_program.pdf",
@@ -4282,7 +4287,9 @@
    "model": [
     "model/candidate_laws/interval_echo/openwave/row_28_acceleration/signals.json",
     "code/cosmology/release_horizon/background_clock/README.md",
-    "code/cosmology/release_horizon/background_clock/records.json"
+    "code/cosmology/release_horizon/background_clock/records.json",
+    "code/cosmology/release_horizon/radial_transport/README.md",
+    "code/cosmology/release_horizon/radial_transport/records.json"
    ],
    "papers": [
     "cosmology/oph_cosmology_finite_source_cmb_program.pdf",
@@ -4320,7 +4327,9 @@
     "code/cosmology/release_horizon/contrast.py",
     "code/cosmology/release_horizon/results.json",
     "code/cosmology/release_horizon/background_clock/README.md",
-    "code/cosmology/release_horizon/background_clock/records.json"
+    "code/cosmology/release_horizon/background_clock/records.json",
+    "code/cosmology/release_horizon/radial_transport/README.md",
+    "code/cosmology/release_horizon/radial_transport/records.json"
    ],
    "papers": [
     "cosmology/oph_inflation_without_inflaton_observer_screen_synchronization.pdf",
@@ -6486,16 +6495,26 @@
    "kind": "premise",
    "name": "layered shell-cardinality law",
    "category": "Physical premises",
-   "status": "Open",
-   "what": "In a layered graph, shell n has outward edges in number proportional to n squared, identifying subdivision depth with radial distance.",
+   "status": "Demonstrated",
+   "what": "Independent endpoint challenges on two routed octants give exactly three times the squared layer index in outward edges on each of four shells.",
    "why": "Quadratic growth of shell size is the discrete source of the inverse-square law in three spatial dimensions.",
    "premises": [],
    "lean": [
     "Lean/Screen/LayeredDiscreteGauss.lean",
-    "Lean/Screen/DiscreteRefinement.lean"
+    "Lean/Screen/DiscreteRefinement.lean",
+    "Lean/ObserverPatchHolography/Provenance/RoutedOctant.lean"
    ],
-   "model": [],
-   "papers": [],
+   "model": [
+    "code/cosmology/release_horizon/radial_transport/README.md",
+    "code/cosmology/release_horizon/radial_transport/protocol.json",
+    "code/cosmology/release_horizon/radial_transport/carrier_routes.py",
+    "code/cosmology/release_horizon/radial_transport/measure.py",
+    "code/cosmology/release_horizon/radial_transport/records.json",
+    "code/cosmology/release_horizon/radial_transport/test_radial_transport.py"
+   ],
+   "papers": [
+    "cosmology/oph_cosmology_finite_source_cmb_program.pdf"
+   ],
    "statement": "The layered readout graph has exactly shellCoeff * n^2 outward boundary edges at shell n for every positive layer index up to a declared depth. The 20 * n^2 face count of the refinement tower is a subdivision count on one screen, and identifying subdivision frequency with radial layer distance is the declared step.",
    "premise_kind": "derivable"
   },
@@ -6504,15 +6523,25 @@
    "kind": "premise",
    "name": "layered shell equidistribution",
    "category": "Physical premises",
-   "status": "Open",
-   "what": "Within each shell of the layered graph, every outward edge carries the same flux.",
+   "status": "Demonstrated",
+   "what": "Every edge on shells one through four receives respectively 144, 36, 16 and 9 sharp packets over the same complete 432-packet source cycle on each routed octant.",
    "why": "It is the discrete form of spherical symmetry, one step toward the inverse-square law on the layered graph.",
    "premises": [],
    "lean": [
-    "Lean/Screen/LayeredDiscreteGauss.lean"
+    "Lean/Screen/LayeredDiscreteGauss.lean",
+    "Lean/ObserverPatchHolography/Provenance/RoutedOctant.lean"
    ],
-   "model": [],
-   "papers": [],
+   "model": [
+    "code/cosmology/release_horizon/radial_transport/README.md",
+    "code/cosmology/release_horizon/radial_transport/protocol.json",
+    "code/cosmology/release_horizon/radial_transport/carrier_routes.py",
+    "code/cosmology/release_horizon/radial_transport/measure.py",
+    "code/cosmology/release_horizon/radial_transport/records.json",
+    "code/cosmology/release_horizon/radial_transport/test_radial_transport.py"
+   ],
+   "papers": [
+    "cosmology/oph_cosmology_finite_source_cmb_program.pdf"
+   ],
    "statement": "Within one shell of the layered readout graph, up to the declared depth, every outward boundary edge carries the same outward flux. It is the discrete counterpart of PR-18.",
    "premise_kind": "derivable"
   },
@@ -6521,15 +6550,25 @@
    "kind": "premise",
    "name": "layered steady sourcing",
    "category": "Physical premises",
-   "status": "Open",
-   "what": "On the layered graph, net outflow at each vertex equals a source confined to the central ball, so flux is conserved outside.",
+   "status": "Demonstrated",
+   "what": "Over a complete injection cycle the measured vertex outflow equals the central source at every station through layer four of each routed octant, with all packets collected in layer five.",
    "why": "Together with shell counting and equal sharing it gives a discrete inverse-square law away from the source.",
    "premises": [],
    "lean": [
-    "Lean/Screen/LayeredDiscreteGauss.lean"
+    "Lean/Screen/LayeredDiscreteGauss.lean",
+    "Lean/ObserverPatchHolography/Provenance/RoutedOctant.lean"
    ],
-   "model": [],
-   "papers": [],
+   "model": [
+    "code/cosmology/release_horizon/radial_transport/README.md",
+    "code/cosmology/release_horizon/radial_transport/protocol.json",
+    "code/cosmology/release_horizon/radial_transport/carrier_routes.py",
+    "code/cosmology/release_horizon/radial_transport/measure.py",
+    "code/cosmology/release_horizon/radial_transport/records.json",
+    "code/cosmology/release_horizon/radial_transport/test_radial_transport.py"
+   ],
+   "papers": [
+    "cosmology/oph_cosmology_finite_source_cmb_program.pdf"
+   ],
    "statement": "On the layered readout graph the vertex outflow of the flux equals a declared source supported in the layer-zero ball for every vertex up to the declared depth, so the flux is divergence-free outside the source region.",
    "premise_kind": "derivable"
   },
@@ -8200,7 +8239,11 @@
     "code/cosmology/release_horizon/background_clock/material.py",
     "code/cosmology/release_horizon/background_clock/measure.py",
     "code/cosmology/release_horizon/background_clock/records.json",
-    "code/cosmology/release_horizon/background_clock/test_background_clock.py"
+    "code/cosmology/release_horizon/background_clock/test_background_clock.py",
+    "code/cosmology/release_horizon/radial_transport/README.md",
+    "code/cosmology/release_horizon/radial_transport/thermal_span.py",
+    "code/cosmology/release_horizon/radial_transport/records.json",
+    "code/cosmology/release_horizon/radial_transport/test_radial_transport.py"
    ],
    "papers": [
     "cosmology/oph_inflation_without_inflaton_observer_screen_synchronization.pdf",
@@ -9313,12 +9356,13 @@
    "name": "Comoving record production at constant event density",
    "category": "Physical premises",
    "status": "Partial",
-   "what": "On a layered material screen the measured pulse period follows its supplied cadence, while the angular census gives three of the four scale powers required at constant physical event density.",
+   "what": "Two ranged boxes on a supplied expansion schedule give fourth-power marker counts at the measured pulse-period ratios, with physical volume calibration for the thermal source outstanding.",
    "why": "It ties cosmic expansion and redshift to record production, which the expansion-history reconstruction uses.",
    "premises": [],
    "lean": [
     "Lean/Geometry/SourceNetConformalRecordDensity.lean",
-    "Lean/ObserverPatchHolography/Provenance/ScreenDensityClock.lean"
+    "Lean/ObserverPatchHolography/Provenance/ScreenDensityClock.lean",
+    "Lean/ObserverPatchHolography/Provenance/RoutedOctant.lean"
    ],
    "model": [
     "model/candidate_laws/interval_echo/openwave/row_28_acceleration/README.md",
@@ -9328,7 +9372,13 @@
     "code/cosmology/release_horizon/background_clock/material.py",
     "code/cosmology/release_horizon/background_clock/measure.py",
     "code/cosmology/release_horizon/background_clock/records.json",
-    "code/cosmology/release_horizon/background_clock/test_background_clock.py"
+    "code/cosmology/release_horizon/background_clock/test_background_clock.py",
+    "code/cosmology/release_horizon/radial_transport/README.md",
+    "code/cosmology/release_horizon/radial_transport/protocol.json",
+    "code/cosmology/release_horizon/radial_transport/carrier_routes.py",
+    "code/cosmology/release_horizon/radial_transport/measure.py",
+    "code/cosmology/release_horizon/radial_transport/records.json",
+    "code/cosmology/release_horizon/radial_transport/test_radial_transport.py"
    ],
    "papers": [
     "cosmology/oph_cosmology_finite_source_cmb_program.pdf",
