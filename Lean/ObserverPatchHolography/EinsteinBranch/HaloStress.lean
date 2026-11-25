@@ -164,4 +164,25 @@ theorem finiteOrbitalFeasibility (bs : List OrbitInterval) :
     · intro i hi
       exact h i hi b hb
 
+/-- For a planar two-centre cancellation curve, C is the projected centre
+separation, T and D are the trace and determinant of the relative shape
+matrix, and B is the projected first-order numerator. Its two parameter
+values cannot project strictly beyond opposite ends of the centre interval. -/
+theorem twoCentrePeakProjection (B C T D s t : ℝ)
+    (hC : 0 ≤ C) (hT : 0 < T) (hD : 0 < D) (hs : 0 < s) (ht : 0 < t) :
+    ¬ ((B*s + D*C*s^2)/(1 + T*s + D*s^2) < 0 ∧
+       C < (B*t + D*C*t^2)/(1 + T*t + D*t^2)) := by
+  rintro ⟨hw, he⟩
+  have den (z : ℝ) (hz : 0 < z) : 0 < 1 + T*z + D*z^2 := by
+    linarith [mul_pos hT hz, mul_nonneg hD.le (sq_nonneg z)]
+  have hw' := (div_lt_iff₀ (den s hs)).mp hw
+  have he' := (lt_div_iff₀ (den t ht)).mp he
+  have hBs : B*s < 0 := by
+    linarith [mul_nonneg (mul_nonneg hD.le hC) (sq_nonneg s)]
+  have hB : B < 0 := by
+    by_contra! h
+    exact (not_lt_of_ge (mul_nonneg h hs.le)) hBs
+  nlinarith only [he', mul_neg_of_neg_of_pos hB ht, hC,
+    mul_nonneg (mul_nonneg hC hT.le) ht.le]
+
 end OPH.EinsteinBranch.HaloStress
