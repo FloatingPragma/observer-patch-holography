@@ -69,6 +69,14 @@ def read_marker(r):
     return flags.index(1), flags
 
 
+def write_marker(r, label):
+    current = PORTS[read_marker(r)[0]]
+    target = PORTS[label]
+    if current != target:
+        for a, b in r.route(current, target, {0}):
+            r.swap(a, b, {0})
+
+
 def execute(board, bits, depth, menu='reference'):
     check(menu in ('reference', 'biased_source', 'always_stay', 'mean_standard'), 'unknown native menu')
     r = prepare(board)
@@ -97,11 +105,7 @@ def execute(board, bits, depth, menu='reference'):
                     r.swap(*edge, {0})
         if menu == 'mean_standard':
             # Two native record bits define the integer observable before readout.
-            target = PORTS[sum(draws)]
-            current = PORTS[read_marker(r)[0]]
-            if current != target:
-                for a, b in r.route(current, target, {0}):
-                    r.swap(a, b, {0})
+            write_marker(r, sum(draws))
         observed, flags = read_marker(r)
         records.append(dict(source_bits=draws, position=observed, complete_flags=flags))
     check(r.gates['half_contacts'] + r.gates['source_pi_over_three'] == 2 * depth, 'a nominal draw was discarded')
@@ -173,6 +177,76 @@ def symbolic_mean_projection():
                 limit='Every bounded fair-read sampler and every finite retained-event conditioning has rational masses; exact optimizer does not')
 
 
+def interval_decision(address, denominator):
+    """Classify a dyadic cell using the decreasing polynomial on [0, 1/2]."""
+    left = 2 * address < denominator
+    lower = address if left else denominator - 1 - address
+
+    def polynomial(n):
+        return 7 * n * n - 8 * n * denominator + 2 * denominator * denominator
+
+    if polynomial(lower + 1) > 0:
+        return 0 if left else 2
+    if polynomial(lower) < 0:
+        return 1
+    return None
+
+
+def sample_mean(registers, cap=None):
+    """Execute the polynomial stopping rule on the public source and terminal marker."""
+    if cap is not None and cap < 1:
+        raise ValueError('the cutoff requires at least one source read')
+    bits = []
+    address = 0
+    label = None
+    while label is None and (cap is None or len(bits) < cap):
+        bit = registers.fair(0, {0})
+        bits.append(bit)
+        address = 2 * address + bit
+        label = interval_decision(address, 2**len(bits))
+    # Both unresolved cells publish the middle label at a finite cutoff.
+    write_marker(registers, 1 if label is None else label)
+    observed, flags = read_marker(registers)
+    check(observed == (1 if label is None else label), 'native terminal marker differs')
+    return dict(tape=bits, cutoff=label is None, terminal=observed, complete_flags=flags)
+
+
+def adaptive_sampler(board, cap):
+    """Enumerate the live stopping prefixes and physically replay every terminal leaf."""
+    if cap < 1:
+        raise ValueError('the cutoff requires at least one source read')
+    pending = [()]
+    leaves = []
+    pending_by_depth = []
+    capped_law = [Fraction(0) for _ in PORTS]
+    expected_reads = Fraction(0)
+    for depth in range(1, cap + 1):
+        denominator = 2**depth
+        expected_reads += Fraction(len(pending), 2**(depth - 1))
+        next_pending = []
+        for parent in pending:
+            for bit in (0, 1):
+                tape = (*parent, bit)
+                r = prepare(board)
+                r.rng = Branch(tape)
+                record = sample_mean(r, cap=depth)
+                check(tuple(record['tape']) == tape, 'adaptive replay passed an earlier stop')
+                if record['cutoff']:
+                    next_pending.append(tape)
+                    if depth < cap:
+                        continue
+                capped_law[record['terminal']] += Fraction(1, denominator)
+                leaves.append(dict(**record, probability=str(Fraction(1, denominator))))
+        pending = next_pending
+        check(len(pending) == 2, 'two reflected threshold cells must remain unresolved')
+        pending_by_depth.append(str(Fraction(len(pending), denominator)))
+    check(sum(capped_law) == 1 and capped_law[0] == capped_law[2], 'capped law lost mass or the native mean')
+    return dict(cutoff_reads=cap, stopping_leaves=leaves, unresolved_probability_by_depth=pending_by_depth,
+                finite_output_law=[str(p) for p in capped_law], finite_expected_reads=str(expected_reads),
+                finite_total_variation_upper_bound=pending_by_depth[-1], unbounded_expected_reads=3,
+                controller='Public fair reads, integer prefix and polynomial comparison; unresolved cutoffs publish label one')
+
+
 def quantum_audit():
     # Independently use actual 99-state generator columns, not an installed qubit.
     law = candidate.native_law
@@ -180,11 +254,16 @@ def quantum_audit():
     columns = np.eye(law.DIM)[:, index]
     h0, h1 = law.local_term_parts()
     h = h0 + candidate.KAPPA * h1
+    contrast_shift = float(np.trace(columns.T @ h1 @ columns).real / 2)
+    contrast_residual = float(np.linalg.norm(h1 @ columns - contrast_shift * columns))
+    check(contrast_residual < 1e-12, 'contrast distinguishes the two source rails')
     plus = columns @ (np.array([1., 1j]) / np.sqrt(2))
     minus = columns @ (np.array([1., -1j]) / np.sqrt(2))
     half = expm(-.5j * np.pi * h)
     biased = expm(-1j * np.pi * h / 3)
     biased_columns = np.array([[abs((biased @ v)[i])**2 for i in index] for v in columns.T])
+    source_leakage = float(np.linalg.norm(np.delete(biased @ columns, index, axis=0)))
+    check(source_leakage < 1e-11, 'biased source leaked from the two sharp rails')
     check(np.max(abs(biased_columns - [[.75,.25],[.25,.75]])) < 1e-11, 'native biased source reduction differs')
     p = np.array([[abs((half @ v)[i])**2 for i in index] for v in (plus, minus)])
     computational = np.array([[abs(v[i])**2 for i in index] for v in (plus, minus)])
@@ -195,6 +274,8 @@ def quantum_audit():
     check(np.max(abs(p - [[0, 1], [1, 0]])) < 1e-11, 'native coherent cover witness not distinguished')
     check(np.max(abs(control - p)) < 1e-11, 'contrast-zero control should preserve this block read')
     return dict(actual_native_pi_over_three_source_probabilities=biased_columns.tolist(),
+                biased_source_off_block_norm=source_leakage, contrast_common_shift=contrast_shift,
+                contrast_nonscalar_residual=contrast_residual,
                 native_sharp_diagonal_probabilities=computational.tolist(),
                 actual_native_half_contact_read=p.tolist(), contrast_zero_same_half_contact_read=control.tolist(),
                 arbitrary_d_diagonal_trace_zero_kernel_dimension='d*(d-1)',
@@ -206,6 +287,10 @@ def fractions(table):
     return [dict(record=list(h), probability=str(p)) for h, p in sorted(table.items())]
 
 
+def marker_departed(history):
+    return history[0] != 0
+
+
 def run():
     panels = []
     prior = None
@@ -214,7 +299,7 @@ def run():
         ref, raw = all_native_records(board, depth)
         changed, raw_changed = all_native_records(board, depth, 'always_stay')
         biased, raw_biased = all_native_records(board, depth, 'biased_source')
-        event = lambda h: h[0] != 0
+        event = marker_departed
         optimum, admission = conditional(ref, event)
         rival, changed_admission = conditional(changed, event)
         biased_optimum, biased_admission = conditional(biased, event)
@@ -286,7 +371,8 @@ def run():
     check([standard[h] for h in ((0,), (1,), (2,))] == [Fraction(1,4), Fraction(1,2), Fraction(1,4)], 'mean standard map differs')
     return dict(source='Interval Echo kappa8, native sharp fair source plus pi contact permutations and echo/read/undo',
                 levels=panels, native_constraint_standard=raw_standard,
-                exact_mean_projection=symbolic_mean_projection(), quantum_boundary=quantum_audit(),
+                exact_mean_projection=symbolic_mean_projection(), adaptive_sampler=adaptive_sampler(federation(0), 12),
+                quantum_boundary=quantum_audit(),
                 scope='General native bounded-fair grammar has a multiplicity reference and conditional-support projection; universal exact mean projection and quantum joint separation do not follow')
 
 
