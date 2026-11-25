@@ -257,7 +257,6 @@ Replay with the repository's pinned requirements and `PYTHONPATH=code`:
 ```text
 python -m pytest -q code/quantum_information code/collar_alignment code/geometry code/maxent -W error
 python tools/check_claim_registry.py
-python tools/build_gravity_ladder.py --check
 ```
 
 The targeted independent controls live in `test_entropy_response.py` and

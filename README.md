@@ -5,7 +5,7 @@
 <p align="center">
   <img src="assets/oph-schematic.png" alt="Observer Patch Holography schematic. Primitive observers on an icosahedral carrier read, record and act. Overlapping observer patches on a holographic screen agree on shared records, which become shared facts. From inside, one patch encodes a whole history: an emergent spacetime with three space dimensions and one time, where gravity appears as geometry." width="100%">
 </p>
-<p align="center"><b><a href="https://philpapers.org/rec/MUEFOC">Synthesis paper</a> · <a href="https://doi.org/10.5281/zenodo.24191882">Paper stack</a> · <a href="https://oph-book.floatingpragma.ai/">Book</a> · <a href="https://floatingpragma.ai/faq/">Reality FAQ</a> · <a href="https://notebook.google.com/notebook/d5249760-6ce8-44a0-927b-ccf90402711a">Notebook</a> · <a href="https://floatingpragma.ai/oph/simulation">Simulation</a></b></p>
+<p align="center"><b><a href="https://status.floatingpragma.ai/">Research status</a> · <a href="https://philpapers.org/rec/MUEFOC">Synthesis paper</a> · <a href="https://doi.org/10.5281/zenodo.24191882">Paper stack</a> · <a href="https://oph-book.floatingpragma.ai/">Book</a> · <a href="https://floatingpragma.ai/faq/">Reality FAQ</a> · <a href="https://notebook.google.com/notebook/d5249760-6ce8-44a0-927b-ccf90402711a">Notebook</a> · <a href="https://floatingpragma.ai/oph/simulation">Simulation</a></b></p>
 
 <p align="center">
 <a href="https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/ci.yml"><img src="https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
@@ -51,7 +51,7 @@ The official [scorecard](model/evaluation/SCORECARD.md) makes this a precise tar
 
 - **Fixed:** the carrier, a sphere of echosahedral cells in which each cell is
   one observer and its twelve ports are its interfaces, and the premises of the
-  finite theorems, listed in the [premise register](docs/registers/PREMISE_REGISTER_V3.md).
+  finite theorems, listed in the [observables register](docs/registers/OBSERVABLES.json).
 - **Free:** anything a designer can build in the simulating universe may be
   calibrated so that the observers' records match ours: couplings,
   preparations, feedback, readouts.
@@ -85,9 +85,18 @@ says what it declares.
 
 ## Research focus
 
-We have a working candidate [executable model](model/README.md) of OPH. Its
-hardware is the fixed sphere of echosahedral cells. Its main candidate, Interval Echo, runs the contrast-memory seam repair and carries a finite observer’s clock through local handoffs. The theory around the model is in place: the closure
+Our current focus is the [executable model](model/README.md) and its repair
+law. The hardware is the fixed sphere of echosahedral cells. The open question
+is which local repair law, run on that hardware, gives observers whose shared
+records reproduce the observed Universe. The main candidate, Interval Echo, runs the contrast-memory seam repair and carries a finite observer’s clock through local handoffs. The theory around the model is in place: the closure
 principle, the theorem library and the finite constructions below.
+
+Progress is tracked in two places. The [scorecard](model/evaluation/SCORECARD.md)
+grades each candidate law against the requirements. The
+[research status page](https://status.floatingpragma.ai/) lists every
+observable OPH must reproduce and every premise of its finite theorems the
+model has to confirm, and links each one to its Lean proofs, model evidence
+and papers.
 
 **What the observers inside experience.** The state of the simulation does
 not contain the physical Universe. Its ports, seams and cells are the hardware
@@ -127,8 +136,8 @@ of a premise: the cell is the carrier of the three-direction theorem, the
 readings are projective instruments of the measurement theorems, and the
 observers compare clocks through shared records. The
 [scorecard](model/evaluation/SCORECARD.md) records which premises each
-candidate fulfils, and the [observation ledger](docs/registers/OBSERVATION_LEDGER_V3.md)
-lists what the candidates reproduce.
+candidate fulfils, and the [research status page](https://status.floatingpragma.ai/)
+shows what the program reproduces.
 
 ## What comes out
 
@@ -241,8 +250,7 @@ candidate laws, their evaluation and the experiments that observers run.
 | [code/](code/README.md) | Exact calculations and verifiers behind the papers |
 | [evidence/](evidence/README.md) | Retained evidence packets |
 | [claims/](claims/README.md) | Claims and their dependencies |
-| [tracking/](tracking/) | Premise, observation, prediction and instrument registers |
-| [docs/](docs/README.md) | The basis, working terms, policies and ledgers |
+| [docs/](docs/README.md) | The basis, working terms, policies, ledgers and the observables register |
 | [book/](book/) | The book |
 
 ## Reproduce and verify

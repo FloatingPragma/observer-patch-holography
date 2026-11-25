@@ -17,7 +17,7 @@ The input functional is not derived here.  In particular, this module does
 not select a physical state, prove that it is a vacuum, prove faithfulness of the GNS
 representation, or attach the Hilbert space to physical spacetime, time,
 energy, momentum, fields, particles, or scattering.  It does not discharge
-PR-52 or PR-58 and it does not promote OL-C6.  The Cauchy statement transported
+PR-52 or PR-58 and it does not promote `qft`.  The Cauchy statement transported
 below is only the committed order-theoretic equality of completed local
 algebras; it is not a physical time-slice theorem.
 

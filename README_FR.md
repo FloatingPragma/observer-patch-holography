@@ -5,7 +5,7 @@
 <p align="center">
   <img src="assets/oph-schematic.png" alt="Schéma de la holographie des parcelles d’observateur. Des observateurs primitifs sur un support icosaédrique lisent, enregistrent et agissent. Des parcelles d’observateur qui se recouvrent sur un écran holographique s’accordent sur des registres partagés, qui deviennent des faits partagés. De l’intérieur, une parcelle encode toute une histoire : un espace-temps émergent à trois dimensions d’espace et une de temps, où la gravitation apparaît comme géométrie." width="100%">
 </p>
-<p align="center"><b><a href="https://philpapers.org/rec/MUEFOC">Article de synthèse</a> · <a href="https://doi.org/10.5281/zenodo.24191882">Ensemble des articles</a> · <a href="https://oph-book.floatingpragma.ai/">Livre</a> · <a href="https://floatingpragma.ai/faq/">FAQ sur la réalité (en anglais)</a> · <a href="https://notebook.google.com/notebook/d5249760-6ce8-44a0-927b-ccf90402711a">Carnet</a> · <a href="https://floatingpragma.ai/oph/simulation">Simulation</a> · <a href="Lean/">Bibliothèque Lean</a> · <a href="REPRODUCE.md">Reproduire</a></b></p>
+<p align="center"><b><a href="https://status.floatingpragma.ai/">État de la recherche (en anglais)</a> · <a href="https://philpapers.org/rec/MUEFOC">Article de synthèse</a> · <a href="https://doi.org/10.5281/zenodo.24191882">Ensemble des articles</a> · <a href="https://oph-book.floatingpragma.ai/">Livre</a> · <a href="https://floatingpragma.ai/faq/">FAQ sur la réalité (en anglais)</a> · <a href="https://notebook.google.com/notebook/d5249760-6ce8-44a0-927b-ccf90402711a">Carnet</a> · <a href="https://floatingpragma.ai/oph/simulation">Simulation</a> · <a href="Lean/">Bibliothèque Lean</a> · <a href="REPRODUCE.md">Reproduire</a></b></p>
 
 <p align="center">
 <a href="https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/ci.yml"><img src="https://github.com/FloatingPragma/observer-patch-holography/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
@@ -70,7 +70,7 @@ Le [tableau d'évaluation](model/evaluation/SCORECARD.md) officiel (en anglais) 
 - **Fixé :** le support, une sphère de cellules échosaédriques dans laquelle
   chaque cellule est un observateur et ses douze ports sont ses interfaces, et
   les prémisses des théorèmes finis, listées dans le
-  [registre des prémisses](docs/registers/PREMISE_REGISTER_V3.md).
+  [registre des observables](docs/registers/OBSERVABLES.json).
 - **Libre :** tout ce qu’un concepteur peut construire dans l’univers qui
   simule peut être calibré pour que les registres des observateurs
   correspondent aux nôtres : couplages, préparations, rétroactions, lectures.
@@ -125,9 +125,18 @@ reproduire ce que mesurent les observateurs de notre monde.
 
 ## Axe de recherche
 
-Nous avons un [modèle exécutable](model/README.md) d’OPH qui fonctionne. Son
-matériel est la sphère fixe de cellules échosaédriques. Le candidat principal, Interval Echo, utilise la réparation par mémoire de contraste et transporte l’horloge d’un observateur fini de cellule en cellule. La théorie qui l’entoure est en place :
+Notre axe actuel est le [modèle exécutable](model/README.md) et sa loi de
+réparation. Le matériel est la sphère fixe de cellules échosaédriques. La
+question ouverte est de savoir quelle loi de réparation locale, exécutée sur ce
+matériel, donne des observateurs dont les enregistrements partagés reproduisent
+l’Univers observé. Le candidat principal, Interval Echo, utilise la réparation par mémoire de contraste et transporte l’horloge d’un observateur fini de cellule en cellule. La théorie qui l’entoure est en place :
 le principe de clôture, la bibliothèque de théorèmes et les constructions finies.
+
+Les progrès sont suivis à deux endroits. Le [tableau d’évaluation](model/evaluation/SCORECARD.md)
+note chaque loi candidate. La [page d’état de la recherche](https://status.floatingpragma.ai/)
+(en anglais) liste chaque observable qu’OPH doit reproduire et chaque prémisse
+de ses théorèmes finis que le modèle doit confirmer, avec ses preuves Lean, les
+résultats du modèle et les articles.
 
 **Ce que vivent les observateurs intérieurs.** L’état de la simulation ne
 contient pas l’Univers physique. Ses ports, ses coutures et ses cellules sont
@@ -173,7 +182,7 @@ l’écriture du modèle est la règle de réparation que quatre exigences
 désignent seule, ses lectures sont les instruments projectifs des théorèmes
 de la mesure, et ses observateurs comparent leurs horloges par des registres
 partagés, comme l’exigent les théorèmes d’horloge. Le
-[registre des observations](docs/registers/OBSERVATION_LEDGER_V3.md) (en
+[registre des observables](docs/registers/OBSERVABLES.json) (en
 anglais) liste ce que le modèle reproduit et ce qui est ouvert.
 
 ## Ce qui en sort
@@ -279,8 +288,7 @@ la construction peut échouer.
 | [code/](code/README.md) | Les calculs exacts, les vérificateurs et les reçus derrière les articles |
 | [evidence/](evidence/README.md) | Les paquets de preuves conservés et les enregistrements de garde |
 | [claims/](claims/README.md) | Les énoncés établis et leurs dépendances |
-| [tracking/](tracking/) | Les registres des prémisses, observations, prédictions et instruments |
-| [docs/](docs/README.md) | La base, le guide des termes, les politiques et les registres |
+| [docs/](docs/README.md) | La base, le guide des termes, les politiques, les registres et le registre des observables |
 | [book/](book/) | Le livre |
 
 ## Reproduire et vérifier

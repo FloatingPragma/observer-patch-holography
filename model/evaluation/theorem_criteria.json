@@ -385,7 +385,7 @@
           "sources": [
             "paper/reality_as_consensus_protocol.tex",
             "Lean/ObservableNormalForms/ObservableNormalForms/ObserverConfluence.lean",
-            "tracking/premise_register.json"
+            "docs/registers/OBSERVABLES.json"
           ],
           "premises": [
             "PR-01"
@@ -493,7 +493,7 @@
           "sources": [
             "paper/observers_are_all_you_need.tex",
             "Lean/EventAlgebra/OperationalBornBridge.lean",
-            "tracking/premise_register.json"
+            "docs/registers/OBSERVABLES.json"
           ],
           "premises": [
             "PR-02",
@@ -629,7 +629,7 @@
           "sources": [
             "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
             "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
-            "tracking/premise_register.json"
+            "docs/registers/OBSERVABLES.json"
           ],
           "premises": [
             "PR-11",
@@ -694,7 +694,7 @@
           "sources": [
             "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.tex",
             "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
-            "tracking/premise_register.json"
+            "docs/registers/OBSERVABLES.json"
           ],
           "premises": [
             "PR-12",
@@ -740,7 +740,7 @@
       "purpose": "G1–G6 are the six hypotheses for a common source, state and refinement tower. GR-NULL records the null-direction route. The paper also gives a quantitative route using ten timelike observers with matched bulk, area and stationarity errors o(ℓ⁴); it requires no separately assumed null-balance equation.",
       "sources": [
         "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
-        "tracking/premise_register.json",
+        "docs/registers/OBSERVABLES.json",
         "Lean/ObserverPatchHolography/EinsteinBranch/QuantitativeSmallBall.lean"
       ],
       "criteria": [
@@ -750,7 +750,7 @@
           "requires": "On one candidate-generated refinement tower supply an authenticated causal order, event placement and count/volume limits that agree on a local differentiable, stably causal Lorentzian domain.",
           "sources": [
             "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
-            "tracking/premise_register.json"
+            "docs/registers/OBSERVABLES.json"
           ],
           "premises": [
             "PR-16",
@@ -832,7 +832,7 @@
           "requires": "Calibrate cap modular flow to geometric normalization and show its directional charges measure the same stress tensor that the candidate uses in propagation and interactions.",
           "sources": [
             "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
-            "tracking/premise_register.json"
+            "docs/registers/OBSERVABLES.json"
           ],
           "premises": [
             "PR-23",
@@ -915,7 +915,7 @@
           "requires": "Derive or test a covariantly conserved matter stress tensor on the G1 domain, using matter dynamics independently of the Einstein equation.",
           "sources": [
             "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
-            "tracking/premise_register.json"
+            "docs/registers/OBSERVABLES.json"
           ],
           "premises": [
             "PR-25",
@@ -1000,7 +1000,7 @@
           "requires": "For the same region and state establish the edge-center entropy split and physical area normalization, modular first law, and vanishing first variation of generalized entropy at fixed proper volume.",
           "sources": [
             "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
-            "tracking/premise_register.json"
+            "docs/registers/OBSERVABLES.json"
           ],
           "premises": [
             "PR-26",
@@ -1173,7 +1173,7 @@
           "requires": "Bound the small-ball remainders across scales and demonstrate enough independent observer and null directions to recover directional tensor data in the same regional frame.",
           "sources": [
             "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
-            "tracking/premise_register.json"
+            "docs/registers/OBSERVABLES.json"
           ],
           "premises": [
             "PR-25",
@@ -1240,7 +1240,7 @@
           "requires": "Use a common vacuum and calibration. Establish that all admitted excitations couple to the same responsive geometry with one positive Newton constant.",
           "sources": [
             "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
-            "tracking/premise_register.json"
+            "docs/registers/OBSERVABLES.json"
           ],
           "premises": [
             "PR-15",
@@ -1363,7 +1363,7 @@
           "requires": "For the same source, state, tower and calibrated coupling, compare G(k,k) with 8πG times the measured T(k,k) on all nine spanning null design directions, control the residual, then apply independent Ward and geometric Bianchi identities to fix the remaining trace up to Λ.",
           "sources": [
             "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
-            "tracking/premise_register.json"
+            "docs/registers/OBSERVABLES.json"
           ],
           "premises": [
             "PR-25",

@@ -1,7 +1,7 @@
 import AssembledActionComposition
 
 /-!
-# Fermion-sector completion of the assembled structural action (V3, issue #735, OL-G9)
+# Fermion-sector completion of the assembled structural action (observable `sm-action`)
 
 One typed fermion sector on the committed matter grammar, and one
 extended assembled action that sums it with the committed assembled
@@ -92,7 +92,7 @@ is table provenance through the committed dictionary.  There is no
 quantization, no measured coupling, no three-family structure (row
 PR-36 untouched), no Yukawa matrix (row PR-50 untouched beyond the
 committed one-line coefficient), and no global-form attachment (rows
-PR-35, PR-46 untouched).  OL-G9 stays partial, with the
+PR-35, PR-46 untouched).  `sm-action` stays partial, with the
 covered-sector list extended exactly by the fermion sector.
 
 Falsifier.  The composition fails if the row-pair invariance holds at
@@ -820,7 +820,7 @@ theorem fermion_rows_weyl_graded (E : FermionExtendedPremiseData) :
 /-! ## The composed receipt -/
 
 /-- **The composed fermion-sector assembly receipt (issue #735,
-OL-G9 partial).**  For every extended premise bundle `E`: the
+`sm-action` partial).**  For every extended premise bundle `E`: the
 extended action is the committed assembled action plus the fermion
 sector at the bundled committed mask; it restricts exactly to the
 committed assembled action on the committed sub-tuple and at zero

@@ -20,7 +20,7 @@ space of the composed Einstein branch at this value is the simplex tangent
 space `MassZero Ω` of the thermodynamics lane, and the `finiteFirstLaw` clause
 of `einstein_register_composition` at this value is the statement
 `HorizonSurface.entanglement_first_law_first_order D H δρ` of the
-observation-ledger row OL-B3.  `demoEinsteinRegister` evaluates the
+observable `area-law`.  `demoEinsteinRegister` evaluates the
 constructor at one explicit two-state repair law with a nonconstant boost
 charge.
 
@@ -526,7 +526,7 @@ theorem register_composition_on_horizon_variation (D : RepairLawData Ω B)
     rfl rfl rfl δρ
 
 /-- The `finiteFirstLaw` clause of the composed branch at the inhabitant is
-the OL-B3 statement `HorizonSurface.entanglement_first_law_first_order D H δρ`:
+the `area-law` statement `HorizonSurface.entanglement_first_law_first_order D H δρ`:
 one proposition, on one variation space, reached through the composed
 Einstein branch. -/
 theorem composed_first_law_is_horizon_first_law (D : RepairLawData Ω B)

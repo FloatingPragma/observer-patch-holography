@@ -82,8 +82,7 @@ Canonical naming, used on every surface in this directory: `P` is the
 measured-endpoint working value of the pixel constant, located from the
 measured fine-structure constant; `P_fwd` is the forward-model closure
 point, the pixel value implied by the solver's own contracted output. The gap
-between them is the open loop residual recorded on the P-closure
-issue ([#545](https://github.com/FloatingPragma/observer-patch-holography/issues/545), closed).
+between them is the open loop residual.
 Inserting the measured hadronic payload does not close it: the
 [empirical endpoint](EMPIRICAL_HADRON_SCHEME_BRIDGE.md) lands 0.48 percent
 below the measured coupling.

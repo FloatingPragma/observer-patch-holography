@@ -8,8 +8,8 @@ namespace EventAlgebra
 /-!
 # The slot-locality surface: Tsirelson and no-signalling on one split
 
-One typed interface for the observation-ledger rows OL-C3 (entanglement
-to the Tsirelson bound) and OL-C4 (no-signalling and locality receipts),
+One typed interface for the observables `tsirelson` (entanglement
+to the Tsirelson bound) and `no-signalling` (no-signalling and locality receipts),
 V3 issue #730.  `SlotLocalityInterface` bundles the register row PR-44
 (the supplied bipartite slot split with four factor events and one
 Kraus-complete left-local family); the joint carrier, the trace pairing

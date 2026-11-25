@@ -5,7 +5,7 @@ set_option autoImplicit false
 /-!
 # Product-split separability and the slot-local CHSH bound
 
-Issue #730 OL-C3, continuation of the record-diagonal delimitation of
+Observable `tsirelson`, continuation of the record-diagonal delimitation of
 `EventAlgebra.SourceReachabilityDelimitation`.  That module proves the
 classical CHSH bound `2` for reachable record-diagonal states against four
 JOINTLY record-diagonal readouts, and the obstruction that no
@@ -98,7 +98,7 @@ unit-interval condition, or give a trace other than `2√2`.
 
 Nonclaims: no source entangled preparation, no two-wing instrument, no
 physical region, spacelike separation, or laboratory channel is produced
-(PR-52 is open; OL-C3 realization clause).  The split is the declared
+(PR-52 is open; `tsirelson` realization clause).  The split is the declared
 PR-44 datum.  The theorem is a separability bound for one declared
 tensor split; it is not a hidden-variable theorem and not an
 all-architectures no-go.  No statement about PR-04 or complex phase
@@ -954,7 +954,7 @@ Boundary, stated exactly: the split is the declared PR-44 datum; the
 bound covers slot-local settings with respect to that split and says
 nothing about readouts outside both slots; no source entangled
 preparation, instrument, or physical region is produced (PR-52 is open;
-OL-C3 realization clause). -/
+`tsirelson` realization clause). -/
 theorem productSplitSeparability_receipt (D : ProductSplitAntecedent α β) :
     IsSlotSeparable D.state ∧
     ((D.state * slotChsh D.A₀ D.A₁ D.B₀ D.B₁).trace).im = 0 ∧

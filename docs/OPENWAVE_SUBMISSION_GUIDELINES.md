@@ -67,7 +67,7 @@ Before work on a row:
 4. Read the [M10 specification of record][canonical], with the pinned candidate in its § 1 and the consumption
    rules in its § 8, and the [M10.2 maintainer review][review]. Section 8 of this page carries that review's row
    decisions.
-5. Search this repository's papers, Lean library, [premise register](../tracking/premise_register.json) and code
+5. Search this repository's papers, Lean library, [premise rows](registers/OBSERVABLES.json) and code
    for the same question (caution 7.15). Record the paths, the commit and whether each confirms, extends or
    contradicts the planned work.
 

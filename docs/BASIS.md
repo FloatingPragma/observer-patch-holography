@@ -5,8 +5,8 @@ agreement condition and an executable specification. It also adopts
 state-selection and response-endogeneity principles, motivated by the
 requirement of internal realization but not deduced from closure alone.
 The conditional theorems of the [theorem library](../paper/README.md) keep
-their displayed premises; the [premise register](registers/PREMISE_REGISTER_V3.md)
-records the connections between those premises and the executable
+their displayed premises; the premise rows of the [observables register](registers/OBSERVABLES.json)
+record the connections between those premises and the executable
 specification.
 
 ## The closure hypothesis
@@ -121,8 +121,8 @@ The [premise reference](AXIOM_REFERENCE.md) gives the formal statements of
 A1, A2 and A3, which this basis places among the principles above. The
 machine-readable source is
 [the premise registry](../claims/axiom_registry.yaml). A theorem that uses them
-states an implication; the [premise register](registers/PREMISE_REGISTER_V3.md)
-records the connections to the executable specification.
+states an implication; the premise rows of the [observables register](registers/OBSERVABLES.json)
+record the connections to the executable specification.
 
 ## The paper set
 

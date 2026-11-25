@@ -293,7 +293,7 @@ def recordedDecisionBundle : PhaseEffectDecisionBundle where
   prep := committedRunState
   prep_eq_run_state := rfl
 
-/-- **The composed static conformance theorem (OL-C5 name).**  From the
+/-- **The composed static conformance theorem (`complex-hilbert` name).**  From the
 one antecedent bundle of the recorded decision, the conjunction:
 
 1. the static inhabitant lives over the committed algebraic core;

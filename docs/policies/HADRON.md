@@ -24,22 +24,16 @@ Existing grid work is exploratory.
 ## Closure-Program Note
 
 The hadronic lane was a primary input to the retired P-closure program.
-Historical
-[#545](https://github.com/FloatingPragma/observer-patch-holography/issues/545)
-records the pixel contract; quantitative integration
-([#736](https://github.com/FloatingPragma/observer-patch-holography/issues/736))
-and source-side nonperturbative production
-([#744](https://github.com/FloatingPragma/observer-patch-holography/issues/744))
-are historical issues, both closed; the physical attachment is part of
-[#1026](https://github.com/FloatingPragma/observer-patch-holography/issues/1026). A
+Quantitative integration, source-side nonperturbative production and the
+physical attachment are open work in the
+[observables register](../registers/OBSERVABLES.json). A
 genuinely target-blind Ward-projected transport computation under a valid
 detached contract is the object that could close or move the source-chain
 and gauge-width pixel maps. The
-target-contract provenance (externally timestamped v1/v2, v2's invalid scalar
+earlier target contracts (externally timestamped v1/v2, v2's invalid scalar
 scoring algebra, the permanently inactive post-target-access v3 erratum
-scaffold, the exploratory non-blind V1 grid) is recorded on the P-closure
-historical issue ([#545](https://github.com/FloatingPragma/observer-patch-holography/issues/545));
-it is evidence, not a live owner. A valid experiment needs a
+scaffold, the exploratory non-blind V1 grid) are evidence and do not qualify.
+A valid experiment needs a
 detached successor whose complete source method is frozen before genuinely
 withheld data, or an audited clean-room producer with no target access. The
 payload computation must not read the target file; the complete transitive

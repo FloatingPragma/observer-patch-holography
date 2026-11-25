@@ -1,10 +1,10 @@
 # FZ-12 arming premise row proposals
 
-This document proposes premise-register rows for the seven arming premises of
+This document proposes premise rows for the seven arming premises of
 the frozen dispersion row FZ-12. It is a proposal pending registration: this
 document registers nothing by itself, amends no register, and changes no frozen
 byte. The rows below become premises only through the owner and integrator
-acting on `tracking/premise_register.json` (schema `oph.premise_register.v3`).
+acting on the premise rows of `docs/registers/OBSERVABLES.json`.
 The id values `PR-70` through `PR-76` are OWNER/INTEGRATOR SLOTS: the final ids
 are assigned at registration against the register state at that time. The
 highest registered id at the time of writing is `PR-69`.
@@ -19,7 +19,7 @@ complete edge orbit as its sole direct support, equal source weights,
 continuous field and same-operator sector attachment, cofinal gluing, finite
 scale, coherent frame and boost transport, frozen nuisance and coverage rules,
 and a post-custody dataset-specific contract; a null verdict additionally
-requires the source-derived positive lower bound owned by issue #664. Those
+requires the source-derived positive lower bound. Those
 premises exist in the corpus only as prose inside the frozen row. The Lean
 module `Lean/Screen/DispersionArmingInterface.lean` types them; this document
 proposes their register rows. The post-custody dataset-specific contract is
@@ -27,13 +27,12 @@ typed in the same module as an abstract token and is not proposed as a
 premise row, because it is dataset specific and cannot be registered in
 advance of a dataset.
 
-Each `type` value is drawn from the register's six-value enum:
+Each `type` value is drawn from the six premise types of `model/evaluation/roles.json`:
 `empirical_import`, `external_mathematics`, `numerical_input`,
 `representation_choice`, `selection_rule`, `structural_rule`. Each
 `disposition` is `remove` (the premise is expected to be discharged by a
 source theorem, and the row tracks that obligation) or `axiomatize` (the
-premise is a declared choice recorded as such). Consuming lanes are the
-FZ-12 arming lanes 733, 739, and 742.
+premise is a declared choice recorded as such).
 
 ## Proposed rows
 
@@ -46,7 +45,6 @@ FZ-12 arming lanes 733, 739, and 742.
   "type": "selection_rule",
   "disposition": "remove",
   "statement": "The physical position action of the compared regime is homogeneous, its sole direct support is the complete thirty-direction edge orbit of the committed seam current, and its source weights are equal across the thirty directions. The committed corpus proves the control counterpart only: the seam-derived control symbol has complete edge support with one common squared chord and equal control weight (source_seam_edge30_control_certificate), and no committed theorem attaches that control symbol to a physical action.",
-  "consuming_lanes": [733, 739, 742],
   "evidence": [
     "Lean/Screen/DispersionArmingInterface.lean",
     "Lean/Screen/SeamCurrentEdge30Moment.lean",
@@ -76,7 +74,6 @@ would discharge.
   "type": "selection_rule",
   "disposition": "remove",
   "statement": "The compared observable lives in a continuous field sector, and the comparison reads the same operator sector that the committed source theorem fixes for the seam-derived symbol. No committed theorem selects the physical sector or identifies the committed symbol with a laboratory operator.",
-  "consuming_lanes": [733, 739, 742],
   "evidence": [
     "Lean/Screen/DispersionArmingInterface.lean",
     "Lean/Screen/SeamCurrentPhysicalMetricAttachment.lean",
@@ -105,7 +102,6 @@ obligation the frozen row itself names as unproved.
   "type": "structural_rule",
   "disposition": "remove",
   "statement": "The finite committed patch embeds cofinally into the compared regime, so that the committed edge-branch symbol governs propagation at the compared scales. No committed theorem supplies this gluing for the FZ-12 comparison path.",
-  "consuming_lanes": [733, 739, 742],
   "evidence": [
     "Lean/Screen/DispersionArmingInterface.lean",
     "claims/frozen_prediction_register.json"
@@ -130,7 +126,6 @@ obligation rather than a declared convention.
   "type": "numerical_input",
   "disposition": "axiomatize",
   "statement": "One declared positive carrier scale fills the committed coefficient slot, giving C4 = -a^2/20, B0 = a^4/840, and B6 = -a^4/12600 at that scale. The committed manifold ratios are scale free: they hold at every positive scale (edgeScale_ray), no positive scale is singled out (committed_ray_selects_no_scale), and the scale-boundary module proves the metric coefficient counterfamily, so the value is external declared input.",
-  "consuming_lanes": [733, 739, 742],
   "evidence": [
     "Lean/Screen/DispersionArmingInterface.lean",
     "Lean/Screen/PrimitivePortScaleBoundary.lean",
@@ -158,7 +153,6 @@ source scale theorem exists.
   "type": "structural_rule",
   "disposition": "remove",
   "statement": "One coherent frame carries the comparison, and a boost transport connects that frame to the source frame of the committed symbol, so that the intrinsic coefficients are read in a resolved frame. No committed theorem supplies frame resolution or boost transport for the FZ-12 comparison path.",
-  "consuming_lanes": [733, 739, 742],
   "evidence": [
     "Lean/Screen/DispersionArmingInterface.lean",
     "claims/frozen_prediction_register.json"
@@ -183,7 +177,6 @@ source obligation the frozen decision rule depends on.
   "type": "representation_choice",
   "disposition": "axiomatize",
   "statement": "The readout of any eligible comparison isolates nuisance parameters and calibrates joint coverage under rules fixed before exposure, as the frozen decision rule requires for every verdict class. These are declared analysis conventions of the comparison protocol, not source-derivable structure.",
-  "consuming_lanes": [733, 739, 742],
   "evidence": [
     "Lean/Screen/DispersionArmingInterface.lean",
     "claims/frozen_prediction_register.json",
@@ -210,7 +203,6 @@ and coverage calibration are declared conventions of the comparison protocol.
   "type": "numerical_input",
   "disposition": "remove",
   "statement": "A pre-exposure same-action, same-sector source theorem fixes a positive lower bound a_min for the admissible scales in the comparison units, and the preregistered sensitivity and remainder contract covers every admissible scale at or above a_min. The frozen append-only clarification makes a null verdict conditional on exactly this obligation, owned by issue #664. The committed corpus supplies no such bound: every positive value is realized as the lower bound of a stipulated interface inhabitant (committed_corpus_selects_no_lower_bound), so a stipulated value is inadmissible for a null verdict.",
-  "consuming_lanes": [733, 739, 742],
   "evidence": [
     "Lean/Screen/DispersionArmingInterface.lean",
     "claims/frozen_prediction_register.json",
@@ -238,5 +230,5 @@ discharged, no comparison is scored, no frozen record is created, and no
 comparison data, bound value, or grain-scale number enters this document or
 the Lean module. Whether any proposed row can be discharged from source is
 open. Registration, id assignment, and any edit to
-`tracking/premise_register.json` are owner and integrator actions outside the
+`docs/registers/OBSERVABLES.json` are owner and integrator actions outside the
 scope of this document.

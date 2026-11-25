@@ -128,9 +128,8 @@ receipt set used to establish its premises. The machine-readable row mapping is
 [`claims/falsification_matrix.csv`](../claims/falsification_matrix.csv), and
 the current claim status is in
 [`claims/claim_registry.yaml`](../claims/claim_registry.yaml). Open physical
-maps are tracked on the open physics issues
-[#1147](https://github.com/FloatingPragma/observer-patch-holography/issues/1147),
-[#1134](https://github.com/FloatingPragma/observer-patch-holography/issues/1134) and
+maps are tracked in the [observables register](registers/OBSERVABLES.json) and
+the obstruction search
 [#1078](https://github.com/FloatingPragma/observer-patch-holography/issues/1078). A result on an
 ineligible surface is evidence for or against that continuation only; it is not
 silently promoted into this program.
@@ -142,9 +141,8 @@ and the result addresses the same mathematical or physical observable in the
 same convention. Missing hypotheses yield no verdict. Counterexamples remain
 scoped to the stated claim and do not transfer to independent theorem rows.
 
-Current work ownership and unclosed maps are recorded on the open physics
-issues [#1147](https://github.com/FloatingPragma/observer-patch-holography/issues/1147),
-[#1134](https://github.com/FloatingPragma/observer-patch-holography/issues/1134)
-and [#1078](https://github.com/FloatingPragma/observer-patch-holography/issues/1078).
+Open work and unclosed maps are recorded in the
+[observables register](registers/OBSERVABLES.json) and the obstruction search
+[#1078](https://github.com/FloatingPragma/observer-patch-holography/issues/1078).
 Scientific claim boundaries are recorded in the owner papers and the
 machine-readable claim registry.

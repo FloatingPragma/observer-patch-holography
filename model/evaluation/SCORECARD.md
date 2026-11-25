@@ -66,7 +66,7 @@ Sources · [executable_observer_construction.tex](../../paper/executable_observe
 
 G1–G6 are the six hypotheses for a common source, state and refinement tower. GR-NULL records the null-direction route. The paper also gives a quantitative route using ten timelike observers with matched bulk, area and stationarity errors o(ℓ⁴); it requires no separately assumed null-balance equation.
 
-Sources · [recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex](../../paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex) · [premise_register.json](../../tracking/premise_register.json) · [QuantitativeSmallBall.lean](../../Lean/ObserverPatchHolography/EinsteinBranch/QuantitativeSmallBall.lean)
+Sources · [recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex](../../paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex) · [OBSERVABLES.json](../../docs/registers/OBSERVABLES.json) · [QuantitativeSmallBall.lean](../../Lean/ObserverPatchHolography/EinsteinBranch/QuantitativeSmallBall.lean)
 
 | Requirement | Interval Echo | Contrast memory | Private record walk | Scalar channel |
 | --- | --- | --- | --- | --- |

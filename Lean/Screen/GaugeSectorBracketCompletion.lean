@@ -2,7 +2,7 @@ import AssembledActionComposition
 import OrientedFaceInvariantMetric
 
 /-!
-# Gauge-sector completion of the assembled action at the committed bracket level (V3, issue #735, OL-G9)
+# Gauge-sector completion of the assembled action at the committed bracket level (observable `sm-action`)
 
 The committed assembled structural action of
 `AssembledActionComposition` carries its gauge kinetic sector as a
@@ -102,7 +102,7 @@ committed strength magnitudes are.  There is no Spin or chirality
 attachment (row PR-47 open), no global form (rows PR-35, PR-46), no
 three-family structure (row PR-36), no measured coupling, and no
 quantization.  The invariance grade is infinitesimal and typed; no
-gauge group action on the carrier is committed or claimed.  OL-G9
+gauge group action on the carrier is committed or claimed.  `sm-action`
 stays partial, with the gauge kinetic sector entry upgraded from the
 declared diagonal pairing to the committed invariant-form level.
 
@@ -884,7 +884,7 @@ theorem off_axis_witness_not_axis :
 /-! ## The composed receipt -/
 
 /-- **The composed gauge-sector completion receipt (issue #735,
-OL-G9 partial).**  For every committed premise bundle `D`: the
+`sm-action` partial).**  For every committed premise bundle `D`: the
 completed action is one explicit sum with every coefficient a
 declared bundle field; the committed assembled action embeds exactly
 under the axis identification and the completed action factors

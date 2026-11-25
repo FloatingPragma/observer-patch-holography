@@ -325,8 +325,7 @@ bytes in `receipts/baryon_dimension_six_census.receipt.json`, and canonically in
 `manifests/family_band_attachment_reference.json`,
 `manifests/seam_grammar_matter_classification_reference.json` and that same
 source-parent inventory, with path-level references in
-`claims/selection_ledger.json`, `claims/claim_registry.yaml` and
-`claims/physical_identification_registry.json`.
+`claims/claim_registry.yaml` and `claims/physical_identification_registry.json`.
 
 ### Reading a pin back
 

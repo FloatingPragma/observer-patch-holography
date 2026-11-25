@@ -52,30 +52,6 @@ def test_source_order_claim_keeps_its_finite_boundary_explicit() -> None:
     )
 
 
-def test_premise_register_retires_the_old_event_base_and_exposes_continuum() -> None:
-    rows = {row["id"]: row for row in _json("tracking/premise_register.json")["rows"]}
-    assert "PR-83" not in rows
-    support = rows["PR-81"]
-    rank = rows["PR-82"]
-    continuum = rows["PR-16"]
-    assert support["disposition"] == "axiomatize"
-    assert "does not infer support completeness" in support["statement"]
-    assert rank["disposition"] == "axiomatize"
-    assert "does not import this rank" in rank["statement"]
-    assert "not a repair schedule" in rank["statement"]
-    assert continuum["name"] == (
-        "source-causal continuum and stable-causality certificate"
-    )
-    for phrase in (
-        "physical event and link identification",
-        "two-way order-cone-faithful placements",
-        "calibrated event count to spacetime volume",
-        "manifoldlikeness",
-        "stable-topology",
-        "convergent curvature estimators",
-    ):
-        assert phrase in continuum["statement"]
-    assert "code/geometry/event_manifold_reconstruction.py" not in continuum["evidence"]
 
 
 def test_dependency_graph_uses_the_new_two_input_carrier() -> None:
@@ -246,24 +222,6 @@ def test_registry_carries_the_finite_carrier_and_conditional_continuum() -> None
     assert "separate SourceIndexedEinsteinPremises adapter" in shape["statement"]
 
 
-def test_observation_ledger_carries_exact_lean_gains_without_physical_promotion() -> None:
-    rows = {
-        row["id"]: row for row in _json("tracking/observation_ledger.json")["rows"]
-    }
-    compiler = (
-        "Lean/ObserverPatchHolography/Provenance/FiniteCausetCompiler.lean"
-    )
-    order = rows["OL-A3"]
-    carrier = rows["OL-A4"]
-    assert compiler in order["evidence"]
-    assert compiler in carrier["evidence"]
-    assert "attained maximum authenticated-parent-chain length" in order["notes"]
-    assert "grammar expressivity" in order["notes"]
-    assert "Exact base order-cone agreement derives chart separation" in order["notes"]
-    assert "separated one-way realization" in carrier["notes"]
-    assert "not source-selected or order-reflecting" in carrier["notes"]
-    assert "calibrated count-volume" in carrier["notes"]
-    assert carrier["status"] == "partial"
 
 
 def test_causal_poset_package_carries_the_finite_readings() -> None:

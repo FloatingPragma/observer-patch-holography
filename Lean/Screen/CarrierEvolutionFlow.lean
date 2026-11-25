@@ -74,7 +74,7 @@ WHAT IS PROVED.
    the corpus Stone representation (`Dynamics/StoneConverse.lean`,
    `EventAlgebra/SchroedingerFrameFlow.lean`,
    `EventAlgebra/QuantumAdequacySurface.lean`, `unique_continuous_flow`,
-   the OL-C2 row surface) starts from a supplied continuous
+   the `schroedinger` row surface) starts from a supplied continuous
    star-automorphism flow on the private algebra, and this module supplies
    a flow on the field sector's stated subspace, with the identification
    of `t` with physical time left to the source clock and duration row.
@@ -106,7 +106,7 @@ integer tables, idempotent, orthogonal, trace `3` each);
 `finiteStoneConverse_of_continuous`);
 `EventAlgebra/SchroedingerFrameFlow.lean` (`FlowedPublicFrame`,
 `schroedinger_frame_duality`); `EventAlgebra/QuantumAdequacySurface.lean`
-(`unique_continuous_flow`, the OL-C2 row surface: a supplied continuous
+(`unique_continuous_flow`, the `schroedinger` row surface: a supplied continuous
 star-automorphism group on a matrix block has a self-adjoint generator).
 `LocalFaceMaxwellAction` (`ker_faceCurvature_eq_gradient`,
 `ker_localMaxwellOperator`: the kernel of `CᵀC` is exactly the gradient
@@ -978,7 +978,7 @@ through `faceCodifferential`, with `CᵀC` eigen receipts by
 to any such family).  The corpus Stone representation of
 `Dynamics/StoneConverse.lean`, `EventAlgebra/SchroedingerFrameFlow.lean` and
 `EventAlgebra/QuantumAdequacySurface.lean` (`unique_continuous_flow`, the
-OL-C2 row surface) consumes a supplied continuous star-automorphism flow on
+`schroedinger` row surface) consumes a supplied continuous star-automorphism flow on
 the private algebra; this theorem supplies a continuous linear coefficient
 flow that generates field histories. Because no nonzero hypothesis is imposed
 on `v`, the coefficient-to-field map need not be injective; identifying this

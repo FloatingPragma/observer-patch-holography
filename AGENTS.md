@@ -68,6 +68,30 @@ chosen using comparison data are calibration inputs;
 agreement with those inputs is not an independent prediction. Changes to the
 construction or interpretation must preserve that input ancestry.
 
+## Progress tracking
+
+Progress is tracked in two places, described in
+[docs/registers/README.md](docs/registers/README.md):
+
+- **Model and law evaluation** in [model/evaluation](model/evaluation/README.md):
+  the scorecard grades each candidate law; `python -m model evaluate --write`
+  regenerates it.
+- **Global completion ledger** [docs/registers/OBSERVABLES.json](docs/registers/OBSERVABLES.json):
+  every observable OPH must reproduce and every finite-theorem premise the
+  executable model must confirm, each Demonstrated, Conditional, Partial or
+  Open. status.floatingpragma.ai shows it.
+
+Read both before choosing research work. The ledger shows which observables
+are Conditional on premises the executable model has not shown, and the status
+page lists the premises that hold up the most observables; demonstrating one of
+those on the main candidate moves the most rows. The scorecard shows which
+criteria the main candidate leaves partial or open.
+
+When a result changes the standing of an observable or a premise, update its
+row in the same change and run `python tools/check_observables.py`. Keep `what`
+and `why` to one sentence each. A daily cloud routine re-judges the rows that
+new commits on main affect.
+
 ## OpenWave rows and submissions
 
 Any work aimed at a row of the OpenWave comparison table follows the

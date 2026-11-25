@@ -90,7 +90,7 @@ all of it exact finite real algebra with no new premises:
 What is NOT proved.  Nothing here states or implies that the committed
 source selects the enrichment; the realized-history no-go of
 `RealizedHistoryLegendreNoGo` stays in force, register row PR-06 stays
-a register row, and OL-D1 stays partial.  `VelocityOnly` is a named
+a register row, and `newton-mechanics` stays partial.  `VelocityOnly` is a named
 clause of a declared axiomatization, not a source-produced fact.  In
 particular, no theorem in this module proves that corner invisibility,
 velocity-only, stationarity, single-site minimality, or regular

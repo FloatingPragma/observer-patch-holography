@@ -17,9 +17,6 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-
-from closed_lanes import SUPERSEDED_LANE_SUCCESSORS, is_known, live_owners  # noqa: E402
 
 PAPER_EXTERNAL_REGISTRY_PATTERNS = [
     "claims/claim_registry",
@@ -40,12 +37,11 @@ REQUIRED_CLAIM_FIELDS = {
     "scope_if_false",
     "status",
     "claim_class",
-    "gates",
     "premise_dependencies",
 }
 
 CLAIM_REGISTRY_SCHEMA = 3
-PREMISE_REGISTER_RELATIVE = Path("tracking") / "premise_register.json"
+OBSERVABLES_RELATIVE = Path("docs") / "registers" / "OBSERVABLES.json"
 PREMISE_DEPENDENCY_FIELDS = ("consumed", "open", "boundary")
 PREMISE_DEPENDENCY_CLASSIFICATIONS = {
     "explicit_edges",
@@ -73,7 +69,7 @@ CLAIM_CLASS_VOCABULARY = {
     # A quantitative pipeline landing compared against measurement, with a
     # declared endpoint boundary or error budget.
     "empirical_implementation",
-    # Physically established end to end; requires every live gate closed.
+    # Physically established end to end.
     "physical_establishment",
 }
 
@@ -128,55 +124,6 @@ PROOF_MEDIUM_VOCABULARY = {"paper_prose"}
 PAPER_OWNER_ROOTS = ("paper", "extra", "cosmology", "flagship", "docs/research")
 OWNER_MEDIUM_FIELD = "owner_medium"
 OWNER_MEDIUM_VOCABULARY = {"protocol_record"}
-
-REQUIRED_TOPICAL_GATE_OWNERS_FIELD = "required_topical_gate_owners"
-
-# Keys that name gates without being a gate list. Each one states why the key
-# cannot hide a gate from the invariants that read `gates`.
-GATE_SIDE_CHANNEL_ALLOWLIST = {
-    REQUIRED_TOPICAL_GATE_OWNERS_FIELD: (
-        "validated as a sorted subset of `gates` by "
-        "check_topical_gate_owner_projection"
-    ),
-}
-
-# Historical topical lanes for claim rows whose own statement leaves the
-# corresponding physical attachment open. Every such lane is closed; the open
-# issue that owns the remaining work is `closed_lanes.live_owner(lane)`.  This is deliberately an explicit
-# claim-by-claim policy rather than a keyword rule: exact finite helpers and
-# scoped no-go results remain valid without inheriting every downstream lane.
-# Every claim named here also declares `required_topical_gate_owners`, and
-# check_topical_gate_owner_projection compares the two surfaces in both
-# directions, so a one-sided edit to either the registry row or this policy
-# fails instead of silently dropping topical ownership.
-REQUIRED_V3_TOPIC_GATES_BY_CLAIM: dict[str, frozenset[int]] = {
-    "OPH-UNIFIED-TYPED-SPINE": frozenset({740}),
-    "OPH-GR-D6-CAPACITY": frozenset({742}),
-    "OPH-GR-D6-HORIZON-RECORD": frozenset({742}),
-    "OPH-GR-DS-SHOCK-SIGN-ATTACHMENT": frozenset({742}),
-    "OPH-GR-DS-DISCRETE-SHOCK-SPECTRUM": frozenset({742}),
-    "OPH-COSMO-SCREEN-SPECTRUM": frozenset({742}),
-    "OPH-WZ-STRICT-1L-POLE-MAP": frozenset({743, 745}),
-    "OPH-SM-Q1-LOCAL-G6": frozenset({743, 745}),
-    "OPH-SM-Q2E-CHIRAL-MEASURE-CRITERION": frozenset({743}),
-    "OPH-SM-Q2H-POSITIVE-HAMILTONIAN-SOUNDNESS": frozenset({743}),
-    "OPH-SM-Q3-BV-RESTORATION": frozenset({743}),
-    "OPH-SM-Q4-OS-OBSERVABLE-SECTOR": frozenset({743}),
-    "OPH-SM-Q4-RESONANCE-CONTINUATION": frozenset({743}),
-    "OPH-A5-PRIMITIVE-PORT-SPIN6": frozenset({742}),
-    "OPH-A5-SEAM-CURRENT-EDGE30": frozenset({742}),
-    "OPH-MODAL-MAXWELL-FACTORIZATION-BOUNDARY": frozenset({754}),
-    "OPH-FINITE-CONSERVATION-WARD-PRECURSOR": frozenset({743}),
-    "OPH-SM-ROUTE-IDENTIFICATION": frozenset({740}),
-    "OPH-Q-N-RESERVE-CANDIDATES": frozenset({742}),
-    "OPH-HIER-EW": frozenset({740, 742, 745}),
-    "OPH-SCREEN-24-CLOCK-DETERMINANT": frozenset({745}),
-    "OPH-ALPHA-PIXEL": frozenset({744}),
-    "OPH-DM-CONT": frozenset({742}),
-    "OPH-YM-GAP": frozenset({743, 744}),
-    "OPH-QFT-STRUCTURAL-INHERITANCE-MATRIX": frozenset({743}),
-    "OPH-FINITE-UNITARY-SCATTERING-LIMIT-NO-GO": frozenset({743}),
-}
 
 
 class DuplicateKeyError(ValueError):
@@ -462,22 +409,25 @@ def dictionary_tokens(root: Path) -> set[str]:
 
 
 def premise_ids(root: Path) -> set[str]:
-    """Load the canonical premise IDs without inferring any semantic edges."""
-    register = load_json(root / PREMISE_REGISTER_RELATIVE)
-    rows = register.get("rows", [])
+    """Load the premise IDs of the observables register without inferring any semantic edges.
+
+    The premises are the rows of kind ``premise`` in docs/registers/OBSERVABLES.json.
+    """
+    register = load_json(root / OBSERVABLES_RELATIVE)
+    rows = register.get("rows") if isinstance(register, dict) else None
     require(
-        isinstance(rows, list) and rows,
-        f"{PREMISE_REGISTER_RELATIVE}: premise register has no rows",
+        isinstance(rows, list) and all(isinstance(row, dict) for row in rows),
+        f"{OBSERVABLES_RELATIVE}: the register has no row list",
     )
-    identifiers = [row.get("id") for row in rows if isinstance(row, dict)]
+    identifiers = [row.get("id") for row in rows if row.get("kind") == "premise"]
+    require(identifiers, f"{OBSERVABLES_RELATIVE}: the register has no premise rows")
     require(
-        len(identifiers) == len(rows)
-        and all(isinstance(identifier, str) and PREMISE_ID.fullmatch(identifier) for identifier in identifiers),
-        f"{PREMISE_REGISTER_RELATIVE}: malformed premise ids",
+        all(isinstance(identifier, str) and identifier for identifier in identifiers),
+        f"{OBSERVABLES_RELATIVE}: malformed premise ids",
     )
     require(
         len(identifiers) == len(set(identifiers)),
-        f"{PREMISE_REGISTER_RELATIVE}: duplicate premise ids",
+        f"{OBSERVABLES_RELATIVE}: duplicate premise ids",
     )
     return set(identifiers)
 
@@ -700,130 +650,6 @@ def check_owner_medium(claim: dict) -> None:
     )
 
 
-def check_topical_gate_owner_projection(
-    claims: list[dict], *, check_policy_keys: bool
-) -> None:
-    """Bind the historical topical-lane policy to the rows it governs.
-
-    The policy map and the registry rows are compared in both directions:
-    a row declaring an owner the policy does not name fails, a row the policy
-    names without the matching declaration fails, and every declared owner must
-    appear in that row's own `gates`. On the live tree a policy key that names
-    no registered claim fails as well, so deleting a governed row cannot leave
-    the policy pointing at nothing.
-    """
-    field = REQUIRED_TOPICAL_GATE_OWNERS_FIELD
-    for claim in claims:
-        claim_id = claim["claim_id"]
-        required = REQUIRED_V3_TOPIC_GATES_BY_CLAIM.get(claim_id)
-        declared = claim.get(field)
-        if required is None:
-            require(
-                declared is None,
-                f"{claim_id}: {field} is declared while the historical topical-lane "
-                f"policy names no gate for this claim",
-            )
-            continue
-        require(
-            isinstance(declared, list)
-            and all(
-                isinstance(gate, int) and not isinstance(gate, bool) and gate > 0
-                for gate in declared
-            ),
-            f"{claim_id}: {field} must be a list of positive GitHub issue numbers",
-        )
-        require(
-            declared == sorted(set(declared)),
-            f"{claim_id}: {field} must be sorted and must not repeat",
-        )
-        require(
-            set(declared) == set(required),
-            f"{claim_id}: {field} {declared} does not equal the historical topical-lane "
-            f"policy {sorted(required)}",
-        )
-        outside = sorted(set(declared) - set(claim["gates"]))
-        require(
-            not outside,
-            f"{claim_id}: {field} names gates that are absent from `gates`: "
-            f"{outside}",
-        )
-    if check_policy_keys:
-        registered = {claim["claim_id"] for claim in claims}
-        unregistered = sorted(set(REQUIRED_V3_TOPIC_GATES_BY_CLAIM) - registered)
-        require(
-            not unregistered,
-            "the historical topical-lane policy names claims that the registry does "
-            f"not contain: {unregistered}",
-        )
-
-
-def check_required_v3_topic_gates(claim: dict) -> None:
-    """Keep each claim's historical topical lanes recorded."""
-    claim_id = claim["claim_id"]
-    required_gates = REQUIRED_V3_TOPIC_GATES_BY_CLAIM.get(claim_id, frozenset())
-    missing = sorted(required_gates - set(claim["gates"]))
-    require(
-        not missing,
-        f"{claim_id}: missing required historical topical lanes {missing}",
-    )
-
-
-def check_gates(claim: dict) -> None:
-    """Validate the historical lanes of a claim and its promotion contract.
-
-    `gates` records the lane issues under which a claim's open work was
-    scoped. The V3 and V4 lanes are closed; each gate must be an open issue or
-    a historical lane that `tools/closed_lanes.py` maps to the open issue that
-    owns its remaining work, and a gate never names a superseded lane.
-    """
-    claim_id = claim["claim_id"]
-    gates = claim["gates"]
-    side_channels = sorted(
-        key
-        for key in claim
-        if key != "gates"
-        and "gate" in key.casefold()
-        and key not in GATE_SIDE_CHANNEL_ALLOWLIST
-    )
-    require(
-        not side_channels,
-        f"{claim_id}: gate lists belong in `gates`, which every gate invariant "
-        f"reads; found side-channel keys {side_channels}",
-    )
-    require(
-        isinstance(gates, list)
-        and all(isinstance(g, int) and not isinstance(g, bool) and g > 0 for g in gates),
-        f"{claim_id}: gates must be a list of positive GitHub issue numbers",
-    )
-    require(
-        len(gates) == len(set(gates)),
-        f"{claim_id}: gates must not repeat GitHub issue numbers",
-    )
-    superseded = {
-        gate: SUPERSEDED_LANE_SUCCESSORS[gate]
-        for gate in gates
-        if gate in SUPERSEDED_LANE_SUCCESSORS
-    }
-    require(
-        not superseded,
-        f"{claim_id}: gates name superseded lanes; record their successor lanes "
-        f"{superseded}",
-    )
-    unknown = sorted(gate for gate in gates if not is_known(gate))
-    require(
-        not unknown,
-        f"{claim_id}: gates {unknown} are neither open issues nor historical lanes "
-        "with a live owner in tools/closed_lanes.py",
-    )
-    check_required_v3_topic_gates(claim)
-    if claim["claim_class"] in PROMOTED_CLASSES:
-        require(
-            not gates,
-            f"{claim_id}: claim_class {claim['claim_class']!r} asserts physical "
-            f"establishment while gates {gates} still record open work",
-        )
-
-
 def check_wording(claim: dict) -> None:
     """Public wording must not be stronger than the claim's class."""
     if claim["claim_class"] in PROMOTED_CLASSES:
@@ -872,7 +698,6 @@ def main(root: Path = ROOT) -> None:
             f"{claim_id}: claim_class {claim.get('claim_class')!r} is not in the "
             f"controlled vocabulary {sorted(CLAIM_CLASS_VOCABULARY)}",
         )
-        check_gates(claim)
         check_premise_dependencies(claim, known_premises)
         check_wording(claim)
         if check_evidence_medium(claim):
@@ -893,9 +718,6 @@ def main(root: Path = ROOT) -> None:
             )
 
     check_non_consumer_rationale_uniqueness(claims)
-    check_topical_gate_owner_projection(
-        claims, check_policy_keys=root.resolve() == ROOT.resolve()
-    )
 
     if root.resolve() == ROOT.resolve():
         actual_projection_sha256 = premise_dependency_projection_sha256(claims)
@@ -966,9 +788,6 @@ def main(root: Path = ROOT) -> None:
         check_claim_views(root)
         check_readme_pair(root)
 
-    gated = [claim for claim in claims if claim["gates"]]
-    gate_count = len({gate for claim in gated for gate in claim["gates"]})
-    owners = live_owners({gate for claim in gated for gate in claim["gates"]})
     classification_counts = Counter(
         claim["premise_dependencies"]["classification"] for claim in claims
     )
@@ -979,8 +798,6 @@ def main(root: Path = ROOT) -> None:
     )
     print(
         f"claim registry OK: {len(seen)} claims, {len(owner_paths)} owner papers, "
-        f"{gate_count} historical lanes across {len(gated)} gated claims "
-        f"(live owners {', '.join(f'#{n}' for n in owners)}), "
         f"{len(prose_medium_claims)} prose-medium theorem rows, "
         f"{premise_edge_count} direct premise edges "
         f"({classification_counts['explicit_edges']} classified consumers/boundaries, "

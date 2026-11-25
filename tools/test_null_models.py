@@ -138,7 +138,7 @@ def test_scorecard_check_detects_drift_and_supports_explicit_path(
 ) -> None:
     report = {}
     expected = "# scorecard\n\n## W3a\n"
-    path = tmp_path / "tracking" / "null_model_scorecard.md"
+    path = tmp_path / "scorecards" / "null_model_scorecard.md"
     path.parent.mkdir()
     path.write_text(expected, encoding="utf-8")
     nulls.check_scorecard(path, expected, report)
@@ -147,8 +147,8 @@ def test_scorecard_check_detects_drift_and_supports_explicit_path(
         nulls.check_scorecard(path, expected, report)
 
     args = nulls.parse_args(
-        ["--root", str(tmp_path), "--output", "tracking/custom.md", "--check"]
+        ["--root", str(tmp_path), "--output", "scorecards/custom.md", "--check"]
     )
     assert args.root == tmp_path
-    assert args.output == Path("tracking/custom.md")
+    assert args.output == Path("scorecards/custom.md")
     assert args.check is True

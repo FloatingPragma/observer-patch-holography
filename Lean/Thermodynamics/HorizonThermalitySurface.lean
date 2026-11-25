@@ -10,7 +10,7 @@ namespace OPH.Thermodynamics
 /-!
 # The horizon thermality surface
 
-One parameterized package for the observation-ledger row OL-B3 (horizon
+One parameterized package for the observable `area-law` (horizon
 entropy and temperature), V3 issue #729. Every theorem below is a
 committed result of the thermodynamics modules or of the finite-capacity
 module, re-exported through one named premise bundle so that the ledger

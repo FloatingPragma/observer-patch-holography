@@ -10,8 +10,8 @@ open scoped BigOperators
 /-!
 # The composed Standard Model structure surface (V3, issue #734)
 
-One citable package for the observation-ledger rows OL-G1 through
-OL-G5: the centre and simple-ideal dimension arithmetic, the
+One citable package for the observables `sm-gauge`, `z6`, `generation`,
+`three-generations` and `chirality`: the centre and simple-ideal dimension arithmetic, the
 measure-conditional selection of
 the compact family `G`, the exterior one-generation matter selection
 with anomaly cancellation and its parity grading, the `Z6` kernel with
@@ -21,7 +21,7 @@ results through the premise structures below and add mask-threaded
 finite receipts on the bundled selection.  The companion module
 `Screen/SMStructureComposition.lean` states the composed uniqueness
 theorem on this bundle; the constant re-exports that stand beside the
-premise namespaces here are the conditional OL-G2 clauses and the
+premise namespaces here are the conditional `z6` clauses and the
 band cost receipts, and this header names their status.
 
 `SMStructurePremiseData` bundles the supplied objects the committed
@@ -50,14 +50,14 @@ neither is discharged by any theorem below.  The same-source
 loop-to-kernel identity (the physical carrier-loop class of the
 source is the six-axis gluing class, and its image under the
 committed intertwiner generates the tensor-action kernel) is not a
-field of any bundle here and gates the global-form row OL-G2; the
+field of any bundle here and gates the global-form row `z6`; the
 theorems supply the abstract intertwiner and the four-quotient menu
 only, so the row stays conditional.  The family band-selection rules
 (the family multiplicity object is a single complete faithful band of
 the twelve-port adjacency with dimension in the pinned window, and
 admissible bands are compared by the operational seam-cost order) are
 typed as fields of the extended bundle `SMThreeFamilyPremiseData`
-below and gate the three-family row OL-G4; they are supplied
+below and gate the three-family row `three-generations`; they are supplied
 hypotheses, not theorems, and exactly those rules plus the
 realization clause of the executable certificate
 `family_band_attachment_certificate.py` separate the row from a
@@ -164,7 +164,7 @@ namespace SMStructurePremiseData
 
 variable (D : SMStructurePremiseData)
 
-/-! ## Centre and simple-ideal dimensions (OL-G1) -/
+/-! ## Centre and simple-ideal dimensions (`sm-gauge`) -/
 
 /-- The four-case enumeration behind the dimension data: under the
 bundled classification inputs the centre-versus-semisimple dimension
@@ -179,7 +179,7 @@ theorem centre_semisimple_enumeration :
   OPH.TrichotomyCases.centre_case_enumeration D.centreDim
     D.simpleIdealDims D.centreDim_mem D.simpleIdealDims_mem D.dims_total
 
-/-- **Centre dimension one and simple-ideal dimensions `{3, 8}` (OL-G1).**
+/-- **Centre dimension one and simple-ideal dimensions `{3, 8}` (`sm-gauge`).**
 Under the bundled classification inputs the centre dimension is one and
 the simple-ideal dimension multiset is `{3, 8}`.
 
@@ -198,7 +198,7 @@ theorem forced_gauge_type :
     D.simpleIdealDims D.simpleIdealDims_mem D.dims_total
     D.centreDim_le_one D.centreDim_ne_zero
 
-/-! ## The measure-conditional selection of the family G (OL-G1) -/
+/-! ## The measure-conditional selection of the family G (`sm-gauge`) -/
 
 /-- The bundled weighting rules pin the port-dual weight to `1/12` at
 every port.  Re-export of
@@ -209,7 +209,7 @@ theorem port_dual_weight_pinned (p : Fin 12) :
     D.vertexShare D.faceWeight D.vertexShare_barycentric
     D.faceWeight_constant D.faceWeight_normalized p
 
-/-- **The measure-conditional family selection (OL-G1).**  Under the
+/-- **The measure-conditional family selection (`sm-gauge`).**  Under the
 bundled weighting rules and the declared measure-to-metric and
 nearest-point rules of register row PR-10, the compact family `G` is
 strictly nearer to the pinned face bracket than every other classified
@@ -232,9 +232,9 @@ theorem measure_selects_G (p : Fin 12) (family : CompactFamily)
     D.vertexShare D.faceWeight D.vertexShare_barycentric
     D.faceWeight_constant D.faceWeight_normalized p family h
 
-/-! ## The exterior one-generation selection (OL-G3, OL-G5) -/
+/-! ## The exterior one-generation selection (`generation`, `chirality`) -/
 
-/-- **The one-generation selection (OL-G3).**  The bundled selection
+/-- **The one-generation selection (`generation`).**  The bundled selection
 mask, constrained exactly by the matter candidate grammar of register
 row PR-59, is one of the two conjugate fermionic-parity sectors of the
 ten-component exterior table.  The theorem does not choose between
@@ -246,7 +246,7 @@ theorem matter_selection_is_parity_sector :
   OPH.ExteriorSelection.selection_unique D.selectionMask
     D.selection_nonempty D.selection_chiral D.selection_anomalyFree
 
-/-- **The parity grading of the selection (OL-G5, attained part).**
+/-- **The parity grading of the selection (`chirality`, attained part).**
 Componentwise, the bundled selection agrees with the even-parity table
 or with the odd-parity table of the declared component grammar.  The
 grading is table provenance: the parity column is part of register row
@@ -321,9 +321,9 @@ namespace SMStructurePremiseData
 
 variable (D : SMStructurePremiseData)
 
-/-! ## Mask-threaded matter receipts (OL-G3 evidence, OL-G5 contract) -/
+/-! ## Mask-threaded matter receipts (`generation` evidence, `chirality` contract) -/
 
-/-- **The fifteen-state count on the bundled mask (OL-G3).**  The
+/-- **The fifteen-state count on the bundled mask (`generation`).**  The
 selection mask of the bundle, constrained by the register row PR-59
 grammar, selects components of total dimension fifteen. -/
 theorem masked_generation_count :
@@ -335,7 +335,7 @@ theorem masked_generation_count :
   · exact evenMask_state_count
   · exact oddMask_state_count
 
-/-- **The four anomaly forms vanish on the bundled mask (OL-G3).**
+/-- **The four anomaly forms vanish on the bundled mask (`generation`).**
 Unfolds the Boolean `anomalyFree` field of register row PR-59 into
 the four integer equations on the bundled selection. -/
 theorem masked_anomaly_forms :
@@ -348,7 +348,7 @@ theorem masked_anomaly_forms :
     beq_iff_eq] at h
   exact ⟨h.1.1.1, h.1.1.2, h.1.2, h.2⟩
 
-/-- **The Z6 kernel on the bundled mask (OL-G3 evidence).**  The
+/-- **The Z6 kernel on the bundled mask (`generation` evidence).**  The
 common central stabilizer of the component weights selected by the
 bundled mask is exactly the tensor-action kernel.  The statement
 consumes the bundled selection; the constant realized-weight form is
@@ -379,7 +379,7 @@ theorem masked_diagonal_z6_fixes :
   exact (D.masked_z6_kernel OPH.TraceBalancedKernel.gen).mpr
     (AddMonoidHom.mem_ker.mp hK)
 
-/-- **The chirality-row contract (OL-G5).**  The bundled selection
+/-- **The chirality-row contract (`chirality`).**  The bundled selection
 carries the componentwise parity grading of the declared component
 grammar (register row PR-59, table provenance), and no central
 parameter acts by `-1` on all five matter multiplets, so the finite
@@ -433,9 +433,9 @@ theorem smStructure_generation_weights :
       OPH.Z6Descent.matterWeights :=
   OPH.QuantumMatterIntegration.even_component_weights_eq_matterWeights
 
-/-! ## The Z6 kernel and the conditional global form (OL-G2) -/
+/-! ## The Z6 kernel and the conditional global form (`z6`) -/
 
-/-- **The Z6 kernel (OL-G2, attained part).**  The common central
+/-- **The Z6 kernel (`z6`, attained part).**  The common central
 stabilizer of the realized matter weights is exactly the tensor-action
 kernel; with the committed cyclicity receipt the kernel is the
 six-element group generated by `(omega_3 I_3, -I_2, e^{i pi/3})`.
@@ -447,7 +447,7 @@ theorem smStructure_z6_kernel :
         OPH.TraceBalancedKernel.tensorCharFun c = 0 :=
   OPH.Z6Descent.kernel_on_realized_weights
 
-/-- **The conditional global-form status (OL-G2, boundary part).**
+/-- **The conditional global-form status (`z6`, boundary part).**
 The selected diagonal kernel has exactly four subgroups, and every
 realized local weight descends through all four, so the local tensor
 table determines a maximal effective quotient without selecting a
@@ -488,9 +488,9 @@ theorem smStructure_loop_kernel_intertwiner :
     OPH.Z6Descent.sixAxisToKernel_injective,
     OPH.Z6Descent.sixAxisToKernel_range⟩
 
-/-! ## The family-band receipts (OL-G4) -/
+/-! ## The family-band receipts (`three-generations`) -/
 
-/-- **The family-band selection (OL-G4, conditional).**  Under the
+/-- **The family-band selection (`three-generations`, conditional).**  Under the
 family band-selection rules, declared premises of the V3 program (the
 family multiplicity object is a single complete faithful band of the
 twelve-port adjacency with dimension in the pinned window, and
@@ -548,7 +548,7 @@ theorem smStructure_three_family_receipts :
 
 /-! ## Boundary receipts: the surface carries its own limits -/
 
-/-- **The chirality and global-form boundary (OL-G5, OL-G2
+/-- **The chirality and global-form boundary (`chirality`, `z6`
 scoping).**  No central parameter acts by `-1` on all five matter
 multiplets, so the finite central arithmetic supplies no spacetime
 Spin or fermion-parity attachment; and charge conjugation exchanges
@@ -609,13 +609,13 @@ theorem committedSMStructurePremiseData_weight :
         committedSMStructurePremiseData.faceWeight p = 1 / 12 :=
   committedSMStructurePremiseData.port_dual_weight_pinned
 
-/-! ## The three-family extended bundle (OL-G4) -/
+/-! ## The three-family extended bundle (`three-generations`) -/
 
 /-- The three-family premise bundle: the base Standard-Model
 structure premises extended by the family band-selection rules of
 register row PR-36 as typed fields.  Each field is a supplied
 hypothesis, the registered rule; none is discharged here, and the
-bundle types the conditionality of the three-family row OL-G4.  The
+bundle types the conditionality of the three-family row `three-generations`.  The
 band object is a candidate row `(label, complex dimension, seam cost
 in Z[sqrt5], kernel order)` over the committed twelve-port adjacency
 menu of `A5FamilyBand`. -/
@@ -646,7 +646,7 @@ namespace SMThreeFamilyPremiseData
 
 variable (E : SMThreeFamilyPremiseData)
 
-/-- **The band identification (OL-G4, conditional).**  Under the
+/-- **The band identification (`three-generations`, conditional).**  Under the
 typed band-selection rules of register row PR-36, the supplied band
 is the rank-three band: the trivial band fails the faithfulness
 clause, and the `3'` and `5` bands fail the seam-cost comparison
@@ -691,7 +691,7 @@ theorem band_identified : E.band = ("3", 3, (5, -1), 1) := by
     rw [h] at hlt
     exact absurd hlt (by decide)
 
-/-- **The three-family composed receipt (OL-G4, conditional).**  On
+/-- **The three-family composed receipt (`three-generations`, conditional).**  On
 the extended bundle: the supplied band is identified as the
 rank-three band; three copies of the bundled selection give
 forty-five states; the integer-scaled anomaly forms of three copies

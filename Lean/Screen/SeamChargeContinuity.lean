@@ -160,7 +160,7 @@ charge `q` and the hopping paths are declared; the background sources
 is the committed declared enrichment.  No physical attachment of ports,
 seams, loads, or currents is made or used.
 
-ROWS CITED.  OL-N1 (the physical attachment of the committed carrier and
+ROWS CITED.  Observable `physical-attachment` (the physical attachment of the committed carrier and
 its sources) is cited at scope and NOT discharged.  The source clock and
 duration row, the coupled-action row, and PR-53/PR-54/PR-15 stay open and
 are not consumed.  No frozen prediction is added.

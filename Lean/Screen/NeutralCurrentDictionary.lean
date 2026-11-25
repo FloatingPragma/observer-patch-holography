@@ -97,7 +97,7 @@ dictionary (register row PR-50 untouched, register row PR-36
 three-family structure not consumed).  The
 `zDirection` normalization `gZ` and the unit `e` are exact functions
 of the declared constants.  This is the first structural receipt on
-issue #745, and it closes nothing: rows OL-M1, OL-M2, OL-M3 keep
+issue #745, and it closes nothing: observables `ew-breaking`, `ow-24-muon-decay`, `cabibbo` keep
 their owed physical content.
 
 Falsifier.  The dictionary fails if the committed `infAction` is not

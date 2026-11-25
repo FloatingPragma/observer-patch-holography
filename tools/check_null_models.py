@@ -30,7 +30,7 @@ from typing import Any, Mapping, Sequence
 
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_SCORECARD = Path("tracking/null_model_scorecard.md")
+DEFAULT_SCORECARD = Path("code/P_derivation/null_model_scorecard.md")
 TARGET_ALPHA_INV = Decimal("137.035999177")
 THRESHOLDS = (
     Decimal("1e-4"),

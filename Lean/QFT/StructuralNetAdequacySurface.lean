@@ -5,7 +5,7 @@ import QFT.SourceCorrelationCapstone
 # The structural-net adequacy surface
 
 One display surface for the committed structural-field-theory receipts
-of the quantum lane (observation ledger row OL-C6, issue #730).  A
+of the quantum lane (observable `qft`).  A
 `StructuralNetDeclaredPremises` record bundles the three declared
 premises of the committed regional construction: the Cartesian joint
 carrier (the joint index of an observer pair is the Cartesian product
@@ -51,7 +51,7 @@ derivation record.  Where the committed receipts live on different
 carriers they are re-exported side by side rather than composed, and
 that separation is part of the committed level.
 
-**What OL-C6 lacks at the committed level.**  The time-slice property
+**What `qft` lacks at the committed level.**  The time-slice property
 is not attained: the committed region systems carry no time-indexed or
 Cauchy-region interface, no evolution compatible with those regions, and
 no statement that a slice algebra generates or determines the algebra of

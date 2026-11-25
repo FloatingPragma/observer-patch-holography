@@ -36,13 +36,11 @@ jobs:
           cache: pip
           cache-dependency-path: requirements.txt
       - run: python -m pip install -r requirements.txt
-      - name: Claim registry, premise countermodels and generated registers
+      - name: Claim registry, premise countermodels, observables register and claim views
         run: |
           python tools/check_claim_registry.py
           python -W error code/audit/test_basis_principle_boundaries.py
-          python tools/build_premise_register.py --check
-          python tools/build_observation_ledger.py --check
-          python tools/build_selection_ledger.py --check
+          python tools/check_observables.py
           python tools/build_claim_views.py --check
       - name: QFT/WZ theorem oracle
         working-directory: code/particles/calibration/q1_q4_wz_theorem_oracle

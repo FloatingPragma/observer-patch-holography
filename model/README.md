@@ -43,16 +43,16 @@ python -m pytest -q model                      # every test
 
 ## What the candidates show
 
-| Observable | What the observers read | Candidate | Ledger row |
+| Observable | What the observers read | Candidate | Register row |
 | --- | --- | --- | --- |
 | A clock carried by a patch | Both owners read a travelling nine-bit elapsed word and a home word on the same signed seam at reunion. The patch derives each handoff interval from its own repair record. | [Interval Echo](candidate_laws/interval_echo/SPEC.md) | finite guided comparison |
-| Particle stability | Two loads written on one seam are read as a pair at every later reading, on every number of cells, by a theorem; the same law without the agreement energy loses them. A second object, the excitation of a [cage](experiments/cage/README.md), is kept for every interval and read by a local detector. | contrast-memory reference and scalar channel | OL-K5, attained |
-| A clock inside an object | After a pulse the seam record of a cage swings at one line with no drive. An observer reads the line at 4.8990 of its own reference and reads the level difference of the two modes separately at the same value. | scalar channel | OL-K4, attained as a prepared clock |
-| A stable seam record with zero material load | A seam memory that holds a record while its ports are empty stays that way under every event. Its observers read its level. Physical electric neutrality remains open. | contrast-memory reference | OL-K9, attained for the stored record |
-| Waves of an object | Every frequency of the scalar channel obeys `ω² = m² + λ`, with `λ` a level of the seams. One point of the relation is read from records. | scalar channel | OL-K8, partial |
+| Particle stability | Two loads written on one seam are read as a pair at every later reading, on every number of cells, by a theorem; the same law without the agreement energy loses them. A second object, the excitation of a [cage](experiments/cage/README.md), is kept for every interval and read by a local detector. | contrast-memory reference and scalar channel | `ow-04-particle-stability`, attained |
+| A clock inside an object | After a pulse the seam record of a cage swings at one line with no drive. An observer reads the line at 4.8990 of its own reference and reads the level difference of the two modes separately at the same value. | scalar channel | `ow-03-de-broglie-clock`, attained as a prepared clock |
+| A stable seam record with zero material load | A seam memory that holds a record while its ports are empty stays that way under every event. Its observers read its level. Physical electric neutrality remains open. | contrast-memory reference | `ow-19-dark-matter-candidate`, attained for the stored record |
+| Waves of an object | Every frequency of the scalar channel obeys `ω² = m² + λ`, with `λ` a level of the seams. One point of the relation is read from records. | scalar channel | `ow-30-klein-gordon`, partial |
 | What a reading leaves | Asking "is a pair there?" and asking "where is it?" give the same first answer and different later records. | contrast-memory reference | |
 
-The last column names the row of the [observation ledger](../docs/registers/OBSERVATION_LEDGER_V3.md). Each result
+The last column names the row of the [observables register](../docs/registers/OBSERVABLES.json). Each result
 is a statement about one construction, with everything its makers supplied listed beside it. Interval Echo shares the reference candidate’s seam operator and adds a patch clock. The scalar channel acts on a different state space. Each candidate has its own premise evaluation.
 
 On the 20-cell Interval Echo federation, a patch in cell zero records whether

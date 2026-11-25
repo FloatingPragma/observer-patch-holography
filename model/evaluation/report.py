@@ -185,7 +185,7 @@ def evidence_ledger(results):
         lines.append('')
     lines.extend(['## Full premise register', '',
                   'The register records each theorem assumption and its formal consumers. The role identifies who must supply it. Candidate declarations, including supplied apparatus and imports, are preserved in the individual JSON receipts. An open entry has no full discharge registered for that row.', '',
-                  '[Formal premise register](../../docs/registers/PREMISE_REGISTER_V3.md) · [Role assignments](roles.json)', '',
+                  '[Premise rows of the observables register](../../docs/registers/OBSERVABLES.json) · [Role assignments](roles.json)', '',
                   *table('Premise', 'Role', *(short(r) for r in results))])
     for cases in zip(*(r['premises'] for r in results), strict=True):
         row = cases[0]

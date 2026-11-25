@@ -114,10 +114,7 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
         [sys.executable, "tools/check_lean_docstring_style.py"],
     ),
     ("Validate claim registry", [sys.executable, "tools/check_claim_registry.py"]),
-    (
-        "Validate the selection ledger and its generated surface",
-        [sys.executable, "tools/build_selection_ledger.py", "--check"],
-    ),
+    ("Validate the observables and premises register", [sys.executable, "tools/check_observables.py"]),
     (
         "Validate the frozen-prediction ladder and its generated surface",
         [sys.executable, "tools/build_fz_registry.py", "--check"],
@@ -217,43 +214,7 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
         ],
     ),
     (
-        "Validate the V3 observation ledger surface",
-        [
-            sys.executable,
-            "tools/build_observation_ledger.py",
-            "--check",
-        ],
-    ),
-    (
-        "Execute the observation ledger gates",
-        [
-            sys.executable,
-            "-m",
-            "pytest",
-            "-q",
-            "tools/test_observation_ledger.py",
-        ],
-    ),
-    (
-        "Validate the V3 premise register surface",
-        [
-            sys.executable,
-            "tools/build_premise_register.py",
-            "--check",
-        ],
-    ),
-    (
-        "Execute the premise register gates",
-        [
-            sys.executable,
-            "-m",
-            "pytest",
-            "-q",
-            "tools/test_premise_register.py",
-        ],
-    ),
-    (
-        "Execute the Issue 763 source-derived causal-order cross-surface gates",
+        "Execute the source-derived causal-order cross-surface gates",
         [
             sys.executable,
             "-m",
@@ -342,60 +303,6 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
             "pytest",
             "-q",
             "code/electromagnetism/test_discrete_coulomb_green.py",
-        ],
-    ),
-    (
-        "Validate the V3 constants ancestry surface",
-        [
-            sys.executable,
-            "tools/build_constants_ancestry.py",
-            "--check",
-        ],
-    ),
-    (
-        "Execute the constants ancestry gates",
-        [
-            sys.executable,
-            "-m",
-            "pytest",
-            "-q",
-            "tools/test_constants_ancestry.py",
-        ],
-    ),
-    (
-        "Validate the emergent-instrument register surface",
-        [
-            sys.executable,
-            "tools/build_instrument_register.py",
-            "--check",
-        ],
-    ),
-    (
-        "Execute the instrument register gates",
-        [
-            sys.executable,
-            "-m",
-            "pytest",
-            "-q",
-            "tools/test_instrument_register.py",
-        ],
-    ),
-    (
-        "Validate the SM Lagrangian correspondence surface",
-        [
-            sys.executable,
-            "tools/build_sm_correspondence.py",
-            "--check",
-        ],
-    ),
-    (
-        "Execute the SM correspondence gates",
-        [
-            sys.executable,
-            "-m",
-            "pytest",
-            "-q",
-            "tools/test_sm_correspondence.py",
         ],
     ),
     (
@@ -637,11 +544,7 @@ MANDATORY_STEPS: list[tuple[str, list[str]]] = [
         ],
     ),
     (
-        "Validate the gravity premise ladder and its generated surface",
-        [sys.executable, "tools/build_gravity_ladder.py", "--check"],
-    ),
-    (
-        "Execute the gravity premise ladder mutation tests",
+        "Execute the gravity receipt mutation tests",
         [
             sys.executable,
             "-m",

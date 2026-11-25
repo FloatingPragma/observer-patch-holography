@@ -126,7 +126,7 @@ def test_every_candidate_declares_known_premises_and_runs_on_the_cell():
         result = ev.evaluate(name)
         assert result['checks']['native_cell']['status'] == 'pass'
         assert result['checks']['parameters']['status'] == 'pass'
-        assert len(result['premises']) == len(ev.json.loads(ev.REGISTER.read_text())['rows'])
+        assert len(result['premises']) == len(ev.premise_register())
 
 
 def test_written_evaluations_are_current():

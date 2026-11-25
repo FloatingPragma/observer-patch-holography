@@ -87,7 +87,7 @@ limit, and no uniqueness of the induced net is claimed.  The declared order
 `JoinRegion.le` is one declared choice of induced region order; the
 fiber-uniform hinge sections stay a declared normalization; the rich-fibre
 and source regional nets live on other carriers and are outside this
-module's scope.  OL-C6 stays partial with the net-morphism residual
+module's scope.  `qft` stays partial with the net-morphism residual
 narrowed to the operator layer.
 -/
 
