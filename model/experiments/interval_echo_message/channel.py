@@ -385,11 +385,17 @@ REPLAY_EVALUATIONS = (
         "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
         "model/candidate_laws/interval_echo/EVALUATION.json": "f2626dc1fee2f2bbd42be37c44b912601a118bd4d9ec4f3381423bc4e89f8766",
     },
-    # Crossed winding instruments, monitored spinors and the lowest mobile charge band.
+    # Three material charts, reciprocal cameras, guide recoil and double-ring pressure.
     {
         "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
         "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
-        "model/candidate_laws/interval_echo/EVALUATION.json": "6a5cdfd37e54b4a0a969a7ba53c054283ffa83d411b14386141f7b078000343d",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "d6f8f82ecf4d656fef448a20a5212168fcabbbb792df5e2e54a41e828dbb1740",
+    },
+    # Crossed winding, near-threshold charged motion and regional gravity measurements.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "912b0cc598f815381b2374c0a922a620841172bf944a72411aa8f638b09f7dbc",
     },
 )
 
