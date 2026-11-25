@@ -6,7 +6,7 @@
 | --- | --- |
 | Does the collar change a finite readout at fixed ordinary energy? | Pass on the prepared four-station survey. |
 | Does ordinary calibration predict a shared optical response? | Fails for the specified material camera and scalar assignment. A directional focusing test also rejects the specified bridge-flux and seam-work assignments with that clock. |
-| Can a source observer measure a signed joint change with both separate head readings fixed? | Pass on the selected preparation. A held clock and reception comparison gives focusing with the opposite sign to the ordinary-calibrated flux prediction. [Observer records](selected_collar/README.md) |
+| Can a source observer measure a signed joint change with both separate head readings fixed? | Pass on the selected preparation. The source-selected preparation fails a counted focusing prediction. A second preparation fitted at one appointment fails both independent held clock comparisons. [Observer records](selected_collar/README.md) |
 | Does the collar produce physical gravitational stress in the common Einstein tower, or does the separate mobile-pair branch establish a stable, electrically neutral massive state? | Open on both routes. |
 | Does the complete criterion qualify for independent full-mark release review? | Hold at physical identification and prediction. No outgoing cell or release verdict. |
 

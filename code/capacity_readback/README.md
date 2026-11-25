@@ -148,6 +148,59 @@ python3 source_derived_public_checkpoint_packet.py --output-dir runtime
 This writes the complete terminal-fiber manifest, public checkpoint packet,
 and certificate as canonical JSON.
 
+## Discrete spherical refinement
+
+Under the declared uniform fourfold icosahedral hierarchy, `C_L=20*4^L`.
+Identifying each carrier cell with a canonical screen cell of area-law
+allocation `P/4` gives the conditional capacity `N_L=5*P*4^L`.
+The Planck-2018 de Sitter benchmark selects level 202 among these integer
+levels. At the displayed gauge-width root `P=1.6309682414`, its capacity is
+`3.3692540340e122` nats and `Lambda*l_P^2=2.7972892117e-122`.
+This is an observation-selected discrete refinement. Spherical topology
+alone does not require that hierarchy; physical record counting and the
+carrier-to-screen identification are separate hypotheses.
+
+The [calculation](discrete_spherical_refinement.py) emits adjacent levels,
+input provenance and conditional sensitivities. Its decimal precision is
+arithmetic precision. The [screen-cell definition](../../paper/screen_microphysics_and_observer_synchronization.tex)
+distinguishes the area allocation from an independent Hilbert factor.
+The astronomical benchmark is inferred from `Lambda=3*Omega_Lambda*H0^2/c^2`
+and the Gibbons--Hawking law `N=3*pi/(Lambda*l_P^2)`;
+[Planck](https://arxiv.org/abs/1807.06209) supplies the cosmological inputs and
+[CODATA](https://physics.nist.gov/cuu/pdf/all.pdf) the SI scale.
+
+## Dependence on the capacity choice
+
+Holding the pixel and physical constants fixed, substitution of the level-202
+capacity for the rounded `3.31e122` display gives:
+
+| Quantity | Dependence on N | Relative change |
+| --- | --- | ---: |
+| Cosmological constant and vacuum density | `N^-1` | -1.75867% |
+| de Sitter expansion rate, acceleration and temperature | `N^-1/2` | -0.88324% |
+| Horizon radius and horizon time | `N^1/2` | +0.89111% |
+| Conditional one-tick multiplier | `N^-1/48` | -0.03696% |
+| Hypothetical electroweak power-law substitution at fixed pixel | `N^(-P/12)` | -0.24086% |
+
+The Planck central-value capacity `3.31259e122`, rather than its rounded
+display, gives -1.68170% in Lambda and -0.84441% in square-root scales.
+The de Sitter rate is the asymptotic rate; present-day H0, distances, age,
+growth and CMB transfer require a consistent background calculation.
+A galaxy acceleration proportional to `sqrt(Lambda)` inherits that scaling
+only with a separately justified fixed coefficient. The fitted galaxy scale
+in the [dark-sector comparison](../cosmology/rar_deep_regime/README.md) has no
+derived Lambda attachment.
+
+The [electroweak hierarchy](../particles/hierarchy/README.md) uses its own
+bridge-defined capacity `N_EW=pi*exp(6*pi/(P*alpha_U(P)))`.
+At its source-forward pixel, substituting the level-202 capacity for the
+bridge display changes the formal `v/E_cell` power law by about +0.644%.
+That substitution does not preserve the certified bridge equation.
+The scalar tilt and fixed-capacity `w=-1` depend on the fixed pixel and
+constancy assumptions, respectively, and are unchanged. The level-202
+capacity lies outside the registered FZ-01 capacity band; this diagnostic
+changes no frozen target, comparison verdict or source-capacity certificate.
+
 ## Independent geometric estimator
 
 - [`operational_readback_contract.py`](operational_readback_contract.py)

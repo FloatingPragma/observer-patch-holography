@@ -21,6 +21,19 @@ An ordinary intervention calibrates the relation between energy current and the 
 
 The comparison that uses the sum of forward and reverse focusing also has the opposite sign to the calibrated work prediction on both probes. Those are calculated response derivatives. The claim about the vacancy difference above has an independent, counted acquisition. The choice of exchange clock, material pulse and identification of measured bridge flux with directional stress are part of the hypothesis under test.
 
+## A collar fitted to one appointment and tested at two others
+
+The second search gives the candidate every advantage at the calibration appointment. Within the same 18 joint readings, require fixed survey volume and fit all four focusing responses at clock reading 4. These five independent linear conditions leave 13 directions. Choose the one with the largest remaining modular signal and freeze its preparation. Its joint read is +0.00018301 ± 0.00003336 nats in an independent synthetic count. Its four predicted population changes agree with the four training changes by construction. [Training constraints, source recipe and measured Pauli counts](search.json)
+
+At 3.5 and 4.5 the source observer uses the same preparation. The optical observer receives pulses and reads a separate calibrated clock. The flux observer uses the nineteen registered phase kicks. The table gives the **finite counted** forward-minus-reverse focusing change for the vacancy probe. Each row has at least 99% simultaneous counting coverage across its source-current, ordinary calibration, clock and camera settings. These are material focusing units per preparation change.
+
+| Held clock reading | Prediction from the precision flux observer and ordinary calibration | Independent camera record |
+| ---: | ---: | ---: |
+| 3.5 | −210.08 to −199.12 | +25.71 to +36.37 |
+| 4.5 | +2.42 to +3.91 | +13.43 to +18.20 |
+
+The first held appointment has opposite signs. At the second the camera records a larger positive response than the upper predicted value. The original flux banks leave both predictions unresolved. The precision banks use the same optical records and a fresh, higher-count flux measurement. A reader can reproduce both comparisons with only the saved counts, public calibration settings and the preparation steps. The finite-difference camera uses neighboring clock appointments. Its result can differ from the derivative at their center. In the infinitesimal comparison, all eight held probe and stress channels miss the registered 1% target. The search establishes a failure for this fitted preparation and the specified instruments. It makes no exclusion of every collar allowed by the tower. [Counts at 3.5](held_3.5.json) · [Precision flux at 3.5](flux_3.5.json) · [Counts at 4.5](held_4.5.json) · [Precision flux at 4.5](flux_4.5.json)
+
 ## A seam that carries actual interaction energy
 
 A distinct four-word seam provides a concrete nonparticle energy candidate. Two preparations with identical separately measured marginals have energies 12 and 4 on the isolated native contact. A thermometer and joint counting meter measure their difference as 7.95234 ± 0.02032 energy units (one counting standard error). With the coin phase reversed, the energy difference vanishes. With uniform contact energy coupled to a supplied homogeneous gravitational dynamics, observers’ radar records give a volume-weighted curvature change of 12.79997–12.80000 at three held times. A comparison gravitational law reproduces the ordinary calibration and gives zero collar curvature on the same matter records. These calculations identify exactly which inference depends on assigning the seam energy to gravity. The two-head experiment above uses a different preparation and tests its own connection to clock and reception records. [Native energy, measured curvature and alternative coupling](../../../../code/matched_einstein_limit/seam_overlap/README.md) · [Equal-volume optical rims](../../../../code/matched_einstein_limit/seam_overlap/rim.json)
@@ -35,6 +48,7 @@ Run from the RER root with the project’s Python environment.
 PYTHONPATH=code:. python -m openwave.interval_echo.row_19.selected_collar.measure
 PYTHONPATH=code:. python -m openwave.interval_echo.row_19.selected_collar.observer_records --counts-only
 PYTHONPATH=code:. python -m openwave.interval_echo.row_19.selected_collar.search --counts-only
+PYTHONPATH=code:. python -m openwave.interval_echo.row_19.selected_collar.precision_flux --counts-only
 ```
 
 The optical count decoders use published instrument settings and complete count banks. Omitting `--counts-only` regenerates the simulated events. Each high-count experiment samples batches from the computed probability laws. The uncertainty intervals describe simulated counting uncertainty.
