@@ -1,6 +1,8 @@
 import Mathlib.Data.Matrix.Basis
 import Mathlib.Algebra.Algebra.Subalgebra.Basic
 import Mathlib.Algebra.Module.LinearMap.Defs
+import Mathlib.Analysis.Calculus.Deriv.Mul
+import Mathlib.Analysis.Calculus.LocalExtr.Basic
 import Mathlib.Data.Real.Basic
 import Mathlib.Tactic.FieldSimp
 import Mathlib.Tactic.Linarith
@@ -15,6 +17,39 @@ three linear forms and the radius-dependent error estimates belong to the source
 namespace OPH.EinsteinBranch.StationarityReadout
 
 variable {E : Type*} [AddCommGroup E] [Module ℝ E]
+
+/-- Every admitted jointly recordable tangent has a lift to at least one observer chart.
+Both the volume differential and the calibrated entropy-area residual are read on the
+common tangent. Then fixed-volume stationarity can be tested on the chart lifts. -/
+theorem fixed_volume_on_chart_cover {ι Q : Type*} {D : ι → Type*}
+    (chart : (i : ι) → D i → Q) (volume residual : Q → ℝ)
+    (cover : ∀ x : Q, ∃ (i : ι) (d : D i), chart i d = x) :
+    (∀ (i : ι) (d : D i), volume (chart i d) = 0 → residual (chart i d) = 0) ↔
+      ∀ x : Q, volume x = 0 → residual x = 0 := by
+  constructor
+  · intro localBalance x hx
+    obtain ⟨i, d, rfl⟩ := cover x
+    exact localBalance i d hx
+  · intro balance i d
+    exact balance (chart i d)
+
+open scoped Topology in
+/-- Along an admitted two-sided proper-volume path, suppose a ceiling depending only on
+volume bounds the generalized entropy locally and is attained at the reference. The
+entropy and area derivatives then obey fixed-volume balance at the calibrated gain. -/
+theorem saturated_ceiling_on_fixed_volume_path (volume entropy area ceiling : ℝ → ℝ)
+    (η ds da : ℝ) (fixed : ∀ᶠ t in 𝓝 (0 : ℝ), volume t = volume 0)
+    (bound : ∀ᶠ t in 𝓝 (0 : ℝ), entropy t + η * area t ≤ ceiling (volume t))
+    (saturated : entropy 0 + η * area 0 = ceiling (volume 0))
+    (hs : HasDerivAt entropy ds 0) (ha : HasDerivAt area da 0) :
+    ds + η * da = 0 := by
+  have maximum : IsLocalMax (fun t => entropy t + η * area t) 0 := by
+    exact (fixed.and bound).mono fun t ⟨hv, hb⟩ => by
+      calc
+        entropy t + η * area t ≤ ceiling (volume t) := hb
+        _ = ceiling (volume 0) := congrArg ceiling hv
+        _ = entropy 0 + η * area 0 := saturated.symm
+  exact maximum.hasDerivAt_eq_zero (hs.add (ha.const_mul η))
 
 /-- A volume-changing calibration accounts for every discarded volume component. -/
 theorem fixed_volume_iff (vol residual : E →ₗ[ℝ] ℝ) (q : E) (hq : vol q = 1) :
@@ -328,6 +363,8 @@ assert_no_sorry conserved_port_effect
 assert_no_sorry scalar_of_complete_returns
 
 assert_no_sorry trace_volume_stationarity
+assert_no_sorry fixed_volume_on_chart_cover
+assert_no_sorry saturated_ceiling_on_fixed_volume_path
 assert_no_sorry fixed_volume_iff
 assert_no_sorry ordinary_calibration
 assert_no_sorry blind_transfer
@@ -337,6 +374,8 @@ assert_no_sorry measured_residual
 #print axioms conserved_port_effect
 #print axioms scalar_of_complete_returns
 #print axioms trace_volume_stationarity
+#print axioms fixed_volume_on_chart_cover
+#print axioms saturated_ceiling_on_fixed_volume_path
 #print axioms fixed_volume_iff
 #print axioms ordinary_calibration
 #print axioms blind_transfer

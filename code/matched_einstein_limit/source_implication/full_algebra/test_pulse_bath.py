@@ -1,4 +1,6 @@
 import json
+from decimal import Decimal
+from fractions import Fraction
 from pathlib import Path
 
 from ..receipt_replay import pinned_receipt, verify_recorded_band
@@ -9,7 +11,7 @@ def test_native_sector_relaxation_and_fixed_volume_slope():
     observed = pulse_bath.run()
     saved = pinned_receipt(
         Path(pulse_bath.__file__).with_suffix(".json"),
-        "e268d53dd7768837c44f871f49397575e0d48d0d89ddc535e196532845418369",
+        "620c59ecffd85181a826e33d92c4f68e7010ff674b0f478a4c5cb6ca18adefbe",
     )
     # The gain uses a certified matrix-log eigensolver proposal. Bound its
     # signed objective derivative for both proposals in the same printed band.
@@ -28,6 +30,20 @@ def test_native_sector_relaxation_and_fixed_volume_slope():
     assert all(
         sum(sector["commutator_gram"].values()) == 15 for sector in collision["sectors"]
     )
+
+
+def test_selected_reference_does_not_saturate_the_fixed_parity_capacity():
+    saved = json.loads(Path(pulse_bath.__file__).with_suffix(".json").read_text())
+    meter = saved["matched_measurement"]
+    z_lower, z_upper = json.loads(meter["optimizer_joint_ZZ"], parse_float=Decimal)
+    receipt = meter["optimizer_fixed_parity_entropy_shortfall"]
+    floor = Fraction(receipt["absolute_ZZ_lower"])
+    assert 0 < floor < Fraction(z_lower) < Fraction(z_upper) < 1
+    series = pulse_bath.binary_entropy_shortfall(floor)
+    assert receipt["positive_series_terms"] == 5
+    assert series == Fraction(receipt["series_lower_nats"])
+    assert series > Fraction(receipt["strict_lower_nats"]) == Fraction(11033, 100000)
+    assert pulse_bath.binary_entropy_shortfall(meter["bath_joint_ZZ"]) == 0
 
 
 def test_reused_radar_has_a_distinct_matched_volume_equilibrium():
