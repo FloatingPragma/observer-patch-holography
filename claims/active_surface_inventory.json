@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 1149,
+  "surface_count": 1151,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -1952,6 +1952,11 @@
     },
     {
       "path": "model/candidate_laws/interval_echo/openwave/row_26_newton/mobile_mediator/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_26_newton/mobile_mediator/finite_density/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -5547,6 +5552,11 @@
     },
     {
       "path": "Lean/ObserverPatchHolography/Provenance/FiniteCausetCoverCompiler.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/Provenance/GuardedRailRecords.lean",
       "glob": "Lean/ObserverPatchHolography/**/*.lean",
       "allowlisted": false
     },

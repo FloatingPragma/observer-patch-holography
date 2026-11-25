@@ -1,0 +1,4230 @@
+{
+  "a0_m_s2": 8.75040225e-11,
+  "n_spectra": 53,
+  "n_matching_stellar_masses": 18,
+  "n_population_boxes_narrowed_by_spectra": 10,
+  "total_flat_field": {
+    "common_nominal_interval": [
+      1.24186043,
+      0.92096828
+    ],
+    "includes_unit": 46,
+    "two_speed_errors_and_two_percent_ring": [
+      0.926127674,
+      1.15998944
+    ]
+  },
+  "extended_square_root": {
+    "bSIE": {
+      "53_spectra": {
+        "empty_mass_boxes": [],
+        "zero_slip_outside": [],
+        "maximum_lower": [
+          "J0252+0039",
+          0.955461026
+        ],
+        "minimum_upper": [
+          "J0737+3216",
+          1.44102269
+        ]
+      },
+      "18_spectra": {
+        "empty_mass_boxes": [],
+        "zero_slip_outside": [],
+        "maximum_lower": [
+          "J0252+0039",
+          0.955461026
+        ],
+        "minimum_upper": [
+          "J1627-0053",
+          1.75485466
+        ]
+      },
+      "18_spectra_and_populations": {
+        "empty_mass_boxes": [],
+        "zero_slip_outside": [
+          "J2300+0022"
+        ],
+        "maximum_lower": [
+          "J2300+0022",
+          1.03801415
+        ],
+        "minimum_upper": [
+          "J1250+0523",
+          1.23309869
+        ]
+      }
+    },
+    "bLTM": {
+      "53_spectra": {
+        "empty_mass_boxes": [],
+        "zero_slip_outside": [],
+        "maximum_lower": [
+          "J0252+0039",
+          0.924815494
+        ],
+        "minimum_upper": [
+          "J0737+3216",
+          1.34218853
+        ]
+      },
+      "18_spectra": {
+        "empty_mass_boxes": [],
+        "zero_slip_outside": [],
+        "maximum_lower": [
+          "J0252+0039",
+          0.924815494
+        ],
+        "minimum_upper": [
+          "J1250+0523",
+          1.71478154
+        ]
+      },
+      "18_spectra_and_populations": {
+        "empty_mass_boxes": [],
+        "zero_slip_outside": [],
+        "maximum_lower": [
+          "J2300+0022",
+          0.942995919
+        ],
+        "minimum_upper": [
+          "J1250+0523",
+          1.17448166
+        ]
+      }
+    }
+  },
+  "total_by_lens": [
+    {
+      "name": "J0029-0055",
+      "k": [
+        0.295471934,
+        0.600675926
+      ],
+      "total_weight": [
+        0.531197558,
+        1.07989135
+      ],
+      "speed_and_angle_box": [
+        0.388741908,
+        1.5507314
+      ]
+    },
+    {
+      "name": "J0037-0942",
+      "k": [
+        0.29519926,
+        0.603445006
+      ],
+      "total_weight": [
+        0.615997274,
+        1.25921887
+      ],
+      "speed_and_angle_box": [
+        0.498581915,
+        1.58694677
+      ]
+    },
+    {
+      "name": "J0044+0113",
+      "k": [
+        0.29166311,
+        0.640702692
+      ],
+      "total_weight": [
+        0.594649933,
+        1.30628043
+      ],
+      "speed_and_angle_box": [
+        0.483598584,
+        1.63673128
+      ]
+    },
+    {
+      "name": "J0109+1500",
+      "k": [
+        0.303873165,
+        0.522109522
+      ],
+      "total_weight": [
+        0.570068117,
+        0.979481002
+      ],
+      "speed_and_angle_box": [
+        0.421409756,
+        1.38734485
+      ]
+    },
+    {
+      "name": "J0216-0813",
+      "k": [
+        0.291196069,
+        0.645815848
+      ],
+      "total_weight": [
+        0.633567326,
+        1.40512824
+      ],
+      "speed_and_angle_box": [
+        0.479323691,
+        1.92948234
+      ]
+    },
+    {
+      "name": "J0252+0039",
+      "k": [
+        0.303745143,
+        0.523213625
+      ],
+      "total_weight": [
+        1.24186043,
+        2.13915617
+      ],
+      "speed_and_angle_box": [
+        0.926127674,
+        2.99415506
+      ]
+    },
+    {
+      "name": "J0330-0020",
+      "k": [
+        0.306300736,
+        0.501685146
+      ],
+      "total_weight": [
+        0.861878138,
+        1.41165661
+      ],
+      "speed_and_angle_box": [
+        0.58840483,
+        2.23925275
+      ]
+    },
+    {
+      "name": "J0405-0455",
+      "k": [
+        0.304131242,
+        0.519892104
+      ],
+      "total_weight": [
+        0.742737956,
+        1.26966107
+      ],
+      "speed_and_angle_box": [
+        0.601556361,
+        1.59883246
+      ]
+    },
+    {
+      "name": "J0728+3835",
+      "k": [
+        0.299211298,
+        0.564131289
+      ],
+      "total_weight": [
+        0.857837264,
+        1.61736153
+      ],
+      "speed_and_angle_box": [
+        0.691249014,
+        2.0494266
+      ]
+    },
+    {
+      "name": "J0737+3216",
+      "k": [
+        0.290064754,
+        0.658393844
+      ],
+      "total_weight": [
+        0.433610578,
+        0.984216562
+      ],
+      "speed_and_angle_box": [
+        0.350811212,
+        1.24101512
+      ]
+    },
+    {
+      "name": "J0822+2652",
+      "k": [
+        0.298790142,
+        0.568117034
+      ],
+      "total_weight": [
+        0.652171289,
+        1.24003294
+      ],
+      "speed_and_angle_box": [
+        0.513324029,
+        1.6179383
+      ]
+    },
+    {
+      "name": "J0912+0029",
+      "k": [
+        0.283298795,
+        0.739638435
+      ],
+      "total_weight": [
+        0.638196788,
+        1.66620855
+      ],
+      "speed_and_angle_box": [
+        0.518620688,
+        2.08963324
+      ]
+    },
+    {
+      "name": "J0935-0003",
+      "k": [
+        0.281283116,
+        0.765978453
+      ],
+      "total_weight": [
+        0.466324815,
+        1.26987629
+      ],
+      "speed_and_angle_box": [
+        0.330014591,
+        1.91124675
+      ]
+    },
+    {
+      "name": "J0936+0913",
+      "k": [
+        0.295933093,
+        0.596025649
+      ],
+      "total_weight": [
+        0.590104725,
+        1.18850362
+      ],
+      "speed_and_angle_box": [
+        0.479010675,
+        1.49253663
+      ]
+    },
+    {
+      "name": "J0946+1006",
+      "k": [
+        0.293793011,
+        0.617958722
+      ],
+      "total_weight": [
+        0.681645677,
+        1.43376076
+      ],
+      "speed_and_angle_box": [
+        0.496702767,
+        2.07111309
+      ]
+    },
+    {
+      "name": "J0956+5100",
+      "k": [
+        0.29519926,
+        0.603445006
+      ],
+      "total_weight": [
+        0.534465695,
+        1.09255238
+      ],
+      "speed_and_angle_box": [
+        0.43146265,
+        1.38131543
+      ]
+    },
+    {
+      "name": "J0959+4416",
+      "k": [
+        0.297173506,
+        0.583720216
+      ],
+      "total_weight": [
+        0.640859548,
+        1.25880224
+      ],
+      "speed_and_angle_box": [
+        0.470186733,
+        1.80136985
+      ]
+    },
+    {
+      "name": "J0959+0410",
+      "k": [
+        0.303745143,
+        0.523213625
+      ],
+      "total_weight": [
+        0.727831061,
+        1.25371924
+      ],
+      "speed_and_angle_box": [
+        0.556646378,
+        1.69722997
+      ]
+    },
+    {
+      "name": "J1016+3859",
+      "k": [
+        0.302867291,
+        0.53085876
+      ],
+      "total_weight": [
+        0.635737346,
+        1.11430567
+      ],
+      "speed_and_angle_box": [
+        0.510002627,
+        1.41975652
+      ]
+    },
+    {
+      "name": "J1020+1122",
+      "k": [
+        0.301316015,
+        0.544690353
+      ],
+      "total_weight": [
+        0.69769836,
+        1.26123255
+      ],
+      "speed_and_angle_box": [
+        0.537697175,
+        1.6905318
+      ]
+    },
+    {
+      "name": "J1023+4230",
+      "k": [
+        0.299317716,
+        0.563129283
+      ],
+      "total_weight": [
+        0.728233713,
+        1.37008171
+      ],
+      "speed_and_angle_box": [
+        0.564923681,
+        1.820982
+      ]
+    },
+    {
+      "name": "J1029+0420",
+      "k": [
+        0.301665403,
+        0.541538838
+      ],
+      "total_weight": [
+        0.59431419,
+        1.06689137
+      ],
+      "speed_and_angle_box": [
+        0.477204791,
+        1.35782333
+      ]
+    },
+    {
+      "name": "J1106+5228",
+      "k": [
+        0.300296649,
+        0.554007565
+      ],
+      "total_weight": [
+        0.500161292,
+        0.922731373
+      ],
+      "speed_and_angle_box": [
+        0.40565213,
+        1.15998944
+      ]
+    },
+    {
+      "name": "J1112+0826",
+      "k": [
+        0.302379446,
+        0.53516388
+      ],
+      "total_weight": [
+        0.582927224,
+        1.03168915
+      ],
+      "speed_and_angle_box": [
+        0.451372783,
+        1.37446261
+      ]
+    },
+    {
+      "name": "J1134+6027",
+      "k": [
+        0.296785235,
+        0.587540513
+      ],
+      "total_weight": [
+        0.609792612,
+        1.20719572
+      ],
+      "speed_and_angle_box": [
+        0.493506115,
+        1.52158683
+      ]
+    },
+    {
+      "name": "J1142+1001",
+      "k": [
+        0.297867889,
+        0.576958766
+      ],
+      "total_weight": [
+        0.787638274,
+        1.52562536
+      ],
+      "speed_and_angle_box": [
+        0.536841013,
+        2.42597369
+      ]
+    },
+    {
+      "name": "J1143-0144",
+      "k": [
+        0.27850222,
+        0.804063514
+      ],
+      "total_weight": [
+        0.626496586,
+        1.80875774
+      ],
+      "speed_and_angle_box": [
+        0.510511245,
+        2.26085437
+      ]
+    },
+    {
+      "name": "J1153+4612",
+      "k": [
+        0.306874841,
+        0.496994625
+      ],
+      "total_weight": [
+        0.580827542,
+        0.940670683
+      ],
+      "speed_and_angle_box": [
+        0.443619089,
+        1.27568226
+      ]
+    },
+    {
+      "name": "J1204+0358",
+      "k": [
+        0.302744416,
+        0.531939277
+      ],
+      "total_weight": [
+        0.546807239,
+        0.960771635
+      ],
+      "speed_and_angle_box": [
+        0.421647823,
+        1.28685918
+      ]
+    },
+    {
+      "name": "J1205+4910",
+      "k": [
+        0.291820724,
+        0.63898749
+      ],
+      "total_weight": [
+        0.600347882,
+        1.31455635
+      ],
+      "speed_and_angle_box": [
+        0.486546933,
+        1.65405892
+      ]
+    },
+    {
+      "name": "J1213+6708",
+      "k": [
+        0.287206725,
+        0.691419678
+      ],
+      "total_weight": [
+        0.425057118,
+        1.02327985
+      ],
+      "speed_and_angle_box": [
+        0.342552647,
+        1.2964558
+      ]
+    },
+    {
+      "name": "J1218+0830",
+      "k": [
+        0.287538621,
+        0.687490238
+      ],
+      "total_weight": [
+        0.772110041,
+        1.84607589
+      ],
+      "speed_and_angle_box": [
+        0.624826471,
+        2.32704885
+      ]
+    },
+    {
+      "name": "J1250+0523",
+      "k": [
+        0.298894762,
+        0.567123908
+      ],
+      "total_weight": [
+        0.557511482,
+        1.05782413
+      ],
+      "speed_and_angle_box": [
+        0.442552614,
+        1.36558483
+      ]
+    },
+    {
+      "name": "J1402+6321",
+      "k": [
+        0.290965736,
+        0.648354513
+      ],
+      "total_weight": [
+        0.703291993,
+        1.56713482
+      ],
+      "speed_and_angle_box": [
+        0.54231458,
+        2.09902308
+      ]
+    },
+    {
+      "name": "J1403+0006",
+      "k": [
+        0.302867291,
+        0.53085876
+      ],
+      "total_weight": [
+        0.673673092,
+        1.18079857
+      ],
+      "speed_and_angle_box": [
+        0.490953745,
+        1.70541129
+      ]
+    },
+    {
+      "name": "J1416+5136",
+      "k": [
+        0.303239661,
+        0.527599936
+      ],
+      "total_weight": [
+        0.865589363,
+        1.50601967
+      ],
+      "speed_and_angle_box": [
+        0.580984404,
+        2.45101572
+      ]
+    },
+    {
+      "name": "J1420+6019",
+      "k": [
+        0.296402912,
+        0.591330261
+      ],
+      "total_weight": [
+        0.58644802,
+        1.16997656
+      ],
+      "speed_and_angle_box": [
+        0.477087772,
+        1.46535078
+      ]
+    },
+    {
+      "name": "J1430+4105",
+      "k": [
+        0.292138928,
+        0.635540524
+      ],
+      "total_weight": [
+        0.638521066,
+        1.38908572
+      ],
+      "speed_and_angle_box": [
+        0.435450145,
+        2.20699602
+      ]
+    },
+    {
+      "name": "J1436-0000",
+      "k": [
+        0.29475129,
+        0.608025903
+      ],
+      "total_weight": [
+        0.76930666,
+        1.58695956
+      ],
+      "speed_and_angle_box": [
+        0.568305936,
+        2.24985674
+      ]
+    },
+    {
+      "name": "J1443+0304",
+      "k": [
+        0.310302883,
+        0.470061932
+      ],
+      "total_weight": [
+        0.607960554,
+        0.92096828
+      ],
+      "speed_and_angle_box": [
+        0.487719467,
+        1.17342194
+      ]
+    },
+    {
+      "name": "J1451-0239",
+      "k": [
+        0.292705608,
+        0.62945397
+      ],
+      "total_weight": [
+        0.579006192,
+        1.24513414
+      ],
+      "speed_and_angle_box": [
+        0.447890207,
+        1.66095099
+      ]
+    },
+    {
+      "name": "J1525+3327",
+      "k": [
+        0.289481365,
+        0.664987985
+      ],
+      "total_weight": [
+        0.838111249,
+        1.92528424
+      ],
+      "speed_and_angle_box": [
+        0.573272929,
+        3.04530756
+      ]
+    },
+    {
+      "name": "J1531-0105",
+      "k": [
+        0.292542398,
+        0.631200158
+      ],
+      "total_weight": [
+        0.594346399,
+        1.28238349
+      ],
+      "speed_and_angle_box": [
+        0.481057918,
+        1.61614027
+      ]
+    },
+    {
+      "name": "J1538+5817",
+      "k": [
+        0.301431927,
+        0.543642457
+      ],
+      "total_weight": [
+        0.832696384,
+        1.50179549
+      ],
+      "speed_and_angle_box": [
+        0.642505953,
+        2.00986407
+      ]
+    },
+    {
+      "name": "J1621+3931",
+      "k": [
+        0.295655379,
+        0.59882114
+      ],
+      "total_weight": [
+        0.858539789,
+        1.73888862
+      ],
+      "speed_and_angle_box": [
+        0.615166029,
+        2.57148385
+      ]
+    },
+    {
+      "name": "J1627-0053",
+      "k": [
+        0.297173506,
+        0.583720216
+      ],
+      "total_weight": [
+        0.528960658,
+        1.03900591
+      ],
+      "speed_and_angle_box": [
+        0.425741011,
+        1.31846161
+      ]
+    },
+    {
+      "name": "J1630+4520",
+      "k": [
+        0.297369933,
+        0.581798363
+      ],
+      "total_weight": [
+        0.754317314,
+        1.47580683
+      ],
+      "speed_and_angle_box": [
+        0.593604088,
+        1.92605285
+      ]
+    },
+    {
+      "name": "J1636+4707",
+      "k": [
+        0.300296649,
+        0.554007565
+      ],
+      "total_weight": [
+        0.686804906,
+        1.26706413
+      ],
+      "speed_and_angle_box": [
+        0.527232786,
+        1.70698857
+      ]
+    },
+    {
+      "name": "J2238-0754",
+      "k": [
+        0.293964549,
+        0.616167203
+      ],
+      "total_weight": [
+        0.850661912,
+        1.78303803
+      ],
+      "speed_and_angle_box": [
+        0.675255426,
+        2.30179066
+      ]
+    },
+    {
+      "name": "J2300+0022",
+      "k": [
+        0.298685961,
+        0.569107977
+      ],
+      "total_weight": [
+        0.693278125,
+        1.32095298
+      ],
+      "speed_and_angle_box": [
+        0.539825386,
+        1.74728508
+      ]
+    },
+    {
+      "name": "J2303+1422",
+      "k": [
+        0.286879076,
+        0.695323665
+      ],
+      "total_weight": [
+        0.739606047,
+        1.79262146
+      ],
+      "speed_and_angle_box": [
+        0.572193732,
+        2.39088891
+      ]
+    },
+    {
+      "name": "J2321-0939",
+      "k": [
+        0.281973591,
+        0.756838836
+      ],
+      "total_weight": [
+        0.609920488,
+        1.63707357
+      ],
+      "speed_and_angle_box": [
+        0.497247602,
+        2.04504103
+      ]
+    },
+    {
+      "name": "J2341+0000",
+      "k": [
+        0.287739844,
+        0.685120127
+      ],
+      "total_weight": [
+        0.920582132,
+        2.19194303
+      ],
+      "speed_and_angle_box": [
+        0.712061436,
+        2.92423975
+      ]
+    }
+  ],
+  "source_by_lens": [
+    {
+      "name": "J0029-0055",
+      "stellar_box_1e11": [
+        1.58489319,
+        5.12861384
+      ],
+      "speed_box_1e11": [
+        1.69238511,
+        7.88357997
+      ],
+      "mass_intersection_1e11": [
+        1.69238511,
+        5.12861384
+      ],
+      "rings": {
+        "bSIE": {
+          "radius_kpc": 3.49247822,
+          "ring_mass_msun": 120255042000.0,
+          "baryon_cylinder_msun": 29279775400.0,
+          "anomaly_cylinder_msun": 26184099900.0,
+          "q_interval": [
+            -0.504397858,
+            2.07561512
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -956.151825,
+            2328.0005
+          ],
+          "speed_only_q": [
+            -1.50402563,
+            2.07561512
+          ],
+          "zero_slip_stellar_mass_1e11": 2.65104527
+        },
+        "bLTM": {
+          "radius_kpc": 3.45609824,
+          "ring_mass_msun": 117762777000.0,
+          "baryon_cylinder_msun": 29046073800.0,
+          "anomaly_cylinder_msun": 25822517300.0,
+          "q_interval": [
+            -0.533583281,
+            2.04226273
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -933.046636,
+            2389.92301
+          ],
+          "speed_only_q": [
+            -1.53404904,
+            2.04226273
+          ],
+          "zero_slip_stellar_mass_1e11": 2.6163449
+        }
+      },
+      "baryon_speed2": [
+        7469.53418,
+        13049.2907
+      ],
+      "anomaly_speed2": [
+        4038.19561,
+        11656.8347
+      ]
+    },
+    {
+      "name": "J0037-0942",
+      "stellar_box_1e11": null,
+      "speed_box_1e11": [
+        2.95345247,
+        9.87605548
+      ],
+      "mass_intersection_1e11": [
+        2.95345247,
+        9.87605548
+      ],
+      "rings": {
+        "bSIE": {
+          "radius_kpc": 4.95901351,
+          "ring_mass_msun": 294188717000.0,
+          "baryon_cylinder_msun": 40300872200.0,
+          "anomaly_cylinder_msun": 42601457800.0,
+          "q_interval": [
+            -0.775506487,
+            2.3924918
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -1319.59799,
+            3076.79123
+          ],
+          "speed_only_q": [
+            -0.775506487,
+            2.3924918
+          ],
+          "zero_slip_stellar_mass_1e11": 4.94833867
+        },
+        "bLTM": {
+          "radius_kpc": 4.92660166,
+          "ring_mass_msun": 290355680000.0,
+          "baryon_cylinder_msun": 40129743200.0,
+          "anomaly_cylinder_msun": 42246853100.0,
+          "q_interval": [
+            -0.798156699,
+            2.36674098
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -1301.37004,
+            3130.89779
+          ],
+          "speed_only_q": [
+            -0.798156699,
+            2.36674098
+          ],
+          "zero_slip_stellar_mass_1e11": 4.90407774
+        }
+      },
+      "baryon_speed2": [
+        8265.23942,
+        14527.6336
+      ],
+      "anomaly_speed2": [
+        4016.08853,
+        11692.5281
+      ]
+    },
+    {
+      "name": "J0044+0113",
+      "stellar_box_1e11": null,
+      "speed_box_1e11": [
+        2.04200634,
+        7.27576609
+      ],
+      "mass_intersection_1e11": [
+        2.04200634,
+        7.27576609
+      ],
+      "rings": {
+        "bSIE": {
+          "radius_kpc": 1.70403403,
+          "ring_mass_msun": 89780123300.0,
+          "baryon_cylinder_msun": 21436385900.0,
+          "anomaly_cylinder_msun": 11170035100.0,
+          "q_interval": [
+            -2.19670771,
+            2.88230392
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -3293.56641,
+            10558.2132
+          ],
+          "speed_only_q": [
+            -2.19670771,
+            2.88230392
+          ],
+          "zero_slip_stellar_mass_1e11": 3.24897297
+        },
+        "bLTM": {
+          "radius_kpc": 1.63932388,
+          "ring_mass_msun": 83090849600.0,
+          "baryon_cylinder_msun": 20731696000.0,
+          "anomaly_cylinder_msun": 10591502400.0,
+          "q_interval": [
+            -2.37137546,
+            2.69284762
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -3034.76158,
+            11408.3977
+          ],
+          "speed_only_q": [
+            -2.37137546,
+            2.69284762
+          ],
+          "zero_slip_stellar_mass_1e11": 3.10734391
+        }
+      },
+      "baryon_speed2": [
+        10333.724,
+        19694.2204
+      ],
+      "anomaly_speed2": [
+        3736.33148,
+        12165.4476
+      ]
+    },
+    {
+      "name": "J0109+1500",
+      "stellar_box_1e11": null,
+      "speed_box_1e11": [
+        2.10878633,
+        7.28326218
+      ],
+      "mass_intersection_1e11": [
+        2.10878633,
+        7.28326218
+      ],
+      "rings": {
+        "bSIE": {
+          "radius_kpc": 3.02992656,
+          "ring_mass_msun": 130789457000.0,
+          "baryon_cylinder_msun": 31980588500.0,
+          "anomaly_cylinder_msun": 23590489700.0,
+          "q_interval": [
+            -1.60423695,
+            1.84921792
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -1008.69139,
+            5748.65633
+          ],
+          "speed_only_q": [
+            -1.60423695,
+            1.84921792
+          ],
+          "zero_slip_stellar_mass_1e11": 2.84536698
+        },
+        "bLTM": {
+          "radius_kpc": 2.98601458,
+          "ring_mass_msun": 127025929000.0,
+          "baryon_cylinder_msun": 31638789800.0,
+          "anomaly_cylinder_msun": 23142089400.0,
+          "q_interval": [
+            -1.65572124,
+            1.79450692
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -953.197338,
+            5921.26237
+          ],
+          "speed_only_q": [
+            -1.65572124,
+            1.79450692
+          ],
+          "zero_slip_stellar_mass_1e11": 2.79256182
+        }
+      },
+      "baryon_speed2": [
+        9705.53623,
+        14210.2679
+      ],
+      "anomaly_speed2": [
+        4755.17395,
+        10606.6252
+      ]
+    },
+    {
+      "name": "J0216-0813",
+      "stellar_box_1e11": [
+        5.2480746,
+        12.5892541
+      ],
+      "speed_box_1e11": [
+        5.97013312,
+        27.2471092
+      ],
+      "mass_intersection_1e11": [
+        5.97013312,
+        12.5892541
+      ],
+      "rings": {
+        "bSIE": {
+          "radius_kpc": 5.53143918,
+          "ring_mass_msun": 487408008000.0,
+          "baryon_cylinder_msun": 28773880300.0,
+          "anomaly_cylinder_msun": 41162007400.0,
+          "q_interval": [
+            0.857019942,
+            3.13820725
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -2237.23804,
+            217.243034
+          ],
+          "speed_only_q": [
+            -1.38041625,
+            3.13820725
+          ],
+          "zero_slip_stellar_mass_1e11": 11.9865215
+        },
+        "bLTM": {
+          "radius_kpc": 5.48375435,
+          "ring_mass_msun": 479040644000.0,
+          "baryon_cylinder_msun": 28582496900.0,
+          "anomaly_cylinder_msun": 40690528000.0,
+          "q_interval": [
+            0.825682858,
+            3.10190217
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -2212.0349,
+            266.395918
+          ],
+          "speed_only_q": [
+            -1.41125443,
+            3.10190217
+          ],
+          "zero_slip_stellar_mass_1e11": 11.8577027
+        }
+      },
+      "baryon_speed2": [
+        4562.89154,
+        8791.76084
+      ],
+      "anomaly_speed2": [
+        3700.35507,
+        12229.35
+      ]
+    },
+    {
+      "name": "J0252+0039",
+      "stellar_box_1e11": [
+        1.20226443,
+        3.89045145
+      ],
+      "speed_box_1e11": [
+        0.722722583,
+        2.75675965
+      ],
+      "mass_intersection_1e11": [
+        1.20226443,
+        2.75675965
+      ],
+      "rings": {
+        "bSIE": {
+          "radius_kpc": 4.41717766,
+          "ring_mass_msun": 177400483000.0,
+          "baryon_cylinder_msun": 42105927700.0,
+          "anomaly_cylinder_msun": 38656454500.0,
+          "q_interval": [
+            0.955461026,
+            2.9910382
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -1376.77193,
+            46.6360837
+          ],
+          "speed_only_q": [
+            0.955461026,
+            4.47218352
+          ],
+          "zero_slip_stellar_mass_1e11": 2.70362838
+        },
+        "bLTM": {
+          "radius_kpc": 4.3747048,
+          "ring_mass_msun": 174005337000.0,
+          "baryon_cylinder_msun": 41849799600.0,
+          "anomaly_cylinder_msun": 38186167300.0,
+          "q_interval": [
+            0.924815494,
+            2.954142
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -1360.86427,
+            79.2841717
+          ],
+          "speed_only_q": [
+            0.924815494,
+            4.42837914
+          ],
+          "zero_slip_stellar_mass_1e11": 2.66756544
+        }
+      },
+      "baryon_speed2": [
+        9963.76925,
+        14625.1836
+      ],
+      "anomaly_speed2": [
+        4743.75073,
+        10621.9517
+      ]
+    },
+    {
+      "name": "J0330-0020",
+      "stellar_box_1e11": [
+        1.81970086,
+        4.67735141
+      ],
+      "speed_box_1e11": [
+        1.25685337,
+        5.36961796
+      ],
+      "mass_intersection_1e11": [
+        1.81970086,
+        4.67735141
+      ],
+      "rings": {
+        "bSIE": {
+          "radius_kpc": 5.44080139,
+          "ring_mass_msun": 251299258000.0,
+          "baryon_cylinder_msun": 47597996700.0,
+          "anomaly_cylinder_msun": 50137912300.0,
+          "q_interval": [
+            0.264369575,
+            2.4349395
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -1043.57633,
+            857.729429
+          ],
+          "speed_only_q": [
+            -0.0368715346,
+            3.4064717
+          ],
+          "zero_slip_stellar_mass_1e11": 3.35128109
+        },
+        "bLTM": {
+          "radius_kpc": 5.1440304,
+          "ring_mass_msun": 224632461000.0,
+          "baryon_cylinder_msun": 46062747000.0,
+          "anomaly_cylinder_msun": 46754535000.0,
+          "q_interval": [
+            0.0907939866,
+            2.23262637
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -935.186592,
+            1105.93376
+          ],
+          "speed_only_q": [
+            -0.209585999,
+            3.18104219
+          ],
+          "zero_slip_stellar_mass_1e11": 3.09188008
+        }
+      },
+      "baryon_speed2": [
+        9868.28767,
+        13788.9175
+      ],
+      "anomaly_speed2": [
+        4974.47278,
+        10319.6923
+      ]
+    },
+    {
+      "name": "J0405-0455",
+      "stellar_box_1e11": null,
+      "speed_box_1e11": [
+        0.332203455,
+        0.876069856
+      ],
+      "mass_intersection_1e11": [
+        0.332203455,
+        0.876069856
+      ],
+      "rings": {
+        "bSIE": {
+          "radius_kpc": 1.14319536,
+          "ring_mass_msun": 26103202300.0,
+          "baryon_cylinder_msun": 35912077900.0,
+          "anomaly_cylinder_msun": 9351840110.0,
+          "q_interval": [
+            -0.612152319,
+            2.62945217
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -2139.19308,
+            3437.01745
+          ],
+          "speed_only_q": [
+            -0.612152319,
+            2.62945217
+          ],
+          "zero_slip_stellar_mass_1e11": 0.536181033
+        },
+        "bLTM": {
+          "radius_kpc": 1.12890542,
+          "ring_mass_msun": 25454700800.0,
+          "baryon_cylinder_msun": 35599851700.0,
+          "anomaly_cylinder_msun": 9200697380.0,
+          "q_interval": [
+            -0.665750081,
+            2.56991698
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -2079.38314,
+            3582.90236
+          ],
+          "speed_only_q": [
+            -0.665750081,
+            2.56991698
+          ],
+          "zero_slip_stellar_mass_1e11": 0.527342292
+        }
+      },
+      "baryon_speed2": [
+        30252.8713,
+        44070.6514
+      ],
+      "anomaly_speed2": [
+        4778.24584,
+        10575.7889
+      ]
+    },
+    {
+      "name": "J0728+3835",
+      "stellar_box_1e11": [
+        2.08929613,
+        6.45654229
+      ],
+      "speed_box_1e11": [
+        1.47404672,
+        4.71413524
+      ],
+      "mass_intersection_1e11": [
+        2.08929613,
+        4.71413524
+      ],
+      "rings": {
+        "bSIE": {
+          "radius_kpc": 4.21765547,
+          "ring_mass_msun": 202248055000.0,
+          "baryon_cylinder_msun": 40435832800.0,
+          "anomaly_cylinder_msun": 36283988300.0,
+          "q_interval": [
+            0.147601794,
+            2.24545072
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -1168.825,
+            1201.61818
+          ],
+          "speed_only_q": [
+            0.147601794,
+            3.23803919
+          ],
+          "zero_slip_stellar_mass_1e11": 3.35749693
+        },
+        "bLTM": {
+          "radius_kpc": 4.21765547,
+          "ring_mass_msun": 202248055000.0,
+          "baryon_cylinder_msun": 40435832800.0,
+          "anomaly_cylinder_msun": 36283988300.0,
+          "q_interval": [
+            0.147601794,
+            2.24545072
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -1168.825,
+            1201.61818
+          ],
+          "speed_only_q": [
+            0.147601794,
+            3.23803919
+          ],
+          "zero_slip_stellar_mass_1e11": 3.35749693
+        }
+      },
+      "baryon_speed2": [
+        9811.68868,
+        15802.0015
+      ],
+      "anomaly_speed2": [
+        4348.90695,
+        11177.8891
+      ]
+    },
+    {
+      "name": "J0737+3216",
+      "stellar_box_1e11": null,
+      "speed_box_1e11": [
+        6.89698716,
+        27.2404347
+      ],
+      "mass_intersection_1e11": [
+        6.89698716,
+        27.2404347
+      ],
+      "rings": {
+        "bSIE": {
+          "radius_kpc": 4.67767862,
+          "ring_mass_msun": 291761160000.0,
+          "baryon_cylinder_msun": 24483887200.0,
+          "anomaly_cylinder_msun": 32474134600.0,
+          "q_interval": [
+            -2.21364163,
+            1.44102269
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -547.164104,
+            7923.76185
+          ],
+          "speed_only_q": [
+            -2.21364163,
+            1.44102269
+          ],
+          "zero_slip_stellar_mass_1e11": 8.13374957
+        },
+        "bLTM": {
+          "radius_kpc": 4.53734826,
+          "ring_mass_msun": 274518075000.0,
+          "baryon_cylinder_msun": 23877090700.0,
+          "anomaly_cylinder_msun": 31160881300.0,
+          "q_interval": [
+            -2.31132221,
+            1.34218853
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -432.962997,
+            8326.53072
+          ],
+          "speed_only_q": [
+            -2.31132221,
+            1.34218853
+          ],
+          "zero_slip_stellar_mass_1e11": 7.84241896
+        }
+      },
+      "baryon_speed2": [
+        4387.6262,
+        8683.32945
+      ],
+      "anomaly_speed2": [
+        3614.15948,
+        12385.5933
+      ]
+    },
+    {
+      "name": "J0822+2652",
+      "stellar_box_1e11": null,
+      "speed_box_1e11": [
+        2.50959146,
+        8.36212229
+      ],
+      "mass_intersection_1e11": [
+        2.50959146,
+        8.36212229
+      ],
+      "rings": {
+        "bSIE": {
+          "radius_kpc": 4.45772981,
+          "ring_mass_msun": 238378712000.0,
+          "baryon_cylinder_msun": 38151118300.0,
+          "anomaly_cylinder_msun": 37415516300.0,
+          "q_interval": [
+            -0.745367929,
+            2.40642774
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -1335.3445,
+            3024.95999
+          ],
+          "speed_only_q": [
+            -0.745367929,
+            2.40642774
+          ],
+          "zero_slip_stellar_mass_1e11": 4.23099742
+        },
+        "bLTM": {
+          "radius_kpc": 4.34342905,
+          "ring_mass_msun": 226310888000.0,
+          "baryon_cylinder_msun": 37489955500.0,
+          "anomaly_cylinder_msun": 36186576300.0,
+          "q_interval": [
+            -0.833171771,
+            2.30658369
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -1263.77834,
+            3236.6339
+          ],
+          "speed_only_q": [
+            -0.833171771,
+            2.30658369
+          ],
+          "zero_slip_stellar_mass_1e11": 4.08556726
+        }
+      },
+      "baryon_speed2": [
+        8496.44572,
+        13806.7869
+      ],
+      "anomaly_speed2": [
+        4313.21979,
+        11230.8759
+      ]
+    },
+    {
+      "name": "J0912+0029",
+      "stellar_box_1e11": [
+        4.36515832,
+        10.7151931
+      ],
+      "speed_box_1e11": [
+        4.75820883,
+        22.0464168
+      ],
+      "mass_intersection_1e11": [
+        4.75820883,
+        10.7151931
+      ],
+      "rings": {
+        "bSIE": {
+          "radius_kpc": 4.59200587,
+          "ring_mass_msun": 401519193000.0,
+          "baryon_cylinder_msun": 28091706100.0,
+          "anomaly_cylinder_msun": 33821246700.0,
+          "q_interval": [
+            0.907871913,
+            3.63065628
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -2929.68365,
+            153.966744
+          ],
+          "speed_only_q": [
+            -1.37152517,
+            3.63065628
+          ],
+          "zero_slip_stellar_mass_1e11": 10.4088559
+        },
+        "bLTM": {
+          "radius_kpc": 4.56383405,
+          "ring_mass_msun": 396607689000.0,
+          "baryon_cylinder_msun": 27957490200.0,
+          "anomaly_cylinder_msun": 33544740700.0,
+          "q_interval": [
+            0.883723554,
+            3.60218862
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -2909.88215,
+            195.122175
+          ],
+          "speed_only_q": [
+            -1.39522713,
+            3.60218862
+          ],
+          "zero_slip_stellar_mass_1e11": 10.3297876
+        }
+      },
+      "baryon_speed2": [
+        5147.40281,
+        12038.1796
+      ],
+      "anomaly_speed2": [
+        3126.96115,
+        13366.0668
+      ]
+    },
+    {
+      "name": "J0935-0003",
+      "stellar_box_1e11": null,
+      "speed_box_1e11": [
+        9.71423301,
+        72.0890572
+      ],
+      "mass_intersection_1e11": [
+        9.71423301,
+        72.0890572
+      ],
+      "rings": {
+        "bSIE": {
+          "radius_kpc": 4.27760811,
+          "ring_mass_msun": 406158005000.0,
+          "baryon_cylinder_msun": 15079525100.0,
+          "anomaly_cylinder_msun": 24065800700.0,
+          "q_interval": [
+            -3.3323852,
+            3.46194786
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -3212.4144,
+            15399.6266
+          ],
+          "speed_only_q": [
+            -3.3323852,
+            3.46194786
+          ],
+          "zero_slip_stellar_mass_1e11": 19.8279684
+        },
+        "bLTM": {
+          "radius_kpc": 3.98260065,
+          "ring_mass_msun": 352067997000.0,
+          "baryon_cylinder_msun": 14081538400.0,
+          "anomaly_cylinder_msun": 21746174700.0,
+          "q_interval": [
+            -3.5911472,
+            3.17621432
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -2960.09331,
+            17011.9999
+          ],
+          "speed_only_q": [
+            -3.5911472,
+            3.17621432
+          ],
+          "zero_slip_stellar_mass_1e11": 18.3811634
+        }
+      },
+      "baryon_speed2": [
+        2660.02883,
+        6552.75594
+      ],
+      "anomaly_speed2": [
+        2991.21928,
+        13674.75
+      ]
+    },
+    {
+      "name": "J0936+0913",
+      "stellar_box_1e11": null,
+      "speed_box_1e11": [
+        2.05917259,
+        6.88850914
+      ],
+      "mass_intersection_1e11": [
+        2.05917259,
+        6.88850914
+      ],
+      "rings": {
+        "bSIE": {
+          "radius_kpc": 3.4497637,
+          "ring_mass_msun": 148352969000.0,
+          "baryon_cylinder_msun": 32751699400.0,
+          "anomaly_cylinder_msun": 27134024600.0,
+          "q_interval": [
+            -1.08483408,
+            2.07802146
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -1122.68889,
+            3971.18173
+          ],
+          "speed_only_q": [
+            -1.08483408,
+            2.07802146
+          ],
+          "zero_slip_stellar_mass_1e11": 3.07648544
+        },
+        "bLTM": {
+          "radius_kpc": 3.4497637,
+          "ring_mass_msun": 148352969000.0,
+          "baryon_cylinder_msun": 32751699400.0,
+          "anomaly_cylinder_msun": 27134024600.0,
+          "q_interval": [
+            -1.08483408,
+            2.07802146
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -1122.68889,
+            3971.18173
+          ],
+          "speed_only_q": [
+            -1.08483408,
+            2.07802146
+          ],
+          "zero_slip_stellar_mass_1e11": 3.07648544
+        }
+      },
+      "baryon_speed2": [
+        8796.06619,
+        15209.9586
+      ],
+      "anomaly_speed2": [
+        4075.75632,
+        11596.7122
+      ]
+    },
+    {
+      "name": "J0946+1006",
+      "stellar_box_1e11": null,
+      "speed_box_1e11": [
+        2.40743646,
+        11.463446
+      ],
+      "mass_intersection_1e11": [
+        2.40743646,
+        11.463446
+      ],
+      "rings": {
+        "bSIE": {
+          "radius_kpc": 4.93445486,
+          "ring_mass_msun": 289218914000.0,
+          "baryon_cylinder_msun": 35869718000.0,
+          "anomaly_cylinder_msun": 40345751800.0,
+          "q_interval": [
+            -0.892901457,
+            3.24064582
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -1833.6659,
+            3380.29948
+          ],
+          "speed_only_q": [
+            -0.892901457,
+            3.24064582
+          ],
+          "zero_slip_stellar_mass_1e11": 5.43968537
+        },
+        "bLTM": {
+          "radius_kpc": 4.97021178,
+          "ring_mass_msun": 293425679000.0,
+          "baryon_cylinder_msun": 36049410000.0,
+          "anomaly_cylinder_msun": 40724593100.0,
+          "q_interval": [
+            -0.869025086,
+            3.27022891
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -1848.43489,
+            3320.70133
+          ],
+          "speed_only_q": [
+            -0.869025086,
+            3.27022891
+          ],
+          "zero_slip_stellar_mass_1e11": 5.49209317
+        }
+      },
+      "baryon_speed2": [
+        6962.07472,
+        12631.973
+      ],
+      "anomaly_speed2": [
+        3903.28585,
+        11878.3369
+      ]
+    },
+    {
+      "name": "J0956+5100",
+      "stellar_box_1e11": null,
+      "speed_box_1e11": [
+        5.12602776,
+        16.867522
+      ],
+      "mass_intersection_1e11": [
+        5.12602776,
+        16.867522
+      ],
+      "rings": {
+        "bSIE": {
+          "radius_kpc": 5.05325497,
+          "ring_mass_msun": 372758456000.0,
+          "baryon_cylinder_msun": 36709656000.0,
+          "anomaly_cylinder_msun": 41725805100.0,
+          "q_interval": [
+            -1.4380871,
+            1.95388159
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -1123.30417,
+            5208.19562
+          ],
+          "speed_only_q": [
+            -1.4380871,
+            1.95388159
+          ],
+          "zero_slip_stellar_mass_1e11": 7.12106383
+        },
+        "bLTM": {
+          "radius_kpc": 4.93927177,
+          "ring_mass_msun": 356131941000.0,
+          "baryon_cylinder_msun": 36138517800.0,
+          "anomaly_cylinder_msun": 40513602900.0,
+          "q_interval": [
+            -1.52314272,
+            1.86299776
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -1032.82156,
+            5477.62892
+          ],
+          "speed_only_q": [
+            -1.52314272,
+            1.86299776
+          ],
+          "zero_slip_stellar_mass_1e11": 6.90811075
+        }
+      },
+      "baryon_speed2": [
+        7050.82164,
+        12393.0776
+      ],
+      "anomaly_speed2": [
+        4016.08853,
+        11692.5281
+      ]
+    },
+    {
+      "name": "J0959+4416",
+      "stellar_box_1e11": null,
+      "speed_box_1e11": [
+        1.97949758,
+        8.51293664
+      ],
+      "mass_intersection_1e11": [
+        1.97949758,
+        8.51293664
+      ],
+      "rings": {
+        "bSIE": {
+          "radius_kpc": 3.60660247,
+          "ring_mass_msun": 169117865000.0,
+          "baryon_cylinder_msun": 31262425300.0,
+          "anomaly_cylinder_msun": 27809044800.0,
+          "q_interval": [
+            -1.19570178,
+            2.74074623
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -1666.68143,
+            4359.66081
+          ],
+          "speed_only_q": [
+            -1.19570178,
+            2.74074623
+          ],
+          "zero_slip_stellar_mass_1e11": 3.69883418
+        },
+        "bLTM": {
+          "radius_kpc": 3.60660247,
+          "ring_mass_msun": 169117865000.0,
+          "baryon_cylinder_msun": 31262425300.0,
+          "anomaly_cylinder_msun": 27809044800.0,
+          "q_interval": [
+            -1.19570178,
+            2.74074623
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -1666.68143,
+            4359.66081
+          ],
+          "speed_only_q": [
+            -1.19570178,
+            2.74074623
+          ],
+          "zero_slip_stellar_mass_1e11": 3.69883418
+        }
+      },
+      "baryon_speed2": [
+        7909.64483,
+        13309.1695
+      ],
+      "anomaly_speed2": [
+        4177.85276,
+        11436.4936
+      ]
+    },
+    {
+      "name": "J0959+0410",
+      "stellar_box_1e11": [
+        0.691830971,
+        1.6218101
+      ],
+      "speed_box_1e11": [
+        0.73195073,
+        2.27003739
+      ],
+      "mass_intersection_1e11": [
+        0.73195073,
+        1.6218101
+      ],
+      "rings": {
+        "bSIE": {
+          "radius_kpc": 2.23346827,
+          "ring_mass_msun": 75856407600.0,
+          "baryon_cylinder_msun": 40805613500.0,
+          "anomaly_cylinder_msun": 19288434000.0,
+          "q_interval": [
+            0.393970801,
+            2.78684828
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -1881.55156,
+            949.906965
+          ],
+          "speed_only_q": [
+            -0.577191017,
+            2.78684828
+          ],
+          "zero_slip_stellar_mass_1e11": 1.3165913
+        },
+        "bLTM": {
+          "radius_kpc": 2.27858884,
+          "ring_mass_msun": 78952271600.0,
+          "baryon_cylinder_msun": 41331687900.0,
+          "anomaly_cylinder_msun": 19785010100.0,
+          "q_interval": [
+            0.473090748,
+            2.87705002
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -1947.92057,
+            813.936074
+          ],
+          "speed_only_q": [
+            -0.498910439,
+            2.87705002
+          ],
+          "zero_slip_stellar_mass_1e11": 1.35333842
+        }
+      },
+      "baryon_speed2": [
+        18758.1756,
+        27533.9336
+      ],
+      "anomaly_speed2": [
+        4743.75073,
+        10621.9517
+      ]
+    },
+    {
+      "name": "J1016+3859",
+      "stellar_box_1e11": null,
+      "speed_box_1e11": [
+        1.66663145,
+        4.59088907
+      ],
+      "mass_intersection_1e11": [
+        1.66663145,
+        4.59088907
+      ],
+      "rings": {
+        "bSIE": {
+          "radius_kpc": 3.12712733,
+          "ring_mass_msun": 146259341000.0,
+          "baryon_cylinder_msun": 42048204600.0,
+          "anomaly_cylinder_msun": 27350855100.0,
+          "q_interval": [
+            -0.798241732,
+            2.15751097
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -1330.37724,
+            3430.25476
+          ],
+          "speed_only_q": [
+            -0.798241732,
+            2.15751097
+          ],
+          "zero_slip_stellar_mass_1e11": 2.45847579
+        },
+        "bLTM": {
+          "radius_kpc": 3.04105961,
+          "ring_mass_msun": 138319161000.0,
+          "baryon_cylinder_msun": 41310226600.0,
+          "anomaly_cylinder_msun": 26399750900.0,
+          "q_interval": [
+            -0.907477321,
+            2.03835194
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -1218.04816,
+            3713.70903
+          ],
+          "speed_only_q": [
+            -0.907477321,
+            2.03835194
+          ],
+          "zero_slip_stellar_mass_1e11": 2.36543031
+        }
+      },
+      "baryon_speed2": [
+        14056.5049,
+        20995.5819
+      ],
+      "anomaly_speed2": [
+        4665.816,
+        10727.5823
+      ]
+    },
+    {
+      "name": "J1020+1122",
+      "stellar_box_1e11": null,
+      "speed_box_1e11": [
+        3.08763936,
+        9.99454866
+      ],
+      "mass_intersection_1e11": [
+        3.08763936,
+        9.99454866
+      ],
+      "rings": {
+        "bSIE": {
+          "radius_kpc": 5.12119384,
+          "ring_mass_msun": 344408377000.0,
+          "baryon_cylinder_msun": 42336233900.0,
+          "anomaly_cylinder_msun": 44920964100.0,
+          "q_interval": [
+            -0.554334525,
+            2.70720121
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -1635.51586,
+            2679.06255
+          ],
+          "speed_only_q": [
+            -0.554334525,
+            2.70720121
+          ],
+          "zero_slip_stellar_mass_1e11": 5.61974296
+        },
+        "bLTM": {
+          "radius_kpc": 5.16387045,
+          "ring_mass_msun": 350172434000.0,
+          "baryon_cylinder_msun": 42557063900.0,
+          "anomaly_cylinder_msun": 45394920800.0,
+          "q_interval": [
+            -0.523761788,
+            2.74264965
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -1659.31974,
+            2610.38992
+          ],
+          "speed_only_q": [
+            -0.523761788,
+            2.74264965
+          ],
+          "zero_slip_stellar_mass_1e11": 5.68498723
+        }
+      },
+      "baryon_speed2": [
+        8685.07233,
+        13386.8445
+      ],
+      "anomaly_speed2": [
+        4529.81315,
+        10916.5726
+      ]
+    },
+    {
+      "name": "J1023+4230",
+      "stellar_box_1e11": [
+        1.6218101,
+        4.89778819
+      ],
+      "speed_box_1e11": [
+        1.78697384,
+        6.05143678
+      ],
+      "mass_intersection_1e11": [
+        1.78697384,
+        4.89778819
+      ],
+      "rings": {
+        "bSIE": {
+          "radius_kpc": 4.49048716,
+          "ring_mass_msun": 233679889000.0,
+          "baryon_cylinder_msun": 43780483100.0,
+          "anomaly_cylinder_msun": 39950258900.0,
+          "q_interval": [
+            0.217753068,
+            2.91070996
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -1610.78164,
+            1091.75874
+          ],
+          "speed_only_q": [
+            -0.318031234,
+            2.91070996
+          ],
+          "zero_slip_stellar_mass_1e11": 3.60496943
+        },
+        "bLTM": {
+          "radius_kpc": 4.45863973,
+          "ring_mass_msun": 230377035000.0,
+          "baryon_cylinder_msun": 43589319600.0,
+          "anomaly_cylinder_msun": 39593785600.0,
+          "q_interval": [
+            0.192705493,
+            2.88096727
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -1594.0896,
+            1132.67258
+          ],
+          "speed_only_q": [
+            -0.342927959,
+            2.88096727
+          ],
+          "zero_slip_stellar_mass_1e11": 3.56912903
+        }
+      },
+      "baryon_speed2": [
+        10454.3079,
+        16799.0698
+      ],
+      "anomaly_speed2": [
+        4357.95166,
+        11164.5377
+      ]
+    },
+    {
+      "name": "J1029+0420",
+      "stellar_box_1e11": null,
+      "speed_box_1e11": [
+        0.841473004,
+        2.37539631
+      ],
+      "mass_intersection_1e11": [
+        0.841473004,
+        2.37539631
+      ],
+      "rings": {
+        "bSIE": {
+          "radius_kpc": 1.93654855,
+          "ring_mass_msun": 61449218300.0,
+          "baryon_cylinder_msun": 38332623000.0,
+          "anomaly_cylinder_msun": 16287000800.0,
+          "q_interval": [
+            -1.1794238,
+            1.9539918
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -1209.75995,
+            4643.48656
+          ],
+          "speed_only_q": [
+            -1.1794238,
+            1.9539918
+          ],
+          "zero_slip_stellar_mass_1e11": 1.14784105
+        },
+        "bLTM": {
+          "radius_kpc": 2.10911228,
+          "ring_mass_msun": 72888495400.0,
+          "baryon_cylinder_msun": 40542955100.0,
+          "anomaly_cylinder_msun": 18164773000.0,
+          "q_interval": [
+            -0.836440242,
+            2.32689026
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -1582.1068,
+            3678.96401
+          ],
+          "speed_only_q": [
+            -0.836440242,
+            2.32689026
+          ],
+          "zero_slip_stellar_mass_1e11": 1.28911141
+        }
+      },
+      "baryon_speed2": [
+        19700.1216,
+        30148.6971
+      ],
+      "anomaly_speed2": [
+        4560.25018,
+        10873.7441
+      ]
+    },
+    {
+      "name": "J1106+5228",
+      "stellar_box_1e11": null,
+      "speed_box_1e11": [
+        1.37090436,
+        3.75137387
+      ],
+      "mass_intersection_1e11": [
+        1.37090436,
+        3.75137387
+      ],
+      "rings": {
+        "bSIE": {
+          "radius_kpc": 2.17763344,
+          "ring_mass_msun": 90929696100.0,
+          "baryon_cylinder_msun": 41531537200.0,
+          "anomaly_cylinder_msun": 18947017600.0,
+          "q_interval": [
+            -1.76771426,
+            1.53234639
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -792.719096,
+            6817.69951
+          ],
+          "speed_only_q": [
+            -1.76771426,
+            1.53234639
+          ],
+          "zero_slip_stellar_mass_1e11": 1.61046638
+        },
+        "bLTM": {
+          "radius_kpc": 2.17763344,
+          "ring_mass_msun": 90929696100.0,
+          "baryon_cylinder_msun": 41531537200.0,
+          "anomaly_cylinder_msun": 18947017600.0,
+          "q_interval": [
+            -1.76771426,
+            1.53234639
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -792.719096,
+            6817.69951
+          ],
+          "speed_only_q": [
+            -1.76771426,
+            1.53234639
+          ],
+          "zero_slip_stellar_mass_1e11": 1.61046638
+        }
+      },
+      "baryon_speed2": [
+        19817.0524,
+        31196.1344
+      ],
+      "anomaly_speed2": [
+        4441.66738,
+        11042.4173
+      ]
+    },
+    {
+      "name": "J1112+0826",
+      "stellar_box_1e11": null,
+      "speed_box_1e11": [
+        3.99924391,
+        12.0533381
+      ],
+      "mass_intersection_1e11": [
+        3.99924391,
+        12.0533381
+      ],
+      "rings": {
+        "bSIE": {
+          "radius_kpc": 6.2105774,
+          "ring_mass_msun": 447767734000.0,
+          "baryon_cylinder_msun": 49814621900.0,
+          "anomaly_cylinder_msun": 58334272300.0,
+          "q_interval": [
+            -0.753808973,
+            2.13056917
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -1088.41881,
+            2931.20309
+          ],
+          "speed_only_q": [
+            -0.753808973,
+            2.13056917
+          ],
+          "zero_slip_stellar_mass_1e11": 6.09713618
+        },
+        "bLTM": {
+          "radius_kpc": 5.71039667,
+          "ring_mass_msun": 378548380000.0,
+          "baryon_cylinder_msun": 47497934000.0,
+          "anomaly_cylinder_msun": 52575812400.0,
+          "q_interval": [
+            -1.06260812,
+            1.79369919
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -814.607579,
+            3675.14058
+          ],
+          "speed_only_q": [
+            -1.06260812,
+            1.79369919
+          ],
+          "zero_slip_stellar_mass_1e11": 5.39803422
+        }
+      },
+      "baryon_speed2": [
+        9420.67469,
+        14209.8494
+      ],
+      "anomaly_speed2": [
+        4622.80696,
+        10786.6926
+      ]
+    },
+    {
+      "name": "J1134+6027",
+      "stellar_box_1e11": null,
+      "speed_box_1e11": [
+        1.68319165,
+        5.4269131
+      ],
+      "mass_intersection_1e11": [
+        1.68319165,
+        5.4269131
+      ],
+      "rings": {
+        "bSIE": {
+          "radius_kpc": 2.92041909,
+          "ring_mass_msun": 125181351000.0,
+          "baryon_cylinder_msun": 34017316400.0,
+          "anomaly_cylinder_msun": 23345095400.0,
+          "q_interval": [
+            -1.0927394,
+            2.24263619
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -1404.64379,
+            4247.63322
+          ],
+          "speed_only_q": [
+            -1.0927394,
+            2.24263619
+          ],
+          "zero_slip_stellar_mass_1e11": 2.57803563
+        },
+        "bLTM": {
+          "radius_kpc": 2.33633527,
+          "ring_mass_msun": 80116065000.0,
+          "baryon_cylinder_msun": 28834325200.0,
+          "anomaly_cylinder_msun": 17401412200.0,
+          "q_interval": [
+            -1.88380178,
+            1.39892179
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -525.19288,
+            6817.20147
+          ],
+          "speed_only_q": [
+            -1.88380178,
+            1.39892179
+          ],
+          "zero_slip_stellar_mass_1e11": 1.93829292
+        }
+      },
+      "baryon_speed2": [
+        10965.9432,
+        18609.1539
+      ],
+      "anomaly_speed2": [
+        4145.72837,
+        11486.4125
+      ]
+    },
+    {
+      "name": "J1142+1001",
+      "stellar_box_1e11": null,
+      "speed_box_1e11": [
+        1.29005886,
+        6.85691379
+      ],
+      "mass_intersection_1e11": [
+        1.29005886,
+        6.85691379
+      ],
+      "rings": {
+        "bSIE": {
+          "radius_kpc": 3.50297365,
+          "ring_mass_msun": 165227880000.0,
+          "baryon_cylinder_msun": 32590348800.0,
+          "anomaly_cylinder_msun": 27494496800.0,
+          "q_interval": [
+            -0.808949073,
+            3.94462038
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -2385.37267,
+            3378.41384
+          ],
+          "speed_only_q": [
+            -0.808949073,
+            3.94462038
+          ],
+          "zero_slip_stellar_mass_1e11": 3.49309416
+        },
+        "bLTM": {
+          "radius_kpc": 3.28850588,
+          "ring_mass_msun": 145615241000.0,
+          "baryon_cylinder_msun": 31110316700.0,
+          "anomaly_cylinder_msun": 25303503500.0,
+          "q_interval": [
+            -1.02183098,
+            3.67019581
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -2258.8189,
+            3943.14486
+          ],
+          "speed_only_q": [
+            -1.02183098,
+            3.67019581
+          ],
+          "zero_slip_stellar_mass_1e11": 3.22090428
+        }
+      },
+      "baryon_speed2": [
+        8623.93425,
+        14294.039
+      ],
+      "anomaly_speed2": [
+        4235.67912,
+        11347.7393
+      ]
+    },
+    {
+      "name": "J1143-0144",
+      "stellar_box_1e11": null,
+      "speed_box_1e11": [
+        2.40102684,
+        13.1524695
+      ],
+      "mass_intersection_1e11": [
+        2.40102684,
+        13.1524695
+      ],
+      "rings": {
+        "bSIE": {
+          "radius_kpc": 3.26182517,
+          "ring_mass_msun": 193916192000.0,
+          "baryon_cylinder_msun": 24222017000.0,
+          "anomaly_cylinder_msun": 22540060600.0,
+          "q_interval": [
+            -1.52503342,
+            3.8869896
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -3016.6684,
+            6175.25123
+          ],
+          "speed_only_q": [
+            -1.52503342,
+            3.8869896
+          ],
+          "zero_slip_stellar_mass_1e11": 5.77041747
+        },
+        "bLTM": {
+          "radius_kpc": 3.22299391,
+          "ring_mass_msun": 189326623000.0,
+          "baryon_cylinder_msun": 23983913900.0,
+          "anomaly_cylinder_msun": 22177011200.0,
+          "q_interval": [
+            -1.56812613,
+            3.83369996
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -2983.91565,
+            6329.27803
+          ],
+          "speed_only_q": [
+            -1.56812613,
+            3.83369996
+          ],
+          "zero_slip_stellar_mass_1e11": 5.6885237
+        }
+      },
+      "baryon_speed2": [
+        5841.53159,
+        15484.3645
+      ],
+      "anomaly_speed2": [
+        2810.99098,
+        14114.4087
+      ]
+    },
+    {
+      "name": "J1153+4612",
+      "stellar_box_1e11": null,
+      "speed_box_1e11": [
+        1.18503884,
+        3.38327971
+      ],
+      "mass_intersection_1e11": [
+        1.18503884,
+        3.38327971
+      ],
+      "rings": {
+        "bSIE": {
+          "radius_kpc": 3.18255,
+          "ring_mass_msun": 112366491000.0,
+          "baryon_cylinder_msun": 47251599600.0,
+          "anomaly_cylinder_msun": 29237925400.0,
+          "q_interval": [
+            -0.883218043,
+            1.77111525
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -771.315033,
+            3182.84706
+          ],
+          "speed_only_q": [
+            -0.883218043,
+            1.77111525
+          ],
+          "zero_slip_stellar_mass_1e11": 1.59626895
+        },
+        "bLTM": {
+          "radius_kpc": 3.18255,
+          "ring_mass_msun": 112366491000.0,
+          "baryon_cylinder_msun": 47251599600.0,
+          "anomaly_cylinder_msun": 29237925400.0,
+          "q_interval": [
+            -0.883218043,
+            1.77111525
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -771.315033,
+            3182.84706
+          ],
+          "speed_only_q": [
+            -0.883218043,
+            1.77111525
+          ],
+          "zero_slip_stellar_mass_1e11": 1.59626895
+        }
+      },
+      "baryon_speed2": [
+        16637.5186,
+        22999.0859
+      ],
+      "anomaly_speed2": [
+        5027.06025,
+        10252.8407
+      ]
+    },
+    {
+      "name": "J1204+0358",
+      "stellar_box_1e11": null,
+      "speed_box_1e11": [
+        1.86308018,
+        5.60258677
+      ],
+      "mass_intersection_1e11": [
+        1.86308018,
+        5.60258677
+      ],
+      "rings": {
+        "bSIE": {
+          "radius_kpc": 3.69418666,
+          "ring_mass_msun": 173723376000.0,
+          "baryon_cylinder_msun": 46823992800.0,
+          "anomaly_cylinder_msun": 33808945800.0,
+          "q_interval": [
+            -1.10730468,
+            1.87413571
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -940.889711,
+            3933.37826
+          ],
+          "speed_only_q": [
+            -1.10730468,
+            1.87413571
+          ],
+          "zero_slip_stellar_mass_1e11": 2.5558121
+        },
+        "bLTM": {
+          "radius_kpc": 3.58138707,
+          "ring_mass_msun": 163276285000.0,
+          "baryon_cylinder_msun": 45977034300.0,
+          "anomaly_cylinder_msun": 32526050700.0,
+          "q_interval": [
+            -1.22504125,
+            1.74828364
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -824.443621,
+            4251.1977
+          ],
+          "speed_only_q": [
+            -1.22504125,
+            1.74828364
+          ],
+          "zero_slip_stellar_mass_1e11": 2.44505483
+        }
+      },
+      "baryon_speed2": [
+        14204.6535,
+        21269.1519
+      ],
+      "anomaly_speed2": [
+        4654.96275,
+        10742.4429
+      ]
+    },
+    {
+      "name": "J1205+4910",
+      "stellar_box_1e11": [
+        2.63026799,
+        6.02559586
+      ],
+      "speed_box_1e11": [
+        3.40313306,
+        12.7504153
+      ],
+      "mass_intersection_1e11": [
+        3.40313306,
+        6.02559586
+      ],
+      "rings": {
+        "bSIE": {
+          "radius_kpc": 4.25807023,
+          "ring_mass_msun": 252621960000.0,
+          "baryon_cylinder_msun": 30596213400.0,
+          "anomaly_cylinder_msun": 32531044500.0,
+          "q_interval": [
+            0.854826724,
+            2.47449159
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -1553.47496,
+            203.520975
+          ],
+          "speed_only_q": [
+            -1.18363756,
+            2.47449159
+          ],
+          "zero_slip_stellar_mass_1e11": 5.71488421
+        },
+        "bLTM": {
+          "radius_kpc": 4.1882658,
+          "ring_mass_msun": 244407163000.0,
+          "baryon_cylinder_msun": 30218552700.0,
+          "anomaly_cylinder_msun": 31828093200.0,
+          "q_interval": [
+            0.797688611,
+            2.4111228
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -1503.47618,
+            286.822099
+          ],
+          "speed_only_q": [
+            -1.2396907,
+            2.4111228
+          ],
+          "zero_slip_stellar_mass_1e11": 5.59632566
+        }
+      },
+      "baryon_speed2": [
+        6438.68231,
+        12225.8896
+      ],
+      "anomaly_speed2": [
+        3748.52415,
+        12143.9601
+      ]
+    },
+    {
+      "name": "J1213+6708",
+      "stellar_box_1e11": null,
+      "speed_box_1e11": [
+        2.78083802,
+        11.4854227
+      ],
+      "mass_intersection_1e11": [
+        2.78083802,
+        11.4854227
+      ],
+      "rings": {
+        "bSIE": {
+          "radius_kpc": 3.13571503,
+          "ring_mass_msun": 144515279000.0,
+          "baryon_cylinder_msun": 29036639000.0,
+          "anomaly_cylinder_msun": 23425485300.0,
+          "q_interval": [
+            -2.38045609,
+            1.63242702
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -799.767611,
+            8687.8905
+          ],
+          "speed_only_q": [
+            -2.38045609,
+            1.63242702
+          ],
+          "zero_slip_stellar_mass_1e11": 3.47343398
+        },
+        "bLTM": {
+          "radius_kpc": 3.04738503,
+          "ring_mass_msun": 136488245000.0,
+          "baryon_cylinder_msun": 28404511500.0,
+          "anomaly_cylinder_msun": 22551692800.0,
+          "q_interval": [
+            -2.48272247,
+            1.52897398
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -681.862443,
+            9123.6155
+          ],
+          "speed_only_q": [
+            -2.48272247,
+            1.52897398
+          ],
+          "zero_slip_stellar_mass_1e11": 3.35164205
+        }
+      },
+      "baryon_speed2": [
+        8023.48512,
+        17014.9823
+      ],
+      "anomaly_speed2": [
+        3402.42876,
+        12789.811
+      ]
+    },
+    {
+      "name": "J1218+0830",
+      "stellar_box_1e11": null,
+      "speed_box_1e11": [
+        1.47333481,
+        6.54718683
+      ],
+      "mass_intersection_1e11": [
+        1.47333481,
+        6.54718683
+      ],
+      "rings": {
+        "bSIE": {
+          "radius_kpc": 3.46954147,
+          "ring_mass_msun": 163193221000.0,
+          "baryon_cylinder_msun": 29855885300.0,
+          "anomaly_cylinder_msun": 26230248500.0,
+          "q_interval": [
+            -0.480936914,
+            3.74406332
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -2310.21938,
+            2628.28401
+          ],
+          "speed_only_q": [
+            -0.480936914,
+            3.74406332
+          ],
+          "zero_slip_stellar_mass_1e11": 3.7619868
+        },
+        "bLTM": {
+          "radius_kpc": 3.4456136,
+          "ring_mass_msun": 160950042000.0,
+          "baryon_cylinder_msun": 29699597800.0,
+          "anomaly_cylinder_msun": 25990867100.0,
+          "q_interval": [
+            -0.50371023,
+            3.71474204
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -2296.23877,
+            2681.20038
+          ],
+          "speed_only_q": [
+            -0.50371023,
+            3.71474204
+          ],
+          "zero_slip_stellar_mass_1e11": 3.72928189
+        }
+      },
+      "baryon_speed2": [
+        7531.97825,
+        15843.2762
+      ],
+      "anomaly_speed2": [
+        3426.57198,
+        12742.15
+      ]
+    },
+    {
+      "name": "J1250+0523",
+      "stellar_box_1e11": [
+        2.8840315,
+        6.91830971
+      ],
+      "speed_box_1e11": [
+        2.3177259,
+        7.55285549
+      ],
+      "mass_intersection_1e11": [
+        2.8840315,
+        6.91830971
+      ],
+      "rings": {
+        "bSIE": {
+          "radius_kpc": 4.17645154,
+          "ring_mass_msun": 180676982000.0,
+          "baryon_cylinder_msun": 37406292100.0,
+          "anomaly_cylinder_msun": 34762421500.0,
+          "q_interval": [
+            -0.854287437,
+            1.23309869
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -251.122193,
+            3094.01426
+          ],
+          "speed_only_q": [
+            -1.06606594,
+            1.77579096
+          ],
+          "zero_slip_stellar_mass_1e11": 3.17437408
+        },
+        "bLTM": {
+          "radius_kpc": 4.10253205,
+          "ring_mass_msun": 174337936000.0,
+          "baryon_cylinder_msun": 36955112800.0,
+          "anomaly_cylinder_msun": 33971583200.0,
+          "q_interval": [
+            -0.91018472,
+            1.17448166
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -190.375797,
+            3228.02818
+          ],
+          "speed_only_q": [
+            -1.12228096,
+            1.71478154
+          ],
+          "zero_slip_stellar_mass_1e11": 3.09922626
+        }
+      },
+      "baryon_speed2": [
+        8807.51557,
+        14280.4194
+      ],
+      "anomaly_speed2": [
+        4322.06874,
+        11217.6913
+      ]
+    },
+    {
+      "name": "J1402+6321",
+      "stellar_box_1e11": [
+        3.01995172,
+        7.07945784
+      ],
+      "speed_box_1e11": [
+        2.74090804,
+        12.148339
+      ],
+      "mass_intersection_1e11": [
+        3.01995172,
+        7.07945784
+      ],
+      "rings": {
+        "bSIE": {
+          "radius_kpc": 4.53437822,
+          "ring_mass_msun": 285359855000.0,
+          "baryon_cylinder_msun": 31980588500.0,
+          "anomaly_cylinder_msun": 35303892800.0,
+          "q_interval": [
+            0.627617874,
+            3.07704209
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -1972.79762,
+            541.53442
+          ],
+          "speed_only_q": [
+            -0.838287775,
+            3.38256099
+          ],
+          "zero_slip_stellar_mass_1e11": 6.17886731
+        },
+        "bLTM": {
+          "radius_kpc": 4.56796621,
+          "ring_mass_msun": 289603066000.0,
+          "baryon_cylinder_msun": 32154116900.0,
+          "anomaly_cylinder_msun": 35647754100.0,
+          "q_interval": [
+            0.653348316,
+            3.10739686
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -1991.51172,
+            501.568035
+          ],
+          "speed_only_q": [
+            -0.813017214,
+            3.41377116
+          ],
+          "zero_slip_stellar_mass_1e11": 6.23779373
+        }
+      },
+      "baryon_speed2": [
+        6401.29953,
+        12401.0299
+      ],
+      "anomaly_speed2": [
+        3682.69671,
+        12260.9931
+      ]
+    },
+    {
+      "name": "J1403+0006",
+      "stellar_box_1e11": null,
+      "speed_box_1e11": [
+        1.09073191,
+        4.03705482
+      ],
+      "mass_intersection_1e11": [
+        1.09073191,
+        4.03705482
+      ],
+      "rings": {
+        "bSIE": {
+          "radius_kpc": 2.61698555,
+          "ring_mass_msun": 96453090500.0,
+          "baryon_cylinder_msun": 35067703600.0,
+          "anomaly_cylinder_msun": 21192385000.0,
+          "q_interval": [
+            -1.05956966,
+            2.62973025
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -1676.49419,
+            4076.01828
+          ],
+          "speed_only_q": [
+            -1.05956966,
+            2.62973025
+          ],
+          "zero_slip_stellar_mass_1e11": 1.9143369
+        },
+        "bLTM": {
+          "radius_kpc": 2.61698555,
+          "ring_mass_msun": 96453090500.0,
+          "baryon_cylinder_msun": 35067703600.0,
+          "anomaly_cylinder_msun": 21192385000.0,
+          "q_interval": [
+            -1.05956966,
+            2.62973025
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -1676.49419,
+            4076.01828
+          ],
+          "speed_only_q": [
+            -1.05956966,
+            2.62973025
+          ],
+          "zero_slip_stellar_mass_1e11": 1.9143369
+        }
+      },
+      "baryon_speed2": [
+        12790.0777,
+        19103.9754
+      ],
+      "anomaly_speed2": [
+        4665.816,
+        10727.5823
+      ]
+    },
+    {
+      "name": "J1416+5136",
+      "stellar_box_1e11": null,
+      "speed_box_1e11": [
+        1.63356763,
+        7.67014711
+      ],
+      "mass_intersection_1e11": [
+        1.63356763,
+        7.67014711
+      ],
+      "rings": {
+        "bSIE": {
+          "radius_kpc": 6.084076,
+          "ring_mass_msun": 365343858000.0,
+          "baryon_cylinder_msun": 48814022500.0,
+          "anomaly_cylinder_msun": 56662305900.0,
+          "q_interval": [
+            -0.057777873,
+            3.94366244
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -1833.20772,
+            1427.41888
+          ],
+          "speed_only_q": [
+            -0.057777873,
+            3.94366244
+          ],
+          "zero_slip_stellar_mass_1e11": 4.91181376
+        },
+        "bLTM": {
+          "radius_kpc": 6.03966668,
+          "ring_mass_msun": 360029837000.0,
+          "baryon_cylinder_msun": 48611816900.0,
+          "anomaly_cylinder_msun": 56150892500.0,
+          "q_interval": [
+            -0.0825023756,
+            3.91013791
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -1822.48087,
+            1468.96535
+          ],
+          "speed_only_q": [
+            -0.0825023756,
+            3.91013791
+          ],
+          "zero_slip_stellar_mass_1e11": 4.85982843
+        }
+      },
+      "baryon_speed2": [
+        9267.96914,
+        13740.707
+      ],
+      "anomaly_speed2": [
+        4698.79003,
+        10682.6608
+      ]
+    },
+    {
+      "name": "J1420+6019",
+      "stellar_box_1e11": [
+        0.741310241,
+        1.69824365
+      ],
+      "speed_box_1e11": [
+        0.623024709,
+        1.90757128
+      ],
+      "mass_intersection_1e11": [
+        0.741310241,
+        1.69824365
+      ],
+      "rings": {
+        "bSIE": {
+          "radius_kpc": 1.25956377,
+          "ring_mass_msun": 38250201700.0,
+          "baryon_cylinder_msun": 32207868900.0,
+          "anomaly_cylinder_msun": 9836476310.0,
+          "q_interval": [
+            -1.28302988,
+            1.69724089
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -1184.76497,
+            5871.66069
+          ],
+          "speed_only_q": [
+            -1.70684729,
+            2.34204337
+          ],
+          "zero_slip_stellar_mass_1e11": 0.898166024
+        },
+        "bLTM": {
+          "radius_kpc": 1.29589734,
+          "ring_mass_msun": 40488772100.0,
+          "baryon_cylinder_msun": 32881703900.0,
+          "anomaly_cylinder_msun": 10210108800.0,
+          "q_interval": [
+            -1.15383881,
+            1.83295663
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -1387.91122,
+            5431.90911
+          ],
+          "speed_only_q": [
+            -1.57679277,
+            2.48201674
+          ],
+          "zero_slip_stellar_mass_1e11": 0.931637676
+        }
+      },
+      "baryon_speed2": [
+        23560.125,
+        40318.7762
+      ],
+      "anomaly_speed2": [
+        4114.24409,
+        11535.7727
+      ]
+    },
+    {
+      "name": "J1430+4105",
+      "stellar_box_1e11": null,
+      "speed_box_1e11": [
+        4.17553218,
+        24.5135343
+      ],
+      "mass_intersection_1e11": [
+        4.17553218,
+        24.5135343
+      ],
+      "rings": {
+        "bSIE": {
+          "radius_kpc": 6.53224158,
+          "ring_mass_msun": 540652939000.0,
+          "baryon_cylinder_msun": 36242210900.0,
+          "anomaly_cylinder_msun": 53645035000.0,
+          "q_interval": [
+            -1.30936821,
+            3.55159932
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -2086.52494,
+            4575.63459
+          ],
+          "speed_only_q": [
+            -1.30936821,
+            3.55159932
+          ],
+          "zero_slip_stellar_mass_1e11": 10.1922469
+        },
+        "bLTM": {
+          "radius_kpc": 6.27438994,
+          "ring_mass_msun": 498812242000.0,
+          "baryon_cylinder_msun": 35242760200.0,
+          "anomaly_cylinder_msun": 50917907100.0,
+          "q_interval": [
+            -1.44828168,
+            3.37979445
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -2002.04127,
+            4990.47644
+          ],
+          "speed_only_q": [
+            -1.44828168,
+            3.37979445
+          ],
+          "zero_slip_stellar_mass_1e11": 9.66256878
+        }
+      },
+      "baryon_speed2": [
+        5316.01684,
+        10019.6302
+      ],
+      "anomaly_speed2": [
+        3773.21889,
+        12100.6986
+      ]
+    },
+    {
+      "name": "J1436-0000",
+      "stellar_box_1e11": null,
+      "speed_box_1e11": [
+        1.85828079,
+        8.97729625
+      ],
+      "mass_intersection_1e11": [
+        1.85828079,
+        8.97729625
+      ],
+      "rings": {
+        "bSIE": {
+          "radius_kpc": 4.81561172,
+          "ring_mass_msun": 230329765000.0,
+          "baryon_cylinder_msun": 31980588500.0,
+          "anomaly_cylinder_msun": 37493528700.0,
+          "q_interval": [
+            -0.505342249,
+            3.34373801
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -1644.25151,
+            2321.19458
+          ],
+          "speed_only_q": [
+            -0.505342249,
+            3.34373801
+          ],
+          "zero_slip_stellar_mass_1e11": 4.66892306
+        },
+        "bLTM": {
+          "radius_kpc": 4.64362558,
+          "ring_mass_msun": 214171427000.0,
+          "baryon_cylinder_msun": 31132763100.0,
+          "anomaly_cylinder_msun": 35741530700.0,
+          "q_interval": [
+            -0.6099268,
+            3.20833865
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -1588.29156,
+            2545.00004
+          ],
+          "speed_only_q": [
+            -0.6099268,
+            3.20833865
+          ],
+          "zero_slip_stellar_mass_1e11": 4.45590354
+        }
+      },
+      "baryon_speed2": [
+        6086.38339,
+        10806.0269
+      ],
+      "anomaly_speed2": [
+        3979.93422,
+        11751.4024
+      ]
+    },
+    {
+      "name": "J1443+0304",
+      "stellar_box_1e11": null,
+      "speed_box_1e11": [
+        0.77906033,
+        1.78211322
+      ],
+      "mass_intersection_1e11": [
+        0.77906033,
+        1.78211322
+      ],
+      "rings": {
+        "bSIE": {
+          "radius_kpc": 1.92352242,
+          "ring_mass_msun": 60122662300.0,
+          "baryon_cylinder_msun": 45906194500.0,
+          "anomaly_cylinder_msun": 17458045000.0,
+          "q_interval": [
+            -0.930558564,
+            1.58080288
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -769.955345,
+            3870.81004
+          ],
+          "speed_only_q": [
+            -0.930558564,
+            1.58080288
+          ],
+          "zero_slip_stellar_mass_1e11": 0.940812946
+        },
+        "bLTM": {
+          "radius_kpc": 1.85228085,
+          "ring_mass_msun": 55751604600.0,
+          "baryon_cylinder_msun": 44881241100.0,
+          "anomaly_cylinder_msun": 16652428000.0,
+          "q_interval": [
+            -1.09003724,
+            1.41421806
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -564.844102,
+            4310.57983
+          ],
+          "speed_only_q": [
+            -1.09003724,
+            1.41421806
+          ],
+          "zero_slip_stellar_mass_1e11": 0.891814268
+        }
+      },
+      "baryon_speed2": [
+        25937.6107,
+        33713.5593
+      ],
+      "anomaly_speed2": [
+        5346.41558,
+        9861.39816
+      ]
+    },
+    {
+      "name": "J1451-0239",
+      "stellar_box_1e11": null,
+      "speed_box_1e11": [
+        1.25939107,
+        5.18635504
+      ],
+      "mass_intersection_1e11": [
+        1.25939107,
+        5.18635504
+      ],
+      "rings": {
+        "bSIE": {
+          "radius_kpc": 2.33668055,
+          "ring_mass_msun": 83949869200.0,
+          "baryon_cylinder_msun": 27996502400.0,
+          "anomaly_cylinder_msun": 17185167800.0,
+          "q_interval": [
+            -1.56502296,
+            2.52474489
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -1714.28375,
+            5852.31366
+          ],
+          "speed_only_q": [
+            -1.56502296,
+            2.52474489
+          ],
+          "zero_slip_stellar_mass_1e11": 2.1074745
+        },
+        "bLTM": {
+          "radius_kpc": 2.31421247,
+          "ring_mass_msun": 82343210300.0,
+          "baryon_cylinder_msun": 27786365400.0,
+          "anomaly_cylinder_msun": 16964981200.0,
+          "q_interval": [
+            -1.59871194,
+            2.48702393
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -1682.65591,
+            5967.416
+          ],
+          "speed_only_q": [
+            -1.59871194,
+            2.48702393
+          ],
+          "zero_slip_stellar_mass_1e11": 2.08238596
+        }
+      },
+      "baryon_speed2": [
+        10471.1851,
+        19478.702
+      ],
+      "anomaly_speed2": [
+        3817.45876,
+        12024.0461
+      ]
+    },
+    {
+      "name": "J1525+3327",
+      "stellar_box_1e11": null,
+      "speed_box_1e11": [
+        2.95184199,
+        21.0229293
+      ],
+      "mass_intersection_1e11": [
+        2.95184199,
+        21.0229293
+      ],
+      "rings": {
+        "bSIE": {
+          "radius_kpc": 6.56982846,
+          "ring_mass_msun": 484174296000.0,
+          "baryon_cylinder_msun": 29644479900.0,
+          "anomaly_cylinder_msun": 49517945700.0,
+          "q_interval": [
+            -0.612391268,
+            4.66249645
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -2297.88586,
+            2699.73874
+          ],
+          "speed_only_q": [
+            -0.612391268,
+            4.66249645
+          ],
+          "zero_slip_stellar_mass_1e11": 10.8344701
+        },
+        "bLTM": {
+          "radius_kpc": 6.51967709,
+          "ring_mass_msun": 476810535000.0,
+          "baryon_cylinder_msun": 29472145100.0,
+          "anomaly_cylinder_msun": 49017269900.0,
+          "q_interval": [
+            -0.635290727,
+            4.62872217
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -2288.48118,
+            2752.25495
+          ],
+          "speed_only_q": [
+            -0.635290727,
+            4.62872217
+          ],
+          "zero_slip_stellar_mass_1e11": 10.7302739
+        }
+      },
+      "baryon_speed2": [
+        3971.19658,
+        7969.45485
+      ],
+      "anomaly_speed2": [
+        3570.23793,
+        12466.9818
+      ]
+    },
+    {
+      "name": "J1531-0105",
+      "stellar_box_1e11": null,
+      "speed_box_1e11": [
+        2.72432201,
+        9.71983419
+      ],
+      "mass_intersection_1e11": [
+        2.72432201,
+        9.71983419
+      ],
+      "rings": {
+        "bSIE": {
+          "radius_kpc": 4.7063105,
+          "ring_mass_msun": 271830754000.0,
+          "baryon_cylinder_msun": 39749577000.0,
+          "anomaly_cylinder_msun": 40195420300.0,
+          "q_interval": [
+            -0.913919061,
+            2.46500884
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -1396.80254,
+            3446.81952
+          ],
+          "speed_only_q": [
+            -0.913919061,
+            2.46500884
+          ],
+          "zero_slip_stellar_mass_1e11": 4.65648885
+        },
+        "bLTM": {
+          "radius_kpc": 4.7063105,
+          "ring_mass_msun": 271830754000.0,
+          "baryon_cylinder_msun": 39749577000.0,
+          "anomaly_cylinder_msun": 40195420300.0,
+          "q_interval": [
+            -0.913919061,
+            2.46500884
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -1396.80254,
+            3446.81952
+          ],
+          "speed_only_q": [
+            -0.913919061,
+            2.46500884
+          ],
+          "zero_slip_stellar_mass_1e11": 4.65648885
+        }
+      },
+      "baryon_speed2": [
+        8476.20157,
+        15827.1788
+      ],
+      "anomaly_speed2": [
+        3804.6829,
+        12046.0718
+      ]
+    },
+    {
+      "name": "J1538+5817",
+      "stellar_box_1e11": null,
+      "speed_box_1e11": [
+        0.771953689,
+        2.56301045
+      ],
+      "mass_intersection_1e11": [
+        0.771953689,
+        2.56301045
+      ],
+      "rings": {
+        "bSIE": {
+          "radius_kpc": 2.5090011,
+          "ring_mass_msun": 90423367400.0,
+          "baryon_cylinder_msun": 37753651900.0,
+          "anomaly_cylinder_msun": 20965659400.0,
+          "q_interval": [
+            -0.188877695,
+            3.32666924
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -2167.14127,
+            2017.75912
+          ],
+          "speed_only_q": [
+            -0.188877695,
+            3.32666924
+          ],
+          "zero_slip_stellar_mass_1e11": 1.67613122
+        },
+        "bLTM": {
+          "radius_kpc": 2.48391109,
+          "ring_mass_msun": 88623942400.0,
+          "baryon_cylinder_msun": 37498401300.0,
+          "anomaly_cylinder_msun": 20696283200.0,
+          "q_interval": [
+            -0.225899712,
+            3.28184729
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -2140.68416,
+            2095.56206
+          ],
+          "speed_only_q": [
+            -0.225899712,
+            3.28184729
+          ],
+          "zero_slip_stellar_mass_1e11": 1.65366022
+        }
+      },
+      "baryon_speed2": [
+        14865.68,
+        22859.0144
+      ],
+      "anomaly_speed2": [
+        4539.89821,
+        10902.3468
+      ]
+    },
+    {
+      "name": "J1621+3931",
+      "stellar_box_1e11": null,
+      "speed_box_1e11": [
+        1.82969901,
+        8.98664181
+      ],
+      "mass_intersection_1e11": [
+        1.82969901,
+        8.98664181
+      ],
+      "rings": {
+        "bSIE": {
+          "radius_kpc": 4.96776998,
+          "ring_mass_msun": 293439730000.0,
+          "baryon_cylinder_msun": 36522932800.0,
+          "anomaly_cylinder_msun": 40931130800.0,
+          "q_interval": [
+            -0.283440521,
+            4.093009
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -2208.77727,
+            2031.21257
+          ],
+          "speed_only_q": [
+            -0.283440521,
+            4.093009
+          ],
+          "zero_slip_stellar_mass_1e11": 5.42428376
+        },
+        "bLTM": {
+          "radius_kpc": 4.96776998,
+          "ring_mass_msun": 293439730000.0,
+          "baryon_cylinder_msun": 36522932800.0,
+          "anomaly_cylinder_msun": 40931130800.0,
+          "q_interval": [
+            -0.283440521,
+            4.093009
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -2208.77727,
+            2031.21257
+          ],
+          "speed_only_q": [
+            -0.283440521,
+            4.093009
+          ],
+          "zero_slip_stellar_mass_1e11": 5.42428376
+        }
+      },
+      "baryon_speed2": [
+        7124.54053,
+        12395.822
+      ],
+      "anomaly_speed2": [
+        4053.11109,
+        11632.8819
+      ]
+    },
+    {
+      "name": "J1627-0053",
+      "stellar_box_1e11": [
+        2.29086765,
+        6.16595002
+      ],
+      "speed_box_1e11": [
+        3.20228813,
+        10.1821797
+      ],
+      "mass_intersection_1e11": [
+        3.20228813,
+        6.16595002
+      ],
+      "rings": {
+        "bSIE": {
+          "radius_kpc": 4.17835111,
+          "ring_mass_msun": 228440446000.0,
+          "baryon_cylinder_msun": 37280393700.0,
+          "anomaly_cylinder_msun": 34728474900.0,
+          "q_interval": [
+            -0.0165662519,
+            1.75485466
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -855.302061,
+            1598.31238
+          ],
+          "speed_only_q": [
+            -1.36400846,
+            1.75485466
+          ],
+          "zero_slip_stellar_mass_1e11": 4.21509647
+        },
+        "bLTM": {
+          "radius_kpc": 4.14438078,
+          "ring_mass_msun": 224741067000.0,
+          "baryon_cylinder_msun": 37074151700.0,
+          "anomaly_cylinder_msun": 34365063600.0,
+          "q_interval": [
+            -0.0451911709,
+            1.72399558
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -825.114265,
+            1652.88908
+          ],
+          "speed_only_q": [
+            -1.3930182,
+            1.72399558
+          ],
+          "zero_slip_stellar_mass_1e11": 4.16926155
+        }
+      },
+      "baryon_speed2": [
+        8747.50512,
+        14718.9957
+      ],
+      "anomaly_speed2": [
+        4177.85276,
+        11436.4936
+      ]
+    },
+    {
+      "name": "J1630+4520",
+      "stellar_box_1e11": [
+        3.4673685,
+        8.51138038
+      ],
+      "speed_box_1e11": [
+        3.05749394,
+        10.516912
+      ],
+      "mass_intersection_1e11": [
+        3.4673685,
+        8.51138038
+      ],
+      "rings": {
+        "bSIE": {
+          "radius_kpc": 6.91677934,
+          "ring_mass_msun": 488132691000.0,
+          "baryon_cylinder_msun": 47342101400.0,
+          "anomaly_cylinder_msun": 63595183100.0,
+          "q_interval": [
+            0.459139124,
+            2.73586221
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -1367.67137,
+            667.654953
+          ],
+          "speed_only_q": [
+            -0.0473241224,
+            3.08797423
+          ],
+          "zero_slip_stellar_mass_1e11": 6.80622265
+        },
+        "bLTM": {
+          "radius_kpc": 6.91677934,
+          "ring_mass_msun": 488132691000.0,
+          "baryon_cylinder_msun": 47342101400.0,
+          "anomaly_cylinder_msun": 63595183100.0,
+          "q_interval": [
+            0.459139124,
+            2.73586221
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -1367.67137,
+            667.654953
+          ],
+          "speed_only_q": [
+            -0.0473241224,
+            3.08797423
+          ],
+          "zero_slip_stellar_mass_1e11": 6.80622265
+        }
+      },
+      "baryon_speed2": [
+        7726.83283,
+        12946.0664
+      ],
+      "anomaly_speed2": [
+        4194.16199,
+        11411.3194
+      ]
+    },
+    {
+      "name": "J1636+4707",
+      "stellar_box_1e11": null,
+      "speed_box_1e11": [
+        1.71537997,
+        5.96270334
+      ],
+      "mass_intersection_1e11": [
+        1.71537997,
+        5.96270334
+      ],
+      "rings": {
+        "bSIE": {
+          "radius_kpc": 3.98128213,
+          "ring_mass_msun": 177455149000.0,
+          "baryon_cylinder_msun": 38386894300.0,
+          "anomaly_cylinder_msun": 33503985700.0,
+          "q_interval": [
+            -0.628690017,
+            2.54340163
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -1360.06547,
+            2675.84361
+          ],
+          "speed_only_q": [
+            -0.628690017,
+            2.54340163
+          ],
+          "zero_slip_stellar_mass_1e11": 3.08885247
+        },
+        "bLTM": {
+          "radius_kpc": 3.94475661,
+          "ring_mass_msun": 174214027000.0,
+          "baryon_cylinder_msun": 38151118300.0,
+          "anomaly_cylinder_msun": 33109926200.0,
+          "q_interval": [
+            -0.658871974,
+            2.50825795
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -1337.90016,
+            2743.48371
+          ],
+          "speed_only_q": [
+            -0.658871974,
+            2.50825795
+          ],
+          "zero_slip_stellar_mass_1e11": 3.0506113
+        }
+      },
+      "baryon_speed2": [
+        9605.55069,
+        15121.1211
+      ],
+      "anomaly_speed2": [
+        4441.66738,
+        11042.4173
+      ]
+    },
+    {
+      "name": "J2238-0754",
+      "stellar_box_1e11": [
+        1.38038426,
+        3.23593657
+      ],
+      "speed_box_1e11": [
+        1.01604246,
+        3.9226885
+      ],
+      "mass_intersection_1e11": [
+        1.38038426,
+        3.23593657
+      ],
+      "rings": {
+        "bSIE": {
+          "radius_kpc": 3.07884143,
+          "ring_mass_msun": 127567052000.0,
+          "baryon_cylinder_msun": 34040002000.0,
+          "anomaly_cylinder_msun": 24618481300.0,
+          "q_interval": [
+            0.393261373,
+            2.78586053
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -1734.53984,
+            902.273879
+          ],
+          "speed_only_q": [
+            -0.122260397,
+            3.74694106
+          ],
+          "zero_slip_stellar_mass_1e11": 2.58481322
+        },
+        "bLTM": {
+          "radius_kpc": 3.10308428,
+          "ring_mass_msun": 129583891000.0,
+          "baryon_cylinder_msun": 34230396300.0,
+          "anomaly_cylinder_msun": 24871414900.0,
+          "q_interval": [
+            0.42057006,
+            2.81755462
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -1755.70258,
+            856.967614
+          ],
+          "speed_only_q": [
+            -0.0952357389,
+            3.7815676
+          ],
+          "zero_slip_stellar_mass_1e11": 2.61146819
+        }
+      },
+      "baryon_speed2": [
+        10360.8027,
+        18725.3672
+      ],
+      "anomaly_speed2": [
+        3916.93691,
+        11855.5144
+      ]
+    },
+    {
+      "name": "J2300+0022",
+      "stellar_box_1e11": [
+        2.13796209,
+        5.2480746
+      ],
+      "speed_box_1e11": [
+        2.85982909,
+        9.61093313
+      ],
+      "mass_intersection_1e11": [
+        2.85982909,
+        5.2480746
+      ],
+      "rings": {
+        "bSIE": {
+          "radius_kpc": 4.53366903,
+          "ring_mass_msun": 299164250000.0,
+          "baryon_cylinder_msun": 39505477800.0,
+          "anomaly_cylinder_msun": 38620003600.0,
+          "q_interval": [
+            1.03801415,
+            2.85077618
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -1871.91771,
+            -52.0844531
+          ],
+          "speed_only_q": [
+            -0.672527513,
+            2.85077618
+          ],
+          "zero_slip_stellar_mass_1e11": 5.31827867
+        },
+        "bLTM": {
+          "radius_kpc": 4.42398349,
+          "ring_mass_msun": 284863669000.0,
+          "baryon_cylinder_msun": 38872805100.0,
+          "anomaly_cylinder_msun": 37428634700.0,
+          "q_interval": [
+            0.942995919,
+            2.74417003
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -1795.50235,
+            79.4937651
+          ],
+          "speed_only_q": [
+            -0.764775452,
+            2.74417003
+          ],
+          "zero_slip_stellar_mass_1e11": 5.14426237
+        }
+      },
+      "baryon_speed2": [
+        8805.04039,
+        14340.0896
+      ],
+      "anomaly_speed2": [
+        4304.41865,
+        11244.0197
+      ]
+    },
+    {
+      "name": "J2303+1422",
+      "stellar_box_1e11": [
+        2.57039578,
+        5.88843655
+      ],
+      "speed_box_1e11": [
+        2.21307453,
+        10.9917727
+      ],
+      "mass_intersection_1e11": [
+        2.57039578,
+        5.88843655
+      ],
+      "rings": {
+        "bSIE": {
+          "radius_kpc": 4.3592234,
+          "ring_mass_msun": 266900788000.0,
+          "baryon_cylinder_msun": 31693180500.0,
+          "anomaly_cylinder_msun": 33809486000.0,
+          "q_interval": [
+            0.978487536,
+            3.42103318
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -2198.22014,
+            29.5638239
+          ],
+          "speed_only_q": [
+            -0.726758905,
+            3.91204059
+          ],
+          "zero_slip_stellar_mass_1e11": 5.84279931
+        },
+        "bLTM": {
+          "radius_kpc": 4.30540583,
+          "ring_mass_msun": 260351325000.0,
+          "baryon_cylinder_msun": 31403609500.0,
+          "anomaly_cylinder_msun": 33261275400.0,
+          "q_interval": [
+            0.934594922,
+            3.36855689
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -2168.92561,
+            90.650938
+          ],
+          "speed_only_q": [
+            -0.76926642,
+            3.85710631
+          ],
+          "zero_slip_stellar_mass_1e11": 5.75059557
+        }
+      },
+      "baryon_speed2": [
+        6474.59534,
+        13841.4133
+      ],
+      "anomaly_speed2": [
+        3378.70923,
+        12837.0528
+      ]
+    },
+    {
+      "name": "J2321-0939",
+      "stellar_box_1e11": null,
+      "speed_box_1e11": [
+        1.57940863,
+        7.53467788
+      ],
+      "mass_intersection_1e11": [
+        1.57940863,
+        7.53467788
+      ],
+      "rings": {
+        "bSIE": {
+          "radius_kpc": 2.46777697,
+          "ring_mass_msun": 120872687000.0,
+          "baryon_cylinder_msun": 26403004400.0,
+          "anomaly_cylinder_msun": 17698011700.0,
+          "q_interval": [
+            -1.60694874,
+            3.55956918
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -2975.61621,
+            6619.53719
+          ],
+          "speed_only_q": [
+            -1.60694874,
+            3.55956918
+          ],
+          "zero_slip_stellar_mass_1e11": 3.35095854
+        },
+        "bLTM": {
+          "radius_kpc": 2.46777697,
+          "ring_mass_msun": 120872687000.0,
+          "baryon_cylinder_msun": 26403004400.0,
+          "anomaly_cylinder_msun": 17698011700.0,
+          "q_interval": [
+            -1.60694874,
+            3.55956918
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -2975.61621,
+            6619.53719
+          ],
+          "speed_only_q": [
+            -1.60694874,
+            3.55956918
+          ],
+          "zero_slip_stellar_mass_1e11": 3.35095854
+        }
+      },
+      "baryon_speed2": [
+        8784.97903,
+        21256.921
+      ],
+      "anomaly_speed2": [
+        3037.2331,
+        13568.0922
+      ]
+    },
+    {
+      "name": "J2341+0000",
+      "stellar_box_1e11": [
+        2.51188643,
+        6.45654229
+      ],
+      "speed_box_1e11": [
+        1.43367502,
+        7.65944005
+      ],
+      "mass_intersection_1e11": [
+        2.51188643,
+        6.45654229
+      ],
+      "rings": {
+        "bSIE": {
+          "radius_kpc": 4.48665338,
+          "ring_mass_msun": 224638678000.0,
+          "baryon_cylinder_msun": 29913777000.0,
+          "anomaly_cylinder_msun": 33947912100.0,
+          "q_interval": [
+            0.36516172,
+            2.77858863
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -1513.19072,
+            865.926965
+          ],
+          "speed_only_q": [
+            -0.0477269884,
+            4.47137275
+          ],
+          "zero_slip_stellar_mass_1e11": 4.97760671
+        },
+        "bLTM": {
+          "radius_kpc": 4.58012533,
+          "ring_mass_msun": 234096123000.0,
+          "baryon_cylinder_msun": 30382654300.0,
+          "anomaly_cylinder_msun": 34886777400.0,
+          "q_interval": [
+            0.427871321,
+            2.85355695
+          ],
+          "pressure_column_over_c2_msun_pc2": [
+            -1555.11386,
+            769.573272
+          ],
+          "speed_only_q": [
+            0.0143136319,
+            4.56135345
+          ],
+          "zero_slip_stellar_mass_1e11": 5.10942573
+        }
+      },
+      "baryon_speed2": [
+        5844.42932,
+        12233.2635
+      ],
+      "anomaly_speed2": [
+        3441.26663,
+        12713.3479
+      ]
+    }
+  ],
+  "one_at_a_time_controls": {
+    "sparc_lower_scale": {
+      "53_spectra": [
+        0.989160193,
+        1.46641263
+      ],
+      "18_spectra": [
+        0.989160193,
+        1.82162118
+      ],
+      "18_spectra_and_populations": [
+        1.12950441,
+        1.34178365
+      ]
+    },
+    "sparc_upper_scale": {
+      "53_spectra": [
+        0.924222071,
+        1.41754608
+      ],
+      "18_spectra": [
+        0.924222071,
+        1.69304707
+      ],
+      "18_spectra_and_populations": [
+        0.953089662,
+        1.13221348
+      ]
+    },
+    "anomaly_ends_at_ten_Re": {
+      "53_spectra": [
+        0.989313092,
+        1.46711085
+      ],
+      "18_spectra": [
+        0.989313092,
+        1.80476788
+      ],
+      "18_spectra_and_populations": [
+        1.07208326,
+        1.27132807
+      ]
+    },
+    "effective_radii_minus_3.5_percent": {
+      "53_spectra": [
+        0.982569309,
+        1.39977243
+      ],
+      "18_spectra": [
+        0.982569309,
+        1.73247615
+      ],
+      "18_spectra_and_populations": [
+        0.982569309,
+        1.17674571
+      ]
+    },
+    "effective_radii_plus_3.5_percent": {
+      "53_spectra": [
+        0.929759172,
+        1.48212309
+      ],
+      "18_spectra": [
+        0.929759172,
+        1.77782826
+      ],
+      "18_spectra_and_populations": [
+        1.10121545,
+        1.28822673
+      ]
+    },
+    "ring_radii_minus_2_percent": {
+      "53_spectra": [
+        0.891522588,
+        1.37531465
+      ],
+      "18_spectra": [
+        0.891522588,
+        1.6787097
+      ],
+      "18_spectra_and_populations": [
+        0.959565837,
+        1.16681911
+      ]
+    },
+    "ring_radii_plus_2_percent": {
+      "53_spectra": [
+        1.01866454,
+        1.50602848
+      ],
+      "18_spectra": [
+        1.01866454,
+        1.83022387
+      ],
+      "18_spectra_and_populations": [
+        1.11553653,
+        1.29865458
+      ]
+    }
+  }
+}

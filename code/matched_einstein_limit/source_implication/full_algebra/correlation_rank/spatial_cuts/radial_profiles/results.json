@@ -1,0 +1,149 @@
+{
+  "scale": 10000000000000000000,
+  "projective_charts": [
+    {
+      "certified_boxes": 376,
+      "max_depth": 17,
+      "maximum_defect_ppm": 498695,
+      "minimum_entropy_slope_piconats": 1307982
+    },
+    {
+      "certified_boxes": 148,
+      "max_depth": 8,
+      "maximum_defect_ppm": 495357,
+      "minimum_entropy_slope_piconats": 71057667
+    }
+  ],
+  "equal_probe_entropy_slope": [
+    2472836989228951,
+    2473081730547347
+  ],
+  "outer_angular_entropy_slope": [
+    438942186505181,
+    439280602125872
+  ],
+  "minimum_within_shell_price_spread": 1053994828129047599,
+  "monotone_profiles": [
+    {
+      "vacancy_sign": 1,
+      "excess_sign": 1,
+      "minimum_scaled_slope_ppb": 125015,
+      "minimum_entropy_loss_piconats": 361044727,
+      "projection_correction_ppb": 43
+    },
+    {
+      "vacancy_sign": -1,
+      "excess_sign": -1,
+      "minimum_scaled_slope_ppb": 29299,
+      "minimum_entropy_loss_piconats": 84622468,
+      "projection_correction_ppb": 10
+    },
+    {
+      "vacancy_sign": 1,
+      "excess_sign": -1,
+      "minimum_scaled_slope_ppb": 92006,
+      "minimum_entropy_loss_piconats": 265713551,
+      "projection_correction_ppb": 29
+    },
+    {
+      "vacancy_sign": -1,
+      "excess_sign": 1,
+      "minimum_scaled_slope_ppb": 20479,
+      "minimum_entropy_loss_piconats": 59145088,
+      "projection_correction_ppb": 4
+    }
+  ],
+  "independent_profiles": {
+    "rank": 18,
+    "scaled_inverse_defect_ppm": 1
+  },
+  "outer_shells": {
+    "entropy_slope": [
+      987958914951685,
+      988040681996894
+    ],
+    "outer_price_jump_lower": 1350000000000000000000
+  },
+  "common_cell_profile": {
+    "rank": 18,
+    "charge_blind_cells": [
+      0,
+      2,
+      3,
+      12,
+      16,
+      18,
+      19,
+      28,
+      29,
+      31,
+      66,
+      70
+    ],
+    "scaled_left_inverse_defect_ppm": 1,
+    "regional_and_cell_prices": [
+      "-187359.4041020289",
+      "12374676.00891401",
+      "278544.4123718397",
+      "2408.584916297274",
+      "40557.82696393326",
+      "-11126472.82180936",
+      "-1083054.481865961",
+      "6034.339965225317",
+      "0",
+      "750791.4422889305",
+      "-74444.93909132693",
+      "-45912315679922",
+      "-834300592.2217535",
+      "-2031430372538.906",
+      "103140520931814.2",
+      "-1.078604394261887e+18",
+      "4.170998755249862e+21",
+      "3.042678831853724e+22",
+      "2428982245081984",
+      "0"
+    ],
+    "modular_error_upper": 100001196845714,
+    "raw_price_l1_upper": 34598868258248736178196
+  },
+  "equal_probe_arms": {
+    "arm_step": 4e-05,
+    "arm_volumes": [
+      2.7634718367883075,
+      2.7634718367883075
+    ],
+    "ordinary_calibrated_area": 0.0002472968148724168,
+    "spectral_entropy": 0.0002472946347698013,
+    "common_cell_flux_slope": 0.0002472959387947275,
+    "regional_slopes": [
+      -1.660565079700203e-22,
+      -1.9273308272485545e-22,
+      4.499862532288471e-22,
+      1.283784310682299e-20,
+      1.6175516878474456e-20,
+      5.6186243107664405e-22,
+      4.0167890545575024e-21,
+      2.901749588836021e-20
+    ],
+    "vacancy_and_excess_shell_slopes": [
+      [
+        3.231244850932266e-10,
+        -4.5201508704814136e-10,
+        1.2889059423041248e-10,
+        7.719630297406993e-18,
+        5.129256833333533e-21,
+        2.1652911755230363e-28
+      ],
+      [
+        -3.231244850808222e-10,
+        4.520150870416701e-10,
+        -1.2889059423152586e-10,
+        -7.719630293456378e-18,
+        -5.129257250246521e-21,
+        -2.1652916046960238e-28
+      ]
+    ],
+    "max_relative_regional_drift": 1.6909336100384483e-13,
+    "max_relative_equal_mix_drift": 4.6445857235735754e-14
+  }
+}
