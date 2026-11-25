@@ -1,0 +1,105 @@
+{
+  "lens_fit": "https://doi.org/10.1093/mnras/stu1190",
+  "fit_median_and_marginal_limits": {
+    "axis_ratio": [
+      0.946,
+      0.941,
+      0.955
+    ],
+    "projected_density_slope": [
+      1.027,
+      1.002,
+      1.05
+    ],
+    "intermediate_axis_arcsec": [
+      1.397,
+      1.396,
+      1.398
+    ]
+  },
+  "surface_density_unit": "solar mass per square parsec",
+  "nominal_primary_optical_contrast": 1165.794799,
+  "panels": {
+    "ring_errors_1": {
+      "radius_partitions": [
+        {
+          "ring_ranges_arcsec": [
+            [
+              1.42,
+              1.44
+            ],
+            [
+              2.05,
+              2.09
+            ]
+          ],
+          "optical_contrast_lower": 1090,
+          "orbital_contrast_upper": 941,
+          "optical_minus_orbital_lower": 149
+        }
+      ],
+      "optical_minus_orbital_lower": 149,
+      "aligned_margin": 114,
+      "aligned_geometry_threshold_percent_at_zero_secondary_bend": 1.753214
+    },
+    "ring_errors_2": {
+      "radius_partitions": [
+        {
+          "ring_ranges_arcsec": [
+            [
+              1.41,
+              1.45
+            ],
+            [
+              2.03,
+              2.11
+            ]
+          ],
+          "optical_contrast_lower": 1040,
+          "orbital_contrast_upper": 979,
+          "optical_minus_orbital_lower": 61
+        }
+      ],
+      "optical_minus_orbital_lower": 61,
+      "aligned_margin": 76,
+      "aligned_geometry_threshold_percent_at_zero_secondary_bend": 1.168809
+    },
+    "extended_to_bolton_radii": {
+      "radius_partitions": [
+        {
+          "ring_ranges_arcsec": [
+            [
+              1.38,
+              1.41
+            ],
+            [
+              2.03,
+              2.11
+            ]
+          ],
+          "optical_contrast_lower": 1143,
+          "orbital_contrast_upper": 1045,
+          "optical_minus_orbital_lower": 98
+        },
+        {
+          "ring_ranges_arcsec": [
+            [
+              1.41,
+              1.45
+            ],
+            [
+              2.03,
+              2.11
+            ]
+          ],
+          "optical_contrast_lower": 1040,
+          "orbital_contrast_upper": 979,
+          "optical_minus_orbital_lower": 61
+        }
+      ],
+      "optical_minus_orbital_lower": 61,
+      "aligned_margin": 10,
+      "aligned_geometry_threshold_percent_at_zero_secondary_bend": 0.153791
+    }
+  }
+}

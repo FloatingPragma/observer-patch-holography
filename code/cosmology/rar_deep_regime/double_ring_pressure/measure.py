@@ -133,7 +133,7 @@ def decimal(x):
     return iv.mpf(str(x))
 
 
-def distance_bounds():
+def critical_density_bounds():
     # Trapezoidal error ≤ z^3 max|f''|/(12 n²). On 0≤z≤2.035 the direct
     # derivative of (0.3(1+z)^3+0.7)^(-1/2) has |f''|<60.
     n = 256
@@ -157,6 +157,11 @@ def distance_bounds():
         / 10**6
         for x in distances[1:]
     ]
+    return scale, critical
+
+
+def distance_bounds():
+    scale, critical = critical_density_bounds()
     return scale, critical[0] - critical[1]
 
 

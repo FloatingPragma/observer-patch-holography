@@ -58,9 +58,34 @@ The alternate inner angles are $1.38$ and $1.39$ arcsec from two reductions of t
 
 Using the nominal Salpeter component masses instead, $\log_{10}(m_i/M_\odot)=(11.13,11.52)$, and continuing the model along the full ray gives an explicit zero-pressure solution. The inner ring requires a primary sheet of $0.1452\,C_1$. The second ray reaches the intermediate plane at $+0.656$ arcsec and needs a positive reduced bend of $0.10775$ arcsec. A centered singular isothermal secondary would give this bend at $80.76$ km/s. Gavazzi et al. infer $59\pm13$ km/s from the secondary luminosity and an externally calibrated Tully–Fisher relation. This is a model-dependent comparison, separate from a direct dispersion spectrum. The primary does have an independent SDSS fibre measurement, $263\pm21$ km/s. Weighting the two measured F814W luminosities as tracers, the untruncated Salpeter force gives an isotropic spherical Jeans dispersion of 259.36 km/s. The full aperture bounds with arbitrary radial variation of stellar anisotropy are [227.06,307.78] km/s. The nominal Chabrier field gives 196.92 km/s under isotropy and [170.98,236.90] km/s with unrestricted anisotropy. These calculations use the same 1.5 arcsec fibre radius and common 1.4 arcsec seeing FWHM as the 53-galaxy comparison. The pressure test constrains a stellar calibration and an effective force law together. It supplies no microscopic collar-pressure measurement. [All values and controls](results.json)
 
+## Optical mass in two circular apertures of an elliptical lens
+
+Collett and Auger fit the two sets of Hubble arcs with pixelated sources, an elliptical power-law primary, external shear and an isothermal secondary. Their Table 1 gives the primary intermediate-axis Einstein scale $b=1.397\pm0.001$ arcsec for the **first** source plane, projected density slope $\eta=1.027^{+0.023}_{-0.025}$, and projected mass axis ratio $q=0.946^{+0.009}_{-0.005}$. These describe the total optical mass fit. The flatter stellar components belong to the orbital model. The fit allowed the relative lensing-distance factor to vary. Multiplication by $C_1$ uses the spectroscopic first-source and primary redshifts and the distance calibration above. [Hubble image model, Table 1 and note 4](https://doi.org/10.1093/mnras/stu1190)
+
+For elliptical radius $s^2=qx^2+y^2/q$, the fitted convergence is $\kappa=(2-\eta)(b/s)^\eta/2$. Its mean inside the ellipse $s<b$ is unity. Integration over the **circular** sky aperture $x^2+y^2<\theta^2$ instead gives the primary optical contrast
+
+$$
+W=\Delta\bar\Sigma_w=C_1 Q(q,\eta)\left[(b/\theta_1)^\eta-(b/\theta_2)^\eta\right],\qquad
+Q=\frac1{2\pi}\int_0^{2\pi}(q\cos^2\phi+q^{-1}\sin^2\phi)^{-\eta/2}\,d\phi .
+$$
+
+A uniform primary sheet cancels in the difference of means and the external shear has zero convergence. The reconstruction includes the secondary, so the inferred primary $W$ already accounts for its fitted deflection. The nominal value at the discovery radii is $1165.79\ M_\odot\,{\rm pc}^{-2}$. Form a rectangle of the three quoted marginal parameter ranges. Jensen's inequality gives $Q\ge[(q+q^{-1})/2]^{-\eta/2}$, bounded below using the smallest $q$ and largest $\eta$. The square bracket increases with $b$ and $\theta_2$ and decreases with $\theta_1$. At these extremal radii it increases with $\eta$ at fixed $b=b_{\min}$, since $t e^{-\eta t}$ increases for $0\le t=\log(\theta/b)<1/\eta$. These bounds share the same apertures with the spherical orbital upper limit $D=\Delta\bar\Sigma_o$.
+
+| Angular range | Lower $W$ | Upper $D$ | Lower $W-D$ |
+| --- | ---: | ---: | ---: |
+| Quoted ring errors | 1090 | 941 | 149 |
+| Doubled ring errors | 1040 | 979 | 61 |
+| Extended inner range, $1.38$ to $1.41$ arcsec, doubled outer error | 1143 | 1045 | 98 |
+| Extended inner range, $1.41$ to $1.45$ arcsec, doubled outer error | 1040 | 979 | 61 |
+
+All entries are outward-rounded surface densities in $M_\odot\,{\rm pc}^{-2}$. The result compares an observed-image optical fit with the spherical Chabrier force continuation. Interpreting $D-W$ as a radial-pressure column difference additionally requires the spherical stress identity. The parameter rectangle has no assigned joint confidence level. Both optical reductions use the same arcs. A physical lensing bound requires a lower limit on the primary mass contrast $W$ at matched circles after allowing for the primary profile, secondary mass, lens centering and line-of-sight degeneracies. A general mass-sheet transformation also rescales the primary. A fit with separate stellar and halo components favors heavier Salpeter-like stellar masses. [Composite lens model and parameter uncertainties](https://arxiv.org/abs/2602.20889) · [Elliptical aperture calculation](elliptical.py) · [Replayed bounds](elliptical.json)
+
+For the aligned calculation, write dimensionless errors $e_i$ on the right sides of its two lens equations, giving $C_1(1+e_1)$ and $C_2(1-b_{12}/\theta_2+e_2)$. The change that can erase a deficit is $H=C_2 e_2-C_1 e_1$. If the tabulated guaranteed aligned deficit at zero secondary bend is $L$, a nonnegative pressure contrast requires $H\ge L+C_2 b_{12}/\theta_2$. On the box $|e_i|\le\epsilon$, the exact maximum of $H$ is $(C_1+C_2)\epsilon$, attained at $e_1=-\epsilon$, $e_2=+\epsilon$. Thus the smallest per-plane error envelopes capable of erasing the **guaranteed margins** of 114, 76 and 10 are respectively 1.7532%, 1.1688% and 0.1538% at $b_{12}=0$. A positive reduced radial bend raises the threshold. The actual force residual can exceed the conservative guaranteed margin. A physical sheet produces $C_2e_2=C_1e_1$ and cancels.
+
 From the repository root, run
 
 ~~~sh
 PYTHONPATH=code OPENBLAS_NUM_THREADS=1 python -m cosmology.rar_deep_regime.double_ring_pressure.measure
+PYTHONPATH=code OPENBLAS_NUM_THREADS=1 python -m cosmology.rar_deep_regime.double_ring_pressure.elliptical
 OPENBLAS_NUM_THREADS=1 python -m pytest -q code/cosmology/rar_deep_regime/double_ring_pressure
 ~~~
