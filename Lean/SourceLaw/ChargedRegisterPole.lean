@@ -127,6 +127,31 @@ theorem insertion_ceiling {ι : Type*} [Fintype ι] (energy touched : ι → ℝ
     _ = 33 * ∑ i, touched i := (Finset.mul_sum ..).symm
     _ ≤ 198 * defects := by linarith
 
+/-- The exchange on a zero-potential leaf pays one third of its density
+and charges its neighbor at most one density unit. Applied to the real and
+imaginary parts, the same inequality holds for complex amplitudes. -/
+theorem soft_tip_cost (x y : ℝ) : x^2 / 3 - y^2 ≤ (x-y)^2 / 2 := by
+  nlinarith [sq_nonneg (x-3*y)]
+
+/-- Each hard port has diagonal at least eight, and receives at most six
+tip charges. Summing the tip exchanges therefore bounds the entire quadratic
+form below by one third of the probability on the component. -/
+theorem passive_transport_gap {soft hard allocated kinetic potential : ℝ}
+    (h : 0 ≤ hard) (tips : soft / 3 - allocated ≤ kinetic)
+    (degree : allocated ≤ 6*hard) (diagonal : 8*hard ≤ potential) :
+    (soft+hard)/3 ≤ kinetic + potential := by linarith
+
+/-- The heavy one-defect ceiling and the passive vacancy transport gap
+preclude the observed tau hierarchy in any common multiplicative unit. -/
+theorem passive_ratio_ceiling {light heavy : ℝ} (gap : 1/3 ≤ light)
+    (ceiling : heavy ≤ 198) : heavy/light ≤ 594 := by
+  apply (div_le_iff₀ (show 0 < light by linarith)).2
+  linarith
+
+#print axioms soft_tip_cost
+#print axioms passive_transport_gap
+#print axioms passive_ratio_ceiling
+
 #print axioms recoil_order
 #print axioms insertion_ceiling
 #print axioms conjugate_detuning_variance
