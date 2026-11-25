@@ -26,6 +26,24 @@ def probability_interval(distances):
     return summed / (12 * iv.mpf([int(np.trace(low)), int(np.trace(high))]))
 
 
+def triplet_weight(distances):
+    """Project the palindromic filter before its rotation average and fair waits."""
+    sweeps = 4
+    modes = cap.exact_stationary_source(1, cap.standard_count())["mode_probabilities"]
+    even, odd = (np.array(modes[1:3]) / modes[0]) ** (1 / (4 * sweeps))
+    gate = np.eye(4)
+    gate[1:3, 1:3] = np.array([[even + odd, even - odd], [even - odd, even + odd]]) / 2
+    # NativeFilter.success checks this spectral form against the compiled
+    # pulses in common_reference. Evaluating the form avoids accumulating
+    # phase-cancellation roundoff from the 30 successive seam filters.
+    filters = [(cap.seam_indices(edge), gate) for edge in cap.cell().seams]
+    prepared = cap.prepared_charge(filters, sweeps)[0]
+    dots = np.array([1.0, 1 / np.sqrt(5), -1 / np.sqrt(5), -1.0])
+    projector = dots[distances] / 4
+    # The projector commutes with every rotation and every native free wait.
+    return float(np.sum(projector * prepared[1:13, 1:13]) / 3)
+
+
 def local_cost(a, b):
     """Sum nonnegative spectral terms for the trace Bregman divergence."""
     values, ua = np.linalg.eigh(a)
@@ -103,7 +121,7 @@ def receipt():
     _, axes = np.linalg.eigh(np.eye(3) - np.outer(n, n))
     orientations = np.column_stack((axial, tri @ axes[:, -2:]))
     transfer = np.outer(axial, axial) - (tri @ tri.T - np.outer(axial, axial)) / 2
-    p = float(np.trace(tri.T @ reference[1:13, 1:13] @ tri) / 3)
+    p = triplet_weight(distance)
     assert bound.a < p < bound.b
     np.testing.assert_allclose(
         reference[1:13, 1:13] @ tri, p * tri, rtol=1e-12, atol=1e-18

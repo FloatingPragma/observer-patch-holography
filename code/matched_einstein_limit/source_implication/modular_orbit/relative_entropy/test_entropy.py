@@ -1,7 +1,32 @@
 import json
 from fractions import Fraction
 
+import numpy as np
+
+from . import angular
 from .measure import run
+
+
+def test_triplet_projection_is_preserved_by_the_native_waits_and_rotations():
+    cell = angular.cap.cell()
+    distance = angular.shortest_path(cell.adjacency(), directed=False, unweighted=True)
+    # 4Q = A + B/sqrt(5). Test each rational coefficient separately.
+    a = (distance == 0).astype(int) - (distance == 3)
+    b = (distance == 1).astype(int) - (distance == 2)
+    np.testing.assert_array_equal(5 * (a @ a) + b @ b, 20 * a)
+    np.testing.assert_array_equal(a @ b + b @ a, 4 * b)
+    assert np.trace(a) == 12 and np.trace(b) == 0
+    h = angular.cap.native_energy(
+        [angular.cap.seam_indices(e) for e in cell.seams], np.ones(30)
+    )[0]
+    twice = np.rint(2 * h[1:13, 1:13]).astype(int)
+    np.testing.assert_array_equal(twice, 2 * h[1:13, 1:13])
+    for coeff in (a, b):
+        np.testing.assert_array_equal(coeff @ twice, twice @ coeff)
+        for permutation in angular.modular.rotations():
+            np.testing.assert_array_equal(
+                coeff[np.ix_(permutation, permutation)], coeff
+            )
 
 
 def test_native_nonlinear_remainder_and_stationary_pole():
