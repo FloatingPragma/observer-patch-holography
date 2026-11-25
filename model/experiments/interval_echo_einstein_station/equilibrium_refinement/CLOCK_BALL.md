@@ -32,4 +32,10 @@ $$
 
 The formula follows by evaluating it on the three allowed occupancies. It holds for arbitrary correlations or directional asymmetries when receivers are sampled uniformly. Independent single and simultaneous comparisons give **−0.45676 nats** for the capacity contrast across 524,288 simulated preparations per meter and arm. The joint record identifies the missing correlation. To interpret it as an area change on this ball one would need a geometric response to that correlation that predicts other observers' range or volume records. The individual marker and relay readings tested here leave it unresolved.
 
+## A geometric aperture that sees the correlation
+
+Each rim observer also times messages to the other rim stations. It registers a hit when its own station or another rim station within one exchange reports a resident. A single resident on the rim lights three panels. Moving one resident from the interior to the rim calibrates the information per lit panel to $\log(5)/3$ nats. This uses one transfer at the same total marker volume.
+
+Moving to the held spread preparation reduces the mean lit area by half a panel. The frozen calibration predicts **−0.26824 nats**. The measured capacity changes by **−0.45815 nats**. The discrepancy has a geometric explanation visible in the reports. All ten two-resident rim placements have the same completion count, but the angular separation of the residents determines whether four or five panels light. This aperture detects the sign of the correlation response. Its ordinary one-transfer calibration fails to predict its magnitude. A two-receiver information measurement succeeds, while its interpretation as proper area still needs a metric realization.
+
 From the RER root run `python -m model.experiments.interval_echo_einstein_station.equilibrium_refinement.clock_ball` to reproduce the output.

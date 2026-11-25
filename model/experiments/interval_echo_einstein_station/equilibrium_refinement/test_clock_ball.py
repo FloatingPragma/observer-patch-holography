@@ -38,3 +38,8 @@ def test_a_matched_clock_ball_has_a_correlation_transfer_at_identical_one_site_l
     assert contrast["capacity_nats"] == pytest.approx(math.log(2/5)/2)
     assert abs(contrast["flag_reconstruction_nats"] - contrast["capacity_nats"]) < 0.01
     assert abs(contrast["interior_entropy_first_variation_nats"] + contrast["capacity_nats"]) < 0.01
+    panels = result["timed_rim_apertures"]
+    assert panels == archive["timed_rim_apertures"]
+    assert {row["lit_panels"] for row in panels["held_rim_pairs"]} == {4, 5}
+    assert all(row["capacity_nats"] == pytest.approx(math.log(10)) for row in panels["held_rim_pairs"])
+    assert panels["predicted_capacity_contrast"] == pytest.approx(-math.log(5)/6)
