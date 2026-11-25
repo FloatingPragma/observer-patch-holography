@@ -27,4 +27,4 @@ python -m pytest -q model/experiments/interval_echo_angular/charged_orientation/
 (cd Lean && lake env lean -j 1 Dynamics/WrittenHeadWinding.lean)
 ```
 
-[Finite derivation](PROOF.md) · [Observer records](records.json) · [Experiment](measure.py) · [Lean source](../../../../../Lean/Dynamics/WrittenHeadWinding.lean)
+[Mixed-guide formation lines](MIXED_MASSES.md) · [Finite derivation](PROOF.md) · [Observer records](records.json) · [Experiment](measure.py) · [Lean source](../../../../../Lean/Dynamics/WrittenHeadWinding.lean)

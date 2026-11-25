@@ -1,0 +1,392 @@
+{
+  "alternating_prefix_finite": {
+    "144": [
+      0.000411523,
+      0.000411525
+    ],
+    "15": [
+      0.034436489,
+      0.034436491
+    ]
+  },
+  "homogeneous_parity_sweep": {
+    "even": {
+      "attaining_lifted_word": "00101010101010100",
+      "canonical_open_words": 8383,
+      "minimum_positive": [
+        0.034436489,
+        0.034436491
+      ],
+      "with_line_below_ceiling_over_tau_ratio": 5
+    },
+    "odd": {
+      "canonical_open_words": 8383,
+      "with_line_below_ceiling_over_tau_ratio": 0
+    }
+  },
+  "laboratory_ratios": {
+    "heavy": 3477.3652619063464,
+    "middle": 206.7682827
+  },
+  "long_preparation": {
+    "all_motif_blank_bypasses_biconnected": true,
+    "compensator": 893,
+    "erased_private": 48,
+    "owners": 48,
+    "ports": 144,
+    "private_reference": 0
+  },
+  "mixed_parities_selected_motif": {
+    "assignments": 128,
+    "with_line_below_cutoff": 3
+  },
+  "native_eighth_units": {
+    "blank": [
+      68,
+      -4
+    ],
+    "even": [
+      -32,
+      -32
+    ],
+    "odd": [
+      -36,
+      -36
+    ]
+  },
+  "periodic_rows": [
+    {
+      "bandwidth": 0.0009345378181076711,
+      "detector_offset": 14,
+      "finite_line": [
+        0.034436489,
+        0.034436491
+      ],
+      "free_arrival": 0.09403518261864863,
+      "free_record": {
+        "interval99": [
+          0.09111201948374067,
+          0.09949679883887053
+        ],
+        "launches": 32768,
+        "probability": 0.094035182619,
+        "successes": 3121
+      },
+      "free_time": 1070.047654170788,
+      "nearest_anchored_levels": {
+        "heavy": {
+          "index": 17,
+          "ratio": 495.155262022172,
+          "relative_error": -0.8576061975868707
+        },
+        "middle": {
+          "index": 7,
+          "ratio": 233.48608741202085,
+          "relative_error": 0.1292161658603399
+        }
+      },
+      "period": 15,
+      "phase_zero_edge": [
+        0.033961402,
+        0.033961404
+      ],
+      "repeats": 1,
+      "source_line_weight": 0.125791925276506,
+      "source_offset": 7,
+      "source_to_detector_pole_norm": 0.044653467973325485,
+      "zone_edge": 0.03489593994629303
+    },
+    {
+      "bandwidth": 6.383474854276816e-05,
+      "detector_offset": 18,
+      "finite_line": [
+        0.061015411,
+        0.061015413
+      ],
+      "free_arrival": 0.1342114887682463,
+      "free_record": {
+        "interval99": [
+          0.12823207462482808,
+          0.13792717102088412
+        ],
+        "launches": 32768,
+        "probability": 0.134211488768,
+        "successes": 4359
+      },
+      "free_time": 15665.449035645806,
+      "nearest_anchored_levels": {
+        "heavy": {
+          "index": 146,
+          "ratio": 287.2136709005586,
+          "relative_error": -0.9174048024097694
+        },
+        "middle": {
+          "index": 121,
+          "ratio": 146.45257753571823,
+          "relative_error": -0.29170675684236247
+        }
+      },
+      "period": 12,
+      "phase_zero_edge": [
+        0.061014484,
+        0.061014486
+      ],
+      "repeats": 12,
+      "source_line_weight": 0.0014781190117425461,
+      "source_offset": 6,
+      "source_to_detector_pole_norm": 0.0028713923926947074,
+      "zone_edge": 0.06107831965625965
+    },
+    {
+      "bandwidth": 2.755835207075147e-05,
+      "detector_offset": 24,
+      "finite_line": [
+        0.034423785,
+        0.034423787
+      ],
+      "free_arrival": 0.02652381673314059,
+      "free_record": {
+        "interval99": [
+          0.024053247550464556,
+          0.02863681624481539
+        ],
+        "launches": 32768,
+        "probability": 0.026523816733,
+        "successes": 861
+      },
+      "free_time": 36286.639978786356,
+      "nearest_anchored_levels": {
+        "heavy": {
+          "index": 146,
+          "ratio": 509.0799883223257,
+          "relative_error": -0.8536018076964282
+        },
+        "middle": {
+          "index": 63,
+          "ratio": 233.5725720210636,
+          "relative_error": 0.12963443411654163
+        }
+      },
+      "period": 16,
+      "phase_zero_edge": [
+        0.034423111,
+        0.034423113
+      ],
+      "repeats": 9,
+      "source_line_weight": 0.002399506763064287,
+      "source_offset": 8,
+      "source_to_detector_pole_norm": 0.004565926781925301,
+      "zone_edge": 0.03445066984893311
+    },
+    {
+      "bandwidth": 1.9463872350758415e-05,
+      "detector_offset": 27,
+      "finite_line": [
+        0.027211977,
+        0.027211979
+      ],
+      "free_arrival": 0.00796002590228826,
+      "free_record": {
+        "interval99": [
+          0.006559832224089628,
+          0.009088384586606262
+        ],
+        "launches": 32768,
+        "probability": 0.007960025902,
+        "successes": 254
+      },
+      "free_time": 51377.23788868944,
+      "nearest_anchored_levels": {
+        "heavy": {
+          "index": 147,
+          "ratio": 643.9980391866369,
+          "relative_error": -0.8148028778450536
+        },
+        "middle": {
+          "index": 64,
+          "ratio": 295.1752744016347,
+          "relative_error": 0.4275655363927571
+        }
+      },
+      "period": 18,
+      "phase_zero_edge": [
+        0.027211391,
+        0.027211393
+      ],
+      "repeats": 8,
+      "source_line_weight": 0.002832488287441489,
+      "source_offset": 9,
+      "source_to_detector_pole_norm": 0.0053253483407659785,
+      "zone_edge": 0.02723085499695527
+    },
+    {
+      "bandwidth": 8.279077879244645e-06,
+      "detector_offset": 36,
+      "finite_line": [
+        0.015309796,
+        0.015309798
+      ],
+      "free_arrival": 0.00921768505736634,
+      "free_record": {
+        "interval99": [
+          0.007601780720187661,
+          0.010304251493026845
+        ],
+        "launches": 32768,
+        "probability": 0.009217685057,
+        "successes": 291
+      },
+      "free_time": 120786.39850785371,
+      "nearest_anchored_levels": {
+        "heavy": {
+          "index": 147,
+          "ratio": 1144.6566220802679,
+          "relative_error": -0.6708264631789791
+        },
+        "middle": {
+          "index": 65,
+          "ratio": 64.06478183322994,
+          "relative_error": -0.6901614648210745
+        }
+      },
+      "period": 24,
+      "phase_zero_edge": [
+        0.015309386,
+        0.015309388
+      ],
+      "repeats": 6,
+      "source_line_weight": 0.004497972744215382,
+      "source_offset": 12,
+      "source_to_detector_pole_norm": 0.008108328071554117,
+      "zone_edge": 0.015317666033833152
+    },
+    {
+      "bandwidth": 2.4637761491972873e-06,
+      "detector_offset": 54,
+      "finite_line": [
+        0.0067991,
+        0.006799102
+      ],
+      "free_arrival": 0.006838856740836888,
+      "free_record": {
+        "interval99": [
+          0.0051628590879651305,
+          0.0074343188294936045
+        ],
+        "launches": 32768,
+        "probability": 0.006838856741,
+        "successes": 204
+      },
+      "free_time": 405881.0295431287,
+      "nearest_anchored_levels": {
+        "heavy": {
+          "index": 147,
+          "ratio": 2577.46752442691,
+          "relative_error": -0.2587872339260956
+        },
+        "middle": {
+          "index": 67,
+          "ratio": 145.81350927195504,
+          "relative_error": -0.2947975029443187
+        }
+      },
+      "period": 36,
+      "phase_zero_edge": [
+        0.006798865,
+        0.006798867
+      ],
+      "repeats": 4,
+      "source_line_weight": 0.007696398891597797,
+      "source_offset": 18,
+      "source_to_detector_pole_norm": 0.012457646556831186,
+      "zone_edge": 0.006801328805773072
+    },
+    {
+      "bandwidth": 1.0402107926809484e-06,
+      "detector_offset": 72,
+      "finite_line": [
+        0.003821663,
+        0.003821665
+      ],
+      "free_arrival": 0.01684903310249017,
+      "free_record": {
+        "interval99": [
+          0.01492508675718783,
+          0.018603063278920785
+        ],
+        "launches": 32768,
+        "probability": 0.016849033102,
+        "successes": 547
+      },
+      "free_time": 961343.6113488954,
+      "nearest_anchored_levels": {
+        "heavy": {
+          "index": 140,
+          "ratio": 4323.611352409353,
+          "relative_error": 0.24335841269636438
+        },
+        "middle": {
+          "index": 50,
+          "ratio": 205.1854709238327,
+          "relative_error": -0.007655002766859598
+        }
+      },
+      "period": 48,
+      "phase_zero_edge": [
+        0.00382151,
+        0.003821512
+      ],
+      "repeats": 3,
+      "source_line_weight": 0.010437277219348833,
+      "source_offset": 24,
+      "source_to_detector_pole_norm": 0.014764887876982819,
+      "zone_edge": 0.0038225509540924622
+    },
+    {
+      "bandwidth": 3.0816659695918035e-07,
+      "detector_offset": 108,
+      "finite_line": [
+        0.001696866,
+        0.001696868
+      ],
+      "free_arrival": 0.04825867101496771,
+      "free_record": {
+        "interval99": [
+          0.04646336520976554,
+          0.05266733333561417
+        ],
+        "launches": 32768,
+        "probability": 0.048258671015,
+        "successes": 1622
+      },
+      "free_time": 3244998.029856103,
+      "nearest_anchored_levels": {
+        "heavy": {
+          "index": 70,
+          "ratio": 4715.834052882978,
+          "relative_error": 0.3561514818543057
+        },
+        "middle": {
+          "index": 29,
+          "ratio": 202.27250956475802,
+          "relative_error": -0.02174305012613975
+        }
+      },
+      "period": 72,
+      "phase_zero_edge": [
+        0.001696789,
+        0.001696791
+      ],
+      "repeats": 2,
+      "source_line_weight": 0.013910292084471934,
+      "source_offset": 36,
+      "source_to_detector_pole_norm": 0.013910287265660891,
+      "zone_edge": 0.0016970974458221685
+    }
+  ],
+  "physical_route_lengths": [
+    15,
+    144
+  ],
+  "sweep_cutoff": "1686296537277/29615500000000"
+}

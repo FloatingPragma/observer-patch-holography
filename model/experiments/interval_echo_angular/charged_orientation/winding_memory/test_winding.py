@@ -70,3 +70,32 @@ def test_observer_controls_and_receipt():
     assert rows[2]["sharp_source_and_wound"]["interval99"][0] > 0.13
     assert rows[1.5]["remote_pair_determinant"] > 0.10
     assert rows[0]["remote_pair_determinant"] == 0
+
+
+def test_mixed_charge_formation_and_bulk_control():
+    from fractions import Fraction
+    from . import mixed_masses as masses
+
+    saved = json.loads((measure.HERE / "mixed_masses.json").read_text())
+    assert saved["sweep_cutoff"] == str(masses.LIMIT)
+    assert masses.contacts()["even"] == (-32, -32)
+    assert masses.mixed_parities() == saved["mixed_parities_selected_motif"]
+    # Independent eigensolver vs exact signed-minor counts on both finite and
+    # cyclic geometries, including the strict alternating zero mode.
+    for word in ("0101010", "010101", "0100001", "0102010"):
+        for cyclic in (False, True):
+            d, e = masses.coefficients(word, "even", cyclic=cyclic)
+            h = np.diag(d) + np.diag(e[: len(d) - 1], 1) + np.diag(e[: len(d) - 1], -1)
+            if cyclic:
+                h[0, -1] = h[-1, 0] = e[-1]
+            vals = np.linalg.eigvalsh(h / 8)
+            for q in (Fraction(0), masses.LIMIT, Fraction(51, 10)):
+                assert masses.inertia(d, e, q, cyclic) == (
+                    np.count_nonzero(vals < float(q) - 1e-10),
+                    np.count_nonzero(abs(vals - float(q)) < 1e-10),
+                )
+    row = masses.periodic("01" * 7 + "00", 9)
+    assert row["finite_line"] == saved["periodic_rows"][2]["finite_line"]
+    assert row["phase_zero_edge"][0] > 0.034
+    assert row["bandwidth"] > 0
+    assert row["source_to_detector_pole_norm"] > 0.004
