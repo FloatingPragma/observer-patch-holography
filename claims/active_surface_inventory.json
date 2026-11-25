@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 1182,
+  "surface_count": 1183,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -2742,6 +2742,11 @@
     },
     {
       "path": "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/cyclic_charge/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/cyclic_charge/neutral_ladder/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },

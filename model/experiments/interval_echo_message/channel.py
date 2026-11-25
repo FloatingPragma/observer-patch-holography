@@ -413,7 +413,7 @@ REPLAY_EVALUATIONS = (
     {
         "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
         "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
-        "model/candidate_laws/interval_echo/EVALUATION.json": "42b583d4c2b26ac4d6f4b488fe1c561b6b90f200e012d397f4a590ef8bc958ce",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "5ab9feeceac618abdbe6ad8b3c84f686bed9acc6aac6c0cb67a1d20a790ebb95",
     },
 )
 

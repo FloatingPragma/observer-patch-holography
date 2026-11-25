@@ -12,7 +12,7 @@
   "observations": {
     "interval_echo": {
       "e": {
-        "note": "Two independent sources and two detectors identify the same charged winding state in free flight and at one resolved energy. Its contact charge is signed, its addressed winding rotation is orbital, and its clock line depends on the guide. A separate spinor shell requires repeated monitoring of prepared material heads. Intrinsic electron spin, electric flux and physical rest mass remain open. The lowest propagating band carries the winding code near a common guide threshold of 16 native units. After free flight a single negative charge carries three coherent winding amplitudes. Independent local phase and arm conventions reproduce ninety complete source and receiver banks. The conjugate windings have identical energy spectra.",
+        "note": "Two independent sources and two detectors identify the same charged winding state in free flight and at one resolved energy. Its contact charge is signed, its addressed winding rotation is orbital, and its clock line depends on the guide. A separate spinor shell requires repeated monitoring of prepared material heads. Intrinsic electron spin, electric flux and physical rest mass remain open. The lowest propagating band carries the winding code near a common guide threshold of 16 native units. After free flight a single negative charge carries three coherent winding amplitudes. Independent local phase and arm conventions reproduce ninety complete source and receiver banks. The conjugate windings have identical energy spectra. One terminal instrument couples each of the three arriving winding states to the same net-neutral pair, records donor compensation, and preserves the unknown winding. The full pulse gives conditional Schmidt-number-three fidelity lower bounds above 0.733 for both charge signs.",
         "evidence": [
           "model/experiments/interval_echo_angular/charged_orientation/paired_flight/README.md",
           "model/candidate_laws/interval_echo/openwave/row_11_spectrum/marked_bands/README.md",
@@ -46,7 +46,9 @@
           "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/recoil_search/threshold.json",
           "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/cyclic_charge/README.md",
           "model/experiments/interval_echo_lepton_register/phase_feedback/README.md",
-          "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/README.md"
+          "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/README.md",
+          "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/cyclic_charge/neutral_ladder/README.md",
+          "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/shared_report.json"
         ]
       },
       "mu": {
@@ -66,7 +68,9 @@
           "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/recoil_search/README.md",
           "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/cyclic_charge/README.md",
           "model/experiments/interval_echo_lepton_register/phase_feedback/README.md",
-          "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/README.md"
+          "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/README.md",
+          "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/cyclic_charge/neutral_ladder/README.md",
+          "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/shared_report.json"
         ]
       },
       "tau": {
@@ -86,7 +90,9 @@
           "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/recoil_search/README.md",
           "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/cyclic_charge/README.md",
           "model/experiments/interval_echo_lepton_register/phase_feedback/README.md",
-          "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/README.md"
+          "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/README.md",
+          "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/cyclic_charge/neutral_ladder/README.md",
+          "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/shared_report.json"
         ]
       }
     }
