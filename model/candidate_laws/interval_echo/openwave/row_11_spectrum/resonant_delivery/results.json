@@ -1,0 +1,2009 @@
+{
+  "cells": 20,
+  "rails_far_near": [
+    [
+      0,
+      1
+    ],
+    [
+      74,
+      82
+    ]
+  ],
+  "cut_posts": [
+    5,
+    78
+  ],
+  "neutral_compensating_excess": 73,
+  "local_charge_records": [
+    -1,
+    0
+  ],
+  "uncompensated_receiver": {
+    "local_charge_records": [
+      -1,
+      -1
+    ],
+    "uniform_energy_subtracted": 24,
+    "maximum_difference_after_shift": 0
+  },
+  "initially_filled_receiver": {
+    "invariant_charged_source_dimension": 2,
+    "receiver_absorption_probability": 0
+  },
+  "calibration_shots": 131072,
+  "shots_per_bank": 4194304,
+  "seed": 84029,
+  "settings": {
+    "native": {
+      "silent_incident_seams": 21,
+      "local_charged_levels": [
+        0.493750976,
+        40.506249024
+      ],
+      "local_neutral_levels": [
+        24.493750976,
+        64.506249024
+      ],
+      "independent_parent_and_daughter_totals": [
+        65.0,
+        65.0
+      ],
+      "shell_coupling": -0.004996876952,
+      "shell_neutral_current_modulus": 0.199937529282,
+      "full_energy_source_daughter_weights": [
+        [
+          24.987500652,
+          0.0,
+          0.0
+        ],
+        [
+          64.950400627,
+          0.497558734,
+          0.497558734
+        ],
+        [
+          65.0,
+          0.5,
+          0.5
+        ],
+        [
+          73.062098722,
+          0.002441266,
+          0.002441266
+        ]
+      ],
+      "charged_clock": {
+        "bright_other": [
+          [
+            131072,
+            0
+          ],
+          [
+            86164,
+            44908
+          ],
+          [
+            13130,
+            117942
+          ],
+          [
+            11946,
+            119126
+          ],
+          [
+            83903,
+            47169
+          ],
+          [
+            131048,
+            24
+          ],
+          [
+            88061,
+            43011
+          ],
+          [
+            14293,
+            116779
+          ],
+          [
+            10787,
+            120285
+          ],
+          [
+            82364,
+            48708
+          ],
+          [
+            130938,
+            134
+          ],
+          [
+            90211,
+            40861
+          ],
+          [
+            15587,
+            115485
+          ],
+          [
+            9730,
+            121342
+          ],
+          [
+            80237,
+            50835
+          ],
+          [
+            130785,
+            287
+          ],
+          [
+            91977,
+            39095
+          ],
+          [
+            16766,
+            114306
+          ],
+          [
+            8604,
+            122468
+          ],
+          [
+            78281,
+            52791
+          ],
+          [
+            130543,
+            529
+          ],
+          [
+            93724,
+            37348
+          ],
+          [
+            18364,
+            112708
+          ],
+          [
+            7599,
+            123473
+          ],
+          [
+            76082,
+            54990
+          ],
+          [
+            130265,
+            807
+          ],
+          [
+            95656,
+            35416
+          ],
+          [
+            20006,
+            111066
+          ],
+          [
+            6785,
+            124287
+          ],
+          [
+            73991,
+            57081
+          ],
+          [
+            129898,
+            1174
+          ],
+          [
+            97499,
+            33573
+          ]
+        ],
+        "gap_from_counts": 40.00870479
+      },
+      "neutral_clock": {
+        "bright_other": [
+          [
+            131072,
+            0
+          ],
+          [
+            86294,
+            44778
+          ],
+          [
+            13177,
+            117895
+          ],
+          [
+            11799,
+            119273
+          ],
+          [
+            84258,
+            46814
+          ],
+          [
+            131026,
+            46
+          ],
+          [
+            88393,
+            42679
+          ],
+          [
+            14299,
+            116773
+          ],
+          [
+            10609,
+            120463
+          ],
+          [
+            82317,
+            48755
+          ],
+          [
+            130948,
+            124
+          ],
+          [
+            90133,
+            40939
+          ],
+          [
+            15599,
+            115473
+          ],
+          [
+            9732,
+            121340
+          ],
+          [
+            80529,
+            50543
+          ],
+          [
+            130815,
+            257
+          ],
+          [
+            91837,
+            39235
+          ],
+          [
+            17161,
+            113911
+          ],
+          [
+            8717,
+            122355
+          ],
+          [
+            78427,
+            52645
+          ],
+          [
+            130583,
+            489
+          ],
+          [
+            93644,
+            37428
+          ],
+          [
+            18234,
+            112838
+          ],
+          [
+            7785,
+            123287
+          ],
+          [
+            76271,
+            54801
+          ],
+          [
+            130265,
+            807
+          ],
+          [
+            95256,
+            35816
+          ],
+          [
+            19632,
+            111440
+          ],
+          [
+            6765,
+            124307
+          ],
+          [
+            74198,
+            56874
+          ],
+          [
+            129886,
+            1186
+          ],
+          [
+            97529,
+            33543
+          ]
+        ],
+        "gap_from_counts": 40.01213909
+      },
+      "joint_times": [
+        {
+          "initial": "charged_excited",
+          "exposure": 0,
+          "energy_probability_gg_ge_eg_ee": [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          "energy_counts_gg_ge_eg_ee": [
+            0,
+            0,
+            4194304,
+            0
+          ],
+          "both_gateway_vacant_other": [
+            641,
+            4193663
+          ],
+          "neutral_excitation_from_counts": 0.0,
+          "conserved_total_energy": 64.995003123,
+          "total_energy_from_both_banks": 64.99510956
+        },
+        {
+          "initial": "charged_excited",
+          "exposure": 32,
+          "energy_probability_gg_ge_eg_ee": [
+            2e-10,
+            0.5025216647,
+            0.4907591976,
+            0.0067191375
+          ],
+          "energy_counts_gg_ge_eg_ee": [
+            0,
+            2106523,
+            2059717,
+            28064
+          ],
+          "both_gateway_vacant_other": [
+            35824,
+            4158480
+          ],
+          "neutral_excitation_from_counts": 20.36336855,
+          "conserved_total_energy": 64.995003123,
+          "total_energy_from_both_banks": 64.99440735
+        },
+        {
+          "initial": "charged_excited",
+          "exposure": 64,
+          "energy_probability_gg_ge_eg_ee": [
+            1e-10,
+            0.9913642966,
+            0.000343088,
+            0.0082926153
+          ],
+          "energy_counts_gg_ge_eg_ee": [
+            0,
+            4158050,
+            1403,
+            34851
+          ],
+          "both_gateway_vacant_other": [
+            44202,
+            4150102
+          ],
+          "neutral_excitation_from_counts": 39.99911382,
+          "conserved_total_energy": 64.995003123,
+          "total_energy_from_both_banks": 64.99523439
+        },
+        {
+          "initial": "charged_excited",
+          "exposure": 128,
+          "energy_probability_gg_ge_eg_ee": [
+            0.0,
+            0.0009201215,
+            0.9942164044,
+            0.0048634741
+          ],
+          "energy_counts_gg_ge_eg_ee": [
+            0,
+            3701,
+            4170080,
+            20523
+          ],
+          "both_gateway_vacant_other": [
+            26242,
+            4168062
+          ],
+          "neutral_excitation_from_counts": 0.23109025,
+          "conserved_total_energy": 64.995003123,
+          "total_energy_from_both_banks": 64.99557316
+        },
+        {
+          "initial": "neutral_excited",
+          "exposure": 0,
+          "energy_probability_gg_ge_eg_ee": [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "energy_counts_gg_ge_eg_ee": [
+            0,
+            4194304,
+            0,
+            0
+          ],
+          "both_gateway_vacant_other": [
+            656,
+            4193648
+          ],
+          "neutral_excitation_from_counts": 40.01249805,
+          "conserved_total_energy": 64.995003123,
+          "total_energy_from_both_banks": 64.99499512
+        },
+        {
+          "initial": "neutral_excited",
+          "exposure": 32,
+          "energy_probability_gg_ge_eg_ee": [
+            2e-10,
+            0.4907591976,
+            0.5025216647,
+            0.0067191375
+          ],
+          "energy_counts_gg_ge_eg_ee": [
+            0,
+            2060059,
+            2106118,
+            28127
+          ],
+          "both_gateway_vacant_other": [
+            35739,
+            4158565
+          ],
+          "neutral_excitation_from_counts": 19.92071587,
+          "conserved_total_energy": 64.995003123,
+          "total_energy_from_both_banks": 64.99565686
+        },
+        {
+          "initial": "neutral_excited",
+          "exposure": 64,
+          "energy_probability_gg_ge_eg_ee": [
+            1e-10,
+            0.000343088,
+            0.9913642966,
+            0.0082926153
+          ],
+          "energy_counts_gg_ge_eg_ee": [
+            0,
+            1442,
+            4157987,
+            34875
+          ],
+          "both_gateway_vacant_other": [
+            44192,
+            4150112
+          ],
+          "neutral_excitation_from_counts": 0.34645412,
+          "conserved_total_energy": 64.995003123,
+          "total_energy_from_both_banks": 64.99553963
+        },
+        {
+          "initial": "neutral_excited",
+          "exposure": 128,
+          "energy_probability_gg_ge_eg_ee": [
+            0.0,
+            0.9942164044,
+            0.0009201215,
+            0.0048634741
+          ],
+          "energy_counts_gg_ge_eg_ee": [
+            0,
+            4170072,
+            3960,
+            20272
+          ],
+          "both_gateway_vacant_other": [
+            26007,
+            4168297
+          ],
+          "neutral_excitation_from_counts": 39.97472074,
+          "conserved_total_energy": 64.995003123,
+          "total_energy_from_both_banks": 64.9949716
+        }
+      ],
+      "certified_delivery": {
+        "exposure": 64,
+        "bits": 75,
+        "substeps": 512,
+        "short_taylor_order": 64,
+        "probability_tick_denominator": 1000000000000,
+        "joint_probability_interval_ticks": [
+          991364296635,
+          991364296636
+        ]
+      }
+    },
+    "matched_cut": {
+      "silent_incident_seams": 20,
+      "local_charged_levels": [
+        0.493750976,
+        40.506249024
+      ],
+      "local_neutral_levels": [
+        24.493750976,
+        64.506249024
+      ],
+      "independent_parent_and_daughter_totals": [
+        65.0,
+        65.0
+      ],
+      "shell_coupling": 0.0,
+      "shell_neutral_current_modulus": 0.0,
+      "full_energy_source_daughter_weights": [
+        [
+          24.987501953,
+          0.0,
+          0.0
+        ],
+        [
+          65.0,
+          1.0,
+          1.0
+        ],
+        [
+          105.012498047,
+          0.0,
+          0.0
+        ]
+      ],
+      "charged_clock": {
+        "bright_other": [
+          [
+            131072,
+            0
+          ],
+          [
+            86229,
+            44843
+          ],
+          [
+            13147,
+            117925
+          ],
+          [
+            11923,
+            119149
+          ],
+          [
+            84359,
+            46713
+          ],
+          [
+            131039,
+            33
+          ],
+          [
+            88378,
+            42694
+          ],
+          [
+            14348,
+            116724
+          ],
+          [
+            10584,
+            120488
+          ],
+          [
+            82390,
+            48682
+          ],
+          [
+            130921,
+            151
+          ],
+          [
+            90268,
+            40804
+          ],
+          [
+            15712,
+            115360
+          ],
+          [
+            9563,
+            121509
+          ],
+          [
+            80115,
+            50957
+          ],
+          [
+            130775,
+            297
+          ],
+          [
+            92010,
+            39062
+          ],
+          [
+            17424,
+            113648
+          ],
+          [
+            8640,
+            122432
+          ],
+          [
+            78021,
+            53051
+          ],
+          [
+            130566,
+            506
+          ],
+          [
+            93973,
+            37099
+          ],
+          [
+            18389,
+            112683
+          ],
+          [
+            7546,
+            123526
+          ],
+          [
+            76466,
+            54606
+          ],
+          [
+            130304,
+            768
+          ],
+          [
+            95805,
+            35267
+          ],
+          [
+            19918,
+            111154
+          ],
+          [
+            6696,
+            124376
+          ],
+          [
+            74288,
+            56784
+          ],
+          [
+            129945,
+            1127
+          ],
+          [
+            97560,
+            33512
+          ]
+        ],
+        "gap_from_counts": 40.01145669
+      },
+      "neutral_clock": {
+        "bright_other": [
+          [
+            131072,
+            0
+          ],
+          [
+            85878,
+            45194
+          ],
+          [
+            13110,
+            117962
+          ],
+          [
+            12024,
+            119048
+          ],
+          [
+            84406,
+            46666
+          ],
+          [
+            131044,
+            28
+          ],
+          [
+            87879,
+            43193
+          ],
+          [
+            14314,
+            116758
+          ],
+          [
+            10630,
+            120442
+          ],
+          [
+            82356,
+            48716
+          ],
+          [
+            130940,
+            132
+          ],
+          [
+            90105,
+            40967
+          ],
+          [
+            15430,
+            115642
+          ],
+          [
+            9628,
+            121444
+          ],
+          [
+            80318,
+            50754
+          ],
+          [
+            130786,
+            286
+          ],
+          [
+            91821,
+            39251
+          ],
+          [
+            16951,
+            114121
+          ],
+          [
+            8607,
+            122465
+          ],
+          [
+            78310,
+            52762
+          ],
+          [
+            130572,
+            500
+          ],
+          [
+            93734,
+            37338
+          ],
+          [
+            18106,
+            112966
+          ],
+          [
+            7504,
+            123568
+          ],
+          [
+            76187,
+            54885
+          ],
+          [
+            130284,
+            788
+          ],
+          [
+            95642,
+            35430
+          ],
+          [
+            19771,
+            111301
+          ],
+          [
+            6795,
+            124277
+          ],
+          [
+            74661,
+            56411
+          ],
+          [
+            129957,
+            1115
+          ],
+          [
+            97333,
+            33739
+          ]
+        ],
+        "gap_from_counts": 40.00853376
+      },
+      "joint_times": [
+        {
+          "initial": "charged_excited",
+          "exposure": 0,
+          "energy_probability_gg_ge_eg_ee": [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          "energy_counts_gg_ge_eg_ee": [
+            0,
+            0,
+            4194304,
+            0
+          ],
+          "both_gateway_vacant_other": [
+            660,
+            4193644
+          ],
+          "neutral_excitation_from_counts": 0.0,
+          "conserved_total_energy": 65.0,
+          "total_energy_from_both_banks": 65.0
+        },
+        {
+          "initial": "charged_excited",
+          "exposure": 32,
+          "energy_probability_gg_ge_eg_ee": [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          "energy_counts_gg_ge_eg_ee": [
+            0,
+            0,
+            4194304,
+            0
+          ],
+          "both_gateway_vacant_other": [
+            653,
+            4193651
+          ],
+          "neutral_excitation_from_counts": 0.0,
+          "conserved_total_energy": 65.0,
+          "total_energy_from_both_banks": 65.0
+        },
+        {
+          "initial": "charged_excited",
+          "exposure": 64,
+          "energy_probability_gg_ge_eg_ee": [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          "energy_counts_gg_ge_eg_ee": [
+            0,
+            0,
+            4194304,
+            0
+          ],
+          "both_gateway_vacant_other": [
+            662,
+            4193642
+          ],
+          "neutral_excitation_from_counts": 0.0,
+          "conserved_total_energy": 65.0,
+          "total_energy_from_both_banks": 65.0
+        },
+        {
+          "initial": "charged_excited",
+          "exposure": 128,
+          "energy_probability_gg_ge_eg_ee": [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          "energy_counts_gg_ge_eg_ee": [
+            0,
+            0,
+            4194304,
+            0
+          ],
+          "both_gateway_vacant_other": [
+            629,
+            4193675
+          ],
+          "neutral_excitation_from_counts": 0.0,
+          "conserved_total_energy": 65.0,
+          "total_energy_from_both_banks": 65.0
+        },
+        {
+          "initial": "neutral_excited",
+          "exposure": 0,
+          "energy_probability_gg_ge_eg_ee": [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "energy_counts_gg_ge_eg_ee": [
+            0,
+            4194304,
+            0,
+            0
+          ],
+          "both_gateway_vacant_other": [
+            668,
+            4193636
+          ],
+          "neutral_excitation_from_counts": 40.01249805,
+          "conserved_total_energy": 65.0,
+          "total_energy_from_both_banks": 65.0
+        },
+        {
+          "initial": "neutral_excited",
+          "exposure": 32,
+          "energy_probability_gg_ge_eg_ee": [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "energy_counts_gg_ge_eg_ee": [
+            0,
+            4194304,
+            0,
+            0
+          ],
+          "both_gateway_vacant_other": [
+            625,
+            4193679
+          ],
+          "neutral_excitation_from_counts": 40.01249805,
+          "conserved_total_energy": 65.0,
+          "total_energy_from_both_banks": 65.0
+        },
+        {
+          "initial": "neutral_excited",
+          "exposure": 64,
+          "energy_probability_gg_ge_eg_ee": [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "energy_counts_gg_ge_eg_ee": [
+            0,
+            4194304,
+            0,
+            0
+          ],
+          "both_gateway_vacant_other": [
+            666,
+            4193638
+          ],
+          "neutral_excitation_from_counts": 40.01249805,
+          "conserved_total_energy": 65.0,
+          "total_energy_from_both_banks": 65.0
+        },
+        {
+          "initial": "neutral_excited",
+          "exposure": 128,
+          "energy_probability_gg_ge_eg_ee": [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "energy_counts_gg_ge_eg_ee": [
+            0,
+            4194304,
+            0,
+            0
+          ],
+          "both_gateway_vacant_other": [
+            644,
+            4193660
+          ],
+          "neutral_excitation_from_counts": 40.01249805,
+          "conserved_total_energy": 65.0,
+          "total_energy_from_both_banks": 65.0
+        }
+      ]
+    },
+    "detuned": {
+      "silent_incident_seams": 20,
+      "local_charged_levels": [
+        0.493750976,
+        40.506249024
+      ],
+      "local_neutral_levels": [
+        24.496527945,
+        96.503472055
+      ],
+      "independent_parent_and_daughter_totals": [
+        65.002776969,
+        96.997223031
+      ],
+      "shell_coupling": -0.002776642333,
+      "shell_neutral_current_modulus": 0.199937529282,
+      "full_energy_source_daughter_weights": [
+        [
+          24.990278584,
+          0.0,
+          0.0
+        ],
+        [
+          65.0,
+          0.999969136,
+          2.4e-08
+        ],
+        [
+          96.972355096,
+          1.86e-07,
+          0.997536086
+        ],
+        [
+          105.03736632,
+          3.0678e-05,
+          0.00246389
+        ]
+      ],
+      "charged_clock": {
+        "bright_other": [
+          [
+            131072,
+            0
+          ],
+          [
+            86507,
+            44565
+          ],
+          [
+            13349,
+            117723
+          ],
+          [
+            11813,
+            119259
+          ],
+          [
+            84449,
+            46623
+          ],
+          [
+            131040,
+            32
+          ],
+          [
+            88141,
+            42931
+          ],
+          [
+            14405,
+            116667
+          ],
+          [
+            10687,
+            120385
+          ],
+          [
+            82450,
+            48622
+          ],
+          [
+            130928,
+            144
+          ],
+          [
+            90256,
+            40816
+          ],
+          [
+            15715,
+            115357
+          ],
+          [
+            9627,
+            121445
+          ],
+          [
+            80296,
+            50776
+          ],
+          [
+            130748,
+            324
+          ],
+          [
+            92322,
+            38750
+          ],
+          [
+            16845,
+            114227
+          ],
+          [
+            8603,
+            122469
+          ],
+          [
+            78373,
+            52699
+          ],
+          [
+            130561,
+            511
+          ],
+          [
+            93836,
+            37236
+          ],
+          [
+            18302,
+            112770
+          ],
+          [
+            7663,
+            123409
+          ],
+          [
+            76308,
+            54764
+          ],
+          [
+            130317,
+            755
+          ],
+          [
+            95496,
+            35576
+          ],
+          [
+            20188,
+            110884
+          ],
+          [
+            6725,
+            124347
+          ],
+          [
+            73934,
+            57138
+          ],
+          [
+            129925,
+            1147
+          ],
+          [
+            97396,
+            33676
+          ]
+        ],
+        "gap_from_counts": 40.01579271
+      },
+      "neutral_clock": {
+        "bright_other": [
+          [
+            131072,
+            0
+          ],
+          [
+            24274,
+            106798
+          ],
+          [
+            51787,
+            79285
+          ],
+          [
+            124067,
+            7005
+          ],
+          [
+            5730,
+            125342
+          ],
+          [
+            82023,
+            49049
+          ],
+          [
+            104275,
+            26797
+          ],
+          [
+            86,
+            130986
+          ],
+          [
+            108902,
+            22170
+          ],
+          [
+            76685,
+            54387
+          ],
+          [
+            8265,
+            122807
+          ],
+          [
+            126495,
+            4577
+          ],
+          [
+            46122,
+            84950
+          ],
+          [
+            28960,
+            102112
+          ],
+          [
+            130803,
+            269
+          ],
+          [
+            20090,
+            110982
+          ],
+          [
+            57244,
+            73828
+          ],
+          [
+            121111,
+            9961
+          ],
+          [
+            3814,
+            127258
+          ],
+          [
+            87554,
+            43518
+          ],
+          [
+            99727,
+            31345
+          ],
+          [
+            595,
+            130477
+          ],
+          [
+            113099,
+            17973
+          ],
+          [
+            70931,
+            60141
+          ],
+          [
+            11416,
+            119656
+          ],
+          [
+            128235,
+            2837
+          ],
+          [
+            40867,
+            90205
+          ],
+          [
+            33687,
+            97385
+          ],
+          [
+            130052,
+            1020
+          ],
+          [
+            15967,
+            115105
+          ],
+          [
+            63641,
+            67431
+          ],
+          [
+            118034,
+            13038
+          ]
+        ],
+        "gap_from_counts": 72.01295264
+      },
+      "joint_times": [
+        {
+          "initial": "charged_excited",
+          "exposure": 0,
+          "energy_probability_gg_ge_eg_ee": [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          "energy_counts_gg_ge_eg_ee": [
+            0,
+            0,
+            4194304,
+            0
+          ],
+          "both_gateway_vacant_other": [
+            180,
+            4194124
+          ],
+          "neutral_excitation_from_counts": 0.0,
+          "conserved_total_energy": 65.001234223,
+          "total_energy_from_both_banks": 65.00140368
+        },
+        {
+          "initial": "charged_excited",
+          "exposure": 32,
+          "energy_probability_gg_ge_eg_ee": [
+            0.0,
+            7.89e-08,
+            0.9999899792,
+            9.9419e-06
+          ],
+          "energy_counts_gg_ge_eg_ee": [
+            0,
+            1,
+            4194260,
+            43
+          ],
+          "both_gateway_vacant_other": [
+            302,
+            4194002
+          ],
+          "neutral_excitation_from_counts": 0.00075538,
+          "conserved_total_energy": 65.001234223,
+          "total_energy_from_both_banks": 65.00121873
+        },
+        {
+          "initial": "charged_excited",
+          "exposure": 64,
+          "energy_probability_gg_ge_eg_ee": [
+            0.0,
+            2.477e-07,
+            0.9999632544,
+            3.64978e-05
+          ],
+          "energy_counts_gg_ge_eg_ee": [
+            0,
+            0,
+            4194139,
+            165
+          ],
+          "both_gateway_vacant_other": [
+            524,
+            4193780
+          ],
+          "neutral_excitation_from_counts": 0.00283269,
+          "conserved_total_energy": 65.001234223,
+          "total_energy_from_both_banks": 65.00161185
+        },
+        {
+          "initial": "charged_excited",
+          "exposure": 128,
+          "energy_probability_gg_ge_eg_ee": [
+            0.0,
+            3.697e-07,
+            0.9998973724,
+            0.0001022579
+          ],
+          "energy_counts_gg_ge_eg_ee": [
+            0,
+            1,
+            4193869,
+            434
+          ],
+          "both_gateway_vacant_other": [
+            1155,
+            4193149
+          ],
+          "neutral_excitation_from_counts": 0.00746799,
+          "conserved_total_energy": 65.001234223,
+          "total_energy_from_both_banks": 65.00142347
+        },
+        {
+          "initial": "neutral_excited",
+          "exposure": 0,
+          "energy_probability_gg_ge_eg_ee": [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "energy_counts_gg_ge_eg_ee": [
+            0,
+            4194304,
+            0,
+            0
+          ],
+          "both_gateway_vacant_other": [
+            645,
+            4193659
+          ],
+          "neutral_excitation_from_counts": 72.00694411,
+          "conserved_total_energy": 96.992225615,
+          "total_energy_from_both_banks": 96.99230207
+        },
+        {
+          "initial": "neutral_excited",
+          "exposure": 32,
+          "energy_probability_gg_ge_eg_ee": [
+            0.0,
+            0.9994674954,
+            7.89e-08,
+            0.0005324257
+          ],
+          "energy_counts_gg_ge_eg_ee": [
+            0,
+            4192046,
+            0,
+            2258
+          ],
+          "both_gateway_vacant_other": [
+            3397,
+            4190907
+          ],
+          "neutral_excitation_from_counts": 72.00694411,
+          "conserved_total_energy": 96.992225615,
+          "total_energy_from_both_banks": 96.99284667
+        },
+        {
+          "initial": "neutral_excited",
+          "exposure": 64,
+          "energy_probability_gg_ge_eg_ee": [
+            0.0,
+            0.9979853662,
+            2.477e-07,
+            0.0020143861
+          ],
+          "energy_counts_gg_ge_eg_ee": [
+            0,
+            4185844,
+            0,
+            8460
+          ],
+          "both_gateway_vacant_other": [
+            11197,
+            4183107
+          ],
+          "neutral_excitation_from_counts": 72.00694411,
+          "conserved_total_energy": 96.992225615,
+          "total_energy_from_both_banks": 96.99250276
+        },
+        {
+          "initial": "neutral_excited",
+          "exposure": 128,
+          "energy_probability_gg_ge_eg_ee": [
+            0.0,
+            0.993592925,
+            3.697e-07,
+            0.0064067053
+          ],
+          "energy_counts_gg_ge_eg_ee": [
+            0,
+            4167599,
+            0,
+            26705
+          ],
+          "both_gateway_vacant_other": [
+            33988,
+            4160316
+          ],
+          "neutral_excitation_from_counts": 72.00694411,
+          "conserved_total_energy": 96.992225615,
+          "total_energy_from_both_banks": 96.99267347
+        }
+      ]
+    },
+    "half_contrast": {
+      "silent_incident_seams": 21,
+      "local_charged_levels": [
+        0.487507803,
+        20.512492197
+      ],
+      "local_neutral_levels": [
+        12.487507803,
+        32.512492197
+      ],
+      "independent_parent_and_daughter_totals": [
+        33.0,
+        33.0
+      ],
+      "shell_coupling": -0.009975062344,
+      "shell_neutral_current_modulus": 0.199750467776,
+      "full_energy_source_daughter_weights": [
+        [
+          12.975005228,
+          0.0,
+          0.0
+        ],
+        [
+          32.903078874,
+          0.490877697,
+          0.490877697
+        ],
+        [
+          33.0,
+          0.5,
+          0.5
+        ],
+        [
+          37.121915898,
+          0.009122303,
+          0.009122303
+        ]
+      ],
+      "charged_clock": {
+        "bright_other": [
+          [
+            131072,
+            0
+          ],
+          [
+            118795,
+            12277
+          ],
+          [
+            86340,
+            44732
+          ],
+          [
+            46088,
+            84984
+          ],
+          [
+            13139,
+            117933
+          ],
+          [
+            354,
+            130718
+          ],
+          [
+            12100,
+            118972
+          ],
+          [
+            44449,
+            86623
+          ],
+          [
+            84559,
+            46513
+          ],
+          [
+            117758,
+            13314
+          ],
+          [
+            131053,
+            19
+          ],
+          [
+            119787,
+            11285
+          ],
+          [
+            87621,
+            43451
+          ],
+          [
+            47742,
+            83330
+          ],
+          [
+            14166,
+            116906
+          ],
+          [
+            400,
+            130672
+          ],
+          [
+            11220,
+            119852
+          ],
+          [
+            42709,
+            88363
+          ],
+          [
+            83002,
+            48070
+          ],
+          [
+            116569,
+            14503
+          ],
+          [
+            130996,
+            76
+          ],
+          [
+            120522,
+            10550
+          ],
+          [
+            89538,
+            41534
+          ],
+          [
+            49103,
+            81969
+          ],
+          [
+            15261,
+            115811
+          ],
+          [
+            469,
+            130603
+          ],
+          [
+            10391,
+            120681
+          ],
+          [
+            41388,
+            89684
+          ],
+          [
+            81484,
+            49588
+          ],
+          [
+            115503,
+            15569
+          ],
+          [
+            130867,
+            205
+          ],
+          [
+            121485,
+            9587
+          ]
+        ],
+        "gap_from_counts": 20.02907382
+      },
+      "neutral_clock": {
+        "bright_other": [
+          [
+            131072,
+            0
+          ],
+          [
+            118644,
+            12428
+          ],
+          [
+            86142,
+            44930
+          ],
+          [
+            46090,
+            84982
+          ],
+          [
+            13269,
+            117803
+          ],
+          [
+            323,
+            130749
+          ],
+          [
+            12132,
+            118940
+          ],
+          [
+            44412,
+            86660
+          ],
+          [
+            84805,
+            46267
+          ],
+          [
+            117743,
+            13329
+          ],
+          [
+            131054,
+            18
+          ],
+          [
+            119512,
+            11560
+          ],
+          [
+            87859,
+            43213
+          ],
+          [
+            47617,
+            83455
+          ],
+          [
+            14087,
+            116985
+          ],
+          [
+            361,
+            130711
+          ],
+          [
+            11280,
+            119792
+          ],
+          [
+            42823,
+            88249
+          ],
+          [
+            82935,
+            48137
+          ],
+          [
+            116736,
+            14336
+          ],
+          [
+            130974,
+            98
+          ],
+          [
+            120601,
+            10471
+          ],
+          [
+            89507,
+            41565
+          ],
+          [
+            49278,
+            81794
+          ],
+          [
+            15189,
+            115883
+          ],
+          [
+            467,
+            130605
+          ],
+          [
+            10564,
+            120508
+          ],
+          [
+            41450,
+            89622
+          ],
+          [
+            81594,
+            49478
+          ],
+          [
+            115510,
+            15562
+          ],
+          [
+            130890,
+            182
+          ],
+          [
+            121384,
+            9688
+          ]
+        ],
+        "gap_from_counts": 20.02492062
+      },
+      "joint_times": [
+        {
+          "initial": "charged_excited",
+          "exposure": 0,
+          "energy_probability_gg_ge_eg_ee": [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          "energy_counts_gg_ge_eg_ee": [
+            0,
+            0,
+            4194304,
+            0
+          ],
+          "both_gateway_vacant_other": [
+            2644,
+            4191660
+          ],
+          "neutral_excitation_from_counts": 0.0,
+          "conserved_total_energy": 32.990024938,
+          "total_energy_from_both_banks": 32.98991394
+        },
+        {
+          "initial": "charged_excited",
+          "exposure": 32,
+          "energy_probability_gg_ge_eg_ee": [
+            1.42e-08,
+            0.9634910529,
+            0.0007512004,
+            0.0357577326
+          ],
+          "energy_counts_gg_ge_eg_ee": [
+            0,
+            4041048,
+            3131,
+            150125
+          ],
+          "both_gateway_vacant_other": [
+            189519,
+            4004785
+          ],
+          "neutral_excitation_from_counts": 20.01003597,
+          "conserved_total_energy": 32.990024938,
+          "total_energy_from_both_banks": 32.99378843
+        },
+        {
+          "initial": "charged_excited",
+          "exposure": 64,
+          "energy_probability_gg_ge_eg_ee": [
+            0.0,
+            0.0014857883,
+            0.9982517539,
+            0.0002624577
+          ],
+          "energy_counts_gg_ge_eg_ee": [
+            0,
+            6209,
+            4187020,
+            1075
+          ],
+          "both_gateway_vacant_other": [
+            3935,
+            4190369
+          ],
+          "neutral_excitation_from_counts": 0.03477621,
+          "conserved_total_energy": 32.990024938,
+          "total_energy_from_both_banks": 32.99012157
+        },
+        {
+          "initial": "charged_excited",
+          "exposure": 128,
+          "energy_probability_gg_ge_eg_ee": [
+            1e-10,
+            0.0059365243,
+            0.9930213362,
+            0.0010421394
+          ],
+          "energy_counts_gg_ge_eg_ee": [
+            0,
+            24945,
+            4165042,
+            4317
+          ],
+          "both_gateway_vacant_other": [
+            8032,
+            4186272
+          ],
+          "neutral_excitation_from_counts": 0.1397064,
+          "conserved_total_energy": 32.990024938,
+          "total_energy_from_both_banks": 32.98997113
+        },
+        {
+          "initial": "neutral_excited",
+          "exposure": 0,
+          "energy_probability_gg_ge_eg_ee": [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          "energy_counts_gg_ge_eg_ee": [
+            0,
+            4194304,
+            0,
+            0
+          ],
+          "both_gateway_vacant_other": [
+            2614,
+            4191690
+          ],
+          "neutral_excitation_from_counts": 20.02498439,
+          "conserved_total_energy": 32.990024938,
+          "total_energy_from_both_banks": 32.99002838
+        },
+        {
+          "initial": "neutral_excited",
+          "exposure": 32,
+          "energy_probability_gg_ge_eg_ee": [
+            1.42e-08,
+            0.0007512004,
+            0.9634910529,
+            0.0357577326
+          ],
+          "energy_counts_gg_ge_eg_ee": [
+            0,
+            3218,
+            4041770,
+            149316
+          ],
+          "both_gateway_vacant_other": [
+            190284,
+            4004020
+          ],
+          "neutral_excitation_from_counts": 0.7282474,
+          "conserved_total_energy": 32.990024938,
+          "total_energy_from_both_banks": 32.98700775
+        },
+        {
+          "initial": "neutral_excited",
+          "exposure": 64,
+          "energy_probability_gg_ge_eg_ee": [
+            0.0,
+            0.9982517539,
+            0.0014857883,
+            0.0002624577
+          ],
+          "energy_counts_gg_ge_eg_ee": [
+            0,
+            4186924,
+            6281,
+            1099
+          ],
+          "both_gateway_vacant_other": [
+            3988,
+            4190316
+          ],
+          "neutral_excitation_from_counts": 19.99499684,
+          "conserved_total_energy": 32.990024938,
+          "total_energy_from_both_banks": 32.99003397
+        },
+        {
+          "initial": "neutral_excited",
+          "exposure": 128,
+          "energy_probability_gg_ge_eg_ee": [
+            1e-10,
+            0.9930213362,
+            0.0059365243,
+            0.0010421394
+          ],
+          "energy_counts_gg_ge_eg_ee": [
+            0,
+            4165047,
+            24836,
+            4421
+          ],
+          "both_gateway_vacant_other": [
+            8043,
+            4186261
+          ],
+          "neutral_excitation_from_counts": 19.90640918,
+          "conserved_total_energy": 32.990024938,
+          "total_energy_from_both_banks": 32.9904257
+        }
+      ]
+    }
+  }
+}
