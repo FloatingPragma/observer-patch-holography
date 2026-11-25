@@ -1,0 +1,3536 @@
+{
+ "source": "https://dovybzrnzxfo1.cloudfront.net/analysis/observer_zero_capacity.json",
+ "source_sha256": "b53beb926ac942f6d45e8da606d06726b76908c05991ed1361907273119aaa00",
+ "receiver": [
+  0,
+  0
+ ],
+ "c_m_per_s": 299792458,
+ "seconds_per_tick": "1",
+ "metres_per_relay_range_unit": "299792458",
+ "clock_attachment": "The caller supplies seconds per observer tick. The published example assigns one second per tick. This history has no independent laboratory clock comparison.",
+ "ruler": "One radar range unit is the distance assigned to one tick of signal flight, with c fixed to the specified value. This is material relay radar.",
+ "cohort": "One vote per terminally reachable remote beacon port. A common-time window uses the intersection of source labels across the three exact radar times. Sources with missing readings at any of the three times are excluded throughout that window.",
+ "estimators": "Mean range R. Symmetric speed v=(R_plus-R_minus)/(2h), acceleration g=(R_plus-2R_mid+R_minus)/h^2, H=v/R_mid, A=g/R_mid. These are finite differences. The midpoint time is send + (receive-send)/2. The send series instead groups equal launch times.",
+ "integer_radar_ticks_with_full_coverage": [
+  "20",
+  "21",
+  "22",
+  "23",
+  "24",
+  "25",
+  "26",
+  "27",
+  "28",
+  "29",
+  "30",
+  "31",
+  "32",
+  "33",
+  "34",
+  "35",
+  "36",
+  "37",
+  "38",
+  "39",
+  "40",
+  "41",
+  "42",
+  "43",
+  "44",
+  "45",
+  "46",
+  "47",
+  "48",
+  "49",
+  "50",
+  "51",
+  "52",
+  "53",
+  "54",
+  "55",
+  "56",
+  "57",
+  "58",
+  "59",
+  "60",
+  "61",
+  "62",
+  "63",
+  "64",
+  "65",
+  "66",
+  "67",
+  "68",
+  "69",
+  "70",
+  "71",
+  "72",
+  "73",
+  "74",
+  "75",
+  "76",
+  "77",
+  "78",
+  "79",
+  "80",
+  "81",
+  "82",
+  "83",
+  "84",
+  "85",
+  "86",
+  "87",
+  "88",
+  "89",
+  "90",
+  "91",
+  "92",
+  "93",
+  "94",
+  "95",
+  "96",
+  "97",
+  "98",
+  "99",
+  "100",
+  "101",
+  "102",
+  "103",
+  "104",
+  "105",
+  "106",
+  "107",
+  "108",
+  "109",
+  "110",
+  "111",
+  "112",
+  "113",
+  "114"
+ ],
+ "first_common_radar_tick": "20",
+ "last_common_radar_tick": "114",
+ "all_individual_ranges_constant_from_first_common_time": true,
+ "elapsed_from_preparation": [
+  {
+   "event": "last_local_repair",
+   "tick": 10,
+   "seconds_at_supplied_tick_duration": "10",
+   "seconds_if_one_planck_time_per_tick": 5.3912470000000006e-43,
+   "source": "https://dovybzrnzxfo1.cloudfront.net/analysis/observer_zero_information.json"
+  },
+  {
+   "event": "global_settlement",
+   "tick": 96,
+   "seconds_at_supplied_tick_duration": "96",
+   "seconds_if_one_planck_time_per_tick": 5.17559712e-42,
+   "source": "https://dovybzrnzxfo1.cloudfront.net/manifest.json"
+  },
+  {
+   "event": "last_received_echo_in_complete_replay",
+   "tick": "144",
+   "seconds_at_supplied_tick_duration": "144",
+   "seconds_if_one_planck_time_per_tick": 7.76339568e-42,
+   "source": "https://dovybzrnzxfo1.cloudfront.net/analysis/observer_zero_capacity.json"
+  }
+ ],
+ "service_cadence": "One local reference flip per scheduled round is supplied in the clocked replay. Global settlement is a manifest marker. Later echoes use the stationary continuation.",
+ "early_common_time_window": {
+  "times_ticks": [
+   "12",
+   "16",
+   "20"
+  ],
+  "times_s": [
+   "12",
+   "16",
+   "20"
+  ],
+  "candidates": 156,
+  "beacons": 102,
+  "remote_observers": 10,
+  "sources": [
+   [
+    3,
+    2
+   ],
+   [
+    67108864,
+    8
+   ],
+   [
+    3,
+    3
+   ],
+   [
+    3,
+    4
+   ],
+   [
+    3,
+    6
+   ],
+   [
+    3,
+    10
+   ],
+   [
+    3,
+    11
+   ],
+   [
+    67108864,
+    1
+   ],
+   [
+    67108864,
+    3
+   ],
+   [
+    67108864,
+    6
+   ],
+   [
+    67108864,
+    7
+   ],
+   [
+    67108864,
+    9
+   ],
+   [
+    268435456,
+    0
+   ],
+   [
+    3,
+    8
+   ],
+   [
+    3,
+    9
+   ],
+   [
+    3,
+    5
+   ],
+   [
+    3,
+    7
+   ],
+   [
+    3,
+    0
+   ],
+   [
+    67108864,
+    0
+   ],
+   [
+    67108864,
+    5
+   ],
+   [
+    67108864,
+    2
+   ],
+   [
+    67108864,
+    4
+   ],
+   [
+    67108864,
+    10
+   ],
+   [
+    268435456,
+    1
+   ],
+   [
+    268435456,
+    5
+   ],
+   [
+    268435456,
+    7
+   ],
+   [
+    268435456,
+    10
+   ],
+   [
+    268435456,
+    11
+   ],
+   [
+    3,
+    1
+   ],
+   [
+    1,
+    10
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    67108864,
+    11
+   ],
+   [
+    134217728,
+    0
+   ],
+   [
+    268435456,
+    8
+   ],
+   [
+    268435456,
+    9
+   ],
+   [
+    268435456,
+    4
+   ],
+   [
+    268435456,
+    6
+   ],
+   [
+    268435456,
+    2
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    1,
+    2
+   ],
+   [
+    1,
+    6
+   ],
+   [
+    1,
+    7
+   ],
+   [
+    1,
+    11
+   ],
+   [
+    2,
+    4
+   ],
+   [
+    2,
+    6
+   ],
+   [
+    2,
+    8
+   ],
+   [
+    2,
+    9
+   ],
+   [
+    134217728,
+    1
+   ],
+   [
+    134217728,
+    5
+   ],
+   [
+    134217728,
+    7
+   ],
+   [
+    134217728,
+    10
+   ],
+   [
+    134217728,
+    11
+   ],
+   [
+    268435456,
+    3
+   ],
+   [
+    268435459,
+    10
+   ],
+   [
+    201326592,
+    1
+   ],
+   [
+    1,
+    1
+   ],
+   [
+    1,
+    5
+   ],
+   [
+    1,
+    3
+   ],
+   [
+    1,
+    4
+   ],
+   [
+    1,
+    8
+   ],
+   [
+    134217728,
+    8
+   ],
+   [
+    134217728,
+    9
+   ],
+   [
+    134217728,
+    4
+   ],
+   [
+    134217728,
+    6
+   ],
+   [
+    134217728,
+    2
+   ],
+   [
+    268435459,
+    0
+   ],
+   [
+    268435459,
+    2
+   ],
+   [
+    268435459,
+    6
+   ],
+   [
+    268435459,
+    7
+   ],
+   [
+    268435459,
+    11
+   ],
+   [
+    201326592,
+    0
+   ],
+   [
+    201326592,
+    5
+   ],
+   [
+    201326592,
+    7
+   ],
+   [
+    201326592,
+    8
+   ],
+   [
+    201326592,
+    9
+   ],
+   [
+    1,
+    9
+   ],
+   [
+    268435458,
+    0
+   ],
+   [
+    134217728,
+    3
+   ],
+   [
+    201326592,
+    10
+   ],
+   [
+    268435459,
+    1
+   ],
+   [
+    268435459,
+    5
+   ],
+   [
+    268435459,
+    3
+   ],
+   [
+    268435459,
+    4
+   ],
+   [
+    268435459,
+    8
+   ],
+   [
+    201326592,
+    11
+   ],
+   [
+    201326592,
+    4
+   ],
+   [
+    201326592,
+    6
+   ],
+   [
+    201326592,
+    3
+   ],
+   [
+    268435458,
+    5
+   ],
+   [
+    268435458,
+    7
+   ],
+   [
+    268435458,
+    10
+   ],
+   [
+    268435458,
+    11
+   ],
+   [
+    67108865,
+    4
+   ],
+   [
+    67108865,
+    10
+   ],
+   [
+    201326592,
+    2
+   ],
+   [
+    268435459,
+    9
+   ],
+   [
+    268435458,
+    2
+   ],
+   [
+    268435458,
+    8
+   ],
+   [
+    268435458,
+    9
+   ],
+   [
+    268435458,
+    4
+   ],
+   [
+    268435458,
+    6
+   ],
+   [
+    268435458,
+    3
+   ]
+  ],
+  "measurement": {
+   "changing_sources": [
+    [
+     67108865,
+     4
+    ],
+    [
+     67108865,
+     10
+    ]
+   ],
+   "mean_range_relay_units": [
+    "709/102",
+    "237/34",
+    "237/34"
+   ],
+   "mean_range_m": [
+    "106276426361/51",
+    "35525406273/17",
+    "35525406273/17"
+   ],
+   "speed_over_c": "1/408",
+   "speed_m_per_s": "149896229/204",
+   "H_per_tick": "1/2844",
+   "H_per_s": "1/2844",
+   "range_acceleration_relay_units_per_tick2": "-1/816",
+   "range_acceleration_m_per_s2": "-149896229/408",
+   "relative_acceleration_per_tick2": "-1/5688",
+   "relative_acceleration_per_s2": "-1/5688"
+  }
+ },
+ "same_early_beacons_later": {
+  "times_ticks": [
+   "20",
+   "24",
+   "28"
+  ],
+  "times_s": [
+   "20",
+   "24",
+   "28"
+  ],
+  "candidates": 102,
+  "beacons": 102,
+  "remote_observers": 10,
+  "sources": [
+   [
+    3,
+    2
+   ],
+   [
+    67108864,
+    8
+   ],
+   [
+    3,
+    3
+   ],
+   [
+    3,
+    4
+   ],
+   [
+    3,
+    6
+   ],
+   [
+    3,
+    10
+   ],
+   [
+    3,
+    11
+   ],
+   [
+    67108864,
+    1
+   ],
+   [
+    67108864,
+    3
+   ],
+   [
+    67108864,
+    6
+   ],
+   [
+    67108864,
+    7
+   ],
+   [
+    67108864,
+    9
+   ],
+   [
+    268435456,
+    0
+   ],
+   [
+    3,
+    8
+   ],
+   [
+    3,
+    9
+   ],
+   [
+    3,
+    5
+   ],
+   [
+    3,
+    7
+   ],
+   [
+    3,
+    0
+   ],
+   [
+    67108864,
+    0
+   ],
+   [
+    67108864,
+    5
+   ],
+   [
+    67108864,
+    2
+   ],
+   [
+    67108864,
+    4
+   ],
+   [
+    67108864,
+    10
+   ],
+   [
+    268435456,
+    1
+   ],
+   [
+    268435456,
+    5
+   ],
+   [
+    268435456,
+    7
+   ],
+   [
+    268435456,
+    10
+   ],
+   [
+    268435456,
+    11
+   ],
+   [
+    3,
+    1
+   ],
+   [
+    1,
+    10
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    67108864,
+    11
+   ],
+   [
+    134217728,
+    0
+   ],
+   [
+    268435456,
+    8
+   ],
+   [
+    268435456,
+    9
+   ],
+   [
+    268435456,
+    4
+   ],
+   [
+    268435456,
+    6
+   ],
+   [
+    268435456,
+    2
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    1,
+    2
+   ],
+   [
+    1,
+    6
+   ],
+   [
+    1,
+    7
+   ],
+   [
+    1,
+    11
+   ],
+   [
+    2,
+    4
+   ],
+   [
+    2,
+    6
+   ],
+   [
+    2,
+    8
+   ],
+   [
+    2,
+    9
+   ],
+   [
+    134217728,
+    1
+   ],
+   [
+    134217728,
+    5
+   ],
+   [
+    134217728,
+    7
+   ],
+   [
+    134217728,
+    10
+   ],
+   [
+    134217728,
+    11
+   ],
+   [
+    268435456,
+    3
+   ],
+   [
+    268435459,
+    10
+   ],
+   [
+    201326592,
+    1
+   ],
+   [
+    1,
+    1
+   ],
+   [
+    1,
+    5
+   ],
+   [
+    1,
+    3
+   ],
+   [
+    1,
+    4
+   ],
+   [
+    1,
+    8
+   ],
+   [
+    134217728,
+    8
+   ],
+   [
+    134217728,
+    9
+   ],
+   [
+    134217728,
+    4
+   ],
+   [
+    134217728,
+    6
+   ],
+   [
+    134217728,
+    2
+   ],
+   [
+    268435459,
+    0
+   ],
+   [
+    268435459,
+    2
+   ],
+   [
+    268435459,
+    6
+   ],
+   [
+    268435459,
+    7
+   ],
+   [
+    268435459,
+    11
+   ],
+   [
+    201326592,
+    0
+   ],
+   [
+    201326592,
+    5
+   ],
+   [
+    201326592,
+    7
+   ],
+   [
+    201326592,
+    8
+   ],
+   [
+    201326592,
+    9
+   ],
+   [
+    1,
+    9
+   ],
+   [
+    268435458,
+    0
+   ],
+   [
+    134217728,
+    3
+   ],
+   [
+    201326592,
+    10
+   ],
+   [
+    268435459,
+    1
+   ],
+   [
+    268435459,
+    5
+   ],
+   [
+    268435459,
+    3
+   ],
+   [
+    268435459,
+    4
+   ],
+   [
+    268435459,
+    8
+   ],
+   [
+    201326592,
+    11
+   ],
+   [
+    201326592,
+    4
+   ],
+   [
+    201326592,
+    6
+   ],
+   [
+    201326592,
+    3
+   ],
+   [
+    268435458,
+    5
+   ],
+   [
+    268435458,
+    7
+   ],
+   [
+    268435458,
+    10
+   ],
+   [
+    268435458,
+    11
+   ],
+   [
+    67108865,
+    4
+   ],
+   [
+    67108865,
+    10
+   ],
+   [
+    201326592,
+    2
+   ],
+   [
+    268435459,
+    9
+   ],
+   [
+    268435458,
+    2
+   ],
+   [
+    268435458,
+    8
+   ],
+   [
+    268435458,
+    9
+   ],
+   [
+    268435458,
+    4
+   ],
+   [
+    268435458,
+    6
+   ],
+   [
+    268435458,
+    3
+   ]
+  ],
+  "measurement": {
+   "changing_sources": [],
+   "mean_range_relay_units": [
+    "237/34",
+    "237/34",
+    "237/34"
+   ],
+   "mean_range_m": [
+    "35525406273/17",
+    "35525406273/17",
+    "35525406273/17"
+   ],
+   "speed_over_c": "0",
+   "speed_m_per_s": "0",
+   "H_per_tick": "0",
+   "H_per_s": "0",
+   "range_acceleration_relay_units_per_tick2": "0",
+   "range_acceleration_m_per_s2": "0",
+   "relative_acceleration_per_tick2": "0",
+   "relative_acceleration_per_s2": "0"
+  }
+ },
+ "full_common_time_window": {
+  "times_ticks": [
+   "20",
+   "24",
+   "28"
+  ],
+  "times_s": [
+   "20",
+   "24",
+   "28"
+  ],
+  "candidates": 156,
+  "beacons": 156,
+  "remote_observers": 13,
+  "sources": [
+   [
+    3,
+    2
+   ],
+   [
+    67108864,
+    8
+   ],
+   [
+    3,
+    3
+   ],
+   [
+    3,
+    4
+   ],
+   [
+    3,
+    6
+   ],
+   [
+    3,
+    10
+   ],
+   [
+    3,
+    11
+   ],
+   [
+    67108864,
+    1
+   ],
+   [
+    67108864,
+    3
+   ],
+   [
+    67108864,
+    6
+   ],
+   [
+    67108864,
+    7
+   ],
+   [
+    67108864,
+    9
+   ],
+   [
+    268435456,
+    0
+   ],
+   [
+    3,
+    8
+   ],
+   [
+    3,
+    9
+   ],
+   [
+    3,
+    5
+   ],
+   [
+    3,
+    7
+   ],
+   [
+    3,
+    0
+   ],
+   [
+    67108864,
+    0
+   ],
+   [
+    67108864,
+    5
+   ],
+   [
+    67108864,
+    2
+   ],
+   [
+    67108864,
+    4
+   ],
+   [
+    67108864,
+    10
+   ],
+   [
+    268435456,
+    1
+   ],
+   [
+    268435456,
+    5
+   ],
+   [
+    268435456,
+    7
+   ],
+   [
+    268435456,
+    10
+   ],
+   [
+    268435456,
+    11
+   ],
+   [
+    3,
+    1
+   ],
+   [
+    1,
+    10
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    67108864,
+    11
+   ],
+   [
+    67108867,
+    3
+   ],
+   [
+    134217728,
+    0
+   ],
+   [
+    268435456,
+    8
+   ],
+   [
+    268435456,
+    9
+   ],
+   [
+    268435456,
+    4
+   ],
+   [
+    268435456,
+    6
+   ],
+   [
+    268435456,
+    2
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    1,
+    2
+   ],
+   [
+    1,
+    6
+   ],
+   [
+    1,
+    7
+   ],
+   [
+    1,
+    11
+   ],
+   [
+    2,
+    2
+   ],
+   [
+    2,
+    4
+   ],
+   [
+    2,
+    6
+   ],
+   [
+    2,
+    8
+   ],
+   [
+    2,
+    9
+   ],
+   [
+    67108867,
+    2
+   ],
+   [
+    67108867,
+    4
+   ],
+   [
+    67108867,
+    6
+   ],
+   [
+    67108867,
+    8
+   ],
+   [
+    67108867,
+    9
+   ],
+   [
+    134217728,
+    1
+   ],
+   [
+    134217728,
+    5
+   ],
+   [
+    134217728,
+    7
+   ],
+   [
+    134217728,
+    10
+   ],
+   [
+    134217728,
+    11
+   ],
+   [
+    268435456,
+    3
+   ],
+   [
+    268435459,
+    10
+   ],
+   [
+    201326592,
+    1
+   ],
+   [
+    1,
+    1
+   ],
+   [
+    1,
+    5
+   ],
+   [
+    1,
+    3
+   ],
+   [
+    1,
+    4
+   ],
+   [
+    1,
+    8
+   ],
+   [
+    2,
+    10
+   ],
+   [
+    2,
+    11
+   ],
+   [
+    2,
+    5
+   ],
+   [
+    2,
+    7
+   ],
+   [
+    2,
+    1
+   ],
+   [
+    67108867,
+    10
+   ],
+   [
+    67108867,
+    11
+   ],
+   [
+    67108867,
+    5
+   ],
+   [
+    67108867,
+    7
+   ],
+   [
+    67108867,
+    1
+   ],
+   [
+    134217728,
+    8
+   ],
+   [
+    134217728,
+    9
+   ],
+   [
+    134217728,
+    4
+   ],
+   [
+    134217728,
+    6
+   ],
+   [
+    134217728,
+    2
+   ],
+   [
+    268435459,
+    0
+   ],
+   [
+    268435459,
+    2
+   ],
+   [
+    268435459,
+    6
+   ],
+   [
+    268435459,
+    7
+   ],
+   [
+    268435459,
+    11
+   ],
+   [
+    201326592,
+    0
+   ],
+   [
+    201326592,
+    5
+   ],
+   [
+    201326592,
+    7
+   ],
+   [
+    201326592,
+    8
+   ],
+   [
+    201326592,
+    9
+   ],
+   [
+    1,
+    9
+   ],
+   [
+    268435458,
+    0
+   ],
+   [
+    2,
+    0
+   ],
+   [
+    67108865,
+    8
+   ],
+   [
+    67108867,
+    0
+   ],
+   [
+    67108865,
+    2
+   ],
+   [
+    134217728,
+    3
+   ],
+   [
+    201326592,
+    10
+   ],
+   [
+    268435459,
+    1
+   ],
+   [
+    268435459,
+    5
+   ],
+   [
+    268435459,
+    3
+   ],
+   [
+    268435459,
+    4
+   ],
+   [
+    268435459,
+    8
+   ],
+   [
+    201326592,
+    11
+   ],
+   [
+    201326592,
+    4
+   ],
+   [
+    201326592,
+    6
+   ],
+   [
+    201326592,
+    3
+   ],
+   [
+    268435458,
+    1
+   ],
+   [
+    268435458,
+    5
+   ],
+   [
+    268435458,
+    7
+   ],
+   [
+    268435458,
+    10
+   ],
+   [
+    268435458,
+    11
+   ],
+   [
+    67108865,
+    1
+   ],
+   [
+    67108865,
+    3
+   ],
+   [
+    67108865,
+    6
+   ],
+   [
+    67108865,
+    7
+   ],
+   [
+    67108865,
+    9
+   ],
+   [
+    67108865,
+    4
+   ],
+   [
+    67108865,
+    10
+   ],
+   [
+    67108865,
+    11
+   ],
+   [
+    201326592,
+    2
+   ],
+   [
+    268435459,
+    9
+   ],
+   [
+    268435458,
+    2
+   ],
+   [
+    268435458,
+    8
+   ],
+   [
+    268435458,
+    9
+   ],
+   [
+    268435458,
+    4
+   ],
+   [
+    268435458,
+    6
+   ],
+   [
+    67108865,
+    0
+   ],
+   [
+    67108865,
+    5
+   ],
+   [
+    268435458,
+    3
+   ],
+   [
+    268435470,
+    10
+   ],
+   [
+    67108876,
+    3
+   ],
+   [
+    268435470,
+    0
+   ],
+   [
+    268435470,
+    2
+   ],
+   [
+    268435470,
+    6
+   ],
+   [
+    268435470,
+    7
+   ],
+   [
+    268435470,
+    11
+   ],
+   [
+    67108876,
+    2
+   ],
+   [
+    67108876,
+    4
+   ],
+   [
+    67108876,
+    6
+   ],
+   [
+    67108876,
+    8
+   ],
+   [
+    67108876,
+    9
+   ],
+   [
+    268435470,
+    1
+   ],
+   [
+    268435470,
+    5
+   ],
+   [
+    268435470,
+    3
+   ],
+   [
+    268435470,
+    4
+   ],
+   [
+    268435470,
+    8
+   ],
+   [
+    67108876,
+    10
+   ],
+   [
+    67108876,
+    11
+   ],
+   [
+    67108876,
+    5
+   ],
+   [
+    67108876,
+    7
+   ],
+   [
+    67108876,
+    1
+   ],
+   [
+    268435470,
+    9
+   ],
+   [
+    67108876,
+    0
+   ]
+  ],
+  "measurement": {
+   "changing_sources": [],
+   "mean_range_relay_units": [
+    "347/39",
+    "347/39",
+    "347/39"
+   ],
+   "mean_range_m": [
+    "104027982926/39",
+    "104027982926/39",
+    "104027982926/39"
+   ],
+   "speed_over_c": "0",
+   "speed_m_per_s": "0",
+   "H_per_tick": "0",
+   "H_per_s": "0",
+   "range_acceleration_relay_units_per_tick2": "0",
+   "range_acceleration_m_per_s2": "0",
+   "relative_acceleration_per_tick2": "0",
+   "relative_acceleration_per_s2": "0"
+  }
+ },
+ "all_beacons_at_send_ticks_0_4_8": {
+  "times_ticks": [
+   0,
+   4,
+   8
+  ],
+  "times_s": [
+   "0",
+   "4",
+   "8"
+  ],
+  "candidates": 156,
+  "beacons": 156,
+  "remote_observers": 13,
+  "sources": [
+   [
+    3,
+    2
+   ],
+   [
+    67108864,
+    8
+   ],
+   [
+    3,
+    3
+   ],
+   [
+    3,
+    4
+   ],
+   [
+    3,
+    6
+   ],
+   [
+    3,
+    10
+   ],
+   [
+    3,
+    11
+   ],
+   [
+    67108864,
+    1
+   ],
+   [
+    67108864,
+    3
+   ],
+   [
+    67108864,
+    6
+   ],
+   [
+    67108864,
+    7
+   ],
+   [
+    67108864,
+    9
+   ],
+   [
+    268435456,
+    0
+   ],
+   [
+    3,
+    8
+   ],
+   [
+    3,
+    9
+   ],
+   [
+    3,
+    5
+   ],
+   [
+    3,
+    7
+   ],
+   [
+    3,
+    0
+   ],
+   [
+    67108864,
+    0
+   ],
+   [
+    67108864,
+    5
+   ],
+   [
+    67108864,
+    2
+   ],
+   [
+    67108864,
+    4
+   ],
+   [
+    67108864,
+    10
+   ],
+   [
+    268435456,
+    1
+   ],
+   [
+    268435456,
+    5
+   ],
+   [
+    268435456,
+    7
+   ],
+   [
+    268435456,
+    10
+   ],
+   [
+    268435456,
+    11
+   ],
+   [
+    3,
+    1
+   ],
+   [
+    1,
+    10
+   ],
+   [
+    2,
+    3
+   ],
+   [
+    67108864,
+    11
+   ],
+   [
+    67108867,
+    3
+   ],
+   [
+    134217728,
+    0
+   ],
+   [
+    268435456,
+    8
+   ],
+   [
+    268435456,
+    9
+   ],
+   [
+    268435456,
+    4
+   ],
+   [
+    268435456,
+    6
+   ],
+   [
+    268435456,
+    2
+   ],
+   [
+    1,
+    0
+   ],
+   [
+    1,
+    2
+   ],
+   [
+    1,
+    6
+   ],
+   [
+    1,
+    7
+   ],
+   [
+    1,
+    11
+   ],
+   [
+    2,
+    2
+   ],
+   [
+    2,
+    4
+   ],
+   [
+    2,
+    6
+   ],
+   [
+    2,
+    8
+   ],
+   [
+    2,
+    9
+   ],
+   [
+    67108867,
+    2
+   ],
+   [
+    67108867,
+    4
+   ],
+   [
+    67108867,
+    6
+   ],
+   [
+    67108867,
+    8
+   ],
+   [
+    67108867,
+    9
+   ],
+   [
+    134217728,
+    1
+   ],
+   [
+    134217728,
+    5
+   ],
+   [
+    134217728,
+    7
+   ],
+   [
+    134217728,
+    10
+   ],
+   [
+    134217728,
+    11
+   ],
+   [
+    268435456,
+    3
+   ],
+   [
+    268435459,
+    10
+   ],
+   [
+    201326592,
+    1
+   ],
+   [
+    1,
+    1
+   ],
+   [
+    1,
+    5
+   ],
+   [
+    1,
+    3
+   ],
+   [
+    1,
+    4
+   ],
+   [
+    1,
+    8
+   ],
+   [
+    2,
+    10
+   ],
+   [
+    2,
+    11
+   ],
+   [
+    2,
+    5
+   ],
+   [
+    2,
+    7
+   ],
+   [
+    2,
+    1
+   ],
+   [
+    67108867,
+    10
+   ],
+   [
+    67108867,
+    11
+   ],
+   [
+    67108867,
+    5
+   ],
+   [
+    67108867,
+    7
+   ],
+   [
+    67108867,
+    1
+   ],
+   [
+    134217728,
+    8
+   ],
+   [
+    134217728,
+    9
+   ],
+   [
+    134217728,
+    4
+   ],
+   [
+    134217728,
+    6
+   ],
+   [
+    134217728,
+    2
+   ],
+   [
+    268435459,
+    0
+   ],
+   [
+    268435459,
+    2
+   ],
+   [
+    268435459,
+    6
+   ],
+   [
+    268435459,
+    7
+   ],
+   [
+    268435459,
+    11
+   ],
+   [
+    201326592,
+    0
+   ],
+   [
+    201326592,
+    5
+   ],
+   [
+    201326592,
+    7
+   ],
+   [
+    201326592,
+    8
+   ],
+   [
+    201326592,
+    9
+   ],
+   [
+    1,
+    9
+   ],
+   [
+    268435458,
+    0
+   ],
+   [
+    2,
+    0
+   ],
+   [
+    67108865,
+    8
+   ],
+   [
+    67108867,
+    0
+   ],
+   [
+    67108865,
+    2
+   ],
+   [
+    134217728,
+    3
+   ],
+   [
+    201326592,
+    10
+   ],
+   [
+    268435459,
+    1
+   ],
+   [
+    268435459,
+    5
+   ],
+   [
+    268435459,
+    3
+   ],
+   [
+    268435459,
+    4
+   ],
+   [
+    268435459,
+    8
+   ],
+   [
+    201326592,
+    11
+   ],
+   [
+    201326592,
+    4
+   ],
+   [
+    201326592,
+    6
+   ],
+   [
+    201326592,
+    3
+   ],
+   [
+    268435458,
+    1
+   ],
+   [
+    268435458,
+    5
+   ],
+   [
+    268435458,
+    7
+   ],
+   [
+    268435458,
+    10
+   ],
+   [
+    268435458,
+    11
+   ],
+   [
+    67108865,
+    1
+   ],
+   [
+    67108865,
+    3
+   ],
+   [
+    67108865,
+    6
+   ],
+   [
+    67108865,
+    7
+   ],
+   [
+    67108865,
+    9
+   ],
+   [
+    67108865,
+    4
+   ],
+   [
+    67108865,
+    10
+   ],
+   [
+    67108865,
+    11
+   ],
+   [
+    201326592,
+    2
+   ],
+   [
+    268435459,
+    9
+   ],
+   [
+    268435458,
+    2
+   ],
+   [
+    268435458,
+    8
+   ],
+   [
+    268435458,
+    9
+   ],
+   [
+    268435458,
+    4
+   ],
+   [
+    268435458,
+    6
+   ],
+   [
+    67108865,
+    0
+   ],
+   [
+    67108865,
+    5
+   ],
+   [
+    268435458,
+    3
+   ],
+   [
+    268435470,
+    10
+   ],
+   [
+    67108876,
+    3
+   ],
+   [
+    268435470,
+    0
+   ],
+   [
+    268435470,
+    2
+   ],
+   [
+    268435470,
+    6
+   ],
+   [
+    268435470,
+    7
+   ],
+   [
+    268435470,
+    11
+   ],
+   [
+    67108876,
+    2
+   ],
+   [
+    67108876,
+    4
+   ],
+   [
+    67108876,
+    6
+   ],
+   [
+    67108876,
+    8
+   ],
+   [
+    67108876,
+    9
+   ],
+   [
+    268435470,
+    1
+   ],
+   [
+    268435470,
+    5
+   ],
+   [
+    268435470,
+    3
+   ],
+   [
+    268435470,
+    4
+   ],
+   [
+    268435470,
+    8
+   ],
+   [
+    67108876,
+    10
+   ],
+   [
+    67108876,
+    11
+   ],
+   [
+    67108876,
+    5
+   ],
+   [
+    67108876,
+    7
+   ],
+   [
+    67108876,
+    1
+   ],
+   [
+    268435470,
+    9
+   ],
+   [
+    67108876,
+    0
+   ]
+  ],
+  "measurement": {
+   "changing_sources": [
+    [
+     3,
+     11
+    ],
+    [
+     67108864,
+     6
+    ],
+    [
+     3,
+     0
+    ],
+    [
+     67108864,
+     2
+    ],
+    [
+     2,
+     3
+    ],
+    [
+     67108867,
+     3
+    ],
+    [
+     134217728,
+     0
+    ],
+    [
+     2,
+     2
+    ],
+    [
+     2,
+     4
+    ],
+    [
+     2,
+     6
+    ],
+    [
+     2,
+     8
+    ],
+    [
+     2,
+     9
+    ],
+    [
+     67108867,
+     2
+    ],
+    [
+     67108867,
+     4
+    ],
+    [
+     67108867,
+     6
+    ],
+    [
+     67108867,
+     8
+    ],
+    [
+     67108867,
+     9
+    ],
+    [
+     134217728,
+     1
+    ],
+    [
+     134217728,
+     5
+    ],
+    [
+     134217728,
+     7
+    ],
+    [
+     134217728,
+     10
+    ],
+    [
+     134217728,
+     11
+    ],
+    [
+     2,
+     10
+    ],
+    [
+     2,
+     11
+    ],
+    [
+     2,
+     5
+    ],
+    [
+     2,
+     7
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     67108867,
+     10
+    ],
+    [
+     67108867,
+     11
+    ],
+    [
+     67108867,
+     5
+    ],
+    [
+     67108867,
+     7
+    ],
+    [
+     67108867,
+     1
+    ],
+    [
+     134217728,
+     8
+    ],
+    [
+     134217728,
+     9
+    ],
+    [
+     134217728,
+     4
+    ],
+    [
+     134217728,
+     6
+    ],
+    [
+     134217728,
+     2
+    ],
+    [
+     2,
+     0
+    ],
+    [
+     67108865,
+     8
+    ],
+    [
+     67108867,
+     0
+    ],
+    [
+     67108865,
+     2
+    ],
+    [
+     134217728,
+     3
+    ],
+    [
+     67108865,
+     1
+    ],
+    [
+     67108865,
+     3
+    ],
+    [
+     67108865,
+     6
+    ],
+    [
+     67108865,
+     7
+    ],
+    [
+     67108865,
+     9
+    ],
+    [
+     67108865,
+     4
+    ],
+    [
+     67108865,
+     10
+    ],
+    [
+     67108865,
+     11
+    ],
+    [
+     67108865,
+     0
+    ],
+    [
+     67108865,
+     5
+    ],
+    [
+     67108876,
+     3
+    ],
+    [
+     67108876,
+     2
+    ],
+    [
+     67108876,
+     4
+    ],
+    [
+     67108876,
+     6
+    ],
+    [
+     67108876,
+     8
+    ],
+    [
+     67108876,
+     9
+    ],
+    [
+     67108876,
+     10
+    ],
+    [
+     67108876,
+     11
+    ],
+    [
+     67108876,
+     5
+    ],
+    [
+     67108876,
+     7
+    ],
+    [
+     67108876,
+     1
+    ],
+    [
+     67108876,
+     0
+    ]
+   ],
+   "mean_range_relay_units": [
+    "2581/312",
+    "1363/156",
+    "347/39"
+   ],
+   "mean_range_m": [
+    "386882167049/156",
+    "204308560127/78",
+    "104027982926/39"
+   ],
+   "speed_over_c": "5/64",
+   "speed_m_per_s": "749481145/32",
+   "H_per_tick": "195/21808",
+   "H_per_s": "195/21808",
+   "range_acceleration_relay_units_per_tick2": "-95/4992",
+   "range_acceleration_m_per_s2": "-14240141755/2496",
+   "relative_acceleration_per_tick2": "-95/43616",
+   "relative_acceleration_per_s2": "-95/43616"
+  }
+ },
+ "full_cohort_send_history": [
+  {
+   "send_tick": 0,
+   "mean_range_relay_units": "2581/312"
+  },
+  {
+   "send_tick": 1,
+   "mean_range_relay_units": "439/52",
+   "speed_over_c": "9/104",
+   "acceleration_relay_units_per_tick2": "-1/6",
+   "H_per_tick": "9/878",
+   "relative_acceleration_per_tick2": "-26/1317"
+  },
+  {
+   "send_tick": 2,
+   "mean_range_relay_units": "2635/312",
+   "speed_over_c": "11/624",
+   "acceleration_relay_units_per_tick2": "3/104",
+   "H_per_tick": "11/5270",
+   "relative_acceleration_per_tick2": "9/2635"
+  },
+  {
+   "send_tick": 3,
+   "mean_range_relay_units": "2645/312",
+   "speed_over_c": "7/48",
+   "acceleration_relay_units_per_tick2": "71/312",
+   "H_per_tick": "91/5290",
+   "relative_acceleration_per_tick2": "71/2645"
+  },
+  {
+   "send_tick": 4,
+   "mean_range_relay_units": "1363/156",
+   "speed_over_c": "131/624",
+   "acceleration_relay_units_per_tick2": "-31/312",
+   "H_per_tick": "131/5452",
+   "relative_acceleration_per_tick2": "-31/2726"
+  },
+  {
+   "send_tick": 5,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "25/312",
+   "acceleration_relay_units_per_tick2": "-25/156",
+   "H_per_tick": "25/2776",
+   "relative_acceleration_per_tick2": "-25/1388"
+  },
+  {
+   "send_tick": 6,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 7,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 8,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 9,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 10,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 11,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 12,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 13,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 14,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 15,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 16,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 17,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 18,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 19,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 20,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 21,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 22,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 23,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 24,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 25,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 26,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 27,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 28,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 29,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 30,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 31,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 32,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 33,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 34,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 35,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 36,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 37,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 38,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 39,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 40,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 41,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 42,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 43,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 44,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 45,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 46,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 47,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 48,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 49,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 50,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 51,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 52,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 53,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 54,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 55,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 56,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 57,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 58,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 59,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 60,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 61,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 62,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 63,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 64,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 65,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 66,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 67,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 68,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 69,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 70,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 71,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 72,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 73,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 74,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 75,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 76,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 77,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 78,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 79,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 80,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 81,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 82,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 83,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 84,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 85,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 86,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 87,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 88,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 89,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 90,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 91,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 92,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 93,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 94,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 95,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 96,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 97,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 98,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 99,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 100,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 101,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 102,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 103,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 104,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 105,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 106,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 107,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 108,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 109,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 110,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 111,
+   "mean_range_relay_units": "347/39",
+   "speed_over_c": "0",
+   "acceleration_relay_units_per_tick2": "0",
+   "H_per_tick": "0",
+   "relative_acceleration_per_tick2": "0"
+  },
+  {
+   "send_tick": 112,
+   "mean_range_relay_units": "347/39"
+  }
+ ],
+ "one_planck_time_hypothesis": {
+  "status": "Conditional unit assignment using the laboratory Planck time",
+  "codata": "https://physics.nist.gov/cuu/pdf/RevModPhys.97.025002.pdf",
+  "seconds_per_tick": 5.391247e-44,
+  "standard_uncertainty_s": 6e-49,
+  "metres_per_radar_unit": 1.6162551898151262e-35,
+  "early_window_H_per_s": 6.522005766477314e+39,
+  "early_window_relative_acceleration_per_s2": -6.048698720794384e+82,
+  "early_window_range_acceleration_m_per_s2": -6.814614840263391e+48,
+  "local_clock": "One ideal blank dimer flip per radar tick at the supplied service cadence. The isolated two-state generator has eigenvalues 8 and 9 with flip at pi and return at 2*pi generator-time units.",
+  "clock_receipts": "https://dovybzrnzxfo1.cloudfront.net/analysis/observer_zero_information.json",
+  "gravity_test": "For the same two energy eigenstates, compare w=DeltaE*tau/hbar with g=G*DeltaM/(c^3*tau) from independent weak-field gravity readings. With DeltaM=DeltaE/c^2 and the radar signal identified with light, g/w=(t_P/tau)^2.",
+  "clock_gap_radians_per_tick": 3.141592653589793,
+  "required_gravitational_length_in_radar_units_if_one_planck_tick": 3.141592653589793,
+  "observed_gravitational_length_in_radar_units": null,
+  "measured_planck_times_per_tick": null
+ }
+}
