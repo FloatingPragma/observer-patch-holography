@@ -68,16 +68,21 @@ def readout(name):
 
 def species_group(candidate):
     catalogue = read_json(HERE / "particles.json")
-    group = {k: v for k, v in catalogue.items() if k != "families"}
+    group = {k: v for k, v in catalogue.items() if k not in {"families", "observations"}}
+    observations = catalogue.get("observations", {}).get(candidate.NAME, {})
     assignments = getattr(candidate, "PARTICLE_IDENTIFICATIONS", {})
     rows = []
     for family in catalogue["families"]:
         for key, name, distinction in family["types"]:
             record = assignments.get(key, {"status": "open", "note": "No species assignment is registered.", "evidence": []})
+            if key in observations:
+                observed = observations[key]
+                record = {**record, "note": record["note"] + " " + observed["note"],
+                          "evidence": list(dict.fromkeys([*record["evidence"], *observed["evidence"]]))}
             rows.append({"id": "SM-" + key, "title": name, "domain": family["name"],
                          "requires": family["criterion"] + " " + distinction, "sources": catalogue["sources"],
                          "results": {candidate.NAME: record}})
-    if set(assignments) - {r['id'][3:] for r in rows}:
+    if (set(assignments) | set(observations)) - {r['id'][3:] for r in rows}:
         raise ValueError(f"{candidate.NAME}: unknown particle type")
     return {**group, "criteria": rows}
 

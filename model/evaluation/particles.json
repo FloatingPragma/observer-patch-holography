@@ -4,6 +4,34 @@
   "purpose": "Identify all 17 elementary particle types on one frozen candidate. Each species has a local preparation or production channel, reproducible detection statistics, and a dictionary that distinguishes its nearest alternatives. A declaration of a field or an input mass cannot identify the excitation.",
   "reference": "Count six quark flavours, three charged leptons, three active neutrino flavour channels, four gauge-boson types and the Higgs. W covers both signs, and the gluon entry covers the eight colour components. Resolve conjugate partners where distinct. Neutrino flavour is defined by weak production and detection; its propagation can mix mass eigenstates. Composite hadrons provide evidence for confined quarks and gluons. The hypothetical graviton has its own gravitational-particle assessment. A sterile neutrino is outside this inventory.",
   "sources": ["https://pdg.lbl.gov/2026/listings/contents_listings.html", "paper/deriving_the_particle_zoo_from_observer_consistency.tex", "code/defect_particle_classes/PROOF.md", "claims/physical_identification_registry.json"],
+  "observations": {
+    "interval_echo": {
+      "e": {
+        "note": "Three charged orbital preparations each transmit an arbitrary path qubit with equal delivery across inputs. Local spatial half-turns give the positive order sign. Two-vacancy exchange on the calibrated loop also gives positive phase. A freely transporting bound charge also has an independently measured formation energy and recoil.",
+        "evidence": [
+          "model/experiments/interval_echo_angular/charged_orientation/paired_flight/README.md",
+          "model/candidate_laws/interval_echo/openwave/row_11_spectrum/marked_bands/README.md",
+          "model/candidate_laws/interval_echo/openwave/row_11_spectrum/mobile_bound/README.md"
+        ]
+      },
+      "mu": {
+        "note": "The three- and five-defect charges form mobile bound modes. Their rest ratios and independent recoils exclude the observed charged-lepton hierarchy on the measured light anchor. A separate emitter delivers two neutral material pairs already present at launch; identifying muon decay requires a tagged parent-energy loss, weak flavor and a lifetime.",
+        "evidence": [
+          "model/candidate_laws/interval_echo/openwave/row_11_spectrum/mobile_bound/README.md",
+          "model/candidate_laws/interval_echo/openwave/row_11_spectrum/emission_channels/README.md",
+          "model/candidate_laws/interval_echo/openwave/row_11_spectrum/marked_bands/README.md"
+        ]
+      },
+      "tau": {
+        "note": "The heaviest mobile five-defect core has a measured rest energy of 147.05535 relative to the 16-unit vacancy. Matched transport of three charged orbitals gives a separate spatial and recoil test. Neither source has a measured tau mass and weak decay channel.",
+        "evidence": [
+          "model/candidate_laws/interval_echo/openwave/row_11_spectrum/mobile_bound/README.md",
+          "model/candidate_laws/interval_echo/openwave/row_11_spectrum/marked_bands/README.md",
+          "model/candidate_laws/interval_echo/openwave/row_11_spectrum/emission_channels/README.md"
+        ]
+      }
+    }
+  },
   "families": [
     {"name":"Quarks","criterion":"Recover the spin-half colour-triplet sector, its electric and weak responses, and a flavour discriminator in colour-singlet production, decay or scattering records. Resolve the conjugate sector.", "types":[["u","Up","Light up-type flavour, charge +2/3."],["d","Down","Light down-type flavour, charge −1/3."],["s","Strange","Distinguish strangeness from light down flavour."],["c","Charm","Identify charm production or weak transitions separately from up."],["b","Bottom","Resolve bottom-flavoured production and decay."],["t","Top","Resolve the heavy up-type resonance and its weak decay."]]},
     {"name":"Charged leptons","criterion":"Resolve spin half, unit negative charge, colour neutrality and weak interactions. Discriminate the three generations and their positive-charge conjugates through spectral or decay measurements.", "types":[["e","Electron","Light stable charged-lepton branch."],["mu","Muon","Distinct mass and leptonic decay channel."],["tau","Tau","Third charged-lepton branch, with its weak decay channels."]]},
