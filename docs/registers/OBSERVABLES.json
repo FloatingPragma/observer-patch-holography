@@ -4163,7 +4163,8 @@
    ],
    "lean": [],
    "model": [
-    "code/cosmology/postdiction_ledger/COSMOLOGY_POSTDICTION_LEDGER.md"
+    "code/cosmology/postdiction_ledger/COSMOLOGY_POSTDICTION_LEDGER.md",
+    "code/cosmology/guarded_slab/release.json"
    ],
    "papers": [
     "cosmology/oph_cosmology_finite_source_cmb_program.pdf",
@@ -4184,7 +4185,8 @@
    ],
    "lean": [],
    "model": [
-    "code/cosmology/postdiction_ledger/COSMOLOGY_POSTDICTION_LEDGER.md"
+    "code/cosmology/postdiction_ledger/COSMOLOGY_POSTDICTION_LEDGER.md",
+    "code/cosmology/guarded_slab/release.json"
    ],
    "papers": [
     "cosmology/oph_cosmology_finite_source_cmb_program.pdf",
@@ -4260,7 +4262,8 @@
    "model": [
     "code/cosmology/postdiction_ledger/COSMOLOGY_POSTDICTION_LEDGER.md",
     "code/cosmology/screen_coherence/measurements.json",
-    "code/cosmology/screen_coherence/survey.json"
+    "code/cosmology/screen_coherence/survey.json",
+    "code/cosmology/guarded_slab/results.json"
    ],
    "papers": [
     "cosmology/oph_inflation_without_inflaton_observer_screen_synchronization.pdf",
@@ -7456,18 +7459,25 @@
    "kind": "premise",
    "name": "abstract semantic ancestry acyclicity rank",
    "category": "Construction choices",
-   "status": "Partial",
-   "what": "Event histories carry a natural-number rank that strictly increases from parent to child, so ancestry has no cycles.",
+   "status": "Demonstrated",
+   "what": "Every authenticated direct parent has lower longest-ancestry rank in a finite executed log of guarded rail readings.",
    "why": "It makes causal ancestry well founded: OPH's causal order has no loops and no infinite descending chains of ancestors.",
    "premises": [],
    "lean": [
     "Lean/ObserverPatchHolography/Provenance/SemanticEventProvenance.lean",
     "Lean/Geometry/NativeRepairSemanticPlacement.lean",
     "Lean/ObserverPatchHolography/Provenance/CausalInterval.lean",
-    "Lean/QFT/SourceDerivedEventPrecedence.lean"
+    "Lean/QFT/SourceDerivedEventPrecedence.lean",
+    "Lean/ObserverPatchHolography/Provenance/GuardedRailRecords.lean"
    ],
-   "model": [],
-   "papers": [],
+   "model": [
+    "code/cosmology/guarded_slab/guarded_transfer.py",
+    "code/cosmology/guarded_slab/results.json",
+    "code/cosmology/guarded_slab/README.md"
+   ],
+   "papers": [
+    "cosmology/oph_cosmological_vacuum_and_structure_formation.pdf"
+   ],
    "statement": "An inhabitant of the abstract SemanticEventLog interface supplies a natural rank strictly increasing across every authenticated direct parent edge, as an acyclicity and well-foundedness witness. The rank is no schedule, clock reading or time coordinate.",
    "premise_kind": "declared"
   },
@@ -7937,13 +7947,16 @@
    "kind": "premise",
    "name": "one common release clock",
    "category": "Physical premises",
-   "status": "Open",
-   "what": "All particle species are released by one Gaussian single-clock source on one common release clock.",
+   "status": "Partial",
+   "what": "One material trigger correlates three receivers with a rank-one conditional mean covariance, while release of all species by one Gaussian clock remains open.",
    "why": "A single clock makes primordial perturbations adiabatic, with no isocurvature modes, as standard CMB fits assume.",
    "premises": [],
    "lean": [],
    "model": [
-    "code/cosmology/postdiction_ledger/COSMOLOGY_POSTDICTION_LEDGER.md"
+    "code/cosmology/postdiction_ledger/COSMOLOGY_POSTDICTION_LEDGER.md",
+    "code/cosmology/guarded_slab/guarded_release.py",
+    "code/cosmology/guarded_slab/release.json",
+    "code/cosmology/guarded_slab/README.md"
    ],
    "papers": [
     "cosmology/oph_cosmology_finite_source_cmb_program.pdf"
@@ -8011,12 +8024,16 @@
    "kind": "premise",
    "name": "source Euclidean slab data for a vacuum",
    "category": "Physical premises",
-   "status": "Open",
-   "what": "The source supplies reversible Euclidean slab data, including conductances, potential and slab thickness, derived without the target law and refined consistently.",
+   "status": "Demonstrated",
+   "what": "The guarded material rail source supplies a reversible Euclidean transfer with native conductances, potential and time step that is consistent under nested retention of child instruments.",
    "why": "OPH's vacuum constructions use these slab data; deriving them independently of the target keeps the resulting vacuum from being built in.",
    "premises": [],
    "lean": [],
-   "model": [],
+   "model": [
+    "code/cosmology/guarded_slab/guarded_transfer.py",
+    "code/cosmology/guarded_slab/results.json",
+    "code/cosmology/guarded_slab/README.md"
+   ],
    "papers": [
     "cosmology/oph_cosmological_vacuum_and_structure_formation.pdf",
     "paper/tex_fragments/FINITE_QUOTIENT_ENSEMBLE_THEOREMS.tex"

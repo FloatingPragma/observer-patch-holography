@@ -1242,7 +1242,7 @@ The register records each theorem assumption and its formal consumers. The role 
 | PR-79 bounded waste between canonical adaptive changes | law | Open | Open | Open | Open |
 | PR-80 sufficient cumulative attempt budget | designer | Open | Open | Open | Open |
 | PR-81 certified causal read support | law | Open | Open | Open | Open |
-| PR-82 abstract semantic ancestry acyclicity rank | law | Open | Open | Open | Open |
+| PR-82 abstract semantic ancestry acyclicity rank | law | Demonstrated | Open | Open | Open |
 | PR-84 pathwise weak fairness for fixed node attempts | law | Demonstrated | Open | Open | Open |
 | PR-85 bounded waste between fixed node changes | law | Demonstrated | Open | Open | Open |
 | PR-86 Supplied volume deformation and work convention | law | Open | Open | Open | Open |
@@ -1265,11 +1265,11 @@ The register records each theorem assumption and its formal consumers. The role 
 | PR-108 common bulk field behind the screens | law | Open | Open | Open | Open |
 | PR-109 physical dilation intertwiner | law | Open | Open | Open | Open |
 | PR-110 zero primordial tensor data | law | Open | Open | Open | Open |
-| PR-111 one common release clock | law | Open | Open | Open | Open |
+| PR-111 one common release clock | law | Partial | Open | Open | Open |
 | PR-112 flat clock-slice FLRW identification | law | Open | Open | Open | Open |
 | PR-113 horizon-scale coherence of the primordial source | law | Open | Open | Open | Open |
 | PR-114 hot radiation state on a common clock | law | Open | Open | Open | Open |
-| PR-115 source Euclidean slab data for a vacuum | law | Open | Open | Open | Open |
+| PR-115 source Euclidean slab data for a vacuum | law | Demonstrated | Open | Open | Open |
 | PR-116 screen-to-sky template map | law | Open | Open | Open | Open |
 | PR-117 Integer port counting grammar and quadratic readback cost | designer | Open | Open | Open | Open |
 | PR-118 compact charge maps and sector realizations under refinement | law | Open | Open | Open | Open |

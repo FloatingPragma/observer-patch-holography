@@ -163,9 +163,9 @@
  },
  "premise_counts": {
   "law": {
-   "fulfilled": 10,
-   "partial": 7,
-   "open": 124,
+   "fulfilled": 12,
+   "partial": 8,
+   "open": 121,
    "fails": 0
   },
   "designer": {
@@ -1061,9 +1061,15 @@
    "statement": "An inhabitant of the abstract SemanticEventLog interface supplies a natural rank strictly increasing across every authenticated direct parent edge, as an acyclicity and well-foundedness witness. The rank is no schedule, clock reading or time coordinate.",
    "type": "structural_rule",
    "role": "law",
-   "status": "open",
-   "evidence": [],
-   "note": ""
+   "status": "fulfilled",
+   "evidence": [
+    "../../../code/cosmology/guarded_slab/README.md",
+    "../../../code/cosmology/guarded_slab/guarded_transfer.py",
+    "../../../code/cosmology/guarded_slab/results.json",
+    "../../../code/cosmology/guarded_slab/test_slab.py",
+    "../../../Lean/ObserverPatchHolography/Provenance/GuardedRailRecords.lean"
+   ],
+   "note": "Every finite executed guarded-rail history instantiates SemanticEventLog with canonical longest authenticated ancestry rank. Repeats carry fresh versions and every direct parent has lower rank. Addresses and transition innovations are external parameters of this record grammar."
   },
   {
    "id": "PR-84",
@@ -1303,9 +1309,14 @@
    "statement": "All species are released by a rank-one Gaussian single-clock source on one common release clock.",
    "type": "derivable",
    "role": "law",
-   "status": "open",
-   "evidence": [],
-   "note": ""
+   "status": "partial",
+   "evidence": [
+    "../../../code/cosmology/guarded_slab/README.md",
+    "../../../code/cosmology/guarded_slab/guarded_release.py",
+    "../../../code/cosmology/guarded_slab/release.json",
+    "../../../code/cosmology/guarded_slab/test_slab.py"
+   ],
+   "note": "One material first-change event reaches three addressed owners by native exchanges. Conditional means have rank-one covariance on sharp inputs, with connected third moment 51/754000 and zero cross-covariances on independent stationary inputs. Release of all physical species by one Gaussian clock is open."
   },
   {
    "id": "PR-112",
@@ -1343,9 +1354,15 @@
    "statement": "The source supplies reversible Euclidean slab data (Q_r, m_r^0, J_r, V_r, a_t,r), with symmetric nonnegative conductance, local potential and slab thickness derived without the target law or sampler output, and compatible refinement.",
    "type": "derivable",
    "role": "law",
-   "status": "open",
-   "evidence": [],
-   "note": ""
+   "status": "fulfilled",
+   "evidence": [
+    "../../../code/cosmology/guarded_slab/README.md",
+    "../../../code/cosmology/guarded_slab/PROTOCOL.md",
+    "../../../code/cosmology/guarded_slab/guarded_transfer.py",
+    "../../../code/cosmology/guarded_slab/results.json",
+    "../../../code/cosmology/guarded_slab/test_slab.py"
+   ],
+   "note": "Guarded material rails realize the finite reversible slab contract. The native generator gives gap one, potential 32 per rail pair and conductance m/2 per single flip. At the supplied real exposure π/3 the sharp pointer gives Euclidean step log 2. Ground law and all finite transfer histories are compatible under retaining one child per parent. An interacting cosmological field vacuum requires additional evidence."
   },
   {
    "id": "PR-116",

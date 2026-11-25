@@ -18,6 +18,8 @@ Interval Echo is the active repair and memory law on the spherical federation. E
 | [Standard Photon–Baryon Transport as the Transfer Interface for OPH Sources](oph_boltzmann_transport_derivation.pdf) ([source](oph_boltzmann_transport_derivation.tex)) | A conditional reduction: on a branch that supplies geometry, photon convergence, vertex and collision premises, transport is the Ma–Bertschinger system plus two OPH interfaces (repair-exchange rate and collar stress) that vanish on the standard branch |
 | [A Finite Black-Hole Information Ledger](oph_black_hole_information_ledger.pdf) ([source](oph_black_hole_information_ledger.tex)) | Black-hole information as a finite record ledger: machine-checked unitary dynamics and sign-unitary record channels, known finite entropy theorems, stated conjectures for thermality and relocation, and the declared crossing-read area law |
 
+Guarded material rail reads supply a finite reversible vacuum construction, an exact worst-case equilibration time for orientation on each board, and three local receptions of a common release. The joint third centered moment and stationary-input control distinguish this source from the Gaussian field assumed in the CMB comparison. The [calculation, counts and replay instructions](../code/cosmology/guarded_slab/README.md) accompany the vacuum, inflation and finite-source papers.
+
 The [formal radial-lift theorem fragment](../paper/tex_fragments/RADIAL_LIFT_THEOREMS_330.tex)
 contains the one-shell non-identifiability proof, physical source-dilation
 theorem, radial cross-covariance tomography, exact amplitude conversion, and
