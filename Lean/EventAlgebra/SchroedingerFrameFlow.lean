@@ -7,8 +7,8 @@ namespace EventAlgebra
 /-!
 # The Schroedinger frame duality and the composed Born-Lueders statement
 
-The composition module for the observation-ledger rows OL-C1 (Born
-probabilities and Lueders conditioning) and OL-C2 (Schroedinger
+The composition module for the observables `born-rule` (Born
+probabilities and Lueders conditioning) and `schroedinger` (Schroedinger
 dynamics), V3 issue #730, extending the surface of
 `EventAlgebra.QuantumAdequacySurface` inside its namespaces.  Two
 statements make the measurement surface and the dynamics surface share
@@ -73,7 +73,7 @@ open OPH.Dynamics
 
 variable {d : ℕ}
 
-/-! ## OL-C1: the composed Born-Lueders statement -/
+/-! ## `born-rule`: the composed Born-Lueders statement -/
 
 /-- **Born and Lueders on one state.**  Under PR-02 and PR-03 exactly
 one state reproduces every frame weight in Born form, and that same
@@ -140,7 +140,7 @@ theorem frameState_conditionedFrame (F : RepresentedPublicFrame d)
   have h := born_represents (conditionedFrame F hP hw) hE
   simpa [conditionedFrame] using h.symm
 
-/-! ## OL-C2: the Schroedinger frame duality -/
+/-! ## `schroedinger`: the Schroedinger frame duality -/
 
 section Propagator
 

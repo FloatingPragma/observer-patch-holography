@@ -140,7 +140,7 @@ homomorphisms in the committed interface.
 ## Premise consumption per register row
 
 The module consumes no physical premise row of
-`tracking/premise_register.json`.  It uses the algebraic and
+`docs/registers/OBSERVABLES.json`.  It uses the algebraic and
 order-theoretic content of the committed colimit together with Mathlib's
 C*-algebra library.  Two rows bound what the module does not reach.
 PR-58 records that no registered premise supplies a time-indexed or

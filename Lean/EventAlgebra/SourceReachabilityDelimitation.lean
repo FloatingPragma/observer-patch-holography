@@ -7,7 +7,7 @@ set_option maxRecDepth 65536
 /-!
 # Source reachability and the record-diagonal CHSH delimitation
 
-Issue #730 OL-C3, source side of the clause "supply a source-produced
+Observable `tsirelson`, source side of the clause "supply a source-produced
 entangled preparation, settings, two-wing instrument, and physical-region
 attachment for C3, OR delimit that route without conflating the exact
 declared witness with a source result".  This module delivers the
@@ -131,14 +131,14 @@ over the enumerated class only.
 
 Nonclaims: this is a delimitation of committed-data reachability under
 the enumerated committed operations.  It is not an all-architectures
-no-go and not a hidden-variable theorem.  It does not close OL-C3: the
+no-go and not a hidden-variable theorem.  It does not close `tsirelson`: the
 diagonal bound covers one reachable state read against four observables
 diagonal in the same record basis, and it says nothing here about
 non-jointly-diagonal readouts on reachable states (no separability bound
 is committed and none is claimed), nor about context-dependent
 operational models.  No implication involving PR-04 or genuinely complex
 phase structure is asserted.  Source entangled preparation, physical
-regions, spacelike separation, and instruments stay open (PR-52; OL-C3
+regions, spacelike separation, and instruments stay open (PR-52; `tsirelson`
 realization clause); PR-58 content is untouched.
 
 ## Tagging convention
@@ -844,7 +844,7 @@ and nothing else; the bound covers jointly record-diagonal readouts
 only; non-jointly-diagonal readouts on reachable states are not covered
 by this module; the declared witness of
 `EventAlgebra.TsirelsonSaturation` stays a declared result, and source
-entangled preparation stays open (PR-52; OL-C3 realization clause). -/
+entangled preparation stays open (PR-52; `tsirelson` realization clause). -/
 theorem source_reachability_receipt :
     Reachable .pair247 correlationState ∧
     Reachable .hinge13 marginal86State ∧

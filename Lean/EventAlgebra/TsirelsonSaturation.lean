@@ -9,7 +9,7 @@ set_option autoImplicit false
 /-!
 # Tsirelson saturation on the committed slot interface, and the diagonal CHSH delimitation
 
-Issue #730 OL-C3.  Two finite receipts on committed carriers.
+Observable `tsirelson`.  Two finite receipts on committed carriers.
 
 1. **Saturation witness.**  A declared four-dimensional state: the
    normalized `OPH.Dynamics.maxEntangled 2`, the one entangled object of the
@@ -50,7 +50,7 @@ What is NOT proved (open premises, by register row):
 * the saturating state and the four events are DECLARED data of this
   module; no theorem produces them from committed source runs; source
   entangled preparation, physical regions, spacelike separation, and
-  instruments stay open (register row PR-52, and the OL-C3 realization
+  instruments stay open (register row PR-52, and the `tsirelson` realization
   clause of issue #730);
 * the bipartite slot split consumed by the witness is the supplied PR-44
   datum; nothing here produces the split;
@@ -373,7 +373,7 @@ theorem chshProd_eq :
 
 /-- **The declared state**, product-carrier form: the normalized
 `OPH.Dynamics.maxEntangled 2`.  DECLARED, not source-produced: no committed
-theorem prepares it (register row PR-52; OL-C3 realization clause). -/
+theorem prepares it (register row PR-52; `tsirelson` realization clause). -/
 def bellStateProd : Matrix (Fin 2 × Fin 2) (Fin 2 × Fin 2) ℂ :=
   (2⁻¹ : ℂ) • OPH.Dynamics.maxEntangled 2
 
@@ -494,7 +494,7 @@ private theorem toFour_posSemidef
   exact (Matrix.posSemidef_submatrix_equiv carrierEquiv.symm).mpr h
 
 /-- **The declared state on `Fin 4`**: the reindexed normalized
-`maxEntangled 2`.  DECLARED, not source-produced (PR-52; OL-C3 realization
+`maxEntangled 2`.  DECLARED, not source-produced (PR-52; `tsirelson` realization
 clause). -/
 def bellState : Matrix (Fin 4) (Fin 4) ℂ := toFour bellStateProd
 
@@ -593,7 +593,7 @@ theorem toFour_chshProd_eq : toFour chshProd = chshObs := by
 
 /-- **Trace-dependent.** **Exact Tsirelson saturation.**  The declared
 state gives CHSH expectation exactly `2√2` on the committed expectation
-functional.  The state and events are declared data (PR-52; OL-C3
+functional.  The state and events are declared data (PR-52; `tsirelson`
 realization clause); the equality itself is exact finite matrix algebra. -/
 theorem chsh_saturation :
     expectation bellState chshObs = ((2 * Real.sqrt 2 : ℝ) : ℂ) := by
@@ -623,7 +623,7 @@ theorem chsh_expectation_bound {ρ : Matrix (Fin 4) (Fin 4) ℂ}
     qA₀_isEvent qA₁_isEvent qB₀_isEvent qB₁_isEvent
     qA₀_qB₀_comm qA₀_qB₁_comm qA₁_qB₀_comm qA₁_qB₁_comm
 
-/-- **The composed OL-C3 saturation receipt.**  One conjunction whose
+/-- **The composed `tsirelson` saturation receipt.**  One conjunction whose
 clauses share the same interface witness, the same events, and the same
 declared state:
 
@@ -640,7 +640,7 @@ declared state:
 Boundary, stated exactly: the state and events are DECLARED data of this
 module; no committed theorem prepares the state from source runs.  Source
 entangled preparation, physical regions, spacelike separation, and
-instruments stay open (register row PR-52; OL-C3 realization clause).
+instruments stay open (register row PR-52; `tsirelson` realization clause).
 The PR-44 split is a supplied datum. -/
 theorem tsirelson_saturation_receipt :
     (‖chshProd‖ ≤ 2 * Real.sqrt 2) ∧

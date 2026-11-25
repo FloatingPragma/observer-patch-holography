@@ -182,7 +182,7 @@ is declared, and the register's Einstein clause holds by definition at
 lane E's chart as recorded there.  The step duration is a declared
 positive real with no unit; no physical time, clock calibration,
 spacetime, or readout claim is made.  Nothing here closes issue #740, and
-no observation-ledger row is promoted: OL-N1 stays owed.
+no observable is promoted: `physical-attachment` stays owed.
 
 Axiom audit.  Every proof composes committed receipts with exact finite
 mathematics; the module adds no project axiom and uses no native decision

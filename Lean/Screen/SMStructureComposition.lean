@@ -39,7 +39,7 @@ assembly, symmetry breaking, or laboratory identification.  The
 committed gap theorem `OPHGap.gModule_iso_does_not_determine_bracket`
 scopes the type claim: a `G`-module isomorphism determines no Lie
 bracket, and the source current and action attachment stays on the
-register as row PR-54.  The global-form clauses of OL-G2 stay
+register as row PR-54.  The global-form clauses of `z6` stay
 outside every theorem here; they are conditional on register rows
 PR-35 and PR-46 and are stated on the surface only.  The two-mask
 theorem quantifies over three coarse compact-family labels and the
@@ -159,7 +159,7 @@ theorem strictlyNearestAt_eq_G (D : SMStructurePremiseData)
   exact lt_asymm hG hf
 
 /-- **The composed selection inside the three-label enumeration
-(OL-G1).**  Among the three labels of `CompactFamily` exactly one is
+(`sm-gauge`).**  Among the three labels of `CompactFamily` exactly one is
 both strictly nearest to the pinned face bracket at the bundled
 port-dual measure, in the committed literal distance tables (rows PR-09,
 PR-10), and carries committed generic dimension data equal to the

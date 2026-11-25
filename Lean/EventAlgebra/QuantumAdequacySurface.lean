@@ -13,13 +13,13 @@ namespace EventAlgebra
 /-!
 # The composed quantum adequacy surface
 
-One parameterized package for the observation-ledger rows OL-C1 (Born
-probabilities and Lueders conditioning), OL-C2 (Schroedinger dynamics as
-the unique continuous symmetry flow), OL-C3 (entanglement to the
-Tsirelson bound), and OL-C5 (phase completion), V3 issue #730. Every
+One parameterized package for the observables `born-rule` (Born
+probabilities and Lueders conditioning), `schroedinger` (Schroedinger dynamics as
+the unique continuous symmetry flow), `tsirelson` (entanglement to the
+Tsirelson bound), and `complex-hilbert` (phase completion). Every
 theorem below is a committed result of the event-algebra, dynamics, and
 phase-lift modules, re-exported through named premise bundles so that a
-ledger row cites one surface instead of scattered conditionals. Each
+register row cites one surface instead of scattered conditionals. Each
 proof is a direct application of the cited module; this file adds no
 derivation.
 
@@ -32,10 +32,10 @@ an operational instrument.  PR-04's source-produced operation, outcome, and
 common-preparation receipts remain unconstructed, and the real/Kraus
 blindness boundary is carried alongside as the committed limit.
 
-The companion modules `EventAlgebra.SlotLocalitySurface` (the OL-C3
-and OL-C4 receipts composed under the PR-44 slot split) and
-`EventAlgebra.SchroedingerFrameFlow` (the OL-C1 single-statement
-composition with conditioning closure, and the OL-C2 duality under
+The companion modules `EventAlgebra.SlotLocalitySurface` (the `tsirelson`
+and `no-signalling` receipts composed under the PR-44 slot split) and
+`EventAlgebra.SchroedingerFrameFlow` (the `born-rule` single-statement
+composition with conditioning closure, and the `schroedinger` duality under
 PR-43) extend this surface inside the same `QuantumSurface` namespace.
 
 Composition boundaries, stated exactly:
@@ -64,12 +64,12 @@ Composition boundaries, stated exactly:
   the payload supplies the algebraic lift and no instrument receipts,
   and `phase_boundary_summary` carries the committed limit: realized
   outcome statistics inhabit only the diagonal native context;
-* OL-C4 (no-signalling and locality receipts) is composed on the
+* `no-signalling` (no-signalling and locality receipts) is composed on the
   slot-locality surface: `slot_locality_receipts` consumes the PR-44
   interface, derives the Tsirelson commutation from the slot split,
   and threads the lifted local channel into the PR-02 trace pairing;
   the physical spacelike reading stays open on register row PR-52;
-  OL-C6 (structural field theory) is owed to the regional-net
+  `qft` (structural field theory) is owed to the regional-net
   modules.
 
 The row dispositions are the register's: PR-02 is an explicit
@@ -165,7 +165,7 @@ sense of `FiniteBuschGleason`. -/
 theorem frame_valuation : IsEffectValuation F.value :=
   ⟨F.nonneg, F.le_one, F.map_one, F.additive⟩
 
-/-! ## OL-C1: Born probabilities on the represented surface -/
+/-! ## `born-rule`: Born probabilities on the represented surface -/
 
 /-- The state represented by the frame: the unique density matrix of the
 finite Busch-Gleason theorem. -/
@@ -245,7 +245,7 @@ theorem records_total_weight {k : ℕ} (part : ProjectivePartition d k) :
   sum_valuation_projective_decomposition (frame_valuation F) Finset.univ
     part.proj (fun i _ => part.isEvent i) part.complete
 
-/-! ## OL-C1: Lueders conditioning on the represented surface
+/-! ## `born-rule`: Lueders conditioning on the represented surface
 
 Conditioning acts on the frame state produced by the representation
 theorem; every statement carries the nonvanishing-weight guard of the
@@ -292,7 +292,7 @@ theorem lueders_order_exchange {P Q : Matrix (Fin d) (Fin d) ℂ}
       luedersUpdate (luedersUpdate (frameState F) Q) P :=
   luedersUpdate_comm hP hQ hc hwP hwQ
 
-/-! ## OL-C3: entanglement to the Tsirelson bound
+/-! ## `tsirelson`: entanglement to the Tsirelson bound
 
 Algebra-only; consumes four events of the represented algebra and no
 frame valuation, so it is re-exported side by side rather than through
@@ -322,7 +322,7 @@ theorem tsirelson_of_events [NeZero d]
 
 end Tsirelson
 
-/-! ## OL-C2: the unique continuous symmetry flow
+/-! ## `schroedinger`: the unique continuous symmetry flow
 
 Consumes a pointwise continuous star-automorphism group of the
 represented algebra and no frame valuation; re-exported side by side.
@@ -366,7 +366,7 @@ theorem flow_generator_unique [NeZero d]
 
 end ContinuousFlow
 
-/-! ## OL-C5: phase completion and the real/Kraus blindness boundary
+/-! ## `complex-hilbert`: phase completion and the real/Kraus blindness boundary
 
 The committed dimension-two payload inhabits the PR-04 bundle, and the
 blindness boundary is carried alongside as the committed limit. These
@@ -455,7 +455,7 @@ theorem phase_boundary_summary :
         (realizedOutcomeCounts c).isSome ↔ c = WebContext.diagonal) :=
   sourcePhaseLift_boundary_summary
 
-/-- **The composed algebraic OL-C5 receipt.**  One statement packages the
+/-- **The composed algebraic `complex-hilbert` receipt.**  One statement packages the
 phase-sensitive projection effect, fixed-trace tomography, the proof that the
 effect is outside every committed phase-free real closure, and the exact
 absence boundary on realized outcomes.  This is algebraic phase completion,

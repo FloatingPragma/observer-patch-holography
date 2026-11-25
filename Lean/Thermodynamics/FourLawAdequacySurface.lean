@@ -13,10 +13,10 @@ namespace OPH.Thermodynamics
 /-!
 # The composed four-law adequacy surface
 
-One parameterized package for the observation-ledger rows OL-E1 (the
-four laws), OL-E2 (the exact fluctuation identities), OL-E3 (the
-Landauer bound), and OL-E4 (the arrow of time from repair), V3 issue
-#732. Every theorem in `FourLawSurface` is a committed result of the
+One parameterized package for the observables `thermo-0` to `thermo-3` (the
+four laws), `fluctuation` (the exact fluctuation identities), `landauer` (the
+Landauer bound), and `arrow-of-time` (the arrow of time from repair). Every
+theorem in `FourLawSurface` is a committed result of the
 thermodynamics modules, stated through the named per-row premise
 structures. The composed surface is the one theorem
 `fourLaws_composed`: from the single typed antecedent bundle
@@ -629,7 +629,8 @@ theorem FourLawAntecedent.nonempty {Ω : Type u} [Fintype Ω]
 record whose clauses are all stated for the one kernel
 `repairKernel A.repair`, the one reference `A.repair.ref`, and the one
 calibrated energy `A.calib.energy` of the bundle `A`. The
-observation-ledger rows OL-E1 through OL-E4 cite `fourLaws_composed`,
+observables `thermo-0` to `thermo-3`, `fluctuation`, `landauer` and
+`arrow-of-time` cite `fourLaws_composed`,
 which produces this record from the bundle. The `Nonempty` instance is
 derivable from the bundle through `FourLawAntecedent.nonempty`. -/
 structure FourLawConclusions {Ω : Type u} [Fintype Ω] [DecidableEq Ω]

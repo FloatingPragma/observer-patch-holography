@@ -123,7 +123,7 @@ components of a doublet row are the committed weak-dimension
 bookkeeping of the table; a physical chirality attachment stays on
 register row PR-47.  This is a structural receipt on issue #745,
 companion to the committed neutral dictionary, and it closes
-nothing: rows OL-M1, OL-M2, OL-M3 keep their owed physical content.
+nothing: observables `ew-breaking`, `ow-24-muon-decay`, `cabibbo` keep their owed physical content.
 
 Falsifier.  The dictionary fails if either charged direction is not
 orthogonal to both committed neutral directions, if the charged

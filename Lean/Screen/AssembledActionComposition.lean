@@ -2,13 +2,12 @@ import GaugeKineticInvariantForms
 import ElectroweakBreakingComposition
 
 /-!
-# The first assembled structural action (V3, issue #735, OL-G9)
+# The first assembled structural action (observable `sm-action`)
 
 One typed action object on one committed carrier bundle.  The
-committed term inventory of `tracking/sm_lagrangian_correspondence.json`
-records sectors one by one; this module sums three of them as one
-real-valued function of one field tuple and proves the composition
-receipts on one typed antecedent bundle.
+Standard Model term inventory records sectors one by one; this module
+sums three of them as one real-valued function of one field tuple and
+proves the composition receipts on one typed antecedent bundle.
 
 The three summed sectors:
 
@@ -86,7 +85,7 @@ here.  The scalar covariant kinetic term enters through its committed
 constant-direction coefficient at the chosen minimum; a kinetic term
 on varying fields is likewise on row PR-54.  Global-form, physical
 chirality, and Spin attachments stay on rows PR-35, PR-46, PR-47.
-The declared parameters select nothing.  OL-G9 moves from owed to
+The declared parameters select nothing.  `sm-action` moves from owed to
 partial at most, with the assembly named as structural and
 conditional.
 
@@ -534,7 +533,7 @@ theorem committed_inhabitant_value :
 
 /-! ## The composed receipt -/
 
-/-- **The composed assembled-action receipt (issue #735, OL-G9
+/-- **The composed assembled-action receipt (observable `sm-action`
 partial).**  For every premise bundle `D`: the assembled action is
 one explicit sum with every coefficient a declared bundle field; its
 restriction to each sector's field slice is exactly that sector's

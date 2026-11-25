@@ -58,7 +58,7 @@ row PR-46 bundle only.  No complete character category, no instanton
 or topological normalization, no laboratory flux or line-operator
 attachment, and no physical quotient selection is supplied; register
 row PR-46 stays open with exactly this piece carved out, and the
-global-form row OL-G2 stays partial.  The congruence classifies
+global-form row `z6` stays partial.  The congruence classifies
 finite labels on the committed lattice; it is not a derivation of the
 physical global gauge-group form.  All statements are exact finite
 arithmetic over `Int` and `ZMod`.
@@ -219,7 +219,7 @@ theorem masked_selection_descends
     (centerChar_eq_phase_gen (componentWeight i)).trans hgen
   exact ⟨h0, (descent_criterion (componentWeight i)).mpr h0⟩
 
-/-- **The character-descent receipt (issue #739, OL-G2 evidence).**
+/-- **The character-descent receipt (observable `z6` evidence).**
 The descent criterion as an iff on the committed lattice, the
 committed matter table satisfying it on every row, the blocked
 control label, and the exact one-sixth count.  The receipt is the

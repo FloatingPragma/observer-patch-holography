@@ -117,7 +117,7 @@ rank-three control quotient, so the carrier dictionary row PR-53 stays
 open.  The committed normalization radius `rawRadius` in the source-chain
 identity is the committed unit-diagonal Gram normalization, not a physical
 length calibration.  Nothing here closes issue #740, and no
-observation-ledger row is promoted: OL-N1 stays owed.
+observable is promoted: `physical-attachment` stays owed.
 
 Axiom audit.  Every proof composes committed receipts with exact finite
 mathematics; the module adds no project axiom and uses no native decision

@@ -3,7 +3,7 @@ import QFT.FiniteCausalObserverNet
 import QFT.RichFibreRegionalNet
 
 /-!
-# OL-A3: causal-order composition of committed finite nets with the declared Lorentz cone
+# `causality`: causal-order composition of committed finite nets with the declared Lorentz cone
 
 The declared Hermitian Lorentz module of `Geometry/CanonicalLorentzModule.lean`
 carries the relation `causalLE`: the coordinate difference has nonnegative
@@ -56,7 +56,7 @@ conditions (PR-16), and the finite subsystem-split interface (PR-44) stay
 open.  The composition is a typed identification of committed finite orders
 with one declared cone order through declared vertex maps; it does not
 derive the module, the maps, or any continuum limit from observer data, and
-the observation-ledger row OL-A3 stays a structural partial with this
+the observable `causality` stays a structural partial with this
 composed receipt attached.
 -/
 

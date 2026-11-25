@@ -76,7 +76,7 @@ theorem weyl_parity_column :
       OPH.BaryonDimensionSix.left (fieldIndex i) = 1
         ↔ OPH.ExteriorSelection.odd i = false := by decide
 
-/-- **The matter-grammar index dictionary receipt (OL-G8
+/-- **The matter-grammar index dictionary receipt (`baryogenesis`
 evidence).**  The committed permutation is bijective and matches the
 charge, color, doublet, conjugation, and Weyl-parity columns of the
 two frozen tables.  The identification is a kernel-checked dictionary

@@ -143,7 +143,7 @@ Not claimed: any Born rule, measurement, observable, or attachment of the
 complex line to an observer; any statement about the whole curl sector
 beyond the stated family (the selection of nineteen orthogonal seam
 eigenvectors remains open as in `CarrierEvolutionFlow`); any physical
-unit for `θ / h`.  Rows cited: OL-C2 (partial, quantum dynamics surface:
+unit for `θ / h`.  Rows cited: observable `schroedinger` (partial, quantum dynamics surface:
 the field-sector flow is a one-parameter unitary group with explicit
 generator on a Hilbert space whose inner product is derived from the
 committed energy, not declared) and PR-15 (no discharge).  Issues #730,

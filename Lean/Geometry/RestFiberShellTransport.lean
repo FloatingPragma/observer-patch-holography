@@ -42,7 +42,7 @@ receipt `rest_fiber_shell_receipt` consumes one typed antecedent bundle
 naming both.  Nothing here attaches the rest fiber to physical position
 (PR-52 open), produces a gravitational field, potential, or mass density,
 joins the composed Einstein branch, selects a frame or the radial readout
-from source data, or discharges PR-18/PR-19.  OL-B2 stays partial.
+from source data, or discharges PR-18/PR-19.  `inverse-square` stays partial.
 -/
 
 namespace OPH.RestFiberShellTransport

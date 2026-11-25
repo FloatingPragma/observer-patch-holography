@@ -9,8 +9,8 @@ namespace OPH.Variational
 /-!
 # The composed mechanics adequacy surface (V3, issue #731)
 
-One citable package for the observation-ledger rows OL-D1, OL-D2, and
-OL-D3: least/stationary action, the discrete Euler-Lagrange and Hamilton
+One citable package for the observables `newton-mechanics` and `noether`:
+least/stationary action, the discrete Euler-Lagrange and Hamilton
 equivalence, and Noether conservation, composed from the committed
 mechanics modules with every supplied object named.  This module adds no
 mathematical content; every theorem re-exports a committed result
@@ -119,7 +119,7 @@ variable {Ω : Type*} [Fintype Ω] (D : MechanicsPremiseData Ω)
 
 /-! ## The derived action over the registered reference (row PR-05) -/
 
-/-- **The derived action (OL-D1 input).**  The path law of the supplied
+/-- **The derived action (`newton-mechanics` input).**  The path law of the supplied
 transition system is the exponential tilt of the step-uniform reference
 (register row PR-05) by the log-transition action at multiplier one.
 Re-export of `InformationProjection.markov_path_law_eq_gibbs` at the
@@ -208,7 +208,7 @@ theorem fenchel_young (x p w : ℝ) :
     p * w - quadLagrangian D.a D.V x w ≤ quadHamiltonian D.a D.V x p :=
   quad_fenchel_young D.a D.V D.a_pos x p w
 
-/-- **The Euler-Lagrange/Hamilton equivalence (OL-D2 input).**  At a
+/-- **The Euler-Lagrange/Hamilton equivalence (`newton-mechanics` input).**  At a
 junction of the committed stack, the discrete Euler-Lagrange sum of the
 supplied Lagrangian vanishes exactly when one step of the discrete
 Hamilton flow carries the incoming junction state to the outgoing one.
@@ -250,7 +250,7 @@ theorem stationary_eulerLagrange {N : ℕ} (γ : Fin (N + 1) → ℝ)
   (D.eulerLagrange_iff_hamiltonStep γ hkm).mpr
     (D.stationary_hamiltonStep γ hkm hmin)
 
-/-! ## Noether conservation at the supplied stiffness (OL-D3 input) -/
+/-! ## Noether conservation at the supplied stiffness (`noether` input) -/
 
 /-- The discrete Hamilton flow of the free class at the supplied
 stiffness conserves the momentum readout: the Legendre image of the
@@ -332,7 +332,7 @@ theorem mechanicsSurface_source_instance :
 
 /-! ## The realized least-action face -/
 
-/-- **Least action on the realized chain (OL-D1 input).**  A chain path
+/-- **Least action on the realized chain (`newton-mechanics` input).**  A chain path
 minimizes the committed-form local action of the log-transition
 Lagrangian among single-site variations exactly when it is a most
 probable path among them, at every path length.  Re-export of
@@ -408,7 +408,7 @@ theorem mechanicsSurface_enrichment_no_go :
     chainCurvedLagrangian_one_ne_two,
     chainCurvedHamiltonian_one_ne_two⟩
 
-/-- **The mode/minimizer boundary (OL-D1 scoping).**  A history can
+/-- **The mode/minimizer boundary (`newton-mechanics` scoping).**  A history can
 satisfy the discrete Euler-Lagrange stationarity condition with explicit
 derivative witnesses, fail single-site minimality outright, and carry
 strictly smaller Gibbs weight than a non-stationary variation at every

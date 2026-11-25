@@ -84,7 +84,7 @@ declared coefficient; no Yukawa matrix, family structure, texture, or
 phase is claimed (register row PR-50 and its non-identifiability
 receipts are untouched, and register row PR-36 three-family structure
 is not consumed).  The parity grading is table provenance; a physical
-chirality claim stays on register row PR-47.  OL-G7 may move from
+chirality claim stays on register row PR-47.  `ew-breaking` may move from
 owed to conditional structural partial at most.
 -/
 
@@ -671,7 +671,7 @@ theorem selected_sector_supports_yukawa_line
 /-! ## The composed receipt -/
 
 /-- **The composed electroweak-breaking/Yukawa receipt (issue #735,
-OL-G7 partial).**  For every premise bundle `D`: the minimizer set of
+`ew-breaking` partial).**  For every premise bundle `D`: the minimizer set of
 the declared quartic potential is exactly the nonzero shell
 `|h|^2 = vev^2` and contains the chosen minimum; the stabilizer of
 the chosen minimum is exactly one one-parameter unbroken line inside

@@ -15,8 +15,8 @@ open OPH.SeamCurrentCarrierQuotient
 /-!
 # The composed light-signal adequacy surface (V3, issue #733)
 
-One citable package for the observation-ledger rows OL-F1, OL-F2, and
-OL-F3 of the electromagnetism lane: the source-selected Dirichlet
+One citable package for the observables `maxwell`, `em-waves`, and
+`coulomb` of the electromagnetism lane: the source-selected Dirichlet
 generator, the basis-free transverse completion with its exact zero
 mode, the declared oscillator dynamics with the identified physical
 frequency and its exact unit speed bound, and the exact rational Gauss
@@ -83,7 +83,7 @@ momentum (`physicalFrequency_eq_edge30_frequency`,
 dynamics obeys the second-order wave-shaped evolution with the
 identified frequency on every mode (`transverse_wave_second_order`).
 
-The OL-F1 boundary.  The committed construction is a conditional
+The `maxwell` boundary.  The committed construction is a conditional
 free-vector model.  The definition `attainedCommittedOrderLaw` states
 the complete equation-of-motion content attained at the committed
 order: on the rank-two transverse sector the supplied dynamics preserves
@@ -101,10 +101,10 @@ module states none of them as a theorem.
 
 The Gauss receipts consume none of the three bundled premises.  They
 are exact rational statements about the seam incidence operator, and
-they sit side by side inside this module for the composed OL-F3 row.
+they sit side by side inside this module for the composed `coulomb` row.
 The same-metric physical attachment record of
 `SeamCurrentPhysicalMetricAttachment` is a separate conditional route
-and is not consumed here.  The dispersion rows of OL-F4 keep their
+and is not consumed here.  The dispersion rows of `spin6-anisotropy` keep their
 custody with the frozen instruments; this module restates no dispersion
 coefficient and no decision rule.
 
@@ -159,7 +159,7 @@ namespace LightSignalPremiseData
 
 variable (D : LightSignalPremiseData)
 
-/-! ## The source-selected generator (OL-F1 input) -/
+/-! ## The source-selected generator (`maxwell` input) -/
 
 /-- **The forced equal weight.**  A2 covariance and A3 uniqueness on the
 exact sixty-seam orbit force one sixtieth on every directed seam.
@@ -186,7 +186,7 @@ theorem selected_generator_eq_dirichlet :
       completionDirichletGenerator :=
   a2a3_selected_completion_generator_eq_dirichlet D.sourceCountingSelection
 
-/-! ## The declared mode dynamics (OL-F1 and OL-F2 inputs) -/
+/-! ## The declared mode dynamics (`maxwell` and `em-waves` inputs) -/
 
 /-- The supplied mode dynamics applied twice gives the exact
 second-order equation `A'' + Lambda A = 0` against the spatial symbol.
@@ -226,7 +226,7 @@ theorem spatialAction_commutes_transverse_projector
       photonSpatialAction D.chartScale k (transverseProjector k v) :=
   photonSpatialAction_commutes_projector D.chartScale hk v
 
-/-! ## The identified physical frequency (OL-F2 input) -/
+/-! ## The identified physical frequency (`em-waves` input) -/
 
 /-- **Composition.**  The supplied readout frequency is the committed
 nonnegative branch: both are nonnegative and square to the same dilated
@@ -421,7 +421,7 @@ theorem gauss_cycle_rank_nineteen :
         OPH.SeamCurrentCarrierQuotient.rationalSeamBoundary) = 19 :=
   OPH.DiscreteGauss.gauss_cycle_space_finrank
 
-/-! ## The OL-F1 boundary as a definition -/
+/-! ## The `maxwell` boundary as a definition -/
 
 /-- **The equations of motion attained at the committed order.**  On
 the transverse sector the supplied dynamics preserves transversality

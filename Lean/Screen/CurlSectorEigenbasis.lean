@@ -111,8 +111,8 @@ parameter `t` are declared, the seam vectors are not identified with
 physical modes, no propagation speed, mass, or laboratory frequency is
 attached, and `t` is not identified with physical time (source clock and
 duration row).  The identification of the unique continuous flow of the
-OL-C2 row surface (`EventAlgebra/QuantumAdequacySurface.lean`,
-`unique_continuous_flow`) with this coefficient flow is not stated: OL-C2
+`schroedinger` row surface (`EventAlgebra/QuantumAdequacySurface.lean`,
+`unique_continuous_flow`) with this coefficient flow is not stated: `schroedinger`
 is cited, not discharged.  Multiplicities are read from dimension
 identities of subspaces, not from a characteristic polynomial computed in
 Lean.  The family `Fin 19 ⊕ Fin 11` is an orthogonal basis, not
@@ -136,7 +136,7 @@ docstring names the nineteen-vector selection as the missing input);
 `faceCurvature_codifferential_adjoint`, `range_localMaxwellOperator`);
 `PositionSpaceMaxwellAction` (`gauge_finrank`, `cycleSpace_finrank`).
 
-ROWS TOUCHED (none discharged).  OL-C2 (unique continuous flow on the
+ROWS TOUCHED (none discharged).  Observable `schroedinger` (unique continuous flow on the
 private algebra): cited as the target reading; this module supplies the
 finite field-sector flow on the whole seam space and joins nothing to the
 private algebra.  Source clock and duration row: `h`, `t` declared, no
