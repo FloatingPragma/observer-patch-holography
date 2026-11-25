@@ -2499,7 +2499,8 @@
     "model/experiments/interval_echo_lepton_register/pole_meter/README.md",
     "model/experiments/interval_echo_angular/charged_orientation/flux_doublet/README.md",
     "model/experiments/interval_echo_gauge/arrival_ladder/README.md",
-    "model/experiments/interval_echo_lepton_register/pole_meter/magnetic/README.md"
+    "model/experiments/interval_echo_lepton_register/pole_meter/magnetic/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/lightest/README.md"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
@@ -2526,7 +2527,9 @@
    "lean": [
     "Lean/SourceLaw/NeutralEjecta.lean",
     "Lean/SourceLaw/SilentSeamVacancy.lean",
-    "Lean/SourceLaw/ArrivalChargeLadder.lean"
+    "Lean/SourceLaw/ArrivalChargeLadder.lean",
+    "Lean/ObserverPatchHolography/LeptonRegisterCharacterisation.lean",
+    "Lean/SourceLaw/ChargedRegisterPole.lean"
    ],
    "model": [
     "model/evaluation/SCORECARD.md",
@@ -2545,7 +2548,10 @@
     "model/experiments/interval_echo_lepton_register/README.md",
     "model/experiments/interval_echo_gauge/arrival_ladder/spin_transfer/README.md",
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/silent_seams/README.md",
-    "model/experiments/interval_echo_lepton_register/pole_meter/README.md"
+    "model/experiments/interval_echo_lepton_register/pole_meter/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/lightest/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/parent_line/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/phase_ratios/README.md"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
@@ -2572,7 +2578,9 @@
    "lean": [
     "Lean/SourceLaw/NeutralEjecta.lean",
     "Lean/SourceLaw/SilentSeamVacancy.lean",
-    "Lean/SourceLaw/ArrivalChargeLadder.lean"
+    "Lean/SourceLaw/ArrivalChargeLadder.lean",
+    "Lean/ObserverPatchHolography/LeptonRegisterCharacterisation.lean",
+    "Lean/SourceLaw/ChargedRegisterPole.lean"
    ],
    "model": [
     "model/evaluation/SCORECARD.md",
@@ -2590,7 +2598,10 @@
     "model/experiments/interval_echo_lepton_register/README.md",
     "model/experiments/interval_echo_gauge/arrival_ladder/spin_transfer/README.md",
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/silent_seams/README.md",
-    "model/experiments/interval_echo_lepton_register/pole_meter/README.md"
+    "model/experiments/interval_echo_lepton_register/pole_meter/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/lightest/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/parent_line/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/phase_ratios/README.md"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
@@ -3110,7 +3121,8 @@
     "model/experiments/interval_echo_lepton_register/README.md",
     "model/experiments/interval_echo_lepton_register/results.json",
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/excited_bounds.json",
-    "model/experiments/interval_echo_lepton_register/pole_meter/README.md"
+    "model/experiments/interval_echo_lepton_register/pole_meter/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/phase_ratios/README.md"
    ],
    "papers": [
     "extra/koide_identity_from_positive_c3_face_circulants.pdf",
@@ -3128,7 +3140,9 @@
    "premises": [],
    "lean": [
     "Lean/ObserverPatchHolography/KoideCirculant.lean",
-    "Lean/SourceLaw/SilentSeamVacancy.lean"
+    "Lean/SourceLaw/SilentSeamVacancy.lean",
+    "Lean/ObserverPatchHolography/LeptonRegisterCharacterisation.lean",
+    "Lean/SourceLaw/ChargedRegisterPole.lean"
    ],
    "model": [
     "code/particles/leptons/koide_balance_comparison_certificate.py",
@@ -3136,7 +3150,9 @@
     "code/particles/data/particle_reference_values.json",
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/excited_bounds.json",
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/silent_seams/README.md",
-    "model/experiments/interval_echo_lepton_register/pole_meter/README.md"
+    "model/experiments/interval_echo_lepton_register/pole_meter/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/parent_line/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/phase_ratios/README.md"
    ],
    "papers": [
     "docs/FROZEN_PREDICTION_LADDER.md",
@@ -3170,7 +3186,8 @@
     "model/candidate_laws/interval_echo/openwave/electron_field/replay.py",
     "model/experiments/interval_echo_lepton_register/pole_meter/README.md",
     "model/experiments/interval_echo_gauge/arrival_ladder/spin_transfer/README.md",
-    "model/experiments/interval_echo_lepton_register/pole_meter/magnetic/README.md"
+    "model/experiments/interval_echo_lepton_register/pole_meter/magnetic/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/lightest/README.md"
    ],
    "papers": [
     "docs/EMPIRICAL_STATUS.md",
@@ -3191,7 +3208,9 @@
     "PR-15"
    ],
    "lean": [
-    "Lean/SourceLaw/SilentSeamVacancy.lean"
+    "Lean/SourceLaw/SilentSeamVacancy.lean",
+    "Lean/ObserverPatchHolography/LeptonRegisterCharacterisation.lean",
+    "Lean/SourceLaw/ChargedRegisterPole.lean"
    ],
    "model": [
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/README.md",
@@ -3204,7 +3223,9 @@
     "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/hierarchy/floor_calibration.json",
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/excited_bounds.json",
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/silent_seams/README.md",
-    "model/experiments/interval_echo_lepton_register/pole_meter/README.md"
+    "model/experiments/interval_echo_lepton_register/pole_meter/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/parent_line/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/phase_ratios/README.md"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
@@ -4540,7 +4561,8 @@
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/excited_bounds.json",
     "model/experiments/interval_echo_lepton_register/pole_meter/README.md",
     "model/experiments/interval_echo_gauge/arrival_ladder/spin_transfer/README.md",
-    "model/experiments/interval_echo_lepton_register/pole_meter/magnetic/README.md"
+    "model/experiments/interval_echo_lepton_register/pole_meter/magnetic/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/lightest/README.md"
    ],
    "papers": [
     "paper/executable_observer_construction.pdf",
@@ -4793,7 +4815,9 @@
    "why": "A recovery has to produce exactly three charged species from one dynamics, with consistent recoil and formation energies for each.",
    "premises": [],
    "lean": [
-    "Lean/SourceLaw/SilentSeamVacancy.lean"
+    "Lean/SourceLaw/SilentSeamVacancy.lean",
+    "Lean/ObserverPatchHolography/LeptonRegisterCharacterisation.lean",
+    "Lean/SourceLaw/ChargedRegisterPole.lean"
    ],
    "model": [
     "model/evaluation/SCORECARD.md",
@@ -4815,7 +4839,10 @@
     "model/experiments/interval_echo_lepton_register/pole_meter/README.md",
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/silent_seams/README.md",
     "model/experiments/interval_echo_gauge/arrival_ladder/spin_transfer/README.md",
-    "model/experiments/interval_echo_lepton_register/pole_meter/magnetic/README.md"
+    "model/experiments/interval_echo_lepton_register/pole_meter/magnetic/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/lightest/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/parent_line/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/phase_ratios/README.md"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
@@ -5163,7 +5190,8 @@
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/neutral_ejecta/results.json",
     "model/experiments/interval_echo_gauge/arrival_ladder/README.md",
     "model/experiments/interval_echo_gauge/arrival_ladder/spin_transfer/results.json",
-    "model/experiments/interval_echo_gauge/arrival_ladder/static.json"
+    "model/experiments/interval_echo_gauge/arrival_ladder/static.json",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/parent_line/README.md"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
@@ -8492,7 +8520,8 @@
    "model": [
     "model/experiments/interval_echo_lepton_register/README.md",
     "model/experiments/interval_echo_lepton_register/results.json",
-    "model/experiments/interval_echo_lepton_register/pole_meter/README.md"
+    "model/experiments/interval_echo_lepton_register/pole_meter/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/phase_ratios/README.md"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
