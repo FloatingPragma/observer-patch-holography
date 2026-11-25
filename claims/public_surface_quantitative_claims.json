@@ -217,6 +217,46 @@
       ]
     },
     {
+      "path": "code/cosmology/rar_deep_regime/warped_outer_rings/README.md",
+      "heading": "## An orbit bound on a finite halo",
+      "label_column": "H I radius, kpc",
+      "comparison_column": "Measured km/s",
+      "rows": [
+        {
+          "label": "24.98",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-DM-CONT"
+          }
+        },
+        {
+          "label": "28.10",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-DM-CONT"
+          }
+        },
+        {
+          "label": "31.23",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-DM-CONT"
+          }
+        },
+        {
+          "label": "32.79",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-DM-CONT"
+          }
+        }
+      ]
+    },
+    {
       "path": "code/matched_einstein_limit/finite_entropy_region/README.md",
       "heading": "## One equilibrium across shrinking regions and moving observers",
       "label_column": "Reference radius",
