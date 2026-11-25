@@ -1,0 +1,98 @@
+{
+  "inputs_sha256": {
+    "results.json": "6dc948f25df300398197929a0fe9805204c76f8cb931f699f1a5d330bb10bd75",
+    "refinement.json": "9d07e95972cb458dd7c267d41f45c21126af4302bc3d9a283d5551c1077daaa8"
+  },
+  "three_sectors": {
+    "target_proper_volume": 4.188790205,
+    "tile_counts": [
+      3,
+      4,
+      5
+    ],
+    "areas": [
+      9.424654318,
+      12.566478897,
+      15.707906776
+    ],
+    "word_capacities_nats": [
+      2.079441542,
+      2.772588722,
+      3.465735903
+    ],
+    "maximum_sampled_word_entropy_error_nats": 8.1653e-05,
+    "eta_fit_3_to_4": 0.220619313,
+    "eta_held_4_to_5": 0.220647173,
+    "held_capacity_minus_calibrated_area_nats": 8.752e-05,
+    "simultaneous_99_percent": {
+      "target_area_bands": [
+        [
+          9.4239448,
+          9.4253638
+        ],
+        [
+          12.565474,
+          12.5674838
+        ],
+        [
+          15.7066387,
+          15.7091749
+        ]
+      ],
+      "eta_fit_3_to_4": [
+        0.2204989,
+        0.2207399
+      ],
+      "eta_held_4_to_5": [
+        0.2204875,
+        0.2208071
+      ],
+      "held_capacity_minus_calibrated_area_nats": [
+        -0.0007926,
+        0.0009667
+      ]
+    }
+  },
+  "finest_radius": 0.03125,
+  "calibration_curvatures": [
+    -1,
+    1
+  ],
+  "held_frame_ids": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "held_frame_point_estimates": {
+    "maximally_symmetric": {
+      "terminal_counts": {
+        "eta_fit_rest_frame": 0.999368425,
+        "held_max_abs_capacity_minus_eta_area_over_ell4": 0.00374852,
+        "held_max_abs_entropy_plus_eta_area_over_ell4": 0.044803296
+      },
+      "constructed_alphabet": {
+        "eta_fit_rest_frame": 1.00021585,
+        "held_max_abs_capacity_minus_eta_area_over_ell4": 0.002277064,
+        "held_max_abs_entropy_plus_eta_area_over_ell4": 0.042674018
+      }
+    },
+    "curved_plane_product": {
+      "terminal_counts": {
+        "eta_fit_rest_frame": 0.976917227,
+        "held_max_abs_capacity_minus_eta_area_over_ell4": 6.533844121,
+        "held_max_abs_entropy_plus_eta_area_over_ell4": 6.575683327
+      },
+      "constructed_alphabet": {
+        "eta_fit_rest_frame": 1.000024604,
+        "held_max_abs_capacity_minus_eta_area_over_ell4": 6.708210433,
+        "held_max_abs_entropy_plus_eta_area_over_ell4": 6.750049639
+      }
+    }
+  }
+}

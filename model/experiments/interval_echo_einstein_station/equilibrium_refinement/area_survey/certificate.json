@@ -1,0 +1,26 @@
+{
+  "host": 80,
+  "stations": [
+    3,
+    10,
+    36,
+    44
+  ],
+  "gram_error_upper": 5.681917245908312e-13,
+  "eigen_residual_frobenius_upper": 5.31128775808877e-12,
+  "transition_row_l1_upper": 6.448478688278836e-12,
+  "solve_defect_upper": 1.5347248722480163e-15,
+  "trip_probability_error_upper": 5.283590022496076e-08,
+  "rows": 24,
+  "right_inverse_defect_upper": 0.0013042849203634133,
+  "direction_infinity_norm_upper": 1197.2772523344565,
+  "positive_interval_halfwidth_lower": 3.0261899645488066e-06,
+  "target": "unit increase in probability of two occupied rim stations",
+  "fixed_linear_readouts": [
+    "normalization",
+    "native mean energy",
+    "all 12 launch probabilities",
+    "all 12 successful return probabilities including the independent timeout"
+  ],
+  "entropy_slope_nats": "(4 log(4) - 3 log(6))/3"
+}

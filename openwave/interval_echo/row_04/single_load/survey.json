@@ -1,0 +1,63 @@
+{
+  "kind": "exhaustive development evidence",
+  "official_confirmation": false,
+  "settings": 11520,
+  "bins": 645120,
+  "shape": [
+    20,
+    12,
+    2,
+    24,
+    4,
+    14
+  ],
+  "directions": [
+    -1,
+    1
+  ],
+  "times": [
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38
+  ],
+  "arms": [
+    "coherent",
+    "dephased",
+    "unfiltered_uniform",
+    "stochastic_swap"
+  ],
+  "all_time_floor_ppt_by_board": {
+    "20": 999940596796,
+    "80": 999940596799,
+    "320": 999940596799
+  },
+  "grid_minimum_coherent": 0.9999405968064038,
+  "grid_maximum_stochastic": 0.34884420560755036,
+  "grid_minimum_coherent_advantage": 0.3428595589999167,
+  "dephased_ceiling": 0.9164479481171449,
+  "stochastic_ceiling": 0.5592185180088423,
+  "raw_edge_checked_settings": 20,
+  "raw_edge_checked_bins": 1120,
+  "max_raw_edge_bin_error": 1.270095140171179e-12
+}

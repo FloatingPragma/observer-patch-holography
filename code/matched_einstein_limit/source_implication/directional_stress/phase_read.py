@@ -9,7 +9,7 @@ from scipy.sparse.linalg import expm_multiply
 from . import bridge
 
 
-def sums_for_charge(board, route, rings, q):
+def sums_for_charge(board, route, rings, q, time=4):
     owners = tuple(p // 12 for p in route[1:3])
     ports = [12 * owner + i for owner in owners for i in range(12)]
     assert sum(a // 12 in owners and a // 12 == b // 12 for a, b in board.seams) == 60
@@ -27,11 +27,11 @@ def sums_for_charge(board, route, rings, q):
         d = diff[idx, :][:, idx].toarray() / 2
         for mode in after_kick:
             if mode == "active":
-                ht = -2j * bridge.native.generator(board, route, q, odd)
+                ht = -(0.5j * time) * bridge.native.generator(board, route, q, odd)
             else:
                 # Frozen source and active phase/energy meters. Only the free
                 # flight has its contrast-squared strength removed.
-                ht = -4j * bridge.native.iso.ranging.generator(board, route, q, 0, odd)
+                ht = -(1j * time) * bridge.native.iso.ranging.generator(board, route, q, 0, odd)
             launch = np.zeros((ht.shape[0], len(src)))
             launch[src] = np.eye(len(src))
             w = expm_multiply(ht, launch, traceA=ht.diagonal().sum())[idx]
