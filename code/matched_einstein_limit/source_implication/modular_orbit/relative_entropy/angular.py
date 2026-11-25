@@ -122,7 +122,10 @@ def receipt():
     orientations = np.column_stack((axial, tri @ axes[:, -2:]))
     transfer = np.outer(axial, axial) - (tri @ tri.T - np.outer(axial, axial)) / 2
     p = triplet_weight(distance)
-    assert bound.a < p < bound.b
+    # The interval encloses the exact weight; the floating evaluation agrees
+    # with it to the relative precision of the eigenvector check below.
+    margin = 1e-12 * abs(p)
+    assert bound.a - margin < p < bound.b + margin
     np.testing.assert_allclose(
         reference[1:13, 1:13] @ tri, p * tri, rtol=1e-12, atol=1e-18
     )

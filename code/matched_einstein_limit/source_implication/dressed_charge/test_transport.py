@@ -16,7 +16,7 @@ def test_native_bridge_interpolation_and_raw_pairing_enclosure():
         assert [s["minor_mod_1009"] for s in data["sectors"][sign]] == wanted
         assert [s["minor_mod_1009"] for s in stored["sectors"][sign]] == wanted
     control = data["ordinary_calibrated_control"]
-    assert control == stored["ordinary_calibrated_control"]
+    assert_same_tree(control, stored["ordinary_calibrated_control"])
     ref, ordinary, held = control[
         "nominal_reference_and_ordinary_and_unpairing_changes"
     ]
@@ -31,3 +31,19 @@ def test_native_bridge_interpolation_and_raw_pairing_enclosure():
         atol=1e-14,
         rtol=0,
     )
+
+
+def assert_same_tree(actual, stored):
+    """Equal structure and exact non-float entries; floats agree to the platform roundoff of the rate check."""
+    if isinstance(actual, dict):
+        assert actual.keys() == stored.keys()
+        for key in actual:
+            assert_same_tree(actual[key], stored[key])
+    elif isinstance(actual, list):
+        assert len(actual) == len(stored)
+        for a, b in zip(actual, stored):
+            assert_same_tree(a, b)
+    elif isinstance(actual, float) or isinstance(stored, float):
+        np.testing.assert_allclose(actual, stored, atol=1e-14, rtol=0)
+    else:
+        assert actual == stored
