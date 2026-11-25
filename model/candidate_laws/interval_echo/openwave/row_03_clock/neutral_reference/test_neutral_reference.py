@@ -1,5 +1,6 @@
 """Independent checks of native block structure and the energy-reference boundary."""
 
+import json
 import subprocess
 import sys
 
@@ -93,6 +94,28 @@ def test_public_replay_command_uses_json_compatible_scalars():
                             capture_output=True, text=True, timeout=30)
     assert result.returncode == 0, result.stderr
     assert 'Replayed native neutral-record' in result.stdout
+
+
+def test_acquired_counts_survive_a_different_numerical_complement(monkeypatch):
+    acquired = json.loads((measure.HERE / "results.json").read_text())["records"]
+    transcript = measure.transcript
+
+    def tied_transcript(*args):
+        law = transcript(*args)
+        if law[31] > 0 and abs(law[31] - law[76]) < 2e-14:
+            law[76] = np.nextafter(max(law[31], law[76]), np.inf)
+        return law
+
+    monkeypatch.setattr(measure, "transcript", tied_transcript)
+    replay = measure.run(acquired_records=acquired)["records"]
+    assert np.argmax(replay[0]["complete_native_probabilities"]) == 76
+    assert np.argmax(acquired[0]["complete_native_probabilities"]) == 31
+    for fresh, saved in zip(replay, acquired, strict=True):
+        assert fresh["complete_native_counts"] == saved["complete_native_counts"]
+        assert fresh["supplied_ramsey_counts"] == saved["supplied_ramsey_counts"]
+    acquired[0]["complete_native_probabilities"][31] -= 1e-8
+    with pytest.raises(ArithmeticError, match="differs from acquisition law"):
+        measure.run(acquired_records=acquired)
 
 
 def test_same_source_pair_reader_detects_charge_and_swap_preserving_changed_law():

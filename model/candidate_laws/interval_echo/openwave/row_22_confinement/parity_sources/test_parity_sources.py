@@ -130,7 +130,18 @@ def test_release_records_and_full_board_dilute_bounds():
 
 
 def test_exact_acquisition_replay():
-    assert json.loads(json.dumps(m.run())) == payload('records.json')
+    fresh = json.loads(json.dumps(m.run()))
+    frozen = payload('records.json')
+    for new_level, old_level in zip(fresh['levels'], frozen['levels'], strict=True):
+        for name, old in old_level['release']['variants'].items():
+            new = new_level['release']['variants'][name]
+            # expm produces binary64 approximations. Counts, contacts, clocks
+            # and all other fields must replay exactly, including zero signals.
+            actual = np.array(new.pop('extra_pair_probability'))
+            expected = np.array(old.pop('extra_pair_probability'))
+            np.testing.assert_array_equal(actual == 0, expected == 0)
+            np.testing.assert_array_max_ulp(actual, expected, maxulp=16)
+    assert fresh == frozen
     assert json.loads(json.dumps(released.run())) == payload('released.json')
 
 

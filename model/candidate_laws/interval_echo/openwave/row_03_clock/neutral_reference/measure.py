@@ -136,11 +136,11 @@ def changed_creation_control(h, charge, filled, pair):
                 scope="Changed local law on the same99 alphabet; not Interval Echo")
 
 
-def run():
+def run(acquired_records=None):
     echo, h, charge, block, vacuum, pair = primitives()
     rng = np.random.default_rng(SEED)
     rows, largest = [], 0.0
-    for t in np.linspace(0, 0.5, 17):
+    for appointment, t in enumerate(np.linspace(0, 0.5, 17)):
         # Two checked native eigenstates give the exact reduced free evolution.
         evolved_pair = np.exp(-4j * candidate.KAPPA * t) * pair
         pure = (vacuum + evolved_pair) / np.sqrt(2)
@@ -154,8 +154,15 @@ def run():
         ramsey = [float(abs(np.vdot(v, pure)) ** 2) for v in (plus, minus)]
         close(ramsey, [(1 + np.cos(32 * t)) / 2, (1 - np.cos(32 * t)) / 2],
               "supplied analyzer misses the prepared neutral phase")
-        native_counts, native_bound = sample_counts(rng, coherent)
-        ramsey_counts, ramsey_bound = sample_counts(rng, ramsey)
+        native_law, ramsey_law = coherent, ramsey
+        if acquired_records is not None:
+            recorded = acquired_records[appointment]
+            native_law = recorded["complete_native_probabilities"]
+            ramsey_law = recorded["supplied_ramsey_probabilities"]
+            close(coherent, native_law, "native transcript differs from acquisition law")
+            close(ramsey, ramsey_law, "Ramsey probabilities differ from acquisition law")
+        native_counts, native_bound = sample_counts(rng, native_law)
+        ramsey_counts, ramsey_bound = sample_counts(rng, ramsey_law)
         rows.append(dict(exposure=float(t), complete_native_probabilities=coherent.tolist(),
                          complete_native_counts=native_counts,
                          native_sampling_l1_correction_bound=native_bound,
@@ -191,12 +198,14 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path)
     args = parser.parse_args()
-    report = run()
     if args.output:
+        report = run()
         with args.output.open("x") as stream:
             json.dump(report, stream, indent=2, allow_nan=False)
             stream.write("\n")
     else:
         from ...electron_field.replay import compare
-        compare(report, json.loads((HERE / "results.json").read_text()), "neutral_reference")
+        acquired = json.loads((HERE / "results.json").read_text())
+        report = run(acquired_records=acquired["records"])
+        compare(report, acquired, "neutral_reference")
         print("Replayed native neutral-record indistinguishability and the conditional-drive boundary.")
