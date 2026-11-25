@@ -63,7 +63,10 @@ def verify():
             v = min(
                 x
                 for x in graph[u]
-                if x not in excluded and x // 12 == u // 12 and board.degree[x] == 5
+                if x not in stations
+                and x not in excluded
+                and x // 12 == u // 12
+                and board.degree[x] == 5
             )
             stations.append(v)
         # Opening a hatch requires a unit load at the chosen receiver site.
