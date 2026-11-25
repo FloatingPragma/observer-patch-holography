@@ -1,0 +1,431 @@
+{
+  "fixture": {
+    "ports": [
+      0,
+      5,
+      9,
+      8,
+      7,
+      1,
+      82,
+      72,
+      79,
+      78,
+      74,
+      83
+    ],
+    "owner_actions": [
+      [
+        5,
+        1,
+        2,
+        6,
+        3,
+        9,
+        10,
+        0,
+        7,
+        8,
+        11,
+        4
+      ],
+      [
+        7,
+        8,
+        11,
+        4,
+        5,
+        1,
+        2,
+        6,
+        3,
+        9,
+        10,
+        0
+      ]
+    ],
+    "open_bridge": [
+      1,
+      82
+    ],
+    "private_erased": [
+      0,
+      5,
+      9,
+      8,
+      7,
+      79,
+      78,
+      74,
+      83
+    ],
+    "reference_lane": [
+      4,
+      5
+    ],
+    "other_reference_lane": [
+      79,
+      73
+    ],
+    "shutter_count": 21,
+    "stock": [
+      12,
+      13
+    ],
+    "stock_shutters": 8
+  },
+  "starts": 1048576,
+  "stationary": [
+    {
+      "m": 1,
+      "formation": 25.190983005625053,
+      "variance": 0,
+      "sharp_charge": -1,
+      "cost_meter": {
+        "port_counts": [
+          210729,
+          209398,
+          209073,
+          209507,
+          209869,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "odd_bond_counts": [
+          145079,
+          145445,
+          145413,
+          144941,
+          145085,
+          104698,
+          104703,
+          105256,
+          104668,
+          104726,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "simultaneous99": [
+          25.180519095818987,
+          25.20406482708085
+        ],
+        "measured": 25.192106246948242
+      },
+      "clockwise": [
+        [
+          10430,
+          408678,
+          629468
+        ],
+        [
+          10231,
+          409184,
+          629161
+        ],
+        [
+          10202,
+          408784,
+          629590
+        ],
+        [
+          10367,
+          409458,
+          628751
+        ],
+        [
+          10100,
+          409101,
+          629375
+        ]
+      ],
+      "counterclockwise": [
+        [
+          408406,
+          10557,
+          629613
+        ],
+        [
+          408818,
+          10209,
+          629549
+        ],
+        [
+          409557,
+          10237,
+          628782
+        ],
+        [
+          408500,
+          10436,
+          629640
+        ],
+        [
+          408861,
+          10364,
+          629351
+        ]
+      ],
+      "interferometer": [
+        {
+          "turns": 0,
+          "return_hits": 1048576,
+          "probability": 1.0
+        },
+        {
+          "turns": 1,
+          "return_hits": 685668,
+          "probability": 0.654508497187
+        },
+        {
+          "turns": 2,
+          "return_hits": 100075,
+          "probability": 0.095491502813
+        },
+        {
+          "turns": 5,
+          "return_hits": 1048576,
+          "probability": 1.0
+        },
+        {
+          "turns": 10,
+          "return_hits": 1048576,
+          "probability": 1.0
+        }
+      ],
+      "rest_return_hits": 1048576,
+      "mirror_plus_minus": [
+        524225,
+        524351
+      ],
+      "mirror_inverse_hits": 1048576,
+      "broken_chiral_variance": 10.24
+    },
+    {
+      "m": 2,
+      "formation": 26.309016994374947,
+      "variance": 0,
+      "sharp_charge": -1,
+      "cost_meter": {
+        "port_counts": [
+          209377,
+          210068,
+          210027,
+          209583,
+          209521,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "odd_bond_counts": [
+          379938,
+          378994,
+          379260,
+          379763,
+          378556,
+          105061,
+          104941,
+          105082,
+          105214,
+          104609,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "simultaneous99": [
+          26.29521093762426,
+          26.323628773736374
+        ],
+        "measured": 26.30924415588379
+      },
+      "clockwise": [
+        [
+          86194,
+          333018,
+          629364
+        ],
+        [
+          86259,
+          333608,
+          628709
+        ],
+        [
+          86647,
+          332107,
+          629822
+        ],
+        [
+          86819,
+          332828,
+          628929
+        ],
+        [
+          85978,
+          333459,
+          629139
+        ]
+      ],
+      "counterclockwise": [
+        [
+          333188,
+          86721,
+          628667
+        ],
+        [
+          333028,
+          86807,
+          628741
+        ],
+        [
+          332634,
+          86471,
+          629471
+        ],
+        [
+          332316,
+          86384,
+          629876
+        ],
+        [
+          332775,
+          86794,
+          629007
+        ]
+      ],
+      "interferometer": [
+        {
+          "turns": 0,
+          "return_hits": 1048576,
+          "probability": 1.0
+        },
+        {
+          "turns": 1,
+          "return_hits": 100061,
+          "probability": 0.095491502813
+        },
+        {
+          "turns": 2,
+          "return_hits": 685548,
+          "probability": 0.654508497187
+        },
+        {
+          "turns": 5,
+          "return_hits": 1048576,
+          "probability": 1.0
+        },
+        {
+          "turns": 10,
+          "return_hits": 1048576,
+          "probability": 1.0
+        }
+      ],
+      "rest_return_hits": 1048576,
+      "mirror_plus_minus": [
+        524789,
+        523787
+      ],
+      "mirror_inverse_hits": 1048576,
+      "broken_chiral_variance": 10.24
+    }
+  ],
+  "open_bridge_kick": [
+    {
+      "time": 0,
+      "regional_probabilities": [
+        0.0,
+        0.0
+      ],
+      "incoming_chiral_charge_arrivals": [
+        0,
+        0
+      ]
+    },
+    {
+      "time": 16,
+      "regional_probabilities": [
+        0.002006920225672081,
+        2.3201963277635838e-32
+      ],
+      "incoming_chiral_charge_arrivals": [
+        2125,
+        0
+      ]
+    },
+    {
+      "time": 128,
+      "regional_probabilities": [
+        0.014173360416689252,
+        6.574701458810645e-32
+      ],
+      "incoming_chiral_charge_arrivals": [
+        14905,
+        0
+      ]
+    },
+    {
+      "time": 512,
+      "regional_probabilities": [
+        0.19295115334842378,
+        9.751472896068079e-31
+      ],
+      "incoming_chiral_charge_arrivals": [
+        203191,
+        0
+      ]
+    },
+    {
+      "time": 2048,
+      "regional_probabilities": [
+        0.941999898200112,
+        4.722997527554027e-30
+      ],
+      "incoming_chiral_charge_arrivals": [
+        987902,
+        0
+      ]
+    },
+    {
+      "time": 8192,
+      "regional_probabilities": [
+        0.6824195447919112,
+        3.45086602715721e-30
+      ],
+      "incoming_chiral_charge_arrivals": [
+        715535,
+        0
+      ]
+    }
+  ],
+  "supplied_spinor_reference": {
+    "0": 1.0,
+    "1": 0.904508497187,
+    "2": 0.654508497187,
+    "5": 0.0,
+    "10": 1.0
+  }
+}

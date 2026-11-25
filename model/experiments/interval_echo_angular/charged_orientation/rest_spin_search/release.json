@@ -1,0 +1,1485 @@
+{
+  "geometry": {
+    "ports": [
+      0,
+      5,
+      9,
+      8,
+      7,
+      1,
+      82,
+      72,
+      79,
+      78,
+      74,
+      83
+    ],
+    "owner_actions": [
+      [
+        5,
+        1,
+        2,
+        6,
+        3,
+        9,
+        10,
+        0,
+        7,
+        8,
+        11,
+        4
+      ],
+      [
+        7,
+        8,
+        11,
+        4,
+        5,
+        1,
+        2,
+        6,
+        3,
+        9,
+        10,
+        0
+      ]
+    ],
+    "open_bridge": [
+      1,
+      82
+    ],
+    "private_erased": [
+      0,
+      5,
+      9,
+      8,
+      7,
+      79,
+      78,
+      74,
+      83
+    ],
+    "reference_lane": [
+      4,
+      5
+    ],
+    "other_reference_lane": [
+      79,
+      73
+    ],
+    "shutter_count": 25,
+    "stock": [
+      12,
+      13
+    ],
+    "stock_shutters": 8
+  },
+  "source_axes": [
+    "winding",
+    "real",
+    "imaginary"
+  ],
+  "starts": 1048576,
+  "exact_determinant": {
+    "prime": 31,
+    "fifth_root": 2,
+    "order": 8,
+    "nonzero_residue": 20
+  },
+  "records": [
+    {
+      "time": 0,
+      "squared_singular_values": [
+        0.0,
+        0.0
+      ],
+      "det_abs": 0.0,
+      "sampled_witness": {
+        "min_pt": 0.0,
+        "simultaneous99_radius": 0.008295892400982682
+      },
+      "current_energy_variance": 17.065917227537568,
+      "reads": [
+        {
+          "source": "direct_0_0",
+          "recapture_counts": [
+            [
+              0,
+              0,
+              1048576
+            ],
+            [
+              0,
+              0,
+              1048576
+            ],
+            [
+              0,
+              0,
+              1048576
+            ]
+          ],
+          "signed_arrivals": 0,
+          "current_bond": [
+            0,
+            0,
+            1048576
+          ]
+        },
+        {
+          "source": "direct_0_1",
+          "recapture_counts": [
+            [
+              0,
+              0,
+              1048576
+            ],
+            [
+              0,
+              0,
+              1048576
+            ],
+            [
+              0,
+              0,
+              1048576
+            ]
+          ],
+          "signed_arrivals": 0,
+          "current_bond": [
+            0,
+            0,
+            1048576
+          ]
+        },
+        {
+          "source": "direct_1_0",
+          "recapture_counts": [
+            [
+              0,
+              0,
+              1048576
+            ],
+            [
+              0,
+              0,
+              1048576
+            ],
+            [
+              0,
+              0,
+              1048576
+            ]
+          ],
+          "signed_arrivals": 0,
+          "current_bond": [
+            0,
+            0,
+            1048576
+          ]
+        },
+        {
+          "source": "direct_1_1",
+          "recapture_counts": [
+            [
+              0,
+              0,
+              1048576
+            ],
+            [
+              0,
+              0,
+              1048576
+            ],
+            [
+              0,
+              0,
+              1048576
+            ]
+          ],
+          "signed_arrivals": 0,
+          "current_bond": [
+            0,
+            0,
+            1048576
+          ]
+        },
+        {
+          "source": "direct_2_0",
+          "recapture_counts": [
+            [
+              0,
+              0,
+              1048576
+            ],
+            [
+              0,
+              0,
+              1048576
+            ],
+            [
+              0,
+              0,
+              1048576
+            ]
+          ],
+          "signed_arrivals": 0,
+          "current_bond": [
+            0,
+            0,
+            1048576
+          ]
+        },
+        {
+          "source": "direct_2_1",
+          "recapture_counts": [
+            [
+              0,
+              0,
+              1048576
+            ],
+            [
+              0,
+              0,
+              1048576
+            ],
+            [
+              0,
+              0,
+              1048576
+            ]
+          ],
+          "signed_arrivals": 0,
+          "current_bond": [
+            0,
+            0,
+            1048576
+          ]
+        },
+        {
+          "source": "phase_grating_0",
+          "recapture_counts": [
+            [
+              0,
+              0,
+              1048576
+            ],
+            [
+              0,
+              0,
+              1048576
+            ],
+            [
+              0,
+              0,
+              1048576
+            ]
+          ],
+          "signed_arrivals": 0,
+          "current_bond": [
+            0,
+            0,
+            1048576
+          ]
+        },
+        {
+          "source": "phase_grating_1",
+          "recapture_counts": [
+            [
+              0,
+              0,
+              1048576
+            ],
+            [
+              0,
+              0,
+              1048576
+            ],
+            [
+              0,
+              0,
+              1048576
+            ]
+          ],
+          "signed_arrivals": 0,
+          "current_bond": [
+            0,
+            0,
+            1048576
+          ]
+        }
+      ]
+    },
+    {
+      "time": 128,
+      "squared_singular_values": [
+        0.002599686230025344,
+        0.0001002142974778836
+      ],
+      "det_abs": 0.0005104172109215342,
+      "sampled_witness": {
+        "min_pt": -0.00024870340514008497,
+        "simultaneous99_radius": 0.008295892400982682
+      },
+      "current_energy_variance": 17.065917227537568,
+      "reads": [
+        {
+          "source": "direct_0_0",
+          "recapture_counts": [
+            [
+              879,
+              648,
+              1047049
+            ],
+            [
+              1526,
+              10,
+              1047040
+            ],
+            [
+              859,
+              621,
+              1047096
+            ]
+          ],
+          "signed_arrivals": 2903,
+          "current_bond": [
+            41,
+            23,
+            1048512
+          ]
+        },
+        {
+          "source": "direct_0_1",
+          "recapture_counts": [
+            [
+              415,
+              861,
+              1047300
+            ],
+            [
+              1168,
+              119,
+              1047289
+            ],
+            [
+              386,
+              964,
+              1047226
+            ]
+          ],
+          "signed_arrivals": 3052,
+          "current_bond": [
+            9,
+            62,
+            1048505
+          ]
+        },
+        {
+          "source": "direct_1_0",
+          "recapture_counts": [
+            [
+              1169,
+              1524,
+              1045883
+            ],
+            [
+              2631,
+              27,
+              1045918
+            ],
+            [
+              1202,
+              1557,
+              1045817
+            ]
+          ],
+          "signed_arrivals": 5748,
+          "current_bond": [
+            13,
+            71,
+            1048492
+          ]
+        },
+        {
+          "source": "direct_1_1",
+          "recapture_counts": [
+            [
+              102,
+              22,
+              1048452
+            ],
+            [
+              15,
+              92,
+              1048469
+            ],
+            [
+              62,
+              76,
+              1048438
+            ]
+          ],
+          "signed_arrivals": 480,
+          "current_bond": [
+            57,
+            14,
+            1048505
+          ]
+        },
+        {
+          "source": "direct_2_0",
+          "recapture_counts": [
+            [
+              360,
+              843,
+              1047373
+            ],
+            [
+              1201,
+              59,
+              1047316
+            ],
+            [
+              711,
+              539,
+              1047326
+            ]
+          ],
+          "signed_arrivals": 3056,
+          "current_bond": [
+            31,
+            46,
+            1048499
+          ]
+        },
+        {
+          "source": "direct_2_1",
+          "recapture_counts": [
+            [
+              976,
+              694,
+              1046906
+            ],
+            [
+              1520,
+              59,
+              1046997
+            ],
+            [
+              581,
+              1059,
+              1046936
+            ]
+          ],
+          "signed_arrivals": 2983,
+          "current_bond": [
+            17,
+            22,
+            1048537
+          ]
+        },
+        {
+          "source": "phase_grating_0",
+          "recapture_counts": [
+            [
+              865,
+              654,
+              1047057
+            ],
+            [
+              1460,
+              9,
+              1047107
+            ],
+            [
+              843,
+              679,
+              1047054
+            ]
+          ],
+          "signed_arrivals": 2903,
+          "current_bond": [
+            51,
+            14,
+            1048511
+          ]
+        },
+        {
+          "source": "phase_grating_1",
+          "recapture_counts": [
+            [
+              424,
+              860,
+              1047292
+            ],
+            [
+              1139,
+              107,
+              1047330
+            ],
+            [
+              422,
+              927,
+              1047227
+            ]
+          ],
+          "signed_arrivals": 3023,
+          "current_bond": [
+            11,
+            63,
+            1048502
+          ]
+        }
+      ]
+    },
+    {
+      "time": 512,
+      "squared_singular_values": [
+        0.03790312814374186,
+        0.002145431395853105
+      ],
+      "det_abs": 0.009017680473415949,
+      "sampled_witness": {
+        "min_pt": -0.004450904123233556,
+        "simultaneous99_radius": 0.008295892400982682
+      },
+      "current_energy_variance": 17.065917227537568,
+      "reads": [
+        {
+          "source": "direct_0_0",
+          "recapture_counts": [
+            [
+              5995,
+              17179,
+              1025402
+            ],
+            [
+              21841,
+              1548,
+              1025187
+            ],
+            [
+              12696,
+              10433,
+              1025447
+            ]
+          ],
+          "signed_arrivals": 45158,
+          "current_bond": [
+            765,
+            130,
+            1047681
+          ]
+        },
+        {
+          "source": "direct_0_1",
+          "recapture_counts": [
+            [
+              12781,
+              5933,
+              1029862
+            ],
+            [
+              18115,
+              817,
+              1029644
+            ],
+            [
+              7653,
+              11282,
+              1029641
+            ]
+          ],
+          "signed_arrivals": 45056,
+          "current_bond": [
+            93,
+            751,
+            1047732
+          ]
+        },
+        {
+          "source": "direct_1_0",
+          "recapture_counts": [
+            [
+              17945,
+              21512,
+              1009119
+            ],
+            [
+              39286,
+              106,
+              1009184
+            ],
+            [
+              18995,
+              20620,
+              1008961
+            ]
+          ],
+          "signed_arrivals": 84414,
+          "current_bond": [
+            192,
+            564,
+            1047820
+          ]
+        },
+        {
+          "source": "direct_1_1",
+          "recapture_counts": [
+            [
+              870,
+              1597,
+              1046109
+            ],
+            [
+              115,
+              2264,
+              1046197
+            ],
+            [
+              1507,
+              824,
+              1046245
+            ]
+          ],
+          "signed_arrivals": 5994,
+          "current_bond": [
+            616,
+            368,
+            1047592
+          ]
+        },
+        {
+          "source": "direct_2_0",
+          "recapture_counts": [
+            [
+              7633,
+              12760,
+              1028183
+            ],
+            [
+              18829,
+              1595,
+              1028152
+            ],
+            [
+              5283,
+              14978,
+              1028315
+            ]
+          ],
+          "signed_arrivals": 44278,
+          "current_bond": [
+            540,
+            793,
+            1047243
+          ]
+        },
+        {
+          "source": "direct_2_1",
+          "recapture_counts": [
+            [
+              11022,
+              10587,
+              1026967
+            ],
+            [
+              20895,
+              839,
+              1026842
+            ],
+            [
+              14926,
+              6631,
+              1027019
+            ]
+          ],
+          "signed_arrivals": 46390,
+          "current_bond": [
+            283,
+            140,
+            1048153
+          ]
+        },
+        {
+          "source": "phase_grating_0",
+          "recapture_counts": [
+            [
+              5914,
+              17521,
+              1025141
+            ],
+            [
+              21786,
+              1582,
+              1025208
+            ],
+            [
+              12796,
+              10683,
+              1025097
+            ]
+          ],
+          "signed_arrivals": 45202,
+          "current_bond": [
+            762,
+            155,
+            1047659
+          ]
+        },
+        {
+          "source": "phase_grating_1",
+          "recapture_counts": [
+            [
+              12764,
+              6016,
+              1029796
+            ],
+            [
+              17909,
+              864,
+              1029803
+            ],
+            [
+              7511,
+              11185,
+              1029880
+            ]
+          ],
+          "signed_arrivals": 44634,
+          "current_bond": [
+            82,
+            749,
+            1047745
+          ]
+        }
+      ]
+    },
+    {
+      "time": 2048,
+      "squared_singular_values": [
+        0.2339219266376236,
+        0.03190447628355611
+      ],
+      "det_abs": 0.08638956279906623,
+      "sampled_witness": {
+        "min_pt": -0.043229799315947115,
+        "simultaneous99_radius": 0.008295892400982682
+      },
+      "current_energy_variance": 17.065917227537568,
+      "reads": [
+        {
+          "source": "direct_0_0",
+          "recapture_counts": [
+            [
+              73446,
+              69649,
+              905481
+            ],
+            [
+              119577,
+              23092,
+              905907
+            ],
+            [
+              18844,
+              124244,
+              905488
+            ]
+          ],
+          "signed_arrivals": 343590,
+          "current_bond": [
+            4350,
+            11931,
+            1032295
+          ]
+        },
+        {
+          "source": "direct_0_1",
+          "recapture_counts": [
+            [
+              62109,
+              73794,
+              912673
+            ],
+            [
+              124133,
+              11661,
+              912782
+            ],
+            [
+              105479,
+              30715,
+              912382
+            ]
+          ],
+          "signed_arrivals": 344130,
+          "current_bond": [
+            13979,
+            3442,
+            1031155
+          ]
+        },
+        {
+          "source": "direct_1_0",
+          "recapture_counts": [
+            [
+              124362,
+              119731,
+              804483
+            ],
+            [
+              243150,
+              1008,
+              804418
+            ],
+            [
+              105841,
+              137919,
+              804816
+            ]
+          ],
+          "signed_arrivals": 596600,
+          "current_bond": [
+            16902,
+            1797,
+            1029877
+          ]
+        },
+        {
+          "source": "direct_1_1",
+          "recapture_counts": [
+            [
+              11349,
+              23261,
+              1013966
+            ],
+            [
+              1000,
+              33485,
+              1014091
+            ],
+            [
+              17647,
+              16980,
+              1013949
+            ]
+          ],
+          "signed_arrivals": 90990,
+          "current_bond": [
+            1650,
+            13761,
+            1033165
+          ]
+        },
+        {
+          "source": "direct_2_0",
+          "recapture_counts": [
+            [
+              104944,
+              18775,
+              924857
+            ],
+            [
+              106636,
+              17585,
+              924355
+            ],
+            [
+              59566,
+              64475,
+              924535
+            ]
+          ],
+          "signed_arrivals": 331209,
+          "current_bond": [
+            11261,
+            10216,
+            1027099
+          ]
+        },
+        {
+          "source": "direct_2_1",
+          "recapture_counts": [
+            [
+              30565,
+              124350,
+              893661
+            ],
+            [
+              137303,
+              17032,
+              894241
+            ],
+            [
+              64484,
+              90638,
+              893454
+            ]
+          ],
+          "signed_arrivals": 356948,
+          "current_bond": [
+            7346,
+            5193,
+            1036037
+          ]
+        },
+        {
+          "source": "phase_grating_0",
+          "recapture_counts": [
+            [
+              74357,
+              68859,
+              905360
+            ],
+            [
+              120387,
+              22997,
+              905192
+            ],
+            [
+              18463,
+              123887,
+              906226
+            ]
+          ],
+          "signed_arrivals": 342094,
+          "current_bond": [
+            4349,
+            11728,
+            1032499
+          ]
+        },
+        {
+          "source": "phase_grating_1",
+          "recapture_counts": [
+            [
+              62123,
+              73479,
+              912974
+            ],
+            [
+              124396,
+              11458,
+              912722
+            ],
+            [
+              104716,
+              30606,
+              913254
+            ]
+          ],
+          "signed_arrivals": 344278,
+          "current_bond": [
+            14302,
+            3468,
+            1030806
+          ]
+        }
+      ]
+    },
+    {
+      "time": 8192,
+      "squared_singular_values": [
+        0.2587411034216995,
+        0.03570778062141345
+      ],
+      "det_abs": 0.09612008405491793,
+      "sampled_witness": {
+        "min_pt": -0.048181104761874365,
+        "simultaneous99_radius": 0.008295892400982682
+      },
+      "current_energy_variance": 17.065917227537568,
+      "reads": [
+        {
+          "source": "direct_0_0",
+          "recapture_counts": [
+            [
+              50234,
+              17078,
+              981264
+            ],
+            [
+              62681,
+              4576,
+              981319
+            ],
+            [
+              29691,
+              37413,
+              981472
+            ]
+          ],
+          "signed_arrivals": 438625,
+          "current_bond": [
+            189870,
+            24326,
+            834380
+          ]
+        },
+        {
+          "source": "direct_0_1",
+          "recapture_counts": [
+            [
+              192194,
+              50216,
+              806166
+            ],
+            [
+              54280,
+              187700,
+              806596
+            ],
+            [
+              192634,
+              48622,
+              807320
+            ]
+          ],
+          "signed_arrivals": 439683,
+          "current_bond": [
+            25611,
+            202829,
+            820136
+          ]
+        },
+        {
+          "source": "direct_1_0",
+          "recapture_counts": [
+            [
+              54644,
+              62727,
+              931205
+            ],
+            [
+              48824,
+              68503,
+              931249
+            ],
+            [
+              115793,
+              1038,
+              931745
+            ]
+          ],
+          "signed_arrivals": 272932,
+          "current_bond": [
+            70253,
+            176899,
+            801424
+          ]
+        },
+        {
+          "source": "direct_1_1",
+          "recapture_counts": [
+            [
+              187438,
+              4567,
+              856571
+            ],
+            [
+              68221,
+              123334,
+              857021
+            ],
+            [
+              106985,
+              84846,
+              856745
+            ]
+          ],
+          "signed_arrivals": 605731,
+          "current_bond": [
+            145501,
+            50608,
+            852467
+          ]
+        },
+        {
+          "source": "direct_2_0",
+          "recapture_counts": [
+            [
+              193438,
+              29597,
+              825541
+            ],
+            [
+              115672,
+              106906,
+              825998
+            ],
+            [
+              187703,
+              35484,
+              825389
+            ]
+          ],
+          "signed_arrivals": 426897,
+          "current_bond": [
+            165782,
+            144423,
+            738371
+          ]
+        },
+        {
+          "source": "direct_2_1",
+          "recapture_counts": [
+            [
+              48624,
+              37174,
+              962778
+            ],
+            [
+              1040,
+              84918,
+              962618
+            ],
+            [
+              35551,
+              50143,
+              962882
+            ]
+          ],
+          "signed_arrivals": 451578,
+          "current_bond": [
+            49274,
+            82586,
+            916716
+          ]
+        },
+        {
+          "source": "phase_grating_0",
+          "recapture_counts": [
+            [
+              50428,
+              16824,
+              981324
+            ],
+            [
+              62662,
+              4606,
+              981308
+            ],
+            [
+              29829,
+              37356,
+              981391
+            ]
+          ],
+          "signed_arrivals": 438420,
+          "current_bond": [
+            190012,
+            24033,
+            834531
+          ]
+        },
+        {
+          "source": "phase_grating_1",
+          "recapture_counts": [
+            [
+              191567,
+              50218,
+              806791
+            ],
+            [
+              54529,
+              186467,
+              807580
+            ],
+            [
+              193403,
+              48777,
+              806396
+            ]
+          ],
+          "signed_arrivals": 439731,
+          "current_bond": [
+            25667,
+            202610,
+            820299
+          ]
+        }
+      ]
+    },
+    {
+      "time": 16384,
+      "squared_singular_values": [
+        0.25629249941781346,
+        0.09817856990802988
+      ],
+      "det_abs": 0.15862670352432948,
+      "sampled_witness": {
+        "min_pt": -0.07915675521494293,
+        "simultaneous99_radius": 0.008295892400982682
+      },
+      "current_energy_variance": 17.065917227537568,
+      "reads": [
+        {
+          "source": "direct_0_0",
+          "recapture_counts": [
+            [
+              146853,
+              29673,
+              872050
+            ],
+            [
+              137187,
+              39674,
+              871715
+            ],
+            [
+              133079,
+              44032,
+              871465
+            ]
+          ],
+          "signed_arrivals": 437216,
+          "current_bond": [
+            120654,
+            286434,
+            641488
+          ]
+        },
+        {
+          "source": "direct_0_1",
+          "recapture_counts": [
+            [
+              48255,
+              147108,
+              853213
+            ],
+            [
+              20269,
+              174418,
+              853889
+            ],
+            [
+              130119,
+              64900,
+              853557
+            ]
+          ],
+          "signed_arrivals": 436798,
+          "current_bond": [
+            284702,
+            117968,
+            645906
+          ]
+        },
+        {
+          "source": "direct_1_0",
+          "recapture_counts": [
+            [
+              20226,
+              137812,
+              890538
+            ],
+            [
+              120220,
+              37100,
+              891256
+            ],
+            [
+              111047,
+              46356,
+              891173
+            ]
+          ],
+          "signed_arrivals": 446085,
+          "current_bond": [
+            387576,
+            43217,
+            617783
+          ]
+        },
+        {
+          "source": "direct_1_1",
+          "recapture_counts": [
+            [
+              174614,
+              39531,
+              834431
+            ],
+            [
+              37346,
+              176782,
+              834448
+            ],
+            [
+              151392,
+              62231,
+              834953
+            ]
+          ],
+          "signed_arrivals": 428460,
+          "current_bond": [
+            17550,
+            361878,
+            669148
+          ]
+        },
+        {
+          "source": "direct_2_0",
+          "recapture_counts": [
+            [
+              131291,
+              132959,
+              784326
+            ],
+            [
+              111442,
+              152198,
+              784936
+            ],
+            [
+              261932,
+              1630,
+              785014
+            ]
+          ],
+          "signed_arrivals": 521910,
+          "current_bond": [
+            208437,
+            294866,
+            545273
+          ]
+        },
+        {
+          "source": "direct_2_1",
+          "recapture_counts": [
+            [
+              64897,
+              43471,
+              940208
+            ],
+            [
+              46125,
+              62224,
+              940227
+            ],
+            [
+              1694,
+              106043,
+              940839
+            ]
+          ],
+          "signed_arrivals": 350650,
+          "current_bond": [
+            196033,
+            110199,
+            742344
+          ]
+        },
+        {
+          "source": "phase_grating_0",
+          "recapture_counts": [
+            [
+              146579,
+              30106,
+              871891
+            ],
+            [
+              137024,
+              39753,
+              871799
+            ],
+            [
+              133385,
+              43808,
+              871383
+            ]
+          ],
+          "signed_arrivals": 436671,
+          "current_bond": [
+            120856,
+            286103,
+            641617
+          ]
+        },
+        {
+          "source": "phase_grating_1",
+          "recapture_counts": [
+            [
+              47600,
+              146645,
+              854331
+            ],
+            [
+              20139,
+              174470,
+              853967
+            ],
+            [
+              130503,
+              64670,
+              853403
+            ]
+          ],
+          "signed_arrivals": 436756,
+          "current_bond": [
+            285338,
+            117591,
+            645647
+          ]
+        }
+      ]
+    }
+  ],
+  "after_flight_turns": {
+    "2048": [
+      {
+        "turns": 0,
+        "source_return_probability": 0.02969427042752228,
+        "positive": 31098
+      },
+      {
+        "turns": 1,
+        "source_return_probability": 0.007691932432090052,
+        "positive": 8084
+      },
+      {
+        "turns": 5,
+        "source_return_probability": 0.029694270427525045,
+        "positive": 31112
+      },
+      {
+        "turns": 10,
+        "source_return_probability": 0.029694270427527827,
+        "positive": 31173
+      },
+      {
+        "turns": "supplied_remote_minus",
+        "source_return_probability": 0.15786794151394976,
+        "positive": 165278
+      }
+    ],
+    "16384": [
+      {
+        "turns": 0,
+        "source_return_probability": 0.10580408213135262,
+        "positive": 110745
+      },
+      {
+        "turns": 1,
+        "source_return_probability": 0.00803846022032142,
+        "positive": 8330
+      },
+      {
+        "turns": 5,
+        "source_return_probability": 0.10580408213135911,
+        "positive": 110703
+      },
+      {
+        "turns": 10,
+        "source_return_probability": 0.10580408213136565,
+        "positive": 110953
+      },
+      {
+        "turns": "supplied_remote_minus",
+        "source_return_probability": 0.2276948310926221,
+        "positive": 238379
+      }
+    ]
+  }
+}
