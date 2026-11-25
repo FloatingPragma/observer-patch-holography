@@ -80,4 +80,25 @@ assert_no_sorry station_pair_limit
 #print axioms station_pair_finite
 #print axioms station_pair_limit
 
+/-- Control the error of an observer population mean from pointwise bounds.
+The error budget can vanish on every center whose ball stays in one face. -/
+theorem observer_mean_error {ι : Type*} (s : Finset ι) (w x e : ι → ℝ) (a : ℝ)
+    (hw : ∀ i ∈ s, 0 ≤ w i) (h1 : ∑ i ∈ s, w i = 1)
+    (he : ∀ i ∈ s, |x i - a| ≤ e i) :
+    |(∑ i ∈ s, w i * x i) - a| ≤ ∑ i ∈ s, w i * e i := by
+  have hav : (∑ i ∈ s, w i * x i) - a = ∑ i ∈ s, w i * (x i - a) := by
+    simp_rw [mul_sub]
+    rw [Finset.sum_sub_distrib, ← Finset.sum_mul, h1, one_mul]
+  rw [hav, abs_le]
+  constructor
+  · rw [← Finset.sum_neg_distrib]
+    exact Finset.sum_le_sum fun i hi => by
+      rw [← mul_neg]
+      exact mul_le_mul_of_nonneg_left (abs_le.mp (he i hi)).1 (hw i hi)
+  · exact Finset.sum_le_sum fun i hi =>
+      mul_le_mul_of_nonneg_left (abs_le.mp (he i hi)).2 (hw i hi)
+
+assert_no_sorry observer_mean_error
+#print axioms observer_mean_error
+
 end OPH.EinsteinBranch.CollarAdmission

@@ -1,0 +1,100 @@
+{
+  "native_radius_two_annuli": [
+    {
+      "6": 20
+    },
+    {
+      "6": 80
+    },
+    {
+      "6": 320
+    }
+  ],
+  "atlas_surveys": [
+    {
+      "level": 2,
+      "radius": 2,
+      "centers": 320,
+      "annulus_size_histogram": {
+        "6": 320
+      },
+      "ordered_pairs": 9600,
+      "ordered_pairs_in_one_original_face": 3600,
+      "flat_annulus_count": 6
+    },
+    {
+      "level": 3,
+      "radius": 4,
+      "centers": 64,
+      "annulus_size_histogram": {
+        "19": 3,
+        "20": 3,
+        "21": 58
+      },
+      "ordered_pairs": 26526,
+      "ordered_pairs_in_one_original_face": 13254,
+      "flat_annulus_count": 21
+    },
+    {
+      "level": 4,
+      "radius": 4,
+      "centers": 256,
+      "annulus_size_histogram": {
+        "19": 3,
+        "20": 3,
+        "21": 250
+      },
+      "ordered_pairs": 107166,
+      "ordered_pairs_in_one_original_face": 77286,
+      "flat_annulus_count": 21
+    }
+  ],
+  "regular_single_limit": "81/40",
+  "regular_pair_limit": "6561/1600",
+  "regular_closed_ball_single_limit": "27/10",
+  "regular_closed_ball_pair_limit": "729/100",
+  "mean_regional_entropy_slope_nats": [
+    0.013553088590393983,
+    0.013553088590393987
+  ],
+  "comparison_gateway_triples": {
+    "1": [
+      0,
+      1,
+      5
+    ],
+    "2": [
+      0,
+      2,
+      8
+    ]
+  },
+  "comparison_labels": [
+    {
+      "level": 2,
+      "cells": 320,
+      "patch_radius": 4,
+      "dual_eccentricity": 23,
+      "slow_eccentricity": 67,
+      "mixed_eccentricity": 63,
+      "changed_station_ranges": 318
+    },
+    {
+      "level": 3,
+      "cells": 1280,
+      "patch_radius": 8,
+      "dual_eccentricity": 47,
+      "slow_eccentricity": 139,
+      "mixed_eccentricity": 131,
+      "changed_station_ranges": 1278
+    }
+  ],
+  "original_clock_comparison_single_limits": [
+    "27/16",
+    "243/64"
+  ],
+  "original_clock_comparison_closed_ball_single_limits": [
+    "9/4",
+    "81/16"
+  ]
+}

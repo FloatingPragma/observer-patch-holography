@@ -58,3 +58,5 @@ To regenerate both complete-clock controls and all graph counts, run the followi
 python -m model.experiments.interval_echo_einstein_station.collar_scaling.station_clock.measure --write
 python -m pytest -q model/experiments/interval_echo_einstein_station/collar_scaling/station_clock
 ~~~
+
+A uniformly selected observer has closed-ball coefficient 27/10 and a positive mean fourth-order annular entropy derivative under the same clock. A comparison with independently assigned gateway labels gives unequal subsequential coefficients for the original fastest clock. On a separate fixed pair of original faces, comparing two resolved energy orders detects a modular response missed by every bounded-strength sum of sublinear-range word operators. [Population count and label comparison](observer_survey/README.md) · [Two-sector experiment and range bound](separated_sectors/README.md)
