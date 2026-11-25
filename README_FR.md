@@ -326,6 +326,8 @@ décrivent ce travail. Les publications d’articles suivent le
 [guide des articles](paper/README.md#reproducibility) ;
 les PDF de la branche principale sont des aperçus des sources, et les versions
 déposées conservent leurs octets d’origine.
+Avec un agent de programmation et un peu de quota, le
+[tutoriel vibe](docs/VIBE_TUTORIAL.md) mène du clone à la pull request.
 
 ## Licence
 
