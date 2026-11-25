@@ -815,6 +815,45 @@ distance--redshift diagram} and
 \href{https://dovybzrnzxfo1.cloudfront.net/analysis/distance_redshift.json}{individual
 receipts} give the finite material-signal result.
 
+\paragraph{Expansion at a common radar time and the unit of the clock.}
+Let $\tau$ be the duration of one receiver tick and assign a radar unit
+$c\tau$. The complete fixed sample contains 156 remote ports on 13
+observers. Tick 20 is their first common radar time. At every integer
+radar time from 20 to 114, each port has the same range as at 20.
+At ticks 12, 16 and 20, the intersection contains 102 ports and their
+mean ranges in radar units are $709/102$, $711/102$ and $711/102$.
+Two ports on one observer gain one unit each in the first interval.
+The symmetric first difference gives a mean speed $c/408$. Dividing by
+the central mean range gives $H_R=1/(2844\tau)$. The second difference
+divided by the same range is $A_R=-1/(5688\tau^2)$. Both differences
+vanish for the full sample in the common stationary interval. These
+are measurements of the material range with finite clock resolution.
+The \href{https://dovybzrnzxfo1.cloudfront.net/analysis/observer_zero_expansion.json}{clock
+and range data} give the survey membership and unit conversions.
+
+Allowing all immediate material reflectors and arbitrary return times,
+the first query receives 174 replies from 15 remote observers, beginning
+at receiver tick 4 and ending at tick 32. From send tick 6 onward, 156
+beacons on 13 observers reply. The outermost radar range is 16 units at
+every send. To determine completeness, propagate the set of possible
+returns backward from the settled component and pair them with the
+earliest outward arrivals. Only closing contacts occur in these trials,
+so later arrivals cannot restore a missing reply. For a pulse sent at any
+settled tick $s$, the farthest reply returns at $s+32$ while clock and
+relay service continue. The \href{https://dovybzrnzxfo1.cloudfront.net/analysis/observer_zero_reach.json}{individual
+round trips} specify this observer's material reach.
+
+The assignment $c=299\,792\,458\,{\rm m\,s^{-1}}$ preserves every
+echo under $(\tau,c\tau)\mapsto(b\tau,bc\tau)$ for $b>0$. An independent
+Planck calibration could compare the quantum gap $\Delta E$ of a source
+with the change in its gravitational mass $\Delta M$. In radar units,
+$w=\Delta E\,\tau/\hbar$ and $g=G\Delta M/(c^3\tau)$. Provided
+$\Delta E=\Delta M c^2$ and the radar signal realizes the effective light
+cone, $g/w=(t_{\rm P}/\tau)^2$. The reference dimer returns after two
+flips, giving $w=\pi$ for one flip per tick. A one-Planck-time tick
+therefore predicts $g=\pi$ for the same pair of preparations. An
+independent gravitational measurement of this gap would test the prediction.
+
 \subsection{Does a degree-six screen contrast reach a detector?}
 Two equal-flux preparations use the directions supplied by one native
 cell. The first illuminates the twelve vertex directions uniformly, the
