@@ -25,7 +25,7 @@ BASE = "code/P_derivation/"
 CERT = BASE + "runtime/p_interval_contraction_certificate_2026-07-14.json"
 TRUNK = BASE + "runtime/p_closure_trunk_current.json"
 TARGET = BASE + "codata_2022_alpha_fixture.json"
-SCORECARD = "tracking/null_model_scorecard.md"
+SCORECARD = BASE + "null_model_scorecard.md"
 
 
 def require(condition: bool, message: str) -> None:

@@ -24,7 +24,7 @@ PACKAGE = "code/P_derivation/"
 CERT = PACKAGE + "runtime/p_interval_contraction_certificate_2026-07-14.json"
 TRUNK = PACKAGE + "runtime/p_closure_trunk_current.json"
 TARGET = PACKAGE + "codata_2022_alpha_fixture.json"
-SCORECARD = "tracking/null_model_scorecard.md"
+SCORECARD = PACKAGE + "null_model_scorecard.md"
 DEFAULT_OUT = ROOT / PACKAGE / "runtime/selection_accounting.json"
 PARENTS = (CERT, TRUNK, TARGET, SCORECARD, PACKAGE + "paper_math.py")
 
