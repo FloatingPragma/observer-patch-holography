@@ -16,7 +16,7 @@ $$
 x(t)=(I+tM)^{-1}tMv=\frac{tMv+t^2Dv}{1+tT+t^2D}.
 $$
 
-Choose any linear sky coordinate $u$ oriented so that $C=u(v)\ge0$. Put $b=u(Mv)$. A projected peak below zero implies $b<0$, because the numerator is $tb+t^2DC$. A projected peak above $C$ implies $tb>C+tTC$, hence $b>0$. These conditions are incompatible, even at different parameter values. Peaks at the centres are interval endpoints. This proof concerns two dimensions and two fixed shape matrices. The scalar projection inequality is machine-checked as *twoCentrePeakProjection*. [Lean proof](../../../../Lean/ObserverPatchHolography/EinsteinBranch/HaloStress.lean) · [Example of a strict peak beyond one centre](test_peaks.py)
+Choose any linear sky coordinate $u$ oriented so that $C=u(v)\ge0$. Put $b=u(Mv)$. A projected peak below zero implies $b<0$, because the numerator is $tb+t^2DC$. A projected peak above $C$ implies $tb>C+tTC$, hence $b>0$. These conditions are incompatible, even at different parameter values. Peaks at the centres are interval endpoints. This proof concerns two dimensions and two fixed shape matrices. The projection of the cancellation equations and the inequality are machine-checked as *twoCentreProjectionIdentity* and *twoCentrePeakProjection*. [Lean proof](../../../../Lean/ObserverPatchHolography/EinsteinBranch/HaloStress.lean) · [Example of a strict peak beyond one centre](test_peaks.py)
 
 ## The measured displacements
 

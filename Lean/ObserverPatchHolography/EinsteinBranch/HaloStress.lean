@@ -164,6 +164,19 @@ theorem finiteOrbitalFeasibility (bs : List OrbitInterval) :
     · intro i hi
       exact h i hi b hb
 
+/-- Project the two linear equations for a cancellation point. The relative
+shape matrix has rows (a,b) and (c,d), the second centre is (u,v), and the
+projection is (l,m). Multiplication by the determinant avoids division. -/
+theorem twoCentreProjectionIdentity (a b c d t x y u v l m : ℝ)
+    (h₁ : (1+t*a)*x + t*b*y = t*(a*u+b*v))
+    (h₂ : t*c*x + (1+t*d)*y = t*(c*u+d*v)) :
+    (1+t*(a+d)+t^2*(a*d-b*c))*(l*x+m*y) =
+    t*(l*(a*u+b*v)+m*(c*u+d*v)) + t^2*(a*d-b*c)*(l*u+m*v) := by
+  calc
+    _ = (l*(1+t*d)-m*t*c)*((1+t*a)*x+t*b*y)
+        + (m*(1+t*a)-l*t*b)*(t*c*x+(1+t*d)*y) := by ring
+    _ = _ := by rw [h₁,h₂]; ring
+
 /-- For a planar two-centre cancellation curve, C is the projected centre
 separation, T and D are the trace and determinant of the relative shape
 matrix, and B is the projected first-order numerator. Its two parameter
