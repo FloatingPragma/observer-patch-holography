@@ -8,7 +8,7 @@ During flight every registered contact operates. Native zero-contrast writes on 
 
 ## Which degree of freedom travels?
 
-| Measurement | Observer result |
+| Material preparation or read | Recorded response |
 | --- | --- |
 | Matched receiver at exposure 131072 | The smallest eigenvalue of the reconstructed partial transpose is $-0.0122564$, with simultaneous 99% radius 0.001376. The native channel predicts $-0.0122629$. A negative value certifies entanglement with the input reference. |
 | Receiver with two equivalent tips | Port interchange fixes the initial state and the Hamiltonian. Every accepted destination orbital is the equal superposition of the two tips, giving a rank-one output for arbitrary source rail superpositions. |

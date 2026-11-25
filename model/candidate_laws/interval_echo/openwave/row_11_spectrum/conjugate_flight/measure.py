@@ -331,7 +331,7 @@ def acquire(board, ring, preparation, num, k, sign, rng):
     remote = np.array([p // 12 != owner for p in ring])
     return dict(
         mode=num,
-        measured_total_charge=int(loads @ first_counts // SHOTS),
+        measured_route_charge=int(loads @ first_counts // SHOTS),
         load_contrast_energy=contrast,
         simultaneous_intervals=energy_intervals(
             readings[-1], n, parity, contrast, time_records[-1]

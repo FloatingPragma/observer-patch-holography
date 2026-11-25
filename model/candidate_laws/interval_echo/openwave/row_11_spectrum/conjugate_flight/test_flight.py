@@ -75,7 +75,7 @@ def test_shutter_and_signed_readout_against_observer_records():
                     np.array(again["position"]) / data["shots_per_bank"],
                     atol=0.0012,
                 )
-            assert r["measured_total_charge"] == case["sign"]
+            assert r["measured_route_charge"] == case["sign"]
             if case["private_marks"]:
                 E = 2 * case["kappa"]
                 delta = 1 - np.cos(2 * np.pi * r["mode"] / n)
@@ -151,7 +151,7 @@ def test_closed_route_rest_kicks_and_three_port_energy_reader():
                 <= expected
                 <= r["simultaneous_energy_interval"][1]
             )
-            assert r["signed_current"] == pytest.approx(np.sin(k), abs=0.0004)
+            assert r["coordinate_current"] == pytest.approx(np.sin(k), abs=0.0004)
             for key in (
                 "position_counts",
                 "current_left_right_other",
@@ -170,7 +170,7 @@ def test_closed_route_rest_kicks_and_three_port_energy_reader():
             <= expected
             <= reverse["simultaneous_energy_interval"][1]
         )
-        assert reverse["signed_current"] == pytest.approx(
+        assert reverse["coordinate_current"] == pytest.approx(
             -np.sin(2 * np.pi / n), abs=0.0004
         )
         assert case["changed_law_uniform_overlap"] < 0.02

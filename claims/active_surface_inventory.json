@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 1118,
+  "surface_count": 1130,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -1571,6 +1571,31 @@
       "allowlisted": false
     },
     {
+      "path": "model/candidate_laws/interval_echo/openwave/row_11_spectrum/compact_parents/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_11_spectrum/compact_parents/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_11_spectrum/conjugate_flight/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_11_spectrum/daughter_shell/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_11_spectrum/daughter_shell/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/candidate_laws/interval_echo/openwave/row_11_spectrum/lightest/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -1587,6 +1612,16 @@
     },
     {
       "path": "model/candidate_laws/interval_echo/openwave/row_11_spectrum/phase_ratios/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_11_spectrum/resonant_delivery/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_11_spectrum/resonant_delivery/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -2522,6 +2557,31 @@
     },
     {
       "path": "model/experiments/interval_echo_angular/charged_orientation/flux_doublet/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_angular/charged_orientation/live_trimer/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_angular/charged_orientation/live_trimer/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_angular/charged_orientation/live_trimer/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_angular/charged_orientation/live_trimer/energy/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_angular/charged_orientation/live_trimer/energy/WAITING.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },

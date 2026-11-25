@@ -53,7 +53,7 @@ def terminal(state, word, k, sign, rng):
         position_counts=location.tolist(),
         bond_minus_and_other=[parity, SHOTS - parity],
         current_left_right_other=cur.tolist(),
-        signed_current=n * (int(cur[1]) - int(cur[0])) / (2 * SHOTS),
+        coordinate_current=n * (int(cur[1]) - int(cur[0])) / (2 * SHOTS),
         load_contrast_energy=contrast,
         energy_from_native_bond=contrast + n * parity / SHOTS,
         simultaneous_energy_interval=interval.tolist(),

@@ -435,7 +435,9 @@
     "model/experiments/interval_echo_angular/charged_orientation/measure.json",
     "model/experiments/interval_echo_angular/charged_orientation/free_exchange.json",
     "model/experiments/interval_echo_angular/charged_orientation/projected_turns/PROOF.md",
-    "model/experiments/interval_echo_angular/charged_orientation/projected_turns/results.json"
+    "model/experiments/interval_echo_angular/charged_orientation/projected_turns/results.json",
+    "model/experiments/interval_echo_angular/charged_orientation/live_trimer/README.md",
+    "model/experiments/interval_echo_angular/charged_orientation/live_trimer/energy/README.md"
    ],
    "papers": [
     "flagship/from_observer_consensus_to_standard_physics.pdf",
@@ -887,11 +889,14 @@
     "Lean/Geometry/MassShellKinematics.lean",
     "Lean/Geometry/RestFiberShellTransport.lean",
     "Lean/Geometry/InverseSquareShellLaw.lean",
-    "Lean/Geometry/SpatialReadbackSoldering.lean"
+    "Lean/Geometry/SpatialReadbackSoldering.lean",
+    "Lean/SourceLaw/ChargedRegisterPole.lean"
    ],
    "model": [
     "model/evaluation/EVIDENCE.md",
-    "model/candidate_laws/interval_echo/openwave/row_30_collective/README.md"
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/conjugate_flight/README.md",
+    "model/experiments/interval_echo_angular/charged_orientation/live_trimer/energy/README.md"
    ],
    "papers": [
     "paper/observers_are_all_you_need.pdf",
@@ -2500,7 +2505,10 @@
     "model/experiments/interval_echo_angular/charged_orientation/flux_doublet/README.md",
     "model/experiments/interval_echo_gauge/arrival_ladder/README.md",
     "model/experiments/interval_echo_lepton_register/pole_meter/magnetic/README.md",
-    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/lightest/README.md"
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/lightest/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/conjugate_flight/README.md",
+    "model/experiments/interval_echo_angular/charged_orientation/live_trimer/README.md",
+    "model/experiments/interval_echo_angular/charged_orientation/live_trimer/energy/README.md"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
@@ -2529,7 +2537,10 @@
     "Lean/SourceLaw/SilentSeamVacancy.lean",
     "Lean/SourceLaw/ArrivalChargeLadder.lean",
     "Lean/ObserverPatchHolography/LeptonRegisterCharacterisation.lean",
-    "Lean/SourceLaw/ChargedRegisterPole.lean"
+    "Lean/SourceLaw/ChargedRegisterPole.lean",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/compact_parents/CompactEnergySum.lean",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/daughter_shell/EnergyShell.lean",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/resonant_delivery/ResonantTransfer.lean"
    ],
    "model": [
     "model/evaluation/SCORECARD.md",
@@ -2551,7 +2562,11 @@
     "model/experiments/interval_echo_lepton_register/pole_meter/README.md",
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/lightest/README.md",
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/parent_line/README.md",
-    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/phase_ratios/README.md"
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/phase_ratios/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/compact_parents/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/daughter_shell/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/resonant_delivery/README.md",
+    "model/experiments/interval_echo_angular/charged_orientation/live_trimer/energy/README.md"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
@@ -2580,7 +2595,10 @@
     "Lean/SourceLaw/SilentSeamVacancy.lean",
     "Lean/SourceLaw/ArrivalChargeLadder.lean",
     "Lean/ObserverPatchHolography/LeptonRegisterCharacterisation.lean",
-    "Lean/SourceLaw/ChargedRegisterPole.lean"
+    "Lean/SourceLaw/ChargedRegisterPole.lean",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/compact_parents/CompactEnergySum.lean",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/daughter_shell/EnergyShell.lean",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/resonant_delivery/ResonantTransfer.lean"
    ],
    "model": [
     "model/evaluation/SCORECARD.md",
@@ -2601,7 +2619,10 @@
     "model/experiments/interval_echo_lepton_register/pole_meter/README.md",
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/lightest/README.md",
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/parent_line/README.md",
-    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/phase_ratios/README.md"
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/phase_ratios/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/compact_parents/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/daughter_shell/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/resonant_delivery/README.md"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
@@ -3142,7 +3163,8 @@
     "Lean/ObserverPatchHolography/KoideCirculant.lean",
     "Lean/SourceLaw/SilentSeamVacancy.lean",
     "Lean/ObserverPatchHolography/LeptonRegisterCharacterisation.lean",
-    "Lean/SourceLaw/ChargedRegisterPole.lean"
+    "Lean/SourceLaw/ChargedRegisterPole.lean",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/compact_parents/CompactEnergySum.lean"
    ],
    "model": [
     "code/particles/leptons/koide_balance_comparison_certificate.py",
@@ -3152,7 +3174,8 @@
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/silent_seams/README.md",
     "model/experiments/interval_echo_lepton_register/pole_meter/README.md",
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/parent_line/README.md",
-    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/phase_ratios/README.md"
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/phase_ratios/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/compact_parents/README.md"
    ],
    "papers": [
     "docs/FROZEN_PREDICTION_LADDER.md",
@@ -3187,7 +3210,9 @@
     "model/experiments/interval_echo_lepton_register/pole_meter/README.md",
     "model/experiments/interval_echo_gauge/arrival_ladder/spin_transfer/README.md",
     "model/experiments/interval_echo_lepton_register/pole_meter/magnetic/README.md",
-    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/lightest/README.md"
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/lightest/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/conjugate_flight/README.md",
+    "model/experiments/interval_echo_angular/charged_orientation/live_trimer/energy/README.md"
    ],
    "papers": [
     "docs/EMPIRICAL_STATUS.md",
@@ -3210,7 +3235,9 @@
    "lean": [
     "Lean/SourceLaw/SilentSeamVacancy.lean",
     "Lean/ObserverPatchHolography/LeptonRegisterCharacterisation.lean",
-    "Lean/SourceLaw/ChargedRegisterPole.lean"
+    "Lean/SourceLaw/ChargedRegisterPole.lean",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/compact_parents/CompactEnergySum.lean",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/daughter_shell/EnergyShell.lean"
    ],
    "model": [
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/README.md",
@@ -3225,7 +3252,9 @@
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/silent_seams/README.md",
     "model/experiments/interval_echo_lepton_register/pole_meter/README.md",
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/parent_line/README.md",
-    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/phase_ratios/README.md"
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/phase_ratios/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/compact_parents/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/daughter_shell/README.md"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
@@ -4533,7 +4562,7 @@
    "category": "OpenWave Recovery",
    "status": "Partial",
    "what": "The electron's rest energy is the energy equivalent of its mass and anchors the energy scale of the charged-lepton sector.",
-   "why": "A recovery must select the electron state dynamically and let its energy fix a second, independently measured quantity such as inertia.",
+   "why": "A charged scalar mode has a measured rest line and recoil on a prepared route, while the electron requires the physical spin, three-dimensional motion and energy calibration of that same excitation.",
    "premises": [],
    "lean": [
     "Lean/SourceLaw/ChargedRegisterPole.lean"
@@ -4562,7 +4591,9 @@
     "model/experiments/interval_echo_lepton_register/pole_meter/README.md",
     "model/experiments/interval_echo_gauge/arrival_ladder/spin_transfer/README.md",
     "model/experiments/interval_echo_lepton_register/pole_meter/magnetic/README.md",
-    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/lightest/README.md"
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/lightest/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/conjugate_flight/README.md",
+    "model/experiments/interval_echo_angular/charged_orientation/live_trimer/energy/README.md"
    ],
    "papers": [
     "paper/executable_observer_construction.pdf",
@@ -4691,7 +4722,10 @@
     "model/experiments/interval_echo_angular/charged_orientation/conical_cycle/README.md",
     "model/experiments/interval_echo_angular/charged_orientation/flux_doublet/README.md",
     "model/experiments/interval_echo_gauge/arrival_ladder/spin_transfer/README.md",
-    "model/experiments/interval_echo_lepton_register/pole_meter/magnetic/README.md"
+    "model/experiments/interval_echo_lepton_register/pole_meter/magnetic/README.md",
+    "model/experiments/interval_echo_angular/charged_orientation/live_trimer/README.md",
+    "model/experiments/interval_echo_angular/charged_orientation/live_trimer/energy/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/conjugate_flight/README.md"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
@@ -4726,7 +4760,9 @@
     "model/experiments/interval_echo_angular/charged_orientation/mobile_core_exchange/results.json.gz",
     "model/experiments/interval_echo_angular/charged_orientation/mobile_core_exchange/half_turns.py",
     "model/experiments/interval_echo_angular/charged_orientation/mobile_core_exchange/half_turns.json.gz",
-    "model/experiments/interval_echo_angular/charged_orientation/flux_doublet/README.md"
+    "model/experiments/interval_echo_angular/charged_orientation/flux_doublet/README.md",
+    "model/experiments/interval_echo_angular/charged_orientation/live_trimer/README.md",
+    "model/experiments/interval_echo_angular/charged_orientation/live_trimer/energy/README.md"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
@@ -4817,7 +4853,8 @@
    "lean": [
     "Lean/SourceLaw/SilentSeamVacancy.lean",
     "Lean/ObserverPatchHolography/LeptonRegisterCharacterisation.lean",
-    "Lean/SourceLaw/ChargedRegisterPole.lean"
+    "Lean/SourceLaw/ChargedRegisterPole.lean",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/compact_parents/CompactEnergySum.lean"
    ],
    "model": [
     "model/evaluation/SCORECARD.md",
@@ -4842,7 +4879,10 @@
     "model/experiments/interval_echo_lepton_register/pole_meter/magnetic/README.md",
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/lightest/README.md",
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/parent_line/README.md",
-    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/phase_ratios/README.md"
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/phase_ratios/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/compact_parents/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/conjugate_flight/README.md",
+    "model/experiments/interval_echo_angular/charged_orientation/live_trimer/energy/README.md"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
@@ -5176,11 +5216,13 @@
    "category": "OpenWave Recovery",
    "status": "Open",
    "what": "The muon decays into an electron and two neutrinos with a mean lifetime of about 2.2 microseconds.",
-   "why": "Observers can read reversible charge-to-neutral conversion with a material donor, while identifying muon decay requires a freely prepared heavy parent, weak daughter tags and a measured lifetime.",
+   "why": "Observers can track a resonant exchange with prepared neutral matter, while muon identification needs an independently tagged heavy parent, spontaneous weak daughters and a measured lifetime.",
    "premises": [],
    "lean": [
     "Lean/SourceLaw/NeutralEjecta.lean",
-    "Lean/SourceLaw/ArrivalChargeLadder.lean"
+    "Lean/SourceLaw/ArrivalChargeLadder.lean",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/daughter_shell/EnergyShell.lean",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/resonant_delivery/ResonantTransfer.lean"
    ],
    "model": [
     "model/evaluation/SCORECARD.md",
@@ -5191,7 +5233,9 @@
     "model/experiments/interval_echo_gauge/arrival_ladder/README.md",
     "model/experiments/interval_echo_gauge/arrival_ladder/spin_transfer/results.json",
     "model/experiments/interval_echo_gauge/arrival_ladder/static.json",
-    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/parent_line/README.md"
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/parent_line/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/daughter_shell/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/resonant_delivery/README.md"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
@@ -6533,7 +6577,9 @@
     "model/experiments/interval_echo_gauge/loop_transport/HOLONOMY.md",
     "model/experiments/interval_echo_angular/charged_orientation/flux_doublet/README.md",
     "model/experiments/interval_echo_gauge/arrival_ladder/spin_transfer/README.md",
-    "model/experiments/interval_echo_lepton_register/pole_meter/magnetic/README.md"
+    "model/experiments/interval_echo_lepton_register/pole_meter/magnetic/README.md",
+    "model/experiments/interval_echo_angular/charged_orientation/live_trimer/README.md",
+    "model/experiments/interval_echo_angular/charged_orientation/live_trimer/energy/README.md"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
@@ -6675,7 +6721,8 @@
    "lean": [
     "Lean/SourceLaw/ColourSingletGateway.lean",
     "Lean/SourceLaw/ArrivalChargeLadder.lean",
-    "Lean/SourceLaw/NeutralSpinTransfer.lean"
+    "Lean/SourceLaw/NeutralSpinTransfer.lean",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/resonant_delivery/ResonantTransfer.lean"
    ],
    "model": [
     "model/candidate_laws/interval_echo/CURRENTS.md",
@@ -6683,7 +6730,8 @@
     "model/candidate_laws/interval_echo/prior_calibration.json",
     "model/candidate_laws/interval_echo/openwave/electron_field/README.md",
     "model/experiments/interval_echo_gauge/arrival_ladder/README.md",
-    "model/experiments/interval_echo_gauge/arrival_ladder/spin_transfer/README.md"
+    "model/experiments/interval_echo_gauge/arrival_ladder/spin_transfer/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/resonant_delivery/README.md"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
@@ -7467,7 +7515,9 @@
     "code/defect_particle_classes/PROOF.md",
     "code/defect_particle_classes/statistics.py",
     "model/experiments/interval_echo_angular/charged_orientation/flux_doublet/README.md",
-    "model/experiments/interval_echo_lepton_register/pole_meter/magnetic/README.md"
+    "model/experiments/interval_echo_lepton_register/pole_meter/magnetic/README.md",
+    "model/experiments/interval_echo_angular/charged_orientation/live_trimer/README.md",
+    "model/experiments/interval_echo_angular/charged_orientation/live_trimer/energy/README.md"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.tex"

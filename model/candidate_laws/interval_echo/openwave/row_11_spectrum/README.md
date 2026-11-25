@@ -70,6 +70,12 @@ On all three blank, unit-filled federations the lowest state of total charge −
 
 The exact marked-edge intensities at 2/9 radians also yield a calibration test. Their quotient of two energy differences would be transcendental, while that quotient for three eigenvalues of a finite algebraic Hamiltonian is algebraic. The particular unrounded triple therefore cannot be an exact set of such energies after any common shift and scale. The general Koide relation and the experimentally allowed mass intervals admit independent tests. [Exact phase-ratio certificate](phase_ratios/README.md)
 
+## What moves when an observer measures a formation line?
+
+A vacancy and an excess each have a uniform 16-unit state on the same written five-owner ring. Independent preparations, local charge reads and bond-energy measurements confirm equal recoil for the two signs and opposite currents for opposite kicks. The cost of forming the charge and its response to momentum are separately measurable. [Conjugate flight and rest kicks](conjugate_flight/README.md)
+
+A different preparation uses stationary defects on a blank host. Enumerating the compact states gives 698,858 distinct negative-unit energies on 320 cells. Conditional on anchoring the compact 35-unit vacancy to the electron, the closest muon candidate has energy 7236.87539 in native units. Its energy is additive across 143 owners. Moving the surplus vacancy between owners gives zero recoil. A free upper-band three-defect parent also exceeds the combined separated daughter energies in the named channel, whereas a prepared resonant neutral receiver can accept a charged dimer’s excitation with probability 99.13643%. [Additive parent energies](compact_parents/README.md) · [Free daughter energy bounds](daughter_shell/README.md) · [Resonant receiver](resonant_delivery/README.md)
+
 ## Relation to the earlier lepton triplet
 
 The finite cyclic theorem constrains the square roots of a balanced positive spectrum. Its hypothesis supplies no identification of the native dressings with mass eigenstates. The separate first-order register extension gives ratios 1 ∶ 206.770316 ∶ 3477.472837 on its corridor, where the register operator enters the propagation law. The registered blank-sector energy bounds concern a different generator and a named physical reference. Comparing the two requires a map that preserves the same preparations, free motion and energy read. [Koide theorem](../../../../../Lean/ObserverPatchHolography/KoideCirculant.lean) · [Lepton-family comparisons](../electron_field/lepton_family/README.md)
