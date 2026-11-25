@@ -164,8 +164,8 @@
  "premise_counts": {
   "law": {
    "fulfilled": 10,
-   "partial": 6,
-   "open": 125,
+   "partial": 7,
+   "open": 124,
    "fails": 0
   },
   "designer": {
@@ -1714,9 +1714,15 @@
    "statement": "The singlet and centred-plane coefficients of the charged-lepton register carry the branch weights idle 1 - p, agree p/2 and each oriented repair p/4, with equal activity in the two factors.",
    "type": "derivable",
    "role": "law",
-   "status": "open",
-   "evidence": [],
-   "note": ""
+   "status": "partial",
+   "evidence": [
+    "../../experiments/interval_echo_lepton_register/README.md",
+    "../../experiments/interval_echo_lepton_register/measure.py",
+    "../../experiments/interval_echo_lepton_register/results.json",
+    "../../experiments/interval_echo_lepton_register/test_measure.py",
+    "../../../Lean/ObserverPatchHolography/LeptonRegisterCharacterisation.lean"
+   ],
+   "note": "On each marked edge of a guarded twelve-port cell, a uniform vacancy gives geometric branch weights 2/3, 1/6, 1/12 and 1/12. Two independent copies give the exclusive probability 2/9. A native Fourier detector resolves the balanced intensities. Free flight leaks from every vector in its three-mode space. The identification of these geometric arms with charged-lepton repair events and rest modes is undischarged."
   },
   {
    "id": "PR-156",
@@ -3738,7 +3744,9 @@
       "model/candidate_laws/interval_echo/openwave/row_03_clock/moving_pair/recoil/README.md",
       "model/candidate_laws/interval_echo/openwave/row_03_clock/moving_pair/recoil/measure.py",
       "model/candidate_laws/interval_echo/openwave/row_03_clock/moving_pair/recoil/records.json",
-      "model/candidate_laws/interval_echo/openwave/row_03_clock/moving_pair/recoil/test_recoil.py"
+      "model/candidate_laws/interval_echo/openwave/row_03_clock/moving_pair/recoil/test_recoil.py",
+      "model/candidate_laws/interval_echo/openwave/row_11_spectrum/excited_bounds.json",
+      "model/experiments/interval_echo_lepton_register/README.md"
      ],
      "comparison": {
       "law": "Written-field Laplacian extension",
@@ -3921,15 +3929,22 @@
       "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L106"
      ],
      "status": "open",
-     "note": "A signed defect transmits two coherent orbital modes across two cell boundaries on each native host. These modes are spatial orientations. Field angular momentum of magnitude ℏ/2 on an identified electron remains unmeasured.",
+     "note": "A signed defect transmits two coherent orbital modes across two cell boundaries on each native host. These modes are spatial orientations. Field angular momentum of magnitude ℏ/2 on an identified electron remains unmeasured. A vacancy in a local scalar deformation gives 99.816% dark exits around a degeneracy and 0.194% on a displaced loop. A full material turn and opposite half-turn orders on the same source give zero dark exits.",
      "evidence": [
       "model/candidate_laws/interval_echo/SPEC.md",
-      "model/experiments/interval_echo_angular/charged_orientation/README.md"
+      "model/experiments/interval_echo_angular/charged_orientation/README.md",
+      "model/experiments/interval_echo_angular/charged_orientation/conical_cycle/README.md",
+      "model/experiments/interval_echo_angular/charged_orientation/conical_cycle/records.json",
+      "Lean/SourceLaw/OrbitalMirrorCycle.lean"
      ],
      "comparison": {
       "law": "Written-field Laplacian extension",
       "finding": "The four-face state transports a coherent pair of orbital modes. A 2% single-ring rate perturbation splits the parked degeneracy. A spinorial physical rotation and intrinsic angular momentum of this mobile state are unresolved.",
       "source": "model/candidate_laws/interval_echo/openwave/electron_field/README.md#larger-collective-preparations"
+     },
+     "demonstrated_measurement": {
+      "label": "An orbital sign from a charged vacancy and its independent spatial-turn control",
+      "source": "model/experiments/interval_echo_angular/charged_orientation/conical_cycle/README.md"
      }
     },
     {
@@ -4078,18 +4093,26 @@
       "https://github.com/openwave-labs/openwave/blob/d4fc3e4046c472f4ad38468df8dddfa1f97bac97/MODELS.md#L113"
      ],
      "status": "open",
-     "note": "For all net negative-unit compositions of the registered blank-memory law, the maximum ratio between host-referenced composition ground energies is bounded above by 57.5625, 203.296875 and 759.546875 on the 20-, 80- and 320-cell boards. This excludes 3477 in those spectra. In the same architecture on any finite refinement a 3477 ratio of these minima needs at least 2319 defect ports in the heavier configuration. On a ten-port belt three dressings selected for closeness have first-wavelength recoil inertia ratios 1:168.56:3209.78 and second-wavelength ratios 1:164.91:3301.44. Their formation energies are in the ratios 1:2.01:2.81. Signed density records verify motion. Identifying three charged species with consistent recoil and formation energies requires another preparation.",
+     "note": "For all net negative-unit compositions of the registered blank-memory law, the maximum ratio between host-referenced composition ground energies is bounded above by 57.5625, 203.296875 and 759.546875 on the 20-, 80- and 320-cell boards. This excludes 3477 in those spectra. In the same architecture on any finite refinement a 3477 ratio of these minima needs at least 2319 defect ports in the heavier configuration. On a ten-port belt three dressings selected for closeness have first-wavelength recoil inertia ratios 1:168.56:3209.78 and second-wavelength ratios 1:164.91:3301.44. Their formation energies are in the ratios 1:2.01:2.81. Signed density records verify motion. Identifying three charged species with consistent recoil and formation energies requires another preparation. Including excited levels, any one conserved blank composition of charge −1 spans at most 481/28 in formation energy above the filled reference. A geometric three-port read on a single vacancy gives the Koide intensity ratios at the specified exposure. A free-release test excludes a free eigenstate inside its entire three-mode space.",
      "evidence": [
       "model/candidate_laws/interval_echo/SPEC.md",
       "model/candidate_laws/interval_echo/openwave/row_11_spectrum/README.md",
       "model/candidate_laws/interval_echo/openwave/row_11_spectrum/results.json",
       "model/candidate_laws/interval_echo/openwave/row_11_spectrum/transport.json",
-      "model/candidate_laws/interval_echo/openwave/row_11_spectrum/bounds.json"
+      "model/candidate_laws/interval_echo/openwave/row_11_spectrum/bounds.json",
+      "model/experiments/interval_echo_lepton_register/README.md",
+      "model/experiments/interval_echo_lepton_register/results.json",
+      "model/candidate_laws/interval_echo/openwave/row_11_spectrum/excited_bounds.json",
+      "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/hierarchy/floor_calibration.json"
      ],
      "comparison": {
       "law": "Written-field Laplacian extension",
       "finding": "Three independently prepared orbital bands have minimum-energy ratios 1 : 4.56155 : 10.40388 on the 48-cell route. Exact inequalities exclude the balanced Koide value for every triplet from the two fully written one-cell sectors. A separate first-order extension with a supplied register mass operator gives 1 : 206.770316 : 3477.472837 on a seven-cell corridor of degree-six ports. One added degree-five port collapses the hierarchy. The physical species, unconfined mass poles and clock calibration are unresolved.",
       "source": "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/README.md"
+     },
+     "demonstrated_measurement": {
+      "label": "Koide detector intensities and their loss from the three-mode space under free release",
+      "source": "model/experiments/interval_echo_lepton_register/README.md"
      }
     },
     {
@@ -4589,9 +4612,12 @@
       "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L128"
      ],
      "status": "open",
-     "note": "Muon, electron and neutral decay-product records remain open.",
+     "note": "A sharp unit vacancy gives zero neutral material response in a disjoint pristine receiver. Two independently detectable neutral load pairs and a charged remainder require two pre-existing pairs. On each of the three free boards a prepared two-pair source admits this coincidence at short time. The receiving records need independent weak-flavor tags, a heavy rest preparation and a lifetime.",
      "evidence": [
-      "model/candidate_laws/interval_echo/SPEC.md"
+      "model/candidate_laws/interval_echo/SPEC.md",
+      "model/candidate_laws/interval_echo/openwave/row_11_spectrum/neutral_ejecta/README.md",
+      "model/candidate_laws/interval_echo/openwave/row_11_spectrum/neutral_ejecta/results.json",
+      "Lean/SourceLaw/NeutralEjecta.lean"
      ]
     },
     {

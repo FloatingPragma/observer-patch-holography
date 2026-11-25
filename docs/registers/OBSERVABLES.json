@@ -2473,7 +2473,9 @@
     "PR-54",
     "PR-15"
    ],
-   "lean": [],
+   "lean": [
+    "Lean/SourceLaw/OrbitalMirrorCycle.lean"
+   ],
    "model": [
     "model/evaluation/SCORECARD.md",
     "code/defect_particle_classes/PROOF.md",
@@ -2487,12 +2489,16 @@
     "model/candidate_laws/interval_echo/openwave/row_04_conjugates/README.md",
     "model/candidate_laws/interval_echo/openwave/row_04_conjugates/results.json",
     "model/candidate_laws/interval_echo/openwave/row_08_annihilation/README.md",
-    "model/candidate_laws/interval_echo/openwave/row_08_annihilation/walls.json"
+    "model/candidate_laws/interval_echo/openwave/row_08_annihilation/walls.json",
+    "model/experiments/interval_echo_angular/charged_orientation/conical_cycle/README.md",
+    "model/experiments/interval_echo_lepton_register/README.md",
+    "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/theorem_interfaces/README.md"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
     "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf",
-    "paper/tex_fragments/DEFECT_PARTICLE_CLASSES.tex"
+    "paper/tex_fragments/DEFECT_PARTICLE_CLASSES.tex",
+    "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
    ]
   },
   {
@@ -2510,7 +2516,9 @@
     "PR-95",
     "PR-54"
    ],
-   "lean": [],
+   "lean": [
+    "Lean/SourceLaw/NeutralEjecta.lean"
+   ],
    "model": [
     "model/evaluation/SCORECARD.md",
     "code/defect_particle_classes/PROOF.md",
@@ -2521,12 +2529,17 @@
     "model/candidate_laws/interval_echo/openwave/row_04_conjugates/README.md",
     "model/candidate_laws/interval_echo/openwave/row_04_conjugates/results.json",
     "model/candidate_laws/interval_echo/openwave/row_08_annihilation/README.md",
-    "model/candidate_laws/interval_echo/openwave/row_08_annihilation/walls.json"
+    "model/candidate_laws/interval_echo/openwave/row_08_annihilation/walls.json",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/excited_bounds.json",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/neutral_ejecta/README.md",
+    "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/hierarchy/floor_calibration.json",
+    "model/experiments/interval_echo_lepton_register/README.md"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
     "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf",
-    "paper/tex_fragments/DEFECT_PARTICLE_CLASSES.tex"
+    "paper/tex_fragments/DEFECT_PARTICLE_CLASSES.tex",
+    "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
    ]
   },
   {
@@ -2544,7 +2557,9 @@
     "PR-95",
     "PR-54"
    ],
-   "lean": [],
+   "lean": [
+    "Lean/SourceLaw/NeutralEjecta.lean"
+   ],
    "model": [
     "model/evaluation/SCORECARD.md",
     "code/defect_particle_classes/PROOF.md",
@@ -2555,12 +2570,16 @@
     "model/candidate_laws/interval_echo/openwave/row_04_conjugates/README.md",
     "model/candidate_laws/interval_echo/openwave/row_04_conjugates/results.json",
     "model/candidate_laws/interval_echo/openwave/row_08_annihilation/README.md",
-    "model/candidate_laws/interval_echo/openwave/row_08_annihilation/walls.json"
+    "model/candidate_laws/interval_echo/openwave/row_08_annihilation/walls.json",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/excited_bounds.json",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/neutral_ejecta/README.md",
+    "model/experiments/interval_echo_lepton_register/README.md"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
     "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf",
-    "paper/tex_fragments/DEFECT_PARTICLE_CLASSES.tex"
+    "paper/tex_fragments/DEFECT_PARTICLE_CLASSES.tex",
+    "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
    ]
   },
   {
@@ -3056,22 +3075,27 @@
    "kind": "observable",
    "name": "Koide relation Q = 2/3",
    "category": "Particle Masses",
-   "status": "Open",
+   "status": "Partial",
    "what": "The Koide ratio (m_e + m_mu + m_tau)/(sqrt m_e + sqrt m_mu + sqrt m_tau)^2 equals 2/3 within measurement precision for the charged leptons.",
-   "why": "The relation has no Standard Model explanation; OPH links it to a balanced three-state circulant structure, which a precise tau mass measurement can test.",
+   "why": "Native vacancy interference realizes the exact quotient in detector intensities, while free release couples every combination of the three readout modes to other modes.",
    "premises": [
     "PR-155"
    ],
    "lean": [
-    "Lean/ObserverPatchHolography/KoideCirculant.lean"
+    "Lean/ObserverPatchHolography/KoideCirculant.lean",
+    "Lean/ObserverPatchHolography/LeptonRegisterCharacterisation.lean"
    ],
    "model": [
     "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/README.md",
     "code/particles/leptons/koide_balance_comparison_certificate.py",
-    "code/particles/runs/leptons/koide_balance_comparison.json"
+    "code/particles/runs/leptons/koide_balance_comparison.json",
+    "model/experiments/interval_echo_lepton_register/README.md",
+    "model/experiments/interval_echo_lepton_register/results.json",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/excited_bounds.json"
    ],
    "papers": [
-    "extra/koide_identity_from_positive_c3_face_circulants.pdf"
+    "extra/koide_identity_from_positive_c3_face_circulants.pdf",
+    "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
    ]
   },
   {
@@ -3089,14 +3113,16 @@
    "model": [
     "code/particles/leptons/koide_balance_comparison_certificate.py",
     "code/particles/runs/leptons/koide_balance_comparison.json",
-    "code/particles/data/particle_reference_values.json"
+    "code/particles/data/particle_reference_values.json",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/excited_bounds.json"
    ],
    "papers": [
     "docs/FROZEN_PREDICTION_LADDER.md",
     "claims/frozen_prediction_register.json",
     "extra/koide_identity_from_positive_c3_face_circulants.pdf",
     "evidence/custody/falsification/frozen_targets/fz10_2026-07-28/frozen_target_koide_conditional_tau_2026-07-28.md",
-    "evidence/custody/falsification/frozen_targets/fz10_2026-07-28/koide_balance_comparison_frozen_2026-07-28.json"
+    "evidence/custody/falsification/frozen_targets/fz10_2026-07-28/koide_balance_comparison_frozen_2026-07-28.json",
+    "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
    ]
   },
   {
@@ -3144,9 +3170,13 @@
     "model/evaluation/SCORECARD.md",
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/bounds.py",
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/bounds.json",
-    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/results.json"
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/results.json",
+    "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/hierarchy/floor_calibration.json",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/excited_bounds.json"
    ],
-   "papers": []
+   "papers": [
+    "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
+   ]
   },
   {
    "id": "quark-masses",
@@ -4472,10 +4502,12 @@
     "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/arrival_spin/README.md",
     "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/arrival_spin/localized_recoil.py",
     "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/arrival_spin/localized_recoil.json",
-    "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/arrival_spin/DESIGN.md"
+    "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/arrival_spin/DESIGN.md",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/excited_bounds.json"
    ],
    "papers": [
-    "paper/executable_observer_construction.pdf"
+    "paper/executable_observer_construction.pdf",
+    "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
    ]
   },
   {
@@ -4585,16 +4617,21 @@
    "what": "The electron carries intrinsic spin angular momentum of magnitude hbar/2.",
    "why": "A field model has to show this angular momentum in the field of the same electron state.",
    "premises": [],
-   "lean": [],
+   "lean": [
+    "Lean/SourceLaw/OrbitalMirrorCycle.lean"
+   ],
    "model": [
     "model/evaluation/SCORECARD.md",
     "model/evaluation/openwave_criteria.json",
     "model/candidate_laws/interval_echo/SPEC.md",
     "model/experiments/interval_echo_angular/charged_orientation/README.md",
     "model/experiments/interval_echo_angular/charged_orientation/measure.json",
-    "model/candidate_laws/interval_echo/openwave/electron_field/README.md"
+    "model/candidate_laws/interval_echo/openwave/electron_field/README.md",
+    "model/experiments/interval_echo_angular/charged_orientation/conical_cycle/README.md"
    ],
-   "papers": []
+   "papers": [
+    "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
+   ]
   },
   {
    "id": "ow-07-spin-half-statistics",
@@ -4722,9 +4759,14 @@
     "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/identity_audit/README.md",
     "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/arrival_spin/README.md",
     "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/arrival_spin/recoil.py",
-    "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/arrival_spin/recoil.json"
+    "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/arrival_spin/recoil.json",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/excited_bounds.json",
+    "model/experiments/interval_echo_lepton_register/README.md",
+    "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/hierarchy/floor_calibration.json"
    ],
-   "papers": []
+   "papers": [
+    "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
+   ]
   },
   {
    "id": "ow-12-quarks",
@@ -5056,13 +5098,19 @@
    "what": "The muon decays into an electron and two neutrinos with a mean lifetime of about 2.2 microseconds.",
    "why": "Muon decay is the cleanest weak process and fixes the Fermi constant, so a model has to reproduce it on identified states.",
    "premises": [],
-   "lean": [],
+   "lean": [
+    "Lean/SourceLaw/NeutralEjecta.lean"
+   ],
    "model": [
     "model/evaluation/SCORECARD.md",
     "model/evaluation/openwave_criteria.json",
-    "model/candidate_laws/interval_echo/SPEC.md"
+    "model/candidate_laws/interval_echo/SPEC.md",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/neutral_ejecta/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/neutral_ejecta/results.json"
    ],
-   "papers": []
+   "papers": [
+    "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
+   ]
   },
   {
    "id": "ow-25-beta-decay",
@@ -8357,16 +8405,21 @@
    "kind": "premise",
    "name": "lepton register branch weights",
    "category": "Physical premises",
-   "status": "Open",
+   "status": "Partial",
    "what": "The charged-lepton register carries branch weights 1 - p for idle, p/2 for agree and p/4 for each oriented repair.",
-   "why": "They give one route to the balance parameter of the charged-lepton register, which fixes its flavour structure.",
+   "why": "A guarded vacancy gives the four weights and equal activity under a geometric port read, while mapping those arms to repair events of a freely propagating charged family requires a dynamical measurement.",
    "premises": [],
    "lean": [
     "Lean/ObserverPatchHolography/LeptonRegisterCharacterisation.lean",
     "Lean/ObserverPatchHolography/KoideCirculant.lean"
    ],
-   "model": [],
-   "papers": [],
+   "model": [
+    "model/experiments/interval_echo_lepton_register/README.md",
+    "model/experiments/interval_echo_lepton_register/results.json"
+   ],
+   "papers": [
+    "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
+   ],
    "statement": "The singlet and centred-plane coefficients of the charged-lepton register carry the branch weights idle 1 - p, agree p/2 and each oriented repair p/4, with equal activity in the two factors.",
    "premise_kind": "derivable"
   },

@@ -1,0 +1,9 @@
+# A charged register read on a guarded cell
+
+Prepare a single vacancy on a unit-filled twelve-port cell with blank memories. Use local contacts along a path to leave equal amplitudes on its stations. Choose an internal seam, classify its endpoints together, give each of its two incident face tips a separate address and retain the other eight ports. This is a specified geometric reader. Acquire complete terminal port records with the guarded echo service. Compare two independently prepared sources with a common-address copy. Use two separate phase-service settings, the exact exclusive probability for the first tip on one source and an endpoint on the other, and the measured fraction in the calibration sample, expressed in radians. This conversion is an instrument setting.
+
+Coherently combine the endpoint pair into its symmetric and antisymmetric modes. Apply opposite phases to the two tips and read the three Fourier characters of the endpoint sum and the two tips through native exchanges, private phases and terminal vacancy reads. Retain the antisymmetric output and every idle port. Repeat with a different phase, an incoherent input of identical populations, reversed orientation, and tripled exchange strength at the frozen exposures. Test all thirty seams under the native setting.
+
+Release the three analyzer modes under the free federation law. Measure the total probability of returning to their subspace by undoing the read, waiting, applying it again and counting all home ports and the outside-home outcome. Check whether any linear combination is protected against leakage. The theorem concerns a detector effect. Interpreting its eigenchannels as particles requires an independently observed invariant dynamical sector and free rest energies.
+
+For seeded simulated counts round terminal weights to twelve decimal places, normalize and sample complete multinomial banks. Retain the unrounded probabilities separately.

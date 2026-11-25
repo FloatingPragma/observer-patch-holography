@@ -115,6 +115,40 @@ theorem exclusive_count_eq_two_ninths_iff {p : ℝ} (_hp0 : 0 ≤ p) (hp1 : p �
     subst h
     norm_num
 
+/-- The four disjoint port bins of the marked-edge reader furnish one instance
+of the equal-activity weights. The orientation is part of the reader. -/
+theorem marked_edge_branch_weights :
+    (8 / 12 : ℝ) = 1 - 1 / 3 ∧ (2 / 12 : ℝ) = (1 / 3) / 2 ∧
+    (1 / 12 : ℝ) = (1 / 3) / 4 ∧
+    (1 / 12 : ℝ) + 2 / 12 - 2 * (1 / 12) * (2 / 12) = 2 / 9 := by
+  norm_num
+
+/-- The amplitude of the symmetric endpoint pair is sqrt(2) times either
+tip amplitude. Three-character Fourier readout therefore has balanced
+intensities in the positive-root chamber. -/
+theorem marked_edge_intensity_quotient {x y z : ℝ}
+    (hs : x + y + z = 0) (hq : x ^ 2 + y ^ 2 + z ^ 2 = 3 / 2) :
+    let a := Real.sqrt 2 / 6
+    let b := (1 / 6 : ℝ)
+    ((a + 2*b*x)^2 + (a + 2*b*y)^2 + (a + 2*b*z)^2) /
+      ((a + 2*b*x) + (a + 2*b*y) + (a + 2*b*z))^2 = 2 / 3 := by
+  dsimp
+  rw [KoideCirculant.root_square_sum hs hq, KoideCirculant.root_sum hs]
+  have h2 := Real.sq_sqrt (by norm_num : (0 : ℝ) ≤ 2)
+  have hn : Real.sqrt 2 ≠ 0 := by positivity
+  field_simp
+  nlinarith
+
+/-- On the marked seam (0,1), the free-generator rows at ports 4, 6, 8 are
+proportional to y, z, x+z on a word with endpoint amplitudes x and tip
+amplitudes y,z. Vanishing leakage forces the zero word. -/
+theorem marked_edge_no_free_mode {x y z : ℂ} (h4 : y = 0) (h6 : z = 0)
+    (h8 : x + z = 0) : x = 0 ∧ y = 0 ∧ z = 0 := by
+  exact ⟨by simpa [h6] using h8, h4, h6⟩
+
+#print axioms marked_edge_branch_weights
+#print axioms marked_edge_intensity_quotient
+#print axioms marked_edge_no_free_mode
 #print axioms xor_unique
 #print axioms balance_of_equal_activity
 #print axioms balance_iff_equal_activity
