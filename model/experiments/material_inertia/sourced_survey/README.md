@@ -66,7 +66,7 @@ The established moving neutral bound band uses a different source. Its complete 
 To replay from the RER root with one numerical thread:
 
 ~~~sh
-export PYTHONPATH=code:. OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1
+export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1
 python -m model.experiments.material_inertia.sourced_survey.measure
 python -W error -m pytest -q model/experiments/material_inertia/sourced_survey
 ~~~
