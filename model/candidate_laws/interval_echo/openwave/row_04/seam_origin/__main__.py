@@ -30,8 +30,11 @@ def sources():
             raise ValueError(f"Different source from the donor: {module.__name__}")
         bindings[module.__name__] = {"commit": pin, "git_blob": blob}
     board = flight.transfer.filed.BOARD
-    if sha256(board.read_bytes()).hexdigest() != flight.transfer.filed.BOARD_HASH:
-        raise ValueError("Wrong M10.4 board")
+    for level, digest in enumerate((flight.transfer.filed.BOARD_HASH,
+                                  "c7d4ad87b09d9158a3d9be60c537d1aaecc69e951e6a9979e505e0162e134d4b",
+                                  "e7273bbd0e814abf49f3a333ecfe58a542262aee7d2399db677d15c19fcac673")):
+        if sha256(board.with_name(f"FEDERATION_LEVEL{level}.npz").read_bytes()).hexdigest() != digest:
+            raise ValueError(f"Wrong M10.4 federation at level {level}")
     return {"protocol_sha256": sha256((HERE / "PROTOCOL.md").read_bytes().replace(b"\r\n", b"\n")).hexdigest(),
             "board_sha256": flight.transfer.filed.BOARD_HASH, "source_blobs": bindings}
 
@@ -58,7 +61,7 @@ def compare(actual, saved, key=""):
             compare(v, saved[k], k)
     elif isinstance(actual, list):
         if key in BINS:
-            if (len(saved) != len(actual) or any(type(n) is not int or n < 0 for n in saved)
+            if (len(saved) != len(actual) or any(type(n) is not int or not 0 <= n <= flight.UNITS for n in saved)
                     or abs(sum(saved) - flight.UNITS) > len(saved)/2
                     or any(abs(a-b) > 2 for a, b in zip(actual, saved, strict=True))):
                 raise ValueError(f"Changed terminal law at {key}")
@@ -69,7 +72,7 @@ def compare(actual, saved, key=""):
         if not 0 <= saved <= flight.UNITS or abs(actual-saved) > 2:
             raise ValueError(f"Changed probability at {key}")
     elif type(actual) is float:
-        if not isfinite(saved) or abs(actual-saved) > 2e-10:
+        if not (isfinite(saved) and isfinite(actual)) or abs(actual-saved) > 2e-10:
             raise ValueError(f"Changed numerical result at {key}")
     elif actual != saved:
         raise ValueError(f"Changed exact record at {key}")

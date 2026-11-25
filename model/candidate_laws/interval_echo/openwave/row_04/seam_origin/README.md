@@ -1,6 +1,6 @@
 # What fixes the eleven written seams?
 
-On the M10.4 board, eleven writes are the **minimum necessary to protect the filed two-load interference state** at its address, among all blank/neutral assignments. Eight suffice for its one-load orbital. This identifies what each write does. The [OpenWave review](https://github.com/openwave-labs/openwave/pull/749#pullrequestreview-6060088147) kept row 4 at partial because the authors selected the pattern with persistence in view. Neither of two material prescriptions older than that selection reproduces the result. The uniform commissioning service used for row 30 can produce the pattern, but at the filed address it does so about once per 13.3 million boards.
+On the M10.4 board, eleven neutral writes are the **minimum that makes the dark component of the filed pair an exact eigenray at every coupling** at its address. Eight suffice for its one-load orbital. The acquired pair also contains a bright component. The [OpenWave review](https://github.com/openwave-labs/openwave/pull/749#pullrequestreview-6060088147) kept row 4 at partial because the authors selected the pattern with persistence in view. Neither of two material prescriptions older than that selection reproduces the result. Under the row 30 commissioning rule the local pattern has probability about one in 13.3 million boards at the filed address.
 
 ## Which contacts does the state need?
 
@@ -41,6 +41,8 @@ On 630 seams the sharp maximum is **0.000168818** (rounded), attained at 462 wri
 
 ## What the observer reads without selecting the material
 
+The acquisition reads center occupancy by echo, copying a flag and undoing the echo. On a neutral meter it uses the filed flag; on a blank meter it uses the nonzero-contrast flag. The [native column check](../commissioned_medium/experiment.py) gives the same selective occupancy operation on both materials. Only the two pulse contacts then affect admission.
+
 There is an exact obstruction on the unconditioned spectroscopy source at zero contrast. With probability $9/16$ both preparation contacts are blank and the eight-attempt exhaustion is $(364/729)^8$. With probability $3/16$ only the contact from the center to tip $c$ transmits. Each occupied read then succeeds with probability $\cos^2(\pi/3)=1/4$; three successive reads accept only $1/64$ per attempt. In the remaining quarter the contact to $c$ is written and the sharp initial pair never leaves during acquisition. Thus **at every free exposure**,
 
 $$P(\text{home})\le P(\text{accepted})=
@@ -77,4 +79,4 @@ python -B -m model.candidate_laws.interval_echo.openwave.row_04.seam_origin --fu
 python -B -m pytest -q model/candidate_laws/interval_echo/openwave/row_04/seam_origin
 ```
 
-The first command verifies the exact census on all three boards. The second derives the admission ceiling. Full replay checks the immutable donor source blobs, regenerates all 128 two-bit histories, propagates all 28,680 two-load configurations per material and compares each terminal bin with the archive. The pulse and terminal instruments reuse the [native material transfer](../commissioned_medium/experiment.py). The raw-board test constructs its own pair graph, pulse and two propagations for the two pre-layout donors and the first ensemble bank. Verification reads the receipt. `--record PATH` creates a separate first record and refuses an existing path.
+The first command verifies the exact census on all three pinned boards. The second derives the admission ceiling and checks the source losses against the regenerated history of every enrolled seed. Full replay checks the donor source blobs, propagates all 28,680 two-load configurations per material and compares each terminal bin with the archive. The pulse and terminal instruments reuse the [native material transfer](../commissioned_medium/experiment.py). The raw-board test constructs its own pair graph, pulse and two propagations for the two pre-layout donors and the first ensemble bank. Verification reads the receipt. `--record PATH` creates a separate first record and refuses an existing path.

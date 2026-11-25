@@ -43,14 +43,28 @@ def verify():
         np.testing.assert_allclose(prep["exhaustion"] + prep["failed_with_reset_unavailable"],
                                    float(failed), atol=2e-13, rtol=0)
     board = flight.federation(0)
-    ix, iz = [board.seams.index(edge) for edge in (flight.transfer.X, flight.transfer.Z)]
+    _, home = flight.open_pair.geometry()
+    panel = record["ensemble"]
+    if (type(record["units"]) is not int or record["units"] != flight.UNITS
+            or record["pair_outcomes"] != [*map(list, home), "quiet"]
+            or (panel["strength"], panel["exposure"]) != (0, 7)):
+        raise ValueError("Wrong panel units, appointment or home reader")
+    fair = flight.transfer.donor.native()
     failures = {(x, z): failed for x, z, _, _, failed in rows}
-    for bank in record["ensemble"]["banks"]:
-        bits = bytes.fromhex(bank["coins_hex"])
-        x, z = [(bits[i//4] >> (2*(i%4))) & 3 == 3 for i in (ix, iz)]
-        failed = failures[x, z]
-        count = bank["source_exhaustion"] + bank["reset_unavailable"]
-        if abs(count-record["units"]*failed) > 1 or bank["acquired"][-1] < count-1:
+    for seed, bank in zip(flight.SEEDS, panel["banks"], strict=True):
+        if type(bank["seed"]) is not int or bank["seed"] != seed:
+            raise ValueError("Missing or substituted material seed")
+        written, packed = flight.material(board, seed, fair)
+        if packed != bank["coins_hex"] or type(bank["writes"]) is not int or len(written) != bank["writes"]:
+            raise ValueError("Material history differs from the source")
+        failed = failures[flight.transfer.X in written, flight.transfer.Z in written]
+        count = bank["source_exhaustion"]
+        reset = bank["reset_unavailable"]
+        bins = bank["acquired"]
+        if (type(count) is not int or count != round(flight.UNITS*failed)
+                or type(reset) is not int or reset != 0 or len(bins) != 31
+                or any(type(n) is not int or not 0 <= n <= flight.UNITS for n in bins)
+                or abs(sum(bins)-flight.UNITS) > len(bins)/2 or bins[-1] < count-1):
             raise ArithmeticError("Source losses disagree with the coin words or the inclusive read")
     if limit >= Fraction(94, 100):
         raise ArithmeticError("The inherited preparation does not exclude the benchmark")

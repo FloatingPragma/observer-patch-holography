@@ -105,6 +105,8 @@ def occurrence_bounds(events):
     signatures = Counter()
     overlaps = 0
     for i, (closed, opened) in enumerate(events):
+        if len(closed) != 11 or len(opened) != 4 or not closed.isdisjoint(opened):
+            raise ValueError("Each motif needs eleven closed and four distinct open contacts")
         neighbours = {j for edge in closed | opened for j in incident[edge]}
         overlaps += len(neighbours)
         for j in neighbours:

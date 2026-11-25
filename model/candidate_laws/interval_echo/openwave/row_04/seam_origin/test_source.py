@@ -35,8 +35,8 @@ def test_all_masks_against_cancellation_at_each_destination():
     shared = [bit(a, b), bit(c, b), bit(a, d), bit(c, d)]
     tip_only = sum(1 << i for i, e in enumerate(edges) if {a, c}.intersection(e)) - sum(shared)
     center_only = (2**15-1) ^ (tip_only | sum(shared))
-    classes = masks.local_classes()["classes"]
-    hist = {name: [0]*16 for name in classes}
+    classes = load(ARCHIVE)["census"]["filed_address"]["classes"]
+    matches_by_ray = {name: np.zeros(2**15, dtype=bool) for name in classes}
     for mask in range(2**15):
         tips = mask & tip_only == tip_only
         matches = all(bool(mask & x) == bool(mask & y) for x, y in zip(shared[::2], shared[1::2]))
@@ -44,11 +44,19 @@ def test_all_masks_against_cancellation_at_each_destination():
         plus = tips and mask & sum(shared) == sum(shared)
         for name, ok in (("one_load_minus", tips and matches), ("one_load_plus", plus),
                          ("pair_minus", tips and matches and shut_center), ("pair_plus", plus and shut_center)):
-            hist[name][mask.bit_count()] += int(ok)
-    assert hist == {name: row["by_write_count_0_to_15"] for name, row in classes.items()}
+            matches_by_ray[name][mask] = ok
+    mask_ids = np.arange(2**15)
+    live = (1 - ((mask_ids[:, None] >> np.arange(15)) & 1)).astype(np.int16)
+    board = masks.federation(0)
+    for name, expected in matches_by_ray.items():
+        words = ((b, a), (b, c)) if name.startswith("pair") else ((a,), (c,))
+        sign = -1 if name.endswith("minus") else 1
+        np.testing.assert_array_equal(masks.eigenmasks(board, edges, live, words, sign), expected)
+        hits = np.flatnonzero(expected)
+        assert np.bincount([int(i).bit_count() for i in hits], minlength=16).tolist() == classes[name]["by_write_count_0_to_15"]
+        assert hits[(hits & sum(shared)) == 0].tolist() == classes[name]["four_routes_open_masks"]
     # The protected pair has the same integer columns if *every* remote collar changes.
     from ..topology_census import action
-    board = masks.federation(0)
     written = set(board.seams) - {e for e in edges if bit(*e) in shared}
     x, z = (b, a), (b, c)
     assert action(board, written, {x: 1, z: -1}) == ({x: 2, z: -2}, {x: 3, z: -3})
@@ -150,3 +158,22 @@ def test_receipt_rejects_a_different_draw_and_a_changed_receiver():
         compare(row, {**row, "seed": row["seed"]+1})
     with pytest.raises(ValueError, match="terminal"):
         compare(row, {**row, "acquired": row["acquired"][::-1]})
+
+
+@pytest.mark.parametrize("mutation", ["missing_panel", "repeat_seed", "different_history", "shift_loss"])
+def test_admission_rejects_invalid_source_histories(monkeypatch, mutation):
+    from . import admission
+    record = load(ARCHIVE)
+    banks = record["ensemble"]["banks"]
+    if mutation == "missing_panel":
+        banks.clear()
+    elif mutation == "repeat_seed":
+        banks[1] = banks[0]
+    elif mutation == "different_history":
+        banks[0]["coins_hex"] = banks[1]["coins_hex"]
+    else:
+        banks[0]["source_exhaustion"] -= 1
+        banks[0]["reset_unavailable"] += 1
+    monkeypatch.setattr(admission, "load", lambda _: record)
+    with pytest.raises((ValueError, ArithmeticError)):
+        admission.verify()
