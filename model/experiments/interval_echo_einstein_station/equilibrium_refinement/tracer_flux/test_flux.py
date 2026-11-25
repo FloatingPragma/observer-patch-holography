@@ -44,7 +44,9 @@ def test_exterior_only_prediction_with_unused_outward_exposure():
     read = receipt["active"]["randomized_transmission"]
     assert read["class_sizes"] == [15, 30, 10]
     matrix = np.array(read["class_calibration_matrix"])
-    np.testing.assert_allclose(np.asarray(read["nats_per_record"]) @ matrix, np.log([1, 5, 10]))
+    decoded = np.asarray(read["nats_per_record"]) @ matrix
+    # The empty class has log(1) = 0, so roundoff there needs an absolute bound.
+    np.testing.assert_allclose(decoded, np.log([1, 5, 10]), rtol=0, atol=3e-14)
     lo, hi = read["simultaneous_99_charge_interval"]
     assert lo < receipt["true_held_completion_nats"] < hi < 0
     for bank in read["arms"].values():
