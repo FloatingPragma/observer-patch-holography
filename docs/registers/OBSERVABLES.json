@@ -2440,10 +2440,19 @@
     "model/experiments/interval_echo_consensus/refinement_cooling/measure.py",
     "model/experiments/interval_echo_consensus/refinement_cooling/results.json",
     "code/thermodynamics/collar_matrix_realization_probe.py",
-    "code/thermodynamics/runtime/collar_matrix_realization_probe.json"
+    "code/thermodynamics/runtime/collar_matrix_realization_probe.json",
+    "model/experiments/interval_echo_consensus/refinement_cooling/dimer_band/README.md",
+    "model/experiments/interval_echo_consensus/refinement_cooling/dimer_band/measure.py",
+    "model/experiments/interval_echo_consensus/refinement_cooling/dimer_band/records.json",
+    "model/experiments/interval_echo_consensus/refinement_cooling/dimer_band/test_band.py",
+    "model/experiments/interval_echo_consensus/refinement_cooling/dimer_band/surface.py",
+    "model/experiments/interval_echo_consensus/refinement_cooling/dimer_band/surface.json",
+    "model/experiments/interval_echo_consensus/refinement_cooling/dimer_band/SURFACE.md",
+    "model/experiments/interval_echo_consensus/refinement_cooling/dimer_band/test_surface.py"
    ],
    "papers": [
-    "paper/observers_are_all_you_need.pdf"
+    "paper/observers_are_all_you_need.pdf",
+    "paper/reality_as_consensus_protocol.pdf"
    ]
   },
   {
@@ -2478,7 +2487,7 @@
    "kind": "observable",
    "name": "Fluctuation relations",
    "category": "Thermodynamics",
-   "status": "Partial",
+   "status": "Demonstrated",
    "what": "In small systems entropy can briefly decrease, and the odds of a history versus its time reverse grow exponentially with entropy production.",
    "why": "OPH's repair histories have to obey these exact identities, which make the second law a statistical statement about record trajectories.",
    "premises": [
@@ -2493,11 +2502,16 @@
     "Lean/Thermodynamics/FluctuationTheorems.lean"
    ],
    "model": [
+    "model/experiments/interval_echo_consensus/conditional_bath/FLUCTUATIONS.md",
+    "model/experiments/interval_echo_consensus/conditional_bath/fluctuation.py",
+    "model/experiments/interval_echo_consensus/conditional_bath/fluctuation.json",
+    "model/experiments/interval_echo_consensus/conditional_bath/test_fluctuation.py",
     "model/experiments/interval_echo_consensus/conditional_bath/gibbs.py",
     "model/experiments/interval_echo_consensus/conditional_bath/gibbs.json"
    ],
    "papers": [
-    "paper/observers_are_all_you_need.pdf"
+    "paper/observers_are_all_you_need.pdf",
+    "paper/reality_as_consensus_protocol.pdf"
    ]
   },
   {
@@ -6791,7 +6805,11 @@
     "model/experiments/interval_echo_gauge/trimer_transport/centre.json",
     "model/experiments/interval_echo_gauge/trimer_transport/local_bases.py",
     "model/experiments/interval_echo_gauge/trimer_transport/local.json",
-    "model/experiments/interval_echo_gauge/trimer_transport/test_transport.py"
+    "model/experiments/interval_echo_gauge/trimer_transport/test_transport.py",
+    "model/candidate_laws/interval_echo/openwave/row_13_baryon/arm_symmetry/released_product/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_13_baryon/arm_symmetry/released_product/measure.py",
+    "model/candidate_laws/interval_echo/openwave/row_13_baryon/arm_symmetry/released_product/records.json",
+    "model/candidate_laws/interval_echo/openwave/row_13_baryon/arm_symmetry/released_product/test_product.py"
    ],
    "papers": [
     "paper/executable_observer_construction.pdf"
@@ -7917,9 +7935,15 @@
     "model/experiments/interval_echo_consensus/conditional_bath/transitions.json",
     "model/experiments/interval_echo_consensus/conditional_bath/gibbs.py",
     "model/experiments/interval_echo_consensus/conditional_bath/gibbs.json",
-    "model/experiments/interval_echo_consensus/conditional_bath/test_bath.py"
+    "model/experiments/interval_echo_consensus/conditional_bath/test_bath.py",
+    "model/experiments/interval_echo_consensus/refinement_cooling/dimer_band/surface.py",
+    "model/experiments/interval_echo_consensus/refinement_cooling/dimer_band/surface.json",
+    "model/experiments/interval_echo_consensus/refinement_cooling/dimer_band/SURFACE.md",
+    "model/experiments/interval_echo_consensus/refinement_cooling/dimer_band/test_surface.py"
    ],
-   "papers": [],
+   "papers": [
+    "paper/reality_as_consensus_protocol.pdf"
+   ],
    "statement": "One common faithful reference serves both Axiom 3 instantiations, and the transition feasible set is the fibre of the complete repaired visible datum of the active collar. On these inputs the state projection selects the Gibbs family and the transition projection selects weighted conditional resampling from the same reference, giving the finite four-law package.",
    "premise_kind": "declared"
   },
@@ -7928,7 +7952,7 @@
    "kind": "premise",
    "name": "refinement-uniform low-temperature control",
    "category": "Physical premises",
-   "status": "Open",
+   "status": "Demonstrated",
    "what": "Across a family of regulated models, one bound drives the weight away from the ground state to zero at low temperature, with a common threshold.",
    "why": "It is needed to carry finite thermodynamic statements over to statements uniform under refinement and in the continuum limit.",
    "premises": [],
@@ -7939,10 +7963,20 @@
     "Lean/Thermodynamics/CoherentRefinementFamily.lean"
    ],
    "model": [
+    "model/experiments/interval_echo_consensus/refinement_cooling/dimer_band/README.md",
+    "model/experiments/interval_echo_consensus/refinement_cooling/dimer_band/measure.py",
+    "model/experiments/interval_echo_consensus/refinement_cooling/dimer_band/records.json",
+    "model/experiments/interval_echo_consensus/refinement_cooling/dimer_band/test_band.py",
+    "model/experiments/interval_echo_consensus/refinement_cooling/dimer_band/surface.py",
+    "model/experiments/interval_echo_consensus/refinement_cooling/dimer_band/surface.json",
+    "model/experiments/interval_echo_consensus/refinement_cooling/dimer_band/SURFACE.md",
+    "model/experiments/interval_echo_consensus/refinement_cooling/dimer_band/test_surface.py",
     "model/experiments/interval_echo_consensus/refinement_cooling/README.md",
     "model/experiments/interval_echo_consensus/refinement_cooling/results.json"
    ],
-   "papers": [],
+   "papers": [
+    "paper/reality_as_consensus_protocol.pdf"
+   ],
    "statement": "A declared indexed regulator family carries one uniform low-temperature tail bound that drives the off-minimum Gibbs mass, and where claimed the entropy excess, to zero with one inverse-temperature threshold across the family. It is needed for regulator-uniform and continuum statements, not for the finite four-law clauses.",
    "premise_kind": "derivable"
   },
