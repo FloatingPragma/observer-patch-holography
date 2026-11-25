@@ -1,0 +1,145 @@
+{
+  "neutral_masks": [
+    0,
+    15,
+    16,
+    31
+  ],
+  "signed_projectors": {
+    "negative_daughter": [
+      15
+    ],
+    "positive_daughter": [
+      16
+    ],
+    "dark": [
+      0,
+      31
+    ]
+  },
+  "bound_pair_controls": {
+    "negative_daughter": {
+      "resolved_masks": [
+        7,
+        8
+      ],
+      "constituent_charges": [
+        -1,
+        1
+      ],
+      "direct_mask": 15,
+      "left_charge_squared": 1,
+      "global_generators": 12
+    },
+    "positive_daughter": {
+      "resolved_masks": [
+        24,
+        23
+      ],
+      "constituent_charges": [
+        1,
+        -1
+      ],
+      "direct_mask": 16,
+      "left_charge_squared": 1,
+      "global_generators": 12
+    },
+    "weak_dark": {
+      "resolved_masks": [
+        7,
+        24
+      ],
+      "constituent_charges": [
+        -1,
+        1
+      ],
+      "direct_mask": 0,
+      "left_charge_squared": 1,
+      "global_generators": 12
+    }
+  },
+  "mixture_controls": {
+    "marginal_minus_plus_dark_pair": [
+      "1/2",
+      "0",
+      "1/2",
+      "1/2"
+    ],
+    "first_joint": [
+      "1/2",
+      "0",
+      "0",
+      "0",
+      "0",
+      "1/2"
+    ],
+    "second_joint": [
+      "0",
+      "0",
+      "1/2",
+      "1/2",
+      "0",
+      "0"
+    ]
+  },
+  "transported_reads": {
+    "matched": "1",
+    "stale": "9/25",
+    "center_arrival": "16/25"
+  },
+  "signed_calibration": {
+    "calibration": [
+      [
+        "3/4",
+        "1/8"
+      ],
+      [
+        "1/8",
+        "1/2"
+      ]
+    ],
+    "determinant": "23/64",
+    "arrival": "2/5",
+    "per_launch": [
+      "1/6",
+      "11/120",
+      "89/120"
+    ],
+    "inferred_entering_minus_plus_dark": [
+      "1/2",
+      "1/3",
+      "1/6"
+    ],
+    "matching_no_dark_arrival": "1/3"
+  },
+  "declared_family_control": {
+    "first_basis_tags": [
+      "9/25",
+      "16/25",
+      "0"
+    ],
+    "third_tag_visible_to_first_two": 0
+  },
+  "measured_material_full_setting": [
+    {
+      "sign": -1,
+      "hub_target_donor": [
+        0,
+        2,
+        1
+      ],
+      "hits": 1245274,
+      "starts": 1649267441664
+    },
+    {
+      "sign": 1,
+      "hub_target_donor": [
+        2,
+        0,
+        1
+      ],
+      "hits": 1248385,
+      "starts": 1649267441664
+    }
+  ]
+}
