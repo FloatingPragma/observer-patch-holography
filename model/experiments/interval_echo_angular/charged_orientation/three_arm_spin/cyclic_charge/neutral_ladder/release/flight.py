@@ -99,10 +99,11 @@ def frame(sign, mask, init=(160, 167), written=True):
             np.diag(separate) + np.sum(abs(separate), axis=1) - abs(np.diag(separate))
         )
     )
-    cross_norm = np.sqrt(
-        np.max(np.sum(abs(off), axis=0)) * np.max(np.sum(abs(off), axis=1))
-    )
-    residual = np.linalg.norm(h[0] - np.eye(len(h))[0] * vols[0])
+    cross_squared = np.max(np.sum(abs(off), axis=0)) * np.max(np.sum(abs(off), axis=1))
+    residuals = h[0].copy()
+    residuals[0] = 0
+    variance = np.dot(residuals, residuals)
+    cross_norm, residual = np.sqrt(cross_squared), np.sqrt(variance)
     certified = (
         max(
             0.0,
@@ -150,8 +151,8 @@ def frame(sign, mask, init=(160, 167), written=True):
                 low,
                 min_contact,
                 max_sep,
-                float(cross_norm**2),
-                float(residual**2),
+                float(cross_squared),
+                float(variance),
                 float(vols[0]),
             ],
             analytic_all_time_floor=certified,
