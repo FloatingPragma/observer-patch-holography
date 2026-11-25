@@ -164,4 +164,5 @@ import QFT.MaterialReleaseSlices
 import ObserverPatchHolography.Provenance.ReleaseRelay
 import ObserverPatchHolography.Provenance.MeteredEnergyCone
 import ObserverPatchHolography.Provenance.RoutedOctant
+import ObserverPatchHolography.Provenance.ScreenAngularTransfer
 import ObserverPatchHolography.Provenance.ScreenDensityClock

@@ -4079,14 +4079,19 @@
    ],
    "model": [
     "code/angular_sprint/runtime/angular_template_receipt.json",
-    "code/angular_sprint/runtime/refinement_transfer_receipt.json"
+    "code/angular_sprint/runtime/refinement_transfer_receipt.json",
+    "code/cosmology/release_horizon/angular_transfer/README.md",
+    "code/cosmology/release_horizon/angular_transfer/records.json",
+    "code/cosmology/release_horizon/angular_transfer/detectors.npz"
    ],
    "papers": [
     "docs/FROZEN_PREDICTION_LADDER.md",
     "claims/frozen_prediction_register.json",
     "docs/EMPIRICAL_STATUS.md",
     "evidence/custody/falsification/frozen_targets/fz02_2026-07-26/frozen_target_angular_multiplet_signature_2026-07-26.md",
-    "evidence/custody/falsification/frozen_targets/fz11_2026-07-31/frozen_target_spin_six_primitive_port_prediction_2026-07-31.md"
+    "evidence/custody/falsification/frozen_targets/fz11_2026-07-31/frozen_target_spin_six_primitive_port_prediction_2026-07-31.md",
+    "cosmology/oph_cosmology_finite_source_cmb_program.pdf",
+    "cosmology/oph_boltzmann_transport_derivation.pdf"
    ]
   },
   {
@@ -8324,17 +8329,29 @@
    "kind": "premise",
    "name": "screen-to-sky template map",
    "category": "Physical premises",
-   "status": "Open",
-   "what": "A source-derived map carries the icosahedral-symmetric angular pattern of the screen onto the observed CMB sky in a fixed orientation.",
+   "status": "Partial",
+   "what": "In a fixed material frame a degree-six screen contrast reaches detectors with a gain that depends on angular redistribution, while the physical sky orientation and visibility history require calibration.",
    "why": "Any predicted icosahedral imprint on large-angle CMB multipoles depends on this map transferring the screen pattern with nonzero strength.",
    "premises": [],
-   "lean": [],
+   "lean": [
+    "Lean/ObserverPatchHolography/Provenance/ScreenAngularTransfer.lean"
+   ],
    "model": [
     "code/angular_sprint/runtime/angular_template_receipt.json",
-    "code/angular_sprint/runtime/refinement_transfer_receipt.json"
+    "code/angular_sprint/runtime/refinement_transfer_receipt.json",
+    "code/cosmology/release_horizon/angular_transfer/README.md",
+    "code/cosmology/release_horizon/angular_transfer/protocol.json",
+    "code/cosmology/release_horizon/angular_transfer/rays.py",
+    "code/cosmology/release_horizon/angular_transfer/polarimeter.py",
+    "code/cosmology/release_horizon/angular_transfer/measure.py",
+    "code/cosmology/release_horizon/angular_transfer/records.json",
+    "code/cosmology/release_horizon/angular_transfer/detectors.npz",
+    "code/cosmology/release_horizon/angular_transfer/test_angular_transfer.py"
    ],
    "papers": [
-    "claims/frozen_prediction_register.json"
+    "claims/frozen_prediction_register.json",
+    "cosmology/oph_cosmology_finite_source_cmb_program.pdf",
+    "cosmology/oph_boltzmann_transport_derivation.pdf"
    ],
    "statement": "A source-derived map carries the A5-symmetric angular template of the screen to the observed CMB sky with a fixed frame and a nonzero transfer at the compared multipoles.",
    "premise_kind": "derivable"
@@ -8878,15 +8895,27 @@
    "kind": "premise",
    "name": "six native axis steps commute on interpreted endpoints",
    "category": "Physical premises",
-   "status": "Open",
-   "what": "The source emits six accepted axis step maps whose pairwise orders give the same interpreted endpoint, fifteen commuting squares in all.",
+   "status": "Demonstrated",
+   "what": "All fifteen pairs of six positive port-axis steps reach the same material address in either order throughout the 125-station position space.",
    "why": "Commuting axis steps give observers a consistent lattice of displacements, the basis for reading positions and translations in space.",
    "premises": [],
    "lean": [
-    "Lean/ObserverPatchHolography/A2EndpointCommutator.lean"
+    "Lean/ObserverPatchHolography/A2EndpointCommutator.lean",
+    "Lean/ObserverPatchHolography/Provenance/ScreenAngularTransfer.lean"
    ],
-   "model": [],
-   "papers": [],
+   "model": [
+    "code/cosmology/release_horizon/angular_transfer/README.md",
+    "code/cosmology/release_horizon/angular_transfer/protocol.json",
+    "code/cosmology/release_horizon/angular_transfer/rays.py",
+    "code/cosmology/release_horizon/angular_transfer/polarimeter.py",
+    "code/cosmology/release_horizon/angular_transfer/measure.py",
+    "code/cosmology/release_horizon/angular_transfer/records.json",
+    "code/cosmology/release_horizon/angular_transfer/detectors.npz",
+    "code/cosmology/release_horizon/angular_transfer/test_angular_transfer.py"
+   ],
+   "papers": [
+    "cosmology/oph_cosmology_finite_source_cmb_program.pdf"
+   ],
    "statement": "The native source emits six accepted positive port-axis step maps whose action descends to the observers' meaning quotient, and for every pair of them and every native presentation state the two orders give the same interpreted endpoint (fifteen endpoint diamonds).",
    "premise_kind": "derivable"
   },

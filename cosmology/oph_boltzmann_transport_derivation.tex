@@ -57,9 +57,11 @@ acoustic oscillator, diffusion scale and line-of-sight solution in one
 brightness convention. Repair exchange and collar stress have separate
 insertion points. A passive stationary repair process has decaying
 correlations and does not satisfy the photon-flow identification.
-The result specifies how a physical source would enter standard transfer;
-it supplies no primordial amplitude, photon-sector continuum proof or
-observational likelihood.
+A finite three-rail experiment measures the angular polarization map.
+Retaining polarization through two encounters gives seven times the
+accepted intensity quadrupole of a polarization-randomized control.
+A physical CMB prediction also requires a primordial source and a
+calibrated photon sector.
 
 \end{abstract}
 
@@ -296,6 +298,45 @@ vertex is not supplied here. The polarization sector and the associated $16/15$
 diffusion factor are textbook imports rather than consequences of the displayed
 operator.
 \end{remark}
+
+\subsection{Finite polarized transport on a material carrier}
+A three-rail analyzer realizes the angular projection at a specified
+encounter. For each of 32 incident directions \(s\) and outgoing
+directions \(t\), let \(E_s,E_t\) be orthonormal transverse frames.
+Native exchange and local phase pulses rotate a one-load state into
+the chosen frame. A sharp read of the normal rail rejects the
+longitudinal component. The two surviving components remain coherent
+and are transported to a separate material detector. Four incident
+polarizations and three output bases read the unnormalized map
+\[
+ J_{ts}=E_t^\mathsf{T}E_s,\qquad \rho\longmapsto J_{ts}\rho J_{ts}^\dagger .
+\]
+The unpolarized acceptance is \((1+(s\cdot t)^2)/2\). The vertex and
+face directions each integrate the isotropic second and fourth moments
+exactly. Their equal-weight union has survival \(2/3\) per proposal.
+An incident \(P_2(v\cdot s)\) modulation gives accepted intensity gain
+\(1/10\). Per outgoing proposal its linear polarization amplitude is
+\((1-(v\cdot t)^2)/10\), and the circular signal is zero.
+
+A second encounter distinguishes transport of the transverse state from
+transport of its intensity alone. Write \(P_t=I-tt^\mathsf T\) and let
+\(M\) be the traceless incident quadrupole coherency matrix. The outgoing
+fourth moment gives
+\[
+ \langle P_t M P_t\rangle_t
+ =M-\tfrac{2}{3}M+\tfrac{2}{15}M=\tfrac{7}{15}M .
+\]
+Retaining the intermediate polarization gives an accepted intensity
+quadrupole of \(7/100\) of its initial value after two encounters.
+Randomizing the two transverse components with four equally weighted
+unitaries gives \(1/100\). Both runs retain \(4/9\) of all original
+launches. The one-encounter tomograms independently reconstruct both
+two-encounter responses. This finite calculation supplies the
+dimensionless angular map for a declared analyzer. Identifying a
+physical scattering rate requires the electromagnetic sector,
+cross-section and electron abundance in the cosmological clock units.
+The preparations, rejected outcomes and detector records are in
+\mbox{\nolinkurl{code/cosmology/release_horizon/angular_transfer/}}.
 
 \begin{remark}[Blackbody provenance]
 The Planck background spectrum is an initial-condition and thermal-history

@@ -379,6 +379,12 @@ REPLAY_EVALUATIONS = (
         "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
         "model/candidate_laws/interval_echo/EVALUATION.json": "3037af4b0b94129ce39a74d36661d3f8e58eb75e18c3d4c6ef94a4c79a4649f8",
     },
+    # Six native axis translations and polarization-resolved angular transfer.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "f2626dc1fee2f2bbd42be37c44b912601a118bd4d9ec4f3381423bc4e89f8766",
+    },
 )
 
 
