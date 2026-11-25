@@ -1,0 +1,34 @@
+# Transverse modes and two layers of angular visibility
+
+A port-aligned mode and an oblique mode on the carrier completion have dimensionless frequencies 0.673239 and 0.877150. The same signed exchange strengths implement both. A vertex interferometer with an independent reference resolves the oscillations. The oscillator representation, the input phase gradient and the unit of service time are supplied. [Registered settings](protocol.json) · [Material implementation](oscillator.py) · [Full detector records](records.json)
+
+## An exchange realization of the declared oscillator
+
+Use the native unit vertex coordinates and one orientation for each of the thirty cell seams. Write its displacement as $d_e=v_j-v_i$. For a Fourier character $k$, let $b_e=(1-\exp(i k\cdot d_e))/\sqrt{60}$. The column $B=(b_e)$ is a signed incidence map from a vertex amplitude to thirty edge amplitudes. Each summand uses two exchange contacts of equal magnitude and opposite sign. Only the relative phase of the translated term depends on the wavevector. The generator on the stored vertex and edge amplitudes is
+
+$$
+ H=\begin{pmatrix}0&B^\dagger\\ B&0\end{pmatrix},\qquad
+ B^\dagger B=\tfrac1{30}\sum_e(1-\cos(k\cdot d_e))=\Lambda(k).
+$$
+
+Under the declared equation $i\dot\psi=H\psi$, the vertex amplitude $A$ and the readout momentum $\Pi=-iB^\dagger j$ satisfy $\dot A=\Pi$ and $\dot\Pi=-\Lambda A$. At positive stiffness every initial momentum can be represented by an edge amplitude, up to the common normalization of the preparation. Edge amplitudes orthogonal to $B$ are stationary. At zero gradient the bounded carrier has a constant vertex response. The [Lean proof](../../../../Lean/ObserverPatchHolography/Provenance/TransverseIncidence.lean) identifies the incidence norm with the existing completion symbol for every wavevector. The construction selects a transverse plane and implements its two coefficients on disjoint material rails.
+
+Two hubs on the 320-owner board each borrow thirty distinct edge rails. A path of native exchanges transposes the selected rail and a scratch rail, restores every spectator and reverses after a local phase and exchange pulse. In a sector with a single mobile load and a blank reference, the common and relative phases of the selected pair are corrected by native parked pulses. The signed couplings are independent of the resulting frequency. A reference at the hub interferes with the returned vertex. The two hubs can also recombine their vertices in a diagonal or circular analyzer. A phase reversal on one vertex exchanges the bright and dark polarization outcomes. The separate marker flips once per declared service interval. Refinement changes the number of gates per marker period and therefore the conversion to accumulated microscopic pulse duration.
+
+Each symmetric product uses sixty forward half contacts and their reverse. The total norm of its summands is bounded by $L=\sqrt{60}$. The exact and split exponentials have equal Taylor coefficients through second order. At elapsed parameter $t\ge0$, with $m$ equal substeps, telescoping the unitary products and bounding the Taylor tails gives operator error at most $m (Lt/m)^3\exp(Lt/m)/3$. For 128 substeps per marker the computed one-period norm errors are below $1.9\times10^{-6}$ on the two nonzero comparison modes. A separate matrix-exponential calculation checks the full transfer including stationary edge combinations. Both signs of an initial edge amplitude are read at one, two and three marker changes. At zero gradient the signed contacts cancel. Reversing the relative sign of the translated contact gives stiffness two and a three-marker return amplitude of −0.45267.
+
+At the first marker, the real reference counts give the port frequency in [0.6638, 0.6789] and the oblique frequency in [0.8709, 0.8831], using the branch below π and including the measured splitting discrepancy. The norm bound on the incidence fixes this branch. The successive marker readings test the same frequencies. The simulated clock and visibility banks have simultaneous coverage of at least 99 percent for their reported sampling errors. The incidence realization supplies an auxiliary oscillator. Free evolution on a single patch can give several spectral lines. Identification with a physical photon requires a spatial scale, a calibrated time unit and an independently selected propagation sector.
+
+## When do two layer counts predict visibility?
+
+Two addressed material dimers control consecutive encounters with the [three-rail angular analyzer](../angular_transfer/README.md). The preparation resets each dimer separately. A native route lends each sharp decision to the scattering station and returns the rail. Both inputs and a parked-route control are checked at the center and at all 32 possible intermediate stations. Exposure times π/3 and 2π/3 give encounter probabilities 1/4 and 3/4. Independent commissioning samples counted 261,675 and 786,954 encounters per 1,048,576 originals. Their product of clear fractions predicts a raw degree-six gain of 0.187238. The held angular count was 0.186748. Its simultaneous sampling half-width is 0.002781, with an additional allowance at most 0.003808 for the two calibration proportions in the forecast.
+
+The limiting raw gain is 3/16. The detected fraction is 11/16, hence the gain among detections is 3/11. The fractions of original launches detected with no encounter, with the first layer as their last encounter and with the second layer as their last encounter are 3/16, 1/24 and 11/24. These sum to the detected fraction. The raw intensity quadrupole is 47/200 when the transverse state travels between encounters. With two independent fair shutters the held degree-six gain is 0.25049. Repeating the same fair sharp shutter gives 0.50072. Equal one-layer frequencies thus permit different last-encounter distributions. The interaction opportunities are controlled by the material dimers. A physical visibility history additionally needs an electromagnetic encounter rate linked to the thermal and expansion clocks.
+
+The [integer archive](directions.npz) contains one array per shutter preparation. Indices enumerate 32 incident directions, the ordered flags 00, 01, 10, 11, then 32 detected directions followed by failure at the first or second projection. Each incident direction has 65,536 original starts. The [driver](measure.py) regenerates the upstream polarimetry, including its published rounding, before applying the independent flags and generating the held counts. The [tests](test_clock.py) reconstruct frequencies, gains and denominator checks from the public records.
+
+```sh
+export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1
+.venv/bin/python code/cosmology/release_horizon/transverse_clock/measure.py
+.venv/bin/python -m pytest -q code/cosmology/release_horizon/transverse_clock
+```

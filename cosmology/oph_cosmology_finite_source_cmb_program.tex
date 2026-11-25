@@ -739,6 +739,24 @@ visibility history and an independently fixed sky frame.
 The detector banks and endpoint records are in
 \mbox{\pathref{code/cosmology/release_horizon/angular_transfer/}}.
 
+\paragraph{Visibility from independent encounter counts.}
+Two separately prepared material shutters govern successive encounters
+with the same transverse analyzer. Their native exposures are \(\pi/3\)
+and \(2\pi/3\). Independent commissioning counts predict
+\(0.187238\) for the fraction that clears both layers. The held raw
+degree-six gain is \(0.186748\) with sampling half-width \(0.002781\).
+The calibration adds at most \(0.003808\) to the comparison allowance
+at simultaneous 99 percent coverage. The exact gain per launch is
+\(3/16\). The detected fractions with no encounter, with the first
+layer as the last encounter, and with the second as the last encounter
+are \(3/16,1/24,11/24\). Their sum is \(11/16\), giving gain \(3/11\)
+among detections. For two independent fair shutters the raw gain is
+\(1/4\). Reading the same fair shutter twice gives \(1/2\) at identical
+single-layer encounter frequencies. Thus a visibility history depends
+on conditional encounter rates along a path. The physical identification
+requires interaction rates on the thermal clock. Complete original-start
+histories are in \mbox{\pathref{code/cosmology/release_horizon/transverse_clock/}}.
+
 \section{Transfer Interface}
 \label{sec:transfer-interface}
 

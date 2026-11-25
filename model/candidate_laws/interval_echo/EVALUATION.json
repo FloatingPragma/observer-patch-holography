@@ -163,15 +163,15 @@
  },
  "premise_counts": {
   "law": {
-   "fulfilled": 22,
-   "partial": 13,
-   "open": 106,
+   "fulfilled": 21,
+   "partial": 15,
+   "open": 105,
    "fails": 0
   },
   "designer": {
-   "fulfilled": 6,
+   "fulfilled": 7,
    "partial": 3,
-   "open": 22,
+   "open": 21,
    "fails": 0
   },
   "import": {
@@ -432,9 +432,17 @@
    "statement": "The dynamics of one transverse mode on the carrier completion is the first-order oscillator lift (A', Pi') = (Pi, -Lambda A) of the spatial symbol. The spatial generator is derived; the second-order evolution shape is declared.",
    "type": "representation_choice",
    "role": "designer",
-   "status": "open",
-   "evidence": [],
-   "note": ""
+   "status": "fulfilled",
+   "evidence": [
+    "../../../code/cosmology/release_horizon/transverse_clock/README.md",
+    "../../../code/cosmology/release_horizon/transverse_clock/protocol.json",
+    "../../../code/cosmology/release_horizon/transverse_clock/oscillator.py",
+    "../../../code/cosmology/release_horizon/transverse_clock/measure.py",
+    "../../../code/cosmology/release_horizon/transverse_clock/records.json",
+    "../../../code/cosmology/release_horizon/transverse_clock/test_clock.py",
+    "../../../Lean/ObserverPatchHolography/Provenance/TransverseIncidence.lean"
+   ],
+   "note": "The declared auxiliary transverse representation stores the vertex and thirty signed incidence amplitudes on material rails. Two fixed-strength exchanges per seam implement each Fourier fibre, with explicit symmetric-product convergence. The incidence norm equals the completion symbol for every wavevector. The zero-gradient rail is constant. Physical field selection is separate."
   },
   {
    "id": "PR-22",
@@ -442,9 +450,17 @@
    "statement": "A readout frequency omega(k) satisfies omega(k)^2 = dilatedCompletionFourierSymbol(a, k) at a positive chart scale a. Identifying a with a physical length and omega with a laboratory frequency consumes PR-15.",
    "type": "structural_rule",
    "role": "law",
-   "status": "open",
-   "evidence": [],
-   "note": ""
+   "status": "partial",
+   "evidence": [
+    "../../../code/cosmology/release_horizon/transverse_clock/README.md",
+    "../../../code/cosmology/release_horizon/transverse_clock/protocol.json",
+    "../../../code/cosmology/release_horizon/transverse_clock/oscillator.py",
+    "../../../code/cosmology/release_horizon/transverse_clock/measure.py",
+    "../../../code/cosmology/release_horizon/transverse_clock/records.json",
+    "../../../code/cosmology/release_horizon/transverse_clock/test_clock.py",
+    "../../../Lean/ObserverPatchHolography/Provenance/TransverseIncidence.lean"
+   ],
+   "note": "Independent signed return counts on two transverse rail sets resolve port and oblique readout frequencies in declared marker units and support their squared-symbol values. A shielded reference, Bloch phases and gate cadence are supplied. Identifying a free physical mode, a physical length and laboratory clock units needs additional evidence."
   },
   {
    "id": "PR-23",
@@ -1478,9 +1494,13 @@
     "../../../code/cosmology/release_horizon/angular_transfer/records.json",
     "../../../code/cosmology/release_horizon/angular_transfer/detectors.npz",
     "../../../code/cosmology/release_horizon/angular_transfer/test_angular_transfer.py",
-    "../../../Lean/ObserverPatchHolography/Provenance/ScreenAngularTransfer.lean"
+    "../../../Lean/ObserverPatchHolography/Provenance/ScreenAngularTransfer.lean",
+    "../../../code/cosmology/release_horizon/transverse_clock/README.md",
+    "../../../code/cosmology/release_horizon/transverse_clock/measure.py",
+    "../../../code/cosmology/release_horizon/transverse_clock/records.json",
+    "../../../code/cosmology/release_horizon/transverse_clock/directions.npz"
    ],
-   "note": "Two source orbits have the same monopole and second moment and a nonzero degree-six contrast. Thirty-two distinct detector addresses preserve the contrast in free transport. A native transverse analyzer cancels it after one encounter and a fair bypass gives raw gain one half. The frame and encounter frequency are supplied and the physical photon interaction, visibility and sky orientation require independent calibration."
+   "note": "Two source orbits have the same monopole and second moment and a nonzero degree-six contrast. Thirty-two distinct detector addresses preserve the contrast in free transport. A native transverse analyzer cancels it after one encounter and a fair bypass gives raw gain one half. The frame and encounter frequency are supplied and the physical photon interaction, visibility and sky orientation require independent calibration. Independent local shutter counts predict the held two-layer contrast. Reusing the same shutter changes the transmission at identical single-layer encounter frequencies."
   },
   {
    "id": "PR-117",
@@ -1764,7 +1784,7 @@
    "statement": "The native source emits six accepted positive port-axis step maps whose action descends to the observers' meaning quotient, and for every pair of them and every native presentation state the two orders give the same interpreted endpoint (fifteen endpoint diamonds).",
    "type": "derivable",
    "role": "law",
-   "status": "fulfilled",
+   "status": "partial",
    "evidence": [
     "../../../code/cosmology/release_horizon/angular_transfer/README.md",
     "../../../code/cosmology/release_horizon/angular_transfer/protocol.json",
@@ -1776,7 +1796,7 @@
     "../../../code/cosmology/release_horizon/angular_transfer/test_angular_transfer.py",
     "../../../Lean/ObserverPatchHolography/Provenance/ScreenAngularTransfer.lean"
    ],
-   "note": "Accepted native port reads select full three-rail translations of a 125-station quotient on the registered carrier. Complete seam permutations preserve the internal state and restore every borrowed port. Two readers identify each terminal address, all fifteen positive pairs commute on the entire sector, and a reversible wiring control breaks one diamond at eight owners. The finite projection of the port-coordinate lattice and the route schedule are supplied."
+   "note": "Accepted native port reads select full three-rail translations of a 125-station quotient on the registered carrier. Complete seam permutations preserve the internal state and restore every borrowed port. Two readers identify each terminal address, all fifteen positive pairs commute on the entire sector, and a reversible wiring control breaks one diamond at eight owners. The finite projection of the port-coordinate lattice and the route schedule are supplied. A source-selected six-step law across the native presentation space is a separate requirement."
   },
   {
    "id": "PR-146",
