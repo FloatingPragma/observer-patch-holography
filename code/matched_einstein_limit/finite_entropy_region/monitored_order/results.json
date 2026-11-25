@@ -1,0 +1,2999 @@
+{
+  "monitored_dwell": "1/2",
+  "rows": [
+    {
+      "board_cells": 20,
+      "owners": [
+        0
+      ],
+      "cut_ports": [
+        1,
+        3,
+        10
+      ],
+      "monitoring": {
+        "ports": 12,
+        "native_undirected_links": 30,
+        "complete_words": 66,
+        "nonzero_conditional_transitions_at_algebraic_dwell": 4356,
+        "word_hop_diameter": 4,
+        "from_word": [
+          0,
+          1
+        ],
+        "to_word": [
+          2,
+          3
+        ],
+        "shortest_word_walks": 24,
+        "leading_probability_coefficient": "1/256",
+        "quadratic_contact_spectators": 10
+      },
+      "unoccupied": {
+        "best_gap": -1,
+        "best_gap_witness": {
+          "center": 0,
+          "farthest_inside": 3,
+          "last_inside": 3,
+          "closest_outside": 82,
+          "first_outside": 2
+        }
+      },
+      "possible_protected_balls": [
+        {
+          "resident_word": [
+            1,
+            3
+          ],
+          "cut_occupancy": 2,
+          "equilibrium_interior_multiplicity": 3,
+          "unoccupied_center_to_gates": [
+            1,
+            1,
+            3
+          ],
+          "center": 9,
+          "radius": 3,
+          "first_outside": 4,
+          "shell_counts": [
+            1,
+            3,
+            5,
+            1
+          ],
+          "exposed_rim_radii": [
+            3
+          ],
+          "transmitting_contacts": 1,
+          "volume_ports": 10,
+          "branching_center_incoming_outgoing": [
+            9,
+            8,
+            4,
+            5
+          ],
+          "local_rooted_cut_isometries": [
+            {
+              "word": [
+                1,
+                3
+              ],
+              "permutation": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11
+              ]
+            },
+            {
+              "word": [
+                1,
+                10
+              ],
+              "permutation": [
+                9,
+                1,
+                2,
+                10,
+                11,
+                5,
+                6,
+                8,
+                7,
+                0,
+                3,
+                4
+              ]
+            },
+            {
+              "word": [
+                3,
+                10
+              ],
+              "permutation": [
+                0,
+                10,
+                9,
+                3,
+                4,
+                11,
+                8,
+                7,
+                6,
+                2,
+                1,
+                5
+              ]
+            }
+          ]
+        },
+        {
+          "resident_word": [
+            1,
+            6
+          ],
+          "cut_occupancy": 1,
+          "equilibrium_interior_multiplicity": 3,
+          "unoccupied_center_to_gates": [
+            1,
+            2,
+            2
+          ],
+          "center": 5,
+          "radius": 2,
+          "first_outside": 3,
+          "shell_counts": [
+            1,
+            4,
+            5
+          ],
+          "exposed_rim_radii": [
+            2,
+            2
+          ],
+          "transmitting_contacts": 2,
+          "volume_ports": 10,
+          "branching_center_incoming_outgoing": [
+            5,
+            0,
+            4,
+            9
+          ],
+          "local_rooted_cut_isometries": [
+            {
+              "word": [
+                1,
+                6
+              ],
+              "permutation": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11
+              ]
+            },
+            {
+              "word": [
+                3,
+                7
+              ],
+              "permutation": [
+                2,
+                3,
+                0,
+                1,
+                5,
+                4,
+                7,
+                6,
+                8,
+                9,
+                10,
+                11
+              ]
+            },
+            {
+              "word": [
+                8,
+                10
+              ],
+              "permutation": [
+                0,
+                10,
+                9,
+                3,
+                4,
+                11,
+                8,
+                7,
+                6,
+                2,
+                1,
+                5
+              ]
+            }
+          ]
+        },
+        {
+          "resident_word": [
+            1,
+            10
+          ],
+          "cut_occupancy": 2,
+          "equilibrium_interior_multiplicity": 3,
+          "unoccupied_center_to_gates": [
+            1,
+            1,
+            3
+          ],
+          "center": 0,
+          "radius": 3,
+          "first_outside": 4,
+          "shell_counts": [
+            1,
+            3,
+            5,
+            1
+          ],
+          "exposed_rim_radii": [
+            3
+          ],
+          "transmitting_contacts": 1,
+          "volume_ports": 10,
+          "branching_center_incoming_outgoing": [
+            0,
+            7,
+            5,
+            11
+          ],
+          "local_rooted_cut_isometries": [
+            {
+              "word": [
+                1,
+                3
+              ],
+              "permutation": [
+                9,
+                3,
+                0,
+                10,
+                11,
+                4,
+                7,
+                8,
+                6,
+                2,
+                1,
+                5
+              ]
+            },
+            {
+              "word": [
+                1,
+                10
+              ],
+              "permutation": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11
+              ]
+            },
+            {
+              "word": [
+                3,
+                10
+              ],
+              "permutation": [
+                2,
+                3,
+                0,
+                1,
+                5,
+                4,
+                7,
+                6,
+                8,
+                9,
+                10,
+                11
+              ]
+            }
+          ]
+        },
+        {
+          "resident_word": [
+            3,
+            7
+          ],
+          "cut_occupancy": 1,
+          "equilibrium_interior_multiplicity": 3,
+          "unoccupied_center_to_gates": [
+            1,
+            2,
+            2
+          ],
+          "center": 4,
+          "radius": 2,
+          "first_outside": 3,
+          "shell_counts": [
+            1,
+            4,
+            5
+          ],
+          "exposed_rim_radii": [
+            2,
+            2
+          ],
+          "transmitting_contacts": 2,
+          "volume_ports": 10,
+          "branching_center_incoming_outgoing": [
+            4,
+            2,
+            5,
+            9
+          ],
+          "local_rooted_cut_isometries": [
+            {
+              "word": [
+                1,
+                6
+              ],
+              "permutation": [
+                2,
+                3,
+                0,
+                1,
+                5,
+                4,
+                7,
+                6,
+                8,
+                9,
+                10,
+                11
+              ]
+            },
+            {
+              "word": [
+                3,
+                7
+              ],
+              "permutation": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11
+              ]
+            },
+            {
+              "word": [
+                8,
+                10
+              ],
+              "permutation": [
+                9,
+                3,
+                0,
+                10,
+                11,
+                4,
+                7,
+                8,
+                6,
+                2,
+                1,
+                5
+              ]
+            }
+          ]
+        },
+        {
+          "resident_word": [
+            3,
+            10
+          ],
+          "cut_occupancy": 2,
+          "equilibrium_interior_multiplicity": 3,
+          "unoccupied_center_to_gates": [
+            1,
+            1,
+            3
+          ],
+          "center": 2,
+          "radius": 3,
+          "first_outside": 4,
+          "shell_counts": [
+            1,
+            3,
+            5,
+            1
+          ],
+          "exposed_rim_radii": [
+            3
+          ],
+          "transmitting_contacts": 1,
+          "volume_ports": 10,
+          "branching_center_incoming_outgoing": [
+            2,
+            6,
+            4,
+            11
+          ],
+          "local_rooted_cut_isometries": [
+            {
+              "word": [
+                1,
+                3
+              ],
+              "permutation": [
+                0,
+                10,
+                9,
+                3,
+                4,
+                11,
+                8,
+                7,
+                6,
+                2,
+                1,
+                5
+              ]
+            },
+            {
+              "word": [
+                1,
+                10
+              ],
+              "permutation": [
+                2,
+                3,
+                0,
+                1,
+                5,
+                4,
+                7,
+                6,
+                8,
+                9,
+                10,
+                11
+              ]
+            },
+            {
+              "word": [
+                3,
+                10
+              ],
+              "permutation": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11
+              ]
+            }
+          ]
+        },
+        {
+          "resident_word": [
+            8,
+            10
+          ],
+          "cut_occupancy": 1,
+          "equilibrium_interior_multiplicity": 3,
+          "unoccupied_center_to_gates": [
+            1,
+            2,
+            2
+          ],
+          "center": 11,
+          "radius": 2,
+          "first_outside": 3,
+          "shell_counts": [
+            1,
+            4,
+            5
+          ],
+          "exposed_rim_radii": [
+            2,
+            2
+          ],
+          "transmitting_contacts": 2,
+          "volume_ports": 10,
+          "branching_center_incoming_outgoing": [
+            11,
+            0,
+            2,
+            4
+          ],
+          "local_rooted_cut_isometries": [
+            {
+              "word": [
+                1,
+                6
+              ],
+              "permutation": [
+                0,
+                10,
+                9,
+                3,
+                4,
+                11,
+                8,
+                7,
+                6,
+                2,
+                1,
+                5
+              ]
+            },
+            {
+              "word": [
+                3,
+                7
+              ],
+              "permutation": [
+                9,
+                1,
+                2,
+                10,
+                11,
+                5,
+                6,
+                8,
+                7,
+                0,
+                3,
+                4
+              ]
+            },
+            {
+              "word": [
+                8,
+                10
+              ],
+              "permutation": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11
+              ]
+            }
+          ]
+        }
+      ],
+      "protected_word_gap_counts": {
+        "-1": 6,
+        "0": 54,
+        "1": 6
+      },
+      "branching_witnesses_by_resident_word_count": [
+        [
+          [
+            0,
+            1,
+            10,
+            11
+          ],
+          28
+        ],
+        [
+          [
+            0,
+            5,
+            7,
+            10
+          ],
+          13
+        ],
+        [
+          [
+            0,
+            7,
+            5,
+            11
+          ],
+          7
+        ],
+        [
+          [
+            0,
+            10,
+            1,
+            5
+          ],
+          1
+        ],
+        [
+          [
+            0,
+            11,
+            1,
+            7
+          ],
+          1
+        ],
+        [
+          [
+            1,
+            0,
+            8,
+            9
+          ],
+          3
+        ],
+        [
+          [
+            1,
+            5,
+            7,
+            8
+          ],
+          7
+        ],
+        [
+          [
+            1,
+            7,
+            5,
+            9
+          ],
+          1
+        ],
+        [
+          [
+            2,
+            3,
+            10,
+            11
+          ],
+          5
+        ]
+      ],
+      "any_center_equilibrium_probability": "1/11",
+      "any_center_outward_rejection_equilibrium_probability": "3/67"
+    },
+    {
+      "board_cells": 20,
+      "owners": [
+        0,
+        1
+      ],
+      "cut_ports": [
+        1,
+        3,
+        14,
+        22
+      ],
+      "monitoring": {
+        "ports": 24,
+        "native_undirected_links": 61,
+        "complete_words": 276,
+        "nonzero_conditional_transitions_at_algebraic_dwell": 76176,
+        "word_hop_diameter": 12,
+        "from_word": [
+          1,
+          9
+        ],
+        "to_word": [
+          12,
+          23
+        ],
+        "shortest_word_walks": 213824,
+        "leading_probability_coefficient": "11162281/939796614359285760000",
+        "quadratic_contact_spectators": 22
+      },
+      "unoccupied": {
+        "best_gap": -1,
+        "best_gap_witness": {
+          "center": 10,
+          "farthest_inside": 23,
+          "last_inside": 4,
+          "closest_outside": 82,
+          "first_outside": 3
+        }
+      },
+      "possible_protected_balls": [],
+      "protected_word_gap_counts": {
+        "-12": 4,
+        "-10": 37,
+        "-9": 4,
+        "-1": 188,
+        "0": 43
+      },
+      "branching_witnesses_by_resident_word_count": [
+        [
+          [
+            0,
+            1,
+            10,
+            11
+          ],
+          190
+        ],
+        [
+          [
+            0,
+            5,
+            7,
+            10
+          ],
+          37
+        ],
+        [
+          [
+            0,
+            7,
+            5,
+            11
+          ],
+          19
+        ],
+        [
+          [
+            0,
+            10,
+            1,
+            5
+          ],
+          1
+        ],
+        [
+          [
+            0,
+            11,
+            1,
+            7
+          ],
+          1
+        ],
+        [
+          [
+            1,
+            0,
+            8,
+            9
+          ],
+          3
+        ],
+        [
+          [
+            1,
+            5,
+            7,
+            8
+          ],
+          19
+        ],
+        [
+          [
+            1,
+            7,
+            5,
+            9
+          ],
+          1
+        ],
+        [
+          [
+            2,
+            3,
+            10,
+            11
+          ],
+          5
+        ]
+      ],
+      "any_center_equilibrium_probability": "0",
+      "any_center_outward_rejection_equilibrium_probability": "0"
+    },
+    {
+      "board_cells": 20,
+      "owners": [
+        0,
+        1,
+        4
+      ],
+      "cut_ports": [
+        1,
+        14,
+        22,
+        50,
+        56
+      ],
+      "monitoring": {
+        "ports": 36,
+        "native_undirected_links": 92,
+        "complete_words": 630,
+        "nonzero_conditional_transitions_at_algebraic_dwell": 396900,
+        "word_hop_diameter": 18,
+        "from_word": [
+          12,
+          23
+        ],
+        "to_word": [
+          50,
+          51
+        ],
+        "shortest_word_walks": 28690816,
+        "leading_probability_coefficient": "8473921/28997495838862947522900393984000000",
+        "quadratic_contact_spectators": 34
+      },
+      "unoccupied": {
+        "best_gap": -1,
+        "best_gap_witness": {
+          "center": 2,
+          "farthest_inside": 23,
+          "last_inside": 5,
+          "closest_outside": 82,
+          "first_outside": 4
+        }
+      },
+      "possible_protected_balls": [],
+      "protected_word_gap_counts": {
+        "-12": 4,
+        "-10": 8,
+        "-9": 118,
+        "-8": 4,
+        "-3": 1,
+        "-2": 29,
+        "-1": 434,
+        "0": 32
+      },
+      "branching_witnesses_by_resident_word_count": [
+        [
+          [
+            0,
+            1,
+            10,
+            11
+          ],
+          496
+        ],
+        [
+          [
+            0,
+            5,
+            7,
+            10
+          ],
+          61
+        ],
+        [
+          [
+            0,
+            7,
+            5,
+            11
+          ],
+          31
+        ],
+        [
+          [
+            0,
+            10,
+            1,
+            5
+          ],
+          1
+        ],
+        [
+          [
+            0,
+            11,
+            1,
+            7
+          ],
+          1
+        ],
+        [
+          [
+            1,
+            0,
+            8,
+            9
+          ],
+          3
+        ],
+        [
+          [
+            1,
+            5,
+            7,
+            8
+          ],
+          31
+        ],
+        [
+          [
+            1,
+            7,
+            5,
+            9
+          ],
+          1
+        ],
+        [
+          [
+            2,
+            3,
+            10,
+            11
+          ],
+          5
+        ]
+      ],
+      "any_center_equilibrium_probability": "0",
+      "any_center_outward_rejection_equilibrium_probability": "0"
+    },
+    {
+      "board_cells": 80,
+      "owners": [
+        0
+      ],
+      "cut_ports": [
+        1,
+        3,
+        10
+      ],
+      "monitoring": {
+        "ports": 12,
+        "native_undirected_links": 30,
+        "complete_words": 66,
+        "nonzero_conditional_transitions_at_algebraic_dwell": 4356,
+        "word_hop_diameter": 4,
+        "from_word": [
+          0,
+          1
+        ],
+        "to_word": [
+          2,
+          3
+        ],
+        "shortest_word_walks": 24,
+        "leading_probability_coefficient": "1/256",
+        "quadratic_contact_spectators": 10
+      },
+      "unoccupied": {
+        "best_gap": -1,
+        "best_gap_witness": {
+          "center": 0,
+          "farthest_inside": 3,
+          "last_inside": 3,
+          "closest_outside": 38,
+          "first_outside": 2
+        }
+      },
+      "possible_protected_balls": [
+        {
+          "resident_word": [
+            1,
+            3
+          ],
+          "cut_occupancy": 2,
+          "equilibrium_interior_multiplicity": 3,
+          "unoccupied_center_to_gates": [
+            1,
+            1,
+            3
+          ],
+          "center": 9,
+          "radius": 3,
+          "first_outside": 4,
+          "shell_counts": [
+            1,
+            3,
+            5,
+            1
+          ],
+          "exposed_rim_radii": [
+            3
+          ],
+          "transmitting_contacts": 1,
+          "volume_ports": 10,
+          "branching_center_incoming_outgoing": [
+            9,
+            8,
+            4,
+            5
+          ],
+          "local_rooted_cut_isometries": [
+            {
+              "word": [
+                1,
+                3
+              ],
+              "permutation": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11
+              ]
+            },
+            {
+              "word": [
+                1,
+                10
+              ],
+              "permutation": [
+                9,
+                1,
+                2,
+                10,
+                11,
+                5,
+                6,
+                8,
+                7,
+                0,
+                3,
+                4
+              ]
+            },
+            {
+              "word": [
+                3,
+                10
+              ],
+              "permutation": [
+                0,
+                10,
+                9,
+                3,
+                4,
+                11,
+                8,
+                7,
+                6,
+                2,
+                1,
+                5
+              ]
+            }
+          ]
+        },
+        {
+          "resident_word": [
+            1,
+            6
+          ],
+          "cut_occupancy": 1,
+          "equilibrium_interior_multiplicity": 3,
+          "unoccupied_center_to_gates": [
+            1,
+            2,
+            2
+          ],
+          "center": 5,
+          "radius": 2,
+          "first_outside": 3,
+          "shell_counts": [
+            1,
+            4,
+            5
+          ],
+          "exposed_rim_radii": [
+            2,
+            2
+          ],
+          "transmitting_contacts": 2,
+          "volume_ports": 10,
+          "branching_center_incoming_outgoing": [
+            5,
+            0,
+            4,
+            9
+          ],
+          "local_rooted_cut_isometries": [
+            {
+              "word": [
+                1,
+                6
+              ],
+              "permutation": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11
+              ]
+            },
+            {
+              "word": [
+                3,
+                7
+              ],
+              "permutation": [
+                2,
+                3,
+                0,
+                1,
+                5,
+                4,
+                7,
+                6,
+                8,
+                9,
+                10,
+                11
+              ]
+            },
+            {
+              "word": [
+                8,
+                10
+              ],
+              "permutation": [
+                0,
+                10,
+                9,
+                3,
+                4,
+                11,
+                8,
+                7,
+                6,
+                2,
+                1,
+                5
+              ]
+            }
+          ]
+        },
+        {
+          "resident_word": [
+            1,
+            10
+          ],
+          "cut_occupancy": 2,
+          "equilibrium_interior_multiplicity": 3,
+          "unoccupied_center_to_gates": [
+            1,
+            1,
+            3
+          ],
+          "center": 0,
+          "radius": 3,
+          "first_outside": 4,
+          "shell_counts": [
+            1,
+            3,
+            5,
+            1
+          ],
+          "exposed_rim_radii": [
+            3
+          ],
+          "transmitting_contacts": 1,
+          "volume_ports": 10,
+          "branching_center_incoming_outgoing": [
+            0,
+            7,
+            5,
+            11
+          ],
+          "local_rooted_cut_isometries": [
+            {
+              "word": [
+                1,
+                3
+              ],
+              "permutation": [
+                9,
+                3,
+                0,
+                10,
+                11,
+                4,
+                7,
+                8,
+                6,
+                2,
+                1,
+                5
+              ]
+            },
+            {
+              "word": [
+                1,
+                10
+              ],
+              "permutation": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11
+              ]
+            },
+            {
+              "word": [
+                3,
+                10
+              ],
+              "permutation": [
+                2,
+                3,
+                0,
+                1,
+                5,
+                4,
+                7,
+                6,
+                8,
+                9,
+                10,
+                11
+              ]
+            }
+          ]
+        },
+        {
+          "resident_word": [
+            3,
+            7
+          ],
+          "cut_occupancy": 1,
+          "equilibrium_interior_multiplicity": 3,
+          "unoccupied_center_to_gates": [
+            1,
+            2,
+            2
+          ],
+          "center": 4,
+          "radius": 2,
+          "first_outside": 3,
+          "shell_counts": [
+            1,
+            4,
+            5
+          ],
+          "exposed_rim_radii": [
+            2,
+            2
+          ],
+          "transmitting_contacts": 2,
+          "volume_ports": 10,
+          "branching_center_incoming_outgoing": [
+            4,
+            2,
+            5,
+            9
+          ],
+          "local_rooted_cut_isometries": [
+            {
+              "word": [
+                1,
+                6
+              ],
+              "permutation": [
+                2,
+                3,
+                0,
+                1,
+                5,
+                4,
+                7,
+                6,
+                8,
+                9,
+                10,
+                11
+              ]
+            },
+            {
+              "word": [
+                3,
+                7
+              ],
+              "permutation": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11
+              ]
+            },
+            {
+              "word": [
+                8,
+                10
+              ],
+              "permutation": [
+                9,
+                3,
+                0,
+                10,
+                11,
+                4,
+                7,
+                8,
+                6,
+                2,
+                1,
+                5
+              ]
+            }
+          ]
+        },
+        {
+          "resident_word": [
+            3,
+            10
+          ],
+          "cut_occupancy": 2,
+          "equilibrium_interior_multiplicity": 3,
+          "unoccupied_center_to_gates": [
+            1,
+            1,
+            3
+          ],
+          "center": 2,
+          "radius": 3,
+          "first_outside": 4,
+          "shell_counts": [
+            1,
+            3,
+            5,
+            1
+          ],
+          "exposed_rim_radii": [
+            3
+          ],
+          "transmitting_contacts": 1,
+          "volume_ports": 10,
+          "branching_center_incoming_outgoing": [
+            2,
+            6,
+            4,
+            11
+          ],
+          "local_rooted_cut_isometries": [
+            {
+              "word": [
+                1,
+                3
+              ],
+              "permutation": [
+                0,
+                10,
+                9,
+                3,
+                4,
+                11,
+                8,
+                7,
+                6,
+                2,
+                1,
+                5
+              ]
+            },
+            {
+              "word": [
+                1,
+                10
+              ],
+              "permutation": [
+                2,
+                3,
+                0,
+                1,
+                5,
+                4,
+                7,
+                6,
+                8,
+                9,
+                10,
+                11
+              ]
+            },
+            {
+              "word": [
+                3,
+                10
+              ],
+              "permutation": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11
+              ]
+            }
+          ]
+        },
+        {
+          "resident_word": [
+            8,
+            10
+          ],
+          "cut_occupancy": 1,
+          "equilibrium_interior_multiplicity": 3,
+          "unoccupied_center_to_gates": [
+            1,
+            2,
+            2
+          ],
+          "center": 11,
+          "radius": 2,
+          "first_outside": 3,
+          "shell_counts": [
+            1,
+            4,
+            5
+          ],
+          "exposed_rim_radii": [
+            2,
+            2
+          ],
+          "transmitting_contacts": 2,
+          "volume_ports": 10,
+          "branching_center_incoming_outgoing": [
+            11,
+            0,
+            2,
+            4
+          ],
+          "local_rooted_cut_isometries": [
+            {
+              "word": [
+                1,
+                6
+              ],
+              "permutation": [
+                0,
+                10,
+                9,
+                3,
+                4,
+                11,
+                8,
+                7,
+                6,
+                2,
+                1,
+                5
+              ]
+            },
+            {
+              "word": [
+                3,
+                7
+              ],
+              "permutation": [
+                9,
+                1,
+                2,
+                10,
+                11,
+                5,
+                6,
+                8,
+                7,
+                0,
+                3,
+                4
+              ]
+            },
+            {
+              "word": [
+                8,
+                10
+              ],
+              "permutation": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11
+              ]
+            }
+          ]
+        }
+      ],
+      "protected_word_gap_counts": {
+        "-1": 6,
+        "0": 54,
+        "1": 6
+      },
+      "branching_witnesses_by_resident_word_count": [
+        [
+          [
+            0,
+            1,
+            10,
+            11
+          ],
+          28
+        ],
+        [
+          [
+            0,
+            5,
+            7,
+            10
+          ],
+          13
+        ],
+        [
+          [
+            0,
+            7,
+            5,
+            11
+          ],
+          7
+        ],
+        [
+          [
+            0,
+            10,
+            1,
+            5
+          ],
+          1
+        ],
+        [
+          [
+            0,
+            11,
+            1,
+            7
+          ],
+          1
+        ],
+        [
+          [
+            1,
+            0,
+            8,
+            9
+          ],
+          3
+        ],
+        [
+          [
+            1,
+            5,
+            7,
+            8
+          ],
+          7
+        ],
+        [
+          [
+            1,
+            7,
+            5,
+            9
+          ],
+          1
+        ],
+        [
+          [
+            2,
+            3,
+            10,
+            11
+          ],
+          5
+        ]
+      ],
+      "any_center_equilibrium_probability": "1/11",
+      "any_center_outward_rejection_equilibrium_probability": "3/67"
+    },
+    {
+      "board_cells": 80,
+      "owners": [
+        0,
+        3
+      ],
+      "cut_ports": [
+        3,
+        10,
+        36,
+        44
+      ],
+      "monitoring": {
+        "ports": 24,
+        "native_undirected_links": 61,
+        "complete_words": 276,
+        "nonzero_conditional_transitions_at_algebraic_dwell": 76176,
+        "word_hop_diameter": 12,
+        "from_word": [
+          2,
+          3
+        ],
+        "to_word": [
+          36,
+          37
+        ],
+        "shortest_word_walks": 213824,
+        "leading_probability_coefficient": "11162281/939796614359285760000",
+        "quadratic_contact_spectators": 22
+      },
+      "unoccupied": {
+        "best_gap": -1,
+        "best_gap_witness": {
+          "center": 1,
+          "farthest_inside": 37,
+          "last_inside": 4,
+          "closest_outside": 192,
+          "first_outside": 3
+        }
+      },
+      "possible_protected_balls": [],
+      "protected_word_gap_counts": {
+        "-17": 4,
+        "-15": 37,
+        "-14": 4,
+        "-1": 188,
+        "0": 43
+      },
+      "branching_witnesses_by_resident_word_count": [
+        [
+          [
+            0,
+            1,
+            10,
+            11
+          ],
+          190
+        ],
+        [
+          [
+            0,
+            5,
+            7,
+            10
+          ],
+          37
+        ],
+        [
+          [
+            0,
+            7,
+            5,
+            11
+          ],
+          19
+        ],
+        [
+          [
+            0,
+            10,
+            1,
+            5
+          ],
+          1
+        ],
+        [
+          [
+            0,
+            11,
+            1,
+            7
+          ],
+          1
+        ],
+        [
+          [
+            1,
+            0,
+            8,
+            9
+          ],
+          3
+        ],
+        [
+          [
+            1,
+            5,
+            7,
+            8
+          ],
+          19
+        ],
+        [
+          [
+            1,
+            5,
+            7,
+            38
+          ],
+          1
+        ],
+        [
+          [
+            1,
+            5,
+            8,
+            38
+          ],
+          1
+        ],
+        [
+          [
+            1,
+            7,
+            9,
+            38
+          ],
+          1
+        ],
+        [
+          [
+            2,
+            3,
+            10,
+            11
+          ],
+          3
+        ]
+      ],
+      "any_center_equilibrium_probability": "0",
+      "any_center_outward_rejection_equilibrium_probability": "0"
+    },
+    {
+      "board_cells": 80,
+      "owners": [
+        0,
+        3,
+        4
+      ],
+      "cut_ports": [
+        3,
+        36,
+        44,
+        48,
+        50
+      ],
+      "monitoring": {
+        "ports": 36,
+        "native_undirected_links": 92,
+        "complete_words": 630,
+        "nonzero_conditional_transitions_at_algebraic_dwell": 396900,
+        "word_hop_diameter": 18,
+        "from_word": [
+          36,
+          37
+        ],
+        "to_word": [
+          48,
+          59
+        ],
+        "shortest_word_walks": 28690816,
+        "leading_probability_coefficient": "8473921/28997495838862947522900393984000000",
+        "quadratic_contact_spectators": 34
+      },
+      "unoccupied": {
+        "best_gap": -1,
+        "best_gap_witness": {
+          "center": 0,
+          "farthest_inside": 37,
+          "last_inside": 5,
+          "closest_outside": 192,
+          "first_outside": 4
+        }
+      },
+      "possible_protected_balls": [],
+      "protected_word_gap_counts": {
+        "-15": 4,
+        "-14": 66,
+        "-13": 3,
+        "-12": 59,
+        "-11": 2,
+        "-3": 1,
+        "-2": 29,
+        "-1": 434,
+        "0": 32
+      },
+      "branching_witnesses_by_resident_word_count": [
+        [
+          [
+            0,
+            1,
+            10,
+            11
+          ],
+          496
+        ],
+        [
+          [
+            0,
+            5,
+            7,
+            10
+          ],
+          61
+        ],
+        [
+          [
+            0,
+            7,
+            5,
+            11
+          ],
+          31
+        ],
+        [
+          [
+            0,
+            10,
+            1,
+            5
+          ],
+          1
+        ],
+        [
+          [
+            0,
+            11,
+            1,
+            7
+          ],
+          1
+        ],
+        [
+          [
+            1,
+            0,
+            8,
+            9
+          ],
+          3
+        ],
+        [
+          [
+            1,
+            5,
+            7,
+            8
+          ],
+          31
+        ],
+        [
+          [
+            1,
+            5,
+            7,
+            38
+          ],
+          1
+        ],
+        [
+          [
+            1,
+            5,
+            8,
+            38
+          ],
+          1
+        ],
+        [
+          [
+            1,
+            7,
+            9,
+            38
+          ],
+          1
+        ],
+        [
+          [
+            2,
+            3,
+            10,
+            11
+          ],
+          3
+        ]
+      ],
+      "any_center_equilibrium_probability": "0",
+      "any_center_outward_rejection_equilibrium_probability": "0"
+    },
+    {
+      "board_cells": 320,
+      "owners": [
+        0
+      ],
+      "cut_ports": [
+        1,
+        3,
+        10
+      ],
+      "monitoring": {
+        "ports": 12,
+        "native_undirected_links": 30,
+        "complete_words": 66,
+        "nonzero_conditional_transitions_at_algebraic_dwell": 4356,
+        "word_hop_diameter": 4,
+        "from_word": [
+          0,
+          1
+        ],
+        "to_word": [
+          2,
+          3
+        ],
+        "shortest_word_walks": 24,
+        "leading_probability_coefficient": "1/256",
+        "quadratic_contact_spectators": 10
+      },
+      "unoccupied": {
+        "best_gap": -1,
+        "best_gap_witness": {
+          "center": 0,
+          "farthest_inside": 3,
+          "last_inside": 3,
+          "closest_outside": 38,
+          "first_outside": 2
+        }
+      },
+      "possible_protected_balls": [
+        {
+          "resident_word": [
+            1,
+            3
+          ],
+          "cut_occupancy": 2,
+          "equilibrium_interior_multiplicity": 3,
+          "unoccupied_center_to_gates": [
+            1,
+            1,
+            3
+          ],
+          "center": 9,
+          "radius": 3,
+          "first_outside": 4,
+          "shell_counts": [
+            1,
+            3,
+            5,
+            1
+          ],
+          "exposed_rim_radii": [
+            3
+          ],
+          "transmitting_contacts": 1,
+          "volume_ports": 10,
+          "branching_center_incoming_outgoing": [
+            9,
+            8,
+            4,
+            5
+          ],
+          "local_rooted_cut_isometries": [
+            {
+              "word": [
+                1,
+                3
+              ],
+              "permutation": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11
+              ]
+            },
+            {
+              "word": [
+                1,
+                10
+              ],
+              "permutation": [
+                9,
+                1,
+                2,
+                10,
+                11,
+                5,
+                6,
+                8,
+                7,
+                0,
+                3,
+                4
+              ]
+            },
+            {
+              "word": [
+                3,
+                10
+              ],
+              "permutation": [
+                0,
+                10,
+                9,
+                3,
+                4,
+                11,
+                8,
+                7,
+                6,
+                2,
+                1,
+                5
+              ]
+            }
+          ]
+        },
+        {
+          "resident_word": [
+            1,
+            6
+          ],
+          "cut_occupancy": 1,
+          "equilibrium_interior_multiplicity": 3,
+          "unoccupied_center_to_gates": [
+            1,
+            2,
+            2
+          ],
+          "center": 5,
+          "radius": 2,
+          "first_outside": 3,
+          "shell_counts": [
+            1,
+            4,
+            5
+          ],
+          "exposed_rim_radii": [
+            2,
+            2
+          ],
+          "transmitting_contacts": 2,
+          "volume_ports": 10,
+          "branching_center_incoming_outgoing": [
+            5,
+            0,
+            4,
+            9
+          ],
+          "local_rooted_cut_isometries": [
+            {
+              "word": [
+                1,
+                6
+              ],
+              "permutation": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11
+              ]
+            },
+            {
+              "word": [
+                3,
+                7
+              ],
+              "permutation": [
+                2,
+                3,
+                0,
+                1,
+                5,
+                4,
+                7,
+                6,
+                8,
+                9,
+                10,
+                11
+              ]
+            },
+            {
+              "word": [
+                8,
+                10
+              ],
+              "permutation": [
+                0,
+                10,
+                9,
+                3,
+                4,
+                11,
+                8,
+                7,
+                6,
+                2,
+                1,
+                5
+              ]
+            }
+          ]
+        },
+        {
+          "resident_word": [
+            1,
+            10
+          ],
+          "cut_occupancy": 2,
+          "equilibrium_interior_multiplicity": 3,
+          "unoccupied_center_to_gates": [
+            1,
+            1,
+            3
+          ],
+          "center": 0,
+          "radius": 3,
+          "first_outside": 4,
+          "shell_counts": [
+            1,
+            3,
+            5,
+            1
+          ],
+          "exposed_rim_radii": [
+            3
+          ],
+          "transmitting_contacts": 1,
+          "volume_ports": 10,
+          "branching_center_incoming_outgoing": [
+            0,
+            7,
+            5,
+            11
+          ],
+          "local_rooted_cut_isometries": [
+            {
+              "word": [
+                1,
+                3
+              ],
+              "permutation": [
+                9,
+                3,
+                0,
+                10,
+                11,
+                4,
+                7,
+                8,
+                6,
+                2,
+                1,
+                5
+              ]
+            },
+            {
+              "word": [
+                1,
+                10
+              ],
+              "permutation": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11
+              ]
+            },
+            {
+              "word": [
+                3,
+                10
+              ],
+              "permutation": [
+                2,
+                3,
+                0,
+                1,
+                5,
+                4,
+                7,
+                6,
+                8,
+                9,
+                10,
+                11
+              ]
+            }
+          ]
+        },
+        {
+          "resident_word": [
+            3,
+            7
+          ],
+          "cut_occupancy": 1,
+          "equilibrium_interior_multiplicity": 3,
+          "unoccupied_center_to_gates": [
+            1,
+            2,
+            2
+          ],
+          "center": 4,
+          "radius": 2,
+          "first_outside": 3,
+          "shell_counts": [
+            1,
+            4,
+            5
+          ],
+          "exposed_rim_radii": [
+            2,
+            2
+          ],
+          "transmitting_contacts": 2,
+          "volume_ports": 10,
+          "branching_center_incoming_outgoing": [
+            4,
+            2,
+            5,
+            9
+          ],
+          "local_rooted_cut_isometries": [
+            {
+              "word": [
+                1,
+                6
+              ],
+              "permutation": [
+                2,
+                3,
+                0,
+                1,
+                5,
+                4,
+                7,
+                6,
+                8,
+                9,
+                10,
+                11
+              ]
+            },
+            {
+              "word": [
+                3,
+                7
+              ],
+              "permutation": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11
+              ]
+            },
+            {
+              "word": [
+                8,
+                10
+              ],
+              "permutation": [
+                9,
+                3,
+                0,
+                10,
+                11,
+                4,
+                7,
+                8,
+                6,
+                2,
+                1,
+                5
+              ]
+            }
+          ]
+        },
+        {
+          "resident_word": [
+            3,
+            10
+          ],
+          "cut_occupancy": 2,
+          "equilibrium_interior_multiplicity": 3,
+          "unoccupied_center_to_gates": [
+            1,
+            1,
+            3
+          ],
+          "center": 2,
+          "radius": 3,
+          "first_outside": 4,
+          "shell_counts": [
+            1,
+            3,
+            5,
+            1
+          ],
+          "exposed_rim_radii": [
+            3
+          ],
+          "transmitting_contacts": 1,
+          "volume_ports": 10,
+          "branching_center_incoming_outgoing": [
+            2,
+            6,
+            4,
+            11
+          ],
+          "local_rooted_cut_isometries": [
+            {
+              "word": [
+                1,
+                3
+              ],
+              "permutation": [
+                0,
+                10,
+                9,
+                3,
+                4,
+                11,
+                8,
+                7,
+                6,
+                2,
+                1,
+                5
+              ]
+            },
+            {
+              "word": [
+                1,
+                10
+              ],
+              "permutation": [
+                2,
+                3,
+                0,
+                1,
+                5,
+                4,
+                7,
+                6,
+                8,
+                9,
+                10,
+                11
+              ]
+            },
+            {
+              "word": [
+                3,
+                10
+              ],
+              "permutation": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11
+              ]
+            }
+          ]
+        },
+        {
+          "resident_word": [
+            8,
+            10
+          ],
+          "cut_occupancy": 1,
+          "equilibrium_interior_multiplicity": 3,
+          "unoccupied_center_to_gates": [
+            1,
+            2,
+            2
+          ],
+          "center": 11,
+          "radius": 2,
+          "first_outside": 3,
+          "shell_counts": [
+            1,
+            4,
+            5
+          ],
+          "exposed_rim_radii": [
+            2,
+            2
+          ],
+          "transmitting_contacts": 2,
+          "volume_ports": 10,
+          "branching_center_incoming_outgoing": [
+            11,
+            0,
+            2,
+            4
+          ],
+          "local_rooted_cut_isometries": [
+            {
+              "word": [
+                1,
+                6
+              ],
+              "permutation": [
+                0,
+                10,
+                9,
+                3,
+                4,
+                11,
+                8,
+                7,
+                6,
+                2,
+                1,
+                5
+              ]
+            },
+            {
+              "word": [
+                3,
+                7
+              ],
+              "permutation": [
+                9,
+                1,
+                2,
+                10,
+                11,
+                5,
+                6,
+                8,
+                7,
+                0,
+                3,
+                4
+              ]
+            },
+            {
+              "word": [
+                8,
+                10
+              ],
+              "permutation": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11
+              ]
+            }
+          ]
+        }
+      ],
+      "protected_word_gap_counts": {
+        "-1": 6,
+        "0": 54,
+        "1": 6
+      },
+      "branching_witnesses_by_resident_word_count": [
+        [
+          [
+            0,
+            1,
+            10,
+            11
+          ],
+          28
+        ],
+        [
+          [
+            0,
+            5,
+            7,
+            10
+          ],
+          13
+        ],
+        [
+          [
+            0,
+            7,
+            5,
+            11
+          ],
+          7
+        ],
+        [
+          [
+            0,
+            10,
+            1,
+            5
+          ],
+          1
+        ],
+        [
+          [
+            0,
+            11,
+            1,
+            7
+          ],
+          1
+        ],
+        [
+          [
+            1,
+            0,
+            8,
+            9
+          ],
+          3
+        ],
+        [
+          [
+            1,
+            5,
+            7,
+            8
+          ],
+          7
+        ],
+        [
+          [
+            1,
+            7,
+            5,
+            9
+          ],
+          1
+        ],
+        [
+          [
+            2,
+            3,
+            10,
+            11
+          ],
+          5
+        ]
+      ],
+      "any_center_equilibrium_probability": "1/11",
+      "any_center_outward_rejection_equilibrium_probability": "3/67"
+    },
+    {
+      "board_cells": 320,
+      "owners": [
+        0,
+        3
+      ],
+      "cut_ports": [
+        3,
+        10,
+        36,
+        44
+      ],
+      "monitoring": {
+        "ports": 24,
+        "native_undirected_links": 61,
+        "complete_words": 276,
+        "nonzero_conditional_transitions_at_algebraic_dwell": 76176,
+        "word_hop_diameter": 12,
+        "from_word": [
+          2,
+          3
+        ],
+        "to_word": [
+          36,
+          37
+        ],
+        "shortest_word_walks": 213824,
+        "leading_probability_coefficient": "11162281/939796614359285760000",
+        "quadratic_contact_spectators": 22
+      },
+      "unoccupied": {
+        "best_gap": -1,
+        "best_gap_witness": {
+          "center": 1,
+          "farthest_inside": 37,
+          "last_inside": 4,
+          "closest_outside": 768,
+          "first_outside": 3
+        }
+      },
+      "possible_protected_balls": [],
+      "protected_word_gap_counts": {
+        "-15": 8,
+        "-14": 35,
+        "-13": 2,
+        "-1": 188,
+        "0": 43
+      },
+      "branching_witnesses_by_resident_word_count": [
+        [
+          [
+            0,
+            1,
+            10,
+            11
+          ],
+          190
+        ],
+        [
+          [
+            0,
+            5,
+            7,
+            10
+          ],
+          37
+        ],
+        [
+          [
+            0,
+            7,
+            5,
+            11
+          ],
+          19
+        ],
+        [
+          [
+            0,
+            10,
+            1,
+            5
+          ],
+          1
+        ],
+        [
+          [
+            0,
+            11,
+            1,
+            7
+          ],
+          1
+        ],
+        [
+          [
+            1,
+            0,
+            8,
+            9
+          ],
+          3
+        ],
+        [
+          [
+            1,
+            5,
+            7,
+            8
+          ],
+          19
+        ],
+        [
+          [
+            1,
+            5,
+            7,
+            38
+          ],
+          1
+        ],
+        [
+          [
+            1,
+            5,
+            8,
+            38
+          ],
+          1
+        ],
+        [
+          [
+            1,
+            7,
+            9,
+            38
+          ],
+          1
+        ],
+        [
+          [
+            2,
+            3,
+            10,
+            11
+          ],
+          3
+        ]
+      ],
+      "any_center_equilibrium_probability": "0",
+      "any_center_outward_rejection_equilibrium_probability": "0"
+    },
+    {
+      "board_cells": 320,
+      "owners": [
+        0,
+        3,
+        16
+      ],
+      "cut_ports": [
+        3,
+        36,
+        44,
+        192,
+        194
+      ],
+      "monitoring": {
+        "ports": 36,
+        "native_undirected_links": 92,
+        "complete_words": 630,
+        "nonzero_conditional_transitions_at_algebraic_dwell": 396900,
+        "word_hop_diameter": 18,
+        "from_word": [
+          36,
+          37
+        ],
+        "to_word": [
+          192,
+          203
+        ],
+        "shortest_word_walks": 28690816,
+        "leading_probability_coefficient": "8473921/28997495838862947522900393984000000",
+        "quadratic_contact_spectators": 34
+      },
+      "unoccupied": {
+        "best_gap": -1,
+        "best_gap_witness": {
+          "center": 0,
+          "farthest_inside": 37,
+          "last_inside": 5,
+          "closest_outside": 768,
+          "first_outside": 4
+        }
+      },
+      "possible_protected_balls": [],
+      "protected_word_gap_counts": {
+        "-15": 4,
+        "-12": 71,
+        "-11": 59,
+        "-3": 1,
+        "-2": 29,
+        "-1": 434,
+        "0": 32
+      },
+      "branching_witnesses_by_resident_word_count": [
+        [
+          [
+            0,
+            1,
+            10,
+            11
+          ],
+          496
+        ],
+        [
+          [
+            0,
+            5,
+            7,
+            10
+          ],
+          61
+        ],
+        [
+          [
+            0,
+            7,
+            5,
+            11
+          ],
+          31
+        ],
+        [
+          [
+            0,
+            10,
+            1,
+            5
+          ],
+          1
+        ],
+        [
+          [
+            0,
+            11,
+            1,
+            7
+          ],
+          1
+        ],
+        [
+          [
+            1,
+            0,
+            8,
+            9
+          ],
+          3
+        ],
+        [
+          [
+            1,
+            5,
+            7,
+            8
+          ],
+          31
+        ],
+        [
+          [
+            1,
+            5,
+            7,
+            38
+          ],
+          1
+        ],
+        [
+          [
+            1,
+            5,
+            8,
+            38
+          ],
+          1
+        ],
+        [
+          [
+            1,
+            7,
+            9,
+            38
+          ],
+          1
+        ],
+        [
+          [
+            2,
+            3,
+            10,
+            11
+          ],
+          3
+        ]
+      ],
+      "any_center_equilibrium_probability": "0",
+      "any_center_outward_rejection_equilibrium_probability": "0"
+    }
+  ]
+}

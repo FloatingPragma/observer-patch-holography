@@ -1234,7 +1234,14 @@
                 "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/held_stations.py",
                 "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/held_stations.json",
                 "model/experiments/material_inertia/sourced_survey/README.md",
-                "model/experiments/material_inertia/sourced_survey/results.json"
+                "model/experiments/material_inertia/sourced_survey/results.json",
+                "model/experiments/interval_echo_einstein_station/equilibrium_refinement/CLOCK_BALL.md",
+                "model/experiments/interval_echo_einstein_station/equilibrium_refinement/clock_ball.json",
+                "model/experiments/interval_echo_einstein_station/equilibrium_refinement/area_survey/README.md",
+                "model/experiments/interval_echo_einstein_station/equilibrium_refinement/area_survey/certificate.json",
+                "code/matched_einstein_limit/finite_entropy_region/monitored_order/README.md",
+                "code/matched_einstein_limit/finite_entropy_region/monitored_order/results.json",
+                "code/matched_einstein_limit/finite_entropy_region/held_calibration.json"
               ],
               "demonstrated_measurement": {
                 "label": "Unique global entropy-plus-area maximum for one or arbitrarily many four-station surveys",
@@ -1300,6 +1307,24 @@
                   "label": "Prepared energy and correlation writes contract the volume inferred from clocks",
                   "finding": "Independent clock records put the equilibrium survey volume in [2.76290,2.76405]. An unadjusted ordinary energy write gives [2.73713,2.73826] and replacing a correlated record at fixed parked energy gives [2.75500,2.75618], jointly at 99% coverage. Entropy increases in both experiments. From the exact reference an entropy gain forces a weighted geometric mean of the six reconstructed lengths to contract. A separate preparation can raise parked energy, entropy and volume together.",
                   "source": "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/README.md"
+                },
+                {
+                  "law": "Interval Echo on a ball selected by timed messages",
+                  "label": "Single-site shell measures and joint boundary information",
+                  "finding": "All individual receiver laws agree and the full incoming energy distributions match. The rim coincidence probability changes from zero to 1/20. Completion information changes by −0.45815 nats. Overlapping timed apertures predict −0.26824 nats from a separate calibration.",
+                  "source": "model/experiments/interval_echo_einstein_station/equilibrium_refinement/CLOCK_BALL.md"
+                },
+                {
+                  "law": "Interval Echo on a monitored two-cell region",
+                  "label": "Directional return probabilities at fixed mean preparation energy",
+                  "finding": "The twelve complete launch and return tables and the mean preparation energy admit a common held variation with strictly positive interior entropy slope. No decoder of these tables can supply the compensating area response.",
+                  "source": "model/experiments/interval_echo_einstein_station/equilibrium_refinement/area_survey/README.md"
+                },
+                {
+                  "law": "Finite reversible repair on supplied curved balls",
+                  "label": "Capacity and proper area on a held third sector",
+                  "finding": "Independent area and word counts give a prediction error of +0.000088 nats, with a simultaneous 99% interval of [−0.000793,+0.000967]. The supplied charts implement the area per tile.",
+                  "source": "code/matched_einstein_limit/finite_entropy_region/README.md"
                 }
               ]
             },

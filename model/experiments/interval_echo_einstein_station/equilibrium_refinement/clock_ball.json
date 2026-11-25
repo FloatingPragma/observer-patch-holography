@@ -1,0 +1,416 @@
+{
+  "center": 0,
+  "radius": 2,
+  "unit": "one calibrated outgoing exchange",
+  "single_exchange_hand": 3.14159265359,
+  "hand_hops_to_stations": [
+    0,
+    1,
+    2,
+    3,
+    2,
+    1,
+    2,
+    1,
+    2,
+    2,
+    1,
+    1
+  ],
+  "interior": [
+    0,
+    1,
+    5,
+    7,
+    10,
+    11
+  ],
+  "shell": [
+    2,
+    4,
+    6,
+    8,
+    9
+  ],
+  "total_word_records": 66,
+  "retained_ball_word_records": 55,
+  "interior_reference_records": [
+    [],
+    [
+      0
+    ],
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      5
+    ],
+    [
+      0,
+      7
+    ],
+    [
+      0,
+      10
+    ],
+    [
+      0,
+      11
+    ],
+    [
+      1
+    ],
+    [
+      1,
+      5
+    ],
+    [
+      1,
+      7
+    ],
+    [
+      1,
+      10
+    ],
+    [
+      1,
+      11
+    ],
+    [
+      5
+    ],
+    [
+      5,
+      7
+    ],
+    [
+      5,
+      10
+    ],
+    [
+      5,
+      11
+    ],
+    [
+      7
+    ],
+    [
+      7,
+      10
+    ],
+    [
+      7,
+      11
+    ],
+    [
+      10
+    ],
+    [
+      10,
+      11
+    ],
+    [
+      11
+    ]
+  ],
+  "independent_interior_reference_counts": [
+    95433,
+    47692,
+    9467,
+    9540,
+    9565,
+    9378,
+    9618,
+    47627,
+    9450,
+    9426,
+    9579,
+    9515,
+    47652,
+    9638,
+    9451,
+    9432,
+    47759,
+    9575,
+    9405,
+    47928,
+    9414,
+    47744
+  ],
+  "shots_per_meter": 524288,
+  "exact_energy_symmetry": [
+    9,
+    1,
+    2,
+    10,
+    11,
+    5,
+    6,
+    8,
+    7,
+    0,
+    3,
+    4
+  ],
+  "native_gates": {
+    "pi_contacts": 37356,
+    "intercell_pi_contacts": 0,
+    "echo_read_undo": 5544
+  },
+  "arms": {
+    "split": {
+      "words": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          9
+        ]
+      ],
+      "one_site_occupied_probability": [
+        0.5,
+        0.5,
+        0.5,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.5,
+        0.0,
+        0.0
+      ],
+      "one_site_counts": [
+        262797,
+        261826,
+        262239,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        262079,
+        0,
+        0
+      ],
+      "shell_pair_occupied_count_probability": [
+        0.6,
+        0.4,
+        0.0
+      ],
+      "shell_pair_counts": [
+        313785,
+        210503,
+        0
+      ],
+      "independent_single_shell_occupied": 104737,
+      "volume_vacancy_units": 9.0,
+      "shell_vacancy_units": 4.0,
+      "signed_leg_count": [
+        262040,
+        262248
+      ],
+      "entropy_score_mean": 2.3979596740644302,
+      "capacity_nats": 1.6094379124341003,
+      "capacity_from_pair_flags": 1.6094379124341003,
+      "sampled_capacity_from_pair_flags": 1.607586847635368
+    },
+    "spread": {
+      "words": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          9
+        ]
+      ],
+      "one_site_occupied_probability": [
+        0.5,
+        0.5,
+        0.5,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.5,
+        0.0,
+        0.0
+      ],
+      "one_site_counts": [
+        262019,
+        261708,
+        262237,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        262378,
+        0,
+        0
+      ],
+      "shell_pair_occupied_count_probability": [
+        0.65,
+        0.3,
+        0.05
+      ],
+      "shell_pair_counts": [
+        340390,
+        157601,
+        26297
+      ],
+      "independent_single_shell_occupied": 104921,
+      "volume_vacancy_units": 9.0,
+      "shell_vacancy_units": 4.0,
+      "signed_leg_count": [
+        262135,
+        262153
+      ],
+      "entropy_score_mean": 2.8588832384983647,
+      "capacity_nats": 1.151292546497023,
+      "capacity_from_pair_flags": 1.1512925464970227,
+      "sampled_capacity_from_pair_flags": 1.1508220716315167
+    }
+  },
+  "timed_rim_apertures": {
+    "panels": {
+      "2": [
+        2,
+        4,
+        6
+      ],
+      "4": [
+        2,
+        4,
+        9
+      ],
+      "6": [
+        2,
+        6,
+        8
+      ],
+      "8": [
+        6,
+        8,
+        9
+      ],
+      "9": [
+        4,
+        8,
+        9
+      ]
+    },
+    "calibration_words": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ]
+    ],
+    "nats_per_lit_panel": 0.5364793041447001,
+    "held_rim_pairs": [
+      {
+        "word": [
+          2,
+          4
+        ],
+        "lit_panels": 4,
+        "capacity_nats": 2.302585092994046
+      },
+      {
+        "word": [
+          2,
+          6
+        ],
+        "lit_panels": 4,
+        "capacity_nats": 2.302585092994046
+      },
+      {
+        "word": [
+          2,
+          8
+        ],
+        "lit_panels": 5,
+        "capacity_nats": 2.302585092994046
+      },
+      {
+        "word": [
+          2,
+          9
+        ],
+        "lit_panels": 5,
+        "capacity_nats": 2.302585092994046
+      },
+      {
+        "word": [
+          4,
+          6
+        ],
+        "lit_panels": 5,
+        "capacity_nats": 2.302585092994046
+      },
+      {
+        "word": [
+          4,
+          8
+        ],
+        "lit_panels": 5,
+        "capacity_nats": 2.302585092994046
+      },
+      {
+        "word": [
+          4,
+          9
+        ],
+        "lit_panels": 4,
+        "capacity_nats": 2.302585092994046
+      },
+      {
+        "word": [
+          6,
+          8
+        ],
+        "lit_panels": 4,
+        "capacity_nats": 2.302585092994046
+      },
+      {
+        "word": [
+          6,
+          9
+        ],
+        "lit_panels": 5,
+        "capacity_nats": 2.302585092994046
+      },
+      {
+        "word": [
+          8,
+          9
+        ],
+        "lit_panels": 4,
+        "capacity_nats": 2.302585092994046
+      }
+    ],
+    "spread_minus_split_lit_panels": -0.5,
+    "predicted_capacity_contrast": -0.26823965207235007
+  },
+  "spread_minus_split": {
+    "capacity_nats": -0.45814536593707733,
+    "flag_reconstruction_nats": -0.45676477600385135,
+    "interior_entropy_first_variation_nats": 0.46092356443393445,
+    "two_rim_flags_probability": 0.05
+  }
+}
