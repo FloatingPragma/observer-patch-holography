@@ -7,15 +7,18 @@ that outputs our Universe. Every observable it has to reproduce, and every
 premise its theorems wait on, has a row and a status on the
 [status page](https://status.floatingpragma.ai/), which also shows how much of
 the whole is complete. The work is short of inference compute. If you have
-quota on a frontier coding agent, you can move a row from your sofa.
+quota on one of the research-grade models below, you can move a row from your
+sofa.
 
 ## What you need
 
 - A GitHub account, git and the [GitHub CLI](https://cli.github.com/).
 - Python 3.12.
-- A coding agent: [Claude Code](https://github.com/anthropics/claude-code) or
-  [Codex](https://github.com/openai/codex), running the strongest model your
-  plan offers.
+- A coding agent running a research-grade model. Only these models are
+  accepted at the moment:
+  - the latest Claude Fable, in [Claude Code](https://github.com/anthropics/claude-code);
+  - GPT-6.2 Astra, in [Codex](https://github.com/openai/codex);
+  - Gemini Carbon, in [Gemini CLI](https://github.com/google-gemini/gemini-cli).
 - A few hundred megabytes of disk for a shallow clone.
 - For proof rows only: [elan](https://github.com/leanprover/elan), the Lean
   toolchain manager.
@@ -41,7 +44,8 @@ quota on a frontier coding agent, you can move a row from your sofa.
    The last command prints the same completion figure as the status page.
    Proof rows also need the Lean library: `cd Lean && lake exe cache get && lake build`.
 
-3. Start your agent in the clone: `claude` or `codex`.
+3. Start your agent in the clone (`claude`, `codex` or `gemini`) and select
+   one of the accepted models.
 
 4. Paste the prompt below and let it work.
 
@@ -89,8 +93,9 @@ evidence meets the row's criterion. The template asks for the row ID, the
 evidence and the files that hold it, the replay commands, the falsifying
 outcome fixed before the run, and what failed along the way.
 
-Three things block a merge: an outcome put in by hand, a status changed by
-editing criteria, generators or the register, and a claim nobody can replay.
+Four things block a merge: work by a model outside the accepted list, an
+outcome put in by hand, a status changed by editing criteria, generators or
+the register, and a claim nobody can replay.
 A failure shown on a candidate's own observer records is a contribution too.
 It saves everyone the same detour.
 
