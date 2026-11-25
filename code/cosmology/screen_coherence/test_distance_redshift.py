@@ -1,7 +1,9 @@
 """Independent time-of-flight and first-hit checks for observer zero."""
 
 from collections import defaultdict
+from fractions import Fraction
 import json
+from math import inf, isfinite, nextafter
 import os
 from pathlib import Path
 
@@ -105,12 +107,17 @@ def test_survey_receipts_and_cohort():
                     <= data["launches_per_source"]
                 )
                 for gate, count in enumerate(flash["counts"]):
-                    expected = (
-                        (reference["flash"]["counts"][gate] / count) ** 0.5
-                        if count
-                        else None
-                    )
-                    assert flash["equivalent_distances"][gate] == expected
+                    distance = flash["equivalent_distances"][gate]
+                    if not count:
+                        assert distance is None
+                        continue
+                    # Test the count ratio directly. Different libm pow implementations
+                    # can round the archived square root to adjacent binary64 values.
+                    assert isfinite(distance) and distance >= 0
+                    ratio = Fraction(reference["flash"]["counts"][gate], count)
+                    lower = Fraction(nextafter(distance, 0.0))
+                    upper = Fraction(nextafter(distance, inf))
+                    assert lower**2 <= ratio <= upper**2
         samples[name] = sample
     assert [len(samples[e]) for e in ("0", "4", "96", "transparent")] == [
         156,
