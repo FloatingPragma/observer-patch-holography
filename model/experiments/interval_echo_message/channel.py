@@ -409,11 +409,23 @@ REPLAY_EVALUATIONS = (
         "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
         "model/candidate_laws/interval_echo/EVALUATION.json": "efe66f024f2acb1573c6a5ae907a8eb90e38bb7d71e40b3205195616db2aa3c5",
     },
+    # Matched observers on transported energy, formed matter and live clocks.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "d83592841ac40880a9df81af808d6f618df95aff2b3b2fcf0821e9f6bf865792",
+    },
     # Independent observer gauge frames, the chiral multiplicity theorem and three charged clock branches.
     {
         "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
         "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
         "model/candidate_laws/interval_echo/EVALUATION.json": "5ab9feeceac618abdbe6ad8b3c84f686bed9acc6aac6c0cb67a1d20a790ebb95",
+    },
+    # Joint evaluation of formed-source ranges and the neutral and charged observer records.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "a08cd3353eba943f4bf08c7a945526990bfdc1a5980eda75b5d526ca2ca9e82a",
     },
 )
 

@@ -5,6 +5,7 @@ import Mathlib.Tactic.Linarith
 import Mathlib.Tactic.Ring
 import Mathlib.Tactic.FieldSimp
 import Mathlib.Tactic.Positivity
+import Mathlib.Util.AssertNoSorry
 
 /-! # First variations from accessible tile multiplicities
 
@@ -118,6 +119,52 @@ theorem fixed_volume_capacity_bound {ι : Type*} [Fintype ι]
     _ ≤ ∑ i, |v i * (-(e i + b i))| := Finset.abs_sum_le_sum_abs _ _
     _ ≤ ∑ i, |v i| * (ea + ep) := Finset.sum_le_sum (fun i _ => each i)
     _ = _ := by rw [Finset.sum_mul]
+
+open scoped BigOperators in
+/-- On a faithful finite record distribution all signed probability tangents
+are feasible locally in the simplex. If all normalized fixed-mean-volume
+transfers are admitted, stationarity is equivalent to a three-record test.
+For affine surveyed area use score i = η * area i - log (prob i).
+Each test uses the same two anchor records, of unequal measured volume. -/
+theorem fixed_volume_record_test {ι : Type*} [Fintype ι]
+    (volume score : ι → ℝ) (a b : ι) (hab : volume b ≠ volume a) :
+    (∀ v : ι → ℝ, (∑ i, v i) = 0 → (∑ i, v i * volume i) = 0 →
+      (∑ i, v i * score i) = 0) ↔
+    ∀ i, (volume b - volume a) * score i =
+      (volume b - volume i) * score a + (volume i - volume a) * score b := by
+  classical
+  constructor
+  · intro h i
+    let v : ι → ℝ := fun j =>
+      (if j = i then volume b - volume a else 0) -
+      (if j = a then volume b - volume i else 0) -
+      (if j = b then volume i - volume a else 0)
+    have transfer (f : ι → ℝ) :
+        (∑ j, v j * f j) = (volume b - volume a) * f i -
+          (volume b - volume i) * f a - (volume i - volume a) * f b := by
+      simp [v, sub_mul, ite_mul, Finset.sum_sub_distrib]
+    have hn := transfer (fun _ => 1)
+    have hv := transfer volume
+    have hs := transfer score
+    simp only [mul_one] at hn
+    have hvol : (∑ j, v j * volume j) = 0 := by rw [hv]; ring
+    have hz := h v (by linarith only [hn]) hvol
+    linarith only [hs, hz]
+  · intro h v hn hv
+    have he : (volume b - volume a) * (∑ i, v i * score i) =
+        (∑ i, v i) * (volume b * score a - volume a * score b) +
+        (∑ i, v i * volume i) * (score b - score a) := by
+      rw [Finset.mul_sum, Finset.sum_mul, Finset.sum_mul, ← Finset.sum_add_distrib]
+      apply Finset.sum_congr rfl
+      intro i _
+      calc
+        _ = v i * ((volume b - volume a) * score i) := by ring
+        _ = _ := by rw [h i]; ring
+    rw [hn, hv] at he
+    exact (mul_eq_zero.mp (by simpa using he)).resolve_left (sub_ne_zero.mpr hab)
+
+assert_no_sorry fixed_volume_record_test
+#print axioms fixed_volume_record_test
 
 /-- An aperture doubling as accessible volume quadruples admits no positive
 isotropic length ratio preserving both a three-dimensional volume and area. -/

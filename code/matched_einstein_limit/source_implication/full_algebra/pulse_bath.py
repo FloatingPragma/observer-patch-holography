@@ -2,6 +2,7 @@
 
 import argparse
 import json
+from fractions import Fraction
 from pathlib import Path
 
 import numpy as np
@@ -57,6 +58,14 @@ def generator_checks():
                 squared_norm_loss_floor=str(sp.Rational(1, 64*board.n)), sectors=data)
 
 
+def binary_entropy_shortfall(absolute_mean_floor):
+    """Five positive rational terms below log 2 minus the observed bit entropy."""
+    z = Fraction(absolute_mean_floor)
+    if not 0 <= z <= 1:
+        raise ValueError("The absolute mean bound must lie between zero and one.")
+    return sum(z**(2*k) / ((2*k)*(2*k-1)) for k in range(1, 6))
+
+
 def matched_readout():
     cert.iv.dps = 30
     nums, unit, error = native_precision.exact_effects()
@@ -99,12 +108,18 @@ def matched_readout():
     # density_center converts the normalized rational matrix to binary64 once; each
     # real diagonal error is below 2^-50 since each absolute entry is below one.
     expect = cert.ri_band(mean, 3*sp.Rational(radius)+8*sp.Rational(1, 2**50))
-    assert expect.a > cert.ri('.4608') and expect.b < cert.ri('.4610')
+    zz_floor = '0.4608947'
+    assert expect.a > cert.ri(zz_floor) and expect.b < cert.ri('.4610')
+    series_lower = binary_entropy_shortfall(zz_floor)
+    assert series_lower > Fraction('0.11033')
     assert sp.Rational('.14')*sp.Rational('.4608')**2 > sp.Rational('.0297')
     return dict(odd_weight_interval=['.10750779', '.10750781'], calibrated_volume=str(target),
                 volume_strictly_decreasing=True, volume_control=str(vz[1]), matching_coefficient=str(adjust),
                 fixed_volume_objective_slope=str(response), optimizer_joint_ZZ=str(expect),
-                bath_joint_ZZ=0, feasible_gap_lower_nats='0.0297')
+                bath_joint_ZZ=0, feasible_gap_lower_nats='0.0297',
+                optimizer_fixed_parity_entropy_shortfall=dict(
+                    absolute_ZZ_lower=zz_floor, positive_series_terms=5,
+                    series_lower_nats=str(series_lower), strict_lower_nats='0.11033'))
 
 
 def run():

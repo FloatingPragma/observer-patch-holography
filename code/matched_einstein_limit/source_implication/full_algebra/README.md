@@ -6,6 +6,49 @@ Every other state at the same survey volume loses at least 0.14 times its square
 
 On the same connected board, unconditioned, uniformly launched short probes relax the head coins to sector traces. One of these stationary states has the calibrated volume and a nonzero fixed-volume entropy-plus-area slope. Reusing the variational preparation for one full capped radar cycle decreases its left-coin reading on every charge and route. [Connected equilibration](PROOF.md#equilibration-on-one-connected-board) · [Complete radar readback](reuse/README.md)
 
+### How much record capacity does the survey equilibrium use?
+
+One joint coin observable certifies that the selected survey equilibrium is
+**more than 0.11033 nats below its entropy ceiling at its own reversal
+fraction**. Let $p$ be that fraction and $z=\langle Z_L Z_R\rangle$. Each
+reversal sector contains four coin states. Its two possible $ZZ$ outcomes
+each have multiplicity two. Write $h$ for binary entropy in nats. The sharp
+maximum entropy given both readouts is
+
+\[
+S_{\max}(p,z)=h(p)+h((1+z)/2)+\log 2.
+\]
+
+To see this, dephase the two commuting readouts. Dephasing can only increase
+entropy. Each resulting conditional coin block has entropy at most $\log 2$,
+and the joint entropy of the readouts is at most the sum of their binary
+entropies. Equality is attained by independent readouts with uniformly
+populated conditional blocks. The native preparation can realize this
+maximum for $0\le p\le1/2$: draw the left $Z$ bit fairly, draw an independent
+product sign of mean $z$ to set the right bit, and load both signed rails.
+Apply the unread left-sign write on an independent fraction $2p$ of the
+trials. Omitting the $ZZ$ constraint gives the fixed-parity ceiling
+$h(p)+\log 4$, attained by the sector traces selected by the uniform probe bath.
+[Preparation and native pulses](PROOF.md#native-preparation-and-held-responses)
+
+The existing native enclosure for the **ideal selected six-unit survey
+reference** gives $0.4608947611<z<0.4608959612$. It includes uncertainty
+in its rational density center and the certified distance to the true
+reference. The bath predicts $z=0$ in every parity mixture. For $|z|<1$,
+
+\[
+\log2-h((1+z)/2)=\sum_{k=1}^{\infty}
+  \frac{z^{2k}}{(2k)(2k-1)} .
+\]
+
+This follows by integrating the power series for $\operatorname{atanh}z$
+from zero. The first five terms at $z=0.4608947$ already exceed $0.11033$
+by exact rational comparison. This is a population bound on the ideal
+reference. For an approximate laboratory realization, its own lower
+confidence bound on $|z|$ can be substituted in the same inequality.
+The quantity bounded here is ordinary stored-head entropy. The separate
+fixed-volume theorem maximizes $S+\eta A$. [Native correlation and rational certificate](pulse_bath.json) · [Verifier](pulse_bath.py)
+
 Run from the repository root:
 
 ```sh

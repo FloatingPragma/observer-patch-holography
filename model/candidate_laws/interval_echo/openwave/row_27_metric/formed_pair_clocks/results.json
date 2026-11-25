@@ -1,0 +1,729 @@
+{
+  "unconditioned": [
+    {
+      "clock_line": 1,
+      "dwell": 0.25,
+      "bins": [
+        64788069946,
+        1034723557830,
+        0,
+        0
+      ],
+      "wrong_clock_interval": [
+        0.0,
+        1.190071694580652e-10
+      ],
+      "pair_contact_interval": [
+        0.05892353264376068,
+        0.05892528009531545
+      ]
+    },
+    {
+      "clock_line": 32,
+      "dwell": 0.25,
+      "bins": [
+        65315700873,
+        1022690066122,
+        260847847,
+        11245012934
+      ],
+      "wrong_clock_interval": [
+        0.010464141749410107,
+        0.010464897099194547
+      ],
+      "pair_contact_interval": [
+        0.059640644927606894,
+        0.05964240232816451
+      ]
+    }
+  ],
+  "source_energy": {
+    "incoming": {
+      "contrast_energy": 96,
+      "odd_counts": [
+        [
+          0,
+          1,
+          549756003484
+        ],
+        [
+          0,
+          10,
+          549754985283
+        ],
+        [
+          1,
+          5,
+          549756532553
+        ],
+        [
+          1,
+          7,
+          549756095765
+        ],
+        [
+          1,
+          8,
+          549755695570
+        ],
+        [
+          1,
+          9,
+          549755245747
+        ],
+        [
+          1,
+          82,
+          549756019585
+        ],
+        [
+          2,
+          10,
+          549756067263
+        ],
+        [
+          6,
+          10,
+          549755549185
+        ],
+        [
+          7,
+          10,
+          549756274155
+        ],
+        [
+          10,
+          11,
+          549754686342
+        ],
+        [
+          10,
+          20,
+          549755374864
+        ]
+      ],
+      "mean_above_uniform": [
+        101.99997340910113,
+        102.00002434106364
+      ]
+    },
+    "after_encounter_read": {
+      "contrast_energy": 128,
+      "odd_counts": [
+        [
+          0,
+          1,
+          549755854696
+        ],
+        [
+          0,
+          5,
+          549756286239
+        ],
+        [
+          0,
+          7,
+          549755215468
+        ],
+        [
+          0,
+          10,
+          549755345686
+        ],
+        [
+          0,
+          11,
+          549756683841
+        ],
+        [
+          1,
+          5,
+          549756492856
+        ],
+        [
+          1,
+          7,
+          549755826619
+        ],
+        [
+          1,
+          8,
+          549755317092
+        ],
+        [
+          1,
+          9,
+          549755629029
+        ],
+        [
+          1,
+          82,
+          549754696188
+        ]
+      ],
+      "mean_above_uniform": [
+        132.99997805878766,
+        133.00002050208977
+      ]
+    }
+  },
+  "initial_pair": [
+    10,
+    1
+  ],
+  "detected_pair": [
+    0,
+    1
+  ],
+  "formation_dwell": 0.125,
+  "formation_probability": 0.0009290682322300242,
+  "starts_per_setting": 1099511627776,
+  "bin_order": [
+    "right hand + contact",
+    "right hand + separate",
+    "wrong hand + contact",
+    "wrong hand + separate"
+  ],
+  "panels": [
+    {
+      "mount": "first",
+      "seam": [
+        2,
+        11
+      ],
+      "dwell": 0.125,
+      "clock_line": 1,
+      "approach_rate": 0.25,
+      "nonheralds": 1098490146224,
+      "accepted_bins": [
+        1014420668,
+        7060884,
+        0,
+        0
+      ],
+      "herald_interval": [
+        0.0009289190145543914,
+        0.0009291451139435533
+      ],
+      "wrong_clock_interval": [
+        0.0,
+        9.805219150201437e-09
+      ],
+      "pair_contact_interval": [
+        0.993077513684414,
+        0.9930976861971418
+      ],
+      "reference_no_source_wrong": 0
+    },
+    {
+      "mount": "first",
+      "seam": [
+        2,
+        11
+      ],
+      "dwell": 0.125,
+      "clock_line": 32,
+      "approach_rate": 0.25,
+      "nonheralds": 1098490057651,
+      "accepted_bins": [
+        1013577838,
+        6154960,
+        12243,
+        1825084
+      ],
+      "herald_interval": [
+        0.0009289995663327479,
+        0.0009292256755131658
+      ],
+      "wrong_clock_interval": [
+        0.001793379288703653,
+        0.0018036957416597632
+      ],
+      "pair_contact_interval": [
+        0.9921777301844115,
+        0.9921991639007717
+      ],
+      "reference_no_source_wrong": 0
+    },
+    {
+      "mount": "first",
+      "seam": [
+        2,
+        11
+      ],
+      "dwell": 0.125,
+      "clock_line": 33,
+      "approach_rate": 0.25,
+      "nonheralds": 1098490091242,
+      "accepted_bins": [
+        1013583643,
+        6075312,
+        12555,
+        1865024
+      ],
+      "herald_interval": [
+        0.0009289690173536102,
+        0.0009291951228207325
+      ],
+      "wrong_clock_interval": [
+        0.0018327855581811282,
+        0.0018432145285379308
+      ],
+      "pair_contact_interval": [
+        0.9922163703101599,
+        0.9922377517554295
+      ],
+      "reference_no_source_wrong": 0
+    },
+    {
+      "mount": "first",
+      "seam": [
+        2,
+        11
+      ],
+      "dwell": 0.25,
+      "clock_line": 1,
+      "approach_rate": 0.25,
+      "nonheralds": 1098490062695,
+      "accepted_bins": [
+        1016082075,
+        5483006,
+        0,
+        0
+      ],
+      "herald_interval": [
+        0.0009289949791207147,
+        0.0009292210877443409
+      ],
+      "wrong_clock_interval": [
+        0.0,
+        9.804426413672425e-09
+      ],
+      "pair_contact_interval": [
+        0.9946238399996525,
+        0.9946416287234391
+      ],
+      "reference_no_source_wrong": 0
+    },
+    {
+      "mount": "first",
+      "seam": [
+        2,
+        11
+      ],
+      "dwell": 0.25,
+      "clock_line": 32,
+      "approach_rate": 0.25,
+      "nonheralds": 1098490160153,
+      "accepted_bins": [
+        1010904490,
+        7650216,
+        66391,
+        2846526
+      ],
+      "herald_interval": [
+        0.0009289063469727249,
+        0.0009291324448214469
+      ],
+      "wrong_clock_interval": [
+        0.002845210950124171,
+        0.0028581948504819927
+      ],
+      "pair_contact_interval": [
+        0.9897115802308052,
+        0.9897361342751552
+      ],
+      "reference_no_source_wrong": 0
+    },
+    {
+      "mount": "first",
+      "seam": [
+        2,
+        11
+      ],
+      "dwell": 0.25,
+      "clock_line": 33,
+      "approach_rate": 0.25,
+      "nonheralds": 1098490163050,
+      "accepted_bins": [
+        1011397412,
+        7447822,
+        60604,
+        2558888
+      ],
+      "herald_interval": [
+        0.0009289037123267836,
+        0.0009291298098553098
+      ],
+      "wrong_clock_interval": [
+        0.0025582946945795254,
+        0.002570609161666471
+      ],
+      "pair_contact_interval": [
+        0.9901915727553178,
+        0.9902155527073486
+      ],
+      "reference_no_source_wrong": 0
+    },
+    {
+      "mount": "first",
+      "seam": [
+        2,
+        11
+      ],
+      "dwell": 0.5,
+      "clock_line": 1,
+      "approach_rate": 0.25,
+      "nonheralds": 1098490136052,
+      "accepted_bins": [
+        1016519664,
+        4972060,
+        0,
+        0
+      ],
+      "herald_interval": [
+        0.000928928265371964,
+        0.0009291543658864355
+      ],
+      "wrong_clock_interval": [
+        0.0,
+        9.805122605348062e-09
+      ],
+      "pair_contact_interval": [
+        0.9951240722719505,
+        0.9951410174099024
+      ],
+      "reference_no_source_wrong": 0
+    },
+    {
+      "mount": "first",
+      "seam": [
+        2,
+        11
+      ],
+      "dwell": 0.5,
+      "clock_line": 32,
+      "approach_rate": 0.25,
+      "nonheralds": 1098490126976,
+      "accepted_bins": [
+        1011899302,
+        6920097,
+        357617,
+        2323784
+      ],
+      "herald_interval": [
+        0.000928936519445081,
+        0.0009291626209619965
+      ],
+      "wrong_clock_interval": [
+        0.0026187381362046663,
+        0.0026311964413550546
+      ],
+      "pair_contact_interval": [
+        0.9909391536015731,
+        0.9909622093377085
+      ],
+      "reference_no_source_wrong": 0
+    },
+    {
+      "mount": "first",
+      "seam": [
+        2,
+        11
+      ],
+      "dwell": 0.5,
+      "clock_line": 33,
+      "approach_rate": 0.25,
+      "nonheralds": 1098490051673,
+      "accepted_bins": [
+        1014088411,
+        6027323,
+        298562,
+        1161807
+      ],
+      "herald_interval": [
+        0.0009290050029615992,
+        0.0009292311128038491
+      ],
+      "wrong_clock_interval": [
+        0.0014249308765434058,
+        0.0014341301250735076
+      ],
+      "pair_contact_interval": [
+        0.9929525264648374,
+        0.9929728781758508
+      ],
+      "reference_no_source_wrong": 0
+    },
+    {
+      "mount": "held",
+      "seam": [
+        12,
+        13
+      ],
+      "dwell": 0.125,
+      "clock_line": 1,
+      "approach_rate": 0.0,
+      "nonheralds": 1098490124679,
+      "accepted_bins": [
+        1013343624,
+        8159473,
+        0,
+        0
+      ],
+      "herald_interval": [
+        0.0009289386084272463,
+        0.000929164710197919
+      ],
+      "wrong_clock_interval": [
+        0.0,
+        9.805014663796851e-09
+      ],
+      "pair_contact_interval": [
+        0.9920014461196206,
+        0.9920231189487246
+      ],
+      "reference_no_source_wrong": 0
+    },
+    {
+      "mount": "held",
+      "seam": [
+        12,
+        13
+      ],
+      "dwell": 0.125,
+      "clock_line": 32,
+      "approach_rate": 0.0,
+      "nonheralds": 1098490135262,
+      "accepted_bins": [
+        1013330804,
+        8161710,
+        0,
+        0
+      ],
+      "herald_interval": [
+        0.0009289289838301146,
+        0.000929155084429884
+      ],
+      "wrong_clock_interval": [
+        0.0,
+        9.805115107352025e-09
+      ],
+      "pair_contact_interval": [
+        0.9919991718462595,
+        0.9920208478456715
+      ],
+      "reference_no_source_wrong": 0
+    },
+    {
+      "mount": "held",
+      "seam": [
+        12,
+        13
+      ],
+      "dwell": 0.125,
+      "clock_line": 33,
+      "approach_rate": 0.0,
+      "nonheralds": 1098490107070,
+      "accepted_bins": [
+        1013360064,
+        8160642,
+        0,
+        0
+      ],
+      "herald_interval": [
+        0.0009289546227458825,
+        0.0009291807264635788
+      ],
+      "wrong_clock_interval": [
+        0.0,
+        9.804847540887463e-09
+      ],
+      "pair_contact_interval": [
+        0.9920004388559205,
+        0.9920221128527998
+      ],
+      "reference_no_source_wrong": 0
+    },
+    {
+      "mount": "held",
+      "seam": [
+        12,
+        13
+      ],
+      "dwell": 0.25,
+      "clock_line": 1,
+      "approach_rate": 0.0,
+      "nonheralds": 1098490122274,
+      "accepted_bins": [
+        1012366770,
+        9138732,
+        0,
+        0
+      ],
+      "herald_interval": [
+        0.0009289407956291518,
+        0.0009291668976653585
+      ],
+      "wrong_clock_interval": [
+        0.0,
+        9.804991838163403e-09
+      ],
+      "pair_contact_interval": [
+        0.9910421957853717,
+        0.9910651211083727
+      ],
+      "reference_no_source_wrong": 0
+    },
+    {
+      "mount": "held",
+      "seam": [
+        12,
+        13
+      ],
+      "dwell": 0.25,
+      "clock_line": 32,
+      "approach_rate": 0.0,
+      "nonheralds": 1098490067732,
+      "accepted_bins": [
+        1012426962,
+        9133081,
+        0,
+        1
+      ],
+      "herald_interval": [
+        0.0009289903982743634,
+        0.0009292165063401632
+      ],
+      "wrong_clock_interval": [
+        0.0,
+        1.2352717718222413e-08
+      ],
+      "pair_contact_interval": [
+        0.9910482083159461,
+        0.9910711253972383
+      ],
+      "reference_no_source_wrong": 0
+    },
+    {
+      "mount": "held",
+      "seam": [
+        12,
+        13
+      ],
+      "dwell": 0.25,
+      "clock_line": 33,
+      "approach_rate": 0.0,
+      "nonheralds": 1098490091479,
+      "accepted_bins": [
+        1012399992,
+        9136300,
+        0,
+        5
+      ],
+      "herald_interval": [
+        0.0009289688018159792,
+        0.0009291949072569683
+      ],
+      "wrong_clock_interval": [
+        2.649483617469105e-10,
+        2.0152177448473827e-08
+      ],
+      "pair_contact_interval": [
+        0.9910448431653915,
+        0.9910677647837339
+      ],
+      "reference_no_source_wrong": 0
+    },
+    {
+      "mount": "held",
+      "seam": [
+        12,
+        13
+      ],
+      "dwell": 0.5,
+      "clock_line": 1,
+      "approach_rate": 0.0,
+      "nonheralds": 1098490083690,
+      "accepted_bins": [
+        1015669909,
+        5874177,
+        0,
+        0
+      ],
+      "herald_interval": [
+        0.0009289758854404626,
+        0.0009292019917424987
+      ],
+      "wrong_clock_interval": [
+        0.0,
+        9.804625655667322e-09
+      ],
+      "pair_contact_interval": [
+        0.9942404981778435,
+        0.9942589073139153
+      ],
+      "reference_no_source_wrong": 0
+    },
+    {
+      "mount": "held",
+      "seam": [
+        12,
+        13
+      ],
+      "dwell": 0.5,
+      "clock_line": 32,
+      "approach_rate": 0.0,
+      "nonheralds": 1098490077818,
+      "accepted_bins": [
+        1015678921,
+        5871003,
+        0,
+        34
+      ],
+      "herald_interval": [
+        0.0009289812256681212,
+        0.0009292073326192052
+      ],
+      "wrong_clock_interval": [
+        1.5400263764337385e-08,
+        6.16371269042056e-08
+      ],
+      "pair_contact_interval": [
+        0.9942436074906769,
+        0.9942620116290851
+      ],
+      "reference_no_source_wrong": 0
+    },
+    {
+      "mount": "held",
+      "seam": [
+        12,
+        13
+      ],
+      "dwell": 0.5,
+      "clock_line": 33,
+      "approach_rate": 0.0,
+      "nonheralds": 1098490122839,
+      "accepted_bins": [
+        1015626300,
+        5878606,
+        0,
+        31
+      ],
+      "herald_interval": [
+        0.0009289402817950417,
+        0.0009291663837692301
+      ],
+      "wrong_clock_interval": [
+        1.3456437662914274e-08,
+        5.772018682968335e-08
+      ],
+      "pair_contact_interval": [
+        0.9942359078664871,
+        0.9942543246527881
+      ],
+      "reference_no_source_wrong": 0
+    }
+  ]
+}

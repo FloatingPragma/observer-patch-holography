@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 1183,
+  "surface_count": 1185,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -2017,6 +2017,11 @@
     },
     {
       "path": "model/candidate_laws/interval_echo/openwave/row_27_metric/exterior_channel/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_27_metric/formed_pair_clocks/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -4087,6 +4092,11 @@
     },
     {
       "path": "model/experiments/material_inertia/pair_spectrum/unfiltered_recoil/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/material_inertia/sourced_survey/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
