@@ -12,7 +12,7 @@
   "observations": {
     "interval_echo": {
       "e": {
-        "note": "Two independent sources and two detectors identify the same charged winding state in free flight and at one resolved energy. Its contact charge is signed, its addressed winding rotation is orbital, and its clock line depends on the guide. A separate spinor shell requires repeated monitoring of prepared material heads. Intrinsic electron spin, electric flux and physical rest mass remain open. The lowest propagating band carries the winding code near a common guide threshold of 16 native units.",
+        "note": "Two independent sources and two detectors identify the same charged winding state in free flight and at one resolved energy. Its contact charge is signed, its addressed winding rotation is orbital, and its clock line depends on the guide. A separate spinor shell requires repeated monitoring of prepared material heads. Intrinsic electron spin, electric flux and physical rest mass remain open. The lowest propagating band carries the winding code near a common guide threshold of 16 native units. After free flight a single negative charge carries three coherent winding amplitudes. Independent local phase and arm conventions reproduce ninety complete source and receiver banks. The conjugate windings have identical energy spectra. One terminal instrument couples each of the three arriving winding states to the same net-neutral pair, records donor compensation, and preserves the unknown winding. The full pulse gives conditional Schmidt-number-three fidelity lower bounds above 0.733 for both charge signs.",
         "evidence": [
           "model/experiments/interval_echo_angular/charged_orientation/paired_flight/README.md",
           "model/candidate_laws/interval_echo/openwave/row_11_spectrum/marked_bands/README.md",
@@ -43,11 +43,16 @@
           "model/experiments/interval_echo_angular/charged_orientation/aklt_edge/README.md",
           "model/experiments/interval_echo_angular/charged_orientation/flux_doublet/passive_faces/README.md",
           "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/charge_probe/empty_patch.json",
-          "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/recoil_search/threshold.json"
+          "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/recoil_search/threshold.json",
+          "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/cyclic_charge/README.md",
+          "model/experiments/interval_echo_lepton_register/phase_feedback/README.md",
+          "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/README.md",
+          "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/cyclic_charge/neutral_ladder/README.md",
+          "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/shared_report.json"
         ]
       },
       "mu": {
-        "note": "Three mobile bound cores have incompatible rest and recoil hierarchies. A separate localized charged orbital demonstrably loses one native unit as a stocked neutral pair gains one unit in another owner. The emitting orbital lacks a physical muon mass and weak-flavor tag. The eight periodic guides with a common positive light threshold miss at least one of the two laboratory ratios by 29.2% or more across every triple of band minima. Every matched-host formation energy of the three-arm doublet apparatus lies between 8 and 27, excluding the laboratory hierarchy throughout that sector.",
+        "note": "Three mobile bound cores have incompatible rest and recoil hierarchies. A separate localized charged orbital demonstrably loses one native unit as a stocked neutral pair gains one unit in another owner. The emitting orbital lacks a physical muon mass and weak-flavor tag. The eight periodic guides with a common positive light threshold miss at least one of the two laboratory ratios by 29.2% or more across every triple of band minima. Every matched-host formation energy of the three-arm doublet apparatus lies between 8 and 27, excluding the laboratory hierarchy throughout that sector. On a twelve-port native vacancy, a common periodic drive produces three resolved clock rates. Their ratios approach 1, 206.770316 and 3477.472837 in the weak-drive limit at the programmed register phase. All three encoded states couple out during unforced evolution.",
         "evidence": [
           "model/candidate_laws/interval_echo/openwave/row_11_spectrum/mobile_bound/README.md",
           "model/candidate_laws/interval_echo/openwave/row_11_spectrum/emission_channels/README.md",
@@ -60,11 +65,16 @@
           "model/candidate_laws/interval_echo/openwave/row_11_spectrum/dispersion_search/README.md",
           "model/experiments/interval_echo_angular/charged_orientation/sector_readout/README.md",
           "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/flavor_search/README.md",
-          "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/recoil_search/README.md"
+          "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/recoil_search/README.md",
+          "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/cyclic_charge/README.md",
+          "model/experiments/interval_echo_lepton_register/phase_feedback/README.md",
+          "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/README.md",
+          "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/cyclic_charge/neutral_ladder/README.md",
+          "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/shared_report.json"
         ]
       },
       "tau": {
-        "note": "The heaviest bound core measures 147.05535 against the 16-unit vacancy. The one-defect ceiling and the mobile passive charge-conjugate floor limit the heavy-to-light ratio to 24.75 on the specified host. A tau rest-mass and flavor assignment remains open. The eight periodic guides with a common positive light threshold miss at least one of the two laboratory ratios by 29.2% or more across every triple of band minima. Every matched-host formation energy of the three-arm doublet apparatus lies between 8 and 27, excluding the laboratory hierarchy throughout that sector.",
+        "note": "The heaviest bound core measures 147.05535 against the 16-unit vacancy. The one-defect ceiling and the mobile passive charge-conjugate floor limit the heavy-to-light ratio to 24.75 on the specified host. A tau rest-mass and flavor assignment remains open. The eight periodic guides with a common positive light threshold miss at least one of the two laboratory ratios by 29.2% or more across every triple of band minima. Every matched-host formation energy of the three-arm doublet apparatus lies between 8 and 27, excluding the laboratory hierarchy throughout that sector. On a twelve-port native vacancy, a common periodic drive produces three resolved clock rates. Their ratios approach 1, 206.770316 and 3477.472837 in the weak-drive limit at the programmed register phase. All three encoded states couple out during unforced evolution.",
         "evidence": [
           "model/candidate_laws/interval_echo/openwave/row_11_spectrum/mobile_bound/README.md",
           "model/candidate_laws/interval_echo/openwave/row_11_spectrum/marked_bands/README.md",
@@ -77,7 +87,12 @@
           "model/candidate_laws/interval_echo/openwave/row_11_spectrum/dispersion_search/README.md",
           "model/experiments/interval_echo_angular/charged_orientation/sector_readout/README.md",
           "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/flavor_search/README.md",
-          "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/recoil_search/README.md"
+          "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/recoil_search/README.md",
+          "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/cyclic_charge/README.md",
+          "model/experiments/interval_echo_lepton_register/phase_feedback/README.md",
+          "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/README.md",
+          "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/cyclic_charge/neutral_ladder/README.md",
+          "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/shared_report.json"
         ]
       }
     }

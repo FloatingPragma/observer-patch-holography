@@ -260,15 +260,26 @@ $e^c$ & $\mathbf1$ & $\mathbf1$ & $6$ & $1$\\
 \end{tabular}
 \end{center}
 
-The labels abbreviate computed finite quantum numbers; their identification with
-laboratory Weyl fields requires the physical current, spin and kinetic maps. The
-gauge paper \cite{ophGauge} gives the anomaly scan, which selects this module among
-exterior masks up to conjugation, the $\mathbb Z_6$ global form and the conditional
-family theorem. For the particle construction we explicitly choose
-$M_{15}\otimes\mathbb C^3$, with gauge currents acting trivially on $\mathbb C^3$.
-A two-dimensional radial kernel or a winding number three is no proof of three
-generations, and equivalent triplet representations on spatial, color and family
-factors do not identify those factors.
+These finite quantum numbers identify laboratory Weyl fields only after the
+physical currents, spin and kinetics have been measured. The gauge paper
+\cite{ophGauge} derives the diagonal $\mathbb Z_6$ quotient and selects the
+displayed exterior mask up to conjugation. Allow arbitrary multiplicities of
+all ten components, and subtract each conjugate count from its displayed
+count. Cancellation of the mixed gravitational, mixed colour, mixed weak and cubic
+hypercharge anomalies forces all five differences to equal one integer $k$.
+All other components occur in vectorlike pairs. The cubic colour anomaly
+and the mod-two weak-doublet test vanish for every $k$.
+For a complete purely chiral packet, an absolutely calibrated weak raising
+current has total squared transition strength $4|k|$. Three generations and
+two generations plus one mirror both have strength 12 and rank 45.
+Distinguishing them requires a handedness-sensitive measurement.
+
+For this particle construction the gauge currents act on the first factor
+of $M_{15}\otimes\mathbb C^3$. Three follows if the family factor is realized
+as one complete faithful band of the twelve-port cell and the least
+Laplacian cost selects it. The band costs are $5-\sqrt5$, $6$ and $5+\sqrt5$,
+with ranks $3$, $5$ and $3$. Its attachment to propagating matter is an
+additional physical premise.
 
 Exchange records have a separate finite route. On the native ordered-cover
 transport, let $p_h(x)$ be the permutation parity accumulated by branch $h$. A
@@ -514,6 +525,14 @@ The signed probe and the count-based channel forecasts are in
 measurements are in \path{recoil_search}. The all-line bounds, commutant
 calculation and two-lap identity are in \path{flavor_search}, including
 the Lean lemmas \path{ThreeArmFlavor.lean} and \path{PassiveLoop.lean}.
+The arbitrary multiplicity proof is \path{Lean/Screen/ExteriorMultiplicity.lean}.
+Its exact countermodels are in \path{code/a5_closure/chiral_multiplicity}.
+The common winding read and its independent frame comparison are in
+\path{three_arm_spin/cyclic_charge}. The finite family-field and material-face
+comparison is in \path{face_frame} under
+\path{model/candidate_laws/interval_echo/openwave/electron_field/lepton_family}.
+The driven clock and the free-release control are in
+\path{model/experiments/interval_echo_lepton_register/phase_feedback}.
 The crossed source and detector programs are in
 \path{material_interferometer}. The held spatial counts are in
 \path{smooth_profile.json}. The file \path{charge_probe/empty_patch.json} records

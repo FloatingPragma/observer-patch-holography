@@ -2584,7 +2584,9 @@
     "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/flavor_search/ThreeArmFlavor.lean",
     "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/flavor_search/PassiveLoop.lean",
     "model/experiments/interval_echo_angular/charged_orientation/aklt_edge/EndpointAlgebra.lean",
-    "model/experiments/interval_echo_angular/charged_orientation/flux_doublet/passive_faces/LocalFiber.lean"
+    "model/experiments/interval_echo_angular/charged_orientation/flux_doublet/passive_faces/LocalFiber.lean",
+    "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/cyclic_charge/CharacterRead.lean",
+    "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/ClockLines.lean"
    ],
    "model": [
     "model/evaluation/SCORECARD.md",
@@ -2644,7 +2646,12 @@
     "model/experiments/interval_echo_angular/charged_orientation/aklt_edge/README.md",
     "model/experiments/interval_echo_angular/charged_orientation/flux_doublet/passive_faces/README.md",
     "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/charge_probe/empty_patch.json",
-    "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/recoil_search/threshold.json"
+    "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/recoil_search/threshold.json",
+    "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/cyclic_charge/README.md",
+    "model/experiments/interval_echo_lepton_register/phase_feedback/README.md",
+    "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/README.md",
+    "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/cyclic_charge/neutral_ladder/results.json",
+    "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/shared_report.json"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
@@ -2680,7 +2687,8 @@
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/mobile_bound/BoundCore.lean",
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/emission_channels/EmissionBound.lean",
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/level_transfer/ObserverTransfer.lean",
-    "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/flavor_search/ThreeArmFlavor.lean"
+    "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/flavor_search/ThreeArmFlavor.lean",
+    "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/ClockLines.lean"
    ],
    "model": [
     "model/evaluation/SCORECARD.md",
@@ -2719,7 +2727,12 @@
     "model/experiments/interval_echo_angular/charged_orientation/sector_readout/README.md",
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/dispersion_search/README.md",
     "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/flavor_search/README.md",
-    "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/recoil_search/README.md"
+    "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/recoil_search/README.md",
+    "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/cyclic_charge/README.md",
+    "model/experiments/interval_echo_lepton_register/phase_feedback/README.md",
+    "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/README.md",
+    "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/cyclic_charge/neutral_ladder/results.json",
+    "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/shared_report.json"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
@@ -2755,7 +2768,8 @@
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/mobile_bound/BoundCore.lean",
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/emission_channels/EmissionBound.lean",
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/level_transfer/ObserverTransfer.lean",
-    "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/flavor_search/ThreeArmFlavor.lean"
+    "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/flavor_search/ThreeArmFlavor.lean",
+    "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/ClockLines.lean"
    ],
    "model": [
     "model/evaluation/SCORECARD.md",
@@ -2792,7 +2806,12 @@
     "model/experiments/interval_echo_angular/charged_orientation/sector_readout/README.md",
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/dispersion_search/README.md",
     "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/flavor_search/README.md",
-    "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/recoil_search/README.md"
+    "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/recoil_search/README.md",
+    "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/cyclic_charge/README.md",
+    "model/experiments/interval_echo_lepton_register/phase_feedback/README.md",
+    "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/README.md",
+    "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/cyclic_charge/neutral_ladder/results.json",
+    "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/shared_report.json"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
@@ -3303,7 +3322,8 @@
    "lean": [
     "Lean/ObserverPatchHolography/KoideCirculant.lean",
     "Lean/ObserverPatchHolography/LeptonRegisterCharacterisation.lean",
-    "Lean/SourceLaw/ChargedRegisterPole.lean"
+    "Lean/SourceLaw/ChargedRegisterPole.lean",
+    "model/experiments/interval_echo_lepton_register/phase_feedback/MeasuredDwell.lean"
    ],
    "model": [
     "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/README.md",
@@ -3313,7 +3333,9 @@
     "model/experiments/interval_echo_lepton_register/results.json",
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/excited_bounds.json",
     "model/experiments/interval_echo_lepton_register/pole_meter/README.md",
-    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/phase_ratios/README.md"
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/phase_ratios/README.md",
+    "model/experiments/interval_echo_lepton_register/phase_feedback/README.md",
+    "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/README.md"
    ],
    "papers": [
     "extra/koide_identity_from_positive_c3_face_circulants.pdf",
@@ -3698,14 +3720,17 @@
     "Lean/Screen/WeylYukawaConventions.lean",
     "Lean/Screen/FermionSectorAssembly.lean",
     "Lean/Screen/AssembledActionComposition.lean",
-    "Lean/Screen/ElectroweakBreakingComposition.lean"
+    "Lean/Screen/ElectroweakBreakingComposition.lean",
+    "Lean/Screen/ExteriorMultiplicity.lean"
    ],
    "model": [
     "code/a5_closure/exterior_sm_completion.py",
     "code/a5_closure/exterior_sm_completion.json",
     "code/a5_closure/test_audit.py",
     "code/a5_closure/super_tannakian_matter_lift_certificate.md",
-    "code/particles/calibration/q1_q4_wz_theorem_oracle/dependency_dag_v2.json"
+    "code/particles/calibration/q1_q4_wz_theorem_oracle/dependency_dag_v2.json",
+    "code/a5_closure/chiral_multiplicity/README.md",
+    "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/README.md"
    ],
    "papers": [
     "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf",
@@ -3726,12 +3751,15 @@
    ],
    "lean": [
     "Lean/Screen/ExteriorSelection.lean",
-    "Lean/Screen/WeylYukawaConventions.lean"
+    "Lean/Screen/WeylYukawaConventions.lean",
+    "Lean/Screen/ExteriorMultiplicity.lean"
    ],
    "model": [
     "code/a5_closure/exterior_sm_completion.py",
     "code/a5_closure/exterior_sm_completion.json",
-    "code/a5_closure/test_audit.py"
+    "code/a5_closure/test_audit.py",
+    "code/a5_closure/chiral_multiplicity/README.md",
+    "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/README.md"
    ],
    "papers": [
     "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf",
@@ -3753,12 +3781,20 @@
     "PR-54"
    ],
    "lean": [
-    "Lean/Screen/A5FamilyBand.lean"
+    "Lean/Screen/A5FamilyBand.lean",
+    "Lean/Screen/ExteriorMultiplicity.lean",
+    "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/ClockLines.lean"
    ],
    "model": [
     "model/evaluation/SCORECARD.md",
     "code/a5_closure/family_band_attachment_certificate.py",
-    "code/a5_closure/manifests/family_band_attachment_reference.json"
+    "code/a5_closure/manifests/family_band_attachment_reference.json",
+    "code/a5_closure/chiral_multiplicity/README.md",
+    "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/cyclic_charge/README.md",
+    "model/experiments/interval_echo_lepton_register/phase_feedback/README.md",
+    "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/README.md",
+    "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/cyclic_charge/neutral_ladder/results.json",
+    "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/shared_report.json"
    ],
    "papers": [
     "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf"
@@ -4835,7 +4871,8 @@
    "lean": [
     "Lean/SourceLaw/ChargedRegisterPole.lean",
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/mobile_bound/BoundCore.lean",
-    "Lean/Dynamics/CyclicEnergy.lean"
+    "Lean/Dynamics/CyclicEnergy.lean",
+    "model/experiments/interval_echo_lepton_register/phase_feedback/MeasuredDwell.lean"
    ],
    "model": [
     "model/evaluation/SCORECARD.md",
@@ -4882,7 +4919,9 @@
     "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/charge_probe/README.md",
     "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/smooth_profile.json",
     "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/material_interferometer/README.md",
-    "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/recoil_search/threshold.json"
+    "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/recoil_search/threshold.json",
+    "model/experiments/interval_echo_lepton_register/phase_feedback/README.md",
+    "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/README.md"
    ],
    "papers": [
     "paper/executable_observer_construction.pdf",
@@ -5194,7 +5233,10 @@
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/compact_parents/CompactEnergySum.lean",
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/mobile_bound/BoundCore.lean",
     "Lean/Dynamics/CyclicEnergy.lean",
-    "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/flavor_search/ThreeArmFlavor.lean"
+    "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/flavor_search/ThreeArmFlavor.lean",
+    "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/cyclic_charge/CharacterRead.lean",
+    "model/experiments/interval_echo_lepton_register/phase_feedback/MeasuredDwell.lean",
+    "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/ClockLines.lean"
    ],
    "model": [
     "model/evaluation/SCORECARD.md",
@@ -5237,7 +5279,12 @@
     "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/WAVELENGTH.md",
     "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/flavor_search/README.md",
     "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/recoil_search/README.md",
-    "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/recoil_search/threshold.json"
+    "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/recoil_search/threshold.json",
+    "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/cyclic_charge/README.md",
+    "model/experiments/interval_echo_lepton_register/phase_feedback/README.md",
+    "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/README.md",
+    "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/cyclic_charge/neutral_ladder/results.json",
+    "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/shared_report.json"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
@@ -6969,12 +7016,17 @@
    "premises": [],
    "lean": [
     "Lean/Screen/A5FamilyBand.lean",
-    "Lean/Screen/SMStructureAdequacySurface.lean"
+    "Lean/Screen/SMStructureAdequacySurface.lean",
+    "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/cyclic_charge/CharacterRead.lean"
    ],
    "model": [
     "model/evaluation/repair_band.json",
     "model/evaluation/repair_band.py",
-    "code/a5_closure/family_band_attachment_certificate.py"
+    "code/a5_closure/family_band_attachment_certificate.py",
+    "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/cyclic_charge/README.md",
+    "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/README.md",
+    "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/cyclic_charge/neutral_ladder/results.json",
+    "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/shared_report.json"
    ],
    "papers": [],
    "statement": "The family multiplicity object is a single complete faithful spectral band of the twelve-port adjacency with complex dimension in [3, 5], and the admissible band of least Laplacian seam cost per unit norm is selected. On the carrier the costs are 5 - sqrt(5) < 6 < 5 + sqrt(5), so the rules select the rank-three band.",
@@ -7174,7 +7226,8 @@
     "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/ArmOrder.lean",
     "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/flavor_search/PassiveLoop.lean",
     "model/experiments/interval_echo_angular/charged_orientation/aklt_edge/EndpointAlgebra.lean",
-    "model/experiments/interval_echo_angular/charged_orientation/flux_doublet/passive_faces/LocalFiber.lean"
+    "model/experiments/interval_echo_angular/charged_orientation/flux_doublet/passive_faces/LocalFiber.lean",
+    "Lean/Screen/ExteriorMultiplicity.lean"
    ],
    "model": [
     "model/experiments/interval_echo_angular/charged_orientation/README.md",
@@ -7202,7 +7255,9 @@
     "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/echo_turn/README.md",
     "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/flavor_search/PASSIVE_LOOPS.md",
     "model/experiments/interval_echo_angular/charged_orientation/aklt_edge/README.md",
-    "model/experiments/interval_echo_angular/charged_orientation/flux_doublet/passive_faces/README.md"
+    "model/experiments/interval_echo_angular/charged_orientation/flux_doublet/passive_faces/README.md",
+    "code/a5_closure/chiral_multiplicity/README.md",
+    "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/README.md"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
@@ -7262,9 +7317,13 @@
    "why": "Fermion masses and mixing follow from these matrices, so OPH flavour statements about observed particles rest on this attachment.",
    "premises": [],
    "lean": [
-    "Lean/Screen/ElectroweakBreakingComposition.lean"
+    "Lean/Screen/ElectroweakBreakingComposition.lean",
+    "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/ClockLines.lean"
    ],
-   "model": [],
+   "model": [
+    "model/experiments/interval_echo_lepton_register/phase_feedback/README.md",
+    "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/README.md"
+   ],
    "papers": [
     "claims/assumption_dictionary.md"
    ],
@@ -7467,10 +7526,13 @@
     "Lean/Screen/FermionSectorAssembly.lean",
     "Lean/Screen/NeutralCurrentDictionary.lean",
     "Lean/Screen/ChargedCurrentDictionary.lean",
-    "Lean/Screen/WeylYukawaConventions.lean"
+    "Lean/Screen/WeylYukawaConventions.lean",
+    "Lean/Screen/ExteriorMultiplicity.lean"
    ],
    "model": [
-    "code/a5_closure/exterior_sm_completion.py"
+    "code/a5_closure/exterior_sm_completion.py",
+    "code/a5_closure/chiral_multiplicity/README.md",
+    "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/README.md"
    ],
    "papers": [
     "claims/assumption_dictionary.md"
@@ -9396,13 +9458,16 @@
    "lean": [
     "Lean/ObserverPatchHolography/LeptonRegisterCharacterisation.lean",
     "Lean/ObserverPatchHolography/KoideCirculant.lean",
-    "Lean/SourceLaw/ChargedRegisterPole.lean"
+    "Lean/SourceLaw/ChargedRegisterPole.lean",
+    "model/experiments/interval_echo_lepton_register/phase_feedback/MeasuredDwell.lean"
    ],
    "model": [
     "model/experiments/interval_echo_lepton_register/README.md",
     "model/experiments/interval_echo_lepton_register/results.json",
     "model/experiments/interval_echo_lepton_register/pole_meter/README.md",
-    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/phase_ratios/README.md"
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/phase_ratios/README.md",
+    "model/experiments/interval_echo_lepton_register/phase_feedback/README.md",
+    "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/README.md"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.tex"

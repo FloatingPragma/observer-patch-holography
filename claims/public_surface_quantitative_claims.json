@@ -1391,6 +1391,47 @@
           }
         }
       ]
+    },
+    {
+      "path": "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/cyclic_charge/README.md",
+      "heading": "## Why these states do not fix three rest masses",
+      "scope": "Source spectra in the registered Interval Echo three-arm guide, above matched filling. The two preparations have mean formation energy 25.5 and variance 0.75. At source weight above 1e-8 their lowest lines are 8.9307090985 and 8.9381807248. The visible_spectra entries in the package results.json give the two weights. These are native guide energies.",
+      "label_column": "Measured source response",
+      "comparison_column": "Either winding character",
+      "rows": [
+        {
+          "label": "Mean formation energy",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-WRITTEN-FIELD-ORBITAL-DOUBLET"
+          }
+        },
+        {
+          "label": "Energy variance",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-WRITTEN-FIELD-ORBITAL-DOUBLET"
+          }
+        },
+        {
+          "label": "Lowest observed line with source weight above $10^{-8}$",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-WRITTEN-FIELD-ORBITAL-DOUBLET"
+          }
+        },
+        {
+          "label": "Its source weight",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-WRITTEN-FIELD-ORBITAL-DOUBLET"
+          }
+        }
+      ]
     }
   ]
 }

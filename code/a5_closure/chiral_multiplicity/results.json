@@ -1,0 +1,344 @@
+{
+  "field_order": [
+    "Q",
+    "u_c",
+    "d_c",
+    "L",
+    "e_c"
+  ],
+  "direct": [
+    3,
+    2,
+    8,
+    9,
+    4
+  ],
+  "mirror": [
+    6,
+    5,
+    0,
+    1,
+    7
+  ],
+  "four_anomaly_rows": [
+    [
+      6,
+      -12,
+      6,
+      -6,
+      6
+    ],
+    [
+      2,
+      -4,
+      2,
+      0,
+      0
+    ],
+    [
+      3,
+      0,
+      0,
+      -3,
+      0
+    ],
+    [
+      6,
+      -192,
+      24,
+      -54,
+      216
+    ]
+  ],
+  "kernel_rank": 1,
+  "one_missing_component": {
+    "Q": {
+      "grav": -6,
+      "su3": -2,
+      "su2": -3,
+      "u1_cubed": -6,
+      "witten": 1
+    },
+    "u_c": {
+      "grav": 12,
+      "su3": 4,
+      "su2": 0,
+      "u1_cubed": 192,
+      "witten": 0
+    },
+    "d_c": {
+      "grav": -6,
+      "su3": -2,
+      "su2": 0,
+      "u1_cubed": -24,
+      "witten": 0
+    },
+    "L": {
+      "grav": 6,
+      "su3": 0,
+      "su2": 3,
+      "u1_cubed": 54,
+      "witten": 1
+    },
+    "e_c": {
+      "grav": -6,
+      "su3": 0,
+      "su2": 0,
+      "u1_cubed": -216,
+      "witten": 0
+    }
+  },
+  "replicas": {
+    "1": {
+      "index": 1,
+      "dimensions": 15,
+      "weak_raising_strength": 4,
+      "charge_square_trace": "16/3",
+      "bare_weak_doublets": 4,
+      "witten_parity": 0,
+      "mixed_and_cubic_anomalies": {
+        "grav": 0,
+        "su3": 0,
+        "su2": 0,
+        "u1_cubed": 0,
+        "witten": 0
+      },
+      "pure_color_cube": 0,
+      "faithful_quotient_kernel_order": 6,
+      "charge": -1,
+      "rotation_order_sign": -1,
+      "allowed_sector_mass_diagonals": [
+        [
+          1
+        ],
+        [
+          1
+        ]
+      ],
+      "intrinsic_ckm_phases": 0,
+      "one_loop_weak_coefficient": "35/6",
+      "admissible_complete_faithful_port_band": false,
+      "minimum_cost_family_band": false
+    },
+    "2": {
+      "index": 2,
+      "dimensions": 30,
+      "weak_raising_strength": 8,
+      "charge_square_trace": "32/3",
+      "bare_weak_doublets": 8,
+      "witten_parity": 0,
+      "mixed_and_cubic_anomalies": {
+        "grav": 0,
+        "su3": 0,
+        "su2": 0,
+        "u1_cubed": 0,
+        "witten": 0
+      },
+      "pure_color_cube": 0,
+      "faithful_quotient_kernel_order": 6,
+      "charge": -1,
+      "rotation_order_sign": -1,
+      "allowed_sector_mass_diagonals": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "intrinsic_ckm_phases": 0,
+      "one_loop_weak_coefficient": "9/2",
+      "admissible_complete_faithful_port_band": false,
+      "minimum_cost_family_band": false
+    },
+    "3": {
+      "index": 3,
+      "dimensions": 45,
+      "weak_raising_strength": 12,
+      "charge_square_trace": "16",
+      "bare_weak_doublets": 12,
+      "witten_parity": 0,
+      "mixed_and_cubic_anomalies": {
+        "grav": 0,
+        "su3": 0,
+        "su2": 0,
+        "u1_cubed": 0,
+        "witten": 0
+      },
+      "pure_color_cube": 0,
+      "faithful_quotient_kernel_order": 6,
+      "charge": -1,
+      "rotation_order_sign": -1,
+      "allowed_sector_mass_diagonals": [
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      "intrinsic_ckm_phases": 1,
+      "one_loop_weak_coefficient": "19/6",
+      "admissible_complete_faithful_port_band": true,
+      "minimum_cost_family_band": true
+    },
+    "4": {
+      "index": 4,
+      "dimensions": 60,
+      "weak_raising_strength": 16,
+      "charge_square_trace": "64/3",
+      "bare_weak_doublets": 16,
+      "witten_parity": 0,
+      "mixed_and_cubic_anomalies": {
+        "grav": 0,
+        "su3": 0,
+        "su2": 0,
+        "u1_cubed": 0,
+        "witten": 0
+      },
+      "pure_color_cube": 0,
+      "faithful_quotient_kernel_order": 6,
+      "charge": -1,
+      "rotation_order_sign": -1,
+      "allowed_sector_mass_diagonals": [
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ],
+      "intrinsic_ckm_phases": 3,
+      "one_loop_weak_coefficient": "11/6",
+      "admissible_complete_faithful_port_band": false,
+      "minimum_cost_family_band": false
+    },
+    "5": {
+      "index": 5,
+      "dimensions": 75,
+      "weak_raising_strength": 20,
+      "charge_square_trace": "80/3",
+      "bare_weak_doublets": 20,
+      "witten_parity": 0,
+      "mixed_and_cubic_anomalies": {
+        "grav": 0,
+        "su3": 0,
+        "su2": 0,
+        "u1_cubed": 0,
+        "witten": 0
+      },
+      "pure_color_cube": 0,
+      "faithful_quotient_kernel_order": 6,
+      "charge": -1,
+      "rotation_order_sign": -1,
+      "allowed_sector_mass_diagonals": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      ],
+      "intrinsic_ckm_phases": 6,
+      "one_loop_weak_coefficient": "1/2",
+      "admissible_complete_faithful_port_band": true,
+      "minimum_cost_family_band": false
+    },
+    "6": {
+      "index": 6,
+      "dimensions": 90,
+      "weak_raising_strength": 24,
+      "charge_square_trace": "32",
+      "bare_weak_doublets": 24,
+      "witten_parity": 0,
+      "mixed_and_cubic_anomalies": {
+        "grav": 0,
+        "su3": 0,
+        "su2": 0,
+        "u1_cubed": 0,
+        "witten": 0
+      },
+      "pure_color_cube": 0,
+      "faithful_quotient_kernel_order": 6,
+      "charge": -1,
+      "rotation_order_sign": -1,
+      "allowed_sector_mass_diagonals": [
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      ],
+      "intrinsic_ckm_phases": 10,
+      "one_loop_weak_coefficient": "-5/6",
+      "admissible_complete_faithful_port_band": false,
+      "minimum_cost_family_band": false
+    }
+  },
+  "cp_block_j_squared": "1/108",
+  "two_generations_plus_mirror": {
+    "index": 1,
+    "dimensions": 45,
+    "weak_raising_strength": 12,
+    "charge_square_trace": "16",
+    "bare_weak_doublets": 12,
+    "witten_parity": 0,
+    "mixed_and_cubic_anomalies": {
+      "grav": 0,
+      "su3": 0,
+      "su2": 0,
+      "u1_cubed": 0,
+      "witten": 0
+    },
+    "pure_color_cube": 0,
+    "faithful_quotient_kernel_order": 6
+  },
+  "three_plus_vectorlike_charged_singlet": {
+    "index": 3,
+    "dimensions": 47,
+    "weak_raising_strength": 12,
+    "charge_square_trace": "18",
+    "bare_weak_doublets": 12,
+    "witten_parity": 0,
+    "mixed_and_cubic_anomalies": {
+      "grav": 0,
+      "su3": 0,
+      "su2": 0,
+      "u1_cubed": 0,
+      "witten": 0
+    },
+    "pure_color_cube": 0,
+    "faithful_quotient_kernel_order": 6
+  }
+}
