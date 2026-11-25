@@ -1,0 +1,280 @@
+{
+  "material": {
+    "terminal": 160,
+    "direction_heads": [
+      [
+        165,
+        159
+      ],
+      [
+        158,
+        166
+      ],
+      [
+        161,
+        157
+      ]
+    ],
+    "staging": [
+      75,
+      76,
+      81,
+      85,
+      89,
+      130
+    ],
+    "probe_vacancies": [
+      131,
+      132,
+      133
+    ],
+    "probe_compensators": [
+      134,
+      135,
+      136
+    ],
+    "original_compensator": 36,
+    "phase_reference": 137,
+    "service_shutter": [
+      152,
+      145
+    ],
+    "base_phase_route_swaps": [
+      17,
+      73,
+      15
+    ],
+    "original_private_closures": 7,
+    "internal_silent_closures": 18
+  },
+  "turns": {
+    "proper_rotations": 60,
+    "gateway_preserving": [
+      0,
+      13,
+      46
+    ],
+    "addressed_internal_full_turns": 60,
+    "max_full_turn_operator_error": 3.164135620181696e-13,
+    "perpendicular_pairs": [
+      [
+        5,
+        10
+      ],
+      [
+        5,
+        15
+      ],
+      [
+        10,
+        15
+      ],
+      [
+        16,
+        43
+      ],
+      [
+        16,
+        56
+      ],
+      [
+        17,
+        48
+      ],
+      [
+        17,
+        51
+      ],
+      [
+        18,
+        29
+      ],
+      [
+        18,
+        30
+      ],
+      [
+        19,
+        20
+      ],
+      [
+        19,
+        39
+      ],
+      [
+        20,
+        39
+      ],
+      [
+        29,
+        30
+      ],
+      [
+        43,
+        56
+      ],
+      [
+        48,
+        51
+      ]
+    ],
+    "max_half_turn_order_operator_error": 3.810285420513537e-13,
+    "full_boundary_cycle": [
+      2,
+      10,
+      9,
+      1,
+      5,
+      11,
+      8,
+      6,
+      7,
+      0,
+      3,
+      4
+    ],
+    "blank_swaps_per_boundary_step": 16,
+    "introduced_material_phase_signs": [
+      1,
+      -1,
+      -1,
+      1,
+      -1,
+      1,
+      1,
+      -1
+    ],
+    "spinor_control_dark_probability": 1
+  },
+  "free_delivery": {
+    "time": 32,
+    "source_and_decoder_apertures": [
+      0.3333333333333333,
+      0.3333333333333333
+    ],
+    "terminal_given_source": 2.1775452383906185e-06,
+    "decoded_yield_per_original": 1.5522098142380388e-07,
+    "PT_minimum_per_original": -7.203946263932932e-08,
+    "conditional_PT": -0.4641090526456479,
+    "Choi_change_norm": 4.2255205033914025e-19,
+    "simulation_seed": 608433,
+    "bin_order": [
+      "bright",
+      "dark",
+      "remote_code_refusal",
+      "no_remote_charge",
+      "source_refusal"
+    ],
+    "boundary_full_turn": {
+      "starts": 274877906944,
+      "counts": [
+        42514,
+        0,
+        156581,
+        91625730822,
+        183251977027
+      ],
+      "probabilities": [
+        1.5522098142382818e-07,
+        9.554560893149159e-34,
+        5.706274313730446e-07,
+        0.33333260748492055,
+        0.6666666666666666
+      ],
+      "dark_fraction_99": [
+        0.0,
+        0.0001409192826068922
+      ]
+    },
+    "boundary_full_turn_with_material_private_phase": {
+      "starts": 274877906944,
+      "counts": [
+        0,
+        42462,
+        157375,
+        91625705285,
+        183252001822
+      ],
+      "probabilities": [
+        9.554566713003794e-34,
+        1.552209814238282e-07,
+        5.706274313730446e-07,
+        0.33333260748492055,
+        0.6666666666666666
+      ],
+      "dark_fraction_99": [
+        0.9998589081563803,
+        1.0
+      ]
+    }
+  },
+  "filtered_delivery": {
+    "energy": 16.43120649392248,
+    "clock": {
+      "center": 16.43120649,
+      "tick": 0.03125,
+      "number_delays": 33554432,
+      "measured_line_weight": 0.9999998178494806
+    },
+    "admission": 0.00018109497180478763,
+    "decoded_yield_per_original": 4.869371955879111e-09,
+    "PT_minimum_per_original": -2.413024945148697e-09,
+    "conditional_PT": -0.49555157564730584,
+    "Choi_change_norm": 1.3689993415165812e-20,
+    "simulation_seed": 608434,
+    "bin_order": [
+      "bright",
+      "dark",
+      "remote_code_refusal",
+      "no_remote_charge_after_clock",
+      "clock_refusal",
+      "source_refusal"
+    ],
+    "boundary_full_turn": {
+      "starts": 274877906944,
+      "counts": [
+        1372,
+        0,
+        3222,
+        16583551,
+        91609283273,
+        183252035526
+      ],
+      "probabilities": [
+        4.869371955879876e-09,
+        2.997316088711005e-35,
+        1.1940891147421094e-08,
+        6.034818033849257e-05,
+        0.33327296834273173,
+        0.6666666666666666
+      ],
+      "dark_fraction_99": [
+        0.0,
+        0.004357435376452628
+      ]
+    },
+    "boundary_full_turn_with_material_private_phase": {
+      "starts": 274877906944,
+      "counts": [
+        0,
+        1345,
+        3243,
+        16586328,
+        91609435666,
+        183251880362
+      ],
+      "probabilities": [
+        2.9973179144330614e-35,
+        4.869371955879876e-09,
+        1.1940891147421094e-08,
+        6.034818033849257e-05,
+        0.33327296834273173,
+        0.6666666666666666
+      ],
+      "dark_fraction_99": [
+        0.9955552866244365,
+        1.0
+      ]
+    }
+  }
+}
