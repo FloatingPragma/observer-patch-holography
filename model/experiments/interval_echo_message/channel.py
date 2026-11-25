@@ -409,6 +409,12 @@ REPLAY_EVALUATIONS = (
         "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
         "model/candidate_laws/interval_echo/EVALUATION.json": "efe66f024f2acb1573c6a5ae907a8eb90e38bb7d71e40b3205195616db2aa3c5",
     },
+    # Matched observers on transported energy, formed matter and live clocks.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "d83592841ac40880a9df81af808d6f618df95aff2b3b2fcf0821e9f6bf865792",
+    },
 )
 
 
