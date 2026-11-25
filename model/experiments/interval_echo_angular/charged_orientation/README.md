@@ -35,7 +35,7 @@ The angular experiment supplies no independent laboratory energy calibration, el
 
 A separate four-port code makes the accepted perpendicular half-turns anticommute even though their full native spatial operators commute. Each turn succeeds with probability1/2, saturating an all-code leakage bound. The selected opposite-order phase is negative on1/4 of all starts, while a literal2π repeat is positive. All rejection histories, both material signs and a matched idle reference are retained. A changed contrast preserves the effect; halving exchange fails the spatial calibration. This tests projection artifacts without identifying a spinor or measuring two-core exchange. [Exact bound, complete records and controls](projected_turns/README.md)
 
-## Reproduction
+## Exchanging two energy-selected trimers
 
 The energy-selected alternating native trimer supplies another source
 test. Two explicit physical exchange routes give positive phase, while
@@ -43,7 +43,12 @@ one additional improper frame reflection gives negative phase. The
 public two-connected-triples probability falls from 99.867% to 7.636%
 during transport, so the tested compilation fails to exchange intact
 cores. An exact native-contact proof fixes the finite spatial action
-without assigning a spinor sign. [Selected trimers, transport audit and phase controls](mobile_core_exchange/README.md)
+without assigning a spinor sign. On the single filtered trimer,
+all 15 proper template half-turns change the observed distribution
+of the three occupied addresses, including the three nearly invariant
+axes. [Selected trimers, transport audit and phase controls](mobile_core_exchange/README.md)
+
+## Reproduction
 
 Run from the repository root with the model's NumPy and SciPy environment. Acquire into two fresh files and check the deposited results with the regression suite.
 

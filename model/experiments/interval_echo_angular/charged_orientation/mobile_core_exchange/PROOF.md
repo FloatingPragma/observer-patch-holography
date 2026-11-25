@@ -61,13 +61,43 @@ reflections and have character −1. Independent coordinate fits and the
 complete proper-rotation census verify this identification.
 
 Consequently, exchanging the two identically framed cores is positive,
-while additionally reflecting one returned core is negative. That negative
+while additionally reflecting one returned core has phase −1 on the exact
+energy line. Finite preparation gives a small bright-port allowance. That negative
 character is selected by native energy; it is not assigned to an internal
 label. Its spatial operation is improper, so it supplies no sign for a
 proper 2π rotation. A calibrated 72-degree proper template permutation
 repeated five times has identity port map and exact positive lift by the
 contact theorem above. Calibration against an observer-reconstructed
 continuous spacetime rotation is a separate requirement.
+
+## An address read distinguishes every proper template half-turn
+
+The half-turn census uses the same four-filter source and the same blank
+π contacts with the other interactions parked. Exactly 15 proper
+icosahedral permutations have order two. A coordinate fit with determinant
+one and trace −1 verifies all 15. For each turn and the idle setting, one
+apparatus reads the three occupied addresses. An independent bank compares
+the turn with idle on the two arms of the phase reader. For the native
+contact the negative-port probability is
+$\|(I-U)\psi\|^2/4$ on an admitted source. Each involution has
+$U^2=I$, so repetition implements a full template turn with positive phase.
+At changed transport contrast 7.5 the address operator is the same.
+The additional phases on unequal contacts enter the phase-port banks.
+
+A whole-state return, up to either phase, implies equality of every
+address frequency with the idle frequency. Each terminal address bin
+has a binomial marginal conditional on its bank's source admissions.
+Apply Hoeffding's two-sided radius $\sqrt{\log(2M/0.01)/(2n)}$ to each
+frequency with $n$ admissions and $M=2\times16\times220$ bins, including
+the sharp polar source. Enlarge each radius by the recorded allowance
+for discretizing the sampling probabilities. For a given axis, subtract
+both radii from the largest absolute difference of corresponding idle
+and turned frequencies. The result lower-bounds total variation with
+simultaneous 99% coverage, also when the distinguishing bin or axis is
+chosen from these records. Every axis has a positive lower bound on both
+sources. The comparison tests full address identification on this finite
+template. A coarser reader may erase the residual directional information.
+[Detector and statistics](half_turns.py) · [All address and phase counts](half_turns.json.gz)
 
 ## The public component audit covers the continuous native pulses
 
@@ -86,7 +116,7 @@ p_C(t)=\cos^2(t/2)p_C(0)+\sin^2(t/2)p_C(\pi),
 \]
 
 Equal-load configurations are fixed. Each unequal-load pair evolves as
-e^{-iκt}[cos(t/2)I+i sin(t/2)S]. The two incoming coefficients are real,
+e^{-it(κ(a−b)²+1/2)}[cos(t/2)I+i sin(t/2)S] for the two endpoint loads a,b. The two incoming coefficients are real,
 so their probability cross term vanishes. Summing the selected diagonal
 entries gives the formula. The contrast phase cancels inside each pair.
 After a complete native κ8 pulse the state is a real permutation of the

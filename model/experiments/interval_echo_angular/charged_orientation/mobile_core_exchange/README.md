@@ -1,18 +1,20 @@
 # Exchanging two energy-selected native trimers
 
-Two independently selected bound trimer states have **positive exchange
-phase** under two physical native-contact routes. An additional improper
-frame reflection on one trimer gives negative phase. The transfer route
+The phase reader gives a **positive exchange sign** for two identically
+prepared bound trimers on both native-contact routes. Adding an improper
+reflection of one returned trimer sends every detected event to the
+negative output. The transfer route
 also breaks the two-core spatial structure: the probability of reading
 two separate connected triples falls from **99.867% to 7.636%**. This is a
 failed intact-core exchange with an exact finite transport result. It gives
 no spinor or fermionic assignment. [Contact and transport proof](PROOF.md)
 · [Executable](measure.py) · [Complete records](results.json.gz)
 
-The literal [OpenWave OW-07 test](https://github.com/openwave-labs/openwave/blob/0df73dc6be3bde9f0b8ced6044effc79f0d92bd6/MODELS.md#L107)
+The literal OpenWave OW-07 test
 asks for a measured −1 under a 2π rotation or exchange of two cores relative
 to a reference. A dynamically selected nonpolar half turn is its secondary
 test. M10 is officially untested and the full local criterion is open.
+[Official criterion](https://github.com/openwave-labs/openwave/blob/0df73dc6be3bde9f0b8ced6044effc79f0d92bd6/MODELS.md#L107) · [Maintainer ruling on directional records](https://github.com/openwave-labs/openwave/blob/0df73dc6be3bde9f0b8ced6044effc79f0d92bd6/openwave/xperiments/m10_oph/research/findings/m10_2_maintainer_review.md#5-the-three-rows)
 The result concerns the registered Interval Echo law, κ8, with its supplied
 contact-isolation and coherent-reference services.
 
@@ -85,10 +87,33 @@ source projection cannot change the complete-action identity. Intervening
 projections define a separate instrument, as demonstrated by
 [projected_turns](../projected_turns/README.md).
 
+## Does any proper half-turn restore the selected orientation?
+
+All 15 proper half-turns of the protected icosahedral template change
+the distribution of the trimer's three observed addresses. Three axes
+come close to restoring it. Their interference banks record **8,617,
+8,640 and 8,752** negative-port events among approximately 359 million
+admitted sources each. Their calculated overlap with the idle wave is
+0.99995171 and their address distributions differ from idle by 0.00971443
+in total variation. A sharp control prepared on the launch face moves
+to a distinct face under every tested half-turn.
+
+Each address or phase bank uses $2^{32}$ simulated starts and keeps all
+four filter refusals. The 220 address outcomes rule out exact directional
+identification on every tested axis. Even the least resolved axis gives
+a total variation distance above **0.00135** at simultaneous 99% coverage
+across the complete selected and sharp address banks. The detector also
+reports both phase ports at changed transport contrast 7.5. This is an
+exploratory census of the chosen finite source and proper template
+actions. It establishes a resolved departure from an exact half-turn
+return, with the strongest approximate returns quantified.
+[Acquisition](half_turns.py) · [Counts](half_turns.json.gz) · [Confidence bound](PROOF.md#an-address-read-distinguishes-every-proper-template-half-turn)
+
 ## What happens to the two physical cores during transport?
 
-Independent copies are terminated after every contact. The public record
-is the six occupied port addresses. From those addresses alone the
+Independent copies are terminated after each contact. The six occupied
+port addresses define the terminal two-triple detector. The stored counts
+group all patterns by its two outcomes. From those addresses alone the
 observer asks whether the induced graph has exactly two connected
 components of size three. The detector does not follow hidden origins
 or assume that each source keeps its original constituent grouping.
@@ -140,17 +165,17 @@ From the RER root:
 
 ```sh
 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python -B -W error -m model.experiments.interval_echo_angular.charged_orientation.mobile_core_exchange.measure
-OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python -B -O -W error -m model.experiments.interval_echo_angular.charged_orientation.mobile_core_exchange.measure
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python -B -O -W error -m model.experiments.interval_echo_angular.charged_orientation.mobile_core_exchange.half_turns
 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python -B -W error -m pytest -q model/experiments/interval_echo_angular/charged_orientation/mobile_core_exchange
 ```
 
-An explicit --output PATH creates a distinct first record; a .gz suffix
-selects deterministic gzip compression. Strict JSON serialization precedes
+An explicit `--output PATH` creates an exclusive first record. Use a
+`.gz` path for the compressed runs above. Strict JSON serialization precedes
 exclusive output creation. Replays compare all stage and phase banks,
-source certificates and source hashes without rewriting the archive. Six
-tests independently check the full native columns, source generator and
+source certificates and source hashes without rewriting the archive. Eight
+tests check the full native columns, source generator and
 spatial orientation, every six-vertex component graph, continuous-pulse
-convexity, transport words and complete records. Count intervals are
+convexity, transport words, all proper half-turns and complete records. Count intervals are
 reproducible directly from the deposited stage counts with the shared
 count implementation. All observations use the declared Born instrument
 and supplied apparatus clock; no laboratory scale is inferred.

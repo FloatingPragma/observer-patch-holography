@@ -149,3 +149,56 @@ def test_sampler_and_optimized_comparator_reject_bad_inputs():
         m.draw([.1, .2], rng)
     with pytest.raises(ArithmeticError):
         m.compare({'phase': 1}, {'phase': -1})
+
+
+def test_counted_loss_on_both_routes_uses_all_stage_appointments():
+    from scipy.stats import binom
+
+    data = archive()
+    banks = sum(len(panel['stages']) for panel in data['protocols'])
+    assert banks == 554
+    for panel, upper in zip(data['protocols'][:2], (.07846, .07808), strict=True):
+        hits, other, refused = panel['stages'][36]['public_component_read']['counts']
+        assert hits + other + refused == data['shots']
+        assert binom.cdf(hits, hits + other, upper) < .01 / (2 * banks)
+
+
+def test_every_proper_half_turn_changes_the_observed_source_and_polar_control():
+    from . import half_turns
+
+    data = json.loads(gzip.decompress(half_turns.RECEIPT.read_bytes()))
+    points, edges = m.carrier.icosahedron_from_coordinates()
+    xyz = points[m.carrier.isomorphism(m.carrier.cell().seams, edges)]
+    half_perms = set()
+    for perm in m.carrier.automorphisms(m.carrier.cell().seams):
+        matrix = np.linalg.lstsq(xyz, xyz[list(perm)], rcond=None)[0]
+        if np.linalg.det(matrix) > 0 and abs(np.trace(matrix) + 1) < 1e-12:
+            half_perms.add(tuple(perm))
+    assert len(half_perms) == 15
+    assert {tuple(row['ports']) for row in data['panels'][1:]} == half_perms
+    _, _, _, _, _, _, finite, summary = selected()
+    sharp = np.zeros(len(finite))
+    sharp[data['words'].index(summary['source_word'])] = 1
+    words = np.array(data['words'])
+    for row in data['panels']:
+        perm = np.array(row['ports'])
+        assert np.array_equal(perm[perm], np.arange(12))
+        for name, state in (('selected', finite), ('polar', sharp)):
+            counts = np.array(row[name]['address_counts'])
+            assert counts.size == 224 and counts.sum() == data['starts']
+            if name == 'polar':
+                moved = sorted(perm[summary['source_word']])
+                assert counts[4 + data['words'].index(moved)] == data['starts']
+            sector = np.array([data['words'].index(sorted(t)) for t in perm[words]])
+            # Separate simulated banks use the same source acceptance.
+            for law, phase_bank in row[name]['phase_counts'].items():
+                assert len(phase_bank) == 6 and sum(phase_bank) == data['starts']
+                if law == 'native_8':
+                    dark = np.linalg.norm((state - state[sector]) / 2)**2
+                    hits = phase_bank[-1]
+                    trials = sum(phase_bank[-2:])
+                    assert abs(hits / trials - dark) < .00025
+    bounds = half_turns.address_separation(data)
+    assert min(bounds['selected']) > .0013 and min(bounds['polar']) > .9999
+    data['panels'][1]['selected']['address_counts'] = data['panels'][0]['selected']['address_counts']
+    assert half_turns.address_separation(data)['selected'][0] <= 0
