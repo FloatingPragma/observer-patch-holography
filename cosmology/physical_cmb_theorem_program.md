@@ -20,6 +20,8 @@ The guarded material-rail source supplies a reversible finite transfer with a re
 
 A finite release front reaches one neighbor layer per material sweep. An earlier root release correlates energy differences on two separated edges with disjoint post-reset circuit pasts. A spatially uniform preparation bit has zero response on this measurement. The comparison uses a declared reset and a fixed root. Identifying its causal horizon requires the record-density background, scale and release clock on that same process. [Local contrasts, exact laws and counts](../code/cosmology/release_horizon/README.md)
 
+On one material history, two-edge heat contrasts and pulse periods share an independently checked local marker clock. The 320-cell angular census gives 8 and 64 records per base face where measured period ratios of 2 and 4 would require 16 and 256 at constant physical four-volume density. A calibrated radial multiplicity or another measured source of that factor is required. The timed tree detects no post-reset signal path shared by the two contrasts. [Clock coincidences, local input interventions and volume test](../code/cosmology/release_horizon/background_clock/README.md)
+
 ## Required constructions
 
 - **Finite source:** source-derived scalar amplitude, shape, clock, release surface, and background capacity, including the reserve-generator receipt that the tilt theorem consumes.

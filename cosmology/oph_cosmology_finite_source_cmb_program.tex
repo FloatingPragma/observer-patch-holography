@@ -458,6 +458,55 @@ requires the physical scale, background release clock and radial readout.
 The joint energy words and the preparation and timing controls are in
 \pathref{code/cosmology/release_horizon/}.
 
+\subsection{Reading the release and the background on the same cells}
+
+A local pulse train can time the release and independently test a proposed
+volume counter. On a fixed 320-cell screen, each nonroot cell copies the
+sharp rail of its nearest upstream neighbor on a specified shortest-path
+tree. Children are serviced before their parents, so each crest travels one
+link per layer. A first crest closes the local thermal contact after that
+layer's offer. Later crests supply a period measurement. Native exchange
+also advances a local two-rail clock. A supplied cadence gives one stroke
+per layer through layer eight, two through layer sixteen, and four thereafter.
+Four crests leave the root at layers \(0,2,4,6\). Their three period ratios
+are all two at distance eight and all four at distance sixteen. At distance
+four the three ratios are \(1,1,2\) because reception crosses a cadence
+boundary. More generally, if the elapsed marker count through layer \(j\)
+is \(M(j)\), two crests emitted at \(u,v\) give
+\[
+ R_d(u,v)=\frac{M(v+d)-M(u+d)}{M(v)-M(u)}.
+\]
+The emitter and receiver each read their own marker. Suppressing one
+receiver stroke changes its measured period while the crests arrive on
+the same layers.
+
+Two clocks also meet at a single written seam. The receiving owner
+exposes one clock to a full exchange per stroke. Its neighbor runs a
+coherent exposure of \(\pi/2\) per stroke and counts each flip after
+two exposures. Each reads its end of the same sharp crest. The first two
+common clock pairs are \((10,7)\) and \((14,9)\). Their affine map
+\(y=x/2+2\) predicts both \((18,11)\) and \((22,13)\). Parking one
+interval between oscillator flips after the second crest gives \(10,12\) for the
+last two oscillator readings. These comparisons identify the relative
+clock units on the specified common events.
+
+On this tree the first crest of a geometrically triggered train has the
+same arrival law as the single release front. The two-edge thermal
+contrast at layer 25 is read at marker count 60. Injecting one sharp
+crest at each possible owner at layer 23, marker count 52, identifies
+disjoint sets of possible inputs for the two edge readings. With one
+heat offer per layer the covariance is \(6.41026\times10^{-7}\) in
+squared native gaps. Independent integer cohorts give
+\((6.41\pm2.25)\times10^{-7}\) at simultaneous 99 percent coverage.
+Offering contact on every marker stroke instead gives an exact covariance
+of approximately \(6.38309\times10^{-7}\). The common earlier history,
+the local thermal cadence and the signal readout all enter this comparison.
+The single-cell injections measure the reach of the specified material
+channel. Identifying the horizon for physical radiation requires a
+compatible bulk geometry and radiation sector. Clock pairs, energy words
+and missed receptions are deposited in
+\pathref{code/cosmology/release_horizon/background_clock/}.
+
 \subsection{Exact Fourier control for the golden source population}
 The deterministic Cartesian population
 \(x_b=\mathcal L(\{b_1\varphi\},\{b_2\varphi\},\{b_3\varphi\})\),

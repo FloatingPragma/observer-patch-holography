@@ -163,9 +163,9 @@
  },
  "premise_counts": {
   "law": {
-   "fulfilled": 16,
-   "partial": 10,
-   "open": 115,
+   "fulfilled": 17,
+   "partial": 11,
+   "open": 113,
    "fails": 0
   },
   "designer": {
@@ -1382,9 +1382,11 @@
     "../../../code/cosmology/release_horizon/README.md",
     "../../../code/cosmology/release_horizon/horizon.py",
     "../../../code/cosmology/release_horizon/contrast.py",
-    "../../../code/cosmology/release_horizon/results.json"
+    "../../../code/cosmology/release_horizon/results.json",
+    "../../../code/cosmology/release_horizon/background_clock/measure.py",
+    "../../../code/cosmology/release_horizon/background_clock/records.json"
    ],
-   "note": "Two local thermal contrasts with disjoint post-reset circuit pasts correlate through a shared preparation history. A common bit contributes only a spatial monopole. The physical causal horizon of a record-density background on these same events is unidentified."
+   "note": "Two local thermal contrasts with disjoint post-reset circuit pasts correlate through a shared preparation history. A common bit contributes only a spatial monopole. The physical causal horizon of a record-density background on these same events is unidentified. Single-crest interventions measure disjoint tree inputs for the two edge contrasts over eight local marker strokes on the same timed history, whose angular census fails the fourth-power density test."
   },
   {
    "id": "PR-114",
@@ -1951,9 +1953,17 @@
    "statement": "On an expanding layered source history each comoving cell produces n_j = kappa sigma_j^4 records per layer for a supplied scale-factor profile sigma_j, which is one constant physical event density, and the redshift of a signal emitted at layer e and received at layer 0 is 1 + z = sigma_0/sigma_e.",
    "type": "derivable",
    "role": "law",
-   "status": "open",
-   "evidence": [],
-   "note": ""
+   "status": "partial",
+   "evidence": [
+    "../../../code/cosmology/release_horizon/background_clock/README.md",
+    "../../../code/cosmology/release_horizon/background_clock/protocol.json",
+    "../../../code/cosmology/release_horizon/background_clock/material.py",
+    "../../../code/cosmology/release_horizon/background_clock/measure.py",
+    "../../../code/cosmology/release_horizon/background_clock/records.json",
+    "../../../code/cosmology/release_horizon/background_clock/test_background_clock.py",
+    "../../../Lean/ObserverPatchHolography/Provenance/ScreenDensityClock.lean"
+   ],
+   "note": "The declared layered circuit measures emitter and receiver periods and records at the same material addresses. At pulse ratios two and four the counts per base face are eight and sixty-four, whereas constant four-volume density requires sixteen and 256. The temporal period law holds at constant-cadence endpoints. A physical radial yield, common volume calibration and cosmological profile are unestablished."
   },
   {
    "id": "PR-171",
@@ -2011,9 +2021,17 @@
    "statement": "Records of two observer clocks are identified with the same public events, and the two clocks are related by a positive affine map on those events, so that two ordered shared events fix rate and origin and a third shared event tests the relation.",
    "type": "derivable",
    "role": "law",
-   "status": "open",
-   "evidence": [],
-   "note": ""
+   "status": "fulfilled",
+   "evidence": [
+    "../../../code/cosmology/release_horizon/background_clock/README.md",
+    "../../../code/cosmology/release_horizon/background_clock/protocol.json",
+    "../../../code/cosmology/release_horizon/background_clock/material.py",
+    "../../../code/cosmology/release_horizon/background_clock/measure.py",
+    "../../../code/cosmology/release_horizon/background_clock/records.json",
+    "../../../code/cosmology/release_horizon/background_clock/test_background_clock.py",
+    "../../../Lean/ObserverPatchHolography/Provenance/ScreenDensityClock.lean"
+   ],
+   "note": "Two owners independently decode the same material seam at four predetermined bright crests. The first two determine a positive affine rate and origin. The two subsequent local clock pairs verify the relation on every registered board, and parking one interval between oscillator flips breaks it. The event domain is the sampled bright crests of these two instruments."
   },
   {
    "id": "PR-177",

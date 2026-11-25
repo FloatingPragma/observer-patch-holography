@@ -438,6 +438,44 @@ The profile is supplied; these identities derive neither the Friedmann
 equation nor a physical clock. Their proofs and exact finite controls are
 in the source-cosmology companion~\cite{ophcmb}.
 
+\subsection{Testing the fourth-power count with a pulse train}
+
+In a finite comparison on 320 cells, a material train travels one link
+per layer of a prescribed read schedule. A local marker advances at every
+exposure. The supplied number \(q\) of exposures per layer takes the values
+one, two and four. Each of twenty base faces enrolls one address per
+active angular descendant. Doubling the angular resolution subdivides
+every enrolled face into four. At each address a recorded change of the
+local marker contributes one count. Repeated reads of a stationary
+marker contribute zero.
+
+Four crests emitted two layers apart in the first epoch retain their
+layer spacing. At receivers eight and sixteen links away their independently
+counted periods are respectively two and four times the emitted period.
+The census over the same history gives
+\[
+\begin{array}{c|ccc}
+\text{local strokes per layer }q & 1 & 2 & 4\\
+\text{enrolled addresses per base face} & 1 & 4 & 16\\
+\text{observed changes per face per layer} & 1 & 8 & 64\\
+\text{constant four-volume-density count at the pulse ratio} & 1 &16 &256 .
+\end{array}
+\]
+Thus the count's fourth root would give \(1.682\) and \(2.828\) at the
+two expanded settings. Holding enrollment fixed preserves both pulse
+ratios and changes the counts to two and four. The scheduled pulse
+stretch therefore survives a direct change in the census.
+
+This screen supplies two powers of the scale through angular addresses
+and one through clock strokes. At the measured pulse ratio, a
+constant-density four-volume interpretation would require a further
+independent multiplicity \(q\) per enrolled address, or a separate
+physical mechanism giving the same measured yield. The discrepancy
+concerns this record family. A supplied cadence can produce period
+stretch without selecting an expanding three-dimensional geometry.
+The measurements and local clock controls are in
+\pathref{code/cosmology/release_horizon/background_clock/}.
+
 \section{Flatness Boundary}
 
 The flatness branch is split into identification and selection. On a clocked

@@ -1325,13 +1325,13 @@ The register records each theorem assumption and its formal consumers. The role 
 | PR-167 Metric coarsening of the event population into a kernel action | law | Open | Open | Open | Open |
 | PR-168 Linearized vacuum wave chart for tidal reads | law | Open | Open | Open | Open |
 | PR-169 Integer-division black-hole emission and ringdown comb template | law | Open | Open | Open | Open |
-| PR-170 Comoving record production at constant event density | law | Open | Open | Open | Open |
+| PR-170 Comoving record production at constant event density | law | Partial | Open | Open | Open |
 | PR-171 One nat of cut entropy per crossing read | law | Open | Open | Open | Open |
 | PR-172 faithful native lowering of classical record processes | law | Open | Open | Open | Open |
 | PR-173 composition rules for local clocks and records | law | Open | Open | Open | Open |
 | PR-174 Lossless independent interventions and dense observation | law | Open | Open | Open | Open |
 | PR-175 Ranked observer history on an affine timelike line | law | Open | Open | Open | Open |
-| PR-176 Two clocks compared at shared public events | law | Open | Open | Open | Open |
+| PR-176 Two clocks compared at shared public events | law | Demonstrated | Open | Open | Open |
 | PR-177 Publicization as a pinching generator with a rate | law | Open | Open | Open | Open |
 | PR-178 Conjugation-equivariant record kernel and even preparation | law | Open | Open | Open | Open |
 | PR-179 Finite charge continuity promoted to a Ward identity | law | Open | Open | Open | Open |

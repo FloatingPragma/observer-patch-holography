@@ -710,7 +710,9 @@
     "model/experiments/interval_echo_clock/DURATION.md",
     "model/experiments/interval_echo_clock/duration.json",
     "model/experiments/interval_echo_consensus/standard_observers.py",
-    "model/experiments/interval_echo_consensus/modular_standard.json"
+    "model/experiments/interval_echo_consensus/modular_standard.json",
+    "code/cosmology/release_horizon/background_clock/README.md",
+    "code/cosmology/release_horizon/background_clock/records.json"
    ],
    "papers": [
     "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf",
@@ -4042,7 +4044,9 @@
     "model/experiments/observer_expansion_reconstruction/results.json",
     "model/candidate_laws/interval_echo/openwave/row_28_acceleration/README.md",
     "model/candidate_laws/interval_echo/openwave/row_28_acceleration/results.json",
-    "model/candidate_laws/interval_echo/openwave/row_28_acceleration/homogeneity.json"
+    "model/candidate_laws/interval_echo/openwave/row_28_acceleration/homogeneity.json",
+    "code/cosmology/release_horizon/background_clock/README.md",
+    "code/cosmology/release_horizon/background_clock/records.json"
    ],
    "papers": [
     "cosmology/oph_cosmology_finite_source_cmb_program.pdf",
@@ -4276,7 +4280,9 @@
     "Lean/Geometry/SourceNetConformalRecordDensity.lean"
    ],
    "model": [
-    "model/candidate_laws/interval_echo/openwave/row_28_acceleration/signals.json"
+    "model/candidate_laws/interval_echo/openwave/row_28_acceleration/signals.json",
+    "code/cosmology/release_horizon/background_clock/README.md",
+    "code/cosmology/release_horizon/background_clock/records.json"
    ],
    "papers": [
     "cosmology/oph_cosmology_finite_source_cmb_program.pdf",
@@ -4312,7 +4318,9 @@
     "code/cosmology/release_horizon/README.md",
     "code/cosmology/release_horizon/horizon.py",
     "code/cosmology/release_horizon/contrast.py",
-    "code/cosmology/release_horizon/results.json"
+    "code/cosmology/release_horizon/results.json",
+    "code/cosmology/release_horizon/background_clock/README.md",
+    "code/cosmology/release_horizon/background_clock/records.json"
    ],
    "papers": [
     "cosmology/oph_inflation_without_inflaton_observer_screen_synchronization.pdf",
@@ -8177,7 +8185,8 @@
    "why": "It accounts for CMB correlations between regions never in causal contact, the problem inflation is usually invoked to solve.",
    "premises": [],
    "lean": [
-    "Lean/ObserverPatchHolography/Provenance/ReleaseRelay.lean"
+    "Lean/ObserverPatchHolography/Provenance/ReleaseRelay.lean",
+    "Lean/ObserverPatchHolography/Provenance/ScreenDensityClock.lean"
    ],
    "model": [
     "code/cosmology/screen_coherence/measurements.json",
@@ -8185,7 +8194,13 @@
     "code/cosmology/release_horizon/README.md",
     "code/cosmology/release_horizon/horizon.py",
     "code/cosmology/release_horizon/contrast.py",
-    "code/cosmology/release_horizon/results.json"
+    "code/cosmology/release_horizon/results.json",
+    "code/cosmology/release_horizon/background_clock/README.md",
+    "code/cosmology/release_horizon/background_clock/protocol.json",
+    "code/cosmology/release_horizon/background_clock/material.py",
+    "code/cosmology/release_horizon/background_clock/measure.py",
+    "code/cosmology/release_horizon/background_clock/records.json",
+    "code/cosmology/release_horizon/background_clock/test_background_clock.py"
    ],
    "papers": [
     "cosmology/oph_inflation_without_inflaton_observer_screen_synchronization.pdf",
@@ -9297,18 +9312,28 @@
    "kind": "premise",
    "name": "Comoving record production at constant event density",
    "category": "Physical premises",
-   "status": "Open",
-   "what": "On an expanding history, each comoving cell produces records at one constant physical density, and redshift equals the scale-factor ratio.",
+   "status": "Partial",
+   "what": "On a layered material screen the measured pulse period follows its supplied cadence, while the angular census gives three of the four scale powers required at constant physical event density.",
    "why": "It ties cosmic expansion and redshift to record production, which the expansion-history reconstruction uses.",
    "premises": [],
    "lean": [
-    "Lean/Geometry/SourceNetConformalRecordDensity.lean"
+    "Lean/Geometry/SourceNetConformalRecordDensity.lean",
+    "Lean/ObserverPatchHolography/Provenance/ScreenDensityClock.lean"
    ],
    "model": [
     "model/candidate_laws/interval_echo/openwave/row_28_acceleration/README.md",
-    "model/experiments/observer_expansion_reconstruction/README.md"
+    "model/experiments/observer_expansion_reconstruction/README.md",
+    "code/cosmology/release_horizon/background_clock/README.md",
+    "code/cosmology/release_horizon/background_clock/protocol.json",
+    "code/cosmology/release_horizon/background_clock/material.py",
+    "code/cosmology/release_horizon/background_clock/measure.py",
+    "code/cosmology/release_horizon/background_clock/records.json",
+    "code/cosmology/release_horizon/background_clock/test_background_clock.py"
    ],
-   "papers": [],
+   "papers": [
+    "cosmology/oph_cosmology_finite_source_cmb_program.pdf",
+    "cosmology/oph_inflation_without_inflaton_observer_screen_synchronization.pdf"
+   ],
    "statement": "On an expanding layered source history each comoving cell produces n_j = kappa sigma_j^4 records per layer for a supplied scale-factor profile sigma_j, which is one constant physical event density, and the redshift of a signal emitted at layer e and received at layer 0 is 1 + z = sigma_0/sigma_e.",
    "premise_kind": "derivable"
   },
@@ -9408,17 +9433,29 @@
    "kind": "premise",
    "name": "Two clocks compared at shared public events",
    "category": "Physical premises",
-   "status": "Partial",
-   "what": "The clocks of two observers are related by a positive affine map on shared public events, two of which fix rate and origin.",
+   "status": "Demonstrated",
+   "what": "Two material clocks fit a unique positive affine comparison at two shared bright crests and agree at the next two independently read common crests.",
    "why": "It makes clock comparison testable at a third shared event, which the time-dilation and twin comparisons rely on.",
    "premises": [],
-   "lean": [],
+   "lean": [
+    "Lean/Time/ClockComparison.lean",
+    "Lean/ObserverPatchHolography/Provenance/ScreenDensityClock.lean"
+   ],
    "model": [
     "model/candidate_laws/interval_echo/RESULTS.json",
     "model/candidate_laws/interval_echo/reunions.npz",
-    "model/evaluation/observer_criteria.json"
+    "model/evaluation/observer_criteria.json",
+    "code/cosmology/release_horizon/background_clock/README.md",
+    "code/cosmology/release_horizon/background_clock/protocol.json",
+    "code/cosmology/release_horizon/background_clock/material.py",
+    "code/cosmology/release_horizon/background_clock/measure.py",
+    "code/cosmology/release_horizon/background_clock/records.json",
+    "code/cosmology/release_horizon/background_clock/test_background_clock.py"
    ],
-   "papers": [],
+   "papers": [
+    "cosmology/oph_cosmology_finite_source_cmb_program.pdf",
+    "cosmology/oph_inflation_without_inflaton_observer_screen_synchronization.pdf"
+   ],
    "statement": "Records of two observer clocks are identified with the same public events, and the two clocks are related by a positive affine map on those events, so that two ordered shared events fix rate and origin and a third shared event tests the relation.",
    "premise_kind": "derivable"
   },
