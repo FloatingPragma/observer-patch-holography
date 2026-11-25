@@ -1514,7 +1514,11 @@
     "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/README.md",
     "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/results.json",
     "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/dwell.json",
-    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/fixed_volume.json"
+    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/fixed_volume.json",
+    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/live_reference/README.md",
+    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/live_reference/results.json",
+    "code/matched_einstein_limit/source_implication/full_algebra/correlation_rank/spatial_cuts/chart_transport/adaptive_optics/README.md",
+    "code/matched_einstein_limit/source_implication/full_algebra/correlation_rank/spatial_cuts/chart_transport/adaptive_optics/results.json"
    ],
    "papers": [
     "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf",
@@ -4577,7 +4581,8 @@
    "lean": [
     "Lean/ObserverPatchHolography/EinsteinBranch/DarkSector.lean",
     "Lean/ObserverPatchHolography/EinsteinBranch/CollarScaleSaturation.lean",
-    "Lean/ObserverPatchHolography/EinsteinBranch/SparseRecordDefectWitness.lean"
+    "Lean/ObserverPatchHolography/EinsteinBranch/SparseRecordDefectWitness.lean",
+    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/RangeContraction.lean"
    ],
    "model": [
     "model/experiments/interval_echo_einstein_station/mobile_collar_source/README.md",
@@ -4607,7 +4612,11 @@
     "code/cosmology/rar_deep_regime/aperture_virial/README.md",
     "code/cosmology/rar_deep_regime/aperture_virial/results.json",
     "code/cosmology/rar_deep_regime/double_ring_pressure/README.md",
-    "code/cosmology/rar_deep_regime/double_ring_pressure/results.json"
+    "code/cosmology/rar_deep_regime/double_ring_pressure/results.json",
+    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/README.md",
+    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/results.json",
+    "code/cosmology/rar_deep_regime/double_ring_pressure/elliptical.py",
+    "code/cosmology/rar_deep_regime/double_ring_pressure/elliptical.json"
    ],
    "papers": [
     "cosmology/oph_dark_matter_paper.pdf",
@@ -5417,7 +5426,9 @@
     "model/experiments/material_inertia/pair_spectrum/remote_charge/results.json",
     "model/experiments/material_inertia/pair_spectrum/remote_charge/test_remote.py",
     "code/cosmology/rar_deep_regime/double_ring_pressure/README.md",
-    "code/cosmology/rar_deep_regime/double_ring_pressure/results.json"
+    "code/cosmology/rar_deep_regime/double_ring_pressure/results.json",
+    "code/cosmology/rar_deep_regime/double_ring_pressure/elliptical.py",
+    "code/cosmology/rar_deep_regime/double_ring_pressure/elliptical.json"
    ],
    "papers": [
     "paper/executable_observer_construction.pdf"
@@ -5609,7 +5620,8 @@
    "premises": [],
    "lean": [
     "Lean/ObserverPatchHolography/EinsteinBranch/NestedVolumes.lean",
-    "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/MaterialRecoil.lean"
+    "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/MaterialRecoil.lean",
+    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/RangeContraction.lean"
    ],
    "model": [
     "model/evaluation/SCORECARD.md",
@@ -5628,7 +5640,9 @@
     "model/candidate_laws/interval_echo/openwave/row_26_newton/mobile_mediator/finite_density/README.md",
     "model/candidate_laws/interval_echo/openwave/row_26_newton/mobile_mediator/finite_density/results.json",
     "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/README.md",
-    "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/results.json"
+    "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/results.json",
+    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/README.md",
+    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/results.json"
    ],
    "papers": []
   },
@@ -5641,7 +5655,9 @@
    "what": "Gravity bends light, slows clocks and delays signals, observed as light deflection, gravitational redshift and Shapiro delay.",
    "why": "These effects test whether a source curves spacetime for clocks and light together, as general relativity requires.",
    "premises": [],
-   "lean": [],
+   "lean": [
+    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/RangeContraction.lean"
+   ],
    "model": [
     "model/evaluation/SCORECARD.md",
     "model/evaluation/openwave_criteria.json",
@@ -5669,7 +5685,13 @@
     "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/README.md",
     "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/results.json",
     "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/dwell.json",
-    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/fixed_volume.json"
+    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/fixed_volume.json",
+    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/README.md",
+    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/results.json",
+    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/live_reference/README.md",
+    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/live_reference/results.json",
+    "code/matched_einstein_limit/source_implication/full_algebra/correlation_rank/spatial_cuts/chart_transport/adaptive_optics/README.md",
+    "code/matched_einstein_limit/source_implication/full_algebra/correlation_rank/spatial_cuts/chart_transport/adaptive_optics/results.json"
    ],
    "papers": [
     "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf",
@@ -6513,7 +6535,8 @@
    "lean": [
     "Lean/ObserverPatchHolography/EinsteinBranch/RegisterSurface.lean",
     "Lean/ObserverPatchHolography/EinsteinBranch/Composition.lean",
-    "Lean/ObserverPatchHolography/EinsteinBranch/CollarAdmission.lean"
+    "Lean/ObserverPatchHolography/EinsteinBranch/CollarAdmission.lean",
+    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/RangeContraction.lean"
    ],
    "model": [
     "model/experiments/interval_echo_angular/README.md",
@@ -6537,7 +6560,13 @@
     "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/README.md",
     "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/results.json",
     "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/dwell.json",
-    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/fixed_volume.json"
+    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/fixed_volume.json",
+    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/README.md",
+    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/results.json",
+    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/live_reference/README.md",
+    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/live_reference/results.json",
+    "code/matched_einstein_limit/source_implication/full_algebra/correlation_rank/spatial_cuts/chart_transport/adaptive_optics/README.md",
+    "code/matched_einstein_limit/source_implication/full_algebra/correlation_rank/spatial_cuts/chart_transport/adaptive_optics/results.json"
    ],
    "papers": [],
    "statement": "On the null cone the geometry and stress quadratic charges match up to the coupling, both charge forms are symmetric, and one universal stress source feeds the entropy channel and the null tomography.",
@@ -6554,7 +6583,8 @@
    "premises": [],
    "lean": [
     "Lean/ObserverPatchHolography/EinsteinBranch/Composition.lean",
-    "Lean/ObserverPatchHolography/EinsteinBranch/TileCapacity.lean"
+    "Lean/ObserverPatchHolography/EinsteinBranch/TileCapacity.lean",
+    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/RangeContraction.lean"
    ],
    "model": [
     "model/experiments/interval_echo_einstein_station/equilibrium_refinement/README.md",
@@ -6579,7 +6609,9 @@
     "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/README.md",
     "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/results.json",
     "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/dwell.json",
-    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/fixed_volume.json"
+    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/fixed_volume.json",
+    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/README.md",
+    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/results.json"
    ],
    "papers": [],
    "statement": "The first-order bulk entropy variation balances the fixed-volume area variation over 4G, and the declared MaxEnt family has zero normalization rate, unit constraint speed and the Gibbs differential equation.",
@@ -6598,7 +6630,8 @@
     "Lean/ObserverPatchHolography/EinsteinBranch/SmallBall.lean",
     "Lean/ObserverPatchHolography/EinsteinBranch/BisectedDiamonds.lean",
     "Lean/ObserverPatchHolography/EinsteinBranch/StaticMassFlux.lean",
-    "Lean/ObserverPatchHolography/EinsteinBranch/StaticAngularReadout.lean"
+    "Lean/ObserverPatchHolography/EinsteinBranch/StaticAngularReadout.lean",
+    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/RangeContraction.lean"
    ],
    "model": [
     "model/experiments/interval_echo_einstein_station/proper_ball_ruler/README.md",
@@ -6611,7 +6644,11 @@
     "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/README.md",
     "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/results.json",
     "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/dwell.json",
-    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/fixed_volume.json"
+    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/fixed_volume.json",
+    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/README.md",
+    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/results.json",
+    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/live_reference/README.md",
+    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/live_reference/results.json"
    ],
    "papers": [],
    "statement": "The fixed-volume small-geodesic-ball area identity holds with coefficient 4*pi*ell^4/15, one cofinal shrinking family carries the collar, kernel and chart error terms as o(ell^4), the geometric side satisfies the contracted Bianchi identity, and the Newton constant and ball radius are positive.",
@@ -6629,7 +6666,8 @@
    "lean": [
     "Lean/ObserverPatchHolography/EinsteinBranch/RegisterSurface.lean",
     "Lean/Thermodynamics/EinsteinPremiseLink.lean",
-    "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/MaterialRecoil.lean"
+    "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/MaterialRecoil.lean",
+    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/RangeContraction.lean"
    ],
    "model": [
     "model/experiments/interval_echo_einstein_station/native_tidal_response/README.md",
@@ -6644,7 +6682,9 @@
     "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/README.md",
     "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/results.json",
     "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/dwell.json",
-    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/fixed_volume.json"
+    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/fixed_volume.json",
+    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/README.md",
+    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/results.json"
    ],
    "papers": [],
    "statement": "An Einstein-admissible tower exists with protected boundary fibre, typed common-domain readouts and refinement naturality; the chart is connected, the vacuum reference fixes the metric residue at the chart base, and the coupling carries kappa = 8*pi*G_N.",
@@ -8903,7 +8943,8 @@
    "why": "It lets any geometric excess over luminous matter be read as a dark modular source, which the dark-matter account uses.",
    "premises": [],
    "lean": [
-    "Lean/ObserverPatchHolography/EinsteinBranch/DarkSector.lean"
+    "Lean/ObserverPatchHolography/EinsteinBranch/DarkSector.lean",
+    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/RangeContraction.lean"
    ],
    "model": [
     "model/evaluation/theorem_criteria.json",
@@ -8920,7 +8961,13 @@
     "code/matched_einstein_limit/source_implication/full_algebra/correlation_rank/spatial_cuts/chart_transport/README.md",
     "code/matched_einstein_limit/source_implication/full_algebra/correlation_rank/spatial_cuts/chart_transport/transfer.json",
     "code/matched_einstein_limit/source_implication/full_algebra/correlation_rank/spatial_cuts/chart_transport/held.json",
-    "code/matched_einstein_limit/source_implication/full_algebra/correlation_rank/spatial_cuts/chart_transport/regional.json"
+    "code/matched_einstein_limit/source_implication/full_algebra/correlation_rank/spatial_cuts/chart_transport/regional.json",
+    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/README.md",
+    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/results.json",
+    "code/cosmology/rar_deep_regime/double_ring_pressure/elliptical.py",
+    "code/cosmology/rar_deep_regime/double_ring_pressure/elliptical.json",
+    "code/matched_einstein_limit/source_implication/full_algebra/correlation_rank/spatial_cuts/chart_transport/adaptive_optics/README.md",
+    "code/matched_einstein_limit/source_implication/full_algebra/correlation_rank/spatial_cuts/chart_transport/adaptive_optics/results.json"
    ],
    "papers": [],
    "statement": "The stress contraction entering the rest-frame Einstein relation equals the total modular charge of all screen sources, luminous or not, with no readout-dependent weight. A geometric excess over the luminous stress is then a non-luminous modular source.",
