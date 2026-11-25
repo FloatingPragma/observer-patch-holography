@@ -163,6 +163,16 @@ def test_closed_route_rest_kicks_and_three_port_energy_reader():
             case["records"][1]["mass_shell_speed_squared_interval"][1]
             < case["records"][2]["mass_shell_speed_squared_interval"][0]
         )
+        reverse = case["opposite_first_momentum"]
+        expected = 17 - np.cos(2 * np.pi / n)
+        assert (
+            reverse["simultaneous_energy_interval"][0]
+            <= expected
+            <= reverse["simultaneous_energy_interval"][1]
+        )
+        assert reverse["signed_current"] == pytest.approx(
+            -np.sin(2 * np.pi / n), abs=0.0004
+        )
         assert case["changed_law_uniform_overlap"] < 0.02
     actual = rest_kick.run()
     for observed, fresh in zip(saved["cases"], actual["cases"], strict=True):

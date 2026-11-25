@@ -46,9 +46,9 @@ def terminal(state, word, k, sign, rng):
     parity = int(rng.binomial(SHOTS, np.clip(readings[0], 0, 1)))
     left, right = readings[1:]
     cur = rng.multinomial(SHOTS, [left, right, 1 - left - right])
-    # All six native energy intervals use a union bound. The altered-law word
+    # All eight native energy intervals use a union bound. The altered-law word
     # is a fixed-pulse counterfactual and its inverse measures a different basis.
-    interval = contrast + n * binomial_interval(parity, SHOTS, 0.01 / 6)
+    interval = contrast + n * binomial_interval(parity, SHOTS, 0.01 / 8)
     return dict(
         position_counts=location.tolist(),
         bond_minus_and_other=[parity, SHOTS - parity],
@@ -111,6 +111,17 @@ def run():
                 (hi**2 - E0_lo**2) / p2,
             ]
         changed = native_word(sharp, words["0"], 4, sign)
+        # Complex-conjugating each real-Hamiltonian pulse time in the SAME
+        # order launches the opposite momentum at exactly the same energy.
+        opposite = native_word(first, words["0"], 8, sign, inverse=True)
+        opposite = native_word(
+            opposite, [(-t) % (2 * np.pi) for t in words["1"]], 8, sign
+        )
+        direction_ref = np.exp(-2j * np.pi * np.arange(n) / n - 3j * 16) / np.sqrt(n)
+        np.testing.assert_allclose(opposite, direction_ref, atol=3e-11)
+        negative_read = terminal(
+            opposite, words["bond_minus"], 8, sign, np.random.default_rng(93032 + sign)
+        )
         # Reuse the source word exactly and interrogate raw positions, independent of bond calibration.
         altered = rng.multinomial(
             SHOTS, abs(changed) ** 2 / np.vdot(changed, changed).real
@@ -120,6 +131,7 @@ def run():
                 sign=sign,
                 rest_wait=3,
                 records=records,
+                opposite_first_momentum=negative_read,
                 unchanged_pulses_k4_position=altered.tolist(),
                 changed_law_uniform_overlap=float(abs(sum(changed) / np.sqrt(n)) ** 2),
             )
