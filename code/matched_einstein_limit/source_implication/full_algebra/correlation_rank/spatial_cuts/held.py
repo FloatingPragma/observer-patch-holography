@@ -23,6 +23,18 @@ def run(weights):
     # Both arms lie in the proven 1e-4 reachable neighborhood of this center.
     assert min(np.linalg.eigvalsh(s).min() for s in (minus, plus)) > 0.02
     spectral = (station.entropy(plus) - station.entropy(minus)) / (2 * arm_step)
+    slopes = material_slopes((plus - minus) / (2 * arm_step))
+    predicted = float(np.array(weights, dtype=float) @ slopes)
+    assert abs(predicted - spectral) < 1e-6
+    return dict(
+        arm_step=arm_step,
+        material_slopes=slopes,
+        spectrum_entropy_slope=spectral,
+        material_entropy_slope=predicted,
+    )
+
+
+def material_slopes(delta):
     board = measure.native.Atlas(1)
     patch = measure.native.chosen(board)
     board = board.board
@@ -57,17 +69,10 @@ def run(weights):
                 ) / (10 * unit)
                 # Taking the difference before applying the effect avoids
                 # cancellation of the common (much larger) mean.
-                diff = (plus - minus)[int(parity)] / (2 * arm_step)
-                rows[key] = rows.get(key, 0.0) + float(np.trace(observable @ diff).real)
+                rows[key] = rows.get(key, 0.0) + float(
+                    np.trace(observable @ delta[int(parity)]).real
+                )
     keys = [(q, name) for q in (-1, 1) for name in measure.regional.NAMES] + list(
         measure.CHANNELS
     )
-    slopes = [rows[k] for k in keys]
-    predicted = float(np.array(weights, dtype=float) @ slopes)
-    assert abs(predicted - spectral) < 1e-6
-    return dict(
-        arm_step=arm_step,
-        material_slopes=slopes,
-        spectrum_entropy_slope=spectral,
-        material_entropy_slope=predicted,
-    )
+    return [rows[k] for k in keys]

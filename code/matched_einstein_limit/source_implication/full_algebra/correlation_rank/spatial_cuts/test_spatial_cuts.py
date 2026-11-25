@@ -28,3 +28,20 @@ def test_held_spectrum_against_separate_flight():
         < 5e-8
     )
     assert abs(measured["spectrum_entropy_slope"] - 0.00159405) < 1e-7
+
+
+def test_complete_reader_changes_both_marginals_and_parity():
+    from . import full_source
+
+    measure.iv.dps = 36
+    source = json.loads((measure.HERE / "local_effects.json").read_text())
+    report = full_source.certify(source["rows"])
+    assert (
+        report["trace_one_rank"] == 31
+        and report["survey_volume_tangent_dimension"] == 30
+    )
+    assert report["full_modular_error_upper"] / measure.survey.SCALE < 3e-5
+    arm = full_source.held_volume_arms(report)
+    assert abs(arm["combined"] - arm["direct_entropy"]) < 5e-8
+    assert abs(arm["ordinary_calibrated_area"] - arm["direct_entropy"]) < 5e-8
+    assert min(abs(arm["marginal_and_parity_slopes"][k]) for k in [0, 11, 12]) > 0.05
