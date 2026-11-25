@@ -1,0 +1,16 @@
+{
+  "carrier_level": 2,
+  "box_offsets": [0, 125],
+  "injection_owners": [250, 251],
+  "max_coordinate": 4,
+  "packet_port": 2,
+  "range_port": 4,
+  "marker_port": 8,
+  "embedding": "Owner offset+25*x+5*y+z. A single directed injection joins the layer-zero owner to (0,0,0); every positive coordinate step within [0,4]^3 is an edge. The layer of a grid station is 1+max(x,y,z). Count edges from incidence independently of current. The three reflecting coordinate planes have no outgoing negative links. Stop a packet when it reaches layer five.",
+  "implementation": "Route endpoint exchanges on actual internal and external seams by shortest paths, lexicographically resolving ties. Undo the borrowed interior in reverse order. Equalize each one-hop range service to the longest compiled transaction with parked slots. Read a native sharp pointer at each endpoint. Protect the background crest and marker registers at transaction boundaries.",
+  "source": "Run a complete deterministic cycle of 432 one-packet preparations per box, one per principal axis and pair of transverse slopes from the 12 midpoint bins (2*i+1)/24. At integer plane crossings service increasing ray time then axis index. All pulses have equal load. Infer current from actual arrival counters accumulated over one injected cycle. Audit all edges, zeroes and terminal sinks. No shell-dependent pulse weights.",
+  "ranges": "Use three identifiable material reflectors, one continuously transported on each coordinate axis from distance 1 to 2 to 4. At each epoch send a sharp probe from the origin until the reflector is read, reverse and count service slots back to origin. Separate range scans are interleaved between background samples. The axes define rectilinear measurement cells; measure their product against address-resolved clock changes within the observed limits on both boxes.",
+  "history": "Replay the 36-layer commanded 320-owner crest schedule and each sharp clock transition on the same owner addressing. Compare clock-count ratios at the original radius 8 and 16 receivers. Measure each cell census on the half-open grid (0,width] on all axes. Preserve the original angular-only census as a control.",
+  "controls": ["suppress one incidence edge", "restrict launch to one principal face", "absorb pulses at interior station (1,0,0)", "cut the last outbound range hop", "set the three measured widths to 2,3,4 at cadence four", "park the interior marker at (1,1,1) at cadence four"],
+  "interpretation": "Compare finite packet current, routed distances, material record counts and periods. The route graph, directional preparation and expanding reflector schedule are supplied. Physical radial geometry, a cosmological source history and a sky transfer require independent evidence."
+}
