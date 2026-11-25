@@ -7,7 +7,7 @@ import numpy as np
 from scipy.sparse import coo_matrix
 
 from ..winding_memory import measure as winding
-from ..live_trimer.measure import LAW, blocks
+from ..live_trimer.measure import LAW, blocks, candidate
 from ..two_winding_loops.measure import stock
 
 
@@ -166,7 +166,10 @@ def fixture():
     )
 
 
-def native_graph():
+def native_graph(charge=-1, kappa=candidate.KAPPA):
+    """Match the chosen charge and its prepared head directions to the same host."""
+    if charge not in (-1, 1):
+        raise ValueError("The moving defect has one unit of positive or negative load.")
     f = fixture()
     ports = f["ports"]
     # Heads are addressed in route-relative direction, accounting for sorted
@@ -181,14 +184,14 @@ def native_graph():
     for bit, inds in [(False, f["blank"]), (True, f["marked"])]:
         for j, (a, b) in enumerate(inds):
             s, t = ports.index(a), ports.index(b)
-            raw = blocks()[(1, 1) if bit else "blank"] / 8
+            raw = blocks(kappa)[(1, 1) if bit else "blank"] / 8
             filled = LAW.SRC.index((1, 1))
             host = raw[filled::9, filled::9]
             np.testing.assert_array_equal(host, host[0, 0] * np.eye(len(host)))
             for h in range(64):
-                coin = (((h >> j) & 1) ^ int(a > b)) if bit else 0
+                coin = (((h >> j) & 1) ^ int(a > b) ^ int(charge > 0)) if bit else 0
                 for src, dst, forward in [(s, t, True), (t, s, False)]:
-                    pair = (0, 1) if forward == (a < b) else (1, 0)
+                    pair = (1 + charge, 1) if forward == (a < b) else (1, 1 + charge)
                     loc = 9 * coin + LAW.SRC.index(pair)
                     col = 64 * src + h
                     diag[col] += raw[loc, loc] - host[0, 0]

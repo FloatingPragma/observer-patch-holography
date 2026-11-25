@@ -20,14 +20,14 @@ TIMES = (0, 0.25, 0.5, 1, 2, 4, 8, 16, 32)
 
 
 @cache
-def blocks():
+def blocks(kappa=candidate.KAPPA):
     """Integer 8H on all 99 states. Compress in exact orthogonal sector coordinates."""
     swap, cost = LAW._load_ops()
     reverse, d2 = LAW._label_ops()
     w = LAW._write_pattern()
     q = 2 * np.eye(90, dtype=int) - w @ w.T
-    k = int(candidate.KAPPA)
-    assert k == candidate.KAPPA
+    k = int(kappa)
+    assert k == kappa
     h8 = np.zeros((99, 99), dtype=int)
     h8[:9, :9] = 4 * (np.eye(9, dtype=int) - swap) + 8 * k * cost
     h8[9:, 9:] = (
