@@ -14,6 +14,8 @@ The scorecard grades laws. The ledger grades the program: it combines the finite
 and the executable results of the main candidate (Interval Echo) into one status per observable. A
 scorecard result enters the ledger as evidence through the `model` links of the rows it supports.
 
+The [particle record catalogue](PARTICLE_RECORDS.md) describes what two calibrated observers can distinguish about a charged or neutral excitation at each resolution.
+
 ## The ledger
 
 [`OBSERVABLES.json`](OBSERVABLES.json) has three keys: `schema`, `statuses` (the binding definition of
