@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 1097,
+  "surface_count": 1100,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -1571,6 +1571,11 @@
       "allowlisted": false
     },
     {
+      "path": "model/candidate_laws/interval_echo/openwave/row_11_spectrum/neutral_ejecta/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/candidate_laws/interval_echo/openwave/row_12_charge/PROTOCOL.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -2467,6 +2472,16 @@
     },
     {
       "path": "model/experiments/interval_echo_angular/charged_orientation/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_angular/charged_orientation/conical_cycle/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_angular/charged_orientation/conical_cycle/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
