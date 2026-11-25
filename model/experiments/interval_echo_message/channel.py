@@ -265,6 +265,12 @@ REPLAY_EVALUATIONS = (
         "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
         "model/candidate_laws/interval_echo/EVALUATION.json": "82045c375d5aef8cb522847e903e8fd452a6cad6fe79adc9447493d2b0f539c7",
     },
+    # Variational inputs and the two static interaction measurements.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "72721fcf2747be736d5e2db0d76e19a42d492aa3034c36ca63e113b533fdd569",
+    },
 )
 
 

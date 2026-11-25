@@ -979,9 +979,16 @@
     "Lean/InformationProjection/SourceHistoryPacket.lean",
     "Lean/InformationProjection/ReferenceNormalForm.lean",
     "Lean/Variational/DiscreteEulerLagrange.lean",
-    "Lean/Variational/DiscreteNoether.lean"
+    "Lean/Variational/DiscreteNoether.lean",
+    "model/experiments/interval_echo_consensus/native_path_reference/occupation_action/NativeOccupationAction.lean"
    ],
-   "model": [],
+   "model": [
+    "model/experiments/interval_echo_consensus/native_path_reference/occupation_action/README.md",
+    "model/experiments/interval_echo_consensus/native_path_reference/occupation_action/PROTOCOL.md",
+    "model/experiments/interval_echo_consensus/native_path_reference/occupation_action/measure.py",
+    "model/experiments/interval_echo_consensus/native_path_reference/occupation_action/results.json",
+    "model/experiments/interval_echo_consensus/native_path_reference/occupation_action/test_measure.py"
+   ],
    "papers": [
     "paper/observers_are_all_you_need.pdf"
    ]
@@ -2183,9 +2190,9 @@
    "kind": "observable",
    "name": "Transport, diffusion and Green-Kubo",
    "category": "Thermodynamics",
-   "status": "Conditional",
+   "status": "Partial",
    "what": "Transport coefficients such as diffusion constants and conductivities equal time integrals of equilibrium current correlations, the Green-Kubo relations.",
-   "why": "OPH has to get macroscopic diffusion and conduction from correlations of its microscopic repair currents, linking record dynamics to measurable transport.",
+   "why": "In guarded dimers equilibrium energy-current fluctuations predict independently driven conductance and sign motion gives diffusion, while macroscopic transport in freely interacting material requires a physical attachment.",
    "premises": [
     "PR-07",
     "PR-15"
@@ -2201,13 +2208,22 @@
     "code/thermodynamics/protected_memory/test_protected_memory.py",
     "code/thermodynamics/protected_memory/runtime/protected_memory_receipt.json",
     "model/experiments/interval_echo_consensus/conditional_bath/gibbs.py",
-    "model/experiments/interval_echo_consensus/conditional_bath/gibbs.json"
+    "model/experiments/interval_echo_consensus/conditional_bath/gibbs.json",
+    "model/experiments/interval_echo_consensus/refinement_cooling/dimer_band/heat_transport/README.md",
+    "model/experiments/interval_echo_consensus/refinement_cooling/dimer_band/heat_transport/PROTOCOL.md",
+    "model/experiments/interval_echo_consensus/refinement_cooling/dimer_band/heat_transport/measure.py",
+    "model/experiments/interval_echo_consensus/refinement_cooling/dimer_band/heat_transport/records.json",
+    "model/experiments/interval_echo_consensus/refinement_cooling/dimer_band/heat_transport/RING_PROTOCOL.md",
+    "model/experiments/interval_echo_consensus/refinement_cooling/dimer_band/heat_transport/ring.py",
+    "model/experiments/interval_echo_consensus/refinement_cooling/dimer_band/heat_transport/ring.json",
+    "model/experiments/interval_echo_consensus/refinement_cooling/dimer_band/heat_transport/test_transport.py"
    ],
    "papers": [
     "paper/observers_are_all_you_need.pdf",
     "flagship/from_observer_consensus_to_standard_physics.pdf",
     "paper/screen_microphysics_and_observer_synchronization.pdf",
-    "paper/tex_fragments/NATIVE_REPAIR_RECORD_SPECTRUM.tex"
+    "paper/tex_fragments/NATIVE_REPAIR_RECORD_SPECTRUM.tex",
+    "paper/reality_as_consensus_protocol.pdf"
    ]
   },
   {
@@ -5004,7 +5020,7 @@
    "category": "OpenWave Recovery",
    "status": "Partial",
    "what": "Measured couplings change with the energy scale of the probe, with structure that sets in at the size of the scatterer.",
-   "why": "Running couplings are central to gauge theories, so a model has to identify its scale-dependent interaction with a physical gauge coupling.",
+   "why": "The ordinary unit-filled host gives zero signed static interaction for nonadjacent pinned probes, while identifying a physical gauge coupling and its core-scale onset requires an independently resolved response.",
    "premises": [],
    "lean": [],
    "model": [
@@ -5019,9 +5035,17 @@
     "model/candidate_laws/interval_echo/openwave/row_23_coupling/timed_scattering/README.md",
     "model/candidate_laws/interval_echo/openwave/row_23_coupling/timed_scattering/results.json",
     "model/candidate_laws/interval_echo/openwave/row_23_coupling/tag_transfer/README.md",
-    "model/candidate_laws/interval_echo/openwave/row_23_coupling/tag_transfer/results.json"
+    "model/candidate_laws/interval_echo/openwave/row_23_coupling/tag_transfer/results.json",
+    "model/candidate_laws/interval_echo/openwave/row_23_coupling/static_host/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_23_coupling/static_host/PROTOCOL.md",
+    "model/candidate_laws/interval_echo/openwave/row_23_coupling/static_host/measure.py",
+    "model/candidate_laws/interval_echo/openwave/row_23_coupling/static_host/counts.npz",
+    "model/candidate_laws/interval_echo/openwave/row_23_coupling/static_host/results.json",
+    "model/candidate_laws/interval_echo/openwave/row_23_coupling/static_host/test_static.py"
    ],
-   "papers": []
+   "papers": [
+    "paper/executable_observer_construction.pdf"
+   ]
   },
   {
    "id": "ow-24-muon-decay",
@@ -5226,7 +5250,7 @@
    "category": "OpenWave Recovery",
    "status": "Partial",
    "what": "Atoms have discrete standing-wave energy levels, with hydrogen's levels spaced as 1/n².",
-   "why": "Discrete levels with the hydrogenic spacing test whether a model's bound states reproduce atomic structure.",
+   "why": "A single load mediating between stationary empty-written cores has exponentially bounded binding in graph separation, so hydrogenic spacings require a different measurable binding mechanism.",
    "premises": [],
    "lean": [],
    "model": [
@@ -5241,7 +5265,12 @@
     "model/candidate_laws/interval_echo/openwave/row_31_orbitals/native_core_release/README.md",
     "model/candidate_laws/interval_echo/openwave/row_31_orbitals/native_core_release/public_readback/README.md",
     "model/candidate_laws/interval_echo/openwave/row_31_orbitals/core_band_bound/README.md",
-    "model/candidate_laws/interval_echo/openwave/row_31_orbitals/core_band_bound/results.json"
+    "model/candidate_laws/interval_echo/openwave/row_31_orbitals/core_band_bound/results.json",
+    "model/candidate_laws/interval_echo/openwave/row_31_orbitals/mediator_range/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_31_orbitals/mediator_range/PROTOCOL.md",
+    "model/candidate_laws/interval_echo/openwave/row_31_orbitals/mediator_range/measure.py",
+    "model/candidate_laws/interval_echo/openwave/row_31_orbitals/mediator_range/results.json",
+    "model/candidate_laws/interval_echo/openwave/row_31_orbitals/mediator_range/test_range.py"
    ],
    "papers": [
     "paper/executable_observer_construction.pdf"
@@ -5490,19 +5519,28 @@
    "kind": "premise",
    "name": "real Legendre enrichment",
    "category": "Construction choices",
-   "status": "Open",
+   "status": "Demonstrated",
    "what": "Extending the finite transition rule to a real-valued Lagrangian requires choosing one velocity curvature, a choice invisible in every realized history.",
-   "why": "The choice fixes which classical Hamiltonian mechanics OPH attaches to its histories, since different values give different Legendre-Hamilton systems.",
+   "why": "The guarded binary chain realizes the finite mechanics example once a stationarity convention fixes the curvature, while individual position histories cannot fix it.",
    "premises": [],
    "lean": [
     "Lean/Variational/RealizedHistoryLegendreNoGo.lean",
     "Lean/Variational/LegendreBridge.lean",
     "Lean/Variational/PolynomialEnrichmentSelection.lean",
     "Lean/Variational/ModeExtremalEnrichment.lean",
-    "Lean/Variational/SourceToHamiltonianComposed.lean"
+    "Lean/Variational/SourceToHamiltonianComposed.lean",
+    "model/experiments/interval_echo_consensus/native_path_reference/occupation_action/NativeOccupationAction.lean"
    ],
-   "model": [],
-   "papers": [],
+   "model": [
+    "model/experiments/interval_echo_consensus/native_path_reference/occupation_action/README.md",
+    "model/experiments/interval_echo_consensus/native_path_reference/occupation_action/PROTOCOL.md",
+    "model/experiments/interval_echo_consensus/native_path_reference/occupation_action/measure.py",
+    "model/experiments/interval_echo_consensus/native_path_reference/occupation_action/results.json",
+    "model/experiments/interval_echo_consensus/native_path_reference/occupation_action/test_measure.py"
+   ],
+   "papers": [
+    "paper/observers_are_all_you_need.pdf"
+   ],
    "statement": "The finite source law fixes its four-corner log-transition action and a bilinear real extension affine in the velocity slot; selecting one real velocity curvature a in L_a = L_0 + (a/2)y(y-1) is a representation choice, since every a > 0 leaves all realized histories unchanged and gives different Legendre-Hamilton systems.",
    "premise_kind": "declared"
   },
@@ -6299,18 +6337,27 @@
    "kind": "premise",
    "name": "source-selected real variational dynamics and symmetry data",
    "category": "Physical premises",
-   "status": "Open",
+   "status": "Partial",
    "what": "The dynamics come with an initial law, a transition kernel, a real Lagrangian or potential, and an exact continuous symmetry.",
-   "why": "Classical equations of motion and Noether conservation laws in OPH require these variational data.",
+   "why": "Independent port counts determine a real action on occupancy fractions, whose exact coordinate symmetries exclude the continuous translations supplied on the declared real extension.",
    "premises": [],
    "lean": [
     "Lean/Variational/MechanicsAdequacySurface.lean",
     "Lean/Variational/DiscreteNoether.lean",
     "Lean/Variational/SourceToHamiltonianComposed.lean",
-    "Lean/Variational/TranslationInvariantComposedInstance.lean"
+    "Lean/Variational/TranslationInvariantComposedInstance.lean",
+    "model/experiments/interval_echo_consensus/native_path_reference/occupation_action/NativeOccupationAction.lean"
    ],
-   "model": [],
-   "papers": [],
+   "model": [
+    "model/experiments/interval_echo_consensus/native_path_reference/occupation_action/README.md",
+    "model/experiments/interval_echo_consensus/native_path_reference/occupation_action/PROTOCOL.md",
+    "model/experiments/interval_echo_consensus/native_path_reference/occupation_action/measure.py",
+    "model/experiments/interval_echo_consensus/native_path_reference/occupation_action/results.json",
+    "model/experiments/interval_echo_consensus/native_path_reference/occupation_action/test_measure.py"
+   ],
+   "papers": [
+    "paper/observers_are_all_you_need.pdf"
+   ],
    "statement": "The variational surface is supplied with a positive initial law and transition kernel, a history length, a real record embedding, a real Lagrangian or stiffness and potential, and for Noether transport a differentiable one-parameter transformation with an exact invariance law.",
    "premise_kind": "derivable"
   },

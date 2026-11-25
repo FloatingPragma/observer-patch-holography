@@ -21,6 +21,18 @@
     ],
     "note": "At every bounded depth the native padded fair-read tapes give the uniform-step counting law. The public reference is its multiplicity-weighted pushforward; refinement commutes with truncating the complete transcript. The preparation and transition alphabet are declared."
   },
+  "PR-06": {
+    "status": "fulfilled",
+    "evidence": [
+      "../../experiments/interval_echo_consensus/native_path_reference/occupation_action/README.md",
+      "../../experiments/interval_echo_consensus/native_path_reference/occupation_action/PROTOCOL.md",
+      "../../experiments/interval_echo_consensus/native_path_reference/occupation_action/measure.py",
+      "../../experiments/interval_echo_consensus/native_path_reference/occupation_action/results.json",
+      "../../experiments/interval_echo_consensus/native_path_reference/occupation_action/test_measure.py",
+      "../../experiments/interval_echo_consensus/native_path_reference/occupation_action/NativeOccupationAction.lean"
+    ],
+    "note": "A scheduled native port pair realizes the two-state path law. Declaring the velocity-only quadratic grammar and stationarity of the constant mode supplies curvature 4 log 2 on the symmetric chain and the historical mode-extremal value on the programmed asymmetric chain. All curvatures agree on individual binary records."
+  },
   "PR-07": {
     "status": "fulfilled",
     "evidence": [
@@ -63,6 +75,18 @@
       "../../experiments/interval_echo_gauge/flag_measure/test_flags.py"
     ],
     "note": "The measured port frequencies give the diagonal Gram form under the declared measure-to-metric rule. The nearest compact family of the oriented-face bracket is G, with joint 99% score bounds separating it from F and P. The metric and loss are specified, and a changed template selects F."
+  },
+  "PR-45": {
+    "status": "partial",
+    "evidence": [
+      "../../experiments/interval_echo_consensus/native_path_reference/occupation_action/README.md",
+      "../../experiments/interval_echo_consensus/native_path_reference/occupation_action/PROTOCOL.md",
+      "../../experiments/interval_echo_consensus/native_path_reference/occupation_action/measure.py",
+      "../../experiments/interval_echo_consensus/native_path_reference/occupation_action/results.json",
+      "../../experiments/interval_echo_consensus/native_path_reference/occupation_action/test_measure.py",
+      "../../experiments/interval_echo_consensus/native_path_reference/occupation_action/NativeOccupationAction.lean"
+    ],
+    "note": "Independent port repetitions realize an occupancy action on [0,1] with a strictly convex dual on the interior. Interior count readings discriminate it from every anchored quadratic. Its only increasing exact coordinate symmetry is the identity; the nontrivial continuous translations of the declared real representative have no such action on these measured fractions."
   },
   "PR-64": {
     "status": "fulfilled",
