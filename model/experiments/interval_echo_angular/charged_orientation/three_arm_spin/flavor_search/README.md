@@ -1,0 +1,42 @@
+# Can three energy lines identify the charged-lepton family?
+
+Three winding lines can be prepared in the same negative-charge apparatus and distinguished statistically by where the charge is found. Their energies cannot reproduce the lepton masses. Across **all 3,584 states** of the three-arm preparation, every formation energy above the matched filled material lies between **8 and 27** native exchange units. Consequently every heavy-to-light ratio is at most **3.375**. Every possible three-line Koide quotient is at most **0.375**. A second exact result explains what the orbital lines can encode. The only operator preserved by free evolution *and* by every vacancy-position measurement that leaves the seam memories unread is a scalar. The proof allows arbitrary coherent operations on the six direction bits. [Full native certificate](certificate.py) · [Algebraic lemmas in Lean](ThreeArmFlavor.lean)
+
+## Which lines does one charge observer resolve?
+
+The emitter uses a single vacancy at port 4 and the same sum-zero winding code on three source heads. Rank the 949 accessible positive energy groups by the negative partial-transpose eigenvalue of their previously specified source-to-port-160 map. Take the three strongest isolated lines. Their order and the classification procedure use no laboratory masses. Each preparation uses the same supplied coherent clock with $2^{31}$ possible delays spaced by $1/32$. Its center is the predicted line rounded to eleven decimal places. The filtered packet waits 32 native time units before a sharp vacancy read. The two clock services and the one-third source and detector apertures have the same ancestry as in the [common-port experiment](../README.md).
+
+| Clock center | Target weight after admission | Mean before location read | Mean after location read |
+| ---: | ---: | ---: | ---: |
+| 16.43120649392 | 99.99999998% | 16.43120649 | 16.89887168 |
+| 17.35421770734 | 99.99213881% | 17.35421771 | 16.83599127 |
+| 16.54712000775 | 99.99999774% | 16.54712001 | 16.97654004 |
+
+Assign each of the 56 possible observed addresses to the line with the highest predicted single-shot probability, using equal priors and an equally mixed source winding code. Across $2^{32}$ original simulated starts per setting, the balanced assignment accuracy conditional on successful preparation is **52.175%**, with simultaneous 99% binomial bounds **[51.852%, 52.497%]**. The ideal balanced ceiling from the three position laws alone is **52.168%**. Preparation refusals are counted separately. These are distinguishable orbitals, and a single position reading has overlapping outcomes for all three. [Position laws, counts, clock admissions and classifications](results.json)
+
+On fresh copies, return to the source through any one of the three named clock settings and invert the original local winding emitter. Inserting the position read during the exposure gives **74 to 635 cross-line returns** per $2^{45}$ original starts in each of the six differently centered settings. Idle controls record zero in all six; the finite clock gives small, nonzero calculated idle backgrounds. Each source and receiver retains its own one-third aperture cost in these counts. The calculation keeps the unobserved heads coherent within each position outcome. The measured redistribution of formation energy depends on the intervening apparatus. The idle free generator conserves its own spectral projections. The cross-line counts give no autonomous weak transition rate or emitted neutral daughter energy. [All nine matched and crossed comparisons](measure.py)
+
+## Why a hidden flavor label would change these records
+
+Suppose a putative conserved operator $F$ commutes with all 56 sharp vacancy-position projectors. It has a separate $64\times64$ head matrix $F_p$ at each position. Commuting with the Hamiltonian requires $F_bH_{ba}=H_{ba}F_a$. Every one of the 57 blank hops has $H_{ba}=-I/2$ and the blank edges connect the full chart. Thus all $F_p$ are the same matrix $X$. The off-diagonal term on each of the six marked seams, in its oriented basis, is $-4|1\rangle\langle0|$ on its direction bit, with identity on the other five. The reverse hop gives its adjoint. Products supply each of the 64 bit-string projectors and all 4,096 directed matrix units. A matrix commuting with all of them is scalar. This proves the claim even for coherent hidden head operators throughout this connected sector. The two winding coordinates of the prepared graph can nevertheless preserve quantum information during selected measurements and free transfer. A conserved quantity on a larger particle sector, or a weak interaction which changes a flavor label, has different premises.
+
+This bench has a single vacancy and the compensating excess is isolated on a separate dimer. A region whose incident measured seams all end with unit loads has sharp intrinsic physical seam energy 0 on blank and silent contacts and 8 on the even magnitude-one heads. Changing their direction coins cannot leave extra intrinsic energy behind in that region. Producing and tagging a weak neutral daughter on a different material background requires its own preparation and energy measurement. [Deposited-energy obstruction and a material neutral-emission channel](../../../../../candidate_laws/interval_echo/openwave/row_11_spectrum/level_transfer/README.md)
+
+## Which mass possibilities does this exclude?
+
+In the native matrix each blank contact with one vacancy contributes 8 units of contrast and a positive exchange term bounded by one. A live even magnitude-one seam has lower relative eigenvalue −8 and upper eigenvalue zero. Each active port has at least two blank neighbors and at most one such marked contact. The computed integer row bounds of twice the complete Hamiltonian are 16 and 54. They apply to both components of every winding doublet and to every other state in this finite chart.
+
+For three positive energies set $x,y,z$ to their square roots divided by the smallest square root. All three lie in $[1,2]$ because $27/8<4$. For each coordinate $u$, the inequality $(u-1)(2-u)\ge0$ gives $u^2\le3u-2$. Summing and applying $(x+y+z-4)^2\ge0$ proves $8(x^2+y^2+z^2)\le3(x+y+z)^2$. Hence the Koide quotient cannot reach $2/3$. This is a bound on all triples, including unobserved ones and repeated energies.
+
+Using the repository's frozen PDG 2026 electron, muon and tau entries only as external comparisons gives conservative endpoint ratio intervals **[206.768278, 206.768288]** and **[3477.189, 3477.542]** and an empirical Koide interval **[0.6666058, 0.6667232]**. Even allowing the laboratory electron to set the unit of any one line on this chart gives a heaviest possible line of **1.724622 MeV**. The comparison uses a common multiplicative calibration and the specified matched filled host. Treating an adjustable offset, a level spacing, or a different background as the rest-energy zero requires an independent host measurement. [Archived reference masses and their sources](../../../../../../code/particles/data/particle_reference_values.json)
+
+The finite Koide geometry constrains balanced squared amplitudes when its premises hold. The separate register extension can assign those intensities to mass terms, but the three-arm native generator supplies the bounds above. The control adds three conserved labels and the specified masses $1,4,(6+\sqrt{39})^2$ to a two-position kinetic model. Its three exact lines share the same position wave, are distinguishable by the supplied label, and obey Koide exactly. This demonstrates how the tests behave when those ingredients are present. [Finite Koide and spectroscopic distinction](../../../../../candidate_laws/interval_echo/openwave/row_11_spectrum/phase_ratios/README.md) · [Lepton register and anchor comparison](../../../../../candidate_laws/interval_echo/openwave/electron_field/lepton_family/identity_audit/README.md)
+
+From the repository root, run with one numerical thread.
+
+```sh
+export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1
+python -m model.experiments.interval_echo_angular.charged_orientation.three_arm_spin.flavor_search.measure
+python -m pytest -q model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/flavor_search
+(cd Lean && lake env lean -j1 ../model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/flavor_search/ThreeArmFlavor.lean)
+```
