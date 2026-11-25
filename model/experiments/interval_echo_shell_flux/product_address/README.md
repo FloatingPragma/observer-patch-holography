@@ -20,6 +20,8 @@ With coordinates translated by $-5.5$, the active ball of radius $n$ is the cube
 
 Enumerating the 4,752 undirected active product edges and the eight distinct chamber releases by native transfers gives the five counts, independently of the formula. Keeping the original timing calibration but parking the 6-to-7 link on the first axis eliminates 144 successful address-edge transfers and reduces the first shell count from 24 to 20. Parking the 5-to-6 link instead removes another set of 144 address edges without altering any of the five cut counts. The cut census can therefore detect a damaged boundary and distinguish it from a loss of internal links.
 
+The same source permits independent changes of energy and three-guide entropy, and a pointwise test of the far current from measured step rates. [Corner preparations](corner_source/README.md) · [Current and its angular dependence](green_response/README.md)
+
 ## Does flux spread evenly?
 
 After each release the ordinary walker selects one of the six signed single-coordinate moves with probability 1/8 each and otherwise idles. A collector absorbs the triple on first reaching layer six. Every interior coordinate move is unbiased. Faces, edges and corners receive no compensating interventions. On a finite box let $V$ vanish at the collector and solve
