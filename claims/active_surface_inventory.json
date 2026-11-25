@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 1165,
+  "surface_count": 1166,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -5617,6 +5617,11 @@
     },
     {
       "path": "Lean/ObserverPatchHolography/Provenance/HistoryCausalInvariance.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/Provenance/MeteredEnergyCone.lean",
       "glob": "Lean/ObserverPatchHolography/**/*.lean",
       "allowlisted": false
     },

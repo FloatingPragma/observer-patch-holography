@@ -2291,7 +2291,10 @@
    "lean": [
     "Lean/Thermodynamics/EquationOfState.lean"
    ],
-   "model": [],
+   "model": [
+    "code/cosmology/release_horizon/energy_cone/README.md",
+    "code/cosmology/release_horizon/energy_cone/records.json"
+   ],
    "papers": [
     "paper/observers_are_all_you_need.pdf",
     "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf"
@@ -4329,7 +4332,9 @@
     "code/cosmology/release_horizon/background_clock/README.md",
     "code/cosmology/release_horizon/background_clock/records.json",
     "code/cosmology/release_horizon/radial_transport/README.md",
-    "code/cosmology/release_horizon/radial_transport/records.json"
+    "code/cosmology/release_horizon/radial_transport/records.json",
+    "code/cosmology/release_horizon/energy_cone/README.md",
+    "code/cosmology/release_horizon/energy_cone/records.json"
    ],
    "papers": [
     "cosmology/oph_inflation_without_inflaton_observer_screen_synchronization.pdf",
@@ -7757,15 +7762,25 @@
    "kind": "premise",
    "name": "Supplied volume deformation and work convention",
    "category": "Physical premises",
-   "status": "Open",
-   "what": "A held state's energy is extended to a family over volumes, and pressure is read as minus the volume derivative of energy.",
+   "status": "Demonstrated",
+   "what": "A held native dimer has a measured cycle energy across a supplied three-axis radar-volume deformation, giving a work derivative that distinguishes two drives with identical reference records.",
    "why": "Pressure and work need this extension, since a complete fixed-volume energy history does not determine how energy responds to volume.",
    "premises": [],
    "lean": [
-    "Lean/Thermodynamics/EquationOfState.lean"
+    "Lean/Thermodynamics/EquationOfState.lean",
+    "Lean/ObserverPatchHolography/Provenance/MeteredEnergyCone.lean"
    ],
-   "model": [],
-   "papers": [],
+   "model": [
+    "code/cosmology/release_horizon/energy_cone/README.md",
+    "code/cosmology/release_horizon/energy_cone/protocol.json",
+    "code/cosmology/release_horizon/energy_cone/instruments.py",
+    "code/cosmology/release_horizon/energy_cone/measure.py",
+    "code/cosmology/release_horizon/energy_cone/records.json",
+    "code/cosmology/release_horizon/energy_cone/test_energy_cone.py"
+   ],
+   "papers": [
+    "cosmology/oph_inflation_without_inflaton_observer_screen_synchronization.pdf"
+   ],
    "statement": "The energy of a held state is extended to a family H(V) over volumes (for example H(V) = C + A (V/V0)^-alpha or a supplied Hamiltonian dilation), and pressure is read as p = -dH/dV. A complete fixed-volume energy history does not determine this response, so the deformation law, volume metrology and work convention are supplied inputs.",
    "premise_kind": "derivable"
   },
@@ -8219,13 +8234,14 @@
    "kind": "premise",
    "name": "horizon-scale coherence of the primordial source",
    "category": "Physical premises",
-   "status": "Open",
-   "what": "The primordial source is correlated over distances larger than the causal horizon of the background at the time of release.",
+   "status": "Partial",
+   "what": "Thermal energy differences correlate beyond the combined one-frame reach of a measured finite energy channel, with the integrated primordial radiation horizon and curvature identification outstanding.",
    "why": "It accounts for CMB correlations between regions never in causal contact, the problem inflation is usually invoked to solve.",
    "premises": [],
    "lean": [
     "Lean/ObserverPatchHolography/Provenance/ReleaseRelay.lean",
-    "Lean/ObserverPatchHolography/Provenance/ScreenDensityClock.lean"
+    "Lean/ObserverPatchHolography/Provenance/ScreenDensityClock.lean",
+    "Lean/ObserverPatchHolography/Provenance/MeteredEnergyCone.lean"
    ],
    "model": [
     "code/cosmology/screen_coherence/measurements.json",
@@ -8243,7 +8259,13 @@
     "code/cosmology/release_horizon/radial_transport/README.md",
     "code/cosmology/release_horizon/radial_transport/thermal_span.py",
     "code/cosmology/release_horizon/radial_transport/records.json",
-    "code/cosmology/release_horizon/radial_transport/test_radial_transport.py"
+    "code/cosmology/release_horizon/radial_transport/test_radial_transport.py",
+    "code/cosmology/release_horizon/energy_cone/README.md",
+    "code/cosmology/release_horizon/energy_cone/protocol.json",
+    "code/cosmology/release_horizon/energy_cone/instruments.py",
+    "code/cosmology/release_horizon/energy_cone/measure.py",
+    "code/cosmology/release_horizon/energy_cone/records.json",
+    "code/cosmology/release_horizon/energy_cone/test_energy_cone.py"
    ],
    "papers": [
     "cosmology/oph_inflation_without_inflaton_observer_screen_synchronization.pdf",

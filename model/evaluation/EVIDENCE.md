@@ -1250,7 +1250,7 @@ The register records each theorem assumption and its formal consumers. The role 
 | PR-82 abstract semantic ancestry acyclicity rank | law | Demonstrated | Open | Open | Open |
 | PR-84 pathwise weak fairness for fixed node attempts | law | Demonstrated | Open | Open | Open |
 | PR-85 bounded waste between fixed node changes | law | Demonstrated | Open | Open | Open |
-| PR-86 Supplied volume deformation and work convention | law | Open | Open | Open | Open |
+| PR-86 Supplied volume deformation and work convention | law | Demonstrated | Open | Open | Open |
 | PR-87 radial observation map and refinement family | law | Open | Open | Open | Open |
 | PR-88 second-order boost-null selection clause | law | Open | Open | Open | Open |
 | PR-90 uniform collar strong conditional-mixing envelope | law | Open | Open | Open | Open |
@@ -1272,7 +1272,7 @@ The register records each theorem assumption and its formal consumers. The role 
 | PR-110 zero primordial tensor data | law | Open | Open | Open | Open |
 | PR-111 one common release clock | law | Partial | Open | Open | Open |
 | PR-112 flat clock-slice FLRW identification | law | Open | Open | Open | Open |
-| PR-113 horizon-scale coherence of the primordial source | law | Open | Open | Open | Open |
+| PR-113 horizon-scale coherence of the primordial source | law | Partial | Open | Open | Open |
 | PR-114 hot radiation state on a common clock | law | Partial | Open | Open | Open |
 | PR-115 source Euclidean slab data for a vacuum | law | Demonstrated | Open | Open | Open |
 | PR-116 screen-to-sky template map | law | Open | Open | Open | Open |

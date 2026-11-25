@@ -373,6 +373,12 @@ REPLAY_EVALUATIONS = (
         "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
         "model/candidate_laws/interval_echo/EVALUATION.json": "c171e074825e866cd182f2e0799c6b23eea02b380ab34c8c13eb9e7db4272e81",
     },
+    # Metered energy transport and held-state volume work.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "3037af4b0b94129ce39a74d36661d3f8e58eb75e18c3d4c6ef94a4c79a4649f8",
+    },
 )
 
 

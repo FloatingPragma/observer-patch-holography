@@ -163,9 +163,9 @@
  },
  "premise_counts": {
   "law": {
-   "fulfilled": 20,
-   "partial": 11,
-   "open": 110,
+   "fulfilled": 21,
+   "partial": 12,
+   "open": 108,
    "fails": 0
   },
   "designer": {
@@ -1168,9 +1168,17 @@
    "statement": "The energy of a held state is extended to a family H(V) over volumes (for example H(V) = C + A (V/V0)^-alpha or a supplied Hamiltonian dilation), and pressure is read as p = -dH/dV. A complete fixed-volume energy history does not determine this response, so the deformation law, volume metrology and work convention are supplied inputs.",
    "type": "derivable",
    "role": "law",
-   "status": "open",
-   "evidence": [],
-   "note": ""
+   "status": "fulfilled",
+   "evidence": [
+    "../../../code/cosmology/release_horizon/energy_cone/README.md",
+    "../../../code/cosmology/release_horizon/energy_cone/protocol.json",
+    "../../../code/cosmology/release_horizon/energy_cone/instruments.py",
+    "../../../code/cosmology/release_horizon/energy_cone/measure.py",
+    "../../../code/cosmology/release_horizon/energy_cone/records.json",
+    "../../../code/cosmology/release_horizon/energy_cone/test_energy_cone.py",
+    "../../../Lean/ObserverPatchHolography/Provenance/MeteredEnergyCone.lean"
+   ],
+   "note": "Three measured returns define a supplied radar-volume family on the registered carrier. A held dimer receives either fixed active exposure per cycle or a fixed active fraction. Two read quadratures and an independent clock identify the cycle-averaged excitation energy. The fixed-action work derivative is one third of excitation energy density, while fixed duty gives zero at the same reference records. The volume deformation uses parked delays and the supplied work convention. Laboratory units and a photon gas require separate identification."
   },
   {
    "id": "PR-87",
@@ -1401,7 +1409,7 @@
    "statement": "The primordial source is coherent across scales larger than the causal horizon of the record-density background at release.",
    "type": "derivable",
    "role": "law",
-   "status": "open",
+   "status": "partial",
    "evidence": [
     "../../../code/cosmology/release_horizon/README.md",
     "../../../code/cosmology/release_horizon/horizon.py",
@@ -1412,9 +1420,16 @@
     "../../../code/cosmology/release_horizon/radial_transport/README.md",
     "../../../code/cosmology/release_horizon/radial_transport/thermal_span.py",
     "../../../code/cosmology/release_horizon/radial_transport/records.json",
-    "../../../code/cosmology/release_horizon/radial_transport/test_radial_transport.py"
+    "../../../code/cosmology/release_horizon/radial_transport/test_radial_transport.py",
+    "../../../code/cosmology/release_horizon/energy_cone/README.md",
+    "../../../code/cosmology/release_horizon/energy_cone/protocol.json",
+    "../../../code/cosmology/release_horizon/energy_cone/instruments.py",
+    "../../../code/cosmology/release_horizon/energy_cone/measure.py",
+    "../../../code/cosmology/release_horizon/energy_cone/records.json",
+    "../../../code/cosmology/release_horizon/energy_cone/test_energy_cone.py",
+    "../../../Lean/ObserverPatchHolography/Provenance/MeteredEnergyCone.lean"
    ],
-   "note": "Two local thermal contrasts with disjoint post-reset circuit pasts correlate through a shared preparation history. A common bit contributes only a spatial monopole. The physical causal horizon of a record-density background on these same events is unidentified. Single-crest interventions measure disjoint tree inputs for the two edge contrasts over eight local marker strokes on the same timed history, whose angular census fails the fourth-power density test. Separate round trips between the same station addresses put all cross-contrast separations at three routed units, while their measured impulse radii are three, two, three and four units. The radial envelopes overlap."
+   "note": "Two local thermal contrasts with disjoint post-reset circuit pasts correlate through a shared preparation history. A common bit contributes only a spatial monopole. The physical causal horizon of a record-density background on these same events is unidentified. Single-crest interventions measure disjoint tree inputs for the two edge contrasts over eight local marker strokes on the same timed history, whose angular census fails the fourth-power density test. Separate round trips between the same station addresses put all cross-contrast separations at three routed units, while their measured impulse radii are three, two, three and four units. The radial envelopes overlap. On a separate complete-dimer energy-transport history at the same four addresses, the local heat contrasts correlate beyond the sum of the two measured one-frame input radii, with four local clock strokes and 256 publications per frame. Independent source ages remove the covariance. The combined two-frame radii exceed the separation. Earlier common preparation generates these correlations; the cosmological radiation horizon and curvature map are unestablished."
   },
   {
    "id": "PR-114",

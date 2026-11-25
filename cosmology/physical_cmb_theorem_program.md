@@ -24,6 +24,8 @@ On one material history, two-edge heat contrasts and pulse periods share an inde
 
 Two finite rectilinear readouts supply the missing count factor in units of three measured routed lengths. Their two-radius packet records give a match fraction of one under face coarsening and 1/12 for the independent product of the same marginals. A separate calibration puts all four cross-pair separations of the thermal contrast at three routed units. Their largest post-reset input distances are 3, 2, 3 and 4 units, so the radial envelopes overlap despite disjoint delivered inputs. A physical CMB source test requires a radiation horizon in the same distance and time units. [Radial measurements and joint-count archive](../code/cosmology/release_horizon/radial_transport/README.md)
 
+A complete two-rail energy transfer gives a directly calibrated finite isolation horizon. The same two thermal contrasts at separation three have positive covariance beyond the combined one-frame radii, and inside the combined two-frame radii. The two-level energy sector and common source preparation are specified. A physical primordial test needs the radiation horizon integrated from the early-time boundary and the curvature map on that history. [Energy transport, thermal words and controls](../code/cosmology/release_horizon/energy_cone/README.md)
+
 ## Required constructions
 
 - **Finite source:** source-derived scalar amplitude, shape, clock, release surface, and background capacity, including the reserve-generator receipt that the tilt theorem consumes.

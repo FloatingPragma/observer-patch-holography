@@ -162,5 +162,6 @@ See `../README.md` and `../PROOF_INDEX.md` for scope and proof coverage.
 import QFT.MaterialReleaseSlices
 
 import ObserverPatchHolography.Provenance.ReleaseRelay
+import ObserverPatchHolography.Provenance.MeteredEnergyCone
 import ObserverPatchHolography.Provenance.RoutedOctant
 import ObserverPatchHolography.Provenance.ScreenDensityClock
