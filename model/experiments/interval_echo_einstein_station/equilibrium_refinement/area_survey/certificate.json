@@ -6,11 +6,12 @@
     36,
     44
   ],
-  "gram_error_upper": 5.681917245908313e-13,
-  "eigen_residual_frobenius_upper": 5.311287758088771e-12,
-  "transition_row_l1_upper": 6.448478688278837e-12,
-  "solve_defect_upper": 2.3236288370758607e-15,
-  "trip_probability_error_upper": 5.2843963604282296e-08,
+  "gram_error_upper": 3.94909823793536e-14,
+  "scalar_energy_shift": 364,
+  "eigen_residual_operator_upper": 4.599699858444517e-13,
+  "transition_row_l1_upper": 5.397594315982401e-13,
+  "solve_defect_upper": 8.187334396228296e-14,
+  "trip_probability_error_upper": 5.038603243970429e-09,
   "rows": 24,
   "held_geometry": {
     "held_station": 0,
@@ -18,9 +19,9 @@
     "native_interior_centers_checked": 20,
     "minimum_rim_radius_spread_lower": 71.39
   },
-  "right_inverse_defect_upper": 0.0013044839612421217,
-  "direction_infinity_norm_upper": 1.8766190990951432,
-  "positive_interval_halfwidth_lower": 0.0019306999526670643,
+  "right_inverse_defect_upper": 0.0001244302202915444,
+  "direction_infinity_norm_upper": 0.4635914936040862,
+  "positive_interval_halfwidth_lower": 0.00781547646103135,
   "target": "unit increase in probability of two occupied rim stations",
   "fixed_linear_readouts": [
     "normalization",

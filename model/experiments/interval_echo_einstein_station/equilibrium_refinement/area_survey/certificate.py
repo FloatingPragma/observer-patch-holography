@@ -35,7 +35,11 @@ def squared_norm(m):
 
 def transition_bound(h):
     """Exact rational residuals of a floating proposal; only a single host/clock."""
-    vals, vec = eigh(h)
+    # A scalar shift leaves every transition probability unchanged. Centering
+    # the integer energies reduces cancellation in the proposed eigenpairs.
+    shift = int(np.rint(np.trace(h) / len(h)))
+    h = h - shift * np.eye(len(h))
+    vals, vec = eigh(h, driver="evd")
     v = integers(vec, UNIT)
     values = integers(vals, UNIT)
     identity = np.eye(len(v), dtype=int).astype(object)
@@ -48,7 +52,7 @@ def transition_bound(h):
         dtype=object,
     )
     res = hv * UNIT - 2 * v * values[None, :]
-    eig = F(root_upper(squared_norm(res)), 2 * UNIT**2)
+    eig = F(root_upper(max(abs(res.T @ res).sum(axis=1))), 2 * UNIT**2)
     iv.dps = 45
     parts = []
     for fn in (iv.cos, iv.sin):
@@ -74,7 +78,8 @@ def transition_bound(h):
         row_error,
         dict(
             gram_error_upper=up(orth),
-            eigen_residual_frobenius_upper=up(eig),
+            scalar_energy_shift=shift,
+            eigen_residual_operator_upper=up(eig),
             transition_row_l1_upper=up(row_error),
         ),
     )

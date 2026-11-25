@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 1185,
+  "surface_count": 1193,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -1131,6 +1131,11 @@
       "allowlisted": false
     },
     {
+      "path": "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/neutral_response/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/family_projector/DESIGN.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -1401,6 +1406,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/candidate_laws/interval_echo/openwave/row_04/commissioned_medium/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_04/commissioned_medium/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/candidate_laws/interval_echo/openwave/row_04/memory_intervention/DESIGN.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -1422,6 +1437,16 @@
     },
     {
       "path": "model/candidate_laws/interval_echo/openwave/row_04_compact/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_04_compact/m10_5/CANDIDATE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_04_compact/m10_5/TASK.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -2756,6 +2781,11 @@
       "allowlisted": false
     },
     {
+      "path": "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/cyclic_charge/neutral_ladder/release/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/echo_turn/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -3326,12 +3356,22 @@
       "allowlisted": false
     },
     {
+      "path": "model/experiments/interval_echo_einstein_station/equilibrium_refinement/CLOCK_BALL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/experiments/interval_echo_einstein_station/equilibrium_refinement/PROTOCOL.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
     {
       "path": "model/experiments/interval_echo_einstein_station/equilibrium_refinement/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_einstein_station/equilibrium_refinement/area_survey/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },

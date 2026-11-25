@@ -70,7 +70,7 @@ def test_exact_native_all_records_and_independent_center_obstruction():
     receipt = certificate.run()
     assert receipt["trip_probability_error_upper"] < acquire.NATIVE_ERROR
     assert receipt["rows"] == 24 and receipt["right_inverse_defect_upper"] < 0.002
-    assert receipt["positive_interval_halfwidth_lower"] > 3e-6
+    assert receipt["positive_interval_halfwidth_lower"] > 1 / 1024
     assert receipt["held_geometry"] == load("certificate.json")["held_geometry"]
     assert receipt["held_geometry"]["flat_3d_extra_squared_length_lower"] >= 36000
     assert (4 * log(4) - 3 * log(6)) / 3 > 0.05663
@@ -102,3 +102,10 @@ def test_fresh_measurements_include_failed_starts_and_opposite_volume_arms():
         assert output["held"]["zero_to_two"]["area"][1] < -39000
         assert output["held"]["zero_to_two"]["entropy"][1] < -1.78
         assert output["held"]["matched_energy_and_cut_load"]["residual"][1] < -6
+        trial = output["held_lottery"]
+        assert min(trial["source_word_tickets"]) > 0
+        assert sum(trial["source_word_tickets"]) == trial["total_tickets"] == 2**50
+        assert trial["entropy_difference"][1] < -0.00009
+        for name in ("area_difference", "volume_difference"):
+            assert trial[name][0] < 0 < trial[name][1]
+        assert trial["max_native_success_difference_upper"] < 7.5e-10
