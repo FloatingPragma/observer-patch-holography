@@ -1,0 +1,933 @@
+{
+  "addressed_ramsey": [
+    {
+      "interval99": [
+        0.9998383212572521,
+        1.0
+      ],
+      "launches": 32768,
+      "probability": 1.0,
+      "successes": 32768
+    },
+    {
+      "interval99": [
+        0.0,
+        0.00016167874274781318
+      ],
+      "launches": 32768,
+      "probability": 0.0,
+      "successes": 0
+    }
+  ],
+  "cyclic_sector_dimension": 16,
+  "free_records": [
+    {
+      "local_launches": [
+        {
+          "arrival": {
+            "interval99": [
+              0.0,
+              0.00016167874274781318
+            ],
+            "launches": 32768,
+            "probability": 0.0,
+            "successes": 0
+          },
+          "first_port": {
+            "interval99": [
+              0.0,
+              0.00016167874274781318
+            ],
+            "launches": 32768,
+            "probability": 0.0,
+            "successes": 0
+          },
+          "first_port_after_mix": {
+            "interval99": [
+              0.0,
+              0.00016167874274781318
+            ],
+            "launches": 32768,
+            "probability": 0.0,
+            "successes": 0
+          }
+        },
+        {
+          "arrival": {
+            "interval99": [
+              0.0,
+              0.00016167874274781318
+            ],
+            "launches": 32768,
+            "probability": 0.0,
+            "successes": 0
+          },
+          "first_port": {
+            "interval99": [
+              0.0,
+              0.00016167874274781318
+            ],
+            "launches": 32768,
+            "probability": 0.0,
+            "successes": 0
+          },
+          "first_port_after_mix": {
+            "interval99": [
+              0.0,
+              0.00016167874274781318
+            ],
+            "launches": 32768,
+            "probability": 0.0,
+            "successes": 0
+          }
+        }
+      ],
+      "remote_pair_determinant": 0.0,
+      "sharp_at_source": {
+        "interval99": [
+          0.9998383212572521,
+          1.0
+        ],
+        "launches": 32768,
+        "probability": 1.0,
+        "successes": 32768
+      },
+      "sharp_at_target": {
+        "interval99": [
+          0.0,
+          0.00016167874274781318
+        ],
+        "launches": 32768,
+        "probability": 0.0,
+        "successes": 0
+      },
+      "sharp_source_and_wound": {
+        "interval99": [
+          0.0,
+          0.00016167874274781318
+        ],
+        "launches": 32768,
+        "probability": 0.0,
+        "successes": 0
+      },
+      "target_dephased": {
+        "interval99": [
+          0.0,
+          0.00016167874274781318
+        ],
+        "launches": 32768,
+        "probability": 0.0,
+        "successes": 0
+      },
+      "target_two_inputs": [
+        {
+          "interval99": [
+            0.0,
+            0.00016167874274781318
+          ],
+          "launches": 32768,
+          "probability": 0.0,
+          "successes": 0
+        },
+        {
+          "interval99": [
+            0.0,
+            0.00016167874274781318
+          ],
+          "launches": 32768,
+          "probability": 0.0,
+          "successes": 0
+        }
+      ],
+      "time": 0
+    },
+    {
+      "local_launches": [
+        {
+          "arrival": {
+            "interval99": [
+              0.0017700739850490877,
+              0.0032003918173570665
+            ],
+            "launches": 32768,
+            "probability": 0.002254369669,
+            "successes": 79
+          },
+          "first_port": {
+            "interval99": [
+              0.0016139517034271958,
+              0.002990520702885884
+            ],
+            "launches": 32768,
+            "probability": 0.002069682261,
+            "successes": 73
+          },
+          "first_port_after_mix": {
+            "interval99": [
+              0.00017030839295406567,
+              0.0007779488060587051
+            ],
+            "launches": 32768,
+            "probability": 0.000508952804,
+            "successes": 13
+          }
+        },
+        {
+          "arrival": {
+            "interval99": [
+              0.00025181921533325196,
+              0.0009394564963882594
+            ],
+            "launches": 32768,
+            "probability": 0.000650106848,
+            "successes": 17
+          },
+          "first_port": {
+            "interval99": [
+              0.00023095320016565537,
+              0.0008995330225416065
+            ],
+            "launches": 32768,
+            "probability": 0.000587331995,
+            "successes": 16
+          },
+          "first_port_after_mix": {
+            "interval99": [
+              6.217836544019861e-05,
+              0.0005227949250680106
+            ],
+            "launches": 32768,
+            "probability": 0.000133225284,
+            "successes": 7
+          }
+        }
+      ],
+      "remote_pair_determinant": 3.6139595e-05,
+      "sharp_at_source": {
+        "interval99": [
+          0.15334609940097027,
+          0.16377004148951002
+        ],
+        "launches": 32768,
+        "probability": 0.162089692651,
+        "successes": 5194
+      },
+      "sharp_at_target": {
+        "interval99": [
+          3.289722612814939e-05,
+          0.00043175610403411877
+        ],
+        "launches": 32768,
+        "probability": 0.000246543248,
+        "successes": 5
+      },
+      "sharp_source_and_wound": {
+        "interval99": [
+          0.0,
+          0.00016167874274781318
+        ],
+        "launches": 32768,
+        "probability": 0.0,
+        "successes": 0
+      },
+      "target_dephased": {
+        "interval99": [
+          3.158446122514515e-06,
+          0.0002829822650095548
+        ],
+        "launches": 32768,
+        "probability": 0.000131827193,
+        "successes": 2
+      },
+      "target_two_inputs": [
+        {
+          "interval99": [
+            3.158446122514515e-06,
+            0.0002829822650095548
+          ],
+          "launches": 32768,
+          "probability": 6.6906535e-05,
+          "successes": 2
+        },
+        {
+          "interval99": [
+            7.846913129108384e-05,
+            0.0005668709457723812
+          ],
+          "launches": 32768,
+          "probability": 0.00019674785,
+          "successes": 8
+        }
+      ],
+      "time": 0.5
+    },
+    {
+      "local_launches": [
+        {
+          "arrival": {
+            "interval99": [
+              0.36285552563734685,
+              0.37662332932958437
+            ],
+            "launches": 32768,
+            "probability": 0.371448711488,
+            "successes": 12115
+          },
+          "first_port": {
+            "interval99": [
+              0.21322588531635323,
+              0.22502734466026075
+            ],
+            "launches": 32768,
+            "probability": 0.221308085209,
+            "successes": 7179
+          },
+          "first_port_after_mix": {
+            "interval99": [
+              0.002913368227351154,
+              0.004680421721149321
+            ],
+            "launches": 32768,
+            "probability": 0.003505223528,
+            "successes": 122
+          }
+        },
+        {
+          "arrival": {
+            "interval99": [
+              0.07954552956419932,
+              0.08744616663663395
+            ],
+            "launches": 32768,
+            "probability": 0.083534321375,
+            "successes": 2734
+          },
+          "first_port": {
+            "interval99": [
+              0.05809344697410915,
+              0.06495945250477535
+            ],
+            "launches": 32768,
+            "probability": 0.061315859153,
+            "successes": 2014
+          },
+          "first_port_after_mix": {
+            "interval99": [
+              0.007037810210958552,
+              0.009647777332290981
+            ],
+            "launches": 32768,
+            "probability": 0.008222738628,
+            "successes": 271
+          }
+        }
+      ],
+      "remote_pair_determinant": 0.045250652417,
+      "sharp_at_source": {
+        "interval99": [
+          0.08363765750347367,
+          0.09171462084673372
+        ],
+        "launches": 32768,
+        "probability": 0.084518313824,
+        "successes": 2871
+      },
+      "sharp_at_target": {
+        "interval99": [
+          0.1497036392679416,
+          0.16002832797677982
+        ],
+        "launches": 32768,
+        "probability": 0.152709487926,
+        "successes": 5073
+      },
+      "sharp_source_and_wound": {
+        "interval99": [
+          0.0,
+          0.00016167874274781318
+        ],
+        "launches": 32768,
+        "probability": 9.8968e-08,
+        "successes": 0
+      },
+      "target_dephased": {
+        "interval99": [
+          0.10602459135731689,
+          0.1149752643768385
+        ],
+        "launches": 32768,
+        "probability": 0.109299293526,
+        "successes": 3619
+      },
+      "target_two_inputs": [
+        {
+          "interval99": [
+            0.008110732716522951,
+            0.010893706398893066
+          ],
+          "launches": 32768,
+          "probability": 0.009435031887,
+          "successes": 309
+        },
+        {
+          "interval99": [
+            0.20210880271542905,
+            0.21368676759886102
+          ],
+          "launches": 32768,
+          "probability": 0.209163555164,
+          "successes": 6811
+        }
+      ],
+      "time": 1.0
+    },
+    {
+      "local_launches": [
+        {
+          "arrival": {
+            "interval99": [
+              0.10989205134945712,
+              0.11898018325337291
+            ],
+            "launches": 32768,
+            "probability": 0.113144018136,
+            "successes": 3748
+          },
+          "first_port": {
+            "interval99": [
+              0.10078091614989536,
+              0.10953935688456824
+            ],
+            "launches": 32768,
+            "probability": 0.102853116425,
+            "successes": 3444
+          },
+          "first_port_after_mix": {
+            "interval99": [
+              0.02364414759702105,
+              0.02819155926533942
+            ],
+            "launches": 32768,
+            "probability": 0.0241695265,
+            "successes": 847
+          }
+        },
+        {
+          "arrival": {
+            "interval99": [
+              0.20096121899146338,
+              0.21251535391681015
+            ],
+            "launches": 32768,
+            "probability": 0.204742703346,
+            "successes": 6773
+          },
+          "first_port": {
+            "interval99": [
+              0.03677023812696877,
+              0.04234395792457047
+            ],
+            "launches": 32768,
+            "probability": 0.040641219199,
+            "successes": 1294
+          },
+          "first_port_after_mix": {
+            "interval99": [
+              0.018632707996209398,
+              0.022706640028523482
+            ],
+            "launches": 32768,
+            "probability": 0.021340108076,
+            "successes": 675
+          }
+        }
+      ],
+      "remote_pair_determinant": 0.110021381193,
+      "sharp_at_source": {
+        "interval99": [
+          0.04904074683981514,
+          0.05539921272882551
+        ],
+        "launches": 32768,
+        "probability": 0.053657498336,
+        "successes": 1709
+      },
+      "sharp_at_target": {
+        "interval99": [
+          0.03041257078038314,
+          0.03552005353789319
+        ],
+        "launches": 32768,
+        "probability": 0.031020253299,
+        "successes": 1078
+      },
+      "sharp_source_and_wound": {
+        "interval99": [
+          0.0008542583879114374,
+          0.001920687719972775
+        ],
+        "launches": 32768,
+        "probability": 0.001454619442,
+        "successes": 43
+      },
+      "target_dephased": {
+        "interval99": [
+          0.039661985136160115,
+          0.04543274701201775
+        ],
+        "launches": 32768,
+        "probability": 0.043063185515,
+        "successes": 1392
+      },
+      "target_two_inputs": [
+        {
+          "interval99": [
+            0.03898294635310943,
+            0.04470819021138311
+          ],
+          "launches": 32768,
+          "probability": 0.040351942348,
+          "successes": 1369
+        },
+        {
+          "interval99": [
+            0.04344475337695306,
+            0.04946129702639971
+          ],
+          "launches": 32768,
+          "probability": 0.045774428681,
+          "successes": 1520
+        }
+      ],
+      "time": 1.5
+    },
+    {
+      "local_launches": [
+        {
+          "arrival": {
+            "interval99": [
+              0.09177016865358927,
+              0.10018122536333059
+            ],
+            "launches": 32768,
+            "probability": 0.093463579845,
+            "successes": 3143
+          },
+          "first_port": {
+            "interval99": [
+              0.07503864481529977,
+              0.08273810485941492
+            ],
+            "launches": 32768,
+            "probability": 0.077935801869,
+            "successes": 2583
+          },
+          "first_port_after_mix": {
+            "interval99": [
+              0.012563054660278412,
+              0.015961080371145155
+            ],
+            "launches": 32768,
+            "probability": 0.014937623223,
+            "successes": 465
+          }
+        },
+        {
+          "arrival": {
+            "interval99": [
+              0.112291340288862,
+              0.12146299003519162
+            ],
+            "launches": 32768,
+            "probability": 0.114945190712,
+            "successes": 3828
+          },
+          "first_port": {
+            "interval99": [
+              0.018516526940089793,
+              0.022578720428191316
+            ],
+            "launches": 32768,
+            "probability": 0.01960242805,
+            "successes": 671
+          },
+          "first_port_after_mix": {
+            "interval99": [
+              0.01758776437364005,
+              0.021554679214999296
+            ],
+            "launches": 32768,
+            "probability": 0.02008125498,
+            "successes": 639
+          }
+        }
+      ],
+      "remote_pair_determinant": 0.068881660884,
+      "sharp_at_source": {
+        "interval99": [
+          0.1732007599509147,
+          0.18413166924501861
+        ],
+        "launches": 32768,
+        "probability": 0.180338769592,
+        "successes": 5853
+      },
+      "sharp_at_target": {
+        "interval99": [
+          0.02935541813449453,
+          0.03438028062421987
+        ],
+        "launches": 32768,
+        "probability": 0.033287010457,
+        "successes": 1042
+      },
+      "sharp_source_and_wound": {
+        "interval99": [
+          0.1391434055337971,
+          0.1491683569557877
+        ],
+        "launches": 32768,
+        "probability": 0.141577488359,
+        "successes": 4722
+      },
+      "target_dephased": {
+        "interval99": [
+          0.031000207145148968,
+          0.03615293180636144
+        ],
+        "launches": 32768,
+        "probability": 0.034881991214,
+        "successes": 1098
+      },
+      "target_two_inputs": [
+        {
+          "interval99": [
+            0.03041257078038314,
+            0.03552005353789319
+          ],
+          "launches": 32768,
+          "probability": 0.034826327303,
+          "successes": 1078
+        },
+        {
+          "interval99": [
+            0.03182327875747226,
+            0.037038581168571
+          ],
+          "launches": 32768,
+          "probability": 0.034937655126,
+          "successes": 1126
+        }
+      ],
+      "time": 2.0
+    },
+    {
+      "local_launches": [
+        {
+          "arrival": {
+            "interval99": [
+              0.07954552956419932,
+              0.08744616663663395
+            ],
+            "launches": 32768,
+            "probability": 0.084529106246,
+            "successes": 2734
+          },
+          "first_port": {
+            "interval99": [
+              0.03565008297030046,
+              0.041145130910205024
+            ],
+            "launches": 32768,
+            "probability": 0.039848919461,
+            "successes": 1256
+          },
+          "first_port_after_mix": {
+            "interval99": [
+              6.217836544019861e-05,
+              0.0005227949250680106
+            ],
+            "launches": 32768,
+            "probability": 0.000171468538,
+            "successes": 7
+          }
+        },
+        {
+          "arrival": {
+            "interval99": [
+              0.07333835811452523,
+              0.0809599023214834
+            ],
+            "launches": 32768,
+            "probability": 0.078834678886,
+            "successes": 2526
+          },
+          "first_port": {
+            "interval99": [
+              0.009558916170289103,
+              0.012557703101306893
+            ],
+            "launches": 32768,
+            "probability": 0.010836619464,
+            "successes": 360
+          },
+          "first_port_after_mix": {
+            "interval99": [
+              0.040725255466917284,
+              0.04656640932766071
+            ],
+            "launches": 32768,
+            "probability": 0.0438103075,
+            "successes": 1428
+          }
+        }
+      ],
+      "remote_pair_determinant": 0.061000324829,
+      "sharp_at_source": {
+        "interval99": [
+          0.16509290140796096,
+          0.1758234700966124
+        ],
+        "launches": 32768,
+        "probability": 0.171392618384,
+        "successes": 5584
+      },
+      "sharp_at_target": {
+        "interval99": [
+          0.037330560303911915,
+          0.0429431271000148
+        ],
+        "launches": 32768,
+        "probability": 0.040546497573,
+        "successes": 1313
+      },
+      "sharp_source_and_wound": {
+        "interval99": [
+          0.13252920905010784,
+          0.14235678530636584
+        ],
+        "launches": 32768,
+        "probability": 0.139023513164,
+        "successes": 4502
+      },
+      "target_dephased": {
+        "interval99": [
+          0.024024020818368894,
+          0.02860501747291855
+        ],
+        "launches": 32768,
+        "probability": 0.025519252202,
+        "successes": 860
+      },
+      "target_two_inputs": [
+        {
+          "interval99": [
+            0.017268793976935662,
+            0.021202373953840628
+          ],
+          "launches": 32768,
+          "probability": 0.019751737096,
+          "successes": 628
+        },
+        {
+          "interval99": [
+            0.02838705897317509,
+            0.033334792300726536
+          ],
+          "launches": 32768,
+          "probability": 0.031286767307,
+          "successes": 1009
+        }
+      ],
+      "time": 2.5
+    },
+    {
+      "local_launches": [
+        {
+          "arrival": {
+            "interval99": [
+              0.2377476909875128,
+              0.249997830172723
+            ],
+            "launches": 32768,
+            "probability": 0.241035497947,
+            "successes": 7990
+          },
+          "first_port": {
+            "interval99": [
+              0.13971480841010123,
+              0.14975645228343226
+            ],
+            "launches": 32768,
+            "probability": 0.14345430315,
+            "successes": 4741
+          },
+          "first_port_after_mix": {
+            "interval99": [
+              0.1918435478714625,
+              0.20320309871347456
+            ],
+            "launches": 32768,
+            "probability": 0.198217674487,
+            "successes": 6471
+          }
+        },
+        {
+          "arrival": {
+            "interval99": [
+              0.05064165957754829,
+              0.057093704333400525
+            ],
+            "launches": 32768,
+            "probability": 0.053810883597,
+            "successes": 1763
+          },
+          "first_port": {
+            "interval99": [
+              0.0010776256919090331,
+              0.002246069794287186
+            ],
+            "launches": 32768,
+            "probability": 0.001757926447,
+            "successes": 52
+          },
+          "first_port_after_mix": {
+            "interval99": [
+              0.025310745195956278,
+              0.030003416482510415
+            ],
+            "launches": 32768,
+            "probability": 0.029037745315,
+            "successes": 904
+          }
+        }
+      ],
+      "remote_pair_determinant": 0.075122039008,
+      "sharp_at_source": {
+        "interval99": [
+          0.1554537642202533,
+          0.16593421276990591
+        ],
+        "launches": 32768,
+        "probability": 0.158805893137,
+        "successes": 5264
+      },
+      "sharp_at_target": {
+        "interval99": [
+          0.08274132945924777,
+          0.09078016436382359
+        ],
+        "launches": 32768,
+        "probability": 0.087814605331,
+        "successes": 2841
+      },
+      "sharp_source_and_wound": {
+        "interval99": [
+          0.12378651358099561,
+          0.1333408528051845
+        ],
+        "launches": 32768,
+        "probability": 0.131514385436,
+        "successes": 4211
+      },
+      "target_dephased": {
+        "interval99": [
+          0.1152313394776524,
+          0.12450355839645127
+        ],
+        "launches": 32768,
+        "probability": 0.116242092463,
+        "successes": 3926
+      },
+      "target_two_inputs": [
+        {
+          "interval99": [
+            0.1725676478787423,
+            0.1834832303132251
+          ],
+          "launches": 32768,
+          "probability": 0.180200241742,
+          "successes": 5832
+        },
+        {
+          "interval99": [
+            0.04877401245808818,
+            0.05511671312147182
+          ],
+          "launches": 32768,
+          "probability": 0.052283943185,
+          "successes": 1700
+        }
+      ],
+      "time": 3.0
+    }
+  ],
+  "geometry": {
+    "compensating_excess": 141,
+    "exterior_zero_writes": 55,
+    "external_contacts": 5,
+    "final_shutter": [
+      3,
+      4
+    ],
+    "maximum_phase_route": 20,
+    "owners": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "private_reference": 0,
+    "private_zero_writes": 5,
+    "ring": [
+      3,
+      2,
+      10,
+      20,
+      15,
+      14,
+      24,
+      25,
+      32,
+      46,
+      36,
+      37,
+      50,
+      58,
+      48
+    ],
+    "stock_staging": 4,
+    "stock_storage": 1
+  },
+  "head_sites_needed_for_stationary_winding_coherence": 15,
+  "preparation": {
+    "both_heralds_correctable": true,
+    "herald_probabilities": [
+      0.5,
+      0.5
+    ]
+  },
+  "remote_rank_certificate": {
+    "determinant_lower": "1/10",
+    "entry_remainder_upper": "1e-16",
+    "operator_norm_upper": 24,
+    "order": 96,
+    "time": "3/2"
+  },
+  "repeated_directed_winding_probability": 0.0,
+  "seam_current": {
+    "directed_moves": {
+      "-1": 4,
+      "1": 4
+    },
+    "marked_unit_columns": 36,
+    "native_columns": 99
+  },
+  "source_reader": [
+    1.0,
+    0.0
+  ],
+  "target_owner": 2,
+  "target_port": 25
+}
