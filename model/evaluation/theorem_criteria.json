@@ -1246,7 +1246,13 @@
                 "model/experiments/interval_echo_einstein_station/equilibrium_refinement/area_survey/certificate.json",
                 "code/matched_einstein_limit/finite_entropy_region/monitored_order/README.md",
                 "code/matched_einstein_limit/finite_entropy_region/monitored_order/results.json",
-                "code/matched_einstein_limit/finite_entropy_region/held_calibration.json"
+                "code/matched_einstein_limit/finite_entropy_region/held_calibration.json",
+                "model/experiments/interval_echo_einstein_station/equilibrium_refinement/rim_geometry/README.md",
+                "model/experiments/interval_echo_einstein_station/equilibrium_refinement/rim_geometry/results.json",
+                "model/experiments/interval_echo_einstein_station/equilibrium_refinement/tracer_flux/README.md",
+                "model/experiments/interval_echo_einstein_station/equilibrium_refinement/tracer_flux/results.json",
+                "model/experiments/interval_echo_einstein_station/equilibrium_refinement/area_survey/joint_screen/README.md",
+                "model/experiments/interval_echo_einstein_station/equilibrium_refinement/area_survey/joint_screen/certificate.json"
               ],
               "demonstrated_measurement": {
                 "label": "Unique global entropy-plus-area maximum for one or arbitrarily many four-station surveys",
@@ -1330,6 +1336,24 @@
                   "label": "Capacity and proper area on a held third sector",
                   "finding": "Independent area and word counts give a prediction error of +0.000088 nats, with a simultaneous 99% interval of [−0.000793,+0.000967]. The supplied charts implement the area per tile.",
                   "source": "code/matched_einstein_limit/finite_entropy_region/README.md"
+                },
+                {
+                  "law": "Interval Echo on a timed five-receiver rim",
+                  "label": "Geometric apertures tested on all ten resident pairs",
+                  "finding": "Every positive angular aperture with a single width misses a held pair by at least 0.193858 nats after ordinary calibration. Smooth three-dimensional realizations of the center and rim ranges have identical proper volume and different boundary areas. Five inner relay forks preclude an exact smooth proper-distance interpretation of the full timing menu.",
+                  "source": "model/experiments/interval_echo_einstein_station/equilibrium_refinement/rim_geometry/README.md"
+                },
+                {
+                  "law": "Interval Echo with a third material tag on the two-load ball",
+                  "label": "Exterior transmission measures the boundary completion charge",
+                  "finding": "One ordinary-calibrated inward transmission at a dwell of 0.5 native time units predicts −0.88993 nats on the held correlation transfer, whose completion contrast is −0.45815. After uniformly randomizing placements at fixed rim occupancy, two timed transmissions determine its distribution and predict an independently held outward rate. The reconstructed quantity is the finite completion charge.",
+                  "source": "model/experiments/interval_echo_einstein_station/equilibrium_refinement/tracer_flux/README.md"
+                },
+                {
+                  "law": "Interval Echo on the monitored two-cell source with a joint coincidence screen",
+                  "label": "Interior entropy at fixed directional clock records and joint image",
+                  "finding": "A rank-36 certificate preserves mean preparation energy, all twelve directional launch and return laws and twelve absolute joint terminal pixel probabilities. A positive source on this exact record fiber loses more than 0.004688 nats of interior entropy at the same clock volume. The separate apex-launch rates recover the missing boundary occupancy.",
+                  "source": "model/experiments/interval_echo_einstein_station/equilibrium_refinement/area_survey/joint_screen/README.md"
                 }
               ]
             },

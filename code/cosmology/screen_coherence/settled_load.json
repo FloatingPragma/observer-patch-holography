@@ -1,0 +1,80 @@
+{
+  "archive": "https://dovybzrnzxfo1.cloudfront.net/manifest.json",
+  "manifest_sha256": "3c0b240ac4464afd9b82251b46a86c6622a87a8a281d0ad159b641413360f824",
+  "observers": 1342177280,
+  "seed": 20261126,
+  "regions": [
+    {
+      "observers_per_region": 1,
+      "regions": 1342177280,
+      "mean_boundary_links": 3.0,
+      "mean_load_per_observer": 11.999942202866077,
+      "variance_initial_total_per_member": 12.000226074096892,
+      "variance_settled_total_per_member": 10.499816660222743,
+      "variance_change_total_per_member": 1.5000852599740029
+    },
+    {
+      "observers_per_region": 64,
+      "regions": 20971520,
+      "mean_boundary_links": 24.0,
+      "mean_load_per_observer": 11.999942202866077,
+      "variance_initial_total_per_member": 11.999986413905388,
+      "variance_settled_total_per_member": 11.813237544188267,
+      "variance_change_total_per_member": 0.18751262575387956
+    },
+    {
+      "observers_per_region": 4096,
+      "regions": 327680,
+      "mean_boundary_links": 192.0,
+      "mean_load_per_observer": 11.999942202866077,
+      "variance_initial_total_per_member": 11.991433900117327,
+      "variance_settled_total_per_member": 11.968566061078954,
+      "variance_change_total_per_member": 0.023575316369533538
+    },
+    {
+      "observers_per_region": 1048576,
+      "regions": 1280,
+      "mean_boundary_links": 3072.0,
+      "mean_load_per_observer": 11.999942202866077,
+      "variance_initial_total_per_member": 11.450478029230144,
+      "variance_settled_total_per_member": 11.446311989405658,
+      "variance_change_total_per_member": 0.0014424175024032593
+    }
+  ],
+  "contact_pairs": {
+    "initial_load": {
+      "pairs": 2013265920,
+      "covariance": 9.303553634271008e-05,
+      "correlation": 7.752815302666013e-06
+    },
+    "settled_load": {
+      "pairs": 2013265920,
+      "covariance": 0.5001743029925564,
+      "correlation": 0.04763647968134576
+    },
+    "change": {
+      "pairs": 2013265920,
+      "covariance": -0.5000392650564511,
+      "correlation": -0.3333405629658124
+    }
+  },
+  "noncontact_control": {
+    "initial_load": {
+      "pairs": 671087360,
+      "covariance": -0.00031983056399470533,
+      "correlation": -2.6652043781837495e-05
+    },
+    "settled_load": {
+      "pairs": 671087360,
+      "covariance": -0.0002612316328128863,
+      "correlation": -2.4879636956099034e-05
+    },
+    "change": {
+      "pairs": 671087360,
+      "covariance": -2.1289329604503876e-05,
+      "correlation": -1.4192078715906515e-05
+    }
+  },
+  "control": "Within each shard pair opposite ID halves at the same offset, excluding direct contacts.",
+  "region_check": "Every region's change equals its signed boundary transfers."
+}

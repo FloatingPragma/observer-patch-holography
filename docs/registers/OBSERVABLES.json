@@ -617,7 +617,8 @@
     "model/evaluation/EVIDENCE.md",
     "model/experiments/interval_echo_message/passive_echo/README.md",
     "model/experiments/interval_echo_message/passive_echo/records.json",
-    "model/evaluation/observer_criteria.json"
+    "model/evaluation/observer_criteria.json",
+    "code/cosmology/screen_coherence/observer_zero_information.json"
    ],
    "papers": [
     "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf",
@@ -4080,7 +4081,8 @@
     "code/capacity_readback/global_capacity_attachment.py",
     "code/capacity_readback/runtime/global_capacity_attachment_receipt.json",
     "code/capacity_readback/verify_global_capacity_attachment_independent.py",
-    "model/candidate_laws/interval_echo/openwave/row_28_acceleration/cut_code.py"
+    "model/candidate_laws/interval_echo/openwave/row_28_acceleration/cut_code.py",
+    "code/cosmology/screen_coherence/observer_zero_capacity.json"
    ],
    "papers": [
     "cosmology/oph_cosmological_vacuum_and_structure_formation.pdf",
@@ -4268,7 +4270,11 @@
     "model/experiments/observer_expansion_reconstruction/README.md",
     "model/experiments/observer_expansion_reconstruction/results.json",
     "model/candidate_laws/interval_echo/openwave/row_28_acceleration/README.md",
-    "model/candidate_laws/interval_echo/openwave/row_28_acceleration/results.json"
+    "model/candidate_laws/interval_echo/openwave/row_28_acceleration/results.json",
+    "code/cosmology/screen_coherence/observer_zero_radar.json",
+    "code/cosmology/screen_coherence/observer_zero_capacity.json",
+    "code/cosmology/screen_coherence/observer_zero_information.json",
+    "code/cosmology/screen_coherence/distance_redshift.json"
    ],
    "papers": [
     "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf"
@@ -4432,7 +4438,8 @@
     "code/cosmology/release_horizon/background_clock/README.md",
     "code/cosmology/release_horizon/background_clock/records.json",
     "code/cosmology/release_horizon/radial_transport/README.md",
-    "code/cosmology/release_horizon/radial_transport/records.json"
+    "code/cosmology/release_horizon/radial_transport/records.json",
+    "code/cosmology/screen_coherence/distance_redshift.json"
    ],
    "papers": [
     "cosmology/oph_cosmology_finite_source_cmb_program.pdf",
@@ -4474,7 +4481,8 @@
     "code/cosmology/release_horizon/radial_transport/README.md",
     "code/cosmology/release_horizon/radial_transport/records.json",
     "code/cosmology/release_horizon/energy_cone/README.md",
-    "code/cosmology/release_horizon/energy_cone/records.json"
+    "code/cosmology/release_horizon/energy_cone/records.json",
+    "code/cosmology/screen_coherence/settled_load.json"
    ],
    "papers": [
     "cosmology/oph_inflation_without_inflaton_observer_screen_synchronization.pdf",
@@ -5836,7 +5844,8 @@
     "model/experiments/observer_expansion_reconstruction/results.json",
     "model/candidate_laws/interval_echo/openwave/row_28_acceleration/SIGNAL_PROTOCOL.md",
     "model/candidate_laws/interval_echo/openwave/row_28_acceleration/radar.py",
-    "model/candidate_laws/interval_echo/openwave/row_28_acceleration/test_acceleration.py"
+    "model/candidate_laws/interval_echo/openwave/row_28_acceleration/test_acceleration.py",
+    "code/cosmology/screen_coherence/distance_redshift.json"
    ],
    "papers": [
     "paper/executable_observer_construction.pdf",
@@ -6763,7 +6772,13 @@
     "model/experiments/interval_echo_einstein_station/equilibrium_refinement/area_survey/certificate.json",
     "code/matched_einstein_limit/finite_entropy_region/monitored_order/README.md",
     "code/matched_einstein_limit/finite_entropy_region/monitored_order/results.json",
-    "code/matched_einstein_limit/finite_entropy_region/held_calibration.json"
+    "code/matched_einstein_limit/finite_entropy_region/held_calibration.json",
+    "model/experiments/interval_echo_einstein_station/equilibrium_refinement/rim_geometry/README.md",
+    "model/experiments/interval_echo_einstein_station/equilibrium_refinement/rim_geometry/results.json",
+    "model/experiments/interval_echo_einstein_station/equilibrium_refinement/tracer_flux/README.md",
+    "model/experiments/interval_echo_einstein_station/equilibrium_refinement/tracer_flux/results.json",
+    "model/experiments/interval_echo_einstein_station/equilibrium_refinement/area_survey/joint_screen/README.md",
+    "model/experiments/interval_echo_einstein_station/equilibrium_refinement/area_survey/joint_screen/certificate.json"
    ],
    "papers": [],
    "statement": "The first-order bulk entropy variation balances the fixed-volume area variation over 4G, and the declared MaxEnt family has zero normalization rate, unit constraint speed and the Gibbs differential equation.",
@@ -6807,7 +6822,9 @@
     "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/formed_ranges/results.json",
     "code/matched_einstein_limit/finite_entropy_region/monitored_order/README.md",
     "code/matched_einstein_limit/finite_entropy_region/monitored_order/results.json",
-    "code/matched_einstein_limit/finite_entropy_region/held_calibration.json"
+    "code/matched_einstein_limit/finite_entropy_region/held_calibration.json",
+    "model/experiments/interval_echo_einstein_station/equilibrium_refinement/rim_geometry/README.md",
+    "model/experiments/interval_echo_einstein_station/equilibrium_refinement/rim_geometry/results.json"
    ],
    "papers": [],
    "statement": "The fixed-volume small-geodesic-ball area identity holds with coefficient 4*pi*ell^4/15, one cofinal shrinking family carries the collar, kernel and chart error terms as o(ell^4), the geometric side satisfies the contracted Bianchi identity, and the Newton constant and ball radius are positive.",
@@ -8492,7 +8509,8 @@
    "model": [
     "code/capacity_readback/runtime/horizon_record_attachment_verdict.json",
     "model/candidate_laws/interval_echo/openwave/row_28_acceleration/CAPACITY_CLOSURE.md",
-    "model/candidate_laws/interval_echo/openwave/row_28_acceleration/capacity.json"
+    "model/candidate_laws/interval_echo/openwave/row_28_acceleration/capacity.json",
+    "code/cosmology/screen_coherence/observer_zero_capacity.json"
    ],
    "papers": [],
    "statement": "The correctable public-record capacity N selected on the refinement family equals, in nats, the entropy A/(4 l*^2) of one de Sitter causal horizon whose area observers measure on the same process.",
@@ -8522,7 +8540,8 @@
     "code/cosmology/release_horizon/horizon.py",
     "code/cosmology/release_horizon/contrast.py",
     "code/cosmology/release_horizon/results.json",
-    "code/cosmology/screen_coherence/observer_comparison.py"
+    "code/cosmology/screen_coherence/observer_comparison.py",
+    "code/cosmology/screen_coherence/settled_load.json"
    ],
    "papers": [
     "cosmology/oph_cosmology_finite_source_cmb_program.pdf",
@@ -8685,7 +8704,8 @@
     "code/cosmology/release_horizon/energy_cone/instruments.py",
     "code/cosmology/release_horizon/energy_cone/measure.py",
     "code/cosmology/release_horizon/energy_cone/records.json",
-    "code/cosmology/release_horizon/energy_cone/test_energy_cone.py"
+    "code/cosmology/release_horizon/energy_cone/test_energy_cone.py",
+    "code/cosmology/screen_coherence/settled_load.json"
    ],
    "papers": [
     "cosmology/oph_inflation_without_inflaton_observer_screen_synchronization.pdf",
