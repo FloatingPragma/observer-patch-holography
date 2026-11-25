@@ -1,0 +1,21 @@
+# Primordial source and coherence measurements
+
+A 320-cell Interval Echo repair experiment produces spatial fluctuations in a measurable quantity. Each observer counts how many distinct material reflectors answer within six ticks. A third of the log ratio to the blank count is zero everywhere at preparation. Four repair rounds later its neighboring-site covariance is 0.000248 ± 0.000048. For pairs separated by at least half the cell-graph diameter, the average covariance is −0.00000080 ± 0.00000749. The errors are one standard error over 32 independent preparations with two repair schedules each. Shared reflectors and blocked routes can correlate nearby surveys. The physical interpretation requires a proper-volume standard and a release clock.
+
+The [survey records](survey.json) resolve the result by aperture, separation, time and coarse spatial mode. The [integer counts](survey_counts.npz) retain every observer, both schedules and the blank counts. In each level's counts array the axes are preparation, schedule, epoch (initial, 4, 16, settled), aperture (4 or 6 ticks) and cell. Each epoch uses a frozen matched copy. The regional survey reads all labels including the home marker with every missed return contributing zero to the count. The settled geometries in a matched pair have identical measured counts. This agreement is specific to this repair service. Across the 320-cell preparations the six-tick settled survey has 3.34 times the site variance of the four-tick survey.
+
+A different preparation tests the homogenization of matter. The [intervention results and packed-history analysis](measurements.json) and [128 sampled contrasts per small board](regional_contrasts.npz) accompany the inflation paper. The occupation flag on the stationary transport service is permuted by local random exchanges. For independent, uniformly prepared flags, its ensemble equal-time covariance is diagonal. For a fully occupied half-board the regional contrast survives 512 rounds with deterministic ensemble means 0.00977 on 320 cells, 0.90620 on 81,920 cells and 0.97688 on 1,310,720 cells. These comparisons match elapsed services. Each integer in a contrast archive array is the number of doubles in the near half minus the number in the far half, with one entry per trajectory. Divide by half the board population to obtain a difference of means.
+
+On any connected finite board the same transport instrument mixes every sharp configuration with a given total number of doubles to the uniform distribution over placements at that total. One schedule cycle can realize any single edge exchange or no exchange, each with positive probability. This gives a unique stationary ensemble at fixed total. A single clocked release event would have to occur sufficiently late in the mixing process for this result to explain observed uniformity. The stationary finite-record extension and the fixed-total proof are in the inflation paper.
+
+The [measurement protocol](PROTOCOL.md) defines the instruments and bins. The packed histories come from the sibling simulator's local `runs/L{2,6,8}/universe.{json,npz}`. Each archive represents a single preparation, with a modified acquisition checkout recorded in its manifest. The JSON results pin the archive bytes and the declared acquisition source hashes. Reproducing these particular archive statistics requires those inputs. The small-board intervention and strict-write survey run directly from the RER checkout.
+
+Run from the RER root with NumPy, SciPy and the repository's scientific Python environment.
+
+```sh
+.venv/bin/python code/cosmology/screen_coherence/measure.py --sim ../oph-model-sim
+.venv/bin/python code/cosmology/screen_coherence/survey.py
+.venv/bin/python -m pytest -q code/cosmology/screen_coherence/test_coherence.py
+```
+
+For a standalone run of the transport experiment on the shipped boards, use `measure.py --small-only --out /tmp/oph-small-coherence`. The stationary transport and strict-write measurements each use a declared apparatus on the candidate. Combining them into a single cosmological history would require implementing both readouts on one preparation.

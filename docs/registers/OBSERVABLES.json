@@ -3844,7 +3844,9 @@
    ],
    "lean": [],
    "model": [
-    "code/cosmology/oph_radial_lift_330.py"
+    "code/cosmology/oph_radial_lift_330.py",
+    "code/cosmology/screen_coherence/measurements.json",
+    "code/cosmology/screen_coherence/survey.json"
    ],
    "papers": [
     "cosmology/oph_cosmology_finite_source_cmb_program.pdf",
@@ -4170,7 +4172,9 @@
    ],
    "lean": [],
    "model": [
-    "code/cosmology/postdiction_ledger/COSMOLOGY_POSTDICTION_LEDGER.md"
+    "code/cosmology/postdiction_ledger/COSMOLOGY_POSTDICTION_LEDGER.md",
+    "code/cosmology/screen_coherence/measurements.json",
+    "code/cosmology/screen_coherence/survey.json"
    ],
    "papers": [
     "cosmology/oph_inflation_without_inflaton_observer_screen_synchronization.pdf",
@@ -7677,7 +7681,9 @@
    "premises": [],
    "lean": [],
    "model": [
-    "code/cosmology/oph_radial_lift_330.py"
+    "code/cosmology/oph_radial_lift_330.py",
+    "code/cosmology/screen_coherence/survey.json",
+    "code/cosmology/screen_coherence/measurements.json"
    ],
    "papers": [
     "cosmology/oph_cosmology_finite_source_cmb_program.pdf",
@@ -7809,7 +7815,10 @@
    "why": "It accounts for CMB correlations between regions never in causal contact, the problem inflation is usually invoked to solve.",
    "premises": [],
    "lean": [],
-   "model": [],
+   "model": [
+    "code/cosmology/screen_coherence/measurements.json",
+    "code/cosmology/screen_coherence/survey.json"
+   ],
    "papers": [
     "cosmology/oph_inflation_without_inflaton_observer_screen_synchronization.pdf"
    ],

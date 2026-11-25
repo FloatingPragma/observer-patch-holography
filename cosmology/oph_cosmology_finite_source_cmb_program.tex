@@ -52,10 +52,10 @@ We connect this exact construction to conditional primordial source models.
 A specified collar release fixes a screen amplitude; a specified generator
 density fixes the tilt; physical dilation or complete radial cross-covariances
 can determine a three-dimensional spectrum. The source, stress, clock, radial observation and photon-transfer maps must
-therefore be supplied on the same physical process. A numerical value of
-the pixel parameter does not provide those maps. Retrospective cosmological
-comparisons test the declared branches, not a completed source-derived
-cosmology.
+therefore be supplied on the same physical process. On a 320-cell screen, independent sharp-load preparations give positive
+neighboring covariance in a six-tick survey of returned material markers.
+The average over pairs at least half a board diameter apart is consistent
+with zero. The survey variance depends on the return window.
 
 \end{abstract}
 
@@ -209,6 +209,81 @@ The finite-history proof and exact enumeration are retained in
 \texttt{Geometry.NativeGeometricSourceIdentification}~\cite{ophlean}.
 A cosmological source must supply this metric/record interface as well as
 its spatial and temporal calibration.
+
+\subsection{A measured screen source from returned marker records}
+
+Two Interval Echo instruments give distinct answers to the question of a
+source spectrum. In the stationary transport instrument the material flag
+$X_i$ records a double at cell $i$. Under independent Bernoulli preparation
+with density $p$, a service applies a random permutation independent of
+the input flags. Conditional on that permutation, the output flags again
+have the same product law. Hence each unit-normalized screen mode has
+equal ensemble variance $p(1-p)$. If $K_{t,s}$ is the ordered product of
+pair-averaging matrices between services $s$ and $t$, then
+\[
+ \operatorname{Cov}(X_i(t),X_j(s))=p(1-p)(K_{t,s})_{ij},\qquad t\ge s.
+\]
+Indeed the conditional mean at $t$ is $K_{t,s}X(s)$. There is transport
+memory at unequal times even when distinct sites have zero equal-time
+covariance. In the 1,310,720-cell archive at $p=0.16$, the mean centered
+product over neighboring pairs is $1.41\times10^{-5}$ at preparation and
+$2.95\times10^{-6}$ after 512 rounds. Across that same set of pairs the
+initial-to-first-round covariance is $0.01681$. The exact equal-time law
+is a control on identifying this particular occupation spectrum with a
+geometric spectrum.
+
+A second instrument measures which local rulers acquire structure during
+strict repair. Each material port starts independently vacant or doubly
+occupied with equal probabilities. A committed repair balances an eligible
+pair of loads and leaves a signed collar that blocks the calibrated
+material relay. On matched copies frozen at the same repair round, one
+station per cell sends a label to each port and times the echo. Let $J_i(w)$
+count distinct labels returning within $w$ relay ticks including the home
+marker, and let $J_i^0(w)$ be the same station's blank reference. All
+unreturned labels count as misses. Define the dimensionless survey reading
+\[
+ u_i(w)=\tfrac13\log[J_i(w)/J_i^0(w)].
+\]
+It is identically zero at preparation. A changed transmission law which
+passes written collars gives zero on these same deposited configurations.
+The marker locations, query window, relay cadence and reference graph are
+apparatus choices.
+
+On each of the 20-, 80- and 320-cell boards the measurements use 32
+independent load preparations with two independent repair-offer sequences
+per preparation. The following connected covariances are for 320 cells
+and a six-tick return window. Each site uses its own ensemble mean.
+The distant bin averages all pairs separated by at least half the cell
+graph diameter. Errors are one standard error from deleting whole
+preparations. The bins use contact distance on the supplied board.
+\begin{center}
+\begin{tabular}{lrrr}
+\hline
+ & Same site & Neighbors & Distant pairs \\
+ & \multicolumn{3}{c}{Covariance in units of $10^{-5}$} \\
+\hline
+Repair round 4 & $762\pm7$ & $24.8\pm4.8$ & $-0.08\pm0.75$\\
+Settled & $808\pm5$ & $19.8\pm7.4$ & $-1.51\pm0.93$\\
+\hline
+\end{tabular}
+\end{center}
+
+At round four the within-preparation schedule contribution to the
+same-site variance is $0.00398$ out of $0.00762$. The two schedules
+give identical settled counts for each paired preparation at each size.
+Repair generates a measurable local covariance in the survey. Its
+distant-pair average at these appointments is compatible with zero
+within two standard errors. This average permits correlations of
+different signs in individual pairs. The settled same-site variance
+falls from $0.00808$ to $0.00242$ when the return window shortens to
+four ticks. $J_i$ measures accessible markers at a specified timeout.
+Identifying $u_i$ with the geometric scalar of this paper requires an
+independent proper-volume calibration, a common physical release surface
+and a radial observation map. The two instruments use different
+preparations and services of the same candidate law. Neighboring surveys
+can share return paths and markers. Their covariance alone does not identify
+a common curvature perturbation. The complete survey counts and estimator
+are deposited in \pathref{code/cosmology/screen_coherence/}.
 
 \subsection{Exact Fourier control for the golden source population}
 The deterministic Cartesian population
