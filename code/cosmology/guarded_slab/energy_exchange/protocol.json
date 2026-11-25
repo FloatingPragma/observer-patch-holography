@@ -1,0 +1,12 @@
+{
+  "schema": "oph.guarded-energy-release.v1",
+  "board_levels": [0, 1, 2],
+  "trigger": {"source": "first guarded rail change after arming", "max_reads": 16, "capture_delay": [1, 2, 3]},
+  "bodies": {"cold_filter_depth": 2, "warm_filter_depth": 1, "thermometer": "sharp energy of a guarded dimer", "preparation": "one filter attempt per body, retain first refusal"},
+  "service": "At each paired appointment use one fresh independent pi/3 sharp rail change to offer a complete native swap of the cold and warm dimers. Freeze both dimers on receipt of the material tag.",
+  "checks": ["equal temperatures at depth one", "parked exchange", "independent trigger ages", "sharp lower and upper input", "lost first tag", "energy before and after on each pair"],
+  "time_slices": "After all three tags arrive, store each probe and run a directed ring. One stroke exchanges probe slots 0 and 1, then 0 and 2. A separate sharp double crosses a witness seam after each stroke and its observed alternation numbers the slices. Repeat the physical stroke. Read rail position or decoded energy on separate identically prepared cohorts.",
+  "publicness": {"family": [[0, 1, 2]], "slots": "the three local probe readers in route order", "continuations": "any nonnegative integer number of completed ring strokes, reported with slice count", "readout": "one energy bit per reader, ordered by physical slot", "failures": "preparation refusals and missing release tags are separate launch outcomes"},
+  "controls_for_publicness_only": ["each singleton", "any two readers", "slice count hidden"],
+  "sample": {"seed": 580125, "original_launches_per_board": 131072}
+}
