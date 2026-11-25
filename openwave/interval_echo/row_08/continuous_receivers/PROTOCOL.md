@@ -1,0 +1,9 @@
+# Continuous two-receiver collision test
+
+Use the existing four-dimer ring and two three-dimer wings at native contrast 8. Use both preparations from the daughter-spectrum experiment, the ordered sham and the same ring with its last two dimers reversed. Use both far receivers, their independently calibrated middle hard transition and their existing coupling of 1/16. For this test, couple both receivers from launch and leave every source and wing link in place through the terminal read. Supply no intermediate measurement, hold, source selection or receiver reset.
+
+Read the full joint law of the 16 ring words and the four receiver outcomes on independent copies at exposures 0, 8, 16, 32, 48 and 64. Exposure 64 is primary, matching the total elapsed time in the earlier 32+32 experiment. Test whether the wall preparation has greater probability of both receivers excited than the sham, and greater probability of an ordered ring jointly with both receivers excited. Count every launch in each denominator. Demand that both excesses exceed an absolute numerical margin of 1e-10. Cutting both source links must remove the unconditional receiver difference to this margin. Turning off the receiver coupling must eliminate uptake. Check norm and conservation of the full energy before taking the terminal read. Report differential mean stored detector energy as a fraction of the initial excess energy.
+
+The sign assigned to a wall is the discrete change in the staggered ring order divided by two. Distinguish this measured order from electric charge. The detector measures transition energy in the supplied material wings. An independent radiation observable or a matching electromagnetic charge measurement would change the filing assessment. A coincidence alone can test uninterrupted energy transfer.
+
+This local protocol fixes the new test before computing it. Earlier gated results and the material spectrum were already known.

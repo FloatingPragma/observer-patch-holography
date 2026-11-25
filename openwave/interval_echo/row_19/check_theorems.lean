@@ -1,0 +1,14 @@
+import ObserverPatchHolography.EinsteinBranch.FiniteCapGeneratorSplit
+import ObserverPatchHolography.EinsteinBranch.DeepProfileClosure
+import ObserverPatchHolography.EinsteinBranch.QuantitativeSmallBall
+#print axioms OPH.EinsteinBranch.split_unique
+#print axioms OPH.EinsteinBranch.anomalousPart_supported_on_collar
+#print axioms OPH.EinsteinBranch.exampleState_collarEnergy
+#print axioms OPH.EinsteinBranch.anomalousStress_eq_zero_of_recovered
+#print axioms OPH.EinsteinBranch.geometry_responds_to_all_charge
+#print axioms OPH.EinsteinBranch.comovingDensity_mul_scale_cubed
+#print axioms OPH.EinsteinBranch.law_baryonic_tully_fisher
+#print axioms OPH.EinsteinBranch.anomalousStress_tendsto_iff_normalized_residual
+#print axioms OPH.EinsteinBranch.Quantitative.decoder_design
+#print axioms OPH.EinsteinBranch.Quantitative.small_ball_tensor_bound
+#print axioms OPH.EinsteinBranch.Quantitative.tensor_tendsto_zero

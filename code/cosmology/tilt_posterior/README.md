@@ -213,3 +213,18 @@ The producer verifies measured-data and official-source hashes before
 optimizing. Ordinary offline CI needs no download or optional cosmology
 packages. The independent covariance/calibration tests and mutation gates run
 with `python3 -m pytest -q code/cosmology/tilt_posterior`.
+
+## Planck acoustic peak comparison
+
+The [peak table](planck_peaks.json) gives the measured and calculated multipole and signed bandpower for each extremum, with the published marginal errors on the measured band. The [calculation](planck_peaks.py) propagates the conditional repair tilt and a control tilt through identical scalar adiabatic CAMB 1.6.6 transfer. Both use the Planck-calibrated expansion and matter parameters and the supplied primordial amplitude $A_s=2.1\times10^{-9}$. All three spectra are lensed, in thermodynamic microkelvin squared. The theory is sampled at the effective bin centres. The first five positive maxima of the smooth control and the first five negative TE minima each define a window of 60 multipoles on either side. Each curve locates its own extremum within that window.
+
+| Spectrum | Bins matching Planck, repair tilt | Bins matching Planck, control | Repair-tilt height ratios relative to the first extremum, fractional error in percent |
+| --- | ---: | ---: | --- |
+| TT maxima | 5/5 | 5/5 | +1.51, +1.53, +2.03, +2.38 |
+| TE maxima | 5/5 | 5/5 | +10.57, −2.88, +75.26, −28.35 |
+| TE minima | 5/5 | 5/5 | +4.14, +9.78, +5.31, +2.59 |
+| EE maxima | 4/5 | 4/5 | −1.19, −3.63, −3.71, −6.93 |
+
+The third EE maximum is one bin apart. The large fractional difference for the fourth positive TE crest compares a calculated 6.49 with a measured $3.70\pm2.49$ in the same bin. Peak picking in noisy data, finite bin widths and inter-bin covariance limit the interpretation of these ratios. Inter-observer records would have to fix the primordial normalization, the acoustic initial conditions and the photon transfer for the same comparison to test a repair-law sky.
+
+Download the three small binned text files identified by URL and SHA-256 in the peak table to one directory. From the repository root, run `OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 .venv/bin/python code/cosmology/tilt_posterior/planck_peaks.py DATA_DIRECTORY`. [Planck public release](https://irsa.ipac.caltech.edu/data/Planck/release_3/ancillary-data/cosmoparams/)

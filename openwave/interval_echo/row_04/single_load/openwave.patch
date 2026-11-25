@@ -1,0 +1,449 @@
+diff --git a/openwave/xperiments/m10_oph/__M10_model_briefing.md b/openwave/xperiments/m10_oph/__M10_model_briefing.md
+index 94449bde75c23ea31b4ff9be2bfc2e44de24f923..14c25364a2a44dd3e61083cc8c74950e4af942d2 100644
+--- a/openwave/xperiments/m10_oph/__M10_model_briefing.md
++++ b/openwave/xperiments/m10_oph/__M10_model_briefing.md
+@@ -142,3 +142,5 @@ Agent front door: [`research/m10_agent_orientation.md`](research/m10_agent_orien
+ Cross-model reading map: [`research/m10_platform_pointers.md`](research/m10_platform_pointers.md).
+ Citations: [`theory/_CITATIONS.md`](theory/_CITATIONS.md).
+ Author-gated questions stay with the author.
++
++The M10.5 proposal nominates one gateway-prepared material load on blank memories for particle stability. The two-load M10.4 decision stands at partial while the proposal is considered. [Candidate declaration](research/m10_theory_canonical.md#14-proposed-one-load-candidate-for-m105) · [Method and reproduction](research/findings/m10_5_method_note.md)
+diff --git a/openwave/xperiments/m10_oph/research/data/m10_5_pilot.json b/openwave/xperiments/m10_oph/research/data/m10_5_pilot.json
+new file mode 100644
+index 0000000000000000000000000000000000000000..a609b5b17c2e71cd351718a8e96f056e9545d869
+--- /dev/null
++++ b/openwave/xperiments/m10_oph/research/data/m10_5_pilot.json
+@@ -0,0 +1,171 @@
++{
++  "kind": "historical pilot",
++  "anchor": null,
++  "terms_sha256": "15a8374aa0b833fda546f4e5dfa67f5a1af5ddcfeba67a5b78035a6bd55c4c0d",
++  "task_sha256": "fa7035ef0c707e2e23915e6350b62dc97eae907c3918d10831f55f8c22d9bb98",
++  "status": "passed",
++  "settings": {
++    "home": 13,
++    "start": 0,
++    "direction": 1,
++    "exposure": 37
++  },
++  "floor_ppt": 999940596801,
++  "bins": {
++    "coherent": [
++      2.2667714049163034e-27,
++      3.368454296591616e-27,
++      3.0503545964618054e-27,
++      6.531244443695757e-28,
++      0.20174240111035274,
++      0.18482611281850478,
++      0.18482611281848152,
++      0.20174240111041425,
++      0.11340178447508566,
++      2.4159641276887286e-28,
++      1.2086795834573427e-27,
++      0.11340178447510038,
++      8.203094853459669e-26,
++      5.940319206354197e-05
++    ],
++    "dephased": [
++      0.009465193875374794,
++      0.01078829381306382,
++      0.013698420639630539,
++      0.006165857947489616,
++      0.09917171599649263,
++      0.09021223369499394,
++      0.09011221407903086,
++      0.09922758120068603,
++      0.06395712236682162,
++      0.01320658252316688,
++      0.009405467584559936,
++      0.06473314029992691,
++      0.4297967727868333,
++      5.940319206354197e-05
++    ],
++    "unfiltered_uniform": [
++      0.014982030405769701,
++      0.017891861718841336,
++      0.019645905210467704,
++      0.015991608035190886,
++      0.049146510851138143,
++      0.04717957966266886,
++      0.046806305487202514,
++      0.04718271091395215,
++      0.04663131790875241,
++      0.019241819988351467,
++      0.016016192966618773,
++      0.047787399368270284,
++      0.6114967574828789,
++      0.0
++    ],
++    "stochastic_swap": [
++      0.01268804489344031,
++      0.012289253415618475,
++      0.012680028329461947,
++      0.01226206222225459,
++      0.01276562286253073,
++      0.012771605909736002,
++      0.01263388021048413,
++      0.012639863257689414,
++      0.01262974525442758,
++      0.012674505384766886,
++      0.012308364907980273,
++      0.012775740865792563,
++      0.8488218792937569,
++      5.940319206354197e-05
++    ]
++  },
++  "independent_bins": {
++    "coherent": [
++      4.188429512373353e-31,
++      4.847513211296665e-29,
++      5.291779714686313e-29,
++      1.8766480554044188e-31,
++      0.20174240111021688,
++      0.1848261128182071,
++      0.18482611281820843,
++      0.2017424011102166,
++      0.11340178447517224,
++      2.2979995429555338e-29,
++      2.5077073174437613e-29,
++      0.11340178447517224,
++      4.517319639110378e-27,
++      5.940319206354806e-05
++    ],
++    "dephased": [
++      0.009465193875370273,
++      0.01078829381305213,
++      0.01369842063961969,
++      0.0061658579474856805,
++      0.09917171599641943,
++      0.09021223369487763,
++      0.09011221407891556,
++      0.09922758120059362,
++      0.06395712236684342,
++      0.013206582523160301,
++      0.009405467584553604,
++      0.0647331402999356,
++      0.4297967727863663,
++      5.940319206354806e-05
++    ],
++    "unfiltered_uniform": [
++      0.01498203040576941,
++      0.017891861718842716,
++      0.019645905210470008,
++      0.01599160803519251,
++      0.0491465108511402,
++      0.047179579662670286,
++      0.046806305487204214,
++      0.04718271091394712,
++      0.046631317908758026,
++      0.01924181998835192,
++      0.01601619296662195,
++      0.04778739936827032,
++      0.61149675748276,
++      0.0
++    ],
++    "stochastic_swap": [
++      0.012688044893430766,
++      0.012289253415609224,
++      0.012680028329452404,
++      0.012262062222245365,
++      0.012765622862521114,
++      0.012771605909726392,
++      0.012633880210474633,
++      0.012639863257679906,
++      0.012629745254418073,
++      0.012674505384757348,
++      0.01230836490797101,
++      0.012775740865782946,
++      0.8488218792931184,
++      5.940319206354806e-05
++    ]
++  },
++  "home": {
++    "coherent": 0.9999405968079393,
++    "dephased": 0.5701438240212376,
++    "unfiltered_uniform": 0.38850324251722423,
++    "stochastic_swap": 0.15111871751418288
++  },
++  "worst_bin_by_arm": {
++    "coherent": {
++      "bin": 5,
++      "error": 2.976785484776201e-13
++    },
++    "dephased": {
++      "bin": 12,
++      "error": 4.670153153085721e-13
++    },
++    "unfiltered_uniform": {
++      "bin": 12,
++      "error": 1.1890488593735427e-13
++    },
++    "stochastic_swap": {
++      "bin": 12,
++      "error": 6.384892614619275e-13
++    }
++  },
++  "passed": true
++}
+diff --git a/openwave/xperiments/m10_oph/research/data/m10_5_survey.json b/openwave/xperiments/m10_oph/research/data/m10_5_survey.json
+new file mode 100644
+index 0000000000000000000000000000000000000000..6eb117b79e1247d29b7bc14af87b9d16083eddf9
+--- /dev/null
++++ b/openwave/xperiments/m10_oph/research/data/m10_5_survey.json
+@@ -0,0 +1,63 @@
++{
++  "kind": "exhaustive development evidence",
++  "official_confirmation": false,
++  "settings": 11520,
++  "bins": 645120,
++  "shape": [
++    20,
++    12,
++    2,
++    24,
++    4,
++    14
++  ],
++  "directions": [
++    -1,
++    1
++  ],
++  "times": [
++    15,
++    16,
++    17,
++    18,
++    19,
++    20,
++    21,
++    22,
++    23,
++    24,
++    25,
++    26,
++    27,
++    28,
++    29,
++    30,
++    31,
++    32,
++    33,
++    34,
++    35,
++    36,
++    37,
++    38
++  ],
++  "arms": [
++    "coherent",
++    "dephased",
++    "unfiltered_uniform",
++    "stochastic_swap"
++  ],
++  "all_time_floor_ppt_by_board": {
++    "20": 999940596796,
++    "80": 999940596799,
++    "320": 999940596799
++  },
++  "grid_minimum_coherent": 0.9999405968064038,
++  "grid_maximum_stochastic": 0.34884420560755036,
++  "grid_minimum_coherent_advantage": 0.3428595589999167,
++  "dephased_ceiling": 0.9164479481171449,
++  "stochastic_ceiling": 0.5592185180088423,
++  "raw_edge_checked_settings": 20,
++  "raw_edge_checked_bins": 1120,
++  "max_raw_edge_bin_error": 1.270095140171179e-12
++}
+diff --git a/openwave/xperiments/m10_oph/research/findings/m10_5_method_note.md b/openwave/xperiments/m10_oph/research/findings/m10_5_method_note.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..7cf37d366332672fb420f1312a61dff57d07a3fd
+--- /dev/null
++++ b/openwave/xperiments/m10_oph/research/findings/m10_5_method_note.md
+@@ -0,0 +1,45 @@
++# M10.5 · One load released on an open federation
++
++On the blank one-load sector the free Hamiltonian in exchange units is
++
++$$
++H=\tfrac12 L+6\kappa I,\quad
++B=Q\exp(-iL_{\mathrm{cell}}/2),\quad
++\rho=\sum_{m=0}^{47}r_m B^{1024}|j_m\rangle\langle j_m|(B^{1024})^\dagger .
++$$
++
++Here the row reads whether a prepared particle state persists in free evolution. The candidate is one material excitation in a bounded acquisition. The home cell has twelve ports and three outward gateways. During an attempt the operator Q removes the three clicked gateway components. A click places the load at a known port and the operator routes it by swaps to the next sharp launch. The incoming weight of attempt m is the product of previous failure probabilities. The unnormalized density above therefore includes every accepted attempt at its actual weight. Its trace deficit is the exhausted-source bin. During a pulse the contrast is 5κ times the identity. During flight it is 6κ times the identity. Both phases cancel from observed probabilities.
++
++For home port i at exposure t the observable probability is the diagonal element of the freely propagated density at i. Two compatible unsigned seam reads at i resolve that port. A geometric cell can report twelve home ports, accepted exterior, or exhausted source. The native echo, copied seam records and inverse echo implement these probes on the one-load sector. One terminal read uses a fresh ensemble. The external exposure uses exchange units.
++
++## Why the excitation can persist
++
++Let A be internal adjacency and G read the gateway coordinates. The kernel of the stacked matrices G, GA, GA² and GA³ is invariant under A because its minimal polynomial divides (A−5I)(A+I)(A²−5I). Each vector in the kernel has zero gateway amplitude. Extending it by zeros gives identical internal flight on the fully connected federation. Its projection survives every clear query. The protected part of a sharp launch j has weight P(j,j), where P is the rational orthogonal projector onto that kernel. Summing these contributions with lower bounds on the incoming attempt weights gives the unconditional floor. The lower bound remains valid for every exposure. A port measurement after preparation and random swaps during flight each change the subsequent home records.
++
++| Evidence | Result |
++| --- | ---: |
++| Certified floor at every free exposure, all three boards, any complete port sweep order | 0.999940596796 |
++| Lowest coherent home probability, 11,520 finite 20-cell settings | 0.999940596806 |
++| Highest random-swap home probability on that grid | 0.348844205608 |
++| Smallest coherent advantage over a release-port measurement on that grid | 0.342859559000 |
++| Historical cell 13, exposure 37, coherent / dephased / uniform sharp / random swaps | 0.999941 / 0.570144 / 0.388503 / 0.151119 |
++
++The grid covers every home, every cyclic starting address in each direction and all 24 integer exposures from 15 through 38. An independent raw-edge implementation checked one prespecified setting per cell, including exterior population and exhaustion. The largest error among its 1,120 comparisons was below 1.3e-12. All 645,120 development bins are retained with the source. The exact coherent bound covers all 420 cells of the three registered boards. The control bounds of 0.916448 after dephasing and 0.559219 for random swaps apply on the 20-cell confirmation window. Each arm uses the same home detector.
++
++## Reproduction and scope
++
++The platform script builds the cell and full-board Laplacians from the original federation file. It uses a dense matrix exponential, a matrix power for the 1,024 clear rounds and explicit retry weights to check the 56 historical pilot bins. The frozen author source also checks native echo columns, resource limits, integer enclosures and all prospective settings. These are simulation-generated record probabilities. The one-load source filter and the localization target were known during design. The scoped claim is free persistence after the apparatus is removed. A species, electric charge, spin, inertial mass and physical time scale require additional observables. The first official M10.5 task commit still determines the prospective replay. Its outcome belongs in a subsequent receipt.
++
++| Formula or test | Implementation |
++| --- | --- |
++| Native gauge of the one-load generator, signed queries and observed home ports | [Gateway preparation at the public parent](https://github.com/FloatingPragma/observer-patch-holography/blob/09f062f77f7f540f2783f128ae6314c5d8b818ea/model/candidate_laws/interval_echo/openwave/row_04_compact/gateway_acquisition.py) |
++| Invariant projector and exact incoming-weight bound | [Integer certificate](https://github.com/FloatingPragma/observer-patch-holography/blob/09f062f77f7f540f2783f128ae6314c5d8b818ea/model/candidate_laws/interval_echo/openwave/row_04_compact/gateway_bound.py) |
++| Finite development grid and historical pilot | [Grid summary](../data/m10_5_survey.json) · [Pilot receipt](../data/m10_5_pilot.json) |
++| Raw board to the four pilot arms | [Platform script](../scripts/m10_5_one_load.py) · [Public board](https://github.com/FloatingPragma/observer-patch-holography/blob/09f062f77f7f540f2783f128ae6314c5d8b818ea/model/executable_model/carriers/FEDERATION_LEVEL0.npz) |
++| Held selection, gates and time order | [Versioned task](../tasks/m10_5_task_details.md) |
++
++From the OpenWave checkout, give the script the public board file.
++
++```sh
++python openwave/xperiments/m10_oph/research/scripts/m10_5_one_load.py --board /path/to/FEDERATION_LEVEL0.npz
++```
+diff --git a/openwave/xperiments/m10_oph/research/m10_roadmap.md b/openwave/xperiments/m10_oph/research/m10_roadmap.md
+index 245d49d772bcc26a060133013fa2a91a871eee5e..5eeb04d9cf65f90e9f7fdfb07731905b305c7065 100644
+--- a/openwave/xperiments/m10_oph/research/m10_roadmap.md
++++ b/openwave/xperiments/m10_oph/research/m10_roadmap.md
+@@ -9,6 +9,7 @@
+ 
+ | TaskID | Title | Description | Gated By |
+ | --- | --- | --- | --- |
++| 🔶 [M10.5](tasks/m10_5_task_details.md) | One-load free persistence | Proposed state and port detector. Complete development grid and bounded source. | Official task-selected replay and maintainer decision |
+ 
+ ## BACKLOG
+ 
+diff --git a/openwave/xperiments/m10_oph/research/m10_theory_canonical.md b/openwave/xperiments/m10_oph/research/m10_theory_canonical.md
+index 35e0adeddf4cb735458fdc2686d91b437eeb5548..afb5310d641b3f9b707c141950e87dc0efeb81ec 100644
+--- a/openwave/xperiments/m10_oph/research/m10_theory_canonical.md
++++ b/openwave/xperiments/m10_oph/research/m10_theory_canonical.md
+@@ -96,6 +96,10 @@ M10.4 proposes replacing the M10.3 pin with Interval Echo at [`09f062f77f7f540f2
+ 
+ [Protocol and controls](tasks/m10_4_task_details.md) · [Derivation and replay](findings/m10_4_method_note.md)
+ 
++## 1.4 Proposed one-load candidate for M10.5
++
++The proposed source commit is `69ad9f5eea6fa9b2553f08c4e49e5303b83114c9`, a direct child of the adopted M10.4 pin `09f062f77f7f540f2783f128ae6314c5d8b818ea`. The author proposes the bounded gateway-prepared one-load excitation in place of the eleven-write two-load object for row 4. Each port and its degree references retain the same local ternary law and addressing. All seam memories start blank. A click during preparation routes the sharp load to its next port. During flight all seams act without intervention. The home observer reads the occupied port, accepted exterior, or exhausted source. Contrast strength 8 and its design history are inherited. On the one-load sector it adds a uniform energy, so persistence holds at every real strength. The acquisition schedule was selected with confinement known. The particle species is unassigned. M10.4 and its partial mark remain the official ancestry pending review. [M10.5 task](tasks/m10_5_task_details.md) · [Method and observable](findings/m10_5_method_note.md)
++
+ ## 2. Arena
+ 
+ A holographic screen of twelve-port icosahedral carriers. Each carrier holds integer
+diff --git a/openwave/xperiments/m10_oph/research/scripts/m10_5_one_load.py b/openwave/xperiments/m10_oph/research/scripts/m10_5_one_load.py
+new file mode 100644
+index 0000000000000000000000000000000000000000..6babf6e11002b24790e164d72cea4d7e00b24f66
+--- /dev/null
++++ b/openwave/xperiments/m10_oph/research/scripts/m10_5_one_load.py
+@@ -0,0 +1,86 @@
++"""Reconstruct the M10.5 pilot from the immutable public board. Run with --board FILE."""
++
++import argparse
++import hashlib
++import io
++import json
++from pathlib import Path
++
++import numpy as np
++from scipy.linalg import expm
++
++BOARD_SHA256 = "99870398e3d516f899c600e9bf25ba53c7f513142ba8facbe1cedd94b23f915b"
++RESEARCH = Path(__file__).resolve().parents[1]
++
++
++def replay(board, home, start, direction, duration):
++    raw = board.read_bytes()
++    if hashlib.sha256(raw).hexdigest() != BOARD_SHA256:
++        raise ValueError("Wrong native federation")
++    with np.load(io.BytesIO(raw), allow_pickle=False) as data:
++        left, right = data["edges"].T
++    a = np.zeros((240, 240))
++    a[left, right] = a[right, left] = 1
++    ids = np.arange(12 * home, 12 * home + 12)
++    interior = a[np.ix_(ids, ids)]
++    gateway = (a[ids].sum(axis=1) - interior.sum(axis=1)) == 1
++    if gateway.sum() != 3 or not np.all(interior.sum(axis=1) == 5):
++        raise ValueError("Changed layout")
++    clear = expm(-0.5j * (5 * np.eye(12) - interior))
++    clear[gateway] = 0
++    accepted = np.linalg.matrix_power(clear, 1024)
++    acceptance = np.sum(abs(accepted) ** 2, axis=0)
++    rho = np.zeros((12, 12), dtype=complex)
++    reach = 1.0
++    for attempt in range(48):
++        j = (start + direction * attempt) % 12
++        col = accepted[:, j]
++        rho += reach * np.outer(col, col.conj())
++        reach *= 1 - acceptance[j]
++    # The discarded global 6*kappa phase cancels from the probabilities.
++    lap = np.diag(a.sum(axis=1)) - a
++    u = expm(-0.5j * duration * lap)[:, ids]
++    markov = expm(-0.5 * duration * lap)[:, ids]
++    outcomes = {}
++    for arm, mass, fail in (
++        ("coherent", ((u @ rho) * u.conj()).sum(axis=1).real, reach),
++        ("dephased", abs(u) ** 2 @ rho.diagonal().real, reach),
++        ("unfiltered_uniform", np.mean(abs(u) ** 2, axis=1), 0.0),
++        ("stochastic_swap", markov @ rho.diagonal().real, reach),
++    ):
++        bins = np.r_[mass[ids], np.delete(mass, ids).sum(), fail]
++        if not np.all(np.isfinite(bins)) or min(bins) < 0 or abs(bins.sum() - 1) > 2e-10:
++            raise ArithmeticError("Invalid complete receiver")
++        outcomes[arm] = bins
++    return outcomes
++
++
++def main():
++    parser = argparse.ArgumentParser(description=__doc__)
++    parser.add_argument("--board", required=True, type=Path)
++    args = parser.parse_args()
++    record = json.loads((RESEARCH / "data/m10_5_pilot.json").read_text())
++    fixed = dict(home=13, start=0, direction=1, exposure=37)
++    if (
++        record["settings"] != fixed
++        or record["kind"] != "historical pilot"
++        or record["anchor"] is not None
++    ):
++        raise ValueError("Expected the disclosed pilot appointment")
++    observed = replay(args.board, 13, 0, 1, 37)
++    if set(observed) != set(record["bins"]):
++        raise ValueError("Missing archived arm")
++    for arm, bins in observed.items():
++        np.testing.assert_allclose(bins, record["bins"][arm], atol=1e-9, rtol=0)
++    home = {arm: float(bins[:12].sum()) for arm, bins in observed.items()}
++    if not (
++        home["coherent"] > 0.94
++        and home["stochastic_swap"] < 0.80
++        and home["coherent"] - home["dephased"] >= 0.05
++    ):
++        raise ArithmeticError("Pilot control failed")
++    print(json.dumps(home, indent=2))
++
++
++if __name__ == "__main__":
++    main()
+diff --git a/openwave/xperiments/m10_oph/research/tasks/m10_5_task_details.md b/openwave/xperiments/m10_oph/research/tasks/m10_5_task_details.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..30270cd57884b5d837ea42c16ce56d7fd120a4c9
+--- /dev/null
++++ b/openwave/xperiments/m10_oph/research/tasks/m10_5_task_details.md
+@@ -0,0 +1,17 @@
++# M10.5 · Free persistence of one material load
++
++## Requested decision
++
++Assess the bounded, gateway-prepared one-load excitation for OpenWave row 4. The home observer records which of twelve ports holds the load after free evolution. This would replace the nominated M10.4 two-load object and its thirty-seam reader for this row. M10.4 remains the accepted historical result. [Row criterion](https://github.com/openwave-labs/openwave/blob/bab6818b4a278ffef083c1e86c12134e5ff14ab5/MODELS.md#L104) · [Prior decision](https://github.com/openwave-labs/openwave/pull/749#pullrequestreview-6060088147)
++
++## Frozen settings
++
++Use the 20-cell Interval Echo board, all collars blank, one sharp loaded port, and the original native seam and degree terms. During acquisition address the thirty internal seams for one unit, then query the three gateways for occupancy by signed echo and undo. After 1,024 clear rounds open all seams. A click routes the same sharp load by native swaps to the next port. Cycle through twelve addresses in the appointed direction up to four times. Each fresh flight ends at one terminal read. The twelve internal ports, accepted exterior and exhausted source exhaust the outcomes. Scheduled exposures use exchange units. The excitation has no assigned species.
++
++For each of the four arms report all fourteen probabilities. Use coherent native flight, a port measurement at release followed by native flight, a uniform sharp baseline, and classical Poisson swaps at rate one half on each seam from the accepted source. Require a certified unconditional all-time home floor and a coherent terminal return each strictly above 0.94. Require the random-swap home probability below 0.80 and a coherent advantage over dephasing of at least 0.05. Require normalization within 2e-10 and agreement with an independent raw-edge reconstruction to 1e-9 in every bin. Retain rejected and incomplete results.
++
++The first official main first-parent commit after `bab6818b4a278ffef083c1e86c12134e5ff14ab5` containing these exact task bytes determines one replay. Hash the ASCII string `OPH-M10.5-single-load-v2:` followed by its lowercase 40-digit commit ID with SHA-256. Reduce bytes 0, 1 and 3 modulo 20, 12 and 24 to obtain the home, starting port and offset from exposure 15. Use ascending order for an even byte 2 and descending order otherwise. Do not replace a failed draw. The terms SHA-256 is `15a8374aa0b833fda546f4e5dfa67f5a1af5ddcfeba67a5b78035a6bd55c4c0d`.
++
++## Prior knowledge
++
++The theorem, pilot results, controls and the earlier one-load registration draft were known at design. The target also guided selection of the preparation. The full finite setting grid is disclosed as a development calculation. The official draw checks reproducibility. The earlier M10.4 draft was never registered. OpenWave assigned that identifier to the pair. [Earlier one-load design](https://github.com/FloatingPragma/observer-patch-holography/blob/09f062f77f7f540f2783f128ae6314c5d8b818ea/model/candidate_laws/interval_echo/openwave/row_04_compact/gateway_confirmation.json)

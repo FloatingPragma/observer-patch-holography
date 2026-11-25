@@ -4498,13 +4498,16 @@
    "model": [
     "code/cosmology/tilt_posterior/README.md",
     "code/cosmology/tilt_posterior/likelihood_slice.py",
-    "code/cosmology/tilt_posterior/likelihood_slice.json"
+    "code/cosmology/tilt_posterior/likelihood_slice.json",
+    "code/cosmology/tilt_posterior/planck_peaks.py",
+    "code/cosmology/tilt_posterior/planck_peaks.json"
    ],
    "papers": [
     "cosmology/oph_boltzmann_transport_derivation.pdf",
     "cosmology/physical_cmb_theorem_program.md",
     "docs/research/PUBLIC_DATA_PREDICTION_AUDIT.md",
-    "cosmology/oph_cosmology_finite_source_cmb_program.pdf"
+    "cosmology/oph_cosmology_finite_source_cmb_program.pdf",
+    "cosmology/oph_cosmology_data_likelihood_contracts.pdf"
    ]
   },
   {
@@ -6593,7 +6596,8 @@
     "code/cosmology/release_horizon/transverse_clock/oscillator.py",
     "code/cosmology/release_horizon/transverse_clock/measure.py",
     "code/cosmology/release_horizon/transverse_clock/records.json",
-    "code/cosmology/release_horizon/transverse_clock/test_clock.py"
+    "code/cosmology/release_horizon/transverse_clock/test_clock.py",
+    "code/cosmology/screen_coherence/observer_comparison.py"
    ],
    "papers": [
     "cosmology/oph_boltzmann_transport_derivation.pdf"
@@ -8499,7 +8503,8 @@
     "code/cosmology/release_horizon/README.md",
     "code/cosmology/release_horizon/horizon.py",
     "code/cosmology/release_horizon/contrast.py",
-    "code/cosmology/release_horizon/results.json"
+    "code/cosmology/release_horizon/results.json",
+    "code/cosmology/screen_coherence/observer_comparison.py"
    ],
    "papers": [
     "cosmology/oph_cosmology_finite_source_cmb_program.pdf",

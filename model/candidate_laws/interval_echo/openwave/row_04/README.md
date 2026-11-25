@@ -29,6 +29,8 @@ python -B -O -W error -m model.candidate_laws.interval_echo.openwave.row_04.open
 python -B -O -W error -m model.experiments.interval_echo_consensus.pair_window
 ```
 
+The two archived row 30 spectroscopy materials give a direct test of the same pair on independently specified seam memories. At strength ½ and exposure 37, the filed signed input gives home probabilities of 0.086409 and 0.311740. The first material also prepares that input with the original pulses. The second keeps the initial pair sharp. [Material selection, preparation checks and all nine settings](commissioned_medium/README.md)
+
 ## Connected preparation across all three boards
 
 Every cell of the 20-, 80- and 320-cell native federations admits the same eleven-record preparation recipe. A complete topology census certifies **1,992 of 1,992 eligible layouts in all 420 cells**. No cell is discarded. Each layout has a degree-five center, two nonadjacent degree-six tips and a common internal receiver; the two contacts to that receiver stay open, and the complete board stays connected. The same two loads install the eleven neutral records with four sharp swaps. [Certificate and replay](topology_census.py) · [Per-cell census](topology_census.json)

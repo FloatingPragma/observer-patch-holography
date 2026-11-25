@@ -19,3 +19,13 @@ Run from the RER root with NumPy, SciPy and the repository's scientific Python e
 ```
 
 For a standalone run of the transport experiment on the shipped boards, use `measure.py --small-only --out /tmp/oph-small-coherence`. The stationary transport and strict-write measurements each use a declared apparatus on the candidate. Combining them into a single cosmological history would require implementing both readouts on one preparation.
+
+## Agreement between observers
+
+The [observer comparison](observer_comparison.py) reads the archived integers for three separate experiments. In the equal-temperature preparation the three energy probes give the upper outcome with frequencies 0.3333335, 0.3333336 and 0.3333332 among 1,549,825,553,160 delivered words. All three agree on the individual bit in a fraction 0.3333330. These are count-level samples from the prepared contact instrument. Spectral radiance as a function of frequency and viewing direction would test a blackbody sky.
+
+In the settled reflector survey, pairing each observer's four- and six-tick readings gives a correlation of 0.9216 across 32 preparations and 320 observers. Each observer subtracts their own mean at each aperture. The mean across observers of the across-preparation sample variance grows from 0.002419 to 0.008082. The apertures overlap and the two settled schedules have identical readings, so each preparation enters once. These numbers describe fluctuations in reflector returns.
+
+The [interferometer counts](../release_horizon/transverse_clock/records.json) supply two receiver banks, two quadratures and three elapsed marker changes. Each signed reading divides the difference of its two bright counts by all launches. The first receiver measures the one-marker cosine on a displacement launch and uses it to predict the second receiver's third-mark response from its own first two marks. The largest absolute errors are 0.00315 and 0.00161 for the two oscillatory settings. The archived simultaneous per-reading bound is $e=0.004619$. On the common-recurrence hypothesis, $r_3=2c r_2-r_1$, bounded readings give a sampling allowance of $6e$ for this comparison. The determinant formed by the second receiver's first two real readings on displacement and positive-edge launches is 0.1130 or 0.1964, respectively. Each product of two bounded readings has error at most $2e$, giving $4e=0.01848$ for the determinant. This resolves two distinct temporal profiles under the same propagation at each setting. A primordial ensemble would also have to determine how often the source launches each profile and with what amplitude.
+
+Run `.venv/bin/python code/cosmology/screen_coherence/observer_comparison.py` at the repository root.

@@ -1,0 +1,22 @@
+{
+  "version": "OPH-M10.5-single-load-v2",
+  "platform_base": "bab6818b4a278ffef083c1e86c12134e5ff14ab5",
+  "platform_task": "openwave/xperiments/m10_oph/research/tasks/m10_5_task_details.md",
+  "source_parent": "09f062f77f7f540f2783f128ae6314c5d8b818ea",
+  "board_sha256": "99870398e3d516f899c600e9bf25ba53c7f513142ba8facbe1cedd94b23f915b",
+  "selection": "First official main first-parent commit after platform_base containing the exact frozen task bytes. Hash the ASCII version, a colon, and its lowercase full commit ID with SHA-256. Home is byte 0 mod 20, start byte 1 mod 12, direction +1 for even byte 2 and -1 otherwise, exposure 15 plus byte 3 mod 24. Retain the first matching commit and its result.",
+  "rounds": 1024,
+  "attempts": 48,
+  "pulse": 1,
+  "arms": ["coherent", "dephased", "unfiltered_uniform", "stochastic_swap"],
+  "outcomes": "Twelve home ports in ascending order, accepted exterior, exhausted preparation",
+  "gates": {
+    "exact_joint_home_strictly_above": 0.94,
+    "coherent_terminal_home_strictly_above": 0.94,
+    "stochastic_swap_home_strictly_below": 0.80,
+    "minimum_coherent_minus_dephased": 0.05,
+    "normalization_tolerance": 2e-10,
+    "independent_bin_tolerance": 1e-9
+  },
+  "prior_information": "The confined subspace, old pilot, rigorous bounds on all gates and the earlier unregistered M10.4 one-load proposal were known. The new package enumerates all possible settings as disclosed development evidence. The later public draw is a prospective implementation replay of an already predicted answer."
+}

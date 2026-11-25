@@ -1,0 +1,33 @@
+# Codex review · M10.5 one-load candidate
+
+**Local scientific result: PASS for the stated finite free-persistence measurement. Formal filing and release: HOLD.** Review date 2026-11-26, Asia/Bangkok. Producer and preparatory reviewer: Codex. The exact proposed source is `69ad9f5eea6fa9b2553f08c4e49e5303b83114c9`. Its parent is the adopted `09f062f77f7f540f2783f128ae6314c5d8b818ea`. The platform base is `bab6818b4a278ffef083c1e86c12134e5ff14ab5`. The eight-file platform tree is represented by the included patch and the PR by the included draft. Exact file digests are in the [manifest](SHA256SUMS). M10.4 is still partial. No row award or release authorization has been recorded. The distributing contributor will need to sign the outgoing OpenWave commits under its DCO.
+
+## Reproduction and scientific challenge
+
+The clean source export reproduced **645,120 out of 645,120 development bins**, with maximum absolute difference **0** on this machine. The sweep covers all proposed finite selections. A raw-edge implementation with a separate full-flight algorithm compared 1,120 bins to the grid. Its maximum error was 1.28e-12 or less. The stand-alone platform calculation of the historical 56-bin pilot used a dense matrix power and dense full-board exponentials. The method and tested outcome are those of particle stability after bounded preparation on blank memories. Source shape and boundaries were known in developing the filter. A loss of home detection is representable in the instrument and realized by both dephasing the same accepted ensemble and replacing its free evolution by random swaps. The uniform sharp source is retained as an additional baseline.
+
+The sector reduction uses the 99-state echo on the applicable blank columns, the internal and full free generators, the terminal intersection of two seam effects, and the source branches through all 48 attempts. The common contrast phase cancels for every strength. The archived pilot has 56 independently reproduced bins. The ceiling for dephased sources applies throughout the specified finite control window. The stochastic bound applies at exposure 12 onward. The coherent bound applies for all free exposures on the registered carriers. Distinguishing a freely translating electron, or establishing a species, is outside these records. [Source and bound](../../../../model/candidate_laws/interval_echo/openwave/row_04_compact/README.md) · [Finite grid and exact floors](survey.json)
+
+## Mandatory filing items
+
+| Items | Status | Evidence and limits observed in this version |
+| --- | --- | --- |
+| A1, A2 | PASS for local evidence | The live row, M5 comparison and #749 decision ask for persistence of a specified state after release. The twelve-port read, acquisition failures, exposure domain and free generator are specified. The new candidate and its ancestry are explicit. |
+| A3, A4, A5 | PASS for local evidence | Blank collars and an open flight remove the eleven persistent switches. The same initial density and a changed flight law yield different records. The preparation, κ ancestry, known target, exposure units, old pair failure and species limitation are disclosed. |
+| B1, B2 | PASS | The gates can reject a coherent release, a changed-law comparator, a dephased arm or an independent replay. Loss of phase and random swaps both physically change the output. |
+| B3, B4, B5 | PASS | Native echo and inverse echo implement each signed query and home-port terminal effect. The coherence comparison preserves release probabilities. All fourteen outcomes per arm, finite retries, and the zero-exhaustion baseline are included. |
+| C1, C5 | PASS at claimed scope | κ is a scalar phase in this sector. The blank board and preparation address the supplied-memory objection. The target-guided choice of filter, preparation schedule and older sweep are explicit. A competing mark based on that disclosed selection remains a maintainer judgment. |
+| C2, C3, C4, C6 | N/A | No charge quantization, electron mass, spin or spatial-dimension result is requested. |
+| D1, D2 | PASS for source identity | Source bundle is a direct child of M10.4 and changes only M10.5 protocol, reproduction and receipts. The candidate changes state, memory and detector. No result from the two-load state is transferred. |
+| D3 | OPEN | Frozen local terms and unregistered historical pilot are identified. Public source publication and the first exact official M10.5 task commit remain pending. The exhaustive development run was disclosed before any such draw. |
+| D4, D5 | PASS for development; OPEN for official receipt | Clean source, platform replay, true exhaustion accounting and complete grid verified. Execution of the registered comparison awaits its first eligible commit. |
+| E1 | PASS | The short offline platform pilot uses the immutable public board and a 56-bin source receipt. |
+| E2 | PASS locally; OPEN for publication | Bundle verification succeeded. Applying the patch to the clean base recreated the platform tree exactly. The public ancestor board and notebook were accessible. The proposed local source tag and outgoing patch still need their authorized public versions. |
+| E3 | PASS for challenges; OPEN for final review | Independent algorithms reproduce the pilot and a subset of the grid. Failure controls, receipt corruption and modified tasks were exercised. No external maintainer or independent human review is claimed. |
+| E4 | OPEN | This version-bound preparation audit records outstanding items. The final full-criterion verdict must bind the official receipt and outgoing version. |
+| E5 | PASS for local tree | Source checks passed. Platform roadmap, cell-table, local-path, size and Black formatting checks passed. Platform safety read all eight blobs and reported zero stops and two read notices for the executable and the NumPy loader. The loader checks SHA-256 and disables pickle. |
+| F1 | PASS for draft | Task, method note and draft cover agree on scope and current evidence. The proposed cell is below 65 words. The public notebook contains the native acquisition and detector view. |
+| F2 | OPEN | Source and platform patch were reviewed locally. The proposed pin requires public verification for release. Confirmatory evidence will change the eventual outgoing version. |
+| F3, F4 | OPEN | Final clearance and owner authorization for that exact outgoing version are outstanding. |
+
+Forty-three focused tests passed in the clean proposed source. The release commands require a fresh output path. The official-status check at the pinned platform base returned no eligible commit. The historical pilot, full-grid development check, and a synthetic registration fixture cannot stand in for that official draw.
