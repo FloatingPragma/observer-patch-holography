@@ -1,0 +1,29 @@
+# What travels after a connector record is committed?
+
+A home observer can retain the entire four-valued head record at one connector and a different owner still detects which wall was launched. At the four-radian appointment the source choice changes the remote click probability by **0.06750–0.06796** after the full read. A magnitude-only read gives **0.18187–0.18256** on the same strand. The actual remote trace thus distinguishes the instruments. One sharply resolved digit also admits an exact transport law: after a coin-only read, any remote source difference across this cut is half its original value, at every flight time.
+
+## Material preparation and head read
+
+The registered free generator acts on the 14-dimer open strand selected on the established 20-cell commissioning geometry. At hand zero the home observer in cell 2 reads the head of connector (31,32) immediately after the ordinary sharp wall preparation. The two sources place a wall at bond 4 or bond 1 and the same spectator at the far end. Both put the same local loads into the receiving half. The wall detector in cell 3 reads the inequality of the two facing loads at (42,43). The finite occupations, prepared collar memories and selected address are those of the existing strand. The protocol adds a supplied local projective instrument that retains its record; cosine and sine readings on independent blank dimers calibrate the four appointments. [Frozen protocol](PROTOCOL.md) · [Commissioned medium](../PROTOCOL.md)
+
+The two digits of this magnitude-two head are its coin and its signed contrast. The instruments distinguish magnitude alone, signed contrast, coin alone or both digits. A coarse instrument measures its specified projectors directly. A fine read followed by discarding a digit can disturb coherence inside a coarse projector and has a different experimental meaning. No read distinguishes a preferred source setting. Every reported label and every yes/no outcome is retained. The full measurement uses the original sharp digit basis of the seam. A native circuit implementing each partial read with a physically stored pointer would strengthen the provenance of those supplied instruments.
+
+## Why resolving the coin halves the source signal
+
+Let *s* and *c* be the reversal parities of the sign and coin labels on this magnitude-two head. They are conserved sectors during the flight, distinct from the sharp sign and coin outcomes recorded by an observer. On every one of the nine ordered load words a direct check in the 99-state seam gives a cost of 4κ + (1−s)/2. When c=+1 and both loads are 1, the cost instead vanishes. No term leaves the stated parity sector. The commissioned head starts at s=c=+1. A sharp sign read populates both sign parities equally. A sharp coin read populates both coin parities equally. Conditional weights on the two parities are the same for each of the recorded digit values. Orthogonality of the head sectors removes all cross terms for a downstream load detector. [Native columns and physical orientation flight](measure.py)
+
+In the c=−1 sector, the connector cost is constant for **every** matter word. The connector is the sole active coupling between the two portions of this open strand. Evolution on its right therefore factorizes from evolution on its left. Both preparations have identical right-hand data, so the right detector has exactly zero source difference in that sector. With the coin resolved and the sign unresolved, the c=+1 sector has exactly the original Hamiltonian. With both digits resolved, its c=+1 part has the same dynamics as the sign-only measurement. Averaging over the equal sector weights gives the two factors of one half. For this source difference a coin read preserves the complete normalized time dependence, including its frequencies. These statements apply to a single cut interrogated before flight, with right-hand sources initially identical. Unsubtracted remote click rates also include local evolution on the disconnected part.
+
+## Observed rates and controls
+
+Each material setting uses 33,554,432 trials per source per appointment. At four exchange radians the signed-contrast-only response was 0.13513–0.13575 and the coin-only response was 0.09084–0.09135. Both differed from the magnitude-only response. The full-read response stayed positive in each of its four retained label classes. The two predicted half-response relations passed at all four appointments, including the one at six radians when the measured source difference was negative. With contrast removed from the same law and the same initial head preparation held fixed, every remote source difference was consistent with zero. The intervals use a simultaneous 99% exact-binomial construction for the retained rates, conditional label rates and both clock quadratures. [All counts and timing records](results.json) · [Count-only decoder](readback.py)
+
+**OpenWave status.** The public M10 row remains untested. This supplemental result tests robustness of the particular one-dimensional matter wave to a real record choice at one boundary. The sign-sensitive reads alter the measured remote waveform. Repeated repair commitments during propagation, a new branch dispersion from these four times, and an externally accepted prospective result remain open. The registered source, wavelength decoder and prospective selectors are unchanged. The full-credit filing remains on hold. [Official criterion and M10 decision](https://github.com/openwave-labs/openwave/blob/c531265eb6085725c6268e156804499c810ba5e4/MODELS.md#L467) · [Registered decision](../../submission/ROW_30_DECISION.md)
+
+From the repository root:
+
+~~~sh
+export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1
+python -m model.candidate_laws.interval_echo.openwave.row_30_collective.committed_heads.measure --write
+python -m pytest -q model/candidate_laws/interval_echo/openwave/row_30_collective/committed_heads
+~~~
