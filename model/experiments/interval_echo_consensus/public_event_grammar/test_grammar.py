@@ -87,13 +87,36 @@ def test_independent_complete_signature_not_target_state_equality():
     np.testing.assert_allclose(g.probes(a), expected, atol=1e-14, rtol=0)
 
 
-def test_actual_normal_entrypoint_native_and_classical_contracts():
+def test_actual_normal_entrypoint_native_and_classical_contracts(capsys):
+    from model.candidate_laws.interval_echo import candidate
+
     audit = g.source_audit()
     assert all(audit["checks"].values())
     _, rates, error = g.clock._primitives()
     assert error < 1e-11
     for sign in (0, 2):
         assert abs(rates[sign] - 0.5) < 1e-13
+    # Independently read the terminal effect of the candidate's public clock trip.
+    assert candidate.run(["--clock-trip", "--age-bits", "3", "2", "6"]) == 0
+    trip = json.loads(capsys.readouterr().out)
+    hand = g.law.SRC.index((2, 0))
+    generator, contrast = g.law.local_term_parts()
+    for owner, terminal in trip["oscillators"].items():
+        assert terminal["owners"] == [terminal["bit"]] * 2
+        ticks = trip["reunion"][owner]
+        predictions = []
+        for analyzer in (0, 1):
+            duration = ticks * np.pi / 16 + analyzer * np.pi / 2
+            u = g.expm(-1j * duration * (generator + g.clock.KAPPA * contrast))
+            branches = g.compile_program(
+                g.unitary("dimer evolution", u, g.material_read(lambda a, b: g.Halt())),
+                g.law.DIM,
+            )
+            effect = g.event_effect(branches, lambda record: "material:20" in record)
+            predictions.append(effect[hand, hand].real)
+        np.testing.assert_allclose(
+            terminal["first_rail_probabilities"], predictions, atol=1e-12, rtol=0
+        )
     # The clock's exact scripted fair stream is separate from a Born inference.
     for q in (1, 2, 3, 8, 16):
         for bits in itertools.product((0, 1), repeat=4):

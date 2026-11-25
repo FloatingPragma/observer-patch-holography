@@ -22,6 +22,7 @@ import EventAlgebra.FiniteBornFrame
 import EventAlgebra.FiniteEffectClosureBoundary
 import EventAlgebra.FiniteBuschGleason
 import EventAlgebra.OperationalBornBridge
+import EventAlgebra.NativePublicEventGrammar
 import EventAlgebra.FiniteProbeInstrumentSelection
 import EventAlgebra.InterlockingContexts
 import EventAlgebra.FiniteWebBornNoGo

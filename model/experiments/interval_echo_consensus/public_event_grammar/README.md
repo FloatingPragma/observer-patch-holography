@@ -1,11 +1,11 @@
 # Probabilities on the complete native program grammar
 
-Every finite native decision tree has one complete public record law and one
-positive normalized state on its generated effects. This includes arbitrary
-written collars, free contact histories, record feedback, early stops, classical
-random streams and labelled record unions. The [Lean induction](../../../../Lean/EventAlgebra/NativePublicEventGrammar.lean)
+For each prescribed preparation, the same positive normalized state gives
+the complete public record probabilities for every finite native decision tree.
+This includes written collars, free contact histories, record feedback, early
+stops, classical random streams and labelled record unions. The [Lean induction](../../../../Lean/EventAlgebra/NativePublicEventGrammar.lean)
 proves the result for arbitrary finite dimension and depth. The
-[executable source bridge](grammar.py) checks the native full99-state operators,
+[executable source bridge](grammar.py) checks the native 99-state operators,
 complete records and independent event signatures against the normal candidate
 entry points. The quantum branch response is a declared construction choice;
 this result supplies no derivation of that response from scalar consensus.
@@ -25,7 +25,7 @@ allocated hardware are finite. The theorem quantifies over all such programs.
 The primitive interface is a mathematical superset of the native menu; it
 asserts no native reachability of an arbitrary supplied Kraus family. Native
 instances enter by their actual maps: the Hermitian full-state generator gives
-unitary free evolution; the echo is the specified full99-state unitary; native
+unitary free evolution; the echo is the specified 99-state unitary; native
 references and routed permutations are unitary; the complete sharp material
 or enrolled pointer reading is a projective family; and independently supplied
 classical random streams give scalar branches `sqrt(p_i) I`. A deterministic
@@ -95,14 +95,17 @@ record normalization alone does not establish implementation independence.
 
 ## Native execution and limits of an entry point
 
-The full99-state regression includes coherent density entries across charge
+The 99-state regression includes coherent density entries across charge
 blocks, arbitrary dirty collars, a native free contact, echo, complete material
 reading, conditional native evolution and retained refusal/early-stop labels.
 A 1:3 record refinement and a native postrecord echo have the same nine
 material-event operators as the original program, while their terminal maps
 and refined records differ. The independent d² signature has 9,801 coordinates.
 The program propagates every native input column, rather than fitting one
-source probability table.
+source probability table. A separate regression runs a complete clock trip
+through the candidate entry point. For each owner's published elapsed count,
+the 99-state effect calculation reproduces the terminal instrument's two
+first-rail probabilities. Both owners recover the recorded outcome bit.
 
 The native clock makes at most twelve address attempts at each of at most
 eleven subsequent walk steps. An out-of-range attempt is part of the history;
@@ -124,12 +127,13 @@ registered bounded schedules and the source's finite control menu have their
 stated preconditions. No success-conditioned sample is used to assert their
 unconditional normalization.
 
-This is a structural realization on generated public effects under the
-construction's quantum state and sampling semantics. It does not establish
-native implementation of every abstract coexistent matrix pair on arbitrary
-written-memory hardware, unique ambient-state recovery when public effects
-fail to span it, Born response from scalar consensus, physical calibration,
-external custody or an observer-visible overflow instrument.
+This proves the candidate FT-BORN criterion for generated public effects under
+the declared quantum state, instrument and sampling semantics. The PR-03
+operational route to the finite Busch–Gleason theorem also requires a native
+common refinement for every coexistent pair in its target matrix algebra.
+The unrestricted instrument constructor in Lean supplies no compiler for those
+pairs on arbitrary written collars. Recovery of a unique ambient state requires
+public effects that distinguish states.
 
 ## Replay
 
