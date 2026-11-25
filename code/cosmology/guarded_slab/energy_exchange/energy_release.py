@@ -142,7 +142,14 @@ def stroke_records():
             np.testing.assert_allclose(
                 means, rotate(list(reference), elapsed), atol=3e-12, rtol=0
             )
-            counts = rng.binomial(4096, np.clip((1 + np.array(means)) / 2, 0, 1))
+            # The prepared Pauli axes have exact plus probabilities 0, 1/2 or 1.
+            # A tiny BLAS error near a deterministic endpoint must not advance
+            # the random stream on only some machines.
+            half_units = np.rint(1 + np.array(means))
+            np.testing.assert_allclose(
+                1 + np.array(means), half_units, atol=3e-12, rtol=0
+            )
+            counts = rng.binomial(4096, half_units / 2)
             log.append(
                 dict(clock_rail=read, clock_count=elapsed, plus_counts=counts.tolist())
             )
