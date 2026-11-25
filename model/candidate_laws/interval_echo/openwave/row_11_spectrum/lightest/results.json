@@ -1,0 +1,60 @@
+{
+  "source": "blank memories; unit-filled host; total signed load -1; all contacts free",
+  "native_units_per_tick": "1/100000000",
+  "other_composition_floors": {
+    "3": 88,
+    "5": 112,
+    "7": 144,
+    "9_or_more": 42
+  },
+  "boards": [
+    {
+      "cells": 20,
+      "ports": 240,
+      "exact_componentwise_lower": "1084064838533/33317822088",
+      "exact_rayleigh_upper": "689981310367222640521567/21205995917978518662302",
+      "ground_interval_ticks": [
+        3253708587,
+        3253708589
+      ],
+      "compact_minus_ground_interval_ticks": [
+        246291411,
+        246291413
+      ],
+      "port_probability_support": 240,
+      "multiplicity": 1
+    },
+    {
+      "cells": 80,
+      "ports": 960,
+      "exact_componentwise_lower": "436990931730/13406068061",
+      "exact_rayleigh_upper": "1432033617806226207537169/43932124787892593574660",
+      "ground_interval_ticks": [
+        3259650254,
+        3259650256
+      ],
+      "compact_minus_ground_interval_ticks": [
+        240349744,
+        240349746
+      ],
+      "port_probability_support": 960,
+      "multiplicity": 1
+    },
+    {
+      "cells": 320,
+      "ports": 3840,
+      "exact_componentwise_lower": "439236416951/13475146698",
+      "exact_rayleigh_upper": "2915824761570858142680405/89453344221665194236988",
+      "ground_interval_ticks": [
+        3259603971,
+        3259603973
+      ],
+      "compact_minus_ground_interval_ticks": [
+        240396027,
+        240396029
+      ],
+      "port_probability_support": 3840,
+      "multiplicity": 1
+    }
+  ]
+}
