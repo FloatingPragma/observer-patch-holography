@@ -102,7 +102,8 @@ It saves everyone the same detour.
 ## Credit
 
 Contributors whose merged pull request moves a row on the status page are
-named as special contributors in the synthesis paper. Everyone with merged
+listed as special contributors in the repository [README](../README.md) and in
+the [synthesis paper](https://philpapers.org/rec/MUEFOC). Everyone with merged
 commits appears in the author list of the next
 [Zenodo release](https://doi.org/10.5281/zenodo.24191882) of the paper stack.
 
