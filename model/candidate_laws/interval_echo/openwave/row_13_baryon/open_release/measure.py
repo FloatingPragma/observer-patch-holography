@@ -67,7 +67,13 @@ def source_data():
     saved = json.loads(FRAMES.read_text())
     sector = BinarySector(cell(), 3)
     h = sector.hamiltonian(8, False)
-    energies, vectors = linalg.eigh(h)
+    # The proof's dyadic Gram and residual numerators refer to a particular
+    # numerical witness. Other valid bases of a degenerate eigenspace give
+    # different numerators. Certify the deposited frame against the live h.
+    with np.load(HERE / "spectral_frame.npz", allow_pickle=False) as frame:
+        energies, vectors = frame["energies"], frame["vectors"]
+    if energies.shape != (len(h),) or vectors.shape != h.shape:
+        raise ArithmeticError("Spectral frame dimensions differ from the native three-load sector")
     target = abs(energies-saved["energy"]) < 1e-8
     if target.sum() != 4:
         raise ArithmeticError("The published trimer source line differs")
@@ -226,6 +232,7 @@ def run():
                        "complete_seam_energy_records": seam_energies(board, finite_dict)})
     return {"schema": "oph.interval_echo.released_colour_trimer.v1",
             "measure_sha256": sha256(Path(__file__).read_bytes()).hexdigest(),
+            "spectral_frame_sha256": sha256((HERE / "spectral_frame.npz").read_bytes()).hexdigest(),
             "proof_sha256": sha256((HERE/"PROOF.md").read_bytes()).hexdigest(),
             "original_frames_receipt_sha256": sha256(FRAMES.read_bytes()).hexdigest(),
             "source": source_info, "boards": boards,

@@ -109,7 +109,11 @@ def test_complete_records_persistent_native_shape_and_changed_law():
                     core = int(public_counts[panel['seam']].sum())
                     tail = .01 / (2 * 2 * 2 * len(m.OPERATIONS) * len(m.TIMES))
                     lower, upper = m.count_intervals.clopper_pearson(core, int(public_counts.sum()), tail)
-                    np.testing.assert_array_equal(record['simultaneous_99_core_given_admission_interval'], [lower, upper])
+                    # The count is exact; libm implementations of the inverse
+                    # beta function can return adjacent floating endpoints.
+                    np.testing.assert_array_max_ulp(
+                        record['simultaneous_99_core_given_admission_interval'],
+                        [lower, upper], maxulp=4)
                     assert abs(record['probabilities'][-1] - prep['refusal']) < 1e-14
                     energies.append(record['released_relative_energy'])
                 assert max(energies) - min(energies) < 2e-10

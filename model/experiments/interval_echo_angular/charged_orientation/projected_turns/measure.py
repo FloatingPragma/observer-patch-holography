@@ -106,6 +106,12 @@ def complete(left, right, P, state, filtered, rng, fair_reference=False):
         labels += [dict(code_acceptance=list(history), interference=name) for name in ('plus', 'minus')]
     check(min(probabilities) >= 0 and abs(sum(probabilities) - 1) < 2e-13,
           'complete instrument lost a rejection history')
+    counts, complement = sample_acquisition(probabilities, rng)
+    return dict(labels=labels, probabilities=probabilities, counts=counts.tolist(),
+                sampling_l1_complement_bound=complement)
+
+
+def sample_acquisition(probabilities, rng):
     raw = np.asarray(probabilities)
     order = np.argsort(raw, kind='stable')
     sampling = raw[order].copy()
@@ -113,8 +119,7 @@ def complete(left, right, P, state, filtered, rng, fair_reference=False):
     check(sampling[-1] >= 0, 'negative explicit complement')
     counts = np.empty(len(raw), np.int64)
     counts[order] = rng.multinomial(SHOTS, sampling)
-    return dict(labels=labels, probabilities=probabilities, counts=counts.tolist(),
-                sampling_l1_complement_bound=float(abs(sampling[-1] - raw[order[-1]])))
+    return counts, float(abs(sampling[-1] - raw[order[-1]]))
 
 
 def calibrated_turns(strength, exchange_rate, words, R, S):
@@ -202,6 +207,32 @@ def run():
                 official_status='OW-07 untested at 0df73dc6; full local criterion open')
 
 
+def acquisition_banks(data):
+    for source in data['records']:
+        for key in ('unfiltered_order', 'filtered_order', 'unfiltered_full_turn',
+                    'filtered_full_turn', 'unfiltered_double_full_turn', 'filtered_double_full_turn'):
+            yield source['panels'][key]
+    for key in ('order', 'full_turn', 'double_full_turn'):
+        yield data['supplied_spinor_reference']['interference'][key]
+    for control in data['changed_law_controls']:
+        for source in control['records']:
+            for key in ('unfiltered_order', 'filtered_order', 'unfiltered_full_turn', 'filtered_full_turn'):
+                yield source[key]
+
+
+def verify_acquisition(actual, archived):
+    # The probability-sorted sampler can interchange exactly degenerate bins
+    # when a matrix library changes the last bit. Validate the independently
+    # recomputed probabilities first, then replay each original random draw.
+    rng = np.random.default_rng(SEED)
+    for fresh, saved in zip(acquisition_banks(actual), acquisition_banks(archived), strict=True):
+        compare(fresh['probabilities'], saved['probabilities'], 'detector probabilities')
+        counts, complement = sample_acquisition(saved['probabilities'], rng)
+        fresh['counts'] = counts.tolist()
+        fresh['sampling_l1_complement_bound'] = complement
+    compare(actual, archived)
+
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--output', type=Path)
@@ -213,5 +244,5 @@ if __name__ == '__main__':
         with args.output.open('x') as stream:
             stream.write(text)
     else:
-        compare(result, json.loads(args.receipt.read_text()))
+        verify_acquisition(result, json.loads(args.receipt.read_text()))
         print('Replayed complete projected native half-turn histories and literal full-turn controls.')

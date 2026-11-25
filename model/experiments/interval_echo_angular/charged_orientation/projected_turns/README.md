@@ -46,3 +46,5 @@ python -B -m pytest -q model/experiments/interval_echo_angular/charged_orientati
 ~~~
 
 The replay compares the complete archive without rewriting it. An explicit --output PATH creates a separate first record exclusively. Seven tests independently verify the physical axes, symbolic isometry, leakage identity, untouched-reference case, both rejection stages, literal full-turn control, optimized mismatch rejection and the actual optimized replay without altering its archive. Every bank contains262,144 synthetic starts. Raw probabilities and explicit complementary-bin rounding bounds are retained.
+
+The archived acquisition sorted the detector probabilities before drawing counts. Floating evaluation can interchange bins tied in the physical law. Replay checks every probability against an independent native evolution, then uses the recorded probability vector with the original seed to verify each archived count exactly.
