@@ -22,3 +22,5 @@ python -m model.candidate_laws.interval_echo.openwave.row_12_flux.dressing
 python -m model.candidate_laws.interval_echo.openwave.row_12_flux.cycle
 python -m pytest -q model/candidate_laws/interval_echo/openwave/row_12_flux
 ```
+
+A calibrated local crossing counter resolves what the wall carries around a physical cut. The ideal four-load wall cycle transports two units per three gap revolutions. Free Interval Echo flight returns the identical wall word with odd current, and the isolated wall band has a certified half-flux spectral change of at least 0.00856873 exchange units. The rigid two-unit transport identity fails on this preparation. [Local current measurements and dressed-band spectra](winding_current/README.md)
