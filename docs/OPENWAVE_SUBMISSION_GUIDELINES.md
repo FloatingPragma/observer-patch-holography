@@ -22,6 +22,12 @@ representation must not exclude it by definition. If every record the apparatus 
 construction, the run supplies no test of the claimed emergence. A corrupted file or an out-of-domain signal is no
 substitute. Distinguish an exact counterexample from statistical rejection and from an inconclusive timeout.
 
+A second failure cost two filings of one row. The outcome of the row turned on a choice made with the row's
+criterion in view: first a value of the law, then a pattern of written memory put in its place. Each time every
+number reproduced, the pin was adopted and the row was held at ⚠️ (section 8).
+
+**Do not request full credit on a row whose outcome turns on a choice made with that row's target in view.**
+
 ## 1. Authority
 
 | Party | Decides |
@@ -64,9 +70,9 @@ Before work on a row:
 3. Read the candidate's folder under [model/candidate_laws](../model/candidate_laws/CANDIDATE.md): its
    specification, its `candidate.py`, its `EVALUATION.json` and its OpenWave evidence in the `openwave/` subfolder.
    Identify the existing results, their hypotheses and the precise unresolved obligation before designing work.
-4. Read the [M10 specification of record][canonical], with the pinned candidate in its § 1 and the consumption
-   rules in its § 8, and the [M10.2 maintainer review][review]. Section 8 of this page carries that review's row
-   decisions.
+4. Read the [M10 specification of record][canonical], with the pinned candidate in its § 1 and the consumption rules
+   in its § 8, and the maintainer reviews of [M10.2][review], [M10.3][review3] and [M10.4][review4]. Section 8 of
+   this page carries their row decisions, and section 3 carries the test they apply to every piece of a candidate.
 5. Search this repository's papers, Lean library, [premise rows](registers/OBSERVABLES.json) and code
    for the same question (caution 7.15). Record the paths, the commit and whether each confirms, extends or
    contradicts the planned work.
@@ -84,7 +90,7 @@ inherited, and the row moves when its observable is computed on the model's own 
 | Mark | When the platform awards it |
 | --- | --- |
 | ✅ validated | "the property comes out of that process and meets the row's test" |
-| ⚠️ partial | the property comes out of the process with a piece supplied beside it, or with part of the row open; a value the model is calibrated to earns nothing by itself |
+| ⚠️ partial | the property comes out of the process with a piece supplied beside it, or with part of the row open: "a value the model is calibrated to earns nothing by itself; a state the process returns once that value is set can" |
 | 🚧 | nothing runnable returns the property, whatever the model declares; a declared or installed source is inherited |
 | ❌ | a documented negative on the model's own process, with the script that produced it |
 
@@ -120,6 +126,62 @@ admits an inequivalent alternative. A particle mass, a coupling or another row t
 calibration of that row. A claim that the law derives such a value needs the law frozen with the value as an output
 and a held-out comparison.
 
+### The forced-or-chosen test
+
+The [M10.3][review3] and [M10.4][review4] reviews held row 4 at ⚠️ on one reading of these rules. Every filing is
+audited against that reading before it leaves this repository. A piece of the pinned candidate (a value of the law,
+a pattern of written memory, a state, a routing, a schedule, a filter, a decoder) holds a row at ⚠️ when two points
+hold together:
+
+1. **It is a choice, and the row's outcome turns on it.** The [parameter-count test][paramcount], step 2: "Count a
+   choice as free if the model's own framework admits an inequivalent alternative". The matched control, with the
+   alternative in place and every other piece held fixed, gives another outcome on the row's observable.
+2. **It answers to this row.** The record shows that the row's criterion or target was known when the piece was
+   chosen, or that the piece was selected for the property. The reply on the M10.2 thread: "Where a choice answers
+   to a target, the row is a calibration of that choice." The M10.3 review: "What makes it a supplied piece here is
+   that it answers to this row's target".
+
+How the two reviews applied the points:
+
+- **Neither point holds a row alone.** Every column prepares a state and chooses settings, and the M5 stability cell
+  is ✅ on a chosen seed and a chosen box. The M10.4 review: "A prepared state is not the ground". The two points
+  together are.
+- **The kind of piece does not matter.** The M10.3 decision applied the reading to the coupling of the law. The
+  M10.4 decision applied it to eleven written seam records, a piece of pinned memory.
+- **The label does not matter.** A piece that the declaration calls part of the particle, designed apparatus or
+  preparation is read the same way: as part of the object it is pinned memory chosen with the criterion known, and
+  as apparatus it is supplied beside the object. Listing a piece as supplied adds nothing to point 2, and leaving
+  the label off removes nothing.
+- **The experiment's design goes in the cell's text.** The launch, the acquisition filter, the reads, the attempts,
+  the exposures, the read window and the detector do not hold a row, as long as the record shows no selection of
+  them for the row's property.
+- **The record decides point 2.** The reviews read it from the author's design files, specification and method note,
+  and compared it with the task plans behind the other columns' marked cells. M5's box was logged before its run as
+  chosen to test a caveat of two other verdicts, and its seed ran as the control of a task about two other seeds, so
+  neither answered to the stability row.
+
+A choice passes when it is forced or fixed independently, the parameter-count test's step 5: "Genuine forcing means:
+fixed by something independent of the target being reproduced."
+
+| Counts as fixed independently | Counts for nothing |
+| --- | --- |
+| A proof that the candidate's structure admits no inequivalent alternative | A sweep of values or layouts with the row's criterion as the selection |
+| A value or pattern fixed by another row's task, on record before this row's target was in view | A rule, requirement or registration written after the criterion and its solution were known |
+| A requirement written before the layout or state of this row was in view; the piece it returns may differ from the one filed | A selection task formulated with the filed layout known, whatever it selects |
+| A source derived from the carrier, the case the [admission reply][admission] puts at the bar for ✅ | A requirement whose wording fixes every free setting, reported as the result of a search |
+
+For every row, the design record carries a **choice ledger** with one line per piece of the law, the memory, the
+state, the preparation, the schedule and the reader on which the row's observable depends:
+
+- the alternatives the framework admits;
+- the row's observable under each alternative, with every other piece held fixed;
+- what was known about the row's target when the piece was chosen, with the commit that shows it;
+- the reason for the choice, as the record held it before the outcome was known.
+
+A line whose piece is a choice, turns the outcome and answers to the row puts the expected mark at ⚠️, and the row
+stays on HOLD (section 4). Log the reason for every choice in the task plan before the run. A reason written after
+the outcome carries no weight, and a piece chosen with the target in view keeps that history for the row.
+
 ## 4. What may be filed
 
 - A row submission requests full credit (✅) on the complete official criterion. Codex must expect ✅ for the entire
@@ -150,6 +212,22 @@ and a held-out comparison.
 - Each law under `model/candidate_laws/` is its own candidate. A changed domain, schedule, controller, memory,
   preparation, decoder or outcome alphabet makes a new candidate with its ancestry, even with unchanged endpoint
   code. No result transfers between candidates by ancestry.
+- A row whose expected mark is ⚠️ is never filed for ✅. The expected mark is ⚠️ whenever a line of the choice ledger
+  fails the forced-or-chosen test of section 3, however exact the result. The M10.3 and M10.4 filings each requested
+  ✅ on row 4 with such a line on record, and each returned ⚠️.
+- A row returns after a decision by a route that decision names, with the record that route asks for. The M10.3
+  decision named one route for row 4: the coupling fixed by something independent of the row's target. The M10.4
+  filing took another, a changed candidate whose written records were designed with the criterion known, and the
+  same ground held it. A route that the decision does not name passes the forced-or-chosen test in the Codex audit
+  before the owner considers it.
+- A candidate change made to answer a row decision is a choice that answers to that row. A changed law, memory,
+  state or preparation moves the question to the changed piece, and the pin move that carries it is audited as part
+  of the row.
+- A filing never hands its deciding question to the reviewers. The M10.4 filing asked the review to decide whether
+  the written records belong to the localized candidate or count as a supplied trap, and the review answered that
+  the mark holds on either reading. A packet with an open question whose answer decides the mark is on HOLD.
+- A review costs the maintainers a recomputation by their own route and an audit of their own reasons. A row that
+  returns on the ground of its last decision spends that work for no change of mark.
 
 | Request | What the submission contains |
 | --- | --- |
@@ -213,6 +291,9 @@ Every property is asked with three items, the form the maintainers applied in th
 A test also runs planted laws that the property has to miss. They test the instrument and earn nothing. A number
 fixed by the anchor is compared with nothing; its job is a second number that can miss.
 
+The M10.3 and M10.4 reviews add a fourth item: for every piece the outcome turns on, the matched alternative and
+what was known when the piece was chosen. The choice ledger of section 3 holds it.
+
 Before a claimed experiment, write into its design and its prospective record:
 
 - the exact row clause and the candidate, with law, state domain, preparation, scheduler or controller, memory, read
@@ -220,6 +301,7 @@ Before a claimed experiment, write into its design and its prospective record:
 - which observers hold which records, the observable computed from those records, and the map to the proposed
   physical interpretation, with hidden state confined to a separately labelled audit;
 - every supplied ingredient, measured input and calibration, and what is left to predict once they are fixed;
+- the choice ledger of section 3, with the reason for every choice logged before the outcome is known;
 - what the law contributes to the target property beyond identities of the alphabet, geometry, reference and reader;
 - a representable falsifying outcome and a control that tests that property with the same observer and readout,
   preserving the symmetry that geometry guarantees when the question is whether the law contributes more;
@@ -252,12 +334,24 @@ memory, origin. The rules of every test:
   emergence credit.
 - A physical number test names its criterion, tolerance, calibration inputs and reserved comparisons before the
   run. A finite algebraic check is never silently a numerical physical comparison.
+- A changed-law control that returns the same answer on the claimed property supports no claim on it. State the
+  property so that the control changes it, and claim that part.
+- A result proved at every value of a parameter does not turn on that parameter. Find the piece it turns on with
+  matched controls, and apply section 3 to that piece.
+- A composite object is tested with each part and each piece of its preparation removed in turn. The claim names the
+  smallest object the result needs.
+- The observable is reported beyond the claimed window, and a reading that combines two properties is reported for
+  each.
+- Counts drawn from a computed outcome law are labelled as draws. The computed probability carries the claim, and a
+  statistical gate on such draws tests the sampler.
 - This section and the criteria files of the [scorecard](../model/evaluation/README.md) are ours. Before a row reads
   fail against them, apply caution 7.29.
 
 ## 7. Research cautions
 
 These cautions bind research and submissions alike. Each one records a mistake that cost a filing or a day of work.
+Cautions 7.33 to 7.46 record the two filings of row 4, which reproduced in every number and returned ⚠️
+([M10.3][review3], [M10.4][review4]).
 
 ### 7.1 Do not build in the answer and call it emergence
 
@@ -578,7 +672,121 @@ records afterwards, a common time as an agreed description last. An oscillator, 
 implementations and no foundations. A claim about synchronized clocks is a claim about overlap records and is tested
 as one.
 
-## 8. Rows 1, 2 and 7
+### 7.33 Do not move the answer from one supplied piece into another
+
+The M10.3 filing rested on a coupling chosen from a sweep with the persistence criterion known. The M10.4 filing
+removed that dependence with a proof at every coupling, zero included, and placed eleven written seam records around
+the launch, designed with the same criterion known. The row then turned on the records: with the same accepted state
+and detector at exposure 37, the home probability at coupling ½ is 0.996 on the eleven writes and 0.441 on blank
+memories, and at coupling 0 it is 0.995 on the eleven writes and 0.527 on ten writes. Removing a dependence does not
+finish the audit. Find the piece the outcome turns on next, with matched controls, and put it through the
+forced-or-chosen test of section 3.
+
+### 7.34 Do not exempt a structure from the calibration rule
+
+A calibration is any choice that answers to a target: a number, a sign, a pattern of records, a layout, a start
+state, a routing, a filter. Caution 7.3 names fitted values, and the M10.4 decision applied the same rule to pinned
+memory. A discrete design found by solving for the row's criterion is a fit with integer parameters. Exact
+arithmetic on such a design is exact arithmetic on a calibration, and a disclosed design choice earns the caveat in
+the cell and no more.
+
+### 7.35 Do not launder a choice with a rule written afterwards
+
+Once a piece is chosen with the row's criterion and its solution known, a rule, a requirement or a registration
+written later does not fix it independently. The M10.4 filing added a one-load routing task that selects the filed
+eleven writes. Its method note says: "This routing requirement was formulated with the pair layout known." The
+review did not count it. A rule counts when the record shows it fixed without reference to the filed layout: by
+another row's task, or by a requirement written before the layout was in view. The piece such a rule returns may
+differ from the one filed.
+
+### 7.36 Do not present a requirement that fixes its answer as a search
+
+Fifteen contacts touch the three ports of the M10.4 launch. The routing requirement named the four that transmit and
+forbade the other eleven, so it fixed all fifteen. The filed "exactly one of 32,768" follows from the wording of the
+requirement, and 32,768 is 2^15, the number of settings of those fifteen contacts. Before a selection is reported,
+count the settings the requirement leaves free. With none free, report the requirement as a definition and claim no
+selection.
+
+### 7.37 Do not hand the deciding question to the reviewers
+
+A filing that leaves open whether its key piece is part of the object or supplied apparatus asks the reviewers for
+the argument the packet lacks (caution 7.14). The M10.4 packet recorded that the interpretation of the written
+environment needed the platform's assessment, and the pull request put that question to the review. The review
+declined to rule and held the mark on either answer. Renaming a piece changes no mark. Settle the question with the
+forced-or-chosen test before filing, or keep the row on HOLD.
+
+### 7.38 Do not claim an object larger than the result needs
+
+On the written board one load in the antisymmetric state of two ports is an exact eigenvector of the exchange by
+itself: its two routes to each of two neighbouring ports cancel. Eight of the eleven writes serve that state, three
+keep the second load in place, and at zero coupling the two loads do not interact. The review asked whether the
+row's particle is the pair, or the one-load state with a second load beside it. Before a composite is claimed,
+remove each part and each piece of the preparation in turn and report which the result needs. A result that holds at
+zero interaction claims no binding by that interaction.
+
+### 7.39 Do not offer a control that returns the same answer
+
+The M10.3 filing used the reversed agreement as a law control. At coupling −8 the home probability at exposure 37 is
+0.984, against 0.980 at +8, so the control does not separate persistence. Only the spectral statement changes: with
+the sign reversed, no level of the distinct-port sector lies below two free loads at rest. The review asked which of
+the two the row claims: binding by the agreement energy, or persistence of the adjacent pair. Run every control
+before filing, state the claimed property so that the control changes it, and report a control that leaves the
+headline unchanged as a result against the claim at that scope.
+
+### 7.40 Do not present draws from a computed law as measurements
+
+The M10.3 briefing said the experiment "found both loads on a shared seam in its cell in 4,028 of 4,096 releases".
+The counts were seeded draws from an outcome law computed exactly, so the counts and their Hoeffding gates tested
+the sampler and not the law. State the computed probability as the result. Label draws as draws, with their seed,
+and claim nothing from a statistical gate on samples of a known law.
+
+### 7.41 Do not let the replay share code with the reviewers' check
+
+The M10.4 replay script imported the maintainers' M10.3 recompute for the board, the sector and the propagation
+routine. The review noted that the two are one route for those parts. A replay filed as the authors' evidence builds
+its operators from the pinned data file and the equations of the method note, and its independence statement lists
+every module it imports (section 14).
+
+### 7.42 Do not leave the step from the law to the computed model unchecked
+
+The M10.3 review licensed its recomputation for the generator that the specification states and excluded the
+reduction from the seam law. The M10.4 filing shipped an exact check of the one fact its run uses, that a neutral
+record switches its seam off, and the review counted it. The addressed operations of the acquisition, the degree
+references on written memory and the detector stayed outside the licence, because the filing carried a reduced model
+of them. Every step between the pinned law and the computed model (the reduction, each addressed operation of the
+preparation, the detector) ships as a small exact check, or the filing names it as outside the claim.
+
+### 7.43 Do not stop the report at the edge of the window
+
+The M10.3 claim covered exposures up to 37. The maintainers ran on. The pair stays adjacent with probability at
+least 0.990 through exposure 2,000, while the home-cell probability falls to 0.969 at 300, 0.929 at 1,000 and 0.910
+at 2,000. The one-cell read measures binding and staying in the cell together. Report the observable beyond the
+claimed window, and report each property that one reading combines.
+
+### 7.44 Do not let the words of a filing drift from its specification
+
+Three lines of the M10.3 filing needed correction after review: the counts wording of caution 7.40, a method note
+without its `**Scope**:` line, and "A complete 99-state coherent seam memory" where the memory has eleven states and
+the seam space 99. Check every number word, dimension and name of the outgoing text against the specification, and
+give every method note its scope line in the platform's [form][methodnote].
+
+### 7.45 Do not count a registration that precedes a known replay
+
+The planning commit of M10.3 preceded the replay by 73 seconds, and the task stated that the outcome was known. The
+review read the gates as a check that the package reproduces itself and let the independent recomputation carry the
+weight. A registration filed with the result in hand is a reproduction (caution 7.10). Its text says so, and the
+filing claims no prospective test from it.
+
+### 7.46 Do not let the internal verdict outrun the published ground
+
+The checklist of the M10.3 filing recorded full credit as the expected mark. The grounds that held both filings were
+published beforehand: the sentence on choices that answer to a target, the parameter-count test, and for M10.4 the
+M10.3 decision itself. Before a row is marked SUBMITTABLE, the auditor writes the strongest case for ⚠️ from the
+published sentences, applies it to every line of the choice ledger, and sets the row beside every cell that carries
+a mark on the same row in another column. A reason for ✅ that would also move another column's cell, or a ground for
+⚠️ that the packet cannot answer from its record, is a blocking finding.
+
+## 8. Rows 1, 2, 4 and 7
 
 The [M10.2 maintainer review][review] decided rows 1, 2 and 7 on the pinned signed-source candidate and named what
 would move each. The reasons are general, and a filing on any of these rows answers them at its scope.
@@ -611,6 +819,38 @@ Every follow-up to the M10.2 review answers three questions, each linked to evid
 what could falsify each result; which results need coherent memory; and how the separated-pair energy excess is
 interpreted or left unresolved.
 
+### Row 4
+
+The [M10.3][review3] and [M10.4][review4] reviews recomputed every number of two row 4 filings by routes that share
+no code with ours, adopted both pins and held the row at ⚠️.
+
+| Filing | What came out of the process | What held the row at ⚠️ | What would move it |
+| --- | --- | --- | --- |
+| M10.3: the pair on blank memories | A unit-load pair launched on one seam stays in its launch cell with probability 0.980 at exposure 37 and at least 0.94 over the window. With the coupling removed the probability is 0.203. | The coupling 8. The framework admits other values, the outcome turns on the value (0.47 or less at coupling 1 and below), and the design swept nine strengths and holds no selection of 8 independent of persistence. | The coupling fixed by something independent of the row's target, shown by what was known beforehand for the row and by the values and laws set aside. |
+| M10.4: the pair beside eleven written seam records | The accepted pair stays in its launch cell with probability at least 0.99477 at every exposure and every coupling, failures counted, by an exact eigenvector identity. | The pattern of records. The framework admits other patterns (0.441 on blank memories at coupling ½, 0.527 on ten writes at coupling 0), and the specification says: "The 94% criterion and the interference solution were known when the eleven-record source was chosen." | The pattern fixed without reference to this layout, by another row's task or by a requirement written before the layout was in view; or the blank-memory route. A rule registered after the fact does not count. |
+
+The checks that follow from the two reviews:
+
+- **Every piece the persistence turns on.** List each one with its matched control and pass it through the
+  forced-or-chosen test of section 3. A coupling, a record pattern, a filter or a launch chosen with the persistence
+  criterion known keeps the row at ⚠️, whether the declaration calls it law, memory, particle or apparatus.
+- **The property.** State whether the row claims binding by an energy level below the separated loads, or
+  persistence of the prepared configuration. The reversed coupling keeps the pair as well as the filed sign does, so
+  persistence is no evidence of binding.
+- **The object.** State what the particle is made of. A second load that does not interact with the first is beside
+  the object unless a test shows that the result needs it.
+- **The preparation.** Written records that switch seams off change the board on which the loads move. The free law
+  preserves blank memory, so no free evolution writes them. They are a preparation by addressed operations, and each
+  operation is shown as an operation of the law or named as outside the claim.
+- **The window.** Report the read beyond the claimed window and each property the reading combines (caution 7.43).
+- **The comparison.** M5 holds ✅ on this row with a prepared start state, one window and one box. Its record shows
+  no choice selected for persistence. A filing for ✅ carries the same kind of record: every choice logged with its
+  reason before the run.
+
+Every follow-up on row 4 answers three questions of the reviews, each linked to evidence or to a named open
+obligation: what fixed the piece the outcome turns on, with the values and laws set aside; whether the row claims
+binding or persistence; and what the second load adds to the claim.
+
 ## 9. Filing gates
 
 Codex audits each outgoing submission at its declared scope. A row submission needs a full scientific audit of every
@@ -618,15 +858,15 @@ clause of the official criterion and a Codex finding that full credit is expecte
 
 | Gate | Evidence | Record | Confirmation |
 | --- | --- | --- | --- |
-| G0 design | Every clause of the row's simplest test is listed. For each: the observers, the records they hold, the observable as a function of the records, the description to be fitted, the control. The candidate is registered, everything supplied is listed, and the sentence of the theory that says the records should show the clause is quoted with file and line. | `DESIGN.md` | independent design reviewer |
+| G0 design | Every clause of the row's simplest test is listed. For each: the observers, the records they hold, the observable as a function of the records, the description to be fitted, the control. The candidate is registered, everything supplied is listed, and the sentence of the theory that says the records should show the clause is quoted with file and line. The choice ledger of section 3 has a line for every piece the row's observable depends on. | `DESIGN.md` | independent design reviewer |
 | G1 terms before the run | Gates with numbers, inputs, seeds (development apart from held-out) and controls are written and hashed, and the hashes are pushed to this repository before the run. A result that will claim a cell files its upstream task document with its gates and inputs before the run. | `PREREG.json`, the upstream task document | reviewer checks the order from the pushed history |
 | G2 execution | The run uses the filed inputs, and the law's implementation is byte-identical to the registered source. The record states whether execution uses literal events, full matrix or column actions, enumeration or justified compression, and proves any reduction. Every outcome is kept, failures and timeouts included. | `RECEIPT.json`, logs | reviewer replays a subset |
 | G3 controls | (a) A changed-law control fails on the row's own object for the stated reason; (b) the instrument detects a planted effect; (c) no gate is an identity of the alphabet, the graph or the decoder, and none can only pass; (d) every statistical statement names its interval, its selection and its power. | `RECEIPT.json`, `CONTROLS.md` | reviewer runs own changed laws |
 | G4 reproduction | A script regenerates the headline number in under 60 seconds, a replay is byte-identical, and the manifest covers every file. | `headline.py`, `MANIFEST.sha256` | reviewer runs both |
 | G5 method note and cell | A method note in the platform's [form][methodnote]: equations first, a map from every term to code, a scope line, what was not computed. Cell text of at most 65 words of prose as the platform's [cell format][results] counts them, with the expected mark and every supplied piece. | `METHOD_NOTE.md`, `CELL.md` | reviewer checks word by word |
-| G6 independent scientific review | Codex independently challenges every claim in the full packet, binds the verdicts to the manifest and final wording, and verifies the resolution of each blocking finding. Component checks are recorded at their tested scope. | `REVIEW.md`, `REVIEW.json` | Codex auditor |
+| G6 independent scientific review | Codex independently challenges every claim in the full packet, binds the verdicts to the manifest and final wording, and verifies the resolution of each blocking finding. Component checks are recorded at their tested scope. The audit writes the case for ⚠️ from the published sentences, applies it to every line of the choice ledger and sets the row beside the marked cells of the other columns (caution 7.46). | `REVIEW.md`, `REVIEW.json` | Codex auditor |
 | G7 one candidate | The packet runs on the pinned candidate, or the pin-move statement (the change in law, memory, state or decoder) is written and the owner has decided. No clause is borrowed from another candidate. | `PIN.md` | integrator and owner |
-| G8 full criterion | Every clause of the simplest test is carried in the full sense on that candidate. Nothing that the criterion asks to follow from the model is supplied or fitted (rows 20, 26 and 28: the strength). The evidence for each clause is recorded, and an open clause keeps the row on HOLD. | `CLAUSES.md` | independent reviewer |
+| G8 full criterion | Every clause of the simplest test is carried in the full sense on that candidate. Nothing that the criterion asks to follow from the model is supplied or fitted (rows 20, 26 and 28: the strength). No piece on which the outcome turns answers to the row (section 3). The evidence for each clause is recorded, and an open clause keeps the row on HOLD. | `CLAUSES.md` | independent reviewer |
 | G9 filed | The pin move, the registered task with its gates, the in-platform run, the method note and the script are upstream, and the maintainers have decided. | the maintainers' decision, recorded with the packet | the owner only |
 
 Prospective designs, negative results and component measurements belong in the research record. Codex marks a row
@@ -702,6 +942,15 @@ than the row run, identify both sources and what each establishes.
   and dependencies are read and cited. Neither positive nor negative conclusions exceed the tested domain. The search
   of this repository and of earlier studies for the same question is recorded with paths and commit, and every
   quotation was checked at its source.
+- [ ] **A6. Every outcome-deciding choice is forced or independent.** The choice ledger lists each piece of the law,
+  memory, state, preparation, schedule and reader on which the row's observable depends, with the alternatives the
+  framework admits, the observable under each, what was known about the row's target when the piece was chosen and
+  the commit that shows it. No piece is at once a choice the outcome turns on and a choice that answers to the row.
+  A sweep with the row's criterion as its selection is recorded as a calibration, and a rule or registration written
+  after the solution was known is recorded as such and counts for nothing.
+- [ ] **A7. The object and the property are named.** For a composite or prepared object, each part and each piece of
+  the preparation was removed in turn, and the record says which the result needs. The claim names the smallest
+  object and the exact property. No question whose answer decides the mark is left to the reviewers.
 
 ### B. The headline can fail for the right reason
 
@@ -724,8 +973,12 @@ than the row run, identify both sources and what each establishes.
   over runs is labelled as a mean. Where the two differ, as for integer currents against a mean field, the claim
   states which one it uses. A claimed force names the event that reads the records and the control that scrambles
   them.
+- [ ] **B6. Controls change the claimed property.** Every filed control was run. Each changed-law control gives
+  another answer on the property as claimed; a control that returns the same headline is reported as such and the
+  claim is narrowed to the part that changes. The observable is reported beyond the claimed window, and each
+  property that one reading combines is reported.
 
-### C. Calibration and the M10.2 objections are resolved at the claimed scope
+### C. Calibration and the review objections are resolved at the claimed scope
 
 - [ ] **C1. Inputs do not validate themselves.** All measured constants, fitted choices, scales and selection
   decisions are listed. Every calibrated claim identifies the independent test left after fitting and reports its
@@ -745,11 +998,17 @@ than the row run, identify both sources and what each establishes.
   explanations of the claimed success.
 - [ ] **C5. Review questions answered.** Every applicable prior criticism has a disposition and evidence. A
   follow-up to the M10.2 review answers its three questions: possible falsifiers, actual coherence dependence, and
-  the separated-pair excess. Any remaining issue lies outside the requested claim and is explicitly scoped; a
-  blocker is never relabelled as a caveat to obtain partial credit.
+  the separated-pair excess. A follow-up to the M10.3 or M10.4 review answers theirs: what fixed the piece the
+  outcome turns on, which property the row claims, and what the object needs. Any remaining issue lies outside the
+  requested claim and is explicitly scoped; a blocker is never relabelled as a caveat to obtain partial credit.
 - [ ] **C6. Space, if claimed.** Three directions and a distance rest on the candidate's position record and its
   far-field reading, with the limits of the rank-three theorem stated. A count of cells, a growth exponent, a
   spectral dimension or a declared three-dimensional routing earns no credit for dimension.
+- [ ] **C7. Row 4, if claimed.** The piece the persistence turns on passes A6, on the route the standing decision
+  names. The claim states binding or persistence and the object it holds for. Each addressed operation of the
+  preparation and the detector is checked as an operation of the law or is named as outside the claim. The record of
+  every choice matches what the review found for the ✅ cell of another column: logged with its reason before the
+  run, with no selection for persistence.
 
 ### D. One candidate and a traceable experiment
 
@@ -777,6 +1036,9 @@ than the row run, identify both sources and what each establishes.
   without the required proof. Composed instruments retain upstream as well as terminal failures. Numerical comparison
   centres and trace drift are distinguished from positive physical outcome laws, with gain and conditioning bounds
   where required.
+- [ ] **D6. A returning row takes a named route.** A row that returns after a decision follows a route that decision
+  names and carries the record it asks for; any other route has passed A6 in the audit. A candidate change that
+  answers a row decision is audited as a choice that answers to the row.
 
 ### E. A reviewer can inspect and reproduce the submitted evidence
 
@@ -808,6 +1070,10 @@ than the row run, identify both sources and what each establishes.
 
   Submission-related violations are resolved; unrelated workspace diagnostics are identified separately. A clean
   checker replaces none of the scientific checks above. G9 waits for the actual upstream decision.
+- [ ] **E6. The replay is the authors' own route.** The filed replay builds its operators from the pinned data and
+  the equations of the method note and imports no reviewer script. The independence statement lists every imported
+  module. Each step from the pinned law to the computed model has a small exact check or is named as outside the
+  claim.
 
 ### F. Final submission and release
 
@@ -815,7 +1081,9 @@ than the row run, identify both sources and what each establishes.
   on candidate, result, supplied ingredients, limitations and requested mark. The cell meets the 65-word limit.
   Official decisions are attributed to the maintainers. The simulator URL was opened and the view, law and
   observable named for each row were verified. Any claimed continuum limit carries its derivation and hypotheses.
-  Remaining criteria and anticipated acceptance are identified as research goals.
+  Remaining criteria and anticipated acceptance are identified as research goals. Counts drawn from a computed law
+  are labelled as draws, and the probability carries the claim. Every number word, dimension and name agrees with
+  the specification, and the method note carries its `**Scope**:` line.
 - [ ] **F2. Outgoing diff and source reviewed.** The final OpenWave diff, pull-request text, paths, existing links
   and contribution requirements are checked against the intended base. The source files at the commit of this
   repository named in the pull request match the bound manifest, trace to the candidate, and pass the documented
@@ -925,6 +1193,25 @@ What the maintainers do with a filing shapes it:
   review vocabulary that a reader can take for a row status, titles stronger than their own boundary lines, and
   results of an open pull request stated in the present tense. Upstream text uses the platform's words for marks
   and criteria, keeps every title within its boundary, and states a result under review as under review.
+- **They find what the outcome turns on.** Both row 4 reviews ran the result across the couplings and the memory
+  patterns with their own script and printed the table. A dependence that the filing leaves out is found, and it
+  decides the mark.
+- **They read our record for what was known.** The grounds of both ⚠️ marks quote our specification, design file and
+  method note: the sweep of couplings, the sentence that the criterion and the solution were known, the sentence
+  that the routing requirement was formulated with the layout known. The review called that statement what the rule
+  asks for, and it belongs in every filing. It also settles the mark, so the audit reads it first.
+- **They test every reason against the other columns.** The [lessons log][lessons] binds the reviewers to set a row
+  beside every cell that carries a mark on it and to check that each stated reason leaves those cells where they
+  are. A filing that argues for ✅ meets the same comparison.
+- **They license what they checked.** Each review ends with a list of what was not computed and a scope line. The
+  M10.3 licence excluded the reduction from the seam law. The M10.4 licence excluded the addressed operations of the
+  acquisition and the detector.
+- **They credit a filing that is easy to check.** The M10.4 review named three things that made it short: a result
+  proved at every value of a parameter in place of one value, the controls that came out against the claim reported
+  with their numbers, and ancestry rows that say what was known when each choice was made. Keep all three. None of
+  them changes a mark.
+- **They name routes and promise no icon.** A route named in a decision is decided from its artifact when it
+  arrives, and a route counts only if it "does not repeat the defect the review names".
 
 ```markdown
 ## M10.<n> · Row <number> · <criterion>
@@ -936,6 +1223,7 @@ What the maintainers do with a filing shapes it:
 - Candidate, source and record: <name, commit, manifest and receipt links>
 - Falsifier and changed-law outcome: <prediction, gate and observed outcomes>
 - Calibration and limitations: <supplied pieces, held-out misses, open clauses>
+- Choices the outcome turns on: <each with its alternative, the outcome under it, and what was known when it was chosen>
 - Method and replay: <method note, command, expected output and runtime>
 - Review and scoped findings: <audit and completed submission checklist>
 - Simulation or visualization: <owner-supplied URL and what it shows>
@@ -984,6 +1272,8 @@ What the maintainers do with a filing shapes it:
 - Keep every outcome, including failures, timeouts, invalid and complement outcomes and failed alternatives.
   Distinguish inconclusive observations from falsifications and proof claims from finite samples.
 - Where an independent check is claimed, state its actual independence, including the producer code it imports.
+- Report a computed probability as computed and a draw as a draw. Report the piece an outcome turns on with the
+  outcome.
 
 ## 15. Precedents
 
@@ -994,30 +1284,39 @@ What the maintainers do with a filing shapes it:
 | Charge and electron cells of [M4 and M8][results] | The M10.2 review cited them as the bar applied elsewhere: M4's charge row is ❌ with its sign "imposed", M8's charge row is 🚧 on an assignment, and M8's electron row is 🚧 with the mass as a "calibration anchor (benchmark input, not a prediction)". |
 | [M10.1][m10_1] | A clean-room recomputation confirmed seven frozen coefficients on the declared twelve-direction operator. Arithmetic on a declared object closed the task with no cell moved. |
 | [M10.2][m10_2] and its [maintainer review][review] | The author filed a method note, scripts and receipts. The maintainers recomputed the headline numbers from one data file and the method note's formulas without executing the author's package, adopted the pin, and kept rows 1, 2 and 7 at 🚧 because the integer, the anchored value and the half-turn return came from declarations. The review names what would move each row. |
+| [M10.3][m10_3] and its [maintainer review][review3] | The author filed a freely evolving pair of unit loads on blank memories and asked for ✅ on row 4. The maintainers recomputed every number by their own route and adopted the pin. The row moved to ⚠️: the persistence comes out of the process and is lost with the coupling removed, and the coupling is a choice that answers to the row. |
+| [M10.4][m10_4] and its [maintainer review][review4] | The filing removed the dependence on the coupling with a proof at every coupling and added eleven written seam records designed with the criterion known. Every number reproduced and the pin moved. The row stayed at ⚠️ on the pattern of records, the first time the reading was applied to pinned memory. The review tested the same reading on M5's ✅ cell from M5's [task plan][m5_21_10] and left it in place. |
+| [Lessons log][lessons], the rows on the M10.3 and M10.4 reviews | The maintainers' drafts first grounded the ⚠️ in reasons that hold for every column, and an independent audit caught it before posting. A reason for a mark has to leave the other columns' marked cells where they are, and a way forward has to avoid the defect the review names. |
 
 [ow]: https://github.com/openwave-labs/openwave
-[models]: https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md
-[bar]: https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#summary-status
-[simplest]: https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#simplest-test-per-criterion
-[results]: https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md#results-by-model
+[models]: https://github.com/openwave-labs/openwave/blob/bab6818b4a278ffef083c1e86c12134e5ff14ab5/MODELS.md
+[bar]: https://github.com/openwave-labs/openwave/blob/bab6818b4a278ffef083c1e86c12134e5ff14ab5/MODELS.md#summary-status
+[simplest]: https://github.com/openwave-labs/openwave/blob/bab6818b4a278ffef083c1e86c12134e5ff14ab5/MODELS.md#simplest-test-per-criterion
+[results]: https://github.com/openwave-labs/openwave/blob/bab6818b4a278ffef083c1e86c12134e5ff14ab5/MODELS.md#results-by-model
 [admission]: https://github.com/openwave-labs/openwave/discussions/712#discussioncomment-19595538
-[canonical]: https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/openwave/xperiments/m10_oph/research/m10_theory_canonical.md
-[canon1]: https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/openwave/xperiments/m10_oph/research/m10_theory_canonical.md#1-specification-of-record-and-the-pin
-[canon8]: https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/openwave/xperiments/m10_oph/research/m10_theory_canonical.md#8-consumption-rules-how-this-column-is-scored
-[orientation3]: https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/openwave/xperiments/m10_oph/research/m10_agent_orientation.md#3-the-working-rules-this-column-runs-under
-[roadmap]: https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/openwave/xperiments/m10_oph/research/m10_roadmap.md
-[review]: https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/openwave/xperiments/m10_oph/research/findings/m10_2_maintainer_review.md
-[m10_1]: https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/openwave/xperiments/m10_oph/research/tasks/m10_1_task_details.md
-[m10_2]: https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/openwave/xperiments/m10_oph/research/tasks/m10_2_task_details.md
-[m5_21]: https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/openwave/xperiments/m5_liquid_crystal/research/tasks/m5_21_task_details.md
-[t11]: https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/dev_docs/tasks/t11_task_details.md
-[hygiene]: https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/AI_HYGIENE.md#1-the-stance
-[onboarding]: https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/ONBOARDING_MODELS.md#11-the-one-question-that-matters-prediction-or-post-fit
-[paramcount]: https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/ONBOARDING_MODELS.md#the-parameter-count-test
-[prstd]: https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/dev_docs/PR_REVIEW_STANDARDS.md
-[gatee]: https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/dev_docs/PR_REVIEW_STANDARDS.md#7-gate-e-modelsmd-cell-changes
-[safety]: https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/dev_docs/PR_REVIEW_STANDARDS.md#31-the-safety-gate-before-anything-runs
-[methodnote]: https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/dev_docs/METHOD_NOTE.md
-[roadmapstd]: https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/dev_docs/ROADMAP_STANDARDS.md
-[reproduce]: https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/REPRODUCE.md
-[contributing]: https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/CONTRIBUTING.md
+[canonical]: https://github.com/openwave-labs/openwave/blob/bab6818b4a278ffef083c1e86c12134e5ff14ab5/openwave/xperiments/m10_oph/research/m10_theory_canonical.md
+[canon1]: https://github.com/openwave-labs/openwave/blob/bab6818b4a278ffef083c1e86c12134e5ff14ab5/openwave/xperiments/m10_oph/research/m10_theory_canonical.md#1-specification-of-record-and-the-pin
+[canon8]: https://github.com/openwave-labs/openwave/blob/bab6818b4a278ffef083c1e86c12134e5ff14ab5/openwave/xperiments/m10_oph/research/m10_theory_canonical.md#8-consumption-rules-how-this-column-is-scored
+[orientation3]: https://github.com/openwave-labs/openwave/blob/bab6818b4a278ffef083c1e86c12134e5ff14ab5/openwave/xperiments/m10_oph/research/m10_agent_orientation.md#3-the-working-rules-this-column-runs-under
+[roadmap]: https://github.com/openwave-labs/openwave/blob/bab6818b4a278ffef083c1e86c12134e5ff14ab5/openwave/xperiments/m10_oph/research/m10_roadmap.md
+[review]: https://github.com/openwave-labs/openwave/blob/bab6818b4a278ffef083c1e86c12134e5ff14ab5/openwave/xperiments/m10_oph/research/findings/m10_2_maintainer_review.md
+[review3]: https://github.com/openwave-labs/openwave/blob/bab6818b4a278ffef083c1e86c12134e5ff14ab5/openwave/xperiments/m10_oph/research/findings/m10_3_maintainer_review.md
+[review4]: https://github.com/openwave-labs/openwave/blob/bab6818b4a278ffef083c1e86c12134e5ff14ab5/openwave/xperiments/m10_oph/research/findings/m10_4_maintainer_review.md
+[m10_3]: https://github.com/openwave-labs/openwave/blob/bab6818b4a278ffef083c1e86c12134e5ff14ab5/openwave/xperiments/m10_oph/research/tasks/m10_3_task_details.md
+[m10_4]: https://github.com/openwave-labs/openwave/blob/bab6818b4a278ffef083c1e86c12134e5ff14ab5/openwave/xperiments/m10_oph/research/tasks/m10_4_task_details.md
+[m5_21_10]: https://github.com/openwave-labs/openwave/blob/bab6818b4a278ffef083c1e86c12134e5ff14ab5/openwave/xperiments/m5_liquid_crystal/research/tasks/m5_21_10_task_details.md
+[lessons]: https://github.com/openwave-labs/openwave/blob/bab6818b4a278ffef083c1e86c12134e5ff14ab5/dev_docs/PR_REVIEW_STANDARDS.md#14-lessons-log
+[m10_1]: https://github.com/openwave-labs/openwave/blob/bab6818b4a278ffef083c1e86c12134e5ff14ab5/openwave/xperiments/m10_oph/research/tasks/m10_1_task_details.md
+[m10_2]: https://github.com/openwave-labs/openwave/blob/bab6818b4a278ffef083c1e86c12134e5ff14ab5/openwave/xperiments/m10_oph/research/tasks/m10_2_task_details.md
+[m5_21]: https://github.com/openwave-labs/openwave/blob/bab6818b4a278ffef083c1e86c12134e5ff14ab5/openwave/xperiments/m5_liquid_crystal/research/tasks/m5_21_task_details.md
+[t11]: https://github.com/openwave-labs/openwave/blob/bab6818b4a278ffef083c1e86c12134e5ff14ab5/dev_docs/tasks/t11_task_details.md
+[hygiene]: https://github.com/openwave-labs/openwave/blob/bab6818b4a278ffef083c1e86c12134e5ff14ab5/AI_HYGIENE.md#1-the-stance
+[onboarding]: https://github.com/openwave-labs/openwave/blob/bab6818b4a278ffef083c1e86c12134e5ff14ab5/ONBOARDING_MODELS.md#11-the-one-question-that-matters-prediction-or-post-fit
+[paramcount]: https://github.com/openwave-labs/openwave/blob/bab6818b4a278ffef083c1e86c12134e5ff14ab5/ONBOARDING_MODELS.md#the-parameter-count-test
+[prstd]: https://github.com/openwave-labs/openwave/blob/bab6818b4a278ffef083c1e86c12134e5ff14ab5/dev_docs/PR_REVIEW_STANDARDS.md
+[gatee]: https://github.com/openwave-labs/openwave/blob/bab6818b4a278ffef083c1e86c12134e5ff14ab5/dev_docs/PR_REVIEW_STANDARDS.md#7-gate-e-modelsmd-cell-changes
+[safety]: https://github.com/openwave-labs/openwave/blob/bab6818b4a278ffef083c1e86c12134e5ff14ab5/dev_docs/PR_REVIEW_STANDARDS.md#31-the-safety-gate-before-anything-runs
+[methodnote]: https://github.com/openwave-labs/openwave/blob/bab6818b4a278ffef083c1e86c12134e5ff14ab5/dev_docs/METHOD_NOTE.md
+[roadmapstd]: https://github.com/openwave-labs/openwave/blob/bab6818b4a278ffef083c1e86c12134e5ff14ab5/dev_docs/ROADMAP_STANDARDS.md
+[reproduce]: https://github.com/openwave-labs/openwave/blob/bab6818b4a278ffef083c1e86c12134e5ff14ab5/REPRODUCE.md
+[contributing]: https://github.com/openwave-labs/openwave/blob/bab6818b4a278ffef083c1e86c12134e5ff14ab5/CONTRIBUTING.md
