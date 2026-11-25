@@ -149,6 +149,11 @@ def certify_chart(ports, board, guide, sign):
 
     coin0 = int(sign > 0)
     raw = blocks()
+    # With these cross contacts shuttered, an exterior probe is causally
+    # independent of an internal launch for a fixed exterior preparation.
+    cut = nx.edge_boundary(graph, set(path))
+    assert all(tuple(sorted(edge)) in outside for edge in cut)
+    np.testing.assert_array_equal(raw[0, 1], np.zeros((18, 18), dtype=int))
     h = np.zeros((guide.n, guide.n))
     for x in range(guide.n):
         for a in (x - 1, x):

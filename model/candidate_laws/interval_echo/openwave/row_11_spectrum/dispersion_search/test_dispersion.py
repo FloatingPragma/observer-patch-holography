@@ -73,6 +73,9 @@ def test_replay_disjoint_banks_and_finite_bulk():
     # Exercise the actual source, momentum, Ramsey and dual-current readers
     # against one frozen independent seed without replaying every long layout.
     ports, board = measure.geometry()
+    for length, expected_cut in ((96, 352), (144, 526)):
+        path = set(ports[:length])
+        assert sum((a in path) != (b in path) for a, b in board.seams) == expected_cut
     repeated = measure.acquire(
         96, 16, -1, ports[:96], board, np.random.default_rng(830021 + 96 - 1)
     )
