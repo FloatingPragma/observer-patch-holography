@@ -30,7 +30,7 @@ The earlier-release bank arms the same trigger and starts thermal contacts one r
 
 For a measurement insensitive to a common offset, take the difference of the two captured energies on a neighboring pair of cells, ordered from smaller to larger root distance. Take a second edge whose post-reset input cells are disjoint from the entire first edge's input cells. Compare the two records after capture. The [contrast producer](contrast.py) picks the smallest sum of inner root distances among eligible edge pairs and then breaks ties by address. The table lists every board and deadline with eligible edges. Times are sweeps and covariances are in squared native gaps.
 
-| Cells | H | Eligible edge pairs | Root distances on selected edges | Exact earlier-release covariance | Measured covariance ± simultaneous 99% half-width |
+| Cells | H | Eligible edge pairs | Root distances on selected edges | Exact earlier-release covariance | Covariance from simulated captures ± simultaneous 99% half-width |
 | ---: | ---: | ---: | --- | ---: | ---: |
 | 80 | 2 | 394 | (2,3) and (5,6) | 3.209 × 10⁻⁷ | (3.24 ± 2.63) × 10⁻⁷ |
 | 320 | 2 | 66,850 | (3,4) and (3,4) | 6.410 × 10⁻⁷ | (6.06 ± 2.63) × 10⁻⁷ |
