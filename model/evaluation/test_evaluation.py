@@ -257,3 +257,24 @@ def test_photon_comparisons_keep_each_construction_and_evidence_visible():
         assert ev.report.comparison_link(study) in scorecard
         assert study['finding'] in evidence
         assert study['source'] not in photon['evidence']
+
+
+def test_measured_premises_preserve_the_candidate_and_reject_duplicate_sources(tmp_path, monkeypatch):
+    import json
+
+    directory = tmp_path / 'model' / 'candidate_laws' / 'test_source'
+    directory.mkdir(parents=True)
+    (directory / 'receipt.json').write_text('{}')
+    path = directory / 'premise_results.json'
+    path.write_text(json.dumps({'PR-1': {'status': 'fulfilled', 'evidence': ['receipt.json'],
+                                        'note': 'Finite run with a complete public record.'}}))
+    candidate = SimpleNamespace(NAME='test_source', PREMISES={})
+    premise = {'id': 'PR-1', 'name': 'record', 'statement': 'A record is emitted.',
+               'premise_kind': 'derivable'}
+    roles = {'types': {}, 'overrides': {}, 'defaults': {'derivable': 'law'}}
+    monkeypatch.setattr(ev, 'ROOT', tmp_path)
+    assert ev.premise_rows(candidate, [premise], roles)[0]['status'] == 'fulfilled'
+    assert candidate.PREMISES == {}
+    candidate.PREMISES['PR-1'] = {'status': 'open'}
+    with pytest.raises(SystemExit, match='duplicate premise assessments'):
+        ev.premise_rows(candidate, [premise], roles)

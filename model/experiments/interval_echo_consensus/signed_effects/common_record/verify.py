@@ -14,6 +14,11 @@ PHASE = ROOT / "code/phase_operation_producer/PHASE_OPERATION_RECEIPT.v1.json"
 CENSUS = ROOT / "code/born_context_phase_lift/BORN_CONTEXT_WEB_PAYLOAD.v1.json"
 
 
+# The verifier is the independent checkout anchor for this fixed run. The
+# native acquisition separately reconstructs every branch's pulse-word hash.
+ARCHIVED_RUN = "2057e18a00443ddf30a5f97e10901b24a05834e22a1ee1e5f61fe30f694b6dd2"
+
+
 def check(condition, message):
     if not condition:
         raise ValueError(message)
@@ -71,9 +76,13 @@ def verify(stream, receipt):
           "incomplete operation bindings")
     for name, digest in receipt["source_sha256"].items():
         check(hashlib.sha256((ROOT / name).read_bytes()).hexdigest() == digest, f"source differs: {name}")
+    check((receipt["launches"], receipt["seed_pcg64"]) == (65536, 17911168), "wrong acquisition")
     expected = exact_replay(receipt["launches"], receipt["seed_pcg64"])
     check(expected.tobytes() == stream, "trace differs from independent source/operation replay")
     check(hashlib.sha256(stream).hexdigest() == receipt["uncompressed_trace_sha256"], "stream digest differs")
+    refused = expected[:, 1] == 255
+    check(int(np.count_nonzero(refused)) == receipt["refused_launches"], "refusal count differs")
+    check(receipt["run_sha256"] == ARCHIVED_RUN, "descriptor differs from archived native run")
     return len(expected)
 
 
