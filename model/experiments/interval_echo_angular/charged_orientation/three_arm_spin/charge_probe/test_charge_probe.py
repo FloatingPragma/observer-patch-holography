@@ -70,3 +70,36 @@ def test_prediction_from_ordinary_observer_counts():
         assert not tomography.overlaps(
             tomography.predict(training, b, np.zeros(3)) * factor, held
         )
+
+
+def test_conditioning_on_an_empty_patch_distinguishes_a_terminal_record_from_the_bulk():
+    from . import empty_patch
+
+    record = empty_patch.run()
+    archived = json.loads((empty_patch.HERE / "empty_patch.json").read_text())
+    assert record["bulk_empty_conditional_trace_distance_from_idle"] == 0
+    for row, expected in zip(record["rows"], archived["rows"], strict=True):
+        assert (
+            sum(row["counts_changed_unchanged_occupied_refused"])
+            == record["starts_per_bank"]
+        )
+        assert len(row["intermediate_owners"]) == 12
+        assert all(
+            sum(x["counts_charge_empty_refusal"]) == record["starts_per_bank"]
+            for x in row["intermediate_owners"]
+        )
+        np.testing.assert_allclose(
+            row["empty_receiver_changed_per_start"],
+            expected["empty_receiver_changed_per_start"],
+            rtol=1e-8,
+        )
+    minus, plus = record["rows"][:2], record["rows"][2:]
+    for a, b in zip(minus, plus, strict=True):
+        np.testing.assert_allclose(
+            [r["charge_probability_given_source"] for r in a["intermediate_owners"]],
+            [r["charge_probability_given_source"] for r in b["intermediate_owners"]],
+        )
+    assert (
+        minus[1]["empty_receiver_changed_per_start"]
+        > 50 * minus[0]["empty_receiver_changed_per_start"]
+    )
