@@ -277,8 +277,7 @@ of the finite theorems on the fixed carrier, or a failure of a candidate shown
 on its observers' records. The [scorecard](model/evaluation/SCORECARD.md)
 and the
 [research issues](https://github.com/FloatingPragma/observer-patch-holography/issues?q=is%3Aissue+is%3Aopen+label%3Aprogram%3Aphysics)
-set out the work. With a coding agent and some quota, the
-[vibe tutorial](docs/VIBE_TUTORIAL.md) takes you from a clone to a pull request.
+set out the work.
 Main-branch PDFs are source previews; deposited releases
 keep their original bytes.
 

@@ -1,6 +1,6 @@
 ## Row
 
-Row ID from docs/registers/OBSERVABLES.json or model/evaluation/SCORECARD.md:
+Row ID from docs/registers/OBSERVABLES.json or model/evaluation/SCORECARD.md, or the issue this pull request answers (#1033 audit, #1078 obstruction search):
 
 ## Evidence
 

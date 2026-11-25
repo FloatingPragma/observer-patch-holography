@@ -19,7 +19,7 @@ run data from declared candidate models.
 
 | Path | Contents |
 | --- | --- |
-| This folder | The basis, the paper set, canonical references, the common-objections guide, the OpenWave submission guidelines and the vibe tutorial for contributors with a coding agent |
+| This folder | The basis, the paper set, canonical references, the common-objections guide, the OpenWave submission guidelines and the [vibe physics tutorial](VIBE_TUTORIAL.md) for contributors with a coding agent |
 | [`registers/`](registers/) | The observables register: observables and premises with their status |
 | [`research/`](research/) | The public-data comparison that the papers cite |
 | [`policies/`](policies/) | Data and writing policies |
@@ -62,7 +62,6 @@ run data from declared candidate models.
   formalization](../Lean/). Follow the [numerical audit
   procedure](policies/NUMERICAL_AUDIT.md) when changing finite numerical
   evidence or addressing review findings.
-  To contribute with a coding agent, follow the [vibe tutorial](VIBE_TUTORIAL.md).
 
 ## Basis And Paper Set
 
