@@ -1,0 +1,14 @@
+{
+  "levels": [0, 1, 2],
+  "root": 0,
+  "deadline": 36,
+  "angular_scale": "At level L use q=1 through layer 8, q=min(2,2^L) through layer 16, and q=2^L afterwards. Group finest cells by the 20 base faces. At q=2^j enroll the last descendant of each level-j address in every face. Verify the actual four-child seam quotients.",
+  "clock": "One sharp material marker stroke per microstep, q microsteps per conformal service. At each enrolled cell publish every measured marker change. Other probes can read their clocks outside this census. Count distinct changes, never echo rereads of a parked marker.",
+  "signal": "Each nonroot owner copies the incoming sharp stream from its lowest-numbered shortest-path parent, processing children before parents. Root publishes one-sweep crests at launch plus offsets 0,2,4,6. An owner's first crest closes the thermal contact after its offer that sweep. Use a commanded launch at layer zero, then the entire geometric first-change distribution and all fixed-deadline misses.",
+  "receivers": "Use the lowest numbered owner at each distinct radius min(4,D), min(8,D), min(16,D), where D is the root eccentricity. Record emitter and receiver crest spacings in their own marker transitions. Independently predict the spacing from the elapsed microsteps in each finite interval.",
+  "comparison": "In a separate clock comparison on the commanded stream, choose the middle of the sorted distinct receiver radii, and its lowest-address neighbor. Their seam witnesses the passing bright crests. The receiver counts native pi strokes after two actual prelaunch strokes. The neighbor starts after three actual flips and its independent dimer has a pi/2 exposure per microstep, queried on each two-step boundary. Fit only the first two common rising crests. Compare the other two without refitting. Park one complete right-clock period after the second crest as a control, also cut just the common read seam.",
+  "controls": ["static cadence and fixed enrollment", "fixed enrollment with changing cadence", "park external stream crossings", "park material exchange in the census", "re-read an unchanged census marker", "park one full comparison oscillator period"],
+  "thermal": "Unequal-temperature native probe and reservoir at each nonroot owner, independent local swap offers once per conformal service. Follow the four cells of the archived 320-cell two-edge contrast at a common deadline of 25 layers. Compare the complete trigger mixture and a per-contact sample of joint energies with their local marker clock reading.",
+  "seed": 170176,
+  "contrast_originals": 281474976710656
+}
