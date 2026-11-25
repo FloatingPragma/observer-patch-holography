@@ -1,0 +1,1594 @@
+{
+  "basis_order": [
+    "net excess",
+    "target minus hub excess",
+    "donor excess"
+  ],
+  "phase_step_radians": [
+    "0",
+    "pi/2",
+    "pi"
+  ],
+  "complete_endpoint_catalogue": [
+    {
+      "word": [
+        0,
+        0,
+        0
+      ],
+      "net": -2,
+      "signed_difference": 0,
+      "donor": -1,
+      "charge_power": [
+        4,
+        2.0,
+        0
+      ],
+      "outcome": "charged"
+    },
+    {
+      "word": [
+        0,
+        0,
+        1
+      ],
+      "net": -2,
+      "signed_difference": 0,
+      "donor": 0,
+      "charge_power": [
+        4,
+        2.0,
+        0
+      ],
+      "outcome": "charged"
+    },
+    {
+      "word": [
+        0,
+        0,
+        2
+      ],
+      "net": -2,
+      "signed_difference": 0,
+      "donor": 1,
+      "charge_power": [
+        4,
+        2.0,
+        0
+      ],
+      "outcome": "charged"
+    },
+    {
+      "word": [
+        0,
+        1,
+        0
+      ],
+      "net": -1,
+      "signed_difference": 1,
+      "donor": -1,
+      "charge_power": [
+        1,
+        1.0,
+        1
+      ],
+      "outcome": "charged"
+    },
+    {
+      "word": [
+        0,
+        1,
+        1
+      ],
+      "net": -1,
+      "signed_difference": 1,
+      "donor": 0,
+      "charge_power": [
+        1,
+        1.0,
+        1
+      ],
+      "outcome": "charged"
+    },
+    {
+      "word": [
+        0,
+        1,
+        2
+      ],
+      "net": -1,
+      "signed_difference": 1,
+      "donor": 1,
+      "charge_power": [
+        1,
+        1.0,
+        1
+      ],
+      "outcome": "charged"
+    },
+    {
+      "word": [
+        0,
+        2,
+        0
+      ],
+      "net": 0,
+      "signed_difference": 2,
+      "donor": -1,
+      "charge_power": [
+        0,
+        2.0,
+        4
+      ],
+      "outcome": "resolved_pair"
+    },
+    {
+      "word": [
+        0,
+        2,
+        1
+      ],
+      "net": 0,
+      "signed_difference": 2,
+      "donor": 0,
+      "charge_power": [
+        0,
+        2.0,
+        4
+      ],
+      "outcome": "resolved_pair"
+    },
+    {
+      "word": [
+        0,
+        2,
+        2
+      ],
+      "net": 0,
+      "signed_difference": 2,
+      "donor": 1,
+      "charge_power": [
+        0,
+        2.0,
+        4
+      ],
+      "outcome": "resolved_pair"
+    },
+    {
+      "word": [
+        1,
+        0,
+        0
+      ],
+      "net": -1,
+      "signed_difference": -1,
+      "donor": -1,
+      "charge_power": [
+        1,
+        1.0,
+        1
+      ],
+      "outcome": "charged"
+    },
+    {
+      "word": [
+        1,
+        0,
+        1
+      ],
+      "net": -1,
+      "signed_difference": -1,
+      "donor": 0,
+      "charge_power": [
+        1,
+        1.0,
+        1
+      ],
+      "outcome": "charged"
+    },
+    {
+      "word": [
+        1,
+        0,
+        2
+      ],
+      "net": -1,
+      "signed_difference": -1,
+      "donor": 1,
+      "charge_power": [
+        1,
+        1.0,
+        1
+      ],
+      "outcome": "charged"
+    },
+    {
+      "word": [
+        1,
+        1,
+        0
+      ],
+      "net": 0,
+      "signed_difference": 0,
+      "donor": -1,
+      "charge_power": [
+        0,
+        0.0,
+        0
+      ],
+      "outcome": "locally_filled"
+    },
+    {
+      "word": [
+        1,
+        1,
+        1
+      ],
+      "net": 0,
+      "signed_difference": 0,
+      "donor": 0,
+      "charge_power": [
+        0,
+        0.0,
+        0
+      ],
+      "outcome": "locally_filled"
+    },
+    {
+      "word": [
+        1,
+        1,
+        2
+      ],
+      "net": 0,
+      "signed_difference": 0,
+      "donor": 1,
+      "charge_power": [
+        0,
+        0.0,
+        0
+      ],
+      "outcome": "locally_filled"
+    },
+    {
+      "word": [
+        1,
+        2,
+        0
+      ],
+      "net": 1,
+      "signed_difference": 1,
+      "donor": -1,
+      "charge_power": [
+        1,
+        1.0,
+        1
+      ],
+      "outcome": "charged"
+    },
+    {
+      "word": [
+        1,
+        2,
+        1
+      ],
+      "net": 1,
+      "signed_difference": 1,
+      "donor": 0,
+      "charge_power": [
+        1,
+        1.0,
+        1
+      ],
+      "outcome": "charged"
+    },
+    {
+      "word": [
+        1,
+        2,
+        2
+      ],
+      "net": 1,
+      "signed_difference": 1,
+      "donor": 1,
+      "charge_power": [
+        1,
+        1.0,
+        1
+      ],
+      "outcome": "charged"
+    },
+    {
+      "word": [
+        2,
+        0,
+        0
+      ],
+      "net": 0,
+      "signed_difference": -2,
+      "donor": -1,
+      "charge_power": [
+        0,
+        2.0,
+        4
+      ],
+      "outcome": "resolved_pair"
+    },
+    {
+      "word": [
+        2,
+        0,
+        1
+      ],
+      "net": 0,
+      "signed_difference": -2,
+      "donor": 0,
+      "charge_power": [
+        0,
+        2.0,
+        4
+      ],
+      "outcome": "resolved_pair"
+    },
+    {
+      "word": [
+        2,
+        0,
+        2
+      ],
+      "net": 0,
+      "signed_difference": -2,
+      "donor": 1,
+      "charge_power": [
+        0,
+        2.0,
+        4
+      ],
+      "outcome": "resolved_pair"
+    },
+    {
+      "word": [
+        2,
+        1,
+        0
+      ],
+      "net": 1,
+      "signed_difference": -1,
+      "donor": -1,
+      "charge_power": [
+        1,
+        1.0,
+        1
+      ],
+      "outcome": "charged"
+    },
+    {
+      "word": [
+        2,
+        1,
+        1
+      ],
+      "net": 1,
+      "signed_difference": -1,
+      "donor": 0,
+      "charge_power": [
+        1,
+        1.0,
+        1
+      ],
+      "outcome": "charged"
+    },
+    {
+      "word": [
+        2,
+        1,
+        2
+      ],
+      "net": 1,
+      "signed_difference": -1,
+      "donor": 1,
+      "charge_power": [
+        1,
+        1.0,
+        1
+      ],
+      "outcome": "charged"
+    },
+    {
+      "word": [
+        2,
+        2,
+        0
+      ],
+      "net": 2,
+      "signed_difference": 0,
+      "donor": -1,
+      "charge_power": [
+        4,
+        2.0,
+        0
+      ],
+      "outcome": "charged"
+    },
+    {
+      "word": [
+        2,
+        2,
+        1
+      ],
+      "net": 2,
+      "signed_difference": 0,
+      "donor": 0,
+      "charge_power": [
+        4,
+        2.0,
+        0
+      ],
+      "outcome": "charged"
+    },
+    {
+      "word": [
+        2,
+        2,
+        2
+      ],
+      "net": 2,
+      "signed_difference": 0,
+      "donor": 1,
+      "charge_power": [
+        4,
+        2.0,
+        0
+      ],
+      "outcome": "charged"
+    }
+  ],
+  "full_signed_classes": 27,
+  "unoriented_classes": 18,
+  "detected_banks": [
+    {
+      "sign": -1,
+      "setting": "off",
+      "basis": "arm",
+      "column": 0,
+      "classifications": {
+        "charged": 207790,
+        "locally_filled": 0,
+        "resolved_pair": 0
+      },
+      "signed_records": [
+        [
+          -1,
+          1,
+          1,
+          207790
+        ]
+      ],
+      "no_arrival": 91625802970,
+      "source_refused": 183251896184,
+      "starts": 274877906944
+    },
+    {
+      "sign": -1,
+      "setting": "off",
+      "basis": "arm",
+      "column": 1,
+      "classifications": {
+        "charged": 208033,
+        "locally_filled": 0,
+        "resolved_pair": 0
+      },
+      "signed_records": [
+        [
+          -1,
+          1,
+          1,
+          208033
+        ]
+      ],
+      "no_arrival": 91625278397,
+      "source_refused": 183252420514,
+      "starts": 274877906944
+    },
+    {
+      "sign": -1,
+      "setting": "off",
+      "basis": "arm",
+      "column": 2,
+      "classifications": {
+        "charged": 207816,
+        "locally_filled": 0,
+        "resolved_pair": 0
+      },
+      "signed_records": [
+        [
+          -1,
+          1,
+          1,
+          207816
+        ]
+      ],
+      "no_arrival": 91625543225,
+      "source_refused": 183252155903,
+      "starts": 274877906944
+    },
+    {
+      "sign": -1,
+      "setting": "off",
+      "basis": "character",
+      "column": 0,
+      "classifications": {
+        "charged": 225278,
+        "locally_filled": 0,
+        "resolved_pair": 0
+      },
+      "signed_records": [
+        [
+          -1,
+          1,
+          1,
+          225278
+        ]
+      ],
+      "no_arrival": 91625906066,
+      "source_refused": 183251775600,
+      "starts": 274877906944
+    },
+    {
+      "sign": -1,
+      "setting": "off",
+      "basis": "character",
+      "column": 1,
+      "classifications": {
+        "charged": 198693,
+        "locally_filled": 0,
+        "resolved_pair": 0
+      },
+      "signed_records": [
+        [
+          -1,
+          1,
+          1,
+          198693
+        ]
+      ],
+      "no_arrival": 91625281056,
+      "source_refused": 183252427195,
+      "starts": 274877906944
+    },
+    {
+      "sign": -1,
+      "setting": "off",
+      "basis": "character",
+      "column": 2,
+      "classifications": {
+        "charged": 199360,
+        "locally_filled": 0,
+        "resolved_pair": 0
+      },
+      "signed_records": [
+        [
+          -1,
+          1,
+          1,
+          199360
+        ]
+      ],
+      "no_arrival": 91625789824,
+      "source_refused": 183251917760,
+      "starts": 274877906944
+    },
+    {
+      "sign": -1,
+      "setting": "half",
+      "basis": "arm",
+      "column": 0,
+      "classifications": {
+        "charged": 104220,
+        "locally_filled": 0,
+        "resolved_pair": 104045
+      },
+      "signed_records": [
+        [
+          -1,
+          1,
+          1,
+          104220
+        ],
+        [
+          0,
+          2,
+          0,
+          104045
+        ]
+      ],
+      "no_arrival": 91625896702,
+      "source_refused": 183251801977,
+      "starts": 274877906944
+    },
+    {
+      "sign": -1,
+      "setting": "half",
+      "basis": "arm",
+      "column": 1,
+      "classifications": {
+        "charged": 103498,
+        "locally_filled": 0,
+        "resolved_pair": 103468
+      },
+      "signed_records": [
+        [
+          -1,
+          1,
+          1,
+          103498
+        ],
+        [
+          0,
+          2,
+          0,
+          103468
+        ]
+      ],
+      "no_arrival": 91626060649,
+      "source_refused": 183251639329,
+      "starts": 274877906944
+    },
+    {
+      "sign": -1,
+      "setting": "half",
+      "basis": "arm",
+      "column": 2,
+      "classifications": {
+        "charged": 103648,
+        "locally_filled": 0,
+        "resolved_pair": 103499
+      },
+      "signed_records": [
+        [
+          -1,
+          1,
+          1,
+          103648
+        ],
+        [
+          0,
+          2,
+          0,
+          103499
+        ]
+      ],
+      "no_arrival": 91625877751,
+      "source_refused": 183251822046,
+      "starts": 274877906944
+    },
+    {
+      "sign": -1,
+      "setting": "half",
+      "basis": "character",
+      "column": 0,
+      "classifications": {
+        "charged": 112488,
+        "locally_filled": 0,
+        "resolved_pair": 112836
+      },
+      "signed_records": [
+        [
+          -1,
+          1,
+          1,
+          112488
+        ],
+        [
+          0,
+          2,
+          0,
+          112836
+        ]
+      ],
+      "no_arrival": 91625698442,
+      "source_refused": 183251983178,
+      "starts": 274877906944
+    },
+    {
+      "sign": -1,
+      "setting": "half",
+      "basis": "character",
+      "column": 1,
+      "classifications": {
+        "charged": 100023,
+        "locally_filled": 0,
+        "resolved_pair": 99988
+      },
+      "signed_records": [
+        [
+          -1,
+          1,
+          1,
+          100023
+        ],
+        [
+          0,
+          2,
+          0,
+          99988
+        ]
+      ],
+      "no_arrival": 91626341095,
+      "source_refused": 183251365838,
+      "starts": 274877906944
+    },
+    {
+      "sign": -1,
+      "setting": "half",
+      "basis": "character",
+      "column": 2,
+      "classifications": {
+        "charged": 100091,
+        "locally_filled": 0,
+        "resolved_pair": 99387
+      },
+      "signed_records": [
+        [
+          -1,
+          1,
+          1,
+          100091
+        ],
+        [
+          0,
+          2,
+          0,
+          99387
+        ]
+      ],
+      "no_arrival": 91625843424,
+      "source_refused": 183251864042,
+      "starts": 274877906944
+    },
+    {
+      "sign": -1,
+      "setting": "full",
+      "basis": "arm",
+      "column": 0,
+      "classifications": {
+        "charged": 0,
+        "locally_filled": 0,
+        "resolved_pair": 207369
+      },
+      "signed_records": [
+        [
+          0,
+          2,
+          0,
+          207369
+        ]
+      ],
+      "no_arrival": 91626068461,
+      "source_refused": 183251631114,
+      "starts": 274877906944
+    },
+    {
+      "sign": -1,
+      "setting": "full",
+      "basis": "arm",
+      "column": 1,
+      "classifications": {
+        "charged": 0,
+        "locally_filled": 0,
+        "resolved_pair": 207843
+      },
+      "signed_records": [
+        [
+          0,
+          2,
+          0,
+          207843
+        ]
+      ],
+      "no_arrival": 91625456555,
+      "source_refused": 183252242546,
+      "starts": 274877906944
+    },
+    {
+      "sign": -1,
+      "setting": "full",
+      "basis": "arm",
+      "column": 2,
+      "classifications": {
+        "charged": 0,
+        "locally_filled": 0,
+        "resolved_pair": 207744
+      },
+      "signed_records": [
+        [
+          0,
+          2,
+          0,
+          207744
+        ]
+      ],
+      "no_arrival": 91625620524,
+      "source_refused": 183252078676,
+      "starts": 274877906944
+    },
+    {
+      "sign": -1,
+      "setting": "full",
+      "basis": "character",
+      "column": 0,
+      "classifications": {
+        "charged": 0,
+        "locally_filled": 0,
+        "resolved_pair": 224550
+      },
+      "signed_records": [
+        [
+          0,
+          2,
+          0,
+          224550
+        ]
+      ],
+      "no_arrival": 91625563414,
+      "source_refused": 183252118980,
+      "starts": 274877906944
+    },
+    {
+      "sign": -1,
+      "setting": "full",
+      "basis": "character",
+      "column": 1,
+      "classifications": {
+        "charged": 0,
+        "locally_filled": 0,
+        "resolved_pair": 199390
+      },
+      "signed_records": [
+        [
+          0,
+          2,
+          0,
+          199390
+        ]
+      ],
+      "no_arrival": 91625357015,
+      "source_refused": 183252350539,
+      "starts": 274877906944
+    },
+    {
+      "sign": -1,
+      "setting": "full",
+      "basis": "character",
+      "column": 2,
+      "classifications": {
+        "charged": 0,
+        "locally_filled": 0,
+        "resolved_pair": 198378
+      },
+      "signed_records": [
+        [
+          0,
+          2,
+          0,
+          198378
+        ]
+      ],
+      "no_arrival": 91625689726,
+      "source_refused": 183252018840,
+      "starts": 274877906944
+    },
+    {
+      "sign": 1,
+      "setting": "off",
+      "basis": "arm",
+      "column": 0,
+      "classifications": {
+        "charged": 207368,
+        "locally_filled": 0,
+        "resolved_pair": 0
+      },
+      "signed_records": [
+        [
+          1,
+          -1,
+          -1,
+          207368
+        ]
+      ],
+      "no_arrival": 91625745134,
+      "source_refused": 183251954442,
+      "starts": 274877906944
+    },
+    {
+      "sign": 1,
+      "setting": "off",
+      "basis": "arm",
+      "column": 1,
+      "classifications": {
+        "charged": 207591,
+        "locally_filled": 0,
+        "resolved_pair": 0
+      },
+      "signed_records": [
+        [
+          1,
+          -1,
+          -1,
+          207591
+        ]
+      ],
+      "no_arrival": 91625923086,
+      "source_refused": 183251776267,
+      "starts": 274877906944
+    },
+    {
+      "sign": 1,
+      "setting": "off",
+      "basis": "arm",
+      "column": 2,
+      "classifications": {
+        "charged": 208390,
+        "locally_filled": 0,
+        "resolved_pair": 0
+      },
+      "signed_records": [
+        [
+          1,
+          -1,
+          -1,
+          208390
+        ]
+      ],
+      "no_arrival": 91625513617,
+      "source_refused": 183252184937,
+      "starts": 274877906944
+    },
+    {
+      "sign": 1,
+      "setting": "off",
+      "basis": "character",
+      "column": 0,
+      "classifications": {
+        "charged": 224569,
+        "locally_filled": 0,
+        "resolved_pair": 0
+      },
+      "signed_records": [
+        [
+          1,
+          -1,
+          -1,
+          224569
+        ]
+      ],
+      "no_arrival": 91626137500,
+      "source_refused": 183251544875,
+      "starts": 274877906944
+    },
+    {
+      "sign": 1,
+      "setting": "off",
+      "basis": "character",
+      "column": 1,
+      "classifications": {
+        "charged": 198924,
+        "locally_filled": 0,
+        "resolved_pair": 0
+      },
+      "signed_records": [
+        [
+          1,
+          -1,
+          -1,
+          198924
+        ]
+      ],
+      "no_arrival": 91625387849,
+      "source_refused": 183252320171,
+      "starts": 274877906944
+    },
+    {
+      "sign": 1,
+      "setting": "off",
+      "basis": "character",
+      "column": 2,
+      "classifications": {
+        "charged": 200478,
+        "locally_filled": 0,
+        "resolved_pair": 0
+      },
+      "signed_records": [
+        [
+          1,
+          -1,
+          -1,
+          200478
+        ]
+      ],
+      "no_arrival": 91625930761,
+      "source_refused": 183251775705,
+      "starts": 274877906944
+    },
+    {
+      "sign": 1,
+      "setting": "half",
+      "basis": "arm",
+      "column": 0,
+      "classifications": {
+        "charged": 104158,
+        "locally_filled": 0,
+        "resolved_pair": 103976
+      },
+      "signed_records": [
+        [
+          0,
+          -2,
+          0,
+          103976
+        ],
+        [
+          1,
+          -1,
+          -1,
+          104158
+        ]
+      ],
+      "no_arrival": 91625865553,
+      "source_refused": 183251833257,
+      "starts": 274877906944
+    },
+    {
+      "sign": 1,
+      "setting": "half",
+      "basis": "arm",
+      "column": 1,
+      "classifications": {
+        "charged": 104016,
+        "locally_filled": 0,
+        "resolved_pair": 103669
+      },
+      "signed_records": [
+        [
+          0,
+          -2,
+          0,
+          103669
+        ],
+        [
+          1,
+          -1,
+          -1,
+          104016
+        ]
+      ],
+      "no_arrival": 91626062410,
+      "source_refused": 183251636849,
+      "starts": 274877906944
+    },
+    {
+      "sign": 1,
+      "setting": "half",
+      "basis": "arm",
+      "column": 2,
+      "classifications": {
+        "charged": 104152,
+        "locally_filled": 0,
+        "resolved_pair": 103754
+      },
+      "signed_records": [
+        [
+          0,
+          -2,
+          0,
+          103754
+        ],
+        [
+          1,
+          -1,
+          -1,
+          104152
+        ]
+      ],
+      "no_arrival": 91625683980,
+      "source_refused": 183252015058,
+      "starts": 274877906944
+    },
+    {
+      "sign": 1,
+      "setting": "half",
+      "basis": "character",
+      "column": 0,
+      "classifications": {
+        "charged": 112211,
+        "locally_filled": 0,
+        "resolved_pair": 112489
+      },
+      "signed_records": [
+        [
+          0,
+          -2,
+          0,
+          112489
+        ],
+        [
+          1,
+          -1,
+          -1,
+          112211
+        ]
+      ],
+      "no_arrival": 91625472571,
+      "source_refused": 183252209673,
+      "starts": 274877906944
+    },
+    {
+      "sign": 1,
+      "setting": "half",
+      "basis": "character",
+      "column": 1,
+      "classifications": {
+        "charged": 99905,
+        "locally_filled": 0,
+        "resolved_pair": 99420
+      },
+      "signed_records": [
+        [
+          0,
+          -2,
+          0,
+          99420
+        ],
+        [
+          1,
+          -1,
+          -1,
+          99905
+        ]
+      ],
+      "no_arrival": 91625670677,
+      "source_refused": 183252036942,
+      "starts": 274877906944
+    },
+    {
+      "sign": 1,
+      "setting": "half",
+      "basis": "character",
+      "column": 2,
+      "classifications": {
+        "charged": 99923,
+        "locally_filled": 0,
+        "resolved_pair": 99556
+      },
+      "signed_records": [
+        [
+          0,
+          -2,
+          0,
+          99556
+        ],
+        [
+          1,
+          -1,
+          -1,
+          99923
+        ]
+      ],
+      "no_arrival": 91625778876,
+      "source_refused": 183251928589,
+      "starts": 274877906944
+    },
+    {
+      "sign": 1,
+      "setting": "full",
+      "basis": "arm",
+      "column": 0,
+      "classifications": {
+        "charged": 0,
+        "locally_filled": 0,
+        "resolved_pair": 208284
+      },
+      "signed_records": [
+        [
+          0,
+          -2,
+          0,
+          208284
+        ]
+      ],
+      "no_arrival": 91625520184,
+      "source_refused": 183252178476,
+      "starts": 274877906944
+    },
+    {
+      "sign": 1,
+      "setting": "full",
+      "basis": "arm",
+      "column": 1,
+      "classifications": {
+        "charged": 0,
+        "locally_filled": 0,
+        "resolved_pair": 208239
+      },
+      "signed_records": [
+        [
+          0,
+          -2,
+          0,
+          208239
+        ]
+      ],
+      "no_arrival": 91625699051,
+      "source_refused": 183251999654,
+      "starts": 274877906944
+    },
+    {
+      "sign": 1,
+      "setting": "full",
+      "basis": "arm",
+      "column": 2,
+      "classifications": {
+        "charged": 0,
+        "locally_filled": 0,
+        "resolved_pair": 207899
+      },
+      "signed_records": [
+        [
+          0,
+          -2,
+          0,
+          207899
+        ]
+      ],
+      "no_arrival": 91625815299,
+      "source_refused": 183251883746,
+      "starts": 274877906944
+    },
+    {
+      "sign": 1,
+      "setting": "full",
+      "basis": "character",
+      "column": 0,
+      "classifications": {
+        "charged": 0,
+        "locally_filled": 0,
+        "resolved_pair": 225016
+      },
+      "signed_records": [
+        [
+          0,
+          -2,
+          0,
+          225016
+        ]
+      ],
+      "no_arrival": 91625484060,
+      "source_refused": 183252197868,
+      "starts": 274877906944
+    },
+    {
+      "sign": 1,
+      "setting": "full",
+      "basis": "character",
+      "column": 1,
+      "classifications": {
+        "charged": 0,
+        "locally_filled": 0,
+        "resolved_pair": 199815
+      },
+      "signed_records": [
+        [
+          0,
+          -2,
+          0,
+          199815
+        ]
+      ],
+      "no_arrival": 91625836666,
+      "source_refused": 183251870463,
+      "starts": 274877906944
+    },
+    {
+      "sign": 1,
+      "setting": "full",
+      "basis": "character",
+      "column": 2,
+      "classifications": {
+        "charged": 0,
+        "locally_filled": 0,
+        "resolved_pair": 199132
+      },
+      "signed_records": [
+        [
+          0,
+          -2,
+          0,
+          199132
+        ]
+      ],
+      "no_arrival": 91625615307,
+      "source_refused": 183252092505,
+      "starts": 274877906944
+    }
+  ],
+  "by_sign_and_setting": {
+    "-1/off": {
+      "charged": 1246970,
+      "locally_filled": 0,
+      "resolved_pair": 0,
+      "no_arrival": 549753601538,
+      "source_refused": 1099512593156,
+      "starts": 1649267441664
+    },
+    "-1/half": {
+      "charged": 623968,
+      "locally_filled": 0,
+      "resolved_pair": 623223,
+      "no_arrival": 549755718063,
+      "source_refused": 1099510476410,
+      "starts": 1649267441664
+    },
+    "-1/full": {
+      "charged": 0,
+      "locally_filled": 0,
+      "resolved_pair": 1245274,
+      "no_arrival": 549753755695,
+      "source_refused": 1099512440695,
+      "starts": 1649267441664
+    },
+    "1/off": {
+      "charged": 1247320,
+      "locally_filled": 0,
+      "resolved_pair": 0,
+      "no_arrival": 549754637947,
+      "source_refused": 1099511556397,
+      "starts": 1649267441664
+    },
+    "1/half": {
+      "charged": 624365,
+      "locally_filled": 0,
+      "resolved_pair": 622864,
+      "no_arrival": 549754534067,
+      "source_refused": 1099511660368,
+      "starts": 1649267441664
+    },
+    "1/full": {
+      "charged": 0,
+      "locally_filled": 0,
+      "resolved_pair": 1248385,
+      "no_arrival": 549753970567,
+      "source_refused": 1099512222712,
+      "starts": 1649267441664
+    }
+  },
+  "independently_prepared_controls": {
+    "-1/opposite_incident": {
+      "classifications": {
+        "charged": 274877906944,
+        "locally_filled": 0,
+        "resolved_pair": 0
+      },
+      "signed_records": [
+        [
+          1,
+          -1,
+          1,
+          274877906944
+        ]
+      ],
+      "no_arrival": 0,
+      "source_refused": 0,
+      "starts": 274877906944
+    },
+    "-1/wrong_guard": {
+      "classifications": {
+        "charged": 274877906944,
+        "locally_filled": 0,
+        "resolved_pair": 0
+      },
+      "signed_records": [
+        [
+          -1,
+          1,
+          1,
+          274877906944
+        ]
+      ],
+      "no_arrival": 0,
+      "source_refused": 0,
+      "starts": 274877906944
+    },
+    "-1/depleted_donor": {
+      "classifications": {
+        "charged": 274877906944,
+        "locally_filled": 0,
+        "resolved_pair": 0
+      },
+      "signed_records": [
+        [
+          -1,
+          1,
+          0,
+          274877906944
+        ]
+      ],
+      "no_arrival": 0,
+      "source_refused": 0,
+      "starts": 274877906944
+    },
+    "-1/all_filled_hub": {
+      "classifications": {
+        "charged": 0,
+        "locally_filled": 274877906944,
+        "resolved_pair": 0
+      },
+      "signed_records": [
+        [
+          0,
+          0,
+          1,
+          274877906944
+        ]
+      ],
+      "no_arrival": 0,
+      "source_refused": 0,
+      "starts": 274877906944
+    },
+    "-1/prepared_inverse": {
+      "classifications": {
+        "charged": 274877906944,
+        "locally_filled": 0,
+        "resolved_pair": 0
+      },
+      "signed_records": [
+        [
+          -1,
+          1,
+          1,
+          274877906944
+        ]
+      ],
+      "no_arrival": 0,
+      "source_refused": 0,
+      "starts": 274877906944
+    },
+    "-1/half_contrast_frozen": {
+      "classifications": {
+        "charged": 137438827146,
+        "locally_filled": 0,
+        "resolved_pair": 137439079798
+      },
+      "signed_records": [
+        [
+          -1,
+          1,
+          1,
+          137438827146
+        ],
+        [
+          0,
+          2,
+          0,
+          137439079798
+        ]
+      ],
+      "no_arrival": 0,
+      "source_refused": 0,
+      "starts": 274877906944
+    },
+    "1/opposite_incident": {
+      "classifications": {
+        "charged": 274877906944,
+        "locally_filled": 0,
+        "resolved_pair": 0
+      },
+      "signed_records": [
+        [
+          -1,
+          1,
+          -1,
+          274877906944
+        ]
+      ],
+      "no_arrival": 0,
+      "source_refused": 0,
+      "starts": 274877906944
+    },
+    "1/wrong_guard": {
+      "classifications": {
+        "charged": 274877906944,
+        "locally_filled": 0,
+        "resolved_pair": 0
+      },
+      "signed_records": [
+        [
+          1,
+          -1,
+          -1,
+          274877906944
+        ]
+      ],
+      "no_arrival": 0,
+      "source_refused": 0,
+      "starts": 274877906944
+    },
+    "1/depleted_donor": {
+      "classifications": {
+        "charged": 274877906944,
+        "locally_filled": 0,
+        "resolved_pair": 0
+      },
+      "signed_records": [
+        [
+          1,
+          -1,
+          0,
+          274877906944
+        ]
+      ],
+      "no_arrival": 0,
+      "source_refused": 0,
+      "starts": 274877906944
+    },
+    "1/all_filled_hub": {
+      "classifications": {
+        "charged": 0,
+        "locally_filled": 274877906944,
+        "resolved_pair": 0
+      },
+      "signed_records": [
+        [
+          0,
+          0,
+          -1,
+          274877906944
+        ]
+      ],
+      "no_arrival": 0,
+      "source_refused": 0,
+      "starts": 274877906944
+    },
+    "1/prepared_inverse": {
+      "classifications": {
+        "charged": 274877906944,
+        "locally_filled": 0,
+        "resolved_pair": 0
+      },
+      "signed_records": [
+        [
+          1,
+          -1,
+          -1,
+          274877906944
+        ]
+      ],
+      "no_arrival": 0,
+      "source_refused": 0,
+      "starts": 274877906944
+    },
+    "1/half_contrast_frozen": {
+      "classifications": {
+        "charged": 137438682673,
+        "locally_filled": 0,
+        "resolved_pair": 137439224271
+      },
+      "signed_records": [
+        [
+          0,
+          -2,
+          0,
+          137439224271
+        ],
+        [
+          1,
+          -1,
+          -1,
+          137438682673
+        ]
+      ],
+      "no_arrival": 0,
+      "source_refused": 0,
+      "starts": 274877906944
+    }
+  }
+}

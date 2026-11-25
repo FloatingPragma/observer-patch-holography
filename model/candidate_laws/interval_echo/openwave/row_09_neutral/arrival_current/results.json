@@ -1,0 +1,10088 @@
+{
+  "input_order": [
+    "00",
+    "01",
+    "02",
+    "10",
+    "11",
+    "12",
+    "20",
+    "21",
+    "22",
+    "no far-hub charge",
+    "original source refused"
+  ],
+  "source": "neutral_ladder/release/results.json, independent held high-statistics panel",
+  "joint_columns": [
+    "flag rail 1",
+    "flag rail 2",
+    "first receiving port",
+    "second receiving port",
+    "donor",
+    "count"
+  ],
+  "summary_order": [
+    "negative daughter",
+    "unchanged accepted pair",
+    "positive daughter",
+    "other downstream words",
+    "no source-hub arrival",
+    "original refusal"
+  ],
+  "summary": {
+    "free/0/live": [
+      0,
+      80942914,
+      80938876,
+      1115540281,
+      562948682913149,
+      1125899899928716
+    ],
+    "free/0/pulse_off": [
+      0,
+      161881790,
+      0,
+      1115540281,
+      562948682913149,
+      1125899899928716
+    ],
+    "free/0/blocked_donor": [
+      0,
+      161881790,
+      0,
+      1115540281,
+      562948682913149,
+      1125899899928716
+    ],
+    "free/2/live": [
+      80942914,
+      80938876,
+      0,
+      1115540281,
+      562948682913149,
+      1125899899928716
+    ],
+    "free/2/pulse_off": [
+      0,
+      161881790,
+      0,
+      1115540281,
+      562948682913149,
+      1125899899928716
+    ],
+    "free/2/blocked_donor": [
+      0,
+      161881790,
+      0,
+      1115540281,
+      562948682913149,
+      1125899899928716
+    ],
+    "two_gates_closed/0/live": [
+      0,
+      0,
+      0,
+      1277430825,
+      562948672465966,
+      1125899910367145
+    ],
+    "two_gates_closed/0/pulse_off": [
+      0,
+      0,
+      0,
+      1277430825,
+      562948672465966,
+      1125899910367145
+    ],
+    "two_gates_closed/0/blocked_donor": [
+      0,
+      0,
+      0,
+      1277430825,
+      562948672465966,
+      1125899910367145
+    ],
+    "two_gates_closed/2/live": [
+      0,
+      0,
+      0,
+      1277430825,
+      562948672465966,
+      1125899910367145
+    ],
+    "two_gates_closed/2/pulse_off": [
+      0,
+      0,
+      0,
+      1277430825,
+      562948672465966,
+      1125899910367145
+    ],
+    "two_gates_closed/2/blocked_donor": [
+      0,
+      0,
+      0,
+      1277430825,
+      562948672465966,
+      1125899910367145
+    ]
+  },
+  "sites": {
+    "opposite": {
+      "receiving": [
+        207,
+        206
+      ],
+      "service_edges": [
+        [
+          215,
+          206
+        ],
+        [
+          206,
+          106
+        ],
+        [
+          106,
+          103
+        ],
+        [
+          206,
+          208
+        ]
+      ],
+      "workstation": [
+        208,
+        215,
+        209,
+        214
+      ],
+      "hatches": [
+        [
+          207,
+          208
+        ],
+        [
+          206,
+          215
+        ]
+      ],
+      "persistent_flag": [
+        210,
+        211
+      ],
+      "charge_reader": [
+        98,
+        99
+      ],
+      "balanced_stock": [
+        39,
+        38,
+        40,
+        42,
+        44,
+        45,
+        41,
+        43,
+        46,
+        47,
+        32,
+        25
+      ],
+      "guard": 2,
+      "donor": 1,
+      "stock_routes": [
+        [
+          39,
+          104,
+          103,
+          106,
+          206,
+          208
+        ],
+        [
+          38,
+          39,
+          104,
+          103,
+          106,
+          206,
+          215
+        ],
+        [
+          40,
+          39,
+          104,
+          103,
+          106,
+          206,
+          208,
+          209
+        ],
+        [
+          42,
+          39,
+          104,
+          103,
+          106,
+          206,
+          215
+        ],
+        [
+          44,
+          39,
+          104,
+          103,
+          106,
+          206,
+          208,
+          209
+        ],
+        [
+          41,
+          40,
+          39,
+          104,
+          103,
+          106,
+          206,
+          215,
+          214,
+          210
+        ],
+        [
+          43,
+          42,
+          39,
+          104,
+          103,
+          106,
+          206,
+          215,
+          214,
+          211
+        ],
+        [
+          47,
+          38,
+          39,
+          104,
+          99
+        ]
+      ],
+      "read_routes": [
+        [
+          208,
+          206,
+          106,
+          103,
+          102,
+          98
+        ],
+        [
+          215,
+          206,
+          106,
+          103,
+          102,
+          98
+        ],
+        [
+          214,
+          215,
+          206,
+          106,
+          103,
+          102,
+          98
+        ],
+        [
+          210,
+          214,
+          215,
+          206,
+          106,
+          103,
+          102,
+          98
+        ],
+        [
+          211,
+          214,
+          215,
+          206,
+          106,
+          103,
+          102,
+          98
+        ]
+      ],
+      "mounted_nonunit": [
+        [
+          25,
+          0
+        ],
+        [
+          32,
+          2
+        ],
+        [
+          45,
+          0
+        ],
+        [
+          46,
+          2
+        ],
+        [
+          99,
+          0
+        ],
+        [
+          209,
+          2
+        ],
+        [
+          210,
+          2
+        ],
+        [
+          211,
+          0
+        ]
+      ],
+      "independent_standards": {
+        "routes": [
+          [
+            39,
+            104,
+            103,
+            106,
+            206,
+            208,
+            207
+          ],
+          [
+            38,
+            39,
+            104,
+            103,
+            106,
+            206
+          ]
+        ],
+        "stocked_words_and_signed_head": [
+          [
+            0,
+            2,
+            2
+          ],
+          [
+            2,
+            0,
+            -2
+          ]
+        ]
+      }
+    },
+    "second_owner": {
+      "receiving": [
+        106,
+        96
+      ],
+      "service_edges": [],
+      "workstation": [
+        98,
+        107,
+        100,
+        101
+      ],
+      "hatches": [
+        [
+          106,
+          98
+        ],
+        [
+          96,
+          107
+        ]
+      ],
+      "persistent_flag": [
+        97,
+        103
+      ],
+      "charge_reader": [
+        99,
+        102
+      ],
+      "balanced_stock": [
+        39,
+        38,
+        40,
+        42,
+        44,
+        45,
+        41,
+        43,
+        46,
+        47,
+        32,
+        25
+      ],
+      "guard": 2,
+      "donor": 1,
+      "stock_routes": [
+        [
+          39,
+          104,
+          99,
+          98
+        ],
+        [
+          38,
+          39,
+          104,
+          97,
+          101,
+          107
+        ],
+        [
+          40,
+          39,
+          104,
+          99,
+          100
+        ],
+        [
+          42,
+          39,
+          104,
+          97,
+          101,
+          107
+        ],
+        [
+          44,
+          39,
+          104,
+          105,
+          100
+        ],
+        [
+          41,
+          40,
+          39,
+          104,
+          97
+        ],
+        [
+          43,
+          42,
+          39,
+          104,
+          103
+        ],
+        [
+          47,
+          38,
+          39,
+          104,
+          102
+        ]
+      ],
+      "read_routes": [
+        [
+          98,
+          99
+        ],
+        [
+          107,
+          101,
+          105,
+          99
+        ],
+        [
+          101,
+          105,
+          99
+        ],
+        [
+          97,
+          104,
+          99
+        ],
+        [
+          103,
+          104,
+          99
+        ]
+      ],
+      "mounted_nonunit": [
+        [
+          25,
+          0
+        ],
+        [
+          32,
+          2
+        ],
+        [
+          45,
+          0
+        ],
+        [
+          46,
+          2
+        ],
+        [
+          97,
+          2
+        ],
+        [
+          100,
+          2
+        ],
+        [
+          102,
+          0
+        ],
+        [
+          103,
+          0
+        ]
+      ],
+      "independent_standards": {
+        "routes": [
+          [
+            39,
+            104,
+            99,
+            98,
+            106
+          ],
+          [
+            38,
+            39,
+            104,
+            97,
+            101,
+            107,
+            96
+          ]
+        ],
+        "stocked_words_and_signed_head": [
+          [
+            0,
+            2,
+            2
+          ],
+          [
+            2,
+            0,
+            -2
+          ]
+        ]
+      }
+    }
+  },
+  "calibration": [
+    {
+      "sensor": "opposite",
+      "guard": 0,
+      "mode": "live",
+      "word": [
+        0,
+        2
+      ],
+      "outputs": [
+        {
+          "outgoing": [
+            0,
+            2,
+            1
+          ],
+          "regional_charge": 0,
+          "donor_change": 0,
+          "retained": [
+            2,
+            0
+          ],
+          "probability": 0.9999999999999867
+        }
+      ]
+    },
+    {
+      "sensor": "opposite",
+      "guard": 0,
+      "mode": "live",
+      "word": [
+        2,
+        0
+      ],
+      "outputs": [
+        {
+          "outgoing": [
+            2,
+            1,
+            0
+          ],
+          "regional_charge": 1,
+          "donor_change": -1,
+          "retained": [
+            0,
+            2
+          ],
+          "probability": 0.9999999999999882
+        }
+      ]
+    },
+    {
+      "sensor": "opposite",
+      "guard": 0,
+      "mode": "pulse_off",
+      "word": [
+        0,
+        2
+      ],
+      "outputs": [
+        {
+          "outgoing": [
+            0,
+            2,
+            1
+          ],
+          "regional_charge": 0,
+          "donor_change": 0,
+          "retained": [
+            2,
+            0
+          ],
+          "probability": 0.9999999999999867
+        }
+      ]
+    },
+    {
+      "sensor": "opposite",
+      "guard": 0,
+      "mode": "pulse_off",
+      "word": [
+        2,
+        0
+      ],
+      "outputs": [
+        {
+          "outgoing": [
+            2,
+            0,
+            1
+          ],
+          "regional_charge": 0,
+          "donor_change": 0,
+          "retained": [
+            0,
+            2
+          ],
+          "probability": 0.9999999999999891
+        }
+      ]
+    },
+    {
+      "sensor": "opposite",
+      "guard": 0,
+      "mode": "blocked_donor",
+      "word": [
+        0,
+        2
+      ],
+      "outputs": [
+        {
+          "outgoing": [
+            0,
+            2,
+            0
+          ],
+          "regional_charge": 0,
+          "donor_change": 0,
+          "retained": [
+            2,
+            0
+          ],
+          "probability": 1.000000000000015
+        }
+      ]
+    },
+    {
+      "sensor": "opposite",
+      "guard": 0,
+      "mode": "blocked_donor",
+      "word": [
+        2,
+        0
+      ],
+      "outputs": [
+        {
+          "outgoing": [
+            2,
+            0,
+            0
+          ],
+          "regional_charge": 0,
+          "donor_change": 0,
+          "retained": [
+            0,
+            2
+          ],
+          "probability": 0.9999999999999996
+        }
+      ]
+    },
+    {
+      "sensor": "opposite",
+      "guard": 0,
+      "mode": "half_contrast",
+      "word": [
+        0,
+        2
+      ],
+      "outputs": [
+        {
+          "outgoing": [
+            0,
+            2,
+            1
+          ],
+          "regional_charge": 0,
+          "donor_change": 0,
+          "retained": [
+            2,
+            0
+          ],
+          "probability": 1.0000000000000027
+        }
+      ]
+    },
+    {
+      "sensor": "opposite",
+      "guard": 0,
+      "mode": "half_contrast",
+      "word": [
+        2,
+        0
+      ],
+      "outputs": [
+        {
+          "outgoing": [
+            2,
+            0,
+            1
+          ],
+          "regional_charge": 0,
+          "donor_change": 0,
+          "retained": [
+            0,
+            2
+          ],
+          "probability": 0.5000000000000014
+        },
+        {
+          "outgoing": [
+            2,
+            1,
+            0
+          ],
+          "regional_charge": 1,
+          "donor_change": -1,
+          "retained": [
+            0,
+            2
+          ],
+          "probability": 0.5000000000000007
+        }
+      ]
+    },
+    {
+      "sensor": "opposite",
+      "guard": 2,
+      "mode": "live",
+      "word": [
+        0,
+        2
+      ],
+      "outputs": [
+        {
+          "outgoing": [
+            0,
+            1,
+            2
+          ],
+          "regional_charge": -1,
+          "donor_change": 1,
+          "retained": [
+            2,
+            0
+          ],
+          "probability": 0.9999999999999876
+        }
+      ]
+    },
+    {
+      "sensor": "opposite",
+      "guard": 2,
+      "mode": "live",
+      "word": [
+        2,
+        0
+      ],
+      "outputs": [
+        {
+          "outgoing": [
+            2,
+            0,
+            1
+          ],
+          "regional_charge": 0,
+          "donor_change": 0,
+          "retained": [
+            0,
+            2
+          ],
+          "probability": 0.9999999999999893
+        }
+      ]
+    },
+    {
+      "sensor": "opposite",
+      "guard": 2,
+      "mode": "pulse_off",
+      "word": [
+        0,
+        2
+      ],
+      "outputs": [
+        {
+          "outgoing": [
+            0,
+            2,
+            1
+          ],
+          "regional_charge": 0,
+          "donor_change": 0,
+          "retained": [
+            2,
+            0
+          ],
+          "probability": 0.9999999999999867
+        }
+      ]
+    },
+    {
+      "sensor": "opposite",
+      "guard": 2,
+      "mode": "pulse_off",
+      "word": [
+        2,
+        0
+      ],
+      "outputs": [
+        {
+          "outgoing": [
+            2,
+            0,
+            1
+          ],
+          "regional_charge": 0,
+          "donor_change": 0,
+          "retained": [
+            0,
+            2
+          ],
+          "probability": 0.9999999999999891
+        }
+      ]
+    },
+    {
+      "sensor": "opposite",
+      "guard": 2,
+      "mode": "blocked_donor",
+      "word": [
+        0,
+        2
+      ],
+      "outputs": [
+        {
+          "outgoing": [
+            0,
+            2,
+            2
+          ],
+          "regional_charge": 0,
+          "donor_change": 0,
+          "retained": [
+            2,
+            0
+          ],
+          "probability": 0.9999999999999996
+        }
+      ]
+    },
+    {
+      "sensor": "opposite",
+      "guard": 2,
+      "mode": "blocked_donor",
+      "word": [
+        2,
+        0
+      ],
+      "outputs": [
+        {
+          "outgoing": [
+            2,
+            0,
+            2
+          ],
+          "regional_charge": 0,
+          "donor_change": 0,
+          "retained": [
+            0,
+            2
+          ],
+          "probability": 1.0000000000000027
+        }
+      ]
+    },
+    {
+      "sensor": "opposite",
+      "guard": 2,
+      "mode": "half_contrast",
+      "word": [
+        0,
+        2
+      ],
+      "outputs": [
+        {
+          "outgoing": [
+            0,
+            1,
+            2
+          ],
+          "regional_charge": -1,
+          "donor_change": 1,
+          "retained": [
+            2,
+            0
+          ],
+          "probability": 0.500000000000002
+        },
+        {
+          "outgoing": [
+            0,
+            2,
+            1
+          ],
+          "regional_charge": 0,
+          "donor_change": 0,
+          "retained": [
+            2,
+            0
+          ],
+          "probability": 0.500000000000001
+        }
+      ]
+    },
+    {
+      "sensor": "opposite",
+      "guard": 2,
+      "mode": "half_contrast",
+      "word": [
+        2,
+        0
+      ],
+      "outputs": [
+        {
+          "outgoing": [
+            2,
+            0,
+            1
+          ],
+          "regional_charge": 0,
+          "donor_change": 0,
+          "retained": [
+            0,
+            2
+          ],
+          "probability": 1.0000000000000027
+        }
+      ]
+    },
+    {
+      "sensor": "second_owner",
+      "guard": 0,
+      "mode": "live",
+      "word": [
+        0,
+        2
+      ],
+      "outputs": [
+        {
+          "outgoing": [
+            0,
+            2,
+            1
+          ],
+          "regional_charge": 0,
+          "donor_change": 0,
+          "retained": [
+            2,
+            0
+          ],
+          "probability": 0.9999999999999867
+        }
+      ]
+    },
+    {
+      "sensor": "second_owner",
+      "guard": 0,
+      "mode": "live",
+      "word": [
+        2,
+        0
+      ],
+      "outputs": [
+        {
+          "outgoing": [
+            2,
+            1,
+            0
+          ],
+          "regional_charge": 1,
+          "donor_change": -1,
+          "retained": [
+            0,
+            2
+          ],
+          "probability": 0.9999999999999882
+        }
+      ]
+    },
+    {
+      "sensor": "second_owner",
+      "guard": 0,
+      "mode": "pulse_off",
+      "word": [
+        0,
+        2
+      ],
+      "outputs": [
+        {
+          "outgoing": [
+            0,
+            2,
+            1
+          ],
+          "regional_charge": 0,
+          "donor_change": 0,
+          "retained": [
+            2,
+            0
+          ],
+          "probability": 0.9999999999999867
+        }
+      ]
+    },
+    {
+      "sensor": "second_owner",
+      "guard": 0,
+      "mode": "pulse_off",
+      "word": [
+        2,
+        0
+      ],
+      "outputs": [
+        {
+          "outgoing": [
+            2,
+            0,
+            1
+          ],
+          "regional_charge": 0,
+          "donor_change": 0,
+          "retained": [
+            0,
+            2
+          ],
+          "probability": 0.9999999999999891
+        }
+      ]
+    },
+    {
+      "sensor": "second_owner",
+      "guard": 0,
+      "mode": "blocked_donor",
+      "word": [
+        0,
+        2
+      ],
+      "outputs": [
+        {
+          "outgoing": [
+            0,
+            2,
+            0
+          ],
+          "regional_charge": 0,
+          "donor_change": 0,
+          "retained": [
+            2,
+            0
+          ],
+          "probability": 1.000000000000015
+        }
+      ]
+    },
+    {
+      "sensor": "second_owner",
+      "guard": 0,
+      "mode": "blocked_donor",
+      "word": [
+        2,
+        0
+      ],
+      "outputs": [
+        {
+          "outgoing": [
+            2,
+            0,
+            0
+          ],
+          "regional_charge": 0,
+          "donor_change": 0,
+          "retained": [
+            0,
+            2
+          ],
+          "probability": 0.9999999999999996
+        }
+      ]
+    },
+    {
+      "sensor": "second_owner",
+      "guard": 0,
+      "mode": "half_contrast",
+      "word": [
+        0,
+        2
+      ],
+      "outputs": [
+        {
+          "outgoing": [
+            0,
+            2,
+            1
+          ],
+          "regional_charge": 0,
+          "donor_change": 0,
+          "retained": [
+            2,
+            0
+          ],
+          "probability": 1.0000000000000027
+        }
+      ]
+    },
+    {
+      "sensor": "second_owner",
+      "guard": 0,
+      "mode": "half_contrast",
+      "word": [
+        2,
+        0
+      ],
+      "outputs": [
+        {
+          "outgoing": [
+            2,
+            0,
+            1
+          ],
+          "regional_charge": 0,
+          "donor_change": 0,
+          "retained": [
+            0,
+            2
+          ],
+          "probability": 0.5000000000000014
+        },
+        {
+          "outgoing": [
+            2,
+            1,
+            0
+          ],
+          "regional_charge": 1,
+          "donor_change": -1,
+          "retained": [
+            0,
+            2
+          ],
+          "probability": 0.5000000000000007
+        }
+      ]
+    },
+    {
+      "sensor": "second_owner",
+      "guard": 2,
+      "mode": "live",
+      "word": [
+        0,
+        2
+      ],
+      "outputs": [
+        {
+          "outgoing": [
+            0,
+            1,
+            2
+          ],
+          "regional_charge": -1,
+          "donor_change": 1,
+          "retained": [
+            2,
+            0
+          ],
+          "probability": 0.9999999999999876
+        }
+      ]
+    },
+    {
+      "sensor": "second_owner",
+      "guard": 2,
+      "mode": "live",
+      "word": [
+        2,
+        0
+      ],
+      "outputs": [
+        {
+          "outgoing": [
+            2,
+            0,
+            1
+          ],
+          "regional_charge": 0,
+          "donor_change": 0,
+          "retained": [
+            0,
+            2
+          ],
+          "probability": 0.9999999999999893
+        }
+      ]
+    },
+    {
+      "sensor": "second_owner",
+      "guard": 2,
+      "mode": "pulse_off",
+      "word": [
+        0,
+        2
+      ],
+      "outputs": [
+        {
+          "outgoing": [
+            0,
+            2,
+            1
+          ],
+          "regional_charge": 0,
+          "donor_change": 0,
+          "retained": [
+            2,
+            0
+          ],
+          "probability": 0.9999999999999867
+        }
+      ]
+    },
+    {
+      "sensor": "second_owner",
+      "guard": 2,
+      "mode": "pulse_off",
+      "word": [
+        2,
+        0
+      ],
+      "outputs": [
+        {
+          "outgoing": [
+            2,
+            0,
+            1
+          ],
+          "regional_charge": 0,
+          "donor_change": 0,
+          "retained": [
+            0,
+            2
+          ],
+          "probability": 0.9999999999999891
+        }
+      ]
+    },
+    {
+      "sensor": "second_owner",
+      "guard": 2,
+      "mode": "blocked_donor",
+      "word": [
+        0,
+        2
+      ],
+      "outputs": [
+        {
+          "outgoing": [
+            0,
+            2,
+            2
+          ],
+          "regional_charge": 0,
+          "donor_change": 0,
+          "retained": [
+            2,
+            0
+          ],
+          "probability": 0.9999999999999996
+        }
+      ]
+    },
+    {
+      "sensor": "second_owner",
+      "guard": 2,
+      "mode": "blocked_donor",
+      "word": [
+        2,
+        0
+      ],
+      "outputs": [
+        {
+          "outgoing": [
+            2,
+            0,
+            2
+          ],
+          "regional_charge": 0,
+          "donor_change": 0,
+          "retained": [
+            0,
+            2
+          ],
+          "probability": 1.0000000000000027
+        }
+      ]
+    },
+    {
+      "sensor": "second_owner",
+      "guard": 2,
+      "mode": "half_contrast",
+      "word": [
+        0,
+        2
+      ],
+      "outputs": [
+        {
+          "outgoing": [
+            0,
+            1,
+            2
+          ],
+          "regional_charge": -1,
+          "donor_change": 1,
+          "retained": [
+            2,
+            0
+          ],
+          "probability": 0.500000000000002
+        },
+        {
+          "outgoing": [
+            0,
+            2,
+            1
+          ],
+          "regional_charge": 0,
+          "donor_change": 0,
+          "retained": [
+            2,
+            0
+          ],
+          "probability": 0.500000000000001
+        }
+      ]
+    },
+    {
+      "sensor": "second_owner",
+      "guard": 2,
+      "mode": "half_contrast",
+      "word": [
+        2,
+        0
+      ],
+      "outputs": [
+        {
+          "outgoing": [
+            2,
+            0,
+            1
+          ],
+          "regional_charge": 0,
+          "donor_change": 0,
+          "retained": [
+            0,
+            2
+          ],
+          "probability": 1.0000000000000027
+        }
+      ]
+    }
+  ],
+  "held": [
+    {
+      "bench": "intact",
+      "sensor": "opposite",
+      "sign": -1,
+      "winding": 0,
+      "time": 2048,
+      "release_control": "free",
+      "input_counts": [
+        0,
+        6016,
+        142,
+        4958,
+        57512867,
+        2311,
+        53,
+        2985,
+        0,
+        23456194647853,
+        46912492000479
+      ],
+      "contrast": [
+        53,
+        7943,
+        57512867,
+        8327,
+        142
+      ],
+      "matched": {
+        "0_live": {
+          "charges": [
+            0,
+            142,
+            53
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              142
+            ],
+            [
+              0,
+              2,
+              2,
+              1,
+              0,
+              53
+            ]
+          ]
+        },
+        "0_pulse_off": {
+          "charges": [
+            0,
+            195,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              142
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              53
+            ]
+          ]
+        },
+        "0_blocked_donor": {
+          "charges": [
+            0,
+            195,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              0,
+              142
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              0,
+              53
+            ]
+          ]
+        },
+        "2_live": {
+          "charges": [
+            142,
+            53,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              1,
+              2,
+              142
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              53
+            ]
+          ]
+        },
+        "2_pulse_off": {
+          "charges": [
+            0,
+            195,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              142
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              53
+            ]
+          ]
+        },
+        "2_blocked_donor": {
+          "charges": [
+            0,
+            195,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              2,
+              142
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              2,
+              53
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "bench": "intact",
+      "sensor": "opposite",
+      "sign": -1,
+      "winding": 0,
+      "time": 2048,
+      "release_control": "two_gates_closed",
+      "input_counts": [
+        0,
+        0,
+        0,
+        0,
+        57515628,
+        0,
+        0,
+        0,
+        0,
+        23456194559896,
+        46912492102140
+      ],
+      "contrast": [
+        0,
+        0,
+        57515628,
+        0,
+        0
+      ],
+      "matched": {
+        "0_live": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        "0_pulse_off": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "0_blocked_donor": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              0,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "2_live": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              1,
+              2,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "2_pulse_off": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "2_blocked_donor": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              2,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              2,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "bench": "intact",
+      "sensor": "second_owner",
+      "sign": -1,
+      "winding": 0,
+      "time": 2048,
+      "release_control": "free",
+      "input_counts": [
+        0,
+        7573,
+        115,
+        7679,
+        57510777,
+        2267,
+        75,
+        2898,
+        0,
+        23456191250429,
+        46912495395851
+      ],
+      "contrast": [
+        75,
+        10577,
+        57510777,
+        9840,
+        115
+      ],
+      "matched": {
+        "0_live": {
+          "charges": [
+            0,
+            115,
+            75
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              115
+            ],
+            [
+              0,
+              2,
+              2,
+              1,
+              0,
+              75
+            ]
+          ]
+        },
+        "0_pulse_off": {
+          "charges": [
+            0,
+            190,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              115
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              75
+            ]
+          ]
+        },
+        "0_blocked_donor": {
+          "charges": [
+            0,
+            190,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              0,
+              115
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              0,
+              75
+            ]
+          ]
+        },
+        "2_live": {
+          "charges": [
+            115,
+            75,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              1,
+              2,
+              115
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              75
+            ]
+          ]
+        },
+        "2_pulse_off": {
+          "charges": [
+            0,
+            190,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              115
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              75
+            ]
+          ]
+        },
+        "2_blocked_donor": {
+          "charges": [
+            0,
+            190,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              2,
+              115
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              2,
+              75
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "bench": "intact",
+      "sensor": "second_owner",
+      "sign": -1,
+      "winding": 0,
+      "time": 2048,
+      "release_control": "two_gates_closed",
+      "input_counts": [
+        0,
+        0,
+        0,
+        0,
+        57532842,
+        0,
+        0,
+        0,
+        0,
+        23456190193786,
+        46912496451036
+      ],
+      "contrast": [
+        0,
+        0,
+        57532842,
+        0,
+        0
+      ],
+      "matched": {
+        "0_live": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        "0_pulse_off": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "0_blocked_donor": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              0,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "2_live": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              1,
+              2,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "2_pulse_off": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "2_blocked_donor": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              2,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              2,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "bench": "intact",
+      "sensor": "opposite",
+      "sign": -1,
+      "winding": 1,
+      "time": 2048,
+      "release_control": "free",
+      "input_counts": [
+        0,
+        5173,
+        124,
+        4222,
+        51062338,
+        2115,
+        69,
+        2781,
+        0,
+        23456197879799,
+        46912495221043
+      ],
+      "contrast": [
+        69,
+        7003,
+        51062338,
+        7288,
+        124
+      ],
+      "matched": {
+        "0_live": {
+          "charges": [
+            0,
+            124,
+            69
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              124
+            ],
+            [
+              0,
+              2,
+              2,
+              1,
+              0,
+              69
+            ]
+          ]
+        },
+        "0_pulse_off": {
+          "charges": [
+            0,
+            193,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              124
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              69
+            ]
+          ]
+        },
+        "0_blocked_donor": {
+          "charges": [
+            0,
+            193,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              0,
+              124
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              0,
+              69
+            ]
+          ]
+        },
+        "2_live": {
+          "charges": [
+            124,
+            69,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              1,
+              2,
+              124
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              69
+            ]
+          ]
+        },
+        "2_pulse_off": {
+          "charges": [
+            0,
+            193,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              124
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              69
+            ]
+          ]
+        },
+        "2_blocked_donor": {
+          "charges": [
+            0,
+            193,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              2,
+              124
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              2,
+              69
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "bench": "intact",
+      "sensor": "opposite",
+      "sign": -1,
+      "winding": 1,
+      "time": 2048,
+      "release_control": "two_gates_closed",
+      "input_counts": [
+        0,
+        0,
+        0,
+        0,
+        51073100,
+        0,
+        0,
+        0,
+        0,
+        23456203803648,
+        46912489300916
+      ],
+      "contrast": [
+        0,
+        0,
+        51073100,
+        0,
+        0
+      ],
+      "matched": {
+        "0_live": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        "0_pulse_off": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "0_blocked_donor": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              0,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "2_live": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              1,
+              2,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "2_pulse_off": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "2_blocked_donor": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              2,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              2,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "bench": "intact",
+      "sensor": "second_owner",
+      "sign": -1,
+      "winding": 1,
+      "time": 2048,
+      "release_control": "free",
+      "input_counts": [
+        0,
+        6800,
+        132,
+        7143,
+        51060234,
+        2109,
+        71,
+        2580,
+        0,
+        23456194347300,
+        46912498751295
+      ],
+      "contrast": [
+        71,
+        9723,
+        51060234,
+        8909,
+        132
+      ],
+      "matched": {
+        "0_live": {
+          "charges": [
+            0,
+            132,
+            71
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              132
+            ],
+            [
+              0,
+              2,
+              2,
+              1,
+              0,
+              71
+            ]
+          ]
+        },
+        "0_pulse_off": {
+          "charges": [
+            0,
+            203,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              132
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              71
+            ]
+          ]
+        },
+        "0_blocked_donor": {
+          "charges": [
+            0,
+            203,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              0,
+              132
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              0,
+              71
+            ]
+          ]
+        },
+        "2_live": {
+          "charges": [
+            132,
+            71,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              1,
+              2,
+              132
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              71
+            ]
+          ]
+        },
+        "2_pulse_off": {
+          "charges": [
+            0,
+            203,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              132
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              71
+            ]
+          ]
+        },
+        "2_blocked_donor": {
+          "charges": [
+            0,
+            203,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              2,
+              132
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              2,
+              71
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "bench": "intact",
+      "sensor": "second_owner",
+      "sign": -1,
+      "winding": 1,
+      "time": 2048,
+      "release_control": "two_gates_closed",
+      "input_counts": [
+        0,
+        0,
+        0,
+        0,
+        51083985,
+        0,
+        0,
+        0,
+        0,
+        23456190433970,
+        46912502659709
+      ],
+      "contrast": [
+        0,
+        0,
+        51083985,
+        0,
+        0
+      ],
+      "matched": {
+        "0_live": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        "0_pulse_off": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "0_blocked_donor": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              0,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "2_live": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              1,
+              2,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "2_pulse_off": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "2_blocked_donor": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              2,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              2,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "bench": "intact",
+      "sensor": "opposite",
+      "sign": -1,
+      "winding": 2,
+      "time": 2048,
+      "release_control": "free",
+      "input_counts": [
+        0,
+        5120,
+        128,
+        4253,
+        51059366,
+        2153,
+        50,
+        2722,
+        0,
+        23456202981636,
+        46912490122236
+      ],
+      "contrast": [
+        50,
+        6975,
+        51059366,
+        7273,
+        128
+      ],
+      "matched": {
+        "0_live": {
+          "charges": [
+            0,
+            128,
+            50
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              128
+            ],
+            [
+              0,
+              2,
+              2,
+              1,
+              0,
+              50
+            ]
+          ]
+        },
+        "0_pulse_off": {
+          "charges": [
+            0,
+            178,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              128
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              50
+            ]
+          ]
+        },
+        "0_blocked_donor": {
+          "charges": [
+            0,
+            178,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              0,
+              128
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              0,
+              50
+            ]
+          ]
+        },
+        "2_live": {
+          "charges": [
+            128,
+            50,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              1,
+              2,
+              128
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              50
+            ]
+          ]
+        },
+        "2_pulse_off": {
+          "charges": [
+            0,
+            178,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              128
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              50
+            ]
+          ]
+        },
+        "2_blocked_donor": {
+          "charges": [
+            0,
+            178,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              2,
+              128
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              2,
+              50
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "bench": "intact",
+      "sensor": "opposite",
+      "sign": -1,
+      "winding": 2,
+      "time": 2048,
+      "release_control": "two_gates_closed",
+      "input_counts": [
+        0,
+        0,
+        0,
+        0,
+        51066257,
+        0,
+        0,
+        0,
+        0,
+        23456198446988,
+        46912494664419
+      ],
+      "contrast": [
+        0,
+        0,
+        51066257,
+        0,
+        0
+      ],
+      "matched": {
+        "0_live": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        "0_pulse_off": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "0_blocked_donor": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              0,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "2_live": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              1,
+              2,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "2_pulse_off": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "2_blocked_donor": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              2,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              2,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "bench": "intact",
+      "sensor": "second_owner",
+      "sign": -1,
+      "winding": 2,
+      "time": 2048,
+      "release_control": "free",
+      "input_counts": [
+        0,
+        6935,
+        103,
+        7017,
+        51060187,
+        2125,
+        63,
+        2602,
+        0,
+        23456198317920,
+        46912494780712
+      ],
+      "contrast": [
+        63,
+        9619,
+        51060187,
+        9060,
+        103
+      ],
+      "matched": {
+        "0_live": {
+          "charges": [
+            0,
+            103,
+            63
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              103
+            ],
+            [
+              0,
+              2,
+              2,
+              1,
+              0,
+              63
+            ]
+          ]
+        },
+        "0_pulse_off": {
+          "charges": [
+            0,
+            166,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              103
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              63
+            ]
+          ]
+        },
+        "0_blocked_donor": {
+          "charges": [
+            0,
+            166,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              0,
+              103
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              0,
+              63
+            ]
+          ]
+        },
+        "2_live": {
+          "charges": [
+            103,
+            63,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              1,
+              2,
+              103
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              63
+            ]
+          ]
+        },
+        "2_pulse_off": {
+          "charges": [
+            0,
+            166,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              103
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              63
+            ]
+          ]
+        },
+        "2_blocked_donor": {
+          "charges": [
+            0,
+            166,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              2,
+              103
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              2,
+              63
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "bench": "intact",
+      "sensor": "second_owner",
+      "sign": -1,
+      "winding": 2,
+      "time": 2048,
+      "release_control": "two_gates_closed",
+      "input_counts": [
+        0,
+        0,
+        0,
+        0,
+        51080178,
+        0,
+        0,
+        0,
+        0,
+        23456200414160,
+        46912492683326
+      ],
+      "contrast": [
+        0,
+        0,
+        51080178,
+        0,
+        0
+      ],
+      "matched": {
+        "0_live": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        "0_pulse_off": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "0_blocked_donor": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              0,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "2_live": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              1,
+              2,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "2_pulse_off": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "2_blocked_donor": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              2,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              2,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "bench": "retired",
+      "sensor": "opposite",
+      "sign": -1,
+      "winding": 0,
+      "time": 256,
+      "release_control": "free",
+      "input_counts": [
+        0,
+        220226,
+        5708016,
+        213863,
+        31814124,
+        220529,
+        19132384,
+        213770,
+        0,
+        23456196530514,
+        46912490124238
+      ],
+      "contrast": [
+        19132384,
+        427633,
+        31814124,
+        440755,
+        5708016
+      ],
+      "matched": {
+        "0_live": {
+          "charges": [
+            0,
+            5708016,
+            19132384
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              5708016
+            ],
+            [
+              0,
+              2,
+              2,
+              1,
+              0,
+              19132384
+            ]
+          ]
+        },
+        "0_pulse_off": {
+          "charges": [
+            0,
+            24840400,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              5708016
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              19132384
+            ]
+          ]
+        },
+        "0_blocked_donor": {
+          "charges": [
+            0,
+            24840400,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              0,
+              5708016
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              0,
+              19132384
+            ]
+          ]
+        },
+        "2_live": {
+          "charges": [
+            5708016,
+            19132384,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              1,
+              2,
+              5708016
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              19132384
+            ]
+          ]
+        },
+        "2_pulse_off": {
+          "charges": [
+            0,
+            24840400,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              5708016
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              19132384
+            ]
+          ]
+        },
+        "2_blocked_donor": {
+          "charges": [
+            0,
+            24840400,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              2,
+              5708016
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              2,
+              19132384
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "bench": "retired",
+      "sensor": "opposite",
+      "sign": -1,
+      "winding": 0,
+      "time": 256,
+      "release_control": "two_gates_closed",
+      "input_counts": [
+        0,
+        0,
+        0,
+        0,
+        57531450,
+        0,
+        0,
+        0,
+        0,
+        23456180547612,
+        46912506098602
+      ],
+      "contrast": [
+        0,
+        0,
+        57531450,
+        0,
+        0
+      ],
+      "matched": {
+        "0_live": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        "0_pulse_off": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "0_blocked_donor": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              0,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "2_live": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              1,
+              2,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "2_pulse_off": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "2_blocked_donor": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              2,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              2,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "bench": "retired",
+      "sensor": "second_owner",
+      "sign": -1,
+      "winding": 0,
+      "time": 256,
+      "release_control": "free",
+      "input_counts": [
+        0,
+        246824,
+        1038948,
+        956015,
+        49283068,
+        2520018,
+        3275400,
+        187704,
+        0,
+        23456194454086,
+        46912492215601
+      ],
+      "contrast": [
+        3275400,
+        1143719,
+        49283068,
+        2766842,
+        1038948
+      ],
+      "matched": {
+        "0_live": {
+          "charges": [
+            0,
+            1038948,
+            3275400
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              1038948
+            ],
+            [
+              0,
+              2,
+              2,
+              1,
+              0,
+              3275400
+            ]
+          ]
+        },
+        "0_pulse_off": {
+          "charges": [
+            0,
+            4314348,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              1038948
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              3275400
+            ]
+          ]
+        },
+        "0_blocked_donor": {
+          "charges": [
+            0,
+            4314348,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              0,
+              1038948
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              0,
+              3275400
+            ]
+          ]
+        },
+        "2_live": {
+          "charges": [
+            1038948,
+            3275400,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              1,
+              2,
+              1038948
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              3275400
+            ]
+          ]
+        },
+        "2_pulse_off": {
+          "charges": [
+            0,
+            4314348,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              1038948
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              3275400
+            ]
+          ]
+        },
+        "2_blocked_donor": {
+          "charges": [
+            0,
+            4314348,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              2,
+              1038948
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              2,
+              3275400
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "bench": "retired",
+      "sensor": "second_owner",
+      "sign": -1,
+      "winding": 0,
+      "time": 256,
+      "release_control": "two_gates_closed",
+      "input_counts": [
+        0,
+        0,
+        0,
+        0,
+        57533260,
+        0,
+        0,
+        0,
+        0,
+        23456186489457,
+        46912500154947
+      ],
+      "contrast": [
+        0,
+        0,
+        57533260,
+        0,
+        0
+      ],
+      "matched": {
+        "0_live": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        "0_pulse_off": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "0_blocked_donor": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              0,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "2_live": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              1,
+              2,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "2_pulse_off": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "2_blocked_donor": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              2,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              2,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "bench": "retired",
+      "sensor": "opposite",
+      "sign": -1,
+      "winding": 1,
+      "time": 256,
+      "release_control": "free",
+      "input_counts": [
+        0,
+        195223,
+        5071016,
+        190120,
+        28253173,
+        194972,
+        16988070,
+        190037,
+        0,
+        23456192953982,
+        46912500141071
+      ],
+      "contrast": [
+        16988070,
+        380157,
+        28253173,
+        390195,
+        5071016
+      ],
+      "matched": {
+        "0_live": {
+          "charges": [
+            0,
+            5071016,
+            16988070
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              5071016
+            ],
+            [
+              0,
+              2,
+              2,
+              1,
+              0,
+              16988070
+            ]
+          ]
+        },
+        "0_pulse_off": {
+          "charges": [
+            0,
+            22059086,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              5071016
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              16988070
+            ]
+          ]
+        },
+        "0_blocked_donor": {
+          "charges": [
+            0,
+            22059086,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              0,
+              5071016
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              0,
+              16988070
+            ]
+          ]
+        },
+        "2_live": {
+          "charges": [
+            5071016,
+            16988070,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              1,
+              2,
+              5071016
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              16988070
+            ]
+          ]
+        },
+        "2_pulse_off": {
+          "charges": [
+            0,
+            22059086,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              5071016
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              16988070
+            ]
+          ]
+        },
+        "2_blocked_donor": {
+          "charges": [
+            0,
+            22059086,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              2,
+              5071016
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              2,
+              16988070
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "bench": "retired",
+      "sensor": "opposite",
+      "sign": -1,
+      "winding": 1,
+      "time": 256,
+      "release_control": "two_gates_closed",
+      "input_counts": [
+        0,
+        0,
+        0,
+        0,
+        51077440,
+        0,
+        0,
+        0,
+        0,
+        23456203216248,
+        46912489883976
+      ],
+      "contrast": [
+        0,
+        0,
+        51077440,
+        0,
+        0
+      ],
+      "matched": {
+        "0_live": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        "0_pulse_off": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "0_blocked_donor": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              0,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "2_live": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              1,
+              2,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "2_pulse_off": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "2_blocked_donor": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              2,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              2,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "bench": "retired",
+      "sensor": "second_owner",
+      "sign": -1,
+      "winding": 1,
+      "time": 256,
+      "release_control": "free",
+      "input_counts": [
+        0,
+        218618,
+        920917,
+        849408,
+        43772620,
+        2237640,
+        2913289,
+        165871,
+        0,
+        23456198086481,
+        46912495012820
+      ],
+      "contrast": [
+        2913289,
+        1015279,
+        43772620,
+        2456258,
+        920917
+      ],
+      "matched": {
+        "0_live": {
+          "charges": [
+            0,
+            920917,
+            2913289
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              920917
+            ],
+            [
+              0,
+              2,
+              2,
+              1,
+              0,
+              2913289
+            ]
+          ]
+        },
+        "0_pulse_off": {
+          "charges": [
+            0,
+            3834206,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              920917
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              2913289
+            ]
+          ]
+        },
+        "0_blocked_donor": {
+          "charges": [
+            0,
+            3834206,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              0,
+              920917
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              0,
+              2913289
+            ]
+          ]
+        },
+        "2_live": {
+          "charges": [
+            920917,
+            2913289,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              1,
+              2,
+              920917
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              2913289
+            ]
+          ]
+        },
+        "2_pulse_off": {
+          "charges": [
+            0,
+            3834206,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              920917
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              2913289
+            ]
+          ]
+        },
+        "2_blocked_donor": {
+          "charges": [
+            0,
+            3834206,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              2,
+              920917
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              2,
+              2913289
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "bench": "retired",
+      "sensor": "second_owner",
+      "sign": -1,
+      "winding": 1,
+      "time": 256,
+      "release_control": "two_gates_closed",
+      "input_counts": [
+        0,
+        0,
+        0,
+        0,
+        51084314,
+        0,
+        0,
+        0,
+        0,
+        23456196320703,
+        46912496772647
+      ],
+      "contrast": [
+        0,
+        0,
+        51084314,
+        0,
+        0
+      ],
+      "matched": {
+        "0_live": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        "0_pulse_off": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "0_blocked_donor": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              0,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "2_live": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              1,
+              2,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "2_pulse_off": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "2_blocked_donor": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              2,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              2,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "bench": "retired",
+      "sensor": "opposite",
+      "sign": -1,
+      "winding": 2,
+      "time": 256,
+      "release_control": "free",
+      "input_counts": [
+        0,
+        195313,
+        5071213,
+        190372,
+        28251257,
+        195497,
+        16987813,
+        190090,
+        0,
+        23456199415701,
+        46912493680408
+      ],
+      "contrast": [
+        16987813,
+        380462,
+        28251257,
+        390810,
+        5071213
+      ],
+      "matched": {
+        "0_live": {
+          "charges": [
+            0,
+            5071213,
+            16987813
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              5071213
+            ],
+            [
+              0,
+              2,
+              2,
+              1,
+              0,
+              16987813
+            ]
+          ]
+        },
+        "0_pulse_off": {
+          "charges": [
+            0,
+            22059026,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              5071213
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              16987813
+            ]
+          ]
+        },
+        "0_blocked_donor": {
+          "charges": [
+            0,
+            22059026,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              0,
+              5071213
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              0,
+              16987813
+            ]
+          ]
+        },
+        "2_live": {
+          "charges": [
+            5071213,
+            16987813,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              1,
+              2,
+              5071213
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              16987813
+            ]
+          ]
+        },
+        "2_pulse_off": {
+          "charges": [
+            0,
+            22059026,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              5071213
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              16987813
+            ]
+          ]
+        },
+        "2_blocked_donor": {
+          "charges": [
+            0,
+            22059026,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              2,
+              5071213
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              2,
+              16987813
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "bench": "retired",
+      "sensor": "opposite",
+      "sign": -1,
+      "winding": 2,
+      "time": 256,
+      "release_control": "two_gates_closed",
+      "input_counts": [
+        0,
+        0,
+        0,
+        0,
+        51070612,
+        0,
+        0,
+        0,
+        0,
+        23456197827040,
+        46912495280012
+      ],
+      "contrast": [
+        0,
+        0,
+        51070612,
+        0,
+        0
+      ],
+      "matched": {
+        "0_live": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        "0_pulse_off": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "0_blocked_donor": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              0,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "2_live": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              1,
+              2,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "2_pulse_off": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "2_blocked_donor": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              2,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              2,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "bench": "retired",
+      "sensor": "second_owner",
+      "sign": -1,
+      "winding": 2,
+      "time": 256,
+      "release_control": "free",
+      "input_counts": [
+        0,
+        219252,
+        921992,
+        849418,
+        43775254,
+        2237126,
+        2910675,
+        166552,
+        0,
+        23456197899251,
+        46912495198144
+      ],
+      "contrast": [
+        2910675,
+        1015970,
+        43775254,
+        2456378,
+        921992
+      ],
+      "matched": {
+        "0_live": {
+          "charges": [
+            0,
+            921992,
+            2910675
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              921992
+            ],
+            [
+              0,
+              2,
+              2,
+              1,
+              0,
+              2910675
+            ]
+          ]
+        },
+        "0_pulse_off": {
+          "charges": [
+            0,
+            3832667,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              921992
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              2910675
+            ]
+          ]
+        },
+        "0_blocked_donor": {
+          "charges": [
+            0,
+            3832667,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              0,
+              921992
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              0,
+              2910675
+            ]
+          ]
+        },
+        "2_live": {
+          "charges": [
+            921992,
+            2910675,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              1,
+              2,
+              921992
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              2910675
+            ]
+          ]
+        },
+        "2_pulse_off": {
+          "charges": [
+            0,
+            3832667,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              921992
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              2910675
+            ]
+          ]
+        },
+        "2_blocked_donor": {
+          "charges": [
+            0,
+            3832667,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              2,
+              921992
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              2,
+              2910675
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "bench": "retired",
+      "sensor": "second_owner",
+      "sign": -1,
+      "winding": 2,
+      "time": 256,
+      "release_control": "two_gates_closed",
+      "input_counts": [
+        0,
+        0,
+        0,
+        0,
+        51090506,
+        0,
+        0,
+        0,
+        0,
+        23456199440357,
+        46912493646801
+      ],
+      "contrast": [
+        0,
+        0,
+        51090506,
+        0,
+        0
+      ],
+      "matched": {
+        "0_live": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        "0_pulse_off": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "0_blocked_donor": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              0,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "2_live": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              1,
+              2,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "2_pulse_off": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "2_blocked_donor": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              2,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              2,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "bench": "intact",
+      "sensor": "opposite",
+      "sign": 1,
+      "winding": 0,
+      "time": 2048,
+      "release_control": "free",
+      "input_counts": [
+        0,
+        2920,
+        67,
+        2323,
+        57498571,
+        4928,
+        110,
+        6061,
+        0,
+        23456183495253,
+        46912503167431
+      ],
+      "contrast": [
+        110,
+        8384,
+        57498571,
+        7848,
+        67
+      ],
+      "matched": {
+        "0_live": {
+          "charges": [
+            0,
+            67,
+            110
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              67
+            ],
+            [
+              0,
+              2,
+              2,
+              1,
+              0,
+              110
+            ]
+          ]
+        },
+        "0_pulse_off": {
+          "charges": [
+            0,
+            177,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              67
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              110
+            ]
+          ]
+        },
+        "0_blocked_donor": {
+          "charges": [
+            0,
+            177,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              0,
+              67
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              0,
+              110
+            ]
+          ]
+        },
+        "2_live": {
+          "charges": [
+            67,
+            110,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              1,
+              2,
+              67
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              110
+            ]
+          ]
+        },
+        "2_pulse_off": {
+          "charges": [
+            0,
+            177,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              67
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              110
+            ]
+          ]
+        },
+        "2_blocked_donor": {
+          "charges": [
+            0,
+            177,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              2,
+              67
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              2,
+              110
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "bench": "intact",
+      "sensor": "opposite",
+      "sign": 1,
+      "winding": 0,
+      "time": 2048,
+      "release_control": "two_gates_closed",
+      "input_counts": [
+        0,
+        0,
+        0,
+        0,
+        57525568,
+        0,
+        0,
+        0,
+        0,
+        23456190545984,
+        46912496106112
+      ],
+      "contrast": [
+        0,
+        0,
+        57525568,
+        0,
+        0
+      ],
+      "matched": {
+        "0_live": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        "0_pulse_off": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "0_blocked_donor": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              0,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "2_live": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              1,
+              2,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "2_pulse_off": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "2_blocked_donor": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              2,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              2,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "bench": "intact",
+      "sensor": "second_owner",
+      "sign": 1,
+      "winding": 0,
+      "time": 2048,
+      "release_control": "free",
+      "input_counts": [
+        0,
+        2939,
+        59,
+        2185,
+        57502557,
+        7577,
+        128,
+        7675,
+        0,
+        23456197091367,
+        46912489563177
+      ],
+      "contrast": [
+        128,
+        9860,
+        57502557,
+        10516,
+        59
+      ],
+      "matched": {
+        "0_live": {
+          "charges": [
+            0,
+            59,
+            128
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              59
+            ],
+            [
+              0,
+              2,
+              2,
+              1,
+              0,
+              128
+            ]
+          ]
+        },
+        "0_pulse_off": {
+          "charges": [
+            0,
+            187,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              59
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              128
+            ]
+          ]
+        },
+        "0_blocked_donor": {
+          "charges": [
+            0,
+            187,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              0,
+              59
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              0,
+              128
+            ]
+          ]
+        },
+        "2_live": {
+          "charges": [
+            59,
+            128,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              1,
+              2,
+              59
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              128
+            ]
+          ]
+        },
+        "2_pulse_off": {
+          "charges": [
+            0,
+            187,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              59
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              128
+            ]
+          ]
+        },
+        "2_blocked_donor": {
+          "charges": [
+            0,
+            187,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              2,
+              59
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              2,
+              128
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "bench": "intact",
+      "sensor": "second_owner",
+      "sign": 1,
+      "winding": 0,
+      "time": 2048,
+      "release_control": "two_gates_closed",
+      "input_counts": [
+        0,
+        0,
+        0,
+        0,
+        57518427,
+        0,
+        0,
+        0,
+        0,
+        23456192708638,
+        46912493950599
+      ],
+      "contrast": [
+        0,
+        0,
+        57518427,
+        0,
+        0
+      ],
+      "matched": {
+        "0_live": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        "0_pulse_off": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "0_blocked_donor": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              0,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "2_live": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              1,
+              2,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "2_pulse_off": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "2_blocked_donor": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              2,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              2,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "bench": "intact",
+      "sensor": "opposite",
+      "sign": 1,
+      "winding": 1,
+      "time": 2048,
+      "release_control": "free",
+      "input_counts": [
+        0,
+        2791,
+        53,
+        2136,
+        51059396,
+        4232,
+        128,
+        5142,
+        0,
+        23456189954676,
+        46912503149110
+      ],
+      "contrast": [
+        128,
+        7278,
+        51059396,
+        7023,
+        53
+      ],
+      "matched": {
+        "0_live": {
+          "charges": [
+            0,
+            53,
+            128
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              53
+            ],
+            [
+              0,
+              2,
+              2,
+              1,
+              0,
+              128
+            ]
+          ]
+        },
+        "0_pulse_off": {
+          "charges": [
+            0,
+            181,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              53
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              128
+            ]
+          ]
+        },
+        "0_blocked_donor": {
+          "charges": [
+            0,
+            181,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              0,
+              53
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              0,
+              128
+            ]
+          ]
+        },
+        "2_live": {
+          "charges": [
+            53,
+            128,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              1,
+              2,
+              53
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              128
+            ]
+          ]
+        },
+        "2_pulse_off": {
+          "charges": [
+            0,
+            181,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              53
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              128
+            ]
+          ]
+        },
+        "2_blocked_donor": {
+          "charges": [
+            0,
+            181,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              2,
+              53
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              2,
+              128
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "bench": "intact",
+      "sensor": "opposite",
+      "sign": 1,
+      "winding": 1,
+      "time": 2048,
+      "release_control": "two_gates_closed",
+      "input_counts": [
+        0,
+        0,
+        0,
+        0,
+        51081247,
+        0,
+        0,
+        0,
+        0,
+        23456198298199,
+        46912494798218
+      ],
+      "contrast": [
+        0,
+        0,
+        51081247,
+        0,
+        0
+      ],
+      "matched": {
+        "0_live": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        "0_pulse_off": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "0_blocked_donor": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              0,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "2_live": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              1,
+              2,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "2_pulse_off": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "2_blocked_donor": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              2,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              2,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "bench": "intact",
+      "sensor": "second_owner",
+      "sign": 1,
+      "winding": 1,
+      "time": 2048,
+      "release_control": "free",
+      "input_counts": [
+        0,
+        2591,
+        59,
+        2126,
+        51064414,
+        6889,
+        125,
+        6872,
+        0,
+        23456196392266,
+        46912496702322
+      ],
+      "contrast": [
+        125,
+        8998,
+        51064414,
+        9480,
+        59
+      ],
+      "matched": {
+        "0_live": {
+          "charges": [
+            0,
+            59,
+            125
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              59
+            ],
+            [
+              0,
+              2,
+              2,
+              1,
+              0,
+              125
+            ]
+          ]
+        },
+        "0_pulse_off": {
+          "charges": [
+            0,
+            184,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              59
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              125
+            ]
+          ]
+        },
+        "0_blocked_donor": {
+          "charges": [
+            0,
+            184,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              0,
+              59
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              0,
+              125
+            ]
+          ]
+        },
+        "2_live": {
+          "charges": [
+            59,
+            125,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              1,
+              2,
+              59
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              125
+            ]
+          ]
+        },
+        "2_pulse_off": {
+          "charges": [
+            0,
+            184,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              59
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              125
+            ]
+          ]
+        },
+        "2_blocked_donor": {
+          "charges": [
+            0,
+            184,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              2,
+              59
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              2,
+              125
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "bench": "intact",
+      "sensor": "second_owner",
+      "sign": 1,
+      "winding": 1,
+      "time": 2048,
+      "release_control": "two_gates_closed",
+      "input_counts": [
+        0,
+        0,
+        0,
+        0,
+        51078385,
+        0,
+        0,
+        0,
+        0,
+        23456197736861,
+        46912495362418
+      ],
+      "contrast": [
+        0,
+        0,
+        51078385,
+        0,
+        0
+      ],
+      "matched": {
+        "0_live": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        "0_pulse_off": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "0_blocked_donor": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              0,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "2_live": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              1,
+              2,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "2_pulse_off": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "2_blocked_donor": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              2,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              2,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "bench": "intact",
+      "sensor": "opposite",
+      "sign": 1,
+      "winding": 2,
+      "time": 2048,
+      "release_control": "free",
+      "input_counts": [
+        0,
+        2787,
+        56,
+        2068,
+        51050101,
+        4206,
+        98,
+        5006,
+        0,
+        23456197161145,
+        46912495952197
+      ],
+      "contrast": [
+        98,
+        7074,
+        51050101,
+        6993,
+        56
+      ],
+      "matched": {
+        "0_live": {
+          "charges": [
+            0,
+            56,
+            98
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              56
+            ],
+            [
+              0,
+              2,
+              2,
+              1,
+              0,
+              98
+            ]
+          ]
+        },
+        "0_pulse_off": {
+          "charges": [
+            0,
+            154,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              56
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              98
+            ]
+          ]
+        },
+        "0_blocked_donor": {
+          "charges": [
+            0,
+            154,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              0,
+              56
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              0,
+              98
+            ]
+          ]
+        },
+        "2_live": {
+          "charges": [
+            56,
+            98,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              1,
+              2,
+              56
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              98
+            ]
+          ]
+        },
+        "2_pulse_off": {
+          "charges": [
+            0,
+            154,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              56
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              98
+            ]
+          ]
+        },
+        "2_blocked_donor": {
+          "charges": [
+            0,
+            154,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              2,
+              56
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              2,
+              98
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "bench": "intact",
+      "sensor": "opposite",
+      "sign": 1,
+      "winding": 2,
+      "time": 2048,
+      "release_control": "two_gates_closed",
+      "input_counts": [
+        0,
+        0,
+        0,
+        0,
+        51079635,
+        0,
+        0,
+        0,
+        0,
+        23456205067135,
+        46912488030894
+      ],
+      "contrast": [
+        0,
+        0,
+        51079635,
+        0,
+        0
+      ],
+      "matched": {
+        "0_live": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        "0_pulse_off": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "0_blocked_donor": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              0,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "2_live": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              1,
+              2,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "2_pulse_off": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "2_blocked_donor": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              2,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              2,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "bench": "intact",
+      "sensor": "second_owner",
+      "sign": 1,
+      "winding": 2,
+      "time": 2048,
+      "release_control": "free",
+      "input_counts": [
+        0,
+        2630,
+        64,
+        2179,
+        51059389,
+        7014,
+        109,
+        7081,
+        0,
+        23456198929059,
+        46912494170139
+      ],
+      "contrast": [
+        109,
+        9260,
+        51059389,
+        9644,
+        64
+      ],
+      "matched": {
+        "0_live": {
+          "charges": [
+            0,
+            64,
+            109
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              64
+            ],
+            [
+              0,
+              2,
+              2,
+              1,
+              0,
+              109
+            ]
+          ]
+        },
+        "0_pulse_off": {
+          "charges": [
+            0,
+            173,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              64
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              109
+            ]
+          ]
+        },
+        "0_blocked_donor": {
+          "charges": [
+            0,
+            173,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              0,
+              64
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              0,
+              109
+            ]
+          ]
+        },
+        "2_live": {
+          "charges": [
+            64,
+            109,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              1,
+              2,
+              64
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              109
+            ]
+          ]
+        },
+        "2_pulse_off": {
+          "charges": [
+            0,
+            173,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              64
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              109
+            ]
+          ]
+        },
+        "2_blocked_donor": {
+          "charges": [
+            0,
+            173,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              2,
+              64
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              2,
+              109
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "bench": "intact",
+      "sensor": "second_owner",
+      "sign": 1,
+      "winding": 2,
+      "time": 2048,
+      "release_control": "two_gates_closed",
+      "input_counts": [
+        0,
+        0,
+        0,
+        0,
+        51077362,
+        0,
+        0,
+        0,
+        0,
+        23456186776627,
+        46912506323675
+      ],
+      "contrast": [
+        0,
+        0,
+        51077362,
+        0,
+        0
+      ],
+      "matched": {
+        "0_live": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        "0_pulse_off": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "0_blocked_donor": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              0,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "2_live": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              1,
+              2,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "2_pulse_off": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "2_blocked_donor": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              2,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              2,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "bench": "retired",
+      "sensor": "opposite",
+      "sign": 1,
+      "winding": 0,
+      "time": 256,
+      "release_control": "free",
+      "input_counts": [
+        0,
+        213776,
+        19130667,
+        220466,
+        31817101,
+        214658,
+        5711485,
+        219795,
+        0,
+        23456189156032,
+        46912497493684
+      ],
+      "contrast": [
+        5711485,
+        440261,
+        31817101,
+        428434,
+        19130667
+      ],
+      "matched": {
+        "0_live": {
+          "charges": [
+            0,
+            19130667,
+            5711485
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              19130667
+            ],
+            [
+              0,
+              2,
+              2,
+              1,
+              0,
+              5711485
+            ]
+          ]
+        },
+        "0_pulse_off": {
+          "charges": [
+            0,
+            24842152,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              19130667
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              5711485
+            ]
+          ]
+        },
+        "0_blocked_donor": {
+          "charges": [
+            0,
+            24842152,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              0,
+              19130667
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              0,
+              5711485
+            ]
+          ]
+        },
+        "2_live": {
+          "charges": [
+            19130667,
+            5711485,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              1,
+              2,
+              19130667
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              5711485
+            ]
+          ]
+        },
+        "2_pulse_off": {
+          "charges": [
+            0,
+            24842152,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              19130667
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              5711485
+            ]
+          ]
+        },
+        "2_blocked_donor": {
+          "charges": [
+            0,
+            24842152,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              2,
+              19130667
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              2,
+              5711485
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "bench": "retired",
+      "sensor": "opposite",
+      "sign": 1,
+      "winding": 0,
+      "time": 256,
+      "release_control": "two_gates_closed",
+      "input_counts": [
+        0,
+        0,
+        0,
+        0,
+        57523598,
+        0,
+        0,
+        0,
+        0,
+        23456187101628,
+        46912499552438
+      ],
+      "contrast": [
+        0,
+        0,
+        57523598,
+        0,
+        0
+      ],
+      "matched": {
+        "0_live": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        "0_pulse_off": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "0_blocked_donor": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              0,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "2_live": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              1,
+              2,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "2_pulse_off": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "2_blocked_donor": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              2,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              2,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "bench": "retired",
+      "sensor": "second_owner",
+      "sign": 1,
+      "winding": 0,
+      "time": 256,
+      "release_control": "free",
+      "input_counts": [
+        0,
+        187817,
+        3276683,
+        2521052,
+        49282925,
+        956271,
+        1038515,
+        246654,
+        0,
+        23456189365103,
+        46912497302644
+      ],
+      "contrast": [
+        1038515,
+        2767706,
+        49282925,
+        1144088,
+        3276683
+      ],
+      "matched": {
+        "0_live": {
+          "charges": [
+            0,
+            3276683,
+            1038515
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              3276683
+            ],
+            [
+              0,
+              2,
+              2,
+              1,
+              0,
+              1038515
+            ]
+          ]
+        },
+        "0_pulse_off": {
+          "charges": [
+            0,
+            4315198,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              3276683
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              1038515
+            ]
+          ]
+        },
+        "0_blocked_donor": {
+          "charges": [
+            0,
+            4315198,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              0,
+              3276683
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              0,
+              1038515
+            ]
+          ]
+        },
+        "2_live": {
+          "charges": [
+            3276683,
+            1038515,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              1,
+              2,
+              3276683
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              1038515
+            ]
+          ]
+        },
+        "2_pulse_off": {
+          "charges": [
+            0,
+            4315198,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              3276683
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              1038515
+            ]
+          ]
+        },
+        "2_blocked_donor": {
+          "charges": [
+            0,
+            4315198,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              2,
+              3276683
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              2,
+              1038515
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "bench": "retired",
+      "sensor": "second_owner",
+      "sign": 1,
+      "winding": 0,
+      "time": 256,
+      "release_control": "two_gates_closed",
+      "input_counts": [
+        0,
+        0,
+        0,
+        0,
+        57524905,
+        0,
+        0,
+        0,
+        0,
+        23456187464453,
+        46912499188306
+      ],
+      "contrast": [
+        0,
+        0,
+        57524905,
+        0,
+        0
+      ],
+      "matched": {
+        "0_live": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        "0_pulse_off": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "0_blocked_donor": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              0,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "2_live": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              1,
+              2,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "2_pulse_off": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "2_blocked_donor": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              2,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              2,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "bench": "retired",
+      "sensor": "opposite",
+      "sign": 1,
+      "winding": 1,
+      "time": 256,
+      "release_control": "free",
+      "input_counts": [
+        0,
+        190071,
+        16985650,
+        193961,
+        28248218,
+        189949,
+        5066072,
+        195498,
+        0,
+        23456198286078,
+        46912494822167
+      ],
+      "contrast": [
+        5066072,
+        389459,
+        28248218,
+        380020,
+        16985650
+      ],
+      "matched": {
+        "0_live": {
+          "charges": [
+            0,
+            16985650,
+            5066072
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              16985650
+            ],
+            [
+              0,
+              2,
+              2,
+              1,
+              0,
+              5066072
+            ]
+          ]
+        },
+        "0_pulse_off": {
+          "charges": [
+            0,
+            22051722,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              16985650
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              5066072
+            ]
+          ]
+        },
+        "0_blocked_donor": {
+          "charges": [
+            0,
+            22051722,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              0,
+              16985650
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              0,
+              5066072
+            ]
+          ]
+        },
+        "2_live": {
+          "charges": [
+            16985650,
+            5066072,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              1,
+              2,
+              16985650
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              5066072
+            ]
+          ]
+        },
+        "2_pulse_off": {
+          "charges": [
+            0,
+            22051722,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              16985650
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              5066072
+            ]
+          ]
+        },
+        "2_blocked_donor": {
+          "charges": [
+            0,
+            22051722,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              2,
+              16985650
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              2,
+              5066072
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "bench": "retired",
+      "sensor": "opposite",
+      "sign": 1,
+      "winding": 1,
+      "time": 256,
+      "release_control": "two_gates_closed",
+      "input_counts": [
+        0,
+        0,
+        0,
+        0,
+        51068615,
+        0,
+        0,
+        0,
+        0,
+        23456194505432,
+        46912498603617
+      ],
+      "contrast": [
+        0,
+        0,
+        51068615,
+        0,
+        0
+      ],
+      "matched": {
+        "0_live": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        "0_pulse_off": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "0_blocked_donor": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              0,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "2_live": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              1,
+              2,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "2_pulse_off": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "2_blocked_donor": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              2,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              2,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "bench": "retired",
+      "sensor": "second_owner",
+      "sign": 1,
+      "winding": 1,
+      "time": 256,
+      "release_control": "free",
+      "input_counts": [
+        0,
+        166915,
+        2910545,
+        2238427,
+        43763929,
+        849338,
+        921680,
+        219330,
+        0,
+        23456195435244,
+        46912497672256
+      ],
+      "contrast": [
+        921680,
+        2457757,
+        43763929,
+        1016253,
+        2910545
+      ],
+      "matched": {
+        "0_live": {
+          "charges": [
+            0,
+            2910545,
+            921680
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              2910545
+            ],
+            [
+              0,
+              2,
+              2,
+              1,
+              0,
+              921680
+            ]
+          ]
+        },
+        "0_pulse_off": {
+          "charges": [
+            0,
+            3832225,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              2910545
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              921680
+            ]
+          ]
+        },
+        "0_blocked_donor": {
+          "charges": [
+            0,
+            3832225,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              0,
+              2910545
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              0,
+              921680
+            ]
+          ]
+        },
+        "2_live": {
+          "charges": [
+            2910545,
+            921680,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              1,
+              2,
+              2910545
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              921680
+            ]
+          ]
+        },
+        "2_pulse_off": {
+          "charges": [
+            0,
+            3832225,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              2910545
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              921680
+            ]
+          ]
+        },
+        "2_blocked_donor": {
+          "charges": [
+            0,
+            3832225,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              2,
+              2910545
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              2,
+              921680
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "bench": "retired",
+      "sensor": "second_owner",
+      "sign": 1,
+      "winding": 1,
+      "time": 256,
+      "release_control": "two_gates_closed",
+      "input_counts": [
+        0,
+        0,
+        0,
+        0,
+        51076241,
+        0,
+        0,
+        0,
+        0,
+        23456192890089,
+        46912500211334
+      ],
+      "contrast": [
+        0,
+        0,
+        51076241,
+        0,
+        0
+      ],
+      "matched": {
+        "0_live": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        "0_pulse_off": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "0_blocked_donor": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              0,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "2_live": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              1,
+              2,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "2_pulse_off": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "2_blocked_donor": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              2,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              2,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "bench": "retired",
+      "sensor": "opposite",
+      "sign": 1,
+      "winding": 2,
+      "time": 256,
+      "release_control": "free",
+      "input_counts": [
+        0,
+        190190,
+        16996022,
+        195912,
+        28261996,
+        190294,
+        5070566,
+        195372,
+        0,
+        23456195933515,
+        46912497143797
+      ],
+      "contrast": [
+        5070566,
+        391284,
+        28261996,
+        380484,
+        16996022
+      ],
+      "matched": {
+        "0_live": {
+          "charges": [
+            0,
+            16996022,
+            5070566
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              16996022
+            ],
+            [
+              0,
+              2,
+              2,
+              1,
+              0,
+              5070566
+            ]
+          ]
+        },
+        "0_pulse_off": {
+          "charges": [
+            0,
+            22066588,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              16996022
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              5070566
+            ]
+          ]
+        },
+        "0_blocked_donor": {
+          "charges": [
+            0,
+            22066588,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              0,
+              16996022
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              0,
+              5070566
+            ]
+          ]
+        },
+        "2_live": {
+          "charges": [
+            16996022,
+            5070566,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              1,
+              2,
+              16996022
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              5070566
+            ]
+          ]
+        },
+        "2_pulse_off": {
+          "charges": [
+            0,
+            22066588,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              16996022
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              5070566
+            ]
+          ]
+        },
+        "2_blocked_donor": {
+          "charges": [
+            0,
+            22066588,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              2,
+              16996022
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              2,
+              5070566
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "bench": "retired",
+      "sensor": "opposite",
+      "sign": 1,
+      "winding": 2,
+      "time": 256,
+      "release_control": "two_gates_closed",
+      "input_counts": [
+        0,
+        0,
+        0,
+        0,
+        51071343,
+        0,
+        0,
+        0,
+        0,
+        23456198600906,
+        46912494505415
+      ],
+      "contrast": [
+        0,
+        0,
+        51071343,
+        0,
+        0
+      ],
+      "matched": {
+        "0_live": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        "0_pulse_off": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "0_blocked_donor": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              0,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "2_live": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              1,
+              2,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "2_pulse_off": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "2_blocked_donor": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              2,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              2,
+              0
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "bench": "retired",
+      "sensor": "second_owner",
+      "sign": 1,
+      "winding": 2,
+      "time": 256,
+      "release_control": "free",
+      "input_counts": [
+        0,
+        165804,
+        2910143,
+        2240897,
+        43776902,
+        848780,
+        921848,
+        218937,
+        0,
+        23456192948459,
+        46912500145894
+      ],
+      "contrast": [
+        921848,
+        2459834,
+        43776902,
+        1014584,
+        2910143
+      ],
+      "matched": {
+        "0_live": {
+          "charges": [
+            0,
+            2910143,
+            921848
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              2910143
+            ],
+            [
+              0,
+              2,
+              2,
+              1,
+              0,
+              921848
+            ]
+          ]
+        },
+        "0_pulse_off": {
+          "charges": [
+            0,
+            3831991,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              2910143
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              921848
+            ]
+          ]
+        },
+        "0_blocked_donor": {
+          "charges": [
+            0,
+            3831991,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              0,
+              2910143
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              0,
+              921848
+            ]
+          ]
+        },
+        "2_live": {
+          "charges": [
+            2910143,
+            921848,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              1,
+              2,
+              2910143
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              921848
+            ]
+          ]
+        },
+        "2_pulse_off": {
+          "charges": [
+            0,
+            3831991,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              2910143
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              921848
+            ]
+          ]
+        },
+        "2_blocked_donor": {
+          "charges": [
+            0,
+            3831991,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              2,
+              2910143
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              2,
+              921848
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "bench": "retired",
+      "sensor": "second_owner",
+      "sign": 1,
+      "winding": 2,
+      "time": 256,
+      "release_control": "two_gates_closed",
+      "input_counts": [
+        0,
+        0,
+        0,
+        0,
+        51065927,
+        0,
+        0,
+        0,
+        0,
+        23456199076149,
+        46912494035588
+      ],
+      "contrast": [
+        0,
+        0,
+        51065927,
+        0,
+        0
+      ],
+      "matched": {
+        "0_live": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              1,
+              0,
+              0
+            ]
+          ]
+        },
+        "0_pulse_off": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "0_blocked_donor": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              0,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "2_live": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              1,
+              2,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "2_pulse_off": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              1,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              1,
+              0
+            ]
+          ]
+        },
+        "2_blocked_donor": {
+          "charges": [
+            0,
+            0,
+            0
+          ],
+          "flag_and_outgoing": [
+            [
+              2,
+              0,
+              0,
+              2,
+              2,
+              0
+            ],
+            [
+              0,
+              2,
+              2,
+              0,
+              2,
+              0
+            ]
+          ]
+        }
+      }
+    }
+  ]
+}

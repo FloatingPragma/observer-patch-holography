@@ -100,7 +100,7 @@ def apparatus(frame, charge, current, time):
 def probabilities(effects, rho):
     p = np.einsum("kij,ji->k", effects, rho).real
     assert abs(1 - p.sum()) < 2e-12 and min(p) > -1e-13
-    p[abs(p) < 5e-15] = 0
+    p[p < 5e-15] = 0
     return p / p.sum()
 
 
