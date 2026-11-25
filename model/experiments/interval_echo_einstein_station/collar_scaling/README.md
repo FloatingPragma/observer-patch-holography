@@ -69,6 +69,8 @@ Here \(M\) is the number of enrolled cells. Each has 25 retained internal edges 
 
 Every simulated launch is counted. The exact means and sample sums are deposited separately. Tests compare the full port graph with the compressed station survey, independently enumerate distinct word admissions, and compare each bundled quotient with the dual of the corresponding midpoint triangulation up to graph isomorphism. [Closed ball and boundary tapes](clock_balls.json) · [Replay](clock_balls.py)
 
+For the related seven-appointment station clock, all-resolution path counting gives the exact admission coefficient and the regional entropy derivative. For fastest-swap annuli the uniform counting bounds below now give a positive subsequential limit. [Station, word entropy and area reader](station_clock/README.md)
+
 ### Which metric do these clocks determine at large scales?
 
 Consider any continuation with the same protected cell template, three distinct accessible gateways, and the face adjacency of the uniform midpoint subdivision of an icosahedron. Set \(n=2^j\), so \(N=20n^2\) stations. Write \(M_x(r)\) for a closed ball's population, \(H_x\) for the greatest station distance from \(x\), and \(D=3\) for the template diameter after removing port 4. All following estimates are independent of the gateway labels and the ball centre. The auxiliary triangles serve to count graph paths.

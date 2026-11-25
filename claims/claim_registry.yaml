@@ -6538,7 +6538,7 @@
     },
     {
       "claim_id": "OPH-GEOMETRY-COMMON-WORLD-INSTRUMENT-JOIN",
-      "statement": "On the committed bridged common-world record, four typed joins are added, each on an object the record carries. (1) A step-scaled Maxwell bundle on the same twelve-port, thirty-seam, twenty-face carrier as the record's unit-step bundle, sharing its initial seam data and seam current; the unit-step law is the h = 1 instance of the scaled law, every Courant constant of a certified bundle dominates the committed eigenvalues 5 and 3 + sqrt 5 of the local normal operator, so every certified step is below one, the scaled staggered form is nonnegative at every step, the zero-current scaled fields are uniformly bounded by the committed explicit multiples of the initial form, and the unit-step law on the same carrier admits the committed unbounded zero-current mode. (2) The Lüders repeatable phase instrument and its decision bundle on the two-dimensional record algebra, joined by the identity of the instrument's diagonal-context summed channel with the committed pinching of the diagonal partition on every matrix, where that partition refines the record's one-block partition as every partition does, the record's state and the run state are fixed points, and the record's state reads the record effect with trace one against 111/179 on the run state; the record's partition and state are not the instrument's diagonal pair and run state, recorded as obstruction theorems, and the swap-twisted instrument violates the pinching identity at the run state, so the clause is load-bearing. (3) A declared positive step duration identifying evolution step n with proper-time parameter n times the duration on the record's clock worldline: the clock at step n is the exact rotation at the declared mass, the clock repeats after N steps exactly when mass times N times the duration lies in 2 pi Z, successive step events are causally ordered in the record's cone order, distinct steps are distinct events, and a zero or negative step collapses the steps or breaks the causal clause. (4) A repair law whose reference is entry by entry the diagonal of the instrument's preparation with a horizon record over it, and the Einstein-branch register at that law whose modular-flow supply is the thermodynamic first-law datum by definition, so the composed first-law clause holds on the simplex tangent space at the instrument's preparation. One extended record type carries the bridged fields plus the joins; a composed receipt on one typed antecedent bundle proves the ten bridged clauses and the four join clauses of one record simultaneously; an explicit inhabitant extends the committed bridged inhabitant definitionally; two inhabitants over the same base differ in step duration, two in certified step, two in horizon split, and the effect table does not determine the instrument. The step dictionary is declared and identifies no physical time; no common action across carriers, no port, seam, or face to module carrier map, no matter dynamics, and no observer readout is supplied.",
+      "statement": "On the committed bridged common-world record, four typed joins are added, each on an object the record carries. (1) A step-scaled Maxwell bundle on the same twelve-port, thirty-seam, twenty-face carrier as the record's unit-step bundle, sharing its initial seam data and seam current; the unit-step law is the h = 1 instance of the scaled law, every Courant constant of a certified bundle dominates the committed eigenvalues 5 and 3 + sqrt 5 of the local normal operator, so every certified step is below one, the scaled staggered form is nonnegative at every step, the zero-current scaled fields are uniformly bounded by the committed explicit multiples of the initial form, and the unit-step law on the same carrier admits the committed unbounded zero-current mode. (2) The Lüders repeatable phase instrument and its decision bundle on the two-dimensional record algebra, joined by the identity of the instrument's diagonal-context summed channel with the committed pinching of the diagonal partition on every matrix, where that partition refines the record's one-block partition as every partition does, the record's state and the run state are fixed points, and the record's state reads the record effect with trace one against 111/179 on the run state; the record's partition and state are not the instrument's diagonal pair and run state, recorded as obstruction theorems, and the swap-twisted instrument violates the pinching identity at the run state, so the clause is load-bearing. (3) A declared positive step duration identifying evolution step n with proper-time parameter n times the duration on the record's clock worldline: the clock at step n is the exact rotation at the declared mass, the clock repeats after N steps exactly when mass times N times the duration lies in 2 pi Z, successive step events are causally ordered in the record's cone order, distinct steps are distinct events, and a zero or negative step collapses the steps or breaks the causal clause. (4) A repair law whose reference is entry by entry the diagonal of the instrument's preparation with a horizon record over it, and the Einstein-branch register at that law whose modular-flow supply is the thermodynamic first-law datum by definition, so the composed first-law clause holds on the simplex tangent space at the instrument's preparation. One extended record type carries the bridged fields plus the joins; a composed receipt on one typed antecedent bundle proves the ten bridged clauses and the four join clauses of one record simultaneously; an explicit inhabitant extends the committed bridged inhabitant definitionally; two inhabitants over the same base differ in step duration, two in certified step, two in horizon split, and the effect table does not determine the instrument. The step dictionary is declared and identifies no physical time; no common action across carriers, no port, seam, or face to module carrier map, no matter dynamics, and no observer readout is supplied. An Interval Echo ticket sampler supplies one admitted input state for the declared reference and all eight context operations. The sourceWorld inhabitant puts the admitted density in its own state field, proves that it agrees with its instrument preparation and is fixed by pinching, and identifies the pushforward mass with its repair reference. The counts 111 and 68 calibrate the source, and all other geometric fields retain their declared inputs.",
       "owner_paper": "paper/observers_are_all_you_need.tex",
       "tier": "exact_typed_joins_on_committed_bridged_common_world_witness",
       "assumptions": [
@@ -6560,7 +6560,12 @@
       "evidence": [
         "paper/observers_are_all_you_need.tex",
         "Lean/Geometry/CommonWorldInstrumentJoin.lean",
-        "docs/registers/OBSERVABLES.json"
+        "docs/registers/OBSERVABLES.json",
+        "Lean/Geometry/IntervalEchoCommonRecord.lean",
+        "model/experiments/interval_echo_consensus/signed_effects/common_record/acquire.py",
+        "model/experiments/interval_echo_consensus/signed_effects/common_record/results.json",
+        "model/experiments/interval_echo_consensus/signed_effects/common_record/verify.py",
+        "model/experiments/interval_echo_consensus/signed_effects/common_record/test_record.py"
       ],
       "falsifier": "The claim fails if some certified bundle has Courant constant below 5 or unit step, if the Lüders diagonal channel differs from the diagonal pinching at some matrix, if the witness state or run state moves under that channel, if the swap-twisted instrument satisfies the pinching identity at the run state, if the step clock fails the exponential or period law, if successive step events are causally unordered, if the zero or negative step fails to break its clause, if the reference law differs from the run-state diagonal, if the first-law clause fails on a mass-zero variation, or if the extended record is uninhabited over the committed inhabitant.",
       "scope_if_false": "Only the four joins and their extended witness fall. The bridged witness, the scaled stability packet, the Lueders instrument, the internal-clock packet, and the Einstein-branch inhabitant are assessed by their own claims and register rows.",
@@ -6575,6 +6580,8 @@
           "PR-18",
           "PR-19",
           "PR-42",
+          "PR-64",
+          "PR-65",
           "PR-66"
         ],
         "open": [
@@ -6582,9 +6589,7 @@
           "PR-15",
           "PR-52",
           "PR-53",
-          "PR-54",
-          "PR-64",
-          "PR-65"
+          "PR-54"
         ],
         "boundary": []
       }
@@ -7152,7 +7157,7 @@
     },
     {
       "claim_id": "OPH-QUANTUM-SOURCE-BOUND-INSTRUMENT-INTERFACE",
-      "statement": "The source-binding obligation of the committed phase packet is mirrored by a placeholder schema. Its determined part fixes a common matrix equal to the committed run-state diagonal and a declared expected-frequency table equal to the committed effect table read on that matrix; every declared phase instrument inhabits this part, so it is compatibility data rather than source preparation or public readback. The full record adds a natural-number digest label and inhabited proposition fields. These placeholders are freely stipulable, and propositional extensionality erases data separation between their holding assignments; this shows the current schema carries no authenticated provenance, not that real custody is universally external or can only reside in one digest. The swap-twisted comparison instrument inhabits the same determined fields, so the schema does not select an instrument. Separately, the affine family between the run Born functional and the cubic countermodel matches the fixture, preserves normalization and complements, and has exact additivity residue -(3/256) t. On 0 <= t <= 1 it is probability-valued on every effect; outside that interval only algebraic identities are asserted. Full effect additivity and Born representability hold only at t = 0. No run, public outcome, authenticated export, producer, or custody artifact exists; PR-03, PR-64, and PR-65 are open.",
+      "statement": "The source-binding obligation of the committed phase packet is mirrored by a placeholder schema. Its determined part fixes a common matrix equal to the committed run-state diagonal and a declared expected-frequency table equal to the committed effect table read on that matrix; every declared phase instrument inhabits this part, so it is compatibility data rather than source preparation or public readback. The full record adds a natural-number digest label and inhabited proposition fields. These placeholders are freely stipulable, and propositional extensionality erases data separation between their holding assignments; this shows the current schema carries no authenticated provenance, not that real custody is universally external or can only reside in one digest. The swap-twisted comparison instrument inhabits the same determined fields, so the schema does not select an instrument. Separately, the affine family between the run Born functional and the cubic countermodel matches the fixture, preserves normalization and complements, and has exact additivity residue -(3/256) t. On 0 <= t <= 1 it is probability-valued on every effect; outside that interval only algebraic identities are asserted. Full effect additivity and Born representability hold only at t = 0. The static schema leaves the producer unspecified. A separate Interval Echo construction couples the calibrated common preparation, material selector, sharp outcome and post-state readback on one public stream. Two independent implementations reconstruct every byte of its 65,536 trials. The receipt binds the stream and operations within this executable run; inference of Born weights from observer records and external laboratory provenance are separate claims.",
       "owner_paper": "paper/observers_are_all_you_need.tex",
       "tier": "placeholder_source_binding_schema_with_probability_bounded_affine_additivity_boundary",
       "assumptions": [
@@ -7168,22 +7173,24 @@
         "Lean/EventAlgebra/SourceBoundInstrumentInterface.lean",
         "Lean/EventAlgebra/LuedersPhaseInstrument.lean",
         "Lean/EventAlgebra/OperationalAdditivityBoundary.lean",
-        "paper/observers_are_all_you_need.tex"
+        "paper/observers_are_all_you_need.tex",
+        "model/experiments/interval_echo_consensus/signed_effects/common_record/acquire.py",
+        "model/experiments/interval_echo_consensus/signed_effects/common_record/results.json",
+        "model/experiments/interval_echo_consensus/signed_effects/common_record/verify.py",
+        "model/experiments/interval_echo_consensus/signed_effects/common_record/test_record.py"
       ],
-      "falsifier": "A static compatibility identity fails (an expected-frequency entry is off the fixture, the literal row is wrong, or a declared trace read differs); the freely labelled digest family fails its algebraic injectivity statement; the swap-twisted instrument fails a compatibility field; the affine formula or its 0 <= t <= 1 probability bound fails; the residue differs from -(3/256) t; or a member with nonzero t is a fully additive effect valuation or Born functional of a state.",
+      "falsifier": "A static compatibility identity fails (an expected-frequency entry is off the fixture, the literal row is wrong, or a declared trace read differs); the freely labelled digest family fails its algebraic injectivity statement; the swap-twisted instrument fails a compatibility field; the affine formula or its 0 <= t <= 1 probability bound fails; the residue differs from -(3/256) t; or a member with nonzero t is a fully additive effect valuation or Born functional of a state. The material realization fails if the computed source and readback do not reproduce the deposited stream or if a marginal-preserving splice passes independent replay.",
       "scope_if_false": "Only the placeholder-schema typing, non-authentication delimitation, and probability-bounded affine family fall. The committed instrument, data-bearing producer and custody routes, additivity boundary module, and register rows are separately assessed.",
-      "status": "static_compatibility_part_attained_and_custody_placeholders_unconstrained__data_bearing_source_production_readback_custody_and_additivity_open",
+      "status": "static_interface_and_internal_material_run_attained__ambient_operational_additivity_open",
       "claim_class": "conditional_implication",
       "premise_dependencies": {
         "classification": "explicit_edges",
         "consumed": [
           "PR-02",
-          "PR-04"
+          "PR-04",
+          "PR-64"
         ],
-        "open": [
-          "PR-64",
-          "PR-65"
-        ],
+        "open": [],
         "boundary": [
           "PR-03"
         ]

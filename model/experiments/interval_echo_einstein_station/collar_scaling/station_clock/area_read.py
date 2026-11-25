@@ -23,17 +23,21 @@ def run():
     for row in json.loads((HERE / "results.json").read_text())["midpoint_surveys"]:
         n, total = row["annulus_stations"], row["cells"]
         pair = Fraction(n * (n - 1), total * (total - 1))
-        panels.append(dict(
-            level=row["level"],
-            eligible_probability=str(pair),
-            optimal_event_probability_at_reference=str(pair * base),
-            optimal_event_slope=str(pair * tv),
-            entropy_slope_nats=words.endpoints(words.interval(pair) * gain),
-        ))
+        panels.append(
+            dict(
+                level=row["level"],
+                eligible_probability=str(pair),
+                optimal_event_probability_at_reference=str(pair * base),
+                optimal_event_slope=str(pair * tv),
+                entropy_slope_nats=words.endpoints(words.interval(pair) * gain),
+            )
+        )
     return dict(
         conditional_positive_event_reference_probability=str(base),
         conditional_total_variation_slope=str(tv),
-        calibrated_area_range_times_copies_required=words.endpoints(gain / words.interval(tv)),
+        calibrated_area_range_times_copies_required=words.endpoints(
+            gain / words.interval(tv)
+        ),
         one_copy_optimal_event_slope_per_fourth_power=str(tv * pair_limit),
         finite_panels=panels,
     )

@@ -1,0 +1,130 @@
+{
+  "PR-03": {
+    "status": "partial",
+    "evidence": [
+      "../../experiments/interval_echo_consensus/public_event_grammar/README.md",
+      "../../experiments/interval_echo_consensus/public_event_grammar/grammar.py",
+      "../../experiments/interval_echo_consensus/public_event_grammar/results.json",
+      "../../experiments/interval_echo_consensus/public_event_grammar/test_grammar.py",
+      "../../../Lean/EventAlgebra/NativePublicEventGrammar.lean"
+    ],
+    "note": "All jointly realized disjoint public events are additive across complete finite native programs under the supplied quantum sampling rule. The realization of every coexistent pair of ambient matrix effects on the full written-collar hardware is unproved."
+  },
+  "PR-05": {
+    "status": "fulfilled",
+    "evidence": [
+      "../../experiments/interval_echo_consensus/native_path_reference/README.md",
+      "../../experiments/interval_echo_consensus/native_path_reference/measure.py",
+      "../../experiments/interval_echo_consensus/native_path_reference/results.json",
+      "../../experiments/interval_echo_consensus/native_path_reference/test_reference.py",
+      "../../../Lean/InformationProjection/NativePathReference.lean"
+    ],
+    "note": "At every bounded depth the native padded fair-read tapes give the uniform-step counting law. The public reference is its multiplicity-weighted pushforward; refinement commutes with truncating the complete transcript. The preparation and transition alphabet are declared."
+  },
+  "PR-07": {
+    "status": "fulfilled",
+    "evidence": [
+      "../../experiments/interval_echo_consensus/conditional_bath/measure.py",
+      "../../experiments/interval_echo_consensus/conditional_bath/results.json",
+      "../../experiments/interval_echo_consensus/conditional_bath/transition.py",
+      "../../experiments/interval_echo_consensus/conditional_bath/transitions.json",
+      "../../experiments/interval_echo_consensus/conditional_bath/gibbs.py",
+      "../../experiments/interval_echo_consensus/conditional_bath/gibbs.json",
+      "../../experiments/interval_echo_consensus/conditional_bath/test_bath.py"
+    ],
+    "note": "On the declared eight-port collar one faithful reference supplies the state projection at every parity moment and the fixed-duration conditional transition on the complete repaired fibre. The finite collar and schedule are specified."
+  },
+  "PR-08": {
+    "status": "fulfilled",
+    "evidence": [
+      "../../experiments/interval_echo_consensus/refinement_cooling/dimer_band/measure.py",
+      "../../experiments/interval_echo_consensus/refinement_cooling/dimer_band/records.json",
+      "../../experiments/interval_echo_consensus/refinement_cooling/dimer_band/test_band.py",
+      "../../experiments/interval_echo_consensus/refinement_cooling/dimer_band/README.md"
+    ],
+    "note": "On the declared refinement family of guarded native dimers with one mobile, the fixed even–odd energy gap yields one inverse-temperature bound for excited Gibbs mass and entropy excess at all sizes. Measurements cover 20, 80 and 320 owners; the all-open board is a distinct spectrum."
+  },
+  "PR-64": {
+    "status": "fulfilled",
+    "evidence": [
+      "../../experiments/interval_echo_consensus/signed_effects/phase_table/acquire.py",
+      "../../experiments/interval_echo_consensus/signed_effects/phase_table/results.json",
+      "../../experiments/interval_echo_consensus/signed_effects/common_record/results.json",
+      "../../experiments/interval_echo_consensus/signed_effects/common_record/verify.py"
+    ],
+    "note": "The protected two-rail native instrument has complete calibrated sharp outcome maps and readback on all eight phase and real contexts; its controls and quantum state-update semantics are supplied."
+  },
+  "PR-65": {
+    "status": "fulfilled",
+    "evidence": [
+      "../../experiments/interval_echo_consensus/signed_effects/common_record/acquire.py",
+      "../../experiments/interval_echo_consensus/signed_effects/common_record/results.json",
+      "../../experiments/interval_echo_consensus/signed_effects/common_record/records.bin.gz",
+      "../../experiments/interval_echo_consensus/signed_effects/common_record/verify.py"
+    ],
+    "note": "A native source writes the same prepared rail and repair record before three material reads choose the context. Independent replay reconstructs all 65,536 trials, including source refusals and post-instrument readback. The archived census calibrates the source; custody is internal to the executable run."
+  },
+  "PR-84": {
+    "status": "fulfilled",
+    "evidence": [
+      "../../experiments/interval_echo_consensus/boolean_nodes/material.py",
+      "../../experiments/interval_echo_consensus/boolean_nodes/measure.py",
+      "../../experiments/interval_echo_consensus/boolean_nodes/records.json",
+      "../../experiments/interval_echo_consensus/boolean_nodes/test_nodes.py",
+      "../../../Lean/Computation/NativeBooleanNodes.lean"
+    ],
+    "note": "On the supplied periodic scan every continuously failing compiled node receives an offer within one cycle."
+  },
+  "PR-85": {
+    "status": "fulfilled",
+    "evidence": [
+      "../../experiments/interval_echo_consensus/boolean_nodes/material.py",
+      "../../experiments/interval_echo_consensus/boolean_nodes/measure.py",
+      "../../experiments/interval_echo_consensus/boolean_nodes/records.json",
+      "../../experiments/interval_echo_consensus/boolean_nodes/test_nodes.py",
+      "../../../Lean/Computation/NativeBooleanNodes.lean"
+    ],
+    "note": "On the supplied scan of L compiled nodes a non-consensus register changes within L committed offers, giving q = L − 1. The bound counts offers, with native routing and pulse costs accounted separately."
+  },
+  "PR-131": {
+    "status": "fulfilled",
+    "evidence": [
+      "../../experiments/interval_echo_consensus/signed_effects/pair_return/README.md",
+      "../../experiments/interval_echo_consensus/signed_effects/pair_return/measure.py",
+      "../../experiments/interval_echo_consensus/signed_effects/pair_return/results.json",
+      "../../experiments/interval_echo_consensus/signed_effects/pair_return/test_return.py",
+      "../../../Lean/EventAlgebra/FiniteProbeInstrumentSelection.lean"
+    ],
+    "note": "One native six-outcome instrument resolves adjacent pairs of addresses. For every rank-two outcome the two coordinate inputs and their uniform coherent superposition return with certainty. Resolving the extra address bit and then forgetting it preserves the effects and coordinate returns but halves the uniform return. This is a property of the specified instrument."
+  },
+  "PR-133": {
+    "status": "partial",
+    "evidence": [
+      "../../experiments/interval_echo_einstein_station/collar_scaling/station_clock/README.md",
+      "../../experiments/interval_echo_einstein_station/collar_scaling/station_clock/results.json"
+    ],
+    "note": "The completed station-hop annuli on the declared midpoint family give normalized single and distinct-pair coefficients 27/16 and 729/256. The original fastest-swap annuli have a positive cofinal subsequential limit; convergence on their full sequence is open."
+  },
+  "PR-163": {
+    "status": "fulfilled",
+    "evidence": [
+      "../../experiments/interval_echo_consensus/signed_effects/common_record/acquire.py",
+      "../../experiments/interval_echo_consensus/signed_effects/common_record/results.json",
+      "../../experiments/interval_echo_consensus/signed_effects/common_record/verify.py",
+      "../../experiments/interval_echo_consensus/signed_effects/common_record/test_record.py",
+      "../../../Lean/Geometry/IntervalEchoCommonRecord.lean"
+    ],
+    "note": "The material ticket writes the repair register and phase input before any context choice. On the 179 admitted tickets their common law is (111,68)/179; all 77 refusal tickets are explicit. The typed common-world record carries this actual preparation as its own state and its repair reference equals the diagonal."
+  },
+  "PR-181": {
+    "status": "fulfilled",
+    "evidence": [
+      "../../experiments/interval_echo_consensus/boolean_nodes/material.py",
+      "../../experiments/interval_echo_consensus/boolean_nodes/measure.py",
+      "../../experiments/interval_echo_consensus/boolean_nodes/records.json",
+      "../../experiments/interval_echo_consensus/boolean_nodes/test_nodes.py",
+      "../../../Lean/Computation/NativeBooleanNodes.lean"
+    ],
+    "note": "Sharp rail pairs implement Boolean registers. Each compiled node makes its local native query and conditionally repairs its output on a supplied calendar, including 112 tested scans across two board sizes."
+  }
+}

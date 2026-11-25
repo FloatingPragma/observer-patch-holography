@@ -10,7 +10,7 @@ the path bounds for b are derived in the station_clock experiment. -/
 namespace OPH.EinsteinBranch.CollarAdmission
 
 open Filter
-open scoped Topology
+open scoped Topology BigOperators
 
 /-- The five corner sectors, at offsets zero, one, one, two and two,
 counted out to even distance 2k from a single starting triangle. -/
@@ -48,7 +48,30 @@ theorem station_pair_limit (t b : ℕ → ℝ) (ht : Tendsto t atTop (𝓝 0))
   have numerator := (h.mul (h.sub (ht.pow 2))).mul (hb.pow 4)
   have denominator := (tendsto_const_nhds (x := (400 : ℝ))).mul
     ((tendsto_const_nhds (x := (1 : ℝ))).sub ((ht.pow 4).div_const 5))
-  convert numerator.div denominator (by norm_num) using 1 <;> norm_num
+  convert numerator.div denominator (by norm_num) using 1
+  norm_num
+
+/-- Two positive parts of a signed source variation each have mass d.
+A reader with outcomes in a fixed interval of length L changes by at most Ld. -/
+theorem bounded_word_reader {ι : Type*} (s : Finset ι) (u v f : ι → ℝ) (L d : ℝ)
+    (hu : ∀ i ∈ s, 0 ≤ u i) (hv : ∀ i ∈ s, 0 ≤ v i)
+    (hf : ∀ i ∈ s, 0 ≤ f i ∧ f i ≤ L)
+    (su : ∑ i ∈ s, u i = d) (sv : ∑ i ∈ s, v i = d) :
+    |∑ i ∈ s, (u i - v i) * f i| ≤ d * L := by
+  have side (w : ι → ℝ) (hw : ∀ i ∈ s, 0 ≤ w i) (sw : ∑ i ∈ s, w i = d) :
+      0 ≤ ∑ i ∈ s, w i * f i ∧ (∑ i ∈ s, w i * f i) ≤ d * L := by
+    constructor
+    · exact Finset.sum_nonneg (fun i hi => mul_nonneg (hw i hi) (hf i hi).1)
+    · rw [← sw, Finset.sum_mul]
+      exact Finset.sum_le_sum (fun i hi => mul_le_mul_of_nonneg_left (hf i hi).2 (hw i hi))
+  have a := side u hu su
+  have b := side v hv sv
+  simp_rw [sub_mul]
+  rw [Finset.sum_sub_distrib, abs_le]
+  constructor <;> linarith
+
+assert_no_sorry bounded_word_reader
+#print axioms bounded_word_reader
 
 assert_no_sorry corner_annulus
 #print axioms corner_annulus

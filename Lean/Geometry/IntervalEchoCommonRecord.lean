@@ -29,13 +29,14 @@ theorem ticket_counts :
     simp only [fibre, Finset.mem_filter, Finset.mem_univ, true_and, Finset.mem_Ico]
     change (if t.val < 111 then some (0 : Fin 2) else
       if t.val < 179 then some 1 else none) = some 1 ↔ 111 ≤ t.val ∧ t.val < 179
-    split_ifs <;> simp_all <;> omega
+    split_ifs <;> simp_all
   have h₂ : fibre none = Finset.Ici (179 : Fin 256) := by
     ext t
     simp only [fibre, Finset.mem_filter, Finset.mem_univ, true_and, Finset.mem_Ici]
     change (if t.val < 111 then some (0 : Fin 2) else
       if t.val < 179 then some 1 else none) = none ↔ 179 ≤ t.val
-    split_ifs <;> simp_all <;> omega
+    split_ifs <;> simp_all
+    omega
   rw [h₀, h₁, h₂, Fin.card_Iio, Fin.card_Ico, Fin.card_Ici]
   decide
 
@@ -48,7 +49,7 @@ theorem common_fibre (x : Fin 2) (c : Fin 8) :
       fibre (some x) := by
   ext t
   simp only [Finset.mem_filter, Finset.mem_univ, true_and, fibre, publicRecord]
-  cases h : writeRail t <;> simp [h]
+  cases writeRail t <;> simp
 
 noncomputable def admittedMass (x : Fin 2) : ℝ :=
   ((fibre (some x)).card : ℝ) / ((fibre (some 0)).card + (fibre (some 1)).card)
@@ -84,5 +85,8 @@ theorem one_world_record :
     (∀ x, admittedMass x = sourceWorld.repairLaw.ref x) ∧
     partitionPinching (diagonalPartition 2) sourceWorld.state.1 = sourceWorld.state.1 :=
   ⟨prepared_eq_run, mass_eq_ref, common_preparation.1⟩
+
+#print axioms one_world_record
+#print axioms common_fibre
 
 end OPH.IntervalEchoCommonRecord

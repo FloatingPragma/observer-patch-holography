@@ -58,6 +58,22 @@ The thermal interval computation propagates a triangular matrix of four blocks. 
 
 For binary64 round-to-nearest arithmetic, a path through 180 sparse multiplies/divides, the 236-entry diagonal trace and the final sum incurs a relative absolute-majorant factor smaller than 2⁻⁴⁰. This follows from `γₖ=ku/(1−ku)` with unit roundoff `u=2⁻⁵³` and `k≤20·180+236+180`. The implementation allows 2⁻³⁹ times the computed majorant to cover both recurrences. Even allowing a smallest-normal absolute rounding error at every elementary operation, the total propagated underflow contribution is bounded by `236·180²·40·exp(25)·2⁻¹⁰²² < 10⁻²⁴⁰`. The remaining common exponential factor is enclosed by a rational Taylor bound. Static energies use a full real eigensystem. The measured Frobenius residual for `HQ−QD`, with a dot-product rounding allowance and an independent lower bound on the least singular value of `Q`, bounds the lowest eigenvalue error.
 
+## What survives averaging over unpolarized sources?
+
+Independently reverse each equal-energy dipole with probability one half. The mobile samples either excess or vacancy with probability one half. Each clamped source still has energy 116.5 and zero net load contrast. In units of the doubled Hamiltonian, the two connected single-pin contrasts seen by an excess are 31 and −34. A vacancy interchanges them. A mobile position adjacent to c constituents of the first dipole therefore sees mean contrast −3c/2. The average for the second dipole is independent.
+
+On any connected allowed mobile graph with separated source neighborhoods, write cₐ and cᵦ for the numbers of adjacent constituents at a pair of vertices, and Nₐᵦ for the number of shortest mobile paths joining them. At the earliest mixed order, the orientation-averaged signed path weight is exactly
+
+$$
+  \frac94\sum_{a,b:\,d(a,b)=d_m} c_a c_b N_{ab}^2 > 0 .
+$$
+
+The first nonzero order is even. The mixed heat trace is thus positive and its leading dilute potential negative at sufficiently small positive inverse temperature on each such finite graph. This follows from the native contrast and the propagating return walks. The random orientation preparation supplies the uniform weights. The integer coefficients in the four equal-energy geometries are 9, 36, 144 and 720.
+
+At the specified finite β=1/8 the eight-arm mean heat traces at cell distances 2, 3, 4 and 5 are approximately 1.31884 × 10⁻¹⁸, 4.40746 × 10⁻³², 1.76715 × 10⁻⁴⁶ and 1.07323 × 10⁻⁵⁶. The connected potential increases towards zero with separation for the unpolarized source. This ordering holds both for averaging the conditional connected free energies and for equilibrating the fair degenerate internal states first. In the second case the logarithm acts on the averaged heat trace. Both prescriptions have the same leading trace and the same absolute finite-activity error bound above, with z=10⁻⁷². The signals quoted here are population predictions on the specified dilute ensemble. [Eight-arm enclosures](unoriented.json) · [Native calculation](unoriented.py)
+
+The additive zero of potential can be removed without fitting it. If U(r)=u−C/r in these station units, the finite difference Cᵣ=r(r+1)[U(r+1)−U(r)] must have the same value at each r. Using U per unit activity gives disjoint intervals for C₂, C₃ and C₄, respectively 6.33041–6.33044 × 10⁻¹⁷, 4.23115–4.23118 × 10⁻³⁰ and 2.82742–2.82745 × 10⁻⁴⁴. Random orientations recover attraction on these preparations. They leave the scale and radial dependence required for Newton gravity unresolved. A graph crossing count and clamped source energy would each require independent calibration as proper distance and inertial mass. [Independent path and potential tests](test_unoriented.py)
+
 ## Gravity scope
 
 For κ=0 with the same alphabet, swaps, pinning and board, both orientations have positive mixed thermal traces. The reversal effect therefore tests the native contrast law. On κ=8, two equally neutral dipoles of the same constituent inventory can reverse the sign of the measured mobile-mediated contribution. Their independently summed static source energies above the filled host are +133 and +101 native units. The pins occupy ports of different degree, so the two orientations have different energies, both positive. A calibration of free inertial masses would require released sources. The thermal interaction decays across the enrolled noncontact separations much faster than a Newton potential. A universal attractive mass interaction, a measured inverse-square strength, and a gravitoelectromagnetic limit would require additional source and field results. The measured Ramsey signal also leaves the common clock and light geometry required by OW-27 open. The reference code and active model were inspected at RER `3cc56709a8aa29222b3287de33c06eab8408687a`; the official criteria were read at OpenWave `0df73dc6be3bde9f0b8ced6044effc79f0d92bd6`. [Official comparison criteria](https://github.com/openwave-labs/openwave/blob/0df73dc6be3bde9f0b8ced6044effc79f0d92bd6/MODELS.md#simplest-test-per-criterion) · [Existing clock comparison](../../row_27_metric/free_source_clock/README.md)
@@ -68,5 +84,6 @@ Run from the RER repository root with the model dependencies.
 export OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 OMP_NUM_THREADS=1
 python -m model.candidate_laws.interval_echo.openwave.row_26_newton.mobile_mediator.measure --write
 python -m model.candidate_laws.interval_echo.openwave.row_26_newton.mobile_mediator.matched_energy --write
+python -m model.candidate_laws.interval_echo.openwave.row_26_newton.mobile_mediator.unoriented --write
 python -m pytest -q -W error model/candidate_laws/interval_echo/openwave/row_26_newton/mobile_mediator
 ```

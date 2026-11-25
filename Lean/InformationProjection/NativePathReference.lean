@@ -99,7 +99,7 @@ theorem visible_condition_push (f : T → X) (p : T → ℚ) (s : Finset X) (mas
     intro t _
     by_cases h : f t = x <;> simp [h, hx]
 
-/-- Any event after finite postselection still has a rational mass. -/
+/-- Any event after finite postselection has a rational mass. -/
 def conditionedEventMass [DecidableEq T] (accepted event : Finset T) : ℚ :=
   ((accepted ∩ event).card : ℚ) / accepted.card
 
