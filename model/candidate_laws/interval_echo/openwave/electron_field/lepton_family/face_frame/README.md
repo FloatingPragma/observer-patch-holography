@@ -14,6 +14,8 @@ Write a component as (colour, weak isospin representation, hypercharge), with el
 | Left lepton doublet | 1 | 2 | −1/2 | 2 |
 | Conjugate charged lepton | 1 | 1 | 1 | 1 |
 
+On this table the common central subgroup Z₆ acts trivially, giving the faithful group (SU(3) × SU(2) × U(1))/Z₆. In the separate defect-flux dictionary, the charged and neutral members of the left lepton doublet share exterior flux class 3 modulo 6, and the conjugate singlet has class 0. Every generation repeats these classes. A flux read alone therefore leaves the generation undetermined. [Defect-flux and observer dictionary](../../../../../../../code/defect_particle_classes/PROOF.md)
+
 The charged left component is occupation mask 23, its neutral partner is 15, and its conjugate singlet is 24. The weak raising operator transfers 23 to 15 and annihilates 24. All eight colour generators annihilate the three states. The electric charges are −1, 0 and +1 respectively. The right component of the negatively charged Dirac field uses the conjugate of the singlet. This dictionary describes the fermion representations of the stated exterior and gauge construction. A physical protected defect must give the corresponding currents, including the null controls, on that same excitation. [Exterior theorem](../../../../../../../Lean/Screen/ExteriorSelection.lean) · [Charged-current theorem](../../../../../../../Lean/Screen/ChargedCurrentDictionary.lean) · [Multiplicity and weak counting](../../../../../../../code/a5_closure/chiral_multiplicity/README.md)
 
 ## A persistent face and the three mass flags
