@@ -104,9 +104,13 @@ def constituents(board, home):
     start[[a, c], 2] = 1/sqrt(2)
     u, v = np.array(home).T
     local = np.arange(12*(b//12), 12*(b//12+1))
+    eigenvalues, modes = np.linalg.eigh(k.toarray())
+    coefficients = modes.T @ start
     rows = []
     for t in (1, 7, 37, 150):
-        probs = abs(expm_multiply(-1j*t*k, start))**2
+        states = modes @ (np.exp(-1j*t*eigenvalues)[:, None] * coefficients)
+        np.testing.assert_allclose(states, expm_multiply(-1j*t*k, start), atol=2e-11, rtol=0)
+        probs = abs(states)**2
         np.testing.assert_allclose(probs.sum(axis=0), 1, rtol=0, atol=3e-12)
         center, tip = probs[:, 0], probs[:, 1]
         rows.append({"exposure": t,

@@ -2,6 +2,7 @@
 
 from collections import Counter, defaultdict
 from fractions import Fraction
+from math import comb
 
 import numpy as np
 
@@ -121,6 +122,21 @@ def occurrence_bounds(events):
             "probability_at_least_one_upper": str(min(1, first))}
 
 
+def exchangeable_bound(seams, shut=11, open_=4):
+    """Sharp fixed-address ceiling for any permutation-exchangeable write source."""
+    width = shut + open_
+    if min(shut, open_) < 1 or seams < width:
+        raise ValueError("The two disjoint sorts of contacts must fit on the board")
+    denom = comb(seams, width) * comb(width, shut)
+    # A symmetric law is a mixture of uniform k-subsets. Count matching
+    # ordered write/open sets at each k with no independence assumption.
+    ways = [comb(k, shut) * comb(seams-k, open_) for k in range(seams+1)]
+    best = max(ways)
+    p = Fraction(shut, width)
+    return {"seams": seams, "best_total_writes": [k for k, n in enumerate(ways) if n == best],
+            "sharp_ceiling": str(Fraction(best, denom)), "iid_ceiling": str(p**shut*(1-p)**open_)}
+
+
 def census():
     topology_census.native_blocks()
     boards = []
@@ -128,5 +144,6 @@ def census():
         board = federation(level)
         events = [contacts(board, path, receiver) for home in range(board.cells)
                   for path, receiver in topology_census.layouts(board, home)]
-        boards.append({"cells": board.cells, **occurrence_bounds(events)})
+        boards.append({"cells": board.cells, **occurrence_bounds(events),
+                       "exchangeable_fixed_address": exchangeable_bound(len(board.seams))})
     return {"filed_address": local_classes(), "independent_coin_boards": boards}

@@ -1,0 +1,143 @@
+"""Check the graph classification, material odds and a complete raw-board flight."""
+
+from fractions import Fraction
+from itertools import combinations
+from math import comb
+
+import numpy as np
+import pytest
+from scipy import sparse
+from scipy.sparse.linalg import expm_multiply
+
+from tools.strict_json import load
+from . import masks
+from .__main__ import ARCHIVE, compare
+from .. import open_pair_check as filed
+
+
+def test_all_masks_against_cancellation_at_each_destination():
+    # Read the raw board. Classify by matched exits instead of multiplying operator columns.
+    with np.load(filed.BOARD, allow_pickle=False) as f:
+        edges = sorted(tuple(sorted(map(int, e))) for e in f["edges"]
+                       if set(e).intersection((156, 157, 166)))
+    def bit(p, q):
+        return 1 << edges.index(tuple(sorted((p, q))))
+    a, b, c, d = 157, 156, 166, 163
+    shared = [bit(a, b), bit(c, b), bit(a, d), bit(c, d)]
+    tip_only = sum(1 << i for i, e in enumerate(edges) if {a, c}.intersection(e)) - sum(shared)
+    center_only = (2**15-1) ^ (tip_only | sum(shared))
+    classes = masks.local_classes()["classes"]
+    hist = {name: [0]*16 for name in classes}
+    for mask in range(2**15):
+        tips = mask & tip_only == tip_only
+        matches = all(bool(mask & x) == bool(mask & y) for x, y in zip(shared[::2], shared[1::2]))
+        shut_center = mask & center_only == center_only
+        plus = tips and mask & sum(shared) == sum(shared)
+        for name, ok in (("one_load_minus", tips and matches), ("one_load_plus", plus),
+                         ("pair_minus", tips and matches and shut_center), ("pair_plus", plus and shut_center)):
+            hist[name][mask.bit_count()] += int(ok)
+    assert hist == {name: row["by_write_count_0_to_15"] for name, row in classes.items()}
+    # The protected pair has the same integer columns if *every* remote collar changes.
+    from ..topology_census import action
+    board = masks.federation(0)
+    written = set(board.seams) - {e for e in edges if bit(*e) in shared}
+    x, z = (b, a), (b, c)
+    assert action(board, written, {x: 1, z: -1}) == ({x: 2, z: -2}, {x: 3, z: -3})
+
+
+def test_fixed_write_budget_and_overlapping_event_odds():
+    # Enumerate all finite materials at each write count on a small carrier.
+    slots = range(8)
+    probs = []
+    for k in range(9):
+        hits = sum({0, 1, 2} <= set(mask) and set(mask).isdisjoint({3, 4})
+                   for mask in combinations(slots, k))
+        probs.append(Fraction(hits, comb(8, k)))
+    bound = masks.exchangeable_bound(8, 3, 2)
+    assert Fraction(bound["sharp_ceiling"]) == max(probs)
+    assert bound["best_total_writes"] == [i for i, p in enumerate(probs) if p == max(probs)]
+    # Two compatible events share ten writes and four blanks; a conflicting pair
+    # shares a contact which must be both open and shut. With two events the
+    # second-order bound is equality, including when they share no contacts.
+    e = frozenset(range(11)), frozenset(range(11, 15))
+    p = Fraction(81, 4**15)
+    for other, joint in (
+        ((frozenset([*range(10), 15]), e[1]), p/4),
+        ((frozenset(range(1, 12)), frozenset(range(12, 16))), 0),
+        ((frozenset(range(15, 26)), frozenset(range(26, 30))), p*p),
+    ):
+        bounds = masks.occurrence_bounds([e, other])
+        assert Fraction(bounds["probability_at_least_one_lower"]) == 2*p-joint
+
+
+def test_inclusive_historical_and_drawn_materials_from_raw_edges():
+    archive = load(ARCHIVE)
+    unit = archive["units"]
+    with np.load(filed.BOARD, allow_pickle=False) as f:
+        edges = sorted(tuple(sorted(map(int, e))) for e in f["edges"])
+    words = np.array(list(combinations(range(240), 2)))
+    a, b = words.T
+    ix = np.zeros((240, 240), dtype=int)
+    ix[a, b] = ix[b, a] = np.arange(len(words))
+    home = [e for e in edges if e[0]//12 == e[1]//12 == 13]
+    assert archive["pair_outcomes"] == [*map(list, home), "quiet"]
+    # First-gateway and tidal donors predate the pair. A fresh clocked coin
+    # history also checks the original formation bit convention end to end.
+    bank = archive["ensemble"]["banks"][0]
+    bits = np.random.default_rng([bank["seed"], 0]).binomial(1, .5, (630, 2))
+    assert np.packbits(bits.ravel(), bitorder="little").tobytes().hex() == bank["coins_hex"]
+    tidal = archive["historical"]["tidal_sham"]
+    tidal_mask = set(map(tuple, tidal["written"]))
+    assert len(tidal_mask) == 160 and all(p//12 == q//12 for p, q in tidal_mask)
+    for closed, row, k, t in (
+        ({next(e for e in edges if e[0]//12 != e[1]//12)}, archive["historical"]["first_gateway"], .5, 37),
+        (tidal_mask, tidal, .5, 37),
+        ({e for e, word in zip(edges, bits, strict=True) if all(word)}, bank, 0, 7),
+    ):
+        sources, targets = [], []
+        for p, q in edges:
+            if (p, q) not in closed:
+                spectator = np.delete(np.arange(240), [p, q])
+                sources.append(ix[p, spectator])
+                targets.append(ix[q, spectator])
+        s, d = np.concatenate(sources), np.concatenate(targets)
+        adjacency = sparse.csr_matrix((np.ones(2*len(s)), (np.r_[s, d], np.r_[d, s])),
+                                      shape=(len(words),)*2)
+        deg = np.asarray(adjacency.sum(axis=1)).ravel()
+        exchange = (sparse.diags(deg)-adjacency)/2
+        refs = 6-np.bincount(np.ravel(edges), minlength=240)
+        h = exchange + sparse.diags(k*(deg+refs[a]+refs[b]), dtype=float)
+        launch = np.zeros((len(words), 2))
+        launch[[ix[156, 157], ix[156, 166]], [0, 1]] = 1
+        evolved = expm_multiply(-1j*t*h, launch)
+        amp = evolved[ix[tuple(np.array(home).T)]]
+        accepted = np.array([-13, 14])*np.sqrt(float(sum((Fraction(364, 729))**i for i in range(8))))/27
+        np.testing.assert_allclose(abs(amp @ accepted)**2, np.array(row["filed_input"][:-1])/unit,
+                                   atol=2e-11, rtol=0)
+        # Reconstruct the 3-word monitored pulse without the study's acquisition code.
+        x, z = int((156, 157) not in closed), int((156, 166) not in closed)
+        lap = np.array([[z, -z, 0], [-z, x+z, -x], [0, -x, x]])
+        diag = np.diag(lap) + [1, 0, 1]
+        w, v = np.linalg.eigh(lap/2+k*np.diag(diag))
+        keep = np.diag([1., 0., 1.])
+        pulse = (v*np.exp(-2j*np.pi*w/3)) @ v.T
+        vec = np.linalg.matrix_power(keep @ pulse, 3)[:, 0][[0, 2]]
+        fail = 1-np.vdot(vec, vec).real
+        weight = sum(fail**j for j in range(8 if z else 1))
+        dist = weight*abs(amp @ vec)**2
+        np.testing.assert_allclose(np.r_[dist, 1-dist.sum()], np.array(row["acquired"])/unit,
+                                   atol=2e-11, rtol=0)
+        swap = expm_multiply(-t*exchange, launch @ (weight*abs(vec)**2))
+        dist = swap[ix[tuple(np.array(home).T)]]
+        np.testing.assert_allclose(np.r_[dist, 1-dist.sum()], np.array(row["random_swaps"])/unit,
+                                   atol=2e-11, rtol=0)
+        np.testing.assert_allclose(np.linalg.svd(amp, compute_uv=False)[0]**2, row["optimal_XZ"]/unit,
+                                   atol=2e-11, rtol=0)
+
+
+def test_receipt_rejects_a_different_draw_and_a_changed_receiver():
+    row = load(ARCHIVE)["ensemble"]["banks"][0]
+    with pytest.raises(ValueError, match="exact"):
+        compare(row, {**row, "seed": row["seed"]+1})
+    with pytest.raises(ValueError, match="terminal"):
+        compare(row, {**row, "acquired": row["acquired"][::-1]})
