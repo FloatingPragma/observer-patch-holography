@@ -163,15 +163,15 @@
  },
  "premise_counts": {
   "law": {
-   "fulfilled": 12,
-   "partial": 8,
-   "open": 121,
+   "fulfilled": 13,
+   "partial": 10,
+   "open": 118,
    "fails": 0
   },
   "designer": {
-   "fulfilled": 4,
+   "fulfilled": 5,
    "partial": 3,
-   "open": 24,
+   "open": 23,
    "fails": 0
   },
   "import": {
@@ -811,9 +811,16 @@
    "statement": "A source-selected time-indexed or Cauchy-region interface is realized together with net-compatible evolution and a proof that its slice algebra generates the evolved regional algebra.",
    "type": "structural_rule",
    "role": "law",
-   "status": "open",
-   "evidence": [],
-   "note": ""
+   "status": "fulfilled",
+   "evidence": [
+    "../../../code/cosmology/guarded_slab/energy_exchange/README.md",
+    "../../../code/cosmology/guarded_slab/energy_exchange/energy_routes.py",
+    "../../../code/cosmology/guarded_slab/energy_exchange/energy_release.py",
+    "../../../code/cosmology/guarded_slab/energy_exchange/energy.json",
+    "../../../code/cosmology/guarded_slab/energy_exchange/test_energy_release.py",
+    "../../../Lean/QFT/MaterialReleaseSlices.lean"
+   ],
+   "note": "Every completed stroke after the third material arrival gives an observed marker change. Native addressed exchanges transport all single-slot matrices to their permuted slots, and products of the two read generators span each evolved regional algebra. Multi-stroke evolution composes on all subsets. This is a finite coherent delivery phase."
   },
   {
    "id": "PR-59",
@@ -1259,9 +1266,14 @@
    "statement": "One finite source on the executable process emits the geometric screen scalar, the primitive collar release law and release energy, the conformal precision on the round sphere, conserved stress, a common clock and release surface, a physical scale and a radial observation map, and these map the screen covariance into physical primordial curvature modes entering standard CMB transfer.",
    "type": "derivable",
    "role": "law",
-   "status": "open",
-   "evidence": [],
-   "note": ""
+   "status": "partial",
+   "evidence": [
+    "../../../code/cosmology/guarded_slab/energy_exchange/README.md",
+    "../../../code/cosmology/guarded_slab/energy_exchange/energy_release.py",
+    "../../../code/cosmology/guarded_slab/energy_exchange/energy.json",
+    "../../../code/cosmology/guarded_slab/energy_exchange/precision.json"
+   ],
+   "note": "A single tagged native release samples energy exchanges at three owners. Their energy covariance has a determined amplitude in squared native gap units on the measured thermal contact. The geometric scalar, primitive collar source, conserved cosmological stress, physical scale and curvature transfer needed for a primordial spectrum require further construction."
   },
   {
    "id": "PR-107",
@@ -1344,9 +1356,14 @@
    "statement": "The early federation is prepared in a hot thermal radiation state of declared species, read on one common physical clock.",
    "type": "derivable",
    "role": "law",
-   "status": "open",
-   "evidence": [],
-   "note": ""
+   "status": "partial",
+   "evidence": [
+    "../../../code/cosmology/guarded_slab/energy_exchange/README.md",
+    "../../../code/cosmology/guarded_slab/energy_exchange/energy_release.py",
+    "../../../code/cosmology/guarded_slab/energy_exchange/energy.json",
+    "../../../code/cosmology/guarded_slab/energy_exchange/precision.json"
+   ],
+   "note": "Energy-resolved native dimers form independent Gibbs bodies at a common positive temperature in the isothermal control, and retain that joint law on receipt of one shared release event. The gap and relative service counts are in native units. A hot radiation bath of identified species on a physical cosmological clock is unestablished."
   },
   {
    "id": "PR-115",
@@ -1460,9 +1477,14 @@
    "statement": "One nonempty family of authorized observer sets is frozen before evaluation and defines which records count as public. Collective, universal-local and quorum publicness are distinct contracts and are not interchanged after the result is seen.",
    "type": "declared",
    "role": "designer",
-   "status": "open",
-   "evidence": [],
-   "note": ""
+   "status": "fulfilled",
+   "evidence": [
+    "../../../code/cosmology/guarded_slab/energy_exchange/README.md",
+    "../../../code/cosmology/guarded_slab/energy_exchange/protocol.json",
+    "../../../code/cosmology/guarded_slab/energy_exchange/energy_routes.py",
+    "../../../code/cosmology/guarded_slab/energy_exchange/energy.json"
+   ],
+   "note": "The independently committed protocol fixes one nonempty publicness family consisting of the three material readers together. All eight reachable energy words decode exactly through every reported ring stroke. Counterfactual singleton and pair access give code sizes two and four. This design choice concerns publicness, and supplies no global value of N."
   },
   {
    "id": "PR-126",

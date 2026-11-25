@@ -1223,7 +1223,7 @@ The register records each theorem assumption and its formal consumers. The role 
 | PR-55 declared baryon- and lepton-number labels | law | Open | Open | Open | Open |
 | PR-56 dimension-six baryon-operator eligibility and contraction grammar | designer | Open | Open | Open | Open |
 | PR-57 physical proton state and baryon-violating effective-action attachment | law | Open | Open | Open | Open |
-| PR-58 time-indexed net evolution and time-slice generation interface | law | Open | Open | Open | Open |
+| PR-58 time-indexed net evolution and time-slice generation interface | law | Demonstrated | Open | Open | Open |
 | PR-59 declared five-mode exterior component and mask-selection grammar | law | Open | Open | Open | Open |
 | PR-60 admissible scheduler class: mismatch non-increase clause | law | Open | Open | Open | Open |
 | PR-61 admissible scheduler class: single-register locality clause | law | Open | Open | Open | Open |
@@ -1265,7 +1265,7 @@ The register records each theorem assumption and its formal consumers. The role 
 | PR-100 anomalous collar charge as physical gravitating stress | law | Open | Open | Open | Open |
 | PR-104 fixed global record capacity | law | Open | Open | Open | Open |
 | PR-105 record capacity equals de Sitter horizon entropy | law | Open | Open | Open | Open |
-| PR-106 physical primordial source map | law | Open | Open | Open | Open |
+| PR-106 physical primordial source map | law | Partial | Open | Open | Open |
 | PR-107 collar generator density as the scalar spectral tilt | law | Open | Open | Open | Open |
 | PR-108 common bulk field behind the screens | law | Open | Open | Open | Open |
 | PR-109 physical dilation intertwiner | law | Open | Open | Open | Open |
@@ -1273,7 +1273,7 @@ The register records each theorem assumption and its formal consumers. The role 
 | PR-111 one common release clock | law | Partial | Open | Open | Open |
 | PR-112 flat clock-slice FLRW identification | law | Open | Open | Open | Open |
 | PR-113 horizon-scale coherence of the primordial source | law | Open | Open | Open | Open |
-| PR-114 hot radiation state on a common clock | law | Open | Open | Open | Open |
+| PR-114 hot radiation state on a common clock | law | Partial | Open | Open | Open |
 | PR-115 source Euclidean slab data for a vacuum | law | Demonstrated | Open | Open | Open |
 | PR-116 screen-to-sky template map | law | Open | Open | Open | Open |
 | PR-117 Integer port counting grammar and quadratic readback cost | designer | Open | Open | Open | Open |
@@ -1284,7 +1284,7 @@ The register records each theorem assumption and its formal consumers. The role 
 | PR-122 Prepared-lock quorum certificate protocol | designer | Open | Open | Open | Open |
 | PR-123 Byzantine fault budget and partial synchrony | law | Open | Open | Open | Open |
 | PR-124 screen cells as independent record carriers | law | Open | Open | Open | Open |
-| PR-125 public-record definition fixed before evaluation | designer | Open | Open | Open | Open |
+| PR-125 public-record definition fixed before evaluation | designer | Demonstrated | Open | Open | Open |
 | PR-126 complete target-blind capacity readback | law | Open | Open | Open | Open |
 | PR-127 Capacity-closure slack selector | law | Open | Open | Open | Open |
 | PR-128 capacity readback branch choices | designer | Open | Open | Open | Open |

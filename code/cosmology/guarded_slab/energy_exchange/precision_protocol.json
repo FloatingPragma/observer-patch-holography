@@ -1,0 +1,9 @@
+{
+  "scope": "Follow-up precision check after deriving the unequal-bath signal",
+  "launches_per_bank": 8796093022208,
+  "seed": 12511458,
+  "banks": ["native", "equal_temperature", "parked"],
+  "family_error": 0.01,
+  "checked_moments_per_bank": 6,
+  "method": "Propagate integer cohorts by fresh binomial splits at the local selector and first-change trigger. Check the three single-probe and three joint-upper frequencies on successful deliveries in each bank. Keep all first filter leaks and the common timeout."
+}
