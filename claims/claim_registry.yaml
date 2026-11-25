@@ -6904,7 +6904,12 @@
         "cosmology/oph_dark_matter_paper.tex",
         "Lean/ObserverPatchHolography/EinsteinBranch/HaloStress.lean",
         "code/cosmology/rar_deep_regime/finite_halo/transfer.json",
-        "code/cosmology/rar_deep_regime/udg_transfer/results.json"
+        "code/cosmology/rar_deep_regime/udg_transfer/results.json",
+        "code/cosmology/rar_deep_regime/finite_halo/results.json",
+        "code/cosmology/rar_deep_regime/cut_spacing/disk_domain.json",
+        "code/cosmology/rar_deep_regime/warped_outer_rings/rings.json",
+        "code/cosmology/rar_deep_regime/warped_outer_rings/measure.py",
+        "code/cosmology/rar_deep_regime/warped_outer_rings/results.json"
       ],
       "falsifier": "The characterization fails on some law satisfying the premise bundle; the Cauchy lemma fails; a transferred deep law fails; a matching-radius or dominance identity fails; either load-bearing counterexample satisfies the clause it is claimed to violate; or the unit inhabitant fails a premise.",
       "scope_if_false": "Only the characterization and its transfers fall. The committed DeepProfile theorems, the SPARC comparison, and the generic dark-sector theorems are separately assessed.",

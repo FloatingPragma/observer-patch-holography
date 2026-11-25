@@ -10,6 +10,20 @@ from scipy.optimize import minimize_scalar
 from cosmology.rar_deep_regime.warped_outer_rings import acquire, measure as m
 
 
+def test_public_table_carries_every_observed_and_forecast_speed():
+    rows = m.read(m.HERE / "results.json")["sample"]
+    text = (m.HERE / "README.md").read_text()
+    table = text.split("| H I radius, kpc |", 1)[1].split("\n\n", 1)[0]
+    expected = []
+    for row in rows:
+        low, high = row["finite_spacing_possible_kms"]
+        expected.append(
+            f"| {row['radius_kpc']:.2f} | {row['speed_kms']:.1f} ± {row['error_speed']:g} "
+            f"| {row['forecast_kms']:.1f} | {low:.1f}–{high:.1f} |"
+        )
+    assert table.splitlines()[2:] == expected
+
+
 def test_published_columns_and_enrollment():
     path = m.HERE / "rings.json"
     assert (
