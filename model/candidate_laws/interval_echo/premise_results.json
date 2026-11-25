@@ -108,6 +108,17 @@
     ],
     "note": "A native source writes the same prepared rail and repair record before three material reads choose the context. Independent replay reconstructs all 65,536 trials, including source refusals and post-instrument readback. The archived census calibrates the source; custody is internal to the executable run."
   },
+  "PR-82": {
+    "status": "fulfilled",
+    "evidence": [
+      "../../../code/cosmology/guarded_slab/README.md",
+      "../../../code/cosmology/guarded_slab/guarded_transfer.py",
+      "../../../code/cosmology/guarded_slab/results.json",
+      "../../../code/cosmology/guarded_slab/test_slab.py",
+      "../../../Lean/ObserverPatchHolography/Provenance/GuardedRailRecords.lean"
+    ],
+    "note": "Every finite executed guarded-rail history instantiates SemanticEventLog with canonical longest authenticated ancestry rank. Repeats carry fresh versions and every direct parent has lower rank. Addresses and transition innovations are external parameters of this record grammar."
+  },
   "PR-84": {
     "status": "fulfilled",
     "evidence": [
@@ -129,6 +140,27 @@
       "../../../Lean/Computation/NativeBooleanNodes.lean"
     ],
     "note": "On the supplied scan of L compiled nodes a non-consensus register changes within L committed offers, giving q = L − 1. The bound counts offers, with native routing and pulse costs accounted separately."
+  },
+  "PR-111": {
+    "status": "partial",
+    "evidence": [
+      "../../../code/cosmology/guarded_slab/README.md",
+      "../../../code/cosmology/guarded_slab/guarded_release.py",
+      "../../../code/cosmology/guarded_slab/release.json",
+      "../../../code/cosmology/guarded_slab/test_slab.py"
+    ],
+    "note": "One material first-change event reaches three addressed owners by native exchanges. Conditional means have rank-one covariance on sharp inputs, with connected third moment 51/754000 and zero cross-covariances on independent stationary inputs. Release of all physical species by one Gaussian clock is open."
+  },
+  "PR-115": {
+    "status": "fulfilled",
+    "evidence": [
+      "../../../code/cosmology/guarded_slab/README.md",
+      "../../../code/cosmology/guarded_slab/PROTOCOL.md",
+      "../../../code/cosmology/guarded_slab/guarded_transfer.py",
+      "../../../code/cosmology/guarded_slab/results.json",
+      "../../../code/cosmology/guarded_slab/test_slab.py"
+    ],
+    "note": "Guarded material rails realize the finite reversible slab contract. The native generator gives gap one, potential 32 per rail pair and conductance m/2 per single flip. At the supplied real exposure π/3 the sharp pointer gives Euclidean step log 2. Ground law and all finite transfer histories are compatible under retaining one child per parent. An interacting cosmological field vacuum requires additional evidence."
   },
   "PR-131": {
     "status": "fulfilled",

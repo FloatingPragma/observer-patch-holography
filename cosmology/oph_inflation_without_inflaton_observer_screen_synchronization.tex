@@ -286,6 +286,26 @@ readings continue to fluctuate. A proposal that this equilibrium preceded
 the radiation era requires a physical release criterion and a comparison
 of the available mixing duration with that release.
 
+\paragraph{How fast can a local record forget its initial orientation?}
+Place one double on either rail in every cell and read the occupied rail
+after each guarded native exposure of \(\pi/3\). The exact one-read flip
+probability is \(1/4\) on either input. After \(t\) reads the flip
+probability relative to the starting rail is \(q_t=(1-2^{-t})/2\).
+For \(N\) independent instruments starting at a fixed word, all configurations
+at equal Hamming distance from that word have equal probability.
+The total variation distance of the complete word from uniform is therefore
+the distance between \(\mathrm{Binomial}(N,q_t)\) and
+\(\mathrm{Binomial}(N,1/2)\). Every sharp starting word attains the same
+distance, and convexity bounds every correlated initial distribution by it.
+The first read counts for which this worst-case distance is below one
+percent are 8, 9 and 10 for 20, 80 and 320 cells.
+The calculation and per-owner trajectory counts are in
+\pathref{code/cosmology/guarded_slab/}.
+Each cell keeps its original amount of material throughout this experiment.
+The two instruments thus distinguish local equilibration of orientation
+from transport of an initial density contrast. A radiation-era interpretation
+requires identifying which observable couples to the measured temperature.
+
 \paragraph{Can the same records extend into the past?}
 On this finite instrument the local material update is a random
 permutation independent of the material occupations. For every
@@ -308,6 +328,15 @@ In particular all occupation densities $p$ satisfy stationarity, and the
 apparatus supplies no energy-resolved species thermometer. The reproducible
 interventions and archive fingerprints accompany the analysis in
 \pathref{code/cosmology/screen_coherence/measurements.json}.
+
+The guarded rail transfer gives a direct test of what a first release means
+on such a stationary extension. The probability of seeing no change in
+the preceding \(n\) appointments of one rail is \((3/4)^n\), which tends
+to zero. Almost surely every integer appointment has a change somewhere
+before it, so there is no globally first switch. A controller can arm at a
+local event and read the first switch following that event. This gives a
+finite age measured from arming. A radiation-era interpretation still
+requires a mechanism that selects the arming event.
 
 \section{Expansion as Record Density}
 \label{sec:expansion-record-density}

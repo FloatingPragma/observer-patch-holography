@@ -285,6 +285,55 @@ can share return paths and markers. Their covariance alone does not identify
 a common curvature perturbation. The complete survey counts and estimator
 are deposited in \pathref{code/cosmology/screen_coherence/}.
 
+\subsection{Three receivers of one material release}
+
+A guarded double changes rail with probability \(1/4\) at each sharp
+appointment of a \(\pi/3\) native exposure. The first change at one owner
+releases a material tag. Three receiving owners each capture their local
+rail sign on its first arrival. The controller supplies the route and
+relative service cadence, with one intercell transfer per appointment.
+Within each receiving cell an echo against a vacant reference detects the
+tag and an inverse echo restores it for the next leg. All route ports are
+disjoint from the guarded instruments. The same port-level check applies on
+20, 80 and 320 cells.
+
+Write \(T\) for the first switch at the source and \(d=1,2,3\) for the
+three delivery delays. Starting each receiver on its positive rail gives
+\(\mathbb E[S_d\mid T]=2^{-T-d}\) and independent receiver signs conditional
+on \(T\). Since \(\Pr(T=t)=(3/4)^{t-1}/4\), their three off-diagonal
+covariances in pair order \((1,2),(1,3),(2,3)\) are
+\[
+ 3/650,\qquad 3/1300,\qquad 3/2600 .
+\]
+They arise from one fluctuating release age. The covariance of the conditional
+means has rank one. Independent detector noise contributes to the diagonal
+of the whole covariance. The joint third centered moment is
+\(51/754000\). Preparing independent fair receiver rails instead gives zero
+cross-covariance with exactly the same common trigger. A stopped experiment
+with sixteen source appointments retains the miss probability \((3/4)^{16}\)
+in addition to the released words. The exact finite distributions and routes
+are in \nolinkurl{code/cosmology/guarded_slab/release.json}.
+
+The registered energy decoder provides a second observable on the same
+release histories. Immediately after the sharp rail read, it distinguishes
+the symmetric and antisymmetric material modes with native energies 32 and
+33. Either sharp rail has squared overlap \(1/2\) with each mode. At every
+trigger age and for every rail word the eight joint energy words therefore
+have probability \(1/8\) each. On the full capped launch denominator each
+word has weight \([1-(3/4)^{16}]/8\), with the common timeout recorded
+separately. Applying the registered filter for one, three or six further
+reads also gives identical complete leak and terminal probabilities on
+either rail. The measured orientation correlation thus coexists with zero
+energy covariance among delivered reports. Assigning a temperature to
+radiation would require a coupling to the energy records of physical species.
+
+Each receiver can thus identify a causal descendant of the same release.
+The measurements exhibit how a common clock can generate correlations, and
+how the receiver preparation can erase them. The nonzero third moment of
+the sharp preparation distinguishes these signs from a jointly Gaussian
+field. Identifying adiabatic radiation perturbations requires a clock shared
+by the physical species, their response at release, and a geometric map.
+
 \subsection{Exact Fourier control for the golden source population}
 The deterministic Cartesian population
 \(x_b=\mathcal L(\{b_1\varphi\},\{b_2\varphi\},\{b_3\varphi\})\),

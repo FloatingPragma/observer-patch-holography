@@ -47,9 +47,9 @@ Finite Transfer Conditions, Fluctuation Ensembles, and Proto-Objects}
 \begin{abstract}
 A finite quotient, a reference measure and an action determine an observer
 ensemble. A vacuum interpretation needs additional reversible Euclidean
-data and compatible refinement. We give the corresponding finite transfer
-construction and separate it from stationary repair and from supplied
-Hamiltonian ground states. An active free field
+data and compatible refinement. For guarded material pairs the native energy gap and the two sharp transition
+probabilities determine a reversible Euclidean step of \(\log 2\).
+Keeping one child instrument per parent preserves every finite history law. An active free field
 has vacuum covariance \((2\sqrt B)^{-1}\) under its declared preparation;
 its flat massless spectrum grows as \(k^2\) per logarithmic interval and
 therefore is not a scale-invariant primordial curvature spectrum.
@@ -464,6 +464,58 @@ conditions. An OPH-native vacuum requires source data of the form
 with \(J_r\), \(V_r\), and \(a_{t,r}\) derived from OPH source structure rather than from a target
 law or a desired visual spectrum. Directed accepted repair moves cannot be
 reused as reversible Euclidean conductances.
+
+\subsection{A reversible material slab on the refined screen}
+
+At every owner, prepare one double on one of two adjacent ports and park
+all other contacts during the exposure. In the two sharp blank-memory
+states the native generator is
+\(h=32I+(I-X)/2\), where \(X\) exchanges the rails. This follows by
+restricting the native blank-seam identity to loads \((2,0),(0,2)\).
+An observer distinguishes the occupied rail by an echo against a vacant
+reference. At the supplied real exposure \(\pi/3\), the probabilities of
+retaining and exchanging the rail are \(3/4\) and \(1/4\) on either input.
+The transition \(K=(3I+X)/4\) has nonconstant eigenvalue \(1/2\).
+The energy gap is one, so the unique positive slab duration satisfying
+\(K=\exp[-a_t(h-32I)]\) is \(a_t=\log 2\) in inverse native energy units.
+Two monitored appointments give exchange probability \(3/8\), whereas an
+uninterrupted double exposure gives \(3/4\). A full real exchange has a
+negative transition eigenvalue and fails this Euclidean test.
+
+For \(N\) disjoint guarded pairs take \(Q=\{0,1\}^N\) with normalized
+counting weight \(m(x)=2^{-N}\). The sum of the native Hamiltonians gives a
+conductance \(J(x,x\oplus e_i)=m(x)/2\) for each single-bit exchange and
+potential \(V=32N\). All other off-diagonal conductances vanish.
+Connectivity gives the unique positive ground vector \(1\) in \(L^2(m)\).
+The ground-referenced transfer is \(K^{\otimes N}\) and its ground law is
+\(m\). Products of \(k\) distinct rail signs have transfer eigenvalue
+\(2^{-k}\), so the transfer is positive as an operator as well as stochastic.
+In particular the stationary path law is reflection positive across a time
+bond by positivity of this transfer, and across a read by conditioning on
+its central state.
+
+At each four-child subdivision retain one specified child instrument per
+parent. For any complete fine input the transition probabilities sum over
+the three unobserved children to the parent probabilities. Product measure
+also restricts to product measure. Iteration preserves all multi-time
+probabilities and composes through any tower of nested choices. The
+parity of all four children instead flips with probability \(15/32\) in
+one appointment, and gives a different readout. Direct simulation on 20,
+80 and 320 cells retains all three-read words for both initial rails.
+The source, receipts and counts are in
+\nolinkurl{code/cosmology/guarded_slab/}. The construction supplies the
+finite Euclidean data and their refinement on this apparatus. A field
+vacuum on an expanding geometry additionally needs intercell propagation,
+physical clock calibration and a geometric field readout.
+
+At each sharp read, stamp the rail with a fresh writer identifier even if
+its value repeats. The previous writer of that rail supplies the direct
+parent. Its authenticated value and register are checked on the resulting
+transcript. For any finite sequence of such appointments and any realized
+innovations, the versioned event log has a natural rank equal to the longest
+ancestral path ending at that reading. Each direct parent has strictly lower
+rank. Independent rail reads can exchange order while preserving those ranks.
+This witness to causal order requires no calibration of elapsed time.
 
 \subsection{Vacuum and initial-state readouts of a declared free field}
 

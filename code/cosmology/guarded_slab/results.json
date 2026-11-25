@@ -1,0 +1,282 @@
+{
+  "source": {
+    "hamiltonian": [
+      [
+        32.49999999999999,
+        -0.4999999999999999
+      ],
+      [
+        -0.4999999999999999,
+        32.49999999999999
+      ]
+    ],
+    "exchange_off": {
+      "gap": 0.0,
+      "sharp_transition": [
+        [
+          0.9999999999999989,
+          0.0
+        ],
+        [
+          0.0,
+          0.9999999999999989
+        ]
+      ]
+    },
+    "eigenvalues": [
+      31.999999999999993,
+      32.99999999999999
+    ],
+    "sharp_transition": [
+      [
+        0.7500000000000046,
+        0.25000000000000033
+      ],
+      [
+        0.25000000000000044,
+        0.7499999999999991
+      ]
+    ],
+    "slab_duration": 0.6931471805599424,
+    "transfer_residual": 3.885780586188048e-15,
+    "uninterrupted_two": 0.7500000000000032,
+    "monitored_two": 0.37500000000000155,
+    "full_exchange_eigenvalues": [
+      -0.9999999999999978,
+      0.9999999999999978
+    ],
+    "parked": [
+      [
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0
+      ]
+    ]
+  },
+  "refinement": {
+    "inputs": 16,
+    "retained_child_choices": 4,
+    "max_flip_probability_error": "0",
+    "same_duration_parity_flip": "15/32"
+  },
+  "boards": [
+    {
+      "level": 0,
+      "owners": 20,
+      "worst_word_one_percent": {
+        "appointments": 8,
+        "previous_distance": 0.013816630844520728,
+        "distance": 0.006895824135728745
+      },
+      "shots_per_start_per_owner": 256,
+      "address_sha256": "00395a88a550a017d974e178d02f05c74a57136f1542702c1a073ed3d9adfa94",
+      "counts_by_word": [
+        [
+          2182,
+          734,
+          239,
+          705,
+          216,
+          83,
+          244,
+          717
+        ],
+        [
+          697,
+          222,
+          83,
+          230,
+          734,
+          260,
+          719,
+          2175
+        ]
+      ]
+    },
+    {
+      "level": 1,
+      "owners": 80,
+      "worst_word_one_percent": {
+        "appointments": 9,
+        "previous_distance": 0.01391935583164436,
+        "distance": 0.006953930164799939
+      },
+      "shots_per_start_per_owner": 256,
+      "address_sha256": "ce805a3b3db1600572a15211bb4fb2e9f85572092c74fb1e44492af475231e6b",
+      "counts_by_word": [
+        [
+          8659,
+          2865,
+          1020,
+          2838,
+          936,
+          362,
+          900,
+          2900
+        ],
+        [
+          2866,
+          996,
+          335,
+          979,
+          2946,
+          943,
+          2881,
+          8534
+        ]
+      ]
+    },
+    {
+      "level": 2,
+      "owners": 320,
+      "worst_word_one_percent": {
+        "appointments": 10,
+        "previous_distance": 0.013938366175674812,
+        "distance": 0.006966840313402032
+      },
+      "shots_per_start_per_owner": 256,
+      "address_sha256": "945d2037db5aa0518bdfb45f09fb0cccd3e90ac528596a20d836aa764bf8a773",
+      "counts_by_word": [
+        [
+          34536,
+          11510,
+          3845,
+          11559,
+          3874,
+          1262,
+          3812,
+          11522
+        ],
+        [
+          11593,
+          3753,
+          1289,
+          3834,
+          11466,
+          3851,
+          11646,
+          34488
+        ]
+      ]
+    }
+  ],
+  "log": {
+    "initial": [
+      0,
+      1,
+      0,
+      1
+    ],
+    "events": [
+      {
+        "id": "r0",
+        "register": 0,
+        "read": 0,
+        "writer": null,
+        "write": 0
+      },
+      {
+        "id": "r1",
+        "register": 1,
+        "read": 1,
+        "writer": null,
+        "write": 0
+      },
+      {
+        "id": "r2",
+        "register": 2,
+        "read": 0,
+        "writer": null,
+        "write": 0
+      },
+      {
+        "id": "r3",
+        "register": 3,
+        "read": 1,
+        "writer": null,
+        "write": 1
+      },
+      {
+        "id": "r4",
+        "register": 2,
+        "read": 0,
+        "writer": "r2",
+        "write": 1
+      },
+      {
+        "id": "r5",
+        "register": 0,
+        "read": 0,
+        "writer": "r0",
+        "write": 0
+      },
+      {
+        "id": "r6",
+        "register": 0,
+        "read": 0,
+        "writer": "r5",
+        "write": 1
+      },
+      {
+        "id": "r7",
+        "register": 3,
+        "read": 1,
+        "writer": "r3",
+        "write": 1
+      },
+      {
+        "id": "r8",
+        "register": 3,
+        "read": 1,
+        "writer": "r7",
+        "write": 1
+      },
+      {
+        "id": "r9",
+        "register": 1,
+        "read": 0,
+        "writer": "r1",
+        "write": 0
+      },
+      {
+        "id": "r10",
+        "register": 0,
+        "read": 1,
+        "writer": "r6",
+        "write": 1
+      },
+      {
+        "id": "r11",
+        "register": 0,
+        "read": 1,
+        "writer": "r10",
+        "write": 1
+      }
+    ],
+    "heights": {
+      "r0": 0,
+      "r1": 0,
+      "r2": 0,
+      "r3": 0,
+      "r4": 1,
+      "r5": 1,
+      "r6": 2,
+      "r7": 1,
+      "r8": 2,
+      "r9": 1,
+      "r10": 3,
+      "r11": 4
+    }
+  },
+  "counts_sha256": "654058574b9f64687dfc82fdab6731f313817be348fcec2ab4452ebfa9b070bd",
+  "inputs": {
+    "code/cosmology/guarded_slab/PROTOCOL.md": "a0d0f4e6f4f0970aad17d6da2337748dfa4ef9e9d2bd707cceea4ecc3671697a",
+    "code/cosmology/guarded_slab/guarded_transfer.py": "f380b98056999792c489f845811c3def507a78bf3141b0200666d367ebf56034",
+    "model/experiments/interval_echo_consensus/refinement_cooling/dimer_band/measure.py": "238dfb5293b7e23ea91b11b3c27f41334e5e9321f33d338c8c2df8b52ec6b987",
+    "model/candidate_laws/contrast_memory_spherical_v1/law.py": "218a99ebc1e921065a818b77f00608818fdacf80782406466787b2891b1d017f",
+    "model/candidate_laws/interval_echo/observations.py": "e8c883004831a466c7ddf0030e1e3e50c18c2b008d2eb3a62b9953a47981e2cb"
+  }
+}
