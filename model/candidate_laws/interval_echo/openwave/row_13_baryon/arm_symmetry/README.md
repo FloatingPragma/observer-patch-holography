@@ -78,3 +78,5 @@ export OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 OMP_NUM_THREADS=1
 ~~~
 
 [Independent operator, symmetry, propagation and record tests](test_arms.py)
+
+Four local position settings after full release test spatial connectivity and singlet weight together. Two alternative apertures retain high orbital fidelity while excluding every connected determinant word. [Released three-arm product read and original-launch yields](released_product/README.md)

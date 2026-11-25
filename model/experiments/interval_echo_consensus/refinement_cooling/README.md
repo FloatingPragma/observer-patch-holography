@@ -30,3 +30,5 @@ Run the replay and regression from the repository root.
 
     OPENBLAS_NUM_THREADS=1 PYTHONPATH=code:. .venv/bin/python -m model.experiments.interval_echo_consensus.refinement_cooling.measure
     OPENBLAS_NUM_THREADS=1 PYTHONPATH=code:. .venv/bin/python -m pytest -q model/experiments/interval_echo_consensus/refinement_cooling
+
+A growing guarded material sector has two measured native seam energies per owner. Four-child address refinement preserves the whole Gibbs distribution, with a common bound on the excited fraction and on entropy above the ground degeneracy. [Dimer energy test](dimer_band/README.md)

@@ -15,6 +15,9 @@ def test_each_native_query_column_exactly_with_integer_write_pattern():
     for x, y in product((0, 2), repeat=2):
         i = native_law.SRC.index((x, y))
         column = w[:, i]
+        occupied = np.flatnonzero(column) % native_law.N_SRC
+        half = (x + y) // 2
+        assert all(native_law.SRC[j] == (half, half) for j in occupied)
         assert np.all(pointer[column != 0] == (x + y == 2))
         undo = w.T @ (column * (pointer == (x + y == 2)))
         assert np.array_equal(undo, 2 * np.eye(native_law.N_SRC, dtype=int)[:, i])
@@ -51,7 +54,10 @@ def test_capacity_layout_and_controls():
         assert op in CELL_SEAMS and sc in CELL_SEAMS
     for bank in json.loads((HERE / "records.json").read_text()):
         runs = bank["runs"]
-        assert sum(sum(x) for x in bank["reads"]) == sum(r["attempts"] for r in runs)
+        offers = sum(r["attempts"] for r in runs)
+        assert sum(sum(x) for x in bank["reads"]) == offers
+        ports = 12 * bank["owners"]
+        assert bank["routing_swaps"] <= 16 * (2 * ports - 3) * offers
         assert sum(r["writes"] for r in runs) == sum(row[1] for row in bank["reads"])
         assert all(r["all_consistent"] for r in runs) == (bank["mode"] == "native")
         if bank["mode"] == "native" and not bank["reverse"]:

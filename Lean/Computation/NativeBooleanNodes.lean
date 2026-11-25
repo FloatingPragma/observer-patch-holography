@@ -41,7 +41,7 @@ def Service.bit (op : Service) (s : State) : Bool :=
   cases x <;> decide
 
 @[simp] theorem nand_bit (x y : Bool) :
-    !(decide (firstRead x y = 2)) = !(x && y) := by
+    (!(decide (firstRead x y = 2))) = (!(x && y)) := by
   cases x <;> cases y <;> decide
 
 /-- The second read, on a scratch rail and the old output, clocks the swap. -/
@@ -112,7 +112,9 @@ theorem compiled_histories {k : Nat} (φ : Formula k) :
   | zero => rfl
   | succ t ih =>
     simp only [serviceRun, FixedFederation.attemptRun, ih]
-    exact Classical.choose_spec (native_attempt_of_compiled_node φ _ _) _
+    let state := FixedFederation.attemptRun (FixedFederation.fixedProgram φ) t calendar s
+    let node := calendar t state
+    exact Classical.choose_spec (native_attempt_of_compiled_node φ node.val node.property) state
 
 /-- The state-blind calendar consumed by the native services revisits every
 member and bounds the delay to a genuine write from any inconsistent state. -/
