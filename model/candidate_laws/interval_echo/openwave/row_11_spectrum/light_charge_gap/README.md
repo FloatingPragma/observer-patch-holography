@@ -36,6 +36,8 @@ As a numerical cross-check the homogeneous active rings give 1,536 exact-block e
 
 On the separately prepared fifteen-port all-live ring the signed formation operator is negative semidefinite for both charges. Replacing one contact by a blank or opening one side gives positive costs. Exact characteristic-polynomial counts exclude positive roots through 0.45 in every tested one-blank setting. [Active backbone and independent meter checks](ACTIVE_BACKBONE.md)
 
+Several blank and active transporting bonds on the same backbone do allow a positive light line below 0.057 for either charge sign. Periodic side marks on the mixed backbone give a positive lower band edge that persists as the guide grows. [Mixed backbone](../../../../../experiments/interval_echo_angular/charged_orientation/winding_memory/MIXED_MASSES.md) · [Periodic side marks and laboratory ratios](periodic_marks/README.md)
+
 From the repository root run the following commands with one numerical thread.
 
 ```sh

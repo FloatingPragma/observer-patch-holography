@@ -33,3 +33,5 @@ export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1
 python -m model.experiments.interval_echo_angular.charged_orientation.two_winding_loops.measure
 python -m pytest -q model/experiments/interval_echo_angular/charged_orientation/two_winding_loops/test_channel.py
 ```
+
+A separate energy read on this exact preparation resolves sixteen simple poles. A forgotten two-unit free wait preserves 40.3% mean arrival and removes the detectable quantum channel at that appointment. [Energy-resolved transfer and all local counts](REST.md)

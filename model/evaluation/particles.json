@@ -3,31 +3,54 @@
   "title": "Standard Model particle identifications",
   "purpose": "Identify all 17 elementary particle types on one frozen candidate. Each species has a local preparation or production channel, reproducible detection statistics, and a dictionary that distinguishes its nearest alternatives. A declaration of a field or an input mass cannot identify the excitation.",
   "reference": "Count six quark flavours, three charged leptons, three active neutrino flavour channels, four gauge-boson types and the Higgs. W covers both signs, and the gluon entry covers the eight colour components. Resolve conjugate partners where distinct. Neutrino flavour is defined by weak production and detection; its propagation can mix mass eigenstates. Composite hadrons provide evidence for confined quarks and gluons. The hypothetical graviton has its own gravitational-particle assessment. A sterile neutrino is outside this inventory.",
-  "sources": ["https://pdg.lbl.gov/2026/listings/contents_listings.html", "paper/deriving_the_particle_zoo_from_observer_consistency.tex", "code/defect_particle_classes/PROOF.md", "claims/physical_identification_registry.json"],
+  "sources": [
+    "https://pdg.lbl.gov/2026/listings/contents_listings.html",
+    "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+    "code/defect_particle_classes/PROOF.md",
+    "claims/physical_identification_registry.json"
+  ],
   "observations": {
     "interval_echo": {
       "e": {
-        "note": "Three charged orbital preparations each transmit an arbitrary path qubit with equal delivery across inputs. Local spatial half-turns give the positive order sign. Two-vacancy exchange on the calibrated loop also gives positive phase. A freely transporting bound charge also has an independently measured formation energy and recoil.",
+        "note": "One receiving owner recovers a winding qubit at the same sharp vacancy address after all source heads are traced out. Its energy lines are simple and resolving one destroys arbitrary quantum transmission. Two independently prepared charged trimers have positive exchange. A separate mixed-head guide has a light positive formation threshold for both charge signs.",
         "evidence": [
           "model/experiments/interval_echo_angular/charged_orientation/paired_flight/README.md",
           "model/candidate_laws/interval_echo/openwave/row_11_spectrum/marked_bands/README.md",
-          "model/candidate_laws/interval_echo/openwave/row_11_spectrum/mobile_bound/README.md"
+          "model/candidate_laws/interval_echo/openwave/row_11_spectrum/mobile_bound/README.md",
+          "model/experiments/interval_echo_angular/charged_orientation/winding_memory/README.md",
+          "model/candidate_laws/interval_echo/openwave/row_11_spectrum/composite_exchange/README.md",
+          "model/candidate_laws/interval_echo/openwave/row_11_spectrum/light_charge_gap/README.md",
+          "model/candidate_laws/interval_echo/openwave/row_11_spectrum/light_charge_gap/meter.json",
+          "model/experiments/interval_echo_angular/charged_orientation/winding_memory/MIXED_MASSES.md",
+          "model/candidate_laws/interval_echo/openwave/row_11_spectrum/light_charge_gap/periodic_marks/README.md",
+          "model/experiments/interval_echo_angular/charged_orientation/two_winding_loops/README.md",
+          "model/experiments/interval_echo_angular/charged_orientation/two_winding_loops/REST.md"
         ]
       },
       "mu": {
-        "note": "The three- and five-defect charges form mobile bound modes. Their rest ratios and independent recoils exclude the observed charged-lepton hierarchy on the measured light anchor. A separate emitter delivers two neutral material pairs already present at launch; identifying muon decay requires a tagged parent-energy loss, weak flavor and a lifetime.",
+        "note": "Three mobile bound cores have incompatible rest and recoil hierarchies. A separate localized charged orbital demonstrably loses one native unit as a stocked neutral pair gains one unit in another owner. The emitting orbital lacks a physical muon mass and weak-flavor tag. The eight periodic guides with a common positive light threshold miss at least one of the two laboratory ratios by 29.2% or more across every triple of band minima.",
         "evidence": [
           "model/candidate_laws/interval_echo/openwave/row_11_spectrum/mobile_bound/README.md",
           "model/candidate_laws/interval_echo/openwave/row_11_spectrum/emission_channels/README.md",
-          "model/candidate_laws/interval_echo/openwave/row_11_spectrum/marked_bands/README.md"
+          "model/candidate_laws/interval_echo/openwave/row_11_spectrum/marked_bands/README.md",
+          "model/candidate_laws/interval_echo/openwave/row_11_spectrum/light_charge_gap/README.md",
+          "model/candidate_laws/interval_echo/openwave/row_11_spectrum/light_charge_gap/meter.json",
+          "model/candidate_laws/interval_echo/openwave/row_11_spectrum/level_transfer/README.md",
+          "model/experiments/interval_echo_angular/charged_orientation/winding_memory/MIXED_MASSES.md",
+          "model/candidate_laws/interval_echo/openwave/row_11_spectrum/light_charge_gap/periodic_marks/README.md"
         ]
       },
       "tau": {
-        "note": "The heaviest mobile five-defect core has a measured rest energy of 147.05535 relative to the 16-unit vacancy. Matched transport of three charged orbitals gives a separate spatial and recoil test. Neither source has a measured tau mass and weak decay channel.",
+        "note": "The heaviest bound core measures 147.05535 against the 16-unit vacancy. The one-defect ceiling and the mobile passive charge-conjugate floor limit the heavy-to-light ratio to 24.75 on the specified host. A tau rest-mass and flavor assignment remains open. The eight periodic guides with a common positive light threshold miss at least one of the two laboratory ratios by 29.2% or more across every triple of band minima.",
         "evidence": [
           "model/candidate_laws/interval_echo/openwave/row_11_spectrum/mobile_bound/README.md",
           "model/candidate_laws/interval_echo/openwave/row_11_spectrum/marked_bands/README.md",
-          "model/candidate_laws/interval_echo/openwave/row_11_spectrum/emission_channels/README.md"
+          "model/candidate_laws/interval_echo/openwave/row_11_spectrum/emission_channels/README.md",
+          "model/candidate_laws/interval_echo/openwave/row_11_spectrum/light_charge_gap/README.md",
+          "model/candidate_laws/interval_echo/openwave/row_11_spectrum/light_charge_gap/meter.json",
+          "model/candidate_laws/interval_echo/openwave/row_11_spectrum/level_transfer/README.md",
+          "model/experiments/interval_echo_angular/charged_orientation/winding_memory/MIXED_MASSES.md",
+          "model/candidate_laws/interval_echo/openwave/row_11_spectrum/light_charge_gap/periodic_marks/README.md"
         ]
       }
     }
