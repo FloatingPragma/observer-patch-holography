@@ -44,3 +44,18 @@ def test_native_support_and_changed_law_with_same_readout():
             else:
                 assert panel["both_probability"] == 0
                 assert panel["none_left_right_both_counts"][-1] == 0
+
+
+def test_rest_ratios_need_large_neutral_receivers_or_an_exterior_record():
+    rows = measure.formation_receiver_bounds()
+    for ratio, pairs, minimum_in_one in (("206.7682827", 41, 21), ("3477.0", 693, 347)):
+        assert rows[ratio] == dict(
+            minimum_defect_ports=2 * pairs + 1,
+            minimum_pairs_in_two_exhaustive_receivers=pairs,
+            minimum_pairs_in_one_of_the_two_receivers=minimum_in_one,
+            minimum_ports_in_that_neutral_receiver=2 * minimum_in_one,
+            minimum_doubles_outside_two_single_cell_receivers=pairs - 12,
+        )
+        assert (
+            min(max(left, pairs - left) for left in range(pairs + 1)) == minimum_in_one
+        )

@@ -4,7 +4,7 @@ import argparse
 from collections import defaultdict
 from fractions import Fraction
 from itertools import product
-from math import factorial
+from math import ceil, factorial
 import json
 from pathlib import Path
 
@@ -227,6 +227,33 @@ def bench():
     )
 
 
+def formation_receiver_bounds():
+    """Apply the blank-host spectral envelope to two neutral, exhaustive terminal patches."""
+    path = RECEIPT.parent.parent / "excited_bounds.json"
+    spectrum = json.loads(path.read_text())
+    certificate = spectrum["any_three_gateways"]
+    lower = spectrum["verified_negative_sector_floor"]
+    slope, tilt = map(Fraction, certificate["per_defect_and_charge_coefficients"])
+    rows = {}
+    for ratio, reported in certificate["necessary_dressing_sizes"].items():
+        # E_parent >= ratio * E_light >= ratio * lower; Q=-1, D=2*p+1.
+        needed = lower * Fraction(ratio)
+        pairs = ceil((needed + tilt - slope) / (2 * slope))
+        assert slope * (2 * pairs - 1) - tilt < needed <= slope * (2 * pairs + 1) - tilt
+        assert 2 * pairs + 1 == reported["minimum_defects_in_fixed_composition"]
+        # One-vacancy daughter has no doubles. All other doubles enter the
+        # two receivers exactly when the remaining material returns to its host.
+        larger = (pairs + 1) // 2
+        rows[ratio] = dict(
+            minimum_defect_ports=2 * pairs + 1,
+            minimum_pairs_in_two_exhaustive_receivers=pairs,
+            minimum_pairs_in_one_of_the_two_receivers=larger,
+            minimum_ports_in_that_neutral_receiver=2 * larger,
+            minimum_doubles_outside_two_single_cell_receivers=max(0, pairs - 12),
+        )
+    return rows
+
+
 def run():
     arrays = []
     for state in product(range(3), repeat=4):
@@ -236,6 +263,7 @@ def run():
     assert len(arrays) == 4 and all(w.count(2) == 2 and w.count(0) == 2 for w in arrays)
     return dict(
         local=local_certificate(),
+        conditional_one_vacancy_daughter=formation_receiver_bounds(),
         two_dimer_neutral_records=arrays,
         all_open_sharp_preparations=[full_board(i) for i in range(3)],
         two_arm_bench=bench(),

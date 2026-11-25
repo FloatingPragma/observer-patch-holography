@@ -56,4 +56,21 @@ theorem disjoint_ejecta_inventory {V R : Type*} [DecidableEq V] [Fintype R]
         exact Finset.disjoint_left.mp (separate i j ne) (inR i) (same ▸ inR j)
   simpa using Fintype.card_le_of_injective f inj
 
+/-- A negative-unit composition has two defect ports per double, plus one.
+For a single-vacancy charged daughter, all parent doubles must appear in the
+receivers if the exterior has returned to its filled host. The larger of two
+receivers then contains at least half the spectral lower bound, rounded up. -/
+theorem two_receiver_formation_inventory {parent minimum left right : ℕ}
+    (spectral : 2 * minimum + 1 ≤ 2 * parent + 1) (account : parent = left + right) :
+    minimum ≤ left + right ∧ ((minimum + 1) / 2 ≤ left ∨ (minimum + 1) / 2 ≤ right) := by
+  omega
+
+/-- Two neutral 12-port cells can contain at most twelve doubles between them.
+Any remaining doubles must appear elsewhere in the terminal record. -/
+theorem residual_after_two_cell_read {parent minimum left right residual : ℕ}
+    (spectral : 2 * minimum + 1 ≤ 2 * parent + 1)
+    (account : parent = left + right + residual) (lcap : left ≤ 6) (rcap : right ≤ 6) :
+    minimum - 12 ≤ residual := by
+  omega
+
 end SourceLaw.NeutralEjecta

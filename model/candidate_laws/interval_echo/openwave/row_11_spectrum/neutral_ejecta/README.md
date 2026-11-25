@@ -44,6 +44,19 @@ A smaller bench keeps the two four-port paths and the actual degree references. 
 
 The control adds the previously tested symmetric conversion between \(|11\rangle\) and \((|02\rangle+|20\rangle)/\sqrt{2}\), with strength eight on every enabled seam. The alphabet, routes, load conservation and terminal detectors are fixed. Its unseeded receiving medium can produce a coincident signal of its own. The count banks distinguish the predicted zeros from a missing read. Their sensitivity is too low to observe the small positive two-pair probability on the native bench. [Changed generator](../../row_01_charge/measure.py)
 
+## What the rest-energy ratios would predict in the receivers
+
+Suppose the light particle is a single vacancy and a parent in one fixed negative-unit composition is measured above the same blank, unit-filled host. At a parent/light ratio of at least 206.7682827 or 3477, the native formation-energy bounds require at least 83 or 1,387 defect ports in the parent. Its signed load −1 then fixes the inventory to at least **41 or 693 doubles**, with one more vacancy than double. This arithmetic uses the prior spectrum certificate. It applies to formation energies with that reference and to these input ratios. [Spectral proof](../README.md#can-an-excited-charged-defect-evade-the-ground-energy-bound) · [Spectral receipt](../excited_bounds.json)
+
+If the final charged daughter is that single vacancy, it carries zero doubles. If the rest of the board returns to the filled host apart from two separately observed neutral patches, every double must appear in those patches, accompanied there by a vacancy. The bound holds in every accepted terminal word of a fixed-composition source.
+
+| Parent/light ratio threshold | Minimum pairs across both neutral patches | Minimum pairs in the larger patch | Minimum ports in that patch |
+| --- | ---: | ---: | ---: |
+| 206.7682827 | 41 | 21 | 42 |
+| 3477 | 693 | 347 | 694 |
+
+A single 12-port owner reading zero net load can hold at most six pairs. If each receiver is just one owner as in the short-time test above, **at least 29 or 681 doubles must remain elsewhere** after the single-vacancy daughter is detected. Observers can check that residual inventory directly. Larger detector patches can instead measure how many pairs each neutral patch contains without assuming a compact neutral product. A dressed charged daughter can retain some of the doubles. A prior preparation of written material calls for its own formation-energy bound. Testing the predicted counts requires a separate rest-energy measurement and a decay preparation. [Executable cross-check](measure.py) · [Two-receiver counting lemmas](../../../../../../Lean/SourceLaw/NeutralEjecta.lean)
+
 ## What this says about the charged-lepton triple
 
 On the seven-cell comparison with the lepton mass ratios, the installed mass operator and the free charge detector conserve each of the three family characters. On the matched two-cell written-field comparison, supplying contact energy can yield neutral excitation and a lower charged mode, while all six measured separated channels miss the isolated parent energy. This experiment tests a third, native possibility and fixes the minimum source content for passive neutral detection in a pristine material host. Identifying a muon would require selecting the **same** charged parent by its energy and independently measuring a lighter charged daughter and neutral ejecta in free evolution. Identifying its weak flavor also requires an interaction tag. The short-time coefficient predicts a specific material word without making either particle assignment. [Guided character measurements](../../electron_field/lepton_family/identity_audit/README.md) · [Written-field conversion](../../electron_field/lepton_family/decay/README.md) · [Charged-current selection rule](../../../../../../Lean/Screen/ChargedCurrentDictionary.lean)
