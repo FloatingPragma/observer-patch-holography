@@ -17,7 +17,7 @@ from . import assessment, report
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
-REGISTER = ROOT / 'tracking' / 'premise_register.json'
+REGISTER = ROOT / 'docs' / 'registers' / 'OBSERVABLES.json'
 ROLES = HERE / 'roles.json'
 SCORECARD = HERE / 'SCORECARD.md'
 INDEX = ROOT / 'model' / 'candidate_laws' / 'CANDIDATE.md'
@@ -211,14 +211,20 @@ def evidence_ok(cand, paths):
         fail(f'{cand.NAME}: missing evidence {missing}')
 
 
-def premise_rows(cand, register, roles):
-    ids = {r['id'] for r in register['rows']}
+def premise_register():
+    """The premise rows of the observables register, in register order."""
+    return [r for r in json.loads(REGISTER.read_text(encoding='utf-8'))['rows'] if r.get('kind') == 'premise']
+
+
+def premise_rows(cand, premises, roles):
+    ids = {r['id'] for r in premises}
     unknown = sorted(set(cand.PREMISES) - ids)
     if unknown:
         fail(f'{cand.NAME}: premises not in the register: {unknown}')
     rows = []
-    for r in register['rows']:
-        role = roles['overrides'].get(r['id'], {}).get('role') or roles['defaults'][r['type']]
+    for r in premises:
+        kind = roles['types'].get(r['id']) or r['premise_kind']
+        role = roles['overrides'].get(r['id'], {}).get('role') or roles['defaults'][kind]
         decl = cand.PREMISES.get(r['id'], {})
         status = decl.get('status', 'open')
         if status not in STATUSES:
@@ -227,7 +233,7 @@ def premise_rows(cand, register, roles):
             fail(f'{cand.NAME} {r["id"]}: a failed premise names its counterexample')
         evidence_ok(cand, decl.get('evidence', []))
         rows.append({'id': r['id'], 'name': r['name'], 'statement': r['statement'],
-                     'type': r['type'], 'role': role, 'status': status,
+                     'type': kind, 'role': role, 'status': status,
                      'evidence': decl.get('evidence', []), 'note': decl.get('note', ''),
                      **({'counterexample': decl['counterexample']} if 'counterexample' in decl else {})})
     return rows
@@ -253,11 +259,10 @@ def joint_rows(cand):
 def evaluate(name, shared=None):
     from model.executable_model import laws
     cand = laws.load(name)
-    register = json.loads(REGISTER.read_text(encoding='utf-8'))
     roles = json.loads(ROLES.read_text(encoding='utf-8'))
     checks = carrier_checks(cand)
     checks['parameters'] = parameter_check(cand)
-    premises = premise_rows(cand, register, roles)
+    premises = premise_rows(cand, premise_register(), roles)
     summary = {role: {s: sum(1 for r in premises if r['role'] == role and r['status'] == s) for s in STATUSES}
                for role in ('law', 'designer', 'import')}
     return {'schema': 'oph.law_evaluation.v2', 'candidate': cand.NAME, 'title': cand.TITLE, 'role': cand.ROLE,
