@@ -54,6 +54,19 @@ A status rests on a committed file that states the result: a theorem, a test, a 
 or a file name is not enough. Agreement with values used for calibration is at most Partial. Particle mass
 values are never stated in the ledger.
 
+Judging a premise:
+
+- The `what` of a premise states the assumption and stays fixed when evidence arrives. The status reports
+  how much of the `statement` is shown. `what` and `why` never describe an experiment or its outcome; the
+  evidence goes in the links.
+- A `derivable` premise is Demonstrated when the law of the main candidate produces the `statement` as
+  written. A result that holds on a supplied apparatus, routing, schedule, cadence or preparation is
+  Partial, and so is a finite instance of a general statement.
+- A `declared` premise is Demonstrated when the construction declares the choice and the executable
+  implements it.
+- When a premise loses or gains Demonstrated, re-judge the rows that list it. A Demonstrated row lists no
+  premise that is not Demonstrated.
+
 ## Completion score
 
 Each observable scores Demonstrated 1, Partial 1/4, Open 0. A Conditional observable scores 1/2 plus half

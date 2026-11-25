@@ -89,7 +89,10 @@ criteria the main candidate leaves partial or open.
 
 When a result changes the standing of an observable or a premise, update its
 row in the same change and run `python tools/check_observables.py`. Keep `what`
-and `why` to one sentence each. A daily cloud routine re-judges the rows that
+and `why` to one sentence each. Judge the status by the rules of the register
+README: the `what` of a premise states the assumption and does not change when
+evidence arrives, and a result on a supplied apparatus, schedule or preparation
+makes a derivable premise Partial. A daily cloud routine re-judges the rows that
 new commits on main affect.
 
 ## OpenWave rows and submissions

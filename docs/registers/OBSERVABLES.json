@@ -350,7 +350,9 @@
     "model/experiments/interval_echo_quantum/results.json",
     "model/experiments/interval_echo_consensus/empty_single/measure.py",
     "model/experiments/interval_echo_consensus/empty_single/results.json",
-    "model/experiments/interval_echo_consensus/empty_single/README.md"
+    "model/experiments/interval_echo_consensus/empty_single/README.md",
+    "model/experiments/interval_echo_consensus/local_interface/modal_slots/README.md",
+    "model/experiments/interval_echo_consensus/local_interface/modal_slots/records.json"
    ],
    "papers": [
     "paper/observers_are_all_you_need.pdf",
@@ -649,7 +651,8 @@
     "Lean/QFT/CoverageReceipt.lean",
     "Lean/ObserverPatchHolography/Provenance/SemanticEventProvenance.lean",
     "Lean/Time/ClockReadout.lean",
-    "Lean/Time/ClockComparison.lean"
+    "Lean/Time/ClockComparison.lean",
+    "Lean/ObserverPatchHolography/Provenance/GuardedRailRecords.lean"
    ],
    "model": [],
    "papers": [
@@ -710,9 +713,7 @@
     "model/experiments/interval_echo_clock/DURATION.md",
     "model/experiments/interval_echo_clock/duration.json",
     "model/experiments/interval_echo_consensus/standard_observers.py",
-    "model/experiments/interval_echo_consensus/modular_standard.json",
-    "code/cosmology/release_horizon/background_clock/README.md",
-    "code/cosmology/release_horizon/background_clock/records.json"
+    "model/experiments/interval_echo_consensus/modular_standard.json"
    ],
    "papers": [
     "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf",
@@ -728,16 +729,14 @@
    "status": "Demonstrated",
    "what": "A clock is a physical system whose repeated, countable events let observers compare elapsed time with each other.",
    "why": "OPH has no common external clock; its observers read time only from clocks made of records, so every timing prediction rests on them.",
-   "premises": [
-    "PR-15",
-    "PR-52"
-   ],
+   "premises": [],
    "lean": [
     "Lean/QFT/SourceClockCandidate.lean",
     "Lean/Thermodynamics/PhysicalCalibrationImport.lean",
     "Lean/QFT/SourceRecurrenceClock.lean",
     "Lean/ObserverPatchHolography/RateBridgeObstruction.lean",
-    "Lean/Time/JointClockReference.lean"
+    "Lean/Time/JointClockReference.lean",
+    "Lean/ObserverPatchHolography/Provenance/ScreenDensityClock.lean"
    ],
    "model": [
     "model/evaluation/SCORECARD.md",
@@ -750,7 +749,9 @@
     "model/experiments/interval_echo_clock/reference_exchange/joint_time/records.json",
     "model/experiments/interval_echo_clock/DURATION.md",
     "model/candidate_laws/interval_echo/observations.json",
-    "model/candidate_laws/interval_echo/patch_records.npz"
+    "model/candidate_laws/interval_echo/patch_records.npz",
+    "code/cosmology/release_horizon/background_clock/README.md",
+    "code/cosmology/release_horizon/background_clock/records.json"
    ],
    "papers": [
     "flagship/from_observer_consensus_to_standard_physics.pdf",
@@ -868,7 +869,9 @@
     "code/a5_fingerprint/runtime/a5_multipole_persistence_receipt_v4.json",
     "code/a5_fingerprint/runtime/spin_six_universality_receipt.json",
     "code/a5_fingerprint/a5_multipole_persistence_independent_verifier.py",
-    "code/a5_fingerprint/a5_multipole_persistence_stage4_independent_verifier.py"
+    "code/a5_fingerprint/a5_multipole_persistence_stage4_independent_verifier.py",
+    "model/candidate_laws/interval_echo/openwave/row_29_maxwell/seam_symbol/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_29_maxwell/seam_symbol/records.json"
    ],
    "papers": [
     "docs/FROZEN_PREDICTION_LADDER.md",
@@ -913,28 +916,15 @@
     "Lean/Geometry/RestFiberShellTransport.lean",
     "Lean/Geometry/InverseSquareShellLaw.lean",
     "Lean/Geometry/SpatialReadbackSoldering.lean",
-    "Lean/SourceLaw/ChargedRegisterPole.lean",
-    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/mobile_bound/BoundCore.lean",
-    "Lean/Dynamics/CyclicEnergy.lean"
+    "Lean/SourceLaw/ChargedRegisterPole.lean"
    ],
    "model": [
     "model/evaluation/EVIDENCE.md",
     "model/candidate_laws/interval_echo/openwave/row_30_collective/README.md",
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/conjugate_flight/README.md",
-    "model/experiments/interval_echo_angular/charged_orientation/live_trimer/energy/README.md",
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/marked_bands/README.md",
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/mobile_bound/README.md",
-    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/light_charge_gap/README.md",
-    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/light_charge_gap/meter.json",
-    "model/experiments/interval_echo_angular/charged_orientation/two_winding_loops/README.md",
-    "model/experiments/interval_echo_angular/charged_orientation/two_winding_loops/REST.md",
-    "model/experiments/interval_echo_angular/charged_orientation/winding_memory/MIXED_MASSES.md",
-    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/light_charge_gap/periodic_marks/README.md",
-    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/light_charge_gap/ACTIVE_BACKBONE.md",
-    "model/experiments/interval_echo_angular/charged_orientation/sector_readout/README.md",
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/dispersion_search/README.md",
-    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/dispersion_search/SPIN_FIBERS.md",
-    "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/README.md",
     "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/WAVELENGTH.md"
    ],
    "papers": [
@@ -966,7 +956,9 @@
    ],
    "model": [
     "model/evaluation/SCORECARD.md",
-    "model/experiments/material_inertia/README.md"
+    "model/experiments/material_inertia/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/conjugate_flight/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/mobile_bound/README.md"
    ],
    "papers": [
     "paper/observers_are_all_you_need.pdf"
@@ -992,11 +984,18 @@
     "Lean/Geometry/InverseSquareShellLaw.lean",
     "Lean/Screen/PrimitivePortFrameQuotient.lean",
     "Lean/Screen/LayeredDiscreteGauss.lean",
-    "Lean/Geometry/RestFiberShellTransport.lean"
+    "Lean/Geometry/RestFiberShellTransport.lean",
+    "Lean/ObserverPatchHolography/Provenance/RoutedOctant.lean",
+    "model/experiments/interval_echo_shell_flux/NativeShellSource.lean"
    ],
    "model": [
     "code/cosmology/release_horizon/radial_transport/README.md",
-    "code/cosmology/release_horizon/radial_transport/records.json"
+    "code/cosmology/release_horizon/radial_transport/records.json",
+    "model/experiments/interval_echo_shell_flux/README.md",
+    "model/experiments/interval_echo_shell_flux/product_address/README.md",
+    "model/experiments/interval_echo_shell_flux/product_address/green_response/README.md",
+    "model/experiments/interval_echo_shell_flux/product_address/green_response/results.json",
+    "model/candidate_laws/interval_echo/openwave/row_26_newton/mobile_mediator/thermal_range/README.md"
    ],
    "papers": [
     "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf"
@@ -1164,7 +1163,9 @@
     "Lean/QFT/SourceRecurrenceClock.lean"
    ],
    "model": [
-    "model/experiments/interval_echo_space/README.md"
+    "model/experiments/interval_echo_space/README.md",
+    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/README.md",
+    "code/cosmology/release_horizon/radial_transport/README.md"
    ],
    "papers": [
     "paper/observers_are_all_you_need.pdf",
@@ -1239,7 +1240,10 @@
     "code/matched_einstein_limit/quantum_scalar_radar/volume.json",
     "code/matched_einstein_limit/quantum_scalar_radar/balls.json",
     "code/matched_einstein_limit/quantum_scalar_radar/partial_meter.json",
-    "code/geometry/test_einstein_closure_receipts.py"
+    "code/geometry/test_einstein_closure_receipts.py",
+    "code/matched_einstein_limit/source_implication/full_algebra/correlation_rank/spatial_cuts/README.md",
+    "code/matched_einstein_limit/source_implication/full_algebra/correlation_rank/spatial_cuts/full_source.json",
+    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/README.md"
    ],
    "papers": [
     "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf",
@@ -1435,7 +1439,10 @@
     "code/matched_einstein_limit/seam_overlap/rim.json",
     "code/matched_einstein_limit/seam_overlap/protected.py",
     "code/matched_einstein_limit/seam_overlap/protected.json",
-    "code/matched_einstein_limit/seam_overlap/test_overlap.py"
+    "code/matched_einstein_limit/seam_overlap/test_overlap.py",
+    "code/matched_einstein_limit/source_implication/full_algebra/correlation_rank/spatial_cuts/README.md",
+    "code/matched_einstein_limit/source_implication/full_algebra/correlation_rank/spatial_cuts/radial_profiles/README.md",
+    "model/experiments/interval_echo_einstein_station/collar_scaling/station_clock/separated_sectors/README.md"
    ],
    "papers": [
     "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf"
@@ -1491,7 +1498,9 @@
    "lean": [],
    "model": [
     "code/matched_einstein_limit/source_implication/full_geometry/station_balls/README.md",
-    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/results.json"
+    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/results.json",
+    "code/cosmology/rar_deep_regime/aperture_virial/README.md",
+    "code/cosmology/rar_deep_regime/aperture_virial/results.json"
    ],
    "papers": [
     "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf",
@@ -1508,8 +1517,7 @@
    "why": "OPH reads this algebra from the complete port response of its icosahedral observer cell; obtaining it fixes which forces the theory contains.",
    "premises": [
     "PR-09",
-    "PR-10",
-    "PR-54"
+    "PR-10"
    ],
    "lean": [
     "Lean/Screen/A2HolonomyBridge.lean",
@@ -2041,10 +2049,11 @@
    "kind": "observable",
    "name": "Zeroth law (temperature)",
    "category": "Thermodynamics",
-   "status": "Demonstrated",
+   "status": "Partial",
    "what": "Two bodies each in thermal equilibrium with a third are in equilibrium with each other, which defines a common temperature.",
    "why": "In OPH temperature is a shared modular reference on a common boundary; thermometry and all thermodynamic predictions start from it.",
    "premises": [
+    "PR-15",
     "PR-05",
     "PR-07"
    ],
@@ -2097,7 +2106,11 @@
     "Lean/Thermodynamics/ModularEnergyAdditivity.lean",
     "Lean/Thermodynamics/GibbsReferenceEnergyIdentification.lean"
    ],
-   "model": [],
+   "model": [
+    "code/cosmology/guarded_slab/energy_exchange/README.md",
+    "code/cosmology/guarded_slab/energy_exchange/energy.json",
+    "model/experiments/interval_echo_consensus/refinement_cooling/dimer_band/thermal_contact/README.md"
+   ],
    "papers": [
     "paper/observers_are_all_you_need.pdf",
     "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf"
@@ -2125,7 +2138,9 @@
    ],
    "model": [
     "model/experiments/interval_echo_consensus/conditional_bath/gibbs.py",
-    "model/experiments/interval_echo_consensus/conditional_bath/gibbs.json"
+    "model/experiments/interval_echo_consensus/conditional_bath/gibbs.json",
+    "model/experiments/interval_echo_consensus/refinement_cooling/dimer_band/thermal_contact/README.md",
+    "model/experiments/interval_echo_consensus/refinement_cooling/dimer_band/thermal_contact/records.json"
    ],
    "papers": [
     "paper/observers_are_all_you_need.pdf",
@@ -2242,7 +2257,7 @@
    "category": "Thermodynamics",
    "status": "Partial",
    "what": "Transport coefficients such as diffusion constants and conductivities equal time integrals of equilibrium current correlations, the Green-Kubo relations.",
-   "why": "In guarded dimers equilibrium energy-current fluctuations predict independently driven conductance and sign motion gives diffusion, while macroscopic transport in freely interacting material requires a physical attachment.",
+   "why": "OPH has to get macroscopic diffusion and conduction from correlations of its microscopic repair currents, linking record dynamics to measurable transport.",
    "premises": [
     "PR-07",
     "PR-15"
@@ -2289,7 +2304,8 @@
     "PR-15"
    ],
    "lean": [
-    "Lean/Thermodynamics/EquationOfState.lean"
+    "Lean/Thermodynamics/EquationOfState.lean",
+    "Lean/ObserverPatchHolography/Provenance/MeteredEnergyCone.lean"
    ],
    "model": [
     "code/cosmology/release_horizon/energy_cone/README.md",
@@ -2537,7 +2553,8 @@
     "model/experiments/interval_echo_angular/charged_orientation/rest_spin_search/WheelPole.lean",
     "model/experiments/interval_echo_angular/charged_orientation/winding_exchange/MatchedWinding.lean",
     "Lean/Dynamics/CyclicEnergy.lean",
-    "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/ArmOrder.lean"
+    "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/ArmOrder.lean",
+    "Lean/SourceLaw/MagneticVacancy.lean"
    ],
    "model": [
     "model/evaluation/SCORECARD.md",
@@ -3230,9 +3247,9 @@
    "kind": "observable",
    "name": "Koide relation Q = 2/3",
    "category": "Particle Masses",
-   "status": "Partial",
+   "status": "Open",
    "what": "The Koide ratio (m_e + m_mu + m_tau)/(sqrt m_e + sqrt m_mu + sqrt m_tau)^2 equals 2/3 within measurement precision for the charged leptons.",
-   "why": "Native vacancy interference realizes the exact quotient in detector intensities, while free release couples every combination of the three readout modes to other modes.",
+   "why": "The relation has no Standard Model explanation; OPH links it to a balanced three-state circulant structure, which a precise tau mass measurement can test.",
    "premises": [
     "PR-155"
    ],
@@ -4043,7 +4060,8 @@
     "PR-15"
    ],
    "lean": [
-    "Lean/Geometry/SourceNetConformalRecordDensity.lean"
+    "Lean/Geometry/SourceNetConformalRecordDensity.lean",
+    "Lean/ObserverPatchHolography/Provenance/ScreenDensityClock.lean"
    ],
    "model": [
     "model/experiments/observer_expansion_reconstruction/README.md",
@@ -4290,7 +4308,8 @@
     "PR-15"
    ],
    "lean": [
-    "Lean/Geometry/SourceNetConformalRecordDensity.lean"
+    "Lean/Geometry/SourceNetConformalRecordDensity.lean",
+    "Lean/ObserverPatchHolography/Provenance/ScreenDensityClock.lean"
    ],
    "model": [
     "model/candidate_laws/interval_echo/openwave/row_28_acceleration/signals.json",
@@ -4585,7 +4604,9 @@
     "code/cosmology/rar_deep_regime/held_galaxies.py",
     "code/cosmology/rar_deep_regime/receipts/held_galaxies.json",
     "code/cosmology/rar_deep_regime/joint_likelihood/verify_joint_likelihood_independent.py",
-    "code/cosmology/rar_deep_regime/joint_likelihood/test_joint_rar_likelihood.py"
+    "code/cosmology/rar_deep_regime/joint_likelihood/test_joint_rar_likelihood.py",
+    "code/cosmology/rar_deep_regime/warped_outer_rings/README.md",
+    "code/cosmology/rar_deep_regime/warped_outer_rings/results.json"
    ],
    "papers": [
     "cosmology/oph_dark_matter_paper.pdf",
@@ -4664,7 +4685,13 @@
     "code/cosmology/rar_deep_regime/lensing_profile.py",
     "code/cosmology/rar_deep_regime/receipts/lensing_profile.json",
     "code/cosmology/rar_deep_regime/finite_halo/README.md",
-    "code/cosmology/rar_deep_regime/outer_orbit_transfer/README.md"
+    "code/cosmology/rar_deep_regime/outer_orbit_transfer/README.md",
+    "code/cosmology/rar_deep_regime/aperture_virial/README.md",
+    "code/cosmology/rar_deep_regime/aperture_virial/results.json",
+    "code/cosmology/rar_deep_regime/pressure_transfer/README.md",
+    "code/cosmology/rar_deep_regime/pressure_transfer/results.json",
+    "code/cosmology/rar_deep_regime/merger_peak/README.md",
+    "code/cosmology/rar_deep_regime/merger_peak/results.json"
    ],
    "papers": [
     "cosmology/oph_dark_matter_paper.pdf",
@@ -4736,7 +4763,7 @@
    "category": "OpenWave Recovery",
    "status": "Partial",
    "what": "The electron's rest energy is the energy equivalent of its mass and anchors the energy scale of the charged-lepton sector.",
-   "why": "A charged scalar mode has a measured rest line and recoil on a prepared route, while the electron requires the physical spin, three-dimensional motion and energy calibration of that same excitation.",
+   "why": "A recovery must select the electron state dynamically and let its energy fix a second, independently measured quantity such as inertia.",
    "premises": [],
    "lean": [
     "Lean/SourceLaw/ChargedRegisterPole.lean",
@@ -4895,7 +4922,7 @@
    "category": "OpenWave Recovery",
    "status": "Open",
    "what": "The electron carries intrinsic spin angular momentum of magnitude hbar/2.",
-   "why": "A supplied magnetic flux gives a charged vacancy the half-turn sign of a spinor, while assigning angular momentum to the electromagnetic field of a freely traveling electron requires a further read.",
+   "why": "A field model has to show this angular momentum in the field of the same electron state.",
    "premises": [],
    "lean": [
     "Lean/SourceLaw/OrbitalMirrorCycle.lean",
@@ -5044,7 +5071,9 @@
     "model/candidate_laws/interval_echo/openwave/row_09_neutral/README.md",
     "model/candidate_laws/interval_echo/openwave/row_09_neutral/PROTOCOL.md",
     "model/candidate_laws/interval_echo/openwave/row_09_neutral/records.json",
-    "model/candidate_laws/interval_echo/openwave/row_09_neutral/clocks.json"
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/clocks.json",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/neutral_ejecta/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/neutral_ejecta/results.json"
    ],
    "papers": [
     "paper/executable_observer_construction.pdf"
@@ -5325,11 +5354,7 @@
     "model/experiments/material_inertia/pair_spectrum/remote_charge/measure.py",
     "model/experiments/material_inertia/pair_spectrum/remote_charge/geometry.py",
     "model/experiments/material_inertia/pair_spectrum/remote_charge/results.json",
-    "model/experiments/material_inertia/pair_spectrum/remote_charge/test_remote.py",
-    "code/cosmology/rar_deep_regime/pressure_transfer/README.md",
-    "code/cosmology/rar_deep_regime/pressure_transfer/results.json",
-    "code/cosmology/rar_deep_regime/aperture_virial/README.md",
-    "code/cosmology/rar_deep_regime/aperture_virial/results.json"
+    "model/experiments/material_inertia/pair_spectrum/remote_charge/test_remote.py"
    ],
    "papers": [
     "paper/executable_observer_construction.pdf"
@@ -5355,7 +5380,9 @@
     "model/candidate_laws/interval_echo/openwave/row_20_electric/records.json",
     "model/candidate_laws/interval_echo/openwave/row_20_electric/neutral.json",
     "model/candidate_laws/interval_echo/openwave/row_20_electric/schedule.json",
-    "model/candidate_laws/interval_echo/openwave/row_20_electric/flight.json"
+    "model/candidate_laws/interval_echo/openwave/row_20_electric/flight.json",
+    "model/candidate_laws/interval_echo/openwave/row_20_electric/frustrated_ring/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_20_electric/frustrated_ring/records.json"
    ],
    "papers": [
     "paper/executable_observer_construction.pdf"
@@ -5426,7 +5453,7 @@
    "category": "OpenWave Recovery",
    "status": "Partial",
    "what": "Measured couplings change with the energy scale of the probe, with structure that sets in at the size of the scatterer.",
-   "why": "The ordinary unit-filled host gives zero signed static interaction for nonadjacent pinned probes, while identifying a physical gauge coupling and its core-scale onset requires an independently resolved response.",
+   "why": "Running couplings are central to gauge theories, so a model has to identify its scale-dependent interaction with a physical gauge coupling.",
    "premises": [],
    "lean": [],
    "model": [
@@ -5460,7 +5487,7 @@
    "category": "OpenWave Recovery",
    "status": "Open",
    "what": "The muon decays into an electron and two neutrinos with a mean lifetime of about 2.2 microseconds.",
-   "why": "Observers can distinguish freely emitted neutral material from weak decay by measuring the parent energy, the charge left behind and the flavor and energies of its daughters.",
+   "why": "Muon decay is the cleanest weak process and fixes the Fermi constant, so a model has to reproduce it on identified states.",
    "premises": [],
    "lean": [
     "Lean/SourceLaw/NeutralEjecta.lean",
@@ -5621,7 +5648,9 @@
    "premises": [
     "PR-53"
    ],
-   "lean": [],
+   "lean": [
+    "Lean/Screen/SeamCurrentDirichletGenerator.lean"
+   ],
    "model": [
     "model/evaluation/SCORECARD.md",
     "model/evaluation/openwave_criteria.json",
@@ -5634,7 +5663,10 @@
     "model/candidate_laws/interval_echo/openwave/row_29_maxwell/arrival_probe/README.md",
     "model/candidate_laws/interval_echo/openwave/row_29_maxwell/arrival_probe/records.json",
     "model/candidate_laws/interval_echo/openwave/row_29_circulation/README.md",
-    "model/candidate_laws/interval_echo/openwave/row_29_circulation/results.json"
+    "model/candidate_laws/interval_echo/openwave/row_29_circulation/results.json",
+    "model/candidate_laws/interval_echo/openwave/row_29_maxwell/seam_symbol/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_29_maxwell/seam_symbol/records.json",
+    "model/candidate_laws/interval_echo/openwave/row_29_maxwell/seam_symbol/transverse.json"
    ],
    "papers": [
     "paper/executable_observer_construction.pdf"
@@ -5687,7 +5719,7 @@
    "category": "OpenWave Recovery",
    "status": "Partial",
    "what": "Atoms have discrete standing-wave energy levels, with hydrogen's levels spaced as 1/n².",
-   "why": "A single load mediating between stationary empty-written cores has exponentially bounded binding in graph separation, so hydrogenic spacings require a different measurable binding mechanism.",
+   "why": "Discrete levels with the hydrogenic spacing test whether a model's bound states reproduce atomic structure.",
    "premises": [],
    "lean": [],
    "model": [
@@ -5809,7 +5841,8 @@
     "Lean/QFT/TripleCarrierJoin.lean",
     "Lean/QFT/TripleCarrierOperatorJoin.lean",
     "Lean/Screen/PositionSpaceMaxwellAction.lean",
-    "Lean/Screen/LocalFaceMaxwellAction.lean"
+    "Lean/Screen/LocalFaceMaxwellAction.lean",
+    "Lean/QFT/MaterialReleaseSlices.lean"
    ],
    "model": [
     "code/cosmology/guarded_slab/energy_exchange/README.md"
@@ -5960,7 +5993,7 @@
    "category": "Construction choices",
    "status": "Demonstrated",
    "what": "Extending the finite transition rule to a real-valued Lagrangian requires choosing one velocity curvature, a choice invisible in every realized history.",
-   "why": "The guarded binary chain realizes the finite mechanics example once a stationarity convention fixes the curvature, while individual position histories cannot fix it.",
+   "why": "The choice fixes which classical Hamiltonian mechanics OPH attaches to its histories, since different values give different Legendre-Hamilton systems.",
    "premises": [],
    "lean": [
     "Lean/Variational/RealizedHistoryLegendreNoGo.lean",
@@ -6241,7 +6274,7 @@
    "kind": "premise",
    "name": "spherically symmetric radial readout",
    "category": "Physical premises",
-   "status": "Open",
+   "status": "Partial",
    "what": "A source in three-dimensional space is read through one radial profile: the flux through a sphere depends only on its radius.",
    "why": "Spherical symmetry is one of the two steps from which OPH derives the inverse-square law of force.",
    "premises": [],
@@ -6250,8 +6283,14 @@
     "Lean/Geometry/RestFiberShellTransport.lean",
     "Lean/Geometry/CommonWorldIslandBridge.lean"
    ],
-   "model": [],
-   "papers": [],
+   "model": [
+    "model/experiments/interval_echo_shell_flux/product_address/green_response/README.md",
+    "model/experiments/interval_echo_shell_flux/product_address/green_response/results.json",
+    "model/experiments/interval_echo_shell_flux/README.md"
+   ],
+   "papers": [
+    "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf"
+   ],
    "statement": "A source distribution on the three-dimensional completion carrier is read through one radial strength profile: the flux through a shell depends on the shell radius alone.",
    "premise_kind": "derivable"
   },
@@ -6260,7 +6299,7 @@
    "kind": "premise",
    "name": "shell-flux normalization",
    "category": "Physical premises",
-   "status": "Open",
+   "status": "Partial",
    "what": "The flux through every sphere around a source equals the same total charge, a Gauss-law conservation statement.",
    "why": "With spherical symmetry it yields the inverse-square law, with the exponent fixed by the number of spatial dimensions.",
    "premises": [],
@@ -6268,9 +6307,15 @@
     "Lean/Geometry/InverseSquareShellLaw.lean",
     "Lean/Screen/LayeredDiscreteGauss.lean",
     "Lean/Geometry/RestFiberShellTransport.lean",
-    "Lean/Geometry/CommonWorldIslandBridge.lean"
+    "Lean/Geometry/CommonWorldIslandBridge.lean",
+    "model/experiments/interval_echo_shell_flux/NativeShellSource.lean"
    ],
-   "model": [],
+   "model": [
+    "model/experiments/interval_echo_shell_flux/README.md",
+    "model/experiments/interval_echo_shell_flux/records.json",
+    "model/experiments/interval_echo_shell_flux/product_address/README.md",
+    "model/experiments/interval_echo_shell_flux/product_address/green_response/README.md"
+   ],
    "papers": [],
    "statement": "The radial strength times the shell content is the constant source charge on every positive shell, a Gauss-type conservation declaration; with it the inverse-square law follows with the exponent fixed by the carrier dimension.",
    "premise_kind": "derivable"
@@ -6313,7 +6358,10 @@
     "Lean/Screen/SeamCurrentAuxiliaryOscillatorLift.lean",
     "Lean/Screen/LightSignalAdequacySurface.lean"
    ],
-   "model": [],
+   "model": [
+    "model/candidate_laws/interval_echo/openwave/row_29_maxwell/seam_symbol/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_29_maxwell/seam_symbol/transverse.json"
+   ],
    "papers": [],
    "statement": "The dynamics of one transverse mode on the carrier completion is the first-order oscillator lift (A', Pi') = (Pi, -Lambda A) of the spatial symbol. The spatial generator is derived; the second-order evolution shape is declared.",
    "premise_kind": "declared"
@@ -6331,7 +6379,10 @@
     "Lean/Screen/CarrierFrequencySpeed.lean",
     "Lean/Screen/LightSignalAdequacySurface.lean"
    ],
-   "model": [],
+   "model": [
+    "model/candidate_laws/interval_echo/openwave/row_29_maxwell/seam_symbol/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_29_maxwell/seam_symbol/records.json"
+   ],
    "papers": [],
    "statement": "A readout frequency omega(k) satisfies omega(k)^2 = dilatedCompletionFourierSymbol(a, k) at a positive chart scale a. Identifying a with a physical length and omega with a laboratory frequency consumes PR-15.",
    "premise_kind": "derivable"
@@ -6352,7 +6403,9 @@
    "model": [
     "model/experiments/interval_echo_einstein_station/PAIR.md",
     "model/experiments/interval_echo_einstein_station/cap.json",
-    "model/experiments/interval_echo_clock/reference_exchange/joint_time/README.md"
+    "model/experiments/interval_echo_clock/reference_exchange/joint_time/README.md",
+    "model/experiments/interval_echo_shell_flux/product_address/corner_source/README.md",
+    "model/experiments/interval_echo_shell_flux/product_address/corner_source/records.json"
    ],
    "papers": [],
    "statement": "The finite first-law pairings satisfy the typed modular flow package: the entropy differential equals the modular pairing, the modular generator splits as 2*pi times the bulk pairing plus the central pairing, and the central pairing equals the edge differential. The continuum diamond-kernel identification reads the bulk entropy variation as the modular charge of the stress.",
@@ -6505,14 +6558,15 @@
    "kind": "premise",
    "name": "layered shell-cardinality law",
    "category": "Physical premises",
-   "status": "Demonstrated",
-   "what": "Independent endpoint challenges on two routed octants give exactly three times the squared layer index in outward edges on each of four shells.",
+   "status": "Partial",
+   "what": "In a layered graph, shell n has outward edges in number proportional to n squared, identifying subdivision depth with radial distance.",
    "why": "Quadratic growth of shell size is the discrete source of the inverse-square law in three spatial dimensions.",
    "premises": [],
    "lean": [
     "Lean/Screen/LayeredDiscreteGauss.lean",
     "Lean/Screen/DiscreteRefinement.lean",
-    "Lean/ObserverPatchHolography/Provenance/RoutedOctant.lean"
+    "Lean/ObserverPatchHolography/Provenance/RoutedOctant.lean",
+    "model/experiments/interval_echo_shell_flux/product_address/ProductShell.lean"
    ],
    "model": [
     "code/cosmology/release_horizon/radial_transport/README.md",
@@ -6520,7 +6574,9 @@
     "code/cosmology/release_horizon/radial_transport/carrier_routes.py",
     "code/cosmology/release_horizon/radial_transport/measure.py",
     "code/cosmology/release_horizon/radial_transport/records.json",
-    "code/cosmology/release_horizon/radial_transport/test_radial_transport.py"
+    "code/cosmology/release_horizon/radial_transport/test_radial_transport.py",
+    "model/experiments/interval_echo_shell_flux/README.md",
+    "model/experiments/interval_echo_shell_flux/product_address/README.md"
    ],
    "papers": [
     "cosmology/oph_cosmology_finite_source_cmb_program.pdf"
@@ -6533,8 +6589,8 @@
    "kind": "premise",
    "name": "layered shell equidistribution",
    "category": "Physical premises",
-   "status": "Demonstrated",
-   "what": "Every edge on shells one through four receives respectively 144, 36, 16 and 9 sharp packets over the same complete 432-packet source cycle on each routed octant.",
+   "status": "Partial",
+   "what": "Within each shell of the layered graph, every outward edge carries the same flux.",
    "why": "It is the discrete form of spherical symmetry, one step toward the inverse-square law on the layered graph.",
    "premises": [],
    "lean": [
@@ -6547,7 +6603,9 @@
     "code/cosmology/release_horizon/radial_transport/carrier_routes.py",
     "code/cosmology/release_horizon/radial_transport/measure.py",
     "code/cosmology/release_horizon/radial_transport/records.json",
-    "code/cosmology/release_horizon/radial_transport/test_radial_transport.py"
+    "code/cosmology/release_horizon/radial_transport/test_radial_transport.py",
+    "model/experiments/interval_echo_shell_flux/README.md",
+    "model/experiments/interval_echo_shell_flux/product_address/README.md"
    ],
    "papers": [
     "cosmology/oph_cosmology_finite_source_cmb_program.pdf"
@@ -6561,12 +6619,13 @@
    "name": "layered steady sourcing",
    "category": "Physical premises",
    "status": "Demonstrated",
-   "what": "Over a complete injection cycle the measured vertex outflow equals the central source at every station through layer four of each routed octant, with all packets collected in layer five.",
+   "what": "On the layered graph, net outflow at each vertex equals a source confined to the central ball, so flux is conserved outside.",
    "why": "Together with shell counting and equal sharing it gives a discrete inverse-square law away from the source.",
    "premises": [],
    "lean": [
     "Lean/Screen/LayeredDiscreteGauss.lean",
-    "Lean/ObserverPatchHolography/Provenance/RoutedOctant.lean"
+    "Lean/ObserverPatchHolography/Provenance/RoutedOctant.lean",
+    "model/experiments/interval_echo_shell_flux/NativeShellSource.lean"
    ],
    "model": [
     "code/cosmology/release_horizon/radial_transport/README.md",
@@ -6574,7 +6633,10 @@
     "code/cosmology/release_horizon/radial_transport/carrier_routes.py",
     "code/cosmology/release_horizon/radial_transport/measure.py",
     "code/cosmology/release_horizon/radial_transport/records.json",
-    "code/cosmology/release_horizon/radial_transport/test_radial_transport.py"
+    "code/cosmology/release_horizon/radial_transport/test_radial_transport.py",
+    "model/experiments/interval_echo_shell_flux/README.md",
+    "model/experiments/interval_echo_shell_flux/records.json",
+    "model/experiments/interval_echo_shell_flux/test_flux.py"
    ],
    "papers": [
     "cosmology/oph_cosmology_finite_source_cmb_program.pdf"
@@ -6587,7 +6649,7 @@
    "kind": "premise",
    "name": "Cartesian joint carrier of an observer pair",
    "category": "Construction choices",
-   "status": "Partial",
+   "status": "Demonstrated",
    "what": "The joint index space of two observers is the Cartesian product of their individual label sets.",
    "why": "It sets up joint states and correlations for a pair of observers, which the two-observer locality and entanglement results use.",
    "premises": [],
@@ -6598,11 +6660,15 @@
     "Lean/QFT/CarrierJoinTransport.lean",
     "Lean/QFT/JoinNetMorphism.lean",
     "Lean/QFT/OperatorLayerMorphismBoundary.lean",
-    "Lean/QFT/TripleCarrierOperatorJoin.lean"
+    "Lean/QFT/TripleCarrierOperatorJoin.lean",
+    "model/experiments/interval_echo_consensus/local_interface/modal_slots/ModalQuorum.lean"
    ],
    "model": [
     "model/experiments/interval_echo_consensus/local_interface/README.md",
-    "model/experiments/interval_echo_consensus/local_interface/results.json"
+    "model/experiments/interval_echo_consensus/local_interface/results.json",
+    "model/experiments/interval_echo_consensus/local_interface/modal_slots/README.md",
+    "model/experiments/interval_echo_consensus/local_interface/modal_slots/records.json",
+    "model/experiments/interval_echo_consensus/local_interface/modal_slots/test_modal.py"
    ],
    "papers": [],
    "statement": "The joint index space of a two-observer regional construction is the Cartesian product of the two observers' label alphabets, with committed instances Fin 13 x Fin 14 for pair (86, 88) and Fin 13 x Fin 13 for pair (86, 247).",
@@ -6613,7 +6679,7 @@
    "kind": "premise",
    "name": "two-slot diamond region map",
    "category": "Construction choices",
-   "status": "Partial",
+   "status": "Demonstrated",
    "what": "The regions of a two-observer system form a diamond: scalars at the bottom, each observer's algebra at the sides, the joint algebra on top.",
    "why": "It is the smallest net of local algebras on which OPH states its two-observer locality theorems.",
    "premises": [],
@@ -6625,7 +6691,10 @@
     "Lean/QFT/OperatorLayerMorphismBoundary.lean"
    ],
    "model": [
-    "model/experiments/interval_echo_consensus/local_interface/README.md"
+    "model/experiments/interval_echo_consensus/local_interface/README.md",
+    "model/experiments/interval_echo_consensus/local_interface/modal_slots/README.md",
+    "model/experiments/interval_echo_consensus/local_interface/modal_slots/records.json",
+    "model/experiments/interval_echo_consensus/local_interface/modal_slots/test_modal.py"
    ],
    "papers": [],
    "statement": "The region system of the committed net is the four-region diamond bot < left, right < top, with the scalars at the bottom, the two slot-factor algebras at the sides and the joint algebra at the top.",
@@ -6636,7 +6705,7 @@
    "kind": "premise",
    "name": "two-observer slot split",
    "category": "Construction choices",
-   "status": "Partial",
+   "status": "Demonstrated",
    "what": "Each observer of a pair acts on its own tensor factor of the joint system, one on the left and the other on the right.",
    "why": "Separate tensor factors make no-signalling and Bell-type correlation statements between two observers well defined.",
    "premises": [],
@@ -6647,12 +6716,16 @@
     "Lean/QFT/CarrierJoinTransport.lean",
     "Lean/QFT/JoinNetMorphism.lean",
     "Lean/QFT/OperatorLayerMorphismBoundary.lean",
-    "Lean/QFT/TripleCarrierOperatorJoin.lean"
+    "Lean/QFT/TripleCarrierOperatorJoin.lean",
+    "model/experiments/interval_echo_consensus/local_interface/modal_slots/ModalQuorum.lean"
    ],
    "model": [
     "model/experiments/interval_echo_consensus/local_interface/README.md",
     "model/experiments/interval_echo_consensus/local_interface/results.json",
-    "model/experiments/interval_echo_quantum/swapping/README.md"
+    "model/experiments/interval_echo_quantum/swapping/README.md",
+    "model/experiments/interval_echo_consensus/local_interface/modal_slots/README.md",
+    "model/experiments/interval_echo_consensus/local_interface/modal_slots/records.json",
+    "model/experiments/interval_echo_consensus/local_interface/modal_slots/test_modal.py"
    ],
    "papers": [],
    "statement": "Two observers of a pair are read as the two tensor factors of the joint carrier through A -> A (x) 1 and B -> 1 (x) B. For the support-disjoint pair (86, 247) the split rests on a kernel-checked disjointness theorem; the designated pair (86, 88) has overlapping supports.",
@@ -6832,7 +6905,7 @@
    "category": "Physical premises",
    "status": "Partial",
    "what": "The dynamics come with an initial law, a transition kernel, a real Lagrangian or potential, and an exact continuous symmetry.",
-   "why": "Independent port counts determine a real action on occupancy fractions, whose exact coordinate symmetries exclude the continuous translations supplied on the declared real extension.",
+   "why": "Classical equations of motion and Noether conservation laws in OPH require these variational data.",
    "premises": [],
    "lean": [
     "Lean/Variational/MechanicsAdequacySurface.lean",
@@ -7140,8 +7213,8 @@
    "kind": "premise",
    "name": "time-indexed net evolution and time-slice generation interface",
    "category": "Physical premises",
-   "status": "Demonstrated",
-   "what": "On the guarded material ring, native clock readings index a reversible regional evolution whose transported position and energy generators span every evolved regional algebra.",
+   "status": "Partial",
+   "what": "Evolution of regional algebras is indexed by time slices, and the algebra of one slice generates the algebra of the evolved region.",
    "why": "This time-slice property is the quantum field theory form of deterministic evolution from initial data.",
    "premises": [],
    "lean": [
@@ -7434,7 +7507,7 @@
    "kind": "premise",
    "name": "source homogeneous edge position action",
    "category": "Physical premises",
-   "status": "Open",
+   "status": "Partial",
    "what": "The physical position action is homogeneous, supported on all thirty edge directions of the seam current, with equal weights.",
    "why": "It fixes which carrier operator a laboratory propagation test compares against, the basis for predicted small-scale corrections.",
    "premises": [],
@@ -7443,7 +7516,11 @@
     "Lean/Screen/SeamCurrentEdge30Moment.lean",
     "Lean/Screen/SeamCurrentHomogeneousAction.lean"
    ],
-   "model": [],
+   "model": [
+    "model/candidate_laws/interval_echo/openwave/row_29_maxwell/seam_symbol/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_29_maxwell/seam_symbol/records.json",
+    "model/candidate_laws/interval_echo/openwave/row_29_maxwell/seam_symbol/test_symbol.py"
+   ],
    "papers": [
     "claims/frozen_prediction_register.json"
    ],
@@ -7670,9 +7747,12 @@
     "Lean/Geometry/NativeRepairSemanticPlacement.lean",
     "Lean/ObserverPatchHolography/Provenance/SemanticEventProvenance.lean",
     "Lean/ObserverPatchHolography/Provenance/MismatchProvenance.lean",
-    "Lean/QFT/SourceDerivedEventPrecedence.lean"
+    "Lean/QFT/SourceDerivedEventPrecedence.lean",
+    "Lean/ObserverPatchHolography/Provenance/GuardedRailRecords.lean"
    ],
-   "model": [],
+   "model": [
+    "code/cosmology/guarded_slab/README.md"
+   ],
    "papers": [],
    "statement": "Every semantic commit declares the register versions on which its enablement, payload, visible label or continuation depends, and the declared support is sound and complete for that dependence; parent edges require parent write-membership, the matching writer and value continuity.",
    "premise_kind": "declared"
@@ -7683,7 +7763,7 @@
    "name": "abstract semantic ancestry acyclicity rank",
    "category": "Construction choices",
    "status": "Demonstrated",
-   "what": "Every authenticated direct parent has lower longest-ancestry rank in a finite executed log of guarded rail readings.",
+   "what": "Event histories carry a natural-number rank that strictly increases from parent to child, so ancestry has no cycles.",
    "why": "It makes causal ancestry well founded: OPH's causal order has no loops and no infinite descending chains of ancestors.",
    "premises": [],
    "lean": [
@@ -7691,7 +7771,8 @@
     "Lean/Geometry/NativeRepairSemanticPlacement.lean",
     "Lean/ObserverPatchHolography/Provenance/CausalInterval.lean",
     "Lean/QFT/SourceDerivedEventPrecedence.lean",
-    "Lean/ObserverPatchHolography/Provenance/GuardedRailRecords.lean"
+    "Lean/ObserverPatchHolography/Provenance/GuardedRailRecords.lean",
+    "Lean/ObserverPatchHolography/Provenance/HistoryCausalInvariance.lean"
    ],
    "model": [
     "code/cosmology/guarded_slab/guarded_transfer.py",
@@ -7767,8 +7848,8 @@
    "kind": "premise",
    "name": "Supplied volume deformation and work convention",
    "category": "Physical premises",
-   "status": "Demonstrated",
-   "what": "A held native dimer has a measured cycle energy across a supplied three-axis radar-volume deformation, giving a work derivative that distinguishes two drives with identical reference records.",
+   "status": "Partial",
+   "what": "A held state's energy is extended to a family over volumes, and pressure is read as minus the volume derivative of energy.",
    "why": "Pressure and work need this extension, since a complete fixed-volume energy history does not determine how energy responds to volume.",
    "premises": [],
    "lean": [
@@ -8090,7 +8171,7 @@
    "name": "physical primordial source map",
    "category": "Physical premises",
    "status": "Partial",
-   "what": "One finite material release produces local energy records on a common trigger, with a physical scale, radial curvature map and cosmological stress attachment required for primordial modes.",
+   "what": "One finite source in the model emits all data needed to turn screen fluctuations into physical primordial curvature perturbations for standard CMB transfer.",
    "why": "Every OPH prediction for the cosmic microwave background spectrum depends on this map from screen covariance to primordial curvature modes.",
    "premises": [],
    "lean": [
@@ -8200,7 +8281,7 @@
    "name": "one common release clock",
    "category": "Physical premises",
    "status": "Partial",
-   "what": "One material trigger correlates three receivers with a rank-one conditional mean covariance, while release of all species by one Gaussian clock remains open.",
+   "what": "All particle species are released by one Gaussian single-clock source on one common release clock.",
    "why": "A single clock makes primordial perturbations adiabatic, with no isocurvature modes, as standard CMB fits assume.",
    "premises": [],
    "lean": [],
@@ -8240,7 +8321,7 @@
    "name": "horizon-scale coherence of the primordial source",
    "category": "Physical premises",
    "status": "Partial",
-   "what": "Thermal energy differences correlate beyond the combined one-frame reach of a measured finite energy channel, with the integrated primordial radiation horizon and curvature identification outstanding.",
+   "what": "The primordial source is correlated over distances larger than the causal horizon of the background at the time of release.",
    "why": "It accounts for CMB correlations between regions never in causal contact, the problem inflation is usually invoked to solve.",
    "premises": [],
    "lean": [
@@ -8285,7 +8366,7 @@
    "name": "hot radiation state on a common clock",
    "category": "Physical premises",
    "status": "Partial",
-   "what": "Three material probes and their reservoirs have a common finite-temperature Gibbs preparation sampled on one tagged release, while a radiation state of physical species requires a separate identification.",
+   "what": "The early universe begins in a hot thermal radiation state of declared particle species, read on one common physical clock.",
    "why": "Hot big bang physics, including nucleosynthesis and the cosmic microwave background, starts from this initial state.",
    "premises": [],
    "lean": [],
@@ -8293,7 +8374,8 @@
     "code/cosmology/guarded_slab/energy_exchange/README.md",
     "code/cosmology/guarded_slab/energy_exchange/energy_release.py",
     "code/cosmology/guarded_slab/energy_exchange/energy.json",
-    "code/cosmology/guarded_slab/energy_exchange/precision.json"
+    "code/cosmology/guarded_slab/energy_exchange/precision.json",
+    "model/experiments/interval_echo_consensus/refinement_cooling/dimer_band/thermal_contact/README.md"
    ],
    "papers": [
     "cosmology/oph_inflation_without_inflaton_observer_screen_synchronization.pdf",
@@ -8307,8 +8389,8 @@
    "kind": "premise",
    "name": "source Euclidean slab data for a vacuum",
    "category": "Physical premises",
-   "status": "Demonstrated",
-   "what": "The guarded material rail source supplies a reversible Euclidean transfer with native conductances, potential and time step that is consistent under nested retention of child instruments.",
+   "status": "Partial",
+   "what": "The source supplies reversible Euclidean slab data, including conductances, potential and slab thickness, derived without the target law and refined consistently.",
    "why": "OPH's vacuum constructions use these slab data; deriving them independently of the target keeps the resulting vacuum from being built in.",
    "premises": [],
    "lean": [],
@@ -8330,7 +8412,7 @@
    "name": "screen-to-sky template map",
    "category": "Physical premises",
    "status": "Partial",
-   "what": "In a fixed material frame a degree-six screen contrast reaches detectors with a gain that depends on angular redistribution, while the physical sky orientation and visibility history require calibration.",
+   "what": "A source-derived map carries the icosahedral-symmetric angular pattern of the screen onto the observed CMB sky in a fixed orientation.",
    "why": "Any predicted icosahedral imprint on large-angle CMB multipoles depends on this map transferring the screen pattern with nonzero strength.",
    "premises": [],
    "lean": [
@@ -8518,8 +8600,8 @@
    "kind": "premise",
    "name": "public-record definition fixed before evaluation",
    "category": "Construction choices",
-   "status": "Demonstrated",
-   "what": "The native material readout fixes the collective of three specified receivers before evaluation and decodes their joint energy word at every reported clock count.",
+   "status": "Partial",
+   "what": "Which observer groups make a record public is fixed before evaluation and never switched between definitions after results are seen.",
    "why": "It keeps the public-record capacity count free of post-hoc choices, which the capacity readback needs.",
    "premises": [],
    "lean": [],
@@ -8883,7 +8965,8 @@
    "lean": [
     "Lean/Geometry/NativeRepairSemanticPlacement.lean",
     "Lean/ObserverPatchHolography/Provenance/HistoryCausalInvariance.lean",
-    "Lean/ObserverPatchHolography/Provenance/SeamDeltaAggregation.lean"
+    "Lean/ObserverPatchHolography/Provenance/SeamDeltaAggregation.lean",
+    "Lean/ObserverPatchHolography/Provenance/GuardedRailRecords.lean"
    ],
    "model": [],
    "papers": [],
@@ -8895,8 +8978,8 @@
    "kind": "premise",
    "name": "six native axis steps commute on interpreted endpoints",
    "category": "Physical premises",
-   "status": "Demonstrated",
-   "what": "All fifteen pairs of six positive port-axis steps reach the same material address in either order throughout the 125-station position space.",
+   "status": "Partial",
+   "what": "The source emits six accepted axis step maps whose pairwise orders give the same interpreted endpoint, fifteen commuting squares in all.",
    "why": "Commuting axis steps give observers a consistent lattice of displacements, the basis for reading positions and translations in space.",
    "premises": [],
    "lean": [
@@ -9069,7 +9152,7 @@
    "category": "Physical premises",
    "status": "Partial",
    "what": "The charged-lepton register carries branch weights 1 - p for idle, p/2 for agree and p/4 for each oriented repair.",
-   "why": "A guarded vacancy gives the four weights and equal activity under a geometric port read, while mapping those arms to repair events of a freely propagating charged family requires a dynamical measurement.",
+   "why": "They give one route to the balance parameter of the charged-lepton register, which fixes its flavour structure.",
    "premises": [],
    "lean": [
     "Lean/ObserverPatchHolography/LeptonRegisterCharacterisation.lean",
@@ -9407,7 +9490,7 @@
    "name": "Comoving record production at constant event density",
    "category": "Physical premises",
    "status": "Partial",
-   "what": "Two ranged boxes on a supplied expansion schedule give fourth-power marker counts at the measured pulse-period ratios, with physical volume calibration for the thermal source outstanding.",
+   "what": "On an expanding history, each comoving cell produces records at one constant physical density, and redshift equals the scale-factor ratio.",
    "why": "It ties cosmic expansion and redshift to record production, which the expansion-history reconstruction uses.",
    "premises": [],
    "lean": [
@@ -9534,8 +9617,8 @@
    "kind": "premise",
    "name": "Two clocks compared at shared public events",
    "category": "Physical premises",
-   "status": "Demonstrated",
-   "what": "Two material clocks fit a unique positive affine comparison at two shared bright crests and agree at the next two independently read common crests.",
+   "status": "Partial",
+   "what": "The clocks of two observers are related by a positive affine map on shared public events, two of which fix rate and origin.",
    "why": "It makes clock comparison testable at a third shared event, which the time-dilation and twin comparisons rely on.",
    "premises": [],
    "lean": [
@@ -9586,7 +9669,7 @@
    "kind": "premise",
    "name": "Conjugation-equivariant record kernel and even preparation",
    "category": "Physical premises",
-   "status": "Open",
+   "status": "Partial",
    "what": "The record dynamics respects a conjugation exchanging particles and antiparticles, and the preparation is symmetric under it.",
    "why": "It underlies particle-antiparticle symmetry in the model, including equal properties of conjugate particles.",
    "premises": [],
@@ -9595,7 +9678,10 @@
    ],
    "model": [
     "model/experiments/interval_echo_encounter/README.md",
-    "model/candidate_laws/interval_echo/SPEC.md"
+    "model/candidate_laws/interval_echo/SPEC.md",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/conjugate_flight/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/conjugate_flight/results.json",
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/conjugate_flight/test_flight.py"
    ],
    "papers": [],
    "statement": "The native record kernel intertwines a declared record conjugation that exchanges particle and antiparticle classes on its input and output records, and the preparation is conjugation-even.",
@@ -9718,7 +9804,7 @@
    "kind": "premise",
    "name": "Regional observer net with access cuts, coverage and descent",
    "category": "Physical premises",
-   "status": "Open",
+   "status": "Partial",
    "what": "At each level, observer regions carry local algebras that grow with the region, commute when disjoint, and glue uniquely from subregions.",
    "why": "These are the axioms of algebraic quantum field theory, on which OPH's local field and causality results build.",
    "premises": [],
@@ -9730,7 +9816,10 @@
    "model": [
     "model/experiments/interval_echo_consensus/local_interface/README.md",
     "model/experiments/interval_echo_consensus/local_interface/results.json",
-    "model/evaluation/theorem_criteria.json"
+    "model/evaluation/theorem_criteria.json",
+    "model/experiments/interval_echo_consensus/local_interface/modal_slots/README.md",
+    "model/experiments/interval_echo_consensus/local_interface/modal_slots/records.json",
+    "model/experiments/interval_echo_consensus/local_interface/modal_slots/test_modal.py"
    ],
    "papers": [],
    "statement": "At each refinement level the native process assigns star subalgebras to a finite system of observer regions with isotony, commutation on disjoint regions and state-compatible conditional-expectation restrictions. Each observer has an access cut (a support region and an accessible algebra containing its own records), a region is covered by its declared subregions, and compatible local sections glue uniquely.",

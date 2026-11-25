@@ -10,6 +10,7 @@ the format and the rules. This check keeps the file loadable and its references 
 - short texts: `what` and `why` are one sentence each;
 - unique ids; premise references resolve to premise rows;
 - a Conditional observable names at least one premise the model does not demonstrate;
+- a Demonstrated observable names no premise the model does not demonstrate;
 - `lean` holds Lean files, `model` holds model/ and code/ files, `papers` holds the rest,
   and every path exists;
 - every PR id that the claim registry or the scorecard's theorem criteria cite is a premise row;
@@ -116,6 +117,10 @@ def main() -> int:
         if kind == "observable" and r["status"] == "Conditional":
             if not any(premise_status.get(p) not in (None, "Demonstrated") for p in r["premises"]):
                 errors.append(f"{rid}: a Conditional row names at least one premise the model does not demonstrate")
+        if kind == "observable" and r["status"] == "Demonstrated":
+            waiting = [p for p in r["premises"] if premise_status.get(p) not in (None, "Demonstrated")]
+            if waiting:
+                errors.append(f"{rid}: a Demonstrated row lists premises the model does not demonstrate: {waiting}")
         for key in ("lean", "model", "papers"):
             for path in r[key]:
                 if path.startswith(("http://", "https://")):
