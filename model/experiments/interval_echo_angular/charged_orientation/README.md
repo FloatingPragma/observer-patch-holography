@@ -48,6 +48,10 @@ all 15 proper template half-turns change the observed distribution
 of the three occupied addresses, including the three nearly invariant
 axes. [Selected trimers, transport audit and phase controls](mobile_core_exchange/README.md)
 
+## A lossless orbital phase on a charged face
+
+A guarded vacancy exits a balanced interferometer at the dark port in 99.816% of trials when its local scalar exposures enclose a three-port orbital degeneracy. A displaced loop reduces that fraction to 0.194%. The same preparation gives bright interference in every trial under a full material turn and opposite orders of perpendicular half-turns. An excess also resolves the orbital sign. [Complete counts, native pulses and mirror proof](conical_cycle/README.md)
+
 ## Reproduction
 
 Run from the repository root with the model's NumPy and SciPy environment. Acquire into two fresh files and check the deposited results with the regression suite.
