@@ -427,6 +427,12 @@ REPLAY_EVALUATIONS = (
         "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
         "model/candidate_laws/interval_echo/EVALUATION.json": "a08cd3353eba943f4bf08c7a945526990bfdc1a5980eda75b5d526ca2ca9e82a",
     },
+    # Neutral charge profiles, joint flight, signed contacts and observer-calibrated weak records.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "f931e41f09e3166ae8aee18fcb810a65792b3528e2d4049cbb06704d95daf4b8",
+    },
 )
 
 
