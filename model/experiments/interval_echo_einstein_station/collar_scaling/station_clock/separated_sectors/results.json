@@ -1,0 +1,160 @@
+{
+  "source": "Two distinct uniform word stations with one fair preparation tag per original face. Only the correlation of the tags on the selected two faces changes.",
+  "sectors": [
+    0,
+    3
+  ],
+  "sector_offsets": [
+    0,
+    2
+  ],
+  "words": {
+    "orientation_on_energy_labels": [
+      [
+        0,
+        1,
+        -1
+      ],
+      [
+        -1,
+        0,
+        1
+      ],
+      [
+        1,
+        -1,
+        0
+      ]
+    ],
+    "seam_energy_labels": [
+      0,
+      32,
+      33
+    ],
+    "conditional_orientation_slope": "1/36",
+    "conditional_entropy_log_base": "169/105",
+    "conditional_entropy_log_multiplier": "1/144",
+    "conditional_log_exponents_before_division_by_2592": {
+      "3/4": -18,
+      "35/36": -18,
+      "13/12": 36
+    },
+    "held_shared_minus_fresh": {
+      "trials_per_arm": 17179869184,
+      "signed_score_sums_fresh_shared": [
+        1909017591,
+        2386210450
+      ],
+      "mean_difference": 0.027776280127000064,
+      "simultaneous_99pct_radius": 5.2820385211251385e-05
+    }
+  },
+  "surveys": [
+    {
+      "level": 1,
+      "region": "ball",
+      "radius": 2,
+      "sector_counts": [
+        4,
+        1
+      ],
+      "eligible": "1/790",
+      "normalized_eligible": "14641/12640"
+    },
+    {
+      "level": 1,
+      "region": "annulus",
+      "radius": 2,
+      "sector_counts": [
+        2,
+        1
+      ],
+      "eligible": "1/1580",
+      "normalized_eligible": "14641/25280"
+    },
+    {
+      "level": 3,
+      "region": "ball",
+      "radius": 4,
+      "sector_counts": [
+        9,
+        4
+      ],
+      "eligible": "9/204640",
+      "normalized_eligible": "43917129/52387840"
+    },
+    {
+      "level": 3,
+      "region": "annulus",
+      "radius": 4,
+      "sector_counts": [
+        5,
+        3
+      ],
+      "eligible": "3/163712",
+      "normalized_eligible": "14639043/41910272"
+    },
+    {
+      "level": 5,
+      "region": "ball",
+      "radius": 8,
+      "sector_counts": [
+        25,
+        16
+      ],
+      "eligible": "5/2621312",
+      "normalized_eligible": "6654316805/10736893952"
+    },
+    {
+      "level": 5,
+      "region": "annulus",
+      "radius": 8,
+      "sector_counts": [
+        16,
+        12
+      ],
+      "eligible": "3/3276640",
+      "normalized_eligible": "3992590083/13421117440"
+    },
+    {
+      "level": 7,
+      "region": "ball",
+      "radius": 16,
+      "sector_counts": [
+        81,
+        64
+      ],
+      "eligible": "81/838858240",
+      "normalized_eligible": "28032799749201/54975413616640"
+    },
+    {
+      "level": 7,
+      "region": "annulus",
+      "radius": 16,
+      "sector_counts": [
+        56,
+        48
+      ],
+      "eligible": "21/419429120",
+      "normalized_eligible": "7267762897941/27487706808320"
+    }
+  ],
+  "limits": {
+    "ball": {
+      "eligible_per_fourth": "81/200",
+      "orientation_slope_per_fourth": "9/800",
+      "entropy_slope_per_fourth_nats": [
+        0.0013385766509031094,
+        0.0013385766509031098
+      ]
+    },
+    "annulus": {
+      "eligible_per_fourth": "729/3200",
+      "orientation_slope_per_fourth": "81/12800",
+      "entropy_slope_per_fourth_nats": [
+        0.0007529493661329991,
+        0.0007529493661329993
+      ]
+    }
+  }
+}
