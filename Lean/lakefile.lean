@@ -51,7 +51,7 @@ lean_lib «OPHComputation» where
     `Computation.FixedFederationExecution,
     `Computation.FixedFederationExecutionExamples,
     `Computation.FixedFederationComplexity,
-    `Computation.FixedFederationFanoutControl]
+    `Computation.FixedFederationFanoutControl, `Computation.NativeBooleanNodes]
 
 @[default_target]
 lean_lib «OPHThermodynamics» where

@@ -261,3 +261,5 @@ A twelve-port cell implements disjoint outcomes for every compatible pair of com
 The empty and full arrangements of one tested seam retain their relative phase under a fresh native echo. The historical twelve-port detector returns with unit probability on the bright setting and zero on the dark setting. A reversible total-sensitive write with the same sharp load outputs gives one half on both. [Empty–full experiment and record-law identity](empty_full/README.md)
 
 [Routed strict repair on every ternary load census](routed_counts/) reaches minimum quadratic imbalance and a unique observable count of committed marks through ordinary material exchanges and the strict echo.
+
+A local mismatch read on two protected rails drives the compiled Boolean node's write. A complete scheduled sweep repairs the formula for every input, with all failed and quiet offers kept in the observer record. A separate finite-bath experiment uses the same faithful visible reference to select a state and resample a complete visible fibre. [Compiled Boolean node](boolean_nodes/README.md) · [Conditional bath](conditional_bath/README.md)

@@ -1,0 +1,89 @@
+{
+  "source_audit": {
+    "source_sha256": {
+      "model/candidate_laws/contrast_memory_spherical_v1/law.py": "218a99ebc1e921065a818b77f00608818fdacf80782406466787b2891b1d017f",
+      "model/candidate_laws/interval_echo/clock.py": "e3a5f1fcc4fddc6c5dcbf012dd6dc9f03232296f37ce507cb0fe618b808f68b0",
+      "model/candidate_laws/interval_echo/cohorts.py": "ad216d5463f12450d8841e9ea48487d68db5b7ebcdc1baa9b076f3edb999b81a",
+      "model/candidate_laws/interval_echo/observations.py": "e8c883004831a466c7ddf0030e1e3e50c18c2b008d2eb3a62b9953a47981e2cb",
+      "model/candidate_laws/interval_echo/replay.py": "3eaeeb1601a825dd281c545886cb0c1781147c3232e7d1abb5e632dc0c6198e5"
+    },
+    "checks": {
+      "candidate_entry_uses_material_replay": true,
+      "coherent_terminal_born_draw": true,
+      "native_fair_draw": true,
+      "finite_rejection_bound": true,
+      "cohort_independent_primary_draws": true,
+      "cohort_fair_bits": true,
+      "bulk_explicit_preparation_probabilities": true,
+      "overflow_is_exception_not_native_record": true
+    },
+    "quantum": "native quantum state, unitary/Kraus update and squared-amplitude draw are primitive architecture semantics",
+    "classical": "independent uniform random streams and declared preparation probabilities are supplied; fixed PRNG seeds replay draws",
+    "bounded_rejection": "all failed address draws contribute to explicit timeout or release; no success-only renormalization",
+    "abort": "invalid allocation, ownership, unprepared read, numeric invariant and exhausted elapsed register raise host exceptions; no physical observer refusal record is claimed",
+    "finite_machine": "ideal real probability semantics; a 53-bit uniform threshold differs by at most2^-53 per scalar draw; a finite tree with N draws has coupling error at most N*2^-53 before propagation error"
+  },
+  "source_initial_law": {
+    "source": "observations.measure: independent left/right tag offers and matter offer",
+    "exact_complete_weights": {
+      "000": "12096/15625",
+      "001": "2304/15625",
+      "010": "504/15625",
+      "011": "96/15625",
+      "100": "504/15625",
+      "101": "96/15625",
+      "110": "21/15625",
+      "111": "4/15625"
+    },
+    "initial_sharp_material_words": "all other specified occupied rails and blank/source reference registers are deterministic",
+    "quantum_density": "diagonal preparation law followed by the deposited native tag write; positivity/normalization follow before any event-effect quotient"
+  },
+  "producer_sha256": "ff310f4d0a13d4ef9b060e2f2144b7e4da821741edcb5092baaa76a853daba7e",
+  "domain": "every finite complete native/adaptive branch program on the finite registered carrier; host exceptions outside valid execution domains are separately reported",
+  "dirty_collar_dimension": 99,
+  "initial_density_rank": 7,
+  "initial_density_min_eigenvalue": -8.325789993240843e-17,
+  "initial_density_trace": 1.0,
+  "initial_charge_coherence": 0.04564116002605256,
+  "complete_raw_records": {
+    "('native free contact', 'native echo', 'material:00', 'refused:empty')": 0.14390013710079103,
+    "('native free contact', 'native echo', 'material:01', 'adaptive free contact', 'early:unequal')": 0.1038049736484821,
+    "('native free contact', 'native echo', 'material:02', 'adaptive free contact', 'early:unequal')": 0.10732341106989979,
+    "('native free contact', 'native echo', 'material:10', 'early:unequal')": 0.10918554589519693,
+    "('native free contact', 'native echo', 'material:11', 'complete:balanced')": 0.10363311261049979,
+    "('native free contact', 'native echo', 'material:12', 'adaptive free contact', 'early:unequal')": 0.09562059726672908,
+    "('native free contact', 'native echo', 'material:20', 'early:unequal')": 0.11759534488109291,
+    "('native free contact', 'native echo', 'material:21', 'early:unequal')": 0.10289843869791838,
+    "('native free contact', 'native echo', 'material:22', 'complete:balanced')": 0.11603843882938984
+  },
+  "base_histories": 9,
+  "refined_histories": 17,
+  "complete_effect_error": 1.2213215375820942e-15,
+  "state_independent_probe_coordinates": 9801,
+  "probe_reconstruction_error": 7.875567126019062e-17,
+  "refined_event_operator_error": 3.3331258541763047e-16,
+  "postrecord_effect_error": 4.002060050193972e-16,
+  "runtime_effect_pairing_error": 2.7755575615628914e-17,
+  "classical_rejection_q3": {
+    "accepted:0": "5592405/16777216",
+    "accepted:1": "5592405/16777216",
+    "accepted:2": "5592405/16777216",
+    "timeout": "1/16777216"
+  },
+  "counterexample": {
+    "equal_event_effect": "I/2",
+    "fine_weights": [
+      "1/6",
+      "1/6",
+      "2/3"
+    ],
+    "coarse_weights": [
+      "1/2",
+      "1/2"
+    ],
+    "normalized_each_context": true,
+    "fine_union": "1/3",
+    "coarse_same_effect": "1/2",
+    "discrepancy": "1/6"
+  }
+}

@@ -1,0 +1,3593 @@
+{
+  "source": "20-cell 240-port blank-memory Interval Echo; 236 mobile positions",
+  "setting_order": [
+    "00",
+    "10",
+    "01",
+    "11"
+  ],
+  "shots_per_bank": 268435456,
+  "joint_99pct_connected_ramsey_radius": 0.0011840083107135973,
+  "panels": [
+    {
+      "kappa": 8.0,
+      "distance": 1,
+      "path": [
+        0,
+        1
+      ],
+      "pins": [
+        10,
+        0,
+        20,
+        13
+      ],
+      "mobile_charge": 1,
+      "reversed_receiver": false,
+      "first_mixed": {
+        "neighbourhood_distance": 9,
+        "order": 20,
+        "signed_path_weight": 816,
+        "trace_moment": "255/16384"
+      },
+      "ground_energies": [
+        49.999657628182014,
+        33.94476358472097,
+        48.85872221291626,
+        33.94476358472097
+      ],
+      "connected_ground": 1.1409354152657514,
+      "ground_error_radius": 8.276484919875697e-09,
+      "frozen_connected_ground": 1.5,
+      "heat_trace_beta_eighth": [
+        1.577011992609931e-41,
+        1.5770121701116819e-41
+      ],
+      "ramsey": [
+        {
+          "wait": 4,
+          "component": "real",
+          "clicks": [
+            173969313,
+            173102859,
+            173648713,
+            172751357
+          ],
+          "predicted": -1.7208456881689926e-15,
+          "measured": -0.00023023784160614014
+        },
+        {
+          "wait": 4,
+          "component": "imag",
+          "clicks": [
+            167935846,
+            166452540,
+            166085521,
+            164607264
+          ],
+          "predicted": 1.1241285680085866e-12,
+          "measured": 3.761798143386841e-05
+        },
+        {
+          "wait": 8,
+          "component": "real",
+          "clicks": [
+            128910637,
+            128807024,
+            128157905,
+            128039084
+          ],
+          "predicted": 1.3990521997853111e-08,
+          "measured": -0.00011330842971801758
+        },
+        {
+          "wait": 8,
+          "component": "imag",
+          "clicks": [
+            116016550,
+            116931999,
+            113862779,
+            114772865
+          ],
+          "predicted": -3.1647527987122004e-08,
+          "measured": -3.995746374130249e-05
+        }
+      ],
+      "potential_per_activity_beta_eighth_z1e_minus55": [
+        -1.2616097369804816e-40,
+        -1.2616095931968086e-40
+      ]
+    },
+    {
+      "kappa": 8.0,
+      "distance": 1,
+      "path": [
+        0,
+        1
+      ],
+      "pins": [
+        10,
+        0,
+        20,
+        13
+      ],
+      "mobile_charge": 1,
+      "reversed_receiver": true,
+      "first_mixed": {
+        "neighbourhood_distance": 9,
+        "order": 20,
+        "signed_path_weight": 816,
+        "trace_moment": "255/16384"
+      },
+      "ground_energies": [
+        49.999657628182014,
+        33.94476358472097,
+        48.61141807713145,
+        33.94476358472097
+      ],
+      "connected_ground": 1.3882395510505674,
+      "ground_error_radius": 8.276454295284675e-09,
+      "frozen_connected_ground": 1.5,
+      "heat_trace_beta_eighth": [
+        1.581617006514593e-41,
+        1.581617184534572e-41
+      ],
+      "ramsey": [
+        {
+          "wait": 4,
+          "component": "real",
+          "clicks": [
+            173992612,
+            173092045,
+            173821833,
+            172938451
+          ],
+          "predicted": -2.338684801372892e-13,
+          "measured": 0.00012803822755813599
+        },
+        {
+          "wait": 4,
+          "component": "imag",
+          "clicks": [
+            167936023,
+            166437087,
+            166608453,
+            165123034
+          ],
+          "predicted": 1.0660916593963066e-12,
+          "measured": 0.00010070949792861938
+        },
+        {
+          "wait": 8,
+          "component": "real",
+          "clicks": [
+            128917058,
+            128793501,
+            128136641,
+            128035840
+          ],
+          "predicted": 2.3573849622371412e-08,
+          "measured": 0.00016954541206359863
+        },
+        {
+          "wait": 8,
+          "component": "imag",
+          "clicks": [
+            116040931,
+            116924751,
+            114632888,
+            115543024
+          ],
+          "predicted": -2.179010596958797e-08,
+          "measured": 0.00019606947898864746
+        }
+      ],
+      "potential_per_activity_beta_eighth_z1e_minus55": [
+        -1.2652937485187938e-40,
+        -1.2652936043205382e-40
+      ]
+    },
+    {
+      "kappa": 8.0,
+      "distance": 1,
+      "path": [
+        0,
+        1
+      ],
+      "pins": [
+        10,
+        0,
+        20,
+        13
+      ],
+      "mobile_charge": -1,
+      "reversed_receiver": false,
+      "first_mixed": {
+        "neighbourhood_distance": 9,
+        "order": 20,
+        "signed_path_weight": -744,
+        "trace_moment": "-465/32768"
+      },
+      "ground_energies": [
+        32.537088110593196,
+        16.953592339027505,
+        16.957482724312037,
+        16.95359233902751
+      ],
+      "connected_ground": 15.579605386281163,
+      "ground_error_radius": 6.341564816554657e-09,
+      "frozen_connected_ground": 17.0,
+      "heat_trace_beta_eighth": [
+        -2.8834053199636846e-41,
+        -2.8834049954246413e-41
+      ],
+      "ramsey": [
+        {
+          "wait": 4,
+          "component": "real",
+          "clicks": [
+            98013313,
+            98516664,
+            98934704,
+            99432225
+          ],
+          "predicted": 2.8954616482224083e-13,
+          "measured": -4.343688488006592e-05
+        },
+        {
+          "wait": 4,
+          "component": "imag",
+          "clicks": [
+            132553857,
+            134188120,
+            133443276,
+            135093929
+          ],
+          "predicted": -7.426090992135315e-14,
+          "measured": 0.00012211501598358154
+        },
+        {
+          "wait": 8,
+          "component": "real",
+          "clicks": [
+            109406627,
+            110854612,
+            108798417,
+            110240454
+          ],
+          "predicted": -9.743099910197728e-09,
+          "measured": -4.431605339050293e-05
+        },
+        {
+          "wait": 8,
+          "component": "imag",
+          "clicks": [
+            134412251,
+            137116467,
+            135486291,
+            138218893
+          ],
+          "predicted": -1.2464021238722811e-09,
+          "measured": 0.00021149218082427979
+        }
+      ],
+      "potential_per_activity_beta_eighth_z1e_minus55": [
+        2.3067239954485767e-40,
+        2.306724256862084e-40
+      ]
+    },
+    {
+      "kappa": 8.0,
+      "distance": 1,
+      "path": [
+        0,
+        1
+      ],
+      "pins": [
+        10,
+        0,
+        20,
+        13
+      ],
+      "mobile_charge": -1,
+      "reversed_receiver": true,
+      "first_mixed": {
+        "neighbourhood_distance": 9,
+        "order": 20,
+        "signed_path_weight": -744,
+        "trace_moment": "-465/32768"
+      },
+      "ground_energies": [
+        32.537088110593196,
+        16.953592339027505,
+        16.94306964941658,
+        16.94306964941657
+      ],
+      "connected_ground": 15.583495771565683,
+      "ground_error_radius": 6.341603471504049e-09,
+      "frozen_connected_ground": 17.0,
+      "heat_trace_beta_eighth": [
+        -2.8927525847127726e-41,
+        -2.892752259121829e-41
+      ],
+      "ramsey": [
+        {
+          "wait": 4,
+          "component": "real",
+          "clicks": [
+            98019589,
+            98525636,
+            99601882,
+            100111763
+          ],
+          "predicted": 2.8993474288085963e-13,
+          "measured": 2.8565526008605957e-05
+        },
+        {
+          "wait": 4,
+          "component": "imag",
+          "clicks": [
+            132558402,
+            134190273,
+            132756887,
+            134387250
+          ],
+          "predicted": -3.3083345091222682e-15,
+          "measured": -1.1235475540161133e-05
+        },
+        {
+          "wait": 8,
+          "component": "real",
+          "clicks": [
+            109401577,
+            110856620,
+            107656553,
+            109103022
+          ],
+          "predicted": -7.06376657166885e-09,
+          "measured": -6.38812780380249e-05
+        },
+        {
+          "wait": 8,
+          "component": "imag",
+          "clicks": [
+            134410609,
+            137110220,
+            135595538,
+            138311812
+          ],
+          "predicted": -4.811922454245332e-09,
+          "measured": 0.00012414902448654175
+        }
+      ],
+      "potential_per_activity_beta_eighth_z1e_minus55": [
+        2.3142018064063267e-40,
+        2.3142020686613544e-40
+      ]
+    },
+    {
+      "kappa": 8.0,
+      "distance": 2,
+      "path": [
+        0,
+        1,
+        2
+      ],
+      "pins": [
+        10,
+        0,
+        24,
+        25
+      ],
+      "mobile_charge": 1,
+      "reversed_receiver": false,
+      "first_mixed": {
+        "neighbourhood_distance": 2,
+        "order": 6,
+        "signed_path_weight": 3844,
+        "trace_moment": "2883/8"
+      },
+      "ground_energies": [
+        49.99968665424745,
+        33.94476358472097,
+        33.944775010102205,
+        33.94476358472097
+      ],
+      "connected_ground": 16.054911644145243,
+      "ground_error_radius": 8.27654407312357e-09,
+      "frozen_connected_ground": 17.0,
+      "heat_trace_beta_eighth": [
+        1.0348685188958555e-09,
+        1.0348686353587375e-09
+      ],
+      "ramsey": [
+        {
+          "wait": 4,
+          "component": "real",
+          "clicks": [
+            174702256,
+            173574496,
+            169993115,
+            168452985
+          ],
+          "predicted": -0.003244527381718376,
+          "measured": -0.003072395920753479
+        },
+        {
+          "wait": 4,
+          "component": "imag",
+          "clicks": [
+            166742576,
+            166362545,
+            165712518,
+            165416753
+          ],
+          "predicted": 0.0005172860613618657,
+          "measured": 0.0006278306245803833
+        },
+        {
+          "wait": 8,
+          "component": "real",
+          "clicks": [
+            127162617,
+            127766794,
+            130681011,
+            130020471
+          ],
+          "predicted": -0.00940324415197559,
+          "measured": -0.009422875940799713
+        },
+        {
+          "wait": 8,
+          "component": "imag",
+          "clicks": [
+            116024047,
+            115226817,
+            114166231,
+            113684107
+          ],
+          "predicted": 0.002531715399093304,
+          "measured": 0.00234772264957428
+        }
+      ],
+      "potential_per_activity_beta_eighth_z1e_minus55": [
+        -8.278949082869901e-09,
+        -8.278948151166843e-09
+      ]
+    },
+    {
+      "kappa": 8.0,
+      "distance": 2,
+      "path": [
+        0,
+        1,
+        2
+      ],
+      "pins": [
+        10,
+        0,
+        24,
+        25
+      ],
+      "mobile_charge": 1,
+      "reversed_receiver": true,
+      "first_mixed": {
+        "neighbourhood_distance": 2,
+        "order": 6,
+        "signed_path_weight": -4216,
+        "trace_moment": "-1581/4"
+      },
+      "ground_energies": [
+        49.99968665424745,
+        33.94476358472097,
+        33.94477501010222,
+        33.94476358472097
+      ],
+      "connected_ground": 16.05491164414523,
+      "ground_error_radius": 8.276301307524668e-09,
+      "frozen_connected_ground": 17.0,
+      "heat_trace_beta_eighth": [
+        -2.4755723081000548e-09,
+        -2.475572029502101e-09
+      ],
+      "ramsey": [
+        {
+          "wait": 4,
+          "component": "real",
+          "clicks": [
+            174687781,
+            173570536,
+            169850087,
+            168695628
+          ],
+          "predicted": -0.00013210138637304025,
+          "measured": -0.00027726590633392334
+        },
+        {
+          "wait": 4,
+          "component": "imag",
+          "clicks": [
+            166734725,
+            166352135,
+            165372075,
+            165034173
+          ],
+          "predicted": 0.0001556755919968622,
+          "measured": 0.00033295154571533203
+        },
+        {
+          "wait": 8,
+          "component": "real",
+          "clicks": [
+            127165415,
+            127771205,
+            128558863,
+            129139352
+          ],
+          "predicted": -0.00029216615255029527,
+          "measured": -0.00018850713968276978
+        },
+        {
+          "wait": 8,
+          "component": "imag",
+          "clicks": [
+            116040790,
+            115221519,
+            115130903,
+            114364283
+          ],
+          "predicted": 0.0002678191739078073,
+          "measured": 0.0003922805190086365
+        }
+      ],
+      "potential_per_activity_beta_eighth_z1e_minus55": [
+        1.9804576236016805e-08,
+        1.980457846480044e-08
+      ]
+    },
+    {
+      "kappa": 8.0,
+      "distance": 2,
+      "path": [
+        0,
+        1,
+        2
+      ],
+      "pins": [
+        10,
+        0,
+        24,
+        25
+      ],
+      "mobile_charge": -1,
+      "reversed_receiver": false,
+      "first_mixed": {
+        "neighbourhood_distance": 2,
+        "order": 6,
+        "signed_path_weight": 4624,
+        "trace_moment": "867/2"
+      },
+      "ground_energies": [
+        32.537088123662414,
+        16.953592339027512,
+        17.436539489869247,
+        16.953592339027516
+      ],
+      "connected_ground": 15.10054863379317,
+      "ground_error_radius": 6.728030287941866e-09,
+      "frozen_connected_ground": 17.0,
+      "heat_trace_beta_eighth": [
+        1.8418618178114245e-08,
+        1.8418620250923792e-08
+      ],
+      "ramsey": [
+        {
+          "wait": 4,
+          "component": "real",
+          "clicks": [
+            96630712,
+            98311800,
+            96460124,
+            98691482
+          ],
+          "predicted": 0.004078527563613044,
+          "measured": 0.004099830985069275
+        },
+        {
+          "wait": 4,
+          "component": "imag",
+          "clicks": [
+            134048522,
+            134425049,
+            132007316,
+            132280970
+          ],
+          "predicted": -0.0006178962197940716,
+          "measured": -0.000766463577747345
+        },
+        {
+          "wait": 8,
+          "component": "real",
+          "clicks": [
+            108835251,
+            109709897,
+            109550157,
+            109667431
+          ],
+          "predicted": -0.005507323226531663,
+          "measured": -0.0056428611278533936
+        },
+        {
+          "wait": 8,
+          "component": "imag",
+          "clicks": [
+            135250966,
+            136656286,
+            131873858,
+            134372016
+          ],
+          "predicted": 0.00839050496969232,
+          "measured": 0.008142277598381042
+        }
+      ],
+      "potential_per_activity_beta_eighth_z1e_minus55": [
+        -1.4734896200739036e-07,
+        -1.4734894542491394e-07
+      ]
+    },
+    {
+      "kappa": 8.0,
+      "distance": 2,
+      "path": [
+        0,
+        1,
+        2
+      ],
+      "pins": [
+        10,
+        0,
+        24,
+        25
+      ],
+      "mobile_charge": -1,
+      "reversed_receiver": true,
+      "first_mixed": {
+        "neighbourhood_distance": 2,
+        "order": 6,
+        "signed_path_weight": -4216,
+        "trace_moment": "-1581/4"
+      },
+      "ground_energies": [
+        32.537088123662414,
+        16.953592339027512,
+        17.436539489869208,
+        16.953592339027516
+      ],
+      "connected_ground": 15.10054863379321,
+      "ground_error_radius": 6.727997406970571e-09,
+      "frozen_connected_ground": 17.0,
+      "heat_trace_beta_eighth": [
+        -9.361049393192353e-09,
+        -9.361048339711023e-09
+      ],
+      "ramsey": [
+        {
+          "wait": 4,
+          "component": "real",
+          "clicks": [
+            96636434,
+            98311726,
+            95909327,
+            97604320
+          ],
+          "predicted": -4.577632575158974e-05,
+          "measured": 0.00014678388833999634
+        },
+        {
+          "wait": 4,
+          "component": "imag",
+          "clicks": [
+            134043423,
+            134406234,
+            132692856,
+            133091527
+          ],
+          "predicted": 0.00012521468695959534,
+          "measured": 0.0002671778202056885
+        },
+        {
+          "wait": 8,
+          "component": "real",
+          "clicks": [
+            108852504,
+            109709791,
+            108838658,
+            109671116
+          ],
+          "predicted": -0.00018533422198413474,
+          "measured": -0.00018499046564102173
+        },
+        {
+          "wait": 8,
+          "component": "imag",
+          "clicks": [
+            135254847,
+            136655924,
+            134866381,
+            136225893
+          ],
+          "predicted": -0.0002851262824582791,
+          "measured": -0.0003096833825111389
+        }
+      ],
+      "potential_per_activity_beta_eighth_z1e_minus55": [
+        7.488838671768817e-08,
+        7.488839514553883e-08
+      ]
+    },
+    {
+      "kappa": 8.0,
+      "distance": 3,
+      "path": [
+        0,
+        4,
+        3,
+        8
+      ],
+      "pins": [
+        3,
+        2,
+        104,
+        97
+      ],
+      "mobile_charge": 1,
+      "reversed_receiver": false,
+      "first_mixed": {
+        "neighbourhood_distance": 5,
+        "order": 12,
+        "signed_path_weight": 15376,
+        "trace_moment": "2883/64"
+      },
+      "ground_energies": [
+        49.999742884093344,
+        33.94477000798569,
+        33.93732491121465,
+        33.93732491121457
+      ],
+      "connected_ground": 16.05497287610757,
+      "ground_error_radius": 8.276477951843425e-09,
+      "frozen_connected_ground": 17.0,
+      "heat_trace_beta_eighth": [
+        9.924600808592e-22,
+        9.924601925494862e-22
+      ],
+      "ramsey": [
+        {
+          "wait": 4,
+          "component": "real",
+          "clicks": [
+            173922522,
+            172911318,
+            170932017,
+            169922221
+          ],
+          "predicted": 5.274793185572335e-08,
+          "measured": 1.049041748046875e-05
+        },
+        {
+          "wait": 4,
+          "component": "imag",
+          "clicks": [
+            166284010,
+            165456933,
+            168200918,
+            167378107
+          ],
+          "predicted": 4.026777875032472e-08,
+          "measured": 3.178417682647705e-05
+        },
+        {
+          "wait": 8,
+          "component": "real",
+          "clicks": [
+            127748430,
+            129313719,
+            129981994,
+            131541135
+          ],
+          "predicted": -5.799767106018372e-07,
+          "measured": -4.5806169509887695e-05
+        },
+        {
+          "wait": 8,
+          "component": "imag",
+          "clicks": [
+            117145541,
+            117600874,
+            114839604,
+            115280259
+          ],
+          "predicted": -2.2469927796892053e-06,
+          "measured": -0.00010935962200164795
+        }
+      ],
+      "potential_per_activity_beta_eighth_z1e_minus55": [
+        -7.939681540395891e-21,
+        -7.939680646873599e-21
+      ]
+    },
+    {
+      "kappa": 8.0,
+      "distance": 3,
+      "path": [
+        0,
+        4,
+        3,
+        8
+      ],
+      "pins": [
+        3,
+        2,
+        104,
+        97
+      ],
+      "mobile_charge": 1,
+      "reversed_receiver": true,
+      "first_mixed": {
+        "neighbourhood_distance": 5,
+        "order": 12,
+        "signed_path_weight": -16864,
+        "trace_moment": "-1581/32"
+      },
+      "ground_energies": [
+        49.999742884093344,
+        33.94477000798569,
+        33.96031238997024,
+        33.944770007985696
+      ],
+      "connected_ground": 16.03943049412311,
+      "ground_error_radius": 8.27633032891023e-09,
+      "frozen_connected_ground": 17.0,
+      "heat_trace_beta_eighth": [
+        -1.562685742325702e-21,
+        -1.5626855664629128e-21
+      ],
+      "ramsey": [
+        {
+          "wait": 4,
+          "component": "real",
+          "clicks": [
+            173915150,
+            172915462,
+            172217682,
+            171184091
+          ],
+          "predicted": 2.9443649851579323e-08,
+          "measured": -0.00025259703397750854
+        },
+        {
+          "wait": 4,
+          "component": "imag",
+          "clicks": [
+            166293236,
+            165475177,
+            165904974,
+            165105068
+          ],
+          "predicted": 4.0586639438178196e-08,
+          "measured": 0.00013525038957595825
+        },
+        {
+          "wait": 8,
+          "component": "real",
+          "clicks": [
+            127743853,
+            129322285,
+            124859426,
+            126446037
+          ],
+          "predicted": -3.6688619132335676e-07,
+          "measured": 6.093829870223999e-05
+        },
+        {
+          "wait": 8,
+          "component": "imag",
+          "clicks": [
+            117163818,
+            117582615,
+            116273813,
+            116714321
+          ],
+          "predicted": -1.7700874011122858e-06,
+          "measured": 0.00016175955533981323
+        }
+      ],
+      "potential_per_activity_beta_eighth_z1e_minus55": [
+        1.25014845317033e-20,
+        1.2501485938605617e-20
+      ]
+    },
+    {
+      "kappa": 8.0,
+      "distance": 3,
+      "path": [
+        0,
+        4,
+        3,
+        8
+      ],
+      "pins": [
+        3,
+        2,
+        104,
+        97
+      ],
+      "mobile_charge": -1,
+      "reversed_receiver": false,
+      "first_mixed": {
+        "neighbourhood_distance": 5,
+        "order": 12,
+        "signed_path_weight": 18496,
+        "trace_moment": "867/16"
+      },
+      "ground_energies": [
+        32.53708883117419,
+        16.95359233979903,
+        16.943033344103927,
+        16.943033344103927
+      ],
+      "connected_ground": 15.583496491375158,
+      "ground_error_radius": 6.728137820215815e-09,
+      "frozen_connected_ground": 17.0,
+      "heat_trace_beta_eighth": [
+        9.078975170294354e-21,
+        9.078976192031504e-21
+      ],
+      "ramsey": [
+        {
+          "wait": 4,
+          "component": "real",
+          "clicks": [
+            95898953,
+            96111383,
+            97525178,
+            97733155
+          ],
+          "predicted": 6.221057669009156e-09,
+          "measured": -3.317743539810181e-05
+        },
+        {
+          "wait": 4,
+          "component": "imag",
+          "clicks": [
+            134158493,
+            134541546,
+            131344272,
+            131693916
+          ],
+          "predicted": -1.6553914131828273e-08,
+          "measured": -0.0002489164471626282
+        },
+        {
+          "wait": 8,
+          "component": "real",
+          "clicks": [
+            110227556,
+            113153977,
+            109964381,
+            112889129
+          ],
+          "predicted": -5.257118885770851e-07,
+          "measured": -1.2464821338653564e-05
+        },
+        {
+          "wait": 8,
+          "component": "imag",
+          "clicks": [
+            135099199,
+            136800581,
+            136297708,
+            138000423
+          ],
+          "predicted": -3.6516965146171643e-09,
+          "measured": 9.931623935699463e-06
+        }
+      ],
+      "potential_per_activity_beta_eighth_z1e_minus55": [
+        -7.263180953625205e-20,
+        -7.263180136235482e-20
+      ]
+    },
+    {
+      "kappa": 8.0,
+      "distance": 3,
+      "path": [
+        0,
+        4,
+        3,
+        8
+      ],
+      "pins": [
+        3,
+        2,
+        104,
+        97
+      ],
+      "mobile_charge": -1,
+      "reversed_receiver": true,
+      "first_mixed": {
+        "neighbourhood_distance": 5,
+        "order": 12,
+        "signed_path_weight": -16864,
+        "trace_moment": "-1581/32"
+      },
+      "ground_energies": [
+        32.53708883117419,
+        16.95359233979903,
+        17.43657016448134,
+        16.95359233979905
+      ],
+      "connected_ground": 15.10051866669287,
+      "ground_error_radius": 6.728083978523592e-09,
+      "frozen_connected_ground": 17.0,
+      "heat_trace_beta_eighth": [
+        -6.02910579903527e-21,
+        -6.029105120526897e-21
+      ],
+      "ramsey": [
+        {
+          "wait": 4,
+          "component": "real",
+          "clicks": [
+            95916430,
+            96103451,
+            97490636,
+            97696077
+          ],
+          "predicted": 1.451925246698238e-08,
+          "measured": 0.00013723969459533691
+        },
+        {
+          "wait": 4,
+          "component": "imag",
+          "clicks": [
+            134159189,
+            134545804,
+            132328500,
+            132703459
+          ],
+          "predicted": -5.8147782804052195e-09,
+          "measured": -8.684396743774414e-05
+        },
+        {
+          "wait": 8,
+          "component": "real",
+          "clicks": [
+            110236453,
+            113172018,
+            109744902,
+            112692930
+          ],
+          "predicted": -4.806770682319605e-07,
+          "measured": 9.285658597946167e-05
+        },
+        {
+          "wait": 8,
+          "component": "imag",
+          "clicks": [
+            135075047,
+            136780887,
+            136968669,
+            138674462
+          ],
+          "predicted": 1.9626731850852508e-07,
+          "measured": -3.501772880554199e-07
+        }
+      ],
+      "potential_per_activity_beta_eighth_z1e_minus55": [
+        4.823284096421517e-20,
+        4.823284639228217e-20
+      ]
+    },
+    {
+      "kappa": 8.0,
+      "distance": 4,
+      "path": [
+        0,
+        4,
+        7,
+        17,
+        12
+      ],
+      "pins": [
+        3,
+        2,
+        154,
+        146
+      ],
+      "mobile_charge": 1,
+      "reversed_receiver": false,
+      "first_mixed": {
+        "neighbourhood_distance": 8,
+        "order": 18,
+        "signed_path_weight": 61504,
+        "trace_moment": "8649/2048"
+      },
+      "ground_energies": [
+        49.99975865757671,
+        33.94477000798569,
+        48.86763045235318,
+        33.94477000798568
+      ],
+      "connected_ground": 1.1321282052235233,
+      "ground_error_radius": 8.27640498194186e-09,
+      "frozen_connected_ground": 1.5,
+      "heat_trace_beta_eighth": [
+        2.925574550839839e-35,
+        2.925574880080546e-35
+      ],
+      "ramsey": [
+        {
+          "wait": 4,
+          "component": "real",
+          "clicks": [
+            173935561,
+            172916510,
+            172823750,
+            171801522
+          ],
+          "predicted": -4.601319325558961e-13,
+          "measured": -2.3670494556427002e-05
+        },
+        {
+          "wait": 4,
+          "component": "imag",
+          "clicks": [
+            166488530,
+            165687549,
+            166847486,
+            166028280
+          ],
+          "predicted": 1.437266972104112e-12,
+          "measured": -0.00013578683137893677
+        },
+        {
+          "wait": 8,
+          "component": "real",
+          "clicks": [
+            128282550,
+            129874706,
+            127712080,
+            129300792
+          ],
+          "predicted": 2.4000072762486724e-10,
+          "measured": -2.5659799575805664e-05
+        },
+        {
+          "wait": 8,
+          "component": "imag",
+          "clicks": [
+            116544480,
+            117002092,
+            115511312,
+            115944260
+          ],
+          "predicted": -9.100553644003639e-10,
+          "measured": -0.0001837611198425293
+        }
+      ],
+      "potential_per_activity_beta_eighth_z1e_minus55": [
+        -2.340459904064438e-34,
+        -2.3404596406718698e-34
+      ]
+    },
+    {
+      "kappa": 8.0,
+      "distance": 4,
+      "path": [
+        0,
+        4,
+        7,
+        17,
+        12
+      ],
+      "pins": [
+        3,
+        2,
+        154,
+        146
+      ],
+      "mobile_charge": 1,
+      "reversed_receiver": true,
+      "first_mixed": {
+        "neighbourhood_distance": 8,
+        "order": 18,
+        "signed_path_weight": -67456,
+        "trace_moment": "-4743/1024"
+      },
+      "ground_energies": [
+        49.99975865757671,
+        33.94477000798569,
+        33.94475385924943,
+        33.944753859249424
+      ],
+      "connected_ground": 16.054988649591017,
+      "ground_error_radius": 8.276523638348418e-09,
+      "frozen_connected_ground": 17.0,
+      "heat_trace_beta_eighth": [
+        -4.0601717433682287e-35,
+        -4.060171286441346e-35
+      ],
+      "ramsey": [
+        {
+          "wait": 4,
+          "component": "real",
+          "clicks": [
+            173918180,
+            172912347,
+            170518122,
+            169491498
+          ],
+          "predicted": -4.5852210917018965e-14,
+          "measured": -0.0001549050211906433
+        },
+        {
+          "wait": 4,
+          "component": "imag",
+          "clicks": [
+            166473305,
+            165656786,
+            167316963,
+            166511097
+          ],
+          "predicted": 1.4409862192366063e-12,
+          "measured": 7.937103509902954e-05
+        },
+        {
+          "wait": 8,
+          "component": "real",
+          "clicks": [
+            128282160,
+            129866342,
+            127970626,
+            129566921
+          ],
+          "predicted": 1.272020128118001e-10,
+          "measured": 9.024888277053833e-05
+        },
+        {
+          "wait": 8,
+          "component": "imag",
+          "clicks": [
+            116526530,
+            117006193,
+            116147853,
+            116593780
+          ],
+          "predicted": -9.292715763553616e-10,
+          "measured": -0.00025135278701782227
+        }
+      ],
+      "potential_per_activity_beta_eighth_z1e_minus55": [
+        3.2481370291530754e-34,
+        3.2481373946945842e-34
+      ]
+    },
+    {
+      "kappa": 8.0,
+      "distance": 4,
+      "path": [
+        0,
+        4,
+        7,
+        17,
+        12
+      ],
+      "pins": [
+        3,
+        2,
+        154,
+        146
+      ],
+      "mobile_charge": -1,
+      "reversed_receiver": false,
+      "first_mixed": {
+        "neighbourhood_distance": 8,
+        "order": 18,
+        "signed_path_weight": 73984,
+        "trace_moment": "2601/512"
+      },
+      "ground_energies": [
+        32.537089174755025,
+        16.953592339799044,
+        17.444703465450704,
+        16.953592339799044
+      ],
+      "connected_ground": 15.09238570930432,
+      "ground_error_radius": 6.34165920580517e-09,
+      "frozen_connected_ground": 17.0,
+      "heat_trace_beta_eighth": [
+        2.125841004363537e-34,
+        2.125841243603175e-34
+      ],
+      "ramsey": [
+        {
+          "wait": 4,
+          "component": "real",
+          "clicks": [
+            95815055,
+            96018249,
+            97461547,
+            97651775
+          ],
+          "predicted": 1.0436096431476471e-13,
+          "measured": -9.660422801971436e-05
+        },
+        {
+          "wait": 4,
+          "component": "imag",
+          "clicks": [
+            133973315,
+            134350729,
+            131000345,
+            131361903
+          ],
+          "predicted": -2.1042542708293865e-13,
+          "measured": -0.00011813640594482422
+        },
+        {
+          "wait": 8,
+          "component": "real",
+          "clicks": [
+            109724286,
+            112663501,
+            111460780,
+            114379428
+          ],
+          "predicted": -1.1796297272326228e-10,
+          "measured": -0.00015323609113693237
+        },
+        {
+          "wait": 8,
+          "component": "imag",
+          "clicks": [
+            134689451,
+            136386594,
+            134268104,
+            135967096
+          ],
+          "predicted": 1.0813768804018853e-10,
+          "measured": 1.3776123523712158e-05
+        }
+      ],
+      "potential_per_activity_beta_eighth_z1e_minus55": [
+        -1.7006729948825403e-33,
+        -1.7006728034908293e-33
+      ]
+    },
+    {
+      "kappa": 8.0,
+      "distance": 4,
+      "path": [
+        0,
+        4,
+        7,
+        17,
+        12
+      ],
+      "pins": [
+        3,
+        2,
+        154,
+        146
+      ],
+      "mobile_charge": -1,
+      "reversed_receiver": true,
+      "first_mixed": {
+        "neighbourhood_distance": 8,
+        "order": 18,
+        "signed_path_weight": -67456,
+        "trace_moment": "-4743/1024"
+      },
+      "ground_energies": [
+        32.537089174755025,
+        16.953592339799044,
+        16.943035695341575,
+        16.943035695341607
+      ],
+      "connected_ground": 15.583496834956012,
+      "ground_error_radius": 6.7281195652524975e-09,
+      "frozen_connected_ground": 17.0,
+      "heat_trace_beta_eighth": [
+        -1.5609853188348773e-34,
+        -1.560985143163452e-34
+      ],
+      "ramsey": [
+        {
+          "wait": 4,
+          "component": "real",
+          "clicks": [
+            95812866,
+            96030613,
+            96688269,
+            96910761
+          ],
+          "predicted": 1.5171197631502764e-13,
+          "measured": 3.5353004932403564e-05
+        },
+        {
+          "wait": 4,
+          "component": "imag",
+          "clicks": [
+            133969352,
+            134332017,
+            132102266,
+            132459171
+          ],
+          "predicted": -1.592996567989502e-13,
+          "measured": -4.291534423828125e-05
+        },
+        {
+          "wait": 8,
+          "component": "real",
+          "clicks": [
+            109714395,
+            112656774,
+            108951885,
+            111876104
+          ],
+          "predicted": -1.2944850746876568e-10,
+          "measured": -0.00013530254364013672
+        },
+        {
+          "wait": 8,
+          "component": "imag",
+          "clicks": [
+            134680527,
+            136395019,
+            137876892,
+            139579914
+          ],
+          "predicted": 9.205103693177286e-11,
+          "measured": -8.545815944671631e-05
+        }
+      ],
+      "potential_per_activity_beta_eighth_z1e_minus55": [
+        1.2487881145307613e-33,
+        1.2487882550679022e-33
+      ]
+    },
+    {
+      "kappa": 8.0,
+      "distance": 5,
+      "path": [
+        0,
+        1,
+        2,
+        9,
+        18,
+        13
+      ],
+      "pins": [
+        10,
+        0,
+        159,
+        158
+      ],
+      "mobile_charge": 1,
+      "reversed_receiver": false,
+      "first_mixed": {
+        "neighbourhood_distance": 10,
+        "order": 22,
+        "signed_path_weight": 61504,
+        "trace_moment": "10571/32768"
+      },
+      "ground_energies": [
+        50.000571374063156,
+        33.94476358472097,
+        33.94477000799177,
+        33.94476358472097
+      ],
+      "connected_ground": 16.055801366071385,
+      "ground_error_radius": 8.27644280349133e-09,
+      "frozen_connected_ground": 17.0,
+      "heat_trace_beta_eighth": [
+        3.60509229130688e-45,
+        3.6050926970197116e-45
+      ],
+      "ramsey": [
+        {
+          "wait": 4,
+          "component": "real",
+          "clicks": [
+            173230479,
+            172124954,
+            171071663,
+            169960523
+          ],
+          "predicted": -1.3988810110276972e-14,
+          "measured": -4.1835010051727295e-05
+        },
+        {
+          "wait": 4,
+          "component": "imag",
+          "clicks": [
+            167687654,
+            167314562,
+            166348297,
+            165994886
+          ],
+          "predicted": 7.13318293321663e-15,
+          "measured": 0.00014663487672805786
+        },
+        {
+          "wait": 8,
+          "component": "real",
+          "clicks": [
+            128526946,
+            129120050,
+            131119875,
+            131740602
+          ],
+          "predicted": 1.227315124530115e-11,
+          "measured": 0.0002058073878288269
+        },
+        {
+          "wait": 8,
+          "component": "imag",
+          "clicks": [
+            115812753,
+            114992337,
+            115950766,
+            115140605
+          ],
+          "predicted": -6.327993684607236e-13,
+          "measured": 7.640570402145386e-05
+        }
+      ],
+      "potential_per_activity_beta_eighth_z1e_minus55": [
+        -2.88408306897577e-44,
+        -2.8840649216855034e-44
+      ]
+    },
+    {
+      "kappa": 8.0,
+      "distance": 5,
+      "path": [
+        0,
+        1,
+        2,
+        9,
+        18,
+        13
+      ],
+      "pins": [
+        10,
+        0,
+        159,
+        158
+      ],
+      "mobile_charge": 1,
+      "reversed_receiver": true,
+      "first_mixed": {
+        "neighbourhood_distance": 10,
+        "order": 22,
+        "signed_path_weight": -67456,
+        "trace_moment": "-5797/16384"
+      },
+      "ground_energies": [
+        50.000571374063156,
+        33.94476358472097,
+        33.952860205716945,
+        33.94476358472097
+      ],
+      "connected_ground": 16.04771116834621,
+      "ground_error_radius": 8.27644268271807e-09,
+      "frozen_connected_ground": 17.0,
+      "heat_trace_beta_eighth": [
+        -4.781429981920207e-45,
+        -4.781429443823782e-45
+      ],
+      "ramsey": [
+        {
+          "wait": 4,
+          "component": "real",
+          "clicks": [
+            173242817,
+            172112000,
+            173076258,
+            171961881
+          ],
+          "predicted": -1.4432899320127035e-15,
+          "measured": 0.00012248754501342773
+        },
+        {
+          "wait": 4,
+          "component": "imag",
+          "clicks": [
+            167657107,
+            167324673,
+            165767507,
+            165404283
+          ],
+          "predicted": -3.1363800445660672e-15,
+          "measured": -0.00022940337657928467
+        },
+        {
+          "wait": 8,
+          "component": "real",
+          "clicks": [
+            128517617,
+            129135449,
+            126125603,
+            126756759
+          ],
+          "predicted": 1.1999332083512115e-11,
+          "measured": 9.927153587341309e-05
+        },
+        {
+          "wait": 8,
+          "component": "imag",
+          "clicks": [
+            115825175,
+            114999198,
+            117693380,
+            116876649
+          ],
+          "predicted": -3.0586505550544985e-12,
+          "measured": 6.888806819915771e-05
+        }
+      ],
+      "potential_per_activity_beta_eighth_z1e_minus55": [
+        3.825134643699025e-44,
+        3.8251528968961665e-44
+      ]
+    },
+    {
+      "kappa": 8.0,
+      "distance": 5,
+      "path": [
+        0,
+        1,
+        2,
+        9,
+        18,
+        13
+      ],
+      "pins": [
+        10,
+        0,
+        159,
+        158
+      ],
+      "mobile_charge": -1,
+      "reversed_receiver": false,
+      "first_mixed": {
+        "neighbourhood_distance": 10,
+        "order": 22,
+        "signed_path_weight": 73984,
+        "trace_moment": "3179/8192"
+      },
+      "ground_energies": [
+        32.53708995016974,
+        16.953592339027512,
+        16.95359233902711,
+        16.953592339027104
+      ],
+      "connected_ground": 15.583497611142217,
+      "ground_error_radius": 6.727915633175367e-09,
+      "frozen_connected_ground": 17.0,
+      "heat_trace_beta_eighth": [
+        1.8871327568694302e-44,
+        1.887132969245123e-44
+      ],
+      "ramsey": [
+        {
+          "wait": 4,
+          "component": "real",
+          "clicks": [
+            97295714,
+            98975673,
+            97112580,
+            98773501
+          ],
+          "predicted": -6.938893903907228e-15,
+          "measured": -0.00014184415340423584
+        },
+        {
+          "wait": 4,
+          "component": "imag",
+          "clicks": [
+            132378009,
+            132732613,
+            132938512,
+            133335111
+          ],
+          "predicted": -8.007483565108942e-15,
+          "measured": 0.00031288713216781616
+        },
+        {
+          "wait": 8,
+          "component": "real",
+          "clicks": [
+            109521175,
+            110375256,
+            112307978,
+            113191002
+          ],
+          "predicted": -2.259276099536578e-12,
+          "measured": 0.00021564215421676636
+        },
+        {
+          "wait": 8,
+          "component": "imag",
+          "clicks": [
+            134628111,
+            136006441,
+            134846098,
+            136210234
+          ],
+          "predicted": -6.088645213009336e-13,
+          "measured": -0.00010575354099273682
+        }
+      ],
+      "potential_per_activity_beta_eighth_z1e_minus55": [
+        -1.5097072665320987e-43,
+        -1.509705314359544e-43
+      ]
+    },
+    {
+      "kappa": 8.0,
+      "distance": 5,
+      "path": [
+        0,
+        1,
+        2,
+        9,
+        18,
+        13
+      ],
+      "pins": [
+        10,
+        0,
+        159,
+        158
+      ],
+      "mobile_charge": -1,
+      "reversed_receiver": true,
+      "first_mixed": {
+        "neighbourhood_distance": 10,
+        "order": 22,
+        "signed_path_weight": -67456,
+        "trace_moment": "-5797/16384"
+      },
+      "ground_energies": [
+        32.53708995016974,
+        16.953592339027512,
+        17.436570165593558,
+        16.953592339027505
+      ],
+      "connected_ground": 15.100519784576171,
+      "ground_error_radius": 6.72795513849072e-09,
+      "frozen_connected_ground": 17.0,
+      "heat_trace_beta_eighth": [
+        -1.4377746454114717e-44,
+        -1.4377744836060283e-44
+      ],
+      "ramsey": [
+        {
+          "wait": 4,
+          "component": "real",
+          "clicks": [
+            97302770,
+            98979992,
+            96802127,
+            98473161
+          ],
+          "predicted": -8.1601392309949e-15,
+          "measured": -4.610419273376465e-05
+        },
+        {
+          "wait": 4,
+          "component": "imag",
+          "clicks": [
+            132374228,
+            132745665,
+            131690328,
+            132063434
+          ],
+          "predicted": -1.0323339405537979e-14,
+          "measured": 1.2435019016265869e-05
+        },
+        {
+          "wait": 8,
+          "component": "real",
+          "clicks": [
+            109513808,
+            110392126,
+            111112271,
+            111974683
+          ],
+          "predicted": -2.0550228185811648e-12,
+          "measured": -0.00011850893497467041
+        },
+        {
+          "wait": 8,
+          "component": "imag",
+          "clicks": [
+            134650841,
+            136002725,
+            136347006,
+            137724671
+          ],
+          "predicted": -1.0147924167647204e-12,
+          "measured": 0.0001920834183692932
+        }
+      ],
+      "potential_per_activity_beta_eighth_z1e_minus55": [
+        1.1502186957488224e-43,
+        1.1502206074651776e-43
+      ]
+    },
+    {
+      "kappa": 0,
+      "distance": 1,
+      "path": [
+        0,
+        1
+      ],
+      "pins": [
+        10,
+        0,
+        20,
+        13
+      ],
+      "mobile_charge": 1,
+      "reversed_receiver": false,
+      "first_mixed": {
+        "neighbourhood_distance": 9,
+        "order": 20,
+        "signed_path_weight": 48,
+        "trace_moment": "15/16384"
+      },
+      "ground_energies": [
+        0.003670842469425556,
+        -0.17477864886068706,
+        -0.19483966663198132,
+        -0.19483986828700497
+      ],
+      "connected_ground": 0.17844928967508897,
+      "ground_error_radius": 6.186378409369297e-10,
+      "frozen_connected_ground": 1.5,
+      "heat_trace_beta_eighth": [
+        2.4539207466920825e-40,
+        2.4539210228534268e-40
+      ],
+      "ramsey": [
+        {
+          "wait": 4,
+          "component": "real",
+          "clicks": [
+            199158679,
+            197458908,
+            197182806,
+            195461858
+          ],
+          "predicted": -4.845013279464183e-13,
+          "measured": -0.0001577809453010559
+        },
+        {
+          "wait": 4,
+          "component": "imag",
+          "clicks": [
+            145830186,
+            146534479,
+            146620863,
+            147339346
+          ],
+          "predicted": -8.411327190316342e-14,
+          "measured": 0.00010572373867034912
+        },
+        {
+          "wait": 8,
+          "component": "real",
+          "clicks": [
+            166549656,
+            167732232,
+            166554879,
+            167755137
+          ],
+          "predicted": 4.159737304609834e-09,
+          "measured": 0.00013174116611480713
+        },
+        {
+          "wait": 8,
+          "component": "imag",
+          "clicks": [
+            167588976,
+            166379717,
+            166185515,
+            164971405
+          ],
+          "predicted": -4.137892750666339e-09,
+          "measured": -3.614276647567749e-05
+        }
+      ],
+      "potential_per_activity_beta_eighth_z1e_minus55": null
+    },
+    {
+      "kappa": 0,
+      "distance": 1,
+      "path": [
+        0,
+        1
+      ],
+      "pins": [
+        10,
+        0,
+        20,
+        13
+      ],
+      "mobile_charge": 1,
+      "reversed_receiver": true,
+      "first_mixed": {
+        "neighbourhood_distance": 9,
+        "order": 20,
+        "signed_path_weight": 48,
+        "trace_moment": "15/16384"
+      },
+      "ground_energies": [
+        0.003670842469425556,
+        -0.17477864886068706,
+        -0.18816646328789274,
+        -0.1881668523829524
+      ],
+      "connected_ground": 0.17844910223505298,
+      "ground_error_radius": 6.186343047224219e-10,
+      "frozen_connected_ground": 1.5,
+      "heat_trace_beta_eighth": [
+        2.4539131440965606e-40,
+        2.4539134202570493e-40
+      ],
+      "ramsey": [
+        {
+          "wait": 4,
+          "component": "real",
+          "clicks": [
+            199177567,
+            197439683,
+            197202427,
+            195485515
+          ],
+          "predicted": -4.867772851468999e-13,
+          "measured": 0.00015625357627868652
+        },
+        {
+          "wait": 4,
+          "component": "imag",
+          "clicks": [
+            145819250,
+            146539527,
+            146712510,
+            147424791
+          ],
+          "predicted": -8.534839501805891e-14,
+          "measured": -5.957484245300293e-05
+        },
+        {
+          "wait": 8,
+          "component": "real",
+          "clicks": [
+            166536962,
+            167734090,
+            166554644,
+            167745021
+          ],
+          "predicted": 4.288074589853252e-09,
+          "measured": -5.0298869609832764e-05
+        },
+        {
+          "wait": 8,
+          "component": "imag",
+          "clicks": [
+            167577684,
+            166370967,
+            166086837,
+            164874713
+          ],
+          "predicted": -4.178319301662015e-09,
+          "measured": -4.028528928756714e-05
+        }
+      ],
+      "potential_per_activity_beta_eighth_z1e_minus55": null
+    },
+    {
+      "kappa": 0,
+      "distance": 1,
+      "path": [
+        0,
+        1
+      ],
+      "pins": [
+        10,
+        0,
+        20,
+        13
+      ],
+      "mobile_charge": -1,
+      "reversed_receiver": false,
+      "first_mixed": {
+        "neighbourhood_distance": 9,
+        "order": 20,
+        "signed_path_weight": 24,
+        "trace_moment": "15/32768"
+      },
+      "ground_energies": [
+        0.003670842469425556,
+        -0.19147418417237258,
+        -0.18816646328789274,
+        -0.19147521350077884
+      ],
+      "connected_ground": 0.19183627642891204,
+      "ground_error_radius": 6.186318205840844e-10,
+      "frozen_connected_ground": 1.5,
+      "heat_trace_beta_eighth": [
+        1.2231445403791362e-40,
+        1.2231446780303791e-40
+      ],
+      "ramsey": [
+        {
+          "wait": 4,
+          "component": "real",
+          "clicks": [
+            199166946,
+            197557648,
+            197205441,
+            195596667
+          ],
+          "predicted": -2.4347190930029683e-13,
+          "measured": 3.904104232788086e-06
+        },
+        {
+          "wait": 4,
+          "component": "imag",
+          "clicks": [
+            145822189,
+            146627871,
+            146724936,
+            147525752
+          ],
+          "predicted": -1.3877787807814457e-14,
+          "measured": -3.625452518463135e-05
+        },
+        {
+          "wait": 8,
+          "component": "real",
+          "clicks": [
+            166547039,
+            166608043,
+            166559994,
+            166608372
+          ],
+          "predicted": 1.1479146799775464e-09,
+          "measured": -9.407103061676025e-05
+        },
+        {
+          "wait": 8,
+          "component": "imag",
+          "clicks": [
+            167579562,
+            166038911,
+            166092115,
+            164543871
+          ],
+          "predicted": -2.9648969390727586e-09,
+          "measured": -5.657225847244263e-05
+        }
+      ],
+      "potential_per_activity_beta_eighth_z1e_minus55": null
+    },
+    {
+      "kappa": 0,
+      "distance": 1,
+      "path": [
+        0,
+        1
+      ],
+      "pins": [
+        10,
+        0,
+        20,
+        13
+      ],
+      "mobile_charge": -1,
+      "reversed_receiver": true,
+      "first_mixed": {
+        "neighbourhood_distance": 9,
+        "order": 20,
+        "signed_path_weight": 24,
+        "trace_moment": "15/32768"
+      },
+      "ground_energies": [
+        0.003670842469425556,
+        -0.19147418417237258,
+        -0.19483966663198132,
+        -0.19484049382813268
+      ],
+      "connected_ground": 0.1951441994456468,
+      "ground_error_radius": 6.186291711671762e-10,
+      "frozen_connected_ground": 1.5,
+      "heat_trace_beta_eighth": [
+        1.2231483309326055e-40,
+        1.2231484685842748e-40
+      ],
+      "ramsey": [
+        {
+          "wait": 4,
+          "component": "real",
+          "clicks": [
+            199173137,
+            197550032,
+            197190860,
+            195584691
+          ],
+          "predicted": -2.4236168627567167e-13,
+          "measured": 0.00012618303298950195
+        },
+        {
+          "wait": 4,
+          "component": "imag",
+          "clicks": [
+            145827362,
+            146614190,
+            146624476,
+            147413795
+          ],
+          "predicted": -1.3558598688234724e-14,
+          "measured": 1.8559396266937256e-05
+        },
+        {
+          "wait": 8,
+          "component": "real",
+          "clicks": [
+            166541429,
+            166607742,
+            166546975,
+            166608309
+          ],
+          "predicted": 1.1141471079056942e-09,
+          "measured": -3.709644079208374e-05
+        },
+        {
+          "wait": 8,
+          "component": "imag",
+          "clicks": [
+            167585327,
+            166052842,
+            166163489,
+            164638454
+          ],
+          "predicted": -2.900480300382924e-09,
+          "measured": 5.550682544708252e-05
+        }
+      ],
+      "potential_per_activity_beta_eighth_z1e_minus55": null
+    },
+    {
+      "kappa": 0,
+      "distance": 2,
+      "path": [
+        0,
+        1,
+        2
+      ],
+      "pins": [
+        10,
+        0,
+        24,
+        25
+      ],
+      "mobile_charge": 1,
+      "reversed_receiver": false,
+      "first_mixed": {
+        "neighbourhood_distance": 2,
+        "order": 6,
+        "signed_path_weight": 4,
+        "trace_moment": "3/8"
+      },
+      "ground_energies": [
+        0.004844366218337312,
+        -0.17477845971407974,
+        -0.1747285073460748,
+        -0.17509591064265984
+      ],
+      "connected_ground": 0.17925542263583202,
+      "ground_error_radius": 6.18641742496593e-10,
+      "frozen_connected_ground": 1.5,
+      "heat_trace_beta_eighth": [
+        1.5519554489129142e-09,
+        1.5519556235681486e-09
+      ],
+      "ramsey": [
+        {
+          "wait": 4,
+          "component": "real",
+          "clicks": [
+            199153356,
+            197595132,
+            197470104,
+            195880641
+          ],
+          "predicted": -9.033844019168402e-05,
+          "measured": -0.00023274868726730347
+        },
+        {
+          "wait": 4,
+          "component": "imag",
+          "clicks": [
+            144680826,
+            145842710,
+            146380720,
+            147499535
+          ],
+          "predicted": -0.0002209907719536025,
+          "measured": -0.00032088905572891235
+        },
+        {
+          "wait": 8,
+          "component": "real",
+          "clicks": [
+            167096475,
+            167483280,
+            167809358,
+            167826953
+          ],
+          "predicted": -0.0029434839467036567,
+          "measured": -0.0027508288621902466
+        },
+        {
+          "wait": 8,
+          "component": "imag",
+          "clicks": [
+            166716770,
+            166559784,
+            166967627,
+            166609202
+          ],
+          "predicted": -0.0014213140966071736,
+          "measured": -0.001500837504863739
+        }
+      ],
+      "potential_per_activity_beta_eighth_z1e_minus55": null
+    },
+    {
+      "kappa": 0,
+      "distance": 2,
+      "path": [
+        0,
+        1,
+        2
+      ],
+      "pins": [
+        10,
+        0,
+        24,
+        25
+      ],
+      "mobile_charge": 1,
+      "reversed_receiver": true,
+      "first_mixed": {
+        "neighbourhood_distance": 2,
+        "order": 6,
+        "signed_path_weight": 8,
+        "trace_moment": "3/4"
+      },
+      "ground_energies": [
+        0.004844366218337312,
+        -0.17477845971407974,
+        -0.17472862824766225,
+        -0.17499742514798466
+      ],
+      "connected_ground": 0.17935402903209463,
+      "ground_error_radius": 6.186410853535829e-10,
+      "frozen_connected_ground": 1.5,
+      "heat_trace_beta_eighth": [
+        3.136230551407665e-09,
+        3.136230904355349e-09
+      ],
+      "ramsey": [
+        {
+          "wait": 4,
+          "component": "real",
+          "clicks": [
+            199157052,
+            197602778,
+            196992466,
+            195371469
+          ],
+          "predicted": -0.0002087107013323264,
+          "measured": -0.0004971250891685486
+        },
+        {
+          "wait": 4,
+          "component": "imag",
+          "clicks": [
+            144667330,
+            145842227,
+            146902872,
+            148009276
+          ],
+          "predicted": -0.0004053735484102483,
+          "measured": -0.0005103126168251038
+        },
+        {
+          "wait": 8,
+          "component": "real",
+          "clicks": [
+            167103280,
+            167504573,
+            166498047,
+            166429654
+          ],
+          "predicted": -0.003429231770350538,
+          "measured": -0.003499433398246765
+        },
+        {
+          "wait": 8,
+          "component": "imag",
+          "clicks": [
+            166719226,
+            166576591,
+            166577947,
+            165949614
+          ],
+          "predicted": -0.003563275481813427,
+          "measured": -0.0036187320947647095
+        }
+      ],
+      "potential_per_activity_beta_eighth_z1e_minus55": null
+    },
+    {
+      "kappa": 0,
+      "distance": 2,
+      "path": [
+        0,
+        1,
+        2
+      ],
+      "pins": [
+        10,
+        0,
+        24,
+        25
+      ],
+      "mobile_charge": -1,
+      "reversed_receiver": false,
+      "first_mixed": {
+        "neighbourhood_distance": 2,
+        "order": 6,
+        "signed_path_weight": 16,
+        "trace_moment": "3/2"
+      },
+      "ground_energies": [
+        0.004844366218337312,
+        -0.19147401957856863,
+        -0.17472862824766225,
+        -0.19147738963535513
+      ],
+      "connected_ground": 0.17956962440921306,
+      "ground_error_radius": 6.186390242442894e-10,
+      "frozen_connected_ground": 1.5,
+      "heat_trace_beta_eighth": [
+        6.337677403762681e-09,
+        6.3376781169974145e-09
+      ],
+      "ramsey": [
+        {
+          "wait": 4,
+          "component": "real",
+          "clicks": [
+            199158072,
+            197228444,
+            196992735,
+            194983048
+          ],
+          "predicted": -0.0005382298335523394,
+          "measured": -0.0005964860320091248
+        },
+        {
+          "wait": 4,
+          "component": "imag",
+          "clicks": [
+            144663320,
+            146474100,
+            146916483,
+            148601215
+          ],
+          "predicted": -0.0008444778395283181,
+          "measured": -0.0009391307830810547
+        },
+        {
+          "wait": 8,
+          "component": "real",
+          "clicks": [
+            167105232,
+            165046837,
+            166489477,
+            164049356
+          ],
+          "predicted": -0.00280745540323038,
+          "measured": -0.002844080328941345
+        },
+        {
+          "wait": 8,
+          "component": "imag",
+          "clicks": [
+            166719483,
+            165863091,
+            166569831,
+            164788285
+          ],
+          "predicted": -0.006809889298759891,
+          "measured": -0.006892934441566467
+        }
+      ],
+      "potential_per_activity_beta_eighth_z1e_minus55": null
+    },
+    {
+      "kappa": 0,
+      "distance": 2,
+      "path": [
+        0,
+        1,
+        2
+      ],
+      "pins": [
+        10,
+        0,
+        24,
+        25
+      ],
+      "mobile_charge": -1,
+      "reversed_receiver": true,
+      "first_mixed": {
+        "neighbourhood_distance": 2,
+        "order": 6,
+        "signed_path_weight": 8,
+        "trace_moment": "3/4"
+      },
+      "ground_energies": [
+        0.004844366218337312,
+        -0.19147401957856863,
+        -0.1747285073460748,
+        -0.1914807753378457
+      ],
+      "connected_ground": 0.17956611780513507,
+      "ground_error_radius": 6.186406905079746e-10,
+      "frozen_connected_ground": 1.5,
+      "heat_trace_beta_eighth": [
+        3.136230567051398e-09,
+        3.1362309199990835e-09
+      ],
+      "ramsey": [
+        {
+          "wait": 4,
+          "component": "real",
+          "clicks": [
+            199159984,
+            197235948,
+            197470977,
+            195507781
+          ],
+          "predicted": -0.00020665928426294444,
+          "measured": -0.0002917647361755371
+        },
+        {
+          "wait": 4,
+          "component": "imag",
+          "clicks": [
+            144660909,
+            146477148,
+            146356282,
+            148130290
+          ],
+          "predicted": -0.0003942393001903771,
+          "measured": -0.0003146454691886902
+        },
+        {
+          "wait": 8,
+          "component": "real",
+          "clicks": [
+            167086331,
+            165039990,
+            167822069,
+            165311917
+          ],
+          "predicted": -0.003381803428459257,
+          "measured": -0.0034556612372398376
+        },
+        {
+          "wait": 8,
+          "component": "imag",
+          "clicks": [
+            166715425,
+            165847002,
+            166957558,
+            165616087
+          ],
+          "predicted": -0.003489907912065021,
+          "measured": -0.003524482250213623
+        }
+      ],
+      "potential_per_activity_beta_eighth_z1e_minus55": null
+    },
+    {
+      "kappa": 0,
+      "distance": 3,
+      "path": [
+        0,
+        4,
+        3,
+        8
+      ],
+      "pins": [
+        3,
+        2,
+        104,
+        97
+      ],
+      "mobile_charge": 1,
+      "reversed_receiver": false,
+      "first_mixed": {
+        "neighbourhood_distance": 5,
+        "order": 12,
+        "signed_path_weight": 16,
+        "trace_moment": "3/64"
+      },
+      "ground_energies": [
+        0.00587781112117141,
+        -0.17493140080838748,
+        -0.17252351119700082,
+        -0.1749315020921345
+      ],
+      "connected_ground": 0.1784012210344252,
+      "ground_error_radius": 6.186450605169644e-10,
+      "frozen_connected_ground": 1.5,
+      "heat_trace_beta_eighth": [
+        1.0995596032122482e-21,
+        1.099559726955388e-21
+      ],
+      "ramsey": [
+        {
+          "wait": 4,
+          "component": "real",
+          "clicks": [
+            199270389,
+            197685427,
+            197260917,
+            195687667
+          ],
+          "predicted": -3.506789353902029e-07,
+          "measured": 8.726119995117188e-05
+        },
+        {
+          "wait": 4,
+          "component": "imag",
+          "clicks": [
+            144671355,
+            145805234,
+            146534280,
+            147667344
+          ],
+          "predicted": -7.295099652554482e-07,
+          "measured": -6.07222318649292e-06
+        },
+        {
+          "wait": 8,
+          "component": "real",
+          "clicks": [
+            167471405,
+            167693337,
+            167838545,
+            168049236
+          ],
+          "predicted": -3.6547118960339464e-06,
+          "measured": -8.375197649002075e-05
+        },
+        {
+          "wait": 8,
+          "component": "imag",
+          "clicks": [
+            167190276,
+            166992118,
+            167296454,
+            167077908
+          ],
+          "predicted": 3.9048345301662124e-07,
+          "measured": -0.000151902437210083
+        }
+      ],
+      "potential_per_activity_beta_eighth_z1e_minus55": null
+    },
+    {
+      "kappa": 0,
+      "distance": 3,
+      "path": [
+        0,
+        4,
+        3,
+        8
+      ],
+      "pins": [
+        3,
+        2,
+        104,
+        97
+      ],
+      "mobile_charge": 1,
+      "reversed_receiver": true,
+      "first_mixed": {
+        "neighbourhood_distance": 5,
+        "order": 12,
+        "signed_path_weight": 32,
+        "trace_moment": "3/32"
+      },
+      "ground_energies": [
+        0.00587781112117141,
+        -0.17493140080838748,
+        -0.19467466413748938,
+        -0.19467468838221974
+      ],
+      "connected_ground": 0.18080918768482854,
+      "ground_error_radius": 6.186446397871245e-10,
+      "frozen_connected_ground": 1.5,
+      "heat_trace_beta_eighth": [
+        2.2105803864810178e-21,
+        2.210580635257125e-21
+      ],
+      "ramsey": [
+        {
+          "wait": 4,
+          "component": "real",
+          "clicks": [
+            199264955,
+            197684926,
+            197007672,
+            195420354
+          ],
+          "predicted": -3.938354865562488e-07,
+          "measured": -5.430728197097778e-05
+        },
+        {
+          "wait": 4,
+          "component": "imag",
+          "clicks": [
+            144656705,
+            145819090,
+            147103649,
+            148241714
+          ],
+          "predicted": -1.609118113254926e-06,
+          "measured": -0.0001811981201171875
+        },
+        {
+          "wait": 8,
+          "component": "real",
+          "clicks": [
+            167498150,
+            167691802,
+            165333426,
+            165557095
+          ],
+          "predicted": 7.589130948587597e-06,
+          "measured": 0.00022364407777786255
+        },
+        {
+          "wait": 8,
+          "component": "imag",
+          "clicks": [
+            167195064,
+            166982243,
+            166560401,
+            166342625
+          ],
+          "predicted": 9.90575040882291e-07,
+          "measured": -3.691762685775757e-05
+        }
+      ],
+      "potential_per_activity_beta_eighth_z1e_minus55": null
+    },
+    {
+      "kappa": 0,
+      "distance": 3,
+      "path": [
+        0,
+        4,
+        3,
+        8
+      ],
+      "pins": [
+        3,
+        2,
+        104,
+        97
+      ],
+      "mobile_charge": -1,
+      "reversed_receiver": false,
+      "first_mixed": {
+        "neighbourhood_distance": 5,
+        "order": 12,
+        "signed_path_weight": 64,
+        "trace_moment": "3/16"
+      },
+      "ground_energies": [
+        0.00587781112117141,
+        -0.1914466184014423,
+        -0.19467466413748938,
+        -0.19467474224272666
+      ],
+      "connected_ground": 0.19732435141737645,
+      "ground_error_radius": 6.186411104339674e-10,
+      "frozen_connected_ground": 1.5,
+      "heat_trace_beta_eighth": [
+        4.444193398194571e-21,
+        4.44419389833885e-21
+      ],
+      "ramsey": [
+        {
+          "wait": 4,
+          "component": "real",
+          "clicks": [
+            199258182,
+            197345770,
+            196997176,
+            195085959
+          ],
+          "predicted": -1.176339911590496e-07,
+          "measured": 8.903443813323975e-06
+        },
+        {
+          "wait": 4,
+          "component": "imag",
+          "clicks": [
+            144687924,
+            146484688,
+            147109599,
+            148898767
+          ],
+          "predicted": -3.4043038559111727e-06,
+          "measured": -5.65946102142334e-05
+        },
+        {
+          "wait": 8,
+          "component": "real",
+          "clicks": [
+            167473637,
+            165297958,
+            165330886,
+            163157910
+          ],
+          "predicted": 4.1514545865817265e-05,
+          "measured": 2.0138919353485107e-05
+        },
+        {
+          "wait": 8,
+          "component": "imag",
+          "clicks": [
+            167199144,
+            166085630,
+            166553450,
+            165455444
+          ],
+          "predicted": 1.847642831676044e-05,
+          "measured": 0.00011554360389709473
+        }
+      ],
+      "potential_per_activity_beta_eighth_z1e_minus55": null
+    },
+    {
+      "kappa": 0,
+      "distance": 3,
+      "path": [
+        0,
+        4,
+        3,
+        8
+      ],
+      "pins": [
+        3,
+        2,
+        104,
+        97
+      ],
+      "mobile_charge": -1,
+      "reversed_receiver": true,
+      "first_mixed": {
+        "neighbourhood_distance": 5,
+        "order": 12,
+        "signed_path_weight": 32,
+        "trace_moment": "3/32"
+      },
+      "ground_energies": [
+        0.00587781112117141,
+        -0.1914466184014423,
+        -0.17252351119700082,
+        -0.19144664038741152
+      ],
+      "connected_ground": 0.17840130033220303,
+      "ground_error_radius": 6.186391421964597e-10,
+      "frozen_connected_ground": 1.5,
+      "heat_trace_beta_eighth": [
+        2.2105803864810178e-21,
+        2.210580635257125e-21
+      ],
+      "ramsey": [
+        {
+          "wait": 4,
+          "component": "real",
+          "clicks": [
+            199268030,
+            197346774,
+            197278101,
+            195350659
+          ],
+          "predicted": -3.9383409733417807e-07,
+          "measured": -4.60892915725708e-05
+        },
+        {
+          "wait": 4,
+          "component": "imag",
+          "clicks": [
+            144664447,
+            146480291,
+            146528225,
+            148333587
+          ],
+          "predicted": -1.6091164824344473e-06,
+          "measured": -7.809698581695557e-05
+        },
+        {
+          "wait": 8,
+          "component": "real",
+          "clicks": [
+            167466009,
+            165295101,
+            167853014,
+            165658624
+          ],
+          "predicted": 7.585777092783408e-06,
+          "measured": -0.00017495453357696533
+        },
+        {
+          "wait": 8,
+          "component": "imag",
+          "clicks": [
+            167198756,
+            166083491,
+            167294029,
+            166192699
+          ],
+          "predicted": 9.780836761341671e-07,
+          "measured": 0.00010382384061813354
+        }
+      ],
+      "potential_per_activity_beta_eighth_z1e_minus55": null
+    },
+    {
+      "kappa": 0,
+      "distance": 4,
+      "path": [
+        0,
+        4,
+        7,
+        17,
+        12
+      ],
+      "pins": [
+        3,
+        2,
+        154,
+        146
+      ],
+      "mobile_charge": 1,
+      "reversed_receiver": false,
+      "first_mixed": {
+        "neighbourhood_distance": 8,
+        "order": 18,
+        "signed_path_weight": 64,
+        "trace_moment": "9/2048"
+      },
+      "ground_energies": [
+        0.006777777476648172,
+        -0.1749314119871635,
+        -0.19234860599135253,
+        -0.1923486485953747
+      ],
+      "connected_ground": 0.1817091468597895,
+      "ground_error_radius": 6.1862723327839e-10,
+      "frozen_connected_ground": 1.5,
+      "heat_trace_beta_eighth": [
+        2.9302159535967177e-35,
+        2.930216283359762e-35
+      ],
+      "ramsey": [
+        {
+          "wait": 4,
+          "component": "real",
+          "clicks": [
+            199220106,
+            197629129,
+            197481705,
+            195902017
+          ],
+          "predicted": 2.7853497286400852e-11,
+          "measured": 8.41096043586731e-05
+        },
+        {
+          "wait": 4,
+          "component": "imag",
+          "clicks": [
+            144698706,
+            145829800,
+            146494645,
+            147581008
+          ],
+          "predicted": 4.1487535629158856e-11,
+          "measured": -0.00033327192068099976
+        },
+        {
+          "wait": 8,
+          "component": "real",
+          "clicks": [
+            167493805,
+            167706876,
+            166549490,
+            166757584
+          ],
+          "predicted": 1.099009458438438e-08,
+          "measured": -3.708153963088989e-05
+        },
+        {
+          "wait": 8,
+          "component": "imag",
+          "clicks": [
+            167202863,
+            166977419,
+            167262259,
+            167048913
+          ],
+          "predicted": 6.300043198237404e-08,
+          "measured": 9.013712406158447e-05
+        }
+      ],
+      "potential_per_activity_beta_eighth_z1e_minus55": null
+    },
+    {
+      "kappa": 0,
+      "distance": 4,
+      "path": [
+        0,
+        4,
+        7,
+        17,
+        12
+      ],
+      "pins": [
+        3,
+        2,
+        154,
+        146
+      ],
+      "mobile_charge": 1,
+      "reversed_receiver": true,
+      "first_mixed": {
+        "neighbourhood_distance": 8,
+        "order": 18,
+        "signed_path_weight": 128,
+        "trace_moment": "9/1024"
+      },
+      "ground_energies": [
+        0.006777777476648172,
+        -0.1749314119871635,
+        -0.16834268983899597,
+        -0.17493178685381902
+      ],
+      "connected_ground": 0.17512009244898863,
+      "ground_error_radius": 6.186368545513154e-10,
+      "frozen_connected_ground": 1.5,
+      "heat_trace_beta_eighth": [
+        5.880793969073042e-35,
+        5.880794630890654e-35
+      ],
+      "ramsey": [
+        {
+          "wait": 4,
+          "component": "real",
+          "clicks": [
+            199213274,
+            197642151,
+            196884781,
+            195279128
+          ],
+          "predicted": 4.5468295795103586e-11,
+          "measured": -0.0002572685480117798
+        },
+        {
+          "wait": 4,
+          "component": "imag",
+          "clicks": [
+            144691680,
+            145833155,
+            147093586,
+            148204301
+          ],
+          "predicted": 8.958876696052442e-11,
+          "measured": -0.00022917985916137695
+        },
+        {
+          "wait": 8,
+          "component": "real",
+          "clicks": [
+            167485807,
+            167708728,
+            166405201,
+            166604964
+          ],
+          "predicted": 1.4137351206366944e-08,
+          "measured": -0.000172540545463562
+        },
+        {
+          "wait": 8,
+          "component": "imag",
+          "clicks": [
+            167186973,
+            166975772,
+            166636526,
+            166403771
+          ],
+          "predicted": 1.341048323499905e-07,
+          "measured": -0.0001605898141860962
+        }
+      ],
+      "potential_per_activity_beta_eighth_z1e_minus55": null
+    },
+    {
+      "kappa": 0,
+      "distance": 4,
+      "path": [
+        0,
+        4,
+        7,
+        17,
+        12
+      ],
+      "pins": [
+        3,
+        2,
+        154,
+        146
+      ],
+      "mobile_charge": -1,
+      "reversed_receiver": false,
+      "first_mixed": {
+        "neighbourhood_distance": 8,
+        "order": 18,
+        "signed_path_weight": 256,
+        "trace_moment": "9/512"
+      },
+      "ground_energies": [
+        0.006777777476648172,
+        -0.19144662004303806,
+        -0.16834268983899597,
+        -0.19144670806604172
+      ],
+      "connected_ground": 0.1751203792926405,
+      "ground_error_radius": 6.186352055086138e-10,
+      "frozen_connected_ground": 1.5,
+      "heat_trace_beta_eighth": [
+        1.1802446101974313e-34,
+        1.1802447430207665e-34
+      ],
+      "ramsey": [
+        {
+          "wait": 4,
+          "component": "real",
+          "clicks": [
+            199217377,
+            197296176,
+            196865891,
+            194946043
+          ],
+          "predicted": 6.89918677743151e-11,
+          "measured": 1.008063554763794e-05
+        },
+        {
+          "wait": 4,
+          "component": "imag",
+          "clicks": [
+            144698712,
+            146495680,
+            147083544,
+            148886560
+          ],
+          "predicted": 1.9003978946052769e-10,
+          "measured": 4.506111145019531e-05
+        },
+        {
+          "wait": 8,
+          "component": "real",
+          "clicks": [
+            167487536,
+            165312615,
+            166414338,
+            164217684
+          ],
+          "predicted": 5.9476886749010305e-09,
+          "measured": -0.00016192346811294556
+        },
+        {
+          "wait": 8,
+          "component": "imag",
+          "clicks": [
+            167186174,
+            166074163,
+            166631118,
+            165525976
+          ],
+          "predicted": 2.9391602801576155e-07,
+          "measured": 5.1178038120269775e-05
+        }
+      ],
+      "potential_per_activity_beta_eighth_z1e_minus55": null
+    },
+    {
+      "kappa": 0,
+      "distance": 4,
+      "path": [
+        0,
+        4,
+        7,
+        17,
+        12
+      ],
+      "pins": [
+        3,
+        2,
+        154,
+        146
+      ],
+      "mobile_charge": -1,
+      "reversed_receiver": true,
+      "first_mixed": {
+        "neighbourhood_distance": 8,
+        "order": 18,
+        "signed_path_weight": 128,
+        "trace_moment": "9/1024"
+      },
+      "ground_energies": [
+        0.006777777476648172,
+        -0.19144662004303806,
+        -0.19234860599135253,
+        -0.19234968067191682
+      ],
+      "connected_ground": 0.19822332283912195,
+      "ground_error_radius": 6.186363564969773e-10,
+      "frozen_connected_ground": 1.5,
+      "heat_trace_beta_eighth": [
+        5.880793969073022e-35,
+        5.880794630890634e-35
+      ],
+      "ramsey": [
+        {
+          "wait": 4,
+          "component": "real",
+          "clicks": [
+            199209252,
+            197292493,
+            197492493,
+            195556766
+          ],
+          "predicted": 4.5469128462372055e-11,
+          "measured": -0.00014132261276245117
+        },
+        {
+          "wait": 4,
+          "component": "imag",
+          "clicks": [
+            144703116,
+            146518844,
+            146462928,
+            148276074
+          ],
+          "predicted": 8.958853103813169e-11,
+          "measured": -1.9237399101257324e-05
+        },
+        {
+          "wait": 8,
+          "component": "real",
+          "clicks": [
+            167493617,
+            165320938,
+            166557386,
+            164391085
+          ],
+          "predicted": 1.404401334115235e-08,
+          "measured": 4.7519803047180176e-05
+        },
+        {
+          "wait": 8,
+          "component": "imag",
+          "clicks": [
+            167177334,
+            166083223,
+            167260587,
+            166157962
+          ],
+          "predicted": 1.3375576465857186e-07,
+          "measured": -6.343424320220947e-05
+        }
+      ],
+      "potential_per_activity_beta_eighth_z1e_minus55": null
+    },
+    {
+      "kappa": 0,
+      "distance": 5,
+      "path": [
+        0,
+        1,
+        2,
+        9,
+        18,
+        13
+      ],
+      "pins": [
+        10,
+        0,
+        159,
+        158
+      ],
+      "mobile_charge": 1,
+      "reversed_receiver": false,
+      "first_mixed": {
+        "neighbourhood_distance": 10,
+        "order": 22,
+        "signed_path_weight": 64,
+        "trace_moment": "11/32768"
+      },
+      "ground_energies": [
+        0.0073874797186157274,
+        -0.17477866343250864,
+        -0.17505913601360712,
+        -0.1750601189899228
+      ],
+      "connected_ground": 0.1821651601748087,
+      "ground_error_radius": 6.186463451313655e-10,
+      "frozen_connected_ground": 1.5,
+      "heat_trace_beta_eighth": [
+        3.084636144735077e-45,
+        3.0846364918763876e-45
+      ],
+      "ramsey": [
+        {
+          "wait": 4,
+          "component": "real",
+          "clicks": [
+            199022547,
+            197462157,
+            197378164,
+            195812236
+          ],
+          "predicted": 6.38378239159465e-15,
+          "measured": -4.126131534576416e-05
+        },
+        {
+          "wait": 4,
+          "component": "imag",
+          "clicks": [
+            145182422,
+            146353099,
+            146310487,
+            147490475
+          ],
+          "predicted": 2.6645352591003757e-15,
+          "measured": 6.937235593795776e-05
+        },
+        {
+          "wait": 8,
+          "component": "real",
+          "clicks": [
+            167276794,
+            167639742,
+            167710665,
+            168093551
+          ],
+          "predicted": -2.9227473219428646e-10,
+          "measured": 0.00014854967594146729
+        },
+        {
+          "wait": 8,
+          "component": "imag",
+          "clicks": [
+            167562103,
+            167171399,
+            167375322,
+            166987253
+          ],
+          "predicted": -3.8133921020921946e-10,
+          "measured": 1.9632279872894287e-05
+        }
+      ],
+      "potential_per_activity_beta_eighth_z1e_minus55": null
+    },
+    {
+      "kappa": 0,
+      "distance": 5,
+      "path": [
+        0,
+        1,
+        2,
+        9,
+        18,
+        13
+      ],
+      "pins": [
+        10,
+        0,
+        159,
+        158
+      ],
+      "mobile_charge": 1,
+      "reversed_receiver": true,
+      "first_mixed": {
+        "neighbourhood_distance": 10,
+        "order": 22,
+        "signed_path_weight": 128,
+        "trace_moment": "11/16384"
+      },
+      "ground_energies": [
+        0.0073874797186157274,
+        -0.17477866343250864,
+        -0.19160396610566227,
+        -0.19160397281778388
+      ],
+      "connected_ground": 0.18216613643900276,
+      "ground_error_radius": 6.186484069249639e-10,
+      "frozen_connected_ground": 1.5,
+      "heat_trace_beta_eighth": [
+        6.186815066627834e-45,
+        6.186815762884698e-45
+      ],
+      "ramsey": [
+        {
+          "wait": 4,
+          "component": "real",
+          "clicks": [
+            199018180,
+            197467322,
+            197010600,
+            195455276
+          ],
+          "predicted": 1.0769163338864018e-14,
+          "measured": -3.3274292945861816e-05
+        },
+        {
+          "wait": 4,
+          "component": "imag",
+          "clicks": [
+            145175644,
+            146364994,
+            146960629,
+            148118298
+          ],
+          "predicted": 9.478529072737274e-15,
+          "measured": -0.0002360418438911438
+        },
+        {
+          "wait": 8,
+          "component": "real",
+          "clicks": [
+            167277691,
+            167648525,
+            165383707,
+            165747489
+          ],
+          "predicted": -3.4463251696870145e-10,
+          "measured": -5.2541494369506836e-05
+        },
+        {
+          "wait": 8,
+          "component": "imag",
+          "clicks": [
+            167560261,
+            167171648,
+            166506319,
+            166112813
+          ],
+          "predicted": -8.922687588786005e-10,
+          "measured": -3.645569086074829e-05
+        }
+      ],
+      "potential_per_activity_beta_eighth_z1e_minus55": null
+    },
+    {
+      "kappa": 0,
+      "distance": 5,
+      "path": [
+        0,
+        1,
+        2,
+        9,
+        18,
+        13
+      ],
+      "pins": [
+        10,
+        0,
+        159,
+        158
+      ],
+      "mobile_charge": -1,
+      "reversed_receiver": false,
+      "first_mixed": {
+        "neighbourhood_distance": 10,
+        "order": 22,
+        "signed_path_weight": 256,
+        "trace_moment": "11/8192"
+      },
+      "ground_energies": [
+        0.0073874797186157274,
+        -0.19147419291843631,
+        -0.19160396610566227,
+        -0.19160449483260367
+      ],
+      "connected_ground": 0.19886114391011064,
+      "ground_error_radius": 6.186440171564267e-10,
+      "frozen_connected_ground": 1.5,
+      "heat_trace_beta_eighth": [
+        1.240881111275704e-44,
+        1.240881250923e-44
+      ],
+      "ramsey": [
+        {
+          "wait": 4,
+          "component": "real",
+          "clicks": [
+            199030839,
+            197108717,
+            197021806,
+            195101333
+          ],
+          "predicted": 1.970645868709653e-14,
+          "measured": 1.2286007404327393e-05
+        },
+        {
+          "wait": 4,
+          "component": "imag",
+          "clicks": [
+            145172662,
+            147008438,
+            146960945,
+            148779670
+          ],
+          "predicted": 2.1274648709379562e-14,
+          "measured": -0.0001270398497581482
+        },
+        {
+          "wait": 8,
+          "component": "real",
+          "clicks": [
+            167271136,
+            165290022,
+            165366345,
+            163373417
+          ],
+          "predicted": -1.657920467579288e-10,
+          "measured": -8.80211591720581e-05
+        },
+        {
+          "wait": 8,
+          "component": "imag",
+          "clicks": [
+            167557653,
+            166370653,
+            166505812,
+            165301730
+          ],
+          "predicted": -1.9350742119783604e-09,
+          "measured": -0.00012727081775665283
+        }
+      ],
+      "potential_per_activity_beta_eighth_z1e_minus55": null
+    },
+    {
+      "kappa": 0,
+      "distance": 5,
+      "path": [
+        0,
+        1,
+        2,
+        9,
+        18,
+        13
+      ],
+      "pins": [
+        10,
+        0,
+        159,
+        158
+      ],
+      "mobile_charge": -1,
+      "reversed_receiver": true,
+      "first_mixed": {
+        "neighbourhood_distance": 10,
+        "order": 22,
+        "signed_path_weight": 128,
+        "trace_moment": "11/16384"
+      },
+      "ground_energies": [
+        0.0073874797186157274,
+        -0.19147419291843631,
+        -0.17505913601360712,
+        -0.19147419958193382
+      ],
+      "connected_ground": 0.18244660906872534,
+      "ground_error_radius": 6.18640894074834e-10,
+      "frozen_connected_ground": 1.5,
+      "heat_trace_beta_eighth": [
+        6.186815066938888e-45,
+        6.186815763195752e-45
+      ],
+      "ramsey": [
+        {
+          "wait": 4,
+          "component": "real",
+          "clicks": [
+            199017931,
+            197099176,
+            197377537,
+            195464586
+          ],
+          "predicted": 1.1268763699945339e-14,
+          "measured": 4.32431697845459e-05
+        },
+        {
+          "wait": 4,
+          "component": "imag",
+          "clicks": [
+            145179277,
+            147002635,
+            146319833,
+            148129829
+          ],
+          "predicted": 9.2148511043888e-15,
+          "measured": -9.955465793609619e-05
+        },
+        {
+          "wait": 8,
+          "component": "real",
+          "clicks": [
+            167276899,
+            165281178,
+            167714062,
+            165722839
+          ],
+          "predicted": -3.44048872724656e-10,
+          "measured": 3.351271152496338e-05
+        },
+        {
+          "wait": 8,
+          "component": "imag",
+          "clicks": [
+            167569660,
+            166337421,
+            167367271,
+            166159254
+          ],
+          "predicted": -8.973491671948608e-10,
+          "measured": 0.00018046796321868896
+        }
+      ],
+      "potential_per_activity_beta_eighth_z1e_minus55": null
+    }
+  ]
+}

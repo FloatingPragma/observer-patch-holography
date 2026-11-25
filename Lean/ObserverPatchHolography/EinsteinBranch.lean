@@ -10,6 +10,7 @@ import ObserverPatchHolography.EinsteinBranch.StaticAngularReadout
 import ObserverPatchHolography.EinsteinBranch.OverlapCoupling
 import ObserverPatchHolography.EinsteinBranch.QuantumScalarStress
 import ObserverPatchHolography.EinsteinBranch.CollarAdmission
+import ObserverPatchHolography.EinsteinBranch.RoutedAnnulus
 import ObserverPatchHolography.EinsteinBranch.Tensor
 import ObserverPatchHolography.EinsteinBranch.Manifest
 import ObserverPatchHolography.EinsteinBranch.Composition

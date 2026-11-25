@@ -1,0 +1,42 @@
+# All inputs on one collar give the Gibbs projection at a fixed appointment
+
+The eight-port repair has two inputs an observer can prepare independently. One is a four-unit sharp configuration or any distribution of them. The other is a choice of which datum the transaction must preserve. The output clock has fixed duration for each transaction at each declared selector exposure. The full joint output is recorded once, after the last scheduled sharp service. The register retains the complete held datum and four terminal bits. The individual sharp intermediate readings and controller gates remain inside the instrument. [Frozen protocol](GIBBS_PROTOCOL.md) · [Production code](gibbs.py) · [Forward records](gibbs.json)
+
+## Why the finite appointment is exact
+
+On unequal sharp binary loads the registered blank-seam term swaps the pair with probability sin²(τ/2) after exposure τ and the joint sharp read. Equal bits remain fixed. The implementation checks the entire 99-dimensional output column in both directions for every exposure, including the full π swap used for routing.
+
+Insert the jth site of a block after its first j sites have been uniformly permuted. Visit each adjacent contact i from j−1 down through 0. Its probability of exchange is (i+1)/(i+2). The new item reaches any position k with probability (k+1)/(j+1), by multiplying the intervening probabilities. It stops there with probability 1/(k+1), including position zero as an obligatory stop. Its final position is uniform. The controls are independent of the old labels. Conditioned on its position, all other sites are a permutation of the uniformly ordered old labels, and therefore remain uniformly ordered. Induction from a single site gives uniform permutation of m labels in exactly m(m−1)/2 native contacts. Projecting the labels to their binary loads gives uniform counting on the fixed-inventory configurations from **every** starting word, with no data-dependent completion time.
+
+Shuffling all eight sites gives the reference independently from each possible start. Its four visible bits x have mass R(x)=C(4,4−|x|)/70. Our source transaction records F, the parity of the inventory K on the first two sites. Each eight-site configuration has exactly four zeros and four ones. Pair its ordered occupied positions with its ordered vacant positions. On a fresh fair native coin, exchange each paired set by π swaps through the path. The resulting configuration is the bitwise complement. A fixed schedule reserves all 140 route slots and pads inactive ones. This charge-conserving permutation pairs K=0 with K=2 and maps K=1 to itself. It preserves F. Its fair orientation on the visible complement orbit is itself a weighted conditional of R because R(x)=R(complement(x)). The probability of the allowed pair orientation follows from the native fair contact.
+
+Next shuffle the left two and right six sites, in 1 and 15 contacts. Their fixed K classes have sizes 15, 40 and 15 for K=0, 1 and 2. Thus any input with F=0 gives a uniform configuration from the 30 even words and any with F=1 gives a uniform configuration from the 40 odd words. The scheduled sharp output is exactly the full conditional R(.|F) on the exposed collar. Every sharp visible input with any admissible arrangement of the reservoir gives the same row as its entire fibre. Linearity extends this conclusion to arbitrary probability laws on the seventy configurations. An initial general quantum state gives the corresponding claim for its sharp dephased law, since the apparatus begins with a sharp read.
+
+## Every moment and every finite multiplier
+
+Given any input with s=E[F], this repair produces P_s=(1−s)R(.|F=0)+sR(.|F=1). There is no remaining dependence on the initial ratio of the two even sectors or their hidden arrangements. Since R(F=0)=3/7 and R(F=1)=4/7, one has
+
+\[
+P_s(x)=R(x)e^{-\beta F(x)}/Z,\qquad
+\beta=\log[4(1-s)/(3s)],\qquad
+Z=(3+4e^{-\beta})/7.
+\]
+
+For 0<s<1, P_s is faithful and every real multiplier occurs once. The endpoint states are the two exact conditional laws obtained as limits. A sharp unequal ancillary pair and adjustable exposure τ prepares an odd event with s=sin²(τ/2). Only this independent input dial changes. For both extreme skew preparations in the experiment even inputs start wholly in K=0 or wholly in K=2. The full repair, each reference gate and each transition retain their original settings. In particular the experiment includes β=0 as an analytic point, s=4/7, fixed by the reference census.
+
+For any competing law Q on the full observable algebra with E_Q[F]=s, log(P_s/R) has equal expectation in Q and P_s. Subtract the two divergence sums to obtain D(Q||R)=D(Q||P_s)+D(P_s||R), with equality at the unique optimizer. At s=0 or 1 the support restriction imposed by the moment gives the same identity on that fibre. Both three-port windows retain F and overlap on two bits. Each obtains the marginal identity, and the pooled four-bit read identifies the full optimum. This instantiates the positivity, normalization, logarithmic identity and moment hypotheses of the finite state-projection theorem. [Finite Gibbs identity and complete-fibre repair](../../../../Lean/Thermodynamics/FiniteConditionalRepair.lean)
+
+## The same reference sets transitions at every moment
+
+The partial repair that fixes all three *other* visible bits u shuffles the remaining five cells in ten native contacts. The conditional probability of the exposed bit being one is (4−|u|)/5 from either prior bit, regardless of the compatible hidden arrangement. The alternate port has an addressed adjacent π routing swap at each end. Both output probabilities equal R(y)/R(fibre) on the entire held fibre. The same result follows from P_s for every occupied fibre, as F is fixed there. Even when s equals 0 or 1, every input word can be fed to the instrument and its unconditional row remains defined by faithful R. The positive fixed-clock law and normalized R give the full data of the finite repair-law premise on this collar. The existing conditional-repair theorem gives row optimality, stationarity, detailed balance and idempotence. The entropy contraction, exact dissipation and fluctuation identities retain their stated input positivity hypotheses. A random mixture of different address transactions need not be idempotent. [Exact inputs and laws](../../../../Lean/Thermodynamics/FourLawAdequacySurface.lean)
+
+All five exact integer matrices passed all 4,900 entries each. The largest entry discrepancy from the local-law numerical exponentials was 1.31×10⁻¹⁵. Fixed half-contact timing throughout the five-site shuffle misses the target full-state conditional matrix by 0.30 in its largest entry. Removing exchange gives the identity, with error 0.90. Omitting the complement retains three K sectors. The packed start from the first even sector then assigns zero to the other even sector at every time. Across the complete 42 forward banks on the 20-, 80- and 320-cell boards, the largest observed single-word discrepancy was 0.00857, below the registered 0.01932. The largest selector-calibration discrepancy was 0.00776. [Tests](test_gibbs.py)
+
+PR-07 is declared for an active finite collar. This instrument provides an explicit instance with a nonconstant correlated reference, a full one-moment Gibbs family and exact complete-fibre transitions from the same source. The dial's multiplier is conjugate to measured record parity. An independently calibrated physical energy, temperature and clock (PR-15), and a family with refinement-uniform cooling bounds (PR-08), are separate inputs of the composed four-law theorem. Publishing all internal measurements or leaving every contact open defines a different observation contract. The earlier equal-half-clock result and its one-sweep timing witness still apply to that earlier instrument. This fixed clock removes the timing distinction for callers of the new transactions. The construction does not supply a phase-instrument preparation as required by PR-163. [Typed four-law antecedents](../../../../Lean/Thermodynamics/FourLawAdequacySurface.lean) · [Phase preparation and reference binding](../../../../Lean/Geometry/CommonWorldMaxwellClockJoin.lean)
+
+Replay from the RER root.
+
+```sh
+OPENBLAS_NUM_THREADS=1 .venv/bin/python -B -W error -m model.experiments.interval_echo_consensus.conditional_bath.gibbs
+.venv/bin/python -m pytest -q model/experiments/interval_echo_consensus/conditional_bath
+```

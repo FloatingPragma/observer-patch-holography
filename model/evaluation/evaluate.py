@@ -218,14 +218,27 @@ def premise_register():
 
 def premise_rows(cand, premises, roles):
     ids = {r['id'] for r in premises}
-    unknown = sorted(set(cand.PREMISES) - ids)
+    declarations = dict(cand.PREMISES)
+    # Additional measurements can grade a premise without changing the law
+    # module whose bytes are pinned by the experiment that produced them.
+    results_path = ROOT / 'model' / 'candidate_laws' / cand.NAME / 'premise_results.json'
+    if results_path.is_file():
+        measured = json.loads(results_path.read_text(encoding='utf-8'))
+        duplicates = declarations.keys() & measured.keys()
+        if duplicates:
+            fail(f'{cand.NAME}: duplicate premise assessments {sorted(duplicates)}')
+        for key, result in measured.items():
+            if not result.get('evidence') or not result.get('note', '').strip():
+                fail(f'{cand.NAME} {key}: measured assessment needs evidence and scope')
+        declarations.update(measured)
+    unknown = sorted(set(declarations) - ids)
     if unknown:
         fail(f'{cand.NAME}: premises not in the register: {unknown}')
     rows = []
     for r in premises:
         kind = roles['types'].get(r['id']) or r['premise_kind']
         role = roles['overrides'].get(r['id'], {}).get('role') or roles['defaults'][kind]
-        decl = cand.PREMISES.get(r['id'], {})
+        decl = declarations.get(r['id'], {})
         status = decl.get('status', 'open')
         if status not in STATUSES:
             fail(f'{cand.NAME} {r["id"]}: unknown status {status!r}')

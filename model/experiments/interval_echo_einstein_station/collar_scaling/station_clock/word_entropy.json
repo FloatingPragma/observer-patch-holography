@@ -1,0 +1,91 @@
+{
+  "domain": "Entropy of all addressed protected word slots in the region including blank, single and double arrivals; other registers traced out.",
+  "conditional_entropies_nats": {
+    "-1": [
+      4.218421415859795,
+      4.218421415859797
+    ],
+    "0": [
+      4.220033106750922,
+      4.220033106750924
+    ],
+    "1": [
+      4.218538457391481,
+      4.218538457391483
+    ]
+  },
+  "reversed_reference_conditional_derivative": [
+    0.0033051275330940972,
+    0.003305127533094098
+  ],
+  "product_reference_conditional_derivative": [
+    -5.846672803326679e-52,
+    5.0114338314228676e-52
+  ],
+  "global_entropy_derivative_per_fourth_limit": [
+    0.009411867076662488,
+    0.009411867076662491
+  ],
+  "ancestor_entropy_derivative_per_fourth_limit": [
+    0.0018823734153324977,
+    0.0018823734153324981
+  ],
+  "global_finite_endpoint_entropy_difference_per_fourth_limit": [
+    -0.004256247589969163,
+    -0.0042562475899691615
+  ],
+  "finite_endpoint_conditional_entropy_difference": [
+    -0.0014946493594404744,
+    -0.001494649359440474
+  ],
+  "zero_of_shared_minus_fresh_entropy_at_common_admixture": [
+    "22953881407/34359738368",
+    "91815525629/137438953472"
+  ],
+  "finite_resolutions": [
+    {
+      "level": 1,
+      "global_entropy_slope_per_fourth": [
+        0.014356320869866697,
+        0.0143563208698667
+      ],
+      "ancestor_entropy_slope_per_fourth": [
+        0.0009570880579911131,
+        0.0009570880579911134
+      ]
+    },
+    {
+      "level": 3,
+      "global_entropy_slope_per_fourth": [
+        0.013160890639958431,
+        0.013160890639958435
+      ],
+      "ancestor_entropy_slope_per_fourth": [
+        0.0021549996369522573,
+        0.002154999636952258
+      ]
+    },
+    {
+      "level": 5,
+      "global_entropy_slope_per_fourth": [
+        0.011665591384481797,
+        0.0116655913844818
+      ],
+      "ancestor_entropy_slope_per_fourth": [
+        0.0022225051189047845,
+        0.0022225051189047854
+      ]
+    },
+    {
+      "level": 7,
+      "global_entropy_slope_per_fourth": [
+        0.010611367324344008,
+        0.010611367324344012
+      ],
+      "ancestor_entropy_slope_per_fourth": [
+        0.0020962652116228602,
+        0.002096265211622861
+      ]
+    }
+  ]
+}

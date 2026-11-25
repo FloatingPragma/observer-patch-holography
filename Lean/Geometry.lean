@@ -67,6 +67,7 @@ import Geometry.RestFiberShellTransport
 import Geometry.CommonWorldIslandBridge
 import Geometry.EinsteinBranchInhabitant
 import Geometry.CommonWorldInstrumentJoin
+import Geometry.IntervalEchoCommonRecord
 import Geometry.CommonWorldMaxwellClockJoin
 import Geometry.IntegerKCombInvariance
 import Geometry.CommonWorldJointAction

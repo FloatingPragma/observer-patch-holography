@@ -1,0 +1,313 @@
+{
+  "source_table": "Jozsa et al. Table C.1, arXiv:0810.3025v1",
+  "host": "NGC2685",
+  "distance_mpc": 16.1,
+  "mass_msun": 26811214147.89997,
+  "reference_a0_m_s2": 8.750402247718735e-11,
+  "finite_spacing_calibration": {
+    "spacing_kpc": 0.5,
+    "a0_m_s2": 8.374731945176364e-11
+  },
+  "prior_enclosure_lower": 0.8289150865663855,
+  "sample": [
+    {
+      "radius_arcsec": 320.0,
+      "NHI_1e19_cm2": 0.6,
+      "error_NHI": 2.5,
+      "speed_kms": 143.9,
+      "error_speed": 15.0,
+      "inclination_deg": 64.8,
+      "error_inclination": 4.3,
+      "radius_kpc": 24.98,
+      "gbar_m_s2": 5.988832367527219e-12,
+      "enclosure": {
+        "0": {
+          "cylindrical_gas_msun": 2430884835.648075,
+          "fraction_retaining_95pct": 0.9362054750239728,
+          "minimum_retention_for_90pct": 0.6294195475732586,
+          "max_rms_height_for_90pct_arcsec": 84.91179707446238,
+          "unlocated_extra_mass_allowance_msun": 865882400.4548492
+        },
+        "1": {
+          "cylindrical_gas_msun": 1688772734.2188985,
+          "fraction_retaining_95pct": 0.9034513541895378,
+          "minimum_retention_for_90pct": 0.9060108577392404,
+          "max_rms_height_for_90pct_arcsec": 42.76274958214612,
+          "unlocated_extra_mass_allowance_msun": 82541848.9462738
+        },
+        "2": {
+          "cylindrical_gas_msun": 1180712900.0603237,
+          "fraction_retaining_95pct": 0.8810274465789419,
+          "minimum_retention_for_90pct": 1.2958666186997152,
+          "max_rms_height_for_90pct_arcsec": null,
+          "unlocated_extra_mass_allowance_msun": -453743531.55444336
+        }
+      },
+      "forecast_kms": 149.20276709061534,
+      "residual_over_quoted_error": -0.35351780604102223,
+      "finite_spacing_possible_kms": [
+        146.78841013816137,
+        147.9606719686744
+      ],
+      "required_excess_ratio": 3.485764313950167
+    },
+    {
+      "radius_arcsec": 360.0,
+      "NHI_1e19_cm2": 1.0,
+      "error_NHI": 2.5,
+      "speed_kms": 139.6,
+      "error_speed": 15.0,
+      "inclination_deg": 66.7,
+      "error_inclination": 4.0,
+      "radius_kpc": 28.1025,
+      "gbar_m_s2": 4.731916932367186e-12,
+      "enclosure": {
+        "0": {
+          "cylindrical_gas_msun": 2490576709.6675596,
+          "fraction_retaining_95pct": 0.9388400565793777,
+          "minimum_retention_for_90pct": 0.6143341931678691,
+          "max_rms_height_for_90pct_arcsec": 97.45067894804217,
+          "unlocated_extra_mass_allowance_msun": 928890489.6976395
+        },
+        "1": {
+          "cylindrical_gas_msun": 1688772734.2188985,
+          "fraction_retaining_95pct": 0.9034513541895378,
+          "minimum_retention_for_90pct": 0.9060108577392404,
+          "max_rms_height_for_90pct_arcsec": 48.10809327991439,
+          "unlocated_extra_mass_allowance_msun": 82541848.9462738
+        },
+        "2": {
+          "cylindrical_gas_msun": 1180712900.0603237,
+          "fraction_retaining_95pct": 0.8810274465789419,
+          "minimum_retention_for_90pct": 1.2958666186997152,
+          "max_rms_height_for_90pct_arcsec": null,
+          "unlocated_extra_mass_allowance_msun": -453743531.55444336
+        }
+      },
+      "forecast_kms": 147.4739094983982,
+      "residual_over_quoted_error": -0.5249272998932137,
+      "finite_spacing_possible_kms": [
+        145.95432783539508,
+        147.00271241382612
+      ],
+      "required_excess_ratio": 3.7493942571993015
+    },
+    {
+      "radius_arcsec": 400.0,
+      "NHI_1e19_cm2": 0.2,
+      "error_NHI": 2.5,
+      "speed_kms": 146.7,
+      "error_speed": 15.0,
+      "inclination_deg": 66.9,
+      "error_inclination": 8.4,
+      "radius_kpc": 31.225,
+      "gbar_m_s2": 3.8328527152174205e-12,
+      "enclosure": {
+        "0": {
+          "cylindrical_gas_msun": 2534102215.804896,
+          "fraction_retaining_95pct": 0.9407611136335031,
+          "minimum_retention_for_90pct": 0.6037824456778372,
+          "max_rms_height_for_90pct_arcsec": 109.74977745487115,
+          "unlocated_extra_mass_allowance_msun": 974834079.5092735
+        },
+        "1": {
+          "cylindrical_gas_msun": 1688772734.2188985,
+          "fraction_retaining_95pct": 0.9034513541895378,
+          "minimum_retention_for_90pct": 0.9060108577392404,
+          "max_rms_height_for_90pct_arcsec": 53.45343697768266,
+          "unlocated_extra_mass_allowance_msun": 82541848.9462738
+        },
+        "2": {
+          "cylindrical_gas_msun": 1180712900.0603237,
+          "fraction_retaining_95pct": 0.8810274465789419,
+          "minimum_retention_for_90pct": 1.2958666186997152,
+          "max_rms_height_for_90pct_arcsec": null,
+          "unlocated_extra_mass_allowance_msun": -453743531.55444336
+        }
+      },
+      "forecast_kms": 146.07609182524706,
+      "residual_over_quoted_error": 0.041593878316861795,
+      "finite_spacing_possible_kms": [
+        144.32917274567268,
+        145.283614300706
+      ],
+      "required_excess_ratio": 4.827537870049065
+    },
+    {
+      "radius_arcsec": 420.0,
+      "NHI_1e19_cm2": 1.2,
+      "error_NHI": 2.5,
+      "speed_kms": 168.8,
+      "error_speed": 15.0,
+      "inclination_deg": 67.4,
+      "error_inclination": 10.6,
+      "radius_kpc": 32.78625,
+      "gbar_m_s2": 3.4765103992901764e-12,
+      "enclosure": {
+        "0": {
+          "cylindrical_gas_msun": 2557451256.5013313,
+          "fraction_retaining_95pct": 0.9417916551094693,
+          "minimum_retention_for_90pct": 0.5982700274606426,
+          "max_rms_height_for_90pct_arcsec": 116.03612264992786,
+          "unlocated_extra_mass_allowance_msun": 999480289.1332893
+        },
+        "1": {
+          "cylindrical_gas_msun": 1688772734.2188985,
+          "fraction_retaining_95pct": 0.9034513541895378,
+          "minimum_retention_for_90pct": 0.9060108577392404,
+          "max_rms_height_for_90pct_arcsec": 56.12610882656679,
+          "unlocated_extra_mass_allowance_msun": 82541848.9462738
+        },
+        "2": {
+          "cylindrical_gas_msun": 1180712900.0603237,
+          "fraction_retaining_95pct": 0.8810274465789419,
+          "minimum_retention_for_90pct": 1.2958666186997152,
+          "max_rms_height_for_90pct_arcsec": null,
+          "unlocated_extra_mass_allowance_msun": -453743531.55444336
+        }
+      },
+      "forecast_kms": 145.47291553567865,
+      "residual_over_quoted_error": 1.5551389642880906,
+      "finite_spacing_possible_kms": [
+        143.62704859305197,
+        144.54059907745983
+      ],
+      "required_excess_ratio": 7.10138106185987
+    }
+  ],
+  "common_distance_control": {
+    "minimax_error_multiplier": 1.0435515988303719,
+    "distance_mpc": 17.84337586455243
+  },
+  "shared_cut_phase": {
+    "minimax_error_multiplier_range": [
+      1.617293394836012,
+      1.6781967604632029
+    ],
+    "uniform_phase_fraction_all_within": {
+      "1": 0,
+      "2": 1.0
+    }
+  },
+  "sharp_edge_nominal": {
+    "1": {
+      "feasible": false,
+      "lower_kpc": 37.41670922273884,
+      "upper_kpc": null,
+      "above_unlimited_plateau": true
+    },
+    "2": {
+      "feasible": true,
+      "lower_kpc": 29.261609794126446,
+      "upper_kpc": null,
+      "above_unlimited_plateau": false
+    }
+  },
+  "broad_necessary_edge_lower_kpc_by_speed_distance_error": {
+    "0": 36.75221989632203,
+    "1": 27.370066619860687,
+    "2": 18.674334800191808
+  },
+  "cross_galaxy_at_outer_ring": {
+    "nominal": {
+      "required_minimum_excess_ratio": 7.10138106185987,
+      "host_x_kpc_per_sqrt_msun": 0.0002002320092565398,
+      "largest_host_x_in_box": 0.0002002320092565398,
+      "against": {
+        "central": {
+          "dwarf_x_kpc_per_sqrt_msun": 0.0002594656135149876,
+          "dwarf_max_excess_ratio": 1.141718546277296,
+          "radial_order_preserved": true,
+          "minimum_gap": 5.959662515582574
+        },
+        "dwarf_two_errors": {
+          "dwarf_x_kpc_per_sqrt_msun": 0.0002993727871470669,
+          "dwarf_max_excess_ratio": 1.889238683699246,
+          "radial_order_preserved": true,
+          "minimum_gap": 5.212142378160624
+        },
+        "tilt_and_lens_mass": {
+          "dwarf_x_kpc_per_sqrt_msun": 0.0002993727871470669,
+          "dwarf_max_excess_ratio": 2.431487111903494,
+          "radial_order_preserved": true,
+          "minimum_gap": 4.669893949956376
+        }
+      }
+    },
+    "one_error": {
+      "required_minimum_excess_ratio": 3.1416632285464843,
+      "host_x_kpc_per_sqrt_msun": 0.00017902664712213446,
+      "largest_host_x_in_box": 0.00023050229206687478,
+      "against": {
+        "central": {
+          "dwarf_x_kpc_per_sqrt_msun": 0.0002594656135149876,
+          "dwarf_max_excess_ratio": 1.141718546277296,
+          "radial_order_preserved": true,
+          "minimum_gap": 1.9999446822691882
+        },
+        "dwarf_two_errors": {
+          "dwarf_x_kpc_per_sqrt_msun": 0.0002993727871470669,
+          "dwarf_max_excess_ratio": 1.889238683699246,
+          "radial_order_preserved": true,
+          "minimum_gap": 1.2524245448472382
+        },
+        "tilt_and_lens_mass": {
+          "dwarf_x_kpc_per_sqrt_msun": 0.0002993727871470669,
+          "dwarf_max_excess_ratio": 2.431487111903494,
+          "radial_order_preserved": true,
+          "minimum_gap": 0.7101761166429901
+        }
+      }
+    },
+    "two_errors": {
+      "required_minimum_excess_ratio": 1.7431793714603279,
+      "host_x_kpc_per_sqrt_msun": 0.00017902664712213446,
+      "largest_host_x_in_box": 0.00023050229206687478,
+      "against": {
+        "central": {
+          "dwarf_x_kpc_per_sqrt_msun": 0.0002594656135149876,
+          "dwarf_max_excess_ratio": 1.141718546277296,
+          "radial_order_preserved": true,
+          "minimum_gap": 0.6014608251830318
+        },
+        "dwarf_two_errors": {
+          "dwarf_x_kpc_per_sqrt_msun": 0.0002993727871470669,
+          "dwarf_max_excess_ratio": 1.889238683699246,
+          "radial_order_preserved": true,
+          "minimum_gap": -0.14605931223891822
+        },
+        "tilt_and_lens_mass": {
+          "dwarf_x_kpc_per_sqrt_msun": 0.0002993727871470669,
+          "dwarf_max_excess_ratio": 2.431487111903494,
+          "radial_order_preserved": true,
+          "minimum_gap": -0.6883077404431663
+        }
+      }
+    },
+    "two_errors_plus_tilt": {
+      "required_minimum_excess_ratio": 1.339455194427861,
+      "host_x_kpc_per_sqrt_msun": 0.00017902664712213446,
+      "largest_host_x_in_box": 0.00023050229206687478,
+      "against": {
+        "central": {
+          "dwarf_x_kpc_per_sqrt_msun": 0.0002594656135149876,
+          "dwarf_max_excess_ratio": 1.141718546277296,
+          "radial_order_preserved": true,
+          "minimum_gap": 0.1977366481505649
+        },
+        "dwarf_two_errors": {
+          "dwarf_x_kpc_per_sqrt_msun": 0.0002993727871470669,
+          "dwarf_max_excess_ratio": 1.889238683699246,
+          "radial_order_preserved": true,
+          "minimum_gap": -0.5497834892713851
+        },
+        "tilt_and_lens_mass": {
+          "dwarf_x_kpc_per_sqrt_msun": 0.0002993727871470669,
+          "dwarf_max_excess_ratio": 2.431487111903494,
+          "radial_order_preserved": true,
+          "minimum_gap": -1.0920319174756332
+        }
+      }
+    }
+  }
+}

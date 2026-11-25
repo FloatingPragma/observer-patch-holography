@@ -37,6 +37,14 @@ A separate four-port code makes the accepted perpendicular half-turns anticommut
 
 ## Reproduction
 
+The energy-selected alternating native trimer supplies another source
+test. Two explicit physical exchange routes give positive phase, while
+one additional improper frame reflection gives negative phase. The
+public two-connected-triples probability falls from 99.867% to 7.636%
+during transport, so the tested compilation fails to exchange intact
+cores. An exact native-contact proof fixes the finite spatial action
+without assigning a spinor sign. [Selected trimers, transport audit and phase controls](mobile_core_exchange/README.md)
+
 Run from the repository root with the model's NumPy and SciPy environment. Acquire into two fresh files and check the deposited results with the regression suite.
 
 ```sh

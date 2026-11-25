@@ -1768,10 +1768,22 @@
    "model": [
     "model/experiments/interval_echo_gauge/README.md",
     "model/experiments/interval_echo_gauge/result.json",
-    "model/experiments/interval_echo_gauge/doublet_echo/README.md"
+    "model/experiments/interval_echo_gauge/doublet_echo/README.md",
+    "model/experiments/interval_echo_gauge/trimer_transport/measure.py",
+    "model/experiments/interval_echo_gauge/trimer_transport/counts.json",
+    "model/experiments/interval_echo_gauge/trimer_transport/centre.py",
+    "model/experiments/interval_echo_gauge/trimer_transport/centre.json",
+    "model/experiments/interval_echo_gauge/trimer_transport/local_bases.py",
+    "model/experiments/interval_echo_gauge/trimer_transport/local.json",
+    "model/experiments/interval_echo_gauge/trimer_transport/test_transport.py",
+    "model/experiments/interval_echo_gauge/inventory_periods/README.md",
+    "model/experiments/interval_echo_gauge/inventory_periods/measure.py",
+    "model/experiments/interval_echo_gauge/inventory_periods/records.json",
+    "model/experiments/interval_echo_gauge/inventory_periods/test_periods.py"
    ],
    "papers": [
-    "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf"
+    "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf",
+    "paper/executable_observer_construction.pdf"
    ]
   },
   {
@@ -2303,7 +2315,10 @@
     "Lean/Thermodynamics/FluctuationTheorems.lean",
     "Lean/Time/TimeOrderLedger.lean"
    ],
-   "model": [],
+   "model": [
+    "model/experiments/interval_echo_consensus/conditional_bath/gibbs.py",
+    "model/experiments/interval_echo_consensus/conditional_bath/gibbs.json"
+   ],
    "papers": [
     "paper/observers_are_all_you_need.pdf",
     "flagship/from_observer_consensus_to_standard_physics.pdf"
@@ -2389,7 +2404,10 @@
     "Lean/Thermodynamics/StationaryRealization.lean",
     "Lean/Thermodynamics/CommonReferenceObstruction.lean"
    ],
-   "model": [],
+   "model": [
+    "model/experiments/interval_echo_consensus/conditional_bath/gibbs.py",
+    "model/experiments/interval_echo_consensus/conditional_bath/gibbs.json"
+   ],
    "papers": [
     "paper/observers_are_all_you_need.pdf",
     "flagship/from_observer_consensus_to_standard_physics.pdf"
@@ -2474,7 +2492,10 @@
     "Lean/Thermodynamics/NativeRecordFourLaws.lean",
     "Lean/Thermodynamics/FluctuationTheorems.lean"
    ],
-   "model": [],
+   "model": [
+    "model/experiments/interval_echo_consensus/conditional_bath/gibbs.py",
+    "model/experiments/interval_echo_consensus/conditional_bath/gibbs.json"
+   ],
    "papers": [
     "paper/observers_are_all_you_need.pdf"
    ]
@@ -2500,7 +2521,9 @@
     "code/thermodynamics/protected_memory/protected_memory.py",
     "code/thermodynamics/protected_memory/verify_protected_memory.py",
     "code/thermodynamics/protected_memory/test_protected_memory.py",
-    "code/thermodynamics/protected_memory/runtime/protected_memory_receipt.json"
+    "code/thermodynamics/protected_memory/runtime/protected_memory_receipt.json",
+    "model/experiments/interval_echo_consensus/conditional_bath/gibbs.py",
+    "model/experiments/interval_echo_consensus/conditional_bath/gibbs.json"
    ],
    "papers": [
     "paper/observers_are_all_you_need.pdf",
@@ -6727,7 +6750,11 @@
     "model/candidate_laws/interval_echo/openwave/quark_winding/belt_walls/external_field.json",
     "model/candidate_laws/interval_echo/openwave/quark_winding/belt_walls/ternary.json",
     "model/candidate_laws/interval_echo/openwave/quark_winding/written_junction/README.md",
-    "model/candidate_laws/interval_echo/openwave/quark_winding/written_junction/field.json"
+    "model/candidate_laws/interval_echo/openwave/quark_winding/written_junction/field.json",
+    "model/candidate_laws/interval_echo/openwave/row_12_flux/winding_current/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_12_flux/winding_current/measure.py",
+    "model/candidate_laws/interval_echo/openwave/row_12_flux/winding_current/band.py",
+    "model/candidate_laws/interval_echo/openwave/row_12_flux/winding_current/clock.npz"
    ],
    "papers": [
     "paper/executable_observer_construction.pdf"
@@ -6757,7 +6784,14 @@
     "model/candidate_laws/interval_echo/openwave/row_13_baryon/open_release/results.json",
     "model/candidate_laws/interval_echo/openwave/row_13_walls/README.md",
     "model/candidate_laws/interval_echo/openwave/row_13_walls/results.json",
-    "model/candidate_laws/interval_echo/openwave/quark_winding/belt_walls/upper.json"
+    "model/candidate_laws/interval_echo/openwave/quark_winding/belt_walls/upper.json",
+    "model/experiments/interval_echo_gauge/trimer_transport/measure.py",
+    "model/experiments/interval_echo_gauge/trimer_transport/counts.json",
+    "model/experiments/interval_echo_gauge/trimer_transport/centre.py",
+    "model/experiments/interval_echo_gauge/trimer_transport/centre.json",
+    "model/experiments/interval_echo_gauge/trimer_transport/local_bases.py",
+    "model/experiments/interval_echo_gauge/trimer_transport/local.json",
+    "model/experiments/interval_echo_gauge/trimer_transport/test_transport.py"
    ],
    "papers": [
     "paper/executable_observer_construction.pdf"
@@ -7863,7 +7897,7 @@
    "kind": "premise",
    "name": "declared repair law: common faithful reference and repaired-visible fibre",
    "category": "Construction choices",
-   "status": "Partial",
+   "status": "Demonstrated",
    "what": "State selection and transition selection share one faithful reference, and transitions resample among states agreeing with the full repaired visible record.",
    "why": "From these inputs OPH derives Gibbs states and weighted resampling from one source, giving a finite form of the four thermodynamic laws.",
    "premises": [],
@@ -7876,7 +7910,15 @@
     "Lean/Geometry/EinsteinBranchInhabitant.lean",
     "Lean/Thermodynamics/CofinalSpectralTailFamily.lean"
    ],
-   "model": [],
+   "model": [
+    "model/experiments/interval_echo_consensus/conditional_bath/measure.py",
+    "model/experiments/interval_echo_consensus/conditional_bath/results.json",
+    "model/experiments/interval_echo_consensus/conditional_bath/transition.py",
+    "model/experiments/interval_echo_consensus/conditional_bath/transitions.json",
+    "model/experiments/interval_echo_consensus/conditional_bath/gibbs.py",
+    "model/experiments/interval_echo_consensus/conditional_bath/gibbs.json",
+    "model/experiments/interval_echo_consensus/conditional_bath/test_bath.py"
+   ],
    "papers": [],
    "statement": "One common faithful reference serves both Axiom 3 instantiations, and the transition feasible set is the fibre of the complete repaired visible datum of the active collar. On these inputs the state projection selects the Gibbs family and the transition projection selects weighted conditional resampling from the same reference, giving the finite four-law package.",
    "premise_kind": "declared"
@@ -9407,17 +9449,27 @@
    "kind": "premise",
    "name": "pathwise weak fairness for fixed node attempts",
    "category": "Construction choices",
-   "status": "Open",
+   "status": "Demonstrated",
    "what": "In a fixed federation of nodes, any node that keeps failing throughout a tail of the run is eventually selected.",
    "why": "It ensures that a fixed node federation reaches consensus, as OPH's computation theorems require.",
    "premises": [],
    "lean": [
     "Lean/Computation/FixedFederationProgress.lean",
     "Lean/Computation/FixedFederationCounterexamples.lean",
-    "Lean/Tower/FixedFederationEndpoint.lean"
+    "Lean/Tower/FixedFederationEndpoint.lean",
+    "Lean/Computation/NativeBooleanNodes.lean",
+    "Lean/Computation/FixedFederationExecution.lean",
+    "Lean/Computation/FixedFederationComplexity.lean"
    ],
-   "model": [],
-   "papers": [],
+   "model": [
+    "model/experiments/interval_echo_consensus/boolean_nodes/material.py",
+    "model/experiments/interval_echo_consensus/boolean_nodes/measure.py",
+    "model/experiments/interval_echo_consensus/boolean_nodes/records.json",
+    "model/experiments/interval_echo_consensus/boolean_nodes/test_nodes.py"
+   ],
+   "papers": [
+    "paper/reality_as_consensus_protocol.pdf"
+   ],
    "statement": "Along one attempt run of an input-independent fixed node federation, if one node fails at every step of a tail, that node is eventually selected on the tail.",
    "premise_kind": "declared"
   },
@@ -9426,7 +9478,7 @@
    "kind": "premise",
    "name": "bounded waste between fixed node changes",
    "category": "Construction choices",
-   "status": "Open",
+   "status": "Demonstrated",
    "what": "From any non-consensus state of a fixed node federation, some real state change happens within a fixed number of attempts.",
    "why": "It bounds the time a fixed node federation needs to reach consensus, giving OPH's computation theorems explicit run-time bounds.",
    "premises": [],
@@ -9434,10 +9486,19 @@
     "Lean/Computation/FixedFederationComplexity.lean",
     "Lean/Computation/FixedFederationExecutionExamples.lean",
     "Lean/ObserverPatchHolography/Execution/RankedAttemptCapacity.lean",
-    "Lean/Tower/FixedFederationExecutionEndpoint.lean"
+    "Lean/Tower/FixedFederationExecutionEndpoint.lean",
+    "Lean/Computation/NativeBooleanNodes.lean",
+    "Lean/Computation/FixedFederationExecution.lean"
    ],
-   "model": [],
-   "papers": [],
+   "model": [
+    "model/experiments/interval_echo_consensus/boolean_nodes/material.py",
+    "model/experiments/interval_echo_consensus/boolean_nodes/measure.py",
+    "model/experiments/interval_echo_consensus/boolean_nodes/records.json",
+    "model/experiments/interval_echo_consensus/boolean_nodes/test_nodes.py"
+   ],
+   "papers": [
+    "paper/reality_as_consensus_protocol.pdf"
+   ],
    "statement": "From every scheduler index and every non-consensus state of one input-independent fixed node federation, at least one genuine state change occurs among the next q+1 attempts for one declared natural q.",
    "premise_kind": "declared"
   },
@@ -11325,19 +11386,27 @@
    "kind": "premise",
    "name": "Compiled Boolean node federations run on the native repair",
    "category": "Physical premises",
-   "status": "Open",
+   "status": "Demonstrated",
    "what": "Native repair runs compiled Boolean federations: one node observer per formula constraint repairs only its own constraint, and failing nodes are scheduled.",
    "why": "It lets OPH's computation results, solving formulas by local repair, hold on the model's own process.",
    "premises": [],
    "lean": [
     "Lean/Computation/RepairUniversality.lean",
     "Lean/Computation/FixedFederationProgress.lean",
-    "Lean/Computation/FixedFederationComplexity.lean"
+    "Lean/Computation/FixedFederationComplexity.lean",
+    "Lean/Computation/NativeBooleanNodes.lean",
+    "Lean/Computation/FixedFederationExecution.lean"
    ],
    "model": [
-    "model/candidate_laws/interval_echo/SPEC.md"
+    "model/candidate_laws/interval_echo/SPEC.md",
+    "model/experiments/interval_echo_consensus/boolean_nodes/material.py",
+    "model/experiments/interval_echo_consensus/boolean_nodes/measure.py",
+    "model/experiments/interval_echo_consensus/boolean_nodes/records.json",
+    "model/experiments/interval_echo_consensus/boolean_nodes/test_nodes.py"
    ],
-   "papers": [],
+   "papers": [
+    "paper/reality_as_consensus_protocol.pdf"
+   ],
    "statement": "The native repair process realizes the compiled fixed node federations of the computation library: Boolean registers held as records, one node observer per compiled formula constraint that checks and repairs only its own constraint, and a scheduler that selects failing nodes.",
    "premise_kind": "derivable"
   },

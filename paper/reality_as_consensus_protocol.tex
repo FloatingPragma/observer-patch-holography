@@ -1265,6 +1265,56 @@ wall-clock horizon, rate, energy, bandwidth, fee, hardware resource, noise
 stability, encoding-overhead bound or physical device realization, and no
 identity with the width-five engine~\cite{ophrepo}.
 
+\paragraph{Native contacts implement the fixed Boolean nodes.}
+A protected Interval Echo register stores each bit on complementary loads
+$(0,2)$ or $(2,0)$. For two extremal rails $x,y$, a bright balanced-pair
+pointer gives the middle bin. After a dark read the inputs agree, so a
+second query of the first operand against load two distinguishes zero from
+two. Inverting each echo restores the operands. The resulting bin equals
+$(x+y)/2$ with certainty. A NAND node sets a scratch bit for readings zero
+and one. A copy or constant, paired with a reference rail of load two,
+sets the bit on reading two. A second probe compares the scratch with
+the old output. Its middle bin clocks the exchange of the output rails
+and the scratch is restored. Every read is local to the offered node.
+Routing exchanges return all transit loads to their initial ports.
+
+Thus on every sharp input the transaction equals the computation library's
+canonical write, for every node emitted by its input-independent compiler.
+With a supplied cyclic address calendar of $L$ nodes, each persistent
+failure receives an offer within $L$ requests. From any inconsistent
+state a genuine change occurs within that window. In emission order
+the first sweep computes the formula and the next quiet sweep verifies
+completion. On the 20-owner board all 32 input and stale-register
+combinations completed in both scan orders. All 24 tested combinations on
+80 owners also completed in both orders. Reading the opposite output rail
+gave zero correct full-register endpoints on either board. These counts
+concern formula evaluation under the specified calendar and protected
+routing. The implementation and ordered detector records accompany
+\texttt{Computation.NativeBooleanNodes} in the repository~\cite{ophrepo}.
+
+\paragraph{State and transition selection share a finite reference.}
+An eight-port path carries four sharp units; four ports are visible.
+A fixed calendar of partial exchanges and local reads shuffles every
+initial word to counting measure on all 70 words. The probability of a
+particular visible word $x$ is therefore
+$R(x)=\binom{4}{4-|x|}/70$, positive on its full visible alphabet.
+Let $F$ be the parity of the first two visible bits and let $s$ be the
+observer's prepared probability of odd parity. The repair preserves $F$
+and shuffles within each of its two fibres. For even parity a scheduled
+fair choice between the occupied pattern and its binary complement connects
+the two otherwise separated sectors. There are 40 odd and 30 even words.
+Consequently every input with the specified $s$ gives the unique relative
+entropy projection $P_s(x)\propto R(x)\exp(-\beta F(x))$ with
+$\beta=\log[4(1-s)/(3s)]$ for $0<s<1$. A second transaction refreshes
+one visible bath port while holding the complete three-bit word $u$ on
+the others. Its unit probability $(4-|u|)/5$ is the conditional of this
+same $R$ throughout the family. All 70 sharp inputs were checked, and
+seven selector exposures were sampled on each of three boards.
+These are fixed-duration terminal instruments with internal read and
+control histories. The multiplier is dimensionless. On this collar the
+common-reference premise has a material realization; physical temperature
+and cooling rates require further calibration and dynamics.
+
 \paragraph{An observer can forecast the requests to a normal endpoint.}
 On a registered Interval Echo federation with $N$ ports, reserve a blank
 tree for routing and enough blank off-tree seams to receive all writes.

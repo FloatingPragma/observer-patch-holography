@@ -1,0 +1,51 @@
+{
+  "conditional_positive_event_reference_probability": "19/72",
+  "conditional_total_variation_slope": "1/72",
+  "calibrated_area_range_times_copies_required": [
+    0.237969182382775,
+    0.23796918238277506
+  ],
+  "one_copy_optimal_event_slope_per_fourth_power": "81/2048",
+  "finite_panels": [
+    {
+      "level": 1,
+      "eligible_probability": "3/632",
+      "optimal_event_probability_at_reference": "19/15168",
+      "optimal_event_slope": "1/15168",
+      "entropy_slope_nats": [
+        1.5688896517851726e-05,
+        1.5688896517851733e-05
+      ]
+    },
+    {
+      "level": 3,
+      "eligible_probability": "171/818560",
+      "optimal_event_probability_at_reference": "361/6548480",
+      "optimal_event_slope": "19/6548480",
+      "entropy_slope_nats": [
+        6.904525119222667e-07,
+        6.904525119222669e-07
+      ]
+    },
+    {
+      "level": 5,
+      "eligible_probability": "1139/104852480",
+      "optimal_event_probability_at_reference": "21641/7549378560",
+      "optimal_event_slope": "1139/7549378560",
+      "entropy_slope_nats": [
+        3.5903206678508477e-08,
+        3.590320667850849e-08
+      ]
+    },
+    {
+      "level": 7,
+      "eligible_probability": "51/83885824",
+      "optimal_event_probability_at_reference": "323/2013259776",
+      "optimal_event_slope": "17/2013259776",
+      "entropy_slope_nats": [
+        2.0094158482343683e-09,
+        2.009415848234369e-09
+      ]
+    }
+  ]
+}

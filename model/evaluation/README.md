@@ -21,6 +21,8 @@ python -m pytest -q model/evaluation
 
 On every evaluation the common harness constructs each candidate’s cell generator and checks hermiticity, native coupling supports, the action of the 60 proper rotations, and the multiplicity of the first nonconstant response level. It builds the candidate on the 20-, 80- and 320-cell federations where implemented and validates basis coverage and coupling locality. It checks parameter declarations and reads the headline numerical quantities from the measured files. The JSON receipts retain the numerical values, standard errors when supplied, and exact source pointers.
 
+A candidate can deposit measured premise assessments in `premise_results.json` beside its law module. Each entry gives the premise ID, status, evidence paths relative to the candidate, and scope in the same format as `PREMISES`. The evaluator rejects duplicate IDs across the two sources. This allows a run to pin the law module while subsequent measurements grade its premises.
+
 The remaining judgments are evidence-backed assessments. The evaluator checks their vocabulary, identifiers, premise crosswalk and evidence paths. The linked proofs and experimental receipts establish their scientific scope. Reproducing an experimental result requires running its instrument. For example:
 
 ```sh
