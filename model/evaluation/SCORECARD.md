@@ -158,7 +158,7 @@ Sources · [MODELS.md L94-L137](https://github.com/openwave-labs/openwave/blob/7
 | [OW-16](EVIDENCE.md#ow-16) Deuteron (binding + quadrupole) (static) | Open | Open | Open | Open |
 | [OW-17](EVIDENCE.md#ow-17) Nuclear structure (levels, halos) (both) | Open | Open | Open | Open |
 | [OW-18](EVIDENCE.md#ow-18) Mesons (π, K) (static) | Open. Comparison · [Compensated written-wall pairs](../candidate_laws/interval_echo/openwave/quark_winding/written_junction/README.md) | Open | Open | Open |
-| [OW-19](EVIDENCE.md#ow-19) Dark matter candidate (static) | **Demonstrated** · [Whole-band regional charge and an independent kinetic-response test](../experiments/material_inertia/pair_spectrum/native_source_probe/regional_census/README.md). Full criterion · Partial | **Demonstrated** · [Binding and local motion of a load-neutral pair](../experiments/material_inertia/README.md). Full criterion · Partial | Open | Open |
+| [OW-19](EVIDENCE.md#ow-19) Dark matter candidate (static) | **Demonstrated** · [A remote owner distinguishes both signs and reads compensated material charge](../experiments/material_inertia/pair_spectrum/remote_charge/README.md). Full criterion · Partial | **Demonstrated** · [Binding and local motion of a load-neutral pair](../experiments/material_inertia/README.md). Full criterion · Partial | Open | Open |
 
 ### FORCES
 

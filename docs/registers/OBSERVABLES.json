@@ -1475,7 +1475,11 @@
     "code/b14_jacobi/verify_oriented_face_bracket_selector.py",
     "code/b14_jacobi/b14_compact_locus.certificate.json",
     "model/experiments/interval_echo_consensus/standard_observers.py",
-    "model/experiments/interval_echo_consensus/modular_standard.json"
+    "model/experiments/interval_echo_consensus/modular_standard.json",
+    "model/experiments/interval_echo_gauge/flag_measure/README.md",
+    "model/experiments/interval_echo_gauge/flag_measure/measure.py",
+    "model/experiments/interval_echo_gauge/flag_measure/records.json",
+    "model/experiments/interval_echo_gauge/flag_measure/test_flags.py"
    ],
    "papers": [
     "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf",
@@ -1980,11 +1984,10 @@
    "kind": "observable",
    "name": "Zeroth law (temperature)",
    "category": "Thermodynamics",
-   "status": "Partial",
+   "status": "Demonstrated",
    "what": "Two bodies each in thermal equilibrium with a third are in equilibrium with each other, which defines a common temperature.",
    "why": "In OPH temperature is a shared modular reference on a common boundary; thermometry and all thermodynamic predictions start from it.",
    "premises": [
-    "PR-15",
     "PR-05",
     "PR-07"
    ],
@@ -1997,13 +2000,21 @@
     "Lean/Thermodynamics/StationaryRealization.lean"
    ],
    "model": [
+    "model/experiments/interval_echo_consensus/refinement_cooling/dimer_band/thermal_contact/README.md",
+    "model/experiments/interval_echo_consensus/refinement_cooling/dimer_band/thermal_contact/measure.py",
+    "model/experiments/interval_echo_consensus/refinement_cooling/dimer_band/thermal_contact/records.json",
+    "model/experiments/interval_echo_consensus/refinement_cooling/dimer_band/thermal_contact/test_contact.py",
+    "model/experiments/interval_echo_consensus/refinement_cooling/dimer_band/thermal_contact/double_gap.py",
+    "model/experiments/interval_echo_consensus/refinement_cooling/dimer_band/thermal_contact/double.json",
+    "model/experiments/interval_echo_consensus/refinement_cooling/dimer_band/thermal_contact/test_double.py",
     "model/experiments/interval_echo_consensus/refinement_cooling/README.md",
     "model/experiments/interval_echo_clock/reference_exchange/joint_time/README.md"
    ],
    "papers": [
     "paper/observers_are_all_you_need.pdf",
     "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf",
-    "flagship/from_observer_consensus_to_standard_physics.pdf"
+    "flagship/from_observer_consensus_to_standard_physics.pdf",
+    "paper/reality_as_consensus_protocol.pdf"
    ]
   },
   {
@@ -4891,9 +4902,16 @@
     "model/experiments/material_inertia/pair_spectrum/native_source_probe/regional_census/results.json",
     "model/experiments/material_inertia/pair_spectrum/native_source_probe/count_readback/results.json",
     "model/experiments/material_inertia/pair_spectrum/sum_rule_inertia/PROOF.md",
-    "model/experiments/material_inertia/pair_spectrum/sum_rule_inertia/results.json"
+    "model/experiments/material_inertia/pair_spectrum/sum_rule_inertia/results.json",
+    "model/experiments/material_inertia/pair_spectrum/remote_charge/README.md",
+    "model/experiments/material_inertia/pair_spectrum/remote_charge/measure.py",
+    "model/experiments/material_inertia/pair_spectrum/remote_charge/geometry.py",
+    "model/experiments/material_inertia/pair_spectrum/remote_charge/results.json",
+    "model/experiments/material_inertia/pair_spectrum/remote_charge/test_remote.py"
    ],
-   "papers": []
+   "papers": [
+    "paper/executable_observer_construction.pdf"
+   ]
   },
   {
    "id": "ow-20-electric-force",
@@ -5190,7 +5208,12 @@
     "model/candidate_laws/interval_echo/openwave/row_30_collective/fork/scalar.json",
     "model/candidate_laws/interval_echo/openwave/row_30_collective/packet_speed/results.json",
     "model/experiments/interval_echo_ow30_dispersion_audit/PROTOCOL.md",
-    "model/experiments/interval_echo_ow30_dispersion_audit/results.json"
+    "model/experiments/interval_echo_ow30_dispersion_audit/results.json",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/impulse/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/impulse/measure.py",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/impulse/results.json",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/impulse/counts.npz",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/impulse/test_impulse.py"
    ],
    "papers": [
     "paper/executable_observer_construction.pdf"
@@ -5558,7 +5581,7 @@
    "kind": "premise",
    "name": "equal-face-weight and barycentric one-third port-dual rules",
    "category": "Construction choices",
-   "status": "Open",
+   "status": "Demonstrated",
    "what": "Each of the twenty faces of the carrier gets equal weight, and each face shares its weight equally among its three ports.",
    "why": "The resulting measure gives every port weight one twelfth and defines the metric OPH uses to classify the gauge symmetry type.",
    "premises": [],
@@ -5566,9 +5589,15 @@
     "Lean/Screen/PrimitivePortDualMeasure.lean"
    ],
    "model": [
-    "code/b14_jacobi/port_dual_metric_selector.certificate.json"
+    "code/b14_jacobi/port_dual_metric_selector.certificate.json",
+    "model/experiments/interval_echo_gauge/flag_measure/README.md",
+    "model/experiments/interval_echo_gauge/flag_measure/measure.py",
+    "model/experiments/interval_echo_gauge/flag_measure/records.json",
+    "model/experiments/interval_echo_gauge/flag_measure/test_flags.py"
    ],
-   "papers": [],
+   "papers": [
+    "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf"
+   ],
    "statement": "The port-dual measure places equal normalized weights on the twenty faces of the oriented carrier and shares each face weight one third to each incident port, giving port weight 1/12.",
    "premise_kind": "declared"
   },
@@ -5577,7 +5606,7 @@
    "kind": "premise",
    "name": "port-weight metric and nearest compact-family verdict",
    "category": "Construction choices",
-   "status": "Open",
+   "status": "Demonstrated",
    "what": "The port weights define an inner product on port functions, and the classification verdict is the nearest compact Lie family in that metric.",
    "why": "These rules turn the carrier's bracket into a definite gauge-algebra classification even when it matches no compact type exactly.",
    "premises": [],
@@ -5585,9 +5614,15 @@
     "Lean/Screen/PortDualMetricSelection.lean"
    ],
    "model": [
-    "code/b14_jacobi/port_dual_metric_selector.certificate.json"
+    "code/b14_jacobi/port_dual_metric_selector.certificate.json",
+    "model/experiments/interval_echo_gauge/flag_measure/README.md",
+    "model/experiments/interval_echo_gauge/flag_measure/measure.py",
+    "model/experiments/interval_echo_gauge/flag_measure/records.json",
+    "model/experiments/interval_echo_gauge/flag_measure/test_flags.py"
    ],
-   "papers": [],
+   "papers": [
+    "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf"
+   ],
    "statement": "The normalized port-dual measure is read as the diagonal carrier inner product on port functions, and the discriminator verdict is the nearest classified compact family in the induced bracket-space metric.",
    "premise_kind": "declared"
   },
