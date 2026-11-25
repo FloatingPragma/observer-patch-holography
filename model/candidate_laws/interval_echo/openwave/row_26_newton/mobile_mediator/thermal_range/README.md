@@ -1,6 +1,6 @@
 # Temperature and range of the neutral-dipole interaction
 
-Two independently randomized neutral dipoles lower the first-order mobile free energy at every finite inverse temperature \(\beta>0\) whenever a native mobile can visit both. The strength decays at least exponentially in their mobile hop separation, uniformly in temperature on the degree-five/six boards. The attractive part obeys the same range bound at finite activity when the fair internal states equilibrate before taking the logarithm. This rules out a nonzero Newton tail from this particular mediator and ensemble in graph distance. [Four-arm preparation and interferometric spectrum](../PROTOCOL.md) · [Native one-mobile Hamiltonian](../measure.py)
+Two independently randomized neutral dipoles lower the first-order mobile free energy at every finite inverse temperature \(\beta>0\) whenever a native mobile can visit both. The strength decays at least exponentially in their mobile hop separation, uniformly in temperature on the degree-five/six boards. The attractive part obeys the same range bound at finite activity when the fair internal states equilibrate before taking the logarithm. On the spherical midpoint family the entire connected energy is smaller than inverse cell distance asymptotically, including the positive contribution from competition for the mobile. A fixed activity and an arbitrary temperature schedule therefore cannot produce a nonzero Newton tail through this mediator. [Four-arm preparation and interferometric spectrum](../PROTOCOL.md) · [Native one-mobile Hamiltonian](../measure.py)
 
 ## Signed response at every temperature
 
@@ -44,6 +44,26 @@ Let \(Z_0=\overline{Z_{00}}\), \(a=\overline{Z_{10}}-Z_0\), \(b_1=\overline{Z_{0
  {(1+z\overline Z_{10})(1+z\overline Z_{01})}.
 \]
 Since the denominator is at least \((1+zZ_0)^2\), the attractive part satisfies \(\max(0,-\Omega)\le zc/[\beta(1+zZ_0)]\le zc/\beta\). Thus the exponential range bound extends to every fixed \(z>0\) for this prescription. The term \(-zab_1\) records competition for the single mobile slot.
+
+### The reference at infinite separation
+
+The positive competition energy also decays on the specified ensemble. Invert the partition ratio. Its denominator is \((1+zZ_0)(1+z\overline Z_{11})\ge(1+zZ_0)^2\). Dropping the negative term in its numerator and using \(\log(1+x)\le x\) gives
+\[
+ \max(0,\Omega)\le \frac{z^2ab_1}{\beta(1+zZ_0)^2}.
+\]
+For either single-source increment, the trace derivative bound gives \(a,b_1\le \beta sM e^{-(b-\gamma)\beta}\). At fixed \(\beta\), the no-hop contribution \(Z_0\ge n e^{-133\beta/2}\), with \(n\) available sites, yields a positive energy at most a constant times \(n^{-2}\).
+
+For fair mobile charge the bound can be made uniform over all temperatures. Each twelve-port cell has three external gateways and nine degree-five sites before pinning. Deleting the four pins leaves at least \(n/2\) degree-five mobile sites. Half the charge weight is a vacancy. A vacancy waiting at one such site contributes \(e^{-69\beta/2}\) to its heat trace. Consequently \(Z_0\ge (n/4)e^{-69\beta/2}\). Put \(x=(zn/4)e^{-69\beta/2}\); \(1+x\ge x^{2/5}\) for all \(x>0\). Then
+\[
+ \max(0,\Omega)\le (sM)^2 4^{4/5}z^{6/5} n^{-4/5}\,\beta e^{-7\beta/5}.
+\]
+The supremum of the last temperature factor is \(5/(7e)\). On the spherical midpoint family the number of available sites is \(n=240m^2-4\) at subdivision frequency \(m\). The greatest cell distance from a chosen corner is at most \(6m\). Hence every cell separation satisfies \(R\le12m\). Combining the two signs gives
+\[
+ \lim_{R\to\infty} R\,\sup_{\beta>0}|\Omega(R,z,\beta)|=0
+\]
+for each fixed positive activity on this family. This supplies the infinite-separation reference for the full connected energy. No additive constant permits a nonzero \(1/R\) coefficient. The comparison concerns the same four source arms and excludes the proposed Newton tail even if the temperature varies across the distance comparisons. [Native port incidences](../../../../../../executable_model/refinement.py) · [Midpoint volume and radius proof](../../../../../../experiments/interval_echo_einstein_station/collar_scaling/station_clock/README.md)
+
+### Finite activity crossover
 
 At \(\beta=1/8\), a constant path at any affected site gives \(a,b_1\ge e^{-133/16}(e^{3/32}-1)>3/160000\). The single-coupling derivative is bounded above in magnitude by \(\beta s M\) since \(\|K_\beta\|\le e^{-(b-\gamma)\beta}<1\). Thus \(a,b_1\le51/2\) and \(0<Z_0\le236\) on the measured board. In all four cases these bounds and the archived heat intervals imply \(ab_1>Z_0c\). There is exactly one sign change, at \(z=c/(ab_1-Z_0c)\). The table gives the connected energy signs determined by outward enclosures.
 

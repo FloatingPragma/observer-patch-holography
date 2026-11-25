@@ -65,3 +65,18 @@ def test_fair_path_average_and_grand_sign_against_direct_partition_functions():
             energy = -(direct[1, 1] + direct[0, 0] - direct[1, 0] - direct[0, 1]) / beta
             assert (energy < 0) == (factor < 1)
             assert max(0, -energy) <= z * c / beta
+            assert max(0, energy) <= z**2 * a * b / (beta * (1 + z * z0)**2)
+
+
+def test_vacancy_density_and_uniform_competition_exponent():
+    for level in (0, 1, 2):
+        board = measure.federation(level)
+        m = 2**level
+        assert board.n == 240 * m**2
+        assert np.count_nonzero(board.degree == 5) == 9 * board.cells
+        assert 2 * (9 * board.cells - 4) >= board.n - 4
+        # A shortest cell path to either endpoint via home costs at most 12m.
+        assert board.n - 4 >= (12 * m)**2
+    gap = bounds.DIAGONAL_FLOOR - bounds.HOP_ROW_BOUND
+    wait_energy = Fraction(69, 2)
+    assert 2 * gap - Fraction(4, 5) * wait_energy == Fraction(7, 5)
