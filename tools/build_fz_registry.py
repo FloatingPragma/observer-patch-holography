@@ -7,9 +7,9 @@ page differs from the render, and the mandatory suite runs that check.
 
 Fail-closed rules: frozen rows carry a parseable, non-future UTC freeze time,
 custody, a typed attestation state, content hash, kill band, and comparison
-protocol. Historical owner numbers remain unchanged as scientific provenance.
-Pending rows carry a milestone and no owning issue; their open work is tracked
-in docs/registers/OBSERVABLES.json. Retrospective results occupy a separate collection;
+protocol. Owner numbers in the register are registration-time provenance and
+remain unchanged; pending rows carry a milestone, and open work is tracked in
+docs/registers/OBSERVABLES.json. Retrospective results occupy a separate collection;
 their former reservations cannot also occur as ladder rows. The issue-506
 record is checked against a fresh replay of its canonical producer as well as
 its recomputed payload digest. Committed custody contracts bind the source-side
@@ -2061,11 +2061,6 @@ def validate(register: dict) -> list[dict]:
                     fail(f"{where}: a frozen row requires {key}")
             parse_utc(row["frozen_utc"], f"{where}.frozen_utc")
         elif row["status"] == "registered_pending_freeze":
-            if owning_issue is not None:
-                fail(
-                    f"{where}: a pending row carries no owning issue; its open work"
-                    f" is tracked in {OPEN_WORK_REGISTER}"
-                )
             if not isinstance(row["milestone"], str) or not row["milestone"].strip():
                 fail(f"{where}: a pending row requires a milestone")
         elif row["status"] == "resource_deferred":
@@ -2132,10 +2127,10 @@ def validate(register: dict) -> list[dict]:
     fz05 = rows_by_id.get("FZ-05", {})
     if (
         fz05.get("status") != "registered_pending_freeze"
+        or "No kill band is active" not in fz05.get("kill_band", "")
         or "source-complete direct-capacity result" not in fz05.get("kill_band", "")
-        or "common physical tower and horizon-record attachment"
-        not in fz05.get("kill_band", "")
-        or "preregistered scientific comparison contract" not in fz05.get("kill_band", "")
+        or "horizon-record attachment" not in fz05.get("kill_band", "")
+        or "scientific comparison contract" not in fz05.get("kill_band", "")
         or "Einstein/de Sitter tower" not in fz05.get("content", "")
         or "retrospective" not in fz05.get("comparison_protocol", "").lower()
         or "retrospective" not in fz05.get("kill_band", "").lower()
@@ -3138,9 +3133,9 @@ def render(register: dict, rows: list[dict], bitcoin_upgrades: dict | None = Non
         "Owner numbers and issue references inside immutable frozen content"
         " record the ownership in force when the row was registered and are"
         " explicitly historical; words such as `current` inside those immutable"
-        " bytes also describe the registration-time state. Pending rows carry"
-        " no owning issue; their open work is tracked in"
-        f" `{OPEN_WORK_REGISTER}`."
+        " bytes also describe the registration-time state. Owner numbers in"
+        " pending rows are registration-time history as well; open work is"
+        f" tracked in `{OPEN_WORK_REGISTER}`."
     )
     lines.append("")
     lines.append("</details>")
@@ -3203,10 +3198,13 @@ def render(register: dict, rows: list[dict], bitcoin_upgrades: dict | None = Non
     lines.append("## Registered records")
     lines.append("")
     for row in active_rows:
-        if row["status"] == "registered_pending_freeze":
-            owner = f"none; milestone {row['milestone']}"
-        elif row["owning_issue"] is None:
+        if row["owning_issue"] is None:
             owner = row["milestone"]
+        elif row["status"] == "registered_pending_freeze":
+            owner = (
+                f"historical issue #{row['owning_issue']};"
+                f" milestone {row['milestone']}"
+            )
         else:
             owner = (
                 f"historical issue #{row['owning_issue']};"
@@ -3527,9 +3525,8 @@ def render(register: dict, rows: list[dict], bitcoin_upgrades: dict | None = Non
         "Pending rows freeze at their milestones, before their comparison data"
     )
     lines.append(
-        "is examined; validation requires each pending row to carry a milestone"
-        " and no owning issue. Their open work is tracked in"
-        f" `{OPEN_WORK_REGISTER}`."
+        "is examined; validation requires each pending row to carry a milestone."
+        f" Their open work is tracked in `{OPEN_WORK_REGISTER}`."
     )
     lines.append(
         "Issue numbers in frozen rows are registration-time history."

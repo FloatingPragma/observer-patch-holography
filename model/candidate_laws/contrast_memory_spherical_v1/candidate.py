@@ -75,7 +75,7 @@ def represent(rotation, car):
     return P
 
 
-# Evidence for the premise rows of docs/registers/OBSERVABLES.json. Unlisted premises are open.
+# Evidence for the premises of the premise register (tracking/premise_register.json). Unlisted premises are open.
 PREMISES = {
     'PR-43': {'status': 'fulfilled',
               'evidence': ['SPEC.md', 'law.py'],
