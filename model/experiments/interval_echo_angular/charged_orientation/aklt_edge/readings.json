@@ -1,0 +1,435 @@
+{
+  "starts_per_bank": 4194304,
+  "seed": 948473,
+  "clock_seed": 948474,
+  "clock_delays": 268435456,
+  "clock_tick": 0.03125,
+  "chains": [
+    {
+      "material": {
+        "ports": [
+          0,
+          1,
+          82
+        ],
+        "shutters": 13,
+        "private_erasures": 1
+      },
+      "length": 3,
+      "registered_blank": {
+        "ground_dimension": 3,
+        "ground_admission": 0.1111111111111111,
+        "preparation_refused": 3726264,
+        "endpoint_bank": {
+          "bright": 0.33333333333333326,
+          "dark": 1.1702857880004486e-34,
+          "other": 0.6666666666666667,
+          "counts": [
+            156026,
+            0,
+            312014
+          ]
+        },
+        "finite_clock": {
+          "admission": 0.11111111111111124,
+          "refused": 3728133,
+          "excited_fraction": 1.188489964169528e-15,
+          "endpoint_bank": {
+            "bright": 0.3333333333333331,
+            "dark": 6.456433683388169e-18,
+            "other": 0.666666666666667,
+            "counts": [
+              155423,
+              0,
+              310748
+            ]
+          }
+        },
+        "-1": {
+          "clock_target": 8.44157801509648,
+          "clock_admission": 0.33333333333887083,
+          "clock_excited_fraction": 1.6612673454819243e-11,
+          "clock_left_probability": 0.4966100126040003,
+          "clock_refusals": 2796884,
+          "clock_arrivals": 695174,
+          "clock_other": 702246,
+          "lowest_energy": 8.44157801509648,
+          "second_energy": 8.5,
+          "orbital_split": 0.058421984903519686,
+          "same_end_arrival_rank": 1,
+          "left_arrival_probability": 0.4966100126039441,
+          "arrivals": 2083901,
+          "other_positions": 2110403
+        },
+        "1": {
+          "clock_target": 8.44157801509648,
+          "clock_admission": 0.33333333333887083,
+          "clock_excited_fraction": 1.6612673454819243e-11,
+          "clock_left_probability": 0.4966100126040003,
+          "clock_refusals": 2796657,
+          "clock_arrivals": 694414,
+          "clock_other": 703233,
+          "lowest_energy": 8.44157801509648,
+          "second_energy": 8.5,
+          "orbital_split": 0.058421984903519686,
+          "same_end_arrival_rank": 1,
+          "left_arrival_probability": 0.4966100126039441,
+          "arrivals": 2081723,
+          "other_positions": 2112581
+        }
+      },
+      "AKLT": {
+        "ground_dimension": 4,
+        "ground_admission": 0.14814814814814814,
+        "preparation_refused": 3571743,
+        "endpoint_bank": {
+          "bright": 1.922274237870855e-33,
+          "dark": 0.2261904761904762,
+          "other": 0.7738095238095238,
+          "counts": [
+            0,
+            141218,
+            481343
+          ]
+        },
+        "finite_clock": {
+          "admission": 0.14814814814817637,
+          "refused": 3571826,
+          "excited_fraction": 1.9059704300319725e-13,
+          "endpoint_bank": {
+            "bright": 1.4707255995588958e-14,
+            "dark": 0.22619047619046684,
+            "other": 0.7738095238095185,
+            "counts": [
+              0,
+              141302,
+              481176
+            ]
+          }
+        },
+        "edge_commutator": -0.9999999999999991
+      }
+    },
+    {
+      "material": {
+        "ports": [
+          0,
+          1,
+          82,
+          72
+        ],
+        "shutters": 17,
+        "private_erasures": 1
+      },
+      "length": 4,
+      "registered_blank": {
+        "ground_dimension": 3,
+        "ground_admission": 0.037037037037037035,
+        "preparation_refused": 4038455,
+        "endpoint_bank": {
+          "bright": 0.33333333333333337,
+          "dark": 3.966428180814647e-32,
+          "other": 0.6666666666666666,
+          "counts": [
+            51898,
+            0,
+            103951
+          ]
+        },
+        "finite_clock": {
+          "admission": 0.0370370370370371,
+          "refused": 4038743,
+          "excited_fraction": 2.339092733768715e-15,
+          "endpoint_bank": {
+            "bright": 0.3333333333333331,
+            "dark": 3.4033274797763406e-17,
+            "other": 0.666666666666667,
+            "counts": [
+              52126,
+              0,
+              103435
+            ]
+          }
+        },
+        "-1": {
+          "clock_target": 8.468871125850727,
+          "clock_admission": 0.2500000005220038,
+          "clock_excited_fraction": 2.0880151172941344e-09,
+          "clock_left_probability": 0.4980694691797399,
+          "clock_refusals": 3145597,
+          "clock_arrivals": 522450,
+          "clock_other": 526257,
+          "lowest_energy": 8.468871125850727,
+          "second_energy": 8.472307430931293,
+          "orbital_split": 0.0034363050805659157,
+          "same_end_arrival_rank": 1,
+          "left_arrival_probability": 0.4980694691789018,
+          "arrivals": 2089963,
+          "other_positions": 2104341
+        },
+        "1": {
+          "clock_target": 8.468871125850727,
+          "clock_admission": 0.2500000005220038,
+          "clock_excited_fraction": 2.0880151172941344e-09,
+          "clock_left_probability": 0.4980694691797399,
+          "clock_refusals": 3144612,
+          "clock_arrivals": 522622,
+          "clock_other": 527070,
+          "lowest_energy": 8.468871125850727,
+          "second_energy": 8.472307430931293,
+          "orbital_split": 0.0034363050805659157,
+          "same_end_arrival_rank": 1,
+          "left_arrival_probability": 0.4980694691789018,
+          "arrivals": 2088560,
+          "other_positions": 2105744
+        }
+      },
+      "AKLT": {
+        "ground_dimension": 4,
+        "ground_admission": 0.04938271604938271,
+        "preparation_refused": 3987169,
+        "endpoint_bank": {
+          "bright": 2.991896778095861e-32,
+          "dark": 0.22261904761904752,
+          "other": 0.7773809523809525,
+          "counts": [
+            0,
+            46203,
+            160932
+          ]
+        },
+        "finite_clock": {
+          "admission": 0.049382716049401,
+          "refused": 3986739,
+          "excited_fraction": 3.7027257767185247e-13,
+          "endpoint_bank": {
+            "bright": 2.3779841272562125e-14,
+            "dark": 0.22261904761903245,
+            "other": 0.7773809523809438,
+            "counts": [
+              0,
+              46184,
+              161381
+            ]
+          }
+        },
+        "edge_commutator": -0.9999999999999996
+      }
+    },
+    {
+      "material": {
+        "ports": [
+          0,
+          1,
+          82,
+          72,
+          182
+        ],
+        "shutters": 21,
+        "private_erasures": 1
+      },
+      "length": 5,
+      "registered_blank": {
+        "ground_dimension": 3,
+        "ground_admission": 0.012345679012345678,
+        "preparation_refused": 4142697,
+        "endpoint_bank": {
+          "bright": 0.3333333333333332,
+          "dark": 4.7831303288138236e-32,
+          "other": 0.6666666666666667,
+          "counts": [
+            17105,
+            0,
+            34502
+          ]
+        },
+        "finite_clock": {
+          "admission": 0.012345679012345727,
+          "refused": 4142451,
+          "excited_fraction": 4.115443667216089e-15,
+          "endpoint_bank": {
+            "bright": 0.3333333333333323,
+            "dark": 1.0523422833834314e-16,
+            "other": 0.6666666666666675,
+            "counts": [
+              17243,
+              0,
+              34610
+            ]
+          }
+        },
+        "-1": {
+          "clock_target": 8.470487172374614,
+          "clock_admission": 0.2000000447010001,
+          "clock_excited_fraction": 2.2350495054994902e-07,
+          "clock_left_probability": 0.4982521452664147,
+          "clock_refusals": 3356523,
+          "clock_arrivals": 417262,
+          "clock_other": 420519,
+          "lowest_energy": 8.470487172374614,
+          "second_energy": 8.470689307844077,
+          "orbital_split": 0.0002021354694630162,
+          "same_end_arrival_rank": 1,
+          "left_arrival_probability": 0.4982521452584797,
+          "arrivals": 2088932,
+          "other_positions": 2105372
+        },
+        "1": {
+          "clock_target": 8.470487172374614,
+          "clock_admission": 0.2000000447010001,
+          "clock_excited_fraction": 2.2350495054994902e-07,
+          "clock_left_probability": 0.4982521452664147,
+          "clock_refusals": 3355194,
+          "clock_arrivals": 418021,
+          "clock_other": 421089,
+          "lowest_energy": 8.470487172374614,
+          "second_energy": 8.470689307844077,
+          "orbital_split": 0.0002021354694630162,
+          "same_end_arrival_rank": 1,
+          "left_arrival_probability": 0.4982521452584797,
+          "arrivals": 2090588,
+          "other_positions": 2103716
+        }
+      },
+      "AKLT": {
+        "ground_dimension": 4,
+        "ground_admission": 0.01646090534979424,
+        "preparation_refused": 4124983,
+        "endpoint_bank": {
+          "bright": 8.796358730355127e-32,
+          "dark": 0.22226775956284162,
+          "other": 0.7777322404371584,
+          "counts": [
+            0,
+            15501,
+            53820
+          ]
+        },
+        "finite_clock": {
+          "admission": 0.01646090534980766,
+          "refused": 4124988,
+          "excited_fraction": 8.154065781334654e-13,
+          "endpoint_bank": {
+            "bright": 3.786921534237816e-14,
+            "dark": 0.22226775956281708,
+            "other": 0.7777322404371451,
+            "counts": [
+              0,
+              15124,
+              54192
+            ]
+          }
+        },
+        "edge_commutator": -0.9999999999999991
+      }
+    },
+    {
+      "material": {
+        "ports": [
+          0,
+          1,
+          82,
+          72,
+          182,
+          183
+        ],
+        "shutters": 24,
+        "private_erasures": 2
+      },
+      "length": 6,
+      "registered_blank": {
+        "ground_dimension": 3,
+        "ground_admission": 0.00411522633744856,
+        "preparation_refused": 4176991,
+        "endpoint_bank": {
+          "bright": 0.33333333333333354,
+          "dark": 2.472442183994042e-32,
+          "other": 0.6666666666666665,
+          "counts": [
+            5793,
+            0,
+            11520
+          ]
+        },
+        "finite_clock": {
+          "admission": 0.0041152263374485895,
+          "refused": 4177202,
+          "excited_fraction": 7.140766681653422e-15,
+          "endpoint_bank": {
+            "bright": 0.3333333333333319,
+            "dark": 2.7638737331872883e-16,
+            "other": 0.6666666666666679,
+            "counts": [
+              5762,
+              0,
+              11340
+            ]
+          }
+        },
+        "-1": {
+          "clock_target": 8.470582290154107,
+          "clock_admission": 0.16667653510870914,
+          "clock_excited_fraction": 5.920714656113043e-05,
+          "clock_left_probability": 0.498268502370256,
+          "clock_refusals": 3494794,
+          "clock_arrivals": 348378,
+          "clock_other": 351132,
+          "lowest_energy": 8.470582290154107,
+          "second_energy": 8.470594180475798,
+          "orbital_split": 1.189032169079951e-05,
+          "same_end_arrival_rank": 1,
+          "left_arrival_probability": 0.4982685022051876,
+          "arrivals": 2089281,
+          "other_positions": 2105023
+        },
+        "1": {
+          "clock_target": 8.470582290154107,
+          "clock_admission": 0.16667653510870914,
+          "clock_excited_fraction": 5.920714656113043e-05,
+          "clock_left_probability": 0.498268502370256,
+          "clock_refusals": 3495712,
+          "clock_arrivals": 347991,
+          "clock_other": 350601,
+          "lowest_energy": 8.470582290154107,
+          "second_energy": 8.470594180475798,
+          "orbital_split": 1.189032169079951e-05,
+          "same_end_arrival_rank": 1,
+          "left_arrival_probability": 0.4982685022051876,
+          "arrivals": 2091009,
+          "other_positions": 2103295
+        }
+      },
+      "AKLT": {
+        "ground_dimension": 4,
+        "ground_admission": 0.0054869684499314125,
+        "preparation_refused": 4171513,
+        "endpoint_bank": {
+          "bright": 4.289534246367025e-31,
+          "dark": 0.22222722632558706,
+          "other": 0.7777727736744129,
+          "counts": [
+            0,
+            5224,
+            17567
+          ]
+        },
+        "finite_clock": {
+          "admission": 0.005486968449941293,
+          "refused": 4171274,
+          "excited_fraction": 1.8008663043322174e-12,
+          "endpoint_bank": {
+            "bright": 8.220152164406445e-14,
+            "dark": 0.22222722632553776,
+            "other": 0.77777277367438,
+            "counts": [
+              0,
+              5189,
+              17841
+            ]
+          }
+        },
+        "edge_commutator": -0.9999999999999987
+      }
+    }
+  ]
+}
