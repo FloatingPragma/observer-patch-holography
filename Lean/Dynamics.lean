@@ -1,5 +1,6 @@
 import Dynamics.ProtectedCharge
 import Dynamics.WrittenHeadWinding
+import Dynamics.CyclicEnergy
 import Dynamics.ChargeConjugation
 import Dynamics.WardLimitManifest
 import Dynamics.ConditionalExpectationGenerator

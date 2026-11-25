@@ -34,4 +34,4 @@ OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 python -m mode
 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 python -m pytest -q model/candidate_laws/interval_echo/openwave/row_11_spectrum/dispersion_search
 ```
 
-[Finite source and detector derivation](PROOF.md) · [Count banks and predictions](records.json) · [Native apparatus](apparatus.py) · [Measurement](measure.py)
+[Exact spin bound on the same measured band](SPIN_FIBERS.md) · [Finite source and detector derivation](PROOF.md) · [Count banks and predictions](records.json) · [Native apparatus](apparatus.py) · [Measurement](measure.py)

@@ -1,0 +1,709 @@
+{
+  "registered_law": "Interval Echo",
+  "formation_source": "dispersion_search/records.json",
+  "sign_independent_commuting_centralizer": true,
+  "fixtures": [
+    {
+      "length": 96,
+      "charge": -1,
+      "actual_detector_ports": [
+        1832,
+        2078
+      ],
+      "cyclicity": {
+        "ports": 96,
+        "nonzero_integer_subdiagonals": 95,
+        "diagonal_entries_nonzero": 96,
+        "span_dimension": 96,
+        "endpoint_columns_sha256": "afa24195de99b2c224f9b59317c064625bcd3373eacd8d45f3a4107e466858bc",
+        "maximum_exact_eigenvalue_multiplicity": 1
+      },
+      "aperture_certificate": {
+        "prime": 65537,
+        "gcd_degrees": [
+          0,
+          0
+        ],
+        "nonzero_weight_every_finite_pole": true
+      },
+      "pole_readouts": [
+        {
+          "mode": 2,
+          "energy": 0.034425798144335745,
+          "actual_receiver_weights": [
+            0.017043608099613035,
+            0.01704321856667433
+          ],
+          "source_receiver_singular_values": [
+            0.13055062954564442,
+            0
+          ],
+          "exact_receiver_dimension": 1
+        },
+        {
+          "mode": 3,
+          "energy": 0.03443277338281123,
+          "actual_receiver_weights": [
+            0.045152530986848995,
+            0.045152125957930396
+          ],
+          "source_receiver_singular_values": [
+            0.06499387811367789,
+            0
+          ],
+          "exact_receiver_dimension": 1
+        },
+        {
+          "mode": 4,
+          "energy": 0.034441285415311315,
+          "actual_receiver_weights": [
+            0.04580159975180328,
+            0.0458019649731059
+          ],
+          "source_receiver_singular_values": [
+            0.06592844601707407,
+            0
+          ],
+          "exact_receiver_dimension": 1
+        },
+        {
+          "mode": 5,
+          "energy": 0.03444808934379824,
+          "actual_receiver_weights": [
+            0.01769268161888567,
+            0.017693062336342425
+          ],
+          "source_receiver_singular_values": [
+            0.13301476444176702,
+            0
+          ],
+          "exact_receiver_dimension": 1
+        }
+      ],
+      "declared_spin_control": {
+        "model": "supplied H tensor identity on spin",
+        "mode": 2,
+        "known_split_control": {
+          "shift": 64,
+          "orbital_norm_bound": 18.0,
+          "individual_fixed_energy_spin_dimension": 1
+        },
+        "half_turn_commutator_sign": -1,
+        "analyzers": [
+          {
+            "index": 24,
+            "success_probability": 0.008521804049806543,
+            "spin_sensitive_singular_values": [
+              0.09231361790010477,
+              0.09231361790010477
+            ],
+            "charge_only_probability_both_spins": 0.008521804049806543,
+            "starts_per_test": 1048576,
+            "simultaneous99_success_lower": 0.008193079013215835,
+            "z_plus_minus_x_plus_minus": [
+              [
+                8916,
+                0,
+                1039660
+              ],
+              [
+                0,
+                8915,
+                1039661
+              ],
+              [
+                8926,
+                0,
+                1039650
+              ],
+              [
+                0,
+                8891,
+                1039685
+              ]
+            ]
+          },
+          {
+            "index": 72,
+            "success_probability": 0.008521609283337192,
+            "spin_sensitive_singular_values": [
+              0.0923125629767541,
+              0.0923125629767541
+            ],
+            "charge_only_probability_both_spins": 0.008521609283337192,
+            "starts_per_test": 1048576,
+            "simultaneous99_success_lower": 0.008205267321398537,
+            "z_plus_minus_x_plus_minus": [
+              [
+                8929,
+                0,
+                1039647
+              ],
+              [
+                0,
+                9010,
+                1039566
+              ],
+              [
+                8904,
+                0,
+                1039672
+              ],
+              [
+                0,
+                9020,
+                1039556
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "length": 144,
+      "charge": -1,
+      "actual_detector_ports": [
+        1832,
+        3686
+      ],
+      "cyclicity": {
+        "ports": 144,
+        "nonzero_integer_subdiagonals": 143,
+        "diagonal_entries_nonzero": 144,
+        "span_dimension": 144,
+        "endpoint_columns_sha256": "0203f066f811f54f08c6e7fdd1f5c4ff6a9e1e91b91bca48e65fb36cb376cb78",
+        "maximum_exact_eigenvalue_multiplicity": 1
+      },
+      "aperture_certificate": {
+        "prime": 65537,
+        "gcd_degrees": [
+          0,
+          0
+        ],
+        "nonzero_weight_every_finite_pole": true
+      },
+      "pole_readouts": [
+        {
+          "mode": 2,
+          "energy": 0.03442417473120028,
+          "actual_receiver_weights": [
+            0.004447774123133024,
+            0.004447658095570929
+          ],
+          "source_receiver_singular_values": [
+            0.06699723372723626,
+            0
+          ],
+          "exact_receiver_dimension": 1
+        },
+        {
+          "mode": 3,
+          "energy": 0.034427195891936505,
+          "actual_receiver_weights": [
+            0.015310382034647851,
+            0.015310074718258371
+          ],
+          "source_receiver_singular_values": [
+            0.021652068756505414,
+            0
+          ],
+          "exact_receiver_dimension": 1
+        },
+        {
+          "mode": 4,
+          "energy": 0.03443169940468038,
+          "actual_receiver_weights": [
+            0.026453105480015546,
+            0.026452811613246377
+          ],
+          "source_receiver_singular_values": [
+            0.03741028413776306,
+            0
+          ],
+          "exact_receiver_dimension": 1
+        },
+        {
+          "mode": 5,
+          "energy": 0.03443698501512831,
+          "actual_receiver_weights": [
+            0.03142578460047838,
+            0.031425766168111414
+          ],
+          "source_receiver_singular_values": [
+            0.044442820701173766,
+            0
+          ],
+          "exact_receiver_dimension": 1
+        },
+        {
+          "mode": 6,
+          "energy": 0.03444224304286163,
+          "actual_receiver_weights": [
+            0.027190886162719273,
+            0.02719115484049553
+          ],
+          "source_receiver_singular_values": [
+            0.03845386379986138,
+            0
+          ],
+          "exact_receiver_dimension": 1
+        },
+        {
+          "mode": 7,
+          "energy": 0.03444667989518965,
+          "actual_receiver_weights": [
+            0.016109043593949875,
+            0.016109345030324452
+          ],
+          "source_receiver_singular_values": [
+            0.022781763426384737,
+            0
+          ],
+          "exact_receiver_dimension": 1
+        },
+        {
+          "mode": 8,
+          "energy": 0.034449634296413914,
+          "actual_receiver_weights": [
+            0.004753444462265057,
+            0.0047535613681037115
+          ],
+          "source_receiver_singular_values": [
+            0.06926203126404058,
+            0
+          ],
+          "exact_receiver_dimension": 1
+        }
+      ],
+      "declared_spin_control": {
+        "model": "supplied H tensor identity on spin",
+        "mode": 2,
+        "known_split_control": {
+          "shift": 64,
+          "orbital_norm_bound": 18.0,
+          "individual_fixed_energy_spin_dimension": 1
+        },
+        "half_turn_commutator_sign": -1,
+        "analyzers": [
+          {
+            "index": 24,
+            "success_probability": 0.0022238870615665122,
+            "spin_sensitive_singular_values": [
+              0.04715810706089158,
+              0.04715810706089158
+            ],
+            "charge_only_probability_both_spins": 0.0022238870615665122,
+            "starts_per_test": 1048576,
+            "simultaneous99_success_lower": 0.00203147199250907,
+            "z_plus_minus_x_plus_minus": [
+              [
+                2281,
+                0,
+                1046295
+              ],
+              [
+                0,
+                2285,
+                1046291
+              ],
+              [
+                2356,
+                0,
+                1046220
+              ],
+              [
+                0,
+                2311,
+                1046265
+              ]
+            ]
+          },
+          {
+            "index": 120,
+            "success_probability": 0.002223829047785465,
+            "spin_sensitive_singular_values": [
+              0.047157491958176326,
+              0.047157491958176326
+            ],
+            "charge_only_probability_both_spins": 0.002223829047785465,
+            "starts_per_test": 1048576,
+            "simultaneous99_success_lower": 0.0020167280432351236,
+            "z_plus_minus_x_plus_minus": [
+              [
+                2369,
+                0,
+                1046207
+              ],
+              [
+                0,
+                2299,
+                1046277
+              ],
+              [
+                2265,
+                0,
+                1046311
+              ],
+              [
+                0,
+                2362,
+                1046214
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "length": 96,
+      "charge": 1,
+      "actual_detector_ports": [
+        1832,
+        2078
+      ],
+      "cyclicity": {
+        "ports": 96,
+        "nonzero_integer_subdiagonals": 95,
+        "diagonal_entries_nonzero": 96,
+        "span_dimension": 96,
+        "endpoint_columns_sha256": "afa24195de99b2c224f9b59317c064625bcd3373eacd8d45f3a4107e466858bc",
+        "maximum_exact_eigenvalue_multiplicity": 1
+      },
+      "aperture_certificate": {
+        "prime": 65537,
+        "gcd_degrees": [
+          0,
+          0
+        ],
+        "nonzero_weight_every_finite_pole": true
+      },
+      "pole_readouts": [
+        {
+          "mode": 2,
+          "energy": 0.034425798144335745,
+          "actual_receiver_weights": [
+            0.017043608099613035,
+            0.01704321856667433
+          ],
+          "source_receiver_singular_values": [
+            0.13055062954564442,
+            0
+          ],
+          "exact_receiver_dimension": 1
+        },
+        {
+          "mode": 3,
+          "energy": 0.03443277338281123,
+          "actual_receiver_weights": [
+            0.045152530986848995,
+            0.045152125957930396
+          ],
+          "source_receiver_singular_values": [
+            0.06499387811367789,
+            0
+          ],
+          "exact_receiver_dimension": 1
+        },
+        {
+          "mode": 4,
+          "energy": 0.034441285415311315,
+          "actual_receiver_weights": [
+            0.04580159975180328,
+            0.0458019649731059
+          ],
+          "source_receiver_singular_values": [
+            0.06592844601707407,
+            0
+          ],
+          "exact_receiver_dimension": 1
+        },
+        {
+          "mode": 5,
+          "energy": 0.03444808934379824,
+          "actual_receiver_weights": [
+            0.01769268161888567,
+            0.017693062336342425
+          ],
+          "source_receiver_singular_values": [
+            0.13301476444176702,
+            0
+          ],
+          "exact_receiver_dimension": 1
+        }
+      ],
+      "declared_spin_control": {
+        "model": "supplied H tensor identity on spin",
+        "mode": 2,
+        "known_split_control": {
+          "shift": 64,
+          "orbital_norm_bound": 18.0,
+          "individual_fixed_energy_spin_dimension": 1
+        },
+        "half_turn_commutator_sign": -1,
+        "analyzers": [
+          {
+            "index": 24,
+            "success_probability": 0.008521804049806543,
+            "spin_sensitive_singular_values": [
+              0.09231361790010477,
+              0.09231361790010477
+            ],
+            "charge_only_probability_both_spins": 0.008521804049806543,
+            "starts_per_test": 1048576,
+            "simultaneous99_success_lower": 0.008100265536918888,
+            "z_plus_minus_x_plus_minus": [
+              [
+                8926,
+                0,
+                1039650
+              ],
+              [
+                0,
+                8792,
+                1039784
+              ],
+              [
+                8858,
+                0,
+                1039718
+              ],
+              [
+                0,
+                9057,
+                1039519
+              ]
+            ]
+          },
+          {
+            "index": 72,
+            "success_probability": 0.008521609283337192,
+            "spin_sensitive_singular_values": [
+              0.0923125629767541,
+              0.0923125629767541
+            ],
+            "charge_only_probability_both_spins": 0.008521609283337192,
+            "starts_per_test": 1048576,
+            "simultaneous99_success_lower": 0.008134952325947032,
+            "z_plus_minus_x_plus_minus": [
+              [
+                8848,
+                0,
+                1039728
+              ],
+              [
+                0,
+                8964,
+                1039612
+              ],
+              [
+                8829,
+                0,
+                1039747
+              ],
+              [
+                0,
+                8962,
+                1039614
+              ]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "length": 144,
+      "charge": 1,
+      "actual_detector_ports": [
+        1832,
+        3686
+      ],
+      "cyclicity": {
+        "ports": 144,
+        "nonzero_integer_subdiagonals": 143,
+        "diagonal_entries_nonzero": 144,
+        "span_dimension": 144,
+        "endpoint_columns_sha256": "0203f066f811f54f08c6e7fdd1f5c4ff6a9e1e91b91bca48e65fb36cb376cb78",
+        "maximum_exact_eigenvalue_multiplicity": 1
+      },
+      "aperture_certificate": {
+        "prime": 65537,
+        "gcd_degrees": [
+          0,
+          0
+        ],
+        "nonzero_weight_every_finite_pole": true
+      },
+      "pole_readouts": [
+        {
+          "mode": 2,
+          "energy": 0.03442417473120028,
+          "actual_receiver_weights": [
+            0.004447774123133024,
+            0.004447658095570929
+          ],
+          "source_receiver_singular_values": [
+            0.06699723372723626,
+            0
+          ],
+          "exact_receiver_dimension": 1
+        },
+        {
+          "mode": 3,
+          "energy": 0.034427195891936505,
+          "actual_receiver_weights": [
+            0.015310382034647851,
+            0.015310074718258371
+          ],
+          "source_receiver_singular_values": [
+            0.021652068756505414,
+            0
+          ],
+          "exact_receiver_dimension": 1
+        },
+        {
+          "mode": 4,
+          "energy": 0.03443169940468038,
+          "actual_receiver_weights": [
+            0.026453105480015546,
+            0.026452811613246377
+          ],
+          "source_receiver_singular_values": [
+            0.03741028413776306,
+            0
+          ],
+          "exact_receiver_dimension": 1
+        },
+        {
+          "mode": 5,
+          "energy": 0.03443698501512831,
+          "actual_receiver_weights": [
+            0.03142578460047838,
+            0.031425766168111414
+          ],
+          "source_receiver_singular_values": [
+            0.044442820701173766,
+            0
+          ],
+          "exact_receiver_dimension": 1
+        },
+        {
+          "mode": 6,
+          "energy": 0.03444224304286163,
+          "actual_receiver_weights": [
+            0.027190886162719273,
+            0.02719115484049553
+          ],
+          "source_receiver_singular_values": [
+            0.03845386379986138,
+            0
+          ],
+          "exact_receiver_dimension": 1
+        },
+        {
+          "mode": 7,
+          "energy": 0.03444667989518965,
+          "actual_receiver_weights": [
+            0.016109043593949875,
+            0.016109345030324452
+          ],
+          "source_receiver_singular_values": [
+            0.022781763426384737,
+            0
+          ],
+          "exact_receiver_dimension": 1
+        },
+        {
+          "mode": 8,
+          "energy": 0.034449634296413914,
+          "actual_receiver_weights": [
+            0.004753444462265057,
+            0.0047535613681037115
+          ],
+          "source_receiver_singular_values": [
+            0.06926203126404058,
+            0
+          ],
+          "exact_receiver_dimension": 1
+        }
+      ],
+      "declared_spin_control": {
+        "model": "supplied H tensor identity on spin",
+        "mode": 2,
+        "known_split_control": {
+          "shift": 64,
+          "orbital_norm_bound": 18.0,
+          "individual_fixed_energy_spin_dimension": 1
+        },
+        "half_turn_commutator_sign": -1,
+        "analyzers": [
+          {
+            "index": 24,
+            "success_probability": 0.0022238870615665122,
+            "spin_sensitive_singular_values": [
+              0.04715810706089158,
+              0.04715810706089158
+            ],
+            "charge_only_probability_both_spins": 0.0022238870615665122,
+            "starts_per_test": 1048576,
+            "simultaneous99_success_lower": 0.00205727825678847,
+            "z_plus_minus_x_plus_minus": [
+              [
+                2319,
+                0,
+                1046257
+              ],
+              [
+                0,
+                2398,
+                1046178
+              ],
+              [
+                2345,
+                0,
+                1046231
+              ],
+              [
+                0,
+                2309,
+                1046267
+              ]
+            ]
+          },
+          {
+            "index": 120,
+            "success_probability": 0.002223829047785465,
+            "spin_sensitive_singular_values": [
+              0.047157491958176326,
+              0.047157491958176326
+            ],
+            "charge_only_probability_both_spins": 0.002223829047785465,
+            "starts_per_test": 1048576,
+            "simultaneous99_success_lower": 0.002034236685496712,
+            "z_plus_minus_x_plus_minus": [
+              [
+                2284,
+                0,
+                1046292
+              ],
+              [
+                0,
+                2417,
+                1046159
+              ],
+              [
+                2370,
+                0,
+                1046206
+              ],
+              [
+                0,
+                2361,
+                1046215
+              ]
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

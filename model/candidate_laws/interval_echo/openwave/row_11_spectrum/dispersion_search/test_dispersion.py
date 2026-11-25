@@ -85,3 +85,27 @@ def test_replay_disjoint_banks_and_finite_bulk():
         repeated["modes"][-1]["recoil"]["counts"]
         == frozen["modes"][-1]["recoil"]["counts"]
     )
+
+
+def test_exact_charged_energy_fiber_and_spin_controls():
+    from . import spin_fibers
+
+    report = json.loads((measure.HERE / "spin_fibers.json").read_text())
+    actual = spin_fibers.run()
+    for copied, case in zip(report["fixtures"], actual["fixtures"], strict=True):
+        assert copied["cyclicity"] == case["cyclicity"]
+        assert case["cyclicity"]["span_dimension"] == case["length"]
+        assert case["aperture_certificate"]["gcd_degrees"] == [0, 0]
+        assert all(
+            row["exact_receiver_dimension"] == 1
+            and row["source_receiver_singular_values"][1] == 0
+            for row in case["pole_readouts"]
+        )
+        source = case["declared_spin_control"]
+        assert source["half_turn_commutator_sign"] == -1
+        assert (
+            source["known_split_control"]["individual_fixed_energy_spin_dimension"] == 1
+        )
+        for detector in source["analyzers"]:
+            assert min(detector["spin_sensitive_singular_values"]) > 0.04
+            assert detector["simultaneous99_success_lower"] > 0.001
