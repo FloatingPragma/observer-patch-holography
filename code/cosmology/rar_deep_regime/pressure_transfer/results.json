@@ -1,0 +1,100 @@
+{
+  "Color": {
+    "difference_at_centers": {
+      "envelope_high_minus_low": 0.5864229626804656,
+      "statistical_se": 0.12069706986924494,
+      "cross_high_minus_low": -0.01607091040796231,
+      "chisq_identical_profiles": 27.148354383759976,
+      "identical_profiles_residual_dimension": 6,
+      "chisq_after_one_envelope_difference": 3.542023974356779,
+      "envelope_difference_residual_dimension": 5
+    },
+    "independent_within_bin_weighting": {
+      "sqrt_edge_ratio": 1.328308648001752,
+      "high_minus_k_low_minus_upper_bound": 0.21823431980161476,
+      "statistical_se": 0.1442574017442241,
+      "excess_in_statistical_se": 1.5128119400663793,
+      "weights": [
+        0.02009204246132096,
+        0.015353315052878264,
+        0.011700180002462736,
+        0.008930046940811112,
+        0.006815999313769149,
+        0.005162181928631869
+      ]
+    },
+    "minimum_joint_within_bin_chisq": {
+      "frozen": {
+        "envelope_relative_to_sparc": 1.0,
+        "distance_upper": 16.806878743984498,
+        "distance_lower": 16.806878743984484
+      },
+      "any_nonnegative_envelope": {
+        "envelope_relative_to_sparc": 1.1658952073904325,
+        "distance_upper": 11.299916998351538,
+        "distance_lower": 11.299916998349188
+      }
+    },
+    "fixed_core_single_stack_diagnostics": {
+      "low": {
+        "envelope_relative_to_sparc": 0.8271789005667767,
+        "statistical_se": 0.09048568898879707,
+        "residual_chisq": 9.195675963606561
+      },
+      "high": {
+        "envelope_relative_to_sparc": 1.4131101986958159,
+        "statistical_se": 0.08018453829549378,
+        "residual_chisq": 3.347625602054002
+      }
+    }
+  },
+  "Sersic": {
+    "difference_at_centers": {
+      "envelope_high_minus_low": 0.46659827364815465,
+      "statistical_se": 0.12159384636154091,
+      "cross_high_minus_low": -0.06766674218295349,
+      "chisq_identical_profiles": 17.726651149637867,
+      "identical_profiles_residual_dimension": 6,
+      "chisq_after_one_envelope_difference": 3.001388091477282,
+      "envelope_difference_residual_dimension": 5
+    },
+    "independent_within_bin_weighting": {
+      "sqrt_edge_ratio": 1.328308648001752,
+      "high_minus_k_low_minus_upper_bound": 0.0722538254988852,
+      "statistical_se": 0.14475378995996835,
+      "excess_in_statistical_se": 0.49914980132034537,
+      "weights": [
+        0.01992651305519668,
+        0.01526016507522746,
+        0.011699283924086817,
+        0.008973528002681657,
+        0.006829173626758225,
+        0.005197953903647522
+      ]
+    },
+    "minimum_joint_within_bin_chisq": {
+      "frozen": {
+        "envelope_relative_to_sparc": 1.0,
+        "distance_upper": 16.242358854223433,
+        "distance_lower": 16.242358854223394
+      },
+      "any_nonnegative_envelope": {
+        "envelope_relative_to_sparc": 1.2364273850573095,
+        "distance_upper": 9.026344318568471,
+        "distance_lower": 9.026344318565972
+      }
+    },
+    "fixed_core_single_stack_diagnostics": {
+      "low": {
+        "envelope_relative_to_sparc": 0.9063329104807414,
+        "statistical_se": 0.08998869919768623,
+        "residual_chisq": 4.435637785249556
+      },
+      "high": {
+        "envelope_relative_to_sparc": 1.3718519196577845,
+        "statistical_se": 0.08217326025824366,
+        "residual_chisq": 8.711215021345998
+      }
+    }
+  }
+}
