@@ -52,6 +52,10 @@ axes. [Selected trimers, transport audit and phase controls](mobile_core_exchang
 
 A guarded vacancy exits a balanced interferometer at the dark port in 99.816% of trials when its local scalar exposures enclose a three-port orbital degeneracy. A displaced loop reduces that fraction to 0.194%. The same preparation gives bright interference in every trial under a full material turn and opposite orders of perpendicular half-turns. An excess also resolves the orbital sign. [Complete counts, native pulses and mirror proof](conical_cycle/README.md)
 
+## A charged orbital in a magnetic flux
+
+On a guarded twelve-port cell a supplied uniform magnetic flux of one quantum gives the vacancy a two-dimensional lowest band. All fifteen pairs of field-preserving perpendicular rotations give a negative order sign. Bare turns and exchange of two identically framed doublets give positive signs. The magnetic representation contains one copy each of its two-, four- and six-dimensional constituents. Passive single-defect transport on written seams ties each crossing to a coin change, which makes the fully written spectrum insensitive to a static hopping twist. [Finite series, material measurements and proofs](flux_doublet/README.md)
+
 ## Reproduction
 
 Run from the repository root with the model's NumPy and SciPy environment. Acquire into two fresh files and check the deposited results with the regression suite.
