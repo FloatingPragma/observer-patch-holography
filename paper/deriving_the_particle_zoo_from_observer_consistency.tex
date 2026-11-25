@@ -506,8 +506,15 @@ In \path{model/experiments/interval_echo_angular/charged_orientation},
 \path{conical_cycle}, \path{flux_doublet}, \path{live_trimer/energy},
 \path{paired_flight}, \path{winding_memory}, \path{two_winding_loops},
 \path{winding_exchange}, \path{rest_spin_search}, \path{sector_readout} and \path{three_arm_spin}
-give the angular and energy tests. The head-sector check for all 60 cell rotations is
-in \path{three_arm_spin/rotation_domain.py}.
+give the angular and energy tests. Within \path{three_arm_spin}, the
+subdirectory \path{echo_turn} compiles the addressed spatial turns and
+\path{rotation_domain.py} checks all 60 orientations under flight.
+The signed probe and the count-based channel forecasts are in
+\path{charge_probe}. The fixed-clock geometry controls and current
+measurements are in \path{recoil_search}. The all-line bounds, commutant
+calculation and two-lap identity are in \path{flavor_search}, including
+the Lean lemmas \path{ThreeArmFlavor.lean} and \path{PassiveLoop.lean}.
+The sibling package \path{aklt_edge} checks the blank-chain ground space.
 The formation, recoil and daughter calculations in
 \path{model/candidate_laws/interval_echo/openwave/row_11_spectrum}
 use \path{lightest}, \path{parent_line}, \path{phase_ratios},
