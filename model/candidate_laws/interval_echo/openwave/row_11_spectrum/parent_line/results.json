@@ -1,0 +1,112 @@
+{
+  "cells": 320,
+  "ports": 3840,
+  "seams": 10080,
+  "energy_reference": "blank unit-filled host; native zero-load degree references",
+  "compact_reference": {
+    "twice_energy": 70,
+    "owner": 0,
+    "gateways": [
+      1,
+      3,
+      10
+    ],
+    "local_integer_amplitudes": [
+      0,
+      0,
+      0,
+      0,
+      2,
+      -1,
+      -1,
+      2,
+      -1,
+      0,
+      0,
+      -1
+    ],
+    "rows_verified": 3840
+  },
+  "sharp_vacancy": {
+    "different_load_edges": 5,
+    "external_different_load_edges": 0,
+    "formation_potential": 32,
+    "twice_mean": 69,
+    "four_times_variance": 5
+  },
+  "filled_sham": {
+    "different_load_edges": 0,
+    "external_different_load_edges": 0,
+    "formation_potential": 0,
+    "twice_mean": 0,
+    "four_times_variance": 0
+  },
+  "certified_lightest_interval": [
+    "3259603971/100000000",
+    "3259603973/100000000"
+  ],
+  "trials": {
+    "207": {
+      "occupied_cells": 10,
+      "defects": 119,
+      "different_load_edges": 218,
+      "external_different_load_edges": 17,
+      "formation_potential": 7184,
+      "twice_mean": 14586,
+      "four_times_variance": 218,
+      "raw_second_moment": "106375807/2",
+      "standard_deviation": 7.3824115301167,
+      "width_over_centroid": 0.001012259910889442,
+      "return_probability_second_derivative_at_zero": "-109",
+      "comparison_ratio_six_decimals": "206.770316",
+      "conditional_target": "361848053/50000",
+      "target_minus_mean": "-2801947/50000",
+      "exact_rounded_target_weight_upper": "136250000000/7987156990809",
+      "one_unit_half_width_weight_upper": "136250000000/7709462290809",
+      "ground_target_interval": [
+        "1347978682977445701/200000000000000",
+        "1347978690323734909/200000000000000"
+      ],
+      "ground_target_interval_weight_upper": "2180000000000000000000000000000/12239254154492140652182711305238281",
+      "ground_one_unit_half_width_weight_upper": "2180000000000000000000000000000/12195045630621634615782711305238281",
+      "double_exchange_control": {
+        "different_load_edges": 218,
+        "external_different_load_edges": 17,
+        "formation_potential": 7184,
+        "twice_mean": 14804,
+        "four_times_variance": 872
+      }
+    },
+    "3477": {
+      "occupied_cells": 165,
+      "defects": 1979,
+      "different_load_edges": 3466,
+      "external_different_load_edges": 165,
+      "formation_potential": 118592,
+      "twice_mean": 240650,
+      "four_times_variance": 3466,
+      "raw_second_moment": "28956212983/2",
+      "standard_deviation": 29.436372059070052,
+      "width_over_centroid": 0.00024464053238371124,
+      "return_probability_second_derivative_at_zero": "-1733",
+      "comparison_ratio_six_decimals": "3477.472837",
+      "conditional_target": "24342309859/200000",
+      "target_minus_mean": "277309859/200000",
+      "exact_rounded_target_weight_upper": "34660000000000/76935417898599881",
+      "one_unit_half_width_weight_upper": "34660000000000/76824533954999881",
+      "ground_target_interval": [
+        "22670368533800067483/200000000000000",
+        "906814742169166671/8000000000000"
+      ],
+      "ground_target_interval_weight_upper": "55456000000000000000000000000/3112050447252551255145126577222241",
+      "ground_one_unit_half_width_weight_upper": "55456000000000000000000000000/3111157947127257921881126577222241",
+      "double_exchange_control": {
+        "different_load_edges": 3466,
+        "external_different_load_edges": 165,
+        "formation_potential": 118592,
+        "twice_mean": 244116,
+        "four_times_variance": 13864
+      }
+    }
+  }
+}
