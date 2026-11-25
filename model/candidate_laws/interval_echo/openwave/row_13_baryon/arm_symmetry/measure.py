@@ -83,7 +83,14 @@ def source():
     h = sec.hamiltonian(8, False) + np.diag(count / 2)
     if np.any(sign @ h != h @ sign) or np.any(sign @ sign != 6 * sign):
         raise ValueError("Arm sign is not an exact native symmetry")
-    en, v = np.linalg.eigh(h)
+    # The dyadic certificate, the source rate and its vector bound refer to
+    # one numerical spectral frame. Eigensolvers of different numerical
+    # libraries return different frames, so the deposited frame is certified
+    # against the freshly built half-integral h instead of being recomputed.
+    with np.load(HERE / "spectral_frame.npz", allow_pickle=False) as frame:
+        en, v = frame["energies"], frame["vectors"]
+    if en.shape != (len(h),) or v.shape != h.shape:
+        raise ValueError("Spectral frame dimensions differ from the guarded sector")
     target = abs(en - TARGET) < 1e-7
     if target.sum() != 1:
         raise ValueError("Energy does not resolve the declared line")
@@ -92,6 +99,11 @@ def source():
     cert, delta, proj_err, _ = dyadic_spectral_audit(
         h - 2 * np.eye(220), en - 2, v, target
     )
+    # Exact arithmetic bounds the distance from the deposited frame to an
+    # orthogonal eigenframe of this h identically on every platform. Any
+    # change of the Hamiltonian raises this residual to order one.
+    if delta >= 2e-11:
+        raise ValueError("Deposited spectral frame does not diagonalize the guarded Hamiltonian")
     pos = int(np.flatnonzero(target)[0])
     ideal = v[:, pos]
     sign_weight = float(ideal @ sign @ ideal / 6)

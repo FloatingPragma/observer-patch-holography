@@ -241,7 +241,7 @@ def run():
                 finite_pair_vector_error_upper=2 * summary['finite_to_ideal_vector_upper'],
                 stage_record_scope='Counts use the actual finite source at each endpoint; ideal-line convex interpolation bounds each full contact with the declared finite-source error',
                 contact_calibrations=calibrations, protocols=reports,
-                source_sha256={str(p.relative_to(HERE.parents[4])): hashlib.sha256(p.read_bytes()).hexdigest() for p in (Path(__file__), Path(source.__file__), Path(law.__file__))},
+                source_sha256={str(p.relative_to(HERE.parents[4])): hashlib.sha256(p.read_bytes()).hexdigest() for p in (Path(__file__), Path(source.__file__), Path(source.__file__).with_name('spectral_frame.npz'), Path(law.__file__))},
                 scope='Calibrated guided material transport and ordinary finite spatial representation; no intact free-core exchange or spinor assignment')
 
 

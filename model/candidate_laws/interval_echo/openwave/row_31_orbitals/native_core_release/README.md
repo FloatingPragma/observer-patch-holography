@@ -5,7 +5,7 @@ experiment. A sharp local load and a finite native evolution clock prepare its
 lowest standing state with **96.05% acceptance**, including every refusal.
 The public port records retain **98.14%** of admitted loads on the two core
 endpoints through exposure 64 on both the 20- and 80-cell boards. The
-zero-contrast control on the same admitted input gives **2.75% and 0.88%**
+zero-contrast control on the same admitted input gives **2.76% and 0.87%**
 there at exposure 64. These are finite bound-load observations around an
 addressed stationary memory. They supply no mobile nucleus or hydrogenic
 shell series. [Executable](measure.py) · [Complete receipt](results.json.gz)
@@ -108,13 +108,18 @@ of work-free ionization.
 ## Public records and private diagnostics
 
 Every public spatial bank contains all terminal load ports and source-tag
-refusal. Its source-denominator is 2^22 original starts, seed 317031.
+refusal. Its source-denominator is 2^22 original starts, seed 317031. Each bank is
+drawn from integer weights on the 2^-40 grid, with source-tag refusal as
+the exact complement, so last-bit roundoff of the computed probabilities
+cannot change a seeded count. The L1 distance of every sampled law from
+its computed probabilities is recorded; the largest is 6.9×10⁻¹⁰, inside
+the a priori bound of 11·ports·2^-40 plus the 2×10⁻¹⁰ normalization budget.
 Both boards, both flight contrasts, all four interventions and exposures
 0, 1, 4, 16 and 64 are retained. The public count decoder reports the
 endpoint fraction and RMS graph distance to the nearest endpoint. This
 distance is zero on either endpoint; it differs from the midpoint radius
 used in the core-scattering assay. At exposure 64 the unchanged source's
-measured RMS distances are 0.13891 and 0.13935 links.
+measured RMS distances are 0.13889 and 0.13929 links.
 
 The 99% simultaneous Clopper–Pearson intervals cover all 80 endpoint
 comparisons, conditional on each bank's admitted count. Every unchanged
@@ -133,17 +138,17 @@ above are native block calculations. A
 terminal load port, routes that load to the first core endpoint without
 crossing the core seam, and applies a native π contact. The load flips
 endpoints for blank memory and stays put for the written zero-contrast
-subspace. At exposure 64 it gives 74,874 flips in 4,028,341 admitted
-20-cell sources and 74,983 in 4,029,302 admitted 80-cell sources after one
+subspace. At exposure 64 it gives 74,603 flips in 4,028,408 admitted
+20-cell sources and 74,590 in 4,028,686 admitted 80-cell sources after one
 additional echo. The unchanged and two-echo sources give zero; the supplied
 complete erase flips every admitted load. This material response infers the
 collar property without a private-memory detector. Its routing and assay
 occur after the free orbital flight.
 
 On independent launches from the same finite accepted source, the supplied
-transition clock and one-endpoint phase pulse give **330,965 and 331,681**
+transition clock and one-endpoint phase pulse give **331,295 and 332,148**
 selected port records near frequency 0.47993. A common phase on both
-endpoints gives **1,489 and 1,462**. At the binding-referenced hydrogenic
+endpoints gives **1,527 and 1,468**. At the binding-referenced hydrogenic
 forecast 4.602, both banks give zero selected records; the exact probabilities
 per original start are below 2.1×10⁻⁸. Transition-clock refusal and source-tag
 refusal have separate bins. This spectroscopy retains the coherent
@@ -165,7 +170,8 @@ OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python -B -W error \
 An explicit --output PATH creates a separate receipt exclusively. A .gz
 suffix selects deterministic gzip compression. Serialization succeeds
 before the output is opened. The replay compares every probability, count,
-work account and source hash under ordinary and optimized Python. Six tests
+work account and source hash under ordinary and optimized Python. Seven tests
 reconstruct the native echo, sum a finite clock directly, embed the full
-memory-and-port source, audit the public records and count intervals, and
-check the changed-law and supplied-erasure discriminants.
+memory-and-port source, audit the public records and count intervals,
+check the changed-law and supplied-erasure discriminants, and redraw a bank
+after one-bit changes to its tied probabilities.

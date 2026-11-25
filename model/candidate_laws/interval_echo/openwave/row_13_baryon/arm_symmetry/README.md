@@ -77,6 +77,8 @@ export OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 OMP_NUM_THREADS=1
 .venv/bin/python -B -W error -m pytest -q model/candidate_laws/interval_echo/openwave/row_13_baryon/arm_symmetry
 ~~~
 
+The file [spectral_frame.npz](spectral_frame.npz) holds the 220 eigenvalues and frame columns of the guarded source Hamiltonian, the native three-load cell Hamiltonian plus one half per occupied gateway. numpy.linalg.eigh generated it on macOS arm64 with Accelerate, and it is the frame behind the archived certificate, source rate and vector bound. Eigensolvers of other numerical libraries return different frames. The source therefore loads this frame and certifies it against the freshly built Hamiltonian by exact Gram and residual arithmetic, on every platform. The exact operator error of the frame must stay below 2 × 10⁻¹¹; the deposited frame gives 1.14 × 10⁻¹¹.
+
 [Independent operator, symmetry, propagation and record tests](test_arms.py)
 
 Four local position settings after full release test spatial connectivity and singlet weight together. Two alternative apertures retain high orbital fidelity while excluding every connected determinant word. [Released three-arm product read and original-launch yields](released_product/README.md)

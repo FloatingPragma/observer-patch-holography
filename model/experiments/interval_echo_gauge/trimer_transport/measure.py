@@ -19,6 +19,8 @@ from model.executable_model import carrier
 HERE = Path(__file__).resolve().parent
 STARTS = 2**32
 CAL = 2**18
+# Launch probabilities are rounded to this many decimal places before sampling.
+DECIMALS = 14
 MENUS = (("AB", "AB"), ("AB", "BA"), ("BAB", "AB"), ("A", "B"))
 TUPLES = list(product(range(3), repeat=3))
 
@@ -115,10 +117,44 @@ def detector(state, first, left, right, dephase=False):
 
 
 def count(rng, starts, prob):
-    p = np.maximum(0, np.round(prob, 14))
+    p = np.maximum(0, np.round(prob, DECIMALS))
     if abs(p.sum() - 1) > 2e-12:
         raise ValueError("Missing probability")
     return rng.multinomial(starts, p / p.sum()).tolist()
+
+
+def sampler(seed, archived=None):
+    """Draw every bank in order and log each launch-probability vector.
+
+    A replay passes the archived vectors. Each freshly computed vector must
+    agree with its archived vector, and the counts are then drawn from the
+    archived vector with the original seed. Matrix products and elementary
+    functions differ in the last bits between numerical libraries. Near a
+    step of the 14-decimal grid or inside a binomial acceptance test, one
+    such bit changes every later draw. The allowance per bin is 2e-11
+    relative plus 1e-14 absolute, one grid step; it covers zero bins that
+    evaluate to +-2e-15. Across the 27 detector bins it moves each
+    conditional event by less than 2e-8, inside the 1e-7 fidelity budget.
+    """
+    rng = np.random.default_rng(seed)
+    log = []
+    pending = None if archived is None else iter(archived)
+
+    def draw(starts, prob):
+        prob = [float(x) for x in np.ravel(prob)]
+        if pending is not None:
+            saved = next(pending, None)
+            if (
+                saved is None
+                or len(saved) != len(prob)
+                or not np.allclose(prob, saved, rtol=2e-11, atol=10.0**-DECIMALS)
+            ):
+                raise ValueError("Launch probabilities differ from the archived acquisition")
+            prob = saved
+        log.append(prob)
+        return count(rng, starts, prob)
+
+    return draw, dict(probability_decimals=DECIMALS, launch_probabilities=log)
 
 
 def expected(cal):
@@ -153,7 +189,7 @@ def score(counts, cal):
     )
 
 
-def run():
+def run(archived=None):
     sec, arms, _, _, _, _, finite, source = trimer.source()
     rails = np.delete(arms, 3, axis=1)
     routes = geometry(rails)
@@ -163,7 +199,7 @@ def run():
     en, vec = np.linalg.eigh(sec.hamiltonian(0, False) + np.diag(gateway_count / 2))
     ctrl, rates = trimer.filters(en, vec, trimer.TARGET, sec.index[(1, 8, 9)])
     control = tensor(sec, rails, ctrl)
-    rng = np.random.default_rng(12113548)
+    draw, acquisition = sampler(12113548, archived)
     banks = []
     for x, y in MENUS:
         first = native_word(x)
@@ -171,7 +207,7 @@ def run():
         cal = {}
         for direction in ("inverse", "transpose"):
             transfer = first @ native_word(y, operation=direction)
-            cal[direction] = [count(rng, CAL, abs(col) ** 2) for col in transfer.T]
+            cal[direction] = [draw(CAL, abs(col) ** 2) for col in transfer.T]
         settings = {}
         for case in ("native", "dephased", "one_route_parked", "zero_contrast"):
             if case == "zero_contrast":
@@ -183,8 +219,7 @@ def run():
                 rate = source_rate
                 right = np.eye(3) if case == "one_route_parked" else other
                 signal = detector(admitted, first, other, right, case == "dephased")
-            bins = count(
-                rng,
+            bins = draw(
                 STARTS,
                 np.r_[1 - rate, rate * (1 - signal.sum()), rate * signal.ravel()],
             )
@@ -203,6 +238,7 @@ def run():
         admitted_given_source=float(np.vdot(admitted, admitted).real),
         routes=routes,
         banks=banks,
+        acquisition=acquisition,
     )
 
 
@@ -210,17 +246,17 @@ if __name__ == "__main__":
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--write", action="store_true")
     args = p.parse_args()
-    data = run()
-    raw = json.dumps(data, indent=2, allow_nan=False) + "\n"
     f = HERE / "counts.json"
+    archive = None if args.write else json.loads(f.read_bytes())
+    data = run(None if archive is None else archive["acquisition"]["launch_probabilities"])
     if args.write:
-        f.write_text(raw)
+        f.write_text(json.dumps(data, indent=2, allow_nan=False) + "\n")
     else:
         from model.candidate_laws.interval_echo.openwave.electron_field.replay import (
             compare,
         )
 
-        compare(data, json.loads(f.read_bytes()), "trimer_transport")
+        compare(data, archive, "trimer_transport")
     for row in data["banks"]:
         print(
             row["first"],

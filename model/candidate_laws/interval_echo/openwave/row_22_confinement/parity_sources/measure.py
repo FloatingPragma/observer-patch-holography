@@ -4,8 +4,10 @@ from collections import defaultdict, deque
 from hashlib import sha256
 from itertools import permutations
 import json
+import math
 from pathlib import Path
 
+import mpmath as mp
 import networkx as nx
 import numpy as np
 from scipy.linalg import expm
@@ -18,7 +20,10 @@ HERE = Path(__file__).resolve().parent
 SEED = 221125
 SHOTS = 2**17
 TIMES = np.exp2(np.arange(-14, 1, 2))
-PHASE_ERROR = float(np.arcsin(np.sqrt(4 * np.log(2 * 8192 / 1e-6) / SHOTS)))
+# Evaluate the Hoeffding half-width at 40 digits and round once. Vectorized
+# numpy log and arcsin use CPU-specific kernels that can differ in the last bit.
+with mp.workdps(40):
+    PHASE_ERROR = float(mp.asin(mp.sqrt(4 * mp.log(2 * 8192 / mp.mpf(1e-6)) / SHOTS)))
 RELEASE_SHOTS = 2**25
 
 
@@ -98,7 +103,9 @@ def fringe(energy, rng):
 def decode(counts):
     x, y = 2*np.asarray(counts) / SHOTS - 1
     estimate = 0.
-    for t, angle in zip(TIMES, np.arctan2(y, x), strict=True):
+    # math.atan2 is the C library routine on every CPU; numpy's vectorized
+    # arctan2 dispatches to CPU-specific kernels that can differ in the last bit.
+    for t, angle in zip(TIMES, map(math.atan2, y, x), strict=True):
         branch = round((t * estimate - angle) / (2*np.pi))
         estimate = (angle + 2*np.pi * branch) / t
     return float(estimate)
@@ -222,6 +229,22 @@ def run():
                 calibration=dict(x_y=calibration, measured_work=decode(calibration)), levels=levels)
 
 
+def check_replay(fresh, frozen):
+    """Require an exact replay apart from the binary64 extra-pair probabilities."""
+    fresh, frozen = json.loads(json.dumps(fresh)), json.loads(json.dumps(frozen))
+    for new_level, old_level in zip(fresh['levels'], frozen['levels'], strict=True):
+        for name, old in old_level['release']['variants'].items():
+            new = new_level['release']['variants'][name]
+            # expm produces binary64 approximations. Counts, contacts, clocks
+            # and all other fields must replay exactly, including zero signals.
+            actual = np.array(new.pop('extra_pair_probability'))
+            expected = np.array(old.pop('extra_pair_probability'))
+            np.testing.assert_array_equal(actual == 0, expected == 0)
+            np.testing.assert_array_max_ulp(actual, expected, maxulp=16)
+    if fresh != frozen:
+        raise ArithmeticError('Record replay changed')
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--write', action='store_true')
@@ -231,8 +254,8 @@ def main():
     encoded = json.dumps(report, indent=2, allow_nan=False) + '\n'
     if args.write:
         path.write_text(encoded)
-    elif path.read_text() != encoded:
-        raise SystemExit('Record replay changed')
+    else:
+        check_replay(report, json.loads(path.read_text()))
     for level in report['levels']:
         far = level['rows'][-1]
         print(level['owners'], far['distance'],

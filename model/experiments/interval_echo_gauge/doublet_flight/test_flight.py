@@ -5,7 +5,8 @@ import json
 from itertools import combinations
 
 import numpy as np
-from scipy.linalg import eigh
+from scipy.sparse import csr_matrix
+from scipy.sparse.linalg import expm_multiply
 import sympy as sp
 
 from model.candidate_laws.interval_echo import currents
@@ -50,23 +51,26 @@ def test_guarded_flight_against_raw_swaps():
                 w = tuple(sorted({a, b} ^ {x, y}))
                 h[i, i] += 0.5
                 h[index[w], i] -= 0.5
-    energy, vectors = eigh(h)
     receipt = json.loads((HERE / "records.json").read_text())
     home = endpoint(p)
+    # Propagate the four source columns directly. Reassembling a full
+    # propagator from degenerate eigenvectors magnifies phase roundoff.
+    launch = np.zeros((len(words), 4), dtype=complex)
+    launch[src, :3] = home["frame"]
+    launch[src, 3] = home["stars"][:, 1]
+    generator = -1j * csr_matrix(h)
     seam_ids = [local.index(word) for word in cell().seams]
     for entry in receipt["arms"][0]["samples"]:
-        transfer = (vectors[dst] * np.exp(-1j * entry["exposure"] * energy)) @ vectors[
-            src
-        ].T
-        assert np.linalg.norm(transfer @ home["frame"][:, 1:]) < 2e-13
-        bright = transfer @ home["frame"][:, 0]
+        receiver = expm_multiply(entry["exposure"] * generator, launch)[dst]
+        assert np.linalg.norm(receiver[:, 1:3]) < 2e-13
+        bright = receiver[:, 0]
         np.testing.assert_allclose(
             np.vdot(bright, bright).real,
             entry["bright_to_whole_receiver_squared"],
             atol=1e-14,
             rtol=2e-9,
         )
-        action = transfer @ home["stars"][:, 1]
+        action = receiver[:, 3]
         bank = next(
             r
             for r in entry["phase_records"]

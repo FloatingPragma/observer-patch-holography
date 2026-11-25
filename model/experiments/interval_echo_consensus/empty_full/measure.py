@@ -23,6 +23,8 @@ FULL = WORDS.index((1, 1, 0, 0))
 PHASES = (0, np.pi / 2, np.pi, np.pi / 3, -np.pi / 3, 3 * np.pi / 4)
 SHOTS = 2**20
 MODES = ("bypass", "native", "total", "which", "only_empty", "only_full")
+GRID_BITS = 40
+GRID = 1 << GRID_BITS
 
 
 def rate_radius(outcome_bins):
@@ -32,6 +34,28 @@ def rate_radius(outcome_bins):
 
 
 ERROR = rate_radius(len(WORDS) + 1)
+
+
+def draw(shots, probabilities, rng, budget):
+    """Count starts drawn from integer weights on the 2**-40 grid.
+
+    Every outcome except the most probable has weight round(p * 2**40); the
+    most probable takes the complement. Each start compares one PCG64 integer
+    below 2**40 with the cumulative weights, so no floating-point operation
+    enters a draw and a seed gives the same counts on every platform. Rounded
+    outcomes move by at most 2**-41, the complement by the other roundings
+    plus the caller's norm budget.
+    """
+    p = np.asarray(probabilities, dtype=float).ravel()
+    weights = np.rint(p * GRID).astype(np.int64)
+    top = int(np.argmax(weights))
+    weights[top] = GRID - (weights.sum() - weights[top])
+    bound = budget + (p.size - 1) / (2 * GRID)
+    if weights.min() < 0 or np.max(abs(weights / GRID - p)) > bound:
+        raise ValueError("Sampling weights leave the propagated distribution")
+    starts = rng.integers(0, GRID, size=shots, dtype=np.int64)
+    edges = np.cumsum(weights)
+    return np.bincount(np.searchsorted(edges, starts, side="right"), minlength=p.size)
 
 
 def embed(block, edge):
@@ -131,9 +155,7 @@ def experiment():
             reader = prep.conj().T @ phase(0, angle)
             p = np.r_[sum(abs(reader @ s) ** 2 for s in accepted), rejected]
             np.testing.assert_allclose(p.sum(), 1.0, atol=4e-14)
-            # Remove float crumbs on exact zero/one and record the integer totals.
-            p = np.round(p, 13)
-            counts = rng.multinomial(SHOTS, p / p.sum())
+            counts = draw(SHOTS, p, rng, 4e-14)
             banks.append(dict(phase=float(angle), counts=counts.tolist()))
         output[mode] = banks
     cal, held = decode(output)
@@ -141,6 +163,7 @@ def experiment():
         ports=PORTS,
         words=WORDS,
         shots=SHOTS,
+        sampling_grid_bits=GRID_BITS,
         simultaneous_rate_error=ERROR,
         prepared_probabilities=np.round(abs(state) ** 2, 13).tolist(),
         banks=output,

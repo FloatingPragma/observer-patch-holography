@@ -119,7 +119,7 @@ def launch_yield(rows):
     )
 
 
-def run():
+def run(archived=None):
     sec, arms, _, _, _, _, finite, meta = measure.trimer.source()
     state = measure.tensor(sec, np.delete(arms, 3, axis=1), finite)
     source = meta["filter_acceptances"][-1]
@@ -127,7 +127,7 @@ def run():
     direct = measure.native_word("AB")
     changed = measure.native_word("BA")
     frames = [compile_basis(b) for b in bases()]
-    rng = np.random.default_rng(12113585)
+    draw, acquisition = measure.sampler(12113585, archived)
     info = {}
     for case in CASES:
         rows = []
@@ -135,8 +135,7 @@ def run():
             first = frame if case == "idle" else frame @ direct
             other = frame @ changed if case == "different_order" else first
             signal = measure.detector(state, first, other, other, case == "dephased")
-            counts = measure.count(
-                rng,
+            counts = draw(
                 measure.STARTS,
                 np.r_[1 - source, source * (1 - admit), source * signal.ravel()],
             )
@@ -148,21 +147,23 @@ def run():
             fidelity_interval=fidelity([row["equal_pair_intervals"] for row in rows]),
             launch_yield=launch_yield(rows),
         )
-    return dict(starts=measure.STARTS, cases=info)
+    return dict(starts=measure.STARTS, cases=info, acquisition=acquisition)
 
 
 if __name__ == "__main__":
     p = argparse.ArgumentParser()
     p.add_argument("--write", action="store_true")
-    data = run()
+    write = p.parse_args().write
     dest = measure.HERE / "local.json"
-    if p.parse_args().write:
+    archive = None if write else json.loads(dest.read_bytes())
+    data = run(None if archive is None else archive["acquisition"]["launch_probabilities"])
+    if write:
         dest.write_text(json.dumps(data, indent=2, allow_nan=False) + "\n")
     else:
         from model.candidate_laws.interval_echo.openwave.electron_field.replay import (
             compare,
         )
 
-        compare(data, json.loads(dest.read_bytes()), "local bases")
+        compare(data, archive, "local bases")
     for k, v in data["cases"].items():
         print(k, v["fidelity_interval"])

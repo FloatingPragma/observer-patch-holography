@@ -20,7 +20,11 @@ def isometry(effects, rotate):
         v, u = np.linalg.eigh(e)
         if min(v) < -1e-14:
             raise ValueError("Nonpositive effect")
-        block = (u * np.sqrt(v.clip(0))) @ u.conj().T
+        # A and B are rank one. Their zero eigenvalue arrives as a +-1e-17
+        # roundoff whose sign differs between LAPACK builds; its square root
+        # would add a platform-dependent 3e-9 amplitude.
+        v[v < 1e-14] = 0
+        block = (u * np.sqrt(v)) @ u.conj().T
         if rotate:
             angle = (j + 1) * np.pi / 6
             block = (
@@ -112,6 +116,7 @@ def run():
             result[str(k)][source] = {"banks": bank, "state_readback": readback(bank)}
     return {
         "seed": 113031209,
+        "sampling_grid_bits": m.GRID_BITS,
         "separate_sharp_input_counts": SHOTS.tolist(),
         "law": result,
     }

@@ -98,8 +98,7 @@ def run(commissioning):
             read = source.conj().T @ phase(0, angle)
             probabilities = np.r_[sum(abs(read @ x) ** 2 for x in branches), rejected]
             np.testing.assert_allclose(probabilities.sum(), 1, atol=4e-14)
-            probabilities = np.round(probabilities, 13)
-            counts = rng.multinomial(m.SHOTS, probabilities / probabilities.sum())
+            counts = m.draw(m.SHOTS, probabilities, rng, 4e-14)
             c, s = np.cos(angle), np.sin(angle)
             pred = offset + cal["cosine"] * c + cal["sine"] * s
             angles.append(
@@ -117,6 +116,7 @@ def run(commissioning):
             dict(
                 words=WORDS,
                 shots=m.SHOTS,
+                sampling_grid_bits=m.GRID_BITS,
                 route=ROUTE,
                 bright_word=WORDS[X],
                 combined_rate_radius=budget,

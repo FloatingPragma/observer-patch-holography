@@ -213,8 +213,9 @@ def report():
                 # Exact rank-one tree sampling; no rescaling of propagated p.
                 first0 = float(np.vdot(state, target[0][:2, :2] @ state).real)
                 mismatch = (3 + sign * np.sqrt(5)) / 8 if swapped else 0
-                n0 = int(rng.binomial(shots, first0))
-                c0, c1 = int(rng.binomial(n0, mismatch)), int(rng.binomial(shots - n0, mismatch))
+                n0 = sequential.grid_binomial(rng, shots, first0)
+                c0 = sequential.grid_binomial(rng, n0, mismatch)
+                c1 = sequential.grid_binomial(rng, shots - n0, mismatch)
                 counts = np.zeros(16, int)
                 counts[[10, 9, 6, 5]] = [n0 - c0, c0, c1, shots - n0 - c1]
                 cases.append({"sign": sign, "preparation": name,
@@ -263,6 +264,7 @@ def report():
         "complete_three_mark_states": [list(x) for x in STATES],
         "source_sha256": source_hashes(),
         "execution": "native blank-memory reduction and full twenty-state unitary; synthetic counts",
+        "sampling_grid_bits": sequential.GRID_BITS, "sampling": sequential.SAMPLING,
         "projection": "one final exhaustive four-pointer-port occupation read; no intermediate read",
         "pointer_word": "4*(park1+2*cross1)+(park2+2*cross2); all sixteen words retained",
         "native_copy_word_first_pointer": serialized_word(copy_word(0)),

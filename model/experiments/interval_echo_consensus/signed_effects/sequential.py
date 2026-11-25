@@ -25,6 +25,46 @@ def require(condition, message):
         raise ValueError(message)
 
 
+GRID_BITS = 40
+GRID = 1 << GRID_BITS
+SAMPLING = ("integer weights round(p*2**40) for every outcome except the most "
+            "probable, which takes the complement; each draw is a PCG64 integer "
+            "below 2**40 compared with the cumulative weights")
+
+
+def grid_weights(probabilities, tolerance=3e-12):
+    """Integer weights on the 2**-40 grid with an explicit complement.
+
+    Propagated probabilities differ in their last bits between linear algebra
+    libraries. Rounding moves each probability by at most 2**-41 < 5e-13, and
+    the complement by the other roundings plus the norm defect. Both stay
+    inside the 3e-12 norm budget that the propagation already checks.
+    """
+    p = np.asarray(probabilities, dtype=float).ravel()
+    weights = np.rint(p * GRID).astype(np.int64)
+    top = int(np.argmax(weights))
+    weights[top] = GRID - (weights.sum() - weights[top])
+    require(np.all(weights >= 0) and np.max(abs(weights / GRID - p)) <= tolerance,
+            "sampling weights leave the propagated law")
+    return weights
+
+
+def grid_counts(rng, shots, probabilities, tolerance=3e-12):
+    """Exact draws from weights/2**40 using integers only.
+
+    No floating-point operation enters a draw, so a given seed gives the same
+    counts on every platform. Zero-weight outcomes stay empty.
+    """
+    edges = np.cumsum(grid_weights(probabilities, tolerance))
+    draws = rng.integers(0, GRID, size=shots, dtype=np.int64)
+    return np.bincount(np.searchsorted(edges, draws, side="right"), minlength=edges.size)
+
+
+def grid_binomial(rng, trials, probability):
+    """Successes among trials with success weight on the 2**-40 grid."""
+    return int(grid_counts(rng, trials, [probability, 1 - probability])[0])
+
+
 def sources():
     paths = [
         "model/candidate_laws/contrast_memory_spherical_v1/law.py",
@@ -139,9 +179,9 @@ def report():
                                       (1 - p0) * (1 - disagreement)]])
                 require(np.max(abs(law[:2, :2] - analytic)) < 3e-12,
                         "rank-one branching disagrees with full instrument")
-                first0 = int(rng.binomial(shots, p0))
-                crossed0 = int(rng.binomial(first0, disagreement))
-                crossed1 = int(rng.binomial(shots - first0, disagreement))
+                first0 = grid_binomial(rng, shots, p0)
+                crossed0 = grid_binomial(rng, first0, disagreement)
+                crossed1 = grid_binomial(rng, shots - first0, disagreement)
                 counts = np.zeros((n, n), dtype=int)
                 counts[:2, :2] = [[first0 - crossed0, crossed0],
                                   [crossed1, shots - first0 - crossed1]]
@@ -161,6 +201,7 @@ def report():
         "execution": "full native block reduction, matrix instrument, synthetic counts",
         "custody": "producer-side software hashes; no external authentication",
         "source_sha256": sources(), "seed": 925031,
+        "sampling_grid_bits": GRID_BITS, "sampling": SAMPLING,
         "addresses": list(range(n)), "joint_order": ["first address", "second address"],
         "poststate_coordinates":
             "subnormalized matrices on rails 0,1; all other entries and "

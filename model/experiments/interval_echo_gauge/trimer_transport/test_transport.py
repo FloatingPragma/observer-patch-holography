@@ -166,15 +166,44 @@ def test_four_native_bases_certify_singlet_from_local_counts():
     for case, experiment in doc["cases"].items():
         rows = experiment["bases"]
         assert len(rows) == 4
-        assert local_bases.launch_yield(rows) == experiment["launch_yield"]
-        intervals = [local_bases.pair_intervals(row["counts"]) for row in rows]
-        np.testing.assert_array_equal(
-            intervals, [row["equal_pair_intervals"] for row in rows]
+        # Inverse-beta endpoints depend on the numerical library. Compare each
+        # interval in event units, to one ten-millionth of a count. The four
+        # integer inventories and the physical fidelity thresholds are exact.
+        event_budget = 1e-7
+        yielded = local_bases.launch_yield(rows)
+        recorded = experiment["launch_yield"].copy()
+        np.testing.assert_allclose(
+            yielded.pop("success_per_million_interval"),
+            recorded.pop("success_per_million_interval"),
+            rtol=0, atol=1e6 * event_budget / measure.STARTS,
         )
+        assert yielded == recorded
+        intervals = [local_bases.pair_intervals(row["counts"]) for row in rows]
+        for row, actual in zip(rows, intervals, strict=True):
+            enrolled = sum(row["counts"][2:])
+            np.testing.assert_allclose(
+                actual, row["equal_pair_intervals"], rtol=0, atol=event_budget / enrolled
+            )
+        # The reported limits must be precisely the prescribed transformation
+        # of the archived endpoints, independently of inverse-CDF roundoff.
+        assert local_bases.fidelity([r["equal_pair_intervals"] for r in rows]) == experiment["fidelity_interval"]
         limits = local_bases.fidelity(intervals)
-        assert limits == experiment["fidelity_interval"]
         if case in ("idle", "common_AB"):
             assert limits[0] > 0.9997
             assert experiment["launch_yield"]["success_per_million_interval"][0] > 33
         else:
             assert limits[1] < 0.9
+
+
+def test_archived_acquisitions_replay_and_reject_changed_probabilities():
+    from model.candidate_laws.interval_echo.openwave.electron_field.replay import (
+        compare,
+    )
+
+    for module, name in ((measure, "counts.json"), (centre, "centre.json"), (local_bases, "local.json")):
+        archive = json.loads((measure.HERE / name).read_bytes())
+        data = module.run(archive["acquisition"]["launch_probabilities"])
+        compare(json.loads(json.dumps(data)), archive, name)
+    draw, _ = measure.sampler(1, [[0.5, 0.5]])
+    with pytest.raises(ValueError, match="archived acquisition"):
+        draw(measure.CAL, [0.5 + 1e-9, 0.5 - 1e-9])

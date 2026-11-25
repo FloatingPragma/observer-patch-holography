@@ -16,7 +16,7 @@ CENSUS = ROOT / "code/born_context_phase_lift/BORN_CONTEXT_WEB_PAYLOAD.v1.json"
 
 # The verifier is the independent checkout anchor for this fixed run. The
 # native acquisition separately reconstructs every branch's pulse-word hash.
-ARCHIVED_RUN = "2057e18a00443ddf30a5f97e10901b24a05834e22a1ee1e5f61fe30f694b6dd2"
+ARCHIVED_RUN = "87be13ecb9c40295e593dd3ceb28bfd5499888182ee1a280084dec77a0d50afb"
 
 
 def check(condition, message):

@@ -56,9 +56,14 @@ read left word \(r\), the second one reads \(r\mathbin{\mathrm{XOR}}a\)
 for a terminal address \(a\). The detector recovers \(a\) by XOR of the
 two local readings. This recovers the same address effect for every first
 pointer word in the experiment, including the control's fine records.
-All 294,912 simulated starts are included in the 36 joint histograms. The
-tested instrument returned all 8,192 starts at every setting. Uniform returns
-under the control ranged from 4,034 to 4,153 per setting.
+All 294,912 simulated starts are included in the 36 joint histograms. Each
+joint law is rounded to integer weights on the \(2^{-40}\) grid, with the most
+probable cell taking the complement, and every start compares one PCG64
+integer below \(2^{40}\) with those weights. The rounding stays inside the
+\(3\times10^{-12}\) norm budget of the propagation, and the counts replay
+identically on every platform. The tested instrument returned all 8,192 starts
+at every setting. Uniform returns under the control ranged from 4,066 to 4,162
+per setting.
 
 On each two-dimensional outcome space the admitted map has sure effect.
 The two coordinate returns and the uniform return therefore discharge the

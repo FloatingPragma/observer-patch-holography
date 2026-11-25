@@ -20,6 +20,8 @@ N = {
     "minus_y": 2**20,
 }
 LABELS = ("fine", "union", "single")
+GRID_BITS = 40
+GRID = 1 << GRID_BITS
 
 
 def committed_coin():
@@ -45,8 +47,24 @@ def classical_labels(y, word):
 
 
 def counts(rng, shots, mass):
-    mass = np.round(mass, 13)
-    return rng.multinomial(shots, mass / mass.sum())
+    """Count launches drawn from integer weights on the 2**-40 grid.
+
+    Every bin except the most probable has weight round(p * 2**40); the most
+    probable takes the complement. Each launch compares one PCG64 integer below
+    2**40 with the cumulative weights, so no floating-point operation enters a
+    draw and a seed gives the same counts on every platform. Rounded bins move
+    by at most 2**-41. The complement also absorbs the norm defect, below
+    2e-12 for a read and below 3e-12 after the fair-coin product.
+    """
+    p = np.asarray(mass, dtype=float).ravel()
+    weights = np.rint(p * GRID).astype(np.int64)
+    top = int(np.argmax(weights))
+    weights[top] = GRID - (weights.sum() - weights[top])
+    if weights.min() < 0 or np.max(abs(weights / GRID - p)) > 3e-12 + (p.size - 1) / (2 * GRID):
+        raise ValueError("Sampling weights leave the propagated distribution")
+    launches = rng.integers(0, GRID, size=shots, dtype=np.int64)
+    edges = np.cumsum(weights)
+    return np.bincount(np.searchsorted(edges, launches, side="right"), minlength=p.size)
 
 
 def score(record):
@@ -161,6 +179,7 @@ def run():
         "pulses": {m: len(v) for m, v in program.items()},
         "shots": N,
         "seed": 113031207,
+        "sampling_grid_bits": GRID_BITS,
         "law": output,
     }
 

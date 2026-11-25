@@ -67,3 +67,5 @@ export OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1
 .venv/bin/python -B -W error -m model.experiments.interval_echo_gauge.trimer_transport.local_bases
 .venv/bin/python -m pytest -q model/experiments/interval_echo_gauge/trimer_transport
 ~~~
+
+Each receipt retains every launch-probability vector in sampling order, with the 14-decimal sampling grid. Numerical libraries differ in the last bits of these probabilities, and one such bit can change every later multinomial draw. Replay recomputes each vector from the native evolution and requires agreement to 2 × 10⁻¹¹ relative plus 10⁻¹⁴ per bin. It then draws the archived counts from the recorded vector with the original seed.

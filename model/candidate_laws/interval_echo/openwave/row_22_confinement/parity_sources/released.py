@@ -27,13 +27,24 @@ def run():
     h = ex + candidate.KAPPA * co
     blank = h[:9, :9]
     idx = [2, 6]
-    energies, frame = np.linalg.eigh(blank[np.ix_(idx, idx)])
-    bright = frame[:, 0]
-    branch_p = float(bright[0]**2)
+    pair = blank[np.ix_(idx, idx)]
+    # Exchanging the two ends maps 02 to 20 and leaves this block unchanged,
+    # so its eigenvectors are the exchange-even and exchange-odd combinations.
+    # Fixing them by this symmetry makes the filter probability exactly one
+    # half; a numerical eigensolver chooses a platform-dependent sign and last
+    # bit, and numpy draws the complementary count for a probability just
+    # above one half.
+    if not np.array_equal(pair, pair[::-1, ::-1]) or pair[0, 1] != pair[1, 0]:
+        raise ValueError('Exterior bridge block is not exchange symmetric')
+    even, odd = float(pair[0, 0] + pair[0, 1]), float(pair[0, 0] - pair[0, 1])
+    if not even < odd or np.max(abs(np.linalg.eigvalsh(pair) - [even, odd])) > 1e-12:
+        raise ValueError('Exchange-even bridge state is not the local ground')
+    energies, bright = np.array([even, odd]), np.full(2, np.sqrt(.5))
+    branch_p = .5  # |<02|even>|^2
     accepted = int(rng.binomial(RELEASE_SHOTS, branch_p))
     # A supplied exchange-parity filter prepares the even eigenvector from
     # 02 with success one half, on independently held copies of each bridge.
-    calibration = fringe(float(energies[0]), rng)
+    calibration = fringe(even, rng)
     rows = []
     for level in range(3):
         board = carrier.federation(level)
@@ -52,8 +63,8 @@ def run():
                                 ('sources_only', source_only(0, g, dual))):
                 # Matched contacts are sharp blanks; every occupied symmetric
                 # bridge closure is a separately measured 2x2 native block.
-                energy = sum(np.vdot(bright, blank[np.ix_(idx, idx)] @ bright) for _ in route)
-                counts = fringe(float(energy), rng)
+                energy = even * len(route)
+                counts = fringe(energy, rng)
                 ready = 2 * len(TIMES) * SHOTS
                 accepted_rate = branch_p**len(route)
                 refused = int(preparation_rng.negative_binomial(ready, accepted_rate))

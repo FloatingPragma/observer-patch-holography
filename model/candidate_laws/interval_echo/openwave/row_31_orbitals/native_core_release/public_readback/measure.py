@@ -91,6 +91,7 @@ def observe(a, b, refusal, head, rng):
         spectral_refusal=int(counts[-1]),
         flip_probability_given_admission=float(p[:, 1].sum() / (1 - refusal)),
         simultaneous_99_interval=[float(lo), float(hi)],
+        sampling_grid_l1=raw["sampling_grid_l1"],
         measured_words_per_position=[
             [int(i), int(w), int(table[i, w])] for i, w in zip(*np.nonzero(table))
         ],
@@ -152,6 +153,7 @@ def report():
         },
         shots=SHOTS,
         seed=SEED,
+        sampling_weight_denominator=release.GRID,
         read_order="source flag, orbital address i, then public two-port load (a,b), encoded by 3a+b; unlisted counts zero",
         timing="source free contrast labelled per arm; isolated routing and terminal head use registered kappa=8",
         boards=boards,

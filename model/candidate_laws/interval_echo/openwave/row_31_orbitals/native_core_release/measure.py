@@ -17,6 +17,7 @@ from ..written_transitions import measure as transition
 
 HERE = Path(__file__).resolve().parent
 SHOTS, SEED = 2**22, 317031
+GRID = 2**40
 TARGET = -6.136
 TIMES = (0, 1, 4, 16, 64)
 OPERATIONS = ('retain', 'one_native_echo', 'two_native_echoes', 'supplied_memory_erase')
@@ -31,14 +32,17 @@ def sample(raw, rng):
     p = np.asarray(raw, float)
     check(np.all(np.isfinite(p)) and np.min(p) >= 0, 'Invalid terminal probability')
     check(abs(p.sum() - 1) < 2e-10, 'Incomplete terminal distribution')
-    order = np.argsort(p, kind='stable')
-    positive = p[order].copy()
-    positive[-1] = 1 - positive[:-1].sum()
-    check(positive[-1] >= 0, 'Negative explicit complement')
-    counts = np.empty(len(p), dtype=np.int64)
-    counts[order] = rng.multinomial(SHOTS, positive)
+    # Draw from integer weights on the 2^-40 grid; the last outcome takes the
+    # exact complement. The seeded counts then do not depend on last-bit
+    # roundoff of the computed probabilities, which differs between CPU math
+    # libraries. The recorded L1 distance includes the norm residual.
+    weights = np.rint(p[:-1] * GRID).astype(np.int64)
+    weights = np.r_[weights, GRID - weights.sum()]
+    check(weights[-1] >= 0, 'Negative explicit complement')
+    law = weights / GRID
+    counts = rng.multinomial(SHOTS, law)
     return dict(probabilities=p.tolist(), counts=counts.tolist(),
-                sampling_complement_l1=float(abs(positive[-1] - p[order[-1]])))
+                sampling_grid_l1=float(np.abs(law - p).sum()))
 
 
 def native_certificate():
@@ -186,7 +190,7 @@ def run():
     formation_calibration = sample(certificate['formation_probabilities_by_memory'], rng)
     panels = [panel(level, rng) for level in (0, 1)]
     paths = [Path(__file__), Path(transition.__file__), Path(candidate.native_law.__file__)]
-    return dict(shots=SHOTS, seed=SEED, native_certificate=certificate,
+    return dict(shots=SHOTS, seed=SEED, sampling_weight_denominator=GRID, native_certificate=certificate,
                 independent_formation_memory_diagnostics=formation_calibration,
                 native_uniform_single_load_reference=6 * candidate.KAPPA,
                 memory_labels=['blank'] + [list(x) for x in candidate.native_law.LABELS], panels=panels,

@@ -32,8 +32,31 @@ def ports():
     raise ValueError("No private triangle with three distinct guard neighbors")
 
 
+def wrap(angle):
+    """Reduce to [0, 2pi) and send roundoff below a multiple of 2pi to zero.
+
+    Compiled phases that are exact multiples of 2pi arrive with a 1e-16
+    roundoff whose sign differs between linear algebra libraries. Under the
+    registered law both representatives give the same operation. The
+    exchange-only control would otherwise run either a zero or a full-period
+    exposure depending on the platform.
+    """
+    r = angle % TAU
+    return 0.0 if TAU - r < 1e-12 else float(r)
+
+
+def argument(z):
+    """np.angle on (-pi, pi], with values within roundoff of -pi sent to +pi.
+
+    A negative real entry carries an imaginary roundoff whose sign differs
+    between platforms. Keeping one branch keeps the compiled phases canonical.
+    """
+    a = float(np.angle(z))
+    return np.pi if a < 1e-12 - np.pi else a
+
+
 def private(i, phase):
-    return ("private", i, i, (-phase % TAU) / K)
+    return ("private", i, i, wrap(-phase) / K)
 
 
 def contact(i, j, time):
@@ -48,7 +71,7 @@ def label_phase(i, phases):
     """Diagonal qutrit phases up to a common phase when guard i+3 starts in 1."""
     alpha = (phases[2] - phases[0]) / 4
     beta = phases[1] - phases[0] - alpha
-    guard_time = (beta % TAU) / (K + 0.5)
+    guard_time = wrap(beta) / (K + 0.5)
     flip = [private(i, np.pi)]
     return [private(i, alpha), *sign_echo(i, i + 3, guard_time, flip)]
 
@@ -113,14 +136,14 @@ def compile_reader(iso):
             if abs(b) < 1e-14:
                 continue
             theta = np.arctan2(abs(b), abs(a))
-            phase = np.angle(b) - np.angle(a)
+            phase = argument(b) - argument(a)
             z = np.exp(1j * phase)
             c, s = np.cos(theta), np.sin(theta)
             reduced[row : row + 2] = (
                 np.array([[c, z.conjugate() * s], [-z * s, c]]) @ reduced[row : row + 2]
             )
             pulses.append(word_rotation(row, theta, phase))
-    phases = np.angle(reduced[[0, 1], [0, 1]])
+    phases = [argument(reduced[j, j]) for j in (0, 1)]
     i = next(i for i in range(3) if WORDS[0][i] != WORDS[1][i])
     fix = np.zeros(3)
     fix[WORDS[0][i]], fix[WORDS[1][i]] = phases
@@ -182,5 +205,4 @@ def read(state):
     mask[INDEX] = False
     prob = np.r_[mass[INDEX], mass[mask].sum()]
     np.testing.assert_allclose(prob.sum(), 1, rtol=0, atol=2e-12)
-    prob = np.round(prob, 13)
-    return prob / prob.sum()
+    return prob

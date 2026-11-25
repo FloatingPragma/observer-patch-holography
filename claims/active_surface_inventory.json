@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 1083,
+  "surface_count": 1096,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -1696,6 +1696,21 @@
       "allowlisted": false
     },
     {
+      "path": "model/candidate_laws/interval_echo/openwave/row_20_electric/frustrated_ring/CLOCK_PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_20_electric/frustrated_ring/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_20_electric/frustrated_ring/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/candidate_laws/interval_echo/openwave/row_21_boost/PROTOCOL.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -1942,6 +1957,21 @@
     },
     {
       "path": "model/candidate_laws/interval_echo/openwave/row_29_maxwell/polarization_channel/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_29_maxwell/seam_symbol/POLARIZATION_PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_29_maxwell/seam_symbol/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_29_maxwell/seam_symbol/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -2657,6 +2687,16 @@
     },
     {
       "path": "model/experiments/interval_echo_consensus/local_interface/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_consensus/local_interface/modal_slots/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_consensus/local_interface/modal_slots/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -3477,6 +3517,31 @@
     },
     {
       "path": "model/experiments/interval_echo_quantum/swapping/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/stirred_product/PROTOCOL.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },

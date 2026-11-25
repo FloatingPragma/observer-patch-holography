@@ -115,14 +115,14 @@ def model(theta, pick):
     return {1: single, 2: single.conjugate(), 3: 1 + 0j}[len(pick)]
 
 
-def run():
+def run(archived=None):
     sec, arms, _, _, _, _, finite, src = measure.trimer.source()
     rails = np.delete(arms, 3, axis=1)
     clock, routes = routing(measure.geometry(rails))
     state = measure.tensor(sec, rails, finite)
     admit = float(np.vdot(state, state).real)
     source = src["filter_acceptances"][-1]
-    rng = np.random.default_rng(12113571)
+    draw, acquisition = measure.sampler(12113571, archived)
     rows = []
     for theta in ANGLES:
         for pick in PICKS:
@@ -136,8 +136,7 @@ def run():
                 for component in (z.real, z.imag):
                     bright = (1 + component) / 2
                     record.append(
-                        measure.count(
-                            rng,
+                        draw(
                             measure.STARTS,
                             [
                                 1 - source,
@@ -183,9 +182,7 @@ def run():
             both = []
             for component in (z.real, z.imag):
                 both.append(
-                    measure.count(
-                        rng, measure.CAL, [(1 + component) / 2, (1 - component) / 2]
-                    )
+                    draw(measure.CAL, [(1 + component) / 2, (1 - component) / 2])
                 )
             standards.append(dict(theta=theta, colour=colour, counts=both))
     return dict(
@@ -195,6 +192,7 @@ def run():
         rows=rows,
         single_load_standards=standards,
         calibration_starts=measure.CAL,
+        acquisition=acquisition,
     )
 
 
@@ -202,8 +200,9 @@ if __name__ == "__main__":
     p = argparse.ArgumentParser()
     p.add_argument("--write", action="store_true")
     args = p.parse_args()
-    data = run()
     output = measure.HERE / "centre.json"
+    archive = None if args.write else json.loads(output.read_bytes())
+    data = run(None if archive is None else archive["acquisition"]["launch_probabilities"])
     if args.write:
         output.write_text(json.dumps(data, indent=2, allow_nan=False) + "\n")
     else:
@@ -211,5 +210,5 @@ if __name__ == "__main__":
             compare,
         )
 
-        compare(data, json.loads(output.read_bytes()), "centre")
+        compare(data, archive, "centre")
     print(len(data["rows"]), "clock settings")

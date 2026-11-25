@@ -257,8 +257,9 @@ def report():
             sequential.require(0.01 < p0 < 0.99, "sampling probe loses its first branch")
             q0 = p[(0, 1)] / p0 if swapped else 0
             q1 = p[(1, 0)] / (1-p0) if swapped else 0
-            n0 = int(rng.binomial(shots, p0))
-            c0, c1 = int(rng.binomial(n0, q0)), int(rng.binomial(shots-n0, q1))
+            n0 = sequential.grid_binomial(rng, shots, p0)
+            c0 = sequential.grid_binomial(rng, n0, q0)
+            c1 = sequential.grid_binomial(rng, shots-n0, q1)
             counts = np.zeros(243, int)
             counts[[141, 105, 137, 101]] = [n0-c0, c0, c1, shots-n0-c1]
             sequential.require(abs(law.sum()-1) < 5e-12,
@@ -298,6 +299,7 @@ def report():
         "common_two_copy_phase": [float(phase.real),float(phase.imag)],
         "branch_operator_error_including_cross_sign_coherence": max_map_error,
         "source_sha256": source_hashes(), "seed": 925051,
+        "sampling_grid_bits": sequential.GRID_BITS, "sampling": sequential.SAMPLING,
         "custody": "producer-side software binding; external authentication absent",
         "controls": controls, "banks": banks,
     }

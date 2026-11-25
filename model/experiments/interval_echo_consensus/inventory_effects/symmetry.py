@@ -38,6 +38,7 @@ def run():
         data[name] = banks
     return {
         "seed": 113031208,
+        "sampling_grid_bits": measure.GRID_BITS,
         "banks": data,
         "exact_source_forecast": {"fine": [4, 4, 8], "denominator": 16},
     }

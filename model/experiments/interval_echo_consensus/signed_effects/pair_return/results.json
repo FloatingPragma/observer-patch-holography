@@ -4,9 +4,9 @@
     "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
     "model/executable_model/carrier.py": "327fc33189ff6242f7367f625a3f70d97167e79bd4f8a740266d7eb09e237bbd",
     "model/executable_model/carriers/FEDERATION_LEVEL0.npz": "99870398e3d516f899c600e9bf25ba53c7f513142ba8facbe1cedd94b23f915b",
-    "model/experiments/interval_echo_consensus/signed_effects/fixed_pointer.py": "c63a7706c98860eda180c534e7dcb6d83e0cf4d4127237f88d97bdd306ac2168",
+    "model/experiments/interval_echo_consensus/signed_effects/fixed_pointer.py": "082e230fcd88ebbb2af0e7a72f1878373606b8649097dd6245cdb3e3185d7028",
     "model/experiments/interval_echo_consensus/signed_effects/full_address/measure.py": "c1bf6ba308faf4a381311dd30352a682d1274872efdd00b976b3d516d92f4f7a",
-    "model/experiments/interval_echo_consensus/signed_effects/pair_return/measure.py": "4570159f452e16890edb0d358c25f8a92628105ff6f9f1771241527d2578a16b",
+    "model/experiments/interval_echo_consensus/signed_effects/pair_return/measure.py": "f00d822155b6113fce67fc56477da071d3247222a9f56a36a3881f3a0a623cb2",
     "model/experiments/interval_echo_consensus/signed_effects/phase_table/acquire.py": "b6c9b1c9362e5b0d45ff2181a4e2f4ca9604179a723282ff007a1994b0ec7683",
     "model/experiments/interval_echo_consensus/signed_effects/phase_table/measure.py": "556a8bfc8e53ebdde53d86d2dbda5a62a2eb2ff33d0f797d94eb72263fc70bfe",
     "Lean/EventAlgebra/FiniteProbeInstrumentSelection.lean": "8cc105eb8002222afa8419a2c38179899588654552478c8a2bdf9f45e5eda72d"
@@ -62,6 +62,8 @@
   "terminal_copy_calls": 20,
   "shots_per_setting": 8192,
   "seed_pcg64": 1310612,
+  "sampling_grid_bits": 40,
+  "sampling": "integer weights round(p*2**40) for every outcome except the most probable, which takes the complement; each draw is a PCG64 integer below 2**40 compared with the cumulative weights",
   "original_starts": 294912,
   "banks": [
     {
@@ -139,27 +141,27 @@
       "instrument": "address_then_forget",
       "probe": "plus",
       "return_probability": 0.5,
-      "returned": 4056,
+      "returned": 4085,
       "nonzero_joint_counts": [
         [
           0,
           0,
+          2050
+        ],
+        [
+          0,
+          1,
+          2077
+        ],
+        [
+          1,
+          0,
+          2030
+        ],
+        [
+          1,
+          1,
           2035
-        ],
-        [
-          0,
-          1,
-          2090
-        ],
-        [
-          1,
-          0,
-          2046
-        ],
-        [
-          1,
-          1,
-          2021
         ]
       ]
     },
@@ -238,27 +240,27 @@
       "instrument": "address_then_forget",
       "probe": "plus",
       "return_probability": 0.5,
-      "returned": 4129,
+      "returned": 4134,
       "nonzero_joint_counts": [
         [
           2,
           2,
-          2060
+          2057
         ],
         [
           2,
           3,
-          2080
+          2034
         ],
         [
           3,
           2,
-          1983
+          2024
         ],
         [
           3,
           3,
-          2069
+          2077
         ]
       ]
     },
@@ -337,27 +339,27 @@
       "instrument": "address_then_forget",
       "probe": "plus",
       "return_probability": 0.5,
-      "returned": 4034,
+      "returned": 4143,
       "nonzero_joint_counts": [
         [
           4,
           4,
-          2002
+          2025
         ],
         [
           4,
           5,
-          2069
+          2127
         ],
         [
           5,
           4,
-          2089
+          1922
         ],
         [
           5,
           5,
-          2032
+          2118
         ]
       ]
     },
@@ -436,126 +438,126 @@
       "instrument": "address_then_forget",
       "probe": "plus",
       "return_probability": 0.5,
-      "returned": 4146,
+      "returned": 4066,
       "nonzero_joint_counts": [
         [
           6,
           6,
+          1973
+        ],
+        [
+          6,
+          7,
+          2055
+        ],
+        [
+          7,
+          6,
+          2071
+        ],
+        [
+          7,
+          7,
+          2093
+        ]
+      ]
+    },
+    {
+      "pair_start": 8,
+      "instrument": "pair",
+      "probe": "port0",
+      "return_probability": 1.0,
+      "returned": 8192,
+      "nonzero_joint_counts": [
+        [
+          8,
+          8,
+          8192
+        ]
+      ]
+    },
+    {
+      "pair_start": 8,
+      "instrument": "pair",
+      "probe": "port1",
+      "return_probability": 1.0,
+      "returned": 8192,
+      "nonzero_joint_counts": [
+        [
+          8,
+          9,
+          8192
+        ]
+      ]
+    },
+    {
+      "pair_start": 8,
+      "instrument": "pair",
+      "probe": "plus",
+      "return_probability": 1.0,
+      "returned": 8192,
+      "nonzero_joint_counts": [
+        [
+          8,
+          8,
+          8192
+        ]
+      ]
+    },
+    {
+      "pair_start": 8,
+      "instrument": "address_then_forget",
+      "probe": "port0",
+      "return_probability": 1.0,
+      "returned": 8192,
+      "nonzero_joint_counts": [
+        [
+          8,
+          8,
+          8192
+        ]
+      ]
+    },
+    {
+      "pair_start": 8,
+      "instrument": "address_then_forget",
+      "probe": "port1",
+      "return_probability": 1.0,
+      "returned": 8192,
+      "nonzero_joint_counts": [
+        [
+          9,
+          8,
+          8192
+        ]
+      ]
+    },
+    {
+      "pair_start": 8,
+      "instrument": "address_then_forget",
+      "probe": "plus",
+      "return_probability": 0.5,
+      "returned": 4072,
+      "nonzero_joint_counts": [
+        [
+          8,
+          8,
+          1989
+        ],
+        [
+          8,
+          9,
           2043
         ],
         [
-          6,
-          7,
-          2040
-        ],
-        [
-          7,
-          6,
-          2006
-        ],
-        [
-          7,
-          7,
-          2103
-        ]
-      ]
-    },
-    {
-      "pair_start": 8,
-      "instrument": "pair",
-      "probe": "port0",
-      "return_probability": 1.0,
-      "returned": 8192,
-      "nonzero_joint_counts": [
-        [
-          8,
-          8,
-          8192
-        ]
-      ]
-    },
-    {
-      "pair_start": 8,
-      "instrument": "pair",
-      "probe": "port1",
-      "return_probability": 1.0,
-      "returned": 8192,
-      "nonzero_joint_counts": [
-        [
-          8,
-          9,
-          8192
-        ]
-      ]
-    },
-    {
-      "pair_start": 8,
-      "instrument": "pair",
-      "probe": "plus",
-      "return_probability": 1.0,
-      "returned": 8192,
-      "nonzero_joint_counts": [
-        [
-          8,
-          8,
-          8192
-        ]
-      ]
-    },
-    {
-      "pair_start": 8,
-      "instrument": "address_then_forget",
-      "probe": "port0",
-      "return_probability": 1.0,
-      "returned": 8192,
-      "nonzero_joint_counts": [
-        [
-          8,
-          8,
-          8192
-        ]
-      ]
-    },
-    {
-      "pair_start": 8,
-      "instrument": "address_then_forget",
-      "probe": "port1",
-      "return_probability": 1.0,
-      "returned": 8192,
-      "nonzero_joint_counts": [
-        [
           9,
           8,
-          8192
-        ]
-      ]
-    },
-    {
-      "pair_start": 8,
-      "instrument": "address_then_forget",
-      "probe": "plus",
-      "return_probability": 0.5,
-      "returned": 4153,
-      "nonzero_joint_counts": [
-        [
-          8,
-          8,
-          2113
-        ],
-        [
-          8,
-          9,
-          2012
-        ],
-        [
-          9,
-          8,
-          2027
+          2077
         ],
         [
           9,
           9,
-          2040
+          2083
         ]
       ]
     },
@@ -634,27 +636,27 @@
       "instrument": "address_then_forget",
       "probe": "plus",
       "return_probability": 0.5,
-      "returned": 4116,
+      "returned": 4162,
       "nonzero_joint_counts": [
         [
           10,
           10,
-          2041
+          2083
         ],
         [
           10,
           11,
-          2008
+          2017
         ],
         [
           11,
           10,
-          2068
+          2013
         ],
         [
           11,
           11,
-          2075
+          2079
         ]
       ]
     }

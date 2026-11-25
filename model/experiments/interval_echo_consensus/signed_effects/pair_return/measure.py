@@ -11,7 +11,7 @@ from .. import fixed_pointer
 from ..full_address import measure as address
 from ..phase_table import acquire as apparatus
 from ..phase_table import measure as pulses
-from ..sequential import compare, require
+from ..sequential import GRID_BITS, SAMPLING, compare, grid_counts, require
 
 HERE = Path(__file__).resolve().parent
 RECEIPT = HERE / "results.json"
@@ -91,7 +91,7 @@ def report():
                 joint, returned = read_probe(head, terminal, start, name)
                 prediction = 0.5 if name == "plus" and kind == "address_then_forget" else 1
                 require(abs(returned - prediction) < 2e-12, "incorrect return probability")
-                counts = rng.multinomial(SHOTS, joint.ravel() / joint.sum()).reshape(joint.shape)
+                counts = grid_counts(rng, SHOTS, joint.ravel() / joint.sum()).reshape(joint.shape)
                 target = int(name == "port1")
                 hits = sum(int(counts[r, r ^ target]) for r in (start, start + 1))
                 require(abs(hits / SHOTS - prediction) <= np.sqrt(np.log(2 * 36 / .01) / (2 * SHOTS)),
@@ -112,6 +112,7 @@ def report():
             "terminal_address": "first_pointer XOR second_pointer on valid words",
             "head_copy_calls": {"pair": len(coarse_calls), "address_then_forget": len(calls)},
             "terminal_copy_calls": len(calls), "shots_per_setting": SHOTS, "seed_pcg64": SEED,
+            "sampling_grid_bits": GRID_BITS, "sampling": SAMPLING,
             "original_starts": SHOTS * len(banks), "banks": banks}
 
 

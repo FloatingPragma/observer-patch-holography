@@ -102,6 +102,7 @@ def test_complete_records_persistent_native_shape_and_changed_law():
                     assert len(record['probabilities']) == 11 * panel['ports'] + 1
                     assert sum(record['counts']) == m.SHOTS
                     assert abs(sum(record['probabilities']) - 1) < 2e-10
+                    assert record['sampling_grid_l1'] < 11 * panel['ports'] / data['sampling_weight_denominator'] + 2e-10
                     assert min(record['probabilities']) >= 0
                     public_counts = np.array(record['counts'][:-1]).reshape(11, panel['ports']).sum(axis=0)
                     assert record['public_counts_by_port_then_source_refusal'] == public_counts.tolist() + [record['counts'][-1]]
@@ -109,11 +110,15 @@ def test_complete_records_persistent_native_shape_and_changed_law():
                     core = int(public_counts[panel['seam']].sum())
                     tail = .01 / (2 * 2 * 2 * len(m.OPERATIONS) * len(m.TIMES))
                     lower, upper = m.count_intervals.clopper_pearson(core, int(public_counts.sum()), tail)
-                    # The count is exact; libm implementations of the inverse
-                    # beta function can return adjacent floating endpoints.
-                    np.testing.assert_array_max_ulp(
+                    # The count is exact. scipy's inverse beta and forward
+                    # binomial tails differ across CPU math libraries by a few
+                    # units in the last place, and the tail bisection can move
+                    # an endpoint by a similar relative amount. Each endpoint
+                    # is widened outward by 1e-8 of its distance from the point
+                    # estimate; 1e-12 relative stays far inside that margin.
+                    np.testing.assert_allclose(
                         record['simultaneous_99_core_given_admission_interval'],
-                        [lower, upper], maxulp=4)
+                        [lower, upper], rtol=1e-12, atol=0)
                     assert abs(record['probabilities'][-1] - prep['refusal']) < 1e-14
                     energies.append(record['released_relative_energy'])
                 assert max(energies) - min(energies) < 2e-10
@@ -186,6 +191,24 @@ def test_full_native_memory_and_port_embedding_energy_and_pulse():
     work = np.vdot(after, full @ after).real - np.vdot(before, full @ before).real
     reduced_work = (np.vdot(a, h0 @ a) + np.vdot(b, hw @ b) - np.vdot(psi, hw @ psi)).real
     assert abs(work - reduced_work) < 3e-14
+
+
+def test_seeded_draw_ignores_last_bit_roundoff():
+    data = receipt()
+    assert data['sampling_weight_denominator'] == m.GRID == 2**40
+    record = data['panels'][1]['arms'][0]['cases'][1]['readings'][2]
+    p = np.array(record['probabilities'])
+    # Symmetric ports give exactly tied probabilities. Raise the first member
+    # of every tie by one unit in the last place, as a different math library
+    # could. A sampler ordered by probability would reorder its draws.
+    values, first, multiplicity = np.unique(p, return_index=True, return_counts=True)
+    tied = first[(multiplicity > 1) & (values > 0)]
+    assert len(tied) > 100
+    nudged = p.copy()
+    nudged[tied] = np.nextafter(p[tied], 1.)
+    fresh = m.sample(p, np.random.default_rng(31))
+    assert m.sample(nudged, np.random.default_rng(31))['counts'] == fresh['counts']
+    assert fresh['sampling_grid_l1'] < len(p) / m.GRID + 2e-10
 
 
 def test_invalid_probabilities_and_receipt_mismatch_fail():

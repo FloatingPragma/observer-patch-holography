@@ -1,6 +1,6 @@
 # Empty–full interference after one seam repair
 
-**On registered Interval Echo, the empty–full multiplier is exactly one for a fresh seam.** Prepare two loads in a coherent superposition of both being inside or both being outside the target seam. After one repair, an observer can recover the original bright port with certainty or extinguish it by changing a local phase by π. A reversible change to the stored record preserves every sharp load probability and changes the bright probability to one half at both phases. In the historical port arrangement, the native bright counts were 1,048,576 and 0 out of 1,048,576 simulated starts. The changed record gave 524,738 and 524,671. [Native instrument and control](measure.py) · [Literal twelve-port acquisition](historical.py)
+**On registered Interval Echo, the empty–full multiplier is exactly one for a fresh seam.** Prepare two loads in a coherent superposition of both being inside or both being outside the target seam. After one repair, an observer can recover the original bright port with certainty or extinguish it by changing a local phase by π. A reversible change to the stored record preserves every sharp load probability and changes the bright probability to one half at both phases. In the historical port arrangement, the native bright counts were 1,048,576 and 0 out of 1,048,576 simulated starts. The changed record gave 524,153 and 524,579. [Native instrument and control](measure.py) · [Literal twelve-port acquisition](historical.py)
 
 The status board asks for a second preparation that reads the multiplier k and distinguishes the parity record E from the seam-total record T. The original total-two experiment with an empty and a single seam measures a different multiplier, g. E and T both predict a phase-independent 3/8 in that experiment. The archived paper program also gives the ideal answer for empty versus full. The construction here connects that conditional formula to a prepared source, held count banks and a finite detector under the active law. The externally measured choice of record law remains open. The measured outputs here are material occupation patterns following controlled recombination. A free spatial intensity pattern behind a double slit is a separate experiment. [Status board](https://status.floatingpragma.ai/) · [Original record-law derivation and fringes](https://github.com/FloatingPragma/observer-patch-holography/blob/f2f264de2743d4c5d0194ff93bd792ec6e7708e2/model/record_laws/README.md#theorem-3-what-observations-read) · [Protocol](PROTOCOL.md)
 
@@ -28,14 +28,14 @@ Each entry gives the bright returns among 1,048,576 original starts at the histo
 
 | Seam event or intervention | Phase 0 | Phase π/2 | Phase π | Phase π/3 |
 | --- | ---: | ---: | ---: | ---: |
-| Bypass | 1,048,576 | 525,152 | 0 | 786,108 |
-| Native echo | 1,048,576 | 523,628 | 0 | 785,310 |
-| Total-sensitive echo | 524,738 | 524,987 | 524,671 | 523,129 |
-| Resolve the branch | 524,169 | 524,149 | 524,999 | 524,391 |
-| Pass empty only | 262,381 | 261,992 | 261,657 | 261,969 |
-| Pass full only | 262,376 | 262,047 | 261,734 | 261,645 |
+| Bypass | 1,048,576 | 523,825 | 0 | 786,718 |
+| Native echo | 1,048,576 | 524,597 | 0 | 786,389 |
+| Total-sensitive echo | 524,153 | 524,239 | 524,579 | 524,733 |
+| Resolve the branch | 524,304 | 523,590 | 524,610 | 524,182 |
+| Pass empty only | 262,408 | 261,548 | 262,351 | 261,397 |
+| Pass full only | 262,266 | 261,936 | 262,328 | 261,733 |
 
-The commissioning bank at ports 5 and 7 uses phases 0 and π/2 to estimate two quadratures. Their sine and cosine forecast the four held phases without refitting, including phases of opposite signs. The same estimates forecast all six phases at the literal historical addresses. For example the native π/3 forecast was 0.750314. Its held twelve-port rate was 0.748930. All 24 original held returns and all 36 cross-port returns agree with their joint allowances. The 99% family radius across every outcome bin and rejection of both campaigns is 0.002527 per proportion, rounded outward; each forecast also propagates both training errors. Synthetic shot noise and probability rounding (13 decimal places before normalization) are distinct from empirical measurement of a physical seam. [Commissioning counts and forecasts](results.json) · [Independent held bank](historical.json)
+The commissioning bank at ports 5 and 7 uses phases 0 and π/2 to estimate two quadratures. Their sine and cosine forecast the four held phases without refitting, including phases of opposite signs. The same estimates forecast all six phases at the literal historical addresses. For example the native π/3 forecast was 0.749434. Its held twelve-port rate was 0.749959. All 24 original held returns and all 36 cross-port returns agree with their joint allowances. The 99% family radius across every outcome bin and rejection of both campaigns is 0.002527 per proportion, rounded outward; each forecast also propagates both training errors. Each setting draws from integer weights on a 2⁻⁴⁰ grid. Every bin except the most probable is rounded, the most probable takes the complement, and each start compares one PCG64 integer below 2⁴⁰ with the cumulative weights. Rounding moves a bin by at most 2⁻⁴¹ and the complement by less than 4×10⁻¹¹, including the 4×10⁻¹⁴ norm budget, so no floating-point step enters a draw and the counts replay identically on macOS and Linux. Synthetic shot noise and this sampling grid are distinct from empirical measurement of a physical seam. [Commissioning counts and forecasts](results.json) · [Independent held bank](historical.json)
 
 From the repository root, use its NumPy and SciPy environment.
 

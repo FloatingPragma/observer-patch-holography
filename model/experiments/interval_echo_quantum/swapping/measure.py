@@ -7,15 +7,42 @@ from pathlib import Path
 
 import numpy as np
 
-from model.experiments.interval_echo_quantum.experiment import sample
 from . import circuit, compiler
 
 HERE = Path(__file__).resolve().parent
 SHOTS = 2**22
 SEED = 738502
+GRID_BITS = 40
+GRID = 1 << GRID_BITS
 SIGNS = np.array([1, -1, 1])
 CHSH = np.array([[1, 1], [1, -1]])
 CHECKER = np.array([[1, -1], [-1, 1]])
+
+
+def sample(n, prob, rng):
+    """Count n launches drawn from integer weights on the 2**-40 grid.
+
+    Negative float crumbs above -1e-10 are cleared. Every outcome except the
+    most probable has weight round(p * 2**40); the most probable takes the
+    complement. Each launch compares one PCG64 integer below 2**40 with the
+    cumulative weights, so no floating-point operation enters a draw and a
+    seed gives the same counts on every platform. Rounded outcomes move by at
+    most 2**-41; the complement also absorbs the 2e-10 norm tolerance.
+    """
+    p = np.asarray(prob, float)
+    if p.min() < -1e-10 or not np.isclose(p.sum(), 1, atol=2e-10, rtol=0):
+        raise ValueError("Incomplete pointer distribution")
+    flat = np.maximum(p, 0).ravel()
+    weights = np.rint(flat * GRID).astype(np.int64)
+    top = int(np.argmax(weights))
+    weights[top] = GRID - (weights.sum() - weights[top])
+    bound = 2e-10 + (flat.size - 1) / (2 * GRID)
+    if weights.min() < 0 or np.max(abs(weights / GRID - flat)) > bound:
+        raise ValueError("Sampling weights leave the pointer distribution")
+    launches = rng.integers(0, GRID, size=n, dtype=np.int64)
+    edges = np.cumsum(weights)
+    counts = np.bincount(np.searchsorted(edges, launches, side="right"), minlength=flat.size)
+    return counts.reshape(p.shape)
 
 
 def acquire(prob, coins, rng):
@@ -127,6 +154,7 @@ def run(compiled=False):
         "swap_routes": [[list(e) for e in r] for r in routes],
         "shots_per_bank": SHOTS,
         "seed": SEED,
+        "sampling_grid_bits": GRID_BITS,
         "axes": [
             "central_left_bit",
             "central_right_bit",

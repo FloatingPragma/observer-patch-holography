@@ -69,7 +69,7 @@ def run():
             require(abs(public.sum() - 1) < 4e-13, "lost terminal mass")
             theory = offset + g * np.cos(theta) / 2
             require(abs(public[cell.X] - theory) < 2e-13, "native bright return differs")
-            counts = rng.multinomial(SHOTS, public / public.sum())
+            counts = cell.m.draw(SHOTS, public, rng, 4e-13)
             require(np.max(abs(counts / SHOTS - public)) <= radius, "held counts outside tolerance")
             frequencies.append(counts[cell.X] / SHOTS)
             panel.append({"phase_in_pi": round(theta / np.pi, 12), "counts": counts.tolist()})
@@ -84,7 +84,7 @@ def run():
                         "inferred_real_imag": [round(real, 9), round(imag, 9)], "panels": panel}
     return {"seam": [0, 1], "word_order": [list(w) for w in cell.WORDS],
             "bright_word": [2, 3], "source_partner": [1, 2], "shots_per_setting": SHOTS,
-            "seed_pcg64": 138507, "original_starts": SHOTS * len(instruments) * len(PHASES),
+            "seed_pcg64": 138507, "sampling_grid_bits": cell.m.GRID_BITS, "original_starts": SHOTS * len(instruments) * len(PHASES),
             "simultaneous_99_percent_radius": round(float(radius), 12), "banks": banks}
 
 

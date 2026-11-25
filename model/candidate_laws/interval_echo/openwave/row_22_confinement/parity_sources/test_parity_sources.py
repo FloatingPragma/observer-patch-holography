@@ -130,19 +130,17 @@ def test_release_records_and_full_board_dilute_bounds():
 
 
 def test_exact_acquisition_replay():
-    fresh = json.loads(json.dumps(m.run()))
-    frozen = payload('records.json')
-    for new_level, old_level in zip(fresh['levels'], frozen['levels'], strict=True):
-        for name, old in old_level['release']['variants'].items():
-            new = new_level['release']['variants'][name]
-            # expm produces binary64 approximations. Counts, contacts, clocks
-            # and all other fields must replay exactly, including zero signals.
-            actual = np.array(new.pop('extra_pair_probability'))
-            expected = np.array(old.pop('extra_pair_probability'))
-            np.testing.assert_array_equal(actual == 0, expected == 0)
-            np.testing.assert_array_max_ulp(actual, expected, maxulp=16)
-    assert fresh == frozen
+    fresh = m.run()
+    m.check_replay(fresh, payload('records.json'))
     assert json.loads(json.dumps(released.run())) == payload('released.json')
+    changed = json.loads(json.dumps(fresh))
+    changed['levels'][2]['release']['variants']['registered']['extra_pair_counts'][3] += 1
+    with pytest.raises(ArithmeticError, match='Record replay changed'):
+        m.check_replay(changed, payload('records.json'))
+    changed = json.loads(json.dumps(fresh))
+    changed['levels'][2]['release']['variants']['registered']['extra_pair_probability'][3] += 1e-12
+    with pytest.raises(AssertionError):
+        m.check_replay(changed, payload('records.json'))
 
 
 def test_half_filled_permutations_on_a_coherent_ground():

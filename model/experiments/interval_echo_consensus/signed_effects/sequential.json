@@ -6,9 +6,11 @@
     "model/candidate_laws/contrast_memory_spherical_v1/law.py": "218a99ebc1e921065a818b77f00608818fdacf80782406466787b2891b1d017f",
     "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
     "model/experiments/interval_echo_consensus/signed_effects/measure.py": "ffea099e0e8e64e430fd0d60a5f70e052734a4766f6a13fe4a66afd56c302889",
-    "model/experiments/interval_echo_consensus/signed_effects/sequential.py": "87a7415ffc331c77b5a4c2a600892bae0f1e1e959b3efa5aea0b3aecd6319e0c"
+    "model/experiments/interval_echo_consensus/signed_effects/sequential.py": "4b33c965534d696aac973191d257052cd2e52e7ee32a158bba0eead30ee336cc"
   },
   "seed": 925031,
+  "sampling_grid_bits": 40,
+  "sampling": "integer weights round(p*2**40) for every outcome except the most probable, which takes the complement; each draw is a PCG64 integer below 2**40 compared with the cumulative weights",
   "addresses": [
     0,
     1,
@@ -238,7 +240,7 @@
       ],
       "joint_address_counts": [
         [
-          10861,
+          10676,
           0,
           0,
           0,
@@ -253,7 +255,7 @@
         ],
         [
           0,
-          5523,
+          5708,
           0,
           0,
           0,
@@ -631,8 +633,8 @@
       ],
       "joint_address_counts": [
         [
-          9680,
-          997,
+          9612,
+          1029,
           0,
           0,
           0,
@@ -645,8 +647,8 @@
           0
         ],
         [
-          584,
-          5123,
+          556,
+          5187,
           0,
           0,
           0,
@@ -1024,7 +1026,7 @@
       ],
       "joint_address_counts": [
         [
-          5613,
+          5671,
           0,
           0,
           0,
@@ -1039,7 +1041,7 @@
         ],
         [
           0,
-          10771,
+          10713,
           0,
           0,
           0,
@@ -1417,8 +1419,8 @@
       ],
       "joint_address_counts": [
         [
-          5155,
-          512,
+          5054,
+          593,
           0,
           0,
           0,
@@ -1431,8 +1433,8 @@
           0
         ],
         [
-          995,
-          9722,
+          1040,
+          9697,
           0,
           0,
           0,
@@ -1810,7 +1812,7 @@
       ],
       "joint_address_counts": [
         [
-          382,
+          411,
           0,
           0,
           0,
@@ -1825,7 +1827,7 @@
         ],
         [
           0,
-          16002,
+          15973,
           0,
           0,
           0,
@@ -2203,8 +2205,8 @@
       ],
       "joint_address_counts": [
         [
-          354,
-          40,
+          329,
+          41,
           0,
           0,
           0,
@@ -2217,8 +2219,8 @@
           0
         ],
         [
-          1571,
-          14419,
+          1556,
+          14458,
           0,
           0,
           0,
@@ -2596,7 +2598,7 @@
       ],
       "joint_address_counts": [
         [
-          8262,
+          8153,
           0,
           0,
           0,
@@ -2611,7 +2613,7 @@
         ],
         [
           0,
-          8122,
+          8231,
           0,
           0,
           0,
@@ -2989,8 +2991,8 @@
       ],
       "joint_address_counts": [
         [
-          7370,
-          734,
+          7309,
+          783,
           0,
           0,
           0,
@@ -3003,8 +3005,8 @@
           0
         ],
         [
-          798,
-          7482,
+          786,
+          7506,
           0,
           0,
           0,
@@ -3382,7 +3384,7 @@
       ],
       "joint_address_counts": [
         [
-          1546,
+          1547,
           0,
           0,
           0,
@@ -3397,7 +3399,7 @@
         ],
         [
           0,
-          14838,
+          14837,
           0,
           0,
           0,
@@ -3775,8 +3777,8 @@
       ],
       "joint_address_counts": [
         [
-          556,
-          975,
+          554,
+          1018,
           0,
           0,
           0,
@@ -3789,8 +3791,8 @@
           0
         ],
         [
-          9673,
-          5180,
+          9603,
+          5209,
           0,
           0,
           0,
@@ -4168,7 +4170,7 @@
       ],
       "joint_address_counts": [
         [
-          14790,
+          14812,
           0,
           0,
           0,
@@ -4183,7 +4185,7 @@
         ],
         [
           0,
-          1594,
+          1572,
           0,
           0,
           0,
@@ -4561,8 +4563,8 @@
       ],
       "joint_address_counts": [
         [
-          5118,
-          9684,
+          5063,
+          9809,
           0,
           0,
           0,
@@ -4575,8 +4577,8 @@
           0
         ],
         [
-          1038,
-          544,
+          981,
+          531,
           0,
           0,
           0,
@@ -4954,7 +4956,7 @@
       ],
       "joint_address_counts": [
         [
-          3427,
+          3398,
           0,
           0,
           0,
@@ -4969,7 +4971,7 @@
         ],
         [
           0,
-          12957,
+          12986,
           0,
           0,
           0,
@@ -5347,8 +5349,8 @@
       ],
       "joint_address_counts": [
         [
-          1105,
-          2254,
+          1164,
+          2288,
           0,
           0,
           0,
@@ -5361,8 +5363,8 @@
           0
         ],
         [
-          8574,
-          4451,
+          8465,
+          4467,
           0,
           0,
           0,
@@ -5740,7 +5742,7 @@
       ],
       "joint_address_counts": [
         [
-          8323,
+          8225,
           0,
           0,
           0,
@@ -5755,7 +5757,7 @@
         ],
         [
           0,
-          8061,
+          8159,
           0,
           0,
           0,
@@ -6133,8 +6135,8 @@
       ],
       "joint_address_counts": [
         [
-          2911,
-          5280,
+          2891,
+          5254,
           0,
           0,
           0,
@@ -6147,8 +6149,8 @@
           0
         ],
         [
-          5447,
-          2746,
+          5388,
+          2851,
           0,
           0,
           0,
