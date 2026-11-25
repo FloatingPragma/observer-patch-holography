@@ -1,0 +1,462 @@
+{
+ "ports": [
+  1,
+  82,
+  72,
+  182
+ ],
+ "launches_per_bank": 1048576,
+ "clock_bins": 4096,
+ "clock_spacing": 0.03125,
+ "seed": 230640,
+ "tables": {
+  "direct": {
+   "sources": {
+    "-1,-1": {
+     "energy": 0.0,
+     "modal_count": 1048576,
+     "prepared_line_weight_lower": 1.0,
+     "block_gap_lower": null,
+     "modal_energy_error": 0.0625
+    },
+    "-1,0": {
+     "energy": 8.5,
+     "modal_count": 1048576,
+     "prepared_line_weight_lower": 1.0,
+     "block_gap_lower": null,
+     "modal_energy_error": 0.0625
+    },
+    "-1,1": {
+     "energy": 32.5,
+     "modal_count": 1048576,
+     "prepared_line_weight_lower": 1.0,
+     "block_gap_lower": null,
+     "modal_energy_error": 0.0625
+    },
+    "0,-1": {
+     "energy": 8.5,
+     "modal_count": 1048576,
+     "prepared_line_weight_lower": 1.0,
+     "block_gap_lower": null,
+     "modal_energy_error": 0.0625
+    },
+    "0,0": {
+     "energy": 0.0,
+     "modal_count": 1048576,
+     "prepared_line_weight_lower": 1.0,
+     "block_gap_lower": null,
+     "modal_energy_error": 0.0625
+    },
+    "0,1": {
+     "energy": 8.5,
+     "modal_count": 1048576,
+     "prepared_line_weight_lower": 1.0,
+     "block_gap_lower": null,
+     "modal_energy_error": 0.0625
+    },
+    "1,-1": {
+     "energy": 32.5,
+     "modal_count": 1048576,
+     "prepared_line_weight_lower": 1.0,
+     "block_gap_lower": null,
+     "modal_energy_error": 0.0625
+    },
+    "1,0": {
+     "energy": 8.5,
+     "modal_count": 1048576,
+     "prepared_line_weight_lower": 1.0,
+     "block_gap_lower": null,
+     "modal_energy_error": 0.0625
+    },
+    "1,1": {
+     "energy": 0.0,
+     "modal_count": 1048576,
+     "prepared_line_weight_lower": 1.0,
+     "block_gap_lower": null,
+     "modal_energy_error": 0.0625
+    }
+   },
+   "signed_interaction": -16.25,
+   "signed_error": 0.0625,
+   "sign_even_interaction": -0.75,
+   "sign_even_error": 0.25
+  },
+  "native": {
+   "sources": {
+    "-1,-1": {
+     "energy": 17.0,
+     "modal_count": 1048576,
+     "central_counts": [
+      1048576,
+      0,
+      0
+     ],
+     "polarization": 0.0,
+     "prepared_line_weight_lower": 1.0,
+     "block_gap_lower": null,
+     "modal_energy_error": 0.0625
+    },
+    "-1,0": {
+     "energy": 8.5,
+     "modal_count": 1048576,
+     "central_counts": [
+      1048576,
+      0,
+      0
+     ],
+     "polarization": 0.0,
+     "prepared_line_weight_lower": 1.0,
+     "block_gap_lower": null,
+     "modal_energy_error": 0.0625
+    },
+    "-1,1": {
+     "energy": 17.0,
+     "modal_count": 1048576,
+     "central_counts": [
+      1048576,
+      0,
+      0
+     ],
+     "polarization": 0.0,
+     "prepared_line_weight_lower": 1.0,
+     "block_gap_lower": null,
+     "modal_energy_error": 0.0625
+    },
+    "0,-1": {
+     "energy": 8.5,
+     "modal_count": 1048576,
+     "central_counts": [
+      1048576,
+      0,
+      0
+     ],
+     "polarization": 0.0,
+     "prepared_line_weight_lower": 1.0,
+     "block_gap_lower": null,
+     "modal_energy_error": 0.0625
+    },
+    "0,0": {
+     "energy": 0.0,
+     "modal_count": 1048576,
+     "central_counts": [
+      1048576,
+      0,
+      0
+     ],
+     "polarization": 0.0,
+     "prepared_line_weight_lower": 1.0,
+     "block_gap_lower": null,
+     "modal_energy_error": 0.0625
+    },
+    "0,1": {
+     "energy": 8.5,
+     "modal_count": 1048576,
+     "central_counts": [
+      1048576,
+      0,
+      0
+     ],
+     "polarization": 0.0,
+     "prepared_line_weight_lower": 1.0,
+     "block_gap_lower": null,
+     "modal_energy_error": 0.0625
+    },
+    "1,-1": {
+     "energy": 17.0,
+     "modal_count": 1048576,
+     "central_counts": [
+      1048576,
+      0,
+      0
+     ],
+     "polarization": 0.0,
+     "prepared_line_weight_lower": 1.0,
+     "block_gap_lower": null,
+     "modal_energy_error": 0.0625
+    },
+    "1,0": {
+     "energy": 8.5,
+     "modal_count": 1048576,
+     "central_counts": [
+      1048576,
+      0,
+      0
+     ],
+     "polarization": 0.0,
+     "prepared_line_weight_lower": 1.0,
+     "block_gap_lower": null,
+     "modal_energy_error": 0.0625
+    },
+    "1,1": {
+     "energy": 17.0,
+     "modal_count": 1048576,
+     "central_counts": [
+      1048576,
+      0,
+      0
+     ],
+     "polarization": 0.0,
+     "prepared_line_weight_lower": 1.0,
+     "block_gap_lower": null,
+     "modal_energy_error": 0.0625
+    }
+   },
+   "signed_interaction": 0.0,
+   "signed_error": 0.0625,
+   "sign_even_interaction": 0.0,
+   "sign_even_error": 0.25
+  },
+  "conversion": {
+   "sources": {
+    "-1,-1": {
+     "energy": 15.6875,
+     "modal_count": 1015080,
+     "central_counts": [
+      995190,
+      26500,
+      26886
+     ],
+     "polarization": -0.0003681182861328125,
+     "prepared_line_weight_lower": 0.9724167654,
+     "block_gap_lower": 47.5,
+     "modal_energy_error": 0.0625
+    },
+    "-1,0": {
+     "energy": 7.0625,
+     "modal_count": 1006283,
+     "central_counts": [
+      978697,
+      14918,
+      54961
+     ],
+     "polarization": -0.03818798065185547,
+     "prepared_line_weight_lower": 0.9411764706,
+     "block_gap_lower": 32.0,
+     "modal_energy_error": 0.0625
+    },
+    "-1,1": {
+     "energy": 14.78125,
+     "modal_count": 911969,
+     "central_counts": [
+      863090,
+      9135,
+      176351
+     ],
+     "polarization": -0.1594696044921875,
+     "prepared_line_weight_lower": 0.7785467128,
+     "block_gap_lower": 15.0,
+     "modal_energy_error": 0.0625
+    },
+    "0,-1": {
+     "energy": 7.0625,
+     "modal_count": 1005925,
+     "central_counts": [
+      978109,
+      55302,
+      15165
+     ],
+     "polarization": 0.038277626037597656,
+     "prepared_line_weight_lower": 0.9411764706,
+     "block_gap_lower": 32.0,
+     "modal_energy_error": 0.0625
+    },
+    "0,0": {
+     "energy": -1.28125,
+     "modal_count": 811143,
+     "central_counts": [
+      997829,
+      25252,
+      25495
+     ],
+     "polarization": -0.00023174285888671875,
+     "prepared_line_weight_lower": 0.9740365112,
+     "block_gap_lower": 49.0,
+     "modal_energy_error": 0.0625
+    },
+    "0,1": {
+     "energy": 7.0625,
+     "modal_count": 1006054,
+     "central_counts": [
+      978587,
+      14988,
+      55001
+     ],
+     "polarization": -0.03815937042236328,
+     "prepared_line_weight_lower": 0.9411764706,
+     "block_gap_lower": 32.0,
+     "modal_energy_error": 0.0625
+    },
+    "1,-1": {
+     "energy": 14.78125,
+     "modal_count": 911091,
+     "central_counts": [
+      862633,
+      176590,
+      9353
+     ],
+     "polarization": 0.15948963165283203,
+     "prepared_line_weight_lower": 0.7785467128,
+     "block_gap_lower": 15.0,
+     "modal_energy_error": 0.0625
+    },
+    "1,0": {
+     "energy": 7.0625,
+     "modal_count": 1006424,
+     "central_counts": [
+      978678,
+      55038,
+      14860
+     ],
+     "polarization": 0.03831672668457031,
+     "prepared_line_weight_lower": 0.9411764706,
+     "block_gap_lower": 32.0,
+     "modal_energy_error": 0.0625
+    },
+    "1,1": {
+     "energy": 15.6875,
+     "modal_count": 1014902,
+     "central_counts": [
+      994966,
+      26619,
+      26991
+     ],
+     "polarization": -0.000354766845703125,
+     "prepared_line_weight_lower": 0.9724167654,
+     "block_gap_lower": 47.5,
+     "modal_energy_error": 0.0625
+    }
+   },
+   "signed_interaction": 0.453125,
+   "signed_error": 0.0625,
+   "sign_even_interaction": -0.171875,
+   "sign_even_error": 0.25
+  },
+  "cut_conversion": {
+   "sources": {
+    "-1,-1": {
+     "energy": 17.0,
+     "modal_count": 1048576,
+     "central_counts": [
+      1048576,
+      0,
+      0
+     ],
+     "polarization": 0.0,
+     "prepared_line_weight_lower": 1.0,
+     "block_gap_lower": null,
+     "modal_energy_error": 0.0625
+    },
+    "-1,0": {
+     "energy": 8.5,
+     "modal_count": 1048576,
+     "central_counts": [
+      1048576,
+      0,
+      0
+     ],
+     "polarization": 0.0,
+     "prepared_line_weight_lower": 1.0,
+     "block_gap_lower": null,
+     "modal_energy_error": 0.0625
+    },
+    "-1,1": {
+     "energy": 17.0,
+     "modal_count": 1048576,
+     "central_counts": [
+      1048576,
+      0,
+      0
+     ],
+     "polarization": 0.0,
+     "prepared_line_weight_lower": 1.0,
+     "block_gap_lower": null,
+     "modal_energy_error": 0.0625
+    },
+    "0,-1": {
+     "energy": 8.5,
+     "modal_count": 1048576,
+     "central_counts": [
+      1048576,
+      0,
+      0
+     ],
+     "polarization": 0.0,
+     "prepared_line_weight_lower": 1.0,
+     "block_gap_lower": null,
+     "modal_energy_error": 0.0625
+    },
+    "0,0": {
+     "energy": 0.0,
+     "modal_count": 1048576,
+     "central_counts": [
+      1048576,
+      0,
+      0
+     ],
+     "polarization": 0.0,
+     "prepared_line_weight_lower": 1.0,
+     "block_gap_lower": null,
+     "modal_energy_error": 0.0625
+    },
+    "0,1": {
+     "energy": 8.5,
+     "modal_count": 1048576,
+     "central_counts": [
+      1048576,
+      0,
+      0
+     ],
+     "polarization": 0.0,
+     "prepared_line_weight_lower": 1.0,
+     "block_gap_lower": null,
+     "modal_energy_error": 0.0625
+    },
+    "1,-1": {
+     "energy": 17.0,
+     "modal_count": 1048576,
+     "central_counts": [
+      1048576,
+      0,
+      0
+     ],
+     "polarization": 0.0,
+     "prepared_line_weight_lower": 1.0,
+     "block_gap_lower": null,
+     "modal_energy_error": 0.0625
+    },
+    "1,0": {
+     "energy": 8.5,
+     "modal_count": 1048576,
+     "central_counts": [
+      1048576,
+      0,
+      0
+     ],
+     "polarization": 0.0,
+     "prepared_line_weight_lower": 1.0,
+     "block_gap_lower": null,
+     "modal_energy_error": 0.0625
+    },
+    "1,1": {
+     "energy": 17.0,
+     "modal_count": 1048576,
+     "central_counts": [
+      1048576,
+      0,
+      0
+     ],
+     "polarization": 0.0,
+     "prepared_line_weight_lower": 1.0,
+     "block_gap_lower": null,
+     "modal_energy_error": 0.0625
+    }
+   },
+   "signed_interaction": 0.0,
+   "signed_error": 0.0625,
+   "sign_even_interaction": 0.0,
+   "sign_even_error": 0.25
+  }
+ },
+ "simultaneous_bin_error": 0.0028642404,
+ "polarization_error": 0.0057284807
+}
