@@ -1,0 +1,370 @@
+{
+  "reference_local_chart": [
+    1,
+    3,
+    10
+  ],
+  "pulse_routes": [
+    [
+      0,
+      10,
+      20,
+      18,
+      14,
+      24,
+      34,
+      116,
+      114,
+      110,
+      224,
+      223,
+      226,
+      159,
+      160
+    ],
+    [
+      7,
+      10,
+      20,
+      18,
+      14,
+      24,
+      34,
+      116,
+      114,
+      110,
+      224,
+      223,
+      226,
+      159,
+      160
+    ],
+    [
+      5,
+      1,
+      82,
+      79,
+      80,
+      192,
+      199,
+      200,
+      142,
+      134,
+      144,
+      151,
+      152,
+      166,
+      167,
+      160
+    ],
+    [
+      4,
+      3,
+      48,
+      59,
+      50,
+      37,
+      45,
+      39,
+      104,
+      103,
+      96,
+      218,
+      226,
+      159,
+      160
+    ]
+  ],
+  "shots_per_bank": 4194304,
+  "step": 0.25,
+  "steps": 512,
+  "source_order": [
+    "character_0",
+    "character_1",
+    "character_2",
+    "home_compact_control"
+  ],
+  "nominal_reference_energy": 35,
+  "independent_six_seam_store_calibration": {
+    "frequency_per_clock_gap": 34.994302998291076,
+    "frequency_standard_error": 0.004737332628067586,
+    "rms_probability_residual": 0.0017964208166130564
+  },
+  "short_wait": 0.015625,
+  "short_wait_clock_swaps_and_stays": [
+    65275,
+    4129029
+  ],
+  "short_wait_clock_estimate": 0.01563458852128363,
+  "clock_repetitions": 16,
+  "certificate": {
+    "compact_dimension": 40,
+    "proved_pole": 35,
+    "proved_separation": 0.2,
+    "gershgorin": [
+      32.0,
+      54.0
+    ],
+    "dyadic_denominator": 65536,
+    "certificate_scale": 300,
+    "minimum_integer_dominance_margin": 1882166958
+  },
+  "off_pole_filter_bound": 0.006104787349716697,
+  "simultaneous_99_percent_sampling_radius": 0.0019264813577109924,
+  "reference_pole_weights": [
+    0.12190559229345703,
+    0.2310079668161222,
+    0.3137531075570871,
+    0.9999999999999893
+  ],
+  "randomized_wait_banks": [
+    {
+      "menu": "compact_reference",
+      "source_channels": [
+        {
+          "port_counts": [
+            1537044,
+            1028194,
+            1629066
+          ],
+          "mean_from_counts": 0.12131929397583008,
+          "mean_from_law": 0.1219492306411542
+        },
+        {
+          "port_counts": [
+            1716417,
+            744858,
+            1733029
+          ],
+          "mean_from_counts": 0.23163771629333496,
+          "mean_from_law": 0.23171572249625197
+        },
+        {
+          "port_counts": [
+            1895364,
+            578804,
+            1720136
+          ],
+          "mean_from_counts": 0.3138923645019531,
+          "mean_from_law": 0.31416714581892907
+        },
+        {
+          "port_counts": [
+            4194304,
+            0,
+            0
+          ],
+          "mean_from_counts": 1.0,
+          "mean_from_law": 0.9999999999999956
+        }
+      ]
+    },
+    {
+      "menu": "detuned_by_nine",
+      "source_channels": [
+        {
+          "port_counts": [
+            1281790,
+            1283062,
+            1629452
+          ],
+          "mean_from_counts": -0.0003032684326171875,
+          "mean_from_law": 3.7386070333433885e-06
+        },
+        {
+          "port_counts": [
+            1230990,
+            1231328,
+            1731986
+          ],
+          "mean_from_counts": -8.058547973632812e-05,
+          "mean_from_law": 2.9530064055149907e-06
+        },
+        {
+          "port_counts": [
+            1237576,
+            1238071,
+            1718657
+          ],
+          "mean_from_counts": -0.00011801719665527344,
+          "mean_from_law": 3.253571313144299e-06
+        },
+        {
+          "port_counts": [
+            2096440,
+            2097864,
+            0
+          ],
+          "mean_from_counts": -0.000339508056640625,
+          "mean_from_law": 3.6779896946947943e-06
+        }
+      ]
+    },
+    {
+      "menu": "unread_arm",
+      "source_channels": [
+        {
+          "port_counts": [
+            1281417,
+            1281863,
+            1631024
+          ],
+          "mean_from_counts": -0.00010633468627929688,
+          "mean_from_law": 0.0
+        },
+        {
+          "port_counts": [
+            1228565,
+            1231456,
+            1734283
+          ],
+          "mean_from_counts": -0.0006892681121826172,
+          "mean_from_law": 0.0
+        },
+        {
+          "port_counts": [
+            1238315,
+            1237586,
+            1718403
+          ],
+          "mean_from_counts": 0.00017380714416503906,
+          "mean_from_law": 0.0
+        },
+        {
+          "port_counts": [
+            2096858,
+            2097446,
+            0
+          ],
+          "mean_from_counts": -0.00014019012451171875,
+          "mean_from_law": 0.0
+        }
+      ]
+    }
+  ],
+  "finite_wait_moments": [
+    {
+      "exchange_speed": 1,
+      "reference_energy": 35.0,
+      "generator_centroid": [
+        36.16370788557778,
+        37.72310006118717,
+        37.36319205323495,
+        34.999999999999986
+      ],
+      "generator_spread": [
+        5.911774251302045,
+        6.189257699600795,
+        6.135132244940442,
+        6.110549423632648e-14
+      ],
+      "short_wait_port_counts": [
+        [
+          2125481,
+          2050976,
+          17847
+        ],
+        [
+          2176193,
+          1998803,
+          19308
+        ],
+        [
+          2164425,
+          2010424,
+          19455
+        ],
+        [
+          2095863,
+          2098441,
+          0
+        ]
+      ],
+      "relative_slope_from_nominal_wait": [
+        1.1368560791015625,
+        2.706756591796875,
+        2.3498687744140625,
+        -0.039337158203125
+      ],
+      "relative_slope_from_dimer_time": [
+        1.13615885776465,
+        2.705096567731981,
+        2.348427625724634,
+        -0.039313033156395776
+      ],
+      "finite_wait_bias_bounds": [
+        0.022694502732385935,
+        0.029667755333408874,
+        0.027952497768937132,
+        9.320724433923516e-31
+      ]
+    },
+    {
+      "exchange_speed": 3,
+      "reference_energy": 41.0,
+      "generator_centroid": [
+        39.15779032340015,
+        43.83596685022825,
+        42.75624282637159,
+        41.0
+      ],
+      "generator_spread": [
+        6.4918848756121275,
+        6.885841930500015,
+        6.868025796153647,
+        1.4079247662893965e-13
+      ],
+      "short_wait_port_counts": [
+        [
+          2025539,
+          2147247,
+          21518
+        ],
+        [
+          2178899,
+          1991182,
+          24223
+        ],
+        [
+          2142411,
+          2028170,
+          23723
+        ],
+        [
+          2098006,
+          2096298,
+          0
+        ]
+      ],
+      "relative_slope_from_nominal_wait": [
+        -1.85711669921875,
+        2.8643341064453125,
+        1.7431793212890625,
+        0.02606201171875
+      ],
+      "relative_slope_from_dimer_time": [
+        -1.855977749960674,
+        2.8625774418227876,
+        1.742110248572463,
+        0.026046028173438318
+      ],
+      "finite_wait_bias_bounds": [
+        0.022458112971347605,
+        0.0358052638767172,
+        0.031419932341583266,
+        5.5836780726467794e-30
+      ]
+    }
+  ],
+  "ideal_energy_reader": {
+    "numerical_grouping_tolerance": 1e-08,
+    "resolved_bands": 179,
+    "visible_per_source": [
+      178,
+      179,
+      179
+    ],
+    "equal_prior_guess": 0.5744826641368159,
+    "rigorous_common_pole_ceiling": 0.8823621469634736
+  }
+}
