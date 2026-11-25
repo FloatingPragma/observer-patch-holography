@@ -435,7 +435,8 @@
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/composite_exchange/RigidExchange.lean",
     "model/experiments/interval_echo_angular/charged_orientation/rest_spin_search/WheelPole.lean",
     "model/experiments/interval_echo_angular/charged_orientation/winding_exchange/MatchedWinding.lean",
-    "Lean/Dynamics/CyclicEnergy.lean"
+    "Lean/Dynamics/CyclicEnergy.lean",
+    "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/ArmOrder.lean"
    ],
    "model": [
     "model/experiments/interval_echo_angular/charged_orientation/README.md",
@@ -455,7 +456,9 @@
     "model/experiments/interval_echo_angular/charged_orientation/sector_readout/README.md",
     "model/experiments/interval_echo_angular/charged_orientation/rest_spin_search/README.md",
     "model/experiments/interval_echo_angular/charged_orientation/winding_exchange/README.md",
-    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/dispersion_search/SPIN_FIBERS.md"
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/dispersion_search/SPIN_FIBERS.md",
+    "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/README.md",
+    "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/ROTATION_DOMAIN.md"
    ],
    "papers": [
     "flagship/from_observer_consensus_to_standard_physics.pdf",
@@ -928,7 +931,9 @@
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/light_charge_gap/ACTIVE_BACKBONE.md",
     "model/experiments/interval_echo_angular/charged_orientation/sector_readout/README.md",
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/dispersion_search/README.md",
-    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/dispersion_search/SPIN_FIBERS.md"
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/dispersion_search/SPIN_FIBERS.md",
+    "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/README.md",
+    "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/WAVELENGTH.md"
    ],
    "papers": [
     "paper/observers_are_all_you_need.pdf",
@@ -2523,7 +2528,8 @@
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/composite_exchange/RigidExchange.lean",
     "model/experiments/interval_echo_angular/charged_orientation/rest_spin_search/WheelPole.lean",
     "model/experiments/interval_echo_angular/charged_orientation/winding_exchange/MatchedWinding.lean",
-    "Lean/Dynamics/CyclicEnergy.lean"
+    "Lean/Dynamics/CyclicEnergy.lean",
+    "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/ArmOrder.lean"
    ],
    "model": [
     "model/evaluation/SCORECARD.md",
@@ -2568,7 +2574,11 @@
     "model/experiments/interval_echo_angular/charged_orientation/rest_spin_search/README.md",
     "model/experiments/interval_echo_angular/charged_orientation/winding_exchange/README.md",
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/dispersion_search/README.md",
-    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/dispersion_search/SPIN_FIBERS.md"
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/dispersion_search/SPIN_FIBERS.md",
+    "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/README.md",
+    "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/RECIPROCAL.md",
+    "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/WAVELENGTH.md",
+    "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/ROTATION_DOMAIN.md"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
@@ -3318,7 +3328,9 @@
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/light_charge_gap/periodic_marks/README.md",
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/light_charge_gap/ACTIVE_BACKBONE.md",
     "model/experiments/interval_echo_angular/charged_orientation/sector_readout/README.md",
-    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/dispersion_search/README.md"
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/dispersion_search/README.md",
+    "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/README.md",
+    "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/WAVELENGTH.md"
    ],
    "papers": [
     "docs/EMPIRICAL_STATUS.md",
@@ -4736,7 +4748,9 @@
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/light_charge_gap/ACTIVE_BACKBONE.md",
     "model/experiments/interval_echo_angular/charged_orientation/sector_readout/README.md",
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/dispersion_search/README.md",
-    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/dispersion_search/SPIN_FIBERS.md"
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/dispersion_search/SPIN_FIBERS.md",
+    "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/README.md",
+    "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/WAVELENGTH.md"
    ],
    "papers": [
     "paper/executable_observer_construction.pdf",
@@ -4882,7 +4896,9 @@
     "model/experiments/interval_echo_angular/charged_orientation/two_winding_loops/REST.md",
     "model/experiments/interval_echo_angular/charged_orientation/sector_readout/README.md",
     "model/experiments/interval_echo_angular/charged_orientation/rest_spin_search/README.md",
-    "model/experiments/interval_echo_angular/charged_orientation/winding_exchange/README.md"
+    "model/experiments/interval_echo_angular/charged_orientation/winding_exchange/README.md",
+    "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/README.md",
+    "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/RECIPROCAL.md"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
@@ -4906,7 +4922,8 @@
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/composite_exchange/RigidExchange.lean",
     "model/experiments/interval_echo_angular/charged_orientation/rest_spin_search/WheelPole.lean",
     "model/experiments/interval_echo_angular/charged_orientation/winding_exchange/MatchedWinding.lean",
-    "Lean/Dynamics/CyclicEnergy.lean"
+    "Lean/Dynamics/CyclicEnergy.lean",
+    "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/ArmOrder.lean"
    ],
    "model": [
     "model/evaluation/SCORECARD.md",
@@ -4936,7 +4953,9 @@
     "model/experiments/interval_echo_angular/charged_orientation/sector_readout/README.md",
     "model/experiments/interval_echo_angular/charged_orientation/rest_spin_search/README.md",
     "model/experiments/interval_echo_angular/charged_orientation/winding_exchange/README.md",
-    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/dispersion_search/SPIN_FIBERS.md"
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/dispersion_search/SPIN_FIBERS.md",
+    "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/README.md",
+    "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/ROTATION_DOMAIN.md"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
@@ -5068,7 +5087,9 @@
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/light_charge_gap/ACTIVE_BACKBONE.md",
     "model/experiments/interval_echo_angular/charged_orientation/sector_readout/README.md",
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/dispersion_search/README.md",
-    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/dispersion_search/SPIN_FIBERS.md"
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/dispersion_search/SPIN_FIBERS.md",
+    "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/README.md",
+    "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/WAVELENGTH.md"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
@@ -6808,7 +6829,8 @@
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/composite_exchange/RigidExchange.lean",
     "model/experiments/interval_echo_angular/charged_orientation/rest_spin_search/WheelPole.lean",
     "model/experiments/interval_echo_angular/charged_orientation/winding_exchange/MatchedWinding.lean",
-    "Lean/Dynamics/CyclicEnergy.lean"
+    "Lean/Dynamics/CyclicEnergy.lean",
+    "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/ArmOrder.lean"
    ],
    "model": [
     "model/experiments/interval_echo_angular/charged_orientation/README.md",
@@ -6828,7 +6850,10 @@
     "model/experiments/interval_echo_angular/charged_orientation/sector_readout/README.md",
     "model/experiments/interval_echo_angular/charged_orientation/rest_spin_search/README.md",
     "model/experiments/interval_echo_angular/charged_orientation/winding_exchange/README.md",
-    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/dispersion_search/SPIN_FIBERS.md"
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/dispersion_search/SPIN_FIBERS.md",
+    "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/README.md",
+    "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/RECIPROCAL.md",
+    "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/ROTATION_DOMAIN.md"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
@@ -7781,7 +7806,8 @@
     "Lean/Dynamics/WrittenHeadWinding.lean",
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/composite_exchange/RigidExchange.lean",
     "model/experiments/interval_echo_angular/charged_orientation/rest_spin_search/WheelPole.lean",
-    "model/experiments/interval_echo_angular/charged_orientation/winding_exchange/MatchedWinding.lean"
+    "model/experiments/interval_echo_angular/charged_orientation/winding_exchange/MatchedWinding.lean",
+    "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/ArmOrder.lean"
    ],
    "model": [
     "code/defect_particle_classes/PROOF.md",
@@ -7798,7 +7824,9 @@
     "model/experiments/interval_echo_angular/charged_orientation/two_winding_loops/REST.md",
     "model/experiments/interval_echo_angular/charged_orientation/sector_readout/README.md",
     "model/experiments/interval_echo_angular/charged_orientation/rest_spin_search/README.md",
-    "model/experiments/interval_echo_angular/charged_orientation/winding_exchange/README.md"
+    "model/experiments/interval_echo_angular/charged_orientation/winding_exchange/README.md",
+    "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/README.md",
+    "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/ROTATION_DOMAIN.md"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
