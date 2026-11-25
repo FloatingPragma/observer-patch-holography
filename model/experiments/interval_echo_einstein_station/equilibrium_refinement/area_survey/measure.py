@@ -147,6 +147,10 @@ def survey(level):
     entropy = -np.log([comb(len(border), int(i)) for i in k])
     pop = np.full(len(words), 1 / len(words))
     starts, scores = discounted_scores(prob, occupied, MEAN_TIMEOUT)
+    # These identities hold word by word, hence for any source lottery.
+    launches = starts.sum(axis=1)
+    np.testing.assert_array_equal(launches - 2 * k, k == 1)
+    np.testing.assert_array_equal(3 * k - launches, 2 * (k == 2))
     return Survey(
         board.n // 12,
         cells,

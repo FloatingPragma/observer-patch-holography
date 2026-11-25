@@ -155,9 +155,9 @@
     4
   ],
   "native_gates": {
-    "pi_contacts": 8976,
+    "pi_contacts": 37356,
     "intercell_pi_contacts": 0,
-    "echo_read_undo": 1584
+    "echo_read_undo": 5544
   },
   "arms": {
     "split": {
@@ -282,6 +282,130 @@
       "capacity_from_pair_flags": 1.1512925464970227,
       "sampled_capacity_from_pair_flags": 1.1508220716315167
     }
+  },
+  "timed_rim_apertures": {
+    "panels": {
+      "2": [
+        2,
+        4,
+        6
+      ],
+      "4": [
+        2,
+        4,
+        9
+      ],
+      "6": [
+        2,
+        6,
+        8
+      ],
+      "8": [
+        6,
+        8,
+        9
+      ],
+      "9": [
+        4,
+        8,
+        9
+      ]
+    },
+    "calibration_words": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ]
+    ],
+    "nats_per_lit_panel": 0.5364793041447001,
+    "held_rim_pairs": [
+      {
+        "word": [
+          2,
+          4
+        ],
+        "lit_panels": 4,
+        "capacity_nats": 2.302585092994046
+      },
+      {
+        "word": [
+          2,
+          6
+        ],
+        "lit_panels": 4,
+        "capacity_nats": 2.302585092994046
+      },
+      {
+        "word": [
+          2,
+          8
+        ],
+        "lit_panels": 5,
+        "capacity_nats": 2.302585092994046
+      },
+      {
+        "word": [
+          2,
+          9
+        ],
+        "lit_panels": 5,
+        "capacity_nats": 2.302585092994046
+      },
+      {
+        "word": [
+          4,
+          6
+        ],
+        "lit_panels": 5,
+        "capacity_nats": 2.302585092994046
+      },
+      {
+        "word": [
+          4,
+          8
+        ],
+        "lit_panels": 5,
+        "capacity_nats": 2.302585092994046
+      },
+      {
+        "word": [
+          4,
+          9
+        ],
+        "lit_panels": 4,
+        "capacity_nats": 2.302585092994046
+      },
+      {
+        "word": [
+          6,
+          8
+        ],
+        "lit_panels": 4,
+        "capacity_nats": 2.302585092994046
+      },
+      {
+        "word": [
+          6,
+          9
+        ],
+        "lit_panels": 5,
+        "capacity_nats": 2.302585092994046
+      },
+      {
+        "word": [
+          8,
+          9
+        ],
+        "lit_panels": 4,
+        "capacity_nats": 2.302585092994046
+      }
+    ],
+    "spread_minus_split_lit_panels": -0.5,
+    "predicted_capacity_contrast": -0.26823965207235007
   },
   "spread_minus_split": {
     "capacity_nats": -0.45814536593707733,
