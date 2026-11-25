@@ -1,0 +1,78 @@
+{
+  "source": "Existing three sharp doubles in the 12-port guides of the 20-cell Interval Echo chart, independently chosen central corner, killed upon first arrival at an end",
+  "active_stiffness": 8,
+  "changed_stiffness": 4,
+  "appointments": "At every live guide appointment present a fresh, independent coherent one-load receiver. External controls select a fair endpoint of the tested face and fair interrogation of each coordinate. Every read contributes.",
+  "interrogation_time": "pi/(65/2), fixed also for the two-load and changed-stiffness controls",
+  "release_time": "pi/sqrt(1+(65/2)^2), fixed on every arm",
+  "receiver": "Equal-degree adjacent native ports 49,53. Address-sensing pad 55 beside the left leg and reference pad 52 beside the right leg. Nonparticipating loads clamped to zero during free receiver flight. The two release pads have loads (2,0) or (0,2) at the near or far endpoint respectively.",
+  "faces": [
+    [
+      6,
+      6,
+      6,
+      0
+    ],
+    [
+      7,
+      6,
+      6,
+      0
+    ],
+    [
+      8,
+      6,
+      6,
+      0
+    ],
+    [
+      9,
+      6,
+      6,
+      0
+    ],
+    [
+      8,
+      8,
+      8,
+      0
+    ],
+    [
+      6,
+      8,
+      8,
+      0
+    ],
+    [
+      5,
+      6,
+      6,
+      0
+    ],
+    [
+      4,
+      6,
+      6,
+      0
+    ],
+    [
+      6,
+      7,
+      6,
+      1
+    ]
+  ],
+  "source_releases": 17179869184,
+  "seed": 261126,
+  "controls": [
+    "two-load receiver at the original clock",
+    "changed stiffness 4 at the original clock",
+    "retain only the longitudinal coordinate",
+    "park the receiver exchange during release",
+    "two-load receiver at half release time with the original interrogation clock"
+  ],
+  "prediction": "The unconditional signed one-load displacement per source release equals a native coefficient times the negative outward endpoint-current difference in the matched shutter setting. It must reverse under chart reflection and vanish at the reflection midplane. Calibrate the free receiver separately. Carry all released source trajectories to absorption.",
+  "prior_information": "The native binary seam and the symmetric guide Green function were known during design. This apparatus tests their composition. Addresses, pulse duration, receiver preparation and bath exposure are supplied.",
+  "phase_polarity": "The near-end arm conjugates the sensing phases by an unconditional receiver swap and its inverse. Both arms start at zero velocity in the active calibration.",
+  "maximum_appointments": 2048
+}

@@ -35,9 +35,11 @@ currents, limiting which local stress those records can resolve.
 On one prepared finite source, increasing ordinary energy or weakening
 an overlap correlation increases entropy and reduces the area of a
 clock survey at fixed surveyed volume. The two changes share one
-independently calibrated coefficient. At the constrained finite equilibrium, independently measured material
-currents and local load statistics recover the signed response for
-every state variation at fixed survey volume. Six stations admit an
+independently calibrated coefficient. At the constrained finite equilibrium,
+three differently placed material instruments recover the same entropy
+response for every variation at fixed survey volume. Two material cameras
+also give reciprocal angular images when their receivers are calibrated to
+the source. Six stations admit an
 exact smooth three-dimensional realization of their reciprocal ranges.
 These same ranges permit different directional curvatures at a measured
 station, identifying the additional geometric information a local test
@@ -2862,6 +2864,46 @@ require proper transverse separations, affine ray parameters,
 control of diffraction and shear, and the directional stress of
 the same region.
 
+\paragraph{Reciprocity of the two material cameras.}
+Prepare the receiver from an independent time-reversed copy of the
+source lottery, giving effect $X_\pi^{\mathsf T}$ in each head parity
+block of density $X_\pi$. For the native transfer matrices,
+$K_{ij}=K_{ji}^{\mathsf T}$. The transmission probability
+$\sum_\pi\| (X_\pi^{1/2})^{\mathsf T} K_{ji} X_\pi^{1/2}\|_F^2$
+is therefore identical in reverse, separately for each probe charge.
+Three uniformly illuminated pixels facing five satisfy
+$3p_{\rm forward}=5p_{\rm reverse}$. At four ticks the two-way
+angular image-area gains at the enclosed equilibrium lie in
+$[1.226068,1.286387]\times10^{-4}$ for vacancies and
+$[0.720380,1.248067]\times10^{-8}$ for excesses, including joint
+99\% counting uncertainty and the source localization error. A held coin rotation breaks reciprocity at the frozen
+receiver. At every nonzero real algebraic exposure, the native
+reciprocity equations have full column rank on a source neighbourhood.
+Even holding all six projected station lengths and four clock gains
+fixed leaves a source family of full affine span. Thus only zero fixed
+terminal head effects are reciprocal throughout that family. The matched receiver measures angular images;
+a transverse proper area and an affine ruler require independent
+calibration.%
+\footnote{\href{https://github.com/FloatingPragma/observer-patch-holography/tree/main/code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen}{Two-way material counts, source rotation and exact rank proof.}}
+
+A second source variation keeps the same six surveyed lengths, the
+individual head marginals and the parity weights. Along this curve the
+clock gains vary, while the surveyed area $A$ and volume $V$ stay fixed.
+The raw ranges have the form $r(s)=r\cosh s+v r\sinh s$, where $v$
+changes sign between two station groups. Stationarity cancels the odd
+term of the frozen reference modular charge. Homogeneity of the area
+and volume then gives
+\[
+ \Delta\langle K_*\rangle=(3\lambda V-2\eta A)(\cosh s-1),\qquad
+ -237.543<3\lambda V-2\eta A<-236.819
+\]
+in nats. Since
+$\Delta S=\Delta\langle K_*\rangle-D(\rho(s)\Vert\rho_*)$, entropy
+decreases for every sufficiently small nonzero $s$. Its first
+derivative vanishes at the reference. This distinguishes first-order
+entropy stationarity from an identification of entropy with the
+surveyed boundary area at finite displacement.
+
 \paragraph{Directional focusing and a separately metered flux.}
 At exposure four the two screens supply a matrix \(J\) of centroid
 changes with respect to the two launch biases. Denote derivatives in
@@ -3288,6 +3330,29 @@ This is an operational balance at one four-station survey. A
 stress-energy interpretation requires a physical generator for the
 weights on proper balls across radii and frames.
 
+\paragraph{Transporting the entropy reading between material instruments.}
+Keep the marked source and four-tick flight fixed and mount three distinct
+partial translations on domains of twelve, ten and nine cells. On each
+mount 31 regional and local momentum readings have an invertible response
+$B_i$ on the full trace-one source. Hence $B_jB_i^{-1}$ transfers every
+finite source difference between mounts. Using 31 readings across all
+three reduces the modular noise gain to $5.01\times10^6$ nats per unit
+absolute error in a detector difference. A separate fair lottery over
+head products and reversal parity supplies a tracial calibration stock.
+Subtracting its material means determines the prepared density, hence
+its logarithm, entirely from material records. On two equal-survey-volume
+preparation pairs this gives entropy slopes $-0.069481704$ and
+$+0.125540977$, compared with $-0.069481705$ and $+0.125540979$ from
+the ordinary-calibrated area. Every pair of mounts also predicts all 31
+changes on the omitted mount, with relative errors below
+$5.72\times10^{-11}$ in the independent flights. Whole-region readings
+suffice as well. Restrict each shift to its central cell and then to
+its domain within one graph step. Any two mounts determine the whole
+source from 31 of their 32 regional means and predict the full omitted
+mount to relative error below $6.05\times10^{-11}$. Transport of
+a geometric boost weight to shrinking proper balls is a separate requirement.%
+\footnote{\href{https://github.com/FloatingPragma/observer-patch-holography/tree/main/code/matched_einstein_limit/source_implication/full_algebra/correlation_rank/spatial_cuts/chart_transport}{Native material response matrices, interval bounds and held flights.}}
+
 \paragraph{Which local geometry does a finite clock survey determine?}
 Six stations on the same prepared source give fifteen two-way ranges.
 After projecting the directional readings to reciprocal lengths one can
@@ -3408,6 +3473,36 @@ response and a controlled range test. A physical Newton measurement
 also requires freely moving sources, their proper separation and a
 common coupling.
 \footnote{\href{https://github.com/FloatingPragma/observer-patch-holography/tree/main/model/candidate_laws/interval_echo/openwave/row_26_newton/mobile_mediator/finite_density}{Finite-density source experiment and range theorem.}}
+
+\paragraph{A second load responds to the three-guide current.}
+A sharp source sends three marked loads down separately metered guides.
+At each appointment a fourth load starts in a real, equal superposition
+on two adjacent receiver ports. Three independently switched native
+contacts interrogate the source coordinates in sequence. At the
+ordinary receiver clock, a missed coordinate reverses the coherence
+when its switch is enabled. Averaging the switches therefore leaves
+coherence only on a joint address match. Every trial ends in a physical
+right-or-left port reading. The two mirror arms of the receiver
+interrogate adjacent addresses, including all trials in the comparison.
+
+Let $u(x)$ count mean visits per source release and let
+$J_i=[u(x)-u(x+e_i)]/8$ be the independently metered outward
+current. At the registered free-flight time the signed displacement of
+the receiver loads summed per release is $B_i=-(520/4229)J_i$.
+Four successive outward faces give $-0.00515$, $-0.00212$,
+$-0.00106$ and $-0.00065$ receiver links per release, each with
+simultaneous 99\% half-width below $0.000186$. The reflected inner
+face gives $+0.00516$. The guide Green theorem transfers an inward
+inverse-square response to this receiver in the interior scaling
+limit. The freely propagating one-load and two-load position
+generators differ on the whole blank board by exactly $144I$, so their
+bare transition probabilities agree at every time. Yet the two-load
+test probe receives a complete phase turn per missed coordinate at the
+original clock and has zero mean recoil at every release time.
+The supplied face routing, phase clock, mirrored pad bias and source
+activity determine this coupling. Its failure to transfer between the
+two receivers limits its gravitational interpretation.
+\footnote{\href{https://github.com/FloatingPragma/observer-patch-holography/tree/main/model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil}{Native recoil, source counts and receiver controls.}}
 
 \paragraph{Two stationary sources at matched survey geometry.}
 On the native 80-cell board, let the two outgoing heads seed the next
