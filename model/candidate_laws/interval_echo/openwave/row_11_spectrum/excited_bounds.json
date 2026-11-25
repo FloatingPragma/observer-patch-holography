@@ -1,0 +1,164 @@
+{
+  "energy_reference": "registered blank unit-filled host, total excess -1",
+  "owner_words_per_layout": 531441,
+  "actual_gateway_classes": [
+    [
+      0,
+      1,
+      2
+    ],
+    [
+      0,
+      1,
+      4
+    ],
+    [
+      0,
+      2,
+      8
+    ]
+  ],
+  "verified_negative_sector_floor": 32,
+  "actual_gateways": {
+    "per_defect_and_charge_coefficients": [
+      "321/4",
+      "3/4"
+    ],
+    "per_occupied_owner_and_charge_coefficients": [
+      "1659/2",
+      "0"
+    ],
+    "every_single_composition_excited_to_ground_ratio_ceiling": "481/28",
+    "small_defect_and_tail_ratio_envelopes": {
+      "1": "159/64",
+      "3": "30/11",
+      "5": "801/224",
+      "7": "187/40",
+      "9": "481/28"
+    },
+    "necessary_dressing_sizes": {
+      "206.7682827": {
+        "minimum_mean_defect_ports": 82.45900369345794,
+        "minimum_defects_in_fixed_composition": 83,
+        "minimum_mean_occupied_cells": 7.9765943898734175,
+        "minimum_cells_for_a_strict_dressing_support": 8
+      },
+      "3477.0": {
+        "minimum_mean_defect_ports": 1386.4766355140187,
+        "minimum_defects_in_fixed_composition": 1387,
+        "minimum_mean_occupied_cells": 134.13381555153708,
+        "minimum_cells_for_a_strict_dressing_support": 135
+      }
+    },
+    "all_level_ratio_ceiling_by_board_cells": {
+      "20": 518.4375,
+      "80": 2073.75,
+      "320": 8295.0
+    }
+  },
+  "any_three_gateways": {
+    "per_defect_and_charge_coefficients": [
+      "321/4",
+      "3/4"
+    ],
+    "per_occupied_owner_and_charge_coefficients": [
+      "1659/2",
+      "0"
+    ],
+    "every_single_composition_excited_to_ground_ratio_ceiling": "481/28",
+    "small_defect_and_tail_ratio_envelopes": {
+      "1": "159/64",
+      "3": "30/11",
+      "5": "801/224",
+      "7": "187/40",
+      "9": "481/28"
+    },
+    "necessary_dressing_sizes": {
+      "206.7682827": {
+        "minimum_mean_defect_ports": 82.45900369345794,
+        "minimum_defects_in_fixed_composition": 83,
+        "minimum_mean_occupied_cells": 7.9765943898734175,
+        "minimum_cells_for_a_strict_dressing_support": 8
+      },
+      "3477.0": {
+        "minimum_mean_defect_ports": 1386.4766355140187,
+        "minimum_defects_in_fixed_composition": 1387,
+        "minimum_mean_occupied_cells": 134.13381555153708,
+        "minimum_cells_for_a_strict_dressing_support": 135
+      }
+    },
+    "all_level_ratio_ceiling_by_board_cells": {
+      "20": 518.4375,
+      "80": 2073.75,
+      "320": 8295.0
+    }
+  },
+  "high_line_trial_witness_by_board_cells": {
+    "20": {
+      "balanced_owner_positive_ports": [
+        0,
+        1,
+        2,
+        4,
+        6,
+        8
+      ],
+      "internal_cut": 20,
+      "twice_light_trial_energy": 69,
+      "first_crossing_by_rounded_ratio": {
+        "207": {
+          "occupied_cells_in_trial": 10,
+          "defects": 119,
+          "twice_trial_energy": 14454,
+          "certified_top_line_over_lightest": "4818/23"
+        }
+      }
+    },
+    "80": {
+      "balanced_owner_positive_ports": [
+        0,
+        1,
+        2,
+        4,
+        6,
+        8
+      ],
+      "internal_cut": 20,
+      "twice_light_trial_energy": 69,
+      "first_crossing_by_rounded_ratio": {
+        "207": {
+          "occupied_cells_in_trial": 10,
+          "defects": 119,
+          "twice_trial_energy": 14586,
+          "certified_top_line_over_lightest": "4862/23"
+        }
+      }
+    },
+    "320": {
+      "balanced_owner_positive_ports": [
+        0,
+        1,
+        2,
+        4,
+        6,
+        8
+      ],
+      "internal_cut": 20,
+      "twice_light_trial_energy": 69,
+      "first_crossing_by_rounded_ratio": {
+        "207": {
+          "occupied_cells_in_trial": 10,
+          "defects": 119,
+          "twice_trial_energy": 14586,
+          "certified_top_line_over_lightest": "4862/23"
+        },
+        "3477": {
+          "occupied_cells_in_trial": 165,
+          "defects": 1979,
+          "twice_trial_energy": 240650,
+          "certified_top_line_over_lightest": "240650/69"
+        }
+      }
+    }
+  }
+}

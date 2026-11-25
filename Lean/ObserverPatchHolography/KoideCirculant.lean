@@ -192,4 +192,33 @@ theorem kinetic_floor_compresses_ratio {floor light heavy : ℝ}
     nlinarith [mul_pos (sub_pos.mpr hh) (show 0 < heavy + light by linarith)]
   nlinarith [mul_pos hf diff]
 
+/-- The blank-host cell upper envelope and the lower envelope shared by all
+levels of a fixed composition exclude a wide family inside that composition.
+The finite enumeration checks the four odd counts below nine separately. -/
+theorem fixed_composition_formation_span {defects low high : ℝ}
+    (many : 9 ≤ defects) (floor : 6 * defects - 12 ≤ low)
+    (cap : 4 * high ≤ 321 * defects - 3) :
+    28 * high ≤ 481 * low := by
+  linarith
+
+/-- A measured squared middle/light ratio greater than one fixes the unique
+family-independent spatial floor in a first-order incidence dispersion. -/
+theorem squared_ratio_determines_floor {floor light middle r : ℝ} (hr : 1 < r) :
+    floor + middle^2 = r * (floor + light^2) ↔
+    floor = (middle^2 - r * light^2) / (r - 1) := by
+  rw [eq_div_iff (ne_of_gt (sub_pos.mpr hr))]
+  constructor <;> intro h <;> linarith only [h]
+
+/-- A zero floor or a uniform positive spectral lower bound excludes an
+intermediate calibration, for every guide included by the hypotheses. -/
+theorem forbidden_common_floor {floor light middle r bound : ℝ}
+    (hr : 1 < r)
+    (positive : 0 < (middle^2 - r * light^2) / (r - 1))
+    (small : (middle^2 - r * light^2) / (r - 1) < bound)
+    (guide : floor = 0 ∨ bound ≤ floor) :
+    floor + middle^2 ≠ r * (floor + light^2) := by
+  intro eqn
+  have forced := (squared_ratio_determines_floor hr).mp eqn
+  rcases guide with zero | lower <;> linarith
+
 end OPH.KoideCirculant

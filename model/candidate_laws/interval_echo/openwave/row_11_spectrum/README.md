@@ -1,6 +1,6 @@
 # Can neutral material dressings produce the charged-lepton mass hierarchy?
 
-**A negative material defect can become thousands of times harder to move as neutral pairs dress it. Its formation energy follows a different sequence.** On the 20-, 80- and 320-cell federations, the ground energies of *all* negative-unit compositions above the common filled host span ratios of at most **57.5625, 203.296875 and 759.546875**. Thus the target heavy/light rest-energy ratio of 3477 is impossible for these composition minima on every enrolled board. This is a result for the registered blank-memory law, with all federation contacts active. OW‑11 requires exactly three identified charged-lepton minima. Other energy references, excited branches, written memories and sufficiently large media require their own measurements. [OpenWave criterion](https://github.com/openwave-labs/openwave/blob/d4fc3e4046c472f4ad38468df8dddfa1f97bac97/MODELS.md#L113) · [Protocol and ancestry](PROTOCOL.md) · [Bounds for every composition](bounds.json)
+**A negative material defect can become thousands of times harder to move as neutral pairs dress it. Its formation energy follows a different sequence.** On the 20-, 80- and 320-cell federations, the ground energies of *all* negative-unit compositions above the common filled host span ratios of at most **57.5625, 203.296875 and 759.546875**. Thus the target heavy/light rest-energy ratio of 3477 is impossible for these composition minima on every enrolled board. This is a result for the registered blank-memory law, with all federation contacts active. OW‑11 requires exactly three identified charged-lepton minima. The all-level bound below also covers excited states on the two smaller boards. Written memories and other energy references have different generators or observables. [OpenWave criterion](https://github.com/openwave-labs/openwave/blob/d4fc3e4046c472f4ad38468df8dddfa1f97bac97/MODELS.md#L113) · [Protocol and ancestry](PROTOCOL.md) · [Bounds for every composition](bounds.json)
 
 ## Selecting and measuring the candidates
 
@@ -42,6 +42,26 @@ To bound each lowest energy from above, order the cells by graph distance from c
 
 On any refinement with the same 12-port cells, three distinct external gateways per cell, unit bulk, record-zero reference and registered free generator, the symmetric upper bound is less than 8(6D+3.75). A heavy minimum at least 3477 times any lighter negative-unit minimum would therefore require **at least 2,319 defect ports** in the heavier composition. The corresponding requirement for a ratio of 207 is **at least 139**. The phase-separated competitors strengthen that latter figure to **997** on the specific 320-cell board. These are necessary counts of vacancies and doubles; they do not specify an excitation's radius or demonstrate a heavy species.
 
+## Can an excited charged defect evade the ground-energy bound?
+
+**On any refinement, the entire excited spectrum of one fixed negative-unit composition spans a formation-energy ratio of at most 481/28, or 17.179.** Either lepton ratio would therefore require different compositions of the blank host. Every free seam swap preserves the counts of vacancies and doubles.
+
+Even allowing different compositions, every negative-unit formation line on the 20- and 80-cell boards lies below 3477 times the lightest possible line. On the 320-cell board a line at that ratio requires at least **1,387 defect ports** in its conserved composition and a dressing with support on **at least 135 cells**. The latter is a bound on the whole material dressing. The net signed charge could be concentrated in a much smaller region. [Exact integer bounds](excited_bounds.json) · [Carrier, native seam and enumeration](excited_bounds.py)
+
+Let \(A\) count cells with at least one vacancy or double in a sharp port reading. For a blank seam the potential plus the exchange matrix's absolute row bound is \(8(s-t)^2+\mathbf{1}_{s\ne t}\). For an external seam this is at most \(33(s^2+t^2)/2\) for every pair of records. Allocate each square to its owner. Sum each owner's internal seams and degree reference exactly. Exhausting the \(3^{12}\) port words for every placement of the three gateways gives the quadratic-form bounds
+\[
+ H \le \tfrac{321}{4}D+\tfrac34 S,\qquad H \le \tfrac{1659}{2}A.
+\]
+Indeed each off-diagonal term is bounded by its absolute coefficient times the sum of its two endpoint probabilities. The inequalities apply to coherent superpositions and mixtures. Within a single composition, \(D\) is fixed. For odd \(D\ge9\), division by the lower bound \(6D-12\) gives \((321D-3)/(24D-48)\), decreasing from \(481/28\) at nine defects. The exhaustive floors at one, three, five and seven defects give smaller ratios. The independent lower certificate gives \(H\ge32\) throughout \(S=-1\). The replay checks the microscopic blank seam, the exact cell envelopes, and the lower certificate. In particular, the same bounds hold for any three distinct gateways per cell on a refinement with the stated contact law and degree reference. [Lean bound for a fixed composition](../../../../../Lean/ObserverPatchHolography/KoideCirculant.lean)
+
+| Cells | Ceiling on any excited/light formation ratio | Ceiling on a ratio of composition minima |
+|---:|---:|---:|
+| 20 | 518.4375 | 57.5625 |
+| 80 | 2073.75 | 203.296875 |
+| 320 | 8295 | 759.546875 |
+
+At the frozen middle/light ratio 206.7682827 the same test requires at least 83 defects in a fixed composition and support on eight or more cells. To measure the size bound, repeat the preparation of the selected energy line, read the port loads and count occupied cells in each trial. The required mean count for the heavy line is at least 134.13. On the 320-cell board there is an excited level above the rounded heavy/light threshold. Packing balanced six-vacancy, six-double cut patterns into 165 neighboring cells and restoring one double to a unit gives total charge −1. This sharp word has mean formation energy 120325, while a single vacancy at a degree-five port has mean energy 34.5. The variational principle bounds the highest energy of the 1,979-defect composition from below by 120325 and the lightest energy of the board from above by 34.5. The quotient 240650/69 exceeds 3477. This certifies spectral reach. The exact frequency, preparation weight, rest character and multiplicity of a heavy line require spectroscopy. A physical family assignment also requires charge-tagged local preparations, transport, and the same rest lines on an independently calibrated clock.
+
 ## Relation to the earlier lepton triplet
 
 The finite cyclic theorem constrains the square roots of a balanced positive spectrum. Its hypothesis supplies no identification of the native dressings with mass eigenstates. The separate first-order register extension gives ratios 1 ∶ 206.770316 ∶ 3477.472837 on its corridor, where the register operator enters the propagation law. The registered blank-sector energy bounds concern a different generator and a named physical reference. Comparing the two requires a map that preserves the same preparations, free motion and energy read. [Koide theorem](../../../../../Lean/ObserverPatchHolography/KoideCirculant.lean) · [Lepton-family comparisons](../electron_field/lepton_family/README.md)
@@ -53,6 +73,7 @@ Run from the repository root. Each command checks the stored evidence and all co
 ```sh
 python -m model.candidate_laws.interval_echo.openwave.row_11_spectrum.measure
 python -m model.candidate_laws.interval_echo.openwave.row_11_spectrum.bounds
+python -m model.candidate_laws.interval_echo.openwave.row_11_spectrum.excited_bounds
 python -m model.candidate_laws.interval_echo.openwave.row_11_spectrum.transport
 python -m pytest -q model/candidate_laws/interval_echo/openwave/row_11_spectrum
 ```

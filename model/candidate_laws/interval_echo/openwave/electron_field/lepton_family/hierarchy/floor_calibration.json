@@ -1,0 +1,50 @@
+{
+  "frozen_ratio_source": "https://physics.nist.gov/cuu/pdf/RevModPhys.97.025002.pdf",
+  "comparison": {
+    "zero_floor_middle_ratio": 206.77031597272938,
+    "frozen_middle_ratio": 206.7682827,
+    "frozen_standard_uncertainty": 4.6e-06,
+    "lambda_required_at_central_ratio": 7.151492390952495e-14,
+    "lambda_range_at_five_quoted_uncertainties": [
+      7.070594869703604e-14,
+      7.232389939198291e-14
+    ],
+    "heavy_light_ratio_conditional_on_fitted_floor": 3477.4386406317944,
+    "lambda_units": "squared exposure energy, declared register coupling one"
+  },
+  "boards": [
+    {
+      "cells": 20,
+      "longest_degree_six_path": 6,
+      "all_degree_six_ground": 0,
+      "least_possible_positive_path_mode": 1.0717967697244908,
+      "pinned_guide_strict_floor": "127/1000",
+      "branch_block_certificates": 21,
+      "all_positive_floors_over_five_sigma_upper_bound": 1755989390335.3047,
+      "minimum_mass_coupling_if_fitted_on_pinned_guides": 1325137.4986526133,
+      "upper_middle_ratio_on_pinned_guides": 1.0006118462910565
+    },
+    {
+      "cells": 80,
+      "longest_degree_six_path": 6,
+      "all_degree_six_ground": 0,
+      "least_possible_positive_path_mode": 1.0717967697244908,
+      "pinned_guide_strict_floor": "127/1000",
+      "branch_block_certificates": 21,
+      "all_positive_floors_over_five_sigma_upper_bound": 1755989390335.3047,
+      "minimum_mass_coupling_if_fitted_on_pinned_guides": 1325137.4986526133,
+      "upper_middle_ratio_on_pinned_guides": 1.0006118462910565
+    },
+    {
+      "cells": 320,
+      "longest_degree_six_path": 12,
+      "all_degree_six_ground": 0,
+      "least_possible_positive_path_mode": 0.2725933896874537,
+      "pinned_guide_strict_floor": "11/250",
+      "branch_block_certificates": 78,
+      "all_positive_floors_over_five_sigma_upper_bound": 608374276966.5623,
+      "minimum_mass_coupling_if_fitted_on_pinned_guides": 779983.5107017085,
+      "upper_middle_ratio_on_pinned_guides": 1.0017649934528012
+    }
+  ]
+}
