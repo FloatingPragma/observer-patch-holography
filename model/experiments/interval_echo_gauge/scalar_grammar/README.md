@@ -1,0 +1,30 @@
+# Measuring all four directions of one scalar doublet
+
+A common phase on a two-component field disappears from every intensity measured within that doublet. A third port gives the observer a reference. On a physical triangle of the twenty-cell Interval Echo board, two addresses carry the declared doublet and the third carries the same material load along a reference path. Native contact and private-reference pulses implement the complete finite weak and hypercharge action, including its relative phase against that third address. This is an addressed realization of the finite grammar in PR-67. The scalar interpretation, couplings, exposure, coherent reference, preparation and individual contact addressing are supplied. A spontaneously broken vacuum, a propagating Higgs and a sourced electroweak field require separate evidence. [Finite symmetry theorem](../../../../Lean/Screen/ElectroweakBreakingComposition.lean) · [Scalar matter dictionary](../../../../code/a5_closure/exterior_sm_completion.py)
+
+## Exact source map
+
+Write $h=(h_u,h_d)$ for the complex scalar row of the five-mode construction. Its modes are the one-occupation exterior masks 8 and 16. The colour part is trivial, $6Y=3$, and masks 8 and 16 have respective electric charges $+1,0$ in the exterior dictionary. The empty exterior mask is a trivial reference. Inside the registered material, the isometry maps those three orthogonal coordinates to one unit load at ports $0,5,11$, respectively. All three ports have degree five and every pair shares a physical local seam. Their other contacts are parked in the addressed protocol. The three material addresses have the same total ternary load. The electromagnetic charge labels describe the declared field action on this code. Coupling a physical electric flux probe to these labels is an additional requirement for a particle assignment. [Native terminal load reader](../arrival_ladder/measure.py) · [Addressed contact and private-reference service](../../interval_echo_consensus/signed_effects/README.md)
+
+The required infinitesimal action on the first two coordinates is
+
+$$i H(A)=\frac{i}{2}\left[g(a_x\sigma_x+a_y\sigma_y+a_z\sigma_z)+g' b I\right].$$
+
+For matrix entries $H_{uu}=u$, $H_{dd}=v$ and $H_{ud}=x-iy$, the control values are $a_x=2x/g$, $a_y=2y/g$, $a_z=(u-v)/g$, $b=(u+v)/g'$. These span all four real directions for any positive $g,g'$. The Lean proof identifies this block action on every complex input with the imported finite electroweak theorem, including its signs and factors of two. The executable uses $g=3/2$ and $g'=5/4$ in declared apparatus units. [Kernel-checked map](ScalarGrammar.lean)
+
+On an addressed physical seam $ij$, the blank-head words $10$ and $01$ have the generator $(\kappa+1/2)I-\sigma_x/2$. Their off-seam spectator has local word $00$ with zero energy. A private degree-five exposure at port $j$ generates $\kappa n_j^2$, which equals $\kappa |j\rangle\langle j|$ in this one-load sector. The code checks that all 99 rows of the seam generator preserve this subspace. Two local private phases remove the common seam phase left by the exchange, even relative to a coherent spectator. The resulting pulse realizes $\exp(i t\sigma_x/2)$ on the pair and fixes the spectator. Opposite private phases about $z$ rotate this generator to $y$. To synthesize any $A$, conjugate a $z$ rotation into the direction of $(a_x,a_y,a_z)$ and apply equal private phases to the two scalar ports. The zero weak-field and negative-axis cases are included. Periodic native exposures give the inverse gates with positive dwells. The field action is realized per completed pulse sequence. Between pulses the evolution follows the addressed material Hamiltonian. [Compiler and generators](measure.py) · [Independent exterior operator](../../../candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/field.py)
+
+## What the observer reads
+
+Each trial starts with a unit at port 0 and blank contacts. The emitter prepares one of seven single-port or pair-interference states. The field controller applies one of four single-direction settings or the held direction $(0.6,-0.8,0.45,0.7)$ at exposure 0.83. On fresh trials the observer selects an address read or one of six pair analyzers, rotates the selected pair, and reads which port holds the unit. The trials include all three terminal words. Preparation and terminal analysis use the same native pulse alphabet. The predictions use independently specified source vectors, Hermitian analyzer projectors and the five-mode exterior raising/lowering operators. The two-rail-only control removes the reference coherence and renders the hypercharge phase invisible.
+
+All **245 of 245** simulated banks agree with the normalized exterior prediction at simultaneous 99% coverage, with 32,768 original starts per bank. For the pure hypercharge setting, preparing $(|0\rangle+|11\rangle)/\sqrt{2}$ and reading the quadrature $(|0\rangle+i|11\rangle)/\sqrt{2}$ gives 8,139 counts at port 0, zero at port 5 and 24,629 at port 11. Reversing the $y$ generator excludes 35 banks. Replacing $Y=1/2$ by $Y=1$ excludes 11. Recomputing the apparatus at $\kappa=4$ with every exposure frozen excludes 42 of 49 combined-direction banks. Confidence intervals use a Hoeffding union bound over all settings and terminal bins, including rounding to the inherited 40-bit sampling grid. These outcomes test the chosen representation and the contact realization. The scalar row shares a gauge representation with other doublets, and this read supplies no particle species, vacuum dynamics, field kinetic term or measured weak coupling. [All ternary outcomes and settings](results.json) · [Regression checks](test_measure.py)
+
+From the repository root:
+
+```sh
+export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1
+python -m model.experiments.interval_echo_gauge.scalar_grammar.measure
+python -m pytest -q model/experiments/interval_echo_gauge/scalar_grammar
+(cd Lean && lake build +ElectroweakBreakingComposition && lake env lean -j1 ../model/experiments/interval_echo_gauge/scalar_grammar/ScalarGrammar.lean)
+```
