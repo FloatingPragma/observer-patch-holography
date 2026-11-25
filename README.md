@@ -198,7 +198,7 @@ what observers measure.
 
 ## Mathematics you can check
 
-The [Lean library](Lean/) holds more than 13300 public theorems and lemmas
+The [Lean library](Lean/) holds more than 13400 public theorems and lemmas
 with no admitted proofs, covering consensus, quantum records, the gauge
 structure, thermodynamics and the Koide identity. Every computational result
 ships with a receipt that binds its inputs and replays.

@@ -242,7 +242,7 @@ observateurs.
 
 ## Des mathématiques vérifiables
 
-La [bibliothèque Lean](Lean/) contient plus de 13300 théorèmes et lemmes
+La [bibliothèque Lean](Lean/) contient plus de 13400 théorèmes et lemmes
 publics sans preuve admise, sur le consensus, les registres quantiques, la
 structure de jauge, la thermodynamique et l’identité de Koide. Chaque résultat
 de calcul est livré avec un reçu qui lie ses entrées et se rejoue.
