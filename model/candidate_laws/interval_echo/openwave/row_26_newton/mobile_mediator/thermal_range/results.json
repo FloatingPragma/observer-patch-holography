@@ -1,0 +1,139 @@
+{
+  "ensemble": "zero or one mobile; fair charge and orientations before logarithm",
+  "beta": "1/8",
+  "local_increment_bounds": [
+    "3/160000",
+    "51/2"
+  ],
+  "active_contrast": 8,
+  "panels": [
+    {
+      "cell_distance": 2,
+      "support_distance": 4,
+      "measured_heat_interval": [
+        1.3188369193659808e-18,
+        1.3188396199481253e-18
+      ],
+      "fixed_beta_potential_slope_bound": 4.204542243054935e-06,
+      "uniform_beta_potential_slope_bound": 0.00021530136403315002,
+      "zero_crossing_activity": [
+        2.028199799101854e-21,
+        3.751369351245922e-09
+      ],
+      "signs": [
+        {
+          "activity": "1e-72",
+          "sign_numerator": [
+            1.3188369193659806e-18,
+            1.3188396199481255e-18
+          ],
+          "connected_grand_potential": "negative"
+        },
+        {
+          "activity": "1e-35",
+          "sign_numerator": [
+            1.318836919365974e-18,
+            1.3188396199481255e-18
+          ],
+          "connected_grand_potential": "negative"
+        }
+      ]
+    },
+    {
+      "cell_distance": 3,
+      "support_distance": 7,
+      "measured_heat_interval": [
+        4.407452182377946e-32,
+        4.407469924684342e-32
+      ],
+      "fixed_beta_potential_slope_bound": 5.407773558194738e-15,
+      "uniform_beta_potential_slope_bound": 5.4644444762060144e-09,
+      "zero_crossing_activity": [
+        6.778088708001454e-35,
+        1.2536803341324353e-22
+      ],
+      "signs": [
+        {
+          "activity": "1e-72",
+          "sign_numerator": [
+            4.4074521823779456e-32,
+            4.407469924684343e-32
+          ],
+          "connected_grand_potential": "negative"
+        },
+        {
+          "activity": "1e-35",
+          "sign_numerator": [
+            3.7572021823779453e-32,
+            4.4074699246839914e-32
+          ],
+          "connected_grand_potential": "negative"
+        }
+      ]
+    },
+    {
+      "cell_distance": 4,
+      "support_distance": 10,
+      "measured_heat_interval": [
+        1.7671416539750353e-46,
+        1.767152513845572e-46
+      ],
+      "fixed_beta_potential_slope_bound": 5.388772379549588e-25,
+      "uniform_beta_potential_slope_bound": 1.3869003370058005e-13,
+      "zero_crossing_activity": [
+        2.7176342237216994e-49,
+        5.026567150494072e-37
+      ],
+      "signs": [
+        {
+          "activity": "1e-72",
+          "sign_numerator": [
+            1.767141653975035e-46,
+            1.7671525138455725e-46
+          ],
+          "connected_grand_potential": "negative"
+        },
+        {
+          "activity": "1e-35",
+          "sign_numerator": [
+            -6.502499999999825e-33,
+            -3.338909748615442e-45
+          ],
+          "connected_grand_potential": "positive"
+        }
+      ]
+    },
+    {
+      "cell_distance": 5,
+      "support_distance": 12,
+      "measured_heat_interval": [
+        1.0732229547788517e-56,
+        1.0732281222668434e-56
+      ],
+      "fixed_beta_potential_slope_bound": 4.178629415066968e-32,
+      "uniform_beta_potential_slope_bound": 1.1977828150000948e-16,
+      "zero_crossing_activity": [
+        1.6504774391062692e-59,
+        3.052737770003466e-47
+      ],
+      "signs": [
+        {
+          "activity": "1e-72",
+          "sign_numerator": [
+            1.0732229547787865e-56,
+            1.0732281222668436e-56
+          ],
+          "connected_grand_potential": "negative"
+        },
+        {
+          "activity": "1e-35",
+          "sign_numerator": [
+            -6.502500000000001e-33,
+            -3.5156249999892674e-45
+          ],
+          "connected_grand_potential": "positive"
+        }
+      ]
+    }
+  ]
+}
