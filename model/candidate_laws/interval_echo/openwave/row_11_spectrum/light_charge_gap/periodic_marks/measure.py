@@ -17,7 +17,7 @@ from model.experiments.interval_echo_angular.charged_orientation.winding_memory.
 from ...conjugate_flight.measure import edge
 from ...marked_bands import material, stock
 from ..measure import local_sector
-from .certify import DENOM, enclose
+from .certify import DENOM, below, enclose
 
 N = 144
 RATIOS = np.array([206.7682827, 1776.93 / 0.51099895069])
@@ -201,7 +201,7 @@ def comparison(v):
     )
 
 
-def flight(s, vec, energies, lo, hi, rng):
+def flight(s, vec, energies, lo, hi, edge_intervals, native_d, native_e, rng):
     p = lcm(2, 3 * s)
     # Sharp source in the middle of the second barrier-free interval, reached
     # by directed native swaps from the initial launch. Detector counts the
@@ -222,8 +222,22 @@ def flight(s, vec, energies, lo, hi, rng):
     )
     amplitudes = filt * vec[x0 + 1]
     admitted = float(np.vdot(amplitudes, amplitudes).real)
-    first_band = energies < (lo[1] + hi[0]) / 2
+    # At both certified bracket endpoints count eigenvalues of the actual
+    # full physical component. A finite eigenvalue in either uncertainty
+    # window would make an assignment ambiguous.
+    first_edges = sorted([edge_intervals[j][0] for j in (0, 1)])
+    assert first_edges[0][1] < first_edges[1][0]
+    a, b = (2 * native_d).astype(int).tolist(), (2 * native_e).astype(int).tolist()
+    cut_counts = []
+    for bracket in first_edges:
+        left, right = (below(a, b, 0, q) for q in bracket)
+        assert left is not None and left == right
+        cut_counts.append(left)
+    first_band = np.zeros(len(energies), bool)
+    first_band[cut_counts[0] : cut_counts[1]] = True
+    low_cluster = energies < (lo[1] + hi[0]) / 2
     purity = float(sum(abs(amplitudes[first_band]) ** 2) / admitted)
+    interband = float(sum(abs(amplitudes[low_cluster & ~first_band]) ** 2) / admitted)
     filtered = []
     # Compare the same prepared state immediately and after free flight. The
     # phase reference has a finite binary gate register; every refusal counts.
@@ -256,6 +270,8 @@ def flight(s, vec, energies, lo, hi, rng):
             center=center,
             admitted=admitted,
             first_band_weight=purity,
+            first_band_endpoint_counts=cut_counts,
+            in_gap_low_cluster_weight=interband,
             banks=filtered,
         ),
         receiver_ring_indices=np.flatnonzero(
@@ -310,7 +326,7 @@ def run():
             candidates = [(comparison(lo[i:]), i) for i in range(len(lo) - 2)]
             best, offset = min(candidates, key=lambda pair: pair[0]["joint_error"])
             data["any_bulk_triple"] = dict(starting_band=offset, **best)
-            data["sharp_flight"] = flight(s, vec, vals, lo, hi, rng)
+            data["sharp_flight"] = flight(s, vec, vals, lo, hi, certified, d, e, rng)
         report[str(s)] = data
     return dict(
         target_ratios=RATIOS.tolist(),

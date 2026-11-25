@@ -57,7 +57,10 @@ def test_both_laboratory_ratios_and_filter_flight():
     r = records[-1]
     flight = r["sharp_flight"]
     clock = flight["clock"]
-    assert clock["first_band_weight"] > 0.9997
+    assert clock["first_band_endpoint_counts"] == [0, 2]
+    assert 0.99833 < clock["first_band_weight"] < 0.99834
+    assert 0.00142 < clock["in_gap_low_cluster_weight"] < 0.00143
+    assert DATA["settings"]["3"]["sharp_flight"]["clock"]["first_band_weight"] < 0.47
     for row in clock["banks"]:
         assert row["arrived"] + row["elsewhere"] + row["refused"] == measure.SHOTS
     # Multiply the actual controlled binary-wait filters by repeated squaring,
@@ -73,6 +76,10 @@ def test_both_laboratory_ratios_and_filter_flight():
     assert abs(np.vdot(psi, psi).real - clock["admitted"]) < 1.0e-9
     for _ in range(8):
         u = u @ u
+    distance = np.sqrt(1 - clock["first_band_weight"])
+    assert (
+        clock["banks"][-2]["joint_probability"] - clock["banks"][0]["joint_probability"]
+    ) / clock["admitted"] - 2 * distance > 0.84
     mask = np.isin(np.arange(-1, 145) % 144, flight["receiver_ring_indices"])
     assert (
         abs(sum(abs((u @ psi)[mask]) ** 2) - clock["banks"][-2]["joint_probability"])
