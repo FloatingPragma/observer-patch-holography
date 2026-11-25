@@ -8,7 +8,6 @@ from pathlib import Path
 
 import numpy as np
 from scipy.linalg import cho_factor, cho_solve
-from scipy.optimize import brentq
 
 from .. import measure as source
 

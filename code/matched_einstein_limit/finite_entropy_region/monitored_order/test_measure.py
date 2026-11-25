@@ -31,6 +31,10 @@ def test_two_inequivalent_rooted_boundaries_and_exact_entropy_degeneracy():
             sum(row["protected_word_gap_counts"].values())
             == row["monitoring"]["complete_words"]
         )
+        assert (
+            sum(n for _, n in row["branching_witnesses_by_resident_word_count"])
+            == row["monitoring"]["complete_words"]
+        )
         valid = row["possible_protected_balls"]
         if n > 1:
             assert not valid and max(map(int, row["protected_word_gap_counts"])) == 0
@@ -40,6 +44,8 @@ def test_two_inequivalent_rooted_boundaries_and_exact_entropy_degeneracy():
         assert len({v["center"] for v in valid}) == len(valid) == 6
         for v in valid:
             k = v["cut_occupancy"]
+            center, *rest = v["branching_center_incoming_outgoing"]
+            assert center == v["center"] and len(set([center, *rest])) == 4
             assert (
                 v["volume_ports"] == 10 and v["equilibrium_interior_multiplicity"] == 3
             )

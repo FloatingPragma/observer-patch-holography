@@ -61,7 +61,7 @@ def configure(sign, retire=False):
     from ..apparatus import stock
     from ....echo_turn.material import chart, transp
     from ....echo_turn.pulse import primitive
-    from ....material_interferometer.apparatus import Terminal
+    from ....material_interferometer.apparatus import Terminal, inverse
 
     f = fixture()
     lab = chart()
@@ -70,7 +70,10 @@ def configure(sign, retire=False):
     field = nx.Graph(board.seams)
     ring, marks, leaves, _, _ = layout()
     active = set(ring) | set(leaves)
-    edge = lambda a, b: frozenset((a, b))
+
+    def edge(a, b):
+        return frozenset((a, b))
+
     stock_pair = set(f["donor"])
     guide = set(f["ports"])
     live = {edge(*z) for z in f["marked"]}
@@ -146,8 +149,24 @@ def configure(sign, retire=False):
         route.add_edge(u, v)
         for z in (u, v):
             move(z, slots.pop(0))
-    assert Terminal("tip").zero_flags()
+    terminal = Terminal("tip")
     if retire:
+        # Read both outcomes of each unknown head with a material vacancy,
+        # undo its pointer motion, and retain the bit for the known-stock reset.
+        for bit, (a, _, g) in enumerate(terminal.arms):
+            if (a, g) not in marks:
+                continue
+            go = [(terminal.hub, a, np.pi), (a, g, np.pi / 8)]
+            for mask in range(8):
+                final = terminal.run(go, mask)
+                pointer = a if (mask >> bit) & 1 else g
+                assert (
+                    abs(np.sum(abs(final[terminal.ports.index(pointer)]) ** 2) - 1)
+                    < 1e-12
+                )
+                for u, v, dt in inverse(go):
+                    terminal.gate(final, u, v, dt)
+                np.testing.assert_allclose(final[0, mask], 1, atol=1e-12)
         # The loan is a material vacancy; either sign of the incoming excitation
         # leaves a vacancy among the parked balanced stocks.
         probe = next(v for v in parked.values() if load[v] == 0)

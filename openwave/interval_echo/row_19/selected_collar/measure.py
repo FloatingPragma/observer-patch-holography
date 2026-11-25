@@ -21,7 +21,7 @@ def marginals(state):
     return np.trace(blocks, axis1=2, axis2=4), np.trace(blocks, axis1=1, axis2=3)
 
 
-def select_source(ref):
+def joint_basis():
     axes = station.phase.AXES[1:]
     basis = np.zeros((18, 2, 4, 4), complex)
     for b in range(2):
@@ -29,6 +29,11 @@ def select_source(ref):
             for j in range(3):
                 basis[9 * b + 3 * a + j, b] = np.kron(axes[a], axes[j]) / 2
     np.testing.assert_allclose(np.einsum("ibjk,lbkj->il", basis, basis), np.eye(18))
+    return basis
+
+
+def select_source(ref):
+    basis = joint_basis()
     left, right = marginals(ref)
     product = np.array(
         [np.kron(a, z) / np.trace(a) for a, z in zip(left, right, strict=True)]

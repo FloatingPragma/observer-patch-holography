@@ -90,6 +90,19 @@ def integer_distances(local, blocked):
     return active, z
 
 
+def branching_witness(distances, labels, centers):
+    """Find two distinct unit-speed minimizing continuations of the same incoming segment."""
+    for center in centers:
+        neighbors = np.flatnonzero(distances[center] == 1)
+        for incoming in neighbors:
+            outward = neighbors[distances[incoming, neighbors] == 2]
+            if len(outward) >= 2:
+                points = [center, incoming, *outward[:2]]
+                assert len(set(points)) == 4 and distances[outward[0], outward[1]] > 0
+                return tuple(map(int, labels[points]))
+    return None
+
+
 def gap_test(active, distances, ports, cut):
     labels = ports[active]
     gates = np.flatnonzero(np.isin(labels, list(cut)))
@@ -118,6 +131,9 @@ def gap_test(active, distances, ports, cut):
                 exposed_rim_radii=sorted(map(int, radial[gates])),
                 transmitting_contacts=len(gates),
                 volume_ports=len(labels),
+                branching_center_incoming_outgoing=list(
+                    branching_witness(distances, labels, [i])
+                ),
             )
         )
     return best, example, balls
@@ -191,11 +207,15 @@ def region(board, record):
     unrestricted = dict(best_gap=blank_gap, best_gap_witness=witnesses)
     positives = []
     counts = Counter()
+    branches = Counter()
     for j, word in enumerate(words):
         blocked = np.searchsorted(ports, word)
         active, d = integer_distances(local, blocked)
         gap, _, balls = gap_test(active, d, ports, cut)
         counts[gap] += 1
+        witness = branching_witness(d, ports[active], range(len(active)))
+        assert witness is not None
+        branches[witness] += 1
         if j in (0, len(words) // 2, len(words) - 1) or balls:
             verify_ambient(board, ports, word, active, d)
         for ball in balls:
@@ -235,6 +255,9 @@ def region(board, record):
         unoccupied=unrestricted,
         possible_protected_balls=positives,
         protected_word_gap_counts={str(k): v for k, v in sorted(counts.items())},
+        branching_witnesses_by_resident_word_count=[
+            [list(w), n] for w, n in sorted(branches.items())
+        ],
         any_center_equilibrium_probability=str(Fraction(len(valid_words), len(words))),
         any_center_outward_rejection_equilibrium_probability=str(
             hit_biased / total_biased

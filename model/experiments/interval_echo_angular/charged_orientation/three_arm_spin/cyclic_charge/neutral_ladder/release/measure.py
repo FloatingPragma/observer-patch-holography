@@ -11,6 +11,7 @@ from scipy.stats import beta
 
 from ....apparatus import native_graph, fixture
 from ...instruments import material
+from .detectors import verify
 from .geometry import configure, layout
 from .flight import TIMES, frame, chart
 from ..measure import gate, WORDS
@@ -190,8 +191,10 @@ def run():
                                 sensor=sensor,
                                 starts=shots,
                                 pair_given_launch=joined(p),
-                                repaired_marginals_given_launch=joined(reread(p)),
-                                independent_soliton_product=independent_flights(
+                                repaired_independent_marginals_given_launch=joined(
+                                    reread(p)
+                                ),
+                                independent_single_load_product=independent_flights(
                                     sign, w, written, sensor, i
                                 ),
                                 data=data,
@@ -209,6 +212,7 @@ def run():
                     )
                 )
     return dict(
+        local_receiver_meters=verify(),
         source="original three native character sources; free signed flight 32, full ladder at 160/167",
         seeds=[35124, 35125],
         ring=ring,

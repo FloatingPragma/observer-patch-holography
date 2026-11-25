@@ -100,12 +100,13 @@ def recorded_clocks(counts):
 
 
 def decode(record):
-    if (
-        record["shots_per_sender"],
-        record["shots_per_clock"],
-        record["shots_per_flux_setting"],
-    ) != (N_CAMERA, N_CLOCK, N_FLUX):
-        raise ValueError("Count totals differ from the registered instruments")
+    flux_shots = record["shots_per_flux_setting"]
+    if record["shots_per_sender"] != N_CAMERA or record["shots_per_clock"] != N_CLOCK:
+        raise ValueError(
+            "Clock or reception counts differ from the registered experiment"
+        )
+    if flux_shots not in (N_FLUX, 2**78):
+        raise ValueError("Unregistered phase-kick trial count")
     if len(record["clock_plus_counts"]) != 3 or any(
         n < 0 or n > N_CLOCK for n in record["clock_plus_counts"]
     ):
@@ -115,7 +116,7 @@ def decode(record):
     nsettings = 19 * 4
     magnitude = 5376
     err = iv.mpf(magnitude) * iv.sqrt(
-        2 * iv.ln(iv.mpf(2 * nsettings) / iv.mpf(".003")) / N_FLUX
+        2 * iv.ln(iv.mpf(2 * nsettings) / iv.mpf(".003")) / flux_shots
     )
     # Fourier differentiation of the nineteen phase-kick means, in their documented order.
     weights = [
@@ -124,7 +125,7 @@ def decode(record):
     ]
     for name, data in record["stocks"].items():
         if len(data["flux_plus_counts"]) != 19 or any(
-            n < 0 or n > N_FLUX for n in data["flux_plus_counts"]
+            n < 0 or n > flux_shots for n in data["flux_plus_counts"]
         ):
             raise ValueError("Invalid phase-kick count")
         f = {}
@@ -132,7 +133,7 @@ def decode(record):
             f[tag] = focusing([pixel_image(rows) for rows in data[tag]], clocks)
         fs[name] = f["forward"] - f["reverse"]
         js[name] = sum(
-            w * (magnitude * (2 * iv.mpf(n) / N_FLUX - 1) + iv.mpf([-1, 1]) * err)
+            w * (magnitude * (2 * iv.mpf(n) / flux_shots - 1) + iv.mpf([-1, 1]) * err)
             for w, n in zip(weights, data["flux_plus_counts"], strict=True)
         )
 

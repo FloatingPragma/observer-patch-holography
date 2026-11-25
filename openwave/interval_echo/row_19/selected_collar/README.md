@@ -8,7 +8,7 @@ Hold the two individual head distributions and the entire parked-energy distribu
 
 The measured slopes refer to the calibrated modular reader in nats. Its weights and the public preparation settings are inputs to the counting intervals. The expected difference between the two source readings is +0.00022946 nats. The first and precision count banks gave the following results. The intervals have simultaneous 99% coverage over the Pauli settings in each separate bank, conditional on the simulator’s probability law.
 
-| Simulated trials per setting | Measured difference, nats | Simultaneous half-width, nats |
+| Simulated trials per setting | Counted difference, nats | Simultaneous half-width, nats |
 | ---: | ---: | ---: |
 | 67,108,864 | +0.00008805 | 0.00106743 |
 | 68,719,476,736 | +0.00022940 | 0.00003336 |
