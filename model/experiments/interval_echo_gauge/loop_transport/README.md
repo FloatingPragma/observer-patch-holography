@@ -2,6 +2,8 @@
 
 Ordinary blank-memory Interval Echo transports a material mark noncommutatively. Take a unit-filled cell with one vacancy and one excess. Two triangular vacancy paths with a common root and spoke permute the excess in different orders. On the 20-owner board the two finite-exposure sequences produced different terminal excess counts, with every failed vacancy checkpoint retained. A separate disjoint-cell experiment on the same sector ground resolved no neighboring response. [Path protocol](DESIGN.md) · [Original records](results.json) · [Placement protocol](PLACEMENT.md) · [Held receiver records](placement.json)
 
+At the active contrast coefficient, protected single-contact pulses give deterministic coherent exchanges. Their complete group on the one-excess fiber, an explicit cross-owner doublet transport, and the loop-invariant effect algebra are now derived separately. [Full loop image, proof and phase-sensitive records](HOLONOMY.md)
+
 ## What travels around each loop?
 
 Write $|x,y\rangle$ for the excess at $x$ and vacancy at $y$. The exact generator block from vacancy $y$ to a neighbor $z$ is $-P_{yz}/2$. The map $P_{yz}$ sends an excess at $z$ to $y$ and fixes the other excess positions. This follows from the native seam exchange. All other contacts and the diagonal contrast cost have zero matrix element between these two vacancy fibers. Thus the first derivative of one observed crossing is $iP_{yz}/2$ in the free exposure parameter. The code checks the complete off-diagonal block against the native two-defect Hamiltonian.

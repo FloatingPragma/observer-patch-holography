@@ -30,6 +30,16 @@ V3 fits wave numbers from even-hold receiver profiles and uses those same measur
 
 Three fixed validation seeds, 785029, 514823 and 690271, occupy a different domain from the prospective public draw. The v2 boards remain enrolled in a separate repeat. Separate measurement output, a read-only inspection and an independent replay use the same bound source and draw. Acquisitions record physical rejections separately from incomplete or invalid evidence. [Reader](../../row_30_collective/confirmation/spatial.py) · [Acquisition and exits](../../row_30_collective/confirmation/acquire.py)
 
+## Independent headline arithmetic
+
+A standard-library check reconstructs the local clock and coupling slopes directly from the 2,576 retained eight-outcome count vectors in the separate meter bench. It then recomputes the lattice, continuum and matched-tangent comparisons from the validation summary's measured wavelengths and frequencies, and reconstructs the spatial cutoffs from each board's geometry. It imports no candidate or producer code. [Check](headline.py) · [Changed forecasts and rejected records](test_headline.py)
+
+```sh
+python3 model/candidate_laws/interval_echo/openwave/submission/row_30_confirmation/headline.py
+```
+
+The check returns 22 frequencies, 14 low-wave-number lines, a largest lattice error of 0.000574677 and largest low-wave-number continuum error of 0.003164416. Its inputs include the archived fitted wavelengths, temporal frequencies and spatial residual sums; it does not reconstruct those measurements or the non-dispersion controls from raw counts. Use the frozen replay below for those obligations. Changed mass and gradient forecasts fail on the same records. A spatial miss returns 2; inconsistent bindings return 4. The eleven targeted checks pass. The check reads saved evidence without alteration and preserves the candidate declaration, terms, frozen inputs and sealed v2/v3 receipts. Full-credit filing is on HOLD.
+
 ## Reproduce from the frozen checkout
 
 The source bundle reproduces the [published frozen RER commit](https://github.com/FloatingPragma/observer-patch-holography/tree/92370140edfbdb0ac2be647b2b8166d821e5f1a2). The OpenWave patch stages the exact source, port, canonical selection and proposed acceptance record for review. That local artifact cannot satisfy the official acceptance check. The working research checkout contains additional edits to the common candidate wrapper. The following commands keep the research checkout intact and use the version in the packet. [Package manifest](PACKAGE.json) · [Source Git bundle](SOURCE.bundle) · [Proposed OpenWave patch](OPENWAVE.patch)

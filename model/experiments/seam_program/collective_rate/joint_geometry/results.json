@@ -1,0 +1,625 @@
+{
+  "source_and_terminals": [
+    0,
+    5,
+    1,
+    11
+  ],
+  "by_contrast": {
+    "8": {
+      "thermal_floor": 2.73187769627215e-06,
+      "valid_signed_amplitude": 0.0013987213804913408,
+      "rows": [
+        {
+          "exposure": 0.03125,
+          "clock_transfer": 0.0002441207574318154,
+          "receiver_empty_and_full": [
+            0.500027484253411,
+            0.49997251574658874
+          ],
+          "receiver_exchange_derivatives": [
+            -2.8907273567332957e-07,
+            2.890727356387571e-07
+          ],
+          "receiver_aligned_derivatives": [
+            4.6058193843177483e-07,
+            -4.60581938416596e-07
+          ],
+          "receiver_parity_derivatives": [
+            0.0,
+            0.0
+          ],
+          "parity_response": 0.0,
+          "threshold_time_parity": 0.0,
+          "signal": -5.496850682229493e-05,
+          "signal_time_derivative": -0.00343188046186869,
+          "exchange_response": 5.781454713120867e-07,
+          "aligned_response": -9.211638768483708e-07,
+          "threshold_time_exchange": 0.00016846317281030273,
+          "threshold_time_aligned": -0.00026841374199461154
+        },
+        {
+          "exposure": 0.0625,
+          "clock_transfer": 0.0009762446499504253,
+          "receiver_empty_and_full": [
+            0.5001023432848352,
+            0.49989765671516484
+          ],
+          "receiver_exchange_derivatives": [
+            -4.217483469286107e-06,
+            4.217483469283885e-06
+          ],
+          "receiver_aligned_derivatives": [
+            6.644333564337487e-06,
+            -6.644333564311683e-06
+          ],
+          "receiver_parity_derivatives": [
+            0.0,
+            0.0
+          ],
+          "parity_response": 0.0,
+          "threshold_time_parity": 0.0,
+          "signal": -0.0002046865696703204,
+          "signal_time_derivative": -0.00594085995188362,
+          "exchange_response": 8.434966938569992e-06,
+          "aligned_response": -1.328866712864917e-05,
+          "threshold_time_exchange": 0.0014198225521030142,
+          "threshold_time_aligned": -0.0022368255162177053
+        },
+        {
+          "exposure": 0.125,
+          "clock_transfer": 0.0039011663853354738,
+          "receiver_empty_and_full": [
+            0.5003182098315764,
+            0.4996817901684235
+          ],
+          "receiver_exchange_derivatives": [
+            -4.631732846637924e-05,
+            4.631732846636439e-05
+          ],
+          "receiver_aligned_derivatives": [
+            7.101827908095881e-05,
+            -7.101827908088769e-05
+          ],
+          "receiver_parity_derivatives": [
+            0.0,
+            0.0
+          ],
+          "parity_response": 0.0,
+          "threshold_time_parity": 0.0,
+          "signal": -0.0006364196631528651,
+          "signal_time_derivative": -0.007102564113273441,
+          "exchange_response": 9.263465693274363e-05,
+          "aligned_response": -0.0001420365581618465,
+          "threshold_time_exchange": 0.013042424602634106,
+          "threshold_time_aligned": -0.019997926931262077
+        },
+        {
+          "exposure": 0.25,
+          "clock_transfer": 0.015543789144677609,
+          "receiver_empty_and_full": [
+            0.5006589302643852,
+            0.49934106973561465
+          ],
+          "receiver_exchange_derivatives": [
+            -0.00019304276596621058,
+            0.00019304276596621394
+          ],
+          "receiver_aligned_derivatives": [
+            0.00031617084198097784,
+            -0.00031617084198090444
+          ],
+          "receiver_parity_derivatives": [
+            0.0,
+            0.0
+          ],
+          "parity_response": 0.0,
+          "threshold_time_parity": 0.0,
+          "signal": -0.001317860528770587,
+          "signal_time_derivative": -0.0037044493241829577,
+          "exchange_response": 0.00038608553193242453,
+          "aligned_response": -0.0006323416839618823,
+          "threshold_time_exchange": 0.1042221118836815,
+          "threshold_time_aligned": -0.17069789019218118
+        }
+      ],
+      "parity_terminals": [
+        6,
+        11
+      ],
+      "parity_route": [
+        {
+          "exposure": 0.03125,
+          "clock_transfer": 0.0002441207574318154,
+          "receiver_empty_and_full": [
+            0.5000274842534109,
+            0.49997251574658896
+          ],
+          "receiver_exchange_derivatives": [
+            -2.1094231409356234e-09,
+            2.109423088961682e-09
+          ],
+          "receiver_aligned_derivatives": [
+            4.099427889162066e-10,
+            -4.0994283488637873e-10
+          ],
+          "receiver_parity_derivatives": [
+            7.089618794375169e-10,
+            -7.089619152161886e-10
+          ],
+          "parity_response": -1.4179237946537054e-09,
+          "threshold_time_parity": -4.1316234944897503e-07,
+          "signal": -5.496850682196186e-05,
+          "signal_time_derivative": -0.0034318804618686995,
+          "exchange_response": 4.218846229897305e-09,
+          "aligned_response": -8.198856238025853e-10,
+          "threshold_time_exchange": 1.2293103669467827e-06,
+          "threshold_time_aligned": -2.3890273362148164e-07
+        },
+        {
+          "exposure": 0.0625,
+          "clock_transfer": 0.0009762446499504253,
+          "receiver_empty_and_full": [
+            0.5001023432848349,
+            0.49989765671516495
+          ],
+          "receiver_exchange_derivatives": [
+            -1.1747592377326331e-07,
+            1.1747592375895184e-07
+          ],
+          "receiver_aligned_derivatives": [
+            2.2109938887767203e-08,
+            -2.2109938850253807e-08
+          ],
+          "receiver_parity_derivatives": [
+            4.009190388975115e-08,
+            -4.0091903920000393e-08
+          ],
+          "parity_response": -8.018380780975155e-08,
+          "threshold_time_parity": -1.3497003541436461e-05,
+          "signal": -0.00020468656966998733,
+          "signal_time_derivative": -0.005940859951883641,
+          "exchange_response": 2.3495184753221515e-07,
+          "aligned_response": -4.421987773802101e-08,
+          "threshold_time_exchange": 3.954845753563338e-05,
+          "threshold_time_aligned": -7.443346265720406e-06
+        },
+        {
+          "exposure": 0.125,
+          "clock_transfer": 0.0039011663853354738,
+          "receiver_empty_and_full": [
+            0.5003182098315763,
+            0.4996817901684236
+          ],
+          "receiver_exchange_derivatives": [
+            -4.427249292503297e-06,
+            4.427249292451093e-06
+          ],
+          "receiver_aligned_derivatives": [
+            7.090884285413952e-07,
+            -7.090884284639831e-07
+          ],
+          "receiver_parity_derivatives": [
+            1.5503477791765615e-06,
+            -1.550347779213099e-06
+          ],
+          "parity_response": -3.1006955583896606e-06,
+          "threshold_time_parity": -0.0004365600238081609,
+          "signal": -0.0006364196631526431,
+          "signal_time_derivative": -0.007102564113273482,
+          "exchange_response": 8.85449858495439e-06,
+          "aligned_response": -1.4181768570053783e-06,
+          "threshold_time_exchange": 0.0012466622537636572,
+          "threshold_time_aligned": -0.0001996711095300143
+        },
+        {
+          "exposure": 0.25,
+          "clock_transfer": 0.015543789144677609,
+          "receiver_empty_and_full": [
+            0.5006589302643851,
+            0.49934106973561465
+          ],
+          "receiver_exchange_derivatives": [
+            -7.980921505666542e-05,
+            7.980921505661764e-05
+          ],
+          "receiver_aligned_derivatives": [
+            1.4761284161940035e-05,
+            -1.4761284161897426e-05
+          ],
+          "receiver_parity_derivatives": [
+            1.3038161177151588e-05,
+            -1.3038161177190023e-05
+          ],
+          "parity_response": -2.607632235434161e-05,
+          "threshold_time_parity": -0.007039189923347762,
+          "signal": -0.0013178605287704759,
+          "signal_time_derivative": -0.0037044493241830297,
+          "exchange_response": 0.00015961843011328306,
+          "aligned_response": -2.952256832383746e-05,
+          "threshold_time_exchange": 0.043088301700141336,
+          "threshold_time_aligned": -0.007969489049589927
+        }
+      ],
+      "parity_route_even_taylor": {
+        "exchange": [
+          "0",
+          "0",
+          "0",
+          "1367/288",
+          "-97776169/430080"
+        ],
+        "aligned": [
+          "0",
+          "0",
+          "0",
+          "-1073/1152",
+          "138359699/2580480"
+        ],
+        "parity": [
+          "0",
+          "0",
+          "0",
+          "-9137/5760",
+          "171861833/2580480"
+        ]
+      },
+      "regional_modular": {
+        "ports": [
+          0,
+          5,
+          1,
+          4,
+          7,
+          9,
+          10,
+          11
+        ],
+        "minimum_regional_probability": 0.000141411225325197,
+        "swap_per_energy": 0.06253324666914946,
+        "aligned_per_energy": 0.06250043384927038,
+        "fixed_marginal_operator_norm": 2.66703989436415e-05,
+        "parity_response": 3.7207593427714125e-06
+      },
+      "even_taylor_coefficients": {
+        "exchange": [
+          "0",
+          "0",
+          "5/8",
+          "-623/32"
+        ],
+        "aligned": [
+          "0",
+          "0",
+          "-1",
+          "20479/576"
+        ],
+        "parity": [
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      },
+      "quartic_shell_average": [
+        {
+          "distance": 1,
+          "ordered_pairs": 42,
+          "exchange": "-2/9",
+          "aligned": "-11/24"
+        },
+        {
+          "distance": 2,
+          "ordered_pairs": 40,
+          "exchange": "27/160",
+          "aligned": "43/96"
+        },
+        {
+          "distance": 3,
+          "ordered_pairs": 8,
+          "exchange": "17/48",
+          "aligned": "-17/96"
+        }
+      ]
+    },
+    "0": {
+      "thermal_floor": 0.0001640065660375106,
+      "valid_signed_amplitude": 0.03125,
+      "rows": [
+        {
+          "exposure": 0.03125,
+          "clock_transfer": 0.0002441207574318154,
+          "receiver_empty_and_full": [
+            0.5000038511382774,
+            0.4999961488617234
+          ],
+          "receiver_exchange_derivatives": [
+            1.985883830689654e-08,
+            -1.9858838333554362e-08
+          ],
+          "receiver_aligned_derivatives": [
+            -6.947237490145808e-12,
+            6.94727088357272e-12
+          ],
+          "receiver_parity_derivatives": [
+            0.0,
+            0.0
+          ],
+          "parity_response": 0.0,
+          "threshold_time_parity": 0.0,
+          "signal": -7.702276554000242e-06,
+          "signal_time_derivative": -0.0004905152648046608,
+          "exchange_response": -3.9717676640450904e-08,
+          "aligned_response": 1.3894508373718528e-11,
+          "threshold_time_exchange": -8.097133665405455e-05,
+          "threshold_time_aligned": 2.8326352655409767e-08
+        },
+        {
+          "exposure": 0.0625,
+          "clock_transfer": 0.0009762446499504253,
+          "receiver_empty_and_full": [
+            0.5000151770241064,
+            0.49998482297589414
+          ],
+          "receiver_exchange_derivatives": [
+            3.172915920890201e-07,
+            -3.1729159207863887e-07
+          ],
+          "receiver_aligned_derivatives": [
+            -4.4360524325062767e-10,
+            4.436052471537555e-10
+          ],
+          "receiver_parity_derivatives": [
+            0.0,
+            0.0
+          ],
+          "parity_response": 0.0,
+          "threshold_time_parity": 0.0,
+          "signal": -3.0354048212222207e-05,
+          "signal_time_derivative": -0.0009519413823516189,
+          "exchange_response": -6.34583184167659e-07,
+          "aligned_response": 8.872104904043832e-10,
+          "threshold_time_exchange": -0.0006666200208672752,
+          "threshold_time_aligned": 9.32001178699335e-07
+        },
+        {
+          "exposure": 0.125,
+          "clock_transfer": 0.0039011663853354738,
+          "receiver_empty_and_full": [
+            0.5000570934722379,
+            0.4999429065277623
+          ],
+          "receiver_exchange_derivatives": [
+            5.047938080015056e-06,
+            -5.04793807997513e-06
+          ],
+          "receiver_aligned_derivatives": [
+            -2.8131232611698816e-08,
+            2.813123260378414e-08
+          ],
+          "receiver_parity_derivatives": [
+            0.0,
+            0.0
+          ],
+          "parity_response": 0.0,
+          "threshold_time_parity": 0.0,
+          "signal": -0.00011418694447562494,
+          "signal_time_derivative": -0.0016736457432631575,
+          "exchange_response": -1.0095876159990186e-05,
+          "aligned_response": 5.6262465215482955e-08,
+          "threshold_time_exchange": -0.006032265908498624,
+          "threshold_time_aligned": 3.361671096882566e-05
+        },
+        {
+          "exposure": 0.25,
+          "clock_transfer": 0.015543789144677609,
+          "receiver_empty_and_full": [
+            0.5001721670842977,
+            0.49982783291570276
+          ],
+          "receiver_exchange_derivatives": [
+            7.894427450450643e-05,
+            -7.894427450452475e-05
+          ],
+          "receiver_aligned_derivatives": [
+            -1.7354861860189577e-06,
+            1.7354861860507248e-06
+          ],
+          "receiver_parity_derivatives": [
+            0.0,
+            0.0
+          ],
+          "parity_response": 0.0,
+          "threshold_time_parity": 0.0,
+          "signal": -0.0003443341685949175,
+          "signal_time_derivative": -0.0015829385384230291,
+          "exchange_response": -0.00015788854900903118,
+          "aligned_response": 3.4709723720696825e-06,
+          "threshold_time_exchange": -0.09974395415650471,
+          "threshold_time_aligned": 0.002192739823952716
+        }
+      ],
+      "parity_terminals": [
+        6,
+        11
+      ],
+      "parity_route": [
+        {
+          "exposure": 0.03125,
+          "clock_transfer": 0.0002441207574318154,
+          "receiver_empty_and_full": [
+            0.5000038511382775,
+            0.49999614886172306
+          ],
+          "receiver_exchange_derivatives": [
+            -9.7029716618173e-13,
+            9.703033732391675e-13
+          ],
+          "receiver_aligned_derivatives": [
+            -2.1797752405156023e-12,
+            2.1797867330586307e-12
+          ],
+          "receiver_parity_derivatives": [
+            8.077794075994627e-14,
+            -8.077219448843209e-14
+          ],
+          "parity_response": -1.6155013524837836e-13,
+          "threshold_time_parity": -3.2934782429801155e-10,
+          "signal": -7.702276554444332e-06,
+          "signal_time_derivative": -0.0004905152648046618,
+          "exchange_response": 1.9406005394208975e-12,
+          "aligned_response": 4.359561973574233e-12,
+          "threshold_time_exchange": 3.956249027629556e-09,
+          "threshold_time_aligned": 8.887719274771896e-09
+        },
+        {
+          "exposure": 0.0625,
+          "clock_transfer": 0.0009762446499504253,
+          "receiver_empty_and_full": [
+            0.5000151770241062,
+            0.49998482297589414
+          ],
+          "receiver_exchange_derivatives": [
+            -6.214860722407456e-11,
+            6.214853160097303e-11
+          ],
+          "receiver_aligned_derivatives": [
+            -1.3893601330181027e-10,
+            1.389360172049381e-10
+          ],
+          "receiver_parity_derivatives": [
+            5.1563295733886294e-12,
+            -5.156325887101243e-12
+          ],
+          "parity_response": -1.0312655460489872e-11,
+          "threshold_time_parity": -1.0833288321823019e-08,
+          "signal": -3.0354048212111184e-05,
+          "signal_time_derivative": -0.0009519413823516206,
+          "exchange_response": 1.242971388250476e-10,
+          "aligned_response": 2.7787203050674836e-10,
+          "threshold_time_exchange": 1.3057226120162058e-07,
+          "threshold_time_aligned": 2.9190035821355875e-07
+        },
+        {
+          "exposure": 0.125,
+          "clock_transfer": 0.0039011663853354738,
+          "receiver_empty_and_full": [
+            0.5000570934722381,
+            0.49994290652776224
+          ],
+          "receiver_exchange_derivatives": [
+            -3.988633000924155e-09,
+            3.9886329996773225e-09
+          ],
+          "receiver_aligned_derivatives": [
+            -8.746996404203518e-09,
+            8.746996463075696e-09
+          ],
+          "receiver_parity_derivatives": [
+            3.26644398215923e-10,
+            -3.2664439122281896e-10
+          ],
+          "parity_response": -6.532887894387419e-10,
+          "threshold_time_parity": -3.903387512371658e-07,
+          "signal": -0.0001141869444759025,
+          "signal_time_derivative": -0.0016736457432631649,
+          "exchange_response": 7.977266000601477e-09,
+          "aligned_response": 1.7493992867279214e-08,
+          "threshold_time_exchange": 4.766400555620526e-06,
+          "threshold_time_aligned": 1.0452625914233542e-05
+        },
+        {
+          "exposure": 0.25,
+          "clock_transfer": 0.015543789144677609,
+          "receiver_empty_and_full": [
+            0.5001721670842979,
+            0.4998278329157026
+          ],
+          "receiver_exchange_derivatives": [
+            -2.5767076511088913e-07,
+            2.576707650957374e-07
+          ],
+          "receiver_aligned_derivatives": [
+            -5.240804322367279e-07,
+            5.240804322060449e-07
+          ],
+          "receiver_parity_derivatives": [
+            2.0077128864970633e-08,
+            -2.007712885786911e-08
+          ],
+          "parity_response": -4.015425772283974e-08,
+          "threshold_time_parity": -2.5366908915391313e-05,
+          "signal": -0.0003443341685953061,
+          "signal_time_derivative": -0.0015829385384230335,
+          "exchange_response": 5.153415302066265e-07,
+          "aligned_response": 1.0481608644427728e-06,
+          "threshold_time_exchange": 0.00032556003767526175,
+          "threshold_time_aligned": 0.0006621614415219047
+        }
+      ],
+      "parity_route_even_taylor": {
+        "exchange": [
+          "0",
+          "0",
+          "0",
+          "1/480",
+          "677/1290240"
+        ],
+        "aligned": [
+          "0",
+          "0",
+          "0",
+          "3/640",
+          "-5647/860160"
+        ],
+        "parity": [
+          "0",
+          "0",
+          "0",
+          "-1/5760",
+          "131/860160"
+        ]
+      },
+      "even_taylor_coefficients": {
+        "exchange": [
+          "0",
+          "0",
+          "-1/24",
+          "29/1440"
+        ],
+        "aligned": [
+          "0",
+          "0",
+          "0",
+          "43/2880"
+        ],
+        "parity": [
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      },
+      "quartic_shell_average": [
+        {
+          "distance": 1,
+          "ordered_pairs": 42,
+          "exchange": "0",
+          "aligned": "1/504"
+        },
+        {
+          "distance": 2,
+          "ordered_pairs": 40,
+          "exchange": "1/480",
+          "aligned": "-1/480"
+        },
+        {
+          "distance": 3,
+          "ordered_pairs": 8,
+          "exchange": "1/48",
+          "aligned": "-1/96"
+        }
+      ]
+    }
+  }
+}

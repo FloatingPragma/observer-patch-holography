@@ -1,0 +1,136 @@
+{
+  "record_panels": [
+    {
+      "depth": 2,
+      "copies": 1,
+      "complete_tapes_per_start": 4,
+      "ordered_records": [
+        "0",
+        "10",
+        "11"
+      ],
+      "outcomes_per_start": {
+        "0": 2,
+        "10": 1,
+        "11": 1
+      }
+    },
+    {
+      "depth": 4,
+      "copies": 1,
+      "complete_tapes_per_start": 16,
+      "ordered_records": [
+        "0",
+        "10",
+        "110",
+        "1110",
+        "1111"
+      ],
+      "outcomes_per_start": {
+        "0": 8,
+        "10": 4,
+        "110": 2,
+        "1110": 1,
+        "1111": 1
+      }
+    },
+    {
+      "depth": 4,
+      "copies": 2,
+      "complete_tapes_per_start": 256,
+      "ordered_records": [
+        "0",
+        "10",
+        "110",
+        "1110",
+        "1111"
+      ],
+      "outcomes_per_start": {
+        "0": 64,
+        "10": 16,
+        "110": 4,
+        "1110": 1,
+        "1111": 1,
+        "timeout": 170
+      }
+    },
+    {
+      "depth": 3,
+      "copies": 3,
+      "complete_tapes_per_start": 512,
+      "ordered_records": [
+        "0",
+        "10",
+        "110",
+        "111"
+      ],
+      "outcomes_per_start": {
+        "0": 64,
+        "10": 8,
+        "110": 1,
+        "111": 1,
+        "timeout": 438
+      }
+    }
+  ],
+  "doubled_flight": [
+    {
+      "cells": 20,
+      "ports": 240,
+      "degree_sum": 1260,
+      "excited_mean_energy": "630/239",
+      "spectrum_evaluation": [
+        {
+          "beta": 1,
+          "ground_probability": 0.026310727686,
+          "entropy_nats": 4.716431240397,
+          "Jensen_ground_upper": 0.055175494445
+        },
+        {
+          "beta": 4,
+          "ground_probability": 0.069913671338,
+          "entropy_nats": 3.052351609445,
+          "Jensen_ground_upper": 0.993741082854
+        },
+        {
+          "beta": 16,
+          "ground_probability": 0.154122876904,
+          "entropy_nats": 2.686426294743,
+          "Jensen_ground_upper": 1.0
+        }
+      ]
+    },
+    {
+      "cells": 80,
+      "ports": 960,
+      "degree_sum": 5040,
+      "excited_mean_energy": "360/137",
+      "spectrum_evaluation": [
+        {
+          "beta": 1,
+          "ground_probability": 0.006578142421,
+          "entropy_nats": 6.1028958317,
+          "Jensen_ground_upper": 0.014228832972
+        },
+        {
+          "beta": 4,
+          "ground_probability": 0.017506555363,
+          "entropy_nats": 4.438641351372,
+          "Jensen_ground_upper": 0.974544983185
+        },
+        {
+          "beta": 16,
+          "ground_probability": 0.038630175819,
+          "entropy_nats": 4.070236479679,
+          "Jensen_ground_upper": 1.0
+        }
+      ]
+    },
+    {
+      "cells": 320,
+      "ports": 3840,
+      "degree_sum": 20160,
+      "excited_mean_energy": "10080/3839"
+    }
+  ]
+}

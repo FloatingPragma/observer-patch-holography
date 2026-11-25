@@ -18,6 +18,10 @@ most Lean's standard extensionality/choice/quotient axioms (`propext`,
 
 ## Theorem-to-paper map
 
+Finite instrument tests accompany the quantified small-ball route. [RegionalMoments](../ObserverPatchHolography/EinsteinBranch/RegionalMoments.lean) bounds the leading stress estimate from the total mass of the weights, their absolute variation, stress oscillation and missed responses. [StationarityReadout](../ObserverPatchHolography/EinsteinBranch/StationarityReadout.lean) gives the exact fixed-volume determinant after an ordinary calibration and the finite-sum objective bound for separately surveyed regions at fixed total volume. The source must supply the independently measured forms on common proper balls, together with their uniform refinement bounds. [Native measurements](../../code/matched_einstein_limit/source_implication/README.md)
+
+[NestedVolumes](../ObserverPatchHolography/EinsteinBranch/NestedVolumes.lean) proves how entropy contrasts and independent shell-area and clock errors bound the change of radius at the same enclosed volume. The measured regions must be nested proper balls.
+
 | Lean declaration | Compact-paper anchor | Level | What is proved / what is input |
 |---|---|---|---|
 | `BareConsensusTower` | `def:bare-finite-consensus-reduct` (`paper/reality_as_consensus_protocol.tex`) | exact finite structure | Finite states/quotients, mismatch, repair, normal forms, boundary data, and typed coarse maps. |
@@ -59,6 +63,8 @@ most Lean's standard extensionality/choice/quotient axioms (`propext`,
 | `SourceDirectionEinsteinShapePremises.constantMetricAmbiguity` | finite Einstein-shape algebra | exact conditional algebra | Nine source-direction balances, symmetric tensors, Ward/Bianchi, and connectivity imply one constant metric ambiguity without entropy-source, Newton, vacuum-reference, or physical-scale fields. |
 | `sourceOrderEinsteinShape_from_minimal_source_directions` | finite same-event-type composition | exact conditional composition | Combines the finite source-order/frame consequences with a separately supplied tensor interface. The order does not construct or enter the tensor fields, steps, balances, or conservation laws, and no coordinate-difference identification with the constructed carrier follows. |
 
+[MeanForceBoundary](../ObserverPatchHolography/EinsteinBranch/MeanForceBoundary.lean) proves cancellation of a mixed difference when two summands each omit a stepped variable. This supplies the combinatorial cancellation for disconnected clusters. [RegionalMoments](../ObserverPatchHolography/EinsteinBranch/RegionalMoments.lean) also proves the two-sign scalar derivative bound and the sharp one-third relative error of a common gain on two radii. The matrix-logarithm locality, Gibbs transport obstruction and conditional-information proof are finite analytical arguments. [Boundary series](../../code/matched_einstein_limit/boundary_locality/PROOF.md) · [Signed response and source tests](../../code/matched_einstein_limit/source_implication/README.md)
+
 ## Premises deliberately not proved
 
 These appear either as fields of `ContinuumEinsteinPremises` and
@@ -83,6 +89,8 @@ manifest. They are not Lean axioms: they are ordinary theorem arguments.
 | Order-to-tensor identification | no constructor or theorem | The exact `1+3` source carrier is not identified with the supplied `Mat 3`, `eta 3`, and `Fin 4` tensor/step data. |
 | Inhabited Einstein-admissible tower | `demoAdmissibleTower` (synthetic, `Geometry/EinsteinBranchInhabitant.lean`) | The synthetic inhabitant proves joint satisfiability of the premise clauses; a source-derived inhabitant is the open source-construction/certification problem. |
 
+[AreaReadoutSpread](../ObserverPatchHolography/EinsteinBranch/AreaReadoutSpread.lean) bounds the difference between the entropy slopes of a balanced bit at two pairing strengths. A fixed area read with a smaller slope difference leaves a strictly positive residual at one of the preparations. The [resource calculation](../../code/matched_einstein_limit/source_implication/area_resources/PROOF.md) treats repeated measurements separately.
+
 ## Receipt non-vacuity and deletion boundary
 
 The modules include explicit passing and failing finite receipts for repair,
@@ -95,3 +103,11 @@ stabilizer condition; no key maps to constant `True`.
 does not establish that every receipt is semantically independent of every
 other receipt; that stronger result requires the isolated full-tower
 countermodel matrix described in The spacetime and Einstein paper.
+
+[BisectedDiamonds](../ObserverPatchHolography/EinsteinBranch/BisectedDiamonds.lean) proves the cancellation of the directional marker Hessian and the three-clock recovery of the null Ricci coefficient in the centered small-diamond expansion. The clock, measure and stress identifications on a single physical source have independent [measurement tests](../../code/matched_einstein_limit/source_implication/bisected_diamonds/README.md).
+
+[StaticMassFlux](../ObserverPatchHolography/EinsteinBranch/StaticMassFlux.lean) checks the finite virial identity, integrated residual and two-shell clock bound for the isolated static weak-field test. [Free exterior clock comparison](../../code/matched_einstein_limit/source_implication/material_clocks/PROOF.md#a-single-pointer-comparison-of-freely-running-exterior-clocks)
+
+[StaticAngularReadout](../ObserverPatchHolography/EinsteinBranch/StaticAngularReadout.lean) checks the six-axis inversion for weighted directional apertures and the static curvature coefficient under the clock trace hypothesis. [Native angular test and geometric controls](../../code/matched_einstein_limit/rate_geometry/README.md#static-null-curvature-from-a-directional-rim-and-clock-array)
+
+[RegionalForce](../ObserverPatchHolography/EinsteinBranch/RegionalForce.lean) checks that a nonzero trace moment rules out every commutator dressing of a regional momentum at fixed boundary flux. [Native force moments](../../code/matched_einstein_limit/source_implication/directional_stress/translation/bridge_limit.json)

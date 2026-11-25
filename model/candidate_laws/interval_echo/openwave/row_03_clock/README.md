@@ -2,6 +2,8 @@
 
 A vacancy released at one sharp port has a persistent local occupation beat on the 80- and 320-cell spheres. A nearby observer can isolate its frequency, **√5** in exchange-clock units, by monitoring the outgoing gateways before release and counting the vacancy at either end of a diameter. A separate energy reading on those localized packets gives **34.62 ± 0.02** and **34.58 ± 0.02** in the filled-host reference. The stationary vacancy calibrated by transfer from six-seam storage gives approximately 35. Even the largest possible single-vacancy beat on these boards is at most 22. OW-03 remains open. [Protocol](PROTOCOL.md) · [Registered experiment](measure.py) · [Sharp free launch](sharp.py) · [Observer counts](results.json)
 
+Two other preparations separate timing from transport. A stationary neutral seam has a free beat at its independently measured excitation gap. On an empty host a pair of unequal loads carries the phase set by a local pulse to each of three receivers. The remote phase drifts relative to the isolated clock on all three bridges. [Stationary gap clock](written_coin/README.md) · [Moving pair and energy measurement](moving_pair/README.md)
+
 ## What starts the motion?
 
 Put one vacancy at port 4 of an otherwise filled cell and open every contact immediately. The origin detects the missing load using the signed comparison to a filled neighbour; distinct signs resolve either end of that contact. The sharp initial record singles out a position and prepares a coherent superposition of free energies. The resulting return contains a permanent component at √5. No coherent splitter, periodic force, timed gateway check or reference path is used in this launch. The return also contains other frequencies.
@@ -47,3 +49,7 @@ python -m pytest -q model/candidate_laws/interval_echo/openwave/row_03_clock
 ```
 
 The replay regenerates the sources, both native measurements, the sharp-return panels and the sector bounds. The independent checks reconstruct the constant-frequency prediction from the stored counts and verify the integer-pattern identities on the local incidence matrix. [Checks](test_clock.py)
+
+## A neutral creation reference
+
+An exact native-operation check extends the reference question beyond one fixed terminal detector. Echoes, free contacts and sharp memory/load pointers preserve the filled, zero-contrast subspace, so finite adaptive programs in this grammar neither create a neutral pair there nor read its coherence with a filled reference. An extra coherent analyzer can resolve a 32-unit phase. Separately, a uniform charge-reference shift is invisible to complete fixed-total-load transcripts, including compensating references and classical feedback. The neutral creation energy fixes a sum, without selecting the two charged formation energies. [Native instruments, boundary controls and proof](neutral_reference/README.md)

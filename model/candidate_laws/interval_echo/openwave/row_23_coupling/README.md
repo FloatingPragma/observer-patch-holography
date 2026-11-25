@@ -48,3 +48,7 @@ python -B -W error -m model.candidate_laws.interval_echo.openwave.row_23_couplin
 python -B -W error -m model.candidate_laws.interval_echo.openwave.row_23_coupling.cutoff
 python -B -W error -m pytest -q model/candidate_laws/interval_echo/openwave/row_23_coupling
 ```
+
+A two-load probe on the same seam provides an independent test of the effective interaction. One endpoint calibration on the 20-cell board predicts all 24 held native remote complex entries across two board sizes. Copying the single-load return fails on 20 of them. [Two-tag transfer, raw records and cutoff identity](tag_transfer/README.md)
+
+An early/late contact on a separate freely moving pair isolates the effect of two-body flight on a guided scattering signal. The initial core radius and the flight delay can be measured separately. [Timed two-body scattering and all momentum bins](timed_scattering/README.md)

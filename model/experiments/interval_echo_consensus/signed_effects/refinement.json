@@ -1,0 +1,81 @@
+{
+  "transitions": [
+    {
+      "coarse_owners": 20,
+      "fine_owners": 80,
+      "protected_child_encodings": 20,
+      "half_exchanges_per_parent": 36,
+      "degree_phases_per_parent": 36,
+      "route_swap_range": [
+        354,
+        402
+      ],
+      "free_by_sign": {
+        "-1": {
+          "nonzero_columns": 120,
+          "mean_squared_leakage": "31251/1280",
+          "max_squared_leakage": "2181/32",
+          "exterior_trace_per_parent_range": [
+            "3/16",
+            "1/4"
+          ]
+        },
+        "1": {
+          "nonzero_columns": 120,
+          "mean_squared_leakage": "82873/3840",
+          "max_squared_leakage": "1925/32",
+          "exterior_trace_per_parent_range": [
+            "3/16",
+            "1/4"
+          ]
+        }
+      }
+    },
+    {
+      "coarse_owners": 80,
+      "fine_owners": 320,
+      "protected_child_encodings": 80,
+      "half_exchanges_per_parent": 36,
+      "degree_phases_per_parent": 36,
+      "route_swap_range": [
+        354,
+        402
+      ],
+      "free_by_sign": {
+        "-1": {
+          "nonzero_columns": 444,
+          "mean_squared_leakage": "186431/7680",
+          "max_squared_leakage": "2181/32",
+          "exterior_trace_per_parent_range": [
+            "3/16",
+            "9/32"
+          ]
+        },
+        "1": {
+          "nonzero_columns": 444,
+          "mean_squared_leakage": "32947/1536",
+          "max_squared_leakage": "64",
+          "exterior_trace_per_parent_range": [
+            "3/16",
+            "9/32"
+          ]
+        }
+      }
+    }
+  ],
+  "any_unitary_child_rechart_exterior_trace_floor": "3/16",
+  "any_unitary_child_rechart_singular_norm_floor": "1/8",
+  "child_phase_words": 4,
+  "unbiased_phase_word_recovery": "1/4",
+  "half_coherence_phase_word_schedule": [
+    5,
+    1,
+    1,
+    1
+  ],
+  "half_coherence_recovery": "5/8",
+  "half_coherence_entropy_derivative": "-3 log(5)/4",
+  "coherent_entropy_deficit": "log(4)",
+  "coherent_recovery": "1",
+  "dephased_child_recovery": "1/4"
+}

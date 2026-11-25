@@ -1,0 +1,49 @@
+# Additive events in a many-load material register
+
+Three occupied ports of a protected Interval Echo cell implement two equal unsharp events, their union, and separate readings of either event. The historical finite Born fixture admits a continuous cubic alternative that agrees with its eight sharp contexts. On the explicit challenge from the Lean theorem, the separate single-event reader recorded **733,238 / 2,932,736** and the union reader recorded **1,466,903 / 2,932,736**. These frequencies agree with 1/4 and 1/2. The cubic alternative predicts 143/512 and 35/64. The exact previous mathematical counterexample stands. The measurements test its predictions on an enlarged simulated material menu. [Countermodel theorem](../../../../Lean/EventAlgebra/OperationalAdditivityBoundary.lean) · [Counts](records.json)
+
+The associated control result extends beyond this instrument. On a connected protected region with blank memories, native contacts and one addressable private reference generate independent special unitary control on **every sector with fixed multiplicities of the three loads**. The number of loads and the number of spectator ports can be arbitrary. Within a block, an initialized auxiliary register permits every coexistent pair of complex effects to be implemented in one material experiment. A separate single-marker read recovers the usual trace probabilities when enough detector ports are available and disjoint controls preserve the held record statistics. This settles the common-instrument existence premise on these blocks. The operational probability and locality conditions have their own status. [Derivation and scope](PROOF.md) · [Integer separation certificate](certificate.json)
+
+## Three instruments for one pair of events
+
+The three native data ports are 0, 5 and 11. Their private-phase guards occupy 1, 4 and 2. The six allowed data words are the permutations of (0,1,2). The first two encode a qubit in which exchanging two ports interchanges the logical alternatives. Write Y for its Pauli matrix. The witness is H = I/4 + Y/8. The coherent fine reader has effects H, H, I−2H. The single-event reader has H, I−H, 0. The union reader has 2H, I−2H, 0. Different output bases within the coarse outcome pairs change their material records. Every observer keeps all six raw word counts and one further bin for all other outcomes or disturbed guards.
+
+One protected contact on distinct species has a common diagonal 8(a−b)²+1/2 and exchange element −1/2. A second native contact with a unit guard and addressed private degree phases realize arbitrary phases for the three load labels. A sign flip on the third species selects a rotation of one pair of configurations when both contacts are timed symmetrically around it. The phase acquired by the spectator is removed by a degree service and guard contact on the remaining port. This gives the full two-level rotations needed for the six output addresses. The fine reader runs 248 single-contact or private-service exposures, the other coherent readers 140 each. The complete simulation propagates all 729 data-and-guard words and extracts each two-port contact from the registered 99-state generator. [Native pulse compiler](circuit.py) · [Acquisition protocol](PROTOCOL.md)
+
+The historical 111:68 ratio is a preparation input. Each sharp word is launched separately and the counts are combined at that ratio. The earlier eight-context study already included the weak +Y effect 2H. The two separately visible copies of H within one instrument, the independent single-H reader and the counted-bit refinement extend that experiment. This material preparation carries the historical mixture weights by construction. [Historical preparation](../signed_effects/tagged_preparation/README.md)
+
+| Receiver on the 111:68 mixture | First word-pair count | Second word-pair count | Remaining regular word pairs | Other |
+| --- | ---: | ---: | ---: | ---: |
+| Two half events | 733,084 | 733,774 | 1,465,878 | 0 |
+| Union and complement | 1,466,903 | 1,465,833 | 0 | 0 |
+| Single half and complement | 733,238 | 2,199,498 | 0 | 0 |
+| Y first, then three fair bits | 733,679 | 733,044 | 1,466,013 | 0 |
+
+Independent launches of +Y and −Y produced union frequencies of 0.74980 and 0.25015. All 30 comparisons between the readers on the two sharp preparations, three coherent preparations and enrolled mixture agree within the simultaneous 99% counting bounds. These bounds use a union budget of 512 zero-one event frequencies, including grouped and pooled rates, with independent launches in each bank. One can also test the cubic without estimating the density or assuming a trace valuation. Let a and b denote the probabilities of the fine reader's two disjoint half events. If each of these differs from the separate half reading by at most ε and their sum differs from the union reading by at most ε, then the separate readings satisfy |2p(H)−p(2H)| ≤ 3ε. The cubic requires ε ≥ 1/256 = 0.00390625, attained by a = b = 141/512. The same fixture counts put the simultaneous 99% upper bound at **0.00298767**. This calculation applies the finite counting bound to the archived comparisons after acquisition. [Lean minimum and attaining distribution](../../../../Lean/EventAlgebra/CubicRefinementTest.lean)
+
+The two separate material readings of the fixture disagree with the cubic predictions by 0.02928 and 0.04669 in probability, against simultaneous half-width 0.00140 each. With exchange alone and the same pulse durations, the coherent fine reader placed 1,659,306 launches outside its six valid terminal words. The held forecast fails. [Complete acquisition and scoring](measure.py)
+
+## A prediction from record symmetry
+
+A second procedure reads Y and three independently prepared native fair bits on owners 1, 2 and 3. At Y+, three of the eight bit words give each H record. At Y−, one word gives each. The other bit words give the complementary record. In the symmetry calibration we give the second Y output an additional quarter phase. The two sharp input states are then respectively even and odd eigenrays of a literal native SWAP of the two output words. Relabelling covariance, equality of probabilities for the same prepared ray, sharp support, and completeness force equal probabilities for the two output words. This derivation uses no squared-amplitude sampler. The specified blank tie has fair signs, and the three coins are independently prepared. Counting their 16 equally weighted joint alternatives predicts **4, 4, 8** for the three records on either sharp source.
+
+The independent simulation gave 733,650, 732,384 and 1,466,702 records. Inserting an additional native SWAP gave 733,835, 732,696 and 1,466,205. Omitting the balancing rotation gave 820,966, 820,954 and 1,290,816. The law's committed quantum instrument supplies the simulated draws used to compare with this symmetry prediction. Its independent content is the forecast from relabelling, sharp support, fair bits and causally independent preparation. Measuring this particular probability requires no general trace rule as a hypothesis of the forecast. [Calibration](symmetry.py) · [All joint records](symmetry.json)
+
+## A positive state predicts noncommuting held events
+
+Separate X, Y and Z counts on both the 111:68 mixture and a rotated version reconstruct their density matrices. The two held unsharp effects are A=(I+(3X+4Z)/5)/4 and B=(I+(Y−Z)/√2)/4. They do not commute. A three-outcome reader realizes A, B and the remaining effect on the same input. An independent binary reader realizes their union using a different material output basis. Each setting enrolled 733,184 simulated launches. For the rotated mixture the inferred Bloch vector was (0.20623, 0.09875, 0.07429), with simultaneous component half-width 0.00544. Every state in its uncertainty box is positive. Its smallest eigenvalue is at least 0.37508 at the declared coverage. The predicted union probability was 0.55012. The two readers counted 403,077 and 402,587 positive records, or 0.54976 and 0.54909, within the joint discrepancy allowance 0.00463. Across both source populations all eight held forecasts passed simultaneous 99% bounds. At zero contrast all eight failed. The state reconstruction uses the three sharp counts alone. [Independent state reconstruction](tomography.py) · [Raw and held counts](tomography.json)
+
+FT-BORN remains partial. The experiment disfavors this particular cubic prescription within the specified simulation. Physical record noncontextuality and coverage of arbitrary written memories, inter-inventory coherences and free histories remain open. In particular, an abstract unitary on the complement of one many-body word can touch the same physical ports as that word. The separate single-marker register in the proof supplies actual disjoint supports when applying the locality condition.
+
+## Replay
+
+From the repository root, run each module with `OPENBLAS_NUM_THREADS=1 .venv/bin/python -m` followed by its module name.
+
+```text
+model.experiments.interval_echo_consensus.inventory_effects.certificate
+model.experiments.interval_echo_consensus.inventory_effects.measure
+model.experiments.interval_echo_consensus.inventory_effects.symmetry
+model.experiments.interval_echo_consensus.inventory_effects.tomography
+```
+
+Run `OPENBLAS_NUM_THREADS=1 .venv/bin/python -m pytest -q model/experiments/interval_echo_consensus/inventory_effects` for the independent native matrix, configuration detuning, complete count and symmetry checks.

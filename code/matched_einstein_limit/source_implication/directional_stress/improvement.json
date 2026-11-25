@@ -1,0 +1,164 @@
+{
+  "source": {
+    "left_length": "[0.037995304362466754815358549290146788, 0.037997059982490139793031686365726978]",
+    "right_length": "[0.026579218884903231640992034638632571, 0.02658113563007418048456864935014592]",
+    "reference": "[-0.19933500144647299082615303861105901, -0.19928463146423004465617703782978294]",
+    "unpaired": "[0.0010098855112485225115198785459537606, 0.001010005004938634471297920537736679]",
+    "matched_pairing_response": "[0.20029451697547856716769691637572129, 0.20034500645141162529745095914880628]",
+    "matched_ordinary_response_exact": 0,
+    "reference_analyzer_eigenvalues": [
+      -1,
+      1
+    ],
+    "nominal_source": {
+      "reference": -0.19930981498179035,
+      "ordinary": -2.859518177800169e-14,
+      "pairing": 0.20031976023880996
+    }
+  },
+  "simulated_counts": {
+    "seed": 1462738,
+    "trials_per_setting": 4398046511104,
+    "plus_counts": {
+      "left_0": 2257374291597,
+      "left_1": 2194785128920,
+      "left_2": 2139372795983,
+      "right_0": 2243784585693,
+      "right_1": 2212557924925,
+      "right_2": 2234091131413,
+      "equilibrium_0_0": 2200113410848,
+      "equilibrium_0_1": 2199357732212,
+      "equilibrium_0_2": 2195233861325,
+      "equilibrium_1_0": 2199013209654,
+      "equilibrium_1_1": 2198875224461,
+      "equilibrium_1_2": 2205277193678,
+      "equilibrium_2_0": 2202394816857,
+      "equilibrium_2_1": 2206100212041,
+      "equilibrium_2_2": 3212541197024,
+      "pairing_0_0": 2200208777905,
+      "pairing_0_1": 2199381943212,
+      "pairing_0_2": 2199954437670,
+      "pairing_1_0": 2198936533165,
+      "pairing_1_1": 2198997484789,
+      "pairing_1_2": 2198956386826,
+      "pairing_2_0": 2197809029571,
+      "pairing_2_1": 2198656187325,
+      "pairing_2_2": 2198071318522
+    },
+    "simultaneous_coverage": 0.99,
+    "contrast": "[0.20022286294324764683658532737324244, 0.20039763789045451193050740345280098]"
+  },
+  "finite_chart": {
+    "shape": [
+      13,
+      13,
+      13,
+      13
+    ],
+    "signature": [
+      -1,
+      1,
+      1,
+      1
+    ],
+    "quadrupole": {
+      "local_orthonormal_tensor": [
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          -1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "local_energy_at_boost_half": "1/3",
+      "max_divergence_numerator": 0,
+      "max_slice_charge_numerator": 0,
+      "max_periodic_null_sum_numerator": 0,
+      "max_rest_energy_or_flux_numerator": 52
+    },
+    "time_space_mixed": {
+      "local_orthonormal_tensor": [
+        [
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "local_energy_at_boost_half": "4/3",
+      "max_divergence_numerator": 0,
+      "max_slice_charge_numerator": 0,
+      "max_periodic_null_sum_numerator": 0,
+      "max_rest_energy_or_flux_numerator": 112
+    },
+    "rest_projected_quadrupole": {
+      "local_orthonormal_tensor": [
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          -1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "local_energy_at_boost_half": "1/3",
+      "max_divergence_numerator": 0,
+      "max_slice_charge_numerator": 0,
+      "max_periodic_null_sum_numerator": 276,
+      "max_rest_energy_or_flux_numerator": 0
+    }
+  }
+}

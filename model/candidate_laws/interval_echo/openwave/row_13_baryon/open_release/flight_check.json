@@ -1,0 +1,111 @@
+{
+  "source_filter_admission": 0.1995290336017518,
+  "source_state_error_upper": 3.011859395741252e-06,
+  "time_step": 0.00390625,
+  "polynomial_degree": 10,
+  "numerical_allowance": 1e-08,
+  "boards": {
+    "20": {
+      "8": {
+        "0.0625": {
+          "local_triplets": 0.6987975759558136,
+          "local_singlet": 0.31422463864711647,
+          "local_witness": 0.08129211332851194,
+          "state_distance_upper": 0.0017502741768388051,
+          "full_witness_lower": 0.07954183915167314
+        },
+        "1.0": {
+          "local_triplets": 0.6985691937109275,
+          "local_singlet": 0.3038370269091252,
+          "local_witness": 0.07098062900548266,
+          "state_distance_upper": 0.02901151611749187,
+          "full_witness_lower": 0.04196911288799079
+        }
+      },
+      "0": {
+        "0.0625": {
+          "local_triplets": 0.6963796253481697,
+          "local_singlet": 0.3132840204259383,
+          "local_witness": 0.08115747864321507,
+          "state_distance_upper": 0.0004819055335864515,
+          "full_witness_lower": 0.08067557310962861
+        },
+        "1.0": {
+          "local_triplets": 0.3209664606036867,
+          "local_singlet": 0.14171561553542153,
+          "local_witness": 0.03472679533419262,
+          "state_distance_upper": 0.01925435509129367,
+          "full_witness_lower": 0.015472440242898951
+        }
+      }
+    },
+    "80": {
+      "8": {
+        "0.0625": {
+          "local_triplets": 0.6987975760791826,
+          "local_singlet": 0.31422463869967004,
+          "local_witness": 0.08129211333994252,
+          "state_distance_upper": 0.0017474364977851618,
+          "full_witness_lower": 0.07954467684215735
+        },
+        "1.0": {
+          "local_triplets": 0.6985678010257389,
+          "local_singlet": 0.3038365498963645,
+          "local_witness": 0.0709806162211182,
+          "state_distance_upper": 0.028574198241756103,
+          "full_witness_lower": 0.0424064179793621
+        }
+      },
+      "0": {
+        "0.0625": {
+          "local_triplets": 0.6963796253558566,
+          "local_singlet": 0.3132840204290856,
+          "local_witness": 0.08115747864380005,
+          "state_distance_upper": 0.00047885015422251704,
+          "full_witness_lower": 0.08067862848957753
+        },
+        "1.0": {
+          "local_triplets": 0.3210138591090957,
+          "local_singlet": 0.14173970737011812,
+          "local_witness": 0.03473508766708623,
+          "state_distance_upper": 0.013347013678367851,
+          "full_witness_lower": 0.02138807398871838
+        }
+      }
+    },
+    "320": {
+      "8": {
+        "0.0625": {
+          "local_triplets": 0.6987975760791826,
+          "local_singlet": 0.31422463869967004,
+          "local_witness": 0.08129211333994252,
+          "state_distance_upper": 0.0017474364977851618,
+          "full_witness_lower": 0.07954467684215735
+        },
+        "1.0": {
+          "local_triplets": 0.6985678010257389,
+          "local_singlet": 0.3038365498963645,
+          "local_witness": 0.0709806162211182,
+          "state_distance_upper": 0.028574198241756103,
+          "full_witness_lower": 0.0424064179793621
+        }
+      },
+      "0": {
+        "0.0625": {
+          "local_triplets": 0.6963796253558566,
+          "local_singlet": 0.3132840204290856,
+          "local_witness": 0.08115747864380005,
+          "state_distance_upper": 0.00047885015422251704,
+          "full_witness_lower": 0.08067862848957753
+        },
+        "1.0": {
+          "local_triplets": 0.3210138591090957,
+          "local_singlet": 0.14173970737011812,
+          "local_witness": 0.03473508766708623,
+          "state_distance_upper": 0.013347013678367851,
+          "full_witness_lower": 0.02138807398871838
+        }
+      }
+    }
+  }
+}

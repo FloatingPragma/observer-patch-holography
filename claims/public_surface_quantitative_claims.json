@@ -1051,6 +1051,272 @@
           }
         }
       ]
+    },
+    {
+      "path": "code/matched_einstein_limit/source_implication/action_response/README.md",
+      "heading": "## Work during a native flight",
+      "label_column": "Probe",
+      "comparison_column": "Pairing prediction divided by measured entropy change",
+      "rows": [
+        {
+          "label": "Vacancy",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-GR-E2E-BRANCH-ENTRY"
+          }
+        },
+        {
+          "label": "Excess",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-GR-E2E-BRANCH-ENTRY"
+          }
+        },
+        {
+          "label": "Equal probabilities",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-GR-E2E-BRANCH-ENTRY"
+          }
+        }
+      ]
+    },
+    {
+      "path": "code/matched_einstein_limit/source_implication/beam_response/README.md",
+      "heading": "## Finite-time transfer at the ordinary calibration",
+      "label_column": "Probe at exposure 4",
+      "comparison_column": "Held ratio, certified",
+      "rows": [
+        {
+          "label": "Vacancy",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-GR-E2E-BRANCH-ENTRY"
+          }
+        },
+        {
+          "label": "Excess",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-GR-E2E-BRANCH-ENTRY"
+          }
+        }
+      ]
+    },
+    {
+      "path": "code/matched_einstein_limit/source_implication/common_front/velocity/README.md",
+      "heading": "## A speed that observers can attain",
+      "label_column": "Charge at the stationary 80-cell source",
+      "comparison_column": "Measured speed",
+      "rows": [
+        {
+          "label": "Vacancy",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-GR-D5"
+          }
+        },
+        {
+          "label": "Excess",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-GR-D5"
+          }
+        }
+      ]
+    },
+    {
+      "path": "code/matched_einstein_limit/source_implication/directional_stress/connection/README.md",
+      "heading": "## An observable the four-tick optical screen misses",
+      "label_column": "Mobile charge",
+      "comparison_column": "Reference force contrast",
+      "rows": [
+        {
+          "label": "Vacancy",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-GR-E2E-BRANCH-ENTRY"
+          }
+        },
+        {
+          "label": "Excess",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-GR-E2E-BRANCH-ENTRY"
+          }
+        }
+      ]
+    },
+    {
+      "path": "model/experiments/interval_echo_consensus/refined_projection/README.md",
+      "heading": "## Executable evidence",
+      "label_column": "Sphere cells",
+      "comparison_column": "Measured ancestor agreement",
+      "rows": [
+        {
+          "label": "80",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-CONSENSUS-TOWER-INTERFACE"
+          }
+        },
+        {
+          "label": "320",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-CONSENSUS-TOWER-INTERFACE"
+          }
+        }
+      ]
+    },
+    {
+      "path": "model/experiments/interval_echo_einstein_station/collar_pairing/phase_geometry/README.md",
+      "heading": "## Regional information observed on a held cohort",
+      "label_column": "Held material",
+      "comparison_column": "Simultaneous 99% interval including reference uncertainty",
+      "rows": [
+        {
+          "label": "Excess",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-GR-D2-COLLAR-RECOVERY"
+          }
+        },
+        {
+          "label": "Vacancy",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-GR-D2-COLLAR-RECOVERY"
+          }
+        }
+      ]
+    },
+    {
+      "path": "model/experiments/seam_program/collective_rate/joint_geometry/README.md",
+      "heading": "## Two independent records on the same preparation",
+      "label_column": "Reference exposure",
+      "comparison_column": "Clock shift $D_e$",
+      "rows": [
+        {
+          "label": "1/32",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-GR-E2E-BRANCH-ENTRY"
+          }
+        },
+        {
+          "label": "1/16",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-GR-E2E-BRANCH-ENTRY"
+          }
+        },
+        {
+          "label": "1/8",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-GR-E2E-BRANCH-ENTRY"
+          }
+        },
+        {
+          "label": "1/4",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-GR-E2E-BRANCH-ENTRY"
+          }
+        }
+      ]
+    },
+    {
+      "path": "model/experiments/interval_echo_ow30_dispersion_audit/README.md",
+      "heading": "# Resolving the dispersion of a traveling dimer reversal",
+      "scope": "Lattice dispersion on three exposed guarded strands, with a range-two hopping alternative.",
+      "label_column": "Cells",
+      "comparison_column": "Largest lattice error",
+      "rows": [
+        {
+          "label": "20",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-QFT-FINITE-TWO-SITE-ISING-HILBERT-DYNAMICS"
+          }
+        },
+        {
+          "label": "80",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-QFT-FINITE-TWO-SITE-ISING-HILBERT-DYNAMICS"
+          }
+        },
+        {
+          "label": "320",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-QFT-FINITE-TWO-SITE-ISING-HILBERT-DYNAMICS"
+          }
+        }
+      ]
+    },
+    {
+      "path": "model/experiments/seam_program/collective_rate/long_wave/README.md",
+      "heading": "## Transfer on the same equilibrium",
+      "scope": "A held mixture tests transfer of a calibrated passive density rate to independently driven load records.",
+      "label_column": "Ports",
+      "comparison_column": "Held driven, measured",
+      "rows": [
+        {
+          "label": "12",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-GR-E2E-BRANCH-ENTRY"
+          }
+        },
+        {
+          "label": "240",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-GR-E2E-BRANCH-ENTRY"
+          }
+        },
+        {
+          "label": "960",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-GR-E2E-BRANCH-ENTRY"
+          }
+        },
+        {
+          "label": "3840",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-GR-E2E-BRANCH-ENTRY"
+          }
+        }
+      ]
     }
   ]
 }

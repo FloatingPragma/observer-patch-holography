@@ -2,6 +2,7 @@
 import argparse
 import json
 import math
+from decimal import Decimal, localcontext
 from pathlib import Path
 
 from model.executable_model import cell, federation
@@ -23,6 +24,34 @@ def circuit():
                 adjacency=[adjacency_bound.certificate(b) for b in (cell(), *(federation(i) for i in range(3)))])
 
 
+def checked_forecast_settings(packet, deposit, path):
+    """Recompute each derived score before comparing its independent inputs."""
+    if packet["empirical_stream_sha256"] != registered_forecast.DIGEST or packet["arm"] not in ARMS[:3]:
+        raise ValueError(f"Unknown forecast or stream at {path}")
+    records = deposit["arms"][int(packet["arm"] == "off")]["records"]
+    checked = []
+    for row, record in zip(packet["settings"], records, strict=True):
+        if row.keys() != {"exposure", "probabilities", "deviance", "upper_rank"} or row["exposure"] != record["exposure"]:
+            raise ValueError(f"Invalid forecast setting at {path}")
+        score, probabilities = row["deviance"], row["probabilities"]
+        if type(score) is not float or not math.isfinite(score) or not all(
+            type(p) is float and 0 < p <= 1 for p in probabilities
+        ) or abs(math.fsum(probabilities) - 1) > 1e-14:
+            raise ValueError(f"Invalid forecast probabilities or deviance at {path}")
+        counts = record["counts"]
+        # D(p) - D(q) = -2 sum_i n_i log(p_i/q_i). A tolerance on
+        # probabilities therefore does not give the same tolerance on raw D.
+        # Check D for each exact binary64 p independently at 50 decimal digits.
+        with localcontext() as context:
+            context.prec = 50
+            score_ref = 2 * sum(n * (Decimal(n) / (deposit["shots"] * Decimal.from_float(p))).ln()
+                                for n, p in zip(counts, probabilities, strict=True) if n)
+            if abs(score_ref - Decimal.from_float(score)) > Decimal("1e-11"):
+                raise ValueError(f"Inconsistent forecast deviance at {path}/{row['exposure']}")
+        checked.append({k: v for k, v in row.items() if k != "deviance"})
+    return checked
+
+
 def verify(actual, saved, path="receipt"):
     if type(actual) is not type(saved):
         raise ValueError(f"Different type at {path}")
@@ -30,7 +59,13 @@ def verify(actual, saved, path="receipt"):
         if actual.keys() != saved.keys():
             raise ValueError(f"Different fields at {path}")
         for key in actual:
-            verify(actual[key], saved[key], f"{path}/{key}")
+            child = f"{path}/{key}"
+            if key == "settings" and "empirical_stream_sha256" in actual:
+                deposit = registered_forecast.read_deposit()
+                verify(checked_forecast_settings(actual, deposit, child),
+                       checked_forecast_settings(saved, deposit, child), child)
+            else:
+                verify(actual[key], saved[key], child)
     elif isinstance(actual, list):
         if len(actual) != len(saved):
             raise ValueError(f"Different lengths at {path}")

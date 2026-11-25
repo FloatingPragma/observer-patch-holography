@@ -1,0 +1,11 @@
+# Can the observers measure the geometry of the same source?
+
+Both probe charges give the same early-return ruler across every seam on the 80-cell prototype. A physical change in the pairing of the two seam memories can leave **every one of its 2,520 lengths fixed** while increasing the retained entropy. Any area or volume constructed solely from those lengths then stays fixed. This identifies the information a gravity readout must recover from the memories. [Derivation and numerical checks](RESULTS.md) · [Threshold measurements](threshold.json)
+
+First-relay timestamps recover all nine independent changes in the two head correlations. Observers can use those records to measure both the modular response and the energy crossing a port boundary. On a region containing the spent probe modes, the entropy still changes when both boundary crossing signals and the interior count stay fixed. [Same-source regional test](regional.json)
+
+Repeating three longer-range measurements at a second pump age resolves the source changes missed by a single survey. On nearest seams, even the lengths, velocities and accelerations can agree for preparations with different energy currents. A separate five-station curvature measurement misses the held response at the ordinary calibration. [Moving ranges and curvature tests](RESULTS.md#what-the-changing-ranges-can-tell-observers)
+
+Averaging observers who each fix their own ball volume recovers the fourth-power dependence of area on radius. A physical change still keeps the entire mean-area curve and enclosed number fixed while regional entropy increases. A moving-face experiment compares normal curvature with an independently measured current, and a traveling-probe experiment tests a passive position clock. [Averaged balls](center_average/README.md) · [Moving face](momentum_screen.json) · [Transported clock](transport/README.md)
+
+The experiment leaves the original seam memories and the bridge strain in place. It measures complete and incomplete round trips, examines longer routes, and measures the interior and its boundary in separate runs on copies of the same preparation. These are finite apparatus measurements. The attachment to gravity still requires common proper balls and the signed stress response on those balls. [Finite Einstein premises](../../../PROOF.md) · [Parent experiment](../LIVE_GEOMETRY.md)

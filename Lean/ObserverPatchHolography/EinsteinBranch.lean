@@ -4,6 +4,9 @@ import ObserverPatchHolography.EinsteinBranch.SmallBall
 import ObserverPatchHolography.EinsteinBranch.TileCapacity
 import ObserverPatchHolography.EinsteinBranch.QuantitativeSmallBall
 import ObserverPatchHolography.EinsteinBranch.RayPairBalance
+import ObserverPatchHolography.EinsteinBranch.BisectedDiamonds
+import ObserverPatchHolography.EinsteinBranch.StaticMassFlux
+import ObserverPatchHolography.EinsteinBranch.StaticAngularReadout
 import ObserverPatchHolography.EinsteinBranch.OverlapCoupling
 import ObserverPatchHolography.EinsteinBranch.QuantumScalarStress
 import ObserverPatchHolography.EinsteinBranch.CollarAdmission
@@ -24,6 +27,12 @@ import ObserverPatchHolography.EinsteinBranch.FixedCapacityWLaw
 import ObserverPatchHolography.EinsteinBranch.EdgeCenterTiltCocycle
 import ObserverPatchHolography.EinsteinBranch.EdgeCenterTiltFreedom
 import ObserverPatchHolography.EinsteinBranch.CosmologyLedgerBrackets
+import ObserverPatchHolography.EinsteinBranch.MeanForceBoundary
+import ObserverPatchHolography.EinsteinBranch.RegionalMoments
+import ObserverPatchHolography.EinsteinBranch.RegionalForce
+import ObserverPatchHolography.EinsteinBranch.NestedVolumes
+import ObserverPatchHolography.EinsteinBranch.StationarityReadout
+import ObserverPatchHolography.EinsteinBranch.AreaReadoutSpread
 
 /-!
 # Einstein-branch formalisation (GitHub #578)

@@ -1,0 +1,370 @@
+[
+  {
+    "divisor": 16,
+    "continuous": false,
+    "clock_tests": {
+      "capped_range": {
+        "oriented": {
+          "minus": {
+            "log_cycle_error": 0.019124973353155994,
+            "ports": [
+              38,
+              39,
+              40
+            ],
+            "per_reading_log_error_lower": 0.0031874955588593323
+          },
+          "plus": {
+            "log_cycle_error": 0.02011799561231764,
+            "ports": [
+              0,
+              1,
+              7
+            ],
+            "per_reading_log_error_lower": 0.0033529992687196066
+          }
+        },
+        "reciprocal_species": {
+          "log_tetrad_error": 0.005057546348095044,
+          "ports": [
+            0,
+            1,
+            38,
+            7
+          ],
+          "per_reading_log_error_lower": 0.0006321932935118805
+        }
+      },
+      "first_capped_duration": {
+        "oriented": {
+          "minus": {
+            "log_cycle_error": 0.1523971025281421,
+            "ports": [
+              38,
+              39,
+              7
+            ],
+            "per_reading_log_error_lower": 0.025399517088023682
+          },
+          "plus": {
+            "log_cycle_error": 0.1748267998380193,
+            "ports": [
+              38,
+              39,
+              7
+            ],
+            "per_reading_log_error_lower": 0.029137799973003215
+          }
+        },
+        "reciprocal_species": {
+          "log_tetrad_error": 0.06380784347817123,
+          "ports": [
+            5,
+            42,
+            7,
+            40
+          ],
+          "per_reading_log_error_lower": 0.007975980434771403
+        }
+      }
+    },
+    "first_five": {
+      "area": 15.379740376380315,
+      "volume": 12.597845641459953,
+      "apex_solid_angle": 2.167738384301782
+    },
+    "fitted_curvature": 0.37240567447764883,
+    "held_distance_error": 2.9991470325305327,
+    "six_station_obstruction": {
+      "excluded": true,
+      "witness_indices": [
+        0,
+        2,
+        4,
+        5,
+        6,
+        7
+      ],
+      "minimum_distance": 2.998989431925629,
+      "maximum_distance": 2.9999999946420983,
+      "maximum_distance_change_lower": 0.3025052176,
+      "exact_lower_rational": "189065761/625000000"
+    }
+  },
+  {
+    "divisor": 32,
+    "continuous": false,
+    "clock_tests": {
+      "capped_range": {
+        "oriented": {
+          "minus": {
+            "log_cycle_error": 0.019123847107391123,
+            "ports": [
+              38,
+              39,
+              40
+            ],
+            "per_reading_log_error_lower": 0.003187307851231854
+          },
+          "plus": {
+            "log_cycle_error": 0.02011724682065985,
+            "ports": [
+              0,
+              1,
+              7
+            ],
+            "per_reading_log_error_lower": 0.0033528744701099753
+          }
+        },
+        "reciprocal_species": {
+          "log_tetrad_error": 0.005057732237936064,
+          "ports": [
+            0,
+            1,
+            38,
+            7
+          ],
+          "per_reading_log_error_lower": 0.000632216529742008
+        }
+      },
+      "first_capped_duration": {
+        "oriented": {
+          "minus": {
+            "log_cycle_error": 0.15239113446493868,
+            "ports": [
+              38,
+              39,
+              7
+            ],
+            "per_reading_log_error_lower": 0.025398522410823115
+          },
+          "plus": {
+            "log_cycle_error": 0.17482200855657926,
+            "ports": [
+              38,
+              39,
+              7
+            ],
+            "per_reading_log_error_lower": 0.029137001426096543
+          }
+        },
+        "reciprocal_species": {
+          "log_tetrad_error": 0.06381013560168765,
+          "ports": [
+            5,
+            42,
+            7,
+            40
+          ],
+          "per_reading_log_error_lower": 0.007976266950210956
+        }
+      }
+    },
+    "first_five": {
+      "area": 15.379749475413988,
+      "volume": 12.597851420337603,
+      "apex_solid_angle": 2.167739990609125
+    },
+    "fitted_curvature": 0.37240554545586657,
+    "held_distance_error": 2.999147173618378,
+    "six_station_obstruction": {
+      "excluded": true,
+      "witness_indices": [
+        0,
+        2,
+        4,
+        5,
+        6,
+        7
+      ],
+      "minimum_distance": 2.9989887009131935,
+      "maximum_distance": 2.9999999946408047,
+      "maximum_distance_change_lower": 0.3025048151,
+      "exact_lower_rational": "3025048151/10000000000"
+    }
+  },
+  {
+    "divisor": 16,
+    "continuous": true,
+    "clock_tests": {
+      "capped_range": {
+        "oriented": {
+          "minus": {
+            "log_cycle_error": 0.0191221724375783,
+            "ports": [
+              38,
+              39,
+              40
+            ],
+            "per_reading_log_error_lower": 0.0031870287395963834
+          },
+          "plus": {
+            "log_cycle_error": 0.02011574124030724,
+            "ports": [
+              0,
+              1,
+              7
+            ],
+            "per_reading_log_error_lower": 0.0033526235400512063
+          }
+        },
+        "reciprocal_species": {
+          "log_tetrad_error": 0.005057422977531814,
+          "ports": [
+            0,
+            1,
+            38,
+            7
+          ],
+          "per_reading_log_error_lower": 0.0006321778721914767
+        }
+      },
+      "first_capped_duration": {
+        "oriented": {
+          "minus": {
+            "log_cycle_error": 0.1523853730772946,
+            "ports": [
+              38,
+              39,
+              7
+            ],
+            "per_reading_log_error_lower": 0.0253975621795491
+          },
+          "plus": {
+            "log_cycle_error": 0.17481597045572328,
+            "ports": [
+              38,
+              39,
+              7
+            ],
+            "per_reading_log_error_lower": 0.02913599507595388
+          }
+        },
+        "reciprocal_species": {
+          "log_tetrad_error": 0.0638099381806258,
+          "ports": [
+            5,
+            42,
+            7,
+            40
+          ],
+          "per_reading_log_error_lower": 0.007976242272578225
+        }
+      }
+    },
+    "first_five": {
+      "area": 15.379765332191738,
+      "volume": 12.597861410985997,
+      "apex_solid_angle": 2.167742814480869
+    },
+    "fitted_curvature": 0.37240532261832787,
+    "held_distance_error": 2.999147244188999,
+    "six_station_obstruction": {
+      "excluded": true,
+      "witness_indices": [
+        0,
+        2,
+        4,
+        5,
+        6,
+        7
+      ],
+      "minimum_distance": 2.99898903959111,
+      "maximum_distance": 2.9999999946413642,
+      "maximum_distance_change_lower": 0.3025050016,
+      "exact_lower_rational": "94532813/312500000"
+    }
+  },
+  {
+    "divisor": 32,
+    "continuous": true,
+    "clock_tests": {
+      "capped_range": {
+        "oriented": {
+          "minus": {
+            "log_cycle_error": 0.01912312675437078,
+            "ports": [
+              38,
+              39,
+              40
+            ],
+            "per_reading_log_error_lower": 0.0031871877923951297
+          },
+          "plus": {
+            "log_cycle_error": 0.020116661760146703,
+            "ports": [
+              0,
+              1,
+              7
+            ],
+            "per_reading_log_error_lower": 0.0033527769600244506
+          }
+        },
+        "reciprocal_species": {
+          "log_tetrad_error": 0.005057694178075045,
+          "ports": [
+            0,
+            1,
+            38,
+            7
+          ],
+          "per_reading_log_error_lower": 0.0006322117722593806
+        }
+      },
+      "first_capped_duration": {
+        "oriented": {
+          "minus": {
+            "log_cycle_error": 0.15238812588971418,
+            "ports": [
+              38,
+              39,
+              7
+            ],
+            "per_reading_log_error_lower": 0.02539802098161903
+          },
+          "plus": {
+            "log_cycle_error": 0.17481919060483198,
+            "ports": [
+              38,
+              39,
+              7
+            ],
+            "per_reading_log_error_lower": 0.029136531767471996
+          }
+        },
+        "reciprocal_species": {
+          "log_tetrad_error": 0.06381065752714625,
+          "ports": [
+            5,
+            42,
+            7,
+            40
+          ],
+          "per_reading_log_error_lower": 0.007976332190893281
+        }
+      }
+    },
+    "first_five": {
+      "area": 15.37975581453459,
+      "volume": 12.5978554252927,
+      "apex_solid_angle": 2.167741116076363
+    },
+    "fitted_curvature": 0.37240545605909936,
+    "held_distance_error": 2.999147226646458,
+    "six_station_obstruction": {
+      "excluded": true,
+      "witness_indices": [
+        0,
+        2,
+        4,
+        5,
+        6,
+        7
+      ],
+      "minimum_distance": 2.998988602842431,
+      "maximum_distance": 2.999999994640622,
+      "maximum_distance_change_lower": 0.3025047612,
+      "exact_lower_rational": "756261903/2500000000"
+    }
+  }
+]

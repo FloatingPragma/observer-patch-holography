@@ -1,0 +1,90 @@
+{
+  "odd": 0.25,
+  "selected_pairing": 0.4439527509171531,
+  "bracket": [
+    0.25,
+    0.5
+  ],
+  "endpoint_mismatches": [
+    -0.04865358713195489,
+    0.014865131655539932
+  ],
+  "calibrated": {
+    "ordinary_eta": 1.9469876995795994e-05,
+    "fraction": 0.9999999999999777,
+    "area": [
+      0.010304806873489974,
+      0.00015871451264221965
+    ],
+    "entropy": [
+      -2.006333222922829e-07,
+      -3.0901520385917938e-09
+    ],
+    "volume": 2.5134112741586074,
+    "survey_area": 13.58620912217201
+  },
+  "constrained": {
+    "fixed_volume_gradient_norm": 8.368773038433169e-23,
+    "eigenvalues": [
+      -4.993700573921499e-09,
+      7.163321919478913e-12
+    ],
+    "volume_multiplier": 5.659302100868599e-05
+  },
+  "held_at_frozen_calibration": [
+    {
+      "tick": 0.25,
+      "horizon": 6,
+      "leg": 0.5,
+      "odd": 0.25,
+      "pairing": 0.25,
+      "transfer_at_frozen_eta": 1.5680646872266033,
+      "ordinary_at_frozen_eta": 1.64825836941911
+    },
+    {
+      "tick": 0.25,
+      "horizon": 6,
+      "leg": 0.5,
+      "odd": 0.25,
+      "pairing": 0.5,
+      "transfer_at_frozen_eta": 0.9057727910161687,
+      "ordinary_at_frozen_eta": 0.8925055780944903
+    },
+    {
+      "tick": 0.25,
+      "horizon": 6,
+      "leg": 0.5,
+      "odd": 0.375,
+      "pairing": 0.4439527509171531,
+      "transfer_at_frozen_eta": 0.9062090338837184,
+      "ordinary_at_frozen_eta": 1.0929281642788378
+    },
+    {
+      "tick": 0.25,
+      "horizon": 4,
+      "leg": 0.5,
+      "odd": 0.25,
+      "pairing": 0.4439527509171531,
+      "transfer_at_frozen_eta": 0.1644642206145623,
+      "ordinary_at_frozen_eta": 0.18266687993109504
+    },
+    {
+      "tick": 0.5,
+      "horizon": 6,
+      "leg": 0.5,
+      "odd": 0.25,
+      "pairing": 0.4439527509171531,
+      "transfer_at_frozen_eta": 3.102830744615653,
+      "ordinary_at_frozen_eta": 5.692724556298646
+    },
+    {
+      "tick": 0.25,
+      "horizon": 6,
+      "leg": 2.0,
+      "odd": 0.25,
+      "pairing": 0.4439527509171531,
+      "transfer_at_frozen_eta": 3.7719932232722125e-05,
+      "ordinary_at_frozen_eta": -5.243271483227582e-06
+    }
+  ]
+}

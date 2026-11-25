@@ -42,6 +42,8 @@ On the 320-cell sphere, 320 singleton observers and 960 overlapping three-cell o
 
 The port-current measurement gives a direct test of the gauge premise. The protected menu computed from the rotations of the native cell has twelve independent responses and closes under every one of the 66 pairwise commutators. Allowing an additional bare port-load response gives seventeen visible directions. Identifying the complete menu available to a physical observer matters for the inference to a gauge algebra. [Port instrument and complete local outcome tables](CURRENTS.md)
 
+On the 20-cell screen two unequal loads carry their ordering phase across a boundary. After a calibrated kick the same preparation recoils, with at least 84.31% probability of finding the loads adjacent at any one later reading. In a separate two-unit-load experiment, two outgoing amplitudes interfere on their return through a neighboring cell. The observer recovers the relative propagation phase from the return counts. Two stationary clocks beside a mobile excess also give different source-arrival counts. [Moving pair and recoil](openwave/row_03_clock/moving_pair/recoil/README.md) · [Doublet interference](../../experiments/interval_echo_gauge/doublet_echo/README.md) · [Clock and source counts](openwave/row_27_metric/free_source_clock/README.md)
+
 The one-load sector passes the common rank-three cell test. The joint rest-energy and inertia requirement fails for the inherited free Hamiltonian. The rank-three transport of an observer’s full history, a universal relativistic clock comparison, a common stress and current measurement, and physical particle charges are open. [Scorecard](../../evaluation/SCORECARD.md)
 
 ## Measurements that distinguish the design choices

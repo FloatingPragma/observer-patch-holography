@@ -101,17 +101,10 @@ def gibbs_read(blocks, beta, kappa=KAPPA):
                 aligned_to_symmetric_slope=float(aligned_to_symmetric))
 
 
-def nested_regions(blocks, beta, kappa=KAPPA):
-    """Trace the same Gibbs state onto three graph regions around the test seam."""
-    from model.candidate_laws.interval_echo.candidate import native_law as law
-
-    board = cell()
-    a, b = clock_seam()
-    near_a, near_b = set(board.neighbours[a]), set(board.neighbours[b])
-    regions = [(a, b), (a, b, *sorted(near_a & near_b)),
-               (a, b, *sorted((near_a | near_b) - {a, b}))]
+def reduced_gibbs_states(blocks, beta, regions, kappa=KAPPA):
+    """Reduce the half-filled, regular-cell grand Gibbs state in the specified bit orders."""
     densities = [np.zeros((2**len(region),) * 2) for region in regions]
-    mu = kappa * (6 - board.degree[a])
+    mu = kappa * (6 - cell().degree[0])
     for n, (energies, states, masks, _) in enumerate(blocks):
         weights = np.exp(-beta * (energies - mu * n))
         block = (states * weights) @ states.T
@@ -122,11 +115,25 @@ def nested_regions(blocks, beta, kappa=KAPPA):
                 indices = np.flatnonzero(outside == background)
                 density[np.ix_(inside[indices], inside[indices])] += block[np.ix_(indices, indices)]
 
+    return [density / np.trace(density) for density in densities]
+
+
+def nested_regions(blocks, beta, kappa=KAPPA):
+    """Trace the same Gibbs state onto three graph regions around the test seam."""
+    from model.candidate_laws.interval_echo.candidate import native_law as law
+
+    board = cell()
+    a, b = clock_seam()
+    near_a, near_b = set(board.neighbours[a]), set(board.neighbours[b])
+    regions = [(a, b), (a, b, *sorted(near_a & near_b)),
+               (a, b, *sorted((near_a | near_b) - {a, b}))]
+    densities = reduced_gibbs_states(blocks, beta, regions, kappa)
+
     out = []
     binary = [law.SRC.index(word) for word in ((0, 0), (1, 0), (0, 1), (1, 1))]
     native_bond = law.seam_term(kappa)[np.ix_(binary, binary)]
     for region, density in zip(regions, densities, strict=True):
-        probs, vectors = eigh(density / np.trace(density))
+        probs, vectors = eigh(density)
         modular = (vectors * -np.log(probs)) @ vectors.T
         # A,B use the low bits. Trace the modular operator against the same
         # normalized spectator identity for each of the two launch tangents.

@@ -1,0 +1,2136 @@
+{
+  "local_eigenvalues": [
+    32.0,
+    33.0
+  ],
+  "projected_even_amplitudes": [
+    -0.7071067812,
+    -0.7071067812
+  ],
+  "filter_shots": 33554432,
+  "filter_accepted": 16780646,
+  "filter_rejected": 16773786,
+  "calibration_x_y": [
+    [
+      131072,
+      131069,
+      131033,
+      130537,
+      122994,
+      38143,
+      56042,
+      119988
+    ],
+    [
+      65982,
+      65733,
+      67518,
+      73712,
+      97017,
+      125050,
+      130402,
+      101650
+    ]
+  ],
+  "calibration_work": 32.00154358298195,
+  "phase_half_width": 0.0267942557367217,
+  "rows": [
+    {
+      "level": 0,
+      "distance": 1,
+      "coherent_work": {
+        "least": {
+          "x_y": [
+            [
+              131072,
+              131069,
+              131049,
+              130567,
+              123011,
+              38070,
+              55887,
+              120140
+            ],
+            [
+              65533,
+              66102,
+              67516,
+              73733,
+              96959,
+              125123,
+              130395,
+              101509
+            ]
+          ],
+          "measured_work": 31.99846172,
+          "launches_accepted": 2097152,
+          "launches_refused": 2099504,
+          "all_bridges_ready_probability": 0.4999999999999999
+        },
+        "detour": {
+          "x_y": [
+            [
+              131072,
+              131060,
+              130954,
+              128966,
+              101002,
+              22611,
+              2696,
+              91155
+            ],
+            [
+              65614,
+              66705,
+              69554,
+              81989,
+              120618,
+              16134,
+              46611,
+              125878
+            ]
+          ],
+          "measured_work": 64.00114868,
+          "launches_accepted": 2097152,
+          "launches_refused": 6283167,
+          "all_bridges_ready_probability": 0.2499999999999999
+        },
+        "sources_only": {
+          "x_y": [
+            [
+              131072,
+              131069,
+              131041,
+              130598,
+              123122,
+              38269,
+              56179,
+              120059
+            ],
+            [
+              65822,
+              65937,
+              67822,
+              73813,
+              97001,
+              125144,
+              130345,
+              101648
+            ]
+          ],
+          "measured_work": 32.00091803,
+          "launches_accepted": 2097152,
+          "launches_refused": 2098621,
+          "all_bridges_ready_probability": 0.4999999999999999
+        }
+      },
+      "dilute_upper": 324.5,
+      "dilute_even_original_trial": 389.0,
+      "dilute_even_original_ports": [
+        0,
+        2
+      ],
+      "dilute_even_upper": 324.0,
+      "dilute_even_adjacent_ports": [
+        0,
+        5
+      ],
+      "dilute_double_ports": [
+        0,
+        10
+      ],
+      "dilute_odd": [
+        0,
+        1
+      ]
+    },
+    {
+      "level": 0,
+      "distance": 2,
+      "coherent_work": {
+        "least": {
+          "x_y": [
+            [
+              131072,
+              131061,
+              130933,
+              129036,
+              101111,
+              22870,
+              2803,
+              91119
+            ],
+            [
+              65654,
+              66429,
+              69827,
+              81421,
+              120831,
+              15963,
+              46963,
+              125833
+            ]
+          ],
+          "measured_work": 64.0013861,
+          "launches_accepted": 2097152,
+          "launches_refused": 6294074,
+          "all_bridges_ready_probability": 0.2499999999999999
+        },
+        "detour": {
+          "x_y": [
+            [
+              131072,
+              131052,
+              130779,
+              126488,
+              70392,
+              128418,
+              93214,
+              53645
+            ],
+            [
+              66132,
+              67198,
+              71500,
+              89781,
+              130912,
+              47217,
+              6361,
+              129992
+            ]
+          ],
+          "measured_work": 96.00100722,
+          "launches_accepted": 2097152,
+          "launches_refused": 14679923,
+          "all_bridges_ready_probability": 0.12499999999999992
+        },
+        "sources_only": {
+          "x_y": [
+            [
+              131069,
+              131068,
+              130959,
+              129057,
+              100929,
+              22816,
+              2845,
+              91095
+            ],
+            [
+              65897,
+              66723,
+              69424,
+              81772,
+              120725,
+              16010,
+              46407,
+              125915
+            ]
+          ],
+          "measured_work": 64.00221155,
+          "launches_accepted": 2097152,
+          "launches_refused": 6289632,
+          "all_bridges_ready_probability": 0.2499999999999999
+        }
+      },
+      "dilute_upper": 390.0,
+      "dilute_even_original_trial": 389.0,
+      "dilute_even_original_ports": [
+        0,
+        2
+      ],
+      "dilute_even_upper": 324.0,
+      "dilute_even_adjacent_ports": [
+        0,
+        5
+      ],
+      "dilute_double_ports": [
+        10,
+        60
+      ],
+      "dilute_odd": [
+        0,
+        6
+      ]
+    },
+    {
+      "level": 0,
+      "distance": 3,
+      "coherent_work": {
+        "least": {
+          "x_y": [
+            [
+              131070,
+              131055,
+              130787,
+              126530,
+              69992,
+              128421,
+              93316,
+              53866
+            ],
+            [
+              65936,
+              66895,
+              71738,
+              89854,
+              130904,
+              47094,
+              6188,
+              129960
+            ]
+          ],
+          "measured_work": 95.99777643,
+          "launches_accepted": 2097152,
+          "launches_refused": 14663837,
+          "all_bridges_ready_probability": 0.12499999999999992
+        },
+        "detour": {
+          "x_y": [
+            [
+              131069,
+              131044,
+              130558,
+              123073,
+              38749,
+              56147,
+              120202,
+              20217
+            ],
+            [
+              66209,
+              67653,
+              73668,
+              96896,
+              125184,
+              130398,
+              101555,
+              112731
+            ]
+          ],
+          "measured_work": 127.9996254,
+          "launches_accepted": 2097152,
+          "launches_refused": 31456351,
+          "all_bridges_ready_probability": 0.062499999999999944
+        },
+        "sources_only": {
+          "x_y": [
+            [
+              131072,
+              131067,
+              130919,
+              129056,
+              100583,
+              22604,
+              2719,
+              91239
+            ],
+            [
+              65744,
+              66409,
+              69514,
+              81928,
+              120501,
+              16073,
+              46701,
+              125922
+            ]
+          ],
+          "measured_work": 64.00023254,
+          "launches_accepted": 2097152,
+          "launches_refused": 6294479,
+          "all_bridges_ready_probability": 0.2499999999999999
+        }
+      },
+      "dilute_upper": 390.0,
+      "dilute_even_original_trial": 389.0,
+      "dilute_even_original_ports": [
+        0,
+        2
+      ],
+      "dilute_even_upper": 324.0,
+      "dilute_even_adjacent_ports": [
+        0,
+        5
+      ],
+      "dilute_double_ports": [
+        10,
+        123
+      ],
+      "dilute_odd": [
+        0,
+        1,
+        6,
+        11
+      ]
+    },
+    {
+      "level": 1,
+      "distance": 1,
+      "coherent_work": {
+        "least": {
+          "x_y": [
+            [
+              131072,
+              131071,
+              131036,
+              130578,
+              123187,
+              38081,
+              56104,
+              120320
+            ],
+            [
+              65508,
+              66132,
+              67269,
+              73568,
+              96711,
+              125085,
+              130361,
+              101942
+            ]
+          ],
+          "measured_work": 32.00245337,
+          "launches_accepted": 2097152,
+          "launches_refused": 2098846,
+          "all_bridges_ready_probability": 0.4999999999999999
+        },
+        "detour": {
+          "x_y": [
+            [
+              131071,
+              131062,
+              130944,
+              129121,
+              100816,
+              22692,
+              2822,
+              91494
+            ],
+            [
+              65937,
+              66604,
+              69886,
+              81679,
+              120574,
+              16102,
+              46589,
+              125926
+            ]
+          ],
+          "measured_work": 63.99668691,
+          "launches_accepted": 2097152,
+          "launches_refused": 6293295,
+          "all_bridges_ready_probability": 0.2499999999999999
+        },
+        "sources_only": {
+          "x_y": [
+            [
+              131072,
+              131072,
+              131033,
+              130583,
+              122995,
+              38156,
+              56158,
+              120175
+            ],
+            [
+              65610,
+              65880,
+              67617,
+              74157,
+              97132,
+              125102,
+              130405,
+              101667
+            ]
+          ],
+          "measured_work": 32.000182,
+          "launches_accepted": 2097152,
+          "launches_refused": 2097305,
+          "all_bridges_ready_probability": 0.4999999999999999
+        }
+      },
+      "dilute_upper": 324.5,
+      "dilute_even_original_trial": 389.0,
+      "dilute_even_original_ports": [
+        0,
+        2
+      ],
+      "dilute_even_upper": 324.0,
+      "dilute_even_adjacent_ports": [
+        0,
+        5
+      ],
+      "dilute_double_ports": [
+        0,
+        1
+      ],
+      "dilute_odd": [
+        0,
+        1
+      ]
+    },
+    {
+      "level": 1,
+      "distance": 2,
+      "coherent_work": {
+        "least": {
+          "x_y": [
+            [
+              131072,
+              131066,
+              130933,
+              129049,
+              100837,
+              22794,
+              2766,
+              91168
+            ],
+            [
+              65768,
+              66402,
+              69880,
+              81611,
+              120616,
+              15958,
+              46885,
+              125908
+            ]
+          ],
+          "measured_work": 64.00114499,
+          "launches_accepted": 2097152,
+          "launches_refused": 6293329,
+          "all_bridges_ready_probability": 0.2499999999999999
+        },
+        "detour": {
+          "x_y": [
+            [
+              131072,
+              131053,
+              130780,
+              126515,
+              70196,
+              128506,
+              93218,
+              53449
+            ],
+            [
+              65971,
+              66971,
+              71704,
+              89570,
+              130892,
+              47363,
+              6169,
+              129977
+            ]
+          ],
+          "measured_work": 96.00398853,
+          "launches_accepted": 2097152,
+          "launches_refused": 14666713,
+          "all_bridges_ready_probability": 0.12499999999999992
+        },
+        "sources_only": {
+          "x_y": [
+            [
+              131071,
+              131065,
+              130956,
+              129001,
+              101002,
+              22816,
+              2676,
+              91327
+            ],
+            [
+              65759,
+              66688,
+              69725,
+              81733,
+              120770,
+              16020,
+              46588,
+              125902
+            ]
+          ],
+          "measured_work": 63.99887976,
+          "launches_accepted": 2097152,
+          "launches_refused": 6291705,
+          "all_bridges_ready_probability": 0.2499999999999999
+        }
+      },
+      "dilute_upper": 390.0,
+      "dilute_even_original_trial": 389.0,
+      "dilute_even_original_ports": [
+        0,
+        2
+      ],
+      "dilute_even_upper": 324.0,
+      "dilute_even_adjacent_ports": [
+        0,
+        5
+      ],
+      "dilute_double_ports": [
+        1,
+        34
+      ],
+      "dilute_odd": [
+        0,
+        5
+      ]
+    },
+    {
+      "level": 1,
+      "distance": 3,
+      "coherent_work": {
+        "least": {
+          "x_y": [
+            [
+              131071,
+              131059,
+              130791,
+              126511,
+              70306,
+              128487,
+              93505,
+              53604
+            ],
+            [
+              66054,
+              67041,
+              71822,
+              89623,
+              130897,
+              47397,
+              6194,
+              130011
+            ]
+          ],
+          "measured_work": 96.00156956,
+          "launches_accepted": 2097152,
+          "launches_refused": 14670897,
+          "all_bridges_ready_probability": 0.12499999999999992
+        },
+        "detour": {
+          "x_y": [
+            [
+              131072,
+              131040,
+              130537,
+              122945,
+              38096,
+              55940,
+              120314,
+              20101
+            ],
+            [
+              65981,
+              67541,
+              73645,
+              97140,
+              125281,
+              130366,
+              101634,
+              112758
+            ]
+          ],
+          "measured_work": 128.00061684,
+          "launches_accepted": 2097152,
+          "launches_refused": 31458161,
+          "all_bridges_ready_probability": 0.062499999999999944
+        },
+        "sources_only": {
+          "x_y": [
+            [
+              131071,
+              131059,
+              130950,
+              129062,
+              100770,
+              22619,
+              2848,
+              91194
+            ],
+            [
+              65753,
+              66828,
+              69692,
+              81961,
+              120788,
+              15829,
+              46366,
+              125792
+            ]
+          ],
+          "measured_work": 64.00008736,
+          "launches_accepted": 2097152,
+          "launches_refused": 6289105,
+          "all_bridges_ready_probability": 0.2499999999999999
+        }
+      },
+      "dilute_upper": 390.0,
+      "dilute_even_original_trial": 389.0,
+      "dilute_even_original_ports": [
+        0,
+        2
+      ],
+      "dilute_even_upper": 324.0,
+      "dilute_even_adjacent_ports": [
+        0,
+        5
+      ],
+      "dilute_double_ports": [
+        1,
+        74
+      ],
+      "dilute_odd": [
+        0,
+        1,
+        6,
+        8
+      ]
+    },
+    {
+      "level": 1,
+      "distance": 4,
+      "coherent_work": {
+        "least": {
+          "x_y": [
+            [
+              131069,
+              131045,
+              130559,
+              122943,
+              38092,
+              55792,
+              120306,
+              20028
+            ],
+            [
+              66353,
+              67673,
+              73763,
+              96713,
+              125208,
+              130445,
+              101595,
+              112924
+            ]
+          ],
+          "measured_work": 127.99966571,
+          "launches_accepted": 2097152,
+          "launches_refused": 31493861,
+          "all_bridges_ready_probability": 0.062499999999999944
+        },
+        "detour": {
+          "x_y": [
+            [
+              131069,
+              131018,
+              130235,
+              118627,
+              13081,
+              10621,
+              22073,
+              1557
+            ],
+            [
+              66063,
+              68227,
+              75575,
+              103941,
+              104900,
+              29824,
+              114424,
+              79923
+            ]
+          ],
+          "measured_work": 160.000034,
+          "launches_accepted": 2097152,
+          "launches_refused": 65002800,
+          "all_bridges_ready_probability": 0.031249999999999965
+        },
+        "sources_only": {
+          "x_y": [
+            [
+              131070,
+              131067,
+              130957,
+              129050,
+              100682,
+              22754,
+              2768,
+              91476
+            ],
+            [
+              65431,
+              66681,
+              69431,
+              81812,
+              120737,
+              15950,
+              46720,
+              125806
+            ]
+          ],
+          "measured_work": 63.99621672,
+          "launches_accepted": 2097152,
+          "launches_refused": 6292095,
+          "all_bridges_ready_probability": 0.2499999999999999
+        }
+      },
+      "dilute_upper": 390.0,
+      "dilute_even_original_trial": 389.0,
+      "dilute_even_original_ports": [
+        0,
+        2
+      ],
+      "dilute_even_upper": 324.0,
+      "dilute_even_adjacent_ports": [
+        0,
+        5
+      ],
+      "dilute_double_ports": [
+        1,
+        266
+      ],
+      "dilute_odd": [
+        0,
+        1,
+        16,
+        18
+      ]
+    },
+    {
+      "level": 1,
+      "distance": 5,
+      "coherent_work": {
+        "least": {
+          "x_y": [
+            [
+              131067,
+              131018,
+              130272,
+              118671,
+              13326,
+              10596,
+              21754,
+              1594
+            ],
+            [
+              66243,
+              67829,
+              75629,
+              104065,
+              104599,
+              29816,
+              114173,
+              79665
+            ]
+          ],
+          "measured_work": 160.00375393,
+          "launches_accepted": 2097152,
+          "launches_refused": 65022415,
+          "all_bridges_ready_probability": 0.031249999999999965
+        },
+        "detour": {
+          "x_y": [
+            [
+              131069,
+              131006,
+              129915,
+              113302,
+              650,
+              120762,
+              23512,
+              4311
+            ],
+            [
+              66433,
+              68764,
+              78013,
+              110241,
+              74999,
+              30159,
+              15381,
+              42472
+            ]
+          ],
+          "measured_work": 191.99741988,
+          "launches_accepted": 2097152,
+          "launches_refused": 132077829,
+          "all_bridges_ready_probability": 0.01562499999999998
+        },
+        "sources_only": {
+          "x_y": [
+            [
+              131072,
+              131063,
+              130944,
+              129017,
+              101026,
+              22735,
+              2767,
+              90906
+            ],
+            [
+              65921,
+              66488,
+              69837,
+              81754,
+              120504,
+              16089,
+              46562,
+              125768
+            ]
+          ],
+          "measured_work": 64.00399781,
+          "launches_accepted": 2097152,
+          "launches_refused": 6279637,
+          "all_bridges_ready_probability": 0.2499999999999999
+        }
+      },
+      "dilute_upper": 390.0,
+      "dilute_even_original_trial": 389.0,
+      "dilute_even_original_ports": [
+        0,
+        2
+      ],
+      "dilute_even_upper": 324.0,
+      "dilute_even_adjacent_ports": [
+        0,
+        5
+      ],
+      "dilute_double_ports": [
+        1,
+        458
+      ],
+      "dilute_odd": [
+        0,
+        1,
+        28,
+        30
+      ]
+    },
+    {
+      "level": 2,
+      "distance": 1,
+      "coherent_work": {
+        "least": {
+          "x_y": [
+            [
+              131072,
+              131072,
+              131035,
+              130581,
+              123039,
+              38204,
+              55697,
+              120193
+            ],
+            [
+              65786,
+              66154,
+              67286,
+              73734,
+              96881,
+              125222,
+              130393,
+              101858
+            ]
+          ],
+          "measured_work": 32.0024584,
+          "launches_accepted": 2097152,
+          "launches_refused": 2098685,
+          "all_bridges_ready_probability": 0.4999999999999999
+        },
+        "detour": {
+          "x_y": [
+            [
+              131071,
+              131066,
+              130934,
+              129028,
+              100783,
+              22650,
+              2858,
+              91151
+            ],
+            [
+              65788,
+              66685,
+              69600,
+              81845,
+              120796,
+              16066,
+              46729,
+              125847
+            ]
+          ],
+          "measured_work": 64.00101998,
+          "launches_accepted": 2097152,
+          "launches_refused": 6296848,
+          "all_bridges_ready_probability": 0.2499999999999999
+        },
+        "sources_only": {
+          "x_y": [
+            [
+              131072,
+              131071,
+              131041,
+              130569,
+              123037,
+              38016,
+              55775,
+              120225
+            ],
+            [
+              65642,
+              66186,
+              67817,
+              73727,
+              97106,
+              125101,
+              130380,
+              101764
+            ]
+          ],
+          "measured_work": 32.00099497,
+          "launches_accepted": 2097152,
+          "launches_refused": 2095467,
+          "all_bridges_ready_probability": 0.4999999999999999
+        }
+      },
+      "dilute_upper": 324.5,
+      "dilute_even_original_trial": 389.0,
+      "dilute_even_original_ports": [
+        0,
+        2
+      ],
+      "dilute_even_upper": 324.0,
+      "dilute_even_adjacent_ports": [
+        0,
+        5
+      ],
+      "dilute_double_ports": [
+        0,
+        1
+      ],
+      "dilute_odd": [
+        0,
+        1
+      ]
+    },
+    {
+      "level": 2,
+      "distance": 2,
+      "coherent_work": {
+        "least": {
+          "x_y": [
+            [
+              131071,
+              131067,
+              130928,
+              129079,
+              100809,
+              22718,
+              2789,
+              91382
+            ],
+            [
+              65645,
+              66579,
+              69554,
+              81811,
+              120746,
+              15834,
+              46660,
+              125941
+            ]
+          ],
+          "measured_work": 63.99834318,
+          "launches_accepted": 2097152,
+          "launches_refused": 6288021,
+          "all_bridges_ready_probability": 0.2499999999999999
+        },
+        "detour": {
+          "x_y": [
+            [
+              131071,
+              131054,
+              130766,
+              126457,
+              70306,
+              128426,
+              93348,
+              53780
+            ],
+            [
+              65833,
+              67293,
+              71455,
+              89289,
+              130899,
+              47360,
+              6184,
+              130000
+            ]
+          ],
+          "measured_work": 95.99895904,
+          "launches_accepted": 2097152,
+          "launches_refused": 14688255,
+          "all_bridges_ready_probability": 0.12499999999999992
+        },
+        "sources_only": {
+          "x_y": [
+            [
+              131072,
+              131065,
+              130927,
+              129089,
+              101211,
+              23037,
+              2784,
+              91459
+            ],
+            [
+              65892,
+              66424,
+              69314,
+              81692,
+              120662,
+              16041,
+              46608,
+              125786
+            ]
+          ],
+          "measured_work": 63.99633424,
+          "launches_accepted": 2097152,
+          "launches_refused": 6280511,
+          "all_bridges_ready_probability": 0.2499999999999999
+        }
+      },
+      "dilute_upper": 390.0,
+      "dilute_even_original_trial": 389.0,
+      "dilute_even_original_ports": [
+        0,
+        2
+      ],
+      "dilute_even_upper": 324.0,
+      "dilute_even_adjacent_ports": [
+        0,
+        5
+      ],
+      "dilute_double_ports": [
+        1,
+        34
+      ],
+      "dilute_odd": [
+        0,
+        5
+      ]
+    },
+    {
+      "level": 2,
+      "distance": 3,
+      "coherent_work": {
+        "least": {
+          "x_y": [
+            [
+              131071,
+              131052,
+              130804,
+              126456,
+              69860,
+              128492,
+              93653,
+              54013
+            ],
+            [
+              66123,
+              67107,
+              71779,
+              89418,
+              130896,
+              47212,
+              6193,
+              129967
+            ]
+          ],
+          "measured_work": 95.99554746,
+          "launches_accepted": 2097152,
+          "launches_refused": 14670923,
+          "all_bridges_ready_probability": 0.12499999999999992
+        },
+        "detour": {
+          "x_y": [
+            [
+              131067,
+              131047,
+              130579,
+              123086,
+              38004,
+              56128,
+              120208,
+              20232
+            ],
+            [
+              66049,
+              67412,
+              73775,
+              96924,
+              125112,
+              130332,
+              101648,
+              112892
+            ]
+          ],
+          "measured_work": 127.99775877,
+          "launches_accepted": 2097152,
+          "launches_refused": 31476148,
+          "all_bridges_ready_probability": 0.062499999999999944
+        },
+        "sources_only": {
+          "x_y": [
+            [
+              131071,
+              131067,
+              130939,
+              129103,
+              100779,
+              22734,
+              2788,
+              91251
+            ],
+            [
+              65825,
+              66458,
+              69710,
+              81569,
+              120650,
+              15950,
+              46734,
+              125899
+            ]
+          ],
+          "measured_work": 63.99992697,
+          "launches_accepted": 2097152,
+          "launches_refused": 6290734,
+          "all_bridges_ready_probability": 0.2499999999999999
+        }
+      },
+      "dilute_upper": 390.0,
+      "dilute_even_original_trial": 389.0,
+      "dilute_even_original_ports": [
+        0,
+        2
+      ],
+      "dilute_even_upper": 324.0,
+      "dilute_even_adjacent_ports": [
+        0,
+        5
+      ],
+      "dilute_double_ports": [
+        1,
+        58
+      ],
+      "dilute_odd": [
+        0,
+        1,
+        6,
+        7
+      ]
+    },
+    {
+      "level": 2,
+      "distance": 4,
+      "coherent_work": {
+        "least": {
+          "x_y": [
+            [
+              131072,
+              131036,
+              130513,
+              122990,
+              38077,
+              56447,
+              120156,
+              20295
+            ],
+            [
+              66033,
+              67389,
+              73387,
+              96954,
+              125125,
+              130374,
+              101548,
+              112913
+            ]
+          ],
+          "measured_work": 127.99684225,
+          "launches_accepted": 2097152,
+          "launches_refused": 31425225,
+          "all_bridges_ready_probability": 0.062499999999999944
+        },
+        "detour": {
+          "x_y": [
+            [
+              131070,
+              131025,
+              130312,
+              118780,
+              13046,
+              10502,
+              21613,
+              1576
+            ],
+            [
+              65886,
+              68146,
+              75849,
+              103744,
+              104874,
+              29879,
+              114490,
+              79787
+            ]
+          ],
+          "measured_work": 160.00199526,
+          "launches_accepted": 2097152,
+          "launches_refused": 64975606,
+          "all_bridges_ready_probability": 0.031249999999999965
+        },
+        "sources_only": {
+          "x_y": [
+            [
+              131072,
+              131066,
+              130944,
+              129046,
+              100942,
+              22901,
+              2805,
+              90904
+            ],
+            [
+              65858,
+              66652,
+              69877,
+              81926,
+              120732,
+              15858,
+              46260,
+              125807
+            ]
+          ],
+          "measured_work": 64.00425751,
+          "launches_accepted": 2097152,
+          "launches_refused": 6300548,
+          "all_bridges_ready_probability": 0.2499999999999999
+        }
+      },
+      "dilute_upper": 390.0,
+      "dilute_even_original_trial": 389.0,
+      "dilute_even_original_ports": [
+        0,
+        2
+      ],
+      "dilute_even_upper": 324.0,
+      "dilute_even_adjacent_ports": [
+        0,
+        5
+      ],
+      "dilute_double_ports": [
+        1,
+        98
+      ],
+      "dilute_odd": [
+        0,
+        1,
+        11,
+        13
+      ]
+    },
+    {
+      "level": 2,
+      "distance": 5,
+      "coherent_work": {
+        "least": {
+          "x_y": [
+            [
+              131071,
+              131014,
+              130267,
+              118712,
+              13078,
+              10592,
+              21783,
+              1599
+            ],
+            [
+              66012,
+              68208,
+              75768,
+              103974,
+              104615,
+              29877,
+              114487,
+              79957
+            ]
+          ],
+          "measured_work": 159.99938731,
+          "launches_accepted": 2097152,
+          "launches_refused": 64980535,
+          "all_bridges_ready_probability": 0.031249999999999965
+        },
+        "detour": {
+          "x_y": [
+            [
+              131067,
+              131011,
+              129926,
+              113336,
+              645,
+              120799,
+              23276,
+              4286
+            ],
+            [
+              66512,
+              68580,
+              77956,
+              110117,
+              74460,
+              30158,
+              15100,
+              42339
+            ]
+          ],
+          "measured_work": 191.99918563,
+          "launches_accepted": 2097152,
+          "launches_refused": 131950604,
+          "all_bridges_ready_probability": 0.01562499999999998
+        },
+        "sources_only": {
+          "x_y": [
+            [
+              131071,
+              131068,
+              130935,
+              129017,
+              100747,
+              22706,
+              2837,
+              91252
+            ],
+            [
+              65833,
+              66386,
+              69345,
+              81813,
+              120718,
+              15860,
+              46658,
+              125769
+            ]
+          ],
+          "measured_work": 63.99913497,
+          "launches_accepted": 2097152,
+          "launches_refused": 6289380,
+          "all_bridges_ready_probability": 0.2499999999999999
+        }
+      },
+      "dilute_upper": 390.0,
+      "dilute_even_original_trial": 389.0,
+      "dilute_even_original_ports": [
+        0,
+        2
+      ],
+      "dilute_even_upper": 324.0,
+      "dilute_even_adjacent_ports": [
+        0,
+        5
+      ],
+      "dilute_double_ports": [
+        1,
+        290
+      ],
+      "dilute_odd": [
+        0,
+        1,
+        21,
+        23
+      ]
+    },
+    {
+      "level": 2,
+      "distance": 6,
+      "coherent_work": {
+        "least": {
+          "x_y": [
+            [
+              131066,
+              130997,
+              129948,
+              113600,
+              633,
+              120744,
+              23597,
+              4328
+            ],
+            [
+              66165,
+              68684,
+              77733,
+              110446,
+              74803,
+              30324,
+              15211,
+              42394
+            ]
+          ],
+          "measured_work": 191.99862693,
+          "launches_accepted": 2097152,
+          "launches_refused": 132179591,
+          "all_bridges_ready_probability": 0.01562499999999998
+        },
+        "detour": {
+          "x_y": [
+            [
+              131068,
+              130981,
+              129563,
+              107254,
+              4198,
+              74420,
+              121459,
+              27277
+            ],
+            [
+              66205,
+              68962,
+              79828,
+              115837,
+              42584,
+              130480,
+              31528,
+              12315
+            ]
+          ],
+          "measured_work": 224.00059604,
+          "launches_accepted": 2097152,
+          "launches_refused": 266018999,
+          "all_bridges_ready_probability": 0.007812499999999988
+        },
+        "sources_only": {
+          "x_y": [
+            [
+              131072,
+              131062,
+              130949,
+              129062,
+              100749,
+              22648,
+              2728,
+              90870
+            ],
+            [
+              65676,
+              66412,
+              69672,
+              81900,
+              120649,
+              15939,
+              46918,
+              125824
+            ]
+          ],
+          "measured_work": 64.00483756,
+          "launches_accepted": 2097152,
+          "launches_refused": 6281364,
+          "all_bridges_ready_probability": 0.2499999999999999
+        }
+      },
+      "dilute_upper": 390.0,
+      "dilute_even_original_trial": 389.0,
+      "dilute_even_original_ports": [
+        0,
+        2
+      ],
+      "dilute_even_upper": 324.0,
+      "dilute_even_adjacent_ports": [
+        0,
+        5
+      ],
+      "dilute_double_ports": [
+        1,
+        986
+      ],
+      "dilute_odd": [
+        0,
+        1,
+        51,
+        53
+      ]
+    },
+    {
+      "level": 2,
+      "distance": 7,
+      "coherent_work": {
+        "least": {
+          "x_y": [
+            [
+              131068,
+              130982,
+              129515,
+              107659,
+              4148,
+              74488,
+              121422,
+              27162
+            ],
+            [
+              66470,
+              69167,
+              79635,
+              115952,
+              42741,
+              130473,
+              31226,
+              12350
+            ]
+          ],
+          "measured_work": 223.99886078,
+          "launches_accepted": 2097152,
+          "launches_refused": 266033195,
+          "all_bridges_ready_probability": 0.007812499999999988
+        },
+        "detour": {
+          "x_y": [
+            [
+              131065,
+              130946,
+              128972,
+              100935,
+              22544,
+              2779,
+              91030,
+              62760
+            ],
+            [
+              66419,
+              69672,
+              81687,
+              120609,
+              15959,
+              46724,
+              125831,
+              43
+            ]
+          ],
+          "measured_work": 255.99744041,
+          "launches_accepted": 2097152,
+          "launches_refused": 534686737,
+          "all_bridges_ready_probability": 0.003906249999999993
+        },
+        "sources_only": {
+          "x_y": [
+            [
+              131072,
+              131065,
+              130955,
+              129065,
+              100935,
+              22478,
+              2731,
+              91426
+            ],
+            [
+              65915,
+              66359,
+              69821,
+              81899,
+              120581,
+              15975,
+              46729,
+              125910
+            ]
+          ],
+          "measured_work": 63.99754174,
+          "launches_accepted": 2097152,
+          "launches_refused": 6297671,
+          "all_bridges_ready_probability": 0.2499999999999999
+        }
+      },
+      "dilute_upper": 390.0,
+      "dilute_even_original_trial": 389.0,
+      "dilute_even_original_ports": [
+        0,
+        2
+      ],
+      "dilute_even_upper": 324.0,
+      "dilute_even_adjacent_ports": [
+        0,
+        5
+      ],
+      "dilute_double_ports": [
+        1,
+        1070
+      ],
+      "dilute_odd": [
+        0,
+        1,
+        53,
+        57
+      ]
+    },
+    {
+      "level": 2,
+      "distance": 8,
+      "coherent_work": {
+        "least": {
+          "x_y": [
+            [
+              131063,
+              130944,
+              129040,
+              100920,
+              22526,
+              2795,
+              90773,
+              62626
+            ],
+            [
+              67155,
+              69576,
+              81511,
+              120785,
+              16069,
+              46964,
+              125910,
+              49
+            ]
+          ],
+          "measured_work": 255.99539418,
+          "launches_accepted": 2097152,
+          "launches_refused": 534626446,
+          "all_bridges_ready_probability": 0.003906249999999993
+        },
+        "detour": {
+          "x_y": [
+            [
+              131065,
+              130906,
+              128503,
+              93919,
+              51582,
+              108662,
+              2147,
+              99613
+            ],
+            [
+              66616,
+              69867,
+              83676,
+              124649,
+              1512,
+              16318,
+              82179,
+              9489
+            ]
+          ],
+          "measured_work": 288.00201442,
+          "launches_accepted": 2097152,
+          "launches_refused": 1072290984,
+          "all_bridges_ready_probability": 0.001953124999999996
+        },
+        "sources_only": {
+          "x_y": [
+            [
+              131072,
+              131061,
+              130944,
+              129027,
+              100845,
+              22486,
+              2685,
+              90892
+            ],
+            [
+              66238,
+              66314,
+              70085,
+              81820,
+              120669,
+              16083,
+              46766,
+              125652
+            ]
+          ],
+          "measured_work": 64.00350542,
+          "launches_accepted": 2097152,
+          "launches_refused": 6297232,
+          "all_bridges_ready_probability": 0.2499999999999999
+        }
+      },
+      "dilute_upper": 390.0,
+      "dilute_even_original_trial": 389.0,
+      "dilute_even_original_ports": [
+        0,
+        2
+      ],
+      "dilute_even_upper": 324.0,
+      "dilute_even_adjacent_ports": [
+        0,
+        5
+      ],
+      "dilute_double_ports": [
+        1,
+        1058
+      ],
+      "dilute_odd": [
+        0,
+        1,
+        57,
+        59
+      ]
+    },
+    {
+      "level": 2,
+      "distance": 9,
+      "coherent_work": {
+        "least": {
+          "x_y": [
+            [
+              131062,
+              130927,
+              128501,
+              93886,
+              51952,
+              108745,
+              2079,
+              99235
+            ],
+            [
+              66606,
+              70057,
+              83902,
+              124735,
+              1485,
+              16385,
+              82124,
+              9541
+            ]
+          ],
+          "measured_work": 287.99748563,
+          "launches_accepted": 2097152,
+          "launches_refused": 1069839288,
+          "all_bridges_ready_probability": 0.001953124999999996
+        },
+        "detour": {
+          "x_y": [
+            [
+              131062,
+              130876,
+              127925,
+              86331,
+              84357,
+              92330,
+              57985,
+              124694
+            ],
+            [
+              66788,
+              70924,
+              85720,
+              127744,
+              2688,
+              125303,
+              389,
+              37589
+            ]
+          ],
+          "measured_work": 320.00111532,
+          "launches_accepted": 2097152,
+          "launches_refused": 2148748171,
+          "all_bridges_ready_probability": 0.0009765624999999978
+        },
+        "sources_only": {
+          "x_y": [
+            [
+              131071,
+              131064,
+              130937,
+              129005,
+              101004,
+              22724,
+              2737,
+              91531
+            ],
+            [
+              66177,
+              66452,
+              69739,
+              81979,
+              120720,
+              15830,
+              46619,
+              125917
+            ]
+          ],
+          "measured_work": 63.99611575,
+          "launches_accepted": 2097152,
+          "launches_refused": 6294458,
+          "all_bridges_ready_probability": 0.2499999999999999
+        }
+      },
+      "dilute_upper": 390.0,
+      "dilute_even_original_trial": 389.0,
+      "dilute_even_original_ports": [
+        0,
+        2
+      ],
+      "dilute_even_upper": 324.0,
+      "dilute_even_adjacent_ports": [
+        0,
+        5
+      ],
+      "dilute_double_ports": [
+        1,
+        1826
+      ],
+      "dilute_odd": [
+        0,
+        1,
+        97,
+        99
+      ]
+    },
+    {
+      "level": 2,
+      "distance": 10,
+      "coherent_work": {
+        "least": {
+          "x_y": [
+            [
+              131057,
+              130874,
+              127873,
+              86155,
+              84245,
+              92286,
+              58365,
+              124811
+            ],
+            [
+              67134,
+              70479,
+              85892,
+              127793,
+              2662,
+              125300,
+              435,
+              37625
+            ]
+          ],
+          "measured_work": 320.00237493,
+          "launches_accepted": 2097152,
+          "launches_refused": 2144089287,
+          "all_bridges_ready_probability": 0.0009765624999999978
+        },
+        "detour": {
+          "x_y": [
+            [
+              131051,
+              130839,
+              127210,
+              78300,
+              112155,
+              0,
+              131039,
+              130446
+            ],
+            [
+              66886,
+              71192,
+              87645,
+              129814,
+              19407,
+              65396,
+              68023,
+              74767
+            ]
+          ],
+          "measured_work": 351.99964225,
+          "launches_accepted": 2097152,
+          "launches_refused": 4289656704,
+          "all_bridges_ready_probability": 0.0004882812499999988
+        },
+        "sources_only": {
+          "x_y": [
+            [
+              131072,
+              131060,
+              130959,
+              128980,
+              100787,
+              22534,
+              2790,
+              90964
+            ],
+            [
+              65245,
+              66244,
+              70175,
+              81926,
+              120695,
+              15889,
+              46826,
+              125933
+            ]
+          ],
+          "measured_work": 64.00415952,
+          "launches_accepted": 2097152,
+          "launches_refused": 6295225,
+          "all_bridges_ready_probability": 0.2499999999999999
+        }
+      },
+      "dilute_upper": 390.0,
+      "dilute_even_original_trial": 389.0,
+      "dilute_even_original_ports": [
+        0,
+        2
+      ],
+      "dilute_even_upper": 324.0,
+      "dilute_even_adjacent_ports": [
+        0,
+        5
+      ],
+      "dilute_double_ports": [
+        1,
+        1921
+      ],
+      "dilute_odd": [
+        0,
+        1,
+        101,
+        102
+      ]
+    },
+    {
+      "level": 2,
+      "distance": 11,
+      "coherent_work": {
+        "least": {
+          "x_y": [
+            [
+              131063,
+              130855,
+              127171,
+              78293,
+              111908,
+              1,
+              131038,
+              130388
+            ],
+            [
+              67047,
+              71037,
+              87775,
+              129793,
+              19237,
+              64985,
+              67490,
+              75097
+            ]
+          ],
+          "measured_work": 352.00475079,
+          "launches_accepted": 2097152,
+          "launches_refused": 4293822378,
+          "all_bridges_ready_probability": 0.0004882812499999988
+        },
+        "detour": {
+          "x_y": [
+            [
+              131053,
+              130781,
+              126531,
+              70312,
+              128536,
+              93472,
+              53741,
+              114362
+            ],
+            [
+              67269,
+              71478,
+              89488,
+              130897,
+              47555,
+              6335,
+              130002,
+              108923
+            ]
+          ],
+          "measured_work": 384.00078715,
+          "launches_accepted": 2097152,
+          "launches_refused": 8584485587,
+          "all_bridges_ready_probability": 0.00024414062499999935
+        },
+        "sources_only": {
+          "x_y": [
+            [
+              131072,
+              131065,
+              130953,
+              129038,
+              101220,
+              22472,
+              2712,
+              91098
+            ],
+            [
+              65809,
+              66288,
+              69780,
+              81569,
+              120704,
+              15934,
+              46769,
+              125909
+            ]
+          ],
+          "measured_work": 64.00213374,
+          "launches_accepted": 2097152,
+          "launches_refused": 6292626,
+          "all_bridges_ready_probability": 0.2499999999999999
+        }
+      },
+      "dilute_upper": 390.0,
+      "dilute_even_original_trial": 389.0,
+      "dilute_even_original_ports": [
+        0,
+        2
+      ],
+      "dilute_even_upper": 324.0,
+      "dilute_even_adjacent_ports": [
+        0,
+        5
+      ],
+      "dilute_double_ports": [
+        1,
+        1923
+      ],
+      "dilute_odd": [
+        0,
+        1,
+        101,
+        103
+      ]
+    }
+  ]
+}

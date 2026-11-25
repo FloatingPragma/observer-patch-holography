@@ -38,6 +38,7 @@ import EventAlgebra.SourceReachabilityDelimitation
 import EventAlgebra.PauliMinimalCoupling
 import EventAlgebra.OperationalPhaseAttainment
 import EventAlgebra.OperationalAdditivityBoundary
+import EventAlgebra.CubicRefinementTest
 import EventAlgebra.LuedersPhaseInstrument
 import EventAlgebra.InstrumentSelectionByCertainStates
 import EventAlgebra.SourceBoundInstrumentInterface

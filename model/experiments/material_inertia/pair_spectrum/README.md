@@ -30,6 +30,14 @@ At a contact duration of 1/32 the two-probe score, calibrated on sharp charges, 
 
 The cancellation has a simple origin. Reflection about unit filling exchanges the two probes. Their difference vanishes on a host port and has opposite values on an excess and a vacancy. Once calibrated, the full-screen sum therefore vanishes on **any** one-excess, one-vacancy state. Where the opposite signs accumulate after free flight is a measurement of the bound branch. The probes also have a **common** change relative to an empty host, from +0.2191 to +0.2239 in the same units at 1/32 and +0.1169 to +0.1178 at 1/64. Thus the net sign cancels while the pair scatters both probes. Even in the short-contact limit the common response survives relative to the calibrated charge response. The native diagonal seam energies give slopes of 1.5 for the combined common change and 16.25 for one odd charge unit, a ratio of 6/65. These are local contact measurements. Identifying the interaction with electromagnetism requires an independent physical field and coupling.
 
+## Fixed-cell charge correlations after flight
+
+Complete native signed pointers put the two charges in different cells in about **0.107%** of admitted million-unit flights, with no arrival herald. A valid hard-core comparison with matching single-port marginals gives 29.33% to 50.54%; four further exchange-only units give 61.03% to 61.93%. A separately supplied Ramsey coupling reads the characteristic function of the same native cell-charge records. Its electromagnetic identification is a premise. [Native decoder, field probe and controls](cell_field_probe/README.md)
+
+## Does a native material source read regional charge?
+
+A neutral material dimer now supplies the phase through complete native contacts and routing. Across 60 regions on the same million-unit moving band, the strongest simultaneous 99% upper bound on a regional excess or vacancy is 0.1031%, conditional on the original band filter and a recorded host-meter eligibility test. Matched-marginal controls give launch-cell lower bounds of 27.23% to 46.02% under the same full-strength probe. Native pulse calibration, physical compensated standards and all refusal bins are retained. The programmed source profile, fresh material input and timing are apparatus; electromagnetic identification and physical mass remain open. [Source circuit, controls and count-derived bounds](native_source_probe/README.md)
+
 ## Does a wavelength predict the pair’s kinetic energy?
 
 The cell-owner graph supplies a wavelength standard independent of the pair generator. Its first three nonconstant Laplacian shells have eigenvalues 0.763932, 2 and 3 in inverse squared owner steps. For each of the same three sharp launches, select the lowest unresolved doublet in the 24-line bound cluster. Probe the centre density with an owner-shell amplitude grating. Interfering 128 possible application times gives energy differences on the same bound sector. The rest and final band filters, centre-density grating and timing reference are specified measurement apparatus. The grating can excite multiple lines in an inhomogeneous medium. [Spatial and timing protocol](DISPERSION_PROTOCOL.md) · [Source, reader and controls](dispersion.py) · [Timing counts](dispersion.json)
@@ -41,6 +49,10 @@ The cell-owner graph supplies a wavelength standard independent of the pair gene
 | 10 | 0.30687% | 9, 9, 18 | 23.56, 35.34 |
 
 One bin spans 0.000000374507 native energy units. Every held peak misses the prediction from a single positive kinetic coefficient in ΔE = Aλ. The maximum fraction in any three neighboring bins of the second shell is bounded above by 0.413, 0.457 and 0.409 for launch owners 0, 5 and 10. These upper bounds include the numerical allowance and a simultaneous 99% sampling allowance. The frequency profiles therefore also fail the declared majority criterion. A scalar reference particle on the same owner graph recovers its two held frequencies with the same timer. Halving the material generator's rates after preparation shifts the simulated timing spectrum while preserving the spatial profiles. These results exclude the specified single-line scalar reading of the pair’s centre-density response on this board. A mass from an internally resolved dispersing branch across refinements remains open. The study uses native exchange time and graph steps.
+
+## Does an independently normalized kinetic response agree across sources?
+
+Complete energy-weighted centre-density reads, corrected by independent owner population counts, transfer a positive first-shell response across the three original sources. A held third-shell profile rejects the same scalar coefficient even with an arbitrary on-site potential, all moving-band transition lines and an added 5% tolerance. Uniform and inhomogeneous scalar standards pass. This excludes that point-owner kinetic dictionary rather than every composite mass; a physical mass remains unresolved. [Counted summed-response test and native clock standard](sum_rule_inertia/README.md)
 
 ## Numerical checks and replay
 

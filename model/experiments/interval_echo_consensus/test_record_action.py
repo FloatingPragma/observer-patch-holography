@@ -1,3 +1,4 @@
+import hashlib
 import json
 from itertools import combinations
 
@@ -126,12 +127,18 @@ def test_unswitched_echo_reference_rejects_clock_alias_and_hidden_pair_only_term
 
 
 def test_held_launch_predicts_all_bins_and_distinguishes_assembled():
-    saved = json.loads(record_receipt.RECEIPT.read_text())
+    archived = record_receipt.RECEIPT.read_bytes()
+    assert hashlib.sha256(archived).hexdigest() == "db6eeb4692585a745b8cbc0a513a69410510f5790db832b4e8f55858d3987307"
+    saved = json.loads(archived)
     for actual, row in zip((registered_forecast.compare(a) for a in record_receipt.ARMS[:3]),
                            saved["externally_enrolled"], strict=True):
         record_receipt.verify(actual, row)
         assert actual["launch"] == [87,92]
         assert actual["family_rejected"] == (actual["arm"] == "assembled")
+    corrupted = json.loads(archived)["externally_enrolled"][0]
+    corrupted["settings"][0]["deviance"] += 1e-9
+    with pytest.raises(ValueError, match="Inconsistent forecast deviance"):
+        record_receipt.verify(corrupted, corrupted)
     panel = saved["circuit"]["historical_contact"]
     actual_panel = json.loads(json.dumps(record_receipt.native_frequency.compare(), allow_nan=False))
     record_receipt.verify(actual_panel, panel)

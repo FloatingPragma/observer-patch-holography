@@ -1,0 +1,2168 @@
+{
+  "deadline": 6,
+  "gamma": 1,
+  "cells": 80,
+  "port_order": [
+    0,
+    1,
+    5,
+    40
+  ],
+  "source": "four-tick vacancy pump, retained strain and both heads",
+  "leakage_squared_upper": {
+    "-1": [
+      "17",
+      "1113/64",
+      "5/4",
+      "5/4"
+    ],
+    "1": [
+      "17",
+      "1113/64",
+      "5/4",
+      "5/4"
+    ]
+  },
+  "continuous_near_return_lower": {
+    "-1": "942823/51881467707308113920000",
+    "1": "942823/51881467707308113920000"
+  },
+  "panels": [
+    {
+      "step": 0.5,
+      "ports": [
+        0,
+        1
+      ],
+      "detector": "sharp",
+      "sharp_uniform_complete_upper": 1.0,
+      "by_charge": {
+        "-1": {
+          "reference": {
+            "complete": 0.14438793426299681,
+            "at_deadline": 0.011766036967427446,
+            "saturated": 0.8673781027044306,
+            "capped_range": 2.802443000631911
+          },
+          "ordinary": {
+            "complete": 0.1439293835772667,
+            "at_deadline": 0.012227298724163125,
+            "saturated": 0.8682979151468964,
+            "capped_range": 2.8052181218580614
+          },
+          "decorrelated": {
+            "complete": 0.14443224114033998,
+            "at_deadline": 0.01178028939551348,
+            "saturated": 0.8673480482551735,
+            "capped_range": 2.8024239870939742
+          },
+          "hidden": {
+            "complete": 0.0006560148923010398,
+            "at_deadline": 8.146737147045562e-05,
+            "saturated": -0.0005745475208305842,
+            "capped_range": -0.000327446928263251
+          }
+        },
+        "1": {
+          "reference": {
+            "complete": 0.2657557307588352,
+            "at_deadline": 0.02282174570411956,
+            "saturated": 0.7570660149452844,
+            "capped_range": 2.6882065272018902
+          },
+          "ordinary": {
+            "complete": 0.26366597735481784,
+            "at_deadline": 0.022786768239318446,
+            "saturated": 0.7591207908845006,
+            "capped_range": 2.691756214746304
+          },
+          "decorrelated": {
+            "complete": 0.26594229025128435,
+            "at_deadline": 0.02282880173585565,
+            "saturated": 0.7568865114845713,
+            "capped_range": 2.6880205767231917
+          },
+          "hidden": {
+            "complete": -0.00019707727576011964,
+            "at_deadline": -1.5690914274346193e-05,
+            "saturated": 0.00018138636148577346,
+            "capped_range": 0.0004012296443668969
+          }
+        }
+      },
+      "pooled": {
+        "reference": {
+          "complete": 0.20507183251091599,
+          "at_deadline": 0.0172938913357735,
+          "saturated": 0.8122220588248574,
+          "capped_range": 2.7453247639169005
+        },
+        "ordinary": {
+          "complete": 0.20379768046604227,
+          "at_deadline": 0.017507033481740784,
+          "saturated": 0.8137093530156985,
+          "capped_range": 2.7484871683021828
+        },
+        "decorrelated": {
+          "complete": 0.20518726569581217,
+          "at_deadline": 0.017304545565684566,
+          "saturated": 0.8121172798698724,
+          "capped_range": 2.7452222819085828
+        },
+        "hidden": {
+          "complete": 0.0002294688082704601,
+          "at_deadline": 3.288822859805471e-05,
+          "saturated": -0.00019658057967240536,
+          "capped_range": 3.689135805182294e-05
+        }
+      }
+    },
+    {
+      "step": 0.5,
+      "ports": [
+        0,
+        1
+      ],
+      "detector": "rate_one",
+      "sharp_uniform_complete_upper": 1.0,
+      "by_charge": {
+        "-1": {
+          "reference": {
+            "complete": 0.01600273844380834,
+            "at_deadline": 0.0014417632358975502,
+            "saturated": 0.9854390247920892,
+            "capped_range": 2.9789458158264077
+          },
+          "ordinary": {
+            "complete": 0.015874412051357267,
+            "at_deadline": 0.001481635282999668,
+            "saturated": 0.9856072232316424,
+            "capped_range": 2.9793306630052627
+          },
+          "decorrelated": {
+            "complete": 0.016001662777901274,
+            "at_deadline": 0.0014419277689114104,
+            "saturated": 0.9854402649910101,
+            "capped_range": 2.978948159584216
+          },
+          "hidden": {
+            "complete": 3.685458571477292e-05,
+            "at_deadline": 9.653991093496379e-06,
+            "saturated": -2.720059462127654e-05,
+            "capped_range": 1.6230060973987685e-05
+          }
+        },
+        "1": {
+          "reference": {
+            "complete": 0.03198963605531616,
+            "at_deadline": 0.0037539514054619597,
+            "saturated": 0.9717643153501458,
+            "capped_range": 2.9655676486025944
+          },
+          "ordinary": {
+            "complete": 0.03237986592145858,
+            "at_deadline": 0.003770366021786924,
+            "saturated": 0.9713905001003283,
+            "capped_range": 2.9650243441697217
+          },
+          "decorrelated": {
+            "complete": 0.031984077361647954,
+            "at_deadline": 0.0037571639145476095,
+            "saturated": 0.9717730865528996,
+            "capped_range": 2.965580610639467
+          },
+          "hidden": {
+            "complete": -5.887450076879168e-06,
+            "at_deadline": -1.5653266462655742e-06,
+            "saturated": 4.322123430613594e-06,
+            "capped_range": 1.1567768620539522e-05
+          }
+        }
+      },
+      "pooled": {
+        "reference": {
+          "complete": 0.02399618724956225,
+          "at_deadline": 0.0025978573206797547,
+          "saturated": 0.9786016700711175,
+          "capped_range": 2.9722567322145013
+        },
+        "ordinary": {
+          "complete": 0.02412713898640792,
+          "at_deadline": 0.002626000652393296,
+          "saturated": 0.9784988616659853,
+          "capped_range": 2.972177503587492
+        },
+        "decorrelated": {
+          "complete": 0.023992870069774616,
+          "at_deadline": 0.00259954584172951,
+          "saturated": 0.9786066757719549,
+          "capped_range": 2.9722643851118415
+        },
+        "hidden": {
+          "complete": 1.5483567818946875e-05,
+          "at_deadline": 4.0443322236154025e-06,
+          "saturated": -1.1439235595331474e-05,
+          "capped_range": 1.3898914797263604e-05
+        }
+      }
+    },
+    {
+      "step": 0.5,
+      "ports": [
+        5,
+        40
+      ],
+      "detector": "sharp",
+      "sharp_uniform_complete_upper": 1.0,
+      "by_charge": {
+        "-1": {
+          "reference": {
+            "complete": 2.1805572487801845e-07,
+            "at_deadline": 7.291905630128554e-08,
+            "saturated": 0.9999998548633314,
+            "capped_range": 2.999999913003466
+          },
+          "ordinary": {
+            "complete": 2.2513453032321562e-07,
+            "at_deadline": 7.518133798715163e-08,
+            "saturated": 0.9999998500468077,
+            "capped_range": 2.9999999108626123
+          },
+          "decorrelated": {
+            "complete": 2.3803237044755483e-07,
+            "at_deadline": 7.97034111408835e-08,
+            "saturated": 0.9999998416710407,
+            "capped_range": 2.9999999053673294
+          },
+          "hidden": {
+            "complete": 3.189152191615057e-19,
+            "at_deadline": 1.49989842890279e-19,
+            "saturated": -1.6892537627122668e-19,
+            "capped_range": -4.928362564633506e-20
+          }
+        },
+        "1": {
+          "reference": {
+            "complete": 2.832534826719304e-13,
+            "at_deadline": 5.96933951762072e-14,
+            "saturated": 0.9999999999997764,
+            "capped_range": 2.9999999999998344
+          },
+          "ordinary": {
+            "complete": 2.7488456187570067e-13,
+            "at_deadline": 5.617759941475596e-14,
+            "saturated": 0.9999999999997813,
+            "capped_range": 2.9999999999998375
+          },
+          "decorrelated": {
+            "complete": 3.1798182172923407e-13,
+            "at_deadline": 6.745713541084603e-14,
+            "saturated": 0.9999999999997494,
+            "capped_range": 2.9999999999998153
+          },
+          "hidden": {
+            "complete": -6.739575219486707e-25,
+            "at_deadline": 9.755913023488818e-24,
+            "saturated": 1.0429870545437488e-23,
+            "capped_range": 2.1643338672995523e-24
+          }
+        }
+      },
+      "pooled": {
+        "reference": {
+          "complete": 1.0902800406575057e-07,
+          "at_deadline": 3.645955799734036e-08,
+          "saturated": 0.9999999274315539,
+          "capped_range": 2.99999995650165
+        },
+        "ordinary": {
+          "complete": 1.1256740260388875e-07,
+          "at_deadline": 3.7590697082375524e-08,
+          "saturated": 0.9999999250232945,
+          "capped_range": 2.9999999554312247
+        },
+        "decorrelated": {
+          "complete": 1.1901634421468828e-07,
+          "at_deadline": 3.985173929900946e-08,
+          "saturated": 0.9999999208353951,
+          "capped_range": 2.9999999526835723
+        },
+        "hidden": {
+          "complete": 1.5945727260199186e-19,
+          "at_deadline": 7.499979940165124e-20,
+          "saturated": -8.445747320034062e-20,
+          "capped_range": -2.464073065623388e-20
+        }
+      }
+    },
+    {
+      "step": 0.5,
+      "ports": [
+        5,
+        40
+      ],
+      "detector": "rate_one",
+      "sharp_uniform_complete_upper": 1.0,
+      "by_charge": {
+        "-1": {
+          "reference": {
+            "complete": 2.238002600969676e-08,
+            "at_deadline": 6.370131917675029e-09,
+            "saturated": 0.9999999839901059,
+            "capped_range": 2.9999999893878977
+          },
+          "ordinary": {
+            "complete": 2.2974545046148264e-08,
+            "at_deadline": 6.524824847207414e-09,
+            "saturated": 0.9999999835502797,
+            "capped_range": 2.9999999892146136
+          },
+          "decorrelated": {
+            "complete": 2.4315007161327773e-08,
+            "at_deadline": 6.927032611510391e-09,
+            "saturated": 0.9999999826120255,
+            "capped_range": 2.9999999885072284
+          },
+          "hidden": {
+            "complete": 2.685033928581895e-20,
+            "at_deadline": 1.401149991078154e-20,
+            "saturated": -1.2838839375037411e-20,
+            "capped_range": -5.135293683313032e-22
+          }
+        },
+        "1": {
+          "reference": {
+            "complete": 3.9344263024089624e-14,
+            "at_deadline": 9.564441551361919e-15,
+            "saturated": 0.9999999999999702,
+            "capped_range": 2.9999999999999774
+          },
+          "ordinary": {
+            "complete": 3.926080881859287e-14,
+            "at_deadline": 9.481540468832856e-15,
+            "saturated": 0.9999999999999702,
+            "capped_range": 2.9999999999999774
+          },
+          "decorrelated": {
+            "complete": 4.245466271239797e-14,
+            "at_deadline": 1.027759186789425e-14,
+            "saturated": 0.9999999999999678,
+            "capped_range": 2.9999999999999756
+          },
+          "hidden": {
+            "complete": -3.276438867711533e-25,
+            "at_deadline": 6.525500795337997e-25,
+            "saturated": 9.80193966304953e-25,
+            "capped_range": 4.946345488275347e-25
+          }
+        }
+      },
+      "pooled": {
+        "reference": {
+          "complete": 1.1190032676979893e-08,
+          "at_deadline": 3.1850707410582904e-09,
+          "saturated": 0.9999999919950381,
+          "capped_range": 2.9999999946939377
+        },
+        "ordinary": {
+          "complete": 1.1487292153478541e-08,
+          "at_deadline": 3.2624171643739414e-09,
+          "saturated": 0.999999991775125,
+          "capped_range": 2.9999999946072955
+        },
+        "decorrelated": {
+          "complete": 1.2157524807995243e-08,
+          "at_deadline": 3.46352144455113e-09,
+          "saturated": 0.9999999913059967,
+          "capped_range": 2.999999994253602
+        },
+        "hidden": {
+          "complete": 1.342500582096609e-20,
+          "at_deadline": 7.006076230430536e-21,
+          "saturated": -6.418929590535553e-21,
+          "capped_range": -2.5651736689123783e-22
+        }
+      }
+    },
+    {
+      "step": 0.25,
+      "ports": [
+        0,
+        1
+      ],
+      "detector": "sharp",
+      "sharp_uniform_complete_upper": 1.0,
+      "by_charge": {
+        "-1": {
+          "reference": {
+            "complete": 0.2527281121845606,
+            "at_deadline": 0.007844908685594707,
+            "saturated": 0.7551167965010341,
+            "capped_range": 2.577930464152548
+          },
+          "ordinary": {
+            "complete": 0.24687828979829138,
+            "at_deadline": 0.008080825122360228,
+            "saturated": 0.7612025353240688,
+            "capped_range": 2.594034610478793
+          },
+          "decorrelated": {
+            "complete": 0.2526214703524934,
+            "at_deadline": 0.007842820345627102,
+            "saturated": 0.7552213499931337,
+            "capped_range": 2.5780172883019925
+          },
+          "hidden": {
+            "complete": 0.0010619772063832353,
+            "at_deadline": 9.262640649033103e-06,
+            "saturated": -0.0010527145657342023,
+            "capped_range": -0.0019120480936021113
+          }
+        },
+        "1": {
+          "reference": {
+            "complete": 0.3901724771076018,
+            "at_deadline": 0.00881199283355078,
+            "saturated": 0.618639515725949,
+            "capped_range": 2.3971299134730546
+          },
+          "ordinary": {
+            "complete": 0.39342809940666673,
+            "at_deadline": 0.008558149042450686,
+            "saturated": 0.6151300496357839,
+            "capped_range": 2.3841150991365403
+          },
+          "decorrelated": {
+            "complete": 0.38995561674670126,
+            "at_deadline": 0.008804796430391207,
+            "saturated": 0.6188491796836899,
+            "capped_range": 2.397596917348569
+          },
+          "hidden": {
+            "complete": -0.00011961074781830991,
+            "at_deadline": -1.0850686540166949e-05,
+            "saturated": 0.00010876006127814296,
+            "capped_range": 0.0003277013997860641
+          }
+        }
+      },
+      "pooled": {
+        "reference": {
+          "complete": 0.3214502946460812,
+          "at_deadline": 0.008328450759572743,
+          "saturated": 0.6868781561134916,
+          "capped_range": 2.4875301888128014
+        },
+        "ordinary": {
+          "complete": 0.32015319460247904,
+          "at_deadline": 0.008319487082405458,
+          "saturated": 0.6881662924799263,
+          "capped_range": 2.489074854807667
+        },
+        "decorrelated": {
+          "complete": 0.32128854354959735,
+          "at_deadline": 0.008323808388009155,
+          "saturated": 0.6870352648384118,
+          "capped_range": 2.487807102825281
+        },
+        "hidden": {
+          "complete": 0.0004711832292824627,
+          "at_deadline": -7.940229455669226e-07,
+          "saturated": -0.00047197725222802964,
+          "capped_range": -0.0007921733469080235
+        }
+      }
+    },
+    {
+      "step": 0.25,
+      "ports": [
+        0,
+        1
+      ],
+      "detector": "rate_one",
+      "sharp_uniform_complete_upper": 1.0,
+      "by_charge": {
+        "-1": {
+          "reference": {
+            "complete": 0.01727533310451943,
+            "at_deadline": 0.0008327252089434293,
+            "saturated": 0.9835573921044239,
+            "capped_range": 2.975954021855315
+          },
+          "ordinary": {
+            "complete": 0.017113416325682678,
+            "at_deadline": 0.0008479397400345643,
+            "saturated": 0.9837345234143519,
+            "capped_range": 2.9764096440364742
+          },
+          "decorrelated": {
+            "complete": 0.017273706385943242,
+            "at_deadline": 0.0008330216444898478,
+            "saturated": 0.9835593152585466,
+            "capped_range": 2.975957461201264
+          },
+          "hidden": {
+            "complete": 3.3202973460596256e-05,
+            "at_deadline": 3.160831019708063e-06,
+            "saturated": -3.0042142440888194e-05,
+            "capped_range": -3.287968993987828e-05
+          }
+        },
+        "1": {
+          "reference": {
+            "complete": 0.032845790434733055,
+            "at_deadline": 0.0019403545894827194,
+            "saturated": 0.9690945641547497,
+            "capped_range": 2.9622367378874137
+          },
+          "ordinary": {
+            "complete": 0.03328611438188691,
+            "at_deadline": 0.0019580310878487754,
+            "saturated": 0.9686719167059619,
+            "capped_range": 2.9616014230761496
+          },
+          "decorrelated": {
+            "complete": 0.03284011858796376,
+            "at_deadline": 0.0019419971483590817,
+            "saturated": 0.9691018785603953,
+            "capped_range": 2.9622505626632223
+          },
+          "hidden": {
+            "complete": 1.2500907013234757e-07,
+            "at_deadline": 1.8161404113959219e-07,
+            "saturated": 5.660497100724462e-08,
+            "capped_range": 2.343582491500324e-06
+          }
+        }
+      },
+      "pooled": {
+        "reference": {
+          "complete": 0.025060561769626243,
+          "at_deadline": 0.0013865398992130742,
+          "saturated": 0.9763259781295868,
+          "capped_range": 2.9690953798713644
+        },
+        "ordinary": {
+          "complete": 0.025199765353784792,
+          "at_deadline": 0.0014029854139416698,
+          "saturated": 0.9762032200601569,
+          "capped_range": 2.969005533556312
+        },
+        "decorrelated": {
+          "complete": 0.025056912486953502,
+          "at_deadline": 0.0013875093964244647,
+          "saturated": 0.9763305969094709,
+          "capped_range": 2.9691040119322434
+        },
+        "hidden": {
+          "complete": 1.6663991265364303e-05,
+          "at_deadline": 1.6712225304238277e-06,
+          "saturated": -1.4992768734940475e-05,
+          "capped_range": -1.5268053724188977e-05
+        }
+      }
+    },
+    {
+      "step": 0.25,
+      "ports": [
+        5,
+        40
+      ],
+      "detector": "sharp",
+      "sharp_uniform_complete_upper": 1.0,
+      "by_charge": {
+        "-1": {
+          "reference": {
+            "complete": 1.0046200977739249e-07,
+            "at_deadline": 1.6942379304528298e-08,
+            "saturated": 0.9999999164803696,
+            "capped_range": 2.9999999520639786
+          },
+          "ordinary": {
+            "complete": 1.038052499872591e-07,
+            "at_deadline": 1.7501484386117125e-08,
+            "saturated": 0.9999999136962344,
+            "capped_range": 2.9999999506469335
+          },
+          "decorrelated": {
+            "complete": 1.1031740411482748e-07,
+            "at_deadline": 1.8622229187512124e-08,
+            "saturated": 0.9999999083048251,
+            "capped_range": 2.999999947536792
+          },
+          "hidden": {
+            "complete": 1.250535152710527e-19,
+            "at_deadline": 3.093866163510583e-20,
+            "saturated": -9.411485363594686e-20,
+            "capped_range": -3.0628843395813955e-20
+          }
+        },
+        "1": {
+          "reference": {
+            "complete": 5.269674775287448e-13,
+            "at_deadline": 8.913461183462505e-14,
+            "saturated": 0.9999999999995621,
+            "capped_range": 2.999999999999744
+          },
+          "ordinary": {
+            "complete": 5.395671442186553e-13,
+            "at_deadline": 9.094740892673191e-14,
+            "saturated": 0.9999999999995514,
+            "capped_range": 2.999999999999736
+          },
+          "decorrelated": {
+            "complete": 5.322721051788673e-13,
+            "at_deadline": 8.888859399452052e-14,
+            "saturated": 0.9999999999995566,
+            "capped_range": 2.999999999999739
+          },
+          "hidden": {
+            "complete": 2.7335018841748296e-24,
+            "at_deadline": -3.317696531869905e-24,
+            "saturated": -6.0511984160447345e-24,
+            "capped_range": -1.0904464092212347e-25
+          }
+        }
+      },
+      "pooled": {
+        "reference": {
+          "complete": 5.023126837243501e-08,
+          "at_deadline": 8.471234219570066e-09,
+          "saturated": 0.9999999582399659,
+          "capped_range": 2.9999999760318614
+        },
+        "ordinary": {
+          "complete": 5.190289477720166e-08,
+          "at_deadline": 8.750787666763026e-09,
+          "saturated": 0.9999999568478929,
+          "capped_range": 2.999999975323335
+        },
+        "decorrelated": {
+          "complete": 5.515896819346633e-08,
+          "at_deadline": 9.311159038053059e-09,
+          "saturated": 0.9999999541521909,
+          "capped_range": 2.9999999737682654
+        },
+        "hidden": {
+          "complete": 6.252812438646843e-20,
+          "at_deadline": 1.546767196928698e-20,
+          "saturated": -4.7060452417181454e-20,
+          "capped_range": -1.531447622022744e-20
+        }
+      }
+    },
+    {
+      "step": 0.25,
+      "ports": [
+        5,
+        40
+      ],
+      "detector": "rate_one",
+      "sharp_uniform_complete_upper": 1.0,
+      "by_charge": {
+        "-1": {
+          "reference": {
+            "complete": 2.0961225896295742e-08,
+            "at_deadline": 3.195556563030894e-09,
+            "saturated": 0.9999999822343306,
+            "capped_range": 2.999999989108789
+          },
+          "ordinary": {
+            "complete": 2.1528090114288576e-08,
+            "at_deadline": 3.2778072809007204e-09,
+            "saturated": 0.9999999817497172,
+            "capped_range": 2.999999988925714
+          },
+          "decorrelated": {
+            "complete": 2.2772277693490378e-08,
+            "at_deadline": 3.4747986736589206e-09,
+            "saturated": 0.9999999807025209,
+            "capped_range": 2.9999999882048063
+          },
+          "hidden": {
+            "complete": 1.2508551396189467e-20,
+            "at_deadline": 3.381911601846872e-21,
+            "saturated": -9.126639794342595e-21,
+            "capped_range": 1.1604420691436059e-21
+          }
+        },
+        "1": {
+          "reference": {
+            "complete": 3.98346008421636e-14,
+            "at_deadline": 5.258905084981707e-15,
+            "saturated": 0.9999999999999655,
+            "capped_range": 2.9999999999999756
+          },
+          "ordinary": {
+            "complete": 3.990497827509975e-14,
+            "at_deadline": 5.246149078876744e-15,
+            "saturated": 0.9999999999999654,
+            "capped_range": 2.999999999999975
+          },
+          "decorrelated": {
+            "complete": 4.268204503857743e-14,
+            "at_deadline": 5.595133882089007e-15,
+            "saturated": 0.9999999999999629,
+            "capped_range": 2.999999999999974
+          },
+          "hidden": {
+            "complete": 2.1089387189025164e-25,
+            "at_deadline": -3.9958770473409813e-25,
+            "saturated": -6.104815766243498e-25,
+            "capped_range": -1.3084588624940674e-25
+          }
+        }
+      },
+      "pooled": {
+        "reference": {
+          "complete": 1.0480632865448292e-08,
+          "at_deadline": 1.5977809109679895e-09,
+          "saturated": 0.999999991117148,
+          "capped_range": 2.9999999945543823
+        },
+        "ordinary": {
+          "complete": 1.0764065009633425e-08,
+          "at_deadline": 1.6389062635248997e-09,
+          "saturated": 0.9999999908748413,
+          "capped_range": 2.9999999944628444
+        },
+        "decorrelated": {
+          "complete": 1.1386160187767708e-08,
+          "at_deadline": 1.7374021343964015e-09,
+          "saturated": 0.999999990351242,
+          "capped_range": 2.99999999410239
+        },
+        "hidden": {
+          "complete": 6.2543811450306785e-21,
+          "at_deadline": 1.690756007071069e-21,
+          "saturated": -4.5636251379596095e-21,
+          "capped_range": 5.801556116286782e-22
+        }
+      }
+    },
+    {
+      "step": 0.125,
+      "ports": [
+        0,
+        1
+      ],
+      "detector": "sharp",
+      "sharp_uniform_complete_upper": 1.0,
+      "by_charge": {
+        "-1": {
+          "reference": {
+            "complete": 0.4316536379621478,
+            "at_deadline": 0.0021733334020422163,
+            "saturated": 0.5705196954398944,
+            "capped_range": 2.081125026760544
+          },
+          "ordinary": {
+            "complete": 0.4322011150927898,
+            "at_deadline": 0.002250875030495679,
+            "saturated": 0.5700497599377059,
+            "capped_range": 2.0844270571112276
+          },
+          "decorrelated": {
+            "complete": 0.4316849873543272,
+            "at_deadline": 0.0021757529821863886,
+            "saturated": 0.5704907656278592,
+            "capped_range": 2.081137140808954
+          },
+          "hidden": {
+            "complete": 0.0011258516392956442,
+            "at_deadline": 1.3957948471045208e-07,
+            "saturated": -0.0011257120598109338,
+            "capped_range": -0.003003847615979325
+          }
+        },
+        "1": {
+          "reference": {
+            "complete": 0.48075064948797497,
+            "at_deadline": 0.0003550526745238753,
+            "saturated": 0.5196044031865489,
+            "capped_range": 1.9364423219467781
+          },
+          "ordinary": {
+            "complete": 0.4806615669534355,
+            "at_deadline": 0.00035548850263238704,
+            "saturated": 0.5196939215491969,
+            "capped_range": 1.9353155017775827
+          },
+          "decorrelated": {
+            "complete": 0.4807576996909423,
+            "at_deadline": 0.00035397453153504705,
+            "saturated": 0.5195962748405928,
+            "capped_range": 1.9364383439442685
+          },
+          "hidden": {
+            "complete": -0.00014517752549452856,
+            "at_deadline": 2.098775706672022e-06,
+            "saturated": 0.00014727630120120057,
+            "capped_range": 0.0003796428229132674
+          }
+        }
+      },
+      "pooled": {
+        "reference": {
+          "complete": 0.4562021437250614,
+          "at_deadline": 0.0012641930382830458,
+          "saturated": 0.5450620493132217,
+          "capped_range": 2.008783674353661
+        },
+        "ordinary": {
+          "complete": 0.45643134102311267,
+          "at_deadline": 0.0013031817665640332,
+          "saturated": 0.5448718407434514,
+          "capped_range": 2.009871279444405
+        },
+        "decorrelated": {
+          "complete": 0.45622134352263477,
+          "at_deadline": 0.001264863756860718,
+          "saturated": 0.545043520234226,
+          "capped_range": 2.008787742376611
+        },
+        "hidden": {
+          "complete": 0.0004903370569005578,
+          "at_deadline": 1.1191775956912369e-06,
+          "saturated": -0.0004892178793048667,
+          "capped_range": -0.0013121023965330287
+        }
+      }
+    },
+    {
+      "step": 0.125,
+      "ports": [
+        0,
+        1
+      ],
+      "detector": "rate_one",
+      "sharp_uniform_complete_upper": 1.0,
+      "by_charge": {
+        "-1": {
+          "reference": {
+            "complete": 0.017424837890872454,
+            "at_deadline": 0.00041280556322407803,
+            "saturated": 0.9829879676723516,
+            "capped_range": 2.9752203494486107
+          },
+          "ordinary": {
+            "complete": 0.017259203142203416,
+            "at_deadline": 0.0004213334369428546,
+            "saturated": 0.9831621302947394,
+            "capped_range": 2.9756725465946046
+          },
+          "decorrelated": {
+            "complete": 0.017423446413763952,
+            "at_deadline": 0.00041296086790248635,
+            "saturated": 0.9829895144541385,
+            "capped_range": 2.975223715078009
+          },
+          "hidden": {
+            "complete": 3.2285788930441226e-05,
+            "at_deadline": 1.3201827944189814e-06,
+            "saturated": -3.0965606136022246e-05,
+            "capped_range": -3.259342935222519e-05
+          }
+        },
+        "1": {
+          "reference": {
+            "complete": 0.03278958616481299,
+            "at_deadline": 0.0009742661947630647,
+            "saturated": 0.9681846800299501,
+            "capped_range": 2.961362224238384
+          },
+          "ordinary": {
+            "complete": 0.03322845228556185,
+            "at_deadline": 0.0009824181249050417,
+            "saturated": 0.9677539658393431,
+            "capped_range": 2.960725535715018
+          },
+          "decorrelated": {
+            "complete": 0.03278348493664644,
+            "at_deadline": 0.0009750607849140894,
+            "saturated": 0.9681915758482676,
+            "capped_range": 2.961375956388028
+          },
+          "hidden": {
+            "complete": 4.511688721207341e-07,
+            "at_deadline": 2.1804003514008663e-07,
+            "saturated": -2.3312883698064745e-07,
+            "capped_range": -1.272451898569239e-06
+          }
+        }
+      },
+      "pooled": {
+        "reference": {
+          "complete": 0.025107212027842725,
+          "at_deadline": 0.0006935358789935714,
+          "saturated": 0.9755863238511508,
+          "capped_range": 2.968291286843497
+        },
+        "ordinary": {
+          "complete": 0.025243827713882633,
+          "at_deadline": 0.0007018757809239481,
+          "saturated": 0.9754580480670413,
+          "capped_range": 2.9681990411548114
+        },
+        "decorrelated": {
+          "complete": 0.025103465675205196,
+          "at_deadline": 0.0006940108264082878,
+          "saturated": 0.975590545151203,
+          "capped_range": 2.968299835733019
+        },
+        "hidden": {
+          "complete": 1.636847890128098e-05,
+          "at_deadline": 7.69111414779534e-07,
+          "saturated": -1.5599367486501445e-05,
+          "capped_range": -1.6932940625397217e-05
+        }
+      }
+    },
+    {
+      "step": 0.125,
+      "ports": [
+        5,
+        40
+      ],
+      "detector": "sharp",
+      "sharp_uniform_complete_upper": 0.4302978515625,
+      "by_charge": {
+        "-1": {
+          "reference": {
+            "complete": 3.104670089969676e-08,
+            "at_deadline": 2.6381006157931754e-09,
+            "saturated": 0.9999999715913998,
+            "capped_range": 2.9999999839472036
+          },
+          "ordinary": {
+            "complete": 3.2099763405078615e-08,
+            "at_deadline": 2.7351829334278754e-09,
+            "saturated": 0.9999999706354196,
+            "capped_range": 2.99999998345311
+          },
+          "decorrelated": {
+            "complete": 3.4173496597372094e-08,
+            "at_deadline": 2.906241190114233e-09,
+            "saturated": 0.9999999687327445,
+            "capped_range": 2.9999999823855266
+          },
+          "hidden": {
+            "complete": 4.009246536219163e-20,
+            "at_deadline": 5.851288245092586e-21,
+            "saturated": -3.4241177117099046e-20,
+            "capped_range": -1.077590604345132e-20
+          }
+        },
+        "1": {
+          "reference": {
+            "complete": 2.3700415285727632e-11,
+            "at_deadline": 1.2615454969237267e-12,
+            "saturated": 0.9999999999775612,
+            "capped_range": 2.9999999999846167
+          },
+          "ordinary": {
+            "complete": 2.308982992245485e-11,
+            "at_deadline": 1.2152425631594758e-12,
+            "saturated": 0.9999999999781254,
+            "capped_range": 2.9999999999849836
+          },
+          "decorrelated": {
+            "complete": 2.648586083753984e-11,
+            "at_deadline": 1.4115033006675445e-12,
+            "saturated": 0.9999999999749256,
+            "capped_range": 2.999999999982827
+          },
+          "hidden": {
+            "complete": 1.9427561316182348e-22,
+            "at_deadline": 6.870675009684774e-23,
+            "saturated": -1.2556886306497574e-22,
+            "capped_range": -1.0743166856835978e-22
+          }
+        }
+      },
+      "pooled": {
+        "reference": {
+          "complete": 1.5535200657491244e-08,
+          "at_deadline": 1.3196810806450495e-09,
+          "saturated": 0.9999999857844805,
+          "capped_range": 2.99999999196591
+        },
+        "ordinary": {
+          "complete": 1.6061426617500536e-08,
+          "at_deadline": 1.3681990879955174e-09,
+          "saturated": 0.9999999853067725,
+          "capped_range": 2.9999999917190467
+        },
+        "decorrelated": {
+          "complete": 1.7099991229104818e-08,
+          "at_deadline": 1.4538263467074504e-09,
+          "saturated": 0.9999999843538351,
+          "capped_range": 2.999999991184177
+        },
+        "hidden": {
+          "complete": 2.0143370487676728e-20,
+          "at_deadline": 2.959997497594717e-21,
+          "saturated": -1.718337299008201e-20,
+          "capped_range": -5.4416688560098396e-21
+        }
+      }
+    },
+    {
+      "step": 0.125,
+      "ports": [
+        5,
+        40
+      ],
+      "detector": "rate_one",
+      "sharp_uniform_complete_upper": 0.4302978515625,
+      "by_charge": {
+        "-1": {
+          "reference": {
+            "complete": 2.0161261160374864e-08,
+            "at_deadline": 1.5972212438051873e-09,
+            "saturated": 0.99999998143596,
+            "capped_range": 2.999999989063217
+          },
+          "ordinary": {
+            "complete": 2.0707515892590353e-08,
+            "at_deadline": 1.6383587086244017e-09,
+            "saturated": 0.9999999809308429,
+            "capped_range": 2.999999988878576
+          },
+          "decorrelated": {
+            "complete": 2.190258878353301e-08,
+            "at_deadline": 1.736767407822335e-09,
+            "saturated": 0.9999999798341787,
+            "capped_range": 2.999999988155236
+          },
+          "hidden": {
+            "complete": 1.1680783901101973e-20,
+            "at_deadline": 1.7497453632733315e-21,
+            "saturated": -9.931038537828641e-21,
+            "capped_range": 1.110361421231074e-21
+          }
+        },
+        "1": {
+          "reference": {
+            "complete": 4.501520254572537e-14,
+            "at_deadline": 3.0473911352987955e-15,
+            "saturated": 0.999999999999958,
+            "capped_range": 2.9999999999999707
+          },
+          "ordinary": {
+            "complete": 4.459788599052082e-14,
+            "at_deadline": 2.9438461161656112e-15,
+            "saturated": 0.9999999999999584,
+            "capped_range": 2.9999999999999707
+          },
+          "decorrelated": {
+            "complete": 4.8719388335576225e-14,
+            "at_deadline": 3.2672237392551863e-15,
+            "saturated": 0.9999999999999546,
+            "capped_range": 2.999999999999968
+          },
+          "hidden": {
+            "complete": 2.0769046151134633e-25,
+            "at_deadline": 4.102789147154289e-26,
+            "saturated": -1.6666257003980344e-25,
+            "capped_range": -1.0837158963286849e-25
+          }
+        }
+      },
+      "pooled": {
+        "reference": {
+          "complete": 1.0080653087788705e-08,
+          "at_deadline": 7.986121455981613e-10,
+          "saturated": 0.9999999907179591,
+          "capped_range": 2.999999994531594
+        },
+        "ordinary": {
+          "complete": 1.0353780245238173e-08,
+          "at_deadline": 8.191808262352589e-10,
+          "saturated": 0.9999999904654007,
+          "capped_range": 2.9999999944392735
+        },
+        "decorrelated": {
+          "complete": 1.0951318751460673e-08,
+          "at_deadline": 8.683853375230371e-10,
+          "saturated": 0.9999999899170666,
+          "capped_range": 2.9999999940776023
+        },
+        "hidden": {
+          "complete": 5.840495795781742e-21,
+          "at_deadline": 8.748931955824015e-22,
+          "saturated": -4.96560260019934e-21,
+          "capped_range": 5.551265248207206e-22
+        }
+      }
+    },
+    {
+      "step": 0.0625,
+      "ports": [
+        0,
+        1
+      ],
+      "detector": "sharp",
+      "sharp_uniform_complete_upper": 1.0,
+      "by_charge": {
+        "-1": {
+          "reference": {
+            "complete": 0.4023820895520669,
+            "at_deadline": 0.0016016613811919798,
+            "saturated": 0.5992195718291251,
+            "capped_range": 2.24878457170815
+          },
+          "ordinary": {
+            "complete": 0.4029110810921839,
+            "at_deadline": 0.0016198411894272667,
+            "saturated": 0.5987087600972434,
+            "capped_range": 2.249803485574807
+          },
+          "decorrelated": {
+            "complete": 0.4024402532851523,
+            "at_deadline": 0.0016013912837666404,
+            "saturated": 0.5991611379986144,
+            "capped_range": 2.2487413067904525
+          },
+          "hidden": {
+            "complete": 0.000656622160945415,
+            "at_deadline": -3.5006143937003006e-06,
+            "saturated": -0.0006601227753391154,
+            "capped_range": -0.0017583519841722212
+          }
+        },
+        "1": {
+          "reference": {
+            "complete": 0.463841091092401,
+            "at_deadline": 0.0007096425631610781,
+            "saturated": 0.5368685514707601,
+            "capped_range": 2.102954196719453
+          },
+          "ordinary": {
+            "complete": 0.4636390181584861,
+            "at_deadline": 0.0007097325237452305,
+            "saturated": 0.5370707143652591,
+            "capped_range": 2.1030977512146283
+          },
+          "decorrelated": {
+            "complete": 0.463847671763414,
+            "at_deadline": 0.0007083929245727143,
+            "saturated": 0.5368607211611587,
+            "capped_range": 2.102937431924814
+          },
+          "hidden": {
+            "complete": -4.850644334380927e-05,
+            "at_deadline": -2.126103791091427e-06,
+            "saturated": 4.638033955271784e-05,
+            "capped_range": 0.00011682742916134493
+          }
+        }
+      },
+      "pooled": {
+        "reference": {
+          "complete": 0.43311159032223395,
+          "at_deadline": 0.001155651972176529,
+          "saturated": 0.5680440616499426,
+          "capped_range": 2.1758693842138017
+        },
+        "ordinary": {
+          "complete": 0.43327504962533503,
+          "at_deadline": 0.0011647868565862487,
+          "saturated": 0.5678897372312512,
+          "capped_range": 2.1764506183947177
+        },
+        "decorrelated": {
+          "complete": 0.43314396252428317,
+          "at_deadline": 0.0011548921041696773,
+          "saturated": 0.5680109295798865,
+          "capped_range": 2.1758393693576332
+        },
+        "hidden": {
+          "complete": 0.00030405785880080287,
+          "at_deadline": -2.8133590923958637e-06,
+          "saturated": -0.0003068712178931988,
+          "capped_range": -0.0008207622775054382
+        }
+      }
+    },
+    {
+      "step": 0.0625,
+      "ports": [
+        0,
+        1
+      ],
+      "detector": "rate_one",
+      "sharp_uniform_complete_upper": 1.0,
+      "by_charge": {
+        "-1": {
+          "reference": {
+            "complete": 0.017320871530646646,
+            "at_deadline": 0.00020645454450666457,
+            "saturated": 0.98288558301386,
+            "capped_range": 2.975217287036261
+          },
+          "ordinary": {
+            "complete": 0.017152896083506206,
+            "at_deadline": 0.00021068395080421916,
+            "saturated": 0.983057787867298,
+            "capped_range": 2.9756692936718374
+          },
+          "decorrelated": {
+            "complete": 0.01731946778066701,
+            "at_deadline": 0.0002065309560977903,
+            "saturated": 0.9828870631754307,
+            "capped_range": 2.9752206458816595
+          },
+          "hidden": {
+            "complete": 3.179264002383103e-05,
+            "at_deadline": 6.580345391074395e-07,
+            "saturated": -3.113460548472359e-05,
+            "capped_range": -3.240197159895204e-05
+          }
+        },
+        "1": {
+          "reference": {
+            "complete": 0.03254417509181436,
+            "at_deadline": 0.0004869222517065026,
+            "saturated": 0.9679427471598921,
+            "capped_range": 2.9613529498011935
+          },
+          "ordinary": {
+            "complete": 0.03298135943154374,
+            "at_deadline": 0.0004910113333911404,
+            "saturated": 0.9675096519018473,
+            "capped_range": 2.9607162740047666
+          },
+          "decorrelated": {
+            "complete": 0.03253785196236729,
+            "at_deadline": 0.0004873201778746995,
+            "saturated": 0.9679494682155074,
+            "capped_range": 2.961366685361501
+          },
+          "hidden": {
+            "complete": 5.709958421146974e-07,
+            "at_deadline": 1.0805293903041755e-07,
+            "saturated": -4.629429030842799e-07,
+            "capped_range": -1.5457939401210469e-06
+          }
+        }
+      },
+      "pooled": {
+        "reference": {
+          "complete": 0.024932523311230505,
+          "at_deadline": 0.00034668839810658356,
+          "saturated": 0.9754141650868761,
+          "capped_range": 2.968285118418727
+        },
+        "ordinary": {
+          "complete": 0.025067127757524975,
+          "at_deadline": 0.00035084764209767976,
+          "saturated": 0.9752837198845727,
+          "capped_range": 2.968192783838302
+        },
+        "decorrelated": {
+          "complete": 0.02492865987151715,
+          "at_deadline": 0.00034692556698624494,
+          "saturated": 0.9754182656954691,
+          "capped_range": 2.96829366562158
+        },
+        "hidden": {
+          "complete": 1.6181817932972864e-05,
+          "at_deadline": 3.830437390689285e-07,
+          "saturated": -1.5798774193903935e-05,
+          "capped_range": -1.6973882769536542e-05
+        }
+      }
+    },
+    {
+      "step": 0.0625,
+      "ports": [
+        5,
+        40
+      ],
+      "detector": "sharp",
+      "sharp_uniform_complete_upper": 0.1087188720703125,
+      "by_charge": {
+        "-1": {
+          "reference": {
+            "complete": 8.422163404324826e-09,
+            "at_deadline": 3.604638108456336e-10,
+            "saturated": 0.9999999919383004,
+            "capped_range": 2.9999999954860193
+          },
+          "ordinary": {
+            "complete": 8.709690218634714e-09,
+            "at_deadline": 3.740424120276338e-10,
+            "saturated": 0.9999999916643522,
+            "capped_range": 2.999999995345499
+          },
+          "decorrelated": {
+            "complete": 9.27684022519827e-09,
+            "at_deadline": 3.9736376997746476e-10,
+            "saturated": 0.9999999911205235,
+            "capped_range": 2.999999995042789
+          },
+          "hidden": {
+            "complete": 1.1021717084436218e-20,
+            "at_deadline": 8.463063369408321e-22,
+            "saturated": -1.0175410747495386e-20,
+            "capped_range": -3.1026229357979825e-21
+          }
+        },
+        "1": {
+          "reference": {
+            "complete": 1.9940640963448946e-11,
+            "at_deadline": 5.497886897018258e-13,
+            "saturated": 0.9999999999806092,
+            "capped_range": 2.9999999999869447
+          },
+          "ordinary": {
+            "complete": 1.9405703665042118e-11,
+            "at_deadline": 5.293084105247914e-13,
+            "saturated": 0.9999999999811237,
+            "capped_range": 2.999999999987247
+          },
+          "decorrelated": {
+            "complete": 2.239186415950745e-11,
+            "at_deadline": 6.197301834284233e-13,
+            "saturated": 0.9999999999782279,
+            "capped_range": 2.999999999985372
+          },
+          "hidden": {
+            "complete": 2.0025851815832517e-22,
+            "at_deadline": 3.0461242232716057e-23,
+            "saturated": -1.6979727592560911e-22,
+            "capped_range": -1.138608786528224e-22
+          }
+        }
+      },
+      "pooled": {
+        "reference": {
+          "complete": 4.221052022644137e-09,
+          "at_deadline": 1.805067997676677e-10,
+          "saturated": 0.9999999959594548,
+          "capped_range": 2.9999999977364817
+        },
+        "ordinary": {
+          "complete": 4.364547961149878e-09,
+          "at_deadline": 1.872858602190793e-10,
+          "saturated": 0.9999999958227379,
+          "capped_range": 2.9999999976663734
+        },
+        "decorrelated": {
+          "complete": 4.649616044678889e-09,
+          "at_deadline": 1.989917500804466e-10,
+          "saturated": 0.9999999955493757,
+          "capped_range": 2.9999999975140805
+        },
+        "hidden": {
+          "complete": 5.6109878012972715e-21,
+          "at_deadline": 4.383837895867741e-22,
+          "saturated": -5.1726040117104974e-21,
+          "capped_range": -1.6082419072254024e-21
+        }
+      }
+    },
+    {
+      "step": 0.0625,
+      "ports": [
+        5,
+        40
+      ],
+      "detector": "rate_one",
+      "sharp_uniform_complete_upper": 0.1087188720703125,
+      "by_charge": {
+        "-1": {
+          "reference": {
+            "complete": 1.9760959939500597e-08,
+            "at_deadline": 7.985204611473253e-10,
+            "saturated": 0.9999999810375605,
+            "capped_range": 2.9999999890522946
+          },
+          "ordinary": {
+            "complete": 2.0296888027040495e-08,
+            "at_deadline": 8.190902470108451e-10,
+            "saturated": 0.9999999805222022,
+            "capped_range": 2.999999988867277
+          },
+          "decorrelated": {
+            "complete": 2.146735601322673e-08,
+            "at_deadline": 8.682822604817006e-10,
+            "saturated": 0.9999999794009262,
+            "capped_range": 2.9999999881433568
+          },
+          "hidden": {
+            "complete": 1.1243746286728453e-20,
+            "at_deadline": 8.7508788289161e-22,
+            "saturated": -1.0368658403836843e-20,
+            "capped_range": 1.0961710417555582e-21
+          }
+        },
+        "1": {
+          "reference": {
+            "complete": 4.422981920607174e-14,
+            "at_deadline": 1.5152473661239897e-15,
+            "saturated": 0.9999999999999573,
+            "capped_range": 2.9999999999999707
+          },
+          "ordinary": {
+            "complete": 4.3839854111743605e-14,
+            "at_deadline": 1.4699337329563138e-15,
+            "saturated": 0.9999999999999576,
+            "capped_range": 2.9999999999999702
+          },
+          "decorrelated": {
+            "complete": 4.787867968362899e-14,
+            "at_deadline": 1.6234214683255857e-15,
+            "saturated": 0.9999999999999537,
+            "capped_range": 2.999999999999968
+          },
+          "hidden": {
+            "complete": 2.1232096444257925e-25,
+            "at_deadline": 1.7592972530036878e-26,
+            "saturated": -1.9472799191254237e-25,
+            "capped_range": -1.087763285292844e-25
+          }
+        }
+      },
+      "pooled": {
+        "reference": {
+          "complete": 9.880502084659902e-09,
+          "at_deadline": 3.992609881973457e-10,
+          "saturated": 0.9999999905187589,
+          "capped_range": 2.9999999945261324
+        },
+        "ordinary": {
+          "complete": 1.0148465933447303e-08,
+          "at_deadline": 4.0954585847228903e-10,
+          "saturated": 0.9999999902610799,
+          "capped_range": 2.9999999944336233
+        },
+        "decorrelated": {
+          "complete": 1.0733701945953208e-08,
+          "at_deadline": 4.3414194195158446e-10,
+          "saturated": 0.9999999897004399,
+          "capped_range": 2.999999994071662
+        },
+        "hidden": {
+          "complete": 5.621979303846448e-21,
+          "at_deadline": 4.3755273793207e-22,
+          "saturated": -5.184426565914378e-21,
+          "capped_range": 5.480311327135145e-22
+        }
+      }
+    },
+    {
+      "step": 0.03125,
+      "ports": [
+        0,
+        1
+      ],
+      "detector": "sharp",
+      "sharp_uniform_complete_upper": 1.0,
+      "by_charge": {
+        "-1": {
+          "reference": {
+            "complete": 0.2983357913874304,
+            "at_deadline": 0.0012941275604900087,
+            "saturated": 0.7029583361730596,
+            "capped_range": 2.552164756940095
+          },
+          "ordinary": {
+            "complete": 0.2985908432339943,
+            "at_deadline": 0.0012984672242014705,
+            "saturated": 0.7027076239902071,
+            "capped_range": 2.5525926373656413
+          },
+          "decorrelated": {
+            "complete": 0.2984162760760535,
+            "at_deadline": 0.0012941523378013657,
+            "saturated": 0.7028778762617479,
+            "capped_range": 2.552105126933891
+          },
+          "hidden": {
+            "complete": 0.0003787354168929621,
+            "at_deadline": -1.367373271329901e-06,
+            "saturated": -0.00038010279016429196,
+            "capped_range": -0.0008675310989149239
+          }
+        },
+        "1": {
+          "reference": {
+            "complete": 0.3698118373659969,
+            "at_deadline": 0.0011712055655852668,
+            "saturated": 0.6313593681995884,
+            "capped_range": 2.4375904948907348
+          },
+          "ordinary": {
+            "complete": 0.3695295754623365,
+            "at_deadline": 0.001170456743824836,
+            "saturated": 0.6316408812814883,
+            "capped_range": 2.437995072402915
+          },
+          "decorrelated": {
+            "complete": 0.36982836807515407,
+            "at_deadline": 0.0011704456107743894,
+            "saturated": 0.6313420775356203,
+            "capped_range": 2.437560996000488
+          },
+          "hidden": {
+            "complete": -1.6406973788016188e-05,
+            "at_deadline": -7.459201620237921e-07,
+            "saturated": 1.5661053625992398e-05,
+            "capped_range": 3.428700642480111e-05
+          }
+        }
+      },
+      "pooled": {
+        "reference": {
+          "complete": 0.33407381437671363,
+          "at_deadline": 0.0012326665630376377,
+          "saturated": 0.667158852186324,
+          "capped_range": 2.494877625915415
+        },
+        "ordinary": {
+          "complete": 0.3340602093481654,
+          "at_deadline": 0.0012344619840131531,
+          "saturated": 0.6671742526358477,
+          "capped_range": 2.4952938548842782
+        },
+        "decorrelated": {
+          "complete": 0.3341223220756038,
+          "at_deadline": 0.0012322989742878775,
+          "saturated": 0.6671099768986841,
+          "capped_range": 2.4948330614671894
+        },
+        "hidden": {
+          "complete": 0.00018116422155247294,
+          "at_deadline": -1.0566467166768465e-06,
+          "saturated": -0.00018222086826914978,
+          "capped_range": -0.0004166220462450614
+        }
+      }
+    },
+    {
+      "step": 0.03125,
+      "ports": [
+        0,
+        1
+      ],
+      "detector": "rate_one",
+      "sharp_uniform_complete_upper": 1.0,
+      "by_charge": {
+        "-1": {
+          "reference": {
+            "complete": 0.01726769650225556,
+            "at_deadline": 0.00010322561935604227,
+            "saturated": 0.9828355291171005,
+            "capped_range": 2.9752193751378604
+          },
+          "ordinary": {
+            "complete": 0.017098615660426173,
+            "at_deadline": 0.00010533942749704746,
+            "saturated": 0.9830067237670709,
+            "capped_range": 2.975671338387366
+          },
+          "decorrelated": {
+            "complete": 0.017266279688376594,
+            "at_deadline": 0.00010326381637901095,
+            "saturated": 0.9828369841280025,
+            "capped_range": 2.9752227317585374
+          },
+          "hidden": {
+            "complete": 3.1590872750045845e-05,
+            "at_deadline": 3.2885415643777016e-07,
+            "saturated": -3.126201859360807e-05,
+            "capped_range": -3.2357991137842686e-05
+          }
+        },
+        "1": {
+          "reference": {
+            "complete": 0.03242003331306276,
+            "at_deadline": 0.0002434457336406346,
+            "saturated": 0.9678234124205779,
+            "capped_range": 2.9613544946880093
+          },
+          "ordinary": {
+            "complete": 0.0328562704126833,
+            "at_deadline": 0.00024549101405116705,
+            "saturated": 0.9673892206013679,
+            "capped_range": 2.9607178239695817
+          },
+          "decorrelated": {
+            "complete": 0.03241360486654481,
+            "at_deadline": 0.0002436446884029272,
+            "saturated": 0.9678300398218581,
+            "capped_range": 2.961368231498603
+          },
+          "hidden": {
+            "complete": 5.770613399312723e-07,
+            "at_deadline": 5.4283688917136085e-08,
+            "saturated": -5.227776510141362e-07,
+            "capped_range": -1.6024971424597514e-06
+          }
+        }
+      },
+      "pooled": {
+        "reference": {
+          "complete": 0.024843864907659156,
+          "at_deadline": 0.00017333567649833843,
+          "saturated": 0.9753294707688391,
+          "capped_range": 2.9682869349129346
+        },
+        "ordinary": {
+          "complete": 0.024977443036554733,
+          "at_deadline": 0.00017541522077410725,
+          "saturated": 0.9751979721842194,
+          "capped_range": 2.968194581178474
+        },
+        "decorrelated": {
+          "complete": 0.0248399422774607,
+          "at_deadline": 0.00017345425239096907,
+          "saturated": 0.9753335119749302,
+          "capped_range": 2.9682954816285703
+        },
+        "hidden": {
+          "complete": 1.608396704498856e-05,
+          "at_deadline": 1.915689226774531e-07,
+          "saturated": -1.5892398122311105e-05,
+          "capped_range": -1.6980244140151218e-05
+        }
+      }
+    },
+    {
+      "step": 0.03125,
+      "ports": [
+        5,
+        40
+      ],
+      "detector": "sharp",
+      "sharp_uniform_complete_upper": 0.027322769165039062,
+      "by_charge": {
+        "-1": {
+          "reference": {
+            "complete": 2.1784642958200182e-09,
+            "at_deadline": 4.68283227057858e-11,
+            "saturated": 0.999999997868364,
+            "capped_range": 2.9999999988125636
+          },
+          "ordinary": {
+            "complete": 2.252964636850798e-09,
+            "at_deadline": 4.8596519732641875e-11,
+            "saturated": 0.9999999977956319,
+            "capped_range": 2.9999999987754746
+          },
+          "decorrelated": {
+            "complete": 2.3999921098295133e-09,
+            "at_deadline": 5.1631782703337815e-11,
+            "saturated": 0.9999999976516397,
+            "capped_range": 2.999999998695628
+          },
+          "hidden": {
+            "complete": 2.8689690649908586e-21,
+            "at_deadline": 1.0989199703366165e-22,
+            "saturated": -2.759077067957197e-21,
+            "capped_range": -8.295115831140221e-22
+          }
+        },
+        "1": {
+          "reference": {
+            "complete": 6.770232786061495e-12,
+            "at_deadline": 9.42624337680953e-14,
+            "saturated": 0.999999999993324,
+            "capped_range": 2.999999999995528
+          },
+          "ordinary": {
+            "complete": 6.587039320094247e-12,
+            "at_deadline": 9.078133593317305e-14,
+            "saturated": 0.9999999999935038,
+            "capped_range": 2.999999999995631
+          },
+          "decorrelated": {
+            "complete": 7.612466167197171e-12,
+            "at_deadline": 1.0644490041325839e-13,
+            "saturated": 0.999999999992494,
+            "capped_range": 2.999999999994984
+          },
+          "hidden": {
+            "complete": 7.248633920492939e-23,
+            "at_deadline": 5.139519910949445e-24,
+            "saturated": -6.734681929397994e-23,
+            "capped_range": -4.110563648324737e-23
+          }
+        }
+      },
+      "pooled": {
+        "reference": {
+          "complete": 1.0926172643030398e-09,
+          "at_deadline": 2.3461292569776945e-11,
+          "saturated": 0.999999998930844,
+          "capped_range": 2.9999999994040456
+        },
+        "ordinary": {
+          "complete": 1.129775838085446e-09,
+          "at_deadline": 2.4343650534287522e-11,
+          "saturated": 0.9999999988945678,
+          "capped_range": 2.999999999385553
+        },
+        "decorrelated": {
+          "complete": 1.2038022879983553e-09,
+          "at_deadline": 2.5869113801875538e-11,
+          "saturated": 0.9999999988220669,
+          "capped_range": 2.999999999345306
+        },
+        "hidden": {
+          "complete": 1.470727702097894e-21,
+          "at_deadline": 5.751575847230555e-23,
+          "saturated": -1.4132119436255885e-21,
+          "capped_range": -4.353086097986347e-22
+        }
+      }
+    },
+    {
+      "step": 0.03125,
+      "ports": [
+        5,
+        40
+      ],
+      "detector": "rate_one",
+      "sharp_uniform_complete_upper": 0.027322769165039062,
+      "by_charge": {
+        "-1": {
+          "reference": {
+            "complete": 1.9561040988846233e-08,
+            "at_deadline": 3.9924833810227096e-10,
+            "saturated": 0.9999999808382074,
+            "capped_range": 2.999999989049592
+          },
+          "ordinary": {
+            "complete": 2.0091814313883248e-08,
+            "at_deadline": 4.095333521739802e-10,
+            "saturated": 0.9999999803177191,
+            "capped_range": 2.9999999888644813
+          },
+          "decorrelated": {
+            "complete": 2.124998187900179e-08,
+            "at_deadline": 4.3412777192252255e-10,
+            "saturated": 0.9999999791841458,
+            "capped_range": 2.9999999881404174
+          },
+          "hidden": {
+            "complete": 1.1024888184352631e-20,
+            "at_deadline": 4.375757420066163e-22,
+            "saturated": -1.0587312442346015e-20,
+            "capped_range": 1.092721841429722e-21
+          }
+        },
+        "1": {
+          "reference": {
+            "complete": 4.3842722992638534e-14,
+            "at_deadline": 7.578786642069667e-16,
+            "saturated": 0.9999999999999569,
+            "capped_range": 2.9999999999999707
+          },
+          "ordinary": {
+            "complete": 4.346372270693145e-14,
+            "at_deadline": 7.352302048855294e-16,
+            "saturated": 0.9999999999999573,
+            "capped_range": 2.9999999999999702
+          },
+          "decorrelated": {
+            "complete": 4.7464242749448437e-14,
+            "at_deadline": 8.119724180281115e-16,
+            "saturated": 0.9999999999999534,
+            "capped_range": 2.999999999999968
+          },
+          "hidden": {
+            "complete": 2.1145520331003453e-25,
+            "at_deadline": 8.680700897505834e-27,
+            "saturated": -2.0277450241252872e-25,
+            "capped_range": -1.088279472852453e-25
+          }
+        }
+      },
+      "pooled": {
+        "reference": {
+          "complete": 9.780542415784613e-09,
+          "at_deadline": 1.996245479904676e-10,
+          "saturated": 0.9999999904190822,
+          "capped_range": 2.9999999945247815
+        },
+        "ordinary": {
+          "complete": 1.0045928888802977e-08,
+          "at_deadline": 2.0476704370209254e-10,
+          "saturated": 0.9999999901588381,
+          "capped_range": 2.9999999944322258
+        },
+        "decorrelated": {
+          "complete": 1.062501467162227e-08,
+          "at_deadline": 2.170642919474703e-10,
+          "saturated": 0.9999999895920496,
+          "capped_range": 2.9999999940701927
+        },
+        "hidden": {
+          "complete": 5.5125498197779706e-21,
+          "at_deadline": 2.187922113537569e-22,
+          "saturated": -5.293757608424214e-21,
+          "capped_range": 5.463065067412184e-22
+        }
+      }
+    },
+    {
+      "step": 0.015625,
+      "ports": [
+        0,
+        1
+      ],
+      "detector": "sharp",
+      "sharp_uniform_complete_upper": 1.0,
+      "by_charge": {
+        "-1": {
+          "reference": {
+            "complete": 0.15308090575783526,
+            "at_deadline": 0.0005256043429009427,
+            "saturated": 0.8474446985850657,
+            "capped_range": 2.8060311773672724
+          },
+          "ordinary": {
+            "complete": 0.15315267318611597,
+            "at_deadline": 0.0005267959987723154,
+            "saturated": 0.8473741228126563,
+            "capped_range": 2.8062257921771425
+          },
+          "decorrelated": {
+            "complete": 0.15314100036077477,
+            "at_deadline": 0.0005257947657741208,
+            "saturated": 0.8473847944049994,
+            "capped_range": 2.8059925441673172
+          },
+          "hidden": {
+            "complete": 0.00018997568943240534,
+            "at_deadline": -1.30413646639641e-07,
+            "saturated": -0.00019010610307904497,
+            "capped_range": -0.0003537896982889456
+          }
+        },
+        "1": {
+          "reference": {
+            "complete": 0.20147918624486272,
+            "at_deadline": 0.0006089501243968568,
+            "saturated": 0.799129763879534,
+            "capped_range": 2.746750350244055
+          },
+          "ordinary": {
+            "complete": 0.2012690104565923,
+            "at_deadline": 0.0006083264794168961,
+            "saturated": 0.7993393160228246,
+            "capped_range": 2.7470112188376716
+          },
+          "decorrelated": {
+            "complete": 0.20149630667601837,
+            "at_deadline": 0.0006087570352747891,
+            "saturated": 0.7991124503592564,
+            "capped_range": 2.746729071949205
+          },
+          "hidden": {
+            "complete": -3.3947215643945367e-06,
+            "at_deadline": -1.4816498362131761e-07,
+            "saturated": 3.246556580773219e-06,
+            "capped_range": 8.82847406266454e-06
+          }
+        }
+      },
+      "pooled": {
+        "reference": {
+          "complete": 0.177280046001349,
+          "at_deadline": 0.0005672772336488997,
+          "saturated": 0.8232872312322999,
+          "capped_range": 2.7763907638056637
+        },
+        "ordinary": {
+          "complete": 0.17721084182135413,
+          "at_deadline": 0.0005675612390946057,
+          "saturated": 0.8233567194177405,
+          "capped_range": 2.776618505507407
+        },
+        "decorrelated": {
+          "complete": 0.17731865351839657,
+          "at_deadline": 0.0005672759005244549,
+          "saturated": 0.8232486223821278,
+          "capped_range": 2.776360808058261
+        },
+        "hidden": {
+          "complete": 9.32904839340054e-05,
+          "at_deadline": -1.392893151304793e-07,
+          "saturated": -9.342977324913588e-05,
+          "capped_range": -0.00017248061211314053
+        }
+      }
+    },
+    {
+      "step": 0.015625,
+      "ports": [
+        0,
+        1
+      ],
+      "detector": "rate_one",
+      "sharp_uniform_complete_upper": 1.0,
+      "by_charge": {
+        "-1": {
+          "reference": {
+            "complete": 0.017241431985100163,
+            "at_deadline": 5.161210234097713e-05,
+            "saturated": 0.9828101801172409,
+            "capped_range": 2.9752200395923154
+          },
+          "ordinary": {
+            "complete": 0.01707181084186605,
+            "at_deadline": 5.266894057338863e-05,
+            "saturated": 0.9829808580987074,
+            "capped_range": 2.975671992113089
+          },
+          "decorrelated": {
+            "complete": 0.01724000710116376,
+            "at_deadline": 5.163120145480507e-05,
+            "saturated": 0.982811624100291,
+            "capped_range": 2.9752233956189746
+          },
+          "hidden": {
+            "complete": 3.149952766986557e-05,
+            "at_deadline": 1.6440522979442937e-07,
+            "saturated": -3.133512244007114e-05,
+            "capped_range": -3.2347182889242705e-05
+          }
+        },
+        "1": {
+          "reference": {
+            "complete": 0.0323584701596885,
+            "at_deadline": 0.00012172078268159677,
+            "saturated": 0.9677632506229931,
+            "capped_range": 2.9613550766206984
+          },
+          "ordinary": {
+            "complete": 0.032794213879825396,
+            "at_deadline": 0.000122743500942122,
+            "saturated": 0.9673285296211167,
+            "capped_range": 2.9607184074298147
+          },
+          "decorrelated": {
+            "complete": 0.03235199052108506,
+            "at_deadline": 0.00012182025815342115,
+            "saturated": 0.9677698297370684,
+            "capped_range": 2.961368813764737
+          },
+          "hidden": {
+            "complete": 5.712579429713767e-07,
+            "at_deadline": 2.717732071930008e-08,
+            "saturated": -5.440806222520766e-07,
+            "capped_range": -1.616105393430475e-06
+          }
+        }
+      },
+      "pooled": {
+        "reference": {
+          "complete": 0.02479995107239433,
+          "at_deadline": 8.666644251128694e-05,
+          "saturated": 0.975286715370117,
+          "capped_range": 2.968287558106507
+        },
+        "ordinary": {
+          "complete": 0.024933012360845722,
+          "at_deadline": 8.770622075775531e-05,
+          "saturated": 0.975154693859912,
+          "capped_range": 2.968195199771452
+        },
+        "decorrelated": {
+          "complete": 0.02479599881112441,
+          "at_deadline": 8.67257298041131e-05,
+          "saturated": 0.9752907269186797,
+          "capped_range": 2.9682961046918557
+        },
+        "hidden": {
+          "complete": 1.6035392806418473e-05,
+          "at_deadline": 9.579127525686473e-08,
+          "saturated": -1.593960153116161e-05,
+          "capped_range": -1.698164414133659e-05
+        }
+      }
+    },
+    {
+      "step": 0.015625,
+      "ports": [
+        5,
+        40
+      ],
+      "detector": "sharp",
+      "sharp_uniform_complete_upper": 0.006848573684692383,
+      "by_charge": {
+        "-1": {
+          "reference": {
+            "complete": 5.529886525328882e-10,
+            "at_deadline": 5.957907481690231e-12,
+            "saturated": 0.9999999994529692,
+            "capped_range": 2.999999999696106
+          },
+          "ordinary": {
+            "complete": 5.719078960550143e-10,
+            "at_deadline": 6.1826482592314264e-12,
+            "saturated": 0.9999999994342748,
+            "capped_range": 2.999999999686604
+          },
+          "decorrelated": {
+            "complete": 6.092543617414097e-10,
+            "at_deadline": 6.569431843455187e-12,
+            "saturated": 0.9999999993973151,
+            "capped_range": 2.9999999996661497
+          },
+          "hidden": {
+            "complete": 7.304927700657936e-22,
+            "at_deadline": 1.3863411571639663e-23,
+            "saturated": -7.16629358494154e-22,
+            "capped_range": -2.142925265400869e-22
+          }
+        },
+        "1": {
+          "reference": {
+            "complete": 1.838934575835373e-12,
+            "at_deadline": 1.2837584734707343e-14,
+            "saturated": 0.9999999999981739,
+            "capped_range": 2.9999999999987783
+          },
+          "ordinary": {
+            "complete": 1.7890359321276264e-12,
+            "at_deadline": 1.2364929799752406e-14,
+            "saturated": 0.9999999999982233,
+            "capped_range": 2.9999999999988067
+          },
+          "decorrelated": {
+            "complete": 2.0684222953141518e-12,
+            "at_deadline": 1.4502828742390848e-14,
+            "saturated": 0.9999999999979461,
+            "capped_range": 2.9999999999986295
+          },
+          "hidden": {
+            "complete": 2.013023545917744e-23,
+            "at_deadline": 6.918876886044868e-25,
+            "saturated": -1.9438347770572954e-23,
+            "capped_range": -1.1384079894696004e-23
+          }
+        }
+      },
+      "pooled": {
+        "reference": {
+          "complete": 2.774137935543618e-10,
+          "at_deadline": 2.9853725332124693e-12,
+          "saturated": 0.9999999997255715,
+          "capped_range": 2.999999999847442
+        },
+        "ordinary": {
+          "complete": 2.868484659935709e-10,
+          "at_deadline": 3.0975065945155892e-12,
+          "saturated": 0.999999999716249,
+          "capped_range": 2.9999999998427054
+        },
+        "decorrelated": {
+          "complete": 3.0566139201836195e-10,
+          "at_deadline": 3.2919673360987886e-12,
+          "saturated": 0.9999999996976305,
+          "capped_range": 2.9999999998323896
+        },
+        "hidden": {
+          "complete": 3.7531150276248553e-22,
+          "at_deadline": 7.277649630122075e-24,
+          "saturated": -3.6803385313236346e-22,
+          "capped_range": -1.1283830321739146e-22
+        }
+      }
+    },
+    {
+      "step": 0.015625,
+      "ports": [
+        5,
+        40
+      ],
+      "detector": "rate_one",
+      "sharp_uniform_complete_upper": 0.006848573684692383,
+      "by_charge": {
+        "-1": {
+          "reference": {
+            "complete": 1.9461154636002193e-08,
+            "at_deadline": 1.9962266323809822e-10,
+            "saturated": 0.9999999807384681,
+            "capped_range": 2.999999989048918
+          },
+          "ordinary": {
+            "complete": 1.9989353517782672e-08,
+            "at_deadline": 2.0476518508621767e-10,
+            "saturated": 0.9999999802154117,
+            "capped_range": 2.999999988863784
+          },
+          "decorrelated": {
+            "complete": 2.1141371818033735e-08,
+            "at_deadline": 2.1706219520163642e-10,
+            "saturated": 0.9999999790756904,
+            "capped_range": 2.9999999881396846
+          },
+          "hidden": {
+            "complete": 1.0915402102009947e-20,
+            "at_deadline": 2.187728747574999e-22,
+            "saturated": -1.0696629227252447e-20,
+            "capped_range": 1.091848991252455e-21
+          }
+        },
+        "1": {
+          "reference": {
+            "complete": 4.365102409839407e-14,
+            "at_deadline": 3.789693371624071e-16,
+            "saturated": 0.9999999999999567,
+            "capped_range": 2.9999999999999707
+          },
+          "ordinary": {
+            "complete": 4.3277601443744876e-14,
+            "at_deadline": 3.676461843725013e-16,
+            "saturated": 0.9999999999999571,
+            "capped_range": 2.9999999999999702
+          },
+          "decorrelated": {
+            "complete": 4.725892863598814e-14,
+            "at_deadline": 4.060168711299105e-16,
+            "saturated": 0.9999999999999531,
+            "capped_range": 2.999999999999968
+          },
+          "hidden": {
+            "complete": 2.1015539825226775e-25,
+            "at_deadline": 4.326684820239523e-27,
+            "saturated": -2.0582871343202823e-25,
+            "capped_range": -1.088397083863714e-25
+          }
+        }
+      },
+      "pooled": {
+        "reference": {
+          "complete": 9.730599143513145e-09,
+          "at_deadline": 9.981152110371769e-11,
+          "saturated": 0.9999999903692124,
+          "capped_range": 2.9999999945244444
+        },
+        "ordinary": {
+          "complete": 9.994698397692058e-09,
+          "at_deadline": 1.0238277636620102e-10,
+          "saturated": 0.9999999901076844,
+          "capped_range": 2.999999994431877
+        },
+        "decorrelated": {
+          "complete": 1.0570709538481186e-08,
+          "at_deadline": 1.0853130060925378e-10,
+          "saturated": 0.9999999895378218,
+          "capped_range": 2.9999999940698263
+        },
+        "hidden": {
+          "complete": 5.4578061287041e-21,
+          "at_deadline": 1.0938860072116007e-22,
+          "saturated": -5.3484175279829396e-21,
+          "capped_range": 5.458700757720343e-22
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,210 @@
+{
+  "actual_addresses": [
+    0,
+    1,
+    38,
+    39
+  ],
+  "translated_addresses": [
+    228,
+    229,
+    218,
+    219
+  ],
+  "free_address_grammar": {
+    "primitive_columns": 99,
+    "blank_written_transition_entries": 0
+  },
+  "diagonal_address_ensemble_interference_exact": 0,
+  "coherent_comparison_readout": "Z=Tr(U_B^dagger S U_A rho_AB) with coincident cross-branch amplitudes normalized to one at t=0",
+  "charges": {
+    "-1": {
+      "squared_hilbert_schmidt_residual_by_parity": [
+        {
+          "fixed": 7840,
+          "left_moved": 3920,
+          "right_moved": 3920,
+          "both_moved": 0
+        },
+        {
+          "fixed": 8112,
+          "left_moved": 3920,
+          "right_moved": 4192,
+          "both_moved": 0
+        }
+      ],
+      "independent_head_residual_moments": [
+        {
+          "left_moved": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            32
+          ],
+          "right_moved": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            32
+          ]
+        },
+        {
+          "left_moved": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            32
+          ],
+          "right_moved": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            32
+          ]
+        }
+      ],
+      "coherent_reference": {
+        "real_overlap": {
+          "reference": 0.9998060821134335,
+          "ordinary": 1.0588151596671591e-06,
+          "pairing": 3.7836648408839935e-07
+        },
+        "imag_overlap": {
+          "reference": -2.170328604043113e-09,
+          "ordinary": -2.145150829919131e-10,
+          "pairing": -6.378423147840126e-11
+        },
+        "imag_rate_from_boundary": {
+          "reference": -3.7787264742265046e-10,
+          "ordinary": 4.3943921563779596e-10,
+          "pairing": 1.8912231183385602e-10
+        },
+        "real_rate_from_boundary": {
+          "reference": 0.0001383764146024572,
+          "ordinary": 0.00010821249236827008,
+          "pairing": 3.369632300366152e-05
+        },
+        "imag_rate_from_free_flights": {
+          "reference": -3.778598901338796e-10,
+          "ordinary": 4.3945732950248513e-10,
+          "pairing": 1.8912226643809907e-10
+        },
+        "real_rate_from_free_flights": {
+          "reference": 0.00013837493714142935,
+          "ordinary": 0.00010821212603933834,
+          "pairing": 3.369615060001734e-05
+        }
+      }
+    },
+    "1": {
+      "squared_hilbert_schmidt_residual_by_parity": [
+        {
+          "fixed": 7840,
+          "left_moved": 3920,
+          "right_moved": 3920,
+          "both_moved": 0
+        },
+        {
+          "fixed": 8112,
+          "left_moved": 3920,
+          "right_moved": 4192,
+          "both_moved": 0
+        }
+      ],
+      "independent_head_residual_moments": [
+        {
+          "left_moved": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            32
+          ],
+          "right_moved": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            32
+          ]
+        },
+        {
+          "left_moved": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            32
+          ],
+          "right_moved": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            32
+          ]
+        }
+      ],
+      "coherent_reference": {
+        "real_overlap": {
+          "reference": 0.9978121352797766,
+          "ordinary": 3.5891252193866185e-05,
+          "pairing": 1.2799560802703724e-06
+        },
+        "imag_overlap": {
+          "reference": -5.44559583938995e-09,
+          "ordinary": -3.2857977348871253e-09,
+          "pairing": -8.189114624127389e-11
+        },
+        "imag_rate_from_boundary": {
+          "reference": 4.6487405716646834e-08,
+          "ordinary": -4.745001759773676e-09,
+          "pairing": 8.415709377241803e-10
+        },
+        "real_rate_from_boundary": {
+          "reference": -0.0009481519415428481,
+          "ordinary": 1.3633338767838842e-05,
+          "pairing": 1.9692920325099137e-05
+        },
+        "imag_rate_from_free_flights": {
+          "reference": 4.648752843193781e-08,
+          "ordinary": -4.745114724282402e-09,
+          "pairing": 8.415139677427819e-10
+        },
+        "real_rate_from_free_flights": {
+          "reference": -0.000948149702100025,
+          "ordinary": 1.3632875374148976e-05,
+          "pairing": 1.9692726423568407e-05
+        }
+      }
+    }
+  }
+}

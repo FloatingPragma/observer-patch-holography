@@ -419,6 +419,70 @@ cross-triplet readout. The algebra is
 specified current menu; it establishes no physical inaccessibility of other
 services, full physical A1 closure or gauge redundancy.
 
+\subsection{The closed vacancy paths of Interval Echo}
+\label{sec:vacancy-material-holonomy}
+
+\begin{proposition}[Complete protected material loop image]
+On a finite two-vertex-connected port graph containing a triangle, fill the
+ports with one unit, place a vacancy at \(r\), place one excess at an
+arbitrary other port, and initialize every seam memory blank. Write
+\(m=|V|-1\). Under isolated active Interval Echo contact pulses of duration
+\(\pi\), the based vacancy paths have faithful terminal image \(S_m\)
+on the excess positions. Their material representation decomposes as the
+uniform line and the irreducible \((m-1)\)-dimensional zero-sum space.
+\end{proposition}
+
+\begin{proof}
+On the reducing nine blank words of the native 99-state contact the
+generator is \((I-T)/2+8C\), with \(T\) the swap and
+\(C|a,b\rangle=(a-b)^2|a,b\rangle\). The terms commute, and \(C\) has
+integer spectrum. At \(\pi\) the contact therefore applies exactly \(T\),
+including relative phases. A closed vacancy walk permutes every remaining
+label. Starting the excess at each label detects that permutation.
+
+The initial triangle generates the transposition of its two occupied
+labels. Suppose a two-connected subgraph has the full group and attach an
+open ear with old ends \(u,v\). Changing the vacancy root within the old
+graph conjugates its label action. With the vacancy at \(u\), choose an old
+\(y\ne u,v\) and a return path \(v\to u\) avoiding \(y\). Following the ear
+and this return gives a cycle \(C_0\) on the occupied vertices visited. It
+contains \(v\) and every new vertex, and fixes \(y\). Conjugating the old
+transposition \((v,y)\) by powers of \(C_0\) supplies all the new star
+transpositions. The enlarged graph is two-connected. Any remaining
+component has at least two old attachments, so induction covers the graph.
+Transitivity on ordered pairs of distinct positions makes every commuting
+matrix constant on and off the diagonal separately. Its only irreducible
+summands are the two displayed ones.
+\end{proof}
+
+Executable spanning-ear certificates give \(m=11,239,959,3839\) on the cell
+and three federation boards. The kernel on based walks is computed by
+tracking their swaps on the labels. Only the identity permutation acts as a
+scalar on the full fiber. For freely evolving contacts the off-diagonal
+crossing block is \(-P/2\) for the same mark permutation \(P\). A sequence of
+\(L\) leading positive-time crossings retains the scalar \(i^L\), with
+\((-1)^L=\operatorname{sgn}P\). A backtrack changes the common sign. Finite
+all-open holds have interfering histories and require their own instruments.
+
+On the 80-owner board a closed path of 210 isolated pulses takes the ordered
+triple \((2,4,5)\) to \((39,40,41)\). It conjugates both source triangle
+transpositions to the receiving transpositions as full-fiber operators.
+The zero-sum plane on the triple therefore carries its coherent \(S_3\)
+representation between owners with unit entanglement fidelity. At the
+receiver put \(u=(1,1,1)/\sqrt3\) and
+\(v=(1,\omega,\omega^2)/\sqrt3\), \(\omega=e^{2\pi i/3}\). Transporting
+\((u+v)/\sqrt2\) and testing \((u+iv)/\sqrt2\) after the two possible orders
+of local turns gives probabilities \(1/2\pm\sqrt3/4\). Complete simulated
+records gave 244,476 and 17,555 clicks in 262,144 starts per order. Full
+position dephasing reduces the doublet entanglement fidelity to \(1/3\).
+Arbitrary based loops move the local plane to other triples. The full
+material action has trivial center and admits no invariant two- or
+three-dimensional subspace on these boards. Its identification with the
+six-axis gluing action, or with spacetime spin or a chiral matter action,
+would require further independent source data. The proof, full routes,
+simulated counts and controls are in
+\path{model/experiments/interval_echo_gauge/loop_transport/HOLONOMY.md}.
+
 \subsection{Carrier rechartings, the shared triplet and physical rotations}
 \label{sec:carrier-rotations}
 
@@ -949,6 +1013,82 @@ physical quotient among the four requires a source-derived complete character
 category, a same-source loop-to-kernel identity, four-dimensional instanton
 normalization and theta periodicity, monopole dynamics and a laboratory flux
 attachment; the congruence derives no physical global form.
+
+Two accessible material carriers test the common-action assumption
+directly. The registered one-load triplets and the two-load bound-pair
+triplets each give a twelve-dimensional current algebra on their own.
+Apply the same twelve address controls to both. The squared norms of
+their traceless port-zero generators lie in disjoint intervals for
+both simple factors. Since Lie automorphisms preserve the Killing form,
+the simple factors cannot be diagonal across the two carriers.
+Their central address sums act with relative weights one and two.
+The resulting joint connected image is
+\[
+ \{(U_1,U_2)\in U(3)^2:\det U_2=(\det U_1)^2\}\times SO(3)^2,
+\]
+of dimension 23. A central turn that is the identity on the bound pair
+gives opposite signs to the two one-load triplets, moving a suitable
+sharp input entirely off its two launch ports in the ideal limit.
+The finite pulse and native current calculations are given in
+\path{model/experiments/interval_echo_gauge/joint_currents/}.
+This obstructs the identification of these two measured actions
+as representations of one twelve-dimensional connected group at the
+same physical control strengths.
+
+Within this joint action, a port source selects a line in the first
+pair triplet. Its orthogonal plane carries an \(SU(2)\) doublet under
+the subgroup preserving the line. Hold both rotation triplets fixed.
+Let \(U\) act on the one-load colour triplet, \(W\) on the pair plane,
+and \(\eta\) on the selected line. The joint group then requires
+\(\eta\det W=(\det U)^2\). Imposing \(\eta=\det U\) gives
+\(\det W=\det U\) and a covering kernel of order six. An allowed
+antipodal pulse tests whether the apparatus imposes this relation
+itself. Its colour determinant is exactly \(i\). On the same pulse,
+the return counts on the two prepared stars of seams give
+\(-0.656<\operatorname{Re}\eta<-0.622\) at 99\% confidence, including
+the error in the phase reference. The real parts of all integer powers
+of \(i\) belong to \(\{-1,0,1\}\). Thus even the larger class of
+single-valued continuous colour characters \(\eta=(\det U)^k\) fails
+on this pulse. The order-six subgroup describes a restriction of the
+controls. Its selection as a physical symmetry requires additional evidence.
+
+The same pair plane also has a measurable transport channel between
+cells. Apply a phase to the plane at the emitter, release both loads,
+and read the thirty internal seams of the adjacent cell. With all
+contacts of the 20-cell federation open, 29 seam probabilities
+distinguish the phase tag from a sham at exposure 32, with joint
+99\% counting intervals. Leaving just the single bridge between the
+two isolated cells gives a different result. Independent fivefold
+rotations around the bridge forbid transmission into the receiving
+doublet at every exposure. On the full federation an exact nonzero
+Taylor coefficient of the two-mode transfer determinant proves rank
+two except at isolated exposures. A second coefficient shows that the
+two squared singular values generically differ. At exposure 32 they
+are approximately \(4.06\times10^{-12}\) and \(5.71\times10^{-7}\).
+The full federation can carry both amplitudes across a boundary.
+Reading this particular link as an \(SU(2)\) transport with a common
+attenuation would require equal singular values.
+
+A reciprocal experiment recovers an operation common to every input
+in the plane. Select two remote ports coherently on each of two
+apertures, apply a signed swap \(J\) at the turnaround, and allow equal
+free flights out and back. In a real local frame reciprocity gives
+the transpose of the outward transfer \(T\) on the return leg.
+The identity \(T^{\mathsf T}JT=(\det T)J\) holds for every two by two
+transfer and this antisymmetric \(J\). With both apertures open and
+relative phase \(\theta\), the successful operation is
+\((\det T_1+e^{i\theta}\det T_2)J\), with success probability
+independent of the prepared direction. In simulated banks of
+\(6\times2^{78}\) original sharp-word launches per phase, 8,768
+target returns occurred at zero phase and 824 at phase \(\pi\).
+Resolving the aperture midway gave 4,888 returns. Four calibration
+phases predicted the counts at two other phases. The signed swap and
+coherent aperture measurement are laboratory interventions. The free
+material supplies the relative propagation phase, measured as
+\(0.458\) radians with simultaneous interval \([0.360,0.563]\).
+This realizes an interference experiment on a common two-component
+signal. Selecting a global gauge quotient requires the physical action
+of the relevant loop classes.
 
 \subsection{The global form from port phases}
 \label{sec:global-form-port-phases}

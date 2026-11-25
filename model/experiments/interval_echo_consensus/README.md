@@ -255,3 +255,9 @@ python -O -W error -m model.experiments.interval_echo_consensus.primitive_collar
 python -O -W error -m model.experiments.interval_echo_consensus.row_four --all-launches
 python -m pytest -q model/experiments/interval_echo_consensus
 ```
+
+A twelve-port cell implements disjoint outcomes for every compatible pair of complex effects on four one-load rails. [Construction and output records](COMPLEX_EFFECTS.md)
+
+The empty and full arrangements of one tested seam retain their relative phase under a fresh native echo. The historical twelve-port detector returns with unit probability on the bright setting and zero on the dark setting. A reversible total-sensitive write with the same sharp load outputs gives one half on both. [Empty–full experiment and record-law identity](empty_full/README.md)
+
+[Routed strict repair on every ternary load census](routed_counts/) reaches minimum quadratic imbalance and a unique observable count of committed marks through ordinary material exchanges and the strict echo.

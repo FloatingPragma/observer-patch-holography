@@ -96,6 +96,84 @@
       ]
     ]
   },
+  "coherent_flags": {
+    "path": [
+      0,
+      1,
+      82,
+      72,
+      73
+    ],
+    "flag_patterns": 81,
+    "largest_mean_uniform_attempts": "6",
+    "fair_periodic_orders": 24,
+    "retry_example": {
+      "ports": [
+        0,
+        1,
+        8,
+        3
+      ],
+      "ranks": [
+        1,
+        8,
+        17
+      ],
+      "reverse_order_writes_by_pass": [
+        [
+          0
+        ],
+        [
+          2
+        ]
+      ],
+      "opposite_signed_collars": [
+        [
+          2,
+          0,
+          -2
+        ],
+        [
+          -2,
+          0,
+          2
+        ]
+      ]
+    },
+    "cases": 1944,
+    "cases_requiring_second_pass": 0,
+    "cases_with_multiple_commits": 456
+  },
+  "spectator": {
+    "higher": [
+      1,
+      82
+    ],
+    "lower": [
+      72,
+      82
+    ],
+    "schedules": [
+      "higher_first",
+      "lower_guard_first"
+    ],
+    "terminal_occupied_seams": [
+      [
+        1,
+        82
+      ]
+    ],
+    "joint_rail_correlations": {
+      "one_initial_flag_space": [
+        1.0,
+        1.0
+      ],
+      "different_initial_flags": [
+        1.0,
+        0.0
+      ]
+    }
+  },
   "boards": [
     {
       "cells": 20,

@@ -1,0 +1,31 @@
+# Which modular flow advances the Interval Echo hand?
+
+One stationary patch can distinguish two reference states for its coherent clock using a third vacant rail. For one reference the modular flow leaves every reading fixed. For the other it advances the clock by exactly one accepted tick at modular parameter increment π/(16 log 5). The reference preparation determines which comparison holds.
+
+## A local clock and two ways to count
+
+The stationary home clock publishes the outcome of each native fair source contact. A positive bit exposes the hand to its native contact for π/16 and a zero leaves it alone. The hand begins with one double on the first of two rails. In this ordered basis the blank-memory seam generator is H = (65 I − X)/2, where X exchanges the two rails. Its two energies differ by one. After n accepted ticks the two terminal first-rail probabilities are (1 + cos(nπ/16 + φ))/2 with φ = 0 or π/2. Both periods are 32 ticks. The measurement uses the registered publication, listener and terminal methods on a stationary patch of the 20-cell federation. The patch retains the local public bits up to the terminal read. [Clock implementation](../../../candidate_laws/interval_echo/clock.py) · [Count banks and source check](measure.py)
+
+On an unread service the hand either advances once or holds, with equal probabilities. For m services the averaged transverse phase amplitude is exp(imπ/32) cos(π/32)ᵐ. Its modulus drops below one for every m > 0. This gives a direct obstruction to representing the unread service as a star automorphism on the full two-rail matrix algebra. Conditioning on the public word restores the unitary at its accepted count. At the unshifted read, 75 of 1,024 launches hit the first rail after 32 opportunities and 874 of 1,024 after 64. Independent shifted reads gave 513 and 496 hits. Each bank retains every accepted count, miss and hit. The replay checks both the conditional prediction averaged over those recorded counts and the unconditional prediction from the fair source. [Observer records](records.json)
+
+## Preparing and distinguishing the references
+
+Write a, b for the two hand rails and c for a common neighbour. The experiment uses ports 18, 19 and 20. Only the addressed contact acts during an exposure. A vacant neighbour lets the ordinary seam echo distinguish a double from a vacancy. The full 99-state seam columns give the coherent gates and the two sharp-read effects. This protected local apparatus adds a terminal analyzer and a preparation to the stationary clock. [Contact restrictions, echo effects and acquisition](reference_reader.py)
+
+In the first preparation, begin with a double at a. Five independent fair readings choose an integer n uniformly from 0 to 31. Apply n clock pulses and average over that label. This averaging also gives the stationary reference reached in distribution by repeated fair holds and advances on the 32 phases. The Bloch vector of the sharp launch is perpendicular to X. Its 32 equally spaced rotations average to zero, so the reference on the full two-rail algebra is ρ₀ = I/2. For K = −log ρ₀ the modular evolution exp(−isK) leaves every probe density unchanged, including a separately prepared sharp hand.
+
+In the second preparation, begin with the double at c. Expose b,c and then a,c for π/2 each. A half-contact has diagonal A = (1 − i)/2 and exchange amplitude B = (1 + i)/2. The amplitudes at a,b,c are AB, B and A². Read c against its vacancy. With probability 3/4 the reader finds c vacant and the hand keeps the other two amplitudes. Its expectation of X is 2/3. The same uniform phase preparation gives ρ₁ = I/2 + X/3 with eigenvalues 5/6 and 1/6. Every failed herald is counted. Both references are faithful on the same two-rail algebra.
+
+On these two mixed references every setting obtained by a hand contact followed by reading a gives probability 1/2. To distinguish them, expose b,c and then a,c for π/2 each and read c. For a reference (I + xX)/2 the third-rail probability is 3/8 + x/4. This prediction uses the two interfering paths from a and b to c. For ρ₀ the detector gave **1,489/4,096** against 3/8. For ρ₁ it gave **1,646/3,077** against 13/24, with 1,019 further launches recording a failed herald. The acquisition stores every phase label so either the mixed reference or the phase-conditioned ensemble can be reconstructed. [Reference preparations, outcomes and failures](reference_records.json)
+
+The symmetric X state is the lower energy state of H and the higher weight state of ρ₁. Consequently −log ρ₁ = (log 5) H + constant × I on the full two-rail algebra. Conjugation by exp(−isK) coincides with one physical accepted pulse at s = π/(16 log 5), and by the group law at every integer multiple. The comparison concerns a probe prepared independently of the reference. Each reference itself is invariant under its own modular group. The rate uses the supplied physical pulse duration and the measured reference construction. The ordinary hand’s history alone selects neither this reference nor this continuous interpolation. For example, increasing its upper energy by 32 reproduces every integer pulse and both inherited analyzer settings. A half-tick exposure would give first-rail probabilities 0.997592 and 0.002408 for the native and alternative generators on a sharp probe.
+
+The finite clock addresses the represented flow in PR-43 and the operational-clock component of PR-52. Selecting a common reference from interacting observers, relating its modular parameter to proper time across paths, and attaching an empirical time unit require separate measurements. The experiment uses a protected stationary home hand and supplied local contacts. The declared source fixes its microscopic generator. [Premise register](../../../../tracking/premise_register.json) · [Time-order type ledger](../../../../Lean/Time/TimeOrderLedger.lean)
+
+From the repository root, each command reacquires its bank and checks it against the retained record.
+
+```sh
+export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1
+python -B -W error -m model.experiments.interval_echo_clock.modular_reference.measure
+python -B -W error -m model.experiments.interval_echo_clock.modular_reference.reference_reader
+```

@@ -1,0 +1,2051 @@
+{
+  "epsilon": 0.22314355131420976,
+  "omega": 0.5,
+  "coefficients": [
+    "identity",
+    "X",
+    "Y",
+    "Z"
+  ],
+  "readout_panels": [
+    {
+      "cells": 20,
+      "ports": 240,
+      "bridge": [
+        1,
+        82
+      ],
+      "slow_gaps": [
+        0.02207126534949959,
+        0.022271021593989974,
+        0.022276171383400097
+      ],
+      "spectral_probabilities": [
+        0.6472881534978931,
+        0.33895116147255355,
+        0.013760685029553405
+      ],
+      "max_dipole_cell_probability": 0.13290613985582767,
+      "mean_gap": 0.022141792607974164,
+      "rates": {
+        "position_rate": 0.013310099774419302,
+        "clock_rate": 0.022141792607974164,
+        "fraction_of_position_rate_on_bridge": 0.06963507038403248,
+        "fractional_clock_response_to_bridge": -2.38389490963172,
+        "position_score_overlap": 0.6011301799306796
+      },
+      "appointments": [
+        {
+          "time": 0.03125,
+          "band_position": [
+            0.00041664480950476723,
+            -4.0436639508598916e-09,
+            1.0128104444024526e-07,
+            -6.465084090548557e-06
+          ],
+          "band_clock": [
+            0.0006509774544909146,
+            1.0501254617181072e-07,
+            -5.79480582256266e-06,
+            0.0003708372839182984
+          ],
+          "band_position_derivative": [
+            0.013331361677850883,
+            -3.8732882674452824e-07,
+            6.447094396039516e-06,
+            -0.00020356831534108864
+          ],
+          "band_clock_derivative": [
+            0.020849418832971506,
+            1.0071902503405727e-05,
+            -0.0003705999403285703,
+            0.011847727570788938
+          ],
+          "outside_bridge_clock": [
+            0.25305395530763425,
+            -1.5935569647733405e-05,
+            0.0008496900896938851,
+            -0.054375740199160694
+          ],
+          "directed_bridge_transfer": [
+            0.032024981346959136,
+            -4.3717709632910134e-06,
+            0.00010966686806367261,
+            -0.007026442424024282
+          ]
+        },
+        {
+          "time": 0.125,
+          "band_position": [
+            0.0016654144173314438,
+            -2.460327377785081e-07,
+            1.4914838526528239e-06,
+            -2.2789729729505177e-05
+          ],
+          "band_clock": [
+            0.002620679890270247,
+            6.582424736917281e-06,
+            -9.172629238488102e-05,
+            0.0014657033883571462
+          ],
+          "band_position_derivative": [
+            0.013303907812491142,
+            -5.690068504980302e-06,
+            2.1692948336709313e-05,
+            -0.0001305335281275872
+          ],
+          "band_clock_derivative": [
+            0.02124763600788674,
+            0.0001556361357137187,
+            -0.0014509355420367223,
+            0.011428344956987392
+          ],
+          "outside_bridge_clock": [
+            0.8331983686817067,
+            -0.0005442949530169439,
+            0.007228955465897458,
+            -0.11551264498129676
+          ],
+          "directed_bridge_transfer": [
+            0.12772426997533906,
+            -0.0002744707625218605,
+            0.0017080953485496438,
+            -0.02781903385755044
+          ]
+        },
+        {
+          "time": 23.647533190683465,
+          "band_position": [
+            0.22991501170248252,
+            0.04127962133522456,
+            0.011753440775038749,
+            0.011714161175072055
+          ],
+          "band_clock": [
+            0.31486575392510596,
+            0.14203262337679745,
+            0.03117214637291959,
+            0.036099662521281134
+          ],
+          "band_position_derivative": [
+            0.005152267419512274,
+            -0.001540170647003715,
+            0.0012196335541462197,
+            0.003855997135632089
+          ],
+          "band_clock_derivative": [
+            0.00843492598337256,
+            -0.009242871564611857,
+            -0.013037938993599011,
+            0.019515630413893842
+          ]
+        },
+        {
+          "time": 47.29506638136693,
+          "band_position": [
+            0.30064025262933114,
+            -0.08715350754654953,
+            0.02318501869683951,
+            -0.011192767501798123
+          ],
+          "band_clock": [
+            0.3169692010624452,
+            -0.032878683033237516,
+            0.04646128670444442,
+            0.000948938117553727
+          ],
+          "band_position_derivative": [
+            -0.006525240503134605,
+            -0.0025549232870174937,
+            0.005771723014736508,
+            0.004290859210190706
+          ],
+          "band_clock_derivative": [
+            -0.004333570919437743,
+            -0.005652752571034932,
+            -0.0025919562254394513,
+            0.021218879743626032
+          ]
+        }
+      ]
+    },
+    {
+      "cells": 80,
+      "ports": 960,
+      "bridge": [
+        1,
+        38
+      ],
+      "slow_gaps": [
+        0.0051579139013189675,
+        0.005217420947424173,
+        0.005228577788075974
+      ],
+      "spectral_probabilities": [
+        0.7330370405343963,
+        0.026169571564140917,
+        0.2407933879014627
+      ],
+      "max_dipole_cell_probability": 0.0355204960422512,
+      "mean_gap": 0.005176486571915093,
+      "rates": {
+        "position_rate": 0.003054639111797171,
+        "clock_rate": 0.005176486571915093,
+        "fraction_of_position_rate_on_bridge": 0.019903490751219347,
+        "fractional_clock_response_to_bridge": -3.030101085590096,
+        "position_score_overlap": 0.5900989154246133
+      },
+      "appointments": [
+        {
+          "time": 0.03125,
+          "band_position": [
+            9.550365449352761e-05,
+            -2.652433808873189e-10,
+            6.643162793448772e-09,
+            -4.240441617298638e-07
+          ],
+          "band_clock": [
+            0.00014960859531562408,
+            3.201766893539543e-08,
+            -1.7219006073214543e-06,
+            0.00011019266752254952
+          ],
+          "band_position_derivative": [
+            0.00305603284417623,
+            -2.5406357371115926e-08,
+            4.228412385911878e-07,
+            -1.3349327197545923e-05
+          ],
+          "band_clock_derivative": [
+            0.004793708901124609,
+            3.0702273705607297e-06,
+            -0.00011011626625363855,
+            0.0035201277837533782
+          ],
+          "outside_bridge_clock": [
+            0.25305395530763425,
+            -1.5935569647733405e-05,
+            0.0008496900896938851,
+            -0.054375740199160694
+          ],
+          "directed_bridge_transfer": [
+            0.032024981346959136,
+            -4.3717709632910134e-06,
+            0.00010966686806367261,
+            -0.007026442424024282
+          ]
+        },
+        {
+          "time": 0.125,
+          "band_position": [
+            0.0003819376624410641,
+            -1.613261425274274e-08,
+            9.77091846461128e-08,
+            -1.4923482529399052e-06
+          ],
+          "band_clock": [
+            0.000604181314898418,
+            1.9976925047862637e-06,
+            -2.7235642778522024e-05,
+            0.00043520255533749993
+          ],
+          "band_position_derivative": [
+            0.0030542198735589348,
+            -3.7300197902233726e-07,
+            1.4189718132826164e-06,
+            -8.502522141581566e-06
+          ],
+          "band_clock_derivative": [
+            0.004929885486133122,
+            4.707682141141811e-05,
+            -0.0004304893189654393,
+            0.0033881493095597043
+          ],
+          "outside_bridge_clock": [
+            0.8331983686817067,
+            -0.0005442949530169439,
+            0.007228955465897458,
+            -0.11551264498129676
+          ],
+          "directed_bridge_transfer": [
+            0.12772426997533906,
+            -0.0002744707625218605,
+            0.0017080953485496438,
+            -0.02781903385755044
+          ]
+        },
+        {
+          "time": 101.14945114299567,
+          "band_position": [
+            0.24766262695048982,
+            -0.01913997400322199,
+            -0.00022601237415647603,
+            0.0004162098410512016
+          ],
+          "band_clock": [
+            0.3736862631912789,
+            -0.01128131125074626,
+            -0.00017452307149819213,
+            0.00032416996007555987
+          ],
+          "band_position_derivative": [
+            0.0030109091130847837,
+            -0.00039748243374208847,
+            0.00021953981602353817,
+            0.0001722393384657045
+          ],
+          "band_clock_derivative": [
+            0.006396947270799799,
+            -0.00021774053411037497,
+            -0.0005977967020139221,
+            0.0016072955127333227
+          ]
+        },
+        {
+          "time": 202.29890228599135,
+          "band_position": [
+            0.4165719820959376,
+            -0.036051737402244544,
+            -0.0006825009033218782,
+            0.00037598204511526956
+          ],
+          "band_clock": [
+            0.6643699705358411,
+            0.011208077850040167,
+            -0.002352824711382845,
+            0.002440902301641623
+          ],
+          "band_position_derivative": [
+            0.002503699742824661,
+            -0.0006451998998117658,
+            0.000696438212328173,
+            0.00013951021384367435
+          ],
+          "band_clock_derivative": [
+            0.0016051051469720967,
+            0.004071696705243637,
+            -0.0007362873759174382,
+            -0.0013255357669345047
+          ]
+        }
+      ]
+    }
+  ],
+  "independent_320_cell_release": {
+    "cells": 320,
+    "bridge": [
+      1,
+      38
+    ],
+    "slow_gaps": [
+      0.0012773011028589512,
+      0.0012973223828004954,
+      0.0013072454156008262
+    ],
+    "rates": {
+      "position_rate": 0.0007333740944086193,
+      "clock_rate": 0.0012808697573676987,
+      "fraction_of_position_rate_on_bridge": 0.0040953100393386855,
+      "fractional_clock_response_to_bridge": -3.167302821960924,
+      "position_score_overlap": 0.5725594582822912
+    }
+  },
+  "source_comparisons": [
+    {
+      "cells": 20,
+      "forming_charge": -1,
+      "pump_charge": -1,
+      "pump_time": 0.5,
+      "collar_to_ordinary_modular_ratio": 0.008327950812035023,
+      "initial_bridge_multiplier": {
+        "ordinary": -0.0015608412641564527,
+        "collar": -3.156776124252359e-08,
+        "prediction": -1.2998609273289503e-05,
+        "residual": 1.2967041512046978e-05
+      },
+      "band_crossings": [
+        {
+          "time": 23.647533190683465,
+          "band_position": {
+            "reference_level": 0.2350264545664274,
+            "reference_time_slope": 0.004981306631328512,
+            "ordinary": -0.022303761860845067,
+            "collar": -2.997336735611402e-07,
+            "prediction": -0.00018574463170046047,
+            "residual": 0.00018544489802689934
+          },
+          "band_clock": {
+            "reference_level": 0.3379179607417211,
+            "reference_time_slope": 0.020993550356917016,
+            "ordinary": -0.01810029084953047,
+            "collar": -1.915170538364621e-07,
+            "prediction": -0.00015073833187841736,
+            "residual": 0.0001505468148245809
+          }
+        },
+        {
+          "time": 47.29506638136693,
+          "band_position": {
+            "reference_level": 0.25922387634227195,
+            "reference_time_slope": -0.010091536995559699,
+            "ordinary": -0.010916264670749807,
+            "collar": 1.3275930896394029e-07,
+            "prediction": -9.091011522916008e-05,
+            "residual": 9.104287453812402e-05
+          },
+          "band_clock": {
+            "reference_level": 0.27574230270009636,
+            "reference_time_slope": 0.0021010822827690744,
+            "ordinary": 0.016734408862117585,
+            "collar": -1.3387028724411807e-06,
+            "prediction": 0.00013936333387219824,
+            "residual": -0.00014070203674463943
+          }
+        }
+      ]
+    },
+    {
+      "cells": 20,
+      "forming_charge": 1,
+      "pump_charge": -1,
+      "pump_time": 0.5,
+      "collar_to_ordinary_modular_ratio": 0.01805968874403958,
+      "initial_bridge_multiplier": {
+        "ordinary": -0.0011973845065044342,
+        "collar": -2.889991757154542e-08,
+        "prediction": -2.162439149440552e-05,
+        "residual": 2.1595491576833973e-05
+      },
+      "band_crossings": [
+        {
+          "time": 23.647533190683465,
+          "band_position": {
+            "reference_level": 0.2172786846233085,
+            "reference_time_slope": 0.0055781151293394175,
+            "ordinary": -0.014098658793854739,
+            "collar": -2.236427600480736e-07,
+            "prediction": -0.00025461738952543307,
+            "residual": 0.000254393746765385
+          },
+          "band_clock": {
+            "reference_level": 0.27799682518428626,
+            "reference_time_slope": 0.027309607034884605,
+            "ordinary": -0.010113279779687592,
+            "collar": -1.1953414477500416e-07,
+            "prediction": -0.0001826426850025471,
+            "residual": 0.0001825231508577721
+          }
+        },
+        {
+          "time": 47.29506638136693,
+          "band_position": {
+            "reference_level": 0.29044354838225256,
+            "reference_time_slope": -0.009714196671550535,
+            "ordinary": -0.009942501228440336,
+            "collar": 1.4073997374631783e-07,
+            "prediction": -0.00017955847752286364,
+            "residual": 0.00017969921749660996
+          },
+          "band_clock": {
+            "reference_level": 0.28239309475155056,
+            "reference_time_slope": 0.005568638946592687,
+            "ordinary": 0.008346352816660107,
+            "collar": -4.7400734309112094e-07,
+            "prediction": 0.00015073253401681958,
+            "residual": -0.0001512065413599107
+          }
+        }
+      ]
+    },
+    {
+      "cells": 20,
+      "forming_charge": -1,
+      "pump_charge": -1,
+      "pump_time": 1.0,
+      "collar_to_ordinary_modular_ratio": 0.008327950812035023,
+      "initial_bridge_multiplier": {
+        "ordinary": 0.005203198453672309,
+        "collar": -2.287298945996552e-07,
+        "prediction": 4.333198078743968e-05,
+        "residual": -4.356071068203934e-05
+      },
+      "band_crossings": [
+        {
+          "time": 23.647533190683465,
+          "band_position": {
+            "reference_level": 0.22120202270630646,
+            "reference_time_slope": 0.0076394734938127415,
+            "ordinary": 0.003227380004584025,
+            "collar": -3.3526256741618846e-06,
+            "prediction": 2.687746192992113e-05,
+            "residual": -3.0230087604083015e-05
+          },
+          "band_clock": {
+            "reference_level": 0.28294153334324934,
+            "reference_time_slope": 0.0219647920972477,
+            "ordinary": 0.002015375491526278,
+            "collar": -4.106377169836121e-06,
+            "prediction": 1.678394796121175e-05,
+            "residual": -2.0890325131047873e-05
+          }
+        },
+        {
+          "time": 47.29506638136693,
+          "band_position": {
+            "reference_level": 0.3248861915298836,
+            "reference_time_slope": -0.0035631174690076432,
+            "ordinary": -0.023306877822687862,
+            "collar": -9.043059245738565e-06,
+            "prediction": -0.00019409853208945444,
+            "residual": 0.0001850554728437159
+          },
+          "band_clock": {
+            "reference_level": 0.32791162604447954,
+            "reference_time_slope": 0.008575813741347436,
+            "ordinary": 0.013958178899161516,
+            "collar": 1.8786764528175768e-06,
+            "prediction": 0.00011624302729780227,
+            "residual": -0.0001143643508449847
+          }
+        }
+      ]
+    },
+    {
+      "cells": 20,
+      "forming_charge": 1,
+      "pump_charge": -1,
+      "pump_time": 1.0,
+      "collar_to_ordinary_modular_ratio": 0.01805968874403958,
+      "initial_bridge_multiplier": {
+        "ordinary": 0.0029418479814497414,
+        "collar": -2.4709287397423063e-07,
+        "prediction": 5.3128858877263456e-05,
+        "residual": -5.3375951751237686e-05
+      },
+      "band_crossings": [
+        {
+          "time": 23.647533190683465,
+          "band_position": {
+            "reference_level": 0.21693024193504054,
+            "reference_time_slope": 0.008408755922315261,
+            "ordinary": 0.004303869367032084,
+            "collar": -2.8128632025319938e-06,
+            "prediction": 7.772654116360608e-05,
+            "residual": -8.053940436613808e-05
+          },
+          "band_clock": {
+            "reference_level": 0.2633362760153084,
+            "reference_time_slope": 0.015378490136101658,
+            "ordinary": 0.007367322957545037,
+            "collar": -5.392957810891623e-06,
+            "prediction": 0.0001330515594900805,
+            "residual": -0.00013844451730097212
+          }
+        },
+        {
+          "time": 47.29506638136693,
+          "band_position": {
+            "reference_level": 0.35994254629117767,
+            "reference_time_slope": -1.4191688901246582e-05,
+            "ordinary": 0.4837142093852871,
+            "collar": -0.0020292303358429445,
+            "prediction": 0.008735728062567474,
+            "residual": -0.010764958398410417
+          },
+          "band_clock": {
+            "reference_level": 0.36200861539139184,
+            "reference_time_slope": 0.006879271423338534,
+            "ordinary": 0.0034226969633162165,
+            "collar": 1.998171297105869e-06,
+            "prediction": 6.181284182266032e-05,
+            "residual": -5.981467052555445e-05
+          }
+        }
+      ]
+    },
+    {
+      "cells": 20,
+      "forming_charge": -1,
+      "pump_charge": -1,
+      "pump_time": 2.0,
+      "collar_to_ordinary_modular_ratio": 0.008327950812035023,
+      "initial_bridge_multiplier": {
+        "ordinary": 0.008900544448666203,
+        "collar": 5.93723209175584e-06,
+        "prediction": 7.412329636882352e-05,
+        "residual": -6.818606427706768e-05
+      },
+      "band_crossings": [
+        {
+          "time": 23.647533190683465,
+          "band_position": {
+            "reference_level": 0.23926269461748842,
+            "reference_time_slope": 0.006422743002291876,
+            "ordinary": -0.0037054497385215455,
+            "collar": 1.1764143126106034e-05,
+            "prediction": -3.085880315887547e-05,
+            "residual": 4.26229462849815e-05
+          },
+          "band_clock": {
+            "reference_level": 0.3449437743615777,
+            "reference_time_slope": 0.013455403416081708,
+            "ordinary": -0.0015313191121516592,
+            "collar": 2.0606353576702746e-05,
+            "prediction": -1.2752750243528162e-05,
+            "residual": 3.3359103820230906e-05
+          }
+        },
+        {
+          "time": 47.29506638136693,
+          "band_position": {
+            "reference_level": 0.28880132136012177,
+            "reference_time_slope": -0.0049143353384147005,
+            "ordinary": 0.025775475842803798,
+            "collar": 2.4405680074670767e-05,
+            "prediction": 0.000214656894975667,
+            "residual": -0.00019025121490099625
+          },
+          "band_clock": {
+            "reference_level": 0.31678347354515085,
+            "reference_time_slope": 0.002355546633077516,
+            "ordinary": -0.06897796780178306,
+            "collar": -3.1314532557471225e-05,
+            "prediction": -0.0005744451229673849,
+            "residual": 0.0005431305904099136
+          }
+        }
+      ]
+    },
+    {
+      "cells": 20,
+      "forming_charge": 1,
+      "pump_charge": -1,
+      "pump_time": 2.0,
+      "collar_to_ordinary_modular_ratio": 0.01805968874403958,
+      "initial_bridge_multiplier": {
+        "ordinary": -0.0006017626835502804,
+        "collar": 5.160009251981013e-06,
+        "prediction": -1.0867646762696052e-05,
+        "residual": 1.6027656014677064e-05
+      },
+      "band_crossings": [
+        {
+          "time": 23.647533190683465,
+          "band_position": {
+            "reference_level": 0.2374061380471173,
+            "reference_time_slope": 0.004272540199010291,
+            "ordinary": -0.033439415937271066,
+            "collar": 1.5888343446755513e-05,
+            "prediction": -0.000603905443609592,
+            "residual": 0.0006197937870563476
+          },
+          "band_clock": {
+            "reference_level": 0.3471963576464495,
+            "reference_time_slope": 0.018461789566830863,
+            "ordinary": -0.02592887970538503,
+            "collar": 1.3498336097475995e-05,
+            "prediction": -0.00046826749696089834,
+            "residual": 0.00048176583305837434
+          }
+        },
+        {
+          "time": 47.29506638136693,
+          "band_position": {
+            "reference_level": 0.24954106318044117,
+            "reference_time_slope": -0.011251520243304272,
+            "ordinary": -0.010396648439933572,
+            "collar": 9.611705967403156e-06,
+            "prediction": -0.00018776023480640498,
+            "residual": 0.00019737194077380814
+          },
+          "band_clock": {
+            "reference_level": 0.26908510694955995,
+            "reference_time_slope": -0.0009014854988820308,
+            "ordinary": -0.019111924508561168,
+            "collar": 7.41161343830535e-05,
+            "prediction": -0.0003451554079241963,
+            "residual": 0.0004192715423072498
+          }
+        }
+      ]
+    },
+    {
+      "cells": 20,
+      "forming_charge": -1,
+      "pump_charge": -1,
+      "pump_time": 4.0,
+      "collar_to_ordinary_modular_ratio": 0.008327950812035023,
+      "initial_bridge_multiplier": {
+        "ordinary": 0.0016360026218409332,
+        "collar": -6.2752864412943254e-06,
+        "prediction": 1.3624549363051627e-05,
+        "residual": -1.9899835804345954e-05
+      },
+      "band_crossings": [
+        {
+          "time": 23.647533190683465,
+          "band_position": {
+            "reference_level": 0.24099489566586446,
+            "reference_time_slope": 0.00514821008496619,
+            "ordinary": 0.010860389847993276,
+            "collar": -5.0496692860631294e-05,
+            "prediction": 9.044479245361253e-05,
+            "residual": -0.00014094148531424382
+          },
+          "band_clock": {
+            "reference_level": 0.3500343146814741,
+            "reference_time_slope": 0.001732337954829406,
+            "ordinary": 0.13067876726085897,
+            "collar": -0.00047373535703892856,
+            "prediction": 0.0010882863459258064,
+            "residual": -0.0015620217029647348
+          }
+        },
+        {
+          "time": 47.29506638136693,
+          "band_position": {
+            "reference_level": 0.2928257743372168,
+            "reference_time_slope": -0.005208870625692855,
+            "ordinary": 0.027991238855902302,
+            "collar": -1.5059329519097832e-05,
+            "prediction": 0.00023310966035987787,
+            "residual": -0.0002481689898789757
+          },
+          "band_clock": {
+            "reference_level": 0.32644562059823623,
+            "reference_time_slope": -0.00694757626630688,
+            "ordinary": 0.01761025459584436,
+            "collar": 1.837001779075108e-05,
+            "prediction": 0.00014665733406160552,
+            "residual": -0.00012828731627085444
+          }
+        }
+      ]
+    },
+    {
+      "cells": 20,
+      "forming_charge": 1,
+      "pump_charge": -1,
+      "pump_time": 4.0,
+      "collar_to_ordinary_modular_ratio": 0.01805968874403958,
+      "initial_bridge_multiplier": {
+        "ordinary": 0.0053012930339011504,
+        "collar": -5.808213652973293e-06,
+        "prediction": 9.573970213320005e-05,
+        "residual": -0.00010154791578617334
+      },
+      "band_crossings": [
+        {
+          "time": 23.647533190683465,
+          "band_position": {
+            "reference_level": 0.2127791141224421,
+            "reference_time_slope": 0.006780586577817183,
+            "ordinary": -0.016849277407081233,
+            "collar": -3.354155926042102e-05,
+            "prediction": -0.00030429270553386533,
+            "residual": 0.0002707511462734443
+          },
+          "band_clock": {
+            "reference_level": 0.2578867450088724,
+            "reference_time_slope": 0.024687953283670468,
+            "ordinary": -0.017232327277076992,
+            "collar": -2.870426418000936e-05,
+            "prediction": -0.0003112104669594336,
+            "residual": 0.00028250620277942424
+          }
+        },
+        {
+          "time": 47.29506638136693,
+          "band_position": {
+            "reference_level": 0.32343146963791275,
+            "reference_time_slope": -0.006069742758377062,
+            "ordinary": -0.034340032435445374,
+            "collar": -7.2938074895308846e-06,
+            "prediction": -0.0006201702972443669,
+            "residual": 0.000612876489754836
+          },
+          "band_clock": {
+            "reference_level": 0.31297389845354057,
+            "reference_time_slope": 0.007051862302154374,
+            "ordinary": 0.021322779320445538,
+            "collar": -1.9872708597310215e-05,
+            "prediction": 0.0003850827576850902,
+            "residual": -0.0004049554662824004
+          }
+        }
+      ]
+    },
+    {
+      "cells": 20,
+      "forming_charge": -1,
+      "pump_charge": 1,
+      "pump_time": 0.5,
+      "collar_to_ordinary_modular_ratio": 0.008327950812035023,
+      "initial_bridge_multiplier": {
+        "ordinary": -0.0008165883520214398,
+        "collar": -2.890246434683608e-08,
+        "prediction": -6.800507629315291e-06,
+        "residual": 6.771605164968455e-06
+      },
+      "band_crossings": [
+        {
+          "time": 23.647533190683465,
+          "band_position": {
+            "reference_level": 0.2145055419244887,
+            "reference_time_slope": 0.005661413286741078,
+            "ordinary": -0.004971453214865549,
+            "collar": 2.192665067069046e-07,
+            "prediction": -4.140201783773367e-05,
+            "residual": 4.162128434444058e-05
+          },
+          "band_clock": {
+            "reference_level": 0.2686794946248405,
+            "reference_time_slope": 0.028333896977789853,
+            "ordinary": -0.003575454037460726,
+            "collar": 2.1266482835032864e-07,
+            "prediction": -2.9776205354664955e-05,
+            "residual": 2.9988870183015283e-05
+          }
+        },
+        {
+          "time": 47.29506638136693,
+          "band_position": {
+            "reference_level": 0.2950901459636262,
+            "reference_time_slope": -0.009688217501801228,
+            "ordinary": -0.004194960757165839,
+            "collar": 6.064887009171197e-07,
+            "prediction": -3.49354268440943e-05,
+            "residual": 3.554191554501142e-05
+          },
+          "band_clock": {
+            "reference_level": 0.2831657850501374,
+            "reference_time_slope": 0.006103387093686658,
+            "ordinary": 0.0038504103647835778,
+            "collar": -9.533395730157213e-07,
+            "prediction": 3.206602812406747e-05,
+            "residual": -3.3019367697083186e-05
+          }
+        }
+      ]
+    },
+    {
+      "cells": 20,
+      "forming_charge": 1,
+      "pump_charge": 1,
+      "pump_time": 0.5,
+      "collar_to_ordinary_modular_ratio": 0.01805968874403958,
+      "initial_bridge_multiplier": {
+        "ordinary": -0.0015119418936068788,
+        "collar": -2.7127852651742668e-08,
+        "prediction": -2.7305199997614038e-05,
+        "residual": 2.7278072144962295e-05
+      },
+      "band_crossings": [
+        {
+          "time": 23.647533190683465,
+          "band_position": {
+            "reference_level": 0.2339183669379078,
+            "reference_time_slope": 0.005021470787392474,
+            "ordinary": -0.021940374790950522,
+            "collar": 2.394400027228521e-07,
+            "prediction": -0.00039623633965213894,
+            "residual": 0.0003964757796548618
+          },
+          "band_clock": {
+            "reference_level": 0.33419132866940404,
+            "reference_time_slope": 0.021446028946315726,
+            "ordinary": -0.017590045255393816,
+            "collar": 2.704795970072774e-07,
+            "prediction": -0.0003176707423059825,
+            "residual": 0.00031794122190298977
+          }
+        },
+        {
+          "time": 47.29506638136693,
+          "band_position": {
+            "reference_level": 0.2610848461904293,
+            "reference_time_slope": -0.010074974538912356,
+            "ordinary": -0.010954610636457786,
+            "collar": 5.556807840493361e-07,
+            "prediction": -0.00019783685840657294,
+            "residual": 0.00019839253919062228
+          },
+          "band_clock": {
+            "reference_level": 0.27604642218697645,
+            "reference_time_slope": 0.0023553196214600243,
+            "ordinary": 0.015367348283367107,
+            "collar": -2.3468281142878547e-06,
+            "prediction": 0.00027752952681886093,
+            "residual": -0.00027987635493314876
+          }
+        }
+      ]
+    },
+    {
+      "cells": 20,
+      "forming_charge": -1,
+      "pump_charge": 1,
+      "pump_time": 1.0,
+      "collar_to_ordinary_modular_ratio": 0.008327950812035023,
+      "initial_bridge_multiplier": {
+        "ordinary": 9.688951413346775e-05,
+        "collar": -5.223532079129401e-07,
+        "prediction": 8.068911079054915e-07,
+        "residual": -1.3292443158184317e-06
+      },
+      "band_crossings": [
+        {
+          "time": 23.647533190683465,
+          "band_position": {
+            "reference_level": 0.21804691264211146,
+            "reference_time_slope": 0.008420512708226243,
+            "ordinary": 0.0024256387094857956,
+            "collar": -2.444647517823646e-06,
+            "prediction": 2.0200599860365817e-05,
+            "residual": -2.2645247378189464e-05
+          },
+          "band_clock": {
+            "reference_level": 0.2667777921067249,
+            "reference_time_slope": 0.014540084966173369,
+            "ordinary": 0.004726928880100725,
+            "collar": -4.940067577414904e-06,
+            "prediction": 3.936563120546664e-05,
+            "residual": -4.4305698782881544e-05
+          }
+        },
+        {
+          "time": 47.29506638136693,
+          "band_position": {
+            "reference_level": 0.3597024052596696,
+            "reference_time_slope": 0.0001869865684442193,
+            "ordinary": -0.09347783842202927,
+            "collar": 0.00012790887359559862,
+            "prediction": -0.0007784788403940173,
+            "residual": 0.000906387713989616
+          },
+          "band_clock": {
+            "reference_level": 0.3636099697570819,
+            "reference_time_slope": 0.00656388487165149,
+            "ordinary": -0.0005082957164224512,
+            "collar": 1.5954648694656273e-06,
+            "prediction": -4.233061724334276e-06,
+            "residual": 5.828526593799904e-06
+          }
+        }
+      ]
+    },
+    {
+      "cells": 20,
+      "forming_charge": 1,
+      "pump_charge": 1,
+      "pump_time": 1.0,
+      "collar_to_ordinary_modular_ratio": 0.01805968874403958,
+      "initial_bridge_multiplier": {
+        "ordinary": 0.005953080428507934,
+        "collar": -4.834497180833397e-07,
+        "prediction": 0.00010751077960708706,
+        "residual": -0.00010799422932517041
+      },
+      "band_crossings": [
+        {
+          "time": 23.647533190683465,
+          "band_position": {
+            "reference_level": 0.21687551094741334,
+            "reference_time_slope": 0.007824844078916286,
+            "ordinary": 0.0077559679446082,
+            "collar": -2.5024066643322207e-06,
+            "prediction": 0.0001400703669883725,
+            "residual": -0.00014257277365270471
+          },
+          "band_clock": {
+            "reference_level": 0.26825606196539875,
+            "reference_time_slope": 0.023613550488907915,
+            "ordinary": 0.007030812074822347,
+            "collar": -2.8987157929463556e-06,
+            "prediction": 0.0001269742776891267,
+            "residual": -0.00012987299348207306
+          }
+        },
+        {
+          "time": 47.29506638136693,
+          "band_position": {
+            "reference_level": 0.3328406231346981,
+            "reference_time_slope": -0.0034012828313669725,
+            "ordinary": -0.015098929862597692,
+            "collar": -6.786341503960266e-06,
+            "prediction": -0.0002726819736865986,
+            "residual": 0.00026589563218263837
+          },
+          "band_clock": {
+            "reference_level": 0.32989271284980126,
+            "reference_time_slope": 0.009583213034581425,
+            "ordinary": 0.01180419627006721,
+            "collar": 1.0804671818849643e-06,
+            "prediction": 0.0002131801105109668,
+            "residual": -0.00021209964332908184
+          }
+        }
+      ]
+    },
+    {
+      "cells": 20,
+      "forming_charge": -1,
+      "pump_charge": 1,
+      "pump_time": 2.0,
+      "collar_to_ordinary_modular_ratio": 0.008327950812035023,
+      "initial_bridge_multiplier": {
+        "ordinary": -0.00647684273094485,
+        "collar": 2.3597514594103642e-06,
+        "prediction": -5.3938827680595296e-05,
+        "residual": 5.629857914000566e-05
+      },
+      "band_crossings": [
+        {
+          "time": 23.647533190683465,
+          "band_position": {
+            "reference_level": 0.23200420739710337,
+            "reference_time_slope": 0.004490966340713981,
+            "ordinary": -0.011011388265544694,
+            "collar": 7.967298296843068e-06,
+            "prediction": -9.170229984767586e-05,
+            "residual": 9.966959814451892e-05
+          },
+          "band_clock": {
+            "reference_level": 0.3293804572010465,
+            "reference_time_slope": 0.02171084880316456,
+            "ordinary": -0.008044570213522135,
+            "collar": 6.162370468259636e-06,
+            "prediction": -6.699478504217442e-05,
+            "residual": 7.315715551043406e-05
+          }
+        },
+        {
+          "time": 47.29506638136693,
+          "band_position": {
+            "reference_level": 0.256594196139254,
+            "reference_time_slope": -0.01136730738384752,
+            "ordinary": -0.005177032225421107,
+            "collar": 5.594374006264169e-06,
+            "prediction": -4.311406972562719e-05,
+            "residual": 4.870844373189136e-05
+          },
+          "band_clock": {
+            "reference_level": 0.2680875169838758,
+            "reference_time_slope": 0.0009370783469594491,
+            "ordinary": 0.025712672834205037,
+            "collar": -4.5958098469944746e-05,
+            "prediction": 0.0002141338746092087,
+            "residual": -0.00026009197307915344
+          }
+        }
+      ]
+    },
+    {
+      "cells": 20,
+      "forming_charge": 1,
+      "pump_charge": 1,
+      "pump_time": 2.0,
+      "collar_to_ordinary_modular_ratio": 0.01805968874403958,
+      "initial_bridge_multiplier": {
+        "ordinary": 0.009138869365059692,
+        "collar": 2.3027266133651693e-06,
+        "prediction": 0.00016504513620541666,
+        "residual": -0.0001627424095920515
+      },
+      "band_crossings": [
+        {
+          "time": 23.647533190683465,
+          "band_position": {
+            "reference_level": 0.23523865015861903,
+            "reference_time_slope": 0.006729330261343351,
+            "ordinary": -0.004510858468903383,
+            "collar": 4.905262950858292e-06,
+            "prediction": -8.146469991681003e-05,
+            "residual": 8.636996286766833e-05
+          },
+          "band_clock": {
+            "reference_level": 0.331109965654022,
+            "reference_time_slope": 0.01557280472496459,
+            "ordinary": -0.003914058350568313,
+            "collar": 7.956088597523999e-06,
+            "prediction": -7.06866755372727e-05,
+            "residual": 7.86427641347967e-05
+          }
+        },
+        {
+          "time": 47.29506638136693,
+          "band_position": {
+            "reference_level": 0.296866513376066,
+            "reference_time_slope": -0.0045810550647594804,
+            "ordinary": 0.016043246933463776,
+            "collar": 1.3052079712530596e-05,
+            "prediction": 0.00028973604606212326,
+            "residual": -0.0002766839663495927
+          },
+          "band_clock": {
+            "reference_level": 0.3192427712474465,
+            "reference_time_slope": 0.003950006869793136,
+            "ordinary": -0.026824210740850805,
+            "collar": -1.0373288019892987e-05,
+            "prediction": -0.0004844368967842889,
+            "residual": 0.0004740636087643959
+          }
+        }
+      ]
+    },
+    {
+      "cells": 20,
+      "forming_charge": -1,
+      "pump_charge": 1,
+      "pump_time": 4.0,
+      "collar_to_ordinary_modular_ratio": 0.008327950812035023,
+      "initial_bridge_multiplier": {
+        "ordinary": -0.001989459551760112,
+        "collar": -1.1444223069301264e-05,
+        "prediction": -1.6568121289591456e-05,
+        "residual": 5.123898220290193e-06
+      },
+      "band_crossings": [
+        {
+          "time": 23.647533190683465,
+          "band_position": {
+            "reference_level": 0.20710084464733497,
+            "reference_time_slope": 0.007461867017935866,
+            "ordinary": 0.004020115494424545,
+            "collar": -3.434929534526027e-05,
+            "prediction": 3.347932409626747e-05,
+            "residual": -6.782861944152775e-05
+          },
+          "band_clock": {
+            "reference_level": 0.23703670870746923,
+            "reference_time_slope": 0.026265421619875242,
+            "ordinary": 0.002228748234291127,
+            "collar": -3.1223273041519836e-05,
+            "prediction": 1.8560905667586413e-05,
+            "residual": -4.978417870910625e-05
+          }
+        },
+        {
+          "time": 47.29506638136693,
+          "band_position": {
+            "reference_level": 0.3416714739782539,
+            "reference_time_slope": -0.004660968047084034,
+            "ordinary": -0.017694840993357504,
+            "collar": -2.181332591897942e-05,
+            "prediction": -0.00014736176541946223,
+            "residual": 0.0001255484395004828
+          },
+          "band_clock": {
+            "reference_level": 0.3244046728584898,
+            "reference_time_slope": 0.00923206086170204,
+            "ordinary": 0.012973888139466677,
+            "collar": -1.0857139826205237e-05,
+            "prediction": 0.00010804590226632307,
+            "residual": -0.00011890304209252831
+          }
+        }
+      ]
+    },
+    {
+      "cells": 20,
+      "forming_charge": 1,
+      "pump_charge": 1,
+      "pump_time": 4.0,
+      "collar_to_ordinary_modular_ratio": 0.01805968874403958,
+      "initial_bridge_multiplier": {
+        "ordinary": 0.009312306205638249,
+        "collar": -1.156497693610703e-05,
+        "prediction": 0.00016817735156301501,
+        "residual": -0.00017974232849912204
+      },
+      "band_crossings": [
+        {
+          "time": 23.647533190683465,
+          "band_position": {
+            "reference_level": 0.2371765265708138,
+            "reference_time_slope": 0.006491558029069256,
+            "ordinary": 0.006904089610467408,
+            "collar": -3.9169034304276187e-05,
+            "prediction": 0.00012468570942599885,
+            "residual": -0.00016385474373027505
+          },
+          "band_clock": {
+            "reference_level": 0.3375699188468548,
+            "reference_time_slope": 0.013368282121963934,
+            "ordinary": 0.015019460670334439,
+            "collar": -6.12262094111745e-05,
+            "prediction": 0.00027124678480958407,
+            "residual": -0.00033247299422075856
+          }
+        },
+        {
+          "time": 47.29506638136693,
+          "band_position": {
+            "reference_level": 0.2943228765330141,
+            "reference_time_slope": -0.004673580527012273,
+            "ordinary": 0.03438596489357938,
+            "collar": -2.427744829762139e-05,
+            "prediction": 0.0006209998231415158,
+            "residual": -0.0006452772714391372
+          },
+          "band_clock": {
+            "reference_level": 0.31981220102971936,
+            "reference_time_slope": 0.0023308601543540345,
+            "ordinary": -0.06218218546546362,
+            "collar": -3.641966709249766e-05,
+            "prediction": -0.001122990914930415,
+            "residual": 0.0010865712478379174
+          }
+        }
+      ]
+    },
+    {
+      "cells": 80,
+      "forming_charge": -1,
+      "pump_charge": -1,
+      "pump_time": 0.5,
+      "collar_to_ordinary_modular_ratio": 0.869187152933542,
+      "initial_bridge_multiplier": {
+        "ordinary": -0.0012184957586623706,
+        "collar": 1.1875692167775953e-06,
+        "prediction": -0.0010591008593333422,
+        "residual": 0.0010602884285501198
+      },
+      "band_crossings": [
+        {
+          "time": 101.14945114299567,
+          "band_position": {
+            "reference_level": 0.25068104038170463,
+            "reference_time_slope": 0.0029338198091274892,
+            "ordinary": 0.003300290901315333,
+            "collar": -1.7356132706202345e-05,
+            "prediction": 0.0028685704523667478,
+            "residual": -0.00288592658507295
+          },
+          "band_clock": {
+            "reference_level": 0.3755259185357025,
+            "reference_time_slope": 0.007453035572127201,
+            "ordinary": 0.0007656377295923988,
+            "collar": -4.023769388396125e-06,
+            "prediction": 0.0006654824783629182,
+            "residual": -0.0006695062477513143
+          }
+        },
+        {
+          "time": 202.29890228599135,
+          "band_position": {
+            "reference_level": 0.42234699189706437,
+            "reference_time_slope": 0.0020425669102629575,
+            "ordinary": 0.004451693165821535,
+            "collar": -2.3431169098703125e-05,
+            "prediction": 0.003869354508534126,
+            "residual": -0.0038927856776328294
+          },
+          "band_clock": {
+            "reference_level": 0.6655884774050936,
+            "reference_time_slope": 0.0012395460040638565,
+            "ordinary": -0.002346664595714034,
+            "collar": 1.2638287624010577e-05,
+            "prediction": -0.0020396907188386226,
+            "residual": 0.0020523290064626333
+          }
+        }
+      ]
+    },
+    {
+      "cells": 80,
+      "forming_charge": 1,
+      "pump_charge": -1,
+      "pump_time": 0.5,
+      "collar_to_ordinary_modular_ratio": 1.271801024495397,
+      "initial_bridge_multiplier": {
+        "ordinary": -0.0011906493113893705,
+        "collar": 1.5372598624552315e-06,
+        "prediction": -0.0015142690140397402,
+        "residual": 0.0015158062739021954
+      },
+      "band_crossings": [
+        {
+          "time": 101.14945114299567,
+          "band_position": {
+            "reference_level": 0.25103967070727123,
+            "reference_time_slope": 0.002940738723756189,
+            "ordinary": 0.003328127102500952,
+            "collar": -2.240839909065623e-05,
+            "prediction": 0.004232715458611608,
+            "residual": -0.004255123857702264
+          },
+          "band_clock": {
+            "reference_level": 0.37573768287228126,
+            "reference_time_slope": 0.007463868826933583,
+            "ordinary": 0.000772731658329781,
+            "collar": -5.199760382749213e-06,
+            "prediction": 0.0009827609147238425,
+            "residual": -0.0009879606751065917
+          }
+        },
+        {
+          "time": 202.29890228599135,
+          "band_position": {
+            "reference_level": 0.4230225281106696,
+            "reference_time_slope": 0.0020519762395653507,
+            "ordinary": 0.004478894393725101,
+            "collar": -3.0184159960451092e-05,
+            "prediction": 0.0056962624785462735,
+            "residual": -0.0057264466385067245
+          },
+          "band_clock": {
+            "reference_level": 0.6653961429932194,
+            "reference_time_slope": 0.0011633574946648582,
+            "ordinary": -0.0025376365073911645,
+            "collar": 1.7426434681438195e-05,
+            "prediction": -0.003227368709897004,
+            "residual": 0.003244795144578442
+          }
+        }
+      ]
+    },
+    {
+      "cells": 80,
+      "forming_charge": -1,
+      "pump_charge": -1,
+      "pump_time": 1.0,
+      "collar_to_ordinary_modular_ratio": 0.869187152933542,
+      "initial_bridge_multiplier": {
+        "ordinary": 0.003263599597675379,
+        "collar": -7.110067568993767e-05,
+        "prediction": 0.002836678842618516,
+        "residual": -0.0029077795183084535
+      },
+      "band_crossings": [
+        {
+          "time": 101.14945114299567,
+          "band_position": {
+            "reference_level": 0.25908482534293065,
+            "reference_time_slope": 0.003437645854831391,
+            "ordinary": -0.0008722436029807067,
+            "collar": 2.6856351942894903e-05,
+            "prediction": -0.0007581429339392952,
+            "residual": 0.0007849992858821901
+          },
+          "band_clock": {
+            "reference_level": 0.38043157108541226,
+            "reference_time_slope": 0.006918096786402157,
+            "ordinary": -0.0002595558620532134,
+            "collar": 7.969539025749985e-06,
+            "prediction": -0.00022560262076524372,
+            "residual": 0.0002335721597909937
+          }
+        },
+        {
+          "time": 202.29890228599135,
+          "band_position": {
+            "reference_level": 0.4377727231046392,
+            "reference_time_slope": 0.0033133904388993347,
+            "ordinary": -0.0008593935325472547,
+            "collar": 2.6491773885220275e-05,
+            "prediction": -0.0007469738178042476,
+            "residual": 0.0007734655916894678
+          },
+          "band_clock": {
+            "reference_level": 0.6575555880163302,
+            "reference_time_slope": -0.0017796135048751519,
+            "ordinary": -9.786170598303741e-05,
+            "collar": 4.859490483213906e-06,
+            "prediction": -8.506013760461567e-05,
+            "residual": 8.991962808782957e-05
+          }
+        }
+      ]
+    },
+    {
+      "cells": 80,
+      "forming_charge": 1,
+      "pump_charge": -1,
+      "pump_time": 1.0,
+      "collar_to_ordinary_modular_ratio": 1.271801024495397,
+      "initial_bridge_multiplier": {
+        "ordinary": 0.0034557183864042038,
+        "collar": -9.202092642999205e-05,
+        "prediction": 0.004394986184196446,
+        "residual": -0.004487007110626438
+      },
+      "band_crossings": [
+        {
+          "time": 101.14945114299567,
+          "band_position": {
+            "reference_level": 0.2590962649391055,
+            "reference_time_slope": 0.0034423545193178833,
+            "ordinary": -0.0011927473318864175,
+            "collar": 3.4717319362072953e-05,
+            "prediction": -0.001516937278657297,
+            "residual": 0.0015516545980193699
+          },
+          "band_clock": {
+            "reference_level": 0.38043721533829283,
+            "reference_time_slope": 0.006901224893675131,
+            "ordinary": -0.00035480287289877907,
+            "collar": 1.0341570973886637e-05,
+            "prediction": -0.00045123865724657733,
+            "residual": 0.00046158022822046397
+          }
+        },
+        {
+          "time": 202.29890228599135,
+          "band_position": {
+            "reference_level": 0.43778970641266923,
+            "reference_time_slope": 0.003328792956828167,
+            "ordinary": -0.0011678014880318246,
+            "collar": 3.413424447421631e-05,
+            "prediction": -0.0014852111288861235,
+            "residual": 0.00151934537336034
+          },
+          "band_clock": {
+            "reference_level": 0.6574880000913997,
+            "reference_time_slope": -0.0017960115747015606,
+            "ordinary": -0.00027846485746433133,
+            "collar": 6.23472786468102e-06,
+            "prediction": -0.0003541518910091013,
+            "residual": 0.0003603866188737823
+          }
+        }
+      ]
+    },
+    {
+      "cells": 80,
+      "forming_charge": -1,
+      "pump_charge": -1,
+      "pump_time": 2.0,
+      "collar_to_ordinary_modular_ratio": 0.869187152933542,
+      "initial_bridge_multiplier": {
+        "ordinary": -0.0016803556149906447,
+        "collar": 0.000181728862742285,
+        "prediction": -0.0014605435129096094,
+        "residual": 0.0016422723756518945
+      },
+      "band_crossings": [
+        {
+          "time": 101.14945114299567,
+          "band_position": {
+            "reference_level": 0.24043884979740213,
+            "reference_time_slope": 0.002715615621149593,
+            "ordinary": 0.0058123903624428454,
+            "collar": -0.00013355521804818846,
+            "prediction": 0.005052055030870055,
+            "residual": -0.005185610248918244
+          },
+          "band_clock": {
+            "reference_level": 0.3694717017356724,
+            "reference_time_slope": 0.007007807587233227,
+            "ordinary": 0.0013311086798560485,
+            "collar": -3.070018971460564e-05,
+            "prediction": 0.0011569825636892044,
+            "residual": -0.00118768275340381
+          }
+        },
+        {
+          "time": 202.29890228599135,
+          "band_position": {
+            "reference_level": 0.4030984635753923,
+            "reference_time_slope": 0.0017454588733157204,
+            "ordinary": 0.008541737656772058,
+            "collar": -0.00019607901823096615,
+            "prediction": 0.007424368634994929,
+            "residual": -0.007620447653225895
+          },
+          "band_clock": {
+            "reference_level": 0.6708890168804206,
+            "reference_time_slope": 0.003549689594973605,
+            "ordinary": -0.0011135265383161533,
+            "collar": 2.061617398579141e-05,
+            "prediction": -0.0009678629615549599,
+            "residual": 0.0009884791355407514
+          }
+        }
+      ]
+    },
+    {
+      "cells": 80,
+      "forming_charge": 1,
+      "pump_charge": -1,
+      "pump_time": 2.0,
+      "collar_to_ordinary_modular_ratio": 1.271801024495397,
+      "initial_bridge_multiplier": {
+        "ordinary": -0.0018306687807969403,
+        "collar": 0.00023509993466585833,
+        "prediction": -0.002328246430929288,
+        "residual": 0.0025633463655951464
+      },
+      "band_crossings": [
+        {
+          "time": 101.14945114299567,
+          "band_position": {
+            "reference_level": 0.2412466865662123,
+            "reference_time_slope": 0.002727983280160733,
+            "ordinary": 0.00630481867288183,
+            "collar": -0.00017202008046703302,
+            "prediction": 0.008018474847428821,
+            "residual": -0.008190494927895853
+          },
+          "band_clock": {
+            "reference_level": 0.3699501131761594,
+            "reference_time_slope": 0.0070558242672131306,
+            "ordinary": 0.0014395700166175754,
+            "collar": -3.945176443456117e-05,
+            "prediction": 0.0018308466219670882,
+            "residual": -0.0018702983864016494
+          }
+        },
+        {
+          "time": 202.29890228599135,
+          "band_position": {
+            "reference_level": 0.4046222022519873,
+            "reference_time_slope": 0.001753678497965409,
+            "ordinary": 0.009251269046807266,
+            "collar": -0.00025251180583223646,
+            "prediction": 0.011765773451612036,
+            "residual": -0.012018285257444273
+          },
+          "band_clock": {
+            "reference_level": 0.6705247170899301,
+            "reference_time_slope": 0.0033844063263030136,
+            "ordinary": -0.001336326203438947,
+            "collar": 2.7981137455998103e-05,
+            "prediction": -0.0016995410345936972,
+            "residual": 0.0017275221720496952
+          }
+        }
+      ]
+    },
+    {
+      "cells": 80,
+      "forming_charge": -1,
+      "pump_charge": -1,
+      "pump_time": 4.0,
+      "collar_to_ordinary_modular_ratio": 0.869187152933542,
+      "initial_bridge_multiplier": {
+        "ordinary": 0.0022469669455045293,
+        "collar": 0.00047401483978334744,
+        "prediction": 0.0019530348020988589,
+        "residual": -0.0014790199623155114
+      },
+      "band_crossings": [
+        {
+          "time": 101.14945114299567,
+          "band_position": {
+            "reference_level": 0.2548406818281481,
+            "reference_time_slope": 0.003125942936585691,
+            "ordinary": 0.007318854620789981,
+            "collar": -0.00035392998013221026,
+            "prediction": 0.006361454410578941,
+            "residual": -0.006715384390711151
+          },
+          "band_clock": {
+            "reference_level": 0.3779629822237115,
+            "reference_time_slope": 0.007309466729909129,
+            "ordinary": 0.0018384736607939007,
+            "collar": -8.937000506270208e-05,
+            "prediction": 0.001597977686968757,
+            "residual": -0.0016873476920314591
+          }
+        },
+        {
+          "time": 202.29890228599135,
+          "band_position": {
+            "reference_level": 0.430051206069481,
+            "reference_time_slope": 0.0024976776710921994,
+            "ordinary": 0.008586579355983566,
+            "collar": -0.00041485175492375354,
+            "prediction": 0.007463344463865282,
+            "residual": -0.007878196218789036
+          },
+          "band_clock": {
+            "reference_level": 0.6621790336737483,
+            "reference_time_slope": -4.452610435424858e-05,
+            "ordinary": 0.17955449827568892,
+            "collar": -0.006984314658106378,
+            "prediction": 0.15606646315265663,
+            "residual": -0.163050777810763
+          }
+        }
+      ]
+    },
+    {
+      "cells": 80,
+      "forming_charge": 1,
+      "pump_charge": -1,
+      "pump_time": 4.0,
+      "collar_to_ordinary_modular_ratio": 1.271801024495397,
+      "initial_bridge_multiplier": {
+        "ordinary": 0.004800498370163259,
+        "collar": 0.0006134477792229698,
+        "prediction": 0.006105278745262116,
+        "residual": -0.005491830966039147
+      },
+      "band_crossings": [
+        {
+          "time": 101.14945114299567,
+          "band_position": {
+            "reference_level": 0.25601373773504077,
+            "reference_time_slope": 0.0031605833380445618,
+            "ordinary": 0.004909569272917356,
+            "collar": -0.0004528834937836384,
+            "prediction": 0.0062439952311274145,
+            "residual": -0.006696878724911053
+          },
+          "band_clock": {
+            "reference_level": 0.37865455693771927,
+            "reference_time_slope": 0.007333954851734159,
+            "ordinary": 0.0012377221013558416,
+            "collar": -0.00011523771960712092,
+            "prediction": 0.001574136236544955,
+            "residual": -0.0016893739561520758
+          }
+        },
+        {
+          "time": 202.29890228599135,
+          "band_position": {
+            "reference_level": 0.43224482008710713,
+            "reference_time_slope": 0.0025621724270991813,
+            "ordinary": 0.005657515138221178,
+            "collar": -0.0005232090799446866,
+            "prediction": 0.007195233548887911,
+            "residual": -0.007718442628832598
+          },
+          "band_clock": {
+            "reference_level": 0.6614630450316368,
+            "reference_time_slope": -0.0003425725186720922,
+            "ordinary": 0.018647808971303227,
+            "collar": -0.001174480611686173,
+            "prediction": 0.0237163025542979,
+            "residual": -0.024890783165984073
+          }
+        }
+      ]
+    },
+    {
+      "cells": 80,
+      "forming_charge": -1,
+      "pump_charge": 1,
+      "pump_time": 0.5,
+      "collar_to_ordinary_modular_ratio": 0.869187152933542,
+      "initial_bridge_multiplier": {
+        "ordinary": -0.0008281025941383385,
+        "collar": 3.970230176919554e-06,
+        "prediction": -0.0007197761361359829,
+        "residual": 0.0007237463663129025
+      },
+      "band_crossings": [
+        {
+          "time": 101.14945114299567,
+          "band_position": {
+            "reference_level": 0.25214333550416324,
+            "reference_time_slope": 0.0029588060819544125,
+            "ordinary": 0.0014308926560466103,
+            "collar": -4.071712969859859e-05,
+            "prediction": 0.001243713513862667,
+            "residual": -0.0012844306435612657
+          },
+          "band_clock": {
+            "reference_level": 0.3763896524590386,
+            "reference_time_slope": 0.0074998355313746256,
+            "ordinary": 0.00033253671676461834,
+            "collar": -9.464136396626201e-06,
+            "prediction": 0.00028903664209050625,
+            "residual": -0.00029850077848713244
+          }
+        },
+        {
+          "time": 202.29890228599135,
+          "band_position": {
+            "reference_level": 0.4251057892546142,
+            "reference_time_slope": 0.002071937062329566,
+            "ordinary": 0.0019143843127784436,
+            "collar": -5.4679328251205124e-05,
+            "prediction": 0.0016639582504445307,
+            "residual": -0.0017186375786957357
+          },
+          "band_clock": {
+            "reference_level": 0.6648268874549265,
+            "reference_time_slope": 0.0009421098000318038,
+            "ordinary": -0.001401473880348753,
+            "collar": 3.8567167101010273e-05,
+            "prediction": -0.001218143091971056,
+            "residual": 0.0012567102590720664
+          }
+        }
+      ]
+    },
+    {
+      "cells": 80,
+      "forming_charge": 1,
+      "pump_charge": 1,
+      "pump_time": 0.5,
+      "collar_to_ordinary_modular_ratio": 1.271801024495397,
+      "initial_bridge_multiplier": {
+        "ordinary": -0.0008230222052920511,
+        "collar": 5.136554276206906e-06,
+        "prediction": -0.0010467204838728915,
+        "residual": 0.0010518570381490985
+      },
+      "band_crossings": [
+        {
+          "time": 101.14945114299567,
+          "band_position": {
+            "reference_level": 0.25181810504989594,
+            "reference_time_slope": 0.002951917991908561,
+            "ordinary": 0.0013931903351725602,
+            "collar": -5.2802229567556744e-05,
+            "prediction": 0.0017718608955895475,
+            "residual": -0.0018246631251571043
+          },
+          "band_clock": {
+            "reference_level": 0.37619769773964046,
+            "reference_time_slope": 0.0074911652399930265,
+            "ordinary": 0.00032344885375592777,
+            "collar": -1.2258751254870446e-05,
+            "prediction": 0.00041136258357865076,
+            "residual": -0.0004236213348335212
+          }
+        },
+        {
+          "time": 202.29890228599135,
+          "band_position": {
+            "reference_level": 0.4244939209460521,
+            "reference_time_slope": 0.002061568056805449,
+            "ordinary": 0.0018693878107680082,
+            "collar": -7.109923471790251e-05,
+            "prediction": 0.0023774893329139603,
+            "residual": -0.0024485885676318628
+          },
+          "band_clock": {
+            "reference_level": 0.6650070613017222,
+            "reference_time_slope": 0.0010135038143494325,
+            "ordinary": -0.0012543039096171318,
+            "collar": 4.638284786264888e-05,
+            "prediction": -0.00159522499727965,
+            "residual": 0.0016416078451422988
+          }
+        }
+      ]
+    },
+    {
+      "cells": 80,
+      "forming_charge": -1,
+      "pump_charge": 1,
+      "pump_time": 1.0,
+      "collar_to_ordinary_modular_ratio": 0.869187152933542,
+      "initial_bridge_multiplier": {
+        "ordinary": 0.0005486320259782337,
+        "collar": -0.00011344274174745484,
+        "prediction": 0.00047686390866818204,
+        "residual": -0.0005903066504156369
+      },
+      "band_crossings": [
+        {
+          "time": 101.14945114299567,
+          "band_position": {
+            "reference_level": 0.25878445015268753,
+            "reference_time_slope": 0.0034446076228586363,
+            "ordinary": -0.0008149310643840857,
+            "collar": 3.5694967085177524e-05,
+            "prediction": -0.0007083276116891044,
+            "residual": 0.000744022578774282
+          },
+          "band_clock": {
+            "reference_level": 0.3802512764789038,
+            "reference_time_slope": 0.0068643451836038006,
+            "ordinary": -0.00024184393151916283,
+            "collar": 1.0707258425770569e-05,
+            "prediction": -0.00021020763829139564,
+            "residual": 0.0002209148967171662
+          }
+        },
+        {
+          "time": 202.29890228599135,
+          "band_position": {
+            "reference_level": 0.43719348226737875,
+            "reference_time_slope": 0.0033476250251539405,
+            "ordinary": -0.0007916530779803972,
+            "collar": 3.4876177898154916e-05,
+            "prediction": -0.0006880946849608568,
+            "residual": 0.0007229708628590118
+          },
+          "band_clock": {
+            "reference_level": 0.6575514142631638,
+            "reference_time_slope": -0.0017568944065380946,
+            "ordinary": -0.0003868481748417762,
+            "collar": 5.824962900968316e-06,
+            "prediction": -0.00033624346370826055,
+            "residual": 0.00034206842660922885
+          }
+        }
+      ]
+    },
+    {
+      "cells": 80,
+      "forming_charge": 1,
+      "pump_charge": 1,
+      "pump_time": 1.0,
+      "collar_to_ordinary_modular_ratio": 1.271801024495397,
+      "initial_bridge_multiplier": {
+        "ordinary": 0.0004038616524241659,
+        "collar": -0.0001467697100954804,
+        "prediction": 0.0005136316633074581,
+        "residual": -0.0006604013734029385
+      },
+      "band_crossings": [
+        {
+          "time": 101.14945114299567,
+          "band_position": {
+            "reference_level": 0.2587533308443324,
+            "reference_time_slope": 0.0034393246037156275,
+            "ordinary": -0.0006425272190510804,
+            "collar": 4.62525429181294e-05,
+            "prediction": -0.0008171667754553424,
+            "residual": 0.0008634193183734718
+          },
+          "band_clock": {
+            "reference_level": 0.3802342178809715,
+            "reference_time_slope": 0.006884321686283583,
+            "ordinary": -0.00018994773157887952,
+            "collar": 1.3812688302999197e-05,
+            "prediction": -0.00024157571962259565,
+            "residual": 0.00025538840792559483
+          }
+        },
+        {
+          "time": 202.29890228599135,
+          "band_position": {
+            "reference_level": 0.43713930737455126,
+            "reference_time_slope": 0.003330488411105872,
+            "ordinary": -0.000627311002504902,
+            "collar": 4.535442959380215e-05,
+            "prediction": -0.0007978147756629688,
+            "residual": 0.000843169205256771
+          },
+          "band_clock": {
+            "reference_level": 0.6576387413449274,
+            "reference_time_slope": -0.0017366730973848497,
+            "ordinary": -0.0002939620759590844,
+            "collar": 7.6242402461783e-06,
+            "prediction": -0.00037386126936755725,
+            "residual": 0.0003814855096137355
+          }
+        }
+      ]
+    },
+    {
+      "cells": 80,
+      "forming_charge": -1,
+      "pump_charge": 1,
+      "pump_time": 2.0,
+      "collar_to_ordinary_modular_ratio": 0.869187152933542,
+      "initial_bridge_multiplier": {
+        "ordinary": -0.006848339032754182,
+        "collar": 8.955254364841903e-05,
+        "prediction": -0.005952488306203254,
+        "residual": 0.006042040849851674
+      },
+      "band_crossings": [
+        {
+          "time": 101.14945114299567,
+          "band_position": {
+            "reference_level": 0.24335932462468302,
+            "reference_time_slope": 0.0027570323878659806,
+            "ordinary": 0.003339524469499558,
+            "collar": -0.0001833089691066843,
+            "prediction": 0.002902671765796218,
+            "residual": -0.0030859807349029023
+          },
+          "band_clock": {
+            "reference_level": 0.37120262584018404,
+            "reference_time_slope": 0.0072046065864813606,
+            "ordinary": 0.0007565957382984248,
+            "collar": -4.149778161103741e-05,
+            "prediction": 0.000657623295693259,
+            "residual": -0.0006991210773042965
+          }
+        },
+        {
+          "time": 202.29890228599135,
+          "band_position": {
+            "reference_level": 0.40860925817522986,
+            "reference_time_slope": 0.001762073224494121,
+            "ordinary": 0.004886978608791073,
+            "collar": -0.0002710458443720625,
+            "prediction": 0.004247699023422235,
+            "residual": -0.004518744867794298
+          },
+          "band_clock": {
+            "reference_level": 0.6696404624865978,
+            "reference_time_slope": 0.002958964500741226,
+            "ordinary": -0.0007701215764103337,
+            "collar": 4.026156071784397e-05,
+            "prediction": -0.0006693797804127891,
+            "residual": 0.0007096413411306331
+          }
+        }
+      ]
+    },
+    {
+      "cells": 80,
+      "forming_charge": 1,
+      "pump_charge": 1,
+      "pump_time": 2.0,
+      "collar_to_ordinary_modular_ratio": 1.271801024495397,
+      "initial_bridge_multiplier": {
+        "ordinary": -0.006754436750562274,
+        "collar": 0.0001158672226857671,
+        "prediction": -0.00859029957925446,
+        "residual": 0.008706166801940227
+      },
+      "band_crossings": [
+        {
+          "time": 101.14945114299567,
+          "band_position": {
+            "reference_level": 0.2425604191312755,
+            "reference_time_slope": 0.00274275103940992,
+            "ordinary": 0.0029225234456094827,
+            "collar": -0.00023839483849075982,
+            "prediction": 0.0037168683122379576,
+            "residual": -0.003955263150728717
+          },
+          "band_clock": {
+            "reference_level": 0.3707305940880782,
+            "reference_time_slope": 0.00717588341762285,
+            "ordinary": 0.0006622960356982414,
+            "collar": -5.3903562037101574e-05,
+            "prediction": 0.0008423087767202635,
+            "residual": -0.000896212338757365
+          }
+        },
+        {
+          "time": 202.29890228599135,
+          "band_position": {
+            "reference_level": 0.40710327088448156,
+            "reference_time_slope": 0.0017449679381223502,
+            "ordinary": 0.004299720822610784,
+            "collar": -0.0003541089316286651,
+            "prediction": 0.005468389347240587,
+            "residual": -0.005822498278869252
+          },
+          "band_clock": {
+            "reference_level": 0.6700528725527318,
+            "reference_time_slope": 0.0031252457563737375,
+            "ordinary": -0.0005793783015265067,
+            "collar": 4.9317619440004155e-05,
+            "prediction": -0.0007368539174518143,
+            "residual": 0.0007861715368918184
+          }
+        }
+      ]
+    },
+    {
+      "cells": 80,
+      "forming_charge": -1,
+      "pump_charge": 1,
+      "pump_time": 4.0,
+      "collar_to_ordinary_modular_ratio": 0.869187152933542,
+      "initial_bridge_multiplier": {
+        "ordinary": -0.001626791262383176,
+        "collar": 0.00035084554980711614,
+        "prediction": -0.0014139860657679953,
+        "residual": 0.0017648316155751114
+      },
+      "band_crossings": [
+        {
+          "time": 101.14945114299567,
+          "band_position": {
+            "reference_level": 0.25938667989376374,
+            "reference_time_slope": 0.0032663016868623336,
+            "ordinary": 0.0007576095340707155,
+            "collar": -0.0003662488877883509,
+            "prediction": 0.0006585044739542325,
+            "residual": -0.0010247533617425834
+          },
+          "band_clock": {
+            "reference_level": 0.3806428075142071,
+            "reference_time_slope": 0.00740421004769411,
+            "ordinary": 0.00019060432127302894,
+            "collar": -9.523442111131974e-05,
+            "prediction": 0.00016567082734413418,
+            "residual": -0.00026090524845545393
+          }
+        },
+        {
+          "time": 202.29890228599135,
+          "band_position": {
+            "reference_level": 0.4385434759789847,
+            "reference_time_slope": 0.0027637540857672364,
+            "ordinary": 0.000778475673934221,
+            "collar": -0.0004051855621449734,
+            "prediction": 0.0006766410546549059,
+            "residual": -0.0010818266167998793
+          },
+          "band_clock": {
+            "reference_level": 0.659372054614918,
+            "reference_time_slope": -0.0012261967213735916,
+            "ordinary": 0.0018105266422165452,
+            "collar": -0.00029772309058519983,
+            "prediction": 0.0015736864974585244,
+            "residual": -0.0018714095880437243
+          }
+        }
+      ]
+    },
+    {
+      "cells": 80,
+      "forming_charge": 1,
+      "pump_charge": 1,
+      "pump_time": 4.0,
+      "collar_to_ordinary_modular_ratio": 1.271801024495397,
+      "initial_bridge_multiplier": {
+        "ordinary": -0.0039493250328636155,
+        "collar": 0.00045392188063362595,
+        "prediction": -0.005022755622861264,
+        "residual": 0.00547667750349489
+      },
+      "band_crossings": [
+        {
+          "time": 101.14945114299567,
+          "band_position": {
+            "reference_level": 0.25860340618809047,
+            "reference_time_slope": 0.003239105999695172,
+            "ordinary": 0.0028940823662157947,
+            "collar": -0.0004778540948059133,
+            "prediction": 0.0036806969183273107,
+            "residual": -0.004158551013133224
+          },
+          "band_clock": {
+            "reference_level": 0.3801824677919484,
+            "reference_time_slope": 0.007411546802411692,
+            "ordinary": 0.0007412369645401203,
+            "collar": -0.00012309820614157737,
+            "prediction": 0.0009427059308959833,
+            "residual": -0.0010658041370375606
+          }
+        },
+        {
+          "time": 202.29890228599135,
+          "band_position": {
+            "reference_level": 0.4370820133756224,
+            "reference_time_slope": 0.0027054665992591416,
+            "ordinary": 0.003198168047121332,
+            "collar": -0.0005355490636754172,
+            "prediction": 0.004067433398837353,
+            "residual": -0.0046029824625127705
+          },
+          "band_clock": {
+            "reference_level": 0.659923670824308,
+            "reference_time_slope": -0.0010171723179349178,
+            "ordinary": 0.003807544190514532,
+            "collar": -0.0004643684292493703,
+            "prediction": 0.004842438602307879,
+            "residual": -0.005306807031557249
+          }
+        }
+      ]
+    }
+  ]
+}

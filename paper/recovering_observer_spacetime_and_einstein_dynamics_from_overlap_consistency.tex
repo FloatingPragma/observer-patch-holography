@@ -32,6 +32,18 @@ modular charge with the energy of propagating matter and measure energy
 currents and directional torques at shared boundaries. Two stationary
 states with identical passive exterior records carry opposite internal
 currents, limiting which local stress those records can resolve.
+On one prepared finite source, increasing ordinary energy or weakening
+an overlap correlation increases entropy and reduces the area of a
+clock survey at fixed surveyed volume. The two changes share one
+independently calibrated coefficient. A fifth station exposes the limits
+of interpreting this survey as spatial geometry. On this source, an
+independent energy-current measurement and two optical images require
+incompatible responses to a common clock change at fixed flux units.
+At the stationary state of the repeated survey, either probe can recover
+the same four-station volume from a single link. An allowed change
+increases the entropy of the untagged two-site load region at exactly
+fixed surveyed area and volume, excluding this identification of
+the entropy and area terms for every coupling.
 A separate homogeneous Einstein--scalar Hamiltonian gives exact null
 balance in every direction and permits a test with clock and field readings.
 \end{abstract}
@@ -478,6 +490,61 @@ zero at infinity. That boundary convention applies to the error after
 vacuum subtraction. Pressure, vacuum and higher weak-field orders must be
 accounted for separately when using the bound on data.
 
+\paragraph{A pressure-independent test with exterior clocks.}
+\label{par:static-clock-mass}
+For a first-order stationary perturbation about Minkowski space, include
+the source and its supports in the conserved stress. Assume compact
+support or sufficient falloff and subtract the same vacuum in both
+preparations. Integrating
+\(\partial_i(x_j\delta T_{ij})\) for each fixed \(j\) gives
+\(\int\delta T_{jj}\,d^3x=0\), since the divergence and outer boundary
+term vanish (\href{https://arxiv.org/abs/1808.09320}{von Laue's
+theorem}). The local pressures may be large. Trace reversal and the
+divergence theorem then give an observable consequence of physical null
+balance, conserved matter and a common vacuum. For two concentric
+background spheres of radii \(0<r<s\) outside the entire source,
+\[
+ \oint \partial_n\delta\Phi\,dA=4\pi G_N\delta E,\qquad
+ \langle\delta\Phi\rangle_s-\langle\delta\Phi\rangle_r
+   =G_N\delta E(1/r-1/s).
+\]
+The averages are over solid angle. The result requires no spherical
+symmetry of the source. For a region ending within stressed matter,
+the pressure integral includes the boundary moment
+\(\oint x_j\delta T_{ij}n_i\,dA\).
+The finite force identity and error bound are in
+\texttt{StaticMassFlux}. If a clock gives one common response and the
+errors in identifying the two mean lapse changes with it are each at
+most \(e\), the putative mass signal is at most \(2e\) in magnitude
+at first order.
+
+A compact material oscillator on the board permits a direct test of
+clock sensitivity. For an unmarked cell with adjacency \(A\) and
+gateway selector \(D\), solve \(A^2v=5v\) and \(Dv=DAv=0\).
+The two vectors \(Av\pm\sqrt5 v\) have zero gateway amplitude and
+opposite adjacency eigenvalues. Extended by zero, they remain
+eigenmodes of each exact charge and stored-head parity block, with
+angular-frequency gap \(\sqrt5\) in exchange units. Ordinary parity
+mixing raises the stationary source's parked energy by
+\([0.2975627,0.2975636]\) per unit dose. Unpairing preserves this
+energy. Both give exactly zero change of the gap in all 24 eligible
+exterior cells of the 80-cell source. There are 104 eligible cells on
+the 320-cell board and none on the 20-cell board.
+
+Coherent superpositions of the same level at two and eight relay steps
+from the source are recombined at a single pointer. Subtracting the two
+level phases compares the clock rates without synchronizing separate
+receivers. With \(2^{19}\) synthetic shots per setting, the measured
+difference is \(-0.00122\). Raising the internal exchange rate of the
+near clock by a quarter gives \(-0.55839\), against the exact
+\(-\sqrt5/4\). The simultaneous 99 percent sampling half-width is
+0.02282. Equating the ordinary parked-energy change with the complete
+localized gravitational source and identifying these clocks with a
+resolved covering of both proper spheres would conflict with the
+exact zero response. The available relay distances do not establish
+that covering. The derivation and instrument records are in
+\path{code/matched_einstein_limit/source_implication/material_clocks/}.
+
 \section*{Derivation map}
 \addcontentsline{toc}{section}{Derivation map}
 
@@ -898,6 +965,8 @@ reference. Thus the fixed-volume regional estimates above can prove null
 balance without resolving the flight of a macroscopic light ray. Nine
 spanning directions then suffice for tensor completion. Calibrating a
 stress from the curvature on each ray would impose the target identity.
+The \hyperref[par:bisected-null-curvature]{bisected-clock measurement}
+constructs the curvature side from marked volumes on proper diamonds.
 
 At a faithful finite reference the empirical content has an equivalent
 linear form. Differentiate the geometry reader and the independently
@@ -910,6 +979,109 @@ difference must lie in the span of the constraint gradients when the
 tangent space is their joint kernel. This finite criterion applies
 locally on the specified state family; continuation of a first-order
 identity requires control along that family and a reference value.
+
+\paragraph{A rest-slice ambiguity and a clock measurement that resolves it.}
+Consider finitely many supported station clocks at fixed spatial coordinates
+in Minkowski spacetime, with one at the origin. Set
+\(g_f=e^{2f}g_0\), where \(f=t(b\cdot x)\psi(x)\) and the smooth cutoff
+equals one near the origin and vanishes near the other stations. At every
+appointment all station clocks have their original proper time.
+Unparametrized null paths and their endpoint events are unchanged.
+The complete intrinsic spatial metric, including every ball area and
+volume, is unchanged on \(t=0\). Yet at the origin \(df=0\),
+\(f_{0i}=b_i\), and the four-dimensional conformal Ricci formula gives
+\(G_f(k,k)=-4b\cdot n\) for \(k=(1,n)\), \(|n|=1\). Taking \(T=0\)
+gives an independently conserved stress in both descriptions and
+different null residuals for the same clock and slice observations.
+This is an identifiability test for geometric light-flight times.
+The arrival probabilities of a dispersive material probe can contain
+other information. The general inverse problem for light observation
+sets recovers conformal structure under stated causal hypotheses
+(\href{https://arxiv.org/abs/1405.3386}{Kurylev, Lassas and Uhlmann}).
+
+Given a reference optical metric \(\bar g\), additional interior clock
+measurements can determine the missing scale in \(g=w^{-2}\bar g\).
+At a central event normalized by \(w=1\), along a \(\bar g\)-affine
+null ray one has \(R_g(k,k)=R_{\bar g}(k,k)+2w''(0)\).
+Clocks in known timelike directions give \(w=d\bar\tau/d\tau_g\).
+If three such readings at ray parameters \(-h,0,h\) have errors
+at most \(\epsilon\), the centered estimate of \(2w''(0)\) has error
+at most \(Mh^2/6+8\epsilon/h^2\) when \(|w^{(4)}|\le M\).
+The first term follows from Taylor's formula and the second from the
+absolute stencil weights. This controls the scale contribution. The
+reference curvature, ray normalization and directional matter stress
+each require their own calibration on the same source.
+
+\paragraph{Static null curvature from directional shell areas.}
+There is a static example even with freely falling clocks at every
+enrolled station. Let
+\(f=a(x_1^2-x_2^2)\chi(|x|)/2\), with a smooth radial cutoff equal to
+one near the center and vanishing in a neighborhood of every other
+station. In the two metrics \(g_\pm=e^{\pm2f}\eta\) all station clock
+rates, proper accelerations and interstation optical travel times
+agree for all appointments. Interchanging the first two spatial axes is
+an isometry between the induced spatial metrics fixing the center.
+All centered geodesic balls therefore have exactly equal total proper
+volume and rim area at every normal radius. On the same labeled ray
+their null Ricci values at the center are
+\(\mp2a(n_1^2-n_2^2)\). Whole-shell scalars leave a directional
+component unresolved even under staticity.
+
+The obstruction persists for first-order stationarity on \emph{all}
+static rest balls in an open set. Write \(g_a=e^{2au}\eta\) and take
+\(u=(x_1^2-x_2^2)/2\) in the core of the cutoff. At a fixed endpoint
+\(x+rn\) the first variation of the straight geodesic's length about
+\(a=0\) is \(\int_0^r u(x+sn)\,ds\). At fixed proper radius the
+coordinate boundary shifts by its negative. Including variation of the
+spatial volume form, one obtains
+\[
+ V'_0(x,r)=\int_{S^2}\left[3\int_0^r s^2u(x+sn)\,ds
+    -r^2\int_0^r u(x+sn)\,ds\right]d\Omega=0 .
+\]
+For every ball inside the core the spherical mean of this harmonic
+quadratic is \(u(x)\). Since \(A_a=\partial_r V_a\) in a normal
+neighborhood, the first variation of its area at fixed proper volume
+also vanishes. With \(T=0\) and zero matter entropy, stress is
+conserved and generalized entropy is stationary on every such ball.
+Yet \(\partial_a R_{g_a}(k,k)|_0=-2(n_1^2-n_2^2)\) about the flat vacuum.
+Thus the all-frame hypothesis carries physical information beyond even
+complete rest-slice stationarity. The example concerns sufficiency of
+the geometric inputs and makes no microscopic source identification.
+
+One can measure that component with directional shell and clock data.
+For \(g=-N^2dt^2+h\), write \(j(r,n)\) for the proper area per unit
+solid angle on a spatial geodesic sphere, and \(L(r,n)\) for the rim
+clock rate divided by the center rate. Use antipodal means of both.
+The transverse Jacobi equation gives
+\(j/r^2=1-r^2\operatorname{Ric}_h(n,n)/6+O(r^3)\).
+The centered second difference of the clock gives the normalized
+spatial Hessian of the lapse. Write the two estimates as
+\(D_n=-6(j/r^2-1)/r^2\) and \(L_n=2(L-1)/r^2\).
+The static connection gives \(R_{00}=N\Delta_hN\),
+\(R_{0i}=0\), and
+\(R_{ij}=\operatorname{Ric}^h_{ij}-N^{-1}\nabla_i\nabla_jN\).
+Thus \(D_n+3\bar L-L_n\) converges to \(R(k,k)\) for
+\(k=N^{-1}\partial_t+n\), where \(\bar L\) is the mean over the six
+icosahedral axes of a common orthonormal frame. The area and clock
+errors including aperture and radius calibration must be \(o(r^4)\)
+and \(o(r^2)\), respectively. No field equation enters this inference.
+
+A native six-port aperture of equal weights contains a representative
+of each antipodal pair. All such apertures have identical response to
+an even angular distribution. Doubling the pole weight changes its
+normalized reading to \(m_i=(6\bar q+q_i)/7\), so all six directional
+values are recovered by \(q_i=7m_i-6\bar m\). On one serviced cell
+the ordinary apertures have exact probability \(1/2\) for both an axial
+orbital and a transverse mixture in its equal-energy triplet.
+With pole score one and neighboring-port score one half the same
+terminal records give 0.37535 and 0.25013 at the pole, against
+\(3/8\) and \(1/4\). This establishes native angular discrimination.
+On a separately prescribed product of a curved two-surface and a line,
+the shell and clock procedure recovers both signs of null Ricci to
+0.00021 at radius \(1/16\). Geometric calibration of the native sector
+areas and rim clocks requires additional spatial and temporal records.
+The calculations are in \path{code/matched_einstein_limit/rate_geometry/}.
+
 
 \paragraph{A current that a passive exterior cannot reconstruct.}
 \label{par:ray-pair-native-current}
@@ -1003,6 +1175,44 @@ account for the difference between the two clocks. The integer readings
 and detector controls are in the experiment packages
 \path{interval_echo_macro_balance} and \path{interval_echo_metric_response}
 under \path{model/experiments}.
+
+A freely moving excess also couples to a stationary written clock on
+the fully open 20-cell screen. The two preparations of the clock have
+blank angular frequencies 32 and 33 in exchange units. If both ideal
+hands read one elapsed time \(\tau\), their flip probabilities \(p_e,p_o\)
+obey \(T_{33}(1-2p_e)=T_{32}(1-2p_o)=\cos(1056\tau)\), where \(T_n\)
+is the Chebyshev polynomial. At a matched exposure with the excess
+launched one link away, the two estimates lie in \([0.9508,1]\) and
+\([-1,-0.9670]\), with simultaneous coverage of at least 99\% across
+the clock readings. Allowing one distribution of elapsed times per
+appointment accommodates both marginal readings at all 2,123
+appointments, including the controls. The source detector distinguishes
+these accounts further. At another one-link exposure it registered
+1,681 arrivals for the even clock and 1,280 for the odd clock in
+1,048,576 starts each. The exact conditional test of equal arrival
+probabilities gives \(p<3.71\times10^{-10}\) after adjustment across
+all appointments. Thus a clock model based on unresolved elapsed times
+would also have to allow the instrument to affect the source. These
+data identify a reciprocal material coupling. Measuring a
+gravitational component requires an independently calibrated geometry.
+
+A coherent clock preparation tests that random-time explanation
+directly. Echo a locally ordered pair of loads $(2,0)$ or $(0,2)$ on
+the filled reference material. Both clock components lie in one
+degenerate blank-energy subspace. Evolution for any elapsed time acts
+there by a common phase, so even a source-dependent probability
+distribution over elapsed times assigns zero probability to a
+reversal. A second local echo followed by two load reads measures
+the order. On the all-open 20-cell federation an excess released one
+link away yields reversals in both orientations at all five held waits
+in an independent high-count simulation. At exposure four the counts
+are 666 and 642 per $2^{30}$ respective launches. The blank, parked
+and reversal-disabled controls give zero. Simultaneous exact binomial
+intervals separate the one-link results from the blank at every held
+wait. The original $2^{20}$-trial one-link cohorts missed the effect.
+A model of this clock must include an effect of the material on its
+internal state. Isolating an additional geometric delay requires a
+separate propagation and ranging measurement.
 
 \subsection{When repair selects a stationary generalized entropy}
 
@@ -1684,6 +1894,1549 @@ the energy change by $N$ and preserves equality of all joint material
 readouts. This sector tests two internal registers. For a spatial
 collar the choice of regional source and geometric ruler carries
 physical content.
+
+\paragraph{A thermal buffer, an explicit signed error and its physical scale.}\label{par:thermal-transport-screen}
+Partition the entire finite binary carrier into a core $A$, a buffer $B$ and
+its exterior $C$. Let $\sigma$ be the faithful Gibbs reference of $H-\mu N$
+at finite $\beta\ne0$. Whenever a port in $A$ is connected by hopping to a
+port in $C$, the conditional mutual information $F=I_\sigma(A:C\mid B)$
+is strictly positive for every finite buffer width. Indeed, equality in
+strong subadditivity splits each central block of $B$ into left and right
+factors on which the state is a product~\cite{hjpw}. Taking logarithms,
+including the block probabilities, would give
+$-\log\sigma=U_{AB}+V_{BC}$ with commuting summands. An exterior
+occupation evolved by $H-\mu N$ would then depend only on the initial
+$BC$ state. A vacuum and a single load launched at the core have
+identical initial $BC$. At separation $d$, the one-load arrival
+amplitude has leading term $i^d P_d t^d/(2^d d!)$, with $P_d>0$ the
+number of shortest paths and hopping matrix element $-1/2$.
+The vacuum gives zero at every exposure.
+
+Replace the core by its marginal from an independent copy, giving
+$\tau=\sigma_A\otimes\sigma_{BC}$. Mixing this arm into the original
+reference has tangent $D=\tau-\sigma$. Write
+$k_X=-\operatorname{Tr}(D_X\log\sigma_X)$. Exact entropy differences
+and monotonicity of relative entropy give
+\[
+ k_{AB}-\beta\,\delta\langle H-\mu N\rangle =
+ -F-D_{\rm rel}(\tau\Vert\sigma)
+     +D_{\rm rel}(\tau_{AB}\Vert\sigma_{AB})\le -F<0 .
+\]
+On the twelve-port cell at $\beta=1/16$ put a seam in the core and
+all six neighboring ports in the buffer. The full-cell response is
+$1.15441086$ nats per unit replacement probability. The regional
+response falls short by $0.000147181$, with $F=0.0000456504$ nats.
+Removing exchange gives a classical nearest-neighbor model whose
+conditional information vanishes exactly on this cut.
+
+There is also an upper bound for an arbitrary traceless tangent $X$.
+Put $k_Y=-\operatorname{Tr}(X_Y\log\sigma_Y)$ and
+$L=k_{AB}+k_{BC}-k_B-k_{ABC}$. If $\sigma\pm tX$ are states, the
+two signs in strong subadditivity give
+$|L|\le F/t+t\operatorname{Tr}(X\sigma^{-1}X)$.
+Indeed, subtract the four relative entropies in each entropy difference,
+use data processing, and apply
+$D_{\rm rel}(\rho\Vert\sigma)\le\log\operatorname{Tr}(\rho^2\sigma^{-1})$.
+Consequently a sufficiently rapid decay of the signed error could
+supply the macroscopic estimate on a specified family. The required
+ordinary gain has an independent scale test. A homogeneous smooth
+energy perturbation on a three-ball requires modular response per
+physical energy $2\pi\ell/5$ to leading order. A gain common to radii
+$\ell$ and $2\ell$ incurs at least $1/3$ relative error on one of
+them, since $\max(|x-1|,|x/2-1|)\ge1/3$. Thus a locally thermal
+bulk with one uniform gain needs an additional source of radius
+dependence to realize (G2). The finite measurements, bounds and
+preparation conventions are in
+\path{code/matched_einstein_limit/source_implication/}.
+
+\paragraph{Radar on the freely formed overlap.}
+On an 80-cell federation a moving excess prepares two correlated heads.
+Four material stations register first arrivals and returns with an
+independent exchange clock, including every missed appointment. For a
+static reciprocal distance and arbitrary station clock gains the product
+of the three clockwise ranges divided by the three counterclockwise ranges
+must equal one. At a quarter-unit sampling interval and six-unit horizon,
+one triangle gives $0.74916$ with an excess and $1.30429$ with a vacancy.
+Releasing an equal mixture and discarding the species label before
+computing the clock statistic cancels the directional asymmetry at
+leading shortest-path order. A held triangle gives $0.89651$ at
+finite exposure. Even after fitting station gains, one directed range
+must change by at least $1.8\%$ to fit a reciprocal metric on this panel.
+For a window of three short ticks the directional asymmetry first
+appears at sixth order on a tested triangle, with a strictly signed
+coefficient certified from the formed state. Simply shortening a
+fixed number of ticks makes all the censored ranges approach one
+half of the elapsed horizon. Five distinct stations would then have
+equal normalized separations, which require four Euclidean dimensions.
+Removing read-stage contrast restores reciprocity in the measured
+control. These tests exclude
+an exact static interpretation of the measured finite-arrival statistic.
+A common proper metric inferred by another instrument, or approached
+with controlled errors under refinement, is a distinct physical
+identification. The formation, calibration, misses and held cycles are
+in \path{model/experiments/interval_echo_einstein_station/collar_pairing/ranging/}.
+
+\paragraph{Increasing entropy and decreasing volume on the same source.}
+Let $\rho$ be the two formed head coins, $\pi$ the product of their
+marginals, and $\rho_s=(1-s)\pi+s\rho$. An unread sharp sign
+measurement applied with probability $2u$ puts a fraction $u$ of the
+left reversal states in the odd sector. The full stored state on its
+support is $\operatorname{diag}(1-u,u)\otimes\rho_s$. Its ordinary
+exchange energy is $16+u$ and its entropy in nats is
+$H_2(u)+S(\rho_s)$. Changing $s$ preserves the two coin marginals
+and the parked energy. A fresh material probe returning to one unmarked
+port is sensitive to every two-coin observable on the even source.
+The return effects span the sixteen real Hermitian components on
+that subspace. The parity weights here follow from the independent
+sharp sign preparation.
+
+A separate clock survey on copies of the same source measures twelve
+directed distances. Fitting station gains and symmetrizing gives a
+tetrahedral volume $V$ and area $A$ from Gram determinants. On six
+clock menus and nine interior preparations adding exchange energy
+decreases $V$ in every case. At $u=1/4$, $s=1/2$, with quarter-unit
+ticks and horizon six, the volume derivative is $-0.059832$.
+Yet the derivative of the area of the unit-volume shape $A/V^{2/3}$
+is $+0.022585$, and the entropy derivative is $+\log 3$. Both
+derivatives are positive on all 54 comparisons. A shrinking
+reconstructed volume alone therefore supplies no stationarity identity.
+
+An independent preparation control matches the original survey volume
+on both an ordinary change and a held change of the correlations.
+In the even and odd sectors use coin pairing strengths $s+c/(1-u)$
+and $s-c/u$. The combined coin state is $\rho_s$. At $c=0$ the
+entropy derivative in $c$ vanishes. On each of the 54 settings the
+volume derivative in $c$ is nonzero. Adjust $c$ using the measured
+volume alone. At $u=1/4,s=1/2$, half ticks and horizon six, adding
+one differential unit of ordinary energy at fixed mean coin state gives
+$(dA,dS)=(+0.05794670,+1.09861229)$ at fixed volume. Strengthening
+pairing at fixed ordinary energy gives $(+0.0000440662,-0.03848196)$
+at the same reference and volume. The first pair would require
+$\eta=-18.9590$. Even using that value leaves a signed residual
+of $-0.0393174$ nats for the held change. The ordinary calibration
+is negative in all 54 comparisons. The adjuster changes correlations
+between the two preparation choices. Finite trials on either side
+use admissible probabilities for the original sharp sign measurement.
+
+The original distances also permit a directly matched volume. At
+half-unit ticks and horizon six, vary $s$ near $1/4$ and adjust $u$
+near $1/8$ to hold the observed volume fixed. At the central
+preparation, $dA/ds=+0.00075879$ and $dS/ds=+0.00281940$ along this
+curve. Finite changes from $s=0.2421875$ to $0.2578125$ increase
+area by $0.000011856$ and entropy by $0.000044065$ nats at measured
+volume $2.773791400$. No positive boundary entropy coefficient cancels
+the two signed terms here. These numerical population comparisons test
+the stored heads and this particular tetrahedron. The directed ranges
+have a measured reciprocity defect. Establishing an intrinsic algebra
+and proper ball on which the cancellation holds requires independent
+space and stress readings.
+
+A different entropy record uses the balanced outcome of a completed
+return. Ordinary calibration then has the positive sign. On the same
+six clock menus the area response to pairing supplies between
+$0.0982\%$ and $0.6012\%$ of the magnitude required by this record.
+Allowing positive mixtures of twelve bridge settings and nondecreasing
+combinations of the six shapes raises the upper bound to $3.059\%$.
+The ordinary and paired changes have different spatial distributions.
+The test concerns a scalar reduction on this apparatus.
+The preparation, full probabilities and geometry calculation are in
+\path{code/matched_einstein_limit/source_implication/}.
+
+\paragraph{A preparation with stationary entropy.}
+Correlating the preparation choices changes this result in a measurable
+way. At half-unit ticks, horizon six, odd probability $1/4$ and mean
+pairing $1/2$, choose $c=-0.0046509709$. This corresponds to sharp
+sign read probabilities $0.48139612$ on independent heads and
+$0.51860388$ on formed heads. The fixed-volume ordinary change
+gives $(dA,dS)=(+0.05794816,-1.80510754)$, and the fixed-energy
+pairing change gives $(+0.0000440470,-0.0013720818)$. Both use
+$\eta=31.15039$. The two changes span the constant-volume surface
+in this three-parameter family. In the coordinates given by odd,
+formed and joint probabilities, the two constrained Hessian
+eigenvalues are $-0.37125$ and $-0.06002$. Six finite neighbouring
+preparations at the same measured volume have smaller $S+\eta A$.
+
+The gain can also be fixed on a separate preparation. Conditional
+sharp-read probabilities $31/64$ and $33/64$ with equally likely
+independent and formed heads give $\eta=23.10424$ on the matched
+ordinary-energy tangent. Holding that gain and an independently
+chosen target volume, constrained maximization gives a second source.
+Its odd and formed probabilities are 0.248741 and 0.401402. On
+two finite matched-volume comparisons the measured compensation
+fractions are 0.99999984 for ordinary exchange and 0.99999855 for
+pairing. These figures test the construction of a selected stationary
+state. The matching operation on the correlated source changes both
+the reversal energy and its correlation with the two coins.
+
+An additional source variation distinguishes this restricted maximum
+from physical entanglement equilibrium. For a fixed half-tick,
+horizon-six menu, twelve directed mean ranges are twelve linear
+effects on a faithful four-dimensional coin state. There is a
+traceless Hermitian variation that leaves every range fixed. The
+formed ensemble can realize a sufficiently small change in this
+direction by reading the final address of the mobile load and using
+an address-dependent lottery of original or independently formed
+standby heads. All trials contribute. At the first stationary
+source above the even-block entropy slope along the unit variation
+is $+0.017034$ nats. The undephased formed arm has positive weight.
+Changing that arm leaves both the complete radar geometry of this
+menu and the ordinary energy fixed, while changing the entropy.
+At the second, separately calibrated source the same change in the
+never-dephased formed arm gives a full-head slope exceeding $0.00300$
+nats per unit of the normalized component variation, with the same
+twelve ranges and ordinary energy fixed. Other clock appointments
+can distinguish the change. Thus the
+native menu and three preparation controls give a finite maximum;
+admitting additional native transfers exposes a missing response.
+The source selection, finite differences and effect certificates
+are in \path{code/matched_einstein_limit/source_implication/}.
+
+\paragraph{Equilibrium on the complete finite head algebra.}
+Enlarging the state search gives a stronger positive test. Let $R_i$
+be the twelve Hermitian range effects, with $r_i=\operatorname{Tr}
+(\chi R_i)$. The independently calculated tetrahedral area $A(r)$
+and volume $V(r)$ define operators $\widehat A=\sum_i A_{,i} R_i$ and
+$\widehat V=\sum_i V_{,i}R_i$. At a faithful state with regular
+volume level, stationarity on every trace-preserving, volume-preserving
+variation is equivalent to
+\[
+ -\log\chi+\eta\widehat A-\lambda\widehat V=\gamma I.
+\]
+Indeed the trace and volume functionals span the annihilator of their
+common kernel. The operator identity makes the first entropy derivative vanish along
+every variation invisible to all twelve ranges at that state.
+
+Retain the separately calibrated $\eta=23.1042362$ and measured
+volume $2.76347184$. Solving the normalized matrix exponential
+of $\eta\widehat A-\lambda\widehat V$, with its range means
+calculated self-consistently, gives odd weight $0.20243684$
+and volume multiplier $51.08864$. The gradient residual across
+all 31 traceless parity-block coordinates is
+$2.42\times10^{-13}$ in Hilbert--Schmidt norm. The largest
+eigenvalue of the unconstrained Lagrangian Hessian is $-3.4361$.
+The prior twelve-range-invisible change gives entropy slope below
+$1.4\times10^{-15}$ in magnitude. A separate visible, volume-matched
+change gives $dS=-0.632510$ and $dA=+0.0273764$.
+The clock effects preserve reversal parity. A coherence between
+parity sectors is invisible to them, and parity dephasing increases
+entropy whenever such a coherence is present. The full first-order
+test therefore includes all 63 traceless directions on this
+eight-dimensional support. Positive mixtures of prepared local
+Pauli eigenstates and an unread native sign measurement realize the
+two required blocks on the finite apparatus. The preparation uses the
+selected equilibrium weights.
+
+An interval certificate establishes existence at the actual finite
+calibration. Bounded propagation of the native integer generators
+and outward rounding enclose the independently measured gain in
+$[23.1042361746,23.1042362179]$ and the target volume in
+$[2.76347183678870,2.76347183678880]$. Throughout larger enclosing
+parameter intervals the entropy Hessian dominates the geometric
+curvature on a neighbourhood of the reported state. A feasible
+interior point and a strict objective gap at the neighbourhood
+boundary give an interior constrained maximum. Its preparation
+weights have strictly positive slack. This proves existence for
+the finite survey and support.
+
+This preparation is the unique global maximum over all density
+matrices on the eight-dimensional support at the prescribed survey
+volume. Write $X_*$ for the localized solution, $Y$ for any other
+feasible state, $D=Y-X_*$ and $T=\eta A-\lambda V$ at the true
+multiplier. The Gibbs identity gives
+\[
+ (S+\eta A)(Y)-(S+\eta A)(X_*)=
+ -D_{\rm rel}(Y\|X_*)+T(Y)-T(X_*)-dT_{X_*}(D).
+\]
+The relative entropy in nats is at least $\|D\|_1^2/2$ by quantum
+Pinsker~\cite{carlen2016pinsker}. The twelve exact Hermitian range effects have certified
+spectral endpoints $l_i,u_i$, giving
+$|\operatorname{Tr}(R_i D)|\le (u_i-l_i)\|D\|_1/2$.
+A 64-box interval cover of their full spectral rectangle bounds
+$|d^2T(D,D)|\le 0.72\|D\|_1^2$ throughout every state segment.
+For this bound the squared triangle areas and squared tetrahedral
+volume are polynomials in the six squared edges. Each squared edge
+is a monomial in the twelve positive raw ranges. Expanding these
+finite sums in log ranges bounds their values and both derivatives
+before taking the square roots. All five squared measures have
+positive lower bounds on each box.
+Taylor's formula gives a global objective gap of at least
+$0.14\|Y-X_*\|_1^2$, including singular states and coherences.
+The verification is in \texttt{full\_algebra/global\_survey.py}
+in the source-implication package.
+
+The same measured volume also admits an explicit nonstationary preparation.
+Use the diagonal product-state lottery
+$W(z)=I_4/32+(7/8)(z|10\rangle\langle10|+(1-z)|11\rangle\langle11|)$
+and perform the unread sign write with probability $2q$. The
+parity blocks are $(1-q)W$ and $qW$. At $q=1/64$ the target volume lies
+between the readings at $z=0.79363406$ and $0.79363408$,
+with $\partial_z V<-0.031$. Varying $q$ and adjusting $z$ at fixed
+volume gives $7.47<d(S+\eta A)/dq<7.49$ nats per unit odd fraction,
+from the range effects and $S=H_2(q)+S(W)$.
+Both preparations use the same carrier, observer survey and ordinary
+calibration. Selecting the optimizing preparation is a physical
+condition separate from specifying the observed volume.
+
+There is an ensemble preparation procedure without the solution as an
+input. At fixed $\lambda$, replace a trial state $X$ by
+$B(X)=\exp(\nabla T(X))/\operatorname{Tr}\exp(\nabla T(X))$.
+For $U=B(X)$ and $W=B(Y)$ the sum of the two relative entropies is
+$\operatorname{Tr}[(U-W)(\nabla T(X)-\nabla T(Y))]$. Pinsker bounds
+it below by $\|U-W\|_1^2$. The absolute-entry curvature certificate
+bounds it above by $0.72\|U-W\|_1\|X-Y\|_1$. Thus tracial iteration
+converges to the unique fixed point. Comparing the global Lagrangian
+maxima at two prices shows that their measured volumes decrease
+weakly with price. The endpoint volumes bracket the independent
+volume target. Bisection and iteration yield $\lambda=51.0886428$
+and the positive native preparation weights. This uses the material
+survey and a classical ensemble controller. Passive evolution of one
+source has a different selection question.
+
+The same result applies to any number $N$ of disjoint copies of this
+survey. For a joint state $\Omega$ with marginals $Y_i$, the observers
+may add the individually measured areas at fixed total volume
+$\sum_i V(Y_i)=NV_0$, or pool the twelve mean ranges at fixed
+$V(\bar Y)=V_0$, where $\bar Y=N^{-1}\sum_i Y_i$. In the latter
+case the total area assigned by this convention is $NA(\bar Y)$.
+In both conventions the joint objective drops from its product maximum
+by at least $0.28D_{\rm rel}(\Omega\|X_*^{\otimes N})$.
+Indeed the one-copy Lagrangian gap before fixing volume is at least
+$0.28D_{\rm rel}(Y\|X_*)$ by the curvature bound and Pinsker.
+For separate surveys sum these inequalities and add the correlation
+entropy $\sum_i S(Y_i)-S(\Omega)$. For a pooled survey use the
+one-copy inequality at $\bar Y$ and add $NS(\bar Y)-S(\Omega)$.
+The volume terms cancel and the relative-entropy chain identity gives
+the bound, including for entangled states. Repeating the nonstationary
+preparation also preserves its nonzero derivative per copy exactly
+at every $N$. These macroscopic record banks measure fixed-size
+tetrahedra. Repeated readings alone supply no shrinking proper balls.
+
+\paragraph{Does a connected survey select this state?}
+Parked heads evolve with $H=16I+Q$, where $Q$ measures the odd
+reversal sector. Every parity-block density is stationary on the
+unit-filled board. A simple repeated drive supplies a distinct,
+fully calculable relaxation. Launch a vacancy or excess uniformly
+on the $M=960$ native ports, allow a dwell $t=1/16$ or a quiet
+cycle with equal probabilities, and discard the probe at every exit.
+For each fixed parity write $h=2H+cI$, $U=e^{-ith/2}$ and
+$\Phi(X)=\operatorname{Tr}_{\rm port}(U(I_M\otimes X)U^\dagger)/M$.
+This unital channel is a Hilbert--Schmidt contraction. On traceless
+head matrices the exact Gram form $\|[h,I_M\otimes X]\|_2^2$ has
+least eigenvalue 256 for each charge and parity. All native row sums
+in absolute value are at most 43, so
+$\|[U,I_M\otimes X]\|_2\ge(t/4)\|[h,I_M\otimes X]\|_2$.
+Expanding $\|(X+\Phi(X))/2\|_2^2$ therefore gives a contraction
+factor in squared norm of at most $1-1/61440$.
+The limiting blocks are $(1-p)I_4/4$ and $pI_4/4$, with $p$
+the conserved odd weight. Zero squared-contrast gain on the same
+graph gives the identity channel in even parity.
+
+One such limit matches the calibrated tetrahedral volume, at
+$0.10750779<p<0.10750781$. It has $\langle Z\otimes Z\rangle=0$,
+whereas the variational optimum gives $0.460895$.
+Add $(aY\otimes Z+bZ\otimes Z)/2$ to the even block, using Pauli
+matrices. Both individual marginals and ordinary energy are fixed.
+Since $\partial_b V>0.03539$, a local $b(a)$ holds the volume exactly.
+At its origin $-0.004816<d(S+\eta A)/da<-0.004815$.
+Thus attaining the specified volume by physical relaxation on a single
+connected board permits a nonstationary response in a correlation
+that neither head reads alone.
+
+There is also a test using the same radar as the original equilibrium
+experiment. Keep the two heads after a complete capped survey on one
+of the twelve directed routes. All missed arrivals and timeouts are
+included. For both probe charges, on every route the expectation of
+left-coin $X$ at the prepared optimum decreases by at least $0.000519$.
+Thus any fixed head-independent lottery over these 24 settings changes
+the optimum on reuse. Fresh copies and reused heads implement different
+experiments. The complete channel and its propagation bounds are in
+\path{source_implication/full_algebra/reuse/}.
+
+With equal, independently scheduled reuse the full channel contracts
+traceless Hilbert--Schmidt differences by a factor below $0.92$ in
+each parity. This follows from exact positive pivots of
+$0.918^2 I-\widehat J^{\mathsf T}\widehat J$ for the rounded
+15-coordinate matrix, with the trace-norm channel error transferred
+to the Hilbert--Schmidt bound. A fixed-point residual encloses the
+two stationary densities. Their mixture matches the calibrated
+volume for exactly one odd fraction, between 0.1340 and 0.1346.
+Its joint $Z\otimes Z$ reading lies between 0.12435 and 0.12459.
+
+Two source variations demonstrate the loss of stationarity.
+Vary the even-block coefficients of $Y\otimes Z/2$ and $X\otimes Z/2$,
+each compensated by $Z\otimes Z/2$ to keep volume fixed. Both
+marginals and the ordinary energy stay fixed. The gains $-dS/dA$
+would have to lie respectively in $[12.28,16.07]$ and $[18.35,24.73]$.
+The area derivatives have opposite signs. A combination cancels area
+and volume while leaving entropy derivative below $-0.00033$ nats per
+unit $X\otimes Z/2$ coefficient. The nonzero volume derivative of
+$Z\otimes Z/2$ and nonzero volume-matched area derivative of
+$Y\otimes Z/2$ make the two-constraint Jacobian invertible. The
+implicit function theorem therefore keeps both readings exactly
+constant on a physical local path. The native product-lottery
+margins exceed 0.20. A correction depending only on this measured
+area, volume, ordinary energy and the two individual head states
+is constant along the path.
+
+The full directed means give a stronger test. In the eighteen
+parity-resolved correlation coordinates that preserve both marginals,
+the twelve range effects have rank twelve. A rational right inverse
+with residual norm below $2.44\times10^{-7}$ corrects a proposed
+direction to an exact common null vector $D$ of all twelve rows.
+The fixed-point enclosure and its matrix logarithm bound the entropy
+slope along $D$ between $1.759\times10^{-5}$ and $5.746\times10^{-5}$
+nats per unit control. Since each range is affine in the prepared
+state, every mean stays fixed along the straight line $\rho+tD$.
+At $t=10^{-7}$ the reachable state has entropy greater by at least
+$1.55\times10^{-12}$ nats. A separately readable, parity-blind
+$Y\otimes Y$ coincidence distinguishes the two states. This
+excludes compensation by any function of the twelve mean ranges
+and the preserved marginals on this source. The original time bins retain the information lost by averaging.
+
+Six additional joint coin readings suffice to recover the stored
+entropy. Keep the parity weight and each one-head marginal in each
+parity sector fixed. On independent copies measure the Pauli products
+$XZ,YX,YY,YZ,ZY,ZZ$, with the first letter acting on the left coin.
+These six scalar means and the twelve directed mean ranges determine
+all eighteen remaining correlation coordinates. A rational approximate
+inverse gives a certified smallest singular value above
+$9.8966\times 10^{-9}$ for the physical response matrix.
+The six-dimensional kernel of the range means proves minimality for
+additional scalar linear readings on this slice. The reconstruction
+uses population means. Its certified upper bound on error amplification
+is $1.011\times10^8$ from Euclidean readout error to
+Hilbert--Schmidt state error.
+
+The direction $D$ was selected from entropy and ranges alone.
+Independent four-tick measurements of the full marked force on this
+same source give strictly positive slopes along it. In native force
+units per source coefficient their enclosures are
+$[1.25430,1.25464]\times10^{-8}$ for vacancy and
+$[4.89110,4.89128]\times10^{-7}$ for excess. The eight calibrated
+delayed local readings also distinguish the transfer in population.
+Thus the discrepancy survives an independently defined material
+measurement. Identifying that force with regional null stress,
+or the twelve ranges with a proper-ball curvature, requires an
+additional source map.
+
+A different direction preserves the two independently calibrated material
+forces as well as all twelve mean ranges. The fourteen linear effects
+have rank fourteen on the eighteen correlation coordinates. Their
+common kernel contains a native direction whose entropy derivative
+lies in $[1.1964,4.7078]\times10^{-5}$ nats per unit coefficient.
+A step of $10^{-7}$ raises entropy by more than $1.004\times10^{-12}$
+nats while preserving all fourteen readings exactly. Thus adding
+these two force means to the geometry leaves the stationarity
+obstruction in place.
+
+The original radar does contain enough information to reconstruct
+the full stored state. Record, for each directed launch, the fraction
+of all launches returning at each half-tick before the cutoff. Keep
+the original trial denominator and average over the two equally
+likely probe charges. Thirty-one of these probabilities determine
+the normalized state on $M_4\oplus M_4$, including both marginals
+and the odd parity weight. A certified affine inverse bounds the
+Euclidean error amplification by $1.576\times10^7$. No second
+head instrument is needed. As a finite counting bound, $2^{72}$
+independent launches per route on each of two preparations give
+simultaneous 99 percent entropy errors below $0.03328$ nats.
+A union bound on bin frequencies, the calibrated inverse, projection
+onto positive normalized block states and the dimension-eight
+entropy continuity bound~\cite{audenaert07} give this result. It
+distinguishes a pure stored product from its unread sign-dephased
+twin, whose entropy is $\log 2$. A transfer invisible to all
+twelve means changes the return probability at tick ten from the
+third to the fourth station.
+
+\paragraph{A common spatial volume read from one link.}
+The four stations have an operational geometry on every normalized
+head preparation. Score a completed round trip by its duration, give
+each timeout the capped range 3, and average fairly over charge and
+launch orientation. For the six pairs of ports $0,1,38,39$, the
+orientation-averaged timeout probabilities exceed
+$0.630,0.993,0.999,0.836,0.994,0.725$ respectively for either charge.
+Thus each length lies between three times its lower bound and 3.
+For squared lengths $L_{ij}^2$, the anchored Gram matrix has entries
+$(L_{0i}^2+L_{0j}^2-L_{ij}^2)/2$. At each of the 64 vertices of
+this box its least eigenvalue exceeds $1.55$. Affineness gives that
+bound throughout, and concavity of the logarithmic determinant gives
+tetrahedral volume greater than $1.57$ cubed range units. This proves
+a nondegenerate three-dimensional Euclidean realization for these four
+stations, unique up to rigid motion and reflection.
+
+One observer using only $38\to1$ can also forecast this survey.
+For a known probe charge the 36 ordered pairs of first-relay and
+return appointments through appointment nine determine all 31 normalized
+head coordinates. Independent calibration fixes six linear scores on
+these local probabilities. Their uniform population error over all
+head states is below $4.72\times10^{-11}$ range units for vacancy
+and $1.22\times10^{-9}$ for excess. Separate propagation on three
+preparations yields volumes $2.752409$, $2.732611$ and $2.747317$.
+Retaining first-relay hits on failed round trips gives full rank by
+appointment eight on every directed route. If the charge is hidden
+and correlated with the head state, the joint four-block state has
+63 coordinates and is recovered by appointment eleven. The inverse
+calibration is sensitive to counting error. With $2^{72}$ simulated
+launches per preparation and charge, both local readers distinguish
+the first two volumes at simultaneous 99 percent coverage across all
+36 length comparisons. On the excess reader the respective volume
+intervals lie inside $[2.75120,2.75353]$ and $[2.73144,2.73387]$.
+
+Raw durations place a stronger restriction on a common ruler.
+Through the volume-matched stationary preparation there is a reachable
+line preserving all twelve pooled mean ranges and both independent
+marked forces. The stored entropy increases on the line. On the same
+link $1\leftrightarrow38$, in each orientation separately, the
+probability of completing by each of appointments 2 through 12
+strictly increases for vacancy and strictly decreases for excess.
+Summation by parts shows that every nondecreasing duration score with
+a positive increment there gives opposite signs for the two length
+changes. Species-specific increasing recalibrations preserve this
+obstruction. The calibrated common ruler instead uses the joint relay
+and return records to predict the independently fixed six-edge survey.
+A proper-ball interpretation requires compatible measurements on
+nested regions, their boundary areas, and a common transported clock.
+
+\input{tex_fragments/INTERVAL_ECHO_REGIONAL_MODULAR_WARD.tex}
+
+There is a quantitative condition on embedding this experiment in
+a larger ball. Suppose it contains $N$ disjoint measured bridge
+regions $R_i$ reproducing the same marginal change and an additional
+system $E$. Put $U=R_1\cdots R_N$, $I=\sum_iS(R_i)-S(U)$ and
+$H=S(E\mid U)$. The identity $S(UE)=\sum_i S(R_i)-I+H$ holds for
+arbitrarily correlated states. A finite generalized-entropy
+residual $|\Delta S(UE)+\eta\Delta A|\le\epsilon$ therefore requires
+\[
+ \Delta I-\Delta H-\eta\Delta A
+ \;\ge\; N(4.93893\times10^{-7})-\epsilon
+\]
+in nats for the tested displacement. For first variations the
+corresponding coefficient exceeds $4.94001\times10^{-5}$ nats
+per unit source change. Independent copies with no additional
+degrees of freedom and the same fixed range geometry accumulate
+the discrepancy. A connected proper-ball refinement could change
+the area, total correlation or conditional entropy. Its own
+measurements must supply the compensating term.
+
+Even an arbitrary correlation-creating perturbation cannot supply
+this first-order compensation at a faithful product reference
+$\bigotimes_i\rho_i\otimes I_E/d_E$. The negative logarithm there
+is the sum of the local negative logarithms, each extended by
+identities, plus $(\log d_E)I$. The latter pairs to zero with every
+normalized state derivative. The first law therefore gives
+$\delta S(UE)=\sum_i\delta S(R_i)$ for every differentiable
+perturbation at that reference. Enlarging unused maximally mixed
+capacity this way preserves the measured first-order discrepancy.
+
+Let $p(\sigma)=o+A x(\sigma)$ be this invertible clock map and
+let $g$ be the source-coordinate covector of any independently
+calibrated head observable. The time-bin score $w=A^{-T}g$ gives its
+change as $w^T[p(\sigma)-p(\rho)]$. For a faithful reference
+$\rho$, taking the observable $-\log\rho$ gives the exact identity
+\[
+ S(\sigma)-S(\rho)=w^T[p(\sigma)-p(\rho)]-D(\sigma\Vert\rho).
+\]
+The first variation therefore has a clock readout. Taking instead
+the separately measured, four-tick translation force yields an
+absolute force prediction for either carrier on every normalized
+state in the two-block algebra. The Hamiltonian and independent
+material calibration fix the two sets of weights. The frozen scores
+have uniform absolute errors below $2.34\times10^{-14}$ for vacancy
+and $5.95\times10^{-14}$ for excess, in native force units at
+population precision. On three held product preparations the six
+forecasts from simulated clock counts cover the independent force
+readings at simultaneous 99 percent confidence, with $2^{48}$
+synthetic trials per preparation and directed route. A curvature
+prediction would additionally require clocks defining proper balls
+and a geometric response at the ordinary-matter coupling. The
+finite observation matrices, readout weights and held trials are in
+\path{source_implication/full_algebra/reuse/}.
+
+At the deliberately prepared variational maximum, two independent
+transfers test the signs of the physical responses. An
+unread sharp sign measurement on the left adds ordinary exchange
+energy. In a different arm, supplying the left and right heads
+from independent copies weakens their correlation at fixed ordinary
+energy and preserves each head's marginal. A unitary rotation of
+the right coin about its measured marginal axis can match the
+survey volume: it preserves energy, entropy and both head marginals.
+The appointment of the right rotation uses volume alone. Per unit
+probability of the ordinary read the numerical derivatives are
+\[
+ (\delta E,\delta S,\delta A|_V)
+   =(+0.297563,+0.409453,-0.0177220).
+\]
+For the correlation transfer they are respectively
+$0,+0.231106,-0.0100028$. Thus a source can have identical
+individual head records while a change in the joint records carries
+entropy and a signed area deficit. Both measured ratios
+$-\delta S/(\delta A|_V)$ are $23.1042362$ at the selected state.
+At the exact maximizer, interval propagation places the two entropy
+derivatives in $[0.409426,0.409481]$ and $[0.231079,0.231134]$.
+The rotation changes volume with derivative between
+$-2.587\times10^{-5}$ and $-2.564\times10^{-5}$. A locally
+volume-preserving rotation adjustment therefore exists for each arm,
+and both matched area slopes are strictly negative. Finite one-sided
+transfers at matched volume converge toward these values. The exchange energy here concerns the parked heads and the
+area belongs to their specific clock survey.
+
+\paragraph{Independent source and directional readings.}
+A sharp terminal click after a freely launched excess interrogates the
+same stored state. At a single unmarked port the return-effect derivatives
+through order 40 contain a $32\times32$ integer minor with determinant
+184 modulo 1009. The population curve therefore distinguishes the two
+complete parity blocks, including their relative weight. Switching off
+the squared contrast during interrogation reduces the rank to five.
+A separate finite-count experiment used 512 single-terminal settings
+and $2^{52}$ synthetic trials per setting and bank. The inferred
+ordinary and pairing modular changes were respectively
+$0.40945\pm0.07935$ and $0.23111\pm0.07935$ nats, with simultaneous
+99\% sampling bounds also covering the two energy contrasts. The energy
+meter inferred changes of $0.29756325$ and $-0.00000004$, each within
+$0.00000072$ in these units. The inference uses a reference bank and
+separate baseline and intervention banks. At an exposure of $2^{36}$
+per setting, the unweighted density reconstruction had minimum
+eigenvalue $-0.2564$ and could not supply a modular logarithm.
+
+There is an explicit parked collar charge on this same source. Let
+$\chi$ be its frozen reference, $\pi=\chi_L\otimes\chi_R$, with reversal
+parity included on the left, and $K_c=\log\pi-\log\chi$. Unpairing
+preserves both marginals and gives the first variation
+\[
+ \delta\langle K_c\rangle
+ =D(\pi\Vert\chi)+D(\chi\Vert\pi)
+ =\delta S=-\eta\,\delta A|_V .
+\]
+The two relative entropies are $0.120213$ and $0.110893$ nats.
+The volume-matching rotation preserves both marginals and has zero
+entropy derivative. The parked Hamiltonian is scalar on each parity
+block, so it conserves $K_c$. A flying probe tests the transport of
+this charge. Let $P$ be the sharp unmarked-port event. If a conserved
+operator $C$ commutes with $P$ and restricts there to $K_c$ up to a
+constant, $K_c$ commutes with every return amplitude $P U(t)P$ on
+that port and hence every return effect. Those effects span both full
+parity blocks. A commuting head observable is scalar within each block
+and therefore has zero unpairing derivative, a contradiction. In a
+population calculation on the same prepared state, removing a probe
+after two time units with its location unread changes the head charge
+by $9.147\times10^{-5}$ nats. A conserved total stress carrying this
+charge would require transport beyond an unchanged head observable
+compatible with sharp launch-port detection.
+
+The directional timings test whether this survey admits a common
+propagation time. At the certified equilibrium measure the first arrival
+of an excess and a vacancy separately on all twelve directed station
+pairs. Include every miss at the six-unit deadline. Allow each probe
+its own positive clock gain at each sender and independent additive
+sender and receiver delays. A weighted sum of the twelve readings
+with zero row and column sums eliminates all these delays. The four
+weighted sender contributions are strictly positive for an excess and
+strictly negative for a vacancy throughout the certified state
+neighbourhood. Multiplication by positive gains preserves both signs.
+Consequently the two sets of means cannot be one common table of
+directed travel times under these calibrations, even allowing
+nonreciprocal travel. Dispersion, first detection and censoring all
+enter these observed means. A geometric signal extracted by some
+other protocol has to predict independent directional measurements. The
+same incompatibility holds for the first variation when the pairing is
+weakened and the right rotation holds the original two-way survey volume
+fixed. A second weighted sum eliminates endpoint delays on this tangent;
+all four one-way excess terms and all four vacancy terms retain
+opposite signs throughout the certified source enclosure when the
+emitter gains are held fixed across the variation.
+
+At the same six-unit deadline there are attainable state changes that
+preserve all twelve two-way mean ranges exactly while changing the
+parked exchange energy. The energy derivative per unit Hilbert--Schmidt
+norm exceeds $0.024953$ on one such direction. Using three deadlines
+instead gives 36 range means with a certified left inverse on the
+31-dimensional traceless block algebra. This recovers a declared
+matter observable. Assigning a geometrical curvature or a conserved
+null stress to those data requires an independent physical law.
+
+\paragraph{Independent recovery of the same area and a local current.}
+At one deadline the two charge-resolved twelve-range maps together
+have rank 24. On any open set of head states their outputs therefore
+contain a product of open sets. A quantity reconstructed from either
+one of the two mean tables alone must be locally constant if the two
+values always agree. The conclusion changes when the clocks retain
+the time distribution. At deadlines 2, 4 and 6, each individual charge
+gives a rank-31 design on the traceless block space. Its fixed linear
+inverse recovers the twelve prescribed pooled observables from that
+charge alone. This identifies a common operational survey, with its
+geometry prescription fixed before the source changes.
+
+In separate acquisitions using each probe, every returning tick and
+every miss by time 12 was counted. Each of the twelve sender--relay
+pairs used \(2^{50}\) synthetic trials per preparation. A reference
+bank of the same species fixed the local area and volume derivatives.
+Two physically prepared quarter rotations in opposite directions
+measured the volume-adjuster tangent by half their difference.
+The vacancy-only estimates of the matched area slopes were
+\(-0.017689\pm0.000594\) for ordinary exchange and
+\(-0.009993\pm0.000178\) for unpairing. The excess-only values were
+\(-0.018051\pm0.002943\) and \(-0.010101\pm0.000880\).
+Simultaneous 99\% sampling bounds include both exposures and the
+independent source calibrations of the geometric derivatives.
+At \(2^{42}\) shots per setting the excess intervals include zero.
+The agreement at higher exposure establishes a reproducible area
+readout in the specified survey units.
+
+The source also has an exactly conserved extension of its modular
+charge during a flight. Two spatial eigenmodes with support on six
+unmarked ports have zero amplitude on gateways and marked contacts.
+Their orthogonal projector \(\Pi\) has diagonal \(1/3\) on those six
+ports. For any stored parity-block observable \(K\), the full flight
+Hamiltonian commutes with \(C=3\Pi\otimes K\), and a launch at port
+5 compresses \(C\) to \(K\). The density at port \(x\) is
+\(\{P_x,C\}/2\). Symmetrizing the native probability edge current
+with \(C\) gives an antisymmetric current \(J\) with exact local
+continuity. A source-operator calculation on edge \(4\to5\) gives
+\(\partial_t\langle J\rangle(0)=-3\langle K\rangle/8\) for either
+probe. Set \(K=-\log\chi_*\) from independent head tomography.
+For every first variation at fixed survey volume this gives
+\[
+ \delta\,\partial_t\langle J_{4\to5}\rangle(0)
+     =\tfrac38\eta\,\delta A|_V .
+\]
+Ordinary exchange changes this slope by \(-0.1535450\) nats per
+squared exchange time per unit intervention. Unpairing changes it by
+\(-0.0866648\), entirely from the collar part of \(K\).
+The current here redistributes charge within a compact region with
+zero total outflow. Its time derivative and the surveyed area are
+distinct observables from null stress and spacetime curvature.
+
+The launch charge and its conservation also admit different
+intercell currents on the same native board. In each charge and
+parity sector write \(H\) for the integer flight generator after
+subtracting its scalar launch energy. For the span of monomials of degrees
+zero and two through twenty, map the coefficients to the symmetric
+launch block at port 5 and the symmetric part of the cross block
+from port 5 to port 38. Each block has ten real coordinates.
+The four integer twenty-dimensional minors, using twice the symmetric
+cross block, are \(756,886,637,254\) modulo the prime 1009.
+Thus each sector allows both blocks to be specified independently.
+For the collar observable
+\(K_c=\log(\chi_{*L}\otimes\chi_{*R})-\log\chi_*\),
+set the launch block to \(\operatorname{Re}K_c\) and add
+\(3\Pi\otimes i\operatorname{Im}K_c\) to restore the full Hermitian
+launch charge. The cross block can have symmetric part
+\(B=0\) or \(B=\pm\operatorname{Re}K_c\), with the same conservation
+law in each case.
+
+The only two-hop path from port 5 into another cell goes through
+port 1 to port 38. The receiving cell's charge has initial second
+time derivative \(-\langle B\rangle/4\) in native exchange units.
+With \(B=\operatorname{Re}K_c\), raw unpairing changes this derivative
+by approximately \(-0.05777\), with its sign certified at the true
+equilibrium. Choosing the negative cross block reverses the sign
+while giving exactly the same collar reading for every launch state. These interpolating operators
+can have very large norm. Their role is an exact non-identification
+result. A local coupling to the source action or an independently
+specified transport instrument would distinguish physical stress
+among the conserved extensions.
+
+\paragraph{An independent, source-sensitive relay metric.}
+A second ruler times a low-probability click on a sharp launch in
+both link orientations. At fixed graph distance the leading arrival
+coefficients on the enrolled links agree between excess and vacancy
+after the two orientations are averaged. Refer the small-threshold
+time to a blank path of the same hop order, then take the shortest
+sum over relays. This gives a reciprocal metric on 960 ports, and
+three-hop links can respond to unpairing. Four-hop links give a
+nondegenerate Euclidean tetrahedron on the four original stations.
+Hold its own measured volume fixed and calibrate on ordinary exchange.
+In area units for this ruler the ordinary derivative lies between
+\(-0.004923\) and \(-0.004869\). Unpairing increases entropy while
+its area \emph{increases} by \((1.5935\text{--}1.6127)\times10^{-5}\)
+per unit intervention. The predicted-to-measured entropy response
+lies between \(-0.005871\) and \(-0.005732\); stationarity requires
+one. This failure includes the certified equilibrium uncertainty.
+
+The same relay data test whether ordinary calibration selects an
+intercell flux. Use the three-hop direct length from port 0 to 39.
+Its frozen gradient \(L\) is real symmetric because the length is
+\((\operatorname{Tr}\chi F)^{-1/6}\) for a fixed real symmetric
+arrival effect \(F\). On the original survey's constant-volume
+ordinary and unpairing directions, denote length derivatives by
+\(\ell'_o,\ell'_p\) and parked energy derivatives by \(E'_o,E'_p\).
+Here \(E'_o>0.29756\), \(E'_p=0\) and
+\(0.0357614<\ell'_p<0.0362044\). Subtract
+\((\ell'_o/E'_o)E+cI\) from \(L\), with \(c\) chosen to center
+the resulting observable \(M\) at the reference. Its reference
+expectation and ordinary response both vanish, while its unpairing
+response is \(\ell'_p\). A cross block \(aI+bE\) fits any specified
+reference current slope and ordinary response and has zero unpairing
+response. Adding or subtracting \(M\) preserves both calibrations
+and the complete parked charge. The resulting conserved extensions
+have opposite intercell responses to unpairing at fixed survey
+volume. This ambiguity survives calibration on ordinary matter.
+
+A second physical variation identifies information that all such sharp
+leading-arrival rulers discard. In the odd parity block take imaginary
+Hermitian variations \(Y\otimes Z/2\) and \(Z\otimes Y/2\), where
+\(Y,Z\) are Pauli matrices. Both preserve each individual head state
+and ordinary energy. The leading transition probability between sharp
+ports pairs the head density with a real symmetric matrix because the
+native Hamiltonian is real. It therefore cannot see either variation,
+at any hop order. Their two-dimensional plane contains a unit tangent
+to an actual constant-volume curve of the original survey. On this
+tangent the collar charge increases by \(0.0003224\) to \(0.0003260\)
+nats per unit Hilbert--Schmidt displacement. An independent enclosure
+using the head logarithm gives a lower bound \(0.00029\). The entire
+metric made from sharp leading-arrival probabilities is unchanged.
+For example, center two uniform vertex balls on ports 0 and 39 in the
+three-hop metric. At radii 0.75 and 1.5 blank-link units their
+directional transport curvatures \(1-W_1/d\) are \(-0.70584\) and
+\(-0.70689\) at the computed reference. Both have exactly zero
+derivative along this phase curve. This excludes an interpretation
+of these spatial observations alone as a response to pressureless
+collar energy at nonzero coupling. A physical lapse, directional
+pressure and the continuum interpretation of the balls require
+independent measurements.
+
+There is a direct way to recover the missing phase information.
+Launch or receive on two adjacent blank ports with a relative
+quarter-period phase. Two such apertures give independent leading
+probability slopes on the two phase directions above. In the stated
+basis their diagonal responses are \(-1/8\) and \(-9/64\), with
+zero off-diagonal entries. Both carrier species resolve the phase.
+Calibrate each aperture's threshold length on the full ordinary
+modular response, then hold the calibration fixed. For unpairing,
+observed length change divided by predicted length change is in
+\([0.95429,0.98466]\) for one aperture and \([0.52665,0.54540]\)
+for the other. The held phase change gives opposite signs to those
+predicted for both apertures. Detecting the hidden correlations is
+thus possible using independent optical records. Interpreting either
+single threshold length as their universally calibrated response
+fails these controls.
+
+A single right-hand material rail distinguishes this selected state
+from the original freely formed heads. The same native transfer
+followed by a sharp first-port reading gives probability 0.020107
+on the formed source and 0.507974 on the full stationary source.
+Replacing the formed heads by independent heads with the same
+marginals or dephasing the left reversal sign leaves the former
+right-hand reading fixed. Thus the state-selection input is visible
+in a separate local measurement.
+
+A fifth unmarked station tests the geometry independently. Include
+port 5 with the original four stations, rerun all twenty directed
+flights at the same state, and refit the five clock gains. The four
+nontrivial eigenvalues of the centered squared-distance Gram matrix
+are $5.2623,4.6982,3.7321,3.4961$. The smallest is $0.6644$ of the
+largest. The distances therefore require four Euclidean dimensions
+for an exact embedding at this measurement scale. This test concerns
+the proposed flat reconstruction; finite geodesic distances on a
+curved three-space need not have a rank-three Euclidean Gram matrix.
+
+The same state and gain at a four-unit timeout give gradient residual
+$0.7264$ even after choosing the best new volume multiplier. In the
+six-unit survey the four directed radar cycle ratios range from
+0.98548 to 1.01539, whereas a static reciprocal distance with only
+station clock gains requires one on every cycle. A selected finite
+entropy maximum can coexist with this failure of the proposed
+spatial reconstruction. To obtain a gravitational equation, a family
+of common proper balls and their signed changes must be recovered
+from the evolving physical records. The full probability weights and
+held measurements are in
+\path{code/matched_einstein_limit/source_implication/full_algebra/}.
+
+\paragraph{Which area deficit contracts a proper ball?}
+For a rest observer with nested geodesic balls before the cut locus,
+proper radial thickness and the area of the shell obey \(dV=A\,dr\).
+At matched enclosed volume \(v\), the radius is therefore
+\(r(v)=\int_0^v dw/A(w)\). A positive bulk entropy variation that
+reduces the proper area at every matched interior volume increases
+the radius needed to enclose a given volume. Inverting the two
+radius functions gives a smaller enclosed volume at a fixed proper
+radius. In three spatial dimensions the leading curvature contrasts
+satisfy \(\delta V|_r=(r/3)\delta A|_V+o(r^5)\). On four
+supplied curved charts with nonzero sectional curvature, independent
+simulated interior and surface counts give
+\(3\Delta V/(r\Delta A)=0.99921\)--\(1.00069\) at radius \(1/16\),
+up to the displayed rounding.
+
+The finite version identifies what an observer must measure. Let
+\(w_i\) be a common shell volume increment, \(a_i,b_i\) the
+positive reference and perturbed areas, and \(s_i\) the regional
+entropy contrast at the matched volume. Write
+\(e_i=s_i+\eta(b_i-a_i)\). Let \(c\) be the measured difference
+between the radial-clock contrast and the two sums of inferred shell
+thicknesses. Then
+\[
+ r_1-r_0=c+\sum_i\frac{w_i(s_i-e_i)}{\eta a_i b_i}.
+\]
+Bounds on \(e_i\) and \(c\) give a quantitative contraction test.
+They include shell discretization and, for finite changes about a
+stationary reference, the nonlinear remainder.
+
+The two-head experiment distinguishes these conditions. One
+physical decorrelation raises the joint entropy. A rotation of the
+right head about its own marginal axis leaves both marginals, the
+spectrum, the mutual information and ordinary energy fixed.
+The map from ordinary admixture, decorrelation and rotation to
+parked energy, entropy and survey volume has Jacobian determinant
+between \(-1.779\times10^{-6}\) and \(-1.763\times10^{-6}\).
+Consequently the same entropy and energy changes admit smaller,
+equal or larger survey volume. Scalar compensation at fixed survey
+volume therefore supplies only one of the shell measurements.
+
+\paragraph{Six clock stations and a transverse optical image.}
+Bounded integer propagation of both probes encloses thirty directed
+ranges at the full-head equilibrium. Five stations admit a round
+three-sphere fit at inverse radius between 0.6221 and 0.6224 in
+survey units. The five points surround the embedding origin. Hold
+their clock gains fixed and enroll a sixth station: the six-point
+cosine Gram has a negative uniform-direction Rayleigh quotient
+throughout the fitted interval. Varying the curvature across either
+sign gives no common three-dimensional space-form chart for these
+six minimizing distances. On the spherical side the centered Gram
+has five positive directions below inverse radius 0.65, and the
+uniform direction is negative above it up to the diameter cutoff.
+On the hyperbolic side a fourth negative direction, invertible
+minors, and a hyperbolic chord Ptolemy inequality cover the low,
+intermediate and high inverse radii respectively. The result
+assumes a common chart for the distance comparisons.
+
+Even the five stations constrain variable curvature.
+Their centered Euclidean Gram has four eigenvalues exceeding 3.49,
+with maximum squared distance below 9.03. A three-dimensional
+tangent-space fit requires a change above 1.745 in some squared
+distance. In a strongly convex normal ball with
+\(R^2\sup|\mathrm{sec}|\le1/2\), radial Jacobi comparison bounds
+normal-coordinate length distortion between \(11/12\) and \(12/11\):
+these bounds follow from \(\sin(x)/x\) and \(\sinh(x)/x\) at
+\(x^2\le1/2\). The squared-distance error is at most
+\(9.03[(12/11)^2-1]<1.717\), a contradiction. This constrains the
+observed shape at its measured scale. A refining detector protocol
+can change the shape.
+
+Two five-port material screens across the bridge provide an angular
+image, with two launch biases and two independent centroid readings.
+In the earliest transmitted signal one image component is
+proportional to the connected correlation of the two stored heads.
+The perpendicular component vanishes. At exposure four the image
+has nonzero area for either probe. On the same launch ensemble and
+at the same exposure, a separate instrument measures the native
+energy of the receiving seam. Calibrate image-area change against
+this energy change on the ordinary intervention. The held ratio of
+observed to predicted image response is in \([0.85184,0.93919]\)
+for a vacancy and \([-0.16242,-0.14329]\) for an excess. Both
+enclosures include the exact stationary-source uncertainty.
+The comparison uses no entropy estimator.
+These are independent detections of a correlation affecting
+propagation and energy. Relating this image to null focusing would
+require proper transverse separations, affine ray parameters,
+control of diffraction and shear, and the directional stress of
+the same region.
+
+\paragraph{Directional focusing and a separately metered flux.}
+At exposure four the two screens supply a matrix \(J\) of centroid
+changes with respect to the two launch biases. Denote derivatives in
+exchange time by dots and set \(B=\dot J J^{-1}\),
+\(C=\ddot J J^{-1}\). In the same parallel screen frame, a common
+affine retiming \(\lambda(t)\) and a common tidal matrix require
+\(C_1-C_2=(\ddot\lambda/\dot\lambda)(B_1-B_2)\).
+Two entries require the same real number to lie respectively in
+\([-9.906,-9.900]\) and \([19.772,19.779]\).
+Thus these resolved images do not propagate as a common Jacobi field
+under that identification. A different physical screen transport or a
+limit suppressing probe-dependent propagation would require independent
+calibration.
+
+A separate instrument kicks the central bridge on a tagged, equally
+weighted mixture of launches from each end. Local energy continuity,
+including the boundary terms of the receiving cell, fixes the signed
+energy current in native units. The ordinary source change gives
+current slopes in \([-3.1100,-3.0651]\) and \([-2.0737,-2.0445]\)
+for vacancy and excess probes, respectively. The forward-minus-reverse
+responses of \(-\operatorname{tr} C\) to that change have opposite
+signs, in \([9742,10088]\) and \([-13606,-13239]\). An oriented null
+pair in one orthonormal frame obeys
+\(T(k_+,k_+)-T(k_-,k_-)=4T_{0n}\). Energy density and pressure cancel
+from this test. The signs exclude a common signed conversion between
+the two instruments for a common affine exchange clock and a fixed
+orientation. Calibrating each probe on ordinary matter separately gives
+observed-to-predicted collar responses of \([1.05125,1.05695]\)
+and \([1.03003,1.03492]\), respectively.
+
+A common clock correction can be tested even if it varies with the
+source. Write \(f\) for the odd focusing, \(s\) for the difference
+of the two expansions, \(j\) for the bridge current and
+\(u=\ddot\lambda/\dot\lambda\). A common physical conversion
+with fixed units requires \(f+us=cj\) for both probes, with one
+constant \(c\). The reference measurements admit compatible
+values. At that reference the ordinary perturbation requires
+\(\delta u=(c\,\delta j-\delta f-u\,\delta s)/s\).
+The vacancy requires \(89767<\delta u<131335\), while the excess
+requires \(262529<\delta u<296075\). An independent conversion
+of this extensive current to flux per proper section could vary with
+the source. That conversion would need a separate area and clock
+measurement. In particular, suppose the local bridge section is a
+fixed positive fraction of the measured tetrahedral boundary area
+\(A\), with fixed lapse. Then \(c=-C/A\), \(C>0\).
+The measured stationary entropy gain gives \(\delta A<0\) on both
+arms, hence \(\delta c=C\,\delta A/A^2<0\). Solving the two odd
+response equations simultaneously for \(\delta u,\delta c\)
+requires \(\delta c>0\) on both arms. The measured area contraction
+has the wrong sign for this proposed conversion. Identifying separate
+screens with rays at one spacetime
+event, and the bridge energy current with proper regional flux, are
+additional physical hypotheses. The measurements and source enclosures
+are in \path{code/matched_einstein_limit/source_implication/},
+under \path{jacobi_screen/} and \path{directional_stress/}.
+
+\paragraph{Separating diffraction from a change of clock or flux units.}
+Three calibrated phase settings on the five-port screens preserve the
+incident mean state, the aperture throughput and the bridge current.
+Denote the forward-minus-reverse expansion and exchange-time focusing
+at one appointment by \(s_i,f_i\) for setting \(i\).
+If all three measure the same odd curvature with the same ray
+normalization, their points \((s_i,f_i)\) must lie on one line,
+\(f_i+u s_i=h\), even if both the clock correction \(u\) and the
+flux conversion in \(h\) depend freely on the state. An independent
+version uses identical sharp launches in every trial and chooses only
+the final receiving phases. Its oriented collinearity determinant lies
+in \([0.81,1.43]\) for a vacancy and \([538,560]\) for an excess.
+The outgoing states and their propagation are identical before this
+last measurement. The apparent change therefore includes a response
+of the analyzer. In the two-ended instrument, averaging random phases
+and inverting the independently calibrated two-port intensity matrices
+recovers the sharp image and its derivatives. This returns the sharp
+ordinary-to-collar discrepancy above. Neither a free clock correction
+nor a fitted bridge area can identify all the raw images with one
+curvature. These tests concern a finite diffractive instrument.
+The full click records are in \path{jacobi_screen/coherent_ports/}.
+
+\paragraph{Measuring the work of stretching one bridge.}
+Two swap-symmetric strain protocols on the same source change the
+isolated exchange gap to \(s\) and produce the same endpoint transfer
+curve. Let \(P_-\) project onto the antisymmetric orbital, and \(D\)
+onto contact occupation. One protocol scales
+\(P_-+8D\) by \(s\); the other scales \(P_-\) alone.
+A Ramsey comparison against an outside port independently measures
+the symmetric level offset divided by the exchange gap. It is 8 on
+unstrained material. At \(s=3/4\) the two 99 percent count intervals
+are \([7.9953,8.0092]\) and \([10.6571,10.6727]\), respectively.
+Preserving the measured material index selects the first actuator
+uniquely in the head-independent, three-level swap-symmetric class,
+up to a common scalar. Its work per unit logarithmic length is thereby
+specified. A physical lapse and a uniform change of the contact
+energies can produce identical contact probabilities. Identifying
+longitudinal work per proper volume as regional normal pressure
+requires a local calibration of spatial strain independent of lapse.
+Three disjoint material oscillators give an independent check. A strain
+on the central contact leaves the two adjacent dimers at unit rate.
+A common change of elapsed time to three quarters slows all three.
+
+For a bridge term \(H=N e^{-\epsilon}(P_-+8D)\), variation of
+lapse \(N\) and minus variation of logarithmic length \(\epsilon\) at
+\((1,0)\) both give \(P_-+8D\). If these terms supply the local
+energy and longitudinal pressure in fixed flux and volume units, their
+sum predicts the even part of null focusing. The held ratio after
+ordinary calibration is \([0.98491,0.99490]\) for a vacancy and
+\([0.77909,0.78841]\) for an excess. Both lie below one. The independent
+odd current ratios lie above one. A common positive multiplier of the
+collar response leaves at least a 14.28 percent relative discrepancy
+among the four sharp-screen comparisons even if chosen after observing
+all four. Indeed for any two measured ratios \(l>h>0\) the least
+possible maximum of \(|l/a-1|,|h/a-1|\) over \(a>0\) is
+\((l-h)/(l+h)\). These conclusions apply to the specified finite
+lapse, work and focusing assignments. The same-source strain and
+impulse records are in \path{directional_stress/traction/}.
+
+\paragraph{Time-resolved measurements on the live bridge.}
+On the 80-cell reciprocal-strain prototype the observers retain the
+bridge strain and the two original seam heads after a four-tick pump.
+Across 17,496 links of orders one through four, reciprocal leading
+return coefficients measure six of the nine independent head correlations
+at fixed marginals. Nine first-relay time bins resolve all nine directions.
+The records then determine the regional modular response and the signed
+Hamiltonian energy current at the pump appointment.
+Two preparable lotteries agree on all the leading fronts and differ
+in energy current on two nested cuts. A common additive shift of the
+Hamiltonian cannot remove both differences.
+
+A separate detector measures an interior census and the outward and inward
+number currents on a 12-port region. Include its two heads, bridge strain
+and all enclosed spent-mobile modes, with a local vacuum when the mobile
+is outside. A preparation curve holds all three detector means fixed.
+Per unit decorrelation probability the regional entropy slope lies in
+$[0.21031,0.21060]$ for a vacancy probe and $[0.21372,0.21403]$ for an
+excess probe. Thus assigning area and volume solely from those three
+readings cannot give first-order generalized-entropy stationarity on
+this source. Recovering null balance requires an independent geometric
+response on the same proper regions. The detector, regional spectra and
+current certificates accompany the finite calculations in
+\path{rate_geometry/seam_strain/weak_ruler/}.
+
+\paragraph{Equal-volume balls averaged over observer positions.}
+At the same pump appointment fill the five-station reciprocal radar star
+by four Euclidean tetrahedra. Choose centers uniformly in a fixed small
+proper volume along the middle thirds of its interior edges. Each observer
+adjusts the radius to enclose the volume $4\pi\ell^3/3$. Only a fraction
+of order $\ell^2$ lie within reach of an edge, and the area loss of each
+affected ball is of order $\ell^2$. Their mean has an exact fourth-power
+term. Its coefficient depends on whether each observer fixes the volume
+or only the ensemble fixes its mean volume.
+
+For individually matched balls, calibration of the area-loss coefficient
+on the ordinary rail and the twelve-port regional entropy predicts a
+response between $2.898\times10^{-5}$ and $3.033\times10^{-5}$ per unit
+of head re-pairing. Independent radar gives $0.0018187$ to $0.0019239$
+in the same units. Two physical controls can instead keep both the mean
+area and the enrolled number exactly fixed near the reference. The regional
+entropy then increases at a rate between $0.01354$ and $0.04251$ nats per
+unit re-pairing. The continuum distribution of observer positions is an
+explicit extension of the station records. A regional algebra measured
+on shrinking proper balls would have to specify which modes enter those
+balls and how their entropy changes. The geometry, controls and enclosures
+are in \path{weak_ruler/center_average/} within the same package.
+Four graph-distance classes partition the enrolled ports. Two native
+preparation lotteries have identical energy and number on every class
+at every common admixture to the reference. Their individually matched
+area-loss coefficients nevertheless have different first variations.
+Hence even independent signed weights for the four shell energies and
+the four shell counts cannot recover this geometric response.
+
+
+
+\paragraph{Two stationary sources at matched survey geometry.}
+On the native 80-cell board, let the two outgoing heads seed the next
+radar cycle. A preparation instrument draws one of twelve directed
+routes with positive probabilities and uses a fair probe charge.
+Changing the route probabilities selects a different attracting
+stationary ensemble at the same ordinary head energy, $0.3657$.
+A separate four-station observer uses a fixed survey on fresh copies.
+Two selected preparations give all six reconstructed lengths equal
+to numerical precision, at tetrahedral area $14.2955956754$ and
+volume $2.76347115815$. The exact native channels give an upper
+bound of $7.73\times10^{-7}$ on the largest edge difference.
+The independent directed timestamps retain
+information beyond these six lengths. Between the two ensembles the
+complete free-flight entropy rises by $5.95\times10^{-6}$ nats;
+the four stations with their two heads gain $5.56\times10^{-6}$ nats.
+The oriented bridge energy current changes from $-0.010567$ to
+$-0.011100$. A parked local head detector also distinguishes the
+ensembles in independent counts. The route lotteries are supplied,
+and the geometric match has finite precision. A stationary source on
+a chosen bath can therefore be distinguished from another by a
+material instrument at a precision where this spatial survey cannot
+separate their geometries. An entropy-balance interpretation requires
+a physical bath selection or additional geometry on the same regions.
+Switch both settled preparations to the same uniform route lottery.
+After one common cycle their surveyed volumes differ by
+$1.31\times10^{-7}$ and after two by $2.51\times10^{-7}$.
+A central-current calibration from a separate pair predicts a second
+volume difference 24 times the observed magnitude. These finite
+changes use the intervention cycle as a clock. The route probabilities,
+release calculations and enclosures are in
+\path{source_implication/full_algebra/reuse/stationary_baths/}.
+
+\paragraph{Predicting the next geometric reading.}
+Commission a fixed survey using 62 two-head calibration standards,
+then use separate counts from the two parked heads to forecast
+future geometry. On twelve held route preparations the forecasts
+cover all 720 directed ranges and all 60 independent volume
+readings at cycle counts $0,1,2,4,8$. Each setting uses $2^{44}$
+simulated launches. A separate pair agrees on all twelve present
+ranges within their joint measurement resolution. Four common
+cycles later, six ranges distinguish the pair, and their measured
+volumes have disjoint simultaneous intervals
+$[2.76266148,2.76267108]$ and $[2.76267344,2.76268304]$
+to the displayed precision. Parked memory readings thus carry
+predictive information beyond the instantaneous range survey.
+The forecasts apply to one appointed route law and one tetrahedron.
+A relativistic stress law and proper geometric refinement require
+independent tests. The counts and held forecasts are in
+\path{source_implication/full_algebra/reuse/stationary_baths/forecast/}.
+
+An independent interval calculation gives a sharper population-level
+result on the admitted two-head state family. There exist two faithful
+states with exactly the same twelve initial mean ranges for which the
+volume difference after four identical cycles lies in
+$[2.2483,6.2748]\times10^{-6}$ cubed range units. The initial
+constraints are linear in the state. A certified right inverse corrects
+a proposed state variation to their exact kernel; both perturbed states
+remain positive and the later volume derivative has a fixed sign along
+the segment. These mathematically constructed states are distinct from
+the pair prepared for the finite-count test. Thus a deterministic law
+for future volume using only the twelve present means fails even at
+unlimited range precision in this finite family.
+
+\paragraph{Which part of the collar charge does a null observer measure?}
+At the faithful stationary source there is a preparable curve that
+preserves survey volume, parked energy and both marginal entropies.
+Its tangent \(D\) commutes with the reference state \(\chi\).
+Per unit curve parameter, the total entropy increases by
+\([0.007674,0.007978]\) nats, entirely through loss of mutual
+information, and the survey area changes by
+\([-0.000352,-0.000326]\). The collar logarithm therefore has a
+signed signal. For every candidate charge \(P\) on the full heads,
+cyclicity gives
+\[
+  \operatorname{Tr}(D\chi^{is}P\chi^{-is})=\operatorname{Tr}(DP).
+\]
+If the signal is nonzero this modular action cannot double it at the
+boost time for a factor-two null dilation. This exact conclusion
+persists for products of the preparations and collective readouts.
+Correlated regional algebras can have a different modular action.
+The curve and enclosures are in \path{source_implication/modular_orbit/}
+within the same package.
+
+Rest-frame conservation also leaves a local pressure ambiguity.
+A coincidence measurement of the two heads along their separately
+measured marginal axes has centered mean \(w\). It is insensitive to
+ordinary parity mixing and its volume adjustment. Its unpairing
+response lies in \([0.20029,0.20035]\). On a supplied flat comparison
+chart let \(F=(x^2-y^2)/2\) near the measuring event and cut it off
+smoothly outside. The symmetric addition
+\[
+ \Delta T_{ab}=\xi w(\partial_a\partial_b-g_{ab}\Box)F
+\]
+is identically conserved for each fixed preparation. Its integrated
+translation charges vanish. Locally its energy and current vanish
+while its \(xx,yy\) pressures are \(+\xi w,-\xi w\).
+A speed-one-half independent energy measurement in the \(x\)
+direction distinguishes the choices by \(\xi w/3\). This is an
+ambiguity of the stress attachment allowed by the flat records.
+A specified response to strain, a metric coupling, or proper
+moving-frame energy data can select an attachment.
+
+\paragraph{A reference test at all routed radii.}
+On a separately prepared protected clock and two-word source let
+\(P_z=P_0+z\Delta\), \(-1\le z\le1\), describe the two jointly
+admitted words. The registered preparations use opposite, independent
+or shared tags. Both one-word marginals, ordinary word-energy
+distribution and routing clock are fixed. Only the conditional table
+for joint admission, which occurs with probability \(q_B\), changes.
+For any reference \(r\) in this family,
+\[
+ S_B(z)-S_B(r)=q_B[(z-r)k(r)-D(P_z\Vert P_r)],\qquad
+ k(r)=-\sum_{ij}\Delta_{ij}\log P_{r,ij}.
+\]
+The product marginals give \(k(0)=0\). Differentiation gives
+\(-k'(r)=\sum\Delta_{ij}^2/P_{r,ij}\), lying between
+\(229/86580\) and \(44/12285\) from the exact word tables.
+The relative-entropy term is therefore bounded above and below by
+positive constants times \((z-r)^2\). On these routed balls
+\(q_B=\Theta(\ell^4)\) and the clock area has zero variation.
+For any sequence of references \(r_\ell\), fixed-volume first-order
+stationarity to \(o(\ell^4)\) holds along this variation exactly when
+\(r_\ell\to0\). Its normalized linear collar response then tends to
+zero. Any fixed nonzero intervention also retains a nonlinear
+entropy cost of order \(\ell^4\). This is an all-radius result on this
+clock and source. A nonzero gravitational response requires an
+independently responsive proper geometry or a different source.
+
+\paragraph{The angular part of regional modular energy.}
+There is a positive finite result on a separately prepared cell with
+a rotation-averaged reference. Restrict to its constant one-load mode
+and first spatial triplet, with projector \(P\). For each of the twelve
+poles \(n\), let \(K_n\) be the marginal modular Hamiltonian of the
+pole and its five neighbors. Let \(H_s(n),H_r(n)\) be the five spoke
+and five rim seam energies, and \(H\) the total internal energy.
+On this subspace the finite operators satisfy
+\[
+ PK_nP=P[cI+\gamma H+uH_s(n)+vH_r(n)]P .
+\]
+The fivefold stabilizer reduces the symmetric dipole and quadrupole
+to their two axial coefficients. The spoke and rim energy matrices
+span these coefficients, and the total energy and scalar account for
+the rotationally invariant part. Calibration at one pole gives
+\(u=0.352820\), \(v=0.697918\), \(\gamma=-0.049106\) to the
+precision shown; rotation fixes all twelve readings. Subtracting the
+angular mean removes the common total-energy term. Thus all eight
+nonconstant angular components of every supported first entropy
+variation have an independently readable seam-energy representation.
+An exactly time-stationary reference can also be prepared.
+For each nonzero energy gap \(d\) of the isolated cell, mix zero
+waiting time and a wait of \(\pi/|d|\) with equal probabilities. This
+cancels the corresponding coherence. All wait channels commute. The
+finite composition preserves the rotation symmetry and gives a
+certified stationary rim excess \(v-u\in[0.345076,0.345121]\).
+The larger rim weight is essential. An inward-increasing positive
+ball weight on these seams gives the wrong sign on an equal-energy
+axial-versus-transverse contrast. These clock-free regional readings
+supply neither a geometric response nor a stress normalization on the
+stationary 80-cell preparation.
+The coefficient certificate is in \path{modular_orbit/angular_energy/}
+under \path{code/matched_einstein_limit/source_implication/}.
+
+\paragraph{What a sharp propagation distance can detect.}
+Let \(F\) attach the same real number \(f_c\) to all probe positions in
+cell \(c\). All terms internal to a cell commute with \(F\).
+The blank external contacts form a matching, with off-diagonal hopping
+\(-1/2\) on each edge. The independent two-endpoint blocks therefore give
+\[
+ \|i[H,F]\|=\tfrac12\max_{c\sim d}|f_d-f_c|.
+\]
+Either carrier charge attains the extreme derivative with the two
+endpoint amplitudes in relative phase \(i\) or \(-i\).
+The dual distance, the supremum of differences in \(f\) at commutator
+norm at most one, is twice the shortest cell path. On the stationary
+80-cell source a separate free dimer clock and receiving-cell counts
+measure 0.50003 and 0.49976 per exchange time. Halving the external
+exchange gives 0.25008 and 0.25007. This is a common measured local
+speed and a distance with an exact finite characterization. Varying
+either parked-head preparation leaves this distance unchanged.
+
+There is a more general limit on any measurement of one copy of these
+heads. Their reference density is strictly positive. The ordinary
+and unpairing families, including the compensating head rotation,
+satisfy \(0.00319968\,\rho_{\rm ref}\preceq\rho'
+\preceq50.00251\,\rho_{\rm ref}\), with the lower constant rounded
+down. For any source-independent experiment on this one copy the
+complete event has a positive effect. Its two probabilities obey the
+same inequalities. This persists under a common enlargement of the
+apparatus and adaptive observation on that copy. If an estimator
+converges in probability to one deterministic value at the reference,
+it converges to that value on the perturbed source as well, by applying
+the upper bound to each error event. Thus a change of deterministic
+limiting geometry cannot be obtained solely by enlarging the apparatus
+around this fixed finite source under this definition of readout.
+Ensemble means and finite detection rates can change. A source with a
+growing number of independently prepared matter degrees of freedom
+requires its own analysis. A common random choice of basis for the right-hand two-level
+register on two independently prepared copies gives a binary correlation
+readout invariant under a common compensating right-hand rotation.
+At one eighth of the full unpairing intervention its probability
+falls by \(0.00522870\)--\(0.00522873\). Thus repetition can
+distinguish the physical source. On any number \(M\) of independent
+noninteracting copies, however, the generator is \(\sum_i H_i\)
+and the average cell coordinate is \(\sum_i F_i/M\).
+The current operators act on separate copies and their common extremal
+product state attains the single-copy norm. The velocity distance is
+unchanged for every \(M\). A different instrument reads the mean distance of a
+mobile probe at dwell four, capped at four cell hops. On repeated
+identical preparations the ordinary and collar variations both
+reduce the distance traveled. Dividing the collar slope by the
+ordinary slope gives \([0.40521,0.40894]\) for a vacancy and
+\([0.54357,0.55131]\) for an excess. The intervals are disjoint.
+A common scalar change of geometry observed with one fixed gain
+per probe cannot give these responses. The probability of reaching
+a cell and the length assigned to the path are distinct observables.
+
+\paragraph{Two regional conservation equations.}
+A chart on twelve cells, including both marked heads of the 80-cell
+source, identifies a translation by two cell steps on its domain.
+The antisymmetric part of this partial shift defines a directed
+quasimomentum. Commuting each cell observable with the native
+Hamiltonian gives an exact rate equation. Internal incidences cancel
+between owners. The net quasimomentum rate is the sum of the domain
+and image boundary currents and the force of the marked contacts.
+Native energy on the same cut has its separate energy-current equation.
+This supplies two independently testable continuity relations.
+The shift charge has matrix elements between cells two steps apart,
+whereas every native bridge energy current is supported within a cell
+or across one step. Their operator inner product vanishes.
+Two opposite phase preparations distinguish the directed shift
+while all these energy-current expectations agree. For the registered
+orientation, in each charge and head-parity sector the integer matrices
+\(h=2H+cI,\ f=4F\) give
+\(\operatorname{Tr}(h^j f)=0\) for \(0\le j<7\) and
+\(\operatorname{Tr}(h^7 f)=64\). Hence
+\(\operatorname{Tr}(H^7F)=1/8\), whereas cyclicity gives
+\(\operatorname{Tr}(H^7 i[H,K])=0\) for every operator \(K\).
+At fixed boundary flux the marked force therefore cannot be absorbed
+by redefining the regional momentum. Connection terms, momentum of
+additional supports and a coarse physical stress have independent
+meanings. Identifying one
+symmetric stress tensor from the two measurements thus needs a limit
+on an independently selected physical sector. There is an exact positive transfer on a more restricted
+preparation. Compress the probe to orbitals uniform on the twelve
+ports in each cell. On 119 unmarked bridges the energy current equals
+40 times the load current as a compressed operator, for all cell
+amplitudes and head states. The factor is the sum of five local
+agreement energies of eight at an unmarked gateway. Under any small
+cell-dependent phase of the uniform wave, the routed energy flow also
+matches the directed shift's derivative up to its calibrated sign and
+energy unit. All 79 relative phase directions are covered.
+Both source derivatives at fixed phase vanish for these readings.
+Moreover every such orbital has a nonzero initial leakage rate out of
+this sector under uninterrupted propagation. This instantaneous
+identity supplies no transfer of the nonzero collar signal to the
+original focused probes. The translation chart
+and current meters are in
+\path{source_implication/directional_stress/translation/}.
+
+
+A separate test asks whether the marked force can be recovered from
+the measured stress and the local screen geometry. After four units
+of flight, two nonselective phase controls differ only on the
+coherence joining ports 0 and 229. Those ports have native graph
+distance nine. An order-$j$ time derivative of a port-local effect
+contains terms $H^a E H^{j-a}$. Its matrix element across these ports
+vanishes for $j<9$ by locality. The two preparations consequently agree
+on every registered local stress and on both optical screens through
+eight derivatives. The marked-force difference is positive for
+both probe charges, about $4.0051\times10^{-7}$ for a vacancy and
+$1.8430\times10^{-6}$ for an excess. No function of those common records
+can return both forces. A later phase-sensitive interrogation at port 0
+reads information about the same coherence. Eight such settings,
+using two phase quadratures and head analysis at four local receiver
+ports, reconstruct the entire marked force. All six simulated population
+values (reference and two signed responses, for two probe charges)
+fall in the independently certified regional intervals. The largest
+inverse weights exceed $10^7$, so this reconstruction carries no
+verified finite-shot precision. The force measurements
+and optical comparison are in \path{source_implication/directional_stress/connection/}.
+
+A remote interference experiment tests whether a scalar delay supplies
+a common clock response. Coherent launch quadratures on ports 0 and 5
+use the same click histories at receivers 38 and 39. Reweighting
+those histories by different frequencies gives different ratios of
+the pairing and ordinary delay responses. For a vacancy at port 38
+the ratio lies between $0.3002$ and $0.3050$ at zero frequency advance,
+and between $0.5212$ and $0.5734$ at quarter-turn advance.
+With variable time origin, clock rate and a frequency-convention term,
+a common scalar response requires a five-column determinant to vanish.
+On five settings its certified interval is wholly positive for the
+vacancy and wholly negative for the excess. The registered material
+fringes respond to the collar, with frequency-dependent delays. The
+calculation is in \path{source_implication/common_front/fringes/}.
+
+The independently reconstructed marked force also gives a held
+calibration test on the original four-tick source. Calibrate its signed
+conversion to sharp optical focusing on the ordinary change alone,
+then predict the response to changing head pairing at fixed surveyed
+volume. Both charges and all four readouts (forward, reverse, and
+their odd and even combinations) give ratios of measured response to
+prediction strictly different from one. The closest interval is
+$[0.99888,0.99910]$ for forward excess. These are certified differences
+between finite instruments. The marked force measures the rate of a
+directed translation; its identification with local null stress would
+require another physical result.
+
+The same source gives a common coherent pilot signal. Eliminating
+the spatial ports outside the four marked endpoints by a Schur
+complement leaves an exact source-dependent coherent self-energy
+supported on those endpoints in the registered one-probe sector.
+Scattering from these endpoints propagates to exterior receivers.
+For a pilot interrogating both marked heads, the modulus of the
+leading connected delayed hopping has a pairing-to-ordinary response
+ratio in $[0.29682,0.29744]$. For both probe charges a reciprocal
+dark-port probability has a leading variance with ratio
+$[0.53140,0.53583]$. The corresponding signed head-entropy ratio
+is in $[0.56432,0.56454]$. These separate observables distinguish
+a common source-sensitive scattering response from an identification
+of that response with entropy at one coupling. An exterior check at the
+same blank port and unit linewidth gives a positive ordinary dispersive
+return for each carrier. The pairing-to-ordinary ratio for the real
+return lies in $[0.03709,0.04015]$ for vacancy and
+$[-0.000197,-0.000178]$ for excess. This is a certified calculation
+of the finite-frequency response. The construction is
+in \path{source_implication/common_front/influence/}.
+
+\paragraph{Null curvature from bisected clock intervals.}
+\label{par:bisected-null-curvature}
+There is a way to separate focusing from a variation of record density
+without using beam area. Center three timelike geodesic clocks at the
+same event. For each clock \(u\), count markers in its causal diamond
+of proper duration \(h\) and in its two successive half-diamonds.
+Write \(P_u\) for the full count divided by \(\pi h^4/24\) and
+\(S_u\) for the mean of the half counts, each divided by
+\(\pi(h/2)^4/24\). Assume a smooth four-geometry and a positive
+twice differentiable scalar marker intensity \(m\) per unit proper
+four-volume. For the mean counts put \(H=\nabla^2m\) and
+\(b=-mR/180+\Box m/60\), evaluated at the central event. The
+small-diamond volume expansion~\cite{pwgibbons2007geometry} gives
+\begin{align*}
+ q_u &= mR_{uu}/30+b+H_{uu}/40,\\
+ P_u &= m+h^2 q_u+o(h^2),\\
+ S_u &= m+h^2(q_u/4+H_{uu}/32)+o(h^2).
+\end{align*}
+The second moments of a flat diamond are \(h^2/60\) along time and
+\(h^2/30\) along each spatial coordinate. The extra term in \(S_u\)
+comes from the two half-diamond centers at proper offsets
+\(\pm h/4\). Forming \(P_u-2S_u/3\) cancels \(H_{uu}\). For a unit
+spatial vector \(n\), take
+\(u=(1,0),(5/3,4n/3),(5/3,-4n/3)\) with weights
+\(w=(-9/16,81/160,9/160)\). They sum to zero and reproduce the
+contraction of any symmetric tensor with \(k=(1,n)\) twice. Thus
+\[
+ R_{kk}=\lim_{h\to0}\frac{36}{m h^2}
+            \sum_u w_u(P_u-2S_u/3).
+\]
+The leading rest count supplies \(m\). An error \(\epsilon\) per
+normalized count contributes at most \(67.5\epsilon/(mh^2)\) for
+exact central normalization. The curvature measurement requires
+absolute four-volume errors \(o(h^6)\) on this clock family. The
+algebra is checked in \texttt{BisectedDiamonds}. If the same three
+frames independently measure regional energy densities \(\rho_u\),
+the directly observable residual is
+\[
+ \sum_u w_u\left[\frac{36(P_u-2S_u/3)}{mh^2}-\kappa\rho_u\right].
+\]
+When \(\rho_u\) estimates \(T_{uu}\) within \(\delta\) and
+\(\epsilon\) includes the geometric expansion remainders, its error
+against \(R_{kk}-\kappa T_{kk}\) is at most
+\(67.5\epsilon/(mh^2)+(9/8)|\kappa|\delta\).
+The two terms can be bounded independently. An ordinary-matter
+calibration freezes \(\kappa\) before testing the collar.
+
+For a controlled example take \(U=t+x\), metric
+\((1-U^2/4)\eta_{ab}\) and intensity \(1+U^2/2\) near the origin.
+The geometric value along \(+x\) is \(R_{kk}=2\).
+At \(h=1/32\) the full-count estimate in expectation is 5.00241.
+Bisection gives 2.00160 in expectation and 2.00130 with standard
+error 0.00150 in a synthetic Poisson census. In flat geometry with
+the same intensity the two expectations are exactly 3 and 0.
+Replacing the conformal factor by \(1+U^2/4\) reverses the physical
+curvature to \(-2\). The full-count mean is positive at 1.00065,
+while the bisected mean is \(-1.99883\).
+Uneven recording can change even the inferred sign of null curvature.
+
+On the stationary 80-cell source a sharp launch has nonzero probability
+of reaching any of the 960 ports at arbitrarily short exposure.
+In each charge and parity sector the off-site hopping blocks are
+nonnegative in a common basis. Apart from identity blocks there are
+only two undirected marked edges, acting on distinct head factors.
+Every shortest-path product is nonzero and all have a common phase.
+The leading amplitude between any two ports is therefore nonzero on
+the faithful preparation. A uniform port-time census using mere
+positive-probability reachability scales linearly with duration.
+For a second census take the certified reciprocal lengths of
+three-hop links, allow waiting and put both tips at port zero.
+Each port \(x\) contributes \(\max(h-2d(0,x),0)\). The full-to-half
+ratios at \(h=2,4,8,16\) are respectively within 0.001 of
+6.224, 10.458, 9.500 and 6.662. A regular four-volume with positive
+central density approaches a ratio of sixteen. These finite
+measurements cannot supply a native null Ricci value. A joint limit
+with many cells per shrinking interval, the clock transformations
+above and an independently normalized regional stress is a distinct
+physical statement. The counted controls and relay bounds are in
+\path{source_implication/bisected_diamonds/}.
+
+\paragraph{Obtaining the ball weight from clocks.}
+Two opposite straight rays from the same interior point reach a flat
+ball's rim after proper distances $d_+,d_-$. The roots of the
+line--sphere intersection give
+$d_+d_-/(2\ell)=(\ell^2-r^2)/(2\ell)$ for every direction. On a
+convex normal ball of sectional curvatures bounded by $C$, the Hessian
+of half the squared central distance along a unit geodesic is
+$1+O(C\ell^2)$. Interpolating between its two rim values controls
+the product with the same relative error. With first-exit clock
+resolution $h$, the integrated kernel error for bounded density is
+$O(C\ell^6+h\ell^3)$. Thus $h=o(\ell)$ resolves the leading source
+coefficient. On independently supplied curved charts, transverse exit
+times also resolve signed sectional curvature when $h=o(\ell^3)$.
+This checks how proper clocks could supply the weight without
+installing a radial table.
+
+A calibrated three-outcome material return reads the resulting
+weighted occupation on a supplied cubic guide. Sharp positions and
+six disjoint hopping measurements also recover its symmetrized local
+energy. On a guide prepared in its spatially constant one-load mode,
+an unobserved lottery varies the occupancy and hence the regional
+energy. A second, independently routed flat ruler has identical area
+and volume in both preparations. The measured entropy derivative
+divided by $\ell^4$ tends to $48(8\pi^2/15)$ in native energy units.
+Its area derivative is zero at every resolution. Constructing the
+source and the ruler leaves their physical backreaction to be
+established. The clock construction and its signed curvature controls
+are in \path{code/matched_einstein_limit/fixed_volume/chord_kernel/}.
 
 \paragraph{A moving volume and an equal-volume area comparison.}
 For an orthogonal, nonrotating, freely falling diagonal cohort with
@@ -2401,6 +4154,13 @@ these bounded-operator statements.
 
 \begin{thebibliography}{99}
 
+\bibitem{hjpw}
+P. Hayden, R. Jozsa, D. Petz and A. Winter,
+\emph{Structure of states which satisfy strong subadditivity of quantum entropy with equality},
+Commun. Math. Phys. \textbf{246}, 359--374 (2004),
+\href{https://doi.org/10.1007/s00220-004-1049-z}{doi:10.1007/s00220-004-1049-z}.
+
+
 \bibitem{ophmodel}
 B.~M\"uller, M.~Poneder, J.~Kim, and D.~A.~Friedman,
 \emph{An Executable Observer for Observer Patch Holography: Specification, Memory and Agreed Records},
@@ -2441,6 +4201,22 @@ Pragma Research,
 \emph{Observer Patch Holography: machine-checked proofs and executable certificates},
 2026.
 Available at \url{https://github.com/FloatingPragma/observer-patch-holography}.
+
+\bibitem{pwgibbons2007geometry}
+G.~W.~Gibbons and S.~N.~Solodukhin,
+\emph{The geometry of small causal diamonds},
+Phys.\ Lett.\ B \textbf{649}, 317--324 (2007).
+\url{https://doi.org/10.1016/j.physletb.2007.03.068}.
+
+\bibitem{carlen2016pinsker}
+E.~A.~Carlen,
+\emph{A remainder term for H\"older's inequality for matrices and quantum entropy inequalities}.
+\url{https://arxiv.org/abs/1605.04581}.
+
+\bibitem{audenaert07}
+K.~M.~R. Audenaert, \emph{A sharp continuity estimate for the von Neumann
+entropy}, J. Phys. A \textbf{40}, 8127--8136 (2007),
+\href{https://arxiv.org/abs/quant-ph/0610146}{arXiv:quant-ph/0610146}.
 
 \bibitem{jacobson16}
 T.~Jacobson,

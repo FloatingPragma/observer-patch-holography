@@ -2,6 +2,10 @@
 
 An independently prepared blank seam has an initial exchange beat of one in every surrounding state. In a uniform stationary binary medium at filling $f$, its second initial phase rate on a degree-five pair is $50-68f$. A thermal medium with occupation coherence can read both the exchange and contrast energies through its two-port modular operator. The two responses per unit of native energy differ. [Native law](../../../candidate_laws/contrast_memory_spherical_v1/law.py) · [Calculation](measure.py) · [Probability records](results.json)
 
+## Comparing the longest density wave with a material clock
+
+On the 20-, 80- and 320-cell boards a change of homogeneous filling gives a common calibration between spontaneous density fluctuations and a deliberately launched pulse. Changing the correlations at fixed single-port marginals reverses the sign of the driven response relative to that calibration. A separate reciprocal bridge experiment tests how a localized change of paired seam memories reaches a slow material clock and travelling probe. [Native long-wave experiment](long_wave/README.md) · [Reciprocal bridge experiment](../../../../code/matched_einstein_limit/rate_geometry/seam_strain/README.md)
+
 ## The instantaneous clock comparison
 
 Let the two ports be A and B, with the measured seam memory blank and independent of the environment at launch. The initial derivative of the reduced density is the commutator with the environmental expectation of the Hamiltonian. Every other contact touches at most one of A and B. The effective first-order generator therefore has the form
@@ -69,6 +73,8 @@ M_{\rm int}=M-\tfrac12 I_A\otimes{\rm Tr}_A M
 ~~~
 
 For every Hermitian endpoint transfer $D$ with both one-port partial traces zero, its embedded modular-response error is $\operatorname{Tr}(D M_{\rm int})$, bounded in absolute value by $\|D\|_1\|M_{\rm int}\|_\infty$. Direct diagonalization gives norms 0.343793, 0.0318690 and $2.66704\times 10^{-5}$ on the two-, four- and eight-port regions. This bound includes imaginary coherences and changes of the endpoint number distribution at fixed marginals. A relative error for a tangent with vanishing energy is undefined. The norms are double-precision estimates. The test independently reconstructs them from the two signed transfers using the symmetries of this thermal cell.
+
+A different transfer changes energy on every bond by the same amount and gives unequal eight-port modular slopes for two ordinary preparations. Four-port parity also changes the regional modular energy at zero change of every two-port energy. The two-endpoint bound above applies to its specified spectator preparation. An active receiver on the same cell resolves the parity transfer and gives a distinct calibration from the regional energy readout. [Uniform-energy test](../../../../code/matched_einstein_limit/source_implication/README.md) · [Parity and shell measurements](shell_response/README.md) · [Material clock measurements](joint_geometry/README.md)
 
 Run from the repository root.
 

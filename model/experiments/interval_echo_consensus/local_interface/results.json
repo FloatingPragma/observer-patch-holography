@@ -1,0 +1,760 @@
+{
+  "source_sha256": {
+    "model/experiments/interval_echo_consensus/local_interface/measure.py": "80149d326b4c9e2dd8dd2a057884e98e3f6a4b2850ee8956dfb12a4d7d674d19",
+    "model/candidate_laws/contrast_memory_spherical_v1/law.py": "218a99ebc1e921065a818b77f00608818fdacf80782406466787b2891b1d017f",
+    "model/executable_model/carrier.py": "327fc33189ff6242f7367f625a3f70d97167e79bd4f8a740266d7eb09e237bbd",
+    "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+    "model/candidate_laws/contrast_memory_spherical_v1/SPEC.md": "12d3cca0a3f1fde6f9313a0a578a4a3f5de025abc5ac74b808b18af37d378d43",
+    "model/executable_model/carriers/FEDERATION_LEVEL0.npz": "99870398e3d516f899c600e9bf25ba53c7f513142ba8facbe1cedd94b23f915b"
+  },
+  "geometry": {
+    "ports": 240,
+    "seams": 630,
+    "reference_qutrits": 180,
+    "reference_collars": 180,
+    "active_ports": [
+      0,
+      1
+    ],
+    "active_collar": [
+      0,
+      1
+    ],
+    "remote_ports": [
+      2,
+      3
+    ],
+    "remote_collar": [
+      2,
+      3
+    ],
+    "local_dimension": 99,
+    "local_charge_dimensions": [
+      11,
+      22,
+      33,
+      22,
+      11
+    ],
+    "boundary_seams": [
+      [
+        0,
+        5
+      ],
+      [
+        0,
+        7
+      ],
+      [
+        0,
+        10
+      ],
+      [
+        0,
+        11
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        1,
+        9
+      ],
+      [
+        1,
+        82
+      ]
+    ],
+    "boundary_degree_references": [
+      0
+    ],
+    "selected_union_boundary_seams": [
+      [
+        0,
+        5
+      ],
+      [
+        0,
+        7
+      ],
+      [
+        0,
+        10
+      ],
+      [
+        0,
+        11
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        1,
+        9
+      ],
+      [
+        1,
+        82
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        2,
+        11
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        3,
+        48
+      ]
+    ],
+    "selected_union_degree_references": [
+      0,
+      2
+    ],
+    "unaffected_quantum_register_dimensions": {
+      "port_qutrits": 238,
+      "seam_collars": 629,
+      "reference_qutrit_collar_pairs": 180
+    },
+    "four_port_two_collar_sector_dimensions": {
+      "0": 121,
+      "1": 484,
+      "2": 1210,
+      "3": 1936,
+      "4": 2299,
+      "5": 1936,
+      "6": 1210,
+      "7": 484,
+      "8": 121
+    },
+    "all_register_split_words": 9801
+  },
+  "exact_checks": {
+    "echo_unitary_full99": true,
+    "echo_preserves_local_charge": true,
+    "nine_material_projectors_partition_full99": true,
+    "all_material_projectors_preserve_charge": true,
+    "fixed_81_kraus_complete": true,
+    "fixed_all_branches_charge_preserving": true,
+    "adaptive_81_kraus_complete": true,
+    "adaptive_all_branches_charge_preserving": true
+  },
+  "native_echo_max_error": 1.1102230246251565e-16,
+  "public_records": {
+    "first": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ]
+    ],
+    "second": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        2,
+        2
+      ]
+    ],
+    "all_pairs": 81,
+    "filtered_or_discarded_outcomes": 0
+  },
+  "scheduler": {
+    "first": "echo; material read",
+    "consultation": "first local material pair a<b",
+    "feedback": "native echo if a<b; identity otherwise",
+    "second": "echo; material read",
+    "reset": false,
+    "complete_native_echo_count": {
+      "a<b": 3,
+      "a>=b": 2
+    }
+  },
+  "reference": {
+    "balanced_total_load": 4,
+    "input_schmidt_rank": 99,
+    "fixed_total_four_dimension": 2299,
+    "normalized_remote_marginal_error": 1.734723475976807e-18,
+    "full_choi_trace_preservation_error": 2.220446049250313e-16,
+    "reference_with_two_collar_states": 99,
+    "disjoint_native_branch_order_error": 6.37545497476958e-19,
+    "postselected_first01_probability": 0.11111111111111113,
+    "postselected_remote_trace_distance": 0.888888888888889
+  },
+  "controls": {
+    "sharp_input": [
+      0,
+      1
+    ],
+    "adaptive_records": [
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.5000000000000001,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.375,
+        0.0,
+        0.12500000000000003,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "omit_feedback_records": [
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.375,
+        0.0,
+        0.12500000000000003,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.375,
+        0.0,
+        0.12500000000000003,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "feedback_record_total_variation": 0.12500000000000006,
+    "distinct_collars_shared_port_order_record_tv": 0.5000000000000002,
+    "open_boundary_seam": [
+      1,
+      5
+    ],
+    "open_boundary_dwell": "pi/2",
+    "sealed_outside_load1_probability": 0.0,
+    "open_outside_load1_probability": 0.4999999999999998,
+    "same_material11_different_collar_output_tv": 0.5000000000000002
+  },
+  "selected_support": {
+    "exact_per_first_record_completeness": {
+      "0": true,
+      "1": true,
+      "2": true,
+      "3": true,
+      "4": true,
+      "5": true,
+      "6": true,
+      "7": true,
+      "8": true
+    },
+    "union_ports": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "union_collars": [
+      [
+        0,
+        1
+      ],
+      [
+        2,
+        3
+      ]
+    ],
+    "union_dimension": 9801,
+    "complement_material_reference": [
+      4,
+      5
+    ],
+    "reference_input_total_load": 6,
+    "full_dirty_collar_fixed_charge_input": true,
+    "complement_marginal_max_error": 1.1102230246251565e-16,
+    "selected_B_probability": 0.37139844022586427,
+    "selected_B_conditional_complement_trace_distance": 0.025927606749319675,
+    "sharp_input_A": [
+      0,
+      1
+    ],
+    "sharp_input_B": [
+      2,
+      0
+    ],
+    "source_selected_records": [
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.5000000000000002,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.37499999999999994,
+        0.0,
+        0.12500000000000003,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "forced_A_records": [
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.37499999999999994,
+        0.0,
+        0.12500000000000003,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.37499999999999994,
+        0.0,
+        0.12500000000000003,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ],
+    "wrong_support_record_total_variation": 0.5000000000000001,
+    "consultation_rule": "first material a<b selects seam(2,3); otherwise seam(0,1)",
+    "no_signalling_domain": "complement of union(0,1,2,3) and their two enrolled collars; no conditioning"
+  },
+  "scope": "Protected addressed native echo services and supplied complete sharp material reads; no private collar read, free-boundary closure, source-selected architecture, clock, spacelike region or continuum inference."
+}

@@ -132,8 +132,48 @@ arbitration one fork has two distinct terminal states, an outcome that the
 local-diamond premise of Theorem~\ref{thm:quotient-repair-normal-form}
 excludes. A prepared local priority, read without being moved, makes both
 request orders end in one common terminal state in all six combinations of
-sharp preparation and priority. No confluence of all accepted repairs on
-the federation is proved.
+sharp preparation and priority.
+
+A fixed priority also permits an exact test of interleaving repair with
+free propagation. Start with one doubled load and blank collars on the
+20-cell sphere. An immediate sweep commits a permanent mark at seam
+\((0,1)\) from port zero. Insert one unit of native free flight before
+the same sweep. The probability of a different permanent address lies
+between 0.72496213 and 0.72496215. Moving that interval to after the
+sweep leaves the original mark intact. Each committed configuration has
+only binary loads and one occupied address, which later free flights
+and strict attempts preserve. A single addressed exchange pulse in
+place of the free interval gives disjoint marked outcomes in the two
+orders. Thus the unrestricted addressed relation fails joining with
+identical stored priorities. For a protected sweep on this sector,
+prepending a unitary \(U\) preserves every address law precisely when
+\(U\) commutes with the corresponding winner-fiber projectors.
+There is also a positive termination result. If one of the \(M\) seams
+is independently offered uniformly at every attempt, the winner
+projectors sum to the identity, giving conditional commit probability
+\(1/M\) for every surviving state. Even with intervening native flight
+the exact probability of waiting past \(n\) attempts is
+\((1-1/M)^n\).
+
+Which record survives if the sweep can come before or after free flight?
+On the 20-, 80- and 320-cell screens, let \(E\) be a fixed terminal
+measurement effect pulled back through the public sweep to the blank
+one-double sector. It is block diagonal in the winning seam, even when
+the observer can analyze the two signs coherently within a seam.
+For both schedules to give the same probability on every input and
+every sufficiently small flight interval \(t\), \(e^{itH}Ee^{-itH}\)
+must also be block diagonal: once the winning seam has been recorded,
+later flight cannot recover a relative phase between different public
+outcomes. Each two-port block has a singleton neighbor coupled to just
+one of its ports. The first commutator with \(H\) then forces \(E\) to
+be diagonal and constant within each cell. The second commutator forces
+the constants on adjacent cells to agree. Thus \(E\) is scalar on the
+one-double sector. A nonconstant record survives at the same total load
+when the preparation also permits two singly occupied ports. Free
+exchange preserves the occupation multiset. A complete priority sweep
+writes one mark from a double and leaves the two singles unmarked.
+The observer can therefore distinguish these two preparations by asking
+whether the sweep wrote any mark, in either order.
 
 The construction uses Newman's confluence lemma \cite{newman42}.
 Termination differs from a continuing legitimate regime in
@@ -857,6 +897,29 @@ Definition~\ref{def:localfit}; for an aggregate conflict component it is checked
 payload before the component can commit.
 \end{proof}
 
+\paragraph{Which coherent transports can a strictly descending repair
+quotient forget?}
+On the protected Interval Echo fiber with a vacancy fixed at its returning
+port and one excess among \(m\) remaining positions, the native closed
+vacancy paths generate every permutation of those positions. On a triangle
+one turn exchanges the other two labels. Adding an open ear extends the
+generated group by transpositions from each new label to an old one, which
+supplies the result on a two-connected port graph containing a triangle.
+For the cell and three sphere federations \(m=11,239,959,3839\).
+If a path takes a quotient state to a distinguishable state, declaring both
+the path and its inverse to be accepted strict repairs produces a
+two-step cycle, contradicting Proposition~\ref{prop:lyapunov-descent}.
+For linear observation effects on this fiber the maximal algebra forgetting
+all those paths is explicit. Commutation with every permutation forces
+all diagonal entries equal and all off-diagonal entries equal. The algebra
+is \(\mathbb C P_u\oplus\mathbb C(I-P_u)\), where \(P_u\) projects onto the
+uniform excess amplitude. A terminal folded-tree read of this amplitude is
+implemented by protected native contacts. This identifies a precise
+quotient for the transport subgrammar. Completeness of all irreversible
+repairs and joinability of their forks remain separate hypotheses.
+The native proof and terminal records are in
+\path{model/experiments/interval_echo_gauge/loop_transport/HOLONOMY.md}.
+
 \begin{proposition}[Termination from the OPH Lyapunov functional]\label{prop:lyapunov-termination}
 Under Proposition~\ref{prop:lyapunov-descent}, every repair sequence is finite; equivalently, the
 repair relation \(\to\) is terminating.
@@ -1201,6 +1264,51 @@ with conditional attempt counts. They supply no physical scheduler source,
 wall-clock horizon, rate, energy, bandwidth, fee, hardware resource, noise
 stability, encoding-overhead bound or physical device realization, and no
 identity with the width-five engine~\cite{ophrepo}.
+
+\paragraph{An observer can forecast the requests to a normal endpoint.}
+On a registered Interval Echo federation with $N$ ports, reserve a blank
+tree for routing and enough blank off-tree seams to receive all writes.
+A timed native exchange routes two chosen material ports to the next
+writable seam. Its strict echo turns $(0,2)$ or $(2,0)$ into $(1,1)$
+and publishes one mark. Undo the route after either outcome. Write $v,d,m$
+for the vacancy, double and occupied-collar counts. Native free flight
+preserves these counts. A successful request changes them to
+$(v-1,d-1,m+1)$. The two public quantities $(v+m,d+m)$ are invariant.
+At fixed total load, excess quadratic load above its minimum equals
+$2\min(v,d)$. An inconsistency thus has an independent material test
+and at least one admissible repairing pair. Every accepted step
+strictly reduces this excess, and every pair of competing accepted
+steps has the same successor on the census. The unique normal census
+contains $m+\min(v,d)$ marks. Observers can distinguish the initial
+and final censuses from addressed measurements. The quotient forgets
+the order, locations and signs of the writes. Those records can
+distinguish two executions.
+
+In a protected scan each of $C=\binom{N}{2}$ address pairs is offered
+once. Surviving extreme loads retain their addresses, so a vacancy and a
+double cannot both survive. A different service permits an arbitrary
+free flight before each fresh uniform request. The sum of the pair
+click effects is $vd$ times the identity on the entire inventory
+sector, also in the presence of a quantum reference. With $i$ writes
+left and $a=|v-d|$, the conditional success probability is
+$i(i+a)/C$. Hence the time $T$ to completion is a sum of independent
+geometric waiting times. For $s=\min(v,d)\ge1$ and $q=(1+a)/C<1$,
+\[
+ \mathbb{E}T=C\sum_{i=1}^{s}\frac{1}{i(i+a)}<N(N-1),
+ \qquad
+ \Pr(T>t)\le \frac{s(a+2)}{s+a+1}(1-q)^t .
+\]
+The expectation bound follows by telescoping $1/[i(i-1)]$ for $i\ge2$.
+Conditioning on all but the last geometric wait bounds the tail by
+$(1-q)^t$ times the product of $i(i+a)/[(i-1)(i+a+1)]$ over $2\le i\le s$.
+This product gives the stated coefficient. On four physical ports, the
+independent native instrument with a coherent preparation recorded
+$1{,}032$, $139{,}252$ and $121{,}860$ starts with zero, one and two
+writes after five requests. A symmetric weakening of the write gave
+$47{,}699$ completions, and repeatedly offering one pair on parked
+material gave zero. The polynomial counts apply to requests for this
+repair relation and census. Transport, preparation and detector
+costs depend on the apparatus.
 
 \subsection{Finite support propagation and algebraic no-signalling}
 
@@ -2585,6 +2693,24 @@ probability of the assigned label and a trusted return, on a trusted basis and
 on one uniform coherent state per block, is equivalent to the L\"uders map on
 every block, and certified approximate probabilities give a uniform error for
 arbitrary untouched references~\cite{eventalgebraLean}.
+
+A finite calibration also determines an unknown terminal effect on a
+two-head source with two four-dimensional parity blocks. On each
+head select a $Z+$, $Z-$, $X+$ or $Y+$ rail preparation. For each of
+the sixteen product projectors $P$, the two native inputs $(P,0)$ and
+$(P/2,P/2)$ are obtained by keeping the heads and by an unread
+left-sign measurement, respectively. Comparing the two sets of
+probabilities determines $\operatorname{Tr}(E_eP)$ and
+$\operatorname{Tr}(E_oP)$ separately. The products span both
+Hermitian blocks. Agreement on these 32 tests therefore decides
+whether two terminal events have the same probability on every
+normalized source state in this algebra. With an appended constant
+column, the rational preparation matrix in parity and two-coin
+Pauli coordinates has determinant $-2^{-30}$. Two independently
+calibrated material-force meters reproduce all their coefficients
+in this test. The construction uses the affine instrument law. It
+does not identify selective post-measurement states from terminal
+probabilities alone.
 
 The theorem gives a fixed-cutoff observation surface. It does not show
 that richer branches keep physically relevant pointer surfaces close to one

@@ -1,0 +1,515 @@
+{
+  "time": 4,
+  "radius_reference": "isolated blank one-hop front",
+  "neighbor_clock_seed": 34192638,
+  "disjoint_dimers": [
+    [
+      5,
+      9
+    ],
+    [
+      1,
+      38
+    ],
+    [
+      40,
+      47
+    ]
+  ],
+  "trials_per_preparation": 72057594037927936,
+  "seed": 4192638,
+  "coverage": 0.99,
+  "outcome_order": [
+    "outside",
+    "contact_symmetric",
+    "contact_antisymmetric"
+  ],
+  "charges": {
+    "-1": {
+      "means": {
+        "full_seam": {
+          "reference": 0.1264231591006269,
+          "ordinary": -0.3698723630703503,
+          "pairing": -0.11791633117466277
+        },
+        "exchange_only": {
+          "reference": 0.004842522726181888,
+          "ordinary": -0.03437533740327617,
+          "pairing": -0.010220441089224212
+        },
+        "contact_occupation": {
+          "reference": 0.015197579546805626,
+          "ordinary": -0.04193712820838425,
+          "pairing": -0.013461986260679815
+        }
+      },
+      "outcome_counts": {
+        "equilibrium": [
+          70962492985709963,
+          746160486085657,
+          348940566132316
+        ],
+        "ordinary": [
+          71030663548052987,
+          642405728687024,
+          384524761187925
+        ],
+        "pairing": [
+          71054930245926347,
+          643649865344360,
+          359013926657229
+        ],
+        "plus": [
+          71016553090526315,
+          680237947721642,
+          360802999679979
+        ],
+        "minus": [
+          71022520479185280,
+          679346737862372,
+          355726820880284
+        ]
+      },
+      "count_slopes": {
+        "full_seam": {
+          "ordinary": {
+            "estimate": -0.36987011062029823,
+            "simultaneous_halfwidth": 6.936232603102883e-05
+          },
+          "pairing": {
+            "estimate": -0.11791566496481344,
+            "simultaneous_halfwidth": 2.07070548825749e-05
+          }
+        },
+        "exchange_only": {
+          "ordinary": {
+            "estimate": -0.03437514138247983,
+            "simultaneous_halfwidth": 7.706925114558757e-06
+          },
+          "pairing": {
+            "estimate": -0.010220383227730485,
+            "simultaneous_halfwidth": 2.3007838758416557e-06
+          }
+        },
+        "contact_occupation": {
+          "ordinary": {
+            "estimate": -0.0419368711547273,
+            "simultaneous_halfwidth": 7.706925114558757e-06
+          },
+          "pairing": {
+            "estimate": -0.01346191021713537,
+            "simultaneous_halfwidth": 2.3007838758416557e-06
+          }
+        }
+      },
+      "neighbor_clocks": {
+        "dimer_order": [
+          "left",
+          "bridge",
+          "right"
+        ],
+        "endpoint_flip_exposure": 1.5707963267948966,
+        "initial_occupation": [
+          0.09334265748612579,
+          0.015197579546805626,
+          0.09324343817779203
+        ],
+        "shots_per_protocol": 67108864,
+        "conditional_frequency_coverage": 0.99,
+        "settings": {
+          "bridge_stretch": {
+            "enrolled": [
+              6263580,
+              1020581,
+              6252795
+            ],
+            "outside": 53571908,
+            "crossed": [
+              3131624,
+              314372,
+              3125523
+            ],
+            "frequency_intervals": [
+              [
+                0.99896264887188,
+                1.0009698631972044
+              ],
+              [
+                0.7464421481058962,
+                0.7518274746098806
+              ],
+              [
+                0.998817455379177,
+                1.0008264000863012
+              ]
+            ]
+          },
+          "common_lapse": {
+            "enrolled": [
+              6265367,
+              1019806,
+              6259492
+            ],
+            "outside": 53564199,
+            "crossed": [
+              1935283,
+              313989,
+              1931474
+            ],
+            "frequency_intervals": [
+              [
+                0.7492272369574469,
+                0.7513990781243848
+              ],
+              [
+                0.7462456850589624,
+                0.7516337443127281
+              ],
+              [
+                0.7487873610799901,
+                0.7509608417777148
+              ]
+            ]
+          }
+        }
+      }
+    },
+    "1": {
+      "means": {
+        "full_seam": {
+          "reference": 0.08786815651432192,
+          "ordinary": -0.11344154236884,
+          "pairing": -0.04391016744042021
+        },
+        "exchange_only": {
+          "reference": 0.0027310920512767438,
+          "ordinary": -2.666060118683353e-05,
+          "pairing": -6.80028335710928e-05
+        },
+        "contact_occupation": {
+          "reference": 0.010642133057880646,
+          "ordinary": -0.014176860220956645,
+          "pairing": -0.005480270575856141
+        }
+      },
+      "outcome_counts": {
+        "equilibrium": [
+          71290747483253268,
+          570050625076690,
+          196795929597978
+        ],
+        "ordinary": [
+          71241339158713649,
+          590101288448739,
+          226153590765548
+        ],
+        "pairing": [
+          71367442111054822,
+          488962646853207,
+          201189280019907
+        ],
+        "plus": [
+          71337340446151973,
+          520199591230476,
+          200054000545487
+        ],
+        "minus": [
+          71339504109304225,
+          518099136804856,
+          199990791818855
+        ]
+      },
+      "count_slopes": {
+        "full_seam": {
+          "ordinary": {
+            "estimate": -0.1134413455682328,
+            "simultaneous_halfwidth": 6.936232603102883e-05
+          },
+          "pairing": {
+            "estimate": -0.04391011246927718,
+            "simultaneous_halfwidth": 2.07070548825749e-05
+          }
+        },
+        "exchange_only": {
+          "ordinary": {
+            "estimate": -2.6770056426674547e-05,
+            "simultaneous_halfwidth": 7.706925114558757e-06
+          },
+          "pairing": {
+            "estimate": -6.803526882770894e-05,
+            "simultaneous_halfwidth": 2.3007838758416557e-06
+          }
+        },
+        "contact_occupation": {
+          "ordinary": {
+            "estimate": -0.014176821938975764,
+            "simultaneous_halfwidth": 7.706925114558757e-06
+          },
+          "pairing": {
+            "estimate": -0.005480259650056184,
+            "simultaneous_halfwidth": 2.3007838758416557e-06
+          }
+        }
+      },
+      "neighbor_clocks": {
+        "dimer_order": [
+          "left",
+          "bridge",
+          "right"
+        ],
+        "endpoint_flip_exposure": 1.5707963267948966,
+        "initial_occupation": [
+          0.0755024603347206,
+          0.010642133057880646,
+          0.07549868964794654
+        ],
+        "shots_per_protocol": 67108864,
+        "conditional_frequency_coverage": 0.99,
+        "settings": {
+          "bridge_stretch": {
+            "enrolled": [
+              5064071,
+              713358,
+              5064879
+            ],
+            "outside": 56266556,
+            "crossed": [
+              2532740,
+              220290,
+              2533492
+            ],
+            "frequency_intervals": [
+              [
+                0.9990609730924959,
+                1.001293286810054
+              ],
+              [
+                0.7469832013901351,
+                0.7534201590752813
+              ],
+              [
+                0.9991485162746077,
+                1.0013806520307882
+              ]
+            ]
+          },
+          "common_lapse": {
+            "enrolled": [
+              5070279,
+              714043,
+              5066123
+            ],
+            "outside": 56258419,
+            "crossed": [
+              1565453,
+              220666,
+              1562854
+            ],
+            "frequency_intervals": [
+              [
+                0.7489198238224697,
+                0.7513343835984577
+              ],
+              [
+                0.7473027741902688,
+                0.7537353172453225
+              ],
+              [
+                0.748561086518189,
+                0.7509771992765182
+              ]
+            ]
+          }
+        }
+      }
+    }
+  },
+  "isolated_strain_clock": {
+    "times": [
+      1,
+      2,
+      4
+    ],
+    "trials_per_setting": 67108864,
+    "coverage": 0.99,
+    "simultaneous_halfwidth": 0.00024081016971387405,
+    "scale_settings": {
+      "1.0": {
+        "full_seam": {
+          "hit_counts": [
+            15422231,
+            47511771,
+            55489064
+          ],
+          "population": [
+            0.22984884706592998,
+            0.708073418273571,
+            0.8268218104318058
+          ]
+        },
+        "exchange_only": {
+          "hit_counts": [
+            15424308,
+            47523924,
+            55484675
+          ],
+          "population": [
+            0.22984884706592998,
+            0.708073418273571,
+            0.8268218104318058
+          ]
+        }
+      },
+      "0.75": {
+        "full_seam": {
+          "hit_counts": [
+            9003867,
+            31182609,
+            66773775
+          ],
+          "population": [
+            0.13415556556308952,
+            0.4646313991661483,
+            0.9949962483002225
+          ]
+        },
+        "exchange_only": {
+          "hit_counts": [
+            9001382,
+            31178182,
+            66771980
+          ],
+          "population": [
+            0.1341555655630895,
+            0.4646313991661485,
+            0.994996248300222
+          ]
+        }
+      }
+    }
+  },
+  "independent_material_standard": {
+    "trials_per_setting": 67108864,
+    "coverage": 0.99,
+    "records": {
+      "full_seam_1.0": {
+        "settings": {
+          "dwell": {
+            "plus": 33561470,
+            "exposure": 0.19634954084936207
+          },
+          "exchange": {
+            "plus": 33555771,
+            "exposure": 1.5707963267948966
+          }
+        },
+        "frequency_intervals": {
+          "dwell": [
+            7.996543631285954,
+            8.001319885291121
+          ],
+          "exchange": [
+            0.9996760796190434,
+            1.0002731113570316
+          ]
+        },
+        "material_index": [
+          7.994360280701093,
+          8.003912515682345
+        ]
+      },
+      "exchange_only_1.0": {
+        "settings": {
+          "dwell": {
+            "plus": 33555715,
+            "exposure": 0.19634954084936207
+          },
+          "exchange": {
+            "plus": 33549021,
+            "exposure": 1.5707963267948966
+          }
+        },
+        "frequency_intervals": {
+          "dwell": [
+            7.997417136744411,
+            8.002193390648005
+          ],
+          "exchange": [
+            0.9998041456768682,
+            1.000401177422144
+          ]
+        },
+        "material_index": [
+          7.994210040168419,
+          8.003760961833693
+        ]
+      },
+      "full_seam_0.75": {
+        "settings": {
+          "dwell": {
+            "plus": 46395932,
+            "exposure": 0.19634954084936207
+          },
+          "exchange": {
+            "plus": 46406016,
+            "exposure": 1.5707963267948966
+          }
+        },
+        "frequency_intervals": {
+          "dwell": [
+            5.9972875221770385,
+            6.002457355814308
+          ],
+          "exchange": [
+            0.7494537960030025,
+            0.7501001123385594
+          ]
+        },
+        "material_index": [
+          7.9953161231765675,
+          8.0091092844238
+        ]
+      },
+      "exchange_only_0.75": {
+        "settings": {
+          "dwell": {
+            "plus": 33557495,
+            "exposure": 0.19634954084936207
+          },
+          "exchange": {
+            "plus": 46391205,
+            "exposure": 1.5707963267948966
+          }
+        },
+        "frequency_intervals": {
+          "dwell": [
+            7.997146964778737,
+            8.00192321869874
+          ],
+          "exchange": [
+            0.7497580320899021,
+            0.7504042204865368
+          ]
+        },
+        "material_index": [
+          10.65711885201506,
+          10.672674217832514
+        ]
+      }
+    }
+  },
+  "leading_flight_comparison": {
+    "replayed_graph_orders": [
+      1,
+      2,
+      3
+    ],
+    "launch_ports": [
+      0,
+      1,
+      38,
+      39
+    ],
+    "compared_integer_entries": 6016
+  }
+}

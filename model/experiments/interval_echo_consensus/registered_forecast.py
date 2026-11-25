@@ -23,11 +23,15 @@ def deviance(counts, p):
     return 2*np.sum(xlogy(counts, counts)-xlogy(counts, expected), axis=-1)
 
 
-def compare(arm):
+def read_deposit():
     raw = DEPOSIT.read_bytes()
     if hashlib.sha256(raw).hexdigest() != DIGEST:
         raise ValueError("The deposited observation stream changed")
-    archived = json.loads(raw)
+    return json.loads(raw)
+
+
+def compare(arm):
+    archived = read_deposit()
     edges, index, _, _ = pair.screen(carrier.HERE / "carriers/FEDERATION_LEVEL0.npz")
     key = hashlib.sha256(b"M10.3:row4:" + bytes.fromhex(ENROLLMENT)).digest()
     eligible = [v for v in range(20) if v not in (0, 13)]

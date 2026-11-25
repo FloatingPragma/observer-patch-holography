@@ -1,0 +1,176 @@
+{
+  "calibration": "area_volume at radius 1/64",
+  "common_evolution": "uniform route mixture, fair test charge",
+  "cycles": [
+    0,
+    1,
+    2
+  ],
+  "geometry_order": [
+    "area",
+    "volume"
+  ],
+  "gain": 0.0005097014096877822,
+  "rows": [
+    {
+      "matched": "area_volume",
+      "radius": 0.015625,
+      "energy_current_difference": -0.0005752690246675993,
+      "two_endpoint_geometry": [
+        [
+          [
+            14.295595675410208,
+            2.763471158154623
+          ],
+          [
+            14.295594169895917,
+            2.7634707079004013
+          ],
+          [
+            14.29559317330567,
+            2.7634704061992785
+          ]
+        ],
+        [
+          [
+            14.295595675410205,
+            2.763471158154623
+          ],
+          [
+            14.29559713791984,
+            2.7634715956152704
+          ],
+          [
+            14.29559810508062,
+            2.763471888413584
+          ]
+        ]
+      ],
+      "volume_second_difference_contrast": -2.9321543282279094e-07,
+      "area_second_difference_contrast": -1.0042728995074413e-06,
+      "maximum_stationary_sham_one_cycle_drift": 2.55262477821816e-12,
+      "forecast_volume_second_difference_contrast": -2.9321543282279094e-07,
+      "observed_minus_forecast": 0.0
+    },
+    {
+      "matched": "area_volume",
+      "radius": 0.03125,
+      "energy_current_difference": -0.001152297549954294,
+      "two_endpoint_geometry": [
+        [
+          [
+            14.295595675410205,
+            2.7634711581546214
+          ],
+          [
+            14.295592619513148,
+            2.763470244302247
+          ],
+          [
+            14.295590595576506,
+            2.76346963159665
+          ]
+        ],
+        [
+          [
+            14.295595675410206,
+            2.763471158154623
+          ],
+          [
+            14.295598559178657,
+            2.763472020800602
+          ],
+          [
+            14.29560046531175,
+            2.7634725978693226
+          ]
+        ]
+      ],
+      "volume_second_difference_contrast": -5.867240346901781e-07,
+      "area_second_difference_contrast": -2.0095957733445857e-06,
+      "maximum_stationary_sham_one_cycle_drift": 2.5632829192545614e-12,
+      "forecast_volume_second_difference_contrast": -5.873276855914812e-07,
+      "observed_minus_forecast": 6.036509013031399e-10
+    },
+    {
+      "matched": "six_edges",
+      "radius": 0.015625,
+      "energy_current_difference": -0.0002662767132675329,
+      "two_endpoint_geometry": [
+        [
+          [
+            14.295595675410208,
+            2.763471158154623
+          ],
+          [
+            14.29559554141239,
+            2.7634711249311974
+          ],
+          [
+            14.295595433425287,
+            2.763471094590678
+          ]
+        ],
+        [
+          [
+            14.295595675410208,
+            2.763471158154623
+          ],
+          [
+            14.295595805391681,
+            2.7634711903806664
+          ],
+          [
+            14.295595910223081,
+            2.763471219838437
+          ]
+        ]
+      ],
+      "volume_second_difference_contrast": -5.651179080246038e-09,
+      "area_second_difference_contrast": -5.1160789382720395e-08,
+      "maximum_stationary_sham_one_cycle_drift": 2.540190280342358e-12,
+      "forecast_volume_second_difference_contrast": -1.357216161194909e-07,
+      "observed_minus_forecast": 1.3007043703924486e-07
+    },
+    {
+      "matched": "six_edges",
+      "radius": 0.03125,
+      "energy_current_difference": -0.0005329779328922066,
+      "two_endpoint_geometry": [
+        [
+          [
+            14.295595675410201,
+            2.7634711581546214
+          ],
+          [
+            14.295595403183713,
+            2.763471090657639
+          ],
+          [
+            14.295595183878325,
+            2.76347102904472
+          ]
+        ],
+        [
+          [
+            14.295595675410208,
+            2.7634711581546245
+          ],
+          [
+            14.29559593154187,
+            2.7634712216542394
+          ],
+          [
+            14.295596138197357,
+            2.7634712797284298
+          ]
+        ]
+      ],
+      "volume_second_difference_contrast": -1.130948756866701e-08,
+      "area_second_difference_contrast": -1.0239727465943815e-07,
+      "maximum_stationary_sham_one_cycle_drift": 2.5419666371817584e-12,
+      "forecast_volume_second_difference_contrast": -2.716596037276379e-07,
+      "observed_minus_forecast": 2.603501161589709e-07
+    }
+  ]
+}

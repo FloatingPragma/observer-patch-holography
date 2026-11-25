@@ -141,7 +141,10 @@ Under stated premises, the theorem library and the finite constructions give:
   field theory reproduces the observers' joint readouts.
 - **Agreement and stable records.** Under explicit termination and consistency
   conditions, local repairs reach one shared public result whatever their order.
-  [Consensus paper](paper/reality_as_consensus_protocol.pdf).
+  In an Interval Echo run with 240 ports, two opposite orders each made 74
+  repairs and reached the same minimum imbalance. The two runs could write
+  different seams. [Observer counts](model/experiments/interval_echo_consensus/routed_counts/)
+  · [Consensus paper](paper/reality_as_consensus_protocol.pdf).
 - **The rules of quantum measurement.** Completed records obey the Born rule,
   repeatable measurement and the Tsirelson bound on Bell correlations, with a
   state that attains it.

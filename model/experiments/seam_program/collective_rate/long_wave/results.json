@@ -1,0 +1,1627 @@
+{
+  "source": "Interval Echo, blank conserved binary sector, all ports retained",
+  "active_contrast": 8,
+  "local_seam": [
+    0,
+    5
+  ],
+  "ordinary_filling": 0.5,
+  "reference_filling": 0.25,
+  "mixed_fillings": [
+    0.125,
+    0.375
+  ],
+  "mixture_connected_covariance": 0.015625,
+  "common_stationary_seam_read": {
+    "probabilities": [
+      0.5703125,
+      0.1796875,
+      0.1796875,
+      0.0703125
+    ],
+    "source_counts": [
+      612353219,
+      192931838,
+      192950386,
+      75506381
+    ],
+    "trials": 1073741824,
+    "seed": 81702,
+    "collar_modular_per_mixing_change": "log(529/657)/64",
+    "signed_modular_slope": -0.003385868541036111,
+    "independent_99pct_band": [
+      -0.0034104434225590095,
+      -0.0033631869940488014
+    ]
+  },
+  "boards": [
+    {
+      "ports": 12,
+      "profile": {
+        "sha256": "cbefbfe8955f4be658e47c7f556a9b3a666545b659addb95b169e54e6a3c23ee",
+        "exact_rayleigh": "24311806126145/8796094089229",
+        "exact_residual_squared": "5692669072205/77371271226569351013814441",
+        "selector": {
+          "eigenvalue": 2.76393202250021,
+          "multiplicity": 3,
+          "next_eigenvalue": 5.999999999999997,
+          "residual": 2.1670688905509757e-15
+        }
+      },
+      "by_contrast": {
+        "8": {
+          "mixed_reference_tangents": {
+            "ordinary_passive": "1141026275018025216/2572189088146141",
+            "ordinary_driven": "2824322462915904/4862361225229",
+            "fixed_marginal_passive": "21182418471869280/2572189088146141",
+            "fixed_marginal_driven": "-88260076966122/4862361225229",
+            "calibrated_prediction": "5295604617967320/491098483748129",
+            "observed_over_predicted": "-101/60"
+          },
+          "finite_appointment": {
+            "dwell": "1/1024",
+            "hamiltonian_width_upper": 366,
+            "absolute_signal_differences": {
+              "ordinary_passive": [
+                "14493575608739829611293085/10784726401984981258900345367585357824",
+                "16643071130767017862698595/10784726401984981258900345367585357824"
+              ],
+              "ordinary_driven": [
+                "586622012414122935853/324518593024553343330434970288128",
+                "647343300450254961107/324518593024553343330434970288128"
+              ],
+              "collar_passive": [
+                "220876866674071286617/1906546734019250892066305450442752",
+                "601766675235513978023/1906546734019250892066305450442752"
+              ],
+              "collar_driven": [
+                "-11548157249956794983/20282412064034583958152185643008",
+                "-7732550763549109657/20282412064034583958152185643008"
+              ]
+            }
+          },
+          "sources": {
+            "reference": {
+              "susceptibility": 0.1875,
+              "passive_frequency_squared": 219.966186271094,
+              "driven_frequency_squared": 219.966186271094
+            },
+            "ordinary": {
+              "susceptibility": 0.25,
+              "passive_frequency_squared": 292.5729490168752,
+              "driven_frequency_squared": 292.5729490168752
+            },
+            "fixed_marginals": {
+              "susceptibility": 0.171875,
+              "passive_frequency_squared": 228.21695476493275,
+              "driven_frequency_squared": 201.81449558464868
+            }
+          },
+          "normalized_second_moment": "24311806126145/17592188178458",
+          "normalized_fourth_polynomial": [
+            "52170656963015/17592188178458",
+            "14121612314579520/8796094089229",
+            "-14121612314579520/8796094089229"
+          ],
+          "comparisons": {
+            "ordinary_passive_change": "353040307864488/4862361225229",
+            "ordinary_driven_change": "353040307864488/4862361225229",
+            "fixed_marginal_passive_change": "441300384830610/53485973477519",
+            "fixed_marginal_driven_change": "-88260076966122/4862361225229",
+            "localized_seam_driven_second_time_derivative": "-38053992073125/8796094089229",
+            "localized_seam_passive_change": "0"
+          },
+          "readings": {
+            "ordinary_passive_change": 72.6067627457812,
+            "ordinary_driven_change": 72.6067627457812,
+            "fixed_marginal_passive_change": 8.250768493838773,
+            "fixed_marginal_driven_change": -18.1516906864453,
+            "localized_seam_driven_second_time_derivative": -4.326237496677407,
+            "localized_seam_passive_change": 0.0
+          },
+          "baseline_fourth_over_second_squared": 159.16902766090075
+        },
+        "0": {
+          "mixed_reference_tangents": {
+            "ordinary_passive": "9535368462336000/2572189088146141",
+            "ordinary_driven": "23602397184000/4862361225229",
+            "fixed_marginal_passive": "177017978880000/2572189088146141",
+            "fixed_marginal_driven": "-737574912000/4862361225229",
+            "calibrated_prediction": "44254494720000/491098483748129",
+            "observed_over_predicted": "-101/60"
+          },
+          "finite_appointment": {
+            "dwell": "1/128",
+            "hamiltonian_width_upper": 30,
+            "absolute_signal_differences": {
+              "ordinary_passive": [
+                "237965897254532932525/5142558289520731572580502208512",
+                "270244695294904507475/5142558289520731572580502208512"
+              ],
+              "ordinary_driven": [
+                "9598602520624925/154742523681904479661195264",
+                "10542109743055075/154742523681904479661195264"
+              ],
+              "collar_passive": [
+                "30858115205371475/7272898613049510544076177408",
+                "76559016867588525/7272898613049510544076177408"
+              ],
+              "collar_driven": [
+                "-2990495104975075/154742523681904479661195264",
+                "-2044682960944925/154742523681904479661195264"
+              ]
+            }
+          },
+          "sources": {
+            "reference": {
+              "susceptibility": 0.1875,
+              "passive_frequency_squared": 3.9661862710939877,
+              "driven_frequency_squared": 3.9661862710939877
+            },
+            "ordinary": {
+              "susceptibility": 0.25,
+              "passive_frequency_squared": 4.57294901687519,
+              "driven_frequency_squared": 4.57294901687519
+            },
+            "fixed_marginals": {
+              "susceptibility": 0.171875,
+              "passive_frequency_squared": 4.0351365831145785,
+              "driven_frequency_squared": 3.8144955846486868
+            }
+          },
+          "normalized_second_moment": "24311806126145/17592188178458",
+          "normalized_fourth_polynomial": [
+            "52170656963015/17592188178458",
+            "118011985920000/8796094089229",
+            "-118011985920000/8796094089229"
+          ],
+          "comparisons": {
+            "ordinary_passive_change": "2950299648000/4862361225229",
+            "ordinary_driven_change": "2950299648000/4862361225229",
+            "fixed_marginal_passive_change": "3687874560000/53485973477519",
+            "fixed_marginal_driven_change": "-737574912000/4862361225229",
+            "localized_seam_driven_second_time_derivative": "-3261770749125/8796094089229",
+            "localized_seam_passive_change": "0"
+          },
+          "readings": {
+            "ordinary_passive_change": 0.6067627457812025,
+            "ordinary_driven_change": 0.6067627457812025,
+            "fixed_marginal_passive_change": 0.0689503120205912,
+            "fixed_marginal_driven_change": -0.15169068644530062,
+            "localized_seam_driven_second_time_derivative": -0.3708203568580634,
+            "localized_seam_passive_change": 0.0
+          },
+          "baseline_fourth_over_second_squared": 2.869959346906233
+        }
+      }
+    },
+    {
+      "ports": 240,
+      "profile": {
+        "sha256": "cbefbfe8955f4be658e47c7f556a9b3a666545b659addb95b169e54e6a3c23ee",
+        "exact_rayleigh": "621251044701/14073752339519",
+        "exact_residual_squared": "1614171283650877/990352524570582629245756805",
+        "selector": {
+          "eigenvalue": 0.044142530698999344,
+          "multiplicity": 1,
+          "next_eigenvalue": 0.04454204318797941,
+          "residual": 2.202873751688532e-15
+        }
+      },
+      "by_contrast": {
+        "8": {
+          "mixed_reference_tangents": {
+            "ordinary_passive": "316881319315979800/328641802646829",
+            "ordinary_driven": "79432041778966/63392963745",
+            "fixed_marginal_passive": "11131157806842151/547736337744715",
+            "fixed_marginal_driven": "-1818745688228411/49700083576080",
+            "calibrated_prediction": "442085295980674645462396997933/16740038322388063050460292500",
+            "observed_over_predicted": "-360204083241292843607115413811125/259946154036636691531889434784604"
+          },
+          "finite_appointment": {
+            "dwell": "1/32768",
+            "hamiltonian_width_upper": 7110,
+            "absolute_signal_differences": {
+              "ordinary_passive": [
+                "165525763365046998233283821/3550279519530286918797588331468387201272774656",
+                "29040042781083567184987193701/592896679761557915439197251355220662612553367552"
+              ],
+              "ordinary_driven": [
+                "16421106898333999090217509/267609009009820622019918718452390995070812160",
+                "17012379227792134717984219/267609009009820622019918718452390995070812160"
+              ],
+              "collar_passive": [
+                "81691043611769024966771957/11791521959495221157752668531808478220307660800",
+                "109540791376239469350402827/11791521959495221157752668531808478220307660800"
+              ],
+              "collar_driven": [
+                "-525361893371064756208571/33451126126227577752489839806548874383851520",
+                "-15554129757385859368009/1153487107800950956982408269191340495994880"
+              ]
+            }
+          },
+          "sources": {
+            "reference": {
+              "susceptibility": 0.1875,
+              "passive_frequency_squared": 461.8422739479826,
+              "driven_frequency_squared": 461.8422739479826
+            },
+            "ordinary": {
+              "susceptibility": 0.25,
+              "passive_frequency_squared": 628.7171932440004,
+              "driven_frequency_squared": 628.7171932440004
+            },
+            "fixed_marginals": {
+              "susceptibility": 0.171875,
+              "passive_frequency_squared": 482.20287224429364,
+              "driven_frequency_squared": 425.24785483711116
+            }
+          },
+          "normalized_second_moment": "621251044701/28147504679038",
+          "normalized_fourth_polynomial": [
+            "3435521018456/70368761697595",
+            "3764830711813078/70368761697595",
+            "-3637491376456822/70368761697595"
+          ],
+          "comparisons": {
+            "ordinary_passive_change": "2073424358940923/12425020894020",
+            "ordinary_driven_change": "2073424358940923/12425020894020",
+            "fixed_marginal_passive_change": "11131157806842151/546700919336880",
+            "fixed_marginal_driven_change": "-1818745688228411/49700083576080",
+            "localized_seam_driven_second_time_derivative": "-64706848914/70368761697595",
+            "localized_seam_passive_change": "0"
+          },
+          "readings": {
+            "ordinary_passive_change": 166.87491929601785,
+            "ordinary_driven_change": 166.87491929601785,
+            "fixed_marginal_passive_change": 20.360598296311025,
+            "fixed_marginal_driven_change": -36.59441911087146,
+            "localized_seam_driven_second_time_derivative": -0.0009195394000547191,
+            "localized_seam_passive_change": 0.0
+          },
+          "baseline_fourth_over_second_squared": 20925.047414906127
+        },
+        "0": {
+          "mixed_reference_tangents": {
+            "ordinary_passive": "927301885933016/328641802646829",
+            "ordinary_driven": "2295301697854/621251044701",
+            "fixed_marginal_passive": "5738254244635/109547267548943",
+            "fixed_marginal_driven": "-1147650848927/9940016715216",
+            "calibrated_prediction": "5738254244635/83661807353068",
+            "observed_over_predicted": "-101/60"
+          },
+          "finite_appointment": {
+            "dwell": "1/4096",
+            "hamiltonian_width_upper": 630,
+            "absolute_signal_differences": {
+              "ordinary_passive": [
+                "1253406243487951475685995/2261721343084556257015980725689776087236608",
+                "1337772031748867482207637/2261721343084556257015980725689776087236608"
+              ],
+              "ordinary_driven": [
+                "150318666997941191185/204169470985275743118224119913018032128",
+                "157751511962565164527/204169470985275743118224119913018032128"
+              ],
+              "collar_passive": [
+                "120446655805167797485/1799243463057742486229350056733471408128",
+                "187623523155338558227/1799243463057742486229350056733471408128"
+              ],
+              "collar_driven": [
+                "-5279098320342616655/25521183873159467889778014989127254016",
+                "-4348094772173206961/25521183873159467889778014989127254016"
+              ]
+            }
+          },
+          "sources": {
+            "reference": {
+              "susceptibility": 0.1875,
+              "passive_frequency_squared": 3.5974934177427427,
+              "driven_frequency_squared": 3.5974934177427427
+            },
+            "ordinary": {
+              "susceptibility": 0.25,
+              "passive_frequency_squared": 4.059323968659301,
+              "driven_frequency_squared": 4.059323968659301
+            },
+            "fixed_marginals": {
+              "susceptibility": 0.171875,
+              "passive_frequency_squared": 3.649974162165079,
+              "driven_frequency_squared": 3.4820357800136033
+            }
+          },
+          "normalized_second_moment": "621251044701/28147504679038",
+          "normalized_fourth_polynomial": [
+            "3435521018456/70368761697595",
+            "2295301697854/14073752339519",
+            "-2295301697854/14073752339519"
+          ],
+          "comparisons": {
+            "ordinary_passive_change": "1147650848927/2485004178804",
+            "ordinary_driven_change": "1147650848927/2485004178804",
+            "fixed_marginal_passive_change": "521659476785/9940016715216",
+            "fixed_marginal_driven_change": "-1147650848927/9940016715216",
+            "localized_seam_driven_second_time_derivative": "-45222917122/70368761697595",
+            "localized_seam_passive_change": "0"
+          },
+          "readings": {
+            "ordinary_passive_change": 0.46183055091655795,
+            "ordinary_driven_change": 0.46183055091655795,
+            "fixed_marginal_passive_change": 0.052480744422336134,
+            "fixed_marginal_driven_change": -0.11545763772913949,
+            "localized_seam_driven_second_time_derivative": -0.00064265614501421,
+            "localized_seam_passive_change": 0.0
+          },
+          "baseline_fourth_over_second_squared": 162.99443465315636
+        }
+      }
+    },
+    {
+      "ports": 960,
+      "profile": {
+        "sha256": "cbefbfe8955f4be658e47c7f556a9b3a666545b659addb95b169e54e6a3c23ee",
+        "exact_rayleigh": "103701686316/10052677137017",
+        "exact_residual_squared": "944610395539305/101056317621104307791658289",
+        "selector": {
+          "eigenvalue": 0.010315827802637869,
+          "multiplicity": 1,
+          "next_eigenvalue": 0.010434841894847741,
+          "residual": 6.228913978970333e-15
+        }
+      },
+      "by_contrast": {
+        "8": {
+          "mixed_reference_tangents": {
+            "ordinary_passive": "92001951497740777/96001836107037",
+            "ordinary_driven": "301253307047093/241970601404",
+            "fixed_marginal_passive": "5194901230147891/256004896285432",
+            "fixed_marginal_driven": "-842296137101143/23229177734784",
+            "calibrated_prediction": "4694943526095191239370674892589/178094140273999794863874007264",
+            "observed_over_predicted": "-77492888352313774074814444408111/56339322313142294872448098711068"
+          },
+          "finite_appointment": {
+            "dwell": "1/131072",
+            "hamiltonian_width_upper": 28440,
+            "absolute_signal_differences": {
+              "ordinary_passive": [
+                "384478964968811863802214837/9088712762291095989270030150749716929384307228672",
+                "9635657146615613637179975787/216830718757516147172585005025028961029597043884032"
+              ],
+              "ordinary_driven": [
+                "2542023104441765848256131/45671923428598472307889598747486014720524156928",
+                "2633469301874677219225981/45671923428598472307889598747486014720524156928"
+              ],
+              "collar_passive": [
+                "38162730077511071149392137/6037257378217860558199156334433307570869286993920",
+                "51084993480230373204098807/6037257378217860558199156334433307570869286993920"
+              ],
+              "collar_driven": [
+                "-243337017665438785322743/17126971285724427115458599530307255520196558848",
+                "-208867277634128893329673/17126971285724427115458599530307255520196558848"
+              ]
+            }
+          },
+          "sources": {
+            "reference": {
+              "susceptibility": 0.1875,
+              "passive_frequency_squared": 458.4377799996972,
+              "driven_frequency_squared": 458.4377799996972
+            },
+            "ordinary": {
+              "susceptibility": 0.25,
+              "passive_frequency_squared": 624.6466258231226,
+              "driven_frequency_squared": 624.6466258231226
+            },
+            "fixed_marginals": {
+              "susceptibility": 0.171875,
+              "passive_frequency_squared": 478.7684070062693,
+              "driven_frequency_squared": 422.17751514151126
+            }
+          },
+          "normalized_second_moment": "51850843158/10052677137017",
+          "normalized_fourth_polynomial": [
+            "3116797151123/281474959836476",
+            "873028029121211/70368739959119",
+            "-842296137101143/70368739959119"
+          ],
+          "comparisons": {
+            "ordinary_passive_change": "965223705181415/5807294433696",
+            "ordinary_driven_change": "965223705181415/5807294433696",
+            "fixed_marginal_passive_change": "5194901230147891/255520955082624",
+            "fixed_marginal_driven_change": "-842296137101143/23229177734784",
+            "localized_seam_driven_second_time_derivative": "7183837755/140737479918238",
+            "localized_seam_passive_change": "0"
+          },
+          "readings": {
+            "ordinary_passive_change": 166.2088458234254,
+            "ordinary_driven_change": 166.2088458234254,
+            "fixed_marginal_passive_change": 20.330627006572097,
+            "fixed_marginal_driven_change": -36.26026485818591,
+            "localized_seam_driven_second_time_derivative": 5.104424037700177e-05,
+            "localized_seam_passive_change": 0.0
+          },
+          "baseline_fourth_over_second_squared": 88880.46382784311
+        },
+        "0": {
+          "mixed_reference_tangents": {
+            "ordinary_passive": "273615230970275/96001836107037",
+            "ordinary_driven": "2709061692775/725911804212",
+            "fixed_marginal_passive": "13545308463875/256004896285432",
+            "fixed_marginal_driven": "-2709061692775/23229177734784",
+            "calibrated_prediction": "13545308463875/195512245934432",
+            "observed_over_predicted": "-101/60"
+          },
+          "finite_appointment": {
+            "dwell": "1/16384",
+            "hamiltonian_width_upper": 2520,
+            "absolute_signal_differences": {
+              "ordinary_passive": [
+                "2961083801681238737900755/5790004849634601708252315655422984036282269696",
+                "3155464459628303196793645/5790004849634601708252315655422984036282269696"
+              ],
+              "ordinary_driven": [
+                "355046555361616469705/522673684256726901716876206369239975591936",
+                "372161655470572560695/522673684256726901716876206369239975591936"
+              ],
+              "collar_passive": [
+                "286213846681790977205/4606061842512405821379971568628927284903936",
+                "440994364150398053195/4606061842512405821379971568628927284903936"
+              ],
+              "collar_driven": [
+                "-12434562106449922615/65334210532090862714609525796154996948992",
+                "-10290694482055984585/65334210532090862714609525796154996948992"
+              ]
+            }
+          },
+          "sources": {
+            "reference": {
+              "susceptibility": 0.1875,
+              "passive_frequency_squared": 3.5462940475897136,
+              "driven_frequency_squared": 3.5462940475897136
+            },
+            "ordinary": {
+              "susceptibility": 0.25,
+              "passive_frequency_squared": 4.012786959858128,
+              "driven_frequency_squared": 4.012786959858128
+            },
+            "fixed_marginals": {
+              "susceptibility": 0.171875,
+              "passive_frequency_squared": 3.599304605802033,
+              "driven_frequency_squared": 3.4296708195226095
+            }
+          },
+          "normalized_second_moment": "51850843158/10052677137017",
+          "normalized_fourth_polynomial": [
+            "3116797151123/281474959836476",
+            "2709061692775/70368739959119",
+            "-2709061692775/70368739959119"
+          ],
+          "comparisons": {
+            "ordinary_passive_change": "2709061692775/5807294433696",
+            "ordinary_driven_change": "2709061692775/5807294433696",
+            "fixed_marginal_passive_change": "13545308463875/255520955082624",
+            "fixed_marginal_driven_change": "-2709061692775/23229177734784",
+            "localized_seam_driven_second_time_derivative": "7208669115/140737479918238",
+            "localized_seam_passive_change": "0"
+          },
+          "readings": {
+            "ordinary_passive_change": 0.4664929122684145,
+            "ordinary_driven_change": 0.4664929122684145,
+            "fixed_marginal_passive_change": 0.05301055821231983,
+            "fixed_marginal_driven_change": -0.11662322806710362,
+            "localized_seam_driven_second_time_derivative": 5.122067781224948e-05,
+            "localized_seam_passive_change": 0.0
+          },
+          "baseline_fourth_over_second_squared": 687.5442504321983
+        }
+      }
+    },
+    {
+      "ports": 3840,
+      "profile": {
+        "sha256": "cbefbfe8955f4be658e47c7f556a9b3a666545b659addb95b169e54e6a3c23ee",
+        "exact_rayleigh": "359528281597/140737481539945",
+        "exact_residual_squared": "733059242422077231/19807038710206359648630603025",
+        "selector": {
+          "eigenvalue": 0.002554602205717263,
+          "multiplicity": 1,
+          "next_eigenvalue": 0.0025946447655994186,
+          "residual": 3.211181560536323e-14
+        }
+      },
+      "by_contrast": {
+        "8": {
+          "mixed_reference_tangents": {
+            "ordinary_passive": "7911922290242168/8269150476731",
+            "ordinary_driven": "446824180363954/359528281597",
+            "fixed_marginal_passive": "167946388916817/8269150476731",
+            "fixed_marginal_driven": "-207909496474185/5752452505552",
+            "calibrated_prediction": "37521253786421302133445607209/1422279912569883671013891148",
+            "observed_over_predicted": "-68540157479463739084408768045/50028338381895069511260809612"
+          },
+          "finite_appointment": {
+            "dwell": "1/524288",
+            "hamiltonian_width_upper": 113760,
+            "absolute_signal_differences": {
+              "ordinary_passive": [
+                "95061357027120935586568363/2326710493957023743672711751988404597978963619348480",
+                "16676236724939781676708980851/388560652490822965193342862582063567862486924431196160"
+              ],
+              "ordinary_driven": [
+                "1885202041733396974968919/35076037597342066487528317869171928612748195266560",
+                "1952988441716978639527849/35076037597342066487528317869171928612748195266560"
+              ],
+              "collar_passive": [
+                "9463789746605964887882479/1545537906632884804606716506110388104499217353932800",
+                "12656820521684162080900369/1545537906632884804606716506110388104499217353932800"
+              ],
+              "collar_driven": [
+                "-4004588458013572094711/292300313311183887396069315576432738439568293888",
+                "-3436782274356860265737/292300313311183887396069315576432738439568293888"
+              ]
+            }
+          },
+          "sources": {
+            "reference": {
+              "susceptibility": 0.1875,
+              "passive_frequency_squared": 457.40090582152817,
+              "driven_frequency_squared": 457.40090582152817
+            },
+            "ordinary": {
+              "susceptibility": 0.25,
+              "passive_frequency_squared": 623.5315665504465,
+              "driven_frequency_squared": 623.5315665504465
+            },
+            "fixed_marginals": {
+              "susceptibility": 0.171875,
+              "passive_frequency_squared": 477.74936479229484,
+              "driven_frequency_squared": 421.2581482283937
+            }
+          },
+          "normalized_second_moment": "359528281597/281474963079890",
+          "normalized_fourth_polynomial": [
+            "1530284922781/562949926159780",
+            "431321586656162/140737481539945",
+            "-83163798589674/28147496307989"
+          ],
+          "comparisons": {
+            "ordinary_passive_change": "238914683889769/1438113126388",
+            "ordinary_driven_change": "238914683889769/1438113126388",
+            "fixed_marginal_passive_change": "1287588981695597/63276977561072",
+            "fixed_marginal_driven_change": "-207909496474185/5752452505552",
+            "localized_seam_driven_second_time_derivative": "432430817/140737481539945",
+            "localized_seam_passive_change": "0"
+          },
+          "readings": {
+            "ordinary_passive_change": 166.13066072891843,
+            "ordinary_driven_change": 166.13066072891843,
+            "fixed_marginal_passive_change": 20.34845897076667,
+            "fixed_marginal_driven_change": -36.142757593134476,
+            "localized_seam_driven_second_time_derivative": 3.0726059061762075e-06,
+            "localized_seam_passive_change": 0.0
+          },
+          "baseline_fourth_over_second_squared": 358099.5144719574
+        },
+        "0": {
+          "mixed_reference_tangents": {
+            "ordinary_passive": "543780492796008/190190460964813",
+            "ordinary_driven": "1345991318802/359528281597",
+            "fixed_marginal_passive": "10094934891015/190190460964813",
+            "fixed_marginal_driven": "-672995659401/5752452505552",
+            "calibrated_prediction": "10094934891015/145249425765188",
+            "observed_over_predicted": "-101/60"
+          },
+          "finite_appointment": {
+            "dwell": "1/65536",
+            "hamiltonian_width_upper": 10080,
+            "absolute_signal_differences": {
+              "ordinary_passive": [
+                "735775517167579164641373/1482241258586208210728999567344908019494960496640",
+                "783721230121867668289443/1482241258586208210728999567344908019494960496640"
+              ],
+              "ordinary_driven": [
+                "29405844659445783021/44601488237180158599253740780095327520686080",
+                "30812787579663590931/44601488237180158599253740780095327520686080"
+              ],
+              "collar_passive": [
+                "168413298185004981/2787593014823759912453358798755957970042880",
+                "258669199964706891/2787593014823759912453358798755957970042880"
+              ],
+              "collar_driven": [
+                "-1029035555678319363/5575186029647519824906717597511915940085760",
+                "-852796701793848573/5575186029647519824906717597511915940085760"
+              ]
+            }
+          },
+          "sources": {
+            "reference": {
+              "susceptibility": 0.1875,
+              "passive_frequency_squared": 3.5320982268779777,
+              "driven_frequency_squared": 3.5320982268779777
+            },
+            "ordinary": {
+              "susceptibility": 0.25,
+              "passive_frequency_squared": 4.000069519992667,
+              "driven_frequency_squared": 4.000069519992667
+            },
+            "fixed_marginals": {
+              "susceptibility": 0.171875,
+              "passive_frequency_squared": 3.5852767829137377,
+              "driven_frequency_squared": 3.4151054035993056
+            }
+          },
+          "normalized_second_moment": "359528281597/281474963079890",
+          "normalized_fourth_polynomial": [
+            "1530284922781/562949926159780",
+            "1345991318802/140737481539945",
+            "-1345991318802/140737481539945"
+          ],
+          "comparisons": {
+            "ordinary_passive_change": "672995659401/1438113126388",
+            "ordinary_driven_change": "672995659401/1438113126388",
+            "fixed_marginal_passive_change": "3364978297005/63276977561072",
+            "fixed_marginal_driven_change": "-672995659401/5752452505552",
+            "localized_seam_driven_second_time_derivative": "432785137/140737481539945",
+            "localized_seam_passive_change": "0"
+          },
+          "readings": {
+            "ordinary_passive_change": 0.4679712931146886,
+            "ordinary_driven_change": 0.4679712931146886,
+            "fixed_marginal_passive_change": 0.05317855603576007,
+            "fixed_marginal_driven_change": -0.11699282327867215,
+            "localized_seam_driven_second_time_derivative": 3.0751235013194704e-06,
+            "localized_seam_passive_change": 0.0
+          },
+          "baseline_fourth_over_second_squared": 2765.282368299005
+        }
+      }
+    }
+  ],
+  "cell_time_records": {
+    "8": {
+      "times": [
+        0.03125,
+        0.125,
+        0.25
+      ],
+      "material_clock_clicks": [
+        0.0002441207574318154,
+        0.0039011663853354738,
+        0.015543789144677609
+      ],
+      "product_fillings": [
+        0.09375,
+        0.125,
+        0.15625,
+        0.21875,
+        0.25,
+        0.28125,
+        0.34375,
+        0.375,
+        0.40625,
+        0.5
+      ],
+      "direct_spectral_moments": [
+        [
+          1.3819660112501118,
+          139.36535208744874
+        ],
+        [
+          1.3819660112501118,
+          178.5606951739997
+        ],
+        [
+          1.381966011250112,
+          214.62041081362668
+        ],
+        [
+          1.381966011250113,
+          277.33295975210825
+        ],
+        [
+          1.381966011250113,
+          303.98579305096297
+        ],
+        [
+          1.3819660112501133,
+          327.5029989028936
+        ],
+        [
+          1.3819660112501133,
+          365.1305282659826
+        ],
+        [
+          1.3819660112501135,
+          379.2408517771409
+        ],
+        [
+          1.3819660112501142,
+          390.2155478413752
+        ],
+        [
+          1.381966011250114,
+          404.3258713525336
+        ]
+      ],
+      "sources": {
+        "reference": {
+          "susceptibility": 0.1875,
+          "passive_normalized": [
+            0.9993370514480043,
+            0.9915103551598814,
+            0.9769822851300981
+          ],
+          "driven": [
+            0.9993370514480046,
+            0.9915103551598811,
+            0.9769822851300984
+          ]
+        },
+        "ordinary": {
+          "susceptibility": 0.25,
+          "passive_normalized": [
+            0.9993409034045545,
+            0.9921148051843872,
+            0.9803362624394237
+          ],
+          "driven": [
+            0.9993409034045544,
+            0.9921148051843868,
+            0.9803362624394227
+          ]
+        },
+        "fixed_marginals": {
+          "susceptibility": 0.171875,
+          "passive_normalized": [
+            0.9993374785703815,
+            0.9915494348261983,
+            0.9767490671879294
+          ],
+          "driven": [
+            0.9993360703212767,
+            0.9913085843183276,
+            0.9750927419330664
+          ]
+        },
+        "common": {
+          "susceptibility": 0.1796875,
+          "passive_normalized": [
+            0.9993372557239238,
+            0.9915290454350764,
+            0.9768707461142782
+          ],
+          "driven": [
+            0.9993365608846406,
+            0.9914094697391044,
+            0.9760375135315824
+          ]
+        },
+        "ordinary_lower": {
+          "susceptibility": 0.1630859375,
+          "passive_normalized": [
+            0.9993364949063374,
+            0.9913990486663247,
+            0.9759785456221285
+          ],
+          "driven": [
+            0.9993355303098296,
+            0.9912282446134578,
+            0.9747176888317767
+          ]
+        },
+        "ordinary_upper": {
+          "susceptibility": 0.1943359375,
+          "passive_normalized": [
+            0.999337964209663,
+            0.9916479473359474,
+            0.9776549255597138
+          ],
+          "driven": [
+            0.9993374685958459,
+            0.9915648482566917,
+            0.9771080718430712
+          ]
+        },
+        "collar_lower": {
+          "susceptibility": 0.18359375,
+          "passive_normalized": [
+            0.999337151412816,
+            0.9915195014647642,
+            0.976927702207463
+          ],
+          "driven": [
+            0.9993368061663226,
+            0.9914599124494927,
+            0.9765098993308404
+          ]
+        },
+        "collar_upper": {
+          "susceptibility": 0.17578125,
+          "passive_normalized": [
+            0.9993373646710809,
+            0.9915390135818472,
+            0.9768112586391744
+          ],
+          "driven": [
+            0.9993363156029587,
+            0.9913590270287159,
+            0.9755651277323243
+          ]
+        }
+      },
+      "localized_seam_driven_change": [
+        -0.0020093497293377995,
+        -0.01631472671407017,
+        -0.01659969681174742
+      ],
+      "count_records": {
+        "trials_per_arm": 1125899906842624,
+        "seed": 81732,
+        "probability_grid": 274877906944,
+        "score_scale": 10.472136440224459,
+        "local_signed_step": 0.125,
+        "settings": 63,
+        "dimer_positive_counts": [
+          274856083347,
+          4392323677622,
+          17500744891731
+        ],
+        "click_probability_halfwidth": 6.475401586171633e-08,
+        "observations": {
+          "reference": {
+            "passive": {
+              "positive_scores": [
+                603240952092984,
+                602925371851200,
+                602339621720751
+              ],
+              "reconstructed": [
+                0.9993377039133872,
+                0.9915103666762343,
+                0.9769820052623129
+              ],
+              "simultaneous_99pct_halfwidth": 1.8083010377502725e-06
+            },
+            "driven": {
+              "positive_scores": [
+                616671251691395,
+                616250526427725,
+                615469534419447
+              ],
+              "reconstructed": [
+                0.9993370846045184,
+                0.9915106475682863,
+                0.9769824380539119
+              ],
+              "simultaneous_99pct_halfwidth": 1.3562257783127044e-06
+            }
+          },
+          "ordinary": {
+            "passive": {
+              "positive_scores": [
+                616671470491950,
+                616282971515030,
+                615649851969283
+              ],
+              "reconstructed": [
+                0.9993411547874027,
+                0.992114199232174,
+                0.9803367504096967
+              ],
+              "simultaneous_99pct_halfwidth": 1.3562257783127044e-06
+            },
+            "driven": {
+              "positive_scores": [
+                616671443495157,
+                616282993426312,
+                615649805984224
+              ],
+              "reconstructed": [
+                0.999340652586278,
+                0.9921146068313457,
+                0.9803358949840782
+              ],
+              "simultaneous_99pct_halfwidth": 1.3562257783127044e-06
+            }
+          },
+          "fixed_marginals": {
+            "passive": {
+              "positive_scores": [
+                599883365144505,
+                599595539432279,
+                599048561556576
+              ],
+              "reconstructed": [
+                0.9993376031002884,
+                0.9915496668131585,
+                0.9767496379571547
+              ],
+              "simultaneous_99pct_halfwidth": 1.9726920411821155e-06
+            },
+            "driven": {
+              "positive_scores": [
+                616671172640640,
+                616239654893660,
+                615367947113159
+              ],
+              "reconstructed": [
+                0.9993356140825173,
+                0.9913084125608025,
+                0.9750926854647566
+              ],
+              "simultaneous_99pct_halfwidth": 1.3562257783127044e-06
+            }
+          },
+          "common": {
+            "passive": {
+              "positive_scores": [
+                601562165824638,
+                601260437826932,
+                600694087096595
+              ],
+              "reconstructed": [
+                0.9993378421969881,
+                0.9915287013218602,
+                0.9768707555178299
+              ],
+              "simultaneous_99pct_halfwidth": 1.8869228220002845e-06
+            },
+            "driven": {
+              "positive_scores": [
+                616671228756453,
+                616245056310038,
+                615418745243801
+              ],
+              "reconstructed": [
+                0.9993366579629663,
+                0.9914088910650409,
+                0.9760376450508768
+              ],
+              "simultaneous_99pct_halfwidth": 1.3562257783127044e-06
+            }
+          },
+          "ordinary_lower": {
+            "passive": {
+              "positive_scores": [
+                597994687576696,
+                597716336608672,
+                597175596967280
+              ],
+              "reconstructed": [
+                0.9993365424295925,
+                0.9913990790511095,
+                0.9759793334999713
+              ],
+              "simultaneous_99pct_halfwidth": 2.079004785916481e-06
+            },
+            "driven": {
+              "positive_scores": [
+                616671144530268,
+                616235346742345,
+                615347792777951
+              ],
+              "reconstructed": [
+                0.9993350911663162,
+                0.9912282712478818,
+                0.9747177694586756
+              ],
+              "simultaneous_99pct_halfwidth": 1.3562257783127044e-06
+            }
+          },
+          "ordinary_upper": {
+            "passive": {
+              "positive_scores": [
+                604709907891778,
+                604388557054487,
+                603803824134988
+              ],
+              "reconstructed": [
+                0.9993380183340266,
+                0.9916479211344358,
+                0.9776549500108664
+              ],
+              "simultaneous_99pct_halfwidth": 1.7446924585329262e-06
+            },
+            "driven": {
+              "positive_scores": [
+                616671272866767,
+                616253436192266,
+                615476302490345
+              ],
+              "reconstructed": [
+                0.9993374785141074,
+                0.9915647757391781,
+                0.9771083394088197
+              ],
+              "simultaneous_99pct_halfwidth": 1.3562257783127044e-06
+            }
+          },
+          "collar_lower": {
+            "passive": {
+              "positive_scores": [
+                602401569813122,
+                602092917962704,
+                601516873825092
+              ],
+              "reconstructed": [
+                0.9993380465316527,
+                0.9915196713808911,
+                0.9769280557299621
+              ],
+              "simultaneous_99pct_halfwidth": 1.846775527915172e-06
+            },
+            "driven": {
+              "positive_scores": [
+                616671235361235,
+                616247800700300,
+                615444129431546
+              ],
+              "reconstructed": [
+                0.9993367808267801,
+                0.9914599429020545,
+                0.976509848087531
+              ],
+              "simultaneous_99pct_halfwidth": 1.3562257783127044e-06
+            }
+          },
+          "collar_upper": {
+            "passive": {
+              "positive_scores": [
+                600722738125033,
+                600428005214995,
+                599871310813318
+              ],
+              "reconstructed": [
+                0.9993370014666796,
+                0.9915393899095443,
+                0.9768111849739315
+              ],
+              "simultaneous_99pct_halfwidth": 1.9288544402669574e-06
+            },
+            "driven": {
+              "positive_scores": [
+                616671193021267,
+                616242424841723,
+                615393329591972
+              ],
+              "reconstructed": [
+                0.9993359932080601,
+                0.9913599398304501,
+                0.9755648567114286
+              ],
+              "simultaneous_99pct_halfwidth": 1.3562257783127044e-06
+            }
+          },
+          "local_plus": {
+            "passive": {
+              "positive_scores": [
+                603240937401071,
+                602925358960613,
+                602339647816623
+              ],
+              "reconstructed": [
+                0.9993373395098457,
+                0.9915100469509844,
+                0.9769826525182675
+              ],
+              "simultaneous_99pct_halfwidth": 1.8083010377502725e-06
+            },
+            "driven": {
+              "positive_scores": [
+                616657742510511,
+                616140898925711,
+                615357977827510
+              ],
+              "reconstructed": [
+                0.9990857834283603,
+                0.9894713292386295,
+                0.9749072343089418
+              ],
+              "simultaneous_99pct_halfwidth": 1.3562257783127044e-06
+            }
+          },
+          "local_minus": {
+            "passive": {
+              "positive_scores": [
+                603240943590423,
+                602925338646890,
+                602339627789916
+              ],
+              "reconstructed": [
+                0.9993374930243532,
+                0.9915095431096806,
+                0.9769821557958221
+              ],
+              "simultaneous_99pct_halfwidth": 1.8083010377502725e-06
+            },
+            "driven": {
+              "positive_scores": [
+                616684764810374,
+                616360129340889,
+                615581052189799
+              ],
+              "reconstructed": [
+                0.9995884590381089,
+                0.9935495084899791,
+                0.9790569196300064
+              ],
+              "simultaneous_99pct_halfwidth": 1.3562257783127044e-06
+            }
+          }
+        }
+      }
+    },
+    "0": {
+      "times": [
+        0.03125,
+        0.125,
+        0.25
+      ],
+      "material_clock_clicks": [
+        0.0002441207574318154,
+        0.0039011663853354738,
+        0.015543789144677609
+      ],
+      "product_fillings": [
+        0.09375,
+        0.125,
+        0.15625,
+        0.21875,
+        0.25,
+        0.28125,
+        0.34375,
+        0.375,
+        0.40625,
+        0.5
+      ],
+      "direct_spectral_moments": [
+        [
+          1.381966011250114,
+          4.105428736344132
+        ],
+        [
+          1.3819660112501135,
+          4.432977756485701
+        ],
+        [
+          1.3819660112501133,
+          4.734322855015945
+        ],
+        [
+          1.3819660112501138,
+          5.258401287242453
+        ],
+        [
+          1.3819660112501133,
+          5.481134620938722
+        ],
+        [
+          1.3819660112501135,
+          5.67766403302366
+        ],
+        [
+          1.3819660112501133,
+          5.992111092359567
+        ],
+        [
+          1.3819660112501135,
+          6.110028739610532
+        ],
+        [
+          1.3819660112501135,
+          6.20174246525017
+        ],
+        [
+          1.3819660112501135,
+          6.3196601125011345
+        ]
+      ],
+      "sources": {
+        "reference": {
+          "susceptibility": 0.1875,
+          "passive_normalized": [
+            0.9993254296556641,
+            0.9892589285896668,
+            0.9576918082483487
+          ],
+          "driven": [
+            0.9993254296556644,
+            0.9892589285896667,
+            0.9576918082483484
+          ]
+        },
+        "ordinary": {
+          "susceptibility": 0.25,
+          "passive_normalized": [
+            0.9993254629573826,
+            0.9892673839531831,
+            0.9578235881458478
+          ],
+          "driven": [
+            0.9993254629573827,
+            0.989267383953183,
+            0.9578235881458469
+          ]
+        },
+        "fixed_marginals": {
+          "susceptibility": 0.171875,
+          "passive_normalized": [
+            0.9993254334392779,
+            0.989259886697143,
+            0.9577066136449706
+          ],
+          "driven": [
+            0.999325421329084,
+            0.989256810078814,
+            0.9576585731178979
+          ]
+        },
+        "common": {
+          "susceptibility": 0.1796875,
+          "passive_normalized": [
+            0.9993254314652184,
+            0.9892593868149815,
+            0.9576988890902113
+          ],
+          "driven": [
+            0.9993254254923741,
+            0.9892578693342404,
+            0.9576751906831231
+          ]
+        },
+        "ordinary_lower": {
+          "susceptibility": 0.1630859375,
+          "passive_normalized": [
+            0.9993254249221802,
+            0.9892577245549516,
+            0.9576729339319484
+          ],
+          "driven": [
+            0.9993254166461358,
+            0.9892556214732013,
+            0.95764006825901
+          ]
+        },
+        "ordinary_upper": {
+          "susceptibility": 0.1943359375,
+          "passive_normalized": [
+            0.9993254375652094,
+            0.9892609363206272,
+            0.9577230738205594
+          ],
+          "driven": [
+            0.9993254332977757,
+            0.9892598523239793,
+            0.9577061551262223
+          ]
+        },
+        "collar_lower": {
+          "susceptibility": 0.18359375,
+          "passive_normalized": [
+            0.9993254305411906,
+            0.9892591528275867,
+            0.9576952733411751
+          ],
+          "driven": [
+            0.9993254275740192,
+            0.9892583989619534,
+            0.9576834994657358
+          ]
+        },
+        "collar_upper": {
+          "susceptibility": 0.17578125,
+          "passive_normalized": [
+            0.9993254324303142,
+            0.9892596312018161,
+            0.9577026655392048
+          ],
+          "driven": [
+            0.9993254234107292,
+            0.9892573397065272,
+            0.9576668819005105
+          ]
+        }
+      },
+      "localized_seam_driven_change": [
+        -0.00018093904141881548,
+        -0.0028650622696378553,
+        -0.011085548528244728
+      ],
+      "count_records": {
+        "trials_per_arm": 1125899906842624,
+        "seed": 81724,
+        "probability_grid": 274877906944,
+        "score_scale": 10.472136440224459,
+        "local_signed_step": 0.125,
+        "settings": 63,
+        "dimer_positive_counts": [
+          274854930776,
+          4392319598547,
+          17500752482731
+        ],
+        "click_probability_halfwidth": 6.475401586171633e-08,
+        "observations": {
+          "reference": {
+            "passive": {
+              "positive_scores": [
+                603240478393413,
+                602834586137990,
+                601561879454249
+              ],
+              "reconstructed": [
+                0.9993259547421768,
+                0.9892586084875942,
+                0.9576916625935681
+              ],
+              "simultaneous_99pct_halfwidth": 1.8083010377502725e-06
+            },
+            "driven": {
+              "positive_scores": [
+                616670608948729,
+                616129487296657,
+                614432506562865
+              ],
+              "reconstructed": [
+                0.9993251281439958,
+                0.9892590472484943,
+                0.9576913853760682
+              ],
+              "simultaneous_99pct_halfwidth": 1.3562257783127044e-06
+            }
+          },
+          "ordinary": {
+            "passive": {
+              "positive_scores": [
+                616670611903546,
+                616129950635593,
+                614439620485347
+              ],
+              "reconstructed": [
+                0.9993251831102438,
+                0.9892676663957674,
+                0.9578237203490155
+              ],
+              "simultaneous_99pct_halfwidth": 1.3562257783127044e-06
+            },
+            "driven": {
+              "positive_scores": [
+                616670625446604,
+                616129939390807,
+                614439614925502
+              ],
+              "reconstructed": [
+                0.9993254350416105,
+                0.9892674572174336,
+                0.9578236169233822
+              ],
+              "simultaneous_99pct_halfwidth": 1.3562257783127044e-06
+            }
+          },
+          "fixed_marginals": {
+            "passive": {
+              "positive_scores": [
+                599882903266926,
+                599510926627303,
+                598344764289827
+              ],
+              "reconstructed": [
+                0.9993251056999349,
+                0.9892602287739639,
+                0.9577064182596954
+              ],
+              "simultaneous_99pct_halfwidth": 1.9726920411821155e-06
+            },
+            "driven": {
+              "positive_scores": [
+                616670610237240,
+                616129332918225,
+                614430753850259
+              ],
+              "reconstructed": [
+                0.999325152113201,
+                0.9892561754621242,
+                0.9576587809759097
+              ],
+              "simultaneous_99pct_halfwidth": 1.3562257783127044e-06
+            }
+          },
+          "common": {
+            "passive": {
+              "positive_scores": [
+                601561675382794,
+                601172742199202,
+                599953332124538
+              ],
+              "reconstructed": [
+                0.9993251488789004,
+                0.9892590163198618,
+                0.9576989850002625
+              ],
+              "simultaneous_99pct_halfwidth": 1.8869228220002845e-06
+            },
+            "driven": {
+              "positive_scores": [
+                616670606017564,
+                616129399611295,
+                614431648824284
+              ],
+              "reconstructed": [
+                0.9993250736177282,
+                0.9892574161033649,
+                0.9576754295075302
+              ],
+              "simultaneous_99pct_halfwidth": 1.3562257783127044e-06
+            }
+          },
+          "ordinary_lower": {
+            "passive": {
+              "positive_scores": [
+                597994292284906,
+                597641258888104,
+                596533653740825
+              ],
+              "reconstructed": [
+                0.9993252702787205,
+                0.9892581608363142,
+                0.9576736639087218
+              ],
+              "simultaneous_99pct_halfwidth": 2.079004785916481e-06
+            },
+            "driven": {
+              "positive_scores": [
+                616670617565945,
+                616129280344543,
+                614429741012459
+              ],
+              "reconstructed": [
+                0.9993252884436123,
+                0.9892551974732857,
+                0.9576399399127407
+              ],
+              "simultaneous_99pct_halfwidth": 1.3562257783127044e-06
+            }
+          },
+          "ordinary_upper": {
+            "passive": {
+              "positive_scores": [
+                604709376798190,
+                604288786853543,
+                602970915532943
+              ],
+              "reconstructed": [
+                0.9993253089807594,
+                0.9892603669293497,
+                0.9577230022303753
+              ],
+              "simultaneous_99pct_halfwidth": 1.7446924585329262e-06
+            },
+            "driven": {
+              "positive_scores": [
+                616670641902288,
+                616129542918676,
+                614433292983839
+              ],
+              "reconstructed": [
+                0.9993257411543778,
+                0.9892600819432634,
+                0.9577060145765666
+              ],
+              "simultaneous_99pct_halfwidth": 1.3562257783127044e-06
+            }
+          },
+          "collar_lower": {
+            "passive": {
+              "positive_scores": [
+                602401095637977,
+                602003691865170,
+                600757630973475
+              ],
+              "reconstructed": [
+                0.999326035331442,
+                0.9892595096393869,
+                0.9576958838300151
+              ],
+              "simultaneous_99pct_halfwidth": 1.846775527915172e-06
+            },
+            "driven": {
+              "positive_scores": [
+                616670639927915,
+                616129480450653,
+                614432083988613
+              ],
+              "reconstructed": [
+                0.9993257044265953,
+                0.9892589198974083,
+                0.9576835245436865
+              ],
+              "simultaneous_99pct_halfwidth": 1.3562257783127044e-06
+            }
+          },
+          "collar_upper": {
+            "passive": {
+              "positive_scores": [
+                600722304140694,
+                600341854697681,
+                599149058977234
+              ],
+              "reconstructed": [
+                0.9993255197448151,
+                0.9892601457308937,
+                0.9577029039764522
+              ],
+              "simultaneous_99pct_halfwidth": 1.9288544402669574e-06
+            },
+            "driven": {
+              "positive_scores": [
+                616670625285484,
+                616129398731905,
+                614431196931476
+              ],
+              "reconstructed": [
+                0.9993254320444158,
+                0.9892573997447311,
+                0.9576670232840053
+              ],
+              "simultaneous_99pct_halfwidth": 1.3562257783127044e-06
+            }
+          },
+          "local_plus": {
+            "passive": {
+              "positive_scores": [
+                603240464070708,
+                602834619782030,
+                601561879545931
+              ],
+              "reconstructed": [
+                0.9993255994961019,
+                0.9892594429607717,
+                0.9576916648675567
+              ],
+              "simultaneous_99pct_halfwidth": 1.8083010377502725e-06
+            },
+            "driven": {
+              "positive_scores": [
+                616669426988768,
+                616110251134801,
+                614358051595292
+              ],
+              "reconstructed": [
+                0.9993031410279062,
+                0.9889012113337421,
+                0.9563063553670268
+              ],
+              "simultaneous_99pct_halfwidth": 1.3562257783127044e-06
+            }
+          },
+          "local_minus": {
+            "passive": {
+              "positive_scores": [
+                603240460571750,
+                602834616149477,
+                601561868658620
+              ],
+              "reconstructed": [
+                0.9993255127114411,
+                0.9892593528625538,
+                0.9576913948295648
+              ],
+              "simultaneous_99pct_halfwidth": 1.8083010377502725e-06
+            },
+            "driven": {
+              "positive_scores": [
+                616671806147727,
+                616148747448116,
+                614506990792792
+              ],
+              "reconstructed": [
+                0.9993473987404794,
+                0.9896173294238676,
+                0.959076959730769
+              ],
+              "simultaneous_99pct_halfwidth": 1.3562257783127044e-06
+            }
+          }
+        }
+      }
+    }
+  }
+}

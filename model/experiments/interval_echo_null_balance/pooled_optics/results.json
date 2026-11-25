@@ -1,0 +1,418 @@
+{
+  "selected_ray": [
+    2,
+    4
+  ],
+  "full_rank_lottery": {
+    "common_uniform_weight": "1/16",
+    "minimum_eigenvalue": "1/7328",
+    "arm_difference": "478417/5496",
+    "initial_slope": "218015/1832",
+    "final_slope": "-50905/1832",
+    "midpoint_gap": "43907/2748",
+    "switches": [
+      {
+        "port": 11,
+        "positive_weight": "1901/2430",
+        "downward_slope_jump": "33615/229"
+      }
+    ]
+  },
+  "selected_switches": [
+    {
+      "port": 11,
+      "positive_weight": "54839/71712",
+      "downward_slope_jump": "35856/229"
+    }
+  ],
+  "direct_unitary_overlap": [
+    {
+      "dwell": 0.03125,
+      "vacuum_dwell": 0.020833333333333332,
+      "calibrated_curvature_difference_over_t4": 90.25375677663418,
+      "calibrated_curvature_midpoint_gap_over_t4": 19.13005907736292,
+      "difference_over_t4": 90.6533099777007,
+      "midpoint_gap_over_t4": 19.263608403489343
+    },
+    {
+      "dwell": 0.015625,
+      "vacuum_dwell": 0.010416666666666666,
+      "calibrated_curvature_difference_over_t4": 91.14676740077958,
+      "calibrated_curvature_midpoint_gap_over_t4": 18.89722208511103,
+      "difference_over_t4": 91.24868094385602,
+      "midpoint_gap_over_t4": 18.930073526484193
+    },
+    {
+      "dwell": 0.0078125,
+      "vacuum_dwell": 0.005208333333333333,
+      "calibrated_curvature_difference_over_t4": 90.86526544849146,
+      "calibrated_curvature_midpoint_gap_over_t4": 18.687883641515025,
+      "difference_over_t4": 90.89080189511878,
+      "midpoint_gap_over_t4": 18.695997417205945
+    },
+    {
+      "dwell": 0.00390625,
+      "vacuum_dwell": 0.0026041666666666665,
+      "calibrated_curvature_difference_over_t4": 90.54159769502472,
+      "calibrated_curvature_midpoint_gap_over_t4": 18.5611646998033,
+      "difference_over_t4": 90.54797665029764,
+      "midpoint_gap_over_t4": 18.563178884098306
+    }
+  ],
+  "suppressed_ring_all_quartic_contrasts_zero": true,
+  "words": 458,
+  "head": [
+    4,
+    11
+  ],
+  "ring": [
+    2,
+    4,
+    11
+  ],
+  "common_current": {
+    "face_a": [
+      2,
+      4,
+      11
+    ],
+    "face_b": [
+      2,
+      10,
+      11
+    ],
+    "value": "53/916"
+  },
+  "all_rays": [
+    {
+      "ray": [
+        0,
+        1
+      ],
+      "low": "-589417/687",
+      "high": "-589417/687",
+      "middle": "-589417/687",
+      "difference": "0",
+      "midpoint_gap": "0"
+    },
+    {
+      "ray": [
+        0,
+        5
+      ],
+      "low": "-343391/458",
+      "high": "-1045853/1374",
+      "middle": "-1038013/1374",
+      "difference": "-7840/687",
+      "midpoint_gap": "0"
+    },
+    {
+      "ray": [
+        0,
+        7
+      ],
+      "low": "-598261/687",
+      "high": "-591509/687",
+      "middle": "-198295/229",
+      "difference": "6752/687",
+      "midpoint_gap": "0"
+    },
+    {
+      "ray": [
+        0,
+        10
+      ],
+      "low": "-1075933/1374",
+      "high": "-181625/229",
+      "middle": "-178985/229",
+      "difference": "-13817/1374",
+      "midpoint_gap": "17863/2748"
+    },
+    {
+      "ray": [
+        0,
+        11
+      ],
+      "low": "-374157/458",
+      "high": "-1081771/1374",
+      "middle": "-1102121/1374",
+      "difference": "20350/687",
+      "midpoint_gap": "0"
+    },
+    {
+      "ray": [
+        1,
+        5
+      ],
+      "low": "-482980/687",
+      "high": "-482980/687",
+      "middle": "-482980/687",
+      "difference": "0",
+      "midpoint_gap": "0"
+    },
+    {
+      "ray": [
+        1,
+        7
+      ],
+      "low": "-484882/687",
+      "high": "-484882/687",
+      "middle": "-484882/687",
+      "difference": "0",
+      "midpoint_gap": "0"
+    },
+    {
+      "ray": [
+        1,
+        8
+      ],
+      "low": "-1214225/1374",
+      "high": "-1214225/1374",
+      "middle": "-1214225/1374",
+      "difference": "0",
+      "midpoint_gap": "0"
+    },
+    {
+      "ray": [
+        1,
+        9
+      ],
+      "low": "-980041/1374",
+      "high": "-980041/1374",
+      "middle": "-980041/1374",
+      "difference": "0",
+      "midpoint_gap": "0"
+    },
+    {
+      "ray": [
+        2,
+        3
+      ],
+      "low": "-444856/687",
+      "high": "-441316/687",
+      "middle": "-432506/687",
+      "difference": "1180/229",
+      "midpoint_gap": "10580/687"
+    },
+    {
+      "ray": [
+        2,
+        4
+      ],
+      "low": "-1052233/1374",
+      "high": "-154740/229",
+      "middle": "-965027/1374",
+      "difference": "123793/1374",
+      "midpoint_gap": "16873/916"
+    },
+    {
+      "ray": [
+        2,
+        6
+      ],
+      "low": "-864421/1374",
+      "high": "-853777/1374",
+      "middle": "-859099/1374",
+      "difference": "1774/229",
+      "midpoint_gap": "0"
+    },
+    {
+      "ray": [
+        2,
+        10
+      ],
+      "low": "-163236/229",
+      "high": "-441950/687",
+      "middle": "-459521/687",
+      "difference": "47758/687",
+      "midpoint_gap": "6308/687"
+    },
+    {
+      "ray": [
+        2,
+        11
+      ],
+      "low": "-442910/687",
+      "high": "-345411/458",
+      "middle": "-314237/458",
+      "difference": "-150413/1374",
+      "midpoint_gap": "36631/2748"
+    },
+    {
+      "ray": [
+        3,
+        4
+      ],
+      "low": "-337883/458",
+      "high": "-1119293/1374",
+      "middle": "-1066471/1374",
+      "difference": "-52822/687",
+      "midpoint_gap": "0"
+    },
+    {
+      "ray": [
+        3,
+        6
+      ],
+      "low": "-820099/1374",
+      "high": "-277005/458",
+      "middle": "-823061/1374",
+      "difference": "-5458/687",
+      "midpoint_gap": "416/229"
+    },
+    {
+      "ray": [
+        3,
+        8
+      ],
+      "low": "-453886/687",
+      "high": "-453886/687",
+      "middle": "-453886/687",
+      "difference": "0",
+      "midpoint_gap": "0"
+    },
+    {
+      "ray": [
+        3,
+        9
+      ],
+      "low": "-809527/1374",
+      "high": "-406400/687",
+      "middle": "-801847/1374",
+      "difference": "-1091/458",
+      "midpoint_gap": "6211/916"
+    },
+    {
+      "ray": [
+        4,
+        5
+      ],
+      "low": "-462950/687",
+      "high": "-3821/6",
+      "middle": "-148843/229",
+      "difference": "50891/1374",
+      "midpoint_gap": "4931/916"
+    },
+    {
+      "ray": [
+        4,
+        9
+      ],
+      "low": "-948775/1374",
+      "high": "-982075/1374",
+      "middle": "-965425/1374",
+      "difference": "-5550/229",
+      "midpoint_gap": "0"
+    },
+    {
+      "ray": [
+        4,
+        11
+      ],
+      "low": "-474535/687",
+      "high": "-468878/687",
+      "middle": "-307761/458",
+      "difference": "5657/687",
+      "midpoint_gap": "3355/229"
+    },
+    {
+      "ray": [
+        5,
+        9
+      ],
+      "low": "-884065/1374",
+      "high": "-295901/458",
+      "middle": "-442942/687",
+      "difference": "-1819/687",
+      "midpoint_gap": "0"
+    },
+    {
+      "ray": [
+        5,
+        11
+      ],
+      "low": "-146529/229",
+      "high": "-465373/687",
+      "middle": "-452216/687",
+      "difference": "-25786/687",
+      "midpoint_gap": "88/229"
+    },
+    {
+      "ray": [
+        6,
+        7
+      ],
+      "low": "-398563/687",
+      "high": "-398563/687",
+      "middle": "-398563/687",
+      "difference": "0",
+      "midpoint_gap": "0"
+    },
+    {
+      "ray": [
+        6,
+        8
+      ],
+      "low": "-149422/229",
+      "high": "-151054/229",
+      "middle": "-150238/229",
+      "difference": "-1632/229",
+      "midpoint_gap": "0"
+    },
+    {
+      "ray": [
+        6,
+        10
+      ],
+      "low": "-432344/687",
+      "high": "-430900/687",
+      "middle": "-141150/229",
+      "difference": "1444/687",
+      "midpoint_gap": "2724/229"
+    },
+    {
+      "ray": [
+        7,
+        8
+      ],
+      "low": "-525466/687",
+      "high": "-525466/687",
+      "middle": "-525466/687",
+      "difference": "0",
+      "midpoint_gap": "0"
+    },
+    {
+      "ray": [
+        7,
+        10
+      ],
+      "low": "-450385/687",
+      "high": "-450385/687",
+      "middle": "-450385/687",
+      "difference": "0",
+      "midpoint_gap": "0"
+    },
+    {
+      "ray": [
+        8,
+        9
+      ],
+      "low": "-1025015/1374",
+      "high": "-1047863/1374",
+      "middle": "-1036439/1374",
+      "difference": "-3808/229",
+      "midpoint_gap": "0"
+    },
+    {
+      "ray": [
+        10,
+        11
+      ],
+      "low": "-357419/458",
+      "high": "-944945/1374",
+      "middle": "-1008601/1374",
+      "difference": "63656/687",
+      "midpoint_gap": "0"
+    }
+  ]
+}

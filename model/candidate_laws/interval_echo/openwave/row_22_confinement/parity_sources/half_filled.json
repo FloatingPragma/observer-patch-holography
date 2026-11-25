@@ -1,0 +1,161 @@
+{
+  "native_binary_seam_width": 33.0,
+  "levels": [
+    {
+      "ports": 240,
+      "total_doubles": 120,
+      "faces": 12,
+      "pairs": 66,
+      "classes": [
+        {
+          "support_sizes": [
+            10,
+            10,
+            16
+          ],
+          "pairs": 30,
+          "uniform_both_odd_exact": "147789238041912/591156950608015"
+        },
+        {
+          "support_sizes": [
+            10,
+            10,
+            20
+          ],
+          "pairs": 36,
+          "uniform_both_odd_exact": "32957000083338456/131827999985587345"
+        }
+      ],
+      "largest_union": 20,
+      "degree": 6,
+      "native_services_per_port": 6,
+      "private_service_width": 32.0,
+      "smallest_exact_probability": "32957000083338456/131827999985587345",
+      "common_probability_lower": "59/239",
+      "commutator_upper": 7920.0,
+      "source_work_upper": 15940.360032511866
+    },
+    {
+      "ports": 960,
+      "total_doubles": 480,
+      "faces": 42,
+      "pairs": 861,
+      "classes": [
+        {
+          "support_sizes": [
+            10,
+            10,
+            20
+          ],
+          "pairs": 66,
+          "uniform_both_odd_exact": "812138761797770186689120/3248555047183351366017249"
+        },
+        {
+          "support_sizes": [
+            10,
+            12,
+            18
+          ],
+          "pairs": 60,
+          "uniform_both_odd_exact": "11219770354259624436800/44879081416985725566657"
+        },
+        {
+          "support_sizes": [
+            10,
+            12,
+            22
+          ],
+          "pairs": 300,
+          "uniform_both_odd_exact": "472084660250164280631848000/1888338640998436672617740883"
+        },
+        {
+          "support_sizes": [
+            12,
+            12,
+            20
+          ],
+          "pairs": 60,
+          "uniform_both_odd_exact": "959800354849600069478720/3839201419398506159838567"
+        },
+        {
+          "support_sizes": [
+            12,
+            12,
+            24
+          ],
+          "pairs": 375,
+          "uniform_both_odd_exact": "1748392595469848186189321600/6993570381879585621513135207"
+        }
+      ],
+      "largest_union": 24,
+      "degree": 6,
+      "native_services_per_port": 6,
+      "private_service_width": 32.0,
+      "smallest_exact_probability": "1748392595469848186189321600/6993570381879585621513135207",
+      "common_probability_lower": "239/959",
+      "commutator_upper": 9504.0,
+      "source_work_upper": 19037.800906722834
+    },
+    {
+      "ports": 3840,
+      "total_doubles": 1920,
+      "faces": 162,
+      "pairs": 13041,
+      "classes": [
+        {
+          "support_sizes": [
+            10,
+            10,
+            20
+          ],
+          "pairs": 66,
+          "uniform_both_odd_exact": "704613361399291710546150798208/2818453445597160420537744844445"
+        },
+        {
+          "support_sizes": [
+            10,
+            12,
+            18
+          ],
+          "pairs": 60,
+          "uniform_both_odd_exact": "184405485841217195900096768/737621943364867945704722545"
+        },
+        {
+          "support_sizes": [
+            10,
+            12,
+            22
+          ],
+          "pairs": 1740,
+          "uniform_both_odd_exact": "47209095213752490670796082437376/188836380855009748176028904577815"
+        },
+        {
+          "support_sizes": [
+            12,
+            12,
+            20
+          ],
+          "pairs": 420,
+          "uniform_both_odd_exact": "64055760127208190956580816128/256223040508832765503431349495"
+        },
+        {
+          "support_sizes": [
+            12,
+            12,
+            24
+          ],
+          "pairs": 10755,
+          "uniform_both_odd_exact": "16381556039172095547045021319967232/65526224156688382617082029888501805"
+        }
+      ],
+      "largest_union": 24,
+      "degree": 6,
+      "native_services_per_port": 6,
+      "private_service_width": 32.0,
+      "smallest_exact_probability": "16381556039172095547045021319967232/65526224156688382617082029888501805",
+      "common_probability_lower": "959/3839",
+      "commutator_upper": 9504.0,
+      "source_work_upper": 19015.43128978674
+    }
+  ]
+}

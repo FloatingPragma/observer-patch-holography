@@ -44,6 +44,10 @@ A separate timing forecast measured how often the mediator reached the boundary 
 
 There is also an exact restriction on the two original *static* sources. Up to a scalar phase, the even source changes only the diagonal entries on belt sites 2 and 8, and the empty write changes only the two-by-two block on sites 2 and 3. If a laboratory confines the probe outside those sites throughout a measurement, the projected source and sham generators coincide. Their time evolutions and all resulting clock, click and post-click record probabilities coincide as well. An unrestricted wave can leave this exterior, scatter and return. The mobile experiment adds a separate material degree of freedom that can visit those contacts while the radar packet stays exterior. Its timing shifts depend on the mediator preparation and material tag. OW-27 still requires a shared gravitational prediction for exterior records.
 
+### Does a freely moving excess change the time on two clock faces?
+
+On the full 240-port federation, an observer starts two independent neutral written-clock standards beside a freely launched excess. The two standard frequencies are 32 and 33. At one link the recorded coin probabilities exclude a common deterministic elapsed time at 125 of 193 matched appointments, with joint 99% coverage across the registered comparison. Changing the clock energy branch also changes the source's arrival probability. The source-free, parked and far-launch controls give no exclusion. [Paired clock experiment and counts](free_source_clock/README.md)
+
 ### Replay
 
 Run these commands from the repository root. The default invocation regenerates every bank in memory, checks the integer counts and compares the numerical summary. The tests independently propagate a density matrix through both detection stages, verify the native local spectra and check the material dependence against the simultaneous error bound.
@@ -55,3 +59,5 @@ python -m pytest -q model/candidate_laws/interval_echo/openwave/row_27_metric
 ```
 
 The count and summary files were generated with `--write`. The primary source is Interval Echo at RER revision `7549e0f6635d7846e4fd78b9a7b73e46aac86e6f` with the local belt-survey package. [Previous tidal calibration](../../../../experiments/interval_echo_einstein_station/native_tidal_response/README.md) · [Native belt survey](../quark_winding/belt_walls/belt.py) · [Independent tests](test_metric.py)
+
+[A degenerate clock and a freely launched source](degenerate_clock/) tests arbitrary distributions of elapsed times by reading the recovered order of two local loads.

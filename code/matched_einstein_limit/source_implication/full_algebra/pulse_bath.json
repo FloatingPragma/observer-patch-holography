@@ -1,0 +1,63 @@
+{
+  "native_collision": {
+    "zero_gain_even_head_channel": "identity",
+    "ports": 960,
+    "dwell": "1/16",
+    "lazy_probability": "1/2",
+    "squared_norm_loss_floor": "1/61440",
+    "sectors": [
+      {
+        "charge": -1,
+        "odd": false,
+        "integer_row_bound": 41,
+        "commutator_gram": {
+          "256": 6,
+          "512": 9
+        }
+      },
+      {
+        "charge": -1,
+        "odd": true,
+        "integer_row_bound": 43,
+        "commutator_gram": {
+          "256": 3,
+          "324": 3,
+          "580": 9
+        }
+      },
+      {
+        "charge": 1,
+        "odd": false,
+        "integer_row_bound": 41,
+        "commutator_gram": {
+          "256": 6,
+          "512": 9
+        }
+      },
+      {
+        "charge": 1,
+        "odd": true,
+        "integer_row_bound": 43,
+        "commutator_gram": {
+          "256": 3,
+          "324": 3,
+          "580": 9
+        }
+      }
+    ]
+  },
+  "matched_measurement": {
+    "odd_weight_interval": [
+      ".10750779",
+      ".10750781"
+    ],
+    "calibrated_volume": "[2.7634718367887092831670021999440552, 2.7634718367887927585533305355982477]",
+    "volume_strictly_decreasing": true,
+    "volume_control": "[0.035393933924466608037084739818301828, 0.035393943137089615297431451069656729]",
+    "matching_coefficient": "[-0.012798960703593384135358852046583167, -0.012798956359161797878254214330873747]",
+    "fixed_volume_objective_slope": "[-0.0048157737537223186140832459363835236, -0.0048157590112327889252424759492309258]",
+    "optimizer_joint_ZZ": "[0.46089476118416179685808309329785299, 0.46089596118417600771279829530159294]",
+    "bath_joint_ZZ": 0,
+    "feasible_gap_lower_nats": "0.0297"
+  }
+}

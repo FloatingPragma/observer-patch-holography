@@ -1,0 +1,351 @@
+{
+  "hardware": [
+    {
+      "cells": 20,
+      "bridge_count": 30,
+      "port_count": 240,
+      "cell_diameter": 5,
+      "velocity_dual_diameter": 10
+    },
+    {
+      "cells": 80,
+      "bridge_count": 120,
+      "port_count": 960,
+      "cell_diameter": 11,
+      "velocity_dual_diameter": 22
+    },
+    {
+      "cells": 320,
+      "bridge_count": 480,
+      "port_count": 3840,
+      "cell_diameter": 23,
+      "velocity_dual_diameter": 46
+    }
+  ],
+  "tested_station": {
+    "bridge": [
+      1,
+      38
+    ],
+    "short_native_dwell": 0.00048828125,
+    "dimer_clock": {
+      "counts": [
+        268443715,
+        4503599358926781
+      ],
+      "dwell_from_clicks": 0.0004882887663098282,
+      "simultaneous_dwell_interval": [
+        0.000488231054469081,
+        0.0004883464713303023
+      ],
+      "assumed_branch": "0 < t < pi/2"
+    },
+    "sharp_launch": 0,
+    "charges": {
+      "-1": {
+        "velocity": {
+          "active": {
+            "oriented_click_probability": {
+              "plus": 0.500244140316231,
+              "minus": 0.49975585968376723
+            },
+            "counts": {
+              "plus": [
+                8800386948637,
+                8791799095779
+              ],
+              "minus": [
+                8791796296861,
+                8800389747555
+              ]
+            },
+            "measured_speed": 0.5000340483777,
+            "speed_interval_99pct": [
+              0.4937800924733564,
+              0.5062882486655106
+            ],
+            "forward_difference_truncation_bound": 0.00524972456680075
+          },
+          "half_bridge_hop": {
+            "oriented_click_probability": {
+              "plus": 0.5001220701617538,
+              "minus": 0.49987792983824586
+            },
+            "counts": {
+              "plus": [
+                8798241769845,
+                8793944274571
+              ],
+              "minus": [
+                8793945366023,
+                8798240678393
+              ]
+            },
+            "measured_speed": 0.2500797672397801,
+            "speed_interval_99pct": [
+              0.24385534695769934,
+              0.2563044214314644
+            ],
+            "forward_difference_truncation_bound": 0.00524972456680075
+          }
+        },
+        "shells": {
+          "2.0": {
+            "1": {
+              "population": 0.012775891460996459,
+              "cone_upper": 1.0,
+              "matched_log_slopes": {
+                "ordinary": -2.4517825112543954,
+                "pairing": -1.0469526659827952
+              }
+            },
+            "2": {
+              "population": 4.2681449763408684e-08,
+              "cone_upper": 0.16468347635226788,
+              "matched_log_slopes": {
+                "ordinary": -2.62649263477372,
+                "pairing": -0.7972427689975409
+              }
+            },
+            "3": {
+              "population": 4.550320792893293e-11,
+              "cone_upper": 0.007301840825484803,
+              "matched_log_slopes": {
+                "ordinary": -0.024326199503654337,
+                "pairing": -0.006876384682992036
+              }
+            },
+            "4": {
+              "population": 2.369287834985778e-16,
+              "cone_upper": 0.0001566447807934901,
+              "matched_log_slopes": {
+                "ordinary": -5.9924474756088815,
+                "pairing": -1.83042518190595
+              }
+            }
+          },
+          "4.0": {
+            "1": {
+              "population": 0.020286401441895852,
+              "cone_upper": 1.0,
+              "matched_log_slopes": {
+                "ordinary": -2.764536926033077,
+                "pairing": -1.125181467572328
+              }
+            },
+            "2": {
+              "population": 1.3158219092890658e-06,
+              "cone_upper": 1.0,
+              "matched_log_slopes": {
+                "ordinary": 0.07498473278119985,
+                "pairing": 0.022060274322833008
+              }
+            },
+            "3": {
+              "population": 2.647989061026022e-08,
+              "cone_upper": 0.27187688448730224,
+              "matched_log_slopes": {
+                "ordinary": -0.004526086139743393,
+                "pairing": -0.0007262578474436717
+              }
+            },
+            "4": {
+              "population": 1.6824939469493917e-12,
+              "cone_upper": 0.027120647383467974,
+              "matched_log_slopes": {
+                "ordinary": -0.7049062755833482,
+                "pairing": -0.2129302270235119
+              }
+            }
+          },
+          "8.0": {
+            "1": {
+              "population": 0.01597839189922061,
+              "cone_upper": 1.0,
+              "matched_log_slopes": {
+                "ordinary": -2.4155113983390466,
+                "pairing": -0.9697457093542691
+              }
+            },
+            "2": {
+              "population": 3.178968977237764e-06,
+              "cone_upper": 1.0,
+              "matched_log_slopes": {
+                "ordinary": -0.04321079147121868,
+                "pairing": -0.012466633754643724
+              }
+            },
+            "3": {
+              "population": 2.021678832160972e-06,
+              "cone_upper": 1.0,
+              "matched_log_slopes": {
+                "ordinary": -0.0021533805144003495,
+                "pairing": -7.850114270957205e-06
+              }
+            },
+            "4": {
+              "population": 4.189732246743827e-09,
+              "cone_upper": 1.0,
+              "matched_log_slopes": {
+                "ordinary": -0.029987962657914976,
+                "pairing": -0.008404332713917146
+              }
+            }
+          }
+        }
+      },
+      "1": {
+        "velocity": {
+          "active": {
+            "oriented_click_probability": {
+              "plus": 0.5002441403237489,
+              "minus": 0.4997558596762505
+            },
+            "counts": {
+              "plus": [
+                8800385086790,
+                8791800957626
+              ],
+              "minus": [
+                8791799066049,
+                8800386978367
+              ]
+            },
+            "measured_speed": 0.4997644908121498,
+            "speed_interval_99pct": [
+              0.4935105667598328,
+              0.5060186592366384
+            ],
+            "forward_difference_truncation_bound": 0.00524972456680075
+          },
+          "half_bridge_hop": {
+            "oriented_click_probability": {
+              "plus": 0.5001220701655125,
+              "minus": 0.4998779298344874
+            },
+            "counts": {
+              "plus": [
+                8798240998507,
+                8793945045909
+              ],
+              "minus": [
+                8793944727200,
+                8798241317216
+              ]
+            },
+            "measured_speed": 0.2500720539703276,
+            "speed_interval_99pct": [
+              0.2438476345996784,
+              0.2562967072502572
+            ],
+            "forward_difference_truncation_bound": 0.00524972456680075
+          }
+        },
+        "shells": {
+          "2.0": {
+            "1": {
+              "population": 0.020953615728057717,
+              "cone_upper": 1.0,
+              "matched_log_slopes": {
+                "ordinary": -0.7800969166102126,
+                "pairing": -0.45104090521474166
+              }
+            },
+            "2": {
+              "population": 2.799318528277083e-06,
+              "cone_upper": 0.16468347635226788,
+              "matched_log_slopes": {
+                "ordinary": -1.1162065428440988,
+                "pairing": -0.37942563877189694
+              }
+            },
+            "3": {
+              "population": 3.191896009928918e-09,
+              "cone_upper": 0.007301840825484803,
+              "matched_log_slopes": {
+                "ordinary": 0.9881349978222607,
+                "pairing": 0.2676521549141572
+              }
+            },
+            "4": {
+              "population": 1.6669402228064383e-13,
+              "cone_upper": 0.0001566447807934901,
+              "matched_log_slopes": {
+                "ordinary": 21.074245550140915,
+                "pairing": 5.970686741632852
+              }
+            }
+          },
+          "4.0": {
+            "1": {
+              "population": 0.029549230253205546,
+              "cone_upper": 1.0,
+              "matched_log_slopes": {
+                "ordinary": -0.6789786104550334,
+                "pairing": -0.3714157728382504
+              }
+            },
+            "2": {
+              "population": 7.974833992311889e-05,
+              "cone_upper": 1.0,
+              "matched_log_slopes": {
+                "ordinary": 0.2509809778033655,
+                "pairing": 0.06581290397166639
+              }
+            },
+            "3": {
+              "population": 1.933950072027851e-06,
+              "cone_upper": 0.27187688448730224,
+              "matched_log_slopes": {
+                "ordinary": 0.053881098150242765,
+                "pairing": 0.008468298472437404
+              }
+            },
+            "4": {
+              "population": 3.525034315218301e-10,
+              "cone_upper": 0.027120647383467974,
+              "matched_log_slopes": {
+                "ordinary": 5.977982026498617,
+                "pairing": 1.6418613724684057
+              }
+            }
+          },
+          "8.0": {
+            "1": {
+              "population": 0.031981911131351945,
+              "cone_upper": 1.0,
+              "matched_log_slopes": {
+                "ordinary": -0.05502432612652354,
+                "pairing": -0.2593938002362767
+              }
+            },
+            "2": {
+              "population": 0.0002178889986214728,
+              "cone_upper": 1.0,
+              "matched_log_slopes": {
+                "ordinary": 0.2215975852332537,
+                "pairing": 0.05332841433471322
+              }
+            },
+            "3": {
+              "population": 0.00013595351536358798,
+              "cone_upper": 1.0,
+              "matched_log_slopes": {
+                "ordinary": 0.024270277921910322,
+                "pairing": 7.829434631845999e-05
+              }
+            },
+            "4": {
+              "population": 5.37654167643469e-07,
+              "cone_upper": 1.0,
+              "matched_log_slopes": {
+                "ordinary": 0.24200767863926553,
+                "pairing": 0.0586226542494036
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

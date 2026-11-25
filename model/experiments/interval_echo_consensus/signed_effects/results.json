@@ -1,0 +1,61 @@
+{
+  "algebra": {
+    "relative_reference_frequencies": [
+      -8,
+      24
+    ],
+    "commutator_determinant": 18874368,
+    "isolation_coefficients": [
+      [
+        "9/512",
+        "-1/32768"
+      ],
+      [
+        "-1/4608",
+        "1/294912"
+      ]
+    ]
+  },
+  "cell_ports": 12,
+  "joint_lie_dimension": 288,
+  "native_exposures": [
+    "pi/2",
+    "pi/12",
+    "3pi/2"
+  ],
+  "addressed_edge": [
+    0,
+    1
+  ],
+  "source_flag_counts": [
+    65536,
+    196608
+  ],
+  "shots": 262144,
+  "seed": 871031,
+  "counts_order": [
+    "remote port",
+    "initial port"
+  ],
+  "conditional_remote_probabilities": [
+    0.7499999999999993,
+    6.717643646022679e-31
+  ],
+  "joint_counts": [
+    [
+      49299,
+      16237
+    ],
+    [
+      0,
+      196608
+    ]
+  ],
+  "tagged_remote_probability": "3/16",
+  "unverified_prior_w_at_quarter": "1/10",
+  "unverified_prior_remote_probability": "3/40",
+  "normalized_fourth_power_spectator_reads": [
+    "1/2",
+    "2/3"
+  ]
+}

@@ -31,6 +31,10 @@ On the complete 20-cell material, prepare one equal-sign defect in each of two a
 
 The angular experiment supplies no independent laboratory energy calibration, electromagnetic field, observer-generated phase instrument or intrinsic spinor representation. The signed site deviation on this blank material and the written extension’s Gauss-law load have distinct evidence. A search for an electron must exhibit its joint properties on a common mobile state. [Candidate identity ledger](../../../candidate_laws/interval_echo/openwave/electron_field/README.md)
 
+## A projection-induced order sign
+
+A separate four-port code makes the accepted perpendicular half-turns anticommute even though their full native spatial operators commute. Each turn succeeds with probability1/2, saturating an all-code leakage bound. The selected opposite-order phase is negative on1/4 of all starts, while a literal2π repeat is positive. All rejection histories, both material signs and a matched idle reference are retained. A changed contrast preserves the effect; halving exchange fails the spatial calibration. This tests projection artifacts without identifying a spinor or measuring two-core exchange. [Exact bound, complete records and controls](projected_turns/README.md)
+
 ## Reproduction
 
 Run from the repository root with the model's NumPy and SciPy environment. Acquire into two fresh files and check the deposited results with the regression suite.

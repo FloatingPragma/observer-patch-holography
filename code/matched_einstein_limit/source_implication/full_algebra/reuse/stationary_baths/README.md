@@ -1,0 +1,39 @@
+# Does stationary radar reuse determine the source seen by a four-station geometry?
+
+Two different, strictly positive route lotteries prepare attracting stationary ensembles on the same 80-cell Interval Echo board. A separate observer who surveys either source reconstructs six tetrahedral edge lengths agreeing to numerical precision. An energy meter at the central seam and a parked head detector distinguish the sources. Complete-flight entropy and four-station entropy also differ. The test isolates a physical choice in a finite equilibrium argument. Specifying a four-station geometry and requiring recurrent head reuse leaves the preparation schedule undetermined. [Frozen protocol](PROTOCOL.md) · [Endpoint measurements and route lotteries](results.json) · [Outward bounds](certificate.json)
+
+## Preparation and measurement
+
+Reuse the two outgoing heads after each six-unit radar cycle, discarding the probe after its recorded return or timeout. Each sign of test charge has probability one half. Fix the conserved odd reversal population to 0.1343. Each of the twelve directed station routes has a positive probability supplied by the preparation apparatus. The resulting channel is a weighted sum of the registered conditional cycle channels. On each parity block it has a unique attracting fixed point. Thus both endpoints can be reached by repeated native cycles starting with independent pure head words. The schedule, the choice of a fresh probe and the pure starting heads are apparatus. [Native channel and terminal-record convention](../README.md)
+
+Acquire fresh copies of each settled source. One fixed observer panel records all twelve charge-pooled mean ranges at ports 0, 1, 38 and 39, including misses. The published reciprocal clock-gain correction converts the means into six edge lengths and a Euclidean tetrahedral area and volume. A separate four-unit free-flight experiment launches test charges from the ten tagged ports surrounding the central bridge. Its four-station observer retains the four loads and both head memories, summing indistinguishable outside outcomes. The complete charge-separated flight has entropy equal to the head entropy plus log(20), by unitary invariance on disjoint launch and charge sectors. An independent receiver reads energy current oriented from port 1 toward port 38 using the same stationary preparation and free appointment. The directed ranges, each region's entropy and the current refer to the indicated instruments on freshly prepared copies. [Four-station reduction](../../../directional_stress/regional_modular/station_memories/README.md) · [Native current](../../../directional_stress/README.md)
+
+## What the observers distinguish
+
+Differentiate the conditional fixed-point equation on the eleven-dimensional simplex of route weights. Project the entropy gradient onto variations preserving the specified geometry. Test both signs at displacements 1/64 and 1/32 and correct the transverse weights to match the original geometry. This is an engineered comparison between stationary baths. The observer does not adjust the geometry decoder or the current meter. All endpoint tickets are dyadic and exactly normalized. The table gives the difference from the negative to the positive outer endpoint. Both comparisons preserve the ordinary head energy 0.3657. [Calculation](measure.py)
+
+| Quantities matched in the search | Complete-flight entropy change (nats) | Four stations plus heads entropy change (nats) | Oriented bridge energy current change | Largest raw range difference |
+|---|---:|---:|---:|---:|
+| Tetrahedral area and volume | +0.000482354 | +0.000463108 | −0.00115230 | 0.0000932691 |
+| All six tetrahedral edge lengths | +0.00000594828 | +0.00000556405 | −0.000532978 | 0.000000789508 |
+
+In the six-edge calculation the two reconstructions give area 14.2955956754 and volume 2.76347115815. Bridge current changes from −0.010566885 to −0.011099863. The left head's local Z detector reports 16,656,596,284 and 16,634,668,545 plus outcomes out of 34,359,738,368 original launches in each simulated cohort. The simultaneous 99% Hoeffding half-width of each rate is 0.00000934. All other outcomes count as minus. The Pauli axis was selected from predicted head expectations before either cohort was drawn. The published complete timestamp frame also gives an operational route to reconstructing the source spectrum. [Observer clock frame](../full_clock.json)
+
+For the finite outer endpoints the separate certificate uses the registered integer channel error, exact positive-definiteness tests of the conditional contraction, full-rank state enclosures, a matrix series for the entropy and an independent integer propagation for the bridge current. Its bounds distinguish exact native source effects from the numerical precision of the fitted geometric match. For the outer six-edge pair, each exact edge discrepancy is below 7.723 × 10⁻⁷. The exact complete-flight entropy increases by 4.240–7.657 × 10⁻⁶ nats and the central current changes by −5.351 to −5.309 × 10⁻⁴. The four-station regional entropy changes in the table are numerical. Exact equality of the edges under the underlying dynamics would require a certified constraint-solving argument. [Certificate](certificate.py)
+
+## Release into a common survey
+
+Switch both matched sources to the same uniform-random route schedule. After each complete cycle, survey fresh copies with the original clock panel. The outer six-edge pair develops a volume difference of 1.30997 × 10⁻⁷ after one cycle and 2.50684 × 10⁻⁷ after two. Leaving the sources in their own stationary schedules gives a maximum one-cycle sham drift below 2.6 × 10⁻¹². These volumes use the full simulated first-return probability distributions. Resolving the small volume differences with a finite sample of clock returns requires a separate power calculation. [Release calculation](release.py) · [All held responses](release.json)
+
+A gain fitted to the independently metered current difference and the volume second difference on the smaller area-and-volume pair forecasts the larger pair on that direction to about 0.11%. For the two six-edge comparisons it overpredicts the magnitudes by factors of about 24. The outer observed second-difference contrast is −1.13095 × 10⁻⁸ per cycle squared, against −2.71660 × 10⁻⁷ forecast. The deposited controls use the same generator, and an independent floating-point propagation with separate terminal Kraus sums replays the held comparison. The release time counts completed imposed radar cycles. A proper-time curvature measurement needs a separate physical clock and more spatial directions. [Independent replay](test_baths.py)
+
+G4 and GR-NULL require the physically selected ensemble, proper geometry on nested regions, and a common stress and focusing relation on those regions. This finite tetrahedron measures one spatial configuration. A central current difference at matched edge lengths does not measure a curvature change or the null stress contraction. A bath selector or temporal curvature measurement could distinguish the sources and must make an independent record prediction. The comparison supplies a pair of stationary preparations on which such an instrument can be tested.
+
+Run from the repository root with its Python environment.
+
+    export PYTHONPATH=code:.
+    export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1
+    .venv/bin/python -B -W error -m matched_einstein_limit.source_implication.full_algebra.reuse.stationary_baths.measure
+    .venv/bin/python -B -W error -m matched_einstein_limit.source_implication.full_algebra.reuse.stationary_baths.certificate
+    .venv/bin/python -B -W error -m matched_einstein_limit.source_implication.full_algebra.reuse.stationary_baths.release
+    .venv/bin/python -B -W error -m pytest -q code/matched_einstein_limit/source_implication/full_algebra/reuse/stationary_baths

@@ -1,0 +1,125 @@
+{
+  "critical_contact": 0.9682678126925278,
+  "hardware": {
+    "occupied": {
+      "physical_seam_pulses": 30906,
+      "coupled": true,
+      "tau": 0.0008899520337247498,
+      "maximum_column_error": 3.365830959505263e-12,
+      "diagonal_real": [
+        1.0,
+        0.9999999999999956,
+        0.9999999999999927,
+        0.9998855560699759
+      ],
+      "diagonal_imag": [
+        0.0,
+        9.123142889877744e-13,
+        2.617547710125451e-12,
+        0.015128607424482209
+      ]
+    },
+    "sham": {
+      "physical_seam_pulses": 41536,
+      "coupled": false,
+      "tau": 0.0008899520337247498,
+      "maximum_column_error": 4.775926652229234e-12,
+      "diagonal_real": [
+        1.0,
+        0.9999999999999932,
+        0.9999999999999875,
+        0.9999999999999829
+      ],
+      "diagonal_imag": [
+        0.0,
+        1.8161695992006732e-12,
+        3.292061407753e-12,
+        4.760491716469137e-12
+      ]
+    },
+    "degree_restoration_error": 1.1527757167792237e-16
+  },
+  "boards": [
+    {
+      "side": 8,
+      "contact": 0.9682678126925278,
+      "screening_mass": 0.25558619708694474,
+      "green_norm_squared": 0.48111178290321754,
+      "unitary_eigen_residual": 8.547030273540811e-16,
+      "probability_at_axial_probe": 0.014899704658958091,
+      "bond_energy_per_load_at_probe": 47.21000479336953,
+      "symmetrized_energy_per_load": 47.967337847929315,
+      "probe_offset": 1
+    },
+    {
+      "side": 16,
+      "contact": 0.9682678126925278,
+      "screening_mass": 0.12436746917167132,
+      "green_norm_squared": 1.121788252783673,
+      "unitary_eigen_residual": 9.809261582430812e-16,
+      "probability_at_axial_probe": 0.001666255740107692,
+      "bond_energy_per_load_at_probe": 48.294995156622036,
+      "symmetrized_energy_per_load": 47.99226636630592,
+      "probe_offset": 2
+    },
+    {
+      "side": 32,
+      "contact": 0.9682678126925278,
+      "screening_mass": 0.06145776698618847,
+      "green_norm_squared": 2.3959686407927774,
+      "unitary_eigen_residual": 9.88214315879537e-16,
+      "probability_at_axial_probe": 0.0007707496938438147,
+      "bond_energy_per_load_at_probe": 48.30753256103689,
+      "symmetrized_energy_per_load": 47.998111471438534,
+      "probe_offset": 2
+    }
+  ],
+  "critical_profile": [
+    {
+      "side": 64,
+      "separation": 4,
+      "screening_mass": 0.030561400379529185,
+      "mass_times_side": 1.9559296242898678,
+      "density_ratio": 3.965569445540548
+    },
+    {
+      "side": 128,
+      "separation": 5,
+      "screening_mass": 0.015240472227201493,
+      "mass_times_side": 1.9507804450817912,
+      "density_ratio": 4.008722833580747
+    },
+    {
+      "side": 256,
+      "separation": 8,
+      "screening_mass": 0.007610378531535566,
+      "mass_times_side": 1.9482569040731048,
+      "density_ratio": 3.982963837704669
+    },
+    {
+      "side": 512,
+      "separation": 11,
+      "screening_mass": 0.0038027494480588125,
+      "mass_times_side": 1.947007717406112,
+      "density_ratio": 3.9926354708259084
+    }
+  ],
+  "unadjusted": {
+    "side": 8,
+    "contact": 8.0,
+    "screening_mass": 3.3956114887419586,
+    "green_norm_squared": 7.263479735442314e-05,
+    "unitary_eigen_residual": 1.6950079167045346e-14,
+    "probability_at_axial_probe": 0.16145475969899842,
+    "bond_energy_per_load_at_probe": 40.9996381157469,
+    "symmetrized_energy_per_load": 42.23491130876181,
+    "probe_offset": 1
+  },
+  "unadjusted_profile": {
+    "side": 64,
+    "separation": 4,
+    "screening_mass": 3.395611340624199,
+    "mass_times_side": 217.31912579994872,
+    "density_ratio": 3870341116.7541094
+  }
+}

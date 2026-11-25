@@ -35,6 +35,8 @@ python -B -O -m model.experiments.material_inertia
 python -B -O -m model.experiments.material_inertia.memory
 ```
 
+For the archived flight acquisition on x86-64 Linux, prefix the flight command with `OPENBLAS_CORETYPE=Core2` and retain single-thread BLAS. The test wrapper selects this environment for the flight subprocess. At tick 2,289,429,780 the assisted five-load packet is propagated through 17,886,170.15625 exchange units and the cumulative probabilities are digitized into 65,536 midpoint counts. In the CI Linux image, default BLAS assigned one count to bin 6 that the registered acquisition assigns to bin 7. The Core2 kernel recovers every original integer in all eight count banks and every decoded flight verdict. Source digests, archived counts, count equality and scoring use the original forecast and custody code.
+
 Pass `--spectra-out PATH` to the base material-inertia command to export every binary momentum block's
 eigenvalues and launch weights into a fresh directory. Rings have four fixed reference contrasts
 per port. Translation-character preparation, coherent path switches, phased recombination and a

@@ -65,3 +65,7 @@ OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 .venv/bin/python -B -W error -m 
 ```
 
 The default command reconstructs the three native federations, regenerates the detector counts, constrained spectra, one-mobile-load comparisons, controls and held forecasts, and compares them with both receipts. Use `--write` to regenerate it. Scores, physical-unit calibrations and upstream submissions are separate from this research result.
+
+[Relocating a local endpoint on an occupied board](endpoint_work/) compares independent whole-board and boundary energy measurements and bounds the relaxed separation work for local soft sources and transposed hard constraints.
+
+[Two face parities and their static energy](parity_sources/) shows when a string is forced, how additional odd faces screen the endpoints, and how much work two such local pins can require on the fully active half-filled board.

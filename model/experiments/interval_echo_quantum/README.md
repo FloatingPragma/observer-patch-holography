@@ -37,3 +37,5 @@ Run from the repository root with the model dependencies installed.
 ```sh
 OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 python -m model.experiments.interval_echo_quantum.experiment
 ```
+
+[Two independent sources and a middle Bell measurement](swapping/) give all-launch CHSH and independent-source violations after the three stations join their records.

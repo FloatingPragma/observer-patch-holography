@@ -1,0 +1,334 @@
+{
+  "stations": [
+    0,
+    1,
+    38,
+    39,
+    5
+  ],
+  "face": [
+    1,
+    38,
+    5
+  ],
+  "oriented_poles": [
+    0,
+    39
+  ],
+  "pump_age": 4,
+  "radar_divisor": 16,
+  "geometry": {
+    "reference": {
+      "common_tangential_expansion": [
+        -0.03494002006014904,
+        -0.03494000680315645
+      ],
+      "tangential_face_coefficients": [
+        [
+          0.004494819326940175,
+          0.004494874528654321
+        ],
+        [
+          0.062341135265719654,
+          0.06234115020830858
+        ]
+      ],
+      "normal_face_coefficient": [
+        0,
+        0
+      ]
+    },
+    "ordinary": {
+      "common_tangential_expansion": [
+        -0.03275187127849141,
+        -0.0327518580396665
+      ],
+      "tangential_face_coefficients": [
+        [
+          0.004705725982337164,
+          0.004705781312756016
+        ],
+        [
+          0.05853685922227519,
+          0.058536874246015905
+        ]
+      ],
+      "normal_face_coefficient": [
+        0,
+        0
+      ],
+      "tangential_minus_reference": [
+        [
+          0.00021085145368284416,
+          0.00021096198581583948
+        ],
+        [
+          -0.003804290986033373,
+          -0.003804261019703765
+        ]
+      ]
+    },
+    "decorrelated": {
+      "common_tangential_expansion": [
+        -0.03395518049230968,
+        -0.0339551675807399
+      ],
+      "tangential_face_coefficients": [
+        [
+          0.004499182557758165,
+          0.004499236299028262
+        ],
+        [
+          0.05999889808185251,
+          0.05999891264900951
+        ]
+      ],
+      "normal_face_coefficient": [
+        0,
+        0
+      ],
+      "tangential_minus_reference": [
+        [
+          4.3080291038456145e-06,
+          4.416972088085531e-06
+        ],
+        [
+          -0.002342252126456048,
+          -0.0023422226167101653
+        ]
+      ]
+    }
+  },
+  "material": {
+    "ports": [
+      230,
+      490,
+      240
+    ],
+    "boundary_bonds": [
+      42,
+      66
+    ],
+    "oriented_cuts": {
+      "left_boundary": {
+        "number": {
+          "reference": [
+            -0.008125485725953339,
+            -0.00812548572595327
+          ],
+          "ordinary": [
+            -0.018512434572872872,
+            -0.0185124345728728
+          ],
+          "decorrelated": [
+            -0.0008658234708867002,
+            -0.0008658234708866343
+          ],
+          "ordinary_minus_reference": [
+            -0.010386948846919597,
+            -0.010386948846919463
+          ],
+          "decorrelated_minus_reference": [
+            0.007259662255066571,
+            0.007259662255066704
+          ]
+        },
+        "energy": {
+          "reference": [
+            0.04644714443410009,
+            0.046447144434100786
+          ],
+          "ordinary": [
+            0.15238888052877606,
+            0.1523888805287768
+          ],
+          "decorrelated": [
+            -0.0026690733392190414,
+            -0.002669073339218352
+          ],
+          "ordinary_minus_reference": [
+            0.10594173609467529,
+            0.10594173609467668
+          ],
+          "decorrelated_minus_reference": [
+            -0.04911621777331983,
+            -0.04911621777331844
+          ]
+        },
+        "energy_number_contrast_determinant": [
+          0.0002589335811971017,
+          0.0002589335811971469
+        ],
+        "zeroing_energy_origin": {
+          "ordinary_minus_reference": [
+            10.199504941828403,
+            10.199504941828671
+          ],
+          "decorrelated_minus_reference": [
+            6.76563399888734,
+            6.765633998887657
+          ]
+        },
+        "matched_number_lottery": {
+          "ordinary_probability": [
+            0.4113912984827678,
+            0.4113912984827816
+          ],
+          "decorrelated_probability": [
+            0.5886087015172182,
+            0.5886087015172322
+          ],
+          "number_minus_reference": [
+            0,
+            0
+          ],
+          "energy_minus_reference": [
+            0.014673275208515796,
+            0.014673275208519316
+          ]
+        },
+        "any_energy_origin_max_gap_lower": 0.014673275208516166
+      },
+      "right_boundary": {
+        "number": {
+          "reference": [
+            0.4667939120223829,
+            0.4667939120223831
+          ],
+          "ordinary": [
+            0.42825498349533775,
+            0.4282549834953379
+          ],
+          "decorrelated": [
+            0.4595562250095498,
+            0.45955622500954996
+          ],
+          "ordinary_minus_reference": [
+            -0.03853892852704519,
+            -0.03853892852704505
+          ],
+          "decorrelated_minus_reference": [
+            -0.0072376870128331786,
+            -0.007237687012833046
+          ]
+        },
+        "energy": {
+          "reference": [
+            -3.094497315585392,
+            -3.0944973155853903
+          ],
+          "ordinary": [
+            -2.8958644227542414,
+            -2.8958644227542396
+          ],
+          "decorrelated": [
+            -3.0456134004626105,
+            -3.045613400462609
+          ],
+          "ordinary_minus_reference": [
+            0.19863289283115018,
+            0.1986328928311516
+          ],
+          "decorrelated_minus_reference": [
+            0.04888391512278074,
+            0.048883915122782125
+          ]
+        },
+        "energy_number_contrast_determinant": [
+          0.0004462910022734727,
+          0.00044629100227357003
+        ],
+        "zeroing_energy_origin": {
+          "ordinary_minus_reference": [
+            5.154084465315556,
+            5.154084465315614
+          ],
+          "decorrelated_minus_reference": [
+            6.754079726866389,
+            6.754079726866706
+          ]
+        },
+        "any_energy_origin_max_gap_lower": 0.00974932281493562
+      },
+      "half_shared_zone": {
+        "number": {
+          "reference": [
+            0.22933421314821478,
+            0.2293342131482149
+          ],
+          "ordinary": [
+            0.20487127446123243,
+            0.20487127446123257
+          ],
+          "decorrelated": [
+            0.22934520076933154,
+            0.22934520076933165
+          ],
+          "ordinary_minus_reference": [
+            -0.024462938686982395,
+            -0.024462938686982256
+          ],
+          "decorrelated_minus_reference": [
+            1.0987621116697217e-05,
+            1.0987621116827875e-05
+          ]
+        },
+        "energy": {
+          "reference": [
+            -1.524025085575646,
+            -1.5240250855756448
+          ],
+          "ordinary": [
+            -1.3717377711127325,
+            -1.3717377711127314
+          ],
+          "decorrelated": [
+            -1.5241412369009149,
+            -1.5241412369009137
+          ],
+          "ordinary_minus_reference": [
+            0.15228731446291272,
+            0.15228731446291413
+          ],
+          "decorrelated_minus_reference": [
+            -0.00011615132526953801,
+            -0.0001161513252681661
+          ]
+        },
+        "energy_number_contrast_determinant": [
+          -1.168127436282648e-06,
+          -1.1681274362291574e-06
+        ],
+        "zeroing_energy_origin": {
+          "ordinary_minus_reference": [
+            6.225225693916742,
+            6.225225693916837
+          ],
+          "decorrelated_minus_reference": [
+            10.57110761584933,
+            10.571107616099898
+          ]
+        },
+        "matched_number_lottery": {
+          "ordinary_probability": [
+            0.0004489521206518078,
+            0.0004489521206571515
+          ],
+          "decorrelated_probability": [
+            0.9995510478793427,
+            0.9995510478793482
+          ],
+          "number_minus_reference": [
+            0,
+            0
+          ],
+          "energy_minus_reference": [
+            -4.772946610924834e-05,
+            -4.7729466107062015e-05
+          ]
+        },
+        "any_energy_origin_max_gap_lower": 4.772946610706211e-05
+      }
+    }
+  }
+}

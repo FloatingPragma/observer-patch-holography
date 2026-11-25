@@ -1,0 +1,245 @@
+{
+  "irreducible_marked_force": {
+    "-1_0": {
+      "integer_traces": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        64
+      ],
+      "first_nonzero_degree": 7,
+      "native_trace_H7_force": "1/8",
+      "dimension": 3840,
+      "twice_generator_spectral_norm_upper": 41
+    },
+    "-1_1": {
+      "integer_traces": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        64
+      ],
+      "first_nonzero_degree": 7,
+      "native_trace_H7_force": "1/8",
+      "dimension": 3840,
+      "twice_generator_spectral_norm_upper": 43
+    },
+    "1_0": {
+      "integer_traces": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        64
+      ],
+      "first_nonzero_degree": 7,
+      "native_trace_H7_force": "1/8",
+      "dimension": 3840,
+      "twice_generator_spectral_norm_upper": 41
+    },
+    "1_1": {
+      "integer_traces": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        64
+      ],
+      "first_nonzero_degree": 7,
+      "native_trace_H7_force": "1/8",
+      "dimension": 3840,
+      "twice_generator_spectral_norm_upper": 43
+    }
+  },
+  "coherence_witness": {
+    "ports": [
+      0,
+      228
+    ],
+    "phase_order": [
+      "-i",
+      "+i"
+    ],
+    "shift": [
+      0.4999999999999999,
+      -0.4999999999999999
+    ],
+    "normalized_shift_contrast": 1,
+    "energy_current_contrast_on_every_bridge": 0
+  },
+  "registered_path_lengths": {
+    "min": 6,
+    "max": 8,
+    "paths": 144
+  },
+  "charges": {
+    "-1": {
+      "equilibrium": {
+        "shift": 7.241700147457898e-07,
+        "summed_path_orientation": 0.07950502657973144,
+        "path_error_bound": 10.086949248276852,
+        "energy": 32.4039096194439,
+        "energy_square": 1071.2143704177256,
+        "load_inflow": 0.00013841438012310463,
+        "load_inflow_square": 0.00017104469002126796,
+        "energy_inflow": 0.011353664922167139,
+        "storage_rate": 0.004988656627841437,
+        "actual_path_error": -0.07950430240971669,
+        "energy_standard_deviation": 4.604455645636796,
+        "energy_load_covariance": 0.001879841230785267,
+        "energy_covariance_bound": 0.060215565344544024
+      },
+      "ordinary": {
+        "shift": 6.648375048987307e-07,
+        "summed_path_orientation": 0.07954434133484914,
+        "path_error_bound": 10.092184061291311,
+        "energy": 32.39645394389097,
+        "energy_square": 1070.9534217733762,
+        "load_inflow": 0.00013236228496412396,
+        "load_inflow_square": 0.00016976626089855971,
+        "energy_inflow": 0.010549900665517385,
+        "storage_rate": 0.004401948400390823,
+        "actual_path_error": -0.07954367649734424,
+        "energy_standard_deviation": 4.628519594290119,
+        "energy_load_covariance": 0.001859883596378148,
+        "energy_covariance_bound": 0.06030389830145629
+      },
+      "pairing": {
+        "shift": 6.361923840465827e-07,
+        "summed_path_orientation": 0.07959020466599588,
+        "path_error_bound": 10.08611800568576,
+        "energy": 32.40390961944356,
+        "energy_square": 1071.2143704177186,
+        "load_inflow": 0.00013816068249977826,
+        "load_inflow_square": 0.00017069440582974095,
+        "energy_inflow": 0.01122261445293042,
+        "storage_rate": 0.004868865588214321,
+        "actual_path_error": -0.07958956847361183,
+        "energy_standard_deviation": 4.604455645638425,
+        "energy_load_covariance": 0.0018768025960326463,
+        "energy_covariance_bound": 0.06015388115566368
+      },
+      "plus": {
+        "shift": 7.06962993110322e-07,
+        "summed_path_orientation": 0.07952058936494112,
+        "path_error_bound": 10.08351508992091,
+        "energy": 32.40390961944367,
+        "energy_square": 1071.2143704177208,
+        "load_inflow": 0.0001380465265377159,
+        "load_inflow_square": 0.00017108582211699844,
+        "energy_inflow": 0.011248123705939507,
+        "storage_rate": 0.004899612741694154,
+        "actual_path_error": -0.07951988240194802,
+        "energy_standard_deviation": 4.604455645637932,
+        "energy_load_covariance": 0.0018752637950390756,
+        "energy_covariance_bound": 0.060222823812020404
+      },
+      "minus": {
+        "shift": 6.433021332586172e-07,
+        "summed_path_orientation": 0.0798030424773221,
+        "path_error_bound": 10.0876600958416,
+        "energy": 32.403909619443674,
+        "energy_square": 1071.2143704177206,
+        "load_inflow": 0.00013827737129431852,
+        "load_inflow_square": 0.0001705961504353771,
+        "energy_inflow": 0.01130918759782402,
+        "storage_rate": 0.004950368078865091,
+        "actual_path_error": -0.07980239917518885,
+        "energy_standard_deviation": 4.604455645637858,
+        "energy_load_covariance": 0.0018780920771235762,
+        "energy_covariance_bound": 0.06013655810260884
+      }
+    },
+    "1": {
+      "equilibrium": {
+        "shift": -1.0183722177275466e-06,
+        "summed_path_orientation": 0.016580564406510533,
+        "path_error_bound": 12.184078400443905,
+        "energy": 64.38596853875491,
+        "energy_square": 4167.133351599527,
+        "load_inflow": -0.000947628241609266,
+        "load_inflow_square": 0.0009777709710144518,
+        "energy_inflow": -0.05315871122791351,
+        "storage_rate": -0.00013780058421968195,
+        "actual_path_error": -0.01658158277872826,
+        "energy_standard_deviation": 4.64547165807621,
+        "energy_load_covariance": 0.007993051506996002,
+        "energy_covariance_bound": 0.14519406408299634
+      },
+      "ordinary": {
+        "shift": -6.296400257524036e-07,
+        "summed_path_orientation": 0.016891561911248774,
+        "path_error_bound": 12.19202820856012,
+        "energy": 64.37854605610943,
+        "energy_square": 4166.398525817635,
+        "load_inflow": -0.0009835726944204452,
+        "load_inflow_square": 0.0009604734843853363,
+        "energy_inflow": -0.05169009032918854,
+        "storage_rate": 0.0031970795697818513,
+        "actual_path_error": -0.016892191551274527,
+        "energy_standard_deviation": 4.669189813986212,
+        "energy_load_covariance": 0.008433810108307883,
+        "energy_covariance_bound": 0.14463233326908562
+      },
+      "pairing": {
+        "shift": -1.0687417579499157e-06,
+        "summed_path_orientation": 0.01673737843941451,
+        "path_error_bound": 12.187737998116518,
+        "energy": 64.38596853875511,
+        "energy_square": 4167.133351599539,
+        "load_inflow": -0.0009426688748170234,
+        "load_inflow_square": 0.0009773497369243295,
+        "energy_inflow": -0.05385233367999442,
+        "storage_rate": -0.0010435830871915587,
+        "actual_path_error": -0.01673844718117246,
+        "energy_standard_deviation": 4.64547165807484,
+        "energy_load_covariance": 0.00788589792362969,
+        "energy_covariance_bound": 0.14516345322149052
+      },
+      "plus": {
+        "shift": -6.953592557532964e-07,
+        "summed_path_orientation": 0.016411539953362874,
+        "path_error_bound": 12.186444501207028,
+        "energy": 64.38596853875502,
+        "energy_square": 4167.133351599533,
+        "load_inflow": -0.0009446338597968068,
+        "load_inflow_square": 0.0009774497386723694,
+        "energy_inflow": -0.05360261245898663,
+        "storage_rate": -0.0007094961621906504,
+        "actual_path_error": -0.016412235312618626,
+        "energy_standard_deviation": 4.64547165807533,
+        "energy_load_covariance": 0.007928049680723956,
+        "energy_covariance_bound": 0.1451706106558924
+      },
+      "minus": {
+        "shift": -1.3744988761669914e-06,
+        "summed_path_orientation": 0.0168229743267168,
+        "path_error_bound": 12.18796560814416,
+        "energy": 64.38596853875502,
+        "energy_square": 4167.133351599533,
+        "load_inflow": -0.0009445336885540749,
+        "load_inflow_square": 0.000977611498455572,
+        "energy_inflow": -0.05364582485808262,
+        "storage_rate": -0.0007571156946352242,
+        "actual_path_error": -0.01682434882559297,
+        "energy_standard_deviation": 4.64547165807533,
+        "energy_load_covariance": 0.007926007191589507,
+        "energy_covariance_bound": 0.14518264746185172
+      }
+    }
+  }
+}

@@ -1,0 +1,1711 @@
+{
+  "native": {
+    "local_dimension": 99,
+    "free_generator_parts": 2,
+    "commuting_census_projectors": 3,
+    "routing_angle_in_pi": 1
+  },
+  "sharp_boards": [
+    {
+      "cells": 20,
+      "ports": 240,
+      "tree_edges": 239,
+      "chords": 391,
+      "source_ports": [
+        160,
+        104,
+        59,
+        31,
+        85,
+        187,
+        44,
+        60,
+        239,
+        4,
+        184,
+        201
+      ],
+      "banks": [
+        {
+          "stopped_after_ten": {
+            "offers": 10,
+            "marks": 1,
+            "vacancy": 4,
+            "double": 4
+          },
+          "input_word": "222220000011",
+          "reverse": false,
+          "exchange_disabled": false,
+          "offers": 66,
+          "positive_at": [
+            4,
+            15,
+            25,
+            34,
+            42
+          ],
+          "marks": [
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              6
+            ]
+          ],
+          "vacancy": 0,
+          "double": 0,
+          "pi_contacts": 4226,
+          "quiet_remaining_pairs_when_normal": 28614
+        },
+        {
+          "stopped_after_ten": {
+            "offers": 10,
+            "marks": 0,
+            "vacancy": 5,
+            "double": 5
+          },
+          "input_word": "222220000011",
+          "reverse": false,
+          "exchange_disabled": true,
+          "offers": 66,
+          "positive_at": [],
+          "marks": [],
+          "vacancy": 5,
+          "double": 5,
+          "pi_contacts": 3684,
+          "quiet_remaining_pairs_when_normal": null
+        },
+        {
+          "stopped_after_ten": {
+            "offers": 10,
+            "marks": 0,
+            "vacancy": 5,
+            "double": 5
+          },
+          "input_word": "222220000011",
+          "reverse": true,
+          "exchange_disabled": false,
+          "offers": 66,
+          "positive_at": [
+            23,
+            31,
+            40,
+            50,
+            61
+          ],
+          "marks": [
+            [
+              238,
+              239
+            ],
+            [
+              236,
+              237
+            ],
+            [
+              235,
+              238
+            ],
+            [
+              235,
+              236
+            ],
+            [
+              234,
+              238
+            ]
+          ],
+          "vacancy": 0,
+          "double": 0,
+          "pi_contacts": 7510,
+          "quiet_remaining_pairs_when_normal": 28614
+        },
+        {
+          "stopped_after_ten": {
+            "offers": 10,
+            "marks": 0,
+            "vacancy": 5,
+            "double": 5
+          },
+          "input_word": "222220000011",
+          "reverse": true,
+          "exchange_disabled": true,
+          "offers": 66,
+          "positive_at": [],
+          "marks": [],
+          "vacancy": 5,
+          "double": 5,
+          "pi_contacts": 7652,
+          "quiet_remaining_pairs_when_normal": null
+        },
+        {
+          "stopped_after_ten": {
+            "offers": 10,
+            "marks": 1,
+            "vacancy": 6,
+            "double": 1
+          },
+          "input_word": "220000000111",
+          "reverse": false,
+          "exchange_disabled": false,
+          "offers": 66,
+          "positive_at": [
+            1,
+            12
+          ],
+          "marks": [
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              7
+            ]
+          ],
+          "vacancy": 5,
+          "double": 0,
+          "pi_contacts": 4248,
+          "quiet_remaining_pairs_when_normal": 28614
+        },
+        {
+          "stopped_after_ten": {
+            "offers": 10,
+            "marks": 0,
+            "vacancy": 7,
+            "double": 2
+          },
+          "input_word": "220000000111",
+          "reverse": false,
+          "exchange_disabled": true,
+          "offers": 66,
+          "positive_at": [],
+          "marks": [],
+          "vacancy": 7,
+          "double": 2,
+          "pi_contacts": 3684,
+          "quiet_remaining_pairs_when_normal": null
+        },
+        {
+          "stopped_after_ten": {
+            "offers": 10,
+            "marks": 0,
+            "vacancy": 7,
+            "double": 2
+          },
+          "input_word": "220000000111",
+          "reverse": true,
+          "exchange_disabled": false,
+          "offers": 66,
+          "positive_at": [
+            48,
+            59
+          ],
+          "marks": [
+            [
+              238,
+              239
+            ],
+            [
+              236,
+              237
+            ]
+          ],
+          "vacancy": 5,
+          "double": 0,
+          "pi_contacts": 7554,
+          "quiet_remaining_pairs_when_normal": 28614
+        },
+        {
+          "stopped_after_ten": {
+            "offers": 10,
+            "marks": 0,
+            "vacancy": 7,
+            "double": 2
+          },
+          "input_word": "220000000111",
+          "reverse": true,
+          "exchange_disabled": true,
+          "offers": 66,
+          "positive_at": [],
+          "marks": [],
+          "vacancy": 7,
+          "double": 2,
+          "pi_contacts": 7652,
+          "quiet_remaining_pairs_when_normal": null
+        },
+        {
+          "stopped_after_ten": {
+            "offers": 10,
+            "marks": 1,
+            "vacancy": 0,
+            "double": 6
+          },
+          "input_word": "222222201111",
+          "reverse": false,
+          "exchange_disabled": false,
+          "offers": 66,
+          "positive_at": [
+            6
+          ],
+          "marks": [
+            [
+              1,
+              5
+            ]
+          ],
+          "vacancy": 0,
+          "double": 6,
+          "pi_contacts": 3756,
+          "quiet_remaining_pairs_when_normal": 28614
+        },
+        {
+          "stopped_after_ten": {
+            "offers": 10,
+            "marks": 0,
+            "vacancy": 1,
+            "double": 7
+          },
+          "input_word": "222222201111",
+          "reverse": false,
+          "exchange_disabled": true,
+          "offers": 66,
+          "positive_at": [],
+          "marks": [],
+          "vacancy": 1,
+          "double": 7,
+          "pi_contacts": 3684,
+          "quiet_remaining_pairs_when_normal": null
+        },
+        {
+          "stopped_after_ten": {
+            "offers": 10,
+            "marks": 0,
+            "vacancy": 1,
+            "double": 7
+          },
+          "input_word": "222222201111",
+          "reverse": true,
+          "exchange_disabled": false,
+          "offers": 66,
+          "positive_at": [
+            14
+          ],
+          "marks": [
+            [
+              238,
+              239
+            ]
+          ],
+          "vacancy": 0,
+          "double": 6,
+          "pi_contacts": 7328,
+          "quiet_remaining_pairs_when_normal": 28614
+        },
+        {
+          "stopped_after_ten": {
+            "offers": 10,
+            "marks": 0,
+            "vacancy": 1,
+            "double": 7
+          },
+          "input_word": "222222201111",
+          "reverse": true,
+          "exchange_disabled": true,
+          "offers": 66,
+          "positive_at": [],
+          "marks": [],
+          "vacancy": 1,
+          "double": 7,
+          "pi_contacts": 7652,
+          "quiet_remaining_pairs_when_normal": null
+        },
+        {
+          "stopped_after_ten": {
+            "offers": 10,
+            "marks": 0,
+            "vacancy": 0,
+            "double": 5
+          },
+          "input_word": "222221111111",
+          "reverse": false,
+          "exchange_disabled": false,
+          "offers": 66,
+          "positive_at": [],
+          "marks": [],
+          "vacancy": 0,
+          "double": 5,
+          "pi_contacts": 3684,
+          "quiet_remaining_pairs_when_normal": 28614
+        },
+        {
+          "stopped_after_ten": {
+            "offers": 10,
+            "marks": 0,
+            "vacancy": 0,
+            "double": 5
+          },
+          "input_word": "222221111111",
+          "reverse": false,
+          "exchange_disabled": true,
+          "offers": 66,
+          "positive_at": [],
+          "marks": [],
+          "vacancy": 0,
+          "double": 5,
+          "pi_contacts": 3684,
+          "quiet_remaining_pairs_when_normal": 28614
+        },
+        {
+          "stopped_after_ten": {
+            "offers": 10,
+            "marks": 0,
+            "vacancy": 0,
+            "double": 5
+          },
+          "input_word": "222221111111",
+          "reverse": true,
+          "exchange_disabled": false,
+          "offers": 66,
+          "positive_at": [],
+          "marks": [],
+          "vacancy": 0,
+          "double": 5,
+          "pi_contacts": 7652,
+          "quiet_remaining_pairs_when_normal": 28614
+        },
+        {
+          "stopped_after_ten": {
+            "offers": 10,
+            "marks": 0,
+            "vacancy": 0,
+            "double": 5
+          },
+          "input_word": "222221111111",
+          "reverse": true,
+          "exchange_disabled": true,
+          "offers": 66,
+          "positive_at": [],
+          "marks": [],
+          "vacancy": 0,
+          "double": 5,
+          "pi_contacts": 7652,
+          "quiet_remaining_pairs_when_normal": 28614
+        },
+        {
+          "stopped_after_ten": {
+            "offers": 10,
+            "marks": 0,
+            "vacancy": 5,
+            "double": 0
+          },
+          "input_word": "000001111111",
+          "reverse": false,
+          "exchange_disabled": false,
+          "offers": 66,
+          "positive_at": [],
+          "marks": [],
+          "vacancy": 5,
+          "double": 0,
+          "pi_contacts": 3684,
+          "quiet_remaining_pairs_when_normal": 28614
+        },
+        {
+          "stopped_after_ten": {
+            "offers": 10,
+            "marks": 0,
+            "vacancy": 5,
+            "double": 0
+          },
+          "input_word": "000001111111",
+          "reverse": false,
+          "exchange_disabled": true,
+          "offers": 66,
+          "positive_at": [],
+          "marks": [],
+          "vacancy": 5,
+          "double": 0,
+          "pi_contacts": 3684,
+          "quiet_remaining_pairs_when_normal": 28614
+        },
+        {
+          "stopped_after_ten": {
+            "offers": 10,
+            "marks": 0,
+            "vacancy": 5,
+            "double": 0
+          },
+          "input_word": "000001111111",
+          "reverse": true,
+          "exchange_disabled": false,
+          "offers": 66,
+          "positive_at": [],
+          "marks": [],
+          "vacancy": 5,
+          "double": 0,
+          "pi_contacts": 7652,
+          "quiet_remaining_pairs_when_normal": 28614
+        },
+        {
+          "stopped_after_ten": {
+            "offers": 10,
+            "marks": 0,
+            "vacancy": 5,
+            "double": 0
+          },
+          "input_word": "000001111111",
+          "reverse": true,
+          "exchange_disabled": true,
+          "offers": 66,
+          "positive_at": [],
+          "marks": [],
+          "vacancy": 5,
+          "double": 0,
+          "pi_contacts": 7652,
+          "quiet_remaining_pairs_when_normal": 28614
+        }
+      ]
+    },
+    {
+      "cells": 80,
+      "ports": 960,
+      "tree_edges": 959,
+      "chords": 1561,
+      "source_ports": [
+        522,
+        229,
+        22,
+        719,
+        68,
+        663,
+        353,
+        321,
+        339,
+        725,
+        308,
+        17
+      ],
+      "banks": [
+        {
+          "stopped_after_ten": {
+            "offers": 10,
+            "marks": 1,
+            "vacancy": 4,
+            "double": 4
+          },
+          "input_word": "222220000011",
+          "reverse": false,
+          "exchange_disabled": false,
+          "offers": 66,
+          "positive_at": [
+            4,
+            15,
+            25,
+            34,
+            42
+          ],
+          "marks": [
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              6
+            ]
+          ],
+          "vacancy": 0,
+          "double": 0,
+          "pi_contacts": 8224,
+          "quiet_remaining_pairs_when_normal": 460254
+        },
+        {
+          "stopped_after_ten": {
+            "offers": 10,
+            "marks": 0,
+            "vacancy": 5,
+            "double": 5
+          },
+          "input_word": "222220000011",
+          "reverse": false,
+          "exchange_disabled": true,
+          "offers": 66,
+          "positive_at": [],
+          "marks": [],
+          "vacancy": 5,
+          "double": 5,
+          "pi_contacts": 7660,
+          "quiet_remaining_pairs_when_normal": null
+        },
+        {
+          "stopped_after_ten": {
+            "offers": 10,
+            "marks": 0,
+            "vacancy": 5,
+            "double": 5
+          },
+          "input_word": "222220000011",
+          "reverse": true,
+          "exchange_disabled": false,
+          "offers": 66,
+          "positive_at": [
+            23,
+            31,
+            40,
+            50,
+            61
+          ],
+          "marks": [
+            [
+              958,
+              959
+            ],
+            [
+              955,
+              958
+            ],
+            [
+              954,
+              955
+            ],
+            [
+              953,
+              959
+            ],
+            [
+              953,
+              957
+            ]
+          ],
+          "vacancy": 0,
+          "double": 0,
+          "pi_contacts": 16328,
+          "quiet_remaining_pairs_when_normal": 460254
+        },
+        {
+          "stopped_after_ten": {
+            "offers": 10,
+            "marks": 0,
+            "vacancy": 5,
+            "double": 5
+          },
+          "input_word": "222220000011",
+          "reverse": true,
+          "exchange_disabled": true,
+          "offers": 66,
+          "positive_at": [],
+          "marks": [],
+          "vacancy": 5,
+          "double": 5,
+          "pi_contacts": 16588,
+          "quiet_remaining_pairs_when_normal": null
+        },
+        {
+          "stopped_after_ten": {
+            "offers": 10,
+            "marks": 1,
+            "vacancy": 6,
+            "double": 1
+          },
+          "input_word": "220000000111",
+          "reverse": false,
+          "exchange_disabled": false,
+          "offers": 66,
+          "positive_at": [
+            1,
+            12
+          ],
+          "marks": [
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              7
+            ]
+          ],
+          "vacancy": 5,
+          "double": 0,
+          "pi_contacts": 8152,
+          "quiet_remaining_pairs_when_normal": 460254
+        },
+        {
+          "stopped_after_ten": {
+            "offers": 10,
+            "marks": 0,
+            "vacancy": 7,
+            "double": 2
+          },
+          "input_word": "220000000111",
+          "reverse": false,
+          "exchange_disabled": true,
+          "offers": 66,
+          "positive_at": [],
+          "marks": [],
+          "vacancy": 7,
+          "double": 2,
+          "pi_contacts": 7660,
+          "quiet_remaining_pairs_when_normal": null
+        },
+        {
+          "stopped_after_ten": {
+            "offers": 10,
+            "marks": 0,
+            "vacancy": 7,
+            "double": 2
+          },
+          "input_word": "220000000111",
+          "reverse": true,
+          "exchange_disabled": false,
+          "offers": 66,
+          "positive_at": [
+            48,
+            59
+          ],
+          "marks": [
+            [
+              958,
+              959
+            ],
+            [
+              955,
+              958
+            ]
+          ],
+          "vacancy": 5,
+          "double": 0,
+          "pi_contacts": 16428,
+          "quiet_remaining_pairs_when_normal": 460254
+        },
+        {
+          "stopped_after_ten": {
+            "offers": 10,
+            "marks": 0,
+            "vacancy": 7,
+            "double": 2
+          },
+          "input_word": "220000000111",
+          "reverse": true,
+          "exchange_disabled": true,
+          "offers": 66,
+          "positive_at": [],
+          "marks": [],
+          "vacancy": 7,
+          "double": 2,
+          "pi_contacts": 16588,
+          "quiet_remaining_pairs_when_normal": null
+        },
+        {
+          "stopped_after_ten": {
+            "offers": 10,
+            "marks": 1,
+            "vacancy": 0,
+            "double": 6
+          },
+          "input_word": "222222201111",
+          "reverse": false,
+          "exchange_disabled": false,
+          "offers": 66,
+          "positive_at": [
+            6
+          ],
+          "marks": [
+            [
+              1,
+              5
+            ]
+          ],
+          "vacancy": 0,
+          "double": 6,
+          "pi_contacts": 7660,
+          "quiet_remaining_pairs_when_normal": 460254
+        },
+        {
+          "stopped_after_ten": {
+            "offers": 10,
+            "marks": 0,
+            "vacancy": 1,
+            "double": 7
+          },
+          "input_word": "222222201111",
+          "reverse": false,
+          "exchange_disabled": true,
+          "offers": 66,
+          "positive_at": [],
+          "marks": [],
+          "vacancy": 1,
+          "double": 7,
+          "pi_contacts": 7660,
+          "quiet_remaining_pairs_when_normal": null
+        },
+        {
+          "stopped_after_ten": {
+            "offers": 10,
+            "marks": 0,
+            "vacancy": 1,
+            "double": 7
+          },
+          "input_word": "222222201111",
+          "reverse": true,
+          "exchange_disabled": false,
+          "offers": 66,
+          "positive_at": [
+            14
+          ],
+          "marks": [
+            [
+              958,
+              959
+            ]
+          ],
+          "vacancy": 0,
+          "double": 6,
+          "pi_contacts": 16180,
+          "quiet_remaining_pairs_when_normal": 460254
+        },
+        {
+          "stopped_after_ten": {
+            "offers": 10,
+            "marks": 0,
+            "vacancy": 1,
+            "double": 7
+          },
+          "input_word": "222222201111",
+          "reverse": true,
+          "exchange_disabled": true,
+          "offers": 66,
+          "positive_at": [],
+          "marks": [],
+          "vacancy": 1,
+          "double": 7,
+          "pi_contacts": 16588,
+          "quiet_remaining_pairs_when_normal": null
+        },
+        {
+          "stopped_after_ten": {
+            "offers": 10,
+            "marks": 0,
+            "vacancy": 0,
+            "double": 5
+          },
+          "input_word": "222221111111",
+          "reverse": false,
+          "exchange_disabled": false,
+          "offers": 66,
+          "positive_at": [],
+          "marks": [],
+          "vacancy": 0,
+          "double": 5,
+          "pi_contacts": 7660,
+          "quiet_remaining_pairs_when_normal": 460254
+        },
+        {
+          "stopped_after_ten": {
+            "offers": 10,
+            "marks": 0,
+            "vacancy": 0,
+            "double": 5
+          },
+          "input_word": "222221111111",
+          "reverse": false,
+          "exchange_disabled": true,
+          "offers": 66,
+          "positive_at": [],
+          "marks": [],
+          "vacancy": 0,
+          "double": 5,
+          "pi_contacts": 7660,
+          "quiet_remaining_pairs_when_normal": 460254
+        },
+        {
+          "stopped_after_ten": {
+            "offers": 10,
+            "marks": 0,
+            "vacancy": 0,
+            "double": 5
+          },
+          "input_word": "222221111111",
+          "reverse": true,
+          "exchange_disabled": false,
+          "offers": 66,
+          "positive_at": [],
+          "marks": [],
+          "vacancy": 0,
+          "double": 5,
+          "pi_contacts": 16588,
+          "quiet_remaining_pairs_when_normal": 460254
+        },
+        {
+          "stopped_after_ten": {
+            "offers": 10,
+            "marks": 0,
+            "vacancy": 0,
+            "double": 5
+          },
+          "input_word": "222221111111",
+          "reverse": true,
+          "exchange_disabled": true,
+          "offers": 66,
+          "positive_at": [],
+          "marks": [],
+          "vacancy": 0,
+          "double": 5,
+          "pi_contacts": 16588,
+          "quiet_remaining_pairs_when_normal": 460254
+        },
+        {
+          "stopped_after_ten": {
+            "offers": 10,
+            "marks": 0,
+            "vacancy": 5,
+            "double": 0
+          },
+          "input_word": "000001111111",
+          "reverse": false,
+          "exchange_disabled": false,
+          "offers": 66,
+          "positive_at": [],
+          "marks": [],
+          "vacancy": 5,
+          "double": 0,
+          "pi_contacts": 7660,
+          "quiet_remaining_pairs_when_normal": 460254
+        },
+        {
+          "stopped_after_ten": {
+            "offers": 10,
+            "marks": 0,
+            "vacancy": 5,
+            "double": 0
+          },
+          "input_word": "000001111111",
+          "reverse": false,
+          "exchange_disabled": true,
+          "offers": 66,
+          "positive_at": [],
+          "marks": [],
+          "vacancy": 5,
+          "double": 0,
+          "pi_contacts": 7660,
+          "quiet_remaining_pairs_when_normal": 460254
+        },
+        {
+          "stopped_after_ten": {
+            "offers": 10,
+            "marks": 0,
+            "vacancy": 5,
+            "double": 0
+          },
+          "input_word": "000001111111",
+          "reverse": true,
+          "exchange_disabled": false,
+          "offers": 66,
+          "positive_at": [],
+          "marks": [],
+          "vacancy": 5,
+          "double": 0,
+          "pi_contacts": 16588,
+          "quiet_remaining_pairs_when_normal": 460254
+        },
+        {
+          "stopped_after_ten": {
+            "offers": 10,
+            "marks": 0,
+            "vacancy": 5,
+            "double": 0
+          },
+          "input_word": "000001111111",
+          "reverse": true,
+          "exchange_disabled": true,
+          "offers": 66,
+          "positive_at": [],
+          "marks": [],
+          "vacancy": 5,
+          "double": 0,
+          "pi_contacts": 16588,
+          "quiet_remaining_pairs_when_normal": 460254
+        }
+      ]
+    },
+    {
+      "cells": 320,
+      "ports": 3840,
+      "tree_edges": 3839,
+      "chords": 6241,
+      "source_ports": [
+        17,
+        715,
+        3437,
+        1362,
+        2907,
+        2999,
+        446,
+        3582,
+        148,
+        1053,
+        2410,
+        2315
+      ],
+      "banks": [
+        {
+          "stopped_after_ten": {
+            "offers": 10,
+            "marks": 1,
+            "vacancy": 4,
+            "double": 4
+          },
+          "input_word": "222220000011",
+          "reverse": false,
+          "exchange_disabled": false,
+          "offers": 66,
+          "positive_at": [
+            4,
+            15,
+            25,
+            34,
+            42
+          ],
+          "marks": [
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              6
+            ]
+          ],
+          "vacancy": 0,
+          "double": 0,
+          "pi_contacts": 16004,
+          "quiet_remaining_pairs_when_normal": 7370814
+        },
+        {
+          "stopped_after_ten": {
+            "offers": 10,
+            "marks": 0,
+            "vacancy": 5,
+            "double": 5
+          },
+          "input_word": "222220000011",
+          "reverse": false,
+          "exchange_disabled": true,
+          "offers": 66,
+          "positive_at": [],
+          "marks": [],
+          "vacancy": 5,
+          "double": 5,
+          "pi_contacts": 15472,
+          "quiet_remaining_pairs_when_normal": null
+        },
+        {
+          "stopped_after_ten": {
+            "offers": 10,
+            "marks": 0,
+            "vacancy": 5,
+            "double": 5
+          },
+          "input_word": "222220000011",
+          "reverse": true,
+          "exchange_disabled": false,
+          "offers": 66,
+          "positive_at": [
+            23,
+            31,
+            40,
+            50,
+            61
+          ],
+          "marks": [
+            [
+              3838,
+              3839
+            ],
+            [
+              3836,
+              3837
+            ],
+            [
+              3835,
+              3838
+            ],
+            [
+              3835,
+              3836
+            ],
+            [
+              3834,
+              3838
+            ]
+          ],
+          "vacancy": 0,
+          "double": 0,
+          "pi_contacts": 33272,
+          "quiet_remaining_pairs_when_normal": 7370814
+        },
+        {
+          "stopped_after_ten": {
+            "offers": 10,
+            "marks": 0,
+            "vacancy": 5,
+            "double": 5
+          },
+          "input_word": "222220000011",
+          "reverse": true,
+          "exchange_disabled": true,
+          "offers": 66,
+          "positive_at": [],
+          "marks": [],
+          "vacancy": 5,
+          "double": 5,
+          "pi_contacts": 33528,
+          "quiet_remaining_pairs_when_normal": null
+        },
+        {
+          "stopped_after_ten": {
+            "offers": 10,
+            "marks": 1,
+            "vacancy": 6,
+            "double": 1
+          },
+          "input_word": "220000000111",
+          "reverse": false,
+          "exchange_disabled": false,
+          "offers": 66,
+          "positive_at": [
+            1,
+            12
+          ],
+          "marks": [
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              7
+            ]
+          ],
+          "vacancy": 5,
+          "double": 0,
+          "pi_contacts": 15908,
+          "quiet_remaining_pairs_when_normal": 7370814
+        },
+        {
+          "stopped_after_ten": {
+            "offers": 10,
+            "marks": 0,
+            "vacancy": 7,
+            "double": 2
+          },
+          "input_word": "220000000111",
+          "reverse": false,
+          "exchange_disabled": true,
+          "offers": 66,
+          "positive_at": [],
+          "marks": [],
+          "vacancy": 7,
+          "double": 2,
+          "pi_contacts": 15472,
+          "quiet_remaining_pairs_when_normal": null
+        },
+        {
+          "stopped_after_ten": {
+            "offers": 10,
+            "marks": 0,
+            "vacancy": 7,
+            "double": 2
+          },
+          "input_word": "220000000111",
+          "reverse": true,
+          "exchange_disabled": false,
+          "offers": 66,
+          "positive_at": [
+            48,
+            59
+          ],
+          "marks": [
+            [
+              3838,
+              3839
+            ],
+            [
+              3836,
+              3837
+            ]
+          ],
+          "vacancy": 5,
+          "double": 0,
+          "pi_contacts": 33416,
+          "quiet_remaining_pairs_when_normal": 7370814
+        },
+        {
+          "stopped_after_ten": {
+            "offers": 10,
+            "marks": 0,
+            "vacancy": 7,
+            "double": 2
+          },
+          "input_word": "220000000111",
+          "reverse": true,
+          "exchange_disabled": true,
+          "offers": 66,
+          "positive_at": [],
+          "marks": [],
+          "vacancy": 7,
+          "double": 2,
+          "pi_contacts": 33528,
+          "quiet_remaining_pairs_when_normal": null
+        },
+        {
+          "stopped_after_ten": {
+            "offers": 10,
+            "marks": 1,
+            "vacancy": 0,
+            "double": 6
+          },
+          "input_word": "222222201111",
+          "reverse": false,
+          "exchange_disabled": false,
+          "offers": 66,
+          "positive_at": [
+            6
+          ],
+          "marks": [
+            [
+              1,
+              5
+            ]
+          ],
+          "vacancy": 0,
+          "double": 6,
+          "pi_contacts": 15472,
+          "quiet_remaining_pairs_when_normal": 7370814
+        },
+        {
+          "stopped_after_ten": {
+            "offers": 10,
+            "marks": 0,
+            "vacancy": 1,
+            "double": 7
+          },
+          "input_word": "222222201111",
+          "reverse": false,
+          "exchange_disabled": true,
+          "offers": 66,
+          "positive_at": [],
+          "marks": [],
+          "vacancy": 1,
+          "double": 7,
+          "pi_contacts": 15472,
+          "quiet_remaining_pairs_when_normal": null
+        },
+        {
+          "stopped_after_ten": {
+            "offers": 10,
+            "marks": 0,
+            "vacancy": 1,
+            "double": 7
+          },
+          "input_word": "222222201111",
+          "reverse": true,
+          "exchange_disabled": false,
+          "offers": 66,
+          "positive_at": [
+            14
+          ],
+          "marks": [
+            [
+              3838,
+              3839
+            ]
+          ],
+          "vacancy": 0,
+          "double": 6,
+          "pi_contacts": 33120,
+          "quiet_remaining_pairs_when_normal": 7370814
+        },
+        {
+          "stopped_after_ten": {
+            "offers": 10,
+            "marks": 0,
+            "vacancy": 1,
+            "double": 7
+          },
+          "input_word": "222222201111",
+          "reverse": true,
+          "exchange_disabled": true,
+          "offers": 66,
+          "positive_at": [],
+          "marks": [],
+          "vacancy": 1,
+          "double": 7,
+          "pi_contacts": 33528,
+          "quiet_remaining_pairs_when_normal": null
+        },
+        {
+          "stopped_after_ten": {
+            "offers": 10,
+            "marks": 0,
+            "vacancy": 0,
+            "double": 5
+          },
+          "input_word": "222221111111",
+          "reverse": false,
+          "exchange_disabled": false,
+          "offers": 66,
+          "positive_at": [],
+          "marks": [],
+          "vacancy": 0,
+          "double": 5,
+          "pi_contacts": 15472,
+          "quiet_remaining_pairs_when_normal": 7370814
+        },
+        {
+          "stopped_after_ten": {
+            "offers": 10,
+            "marks": 0,
+            "vacancy": 0,
+            "double": 5
+          },
+          "input_word": "222221111111",
+          "reverse": false,
+          "exchange_disabled": true,
+          "offers": 66,
+          "positive_at": [],
+          "marks": [],
+          "vacancy": 0,
+          "double": 5,
+          "pi_contacts": 15472,
+          "quiet_remaining_pairs_when_normal": 7370814
+        },
+        {
+          "stopped_after_ten": {
+            "offers": 10,
+            "marks": 0,
+            "vacancy": 0,
+            "double": 5
+          },
+          "input_word": "222221111111",
+          "reverse": true,
+          "exchange_disabled": false,
+          "offers": 66,
+          "positive_at": [],
+          "marks": [],
+          "vacancy": 0,
+          "double": 5,
+          "pi_contacts": 33528,
+          "quiet_remaining_pairs_when_normal": 7370814
+        },
+        {
+          "stopped_after_ten": {
+            "offers": 10,
+            "marks": 0,
+            "vacancy": 0,
+            "double": 5
+          },
+          "input_word": "222221111111",
+          "reverse": true,
+          "exchange_disabled": true,
+          "offers": 66,
+          "positive_at": [],
+          "marks": [],
+          "vacancy": 0,
+          "double": 5,
+          "pi_contacts": 33528,
+          "quiet_remaining_pairs_when_normal": 7370814
+        },
+        {
+          "stopped_after_ten": {
+            "offers": 10,
+            "marks": 0,
+            "vacancy": 5,
+            "double": 0
+          },
+          "input_word": "000001111111",
+          "reverse": false,
+          "exchange_disabled": false,
+          "offers": 66,
+          "positive_at": [],
+          "marks": [],
+          "vacancy": 5,
+          "double": 0,
+          "pi_contacts": 15472,
+          "quiet_remaining_pairs_when_normal": 7370814
+        },
+        {
+          "stopped_after_ten": {
+            "offers": 10,
+            "marks": 0,
+            "vacancy": 5,
+            "double": 0
+          },
+          "input_word": "000001111111",
+          "reverse": false,
+          "exchange_disabled": true,
+          "offers": 66,
+          "positive_at": [],
+          "marks": [],
+          "vacancy": 5,
+          "double": 0,
+          "pi_contacts": 15472,
+          "quiet_remaining_pairs_when_normal": 7370814
+        },
+        {
+          "stopped_after_ten": {
+            "offers": 10,
+            "marks": 0,
+            "vacancy": 5,
+            "double": 0
+          },
+          "input_word": "000001111111",
+          "reverse": true,
+          "exchange_disabled": false,
+          "offers": 66,
+          "positive_at": [],
+          "marks": [],
+          "vacancy": 5,
+          "double": 0,
+          "pi_contacts": 33528,
+          "quiet_remaining_pairs_when_normal": 7370814
+        },
+        {
+          "stopped_after_ten": {
+            "offers": 10,
+            "marks": 0,
+            "vacancy": 5,
+            "double": 0
+          },
+          "input_word": "000001111111",
+          "reverse": true,
+          "exchange_disabled": true,
+          "offers": 66,
+          "positive_at": [],
+          "marks": [],
+          "vacancy": 5,
+          "double": 0,
+          "pi_contacts": 33528,
+          "quiet_remaining_pairs_when_normal": 7370814
+        }
+      ]
+    }
+  ],
+  "coherent_flight": {
+    "cells": 20,
+    "ports": 240,
+    "starts_per_bank": 1048576,
+    "wait": 0.25,
+    "vacancy": 0,
+    "double_origins": [
+      12,
+      13
+    ],
+    "target_row": 11,
+    "output_order": "lexicographic unordered port pairs, then no mark; reference outcomes 0,1",
+    "cohorts": [
+      {
+        "receiving_chord": [
+          1,
+          5
+        ],
+        "mode": "native",
+        "reverse": false,
+        "reference": "Z",
+        "marker": 699495,
+        "quiet": [
+          173983,
+          175098
+        ],
+        "selected_pair_reference": [
+          310402,
+          5027
+        ],
+        "complete_marker_reference": [
+          350278,
+          349217
+        ]
+      },
+      {
+        "receiving_chord": [
+          1,
+          5
+        ],
+        "mode": "native",
+        "reverse": false,
+        "reference": "X",
+        "marker": 699483,
+        "quiet": [
+          349093,
+          0
+        ],
+        "selected_pair_reference": [
+          118741,
+          196400
+        ],
+        "complete_marker_reference": [
+          349108,
+          350375
+        ]
+      },
+      {
+        "receiving_chord": [
+          238,
+          239
+        ],
+        "mode": "native",
+        "reverse": true,
+        "reference": "Z",
+        "marker": 699964,
+        "quiet": [
+          174623,
+          173989
+        ],
+        "selected_pair_reference": [
+          310486,
+          4956
+        ],
+        "complete_marker_reference": [
+          350033,
+          349931
+        ]
+      },
+      {
+        "receiving_chord": [
+          238,
+          239
+        ],
+        "mode": "native",
+        "reverse": true,
+        "reference": "X",
+        "marker": 699968,
+        "quiet": [
+          348608,
+          0
+        ],
+        "selected_pair_reference": [
+          118801,
+          196659
+        ],
+        "complete_marker_reference": [
+          350175,
+          349793
+        ]
+      },
+      {
+        "receiving_chord": [
+          1,
+          5
+        ],
+        "mode": "which_source",
+        "reverse": false,
+        "reference": "Z",
+        "marker": 698703,
+        "quiet": [
+          174439,
+          175434
+        ],
+        "selected_pair_reference": [
+          309601,
+          4920
+        ],
+        "complete_marker_reference": [
+          349191,
+          349512
+        ]
+      },
+      {
+        "receiving_chord": [
+          1,
+          5
+        ],
+        "mode": "which_source",
+        "reverse": false,
+        "reference": "X",
+        "marker": 698876,
+        "quiet": [
+          349700,
+          0
+        ],
+        "selected_pair_reference": [
+          158266,
+          157534
+        ],
+        "complete_marker_reference": [
+          349854,
+          349022
+        ]
+      },
+      {
+        "receiving_chord": [
+          238,
+          239
+        ],
+        "mode": "which_source",
+        "reverse": true,
+        "reference": "Z",
+        "marker": 699046,
+        "quiet": [
+          174882,
+          174648
+        ],
+        "selected_pair_reference": [
+          310806,
+          4978
+        ],
+        "complete_marker_reference": [
+          350612,
+          348434
+        ]
+      },
+      {
+        "receiving_chord": [
+          238,
+          239
+        ],
+        "mode": "which_source",
+        "reverse": true,
+        "reference": "X",
+        "marker": 698793,
+        "quiet": [
+          349783,
+          0
+        ],
+        "selected_pair_reference": [
+          157066,
+          156909
+        ],
+        "complete_marker_reference": [
+          349386,
+          349407
+        ]
+      },
+      {
+        "receiving_chord": [
+          1,
+          5
+        ],
+        "mode": "exchange_parked_during_flight",
+        "reverse": false,
+        "reference": "Z",
+        "marker": 699347,
+        "quiet": [
+          174704,
+          174525
+        ],
+        "selected_pair_reference": [
+          349517,
+          0
+        ],
+        "complete_marker_reference": [
+          349517,
+          349830
+        ]
+      },
+      {
+        "receiving_chord": [
+          1,
+          5
+        ],
+        "mode": "exchange_parked_during_flight",
+        "reverse": false,
+        "reference": "X",
+        "marker": 700052,
+        "quiet": [
+          348524,
+          0
+        ],
+        "selected_pair_reference": [
+          174605,
+          175762
+        ],
+        "complete_marker_reference": [
+          349856,
+          350196
+        ]
+      },
+      {
+        "receiving_chord": [
+          238,
+          239
+        ],
+        "mode": "exchange_parked_during_flight",
+        "reverse": true,
+        "reference": "Z",
+        "marker": 699713,
+        "quiet": [
+          175051,
+          173812
+        ],
+        "selected_pair_reference": [
+          349295,
+          0
+        ],
+        "complete_marker_reference": [
+          349295,
+          350418
+        ]
+      },
+      {
+        "receiving_chord": [
+          238,
+          239
+        ],
+        "mode": "exchange_parked_during_flight",
+        "reverse": true,
+        "reference": "X",
+        "marker": 698577,
+        "quiet": [
+          349999,
+          0
+        ],
+        "selected_pair_reference": [
+          174696,
+          174582
+        ],
+        "complete_marker_reference": [
+          349250,
+          349327
+        ]
+      }
+    ]
+  }
+}

@@ -150,6 +150,103 @@ REPLAY_EVALUATIONS = (
         "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
         "model/candidate_laws/interval_echo/EVALUATION.json": "7d9f6735d7dd0e59bfcd8bd23354e7cc6398fe805717a6a6cc7044537e05af0b",
     },
+    # Guarded-repair scope and same-source Einstein tests update the prose
+    # and scorecard. The law and the registered message instrument still replay.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "04e1f8f53881087f159833ed674e38fbbd883f5b5f765a100d369c3ce30d9ee0",
+    },
+    # Independent wall and dispersion measurements add scorecard evidence.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "ef1b15dd6da778d677998dcb857c8a43c68ff83138bf015f3f53ae5e9a7f71f6",
+    },
+    # Address interventions, clock bounds, pair recoil and repeated pointer reads extend the evaluation.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "36c4fbcc8c04cf433653a025c0813482064755334a31a1e6a9b4cbead8b9bd8a",
+    },
+    # Local signal deadlines, material records and field probes extend the scorecard.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "693362b0a40866643a4df5430ad77fec9232959bd07e4b6118b13e3f4ef9c3c7",
+    },
+    # A total-two sweep, receiver deadlines and a local probe extend the evidence.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "c5de332ed7ae0fca11f99aa9dca1d8979043ad10db0c17d3e02b8827a9294452",
+    },
+    # Fixed material pointers, circulation-sensitive scattering and orbital transition evidence.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "e74e1da93e64f42f10491686e319f960f469956570218fcc885a2c9426577647",
+    },
+    # Passive echo calibration, the neutral gap clock and pair-plane controls extend the evidence.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "84ce4a51ef898de57868022f545a0fa62084e338b8661a8d1c303554615e9d34",
+    },
+    # Pair transport and the source-sensitive clock comparison extend the evidence.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "eeac2a3b1769bb5aa1b614b3ec8974c80806a2872de11f70a0d4e7a8ff40d5a3",
+    },
+    # Twelve-address records, the released trimer and filtered spatial turns extend the evidence.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "2f7f52c24d9e75726da4f0dfdba4e6aba7ed40337d8ebd5103fe6cbba6ce4a0b",
+    },
+    # Pair recoil, junction transport and the two-aperture return extend the evidence.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "47e38d1e3640dc535c66279da23a0bd1f3fcd9549dcc3c836913f5e83479e68c",
+    },
+    # Native daughter modes, regional charge readback and eight material instruments extend the evidence.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "1b0e88d6f0241a1d2ca59c1a9795874e4e9ba1b387ab8f56c02212514004ed67",
+    },
+    # Same native law: neutral profiles, timed scattering, and stationary geometry.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "313e0df745f5022f8d7d75de1648a33042d3aa955cb733c456b975128a7fe780",
+    },
+    # Fresh seam interference, released wall receivers, joint clocks, and held geometry.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "9b7ba88b3568b23bddf6476a69041e72bcdf5e01cc86e011c279d4c91c5acef9",
+    },
+    # Adaptive seam services, whole-band charge and native orbital readbacks extend the evidence.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "d2d42dd38b56bf378560a0cdb379b7ee3001f692176d4f2614c622446e897fff",
+    },
+    # Source swapping, static parity work and the degenerate clock extend the evidence.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "3cf41343d64c96a35a663f1ac8d391bfd67c77f3fa3863296898cb9f358641e1",
+    },
+    # Census normalization, inventory effects and the bound arm singlet.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "3df50722895ff6cd9610e264fa725a41a4e9e1268653927335b5b779f3c1c174",
+    },
 )
 
 

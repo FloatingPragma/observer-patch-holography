@@ -1,0 +1,1430 @@
+{
+  "schema": "oph.interval_echo.penetrating_current_probe.v1",
+  "protocol_sha256": "7958b81fc571a10778d0ae0cd6659a766b5523dd94a43860201b03d883a31d04",
+  "measure_sha256": "51d0e74817cb911dc86b6b64a1eed135450efeafb9ac7cf023b89fa624c3289c",
+  "reflection_certificate": {
+    "port_permutation": [
+      9,
+      1,
+      2,
+      10,
+      11,
+      5,
+      6,
+      8,
+      7,
+      0,
+      3,
+      4
+    ],
+    "exact_graph_automorphism": true,
+    "exact_compact_action": [
+      [
+        "0",
+        "1"
+      ],
+      [
+        "1",
+        "0"
+      ]
+    ],
+    "compact_trace": 0,
+    "compact_determinant": -1,
+    "conjugate_source_phase": [
+      -0.5000000000000003,
+      -0.8660254037844382
+    ],
+    "source_mapping_error": 8.647011170497747e-16
+  },
+  "native_local_decoder": {
+    "local_words": 157,
+    "distinct_complete_records": 157,
+    "decoder_sha256": "b667b94ff2d6b980d6012765d02d6c9a1b3e3200d55dc92d1f398af5c12f666e",
+    "native_pointer_max_error": 2.220446049250313e-16,
+    "charge_outcomes": [
+      -1,
+      0,
+      1
+    ],
+    "domain": "One excess and one vacancy on the unit-filled board; no other local load patterns admitted."
+  },
+  "scope": "Principal restrictions with complete native diagonals. Supplied number apertures, coherent sources, phase and exposure appointments. Ideal finite-record probabilities, no sampled trials, imposed flux, static dipole B or electron g claim.",
+  "source_return_scope": "Supplied ideal coherent exterior-number flag and local compact-mode analyzers; native gate compilation is outside this study. Correct original compact vacancy mode AND exterior excess, with all other outcomes retained. No unsupported bare source projector when the excess occupies its owner.",
+  "studies": [
+    {
+      "owners": [
+        0,
+        6
+      ],
+      "ports": 24,
+      "dimension": 552,
+      "detector_port": 82,
+      "settings": [
+        {
+          "kappa": 8,
+          "exact_reflection_commutes": true,
+          "eigensystem_residual_frobenius": 9.078848166130435e-13,
+          "orthogonality_error_frobenius": 2.2516417882265692e-12,
+          "numerical_probability_allowance": 8.260791183968792e-11,
+          "readings": [
+            {
+              "exposure": 0,
+              "source_plus_minus": [
+                {
+                  "port_load_zero_host_excess": [
+                    2.5506365173287366e-31,
+                    6.735205820397196e-28,
+                    1.0000000000000009
+                  ],
+                  "probe_exterior_inside": [
+                    1.0000000000000009,
+                    4.582665399740598e-28
+                  ],
+                  "source_original_opposite_other_then_probe_inside": [
+                    1.0000000000000004,
+                    1.677885666331644e-28,
+                    9.929520142613999e-29,
+                    4.582665399740598e-28
+                  ],
+                  "correct_source_and_exterior_then_complement": [
+                    1.0000000000000004,
+                    7.2535030803336415e-28
+                  ],
+                  "correct_source_and_excess_at_detector_then_complement": [
+                    1.0000000000000004,
+                    7.258502179380942e-28
+                  ]
+                },
+                {
+                  "port_load_zero_host_excess": [
+                    2.5506365173287366e-31,
+                    6.735205820397196e-28,
+                    1.0000000000000009
+                  ],
+                  "probe_exterior_inside": [
+                    1.0000000000000009,
+                    4.582665399740598e-28
+                  ],
+                  "source_original_opposite_other_then_probe_inside": [
+                    1.0000000000000004,
+                    1.677885666331644e-28,
+                    9.929520142613999e-29,
+                    4.582665399740598e-28
+                  ],
+                  "correct_source_and_exterior_then_complement": [
+                    1.0000000000000004,
+                    7.2535030803336415e-28
+                  ],
+                  "correct_source_and_excess_at_detector_then_complement": [
+                    1.0000000000000004,
+                    7.258502179380942e-28
+                  ]
+                }
+              ],
+              "excess_probability_difference": 0.0,
+              "one_opening_state_symmetry_error": 4.938038300536115e-14,
+              "equal_source_mixture": {
+                "port_load_zero_host_excess": [
+                  2.5506365173287366e-31,
+                  6.735205820397196e-28,
+                  1.0000000000000009
+                ],
+                "probe_exterior_inside": [
+                  1.0000000000000009,
+                  4.582665399740598e-28
+                ],
+                "source_original_opposite_other_then_probe_inside": [
+                  1.0000000000000004,
+                  1.677885666331644e-28,
+                  9.929520142613999e-29,
+                  4.582665399740598e-28
+                ],
+                "correct_source_and_exterior_then_complement": [
+                  1.0000000000000004,
+                  7.2535030803336415e-28
+                ],
+                "correct_source_and_excess_at_detector_then_complement": [
+                  1.0000000000000004,
+                  7.258502179380942e-28
+                ]
+              }
+            },
+            {
+              "exposure": 8,
+              "source_plus_minus": [
+                {
+                  "port_load_zero_host_excess": [
+                    1.7174038768062114e-06,
+                    0.6848010334877327,
+                    0.3151972491083909
+                  ],
+                  "probe_exterior_inside": [
+                    0.7387211149695394,
+                    0.26127888503046104
+                  ],
+                  "source_original_opposite_other_then_probe_inside": [
+                    0.4049882771216227,
+                    0.07093954274612473,
+                    0.26279329510179167,
+                    0.26127888503046104
+                  ],
+                  "correct_source_and_exterior_then_complement": [
+                    0.4049882771216227,
+                    0.5950117228783774
+                  ],
+                  "correct_source_and_excess_at_detector_then_complement": [
+                    0.10274060773212736,
+                    0.8972593922678729
+                  ]
+                },
+                {
+                  "port_load_zero_host_excess": [
+                    1.7174038768062834e-06,
+                    0.6848010334877335,
+                    0.3151972491083913
+                  ],
+                  "probe_exterior_inside": [
+                    0.7387211149695336,
+                    0.26127888503046803
+                  ],
+                  "source_original_opposite_other_then_probe_inside": [
+                    0.40498827712161994,
+                    0.07093954274612435,
+                    0.26279329510178917,
+                    0.26127888503046803
+                  ],
+                  "correct_source_and_exterior_then_complement": [
+                    0.40498827712161994,
+                    0.5950117228783816
+                  ],
+                  "correct_source_and_excess_at_detector_then_complement": [
+                    0.10274060773212725,
+                    0.8972593922678742
+                  ]
+                }
+              ],
+              "excess_probability_difference": -3.885780586188048e-16,
+              "one_opening_state_symmetry_error": 7.107771521507663e-14,
+              "equal_source_mixture": {
+                "port_load_zero_host_excess": [
+                  1.7174038768062474e-06,
+                  0.684801033487733,
+                  0.3151972491083911
+                ],
+                "probe_exterior_inside": [
+                  0.7387211149695365,
+                  0.26127888503046454
+                ],
+                "source_original_opposite_other_then_probe_inside": [
+                  0.40498827712162133,
+                  0.07093954274612455,
+                  0.2627932951017904,
+                  0.26127888503046454
+                ],
+                "correct_source_and_exterior_then_complement": [
+                  0.40498827712162133,
+                  0.5950117228783796
+                ],
+                "correct_source_and_excess_at_detector_then_complement": [
+                  0.1027406077321273,
+                  0.8972593922678735
+                ]
+              }
+            },
+            {
+              "exposure": 16,
+              "source_plus_minus": [
+                {
+                  "port_load_zero_host_excess": [
+                    4.800353323624571e-06,
+                    0.7477893174404627,
+                    0.25220588220621315
+                  ],
+                  "probe_exterior_inside": [
+                    0.7517002568135308,
+                    0.24829974318646855
+                  ],
+                  "source_original_opposite_other_then_probe_inside": [
+                    0.4050564923276842,
+                    0.09519953175588926,
+                    0.25144423272995714,
+                    0.24829974318646855
+                  ],
+                  "correct_source_and_exterior_then_complement": [
+                    0.4050564923276842,
+                    0.594943507672315
+                  ],
+                  "correct_source_and_excess_at_detector_then_complement": [
+                    0.12921483054796504,
+                    0.8707851694520341
+                  ]
+                },
+                {
+                  "port_load_zero_host_excess": [
+                    4.800353323628648e-06,
+                    0.7477893174404627,
+                    0.25220588220621554
+                  ],
+                  "probe_exterior_inside": [
+                    0.7517002568135389,
+                    0.24829974318646286
+                  ],
+                  "source_original_opposite_other_then_probe_inside": [
+                    0.4050564923276836,
+                    0.09519953175589967,
+                    0.25144423272995564,
+                    0.24829974318646286
+                  ],
+                  "correct_source_and_exterior_then_complement": [
+                    0.4050564923276836,
+                    0.5949435076723182
+                  ],
+                  "correct_source_and_excess_at_detector_then_complement": [
+                    0.12921483054796495,
+                    0.8707851694520368
+                  ]
+                }
+              ],
+              "excess_probability_difference": -2.3869795029440866e-15,
+              "one_opening_state_symmetry_error": 8.932792174762119e-14,
+              "equal_source_mixture": {
+                "port_load_zero_host_excess": [
+                  4.8003533236266096e-06,
+                  0.7477893174404627,
+                  0.2522058822062143
+                ],
+                "probe_exterior_inside": [
+                  0.7517002568135349,
+                  0.2482997431864657
+                ],
+                "source_original_opposite_other_then_probe_inside": [
+                  0.4050564923276839,
+                  0.09519953175589446,
+                  0.2514442327299564,
+                  0.2482997431864657
+                ],
+                "correct_source_and_exterior_then_complement": [
+                  0.4050564923276839,
+                  0.5949435076723166
+                ],
+                "correct_source_and_excess_at_detector_then_complement": [
+                  0.129214830547965,
+                  0.8707851694520354
+                ]
+              }
+            },
+            {
+              "exposure": 32,
+              "source_plus_minus": [
+                {
+                  "port_load_zero_host_excess": [
+                    1.2179975935320632e-05,
+                    0.6120007906190384,
+                    0.3879870294050245
+                  ],
+                  "probe_exterior_inside": [
+                    0.8045227029545392,
+                    0.19547729704545913
+                  ],
+                  "source_original_opposite_other_then_probe_inside": [
+                    0.36422517347815125,
+                    0.3312044270805617,
+                    0.10909310239582604,
+                    0.19547729704545913
+                  ],
+                  "correct_source_and_exterior_then_complement": [
+                    0.36422517347815125,
+                    0.6357748265218469
+                  ],
+                  "correct_source_and_excess_at_detector_then_complement": [
+                    0.1348989361816776,
+                    0.8651010638183205
+                  ]
+                },
+                {
+                  "port_load_zero_host_excess": [
+                    1.2179975935326307e-05,
+                    0.6120007906190532,
+                    0.3879870294050141
+                  ],
+                  "probe_exterior_inside": [
+                    0.8045227029545465,
+                    0.19547729704545616
+                  ],
+                  "source_original_opposite_other_then_probe_inside": [
+                    0.36422517347815,
+                    0.3312044270805675,
+                    0.10909310239582887,
+                    0.19547729704545616
+                  ],
+                  "correct_source_and_exterior_then_complement": [
+                    0.36422517347815,
+                    0.6357748265218526
+                  ],
+                  "correct_source_and_excess_at_detector_then_complement": [
+                    0.13489893618167786,
+                    0.8651010638183247
+                  ]
+                }
+              ],
+              "excess_probability_difference": 1.0380585280245214e-14,
+              "one_opening_state_symmetry_error": 1.2521550110331585e-13,
+              "equal_source_mixture": {
+                "port_load_zero_host_excess": [
+                  1.2179975935323469e-05,
+                  0.6120007906190459,
+                  0.3879870294050193
+                ],
+                "probe_exterior_inside": [
+                  0.8045227029545429,
+                  0.19547729704545763
+                ],
+                "source_original_opposite_other_then_probe_inside": [
+                  0.36422517347815064,
+                  0.33120442708056463,
+                  0.10909310239582745,
+                  0.19547729704545763
+                ],
+                "correct_source_and_exterior_then_complement": [
+                  0.36422517347815064,
+                  0.6357748265218497
+                ],
+                "correct_source_and_excess_at_detector_then_complement": [
+                  0.13489893618167773,
+                  0.8651010638183226
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "kappa": 0,
+          "exact_reflection_commutes": true,
+          "eigensystem_residual_frobenius": 1.7591434070480986e-13,
+          "orthogonality_error_frobenius": 1.4670630486308698e-12,
+          "numerical_probability_allowance": 3.419264390236957e-11,
+          "readings": [
+            {
+              "exposure": 0,
+              "source_plus_minus": [
+                {
+                  "port_load_zero_host_excess": [
+                    1.9643911268587525e-28,
+                    4.611244798376617e-27,
+                    1.0000000000000029
+                  ],
+                  "probe_exterior_inside": [
+                    1.0000000000000029,
+                    2.6938450240154103e-27
+                  ],
+                  "source_original_opposite_other_then_probe_inside": [
+                    1.0000000000000027,
+                    1.8158453373652056e-27,
+                    4.332064202787907e-28,
+                    2.6938450240154103e-27
+                  ],
+                  "correct_source_and_exterior_then_complement": [
+                    1.0000000000000027,
+                    4.942896781659406e-27
+                  ],
+                  "correct_source_and_excess_at_detector_then_complement": [
+                    1.0000000000000027,
+                    4.991384033228491e-27
+                  ]
+                },
+                {
+                  "port_load_zero_host_excess": [
+                    1.9643911268587525e-28,
+                    4.611244798376617e-27,
+                    1.0000000000000029
+                  ],
+                  "probe_exterior_inside": [
+                    1.0000000000000029,
+                    2.6938450240154103e-27
+                  ],
+                  "source_original_opposite_other_then_probe_inside": [
+                    1.0000000000000027,
+                    1.8158453373652056e-27,
+                    4.332064202787907e-28,
+                    2.6938450240154103e-27
+                  ],
+                  "correct_source_and_exterior_then_complement": [
+                    1.0000000000000027,
+                    4.942896781659406e-27
+                  ],
+                  "correct_source_and_excess_at_detector_then_complement": [
+                    1.0000000000000027,
+                    4.991384033228491e-27
+                  ]
+                }
+              ],
+              "excess_probability_difference": 0.0,
+              "one_opening_state_symmetry_error": 1.3235876107421244e-13,
+              "equal_source_mixture": {
+                "port_load_zero_host_excess": [
+                  1.9643911268587525e-28,
+                  4.611244798376617e-27,
+                  1.0000000000000029
+                ],
+                "probe_exterior_inside": [
+                  1.0000000000000029,
+                  2.6938450240154103e-27
+                ],
+                "source_original_opposite_other_then_probe_inside": [
+                  1.0000000000000027,
+                  1.8158453373652056e-27,
+                  4.332064202787907e-28,
+                  2.6938450240154103e-27
+                ],
+                "correct_source_and_exterior_then_complement": [
+                  1.0000000000000027,
+                  4.942896781659406e-27
+                ],
+                "correct_source_and_excess_at_detector_then_complement": [
+                  1.0000000000000027,
+                  4.991384033228491e-27
+                ]
+              }
+            },
+            {
+              "exposure": 8,
+              "source_plus_minus": [
+                {
+                  "port_load_zero_host_excess": [
+                    0.03453301096766664,
+                    0.7918283150228952,
+                    0.17363867400944055
+                  ],
+                  "probe_exterior_inside": [
+                    0.371894344301948,
+                    0.6281056556980544
+                  ],
+                  "source_original_opposite_other_then_probe_inside": [
+                    0.3471958463675084,
+                    0.0028371295861635056,
+                    0.021861368348275945,
+                    0.6281056556980544
+                  ],
+                  "correct_source_and_exterior_then_complement": [
+                    0.3471958463675084,
+                    0.6528041536324939
+                  ],
+                  "correct_source_and_excess_at_detector_then_complement": [
+                    0.1697192776940393,
+                    0.830280722305963
+                  ]
+                },
+                {
+                  "port_load_zero_host_excess": [
+                    0.03453301096766682,
+                    0.7918283150228955,
+                    0.1736386740094407
+                  ],
+                  "probe_exterior_inside": [
+                    0.3718943443019481,
+                    0.6281056556980549
+                  ],
+                  "source_original_opposite_other_then_probe_inside": [
+                    0.3471958463675079,
+                    0.002837129586163347,
+                    0.021861368348276768,
+                    0.6281056556980549
+                  ],
+                  "correct_source_and_exterior_then_complement": [
+                    0.3471958463675079,
+                    0.652804153632495
+                  ],
+                  "correct_source_and_excess_at_detector_then_complement": [
+                    0.1697192776940393,
+                    0.8302807223059636
+                  ]
+                }
+              ],
+              "excess_probability_difference": -1.3877787807814457e-16,
+              "one_opening_state_symmetry_error": 1.368661107874325e-13,
+              "equal_source_mixture": {
+                "port_load_zero_host_excess": [
+                  0.03453301096766673,
+                  0.7918283150228953,
+                  0.1736386740094406
+                ],
+                "probe_exterior_inside": [
+                  0.37189434430194807,
+                  0.6281056556980547
+                ],
+                "source_original_opposite_other_then_probe_inside": [
+                  0.3471958463675081,
+                  0.0028371295861634263,
+                  0.021861368348276358,
+                  0.6281056556980547
+                ],
+                "correct_source_and_exterior_then_complement": [
+                  0.3471958463675081,
+                  0.6528041536324944
+                ],
+                "correct_source_and_excess_at_detector_then_complement": [
+                  0.1697192776940393,
+                  0.8302807223059633
+                ]
+              }
+            },
+            {
+              "exposure": 16,
+              "source_plus_minus": [
+                {
+                  "port_load_zero_host_excess": [
+                    0.22850594020937567,
+                    0.7221635393476833,
+                    0.04933052044294324
+                  ],
+                  "probe_exterior_inside": [
+                    0.30926255670160113,
+                    0.690737443298401
+                  ],
+                  "source_original_opposite_other_then_probe_inside": [
+                    0.27180941175084866,
+                    0.003961015386166271,
+                    0.03349212956458617,
+                    0.690737443298401
+                  ],
+                  "correct_source_and_exterior_then_complement": [
+                    0.27180941175084866,
+                    0.7281905882491534
+                  ],
+                  "correct_source_and_excess_at_detector_then_complement": [
+                    0.04504871758927084,
+                    0.9549512824107311
+                  ]
+                },
+                {
+                  "port_load_zero_host_excess": [
+                    0.2285059402093757,
+                    0.7221635393476831,
+                    0.04933052044294444
+                  ],
+                  "probe_exterior_inside": [
+                    0.30926255670160263,
+                    0.6907374432984006
+                  ],
+                  "source_original_opposite_other_then_probe_inside": [
+                    0.27180941175084833,
+                    0.003961015386166969,
+                    0.03349212956458728,
+                    0.6907374432984006
+                  ],
+                  "correct_source_and_exterior_then_complement": [
+                    0.27180941175084833,
+                    0.7281905882491548
+                  ],
+                  "correct_source_and_excess_at_detector_then_complement": [
+                    0.04504871758927084,
+                    0.9549512824107323
+                  ]
+                }
+              ],
+              "excess_probability_difference": -1.2004286453759505e-15,
+              "one_opening_state_symmetry_error": 1.4564801063408655e-13,
+              "equal_source_mixture": {
+                "port_load_zero_host_excess": [
+                  0.2285059402093757,
+                  0.7221635393476832,
+                  0.04933052044294384
+                ],
+                "probe_exterior_inside": [
+                  0.30926255670160185,
+                  0.6907374432984008
+                ],
+                "source_original_opposite_other_then_probe_inside": [
+                  0.2718094117508485,
+                  0.0039610153861666195,
+                  0.03349212956458673,
+                  0.6907374432984008
+                ],
+                "correct_source_and_exterior_then_complement": [
+                  0.2718094117508485,
+                  0.7281905882491542
+                ],
+                "correct_source_and_excess_at_detector_then_complement": [
+                  0.04504871758927084,
+                  0.9549512824107318
+                ]
+              }
+            },
+            {
+              "exposure": 32,
+              "source_plus_minus": [
+                {
+                  "port_load_zero_host_excess": [
+                    0.049396572992892906,
+                    0.7460860622223144,
+                    0.2045173647847944
+                  ],
+                  "probe_exterior_inside": [
+                    0.3891895327921101,
+                    0.6108104672078916
+                  ],
+                  "source_original_opposite_other_then_probe_inside": [
+                    0.32938046989644737,
+                    0.006016740366624392,
+                    0.053792322529038275,
+                    0.6108104672078916
+                  ],
+                  "correct_source_and_exterior_then_complement": [
+                    0.32938046989644737,
+                    0.6706195301035542
+                  ],
+                  "correct_source_and_excess_at_detector_then_complement": [
+                    0.19615468595435712,
+                    0.8038453140456444
+                  ]
+                },
+                {
+                  "port_load_zero_host_excess": [
+                    0.049396572992893184,
+                    0.746086062222315,
+                    0.20451736478479582
+                  ],
+                  "probe_exterior_inside": [
+                    0.3891895327921109,
+                    0.6108104672078931
+                  ],
+                  "source_original_opposite_other_then_probe_inside": [
+                    0.32938046989644665,
+                    0.006016740366623776,
+                    0.053792322529040384,
+                    0.6108104672078931
+                  ],
+                  "correct_source_and_exterior_then_complement": [
+                    0.32938046989644665,
+                    0.6706195301035573
+                  ],
+                  "correct_source_and_excess_at_detector_then_complement": [
+                    0.19615468595435712,
+                    0.803845314045647
+                  ]
+                }
+              ],
+              "excess_probability_difference": -1.4155343563970746e-15,
+              "one_opening_state_symmetry_error": 1.6877801210718857e-13,
+              "equal_source_mixture": {
+                "port_load_zero_host_excess": [
+                  0.049396572992893045,
+                  0.7460860622223147,
+                  0.2045173647847951
+                ],
+                "probe_exterior_inside": [
+                  0.3891895327921105,
+                  0.6108104672078923
+                ],
+                "source_original_opposite_other_then_probe_inside": [
+                  0.329380469896447,
+                  0.006016740366624084,
+                  0.05379232252903933,
+                  0.6108104672078923
+                ],
+                "correct_source_and_exterior_then_complement": [
+                  0.329380469896447,
+                  0.6706195301035558
+                ],
+                "correct_source_and_excess_at_detector_then_complement": [
+                  0.19615468595435712,
+                  0.8038453140456456
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "owners": [
+        0,
+        4,
+        6
+      ],
+      "ports": 36,
+      "dimension": 1260,
+      "detector_port": 48,
+      "settings": [
+        {
+          "kappa": 8,
+          "exact_reflection_commutes": false,
+          "eigensystem_residual_frobenius": 1.3755322741623627e-12,
+          "orthogonality_error_frobenius": 3.388553734189122e-11,
+          "numerical_probability_allowance": 1.7580514023017368e-10,
+          "readings": [
+            {
+              "exposure": 0,
+              "source_plus_minus": [
+                {
+                  "port_load_zero_host_excess": [
+                    2.2776945088516543e-31,
+                    0.5000000000000002,
+                    0.49999999999999717
+                  ],
+                  "probe_exterior_inside": [
+                    0.9999999999999973,
+                    7.163996377518794e-29
+                  ],
+                  "source_original_opposite_other_then_probe_inside": [
+                    0.9999999999999973,
+                    3.0976897920895345e-28,
+                    8.311494482533897e-29,
+                    7.163996377518794e-29
+                  ],
+                  "correct_source_and_exterior_then_complement": [
+                    0.9999999999999973,
+                    4.645238878094803e-28
+                  ],
+                  "correct_source_and_excess_at_detector_then_complement": [
+                    0.49999999999999706,
+                    0.5000000000000002
+                  ]
+                },
+                {
+                  "port_load_zero_host_excess": [
+                    2.8645956236446395e-31,
+                    0.49999999999999983,
+                    0.49999999999999656
+                  ],
+                  "probe_exterior_inside": [
+                    0.9999999999999964,
+                    7.704733426223591e-29
+                  ],
+                  "source_original_opposite_other_then_probe_inside": [
+                    0.999999999999996,
+                    3.0090482165394646e-28,
+                    8.896340375385739e-29,
+                    7.704733426223591e-29
+                  ],
+                  "correct_source_and_exterior_then_complement": [
+                    0.999999999999996,
+                    4.669155596700398e-28
+                  ],
+                  "correct_source_and_excess_at_detector_then_complement": [
+                    0.49999999999999645,
+                    0.4999999999999996
+                  ]
+                }
+              ],
+              "excess_probability_difference": 6.106226635438361e-16,
+              "one_opening_state_symmetry_error": null,
+              "equal_source_mixture": {
+                "port_load_zero_host_excess": [
+                  2.571145066248147e-31,
+                  0.5,
+                  0.4999999999999969
+                ],
+                "probe_exterior_inside": [
+                  0.9999999999999969,
+                  7.434364901871193e-29
+                ],
+                "source_original_opposite_other_then_probe_inside": [
+                  0.9999999999999967,
+                  3.0533690043144993e-28,
+                  8.603917428959818e-29,
+                  7.434364901871193e-29
+                ],
+                "correct_source_and_exterior_then_complement": [
+                  0.9999999999999967,
+                  4.6571972373976e-28
+                ],
+                "correct_source_and_excess_at_detector_then_complement": [
+                  0.4999999999999968,
+                  0.4999999999999999
+                ]
+              }
+            },
+            {
+              "exposure": 8,
+              "source_plus_minus": [
+                {
+                  "port_load_zero_host_excess": [
+                    2.0296963156298546e-05,
+                    0.6241321684278588,
+                    0.3758475346089828
+                  ],
+                  "probe_exterior_inside": [
+                    0.7780745787677984,
+                    0.22192542123219958
+                  ],
+                  "source_original_opposite_other_then_probe_inside": [
+                    0.36569189909437405,
+                    0.1676919215865616,
+                    0.24469075808686253,
+                    0.22192542123219958
+                  ],
+                  "correct_source_and_exterior_then_complement": [
+                    0.36569189909437405,
+                    0.6343081009056237
+                  ],
+                  "correct_source_and_excess_at_detector_then_complement": [
+                    0.14904906982884458,
+                    0.8509509301711532
+                  ]
+                },
+                {
+                  "port_load_zero_host_excess": [
+                    1.0795140074091824e-05,
+                    0.6116723389196952,
+                    0.3883168659402271
+                  ],
+                  "probe_exterior_inside": [
+                    0.7928222163199155,
+                    0.20717778368008077
+                  ],
+                  "source_original_opposite_other_then_probe_inside": [
+                    0.37528251171233595,
+                    0.16772326202983817,
+                    0.24981644257774135,
+                    0.20717778368008077
+                  ],
+                  "correct_source_and_exterior_then_complement": [
+                    0.37528251171233595,
+                    0.6247174882876603
+                  ],
+                  "correct_source_and_excess_at_detector_then_complement": [
+                    0.15493065603524744,
+                    0.8450693439647488
+                  ]
+                }
+              ],
+              "excess_probability_difference": -0.012469331331244282,
+              "one_opening_state_symmetry_error": null,
+              "equal_source_mixture": {
+                "port_load_zero_host_excess": [
+                  1.5546051615195184e-05,
+                  0.617902253673777,
+                  0.38208220027460493
+                ],
+                "probe_exterior_inside": [
+                  0.7854483975438569,
+                  0.2145516024561402
+                ],
+                "source_original_opposite_other_then_probe_inside": [
+                  0.370487205403355,
+                  0.16770759180819989,
+                  0.24725360033230193,
+                  0.2145516024561402
+                ],
+                "correct_source_and_exterior_then_complement": [
+                  0.370487205403355,
+                  0.629512794596642
+                ],
+                "correct_source_and_excess_at_detector_then_complement": [
+                  0.15198986293204603,
+                  0.8480101370679509
+                ]
+              }
+            },
+            {
+              "exposure": 16,
+              "source_plus_minus": [
+                {
+                  "port_load_zero_host_excess": [
+                    2.5848975710452047e-05,
+                    0.7476218867360997,
+                    0.2523522642881873
+                  ],
+                  "probe_exterior_inside": [
+                    0.6986365657771176,
+                    0.30136343422287987
+                  ],
+                  "source_original_opposite_other_then_probe_inside": [
+                    0.3038526666962527,
+                    0.17631130331694023,
+                    0.21847259576392444,
+                    0.30136343422287987
+                  ],
+                  "correct_source_and_exterior_then_complement": [
+                    0.3038526666962527,
+                    0.6961473333037446
+                  ],
+                  "correct_source_and_excess_at_detector_then_complement": [
+                    0.06789443344545565,
+                    0.9321055665545417
+                  ]
+                },
+                {
+                  "port_load_zero_host_excess": [
+                    1.1034562610526578e-05,
+                    0.749387222776583,
+                    0.2506017426608034
+                  ],
+                  "probe_exterior_inside": [
+                    0.7119846397754436,
+                    0.28801536022455326
+                  ],
+                  "source_original_opposite_other_then_probe_inside": [
+                    0.31479796172386887,
+                    0.1836171272676344,
+                    0.21356955078394016,
+                    0.28801536022455326
+                  ],
+                  "correct_source_and_exterior_then_complement": [
+                    0.31479796172386887,
+                    0.6852020382761278
+                  ],
+                  "correct_source_and_excess_at_detector_then_complement": [
+                    0.07474858197011833,
+                    0.9252514180298783
+                  ]
+                }
+              ],
+              "excess_probability_difference": 0.0017505216273839275,
+              "one_opening_state_symmetry_error": null,
+              "equal_source_mixture": {
+                "port_load_zero_host_excess": [
+                  1.8441769160489313e-05,
+                  0.7485045547563414,
+                  0.2514770034744953
+                ],
+                "probe_exterior_inside": [
+                  0.7053106027762805,
+                  0.29468939722371656
+                ],
+                "source_original_opposite_other_then_probe_inside": [
+                  0.3093253142100608,
+                  0.17996421529228732,
+                  0.2160210732739323,
+                  0.29468939722371656
+                ],
+                "correct_source_and_exterior_then_complement": [
+                  0.3093253142100608,
+                  0.6906746857899362
+                ],
+                "correct_source_and_excess_at_detector_then_complement": [
+                  0.07132150770778699,
+                  0.92867849229221
+                ]
+              }
+            },
+            {
+              "exposure": 32,
+              "source_plus_minus": [
+                {
+                  "port_load_zero_host_excess": [
+                    1.5720540201861825e-05,
+                    0.5938685265687573,
+                    0.4061157528910387
+                  ],
+                  "probe_exterior_inside": [
+                    0.8142058183842318,
+                    0.1857941816157662
+                  ],
+                  "source_original_opposite_other_then_probe_inside": [
+                    0.22210844558648304,
+                    0.4778824475061243,
+                    0.1142149252916242,
+                    0.1857941816157662
+                  ],
+                  "correct_source_and_exterior_then_complement": [
+                    0.22210844558648304,
+                    0.7778915544135148
+                  ],
+                  "correct_source_and_excess_at_detector_then_complement": [
+                    0.039791854448489,
+                    0.9602081455515088
+                  ]
+                },
+                {
+                  "port_load_zero_host_excess": [
+                    5.965332450526317e-06,
+                    0.5712642817178475,
+                    0.42872975294969834
+                  ],
+                  "probe_exterior_inside": [
+                    0.8463892572349792,
+                    0.15361074276501716
+                  ],
+                  "source_original_opposite_other_then_probe_inside": [
+                    0.2357727873443003,
+                    0.504020102975759,
+                    0.10659636691491976,
+                    0.15361074276501716
+                  ],
+                  "correct_source_and_exterior_then_complement": [
+                    0.2357727873443003,
+                    0.764227212655696
+                  ],
+                  "correct_source_and_excess_at_detector_then_complement": [
+                    0.043222182279433474,
+                    0.9567778177205628
+                  ]
+                }
+              ],
+              "excess_probability_difference": -0.022614000058659656,
+              "one_opening_state_symmetry_error": null,
+              "equal_source_mixture": {
+                "port_load_zero_host_excess": [
+                  1.0842936326194071e-05,
+                  0.5825664041433024,
+                  0.4174227529203685
+                ],
+                "probe_exterior_inside": [
+                  0.8302975378096055,
+                  0.16970246219039167
+                ],
+                "source_original_opposite_other_then_probe_inside": [
+                  0.22894061646539166,
+                  0.4909512752409417,
+                  0.11040564610327198,
+                  0.16970246219039167
+                ],
+                "correct_source_and_exterior_then_complement": [
+                  0.22894061646539166,
+                  0.7710593835346053
+                ],
+                "correct_source_and_excess_at_detector_then_complement": [
+                  0.041507018363961236,
+                  0.9584929816360358
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "kappa": 0,
+          "exact_reflection_commutes": false,
+          "eigensystem_residual_frobenius": 3.110506527128416e-13,
+          "orthogonality_error_frobenius": 4.728474200098734e-12,
+          "numerical_probability_allowance": 4.9364190173819327e-11,
+          "readings": [
+            {
+              "exposure": 0,
+              "source_plus_minus": [
+                {
+                  "port_load_zero_host_excess": [
+                    3.7051589206371245e-28,
+                    0.5000000000000022,
+                    0.5000000000000058
+                  ],
+                  "probe_exterior_inside": [
+                    1.000000000000008,
+                    4.939639089492851e-27
+                  ],
+                  "source_original_opposite_other_then_probe_inside": [
+                    1.0000000000000075,
+                    3.255549308523806e-28,
+                    6.1342727176518606e-27,
+                    4.939639089492851e-27
+                  ],
+                  "correct_source_and_exterior_then_complement": [
+                    1.0000000000000075,
+                    1.1399466737997093e-26
+                  ],
+                  "correct_source_and_excess_at_detector_then_complement": [
+                    0.5000000000000056,
+                    0.5000000000000021
+                  ]
+                },
+                {
+                  "port_load_zero_host_excess": [
+                    6.168581502069738e-28,
+                    0.5000000000000068,
+                    0.5000000000000104
+                  ],
+                  "probe_exterior_inside": [
+                    1.0000000000000173,
+                    7.544555847486694e-27
+                  ],
+                  "source_original_opposite_other_then_probe_inside": [
+                    1.000000000000017,
+                    1.8103847196697417e-28,
+                    1.05768302784924e-26,
+                    7.544555847486694e-27
+                  ],
+                  "correct_source_and_exterior_then_complement": [
+                    1.000000000000017,
+                    1.830242459794607e-26
+                  ],
+                  "correct_source_and_excess_at_detector_then_complement": [
+                    0.5000000000000103,
+                    0.5000000000000068
+                  ]
+                }
+              ],
+              "excess_probability_difference": -4.6629367034256575e-15,
+              "one_opening_state_symmetry_error": null,
+              "equal_source_mixture": {
+                "port_load_zero_host_excess": [
+                  4.936870211353431e-28,
+                  0.5000000000000044,
+                  0.5000000000000081
+                ],
+                "probe_exterior_inside": [
+                  1.0000000000000127,
+                  6.242097468489773e-27
+                ],
+                "source_original_opposite_other_then_probe_inside": [
+                  1.0000000000000124,
+                  2.532967014096774e-28,
+                  8.355551498072129e-27,
+                  6.242097468489773e-27
+                ],
+                "correct_source_and_exterior_then_complement": [
+                  1.0000000000000124,
+                  1.485094566797158e-26
+                ],
+                "correct_source_and_excess_at_detector_then_complement": [
+                  0.500000000000008,
+                  0.5000000000000044
+                ]
+              }
+            },
+            {
+              "exposure": 8,
+              "source_plus_minus": [
+                {
+                  "port_load_zero_host_excess": [
+                    0.013686770896214765,
+                    0.9045881386051278,
+                    0.08172509049866615
+                  ],
+                  "probe_exterior_inside": [
+                    0.41364978386571427,
+                    0.5863502161342945
+                  ],
+                  "source_original_opposite_other_then_probe_inside": [
+                    0.37825031550910926,
+                    0.005239747048248087,
+                    0.030159721308356823,
+                    0.5863502161342945
+                  ],
+                  "correct_source_and_exterior_then_complement": [
+                    0.37825031550910926,
+                    0.6217496844908994
+                  ],
+                  "correct_source_and_excess_at_detector_then_complement": [
+                    0.07652571629297486,
+                    0.9234742837070338
+                  ]
+                },
+                {
+                  "port_load_zero_host_excess": [
+                    0.016666818510372307,
+                    0.8896781764352004,
+                    0.09365500505444468
+                  ],
+                  "probe_exterior_inside": [
+                    0.44179401555652503,
+                    0.5582059844434926
+                  ],
+                  "source_original_opposite_other_then_probe_inside": [
+                    0.4016683997822029,
+                    0.0038027065235205527,
+                    0.036322909250801276,
+                    0.5582059844434926
+                  ],
+                  "correct_source_and_exterior_then_complement": [
+                    0.4016683997822029,
+                    0.5983316002178144
+                  ],
+                  "correct_source_and_excess_at_detector_then_complement": [
+                    0.08983516321931759,
+                    0.9101648367806998
+                  ]
+                }
+              ],
+              "excess_probability_difference": -0.011929914555778534,
+              "one_opening_state_symmetry_error": null,
+              "equal_source_mixture": {
+                "port_load_zero_host_excess": [
+                  0.015176794703293535,
+                  0.8971331575201641,
+                  0.08769004777655542
+                ],
+                "probe_exterior_inside": [
+                  0.4277218997111196,
+                  0.5722781002888935
+                ],
+                "source_original_opposite_other_then_probe_inside": [
+                  0.3899593576456561,
+                  0.00452122678588432,
+                  0.03324131527957905,
+                  0.5722781002888935
+                ],
+                "correct_source_and_exterior_then_complement": [
+                  0.3899593576456561,
+                  0.610040642354357
+                ],
+                "correct_source_and_excess_at_detector_then_complement": [
+                  0.08318043975614622,
+                  0.9168195602438668
+                ]
+              }
+            },
+            {
+              "exposure": 16,
+              "source_plus_minus": [
+                {
+                  "port_load_zero_host_excess": [
+                    0.02947477722750027,
+                    0.9324531052200411,
+                    0.03807211755246716
+                  ],
+                  "probe_exterior_inside": [
+                    0.3955099733125502,
+                    0.6044900266874582
+                  ],
+                  "source_original_opposite_other_then_probe_inside": [
+                    0.3363278807587113,
+                    0.007891785417992523,
+                    0.051290307135846314,
+                    0.6044900266874582
+                  ],
+                  "correct_source_and_exterior_then_complement": [
+                    0.3363278807587113,
+                    0.6636721192412971
+                  ],
+                  "correct_source_and_excess_at_detector_then_complement": [
+                    0.030690419434145143,
+                    0.9693095805658632
+                  ]
+                },
+                {
+                  "port_load_zero_host_excess": [
+                    0.028557708091475648,
+                    0.9534826604786744,
+                    0.017959631429867496
+                  ],
+                  "probe_exterior_inside": [
+                    0.39794611079329534,
+                    0.6020538892067222
+                  ],
+                  "source_original_opposite_other_then_probe_inside": [
+                    0.32998754860386437,
+                    0.012058221925172754,
+                    0.055900340264258074,
+                    0.6020538892067222
+                  ],
+                  "correct_source_and_exterior_then_complement": [
+                    0.32998754860386437,
+                    0.6700124513961531
+                  ],
+                  "correct_source_and_excess_at_detector_then_complement": [
+                    0.011846060267028955,
+                    0.9881539397329885
+                  ]
+                }
+              ],
+              "excess_probability_difference": 0.020112486122599662,
+              "one_opening_state_symmetry_error": null,
+              "equal_source_mixture": {
+                "port_load_zero_host_excess": [
+                  0.02901624265948796,
+                  0.9429678828493577,
+                  0.028015874491167325
+                ],
+                "probe_exterior_inside": [
+                  0.3967280420529228,
+                  0.6032719579470902
+                ],
+                "source_original_opposite_other_then_probe_inside": [
+                  0.33315771468128785,
+                  0.009975003671582638,
+                  0.0535953237000522,
+                  0.6032719579470902
+                ],
+                "correct_source_and_exterior_then_complement": [
+                  0.33315771468128785,
+                  0.666842285318725
+                ],
+                "correct_source_and_excess_at_detector_then_complement": [
+                  0.02126823985058705,
+                  0.9787317601494259
+                ]
+              }
+            },
+            {
+              "exposure": 32,
+              "source_plus_minus": [
+                {
+                  "port_load_zero_host_excess": [
+                    0.01625152656309327,
+                    0.923906054751765,
+                    0.05984241868514917
+                  ],
+                  "probe_exterior_inside": [
+                    0.3711140640103564,
+                    0.628885935989651
+                  ],
+                  "source_original_opposite_other_then_probe_inside": [
+                    0.2808400066776399,
+                    0.023473223661991376,
+                    0.06680083367072513,
+                    0.628885935989651
+                  ],
+                  "correct_source_and_exterior_then_complement": [
+                    0.2808400066776399,
+                    0.7191599933223675
+                  ],
+                  "correct_source_and_excess_at_detector_then_complement": [
+                    0.04790128918438024,
+                    0.9520987108156271
+                  ]
+                },
+                {
+                  "port_load_zero_host_excess": [
+                    0.016626307039521095,
+                    0.9312299935435797,
+                    0.052143699416916635
+                  ],
+                  "probe_exterior_inside": [
+                    0.40257780934381154,
+                    0.5974221906562058
+                  ],
+                  "source_original_opposite_other_then_probe_inside": [
+                    0.2951225999593131,
+                    0.02104307795935252,
+                    0.08641213142514581,
+                    0.5974221906562058
+                  ],
+                  "correct_source_and_exterior_then_complement": [
+                    0.2951225999593131,
+                    0.7048774000407042
+                  ],
+                  "correct_source_and_excess_at_detector_then_complement": [
+                    0.04200352452192686,
+                    0.9579964754780905
+                  ]
+                }
+              ],
+              "excess_probability_difference": 0.007698719268232533,
+              "one_opening_state_symmetry_error": null,
+              "equal_source_mixture": {
+                "port_load_zero_host_excess": [
+                  0.01643891680130718,
+                  0.9275680241476724,
+                  0.0559930590510329
+                ],
+                "probe_exterior_inside": [
+                  0.386845936677084,
+                  0.6131540633229284
+                ],
+                "source_original_opposite_other_then_probe_inside": [
+                  0.2879813033184765,
+                  0.02225815081067195,
+                  0.07660648254793548,
+                  0.6131540633229284
+                ],
+                "correct_source_and_exterior_then_complement": [
+                  0.2879813033184765,
+                  0.7120186966815358
+                ],
+                "correct_source_and_excess_at_detector_then_complement": [
+                  0.04495240685315355,
+                  0.9550475931468588
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "two_opening_reversal_gate": {
+    "minimum_absolute_difference": 0.01,
+    "passed": true
+  }
+}

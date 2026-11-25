@@ -1,0 +1,71 @@
+{
+  "time": 4,
+  "forward_ports": [
+    0,
+    5,
+    9,
+    8,
+    7
+  ],
+  "reverse_ports": [
+    39,
+    40,
+    47,
+    46,
+    42
+  ],
+  "oriented_edge": [
+    1,
+    38
+  ],
+  "receiving_edges": [
+    [
+      1,
+      38
+    ],
+    [
+      22,
+      44
+    ],
+    [
+      27,
+      36
+    ]
+  ],
+  "charges": {
+    "-1": {
+      "forward_launch": {
+        "reference": -0.0657281431904207,
+        "ordinary": -1.201017259854644,
+        "pairing": -0.4742795612516178
+      },
+      "reverse_launch": {
+        "reference": 0.02975999380238204,
+        "ordinary": -4.973792830774785,
+        "pairing": -1.2661928359872927
+      },
+      "equal_tagged_launch": {
+        "reference": -0.017984074694019303,
+        "ordinary": -3.087405045314714,
+        "pairing": -0.8702361986194551
+      }
+    },
+    "1": {
+      "forward_launch": {
+        "reference": -0.17626147283093904,
+        "ordinary": 0.9272492836986275,
+        "pairing": 0.5256302943520864
+      },
+      "reverse_launch": {
+        "reference": 0.07600749194564321,
+        "ordinary": -5.045164442202983,
+        "pairing": -1.7105388697947448
+      },
+      "equal_tagged_launch": {
+        "reference": -0.05012699044264791,
+        "ordinary": -2.0589575792521777,
+        "pairing": -0.5924542877213295
+      }
+    }
+  }
+}

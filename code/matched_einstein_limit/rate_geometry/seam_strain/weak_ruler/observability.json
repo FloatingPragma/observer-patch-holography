@@ -1,0 +1,194 @@
+{
+  "fixed_rail_weights": [
+    2,
+    1
+  ],
+  "basis": [
+    "XX",
+    "XY",
+    "XZ",
+    "YX",
+    "YY",
+    "YZ",
+    "ZX",
+    "ZY",
+    "ZZ"
+  ],
+  "contacts": [
+    {
+      "order": 1,
+      "links": 2520,
+      "cumulative_classes": 1,
+      "cumulative_rank": 1
+    },
+    {
+      "order": 2,
+      "links": 3600,
+      "cumulative_classes": 3,
+      "cumulative_rank": 3
+    },
+    {
+      "order": 3,
+      "links": 4704,
+      "cumulative_classes": 6,
+      "cumulative_rank": 6
+    },
+    {
+      "order": 4,
+      "links": 6672,
+      "cumulative_classes": 10,
+      "cumulative_rank": 6
+    }
+  ],
+  "independent_links": [
+    [
+      3,
+      0,
+      39
+    ],
+    [
+      2,
+      1,
+      10
+    ],
+    [
+      2,
+      39,
+      46
+    ],
+    [
+      4,
+      1,
+      37
+    ],
+    [
+      4,
+      2,
+      38
+    ],
+    [
+      1,
+      1,
+      38
+    ]
+  ],
+  "rank": 6,
+  "rank_with_retained_modular": 7,
+  "singular_values_unit_HS_per_distinct_centered_operator": [
+    0.2802391041488454,
+    0.11008352235792158,
+    0.10986963627193722,
+    0.011705152109607906,
+    0.010983974747675746,
+    1.909832513714469e-05,
+    2.406674801367674e-17,
+    8.540155938961136e-18,
+    8.015119799983186e-19
+  ],
+  "modular_covector_center": [
+    0.0007931229290399923,
+    -0.0003938409786580578,
+    0.008467926036868972,
+    0.00047627019396920197,
+    0.0007313713391625748,
+    -0.003135707366503067,
+    -0.01006322448883348,
+    -0.002849729257417857,
+    -0.7604910997957266
+  ],
+  "projected_residual_norm": 0.000530318812373351,
+  "blind_direction_center": [
+    -0.19085875551716924,
+    0.08169692365042636,
+    -8.314782318308289e-05,
+    -0.023399949543108534,
+    0.977910710150951,
+    0.004417631931794119,
+    0.0019402450570247254,
+    0.0042826471996448845,
+    -7.374667973891746e-05
+  ],
+  "correction_columns": [
+    8,
+    5,
+    7,
+    6,
+    2,
+    0
+  ],
+  "maximum_coordinate_correction_upper": 5.6161333960195514e-09,
+  "front_minor_inverse_defect_upper": 1.1705066362301438e-13,
+  "entropy_nats_per_unit_blind_direction_lower": 0.00053,
+  "native_lotteries": {
+    "quarter_turns_about_formed_marginals": [
+      "independent_repairing",
+      "L2R2",
+      "L1R3",
+      "L0R2",
+      "L3R3",
+      "L2R0",
+      "L1R1",
+      "L1R2",
+      "L0R1"
+    ],
+    "common_scale": 25850,
+    "positive_center_probabilities": [
+      3.364791460407374e-08,
+      0.0,
+      0.043370316743354176,
+      0.07449551844839274,
+      0.3520202276893092,
+      0.0,
+      0.5300866561110831,
+      0.0,
+      0.0
+    ],
+    "negative_center_probabilities": [
+      0.0,
+      0.24805157437671496,
+      0.0,
+      0.0,
+      0.0,
+      0.10381806186523479,
+      0.0,
+      0.22169149557953377,
+      0.13481867800996467
+    ],
+    "positive_reference_center": 2.7247359946191985e-05,
+    "negative_reference_center": 0.2916201901685518,
+    "exact_probability_error_upper": 9.478153627982809e-09,
+    "bank_inverse_defect_upper": 6.466633603860889e-10,
+    "retained_entropy_derivative_difference_lower": 2.0494547199589176e-08,
+    "common_admixture": 1e-07,
+    "finite_entropy_difference_lower": 1.7734115772317862e-15,
+    "finite_weight_control": {
+      "denominator": 1099511627776,
+      "positive_numerators": [
+        36996,
+        0,
+        47686167559,
+        81908688751,
+        387050333556,
+        0,
+        582836442123,
+        0,
+        0
+      ],
+      "negative_numerators": [
+        0,
+        272735590315,
+        0,
+        0,
+        0,
+        114149166193,
+        0,
+        243752377168,
+        148234704113
+      ],
+      "positive_reference_numerator": 29958791,
+      "negative_reference_numerator": 320639789987,
+      "centered_unit_row_sum_front_difference_upper": 1e-12,
+      "retained_entropy_derivative_difference_lower": 2e-08
+    }
+  }
+}

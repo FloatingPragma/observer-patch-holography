@@ -1,0 +1,99 @@
+{
+  "root_face": 0,
+  "child_choices": 4,
+  "source_share_or_fresh": "1/2",
+  "conditional_child_agreement": "5/8",
+  "levels": [
+    {
+      "cover_weights_coarse_to_fine": [
+        "1"
+      ],
+      "depth": 1,
+      "sphere_cells": 80,
+      "marked_trials_by_menu": {
+        "common_parent": {
+          "distinct_ordered_pair_readbacks": 16,
+          "complete_histories": 32,
+          "half_contacts": 160,
+          "directed_intercell_swaps": 320
+        },
+        "always_share": {
+          "distinct_ordered_pair_readbacks": 16,
+          "complete_histories": 32,
+          "half_contacts": 160,
+          "directed_intercell_swaps": 320
+        },
+        "independent": {
+          "distinct_ordered_pair_readbacks": 16,
+          "complete_histories": 32,
+          "half_contacts": 160,
+          "directed_intercell_swaps": 320
+        }
+      },
+      "ancestor_equality": "5/8",
+      "native_KL_nats": 0.312751514711,
+      "changed_wiring_KL_excess_nats": 0.0,
+      "feasible_lift_cost_nats": 0.312751514711,
+      "half_contact_Born_branches_per_context": 32,
+      "same_parent_diagonal_counts": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "separated_parent_diagonal_counts": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "uniform_reference_mass": "1/16"
+    },
+    {
+      "cover_weights_coarse_to_fine": [
+        "1/2",
+        "1/2"
+      ],
+      "depth": 2,
+      "sphere_cells": 320,
+      "marked_trials_by_menu": {
+        "common_parent": {
+          "distinct_ordered_pair_readbacks": 256,
+          "complete_histories": 1024,
+          "half_contacts": 10240,
+          "directed_intercell_swaps": 62464
+        },
+        "always_share": {
+          "distinct_ordered_pair_readbacks": 256,
+          "complete_histories": 1024,
+          "half_contacts": 10240,
+          "directed_intercell_swaps": 62464
+        },
+        "independent": {
+          "distinct_ordered_pair_readbacks": 256,
+          "complete_histories": 1024,
+          "half_contacts": 10240,
+          "directed_intercell_swaps": 62464
+        }
+      },
+      "ancestor_equality": "25/64",
+      "native_KL_nats": 0.508221211406,
+      "changed_wiring_KL_excess_nats": 0.117281818017,
+      "feasible_lift_cost_nats": 0.195469696695,
+      "half_contact_Born_branches_per_context": 32,
+      "same_parent_diagonal_counts": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "separated_parent_diagonal_counts": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "uniform_reference_mass": "1/256"
+    }
+  ]
+}

@@ -1,0 +1,229 @@
+{
+  "written": {
+    "fisher_lower": "229/86580",
+    "fisher_upper": "44/12285",
+    "fisher_at_product": "1/324",
+    "entropy_slopes": [
+      "[0.003305127533094097923650122010685723099526, 0.003305127533094097923650122010685723211198]",
+      "[0.0, 0.0]",
+      "[-0.002948369996399887019756721168940112583079, -0.002948369996399887019756721168940112477284]"
+    ],
+    "conditional_information_from_product": {
+      "reverse": "[0.001611690891126618207924149886698960846076, 0.001611690891126618207924149886698961389743]",
+      "shared": "[0.001494649359440474337755839710543468273249, 0.001494649359440474337755839710543468880098]"
+    },
+    "reversed_to_shared": {
+      "entropy_change": "[0.0001170415316861438701683101761554919659786, 0.0001170415316861438701683101761554931164937]",
+      "linear_entropy_prediction": "[0.006610255066188195847300244021371446199053, 0.006610255066188195847300244021371446422397]",
+      "relative_entropy_remainder": "[0.006493213534502051977131933845215953724673, 0.006493213534502051977131933845215954500499]"
+    },
+    "resolved_annuli": [
+      {
+        "stations": 80,
+        "relative_radius": 0.1935483870967742,
+        "joint_admission": "1/316",
+        "squared_density_factor_per_radius_fourth": 2.2550422917643385,
+        "information_cost_reverse_fresh_shared": [
+          {
+            "pair_admissions": 890743271079,
+            "mean_nats": 5.100287630147473e-06,
+            "measured_nats": 5.1001130091746884e-06,
+            "standard_error": 1.8589956998433418e-10
+          },
+          {
+            "pair_admissions": 890744399931,
+            "mean_nats": 0.0,
+            "measured_nats": 0.0,
+            "standard_error": 0.0
+          },
+          {
+            "pair_admissions": 890743389479,
+            "mean_nats": 4.72990303620394e-06,
+            "measured_nats": 4.730014561570231e-06,
+            "standard_error": 1.8603945704092843e-10
+          }
+        ]
+      },
+      {
+        "stations": 1280,
+        "relative_radius": 0.09448818897637795,
+        "joint_admission": "171/818560",
+        "squared_density_factor_per_radius_fourth": 2.6208097246952304,
+        "information_cost_reverse_fresh_shared": [
+          {
+            "pair_admissions": 58800977734,
+            "mean_nats": 3.366877716754412e-07,
+            "measured_nats": 3.3677312736534567e-07,
+            "standard_error": 4.776340337428325e-11
+          },
+          {
+            "pair_admissions": 58801062004,
+            "mean_nats": 0.0,
+            "measured_nats": 0.0,
+            "standard_error": 0.0
+          },
+          {
+            "pair_admissions": 58800896098,
+            "mean_nats": 3.122373930613711e-07,
+            "measured_nats": 3.122123834518278e-07,
+            "standard_error": 4.779933629420223e-11
+          }
+        ]
+      },
+      {
+        "stations": 20480,
+        "relative_radius": 0.046966731898238745,
+        "joint_admission": "2701/209704960",
+        "squared_density_factor_per_radius_fourth": 2.6470034981210095,
+        "information_cost_reverse_fresh_shared": [
+          {
+            "pair_admissions": 3625407099,
+            "mean_nats": 2.0758579563082108e-08,
+            "measured_nats": 2.0761114233625613e-08,
+            "standard_error": 1.185988411801128e-11
+          },
+          {
+            "pair_admissions": 3625373398,
+            "mean_nats": 0.0,
+            "measured_nats": 0.0,
+            "standard_error": 0.0
+          },
+          {
+            "pair_admissions": 3625290662,
+            "mean_nats": 1.9251084570668402e-08,
+            "measured_nats": 1.924971640335714e-08,
+            "standard_error": 1.1868806296994825e-11
+          }
+        ]
+      },
+      {
+        "stations": 327680,
+        "relative_radius": 0.02344894968246214,
+        "joint_admission": "21243/26843463680",
+        "squared_density_factor_per_radius_fourth": 2.6174820797842777,
+        "information_cost_reverse_fresh_shared": [
+          {
+            "pair_admissions": 222722023,
+            "mean_nats": 1.2754371048513814e-09,
+            "measured_nats": 1.2727092823393782e-09,
+            "standard_error": 2.9397551169606474e-12
+          },
+          {
+            "pair_admissions": 222759149,
+            "mean_nats": 0.0,
+            "measured_nats": 0.0,
+            "standard_error": 0.0
+          },
+          {
+            "pair_admissions": 222766456,
+            "mean_nats": 1.1828144356143429e-09,
+            "measured_nats": 1.182232843343112e-09,
+            "standard_error": 2.941966689678034e-12
+          }
+        ]
+      }
+    ]
+  },
+  "angular": {
+    "triplet_eigenweight_interval": "[0.0000006044424856454114729031436930978621820999, 0.0000006044424856455146395394696627370497193987]",
+    "triplet_eigenweight": 6.044424856454862e-07,
+    "complete_information_at_half_transfer": 1.0678960625852304e-07,
+    "mode_meter": {
+      "path": [
+        0,
+        1,
+        5,
+        4,
+        2,
+        3,
+        9,
+        8,
+        6,
+        7,
+        10,
+        11
+      ],
+      "rotations": 30,
+      "worst_rotation_error": 1.9835133383229028e-14
+    },
+    "sampled_classification": [
+      {
+        "fraction": -0.5,
+        "trials": 4398046511104,
+        "axial_transverse_other": [
+          1329838,
+          6646551,
+          4398038534715
+        ]
+      },
+      {
+        "fraction": 0,
+        "trials": 4398046511104,
+        "axial_transverse_other": [
+          2656741,
+          5313635,
+          4398038540728
+        ]
+      },
+      {
+        "fraction": 0.5,
+        "trials": 4398046511104,
+        "axial_transverse_other": [
+          3985117,
+          3988467,
+          4398038537520
+        ]
+      }
+    ],
+    "nested_regions": [
+      {
+        "hop_radius": 0,
+        "sites": 1,
+        "full_information_fraction_home": 0.05748884826512641,
+        "home": {
+          "pole": 0,
+          "linear_entropy_slope": 2.211587541280701e-06,
+          "relative_entropy": 6.1392114704888245e-09,
+          "finite_entropy_difference": 1.0996545591698617e-06
+        },
+        "max_cost": 6.1392114704888245e-09
+      },
+      {
+        "hop_radius": 1,
+        "sites": 6,
+        "full_information_fraction_home": 0.2560242326460307,
+        "home": {
+          "pole": 0,
+          "linear_entropy_slope": -1.3966318373197244e-07,
+          "relative_entropy": 2.7340726996910115e-08,
+          "finite_entropy_difference": -9.717231886289633e-08
+        },
+        "max_cost": 3.106303592270076e-08
+      },
+      {
+        "hop_radius": 2,
+        "sites": 11,
+        "full_information_fraction_home": 0.7812968521937607,
+        "home": {
+          "pole": 0,
+          "linear_entropy_slope": -2.1141413578532267e-06,
+          "relative_entropy": 8.343438321679518e-08,
+          "finite_entropy_difference": -1.1405050621434085e-06
+        },
+        "max_cost": 9.480258595418678e-08
+      },
+      {
+        "hop_radius": 3,
+        "sites": 12,
+        "full_information_fraction_home": 1.0000000000000002,
+        "home": {
+          "pole": 0,
+          "linear_entropy_slope": -3.965171802677717e-20,
+          "relative_entropy": 1.0678960625852306e-07,
+          "finite_entropy_difference": -1.0678960625854289e-07
+        },
+        "max_cost": 1.0678960625852306e-07
+      }
+    ]
+  }
+}

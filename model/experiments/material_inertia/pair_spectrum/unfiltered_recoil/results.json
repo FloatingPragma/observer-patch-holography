@@ -1,0 +1,484 @@
+{
+  "panels": [
+    {
+      "owner": 0,
+      "axis": 1,
+      "initial_ports": [
+        0,
+        1
+      ],
+      "initial_admission_interval": [
+        0.00012192551671026684,
+        0.00012295998116177787
+      ],
+      "readings": {
+        "calibration_common": {
+          "strength": 0.125,
+          "dwell": 16384,
+          "arms": [
+            {
+              "sign": -1,
+              "outside_amplitude_bound": 0.001054855459992802,
+              "cross_read_bound": 0.008439665157823493,
+              "mean_error_bound": 1.9097981370802046e-05
+            },
+            {
+              "sign": 1,
+              "outside_amplitude_bound": 0.001054855459992802,
+              "cross_read_bound": 0.008439665216561117,
+              "mean_error_bound": 1.9097981494721452e-05
+            }
+          ],
+          "displacement": [
+            0.004040277610136733,
+            0.004490616833082654
+          ],
+          "mobility": [
+            9.863959009122883e-07,
+            1.09634200026432e-06
+          ],
+          "unconditional_read": "all final addresses after initial admission"
+        },
+        "calibration_signed_load": {
+          "strength": 0.125,
+          "dwell": 16384,
+          "arms": [
+            {
+              "sign": -1,
+              "outside_amplitude_bound": 0.0021053240072013944,
+              "cross_read_bound": 0.008439456913576495,
+              "mean_error_bound": 4.014797925593046e-05
+            },
+            {
+              "sign": 1,
+              "outside_amplitude_bound": 0.0021053240072013944,
+              "cross_read_bound": 0.008439456913614855,
+              "mean_error_bound": 4.014797925609199e-05
+            }
+          ],
+          "displacement": [
+            -0.00026215523111822354,
+            0.0002723836388886882
+          ],
+          "mobility": [
+            -6.400274197222255e-08,
+            6.649991183805865e-08
+          ],
+          "unconditional_read": "all final addresses after initial admission"
+        },
+        "held_common": {
+          "strength": 0.25,
+          "dwell": 32768,
+          "arms": [
+            {
+              "sign": -1,
+              "outside_amplitude_bound": 0.0021092602740791825,
+              "cross_read_bound": 0.00844061860184382,
+              "mean_error_bound": 4.04025552095143e-05
+            },
+            {
+              "sign": 1,
+              "outside_amplitude_bound": 0.0021092602740791825,
+              "cross_read_bound": 0.008440618669134833,
+              "mean_error_bound": 4.040255549338282e-05
+            }
+          ],
+          "displacement": [
+            0.016663529813128804,
+            0.0171990883825544
+          ],
+          "mobility": [
+            1.0170611458208498e-06,
+            1.0497490467867675e-06
+          ],
+          "unconditional_read": "all final addresses after initial admission"
+        },
+        "held_signed_load": {
+          "strength": 0.25,
+          "dwell": 32768,
+          "arms": [
+            {
+              "sign": -1,
+              "outside_amplitude_bound": 0.004207138802342425,
+              "cross_read_bound": 0.008439474432517543,
+              "mean_error_bound": 8.905875090967784e-05
+            },
+            {
+              "sign": 1,
+              "outside_amplitude_bound": 0.004207138802342425,
+              "cross_read_bound": 0.00843947443264513,
+              "mean_error_bound": 8.90587509107514e-05
+            }
+          ],
+          "displacement": [
+            -0.0003448264944072374,
+            0.00038535546478285466
+          ],
+          "mobility": [
+            -2.1046538965285485e-08,
+            2.3520231004812906e-08
+          ],
+          "unconditional_read": "all final addresses after initial admission"
+        },
+        "half_rate_held_common": {
+          "strength": 0.25,
+          "dwell": 32768,
+          "arms": [
+            {
+              "sign": -1,
+              "outside_amplitude_bound": 0.0021092602740791825,
+              "cross_read_bound": 0.008439923577069413,
+              "mean_error_bound": 4.0232977523405324e-05
+            },
+            {
+              "sign": 1,
+              "outside_amplitude_bound": 0.0021092602740791825,
+              "cross_read_bound": 0.008439923642255973,
+              "mean_error_bound": 4.023297779839617e-05
+            }
+          ],
+          "displacement": [
+            0.008234728949944554,
+            0.008769608503166944
+          ],
+          "mobility": [
+            5.026079681362643e-07,
+            5.35254425242123e-07
+          ],
+          "unconditional_read": "all final addresses after initial admission"
+        }
+      },
+      "short_time_direct_displacement": -5.743140634287616e-05,
+      "short_time_enclosure": [
+        -0.0002670685950945673,
+        0.00026713355460841797
+      ],
+      "held_ratio": [
+        0.9276860191214457,
+        1.0642268949170266
+      ],
+      "held_outcome": "pass"
+    },
+    {
+      "owner": 5,
+      "axis": 1,
+      "initial_ports": [
+        61,
+        60
+      ],
+      "initial_admission_interval": [
+        0.00026092565132496614,
+        0.00026243794560269805
+      ],
+      "readings": {
+        "calibration_common": {
+          "strength": 0.125,
+          "dwell": 16384,
+          "arms": [
+            {
+              "sign": -1,
+              "outside_amplitude_bound": 0.001054855459992802,
+              "cross_read_bound": 0.008439665157823493,
+              "mean_error_bound": 1.9097981370802046e-05
+            },
+            {
+              "sign": 1,
+              "outside_amplitude_bound": 0.001054855459992802,
+              "cross_read_bound": 0.008439665216561117,
+              "mean_error_bound": 1.9097981494721452e-05
+            }
+          ],
+          "displacement": [
+            0.0040402781403106386,
+            0.004490617254221116
+          ],
+          "mobility": [
+            9.86396030349277e-07,
+            1.0963421030813272e-06
+          ],
+          "unconditional_read": "all final addresses after initial admission"
+        },
+        "calibration_signed_load": {
+          "strength": 0.125,
+          "dwell": 16384,
+          "arms": [
+            {
+              "sign": -1,
+              "outside_amplitude_bound": 0.0021053240072013944,
+              "cross_read_bound": 0.008439456913576495,
+              "mean_error_bound": 4.014797925593046e-05
+            },
+            {
+              "sign": 1,
+              "outside_amplitude_bound": 0.0021053240072013944,
+              "cross_read_bound": 0.008439456913614855,
+              "mean_error_bound": 4.014797925609199e-05
+            }
+          ],
+          "displacement": [
+            -0.00026215523078574633,
+            0.00027238363895047864
+          ],
+          "mobility": [
+            -6.400274189105135e-08,
+            6.64999118531442e-08
+          ],
+          "unconditional_read": "all final addresses after initial admission"
+        },
+        "held_common": {
+          "strength": 0.25,
+          "dwell": 32768,
+          "arms": [
+            {
+              "sign": -1,
+              "outside_amplitude_bound": 0.0021092602740791825,
+              "cross_read_bound": 0.00844061860184382,
+              "mean_error_bound": 4.04025552095143e-05
+            },
+            {
+              "sign": 1,
+              "outside_amplitude_bound": 0.0021092602740791825,
+              "cross_read_bound": 0.008440618669134833,
+              "mean_error_bound": 4.040255549338282e-05
+            }
+          ],
+          "displacement": [
+            0.016663531920808584,
+            0.017199090049182707
+          ],
+          "mobility": [
+            1.0170612744634146e-06,
+            1.0497491485096867e-06
+          ],
+          "unconditional_read": "all final addresses after initial admission"
+        },
+        "held_signed_load": {
+          "strength": 0.25,
+          "dwell": 32768,
+          "arms": [
+            {
+              "sign": -1,
+              "outside_amplitude_bound": 0.004207138802342425,
+              "cross_read_bound": 0.008439474432517543,
+              "mean_error_bound": 8.905875090967784e-05
+            },
+            {
+              "sign": 1,
+              "outside_amplitude_bound": 0.004207138802342425,
+              "cross_read_bound": 0.00843947443264513,
+              "mean_error_bound": 8.90587509107514e-05
+            }
+          ],
+          "displacement": [
+            -0.00034482649307285854,
+            0.00038535546503566843
+          ],
+          "mobility": [
+            -2.1046538883841464e-08,
+            2.3520231020243435e-08
+          ],
+          "unconditional_read": "all final addresses after initial admission"
+        },
+        "half_rate_held_common": {
+          "strength": 0.25,
+          "dwell": 32768,
+          "arms": [
+            {
+              "sign": -1,
+              "outside_amplitude_bound": 0.0021092602740791825,
+              "cross_read_bound": 0.008439923577069413,
+              "mean_error_bound": 4.0232977523405324e-05
+            },
+            {
+              "sign": 1,
+              "outside_amplitude_bound": 0.0021092602740791825,
+              "cross_read_bound": 0.008439923642255973,
+              "mean_error_bound": 4.023297779839617e-05
+            }
+          ],
+          "displacement": [
+            0.008234730003753986,
+            0.008769609338818533
+          ],
+          "mobility": [
+            5.026080324556876e-07,
+            5.352544762462484e-07
+          ],
+          "unconditional_read": "all final addresses after initial admission"
+        }
+      },
+      "short_time_direct_displacement": -5.7431407255705e-05,
+      "short_time_enclosure": [
+        -0.000267068595091093,
+        0.00026713355461106185
+      ],
+      "held_ratio": [
+        0.9276860494592978,
+        1.064226858392746
+      ],
+      "held_outcome": "pass"
+    },
+    {
+      "owner": 10,
+      "axis": 11,
+      "initial_ports": [
+        120,
+        121
+      ],
+      "initial_admission_interval": [
+        0.0030661118996225295,
+        0.0030712906773717233
+      ],
+      "readings": {
+        "calibration_common": {
+          "strength": 0.125,
+          "dwell": 16384,
+          "arms": [
+            {
+              "sign": -1,
+              "outside_amplitude_bound": 0.0011129438555376743,
+              "cross_read_bound": 0.008904445817889517,
+              "mean_error_bound": 2.123894813039879e-05
+            },
+            {
+              "sign": 1,
+              "outside_amplitude_bound": 0.0011129438555376743,
+              "cross_read_bound": 0.008904445857139637,
+              "mean_error_bound": 2.123894821776515e-05
+            }
+          ],
+          "displacement": [
+            0.004772065778508873,
+            0.005230968624724218
+          ],
+          "mobility": [
+            1.1650551217062677e-06,
+            1.277091949395561e-06
+          ],
+          "unconditional_read": "all final addresses after initial admission"
+        },
+        "calibration_signed_load": {
+          "strength": 0.125,
+          "dwell": 16384,
+          "arms": [
+            {
+              "sign": -1,
+              "outside_amplitude_bound": 0.0022228564640163337,
+              "cross_read_bound": 0.008904129104650278,
+              "mean_error_bound": 4.470630031787805e-05
+            },
+            {
+              "sign": 1,
+              "outside_amplitude_bound": 0.0022228564640163337,
+              "cross_read_bound": 0.008904129104479686,
+              "mean_error_bound": 4.4706300317119644e-05
+            }
+          ],
+          "displacement": [
+            -0.000271133789164849,
+            0.00028163836443802296
+          ],
+          "mobility": [
+            -6.619477274532446e-08,
+            6.87593663178767e-08
+          ],
+          "unconditional_read": "all final addresses after initial admission"
+        },
+        "held_common": {
+          "strength": 0.25,
+          "dwell": 32768,
+          "arms": [
+            {
+              "sign": -1,
+              "outside_amplitude_bound": 0.0022254622070024014,
+              "cross_read_bound": 0.00890551544443925,
+              "mean_error_bound": 4.4937111440407324e-05
+            },
+            {
+              "sign": 1,
+              "outside_amplitude_bound": 0.0022254622070024014,
+              "cross_read_bound": 0.008905515485509932,
+              "mean_error_bound": 4.493711162320982e-05
+            }
+          ],
+          "displacement": [
+            0.0195996395816212,
+            0.020153335381376095
+          ],
+          "mobility": [
+            1.1962670643079346e-06,
+            1.2300619739609433e-06
+          ],
+          "unconditional_read": "all final addresses after initial admission"
+        },
+        "held_signed_load": {
+          "strength": 0.25,
+          "dwell": 32768,
+          "arms": [
+            {
+              "sign": -1,
+              "outside_amplitude_bound": 0.004442380101870476,
+              "cross_read_bound": 0.008904142241157044,
+              "mean_error_bound": 9.919256289683545e-05
+            },
+            {
+              "sign": 1,
+              "outside_amplitude_bound": 0.004442380101870476,
+              "cross_read_bound": 0.00890414224047558,
+              "mean_error_bound": 9.91925628907808e-05
+            }
+          ],
+          "displacement": [
+            -0.0003645253739818336,
+            0.0004061918305496397
+          ],
+          "mobility": [
+            -2.22488631580709e-08,
+            2.4791981845070784e-08
+          ],
+          "unconditional_read": "all final addresses after initial admission"
+        },
+        "half_rate_held_common": {
+          "strength": 0.25,
+          "dwell": 32768,
+          "arms": [
+            {
+              "sign": -1,
+              "outside_amplitude_bound": 0.0022254622070024014,
+              "cross_read_bound": 0.00890476720977316,
+              "mean_error_bound": 4.4767135394647954e-05
+            },
+            {
+              "sign": 1,
+              "outside_amplitude_bound": 0.0022254622070024014,
+              "cross_read_bound": 0.008904767250354287,
+              "mean_error_bound": 4.476713557527148e-05
+            }
+          ],
+          "displacement": [
+            0.009695839784559936,
+            0.010248855480897368
+          ],
+          "mobility": [
+            5.91787096225582e-07,
+            6.255404956602398e-07
+          ],
+          "unconditional_read": "all final addresses after initial admission"
+        }
+      },
+      "short_time_direct_displacement": -6.402248521465703e-05,
+      "short_time_enclosure": [
+        -0.0002761295193171066,
+        0.00027620568925391383
+      ],
+      "held_ratio": [
+        0.9367117730826819,
+        1.0557972331467635
+      ],
+      "held_outcome": "pass"
+    }
+  ],
+  "residual_with_pad": 5.085623468526059e-12,
+  "band_projector_bound": 6.6799375132543865e-09,
+  "rest_projector_bound": 2.3371684382885263e-05
+}

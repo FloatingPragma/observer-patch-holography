@@ -46,6 +46,20 @@ At each held separation choose the wait at which the measured inverse-distance f
 
 A common mobile field or a polarizable many-body medium could change the interaction between separated constituents. The single static write and the free two-body test cover different sources. Neither supplies the long-distance attraction or the hierarchy of radial levels needed for an atomic identification. [Static written core](../row_23_coupling/README.md) · [Field-extension static potential](../electron_field/README.md)
 
+## A local transition on one written core
+
+One load bound around the existing stationary empty write has a measured transition near 0.47993 on both the 20- and 80-cell boards. A one-endpoint phase pulse gives about 345,000 clock-selected transitions per 4,194,304 launches; a common phase on both endpoints gives about 1,500. Independent binding readings put a hydrogenic first transition near 4.6021, where the same detector records zero. An exact rank-two census gives only two negative levels in [−8,−5.5] on all three boards. Source compilation and coherent spectroscopy are supplied; the written core's atomic interpretation is unresolved. [Transition records, controls and census](written_transitions/README.md)
+
+The stationary core can be formed by an empty native echo. A finite clock
+prepares its lowest line from a sharp endpoint load with 96.05% acceptance,
+without the spatial Householder compiler. Its public load records retain
+98.14% on the core through exposure 64. One additional native echo erases
+the collar only on the load's exterior component; a supplied complete
+memory erase has a different work cost and releases the load. Private
+collar labels are simulator diagnostics; a separate native material
+readback tests erasure through the load's public endpoint response.
+[Native formation, orbital records and erasure](native_core_release/README.md)
+
 ## Replay
 
 From the RER root with the scientific Python environment, run
@@ -58,3 +72,5 @@ python -B -W error -m pytest -q model/candidate_laws/interval_echo/openwave/row_
 ```
 
 The largest propagation uses 57,360 ordered positions. The tests independently assemble the complete 132-dimensional ordered generator from native seam columns on one cell, compare its radial spectral measure with the deposited results, check the filled-host contact correction, and decode the full-federation clock counts.
+
+For any arrangement of stationary empty written seams, the number of levels in each energy band equals the number of ports touched by that many writes. Uniform gaps below the blank-host threshold exclude a hydrogenic accumulation on this entire source family. [Written-core spectral bounds](core_band_bound/README.md)

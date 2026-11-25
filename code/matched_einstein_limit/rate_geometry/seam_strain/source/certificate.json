@@ -1,0 +1,529 @@
+{
+  "fractional_bits": 51,
+  "steps_per_tick": 32,
+  "degree": 20,
+  "source": [
+    {
+      "cells": 20,
+      "forming_charge": -1,
+      "collar_modular_nats": [
+        0.0019199424341868662,
+        0.001928387982615845
+      ],
+      "formed_trace_norm_error": 3.2203715529066266e-21,
+      "nominal_formed_trace_norm_error": 3.934706682750763e-14
+    },
+    {
+      "cells": 20,
+      "forming_charge": 1,
+      "collar_modular_nats": [
+        0.0041626900902554205,
+        0.004182658132881813
+      ],
+      "formed_trace_norm_error": 3.2203715529066266e-21,
+      "nominal_formed_trace_norm_error": 6.524838587425576e-14
+    },
+    {
+      "cells": 80,
+      "forming_charge": -1,
+      "collar_modular_nats": [
+        0.20081579124901652,
+        0.20083395836988305
+      ],
+      "formed_trace_norm_error": 6.44073703789517e-21,
+      "nominal_formed_trace_norm_error": 2.9124091894740693e-13
+    },
+    {
+      "cells": 80,
+      "forming_charge": 1,
+      "collar_modular_nats": [
+        0.2938431910232689,
+        0.29385367185643213
+      ],
+      "formed_trace_norm_error": 6.44073703789517e-21,
+      "nominal_formed_trace_norm_error": 1.9787402939861063e-13
+    }
+  ],
+  "checks": [
+    {
+      "level": 0,
+      "forming_charge": -1,
+      "pump_charge": -1,
+      "time": 0.5,
+      "moment_absolute_errors": {
+        "reference": 5.286575273848332e-11,
+        "ordinary": 5.2868329337357973e-11,
+        "decorrelated": 5.28659713226605e-11
+      },
+      "fixed_point_column_error": 1.3216094885228076e-11,
+      "nominal_column_error": 1.956601547457166e-11,
+      "collar_distance_from_ordinary_line_lower": 2.318204451759296e-06,
+      "modular_residual_max_component_lower": 0.0005239361968660285
+    },
+    {
+      "level": 0,
+      "forming_charge": 1,
+      "pump_charge": -1,
+      "time": 0.5,
+      "moment_absolute_errors": {
+        "reference": 5.2886185599353e-11,
+        "ordinary": 5.287554008905788e-11,
+        "decorrelated": 5.2886118930316954e-11
+      },
+      "fixed_point_column_error": 1.3216094885228076e-11,
+      "nominal_column_error": 1.956601547457166e-11,
+      "collar_distance_from_ordinary_line_lower": 1.992314038654012e-06,
+      "modular_residual_max_component_lower": 0.0008997545805557261
+    },
+    {
+      "level": 0,
+      "forming_charge": -1,
+      "pump_charge": -1,
+      "time": 1.0,
+      "moment_absolute_errors": {
+        "reference": 1.0573231194400177e-10,
+        "ordinary": 1.0573326471480817e-10,
+        "decorrelated": 1.0573227917398688e-10
+      },
+      "fixed_point_column_error": 2.6432189770456152e-11,
+      "nominal_column_error": 3.6886327326082786e-11,
+      "collar_distance_from_ordinary_line_lower": 1.2124024150390076e-05,
+      "modular_residual_max_component_lower": 0.0009424292918414616
+    },
+    {
+      "level": 0,
+      "forming_charge": 1,
+      "pump_charge": -1,
+      "time": 1.0,
+      "moment_absolute_errors": {
+        "reference": 1.0575804850823546e-10,
+        "ordinary": 1.0574532592278553e-10,
+        "decorrelated": 1.0575783721526752e-10
+      },
+      "fixed_point_column_error": 2.6432189770456152e-11,
+      "nominal_column_error": 3.6886327326082786e-11,
+      "collar_distance_from_ordinary_line_lower": 9.05798468465576e-06,
+      "modular_residual_max_component_lower": 0.0006193144131360584
+    },
+    {
+      "level": 0,
+      "forming_charge": -1,
+      "pump_charge": -1,
+      "time": 2.0,
+      "moment_absolute_errors": {
+        "reference": 2.1146235924475588e-10,
+        "ordinary": 2.1146876126650857e-10,
+        "decorrelated": 2.1146229935243387e-10
+      },
+      "fixed_point_column_error": 5.2864379540912305e-11,
+      "nominal_column_error": 6.468658941863329e-11,
+      "collar_distance_from_ordinary_line_lower": 3.3049944424911825e-05,
+      "modular_residual_max_component_lower": 0.001117962468013408
+    },
+    {
+      "level": 0,
+      "forming_charge": 1,
+      "pump_charge": -1,
+      "time": 2.0,
+      "moment_absolute_errors": {
+        "reference": 2.1147834208294646e-10,
+        "ordinary": 2.114774625254539e-10,
+        "decorrelated": 2.11478194392311e-10
+      },
+      "fixed_point_column_error": 5.2864379540912305e-11,
+      "nominal_column_error": 6.468658941863329e-11,
+      "collar_distance_from_ordinary_line_lower": 3.6319902295638625e-05,
+      "modular_residual_max_component_lower": 0.0013671004045738126
+    },
+    {
+      "level": 0,
+      "forming_charge": -1,
+      "pump_charge": -1,
+      "time": 4.0,
+      "moment_absolute_errors": {
+        "reference": 4.2292506222698416e-10,
+        "ordinary": 4.2293198622437766e-10,
+        "decorrelated": 4.2292513917869027e-10
+      },
+      "fixed_point_column_error": 1.0572875908182461e-10,
+      "nominal_column_error": 1.2076292743651303e-10,
+      "collar_distance_from_ordinary_line_lower": 0.0001342097047377959,
+      "modular_residual_max_component_lower": 0.0005803686048843138
+    },
+    {
+      "level": 0,
+      "forming_charge": 1,
+      "pump_charge": -1,
+      "time": 4.0,
+      "moment_absolute_errors": {
+        "reference": 4.2295510140386074e-10,
+        "ordinary": 4.2295076559364847e-10,
+        "decorrelated": 4.229551101900179e-10
+      },
+      "fixed_point_column_error": 1.0572875908182461e-10,
+      "nominal_column_error": 1.2076292743651303e-10,
+      "collar_distance_from_ordinary_line_lower": 0.00012170168163713181,
+      "modular_residual_max_component_lower": 0.0018790951803284938
+    },
+    {
+      "level": 0,
+      "forming_charge": -1,
+      "pump_charge": 1,
+      "time": 0.5,
+      "moment_absolute_errors": {
+        "reference": 5.2876251249170327e-11,
+        "ordinary": 5.287723249118225e-11,
+        "decorrelated": 5.287614981045343e-11
+      },
+      "fixed_point_column_error": 1.3216094885559498e-11,
+      "nominal_column_error": 1.7346124537165082e-11,
+      "collar_distance_from_ordinary_line_lower": 2.1380545206873673e-06,
+      "modular_residual_max_component_lower": 0.00016756298652469966
+    },
+    {
+      "level": 0,
+      "forming_charge": 1,
+      "pump_charge": 1,
+      "time": 0.5,
+      "moment_absolute_errors": {
+        "reference": 5.287618960502579e-11,
+        "ordinary": 5.2892193476044e-11,
+        "decorrelated": 5.287603740776023e-11
+      },
+      "fixed_point_column_error": 1.3216094885559498e-11,
+      "nominal_column_error": 1.7346124537165082e-11,
+      "collar_distance_from_ordinary_line_lower": 3.683076246446833e-06,
+      "modular_residual_max_component_lower": 0.0011335961392925792
+    },
+    {
+      "level": 0,
+      "forming_charge": -1,
+      "pump_charge": 1,
+      "time": 1.0,
+      "moment_absolute_errors": {
+        "reference": 1.0575604372864769e-10,
+        "ordinary": 1.0575713402687983e-10,
+        "decorrelated": 1.0575633793597354e-10
+      },
+      "fixed_point_column_error": 2.6432189771118996e-11,
+      "nominal_column_error": 3.0865088263842324e-11,
+      "collar_distance_from_ordinary_line_lower": 4.555603432641839e-06,
+      "modular_residual_max_component_lower": 0.00010131812382506329
+    },
+    {
+      "level": 0,
+      "forming_charge": 1,
+      "pump_charge": 1,
+      "time": 1.0,
+      "moment_absolute_errors": {
+        "reference": 1.0574430011569863e-10,
+        "ordinary": 1.0574740119309081e-10,
+        "decorrelated": 1.0574429229229021e-10
+      },
+      "fixed_point_column_error": 2.6432189771118996e-11,
+      "nominal_column_error": 3.0865088263842324e-11,
+      "collar_distance_from_ordinary_line_lower": 9.70366372667538e-06,
+      "modular_residual_max_component_lower": 0.00218164796835659
+    },
+    {
+      "level": 0,
+      "forming_charge": -1,
+      "pump_charge": 1,
+      "time": 2.0,
+      "moment_absolute_errors": {
+        "reference": 2.11521543345187e-10,
+        "ordinary": 2.115271580905295e-10,
+        "decorrelated": 2.1152171083105914e-10
+      },
+      "fixed_point_column_error": 5.286437954223799e-11,
+      "nominal_column_error": 6.086287030084748e-11,
+      "collar_distance_from_ordinary_line_lower": 1.2912289483938019e-05,
+      "modular_residual_max_component_lower": 0.00032944060430346503
+    },
+    {
+      "level": 0,
+      "forming_charge": 1,
+      "pump_charge": 1,
+      "time": 2.0,
+      "moment_absolute_errors": {
+        "reference": 2.1147826856530274e-10,
+        "ordinary": 2.1147912628344665e-10,
+        "decorrelated": 2.1147833052702562e-10
+      },
+      "fixed_point_column_error": 5.286437954223799e-11,
+      "nominal_column_error": 6.086287030084748e-11,
+      "collar_distance_from_ordinary_line_lower": 1.3965989575463005e-05,
+      "modular_residual_max_component_lower": 0.0016454148305203927
+    },
+    {
+      "level": 0,
+      "forming_charge": -1,
+      "pump_charge": 1,
+      "time": 4.0,
+      "moment_absolute_errors": {
+        "reference": 4.2299994483854923e-10,
+        "ordinary": 4.2301129231404084e-10,
+        "decorrelated": 4.230000624648728e-10
+      },
+      "fixed_point_column_error": 1.0572875908447598e-10,
+      "nominal_column_error": 1.213678046985558e-10,
+      "collar_distance_from_ordinary_line_lower": 0.00011134360542233272,
+      "modular_residual_max_component_lower": 0.0010945952210077911
+    },
+    {
+      "level": 0,
+      "forming_charge": 1,
+      "pump_charge": 1,
+      "time": 4.0,
+      "moment_absolute_errors": {
+        "reference": 4.230537305616454e-10,
+        "ordinary": 4.230211689681859e-10,
+        "decorrelated": 4.2305384688504873e-10
+      },
+      "fixed_point_column_error": 1.0572875908447598e-10,
+      "nominal_column_error": 1.213678046985558e-10,
+      "collar_distance_from_ordinary_line_lower": 0.00010749414256553622,
+      "modular_residual_max_component_lower": 0.0016354354093073122
+    },
+    {
+      "level": 1,
+      "forming_charge": -1,
+      "pump_charge": -1,
+      "time": 0.5,
+      "moment_absolute_errors": {
+        "reference": 1.0574282224689947e-10,
+        "ordinary": 1.0573962546676461e-10,
+        "decorrelated": 1.05742779378732e-10
+      },
+      "fixed_point_column_error": 2.643218977036594e-11,
+      "nominal_column_error": 3.654387903404695e-11,
+      "collar_distance_from_ordinary_line_lower": 1.7391661299425525e-05,
+      "modular_residual_max_component_lower": 0.04476268019202712
+    },
+    {
+      "level": 1,
+      "forming_charge": 1,
+      "pump_charge": -1,
+      "time": 0.5,
+      "moment_absolute_errors": {
+        "reference": 1.0573123459919473e-10,
+        "ordinary": 1.0573590984146519e-10,
+        "decorrelated": 1.0573134215227276e-10
+      },
+      "fixed_point_column_error": 2.643218977036594e-11,
+      "nominal_column_error": 3.654387903404695e-11,
+      "collar_distance_from_ordinary_line_lower": 2.1397978479989387e-05,
+      "modular_residual_max_component_lower": 0.0661738714392878
+    },
+    {
+      "level": 1,
+      "forming_charge": -1,
+      "pump_charge": -1,
+      "time": 1.0,
+      "moment_absolute_errors": {
+        "reference": 2.1147388614803855e-10,
+        "ordinary": 2.1146743580352606e-10,
+        "decorrelated": 2.1147414880610618e-10
+      },
+      "fixed_point_column_error": 5.286437954073188e-11,
+      "nominal_column_error": 6.737455038337284e-11,
+      "collar_distance_from_ordinary_line_lower": 5.062118090322285e-05,
+      "modular_residual_max_component_lower": 0.037328682118673864
+    },
+    {
+      "level": 1,
+      "forming_charge": 1,
+      "pump_charge": -1,
+      "time": 1.0,
+      "moment_absolute_errors": {
+        "reference": 2.1147570571176893e-10,
+        "ordinary": 2.1146604275488637e-10,
+        "decorrelated": 2.1147488794323085e-10
+      },
+      "fixed_point_column_error": 5.286437954073188e-11,
+      "nominal_column_error": 6.737455038337284e-11,
+      "collar_distance_from_ordinary_line_lower": 8.707657518643255e-05,
+      "modular_residual_max_component_lower": 0.05307346433880293
+    },
+    {
+      "level": 1,
+      "forming_charge": -1,
+      "pump_charge": -1,
+      "time": 2.0,
+      "moment_absolute_errors": {
+        "reference": 4.229514126585947e-10,
+        "ordinary": 4.2294596454075386e-10,
+        "decorrelated": 4.229519738954419e-10
+      },
+      "fixed_point_column_error": 1.0572875908146377e-10,
+      "nominal_column_error": 1.3072920523918292e-10,
+      "collar_distance_from_ordinary_line_lower": 0.00046134572334188416,
+      "modular_residual_max_component_lower": 0.07376072432896048
+    },
+    {
+      "level": 1,
+      "forming_charge": 1,
+      "pump_charge": -1,
+      "time": 2.0,
+      "moment_absolute_errors": {
+        "reference": 4.229500450299107e-10,
+        "ordinary": 4.2295035334165595e-10,
+        "decorrelated": 4.2294977644344713e-10
+      },
+      "fixed_point_column_error": 1.0572875908146377e-10,
+      "nominal_column_error": 1.3072920523918292e-10,
+      "collar_distance_from_ordinary_line_lower": 0.0010031226493909297,
+      "modular_residual_max_component_lower": 0.11730648776807287
+    },
+    {
+      "level": 1,
+      "forming_charge": -1,
+      "pump_charge": -1,
+      "time": 4.0,
+      "moment_absolute_errors": {
+        "reference": 8.458791815130189e-10,
+        "ordinary": 8.458737839384898e-10,
+        "decorrelated": 8.458808332942345e-10
+      },
+      "fixed_point_column_error": 2.1145751816292753e-10,
+      "nominal_column_error": 2.4312333743520277e-10,
+      "collar_distance_from_ordinary_line_lower": 0.0017693698780759045,
+      "modular_residual_max_component_lower": 0.11206125855850634
+    },
+    {
+      "level": 1,
+      "forming_charge": 1,
+      "pump_charge": -1,
+      "time": 4.0,
+      "moment_absolute_errors": {
+        "reference": 8.458557024777328e-10,
+        "ordinary": 8.458865814462788e-10,
+        "decorrelated": 8.458567064641972e-10
+      },
+      "fixed_point_column_error": 2.1145751816292753e-10,
+      "nominal_column_error": 2.4312333743520277e-10,
+      "collar_distance_from_ordinary_line_lower": 0.003543834029711688,
+      "modular_residual_max_component_lower": 0.16326823551879824
+    },
+    {
+      "level": 1,
+      "forming_charge": -1,
+      "pump_charge": 1,
+      "time": 0.5,
+      "moment_absolute_errors": {
+        "reference": 1.0574431537303558e-10,
+        "ordinary": 1.0574744234534702e-10,
+        "decorrelated": 1.057433673015603e-10
+      },
+      "fixed_point_column_error": 2.6432189770697363e-11,
+      "nominal_column_error": 3.392131020560882e-11,
+      "collar_distance_from_ordinary_line_lower": 0.0001190227915765337,
+      "modular_residual_max_component_lower": 0.020122636782857573
+    },
+    {
+      "level": 1,
+      "forming_charge": 1,
+      "pump_charge": 1,
+      "time": 0.5,
+      "moment_absolute_errors": {
+        "reference": 1.0573884200594216e-10,
+        "ordinary": 1.0573809641265484e-10,
+        "decorrelated": 1.0573776958787583e-10
+      },
+      "fixed_point_column_error": 2.6432189770697363e-11,
+      "nominal_column_error": 3.392131020560882e-11,
+      "collar_distance_from_ordinary_line_lower": 0.00013769776509896806,
+      "modular_residual_max_component_lower": 0.028505707447515276
+    },
+    {
+      "level": 1,
+      "forming_charge": -1,
+      "pump_charge": 1,
+      "time": 1.0,
+      "moment_absolute_errors": {
+        "reference": 2.1148230580748444e-10,
+        "ordinary": 2.114795199176537e-10,
+        "decorrelated": 2.1148144092435167e-10
+      },
+      "fixed_point_column_error": 5.2864379541394726e-11,
+      "nominal_column_error": 6.070455249669266e-11,
+      "collar_distance_from_ordinary_line_lower": 0.0006614931553833748,
+      "modular_residual_max_component_lower": 0.01337625535368933
+    },
+    {
+      "level": 1,
+      "forming_charge": 1,
+      "pump_charge": 1,
+      "time": 1.0,
+      "moment_absolute_errors": {
+        "reference": 2.114663222741275e-10,
+        "ordinary": 2.114642323928456e-10,
+        "decorrelated": 2.1146545668187084e-10
+      },
+      "fixed_point_column_error": 5.2864379541394726e-11,
+      "nominal_column_error": 6.070455249669266e-11,
+      "collar_distance_from_ordinary_line_lower": 0.0007022879561216162,
+      "modular_residual_max_component_lower": 0.01546782378212506
+    },
+    {
+      "level": 1,
+      "forming_charge": -1,
+      "pump_charge": 1,
+      "time": 2.0,
+      "moment_absolute_errors": {
+        "reference": 4.231842990076249e-10,
+        "ordinary": 4.231556881288538e-10,
+        "decorrelated": 4.2317621075622873e-10
+      },
+      "fixed_point_column_error": 1.0572875908278945e-10,
+      "nominal_column_error": 2.152296119123588e-10,
+      "collar_distance_from_ordinary_line_lower": 0.0011222534550897815,
+      "modular_residual_max_component_lower": 0.04434377202093717
+    },
+    {
+      "level": 1,
+      "forming_charge": 1,
+      "pump_charge": 1,
+      "time": 2.0,
+      "moment_absolute_errors": {
+        "reference": 4.229631976534748e-10,
+        "ordinary": 4.2296855551531177e-10,
+        "decorrelated": 4.229737865955628e-10
+      },
+      "fixed_point_column_error": 1.0572875908278945e-10,
+      "nominal_column_error": 2.152296119123588e-10,
+      "collar_distance_from_ordinary_line_lower": 0.0009793211943228027,
+      "modular_residual_max_component_lower": 0.05629004857945665
+    },
+    {
+      "level": 1,
+      "forming_charge": -1,
+      "pump_charge": 1,
+      "time": 4.0,
+      "moment_absolute_errors": {
+        "reference": 8.462320880291993e-10,
+        "ordinary": 8.460783239910084e-10,
+        "decorrelated": 8.462178308504228e-10
+      },
+      "fixed_point_column_error": 2.114575181655789e-10,
+      "nominal_column_error": 3.831290840173176e-10,
+      "collar_distance_from_ordinary_line_lower": 0.005139758741759511,
+      "modular_residual_max_component_lower": 0.1154873329080412
+    },
+    {
+      "level": 1,
+      "forming_charge": 1,
+      "pump_charge": 1,
+      "time": 4.0,
+      "moment_absolute_errors": {
+        "reference": 8.461596330054095e-10,
+        "ordinary": 8.461481291187101e-10,
+        "decorrelated": 8.461603120823523e-10
+      },
+      "fixed_point_column_error": 2.114575181655789e-10,
+      "nominal_column_error": 3.831290840173176e-10,
+      "collar_distance_from_ordinary_line_lower": 0.004013488517023283,
+      "modular_residual_max_component_lower": 0.1446529757552221
+    }
+  ]
+}

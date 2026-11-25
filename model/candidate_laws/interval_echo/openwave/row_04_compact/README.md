@@ -63,7 +63,9 @@ python -B -O -m model.candidate_laws.interval_echo.openwave.row_04_compact.gatew
 python -B -O -m model.candidate_laws.interval_echo.openwave.row_04_compact.gateway_confirmation ANCHOR --openwave-checkout OPENWAVE --compare independent.json --record confirmation.json
 ```
 
-Use the first command's official anchor for the two acquisitions. A null anchor means the registration is absent. Both outputs use exclusive creation. Once the native bins pass normalization, the verifier reads the independent receipt and stores its exact bytes and digest alongside those bins. A valid disagreement or failed scientific gate rejects the selected run. Missing or malformed evidence gives an incomplete record. The scientific gates are evaluated after a valid independent receipt agrees, so an incomplete record carries no gate verdict.
+Use the first command's official anchor for the two acquisitions. A null anchor means this exact single-load registration is absent. The open [OpenWave PR #749](https://github.com/openwave-labs/openwave/pull/749) uses M10.4 for a distinct connected two-load proposal at head `0988a6b533543bb93c8b95a527f252939e434dd5`. That task cannot anchor this protocol: its preparation, detector and task bytes differ. An owner-filed single-load task requires a distinct available identifier and an explicitly versioned registration before acquisition; preserve this version and its hashes as provenance.
+
+Both outputs use exclusive creation. Once the native bins pass normalization, the verifier reads the independent receipt and stores its exact bytes and digest alongside those bins. A valid disagreement or failed scientific gate rejects the selected run. Missing or malformed evidence gives an incomplete record. The scientific gates are evaluated after a valid independent receipt agrees, so an incomplete record carries no gate verdict.
 
 ## A 511 keV anchor on the unit-filled host
 

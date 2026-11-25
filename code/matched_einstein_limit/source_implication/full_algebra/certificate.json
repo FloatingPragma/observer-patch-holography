@@ -1,0 +1,42 @@
+{
+  "neighborhood_HS_radius": 0.0001,
+  "state_HS_error_upper": 2e-07,
+  "necessary_log_error_floor_lower": 0.0025446734663039493,
+  "gradient_norm_upper": 7.965426264514406e-08,
+  "volume_offset_upper": 2.211702132331968e-09,
+  "minimum_volume_direction": 0.1214557008528707,
+  "geometric_curvature_bound": 0.9023751507273471,
+  "multiplier_drift_upper": 0.042814619797566594,
+  "range_effect_error_upper": 7.81400000074317e-16,
+  "gain_interval": [
+    23.1042361,
+    23.1042363
+  ],
+  "volume_interval": [
+    2.763471835,
+    2.763471839
+  ],
+  "signed_transfers": {
+    "right_adjuster_volume": "[-0.0000258637096049681614239394778573084, -0.0000256405928973767642770297436815612]",
+    "ordinary_energy": "[0.297562881119424479654343887025981, 0.297563446804849428892363407713454]",
+    "ordinary_entropy": "[0.409426605226965394539992521565454, 0.409480182095705641576871986029671]",
+    "pairing_entropy": "[0.231079410059018650232340187923182, 0.231132986927758897269219652355845]"
+  },
+  "global_survey": {
+    "boxes": 64,
+    "curvature_upper_millionths": 710553,
+    "trace_norm_curvature_limit": 0.72,
+    "feasible_objective_gap_coefficient": 0.14
+  },
+  "matched_counterpreparation": {
+    "odd_weight": "1/64",
+    "preparation_interval": [
+      ".79363406",
+      ".79363408"
+    ],
+    "volume_slope": "[-0.03189215443369121851178692436485913, -0.031890810440612581551897302118182419]",
+    "fixed_volume_objective_slope": "[7.4786523136085277875709478584010714, 7.4802598575167570031887488376439711]"
+  },
+  "calibrated_gain": "[23.104236174695087846259917301854735, 23.104236217794360756887386845080936]",
+  "calibrated_volume": "[2.763471836788709283167002190212667, 2.763471836788792758553330545195135]"
+}

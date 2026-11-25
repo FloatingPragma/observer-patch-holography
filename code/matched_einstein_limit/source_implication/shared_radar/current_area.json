@@ -1,0 +1,63 @@
+{
+  "launch_port": 5,
+  "current_edge": [
+    4,
+    5
+  ],
+  "times": [
+    0.0078125,
+    0.00390625,
+    0.001953125
+  ],
+  "eta": 23.104236196474325,
+  "charges": {
+    "-1": {
+      "ordinary": {
+        "area_prediction": -0.15354502262295008,
+        "source_prediction": -0.15354502262301062,
+        "marginal_contribution": -0.1534154802662865,
+        "collar_contribution": -0.0001295423567240746,
+        "population_current_per_time": [
+          -0.15353474576396653,
+          -0.15354245325549173,
+          -0.15354438029240905
+        ]
+      },
+      "pairing": {
+        "area_prediction": -0.08666482443499145,
+        "source_prediction": -0.08666482443502413,
+        "marginal_contribution": -3.882311139236094e-15,
+        "collar_contribution": -0.08666482443502023,
+        "population_current_per_time": [
+          -0.08665915203351471,
+          -0.08666340619145795,
+          -0.08666446987120041
+        ]
+      }
+    },
+    "1": {
+      "ordinary": {
+        "area_prediction": -0.15354502262295008,
+        "source_prediction": -0.15354502262301062,
+        "marginal_contribution": -0.1534154802662865,
+        "collar_contribution": -0.0001295423567240746,
+        "population_current_per_time": [
+          -0.15352642922092263,
+          -0.15354037113239533,
+          -0.15354385962486392
+        ]
+      },
+      "pairing": {
+        "area_prediction": -0.08666482443499145,
+        "source_prediction": -0.08666482443502413,
+        "marginal_contribution": -3.882311139236094e-15,
+        "collar_contribution": -0.08666482443502023,
+        "population_current_per_time": [
+          -0.08665445905198509,
+          -0.08666223116489773,
+          -0.0866641760175546
+        ]
+      }
+    }
+  }
+}

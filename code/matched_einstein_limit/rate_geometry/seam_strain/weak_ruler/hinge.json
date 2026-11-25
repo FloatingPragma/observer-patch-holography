@@ -1,0 +1,1360 @@
+{
+  "finite_appointment_certificate": {
+    "divisor": 16,
+    "pooled_range_effect_operator_radius": 1.4089328079265493e-09,
+    "edge_operator_radii": [
+      3.3771344512361993e-10,
+      7.185020740758074e-11,
+      1.2786452130527017e-11,
+      2.745169452608578e-11,
+      1.4089328079265493e-09,
+      7.185020740757668e-11,
+      7.536504592085628e-11,
+      3.377134451204324e-10,
+      1.4269268767767071e-11,
+      9.879211637610414e-13
+    ],
+    "reference_bulk_scalar": [
+      62.38941109584941,
+      62.38941123238873
+    ],
+    "filled_volume": [
+      12.597845623859515,
+      12.59784565906035
+    ],
+    "solid_angle": [
+      2.1677383807064317,
+      2.1677383878971215
+    ],
+    "primary_cone_mean_times_r_squared": [
+      28.781975586683828,
+      28.78197570206047
+    ],
+    "raw_volume_slopes": {
+      "ordinary": [
+        -0.00013147064310479827,
+        -0.0001314652774920126
+      ],
+      "decorrelated": [
+        -0.009309161507007216,
+        -0.009309159566433444
+      ],
+      "hidden": [
+        3.1928806304339475e-05,
+        3.196054380862778e-05
+      ],
+      "left": [
+        1.7159388846791202e-08,
+        1.7176390780360883e-08
+      ],
+      "right": [
+        3.7479266082327406e-06,
+        3.747971156885205e-06
+      ]
+    },
+    "matched": {
+      "left": {
+        "ordinary_calibrated_gain": [
+          0.10370989928807157,
+          0.1038560649404502
+        ],
+        "sources": {
+          "ordinary": {
+            "bulk_scalar": [
+              0.002984725016465957,
+              0.0029880323137719753
+            ],
+            "modular": [
+              0.028770898603613336,
+              0.028779557563501097
+            ],
+            "bulk_plus_boundary": [
+              0.0009049105839091135,
+              0.0009060541176156143
+            ]
+          },
+          "decorrelated": {
+            "bulk_scalar": [
+              0.2067108220991132,
+              0.20693578766009615
+            ],
+            "modular": [
+              0.6352150307865121,
+              0.6358040219930229
+            ],
+            "bulk_plus_boundary": [
+              0.06337548964913096,
+              0.06345327379447623
+            ],
+            "predicted": [
+              0.06587808686913846,
+              0.06603210379750682
+            ],
+            "residual": [
+              0.1406787183016064,
+              0.14105770079095767
+            ],
+            "total_ordinary_residual": [
+              0.04335272775837106,
+              0.043480318923694625
+            ]
+          },
+          "hidden": {
+            "bulk_scalar": [
+              -0.0004923544801631388,
+              -0.0004908083749667441
+            ],
+            "modular": [
+              -0.0031704969416349936,
+              -0.0031664490267516356
+            ],
+            "bulk_plus_boundary": [
+              -0.00015075163174546754,
+              -0.00015021705217166517
+            ],
+            "predicted": [
+              -0.00032927533626394266,
+              -0.00032839210966522443
+            ],
+            "residual": [
+              -0.00016396237049791428,
+              -0.0001615330387028016
+            ],
+            "total_ordinary_residual": [
+              -5.118953002121532e-05,
+              -5.037165462487736e-05
+            ]
+          },
+          "right": {
+            "bulk_scalar": [
+              -8.331008610946855e-05,
+              -8.321844524120896e-05
+            ],
+            "modular": [
+              -0.00025134336352598965,
+              -0.0002511034349431523
+            ],
+            "bulk_plus_boundary": [
+              -2.5545641092584198e-05,
+              -2.551395532728357e-05
+            ],
+            "predicted": [
+              -2.6103532684706363e-05,
+              -2.6041911948843166e-05
+            ],
+            "residual": [
+              -5.726817416062538e-05,
+              -5.7114912556502615e-05
+            ],
+            "total_ordinary_residual": [
+              -1.765023980176777e-05,
+              -1.7598641572381233e-05
+            ]
+          }
+        },
+        "determinant_bulk_total_modular": [
+          -9.593634034818279e-09,
+          4.562372930299531e-09
+        ],
+        "implicit_geometry_constraints": {
+          "volume_and_two_curvatures_control_minor": [
+            2.854270253533615e-14,
+            4.37245945834764e-14
+          ],
+          "volume_matched_curvature_minor": [
+            1.6633868950801018e-06,
+            2.5456217864739178e-06
+          ],
+          "witnesses": {
+            "hidden": {
+              "ordinary_coefficient": [
+                -0.054519227697177396,
+                0.11423276603919696
+              ],
+              "decorrelation_coefficient": [
+                0.0008865376035926999,
+                0.0037953009304947517
+              ],
+              "modular_derivative_at_fixed_geometry": [
+                -0.0057675301297575084,
+                0.0027428212545102595
+              ]
+            },
+            "right": {
+              "ordinary_coefficient": [
+                -0.0073931361437249606,
+                0.00738674993713259
+              ],
+              "decorrelation_coefficient": [
+                0.00026268402458522904,
+                0.0006167832561782722
+              ],
+              "modular_derivative_at_fixed_geometry": [
+                -0.00032837674895192615,
+                0.0003399485766178874
+              ]
+            }
+          }
+        }
+      },
+      "right": {
+        "ordinary_calibrated_gain": [
+          0.0032897344153564848,
+          0.0032916737208394053
+        ],
+        "sources": {
+          "ordinary": {
+            "bulk_scalar": [
+              6.567296223080279e-05,
+              6.57116046031786e-05
+            ],
+            "modular": [
+              0.019962976338499784,
+              0.019962998205642776
+            ],
+            "bulk_plus_boundary": [
+              9.9600994846022e-06,
+              9.971355695234566e-06
+            ]
+          },
+          "decorrelated": {
+            "bulk_scalar": [
+              1.1095103644483627e-05,
+              1.1723094880818774e-05
+            ],
+            "modular": [
+              0.011520329403186999,
+              0.01152068477561861
+            ],
+            "bulk_plus_boundary": [
+              3.3428549262089516e-06,
+              3.5259468712888644e-06
+            ],
+            "predicted": [
+              3.789882411390751e-05,
+              3.79223353219784e-05
+            ],
+            "residual": [
+              -2.682723167749477e-05,
+              -2.6175729233088742e-05
+            ],
+            "total_ordinary_residual": [
+              -2.411639984894055e-06,
+              -2.221868450294284e-06
+            ]
+          },
+          "hidden": {
+            "bulk_scalar": [
+              0.00021801068330426447,
+              0.00021818980191542735
+            ],
+            "modular": [
+              -0.0010272853593208933,
+              -0.001027183997813527
+            ],
+            "bulk_plus_boundary": [
+              6.708629535498357e-05,
+              6.713844438445867e-05
+            ],
+            "predicted": [
+              -3.38148822107965e-06,
+              -3.3791625485106214e-06
+            ],
+            "residual": [
+              0.0002213898458527751,
+              0.000221571290136507
+            ],
+            "total_ordinary_residual": [
+              6.759878624947868e-05,
+              6.765156565177892e-05
+            ]
+          },
+          "left": {
+            "bulk_scalar": [
+              3.813529932380239e-07,
+              3.8144895250108884e-07
+            ],
+            "modular": [
+              1.1507288340677449e-06,
+              1.1507831409295093e-06
+            ],
+            "bulk_plus_boundary": [
+              1.1692802791053984e-07,
+              1.1695596644145851e-07
+            ],
+            "predicted": [
+              3.785592248175703e-09,
+              3.788002623382695e-09
+            ],
+            "residual": [
+              3.775649906146412e-07,
+              3.7766336025291315e-07
+            ],
+            "total_ordinary_residual": [
+              1.1635322043535602e-07,
+              1.1638183556447054e-07
+            ]
+          }
+        },
+        "determinant_bulk_total_modular": [
+          -2.6434836745932738e-11,
+          -2.4632531120308464e-11
+        ],
+        "implicit_geometry_constraints": {
+          "volume_and_two_curvatures_control_minor": [
+            3.84687323517322e-16,
+            4.542064696258793e-16
+          ],
+          "volume_matched_curvature_minor": [
+            1.0264003640634614e-10,
+            1.211872905669191e-10
+          ],
+          "witnesses": {
+            "hidden": {
+              "ordinary_coefficient": [
+                -0.24353312993670043,
+                0.5679291342899275
+              ],
+              "decorrelation_coefficient": [
+                -21.827416426256693,
+                -18.40215757484375
+              ],
+              "modular_derivative_at_fixed_geometry": [
+                -0.25754898060712583,
+                -0.203260020131455
+              ]
+            },
+            "left": {
+              "ordinary_coefficient": [
+                -0.0004641478479850657,
+                0.0009380175881822262
+              ],
+              "decorrelation_coefficient": [
+                -0.03787070433211444,
+                -0.03197898688549475
+              ],
+              "modular_derivative_at_fixed_geometry": [
+                -0.0004444217857651513,
+                -0.00035138920140113434
+              ]
+            }
+          }
+        },
+        "equal_volume_outer_area_bulk": {
+          "control_minor": [
+            1.3567811141162257e-16,
+            2.5084781633866597e-16
+          ],
+          "ordinary_per_left_radian": [
+            -0.0020283045800593346,
+            0.0024071595601997324
+          ],
+          "partial_repairing_per_left_radian": [
+            -0.04890818695146646,
+            -0.02623727021218108
+          ],
+          "retained_entropy_per_left_radian": [
+            -0.0006028442138345295,
+            -0.0002750934440795269
+          ],
+          "twelve_port_entropy_per_left_radian": [
+            -0.011672456977332487,
+            -0.003872375712968594
+          ],
+          "regional_ports": [
+            0,
+            1,
+            5,
+            7,
+            8,
+            9,
+            38,
+            39,
+            40,
+            42,
+            46,
+            47
+          ],
+          "regional_scope": "Both original heads, strain and enclosed spent-pump modes on these twelve ports. Their identification with a proper ball of the five-station star is open."
+        }
+      }
+    }
+  },
+  "finite_positive_right_matches": [
+    {
+      "admixture": 1e-06,
+      "arms": {
+        "ordinary": {
+          "rotation": 3.5076704535895526e-05,
+          "volume_error": -6.265110800596914e-26,
+          "bulk_scalar_secant": 6.569227634211857e-05,
+          "modular_secant": 0.019962983779109655,
+          "entropy_secant": 0.0199629545116764
+        },
+        "decorrelated": {
+          "rotation": 0.0024807716172613424,
+          "volume_error": -8.954813815575744e-26,
+          "bulk_scalar_secant": 1.1373505545998103e-05,
+          "modular_secant": 0.011504370769863135,
+          "entropy_secant": 0.011487157225431588
+        }
+      },
+      "ordinary_gain": 0.0032907042889481542,
+      "held_residual": -2.6483976688040296e-05
+    },
+    {
+      "admixture": 1e-07,
+      "arms": {
+        "ordinary": {
+          "rotation": 3.50772483647553e-06,
+          "volume_error": -5.279460396487947e-26,
+          "bulk_scalar_secant": 6.56922828129145e-05,
+          "modular_secant": 0.01996298692280511,
+          "entropy_secant": 0.019962979047605245
+        },
+        "decorrelated": {
+          "rotation": 0.00024834974905625276,
+          "volume_error": -8.55559295927877e-27,
+          "bulk_scalar_secant": 1.140553373846637e-05,
+          "modular_secant": 0.01151888990805326,
+          "entropy_secant": 0.011517162779028922
+        }
+      },
+      "ordinary_gain": 0.0032907040948801924,
+      "held_residual": -2.6499724450438615e-05
+    },
+    {
+      "admixture": 1e-08,
+      "arms": {
+        "ordinary": {
+          "rotation": 3.50773027501465e-07,
+          "volume_error": -3.80567423146849e-27,
+          "bulk_scalar_secant": 6.569228346001624e-05,
+          "modular_secant": 0.01996298723718488,
+          "entropy_secant": 0.01996297571693617
+        },
+        "decorrelated": {
+          "rotation": 2.4837709652637235e-05,
+          "volume_error": -6.555855890515707e-27,
+          "bulk_scalar_secant": 1.140874431091897e-05,
+          "modular_secant": 0.01152034533658362,
+          "entropy_secant": 0.01152016260164146
+        }
+      },
+      "ordinary_gain": 0.003290704075472823,
+      "held_residual": -2.6501303039031083e-05
+    }
+  ],
+  "finite_equal_volume_bulk_and_boundary": [
+    {
+      "left_rotation": -0.0001,
+      "right_rotation": 0.008599997873700655,
+      "rail_lottery": [
+        0.6666666722656289,
+        0.33333332773437097
+      ],
+      "ordinary_coordinate": -1.6796886983277987e-08,
+      "partial_repairing": 3.4771139230783284e-06,
+      "geometry_error": {
+        "volume": -3.0507052037072636e-24,
+        "bulk_scalar": 5.176554891712605e-24,
+        "bulk_plus_boundary": -3.793144790295607e-24
+      },
+      "minimum_retained_eigenvalue": 0.0014828251569449107,
+      "modular_change": 3.941380506048512e-08,
+      "entropy_change": 3.9206931035096204e-08
+    },
+    {
+      "left_rotation": -1e-05,
+      "right_rotation": 0.0008612322572548592,
+      "rail_lottery": [
+        0.6666666673745253,
+        0.33333333262547465
+      ],
+      "ordinary_coordinate": -2.1235759939485995e-09,
+      "partial_repairing": 3.4689821425551924e-07,
+      "geometry_error": {
+        "volume": 4.729753359976169e-25,
+        "bulk_scalar": -8.076167714882834e-25,
+        "bulk_plus_boundary": 5.823280516896792e-25
+      },
+      "minimum_retained_eigenvalue": 0.001482825744035825,
+      "modular_change": 3.940598087035805e-09,
+      "entropy_change": 3.9385232852851004e-09
+    },
+    {
+      "left_rotation": -1e-06,
+      "right_rotation": 8.613568384462504e-05,
+      "rail_lottery": [
+        0.6666666667389368,
+        0.3333333332610631
+      ],
+      "ordinary_coordinate": -2.1681052294062334e-10,
+      "partial_repairing": 3.468166371396161e-08,
+      "geometry_error": {
+        "volume": 1.796425397410621e-26,
+        "bulk_scalar": -2.9865688945182816e-26,
+        "bulk_plus_boundary": 2.2660881878269395e-26
+      },
+      "minimum_retained_eigenvalue": 0.001482825803397721,
+      "modular_change": 3.9405195769827755e-10,
+      "entropy_change": 3.940308079819488e-10
+    }
+  ],
+  "finite_equal_volume_outer_area_and_bulk": [
+    {
+      "left_rotation": -0.0001,
+      "right_rotation": 0.008481603381432822,
+      "rail_lottery": [
+        0.6666666695356716,
+        0.3333333304643284
+      ],
+      "ordinary_coordinate": -8.607014821490899e-09,
+      "partial_repairing": 3.428932175999993e-06,
+      "geometry_error": {
+        "volume": 4.6301417401609966e-24,
+        "bulk_scalar": -8.011586921011162e-24,
+        "outer_area": 7.35898465605431e-24
+      },
+      "minimum_retained_eigenvalue": 0.0014828251654188554,
+      "modular_change": 3.9027523526073556e-08,
+      "entropy_change": 3.882630539298049e-08
+    },
+    {
+      "left_rotation": -1e-05,
+      "right_rotation": 0.0008492224863209858,
+      "rail_lottery": [
+        0.6666666670942852,
+        0.33333333290571465
+      ],
+      "ordinary_coordinate": -1.2828559725587098e-09,
+      "partial_repairing": 3.4204702992607387e-07,
+      "geometry_error": {
+        "volume": 1.1078780092633827e-25,
+        "bulk_scalar": -1.979525017561191e-25,
+        "outer_area": 1.7720097235580318e-25
+      },
+      "minimum_retained_eigenvalue": 0.001482825744911222,
+      "modular_change": 3.9015471256953445e-09,
+      "entropy_change": 3.899529588125006e-09
+    },
+    {
+      "left_rotation": -1e-06,
+      "right_rotation": 8.493299006369867e-05,
+      "rail_lottery": [
+        0.6666666667108395,
+        0.33333333328916037
+      ],
+      "ordinary_coordinate": -1.3251882191622274e-10,
+      "partial_repairing": 3.419621753662466e-08,
+      "geometry_error": {
+        "volume": 7.183322217428928e-26,
+        "bulk_scalar": -1.2261327468199064e-25,
+        "outer_area": 1.1395953633637913e-25
+      },
+      "minimum_retained_eigenvalue": 0.0014828258034855222,
+      "modular_change": 3.901426251586311e-10,
+      "entropy_change": 3.9012193475684853e-10
+    }
+  ],
+  "primary_stations": [
+    0,
+    1,
+    38,
+    39,
+    5
+  ],
+  "apex": 5,
+  "hinges": "four interior radial edges",
+  "source": "Coupled four-tick vacancy-pumped state with live strain and both original heads.",
+  "modular": "Independent retained eight-state reference negative log. Ordinary and decorrelated are source slopes about the same reference; hidden is nominal XZ+ZX and its modular interval encloses the independently refined tangent.",
+  "normalization": "Twice sum of length times interior dihedral deficit. Boundary bending is reported separately.",
+  "uncertainty": "The 1/16 primary transfer uses enclosed native effects and source states. Continuous pooled primary panels and finite secants are numerical checks. The held five-station cone bounds are exact and uniform.",
+  "panels": [
+    {
+      "divisor": 16,
+      "continuous": false,
+      "reference": {
+        "bulk_scalar": 62.38941116411904,
+        "filled_volume": 12.597845641459953,
+        "spherical_link": 2.167738384301782,
+        "boundary_bending": 24.080397039578816,
+        "outer_area": 15.379740376380315
+      },
+      "interior_deficits": [
+        2.621599870311262,
+        2.576833728315896,
+        2.5779063614215003,
+        2.622292270008732
+      ],
+      "boundary_exterior_angles": [
+        0.6805128296447922,
+        0.6611947168374543,
+        0.6698801438633062,
+        0.6874675272908153,
+        0.6612150550472058,
+        0.6804475670591335
+      ],
+      "reference_mean_bulk_scalar": 4.952387331909616,
+      "cone_radius_upper": 2.453554281826269,
+      "cone_mean_scalar_times_r_squared": 28.781975644372068,
+      "cone_volume_matched": {
+        "ordinary": {
+          "dI_per_r": 0.00022719058595422316,
+          "dA_per_r_squared": -1.4569110185594814e-05,
+          "modular": 0.02037787664377954
+        },
+        "decorrelated": {
+          "dI_per_r": 0.013683301475586942,
+          "dA_per_r_squared": -0.0008774726561104349,
+          "modular": 0.040898552941628474,
+          "ordinary_prediction_per_r": 0.0004559732287085344,
+          "residual_per_r": 0.013227328246878407
+        },
+        "hidden": {
+          "dI_per_r": 4.965290406909207e-05,
+          "dA_per_r_squared": -3.184104778721464e-06,
+          "modular": -0.0011280463605241888,
+          "ordinary_prediction_per_r": -1.2576458190959296e-05,
+          "residual_per_r": 6.222936226005136e-05
+        }
+      },
+      "spherical_link_identity_error": 0.0,
+      "source_slopes": {
+        "ordinary": {
+          "bulk_scalar": 0.00028894120919056187,
+          "filled_volume": -0.00013146796029378714,
+          "spherical_link": -4.370733055678444e-05,
+          "boundary_bending": -0.000441170074836516,
+          "outer_area": -0.00022811764825353525
+        },
+        "decorrelated": {
+          "bulk_scalar": 0.015819519943968522,
+          "filled_volume": -0.009309160536717626,
+          "spherical_link": -0.0026324179683313046,
+          "boundary_bending": -0.027300978919424,
+          "outer_area": -0.014745932973419243
+        },
+        "hidden": {
+          "bulk_scalar": 0.00016385421936029982,
+          "filled_volume": 3.1944673179042753e-05,
+          "spherical_link": -9.552314336164392e-06,
+          "boundary_bending": -5.733108140504205e-05,
+          "outer_area": -2.151775369744982e-08
+        },
+        "left": {
+          "bulk_scalar": 3.5224776332884903e-07,
+          "filled_volume": 1.716788981413742e-08,
+          "spherical_link": -2.7676740523434138e-08,
+          "boundary_bending": -2.1412540472299294e-07,
+          "outer_area": -6.1546600547704e-08
+        },
+        "right": {
+          "bulk_scalar": -6.364482719474597e-06,
+          "filled_volume": 3.7479488825566775e-06,
+          "spherical_link": 1.0594399640926437e-06,
+          "boundary_bending": 1.0988400539386815e-05,
+          "outer_area": 5.935764752893404e-06
+        }
+      },
+      "maximum_real_derivative_discrepancy": {
+        "ordinary": 6.079663682212466e-16,
+        "decorrelated": 7.266062751476454e-14,
+        "hidden": 1.3120879166148014e-16,
+        "left": 2.7655625727852906e-19,
+        "right": 1.4330103401648253e-17
+      },
+      "matched": {
+        "left": {
+          "ordinary_gain": 0.10378295038940515,
+          "sources": {
+            "ordinary": {
+              "rotation": 7657.782157101559,
+              "bulk_scalar": 0.002986377846089155,
+              "filled_volume": 0.0,
+              "boundary_bending": -0.0020808957785064014,
+              "solid_angle": -0.00025564978030386806,
+              "outer_area": -0.000699428107758,
+              "modular": 0.02877522593917338
+            },
+            "decorrelated": {
+              "rotation": 542242.5608214071,
+              "bulk_scalar": 0.20682324917501657,
+              "filled_volume": 0.0,
+              "boundary_bending": -0.1434088867133399,
+              "solid_angle": -0.017639924624947845,
+              "outer_area": -0.048119119264258485,
+              "modular": 0.6355093805457451
+            },
+            "hidden": {
+              "rotation": -1860.7221694035422,
+              "bulk_scalar": -0.0004915810029885016,
+              "filled_volume": 0.0,
+              "boundary_bending": 0.00034109680619553686,
+              "solid_angle": 4.194641033261891e-05,
+              "outer_area": 0.00011449960633683959,
+              "modular": -0.0031684718620088887
+            }
+          },
+          "held": {
+            "decorrelated": {
+              "predicted_bulk_scalar": 0.06595503851318066,
+              "measured_minus_predicted": 0.1408682106618359,
+              "geometry_ratio": 69.25555299235303,
+              "modular_ratio": 22.085295937870967
+            },
+            "hidden": {
+              "predicted_bulk_scalar": -0.00032883335806509466,
+              "measured_minus_predicted": -0.00016274764492340697,
+              "geometry_ratio": -0.16460777179694697,
+              "modular_ratio": -0.11011110281832626
+            }
+          }
+        },
+        "right": {
+          "ordinary_gain": 0.0032907040733096498,
+          "sources": {
+            "ordinary": {
+              "rotation": 35.07730879299127,
+              "bulk_scalar": 6.569228353189461e-05,
+              "filled_volume": 0.0,
+              "boundary_bending": -5.572655597537292e-05,
+              "solid_angle": -6.545027788671198e-06,
+              "outer_area": -1.9906995093739812e-05,
+              "modular": 0.01996298727215058
+            },
+            "decorrelated": {
+              "rotation": 2483.801361337497,
+              "bulk_scalar": 1.1409101128543458e-05,
+              "filled_volume": 0.0,
+              "boundary_bending": -7.974700773343002e-06,
+              "solid_angle": -9.795432626474518e-07,
+              "outer_area": -2.6723996034757475e-06,
+              "modular": 0.011520507090449352
+            },
+            "hidden": {
+              "rotation": -8.523241426188175,
+              "bulk_scalar": 0.00021810024213118448,
+              "filled_volume": 0.0,
+              "boundary_bending": -0.0001509878720898922,
+              "solid_angle": -1.8582176926678125e-05,
+              "outer_area": -5.061347379166613e-05,
+              "modular": -0.0010272346847932478
+            }
+          },
+          "held": {
+            "decorrelated": {
+              "predicted_bulk_scalar": 3.7910579609134384e-05,
+              "measured_minus_predicted": -2.6501478480590926e-05,
+              "geometry_ratio": 0.1736749054096158,
+              "modular_ratio": 0.5770933444675921
+            },
+            "hidden": {
+              "predicted_bulk_scalar": -3.3803253614940947e-06,
+              "measured_minus_predicted": 0.00022148056749267858,
+              "geometry_ratio": 3.3200283260863275,
+              "modular_ratio": -0.05145696236686452
+            }
+          }
+        }
+      }
+    },
+    {
+      "divisor": 32,
+      "continuous": false,
+      "reference": {
+        "bulk_scalar": 62.38940179677509,
+        "filled_volume": 12.597851420337603,
+        "spherical_link": 2.167739990609125,
+        "boundary_bending": 24.080413788502945,
+        "outer_area": 15.379749475413988
+      },
+      "interior_deficits": [
+        2.6215987824651132,
+        2.5768338844527365,
+        2.5779066978326455,
+        2.622291258999552
+      ],
+      "boundary_exterior_angles": [
+        0.6805124996866692,
+        0.661195571203018,
+        0.6698806762195315,
+        0.6874675797071212,
+        0.6612159620921059,
+        0.6804471507065948
+      ],
+      "reference_mean_bulk_scalar": 4.95238431658715,
+      "cone_radius_upper": 2.453554035676848,
+      "cone_mean_scalar_times_r_squared": 28.78194987073541,
+      "cone_volume_matched": {
+        "ordinary": {
+          "dI_per_r": 0.00022733843984349222,
+          "dA_per_r_squared": -1.4578599682462435e-05,
+          "modular": 0.02037787664377954
+        },
+        "decorrelated": {
+          "dI_per_r": 0.013683080208533658,
+          "dA_per_r_squared": -0.0008774589502794422,
+          "modular": 0.040898552941628474,
+          "ordinary_prediction_per_r": 0.00045626997258541637,
+          "residual_per_r": 0.01322681023594824
+        },
+        "hidden": {
+          "dI_per_r": 4.9627331217629805e-05,
+          "dA_per_r_squared": -3.1824666150998336e-06,
+          "modular": -0.0011280463605241888,
+          "ordinary_prediction_per_r": -1.2584642853404498e-05,
+          "residual_per_r": 6.22119740710343e-05
+        }
+      },
+      "spherical_link_identity_error": 0.0,
+      "source_slopes": {
+        "ordinary": {
+          "bulk_scalar": 0.000289116040394742,
+          "filled_volume": -0.00013156554633998334,
+          "spherical_link": -4.3735799047387305e-05,
+          "boundary_bending": -0.00044146364121048793,
+          "outer_area": -0.00022827483248527653
+        },
+        "decorrelated": {
+          "bulk_scalar": 0.015819269531426334,
+          "filled_volume": -0.00930900452271241,
+          "spherical_link": -0.0026323768508383265,
+          "boundary_bending": -0.027300549724729485,
+          "outer_area": -0.014745696464424767
+        },
+        "hidden": {
+          "bulk_scalar": 0.00016376993321005326,
+          "filled_volume": 3.1928255597077666e-05,
+          "spherical_link": -9.547399845299501e-06,
+          "boundary_bending": -5.730159818472177e-05,
+          "outer_area": -2.152809351876487e-08
+        },
+        "left": {
+          "bulk_scalar": 3.522426476210623e-07,
+          "filled_volume": 1.7139786706799262e-08,
+          "spherical_link": -2.768026129627772e-08,
+          "boundary_bending": -2.1417194762600358e-07,
+          "outer_area": -6.15791020194782e-08
+        },
+        "right": {
+          "bulk_scalar": -6.364341683390069e-06,
+          "filled_volume": 3.7478617601656626e-06,
+          "spherical_link": 1.0594165671623824e-06,
+          "boundary_bending": 1.098815654837688e-05,
+          "outer_area": 5.93563098891487e-06
+        }
+      },
+      "maximum_real_derivative_discrepancy": {
+        "ordinary": 2.6893634888502937e-16,
+        "decorrelated": 4.629976957382098e-14,
+        "hidden": 2.6237692574149207e-16,
+        "left": 3.5824199712936565e-19,
+        "right": 7.730022676642745e-18
+      },
+      "matched": {
+        "left": {
+          "ordinary_gain": 0.10393877543217218,
+          "sources": {
+            "ordinary": {
+              "rotation": 7676.031714431544,
+              "bulk_scalar": 0.002992941774709351,
+              "filled_volume": 0.0,
+              "boundary_bending": -0.002085454303529263,
+              "solid_angle": -0.0002562103626213671,
+              "outer_area": -0.0007009579725330067,
+              "modular": 0.02879523798760232
+            },
+            "decorrelated": {
+              "rotation": 543122.5418353414,
+              "bulk_scalar": 0.20713019165018817,
+              "filled_volume": 0.0,
+              "boundary_bending": -0.14362216230919014,
+              "solid_angle": -0.017666150724739104,
+              "outer_area": -0.04819069487718156,
+              "modular": 0.6364743476596852
+            },
+            "hidden": {
+              "rotation": -1862.8152230396133,
+              "bulk_scalar": -0.0004923930329822398,
+              "filled_volume": 0.0,
+              "boundary_bending": 0.0003416611662010405,
+              "solid_angle": 4.201581227512086e-05,
+              "outer_area": 0.00011468896056947461,
+              "modular": -0.003170767056898937
+            }
+          },
+          "held": {
+            "decorrelated": {
+              "predicted_bulk_scalar": 0.06615436428973831,
+              "measured_minus_predicted": 0.14097582736044986,
+              "geometry_ratio": 69.20622158454883,
+              "modular_ratio": 22.10345849316185
+            },
+            "hidden": {
+              "predicted_bulk_scalar": -0.00032956564507474815,
+              "measured_minus_predicted": -0.00016282738790749166,
+              "geometry_ratio": -0.16451807955069783,
+              "modular_ratio": -0.11011428550318281
+            }
+          }
+        },
+        "right": {
+          "ordinary_gain": 0.0032912010327589597,
+          "sources": {
+            "ordinary": {
+              "rotation": 35.10416198866628,
+              "bulk_scalar": 6.570115898979598e-05,
+              "filled_volume": 0.0,
+              "boundary_bending": -5.573361377944185e-05,
+              "solid_angle": -6.545868260242288e-06,
+              "outer_area": -1.9909480745461535e-05,
+              "modular": 0.019962669656408007
+            },
+            "decorrelated": {
+              "rotation": 2483.8174720459633,
+              "bulk_scalar": 1.1406460151661829e-05,
+              "filled_volume": 0.0,
+              "boundary_bending": -7.974504294728374e-06,
+              "solid_angle": -9.794711454454846e-07,
+              "outer_area": -2.6725065405529963e-06,
+              "modular": 0.011520316535302957
+            },
+            "hidden": {
+              "rotation": -8.519059036923062,
+              "bulk_scalar": 0.00021798813574200356,
+              "filled_volume": 0.0,
+              "boundary_bending": -0.00015091035252729715,
+              "solid_angle": -1.8572632125650202e-05,
+              "outer_area": -5.0587518909474555e-05,
+              "modular": -0.0010272841534929235
+            }
+          },
+          "held": {
+            "decorrelated": {
+              "predicted_bulk_scalar": 3.7915677678699214e-05,
+              "measured_minus_predicted": -2.6509217527037385e-05,
+              "geometry_ratio": 0.17361124715369727,
+              "modular_ratio": 0.5770929807279028
+            },
+            "hidden": {
+              "predicted_bulk_scalar": -3.3809986669128236e-06,
+              "measured_minus_predicted": 0.00022136913440891638,
+              "geometry_ratio": 3.3178735214680035,
+              "modular_ratio": -0.05146025913238342
+            }
+          }
+        }
+      }
+    },
+    {
+      "divisor": 16,
+      "continuous": true,
+      "reference": {
+        "bulk_scalar": 62.38938503506585,
+        "filled_volume": 12.597861410985997,
+        "spherical_link": 2.167742814480869,
+        "boundary_bending": 24.080443122127626,
+        "outer_area": 15.379765332191738
+      },
+      "interior_deficits": [
+        2.621596516939793,
+        2.576834659611108,
+        2.577907552712688,
+        2.622289070614716
+      ],
+      "boundary_exterior_angles": [
+        0.6805123159944801,
+        0.6611969738912356,
+        0.6698814746850186,
+        0.6874671970127872,
+        0.6612173769946565,
+        0.680446913797101
+      ],
+      "reference_mean_bulk_scalar": 4.9523790586122045,
+      "cone_radius_upper": 2.4535536884360827,
+      "cone_mean_scalar_times_r_squared": 28.781904561040555,
+      "cone_volume_matched": {
+        "ordinary": {
+          "dI_per_r": 0.00022745713937302934,
+          "dA_per_r_squared": -1.4586225689651789e-05,
+          "modular": 0.02037787664377954
+        },
+        "decorrelated": {
+          "dI_per_r": 0.013682053664129763,
+          "dA_per_r_squared": -0.0008773939705433042,
+          "modular": 0.040898552941628474,
+          "ordinary_prediction_per_r": 0.00045650820344125,
+          "residual_per_r": 0.013225545460688513
+        },
+        "hidden": {
+          "dI_per_r": 4.961643005453267e-05,
+          "dA_per_r_squared": -3.181770634613239e-06,
+          "modular": -0.0011280463605241888,
+          "ordinary_prediction_per_r": -1.2591213634778384e-05,
+          "residual_per_r": 6.220764368931105e-05
+        }
+      },
+      "spherical_link_identity_error": 1.7763568394002505e-15,
+      "source_slopes": {
+        "ordinary": {
+          "bulk_scalar": 0.0002892551658571367,
+          "filled_volume": -0.00013164565084863885,
+          "spherical_link": -4.375867706895537e-05,
+          "boundary_bending": -0.00044170030967613196,
+          "outer_area": -0.00022840225365390013
+        },
+        "decorrelated": {
+          "bulk_scalar": 0.015818097938776803,
+          "filled_volume": -0.00930828559919764,
+          "spherical_link": -0.0026321819116299125,
+          "boundary_bending": -0.02729851909531563,
+          "outer_area": -0.014744587282617204
+        },
+        "hidden": {
+          "bulk_scalar": 0.000163734010969604,
+          "filled_volume": 3.192128900770213e-05,
+          "spherical_link": -9.545311903839717e-06,
+          "boundary_bending": -5.728907124535081e-05,
+          "outer_area": -2.1531039454678907e-08
+        },
+        "left": {
+          "bulk_scalar": 3.522328858324926e-07,
+          "filled_volume": 1.7131107150940842e-08,
+          "spherical_link": -2.7680689650528793e-08,
+          "boundary_bending": -2.141810249988172e-07,
+          "outer_area": -6.158739350122561e-08
+        },
+        "right": {
+          "bulk_scalar": -6.363791126893575e-06,
+          "filled_volume": 3.7475256039517605e-06,
+          "spherical_link": 1.0593248853194844e-06,
+          "boundary_bending": 1.0987202016924305e-05,
+          "outer_area": 5.9351103954310126e-06
+        }
+      },
+      "maximum_real_derivative_discrepancy": {
+        "ordinary": 5.527804776417344e-16,
+        "decorrelated": 9.134359935103475e-14,
+        "hidden": 1.5022298726144467e-16,
+        "left": 2.5688921103446827e-19,
+        "right": 1.0953830073892612e-17
+      },
+      "matched": {
+        "left": {
+          "ordinary_gain": 0.10401184951245111,
+          "sources": {
+            "ordinary": {
+              "rotation": 7684.596779923174,
+              "bulk_scalar": 0.002996022866108556,
+              "filled_volume": 0.0,
+              "boundary_bending": -0.0020875951247026877,
+              "solid_angle": -0.00025647361562346167,
+              "outer_area": -0.0007016765394372798,
+              "modular": 0.028804630243113853
+            },
+            "decorrelated": {
+              "rotation": 543355.7514516176,
+              "bulk_scalar": 0.20720586230626264,
+              "filled_volume": 0.0,
+              "boundary_bending": -0.14367501088022563,
+              "solid_angle": -0.017672643837391998,
+              "outer_area": -0.048208451758422116,
+              "modular": 0.6367300800070855
+            },
+            "hidden": {
+              "rotation": -1863.3523640034562,
+              "bulk_scalar": -0.0004925999695261305,
+              "filled_volume": 0.0,
+              "boundary_bending": 0.0003418056480108786,
+              "solid_angle": 4.2033566593719115e-05,
+              "outer_area": 0.00011473748423386515,
+              "modular": -0.0031713560734316247
+            }
+          },
+          "held": {
+            "decorrelated": {
+              "predicted_bulk_scalar": 0.06622747326174794,
+              "measured_minus_predicted": 0.1409783890445147,
+              "geometry_ratio": 69.16030736954825,
+              "modular_ratio": 22.10512944040671
+            },
+            "hidden": {
+              "predicted_bulk_scalar": -0.000329858610660168,
+              "measured_minus_predicted": -0.00016274135886596255,
+              "geometry_ratio": -0.1644179605898515,
+              "modular_ratio": -0.11009882948210319
+            }
+          }
+        },
+        "right": {
+          "ordinary_gain": 0.003291368357709335,
+          "sources": {
+            "ordinary": {
+              "rotation": 35.128686168232896,
+              "bulk_scalar": 6.570354452030714e-05,
+              "filled_volume": 0.0,
+              "boundary_bending": -5.573433815662254e-05,
+              "solid_angle": -6.545985622367894e-06,
+              "outer_area": -1.9909623198987453e-05,
+              "modular": 0.019962379587933534
+            },
+            "decorrelated": {
+              "rotation": 2483.8484330519495,
+              "bulk_scalar": 1.1405319972297712e-05,
+              "filled_volume": 0.0,
+              "boundary_bending": -7.974581952976262e-06,
+              "solid_angle": -9.794551361751863e-07,
+              "outer_area": -2.6726269355473176e-06,
+              "modular": 0.011519950332969865
+            },
+            "hidden": {
+              "rotation": -8.517964219921854,
+              "bulk_scalar": 0.00021794055609153967,
+              "filled_volume": 0.0,
+              "boundary_bending": -0.00015087766490256527,
+              "solid_angle": -1.8568603374263905e-05,
+              "outer_area": -5.057658902902229e-05,
+              "modular": -0.0010272971028312083
+            }
+          },
+          "held": {
+            "decorrelated": {
+              "predicted_bulk_scalar": 3.791640000832013e-05,
+              "measured_minus_predicted": -2.6511080036022417e-05,
+              "geometry_ratio": 0.17358759037379853,
+              "modular_ratio": 0.577083021702143
+            },
+            "hidden": {
+              "predicted_bulk_scalar": -3.381213178225112e-06,
+              "measured_minus_predicted": 0.00022132176926976477,
+              "geometry_ratio": 3.317028901297407,
+              "modular_ratio": -0.05146165557597996
+            }
+          }
+        }
+      }
+    },
+    {
+      "divisor": 32,
+      "continuous": true,
+      "reference": {
+        "bulk_scalar": 62.38939515792406,
+        "filled_volume": 12.5978554252927,
+        "spherical_link": 2.167741116076363,
+        "boundary_bending": 24.08042549504142,
+        "outer_area": 15.37975581453459
+      },
+      "interior_deficits": [
+        2.6215979413157995,
+        2.5768341132539114,
+        2.5779069891409954,
+        2.622290454572103
+      ],
+      "boundary_exterior_angles": [
+        0.6805123620982778,
+        0.6611961437170626,
+        0.6698810182729797,
+        0.6874675070203908,
+        0.6612165506514129,
+        0.6804469789422329
+      ],
+      "reference_mean_bulk_scalar": 4.952382215203466,
+      "cone_radius_upper": 2.453553883586123,
+      "cone_mean_scalar_times_r_squared": 28.781931812331308,
+      "cone_volume_matched": {
+        "ordinary": {
+          "dI_per_r": 0.00022740495825409227,
+          "dA_per_r_squared": -1.4582870957510369e-05,
+          "modular": 0.02037787664377954
+        },
+        "decorrelated": {
+          "dI_per_r": 0.01368276879411744,
+          "dA_per_r_squared": -0.0008774393188169357,
+          "modular": 0.040898552941628474,
+          "ordinary_prediction_per_r": 0.00045640347553987405,
+          "residual_per_r": 0.013226365318577566
+        },
+        "hidden": {
+          "dI_per_r": 4.961828263916927e-05,
+          "dA_per_r_squared": -3.1818875824677024e-06,
+          "modular": -0.0011280463605241888,
+          "ordinary_prediction_per_r": -1.2588325074682845e-05,
+          "residual_per_r": 6.220660771385212e-05
+        }
+      },
+      "spherical_link_identity_error": 0.0,
+      "source_slopes": {
+        "ordinary": {
+          "bulk_scalar": 0.00028919437739571033,
+          "filled_volume": -0.0001316098929461947,
+          "spherical_link": -4.374861287253111e-05,
+          "boundary_bending": -0.0004415959680274256,
+          "outer_area": -0.00022834586119862624
+        },
+        "decorrelated": {
+          "bulk_scalar": 0.015818914746594952,
+          "filled_volume": -0.009308786227808475,
+          "spherical_link": -0.002632317956450807,
+          "boundary_bending": -0.027299936005380873,
+          "outer_area": -0.014745360701047908
+        },
+        "hidden": {
+          "bulk_scalar": 0.00016374011094397468,
+          "filled_volume": 3.1922454924596316e-05,
+          "spherical_link": -9.545662747403108e-06,
+          "boundary_bending": -5.7291176451187114e-05,
+          "outer_area": -2.15310136944953e-08
+        },
+        "left": {
+          "bulk_scalar": 3.5223868862661453e-07,
+          "filled_volume": 1.7130635580654637e-08,
+          "spherical_link": -2.7681221970166387e-08,
+          "boundary_bending": -2.1418560787064668e-07,
+          "outer_area": -6.158919132133329e-08
+        },
+        "right": {
+          "bulk_scalar": -6.3641681628029494e-06,
+          "filled_volume": 3.747755591186644e-06,
+          "spherical_link": 1.0593876937500425e-06,
+          "boundary_bending": 1.0987855842429901e-05,
+          "outer_area": 5.935466819388342e-06
+        }
+      },
+      "maximum_real_derivative_discrepancy": {
+        "ordinary": 1.3288523927068585e-15,
+        "decorrelated": 5.772465838660423e-14,
+        "hidden": 1.0779680099937128e-16,
+        "left": 3.5469504666273827e-19,
+        "right": 1.489253327862511e-17
+      },
+      "matched": {
+        "left": {
+          "ordinary_gain": 0.10399577513414505,
+          "sources": {
+            "ordinary": {
+              "rotation": 7682.7209548967185,
+              "bulk_scalar": 0.002995345931632742,
+              "filled_volume": 0.0,
+              "boundary_bending": -0.0020871242258525343,
+              "solid_angle": -0.00025641571695987587,
+              "outer_area": -0.0007015184319581766,
+              "modular": 0.028802573256163713
+            },
+            "decorrelated": {
+              "rotation": 543399.9330603206,
+              "bulk_scalar": 0.20722539456755237,
+              "filled_volume": 0.0,
+              "boundary_bending": -0.14368838098477435,
+              "solid_angle": -0.017674292122067097,
+              "outer_area": -0.04821292314229969,
+              "modular": 0.6367785285517295
+            },
+            "hidden": {
+              "rotation": -1863.471718506805,
+              "bulk_scalar": -0.000492646723475646,
+              "filled_volume": 0.0,
+              "boundary_bending": 0.00034183764632695154,
+              "solid_angle": 4.203751152771117e-05,
+              "outer_area": 0.00011474818517931485,
+              "modular": -0.0031714869548583923
+            }
+          },
+          "held": {
+            "decorrelated": {
+              "predicted_bulk_scalar": 0.06622227666551742,
+              "measured_minus_predicted": 0.14100311790203496,
+              "geometry_ratio": 69.18245815253641,
+              "modular_ratio": 22.108390208345696
+            },
+            "hidden": {
+              "predicted_bulk_scalar": -0.0003298212441983278,
+              "measured_minus_predicted": -0.00016282547927731826,
+              "geometry_ratio": -0.16447072716142266,
+              "modular_ratio": -0.11011123647362647
+            }
+          }
+        },
+        "right": {
+          "ordinary_gain": 0.003291365969414655,
+          "sources": {
+            "ordinary": {
+              "rotation": 35.11698928705309,
+              "bulk_scalar": 6.570395220155482e-05,
+              "filled_volume": 0.0,
+              "boundary_bending": -5.57355521211311e-05,
+              "solid_angle": -6.546106580274989e-06,
+              "outer_area": -1.9910136488506767e-05,
+              "modular": 0.019962517936964567
+            },
+            "decorrelated": {
+              "rotation": 2483.8295884874,
+              "bulk_scalar": 1.14055577154909e-05,
+              "filled_volume": 0.0,
+              "boundary_bending": -7.974549919336632e-06,
+              "solid_angle": -9.794570350230188e-07,
+              "outer_area": -2.6725935659450972e-06,
+              "modular": 0.011520173223773453
+            },
+            "hidden": {
+              "rotation": -8.517752598292775,
+              "bulk_scalar": 0.00021794852084866165,
+              "filled_volume": 0.0,
+              "boundary_bending": -0.00015088301410271085,
+              "solid_angle": -1.8569265028441923e-05,
+              "outer_area": -5.0578368936620094e-05,
+              "modular": -0.0010272996058614502
+            }
+          },
+          "held": {
+            "decorrelated": {
+              "predicted_bulk_scalar": 3.7917106110489864e-05,
+              "measured_minus_predicted": -2.6511548394998965e-05,
+              "geometry_ratio": 0.17359013169410223,
+              "modular_ratio": 0.5770901877283509
+            },
+            "hidden": {
+              "predicted_bulk_scalar": -3.381218963125465e-06,
+              "measured_minus_predicted": 0.00022132973981178712,
+              "geometry_ratio": 3.317129541615369,
+              "modular_ratio": -0.0514614243105676
+            }
+          }
+        }
+      }
+    }
+  ],
+  "uniform_held_star": {
+    "stations": [
+      0,
+      39,
+      5,
+      7,
+      40
+    ],
+    "source_scope": "every retained density; pooled charge and orientation",
+    "constraints": "Same glued three-dimensional star construction, using five of the previously bounded six enrolled stations.",
+    "bounds": {
+      "continuous": {
+        "uniform_edge_lower": "2957247518919/1000000000000",
+        "uniform_edge_upper": "3",
+        "minimum_tetrahedron_gram_eigenvalue_lower": "3735938664457743788785683/1000000000000000000000000",
+        "safe_cone_radius_squared_lower": "1245312888152581262928561/1000000000000000000000000",
+        "dihedral_cosine_lower": "776013882985301107107687752406859654196673686323/3886805728067813894634916000000000000000000000000",
+        "solid_angle_upper": "26458571466054629591722633199455947261869852587217/6801910024118674315611103000000000000000000000000",
+        "cone_mean_scalar_times_r_squared_lower": "354306927308623656541473112803264316428780884476698/26458571466054629591722633199455947261869852587217",
+        "lower_decimal": 13.391007438295992
+      },
+      "spacing_1/16": {
+        "uniform_edge_lower": "295891042489/100000000000",
+        "uniform_edge_upper": "3",
+        "minimum_tetrahedron_gram_eigenvalue_lower": "37654527075681609945363/10000000000000000000000",
+        "safe_cone_radius_squared_lower": "12551509025227203315121/10000000000000000000000",
+        "dihedral_cosine_lower": "2118357274108072635720963922280451972427244641/10506181083027264397814520000000000000000000000",
+        "solid_angle_upper": "3384880436049065858372356077719548027572755359/875515090252272033151210000000000000000000000",
+        "cone_mean_scalar_times_r_squared_lower": "45729569905591266778885703533682711834563467846/3384880436049065858372356077719548027572755359",
+        "lower_decimal": 13.509951317207584
+      }
+    }
+  }
+}

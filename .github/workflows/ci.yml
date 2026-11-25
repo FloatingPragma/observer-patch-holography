@@ -1,8 +1,7 @@
 name: CI
 
-# The one required workflow: four jobs in parallel, each with a hard timeout, so a run finishes within about
-# fifteen minutes and never takes thirty. The mandatory steps live in tools/run_mandatory_suite.py and the replay
-# lanes in tools/ci_lanes.py; this file only names the jobs. Lean builds run in lean.yml.
+# The required jobs run in parallel with individual time limits. The mandatory steps live in
+# tools/run_mandatory_suite.py and the replay lanes in tools/ci_lanes.py. Lean builds run in lean.yml.
 
 on:
   push:
@@ -119,6 +118,27 @@ jobs:
       - name: Theory certificates on the model pins
         run: python tools/ci_lanes.py run --tier push --profile model --buckets 1 --bucket 0
 
+  einstein:
+    name: Einstein certificates (${{ matrix.suite }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        suite: [regional_modular, regional_stations, full_algebra, optical, regional_response, remaining]
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: model/requirements.txt
+      - run: python -m pip install -r model/requirements.txt
+      - name: Matched finite Einstein tests
+        run: python tools/ci_lanes.py run --lane einstein_${{ matrix.suite }}
+
   certificates:
     name: Certificates (shard ${{ matrix.shard }})
     runs-on: ubuntu-latest
@@ -222,7 +242,7 @@ jobs:
   ci-ok:
     name: CI result
     if: always()
-    needs: [ledgers, model, certificates, papers]
+    needs: [ledgers, model, einstein, certificates, papers]
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:

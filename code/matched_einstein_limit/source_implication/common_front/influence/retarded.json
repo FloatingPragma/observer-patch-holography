@@ -1,0 +1,363 @@
+{
+  "exterior_ports": 956,
+  "marked_ports": [
+    0,
+    1,
+    38,
+    39
+  ],
+  "charges": {
+    "-1": {
+      "blank_reference_port": 5,
+      "exterior_receiver": 5,
+      "settings": {
+        "0,0.25": {
+          "omega": 0,
+          "width": 0.25,
+          "reference_memory_39_from_0": [
+            -9.090703765544859e-05,
+            7.5030228309399e-05
+          ],
+          "ordinary": {
+            "connected_39_from_0": [
+              1.250376754256195,
+              -0.5223227689268973
+            ],
+            "modulus_slope": -1.2968224343050638,
+            "blank_return_slope": [
+              0.0007651500723772852,
+              -0.0006859104697325891
+            ],
+            "full_marked_matrix_frobenius_slope": 15.70098422244989
+          },
+          "pairing": {
+            "connected_39_from_0": [
+              0.37160119055727503,
+              -0.15526717962924846
+            ],
+            "modulus_slope": -0.3854282250764592,
+            "blank_return_slope": [
+              3.290469847522568e-05,
+              -3.966278545013021e-06
+            ],
+            "full_marked_matrix_frobenius_slope": 4.665091713168382
+          },
+          "modulus_collar_over_ordinary": 0.29720971420655673,
+          "maximum_sparse_residual_and_schur_difference": 1.931509275803038e-15
+        },
+        "0,1": {
+          "omega": 0,
+          "width": 1,
+          "reference_memory_39_from_0": [
+            -1.901232549183803e-05,
+            -2.4902235733545758e-05
+          ],
+          "ordinary": {
+            "connected_39_from_0": [
+              0.6395983375159601,
+              0.39007033851873896
+            ],
+            "modulus_slope": -0.6981692212957498,
+            "blank_return_slope": [
+              0.00018863322261555358,
+              0.00013082835873683607
+            ],
+            "full_marked_matrix_frobenius_slope": 15.51361939976158
+          },
+          "pairing": {
+            "connected_39_from_0": [
+              0.19005495815795445,
+              0.11592202680117572
+            ],
+            "modulus_slope": -0.20746999514324785,
+            "blank_return_slope": [
+              7.2811020108505786e-06,
+              7.094438771405769e-06
+            ],
+            "full_marked_matrix_frobenius_slope": 4.609249337704615
+          },
+          "modulus_collar_over_ordinary": 0.297162906663515,
+          "maximum_sparse_residual_and_schur_difference": 9.216192155887402e-16
+        },
+        "0,4": {
+          "omega": 0,
+          "width": 4,
+          "reference_memory_39_from_0": [
+            -1.7151053921712228e-06,
+            -2.8258970718787615e-06
+          ],
+          "ordinary": {
+            "connected_39_from_0": [
+              0.0772056565850977,
+              0.19198288454065202
+            ],
+            "modulus_slope": -0.204177992286002,
+            "blank_return_slope": [
+              4.614981656014055e-06,
+              1.1500376826855825e-05
+            ],
+            "full_marked_matrix_frobenius_slope": 12.130660593386336
+          },
+          "pairing": {
+            "connected_39_from_0": [
+              0.022940863123508362,
+              0.05704429799875481
+            ],
+            "modulus_slope": -0.060668156152749356,
+            "blank_return_slope": [
+              -4.793914850581502e-07,
+              6.510704421605116e-08
+            ],
+            "full_marked_matrix_frobenius_slope": 3.6041264723317394
+          },
+          "modulus_collar_over_ordinary": 0.29713366986079737,
+          "maximum_sparse_residual_and_schur_difference": 1.032803550601731e-15
+        },
+        "-1,1": {
+          "omega": -1,
+          "width": 1,
+          "reference_memory_39_from_0": [
+            -2.462409782877743e-05,
+            -1.5400675532399088e-05
+          ],
+          "ordinary": {
+            "connected_39_from_0": [
+              0.5702218633820015,
+              0.2189587667799645
+            ],
+            "modulus_slope": -0.599558941138385,
+            "blank_return_slope": [
+              0.0001364744195181388,
+              -2.5866341478596826e-05
+            ],
+            "full_marked_matrix_frobenius_slope": 11.716055661792938
+          },
+          "pairing": {
+            "connected_39_from_0": [
+              0.16944772960365578,
+              0.06507214574751971
+            ],
+            "modulus_slope": -0.1781688159546225,
+            "blank_return_slope": [
+              4.4504111086302466e-06,
+              -1.1669883574516393e-06
+            ],
+            "full_marked_matrix_frobenius_slope": 3.4809695197077852
+          },
+          "modulus_collar_over_ordinary": 0.29716647310159805,
+          "maximum_sparse_residual_and_schur_difference": 1.0306255906194198e-15
+        },
+        "1,1": {
+          "omega": 1,
+          "width": 1,
+          "reference_memory_39_from_0": [
+            2.017274254960051e-05,
+            -3.218135099577245e-05
+          ],
+          "ordinary": {
+            "connected_39_from_0": [
+              0.48935212107811266,
+              0.9355660791107274
+            ],
+            "modulus_slope": -0.532793975224062,
+            "blank_return_slope": [
+              -8.96476752048083e-05,
+              0.00026449727521995
+            ],
+            "full_marked_matrix_frobenius_slope": 22.9684605260268
+          },
+          "pairing": {
+            "connected_39_from_0": [
+              0.1453742613857799,
+              0.2780055749076623
+            ],
+            "modulus_slope": -0.15834102492083033,
+            "blank_return_slope": [
+              -9.944650334048625e-06,
+              2.093754424761017e-05
+            ],
+            "full_marked_matrix_frobenius_slope": 6.8240552041919305
+          },
+          "modulus_collar_over_ordinary": 0.29718996888852084,
+          "maximum_sparse_residual_and_schur_difference": 1.1518403266550382e-15
+        }
+      }
+    },
+    "1": {
+      "blank_reference_port": 5,
+      "exterior_receiver": 5,
+      "settings": {
+        "0,0.25": {
+          "omega": 0,
+          "width": 0.25,
+          "reference_memory_39_from_0": [
+            -1.0591706538377384e-06,
+            9.655162429909796e-07
+          ],
+          "ordinary": {
+            "connected_39_from_0": [
+              0.0327892624464871,
+              -0.0018807025487737345
+            ],
+            "modulus_slope": -0.025499062901986523,
+            "blank_return_slope": [
+              6.097760341340344e-05,
+              -0.00020524422326088581
+            ],
+            "full_marked_matrix_frobenius_slope": 0.92585988676656
+          },
+          "pairing": {
+            "connected_39_from_0": [
+              0.009743328198528675,
+              -0.0005597626621709627
+            ],
+            "modulus_slope": -0.007577660027878096,
+            "blank_return_slope": [
+              -9.763480935708982e-08,
+              -2.2099797167098885e-09
+            ],
+            "full_marked_matrix_frobenius_slope": 0.27456707867510755
+          },
+          "modulus_collar_over_ordinary": 0.2971740591803377,
+          "maximum_sparse_residual_and_schur_difference": 1.558037945293588e-15
+        },
+        "0,1": {
+          "omega": 0,
+          "width": 1,
+          "reference_memory_39_from_0": [
+            -7.784175473328545e-07,
+            -3.666106781297709e-07
+          ],
+          "ordinary": {
+            "connected_39_from_0": [
+              0.02272946180642646,
+              0.010252098639968201
+            ],
+            "modulus_slope": -0.024931228827623542,
+            "blank_return_slope": [
+              4.702722835380797e-05,
+              -7.684637861733208e-07
+            ],
+            "full_marked_matrix_frobenius_slope": 0.8633415725737166
+          },
+          "pairing": {
+            "connected_39_from_0": [
+              0.006754102861719254,
+              0.003046446091536952
+            ],
+            "modulus_slope": -0.007408368710841739,
+            "blank_return_slope": [
+              -8.807085758823093e-09,
+              -2.660154274108653e-08
+            ],
+            "full_marked_matrix_frobenius_slope": 0.2559203296970462
+          },
+          "modulus_collar_over_ordinary": 0.29715216855389587,
+          "maximum_sparse_residual_and_schur_difference": 8.995889201939204e-16
+        },
+        "0,4": {
+          "omega": 0,
+          "width": 4,
+          "reference_memory_39_from_0": [
+            -1.45855963924534e-07,
+            -2.7179422123291155e-08
+          ],
+          "ordinary": {
+            "connected_39_from_0": [
+              0.011531911984368029,
+              0.0013495941303550162
+            ],
+            "modulus_slope": -0.011583995000483165,
+            "blank_return_slope": [
+              4.940436462534658e-06,
+              -1.8106809221836405e-06
+            ],
+            "full_marked_matrix_frobenius_slope": 0.8853016010697031
+          },
+          "pairing": {
+            "connected_39_from_0": [
+              0.003426478308435707,
+              0.0004010147555647695
+            ],
+            "modulus_slope": -0.0034419555177308096,
+            "blank_return_slope": [
+              -2.5393785117834603e-09,
+              6.46281503422164e-11
+            ],
+            "full_marked_matrix_frobenius_slope": 0.2624876079653686
+          },
+          "modulus_collar_over_ordinary": 0.2971302661635512,
+          "maximum_sparse_residual_and_schur_difference": 1.0795571040807442e-15
+        },
+        "-1,1": {
+          "omega": -1,
+          "width": 1,
+          "reference_memory_39_from_0": [
+            -1.2171636084766152e-06,
+            1.553959896039067e-07
+          ],
+          "ordinary": {
+            "connected_39_from_0": [
+              0.02926718262572101,
+              0.005185416019079451
+            ],
+            "modulus_slope": -0.028374840463113272,
+            "blank_return_slope": [
+              3.071839711863613e-05,
+              -2.3946550368716317e-05
+            ],
+            "full_marked_matrix_frobenius_slope": 0.8603822857957636
+          },
+          "pairing": {
+            "connected_39_from_0": [
+              0.008697015590547377,
+              0.0015405207217711965
+            ],
+            "modulus_slope": -0.008431895165652752,
+            "blank_return_slope": [
+              -3.3749536391108946e-08,
+              -1.3851799282315674e-08
+            ],
+            "full_marked_matrix_frobenius_slope": 0.2549842040088099
+          },
+          "modulus_collar_over_ordinary": 0.29716097176349054,
+          "maximum_sparse_residual_and_schur_difference": 1.0121541446940491e-15
+        },
+        "1,1": {
+          "omega": 1,
+          "width": 1,
+          "reference_memory_39_from_0": [
+            -1.371938276689815e-07,
+            -6.756480556181807e-07
+          ],
+          "ordinary": {
+            "connected_39_from_0": [
+              0.014184844636140736,
+              0.01589362291646581
+            ],
+            "modulus_slope": -0.01839846285304635,
+            "blank_return_slope": [
+              7.537309718631966e-06,
+              3.2322827592172316e-05
+            ],
+            "full_marked_matrix_frobenius_slope": 0.8310337736414867
+          },
+          "pairing": {
+            "connected_39_from_0": [
+              0.00421470225535195,
+              0.004722952637232569
+            ],
+            "modulus_slope": -0.00546719803329866,
+            "blank_return_slope": [
+              1.1110701500364866e-08,
+              -5.40455368369277e-09
+            ],
+            "full_marked_matrix_frobenius_slope": 0.24633976170775665
+          },
+          "modulus_collar_over_ordinary": 0.2971551524149976,
+          "maximum_sparse_residual_and_schur_difference": 9.256228408232786e-16
+        }
+      }
+    }
+  }
+}

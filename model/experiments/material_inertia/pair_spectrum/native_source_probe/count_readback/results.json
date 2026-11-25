@@ -1,0 +1,5469 @@
+{
+  "simultaneous_coverage": 0.99,
+  "binomial_parameters": 1086,
+  "original_launches_per_count_bank": 67108864,
+  "eligible_event": "Native source spectral filter passes and both meter sites are unit-filled",
+  "conditional_charge_event": "Absolute signed load inside the specified region equals one",
+  "estimator": "Two-sided Chernoff intervals on X dark fractions, inverted against the two charged standards and the host at each dwell. Both dwell bounds are intersected.",
+  "meter_dark_calibration": {
+    "1": {
+      "-1": [
+        0.3260571493655098,
+        0.32662464376882716
+      ],
+      "0": [
+        0.0,
+        1.831140032699243e-07
+      ],
+      "1": [
+        0.3260141095717557,
+        0.32658158467422593
+      ]
+    },
+    "2": {
+      "-1": [
+        0.8791381255963955,
+        0.8795323768481087
+      ],
+      "0": [
+        0.0,
+        1.831140032699243e-07
+      ],
+      "1": [
+        0.8792218098423918,
+        0.8796159431945185
+      ]
+    }
+  },
+  "regions": [
+    {
+      "owner": 0,
+      "control": "native_arrival",
+      "center": 0,
+      "radius": 0,
+      "interval": [
+        0.0008313619,
+        0.0009373352
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "native_arrival",
+      "center": 1,
+      "radius": 0,
+      "interval": [
+        2.19844e-05,
+        4.87885e-05
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "native_arrival",
+      "center": 2,
+      "radius": 0,
+      "interval": [
+        2.3332e-06,
+        1.48078e-05
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "native_arrival",
+      "center": 3,
+      "radius": 0,
+      "interval": [
+        0.0001433093,
+        0.0001824449
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "native_arrival",
+      "center": 4,
+      "radius": 0,
+      "interval": [
+        0.0008888641,
+        0.0010305529
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "native_arrival",
+      "center": 5,
+      "radius": 0,
+      "interval": [
+        0.0,
+        2.5941e-06
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "native_arrival",
+      "center": 6,
+      "radius": 0,
+      "interval": [
+        0.0004992119,
+        0.0006066102
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "native_arrival",
+      "center": 7,
+      "radius": 0,
+      "interval": [
+        9.0367e-05,
+        0.0001391447
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "native_arrival",
+      "center": 8,
+      "radius": 0,
+      "interval": [
+        5.8316e-06,
+        2.23034e-05
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "native_arrival",
+      "center": 9,
+      "radius": 0,
+      "interval": [
+        0.0,
+        2.5929e-06
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "native_arrival",
+      "center": 10,
+      "radius": 0,
+      "interval": [
+        0.0,
+        2.5932e-06
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "native_arrival",
+      "center": 11,
+      "radius": 0,
+      "interval": [
+        1.2932e-06,
+        1.20476e-05
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "native_arrival",
+      "center": 12,
+      "radius": 0,
+      "interval": [
+        5.026e-07,
+        9.4399e-06
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "native_arrival",
+      "center": 13,
+      "radius": 0,
+      "interval": [
+        0.0,
+        2.5937e-06
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "native_arrival",
+      "center": 14,
+      "radius": 0,
+      "interval": [
+        0.0,
+        2.5943e-06
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "native_arrival",
+      "center": 15,
+      "radius": 0,
+      "interval": [
+        0.0,
+        2.5916e-06
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "native_arrival",
+      "center": 16,
+      "radius": 0,
+      "interval": [
+        2.14682e-05,
+        4.80148e-05
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "native_arrival",
+      "center": 17,
+      "radius": 0,
+      "interval": [
+        1.59624e-05,
+        3.96084e-05
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "native_arrival",
+      "center": 18,
+      "radius": 0,
+      "interval": [
+        0.0,
+        2.5945e-06
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "native_arrival",
+      "center": 19,
+      "radius": 0,
+      "interval": [
+        0.0,
+        2.5936e-06
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "native_arrival",
+      "center": 0,
+      "radius": 1,
+      "interval": [
+        0.0001221745,
+        0.000163586
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "native_arrival",
+      "center": 1,
+      "radius": 1,
+      "interval": [
+        0.0008218943,
+        0.0009281976
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "native_arrival",
+      "center": 2,
+      "radius": 1,
+      "interval": [
+        0.0001545966,
+        0.0002136186
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "native_arrival",
+      "center": 3,
+      "radius": 1,
+      "interval": [
+        0.0007749781,
+        0.0009075247
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "native_arrival",
+      "center": 4,
+      "radius": 1,
+      "interval": [
+        0.0004258957,
+        0.0005026208
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "native_arrival",
+      "center": 5,
+      "radius": 1,
+      "interval": [
+        2.11326e-05,
+        4.75159e-05
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "native_arrival",
+      "center": 6,
+      "radius": 1,
+      "interval": [
+        0.0004331569,
+        0.0005105099
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "native_arrival",
+      "center": 7,
+      "radius": 1,
+      "interval": [
+        0.0008566678,
+        0.0009957832
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "native_arrival",
+      "center": 8,
+      "radius": 1,
+      "interval": [
+        0.0001465455,
+        0.0002071628
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "native_arrival",
+      "center": 9,
+      "radius": 1,
+      "interval": [
+        1.5127e-06,
+        1.26713e-05
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "native_arrival",
+      "center": 10,
+      "radius": 1,
+      "interval": [
+        1.9728e-06,
+        1.20285e-05
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "native_arrival",
+      "center": 11,
+      "radius": 1,
+      "interval": [
+        2.07851e-05,
+        4.69886e-05
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "native_arrival",
+      "center": 12,
+      "radius": 1,
+      "interval": [
+        1.84375e-05,
+        4.34354e-05
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "native_arrival",
+      "center": 13,
+      "radius": 1,
+      "interval": [
+        8.772e-07,
+        1.0761e-05
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "native_arrival",
+      "center": 14,
+      "radius": 1,
+      "interval": [
+        0.0,
+        2.5951e-06
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "native_arrival",
+      "center": 15,
+      "radius": 1,
+      "interval": [
+        0.000513021,
+        0.0006212295
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "native_arrival",
+      "center": 16,
+      "radius": 1,
+      "interval": [
+        0.0006053376,
+        0.0007230989
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "native_arrival",
+      "center": 17,
+      "radius": 1,
+      "interval": [
+        7.8695e-05,
+        0.0001226508
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "native_arrival",
+      "center": 18,
+      "radius": 1,
+      "interval": [
+        3.0909e-06,
+        1.66069e-05
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "native_arrival",
+      "center": 19,
+      "radius": 1,
+      "interval": [
+        0.0,
+        2.59e-06
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "native_arrival",
+      "center": 0,
+      "radius": 2,
+      "interval": [
+        1.43572e-05,
+        3.12007e-05
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "native_arrival",
+      "center": 1,
+      "radius": 2,
+      "interval": [
+        4.92007e-05,
+        6.89466e-05
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "native_arrival",
+      "center": 2,
+      "radius": 2,
+      "interval": [
+        0.0004390648,
+        0.0005169022
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "native_arrival",
+      "center": 3,
+      "radius": 2,
+      "interval": [
+        0.0003943424,
+        0.0004683149
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "native_arrival",
+      "center": 4,
+      "radius": 2,
+      "interval": [
+        3.1889e-06,
+        1.29959e-05
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "native_arrival",
+      "center": 5,
+      "radius": 2,
+      "interval": [
+        0.000435913,
+        0.0005130944
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "native_arrival",
+      "center": 6,
+      "radius": 2,
+      "interval": [
+        7.66663e-05,
+        0.0001111104
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "native_arrival",
+      "center": 7,
+      "radius": 2,
+      "interval": [
+        2.16465e-05,
+        4.08836e-05
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "native_arrival",
+      "center": 8,
+      "radius": 2,
+      "interval": [
+        0.0006911074,
+        0.0008166035
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "native_arrival",
+      "center": 9,
+      "radius": 2,
+      "interval": [
+        0.0001535821,
+        0.0002155311
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "native_arrival",
+      "center": 10,
+      "radius": 2,
+      "interval": [
+        0.0005053183,
+        0.0006133498
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "native_arrival",
+      "center": 11,
+      "radius": 2,
+      "interval": [
+        0.0005923673,
+        0.0007089284
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "native_arrival",
+      "center": 12,
+      "radius": 2,
+      "interval": [
+        7.47627e-05,
+        0.0001196029
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "native_arrival",
+      "center": 13,
+      "radius": 2,
+      "interval": [
+        2.01214e-05,
+        4.59987e-05
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "native_arrival",
+      "center": 14,
+      "radius": 2,
+      "interval": [
+        3.089e-06,
+        1.6597e-05
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "native_arrival",
+      "center": 15,
+      "radius": 2,
+      "interval": [
+        0.0004146255,
+        0.0004903699
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "native_arrival",
+      "center": 16,
+      "radius": 2,
+      "interval": [
+        9.90587e-05,
+        0.0001377543
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "native_arrival",
+      "center": 17,
+      "radius": 2,
+      "interval": [
+        0.0006906445,
+        0.0008160947
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "native_arrival",
+      "center": 18,
+      "radius": 2,
+      "interval": [
+        0.0001309021,
+        0.0001885148
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "native_arrival",
+      "center": 19,
+      "radius": 2,
+      "interval": [
+        2.65876e-05,
+        5.27976e-05
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "matched_marginal_model",
+      "center": 0,
+      "radius": 0,
+      "interval": [
+        0.4602715227,
+        0.4623775112
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "matched_marginal_model",
+      "center": 1,
+      "radius": 0,
+      "interval": [
+        2.87412e-05,
+        5.75938e-05
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "matched_marginal_model",
+      "center": 2,
+      "radius": 0,
+      "interval": [
+        1.7728e-06,
+        1.40259e-05
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "matched_marginal_model",
+      "center": 3,
+      "radius": 0,
+      "interval": [
+        0.0609358126,
+        0.0621104715
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "matched_marginal_model",
+      "center": 4,
+      "radius": 0,
+      "interval": [
+        0.4906757925,
+        0.4934435364
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "matched_marginal_model",
+      "center": 5,
+      "radius": 0,
+      "interval": [
+        0.0,
+        5.7909e-06
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "matched_marginal_model",
+      "center": 6,
+      "radius": 0,
+      "interval": [
+        0.000630773,
+        0.0007557589
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "matched_marginal_model",
+      "center": 7,
+      "radius": 0,
+      "interval": [
+        0.0482185695,
+        0.0492673649
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "matched_marginal_model",
+      "center": 8,
+      "radius": 0,
+      "interval": [
+        4.6447e-06,
+        2.07319e-05
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "matched_marginal_model",
+      "center": 9,
+      "radius": 0,
+      "interval": [
+        0.0,
+        3.6624e-06
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "matched_marginal_model",
+      "center": 10,
+      "radius": 0,
+      "interval": [
+        0.0,
+        2.8002e-06
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "matched_marginal_model",
+      "center": 11,
+      "radius": 0,
+      "interval": [
+        2.535e-06,
+        1.5984e-05
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "matched_marginal_model",
+      "center": 12,
+      "radius": 0,
+      "interval": [
+        6.556e-07,
+        1.05534e-05
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "matched_marginal_model",
+      "center": 13,
+      "radius": 0,
+      "interval": [
+        0.0,
+        2.7997e-06
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "matched_marginal_model",
+      "center": 14,
+      "radius": 0,
+      "interval": [
+        0.0,
+        2.7987e-06
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "matched_marginal_model",
+      "center": 15,
+      "radius": 0,
+      "interval": [
+        0.0,
+        2.7975e-06
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "matched_marginal_model",
+      "center": 16,
+      "radius": 0,
+      "interval": [
+        0.0369870761,
+        0.0379079915
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "matched_marginal_model",
+      "center": 17,
+      "radius": 0,
+      "interval": [
+        0.0347593486,
+        0.0356526516
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "matched_marginal_model",
+      "center": 18,
+      "radius": 0,
+      "interval": [
+        0.0,
+        2.8019e-06
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "matched_marginal_model",
+      "center": 19,
+      "radius": 0,
+      "interval": [
+        0.0,
+        2.8008e-06
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "matched_marginal_model",
+      "center": 0,
+      "radius": 1,
+      "interval": [
+        0.1274586011,
+        0.1287227967
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "matched_marginal_model",
+      "center": 1,
+      "radius": 1,
+      "interval": [
+        0.4573091822,
+        0.4594302931
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "matched_marginal_model",
+      "center": 2,
+      "radius": 1,
+      "interval": [
+        0.0610847917,
+        0.0622610943
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "matched_marginal_model",
+      "center": 3,
+      "radius": 1,
+      "interval": [
+        0.503405054,
+        0.5061862703
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "matched_marginal_model",
+      "center": 4,
+      "radius": 1,
+      "interval": [
+        0.0529814841,
+        0.0538101221
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "matched_marginal_model",
+      "center": 5,
+      "radius": 1,
+      "interval": [
+        3.21118e-05,
+        6.47817e-05
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "matched_marginal_model",
+      "center": 6,
+      "radius": 1,
+      "interval": [
+        0.4519454296,
+        0.4540414104
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "matched_marginal_model",
+      "center": 7,
+      "radius": 1,
+      "interval": [
+        0.5123600129,
+        0.5151508249
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "matched_marginal_model",
+      "center": 8,
+      "radius": 1,
+      "interval": [
+        0.0938297456,
+        0.0952533109
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "matched_marginal_model",
+      "center": 9,
+      "radius": 1,
+      "interval": [
+        2.5357e-06,
+        1.59878e-05
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "matched_marginal_model",
+      "center": 10,
+      "radius": 1,
+      "interval": [
+        2.535e-06,
+        1.59838e-05
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "matched_marginal_model",
+      "center": 11,
+      "radius": 1,
+      "interval": [
+        0.0371137849,
+        0.0380364751
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "matched_marginal_model",
+      "center": 12,
+      "radius": 1,
+      "interval": [
+        0.0347870439,
+        0.0356808954
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "matched_marginal_model",
+      "center": 13,
+      "radius": 1,
+      "interval": [
+        4.663e-07,
+        9.8229e-06
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "matched_marginal_model",
+      "center": 14,
+      "radius": 1,
+      "interval": [
+        0.0,
+        2.7985e-06
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "matched_marginal_model",
+      "center": 15,
+      "radius": 1,
+      "interval": [
+        0.0006418559,
+        0.0007679081
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "matched_marginal_model",
+      "center": 16,
+      "radius": 1,
+      "interval": [
+        0.0843501512,
+        0.0857237195
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "matched_marginal_model",
+      "center": 17,
+      "radius": 1,
+      "interval": [
+        0.0813999304,
+        0.082750469
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "matched_marginal_model",
+      "center": 18,
+      "radius": 1,
+      "interval": [
+        4.2063e-06,
+        1.98064e-05
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "matched_marginal_model",
+      "center": 19,
+      "radius": 1,
+      "interval": [
+        0.0,
+        4.2764e-06
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "matched_marginal_model",
+      "center": 0,
+      "radius": 2,
+      "interval": [
+        0.0257061061,
+        0.0262850212
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "matched_marginal_model",
+      "center": 1,
+      "radius": 2,
+      "interval": [
+        0.0780630806,
+        0.0790686214
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "matched_marginal_model",
+      "center": 2,
+      "radius": 2,
+      "interval": [
+        0.0868617105,
+        0.0879158029
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "matched_marginal_model",
+      "center": 3,
+      "radius": 2,
+      "interval": [
+        0.0277363776,
+        0.0283376887
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "matched_marginal_model",
+      "center": 4,
+      "radius": 2,
+      "interval": [
+        2.1042e-06,
+        1.0751e-05
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "matched_marginal_model",
+      "center": 5,
+      "radius": 2,
+      "interval": [
+        0.4564697387,
+        0.4585891927
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "matched_marginal_model",
+      "center": 6,
+      "radius": 2,
+      "interval": [
+        0.0697767803,
+        0.0707248739
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "matched_marginal_model",
+      "center": 7,
+      "radius": 2,
+      "interval": [
+        2.0683e-05,
+        4.02117e-05
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "matched_marginal_model",
+      "center": 8,
+      "radius": 2,
+      "interval": [
+        0.5153525003,
+        0.5181473467
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "matched_marginal_model",
+      "center": 9,
+      "radius": 2,
+      "interval": [
+        0.0610754363,
+        0.0622517448
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "matched_marginal_model",
+      "center": 10,
+      "radius": 2,
+      "interval": [
+        0.0378146129,
+        0.0387460294
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "matched_marginal_model",
+      "center": 11,
+      "radius": 2,
+      "interval": [
+        0.1164589828,
+        0.1180571447
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "matched_marginal_model",
+      "center": 12,
+      "radius": 2,
+      "interval": [
+        0.115816726,
+        0.1174113014
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "matched_marginal_model",
+      "center": 13,
+      "radius": 2,
+      "interval": [
+        0.0349444113,
+        0.0358398693
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "matched_marginal_model",
+      "center": 14,
+      "radius": 2,
+      "interval": [
+        5.2444e-06,
+        2.19712e-05
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "matched_marginal_model",
+      "center": 15,
+      "radius": 2,
+      "interval": [
+        0.4520829548,
+        0.4541790297
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "matched_marginal_model",
+      "center": 16,
+      "radius": 2,
+      "interval": [
+        0.0449966559,
+        0.0457610161
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "matched_marginal_model",
+      "center": 17,
+      "radius": 2,
+      "interval": [
+        0.5183877096,
+        0.5211839736
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "matched_marginal_model",
+      "center": 18,
+      "radius": 2,
+      "interval": [
+        0.0939563693,
+        0.0954019472
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "matched_marginal_model",
+      "center": 19,
+      "radius": 2,
+      "interval": [
+        3.79936e-05,
+        7.30173e-05
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "exchange_only_four_more_units",
+      "center": 0,
+      "radius": 0,
+      "interval": [
+        0.4706602297,
+        0.4727826256
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "exchange_only_four_more_units",
+      "center": 1,
+      "radius": 0,
+      "interval": [
+        0.0466025185,
+        0.0474741629
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "exchange_only_four_more_units",
+      "center": 2,
+      "radius": 0,
+      "interval": [
+        0.0052905818,
+        0.0055869716
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "exchange_only_four_more_units",
+      "center": 3,
+      "radius": 0,
+      "interval": [
+        0.0760858573,
+        0.077193076
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "exchange_only_four_more_units",
+      "center": 4,
+      "radius": 0,
+      "interval": [
+        0.3757411629,
+        0.3779460623
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "exchange_only_four_more_units",
+      "center": 5,
+      "radius": 0,
+      "interval": [
+        0.0008032644,
+        0.0009207946
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "exchange_only_four_more_units",
+      "center": 6,
+      "radius": 0,
+      "interval": [
+        0.1643189067,
+        0.1659060282
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "exchange_only_four_more_units",
+      "center": 7,
+      "radius": 0,
+      "interval": [
+        0.0611678085,
+        0.0621639375
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "exchange_only_four_more_units",
+      "center": 8,
+      "radius": 0,
+      "interval": [
+        0.006694703,
+        0.0070277681
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "exchange_only_four_more_units",
+      "center": 9,
+      "radius": 0,
+      "interval": [
+        6.14719e-05,
+        9.69581e-05
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "exchange_only_four_more_units",
+      "center": 10,
+      "radius": 0,
+      "interval": [
+        8.0268e-05,
+        0.0001202292
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "exchange_only_four_more_units",
+      "center": 11,
+      "radius": 0,
+      "interval": [
+        0.0029475928,
+        0.0031694721
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "exchange_only_four_more_units",
+      "center": 12,
+      "radius": 0,
+      "interval": [
+        0.0021498093,
+        0.0023397872
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "exchange_only_four_more_units",
+      "center": 13,
+      "radius": 0,
+      "interval": [
+        3.0017e-05,
+        5.60883e-05
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "exchange_only_four_more_units",
+      "center": 14,
+      "radius": 0,
+      "interval": [
+        0.0,
+        2.5968e-06
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "exchange_only_four_more_units",
+      "center": 15,
+      "radius": 0,
+      "interval": [
+        0.0082478349,
+        0.0086170569
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "exchange_only_four_more_units",
+      "center": 16,
+      "radius": 0,
+      "interval": [
+        0.0189789304,
+        0.019537812
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "exchange_only_four_more_units",
+      "center": 17,
+      "radius": 0,
+      "interval": [
+        0.011924101,
+        0.0123677376
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "exchange_only_four_more_units",
+      "center": 18,
+      "radius": 0,
+      "interval": [
+        0.0001358838,
+        0.0001866121
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "exchange_only_four_more_units",
+      "center": 19,
+      "radius": 0,
+      "interval": [
+        0.0,
+        5.6133e-06
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "exchange_only_four_more_units",
+      "center": 0,
+      "radius": 1,
+      "interval": [
+        0.1132026673,
+        0.1143986977
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "exchange_only_four_more_units",
+      "center": 1,
+      "radius": 1,
+      "interval": [
+        0.4731578303,
+        0.4753068211
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "exchange_only_four_more_units",
+      "center": 2,
+      "radius": 1,
+      "interval": [
+        0.1219860105,
+        0.123371184
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "exchange_only_four_more_units",
+      "center": 3,
+      "radius": 1,
+      "interval": [
+        0.327106117,
+        0.3292100698
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "exchange_only_four_more_units",
+      "center": 4,
+      "radius": 1,
+      "interval": [
+        0.2781398549,
+        0.2799216667
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "exchange_only_four_more_units",
+      "center": 5,
+      "radius": 1,
+      "interval": [
+        0.0550258022,
+        0.0559720424
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "exchange_only_four_more_units",
+      "center": 6,
+      "radius": 1,
+      "interval": [
+        0.2876518887,
+        0.2894576265
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "exchange_only_four_more_units",
+      "center": 7,
+      "radius": 1,
+      "interval": [
+        0.3628486533,
+        0.3650286261
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "exchange_only_four_more_units",
+      "center": 8,
+      "radius": 1,
+      "interval": [
+        0.0850931704,
+        0.0862613627
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "exchange_only_four_more_units",
+      "center": 9,
+      "radius": 1,
+      "interval": [
+        0.0054970575,
+        0.0057989751
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "exchange_only_four_more_units",
+      "center": 10,
+      "radius": 1,
+      "interval": [
+        0.0114212369,
+        0.0118554057
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "exchange_only_four_more_units",
+      "center": 11,
+      "radius": 1,
+      "interval": [
+        0.0189559099,
+        0.0195143877
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "exchange_only_four_more_units",
+      "center": 12,
+      "radius": 1,
+      "interval": [
+        0.0134885747,
+        0.0139600917
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "exchange_only_four_more_units",
+      "center": 13,
+      "radius": 1,
+      "interval": [
+        0.0024023362,
+        0.0025988671
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "exchange_only_four_more_units",
+      "center": 14,
+      "radius": 1,
+      "interval": [
+        0.0001220961,
+        0.0001704014
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "exchange_only_four_more_units",
+      "center": 15,
+      "radius": 1,
+      "interval": [
+        0.1713246512,
+        0.1729410501
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "exchange_only_four_more_units",
+      "center": 16,
+      "radius": 1,
+      "interval": [
+        0.217702356,
+        0.2194955687
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "exchange_only_four_more_units",
+      "center": 17,
+      "radius": 1,
+      "interval": [
+        0.0598148509,
+        0.0608000988
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "exchange_only_four_more_units",
+      "center": 18,
+      "radius": 1,
+      "interval": [
+        0.0069334792,
+        0.0072723628
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "exchange_only_four_more_units",
+      "center": 19,
+      "radius": 1,
+      "interval": [
+        0.0008741225,
+        0.0009966192
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "exchange_only_four_more_units",
+      "center": 0,
+      "radius": 2,
+      "interval": [
+        0.0130710316,
+        0.0134844183
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "exchange_only_four_more_units",
+      "center": 1,
+      "radius": 2,
+      "interval": [
+        0.0489039805,
+        0.0497039746
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "exchange_only_four_more_units",
+      "center": 2,
+      "radius": 2,
+      "interval": [
+        0.2542310324,
+        0.255968691
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "exchange_only_four_more_units",
+      "center": 3,
+      "radius": 2,
+      "interval": [
+        0.2422073986,
+        0.2438881973
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "exchange_only_four_more_units",
+      "center": 4,
+      "radius": 2,
+      "interval": [
+        0.0158251643,
+        0.0162797437
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "exchange_only_four_more_units",
+      "center": 5,
+      "radius": 2,
+      "interval": [
+        0.2684760013,
+        0.2702535907
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "exchange_only_four_more_units",
+      "center": 6,
+      "radius": 2,
+      "interval": [
+        0.0653621314,
+        0.0662807925
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "exchange_only_four_more_units",
+      "center": 7,
+      "radius": 2,
+      "interval": [
+        0.0528214855,
+        0.0536508982
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "exchange_only_four_more_units",
+      "center": 8,
+      "radius": 2,
+      "interval": [
+        0.2993386565,
+        0.3013753872
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "exchange_only_four_more_units",
+      "center": 9,
+      "radius": 2,
+      "interval": [
+        0.1223473922,
+        0.1237341901
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "exchange_only_four_more_units",
+      "center": 10,
+      "radius": 2,
+      "interval": [
+        0.1801905162,
+        0.1818436756
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "exchange_only_four_more_units",
+      "center": 11,
+      "radius": 2,
+      "interval": [
+        0.2189559542,
+        0.2207533018
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "exchange_only_four_more_units",
+      "center": 12,
+      "radius": 2,
+      "interval": [
+        0.0620790429,
+        0.0630823725
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "exchange_only_four_more_units",
+      "center": 13,
+      "radius": 2,
+      "interval": [
+        0.0169211571,
+        0.0174489283
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "exchange_only_four_more_units",
+      "center": 14,
+      "radius": 2,
+      "interval": [
+        0.014704772,
+        0.0151971326
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "exchange_only_four_more_units",
+      "center": 15,
+      "radius": 2,
+      "interval": [
+        0.2583511826,
+        0.2600778084
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "exchange_only_four_more_units",
+      "center": 16,
+      "radius": 2,
+      "interval": [
+        0.0984347757,
+        0.0994968611
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "exchange_only_four_more_units",
+      "center": 17,
+      "radius": 2,
+      "interval": [
+        0.3032841358,
+        0.3053306415
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "exchange_only_four_more_units",
+      "center": 18,
+      "radius": 2,
+      "interval": [
+        0.0821222271,
+        0.0832706222
+      ]
+    },
+    {
+      "owner": 0,
+      "control": "exchange_only_four_more_units",
+      "center": 19,
+      "radius": 2,
+      "interval": [
+        0.0606986397,
+        0.0615868263
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "native_arrival",
+      "center": 0,
+      "radius": 0,
+      "interval": [
+        0.0,
+        1.5681e-06
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "native_arrival",
+      "center": 1,
+      "radius": 0,
+      "interval": [
+        0.0005013201,
+        0.0005842747
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "native_arrival",
+      "center": 2,
+      "radius": 0,
+      "interval": [
+        6.9385e-06,
+        1.9708e-05
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "native_arrival",
+      "center": 3,
+      "radius": 0,
+      "interval": [
+        0.0,
+        1.5692e-06
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "native_arrival",
+      "center": 4,
+      "radius": 0,
+      "interval": [
+        0.0,
+        1.5688e-06
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "native_arrival",
+      "center": 5,
+      "radius": 0,
+      "interval": [
+        0.0008549647,
+        0.0009623777
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "native_arrival",
+      "center": 6,
+      "radius": 0,
+      "interval": [
+        0.0,
+        1.5688e-06
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "native_arrival",
+      "center": 7,
+      "radius": 0,
+      "interval": [
+        0.0,
+        1.5701e-06
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "native_arrival",
+      "center": 8,
+      "radius": 0,
+      "interval": [
+        0.0,
+        1.5694e-06
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "native_arrival",
+      "center": 9,
+      "radius": 0,
+      "interval": [
+        5.81154e-05,
+        8.85381e-05
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "native_arrival",
+      "center": 10,
+      "radius": 0,
+      "interval": [
+        2.08844e-05,
+        4.04846e-05
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "native_arrival",
+      "center": 11,
+      "radius": 0,
+      "interval": [
+        2.1029e-06,
+        1.07447e-05
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "native_arrival",
+      "center": 12,
+      "radius": 0,
+      "interval": [
+        9.1821e-06,
+        2.33476e-05
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "native_arrival",
+      "center": 13,
+      "radius": 0,
+      "interval": [
+        1.93961e-05,
+        3.84122e-05
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "native_arrival",
+      "center": 14,
+      "radius": 0,
+      "interval": [
+        3.65374e-05,
+        6.13633e-05
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "native_arrival",
+      "center": 15,
+      "radius": 0,
+      "interval": [
+        0.0002822104,
+        0.0003452527
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "native_arrival",
+      "center": 16,
+      "radius": 0,
+      "interval": [
+        0.0,
+        1.5693e-06
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "native_arrival",
+      "center": 17,
+      "radius": 0,
+      "interval": [
+        0.0,
+        1.5701e-06
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "native_arrival",
+      "center": 18,
+      "radius": 0,
+      "interval": [
+        3.08764e-05,
+        5.39681e-05
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "native_arrival",
+      "center": 19,
+      "radius": 0,
+      "interval": [
+        9.31554e-05,
+        0.000130796
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "native_arrival",
+      "center": 0,
+      "radius": 1,
+      "interval": [
+        0.0004843896,
+        0.0005659852
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "native_arrival",
+      "center": 1,
+      "radius": 1,
+      "interval": [
+        0.0003404682,
+        0.0004093747
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "native_arrival",
+      "center": 2,
+      "radius": 1,
+      "interval": [
+        0.0005430313,
+        0.000629246
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "native_arrival",
+      "center": 3,
+      "radius": 1,
+      "interval": [
+        6.4631e-06,
+        1.89113e-05
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "native_arrival",
+      "center": 4,
+      "radius": 1,
+      "interval": [
+        0.0,
+        1.5696e-06
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "native_arrival",
+      "center": 5,
+      "radius": 1,
+      "interval": [
+        2.39046e-05,
+        4.46392e-05
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "native_arrival",
+      "center": 6,
+      "radius": 1,
+      "interval": [
+        0.0002817079,
+        0.0003446949
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "native_arrival",
+      "center": 7,
+      "radius": 1,
+      "interval": [
+        0.0,
+        1.5691e-06
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "native_arrival",
+      "center": 8,
+      "radius": 1,
+      "interval": [
+        3.37429e-05,
+        5.77263e-05
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "native_arrival",
+      "center": 9,
+      "radius": 1,
+      "interval": [
+        7.26312e-05,
+        0.0001062505
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "native_arrival",
+      "center": 10,
+      "radius": 1,
+      "interval": [
+        0.0003013839,
+        0.0003663975
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "native_arrival",
+      "center": 11,
+      "radius": 1,
+      "interval": [
+        3.1442e-05,
+        5.47193e-05
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "native_arrival",
+      "center": 12,
+      "radius": 1,
+      "interval": [
+        1.21987e-05,
+        2.79954e-05
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "native_arrival",
+      "center": 13,
+      "radius": 1,
+      "interval": [
+        6.82057e-05,
+        0.0001008792
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "native_arrival",
+      "center": 14,
+      "radius": 1,
+      "interval": [
+        0.0001018071,
+        0.0001409762
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "native_arrival",
+      "center": 15,
+      "radius": 1,
+      "interval": [
+        0.0006035001,
+        0.0006942329
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "native_arrival",
+      "center": 16,
+      "radius": 1,
+      "interval": [
+        1.1117e-06,
+        8.4134e-06
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "native_arrival",
+      "center": 17,
+      "radius": 1,
+      "interval": [
+        8.8897e-06,
+        2.28875e-05
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "native_arrival",
+      "center": 18,
+      "radius": 1,
+      "interval": [
+        4.07784e-05,
+        6.6812e-05
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "native_arrival",
+      "center": 19,
+      "radius": 1,
+      "interval": [
+        0.0008955744,
+        0.0010045214
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "native_arrival",
+      "center": 0,
+      "radius": 2,
+      "interval": [
+        7.6587e-05,
+        0.000111024
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "native_arrival",
+      "center": 1,
+      "radius": 2,
+      "interval": [
+        5.2523e-05,
+        8.16103e-05
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "native_arrival",
+      "center": 2,
+      "radius": 2,
+      "interval": [
+        0.0002857219,
+        0.0003491345
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "native_arrival",
+      "center": 3,
+      "radius": 2,
+      "interval": [
+        0.0006517538,
+        0.000770043
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "native_arrival",
+      "center": 4,
+      "radius": 2,
+      "interval": [
+        0.0006519074,
+        0.0007731813
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "native_arrival",
+      "center": 5,
+      "radius": 2,
+      "interval": [
+        5.36722e-05,
+        8.30426e-05
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "native_arrival",
+      "center": 6,
+      "radius": 2,
+      "interval": [
+        7.82856e-05,
+        0.0001130552
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "native_arrival",
+      "center": 7,
+      "radius": 2,
+      "interval": [
+        1.38341e-05,
+        3.04274e-05
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "native_arrival",
+      "center": 8,
+      "radius": 2,
+      "interval": [
+        2.15171e-05,
+        4.13554e-05
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "native_arrival",
+      "center": 9,
+      "radius": 2,
+      "interval": [
+        0.0003152023,
+        0.0003808382
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "native_arrival",
+      "center": 10,
+      "radius": 2,
+      "interval": [
+        0.0005131679,
+        0.0005970654
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "native_arrival",
+      "center": 11,
+      "radius": 2,
+      "interval": [
+        0.0002886981,
+        0.0003524169
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "native_arrival",
+      "center": 12,
+      "radius": 2,
+      "interval": [
+        5.0033e-05,
+        7.62929e-05
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "native_arrival",
+      "center": 13,
+      "radius": 2,
+      "interval": [
+        7.72557e-05,
+        0.0001118215
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "native_arrival",
+      "center": 14,
+      "radius": 2,
+      "interval": [
+        0.0005071651,
+        0.0005906005
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "native_arrival",
+      "center": 15,
+      "radius": 2,
+      "interval": [
+        1.98277e-05,
+        3.90195e-05
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "native_arrival",
+      "center": 16,
+      "radius": 2,
+      "interval": [
+        0.000310229,
+        0.0003761813
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "native_arrival",
+      "center": 17,
+      "radius": 2,
+      "interval": [
+        5.07068e-05,
+        7.93463e-05
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "native_arrival",
+      "center": 18,
+      "radius": 2,
+      "interval": [
+        7.79164e-05,
+        0.0001126068
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "native_arrival",
+      "center": 19,
+      "radius": 2,
+      "interval": [
+        1.23994e-05,
+        2.82948e-05
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "matched_marginal_model",
+      "center": 0,
+      "radius": 0,
+      "interval": [
+        0.0,
+        3.745e-06
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "matched_marginal_model",
+      "center": 1,
+      "radius": 0,
+      "interval": [
+        0.000497623,
+        0.0005782567
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "matched_marginal_model",
+      "center": 2,
+      "radius": 0,
+      "interval": [
+        4.7834e-06,
+        1.59836e-05
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "matched_marginal_model",
+      "center": 3,
+      "radius": 0,
+      "interval": [
+        0.0,
+        1.5691e-06
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "matched_marginal_model",
+      "center": 4,
+      "radius": 0,
+      "interval": [
+        0.0,
+        1.5694e-06
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "matched_marginal_model",
+      "center": 5,
+      "radius": 0,
+      "interval": [
+        0.2723840567,
+        0.2741465364
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "matched_marginal_model",
+      "center": 6,
+      "radius": 0,
+      "interval": [
+        0.0,
+        1.5693e-06
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "matched_marginal_model",
+      "center": 7,
+      "radius": 0,
+      "interval": [
+        0.0,
+        1.5693e-06
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "matched_marginal_model",
+      "center": 8,
+      "radius": 0,
+      "interval": [
+        0.0,
+        1.5696e-06
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "matched_marginal_model",
+      "center": 9,
+      "radius": 0,
+      "interval": [
+        0.1155000968,
+        0.1167071857
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "matched_marginal_model",
+      "center": 10,
+      "radius": 0,
+      "interval": [
+        0.0500625336,
+        0.0508680293
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "matched_marginal_model",
+      "center": 11,
+      "radius": 0,
+      "interval": [
+        1.6319e-06,
+        9.6857e-06
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "matched_marginal_model",
+      "center": 12,
+      "radius": 0,
+      "interval": [
+        1.05814e-05,
+        2.55344e-05
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "matched_marginal_model",
+      "center": 13,
+      "radius": 0,
+      "interval": [
+        0.0514079537,
+        0.0522242377
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "matched_marginal_model",
+      "center": 14,
+      "radius": 0,
+      "interval": [
+        0.0242441099,
+        0.0248065153
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "matched_marginal_model",
+      "center": 15,
+      "radius": 0,
+      "interval": [
+        0.0002767886,
+        0.0003392432
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "matched_marginal_model",
+      "center": 16,
+      "radius": 0,
+      "interval": [
+        0.0,
+        1.5685e-06
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "matched_marginal_model",
+      "center": 17,
+      "radius": 0,
+      "interval": [
+        0.0,
+        1.5686e-06
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "matched_marginal_model",
+      "center": 18,
+      "radius": 0,
+      "interval": [
+        3.62065e-05,
+        6.09363e-05
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "matched_marginal_model",
+      "center": 19,
+      "radius": 0,
+      "interval": [
+        0.0691661226,
+        0.0701100358
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "matched_marginal_model",
+      "center": 0,
+      "radius": 1,
+      "interval": [
+        0.0004988029,
+        0.0005815515
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "matched_marginal_model",
+      "center": 1,
+      "radius": 1,
+      "interval": [
+        0.272223797,
+        0.2739864274
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "matched_marginal_model",
+      "center": 2,
+      "radius": 1,
+      "interval": [
+        0.1160960714,
+        0.1173061363
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "matched_marginal_model",
+      "center": 3,
+      "radius": 1,
+      "interval": [
+        5.5234e-06,
+        1.72985e-05
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "matched_marginal_model",
+      "center": 4,
+      "radius": 1,
+      "interval": [
+        0.0,
+        2.7012e-06
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "matched_marginal_model",
+      "center": 5,
+      "radius": 1,
+      "interval": [
+        0.2207104279,
+        0.2223273089
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "matched_marginal_model",
+      "center": 6,
+      "radius": 1,
+      "interval": [
+        0.0002802259,
+        0.0003430523
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "matched_marginal_model",
+      "center": 7,
+      "radius": 1,
+      "interval": [
+        0.0,
+        1.5692e-06
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "matched_marginal_model",
+      "center": 8,
+      "radius": 1,
+      "interval": [
+        3.38659e-05,
+        5.78917e-05
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "matched_marginal_model",
+      "center": 9,
+      "radius": 1,
+      "interval": [
+        0.1760025652,
+        0.1774672017
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "matched_marginal_model",
+      "center": 10,
+      "radius": 1,
+      "interval": [
+        0.0734723315,
+        0.0744444031
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "matched_marginal_model",
+      "center": 11,
+      "radius": 1,
+      "interval": [
+        0.0500608689,
+        0.050866385
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "matched_marginal_model",
+      "center": 12,
+      "radius": 1,
+      "interval": [
+        0.0513438764,
+        0.0521594484
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "matched_marginal_model",
+      "center": 13,
+      "radius": 1,
+      "interval": [
+        0.0745029564,
+        0.0754814054
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "matched_marginal_model",
+      "center": 14,
+      "radius": 1,
+      "interval": [
+        0.1808436767,
+        0.1823264387
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "matched_marginal_model",
+      "center": 15,
+      "radius": 1,
+      "interval": [
+        0.2362492929,
+        0.237912922
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "matched_marginal_model",
+      "center": 16,
+      "radius": 1,
+      "interval": [
+        1.3296e-06,
+        8.9603e-06
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "matched_marginal_model",
+      "center": 17,
+      "radius": 1,
+      "interval": [
+        8.2029e-06,
+        2.17875e-05
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "matched_marginal_model",
+      "center": 18,
+      "radius": 1,
+      "interval": [
+        0.160539578,
+        0.1619455679
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "matched_marginal_model",
+      "center": 19,
+      "radius": 1,
+      "interval": [
+        0.0997792166,
+        0.1009052403
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "matched_marginal_model",
+      "center": 0,
+      "radius": 2,
+      "interval": [
+        0.2716719526,
+        0.2734328019
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "matched_marginal_model",
+      "center": 1,
+      "radius": 2,
+      "interval": [
+        0.1207042718,
+        0.1219364652
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "matched_marginal_model",
+      "center": 2,
+      "radius": 2,
+      "interval": [
+        0.1211366893,
+        0.1223711989
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "matched_marginal_model",
+      "center": 3,
+      "radius": 2,
+      "interval": [
+        0.1472693272,
+        0.1489921162
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "matched_marginal_model",
+      "center": 4,
+      "radius": 2,
+      "interval": [
+        0.0007262394,
+        0.000855368
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "matched_marginal_model",
+      "center": 5,
+      "radius": 2,
+      "interval": [
+        0.0514998494,
+        0.052316834
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "matched_marginal_model",
+      "center": 6,
+      "radius": 2,
+      "interval": [
+        0.2357444459,
+        0.2374066823
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "matched_marginal_model",
+      "center": 7,
+      "radius": 2,
+      "interval": [
+        1.68625e-05,
+        3.48281e-05
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "matched_marginal_model",
+      "center": 8,
+      "radius": 2,
+      "interval": [
+        0.160732041,
+        0.1621389703
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "matched_marginal_model",
+      "center": 9,
+      "radius": 2,
+      "interval": [
+        0.0502993986,
+        0.0511068817
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "matched_marginal_model",
+      "center": 10,
+      "radius": 2,
+      "interval": [
+        0.1159435419,
+        0.117153073
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "matched_marginal_model",
+      "center": 11,
+      "radius": 2,
+      "interval": [
+        0.1211297318,
+        0.1223643635
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "matched_marginal_model",
+      "center": 12,
+      "radius": 2,
+      "interval": [
+        0.1208261221,
+        0.1220591308
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "matched_marginal_model",
+      "center": 13,
+      "radius": 2,
+      "interval": [
+        0.2717478558,
+        0.2735093818
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "matched_marginal_model",
+      "center": 14,
+      "radius": 2,
+      "interval": [
+        0.0005017316,
+        0.0005847227
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "matched_marginal_model",
+      "center": 15,
+      "radius": 2,
+      "interval": [
+        0.1605896209,
+        0.1619951635
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "matched_marginal_model",
+      "center": 16,
+      "radius": 2,
+      "interval": [
+        0.0503293132,
+        0.0511370894
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "matched_marginal_model",
+      "center": 17,
+      "radius": 2,
+      "interval": [
+        0.0514042469,
+        0.0522204745
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "matched_marginal_model",
+      "center": 18,
+      "radius": 2,
+      "interval": [
+        0.2354821662,
+        0.2371435624
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "matched_marginal_model",
+      "center": 19,
+      "radius": 2,
+      "interval": [
+        1.31322e-05,
+        2.90577e-05
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "exchange_only_four_more_units",
+      "center": 0,
+      "radius": 0,
+      "interval": [
+        0.0064013482,
+        0.0066852847
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "exchange_only_four_more_units",
+      "center": 1,
+      "radius": 0,
+      "interval": [
+        0.282279727,
+        0.2840680419
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "exchange_only_four_more_units",
+      "center": 2,
+      "radius": 0,
+      "interval": [
+        0.0214338561,
+        0.0219627318
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "exchange_only_four_more_units",
+      "center": 3,
+      "radius": 0,
+      "interval": [
+        0.0001897822,
+        0.0002420827
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "exchange_only_four_more_units",
+      "center": 4,
+      "radius": 0,
+      "interval": [
+        8.8847e-06,
+        2.28749e-05
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "exchange_only_four_more_units",
+      "center": 5,
+      "radius": 0,
+      "interval": [
+        0.4924556036,
+        0.4945969406
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "exchange_only_four_more_units",
+      "center": 6,
+      "radius": 0,
+      "interval": [
+        0.0080619927,
+        0.0083868771
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "exchange_only_four_more_units",
+      "center": 7,
+      "radius": 0,
+      "interval": [
+        0.0,
+        3.744e-06
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "exchange_only_four_more_units",
+      "center": 8,
+      "radius": 0,
+      "interval": [
+        0.0005299519,
+        0.0006151965
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "exchange_only_four_more_units",
+      "center": 9,
+      "radius": 0,
+      "interval": [
+        0.041279338,
+        0.0419336718
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "exchange_only_four_more_units",
+      "center": 10,
+      "radius": 0,
+      "interval": [
+        0.0200930333,
+        0.0206051783
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "exchange_only_four_more_units",
+      "center": 11,
+      "radius": 0,
+      "interval": [
+        0.0033594192,
+        0.0035683708
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "exchange_only_four_more_units",
+      "center": 12,
+      "radius": 0,
+      "interval": [
+        0.0083121732,
+        0.0086332938
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "exchange_only_four_more_units",
+      "center": 13,
+      "radius": 0,
+      "interval": [
+        0.0177514159,
+        0.0182329392
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "exchange_only_four_more_units",
+      "center": 14,
+      "radius": 0,
+      "interval": [
+        0.0285839614,
+        0.0291947377
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "exchange_only_four_more_units",
+      "center": 15,
+      "radius": 0,
+      "interval": [
+        0.1789817121,
+        0.1804578356
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "exchange_only_four_more_units",
+      "center": 16,
+      "radius": 0,
+      "interval": [
+        9.01877e-05,
+        0.0001272678
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "exchange_only_four_more_units",
+      "center": 17,
+      "radius": 0,
+      "interval": [
+        0.0001681845,
+        0.0002176062
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "exchange_only_four_more_units",
+      "center": 18,
+      "radius": 0,
+      "interval": [
+        0.0253808813,
+        0.0259563219
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "exchange_only_four_more_units",
+      "center": 19,
+      "radius": 0,
+      "interval": [
+        0.0926891296,
+        0.0937766359
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "exchange_only_four_more_units",
+      "center": 0,
+      "radius": 1,
+      "interval": [
+        0.2979337382,
+        0.2997676396
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "exchange_only_four_more_units",
+      "center": 1,
+      "radius": 1,
+      "interval": [
+        0.2553648516,
+        0.2570823264
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "exchange_only_four_more_units",
+      "center": 2,
+      "radius": 1,
+      "interval": [
+        0.3303698145,
+        0.3322672911
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "exchange_only_four_more_units",
+      "center": 3,
+      "radius": 1,
+      "interval": [
+        0.0221920533,
+        0.0227302119
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "exchange_only_four_more_units",
+      "center": 4,
+      "radius": 1,
+      "interval": [
+        0.0065396783,
+        0.0068359398
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "exchange_only_four_more_units",
+      "center": 5,
+      "radius": 1,
+      "interval": [
+        0.0589036863,
+        0.0597764834
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "exchange_only_four_more_units",
+      "center": 6,
+      "radius": 1,
+      "interval": [
+        0.1953767751,
+        0.1969283518
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "exchange_only_four_more_units",
+      "center": 7,
+      "radius": 1,
+      "interval": [
+        0.0002733549,
+        0.0003354648
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "exchange_only_four_more_units",
+      "center": 8,
+      "radius": 1,
+      "interval": [
+        0.026268288,
+        0.0268536147
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "exchange_only_four_more_units",
+      "center": 9,
+      "radius": 1,
+      "interval": [
+        0.0995475825,
+        0.1006731287
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "exchange_only_four_more_units",
+      "center": 10,
+      "radius": 1,
+      "interval": [
+        0.1979950941,
+        0.1995384796
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "exchange_only_four_more_units",
+      "center": 11,
+      "radius": 1,
+      "interval": [
+        0.0263847469,
+        0.0269712585
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "exchange_only_four_more_units",
+      "center": 12,
+      "radius": 1,
+      "interval": [
+        0.0142076723,
+        0.0146385682
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "exchange_only_four_more_units",
+      "center": 13,
+      "radius": 1,
+      "interval": [
+        0.0457223749,
+        0.0464179346
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "exchange_only_four_more_units",
+      "center": 14,
+      "radius": 1,
+      "interval": [
+        0.1068153639,
+        0.1079790139
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "exchange_only_four_more_units",
+      "center": 15,
+      "radius": 1,
+      "interval": [
+        0.3664757203,
+        0.3684428373
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "exchange_only_four_more_units",
+      "center": 16,
+      "radius": 1,
+      "interval": [
+        0.0116678555,
+        0.0120583497
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "exchange_only_four_more_units",
+      "center": 17,
+      "radius": 1,
+      "interval": [
+        0.0089727693,
+        0.0093154533
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "exchange_only_four_more_units",
+      "center": 18,
+      "radius": 1,
+      "interval": [
+        0.0376785966,
+        0.0383789663
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "exchange_only_four_more_units",
+      "center": 19,
+      "radius": 1,
+      "interval": [
+        0.5052730255,
+        0.5074258649
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "exchange_only_four_more_units",
+      "center": 0,
+      "radius": 2,
+      "interval": [
+        0.0902184848,
+        0.0912865976
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "exchange_only_four_more_units",
+      "center": 1,
+      "radius": 2,
+      "interval": [
+        0.0418940599,
+        0.0426317372
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "exchange_only_four_more_units",
+      "center": 2,
+      "radius": 2,
+      "interval": [
+        0.1951752999,
+        0.1967127123
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "exchange_only_four_more_units",
+      "center": 3,
+      "radius": 2,
+      "interval": [
+        0.3497911694,
+        0.3519291868
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "exchange_only_four_more_units",
+      "center": 4,
+      "radius": 2,
+      "interval": [
+        0.3454826505,
+        0.3476114
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "exchange_only_four_more_units",
+      "center": 5,
+      "radius": 2,
+      "interval": [
+        0.0366100411,
+        0.0373001407
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "exchange_only_four_more_units",
+      "center": 6,
+      "radius": 2,
+      "interval": [
+        0.0923473965,
+        0.0934379736
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "exchange_only_four_more_units",
+      "center": 7,
+      "radius": 2,
+      "interval": [
+        0.027968025,
+        0.0285790758
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "exchange_only_four_more_units",
+      "center": 8,
+      "radius": 2,
+      "interval": [
+        0.0373726082,
+        0.0380699366
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "exchange_only_four_more_units",
+      "center": 9,
+      "radius": 2,
+      "interval": [
+        0.2123223879,
+        0.2139127127
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "exchange_only_four_more_units",
+      "center": 10,
+      "radius": 2,
+      "interval": [
+        0.3163449584,
+        0.3182120214
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "exchange_only_four_more_units",
+      "center": 11,
+      "radius": 2,
+      "interval": [
+        0.199638362,
+        0.2011871891
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "exchange_only_four_more_units",
+      "center": 12,
+      "radius": 2,
+      "interval": [
+        0.041903897,
+        0.0426418574
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "exchange_only_four_more_units",
+      "center": 13,
+      "radius": 2,
+      "interval": [
+        0.0903852649,
+        0.0914595305
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "exchange_only_four_more_units",
+      "center": 14,
+      "radius": 2,
+      "interval": [
+        0.3159444835,
+        0.3178109524
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "exchange_only_four_more_units",
+      "center": 15,
+      "radius": 2,
+      "interval": [
+        0.0283299804,
+        0.0289407015
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "exchange_only_four_more_units",
+      "center": 16,
+      "radius": 2,
+      "interval": [
+        0.2161785277,
+        0.2177992352
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "exchange_only_four_more_units",
+      "center": 17,
+      "radius": 2,
+      "interval": [
+        0.0365855593,
+        0.0372757016
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "exchange_only_four_more_units",
+      "center": 18,
+      "radius": 2,
+      "interval": [
+        0.1004934517,
+        0.1016237947
+      ]
+    },
+    {
+      "owner": 5,
+      "control": "exchange_only_four_more_units",
+      "center": 19,
+      "radius": 2,
+      "interval": [
+        0.0270833361,
+        0.0276775701
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "native_arrival",
+      "center": 0,
+      "radius": 0,
+      "interval": [
+        0.0,
+        1.5693e-06
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "native_arrival",
+      "center": 1,
+      "radius": 0,
+      "interval": [
+        1.8641e-06,
+        1.02145e-05
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "native_arrival",
+      "center": 2,
+      "radius": 0,
+      "interval": [
+        2.218e-07,
+        5.7107e-06
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "native_arrival",
+      "center": 3,
+      "radius": 0,
+      "interval": [
+        0.0,
+        1.5682e-06
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "native_arrival",
+      "center": 4,
+      "radius": 0,
+      "interval": [
+        0.0,
+        1.5684e-06
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "native_arrival",
+      "center": 5,
+      "radius": 0,
+      "interval": [
+        2.79168e-05,
+        5.00426e-05
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "native_arrival",
+      "center": 6,
+      "radius": 0,
+      "interval": [
+        0.0,
+        1.5691e-06
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "native_arrival",
+      "center": 7,
+      "radius": 0,
+      "interval": [
+        0.0,
+        1.5682e-06
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "native_arrival",
+      "center": 8,
+      "radius": 0,
+      "interval": [
+        0.0,
+        1.569e-06
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "native_arrival",
+      "center": 9,
+      "radius": 0,
+      "interval": [
+        2.99099e-05,
+        5.2701e-05
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "native_arrival",
+      "center": 10,
+      "radius": 0,
+      "interval": [
+        0.0008229263,
+        0.0009283425
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "native_arrival",
+      "center": 11,
+      "radius": 0,
+      "interval": [
+        0.0004862783,
+        0.0005680415
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "native_arrival",
+      "center": 12,
+      "radius": 0,
+      "interval": [
+        5.16414e-05,
+        8.05206e-05
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "native_arrival",
+      "center": 13,
+      "radius": 0,
+      "interval": [
+        9.10473e-05,
+        0.0001282713
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "native_arrival",
+      "center": 14,
+      "radius": 0,
+      "interval": [
+        7.28484e-05,
+        0.0001065095
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "native_arrival",
+      "center": 15,
+      "radius": 0,
+      "interval": [
+        0.0002853196,
+        0.0003486714
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "native_arrival",
+      "center": 16,
+      "radius": 0,
+      "interval": [
+        0.0,
+        1.5692e-06
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "native_arrival",
+      "center": 17,
+      "radius": 0,
+      "interval": [
+        0.0,
+        1.5693e-06
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "native_arrival",
+      "center": 18,
+      "radius": 0,
+      "interval": [
+        1.48709e-05,
+        3.19486e-05
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "native_arrival",
+      "center": 19,
+      "radius": 0,
+      "interval": [
+        5.9824e-05,
+        9.06392e-05
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "native_arrival",
+      "center": 0,
+      "radius": 1,
+      "interval": [
+        1.4795e-06,
+        9.3254e-06
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "native_arrival",
+      "center": 1,
+      "radius": 1,
+      "interval": [
+        2.40009e-05,
+        4.47647e-05
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "native_arrival",
+      "center": 2,
+      "radius": 1,
+      "interval": [
+        3.23e-05,
+        5.58364e-05
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "native_arrival",
+      "center": 3,
+      "radius": 1,
+      "interval": [
+        2.219e-07,
+        5.7123e-06
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "native_arrival",
+      "center": 4,
+      "radius": 1,
+      "interval": [
+        0.0,
+        1.5695e-06
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "native_arrival",
+      "center": 5,
+      "radius": 1,
+      "interval": [
+        0.0003227109,
+        0.0003898948
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "native_arrival",
+      "center": 6,
+      "radius": 1,
+      "interval": [
+        0.000284712,
+        0.0003363403
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "native_arrival",
+      "center": 7,
+      "radius": 1,
+      "interval": [
+        0.0,
+        1.5685e-06
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "native_arrival",
+      "center": 8,
+      "radius": 1,
+      "interval": [
+        1.36363e-05,
+        3.01412e-05
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "native_arrival",
+      "center": 9,
+      "radius": 1,
+      "interval": [
+        3.93009e-05,
+        6.49127e-05
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "native_arrival",
+      "center": 10,
+      "radius": 1,
+      "interval": [
+        5.18475e-05,
+        8.07711e-05
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "native_arrival",
+      "center": 11,
+      "radius": 1,
+      "interval": [
+        0.0003720349,
+        0.0004439332
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "native_arrival",
+      "center": 12,
+      "radius": 1,
+      "interval": [
+        0.0005089192,
+        0.0005924858
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "native_arrival",
+      "center": 13,
+      "radius": 1,
+      "interval": [
+        5.68225e-05,
+        8.64715e-05
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "native_arrival",
+      "center": 14,
+      "radius": 1,
+      "interval": [
+        0.0008926537,
+        0.0010023368
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "native_arrival",
+      "center": 15,
+      "radius": 1,
+      "interval": [
+        0.000526317,
+        0.0006112226
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "native_arrival",
+      "center": 16,
+      "radius": 1,
+      "interval": [
+        0.0004915603,
+        0.000573718
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "native_arrival",
+      "center": 17,
+      "radius": 1,
+      "interval": [
+        5.09205e-05,
+        7.21283e-05
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "native_arrival",
+      "center": 18,
+      "radius": 1,
+      "interval": [
+        0.000108538,
+        0.0001488802
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "native_arrival",
+      "center": 19,
+      "radius": 1,
+      "interval": [
+        8.04681e-05,
+        0.0001156672
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "native_arrival",
+      "center": 0,
+      "radius": 2,
+      "interval": [
+        0.0003158221,
+        0.0003823241
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "native_arrival",
+      "center": 1,
+      "radius": 2,
+      "interval": [
+        0.0003198332,
+        0.0003867356
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "native_arrival",
+      "center": 2,
+      "radius": 2,
+      "interval": [
+        2.0784e-05,
+        4.03488e-05
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "native_arrival",
+      "center": 3,
+      "radius": 2,
+      "interval": [
+        1.82082e-05,
+        3.6789e-05
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "native_arrival",
+      "center": 4,
+      "radius": 2,
+      "interval": [
+        2.3605e-06,
+        1.13321e-05
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "native_arrival",
+      "center": 5,
+      "radius": 2,
+      "interval": [
+        0.0005483712,
+        0.0006349678
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "native_arrival",
+      "center": 6,
+      "radius": 2,
+      "interval": [
+        4.72117e-05,
+        7.49708e-05
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "native_arrival",
+      "center": 7,
+      "radius": 2,
+      "interval": [
+        0.0005333406,
+        0.0006188021
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "native_arrival",
+      "center": 8,
+      "radius": 2,
+      "interval": [
+        5.0037e-05,
+        7.85126e-05
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "native_arrival",
+      "center": 9,
+      "radius": 2,
+      "interval": [
+        7.92292e-05,
+        0.0001141913
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "native_arrival",
+      "center": 10,
+      "radius": 2,
+      "interval": [
+        1.93795e-05,
+        3.83796e-05
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "native_arrival",
+      "center": 11,
+      "radius": 2,
+      "interval": [
+        2.40009e-05,
+        4.47645e-05
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "native_arrival",
+      "center": 12,
+      "radius": 2,
+      "interval": [
+        0.0003204196,
+        0.000387378
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "native_arrival",
+      "center": 13,
+      "radius": 2,
+      "interval": [
+        0.0003068413,
+        0.0003724249
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "native_arrival",
+      "center": 14,
+      "radius": 2,
+      "interval": [
+        4.4232e-06,
+        1.53341e-05
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "native_arrival",
+      "center": 15,
+      "radius": 2,
+      "interval": [
+        5.00415e-05,
+        7.85197e-05
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "native_arrival",
+      "center": 16,
+      "radius": 2,
+      "interval": [
+        8.01439e-05,
+        0.0001152844
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "native_arrival",
+      "center": 17,
+      "radius": 2,
+      "interval": [
+        0.0005268108,
+        0.0006117653
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "native_arrival",
+      "center": 18,
+      "radius": 2,
+      "interval": [
+        4.45771e-05,
+        7.1634e-05
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "native_arrival",
+      "center": 19,
+      "radius": 2,
+      "interval": [
+        0.0005392348,
+        0.0006251396
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "matched_marginal_model",
+      "center": 0,
+      "radius": 0,
+      "interval": [
+        0.0,
+        1.5681e-06
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "matched_marginal_model",
+      "center": 1,
+      "radius": 0,
+      "interval": [
+        1.5563e-06,
+        9.5108e-06
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "matched_marginal_model",
+      "center": 2,
+      "radius": 0,
+      "interval": [
+        1.701e-07,
+        5.5086e-06
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "matched_marginal_model",
+      "center": 3,
+      "radius": 0,
+      "interval": [
+        0.0,
+        1.5696e-06
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "matched_marginal_model",
+      "center": 4,
+      "radius": 0,
+      "interval": [
+        0.0,
+        1.5699e-06
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "matched_marginal_model",
+      "center": 5,
+      "radius": 0,
+      "interval": [
+        0.0500759257,
+        0.0508814782
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "matched_marginal_model",
+      "center": 6,
+      "radius": 0,
+      "interval": [
+        0.0,
+        1.5691e-06
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "matched_marginal_model",
+      "center": 7,
+      "radius": 0,
+      "interval": [
+        0.0,
+        1.5685e-06
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "matched_marginal_model",
+      "center": 8,
+      "radius": 0,
+      "interval": [
+        0.0,
+        1.5691e-06
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "matched_marginal_model",
+      "center": 9,
+      "radius": 0,
+      "interval": [
+        0.0641757576,
+        0.0650855174
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "matched_marginal_model",
+      "center": 10,
+      "radius": 0,
+      "interval": [
+        0.316397613,
+        0.3182642054
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "matched_marginal_model",
+      "center": 11,
+      "radius": 0,
+      "interval": [
+        0.0004966988,
+        0.0005792883
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "matched_marginal_model",
+      "center": 12,
+      "radius": 0,
+      "interval": [
+        5.09528e-05,
+        7.96593e-05
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "matched_marginal_model",
+      "center": 13,
+      "radius": 0,
+      "interval": [
+        0.1735175551,
+        0.1749729854
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "matched_marginal_model",
+      "center": 14,
+      "radius": 0,
+      "interval": [
+        0.0155794452,
+        0.0160306067
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "matched_marginal_model",
+      "center": 15,
+      "radius": 0,
+      "interval": [
+        0.0002912995,
+        0.0003552825
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "matched_marginal_model",
+      "center": 16,
+      "radius": 0,
+      "interval": [
+        0.0,
+        2.3953e-06
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "matched_marginal_model",
+      "center": 17,
+      "radius": 0,
+      "interval": [
+        0.0,
+        1.5701e-06
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "matched_marginal_model",
+      "center": 18,
+      "radius": 0,
+      "interval": [
+        1.52869e-05,
+        3.25539e-05
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "matched_marginal_model",
+      "center": 19,
+      "radius": 0,
+      "interval": [
+        0.0642763677,
+        0.0651867998
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "matched_marginal_model",
+      "center": 0,
+      "radius": 1,
+      "interval": [
+        2.1023e-06,
+        1.07422e-05
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "matched_marginal_model",
+      "center": 1,
+      "radius": 1,
+      "interval": [
+        0.0499888324,
+        0.0507936519
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "matched_marginal_model",
+      "center": 2,
+      "radius": 1,
+      "interval": [
+        0.0641975412,
+        0.0650378051
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "matched_marginal_model",
+      "center": 3,
+      "radius": 1,
+      "interval": [
+        1.201e-07,
+        5.2983e-06
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "matched_marginal_model",
+      "center": 4,
+      "radius": 1,
+      "interval": [
+        0.0,
+        1.5692e-06
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "matched_marginal_model",
+      "center": 5,
+      "radius": 1,
+      "interval": [
+        0.1112622029,
+        0.1124482096
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "matched_marginal_model",
+      "center": 6,
+      "radius": 1,
+      "interval": [
+        0.0002885086,
+        0.0003521997
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "matched_marginal_model",
+      "center": 7,
+      "radius": 1,
+      "interval": [
+        0.0,
+        1.5692e-06
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "matched_marginal_model",
+      "center": 8,
+      "radius": 1,
+      "interval": [
+        1.51831e-05,
+        3.24033e-05
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "matched_marginal_model",
+      "center": 9,
+      "radius": 1,
+      "interval": [
+        0.1243291996,
+        0.1255784635
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "matched_marginal_model",
+      "center": 10,
+      "radius": 1,
+      "interval": [
+        0.3061845223,
+        0.3080287278
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "matched_marginal_model",
+      "center": 11,
+      "radius": 1,
+      "interval": [
+        0.3163280351,
+        0.3181946506
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "matched_marginal_model",
+      "center": 12,
+      "radius": 1,
+      "interval": [
+        0.1737979759,
+        0.1752548007
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "matched_marginal_model",
+      "center": 13,
+      "radius": 1,
+      "interval": [
+        0.1863748557,
+        0.1878774944
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "matched_marginal_model",
+      "center": 14,
+      "radius": 1,
+      "interval": [
+        0.1119045203,
+        0.1130934662
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "matched_marginal_model",
+      "center": 15,
+      "radius": 1,
+      "interval": [
+        0.2835950764,
+        0.2853856164
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "matched_marginal_model",
+      "center": 16,
+      "radius": 1,
+      "interval": [
+        0.0004913741,
+        0.0005735326
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "matched_marginal_model",
+      "center": 17,
+      "radius": 1,
+      "interval": [
+        4.79909e-05,
+        7.59462e-05
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "matched_marginal_model",
+      "center": 18,
+      "radius": 1,
+      "interval": [
+        0.2253580433,
+        0.2269887625
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "matched_marginal_model",
+      "center": 19,
+      "radius": 1,
+      "interval": [
+        0.1805735219,
+        0.1820550715
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "matched_marginal_model",
+      "center": 0,
+      "radius": 2,
+      "interval": [
+        0.0502603617,
+        0.0510648296
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "matched_marginal_model",
+      "center": 1,
+      "radius": 2,
+      "interval": [
+        0.168032005,
+        0.1694666356
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "matched_marginal_model",
+      "center": 2,
+      "radius": 2,
+      "interval": [
+        0.1675109436,
+        0.1689436802
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "matched_marginal_model",
+      "center": 3,
+      "radius": 2,
+      "interval": [
+        0.0643766109,
+        0.0652905139
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "matched_marginal_model",
+      "center": 4,
+      "radius": 2,
+      "interval": [
+        2.7795e-06,
+        1.22082e-05
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "matched_marginal_model",
+      "center": 5,
+      "radius": 2,
+      "interval": [
+        0.1742672375,
+        0.1757255386
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "matched_marginal_model",
+      "center": 6,
+      "radius": 2,
+      "interval": [
+        0.2833142669,
+        0.2851045248
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "matched_marginal_model",
+      "center": 7,
+      "radius": 2,
+      "interval": [
+        0.0005331539,
+        0.0006186059
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "matched_marginal_model",
+      "center": 8,
+      "radius": 2,
+      "interval": [
+        0.2254004033,
+        0.2270313692
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "matched_marginal_model",
+      "center": 9,
+      "radius": 2,
+      "interval": [
+        0.3157662539,
+        0.3176317106
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "matched_marginal_model",
+      "center": 10,
+      "radius": 2,
+      "interval": [
+        0.0642577371,
+        0.0651684909
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "matched_marginal_model",
+      "center": 11,
+      "radius": 2,
+      "interval": [
+        0.1678805976,
+        0.1693147729
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "matched_marginal_model",
+      "center": 12,
+      "radius": 2,
+      "interval": [
+        0.1681211422,
+        0.1695559229
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "matched_marginal_model",
+      "center": 13,
+      "radius": 2,
+      "interval": [
+        0.0504429572,
+        0.0512515613
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "matched_marginal_model",
+      "center": 14,
+      "radius": 2,
+      "interval": [
+        1.6304e-06,
+        9.6777e-06
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "matched_marginal_model",
+      "center": 15,
+      "radius": 2,
+      "interval": [
+        0.2253893479,
+        0.2270201693
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "matched_marginal_model",
+      "center": 16,
+      "radius": 2,
+      "interval": [
+        0.3156633888,
+        0.3175286609
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "matched_marginal_model",
+      "center": 17,
+      "radius": 2,
+      "interval": [
+        0.1741441852,
+        0.1756019716
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "matched_marginal_model",
+      "center": 18,
+      "radius": 2,
+      "interval": [
+        0.2834561623,
+        0.2852466638
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "matched_marginal_model",
+      "center": 19,
+      "radius": 2,
+      "interval": [
+        0.000538861,
+        0.0006247569
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "exchange_only_four_more_units",
+      "center": 0,
+      "radius": 0,
+      "interval": [
+        9.13218e-05,
+        0.0001286058
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "exchange_only_four_more_units",
+      "center": 1,
+      "radius": 0,
+      "interval": [
+        0.0033134565,
+        0.0035222829
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "exchange_only_four_more_units",
+      "center": 2,
+      "radius": 0,
+      "interval": [
+        0.0024653301,
+        0.0026457943
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "exchange_only_four_more_units",
+      "center": 3,
+      "radius": 0,
+      "interval": [
+        3.12064e-05,
+        5.44028e-05
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "exchange_only_four_more_units",
+      "center": 4,
+      "radius": 0,
+      "interval": [
+        0.0,
+        1.5698e-06
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "exchange_only_four_more_units",
+      "center": 5,
+      "radius": 0,
+      "interval": [
+        0.0247369715,
+        0.0253049222
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "exchange_only_four_more_units",
+      "center": 6,
+      "radius": 0,
+      "interval": [
+        0.0036897668,
+        0.00391003
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "exchange_only_four_more_units",
+      "center": 7,
+      "radius": 0,
+      "interval": [
+        9.8737e-06,
+        2.44308e-05
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "exchange_only_four_more_units",
+      "center": 8,
+      "radius": 0,
+      "interval": [
+        0.0003260988,
+        0.0003936287
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "exchange_only_four_more_units",
+      "center": 9,
+      "radius": 0,
+      "interval": [
+        0.0231351054,
+        0.0236844087
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "exchange_only_four_more_units",
+      "center": 10,
+      "radius": 0,
+      "interval": [
+        0.464504104,
+        0.4666148354
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "exchange_only_four_more_units",
+      "center": 11,
+      "radius": 0,
+      "interval": [
+        0.2797559931,
+        0.2815373523
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "exchange_only_four_more_units",
+      "center": 12,
+      "radius": 0,
+      "interval": [
+        0.039272079,
+        0.0399864976
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "exchange_only_four_more_units",
+      "center": 13,
+      "radius": 0,
+      "interval": [
+        0.0577489808,
+        0.0586129932
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "exchange_only_four_more_units",
+      "center": 14,
+      "radius": 0,
+      "interval": [
+        0.0856260364,
+        0.0866727751
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "exchange_only_four_more_units",
+      "center": 15,
+      "radius": 0,
+      "interval": [
+        0.184989971,
+        0.1864875209
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "exchange_only_four_more_units",
+      "center": 16,
+      "radius": 0,
+      "interval": [
+        0.0059021411,
+        0.0061803005
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "exchange_only_four_more_units",
+      "center": 17,
+      "radius": 0,
+      "interval": [
+        0.0007473006,
+        0.000847869
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "exchange_only_four_more_units",
+      "center": 18,
+      "radius": 0,
+      "interval": [
+        0.015722684,
+        0.0161759541
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "exchange_only_four_more_units",
+      "center": 19,
+      "radius": 0,
+      "interval": [
+        0.0402501378,
+        0.0409734196
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "exchange_only_four_more_units",
+      "center": 0,
+      "radius": 1,
+      "interval": [
+        0.007179191,
+        0.0074858486
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "exchange_only_four_more_units",
+      "center": 1,
+      "radius": 1,
+      "interval": [
+        0.0253018981,
+        0.0258762699
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "exchange_only_four_more_units",
+      "center": 2,
+      "radius": 1,
+      "interval": [
+        0.0255745275,
+        0.0261519451
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "exchange_only_four_more_units",
+      "center": 3,
+      "radius": 1,
+      "interval": [
+        0.0028657157,
+        0.0030600199
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "exchange_only_four_more_units",
+      "center": 4,
+      "radius": 1,
+      "interval": [
+        0.0001375505,
+        0.0001825588
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "exchange_only_four_more_units",
+      "center": 5,
+      "radius": 1,
+      "interval": [
+        0.2118764576,
+        0.213464761
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "exchange_only_four_more_units",
+      "center": 6,
+      "radius": 1,
+      "interval": [
+        0.1942823511,
+        0.1958127754
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "exchange_only_four_more_units",
+      "center": 7,
+      "radius": 1,
+      "interval": [
+        0.0066102066,
+        0.0069043538
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "exchange_only_four_more_units",
+      "center": 8,
+      "radius": 1,
+      "interval": [
+        0.0168349381,
+        0.0173037343
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "exchange_only_four_more_units",
+      "center": 9,
+      "radius": 1,
+      "interval": [
+        0.0360875304,
+        0.0367725317
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "exchange_only_four_more_units",
+      "center": 10,
+      "radius": 1,
+      "interval": [
+        0.0614393871,
+        0.0623302881
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "exchange_only_four_more_units",
+      "center": 11,
+      "radius": 1,
+      "interval": [
+        0.2613376528,
+        0.2630712248
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "exchange_only_four_more_units",
+      "center": 12,
+      "radius": 1,
+      "interval": [
+        0.3137174752,
+        0.3155785662
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "exchange_only_four_more_units",
+      "center": 13,
+      "radius": 1,
+      "interval": [
+        0.0816525243,
+        0.082675212
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "exchange_only_four_more_units",
+      "center": 14,
+      "radius": 1,
+      "interval": [
+        0.5153126197,
+        0.5174741972
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "exchange_only_four_more_units",
+      "center": 15,
+      "radius": 1,
+      "interval": [
+        0.3397927632,
+        0.3417088601
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "exchange_only_four_more_units",
+      "center": 16,
+      "radius": 1,
+      "interval": [
+        0.2888985622,
+        0.2907017727
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "exchange_only_four_more_units",
+      "center": 17,
+      "radius": 1,
+      "interval": [
+        0.04031773,
+        0.0410414738
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "exchange_only_four_more_units",
+      "center": 18,
+      "radius": 1,
+      "interval": [
+        0.0706956204,
+        0.0716491877
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "exchange_only_four_more_units",
+      "center": 19,
+      "radius": 1,
+      "interval": [
+        0.0964894424,
+        0.0974898338
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "exchange_only_four_more_units",
+      "center": 0,
+      "radius": 2,
+      "interval": [
+        0.2137319367,
+        0.2153266989
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "exchange_only_four_more_units",
+      "center": 1,
+      "radius": 2,
+      "interval": [
+        0.2141398062,
+        0.2157358983
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "exchange_only_four_more_units",
+      "center": 2,
+      "radius": 2,
+      "interval": [
+        0.0278571076,
+        0.0284604439
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "exchange_only_four_more_units",
+      "center": 3,
+      "radius": 2,
+      "interval": [
+        0.0230158538,
+        0.0235663148
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "exchange_only_four_more_units",
+      "center": 4,
+      "radius": 2,
+      "interval": [
+        0.0164845692,
+        0.0169508373
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "exchange_only_four_more_units",
+      "center": 5,
+      "radius": 2,
+      "interval": [
+        0.3257409331,
+        0.3276275058
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "exchange_only_four_more_units",
+      "center": 6,
+      "radius": 2,
+      "interval": [
+        0.0745991896,
+        0.0755784421
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "exchange_only_four_more_units",
+      "center": 7,
+      "radius": 2,
+      "interval": [
+        0.3289914262,
+        0.3308852847
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "exchange_only_four_more_units",
+      "center": 8,
+      "radius": 2,
+      "interval": [
+        0.0446459568,
+        0.0454074133
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "exchange_only_four_more_units",
+      "center": 9,
+      "radius": 2,
+      "interval": [
+        0.0932697958,
+        0.0943602164
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "exchange_only_four_more_units",
+      "center": 10,
+      "radius": 2,
+      "interval": [
+        0.023259599,
+        0.0238104216
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "exchange_only_four_more_units",
+      "center": 11,
+      "radius": 2,
+      "interval": [
+        0.0279228379,
+        0.0285260547
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "exchange_only_four_more_units",
+      "center": 12,
+      "radius": 2,
+      "interval": [
+        0.2138963511,
+        0.2154907671
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "exchange_only_four_more_units",
+      "center": 13,
+      "radius": 2,
+      "interval": [
+        0.2135020065,
+        0.2150958852
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "exchange_only_four_more_units",
+      "center": 14,
+      "radius": 2,
+      "interval": [
+        0.0167906168,
+        0.0172587592
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "exchange_only_four_more_units",
+      "center": 15,
+      "radius": 2,
+      "interval": [
+        0.0443929768,
+        0.0451519915
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "exchange_only_four_more_units",
+      "center": 16,
+      "radius": 2,
+      "interval": [
+        0.0934024249,
+        0.0944939013
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "exchange_only_four_more_units",
+      "center": 17,
+      "radius": 2,
+      "interval": [
+        0.3255533255,
+        0.3274396256
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "exchange_only_four_more_units",
+      "center": 18,
+      "radius": 2,
+      "interval": [
+        0.0747152186,
+        0.0756949778
+      ]
+    },
+    {
+      "owner": 10,
+      "control": "exchange_only_four_more_units",
+      "center": 19,
+      "radius": 2,
+      "interval": [
+        0.3288652286,
+        0.3307589917
+      ]
+    }
+  ],
+  "full_band_at_its_launch_cell": {
+    "simultaneous_coverage": 0.99,
+    "binomial_parameters": 18,
+    "condition": "Original spectral filter passes, with every meter refusal included",
+    "regions": [
+      {
+        "owner": 0,
+        "region_charge_interval": [
+          0.0008407852,
+          0.0009281934
+        ]
+      },
+      {
+        "owner": 5,
+        "region_charge_interval": [
+          0.000864519,
+          0.0009542338
+        ]
+      },
+      {
+        "owner": 10,
+        "region_charge_interval": [
+          0.0008322987,
+          0.0009192515
+        ]
+      }
+    ]
+  },
+  "counts_file_sha256": "b795f7be94a117b89dccc1d7bdf905c23812a66ff5ad449bd65f20aef25c0e69"
+}

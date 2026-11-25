@@ -1,0 +1,3733 @@
+{
+  "start_count": 1073741824,
+  "source": {
+    "energy": 100.88945852031922,
+    "gap_lower": 0.016661480300559927,
+    "spectral_shift_for_audit": -2,
+    "certificate": {
+      "dyadic_bits": 80,
+      "exact_Gram_operator_error_upper": "22072597480440284592850756370319875/730750818665451459101842416358141509827966271488",
+      "exact_residual_frobenius_upper": "2540483825489374305/1267650600228229401496703205376",
+      "nearby_orthogonal_spectral_operator_error": "292559784785344573146828169169786579304764473613755/25711008708143844408671393477458601640355247900524685364822016",
+      "selected_energy_upper": "2542547729159849607533474351129526359842005760690515501130718651/25711008708143844408671393477458601640355247900524685364822016",
+      "target_separation_lower": "214191732650028289506236769281921070729873628732853769724485/12855504354071922204335696738729300820177623950262342682411008",
+      "target_cluster_width_upper": "292559784785344573146828169169786579304764473613755/12855504354071922204335696738729300820177623950262342682411008",
+      "target_projector_error_upper": "31246577304774431885155037888105915726245310080551414567041133928828447037546681767234785243973237627461122843895044080285462072822653343554163529/22875538207094897246580915194840232337670103166599666948222477851677152305539796027586324335679876503088568282134631795914055105295915092834453655459463168"
+    },
+    "sign_weight": 0.9999999999999997,
+    "arm_ports": [
+      [
+        0,
+        3,
+        4,
+        7
+      ],
+      [
+        2,
+        1,
+        5,
+        6
+      ],
+      [
+        9,
+        10,
+        11,
+        8
+      ]
+    ],
+    "native_gateways": [
+      1,
+      3,
+      10
+    ],
+    "source_word": [
+      1,
+      8,
+      9
+    ],
+    "filter_acceptances": [
+      1.0,
+      0.0836455798204583,
+      0.08364493145058617,
+      0.08364493144957828,
+      0.08364493144957555
+    ],
+    "original_start_source_lower": 0.08364459453474846,
+    "original_start_source_upper": 0.08364493281652498,
+    "finite_to_ideal_vector_upper": 1.0891164487290007e-08,
+    "separate_guard_variants": {
+      "guarded": [
+        {
+          "energy": 100.3231715124501,
+          "multiplicity": 1,
+          "sign_rank": 0
+        },
+        {
+          "energy": 100.38042662017112,
+          "multiplicity": 1,
+          "sign_rank": 0
+        },
+        {
+          "energy": 100.38418517657539,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 100.43838570576865,
+          "multiplicity": 1,
+          "sign_rank": 0
+        },
+        {
+          "energy": 100.79589738173073,
+          "multiplicity": 1,
+          "sign_rank": 0
+        },
+        {
+          "energy": 100.8132935666658,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 100.85475394333557,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 100.86630424501273,
+          "multiplicity": 1,
+          "sign_rank": 0
+        },
+        {
+          "energy": 100.87279703998803,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 100.88945852031922,
+          "multiplicity": 1,
+          "sign_rank": 1
+        },
+        {
+          "energy": 100.92618456038211,
+          "multiplicity": 1,
+          "sign_rank": 0
+        },
+        {
+          "energy": 100.93179622914201,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 100.94819700380786,
+          "multiplicity": 1,
+          "sign_rank": 1
+        },
+        {
+          "energy": 100.95206577711913,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 116.15377113122469,
+          "multiplicity": 1,
+          "sign_rank": 0
+        },
+        {
+          "energy": 116.34092519908805,
+          "multiplicity": 1,
+          "sign_rank": 0
+        },
+        {
+          "energy": 116.40174684949093,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 116.47217012523431,
+          "multiplicity": 1,
+          "sign_rank": 0
+        },
+        {
+          "energy": 116.48166662730083,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 116.50254978203742,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 116.75134108820899,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 116.87555593052181,
+          "multiplicity": 1,
+          "sign_rank": 0
+        },
+        {
+          "energy": 117.00819811774497,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 117.1094646123251,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 117.12248704899682,
+          "multiplicity": 1,
+          "sign_rank": 1
+        },
+        {
+          "energy": 117.26390703330154,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 117.29332357612273,
+          "multiplicity": 1,
+          "sign_rank": 1
+        },
+        {
+          "energy": 117.31501355306492,
+          "multiplicity": 1,
+          "sign_rank": 0
+        },
+        {
+          "energy": 117.36630621386925,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 117.41996965900802,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 117.42432981091021,
+          "multiplicity": 1,
+          "sign_rank": 0
+        },
+        {
+          "energy": 117.56604868725066,
+          "multiplicity": 1,
+          "sign_rank": 0
+        },
+        {
+          "energy": 117.6184149144913,
+          "multiplicity": 1,
+          "sign_rank": 1
+        },
+        {
+          "energy": 117.64824353531267,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 117.88233343810515,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 117.90604191789036,
+          "multiplicity": 1,
+          "sign_rank": 1
+        },
+        {
+          "energy": 117.93928977904244,
+          "multiplicity": 1,
+          "sign_rank": 0
+        },
+        {
+          "energy": 118.01374938473074,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 118.22686093000914,
+          "multiplicity": 1,
+          "sign_rank": 0
+        },
+        {
+          "energy": 118.31183718593235,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 118.31354309512083,
+          "multiplicity": 1,
+          "sign_rank": 1
+        },
+        {
+          "energy": 118.43009575382972,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 118.638811238339,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 118.71946716339328,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 118.75588405478234,
+          "multiplicity": 1,
+          "sign_rank": 1
+        },
+        {
+          "energy": 118.7664076453753,
+          "multiplicity": 1,
+          "sign_rank": 0
+        },
+        {
+          "energy": 118.93417022707816,
+          "multiplicity": 1,
+          "sign_rank": 0
+        },
+        {
+          "energy": 118.94133371107989,
+          "multiplicity": 1,
+          "sign_rank": 1
+        },
+        {
+          "energy": 118.95248190846269,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 118.99619453307538,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 119.053398715793,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 119.07627557833085,
+          "multiplicity": 1,
+          "sign_rank": 1
+        },
+        {
+          "energy": 119.3153074283351,
+          "multiplicity": 1,
+          "sign_rank": 0
+        },
+        {
+          "energy": 119.40339084406807,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 130.89294561435926,
+          "multiplicity": 1,
+          "sign_rank": 0
+        },
+        {
+          "energy": 132.00732405175148,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 132.08593379901498,
+          "multiplicity": 1,
+          "sign_rank": 0
+        },
+        {
+          "energy": 132.18384585862717,
+          "multiplicity": 1,
+          "sign_rank": 0
+        },
+        {
+          "energy": 132.23967536172603,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 132.34984917764524,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 132.58801434203448,
+          "multiplicity": 1,
+          "sign_rank": 1
+        },
+        {
+          "energy": 132.60210649511362,
+          "multiplicity": 1,
+          "sign_rank": 0
+        },
+        {
+          "energy": 132.64316993622305,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 133.33036114424252,
+          "multiplicity": 1,
+          "sign_rank": 0
+        },
+        {
+          "energy": 133.35361932234085,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 133.52555350595642,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 133.55858300569392,
+          "multiplicity": 1,
+          "sign_rank": 0
+        },
+        {
+          "energy": 133.6225446920489,
+          "multiplicity": 1,
+          "sign_rank": 1
+        },
+        {
+          "energy": 133.6680233339711,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 133.70183759104174,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 133.7862433278009,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 133.90598609668695,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 133.91672207475432,
+          "multiplicity": 1,
+          "sign_rank": 0
+        },
+        {
+          "energy": 133.93045759465127,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 133.96803027810745,
+          "multiplicity": 1,
+          "sign_rank": 0
+        },
+        {
+          "energy": 134.01959174072437,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 134.0249729294568,
+          "multiplicity": 1,
+          "sign_rank": 0
+        },
+        {
+          "energy": 134.07643631443858,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 134.10578733469058,
+          "multiplicity": 1,
+          "sign_rank": 1
+        },
+        {
+          "energy": 134.18551168305694,
+          "multiplicity": 1,
+          "sign_rank": 0
+        },
+        {
+          "energy": 134.19451880175274,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 134.3092465017765,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 134.35428184785198,
+          "multiplicity": 1,
+          "sign_rank": 1
+        },
+        {
+          "energy": 134.38162814733641,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 134.3871241866571,
+          "multiplicity": 1,
+          "sign_rank": 0
+        },
+        {
+          "energy": 134.476972961428,
+          "multiplicity": 1,
+          "sign_rank": 1
+        },
+        {
+          "energy": 134.55851021458489,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 134.58875334961743,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 134.6633745060729,
+          "multiplicity": 1,
+          "sign_rank": 1
+        },
+        {
+          "energy": 134.6948040650105,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 134.78798570060553,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 134.79801191839724,
+          "multiplicity": 1,
+          "sign_rank": 0
+        },
+        {
+          "energy": 134.90769620211302,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 134.97760751221503,
+          "multiplicity": 1,
+          "sign_rank": 1
+        },
+        {
+          "energy": 135.02799790716472,
+          "multiplicity": 1,
+          "sign_rank": 0
+        },
+        {
+          "energy": 135.09737169705966,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 135.17641865635784,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 135.24925191756765,
+          "multiplicity": 1,
+          "sign_rank": 1
+        },
+        {
+          "energy": 135.26772352016656,
+          "multiplicity": 1,
+          "sign_rank": 0
+        },
+        {
+          "energy": 135.2800525775754,
+          "multiplicity": 1,
+          "sign_rank": 0
+        },
+        {
+          "energy": 135.34235091727845,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 135.42372949137092,
+          "multiplicity": 1,
+          "sign_rank": 0
+        },
+        {
+          "energy": 135.54104370116704,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 135.6047260922195,
+          "multiplicity": 1,
+          "sign_rank": 1
+        },
+        {
+          "energy": 135.6688271085788,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 135.69220388074717,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 135.7281876893292,
+          "multiplicity": 1,
+          "sign_rank": 1
+        },
+        {
+          "energy": 135.74319621089433,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 135.7570078671412,
+          "multiplicity": 1,
+          "sign_rank": 0
+        },
+        {
+          "energy": 135.81798933420276,
+          "multiplicity": 1,
+          "sign_rank": 0
+        },
+        {
+          "energy": 135.8713297185632,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 135.97988924531353,
+          "multiplicity": 1,
+          "sign_rank": 1
+        },
+        {
+          "energy": 135.98209215500862,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 136.0462447720187,
+          "multiplicity": 1,
+          "sign_rank": 0
+        },
+        {
+          "energy": 136.0556717254727,
+          "multiplicity": 1,
+          "sign_rank": 1
+        },
+        {
+          "energy": 136.08085554010893,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 136.1973423337231,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 136.25681816738373,
+          "multiplicity": 1,
+          "sign_rank": 0
+        },
+        {
+          "energy": 136.26522932235432,
+          "multiplicity": 1,
+          "sign_rank": 1
+        },
+        {
+          "energy": 136.34308475428344,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 136.4570451905622,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 136.48124513628107,
+          "multiplicity": 1,
+          "sign_rank": 0
+        },
+        {
+          "energy": 136.5735250973381,
+          "multiplicity": 1,
+          "sign_rank": 1
+        },
+        {
+          "energy": 136.6163487179062,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 136.62174530963574,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 136.66239523032158,
+          "multiplicity": 1,
+          "sign_rank": 1
+        },
+        {
+          "energy": 136.6745301079277,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 136.71433661216426,
+          "multiplicity": 1,
+          "sign_rank": 0
+        },
+        {
+          "energy": 136.862008986784,
+          "multiplicity": 1,
+          "sign_rank": 0
+        },
+        {
+          "energy": 136.87917006969874,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 136.92503653157655,
+          "multiplicity": 1,
+          "sign_rank": 0
+        },
+        {
+          "energy": 136.9615861544658,
+          "multiplicity": 1,
+          "sign_rank": 1
+        },
+        {
+          "energy": 136.96883123738058,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 137.23972937474247,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 150.45258856118258,
+          "multiplicity": 1,
+          "sign_rank": 0
+        },
+        {
+          "energy": 150.82393181174032,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 151.11041112954902,
+          "multiplicity": 1,
+          "sign_rank": 0
+        },
+        {
+          "energy": 151.33427983697874,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 151.58408796900824,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 151.60123405953865,
+          "multiplicity": 1,
+          "sign_rank": 0
+        },
+        {
+          "energy": 151.83121367639365,
+          "multiplicity": 1,
+          "sign_rank": 1
+        },
+        {
+          "energy": 152.1755988790327,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 152.40693072537744,
+          "multiplicity": 1,
+          "sign_rank": 0
+        },
+        {
+          "energy": 152.7093539949068,
+          "multiplicity": 1,
+          "sign_rank": 0
+        },
+        {
+          "energy": 152.75652928526546,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 152.93478123193972,
+          "multiplicity": 1,
+          "sign_rank": 1
+        },
+        {
+          "energy": 153.33709978144026,
+          "multiplicity": 2,
+          "sign_rank": 0
+        },
+        {
+          "energy": 153.86492116548405,
+          "multiplicity": 1,
+          "sign_rank": 0
+        }
+      ],
+      "shuttered": [
+        {
+          "energy": 100.27234420760887,
+          "multiplicity": 1,
+          "sign_rank": 0
+        },
+        {
+          "energy": 100.30614007157506,
+          "multiplicity": 3,
+          "sign_rank": 0
+        },
+        {
+          "energy": 100.35542216719436,
+          "multiplicity": 5,
+          "sign_rank": 0
+        },
+        {
+          "energy": 100.39059942291775,
+          "multiplicity": 4,
+          "sign_rank": 1
+        },
+        {
+          "energy": 100.44847216453377,
+          "multiplicity": 4,
+          "sign_rank": 1
+        },
+        {
+          "energy": 100.45418306798148,
+          "multiplicity": 3,
+          "sign_rank": 0
+        },
+        {
+          "energy": 115.89350788170114,
+          "multiplicity": 1,
+          "sign_rank": 0
+        },
+        {
+          "energy": 116.1171169215027,
+          "multiplicity": 3,
+          "sign_rank": 0
+        },
+        {
+          "energy": 116.27288976429433,
+          "multiplicity": 5,
+          "sign_rank": 0
+        },
+        {
+          "energy": 116.30207914452872,
+          "multiplicity": 3,
+          "sign_rank": 0
+        },
+        {
+          "energy": 116.77505182288044,
+          "multiplicity": 5,
+          "sign_rank": 1
+        },
+        {
+          "energy": 116.939071163774,
+          "multiplicity": 5,
+          "sign_rank": 0
+        },
+        {
+          "energy": 116.94190261716103,
+          "multiplicity": 4,
+          "sign_rank": 1
+        },
+        {
+          "energy": 117.22705400834303,
+          "multiplicity": 3,
+          "sign_rank": 0
+        },
+        {
+          "energy": 117.44246458979634,
+          "multiplicity": 4,
+          "sign_rank": 1
+        },
+        {
+          "energy": 117.57731148221698,
+          "multiplicity": 3,
+          "sign_rank": 1
+        },
+        {
+          "energy": 118.01130306224034,
+          "multiplicity": 4,
+          "sign_rank": 1
+        },
+        {
+          "energy": 118.16435717494633,
+          "multiplicity": 5,
+          "sign_rank": 0
+        },
+        {
+          "energy": 118.45499828041379,
+          "multiplicity": 4,
+          "sign_rank": 1
+        },
+        {
+          "energy": 118.56778956198504,
+          "multiplicity": 3,
+          "sign_rank": 0
+        },
+        {
+          "energy": 118.59052423383017,
+          "multiplicity": 5,
+          "sign_rank": 1
+        },
+        {
+          "energy": 118.72975149592646,
+          "multiplicity": 3,
+          "sign_rank": 1
+        },
+        {
+          "energy": 130.57889203147752,
+          "multiplicity": 1,
+          "sign_rank": 0
+        },
+        {
+          "energy": 131.78881936816808,
+          "multiplicity": 5,
+          "sign_rank": 0
+        },
+        {
+          "energy": 132.04993035263084,
+          "multiplicity": 4,
+          "sign_rank": 1
+        },
+        {
+          "energy": 132.27151448496113,
+          "multiplicity": 3,
+          "sign_rank": 0
+        },
+        {
+          "energy": 133.0853260797105,
+          "multiplicity": 3,
+          "sign_rank": 0
+        },
+        {
+          "energy": 133.25786234570205,
+          "multiplicity": 3,
+          "sign_rank": 0
+        },
+        {
+          "energy": 133.4094757661698,
+          "multiplicity": 5,
+          "sign_rank": 1
+        },
+        {
+          "energy": 133.47235681592886,
+          "multiplicity": 5,
+          "sign_rank": 0
+        },
+        {
+          "energy": 133.6046498953052,
+          "multiplicity": 3,
+          "sign_rank": 0
+        },
+        {
+          "energy": 133.68915187806385,
+          "multiplicity": 5,
+          "sign_rank": 0
+        },
+        {
+          "energy": 133.85814227327737,
+          "multiplicity": 4,
+          "sign_rank": 1
+        },
+        {
+          "energy": 134.00000000000003,
+          "multiplicity": 5,
+          "sign_rank": 1
+        },
+        {
+          "energy": 134.01533926322134,
+          "multiplicity": 4,
+          "sign_rank": 1
+        },
+        {
+          "energy": 134.2177022961774,
+          "multiplicity": 3,
+          "sign_rank": 1
+        },
+        {
+          "energy": 134.37109316873222,
+          "multiplicity": 5,
+          "sign_rank": 0
+        },
+        {
+          "energy": 134.6141072370434,
+          "multiplicity": 3,
+          "sign_rank": 1
+        },
+        {
+          "energy": 134.78014156867724,
+          "multiplicity": 4,
+          "sign_rank": 1
+        },
+        {
+          "energy": 134.78142222662242,
+          "multiplicity": 3,
+          "sign_rank": 0
+        },
+        {
+          "energy": 134.93347134075688,
+          "multiplicity": 3,
+          "sign_rank": 0
+        },
+        {
+          "energy": 134.94569229619154,
+          "multiplicity": 1,
+          "sign_rank": 0
+        },
+        {
+          "energy": 135.22494817711961,
+          "multiplicity": 5,
+          "sign_rank": 1
+        },
+        {
+          "energy": 135.36224760707282,
+          "multiplicity": 5,
+          "sign_rank": 0
+        },
+        {
+          "energy": 135.50928146872283,
+          "multiplicity": 4,
+          "sign_rank": 1
+        },
+        {
+          "energy": 135.5869522328557,
+          "multiplicity": 3,
+          "sign_rank": 1
+        },
+        {
+          "energy": 135.61607507981165,
+          "multiplicity": 4,
+          "sign_rank": 1
+        },
+        {
+          "energy": 136.00000000000003,
+          "multiplicity": 5,
+          "sign_rank": 1
+        },
+        {
+          "energy": 136.0405332356694,
+          "multiplicity": 4,
+          "sign_rank": 1
+        },
+        {
+          "energy": 136.1144708258124,
+          "multiplicity": 3,
+          "sign_rank": 0
+        },
+        {
+          "energy": 136.17554661035655,
+          "multiplicity": 4,
+          "sign_rank": 1
+        },
+        {
+          "energy": 136.27417525578002,
+          "multiplicity": 3,
+          "sign_rank": 1
+        },
+        {
+          "energy": 136.41282438926328,
+          "multiplicity": 5,
+          "sign_rank": 0
+        },
+        {
+          "energy": 136.57573797099693,
+          "multiplicity": 3,
+          "sign_rank": 0
+        },
+        {
+          "energy": 150.30956358302086,
+          "multiplicity": 1,
+          "sign_rank": 0
+        },
+        {
+          "energy": 150.66073164881183,
+          "multiplicity": 3,
+          "sign_rank": 0
+        },
+        {
+          "energy": 151.17176650256187,
+          "multiplicity": 5,
+          "sign_rank": 0
+        },
+        {
+          "energy": 151.64073292465812,
+          "multiplicity": 4,
+          "sign_rank": 1
+        },
+        {
+          "energy": 152.62453708591158,
+          "multiplicity": 4,
+          "sign_rank": 1
+        },
+        {
+          "energy": 152.74045040540454,
+          "multiplicity": 3,
+          "sign_rank": 0
+        }
+      ]
+    }
+  },
+  "material_half_turn": {
+    "receiver_compilation": {
+      "pack_basis_residuals": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "isolated_native_conversion": [
+        {
+          "givens_contacts": 48,
+          "operator_residual": 2.169914275374151e-15
+        },
+        {
+          "givens_contacts": 48,
+          "operator_residual": 1.6871833106449361e-15
+        },
+        {
+          "givens_contacts": 57,
+          "operator_residual": 2.011035933133483e-15
+        }
+      ],
+      "three_fundamental_singlet": {
+        "accepted": 0.999999999999999,
+        "triplet_count_weights": [
+          4.782827254422442e-33,
+          1.4142418038108886e-32,
+          8.975206873231363e-31,
+          0.9999999999999989
+        ],
+        "three_triplet_singlet": 0.999999999999998,
+        "full_singlet": 0.999999999999998,
+        "ports": {
+          "sham": {
+            "bright": 0.9999999999999989,
+            "dark": 0.0
+          },
+          "centre": {
+            "bright": 1.000000000000529,
+            "dark": 6.987336977531759e-26
+          },
+          "centre_and_inverse": {
+            "bright": 1.0000000000008806,
+            "dark": 1.9588128718390885e-25
+          },
+          "half_turn": {
+            "bright": 0.9999999999993454,
+            "dark": 1.0678351004654703e-25
+          }
+        }
+      },
+      "three_identical_colours": {
+        "accepted": 0.9999999999999998,
+        "triplet_count_weights": [
+          1.5504043033476385e-33,
+          1.0078352514820658e-32,
+          2.751949830025769e-31,
+          0.9999999999999998
+        ],
+        "three_triplet_singlet": 1.1119215130792647e-34,
+        "full_singlet": 1.661596454655565e-33,
+        "ports": {
+          "sham": {
+            "bright": 0.9999999999999998,
+            "dark": 0.0
+          },
+          "centre": {
+            "bright": 0.9999999862346252,
+            "dark": 1.376462887158131e-08
+          },
+          "centre_and_inverse": {
+            "bright": 0.9999999999986751,
+            "dark": 4.399640518604964e-25
+          },
+          "half_turn": {
+            "bright": 2.1741417740749363e-10,
+            "dark": 0.9999999997819549
+          }
+        }
+      }
+    },
+    "fringes": {
+      "sham_all": {
+        "dark_given_triplets": 5.32556928028234e-16,
+        "counts": [
+          983935629,
+          89769876,
+          0,
+          36319
+        ]
+      },
+      "sham_one": {
+        "dark_given_triplets": 2.66278464014117e-16,
+        "counts": [
+          983942298,
+          89763242,
+          0,
+          36284
+        ]
+      },
+      "centre_all": {
+        "dark_given_triplets": 0.0,
+        "counts": [
+          983931185,
+          89774009,
+          0,
+          36630
+        ]
+      },
+      "centre_one": {
+        "dark_given_triplets": 0.7499999995021586,
+        "counts": [
+          983926097,
+          89779387,
+          27146,
+          9194
+        ]
+      },
+      "half_turn_all": {
+        "dark_given_triplets": 3.275225107373639e-13,
+        "counts": [
+          983928305,
+          89776994,
+          0,
+          36525
+        ]
+      },
+      "half_turn_one": {
+        "dark_given_triplets": 0.41666659130395606,
+        "counts": [
+          983927186,
+          89777767,
+          15517,
+          21354
+        ]
+      }
+    }
+  },
+  "all_time_connected_lower_given_source": {
+    "20": 0.9834974544422331,
+    "80": 0.9834974544422331,
+    "320": 0.9834974544422331
+  },
+  "filter_stage_counts": [
+    983942170,
+    718,
+    0,
+    0,
+    89798936
+  ],
+  "preparations": [
+    {
+      "omitted": 0,
+      "triplet": 0.00011060005825638023,
+      "singlet": 0.00011060005825638029,
+      "nonsinglet": 5.270272404214096e-23,
+      "single_turn_dark": 7.373337217104774e-05,
+      "common_turn_dark": 5.207066268229265e-23
+    },
+    {
+      "omitted": 1,
+      "triplet": 0.00011246153912155266,
+      "singlet": 0.0001124615391215527,
+      "nonsinglet": 6.987383348487467e-25,
+      "single_turn_dark": 7.497435941434886e-05,
+      "common_turn_dark": 8.28103659446227e-26
+    },
+    {
+      "omitted": 2,
+      "triplet": 0.0004173301231010967,
+      "singlet": 0.000417330123101097,
+      "nonsinglet": 5.27647745940612e-23,
+      "single_turn_dark": 0.00027822008206718684,
+      "common_turn_dark": 5.2084284231705005e-23
+    },
+    {
+      "omitted": 3,
+      "triplet": 0.00040716855435519734,
+      "singlet": 0.0004071685543551974,
+      "nonsinglet": 1.0135120548778445e-25,
+      "single_turn_dark": 0.00027144570290342594,
+      "common_turn_dark": 8.691962723801128e-26
+    }
+  ],
+  "guarded_counts": [
+    [
+      983937058,
+      89794840,
+      9926,
+      0
+    ],
+    [
+      983931368,
+      89800209,
+      10247,
+      0
+    ],
+    [
+      983924336,
+      89780337,
+      37151,
+      0
+    ],
+    [
+      983927933,
+      89777322,
+      36569,
+      0
+    ]
+  ],
+  "controls": {
+    "sharp": [
+      {
+        "omitted": 0,
+        "triplet": 0.0,
+        "singlet": 0.0,
+        "nonsinglet": 0.0,
+        "single_turn_dark": 0.0,
+        "common_turn_dark": 0.0
+      },
+      {
+        "omitted": 1,
+        "triplet": 0.0,
+        "singlet": 0.0,
+        "nonsinglet": 0.0,
+        "single_turn_dark": 0.0,
+        "common_turn_dark": 0.0
+      },
+      {
+        "omitted": 2,
+        "triplet": 0.0,
+        "singlet": 0.0,
+        "nonsinglet": 0.0,
+        "single_turn_dark": 0.0,
+        "common_turn_dark": 0.0
+      },
+      {
+        "omitted": 3,
+        "triplet": 0.0,
+        "singlet": 0.0,
+        "nonsinglet": 0.0,
+        "single_turn_dark": 0.0,
+        "common_turn_dark": 0.0
+      }
+    ],
+    "shuttered": [
+      {
+        "omitted": 0,
+        "triplet": 0.19922489438831592,
+        "singlet": 4.5800488334690416e-05,
+        "nonsinglet": 0.19917909389998123,
+        "single_turn_dark": 0.0997501570161784,
+        "common_turn_dark": 0.14920153809615286
+      },
+      {
+        "omitted": 1,
+        "triplet": 0.19922489438858476,
+        "singlet": 4.58004883347681e-05,
+        "nonsinglet": 0.19917909390025,
+        "single_turn_dark": 0.1494211313179665,
+        "common_turn_dark": 0.1494104290006012
+      },
+      {
+        "omitted": 2,
+        "triplet": 0.15026782446598527,
+        "singlet": 0.00017194719287920153,
+        "nonsinglet": 0.1500958772731061,
+        "single_turn_dark": 0.05060433128597825,
+        "common_turn_dark": 0.09988436166087546
+      },
+      {
+        "omitted": 3,
+        "triplet": 0.1502678244648847,
+        "singlet": 0.00017194719287951107,
+        "nonsinglet": 0.15009587727200518,
+        "single_turn_dark": 0.0506043312847942,
+        "common_turn_dark": 0.09988436166115228
+      }
+    ],
+    "symmetric_ground": [
+      {
+        "omitted": 0,
+        "triplet": 0.4616740293934299,
+        "singlet": 3.396462250798781e-32,
+        "nonsinglet": 0.4616740293934299,
+        "single_turn_dark": 0.4616220452964677,
+        "common_turn_dark": 0.4615334716061433
+      },
+      {
+        "omitted": 1,
+        "triplet": 0.9841023035371368,
+        "singlet": 3.6425346774545334e-31,
+        "nonsinglet": 0.9841023035371369,
+        "single_turn_dark": 0.9840515564062158,
+        "common_turn_dark": 0.9839608325792822
+      },
+      {
+        "omitted": 2,
+        "triplet": 2.315922043265779e-05,
+        "singlet": 2.018833623492818e-31,
+        "nonsinglet": 2.3159220432657783e-05,
+        "single_turn_dark": 1.604207078869395e-05,
+        "common_turn_dark": 1.7185786040765838e-05
+      },
+      {
+        "omitted": 3,
+        "triplet": 0.9854519468033485,
+        "singlet": 5.63412644929851e-31,
+        "nonsinglet": 0.9854519468033485,
+        "single_turn_dark": 0.17516126043901106,
+        "common_turn_dark": 0.5231585295080097
+      }
+    ],
+    "symmetric_ground_source": 1.4670136670622824e-05,
+    "dephased_admission": 0.00040716855435519734,
+    "dephased_singlet": 6.786142572586624e-05,
+    "common_half_turn_counts": [
+      983924435,
+      89781040,
+      0,
+      36349
+    ],
+    "single_half_turn_counts": [
+      983926451,
+      89778676,
+      24469,
+      12228
+    ]
+  },
+  "open_boards": {
+    "20": {
+      "walk_survey": {
+        "length": 2,
+        "gate_walk_counts": [
+          11,
+          10,
+          10
+        ]
+      },
+      "native": {
+        "0.0": {
+          "home_vector_error_upper": 1.0891164487290007e-08,
+          "colours": [
+            {
+              "omitted": 0,
+              "triplet": 0.00011060005825645125,
+              "singlet": 0.0001106000582564513,
+              "nonsinglet": 2.9836325169109293e-25,
+              "single_turn_dark": 7.37333721710065e-05,
+              "common_turn_dark": 2.9266420718454324e-25,
+              "triplet_lower": 0.00011059982917930416,
+              "conditional_singlet_lower": 0.9999999999989274,
+              "joint_singlet_lower_given_source": 0.0001105998291793042
+            },
+            {
+              "omitted": 1,
+              "triplet": 0.0001124615391214792,
+              "singlet": 0.00011246153912147924,
+              "nonsinglet": 6.429601873659605e-27,
+              "single_turn_dark": 7.497435941430998e-05,
+              "common_turn_dark": 1.1845827523066063e-27,
+              "triplet_lower": 0.00011246130812460601,
+              "conditional_singlet_lower": 0.9999999999989453,
+              "joint_singlet_lower_given_source": 0.00011246130812460604
+            },
+            {
+              "omitted": 2,
+              "triplet": 0.00041733012310138124,
+              "singlet": 0.00041733012310138124,
+              "nonsinglet": 2.997599740844545e-25,
+              "single_turn_dark": 0.00027822008206727765,
+              "common_turn_dark": 2.9292188985897973e-25,
+              "triplet_lower": 0.00041732967811772124,
+              "conditional_singlet_lower": 0.9999999999997158,
+              "joint_singlet_lower_given_source": 0.00041732967811772124
+            },
+            {
+              "omitted": 3,
+              "triplet": 0.0004071685543549137,
+              "singlet": 0.0004071685543549139,
+              "nonsinglet": 2.4345229122984557e-27,
+              "single_turn_dark": 0.00027144570290326173,
+              "common_turn_dark": 1.2322478000975761e-27,
+              "triplet_lower": 0.00040716811482209255,
+              "conditional_singlet_lower": 0.9999999999997087,
+              "joint_singlet_lower_given_source": 0.00040716811482209266
+            }
+          ],
+          "full_board_count_bank": {
+            "cumulative_probability_bounds": [
+              [
+                0,
+                1.0000099218396961e-12
+              ],
+              [
+                3.405741087177183e-05,
+                3.4057624138731504e-05
+              ],
+              [
+                0.08364459453474846,
+                0.08364493281652498
+              ]
+            ],
+            "certain": {
+              "other_colour": 0,
+              "singlet": 36423,
+              "outside_triplets": 89788419,
+              "source_refused": 983916622
+            },
+            "unresolved": [
+              {
+                "possible": [
+                  "other_colour",
+                  "singlet"
+                ],
+                "count": 0
+              },
+              {
+                "possible": [
+                  "singlet",
+                  "outside_triplets"
+                ],
+                "count": 0
+              },
+              {
+                "possible": [
+                  "outside_triplets",
+                  "source_refused"
+                ],
+                "count": 360
+              }
+            ]
+          }
+        },
+        "0.25": {
+          "home_vector_error_upper": 2.052961205488001e-06,
+          "colours": [
+            {
+              "omitted": 0,
+              "triplet": 0.00011022256282696177,
+              "singlet": 0.00011022256282693092,
+              "nonsinglet": 3.087131866189523e-17,
+              "single_turn_dark": 7.348171000037525e-05,
+              "common_turn_dark": 1.959501959734625e-20,
+              "triplet_lower": 0.00011017946022114927,
+              "conditional_singlet_lower": 0.999999961540074,
+              "joint_singlet_lower_given_source": 0.00011017946022111842
+            },
+            {
+              "omitted": 1,
+              "triplet": 0.00011257893433414063,
+              "singlet": 0.00011257893433414021,
+              "nonsinglet": 4.992120099101518e-19,
+              "single_turn_dark": 7.505262123790915e-05,
+              "common_turn_dark": 3.400245308470779e-20,
+              "triplet_lower": 0.00011253537338963386,
+              "conditional_singlet_lower": 0.9999999625224396,
+              "joint_singlet_lower_given_source": 0.00011253537338963343
+            },
+            {
+              "omitted": 2,
+              "triplet": 0.0004170118975741188,
+              "singlet": 0.0004170118975740549,
+              "nonsinglet": 6.392746862476774e-17,
+              "single_turn_dark": 0.00027800793012141113,
+              "common_turn_dark": 3.351919013513732e-17,
+              "triplet_lower": 0.0004169280552844002,
+              "conditional_singlet_lower": 0.9999999898122893,
+              "joint_singlet_lower_given_source": 0.00041692805528433636
+            },
+            {
+              "omitted": 3,
+              "triplet": 0.0004088799256904433,
+              "singlet": 0.00040887992569038666,
+              "nonsinglet": 5.682330100799021e-17,
+              "single_turn_dark": 0.00027258659628865453,
+              "common_turn_dark": 3.3551376949886e-17,
+              "triplet_lower": 0.0004087969049531631,
+              "conditional_singlet_lower": 0.9999999896142622,
+              "joint_singlet_lower_given_source": 0.0004087969049531064
+            }
+          ],
+          "full_board_count_bank": {
+            "cumulative_probability_bounds": [
+              [
+                0,
+                1.355127734962848e-12
+              ],
+              [
+                3.4193650361867424e-05,
+                3.4207679883463235e-05
+              ],
+              [
+                0.08364459453474846,
+                0.08364493281652498
+              ]
+            ],
+            "certain": {
+              "other_colour": 0,
+              "singlet": 36797,
+              "outside_triplets": 89782286,
+              "source_refused": 983922355
+            },
+            "unresolved": [
+              {
+                "possible": [
+                  "other_colour",
+                  "singlet"
+                ],
+                "count": 0
+              },
+              {
+                "possible": [
+                  "singlet",
+                  "outside_triplets"
+                ],
+                "count": 16
+              },
+              {
+                "possible": [
+                  "outside_triplets",
+                  "source_refused"
+                ],
+                "count": 370
+              }
+            ]
+          }
+        },
+        "0.5": {
+          "home_vector_error_upper": 3.292085891880908e-05,
+          "colours": [
+            {
+              "omitted": 0,
+              "triplet": 0.00011100314341926089,
+              "singlet": 0.00011100314340819696,
+              "nonsinglet": 1.1063969781429765e-14,
+              "single_turn_dark": 7.40021167632784e-05,
+              "common_turn_dark": 1.4716513887546925e-17,
+              "triplet_lower": 0.00011031053183837968,
+              "conditional_singlet_lower": 0.9999901122804359,
+              "joint_singlet_lower_given_source": 0.00011031053182735034
+            },
+            {
+              "omitted": 1,
+              "triplet": 0.00011174282757677645,
+              "singlet": 0.00011174282757665659,
+              "nonsinglet": 1.1987518709165983e-16,
+              "single_turn_dark": 7.449521699229572e-05,
+              "common_turn_dark": 1.2235734813639823e-17,
+              "triplet_lower": 0.00011104790856797928,
+              "conditional_singlet_lower": 0.9999902339092154,
+              "joint_singlet_lower_given_source": 0.0001110479085678598
+            },
+            {
+              "omitted": 2,
+              "triplet": 0.00041709967261642115,
+              "singlet": 0.0004170996725930257,
+              "nonsinglet": 2.3395680597619794e-14,
+              "single_turn_dark": 0.00027806646811014157,
+              "common_turn_dark": 1.2369010205187281e-14,
+              "triplet_lower": 0.0004157560697973032,
+              "conditional_singlet_lower": 0.999997368944572,
+              "joint_singlet_lower_given_source": 0.00041575606977394555
+            },
+            {
+              "omitted": 3,
+              "triplet": 0.0004046933564425345,
+              "singlet": 0.0004046933564218233,
+              "nonsinglet": 2.071117430405025e-14,
+              "single_turn_dark": 0.00026979553335703874,
+              "common_turn_dark": 1.2380279819253496e-14,
+              "triplet_lower": 0.0004033699029319673,
+              "conditional_singlet_lower": 0.9999972896361745,
+              "joint_singlet_lower_given_source": 0.00040336990291129005
+            }
+          ],
+          "full_board_count_bank": {
+            "cumulative_probability_bounds": [
+              [
+                0,
+                9.244726466636425e-11
+              ],
+              [
+                3.3739710978265245e-05,
+                3.396143109681139e-05
+              ],
+              [
+                0.08364459453474846,
+                0.08364493281652498
+              ]
+            ],
+            "certain": {
+              "other_colour": 0,
+              "singlet": 36207,
+              "outside_triplets": 89785682,
+              "source_refused": 983919307
+            },
+            "unresolved": [
+              {
+                "possible": [
+                  "other_colour",
+                  "singlet"
+                ],
+                "count": 0
+              },
+              {
+                "possible": [
+                  "singlet",
+                  "outside_triplets"
+                ],
+                "count": 269
+              },
+              {
+                "possible": [
+                  "outside_triplets",
+                  "source_refused"
+                ],
+                "count": 359
+              }
+            ]
+          }
+        },
+        "1.0": {
+          "home_vector_error_upper": 0.0005229987079830603,
+          "colours": [
+            {
+              "omitted": 0,
+              "triplet": 0.0001112439014449384,
+              "singlet": 0.00011124390018517775,
+              "nonsinglet": 1.2597606510224252e-12,
+              "single_turn_dark": 7.416262003454931e-05,
+              "common_turn_dark": 2.392328058433495e-15,
+              "triplet_lower": 0.00010048506166342733,
+              "conditional_singlet_lower": 0.9972662312046311,
+              "joint_singlet_lower_given_source": 0.00010048506046613367
+            },
+            {
+              "omitted": 1,
+              "triplet": 0.00011268896855927623,
+              "singlet": 0.00011268896853133044,
+              "nonsinglet": 2.7945808674694605e-14,
+              "single_turn_dark": 7.512585298010117e-05,
+              "common_turn_dark": 2.6533969595739854e-15,
+              "triplet_lower": 0.00010185870431716966,
+              "conditional_singlet_lower": 0.9973129195219996,
+              "joint_singlet_lower_given_source": 0.00010185870429060069
+            },
+            {
+              "omitted": 2,
+              "triplet": 0.0004167121523302477,
+              "singlet": 0.0004167121496859441,
+              "nonsinglet": 2.6443036205840466e-12,
+              "single_turn_dark": 0.0002778080969339086,
+              "common_turn_dark": 1.438987882836788e-12,
+              "triplet_lower": 0.00039563318175026306,
+              "conditional_singlet_lower": 0.9993043272534072,
+              "joint_singlet_lower_given_source": 0.00039563317917370696
+            },
+            {
+              "omitted": 3,
+              "triplet": 0.00041019294792023014,
+              "singlet": 0.00041019294532737083,
+              "nonsinglet": 2.5928593632639667e-12,
+              "single_turn_dark": 0.0002734608255717558,
+              "common_turn_dark": 1.4392175535592204e-12,
+              "triplet_lower": 0.00038928165907231804,
+              "conditional_singlet_lower": 0.9992930194950275,
+              "joint_singlet_lower_given_source": 0.00038928165654641413
+            }
+          ],
+          "full_board_count_bank": {
+            "cumulative_probability_bounds": [
+              [
+                0,
+                2.302130203527287e-08
+              ],
+              [
+                3.256130553291822e-05,
+                3.610544432496371e-05
+              ],
+              [
+                0.08364459453474846,
+                0.08364493281652498
+              ]
+            ],
+            "certain": {
+              "other_colour": 0,
+              "singlet": 34742,
+              "outside_triplets": 89777449,
+              "source_refused": 983925420
+            },
+            "unresolved": [
+              {
+                "possible": [
+                  "other_colour",
+                  "singlet"
+                ],
+                "count": 19
+              },
+              {
+                "possible": [
+                  "singlet",
+                  "outside_triplets"
+                ],
+                "count": 3846
+              },
+              {
+                "possible": [
+                  "outside_triplets",
+                  "source_refused"
+                ],
+                "count": 348
+              }
+            ]
+          }
+        }
+      },
+      "exchange": {
+        "0.0": {
+          "home_vector_error_upper": 1.0891164487290007e-08,
+          "colours": [
+            {
+              "omitted": 0,
+              "triplet": 0.00011060005825645125,
+              "singlet": 0.0001106000582564513,
+              "nonsinglet": 2.9836325169109293e-25,
+              "single_turn_dark": 7.37333721710065e-05,
+              "common_turn_dark": 2.9266420718454324e-25,
+              "triplet_lower": 0.00011059982917930416,
+              "conditional_singlet_lower": 0.9999999999989274,
+              "joint_singlet_lower_given_source": 0.0001105998291793042
+            },
+            {
+              "omitted": 1,
+              "triplet": 0.0001124615391214792,
+              "singlet": 0.00011246153912147924,
+              "nonsinglet": 6.429601873659605e-27,
+              "single_turn_dark": 7.497435941430998e-05,
+              "common_turn_dark": 1.1845827523066063e-27,
+              "triplet_lower": 0.00011246130812460601,
+              "conditional_singlet_lower": 0.9999999999989453,
+              "joint_singlet_lower_given_source": 0.00011246130812460604
+            },
+            {
+              "omitted": 2,
+              "triplet": 0.00041733012310138124,
+              "singlet": 0.00041733012310138124,
+              "nonsinglet": 2.997599740844545e-25,
+              "single_turn_dark": 0.00027822008206727765,
+              "common_turn_dark": 2.9292188985897973e-25,
+              "triplet_lower": 0.00041732967811772124,
+              "conditional_singlet_lower": 0.9999999999997158,
+              "joint_singlet_lower_given_source": 0.00041732967811772124
+            },
+            {
+              "omitted": 3,
+              "triplet": 0.0004071685543549137,
+              "singlet": 0.0004071685543549139,
+              "nonsinglet": 2.4345229122984557e-27,
+              "single_turn_dark": 0.00027144570290326173,
+              "common_turn_dark": 1.2322478000975761e-27,
+              "triplet_lower": 0.00040716811482209255,
+              "conditional_singlet_lower": 0.9999999999997087,
+              "joint_singlet_lower_given_source": 0.00040716811482209266
+            }
+          ],
+          "full_board_count_bank": {
+            "cumulative_probability_bounds": [
+              [
+                0,
+                1.0000099218396961e-12
+              ],
+              [
+                3.405741087177183e-05,
+                3.4057624138731504e-05
+              ],
+              [
+                0.08364459453474846,
+                0.08364493281652498
+              ]
+            ],
+            "certain": {
+              "other_colour": 0,
+              "singlet": 36877,
+              "outside_triplets": 89778019,
+              "source_refused": 983926581
+            },
+            "unresolved": [
+              {
+                "possible": [
+                  "other_colour",
+                  "singlet"
+                ],
+                "count": 0
+              },
+              {
+                "possible": [
+                  "singlet",
+                  "outside_triplets"
+                ],
+                "count": 0
+              },
+              {
+                "possible": [
+                  "outside_triplets",
+                  "source_refused"
+                ],
+                "count": 347
+              }
+            ]
+          }
+        },
+        "0.25": {
+          "home_vector_error_upper": 4.451755586648042e-06,
+          "colours": [
+            {
+              "omitted": 0,
+              "triplet": 0.00694044902622809,
+              "singlet": 0.006940449026227876,
+              "nonsinglet": 2.1480638054823688e-16,
+              "single_turn_dark": 0.004626966014023154,
+              "common_turn_dark": 1.6930101540488882e-18,
+              "triplet_lower": 0.006939707300251988,
+              "conditional_singlet_lower": 0.9999999971254069,
+              "joint_singlet_lower_given_source": 0.0069397073002517755
+            },
+            {
+              "omitted": 1,
+              "triplet": 0.007024264523935442,
+              "singlet": 0.007024264523935438,
+              "nonsinglet": 3.0031765117939734e-18,
+              "single_turn_dark": 0.004682843016651969,
+              "common_turn_dark": 2.6682333318867167e-19,
+              "triplet_lower": 0.007023518332598306,
+              "conditional_singlet_lower": 0.9999999971761218,
+              "joint_singlet_lower_given_source": 0.007023518332598304
+            },
+            {
+              "omitted": 2,
+              "triplet": 0.007106946300066528,
+              "singlet": 0.007106946300066213,
+              "nonsinglet": 3.173936910395203e-16,
+              "single_turn_dark": 0.004737964250942503,
+              "common_turn_dark": 1.1627880531349008e-16,
+              "triplet_lower": 0.007106195729796617,
+              "conditional_singlet_lower": 0.9999999971887819,
+              "joint_singlet_lower_given_source": 0.0071061957297963016
+            },
+            {
+              "omitted": 3,
+              "triplet": 0.007013973377645123,
+              "singlet": 0.007013973377644904,
+              "nonsinglet": 2.2161610299558567e-16,
+              "single_turn_dark": 0.004675982221279835,
+              "common_turn_dark": 1.1641199531424118e-16,
+              "triplet_lower": 0.007013227733139826,
+              "conditional_singlet_lower": 0.9999999971552479,
+              "joint_singlet_lower_given_source": 0.0070132277331396075
+            }
+          ],
+          "full_board_count_bank": {
+            "cumulative_probability_bounds": [
+              [
+                0,
+                2.668791187991834e-12
+              ],
+              [
+                0.0005866185891183338,
+                0.0005867457056499435
+              ],
+              [
+                0.08364459453474846,
+                0.08364493281652498
+              ]
+            ],
+            "certain": {
+              "other_colour": 0,
+              "singlet": 630652,
+              "outside_triplets": 89187478,
+              "source_refused": 983923174
+            },
+            "unresolved": [
+              {
+                "possible": [
+                  "other_colour",
+                  "singlet"
+                ],
+                "count": 0
+              },
+              {
+                "possible": [
+                  "singlet",
+                  "outside_triplets"
+                ],
+                "count": 139
+              },
+              {
+                "possible": [
+                  "outside_triplets",
+                  "source_refused"
+                ],
+                "count": 381
+              }
+            ]
+          }
+        },
+        "0.5": {
+          "home_vector_error_upper": 0.00014074071195361768,
+          "colours": [
+            {
+              "omitted": 0,
+              "triplet": 0.020253403927376807,
+              "singlet": 0.020253403926742613,
+              "nonsinglet": 6.341978624643279e-13,
+              "single_turn_dark": 0.01350226878849894,
+              "common_turn_dark": 1.995876607463704e-14,
+              "triplet_lower": 0.02021336486006147,
+              "conditional_singlet_lower": 0.9999990089357014,
+              "joint_singlet_lower_given_source": 0.0202133648594279
+            },
+            {
+              "omitted": 1,
+              "triplet": 0.02109034539992274,
+              "singlet": 0.021090345399910077,
+              "nonsinglet": 1.2667855660934926e-14,
+              "single_turn_dark": 0.014060230958869853,
+              "common_turn_dark": 3.229003999961777e-15,
+              "triplet_lower": 0.021049487024691487,
+              "conditional_singlet_lower": 0.9999990574762311,
+              "joint_singlet_lower_given_source": 0.021049487024678838
+            },
+            {
+              "omitted": 2,
+              "triplet": 0.022513467728666796,
+              "singlet": 0.022513467727736797,
+              "nonsinglet": 9.3000647283755e-13,
+              "single_turn_dark": 0.015008988178386001,
+              "common_turn_dark": 3.6039500891411566e-13,
+              "triplet_lower": 0.022471252688534272,
+              "conditional_singlet_lower": 0.999999106399181,
+              "joint_singlet_lower_given_source": 0.022471252687605144
+            },
+            {
+              "omitted": 3,
+              "triplet": 0.022943203184595806,
+              "singlet": 0.022943203183873776,
+              "nonsinglet": 7.220326903720575e-13,
+              "single_turn_dark": 0.015295462542609831,
+              "common_turn_dark": 3.6201041818087685e-13,
+              "triplet_lower": 0.02290058696197521,
+              "conditional_singlet_lower": 0.9999991245703925,
+              "joint_singlet_lower_given_source": 0.02290058696125385
+            }
+          ],
+          "full_board_count_bank": {
+            "cumulative_probability_bounds": [
+              [
+                0,
+                1.6779012215971137e-09
+              ],
+              [
+                0.0019155103100421632,
+                0.0019226506347183516
+              ],
+              [
+                0.08364459453474846,
+                0.08364493281652498
+              ]
+            ],
+            "certain": {
+              "other_colour": 0,
+              "singlet": 2058128,
+              "outside_triplets": 87750533,
+              "source_refused": 983925084
+            },
+            "unresolved": [
+              {
+                "possible": [
+                  "other_colour",
+                  "singlet"
+                ],
+                "count": 1
+              },
+              {
+                "possible": [
+                  "singlet",
+                  "outside_triplets"
+                ],
+                "count": 7668
+              },
+              {
+                "possible": [
+                  "outside_triplets",
+                  "source_refused"
+                ],
+                "count": 410
+              }
+            ]
+          }
+        },
+        "1.0": {
+          "home_vector_error_upper": 0.004228329417439096,
+          "colours": [
+            {
+              "omitted": 0,
+              "triplet": 0.021648361107850005,
+              "singlet": 0.02164836042809478,
+              "nonsinglet": 6.797552303269438e-10,
+              "single_turn_dark": 0.01443221260689061,
+              "common_turn_dark": 8.394272156760774e-11,
+              "triplet_lower": 0.020421979355249795,
+              "conditional_singlet_lower": 0.999113703324615,
+              "joint_singlet_lower_given_source": 0.020421978695029368
+            },
+            {
+              "omitted": 1,
+              "triplet": 0.02354035429707061,
+              "singlet": 0.02354035425740753,
+              "nonsinglet": 3.966309069083405e-11,
+              "single_turn_dark": 0.01569363806132922,
+              "common_turn_dark": 1.922468837042602e-11,
+              "triplet_lower": 0.022260739217424778,
+              "conditional_singlet_lower": 0.9991944531564123,
+              "joint_singlet_lower_given_source": 0.02226073917885477
+            },
+            {
+              "omitted": 2,
+              "triplet": 0.0390268126416516,
+              "singlet": 0.03902681145457238,
+              "nonsinglet": 1.1870792302289707e-09,
+              "single_turn_dark": 0.026018771308290493,
+              "common_turn_dark": 5.900389160850129e-10,
+              "triplet_lower": 0.037374061118428115,
+              "conditional_singlet_lower": 0.9995137985528447,
+              "joint_singlet_lower_given_source": 0.03737405995675669
+            },
+            {
+              "omitted": 3,
+              "triplet": 0.04755237153367747,
+              "singlet": 0.04755237017309108,
+              "nonsinglet": 1.3605863967536733e-09,
+              "single_turn_dark": 0.031700783041190055,
+              "common_turn_dark": 6.004509067070135e-10,
+              "triplet_lower": 0.045726148464990825,
+              "conditional_singlet_lower": 0.9996021518484524,
+              "joint_singlet_lower_given_source": 0.045726147130786494
+            }
+          ],
+          "full_board_count_bank": {
+            "cumulative_probability_bounds": [
+              [
+                0,
+                1.5216749413121924e-06
+              ],
+              [
+                0.0038247451469898682,
+                0.004133260166063675
+              ],
+              [
+                0.08364459453474846,
+                0.08364493281652498
+              ]
+            ],
+            "certain": {
+              "other_colour": 0,
+              "singlet": 4104118,
+              "outside_triplets": 85373016,
+              "source_refused": 983931157
+            },
+            "unresolved": [
+              {
+                "possible": [
+                  "other_colour",
+                  "singlet"
+                ],
+                "count": 1641
+              },
+              {
+                "possible": [
+                  "singlet",
+                  "outside_triplets"
+                ],
+                "count": 331528
+              },
+              {
+                "possible": [
+                  "outside_triplets",
+                  "source_refused"
+                ],
+                "count": 364
+              }
+            ]
+          }
+        }
+      }
+    },
+    "80": {
+      "walk_survey": {
+        "length": 5,
+        "gate_walk_counts": [
+          1290,
+          1290,
+          1292
+        ]
+      },
+      "native": {
+        "0.0": {
+          "home_vector_error_upper": 1.0891164487290007e-08,
+          "colours": [
+            {
+              "omitted": 0,
+              "triplet": 0.00011060005825645125,
+              "singlet": 0.0001106000582564513,
+              "nonsinglet": 2.9836325169109293e-25,
+              "single_turn_dark": 7.37333721710065e-05,
+              "common_turn_dark": 2.9266420718454324e-25,
+              "triplet_lower": 0.00011059982917930416,
+              "conditional_singlet_lower": 0.9999999999989274,
+              "joint_singlet_lower_given_source": 0.0001105998291793042
+            },
+            {
+              "omitted": 1,
+              "triplet": 0.0001124615391214792,
+              "singlet": 0.00011246153912147924,
+              "nonsinglet": 6.429601873659605e-27,
+              "single_turn_dark": 7.497435941430998e-05,
+              "common_turn_dark": 1.1845827523066063e-27,
+              "triplet_lower": 0.00011246130812460601,
+              "conditional_singlet_lower": 0.9999999999989453,
+              "joint_singlet_lower_given_source": 0.00011246130812460604
+            },
+            {
+              "omitted": 2,
+              "triplet": 0.00041733012310138124,
+              "singlet": 0.00041733012310138124,
+              "nonsinglet": 2.997599740844545e-25,
+              "single_turn_dark": 0.00027822008206727765,
+              "common_turn_dark": 2.9292188985897973e-25,
+              "triplet_lower": 0.00041732967811772124,
+              "conditional_singlet_lower": 0.9999999999997158,
+              "joint_singlet_lower_given_source": 0.00041732967811772124
+            },
+            {
+              "omitted": 3,
+              "triplet": 0.0004071685543549137,
+              "singlet": 0.0004071685543549139,
+              "nonsinglet": 2.4345229122984557e-27,
+              "single_turn_dark": 0.00027144570290326173,
+              "common_turn_dark": 1.2322478000975761e-27,
+              "triplet_lower": 0.00040716811482209255,
+              "conditional_singlet_lower": 0.9999999999997087,
+              "joint_singlet_lower_given_source": 0.00040716811482209266
+            }
+          ],
+          "full_board_count_bank": {
+            "cumulative_probability_bounds": [
+              [
+                0,
+                1.0000099218396961e-12
+              ],
+              [
+                3.405741087177183e-05,
+                3.4057624138731504e-05
+              ],
+              [
+                0.08364459453474846,
+                0.08364493281652498
+              ]
+            ],
+            "certain": {
+              "other_colour": 0,
+              "singlet": 36568,
+              "outside_triplets": 89784434,
+              "source_refused": 983920427
+            },
+            "unresolved": [
+              {
+                "possible": [
+                  "other_colour",
+                  "singlet"
+                ],
+                "count": 0
+              },
+              {
+                "possible": [
+                  "singlet",
+                  "outside_triplets"
+                ],
+                "count": 0
+              },
+              {
+                "possible": [
+                  "outside_triplets",
+                  "source_refused"
+                ],
+                "count": 395
+              }
+            ]
+          }
+        },
+        "0.25": {
+          "home_vector_error_upper": 4.455204207480529e-07,
+          "colours": [
+            {
+              "omitted": 0,
+              "triplet": 0.00011022257153387948,
+              "singlet": 0.00011022257153387951,
+              "nonsinglet": 2.981014997156203e-25,
+              "single_turn_dark": 7.34817143559568e-05,
+              "common_turn_dark": 2.924086659447757e-25,
+              "triplet_lower": 0.00011021321696740857,
+              "conditional_singlet_lower": 0.9999999981990461,
+              "joint_singlet_lower_given_source": 0.00011021321696740861
+            },
+            {
+              "omitted": 1,
+              "triplet": 0.00011257892433203765,
+              "singlet": 0.00011257892433203766,
+              "nonsinglet": 6.468507350298333e-27,
+              "single_turn_dark": 7.505261622135165e-05,
+              "common_turn_dark": 1.2369672060767693e-27,
+              "triplet_lower": 0.00011256947030064428,
+              "conditional_singlet_lower": 0.9999999982367465,
+              "joint_singlet_lower_given_source": 0.00011256947030064428
+            },
+            {
+              "omitted": 2,
+              "triplet": 0.0004170118873712571,
+              "singlet": 0.0004170118873712572,
+              "nonsinglet": 2.99564458204587e-25,
+              "single_turn_dark": 0.0002780079249138536,
+              "common_turn_dark": 2.9266367221596045e-25,
+              "triplet_lower": 0.0004169936917415207,
+              "conditional_singlet_lower": 0.9999999995240002,
+              "joint_singlet_lower_given_source": 0.00041699369174152083
+            },
+            {
+              "omitted": 3,
+              "triplet": 0.0004088797988900456,
+              "singlet": 0.00040887979889004566,
+              "nonsinglet": 2.4900871767860925e-27,
+              "single_turn_dark": 0.00027258653259336026,
+              "common_turn_dark": 1.2614652979210732e-27,
+              "triplet_lower": 0.0004088617815509002,
+              "conditional_singlet_lower": 0.999999999514534,
+              "joint_singlet_lower_given_source": 0.0004088617815509002
+            }
+          ],
+          "full_board_count_bank": {
+            "cumulative_probability_bounds": [
+              [
+                0,
+                1.0166025563914269e-12
+              ],
+              [
+                3.4199076938579947e-05,
+                3.420223140051957e-05
+              ],
+              [
+                0.08364459453474846,
+                0.08364493281652498
+              ]
+            ],
+            "certain": {
+              "other_colour": 0,
+              "singlet": 36667,
+              "outside_triplets": 89778703,
+              "source_refused": 983926111
+            },
+            "unresolved": [
+              {
+                "possible": [
+                  "other_colour",
+                  "singlet"
+                ],
+                "count": 0
+              },
+              {
+                "possible": [
+                  "singlet",
+                  "outside_triplets"
+                ],
+                "count": 2
+              },
+              {
+                "possible": [
+                  "outside_triplets",
+                  "source_refused"
+                ],
+                "count": 341
+              }
+            ]
+          }
+        },
+        "0.5": {
+          "home_vector_error_upper": 1.2638290902031125e-05,
+          "colours": [
+            {
+              "omitted": 0,
+              "triplet": 0.00011100327095857053,
+              "singlet": 0.00011100327095857058,
+              "nonsinglet": 2.981356799513857e-25,
+              "single_turn_dark": 7.400218063908367e-05,
+              "common_turn_dark": 2.9249241773605512e-25,
+              "triplet_lower": 0.00011073712144729796,
+              "conditional_singlet_lower": 0.999998557607344,
+              "joint_singlet_lower_given_source": 0.00011073712144729799
+            },
+            {
+              "omitted": 1,
+              "triplet": 0.00011174281826643766,
+              "singlet": 0.00011174281826643771,
+              "nonsinglet": 6.464682076163564e-27,
+              "single_turn_dark": 7.449521217761712e-05,
+              "common_turn_dark": 1.2869617667884546e-27,
+              "triplet_lower": 0.00011147578309959095,
+              "conditional_singlet_lower": 0.9999985671650423,
+              "joint_singlet_lower_given_source": 0.00011147578309959099
+            },
+            {
+              "omitted": 2,
+              "triplet": 0.0004170997959389198,
+              "singlet": 0.00041709979593891985,
+              "nonsinglet": 2.9958525806604607e-25,
+              "single_turn_dark": 0.00027806653062562974,
+              "common_turn_dark": 2.9274165100050303e-25,
+              "triplet_lower": 0.00041658373149864794,
+              "conditional_singlet_lower": 0.9999996165802967,
+              "joint_singlet_lower_given_source": 0.00041658373149864805
+            },
+            {
+              "omitted": 3,
+              "triplet": 0.0004046932079485223,
+              "singlet": 0.0004046932079485223,
+              "nonsinglet": 2.526016460234623e-27,
+              "single_turn_dark": 0.00026979547196567637,
+              "common_turn_dark": 1.3175850997790964e-27,
+              "triplet_lower": 0.0004041848789809825,
+              "conditional_singlet_lower": 0.9999996048184717,
+              "joint_singlet_lower_given_source": 0.0004041848789809825
+            }
+          ],
+          "full_board_count_bank": {
+            "cumulative_probability_bounds": [
+              [
+                0,
+                1.436030384602545e-11
+              ],
+              [
+                3.380787931944065e-05,
+                3.3893083053104164e-05
+              ],
+              [
+                0.08364459453474846,
+                0.08364493281652498
+              ]
+            ],
+            "certain": {
+              "other_colour": 0,
+              "singlet": 35909,
+              "outside_triplets": 89782802,
+              "source_refused": 983922686
+            },
+            "unresolved": [
+              {
+                "possible": [
+                  "other_colour",
+                  "singlet"
+                ],
+                "count": 0
+              },
+              {
+                "possible": [
+                  "singlet",
+                  "outside_triplets"
+                ],
+                "count": 75
+              },
+              {
+                "possible": [
+                  "outside_triplets",
+                  "source_refused"
+                ],
+                "count": 352
+              }
+            ]
+          }
+        },
+        "1.0": {
+          "home_vector_error_upper": 0.0003378577832131746,
+          "colours": [
+            {
+              "omitted": 0,
+              "triplet": 0.00011124419782771917,
+              "singlet": 0.00011124419782771918,
+              "nonsinglet": 2.9792170518395295e-25,
+              "single_turn_dark": 7.416279855185108e-05,
+              "common_turn_dark": 2.9247709044060243e-25,
+              "triplet_lower": 0.0001042314138222602,
+              "conditional_singlet_lower": 0.998904861040826,
+              "joint_singlet_lower_given_source": 0.0001042314138222602
+            },
+            {
+              "omitted": 1,
+              "triplet": 0.00011268829147978471,
+              "singlet": 0.00011268829147978473,
+              "nonsinglet": 6.567860771911238e-27,
+              "single_turn_dark": 7.512552765318275e-05,
+              "common_turn_dark": 1.573395652520798e-27,
+              "triplet_lower": 0.00010562939823170472,
+              "conditional_singlet_lower": 0.9989193549935588,
+              "joint_singlet_lower_given_source": 0.00010562939823170472
+            },
+            {
+              "omitted": 2,
+              "triplet": 0.0004167108883011309,
+              "singlet": 0.00041671088830113094,
+              "nonsinglet": 2.993877875156922e-25,
+              "single_turn_dark": 0.0002778072588671046,
+              "common_turn_dark": 2.927350619251054e-25,
+              "triplet_lower": 0.0004030313180224843,
+              "conditional_singlet_lower": 0.9997167766450321,
+              "joint_singlet_lower_given_source": 0.0004030313180224843
+            },
+            {
+              "omitted": 3,
+              "triplet": 0.00041018546417687535,
+              "singlet": 0.00041018546417687546,
+              "nonsinglet": 2.8244523372103085e-27,
+              "single_turn_dark": 0.0002734569761179148,
+              "common_turn_dark": 1.5944419569922295e-27,
+              "triplet_lower": 0.00039661432041667957,
+              "conditional_singlet_lower": 0.9997121942505915,
+              "joint_singlet_lower_given_source": 0.00039661432041667973
+            }
+          ],
+          "full_board_count_bank": {
+            "cumulative_probability_bounds": [
+              [
+                0,
+                9.54889189708537e-09
+              ],
+              [
+                3.3174643017927964e-05,
+                3.546418978524299e-05
+              ],
+              [
+                0.08364459453474846,
+                0.08364493281652498
+              ]
+            ],
+            "certain": {
+              "other_colour": 0,
+              "singlet": 35816,
+              "outside_triplets": 89758724,
+              "source_refused": 983944405
+            },
+            "unresolved": [
+              {
+                "possible": [
+                  "other_colour",
+                  "singlet"
+                ],
+                "count": 13
+              },
+              {
+                "possible": [
+                  "singlet",
+                  "outside_triplets"
+                ],
+                "count": 2486
+              },
+              {
+                "possible": [
+                  "outside_triplets",
+                  "source_refused"
+                ],
+                "count": 380
+              }
+            ]
+          }
+        }
+      },
+      "exchange": {
+        "0.0": {
+          "home_vector_error_upper": 1.0891164487290007e-08,
+          "colours": [
+            {
+              "omitted": 0,
+              "triplet": 0.00011060005825645125,
+              "singlet": 0.0001106000582564513,
+              "nonsinglet": 2.9836325169109293e-25,
+              "single_turn_dark": 7.37333721710065e-05,
+              "common_turn_dark": 2.9266420718454324e-25,
+              "triplet_lower": 0.00011059982917930416,
+              "conditional_singlet_lower": 0.9999999999989274,
+              "joint_singlet_lower_given_source": 0.0001105998291793042
+            },
+            {
+              "omitted": 1,
+              "triplet": 0.0001124615391214792,
+              "singlet": 0.00011246153912147924,
+              "nonsinglet": 6.429601873659605e-27,
+              "single_turn_dark": 7.497435941430998e-05,
+              "common_turn_dark": 1.1845827523066063e-27,
+              "triplet_lower": 0.00011246130812460601,
+              "conditional_singlet_lower": 0.9999999999989453,
+              "joint_singlet_lower_given_source": 0.00011246130812460604
+            },
+            {
+              "omitted": 2,
+              "triplet": 0.00041733012310138124,
+              "singlet": 0.00041733012310138124,
+              "nonsinglet": 2.997599740844545e-25,
+              "single_turn_dark": 0.00027822008206727765,
+              "common_turn_dark": 2.9292188985897973e-25,
+              "triplet_lower": 0.00041732967811772124,
+              "conditional_singlet_lower": 0.9999999999997158,
+              "joint_singlet_lower_given_source": 0.00041732967811772124
+            },
+            {
+              "omitted": 3,
+              "triplet": 0.0004071685543549137,
+              "singlet": 0.0004071685543549139,
+              "nonsinglet": 2.4345229122984557e-27,
+              "single_turn_dark": 0.00027144570290326173,
+              "common_turn_dark": 1.2322478000975761e-27,
+              "triplet_lower": 0.00040716811482209255,
+              "conditional_singlet_lower": 0.9999999999997087,
+              "joint_singlet_lower_given_source": 0.00040716811482209266
+            }
+          ],
+          "full_board_count_bank": {
+            "cumulative_probability_bounds": [
+              [
+                0,
+                1.0000099218396961e-12
+              ],
+              [
+                3.405741087177183e-05,
+                3.4057624138731504e-05
+              ],
+              [
+                0.08364459453474846,
+                0.08364493281652498
+              ]
+            ],
+            "certain": {
+              "other_colour": 0,
+              "singlet": 36628,
+              "outside_triplets": 89779228,
+              "source_refused": 983925631
+            },
+            "unresolved": [
+              {
+                "possible": [
+                  "other_colour",
+                  "singlet"
+                ],
+                "count": 0
+              },
+              {
+                "possible": [
+                  "singlet",
+                  "outside_triplets"
+                ],
+                "count": 0
+              },
+              {
+                "possible": [
+                  "outside_triplets",
+                  "source_refused"
+                ],
+                "count": 337
+              }
+            ]
+          }
+        },
+        "0.25": {
+          "home_vector_error_upper": 6.860833034719312e-07,
+          "colours": [
+            {
+              "omitted": 0,
+              "triplet": 0.006940449005742374,
+              "singlet": 0.006940449005742377,
+              "nonsinglet": 2.7493204254142125e-25,
+              "single_turn_dark": 0.004626966003830475,
+              "common_turn_dark": 2.525753727921745e-25,
+              "triplet_lower": 0.006940334691895016,
+              "conditional_singlet_lower": 0.9999999999321775,
+              "joint_singlet_lower_given_source": 0.006940334691895019
+            },
+            {
+              "omitted": 1,
+              "triplet": 0.007024264528773387,
+              "singlet": 0.007024264528773386,
+              "nonsinglet": 2.501105603842656e-26,
+              "single_turn_dark": 0.004682843019182142,
+              "common_turn_dark": 9.164349288443922e-27,
+              "triplet_lower": 0.007024149526745711,
+              "conditional_singlet_lower": 0.9999999999329868,
+              "joint_singlet_lower_given_source": 0.007024149526745711
+            },
+            {
+              "omitted": 2,
+              "triplet": 0.007106946604008052,
+              "singlet": 0.0071069466040080565,
+              "nonsinglet": 2.925315351893096e-25,
+              "single_turn_dark": 0.004737964402667264,
+              "common_turn_dark": 2.58926907645212e-25,
+              "triplet_lower": 0.007106830927117742,
+              "conditional_singlet_lower": 0.9999999999337664,
+              "joint_singlet_lower_given_source": 0.007106830927117747
+            },
+            {
+              "omitted": 3,
+              "triplet": 0.007013973334906079,
+              "singlet": 0.007013973334906079,
+              "nonsinglet": 2.4817050950146624e-26,
+              "single_turn_dark": 0.00467598222327066,
+              "common_turn_dark": 1.1838882517367783e-26,
+              "triplet_lower": 0.007013858417153904,
+              "conditional_singlet_lower": 0.9999999999328885,
+              "joint_singlet_lower_given_source": 0.007013858417153904
+            }
+          ],
+          "full_board_count_bank": {
+            "cumulative_probability_bounds": [
+              [
+                0,
+                1.0393725494422077e-12
+              ],
+              [
+                0.0005866713424269709,
+                0.0005866929417415218
+              ],
+              [
+                0.08364459453474846,
+                0.08364493281652498
+              ]
+            ],
+            "certain": {
+              "other_colour": 0,
+              "singlet": 631077,
+              "outside_triplets": 89176980,
+              "source_refused": 983933394
+            },
+            "unresolved": [
+              {
+                "possible": [
+                  "other_colour",
+                  "singlet"
+                ],
+                "count": 0
+              },
+              {
+                "possible": [
+                  "singlet",
+                  "outside_triplets"
+                ],
+                "count": 20
+              },
+              {
+                "possible": [
+                  "outside_triplets",
+                  "source_refused"
+                ],
+                "count": 353
+              }
+            ]
+          }
+        },
+        "0.5": {
+          "home_vector_error_upper": 4.1581386576502614e-05,
+          "colours": [
+            {
+              "omitted": 0,
+              "triplet": 0.02025340118092778,
+              "singlet": 0.020253401180927794,
+              "nonsinglet": 2.2226688223755443e-25,
+              "single_turn_dark": 0.013502267453957098,
+              "common_turn_dark": 1.6623407615126273e-25,
+              "triplet_lower": 0.02024156764605539,
+              "conditional_singlet_lower": 0.9999999145811342,
+              "joint_singlet_lower_given_source": 0.020241567646055406
+            },
+            {
+              "omitted": 1,
+              "triplet": 0.021090349903413193,
+              "singlet": 0.021090349903413196,
+              "nonsinglet": 6.935444246566399e-26,
+              "single_turn_dark": 0.01406023326894374,
+              "common_turn_dark": 2.6926722018030486e-26,
+              "triplet_lower": 0.021078274304584182,
+              "conditional_singlet_lower": 0.9999999179718555,
+              "joint_singlet_lower_given_source": 0.021078274304584182
+            },
+            {
+              "omitted": 2,
+              "triplet": 0.02251352560693278,
+              "singlet": 0.022513525606932788,
+              "nonsinglet": 2.714946013780951e-25,
+              "single_turn_dark": 0.01500901707127638,
+              "common_turn_dark": 1.87838906110115e-25,
+              "triplet_lower": 0.02250104917111158,
+              "conditional_singlet_lower": 0.9999999231586163,
+              "joint_singlet_lower_given_source": 0.022501049171111585
+            },
+            {
+              "omitted": 3,
+              "triplet": 0.02294319421730287,
+              "singlet": 0.022943194217302877,
+              "nonsinglet": 7.640446253210665e-26,
+              "single_turn_dark": 0.015295462811535437,
+              "common_turn_dark": 3.4838380445165846e-26,
+              "triplet_lower": 0.022930599271918862,
+              "conditional_singlet_lower": 0.9999999245980573,
+              "joint_singlet_lower_given_source": 0.022930599271918872
+            }
+          ],
+          "full_board_count_bank": {
+            "cumulative_probability_bounds": [
+              [
+                0,
+                1.4562307021330337e-10
+              ],
+              [
+                0.0019180206775384514,
+                0.0019201357325093922
+              ],
+              [
+                0.08364459453474846,
+                0.08364493281652498
+              ]
+            ],
+            "certain": {
+              "other_colour": 0,
+              "singlet": 2058895,
+              "outside_triplets": 87773035,
+              "source_refused": 983907310
+            },
+            "unresolved": [
+              {
+                "possible": [
+                  "other_colour",
+                  "singlet"
+                ],
+                "count": 0
+              },
+              {
+                "possible": [
+                  "singlet",
+                  "outside_triplets"
+                ],
+                "count": 2221
+              },
+              {
+                "possible": [
+                  "outside_triplets",
+                  "source_refused"
+                ],
+                "count": 363
+              }
+            ]
+          }
+        },
+        "1.0": {
+          "home_vector_error_upper": 0.0022857657587263425,
+          "colours": [
+            {
+              "omitted": 0,
+              "triplet": 0.02164826863752237,
+              "singlet": 0.02164826863752237,
+              "nonsinglet": 1.4705324061476053e-25,
+              "single_turn_dark": 0.014432179091682177,
+              "common_turn_dark": 5.318113850779234e-26,
+              "triplet_lower": 0.020980867901902175,
+              "conditional_singlet_lower": 0.9997509766931498,
+              "joint_singlet_lower_given_source": 0.020980867901902175
+            },
+            {
+              "omitted": 1,
+              "triplet": 0.02354078322382411,
+              "singlet": 0.02354078322382412,
+              "nonsinglet": 1.6950716131599372e-25,
+              "single_turn_dark": 0.015693855482557473,
+              "common_turn_dark": 7.048958407132777e-26,
+              "triplet_lower": 0.022844597595220936,
+              "conditional_singlet_lower": 0.9997712927494621,
+              "joint_singlet_lower_given_source": 0.022844597595220947
+            },
+            {
+              "omitted": 2,
+              "triplet": 0.039032135195000664,
+              "singlet": 0.03903213519500067,
+              "nonsinglet": 2.316204342374596e-25,
+              "single_turn_dark": 0.02602142346332873,
+              "common_turn_dark": 1.1207122289422845e-25,
+              "triplet_lower": 0.03813418291285302,
+              "conditional_singlet_lower": 0.9998629910304383,
+              "joint_singlet_lower_given_source": 0.03813418291285303
+            },
+            {
+              "omitted": 3,
+              "triplet": 0.04755046788709932,
+              "singlet": 0.04755046788709933,
+              "nonsinglet": 1.8079862555427051e-25,
+              "single_turn_dark": 0.03170031192473153,
+              "common_turn_dark": 7.807691285328713e-26,
+              "triplet_lower": 0.04655882125989017,
+              "conditional_singlet_lower": 0.9998877822727396,
+              "joint_singlet_lower_given_source": 0.046558821259890186
+            }
+          ],
+          "full_board_count_bank": {
+            "cumulative_probability_bounds": [
+              [
+                0,
+                4.3702278045189473e-07
+              ],
+              [
+                0.0038943937252993396,
+                0.004061175951881972
+              ],
+              [
+                0.08364459453474846,
+                0.08364493281652498
+              ]
+            ],
+            "certain": {
+              "other_colour": 0,
+              "singlet": 4181222,
+              "outside_triplets": 85433779,
+              "source_refused": 983946263
+            },
+            "unresolved": [
+              {
+                "possible": [
+                  "other_colour",
+                  "singlet"
+                ],
+                "count": 488
+              },
+              {
+                "possible": [
+                  "singlet",
+                  "outside_triplets"
+                ],
+                "count": 179704
+              },
+              {
+                "possible": [
+                  "outside_triplets",
+                  "source_refused"
+                ],
+                "count": 368
+              }
+            ]
+          }
+        }
+      }
+    },
+    "320": {
+      "walk_survey": {
+        "length": 5,
+        "gate_walk_counts": [
+          1290,
+          1290,
+          1292
+        ]
+      },
+      "native": {
+        "0.0": {
+          "home_vector_error_upper": 1.0891164487290007e-08,
+          "colours": [
+            {
+              "omitted": 0,
+              "triplet": 0.00011060005825645125,
+              "singlet": 0.0001106000582564513,
+              "nonsinglet": 2.9836325169109293e-25,
+              "single_turn_dark": 7.37333721710065e-05,
+              "common_turn_dark": 2.9266420718454324e-25,
+              "triplet_lower": 0.00011059982917930416,
+              "conditional_singlet_lower": 0.9999999999989274,
+              "joint_singlet_lower_given_source": 0.0001105998291793042
+            },
+            {
+              "omitted": 1,
+              "triplet": 0.0001124615391214792,
+              "singlet": 0.00011246153912147924,
+              "nonsinglet": 6.429601873659605e-27,
+              "single_turn_dark": 7.497435941430998e-05,
+              "common_turn_dark": 1.1845827523066063e-27,
+              "triplet_lower": 0.00011246130812460601,
+              "conditional_singlet_lower": 0.9999999999989453,
+              "joint_singlet_lower_given_source": 0.00011246130812460604
+            },
+            {
+              "omitted": 2,
+              "triplet": 0.00041733012310138124,
+              "singlet": 0.00041733012310138124,
+              "nonsinglet": 2.997599740844545e-25,
+              "single_turn_dark": 0.00027822008206727765,
+              "common_turn_dark": 2.9292188985897973e-25,
+              "triplet_lower": 0.00041732967811772124,
+              "conditional_singlet_lower": 0.9999999999997158,
+              "joint_singlet_lower_given_source": 0.00041732967811772124
+            },
+            {
+              "omitted": 3,
+              "triplet": 0.0004071685543549137,
+              "singlet": 0.0004071685543549139,
+              "nonsinglet": 2.4345229122984557e-27,
+              "single_turn_dark": 0.00027144570290326173,
+              "common_turn_dark": 1.2322478000975761e-27,
+              "triplet_lower": 0.00040716811482209255,
+              "conditional_singlet_lower": 0.9999999999997087,
+              "joint_singlet_lower_given_source": 0.00040716811482209266
+            }
+          ],
+          "full_board_count_bank": {
+            "cumulative_probability_bounds": [
+              [
+                0,
+                1.0000099218396961e-12
+              ],
+              [
+                3.405741087177183e-05,
+                3.4057624138731504e-05
+              ],
+              [
+                0.08364459453474846,
+                0.08364493281652498
+              ]
+            ],
+            "certain": {
+              "other_colour": 0,
+              "singlet": 36620,
+              "outside_triplets": 89768787,
+              "source_refused": 983936031
+            },
+            "unresolved": [
+              {
+                "possible": [
+                  "other_colour",
+                  "singlet"
+                ],
+                "count": 0
+              },
+              {
+                "possible": [
+                  "singlet",
+                  "outside_triplets"
+                ],
+                "count": 0
+              },
+              {
+                "possible": [
+                  "outside_triplets",
+                  "source_refused"
+                ],
+                "count": 386
+              }
+            ]
+          }
+        },
+        "0.25": {
+          "home_vector_error_upper": 4.455204207480529e-07,
+          "colours": [
+            {
+              "omitted": 0,
+              "triplet": 0.00011022257153387948,
+              "singlet": 0.00011022257153387951,
+              "nonsinglet": 2.981014997156203e-25,
+              "single_turn_dark": 7.34817143559568e-05,
+              "common_turn_dark": 2.924086659447757e-25,
+              "triplet_lower": 0.00011021321696740857,
+              "conditional_singlet_lower": 0.9999999981990461,
+              "joint_singlet_lower_given_source": 0.00011021321696740861
+            },
+            {
+              "omitted": 1,
+              "triplet": 0.00011257892433203765,
+              "singlet": 0.00011257892433203766,
+              "nonsinglet": 6.468507350298333e-27,
+              "single_turn_dark": 7.505261622135165e-05,
+              "common_turn_dark": 1.2369672060767693e-27,
+              "triplet_lower": 0.00011256947030064428,
+              "conditional_singlet_lower": 0.9999999982367465,
+              "joint_singlet_lower_given_source": 0.00011256947030064428
+            },
+            {
+              "omitted": 2,
+              "triplet": 0.0004170118873712571,
+              "singlet": 0.0004170118873712572,
+              "nonsinglet": 2.99564458204587e-25,
+              "single_turn_dark": 0.0002780079249138536,
+              "common_turn_dark": 2.9266367221596045e-25,
+              "triplet_lower": 0.0004169936917415207,
+              "conditional_singlet_lower": 0.9999999995240002,
+              "joint_singlet_lower_given_source": 0.00041699369174152083
+            },
+            {
+              "omitted": 3,
+              "triplet": 0.0004088797988900456,
+              "singlet": 0.00040887979889004566,
+              "nonsinglet": 2.4900871767860925e-27,
+              "single_turn_dark": 0.00027258653259336026,
+              "common_turn_dark": 1.2614652979210732e-27,
+              "triplet_lower": 0.0004088617815509002,
+              "conditional_singlet_lower": 0.999999999514534,
+              "joint_singlet_lower_given_source": 0.0004088617815509002
+            }
+          ],
+          "full_board_count_bank": {
+            "cumulative_probability_bounds": [
+              [
+                0,
+                1.0166025563914269e-12
+              ],
+              [
+                3.4199076938579947e-05,
+                3.420223140051957e-05
+              ],
+              [
+                0.08364459453474846,
+                0.08364493281652498
+              ]
+            ],
+            "certain": {
+              "other_colour": 0,
+              "singlet": 36899,
+              "outside_triplets": 89782844,
+              "source_refused": 983921750
+            },
+            "unresolved": [
+              {
+                "possible": [
+                  "other_colour",
+                  "singlet"
+                ],
+                "count": 0
+              },
+              {
+                "possible": [
+                  "singlet",
+                  "outside_triplets"
+                ],
+                "count": 3
+              },
+              {
+                "possible": [
+                  "outside_triplets",
+                  "source_refused"
+                ],
+                "count": 328
+              }
+            ]
+          }
+        },
+        "0.5": {
+          "home_vector_error_upper": 1.2638290902031125e-05,
+          "colours": [
+            {
+              "omitted": 0,
+              "triplet": 0.00011100327095857053,
+              "singlet": 0.00011100327095857058,
+              "nonsinglet": 2.981356799513857e-25,
+              "single_turn_dark": 7.400218063908367e-05,
+              "common_turn_dark": 2.9249241773605512e-25,
+              "triplet_lower": 0.00011073712144729796,
+              "conditional_singlet_lower": 0.999998557607344,
+              "joint_singlet_lower_given_source": 0.00011073712144729799
+            },
+            {
+              "omitted": 1,
+              "triplet": 0.00011174281826643766,
+              "singlet": 0.00011174281826643771,
+              "nonsinglet": 6.464682076163564e-27,
+              "single_turn_dark": 7.449521217761712e-05,
+              "common_turn_dark": 1.2869617667884546e-27,
+              "triplet_lower": 0.00011147578309959095,
+              "conditional_singlet_lower": 0.9999985671650423,
+              "joint_singlet_lower_given_source": 0.00011147578309959099
+            },
+            {
+              "omitted": 2,
+              "triplet": 0.0004170997959389198,
+              "singlet": 0.00041709979593891985,
+              "nonsinglet": 2.9958525806604607e-25,
+              "single_turn_dark": 0.00027806653062562974,
+              "common_turn_dark": 2.9274165100050303e-25,
+              "triplet_lower": 0.00041658373149864794,
+              "conditional_singlet_lower": 0.9999996165802967,
+              "joint_singlet_lower_given_source": 0.00041658373149864805
+            },
+            {
+              "omitted": 3,
+              "triplet": 0.0004046932079485223,
+              "singlet": 0.0004046932079485223,
+              "nonsinglet": 2.526016460234623e-27,
+              "single_turn_dark": 0.00026979547196567637,
+              "common_turn_dark": 1.3175850997790964e-27,
+              "triplet_lower": 0.0004041848789809825,
+              "conditional_singlet_lower": 0.9999996048184717,
+              "joint_singlet_lower_given_source": 0.0004041848789809825
+            }
+          ],
+          "full_board_count_bank": {
+            "cumulative_probability_bounds": [
+              [
+                0,
+                1.436030384602545e-11
+              ],
+              [
+                3.380787931944065e-05,
+                3.3893083053104164e-05
+              ],
+              [
+                0.08364459453474846,
+                0.08364493281652498
+              ]
+            ],
+            "certain": {
+              "other_colour": 0,
+              "singlet": 36163,
+              "outside_triplets": 89768874,
+              "source_refused": 983936305
+            },
+            "unresolved": [
+              {
+                "possible": [
+                  "other_colour",
+                  "singlet"
+                ],
+                "count": 0
+              },
+              {
+                "possible": [
+                  "singlet",
+                  "outside_triplets"
+                ],
+                "count": 95
+              },
+              {
+                "possible": [
+                  "outside_triplets",
+                  "source_refused"
+                ],
+                "count": 387
+              }
+            ]
+          }
+        },
+        "1.0": {
+          "home_vector_error_upper": 0.0003378577832131746,
+          "colours": [
+            {
+              "omitted": 0,
+              "triplet": 0.00011124419782771917,
+              "singlet": 0.00011124419782771918,
+              "nonsinglet": 2.9792170518395295e-25,
+              "single_turn_dark": 7.416279855185108e-05,
+              "common_turn_dark": 2.9247709044060243e-25,
+              "triplet_lower": 0.0001042314138222602,
+              "conditional_singlet_lower": 0.998904861040826,
+              "joint_singlet_lower_given_source": 0.0001042314138222602
+            },
+            {
+              "omitted": 1,
+              "triplet": 0.00011268829147978471,
+              "singlet": 0.00011268829147978473,
+              "nonsinglet": 6.567860771911238e-27,
+              "single_turn_dark": 7.512552765318275e-05,
+              "common_turn_dark": 1.573395652520798e-27,
+              "triplet_lower": 0.00010562939823170472,
+              "conditional_singlet_lower": 0.9989193549935588,
+              "joint_singlet_lower_given_source": 0.00010562939823170472
+            },
+            {
+              "omitted": 2,
+              "triplet": 0.0004167108883011309,
+              "singlet": 0.00041671088830113094,
+              "nonsinglet": 2.993877875156922e-25,
+              "single_turn_dark": 0.0002778072588671046,
+              "common_turn_dark": 2.927350619251054e-25,
+              "triplet_lower": 0.0004030313180224843,
+              "conditional_singlet_lower": 0.9997167766450321,
+              "joint_singlet_lower_given_source": 0.0004030313180224843
+            },
+            {
+              "omitted": 3,
+              "triplet": 0.00041018546417687535,
+              "singlet": 0.00041018546417687546,
+              "nonsinglet": 2.8244523372103085e-27,
+              "single_turn_dark": 0.0002734569761179148,
+              "common_turn_dark": 1.5944419569922295e-27,
+              "triplet_lower": 0.00039661432041667957,
+              "conditional_singlet_lower": 0.9997121942505915,
+              "joint_singlet_lower_given_source": 0.00039661432041667973
+            }
+          ],
+          "full_board_count_bank": {
+            "cumulative_probability_bounds": [
+              [
+                0,
+                9.54889189708537e-09
+              ],
+              [
+                3.3174643017927964e-05,
+                3.546418978524299e-05
+              ],
+              [
+                0.08364459453474846,
+                0.08364493281652498
+              ]
+            ],
+            "certain": {
+              "other_colour": 0,
+              "singlet": 35573,
+              "outside_triplets": 89773555,
+              "source_refused": 983929869
+            },
+            "unresolved": [
+              {
+                "possible": [
+                  "other_colour",
+                  "singlet"
+                ],
+                "count": 13
+              },
+              {
+                "possible": [
+                  "singlet",
+                  "outside_triplets"
+                ],
+                "count": 2453
+              },
+              {
+                "possible": [
+                  "outside_triplets",
+                  "source_refused"
+                ],
+                "count": 361
+              }
+            ]
+          }
+        }
+      },
+      "exchange": {
+        "0.0": {
+          "home_vector_error_upper": 1.0891164487290007e-08,
+          "colours": [
+            {
+              "omitted": 0,
+              "triplet": 0.00011060005825645125,
+              "singlet": 0.0001106000582564513,
+              "nonsinglet": 2.9836325169109293e-25,
+              "single_turn_dark": 7.37333721710065e-05,
+              "common_turn_dark": 2.9266420718454324e-25,
+              "triplet_lower": 0.00011059982917930416,
+              "conditional_singlet_lower": 0.9999999999989274,
+              "joint_singlet_lower_given_source": 0.0001105998291793042
+            },
+            {
+              "omitted": 1,
+              "triplet": 0.0001124615391214792,
+              "singlet": 0.00011246153912147924,
+              "nonsinglet": 6.429601873659605e-27,
+              "single_turn_dark": 7.497435941430998e-05,
+              "common_turn_dark": 1.1845827523066063e-27,
+              "triplet_lower": 0.00011246130812460601,
+              "conditional_singlet_lower": 0.9999999999989453,
+              "joint_singlet_lower_given_source": 0.00011246130812460604
+            },
+            {
+              "omitted": 2,
+              "triplet": 0.00041733012310138124,
+              "singlet": 0.00041733012310138124,
+              "nonsinglet": 2.997599740844545e-25,
+              "single_turn_dark": 0.00027822008206727765,
+              "common_turn_dark": 2.9292188985897973e-25,
+              "triplet_lower": 0.00041732967811772124,
+              "conditional_singlet_lower": 0.9999999999997158,
+              "joint_singlet_lower_given_source": 0.00041732967811772124
+            },
+            {
+              "omitted": 3,
+              "triplet": 0.0004071685543549137,
+              "singlet": 0.0004071685543549139,
+              "nonsinglet": 2.4345229122984557e-27,
+              "single_turn_dark": 0.00027144570290326173,
+              "common_turn_dark": 1.2322478000975761e-27,
+              "triplet_lower": 0.00040716811482209255,
+              "conditional_singlet_lower": 0.9999999999997087,
+              "joint_singlet_lower_given_source": 0.00040716811482209266
+            }
+          ],
+          "full_board_count_bank": {
+            "cumulative_probability_bounds": [
+              [
+                0,
+                1.0000099218396961e-12
+              ],
+              [
+                3.405741087177183e-05,
+                3.4057624138731504e-05
+              ],
+              [
+                0.08364459453474846,
+                0.08364493281652498
+              ]
+            ],
+            "certain": {
+              "other_colour": 0,
+              "singlet": 36400,
+              "outside_triplets": 89777962,
+              "source_refused": 983927095
+            },
+            "unresolved": [
+              {
+                "possible": [
+                  "other_colour",
+                  "singlet"
+                ],
+                "count": 0
+              },
+              {
+                "possible": [
+                  "singlet",
+                  "outside_triplets"
+                ],
+                "count": 1
+              },
+              {
+                "possible": [
+                  "outside_triplets",
+                  "source_refused"
+                ],
+                "count": 366
+              }
+            ]
+          }
+        },
+        "0.25": {
+          "home_vector_error_upper": 6.860833034719312e-07,
+          "colours": [
+            {
+              "omitted": 0,
+              "triplet": 0.006940449005742374,
+              "singlet": 0.006940449005742377,
+              "nonsinglet": 2.7493204254142125e-25,
+              "single_turn_dark": 0.004626966003830475,
+              "common_turn_dark": 2.525753727921745e-25,
+              "triplet_lower": 0.006940334691895016,
+              "conditional_singlet_lower": 0.9999999999321775,
+              "joint_singlet_lower_given_source": 0.006940334691895019
+            },
+            {
+              "omitted": 1,
+              "triplet": 0.007024264528773387,
+              "singlet": 0.007024264528773386,
+              "nonsinglet": 2.501105603842656e-26,
+              "single_turn_dark": 0.004682843019182142,
+              "common_turn_dark": 9.164349288443922e-27,
+              "triplet_lower": 0.007024149526745711,
+              "conditional_singlet_lower": 0.9999999999329868,
+              "joint_singlet_lower_given_source": 0.007024149526745711
+            },
+            {
+              "omitted": 2,
+              "triplet": 0.007106946604008052,
+              "singlet": 0.0071069466040080565,
+              "nonsinglet": 2.925315351893096e-25,
+              "single_turn_dark": 0.004737964402667264,
+              "common_turn_dark": 2.58926907645212e-25,
+              "triplet_lower": 0.007106830927117742,
+              "conditional_singlet_lower": 0.9999999999337664,
+              "joint_singlet_lower_given_source": 0.007106830927117747
+            },
+            {
+              "omitted": 3,
+              "triplet": 0.007013973334906079,
+              "singlet": 0.007013973334906079,
+              "nonsinglet": 2.4817050950146624e-26,
+              "single_turn_dark": 0.00467598222327066,
+              "common_turn_dark": 1.1838882517367783e-26,
+              "triplet_lower": 0.007013858417153904,
+              "conditional_singlet_lower": 0.9999999999328885,
+              "joint_singlet_lower_given_source": 0.007013858417153904
+            }
+          ],
+          "full_board_count_bank": {
+            "cumulative_probability_bounds": [
+              [
+                0,
+                1.0393725494422077e-12
+              ],
+              [
+                0.0005866713424269709,
+                0.0005866929417415218
+              ],
+              [
+                0.08364459453474846,
+                0.08364493281652498
+              ]
+            ],
+            "certain": {
+              "other_colour": 0,
+              "singlet": 631123,
+              "outside_triplets": 89173488,
+              "source_refused": 983936820
+            },
+            "unresolved": [
+              {
+                "possible": [
+                  "other_colour",
+                  "singlet"
+                ],
+                "count": 0
+              },
+              {
+                "possible": [
+                  "singlet",
+                  "outside_triplets"
+                ],
+                "count": 22
+              },
+              {
+                "possible": [
+                  "outside_triplets",
+                  "source_refused"
+                ],
+                "count": 371
+              }
+            ]
+          }
+        },
+        "0.5": {
+          "home_vector_error_upper": 4.1581386576502614e-05,
+          "colours": [
+            {
+              "omitted": 0,
+              "triplet": 0.02025340118092778,
+              "singlet": 0.020253401180927794,
+              "nonsinglet": 2.2226688223755443e-25,
+              "single_turn_dark": 0.013502267453957098,
+              "common_turn_dark": 1.6623407615126273e-25,
+              "triplet_lower": 0.02024156764605539,
+              "conditional_singlet_lower": 0.9999999145811342,
+              "joint_singlet_lower_given_source": 0.020241567646055406
+            },
+            {
+              "omitted": 1,
+              "triplet": 0.021090349903413193,
+              "singlet": 0.021090349903413196,
+              "nonsinglet": 6.935444246566399e-26,
+              "single_turn_dark": 0.01406023326894374,
+              "common_turn_dark": 2.6926722018030486e-26,
+              "triplet_lower": 0.021078274304584182,
+              "conditional_singlet_lower": 0.9999999179718555,
+              "joint_singlet_lower_given_source": 0.021078274304584182
+            },
+            {
+              "omitted": 2,
+              "triplet": 0.02251352560693278,
+              "singlet": 0.022513525606932788,
+              "nonsinglet": 2.714946013780951e-25,
+              "single_turn_dark": 0.01500901707127638,
+              "common_turn_dark": 1.87838906110115e-25,
+              "triplet_lower": 0.02250104917111158,
+              "conditional_singlet_lower": 0.9999999231586163,
+              "joint_singlet_lower_given_source": 0.022501049171111585
+            },
+            {
+              "omitted": 3,
+              "triplet": 0.02294319421730287,
+              "singlet": 0.022943194217302877,
+              "nonsinglet": 7.640446253210665e-26,
+              "single_turn_dark": 0.015295462811535437,
+              "common_turn_dark": 3.4838380445165846e-26,
+              "triplet_lower": 0.022930599271918862,
+              "conditional_singlet_lower": 0.9999999245980573,
+              "joint_singlet_lower_given_source": 0.022930599271918872
+            }
+          ],
+          "full_board_count_bank": {
+            "cumulative_probability_bounds": [
+              [
+                0,
+                1.4562307021330337e-10
+              ],
+              [
+                0.0019180206775384514,
+                0.0019201357325093922
+              ],
+              [
+                0.08364459453474846,
+                0.08364493281652498
+              ]
+            ],
+            "certain": {
+              "other_colour": 0,
+              "singlet": 2059954,
+              "outside_triplets": 87752824,
+              "source_refused": 983926404
+            },
+            "unresolved": [
+              {
+                "possible": [
+                  "other_colour",
+                  "singlet"
+                ],
+                "count": 0
+              },
+              {
+                "possible": [
+                  "singlet",
+                  "outside_triplets"
+                ],
+                "count": 2276
+              },
+              {
+                "possible": [
+                  "outside_triplets",
+                  "source_refused"
+                ],
+                "count": 366
+              }
+            ]
+          }
+        },
+        "1.0": {
+          "home_vector_error_upper": 0.0022857657587263425,
+          "colours": [
+            {
+              "omitted": 0,
+              "triplet": 0.02164826863752237,
+              "singlet": 0.02164826863752237,
+              "nonsinglet": 1.4705324061476053e-25,
+              "single_turn_dark": 0.014432179091682177,
+              "common_turn_dark": 5.318113850779234e-26,
+              "triplet_lower": 0.020980867901902175,
+              "conditional_singlet_lower": 0.9997509766931498,
+              "joint_singlet_lower_given_source": 0.020980867901902175
+            },
+            {
+              "omitted": 1,
+              "triplet": 0.02354078322382411,
+              "singlet": 0.02354078322382412,
+              "nonsinglet": 1.6950716131599372e-25,
+              "single_turn_dark": 0.015693855482557473,
+              "common_turn_dark": 7.048958407132777e-26,
+              "triplet_lower": 0.022844597595220936,
+              "conditional_singlet_lower": 0.9997712927494621,
+              "joint_singlet_lower_given_source": 0.022844597595220947
+            },
+            {
+              "omitted": 2,
+              "triplet": 0.039032135195000664,
+              "singlet": 0.03903213519500067,
+              "nonsinglet": 2.316204342374596e-25,
+              "single_turn_dark": 0.02602142346332873,
+              "common_turn_dark": 1.1207122289422845e-25,
+              "triplet_lower": 0.03813418291285302,
+              "conditional_singlet_lower": 0.9998629910304383,
+              "joint_singlet_lower_given_source": 0.03813418291285303
+            },
+            {
+              "omitted": 3,
+              "triplet": 0.04755046788709932,
+              "singlet": 0.04755046788709933,
+              "nonsinglet": 1.8079862555427051e-25,
+              "single_turn_dark": 0.03170031192473153,
+              "common_turn_dark": 7.807691285328713e-26,
+              "triplet_lower": 0.04655882125989017,
+              "conditional_singlet_lower": 0.9998877822727396,
+              "joint_singlet_lower_given_source": 0.046558821259890186
+            }
+          ],
+          "full_board_count_bank": {
+            "cumulative_probability_bounds": [
+              [
+                0,
+                4.3702278045189473e-07
+              ],
+              [
+                0.0038943937252993396,
+                0.004061175951881972
+              ],
+              [
+                0.08364459453474846,
+                0.08364493281652498
+              ]
+            ],
+            "certain": {
+              "other_colour": 0,
+              "singlet": 4184765,
+              "outside_triplets": 85449824,
+              "source_refused": 983927389
+            },
+            "unresolved": [
+              {
+                "possible": [
+                  "other_colour",
+                  "singlet"
+                ],
+                "count": 454
+              },
+              {
+                "possible": [
+                  "singlet",
+                  "outside_triplets"
+                ],
+                "count": 179051
+              },
+              {
+                "possible": [
+                  "outside_triplets",
+                  "source_refused"
+                ],
+                "count": 341
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

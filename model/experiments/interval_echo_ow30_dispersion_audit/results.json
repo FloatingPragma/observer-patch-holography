@@ -1,0 +1,352 @@
+{
+  "validation_sha256": "b5ea10dd81f601192d297a53bb384bc5382b6e41db67cba2106c65aacad9528c",
+  "source_checks": {
+    "seam_columns": {
+      "columns_per_seam": 99,
+      "max_amplitude_residual": 5.360630966617862e-16
+    },
+    "commissioning_column_error": 0.0,
+    "dense_strands": [
+      {
+        "dimers": 5,
+        "physical_states": 32,
+        "max_spectrum_error": 2.842170943040401e-14,
+        "density_error": 1.1463052729254741e-14,
+        "even_string_trace_error": 5.933838490013166e-16
+      },
+      {
+        "dimers": 6,
+        "physical_states": 64,
+        "max_spectrum_error": 6.750155989720952e-14,
+        "density_error": 1.0935696792557792e-14,
+        "even_string_trace_error": 1.2290515827295678e-15
+      }
+    ],
+    "boards": [
+      {
+        "cells": 20,
+        "seed": 785029,
+        "dimers_total": 103,
+        "dimers_enrolled": 23,
+        "ports": 240,
+        "load_total": 217,
+        "native_services": {
+          "write_conditional": 89,
+          "phase_round_trip_swaps": 46,
+          "degree_phase": 89,
+          "hole_swaps": 162,
+          "orient_swaps": 76,
+          "write_idle": 438
+        },
+        "operation_digest": "59479c646e20dacb7bfc1f9ff6df905338309d1f7e428d36abb35d1893fa4cd3"
+      },
+      {
+        "cells": 80,
+        "seed": 514823,
+        "dimers_total": 426,
+        "dimers_enrolled": 36,
+        "ports": 960,
+        "load_total": 924,
+        "native_services": {
+          "write_conditional": 369,
+          "phase_round_trip_swaps": 128,
+          "degree_phase": 369,
+          "hole_swaps": 797,
+          "orient_swaps": 108,
+          "write_idle": 1725
+        },
+        "operation_digest": "74b8c60c2e0a11c4a36179c11424a2cf7c815213e7a4b23ff0c10d28d746601c"
+      },
+      {
+        "cells": 320,
+        "seed": 690271,
+        "dimers_total": 1694,
+        "dimers_enrolled": 30,
+        "ports": 3840,
+        "load_total": 3810,
+        "native_services": {
+          "write_conditional": 1465,
+          "phase_round_trip_swaps": 436,
+          "degree_phase": 1465,
+          "hole_swaps": 3050,
+          "orient_swaps": 100,
+          "write_idle": 6921
+        },
+        "operation_digest": "9d560cb28986e241e079c885f2593516da97c9503cbeed5f2850faedb0f2a554"
+      }
+    ]
+  },
+  "meter": {
+    "source_sha256": "6a21312354b9692049a8a1a731eeb0b52e0d8a5f218e69d92ca426af24bfc8ed",
+    "h": 0.5000308295889321,
+    "j": 8.000286276528756,
+    "m": 15.000510893879648,
+    "c_squared": 16.00155913520649
+  },
+  "limit": 0.0048,
+  "published_frequencies": [
+    {
+      "seed": 785029,
+      "n": 6,
+      "max_root_error": 0.0005746762725102883,
+      "max_hopping_error": 0.0005745941606765115
+    },
+    {
+      "seed": 514823,
+      "n": 8,
+      "max_root_error": 0.0005515381204244107,
+      "max_hopping_error": 0.0005515380141094539
+    },
+    {
+      "seed": 690271,
+      "n": 8,
+      "max_root_error": 0.0005615967377483599,
+      "max_hopping_error": 0.0005615964404697138
+    }
+  ],
+  "high_band_boards": [
+    {
+      "level": 0,
+      "seed": 785029,
+      "dimers": 23,
+      "status": "resolved",
+      "clock_step": 0.07999999866603864,
+      "pair_sum_closure": 0.0001751850087075013,
+      "min_contrast": 0.4996562303116618,
+      "max_changed_contrast": 8.904346486914723e-05,
+      "min_changed_at_two": 0.47878920280015946,
+      "odd_profile_q": 416.6271703062775,
+      "launch_label_q": 2307003.65104001,
+      "profile_limit": 554.0683403046289,
+      "pair_sums": {
+        "1,2": 33.96277230204871,
+        "1,3": 33.92608825744378,
+        "1,4": 33.87513602515652,
+        "1,5": 33.81112293631569,
+        "1,6": 33.73451354025833,
+        "2,3": 33.903693900297384,
+        "2,4": 33.85291685301884,
+        "2,5": 33.788719148187546,
+        "2,6": 33.71210146368885
+      },
+      "modes": [
+        {
+          "launch": 24,
+          "k": 3.015632644533543,
+          "omega": 16.99258332959755,
+          "root_residual": -0.0005923474487552483,
+          "hopping_residual": 0.017573230453898248
+        },
+        {
+          "launch": 23,
+          "k": 2.889678376950751,
+          "omega": 16.97018897245116,
+          "root_residual": -0.0007111422751044927,
+          "hopping_residual": 0.016845702729369805
+        },
+        {
+          "launch": 22,
+          "k": 2.763729942975431,
+          "omega": 16.93350492784623,
+          "root_residual": -0.000600083809128904,
+          "hopping_residual": 0.015981592119842958
+        },
+        {
+          "launch": 21,
+          "k": 2.6377939670338333,
+          "omega": 16.88255269555897,
+          "root_residual": -0.0007330539059964281,
+          "hopping_residual": 0.014562709277615937
+        },
+        {
+          "launch": 20,
+          "k": 2.5118761531194576,
+          "omega": 16.81853960671814,
+          "root_residual": -0.0005920431624879541,
+          "hopping_residual": 0.013178528157698821
+        },
+        {
+          "launch": 19,
+          "k": 2.3859748158524408,
+          "omega": 16.741930210660776,
+          "root_residual": -0.0005860637538859237,
+          "hopping_residual": 0.01150140717901138
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "seed": 514823,
+      "dimers": 36,
+      "status": "resolved",
+      "clock_step": 0.08000000102271787,
+      "pair_sum_closure": 8.946393883491055e-06,
+      "min_contrast": 0.49964531638626575,
+      "max_changed_contrast": 0.00015504731475058221,
+      "min_changed_at_two": 0.4893567301143265,
+      "odd_profile_q": 886.6724646391181,
+      "launch_label_q": 641365.7292803085,
+      "profile_limit": 1137.737962668576,
+      "pair_sums": {
+        "1,2": 33.98397020480235,
+        "1,3": 33.967844217494516,
+        "1,4": 33.945624118213644,
+        "1,5": 33.91714850596526,
+        "1,6": 33.882683673247726,
+        "1,7": 33.8423047624441,
+        "1,8": 33.79665361284213,
+        "2,3": 33.95818220074418,
+        "2,4": 33.93596772412482,
+        "2,5": 33.90749543560881,
+        "2,6": 33.8730214186086,
+        "2,7": 33.83264777777589,
+        "2,8": 33.786994209375656
+      },
+      "modes": [
+        {
+          "launch": 37,
+          "k": 3.058790486040257,
+          "omega": 16.99681611077634,
+          "root_residual": -0.0005929980753656139,
+          "hopping_residual": 0.017689853103803443
+        },
+        {
+          "launch": 36,
+          "k": 2.975991172558409,
+          "omega": 16.987154094026007,
+          "root_residual": -0.0005985881452303943,
+          "hopping_residual": 0.01741750521747676
+        },
+        {
+          "launch": 35,
+          "k": 2.893191703608333,
+          "omega": 16.971028106718176,
+          "root_residual": -0.0006920571340032211,
+          "hopping_residual": 0.01688695036415666
+        },
+        {
+          "launch": 34,
+          "k": 2.8103959956966045,
+          "omega": 16.948808007437304,
+          "root_residual": -0.0005966687145857463,
+          "hopping_residual": 0.0163859341164887
+        },
+        {
+          "launch": 33,
+          "k": 2.727601128367162,
+          "omega": 16.920332395188918,
+          "root_residual": -0.0006019459450783415,
+          "hopping_residual": 0.01563974008695368
+        },
+        {
+          "launch": 32,
+          "k": 2.6448093982080394,
+          "omega": 16.885867562471386,
+          "root_residual": -0.0006073020681860442,
+          "hopping_residual": 0.014767110716366716
+        },
+        {
+          "launch": 31,
+          "k": 2.5620209515715078,
+          "omega": 16.84548865166776,
+          "root_residual": -0.0007384541180179838,
+          "hopping_residual": 0.013663141593681871
+        },
+        {
+          "launch": 30,
+          "k": 2.4792378215242334,
+          "omega": 16.799837502065788,
+          "root_residual": -0.0005906001200486344,
+          "hopping_residual": 0.012755417759720444
+        }
+      ]
+    },
+    {
+      "level": 2,
+      "seed": 690271,
+      "dimers": 30,
+      "status": "resolved",
+      "clock_step": 0.08000000120961782,
+      "pair_sum_closure": 8.572197590694941e-05,
+      "min_contrast": 0.49963170184610584,
+      "max_changed_contrast": 0.00020986359405978706,
+      "min_changed_at_two": 0.4832542905949799,
+      "odd_profile_q": 820.310007678715,
+      "launch_label_q": 1487011.567821401,
+      "profile_limit": 963.3668909676901,
+      "pair_sums": {
+        "1,2": 33.97725913544063,
+        "1,3": 33.95479750051382,
+        "1,4": 33.923323479747985,
+        "1,5": 33.883629721792865,
+        "1,6": 33.83561203077164,
+        "1,7": 33.77966160956027,
+        "1,8": 33.71658835727961,
+        "2,3": 33.94118314958733,
+        "2,4": 33.90973225481098,
+        "2,5": 33.86992964889047,
+        "2,6": 33.821921267279556,
+        "2,7": 33.7660789407056,
+        "2,8": 33.70292964944604
+      },
+      "modes": [
+        {
+          "launch": 31,
+          "k": 3.0432380638885035,
+          "omega": 16.99543674318356,
+          "root_residual": -0.0006479610845708805,
+          "hopping_residual": 0.017598147183971236
+        },
+        {
+          "launch": 30,
+          "k": 2.944883206551292,
+          "omega": 16.981822392257072,
+          "root_residual": -0.000650442044417332,
+          "hopping_residual": 0.017220910825393787
+        },
+        {
+          "launch": 29,
+          "k": 2.8465321571782165,
+          "omega": 16.95936075733026,
+          "root_residual": -0.0005488686098367168,
+          "hopping_residual": 0.016712763142983533
+        },
+        {
+          "launch": 28,
+          "k": 2.748185643581085,
+          "omega": 16.927886736564425,
+          "root_residual": -0.0006924667666829976,
+          "hopping_residual": 0.01574598739095734
+        },
+        {
+          "launch": 27,
+          "k": 2.6498471952524962,
+          "omega": 16.888192978609304,
+          "root_residual": -0.0005463455991225885,
+          "hopping_residual": 0.014884078028842396
+        },
+        {
+          "launch": 26,
+          "k": 2.5515081496569176,
+          "omega": 16.84017528758808,
+          "root_residual": -0.0005382799831821217,
+          "hopping_residual": 0.013733366806413017
+        },
+        {
+          "launch": 25,
+          "k": 2.453184772070263,
+          "omega": 16.78422486637671,
+          "root_residual": -0.0006827833120190974,
+          "hopping_residual": 0.01231769439903374
+        },
+        {
+          "launch": 24,
+          "k": 2.3548740874519507,
+          "omega": 16.72115161409605,
+          "root_residual": -0.000635591906519295,
+          "hopping_residual": 0.011021572310365713
+        }
+      ]
+    }
+  ]
+}

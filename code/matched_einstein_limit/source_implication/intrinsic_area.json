@@ -1,0 +1,2315 @@
+{
+  "cells": 80,
+  "ports": [
+    0,
+    1,
+    38,
+    39
+  ],
+  "panels": [
+    {
+      "tick": 0.25,
+      "horizon": 2,
+      "odd": 0.125,
+      "pairing": 0.25,
+      "entropy": [
+        1.9459101490553135,
+        -0.022371508167628194
+      ],
+      "area": 1.689249551065296,
+      "volume": 0.11332991016067667,
+      "area_slopes": [
+        -0.0032224966176773407,
+        5.182370769984412e-06
+      ],
+      "volume_slopes": [
+        -0.00035095197322615777,
+        4.980849550520135e-07
+      ],
+      "shape": [
+        0.001131296024966658,
+        9.943739586106738e-07
+      ],
+      "ordinary_eta_on_unit_volume_shape": -1720.0715870213228,
+      "held_entropy_residual": -0.024081902560708333,
+      "direct_volume_adjusters": [
+        -4493.638786505323,
+        6.3775503309512835
+      ],
+      "direct_volume_area_derivatives": [
+        0.00025190006154028827,
+        2.513692489136259e-07
+      ],
+      "direct_volume_ordinary_eta": -7724.929232476942,
+      "direct_volume_pairing_residual": -0.024313317826706836,
+      "direct_volume_transfer": -0.08679833494142611,
+      "fixed_volume_ordinary_change": 0.0014192396483009415,
+      "fixed_volume_entropy": -0.0196097953320577,
+      "fixed_volume_area": 6.088758036610497e-07
+    },
+    {
+      "tick": 0.25,
+      "horizon": 2,
+      "odd": 0.125,
+      "pairing": 0.5,
+      "entropy": [
+        1.9459101490553135,
+        -0.03848195556878588
+      ],
+      "area": 1.6892508465507892,
+      "volume": 0.11333003466632445,
+      "area_slopes": [
+        -0.003222295402595185,
+        5.181513174259041e-06
+      ],
+      "volume_slopes": [
+        -0.0003509316429729045,
+        4.979602268722101e-07
+      ],
+      "shape": [
+        0.001131286807106743,
+        9.96010711721452e-07
+      ],
+      "ordinary_eta_on_unit_volume_shape": -1720.0856023698916,
+      "held_entropy_residual": -0.04019517925382413,
+      "direct_volume_adjusters": [
+        -4493.896092104855,
+        6.376687774882277
+      ],
+      "direct_volume_area_derivatives": [
+        0.0002520310620285904,
+        2.515604920332364e-07
+      ],
+      "direct_volume_ordinary_eta": -7720.913975415338,
+      "direct_volume_pairing_residual": -0.04042423248738765,
+      "direct_volume_transfer": -0.05047240686949978,
+      "fixed_volume_ordinary_change": 0.0014189664478636308,
+      "fixed_volume_entropy": -0.03572077435671907,
+      "fixed_volume_area": 6.091841128712437e-07
+    },
+    {
+      "tick": 0.25,
+      "horizon": 2,
+      "odd": 0.125,
+      "pairing": 0.75,
+      "entropy": [
+        1.9459101490553132,
+        -0.05688313704743103
+      ],
+      "area": 1.6892521418218827,
+      "volume": 0.11333015914079002,
+      "area_slopes": [
+        -0.0032220942192304784,
+        5.1806555699074004e-06
+      ],
+      "volume_slopes": [
+        -0.00035091131749851704,
+        4.978354972155728e-07
+      ],
+      "shape": [
+        0.0011312776595993074,
+        9.976474817904695e-07
+      ],
+      "ordinary_eta_on_unit_volume_shape": -1720.099510976416,
+      "held_entropy_residual": -0.05859918999298567,
+      "direct_volume_adjusters": [
+        -4494.1535239394525,
+        6.375825009300166
+      ],
+      "direct_volume_area_derivatives": [
+        0.0002521620948014837,
+        2.5175178908889123e-07
+      ],
+      "direct_volume_ordinary_eta": -7716.9019022753755,
+      "direct_volume_pairing_residual": -0.05882588090755232,
+      "direct_volume_transfer": -0.03415324753452627,
+      "fixed_volume_ordinary_change": 0.0014186931922413038,
+      "fixed_volume_entropy": -0.054122487566253,
+      "fixed_volume_area": 6.094924363250615e-07
+    },
+    {
+      "tick": 0.25,
+      "horizon": 2,
+      "odd": 0.25,
+      "pairing": 0.25,
+      "entropy": [
+        1.0986122886681098,
+        -0.022371508167628194
+      ],
+      "area": 1.688846526800899,
+      "volume": 0.11328599937866114,
+      "area_slopes": [
+        -0.003225891226694178,
+        5.283146971115622e-06
+      ],
+      "volume_slopes": [
+        -0.00035162043793423084,
+        5.082719208427271e-07
+      ],
+      "shape": [
+        0.001147683726383024,
+        9.894860494727241e-07
+      ],
+      "ordinary_eta_on_unit_volume_shape": -957.2430656749267,
+      "held_entropy_residual": -0.023318686827068037,
+      "direct_volume_adjusters": [
+        -4493.852262053887,
+        6.495921951057904
+      ],
+      "direct_volume_area_derivatives": [
+        0.00025397055389817,
+        2.529614623321531e-07
+      ],
+      "direct_volume_ordinary_eta": -4325.746712780729,
+      "direct_volume_pairing_residual": -0.023465755381771713,
+      "direct_volume_transfer": -0.048912536693744436,
+      "fixed_volume_ordinary_change": 0.0014455130191772224,
+      "fixed_volume_entropy": -0.020783449801330355,
+      "fixed_volume_area": 6.200792044796076e-07
+    },
+    {
+      "tick": 0.25,
+      "horizon": 2,
+      "odd": 0.25,
+      "pairing": 0.5,
+      "entropy": [
+        1.0986122886681098,
+        -0.038481955568785815
+      ],
+      "area": 1.6888478474784023,
+      "volume": 0.11328612643074339,
+      "area_slopes": [
+        -0.0032256893688802535,
+        5.282273053946652e-06
+      ],
+      "volume_slopes": [
+        -0.00035160002510288167,
+        5.08144736689122e-07
+      ],
+      "shape": [
+        0.0011476734615301276,
+        9.91158857998862e-07
+      ],
+      "ordinary_eta_on_unit_volume_shape": -957.2516273081654,
+      "held_entropy_residual": -0.03943074399852613,
+      "direct_volume_adjusters": [
+        -4494.1364488801755,
+        6.495084241797131
+      ],
+      "direct_volume_area_derivatives": [
+        0.0002541075838460578,
+        2.531479685394038e-07
+      ],
+      "direct_volume_ordinary_eta": -4323.414012443114,
+      "direct_volume_pairing_residual": -0.039576419043190585,
+      "direct_volume_transfer": -0.028440952603056596,
+      "fixed_volume_ordinary_change": 0.001445235211631267,
+      "fixed_volume_entropy": -0.03689420240527185,
+      "fixed_volume_area": 6.20393196256271e-07
+    },
+    {
+      "tick": 0.25,
+      "horizon": 2,
+      "odd": 0.25,
+      "pairing": 0.75,
+      "entropy": [
+        1.09861228866811,
+        -0.05688313704743104
+      ],
+      "area": 1.6888491679374251,
+      "volume": 0.11328625345102937,
+      "area_slopes": [
+        -0.003225487544636207,
+        5.281399127926487e-06
+      ],
+      "volume_slopes": [
+        -0.0003515796173168619,
+        5.080175510223507e-07
+      ],
+      "shape": [
+        0.001147663270553212,
+        9.928316836920658e-07
+      ],
+      "ordinary_eta_on_unit_volume_shape": -957.2601274749712,
+      "held_entropy_residual": -0.0578335352315233,
+      "direct_volume_adjusters": [
+        -4494.420775022039,
+        6.494246318417523
+      ],
+      "direct_volume_area_derivatives": [
+        0.0002542446492385425,
+        2.5333452953800904e-07
+      ],
+      "direct_volume_ordinary_eta": -4321.083224203267,
+      "direct_volume_pairing_residual": -0.057977816633129155,
+      "direct_volume_transfer": -0.019244360323962754,
+      "fixed_volume_ordinary_change": 0.0014449573467864003,
+      "fixed_volume_entropy": -0.05529568914965023,
+      "fixed_volume_area": 6.207072033363718e-07
+    },
+    {
+      "tick": 0.25,
+      "horizon": 2,
+      "odd": 0.375,
+      "pairing": 0.25,
+      "entropy": [
+        0.5108256237659898,
+        -0.0223715081676282
+      ],
+      "area": 1.6884430783549786,
+      "volume": 0.11324200507642924,
+      "area_slopes": [
+        -0.0032292835231652064,
+        5.3842461054136035e-06
+      ],
+      "volume_slopes": [
+        -0.0003522882969754297,
+        5.185004427808951e-07
+      ],
+      "shape": [
+        0.0011640821255018087,
+        9.840689698538914e-07
+      ],
+      "ordinary_eta_on_unit_volume_shape": -438.822667726974,
+      "held_entropy_residual": -0.02280333993820682,
+      "direct_volume_adjusters": [
+        -4493.997267793767,
+        6.614297418371853
+      ],
+      "direct_volume_area_derivatives": [
+        0.0002560165616964558,
+        2.5455643720671025e-07
+      ],
+      "direct_volume_ordinary_eta": -1995.2835097115574,
+      "direct_volume_pairing_residual": -0.022879420429077677,
+      "direct_volume_transfer": -0.02270353244151991,
+      "fixed_volume_ordinary_change": 0.0014718071739324848,
+      "fixed_volume_entropy": -0.021619671349940882,
+      "fixed_volume_area": 6.313634493570831e-07
+    },
+    {
+      "tick": 0.25,
+      "horizon": 2,
+      "odd": 0.375,
+      "pairing": 0.5,
+      "entropy": [
+        0.5108256237659916,
+        -0.03848195556878588
+      ],
+      "area": 1.6884444243051093,
+      "volume": 0.11324213468531825,
+      "area_slopes": [
+        -0.003229081018205079,
+        5.383354938364447e-06
+      ],
+      "volume_slopes": [
+        -0.00035226780076448827,
+        5.183706690234054e-07
+      ],
+      "shape": [
+        0.001164070794487045,
+        9.857796051359466e-07
+      ],
+      "ordinary_eta_on_unit_volume_shape": -438.82693920784266,
+      "held_entropy_residual": -0.0389145422156412,
+      "direct_volume_adjusters": [
+        -4494.308334525028,
+        6.613484437434458
+      ],
+      "direct_volume_area_derivatives": [
+        0.0002561596407728685,
+        2.5473822068203137e-07
+      ],
+      "direct_volume_ordinary_eta": -1994.1690354685115,
+      "direct_volume_pairing_residual": -0.03898994664062033,
+      "direct_volume_transfer": -0.013200760312880292,
+      "fixed_volume_ordinary_change": 0.0014715244138080242,
+      "fixed_volume_entropy": -0.03773026319221551,
+      "fixed_volume_area": 6.316833859116002e-07
+    },
+    {
+      "tick": 0.25,
+      "horizon": 2,
+      "odd": 0.375,
+      "pairing": 0.75,
+      "entropy": [
+        0.5108256237659904,
+        -0.05688313704743098
+      ],
+      "area": 1.6884457700324471,
+      "volume": 0.11324226426176363,
+      "area_slopes": [
+        -0.0032288785486761593,
+        5.382463762235496e-06
+      ],
+      "volume_slopes": [
+        -0.00035224730986693574,
+        5.182408937157166e-07
+      ],
+      "shape": [
+        0.001164059540910164,
+        9.87490257789114e-07
+      ],
+      "ordinary_eta_on_unit_volume_shape": -438.8311815790643,
+      "held_entropy_residual": -0.0573164785640544,
+      "direct_volume_adjusters": [
+        -4494.619554315914,
+        6.612671238343097
+      ],
+      "direct_volume_area_derivatives": [
+        0.00025630275860878855,
+        2.549200596847134e-07
+      ],
+      "direct_volume_ordinary_eta": -1993.0555041184575,
+      "direct_volume_pairing_residual": -0.05739120687549581,
+      "direct_volume_transfer": -0.008931818012096956,
+      "fixed_volume_ordinary_change": 0.001471241594184172,
+      "fixed_volume_entropy": -0.05613158914237138,
+      "fixed_volume_area": 6.320033388541075e-07
+    },
+    {
+      "tick": 0.25,
+      "horizon": 4,
+      "odd": 0.125,
+      "pairing": 0.25,
+      "entropy": [
+        1.9459101490553135,
+        -0.022371508167628194
+      ],
+      "area": 6.388720101461123,
+      "volume": 0.8242486692144905,
+      "area_slopes": [
+        -0.03953980322044449,
+        4.0655411474761635e-05
+      ],
+      "volume_slopes": [
+        -0.009062464247047968,
+        3.870596726486437e-06
+      ],
+      "shape": [
+        0.00829112883221489,
+        2.3495415337157687e-05
+      ],
+      "ordinary_eta_on_unit_volume_shape": -234.69785459062555,
+      "held_entropy_residual": -0.027885831739974783,
+      "direct_volume_adjusters": [
+        -3219.178445309325,
+        1.374917595558931
+      ],
+      "direct_volume_area_derivatives": [
+        0.0031731786764299316,
+        2.2412610907314443e-05
+      ],
+      "direct_volume_ordinary_eta": -613.2368667132893,
+      "direct_volume_pairing_residual": -0.03611574745529379,
+      "direct_volume_transfer": -0.6143635549593236,
+      "fixed_volume_ordinary_change": 0.0004271020134228122,
+      "fixed_volume_entropy": -0.021540406025026784,
+      "fixed_volume_area": 2.3767881908968e-05
+    },
+    {
+      "tick": 0.25,
+      "horizon": 4,
+      "odd": 0.125,
+      "pairing": 0.5,
+      "entropy": [
+        1.9459101490553135,
+        -0.03848195556878588
+      ],
+      "area": 6.388730162761684,
+      "volume": 0.8242496084942613,
+      "area_slopes": [
+        -0.039534105526470825,
+        3.9834985371050304e-05
+      ],
+      "volume_slopes": [
+        -0.009061068146985218,
+        3.643639184334953e-06
+      ],
+      "shape": [
+        0.008289420791951803,
+        2.3896176127785844e-05
+      ],
+      "ordinary_eta_on_unit_volume_shape": -234.74621422821207,
+      "held_entropy_residual": -0.04409149244931418,
+      "direct_volume_adjusters": [
+        -3195.643964450927,
+        1.2850332189512321
+      ],
+      "direct_volume_area_derivatives": [
+        0.0031047077952865293,
+        2.2689054177012268e-05
+      ],
+      "direct_volume_ordinary_eta": -626.7611245121146,
+      "direct_volume_pairing_residual": -0.05270257267888638,
+      "direct_volume_transfer": -0.369539876545031,
+      "fixed_volume_ordinary_change": 0.00040212027160917645,
+      "fixed_volume_entropy": -0.0376994656511207,
+      "fixed_volume_area": 2.393752011892001e-05
+    },
+    {
+      "tick": 0.25,
+      "horizon": 4,
+      "odd": 0.125,
+      "pairing": 0.75,
+      "entropy": [
+        1.9459101490553132,
+        -0.05688313704743103
+      ],
+      "area": 6.388740018949973,
+      "volume": 0.8242504910329523,
+      "area_slopes": [
+        -0.03952837507413975,
+        3.901451324795025e-05
+      ],
+      "volume_slopes": [
+        -0.009059663044933025,
+        3.41666807880984e-06
+      ],
+      "shape": [
+        0.008287699433868288,
+        2.4296965224811596e-05
+      ],
+      "ordinary_eta_on_unit_volume_shape": -234.79497109936318,
+      "held_entropy_residual": -0.0625879422951929,
+      "direct_volume_adjusters": [
+        -3172.4398401239314,
+        1.1964213105870714
+      ],
+      "direct_volume_area_derivatives": [
+        0.003037204897517562,
+        2.2961768501938114e-05
+      ],
+      "direct_volume_ordinary_eta": -640.6911007702474,
+      "direct_volume_pairing_residual": -0.07159453778456935,
+      "direct_volume_transfer": -0.25862498977282977,
+      "fixed_volume_ordinary_change": 0.0003771297080105807,
+      "fixed_volume_entropy": -0.05614927652110298,
+      "fixed_volume_area": 2.4107188698107214e-05
+    },
+    {
+      "tick": 0.25,
+      "horizon": 4,
+      "odd": 0.25,
+      "pairing": 0.25,
+      "entropy": [
+        1.0986122886681098,
+        -0.022371508167628194
+      ],
+      "area": 6.383771863681179,
+      "volume": 0.8231138894934049,
+      "area_slopes": [
+        -0.03963198047199825,
+        4.349041209757711e-05
+      ],
+      "volume_slopes": [
+        -0.009094000311491934,
+        4.564900656691769e-06
+      ],
+      "shape": [
+        0.008411599603827218,
+        2.264382759086064e-05
+      ],
+      "ordinary_eta_on_unit_volume_shape": -130.6068215810283,
+      "held_entropy_residual": -0.025328946517699295,
+      "direct_volume_adjusters": [
+        -3264.585072572513,
+        1.6387184991384227
+      ],
+      "direct_volume_area_derivatives": [
+        0.003365432899709954,
+        2.1907069914432048e-05
+      ],
+      "direct_volume_ordinary_eta": -326.4401107990572,
+      "direct_volume_pairing_residual": -0.029522854497778084,
+      "direct_volume_transfer": -0.3196631302889969,
+      "fixed_volume_ordinary_change": 0.0005019683857854262,
+      "fixed_volume_entropy": -0.02182003953048143,
+      "fixed_volume_area": 2.3596410834568618e-05
+    },
+    {
+      "tick": 0.25,
+      "horizon": 4,
+      "odd": 0.25,
+      "pairing": 0.5,
+      "entropy": [
+        1.0986122886681098,
+        -0.038481955568785815
+      ],
+      "area": 6.383782635769295,
+      "volume": 0.8231150029088273,
+      "area_slopes": [
+        -0.03962630564508801,
+        4.268628545408779e-05
+      ],
+      "volume_slopes": [
+        -0.009092610268660364,
+        4.342420547517157e-06
+      ],
+      "shape": [
+        0.008409888094528317,
+        2.303795995122231e-05
+      ],
+      "ordinary_eta_on_unit_volume_shape": -130.63340157675754,
+      "held_entropy_residual": -0.0414914826426031,
+      "direct_volume_adjusters": [
+        -3240.718359788173,
+        1.54769220041954
+      ],
+      "direct_volume_area_derivatives": [
+        0.0032958033314919727,
+        2.2187678073422806e-05
+      ],
+      "direct_volume_ordinary_eta": -333.3367249710196,
+      "direct_volume_pairing_residual": -0.045877923512491876,
+      "direct_volume_transfer": -0.1921931418086562,
+      "fixed_volume_ordinary_change": 0.000477576891476834,
+      "fixed_volume_entropy": -0.03795728372702545,
+      "fixed_volume_area": 2.3761677583395735e-05
+    },
+    {
+      "tick": 0.25,
+      "horizon": 4,
+      "odd": 0.25,
+      "pairing": 0.75,
+      "entropy": [
+        1.09861228866811,
+        -0.05688313704743104
+      ],
+      "area": 6.383793206820204,
+      "volume": 0.823116060702588,
+      "area_slopes": [
+        -0.03962059837570789,
+        4.1882114385275845e-05
+      ],
+      "volume_slopes": [
+        -0.009091211317165237,
+        4.119927350892245e-06
+      ],
+      "shape": [
+        0.008408163386369601,
+        2.3432119121104787e-05
+      ],
+      "ordinary_eta_on_unit_volume_shape": -130.66019749914238,
+      "held_entropy_residual": -0.05994478235961802,
+      "direct_volume_adjusters": [
+        -3217.186787690217,
+        1.4579548728020375
+      ],
+      "direct_volume_area_derivatives": [
+        0.0032271583497894135,
+        2.246449898737551e-05
+      ],
+      "direct_volume_ordinary_eta": -340.42714040970424,
+      "direct_volume_pairing_residual": -0.06453066219843998,
+      "direct_volume_transfer": -0.13444274609243478,
+      "fixed_volume_ordinary_change": 0.00045317694278136015,
+      "fixed_volume_entropy": -0.05638527128915039,
+      "fixed_volume_area": 2.392697274220442e-05
+    },
+    {
+      "tick": 0.25,
+      "horizon": 4,
+      "odd": 0.375,
+      "pairing": 0.25,
+      "entropy": [
+        0.5108256237659898,
+        -0.0223715081676282
+      ],
+      "area": 6.378812111503292,
+      "volume": 0.8219751718663323,
+      "area_slopes": [
+        -0.03972403387999619,
+        4.631393796134817e-05
+      ],
+      "volume_slopes": [
+        -0.009125470862905615,
+        5.256157921763904e-06
+      ],
+      "shape": [
+        0.008532551809781193,
+        2.1790562773993432e-05
+      ],
+      "ordinary_eta_on_unit_volume_shape": -59.86786077060918,
+      "held_entropy_residual": -0.02367606254589486,
+      "direct_volume_adjusters": [
+        -3311.2995964532397,
+        1.9072674568476493
+      ],
+      "direct_volume_area_derivatives": [
+        0.0035630915046708928,
+        2.1381091161532733e-05
+      ],
+      "direct_volume_ordinary_eta": -143.36584482782533,
+      "direct_volume_pairing_residual": -0.025436826365342093,
+      "direct_volume_transfer": -0.13701884444918364,
+      "fixed_volume_ordinary_change": 0.0005759875847206756,
+      "fixed_volume_entropy": -0.022077278950381796,
+      "fixed_volume_area": 2.343338763144688e-05
+    },
+    {
+      "tick": 0.25,
+      "horizon": 4,
+      "odd": 0.375,
+      "pairing": 0.5,
+      "entropy": [
+        0.5108256237659916,
+        -0.03848195556878588
+      ],
+      "area": 6.378823591490496,
+      "volume": 0.8219764586499024,
+      "area_slopes": [
+        -0.039718382402171355,
+        4.5525952555007964e-05
+      ],
+      "volume_slopes": [
+        -0.009124087043101883,
+        5.038108543302285e-06
+      ],
+      "shape": [
+        0.00853083718128294,
+        2.217812621243397e-05
+      ],
+      "ordinary_eta_on_unit_volume_shape": -59.87989372095475,
+      "held_entropy_residual": -0.03980997940931635,
+      "direct_volume_adjusters": [
+        -3287.088817666108,
+        1.8150539529757643
+      ],
+      "direct_volume_area_derivatives": [
+        0.003492255208215146,
+        2.1666043998894865e-05
+      ],
+      "direct_volume_ordinary_eta": -146.27385265668173,
+      "direct_volume_pairing_residual": -0.04165113129633341,
+      "direct_volume_transfer": -0.08235485127263556,
+      "fixed_volume_ordinary_change": 0.0005521767295185182,
+      "fixed_volume_entropy": -0.03819988954650051,
+      "fixed_volume_area": 2.3594386058411118e-05
+    },
+    {
+      "tick": 0.25,
+      "horizon": 4,
+      "odd": 0.375,
+      "pairing": 0.75,
+      "entropy": [
+        0.5108256237659904,
+        -0.05688313704743098
+      ],
+      "area": 6.378834874475997,
+      "volume": 0.8219776909195519,
+      "area_slopes": [
+        -0.03971269879895699,
+        4.4737924280249975e-05
+      ],
+      "volume_slopes": [
+        -0.009122694408139148,
+        4.820046542459714e-06
+      ],
+      "shape": [
+        0.008529109473072777,
+        2.256571500142984e-05
+      ],
+      "ordinary_eta_on_unit_volume_shape": -59.89202335586338,
+      "held_entropy_residual": -0.05823464337733838,
+      "direct_volume_adjusters": [
+        -3263.2181663610268,
+        1.7241466979346702
+      ],
+      "direct_volume_area_derivatives": [
+        0.0034224208880435578,
+        2.194714830945615e-05
+      ],
+      "direct_volume_ordinary_eta": -149.25856301035088,
+      "direct_volume_pairing_residual": -0.06015893686627546,
+      "direct_volume_transfer": -0.05758824124121371,
+      "fixed_volume_ordinary_change": 0.0005283577775179372,
+      "fixed_volume_entropy": -0.05661323835615877,
+      "fixed_volume_area": 2.3755411003593805e-05
+    },
+    {
+      "tick": 0.25,
+      "horizon": 6,
+      "odd": 0.125,
+      "pairing": 0.25,
+      "entropy": [
+        1.9459101490553135,
+        -0.022371508167628194
+      ],
+      "area": 13.607931692527284,
+      "volume": 2.520892951610544,
+      "area_slopes": [
+        -0.17328055262366138,
+        -0.00014163278570706404
+      ],
+      "volume_slopes": [
+        -0.05957607690890558,
+        -9.899478764051509e-05
+      ],
+      "shape": [
+        0.02219784668839814,
+        0.00011586922778274454
+      ],
+      "ordinary_eta_on_unit_volume_shape": -87.66211319372509,
+      "held_entropy_residual": -0.032528849529188664,
+      "direct_volume_adjusters": [
+        -1774.4564920297178,
+        -2.9485315703887323
+      ],
+      "direct_volume_area_derivatives": [
+        0.008559458043416651,
+        0.00016052227676979268
+      ],
+      "direct_volume_ordinary_eta": -227.3403455201202,
+      "direct_volume_pairing_residual": -0.05886469803214923,
+      "direct_volume_transfer": -1.631235122419107,
+      "fixed_volume_ordinary_change": -0.0016616533477335615,
+      "fixed_volume_entropy": -0.02560493628119467,
+      "fixed_volume_area": 0.00014629942465716446
+    },
+    {
+      "tick": 0.25,
+      "horizon": 6,
+      "odd": 0.125,
+      "pairing": 0.5,
+      "entropy": [
+        1.9459101490553135,
+        -0.03848195556878588
+      ],
+      "area": 13.607894807391098,
+      "volume": 2.520867607706013,
+      "area_slopes": [
+        -0.17321636614650024,
+        -0.00015344864967705544
+      ],
+      "volume_slopes": [
+        -0.059550918528158005,
+        -0.00010375657828055258
+      ],
+      "shape": [
+        0.022184618509699827,
+        0.00011874389331233
+      ],
+      "ordinary_eta_on_unit_volume_shape": -87.71438409925774,
+      "held_entropy_residual": -0.04889750303622487,
+      "direct_volume_adjusters": [
+        -1731.2582056772533,
+        -3.016400619517986
+      ],
+      "direct_volume_area_derivatives": [
+        0.0077661734072010935,
+        0.00016188030740255335
+      ],
+      "direct_volume_ordinary_eta": -250.5622842841741,
+      "direct_volume_pairing_residual": -0.07904305517219394,
+      "direct_volume_transfer": -1.0540290638532064,
+      "fixed_volume_ordinary_change": -0.0017423170094596006,
+      "fixed_volume_entropy": -0.04187234792036502,
+      "fixed_volume_area": 0.00014834917137677406
+    },
+    {
+      "tick": 0.25,
+      "horizon": 6,
+      "odd": 0.125,
+      "pairing": 0.75,
+      "entropy": [
+        1.9459101490553132,
+        -0.05688313704743103
+      ],
+      "area": 13.607854968028288,
+      "volume": 2.5208410732562188,
+      "area_slopes": [
+        -0.17315126425309002,
+        -0.00016526660359150532
+      ],
+      "volume_slopes": [
+        -0.05952538544014216,
+        -0.0001085191511472539
+      ],
+      "shape": [
+        0.022171192140676203,
+        0.00012161921685044495
+      ],
+      "ordinary_eta_on_unit_volume_shape": -87.76750193262114,
+      "held_entropy_residual": -0.06755735189739633,
+      "direct_volume_adjusters": [
+        -1690.064810048651,
+        -3.081112322317564
+      ],
+      "direct_volume_area_derivatives": [
+        0.007009819903599418,
+        0.0001631802897446669
+      ],
+      "direct_volume_ordinary_eta": -277.5977380040995,
+      "direct_volume_pairing_residual": -0.10218161636740411,
+      "direct_volume_transfer": -0.7963428473046716,
+      "fixed_volume_ordinary_change": -0.0018230734726846773,
+      "fixed_volume_entropy": -0.06043067422040166,
+      "fixed_volume_area": 0.00015040087303011776
+    },
+    {
+      "tick": 0.25,
+      "horizon": 6,
+      "odd": 0.25,
+      "pairing": 0.25,
+      "entropy": [
+        1.0986122886681098,
+        -0.022371508167628194
+      ],
+      "area": 13.58623133191557,
+      "volume": 2.513428424026795,
+      "area_slopes": [
+        -0.17392528662264686,
+        -0.00011010410643392922
+      ],
+      "volume_slopes": [
+        -0.059856298914220736,
+        -8.664798135530252e-05
+      ],
+      "shape": [
+        0.02259820666007427,
+        0.00010934937134368638
+      ],
+      "ordinary_eta_on_unit_volume_shape": -48.615020881683506,
+      "held_entropy_residual": -0.027687530138900473,
+      "direct_volume_adjusters": [
+        -1878.0455678878313,
+        -2.718658859679211
+      ],
+      "direct_volume_area_derivatives": [
+        0.010989142149725989,
+        0.00015757803007031
+      ],
+      "direct_volume_ordinary_eta": -99.97252503422239,
+      "direct_volume_pairing_residual": -0.038124981723675705,
+      "direct_volume_transfer": -0.7041757506024093,
+      "fixed_volume_ordinary_change": -0.0014476000509065319,
+      "fixed_volume_entropy": -0.023961859372630692,
+      "fixed_volume_area": 0.00014167014733494754
+    },
+    {
+      "tick": 0.25,
+      "horizon": 6,
+      "odd": 0.25,
+      "pairing": 0.5,
+      "entropy": [
+        1.0986122886681098,
+        -0.038481955568785815
+      ],
+      "area": 13.586202385744933,
+      "volume": 2.513406190062946,
+      "area_slopes": [
+        -0.1738624562499946,
+        -0.00012146558242378124
+      ],
+      "volume_slopes": [
+        -0.05983170119682641,
+        -9.122385155145139e-05
+      ],
+      "shape": [
+        0.02258516075937272,
+        0.00011212537467037703
+      ],
+      "ordinary_eta_on_unit_volume_shape": -48.64310245000986,
+      "held_entropy_residual": -0.04393608165612271,
+      "direct_volume_adjusters": [
+        -1830.810366572638,
+        -2.7913893430785377
+      ],
+      "direct_volume_area_derivatives": [
+        0.010111927495219303,
+        0.00015903541514660603
+      ],
+      "direct_volume_ordinary_eta": -108.64519046319404,
+      "direct_volume_pairing_residual": -0.055760388537781966,
+      "direct_volume_transfer": -0.4490009074022045,
+      "fixed_volume_ordinary_change": -0.0015246742065941805,
+      "fixed_volume_entropy": -0.04015698138836548,
+      "fixed_volume_area": 0.00014361802011569468
+    },
+    {
+      "tick": 0.25,
+      "horizon": 6,
+      "odd": 0.25,
+      "pairing": 0.75,
+      "entropy": [
+        1.09861228866811,
+        -0.05688313704743104
+      ],
+      "area": 13.58617059896134,
+      "volume": 2.5133828120396378,
+      "area_slopes": [
+        -0.17379872351804215,
+        -0.00013282901461472002
+      ],
+      "volume_slopes": [
+        -0.0598067344302962,
+        -9.58004583199374e-05
+      ],
+      "shape": [
+        0.02257191831749071,
+        0.00011490198908359109
+      ],
+      "ordinary_eta_on_unit_volume_shape": -48.67164027511159,
+      "held_entropy_residual": -0.06247560532700238,
+      "direct_volume_adjusters": [
+        -1785.8418631866095,
+        -2.8606221458154413
+      ],
+      "direct_volume_area_derivatives": [
+        0.009276923746091292,
+        0.000160427774644762
+      ],
+      "direct_volume_ordinary_eta": -118.42420167903133,
+      "direct_volume_pairing_residual": -0.07588166818688052,
+      "direct_volume_transfer": -0.3339923240099765,
+      "fixed_volume_ordinary_change": -0.0016018339612170484,
+      "fixed_volume_entropy": -0.058642931521630005,
+      "fixed_volume_area": 0.00014556768313265205
+    },
+    {
+      "tick": 0.25,
+      "horizon": 6,
+      "odd": 0.375,
+      "pairing": 0.25,
+      "entropy": [
+        0.5108256237659898,
+        -0.0223715081676282
+      ],
+      "area": 13.56445035201126,
+      "volume": 2.5059288925187144,
+      "area_slopes": [
+        -0.1745704733294473,
+        -7.926014697892939e-05
+      ],
+      "volume_slopes": [
+        -0.06013614566213561,
+        -7.45845351371947e-05
+      ],
+      "shape": [
+        0.023002834101581094,
+        0.0001029242659238212
+      ],
+      "ordinary_eta_on_unit_volume_shape": -22.207073333232376,
+      "held_entropy_residual": -0.02465715488876761,
+      "direct_volume_adjusters": [
+        -1995.247622589107,
+        -2.474628441445022
+      ],
+      "direct_volume_area_derivatives": [
+        0.013739540149326185,
+        0.00015429347808880678
+      ],
+      "direct_volume_ordinary_eta": -37.17923731174087,
+      "direct_volume_pairing_residual": -0.02810802200514584,
+      "direct_volume_transfer": -0.2564205235755375,
+      "fixed_volume_ordinary_change": -0.0012402613156525667,
+      "fixed_volume_entropy": -0.02300506542782925,
+      "fixed_volume_area": 0.00013725285794674222
+    },
+    {
+      "tick": 0.25,
+      "horizon": 6,
+      "odd": 0.375,
+      "pairing": 0.5,
+      "entropy": [
+        0.5108256237659916,
+        -0.03848195556878588
+      ],
+      "area": 13.564429172802647,
+      "volume": 2.50590969729901,
+      "area_slopes": [
+        -0.17450903903616272,
+        -9.017382480196542e-05
+      ],
+      "volume_slopes": [
+        -0.060112126477009815,
+        -7.897733749234551e-05
+      ],
+      "shape": [
+        0.02298998670376505,
+        0.00010560244673324188
+      ],
+      "ordinary_eta_on_unit_volume_shape": -22.219483218854325,
+      "held_entropy_residual": -0.0408283873618451,
+      "direct_volume_adjusters": [
+        -1943.236260886925,
+        -2.5530892849403064
+      ],
+      "direct_volume_area_derivatives": [
+        0.012762269520712993,
+        0.00015586953126174206
+      ],
+      "direct_volume_ordinary_eta": -40.02623694296132,
+      "direct_volume_pairing_residual": -0.044720826359256685,
+      "direct_volume_transfer": -0.16212457756516357,
+      "fixed_volume_ordinary_change": -0.001313833699138073,
+      "fixed_volume_entropy": -0.039153095487672866,
+      "fixed_volume_area": 0.00013910203148794663
+    },
+    {
+      "tick": 0.25,
+      "horizon": 6,
+      "odd": 0.375,
+      "pairing": 0.75,
+      "entropy": [
+        0.5108256237659904,
+        -0.05688313704743098
+      ],
+      "area": 13.564405264946366,
+      "volume": 2.505889403792178,
+      "area_slopes": [
+        -0.17444671570153203,
+        -0.00010108933252757977
+      ],
+      "volume_slopes": [
+        -0.060087744000378966,
+        -8.337083332001959e-05
+      ],
+      "shape": [
+        0.022976944480560292,
+        0.00010828119459902333
+      ],
+      "ordinary_eta_on_unit_volume_shape": -22.232095490250057,
+      "held_entropy_residual": -0.05929045490555482,
+      "direct_volume_adjusters": [
+        -1893.8135028320291,
+        -2.627637507622449
+      ],
+      "direct_volume_area_derivatives": [
+        0.011833755664724166,
+        0.00015737199577512502
+      ],
+      "direct_volume_ordinary_eta": -43.1668219489047,
+      "direct_volume_pairing_residual": -0.06367638596879958,
+      "direct_volume_transfer": -0.11942465331516747,
+      "fixed_volume_ordinary_change": -0.001387484830841607,
+      "fixed_volume_entropy": -0.0575918998516115,
+      "fixed_volume_area": 0.00014095283929843432
+    },
+    {
+      "tick": 0.5,
+      "horizon": 2,
+      "odd": 0.125,
+      "pairing": 0.25,
+      "entropy": [
+        1.9459101490553135,
+        -0.022371508167628194
+      ],
+      "area": 1.715067220019478,
+      "volume": 0.11609459745005339,
+      "area_slopes": [
+        -0.004021748373799031,
+        3.135324021733433e-05
+      ],
+      "volume_slopes": [
+        -0.00042264487406027746,
+        3.137791385976655e-06
+      ],
+      "shape": [
+        0.0005914111580594427,
+        1.8915315118184889e-06
+      ],
+      "ordinary_eta_on_unit_volume_shape": -3290.283117823303,
+      "held_entropy_residual": -0.028595182367795357,
+      "direct_volume_adjusters": [
+        -2837.952393314993,
+        21.06946782060251
+      ],
+      "direct_volume_area_derivatives": [
+        0.00019599459944474526,
+        3.9959536635949167e-08
+      ],
+      "direct_volume_ordinary_eta": -9928.38657069173,
+      "direct_volume_pairing_residual": -0.022768241894535617,
+      "direct_volume_transfer": -0.017733883828248097,
+      "fixed_volume_ordinary_change": 0.007424179443683835,
+      "fixed_volume_entropy": -0.007924722039755989,
+      "fixed_volume_area": 1.4950586129066714e-06
+    },
+    {
+      "tick": 0.5,
+      "horizon": 2,
+      "odd": 0.125,
+      "pairing": 0.5,
+      "entropy": [
+        1.9459101490553135,
+        -0.03848195556878588
+      ],
+      "area": 1.7150750582221714,
+      "volume": 0.11609538187461038,
+      "area_slopes": [
+        -0.004021411015556719,
+        3.135238132371984e-05
+      ],
+      "volume_slopes": [
+        -0.00042261533596439237,
+        3.1376050689096918e-06
+      ],
+      "shape": [
+        0.0005915654230573202,
+        1.8959084162146146e-06
+      ],
+      "ordinary_eta_on_unit_volume_shape": -3289.425096886981,
+      "held_entropy_residual": -0.04471840429448148,
+      "direct_volume_adjusters": [
+        -2837.997411889835,
+        21.070023511518727
+      ],
+      "direct_volume_area_derivatives": [
+        0.0001962256073640362,
+        3.95610809393162e-08
+      ],
+      "direct_volume_ordinary_eta": -9916.69831066073,
+      "direct_volume_pairing_residual": -0.03887427087330471,
+      "direct_volume_transfer": -0.010194786068435945,
+      "fixed_volume_ordinary_change": 0.007424257479321697,
+      "fixed_volume_entropy": -0.02403501759057397,
+      "fixed_volume_area": 1.4963905140462072e-06
+    },
+    {
+      "tick": 0.5,
+      "horizon": 2,
+      "odd": 0.125,
+      "pairing": 0.75,
+      "entropy": [
+        1.9459101490553132,
+        -0.05688313704743103
+      ],
+      "area": 1.7150828962101379,
+      "volume": 0.11609616625258734,
+      "area_slopes": [
+        -0.004021073688645985,
+        3.135152239881678e-05
+      ],
+      "volume_slopes": [
+        -0.00042258580448426063,
+        3.1374187453868395e-06
+      ],
+      "shape": [
+        0.0005917198396496068,
+        1.9002853440087547e-06
+      ],
+      "ordinary_eta_on_unit_volume_shape": -3288.566680825853,
+      "held_entropy_residual": -0.06313235211379992,
+      "direct_volume_adjusters": [
+        -2838.042492295112,
+        21.070579326245934
+      ],
+      "direct_volume_area_derivatives": [
+        0.0001964566623733387,
+        3.916253695399291e-08
+      ],
+      "direct_volume_ordinary_eta": -9905.035164230676,
+      "direct_volume_pairing_residual": -0.057271043353080815,
+      "direct_volume_transfer": -0.00681935501071845,
+      "fixed_volume_ordinary_change": 0.007424335394360588,
+      "fixed_volume_entropy": -0.042436047453554185,
+      "fixed_volume_area": 1.497722688870308e-06
+    },
+    {
+      "tick": 0.5,
+      "horizon": 2,
+      "odd": 0.25,
+      "pairing": 0.25,
+      "entropy": [
+        1.0986122886681098,
+        -0.022371508167628194
+      ],
+      "area": 1.7145641404565102,
+      "volume": 0.11604169179937768,
+      "area_slopes": [
+        -0.004027523432005592,
+        3.152191798141729e-05
+      ],
+      "volume_slopes": [
+        -0.0004238452295283587,
+        3.152553508644728e-06
+      ],
+      "shape": [
+        0.0006198581019261825,
+        1.9688014123858503e-06
+      ],
+      "ordinary_eta_on_unit_volume_shape": -1772.3609407608276,
+      "held_entropy_residual": -0.025860934891055627,
+      "direct_volume_adjusters": [
+        -2847.865479652423,
+        21.182374330405768
+      ],
+      "direct_volume_area_derivatives": [
+        0.00020444595434579004,
+        4.460265981953823e-08
+      ],
+      "direct_volume_ordinary_eta": -5373.6073779673325,
+      "direct_volume_pairing_residual": -0.022611185349511433,
+      "direct_volume_transfer": -0.01071350130207373,
+      "fixed_volume_ordinary_change": 0.007437982756471714,
+      "fixed_volume_entropy": -0.014200048908466868,
+      "fixed_volume_area": 1.565268142873922e-06
+    },
+    {
+      "tick": 0.5,
+      "horizon": 2,
+      "odd": 0.25,
+      "pairing": 0.5,
+      "entropy": [
+        1.0986122886681098,
+        -0.038481955568785815
+      ],
+      "area": 1.7145720208266564,
+      "volume": 0.116042479914047,
+      "area_slopes": [
+        -0.004027186110453102,
+        3.1521043181316465e-05
+      ],
+      "volume_slopes": [
+        -0.00042381572571455417,
+        3.1523638449504707e-06
+      ],
+      "shape": [
+        0.000620013066733842,
+        1.9732547611478216e-06
+      ],
+      "ordinary_eta_on_unit_volume_shape": -1771.9179604640817,
+      "held_entropy_residual": -0.0419784011206349,
+      "direct_volume_adjusters": [
+        -2847.917090596062,
+        21.18295835926142
+      ],
+      "direct_volume_area_derivatives": [
+        0.00020468091673826478,
+        4.419179581353314e-08
+      ],
+      "direct_volume_ordinary_eta": -5367.438773361356,
+      "direct_volume_pairing_residual": -0.03871915232709984,
+      "direct_volume_transfer": -0.006163843671874752,
+      "fixed_volume_ordinary_change": 0.007438053035043895,
+      "fixed_volume_entropy": -0.030310419100721464,
+      "fixed_volume_area": 1.5666193097741534e-06
+    },
+    {
+      "tick": 0.5,
+      "horizon": 2,
+      "odd": 0.25,
+      "pairing": 0.75,
+      "entropy": [
+        1.09861228866811,
+        -0.05688313704743104
+      ],
+      "area": 1.714579900978098,
+      "volume": 0.1160432679812996,
+      "area_slopes": [
+        -0.004026848821198328,
+        3.152016834884247e-05
+      ],
+      "volume_slopes": [
+        -0.00042378622867212594,
+        3.1521741746017087e-06
+      ],
+      "shape": [
+        0.0006201681857324366,
+        1.9777081345322156e-06
+      ],
+      "ordinary_eta_on_unit_volume_shape": -1771.4747611095481,
+      "held_entropy_residual": -0.0603865970925959,
+      "direct_volume_adjusters": [
+        -2847.9687660772615,
+        21.18354252008168
+      ],
+      "direct_volume_area_derivatives": [
+        0.00020491592804770722,
+        4.378083771474435e-08
+      ],
+      "direct_volume_ordinary_eta": -5361.283035120326,
+      "direct_volume_pairing_residual": -0.057117858509934456,
+      "direct_volume_transfer": -0.004126380412312642,
+      "fixed_volume_ordinary_change": 0.00743812318885066,
+      "fixed_volume_entropy": -0.048711523507532474,
+      "fixed_volume_area": 1.5679707538912432e-06
+    },
+    {
+      "tick": 0.5,
+      "horizon": 2,
+      "odd": 0.375,
+      "pairing": 0.25,
+      "entropy": [
+        0.5108256237659898,
+        -0.0223715081676282
+      ],
+      "area": 1.7140603394616185,
+      "volume": 0.11598863621938359,
+      "area_slopes": [
+        -0.004033291286809887,
+        3.169057847055307e-05
+      ],
+      "volume_slopes": [
+        -0.00042504374390157565,
+        3.1672986977689263e-06
+      ],
+      "shape": [
+        0.0006483110614771505,
+        2.0464165335052058e-06
+      ],
+      "ordinary_eta_on_unit_volume_shape": -787.9329138733101,
+      "held_entropy_residual": -0.023983947109871475,
+      "direct_volume_adjusters": [
+        -2857.7613640774593,
+        21.295181912083034
+      ],
+      "direct_volume_area_derivatives": [
+        0.00021288806389327744,
+        4.932149186028629e-08
+      ],
+      "direct_volume_ordinary_eta": -2399.503356008118,
+      "direct_volume_pairing_residual": -0.022489855252870287,
+      "direct_volume_transfer": -0.005290080773961116,
+      "fixed_volume_ordinary_change": 0.007451700544267639,
+      "fixed_volume_entropy": -0.01856498858898532,
+      "fixed_volume_area": 1.6356995934419106e-06
+    },
+    {
+      "tick": 0.5,
+      "horizon": 2,
+      "odd": 0.375,
+      "pairing": 0.5,
+      "entropy": [
+        0.5108256237659916,
+        -0.03848195556878588
+      ],
+      "area": 1.714068261994838,
+      "volume": 0.11598942801992211,
+      "area_slopes": [
+        -0.004032953998635275,
+        3.168968727923758e-05
+      ],
+      "volume_slopes": [
+        -0.0004250142736959306,
+        3.167105609313839e-06
+      ],
+      "shape": [
+        0.0006484667099628736,
+        2.0509476330358503e-06
+      ],
+      "ordinary_eta_on_unit_volume_shape": -787.7437899552896,
+      "held_entropy_residual": -0.04009757683023337,
+      "direct_volume_adjusters": [
+        -2857.819639958008,
+        21.295794452761513
+      ],
+      "direct_volume_area_derivatives": [
+        0.00021312702993078487,
+        4.889807413516959e-08
+      ],
+      "direct_volume_ordinary_eta": -2396.812942646868,
+      "direct_volume_pairing_residual": -0.038599155105743556,
+      "direct_volume_transfer": -0.003045571235281644,
+      "fixed_volume_ordinary_change": 0.0074517629296838445,
+      "fixed_volume_entropy": -0.03467540412207384,
+      "fixed_volume_area": 1.6370701750870054e-06
+    },
+    {
+      "tick": 0.5,
+      "horizon": 2,
+      "odd": 0.375,
+      "pairing": 0.75,
+      "entropy": [
+        0.5108256237659904,
+        -0.05688313704743098
+      ],
+      "area": 1.7140761843052554,
+      "volume": 0.11599021977218767,
+      "area_slopes": [
+        -0.004032616743731214,
+        3.1688796054437306e-05
+      ],
+      "volume_slopes": [
+        -0.0004249848104185845,
+        3.1669125140003778e-06
+      ],
+      "shape": [
+        0.0006486225152687591,
+        2.0554787584638216e-06
+      ],
+      "ordinary_eta_on_unit_volume_shape": -787.5545663941806,
+      "held_entropy_residual": -0.05850193872978541,
+      "direct_volume_adjusters": [
+        -2857.8779831648517,
+        21.296407133837523
+      ],
+      "direct_volume_area_derivatives": [
+        0.0002133660467641095,
+        4.8474556344853443e-08
+      ],
+      "direct_volume_ordinary_eta": -2394.127985746216,
+      "direct_volume_pairing_residual": -0.056999191339372826,
+      "direct_volume_transfer": -0.002040223130539999,
+      "fixed_volume_ordinary_change": 0.007451825186131145,
+      "fixed_volume_entropy": -0.05307655379853042,
+      "fixed_volume_area": 1.638441037486883e-06
+    },
+    {
+      "tick": 0.5,
+      "horizon": 4,
+      "odd": 0.125,
+      "pairing": 0.25,
+      "entropy": [
+        1.9459101490553135,
+        -0.022371508167628194
+      ],
+      "area": 6.621615943537618,
+      "volume": 0.8774382031102759,
+      "area_slopes": [
+        -0.06293209943805553,
+        0.0007796703475858975
+      ],
+      "volume_slopes": [
+        -0.014064991007871846,
+        0.00014836081688775725
+      ],
+      "shape": [
+        0.008542237867232353,
+        3.6293452911725396e-05
+      ],
+      "ordinary_eta_on_unit_volume_shape": -227.79863769887967,
+      "held_entropy_residual": -0.030639107298307676,
+      "direct_volume_adjusters": [
+        -2126.6151389695456,
+        22.432034193751825
+      ],
+      "direct_volume_area_derivatives": [
+        0.010160090395660404,
+        8.676822899249606e-06
+      ],
+      "direct_volume_ordinary_eta": -191.52488543669395,
+      "direct_volume_pairing_residual": -0.02403333567936146,
+      "direct_volume_transfer": -0.07428321324075707,
+      "fixed_volume_ordinary_change": 0.01054823403759897,
+      "fixed_volume_entropy": -0.0018455924992536524,
+      "fixed_volume_area": 0.00011584783423583718
+    },
+    {
+      "tick": 0.5,
+      "horizon": 4,
+      "odd": 0.125,
+      "pairing": 0.5,
+      "entropy": [
+        1.9459101490553135,
+        -0.03848195556878588
+      ],
+      "area": 6.621810814206076,
+      "volume": 0.8774752759164363,
+      "area_slopes": [
+        -0.06292610185100582,
+        0.0007792949763687941
+      ],
+      "volume_slopes": [
+        -0.014064483733513367,
+        0.00014822162428375615
+      ],
+      "shape": [
+        0.00854476663295586,
+        3.665735377691246e-05
+      ],
+      "ordinary_eta_on_unit_volume_shape": -227.73122223727387,
+      "held_entropy_residual": -0.0468299795483863,
+      "direct_volume_adjusters": [
+        -2129.388319725896,
+        22.44102246914022
+      ],
+      "direct_volume_area_derivatives": [
+        0.010207067804475292,
+        8.56514363947996e-06
+      ],
+      "direct_volume_ordinary_eta": -190.64340379928979,
+      "direct_volume_pairing_residual": -0.04011484370624618,
+      "direct_volume_transfer": -0.042432566467198764,
+      "fixed_volume_ordinary_change": 0.01053871774408386,
+      "fixed_volume_entropy": -0.017974557752543776,
+      "fixed_volume_area": 0.00011613455022557089
+    },
+    {
+      "tick": 0.5,
+      "horizon": 4,
+      "odd": 0.125,
+      "pairing": 0.75,
+      "entropy": [
+        1.9459101490553132,
+        -0.05688313704743103
+      ],
+      "area": 6.622005591013945,
+      "volume": 0.8775123139183597,
+      "area_slopes": [
+        -0.0629201200537318,
+        0.0007789194628548045
+      ],
+      "volume_slopes": [
+        -0.014063981909714139,
+        0.00014808238298147657
+      ],
+      "shape": [
+        0.00854731029825289,
+        3.702130599435771e-05
+      ],
+      "ordinary_eta_on_unit_volume_shape": -227.66344980514705,
+      "held_entropy_residual": -0.06531153528639848,
+      "direct_volume_adjusters": [
+        -2132.1706902479523,
+        22.450037177386708
+      ],
+      "direct_volume_area_derivatives": [
+        0.010254185282725578,
+        8.453063168072073e-06
+      ],
+      "direct_volume_ordinary_eta": -189.76740671279225,
+      "direct_volume_pairing_residual": -0.058487252923615486,
+      "direct_volume_transfer": -0.028200200612123284,
+      "fixed_volume_ordinary_change": 0.010529193220818531,
+      "fixed_volume_entropy": -0.03639427309767585,
+      "fixed_volume_area": 0.0001164213613319635
+    },
+    {
+      "tick": 0.5,
+      "horizon": 4,
+      "odd": 0.25,
+      "pairing": 0.25,
+      "entropy": [
+        1.0986122886681098,
+        -0.022371508167628194
+      ],
+      "area": 6.613731312392851,
+      "volume": 0.875673129903851,
+      "area_slopes": [
+        -0.06322177610836328,
+        0.0007826862011316981
+      ],
+      "volume_slopes": [
+        -0.014176077144171555,
+        0.00014861961519207126
+      ],
+      "shape": [
+        0.00891191786463923,
+        3.754271291357388e-05
+      ],
+      "ordinary_eta_on_unit_volume_shape": -123.27450783934974,
+      "held_entropy_residual": -0.026999567625003013,
+      "direct_volume_adjusters": [
+        -2141.711738230572,
+        22.453346659378028
+      ],
+      "direct_volume_area_derivatives": [
+        0.010488657426197284,
+        9.918378543262961e-06
+      ],
+      "direct_volume_ordinary_eta": -104.74288977387425,
+      "direct_volume_pairing_residual": -0.023410387798120748,
+      "direct_volume_transfer": -0.046437621581356836,
+      "fixed_volume_ordinary_change": 0.010483832281709592,
+      "fixed_volume_entropy": -0.010853841190606608,
+      "fixed_volume_area": 0.00011987970385982289
+    },
+    {
+      "tick": 0.5,
+      "horizon": 4,
+      "odd": 0.25,
+      "pairing": 0.5,
+      "entropy": [
+        1.0986122886681098,
+        -0.038481955568785815
+      ],
+      "area": 6.613926936010721,
+      "volume": 0.8757102670601188,
+      "area_slopes": [
+        -0.0632157261934074,
+        0.0007823027175283235
+      ],
+      "volume_slopes": [
+        -0.014175554708860956,
+        0.00014847762663844306
+      ],
+      "shape": [
+        0.008914401063887214,
+        3.791424623807065e-05
+      ],
+      "ordinary_eta_on_unit_volume_shape": -123.24016844145095,
+      "held_entropy_residual": -0.04315451366149629,
+      "direct_volume_adjusters": [
+        -2144.6389826495374,
+        22.46338239878834
+      ],
+      "direct_volume_area_derivatives": [
+        0.010537761579936425,
+        9.793771966683305e-06
+      ],
+      "direct_volume_ordinary_eta": -104.25480595042441,
+      "direct_volume_pairing_residual": -0.03950300336469509,
+      "direct_volume_transfer": -0.026533157705152733,
+      "fixed_volume_ordinary_change": 0.010474202222621427,
+      "fixed_volume_entropy": -0.026974868293019087,
+      "fixed_volume_area": 0.0001201684177287081
+    },
+    {
+      "tick": 0.5,
+      "horizon": 4,
+      "odd": 0.25,
+      "pairing": 0.75,
+      "entropy": [
+        1.09861228866811,
+        -0.05688313704743104
+      ],
+      "area": 6.61412246373946,
+      "volume": 0.8757473687130118,
+      "area_slopes": [
+        -0.06320969294826383,
+        0.0007819190880582115
+      ],
+      "volume_slopes": [
+        -0.014175038010237052,
+        0.00014833558818371436
+      ],
+      "shape": [
+        0.008916899900729032,
+        3.8285832557356075e-05
+      ],
+      "ordinary_eta_on_unit_volume_shape": -123.20563210295644,
+      "held_entropy_residual": -0.061600167248248044,
+      "direct_volume_adjusters": [
+        -2147.576273983658,
+        22.47344871602417
+      ],
+      "direct_volume_area_derivatives": [
+        0.010587018314062044,
+        9.668702329772684e-06
+      ],
+      "direct_volume_ordinary_eta": -103.7697542478882,
+      "direct_volume_pairing_residual": -0.057886455912087534,
+      "direct_volume_transfer": -0.017638247760841583,
+      "fixed_volume_ordinary_change": 0.010464563698283426,
+      "fixed_volume_entropy": -0.045386638772946665,
+      "fixed_volume_area": 0.00012045722985216804
+    },
+    {
+      "tick": 0.5,
+      "horizon": 4,
+      "odd": 0.375,
+      "pairing": 0.25,
+      "entropy": [
+        0.5108256237659898,
+        -0.0223715081676282
+      ],
+      "area": 6.605810555025191,
+      "volume": 0.8738942095075354,
+      "area_slopes": [
+        -0.06351012042580022,
+        0.0007857289103554787
+      ],
+      "volume_slopes": [
+        -0.014286546879784132,
+        0.0001488862290048539
+      ],
+      "shape": [
+        0.009282842589028962,
+        3.8768488169648394e-05
+      ],
+      "ordinary_eta_on_unit_volume_shape": -55.02900850324826,
+      "held_entropy_residual": -0.02450489963277386,
+      "direct_volume_adjusters": [
+        -2156.414551110679,
+        22.472920390607012
+      ],
+      "direct_volume_area_derivatives": [
+        0.010811386161600545,
+        1.1192632074305477e-05
+      ],
+      "direct_volume_ordinary_eta": -47.248855616712696,
+      "direct_volume_pairing_residual": -0.02290034722447805,
+      "direct_volume_transfer": -0.023638954195099034,
+      "fixed_volume_ordinary_change": 0.010421428652961069,
+      "fixed_volume_entropy": -0.017047975375446604,
+      "fixed_volume_area": 0.00012386272159703622
+    },
+    {
+      "tick": 0.5,
+      "horizon": 4,
+      "odd": 0.375,
+      "pairing": 0.5,
+      "entropy": [
+        0.5108256237659916,
+        -0.03848195556878588
+      ],
+      "area": 6.606006938250849,
+      "volume": 0.8739314129497112,
+      "area_slopes": [
+        -0.06350401629983021,
+        0.0007853368700034646
+      ],
+      "volume_slopes": [
+        -0.014286008631014997,
+        0.00014874129988121847
+      ],
+      "shape": [
+        0.009285278156261813,
+        3.914802907629961e-05
+      ],
+      "ordinary_eta_on_unit_volume_shape": -55.01457416453385,
+      "held_entropy_residual": -0.04063566771779929,
+      "direct_volume_adjusters": [
+        -2159.4988633957328,
+        22.4840034980907
+      ],
+      "direct_volume_area_derivatives": [
+        0.010862668789069316,
+        1.1055004880844476e-05
+      ],
+      "direct_volume_ordinary_eta": -47.02579390803259,
+      "direct_volume_pairing_residual": -0.039001825949964763,
+      "direct_volume_transfer": -0.013509458485019733,
+      "fixed_volume_ordinary_change": 0.010411676467722437,
+      "fixed_volume_entropy": -0.03316340444271187,
+      "fixed_volume_area": 0.00012415359788866035
+    },
+    {
+      "tick": 0.5,
+      "horizon": 4,
+      "odd": 0.375,
+      "pairing": 0.75,
+      "entropy": [
+        0.5108256237659904,
+        -0.05688313704743098
+      ],
+      "area": 6.606203223447733,
+      "volume": 0.8739685801532152,
+      "area_slopes": [
+        -0.0634979297412852,
+        0.0007849446801394147
+      ],
+      "volume_slopes": [
+        -0.014285476411362755,
+        0.00014859631962378943
+      ],
+      "shape": [
+        0.009287730123724813,
+        3.952762464725157e-05
+      ],
+      "ordinary_eta_on_unit_volume_shape": -55.00005027720654,
+      "held_entropy_residual": -0.05905715839036837,
+      "direct_volume_adjusters": [
+        -2162.5941336824294,
+        22.495121608237
+      ],
+      "direct_volume_area_derivatives": [
+        0.010914117294342884,
+        1.091684888195998e-05
+      ],
+      "direct_volume_ordinary_eta": -46.8041170888613,
+      "direct_volume_pairing_residual": -0.057394090520743644,
+      "direct_volume_transfer": -0.008982512214236885,
+      "fixed_volume_ordinary_change": 0.010401915578089857,
+      "fixed_volume_entropy": -0.05156957203389206,
+      "fixed_volume_area": 0.00012444457558708508
+    },
+    {
+      "tick": 0.5,
+      "horizon": 6,
+      "odd": 0.125,
+      "pairing": 0.25,
+      "entropy": [
+        1.9459101490553135,
+        -0.022371508167628194
+      ],
+      "area": 14.331499424371552,
+      "volume": 2.7737913995815133,
+      "area_slopes": [
+        -0.24497556226743344,
+        0.003930138256118935
+      ],
+      "volume_slopes": [
+        -0.08430486451129851,
+        0.0010913742594515186
+      ],
+      "shape": [
+        0.02300359743239757,
+        8.656654637743849e-05
+      ],
+      "ordinary_eta_on_unit_volume_shape": -84.59155811493869,
+      "held_entropy_residual": -0.029694307206324818,
+      "direct_volume_adjusters": [
+        -1801.9746481703812,
+        23.327583272893982
+      ],
+      "direct_volume_area_derivatives": [
+        0.05644163164515653,
+        2.8121822082430217e-05
+      ],
+      "direct_volume_ordinary_eta": -34.476504174951494,
+      "direct_volume_pairing_residual": -0.023341050284060343,
+      "direct_volume_transfer": -0.04333825458558426,
+      "fixed_volume_ordinary_change": 0.012945566851664331,
+      "fixed_volume_entropy": 0.0028194017542994693,
+      "fixed_volume_area": 0.000758790737761817
+    },
+    {
+      "tick": 0.5,
+      "horizon": 6,
+      "odd": 0.125,
+      "pairing": 0.5,
+      "entropy": [
+        1.9459101490553135,
+        -0.03848195556878588
+      ],
+      "area": 14.332481101724078,
+      "volume": 2.77406379548303,
+      "area_slopes": [
+        -0.24495006230896044,
+        0.003923279530880888
+      ],
+      "volume_slopes": [
+        -0.08430364460232731,
+        0.001087792442072258
+      ],
+      "shape": [
+        0.02300851044720055,
+        8.939235223327322e-05
+      ],
+      "ordinary_eta_on_unit_volume_shape": -84.57349525171338,
+      "held_entropy_residual": -0.0460421792459261,
+      "direct_volume_adjusters": [
+        -1799.2577340158748,
+        23.21630308671725
+      ],
+      "direct_volume_area_derivatives": [
+        0.05638270507072446,
+        3.510235360034558e-05
+      ],
+      "direct_volume_ordinary_eta": -34.51253618666279,
+      "direct_volume_pairing_residual": -0.03969342681765484,
+      "direct_volume_transfer": -0.0314815406588024,
+      "fixed_volume_ordinary_change": 0.012903267079419103,
+      "fixed_volume_entropy": -0.013373357202972933,
+      "fixed_volume_area": 0.0007626234557880206
+    },
+    {
+      "tick": 0.5,
+      "horizon": 6,
+      "odd": 0.125,
+      "pairing": 0.75,
+      "entropy": [
+        1.9459101490553132,
+        -0.05688313704743103
+      ],
+      "area": 14.333461063619847,
+      "volume": 2.7743352955470164,
+      "area_slopes": [
+        -0.24492455710178576,
+        0.003916414599855425
+      ],
+      "volume_slopes": [
+        -0.08430243303314552,
+        0.0010842075582824483
+      ],
+      "shape": [
+        0.023013475899165404,
+        9.221924772754332e-05
+      ],
+      "ordinary_eta_on_unit_volume_shape": -84.55524743769291,
+      "held_entropy_residual": -0.06468075835755135,
+      "direct_volume_adjusters": [
+        -1796.5479440813203,
+        23.105274542004313
+      ],
+      "direct_volume_area_derivatives": [
+        0.05632399778071548,
+        4.20784938398853e-05
+      ],
+      "direct_volume_ordinary_eta": -34.54850908543933,
+      "direct_volume_pairing_residual": -0.058336886274159915,
+      "direct_volume_transfer": -0.02555676958386975,
+      "fixed_volume_ordinary_change": 0.012860928436741156,
+      "fixed_volume_entropy": -0.03185692587610233,
+      "fixed_volume_area": 0.0007664573985688354
+    },
+    {
+      "tick": 0.5,
+      "horizon": 6,
+      "odd": 0.25,
+      "pairing": 0.25,
+      "entropy": [
+        1.0986122886681098,
+        -0.022371508167628194
+      ],
+      "area": 14.300775175795833,
+      "volume": 2.7631992671868915,
+      "area_slopes": [
+        -0.24661055322846054,
+        0.003943038826388034
+      ],
+      "volume_slopes": [
+        -0.08516798392842101,
+        0.0010920718471362956
+      ],
+      "shape": [
+        0.02399231832004605,
+        8.890708732103827e-05
+      ],
+      "ordinary_eta_on_unit_volume_shape": -45.790168086849604,
+      "held_entropy_residual": -0.02644257864017075,
+      "direct_volume_adjusters": [
+        -1820.8162901076455,
+        23.34753175447838
+      ],
+      "direct_volume_area_derivatives": [
+        0.05798664373332474,
+        3.732205142994386e-05
+      ],
+      "direct_volume_ordinary_eta": -18.945954066949056,
+      "direct_volume_pairing_residual": -0.023078610039704222,
+      "direct_volume_transfer": -0.031607250918344904,
+      "fixed_volume_ordinary_change": 0.012822563089600919,
+      "fixed_volume_entropy": -0.008284482785170499,
+      "fixed_volume_area": 0.0007808594490547128
+    },
+    {
+      "tick": 0.5,
+      "horizon": 6,
+      "odd": 0.25,
+      "pairing": 0.5,
+      "entropy": [
+        1.0986122886681098,
+        -0.038481955568785815
+      ],
+      "area": 14.301760078297338,
+      "volume": 2.7634718367887063,
+      "area_slopes": [
+        -0.2465844474840871,
+        0.003936180153115138
+      ],
+      "volume_slopes": [
+        -0.08516642316660877,
+        0.0010884844566496456
+      ],
+      "shape": [
+        0.02399682060763063,
+        9.176052641598131e-05
+      ],
+      "ordinary_eta_on_unit_volume_shape": -45.78157692768548,
+      "held_entropy_residual": -0.04268289716782398,
+      "direct_volume_adjusters": [
+        -1818.3478818567198,
+        23.23971504956719
+      ],
+      "direct_volume_area_derivatives": [
+        0.05794670031979854,
+        4.406623514836925e-05
+      ],
+      "direct_volume_ordinary_eta": -18.95901375928301,
+      "direct_volume_pairing_residual": -0.03931740792728355,
+      "direct_volume_transfer": -0.02171023655501023,
+      "fixed_volume_ordinary_change": 0.012780675953952802,
+      "fixed_volume_entropy": -0.024440947908288248,
+      "fixed_volume_area": 0.0007846642345365282
+    },
+    {
+      "tick": 0.5,
+      "horizon": 6,
+      "odd": 0.25,
+      "pairing": 0.75,
+      "entropy": [
+        1.09861228866811,
+        -0.05688313704743104
+      ],
+      "area": 14.302743265355568,
+      "volume": 2.7637435091596205,
+      "area_slopes": [
+        -0.2465583467971112,
+        0.00392931527798351
+      ],
+      "volume_slopes": [
+        -0.08516487637117379,
+        0.001084893999009377
+      ],
+      "shape": [
+        0.024001381028939294,
+        9.461506062253851e-05
+      ],
+      "ordinary_eta_on_unit_volume_shape": -45.77287812494936,
+      "held_entropy_residual": -0.06121394068609119,
+      "direct_volume_adjusters": [
+        -1815.885212007074,
+        23.13210625481699
+      ],
+      "direct_volume_area_derivatives": [
+        0.05790691078229898,
+        5.0808727757964845e-05
+      ],
+      "direct_volume_ordinary_eta": -18.972041053931243,
+      "direct_volume_pairing_residual": -0.05784708231635316,
+      "direct_volume_transfer": -0.0169460637889636,
+      "fixed_volume_ordinary_change": 0.012738749179662836,
+      "fixed_volume_entropy": -0.04288819065639264,
+      "fixed_volume_area": 0.0007884703399827853
+    },
+    {
+      "tick": 0.5,
+      "horizon": 6,
+      "odd": 0.375,
+      "pairing": 0.25,
+      "entropy": [
+        0.5108256237659898,
+        -0.0223715081676282
+      ],
+      "area": 14.269847248432493,
+      "volume": 2.7524997187375906,
+      "area_slopes": [
+        -0.24823444738116324,
+        0.003956249922777588
+      ],
+      "volume_slopes": [
+        -0.08602354001079619,
+        0.0010929435060443083
+      ],
+      "shape": [
+        0.02498996375528722,
+        9.10375655039821e-05
+      ],
+      "ordinary_eta_on_unit_volume_shape": -20.44123107853298,
+      "held_entropy_residual": -0.024232428080922182,
+      "direct_volume_adjusters": [
+        -1839.1952976944922,
+        23.36728477705226
+      ],
+      "direct_volume_area_derivatives": [
+        0.059495109444934524,
+        4.6494282533462994e-05
+      ],
+      "direct_volume_ordinary_eta": -8.58601032138251,
+      "direct_volume_pairing_residual": -0.022770708557345788,
+      "direct_volume_transfer": -0.01784414294854,
+      "fixed_volume_ordinary_change": 0.012705167747190372,
+      "fixed_volume_entropy": -0.015881382928118144,
+      "fixed_volume_area": 0.0008023896281688075
+    },
+    {
+      "tick": 0.5,
+      "horizon": 6,
+      "odd": 0.375,
+      "pairing": 0.5,
+      "entropy": [
+        0.5108256237659916,
+        -0.03848195556878588
+      ],
+      "area": 14.270835453065743,
+      "volume": 2.752772505203557,
+      "area_slopes": [
+        -0.2482077155787996,
+        0.00394938611133603
+      ],
+      "volume_slopes": [
+        -0.08602162941975289,
+        0.0010893477107817508
+      ],
+      "shape": [
+        0.024994042167014768,
+        9.392152752626477e-05
+      ],
+      "ordinary_eta_on_unit_volume_shape": -20.437895573375496,
+      "held_entropy_residual": -0.04040151394045959,
+      "direct_volume_adjusters": [
+        -1836.9838077815464,
+        23.26291793410811
+      ],
+      "direct_volume_area_derivatives": [
+        0.05947469959766896,
+        5.300403997617921e-05
+      ],
+      "direct_volume_ordinary_eta": -8.588956770216504,
+      "direct_volume_pairing_residual": -0.03893720497678811,
+      "direct_volume_transfer": -0.01183020460559702,
+      "fixed_volume_ordinary_change": 0.012663648876797573,
+      "fixed_volume_entropy": -0.03201303923214226,
+      "fixed_volume_area": 0.0008061707527340727
+    },
+    {
+      "tick": 0.5,
+      "horizon": 6,
+      "odd": 0.375,
+      "pairing": 0.75,
+      "entropy": [
+        0.5108256237659904,
+        -0.05688313704743098
+      ],
+      "area": 14.271821940971675,
+      "volume": 2.753044392337296,
+      "area_slopes": [
+        -0.2481809992889284,
+        0.0039425161020649625
+      ],
+      "volume_slopes": [
+        -0.08601973849610964,
+        0.0010857488473021482
+      ],
+      "shape": [
+        0.024998184574642177,
+        9.680658955622907e-05
+      ],
+      "ordinary_eta_on_unit_volume_shape": -20.434508843660794,
+      "held_entropy_residual": -0.05886133215784239,
+      "direct_volume_adjusters": [
+        -1834.7768002177106,
+        23.158717181908187
+      ],
+      "direct_volume_area_derivatives": [
+        0.059454388629690214,
+        5.9514669351984524e-05
+      ],
+      "direct_volume_ordinary_eta": -8.591890952704127,
+      "direct_volume_pairing_residual": -0.05739448059658948,
+      "direct_volume_transfer": -0.008989369709552388,
+      "fixed_volume_ordinary_change": 0.012622089607389968,
+      "fixed_volume_entropy": -0.050435450250505776,
+      "fixed_volume_area": 0.0008099532901885225
+    }
+  ],
+  "finite_pairs": {
+    "equal_volume": [
+      {
+        "odd": 0.12489885719999869,
+        "strength": 0.2421875,
+        "records": [
+          14.33149349685732,
+          2.7737913995815133,
+          0.8668425654202147
+        ]
+      },
+      {
+        "odd": 0.12510113168207274,
+        "strength": 0.2578125,
+        "records": [
+          14.331505352962592,
+          2.7737913995815133,
+          0.8668866304743212
+        ]
+      }
+    ],
+    "equal_area_and_volume": [
+      {
+        "odd": 0.24999882725486042,
+        "even_pairing": 0.5520510613209273,
+        "odd_pairing": 0.35,
+        "dephase_probabilities": [
+          0.6520032076933254,
+          0.3489246938830118
+        ],
+        "records": [
+          14.301760078297338,
+          2.763471836788708,
+          1.044496891489579
+        ]
+      },
+      {
+        "odd": 0.25,
+        "even_pairing": 0.5,
+        "odd_pairing": 0.5,
+        "dephase_probabilities": [
+          0.5,
+          0.5
+        ],
+        "records": [
+          14.301760078297338,
+          2.7634718367887063,
+          1.0448015645208395
+        ]
+      },
+      {
+        "odd": 0.2500011673764309,
+        "even_pairing": 0.44794807765233635,
+        "odd_pairing": 0.65,
+        "dephase_probabilities": [
+          0.3489278396827269,
+          0.6520095370087082
+        ],
+        "records": [
+          14.301760078297342,
+          2.7634718367887063,
+          1.0446102739543028
+        ]
+      }
+    ],
+    "direct_calibration": {
+      "ordinary": {
+        "arms": [
+          {
+            "odd": 0.2499999,
+            "mean_pairing": 0.5,
+            "adjuster": 0.00018183475598704447,
+            "dephase_probabilities": [
+              0.5007271390239482,
+              0.4992724609760518
+            ],
+            "records": [
+              14.301760072502672,
+              2.7634718367887063,
+              1.0448014490015691
+            ]
+          },
+          {
+            "odd": 0.2500001,
+            "mean_pairing": 0.5,
+            "adjuster": -0.0001818348302631154,
+            "dephase_probabilities": [
+              0.49927286067894755,
+              0.5007275393210525
+            ],
+            "records": [
+              14.30176008409201,
+              2.7634718367887063,
+              1.0448016687231865
+            ]
+          }
+        ],
+        "step": 1e-07,
+        "centered_slopes": [
+          0.05794668744840692,
+          0.0,
+          1.098608086724795
+        ]
+      },
+      "pairing": {
+        "arms": [
+          {
+            "odd": 0.25,
+            "mean_pairing": 0.4999,
+            "adjuster": -0.0023239832783424614,
+            "dephase_probabilities": [
+              0.49070592570148985,
+              0.5092977926719042
+            ],
+            "records": [
+              14.30176007389133,
+              2.7634718367887063,
+              1.0448044872408586
+            ]
+          },
+          {
+            "odd": 0.25,
+            "mean_pairing": 0.5001,
+            "adjuster": 0.0023239597223955197,
+            "dephase_probabilities": [
+              0.509297698429268,
+              0.49070601990643664
+            ],
+            "records": [
+              14.301760082704579,
+              2.7634718367887063,
+              1.044796792535137
+            ]
+          }
+        ],
+        "step": 0.0001,
+        "centered_slopes": [
+          4.406624398711756e-05,
+          0.0,
+          -0.03847352860852915
+        ]
+      }
+    }
+  }
+}

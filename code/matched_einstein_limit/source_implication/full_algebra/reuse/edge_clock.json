@@ -1,0 +1,703 @@
+{
+  "ports": [
+    0,
+    1,
+    38,
+    39
+  ],
+  "source_coordinates": 31,
+  "ticks": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "ordinary_entry_error_upper": 1.628800000154314e-15,
+  "middle_precision": {
+    "Taylor_order": 104,
+    "tested_row_scale": "75557863725914323419136",
+    "rescaled_entry_error_upper": 9.860983289890324e-32,
+    "raw_coordinate_l_infinity_lower": [
+      3.6988444959583818e-25,
+      5.392440590050952e-25
+    ],
+    "raw_row_l2_upper": [
+      6.816444561455263e-25,
+      1.0596855478871233e-24
+    ]
+  },
+  "edges": [
+    {
+      "edge": [
+        0,
+        1
+      ],
+      "menus": {
+        "forward": {
+          "negative": {
+            "rank": 10,
+            "inverse_defect_upper": 1.240180691807474e-09,
+            "smallest_nonzero_singular_value_lower": 2.3128020676834827e-05
+          },
+          "positive": {
+            "rank": 10,
+            "inverse_defect_upper": 3.700154030548733e-09,
+            "smallest_nonzero_singular_value_lower": 7.751583983009251e-06
+          },
+          "joint": {
+            "rank": 20,
+            "inverse_defect_upper": 2.602532766429553e-07,
+            "smallest_nonzero_singular_value_lower": 1.5586229549982086e-07
+          },
+          "common_dimension": 0
+        },
+        "reverse": {
+          "negative": {
+            "rank": 10,
+            "inverse_defect_upper": 8.578395834889278e-10,
+            "smallest_nonzero_singular_value_lower": 3.344037884223881e-05
+          },
+          "positive": {
+            "rank": 10,
+            "inverse_defect_upper": 3.534291877948149e-09,
+            "smallest_nonzero_singular_value_lower": 8.114746282925511e-06
+          },
+          "joint": {
+            "rank": 20,
+            "inverse_defect_upper": 2.8398061984535614e-07,
+            "smallest_nonzero_singular_value_lower": 1.4288302455313703e-07
+          },
+          "common_dimension": 0
+        },
+        "both_tagged": {
+          "negative": {
+            "rank": 20,
+            "inverse_defect_upper": 9.318948060611355e-08,
+            "smallest_nonzero_singular_value_lower": 4.3529666686432826e-07
+          },
+          "positive": {
+            "rank": 20,
+            "inverse_defect_upper": 5.880074598989386e-07,
+            "smallest_nonzero_singular_value_lower": 6.8987550238472e-08
+          },
+          "joint": {
+            "rank": 31,
+            "inverse_defect_upper": 3.228331957712485e-06,
+            "smallest_nonzero_singular_value_lower": 1.777263173102635e-08
+          },
+          "common_dimension": 9
+        },
+        "opposite_assignments": {
+          "negative": {
+            "rank": 20,
+            "inverse_defect_upper": 8.168888162917076e-07,
+            "smallest_nonzero_singular_value_lower": 4.9652496549596996e-08
+          },
+          "positive": {
+            "rank": 20,
+            "inverse_defect_upper": 1.8243242752005238e-07,
+            "smallest_nonzero_singular_value_lower": 2.2234070866145871e-07
+          },
+          "joint": {
+            "rank": 31,
+            "inverse_defect_upper": 3.2285036329346476e-06,
+            "smallest_nonzero_singular_value_lower": 1.7772631728546992e-08
+          },
+          "common_dimension": 9
+        },
+        "orientations_pooled": {
+          "negative": {
+            "rank": 10,
+            "inverse_defect_upper": 9.275823132639186e-10,
+            "smallest_nonzero_singular_value_lower": 3.091881495049592e-05
+          },
+          "positive": {
+            "rank": 10,
+            "inverse_defect_upper": 6.3014950434369094e-09,
+            "smallest_nonzero_singular_value_lower": 4.551093887308165e-06
+          },
+          "joint": {
+            "rank": 20,
+            "inverse_defect_upper": 2.573391593825887e-07,
+            "smallest_nonzero_singular_value_lower": 1.5760864429214081e-07
+          },
+          "common_dimension": 0
+        }
+      },
+      "direct_sums": {
+        "vacancy_forward_and_both_reverse": {
+          "rank": 30,
+          "inverse_defect_upper": 6.009848418728074e-06,
+          "smallest_nonzero_singular_value_lower": 8.266202969024685e-09
+        },
+        "excess_forward_and_both_reverse": {
+          "rank": 30,
+          "inverse_defect_upper": 1.1640190781633178e-05,
+          "smallest_nonzero_singular_value_lower": 4.267349855813821e-09
+        }
+      },
+      "common_dimension_all_four_charge_assignments": 0
+    },
+    {
+      "edge": [
+        0,
+        2
+      ],
+      "menus": {
+        "forward": {
+          "negative": {
+            "rank": 10,
+            "inverse_defect_upper": 6.505736063367155e-07,
+            "smallest_nonzero_singular_value_lower": 4.408113099484298e-08
+          },
+          "positive": {
+            "rank": 10,
+            "inverse_defect_upper": 9.77930475270186e-07,
+            "smallest_nonzero_singular_value_lower": 2.932526662459784e-08
+          },
+          "joint": {
+            "rank": 20,
+            "inverse_defect_upper": 3.2901922037947313e-06,
+            "smallest_nonzero_singular_value_lower": 1.232666832855902e-08
+          },
+          "common_dimension": 0
+        },
+        "reverse": {
+          "negative": {
+            "rank": 10,
+            "inverse_defect_upper": 5.092146522014445e-07,
+            "smallest_nonzero_singular_value_lower": 5.631838330120364e-08
+          },
+          "positive": {
+            "rank": 10,
+            "inverse_defect_upper": 1.5679177599697608e-06,
+            "smallest_nonzero_singular_value_lower": 1.8290544521907505e-08
+          },
+          "joint": {
+            "rank": 20,
+            "inverse_defect_upper": 5.397337802889972e-06,
+            "smallest_nonzero_singular_value_lower": 7.514210457948018e-09
+          },
+          "common_dimension": 0
+        },
+        "both_tagged": {
+          "negative": {
+            "rank": 20,
+            "inverse_defect_upper": 2.7553873924528915e-06,
+            "smallest_nonzero_singular_value_lower": 1.4719130001358081e-08
+          },
+          "positive": {
+            "rank": 20,
+            "inverse_defect_upper": 6.072225627775921e-06,
+            "smallest_nonzero_singular_value_lower": 6.679044110582186e-09
+          },
+          "joint": {
+            "rank": 31,
+            "inverse_defect_upper": 6.272538693636855e-05,
+            "smallest_nonzero_singular_value_lower": 9.143454718290551e-10
+          },
+          "common_dimension": 9
+        },
+        "opposite_assignments": {
+          "negative": {
+            "rank": 20,
+            "inverse_defect_upper": 4.6646516577837655e-05,
+            "smallest_nonzero_singular_value_lower": 8.694140372667072e-10
+          },
+          "positive": {
+            "rank": 20,
+            "inverse_defect_upper": 5.189130542540128e-05,
+            "smallest_nonzero_singular_value_lower": 7.815367758719884e-10
+          },
+          "joint": {
+            "rank": 31,
+            "inverse_defect_upper": 6.272546200907324e-05,
+            "smallest_nonzero_singular_value_lower": 9.14345471743985e-10
+          },
+          "common_dimension": 9
+        },
+        "orientations_pooled": {
+          "negative": {
+            "rank": 10,
+            "inverse_defect_upper": 8.584341749818591e-07,
+            "smallest_nonzero_singular_value_lower": 3.340742436517379e-08
+          },
+          "positive": {
+            "rank": 10,
+            "inverse_defect_upper": 1.1412191781574557e-06,
+            "smallest_nonzero_singular_value_lower": 2.512925188027338e-08
+          },
+          "joint": {
+            "rank": 20,
+            "inverse_defect_upper": 1.1894054744262071e-05,
+            "smallest_nonzero_singular_value_lower": 3.4098187590137132e-09
+          },
+          "common_dimension": 0
+        }
+      },
+      "direct_sums": {
+        "vacancy_forward_and_both_reverse": {
+          "rank": 30,
+          "inverse_defect_upper": 0.00016367083714047552,
+          "smallest_nonzero_singular_value_lower": 3.0343625268560976e-10
+        },
+        "excess_forward_and_both_reverse": {
+          "rank": 30,
+          "inverse_defect_upper": 0.0003956784717223021,
+          "smallest_nonzero_singular_value_lower": 1.2548596753584034e-10
+        }
+      },
+      "common_dimension_all_four_charge_assignments": 0
+    },
+    {
+      "edge": [
+        0,
+        3
+      ],
+      "menus": {
+        "forward": {
+          "negative": {
+            "rank": 10,
+            "inverse_defect_upper": 0.002682663988332629,
+            "smallest_nonzero_singular_value_lower": 1.0661439549503589e-11
+          },
+          "positive": {
+            "rank": 10,
+            "inverse_defect_upper": 0.009380872440794647,
+            "smallest_nonzero_singular_value_lower": 3.0283935362588367e-12
+          },
+          "joint": {
+            "rank": 20,
+            "inverse_defect_upper": 0.01388687484519775,
+            "smallest_nonzero_singular_value_lower": 2.8799563246281897e-12
+          },
+          "common_dimension": 0
+        },
+        "reverse": {
+          "negative": {
+            "rank": 10,
+            "inverse_defect_upper": 0.002266428859654541,
+            "smallest_nonzero_singular_value_lower": 1.2624704840430497e-11
+          },
+          "positive": {
+            "rank": 10,
+            "inverse_defect_upper": 0.0053661274809985405,
+            "smallest_nonzero_singular_value_lower": 5.3155844290588294e-12
+          },
+          "joint": {
+            "rank": 20,
+            "inverse_defect_upper": 0.008244105420862742,
+            "smallest_nonzero_singular_value_lower": 4.8789341777730266e-12
+          },
+          "common_dimension": 0
+        },
+        "both_tagged": {
+          "negative": {
+            "rank": 20,
+            "inverse_defect_upper": 0.005153398048784851,
+            "smallest_nonzero_singular_value_lower": 7.829359919022074e-12
+          },
+          "positive": {
+            "rank": 20,
+            "inverse_defect_upper": 0.015292751486426347,
+            "smallest_nonzero_singular_value_lower": 2.6114711746399097e-12
+          },
+          "joint": {
+            "rank": 31,
+            "inverse_defect_upper": 0.00239598837897983,
+            "smallest_nonzero_singular_value_lower": 2.3880983096668273e-11
+          },
+          "common_dimension": 9
+        },
+        "opposite_assignments": {
+          "negative": {
+            "rank": 20,
+            "inverse_defect_upper": 0.18447490258999752,
+            "smallest_nonzero_singular_value_lower": 1.792931910639381e-13
+          },
+          "positive": {
+            "rank": 20,
+            "inverse_defect_upper": 0.13049190594138,
+            "smallest_nonzero_singular_value_lower": 2.7024252809978974e-13
+          },
+          "joint": {
+            "rank": 31,
+            "inverse_defect_upper": 0.0023959883459197325,
+            "smallest_nonzero_singular_value_lower": 2.3880983100088332e-11
+          },
+          "common_dimension": 9
+        },
+        "orientations_pooled": {
+          "negative": {
+            "rank": 10,
+            "inverse_defect_upper": 0.0023163465624594726,
+            "smallest_nonzero_singular_value_lower": 1.2352023475876975e-11
+          },
+          "positive": {
+            "rank": 10,
+            "inverse_defect_upper": 0.007488372615315005,
+            "smallest_nonzero_singular_value_lower": 3.800991559963931e-12
+          },
+          "joint": {
+            "rank": 20,
+            "inverse_defect_upper": 0.09874368189491183,
+            "smallest_nonzero_singular_value_lower": 3.701711944620344e-13
+          },
+          "common_dimension": 0
+        }
+      },
+      "direct_sums": {
+        "vacancy_forward_and_both_reverse": {
+          "rank": 30,
+          "inverse_defect_upper": 0.29778553394584645,
+          "smallest_nonzero_singular_value_lower": 1.1713199454804463e-13
+        },
+        "excess_forward_and_both_reverse": {
+          "rank": 30,
+          "inverse_defect_upper": 0.16295425935781185,
+          "smallest_nonzero_singular_value_lower": 2.551483609581433e-13
+        }
+      },
+      "common_dimension_all_four_charge_assignments": 0
+    },
+    {
+      "edge": [
+        1,
+        2
+      ],
+      "menus": {
+        "forward": {
+          "negative": {
+            "rank": 10,
+            "inverse_defect_upper": 3.7113416818434276e-09,
+            "smallest_nonzero_singular_value_lower": 7.727381291779126e-06
+          },
+          "positive": {
+            "rank": 10,
+            "inverse_defect_upper": 3.649551452480445e-08,
+            "smallest_nonzero_singular_value_lower": 7.858401982970721e-07
+          },
+          "joint": {
+            "rank": 20,
+            "inverse_defect_upper": 2.3654470121381174e-07,
+            "smallest_nonzero_singular_value_lower": 1.7146207508875292e-07
+          },
+          "common_dimension": 0
+        },
+        "reverse": {
+          "negative": {
+            "rank": 10,
+            "inverse_defect_upper": 5.477693317382213e-09,
+            "smallest_nonzero_singular_value_lower": 5.235491829424085e-06
+          },
+          "positive": {
+            "rank": 10,
+            "inverse_defect_upper": 3.387752833102366e-08,
+            "smallest_nonzero_singular_value_lower": 8.46545171484996e-07
+          },
+          "joint": {
+            "rank": 20,
+            "inverse_defect_upper": 9.872537139686874e-08,
+            "smallest_nonzero_singular_value_lower": 4.1082513714671576e-07
+          },
+          "common_dimension": 0
+        },
+        "both_tagged": {
+          "negative": {
+            "rank": 20,
+            "inverse_defect_upper": 1.5215937388917573e-07,
+            "smallest_nonzero_singular_value_lower": 2.6654914390695733e-07
+          },
+          "positive": {
+            "rank": 20,
+            "inverse_defect_upper": 2.6015692323061545e-06,
+            "smallest_nonzero_singular_value_lower": 1.559031046677647e-08
+          },
+          "joint": {
+            "rank": 31,
+            "inverse_defect_upper": 4.118946875721403e-06,
+            "smallest_nonzero_singular_value_lower": 1.3925867494639066e-08
+          },
+          "common_dimension": 9
+        },
+        "opposite_assignments": {
+          "negative": {
+            "rank": 20,
+            "inverse_defect_upper": 2.5138360144737057e-07,
+            "smallest_nonzero_singular_value_lower": 1.613485275409399e-07
+          },
+          "positive": {
+            "rank": 20,
+            "inverse_defect_upper": 1.5947779114301326e-07,
+            "smallest_nonzero_singular_value_lower": 2.543220470742285e-07
+          },
+          "joint": {
+            "rank": 31,
+            "inverse_defect_upper": 4.118999747953859e-06,
+            "smallest_nonzero_singular_value_lower": 1.392586749384465e-08
+          },
+          "common_dimension": 9
+        },
+        "orientations_pooled": {
+          "negative": {
+            "rank": 10,
+            "inverse_defect_upper": 6.197808062762511e-09,
+            "smallest_nonzero_singular_value_lower": 4.6272366274694616e-06
+          },
+          "positive": {
+            "rank": 10,
+            "inverse_defect_upper": 1.1138041485885564e-07,
+            "smallest_nonzero_singular_value_lower": 2.574839770689835e-07
+          },
+          "joint": {
+            "rank": 20,
+            "inverse_defect_upper": 1.663671966444565e-06,
+            "smallest_nonzero_singular_value_lower": 2.4378673567254584e-08
+          },
+          "common_dimension": 0
+        }
+      },
+      "direct_sums": {
+        "vacancy_forward_and_both_reverse": {
+          "rank": 30,
+          "inverse_defect_upper": 4.702370183447761e-06,
+          "smallest_nonzero_singular_value_lower": 1.0563656363304545e-08
+        },
+        "excess_forward_and_both_reverse": {
+          "rank": 30,
+          "inverse_defect_upper": 8.371838714550945e-06,
+          "smallest_nonzero_singular_value_lower": 5.93394124425999e-09
+        }
+      },
+      "common_dimension_all_four_charge_assignments": 0
+    },
+    {
+      "edge": [
+        1,
+        3
+      ],
+      "menus": {
+        "forward": {
+          "negative": {
+            "rank": 10,
+            "inverse_defect_upper": 2.8726301630493525e-06,
+            "smallest_nonzero_singular_value_lower": 9.983175030121311e-09
+          },
+          "positive": {
+            "rank": 10,
+            "inverse_defect_upper": 2.0061277632971127e-06,
+            "smallest_nonzero_singular_value_lower": 1.4295242255943199e-08
+          },
+          "joint": {
+            "rank": 20,
+            "inverse_defect_upper": 9.738545096086148e-06,
+            "smallest_nonzero_singular_value_lower": 4.164533184814964e-09
+          },
+          "common_dimension": 0
+        },
+        "reverse": {
+          "negative": {
+            "rank": 10,
+            "inverse_defect_upper": 2.82608055572384e-06,
+            "smallest_nonzero_singular_value_lower": 1.014767181289092e-08
+          },
+          "positive": {
+            "rank": 10,
+            "inverse_defect_upper": 1.3586689120694248e-06,
+            "smallest_nonzero_singular_value_lower": 2.110745263077523e-08
+          },
+          "joint": {
+            "rank": 20,
+            "inverse_defect_upper": 8.517451562030362e-06,
+            "smallest_nonzero_singular_value_lower": 4.761600950536065e-09
+          },
+          "common_dimension": 0
+        },
+        "both_tagged": {
+          "negative": {
+            "rank": 20,
+            "inverse_defect_upper": 2.157839872667226e-05,
+            "smallest_nonzero_singular_value_lower": 1.8794698579335975e-09
+          },
+          "positive": {
+            "rank": 20,
+            "inverse_defect_upper": 2.5701585067221795e-05,
+            "smallest_nonzero_singular_value_lower": 1.5779488773213523e-09
+          },
+          "joint": {
+            "rank": 31,
+            "inverse_defect_upper": 0.0002073682296293916,
+            "smallest_nonzero_singular_value_lower": 2.76533465256739e-10
+          },
+          "common_dimension": 9
+        },
+        "opposite_assignments": {
+          "negative": {
+            "rank": 20,
+            "inverse_defect_upper": 6.647236733637972e-05,
+            "smallest_nonzero_singular_value_lower": 6.100941211375409e-10
+          },
+          "positive": {
+            "rank": 20,
+            "inverse_defect_upper": 4.618607751810324e-05,
+            "smallest_nonzero_singular_value_lower": 8.780835818010562e-10
+          },
+          "joint": {
+            "rank": 31,
+            "inverse_defect_upper": 0.0002073682877024231,
+            "smallest_nonzero_singular_value_lower": 2.765334652554814e-10
+          },
+          "common_dimension": 9
+        },
+        "orientations_pooled": {
+          "negative": {
+            "rank": 10,
+            "inverse_defect_upper": 1.5339750924650259e-06,
+            "smallest_nonzero_singular_value_lower": 1.8695250674285656e-08
+          },
+          "positive": {
+            "rank": 10,
+            "inverse_defect_upper": 1.8574657226716598e-06,
+            "smallest_nonzero_singular_value_lower": 1.5439314988348223e-08
+          },
+          "joint": {
+            "rank": 20,
+            "inverse_defect_upper": 3.1697531752275674e-05,
+            "smallest_nonzero_singular_value_lower": 1.2794556269989176e-09
+          },
+          "common_dimension": 0
+        }
+      },
+      "direct_sums": {
+        "vacancy_forward_and_both_reverse": {
+          "rank": 30,
+          "inverse_defect_upper": 0.000897581828453204,
+          "smallest_nonzero_singular_value_lower": 5.528995041293758e-11
+        },
+        "excess_forward_and_both_reverse": {
+          "rank": 30,
+          "inverse_defect_upper": 0.0008428764382093413,
+          "smallest_nonzero_singular_value_lower": 5.888155916548011e-11
+        }
+      },
+      "common_dimension_all_four_charge_assignments": 0
+    },
+    {
+      "edge": [
+        2,
+        3
+      ],
+      "menus": {
+        "forward": {
+          "negative": {
+            "rank": 10,
+            "inverse_defect_upper": 7.686302634693006e-09,
+            "smallest_nonzero_singular_value_lower": 3.731229418576089e-06
+          },
+          "positive": {
+            "rank": 10,
+            "inverse_defect_upper": 9.958766289937448e-08,
+            "smallest_nonzero_singular_value_lower": 2.8797656163807376e-07
+          },
+          "joint": {
+            "rank": 20,
+            "inverse_defect_upper": 1.3509376125644601e-06,
+            "smallest_nonzero_singular_value_lower": 3.002309033805087e-08
+          },
+          "common_dimension": 0
+        },
+        "reverse": {
+          "negative": {
+            "rank": 10,
+            "inverse_defect_upper": 9.238361881191497e-09,
+            "smallest_nonzero_singular_value_lower": 3.104734622810341e-06
+          },
+          "positive": {
+            "rank": 10,
+            "inverse_defect_upper": 7.844946203933148e-08,
+            "smallest_nonzero_singular_value_lower": 3.655934180261115e-07
+          },
+          "joint": {
+            "rank": 20,
+            "inverse_defect_upper": 8.277938122356275e-07,
+            "smallest_nonzero_singular_value_lower": 4.89987006835605e-08
+          },
+          "common_dimension": 0
+        },
+        "both_tagged": {
+          "negative": {
+            "rank": 20,
+            "inverse_defect_upper": 4.156890787055109e-07,
+            "smallest_nonzero_singular_value_lower": 9.758006617031088e-08
+          },
+          "positive": {
+            "rank": 20,
+            "inverse_defect_upper": 4.713411928976309e-06,
+            "smallest_nonzero_singular_value_lower": 8.604783945642966e-09
+          },
+          "joint": {
+            "rank": 31,
+            "inverse_defect_upper": 6.133915915692022e-06,
+            "smallest_nonzero_singular_value_lower": 9.352072561849358e-09
+          },
+          "common_dimension": 9
+        },
+        "opposite_assignments": {
+          "negative": {
+            "rank": 20,
+            "inverse_defect_upper": 1.3214684861803458e-06,
+            "smallest_nonzero_singular_value_lower": 3.0693346756378015e-08
+          },
+          "positive": {
+            "rank": 20,
+            "inverse_defect_upper": 2.9259809986560117e-06,
+            "smallest_nonzero_singular_value_lower": 1.3862721371285564e-08
+          },
+          "joint": {
+            "rank": 31,
+            "inverse_defect_upper": 6.134678001390923e-06,
+            "smallest_nonzero_singular_value_lower": 9.352072554764645e-09
+          },
+          "common_dimension": 9
+        },
+        "orientations_pooled": {
+          "negative": {
+            "rank": 10,
+            "inverse_defect_upper": 1.2433230181752813e-08,
+            "smallest_nonzero_singular_value_lower": 2.306608490180644e-06
+          },
+          "positive": {
+            "rank": 10,
+            "inverse_defect_upper": 3.189358830341325e-08,
+            "smallest_nonzero_singular_value_lower": 8.992264584518824e-07
+          },
+          "joint": {
+            "rank": 20,
+            "inverse_defect_upper": 1.9840636259424426e-06,
+            "smallest_nonzero_singular_value_lower": 2.0441391635865995e-08
+          },
+          "common_dimension": 0
+        }
+      },
+      "direct_sums": {
+        "vacancy_forward_and_both_reverse": {
+          "rank": 30,
+          "inverse_defect_upper": 3.965326868730781e-05,
+          "smallest_nonzero_singular_value_lower": 1.252620413878166e-09
+        },
+        "excess_forward_and_both_reverse": {
+          "rank": 30,
+          "inverse_defect_upper": 6.439607226938939e-05,
+          "smallest_nonzero_singular_value_lower": 7.71320820627856e-10
+        }
+      },
+      "common_dimension_all_four_charge_assignments": 0
+    }
+  ]
+}

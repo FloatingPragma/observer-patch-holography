@@ -48,6 +48,27 @@ theorem opposite_flux_lower_bound (evenA evenB geom current ε : ℝ)
   · rw [abs_of_nonpos neg]
     linarith
 
+/-- With equal number currents a common shift of the energy zero cancels
+between the two sources. The opposite ray readings remove the even term
+separately on each source. -/
+theorem matched_number_current_bound (evenA evenB gA gB jA jB nA nB k c ε : ℝ)
+    (matched : nA = nB)
+    (ap : |evenA + 2 * (gA - k * (jA + c * nA))| ≤ ε)
+    (am : |evenA - 2 * (gA - k * (jA + c * nA))| ≤ ε)
+    (bp : |evenB + 2 * (gB - k * (jB + c * nB))| ≤ ε)
+    (bm : |evenB - 2 * (gB - k * (jB + c * nB))| ≤ ε) :
+    |k * (jA - jB)| ≤ ε + |gA - gB| := by
+  subst nB
+  obtain ⟨apLo, apHi⟩ := abs_le.mp ap
+  obtain ⟨amLo, amHi⟩ := abs_le.mp am
+  obtain ⟨bpLo, bpHi⟩ := abs_le.mp bp
+  obtain ⟨bmLo, bmHi⟩ := abs_le.mp bm
+  obtain ⟨gLo, gHi⟩ := abs_le.mp (le_refl |gA - gB|)
+  apply abs_le.mpr
+  constructor
+  · linarith only [gLo, apHi, amLo, bpLo, bmHi]
+  · linarith only [gHi, apLo, amHi, bpHi, bmLo]
+
 /-- For a diagonal homogeneous comparison the all-sky null residual is a
 convex combination of its three axial values. The axes attain its extrema. -/
 theorem diagonal_all_sky (a b c x y z ε : ℝ)

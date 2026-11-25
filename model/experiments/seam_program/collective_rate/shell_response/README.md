@@ -1,0 +1,32 @@
+# Correlation energy at fixed local readings
+
+An eight-port region on a thermal Interval Echo cell can change its modular energy while every one-, two- and three-port density matrix stays fixed at release. One preparation also keeps the entire six-port boundary density fixed. A rotation average gives the same initial response on every rotated region while each of the thirty seam energy readings stays fixed throughout subsequent free evolution. This supplies a test of assigning regional entropy to local seam energy and an instantaneous boundary area. [Native calculation](measure.py) · [Material flight on the same cell](../joint_geometry/README.md)
+
+## Positive preparations and observer records
+
+Use the blank binary cell and the faithful stationary reference \(\sigma=Z^{-1}\exp[-\beta(H-8N)]\). The bond is (0,5), its region \(R\) contains both ports and their six other neighbours, and its shell comprises those six neighbours. On a set \(S\) of four ports let \(P_S\) be the product of their four occupation signs, \(Z=+1\) for empty and \(Z=-1\) for occupied. The four sharp outcomes determine the sign. A tangent \(D=P_S/4096\) has zero partial trace on any set omitting even one marked port. It leaves all ordinary seam energies and every three-port observable fixed. This includes the first variation of every stress component obtained by differentiating a sum of two-port Hamiltonian terms with respect to a background metric at fixed geometry: the derivative of each term acts on the same two ports. Equal-time continuity currents formed from commutators of overlapping terms have support on at most three ports. An effective action for coarse variables may contain more extended operators. The global Gibbs modular slope vanishes since \(H\) and \(N\) are sums of two-port and one-port terms.
+
+The even and odd uniform sharp-word ensembles are \((I\pm P_S)/4096\). Mixing a fraction \(t\) of either into the same \(\sigma\) gives two positive states at every \(0\le t\le1\). Here a fixed marginal means equality between the two arms at the same mixing fraction. Either arm can differ from the thermal reference. One half of their difference per unit \(t\) is \(D\). The thermal reference and preparation service are specified. Tracing out the complement and taking the difference of regional entropy derivatives gives the reported slope \(\operatorname{Tr}D_R(-\log\sigma_R)\) per unit \(D\). Sharp parity can be prepared by drawing uniform words of the required parity. This comparison concerns thermally referenced variations, with one half of the contrast quoted throughout.
+
+| Preparation | Equalities | Leading coefficient of \(\beta^5\) in the regional slope | Slope at \(\beta=1/16\) |
+|---|---|---:|---:|
+| Four ports (0,1,7,10) | Entire shell and every three-port marginal fixed at release | \(22897/3840\) | \(3.72076\,10^{-6}\) |
+| Uniformly rotate these four ports | Same two equalities on every rotated region at release. Every seam's mean energy fixed at all free-flight times | \(22897/19200\) | \(7.58593\,10^{-7}\) |
+| Uniformly draw any four of the twelve ports | Both source states stationary. Every three-port marginal fixed for all times | \(21309491/950400\) | \(8.21019\,10^{-5}\) |
+
+The single set was chosen by scanning parity signs at \(\beta=1/16\). The Taylor coefficients are exact and independent of that floating-point evaluation. For the rotation average, the orbit has thirty different supports. Nine lie inside \(R\), and each contains at least one of the two central ports. No support lies inside the shell. The Hamiltonian and free evolution commute with cell rotations, which act transitively on the seams. Conservation of total energy and total load, together with equal on-site reference coefficients, therefore keeps every seam's mean energy equal in the two freely evolving arms. Multi-time records can distinguish the preparations.
+
+The average over all 495 four-port choices is a function of the total number \(N\) and commutes with the native Hamiltonian. Its shell can change in a four-port correlation. This variation changes the distribution across conserved number sectors. A proposed vacuum restricted to a single number sector would require its own variation test.
+
+## Exact coefficient and interaction control
+
+Write \(L=-2(H-8N)\) on each fixed-number sector. All its entries are integers. The unnormalized regional Gibbs operator is proportional to \(F(\beta)=\operatorname{Tr}_{R^c}\exp(\beta L/2)/16\), with \(F(0)=I\). The scalar normalization disappears against each traceless tangent. The code forms the first five partial traces of \(L^j\) in integer arithmetic and evaluates the noncommuting power series for \(-\log F\) with rational coefficients. The constant through fourth-order terms vanish in all three cases. Finite dimensionality and strict positivity at inverse temperature \(\beta=0\) give real analyticity near zero, so each preparation has a strictly positive modular slope for all sufficiently small positive \(\beta\). The table's values at \(1/16\) come from a separate numerical diagonalization.
+
+Removing the exchange term gives a diagonal interaction on the same sites and seams. Tracing the exterior gives the sum of the internal two-port energy and a function only of the shell in the regional modular operator, up to an additive constant and the chemical-potential term. The first two transfers thus have zero regional slope at every temperature. For the third, shell correlations survive; the changed law gives \(8192/495\) at order five. The analytic derivation and changed-law replay distinguish quantum exchange from classical boundary weighting.
+
+Every geometric observable obtained only from the unchanged instantaneous marginals has zero derivative on the corresponding comparison. This yields a finite stationarity residual for any area coefficient if such an observable is used for area. Inferring geometry from time-dependent records or admitting only particular low-energy variations changes this test. A macroscopic exclusion requires a nonvanishing residual after division by the fourth power of a properly measured radius along an admitted refinement. No radius is assigned to the eight-port set in this measurement.
+
+~~~sh
+OPENBLAS_NUM_THREADS=1 .venv/bin/python -m model.experiments.seam_program.collective_rate.shell_response.measure
+OPENBLAS_NUM_THREADS=1 .venv/bin/python -m pytest -q model/experiments/seam_program/collective_rate/shell_response
+~~~

@@ -1,0 +1,272 @@
+{
+  "endpoints": [
+    0,
+    5
+  ],
+  "launch_by_native_distance": {
+    "0": 0,
+    "1": 1,
+    "2": 2,
+    "3": 13,
+    "14": 156
+  },
+  "waits": [
+    0.0,
+    0.25,
+    0.5,
+    1.0,
+    2.0,
+    4.0,
+    8.0,
+    12.0
+  ],
+  "shots": 1048576,
+  "timer_shots": 67108864,
+  "count_columns": [
+    [
+      2,
+      0
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      2,
+      1
+    ],
+    [
+      1,
+      2
+    ],
+    "other"
+  ],
+  "simultaneous_99_probability_radius": 0.0024853187554792085,
+  "comparison_marginals": 2112,
+  "held_free1_waits": [
+    1.0,
+    2.0,
+    4.0,
+    8.0,
+    12.0
+  ],
+  "short_time_certificates": {
+    "0": {
+      "terminal_excess_port": 1,
+      "probability_power": 4,
+      "leading_probability_coefficient": "1/64"
+    },
+    "1": {
+      "terminal_excess_port": 1,
+      "probability_power": 6,
+      "leading_probability_coefficient": "1/576"
+    },
+    "2": {
+      "terminal_excess_port": 2,
+      "probability_power": 10,
+      "leading_probability_coefficient": "1/230400"
+    },
+    "3": {
+      "terminal_excess_port": 13,
+      "probability_power": 14,
+      "leading_probability_coefficient": "1/416179814400"
+    },
+    "14": {
+      "terminal_excess_port": 156,
+      "probability_power": 58,
+      "leading_probability_coefficient": "1/85956251313554223159396446744402864071487579031096399658745856000000000000"
+    }
+  },
+  "decisions": {
+    "native_plus_blank": {
+      "resolved_waits_exact_binomial": [],
+      "resolved_waits_hoeffding": []
+    },
+    "native_plus_free0": {
+      "resolved_waits_exact_binomial": [
+        0.5,
+        1.0,
+        2.0,
+        4.0,
+        8.0,
+        12.0
+      ],
+      "resolved_waits_hoeffding": []
+    },
+    "native_plus_park0": {
+      "resolved_waits_exact_binomial": [],
+      "resolved_waits_hoeffding": []
+    },
+    "native_plus_free1": {
+      "resolved_waits_exact_binomial": [],
+      "resolved_waits_hoeffding": []
+    },
+    "native_plus_park1": {
+      "resolved_waits_exact_binomial": [],
+      "resolved_waits_hoeffding": []
+    },
+    "native_plus_free2": {
+      "resolved_waits_exact_binomial": [],
+      "resolved_waits_hoeffding": []
+    },
+    "native_plus_park2": {
+      "resolved_waits_exact_binomial": [],
+      "resolved_waits_hoeffding": []
+    },
+    "native_plus_free3": {
+      "resolved_waits_exact_binomial": [],
+      "resolved_waits_hoeffding": []
+    },
+    "native_plus_park3": {
+      "resolved_waits_exact_binomial": [],
+      "resolved_waits_hoeffding": []
+    },
+    "native_plus_free14": {
+      "resolved_waits_exact_binomial": [],
+      "resolved_waits_hoeffding": []
+    },
+    "native_plus_park14": {
+      "resolved_waits_exact_binomial": [],
+      "resolved_waits_hoeffding": []
+    },
+    "native_minus_blank": {
+      "resolved_waits_exact_binomial": [],
+      "resolved_waits_hoeffding": []
+    },
+    "native_minus_free0": {
+      "resolved_waits_exact_binomial": [
+        0.5,
+        1.0,
+        2.0,
+        4.0,
+        8.0,
+        12.0
+      ],
+      "resolved_waits_hoeffding": []
+    },
+    "native_minus_park0": {
+      "resolved_waits_exact_binomial": [],
+      "resolved_waits_hoeffding": []
+    },
+    "native_minus_free1": {
+      "resolved_waits_exact_binomial": [],
+      "resolved_waits_hoeffding": []
+    },
+    "native_minus_park1": {
+      "resolved_waits_exact_binomial": [],
+      "resolved_waits_hoeffding": []
+    },
+    "native_minus_free2": {
+      "resolved_waits_exact_binomial": [],
+      "resolved_waits_hoeffding": []
+    },
+    "native_minus_park2": {
+      "resolved_waits_exact_binomial": [],
+      "resolved_waits_hoeffding": []
+    },
+    "native_minus_free3": {
+      "resolved_waits_exact_binomial": [],
+      "resolved_waits_hoeffding": []
+    },
+    "native_minus_park3": {
+      "resolved_waits_exact_binomial": [],
+      "resolved_waits_hoeffding": []
+    },
+    "native_minus_free14": {
+      "resolved_waits_exact_binomial": [],
+      "resolved_waits_hoeffding": []
+    },
+    "native_minus_park14": {
+      "resolved_waits_exact_binomial": [],
+      "resolved_waits_hoeffding": []
+    },
+    "no_sign_exchange_at_two_plus_blank": {
+      "resolved_waits_exact_binomial": [],
+      "resolved_waits_hoeffding": []
+    },
+    "no_sign_exchange_at_two_plus_free0": {
+      "resolved_waits_exact_binomial": [],
+      "resolved_waits_hoeffding": []
+    },
+    "no_sign_exchange_at_two_plus_park0": {
+      "resolved_waits_exact_binomial": [],
+      "resolved_waits_hoeffding": []
+    },
+    "no_sign_exchange_at_two_plus_free1": {
+      "resolved_waits_exact_binomial": [],
+      "resolved_waits_hoeffding": []
+    },
+    "no_sign_exchange_at_two_plus_park1": {
+      "resolved_waits_exact_binomial": [],
+      "resolved_waits_hoeffding": []
+    },
+    "no_sign_exchange_at_two_plus_free2": {
+      "resolved_waits_exact_binomial": [],
+      "resolved_waits_hoeffding": []
+    },
+    "no_sign_exchange_at_two_plus_park2": {
+      "resolved_waits_exact_binomial": [],
+      "resolved_waits_hoeffding": []
+    },
+    "no_sign_exchange_at_two_plus_free3": {
+      "resolved_waits_exact_binomial": [],
+      "resolved_waits_hoeffding": []
+    },
+    "no_sign_exchange_at_two_plus_park3": {
+      "resolved_waits_exact_binomial": [],
+      "resolved_waits_hoeffding": []
+    },
+    "no_sign_exchange_at_two_plus_free14": {
+      "resolved_waits_exact_binomial": [],
+      "resolved_waits_hoeffding": []
+    },
+    "no_sign_exchange_at_two_plus_park14": {
+      "resolved_waits_exact_binomial": [],
+      "resolved_waits_hoeffding": []
+    },
+    "no_sign_exchange_at_two_minus_blank": {
+      "resolved_waits_exact_binomial": [],
+      "resolved_waits_hoeffding": []
+    },
+    "no_sign_exchange_at_two_minus_free0": {
+      "resolved_waits_exact_binomial": [],
+      "resolved_waits_hoeffding": []
+    },
+    "no_sign_exchange_at_two_minus_park0": {
+      "resolved_waits_exact_binomial": [],
+      "resolved_waits_hoeffding": []
+    },
+    "no_sign_exchange_at_two_minus_free1": {
+      "resolved_waits_exact_binomial": [],
+      "resolved_waits_hoeffding": []
+    },
+    "no_sign_exchange_at_two_minus_park1": {
+      "resolved_waits_exact_binomial": [],
+      "resolved_waits_hoeffding": []
+    },
+    "no_sign_exchange_at_two_minus_free2": {
+      "resolved_waits_exact_binomial": [],
+      "resolved_waits_hoeffding": []
+    },
+    "no_sign_exchange_at_two_minus_park2": {
+      "resolved_waits_exact_binomial": [],
+      "resolved_waits_hoeffding": []
+    },
+    "no_sign_exchange_at_two_minus_free3": {
+      "resolved_waits_exact_binomial": [],
+      "resolved_waits_hoeffding": []
+    },
+    "no_sign_exchange_at_two_minus_park3": {
+      "resolved_waits_exact_binomial": [],
+      "resolved_waits_hoeffding": []
+    },
+    "no_sign_exchange_at_two_minus_free14": {
+      "resolved_waits_exact_binomial": [],
+      "resolved_waits_hoeffding": []
+    },
+    "no_sign_exchange_at_two_minus_park14": {
+      "resolved_waits_exact_binomial": [],
+      "resolved_waits_hoeffding": []
+    }
+  }
+}

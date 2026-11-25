@@ -1,8 +1,9 @@
 """Test a sharp local arbitration service against all orders on a bounded patch."""
 
 import argparse
+from fractions import Fraction
 from functools import cache
-from itertools import combinations, product
+from itertools import combinations, permutations, product
 import json
 from pathlib import Path
 import random
@@ -19,6 +20,19 @@ HERE = Path(__file__).resolve().parent
 
 
 def verify_native_service():
+    # Exact native columns: the marked strict-output projector intertwines
+    # the two ready inputs with their signed writes, including their coherence.
+    columns = native_law._write_pattern()
+    ready = np.array([abs(a - b) == 2 for a, b in native_law.SRC])
+    selected = np.array(
+        [
+            abs(d) == 2 and ab == (1, 1)
+            for _, d in native_law.LABELS
+            for ab in native_law.SRC
+        ]
+    )
+    np.testing.assert_array_equal(columns.T @ columns, 2 * np.eye(9, dtype=int))
+    np.testing.assert_array_equal(selected[:, None] * columns, columns * ready[None, :])
     _, _, write, probes = local_ops()
     identity = np.eye(99)
     for index, (left, right) in enumerate(native_law.SRC):
@@ -233,10 +247,167 @@ def whole_board(level):
     return dict(cells=car.cells, seams=len(car.seams), maximum_guard_cells=max(map(len, neighbourhoods)), runs=rows)
 
 
+def compare_flag_schedules():
+    """Evaluate all fair periodic orders on each sharp joint flag eigenspace."""
+    board = federation(0)
+    ports = induced_path(board)
+    edges = [e for e in board.seams if set(e) <= set(ports)]
+    service = SharpService(ports, edges)
+    touch = [
+        {j for j, other in enumerate(service.edges) if set(edge) & set(other)}
+        for edge in service.edges
+    ]
+    addresses = tuple(range(len(edges)))
+    orders = list(permutations(addresses))
+
+    @cache
+    def uniform_wait(ready):
+        if not ready:
+            return Fraction(0)
+        enabled = [i for i in ready if ready.isdisjoint(service.higher[i])]
+        assert enabled
+        return (
+            len(edges) + sum(uniform_wait(ready - touch[i]) for i in enabled)
+        ) / len(enabled)
+
+    waits = []
+    totals = 0
+    extra_passes = 0
+    double_commits = 0
+    for flags in product(range(3), repeat=len(edges)):
+        ready0 = {i for i, f in enumerate(flags) if f == 2}
+        occupied = {i for i, f in enumerate(flags) if f == 1}
+        waits.append(uniform_wait(frozenset(ready0)))
+        reference = None
+        for order in orders:
+            ready = set(ready0)
+            writes = []
+            passes = 0
+            while ready:
+                before = len(ready)
+                for i in order:
+                    if i in ready and ready.isdisjoint(service.higher[i]):
+                        writes.append(i)
+                        ready.difference_update(touch[i])
+                assert len(ready) < before
+                passes += 1
+            assert len(set(writes)) == len(writes)
+            assert all(j not in touch[i] for i, j in combinations(writes, 2))
+            endpoint = occupied | set(writes)
+            if reference is None:
+                reference = endpoint
+            assert endpoint == reference
+            assert waits[-1] <= len(edges) * len(writes)
+            extra_passes += passes > 1
+            double_commits += len(writes) > 1
+            totals += 1
+    # A registered induced chain with three strictly ordered priorities really
+    # requires a retry for the reverse order. Test both coherent basis columns.
+    chain_ports = (0, 1, 8, 3)
+    chain_edges = [tuple(sorted(pair)) for pair in zip(chain_ports, chain_ports[1:])]
+    assert set(chain_edges) == {e for e in board.seams if set(e) <= set(chain_ports)}
+    chain = SharpService(chain_ports, chain_edges)
+    assert chain.rank == [1, 8, 17]
+    traces = []
+    for loads in ((2, 0, 2, 0), (0, 2, 0, 2)):
+        state, markers = list(loads), [0] * 3
+        commits = []
+        for _ in range(2):
+            step = []
+            for i in (2, 1, 0):
+                if chain.enabled(i, state, markers):
+                    chain.commit(i, state, markers)
+                    step.append(i)
+            commits.append(step)
+        assert commits == [[0], [2]] and state == [1] * 4
+        traces.append(markers)
+    assert traces[0] == [-v for v in traces[1]]
+    return dict(
+        path=ports,
+        flag_patterns=3 ** len(edges),
+        largest_mean_uniform_attempts=str(max(waits)),
+        fair_periodic_orders=len(orders),
+        retry_example=dict(
+            ports=chain_ports,
+            ranks=chain.rank,
+            reverse_order_writes_by_pass=commits,
+            opposite_signed_collars=traces,
+        ),
+        cases=totals,
+        cases_requiring_second_pass=extra_passes,
+        cases_with_multiple_commits=double_commits,
+    )
+
+
+def entangled_flag_read():
+    """Compare arbitrary early flag probes with priority-first service on a native wedge."""
+    from scipy.linalg import expm
+    from .__main__ import DIMENSIONS, act
+    from model.candidate_laws.interval_echo.candidate import KAPPA
+
+    board = federation(0)
+    high = min(board.external)
+    spare = next(x for x in board.neighbours[high[1]] if x // 12 == high[1] // 12)
+    low = tuple(sorted((high[1], spare)))
+    assert priority(high) < priority(low)
+    echo, _, hit, probes = local_ops()
+    h0, h1 = native_law.local_term_parts()
+    half = expm(-0.5j * np.pi * (h0 + KAPPA * h1))
+    rails = [native_law.SRC.index(w) for w in ((2, 0), (0, 2))]
+    read = (half @ echo.T @ hit[:, rails])[rails, :]
+    np.testing.assert_allclose(read.conj().T @ read, np.eye(2), atol=1e-12)
+    signs = np.diag([1, -1])
+    spectator = (read.conj().T @ signs @ read).T
+    np.testing.assert_allclose(np.diag(spectator), 0, atol=1e-12)
+    history = {}
+    for tail in (1, 0):
+        initial = np.zeros((*DIMENSIONS, 2), complex)
+        initial[0, 0, 2, 0, tail, 0] = initial[0, 0, 0, 2, tail, 1] = 1 / np.sqrt(2)
+        outcomes = []
+        for early in (False, True):
+            attempts = [act(initial, op, 1) for _, op in probes] if early else [initial]
+            correlation = total = 0.0
+            for branch in attempts:
+                # When the lower seam is ready the higher seam blocks it.
+                # The high attempt must accept, and its write makes the lower quiet.
+                after = act(branch, hit, 0)
+                quiet = act(after, probes[1][1], 1)
+                np.testing.assert_allclose(quiet, after, atol=1e-12)
+                restored = act(after, half @ echo.T, 0)
+                amplitudes = restored[0, 0, :, :, tail, :]
+                for sign, (a, b) in zip((1, -1), ((2, 0), (0, 2))):
+                    row = amplitudes[a, b]
+                    total += np.vdot(row, row).real
+                    correlation += sign * np.vdot(row, spectator @ row).real
+            np.testing.assert_allclose(total, 1, atol=1e-12)
+            outcomes.append(float(np.round(correlation, 12)))
+        history["one_initial_flag_space" if tail else "different_initial_flags"] = (
+            outcomes
+        )
+    assert history == {
+        "one_initial_flag_space": [1.0, 1.0],
+        "different_initial_flags": [1.0, 0.0],
+    }
+    return dict(
+        higher=list(high),
+        lower=list(low),
+        schedules=["higher_first", "lower_guard_first"],
+        terminal_occupied_seams=[list(high)],
+        joint_rail_correlations=history,
+    )
+
+
 def run():
     verify_native_service()
-    return dict(native_dimension=99, sharp_inputs=9, occupied_collar_basis_states=90,
-                patch=exhaustive_patch(), boards=[whole_board(level) for level in range(3)])
+    return dict(
+        native_dimension=99,
+        sharp_inputs=9,
+        occupied_collar_basis_states=90,
+        patch=exhaustive_patch(),
+        coherent_flags=compare_flag_schedules(),
+        spectator=entangled_flag_read(),
+        boards=[whole_board(level) for level in range(3)],
+    )
 
 
 if __name__ == "__main__":

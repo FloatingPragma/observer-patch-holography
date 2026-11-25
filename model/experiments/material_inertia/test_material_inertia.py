@@ -1,5 +1,6 @@
 """Independent full-space and operator tests for the material instruments and the mass claim."""
 import os
+import platform
 import subprocess
 import sys
 from itertools import combinations
@@ -286,6 +287,10 @@ def test_counter_clock_line_and_receipt_rejections(tmp_path):
                                          ('.challenge',['--stage','test']),('.flight',[])])
 def test_public_optimized_replay(suffix,args):
     env = dict(os.environ,OPENBLAS_NUM_THREADS='1',OMP_NUM_THREADS='1')
+    # The last five-load flight crosses an integer digitizer boundary on
+    # other x86 kernels. Only this exact acquisition pins its BLAS dispatch.
+    if suffix == '.flight' and sys.platform == 'linux' and platform.machine().lower() in ('x86_64', 'amd64'):
+        env['OPENBLAS_CORETYPE'] = 'Core2'
     subprocess.run([sys.executable,'-B','-O','-W','error','-m',
                     'model.experiments.material_inertia'+suffix,*args],cwd=ROOT,env=env,check=True)
 

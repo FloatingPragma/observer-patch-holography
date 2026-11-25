@@ -1,0 +1,43 @@
+{
+  "reference_minimum_eigenvalue_lower": "19999/1000000",
+  "finite_ordinary_or_pairing_likelihood_lower": "399960001/125000000000",
+  "finite_ordinary_or_pairing_likelihood_upper": "1000000/19999",
+  "score": {
+    "ordinary": {
+      "absolute_log_score_upper": 479,
+      "rotation_product_intervals": [
+        [
+          -765,
+          -751
+        ],
+        [
+          -232,
+          -226
+        ],
+        [
+          -600,
+          -588
+        ]
+      ],
+      "rational_matrix_inequalities_checked": 32
+    },
+    "unpair": {
+      "absolute_log_score_upper": 144,
+      "rotation_product_intervals": [
+        [
+          -229,
+          -221
+        ],
+        [
+          -70,
+          -66
+        ],
+        [
+          -180,
+          -173
+        ]
+      ],
+      "rational_matrix_inequalities_checked": 32
+    }
+  }
+}

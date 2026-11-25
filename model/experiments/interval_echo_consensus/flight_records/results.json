@@ -1,0 +1,117 @@
+{
+  "boards": [
+    {
+      "cells": 20,
+      "ports": 240,
+      "binary_words": 28680,
+      "singles": 164,
+      "pairs": 38,
+      "min_singleton_witnesses": 2,
+      "max_singleton_witnesses": 10,
+      "double_effect_dimensions": [
+        316,
+        20,
+        1
+      ]
+    },
+    {
+      "cells": 80,
+      "ports": 960,
+      "binary_words": 460320,
+      "singles": 720,
+      "pairs": 120,
+      "min_singleton_witnesses": 8,
+      "max_singleton_witnesses": 10,
+      "double_effect_dimensions": [
+        1200,
+        80,
+        1
+      ]
+    },
+    {
+      "cells": 320,
+      "ports": 3840,
+      "binary_words": 7370880,
+      "singles": 2880,
+      "pairs": 480,
+      "min_singleton_witnesses": 8,
+      "max_singleton_witnesses": 10,
+      "double_effect_dimensions": [
+        4800,
+        320,
+        1
+      ]
+    }
+  ],
+  "observer": {
+    "seam": [
+      1,
+      82
+    ],
+    "singleton": 0,
+    "shots_per_phase": 262144,
+    "flight_exposure": "1/4",
+    "outcomes": [
+      "origin_x_analyzer",
+      "origin_y_analyzer",
+      "other_winner"
+    ],
+    "input_phase_order": [
+      "+",
+      "-"
+    ],
+    "flight_first": {
+      "probabilities": [
+        [
+          0.352314772069,
+          0.124851662832,
+          0.522833565098
+        ],
+        [
+          0.232613896891,
+          0.230108042752,
+          0.537278060357
+        ]
+      ],
+      "counts": [
+        [
+          92442,
+          32806,
+          136896
+        ],
+        [
+          61106,
+          60227,
+          140811
+        ]
+      ]
+    },
+    "exchange_off": {
+      "probabilities": [
+        [
+          0.25,
+          0.25,
+          0.5
+        ],
+        [
+          0.25,
+          0.25,
+          0.5
+        ]
+      ],
+      "counts": [
+        [
+          65391,
+          65466,
+          131287
+        ],
+        [
+          65450,
+          65368,
+          131326
+        ]
+      ]
+    },
+    "sweep_first_phase_difference_exact": 0
+  }
+}

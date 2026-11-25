@@ -3,10 +3,10 @@ from __future__ import annotations
 
 import re
 import shlex
+import sys
 from collections import Counter
 from pathlib import Path
 
-import pytest
 import yaml
 
 from tools import ci_lanes
@@ -24,7 +24,7 @@ def test_lane_names_are_unique_and_classified():
     assert not [name for name, count in names.items() if count > 1]
     for lane in ci_lanes.LANES:
         assert lane.tier == "push"
-        assert lane.profile in {"root", "model"}
+        assert lane.profile in {"root", "model", "einstein"}
         assert lane.commands and lane.minutes > 0
 
 
@@ -53,3 +53,47 @@ def test_every_referenced_repository_path_exists():
                     if not (ROOT / path).exists():
                         missing.append((lane.name, path))
     assert not missing
+
+
+def test_einstein_jobs_own_every_matched_test_once_on_model_pins():
+    job = _job("einstein")
+    suites = job["strategy"]["matrix"]["suite"]
+    commands = [step.get("run", "") for step in job["steps"]]
+    assert "python -m pip install -r model/requirements.txt" in commands
+    assert "python tools/ci_lanes.py run --lane einstein_${{ matrix.suite }}" in commands
+    assert "einstein" in _job("ci-ok")["needs"]
+    assert job["strategy"]["fail-fast"] is False
+    lanes = ci_lanes.select("push", "einstein")
+    assert {lane.name for lane in lanes} == {f"einstein_{name}" for name in suites}
+    assert len(lanes) == len(suites)
+    root = Path("code/matched_einstein_limit")
+    existing = {p.relative_to(ROOT) for p in (ROOT / root).rglob("test_*.py")}
+    # Previously unseen directories must also be selected, including one at the
+    # repository package root and one under a carved-out expensive subpackage.
+    future = {root / "future" / "test_future.py",
+              root / "source_implication/directional_stress/regional_modular/future/test_future.py",
+              root / "source_implication/directional_stress/regional_modular/station_memories/test_future.py"}
+    owners = {p: [] for p in existing | future}
+    for lane in lanes:
+        assert lane.env == {**ci_lanes.CODE, **ci_lanes.BLAS1}
+        (command,) = lane.commands
+        tokens = shlex.split(command)
+        assert tokens[:6] == ["python", "-m", "pytest", "-q", "-W", "error"]
+        paths = [Path(t) for t in tokens[6:] if not t.startswith("--ignore=")]
+        excluded = [Path(t.removeprefix("--ignore=")) for t in tokens[6:] if t.startswith("--ignore=")]
+        for test in owners:
+            hierarchy = {test, *test.parents}
+            if hierarchy.intersection(paths) and not hierarchy.intersection(excluded):
+                owners[test].append(lane.name)
+    assert all(len(names) == 1 for names in owners.values()), owners
+    assert set(n for names in owners.values() for n in names) == {lane.name for lane in lanes}
+    assert not any("code/matched_einstein_limit" in command for lane in ci_lanes.LANES
+                   if lane.profile != "einstein" for command in lane.commands)
+
+
+def test_original_einstein_lane_replays_every_suite(monkeypatch, capsys):
+    monkeypatch.setattr(sys, "argv", ["ci_lanes.py", "list", "--lane", "matched_einstein_limit"])
+    ci_lanes.main()
+    listing = capsys.readouterr().out
+    for lane in ci_lanes.select("push", "einstein"):
+        assert listing.count(lane.name) == 1

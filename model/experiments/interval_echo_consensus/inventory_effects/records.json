@@ -1,0 +1,1449 @@
+{
+  "ports": [
+    0,
+    5,
+    11,
+    1,
+    4,
+    2
+  ],
+  "data_words": [
+    [
+      0,
+      1,
+      2
+    ],
+    [
+      0,
+      2,
+      1
+    ],
+    [
+      2,
+      0,
+      1
+    ],
+    [
+      2,
+      1,
+      0
+    ],
+    [
+      1,
+      2,
+      0
+    ],
+    [
+      1,
+      0,
+      2
+    ]
+  ],
+  "readout": "word 0..5 plus all other outputs; split uses word-major coin 000..111",
+  "coin_seams": [
+    [
+      12,
+      13
+    ],
+    [
+      24,
+      25
+    ],
+    [
+      36,
+      37
+    ]
+  ],
+  "pulses": {
+    "fine": 248,
+    "union": 140,
+    "single": 140,
+    "split": 27
+  },
+  "shots": {
+    "zero": 1818624,
+    "one": 1114112,
+    "plus_x": 1048576,
+    "plus_y": 1048576,
+    "minus_y": 1048576
+  },
+  "seed": 113031207,
+  "law": {
+    "8.0": {
+      "source_reads": {
+        "zero": [
+          1818624,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "one": [
+          0,
+          1114112,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "plus_x": [
+          525042,
+          523534,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "plus_y": [
+          524318,
+          524258,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "minus_y": [
+          524273,
+          524303,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "banks": {
+        "fine": {
+          "zero": [
+            424295,
+            30452,
+            424737,
+            30266,
+            848107,
+            60767,
+            0
+          ],
+          "one": [
+            18787,
+            259550,
+            18621,
+            260150,
+            37408,
+            519596,
+            0
+          ],
+          "plus_x": [
+            130662,
+            131038,
+            130404,
+            131277,
+            262275,
+            262920,
+            0
+          ],
+          "plus_y": [
+            196887,
+            196122,
+            196526,
+            197373,
+            130828,
+            130840,
+            0
+          ],
+          "minus_y": [
+            65530,
+            65411,
+            65858,
+            65388,
+            392980,
+            393409,
+            0
+          ]
+        },
+        "union": {
+          "zero": [
+            522902,
+            386822,
+            587904,
+            320996,
+            0,
+            0,
+            0
+          ],
+          "one": [
+            19487,
+            537692,
+            467641,
+            89292,
+            0,
+            0,
+            0
+          ],
+          "plus_x": [
+            159367,
+            364222,
+            390685,
+            134302,
+            0,
+            0,
+            0
+          ],
+          "plus_y": [
+            86069,
+            700153,
+            3376,
+            258978,
+            0,
+            0,
+            0
+          ],
+          "minus_y": [
+            233697,
+            28601,
+            776201,
+            10077,
+            0,
+            0,
+            0
+          ]
+        },
+        "single": {
+          "zero": [
+            180124,
+            274961,
+            205040,
+            1158499,
+            0,
+            0,
+            0
+          ],
+          "one": [
+            35749,
+            242404,
+            792480,
+            43479,
+            0,
+            0,
+            0
+          ],
+          "plus_x": [
+            68483,
+            193411,
+            432196,
+            354486,
+            0,
+            0,
+            0
+          ],
+          "plus_y": [
+            9561,
+            383812,
+            135370,
+            519833,
+            0,
+            0,
+            0
+          ],
+          "minus_y": [
+            127427,
+            3218,
+            728902,
+            189029,
+            0,
+            0,
+            0
+          ]
+        },
+        "split": {
+          "zero": [
+            113448,
+            113611,
+            113755,
+            113691,
+            113447,
+            113792,
+            113472,
+            113478,
+            113485,
+            113871,
+            113620,
+            114241,
+            113278,
+            113670,
+            113651,
+            114114,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "one": [
+            70110,
+            69850,
+            69625,
+            69460,
+            69346,
+            69547,
+            69355,
+            69294,
+            69795,
+            69890,
+            69666,
+            69551,
+            69473,
+            69510,
+            69817,
+            69823,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "plus_x": [
+            65975,
+            65987,
+            65221,
+            65709,
+            65336,
+            65341,
+            65508,
+            65704,
+            65623,
+            64997,
+            65865,
+            65744,
+            65596,
+            65585,
+            65262,
+            65123,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "plus_y": [
+            130901,
+            131386,
+            131073,
+            129852,
+            130771,
+            131204,
+            131699,
+            131690,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "minus_y": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            131294,
+            131177,
+            131426,
+            131019,
+            131315,
+            131051,
+            130979,
+            130315,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "readback": {
+        "maximum_cross_context_disagreement_upper_99": 0.00298767,
+        "cubic_minimum_disagreement": 0.00390625,
+        "grouped_fixture": {
+          "fine": [
+            733084,
+            733774,
+            1465878,
+            0
+          ],
+          "union": [
+            1466903,
+            1465833,
+            0,
+            0
+          ],
+          "single": [
+            733238,
+            2199498,
+            0,
+            0
+          ],
+          "split": [
+            733679,
+            733044,
+            1466013,
+            0
+          ]
+        },
+        "historical_single_against_cubic": {
+          "delta": -0.029278462,
+          "joint_radius": 0.001402453,
+          "distinguished": true
+        },
+        "historical_union_against_cubic": {
+          "delta": -0.046692576,
+          "joint_radius": 0.001402453,
+          "distinguished": true
+        },
+        "comparisons": {
+          "zero": {
+            "first_half": {
+              "delta": -0.000185855,
+              "joint_radius": 0.003561913,
+              "distinguished": false
+            },
+            "second_half": {
+              "delta": -4.5089e-05,
+              "joint_radius": 0.003561913,
+              "distinguished": false
+            },
+            "union": {
+              "delta": 1.4297e-05,
+              "joint_radius": 0.003561913,
+              "distinguished": false
+            },
+            "independent_coin_union": {
+              "delta": -0.000343117,
+              "joint_radius": 0.003561913,
+              "distinguished": false
+            },
+            "independent_coin_half": {
+              "delta": -0.000432195,
+              "joint_radius": 0.003561913,
+              "distinguished": false
+            }
+          },
+          "one": {
+            "first_half": {
+              "delta": 0.000165154,
+              "joint_radius": 0.004550827,
+              "distinguished": false
+            },
+            "second_half": {
+              "delta": 0.000554702,
+              "joint_radius": 0.004550827,
+              "distinguished": false
+            },
+            "union": {
+              "delta": -6.3728e-05,
+              "joint_radius": 0.004550827,
+              "distinguished": false
+            },
+            "independent_coin_union": {
+              "delta": 0.000398524,
+              "joint_radius": 0.004550827,
+              "distinguished": false
+            },
+            "independent_coin_half": {
+              "delta": 0.001101326,
+              "joint_radius": 0.004550827,
+              "distinguished": false
+            }
+          },
+          "plus_x": {
+            "first_half": {
+              "delta": -0.000185013,
+              "joint_radius": 0.004690885,
+              "distinguished": false
+            },
+            "second_half": {
+              "delta": -0.000203133,
+              "joint_radius": 0.004690885,
+              "distinguished": false
+            },
+            "union": {
+              "delta": -0.000198364,
+              "joint_radius": 0.004690885,
+              "distinguished": false
+            },
+            "independent_coin_union": {
+              "delta": 0.000572205,
+              "joint_radius": 0.004690885,
+              "distinguished": false
+            },
+            "independent_coin_half": {
+              "delta": 0.000869751,
+              "joint_radius": 0.004690885,
+              "distinguished": false
+            }
+          },
+          "plus_y": {
+            "first_half": {
+              "delta": -0.000347137,
+              "joint_radius": 0.004690885,
+              "distinguished": false
+            },
+            "second_half": {
+              "delta": 0.000501633,
+              "joint_radius": 0.004690885,
+              "distinguished": false
+            },
+            "union": {
+              "delta": 0.000654221,
+              "joint_radius": 0.004690885,
+              "distinguished": false
+            },
+            "independent_coin_union": {
+              "delta": -0.000987053,
+              "joint_radius": 0.004690885,
+              "distinguished": false
+            },
+            "independent_coin_half": {
+              "delta": -1.2398e-05,
+              "joint_radius": 0.004690885,
+              "distinguished": false
+            }
+          },
+          "minus_y": {
+            "first_half": {
+              "delta": 0.000282288,
+              "joint_radius": 0.004690885,
+              "distinguished": false
+            },
+            "second_half": {
+              "delta": 0.000573158,
+              "joint_radius": 0.004690885,
+              "distinguished": false
+            },
+            "union": {
+              "delta": -0.000105858,
+              "joint_radius": 0.004690885,
+              "distinguished": false
+            },
+            "independent_coin_union": {
+              "delta": 0.000164986,
+              "joint_radius": 0.004690885,
+              "distinguished": false
+            },
+            "independent_coin_half": {
+              "delta": 0.000618935,
+              "joint_radius": 0.004690885,
+              "distinguished": false
+            }
+          },
+          "fixture": {
+            "first_half": {
+              "delta": -5.2511e-05,
+              "joint_radius": 0.002804905,
+              "distinguished": false
+            },
+            "second_half": {
+              "delta": 0.000182764,
+              "joint_radius": 0.002804905,
+              "distinguished": false
+            },
+            "union": {
+              "delta": -1.5344e-05,
+              "joint_radius": 0.002804905,
+              "distinguished": false
+            },
+            "independent_coin_union": {
+              "delta": -6.1376e-05,
+              "joint_radius": 0.002804905,
+              "distinguished": false
+            },
+            "independent_coin_half": {
+              "delta": 0.000150372,
+              "joint_radius": 0.002804905,
+              "distinguished": false
+            }
+          }
+        }
+      }
+    },
+    "0": {
+      "source_reads": {
+        "zero": [
+          1818624,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "one": [
+          0,
+          1114112,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "plus_x": [
+          230628,
+          488200,
+          0,
+          0,
+          0,
+          0,
+          329748
+        ],
+        "plus_y": [
+          412460,
+          503461,
+          0,
+          0,
+          0,
+          0,
+          132655
+        ],
+        "minus_y": [
+          236252,
+          465167,
+          0,
+          0,
+          0,
+          0,
+          347157
+        ]
+      },
+      "banks": {
+        "fine": {
+          "zero": [
+            16786,
+            595214,
+            3789,
+            173388,
+            47379,
+            34075,
+            947993
+          ],
+          "one": [
+            228911,
+            31877,
+            42240,
+            40213,
+            35520,
+            24038,
+            711313
+          ],
+          "plus_x": [
+            107241,
+            81774,
+            4344,
+            42702,
+            3586,
+            38251,
+            770678
+          ],
+          "plus_y": [
+            139611,
+            106484,
+            13800,
+            84326,
+            544,
+            24882,
+            678929
+          ],
+          "minus_y": [
+            113813,
+            82042,
+            6771,
+            44350,
+            2687,
+            36934,
+            761979
+          ]
+        },
+        "union": {
+          "zero": [
+            102440,
+            60681,
+            8428,
+            21236,
+            101623,
+            69995,
+            1454221
+          ],
+          "one": [
+            16743,
+            31164,
+            7671,
+            24754,
+            17842,
+            22444,
+            993494
+          ],
+          "plus_x": [
+            13516,
+            50696,
+            6365,
+            30512,
+            20492,
+            34645,
+            892350
+          ],
+          "plus_y": [
+            6787,
+            63800,
+            8051,
+            31448,
+            42839,
+            37678,
+            857973
+          ],
+          "minus_y": [
+            13787,
+            52146,
+            5101,
+            26007,
+            23221,
+            37473,
+            890841
+          ]
+        },
+        "single": {
+          "zero": [
+            61740,
+            120672,
+            52399,
+            19540,
+            192105,
+            6588,
+            1365580
+          ],
+          "one": [
+            88100,
+            15659,
+            22229,
+            15877,
+            47590,
+            27842,
+            896815
+          ],
+          "plus_x": [
+            128796,
+            1090,
+            43646,
+            29568,
+            41461,
+            15105,
+            788910
+          ],
+          "plus_y": [
+            120733,
+            14598,
+            51023,
+            23925,
+            92173,
+            9628,
+            736496
+          ],
+          "minus_y": [
+            130941,
+            3414,
+            40405,
+            23754,
+            49156,
+            13703,
+            787203
+          ]
+        },
+        "split": {
+          "zero": [
+            50921,
+            51431,
+            51209,
+            51397,
+            51320,
+            50939,
+            51359,
+            51115,
+            101147,
+            101301,
+            100806,
+            101200,
+            100355,
+            100747,
+            101148,
+            100336,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            75172,
+            74964,
+            75409,
+            75131,
+            75085,
+            75026,
+            75636,
+            75470
+          ],
+          "one": [
+            50160,
+            50309,
+            50026,
+            49846,
+            49836,
+            50171,
+            50131,
+            49805,
+            70914,
+            71577,
+            71582,
+            71027,
+            71262,
+            72141,
+            71317,
+            71591,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            17853,
+            17933,
+            17822,
+            17829,
+            17854,
+            17759,
+            17595,
+            17772
+          ],
+          "plus_x": [
+            72416,
+            72822,
+            72487,
+            72568,
+            73126,
+            72761,
+            72971,
+            72894,
+            40229,
+            40302,
+            40239,
+            39974,
+            39954,
+            40352,
+            40083,
+            40013,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            18101,
+            18123,
+            18237,
+            18251,
+            18263,
+            18315,
+            18228,
+            17867
+          ],
+          "plus_y": [
+            39615,
+            39611,
+            40161,
+            40035,
+            39860,
+            39735,
+            40167,
+            39413,
+            77642,
+            77384,
+            78112,
+            77559,
+            77542,
+            77930,
+            78257,
+            78118,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            13349,
+            13390,
+            13481,
+            13405,
+            13414,
+            13422,
+            13380,
+            13594
+          ],
+          "minus_y": [
+            75658,
+            75044,
+            75416,
+            74904,
+            75582,
+            75710,
+            74995,
+            75336,
+            39664,
+            39056,
+            39636,
+            39532,
+            39611,
+            39243,
+            39861,
+            39460,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            16387,
+            16115,
+            16182,
+            16217,
+            16340,
+            16239,
+            16213,
+            16175
+          ]
+        }
+      },
+      "readback": {
+        "maximum_cross_context_disagreement_upper_99": 0.316979112,
+        "cubic_minimum_disagreement": 0.00390625,
+        "grouped_fixture": {
+          "fine": [
+            872788,
+            259630,
+            141012,
+            1659306
+          ],
+          "union": [
+            211028,
+            62089,
+            211904,
+            2447715
+          ],
+          "single": [
+            286171,
+            110045,
+            274125,
+            2262395
+          ],
+          "split": [
+            476117,
+            476387,
+            1235922,
+            744310
+          ]
+        },
+        "historical_single_against_cubic": {
+          "delta": -0.181718709,
+          "joint_radius": 0.001402453,
+          "distinguished": true
+        },
+        "historical_union_against_cubic": {
+          "delta": -0.474918984,
+          "joint_radius": 0.001402453,
+          "distinguished": true
+        },
+        "comparisons": {
+          "zero": {
+            "first_half": {
+              "delta": 0.236215952,
+              "joint_radius": 0.003561913,
+              "distinguished": true
+            },
+            "second_half": {
+              "delta": -0.00287855,
+              "joint_radius": 0.003561913,
+              "distinguished": false
+            },
+            "union": {
+              "delta": 0.344247079,
+              "joint_radius": 0.003561913,
+              "distinguished": true
+            },
+            "independent_coin_union": {
+              "delta": 0.190552858,
+              "joint_radius": 0.003561913,
+              "distinguished": true
+            },
+            "independent_coin_half": {
+              "delta": 0.039753132,
+              "joint_radius": 0.003561913,
+              "distinguished": true
+            }
+          },
+          "one": {
+            "first_half": {
+              "delta": 0.140945435,
+              "joint_radius": 0.004550827,
+              "distinguished": true
+            },
+            "second_half": {
+              "delta": -0.019123751,
+              "joint_radius": 0.004550827,
+              "distinguished": true
+            },
+            "union": {
+              "delta": 0.265084659,
+              "joint_radius": 0.004550827,
+              "distinguished": true
+            },
+            "independent_coin_union": {
+              "delta": 0.354481417,
+              "joint_radius": 0.004550827,
+              "distinguished": true
+            },
+            "independent_coin_half": {
+              "delta": 0.105599796,
+              "joint_radius": 0.004550827,
+              "distinguished": true
+            }
+          },
+          "plus_x": {
+            "first_half": {
+              "delta": 0.056389809,
+              "joint_radius": 0.004690885,
+              "distinguished": true
+            },
+            "second_half": {
+              "delta": -0.07900238,
+              "joint_radius": 0.004690885,
+              "distinguished": true
+            },
+            "union": {
+              "delta": 0.163887978,
+              "joint_radius": 0.004690885,
+              "distinguished": true
+            },
+            "independent_coin_union": {
+              "delta": 0.431536674,
+              "joint_radius": 0.004690885,
+              "distinguished": true
+            },
+            "independent_coin_half": {
+              "delta": 0.122135162,
+              "joint_radius": 0.004690885,
+              "distinguished": true
+            }
+          },
+          "plus_y": {
+            "first_half": {
+              "delta": 0.105632782,
+              "joint_radius": 0.004690885,
+              "distinguished": true
+            },
+            "second_half": {
+              "delta": -0.035481453,
+              "joint_radius": 0.004690885,
+              "distinguished": true
+            },
+            "union": {
+              "delta": 0.260957718,
+              "joint_radius": 0.004690885,
+              "distinguished": true
+            },
+            "independent_coin_union": {
+              "delta": 0.30847168,
+              "joint_radius": 0.004690885,
+              "distinguished": true
+            },
+            "independent_coin_half": {
+              "delta": 0.058839798,
+              "joint_radius": 0.004690885,
+              "distinguished": true
+            }
+          },
+          "minus_y": {
+            "first_half": {
+              "delta": 0.05865097,
+              "joint_radius": 0.004690885,
+              "distinguished": true
+            },
+            "second_half": {
+              "delta": -0.079378128,
+              "joint_radius": 0.004690885,
+              "distinguished": true
+            },
+            "union": {
+              "delta": 0.172656059,
+              "joint_radius": 0.004690885,
+              "distinguished": true
+            },
+            "independent_coin_union": {
+              "delta": 0.443554878,
+              "joint_radius": 0.004690885,
+              "distinguished": true
+            },
+            "independent_coin_half": {
+              "delta": 0.125338554,
+              "joint_radius": 0.004690885,
+              "distinguished": true
+            }
+          },
+          "fixture": {
+            "first_half": {
+              "delta": 0.2000238,
+              "joint_radius": 0.002804905,
+              "distinguished": true
+            },
+            "second_half": {
+              "delta": -0.009049911,
+              "joint_radius": 0.002804905,
+              "distinguished": true
+            },
+            "union": {
+              "delta": 0.314174205,
+              "joint_radius": 0.002804905,
+              "distinguished": true
+            },
+            "independent_coin_union": {
+              "delta": 0.252827394,
+              "joint_radius": 0.002804905,
+              "distinguished": true
+            },
+            "independent_coin_half": {
+              "delta": 0.064767507,
+              "joint_radius": 0.002804905,
+              "distinguished": true
+            }
+          }
+        }
+      }
+    }
+  }
+}

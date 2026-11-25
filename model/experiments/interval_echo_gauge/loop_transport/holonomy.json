@@ -1,0 +1,356 @@
+{
+  "native_coupling": 8,
+  "protected_swap_dwell": "pi",
+  "boards": {
+    "cell": {
+      "ports": 12,
+      "triangle": [
+        0,
+        1,
+        5
+      ],
+      "ear_count": 9,
+      "ear_new_vertex_counts": {
+        "1": 9
+      },
+      "ear_certificate_sha256": "3c2f8080787af677fcfd6dee2c84c75771012d9b4a3202edae7874906d257e5e",
+      "permutation_degree": 11,
+      "invariant_dimensions": [
+        1,
+        10
+      ],
+      "bright_port": 1,
+      "bright_rotations": 10
+    },
+    "20": {
+      "ports": 240,
+      "triangle": [
+        0,
+        1,
+        5
+      ],
+      "ear_count": 177,
+      "ear_new_vertex_counts": {
+        "1": 158,
+        "2": 10,
+        "3": 1,
+        "4": 1,
+        "5": 1,
+        "6": 1,
+        "7": 2,
+        "8": 1,
+        "9": 1,
+        "10": 1
+      },
+      "ear_certificate_sha256": "70fa327b9e06bd01d30417a14ab3b7eb145494685772be361edf724577215696",
+      "permutation_degree": 239,
+      "invariant_dimensions": [
+        1,
+        238
+      ],
+      "bright_port": 2,
+      "bright_rotations": 238,
+      "transport": {
+        "root": 3,
+        "owners": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "cycle": [
+          3,
+          2,
+          4,
+          5,
+          0,
+          7,
+          10,
+          20,
+          13,
+          12,
+          17,
+          16,
+          14,
+          24,
+          25,
+          29,
+          28,
+          26,
+          27,
+          32,
+          46,
+          36,
+          37,
+          50,
+          51,
+          52,
+          53,
+          48,
+          3
+        ],
+        "cycle_power": -8,
+        "contact_pulses": 224,
+        "source_triple": [
+          2,
+          4,
+          5
+        ],
+        "receiving_triple": [
+          12,
+          17,
+          16
+        ],
+        "wedge_roots": [
+          11,
+          23
+        ],
+        "approaches": [
+          [
+            3,
+            6,
+            10,
+            11
+          ],
+          [
+            3,
+            2,
+            10,
+            20,
+            15,
+            14,
+            23
+          ]
+        ]
+      }
+    },
+    "80": {
+      "ports": 960,
+      "triangle": [
+        0,
+        1,
+        5
+      ],
+      "ear_count": 692,
+      "ear_new_vertex_counts": {
+        "1": 610,
+        "2": 42,
+        "3": 6,
+        "4": 4,
+        "5": 5,
+        "6": 7,
+        "7": 7,
+        "8": 3,
+        "9": 1,
+        "10": 2,
+        "11": 4,
+        "16": 1
+      },
+      "ear_certificate_sha256": "f99785d86bcd6ca0967b28d7147fac4b79fb25cf077df587ccdc27b40063f7cc",
+      "permutation_degree": 959,
+      "invariant_dimensions": [
+        1,
+        958
+      ],
+      "bright_port": 2,
+      "bright_rotations": 958,
+      "transport": {
+        "root": 3,
+        "owners": [
+          0,
+          3,
+          1,
+          18,
+          19,
+          16
+        ],
+        "cycle": [
+          3,
+          2,
+          4,
+          5,
+          0,
+          1,
+          38,
+          39,
+          40,
+          41,
+          36,
+          37,
+          44,
+          22,
+          12,
+          13,
+          17,
+          16,
+          14,
+          15,
+          216,
+          217,
+          221,
+          220,
+          218,
+          229,
+          228,
+          233,
+          232,
+          230,
+          234,
+          238,
+          200,
+          193,
+          192,
+          3
+        ],
+        "cycle_power": -6,
+        "contact_pulses": 210,
+        "source_triple": [
+          2,
+          4,
+          5
+        ],
+        "receiving_triple": [
+          39,
+          40,
+          41
+        ],
+        "wedge_roots": [
+          11,
+          45
+        ],
+        "approaches": [
+          [
+            3,
+            6,
+            10,
+            11
+          ],
+          [
+            3,
+            8,
+            1,
+            38,
+            42,
+            44,
+            45
+          ]
+        ]
+      }
+    },
+    "320": {
+      "ports": 3840,
+      "triangle": [
+        0,
+        1,
+        5
+      ],
+      "ear_count": 2784,
+      "ear_new_vertex_counts": {
+        "1": 2470,
+        "2": 161,
+        "3": 8,
+        "4": 11,
+        "5": 18,
+        "6": 50,
+        "7": 23,
+        "8": 10,
+        "9": 8,
+        "10": 9,
+        "11": 11,
+        "12": 4,
+        "15": 1
+      },
+      "ear_certificate_sha256": "eb4a1ae5294c80a21829e6ae813048ce12f9c906f86b9e27ef7f47d0e234d5d3",
+      "permutation_degree": 3839,
+      "invariant_dimensions": [
+        1,
+        3838
+      ],
+      "bright_port": 2,
+      "bright_rotations": 3838,
+      "transport": {
+        "root": 3,
+        "owners": [
+          0,
+          3,
+          1,
+          66,
+          67,
+          64
+        ],
+        "cycle": [
+          3,
+          2,
+          4,
+          5,
+          0,
+          1,
+          38,
+          39,
+          40,
+          41,
+          36,
+          37,
+          44,
+          22,
+          12,
+          13,
+          17,
+          16,
+          14,
+          15,
+          792,
+          793,
+          797,
+          796,
+          794,
+          805,
+          804,
+          809,
+          808,
+          806,
+          810,
+          814,
+          776,
+          769,
+          768,
+          3
+        ],
+        "cycle_power": -6,
+        "contact_pulses": 210,
+        "source_triple": [
+          2,
+          4,
+          5
+        ],
+        "receiving_triple": [
+          39,
+          40,
+          41
+        ],
+        "wedge_roots": [
+          11,
+          45
+        ],
+        "approaches": [
+          [
+            3,
+            6,
+            10,
+            11
+          ],
+          [
+            3,
+            8,
+            1,
+            38,
+            42,
+            44,
+            45
+          ]
+        ]
+      }
+    }
+  }
+}

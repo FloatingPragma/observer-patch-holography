@@ -1,0 +1,52 @@
+{
+  "board_ports": 960,
+  "root": 3,
+  "source": [
+    2,
+    4,
+    5
+  ],
+  "receiver": [
+    39,
+    40,
+    41
+  ],
+  "exchanges": 210,
+  "shots": 262144,
+  "seed": 511307,
+  "loop_orders": [
+    {
+      "probability": 0.9330127018922157,
+      "counts": [
+        244476,
+        17668
+      ]
+    },
+    {
+      "probability": 0.06698729810778041,
+      "counts": [
+        17555,
+        244589
+      ]
+    }
+  ],
+  "doublet_entanglement_fidelity": 1.0,
+  "dephased_doublet_entanglement_fidelity": 0.3333333333333334,
+  "bright_probability": 0.3749999999999998,
+  "transported_bright_probability": 0.37499999999999967,
+  "ternary_probabilities": [
+    0.35937499999999983,
+    0.43750000000000017,
+    0.20312500000000006
+  ],
+  "ternary_counts": [
+    94245,
+    114811,
+    53088
+  ],
+  "direct_coarse_probability": 0.796875,
+  "direct_coarse_counts": [
+    209060,
+    53084
+  ]
+}

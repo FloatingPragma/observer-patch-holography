@@ -1,0 +1,94 @@
+{
+  "orders": [
+    0,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "sector_order": [
+    "even",
+    "odd"
+  ],
+  "sectors": {
+    "-1": [
+      {
+        "minor_mod_1009": 756,
+        "nominal_norm_lower_for_cross_minus_zero_plus": [
+          13604221079813.89,
+          13487680621731.188,
+          13371140163648.482
+        ]
+      },
+      {
+        "minor_mod_1009": 886,
+        "nominal_norm_lower_for_cross_minus_zero_plus": [
+          219158697760469.88,
+          217325449181821.97,
+          215492200603174.06
+        ]
+      }
+    ],
+    "1": [
+      {
+        "minor_mod_1009": 637,
+        "nominal_norm_lower_for_cross_minus_zero_plus": [
+          9383620981334.725,
+          14710361365093.238,
+          20037101748851.754
+        ]
+      },
+      {
+        "minor_mod_1009": 254,
+        "nominal_norm_lower_for_cross_minus_zero_plus": [
+          2010873448373255.2,
+          1921240985110807.2,
+          1831608521848359.5
+        ]
+      }
+    ]
+  },
+  "receiving_cell": 3,
+  "unique_two_hop_path": [
+    5,
+    1,
+    38
+  ],
+  "cross_target": "Re K",
+  "ordinary_calibrated_control": {
+    "calibration_link": [
+      0,
+      39
+    ],
+    "order": 3,
+    "length_per_ordinary_energy": 0.2202177380468976,
+    "nominal_reference_and_ordinary_and_unpairing_changes": [
+      -7.806255641895632e-18,
+      -4.0115480381963664e-18,
+      -0.008997980450513997
+    ],
+    "exact_source_unpairing_current_change_enclosure": [
+      -0.009052,
+      -0.00894
+    ]
+  },
+  "true_raw_real_pairing_nats": "[0.231056049585519897190856591218357, 0.231109626454260144227736055654176]",
+  "nominal_initial_current_rate": 0.027714949661152666,
+  "nominal_raw_pairing_current_rate": -0.05777070950497255,
+  "nominal_fixed_volume_pairing_current_rate": -0.15431881909711231
+}

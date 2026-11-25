@@ -1,0 +1,59 @@
+{
+  "uniform_design_entry_error_upper": 1.562800000148634e-15,
+  "invisible": {
+    "6": {
+      "right_inverse_defect_upper": 4.142504726734583e-09,
+      "witness_HS_upper": 40.07523284748483,
+      "normalized_energy_lower": 0.024953067741508114,
+      "correction_HS_upper": 1.3948482445971496e-07
+    },
+    "2+4": {
+      "right_inverse_defect_upper": 0.00011269862632886309,
+      "witness_HS_upper": 796.9313914974698,
+      "normalized_energy_lower": 0.001254813162926052,
+      "correction_HS_upper": 0.09687035016983667
+    },
+    "2+6": {
+      "right_inverse_defect_upper": 0.00010235784983403254,
+      "witness_HS_upper": 1712.1650501035697,
+      "normalized_energy_lower": 0.000584055842010973,
+      "correction_HS_upper": 0.15020839476957082
+    },
+    "4+6": {
+      "right_inverse_defect_upper": 3.859467648124984e-06,
+      "witness_HS_upper": 4315.856175254169,
+      "normalized_energy_lower": 0.00023170373603589975,
+      "correction_HS_upper": 0.016283724669556562
+    }
+  },
+  "complete": {
+    "range_rows": 36,
+    "coordinates": 31,
+    "left_inverse_defect_upper": 0.0003297099017058094,
+    "reconstruction_inf_norm_upper": 6806099338.723915,
+    "energy_dual_one_norm_upper": 175938.9349215581
+  },
+  "parked_terms": {
+    "local_column_order": [
+      "blank",
+      "even0",
+      "even1",
+      "odd0",
+      "odd1"
+    ],
+    "exchange": [
+      0,
+      0,
+      0,
+      1,
+      1
+    ],
+    "contrast": [
+      0,
+      1,
+      1,
+      1,
+      1
+    ]
+  }
+}

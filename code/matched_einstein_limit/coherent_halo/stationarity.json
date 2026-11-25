@@ -1,0 +1,62 @@
+{
+  "energy_per_mobile": 48.0,
+  "ordinary_entropy_limit": 252.66187266788756,
+  "gain": 0.06454239135511737,
+  "switch_scale": 743.6972661254551,
+  "panels": [
+    {
+      "points_per_radius": 4,
+      "radius": 0.0001220703125,
+      "spacing": 3.0517578125e-05,
+      "normalized_kernel": 7.375379628154373,
+      "maximum_switch_bound": 0.4456317649373137,
+      "normalized_entropy_derivative": 354.0182221513876,
+      "normalized_area_derivative": 0.0
+    },
+    {
+      "points_per_radius": 8,
+      "radius": 6.103515625e-05,
+      "spacing": 7.62939453125e-06,
+      "normalized_kernel": 6.402452313437697,
+      "maximum_switch_bound": 0.18048086479961206,
+      "normalized_entropy_derivative": 307.3177110450084,
+      "normalized_area_derivative": 0.0
+    },
+    {
+      "points_per_radius": 16,
+      "radius": 3.0517578125e-05,
+      "spacing": 1.9073486328125e-06,
+      "normalized_kernel": 5.858380486959412,
+      "maximum_switch_bound": 0.08049223754180229,
+      "normalized_entropy_derivative": 281.2022633740517,
+      "normalized_area_derivative": 0.0
+    },
+    {
+      "points_per_radius": 32,
+      "radius": 1.52587890625e-05,
+      "spacing": 4.76837158203125e-07,
+      "normalized_kernel": 5.565463934357828,
+      "maximum_switch_bound": 0.037913515001307393,
+      "normalized_entropy_derivative": 267.1422688491757,
+      "normalized_area_derivative": 0.0
+    },
+    {
+      "points_per_radius": 64,
+      "radius": 7.62939453125e-06,
+      "spacing": 1.1920928955078125e-07,
+      "normalized_kernel": 5.418352295436146,
+      "maximum_switch_bound": 0.018386662176368657,
+      "normalized_entropy_derivative": 260.080910180935,
+      "normalized_area_derivative": 0.0
+    },
+    {
+      "points_per_radius": 128,
+      "radius": 3.814697265625e-06,
+      "spacing": 2.9802322387695312e-08,
+      "normalized_kernel": 5.339530370266579,
+      "maximum_switch_bound": 0.009052439209377244,
+      "normalized_entropy_derivative": 256.2974577727958,
+      "normalized_area_derivative": 0.0
+    }
+  ]
+}

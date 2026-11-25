@@ -190,6 +190,9 @@ finies donnent :
 - **Accord et registres stables.** Sous des conditions explicites de
   terminaison et de cohérence, les réparations locales atteignent un même
   résultat public quel que soit leur ordre.
+  Dans une simulation Interval Echo à 240 ports, deux ordres opposés ont
+  chacun produit 74 réparations et atteint le même déséquilibre minimal.
+  Les adresses des écritures peuvent différer. [Comptages des observateurs](model/experiments/interval_echo_consensus/routed_counts/).
   [Article sur le consensus](paper/reality_as_consensus_protocol.pdf).
 - **Les règles de la mesure quantique.** Les registres achevés obéissent à la
   règle de Born, à la mesure répétable et à la borne de Tsirelson sur les

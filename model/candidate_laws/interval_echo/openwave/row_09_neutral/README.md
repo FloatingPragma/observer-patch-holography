@@ -1,0 +1,46 @@
+# Which neutral product leaves a pair of disappearing walls?
+
+**OW-09 is officially untested for M10.** Its criterion calls for light, charge-zero states released in decays. In the registered Interval Echo simulation, disappearance of two opposing walls sends energy to two attached receivers. The lowest excitation measured in an attached receiver costs 31.80076 exchange units. An independent contact calibration gives 65.00001 units for the two walls. A much softer frequency appears when an observer disconnects a wing while keeping its local dimer constraints. The ordered source with no initial walls populates this soft line more often than the wall source. Freeing all six receiver ports gives a gap of 32.49358 units. These experiments leave the neutrino assignment open. [OpenWave criterion and M10 decision](https://github.com/openwave-labs/openwave/blob/0df73dc6be3bde9f0b8ced6044effc79f0d92bd6/MODELS.md#simplest-test-per-criterion) · [Frozen protocol](PROTOCOL.md)
+
+## An energy and charge measurement on the same wing
+
+Four source dimers form a ring. A wall is a mismatch between neighboring dimer orientations. Two three-dimer wings start in ground states conditioned on their initial attachments. The source and wings evolve together to exposure 32. The observer reads the ring and keeps either of its two ordered phases. The wing energy instrument then selects its first excited level, followed by a reading of all six port loads. The archived counts include every other ring word, each phase's rejected energies, each accepted six-port word, and a separate joint spectrum on the two wings. Every acquisition starts with 1,073,741,824 simulated launches. [Source and controls](../row_08_annihilation/daughter_modes/README.md) · [Complete acquisition](measure.py) · [Records](records.json)
+
+Each row below uses the same free source flight, followed by a different receiver operation. The two right-hand columns use fresh count-calibrated timing filters on the left wing. Percentages are conditional on observing an ordered source. The wall source satisfies that condition in about 3.08% of starts, the ordered sham in about 99.95%.
+
+| Receiver after the source read | Gap in exchange units | Wall line among ordered sources | Sham line among ordered sources |
+|---|---:|---:|---:|
+| Attached, dimer constraints retained | 31.800755639 | 26.90%–26.97% | 0.000080%–0.000108% |
+| Detached, dimer constraints retained | 0.000945849 | 21.97%–22.05% | 49.98%–50.01% |
+| Detached, all dimer constraints released | 32.493576577 | 0.000319%–0.000677% | 0.000000097%–0.0000030% |
+
+In the ideal energy read, the soft left line occurs on 7,275,056 original wall starts and 536,561,354 original sham starts. Disconnecting both source links **before flight** also produces the line on about half the admitted sham and wall starts. Observations of the soft frequency alone would therefore give a false signature of decay production. The protocols use a soft-line threshold of one tenth of the source energy as a laboratory benchmark. An independent energy sum over all source terms at launch measured 64.99956 units of excess. [Source calorimetry](../row_08_annihilation/energy_budget.json)
+
+The switches do measurable work. Independent two-wing energy cohorts on ordered wall launches give left-wing mean energies of 193.926 while attached, 179.668 after detaching, and 179.666 after additionally lifting the dimer constraints. The calculation of the immediate mean work per left wing gives −14.25689 upon detaching and the same total upon releasing the guards. Charge labels can separate under the subsequent unconstrained energy measurement. The guarded wing always has exactly two material units per dimer by preparation and support.
+
+With the guards released, the outer two-port charge relative to the unit host can be −2, 0, or +2. Following the first excited energy read, 150 native wall starts gave the left tag, all with outer charge zero. The simultaneous 99% upper bound on a separated charge in this small conditional sample is 8.49%. The zero-contrast flight and release control returns 351,882 negative, 181,241 zero, and 353,056 positive among its left tags. Both signs together give a separated charge in 79.34%–79.75% of admitted records. A near-zero signed *average* would miss this difference. All six ports taken together carry exactly zero excess by inventory, including in the control. The quantity measured here is signed material load. Physical electric neutrality needs its own coupling to an independently calibrated electric detector. [Data and signed-load decoder](measure.py)
+
+## Why the soft frequency is so small
+
+Keeping the dimer constraints and removing the end attachment gives an open transverse-field Ising chain. The native hopping and diagonal contact imply h = 1/2 and J = 16.25. On n dimers its normal excitation costs are twice the singular values of the bidiagonal matrix C with h on the diagonal and J above it. The vector with components (−h/J) raised to powers from zero to n−1 cancels all but the last row of C. Its norm is at least one, giving the bound
+
+$$\Delta_{\rm lowest} \le 2h(h/J)^{n-1}.$$
+
+The next singular value of C is at least J−h by comparison with the shift of strength J. All other single-mode energies are therefore at least 31.5, uniformly in length. The free guarded gaps at one, two and three dimers are 1, 0.03074016 and 0.000945849. On the three-dimer wing the signed-load transition matrix element between the doublet states exceeds 0.9995 at **every** port. Opposite ordered orientations and their tunneling splitting account for this collective line. The line's sensitivity to the open boundary, its length scaling, and its large sham population distinguish it from evidence for a newly emitted light bulk particle. [Independent singular-value and finite-chain checks](test_release.py)
+
+Without the dimer constraints, the same six ports have twenty rearrangements of three doubles and three vacancies. Both wings have native port degrees 6,6,5,5,5,5. The Hamiltonian is the positive exchange term plus 32 times the number of unlike adjacent pairs and private sites carrying a double. Enumerating these twenty words gives diagonal *contrast* energies 64, 96, 128, 160, 192 and 224 with multiplicities 1, 1, 5, 5, 6 and 2. The min–max principle and positivity of exchange place the first excitation eigenvalue at least at 96 in these common energy units. The sole minimum word (2,2,2,0,0,0) has diagonal expectation 64.5. Subtracting its variational upper bound for the ground energy proves a **gap of at least 31.5** for the complete released six-port sector, independent of the source or the energy filter. The Lean kernel checks the inventory size, the potential histogram, the unique word below 96, and its doubled trial energy of 129. The min–max step uses exchange positivity as explained above. The bound addresses excitations above this receiver's ground. Distinct excited levels can lie close together. [Finite energy certificate](../../../../../Lean/Screen/ReleasedWingEnergy.lean)
+
+## Independent clocks and reproduction
+
+The clock calibration prepares a coherent superposition of the lowest two distinct receiver energies. Two quadratures at 28 dyadic hold times determine the relative phase, starting with a bandwidth of 256 exchange units. Count-only unwrapping gives a simultaneous 99% gap interval of [0.000945849018, 0.000945849414] on the detached constrained receiver. Feeding its midpoint to a fresh Fourier filter uses the ground energy as a coherent reference. A 256-unit filter would admit the ground with probability 0.99512 on this soft line. A filter lasting about 2.10 million exchange units lowers that probability to 0.000000672 on the nominal line and reproduces the table on independently generated wall and sham counts. The coherent timing reference and independent spectral preparations are supplied instruments. A sample interval concerns its simulated detector law; the count sampler rounds individual probabilities to fourteen decimal places. Clock intervals and terminal-count intervals each have at least 99% simultaneous coverage within their respective families. [Clock experiment](clock_check.py) · [Calibrations and held terminal words](clocks.json)
+
+A separate regression constructs the released Hamiltonian on all 64 binary port words before restricting to the twenty-word inventory. It reconstructs the ten-dimer flight from contact mismatches and native flips, evolves it by spectral decomposition, and applies the finite timing filter by 28 stages of directly squared unitaries. These checks share the source preparation and physical port layout with the main experiment. [Checks](test_release.py)
+
+From the repository root with NumPy, SciPy and pytest installed:
+
+```sh
+export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1
+.venv/bin/python -B -W error -m model.candidate_laws.interval_echo.openwave.row_09_neutral.measure
+.venv/bin/python -B -W error -m model.candidate_laws.interval_echo.openwave.row_09_neutral.clock_check
+.venv/bin/python -B -W error -m pytest -q model/candidate_laws/interval_echo/openwave/row_09_neutral
+```

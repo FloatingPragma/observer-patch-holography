@@ -793,6 +793,37 @@ weight on every displayed axis while remaining non-affine away from them. The
 projector webs alone therefore underdetermine the weight, and one finite
 unsharp battery does not force a global valuation.
 
+\paragraph{A complete loop-invariant effect algebra on a native finite sector.}
+In the blank-memory protected Interval Echo material with a rooted vacancy
+and one mobile excess, closed vacancy routes generate the full permutation
+group of the \(m\) possible excess positions. Its commutant has basis
+\(P_u\) and \(I-P_u\), with \(u\) the uniform amplitude. Every invariant
+effect has coefficients \(0\le\alpha,\beta\le1\) on the two projectors.
+The predicted weight for an input density operator \(\rho\) is
+\(\alpha p+\beta(1-p)\), \(p=\operatorname{Tr}(\rho P_u)\).
+Conversely every normalized positive, compatibly additive valuation on
+these effects has this form. Positivity makes the weights on each axis
+monotone, and rational additivity fixes their real extension.
+
+The punctured port graph is connected. Fold \(u\) into one address along a
+spanning tree using \(m-1\) two-port rotations. A parent and child carrying
+folded masses \(a,b\) use cosine \(\sqrt{a/(a+b)}\) and sine
+\(\sqrt{b/(a+b)}\). The protected blank contacts and addressed degree
+phases implement those rotations. Read the sharp address and retain
+whether it is the designated port. Conditional on that address the measured
+carrier can be routed to a known position, and a partial exchange followed
+by a sharp read implements any desired binary probability. Two such draws
+per branch realize any compatible triple of scalar effects in the same
+instrument. In the 959-position fiber \(p=3/8\) was unchanged by a
+cross-owner route of 210 pulses. An exhaustive ternary run gave
+\((94{,}245,114{,}811,53{,}088)\) in 262,144 simulated starts, against
+probabilities \((23,28,13)/64\). An independent direct union gave
+209,060 clicks against probability \(51/64\). These effect identities use
+the model's quantum pointer rule, real-valued protected times and terminal
+outcome feedback. Their reach is the full invariant algebra of this
+specific sector. The experiment is recorded in
+\path{model/experiments/interval_echo_gauge/loop_transport/HOLONOMY.md}.
+
 The real \(S_3\) algebraic web attached to source-realized gauge labels is
 blind to the Pauli-\(Y\) direction: two distinct complex states give equal
 weights on every declared projector candidate. The missing algebraic
@@ -852,6 +883,115 @@ effect to be zero supplies an implementation of every effect. Exact realization
 of every effect needs uncountably many settings. Finite-sum coarse graining
 derives additivity under these conditions; the countable-domain result below
 reduces the required mathematical domain.
+
+\paragraph{Coexistent effects on an encoded one-load cell.}
+In a twelve-port Interval Echo cell, use four ports for the input,
+one load, blank contacts and the complete terminal address read.
+For arbitrary complex effects \(E,F\) with \(E+F\le I_4\), stack
+\(\sqrt E,\sqrt F,\sqrt{I-E-F}\) to obtain a twelve-by-four isometry.
+Its three disjoint four-port outputs have these effects, including
+all singular cases. Adjacent row elimination along a path through the
+twelve ports compiles the isometry into at most 38 partial
+exchanges and single-port phases. An addressed blank seam acts by
+\(8.5I-X/2\) on its two one-load positions. The degree-five reference
+supplies the required phases. These ideal controls admit prescribed
+real pulse durations.
+
+Two selected output blocks with equal effect have equal column Gram
+matrices. An isometry identifies their occupied spans. The
+complementary blocks also have equal Gram matrices. Rotations inside
+the separate blocks, empty outcomes and exact address swaps therefore
+connect the two readings on the encoded input. A rotation inside
+one block preserves the other block's sharp probabilities. Since
+one address must click, it preserves both block probabilities.
+These are consequences of the committed local quantum operations
+and position readout. This supplies the common-implementation and
+effect-equivalence premises throughout the encoded complex effect
+space. It does not derive the microscopic readout semantics.
+Two noncommuting effects on a coherent four-rail preparation
+give joint frequencies 0.35104 and 0.22593. A separately compiled
+binary measurement reads their sum as 0.57565 against 0.57619
+predicted. Each circuit uses 262,144 simulated terminal readings.
+
+\paragraph{Simultaneous signed instruments and the remaining mixture weight.}
+A single vacancy and a single excess on a unit-filled cell give two
+twelve-position sectors. The same protected blank contact on \(i,j\) has
+block \(H_{ij}=8.5(E_i+E_j)-X_{ij}/2\) in each sector, where \(E_i\)
+selects position \(i\) and \(X_{ij}\) exchanges the two position
+amplitudes. The same degree reference on \(i\) has
+\(D_i=8I+q_sE_i\), with \(q_-=-8,\ q_+=24\). The second and fourth
+commutators of \(D_i\) with \(2H_{ij}\) have respective coefficients
+\(-q_s^2,-q_s^4\) on \(X_{ij}\). Their coefficient determinant is
+\(18{,}874{,}368\), so linear combinations isolate either signed exchange.
+Further brackets on the connected cell give each
+\(\mathfrak{su}(12)\) independently. The traces of \(H_{ij}\) and \(D_i\)
+span both central directions. All primitive gates have positive-time
+inverses by periodicity. Products of conjugated one-parameter controls
+spanning the Lie algebra cover an open neighborhood of identity, hence the
+reachable connected group is \(U(12)\times U(12)\). Extending the two
+three-block isometries separately now implements every compatible pair on
+\(M_4\oplus M_4\) by one common pulse sequence with no input-sign feedback.
+
+There is a direct characterization of the within-sign probability. Suppose
+one sharp address certainly clicks on a sharp input and exactly one clicks
+on every preparation. Require ray invariance, covariance under relabelling,
+and that a unitary confined to the other positions preserves the spared
+position's read probability. Those other positions form a connected
+controllable graph. Their unitary transitivity gives a common probability
+\(f(|\psi_i|^2)\) at position \(i\). Three positions with squared magnitudes
+\(x,y,1-x-y\), compared to \(x+y,0,1-x-y\), imply
+\(f(x)+f(y)=f(x+y)\). Positivity and rational bounds give \(f(x)=x\).
+This derivation uses operational spectator invariance; native simulations
+verify it under the committed pointer law. A publicly counted fraction
+\(t\) of vacancy starts fixes the central mixture weight by counting.
+Without its calibration one could instead assign
+\(w(t)=t^2/(t^2+(1-t)^2)\), preserving every conditional law and all
+within-preparation event sums. On the common contact--reference--contact
+sequence of durations \(\pi/2,\pi/12,3\pi/2\), transfer probabilities are
+\(3/4,0\). Of 65,536 vacancy and 196,608 excess simulated starts, 49,299
+and zero transferred. The tagged weight predicts \(3/16\) combined; the
+uncalibrated alternative gives \(3/40\).
+
+\paragraph{Which fine observer reproduces the coarse material algebra?}
+A parent has four actual child cells. For local address \(a\) and sign \(s\)
+the protected isometry \(V|a,s\rangle=\sum_{c=0}^3|c,a,s\rangle/2\)
+intertwines the entire coarse signed address algebra with
+\(\iota(A)=I_4\otimes A\). Each parent encoding uses 36 native half
+exchanges, 36 addressed phases and 354--402 routing swaps. Both signs and
+all columns were checked in every parent of the \(20\to80\to320\) tower.
+Products of replicated gates and output operators preserve this identity
+for arbitrary untouched references.
+
+Fix the complete measured coarse marginal \(\rho\). Applying four
+equiprobable native child phase words to the coherent lift, then discarding
+their labels, produces \(M(\rho)=I_4/4\otimes\rho\). For every fine
+competitor \(\sigma\) with that marginal and any supplied faithful \(\tau\),
+\[
+ D(\sigma\Vert I_4/4\otimes\tau)
+ =D(\rho\Vert\tau)+D(\sigma\Vert M(\rho)).
+\]
+The unique minimizing lift therefore commutes with further coarse
+restriction. The coherent lift agrees on every coarse record and has
+\(\log4\) fewer nats. If its child coherence fraction is \(\lambda\), the
+child eigenvalues are \((1+3\lambda)/4\) and \((1-\lambda)/4\) three times.
+At \(\lambda=1/2\) the entropy derivative is \(-3\log5/4\) while the whole
+coarse state stays fixed.
+
+Free flight tests a distinct requirement. Six fine bonds, all of strength
+\(-1/2\), leave each parent through distinct ports. For any independent
+unitary address chart in each child, summing the outgoing squared norms
+over the twelve lifted parent inputs gives \(6/16=3/8\). At most two
+children of each receiving parent are touched. By Cauchy--Schwarz an
+equal-four-child code retains at most half the squared norm of a vector
+supported on two children. For some unit input in each parent,
+\(\|(I-VV^*)H_sV\psi\|\ge1/8\) in native time, for either sign; here
+\(VV^*\) projects on the full fine sphere's lifted parent space.
+No coarse generator can cancel this transverse derivative. The protected
+observer identification and its conditional entropy optimizer concern the
+specified address map, reference and control schedule. Autonomous
+refinement, geometry, and gravity stationarity need independent inputs.
+Programs and complete records are in
+\path{model/experiments/interval_echo_consensus/signed_effects/}.
 
 \paragraph{Countable effect domains.}
 Let $\mathcal E_{\mathbb Q}$ consist of all Hermitian effects with entries in
@@ -2320,6 +2460,52 @@ total implementation work or a laboratory Hamiltonian, and $b$ is a declared
 replica count. This concrete finite theorem instance supplies no universal
 physical calibration or continuum third law.
 
+The same source has a growing family of observed prefixes. Stop at the
+first zero or after $m\ge2$ half-contact reads. The conditional fair law
+holds from either sharp rail after each read. Each length-$k$ terminal
+word therefore has probability $2^{-k}$ and measured cost $k\log 2$.
+There is one word at each length $1,\ldots,m-1$ and two at length $m$.
+Truncation maps compose, preserve the ground record $0$ and cannot
+increase cost. The observation depths have no maximal member. Each
+successive stage adds one distinguishable complete history, and stage
+two is the calibrated three-state register above.
+
+\begin{proposition}[Uniform cooling of observed prefixes]
+Write $r=2^{-\beta}$ for $\beta\ge1$. The off-ground mass at every depth
+is at most $2r/(1+2r)$, with equality at depth two. The stored entropy
+obeys $S_m\le\log(1+2r)+2\beta\log(2)\,r/(1-r)^2$.
+\end{proposition}
+\begin{proof}
+After dividing by the ground weight, the excited weight is
+$R_m=\sum_{j=1}^{m-2}r^j+2r^{m-1}$. Its successive difference
+$(2r-1)r^{m-1}$ is nonpositive, and the excited probability is
+$R_m/(1+R_m)$. At cost increment $j\log2$ there are at most two
+words, so the mean increment in units of $\log2$ is at most
+$2\sum_{j\ge1}jr^j=2r/(1-r)^2$. The Gibbs entropy formula gives
+the result. Both bounds tend to zero uniformly in $m$.
+\end{proof}
+At every positive integer $\beta=b$, agreement of $b$ fresh prefixes
+samples this same Gibbs law on acceptance. Since their common ground
+record alone has weight $2^{-b}$, the expected attempts per accepted
+record are at most $2b\,2^b$ at every depth. This regulator orders
+finite observation histories in attempt-cost units.
+
+The native blank one-double flight gives a separate test for the
+whole-sector ground projection. Its generator on a connected federation
+is $24\kappa I+L/2$ for the port-graph Laplacian $L$. Each degree is at
+most six, so there is one constant ground mode, and every other shifted
+energy is at most six. On $N$ ports at fixed $\beta\ge0$ its canonical
+ground weight is at most $[1+(N-1)e^{-6\beta}]^{-1}$. Thus on any such
+growing connected family the ground weight tends to zero at fixed
+$\beta$, although it tends to one on every fixed finite member as
+$\beta\to\infty$. For the same full-sector Gibbs state,
+$S\ge-\log p_0\ge\log[1+(N-1)e^{-6\beta}]$ since $p_0$ is its
+largest eigenvalue. These estimates concern total entropy and global
+ground-state occupation. For the 20- and 80-cell native spectra at $\beta=1$, direct
+diagonalization gives $0.0263107$ and $0.00657814$, respectively.
+The complete prefix tapes and the three deposited flight generators
+are checked in the accompanying executable~\cite{ophrepo}.
+
 The refinement-uniform gap family is the module
 \texttt{CofinalSpectralTailFamily}. It carries per-stage finite spaces and
 energies, refine maps obeying identity, composition, energy and
@@ -2346,9 +2532,34 @@ regulator-family conclusion refers to the same supplied cofinal family. A
 separately supplied calibrated-stage energy identification yields exact
 off-minimum-mass equality and the same envelope at that member; the
 calibration is not derived. Strict carrier-cardinality growth is one
-sufficient genuine-refinement route, not a necessary one. No OPH source
-produces this family or identifies its regulator, energy, inverse
-temperature, repair or continuum meaning.
+sufficient genuine-refinement route. The stopped-prefix construction
+satisfies the stated cofinal and spectral conditions on public history
+depths. A macroscopic physical regulator and its energy--temperature
+calibration require a separate identification.
+
+An operational example uses two material marks on the descendants of
+one face of the sphere. At each four-child subdivision a fair selector
+allows the second mark to copy the first child address when the parent
+addresses agree, or to take a fresh address. After separation both
+addresses are fresh. The reference $U_L$ uses two fresh addresses at
+every level. For the event $E_j$ of agreement through depth $j$, the
+source has $P_L(E_j)=(5/8)^j$.
+The ratio $P_L/U_L$ is constant on each first-separation stratum.
+For every competitor $Q$ satisfying these observed constraints,
+\[
+ D(Q\|U_L)=D(P_L\|U_L)+D(Q\|P_L).
+\]
+Hence the optimizer is unique. Discarding the last digits gives
+the coarse optimizer exactly. Every coarse feasible table lifts by
+appending the same conditional child kernel, which preserves every
+older constraint and realizes the finer one. The proof holds at
+each finite depth of this address construction. Native emitters
+and terminal readers implement the first two subdivisions on the
+80- and 320-cell boards. A changed selector preserves the constraints
+and raises the depth-two relative entropy by $0.117282$ nats.
+These measurements concern marked addresses. A relation to the
+proper-volume and energy records of the gravitational source requires
+its own source map.
 
 Premise A3 applies separately to states and to transition distributions,
 and both instantiations are solved exactly. On the state side, with
@@ -2663,14 +2874,14 @@ uniform low-temperature spectral-tail control on a genuinely cofinal family
 for a continuum third law. The committed cofinal interface provides the
 ambient order, cofinal embedding, no-terminal-stage theorem, strict carrier
 growth, and same-family concentration theorem, while supplying no source or
-physical continuum interpretation. Thus a source-produced family inhabiting
-that interface and its physical regulator attachment are unsupplied. The finite
+physical continuum interpretation. The finite
 gap-plus-cardinality theorem is one sufficient route rather than a
 necessary condition. The binary population branch meets the common-reference
 clause with an exact conditional-resampling identification on its restricted
-sector at constant energy, and the observer-memory register meets them on its
-three-state carrier in internal record-cost units; neither supplies the
-physical energy, clock or cofinal family. Every
+sector at constant energy. The observer-memory register supplies it at
+depth two and supplies a cofinal cooling family in internal record-cost
+units. Physical energy, clock and spatial regulator attachment are separate
+inputs. Every
 proof in the package is short and elementary once the framework
 supplies its two inputs, the repair fibre as the transition feasible
 set and the reference shared with the state optimizer. The four-law

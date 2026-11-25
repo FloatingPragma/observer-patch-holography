@@ -1,0 +1,244 @@
+\paragraph{A regional modular first law on the measured bridge.}
+Use the volume-matched stationary heads of the uniformly repeated
+80-cell radar survey. At four exchange ticks retain only the two mobile
+load registers on the blank bridge $(1,38)$, tracing out all other loads
+and both head memories. The ten tagged launches have equal weight.
+Fixed total mobile number makes the exact regional state
+\[
+ \rho_R=(1-d)\oplus\tfrac12(dI+xX+yY+zZ).
+\]
+Here $d$ is bridge occupation, $z$ is the end-to-end imbalance,
+$x,y$ are the two port interference quadratures, and $X,Y,Z$ act on
+the occupied sector. The separately calibrated longitudinal strain
+work and oriented load current are $W=(17D-X)/2$ and $j=Y/2$, with
+$D$ the projector onto that sector. All three regional eigenvalues
+are strictly positive at the stationary source for each probe charge.
+Writing $u=(x^2+y^2+z^2)^{1/2}$ and $\lambda_\pm=(d\pm u)/2$, the
+regional logarithm, shifted to vanish on the outside outcome, is
+\[
+ K_R=A D+B(xX+yY+zZ),\qquad
+ A=\log(1-d)-\tfrac12\log(\lambda_+\lambda_-),\quad
+ B=-\frac{\log(\lambda_+/\lambda_-)}{2u}.
+\]
+The first law thus fixes the signed coefficient of $\delta\langle W\rangle$
+at fixed $d,y,z$ to $-2Bx$. Independent local readouts enclose it in
+$[0.67421,0.67593]$ for a vacancy and $[0.98443,0.98601]$ for an
+excess, in nats per native work unit. This calibration uses the
+reference regional state and the bridge action.
+
+The twelve pooled radar means, two complete marked forces and four
+regional Pauli/occupation means per charge form an affine map of rank
+22 on the 30 head coordinates at fixed parity weights. A certified
+right inverse with defect below $9.74\times10^{-8}$ gives one
+native source control that holds all twelve ranges, both marked
+forces and each probe's $d,y,z$ exactly fixed, while both work means
+increase by precisely $1/16788$ per unit displacement. At displacement
+$0.01$ the finite regional entropy gains exceed
+$4.0153\times10^{-7}$ and $5.8625\times10^{-7}$ nats respectively.
+The reconstructed tetrahedral area and volume remain constant on the
+whole chord. There is also one literal untagged regional measurement.
+Draw the probe charge by fair coin and discard the tag. On the
+unit-filled hardware the outside word is the common $|1,1\rangle$.
+Vacancy inside occupies $\{|0,1\rangle,|1,0\rangle\}$ and excess
+inside occupies the orthogonal $\{|2,1\rangle,|1,2\rangle\}$.
+Writing $M_q$ for each occupied two-by-two block, the one regional
+state is $(1-\bar d)\oplus M_-/2\oplus M_+/2$, with
+$\bar d=(d_-+d_+)/2$. The difference between its entropy and the mean
+of the two conditional entropies depends only on $d_-,d_+$. Both are
+fixed exactly along the control. Thus the full five-mode entropy of
+this single untagged preparation rises at a rate in
+$[4.94001,4.94977]\times10^{-5}$ nats per unit control, and its finite
+gain from $s=0$ to $s=+0.01$ lies in
+$[4.93893,4.94977]\times10^{-7}$ nats. A separate untagged simulation
+compares $s=-0.01$ to $s=+0.01$ using $2^{59}$ trials per setting
+at the nominal source centers. Its simultaneous 99\% intervals
+for this symmetric two-arm contrast are $[7.2800,12.4679]\times10^{-7}$
+nats and $[1.14088,1.23683]\times10^{-6}$ native work units.
+
+The regional first law also has an exact boundary rate.
+In $\dot S_R=\langle i[H,K_R]\rangle$ the internal bridge contributes
+zero by cyclicity. Hopping to the surrounding ports and the diagonal
+endpoint actions on the traced head memories supply the remaining
+terms. The total rates at the appointment lie in
+$[-0.206813,-0.206655]$ and $[0.215380,0.215670]$ nats per tick.
+
+A second material read recovers the native optical response. For
+each sharp receiver $y$, the incident phase currents
+$j_{z\to y}=i(P_z H P_y-P_y H P_z)$ give
+$\dot p_y=\sum_z\langle j_{z\to y}\rangle$ and
+$\ddot p_y=\sum_z\langle i[H,j_{z\to y}]\rangle$.
+The terms have support within two native hops and are resolved by
+port interference and head Pauli readings at one appointment.
+They determine the normalized angular image $J$ and its first two
+exchange-time derivatives. Arrival-only difference measurements
+independently reproduce the terminal reconstruction. On the exact
+equal-work control the signed derivatives of
+$-\operatorname{tr}(\ddot J J^{-1})$ are in $[-23.402,-20.902]$
+and $[9.8046,9.9755]$ for forward vacancy and excess, and
+$[37.1259,38.9444]$ and $[-3.1999,-3.0365]$ for their reverse images.
+For the same fair untagged preparation used in the five-mode entropy
+measurement, pool the vacancy and excess click probabilities before
+forming the centroid or inverting $J$. The signed focusing derivatives
+are then $[-120.437,-119.515]$ forward and $[84.717,85.370]$ reverse.
+These are responses of one charge-unresolved detector record per launch
+direction. Averaging the conditional focusing values would give a
+different observable.
+Thus a common constant signed conversion of rising bridge work or
+regional entropy cannot give these sharp, exchange-time responses.
+Even with separate gain per direction, a source-independent clock
+change would have to add the same multiple of the signed expansion
+derivative to each focusing derivative. Equal work across tracers
+requires this multiple in $[2.3685,2.5904]$ forward and
+$[6.0157,6.3701]$ reverse, which excludes a common clock acceleration.
+
+\paragraph{Which curvature is determined by the station survey?}
+Every enrolled tetrahedron has volume greater than 1.57 and sides of
+length at most 3 in native range units. Its Euclidean inradius thus
+exceeds $3(1.57)/(9\sqrt 3)>0.30$. Inside it place two disjoint balls
+of radius $a=1/16$, the first about the incenter and the second at distance $3a$ from it. Let $b_i=u_i^2(1-u_i^2)^4$ on each unit-scaled
+radius $u_i<1$, extended by zero. Put $c=3a^2/8$ and
+$w=cs(b_1-b_2)$, $|s|<1$. In the ultrastatic metric
+$-dt^2+(1+w)^{2/3}d\mathbf{x}^2$ every straight station edge is
+still a shortest path. Each support is at distance greater than $1/20$
+from every edge line. Visiting a support lengthens the Euclidean trip
+by a factor at least $\sqrt{1+4(1/20)^2/9}$, exceeding the largest
+possible shortening factor $(1-c)^{-1/3}$. Boundary clocks are fixed.
+The total proper volume retains its flat value, since its density
+is $1+w$ and the two profile integrals agree. Even the metric and
+its first derivatives at the first center are independent of $s$.
+There the spatial Ricci tensor is $-sI$, giving
+$R_{ab}k^ak^b=-s$ for every normalized null direction.
+Small proper balls about the center distinguish these descriptions:
+$V(B_R)/(4\pi R^3/3)=1+sR^2/10+O(R^4)$.
+The example proves nonuniqueness from this finite survey, including
+its total-volume constraint. Taking the support radii to zero about a point outside all enrolled straight rays makes these metrics approach the flat metric in $C^1$, while their null Ricci at that point stays fixed. A native dynamical theorem would have
+to select the physical completion. The calculation is reproducible
+in \path{code/matched_einstein_limit/source_implication/full_algebra/reuse/metric_interiors.py}.
+
+\paragraph{Entropy on all four surveyed stations.}
+Enlarge the observed region to the terminal load registers at ports
+$0,1,38,39$ of this same survey. At four ticks the fair charge-unresolved
+state has one common outside outcome and two four-mode occupation blocks.
+The original equal-work control now increases the regional entropy by
+$[2.05099,2.06043]\times10^{-6}$ nats from $s=0$ to $+0.01$.
+The additional terminals contribute
+$[1.55629,1.56630]\times10^{-6}$ nats of conditional entropy given
+the bridge; their inclusion increases the discrepancy.
+
+A second family fixes all 24 range, force, bridge-state and energy-current
+readings, and also fixes each charge's four-port occupation probability.
+The three sector weights $p_j$ are constant. Thus $H(p)$ and every
+fixed edge-multiplicity term $\sum_j p_j\log m_j$ are constant.
+Nevertheless at the reference the entropy derivative of these four
+registers lies in $[0.32465,1.36457]\times10^{-6}$ nats per unit
+source. As the radar area is fixed along the entire change,
+$\delta(S_4+\eta A)=\delta S_4>0$ for every area coefficient $\eta$.
+The concavity of entropy permits the finite difference to have the
+opposite sign. At $+0.01$ the certified change is
+$[-4.81495,-3.77503]\times10^{-8}$ nats. An independent simulated
+reconstruction from thirteen population and pair-interference settings on
+the nominal source gives $[-5.28532,-3.31170]\times10^{-8}$ nats at
+simultaneous 99\% confidence. These four registers have an operational
+regional entropy. Their enrollment does not identify the complete algebra
+of a three-dimensional proper ball.
+
+Retaining both head memories in addition to the four loads at the same
+appointment increases the reference entropy slope to
+$[0.69965,6.71606]\times10^{-5}$ nats per unit source on this last
+control. The conditional entropy of the heads given the four loads
+therefore contributes more than $5.63\times10^{-6}$ nats per unit.
+For the entire closed flight, including all load positions, both heads,
+the reversal sectors and the independent launch and charge mixture,
+the entropy derivative exceeds $1.41\times10^{-5}$. Unitary flight
+preserves the spectrum of each prepared whole state exactly. These
+observations test two specific ways of enlarging the entropy algebra;
+they leave a macroscopic proper-ball assignment to be constructed.
+
+The energy current admits a stronger independent test on the same
+fair charge-unresolved source. Give each cell its internal Hamiltonian
+$h_a$ and half the action on each incident bridge. For the oriented
+bridge $e=(1,38)$ with action $b_e$, the exact energy continuity law
+gives $J_E=i[b_e,h_b-h_a]/2$ into the receiving cell. Nineteen phase
+kicks generated by $b_e$, followed by cell energy-difference readings,
+recover this signed current. Its fair reference mean is in
+$[-0.010890,-0.010793]$ native energy units per tick.
+Append each charge's energy-current mean to the 22-row preparation map.
+The resulting rank is 24. Three controls from the same reference hold
+both signed energy-current means exactly fixed along their whole
+chords. One increases both strain works at rate $1/57309$ and gives
+$\delta(G_{\rm f}-G_{\rm r})\in[105.145,106.457]$. Another, selected
+by changing the even-parity head coordinate $I\otimes X/2$ while
+fixing all 24 readings, holds the entire observed regional load state
+constant and gives $\delta(G_{\rm f}-G_{\rm r})\in[-104.355,-103.445]$.
+A third fixes all the same 24 readings and instead changes
+$I\otimes Y/2$ in the even sector; it gives
+$\delta(G_{\rm f}-G_{\rm r})\in[-329.399,-327.216]$.
+All angular images are held predictions.
+
+For equally normalized $k_\pm=(1,\pm n)$ in one orthonormal frame,
+$T_{++}-T_{--}=-4T^{0n}$. Density and normal pressure therefore
+cancel out of this signed comparison. At fixed conversion from the
+extensive bridge current to proper flux density, an identification
+with the two native screens requires zero odd response. A common
+source-independent clock change would require
+$u=\ddot\lambda/\dot\lambda=-\delta(G_{\rm f}-G_{\rm r})/
+\delta(\theta_{\rm f}-\theta_{\rm r})$ in each control. The intervals
+$[154.1904,165.5747]$, $[67.2528,68.9376]$, and
+$[48.1397,48.9169]$, respectively, are disjoint. The last two
+controls have identical contemporaneous values for all 24 readings
+along their entire chords. Consequently any proper flux conversion
+and clock jet $(\dot\lambda,u)$ supplied solely as functions of
+these readings remain constant on both controls and fail the signed
+test. Additional clock, area or screen measurements could supply the
+missing information.
+
+Even a clock and a flux-to-density conversion allowed to depend on the
+full source state face an absolute test at this appointment. Use three
+independently reconstructed images, one per charge and one obtained by
+pooling the raw arrivals under the fair charge lottery. For each image
+$i$ let $g_i$ and $e_i$ be its forward-minus-reverse focusing and
+expansion, and $j_i$ its separately measured Hamiltonian energy current.
+A smooth common clock acts on the focusing as
+$\lambda_t^{-2}(g_i+u e_i)$ with $u=\lambda_{tt}/\lambda_t$. Thus a
+common scalar conversion would give $g_i+u e_i=k j_i$ for a single
+pair of numbers $u,k$ at this event, even when their values vary between
+preparations. Interval propagation on the exact stationary reference
+gives $\det[e,j,g]\in[0.00020771,0.00022816]$. Pairing the three
+residuals with $e\times j$ gives the quantitative lower bound
+\[
+ \max_i |g_i+u e_i-kj_i|\ \ge\
+ |\det[e,j,g]|/\|e\times j\|_1 >0.1229
+\]
+in native focusing units. The test identifies which optical and matter
+readings cannot be combined as the signed null equations in one frame.
+It does not use an assumed Newton constant.
+
+The same test has a signed form even if each residual has an unknown
+constant background. For a common proper area, an affine stress observable
+requires the forward stress in the fair preparation to equal the mean of
+the two charge-resolved stresses. Append this fourth condition to the three
+odd equations and differentiate along the equal-work and two fixed-work
+controls. Eliminating the independently changing clock and flux coefficients
+leaves three necessary intervals for the single reference value of $u$,
+$[-10.269,-2.873]$, $[-286.520,-93.370]$ and $[-70.105,-41.099]$.
+Their empty intersection excludes this response interpretation under the
+stated pooling rule.
+
+One can also use only the untagged optical image. Let a running material
+clock have any smooth positive rate $F(t,d_-,d_+)$, where the last two
+arguments are the independently measured bridge occupations. Four controls
+fix the original 24 readings and both occupation time derivatives at $t=4$.
+Thus the source derivatives of both clock coefficients vanish there.
+With a fixed current-to-density conversion, the focusing and expansion
+derivatives $g_D,e_D$ on every control must obey $g_D+u e_D=0$.
+For two controls $\det[(e_D,g_D)]\in[47.51,69.85]$. This contradiction
+uses one source and one untagged image. A common proper screen or
+calibration using additional source information is a different
+observable requiring a physical construction.
+
+A physical null comparison needs an independently transported proper
+screen and affine clock and a stress contraction on its corresponding
+region. The calculation supplies native matter and optical Ward
+identities and leaves that identification open. The numerical data
+are finite-model simulations and certified propagation bounds in
+\path{code/matched_einstein_limit/source_implication/directional_stress/regional_modular/}.

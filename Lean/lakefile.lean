@@ -40,7 +40,7 @@ lean_lib «OPHTime» where
   roots := #[`Time.TimeOrderLedger, `Time.ObserverHistory,
     `Time.ClockReadout, `Time.SourceCountClock, `Time.SourceCountClockEnclosure,
     `Time.WorldlineRealization,
-    `Time.ProperTimeCalibration, `Time.ClockComparison]
+    `Time.ProperTimeCalibration, `Time.ClockComparison, `Time.JointClockReference]
 
 @[default_target]
 lean_lib «OPHComputation» where
@@ -100,7 +100,7 @@ lean_lib «OPHScreen» where
     `WhitneyCertifiedConsumers, `WhitneySourceNaturality,
     `WhitneyOmittedCellCounterexample,
     `MagneticMatterStability,
-    `BaryonDimensionSix,
+    `BaryonDimensionSix, `NeutralClusterEnergy, `ReleasedWingEnergy, `EndpointGroundWork, `RoutedAttemptBudget,
     `BipoSHTransferInvariant, `BipoSHInverseBoundary, `BipoSHFrameInvariant,
     `VolumeReadoutBridge, `PrimitivePortTranslationBridge,
     `PrimitivePortScaleBoundary, `PrimitivePortMetricAttachment,

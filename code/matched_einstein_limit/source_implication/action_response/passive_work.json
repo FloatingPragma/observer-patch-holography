@@ -1,0 +1,44 @@
+{
+  "native_excitation_probability": 0.2024368360378631,
+  "equilibrium_entropy": 1.7777302639241657,
+  "one_copy_population_order_margin_lower": 0.02402,
+  "two_copy_one_swap_work_lower": 0.01222,
+  "finite": {
+    "1": {
+      "least_excitation_energy_per_copy": 0.2024368360378631,
+      "ordinary_derivative": 0.29756316396214016,
+      "pairing_derivative": 1.0087959113891376e-15,
+      "ordinary_calibrated_pairing_fraction": 6.006438389472235e-15
+    },
+    "2": {
+      "least_excitation_energy_per_copy": 0.17434684114477833,
+      "ordinary_derivative": 0.20917744389784224,
+      "pairing_derivative": 0.08347286421878274,
+      "ordinary_calibrated_pairing_fraction": 0.7070064001440542
+    },
+    "4": {
+      "least_excitation_energy_per_copy": 0.15698608297420846,
+      "ordinary_derivative": 0.21355931566636843,
+      "pairing_derivative": 0.09157862076468043,
+      "ordinary_calibrated_pairing_fraction": 0.7597460645428813
+    },
+    "8": {
+      "least_excitation_energy_per_copy": 0.14500887885047514,
+      "ordinary_derivative": 0.20400888340363693,
+      "pairing_derivative": 0.11142006693301915,
+      "ordinary_calibrated_pairing_fraction": 0.9676253049891077
+    },
+    "12": {
+      "least_excitation_energy_per_copy": 0.14060701250099542,
+      "ordinary_derivative": 0.20762711518413887,
+      "pairing_derivative": 0.11559125109894061,
+      "ordinary_calibrated_pairing_fraction": 0.9863561929533102
+    }
+  },
+  "infinite": {
+    "least_excitation_energy": 0.1326726475698354,
+    "beta": 1.8775316768580153,
+    "ordinary_derivative": 0.21808068471396877,
+    "pairing_derivative": 0.1230904390812442
+  }
+}

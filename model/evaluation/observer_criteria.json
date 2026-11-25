@@ -119,12 +119,37 @@
           ],
           "results": {
             "interval_echo": {
-              "status": "open",
-              "note": "The guide delivers local handoff records. No deposited receiver locks a late-chosen bit against both early and late deadlines across the allowed signal menu.",
+              "status": "partial",
+              "note": "On a 20-cell board the sender chooses its bit after setup. One double and the message single share the same native registers. With the hand three links from the receiving gateway, the local terminal address alone decodes 138,044 of 262,144 bits by the first recorded tick and 144,928 by the third, counting every timeout. The hand word alone gives accuracy consistent with chance in the passive arm. The single addressed relay scores 233,100 and 182,641 at these deadlines. A separate range bank records 50 and 588 passive marked round trips per 131,072 launches, or 612 and 3,274 with an addressed turnaround. The no-encoding arm scores near chance. Placing the hand on the gateway instead makes its tick record carry nearly all the bit discrimination. The experiment establishes local commitments and return distributions for two prechosen deadlines in a bounded intervention menu. It leaves the earliest usable signal across the full relay menu and a common physical speed unresolved. On the original passive stations an arbitrarily small positive advantage exists immediately in native exposure. On one 20-cell screen the addressed out-and-back service ranged three ports at two, four and six receiver ticks. A 52% decoding threshold chosen using the near pilot was fixed before testing the two farther ports. The near passive receiver decoded 137,471 of 262,144 bits by tick one. The middle decoded 132,275 at its forecast tick two and the held-out far port decoded 131,072 at tick three. Neither farther port qualified at any tested deadline through its forecast. Quiet outcomes and timeouts count. The addressed range specifies a service-dependent distance; passive ranging had zero marked returns at both farther ports. With one passive load and a terminal receiver, a separate exact bound quantifies the early tail. At exposure 0.01 on the 20-cell screen, at least 1,601 independent repetitions of the same bit are needed for 52% accuracy one port link away and 256,017,068 two links away, even for a joint quantum read. These exposure bounds do not supply observer-clock durations. A stricter stationary hand requires the double at port 2 on every successive tick. The message and both echo legs use the same passive two-load flight. On the held-out sender, 57 and zero marked returns per 2³⁰ starts at six ticks forecast 50.00371–50.01474% one-way bit accuracy at three ticks. The independent test gave 50.01152%. The simultaneous 99% upper bound on the best classical reading of the full single-launch records is below 51.856% across the twelve native settings. The exposed practical threshold was 52%. The result identifies a reciprocal probability law under this clock read and supplied interrogation cadence. On the separate one-load stations, port-resolved echoes predict all 520 one-way probability bins within the joint sampling limits. At native exposure four on 20 cells, direct local arrival on bit zero was 42.52% and labelled echoes predicted 42.54%. A coherent whole-cell echo gave a square-root estimate of 13.66%. The midpoint detector is part of the calibration.",
               "evidence": [
                 "model/candidate_laws/interval_echo/SPEC.md",
-                "model/candidate_laws/interval_echo/RESULTS.json"
-              ]
+                "model/candidate_laws/interval_echo/RESULTS.json",
+                "model/experiments/interval_echo_message/contact_deadline/PROTOCOL.md",
+                "model/experiments/interval_echo_message/contact_deadline/measure.py",
+                "model/experiments/interval_echo_message/contact_deadline/records.json",
+                "model/experiments/interval_echo_message/contact_deadline/separated.py",
+                "model/experiments/interval_echo_message/contact_deadline/separated.json",
+                "model/experiments/interval_echo_message/early_tail/README.md",
+                "model/experiments/interval_echo_message/early_tail/check.py",
+                "model/experiments/interval_echo_message/ranged_deadlines/README.md",
+                "model/experiments/interval_echo_message/ranged_deadlines/measure.py",
+                "model/experiments/interval_echo_message/ranged_deadlines/check.py",
+                "model/experiments/interval_echo_message/ranged_deadlines/first_service.py",
+                "model/experiments/interval_echo_message/ranged_deadlines/records.json",
+                "model/experiments/interval_echo_message/early_tail/launch_budget.py",
+                "model/experiments/interval_echo_message/passive_echo/README.md",
+                "model/experiments/interval_echo_message/passive_echo/records.json",
+                "model/experiments/interval_echo_message/passive_echo/check.py",
+                "model/experiments/interval_echo_message/passive_echo/verify_flight.py",
+                "model/experiments/interval_echo_message/reciprocal_ports/README.md",
+                "model/experiments/interval_echo_message/reciprocal_ports/measure.py",
+                "model/experiments/interval_echo_message/reciprocal_ports/records.json",
+                "model/experiments/interval_echo_message/reciprocal_ports/check.py"
+              ],
+              "demonstrated_measurement": {
+                "label": "Passive echoes predict a one-way bit read on the same material clock",
+                "source": "model/experiments/interval_echo_message/passive_echo/README.md"
+              }
             },
             "contrast_memory_spherical_v1": {
               "status": "open",
@@ -241,14 +266,18 @@
           "results": {
             "interval_echo": {
               "status": "partial",
-              "note": "One native write creates a pair and its slow sign hand from a sharp double. On the 20-cell screen two remote dimers time 97 local pair, sign and quiet readouts. The 99% rate interval is [0.002214, 0.002981]. A control that restores ticking on the occupied seam while preserving its binding surface recovers the unit rate. The written clock is stationary. A moving collision-born species clock requires a different encoding.",
+              "note": "One native write creates a pair and its slow sign hand from a sharp double. On the 20-cell screen two remote dimers time 97 local pair, sign and quiet readouts. The 99% rate interval is [0.002214, 0.002981]. A control that restores ticking on the occupied seam while preserving its binding surface recovers the unit rate. The written clock is stationary. A moving collision-born species clock requires a different encoding. On the all-open 20-cell screen a bound pair of unequal loads carries its prepared ordering phase to detectors across three owner boundaries. The peak intact arrival probabilities are 0.48–1.25 per million launches. Fresh phase comparisons at each bridge exclude the isolated clock rate even with varying visibility and an arbitrary fixed phase origin. The input pair and its local phase preparation are supplied in this experiment.",
               "evidence": [
                 "model/candidate_laws/interval_echo/SPEC.md",
                 "model/candidate_laws/interval_echo/observations.json",
                 "model/experiments/interval_echo_encounter/dwell_result.json",
                 "model/experiments/interval_echo_encounter/dwell_controls_result.json",
                 "model/experiments/interval_echo_encounter/dwell_scaling_result.json",
-                "model/experiments/interval_echo_encounter/MEMORY.md"
+                "model/experiments/interval_echo_encounter/MEMORY.md",
+                "model/candidate_laws/interval_echo/openwave/row_03_clock/moving_pair/README.md",
+                "model/candidate_laws/interval_echo/openwave/row_03_clock/moving_pair/measure.py",
+                "model/candidate_laws/interval_echo/openwave/row_03_clock/moving_pair/records.json",
+                "model/candidate_laws/interval_echo/openwave/row_03_clock/moving_pair/test_moving_pair.py"
               ]
             },
             "contrast_memory_spherical_v1": {
@@ -282,14 +311,24 @@
           "results": {
             "interval_echo": {
               "status": "partial",
-              "note": "Free-sector binding predicts cluster motion on rings, with unequal rest and kinetic mass ratios across species. On the 20-cell federation, a stationary patch hand measures the same kinetic increment for isolated loads one and two. Independent beat counts exclude equal squared-frequency shifts for these assignments with either fuel reference. A held three-direction dispersion of a collision-born object requires independent momentum and signal-speed readouts.",
+              "note": "Free-sector binding predicts cluster motion on rings, with unequal rest and kinetic mass ratios across species. On the 20-cell federation, a stationary patch hand measures the same kinetic increment for isolated loads one and two. Independent beat counts exclude equal squared-frequency shifts for these assignments with either fuel reference. A held three-direction dispersion of a collision-born object requires independent momentum and signal-speed readouts. On the same ordered pair that conveys a phase, a calibrated boundary impulse produces a current predicted by an independent swap measurement. At one clock unit the opposite-kick half-difference is 0.00828–0.00838 across three placements. Each freely chosen later adjacency reading succeeds with probability at least 0.84319. An exchange-only comparator calibrated to the same 213 formation energy and clock gives a different recoil. The current is measured per exchange time; a physical inertial mass requires its own ruler and momentum calibration. On the commissioned 49-dimer strand the fastest of seven measured packet speeds was 0.9903, against an exact maximum group speed of one and a long-wavelength dispersion coefficient c of four. The two smallest measured wave numbers give k/v of 0.948 and 0.954, compared with the inverse band curvature 15/16. At k=0.800 an independent energy read separates the initial bare-wall velocity from its accrued motion. These use distinct preparations.",
               "evidence": [
                 "model/candidate_laws/interval_echo/candidate.py",
                 "model/experiments/interval_echo_space/shell_spectroscopy_result.json",
                 "model/experiments/interval_echo_space/shell_beat_result.json",
                 "model/experiments/interval_echo_space/shell_spectroscopy.py",
                 "model/experiments/material_inertia/README.md",
-                "model/experiments/material_inertia/records/flight/result.json"
+                "model/experiments/material_inertia/records/flight/result.json",
+                "model/candidate_laws/interval_echo/openwave/row_03_clock/moving_pair/recoil/README.md",
+                "model/candidate_laws/interval_echo/openwave/row_03_clock/moving_pair/recoil/measure.py",
+                "model/candidate_laws/interval_echo/openwave/row_03_clock/moving_pair/recoil/records.json",
+                "model/candidate_laws/interval_echo/openwave/row_03_clock/moving_pair/recoil/test_recoil.py",
+                "model/candidate_laws/interval_echo/openwave/row_30_collective/packet_speed/README.md",
+                "model/candidate_laws/interval_echo/openwave/row_30_collective/packet_speed/measure.py",
+                "model/candidate_laws/interval_echo/openwave/row_30_collective/packet_speed/results.json",
+                "model/candidate_laws/interval_echo/openwave/row_30_collective/packet_speed/work_meter.py",
+                "model/candidate_laws/interval_echo/openwave/row_30_collective/packet_speed/work.json",
+                "model/candidate_laws/interval_echo/openwave/row_30_collective/packet_speed/test_speed.py"
               ]
             },
             "contrast_memory_spherical_v1": {

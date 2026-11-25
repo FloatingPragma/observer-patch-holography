@@ -4,12 +4,13 @@
 Each lane is one independent replay: shell commands run from the repository
 root with the lane's environment. A lane belongs to one tier ("push" runs on
 every push and pull request; "nightly" is reserved for the schedule and holds no lane) and one install
-profile (the requirements file its job installs). The runner packs the lanes
+profile (root or model dependency pins; the independent einstein profile also uses the model pins). The runner packs the lanes
 of one tier and profile into a fixed number of buckets by their measured
 minutes, so a workflow matrix job only names its bucket:
 
     python tools/ci_lanes.py run --tier push --profile root --bucket 0 --buckets 8
     python tools/ci_lanes.py run --lane m1_quantum_transport
+    python tools/ci_lanes.py run --lane matched_einstein_limit  # all model-pinned Einstein suites
     python tools/ci_lanes.py list --tier push --profile root --buckets 8
 
 Every lane in a bucket runs even after an earlier one fails; the bucket exits
@@ -21,7 +22,6 @@ from __future__ import annotations
 import argparse
 import os
 import subprocess
-import sys
 import time
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -48,6 +48,42 @@ def lane(name, tier, profile, minutes, *commands, env=None):
 
 def pytest_lane(name, minutes, path, *, tier="push", profile="root", env=None, flags="-q"):
     return lane(name, tier, profile, minutes, f"python -m pytest {flags} {path}", env=env)
+
+
+def einstein_lanes() -> list[Lane]:
+    """Partition pytest paths, retaining discovery in each parent directory.
+
+    Expensive regional station measurements run independently of the other
+    modular certificates. Every nested file or package has one owner.
+    """
+    root = Path("code/matched_einstein_limit")
+    source = root / "source_implication"
+    regional = source / "directional_stress" / "regional_modular"
+    # Approximate single-threaded linux/amd64 replay minutes for local packing.
+    # Hosted CI schedules each suite as an independent job.
+    suites = {
+        "regional_modular": (10, [regional]),
+        "regional_stations": (8, [regional / "test_station_region.py",
+                                   regional / "test_occupation_clock.py",
+                                   regional / "station_memories"]),
+        "full_algebra": (13, [source / "full_algebra"]),
+        "optical": (11, [source / "common_front", source / "jacobi_screen", source / "shared_radar",
+                         root / "rate_geometry" / "seam_strain" / "weak_ruler"]),
+        "regional_response": (15, [source / "directional_stress", source / "full_geometry",
+                                   source / "material_clocks", source / "dressed_charge"]),
+        "remaining": (10, [root]),
+    }
+    all_paths = [path for _, paths in suites.values() for path in paths]
+    lanes = []
+    for name, (minutes, paths) in suites.items():
+        # Ignore only the next level of separately owned suites. Pytest
+        # discovers every test in the remaining hierarchy in the ordinary way.
+        nested = [p for p in all_paths if any(q in p.parents for q in paths)]
+        exclusions = [p for p in nested if not any(q in p.parents for q in nested)]
+        targets = [str(p) for p in paths] + [f"--ignore={p}" for p in exclusions]
+        lanes.append(pytest_lane(f"einstein_{name}", minutes, " ".join(targets),
+                                 profile="einstein", flags="-q -W error", env={**CODE, **BLAS1}))
+    return lanes
 
 
 LANES: tuple[Lane, ...] = (
@@ -113,13 +149,13 @@ LANES: tuple[Lane, ...] = (
          "python -m pytest -q code/a5_closure/tests/test_source_repair_generator_certificate.py"),
 
     # ------------------------------------------------------------------
+    *einstein_lanes(),
+
     # Push tier, model requirements (model/requirements.txt): programs of the
     # main candidate law and the theory certificates that use the same pins.
     lane("support_refinement", "push", "model", 2,
          "python -m pytest -q -W error code/support_refinement",
          "python -m support_refinement --check code/support_refinement/results.json", env={**CODE, **BLAS1}),
-    lane("matched_einstein_limit", "push", "model", 1,
-         "python -m pytest -q -W error code/matched_einstein_limit", env={**CODE, **BLAS1}),
     lane("defect_particle_classes", "push", "model", 1,
          "python -m defect_particle_classes --check",
          "python -m pytest -q -W error code/defect_particle_classes", env={**CODE, **BLAS1}),
@@ -172,7 +208,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("action", choices=("run", "list"))
     parser.add_argument("--tier", choices=("push", "nightly"))
-    parser.add_argument("--profile", choices=("root", "model"))
+    parser.add_argument("--profile", choices=("root", "model", "einstein"))
     parser.add_argument("--bucket", type=int)
     parser.add_argument("--buckets", type=int, default=1)
     parser.add_argument("--lane", action="append", default=[])
@@ -184,11 +220,18 @@ def main() -> None:
         raise SystemExit("duplicate lane names: " + ", ".join(duplicates))
 
     if args.lane:
+        # Preserve the original single-lane CLI for local full-suite replays.
+        selected = []
+        for name in args.lane:
+            if name == "matched_einstein_limit":
+                selected.extend(x.name for x in select("push", "einstein"))
+            else:
+                selected.append(name)
         by_name = {x.name: x for x in LANES}
-        unknown = [n for n in args.lane if n not in by_name]
+        unknown = [n for n in selected if n not in by_name]
         if unknown:
             raise SystemExit("unknown lanes: " + ", ".join(unknown))
-        groups = [[by_name[n] for n in args.lane]]
+        groups = [[by_name[n] for n in selected]]
     else:
         lanes = select(args.tier, args.profile)
         if not lanes:

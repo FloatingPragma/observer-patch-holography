@@ -21,3 +21,16 @@ def test_complete_coherent_sweep_and_joint_phase():
     assert result["phase"]["plus_joint"] == [0., .5, .5, 0.]
     assert result["phase"]["minus_joint"] == [.5, 0., 0., .5]
     assert result["phase"]["premature_probe_joint"] == [.25] * 4
+
+
+def test_unordered_guarded_repairs_preserve_quantum_flag_subspaces():
+    from .asynchronous import compare_flag_schedules, entangled_flag_read
+
+    path = compare_flag_schedules()
+    assert path["flag_patterns"] == 81 and path["fair_periodic_orders"] == 24
+    assert path["cases"] == 1944 and path["cases_with_multiple_commits"] > 0
+    assert path["largest_mean_uniform_attempts"] == "6"
+    assert path["retry_example"]["reverse_order_writes_by_pass"] == [[0], [2]]
+    correlations = entangled_flag_read()["joint_rail_correlations"]
+    assert correlations["one_initial_flag_space"] == [1, 1]
+    assert correlations["different_initial_flags"] == [1, 0]

@@ -14,6 +14,21 @@ The wings hold two units on every dimer throughout. Their energy can travel whil
 
 How much of the original excitation's energy reaches these wings **before any source measurement**? At release the opposite walls add 65 exchange units above the sham. At exposure 32 the source observer's local bond measurements give **62.9782** units of surplus still inside the ring. The two wing observers independently find **0.5666** and **0.5655** inside the wings. The attachment observers account for another **0.8897**, bringing the measured sum to **65.0000 ± 0.0256**. The interval has simultaneous 99% counting coverage across the twenty regional reports for the registered arm. The two wing interiors together receive **1.74%** of the initially added energy. With the two attachments cut the expected wing surplus vanishes throughout. The full-ensemble account uses independent groups of simulated launches per local bond; the parent source is never heralded or held. These measurements show where the energy from the prepared walls goes even when the source stays excited. [Bond-by-bond measurements](energy_budget.json) · [Calorimetry and uncertainty](energy_budget.py)
 
+## An independent daughter transition read
+
+On the same phase-wall source with three dimers in each wing, a far-dimer downward-frequency detector gives 68,604 joint clicks in 67,108,864 launches at exposure 32, against eight on the ordered sham. Separate wing spectra put 2,064,278 of 2,066,989 ordered-ring records above 16 units on both sides. The boundary-zero/two material has hard transitions near 32 units. Cut and zero-contrast controls miss the selected lines. The coherent clock and frequency analyzer are supplied; radiation identity is unresolved. [Local detector, complete spectra and controls](daughter_spectrum/README.md)
+
+A follow-up couples two supplied passive two-level receivers to the same
+daughter material through the native far-dimer swaps. At source exposure 32
+and receiver delay 32, both receivers gain their calibrated 32.5154-unit
+excitation in **36,025 of 67,108,864** original wall launches, against **7**
+on the ordered sham. Their mean gain is 0.986565 units per original wall
+launch; the wing loss and residual coupling energy close the receiver
+ledger. Cut-guide and zero-contrast controls give zero double counts at
+this setting. The source read, hold and reciprocal detector interaction
+are supplied apparatus. This advances material energy delivery while
+leaving radiation identity open. [Passive local receivers and work accounts](passive_receiver/README.md)
+
 ## What reaches an initially uniform receiver?
 
 Two receivers each put one unit on each of their two ports, with a blank seam across a cell boundary. Both connect to the original eight-port source ring. All twelve sites can exchange freely after release. The observers impose no dimer-number guards in this experiment. Each ring preparation has four empty and four double ports. On a matched copy of the collision, the outward-facing receiver ports detect mobile material at exposure 32 with probabilities **4.652% and 0.944%**. Both effects are measurable. The initially ordered sham gives **0.675% and 0.00365%**. These times are instrument settings in exchange units. [Preparation, controls and readout](BARE_PROTOCOL.md) · [Complete joint outcome tables](bare_receivers.json.gz)
@@ -58,3 +73,5 @@ From the repository root the following commands regenerate and compare each coun
 .venv/bin/python -m model.candidate_laws.interval_echo.openwave.row_08_annihilation.energy_budget
 .venv/bin/python -m pytest -q model/candidate_laws/interval_echo/openwave/row_08_annihilation
 ```
+
+The three-dimer wing spectrum assigns all its energy records to a single gapped branch of material excitations. After an ordered-ring read, two local frequency-mixing measurements witness entanglement between the wings. The native witness exceeds the separable threshold, and dephasing removes the X correlation. [Normal modes, source admission and coherent two-wing detector](daughter_modes/README.md)

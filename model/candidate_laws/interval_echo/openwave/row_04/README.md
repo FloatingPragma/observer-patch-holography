@@ -29,7 +29,21 @@ python -B -O -W error -m model.candidate_laws.interval_echo.openwave.row_04.open
 python -B -O -W error -m model.experiments.interval_echo_consensus.pair_window
 ```
 
+## Connected preparation across all three boards
+
+Every cell of the 20-, 80- and 320-cell native federations admits the same eleven-record preparation recipe. A complete topology census certifies **1,992 of 1,992 eligible layouts in all 420 cells**. No cell is discarded. Each layout has a degree-five center, two nonadjacent degree-six tips and a common internal receiver; the two contacts to that receiver stay open, and the complete board stays connected. The same two loads install the eleven neutral records with four sharp swaps. [Certificate and replay](topology_census.py) · [Per-cell census](topology_census.json)
+
+The integer calculation retains every destination reached from the two dark configurations. Twice the exchange gives eigenvalue 2, and contrast including the original degree references gives 3. The preparation has the same three-state operator and finite retry law as the cell-13 experiment, so its unconditional all-time floor transfers to each certified layout at every real coupling. The native 99-state columns are separately checked within $5\times10^{-14}$; the topology calculation uses integers. Changing the relative sign or releasing any single written contact breaks the certificate in every layout. These sensitivity checks concern the deliberately prepared structure. This retrospective extension supplies no freely translating particle, ordinary formation, physical identity or OpenWave award.
+
+```sh
+python -B -O -W error -m model.candidate_laws.interval_echo.openwave.row_04.topology_census
+```
+
+The command compares with the archive and fails on a mismatch. `--record PATH` explicitly creates a first record and refuses an existing path.
+
 ## A one-load routing task with the same eleven writes
+
+A [local memory intervention](memory_intervention/README.md) distinguishes the written contacts from permanent external cuts on the same load source and detector. Its exact operator check also shows that the eleven neutral marks keep their seam addresses throughout free flight. A programmable material trap can reproduce these intervention records; an intact translating particle interpretation does not follow.
 
 The eleven-memory state is the only solution of a one-load routing task written with the pair layout known. A full exchange pulse offered on any contact of source 156 must move the load to gateway 157 or 166 and to no other port. From either gateway every open contact except the return must lead to one common receiver. These clauses fix each of the fifteen contacts on the three ports, so exactly one of 32,768 switch patterns passes, with receiver 163. If the receiver also accepts direct delivery, ten writes suffice. The source port follows the tidal station's port rule. Six ports of cell 13 tie under that rule and the lowest address selects 156. Compulsory gateway transit and passive switching are apparatus choices. [Task, controls and replay](PROTOCOL.md#one-load-delivery-through-either-of-two-gateways)
 
@@ -56,9 +70,9 @@ The isolated low-energy band is invariant under free evolution. The registered a
 
 Before release the sharp source places one unit at port 0 and one at port 1. A separate check used the 36 uniformly weighted, initially separated two-unit preparations on cell zero of the 20-cell sphere. After one unit of unassisted evolution, a sharp read at the specified seam prepares precisely the released state with probability **0.01891418%**. The remaining **99.98108582%** of those starts are quiet at that seam. The high persistence probabilities in the table apply after a successful preparation. The perturbed arm moves 4% of the preparation probability into a nonadjacent configuration by a single native partial exchange. [Independent encounter experiment](../../../../experiments/interval_echo_encounter/README.md) · [Present source and branch calculation](./__main__.py)
 
-## Scope for an OpenWave submission
+## OpenWave decision on the blank-memory pair
 
-**The dynamic free-persistence test passes for the adjacent pair released on blank memories at the registered κ = 8.** The submission concerns a charge-unassigned composite on a discrete quantum federation. Its electromagnetic coupling, spin and identification with the electron have yet to be established. Derrick's continuum scaling theorem concerns a different class of field functionals. Here a spectral gap explains the measured relative binding. The simulation runs in the RER executable. Upstream validation and placement are separate decisions. [Public criterion](https://github.com/openwave-labs/openwave/blob/26fbb5fdd07049625d6bb7930af2f6bf545fb6fc/MODELS.md) · [Candidate specification](../../SPEC.md)
+OpenWave awarded **partial credit** to the sharp pair released from seam (156,157) with blank memories on Interval Echo M10.3. Its independent replay found the pair on a seam of the launch cell with probability 0.98027 at exposure 37 for κ = 8, compared with 0.203 at κ = 0. The maintainer asks what fixed κ independently of the persistence target. Charge, spin and species are unassigned. The eleven-write preparation is a separate proposed candidate in PR #749. [Adopted finding and criterion](https://github.com/openwave-labs/openwave/blob/0df73dc6be3bde9f0b8ced6044effc79f0d92bd6/MODELS.md#L438) · [Maintainer review](https://github.com/openwave-labs/openwave/pull/745#pullrequestreview-6005365373) · [Two-load proposal](https://github.com/openwave-labs/openwave/pull/749)
 
 ## Reproduction
 

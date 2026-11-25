@@ -1,0 +1,97 @@
+{
+  "range_rows": 12,
+  "correlation_coordinates": 18,
+  "exact_range_kernel_dimension": 6,
+  "channel_trace_error_upper": 1.9016453922973697e-07,
+  "conditional_HS_error_upper": 2.5253398047370993e-06,
+  "right_inverse_defect_upper": 2.430766115907154e-07,
+  "true_kernel_correction_HS_upper": 2.4301550421050263e-07,
+  "entropy_derivative_nats": "[0.000017594923610656675770631476159661147, 0.000057452473738456273748035165039540419]",
+  "physical_step": "1/10000000",
+  "parity_blind_joint_YY_derivative": "[1.5416956828920536250817191164970035, 1.5416970575953413107967756585668743]",
+  "finite_entropy_increase_nats_lower": 1.551158926476786e-12,
+  "matched_odd_weight": [
+    ".134",
+    ".1346"
+  ],
+  "lottery_slack_lower": ".20",
+  "fixed_marginal_tomography": {
+    "parity_blind_products": [
+      "XZ",
+      "YX",
+      "YY",
+      "YZ",
+      "ZY",
+      "ZZ"
+    ],
+    "minimal_additional_scalar_means": 6,
+    "left_excess_transfer_dwell_even_odd": [
+      "pi/8",
+      "pi/9"
+    ],
+    "right_excess_transfer_dwell": "pi/8",
+    "augmented_inverse_defect_upper": 2.368670389426529e-06,
+    "singular_value_lower": 9.896670106349026e-09,
+    "HS_reconstruction_error_per_l2_readout_error_upper": 101044087.48135075
+  },
+  "fixed_state_centers": {
+    "denominator": 34359738368,
+    "even_then_odd": [
+      [
+        -17180758,
+        -2579000,
+        566523779,
+        -17180747,
+        77214,
+        -75130,
+        9648288,
+        2578994,
+        75130,
+        -5721,
+        1367371,
+        -566523675,
+        -9648290,
+        1367380,
+        2127384790
+      ],
+      [
+        -16080096,
+        742827,
+        184656825,
+        -52031542,
+        141943,
+        -66077,
+        12630811,
+        23243652,
+        -154847,
+        -6784,
+        -3017748,
+        -328553115,
+        -11499934,
+        -2035976,
+        2208993005
+      ]
+    ],
+    "basis": "IX,IY,IZ,XI,XX,XY,XZ,YI,YX,YY,YZ,ZI,ZX,ZY,ZZ; Pauli product /2; identity I/4"
+  },
+  "tangent_center_even_then_odd": [
+    -0.20147496867221423,
+    -0.05953623481798987,
+    -0.0001621355936623165,
+    -0.3727057890825231,
+    0.2714930006222217,
+    0.0008820243669333875,
+    -0.01060757916490343,
+    -0.041634783556341703,
+    0.0001033498248788135,
+    -0.09939346928600547,
+    0.19352223496718068,
+    0.0006213164042860855,
+    0.6650015639643854,
+    0.499355184499627,
+    -0.0072005833666809035,
+    0.009967780870189591,
+    0.04831380145511059,
+    -0.0001274170759456332
+  ]
+}

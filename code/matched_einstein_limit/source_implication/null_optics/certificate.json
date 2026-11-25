@@ -1,0 +1,536 @@
+{
+  "preprocessed_leading_unpair_slope": [
+    -0.2322694414664914,
+    -0.23226219146649138
+  ],
+  "state_radius_HS": "2e-7",
+  "matched_pairing": {
+    "weights": [
+      1000,
+      -883,
+      -117,
+      50,
+      -117,
+      67,
+      62,
+      -112,
+      50,
+      -112,
+      -888,
+      1000
+    ],
+    "paired_four_edge_splits": [
+      {
+        "charge": 1,
+        "sender_index": 0,
+        "lower": 0.04917833887709211,
+        "upper": 0.05064837191185746
+      },
+      {
+        "charge": 1,
+        "sender_index": 3,
+        "lower": 0.0033231337688079377,
+        "upper": 0.005426250246226047
+      },
+      {
+        "charge": -1,
+        "sender_index": 0,
+        "lower": -0.013243801319699386,
+        "upper": -0.012212888329582465
+      },
+      {
+        "charge": -1,
+        "sender_index": 3,
+        "lower": 0.004446831845875119,
+        "upper": 0.006201916126095912
+      }
+    ],
+    "ordinary_four_edge_splits": [
+      {
+        "charge": 1,
+        "sender_index": 0,
+        "lower": 0.029026870520988138,
+        "upper": 0.033427095508135225
+      },
+      {
+        "charge": 1,
+        "sender_index": 3,
+        "lower": -0.067112531928869,
+        "upper": -0.06043428450187941
+      },
+      {
+        "charge": -1,
+        "sender_index": 0,
+        "lower": -0.0877665647718096,
+        "upper": -0.0845516569477534
+      },
+      {
+        "charge": -1,
+        "sender_index": 3,
+        "lower": 0.0254893728865952,
+        "upper": 0.03115139499562935
+      }
+    ],
+    "ordinary_angle_interval": [
+      -996.3046168261328,
+      -983.6618467288919
+    ],
+    "scale": 1000,
+    "angle_interval": [
+      -296.6738337095872,
+      -291.6161447175414
+    ],
+    "volume_rotation_interval": [
+      -2.5900358993907798e-05,
+      -2.5603954204159665e-05
+    ],
+    "minimum_signed_lower": 0.0007037700181080895,
+    "rows": [
+      {
+        "charge": 1,
+        "sender_index": 0,
+        "lower": 0.047378619257620755,
+        "upper": 0.04883122187205907
+      },
+      {
+        "charge": 1,
+        "sender_index": 1,
+        "lower": 0.018653133883771496,
+        "upper": 0.018777336140699027
+      },
+      {
+        "charge": 1,
+        "sender_index": 2,
+        "lower": 0.035815757291967266,
+        "upper": 0.03627407577842002
+      },
+      {
+        "charge": 1,
+        "sender_index": 3,
+        "lower": 0.0007037700181080895,
+        "upper": 0.0028398994120355484
+      },
+      {
+        "charge": -1,
+        "sender_index": 0,
+        "lower": 0.018143914181284665,
+        "upper": 0.019261622425521808
+      },
+      {
+        "charge": -1,
+        "sender_index": 1,
+        "lower": 0.0022749884298179156,
+        "upper": 0.002381890929802184
+      },
+      {
+        "charge": -1,
+        "sender_index": 2,
+        "lower": 0.002127225664171518,
+        "upper": 0.0022862406213601293
+      },
+      {
+        "charge": -1,
+        "sender_index": 3,
+        "lower": 0.0009415148781939371,
+        "upper": 0.002593468925145929
+      }
+    ]
+  },
+  "readings": [
+    {
+      "source": "state",
+      "horizon": 6.0,
+      "weights": [
+        1,
+        -300,
+        299,
+        -171,
+        299,
+        -128,
+        -118,
+        289,
+        -171,
+        289,
+        -290,
+        1
+      ],
+      "orientation": 1,
+      "rows": [
+        {
+          "charge": 1,
+          "sender": 0,
+          "center": 0.4114013200535983,
+          "error_upper": 0.002160000001458,
+          "signed_lower": 0.4092413200521403
+        },
+        {
+          "charge": 1,
+          "sender": 1,
+          "center": 0.8188477086605229,
+          "error_upper": 0.00215280000145314,
+          "signed_lower": 0.8166949086590698
+        },
+        {
+          "charge": 1,
+          "sender": 38,
+          "center": 0.9083393017009919,
+          "error_upper": 0.00208080000140454,
+          "signed_lower": 0.9062585016995873
+        },
+        {
+          "charge": 1,
+          "sender": 39,
+          "center": 0.20025505652673836,
+          "error_upper": 0.0020880000014094,
+          "signed_lower": 0.19816705652532896
+        },
+        {
+          "charge": -1,
+          "sender": 0,
+          "center": -0.6096168369322934,
+          "error_upper": 0.002160000001458,
+          "signed_lower": 0.6074568369308354
+        },
+        {
+          "charge": -1,
+          "sender": 1,
+          "center": -89.10605782413197,
+          "error_upper": 0.00215280000145314,
+          "signed_lower": 89.10390502413051
+        },
+        {
+          "charge": -1,
+          "sender": 38,
+          "center": -88.91875295430289,
+          "error_upper": 0.00208080000140454,
+          "signed_lower": 88.91667215430148
+        },
+        {
+          "charge": -1,
+          "sender": 39,
+          "center": -1.1053543173498597,
+          "error_upper": 0.0020880000014094,
+          "signed_lower": 1.1032663173484505
+        }
+      ],
+      "minimum_signed_lower": 0.19816705652532896
+    },
+    {
+      "source": "unpair",
+      "horizon": 6.0,
+      "weights": [
+        1,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        1
+      ],
+      "orientation": 1,
+      "rows": [
+        {
+          "charge": 1,
+          "sender": 0,
+          "center": 0.020977551117650726,
+          "error_upper": 2.160000000486e-05,
+          "signed_lower": 0.020955951117645866
+        },
+        {
+          "charge": 1,
+          "sender": 39,
+          "center": 0.02342092566961772,
+          "error_upper": 2.160000000486e-05,
+          "signed_lower": 0.023399325669612864
+        },
+        {
+          "charge": -1,
+          "sender": 0,
+          "center": -0.003444896120667997,
+          "error_upper": 2.160000000486e-05,
+          "signed_lower": 0.003423296120663137
+        },
+        {
+          "charge": -1,
+          "sender": 39,
+          "center": -0.003302584803562538,
+          "error_upper": 2.160000000486e-05,
+          "signed_lower": 0.003280984803557678
+        }
+      ],
+      "minimum_signed_lower": 0.003280984803557678
+    },
+    {
+      "source": "dephased_unpair",
+      "horizon": 6.0,
+      "weights": [
+        1,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        1
+      ],
+      "orientation": 1,
+      "rows": [
+        {
+          "charge": 1,
+          "sender": 0,
+          "center": 0.017402659410028984,
+          "error_upper": 2.160000000486e-05,
+          "signed_lower": 0.017381059410024123
+        },
+        {
+          "charge": 1,
+          "sender": 39,
+          "center": 0.02332145359746597,
+          "error_upper": 2.160000000486e-05,
+          "signed_lower": 0.02329985359746111
+        },
+        {
+          "charge": -1,
+          "sender": 0,
+          "center": -0.003423140739711711,
+          "error_upper": 2.160000000486e-05,
+          "signed_lower": 0.003401540739706851
+        },
+        {
+          "charge": -1,
+          "sender": 39,
+          "center": -0.0030784827103141417,
+          "error_upper": 2.160000000486e-05,
+          "signed_lower": 0.003056882710309282
+        }
+      ],
+      "minimum_signed_lower": 0.003056882710309282
+    },
+    {
+      "source": "unpair",
+      "horizon": 4.0,
+      "weights": [
+        1,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        1
+      ],
+      "orientation": 1,
+      "rows": [
+        {
+          "charge": 1,
+          "sender": 0,
+          "center": 0.008298970979753066,
+          "error_upper": 1.44000000002796e-05,
+          "signed_lower": 0.008284570979752787
+        },
+        {
+          "charge": 1,
+          "sender": 39,
+          "center": 0.009007158453870213,
+          "error_upper": 1.44000000002796e-05,
+          "signed_lower": 0.008992758453869933
+        },
+        {
+          "charge": -1,
+          "sender": 0,
+          "center": -0.0010855731593266585,
+          "error_upper": 1.44000000002796e-05,
+          "signed_lower": 0.0010711731593263788
+        },
+        {
+          "charge": -1,
+          "sender": 39,
+          "center": -0.0011350732352917658,
+          "error_upper": 1.44000000002796e-05,
+          "signed_lower": 0.0011206732352914861
+        }
+      ],
+      "minimum_signed_lower": 0.0010711731593263788
+    },
+    {
+      "source": "unpair",
+      "horizon": 2.0,
+      "weights": [
+        1,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        1
+      ],
+      "orientation": 1,
+      "rows": [
+        {
+          "charge": 1,
+          "sender": 0,
+          "center": 0.0008654917877665245,
+          "error_upper": 7.2000000000096e-06,
+          "signed_lower": 0.0008582917877665148
+        },
+        {
+          "charge": 1,
+          "sender": 39,
+          "center": 0.0009351401138008367,
+          "error_upper": 7.2000000000096e-06,
+          "signed_lower": 0.0009279401138008271
+        },
+        {
+          "charge": -1,
+          "sender": 0,
+          "center": -2.201380924375826e-05,
+          "error_upper": 7.2000000000096e-06,
+          "signed_lower": 1.481380924374866e-05
+        },
+        {
+          "charge": -1,
+          "sender": 39,
+          "center": -0.00011537274779068676,
+          "error_upper": 7.2000000000096e-06,
+          "signed_lower": 0.00010817274779067717
+        }
+      ],
+      "minimum_signed_lower": 1.481380924374866e-05
+    },
+    {
+      "source": "formed_pairing",
+      "horizon": 6.0,
+      "weights": [
+        1,
+        -1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        -1,
+        1
+      ],
+      "orientation": -1,
+      "rows": [
+        {
+          "charge": 1,
+          "sender": 0,
+          "center": -0.0035448417972136536,
+          "error_upper": 4.872000000460064e-15,
+          "signed_lower": 0.0035448417972087816
+        },
+        {
+          "charge": 1,
+          "sender": 39,
+          "center": -0.003544281700743576,
+          "error_upper": 4.872000000460064e-15,
+          "signed_lower": 0.003544281700738704
+        },
+        {
+          "charge": -1,
+          "sender": 0,
+          "center": 0.0005219326030785469,
+          "error_upper": 4.872000000460064e-15,
+          "signed_lower": 0.0005219326030736748
+        },
+        {
+          "charge": -1,
+          "sender": 39,
+          "center": 0.0005217759063828859,
+          "error_upper": 4.872000000460064e-15,
+          "signed_lower": 0.0005217759063780139
+        }
+      ],
+      "minimum_signed_lower": 0.0005217759063780139
+    }
+  ],
+  "shortest_head_projectors": [
+    {
+      "odd": false,
+      "charge": 1,
+      "sender": 0,
+      "receiver": 39,
+      "index": 3,
+      "coefficient": "16/9"
+    },
+    {
+      "odd": false,
+      "charge": 1,
+      "sender": 39,
+      "receiver": 0,
+      "index": 0,
+      "coefficient": "16/9"
+    },
+    {
+      "odd": false,
+      "charge": -1,
+      "sender": 0,
+      "receiver": 39,
+      "index": 0,
+      "coefficient": "16/9"
+    },
+    {
+      "odd": false,
+      "charge": -1,
+      "sender": 39,
+      "receiver": 0,
+      "index": 3,
+      "coefficient": "16/9"
+    },
+    {
+      "odd": true,
+      "charge": 1,
+      "sender": 0,
+      "receiver": 39,
+      "index": 3,
+      "coefficient": "9/4"
+    },
+    {
+      "odd": true,
+      "charge": 1,
+      "sender": 39,
+      "receiver": 0,
+      "index": 0,
+      "coefficient": "9/4"
+    },
+    {
+      "odd": true,
+      "charge": -1,
+      "sender": 0,
+      "receiver": 39,
+      "index": 0,
+      "coefficient": "9/4"
+    },
+    {
+      "odd": true,
+      "charge": -1,
+      "sender": 39,
+      "receiver": 0,
+      "index": 3,
+      "coefficient": "9/4"
+    }
+  ],
+  "formed_leading_common_population_slope": 0.030935814087596207
+}
