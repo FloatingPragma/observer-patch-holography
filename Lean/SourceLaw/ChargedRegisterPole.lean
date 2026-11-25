@@ -105,6 +105,30 @@ theorem two_recoil_slopes (rest u v : ℝ) (hu : u ≠ 0) (hv : v ≠ 0) :
   field_simp
   ring
 
+/-- At a common nonzero momentum, equal relativistic mass-shell increments
+force the larger positive rest energy to gain less energy. A common rest
+offset is allowed provided the calibrated rest energies stay positive. -/
+theorem recoil_order {e₁ e₂ d₁ d₂ : ℝ} (energy : 0 < e₁) (order : e₁ < e₂)
+    (kick : 0 < d₁)
+    (shared : (e₁ + d₁)^2 - e₁^2 = (e₂ + d₂)^2 - e₂^2) : d₂ < d₁ := by
+  by_contra! h
+  have he := mul_pos (sub_pos.mpr order) kick
+  have hd := mul_nonneg (sub_nonneg.mpr h) (show 0 ≤ 2*e₂+d₂+d₁ by linarith)
+  nlinarith
+
+/-- Summed contact energies are bounded by the local insertion cost and
+the number of times the configuration meets a seam, including a degree
+reference when present. -/
+theorem insertion_ceiling {ι : Type*} [Fintype ι] (energy touched : ι → ℝ)
+    (defects : ℝ) (seams : ∀ i, energy i ≤ 33 * touched i)
+    (degree : ∑ i, touched i ≤ 6 * defects) : ∑ i, energy i ≤ 198 * defects := by
+  calc
+    ∑ i, energy i ≤ ∑ i, 33 * touched i := Finset.sum_le_sum fun i _ => seams i
+    _ = 33 * ∑ i, touched i := (Finset.mul_sum ..).symm
+    _ ≤ 198 * defects := by linarith
+
+#print axioms recoil_order
+#print axioms insertion_ceiling
 #print axioms conjugate_detuning_variance
 #print axioms two_recoil_slopes
 #print axioms phase_ratio_ne_base_scalar
