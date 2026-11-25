@@ -1286,6 +1286,39 @@
       ]
     },
     {
+      "path": "model/experiments/interval_echo_gauge/flag_measure/README.md",
+      "heading": "## A port-function metric and compact-family readout",
+      "scope": "Internal least-squares distances from one declared oriented-face tensor to the registered compact classifier families and comparison plane. The corner counts on admitted simulated launches determine the port metric. The simultaneous 99% ranges describe uncertainty in that metric; identifying a physical gauge field would require independent current measurements.",
+      "label_column": "Family",
+      "comparison_column": "Measured least squared distance",
+      "rows": [
+        {
+          "label": "G",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-SCREEN-PORT-CURRENT-INNER"
+          }
+        },
+        {
+          "label": "F",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-SCREEN-PORT-CURRENT-INNER"
+          }
+        },
+        {
+          "label": "P (comparison plane)",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-SCREEN-PORT-CURRENT-INNER"
+          }
+        }
+      ]
+    },
+    {
       "path": "model/experiments/interval_echo_ow30_dispersion_audit/README.md",
       "heading": "# Resolving the dispersion of a traveling dimer reversal",
       "scope": "Lattice dispersion on three exposed guarded strands, with a range-two hopping alternative.",
