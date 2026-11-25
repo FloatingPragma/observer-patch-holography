@@ -19,3 +19,15 @@ Run from the repository root with one numerical thread.
 ```sh
 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 python -m model.experiments.interval_echo_angular.charged_orientation.three_arm_spin.arm_wavelength
 ```
+
+## Predicting a smooth profile from four counters
+
+Can the observers use a smooth wave to predict intensities at places they have never measured? Four existing counter banks at ordinals 3 through 6 determine an interval for the spatial frequency. No energy, eigenvector or simulation amplitude enters this inference. At a single energy each head component of the interior has a smooth interpolation solving the one-dimensional Helmholtz equation. Its pooled intensity at distance x has the form A + B cos(2kx) + C sin(2kx). Positions use one physical guide step as the length unit. Different branches of the interpolation can give exactly the same integer-site readings.
+
+Using only those four measured probabilities, the wave predicts a deep minimum at the next ordinal and much larger returns at the two following ordinals. At ordinals 7, 8 and 9 the fresh native simulation recorded 21,046, 1,043,814 and 1,046,606 detections in a shared bank of 274,877,906,944 original launches. All eight held stations through ordinal 14 lie within the predicted intervals, including both subsequent maxima and minima. The fit and test jointly use 99% simultaneous intervals over all twelve counters. A uniform density and a quadratic band-edge density already disagree with the training readings. Every refused launch, missed charge or detection elsewhere is in the other-outcome bin. [Count-only forecast](smooth_profile.py) · [Predictions and original counts](smooth_profile.json)
+
+For the forecast, c = cos(2k) is inferred from the four consecutive counts. The next intensity obeys n[j+1] = (1+2c)(n[j]−n[j−1])+n[j−2]. Keeping the three interpolation coefficients as polynomials in c allows interval arithmetic to propagate the correlated frequency uncertainty. At this confidence the two admissible k intervals are 0.9623–0.9692 and 2.1724–2.1793 radians per guide step. Integers sample both profiles identically after reversing the sine coefficient. The spatial inference alone cannot distinguish the interpolations between ports. The selected finite clock also admits small amplitudes at other energies, so the eight-site comparison is an empirical test of the single-frequency description. It is a stationary wave on the interior of these guides. A field description in three spatial dimensions would additionally have to predict records on different physical paths, momentum directions, and responding bodies.
+
+```sh
+python -m model.experiments.interval_echo_angular.charged_orientation.three_arm_spin.smooth_profile --write
+```
