@@ -1,0 +1,93 @@
+{
+  "local_dimension": 99,
+  "appointments": [
+    0.0,
+    0.5,
+    0.3490658503988659,
+    0.39269908169872414,
+    3.141592653589793
+  ],
+  "oriented_transitions": [
+    {
+      "sign": -1,
+      "forward": false,
+      "minus_eight_hop": [
+        4,
+        36,
+        32
+      ]
+    },
+    {
+      "sign": -1,
+      "forward": true,
+      "minus_eight_hop": [
+        4,
+        36,
+        32
+      ]
+    },
+    {
+      "sign": 1,
+      "forward": false,
+      "minus_eight_hop": [
+        4,
+        36,
+        32
+      ]
+    },
+    {
+      "sign": 1,
+      "forward": true,
+      "minus_eight_hop": [
+        4,
+        36,
+        32
+      ]
+    }
+  ],
+  "receiver_triangle": {
+    "ports": [
+      159,
+      164,
+      165
+    ],
+    "full_head_dimension": 1331,
+    "rows": [
+      {
+        "sign": -1,
+        "one_lap_nonzero": 27,
+        "two_laps_nonzero": 1,
+        "prepared_one_lap_rank": 1,
+        "prepared_two_laps_rank": 0
+      },
+      {
+        "sign": 1,
+        "one_lap_nonzero": 27,
+        "two_laps_nonzero": 1,
+        "prepared_one_lap_rank": 1,
+        "prepared_two_laps_rank": 0
+      }
+    ],
+    "integer_scale_per_step": 8
+  },
+  "supplied_flux_control": [
+    {
+      "supplied_flux_units": 0,
+      "faces_verified": 20,
+      "bright_x": 1.0,
+      "bright_y": 0.5
+    },
+    {
+      "supplied_flux_units": 1,
+      "faces_verified": 20,
+      "bright_x": 0.975528258148,
+      "bright_y": 0.654508497187
+    },
+    {
+      "supplied_flux_units": 10,
+      "faces_verified": 20,
+      "bright_x": 0.0,
+      "bright_y": 0.5
+    }
+  ]
+}
