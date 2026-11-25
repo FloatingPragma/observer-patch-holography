@@ -97,3 +97,15 @@ def test_passive_finite_pulses_and_complete_acquisitions():
             assert bank["max_port_probability_shift"] > 0.03
     assert x["aligned_doublet_exchange"]["reads"][0]["counts"] == [m.SHOTS, 0]
     assert x["aligned_doublet_exchange"]["reads"][-1]["counts"] == [0, m.SHOTS]
+
+
+def test_all_binary_cargo_invariant_spaces():
+    from math import comb
+    from .cargo import census
+
+    table = census()
+    assert table["conjugacy_classes"] == 56
+    assert table["constituent_dimensions"] == [1, 10, 44, 110, 165, 132]
+    for k, dimensions in enumerate(table["by_double_count"]):
+        assert sum(dimensions) == comb(11, k)
+        assert dimensions.count(1) == 1 and 2 not in dimensions

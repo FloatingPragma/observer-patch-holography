@@ -19,6 +19,7 @@ from model.experiments.interval_echo_lepton_register.measure import contact, pha
 from ..measure import compile_turn, path
 from .passive import native_flux_test
 from .bands import band_counts
+from .cargo import census as cargo_census
 from model.experiments.interval_echo_lepton_register import measure as koide
 from sympy import Poly, Symbol, cyclotomic_poly
 
@@ -414,6 +415,7 @@ def run():
         compiled_contact_error=compiled,
         guard_release=release(link),
         rotation_character=character_census(link),
+        blank_mobile_cargo=cargo_census(),
         certified_bands=band_counts(link, CELL.seams),
         coherent_preparations=filtered_band(link, rng),
         aligned_doublet_exchange=exchange_in_band(rng),
