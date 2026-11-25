@@ -76,6 +76,32 @@
     ],
     "note": "The measured port frequencies give the diagonal Gram form under the declared measure-to-metric rule. The nearest compact family of the oriented-face bracket is G, with joint 99% score bounds separating it from F and P. The metric and loss are specified, and a changed template selects F."
   },
+  "PR-21": {
+    "status": "fulfilled",
+    "evidence": [
+      "../../../code/cosmology/release_horizon/transverse_clock/README.md",
+      "../../../code/cosmology/release_horizon/transverse_clock/protocol.json",
+      "../../../code/cosmology/release_horizon/transverse_clock/oscillator.py",
+      "../../../code/cosmology/release_horizon/transverse_clock/measure.py",
+      "../../../code/cosmology/release_horizon/transverse_clock/records.json",
+      "../../../code/cosmology/release_horizon/transverse_clock/test_clock.py",
+      "../../../Lean/ObserverPatchHolography/Provenance/TransverseIncidence.lean"
+    ],
+    "note": "The declared auxiliary transverse representation stores the vertex and thirty signed incidence amplitudes on material rails. Two fixed-strength exchanges per seam implement each Fourier fibre, with explicit symmetric-product convergence. The incidence norm equals the completion symbol for every wavevector. The zero-gradient rail is constant. Physical field selection is separate."
+  },
+  "PR-22": {
+    "status": "partial",
+    "evidence": [
+      "../../../code/cosmology/release_horizon/transverse_clock/README.md",
+      "../../../code/cosmology/release_horizon/transverse_clock/protocol.json",
+      "../../../code/cosmology/release_horizon/transverse_clock/oscillator.py",
+      "../../../code/cosmology/release_horizon/transverse_clock/measure.py",
+      "../../../code/cosmology/release_horizon/transverse_clock/records.json",
+      "../../../code/cosmology/release_horizon/transverse_clock/test_clock.py",
+      "../../../Lean/ObserverPatchHolography/Provenance/TransverseIncidence.lean"
+    ],
+    "note": "Independent signed return counts on two transverse rail sets resolve port and oblique readout frequencies in declared marker units and support their squared-symbol values. A shielded reference, Bloch phases and gate cadence are supplied. Identifying a free physical mode, a physical length and laboratory clock units needs additional evidence."
+  },
   "PR-29": {
     "status": "fulfilled",
     "evidence": [
@@ -331,9 +357,13 @@
       "../../../code/cosmology/release_horizon/angular_transfer/records.json",
       "../../../code/cosmology/release_horizon/angular_transfer/detectors.npz",
       "../../../code/cosmology/release_horizon/angular_transfer/test_angular_transfer.py",
-      "../../../Lean/ObserverPatchHolography/Provenance/ScreenAngularTransfer.lean"
+      "../../../Lean/ObserverPatchHolography/Provenance/ScreenAngularTransfer.lean",
+      "../../../code/cosmology/release_horizon/transverse_clock/README.md",
+      "../../../code/cosmology/release_horizon/transverse_clock/measure.py",
+      "../../../code/cosmology/release_horizon/transverse_clock/records.json",
+      "../../../code/cosmology/release_horizon/transverse_clock/directions.npz"
     ],
-    "note": "Two source orbits have the same monopole and second moment and a nonzero degree-six contrast. Thirty-two distinct detector addresses preserve the contrast in free transport. A native transverse analyzer cancels it after one encounter and a fair bypass gives raw gain one half. The frame and encounter frequency are supplied and the physical photon interaction, visibility and sky orientation require independent calibration."
+    "note": "Two source orbits have the same monopole and second moment and a nonzero degree-six contrast. Thirty-two distinct detector addresses preserve the contrast in free transport. A native transverse analyzer cancels it after one encounter and a fair bypass gives raw gain one half. The frame and encounter frequency are supplied and the physical photon interaction, visibility and sky orientation require independent calibration. Independent local shutter counts predict the held two-layer contrast. Reusing the same shutter changes the transmission at identical single-layer encounter frequencies."
   },
   "PR-125": {
     "status": "fulfilled",
@@ -367,7 +397,7 @@
     "note": "The completed station-hop annuli on the declared midpoint family give normalized single and distinct-pair coefficients 27/16 and 729/256. The original fastest-swap annuli have a positive cofinal subsequential limit; convergence on their full sequence is open. With one common calibration, a uniformly chosen observer has closed-ball coefficient 27/10 in mean square on the completed crossings. Two admissible comparison labellings of the original fastest routes give different leading coefficients."
   },
   "PR-145": {
-    "status": "fulfilled",
+    "status": "partial",
     "evidence": [
       "../../../code/cosmology/release_horizon/angular_transfer/README.md",
       "../../../code/cosmology/release_horizon/angular_transfer/protocol.json",
@@ -379,7 +409,7 @@
       "../../../code/cosmology/release_horizon/angular_transfer/test_angular_transfer.py",
       "../../../Lean/ObserverPatchHolography/Provenance/ScreenAngularTransfer.lean"
     ],
-    "note": "Accepted native port reads select full three-rail translations of a 125-station quotient on the registered carrier. Complete seam permutations preserve the internal state and restore every borrowed port. Two readers identify each terminal address, all fifteen positive pairs commute on the entire sector, and a reversible wiring control breaks one diamond at eight owners. The finite projection of the port-coordinate lattice and the route schedule are supplied."
+    "note": "Accepted native port reads select full three-rail translations of a 125-station quotient on the registered carrier. Complete seam permutations preserve the internal state and restore every borrowed port. Two readers identify each terminal address, all fifteen positive pairs commute on the entire sector, and a reversible wiring control breaks one diamond at eight owners. The finite projection of the port-coordinate lattice and the route schedule are supplied. A source-selected six-step law across the native presentation space is a separate requirement."
   },
   "PR-155": {
     "status": "partial",

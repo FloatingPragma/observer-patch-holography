@@ -1,4 +1,5 @@
 import SeamCurrentAuxiliaryOscillatorLift
+import ObserverPatchHolography.Provenance.TransverseIncidence
 import SeamCurrentFreePhotonLift
 import CarrierFrequencySpeed
 import DiscreteGauss

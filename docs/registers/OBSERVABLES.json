@@ -878,12 +878,14 @@
     "code/a5_fingerprint/a5_multipole_persistence_independent_verifier.py",
     "code/a5_fingerprint/a5_multipole_persistence_stage4_independent_verifier.py",
     "model/candidate_laws/interval_echo/openwave/row_29_maxwell/seam_symbol/README.md",
-    "model/candidate_laws/interval_echo/openwave/row_29_maxwell/seam_symbol/records.json"
+    "model/candidate_laws/interval_echo/openwave/row_29_maxwell/seam_symbol/records.json",
+    "code/cosmology/release_horizon/transverse_clock/records.json"
    ],
    "papers": [
     "docs/FROZEN_PREDICTION_LADDER.md",
     "flagship/from_observer_consensus_to_standard_physics.pdf",
-    "claims/frozen_prediction_register.json"
+    "claims/frozen_prediction_register.json",
+    "cosmology/oph_boltzmann_transport_derivation.pdf"
    ]
   },
   {
@@ -4144,7 +4146,11 @@
     "code/angular_sprint/runtime/refinement_transfer_receipt.json",
     "code/cosmology/release_horizon/angular_transfer/README.md",
     "code/cosmology/release_horizon/angular_transfer/records.json",
-    "code/cosmology/release_horizon/angular_transfer/detectors.npz"
+    "code/cosmology/release_horizon/angular_transfer/detectors.npz",
+    "code/cosmology/release_horizon/transverse_clock/README.md",
+    "code/cosmology/release_horizon/transverse_clock/measure.py",
+    "code/cosmology/release_horizon/transverse_clock/records.json",
+    "code/cosmology/release_horizon/transverse_clock/directions.npz"
    ],
    "papers": [
     "docs/FROZEN_PREDICTION_LADDER.md",
@@ -6442,19 +6448,28 @@
    "kind": "premise",
    "name": "auxiliary oscillator lift of the seam-current generator",
    "category": "Construction choices",
-   "status": "Open",
+   "status": "Demonstrated",
    "what": "A transverse field mode on the carrier evolves as a harmonic oscillator driven by the derived spatial generator, a declared second-order evolution.",
    "why": "It turns the derived spatial operator into wave propagation, which OPH needs for field modes such as light.",
    "premises": [],
    "lean": [
     "Lean/Screen/SeamCurrentAuxiliaryOscillatorLift.lean",
-    "Lean/Screen/LightSignalAdequacySurface.lean"
+    "Lean/Screen/LightSignalAdequacySurface.lean",
+    "Lean/ObserverPatchHolography/Provenance/TransverseIncidence.lean"
    ],
    "model": [
     "model/candidate_laws/interval_echo/openwave/row_29_maxwell/seam_symbol/README.md",
-    "model/candidate_laws/interval_echo/openwave/row_29_maxwell/seam_symbol/transverse.json"
+    "model/candidate_laws/interval_echo/openwave/row_29_maxwell/seam_symbol/transverse.json",
+    "code/cosmology/release_horizon/transverse_clock/README.md",
+    "code/cosmology/release_horizon/transverse_clock/protocol.json",
+    "code/cosmology/release_horizon/transverse_clock/oscillator.py",
+    "code/cosmology/release_horizon/transverse_clock/measure.py",
+    "code/cosmology/release_horizon/transverse_clock/records.json",
+    "code/cosmology/release_horizon/transverse_clock/test_clock.py"
    ],
-   "papers": [],
+   "papers": [
+    "cosmology/oph_boltzmann_transport_derivation.pdf"
+   ],
    "statement": "The dynamics of one transverse mode on the carrier completion is the first-order oscillator lift (A', Pi') = (Pi, -Lambda A) of the spatial symbol. The spatial generator is derived; the second-order evolution shape is declared.",
    "premise_kind": "declared"
   },
@@ -6463,19 +6478,28 @@
    "kind": "premise",
    "name": "physical-frequency identification for the seam-current symbol",
    "category": "Physical premises",
-   "status": "Open",
+   "status": "Partial",
    "what": "Readout frequencies obey a dispersion relation given by the seam-current symbol at a chart scale identified with a physical length.",
    "why": "It connects carrier wave modes to laboratory frequencies and wavelengths, which any dispersion test against measurement requires.",
    "premises": [],
    "lean": [
     "Lean/Screen/CarrierFrequencySpeed.lean",
-    "Lean/Screen/LightSignalAdequacySurface.lean"
+    "Lean/Screen/LightSignalAdequacySurface.lean",
+    "Lean/ObserverPatchHolography/Provenance/TransverseIncidence.lean"
    ],
    "model": [
     "model/candidate_laws/interval_echo/openwave/row_29_maxwell/seam_symbol/README.md",
-    "model/candidate_laws/interval_echo/openwave/row_29_maxwell/seam_symbol/records.json"
+    "model/candidate_laws/interval_echo/openwave/row_29_maxwell/seam_symbol/records.json",
+    "code/cosmology/release_horizon/transverse_clock/README.md",
+    "code/cosmology/release_horizon/transverse_clock/protocol.json",
+    "code/cosmology/release_horizon/transverse_clock/oscillator.py",
+    "code/cosmology/release_horizon/transverse_clock/measure.py",
+    "code/cosmology/release_horizon/transverse_clock/records.json",
+    "code/cosmology/release_horizon/transverse_clock/test_clock.py"
    ],
-   "papers": [],
+   "papers": [
+    "cosmology/oph_boltzmann_transport_derivation.pdf"
+   ],
    "statement": "A readout frequency omega(k) satisfies omega(k)^2 = dilatedCompletionFourierSymbol(a, k) at a positive chart scale a. Identifying a with a physical length and omega with a laboratory frequency consumes PR-15.",
    "premise_kind": "derivable"
   },
@@ -8576,7 +8600,11 @@
     "code/cosmology/release_horizon/angular_transfer/measure.py",
     "code/cosmology/release_horizon/angular_transfer/records.json",
     "code/cosmology/release_horizon/angular_transfer/detectors.npz",
-    "code/cosmology/release_horizon/angular_transfer/test_angular_transfer.py"
+    "code/cosmology/release_horizon/angular_transfer/test_angular_transfer.py",
+    "code/cosmology/release_horizon/transverse_clock/README.md",
+    "code/cosmology/release_horizon/transverse_clock/measure.py",
+    "code/cosmology/release_horizon/transverse_clock/records.json",
+    "code/cosmology/release_horizon/transverse_clock/directions.npz"
    ],
    "papers": [
     "claims/frozen_prediction_register.json",

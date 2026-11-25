@@ -28,6 +28,8 @@ A complete two-rail energy transfer gives a directly calibrated finite isolation
 
 In a fixed material frame a vertex-minus-face contrast has nonzero degree six. Free propagation gives unit gain, one transverse projection gives zero, and a fair bypass gives 3/5 among accepted detections. After two encounters the accepted intensity quadrupole is 7/100 with polarization retained and 1/100 with polarization randomized. A physical sky prediction requires an independently fixed orientation and visibility history. [Angular transfer and complete detector banks](../code/cosmology/release_horizon/angular_transfer/README.md)
 
+A declared transverse oscillator on the seam-current completion has a material incidence implementation. The same exchange magnitudes generate the frequencies for two independently read wavevectors. Two separately commissioned encounter layers predict a raw degree-six gain of 0.187238, with 0.186748 in the held detector bank. Reusing a shutter changes the transmission at fixed one-layer rates. [Transverse clock and visibility records](../code/cosmology/release_horizon/transverse_clock/README.md)
+
 ## Required constructions
 
 - **Finite source:** source-derived scalar amplitude, shape, clock, release surface, and background capacity, including the reserve-generator receipt that the tilt theorem consumes.

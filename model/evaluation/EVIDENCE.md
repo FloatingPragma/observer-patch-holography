@@ -1195,8 +1195,8 @@ The register records each theorem assumption and its formal consumers. The role 
 | PR-18 spherically symmetric radial readout | law | Open | Open | Open | Open |
 | PR-19 shell-flux normalization | law | Open | Open | Open | Open |
 | PR-20 equal source-counting measure on the sixty directed source seams | designer | Open | Open | Open | Open |
-| PR-21 auxiliary oscillator lift of the seam-current generator | designer | Open | Open | Open | Open |
-| PR-22 physical-frequency identification for the seam-current symbol | law | Open | Open | Open | Open |
+| PR-21 auxiliary oscillator lift of the seam-current generator | designer | Demonstrated | Open | Open | Open |
+| PR-22 physical-frequency identification for the seam-current symbol | law | Partial | Open | Open | Open |
 | PR-23 modular first law for regional entropy | law | Partial | Open | Open | Open |
 | PR-24 stress conservation under modular null translations | law | Open | Open | Open | Open |
 | PR-25 matched geometry and stress charges on light cones | law | Open | Open | Open | Open |
@@ -1309,7 +1309,7 @@ The register records each theorem assumption and its formal consumers. The role 
 | PR-141 source return map fixes the closure quantity | law | Open | Open | Open | Open |
 | PR-143 native repair acts as the declared census quotients | law | Open | Open | Open | Open |
 | PR-144 unique event labels and one commit per conflict | designer | Open | Open | Open | Open |
-| PR-145 six native axis steps commute on interpreted endpoints | law | Demonstrated | Open | Open | Open |
+| PR-145 six native axis steps commute on interpreted endpoints | law | Partial | Open | Open | Open |
 | PR-146 primitive repair moves are scalar pair averaging | designer | Open | Open | Open | Open |
 | PR-147 every schedule word law is admissible | designer | Open | Open | Open | Open |
 | PR-148 Yang-Mills collar repair generator | law | Open | Open | Open | Open |
