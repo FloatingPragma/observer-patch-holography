@@ -2837,14 +2837,21 @@
     "PR-46",
     "PR-96"
    ],
-   "lean": [],
+   "lean": [
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/charge_profile/ChargeRecords.lean",
+    "code/a5_closure/neutral_observer/NeutralProjectors.lean"
+   ],
    "model": [
     "model/evaluation/SCORECARD.md",
     "code/defect_particle_classes/PROOF.md",
     "code/defect_particle_classes/results.json",
     "model/evaluation/particles.json",
     "model/candidate_laws/interval_echo/openwave/row_09_neutral/README.md",
-    "model/candidate_laws/interval_echo/openwave/row_09_neutral/records.json"
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/records.json",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/charge_profile/README.md",
+    "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/cyclic_charge/neutral_ladder/release/README.md",
+    "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/neutral_response/README.md",
+    "code/a5_closure/neutral_observer/README.md"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
@@ -2869,14 +2876,21 @@
     "PR-46",
     "PR-96"
    ],
-   "lean": [],
+   "lean": [
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/charge_profile/ChargeRecords.lean",
+    "code/a5_closure/neutral_observer/NeutralProjectors.lean"
+   ],
    "model": [
     "model/evaluation/SCORECARD.md",
     "code/defect_particle_classes/PROOF.md",
     "code/defect_particle_classes/results.json",
     "model/evaluation/particles.json",
     "model/candidate_laws/interval_echo/openwave/row_09_neutral/README.md",
-    "model/candidate_laws/interval_echo/openwave/row_09_neutral/records.json"
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/records.json",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/charge_profile/README.md",
+    "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/cyclic_charge/neutral_ladder/release/README.md",
+    "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/neutral_response/README.md",
+    "code/a5_closure/neutral_observer/README.md"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
@@ -2901,14 +2915,21 @@
     "PR-46",
     "PR-96"
    ],
-   "lean": [],
+   "lean": [
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/charge_profile/ChargeRecords.lean",
+    "code/a5_closure/neutral_observer/NeutralProjectors.lean"
+   ],
    "model": [
     "model/evaluation/SCORECARD.md",
     "code/defect_particle_classes/PROOF.md",
     "code/defect_particle_classes/results.json",
     "model/evaluation/particles.json",
     "model/candidate_laws/interval_echo/openwave/row_09_neutral/README.md",
-    "model/candidate_laws/interval_echo/openwave/row_09_neutral/records.json"
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/records.json",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/charge_profile/README.md",
+    "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/cyclic_charge/neutral_ladder/release/README.md",
+    "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/neutral_response/README.md",
+    "code/a5_closure/neutral_observer/README.md"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
@@ -5183,7 +5204,9 @@
    "why": "A model of matter has to produce such light neutral states among decay products to recover the weak sector.",
    "premises": [],
    "lean": [
-    "Lean/Screen/ReleasedWingEnergy.lean"
+    "Lean/Screen/ReleasedWingEnergy.lean",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/charge_profile/ChargeRecords.lean",
+    "code/a5_closure/neutral_observer/NeutralProjectors.lean"
    ],
    "model": [
     "model/evaluation/SCORECARD.md",
@@ -5194,7 +5217,11 @@
     "model/candidate_laws/interval_echo/openwave/row_09_neutral/records.json",
     "model/candidate_laws/interval_echo/openwave/row_09_neutral/clocks.json",
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/neutral_ejecta/README.md",
-    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/neutral_ejecta/results.json"
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/neutral_ejecta/results.json",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/charge_profile/README.md",
+    "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/cyclic_charge/neutral_ladder/release/README.md",
+    "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/neutral_response/README.md",
+    "code/a5_closure/neutral_observer/README.md"
    ],
    "papers": [
     "paper/executable_observer_construction.pdf"
@@ -7405,7 +7432,8 @@
     "Lean/SourceLaw/ArrivalChargeLadder.lean",
     "Lean/SourceLaw/NeutralSpinTransfer.lean",
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/resonant_delivery/ResonantTransfer.lean",
-    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/emission_channels/EmissionBound.lean"
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/emission_channels/EmissionBound.lean",
+    "code/a5_closure/neutral_observer/NeutralProjectors.lean"
    ],
    "model": [
     "model/candidate_laws/interval_echo/CURRENTS.md",
@@ -7415,7 +7443,9 @@
     "model/experiments/interval_echo_gauge/arrival_ladder/README.md",
     "model/experiments/interval_echo_gauge/arrival_ladder/spin_transfer/README.md",
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/resonant_delivery/README.md",
-    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/emission_channels/README.md"
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/emission_channels/README.md",
+    "code/a5_closure/neutral_observer/README.md",
+    "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/neutral_response/README.md"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
@@ -7527,12 +7557,15 @@
     "Lean/Screen/NeutralCurrentDictionary.lean",
     "Lean/Screen/ChargedCurrentDictionary.lean",
     "Lean/Screen/WeylYukawaConventions.lean",
-    "Lean/Screen/ExteriorMultiplicity.lean"
+    "Lean/Screen/ExteriorMultiplicity.lean",
+    "code/a5_closure/neutral_observer/NeutralProjectors.lean"
    ],
    "model": [
     "code/a5_closure/exterior_sm_completion.py",
     "code/a5_closure/chiral_multiplicity/README.md",
-    "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/README.md"
+    "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/README.md",
+    "code/a5_closure/neutral_observer/README.md",
+    "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/neutral_response/README.md"
    ],
    "papers": [
     "claims/assumption_dictionary.md"

@@ -7,7 +7,10 @@ Research results belong in the papers, the Lean library and the code. The
 
 The mission is: **Build an executable realization of the OPH observer algebra
 whose compatible inter-observer measurements reproduce the observed Universe.**
-Fields, particles and spacetime are effective descriptions of those records. Assign a particle name through what observers measure, compare and record. State the calibrated instruments, their resolution and the alternatives that give the same records.
+Fields, particles and spacetime are effective descriptions of those records.
+Assign a particle name through what observers measure, compare and record.
+State the calibrated instruments, their resolution and the alternatives that
+give the same records.
 OPH does not claim to prove its own uniqueness or force its architectural
 choices. Verify self-reference and the observable consequences on the same
 declared construction.

@@ -573,7 +573,7 @@
           "results": {
             "interval_echo": {
               "status": "open",
-              "note": "Production in a decay, electric neutrality and lightness have yet to be established for the same excitation. On the same six-port annihilation receiver the attached first gap is 31.80076 against a parent exchange energy of 65.00001 ± 0.00015. Removing the source link with dimer guards retained gives a gap of 0.000945849. Its conditional line frequency is 22.0 percent after a wall launch and 50.0 percent with the ordered sham. Releasing the guards gives a first gap of 32.49358 with an analytic lower bound of 31.5. The soft line is present without the decaying source. These records leave production of a light electrically neutral excitation open.",
+              "note": "Production in a decay, electric neutrality and lightness have yet to be established for the same excitation. On the same six-port annihilation receiver the attached first gap is 31.80076 against a parent exchange energy of 65.00001 ± 0.00015. Removing the source link with dimer guards retained gives a gap of 0.000945849. Its conditional line frequency is 22.0 percent after a wall launch and 50.0 percent with the ordered sham. Releasing the guards gives a first gap of 32.49358 with an analytic lower bound of 31.5. The soft line is present without the decaying source. These records leave production of a light electrically neutral excitation open. At full conversion all 2,493,659 neutral detections resolve opposite charges on the two measured ports. A remote observer can compare joint signed arrivals after free flight on the prepared route. A calibrated negative or positive weak daughter sorts the neutral inputs of the declared exterior doublet. An explicit pair of charged constituents gives exactly the same total gauge currents as the direct doublet.",
               "evidence": [
                 "model/candidate_laws/interval_echo/SPEC.md",
                 "model/candidate_laws/interval_echo/openwave/row_09_neutral/README.md",
@@ -583,7 +583,11 @@
                 "model/candidate_laws/interval_echo/openwave/row_09_neutral/clock_check.py",
                 "model/candidate_laws/interval_echo/openwave/row_09_neutral/clocks.json",
                 "model/candidate_laws/interval_echo/openwave/row_09_neutral/test_release.py",
-                "Lean/Screen/ReleasedWingEnergy.lean"
+                "Lean/Screen/ReleasedWingEnergy.lean",
+                "model/candidate_laws/interval_echo/openwave/row_09_neutral/charge_profile/README.md",
+                "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/cyclic_charge/neutral_ladder/release/README.md",
+                "code/a5_closure/neutral_observer/README.md",
+                "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/neutral_response/README.md"
               ],
               "comparison": {
                 "law": "Written-field Laplacian extension",

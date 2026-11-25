@@ -69,3 +69,11 @@ def test_calibrated_currents_and_native_material_report():
                 ) + [pair, 2 * pair, 0, 0, 0.4 * pair]
                 coefficients = [r["banks"][j][site + "_hit"] for r in rows]
                 np.testing.assert_allclose(coefficients, expected, atol=2e-13, rtol=0)
+
+
+def test_roundoff_for_a_dark_detector_can_be_sampled():
+    effects = np.array([[[-1e-14]], [[1 + 1e-14]]])
+    counts = np.random.default_rng(5).multinomial(
+        100, measure.probabilities(effects, np.eye(1))
+    )
+    np.testing.assert_array_equal(counts, [0, 100])
