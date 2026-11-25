@@ -15,6 +15,15 @@ from .__main__ import ARCHIVE, compare
 from .. import open_pair_check as filed
 
 
+def test_exact_source_ceiling_and_counterfactual_panel():
+    from . import admission
+    limit = admission.verify()
+    assert limit == admission.panel_ceiling([9, 3, 3, 1]) < Fraction(94, 100)
+    assert admission.panel_ceiling([0, 1, 0, 0]) == 1 - Fraction(63, 64)**8
+    assert admission.panel_ceiling([0, 0, 1, 0]) == admission.panel_ceiling([0, 0, 0, 1]) == 1
+    assert admission.panel_ceiling([1, 0, 0, 0]) > Fraction(99, 100)
+
+
 def test_all_masks_against_cancellation_at_each_destination():
     # Read the raw board. Classify by matched exits instead of multiplying operator columns.
     with np.load(filed.BOARD, allow_pickle=False) as f:
