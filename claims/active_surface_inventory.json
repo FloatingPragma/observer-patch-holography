@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 1062,
+  "surface_count": 1074,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -1811,6 +1811,11 @@
       "allowlisted": false
     },
     {
+      "path": "model/candidate_laws/interval_echo/openwave/row_26_newton/mobile_mediator/thermal_range/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/candidate_laws/interval_echo/openwave/row_27_metric/EXTERIOR_PROTOCOL.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -2067,6 +2072,16 @@
     },
     {
       "path": "model/candidate_laws/interval_echo/openwave/row_30_collective/fork/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_30_collective/impulse/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_30_collective/impulse/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -2661,6 +2676,21 @@
       "allowlisted": false
     },
     {
+      "path": "model/experiments/interval_echo_consensus/refinement_cooling/dimer_band/thermal_contact/DOUBLE_PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_consensus/refinement_cooling/dimer_band/thermal_contact/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_consensus/refinement_cooling/dimer_band/thermal_contact/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/experiments/interval_echo_consensus/repair_budget/PROTOCOL.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -2842,6 +2872,16 @@
     },
     {
       "path": "model/experiments/interval_echo_einstein_station/collar_scaling/station_clock/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_einstein_station/collar_scaling/station_clock/observer_survey/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_einstein_station/collar_scaling/station_clock/separated_sectors/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -3181,6 +3221,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/experiments/interval_echo_gauge/flag_measure/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_gauge/flag_measure/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/experiments/interval_echo_gauge/inventory_periods/PROTOCOL.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -3502,6 +3552,16 @@
     },
     {
       "path": "model/experiments/material_inertia/pair_spectrum/native_source_probe/regional_census/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/material_inertia/pair_spectrum/remote_charge/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/material_inertia/pair_spectrum/remote_charge/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
