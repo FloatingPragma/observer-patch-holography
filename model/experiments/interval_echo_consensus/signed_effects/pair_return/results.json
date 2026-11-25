@@ -1,0 +1,662 @@
+{
+  "source_sha256": {
+    "model/candidate_laws/contrast_memory_spherical_v1/law.py": "218a99ebc1e921065a818b77f00608818fdacf80782406466787b2891b1d017f",
+    "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+    "model/executable_model/carrier.py": "327fc33189ff6242f7367f625a3f70d97167e79bd4f8a740266d7eb09e237bbd",
+    "model/executable_model/carriers/FEDERATION_LEVEL0.npz": "99870398e3d516f899c600e9bf25ba53c7f513142ba8facbe1cedd94b23f915b",
+    "model/experiments/interval_echo_consensus/signed_effects/fixed_pointer.py": "c63a7706c98860eda180c534e7dcb6d83e0cf4d4127237f88d97bdd306ac2168",
+    "model/experiments/interval_echo_consensus/signed_effects/full_address/measure.py": "c1bf6ba308faf4a381311dd30352a682d1274872efdd00b976b3d516d92f4f7a",
+    "model/experiments/interval_echo_consensus/signed_effects/pair_return/measure.py": "4570159f452e16890edb0d358c25f8a92628105ff6f9f1771241527d2578a16b",
+    "model/experiments/interval_echo_consensus/signed_effects/phase_table/acquire.py": "b6c9b1c9362e5b0d45ff2181a4e2f4ca9604179a723282ff007a1994b0ec7683",
+    "model/experiments/interval_echo_consensus/signed_effects/phase_table/measure.py": "556a8bfc8e53ebdde53d86d2dbda5a62a2eb2ff33d0f797d94eb72263fc70bfe",
+    "Lean/EventAlgebra/FiniteProbeInstrumentSelection.lean": "8cc105eb8002222afa8419a2c38179899588654552478c8a2bdf9f45e5eda72d"
+  },
+  "native_checks": {
+    "full_local_dimension": 81,
+    "source_pointer_code_columns": 6,
+    "local_copy_operator_error": 6.03914279246339e-14,
+    "native_pi_swap_operator_error": 2.5102732898578948e-14
+  },
+  "initial_material_load": 240,
+  "excess_data_ports": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "balancing_vacancy": 239,
+  "public_group": "floor(first_pointer/2) for valid words; 16 is a malformed raw pointer",
+  "joint_raw_labels": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16
+  ],
+  "zero_bins_omitted": true,
+  "terminal_address": "first_pointer XOR second_pointer on valid words",
+  "head_copy_calls": {
+    "pair": 14,
+    "address_then_forget": 20
+  },
+  "terminal_copy_calls": 20,
+  "shots_per_setting": 8192,
+  "seed_pcg64": 1310612,
+  "original_starts": 294912,
+  "banks": [
+    {
+      "pair_start": 0,
+      "instrument": "pair",
+      "probe": "port0",
+      "return_probability": 1.0,
+      "returned": 8192,
+      "nonzero_joint_counts": [
+        [
+          0,
+          0,
+          8192
+        ]
+      ]
+    },
+    {
+      "pair_start": 0,
+      "instrument": "pair",
+      "probe": "port1",
+      "return_probability": 1.0,
+      "returned": 8192,
+      "nonzero_joint_counts": [
+        [
+          0,
+          1,
+          8192
+        ]
+      ]
+    },
+    {
+      "pair_start": 0,
+      "instrument": "pair",
+      "probe": "plus",
+      "return_probability": 1.0,
+      "returned": 8192,
+      "nonzero_joint_counts": [
+        [
+          0,
+          0,
+          8192
+        ]
+      ]
+    },
+    {
+      "pair_start": 0,
+      "instrument": "address_then_forget",
+      "probe": "port0",
+      "return_probability": 1.0,
+      "returned": 8192,
+      "nonzero_joint_counts": [
+        [
+          0,
+          0,
+          8192
+        ]
+      ]
+    },
+    {
+      "pair_start": 0,
+      "instrument": "address_then_forget",
+      "probe": "port1",
+      "return_probability": 1.0,
+      "returned": 8192,
+      "nonzero_joint_counts": [
+        [
+          1,
+          0,
+          8192
+        ]
+      ]
+    },
+    {
+      "pair_start": 0,
+      "instrument": "address_then_forget",
+      "probe": "plus",
+      "return_probability": 0.5,
+      "returned": 4056,
+      "nonzero_joint_counts": [
+        [
+          0,
+          0,
+          2035
+        ],
+        [
+          0,
+          1,
+          2090
+        ],
+        [
+          1,
+          0,
+          2046
+        ],
+        [
+          1,
+          1,
+          2021
+        ]
+      ]
+    },
+    {
+      "pair_start": 2,
+      "instrument": "pair",
+      "probe": "port0",
+      "return_probability": 1.0,
+      "returned": 8192,
+      "nonzero_joint_counts": [
+        [
+          2,
+          2,
+          8192
+        ]
+      ]
+    },
+    {
+      "pair_start": 2,
+      "instrument": "pair",
+      "probe": "port1",
+      "return_probability": 1.0,
+      "returned": 8192,
+      "nonzero_joint_counts": [
+        [
+          2,
+          3,
+          8192
+        ]
+      ]
+    },
+    {
+      "pair_start": 2,
+      "instrument": "pair",
+      "probe": "plus",
+      "return_probability": 1.0,
+      "returned": 8192,
+      "nonzero_joint_counts": [
+        [
+          2,
+          2,
+          8192
+        ]
+      ]
+    },
+    {
+      "pair_start": 2,
+      "instrument": "address_then_forget",
+      "probe": "port0",
+      "return_probability": 1.0,
+      "returned": 8192,
+      "nonzero_joint_counts": [
+        [
+          2,
+          2,
+          8192
+        ]
+      ]
+    },
+    {
+      "pair_start": 2,
+      "instrument": "address_then_forget",
+      "probe": "port1",
+      "return_probability": 1.0,
+      "returned": 8192,
+      "nonzero_joint_counts": [
+        [
+          3,
+          2,
+          8192
+        ]
+      ]
+    },
+    {
+      "pair_start": 2,
+      "instrument": "address_then_forget",
+      "probe": "plus",
+      "return_probability": 0.5,
+      "returned": 4129,
+      "nonzero_joint_counts": [
+        [
+          2,
+          2,
+          2060
+        ],
+        [
+          2,
+          3,
+          2080
+        ],
+        [
+          3,
+          2,
+          1983
+        ],
+        [
+          3,
+          3,
+          2069
+        ]
+      ]
+    },
+    {
+      "pair_start": 4,
+      "instrument": "pair",
+      "probe": "port0",
+      "return_probability": 1.0,
+      "returned": 8192,
+      "nonzero_joint_counts": [
+        [
+          4,
+          4,
+          8192
+        ]
+      ]
+    },
+    {
+      "pair_start": 4,
+      "instrument": "pair",
+      "probe": "port1",
+      "return_probability": 1.0,
+      "returned": 8192,
+      "nonzero_joint_counts": [
+        [
+          4,
+          5,
+          8192
+        ]
+      ]
+    },
+    {
+      "pair_start": 4,
+      "instrument": "pair",
+      "probe": "plus",
+      "return_probability": 1.0,
+      "returned": 8192,
+      "nonzero_joint_counts": [
+        [
+          4,
+          4,
+          8192
+        ]
+      ]
+    },
+    {
+      "pair_start": 4,
+      "instrument": "address_then_forget",
+      "probe": "port0",
+      "return_probability": 1.0,
+      "returned": 8192,
+      "nonzero_joint_counts": [
+        [
+          4,
+          4,
+          8192
+        ]
+      ]
+    },
+    {
+      "pair_start": 4,
+      "instrument": "address_then_forget",
+      "probe": "port1",
+      "return_probability": 1.0,
+      "returned": 8192,
+      "nonzero_joint_counts": [
+        [
+          5,
+          4,
+          8192
+        ]
+      ]
+    },
+    {
+      "pair_start": 4,
+      "instrument": "address_then_forget",
+      "probe": "plus",
+      "return_probability": 0.5,
+      "returned": 4034,
+      "nonzero_joint_counts": [
+        [
+          4,
+          4,
+          2002
+        ],
+        [
+          4,
+          5,
+          2069
+        ],
+        [
+          5,
+          4,
+          2089
+        ],
+        [
+          5,
+          5,
+          2032
+        ]
+      ]
+    },
+    {
+      "pair_start": 6,
+      "instrument": "pair",
+      "probe": "port0",
+      "return_probability": 1.0,
+      "returned": 8192,
+      "nonzero_joint_counts": [
+        [
+          6,
+          6,
+          8192
+        ]
+      ]
+    },
+    {
+      "pair_start": 6,
+      "instrument": "pair",
+      "probe": "port1",
+      "return_probability": 1.0,
+      "returned": 8192,
+      "nonzero_joint_counts": [
+        [
+          6,
+          7,
+          8192
+        ]
+      ]
+    },
+    {
+      "pair_start": 6,
+      "instrument": "pair",
+      "probe": "plus",
+      "return_probability": 1.0,
+      "returned": 8192,
+      "nonzero_joint_counts": [
+        [
+          6,
+          6,
+          8192
+        ]
+      ]
+    },
+    {
+      "pair_start": 6,
+      "instrument": "address_then_forget",
+      "probe": "port0",
+      "return_probability": 1.0,
+      "returned": 8192,
+      "nonzero_joint_counts": [
+        [
+          6,
+          6,
+          8192
+        ]
+      ]
+    },
+    {
+      "pair_start": 6,
+      "instrument": "address_then_forget",
+      "probe": "port1",
+      "return_probability": 1.0,
+      "returned": 8192,
+      "nonzero_joint_counts": [
+        [
+          7,
+          6,
+          8192
+        ]
+      ]
+    },
+    {
+      "pair_start": 6,
+      "instrument": "address_then_forget",
+      "probe": "plus",
+      "return_probability": 0.5,
+      "returned": 4146,
+      "nonzero_joint_counts": [
+        [
+          6,
+          6,
+          2043
+        ],
+        [
+          6,
+          7,
+          2040
+        ],
+        [
+          7,
+          6,
+          2006
+        ],
+        [
+          7,
+          7,
+          2103
+        ]
+      ]
+    },
+    {
+      "pair_start": 8,
+      "instrument": "pair",
+      "probe": "port0",
+      "return_probability": 1.0,
+      "returned": 8192,
+      "nonzero_joint_counts": [
+        [
+          8,
+          8,
+          8192
+        ]
+      ]
+    },
+    {
+      "pair_start": 8,
+      "instrument": "pair",
+      "probe": "port1",
+      "return_probability": 1.0,
+      "returned": 8192,
+      "nonzero_joint_counts": [
+        [
+          8,
+          9,
+          8192
+        ]
+      ]
+    },
+    {
+      "pair_start": 8,
+      "instrument": "pair",
+      "probe": "plus",
+      "return_probability": 1.0,
+      "returned": 8192,
+      "nonzero_joint_counts": [
+        [
+          8,
+          8,
+          8192
+        ]
+      ]
+    },
+    {
+      "pair_start": 8,
+      "instrument": "address_then_forget",
+      "probe": "port0",
+      "return_probability": 1.0,
+      "returned": 8192,
+      "nonzero_joint_counts": [
+        [
+          8,
+          8,
+          8192
+        ]
+      ]
+    },
+    {
+      "pair_start": 8,
+      "instrument": "address_then_forget",
+      "probe": "port1",
+      "return_probability": 1.0,
+      "returned": 8192,
+      "nonzero_joint_counts": [
+        [
+          9,
+          8,
+          8192
+        ]
+      ]
+    },
+    {
+      "pair_start": 8,
+      "instrument": "address_then_forget",
+      "probe": "plus",
+      "return_probability": 0.5,
+      "returned": 4153,
+      "nonzero_joint_counts": [
+        [
+          8,
+          8,
+          2113
+        ],
+        [
+          8,
+          9,
+          2012
+        ],
+        [
+          9,
+          8,
+          2027
+        ],
+        [
+          9,
+          9,
+          2040
+        ]
+      ]
+    },
+    {
+      "pair_start": 10,
+      "instrument": "pair",
+      "probe": "port0",
+      "return_probability": 1.0,
+      "returned": 8192,
+      "nonzero_joint_counts": [
+        [
+          10,
+          10,
+          8192
+        ]
+      ]
+    },
+    {
+      "pair_start": 10,
+      "instrument": "pair",
+      "probe": "port1",
+      "return_probability": 1.0,
+      "returned": 8192,
+      "nonzero_joint_counts": [
+        [
+          10,
+          11,
+          8192
+        ]
+      ]
+    },
+    {
+      "pair_start": 10,
+      "instrument": "pair",
+      "probe": "plus",
+      "return_probability": 1.0,
+      "returned": 8192,
+      "nonzero_joint_counts": [
+        [
+          10,
+          10,
+          8192
+        ]
+      ]
+    },
+    {
+      "pair_start": 10,
+      "instrument": "address_then_forget",
+      "probe": "port0",
+      "return_probability": 1.0,
+      "returned": 8192,
+      "nonzero_joint_counts": [
+        [
+          10,
+          10,
+          8192
+        ]
+      ]
+    },
+    {
+      "pair_start": 10,
+      "instrument": "address_then_forget",
+      "probe": "port1",
+      "return_probability": 1.0,
+      "returned": 8192,
+      "nonzero_joint_counts": [
+        [
+          11,
+          10,
+          8192
+        ]
+      ]
+    },
+    {
+      "pair_start": 10,
+      "instrument": "address_then_forget",
+      "probe": "plus",
+      "return_probability": 0.5,
+      "returned": 4116,
+      "nonzero_joint_counts": [
+        [
+          10,
+          10,
+          2041
+        ],
+        [
+          10,
+          11,
+          2008
+        ],
+        [
+          11,
+          10,
+          2068
+        ],
+        [
+          11,
+          11,
+          2075
+        ]
+      ]
+    }
+  ]
+}
