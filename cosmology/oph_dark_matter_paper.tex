@@ -2431,6 +2431,66 @@ size after ordinary stresses and foreground mass are accounted for.
 The per-lens values and sensitivity calculations accompany the
 \href{https://github.com/FloatingPragma/observer-patch-holography/tree/main/code/cosmology/rar_deep_regime/aperture_virial}{aperture calculation}.
 
+\paragraph{Pressure between two rings of the same galaxy.}
+SDSS~J0946+1006 lenses two sources at spectroscopic redshifts 0.609
+and 2.035. The rings at $1.43\pm0.01$ and $2.07\pm0.02$ arcsec sample
+the foreground galaxy at 5.115 and 7.404 kpc for the stated flat
+distance calibration~\cite{jackpot2008,jackpot2021}. Consider their
+aligned circular two-plane interpretation. Write $C_i$ for the critical
+surface density of the primary lens for source $i$, $S$ for a constant
+external surface density on the primary plane, and $b_{12}$ for the
+reduced radial bend of the outer ray by the intervening source.
+The equations are $\overline\Sigma_{w1}+S=C_1$ and
+$\overline\Sigma_{w2}+S=C_2(1-b_{12}/\theta_2)$. For a centered
+positive secondary with the outer ray on the same side of the axis,
+$b_{12}\ge0$. Equation~\eqref{eq:radial-pressure-column} therefore gives
+\[
+ \frac{P(R_1)-P(R_2)}{c^2}
+ \le \overline\Sigma_o(<R_1)-\overline\Sigma_o(<R_2)-(C_1-C_2).
+\]
+The primary sheet cancels. An exterior spherical mass shell places
+more mass per unit aperture area inside the outer cylinder than
+inside the inner one. Indeed, for $r\ge R_2$ its fractional
+contribution divided by $\pi R^2$ is
+$[\pi r^2(1+\sqrt{1-R^2/r^2})]^{-1}$, increasing with $R$.
+Consequently, at fixed interior orbital mass profile, deleting all
+mass outside $R_2$ gives an upper bound over every nonnegative
+exterior orbital mass density.
+
+Use the two observed stellar light components~\cite{jackpot2012} and
+the preceding square-root force law only out to $R_2$. Over the
+individual Chabrier stellar-mass and light-profile error ranges,
+both quoted ring errors and the SPARC bootstrap scale interval,
+the truncated orbital contrast is at most
+$941\,M_\odot\,{\rm pc}^{-2}$. The critical-density difference is
+$1055.58\,M_\odot\,{\rm pc}^{-2}$. Hence the inner pressure column
+must lie below the outer by at least $114\,c^2 M_\odot\,{\rm pc}^{-2}$
+on this branch. To obtain a nonnegative pressure contrast by
+adding a positive spherical orbital source requires at least
+$1.72\times10^{10}M_\odot$ inside $R_2$, since its maximum weight
+per unit mass is $(R_1^{-2}-R_2^{-2})/\pi$. Doubling both ring
+errors gives a minimum contrast deficit of 76 in the same surface-density
+units. Including the alternative inner-ring fits of
+Ref.~\cite{bolton2008} lowers that bound to 10.
+
+The nominal Salpeter component masses admit an explicit zero-pressure
+alternative if the square-root continuation extends along the ray.
+It requires $S=0.145\,C_1$ and $b_{12}=0.108$ arcsec, equivalent to
+an isothermal secondary of dispersion $80.8\,{\rm km\,s^{-1}}$.
+The secondary luminosity gives $59\pm13\,{\rm km\,s^{-1}}$ on a
+Tully--Fisher calibration~\cite{jackpot2008}. In the same Salpeter
+orbital field an isotropic Jeans model for the two measured light
+components gives a primary fibre dispersion of $259.4\,{\rm km\,s^{-1}}$,
+against the independent spectrum at $263\pm21\,{\rm km\,s^{-1}}$.
+The nominal Chabrier field gives $196.9\,{\rm km\,s^{-1}}$ under
+isotropy. The observed arcs are
+partial and the two fitted stellar components have projected axis
+ratios 0.66 and 0.71. Departures from circular lensing, additional
+lens planes and the stellar mass calibration affect the pressure
+inference. The pressure contrast constrains a proposed total stress;
+its assignment to a collar requires independent material data.
+\footnote{\href{https://github.com/FloatingPragma/observer-patch-holography/tree/main/code/cosmology/rar_deep_regime/double_ring_pressure}{Two-plane equations, interval bounds and observational inputs.}}
+
 \paragraph{Where the excess must gravitate in a merger.}
 The western component of the Bullet Cluster supplies a position test
 independent of a rotation calibration. Consider a total projected
@@ -2755,6 +2815,22 @@ The Full ACS Strong-Lens Sample}, Astrophys. J. \textbf{682}, 964 (2008).
 R. Gavazzi et al., \emph{The Sloan Lens ACS Survey. IV. The Mass Density
 Profile of Early-Type Galaxies out to 100 Effective Radii},
 Astrophys. J. \textbf{667}, 176 (2007). \url{https://doi.org/10.1086/519237}.
+
+\bibitem{jackpot2008}
+R. Gavazzi et al., \emph{The Sloan Lens ACS Survey. VI. Discovery and
+Analysis of a Double Einstein Ring}, Astrophys. J. \textbf{677}, 1046 (2008).
+\url{https://arxiv.org/abs/0801.1555}.
+
+\bibitem{jackpot2012}
+A. Sonnenfeld et al., \emph{Evidence for Dark Matter Contraction and a
+Salpeter Initial Mass Function in a Massive Early-type Galaxy},
+Astrophys. J. \textbf{752}, 163 (2012). \url{https://arxiv.org/abs/1111.4215}.
+
+\bibitem{jackpot2021}
+R. J. Smith and T. E. Collett, \emph{A fully-spectroscopic
+triple-source-plane lens: the Jackpot completed},
+Mon. Not. R. Astron. Soc. \textbf{505}, 2136 (2021).
+\url{https://doi.org/10.1093/mnras/stab1399}.
 
 \bibitem{auger2009}
 M. W. Auger et al., \emph{The Sloan Lens ACS Survey. IX. Colors, Lensing,

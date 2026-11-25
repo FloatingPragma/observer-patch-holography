@@ -1,0 +1,107 @@
+{
+  "radii_kpc": [
+    5.114996556063121,
+    7.404225783951511
+  ],
+  "critical_msun_pc2": [
+    3778.961035374155,
+    2723.383436765213
+  ],
+  "critical_contrast_msun_pc2": 1055.577598608942,
+  "secondary_efficiency": 0.5728384774432291,
+  "primary_a0_m_s2": 8.750402247718735e-11,
+  "a0_box_m_s2": [
+    7.390242699918679e-11,
+    1.037927571023286e-10
+  ],
+  "nominal": {
+    "Chabrier": {
+      "stellar_fibre": {
+        "isotropic_km_s": 196.92329418384986,
+        "anisotropy_bounds_km_s": [
+          170.9800415282715,
+          236.8971622786335
+        ]
+      },
+      "unlimited_orbital_means": [
+        1958.2895909030394,
+        1261.9244687009589
+      ],
+      "upper_pressure_contrast_unlimited": -359.21247640686147,
+      "upper_pressure_contrast_any_positive_exterior": -326.80777994769596,
+      "zero_pressure_primary_sheet_kappa1": 0.4817915367287853,
+      "zero_pressure_secondary_bend_arcsec": -0.27303163268313124,
+      "zero_pressure_intermediate_ray_arcsec": 0.38144764909320794,
+      "zero_pressure_secondary_equivalent_km_s": null
+    },
+    "Salpeter": {
+      "stellar_fibre": {
+        "isotropic_km_s": 259.36189862790803,
+        "anisotropy_bounds_km_s": [
+          227.06316083333073,
+          307.7813034075708
+        ]
+      },
+      "unlimited_orbital_means": [
+        3230.318747155868,
+        2032.9806682741698
+      ],
+      "upper_pressure_contrast_unlimited": 141.76048027275624,
+      "upper_pressure_contrast_any_positive_exterior": 190.85657236958082,
+      "zero_pressure_primary_sheet_kappa1": 0.14518336735482262,
+      "zero_pressure_secondary_bend_arcsec": 0.10774986371847559,
+      "zero_pressure_intermediate_ray_arcsec": 0.6558654085301306,
+      "zero_pressure_secondary_equivalent_km_s": 80.7598452750575
+    }
+  },
+  "all_positive_exteriors": {
+    "ring_errors_1": {
+      "ring_ranges_arcsec": [
+        [
+          1.42,
+          1.44
+        ],
+        [
+          2.05,
+          2.09
+        ]
+      ],
+      "orbital_contrast_upper": 941,
+      "critical_contrast_lower": 1055,
+      "pressure_contrast_upper": -114,
+      "additional_interior_mass_lower_msun": 17200000000
+    },
+    "ring_errors_2": {
+      "ring_ranges_arcsec": [
+        [
+          1.41,
+          1.45
+        ],
+        [
+          2.03,
+          2.11
+        ]
+      ],
+      "orbital_contrast_upper": 979,
+      "critical_contrast_lower": 1055,
+      "pressure_contrast_upper": -76,
+      "additional_interior_mass_lower_msun": 11000000000
+    },
+    "extended_to_bolton_radii": {
+      "ring_ranges_arcsec": [
+        [
+          1.38,
+          1.45
+        ],
+        [
+          2.03,
+          2.11
+        ]
+      ],
+      "orbital_contrast_upper": 1045,
+      "critical_contrast_lower": 1055,
+      "pressure_contrast_upper": -10,
+      "additional_interior_mass_lower_msun": 1400000000
+    }
+  }
+}
