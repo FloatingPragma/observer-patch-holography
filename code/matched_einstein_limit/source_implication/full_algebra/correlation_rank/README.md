@@ -94,11 +94,55 @@ arithmetic verifies the bounds on 37 and 4 subintervals. Assigning the
 same range panels to both parities introduces a common singular price
 and the verifier rejects the control. [Certificate program](measure.py) · [Independent range replay and control](test_measure.py)
 
-The rank result supplies an observable target for the complete linear
-response of this finite source. Physical null balance further requires an independently measured material
-flux and selection of a common source on shrinking proper balls.
+## A material measurement on the same preparation
+
+At the exact constrained maximum there is a source curve on which the
+survey volume and all twelve registered regional translation means are
+constant, while the entropy increases. Both one-head marginals in each
+parity and the parity weights stay fixed. Per unit Hilbert–Schmidt tangent
+length the entropy slope lies in **[0.00159319, 0.00159487] nats** and the
+area slope in **[−0.000069030, −0.000068956]** survey area units.
+
+The regional experiment launches a vacancy or excess through the material
+chart and measures the translation phase, the outgoing and incoming cut
+contributions, and the force due to the two stationary marks after four
+ticks. Their exact momentum balance supplies the summed boundary flux and
+the total momentum rate as well. The material operators come from the
+regional Hamiltonian and its partial translation. The radar reconstruction
+uses separate copies of the same two-head preparation and a six-unit clock.
+The translation operators have no entropy or area coefficients.
+[Regional experiment and balance law](../../directional_stress/translation/README.md)
+
+For each charge, compress the four independent material operators onto
+the joint Pauli directions in each parity. Stack the eight rows with the
+measured volume derivative to form a matrix $B$ with 18 columns. Their
+rank is nine on the exact source. With the published rational rescalings
+of the rows, an approximate right inverse $K$ gives
+$\|I-BK\|_F<0.0000525$. Choose a central tangent $d$ in the direction of
+decreasing area after projecting out those nine rows. For the true
+derivatives,
+$$
+ D=d-K(BK)^{-1}Bd,\qquad BD=0,\qquad \|D-d\|_2<0.0000716 .
+$$
+Subtracting a fixed linear combination of the constraint rows from the
+area derivative preserves its value on $D$. Interval evaluation of the
+result on $D/\|D\|_2$ gives the signed bounds above with the ordinary gain.
+All 18 basis directions have zero marginals, and the calibrated physical
+preparation contains a neighborhood in that slice. The submersion theorem
+therefore integrates $D/\|D\|_2$ to a local curve of positive preparations
+with exactly equal volume and exactly equal material means on both arms.
+The constrained local level surface has dimension nine.
+[Native effects and exact-kernel construction](translation.py) · [Enclosures and preparation direction](translation.json)
+
+Any scalar computed solely from those twelve material means is constant
+on this curve. It cannot give the measured entropy slope, even with freely
+chosen coefficients or a nonlinear response function. Spatially resolved
+material records can contain information lost in these regional summaries.
+The physical null-balance premise further requires an independently read
+stress and a common family of shrinking proper balls.
 
 ```sh
 OPENBLAS_NUM_THREADS=1 PYTHONPATH=code:. python -m matched_einstein_limit.source_implication.full_algebra.correlation_rank.measure --write
+OPENBLAS_NUM_THREADS=1 PYTHONPATH=code:. python -m matched_einstein_limit.source_implication.full_algebra.correlation_rank.translation --write
 OPENBLAS_NUM_THREADS=1 PYTHONPATH=code:. python -m pytest -q code/matched_einstein_limit/source_implication/full_algebra/correlation_rank
 ```

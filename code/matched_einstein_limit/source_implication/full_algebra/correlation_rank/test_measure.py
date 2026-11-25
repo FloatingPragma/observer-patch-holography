@@ -65,6 +65,7 @@ def test_five_term_reader_against_independent_native_ranging():
         np.linalg.norm(panel - assembled)
         < reader["error_upper_times_scale"] / source["scale"]
     )
+
     # The state spectrum supplies an independent entropy derivative at the
     # published central preparation. Restrict it to the same volume tangent.
     def traceless(blocks):
@@ -74,3 +75,34 @@ def test_five_term_reader_against_independent_native_ranging():
     difference = traceless(-station.log_blocks(state) - assembled)
     orthogonal = difference - dv * np.vdot(dv, difference).real / np.vdot(dv, dv).real
     assert np.linalg.norm(orthogonal) < 3.106e-7
+
+
+def test_measured_material_panel_and_fixed_volume_kernel():
+    from fractions import Fraction
+    from pathlib import Path
+
+    from . import translation
+
+    measure.iv.dps = 32
+    archive = json.loads(Path(translation.__file__).with_suffix(".json").read_text())
+    report = translation.certify(archive["rows"])
+    assert report["constraint_rank"] == report["kernel_dimension"] == 9
+    lo, hi = report["signed_entropy_gain_per_unit_HS"]
+    assert Fraction(lo, measure.SCALE) > Fraction("0.001593")
+    assert Fraction(hi, measure.SCALE) < Fraction("0.001595")
+    # The separate marked-force implementation compressed just the marked
+    # operators; its rational central coefficients agree for both species.
+    previous = json.loads(
+        (
+            measure.HERE.parents[1] / "directional_stress/connection/force_entropy.json"
+        ).read_text()
+    )
+    for i, force in enumerate(previous["force_gradient_numerators"]):
+        row = archive["rows"][4 * i + 3]
+        for num, (lo, hi) in zip(force, row):
+            center = Fraction(num, previous["force_gradient_denominator"])
+            assert Fraction(lo, measure.SCALE) <= center <= Fraction(hi, measure.SCALE)
+    dependent = copy.deepcopy(archive["rows"])
+    dependent[1] = dependent[0]
+    with pytest.raises(ValueError, match="uncertified rank"):
+        translation.certify(dependent)
