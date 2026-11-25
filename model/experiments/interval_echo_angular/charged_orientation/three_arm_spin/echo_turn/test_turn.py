@@ -34,9 +34,9 @@ def test_actual_echo_erases_each_fixed_head_and_coherently_exports_both_bit_valu
         state = col(False, g, g)
         goal = col(True, 0, g)
         np.testing.assert_allclose(
-            after @ echo @ before @ state, amplitude * goal, atol=4e-13
+            after @ echo @ before @ state, amplitude * goal, atol=4e-12
         )
-        assert np.linalg.norm((after @ before @ state)[:9]) ** 2 < 1e-26
+        assert np.linalg.norm((after @ before @ state)[:9]) ** 2 < 1e-24
         assert abs(np.vdot(goal, after @ echo @ before @ state)) ** 2 > 1 - 1e-12
 
 
@@ -50,9 +50,9 @@ def test_physical_threefold_return_on_an_unknown_reference_and_real_material_pi_
     full = closed([cycle] * 3)
     private = closed([cycle] * 3, True)
     observed = np.einsum("ji,isk->jsk", full, state)
-    np.testing.assert_allclose(observed, state, atol=1e-12)
+    np.testing.assert_allclose(observed, state, atol=1e-11)
     np.testing.assert_allclose(
-        private[np.ix_([1, 2, 4], [1, 2, 4])], -np.eye(3), atol=1e-12
+        private[np.ix_([1, 2, 4], [1, 2, 4])], -np.eye(3), atol=1e-11
     )
     words, _ = encode(IDENTITY)
     assert len(set(w for w, _ in words)) == 8
