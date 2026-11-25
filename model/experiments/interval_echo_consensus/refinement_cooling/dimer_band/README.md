@@ -27,3 +27,5 @@ export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1
 .venv/bin/python -B -W error -m model.experiments.interval_echo_consensus.refinement_cooling.dimer_band.measure
 .venv/bin/python -m pytest -q model/experiments/interval_echo_consensus/refinement_cooling/dimer_band
 ```
+
+Two independently prepared bodies remain jointly stationary under the native thermal contact exactly when their sign odds give the same temperature. A thermometer with twice the gap has upper population one fifth when a single-gap body has one third. [Contact proof and held thermometer test](thermal_contact/README.md)

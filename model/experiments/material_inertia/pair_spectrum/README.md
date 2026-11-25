@@ -67,3 +67,5 @@ OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -m model.experiments.material_in
 ```
 
 To reproduce the two follow-up receipts, run `python -m model.experiments.material_inertia.pair_spectrum.probe` and `python -m model.experiments.material_inertia.pair_spectrum.dispersion` with the same single-thread BLAS settings.
+
+A three-dimer guide transports the regional material-charge read across a cell boundary. Exact equality of the receiver effect transfers the whole-band bound and the archived pair predictions. [Remote receiver and fresh calibrations](remote_charge/README.md)

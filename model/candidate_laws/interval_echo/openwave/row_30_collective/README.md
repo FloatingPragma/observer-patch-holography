@@ -47,3 +47,5 @@ pytest -q model/candidate_laws/interval_echo/openwave/row_30_collective
 ```
 
 The [compressed sample](example_counts.npz) preserves the positive count in every outcome setting for the first three pair lines and their spatial scans on the first board. The complementary count follows from the recorded exposure. The decoder uses NumPy, the count bank and the registered read instructions alone. Each other raw count array has its own SHA-256 digest in its receipt and can be regenerated from its seed. Use `--sample-counts /path/to/example.npz` with the experiment module to archive the representative bank anew.
+
+A signed spatial impulse reconstructed from even two-time products tests the full lattice wave operator and distinguishes matched hopping. Two separately resolved modes test its low-momentum continuum approximation. [Impulse, uncertainty and records](impulse/README.md)
