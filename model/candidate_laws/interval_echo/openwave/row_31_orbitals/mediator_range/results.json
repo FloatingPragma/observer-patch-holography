@@ -1,0 +1,632 @@
+{
+  "cells": 320,
+  "shots_per_bank": 1048576,
+  "seed": 311125320,
+  "integer_moment_order": 24,
+  "shapes": {
+    "seam": {
+      "first_edges": [
+        [
+          0,
+          1
+        ]
+      ],
+      "first_binding": {
+        "binding_nanounits": [
+          6136162681,
+          6136162683
+        ],
+        "leading_minor_signs": [
+          [
+            1,
+            -1
+          ],
+          [
+            1,
+            1
+          ]
+        ]
+      },
+      "calibration": {
+        "short_long_quadratures": [
+          [
+            {
+              "plus": 1048549,
+              "minus": 27
+            },
+            {
+              "plus": 528876,
+              "minus": 519700
+            }
+          ],
+          [
+            {
+              "plus": 963514,
+              "minus": 85062
+            },
+            {
+              "plus": 810535,
+              "minus": 238041
+            }
+          ]
+        ],
+        "gain": 0.07219685375231893,
+        "allowance": 0.0006631386163105287
+      },
+      "distance_panels": {
+        "1": {
+          "second_edges": [
+            [
+              2,
+              10
+            ]
+          ],
+          "second_binding": {
+            "binding_nanounits": [
+              6136162681,
+              6136162683
+            ],
+            "leading_minor_signs": [
+              [
+                1,
+                -1
+              ],
+              [
+                1,
+                1
+              ]
+            ]
+          },
+          "joint_binding": {
+            "binding_nanounits": [
+              6476227065,
+              6476227067
+            ],
+            "leading_minor_signs": [
+              [
+                1,
+                1,
+                1,
+                -1
+              ],
+              [
+                1,
+                1,
+                1,
+                1
+              ]
+            ]
+          },
+          "gain_interval": [
+            0.340064382,
+            0.340064386
+          ],
+          "upper_envelope": 6.641711229946524,
+          "wait": 1.0,
+          "dark_bright": {
+            "plus": 29824,
+            "minus": 1018752
+          },
+          "zero_contrast_dark_bright": {
+            "plus": 0,
+            "minus": 1048576
+          },
+          "receiver_pi_zero_contrast": {
+            "plus": 1048576,
+            "minus": 0
+          }
+        },
+        "2": {
+          "second_edges": [
+            [
+              2,
+              3
+            ]
+          ],
+          "second_binding": {
+            "binding_nanounits": [
+              6136162681,
+              6136162683
+            ],
+            "leading_minor_signs": [
+              [
+                1,
+                -1
+              ],
+              [
+                1,
+                1
+              ]
+            ]
+          },
+          "joint_binding": {
+            "binding_nanounits": [
+              6208348320,
+              6208348322
+            ],
+            "leading_minor_signs": [
+              [
+                1,
+                1,
+                1,
+                -1
+              ],
+              [
+                1,
+                1,
+                1,
+                1
+              ]
+            ]
+          },
+          "gain_interval": [
+            0.072185637,
+            0.072185641
+          ],
+          "upper_envelope": 2.3441333752752436
+        },
+        "6": {
+          "second_edges": [
+            [
+              13,
+              17
+            ]
+          ],
+          "second_binding": {
+            "binding_nanounits": [
+              6138019849,
+              6138019851
+            ],
+            "leading_minor_signs": [
+              [
+                1,
+                -1
+              ],
+              [
+                1,
+                1
+              ]
+            ]
+          },
+          "joint_binding": {
+            "binding_nanounits": [
+              6138019849,
+              6138019851
+            ],
+            "leading_minor_signs": [
+              [
+                1,
+                1,
+                1,
+                -1
+              ],
+              [
+                1,
+                1,
+                1,
+                1
+              ]
+            ]
+          },
+          "gain_interval": [
+            0.0,
+            2e-09
+          ],
+          "upper_envelope": 0.036374047896417856,
+          "wait": 101.53327295291916,
+          "dark_bright": {
+            "plus": 0,
+            "minus": 1048576
+          },
+          "coulomb_dark_floor": 0.999791847461251,
+          "zero_contrast_dark_bright": {
+            "plus": 0,
+            "minus": 1048576
+          },
+          "receiver_pi_zero_contrast": {
+            "plus": 1048576,
+            "minus": 0
+          }
+        },
+        "9": {
+          "second_edges": [
+            [
+              144,
+              145
+            ]
+          ],
+          "second_binding": {
+            "binding_nanounits": [
+              6136162681,
+              6136162683
+            ],
+            "leading_minor_signs": [
+              [
+                1,
+                -1
+              ],
+              [
+                1,
+                1
+              ]
+            ]
+          },
+          "joint_binding": {
+            "binding_nanounits": [
+              6136162681,
+              6136162683
+            ],
+            "leading_minor_signs": [
+              [
+                1,
+                -1,
+                -1,
+                1
+              ],
+              [
+                1,
+                1,
+                1,
+                1
+              ]
+            ]
+          },
+          "gain_interval": [
+            0.0,
+            2e-09
+          ],
+          "upper_envelope": 0.0015991846826025355,
+          "wait": 145.0475327898845,
+          "dark_bright": {
+            "plus": 0,
+            "minus": 1048576
+          },
+          "coulomb_dark_floor": 0.999791847461251,
+          "zero_contrast_dark_bright": {
+            "plus": 0,
+            "minus": 1048576
+          },
+          "receiver_pi_zero_contrast": {
+            "plus": 1048576,
+            "minus": 0
+          }
+        }
+      }
+    },
+    "two_seams": {
+      "first_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          5
+        ]
+      ],
+      "first_binding": {
+        "binding_nanounits": [
+          14545543753,
+          14545543755
+        ],
+        "leading_minor_signs": [
+          [
+            1,
+            1,
+            -1
+          ],
+          [
+            1,
+            1,
+            1
+          ]
+        ]
+      },
+      "calibration": {
+        "short_long_quadratures": [
+          [
+            {
+              "plus": 1048575,
+              "minus": 1
+            },
+            {
+              "plus": 526775,
+              "minus": 521801
+            }
+          ],
+          [
+            {
+              "plus": 1032976,
+              "minus": 15600
+            },
+            {
+              "plus": 651475,
+              "minus": 397101
+            }
+          ]
+        ],
+        "gain": 0.030625801998912443,
+        "allowance": 0.0006631386163105287
+      },
+      "distance_panels": {
+        "1": {
+          "second_edges": [
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              4
+            ]
+          ],
+          "second_binding": {
+            "binding_nanounits": [
+              14545543753,
+              14545543755
+            ],
+            "leading_minor_signs": [
+              [
+                1,
+                1,
+                -1
+              ],
+              [
+                1,
+                1,
+                1
+              ]
+            ]
+          },
+          "joint_binding": {
+            "binding_nanounits": [
+              14576582482,
+              14576582484
+            ],
+            "leading_minor_signs": [
+              [
+                1,
+                1,
+                1,
+                1,
+                1,
+                -1
+              ],
+              [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            ]
+          },
+          "gain_interval": [
+            0.031038727,
+            0.031038731
+          ],
+          "upper_envelope": 13.283422459893048,
+          "wait": 1.0,
+          "dark_bright": {
+            "plus": 238,
+            "minus": 1048338
+          },
+          "zero_contrast_dark_bright": {
+            "plus": 0,
+            "minus": 1048576
+          },
+          "receiver_pi_zero_contrast": {
+            "plus": 1048576,
+            "minus": 0
+          }
+        },
+        "2": {
+          "second_edges": [
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              6
+            ]
+          ],
+          "second_binding": {
+            "binding_nanounits": [
+              14545568004,
+              14545568006
+            ],
+            "leading_minor_signs": [
+              [
+                1,
+                1,
+                -1
+              ],
+              [
+                1,
+                1,
+                1
+              ]
+            ]
+          },
+          "joint_binding": {
+            "binding_nanounits": [
+              14576222634,
+              14576222636
+            ],
+            "leading_minor_signs": [
+              [
+                1,
+                1,
+                1,
+                1,
+                1,
+                -1
+              ],
+              [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            ]
+          },
+          "gain_interval": [
+            0.030654628,
+            0.030654632
+          ],
+          "upper_envelope": 4.688266750550487
+        },
+        "6": {
+          "second_edges": [
+            [
+              13,
+              17
+            ],
+            [
+              17,
+              21
+            ]
+          ],
+          "second_binding": {
+            "binding_nanounits": [
+              14546000736,
+              14546000738
+            ],
+            "leading_minor_signs": [
+              [
+                1,
+                1,
+                -1
+              ],
+              [
+                1,
+                1,
+                1
+              ]
+            ]
+          },
+          "joint_binding": {
+            "binding_nanounits": [
+              14546000736,
+              14546000738
+            ],
+            "leading_minor_signs": [
+              [
+                1,
+                1,
+                1,
+                1,
+                1,
+                -1
+              ],
+              [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            ]
+          },
+          "gain_interval": [
+            0.0,
+            2e-09
+          ],
+          "upper_envelope": 0.07274809579283571,
+          "wait": 239.35317215975257,
+          "dark_bright": {
+            "plus": 0,
+            "minus": 1048576
+          },
+          "coulomb_dark_floor": 0.9988436056142759,
+          "zero_contrast_dark_bright": {
+            "plus": 0,
+            "minus": 1048576
+          },
+          "receiver_pi_zero_contrast": {
+            "plus": 1048576,
+            "minus": 0
+          }
+        },
+        "9": {
+          "second_edges": [
+            [
+              144,
+              145
+            ],
+            [
+              145,
+              149
+            ]
+          ],
+          "second_binding": {
+            "binding_nanounits": [
+              14545543753,
+              14545543755
+            ],
+            "leading_minor_signs": [
+              [
+                1,
+                1,
+                -1
+              ],
+              [
+                1,
+                1,
+                1
+              ]
+            ]
+          },
+          "joint_binding": {
+            "binding_nanounits": [
+              14545543753,
+              14545543755
+            ],
+            "leading_minor_signs": [
+              [
+                1,
+                1,
+                -1,
+                -1,
+                -1,
+                1
+              ],
+              [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            ]
+          },
+          "gain_interval": [
+            0.0,
+            2e-09
+          ],
+          "upper_envelope": 0.003198369365205071,
+          "wait": 341.9331030853608,
+          "dark_bright": {
+            "plus": 0,
+            "minus": 1048576
+          },
+          "coulomb_dark_floor": 0.9988436056142759,
+          "zero_contrast_dark_bright": {
+            "plus": 0,
+            "minus": 1048576
+          },
+          "receiver_pi_zero_contrast": {
+            "plus": 1048576,
+            "minus": 0
+          }
+        }
+      }
+    }
+  }
+}
