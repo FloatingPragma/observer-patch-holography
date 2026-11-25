@@ -80,6 +80,18 @@ theorem magnetic_gateway_exclusion {I G : Type*} (gateway : I)
   rw [← hg, monomial] at h
   exact (mul_eq_zero.mp h).resolve_left (unit g i)
 
+/-- At a transcendental phase coordinate, a ratio of polynomial values
+can equal a base-field scalar only if the two polynomials are proportional. -/
+theorem phase_ratio_ne_base_scalar {K L : Type*} [Field K] [Field L] [Algebra K L]
+    {z : L} (hz : Transcendental K z) {p q : Polynomial K} (a : K)
+    (hp : p ≠ Polynomial.C a * q) (hq : Polynomial.aeval z q ≠ 0) :
+    Polynomial.aeval z p / Polynomial.aeval z q ≠ algebraMap K L a := by
+  intro h
+  apply hp
+  apply (transcendental_iff_injective.mp hz)
+  simpa using (div_eq_iff hq).mp h
+
+#print axioms phase_ratio_ne_base_scalar
 #print axioms attenuated_qubit
 #print axioms magnetic_gateway_exclusion
 #print axioms shared_outcome_error
