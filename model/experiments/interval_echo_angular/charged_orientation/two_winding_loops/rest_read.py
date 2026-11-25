@@ -6,7 +6,7 @@ from pathlib import Path
 
 import numpy as np
 from scipy.linalg import expm
-from sympy import Matrix, Poly
+from sympy import Matrix, Poly, Rational, oo
 from . import measure
 
 
@@ -86,6 +86,14 @@ def analyze():
     polynomial = Poly(Matrix(h8.tolist()).charpoly().as_expr())
     simple = polynomial.gcd(polynomial.diff()).degree() == 0
     assert simple
+    # The polynomial belongs to 8H. Count every positive root, including
+    # lines with tiny weight in the fixed-port detector.
+    light_floor = Rational(486779, 100000)
+    heavy_ceiling = Rational(648982, 100000)
+    assert polynomial.count_roots(0, 8 * light_floor) == 0
+    assert polynomial.count_roots(8 * light_floor, 8 * heavy_ceiling) == 8
+    assert polynomial.count_roots(8 * heavy_ceiling, oo) == 0
+    assert 3 * heavy_ceiling < 4 * light_floor
     h = h8 / 8
     levels, vectors = np.linalg.eigh(h)
     all_poles = [
@@ -106,6 +114,8 @@ def analyze():
         levels=levels.tolist(),
         simple=simple,
         positive_energies=int((levels > 0).sum()),
+        all_positive_lines_interval=[str(light_floor), str(heavy_ceiling)],
+        largest_to_smallest_positive=float(levels[-1] / levels[levels > 0][0]),
         coherent_positive_pt_min=np.linalg.eigvalsh(measure.pt(positive_coherent))[0],
         perfect_resolution_acceptance=fully_resolved.trace().real,
         perfect_resolution_pt_min=np.linalg.eigvalsh(measure.pt(fully_resolved))[0],

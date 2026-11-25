@@ -28,6 +28,7 @@ def test_local_banks_resolve_channel_signs_and_single_poles():
     out = rest_read.analyze()
     held = json.loads(Path(rest_read.__file__).with_name("rest_read.json").read_text())
     assert out["simple"] and out["positive_energies"] == 8
+    assert 1.33320 < out["largest_to_smallest_positive"] < 4 / 3
     assert out["coherent_positive_pt_min"] < -0.007
     assert out["perfect_resolution_pt_min"] > 0.05
     assert min(out["arrival_weight_by_pole"]) > 0
