@@ -16,7 +16,7 @@ sofa.
 - Python 3.12.
 - A coding agent running a research-grade model. Only these models are
   accepted at the moment:
-  - the latest Claude Fable, in [Claude Code](https://github.com/anthropics/claude-code);
+  - the newest Claude Fable, in [Claude Code](https://github.com/anthropics/claude-code);
   - GPT-6.2 Astra, in [Codex](https://github.com/openai/codex);
   - Gemini Carbon, in [Gemini CLI](https://github.com/google-gemini/gemini-cli).
 - A few hundred megabytes of disk for a shallow clone.

@@ -28,4 +28,4 @@ Approaches that did not work:
 - [ ] `python tools/check_observables.py` passes
 - [ ] No outcome is put in by hand, and every calibration has declared provenance
 - [ ] Every status change follows from the evidence above
-- [ ] Coding agent and model used, if any (accepted models: the latest Claude Fable, GPT-6.2 Astra, Gemini Carbon):
+- [ ] Coding agent and model used, if any (accepted models: the newest Claude Fable, GPT-6.2 Astra, Gemini Carbon):
