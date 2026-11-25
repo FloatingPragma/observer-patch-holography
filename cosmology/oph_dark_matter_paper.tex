@@ -2198,6 +2198,55 @@ lens--source weights and matched orbital and lensing measurements.
 The archived \href{https://github.com/FloatingPragma/observer-patch-holography/tree/main/code/cosmology/rar_deep_regime}{rotation and shear calculations} include the catalogue provenance,
 selection, source units and covariance.
 
+\paragraph{Galaxy type and a finite radial-pressure test.}
+Brouwer et al.\ released the cross-covariance between galaxy types
+for their Figure~8 shear profiles. Use six bins whose full extent lies
+in the isolated deep regime. Express the early-minus-late tangential
+shear in units of the outer profile calibrated on SPARC, projecting
+with the full covariance. At the published bin centres the contrasts
+are $0.586\pm0.121$ by colour and $0.467\pm0.122$ by S\'ersic index.
+The corresponding cross-shear projections are $-0.016$ and $-0.068$.
+The two splits reuse galaxies. Different source--lens pair weights
+within each acceleration bin can also produce differences between the
+stacks under a common radial law. Allowing arbitrary positive weights
+for each type reduces the excess above the common-envelope bound on
+this contrast to $1.51$ and $0.50$ assigned statistical errors,
+respectively. The result quantifies a target for a source-dependent
+prediction. It gives no direct measurement of local collar stress.
+
+In units $G=c=1$, consider a static spherical anomalous stress
+conserved separately through its outer transition. If $p_r(r_0)<0$,
+$p_r(R_t)=0$, $\rho\ge0$, $\rho+p_r\ge0$, $\Phi'\ge0$ and
+$p_t\le\rho$, conservation gives
+\[
+ (r^2p_r)'=2rp_t-r^2(\rho+p_r)\Phi'\le2r\rho .
+\]
+Hence $r_0^2 |p_r(r_0)|\le2\int_{r_0}^{R_t}r\rho\,dr$ and
+$\Delta m=4\pi\int_{r_0}^{R_t}r^2\rho\,dr
+\ge2\pi r_0^3|p_r(r_0)|$. In the scale-free weak-field interior,
+$m_A=hr$ and $p_r=w_r h/(4\pi r^2)$. Where the same scale-free
+projection applies, the lens excess per unit orbital excess is
+$q=(2+w_r)/[2(1+w_r)]$. Assigning the entire red-stack bin-centre
+value $q=1.413\pm0.080$ to this mechanism would require
+$w_r\simeq-0.452$ and at least $0.226\,m_A(r_0)$ in the transition.
+This cost assumes smooth matching without a surface layer. Neither the
+pressure nor its outer transition was measured in these galaxies.
+The source and both covariance calculations are in
+\path{code/cosmology/rar_deep_regime/pressure_transfer/}.
+
+The three-guide material experiment gives a microscopic check on a
+different step in the proposed explanation. A change of the joint
+corner probabilities raises the entropy of the three-guide records
+at fixed one- and two-guide marginals. Its leading occupation response
+is an octupole. The total outward current has exactly zero derivative
+at every enclosing radius. Thus a change visible only in joint records
+can carry an angular signal without adding any monopole to the
+transport measured by these observers. Obtaining a galaxy-scale source
+requires an independent positive active stress and its gravitational
+coupling on the same physical regions. Local record density in the
+source enters this proposal. Distance from the telescope enters the
+observation, and provides no such coupling.
+
 \paragraph{Covariance and nuisance sensitivity.}
 A separate penalized Gaussian objective profiles disk mass-to-light,
 distance and inclination, and scans an equal-correlation family
