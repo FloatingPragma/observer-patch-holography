@@ -44,5 +44,19 @@
   "minimum_combined_position_allowance_kpc": 96.250049,
   "west_angle_between_centres_degrees": 1.5313576703,
   "west_only_upper_bound_on_smaller_axis_ratio": 0.00668190778468,
+  "western_peak_position_sensitivity": [
+    {
+      "combined_peak_and_centre_allowance_arcsec": 5,
+      "upper_bound_on_smaller_axis_ratio": 0.0521021265
+    },
+    {
+      "combined_peak_and_centre_allowance_arcsec": 10,
+      "upper_bound_on_smaller_axis_ratio": 0.0984313858
+    },
+    {
+      "combined_peak_and_centre_allowance_arcsec": 20,
+      "upper_bound_on_smaller_axis_ratio": 0.1984245251
+    }
+  ],
   "uncertainty": "Deterministic central-position bound. Uniform peak and uniform centre displacement bounds add. Assign any centroid-to-strict-maximum displacement to the peak bound. The published plasma-offset significance does not give the joint distribution of this four-position statistic."
 }

@@ -49,6 +49,15 @@ def build():
         label: dot(difference(peak, east), direction) for label, peak in east_peaks.items()
     }
     margin = min(west_gap, *east_gaps.values())
+    axis_limits = []
+    for allowance in (5, 10, 20):
+        width = delta + sum(
+            math.asin(allowance / math.hypot(*v)) for v in (west_vector, east_vector)
+        )
+        axis_limits.append({
+            "combined_peak_and_centre_allowance_arcsec": allowance,
+            "upper_bound_on_smaller_axis_ratio": round(math.tan(width / 4), 10),
+        })
     return {
         "source": archival["source"],
         "data": "Clowe et al., Section 3, Table 2; 4.413 kpc per arcsec in Section 1.",
@@ -65,6 +74,7 @@ def build():
         "minimum_combined_position_allowance_kpc": round(4.413 * margin, 8),
         "west_angle_between_centres_degrees": round(math.degrees(delta), 10),
         "west_only_upper_bound_on_smaller_axis_ratio": round(math.tan(delta / 4), 14),
+        "western_peak_position_sensitivity": axis_limits,
         "uncertainty": "Deterministic central-position bound. Uniform peak and uniform centre displacement bounds add. Assign any centroid-to-strict-maximum displacement to the peak bound. The published plasma-offset significance does not give the joint distribution of this four-position statistic.",
     }
 

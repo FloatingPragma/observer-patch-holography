@@ -20,6 +20,11 @@ def test_published_positions_and_projection():
     assert 36.47 < data["western_peak_beyond_west_arcsec"] < 36.48
     assert margin < data["eastern_peak_beyond_east_arcsec"]["northern"]
     assert 96.24 < margin * 4.413 < 96.26
+    limits = data["western_peak_position_sensitivity"]
+    assert [row["combined_peak_and_centre_allowance_arcsec"] for row in limits] == [5, 10, 20]
+    assert [round(row["upper_bound_on_smaller_axis_ratio"], 4) for row in limits] == [
+        0.0521, 0.0984, 0.1984,
+    ]
     assert json.loads(json.dumps(measure.build())) == data
 
 
