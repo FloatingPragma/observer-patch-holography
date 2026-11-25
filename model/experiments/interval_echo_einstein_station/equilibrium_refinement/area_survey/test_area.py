@@ -5,7 +5,6 @@ from fractions import Fraction
 from math import log
 
 import numpy as np
-import pytest
 
 from . import acquire, certificate, measure
 

@@ -86,6 +86,46 @@ def acquisition(s, pop, labels, rng):
     ]
 
 
+def held_lottery(s, labels, rng):
+    """A dyadic approximation to the analytically matched finite source arm."""
+    base = s.uniform
+    returns = s.starts - s.scores / (measure.MEAN_TIMEOUT * measure.source.EXPOSURE / 2)
+    design = np.vstack(
+        [
+            np.ones(len(base)),
+            s.h.diagonal() / 256,
+            s.starts.T,
+            returns.T,
+            s.cut_count == 2,
+        ]
+    )
+    target = np.zeros(len(design))
+    target[-1] = 1
+    direction = np.linalg.lstsq(design, target, rcond=1e-11)[0]
+    tickets = np.rint((base - STEP * direction) * 2**50).astype(np.int64)
+    tickets[tickets.argmax()] += 2**50 - tickets.sum()
+    assert tickets.min() > 0
+    loss = tickets / 2**50
+    change = loss - base
+    ref, xr = acquisition(s, base, labels, rng)
+    arm, yr = acquisition(s, loss, labels, rng)
+    native_offset = (
+        np.max(abs(change @ returns)) + NATIVE_ERROR * np.linalg.norm(change, 1) + 1e-13
+    )
+    return dict(
+        source_word_tickets=tickets.tolist(),
+        total_tickets=2**50,
+        baseline=ref,
+        held=arm,
+        entropy_difference=pair(yr[0] - xr[0]),
+        area_difference=pair(yr[1] - xr[1]),
+        volume_difference=pair(yr[2] - xr[2]),
+        max_native_success_difference_upper=float(native_offset),
+        largest_herald_probability_difference=float(np.max(abs(change @ s.starts))),
+        measured_energy_difference=float(change @ s.h.diagonal()),
+    )
+
+
 def run():
     iv.dps = 35
     s = measure.survey(1)
@@ -145,6 +185,7 @@ def run():
         calibrated_eta=pair(eta),
         held=held,
         counts=seen,
+        held_lottery=held_lottery(s, labels, rng),
     )
 
 

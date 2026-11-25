@@ -1,0 +1,36 @@
+{
+  "finite_example_collar_expectation": 0.15536240349696362,
+  "four_station_ordinary_ratio": 23.104236196481626,
+  "predicted_collar_area": -0.010002762979396033,
+  "observed_collar_area": -0.01000276297939583,
+  "change_in_parked_energy": 6.245004513516506e-17,
+  "original_and_extended_ranging": {
+    "original_four": {
+      "positive_eigenvalues": [
+        5.261354192676915,
+        3.7360636728094025,
+        3.49655840398534
+      ],
+      "flat_embedding_rank": 3
+    },
+    "extended_five": {
+      "positive_eigenvalues": [
+        5.262254821868842,
+        4.698171643867955,
+        3.732060359126025,
+        3.4960931301307396
+      ],
+      "flat_embedding_rank": 4
+    }
+  },
+  "agc114905_radius_kpc": 9.94806185933532,
+  "measured_kms": 26.93701704763301,
+  "minimum_disk_model_kms": 62.968441495267314,
+  "minimum_excess_speed_kms": 36.03142444763431,
+  "enclosed_gas_fraction": 0.6692432174527567,
+  "input_sha256": {
+    "code/matched_einstein_limit/source_implication/full_geometry/results.json": "dd8efaaca592f178531038c37e6da60d5baf49603460f30f7ab45ee39af574b1",
+    "code/cosmology/rar_deep_regime/cut_spacing/disk_domain.json": "61e769c76170e6ba179c59ab33144ec7aaee48457f07d671db44e78e1f17b7b9",
+    "code/matched_einstein_limit/source_implication/signed_transfers.json": "c9fb047ddf4a91963621897872c9f39848934e25eeaa1731ad857be924ae4b2a"
+  }
+}

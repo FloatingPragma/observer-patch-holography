@@ -1,0 +1,404 @@
+{
+  "camb": "1.6.6",
+  "background": {
+    "H0": 67.36,
+    "ombh2": 0.02237,
+    "omch2": 0.12,
+    "mnu": 0.06,
+    "omk": 0.0,
+    "tau": 0.0544
+  },
+  "As": 2.1e-09,
+  "lmax": 2600,
+  "control_ns": 0.9649,
+  "branch_ns": 0.9660214956374175,
+  "planck": {
+    "TT": {
+      "url": "https://irsa.ipac.caltech.edu/data/Planck/release_3/ancillary-data/cosmoparams/COM_PowerSpect_CMB-TT-binned_R3.01.txt",
+      "sha256": "ed2b8b51b033e668e661f6cf4eb7705f15bcaf358189dfc4a4481cc7020130cd"
+    },
+    "TE": {
+      "url": "https://irsa.ipac.caltech.edu/data/Planck/release_3/ancillary-data/cosmoparams/COM_PowerSpect_CMB-TE-binned_R3.02.txt",
+      "sha256": "191a588f9000885e931739ddb4f88717c29f79a45abd337837dac8032aed0137"
+    },
+    "EE": {
+      "url": "https://irsa.ipac.caltech.edu/data/Planck/release_3/ancillary-data/cosmoparams/COM_PowerSpect_CMB-EE-binned_R3.02.txt",
+      "sha256": "bd30fc1121c0d1c2e1a6ac997b30ac14ea1fdd42bc91ecc40d594c00463ffdb2"
+    }
+  },
+  "columns": [
+    "effective_multipole",
+    "D_ell_microkelvin_squared"
+  ],
+  "feature_window_halfwidth": 60,
+  "features": {
+    "TT_max": [
+      {
+        "measured": [
+          225.16494,
+          5793.43954
+        ],
+        "marginal_error_minus_plus": [
+          87.1348811,
+          87.1348811
+        ],
+        "control": [
+          225.16494,
+          5724.715471
+        ],
+        "branch": [
+          225.16494,
+          5718.800949
+        ]
+      },
+      {
+        "measured": [
+          524.78532,
+          2573.4805
+        ],
+        "marginal_error_minus_plus": [
+          25.9184118,
+          25.9184118
+        ],
+        "control": [
+          524.78532,
+          2578.802738
+        ],
+        "branch": [
+          524.78532,
+          2578.734615
+        ]
+      },
+      {
+        "measured": [
+          824.6816,
+          2521.9126
+        ],
+        "marginal_error_minus_plus": [
+          20.519762,
+          20.519762
+        ],
+        "control": [
+          824.6816,
+          2526.52759
+        ],
+        "branch": [
+          824.6816,
+          2527.439707
+        ]
+      },
+      {
+        "measured": [
+          1124.63318,
+          1231.87224
+        ],
+        "marginal_error_minus_plus": [
+          9.26050628,
+          9.26050628
+        ],
+        "control": [
+          1124.63318,
+          1239.803503
+        ],
+        "branch": [
+          1124.63318,
+          1240.695281
+        ]
+      },
+      {
+        "measured": [
+          1424.60514,
+          809.057064
+        ],
+        "marginal_error_minus_plus": [
+          6.25632882,
+          6.25632882
+        ],
+        "control": [
+          1424.60514,
+          816.895539
+        ],
+        "branch": [
+          1424.60514,
+          817.673328
+        ]
+      }
+    ],
+    "TE_max": [
+      {
+        "measured": [
+          314.9753,
+          119.378961
+        ],
+        "marginal_error_minus_plus": [
+          2.49179651,
+          2.49179651
+        ],
+        "control": [
+          314.9753,
+          119.576781
+        ],
+        "branch": [
+          314.9753,
+          119.471705
+        ]
+      },
+      {
+        "measured": [
+          584.75607,
+          25.425451
+        ],
+        "marginal_error_minus_plus": [
+          1.93763004,
+          1.93763004
+        ],
+        "control": [
+          584.75607,
+          28.148075
+        ],
+        "branch": [
+          584.75607,
+          28.135643
+        ]
+      },
+      {
+        "measured": [
+          914.66374,
+          60.638016
+        ],
+        "marginal_error_minus_plus": [
+          2.29690863,
+          2.29690863
+        ],
+        "control": [
+          914.66374,
+          58.919633
+        ],
+        "branch": [
+          914.66374,
+          58.936515
+        ]
+      },
+      {
+        "measured": [
+          1214.62331,
+          3.702869
+        ],
+        "marginal_error_minus_plus": [
+          2.49244542,
+          2.49244542
+        ],
+        "control": [
+          1214.62331,
+          6.491144
+        ],
+        "branch": [
+          1214.62331,
+          6.49484
+        ]
+      },
+      {
+        "measured": [
+          1544.59698,
+          8.707582
+        ],
+        "marginal_error_minus_plus": [
+          3.17133288,
+          3.17133288
+        ],
+        "control": [
+          1544.59698,
+          6.236397
+        ],
+        "branch": [
+          1544.59698,
+          6.243463
+        ]
+      }
+    ],
+    "TE_min": [
+      {
+        "measured": [
+          165.4056,
+          -46.684831
+        ],
+        "marginal_error_minus_plus": [
+          1.49225779,
+          1.49225779
+        ],
+        "control": [
+          165.4056,
+          -43.804685
+        ],
+        "branch": [
+          165.4056,
+          -43.736908
+        ]
+      },
+      {
+        "measured": [
+          464.82211,
+          -76.207192
+        ],
+        "marginal_error_minus_plus": [
+          1.86654843,
+          1.86654843
+        ],
+        "control": [
+          464.82211,
+          -74.373114
+        ],
+        "branch": [
+          464.82211,
+          -74.351322
+        ]
+      },
+      {
+        "measured": [
+          734.70383,
+          -127.368099
+        ],
+        "marginal_error_minus_plus": [
+          2.41179735,
+          2.41179735
+        ],
+        "control": [
+          734.70383,
+          -130.968472
+        ],
+        "branch": [
+          734.70383,
+          -130.992271
+        ]
+      },
+      {
+        "measured": [
+          1064.64068,
+          -79.243386
+        ],
+        "marginal_error_minus_plus": [
+          2.36042115,
+          2.36042115
+        ],
+        "control": [
+          1064.64068,
+          -78.132724
+        ],
+        "branch": [
+          1064.64068,
+          -78.183
+        ]
+      },
+      {
+        "measured": [
+          1364.60976,
+          -62.956769
+        ],
+        "marginal_error_minus_plus": [
+          2.74521159,
+          2.74521159
+        ],
+        "control": [
+          1364.60976,
+          -60.455074
+        ],
+        "branch": [
+          1364.60976,
+          -60.510464
+        ]
+      }
+    ],
+    "EE_max": [
+      {
+        "measured": [
+          135.60535,
+          1.092139
+        ],
+        "marginal_error_minus_plus": [
+          0.0478476674,
+          0.0478476674
+        ],
+        "control": [
+          135.60535,
+          1.119847
+        ],
+        "branch": [
+          135.60535,
+          1.117942
+        ]
+      },
+      {
+        "measured": [
+          404.86979,
+          21.159719
+        ],
+        "marginal_error_minus_plus": [
+          0.364724824,
+          0.364724824
+        ],
+        "control": [
+          404.86979,
+          21.413598
+        ],
+        "branch": [
+          404.86979,
+          21.40244
+        ]
+      },
+      {
+        "measured": [
+          704.7125,
+          37.771996
+        ],
+        "marginal_error_minus_plus": [
+          0.636278935,
+          0.636278935
+        ],
+        "control": [
+          674.72194,
+          37.257629
+        ],
+        "branch": [
+          674.72194,
+          37.259666
+        ]
+      },
+      {
+        "measured": [
+          1004.64908,
+          42.421075
+        ],
+        "marginal_error_minus_plus": [
+          1.28845629,
+          1.28845629
+        ],
+        "control": [
+          1004.64908,
+          41.792446
+        ],
+        "branch": [
+          1004.64908,
+          41.813137
+        ]
+      },
+      {
+        "measured": [
+          1304.61481,
+          31.998414
+        ],
+        "marginal_error_minus_plus": [
+          2.64990287,
+          2.64990287
+        ],
+        "control": [
+          1304.61481,
+          30.460535
+        ],
+        "branch": [
+          1304.61481,
+          30.484886
+        ]
+      }
+    ]
+  }
+}
