@@ -79,10 +79,10 @@ the repository, the ledgers, or the other papers.
   carry no meaning outside the project, so the prose states the thing itself:
   "exact finite quantization", "formal perturbative quantization", "the modular
   algebra-state reconstruction data".
-- Premise-register identifiers, observation-ledger identifiers, GitHub issue
-  numbers, issue-lane codes, project phases, and live status summaries never
-  appear in a paper. Examples include PR-65, OL-C6, issue B19, and ``lane
-  \#743.'' Put that information in the owning ledger, plan, or issue.
+- Register identifiers, GitHub issue numbers, issue-lane codes, project
+  phases, and live status summaries never appear in a paper. Examples include
+  PR-65, issue B19, and ``lane \#743.'' Put that information in the owning
+  register, plan, or issue.
 - This prohibition covers every rendered part of a paper, including titles,
   abstracts, body text, footnotes, captions, tables, appendices, and source or
   provenance notes. A stable scientific citation or artifact path may support

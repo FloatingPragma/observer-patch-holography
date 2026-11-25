@@ -21,8 +21,8 @@ with no drive at one line, which an observer reads at `4.8990` of its own
 reference and finds equal to the level difference of the object read
 separately. A changed law with the same alphabet, routing and symmetry loses
 both ([cage](../model/experiments/cage/README.md)). The
-[observation ledger](registers/OBSERVATION_LEDGER_V3.md) records these as
-particle persistence and an internal clock attained on this construction.
+[observables register](registers/OBSERVABLES.json) records these as
+particle persistence and an internal clock on this construction.
 
 The written-field extension of Interval Echo supplies a strong candidate for the charge and field response of the electron. The change in boundary flux follows each signed material transfer. A separately prepared probe detects the source at a distance of 22 cells on a 320-cell board. The source stays confined during that field measurement. At a different junction, two orbital preparations both transfer with a charge and give different crossing probabilities. Eight addressed contacts exchange two material loads while leaving different orbital states at their original gateways. Identifying the common charge as an electron requires a spin-resolved branch with fermionic exchange, a physical rest energy, and the electron’s colour and weak responses on the same excitation. The laboratory reconstruction of 510.999 keV uses measured inputs independent of the simulation. [Experimental evidence and replay](../model/candidate_laws/interval_echo/openwave/electron_field/README.md)
 
@@ -70,7 +70,7 @@ not multiply independent evidence.
 The [public-data audit](research/PUBLIC_DATA_PREDICTION_AUDIT.md) gives the
 primordial tilt, coupling and photon-dispersion comparisons in detail. The
 [falsification programme](OPH_FALSIFICATION_PROGRAM.md) and
-[observation ledger](registers/OBSERVATION_LEDGER_V3.md) distinguish these
+[observables register](registers/OBSERVABLES.json) distinguish these
 bounded exclusions and conditional comparisons from programme-wide claims.
 This page is a navigation and interpretation summary, not a replacement
 prediction register or a statistical combination of dependent results.

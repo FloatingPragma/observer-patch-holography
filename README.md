@@ -51,7 +51,7 @@ The official [scorecard](model/evaluation/SCORECARD.md) makes this a precise tar
 
 - **Fixed:** the carrier, a sphere of echosahedral cells in which each cell is
   one observer and its twelve ports are its interfaces, and the premises of the
-  finite theorems, listed in the [premise register](docs/registers/PREMISE_REGISTER_V3.md).
+  finite theorems, listed in the [observables register](docs/registers/OBSERVABLES.json).
 - **Free:** anything a designer can build in the simulating universe may be
   calibrated so that the observers' records match ours: couplings,
   preparations, feedback, readouts.
@@ -127,7 +127,7 @@ of a premise: the cell is the carrier of the three-direction theorem, the
 readings are projective instruments of the measurement theorems, and the
 observers compare clocks through shared records. The
 [scorecard](model/evaluation/SCORECARD.md) records which premises each
-candidate fulfils, and the [observation ledger](docs/registers/OBSERVATION_LEDGER_V3.md)
+candidate fulfils, and the [observables register](docs/registers/OBSERVABLES.json)
 lists what the candidates reproduce.
 
 ## What comes out
@@ -238,8 +238,7 @@ candidate laws, their evaluation and the experiments that observers run.
 | [code/](code/README.md) | Exact calculations and verifiers behind the papers |
 | [evidence/](evidence/README.md) | Retained evidence packets |
 | [claims/](claims/README.md) | Claims and their dependencies |
-| [tracking/](tracking/) | Premise, observation, prediction and instrument registers |
-| [docs/](docs/README.md) | The basis, working terms, policies and ledgers |
+| [docs/](docs/README.md) | The basis, working terms, policies, ledgers and the observables register |
 | [book/](book/) | The book |
 
 ## Reproduce and verify

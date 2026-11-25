@@ -1,11 +1,12 @@
 # OPH Reference Documents, Registers And Research Notes
 
-This directory contains the canonical reference documents, the generated
-scientific registers, repository policies, and the public-data comparison that
-the papers cite. Research planning and task state live in this
-repository's [GitHub issues](https://github.com/FloatingPragma/observer-patch-holography/issues).
-Scientific results live in the papers, Lean library, executable code, and
-evidence artifacts, and the registers index those results.
+This directory contains the canonical reference documents, the observables
+register, repository policies, and the public-data comparison that the papers
+cite. Completion of the theory is tracked in the
+[observables register](registers/OBSERVABLES.json): every observable the
+theory must reproduce and every premise of its finite theorems, each with its
+status. Scientific results live in the papers, Lean library, executable code,
+and evidence artifacts, and the register indexes those results.
 
 If you are new to OPH, the strongest starting material lives outside this
 directory. The [technical paper](https://philpapers.org/rec/MUEFOC)
@@ -19,7 +20,7 @@ run data from declared candidate models.
 | Path | Contents |
 | --- | --- |
 | This folder | The basis, the paper set, canonical references, the common-objections guide and the OpenWave submission guidelines |
-| [`registers/`](registers/) | Generated V3 registers and ledgers |
+| [`registers/`](registers/) | The observables register: observables and premises with their status |
 | [`research/`](research/) | The public-data comparison that the papers cite |
 | [`policies/`](policies/) | Data and writing policies |
 
@@ -53,7 +54,7 @@ run data from declared candidate models.
   repository [README](../README.md), the [basis](BASIS.md) and the
   [paper set](PAPER_SET.md).
 - **Technical verification:** use the [claim registry](../claims/claim_registry.yaml),
-  the [observation ledger](registers/OBSERVATION_LEDGER_V3.md), the [premise register](registers/PREMISE_REGISTER_V3.md),
+  the [observables register](registers/OBSERVABLES.json),
   the [falsification program](OPH_FALSIFICATION_PROGRAM.md), and the [paper index](../paper/).
 - **Build and test:** begin with the repository [reproduction
   guide](../REPRODUCE.md), the [executable model](../model/candidate_laws/contrast_memory_spherical_v1/README.md),
@@ -90,10 +91,10 @@ run data from declared candidate models.
   seeks inconsistency, joint-realization impossibility and limits on explanatory
   unification, with explicit exclusion and stopping criteria.
 
-The [physics issues](https://github.com/FloatingPragma/observer-patch-holography/issues?q=is%3Aissue+is%3Aopen+label%3Aprogram%3Aphysics)
-assign bounded work on the executable model, its tests and existing-evidence
-audits. Administrative closure of an issue does not discharge a physical
-premise.
+Open work on the executable model, its tests and existing-evidence audits is
+tracked in the [observables register](registers/OBSERVABLES.json). Only
+evidence changes a status; administrative closure of an issue does not
+discharge a physical premise.
 
 ## Executable model
 
@@ -110,7 +111,7 @@ each of them against the scorecard. The main candidate is
 [specification](../model/candidate_laws/contrast_memory_spherical_v1/SPEC.md)
 and [binding theorem](../model/candidate_laws/contrast_memory_spherical_v1/PROOF.md);
 the [executable-model paper](../paper/executable_observer_construction.pdf)
-gives the full account, and the [observation ledger](registers/OBSERVATION_LEDGER_V3.md)
+gives the full account, and the [observables register](registers/OBSERVABLES.json)
 records what the candidates reproduce. The state of the simulation is no
 physical space: every test compares distributions of admissible observer
 records with what observers in our world record.
@@ -122,27 +123,15 @@ reuse requirements.
 
 ## Registers
 
-Each register is generated from a JSON source by a tool in [`tools/`](../tools/).
-The first line of every page names its source and generator; edit the source,
-then regenerate. The [five-ledger map](../claims/README.md#the-five-ledgers)
-groups the sources into the claims, premises, predictions-and-tests, evidence
-and papers ledgers.
-
-- [Premise Register](registers/PREMISE_REGISTER_V3.md) names each V3 input and
-  its consumers and classifies each evidence path by its scientific role.
-- [Observation Ledger](registers/OBSERVATION_LEDGER_V3.md) records the physical
-  targets, adequacy rungs, premise ancestry, frozen-target links, and evidence paths.
-- [Emergent-Instrument Register](registers/OBSERVATION_LEDGER_V3.md#emergent-instrument-register) lists the
-  simulation-instrument designs and frozen instruments of the adequacy program.
-- [Constants Ancestry](registers/OBSERVATION_LEDGER_V3.md#constants-ancestry) declares the complete
-  input ancestry of each constants family against the premise register.
-- [Selection Ledger](registers/SELECTION_LEDGER.md) records the selections that
-  consensus forces, with the exposed premises and proofs behind each row.
-- [Gravity Premise Ladder](registers/PREMISE_REGISTER_V3.md#gravity-rungs) types each
-  gravity interface with a premise packet, a theorem or countermodel, and a
-  deletion test.
-- [Standard Model Correspondence](registers/PREMISE_REGISTER_V3.md#sm-coverage)
-  classifies each Standard Model term and sector by what OPH supplies.
+[`registers/OBSERVABLES.json`](registers/OBSERVABLES.json) is the one
+completion register. Its rows of kind `observable` list what the theory must
+reproduce; its rows of kind `premise`, with ids `PR-nn`, list the premises of
+the finite theorems. Every row carries one of four statuses, whose definitions
+the file states, with the claims, papers and code behind it.
+`python tools/check_observables.py` validates the file, and the public status
+page reads it directly. The [five-ledger map](../claims/README.md#the-five-ledgers)
+groups the machine sources into the claims, premises, predictions-and-tests,
+evidence and papers ledgers.
 
 ## Research Notes
 

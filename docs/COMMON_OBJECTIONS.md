@@ -12,10 +12,9 @@ The objections below meet a checkable core: a sorry-free Lean theorem subset
 and machine-certified interval and global-uniqueness fixed points for each
 declared map. Each rebuttal states its conditionals explicitly; the scientific
 claim boundaries live in the papers and the
-[falsification program](OPH_FALSIFICATION_PROGRAM.md), while work ownership
-lives on the open physics issues
-[#1025](https://github.com/FloatingPragma/observer-patch-holography/issues/1025),
-[#1026](https://github.com/FloatingPragma/observer-patch-holography/issues/1026) and
+[falsification program](OPH_FALSIFICATION_PROGRAM.md), while open work is
+tracked in the [observables register](registers/OBSERVABLES.json) and the
+obstruction search
 [#1078](https://github.com/FloatingPragma/observer-patch-holography/issues/1078).
 
 ## Contents
@@ -61,9 +60,8 @@ with the measured KNT19 payload `0.027609 ± 0.000112` gives
 which excludes CODATA. Holding the source anchor and lepton transport fixed,
 closing the gap would need the payload `0.032244`, outside the measured
 interval, or an anchor shift of `0.635`; the bookkeeping attributes the gap to
-the frozen anchor. The lane records this as a diagnostic
-(historical [#545](https://github.com/FloatingPragma/observer-patch-holography/issues/545),
-closed; the physical attachment is part of [#1026](https://github.com/FloatingPragma/observer-patch-holography/issues/1026)).
+the frozen anchor. This is recorded as a diagnostic; the physical attachment is
+open work in the [observables register](registers/OBSERVABLES.json).
 The hadronic payload itself is measured to `4×10⁻³` relative precision (see
 "Why The Hadronic Test Is Hard" in [HADRON.md](policies/HADRON.md)); the
 decisive endpoint test is a target-blind completion of the same-scheme
@@ -107,9 +105,7 @@ physical `(P, N)`; that no-landscape statement is an open corollary of the
 closure program.
 
 Arming the exposure is open work. The historical v2 target is externally timestamped,
-but the V1 execution was not target-blind; its defect inventory is recorded on the
-historical P-closure issue ([#545](https://github.com/FloatingPragma/observer-patch-holography/issues/545),
-closed, as is the former continuation [#736](https://github.com/FloatingPragma/observer-patch-holography/issues/736)).
+but the V1 execution was not target-blind.
 Current tests and their decision rules live in the
 [frozen-prediction ladder](FROZEN_PREDICTION_LADDER.md) and the
 [falsification program](OPH_FALSIFICATION_PROGRAM.md); a target-blind contract must be

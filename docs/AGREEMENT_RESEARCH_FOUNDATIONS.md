@@ -255,18 +255,19 @@ No network theorem supplies a physical clock merely by naming an event a tick.
 
 ## 7. Work products and scientific contribution
 
-The following bounded outputs use the existing issue ownership. They add no
-new issue queue or mechanism and retain the existing candidate evidence.
+The following bounded outputs are open work tracked in the
+[observables register](registers/OBSERVABLES.json). They add no new mechanism
+and retain the existing candidate evidence.
 Reuse a completed certificate when the mapping is unchanged; calculate only
 what the actual candidate's missing premise or changed interface requires.
 
-| Work | Required output | Existing owner |
-| --- | --- | --- |
-| Specify native recovery | One closure/recovery contract with fault span, scheduler and protected records; distinguish deterministic and probabilistic claims. | [#1076](https://github.com/FloatingPragma/observer-patch-holography/issues/1076), [#1026](https://github.com/FloatingPragma/observer-patch-holography/issues/1026) |
-| Reuse the linear theory | Actual stalks/restrictions, inner products, `delta`, nullspace, boundary extension residual and uniqueness test for the scalar comparison. | [#1076](https://github.com/FloatingPragma/observer-patch-holography/issues/1076) |
-| Preserve one implementation | Accepted operation grammar and same-source preparation, evolution and record history; unchanged reference checks plus the relevant theorem premises. | [#1077](https://github.com/FloatingPragma/observer-patch-holography/issues/1077) |
-| Discriminate physical laws | Two viable laws with the same preparation, effects, boundary and clock; a predicted transient or response difference with declared calibration freedom. | [#1025](https://github.com/FloatingPragma/observer-patch-holography/issues/1025), [#1076](https://github.com/FloatingPragma/observer-patch-holography/issues/1076) |
-| Review the inference | Nearest primary theorem, premise mapping, unchanged conclusion, candidate-specific remaining work, and scope of any obstruction. | [#1033](https://github.com/FloatingPragma/observer-patch-holography/issues/1033), [#1078](https://github.com/FloatingPragma/observer-patch-holography/issues/1078) |
+| Work | Required output |
+| --- | --- |
+| Specify native recovery | One closure/recovery contract with fault span, scheduler and protected records; distinguish deterministic and probabilistic claims. |
+| Reuse the linear theory | Actual stalks/restrictions, inner products, `delta`, nullspace, boundary extension residual and uniqueness test for the scalar comparison. |
+| Preserve one implementation | Accepted operation grammar and same-source preparation, evolution and record history; unchanged reference checks plus the relevant theorem premises. |
+| Discriminate physical laws | Two viable laws with the same preparation, effects, boundary and clock; a predicted transient or response difference with declared calibration freedom. |
+| Review the inference | Nearest primary theorem, premise mapping, unchanged conclusion, candidate-specific remaining work, and scope of any obstruction ([#1033](https://github.com/FloatingPragma/observer-patch-holography/issues/1033), [#1078](https://github.com/FloatingPragma/observer-patch-holography/issues/1078)). |
 
 Record each reusable result as **applicable with checked premises**,
 **conditional on named missing premises**, or **not applicable to this model**.
@@ -279,8 +280,8 @@ contribution must identify the common physical realization or a necessary
 additional result absent from the cited theorem, and ultimately supply a
 discriminating observable relation. Shared equilibria do not choose transition
 rates, instruments, reference states or physical clocks. The existing geometry,
-gauge, continuum and empirical obligations are listed in the
-[premise register](registers/PREMISE_REGISTER_V3.md).
+gauge, continuum and empirical obligations are listed in the premise rows of
+the [observables register](registers/OBSERVABLES.json).
 
 The sources above have different conventions and scopes. In particular, the
 arXiv HTML renderings can renumber theorem counters relative to the PDFs;

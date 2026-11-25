@@ -70,7 +70,7 @@ Le [tableau d'évaluation](model/evaluation/SCORECARD.md) officiel (en anglais) 
 - **Fixé :** le support, une sphère de cellules échosaédriques dans laquelle
   chaque cellule est un observateur et ses douze ports sont ses interfaces, et
   les prémisses des théorèmes finis, listées dans le
-  [registre des prémisses](docs/registers/PREMISE_REGISTER_V3.md).
+  [registre des observables](docs/registers/OBSERVABLES.json).
 - **Libre :** tout ce qu’un concepteur peut construire dans l’univers qui
   simule peut être calibré pour que les registres des observateurs
   correspondent aux nôtres : couplages, préparations, rétroactions, lectures.
@@ -173,7 +173,7 @@ l’écriture du modèle est la règle de réparation que quatre exigences
 désignent seule, ses lectures sont les instruments projectifs des théorèmes
 de la mesure, et ses observateurs comparent leurs horloges par des registres
 partagés, comme l’exigent les théorèmes d’horloge. Le
-[registre des observations](docs/registers/OBSERVATION_LEDGER_V3.md) (en
+[registre des observables](docs/registers/OBSERVABLES.json) (en
 anglais) liste ce que le modèle reproduit et ce qui est ouvert.
 
 ## Ce qui en sort
@@ -276,8 +276,7 @@ la construction peut échouer.
 | [code/](code/README.md) | Les calculs exacts, les vérificateurs et les reçus derrière les articles |
 | [evidence/](evidence/README.md) | Les paquets de preuves conservés et les enregistrements de garde |
 | [claims/](claims/README.md) | Les énoncés établis et leurs dépendances |
-| [tracking/](tracking/) | Les registres des prémisses, observations, prédictions et instruments |
-| [docs/](docs/README.md) | La base, le guide des termes, les politiques et les registres |
+| [docs/](docs/README.md) | La base, le guide des termes, les politiques, les registres et le registre des observables |
 | [book/](book/) | Le livre |
 
 ## Reproduire et vérifier
