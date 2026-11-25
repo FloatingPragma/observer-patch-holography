@@ -4300,13 +4300,19 @@
     "PR-107",
     "PR-170"
    ],
-   "lean": [],
+   "lean": [
+    "Lean/ObserverPatchHolography/Provenance/ReleaseRelay.lean"
+   ],
    "model": [
     "code/cosmology/postdiction_ledger/COSMOLOGY_POSTDICTION_LEDGER.md",
     "code/cosmology/screen_coherence/measurements.json",
     "code/cosmology/screen_coherence/survey.json",
     "code/cosmology/guarded_slab/results.json",
-    "code/cosmology/guarded_slab/energy_exchange/energy.json"
+    "code/cosmology/guarded_slab/energy_exchange/energy.json",
+    "code/cosmology/release_horizon/README.md",
+    "code/cosmology/release_horizon/horizon.py",
+    "code/cosmology/release_horizon/contrast.py",
+    "code/cosmology/release_horizon/results.json"
    ],
    "papers": [
     "cosmology/oph_inflation_without_inflaton_observer_screen_synchronization.pdf",
@@ -7134,15 +7140,24 @@
    "kind": "premise",
    "name": "admissible scheduler class: mismatch non-increase clause",
    "category": "Construction choices",
-   "status": "Open",
+   "status": "Demonstrated",
    "what": "No step of an admissible repair scheduler increases the count of raised private defect flags.",
    "why": "OPH's defect cut covering every admissible scheduler in the capacity-split theorem uses exactly this clause.",
    "premises": [],
    "lean": [
-    "Lean/ObservableNormalForms/ObservableNormalForms/SchedulerClassObstructions.lean"
+    "Lean/ObservableNormalForms/ObservableNormalForms/SchedulerClassObstructions.lean",
+    "Lean/ObserverPatchHolography/Provenance/ReleaseRelay.lean"
    ],
-   "model": [],
-   "papers": [],
+   "model": [
+    "code/cosmology/release_horizon/README.md",
+    "code/cosmology/release_horizon/relay.py",
+    "code/cosmology/release_horizon/protocol.json",
+    "code/cosmology/release_horizon/results.json",
+    "code/cosmology/release_horizon/test_horizon.py"
+   ],
+   "papers": [
+    "cosmology/oph_cosmology_finite_source_cmb_program.pdf"
+   ],
    "statement": "Every supported step of an admissible scheduler on the two-register repair carrier does not increase the declared defect mismatch, one unit per raised private defect flag. The all-scheduler defect cut consumes exactly this clause.",
    "premise_kind": "declared"
   },
@@ -7151,15 +7166,24 @@
    "kind": "premise",
    "name": "admissible scheduler class: single-register locality clause",
    "category": "Construction choices",
-   "status": "Open",
+   "status": "Demonstrated",
    "what": "Each step of an admissible repair scheduler writes at most one of its two registers, the shared record or the private flag.",
    "why": "It belongs to the scheduler class of the capacity-split theorem, which limits how shared and private records are written.",
    "premises": [],
    "lean": [
-    "Lean/ObservableNormalForms/ObservableNormalForms/SchedulerClassObstructions.lean"
+    "Lean/ObservableNormalForms/ObservableNormalForms/SchedulerClassObstructions.lean",
+    "Lean/ObserverPatchHolography/Provenance/ReleaseRelay.lean"
    ],
-   "model": [],
-   "papers": [],
+   "model": [
+    "code/cosmology/release_horizon/README.md",
+    "code/cosmology/release_horizon/relay.py",
+    "code/cosmology/release_horizon/protocol.json",
+    "code/cosmology/release_horizon/results.json",
+    "code/cosmology/release_horizon/test_horizon.py"
+   ],
+   "papers": [
+    "cosmology/oph_cosmology_finite_source_cmb_program.pdf"
+   ],
    "statement": "Every supported step of an admissible scheduler writes at most one of the two registers of the repair carrier.",
    "premise_kind": "declared"
   },
@@ -7168,15 +7192,24 @@
    "kind": "premise",
    "name": "admissible scheduler class: unit expected capacity clause",
    "category": "Construction choices",
-   "status": "Open",
+   "status": "Demonstrated",
    "what": "Each scheduler step spends on average at most one unit of capacity, counting private and shared writes together.",
    "why": "It bounds repair cost per step in the capacity-split theorem, which separates private and shared record capacity.",
    "premises": [],
    "lean": [
-    "Lean/ObservableNormalForms/ObservableNormalForms/SchedulerClassObstructions.lean"
+    "Lean/ObservableNormalForms/ObservableNormalForms/SchedulerClassObstructions.lean",
+    "Lean/ObserverPatchHolography/Provenance/ReleaseRelay.lean"
    ],
-   "model": [],
-   "papers": [],
+   "model": [
+    "code/cosmology/release_horizon/README.md",
+    "code/cosmology/release_horizon/relay.py",
+    "code/cosmology/release_horizon/protocol.json",
+    "code/cosmology/release_horizon/results.json",
+    "code/cosmology/release_horizon/test_horizon.py"
+   ],
+   "papers": [
+    "cosmology/oph_cosmology_finite_source_cmb_program.pdf"
+   ],
    "statement": "The expected declared capacity spend of every step, privateCost plus sharedCost integrated against the kernel row, is at most one unit.",
    "premise_kind": "declared"
   },
@@ -7185,15 +7218,24 @@
    "kind": "premise",
    "name": "two-register capacity-split reading",
    "category": "Construction choices",
-   "status": "Open",
+   "status": "Demonstrated",
    "what": "The two-bit repair carrier holds a shared network-facing record and a private defect flag, with one capacity unit per write.",
    "why": "It gives the capacity-split theorem its reading as a budget split between public records and private defects.",
    "premises": [],
    "lean": [
-    "Lean/ObservableNormalForms/ObservableNormalForms/SchedulerClassObstructions.lean"
+    "Lean/ObservableNormalForms/ObservableNormalForms/SchedulerClassObstructions.lean",
+    "Lean/ObserverPatchHolography/Provenance/ReleaseRelay.lean"
    ],
-   "model": [],
-   "papers": [],
+   "model": [
+    "code/cosmology/release_horizon/README.md",
+    "code/cosmology/release_horizon/relay.py",
+    "code/cosmology/release_horizon/protocol.json",
+    "code/cosmology/release_horizon/results.json",
+    "code/cosmology/release_horizon/test_horizon.py"
+   ],
+   "papers": [
+    "cosmology/oph_cosmology_finite_source_cmb_program.pdf"
+   ],
    "statement": "The first register of the two-bit repair carrier is the shared network-facing record and the second the private defect flag; privateCost and sharedCost charge one unit per private or shared write.",
    "premise_kind": "declared"
   },
@@ -7984,7 +8026,9 @@
    "what": "One finite material release produces local energy records on a common trigger, with a physical scale, radial curvature map and cosmological stress attachment required for primordial modes.",
    "why": "Every OPH prediction for the cosmic microwave background spectrum depends on this map from screen covariance to primordial curvature modes.",
    "premises": [],
-   "lean": [],
+   "lean": [
+    "Lean/ObserverPatchHolography/Provenance/ReleaseRelay.lean"
+   ],
    "model": [
     "code/cosmology/oph_radial_lift_330.py",
     "code/cosmology/screen_coherence/survey.json",
@@ -7992,12 +8036,17 @@
     "code/cosmology/guarded_slab/energy_exchange/README.md",
     "code/cosmology/guarded_slab/energy_exchange/energy_release.py",
     "code/cosmology/guarded_slab/energy_exchange/energy.json",
-    "code/cosmology/guarded_slab/energy_exchange/precision.json"
+    "code/cosmology/guarded_slab/energy_exchange/precision.json",
+    "code/cosmology/release_horizon/README.md",
+    "code/cosmology/release_horizon/horizon.py",
+    "code/cosmology/release_horizon/contrast.py",
+    "code/cosmology/release_horizon/results.json"
    ],
    "papers": [
     "cosmology/oph_cosmology_finite_source_cmb_program.pdf",
     "paper/tex_fragments/SCREEN_SPECTRUM_THEOREMS.tex",
-    "cosmology/physical_cmb_theorem_program.md"
+    "cosmology/physical_cmb_theorem_program.md",
+    "cosmology/oph_inflation_without_inflaton_observer_screen_synchronization.pdf"
    ],
    "statement": "One finite source on the executable process emits the geometric screen scalar, the primitive collar release law and release energy, the conformal precision on the round sphere, conserved stress, a common clock and release surface, a physical scale and a radial observation map, and these map the screen covariance into physical primordial curvature modes entering standard CMB transfer.",
    "premise_kind": "derivable"
@@ -8127,13 +8176,20 @@
    "what": "The primordial source is correlated over distances larger than the causal horizon of the background at the time of release.",
    "why": "It accounts for CMB correlations between regions never in causal contact, the problem inflation is usually invoked to solve.",
    "premises": [],
-   "lean": [],
+   "lean": [
+    "Lean/ObserverPatchHolography/Provenance/ReleaseRelay.lean"
+   ],
    "model": [
     "code/cosmology/screen_coherence/measurements.json",
-    "code/cosmology/screen_coherence/survey.json"
+    "code/cosmology/screen_coherence/survey.json",
+    "code/cosmology/release_horizon/README.md",
+    "code/cosmology/release_horizon/horizon.py",
+    "code/cosmology/release_horizon/contrast.py",
+    "code/cosmology/release_horizon/results.json"
    ],
    "papers": [
-    "cosmology/oph_inflation_without_inflaton_observer_screen_synchronization.pdf"
+    "cosmology/oph_inflation_without_inflaton_observer_screen_synchronization.pdf",
+    "cosmology/oph_cosmology_finite_source_cmb_program.pdf"
    ],
    "statement": "The primordial source is coherent across scales larger than the causal horizon of the record-density background at release.",
    "premise_kind": "derivable"

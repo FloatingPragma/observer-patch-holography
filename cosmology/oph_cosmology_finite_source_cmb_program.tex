@@ -397,6 +397,67 @@ inverse rotation recovers each original word. Hiding the count identifies
 rotation orbits and leaves four distinguishable classes. The construction
 provides a time-indexed net on the finite coherent routing phase.
 
+\subsection{Energy differences across disjoint clock histories}
+
+Consider a screen with one trigger and one probe per other cell. A cell
+publishes a received notice by changing its shared rail. A distinct
+acknowledgement clears its private pending flag at the end of the sweep.
+Every external seam is consulted in both directions, in a sequence of
+disjoint matchings. A cell first receiving a notice can forward it during
+the following sweep. Induction on sweeps gives the arrival time \(T+d_i\)
+at a cell of graph distance \(d_i\) from the trigger. The root posts at its
+first measured rail change, \(T\), with probability \(1/4\) per opportunity.
+
+At a fixed reading \(H\), all probes report their energies, including probes
+that have received no notice. Independent local preparations give upper
+populations \(1/5\) and \(1/3\) for the probe and its partner. Each accepted
+exchange swaps their two complete energy states. After \(n\) independent
+offers with acceptance \(1/4\), the mean probe excitation is
+\(m_n=4/15-2^{-n}/15\). Thus, conditional on \(T\), the probes are
+independent with means \(m_{\min(T+d_i,H)}\).
+A receiver can first see the notice on the last sweep with no change to
+its energy distribution. In particular, a pair has zero energy covariance
+if either \(d_i\geq H-1\).
+
+There is also a duration-independent upper bound. Covariance equals half
+the expected product of the two mean differences evaluated on independent
+copies of \(T\). Both differences have the same sign. Clipping each
+increasing mean at \(m_H\) reduces the absolute differences. Without
+clipping, \({\mathbb E}(2^{-T})=1/5\) and
+\({\mathbb E}(4^{-T})=1/13\). For distinct probes at graph separation \(s\),
+\[
+ 0\leq {\rm Cov}(E_i,E_j)
+ \leq \frac{4}{24375}\,2^{-(d_i+d_j)}
+ \leq \frac{4}{24375}\,2^{-s}.
+\]
+Thus extending the preparation cannot remove exponential attenuation for
+this one-trigger thermal source on its native link scale.
+
+For a contrast measurement use \(A=E_i-E_j\) and \(B=E_k-E_l\) on
+two distinct, outward-oriented neighboring pairs. Each initial cell label is
+propagated through all scheduled contacts to bound the ancestry of every
+reading. The unions of the two endpoint pasts on one edge and on the other
+edge are required to be disjoint over the \(H\) sweeps following a clock
+reset. The four endpoint records are compared after capture.
+On 320 cells at \(H=2\), there are \(66{,}850\) eligible radial edge pairs.
+Selecting the least sum of inner root distances and breaking ties by cell
+index gives radii \((3,4)\) on both edges. Arming at reset gives zero
+contrast covariance. Arming 23 sweeps before reset gives
+\[
+ {\rm Cov}(A,B)=
+ {\rm Var}_T\!\left[m_{\min(T+3,25)}-m_{\min(T+4,25)}\right]
+ \simeq 6.41026\times10^{-7}
+\]
+in squared native gap units. Integer cohorts evolved through each offered contact give
+\((6.06\pm2.63)\times10^{-7}\) with simultaneous 99 percent coverage for
+the contrast experiment. A common fair bit choosing the initial
+probe--reservoir order gives exactly zero for this contrast at any \(H\).
+The controlled earlier release supplies spatial structure tied to distance
+from a distinguished trigger. Its calibration as primordial curvature
+requires the physical scale, background release clock and radial readout.
+The joint energy words and the preparation and timing controls are in
+\pathref{code/cosmology/release_horizon/}.
+
 \subsection{Exact Fourier control for the golden source population}
 The deterministic Cartesian population
 \(x_b=\mathcal L(\{b_1\varphi\},\{b_2\varphi\},\{b_3\varphi\})\),

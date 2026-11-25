@@ -18,6 +18,8 @@ On a supplied fixed spatial cone, the charged scalar action supports controlled 
 
 The guarded material-rail source supplies a reversible finite transfer with a refinement that preserves every recorded history and a machine-checked rank for its authenticated read ancestry. A first material switch can release a signal to three owners. Its nonzero orientation covariances disappear when the same owners read their two native energies after arrival. Coupling a probe to a warmer material reservoir produces a measurable energy covariance on the same release, and equal temperatures give zero. The [energy-exchange experiment](../code/cosmology/guarded_slab/energy_exchange/README.md) supplies its exact law and a time-indexed algebra for the captured records. Radiation species, the stress tensor and a scale-dependent curvature response require separate measurements. The [source derivation and release distributions](../code/cosmology/guarded_slab/README.md) specify the instruments and the complete timeout law.
 
+A finite release front reaches one neighbor layer per material sweep. An earlier root release correlates energy differences on two separated edges with disjoint post-reset circuit pasts. A spatially uniform preparation bit has zero response on this measurement. The comparison uses a declared reset and a fixed root. Identifying its causal horizon requires the record-density background, scale and release clock on that same process. [Local contrasts, exact laws and counts](../code/cosmology/release_horizon/README.md)
+
 ## Required constructions
 
 - **Finite source:** source-derived scalar amplitude, shape, clock, release surface, and background capacity, including the reserve-generator receipt that the tilt theorem consumes.

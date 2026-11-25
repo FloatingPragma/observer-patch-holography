@@ -27,6 +27,8 @@ finite-window bound. The
 [simulator contract](../code/cosmology/SIMULATOR_RADIAL_CONTRACT_330.md)
 specifies the fail-closed evidence split used by finite runs.
 
+A timed release on the 320-cell screen correlates thermal contrasts on two different edges through their common preparation history. A single uniform preparation bit gives zero on this contrast measurement. [Release timing, causal pasts and energy data](../code/cosmology/release_horizon/README.md)
+
 The [physical CMB theorem program](physical_cmb_theorem_program.md) specifies the supplied and unsupplied physical-event, order-faithful-placement, count--volume, continuum, source, lift, stress, abundance, transfer, and likelihood inputs in one place.
 
 The [primordial source and coherence measurements](../code/cosmology/screen_coherence/README.md) test two Interval Echo instruments. A material exchange equilibrates sharp preparations at fixed total. A half-filled board of 1,310,720 cells retains 97.69% of its regional contrast after 512 service rounds. In a separate strict-repair preparation, neighboring observers acquire correlated changes in the number of markers they can reach. These material surveys supply a finite source for testing spatial covariance. Identifying a primordial curvature field requires independent volume and clock measurements.

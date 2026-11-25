@@ -355,6 +355,12 @@ REPLAY_EVALUATIONS = (
         "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
         "model/candidate_laws/interval_echo/EVALUATION.json": "429f579d2f495e92ebe85cbe09fa95d3e9306950bfe2c7bb368bd4b04072e1e2",
     },
+    # Two-register relay and fixed-time thermal contrasts across a clock reset.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "9a626d8eb521899278e196df96b820dca241d59cd7778d0f6aa5282d36b61e5f",
+    },
 )
 
 

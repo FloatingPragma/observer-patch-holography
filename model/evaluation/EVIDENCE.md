@@ -1225,10 +1225,10 @@ The register records each theorem assumption and its formal consumers. The role 
 | PR-57 physical proton state and baryon-violating effective-action attachment | law | Open | Open | Open | Open |
 | PR-58 time-indexed net evolution and time-slice generation interface | law | Demonstrated | Open | Open | Open |
 | PR-59 declared five-mode exterior component and mask-selection grammar | law | Open | Open | Open | Open |
-| PR-60 admissible scheduler class: mismatch non-increase clause | law | Open | Open | Open | Open |
-| PR-61 admissible scheduler class: single-register locality clause | law | Open | Open | Open | Open |
-| PR-62 admissible scheduler class: unit expected capacity clause | law | Open | Open | Open | Open |
-| PR-63 two-register capacity-split reading | designer | Open | Open | Open | Open |
+| PR-60 admissible scheduler class: mismatch non-increase clause | law | Demonstrated | Open | Open | Open |
+| PR-61 admissible scheduler class: single-register locality clause | law | Demonstrated | Open | Open | Open |
+| PR-62 admissible scheduler class: unit expected capacity clause | law | Demonstrated | Open | Open | Open |
+| PR-63 two-register capacity-split reading | designer | Demonstrated | Open | Open | Open |
 | PR-64 operational phase-instrument channel realization | law | Demonstrated | Open | Open | Open |
 | PR-65 source-produced phase preparation and readback provenance | law | Demonstrated | Open | Open | Open |
 | PR-66 declared discrete kinetic term of the temporal Maxwell action | law | Open | Open | Open | Open |

@@ -355,6 +355,50 @@ specified. The release experiment does not select a radiation bath, its
 particle content, or its temperature from the repair law alone. The complete
 launch outcomes are in \pathref{code/cosmology/guarded_slab/energy_exchange/}.
 
+\subsection{How much common history does synchronization require?}
+
+A local release front gives the duration of synchronization in material
+clock readings. When a neighbor receives a notice it changes a public
+register. A separate private flag permits forwarding after the next sweep
+begins. Each sweep consults every neighboring pair in both directions.
+A root starting ready therefore reaches exactly the graph ball of radius
+\(h\) after \(h\) sweeps. The three screens of 20, 80 and 320 cells require
+5, 11 and 23 sweeps respectively to reach every receiver from the selected
+root. Allowing an immediate acknowledgement produces a faster front on all
+three screens. This dependence on the service rule matters when assigning
+a physical meaning to the clock.
+
+A fair root bit can be distributed during that preparation interval.
+At reset each receiver uses its latched bit to select which of two
+independently prepared thermal dimers is the local probe. Upper energy
+populations are \(1/5\) and \(1/3\). Each subsequent sweep offers a complete
+exchange with probability \(1/4\). Given the common bit, the upper
+probabilities after \(H\) offers are \(4/15\pm2^{-H}/15\) at every
+receiver. Any two distinct probes have covariance \(4^{-H}/225\).
+Independent fair bits at the receivers give the same single-probe
+distributions and zero cross-covariance. The common bit affects only the
+spatial mean. Subtracting that mean removes the entire common contribution.
+
+A different preparation leaves the local contacts running while a randomly
+timed release propagates from the root. Near and far receivers then stop
+their private heat exchange after different numbers of offers. On 320
+cells, \(36{,}279\) of the \(50{,}721\) distinct receiver pairs have
+disjoint scheduled pasts over the first two sweeps after reset. A release
+first armed at reset gives these pairs zero covariance. A release armed
+23 sweeps before reset produces a nonzero covariance even between two
+within-edge energy differences whose post-reset pasts are disjoint.
+The exact value at inner and outer root distances three and four on both
+edges is \(6.41\times10^{-7}\) squared native gaps. This measurement
+detects variation across the screen independently of any subtraction of
+the screen average. The original launches, fixed-time misses and local
+energy readings are included in \pathref{code/cosmology/release_horizon/}.
+
+Both records have common causal ancestry during the preparation.
+Interpreting this finite mechanism as primordial synchronization requires
+an independent record-density background on the same history, a physical
+release surface, and a curvature observable with the required correlations
+over physical scales.
+
 \section{Expansion as Record Density}
 \label{sec:expansion-record-density}
 
