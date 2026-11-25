@@ -1,12 +1,21 @@
 """Independent identities for the released shear stacks and stress transition."""
 
 import json
+from pathlib import Path
+import sys
 import unittest
 
 import numpy as np
 from scipy.integrate import quad
 
-from measure import FROZEN, HERE, analyse, check_values, joint_edge_distance
+sys.path.insert(0, str(Path(__file__).resolve().parents[3]))
+from cosmology.rar_deep_regime.pressure_transfer.measure import (
+    FROZEN,
+    HERE,
+    analyse,
+    check_values,
+    joint_edge_distance,
+)
 
 
 class PressureTransferTest(unittest.TestCase):
