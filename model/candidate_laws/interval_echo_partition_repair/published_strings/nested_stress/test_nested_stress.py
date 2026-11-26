@@ -4,7 +4,7 @@ import math
 
 import pytest
 
-from .audit import (COEFFICIENTS, HERE, RATIOS, SEPARATION, annular_kernel_over_pi,
+from .audit import (COEFFICIENTS, HERE, RATIOS, SEPARATION, annular_kernel_over_pi, charge_vacuum_control,
                     finite_bands, kernel_over_pi, native_transfer, normalized_lower_bound, radius)
 
 
@@ -76,3 +76,10 @@ def test_regular_density_has_one_limit_and_the_recorded_entropy_has_two():
     large, _, small = archive["entropy_slopes_per_radius_fourth_infinite"]
     assert large == 16**4 * small
     assert abs((large-small)/2-archive["minimum_limsup_error_for_regular_stress"]) < 1e-15
+
+
+def test_native_energy_charge_vacuum_loses_the_exchange_response():
+    row = charge_vacuum_control()
+    assert row == json.loads((HERE/"results.json").read_text())["charge_vacuum_exchange"]
+    assert abs(row["native_cut_entropy_slope"]-math.sqrt(3)*math.log(5/3)/4) < 1e-12
+    assert row["charge_vacuum_cut_entropy_slope"] == 0

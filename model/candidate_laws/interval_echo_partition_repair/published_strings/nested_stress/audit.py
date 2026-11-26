@@ -9,7 +9,7 @@ import numpy as np
 
 from ..experiment import endpoint_positions
 from ..memories import THETA
-from ..native_pair import LAW, LOGICAL, NativePair, entropy, sharp_counts
+from ..native_pair import LAW, LOGICAL, NativePair, endpoint, entropy, sharp_counts
 
 HERE = Path(__file__).resolve().parent
 RATIOS = (1, 4, 16)
@@ -122,11 +122,37 @@ def finite_bands(depth):
     return rows
 
 
+def charge_vacuum_control():
+    """Read the cut after a native pulse with two faithful reference preparations."""
+    pair = NativePair(0, "right")
+    h = pair.generator
+    charge = np.diag([sum(pair.physical(*word)) for word in LOGICAL])
+    np.testing.assert_allclose(h @ charge, charge @ h, atol=4e-13, rtol=0)
+    value, basis = np.linalg.eigh((h+charge)/8)
+    probability = np.exp(-value)
+    gibbs = (basis*(probability/sum(probability))) @ basis.conj().T
+    slopes = []
+    for state in (pair.state(THETA), gibbs):
+        cut = endpoint(state, "left")
+        tangent = endpoint(-2j*(h @ state - state @ h), "left")
+        p, axes = np.linalg.eigh(cut)
+        log_cut = (axes*np.log(p)) @ axes.conj().T
+        slopes.append(-float(np.trace(tangent @ log_cut).real))
+    assert math.isclose(slopes[0], math.sqrt(3)*math.log(5/3)/4, rel_tol=0, abs_tol=4e-13)
+    assert abs(slopes[1]) < 4e-13
+    for exposure in (-1/8, 1/8):
+        u = pair.gate(exposure)
+        np.testing.assert_allclose(u @ gibbs @ u.conj().T, gibbs, atol=4e-13, rtol=0)
+    return dict(reference="normalized exp(-(H+Q)/8)", low_load=0, reversed_port="right",
+                native_cut_entropy_slope=round(slopes[0], 12), charge_vacuum_cut_entropy_slope=0)
+
+
 def deposit():
     tail = 1/(1-Fraction(1, SEPARATION)**4)
     peak = float(tail)*math.log(5)
     return dict(schema="oph.published_string_nested_stress.v1", native_dimension=LAW.DIM,
                 native_transfers=[native_transfer(low, side) for low in (0, 1) for side in ("left", "right")],
+                charge_vacuum_exchange=charge_vacuum_control(),
                 radii_ratios=list(RATIOS), annular_coefficients=list(COEFFICIENTS),
                 shell_radius_ratio=SEPARATION, active_weight="R_k^4",
                 finite_prefix=finite_bands(4),

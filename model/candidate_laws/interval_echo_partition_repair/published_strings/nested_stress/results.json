@@ -327,6 +327,13 @@
       ]
     }
   ],
+  "charge_vacuum_exchange": {
+    "reference": "normalized exp(-(H+Q)/8)",
+    "low_load": 0,
+    "reversed_port": "right",
+    "native_cut_entropy_slope": 0.221193983543,
+    "charge_vacuum_cut_entropy_slope": 0
+  },
   "radii_ratios": [
     1,
     4,
