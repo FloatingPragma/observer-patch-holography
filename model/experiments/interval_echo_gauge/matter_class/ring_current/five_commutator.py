@@ -33,17 +33,22 @@ def frozen_response(weights):
     reports = {}
     x, y = weights
     cases = {
+        "P0": ("PLANE", 0),
         "P1": ("PLANE", 3),
         "P2": ("PLANE", 6),
+        "F1": ("SU3PF", 8),
         "F2": ("SU3PF", 11),
+        "G1": ("SU3MF", 8),
         "G2": ("SU3MF", 11),
     }
+    coordinates = {}
     for label, (family, dim) in cases.items():
         point = next(
             r
             for r in cert["samples"]
             if r["family"] == family and r["compact"] and r["derived_dimension"] == dim
         )
+        coordinates[label] = point["channel_values"]
         out = [[Fraction(), Fraction()] for _ in range(12)]
         for index, a, ad, b, bd in point["x_vector"]:
             for k, i, j, n, d in basis[index]["entries"]:
@@ -58,6 +63,22 @@ def frozen_response(weights):
         scale = 144 * Fraction(coeff[0], coeff[1])
         require(coeff[2] == 0 and scale != 0, "Unexpected sample normalization")
         reports[label] = [[c / scale for c in row] for row in out]
+    for first, second, spectator in (
+        ("F1", "F2", "t_mm_to_m"),
+        ("G1", "G2", "t_pp_to_p"),
+    ):
+        diff = {
+            k
+            for k in coordinates[first]
+            if coordinates[first][k] != coordinates[second][k]
+        }
+        require(
+            set(coordinates[first]) == set(coordinates[second])
+            and diff == {spectator}
+            and coordinates[first][spectator] == [0, 1, 0, 1]
+            and coordinates[second][spectator] == [1, 1, 0, 1],
+            "The matched sample pair must differ only by a unit spectator self-bracket",
+        )
     return reports
 
 
@@ -89,10 +110,10 @@ def certificate():
     predicted = frozen_response(pair[:, chart])
     for name, raw in predicted.items():
         v = np.array(raw, dtype=object)[chart, :]
-        if name in ("P1", "P2"):
+        if name in ("P0", "P1", "P2"):
             require(not v.any(), "Plane is active on the five")
         else:
-            sign = 1 if name == "F2" else -1
+            sign = 1 if name.startswith("F") else -1
             require(
                 list(v[4]) == [-1, 0]
                 and list(v[8]) == [Fraction(-1, 2), Fraction(sign, 2)],
@@ -104,6 +125,26 @@ def certificate():
                 v.any() and np.array_equal(A @ v, sign * rw),
                 "Wrong nonzero B14 channel",
             )
+    require(
+        predicted["F1"] == predicted["F2"] and predicted["G1"] == predicted["G2"],
+        "Five-five derivative with respect to the spectator coefficient must vanish",
+    )
+    # A second pair of unweighted port drives sees e through the spectator
+    # projection. P_sigma=(I-J)(I+sigma*A/sqrt(5))/4 in the native chart.
+    unweighted = frozen_response(12 * identity[[0, 1]][:, chart])
+    spectator_outputs = {}
+    for family, sign in (("F", -1), ("G", 1)):
+        for stratum in ("1", "2"):
+            name = family + stratum
+            row = np.array(unweighted[name], dtype=object)[chart, :]
+            divroot = row[:, [1, 0]].copy()
+            divroot[:, 1] /= 5
+            out = odd @ (row + sign * A @ divroot) / 4
+            require(
+                bool(out.any()) == (stratum == "2"),
+                "Unweighted 0/1 drives fail the spectator test",
+            )
+            spectator_outputs[name] = [[str(a), str(b)] for a, b in out]
     # K numbers are integer seam sums. i*K/5 is the observed signed mean.
     bare = []
     for ring in rings:
@@ -171,6 +212,7 @@ def certificate():
     vectors = {k: [[str(x), str(y)] for x, y in v] for k, v in predicted.items()}
     return {
         "B14_unit_channel_in_B14_chart": vectors,
+        "unweighted_01_spectator_in_native_chart_at_sample_scale": spectator_outputs,
         "native_operator_checks": parsed,
         "occupation_pair_max": 0,
     }
