@@ -98,4 +98,30 @@ theorem noCommonRootConeChart (x : Root → PrimitivePortFrameQuotient.FrameQuot
   exact ⟨PrimitivePortFrameQuotient.quotientEquivVec3 c, t^2,
     fun i => (hc i).trans (sourceConeBall _ _ _ ht)⟩
 
+open Provenance SourceDerivedSpacetime
+
+/-- A single authenticated log with all 32 distinct root-past cuts has no
+order-faithful rank-spatial placement, even if its spatial positions may be
+chosen after the whole history has been read. Sinks are distinct from roots
+so reflexive precedence cannot add an unintended member to a cut. -/
+theorem noFaithfulSingleLog {R V E : Type*} [DecidableEq R] [DecidableEq V]
+    [Fintype E] [DecidableEq E] (L : SemanticEventLog R V E)
+    (root : Root → E) (sink : Set Root → E)
+    (height : ∀ i, L.sourceHeight (root i) = 0)
+    (disjoint : ∀ i S, root i ≠ sink S)
+    (cuts : ∀ i S, i ∈ S ↔ L.GeneratedBefore (root i) (sink S)) :
+    ¬ Nonempty (FaithfulRankSpatialCausalPlacement L) := by
+  rintro ⟨p⟩
+  apply noCommonRootConeChart (fun i => p.spatial (root i))
+  intro S
+  refine ⟨p.spatial (sink S), p.timeScale * (L.sourceHeight (sink S) : ℝ),
+    mul_nonneg p.timeScale_pos.le (Nat.cast_nonneg _), ?_⟩
+  intro i
+  have eqBefore : L.GeneratedBeforeEq (root i) (sink S) ↔
+      L.GeneratedBefore (root i) (sink S) :=
+    or_iff_right (disjoint i S)
+  simpa [RankSpatialCausalPlacement.eventPoint, height] using
+    ((cuts i S).trans (eqBefore.symm.trans
+      (p.generatedBeforeEq_iff_sourceCausalLE (root i) (sink S))))
+
 end OPH.RecordedConeFiveRoots
