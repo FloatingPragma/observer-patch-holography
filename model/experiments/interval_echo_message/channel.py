@@ -481,6 +481,12 @@ REPLAY_EVALUATIONS = (
         "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
         "model/candidate_laws/interval_echo/EVALUATION.json": "cdddae3912d2717372d0da596a3609fb7eef93b5d35e70356f6eb2bfa89ea695",
     },
+    # Surveyed repair ballots, finite electroweak and sourced Maxwell instruments, and occupied orbital readings.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "eca810f64c150045b22d9c8e0ece5b27f6cddbb6f4a6259de79684cd20e797ff",
+    },
 )
 
 

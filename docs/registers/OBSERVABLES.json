@@ -1750,14 +1750,18 @@
     "Lean/Screen/ScaledMaxwellStability.lean",
     "Lean/Screen/TemporalMaxwellEvolution.lean",
     "Lean/Screen/WhitneyMaxwellDynamics.lean",
-    "Lean/Screen/SeamMaxwellContinuum.lean"
+    "Lean/Screen/SeamMaxwellContinuum.lean",
+    "model/experiments/interval_echo_gauge/temporal_action/ActionBridge.lean"
    ],
    "model": [
     "code/electromagnetism/local_face_maxwell_action.py",
     "code/electromagnetism/whitney_maxwell_dynamics.py",
     "code/electromagnetism/runtime/whitney_maxwell_dynamics_receipt.json",
     "code/electromagnetism/seam_maxwell_continuum.py",
-    "model/candidate_laws/interval_echo/openwave/row_29_maxwell/README.md"
+    "model/candidate_laws/interval_echo/openwave/row_29_maxwell/README.md",
+    "model/experiments/interval_echo_gauge/temporal_action/README.md",
+    "model/experiments/interval_echo_gauge/temporal_action/action.py",
+    "model/experiments/interval_echo_gauge/temporal_action/records.json.gz"
    ],
    "papers": [
     "paper/screen_microphysics_and_observer_synchronization.pdf",
@@ -1897,12 +1901,16 @@
     "Lean/Screen/ElectroweakBreakingComposition.lean",
     "Lean/Screen/NeutralCurrentDictionary.lean",
     "Lean/Screen/ChargedCurrentDictionary.lean",
-    "model/experiments/interval_echo_gauge/scalar_grammar/ScalarGrammar.lean"
+    "model/experiments/interval_echo_gauge/scalar_grammar/ScalarGrammar.lean",
+    "model/experiments/interval_echo_gauge/scalar_grammar/shell_line/ShellLine.lean"
    ],
    "model": [
     "model/experiments/interval_echo_gauge/scalar_grammar/README.md",
     "model/experiments/interval_echo_gauge/scalar_grammar/measure.py",
-    "model/experiments/interval_echo_gauge/scalar_grammar/results.json"
+    "model/experiments/interval_echo_gauge/scalar_grammar/results.json",
+    "model/experiments/interval_echo_gauge/scalar_grammar/shell_line/README.md",
+    "model/experiments/interval_echo_gauge/scalar_grammar/shell_line/apparatus.py",
+    "model/experiments/interval_echo_gauge/scalar_grammar/shell_line/results.json"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
@@ -3122,7 +3130,8 @@
    ],
    "lean": [
     "Lean/Screen/ElectroweakBreakingComposition.lean",
-    "model/experiments/interval_echo_gauge/scalar_grammar/ScalarGrammar.lean"
+    "model/experiments/interval_echo_gauge/scalar_grammar/ScalarGrammar.lean",
+    "model/experiments/interval_echo_gauge/scalar_grammar/shell_line/ShellLine.lean"
    ],
    "model": [
     "model/evaluation/SCORECARD.md",
@@ -3130,7 +3139,10 @@
     "code/defect_particle_classes/results.json",
     "model/experiments/interval_echo_gauge/scalar_grammar/README.md",
     "model/experiments/interval_echo_gauge/scalar_grammar/measure.py",
-    "model/experiments/interval_echo_gauge/scalar_grammar/results.json"
+    "model/experiments/interval_echo_gauge/scalar_grammar/results.json",
+    "model/experiments/interval_echo_gauge/scalar_grammar/shell_line/README.md",
+    "model/experiments/interval_echo_gauge/scalar_grammar/shell_line/apparatus.py",
+    "model/experiments/interval_echo_gauge/scalar_grammar/shell_line/results.json"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
@@ -3876,11 +3888,15 @@
     "PR-69"
    ],
    "lean": [
-    "Lean/Screen/ElectroweakBreakingComposition.lean"
+    "Lean/Screen/ElectroweakBreakingComposition.lean",
+    "model/experiments/interval_echo_gauge/scalar_grammar/shell_line/ShellLine.lean"
    ],
    "model": [
     "code/sm_local_action/verify_local_action.py",
-    "code/sm_local_action/local_action_receipt.json"
+    "code/sm_local_action/local_action_receipt.json",
+    "model/experiments/interval_echo_gauge/scalar_grammar/shell_line/README.md",
+    "model/experiments/interval_echo_gauge/scalar_grammar/shell_line/apparatus.py",
+    "model/experiments/interval_echo_gauge/scalar_grammar/shell_line/results.json"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.pdf"
@@ -3914,7 +3930,8 @@
     "Lean/Screen/GaugeKineticInvariantForms.lean",
     "Lean/Screen/ElectroweakBreakingComposition.lean",
     "Lean/Screen/LocalGaugeJetAction.lean",
-    "Lean/Screen/GaugeSectorBracketCompletion.lean"
+    "Lean/Screen/GaugeSectorBracketCompletion.lean",
+    "model/experiments/interval_echo_gauge/scalar_grammar/shell_line/ShellLine.lean"
    ],
    "model": [
     "code/sm_local_action/verify_local_action.py",
@@ -3926,12 +3943,16 @@
     "code/e9_kinetic/validate_kinetic_form.py",
     "code/e9_kinetic/gauge_kinetic_invariant_forms.certificate.json",
     "code/e9_kinetic/verify_gauge_kinetic_invariant_forms.py",
-    "code/e9_kinetic/test_gauge_kinetic_invariant_forms.py"
+    "code/e9_kinetic/test_gauge_kinetic_invariant_forms.py",
+    "model/experiments/interval_echo_gauge/scalar_grammar/shell_line/README.md",
+    "model/experiments/interval_echo_gauge/scalar_grammar/shell_line/apparatus.py",
+    "model/experiments/interval_echo_gauge/scalar_grammar/shell_line/results.json"
    ],
    "papers": [
     "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf",
     "paper/tex_fragments/LOCAL_SM_JET_ACTION.tex",
-    "flagship/from_observer_consensus_to_standard_physics.pdf"
+    "flagship/from_observer_consensus_to_standard_physics.pdf",
+    "paper/deriving_the_particle_zoo_from_observer_consistency.pdf"
    ]
   },
   {
@@ -5923,7 +5944,8 @@
     "PR-53"
    ],
    "lean": [
-    "Lean/Screen/SeamCurrentDirichletGenerator.lean"
+    "Lean/Screen/SeamCurrentDirichletGenerator.lean",
+    "model/experiments/interval_echo_gauge/temporal_action/ActionBridge.lean"
    ],
    "model": [
     "model/evaluation/SCORECARD.md",
@@ -5940,10 +5962,14 @@
     "model/candidate_laws/interval_echo/openwave/row_29_circulation/results.json",
     "model/candidate_laws/interval_echo/openwave/row_29_maxwell/seam_symbol/README.md",
     "model/candidate_laws/interval_echo/openwave/row_29_maxwell/seam_symbol/records.json",
-    "model/candidate_laws/interval_echo/openwave/row_29_maxwell/seam_symbol/transverse.json"
+    "model/candidate_laws/interval_echo/openwave/row_29_maxwell/seam_symbol/transverse.json",
+    "model/experiments/interval_echo_gauge/temporal_action/README.md",
+    "model/experiments/interval_echo_gauge/temporal_action/action.py",
+    "model/experiments/interval_echo_gauge/temporal_action/records.json.gz"
    ],
    "papers": [
-    "paper/executable_observer_construction.pdf"
+    "paper/executable_observer_construction.pdf",
+    "paper/screen_microphysics_and_observer_synchronization.pdf"
    ]
   },
   {
@@ -6021,7 +6047,13 @@
     "model/candidate_laws/interval_echo/openwave/row_31_orbitals/mediator_range/PROTOCOL.md",
     "model/candidate_laws/interval_echo/openwave/row_31_orbitals/mediator_range/measure.py",
     "model/candidate_laws/interval_echo/openwave/row_31_orbitals/mediator_range/results.json",
-    "model/candidate_laws/interval_echo/openwave/row_31_orbitals/mediator_range/test_range.py"
+    "model/candidate_laws/interval_echo/openwave/row_31_orbitals/mediator_range/test_range.py",
+    "model/candidate_laws/interval_echo/openwave/row_31_orbitals/occupied_write/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_31_orbitals/occupied_write/core.py",
+    "model/candidate_laws/interval_echo/openwave/row_31_orbitals/occupied_write/measure.py",
+    "model/candidate_laws/interval_echo/openwave/row_31_orbitals/occupied_write/results.json.gz",
+    "model/candidate_laws/interval_echo/openwave/row_31_orbitals/occupied_write/test_occupied.py",
+    "model/candidate_laws/interval_echo/openwave/row_31_orbitals/occupied_write/PROOF.md"
    ],
    "papers": [
     "paper/executable_observer_construction.pdf"
@@ -6146,7 +6178,8 @@
    "lean": [
     "model/experiments/interval_echo_consensus/routed_counts/Census.lean",
     "Lean/ObservableNormalForms/ObservableNormalForms/ObserverConfluence.lean",
-    "model/experiments/interval_echo_consensus/flight_records/NormalForm.lean"
+    "model/experiments/interval_echo_consensus/flight_records/NormalForm.lean",
+    "Lean/ObserverPatchHolography/Execution/MeasuredRepairBallots.lean"
    ],
    "model": [
     "model/experiments/interval_echo_consensus/routed_counts/README.md",
@@ -6154,9 +6187,15 @@
     "model/candidate_laws/interval_echo/CONSENSUS.md",
     "model/experiments/interval_echo_consensus/phase.json",
     "model/experiments/interval_echo_consensus/FLIGHT_CONFLUENCE.md",
-    "model/experiments/interval_echo_consensus/flight_records/README.md"
+    "model/experiments/interval_echo_consensus/flight_records/README.md",
+    "model/experiments/interval_echo_consensus/boolean_nodes/repair_ballots/README.md",
+    "model/experiments/interval_echo_consensus/boolean_nodes/repair_ballots/measure.py",
+    "model/experiments/interval_echo_consensus/boolean_nodes/repair_ballots/results.json",
+    "model/experiments/interval_echo_consensus/boolean_nodes/repair_ballots/test_ballots.py"
    ],
-   "papers": [],
+   "papers": [
+    "extra/observable_normal_forms.pdf"
+   ],
    "statement": "Declared repair moves close every covered local mismatch, overlapping moves complete to a common local diamond on the protected observation quotient, and every accepted nontrivial transaction strictly lowers one declared well-founded measure. Normal endpoints from sources with equal protected observation then agree exactly when the observation identifies consistent states.",
    "premise_kind": "declared"
   },
@@ -7884,18 +7923,27 @@
    "kind": "premise",
    "name": "declared discrete kinetic term of the temporal Maxwell action",
    "category": "Construction choices",
-   "status": "Open",
+   "status": "Demonstrated",
    "what": "Discrete-time Maxwell equations follow from one declared action with a chosen electric-field kinetic term and time step.",
    "why": "It gives OPH a time-stepped electrodynamics on the carrier, whose stability depends on the chosen step size.",
    "premises": [],
    "lean": [
     "Lean/Screen/TemporalMaxwellEvolution.lean",
-    "Lean/Screen/ScaledMaxwellStability.lean"
+    "Lean/Screen/ScaledMaxwellStability.lean",
+    "model/experiments/interval_echo_gauge/temporal_action/ActionBridge.lean"
    ],
    "model": [
-    "code/maxwell_local_selection/PROOF.md"
+    "code/maxwell_local_selection/PROOF.md",
+    "model/experiments/interval_echo_gauge/temporal_action/README.md",
+    "model/experiments/interval_echo_gauge/temporal_action/action.py",
+    "model/experiments/interval_echo_gauge/temporal_action/material.py",
+    "model/experiments/interval_echo_gauge/temporal_action/rails.py",
+    "model/experiments/interval_echo_gauge/temporal_action/measure.py",
+    "model/experiments/interval_echo_gauge/temporal_action/records.json.gz"
    ],
-   "papers": [],
+   "papers": [
+    "paper/screen_microphysics_and_observer_synchronization.pdf"
+   ],
    "statement": "The temporal Maxwell packet is the Euler-Lagrange system of one declared discrete action: the local sourced face action with its seam-current coupling, the kinetic term (h/2)|E_n|^2 with E_n = -(A_{n+1}-A_n)/h - d phi_n, and the coupling h <rho_n, phi_n>. The kinetic term and the step h are the declared inputs.",
    "premise_kind": "declared"
   },
@@ -7930,17 +7978,26 @@
    "kind": "premise",
    "name": "declared finite quartic breaking packet",
    "category": "Construction choices",
-   "status": "Open",
+   "status": "Demonstrated",
    "what": "The finite construction declares a quartic double-well potential with positive strength, a vacuum radius and one chosen vacuum point.",
    "why": "Inside it OPH derives the vacuum, its unbroken symmetry and the gauge-boson mass form of electroweak breaking.",
    "premises": [],
    "lean": [
     "Lean/Screen/ElectroweakBreakingComposition.lean",
     "Lean/Screen/NeutralCurrentDictionary.lean",
-    "Lean/Screen/ChargedCurrentDictionary.lean"
+    "Lean/Screen/ChargedCurrentDictionary.lean",
+    "model/experiments/interval_echo_gauge/scalar_grammar/shell_line/ShellLine.lean"
    ],
-   "model": [],
-   "papers": [],
+   "model": [
+    "model/experiments/interval_echo_gauge/scalar_grammar/shell_line/README.md",
+    "model/experiments/interval_echo_gauge/scalar_grammar/shell_line/apparatus.py",
+    "model/experiments/interval_echo_gauge/scalar_grammar/shell_line/measure.py",
+    "model/experiments/interval_echo_gauge/scalar_grammar/shell_line/results.json",
+    "model/experiments/interval_echo_gauge/scalar_grammar/shell_line/test_shell_line.py"
+   ],
+   "papers": [
+    "paper/deriving_the_particle_zoo_from_observer_consistency.pdf"
+   ],
    "statement": "The finite composition declares lambda > 0, a model-shell radius r > 0, the potential lambda (normSq(h) - r^2)^2 and the chosen point (0, r).",
    "premise_kind": "declared"
   },
@@ -7949,16 +8006,25 @@
    "kind": "premise",
    "name": "declared finite Yukawa-line coefficient",
    "category": "Construction choices",
-   "status": "Open",
+   "status": "Demonstrated",
    "what": "The finite electroweak construction picks one doublet-singlet Yukawa coupling with a single real coefficient, evaluated at the declared vacuum.",
    "why": "It shows how a fermion mass term arises from the Higgs vacuum inside OPH's finite electroweak construction.",
    "premises": [],
    "lean": [
     "Lean/Screen/ElectroweakBreakingComposition.lean",
-    "Lean/Geometry/CommonWorldKinematicsWitness.lean"
+    "Lean/Geometry/CommonWorldKinematicsWitness.lean",
+    "model/experiments/interval_echo_gauge/scalar_grammar/shell_line/ShellLine.lean"
    ],
-   "model": [],
-   "papers": [],
+   "model": [
+    "model/experiments/interval_echo_gauge/scalar_grammar/shell_line/README.md",
+    "model/experiments/interval_echo_gauge/scalar_grammar/shell_line/apparatus.py",
+    "model/experiments/interval_echo_gauge/scalar_grammar/shell_line/measure.py",
+    "model/experiments/interval_echo_gauge/scalar_grammar/shell_line/results.json",
+    "model/experiments/interval_echo_gauge/scalar_grammar/shell_line/test_shell_line.py"
+   ],
+   "papers": [
+    "paper/deriving_the_particle_zoo_from_observer_consistency.pdf"
+   ],
    "statement": "The finite electroweak composition selects one epsilon-paired doublet-singlet Yukawa line with one declared real coefficient y and evaluates its bilinear at the declared vacuum.",
    "premise_kind": "declared"
   },
@@ -8110,19 +8176,26 @@
    "kind": "premise",
    "name": "pathwise weak fairness for canonical adaptive repair",
    "category": "Construction choices",
-   "status": "Partial",
+   "status": "Demonstrated",
    "what": "In a repair run, any site that stays enabled throughout a tail of the run is eventually chosen for repair.",
    "why": "It guarantees that the eventual stable record is fully repaired, a normal endpoint of the repair process.",
    "premises": [],
    "lean": [
     "Lean/ObserverPatchHolography/Execution/AdaptiveRunStratification.lean",
-    "Lean/Tower/AdaptiveFixedPointEndpoint.lean"
+    "Lean/Tower/AdaptiveFixedPointEndpoint.lean",
+    "Lean/ObserverPatchHolography/Execution/MeasuredRepairBallots.lean"
    ],
    "model": [
     "model/experiments/interval_echo_consensus/routed_counts/README.md",
-    "model/experiments/interval_echo_consensus/repair_budget/README.md"
+    "model/experiments/interval_echo_consensus/repair_budget/README.md",
+    "model/experiments/interval_echo_consensus/boolean_nodes/repair_ballots/README.md",
+    "model/experiments/interval_echo_consensus/boolean_nodes/repair_ballots/measure.py",
+    "model/experiments/interval_echo_consensus/boolean_nodes/repair_ballots/results.json",
+    "model/experiments/interval_echo_consensus/boolean_nodes/repair_ballots/test_ballots.py"
    ],
-   "papers": [],
+   "papers": [
+    "extra/observable_normal_forms.pdf"
+   ],
    "statement": "Along one canonical adaptive repair run, every site enabled at every step of a tail is eventually selected on that tail. The premise suffices for the eventual constant record to be normal.",
    "premise_kind": "declared"
   },
@@ -8131,19 +8204,26 @@
    "kind": "premise",
    "name": "work-conserving canonical adaptive choice",
    "category": "Construction choices",
-   "status": "Open",
+   "status": "Demonstrated",
    "what": "Whenever some site can be repaired, the scheduler picks a site where repair has an effect.",
    "why": "It bounds the number of steps to a fully repaired record by the initial number of mismatches.",
    "premises": [],
    "lean": [
     "Lean/ObserverPatchHolography/Execution/AdaptiveRunStratification.lean",
-    "Lean/ObserverPatchHolography/Execution/AdaptiveRunCounterexamples.lean"
+    "Lean/ObserverPatchHolography/Execution/AdaptiveRunCounterexamples.lean",
+    "Lean/ObserverPatchHolography/Execution/MeasuredRepairBallots.lean"
    ],
    "model": [
     "model/experiments/interval_echo_consensus/routed_counts/README.md",
-    "model/experiments/interval_echo_consensus/repair_budget/README.md"
+    "model/experiments/interval_echo_consensus/repair_budget/README.md",
+    "model/experiments/interval_echo_consensus/boolean_nodes/repair_ballots/README.md",
+    "model/experiments/interval_echo_consensus/boolean_nodes/repair_ballots/measure.py",
+    "model/experiments/interval_echo_consensus/boolean_nodes/repair_ballots/results.json",
+    "model/experiments/interval_echo_consensus/boolean_nodes/repair_ballots/test_ballots.py"
    ],
-   "papers": [],
+   "papers": [
+    "extra/observable_normal_forms.pdf"
+   ],
    "statement": "At every canonical adaptive repair state, whenever some site has an effective repair, the selected site has an effective repair. This gives a normal horizon bounded by the initial mismatch count.",
    "premise_kind": "declared"
   },
@@ -8152,21 +8232,28 @@
    "kind": "premise",
    "name": "bounded waste between canonical adaptive changes",
    "category": "Construction choices",
-   "status": "Partial",
+   "status": "Demonstrated",
    "what": "From any point of a repair run, at least one real record change happens within a fixed number of further attempts.",
    "why": "It bounds the time to a fully repaired record by that fixed number plus one, times the initial mismatch count.",
    "premises": [],
    "lean": [
     "Lean/Screen/RoutedAttemptBudget.lean",
     "Lean/ObserverPatchHolography/Execution/CumulativeAttemptCapacity.lean",
-    "Lean/Tower/CumulativeCapacityEndpoint.lean"
+    "Lean/Tower/CumulativeCapacityEndpoint.lean",
+    "Lean/ObserverPatchHolography/Execution/MeasuredRepairBallots.lean"
    ],
    "model": [
     "model/experiments/interval_echo_consensus/routed_counts/README.md",
     "model/experiments/interval_echo_consensus/repair_budget/README.md",
-    "model/experiments/interval_echo_consensus/repair_budget/counts.json"
+    "model/experiments/interval_echo_consensus/repair_budget/counts.json",
+    "model/experiments/interval_echo_consensus/boolean_nodes/repair_ballots/README.md",
+    "model/experiments/interval_echo_consensus/boolean_nodes/repair_ballots/measure.py",
+    "model/experiments/interval_echo_consensus/boolean_nodes/repair_ballots/results.json",
+    "model/experiments/interval_echo_consensus/boolean_nodes/repair_ballots/test_ballots.py"
    ],
-   "papers": [],
+   "papers": [
+    "extra/observable_normal_forms.pdf"
+   ],
    "statement": "From every scheduler index and every reducible canonical repair record, at least one genuine record change occurs among the next q+1 attempts for one declared natural q. The normal horizon is then at most (q+1) times the initial mismatch count.",
    "premise_kind": "declared"
   },
@@ -8175,7 +8262,7 @@
    "kind": "premise",
    "name": "sufficient cumulative attempt budget",
    "category": "Construction choices",
-   "status": "Partial",
+   "status": "Demonstrated",
    "what": "The total allowed number of repair attempts, counting every attempt, is at least the bounded-waste factor times the initial mismatch count.",
    "why": "It guarantees that repair finishes within the budget, so finite runs reach fully repaired records.",
    "premises": [],
@@ -8183,14 +8270,21 @@
     "Lean/Screen/RoutedAttemptBudget.lean",
     "Lean/ObserverPatchHolography/Execution/CumulativeAttemptCapacity.lean",
     "Lean/ObserverPatchHolography/Execution/CumulativeAttemptCapacityExamples.lean",
-    "Lean/Tower/CumulativeCapacityEndpoint.lean"
+    "Lean/Tower/CumulativeCapacityEndpoint.lean",
+    "Lean/ObserverPatchHolography/Execution/MeasuredRepairBallots.lean"
    ],
    "model": [
     "model/experiments/interval_echo_consensus/routed_counts/README.md",
     "model/experiments/interval_echo_consensus/repair_budget/README.md",
-    "model/experiments/interval_echo_consensus/repair_budget/counts.json"
+    "model/experiments/interval_echo_consensus/repair_budget/counts.json",
+    "model/experiments/interval_echo_consensus/boolean_nodes/repair_ballots/README.md",
+    "model/experiments/interval_echo_consensus/boolean_nodes/repair_ballots/measure.py",
+    "model/experiments/interval_echo_consensus/boolean_nodes/repair_ballots/results.json",
+    "model/experiments/interval_echo_consensus/boolean_nodes/repair_ballots/test_ballots.py"
    ],
-   "papers": [],
+   "papers": [
+    "extra/observable_normal_forms.pdf"
+   ],
    "statement": "The declared attempt budget B is at least (q+1) times the initial mismatch count for the same bounded-waste value q; every scheduler invocation, including equality stutter, costs one unit.",
    "premise_kind": "declared"
   },
