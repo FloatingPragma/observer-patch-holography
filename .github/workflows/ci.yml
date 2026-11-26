@@ -59,8 +59,8 @@ jobs:
   model:
     name: Executable model and candidate laws
     runs-on: ubuntu-latest
-    # Measured 10 to 17 minutes on hosted runners of different speed.
-    timeout-minutes: 25
+    # The single-threaded model suite took 16 minutes before the final replays.
+    timeout-minutes: 40
     env:
       OPENBLAS_NUM_THREADS: '1'
       OMP_NUM_THREADS: '1'
