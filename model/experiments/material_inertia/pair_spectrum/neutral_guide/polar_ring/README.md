@@ -27,4 +27,8 @@ If a physical electric charge is conserved in an isolated region during each clo
 
 This material provides a stable, charge-neutral, mobile, massive candidate on the literal finite static test for OW-19. Its vacuum is a prepared polar phase, and its length and time units are the material dimer step and exchange clock. Its relation to a cosmic abundance, a gravitational halo, and the source of a freely propagating electromagnetic field requires additional measurements. The test and its local assessment confer no external award.
 
+### OpenWave standing
+
+The local model scorecard grades the finite static candidate test Demonstrated. The broader observable in the OPH register also describes a particle that emits no light. The conserved-charge comparison establishes neutrality under closed native services. A radiative measurement against a freely propagating electromagnetic mode is still owed. The OpenWave M10.4 source uses a different pair and its official Row 19 is untested. The polar material, its quiet collars and the source of the local reversal are supplied. An upstream full-credit filing stays on HOLD. [Official row](https://github.com/openwave-labs/openwave/blob/c531265eb6085725c6268e156804499c810ba5e4/MODELS.md#L454)
+
 Run both sibling modules `measure` and `fringes` via `python -m model.experiments.material_inertia.pair_spectrum.neutral_guide.polar_ring.MODULE --output /tmp/polar-ring`, in that order. Use one numerical thread. The [tests](test_ring.py) reconstruct the physical diagonal on every deposited circuit, check a free finite flight by independent direct diagonalization, and decode the recorded spatial and clock panels. The [Lean lemma](Charge.lean) proves the scalar-effect statement after compression.
