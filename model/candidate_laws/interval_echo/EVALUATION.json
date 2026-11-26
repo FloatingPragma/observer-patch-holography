@@ -3309,6 +3309,12 @@
        "label": "Tensor identifiability for slow observers with uncertain velocities",
        "finding": "A rest observer, six axial observers at speed 1/4 and three mixed directions with two components of 1/4 give sharp error amplification 31. Independent component half-widths of 1/2048 give an upper bound below 35.13. These computed instrument requirements allow general measured frames.",
        "source": "code/matched_einstein_limit/measured_frames/measure.py"
+      },
+      {
+       "law": "Interval Echo on the same retained two-head equilibrium",
+       "label": "A two-port receiver reads a freely transported preparation phase",
+       "finding": "Both fixed-charge probes transmit two independently prepared quadratures between disjoint two-port stations. Unconditional phase-transfer determinants reverse sign between two exposure times for both probes. A circular clock observed through fixed input and output calibrations with positive scalar visibility cannot reproduce those signed responses.",
+       "source": "code/matched_einstein_limit/source_implication/material_clocks/transported_modes/README.md"
       }
      ]
     },
@@ -3433,7 +3439,7 @@
       {
        "law": "Written-ring quantum field extension on one 458-word component",
        "label": "A neutral interference reading predicts charged endpoints on held sources",
-       "finding": "On two held mixtures the remotely measured field coherence predicts all 96 charged endpoint probabilities within simultaneous intervals. Exchanging the source assignments misses 43 of 48 comparisons on each mixture. The two pure source calibrations identify the mixing weight on this family. The predicted quantities are probe transport probabilities.",
+       "finding": "A single remote field contrast identifies the phase fraction on two held mixtures and predicts 96 charged endpoint bins. Vacuum shares that contrast with a mixture whose charged prediction misses 46 of 48 bins. Keeping both neutral click rates separately identifies the vacuum and phase fractions on the three calibrated sources and predicts all 144 held bins, including one interior mixture. The predicted quantities are probe transport probabilities.",
        "source": "model/experiments/interval_echo_einstein_station/field_stress_curvature/neutral_packet/README.md"
       }
      ]
@@ -3936,6 +3942,12 @@
        "label": "Expansion-corrected volume acceleration measures timelike Ricci curvature",
        "finding": "The independently measured scalar energy and pressures predict the volume-derived Ricci component within 0.000004993 at finest radar spacing. Even contracting flat rays have raw volume acceleration near −14.20, which the measured expansion correction removes.",
        "source": "code/matched_einstein_limit/quantum_scalar_radar/volume.json"
+      },
+      {
+       "law": "Smooth metric extensions of the retained Interval Echo survey",
+       "label": "Fixed-volume area in a moving frame from the same station records",
+       "finding": "Two ultrastatic metric extensions preserve all fifteen projected station separations and every centered rest-ball area and volume. On a tagged moving slice their fourth-order area responses have opposite coefficients, with worst-case error at least 64π/45 per unit prescribed angular deformation in range units. The separate moving-ball integrals test the asymptotic argument. The native observations do not select the deformation.",
+       "source": "code/matched_einstein_limit/source_implication/full_geometry/station_balls/timelike_areas/README.md"
       }
      ]
     },

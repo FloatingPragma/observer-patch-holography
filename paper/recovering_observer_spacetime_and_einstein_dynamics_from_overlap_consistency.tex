@@ -2064,9 +2064,12 @@ The 99\% intervals account for all calibration and held counts together.
 The forecast uses the affine mixing law for the two calibrated sources.
 Vacuum has the same signed neutral response as one mixture with positive
 fraction between 0.01236 and 0.01769. Its measured charged endpoints
-miss that mixture's forecast in 46 of 48 bins. The test thus identifies
-the source within the calibrated family. A geometric response to stress
-at the ordinary Newton coupling requires further measurements. Source preparations,
+miss that mixture's forecast in 46 of 48 bins. Keeping the two neutral
+click rates separately identifies both phase fractions and the vacuum fraction
+on the calibrated three-source family. The two boundary mixtures and one
+held interior mixture pass all 144 charged endpoint comparisons at joint
+99\% coverage. A geometric response to stress at the ordinary Newton
+coupling requires further measurements. Source preparations,
 counts and the replay are in
 \path{model/experiments/interval_echo_einstein_station/field_stress_curvature/neutral_packet/}.
 
@@ -3905,6 +3908,23 @@ centered ball's area and volume while the two metrics have opposite
 null-curvature responses along a marked ray. Frame-resolved geometric
 data on the same matter variations enter independently of a scalar
 volume normalization.
+
+The timelike area test can be run directly on these two interpolations.
+Give the angular deformation in the round chamber the matrices
+$B_\pm=bI\pm s\,\mathrm{diag}(1,-1,0)$ relative to the common reference
+$bI$, with the first axis pointing along a tagged station ray.
+The spatial Ricci slopes are $\pm3\,\mathrm{diag}(1,-1,0)$, so their
+trace vanishes and the timelike Einstein slopes at
+$u=(5/3,4/3,0,0)$ are $\pm16/3$. Independently integrate each tilted
+geodesic ball and adjust its radius to give volume $4\pi\ell^3/3$.
+At $\ell=1/128,1/256,1/512,1/1024$ in survey units, the respective
+values of $(A_+-A_-)/(2s\ell^4)$ are $-4.54560$, $-4.48724$,
+$-4.47283$ and $-4.46924$. The limit is $-64\pi/45$. Any estimate from
+the shared station readings has worst-case leading area error at least
+$64\pi/45$ per unit of this angular deformation. These areas are predictions
+of two smooth interpretations of the same finite observations.%
+\footnote{\href{https://github.com/FloatingPragma/observer-patch-holography/tree/main/code/matched_einstein_limit/source_implication/full_geometry/station_balls/timelike_areas}{Moving-ball quadratures, equal-volume roots and station lengths.}}
+
 If the spacetime continuation may also vary with time, multiply its
 metric by $\exp[2st\,(\mathbf a\cdot\mathbf x)\chi(r)]$ about that
 station. All null paths as unparameterized curves and all six station

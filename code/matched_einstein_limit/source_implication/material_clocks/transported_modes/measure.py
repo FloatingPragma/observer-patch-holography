@@ -5,10 +5,14 @@ import math
 from pathlib import Path
 
 import numpy as np
-from mpmath import iv
+from mpmath.ctx_iv import MPIntervalContext
 
 from ...full_algebra import native_precision as native
 from ..measure import density_center
+
+# Preserve the acquisition's outward-rounding precision across other experiments.
+iv = MPIntervalContext()
+iv.dps = 15
 
 HERE = Path(__file__).resolve().parent
 PORTS = (5, 9, 40, 45)

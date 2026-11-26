@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 1340,
+  "surface_count": 1341,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -3947,6 +3947,11 @@
     },
     {
       "path": "model/experiments/interval_echo_einstein_station/field_stress_curvature/REPLAY_PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_einstein_station/field_stress_curvature/neutral_packet/HULL_PROTOCOL.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },

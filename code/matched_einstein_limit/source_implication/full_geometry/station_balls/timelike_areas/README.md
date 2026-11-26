@@ -2,7 +2,7 @@
 
 Six radar stations on the 80-cell equilibrium supply fifteen calibrated distances. Two smooth spatial geometries realize them all, and also give identical volumes and areas for every sufficiently small ball centered on the marked station at rest. Take the same tagged axial observer with velocity $u=(5/3,4/3,0,0)$ in both ultrastatic spacetimes. Direct volume integration on its geodesic rest slice followed by a separate boundary-area integration gives distinct readings. This calculation exhibits a specific observable missing from the station records. The moving aperture and its metric are supplied in the two constructions. [Source clocks and the two smooth completions](../README.md) · [Integrated radii, volumes and areas](results.json)
 
-| Reference radius $\ell$ | Target proper volume | Proper area in $+$ | Proper area in $-$ | $(A_+-A_-)/(2s\ell^4)$ |
+| Volume radius $\ell$ | Target proper volume | Proper area in $+$ | Proper area in $-$ | $(A_+-A_-)/(2s\ell^4)$ |
 | ---: | ---: | ---: | ---: | ---: |
 | 1/128 | $1.99737082\times10^{-6}$ | 0.000762993401320 | 0.000763027268680 | −4.54560002 |
 | 1/256 | $2.49671352\times10^{-7}$ | 0.000191498450621 | 0.000191500540154 | −4.48723802 |
