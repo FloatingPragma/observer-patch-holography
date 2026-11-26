@@ -1,0 +1,396 @@
+{
+  "schema": "oph.published_string_nested_stress.v1",
+  "native_dimension": 99,
+  "native_transfers": [
+    {
+      "low_load": 0,
+      "reversed_port": "left",
+      "transfer_load": 1,
+      "eigenwords": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "undo_laws_in_sixteenths": [
+        [
+          10,
+          2,
+          2,
+          2
+        ],
+        [
+          9,
+          2,
+          2,
+          3
+        ]
+      ],
+      "energy_levels": [
+        0,
+        8,
+        9
+      ],
+      "energy_laws_in_sixteenths": [
+        [
+          4,
+          6,
+          6
+        ],
+        [
+          4,
+          6,
+          6
+        ]
+      ],
+      "load_levels": [
+        0,
+        1,
+        2
+      ],
+      "load_laws_in_sixteenths": [
+        [
+          2,
+          12,
+          2
+        ],
+        [
+          2,
+          12,
+          2
+        ]
+      ],
+      "entropy_slope": 1.609437912434,
+      "finite_entropy_gain": 0.083830451814,
+      "seed_for_first_bank": 261126,
+      "shots_per_bank": 16384,
+      "undo_word_counts": [
+        [
+          10153,
+          2115,
+          2074,
+          2042
+        ],
+        [
+          9220,
+          2062,
+          2046,
+          3056
+        ]
+      ]
+    },
+    {
+      "low_load": 0,
+      "reversed_port": "right",
+      "transfer_load": 1,
+      "eigenwords": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "undo_laws_in_sixteenths": [
+        [
+          10,
+          2,
+          2,
+          2
+        ],
+        [
+          9,
+          2,
+          2,
+          3
+        ]
+      ],
+      "energy_levels": [
+        0,
+        8,
+        9
+      ],
+      "energy_laws_in_sixteenths": [
+        [
+          4,
+          6,
+          6
+        ],
+        [
+          4,
+          6,
+          6
+        ]
+      ],
+      "load_levels": [
+        0,
+        1,
+        2
+      ],
+      "load_laws_in_sixteenths": [
+        [
+          2,
+          12,
+          2
+        ],
+        [
+          2,
+          12,
+          2
+        ]
+      ],
+      "entropy_slope": 1.609437912434,
+      "finite_entropy_gain": 0.083830451814,
+      "seed_for_first_bank": 261128,
+      "shots_per_bank": 16384,
+      "undo_word_counts": [
+        [
+          10138,
+          2086,
+          2108,
+          2052
+        ],
+        [
+          9179,
+          2001,
+          2141,
+          3063
+        ]
+      ]
+    },
+    {
+      "low_load": 1,
+      "reversed_port": "left",
+      "transfer_load": 3,
+      "eigenwords": [
+        [
+          2,
+          1
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "undo_laws_in_sixteenths": [
+        [
+          10,
+          2,
+          2,
+          2
+        ],
+        [
+          9,
+          2,
+          2,
+          3
+        ]
+      ],
+      "energy_levels": [
+        0,
+        8,
+        9
+      ],
+      "energy_laws_in_sixteenths": [
+        [
+          4,
+          6,
+          6
+        ],
+        [
+          4,
+          6,
+          6
+        ]
+      ],
+      "load_levels": [
+        2,
+        3,
+        4
+      ],
+      "load_laws_in_sixteenths": [
+        [
+          2,
+          12,
+          2
+        ],
+        [
+          2,
+          12,
+          2
+        ]
+      ],
+      "entropy_slope": 1.609437912434,
+      "finite_entropy_gain": 0.083830451814,
+      "seed_for_first_bank": 261130,
+      "shots_per_bank": 16384,
+      "undo_word_counts": [
+        [
+          10318,
+          1996,
+          2070,
+          2000
+        ],
+        [
+          9178,
+          2088,
+          2089,
+          3029
+        ]
+      ]
+    },
+    {
+      "low_load": 1,
+      "reversed_port": "right",
+      "transfer_load": 3,
+      "eigenwords": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "undo_laws_in_sixteenths": [
+        [
+          10,
+          2,
+          2,
+          2
+        ],
+        [
+          9,
+          2,
+          2,
+          3
+        ]
+      ],
+      "energy_levels": [
+        0,
+        8,
+        9
+      ],
+      "energy_laws_in_sixteenths": [
+        [
+          4,
+          6,
+          6
+        ],
+        [
+          4,
+          6,
+          6
+        ]
+      ],
+      "load_levels": [
+        2,
+        3,
+        4
+      ],
+      "load_laws_in_sixteenths": [
+        [
+          2,
+          12,
+          2
+        ],
+        [
+          2,
+          12,
+          2
+        ]
+      ],
+      "entropy_slope": 1.609437912434,
+      "finite_entropy_gain": 0.083830451814,
+      "seed_for_first_bank": 261132,
+      "shots_per_bank": 16384,
+      "undo_word_counts": [
+        [
+          10300,
+          2134,
+          1986,
+          1964
+        ],
+        [
+          9246,
+          2026,
+          2056,
+          3056
+        ]
+      ]
+    }
+  ],
+  "radii_ratios": [
+    1,
+    4,
+    16
+  ],
+  "annular_coefficients": [
+    4,
+    -17,
+    4
+  ],
+  "shell_radius_ratio": 1024,
+  "active_weight": "R_k^4",
+  "finite_prefix": [
+    {
+      "radius": "1/512",
+      "perturbed_pair_scale": "1/2048",
+      "contained_active_pairs": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "common_slope_in_units_of_R4_log5": 1.0000000000009095,
+      "minimum_normalized_error": 5.4352499857110975e-05
+    },
+    {
+      "radius": "1/524288",
+      "perturbed_pair_scale": "1/2097152",
+      "contained_active_pairs": [
+        1,
+        2,
+        3
+      ],
+      "common_slope_in_units_of_R4_log5": 1.0000000000009095,
+      "minimum_normalized_error": 5.4352499857110975e-05
+    },
+    {
+      "radius": "1/536870912",
+      "perturbed_pair_scale": "1/2147483648",
+      "contained_active_pairs": [
+        2,
+        3
+      ],
+      "common_slope_in_units_of_R4_log5": 1.0000000000009095,
+      "minimum_normalized_error": 5.4352499857110975e-05
+    },
+    {
+      "radius": "1/549755813888",
+      "perturbed_pair_scale": "1/2199023255552",
+      "contained_active_pairs": [
+        3
+      ],
+      "common_slope_in_units_of_R4_log5": 1.0,
+      "minimum_normalized_error": 5.435249985706155e-05
+    }
+  ],
+  "exact_uniform_error_bound_in_units_of_log5": "9/266500",
+  "uniform_error_bound": 5.435249985706155e-05,
+  "exact_infinite_tail_factor": "1099511627776/1099511627775",
+  "entropy_slopes_per_radius_fourth_infinite": [
+    1.609437912435564,
+    0.006286866845451422,
+    2.4558073615044617e-05
+  ],
+  "minimum_limsup_error_for_regular_stress": 0.8047066771809744,
+  "minimum_annular_negative_variation_per_R3": 0.07684499980901642
+}
