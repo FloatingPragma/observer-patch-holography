@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 1347,
+  "surface_count": 1352,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -2831,12 +2831,37 @@
       "allowlisted": false
     },
     {
+      "path": "model/candidate_laws/interval_echo_partition_repair/published_strings/ARCHIVE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo_partition_repair/published_strings/GEOMETRY.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo_partition_repair/published_strings/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo_partition_repair/published_strings/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/candidate_laws/interval_echo_partition_repair/surveyed_cells/PROTOCOL.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
     {
       "path": "model/candidate_laws/interval_echo_partition_repair/surveyed_cells/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo_published_records/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },

@@ -397,6 +397,16 @@
                 "model/experiments/cage/README.md",
                 "model/experiments/cage/results.json"
               ]
+            },
+            "interval_echo_published_records": {
+              "status": "demonstrated",
+              "note": "The post-publication extension preserves this original Interval Echo instrument on every old transcript. A fresh native 80-cell journey also reproduced both clock hands and their terminal records with the downstream tap present.",
+              "evidence": [
+                "model/candidate_laws/interval_echo/SPEC.md",
+                "model/candidate_laws/interval_echo/observations.json",
+                "model/candidate_laws/interval_echo/patch_records.npz",
+                "model/candidate_laws/interval_echo_partition_repair/published_strings/ARCHIVE.md"
+              ]
             }
           }
         },
@@ -437,6 +447,20 @@
               "evidence": [
                 "model/experiments/cage/README.md",
                 "model/candidate_laws/scalar_channel/routed.py"
+              ]
+            },
+            "interval_echo_published_records": {
+              "status": "demonstrated",
+              "note": "The post-publication extension preserves this original Interval Echo instrument on every old transcript. A fresh native 80-cell journey also reproduced both clock hands and their terminal records with the downstream tap present.",
+              "evidence": [
+                "model/candidate_laws/interval_echo/SPEC.md",
+                "model/candidate_laws/interval_echo/RESULTS.json",
+                "model/candidate_laws/interval_echo/reunions.npz",
+                "model/experiments/interval_echo_clock/PUBLICATION.md",
+                "model/experiments/interval_echo_clock/publication.json",
+                "model/experiments/interval_echo_clock/CAPACITY.md",
+                "model/experiments/interval_echo_clock/capacity.json",
+                "model/candidate_laws/interval_echo_partition_repair/published_strings/ARCHIVE.md"
               ]
             }
           }
@@ -695,6 +719,22 @@
               "status": "open",
               "note": "The stationary cage line has no corresponding guided two-hand replication.",
               "evidence": []
+            },
+            "interval_echo_published_records": {
+              "status": "demonstrated",
+              "note": "The post-publication extension preserves this original Interval Echo instrument on every old transcript. A fresh native 80-cell journey also reproduced both clock hands and their terminal records with the downstream tap present.",
+              "evidence": [
+                "model/experiments/interval_echo_clock/results.json",
+                "model/experiments/interval_echo_clock/replication.json",
+                "model/experiments/interval_echo_clock/README.md",
+                "model/experiments/interval_echo_clock/PUBLICATION.md",
+                "model/experiments/interval_echo_clock/publication.json",
+                "model/experiments/interval_echo_clock/DURATION.md",
+                "model/experiments/interval_echo_clock/duration.json",
+                "model/experiments/interval_echo_consensus/standard_observers.py",
+                "model/experiments/interval_echo_consensus/modular_standard.json",
+                "model/candidate_laws/interval_echo_partition_repair/published_strings/ARCHIVE.md"
+              ]
             }
           }
         },
