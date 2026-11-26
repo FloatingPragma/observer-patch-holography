@@ -12,7 +12,7 @@ The [executable model](model/README.md) has a fixed carrier, the spherical echos
 [Interval Echo](model/candidate_laws/interval_echo/README.md). Its [specification](model/candidate_laws/interval_echo/SPEC.md) defines the material clock and the prepared service protocol. From the repository root run
 
 ```sh
-python -m pip install -r model/requirements.txt
+python -m pip install -r model/requirements-tests.txt
 export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1
 python -m model                              # 20-cell material clock and paired reunion cohorts
 python -m model --full                       # all three sizes, stationary records, repair forks and port currents

@@ -484,6 +484,27 @@ let \(\to^*\) be its reflexive-transitive closure. A state is a \textbf{normal f
 aggregate transaction is enabled.
 \end{definition}
 
+In a finite implementation on the Interval Echo board, each of two
+triangles stores three bits and a protected boundary bit. Each mismatched
+pair proposes to copy its boundary to both endpoints. The two or three
+enabled proposals agree on their common endpoints. Their union is staged
+in a second bank. A different owner rereads the complete active word and
+its versions, checks the staged data, and exchanges one selector to
+publish all three bits with one writer label. On a launch from $000$ with
+boundary one, a third owner reads $000$ between the staged writes and
+$111$ after publication. Exchanging the selector after the first write
+exposes $100$. A boundary change followed by restoration of its value
+blocks publication when its measured version has changed.
+
+A subsequent seal reads the data writer as its event parent. The two data
+publications and two seals have four distinct labels, each used once. For
+all 196 enrolled inputs and both orders in each batch, the second
+prepared component survives the first commit. The 784 schedules give one
+terminal register file for each boundary pair, including the active
+writer labels. The calculation uses isolated read and commit appointments
+on sharp binary records
+(\path{model/experiments/interval_echo_consensus/transaction_component/}).
+
 \subsection{The quotient repair operator}
 
 The transactional layer above defines the physically accepted one-step relation.  The object used
@@ -2994,6 +3015,21 @@ source height from authenticated parenthood. On the
 committed chain witness world, a two-commit log generates the declared
 adapter order in full, so the declaration there is a verifier rather than
 a choice.
+
+Two observers tested the support certificate on a twenty-owner Interval Echo
+dispatcher. They independently read acceptance, the addressed bank, its
+delivered bit and the chosen continuation. Across every six-bit input and
+three preparation histories, permit alone determined each of the 96
+refusals. In each of the 96 deliveries, fixing permit, bank, the selected
+payload and onward forced the complete public outcome under all remaining
+input changes. Changing any one of the four separately changed an observed
+result. The continuation station reread the composite dispatch and returned
+its own tagged response. In 32 comparisons, writing the same payload again
+left both outputs intact and changed which writer qualified as their
+ancestor. When a second continuation circuit also used the spare bit, the
+same audit exposed its omission on all 32 accepted inputs. The least-support
+proof and both observers' raw readings are deposited with the dispatcher
+experiment. These certificates describe dependence for this observation menu.
 
 An overlap's mismatch score reads only the committed values on its
 support, so the score is writer-blind: two snapshots with identical
