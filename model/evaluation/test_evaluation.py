@@ -63,6 +63,31 @@ def test_rotations_move_the_native_registers():
     assert ev.carrier_checks(cand)['rotations']['status'] == 'fail'
 
 
+@pytest.mark.parametrize('phase_on_all_registers', [True, False])
+def test_rotation_products_allow_common_phases_and_reject_relative_ones(phase_on_all_registers):
+    from scipy.linalg import block_diag
+    from model.executable_model import rotations
+
+    labels = [('port', p) for p in range(12)] + [('seam', edge) for edge in CELL_SEAMS]
+    positions = {label: i for i, label in enumerate(labels)}
+    involution = next(g for g in rotations() if g != tuple(range(12)) and all(g[g[p]] == p for p in range(12)))
+    candidate = toy(block_diag(laplacian(), 24 * np.eye(30)))
+    candidate.basis = lambda car: labels
+
+    def represent(rotation, car):
+        targets = [positions[ev.register_at(label, rotation.__getitem__)] for label in labels]
+        matrix = np.eye(len(labels), dtype=complex)[:, targets]
+        if tuple(rotation) == involution:
+            matrix[:, 0 if phase_on_all_registers else 12:] *= 1j
+        return matrix
+
+    candidate.represent = represent
+    result = ev.carrier_checks(candidate)['rotations']
+    assert result['status'] == ('pass' if phase_on_all_registers else 'fail')
+    if not phase_on_all_registers:
+        assert 'relative register phases' in result['detail']
+
+
 def test_complex_generators_use_the_adjoint_and_retain_imaginary_couplings():
     H = laplacian().astype(complex)
     a, b = next((a, b) for a in range(12) for b in range(a + 1, 12) if H[a, b] == 0)
@@ -78,6 +103,23 @@ def test_federation_requires_the_native_basis_in_each_cell():
     cand = toy(laplacian())
     cand.generator = lambda car: laplacian()
     assert ev.carrier_checks(cand)['federation']['status'] == 'fail'
+
+
+def test_an_isolated_owner_fails_the_live_carrier_command_and_candidate_evaluation(monkeypatch, capsys):
+    from model.__main__ import main
+    from model.executable_model.validation import require_three_gateways
+
+    fed = carrier.federation(0)
+    isolated = [(fed.n + a, fed.n + b) for a, b in CELL_SEAMS]
+    board = carrier.Carrier('one isolated owner', fed.n + 12, fed.seams + isolated)
+    monkeypatch.setattr(carrier, 'federation', lambda level: board)
+    assert main(['carrier']) == 1
+    assert 'owner 20 has 0 external ports' in capsys.readouterr().out
+    check = ev.carrier_checks(toy(laplacian()))['federation']
+    assert check['status'] == 'fail'
+    assert 'owner 20 has 0 external ports' in check['detail']
+    with pytest.raises(ValueError, match='owner 0 has 0 external ports'):
+        require_three_gateways(carrier.cell())
 
 
 def test_federation_rejects_a_link_between_unjoined_cells():
@@ -99,7 +141,40 @@ def test_federation_rejects_a_link_between_unjoined_cells():
 
 def test_the_slowest_response_must_have_rank_three():
     flat = np.diag([0.0] + [1.0] * 11)
-    assert ev.carrier_checks(toy(laplacian(), response=flat))['rank_three_response']['status'] == 'fail'
+    assert ev.carrier_checks(toy(flat))['rank_three_response']['status'] == 'fail'
+
+
+@pytest.mark.parametrize(('unit', 'origin'), [(1e-10, 0), (1, 1e12)])
+def test_energy_units_and_origin_preserve_the_threefold_band(unit, origin):
+    response = unit * laplacian() + origin * np.eye(12)
+    assert ev.carrier_checks(toy(response))['rank_three_response']['status'] == 'pass'
+
+
+def test_small_energy_units_preserve_nonlocal_couplings_and_response_mismatch():
+    h = laplacian()
+    a, b = next((0, b) for b in range(1, 12) if h[0, b] == 0)
+    h[a, b] = h[b, a] = -1
+    checks = ev.carrier_checks(toy(1e-15 * h, response=1e-15 * laplacian()))
+    assert checks['locality']['status'] == 'fail'
+    assert checks['rank_three_response']['status'] == 'fail'
+
+
+def test_a_zero_generator_cannot_borrow_the_cell_laplacian_response():
+    check = ev.carrier_checks(toy(np.zeros((12, 12)), response=laplacian()))['rank_three_response']
+    assert check['status'] == 'fail'
+    assert 'differs from the registered' in check['detail']
+
+
+def test_scalar_response_is_reconstructed_from_the_registered_seam_wedge_couplings(monkeypatch):
+    scalar = laws.load('scalar_channel')
+    checks = ev.carrier_checks(scalar)
+    assert checks['rank_three_response']['status'] == 'pass'
+    assert checks['federation']['status'] == 'partial'
+    generate = scalar.generator
+    monkeypatch.setattr(scalar, 'generator', lambda car: 2 * generate(car))
+    check = ev.carrier_checks(scalar)['rank_three_response']
+    assert check['status'] == 'fail'
+    assert 'seam-wedge Gram' in check['detail']
 
 
 def test_a_nonhermitian_response_cannot_pass_via_its_lower_triangle():

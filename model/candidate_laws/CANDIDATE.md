@@ -43,7 +43,7 @@ A candidate is a package `model/candidate_laws/<name>` with a `candidate.py` tha
 | `LABELLING` | the 30 seams of one cell in the candidate's port labelling |
 | `PARAMETERS` | every setting with its value, its provenance (`designed`, `calibrated` or `derived`) and its quantity |
 | `basis(car)`, `generator(car)` | the registers of the one-excitation sector and the law on them, for one cell and, where the law is written for them, the federations |
-| `response(car)` | the operator whose slowest nonconstant level is the carrier response |
+| `response(car)` | the generator on the full cell basis. A response on only the seams of a seam-and-wedge basis is the Gram matrix of the generator block with seam rows and wedge columns, in basis order. The harness reconstructs the operator before testing its first nonconstant level. |
 | `represent(rotation, car)` | the action of a port permutation on the registers |
 | `PREMISES`, `JOINT` | the status and evidence for rows of the premise register and for the joint requirements |
 | `PARTICLE_IDENTIFICATIONS` (optional) | field-type keys from the [particle inventory](../evaluation/particles.json), each with its grade, discriminating observation and evidence |

@@ -80,6 +80,16 @@ def native_basis(labels, port_count, seamset):
     return keys
 
 
+def normalized_operator(matrix):
+    """Remove a scalar energy origin, then use the largest remaining entry as the unit."""
+    from scipy import sparse
+    origin = matrix.diagonal()[0].real
+    identity = sparse.eye(matrix.shape[0], format='csr') if sparse.issparse(matrix) else np.eye(len(matrix))
+    centered = matrix - origin * identity
+    scale = float(np.abs(centered).max())
+    return (centered / scale if scale else centered), scale
+
+
 def generator_defects(H, labels, seamset):
     from scipy import sparse
     from model.executable_model import incident
@@ -87,11 +97,25 @@ def generator_defects(H, labels, seamset):
     data = H.data if sparse.issparse(H) else H
     if not np.isfinite(data).all():
         return float('inf'), None
+    H, _ = normalized_operator(H)
     asym = float(abs(H - H.conj().T).max())
     i, j, values = sparse.find(H)
     far = sum(1 for a, b, v in zip(i, j, values)
               if abs(v) > 1e-12 and not incident(labels[a], labels[b], seamset))
     return asym, far
+
+
+def rotation_composition_defect(actions):
+    """Compare two successive register maps with their product on rays."""
+    worst = 0.0
+    for right, (targets, right_phases) in actions.items():
+        for left, (_, left_phases) in actions.items():
+            product = tuple(left[p] for p in right)
+            product_phases = actions[product][1]
+            relative = left_phases[targets] * right_phases * product_phases.conj()
+            # One common phase cancels in every record. Relative phases between registers survive.
+            worst = max(worst, float(np.max(np.abs(relative - relative[0]))))
+    return worst
 
 
 def carrier_checks(cand):
@@ -124,9 +148,11 @@ def carrier_checks(cand):
                                  'every coupling joins incident registers of one cell'}
     inverse = {v: k for k, v in enumerate(iso)}
     index = {register_at(label, int): k for k, label in enumerate(labels)}
+    normalized, _ = normalized_operator(H)
     worst = 0.0
+    actions = {}
     for g in rotations():
-        moved = [iso[g[inverse[p]]] for p in range(12)]
+        moved = tuple(iso[g[inverse[p]]] for p in range(12))
         P = dense(cand.represent(moved, cell))
         targets = [index.get(register_at(label, moved.__getitem__)) for label in labels]
         if None in targets or P.shape != H.shape or not np.isfinite(P).all():
@@ -135,33 +161,61 @@ def carrier_checks(cand):
         support = np.zeros(P.shape)
         support[targets, np.arange(len(labels))] = 1
         worst = max(worst, float(np.abs(abs(P) - support).max()),
-                    float(np.abs(P @ H @ P.conj().T - H).max()))
-    out['rotations'] = {'status': 'pass' if worst < 1e-10 else 'fail',
-                        'detail': f'commutes with the sixty rotations of the cell (largest defect {worst:.1e})'}
-    out['rank_three_response'] = rank_check(cand.response(cell))
+                    float(np.abs(P @ normalized @ P.conj().T - normalized).max()))
+        actions[moved] = (targets, P[targets, np.arange(len(labels))])
+    composition = rotation_composition_defect(actions) if worst < 1e-10 else 0.0
+    if composition >= 1e-10:
+        out['rotations'] = {'status': 'fail',
+                            'detail': f'rotation products disagree on relative register phases (largest defect {composition:.1e})'}
+    else:
+        out['rotations'] = {'status': 'pass' if worst < 1e-10 else 'fail',
+                            'detail': f'commutes with the sixty rotations of the cell (largest defect {worst:.1e})'}
+    out['rank_three_response'] = rank_check(cand.response(cell), H, labels)
     out['federation'] = federation_check(cand, cell_keys, iso, fixed)
     return out
 
 
-def rank_check(response):
+def rank_check(response, generator, labels):
     matrix = dense(response)
     if (matrix.ndim != 2 or not matrix.shape[0] or matrix.shape[0] != matrix.shape[1]
-            or not np.isfinite(matrix).all() or not np.allclose(matrix, matrix.conj().T, atol=1e-12, rtol=0)):
+            or not np.isfinite(matrix).all()):
         return {'status': 'fail', 'detail': 'the declared cell response must be finite and Hermitian'}
-    levels = np.linalg.eigvalsh(matrix)
+    if matrix.shape == generator.shape:
+        expected = generator
+        source = 'generator'
+    else:
+        seams = [i for i, (register, _) in enumerate(labels) if register == 'seam']
+        wedges = [i for i, (register, _) in enumerate(labels) if register == 'wedge']
+        if (not wedges or len(seams) + len(wedges) != len(labels)
+                or matrix.shape != (len(seams), len(seams))):
+            return {'status': 'fail', 'detail': 'the response must act on all registers or on the seam block of a seam-wedge generator'}
+        coupling = generator[np.ix_(seams, wedges)]
+        expected = coupling @ coupling.conj().T
+        source = 'seam-wedge Gram'
+    normalized, scale = normalized_operator(expected)
+    if np.max(np.abs(matrix - matrix.conj().T)) > 1e-12 * scale:
+        return {'status': 'fail', 'detail': 'the declared cell response must be finite and Hermitian'}
+    if np.max(np.abs(matrix - expected)) > 1e-12 * scale:
+        return {'status': 'fail', 'detail': f'the declared response differs from the registered {source} operator'}
+    # A common energy offset and a positive change of units preserve every eigenspace.
+    levels = np.linalg.eigvalsh(normalized)
+    tolerance = 8 * len(levels) * np.finfo(levels.dtype).eps * np.max(np.abs(levels))
     groups = []
     for x in np.sort(levels):
-        if groups and abs(x - groups[-1][0]) < 1e-8:
+        if groups and abs(x - groups[-1][0]) <= tolerance:
             groups[-1][1] += 1
         else:
             groups.append([float(x), 1])
     slow = groups[1][1] if len(groups) > 1 else 0
+    gaps = [(scale * (x - groups[0][0]), m) for x, m in groups[1:5]]
     return {'status': 'pass' if slow == 3 else 'fail',
             'detail': 'levels above the lowest: ' + ', '.join(
-                f'{x - groups[0][0]:.6f} x{m}' for x, m in groups[1:5])}
+                (f'{gap:.6e}' if gap < 5e-7 else f'{gap:.6f}') + f' x{m}' for gap, m in gaps)}
 
 
 def federation_check(cand, cell_keys, iso, fixed):
+    from model.executable_model.validation import require_three_gateways
+
     def relabel(p):
         return 12 * (p // 12) + iso[p % 12]
 
@@ -169,6 +223,11 @@ def federation_check(cand, cell_keys, iso, fixed):
     status, note = 'pass', ''
     for level in (0, 1, 2):
         fed = fixed.federation(level)
+        try:
+            require_three_gateways(fed)
+        except ValueError as exc:
+            status, note = 'fail', str(exc)
+            break
         try:
             Hf = cand.generator(fed)
         except NotImplementedError as exc:
