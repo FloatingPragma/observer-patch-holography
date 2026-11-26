@@ -6951,7 +6951,7 @@
    "category": "Physical premises",
    "status": "Partial",
    "what": "Entropy changes of regions equal modular-energy pairings, which split into 2 pi times a bulk term plus an edge term.",
-   "why": "It links entanglement entropy to energy, the first-law step on OPH's route from entropy to Einstein's equations.",
+   "why": "Native three-register reads detect variations hidden from every pairwise marginal, and the separate sheet comparison reproduces the entropy response to sourced stress while an independent memory rotation exposes the stronger operator mismatch.",
    "premises": [],
    "lean": [
     "Lean/ObserverPatchHolography/EinsteinBranch/RegisterSurface.lean",
@@ -6964,7 +6964,9 @@
     "model/experiments/interval_echo_shell_flux/product_address/corner_source/README.md",
     "model/experiments/interval_echo_shell_flux/product_address/corner_source/records.json",
     "model/experiments/interval_echo_einstein_station/collar_scaling/station_clock/separated_sectors/angular_pair/README.md",
-    "model/experiments/interval_echo_einstein_station/field_stress_curvature/neutral_packet/README.md"
+    "model/experiments/interval_echo_einstein_station/field_stress_curvature/neutral_packet/README.md",
+    "code/matched_einstein_limit/source_implication/full_algebra/correlation_rank/shared_action/README.md",
+    "model/candidate_laws/interval_echo_partition_repair/published_strings/README.md"
    ],
    "papers": [],
    "statement": "The finite first-law pairings satisfy the typed modular flow package: the entropy differential equals the modular pairing, the modular generator splits as 2*pi times the bulk pairing plus the central pairing, and the central pairing equals the edge differential. The continuum diamond-kernel identification reads the bulk entropy variation as the modular charge of the same symmetric regional stress that governs matter propagation, with its energy scale fixed independently of the area response.",
@@ -6977,14 +6979,15 @@
    "category": "Physical premises",
    "status": "Open",
    "what": "The regional energy and momentum of the propagating matter obey the covariant conservation law on the common observer chart.",
-   "why": "An independent material conservation law, together with the geometric Bianchi identity and a common coupling, makes the cosmological term constant on each connected chart.",
+   "why": "The comparison sheets have separately conserved action stress, while measuring that stress for propagating native matter on its own proper chart remains open.",
    "premises": [],
    "lean": [
     "Lean/ObserverPatchHolography/EinsteinBranch/RegisterSurface.lean",
     "Lean/ObserverPatchHolography/EinsteinBranch/Composition.lean"
    ],
    "model": [
-    "model/experiments/interval_echo_null_balance/README.md"
+    "model/experiments/interval_echo_null_balance/README.md",
+    "model/candidate_laws/interval_echo_partition_repair/published_strings/GEOMETRY.md"
    ],
    "papers": [],
    "statement": "The symmetric stress of the propagating matter satisfies the weak Ward conservation identity on the reconstructed chart independently of the Einstein equation. Modular translation measurements give one way to test this identity.",
@@ -6997,7 +7000,7 @@
    "category": "Physical premises",
    "status": "Partial",
    "what": "At fixed volume, first-order changes of bulk entropy balance changes of boundary area divided by four times Newton's constant.",
-   "why": "Five-rim plugs measure the balancing information on active Interval Echo, and a separate repair gives exact stationarity at one ordinary gain on cubical regions with independently surveyed areas.",
+   "why": "Interval Echo has exact stationarity on a selected survey, partition repair proves it on overlapping records, and the published-record extension gives o(ℓ⁴) finite entropy–area residuals on equal-volume string-sector balls.",
    "premises": [],
    "lean": [
     "Lean/ObserverPatchHolography/EinsteinBranch/Composition.lean",
@@ -7067,7 +7070,9 @@
     "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/formed_ranges/affine_stencil/README.md",
     "model/candidate_laws/interval_echo_partition_repair/REGIONAL.md",
     "model/candidate_laws/interval_echo_partition_repair/surveyed_cells/README.md",
-    "model/candidate_laws/interval_echo_partition_repair/proper_balls/README.md"
+    "model/candidate_laws/interval_echo_partition_repair/proper_balls/README.md",
+    "model/candidate_laws/interval_echo_partition_repair/published_strings/README.md",
+    "model/candidate_laws/interval_echo_partition_repair/published_strings/results.json"
    ],
    "papers": [],
    "statement": "The first-order bulk entropy variation balances the fixed-volume area variation over 4G, and the declared MaxEnt family has zero normalization rate, unit constraint speed and the Gibbs differential equation.",
@@ -7080,7 +7085,7 @@
    "category": "Physical premises",
    "status": "Open",
    "what": "Small geodesic balls of fixed volume obey the standard curvature correction to their area, with error terms vanishing as balls shrink.",
-   "why": "Paired geodesic distances recover the smooth curvature coefficient, while independent native transit clocks recover the angular frame and fail a common proper-range test on the measured source.",
+   "why": "A finite rod survey recovers ten curvature contractions on shrinking balls of a specified homogeneous geometry, while native transit clocks and exterior angular screens leave interior area undetermined.",
    "premises": [],
    "lean": [
     "Lean/ObserverPatchHolography/EinsteinBranch/SmallBall.lean",
@@ -7129,7 +7134,10 @@
     "code/matched_einstein_limit/source_implication/material_clocks/two_way_phase/README.md",
     "code/matched_einstein_limit/measured_frames/measure.py",
     "code/matched_einstein_limit/source_implication/material_clocks/transported_modes/README.md",
-    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/timelike_areas/README.md"
+    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/timelike_areas/README.md",
+    "model/candidate_laws/interval_echo_partition_repair/published_strings/GEOMETRY.md",
+    "model/candidate_laws/interval_echo_partition_repair/published_strings/finite_rods.py",
+    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/timelike_areas/exterior_screens/README.md"
    ],
    "papers": [],
    "statement": "The fixed-volume small-geodesic-ball area identity holds with coefficient 4*pi*ell^4/15, the ten timelike frames use the same source and a cofinal shrinking family of proper balls carrying the collar, kernel and chart error terms as o(ell^4), the geometric side satisfies the contracted Bianchi identity, and the Newton constant and ball radius are positive.",
@@ -7142,7 +7150,7 @@
    "category": "Physical premises",
    "status": "Open",
    "what": "A refinement tower exists with protected boundaries, common readouts and a vacuum reference, and its coupling equals 8 pi times Newton's constant.",
-   "why": "It attaches the finite entropy-gravity identities to physical spacetime and a gravitational coupling, closing the route to Einstein gravity.",
+   "why": "A separate homogeneous string sector reads one native archive and has one positive coupling, while identifying the proper-ball tower and gravitating action of the active carrier remains open.",
    "premises": [],
    "lean": [
     "Lean/ObserverPatchHolography/EinsteinBranch/RegisterSurface.lean",
@@ -7175,7 +7183,9 @@
     "model/experiments/interval_echo_einstein_station/equilibrium_refinement/tracer_flux/bearings/round_trip/README.md",
     "model/experiments/interval_echo_einstein_station/equilibrium_refinement/tracer_flux/bearings/round_trip/results.json",
     "code/matched_einstein_limit/fixed_volume/polarized_ranges/README.md",
-    "code/matched_einstein_limit/fixed_volume/polarized_ranges/results.json"
+    "code/matched_einstein_limit/fixed_volume/polarized_ranges/results.json",
+    "model/candidate_laws/interval_echo_partition_repair/published_strings/README.md",
+    "model/candidate_laws/interval_echo_partition_repair/published_strings/ARCHIVE.md"
    ],
    "papers": [],
    "statement": "An Einstein-admissible tower exists with protected boundary fibre, typed common-domain readouts and refinement naturality; the chart is connected, the vacuum reference fixes the metric residue at the chart base, and the coupling carries kappa = 8*pi*G_N.",
