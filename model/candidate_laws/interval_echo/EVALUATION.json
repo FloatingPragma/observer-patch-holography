@@ -4771,7 +4771,7 @@
       "https://github.com/openwave-labs/openwave/blob/d4fc3e4046c472f4ad38468df8dddfa1f97bac97/MODELS.md#L101"
      ],
      "status": "partial",
-     "note": "Two compact vacancy modes share a single missing load over cells 5, 11 and 23 owner steps apart on three boards. Paired contact reads distinguish that state from independent preparations with the same local means on each board in a fresh precision replicate. At every free appointment the reduced state of the gateways and blank collars on either tested enclosing cut equals the filled host, even on a branch with the vacancy wholly inside. A single load and a doubled load also persist on empty hosts. The measurements select neither a topological electric unit nor an electric charge law excluding two half-charge daughters. One added port unit on an alternating ring produces two separated moving walls of the same sign. Independent probes read a half-unit polarization per wall displacement, while a sharp regional detector retains integer load readings. At time three, 1,789,126 of 4,194,304 starts on the fourteen-port native ring show both distant walls with the original pair gone; removing bulk contrast gives 66,814. The calibrated gradient, integral window and tapered detector distinguish sharp charge from material polarization. An indivisible topological electric charge identified by an independent electromagnetic response remains open.",
+     "note": "Two compact vacancy modes share a single missing load over cells 5, 11 and 23 owner steps apart on three boards. Paired contact reads distinguish that state from independent preparations with the same local means on each board in a fresh precision replicate. At every free appointment the reduced state of the gateways and blank collars on either tested enclosing cut equals the filled host, even on a branch with the vacancy wholly inside. A single load and a doubled load also persist on empty hosts. The measurements select neither a topological electric unit nor an electric charge law excluding two half-charge daughters. One added port unit on an alternating ring produces two separated moving walls of the same sign. Independent probes read a half-unit polarization per wall displacement, while a sharp regional detector retains integer load readings. At time three, 1,789,126 of 4,194,304 starts on the fourteen-port native ring show both distant walls with the original pair gone; removing bulk contrast gives 66,814. The calibrated gradient, integral window and tapered detector distinguish sharp charge from material polarization. An indivisible topological electric charge identified by an independent electromagnetic response remains open. Independently mounted mobile probes read the whole local unit detuning on the separated walls. Counting the same probe over adjacent bonds doubles an ordinary test load. After whole-ring calibration each identical isolated wall contributes half of the inserted unit for every additive finite-window readout satisfying the two bulk calibrations. A separate compact source is visible to a penetrating probe, while a parked transmitting contact with the same diagonal interaction gives identical exterior observations for a vacancy, excess and uniform host.",
      "evidence": [
       "model/candidate_laws/interval_echo/SPEC.md",
       "model/candidate_laws/interval_echo/openwave/row_01_charge/README.md",
@@ -4787,7 +4787,19 @@
       "model/candidate_laws/interval_echo/openwave/row_01_charge/released_half_walls/stock.json",
       "model/candidate_laws/interval_echo/openwave/row_01_charge/released_half_walls/stock.py",
       "model/candidate_laws/interval_echo/openwave/row_01_charge/released_half_walls/test_half_walls.py",
-      "model/candidate_laws/interval_echo/openwave/row_01_charge/released_half_walls/words.npz"
+      "model/candidate_laws/interval_echo/openwave/row_01_charge/released_half_walls/words.npz",
+      "model/candidate_laws/interval_echo/openwave/row_01_charge/released_half_walls/material_probe/counts.json",
+      "model/candidate_laws/interval_echo/openwave/row_01_charge/released_half_walls/material_probe/live_counts.json",
+      "model/candidate_laws/interval_echo/openwave/row_01_charge/released_half_walls/material_probe/cut_counts.json",
+      "model/candidate_laws/interval_echo/openwave/row_01_charge/released_half_walls/charge_identification/counts.json",
+      "model/candidate_laws/interval_echo/openwave/row_01_charge/released_half_walls/probe_audit/check_counts.py",
+      "model/candidate_laws/interval_echo/openwave/row_01_charge/compact_boundary/counts.json",
+      "model/candidate_laws/interval_echo/openwave/row_01_charge/compact_boundary/weak_counts.json",
+      "model/candidate_laws/interval_echo/openwave/row_01_charge/released_half_walls/charge_identification/LocalCharge.lean",
+      "model/candidate_laws/interval_echo/openwave/row_01_charge/compact_boundary/QuietBoundary.lean",
+      "model/candidate_laws/interval_echo/openwave/row_01_charge/released_half_walls/material_probe/README.md",
+      "model/candidate_laws/interval_echo/openwave/row_01_charge/released_half_walls/charge_identification/PROOF.md",
+      "model/candidate_laws/interval_echo/openwave/row_01_charge/compact_boundary/README.md"
      ],
      "comparison": {
       "law": "Written-field Laplacian extension",
@@ -4795,8 +4807,8 @@
       "source": "model/candidate_laws/interval_echo/openwave/electron_field/README.md#which-preparation-carries-the-charge"
      },
      "demonstrated_measurement": {
-      "label": "Separate half-unit wall polarizations and sharp integer charge-window reads",
-      "source": "model/candidate_laws/interval_echo/openwave/row_01_charge/released_half_walls/README.md"
+      "label": "Calibrated contact and integrated half-unit wall readings, with mobile-probe backaction",
+      "source": "model/candidate_laws/interval_echo/openwave/row_01_charge/released_half_walls/material_probe/README.md"
      }
     },
     {

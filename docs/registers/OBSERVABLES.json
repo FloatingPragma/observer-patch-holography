@@ -1702,7 +1702,9 @@
    ],
    "lean": [
     "Lean/Screen/WeylYukawaConventions.lean",
-    "Lean/Screen/GlobalFormCharacterDescent.lean"
+    "Lean/Screen/GlobalFormCharacterDescent.lean",
+    "model/candidate_laws/interval_echo/openwave/row_01_charge/released_half_walls/charge_identification/LocalCharge.lean",
+    "model/candidate_laws/interval_echo/openwave/row_01_charge/compact_boundary/QuietBoundary.lean"
    ],
    "model": [
     "code/a5_closure/exterior_sm_completion.py",
@@ -1710,10 +1712,18 @@
     "code/a5_closure/test_audit.py",
     "model/candidate_laws/interval_echo/openwave/row_01_charge/README.md",
     "model/candidate_laws/interval_echo/openwave/row_01_charge/results.json",
-    "model/candidate_laws/interval_echo/openwave/row_01_charge/released_half_walls/README.md"
+    "model/candidate_laws/interval_echo/openwave/row_01_charge/released_half_walls/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_01_charge/released_half_walls/material_probe/counts.json",
+    "model/candidate_laws/interval_echo/openwave/row_01_charge/released_half_walls/material_probe/live_counts.json",
+    "model/candidate_laws/interval_echo/openwave/row_01_charge/released_half_walls/material_probe/cut_counts.json",
+    "model/candidate_laws/interval_echo/openwave/row_01_charge/released_half_walls/charge_identification/counts.json",
+    "model/candidate_laws/interval_echo/openwave/row_01_charge/released_half_walls/probe_audit/check_counts.py",
+    "model/candidate_laws/interval_echo/openwave/row_01_charge/compact_boundary/counts.json",
+    "model/candidate_laws/interval_echo/openwave/row_01_charge/compact_boundary/weak_counts.json"
    ],
    "papers": [
-    "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf"
+    "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf",
+    "paper/deriving_the_particle_zoo_from_observer_consistency.pdf"
    ]
   },
   {
@@ -5029,7 +5039,9 @@
     "PR-151"
    ],
    "lean": [
-    "model/candidate_laws/interval_echo/openwave/row_01_charge/released_half_walls/WallCharge.lean"
+    "model/candidate_laws/interval_echo/openwave/row_01_charge/released_half_walls/WallCharge.lean",
+    "model/candidate_laws/interval_echo/openwave/row_01_charge/released_half_walls/charge_identification/LocalCharge.lean",
+    "model/candidate_laws/interval_echo/openwave/row_01_charge/compact_boundary/QuietBoundary.lean"
    ],
    "model": [
     "model/evaluation/SCORECARD.md",
@@ -5047,10 +5059,18 @@
     "model/candidate_laws/interval_echo/openwave/row_01_charge/released_half_walls/stock.json",
     "model/candidate_laws/interval_echo/openwave/row_01_charge/released_half_walls/stock.py",
     "model/candidate_laws/interval_echo/openwave/row_01_charge/released_half_walls/test_half_walls.py",
-    "model/candidate_laws/interval_echo/openwave/row_01_charge/released_half_walls/words.npz"
+    "model/candidate_laws/interval_echo/openwave/row_01_charge/released_half_walls/words.npz",
+    "model/candidate_laws/interval_echo/openwave/row_01_charge/released_half_walls/material_probe/counts.json",
+    "model/candidate_laws/interval_echo/openwave/row_01_charge/released_half_walls/material_probe/live_counts.json",
+    "model/candidate_laws/interval_echo/openwave/row_01_charge/released_half_walls/material_probe/cut_counts.json",
+    "model/candidate_laws/interval_echo/openwave/row_01_charge/released_half_walls/charge_identification/counts.json",
+    "model/candidate_laws/interval_echo/openwave/row_01_charge/released_half_walls/probe_audit/check_counts.py",
+    "model/candidate_laws/interval_echo/openwave/row_01_charge/compact_boundary/counts.json",
+    "model/candidate_laws/interval_echo/openwave/row_01_charge/compact_boundary/weak_counts.json"
    ],
    "papers": [
-    "paper/executable_observer_construction.pdf"
+    "paper/executable_observer_construction.pdf",
+    "paper/deriving_the_particle_zoo_from_observer_consistency.pdf"
    ]
   },
   {
@@ -5870,7 +5890,9 @@
    "premises": [
     "PR-54"
    ],
-   "lean": [],
+   "lean": [
+    "model/candidate_laws/interval_echo/openwave/row_01_charge/compact_boundary/QuietBoundary.lean"
+   ],
    "model": [
     "model/evaluation/SCORECARD.md",
     "model/evaluation/openwave_criteria.json",
@@ -5881,10 +5903,13 @@
     "model/candidate_laws/interval_echo/openwave/row_20_electric/schedule.json",
     "model/candidate_laws/interval_echo/openwave/row_20_electric/flight.json",
     "model/candidate_laws/interval_echo/openwave/row_20_electric/frustrated_ring/README.md",
-    "model/candidate_laws/interval_echo/openwave/row_20_electric/frustrated_ring/records.json"
+    "model/candidate_laws/interval_echo/openwave/row_20_electric/frustrated_ring/records.json",
+    "model/candidate_laws/interval_echo/openwave/row_01_charge/compact_boundary/measure.py",
+    "model/candidate_laws/interval_echo/openwave/row_01_charge/compact_boundary/counts.json"
    ],
    "papers": [
-    "paper/executable_observer_construction.pdf"
+    "paper/executable_observer_construction.pdf",
+    "paper/deriving_the_particle_zoo_from_observer_consistency.pdf"
    ]
   },
   {
