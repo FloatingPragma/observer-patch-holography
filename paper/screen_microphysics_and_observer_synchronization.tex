@@ -2245,6 +2245,23 @@ The finite certificate proves the coefficient
  instrument satisfies them. The comparison interface preserves this
  distinction (\texttt{DispersionArmingInterface}).
 
+For the finite scalar grating we declare its common chart edge to have
+length $a=3L/2$ relative to a separately mounted two-port reference of
+length $L$. Two outside owners independently receive each of the thirty
+edges and the reference. A native exchange analyser gives a conditional
+antisymmetric probability $(1-\cos z)/2$ for phase difference $z$.
+On $0\le z\le\pi$ the ratio of recovered phases cancels a common gradient
+gain. Seeded draws from the routed native-law probabilities give
+$a/L\in[1.4916,1.5082]$ at joint $99\%$ coverage. Changing the
+declared ratio to two gives $[1.9902,2.0091]$. A folded phase fails
+the two-gradient comparison, and shuttering the analyser erases the
+reference response. Independent directional readings at $kL=8/3$ give
+a face-minus-port energy of $[0.0866,0.1525]$ in native exchange-gap
+units at the nominal scale. With this declaration the thirty-edge packet
+has $C_4=-9L^2/80$, $B_0=27L^4/4480$ and $B_6=-9L^4/22400$.
+The choice of $L$ and its conversion to a physical length are external
+inputs (\texttt{interval\_echo\_carrier\_ruler}).
+
 A finite calibration experiment lets the sign receiver drift while it
 measures the directional kinetic energy. Each trial secretly chooses one
 of four preparations with equal probability. A symmetric dimer, an
