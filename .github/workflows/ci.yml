@@ -71,8 +71,10 @@ jobs:
         with:
           python-version: '3.12'
           cache: pip
-          cache-dependency-path: model/requirements.txt
-      - run: python -m pip install -r model/requirements.txt
+          cache-dependency-path: |
+            model/requirements.txt
+            model/requirements-tests.txt
+      - run: python -m pip install -r model/requirements-tests.txt
       - name: Fixed carrier, candidate laws and their evaluation
         run: |
           python -B -O -m model carrier

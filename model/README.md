@@ -28,7 +28,7 @@ Evidence prepared for an OpenWave row, and every filing to OpenWave, follows the
 ## Run it
 
 ```sh
-pip install -r model/requirements.txt
+pip install -r model/requirements-tests.txt
 python -m model                                # replay Interval Echo on 20 cells and compare the reunion cohorts
 python -m model --full                         # include 80/320 cells, patch records, the repair fork and port currents
 python -m model --full --seed 42 --output /tmp/echo-42  # generate an independent data set

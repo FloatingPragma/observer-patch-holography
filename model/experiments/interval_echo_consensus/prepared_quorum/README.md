@@ -34,6 +34,7 @@ PR-122 is demonstrated for this declared protocol. The silent-signer experiment 
 From the repository root, replay the public deposit with one numerical thread.
 
 ```sh
+.venv/bin/python -m pip install -r model/requirements-tests.txt
 export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1
 nice -n 15 .venv/bin/python -B -O -W error -m model.experiments.interval_echo_consensus.prepared_quorum.measure
 nice -n 15 .venv/bin/python -m pytest -q model/experiments/interval_echo_consensus/prepared_quorum
