@@ -10,9 +10,9 @@ theorem decode (singles doubles a : ℝ) :
 
 /-- In the total-twelve sector, the full quadratic reading is twelve plus twice
 the double count. Occupancy and total load then also determine the vacancies. -/
-theorem floor_gap (zero one two : ℕ) (ports : zero + one + two = 12)
+theorem floor_gap (vacant one two : ℕ) (ports : vacant + one + two = 12)
     (load : one + 2 * two = 12) :
-    zero = two ∧ one + 4 * two = 12 + 2 * two ∧
+    vacant = two ∧ one + 4 * two = 12 + 2 * two ∧
     (one + 4 * two = 12 ↔ one = 12) ∧
     (one ≠ 12 → 14 ≤ one + 4 * two) := by omega
 

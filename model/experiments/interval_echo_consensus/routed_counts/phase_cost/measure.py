@@ -3,7 +3,7 @@
 import argparse
 import json
 from functools import lru_cache
-from math import cos, log, pi, sqrt
+from math import ceil, cos, log, pi, sqrt
 from pathlib import Path
 
 import numpy as np
@@ -138,6 +138,10 @@ def decode(banks, a):
     )
 
 
+def upper_radius(value):
+    return ceil((value + 1e-8) * 1e8) / 1e8
+
+
 def run():
     certify()
     if not native_law.exact_checks()["checks"][
@@ -196,10 +200,10 @@ def run():
         address_shots=SHOTS,
         appointments_in_pi_over_kappa=ANGLES,
         simultaneous_family=512,
-        pooled_radius=round(eps, 8),
-        quadratic_radius=round(12 * 13 * eps, 8),
-        held_difference_radius=round(
-            (2 + 3 * (1 - cos(4 * pi * ANGLES[2])) / 2) * eps, 8
+        pooled_radius=upper_radius(eps),
+        quadratic_radius=upper_radius(12 * 13 * eps),
+        held_difference_radius=upper_radius(
+            (2 + 3 * (1 - cos(4 * pi * ANGLES[2])) / 2) * eps
         ),
         readers=appointments,
     )
