@@ -733,7 +733,14 @@
     "model/experiments/interval_echo_clock/DURATION.md",
     "model/experiments/interval_echo_clock/duration.json",
     "model/experiments/interval_echo_consensus/standard_observers.py",
-    "model/experiments/interval_echo_consensus/modular_standard.json"
+    "model/experiments/interval_echo_consensus/modular_standard.json",
+    "model/candidate_laws/interval_echo/openwave/row_27_metric/frequency_link/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_27_metric/frequency_link/PROOF.md",
+    "model/candidate_laws/interval_echo/openwave/row_27_metric/frequency_link/native.py",
+    "model/candidate_laws/interval_echo/openwave/row_27_metric/frequency_link/readout.py",
+    "model/candidate_laws/interval_echo/openwave/row_27_metric/frequency_link/measure.py",
+    "model/candidate_laws/interval_echo/openwave/row_27_metric/frequency_link/results.json.gz",
+    "model/candidate_laws/interval_echo/openwave/row_27_metric/frequency_link/test_link.py"
    ],
    "papers": [
     "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf",
@@ -5034,7 +5041,9 @@
    "premises": [
     "PR-157"
    ],
-   "lean": [],
+   "lean": [
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/released_direction/InternalBand.lean"
+   ],
    "model": [
     "model/evaluation/SCORECARD.md",
     "model/evaluation/openwave_criteria.json",
@@ -5047,9 +5056,17 @@
     "model/candidate_laws/interval_echo/openwave/row_03_clock/written_coin/README.md",
     "model/candidate_laws/interval_echo/openwave/row_03_clock/written_coin/records.json",
     "model/candidate_laws/interval_echo/openwave/row_03_clock/moving_pair/README.md",
-    "model/candidate_laws/interval_echo/openwave/row_03_clock/moving_pair/records.json"
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/moving_pair/records.json",
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/released_direction/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/released_direction/PROOF.md",
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/released_direction/flight.py",
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/released_direction/measure.py",
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/released_direction/records.json.gz",
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/released_direction/test_direction.py"
    ],
-   "papers": []
+   "papers": [
+    "paper/executable_observer_construction.pdf"
+   ]
   },
   {
    "id": "ow-04-particle-stability",
@@ -5893,7 +5910,14 @@
     "model/experiments/interval_echo_einstein_station/equilibrium_refinement/tracer_flux/bearings/results.json",
     "model/experiments/interval_echo_einstein_station/equilibrium_refinement/tracer_flux/bearings/placements.json",
     "code/matched_einstein_limit/fixed_volume/displaced_markers/README.md",
-    "code/matched_einstein_limit/fixed_volume/displaced_markers/results.json"
+    "code/matched_einstein_limit/fixed_volume/displaced_markers/results.json",
+    "model/candidate_laws/interval_echo/openwave/row_27_metric/frequency_link/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_27_metric/frequency_link/PROOF.md",
+    "model/candidate_laws/interval_echo/openwave/row_27_metric/frequency_link/native.py",
+    "model/candidate_laws/interval_echo/openwave/row_27_metric/frequency_link/readout.py",
+    "model/candidate_laws/interval_echo/openwave/row_27_metric/frequency_link/measure.py",
+    "model/candidate_laws/interval_echo/openwave/row_27_metric/frequency_link/results.json.gz",
+    "model/candidate_laws/interval_echo/openwave/row_27_metric/frequency_link/test_link.py"
    ],
    "papers": [
     "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf",
@@ -9111,17 +9135,27 @@
    "kind": "premise",
    "name": "Prepared-lock quorum certificate protocol",
    "category": "Construction choices",
-   "status": "Open",
+   "status": "Demonstrated",
    "what": "Observers agree through a quorum-vote protocol with prepared, lock and decision certificates, under quorum thresholds 2q >= n+f+1 and q <= n-f.",
    "why": "Safety and liveness of agreement among observers, when some of them are faulty or adversarial, rest on this protocol.",
    "premises": [],
-   "lean": [],
+   "lean": [
+    "model/experiments/interval_echo_consensus/prepared_quorum/Quorum.lean"
+   ],
    "model": [
     "code/consensus/verify_issue_517_proof_obligations.py",
-    "code/consensus/runs/issue_517_proof_obligations.json"
+    "code/consensus/runs/issue_517_proof_obligations.json",
+    "model/experiments/interval_echo_consensus/prepared_quorum/README.md",
+    "model/experiments/interval_echo_consensus/prepared_quorum/PROTOCOL.md",
+    "model/experiments/interval_echo_consensus/prepared_quorum/certificates.py",
+    "model/experiments/interval_echo_consensus/prepared_quorum/transport.py",
+    "model/experiments/interval_echo_consensus/prepared_quorum/measure.py",
+    "model/experiments/interval_echo_consensus/prepared_quorum/records.json.gz",
+    "model/experiments/interval_echo_consensus/prepared_quorum/test_quorum.py"
    ],
    "papers": [
-    "paper/appendix_B_bft_qecc_extensions.tex"
+    "paper/appendix_B_bft_qecc_extensions.tex",
+    "paper/reality_as_consensus_protocol.pdf"
    ],
    "statement": "Observers run the raw-prepared, lock and decision certificate protocol: certificates carry a quorum of distinct authenticated votes for one value and view, a nonfaulty validator supports one value per view, never signs for a lower view after entering a higher one, records a durable lock only from an assembled lock certificate before committing, and finalizes only on a valid decision certificate. A new leader proposes the value of the highest valid lock certificate under a checked q-message justification, with quorum thresholds 2q >= n + f + 1 for safety and q <= n - f for liveness.",
    "premise_kind": "declared"
@@ -9166,7 +9200,7 @@
    "kind": "premise",
    "name": "public-record definition fixed before evaluation",
    "category": "Construction choices",
-   "status": "Partial",
+   "status": "Demonstrated",
    "what": "Which observer groups make a record public is fixed before evaluation and never switched between definitions after results are seen.",
    "why": "It keeps the public-record capacity count free of post-hoc choices, which the capacity readback needs.",
    "premises": [],
@@ -9176,7 +9210,8 @@
     "code/cosmology/guarded_slab/energy_exchange/README.md",
     "code/cosmology/guarded_slab/energy_exchange/protocol.json",
     "code/cosmology/guarded_slab/energy_exchange/energy_routes.py",
-    "code/cosmology/guarded_slab/energy_exchange/energy.json"
+    "code/cosmology/guarded_slab/energy_exchange/energy.json",
+    "code/cosmology/guarded_slab/energy_exchange/test_energy_release.py"
    ],
    "papers": [
     "cosmology/oph_cosmology_finite_source_cmb_program.pdf"
@@ -9619,19 +9654,30 @@
    "kind": "premise",
    "name": "primitive repair moves are scalar pair averaging",
    "category": "Construction choices",
-   "status": "Partial",
+   "status": "Demonstrated",
    "what": "Each primitive repair is a seam move that replaces its two endpoint loads by their average, keeping their sum.",
    "why": "It makes repair a diffusion-type averaging process, which the consensus, convergence and continuum-diffusion results assume.",
    "premises": [],
    "lean": [
     "Lean/ObserverPatchHolography/EqualSeamSelection.lean",
-    "Lean/ObserverPatchHolography/DirectedSeamRepair.lean"
+    "Lean/ObserverPatchHolography/DirectedSeamRepair.lean",
+    "model/experiments/interval_echo_consensus/seam_word_meter/RecordMeans.lean"
    ],
    "model": [
     "model/candidate_laws/contrast_memory_spherical_v1/SPEC.md",
-    "model/candidate_laws/interval_echo/SPEC.md"
+    "model/candidate_laws/interval_echo/SPEC.md",
+    "model/experiments/interval_echo_consensus/seam_word_meter/README.md",
+    "model/experiments/interval_echo_consensus/seam_word_meter/PROTOCOL.md",
+    "model/experiments/interval_echo_consensus/seam_word_meter/apparatus.py",
+    "model/experiments/interval_echo_consensus/seam_word_meter/chart.py",
+    "model/experiments/interval_echo_consensus/seam_word_meter/measure.py",
+    "model/experiments/interval_echo_consensus/seam_word_meter/records.json.gz",
+    "model/experiments/interval_echo_consensus/seam_word_meter/test_word_meter.py",
+    "model/experiments/interval_echo_consensus/seam_word_meter/test_chart.py"
    ],
-   "papers": [],
+   "papers": [
+    "paper/screen_microphysics_and_observer_synchronization.pdf"
+   ],
    "statement": "The primitive repair attempts of the native process are exactly the seam moves of the cell, listed once each up to the observer quotient, and each acts on a real scalar load workspace as a linear map supported on its two endpoints that conserves their sum and leaves them equal.",
    "premise_kind": "declared"
   },
@@ -9640,17 +9686,28 @@
    "kind": "premise",
    "name": "every schedule word law is admissible",
    "category": "Construction choices",
-   "status": "Open",
+   "status": "Demonstrated",
    "what": "Any probability law over finite sequences of repair attempts is an admissible schedule, with no state-dependent deletion and no coupling between positions.",
    "why": "Results proved for every schedule then cover the native scheduler, which the schedule-independence claims rely on.",
    "premises": [],
    "lean": [
-    "Lean/ObserverPatchHolography/RepairWordSchedule.lean"
+    "Lean/ObserverPatchHolography/RepairWordSchedule.lean",
+    "model/experiments/interval_echo_consensus/seam_word_meter/RecordMeans.lean"
    ],
    "model": [
-    "model/candidate_laws/interval_echo/SPEC.md"
+    "model/candidate_laws/interval_echo/SPEC.md",
+    "model/experiments/interval_echo_consensus/seam_word_meter/README.md",
+    "model/experiments/interval_echo_consensus/seam_word_meter/PROTOCOL.md",
+    "model/experiments/interval_echo_consensus/seam_word_meter/apparatus.py",
+    "model/experiments/interval_echo_consensus/seam_word_meter/chart.py",
+    "model/experiments/interval_echo_consensus/seam_word_meter/measure.py",
+    "model/experiments/interval_echo_consensus/seam_word_meter/records.json.gz",
+    "model/experiments/interval_echo_consensus/seam_word_meter/test_word_meter.py",
+    "model/experiments/interval_echo_consensus/seam_word_meter/test_chart.py"
    ],
-   "papers": [],
+   "papers": [
+    "paper/screen_microphysics_and_observer_synchronization.pdf"
+   ],
    "statement": "Every probability law on every finite word space of the native attempt alphabet is a temporally admissible schedule: the native process imposes no state-dependent deletion of attempts and no cross-position coupling on schedules.",
    "premise_kind": "declared"
   },
@@ -9822,14 +9879,23 @@
    "lean": [
     "Lean/Geometry/InternalClockRestFrequency.lean",
     "Lean/Geometry/FreeEvolutionPersistence.lean",
-    "Lean/Geometry/ProperTimeInternalAction.lean"
+    "Lean/Geometry/ProperTimeInternalAction.lean",
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/released_direction/InternalBand.lean"
    ],
    "model": [
     "model/candidate_laws/interval_echo/openwave/row_03_clock/moving_pair/README.md",
     "model/evaluation/observer_criteria.json",
-    "model/evaluation/SCORECARD.md"
+    "model/evaluation/SCORECARD.md",
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/released_direction/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/released_direction/PROOF.md",
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/released_direction/flight.py",
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/released_direction/measure.py",
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/released_direction/records.json.gz",
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/released_direction/test_direction.py"
    ],
-   "papers": [],
+   "papers": [
+    "paper/executable_observer_construction.pdf"
+   ],
    "statement": "The state of a free body of declared mass carries the plane-wave phase p.x - E t of its four-momentum, and free evolution is translation along a declared frame worldline acting on wave functions by precomposition. The physical reading takes the phase rate along the worldline as the internal clock of the body and the spatial phase gradient as its momentum readout.",
    "premise_kind": "derivable"
   },
@@ -10329,7 +10395,7 @@
    "kind": "premise",
    "name": "pair-mean repair machine running declared observer programs",
    "category": "Construction choices",
-   "status": "Open",
+   "status": "Partial",
    "what": "Native repair averages real values on neighbouring registers, and observers run declared finite programs, such as accumulators and routers, on it.",
    "why": "The computation and observer-run constructions built from these programs rely on this averaging machine and its supplied controllers.",
    "premises": [],
@@ -10351,13 +10417,24 @@
     "Lean/Geometry/SourceSeamPathTomography.lean",
     "Lean/Geometry/SourcePassiveReset.lean",
     "Lean/Geometry/SourceNonlinearRecord.lean",
-    "Lean/Geometry/SourceRecordProtection.lean"
+    "Lean/Geometry/SourceRecordProtection.lean",
+    "model/experiments/interval_echo_consensus/seam_word_meter/RecordMeans.lean"
    ],
    "model": [
     "model/evaluation/repair_band.json",
-    "model/candidate_laws/interval_echo/SPEC.md"
+    "model/candidate_laws/interval_echo/SPEC.md",
+    "model/experiments/interval_echo_consensus/seam_word_meter/README.md",
+    "model/experiments/interval_echo_consensus/seam_word_meter/PROTOCOL.md",
+    "model/experiments/interval_echo_consensus/seam_word_meter/apparatus.py",
+    "model/experiments/interval_echo_consensus/seam_word_meter/chart.py",
+    "model/experiments/interval_echo_consensus/seam_word_meter/measure.py",
+    "model/experiments/interval_echo_consensus/seam_word_meter/records.json.gz",
+    "model/experiments/interval_echo_consensus/seam_word_meter/test_word_meter.py",
+    "model/experiments/interval_echo_consensus/seam_word_meter/test_chart.py"
    ],
-   "papers": [],
+   "papers": [
+    "paper/screen_microphysics_and_observer_synchronization.pdf"
+   ],
    "statement": "The native repair acts as the deterministic scalar pair mean on seam-adjacent real registers, and observers run declared finite programs on it with supplied preparations, rail embeddings, routes and supported layouts, schedules, controllers, publication instruments, possible-observation relations and error allowances, as in the source-native accumulator, bank, bus, shuttle, checkpoint, publication, read-selection and routing constructions.",
    "premise_kind": "declared"
   },

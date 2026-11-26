@@ -590,11 +590,20 @@
           "results": {
             "interval_echo": {
               "status": "demonstrated",
-              "note": "A one-cell patch prepares and reads one load at twelve ports. From anonymous calibration probabilities the inverse infers 30 edges, a hop angle of 0.0625, and a Gram of rank three. Twice and three times the exposure reproduce that subspace and 288 individual held probabilities to below 10⁻¹⁰. The best rank-two Gram has relative error 0.57735. The shared free sector is measured with the clock idle.",
+              "note": "A one-cell patch prepares and reads one load at twelve ports. From anonymous calibration probabilities the inverse infers 30 edges, a hop angle of 0.0625, and a Gram of rank three. Twice and three times the exposure reproduce that subspace and 288 individual held probabilities to below 10⁻¹⁰. The best rank-two Gram has relative error 0.57735. The shared free sector is measured with the clock idle. Thirty distinct protected seam offers average both endpoint histograms after one resolved input read. For each of 900 ordered seam pairs, twelve source ports give the predicted terminal distribution. The uniform repeated-offer response is I − L/60, whose slowest nonconstant level is 0.95393446629 with multiplicity three.",
               "evidence": [
                 "model/evaluation/patch_spatial_readout.json",
                 "model/evaluation/patch_spatial_readout.py",
-                "model/candidate_laws/interval_echo/candidate.py"
+                "model/candidate_laws/interval_echo/candidate.py",
+                "model/experiments/interval_echo_consensus/seam_word_meter/README.md",
+                "model/experiments/interval_echo_consensus/seam_word_meter/PROTOCOL.md",
+                "model/experiments/interval_echo_consensus/seam_word_meter/apparatus.py",
+                "model/experiments/interval_echo_consensus/seam_word_meter/chart.py",
+                "model/experiments/interval_echo_consensus/seam_word_meter/measure.py",
+                "model/experiments/interval_echo_consensus/seam_word_meter/records.json.gz",
+                "model/experiments/interval_echo_consensus/seam_word_meter/test_word_meter.py",
+                "model/experiments/interval_echo_consensus/seam_word_meter/test_chart.py",
+                "model/experiments/interval_echo_consensus/seam_word_meter/RecordMeans.lean"
               ]
             },
             "contrast_memory_spherical_v1": {
