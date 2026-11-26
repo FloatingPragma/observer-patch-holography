@@ -1,0 +1,81 @@
+{
+  "central_lower_keck_km_s": 276.0,
+  "strong_radial_jeans_control": {
+    "anisotropy_radius_arcsec": 0.4,
+    "exterior_shell_Msun": 80000000000.0,
+    "keck_central_km_s": 287.253,
+    "muse_outer_at_luminosity_center_km_s": 241.193,
+    "held_muse_central_at_origin_km_s": 291.055,
+    "held_muse_central_footprint_lower_km_s": 290.371
+  },
+  "muse_outer_upper_km_s": 247.0,
+  "rectangular_center_tolerance_arcsec": 0.03,
+  "same_weight_outer_centroid": {
+    "minimum_mean_radius_arcsec": 0.85,
+    "isotropic_upper_km_s": 256.675,
+    "threshold_abs_beta": 0.03679,
+    "threshold_radial_radius_arcsec": 2.5005,
+    "central_upper_beta_003": 272.265,
+    "central_upper_radial_25_arcsec": 276.007
+  },
+  "slit_offsets_arcsec": [
+    -1.05,
+    -0.84,
+    -0.63,
+    -0.42,
+    -0.21,
+    0.0,
+    0.21,
+    0.42,
+    0.63,
+    0.84,
+    1.05
+  ],
+  "keck_lower_rms_endpoint_by_offset": [
+    240.68,
+    264.17,
+    254.17,
+    266.75,
+    276.18,
+    276.0,
+    275.22,
+    289.21,
+    264.57,
+    257.51,
+    284.74
+  ],
+  "isotropic_upper_by_offset_km_s": [
+    356.326,
+    326.329,
+    302.419,
+    284.506,
+    271.582,
+    265.395,
+    271.582,
+    284.506,
+    302.419,
+    326.329,
+    356.326
+  ],
+  "uniform_anisotropy_envelope": {
+    "central_threshold_abs_beta": 0.01821,
+    "central_upper_km_s": {
+      "0": 265.395,
+      "0.025": 280.113,
+      "0.05": 296.06,
+      "0.075": 313.411,
+      "0.1": 332.38
+    }
+  },
+  "radial_anisotropy_envelope": {
+    "central_threshold_radius_arcsec": 3.1055,
+    "central_upper_km_s": {
+      "1": 386.075,
+      "1.5": 307.61,
+      "2": 290.032,
+      "3": 276.734,
+      "5": 269.572,
+      "10": 266.451
+    }
+  }
+}
