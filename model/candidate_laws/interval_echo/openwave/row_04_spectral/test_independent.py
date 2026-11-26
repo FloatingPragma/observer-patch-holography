@@ -236,18 +236,20 @@ def test_verification_policy_rejects_altered_receipt(receipt, monkeypatch):
     from . import experiment
 
     sample = receipt["boards"][0]["records"][0]["appointments"][0]["arms"]["minus"]
-    for change in ("drop_reset", "zero_reset", "bad_port", "nonfinite"):
+    for change in ("drop_reset", "zero_reset", "bad_port", "nonfinite", "negative_refusal"):
         changed = deepcopy(sample)
         if change == "drop_reset":
             del changed["refused"]["failed_reset"]
         elif change == "zero_reset":
             changed["refused"]["failed_reset"] = 0.
+        elif change == "negative_refusal":
+            changed["refused"]["failed_reset"] = -1e-32
         else:
             changed["ports"][0] = .1 if change == "bad_port" else float("nan")
         monkeypatch.setattr(sys, "argv", ["experiment"])
         monkeypatch.setattr(experiment, "run", lambda: sample)
         monkeypatch.setattr(experiment, "load", lambda _: changed)
-        with pytest.raises(ValueError, match="Fields differ|Numerical replay differs|Nonfinite"):
+        with pytest.raises(ValueError, match="Fields differ|Numerical replay differs|Nonfinite|Missing source outcome|Out-of-range probability"):
             experiment.main()
 
 

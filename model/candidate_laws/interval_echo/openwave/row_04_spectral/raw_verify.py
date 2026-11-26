@@ -15,6 +15,8 @@ from scipy.linalg import expm
 
 
 HERE = Path(__file__).resolve().parent
+if not __debug__:
+    raise RuntimeError("Run the independent oracle without -O so its assertion gates are active")
 DONOR = HERE.parent / "row_30_selective"
 NPZ = HERE.parents[3] / "executable_model" / "carriers"
 BOARD_HASHES = (

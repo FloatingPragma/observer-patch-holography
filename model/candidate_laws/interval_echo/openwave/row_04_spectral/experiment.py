@@ -153,6 +153,13 @@ def compare(a,b,path="root"):
         # Small source-failure probabilities are real records, not numerical zero.
         if not (np.isfinite(a) and np.isfinite(b)):
             raise ValueError(f"Nonfinite: {path}")
+        probability = ("/refused/" in path or "/arms/" in path or "/fidelity/" in path
+                       or "/returns_37/" in path or path.rsplit("/",1)[-1] in
+                       ("dark_weight","two_port_return_37","minimum_bound"))
+        if probability and not (0<=a<=1 and 0<=b<=1):
+            raise ValueError(f"Out-of-range probability: {path}")
+        if "/refused/" in path and (a==0)!=(b==0):
+            raise ValueError(f"Missing source outcome: {path}")
         tol = max(1e-320,2e-12*abs(a)) if "/refused/" in path else 5e-11
         if abs(a-b)>tol:
             raise ValueError(f"Numerical replay differs: {path}")
