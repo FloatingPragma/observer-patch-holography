@@ -70,6 +70,8 @@ def test_enclosures_and_held_forecasts():
         assert report["max_local_response"] > 0.08
         assert report["max_flat_error"] > 0.08
         assert report["max_exchange_off_response"] < 0.001
+        if k == 8:
+            assert report["long_time_local_power_lower"] > {10: 0.098, 12: 0.0817}[n]
 
 
 def test_native_four_panels_replay():

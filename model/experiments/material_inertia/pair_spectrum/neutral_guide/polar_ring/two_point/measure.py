@@ -184,6 +184,7 @@ def decode(panel, shots=SHOTS):
         min_scaled_weight_lower=float(panel["n"] * lo.min()),
         max_scaled_weight_upper=float(panel["n"] * hi.max()),
         summed_weight_lower=float(lo.sum()),
+        long_time_local_power_lower=float(lo.sum() ** 2 / panel["n"]),
         max_pole_error=max(discrepancies),
         max_flat_error=max(flat_errors),
         max_local_response=max(signals),
