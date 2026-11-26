@@ -59,3 +59,25 @@ def test_radial_clocks_on_flat_space_detect_an_off_center_diameter():
         assert low < expected < high
         assert 5.8 < low < high < 6.1
         assert row["axial_shortfall"][0] == pytest.approx(2*r*(1-math.cos(ell)), abs=row["clock_tick"])
+
+
+def test_optimal_five_station_euclidean_range_fits():
+    # Integer coordinates in thirds verify all ten squared distances before
+    # rescaling, including both diameters used in the unrestricted lower bound.
+    nominal = np.array([1, 1, 2, 2, 2, 3, 3, 3, 3, 4])
+    pairs = np.triu_indices(5, 1)
+    for offset, root, high in [
+        (2, 13, [True, True, True, True, False, False, False, False, False, False]),
+        (0, 5, [True, True, True, True, True, False, False, False, False, True]),
+    ]:
+        points = np.array([[0, 0, 0], [3, 0, offset], [-3, 0, offset],
+                           [0, 6, -2 * offset], [0, -6, -2 * offset]])
+        sq = np.sum((points[pairs[0]] - points[pairs[1]]) ** 2, axis=1)
+        if offset:
+            np.testing.assert_array_equal(sq, [13, 13, 52, 52, 36, 81, 81, 81, 81, 144])
+        else:
+            np.testing.assert_array_equal(sq, [9, 9, 36, 36, 36, 45, 45, 45, 45, 144])
+        scale = 6 / (3 + math.sqrt(root))
+        distortion = abs(3 - math.sqrt(root)) / (3 + math.sqrt(root))
+        np.testing.assert_allclose(np.sqrt(sq) * scale / (3 * nominal),
+                                   np.where(high, 1 + distortion, 1 - distortion), atol=1e-14, rtol=0)

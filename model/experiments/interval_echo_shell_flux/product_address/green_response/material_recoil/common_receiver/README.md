@@ -36,6 +36,8 @@ At the third face with mixed source $(1,2,1)$, the blind instrument gave −0.00
 
 This measures a common response for the two mobile material labels. Its amplitude is proportional to supplied source activity. An observer's independent determination of active gravitating mass, proper separation and the coupling of an uninstrumented body would be needed to identify Newton's constant. The ring-lens stress or the small-ball entropy responses do not enter this calibration.
 
+The residue filter, the blind-reference average and the signed acceleration coefficient also have an exact formal check. [Material recoil in Lean](../MaterialRecoil.lean)
+
 ## Independent counts and precision
 
 The source panels share the measured guide trajectories. The phase-preserving full-swap identity transfers the very same address record to each sharp nonzero load assignment, including mixed guides. The simulation propagates integer cohorts for $2^{34}$ independent source releases; all walks reached a drain by appointment 771. Each of 32 panels retains 906,359,897,029 binary outcomes, grouped by arm and the three sensed flags. Marginalizing fair trits and reference choices before drawing the binary outcomes gives their exact material mixture; raw switch choices are unobserved. Green predictions come from an independent boundary-value solve. The forward acquisition computes the phases by summing all native incident diagonal terms and exponentiating the restricted release generator.

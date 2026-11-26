@@ -1512,7 +1512,8 @@
                 "model/experiments/interval_echo_einstein_station/equilibrium_refinement/tracer_flux/bearings/round_trip/README.md",
                 "model/experiments/interval_echo_einstein_station/equilibrium_refinement/tracer_flux/bearings/round_trip/results.json",
                 "code/matched_einstein_limit/fixed_volume/polarized_ranges/README.md",
-                "code/matched_einstein_limit/fixed_volume/polarized_ranges/results.json"
+                "code/matched_einstein_limit/fixed_volume/polarized_ranges/results.json",
+                "code/matched_einstein_limit/fixed_volume/polarized_ranges/PolarizedRanges.lean"
               ],
               "demonstrated_measurement": {
                 "label": "Nine directions predict regional charge on the constant mode and slow triplet",
@@ -1558,7 +1559,7 @@
                 {
                   "law": "Proper geodesic ranges on smooth charts and returned native word transfers",
                   "label": "Scalar curvature from four signed cross distances per axis pair",
-                  "finding": "Ten native angular frames pass radial midpoint checks but fail independent cross distances. Keeping the two measured radii and all four cross ranges in a shrinking bounded-curvature family needs at least 14.59% relative change. Smooth controls yield −1.999385 and +2.000615 for target curvatures −2 and +2.",
+                  "finding": "Ten native angular frames pass radial midpoint checks but fail independent cross distances. With genuinely antipodal geodesic placements, reconciling the two radii and four cross ranges in a shrinking bounded-curvature family requires relative change of at least (3−√5)/(3+√5), about 14.59%. Allowing arbitrary Euclidean placement reduces the minimum to (√13−3)/(√13+3), about 9.17%. Both errors are attained in three dimensions. Smooth controls yield −1.999385 and +2.000615 for target curvatures −2 and +2.",
                   "source": "code/matched_einstein_limit/fixed_volume/polarized_ranges/README.md"
                 }
               ]
