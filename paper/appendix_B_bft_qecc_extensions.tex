@@ -312,10 +312,10 @@ upon receipt of the assembled lock on one. Both decision readers verify
 one. In a separate view change the reports contain locks on opposite
 values from views zero and one. The verified proposal takes the newer
 value. With one equivocating signer and $q=2$, the two readers instead
-verify conflicting decisions. With one silent signer, three honest
+verify conflicting decisions. With one silent signer, three nonfaulty
 validators complete the scheduled phases for $q=3$ and cannot form the
 new-view quorum for $q=4$. The simulation supplies the routes and timeout
-appointments. A bound in elapsed time still requires (A1) and (A4)
+appointments. A bound in elapsed time requires (A1) and (A4)
 (\path{model/experiments/interval_echo_consensus/prepared_quorum/}).
 
 \subsection*{The Petz repair map}
