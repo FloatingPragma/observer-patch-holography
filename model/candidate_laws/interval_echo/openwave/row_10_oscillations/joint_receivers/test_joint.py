@@ -96,3 +96,15 @@ def test_blind_labels_are_frozen_by_training_and_the_validation_is_complete():
         x["balanced_success"] == y["balanced_success"]
         for x, y in zip(results, reassigned, strict=True)
     )
+
+
+def test_a_freely_open_first_loan_edge_does_not_store_the_vacancy():
+    from model.experiments.interval_echo_angular.charged_orientation.live_trimer.measure import (
+        LAW,
+        blocks,
+    )
+
+    assert access()["loan_route"][:2] == [77, 73]
+    material_exchange = blocks()["blank"] / 8
+    i, j = (LAW.SRC.index(w) for w in ((0, 1), (1, 0)))
+    assert material_exchange[j, i] == -1 / 2
