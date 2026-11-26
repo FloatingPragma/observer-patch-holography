@@ -146,8 +146,9 @@ def test_every_existing_law_has_an_explicit_assessment_for_each_required_id():
                 assert set(assessment.SHORT) <= set(row['results']), row['id']
                 assert row['id'] not in ids
                 ids.add(row['id'])
-    assert {'A1', 'A2', 'A3', 'FT-BAND', 'FT-CONFLUENCE', 'GR-NULL'} <= ids
-    assert {f'G{i}' for i in range(1, 7)} <= ids
+    assert {'A1', 'A2', 'A3', 'FT-BAND', 'FT-CONFLUENCE'} <= ids
+    gravity = next(group for group in assessment.definitions() if group['id'] == 'einstein')
+    assert [row['id'] for row in gravity['criteria']] == [f'G{i}' for i in range(1, 7)]
     assert {key for key in ids if key.startswith('OBS-')} == {f'OBS-{i:02}' for i in range(1, 8)}
     ow = assessment.read_json(assessment.HERE / 'openwave_criteria.json')['groups'][0]['criteria']
     assert [(row['id'], row['upstream_number']) for row in ow] == [(f'OW-{i:02}', i) for i in range(1, 32)]

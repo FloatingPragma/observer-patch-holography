@@ -1,0 +1,273 @@
+{
+  "title": "Optional direct null-direction checks",
+  "scope": "Light propagation, angular charge and focusing measurements test particular geometric and material readouts. The ten-timelike-observer theorem determines the Einstein tensor from the independent regional measurements specified by G1–G6.",
+  "theorem": "code/matched_einstein_limit/PROOF.md",
+  "candidate_records": {
+    "interval_echo": {
+      "finding": "Nine angular labels resolve charge components on a supplied reference. Signed focusing, flux, regional energy and clock comparisons test particular probes on selected preparations. A common proper affine calibration and a regional curvature–stress comparison remain open for these optical experiments.",
+      "evidence": [
+        "model/candidate_laws/interval_echo/RESULTS.json",
+        "model/experiments/interval_echo_angular/README.md",
+        "model/experiments/interval_echo_null_balance/README.md",
+        "model/experiments/interval_echo_angular/modular.json",
+        "model/experiments/interval_echo_macro_balance/README.md",
+        "model/experiments/interval_echo_metric_response/README.md",
+        "model/experiments/interval_echo_einstein_station/native_tidal_response/README.md",
+        "model/experiments/interval_echo_einstein_station/native_tidal_response/ROUTING.md",
+        "model/experiments/interval_echo_einstein_station/collar_scaling/results.json",
+        "model/experiments/interval_echo_einstein_station/collar_scaling/ancestor.json",
+        "Lean/ObserverPatchHolography/EinsteinBranch/CollarAdmission.lean",
+        "model/experiments/interval_echo_einstein_station/shared_geometry_probe/results.json",
+        "model/experiments/interval_echo_einstein_station/shared_geometry_probe/flight.json",
+        "Lean/ObserverPatchHolography/EinsteinBranch/RayPairBalance.lean",
+        "model/experiments/interval_echo_null_balance/hidden_current.json",
+        "model/experiments/interval_echo_null_balance/hidden_current.py",
+        "code/matched_einstein_limit/source_implication/null_optics/certificate.json",
+        "code/matched_einstein_limit/source_implication/null_operator/results.json",
+        "code/matched_einstein_limit/source_implication/remote_heads/results.json",
+        "code/matched_einstein_limit/source_implication/shared_radar/certificate.json",
+        "code/matched_einstein_limit/source_implication/shared_radar/results.json",
+        "code/matched_einstein_limit/source_implication/shared_radar/current_area.json",
+        "code/matched_einstein_limit/source_implication/dressed_charge/results.json",
+        "code/matched_einstein_limit/source_implication/dressed_charge/transport.json",
+        "code/matched_einstein_limit/source_implication/common_front/certificate.json",
+        "code/matched_einstein_limit/source_implication/shared_radar/transport.json",
+        "code/matched_einstein_limit/source_implication/shared_radar/aperture/certificate.json",
+        "code/matched_einstein_limit/source_implication/material_clocks/results.json",
+        "code/matched_einstein_limit/source_implication/full_geometry/curved.json",
+        "Lean/ObserverPatchHolography/EinsteinBranch/NestedVolumes.lean",
+        "code/matched_einstein_limit/source_implication/beam_response/certificate.json",
+        "code/matched_einstein_limit/source_implication/action_response/four_ticks.json",
+        "code/matched_einstein_limit/source_implication/action_response/passive_work.json",
+        "code/matched_einstein_limit/source_implication/bisected_diamonds/results.json",
+        "Lean/ObserverPatchHolography/EinsteinBranch/BisectedDiamonds.lean",
+        "code/matched_einstein_limit/source_implication/jacobi_screen/certificate.json",
+        "code/matched_einstein_limit/source_implication/jacobi_screen/source_response.json",
+        "code/matched_einstein_limit/source_implication/directional_stress/certificate.json",
+        "code/matched_einstein_limit/source_implication/directional_stress/improvement.json",
+        "code/matched_einstein_limit/source_implication/modular_orbit/results.json",
+        "code/matched_einstein_limit/source_implication/material_clocks/exterior.json",
+        "Lean/ObserverPatchHolography/EinsteinBranch/StaticMassFlux.lean",
+        "code/matched_einstein_limit/source_implication/modular_orbit/angular_energy/results.json",
+        "code/matched_einstein_limit/source_implication/directional_stress/traction/strain.json",
+        "code/matched_einstein_limit/source_implication/directional_stress/traction/certificate.json",
+        "code/matched_einstein_limit/source_implication/jacobi_screen/coherent_ports/certificate.json",
+        "code/matched_einstein_limit/source_implication/jacobi_screen/coherent_ports/delayed.json",
+        "code/matched_einstein_limit/source_implication/common_front/velocity/README.md",
+        "code/matched_einstein_limit/source_implication/modular_orbit/relative_entropy/README.md",
+        "code/matched_einstein_limit/rate_geometry/README.md",
+        "code/matched_einstein_limit/source_implication/common_front/fringes/results.json",
+        "code/matched_einstein_limit/source_implication/common_front/fringes/counts.json",
+        "code/matched_einstein_limit/source_implication/directional_stress/connection/results.json",
+        "code/matched_einstein_limit/source_implication/directional_stress/connection/late_read.json",
+        "code/matched_einstein_limit/source_implication/directional_stress/connection/sharp_focus.py",
+        "code/matched_einstein_limit/source_implication/directional_stress/connection/sharp_focus.json",
+        "code/matched_einstein_limit/source_implication/directional_stress/connection/README.md",
+        "code/matched_einstein_limit/source_implication/directional_stress/connection/equal_radar.py",
+        "code/matched_einstein_limit/source_implication/directional_stress/connection/equal_radar.json",
+        "code/matched_einstein_limit/source_implication/full_algebra/reuse/CLOCK_HISTORY.md",
+        "code/matched_einstein_limit/source_implication/full_algebra/reuse/full_clock.py",
+        "code/matched_einstein_limit/source_implication/full_algebra/reuse/full_clock.json",
+        "code/matched_einstein_limit/source_implication/full_algebra/reuse/clock_scores.py",
+        "code/matched_einstein_limit/source_implication/full_algebra/reuse/clock_scores.json",
+        "code/matched_einstein_limit/source_implication/full_algebra/reuse/force_forecast.py",
+        "code/matched_einstein_limit/source_implication/full_algebra/reuse/force_forecast.json",
+        "code/matched_einstein_limit/source_implication/directional_stress/connection/force_entropy.py",
+        "code/matched_einstein_limit/source_implication/directional_stress/connection/force_entropy.json",
+        "code/matched_einstein_limit/source_implication/directional_stress/regional_modular/screen_ward.json",
+        "code/matched_einstein_limit/source_implication/directional_stress/regional_modular/optical_certificate.json",
+        "code/matched_einstein_limit/source_implication/full_algebra/reuse/DURATION_GEOMETRY.md",
+        "code/matched_einstein_limit/source_implication/full_algebra/reuse/duration_geometry.json",
+        "code/matched_einstein_limit/source_implication/full_algebra/reuse/metric_forecast.json",
+        "code/matched_einstein_limit/source_implication/full_algebra/reuse/edge_clock_history.json",
+        "code/matched_einstein_limit/source_implication/directional_stress/regional_modular/README.md",
+        "code/matched_einstein_limit/source_implication/directional_stress/regional_modular/regional.json",
+        "code/matched_einstein_limit/source_implication/directional_stress/regional_modular/control.json",
+        "code/matched_einstein_limit/source_implication/directional_stress/regional_modular/energy_odd.json",
+        "code/matched_einstein_limit/source_implication/directional_stress/regional_modular/clock_area/README.md",
+        "code/matched_einstein_limit/source_implication/directional_stress/regional_modular/clock_area/certificate.json",
+        "code/matched_einstein_limit/source_implication/directional_stress/regional_modular/occupation_clock.json",
+        "code/matched_einstein_limit/source_implication/directional_stress/regional_modular/STATION_REGION.md",
+        "code/matched_einstein_limit/source_implication/directional_stress/regional_modular/station_region.json",
+        "code/matched_einstein_limit/source_implication/directional_stress/regional_modular/station_region_counts.json",
+        "code/matched_einstein_limit/source_implication/directional_stress/regional_modular/station_memories/joint.json",
+        "code/matched_einstein_limit/source_implication/directional_stress/regional_modular/station_memories/total.json",
+        "code/matched_einstein_limit/source_implication/full_algebra/reuse/stationary_baths/README.md",
+        "code/matched_einstein_limit/source_implication/full_algebra/reuse/stationary_baths/PROTOCOL.md",
+        "code/matched_einstein_limit/source_implication/full_algebra/reuse/stationary_baths/measure.py",
+        "code/matched_einstein_limit/source_implication/full_algebra/reuse/stationary_baths/results.json",
+        "code/matched_einstein_limit/source_implication/full_algebra/reuse/stationary_baths/certificate.py",
+        "code/matched_einstein_limit/source_implication/full_algebra/reuse/stationary_baths/certificate.json",
+        "code/matched_einstein_limit/source_implication/full_algebra/reuse/stationary_baths/release.py",
+        "code/matched_einstein_limit/source_implication/full_algebra/reuse/stationary_baths/release.json",
+        "code/matched_einstein_limit/source_implication/full_algebra/reuse/stationary_baths/test_baths.py",
+        "code/matched_einstein_limit/source_implication/full_algebra/correlation_rank/README.md",
+        "model/experiments/interval_echo_shell_flux/product_address/green_response/README.md",
+        "model/experiments/interval_echo_shell_flux/product_address/corner_source/README.md",
+        "code/matched_einstein_limit/source_implication/full_algebra/correlation_rank/translation.json",
+        "code/matched_einstein_limit/source_implication/full_algebra/correlation_rank/spatial_cuts/README.md",
+        "code/matched_einstein_limit/source_implication/full_geometry/station_balls/README.md",
+        "code/matched_einstein_limit/source_implication/full_geometry/station_balls/results.json",
+        "code/matched_einstein_limit/source_implication/full_geometry/station_balls/DIRECTIONAL.md",
+        "code/matched_einstein_limit/source_implication/full_geometry/station_balls/directional.json",
+        "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/README.md",
+        "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/results.json",
+        "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/dwell.json",
+        "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/fixed_volume.json",
+        "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/README.md",
+        "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/results.json",
+        "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/live_reference/README.md",
+        "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/live_reference/results.json",
+        "code/matched_einstein_limit/source_implication/full_algebra/correlation_rank/spatial_cuts/chart_transport/adaptive_optics/README.md",
+        "code/matched_einstein_limit/source_implication/full_algebra/correlation_rank/spatial_cuts/chart_transport/adaptive_optics/results.json",
+        "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/formed_ranges/README.md",
+        "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/formed_ranges/results.json",
+        "code/matched_einstein_limit/source_implication/full_geometry/station_balls/formed_optics/README.md",
+        "code/matched_einstein_limit/source_implication/full_geometry/station_balls/formed_optics/certificate.json",
+        "model/candidate_laws/interval_echo/openwave/row_27_metric/formed_pair_clocks/README.md",
+        "model/candidate_laws/interval_echo/openwave/row_27_metric/formed_pair_clocks/results.json",
+        "model/experiments/interval_echo_einstein_station/collar_pairing/fringe_ruler/README.md",
+        "model/experiments/interval_echo_einstein_station/collar_pairing/fringe_ruler/results.json",
+        "model/experiments/interval_echo_einstein_station/collar_pairing/fringe_ruler/certificate.json",
+        "code/matched_einstein_limit/source_implication/full_algebra/reuse/retained_equilibrium/README.md",
+        "code/matched_einstein_limit/source_implication/full_algebra/reuse/retained_equilibrium/results.json",
+        "code/matched_einstein_limit/source_implication/full_algebra/reuse/retained_equilibrium/observer_banks/README.md",
+        "code/matched_einstein_limit/source_implication/full_algebra/reuse/retained_equilibrium/observer_banks/records.json",
+        "code/matched_einstein_limit/source_implication/full_algebra/reuse/retained_equilibrium/collar_family.py",
+        "code/matched_einstein_limit/source_implication/full_algebra/reuse/retained_equilibrium/observer_banks/certificate.json",
+        "code/matched_einstein_limit/source_implication/full_algebra/reuse/retained_equilibrium/nested_ranges/README.md",
+        "code/matched_einstein_limit/source_implication/full_algebra/reuse/retained_equilibrium/bridge_stress/README.md",
+        "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/formed_ranges/affine_stencil/README.md",
+        "code/matched_einstein_limit/source_implication/full_algebra/reuse/retained_equilibrium/regional_energy/README.md"
+      ]
+    },
+    "contrast_memory_spherical_v1": {
+      "finding": "The reviewed native records contain no matched directional curvature and stress comparison.",
+      "evidence": [
+        "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json"
+      ]
+    },
+    "scalar_channel": {
+      "finding": "The native scalar source and the static radial comparison in the spacetime paper are separate constructions.",
+      "evidence": [
+        "model/candidate_laws/scalar_channel/OBLIGATIONS.json"
+      ]
+    }
+  },
+  "comparison_studies": [
+    {
+      "law": "Homogeneous Bianchi I Einstein–scalar source",
+      "label": "Coupled field and geometry from radar and scalar records",
+      "finding": "One calibration of the scalar mass squared, matter coupling and vacuum term predicts six held diagonal Einstein–scalar measurements. The largest Einstein-component error is 0.000279 in source units. Suppressing matter feedback raises the error to 0.5884. This comparison supplies the action, homogeneous geometry, scalar meter and proper clock.",
+      "source": "code/matched_einstein_limit/README.md"
+    },
+    {
+      "law": "Homogeneous semiclassical Einstein geometry coupled to six quantized real scalar oscillators",
+      "label": "Independent stress and radar reads predict tensor components and a later flight",
+      "finding": "After one calibration, quantum pressure and radar give held diagonal Einstein components within 0.00000559 at the finest appointment spacing. Independent source quadratures predict later radar records within 0.00000999 normalized error. The comparison supplies the metric dynamics, quantum matter Hamiltonian and clock.",
+      "source": "code/matched_einstein_limit/quantum_scalar_radar/README.md"
+    },
+    {
+      "law": "Homogeneous semiclassical Einstein geometry coupled to six quantized real scalar oscillators",
+      "label": "Expansion-corrected volume acceleration measures timelike Ricci curvature",
+      "finding": "The independently measured scalar energy and pressures predict the volume-derived Ricci component within 0.000004993 at finest radar spacing. Even contracting flat rays have raw volume acceleration near −14.20, which the measured expansion correction removes.",
+      "source": "code/matched_einstein_limit/quantum_scalar_radar/volume.json"
+    },
+    {
+      "law": "Positive written-field ring Hamiltonian extension",
+      "label": "Ring energy continuity and independent charged-probe spreading",
+      "finding": "An addressed interferometer reads net face energy influx −0.0129025 ± 0.0000893 per exposure. Two phases have identical histories in the ring-energy and current algebra and change the vacancy and excess transport curvatures by 0.092388 and 0.011183. Their proper spacetime curvature and directional pressures require separate measurements.",
+      "source": "model/experiments/interval_echo_einstein_station/field_stress_curvature/README.md"
+    },
+    {
+      "law": "Finite quantized Wilson–Maxwell field in a prescribed periodic box",
+      "label": "Quantum stress with a source-independent optical kernel",
+      "finding": "A one-quantum preparation has resolvable and anisotropic Maxwell pressure. Across 24 weak optical channels on each of three boxes its maximum change of propagation is 2.78 × 10⁻¹⁶. The same readers detect a supplied clock change. The finite optical commutator is state-independent on the enrolled states.",
+      "source": "code/matched_einstein_limit/quantum_stress_control/README.md"
+    },
+    {
+      "law": "Homogeneous semiclassical Einstein geometry coupled to six quantized real scalar oscillators",
+      "label": "Withheld ordinary field stress recovered from fixed-volume area",
+      "finding": "In a semiclassical control with one scalar axis withheld from the energy reader, fixed-volume area infers a source-density change of 0.00674881 at radius 0.1. A separate meter measures 0.00674591 for that axis. This is a prepared bulk scalar mode. A non-luminous anomalous collar charge, its physical radius and universal coupling require independent measurements.",
+      "source": "code/matched_einstein_limit/quantum_scalar_radar/partial_meter.json"
+    },
+    {
+      "law": "Homogeneous semiclassical Einstein geometry with a bilinear quantum-field interaction",
+      "label": "Cross-correlation stress and two independent geometry readouts",
+      "finding": "At equal single-field density matrices, the measured cross covariance forecasts a timelike Einstein contrast of 0.00296540. Radar gives 0.00296837 and equal-volume area gives 0.00296947. With the bilinear interaction removed both geometry records coincide. The supplied classical metric dynamics couple to expected stress.",
+      "source": "code/matched_einstein_limit/quantum_scalar_radar/species_transfer/correlation.json"
+    },
+    {
+      "law": "Homogeneous finite-mode semiclassical Einstein–scalar Hamiltonian",
+      "label": "All-direction null balance from canonical evolution and scalar continuity",
+      "finding": "The Hamiltonian gives the three spatial equations and conserves volume times the time-constraint defect. The initialized regular solution obeys null balance in every direction. Diagonal radar and matter records bound the held all-sky error by 0.00000710 at the finest spacing, rising to 0.04111 without backreaction. This comparison supplies the ADM Hamiltonian and its matter coupling.",
+      "source": "code/matched_einstein_limit/quantum_scalar_radar/null_sky.json"
+    },
+    {
+      "law": "Interval Echo on the prepared two-head equilibrium",
+      "label": "Charge-resolved one-way arrival times on the stationary source",
+      "finding": "A signed sum of twelve readings cancels all endpoint delays. Its four sender contributions have opposite signs for excess and vacancy probes under every positive set of sender gains. The same source permits reconstruction of the parked energy and modular response from independent material clicks.",
+      "source": "code/matched_einstein_limit/source_implication/null_optics/README.md"
+    },
+    {
+      "law": "Interval Echo on the prepared two-head equilibrium",
+      "label": "Area, independent flux and a held relay metric",
+      "finding": "Three timeouts allow either charge to recover the same survey area. Full-rank native polynomial moments allow opposite intercell current responses with the same conserved launch charge and the same ordinary current calibration. An independently calibrated four-hop tetrahedron gives a pairing entropy response ratio between −0.005871 and −0.005732 where +1 is required.",
+      "source": "code/matched_einstein_limit/PROOF.md"
+    },
+    {
+      "law": "Interval Echo on the stationary four-station source",
+      "label": "A signed entropy response at fixed material force and flux",
+      "finding": "Both charges keep the same translation, cut-flux and force readings along an exact fixed-survey-volume curve. The fixed-volume entropy reader resolves a nonzero change. The missing stress contribution must be accessible outside this set of material readings.",
+      "source": "code/matched_einstein_limit/source_implication/full_algebra/correlation_rank/README.md"
+    },
+    {
+      "law": "Interval Echo on the stationary 80-cell survey",
+      "label": "Clock data admit different null curvature at one measured station",
+      "finding": "Fifteen reciprocal six-station lengths on the prepared source admit a smooth spatial three-sphere. Exact length-preserving deformations change the fixed-volume area at order r⁴ and the null curvature at the measured station. Even every centered rest-ball area and volume can agree while a tagged null response differs. Proper areas of twelve tagged sectors on an affinely normalized null wavefront can distinguish the nine independent directional curvature coefficients. The observed station clocks do not supply these areas on shrinking scales.",
+      "source": "code/matched_einstein_limit/source_implication/full_geometry/station_balls/README.md"
+    },
+    {
+      "law": "Interval Echo with enrolled material readers",
+      "label": "Probe-to-probe comparison after station gains cancel",
+      "finding": "On freely formed, stored correlations the two charge probes give opposite signs in 18 of 45 comparisons of source-induced four-station range ratios. All endpoint gains and stable edge factors cancel.",
+      "source": "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/formed_ranges/README.md"
+    },
+    {
+      "law": "Interval Echo coherent two-emitter survey on the formed source",
+      "label": "Two materials resolve the collar phase on independent baselines",
+      "finding": "Two physical perturbations of the same formed source exclude a common path difference times any differentiable scalar wavenumber for each material, even with arbitrary static phase offsets. The clock-inclusive determinant interval is strictly positive. A more general propagation law must independently predict these phase records.",
+      "source": "model/experiments/interval_echo_einstein_station/collar_pairing/fringe_ruler/README.md"
+    },
+    {
+      "law": "Interval Echo time-resolved two-head survey with unitary feedback",
+      "label": "The same two material heads maintain the finite entropy equilibrium across surveys",
+      "finding": "One early-return bit lets native feedback retain the original two heads near a selected equilibrium. At that reference, a volume-matched reduction of pairing at fixed ordinary energy gives a certified positive entropy derivative and exactly the opposing calibrated boundary-area derivative. Independent finite-step counts on another held change also admit the ordinary gain and exclude twice that gain. The geometry is that of the four-station survey.",
+      "source": "code/matched_einstein_limit/source_implication/full_algebra/reuse/retained_equilibrium/README.md"
+    },
+    {
+      "law": "Interval Echo at the retained 80-cell survey",
+      "label": "Pairing can change the late area with two earlier areas and volumes held fixed",
+      "finding": "Four shorter-deadline readings have independent variations even at fixed values of all twelve original ranges. The resulting retained pairing path preserves those four readings while late area decreases and entropy grows at the reference. Earlier return deadlines alone do not identify nested proper balls.",
+      "source": "code/matched_einstein_limit/source_implication/full_algebra/reuse/retained_equilibrium/nested_ranges/README.md"
+    },
+    {
+      "law": "Interval Echo at the retained 80-cell survey",
+      "label": "Holding the vacancy current predicts a falling excess current",
+      "finding": "At fixed survey volume and vacancy current, pairing raises entropy and lowers the independent excess current. On a second curve of fixed entropy and volume the measured work-to-current ratios exclude a common first-order combination of these two contact readings for the two probes.",
+      "source": "code/matched_einstein_limit/source_implication/full_algebra/reuse/retained_equilibrium/bridge_stress/README.md"
+    },
+    {
+      "law": "Interval Echo with a freely formed collar",
+      "label": "Five formed-source clocks distinguish a change beyond common affine motion",
+      "finding": "Positions inferred from five stations at the registered spherical radii change in a way that no common affine displacement of the original tangent chart can reproduce. A weighted second difference cancels every affine field; two material probes give a positive return response to pairing. A local proper radius, a shrinking family and universal stress calibration are separate inputs.",
+      "source": "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/formed_ranges/affine_stencil/README.md"
+    },
+    {
+      "law": "Interval Echo on the retained signed source",
+      "label": "A positive regional energy profile has a held material test",
+      "finding": "Holding the twelve-cell vacancy energy and surveyed volume fixed leaves a strictly negative excess-probe energy change while entropy increases. Even arbitrary nonnegative weights across all cells with equal maxima at both heads transfer less than 0.006 per unit ordinary response. The required ratio exceeds 0.564.",
+      "source": "code/matched_einstein_limit/source_implication/full_algebra/reuse/retained_equilibrium/regional_energy/README.md"
+    }
+  ]
+}
