@@ -28,6 +28,8 @@ A blind Fourier scan of all 220 three-vacancy supports resolves at least eight d
 
 The sign of the finite energetic binding changes the interpretation of a material picture. Opposite inventories on a connected blank graph obey the separate sign-fragment bound, whereas identical defects bind on this cell. Identifying protons, neutrons or particular nuclear isotopes and measuring halo extent and lifetime would require other records. [Opposite-sign comparison](../sign_fragments/README.md) · [Trimer clock protocol](LEVELS.md)
 
+At the weak two-excess line the relative position survey found 97.43% of pairs nonadjacent. Independently cooled excesses on matched cells, conditioned on distinct addresses, gave 99.21%. A repeated separation check gave different first-detection rates at two clock cadences, and far pairs could return. This experiment measures a spatial profile and a monitored crossing; a halo lifetime remains open. [Body-relative shell and return records](outer_pair/README.md)
+
 From the repository root use its scientific Python environment with one numerical thread.
 
 ~~~sh
