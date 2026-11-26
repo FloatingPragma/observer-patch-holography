@@ -1,0 +1,158 @@
+{
+  "code/b14_jacobi/b14_compact_locus.certificate.json": {
+    "current_sha256": "f0cc42613413b91a00b6593a0f79e04aedf6862d3dff3f6c35543eb6cc4eac5f",
+    "indent": 1,
+    "historical_metadata": [
+      [
+        [
+          "certificate_sha256"
+        ],
+        "sha256:d784c4e3154b3c02a2813f2ce341958ec6f251d4e939c3000bd6c581b1c13f45"
+      ],
+      [
+        [
+          "upstream",
+          "stage1_receipt_file_sha256"
+        ],
+        "sha256:c163b40e6e68a7e74c6daf71050573fcdcae324290a2894d2ba295abd5cca4cd"
+      ],
+      [
+        [
+          "upstream",
+          "stage2_receipt_file_sha256"
+        ],
+        "sha256:1a87339b391e76d29abdbc71fed4f70b85ec12e4781c9e090f04537251716dc6"
+      ],
+      [
+        [
+          "upstream",
+          "stage2_system_file_sha256"
+        ],
+        "sha256:3ddf112adbd88439b1736427e32b634e4e8fb01866f19629eac8964666698f74"
+      ]
+    ]
+  },
+  "code/a5_closure/issue_566_bracket_space_stage1/a5_alternating_bracket_space_stage1.receipt.json": {
+    "current_sha256": "40c4d345e4f82e19aac7a51d71495a4a3a2c2585026352dc1c38424dcc16fa7a",
+    "indent": 2,
+    "historical_metadata": [
+      [
+        [
+          "implementation_pins",
+          "independent_verifier_sha256"
+        ],
+        "sha256:6af98a67b0b336b26552628f3b81e938b81dfd6338694ece80dc61d31f9d2ed5"
+      ],
+      [
+        [
+          "implementation_pins",
+          "producer_sha256"
+        ],
+        "sha256:d4ed0cc9d53955e1968b32ab19a46b91f01b8587bf1b7b4536fb06498b8bcd75"
+      ],
+      [
+        [
+          "later_gates",
+          "full_bracket_classification_and_selection_supplied"
+        ],
+        null
+      ],
+      [
+        [
+          "later_gates",
+          "issue_566_closed"
+        ],
+        false
+      ],
+      [
+        [
+          "receipt_sha256"
+        ],
+        "sha256:1c806678814bf72cb6ae72513e4cac945cb5ae649c788939784102ad42db141f"
+      ]
+    ]
+  },
+  "code/a5_closure/issue_566_bracket_space_stage2/a5_jacobi_stage2.receipt.json": {
+    "current_sha256": "e84dd8bcf71d0039a225f47aeb85f4e462d9cb70a897d22ffe8cf41e9d310625",
+    "indent": 2,
+    "historical_metadata": [
+      [
+        [
+          "implementation_pins",
+          "independent_verifier_sha256"
+        ],
+        "sha256:29ddd520f70656e74f503bee5401d229e184a3617d02b3bdf7e87825394e7b89"
+      ],
+      [
+        [
+          "implementation_pins",
+          "producer_sha256"
+        ],
+        "sha256:7e1784f56393584984738b55fa0f76b5bd3e8ede2671c52edaebcf5bedc0c4e2"
+      ],
+      [
+        [
+          "not_attained",
+          "full_bracket_classification_and_selection_supplied"
+        ],
+        null
+      ],
+      [
+        [
+          "not_attained",
+          "issue_566_closed"
+        ],
+        false
+      ],
+      [
+        [
+          "receipt_sha256"
+        ],
+        "sha256:b01ca33d254b65ec0a1a07a0e6327ed836209052b57ba48f87d4c389656319e8"
+      ],
+      [
+        [
+          "semantic_inputs",
+          "paths",
+          "receipt_file_sha256"
+        ],
+        "sha256:c163b40e6e68a7e74c6daf71050573fcdcae324290a2894d2ba295abd5cca4cd"
+      ],
+      [
+        [
+          "semantic_inputs",
+          "paths",
+          "receipt_self_sha256"
+        ],
+        "sha256:1c806678814bf72cb6ae72513e4cac945cb5ae649c788939784102ad42db141f"
+      ],
+      [
+        [
+          "system_artifact",
+          "canonical_json_sha256"
+        ],
+        "sha256:37d3858a1b6988bd05730cf6a934518fb52b987c6ee3de70715916679a471c19"
+      ]
+    ]
+  },
+  "code/a5_closure/issue_566_bracket_space_stage2/a5_jacobi_system_reduction.json": {
+    "current_sha256": "d45b1bcda5648e4514e12589b004f8a10e9cd5da498d69d17303fa99bc1ac011",
+    "indent": 2,
+    "historical_metadata": [
+      [
+        [
+          "upstream",
+          "receipt_file_sha256"
+        ],
+        "sha256:c163b40e6e68a7e74c6daf71050573fcdcae324290a2894d2ba295abd5cca4cd"
+      ],
+      [
+        [
+          "upstream",
+          "receipt_self_sha256"
+        ],
+        "sha256:1c806678814bf72cb6ae72513e4cac945cb5ae649c788939784102ad42db141f"
+      ]
+    ]
+  }
+}
