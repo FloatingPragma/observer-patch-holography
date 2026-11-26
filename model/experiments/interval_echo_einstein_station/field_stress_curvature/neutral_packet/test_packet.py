@@ -51,3 +51,19 @@ def test_one_field_difference_aliases_vacuum():
     assert 0 < lo < hi < 0.018
     assert control["charged_challenge"]["bin_failures"] == 46
     assert control["charged_challenge"]["worst_excluded_probability"] > 0.06469
+
+
+def test_two_neutral_readings_recover_three_source_fractions():
+    from . import hull
+
+    report = hull.run()
+    assert report["coverage_marginals"] == 938
+    lo, hi = report["determinant"]
+    assert 2.8e-5 < lo <= hi < 2.82e-5
+    truth = [(0.75, 0.25, 0), (0.25, 0.75, 0), (0.25, 0.125, 0.625)]
+    for row, weights, rejected in zip(report["held"], truth, (47, 46, 44), strict=True):
+        for (lower, upper), true in zip(row["weights"], weights, strict=True):
+            assert lower <= true <= upper
+            assert upper - lower < 0.012
+        assert row["charged"]["excluded"] == 0
+        assert row["cyclic"]["excluded"] == rejected
