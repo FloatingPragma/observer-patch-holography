@@ -75,7 +75,8 @@
     "Lean/EventAlgebra/InstrumentSelectionByCertainStates.lean",
     "Lean/EventAlgebra/LuedersPhaseInstrument.lean",
     "Lean/EventAlgebra/FiniteProbeInstrumentSelection.lean",
-    "Lean/Dynamics/ChoiCPTP.lean"
+    "Lean/Dynamics/ChoiCPTP.lean",
+    "Lean/EventAlgebra/ComplementaryReturnBound.lean"
    ],
    "model": [
     "code/finite_instrument_calibration/PROOF.md",
@@ -87,11 +88,17 @@
     "model/experiments/interval_echo_consensus/signed_effects/pair_return/README.md",
     "model/experiments/interval_echo_consensus/signed_effects/pair_return/measure.py",
     "model/experiments/interval_echo_consensus/signed_effects/pair_return/results.json",
-    "model/experiments/interval_echo_consensus/signed_effects/pair_return/test_return.py"
+    "model/experiments/interval_echo_consensus/signed_effects/pair_return/test_return.py",
+    "model/experiments/interval_echo_consensus/signed_effects/pair_return/BOUND_PROTOCOL.md",
+    "model/experiments/interval_echo_consensus/signed_effects/pair_return/OBSERVER_BOUND.md",
+    "model/experiments/interval_echo_consensus/signed_effects/pair_return/observer_bound.py",
+    "model/experiments/interval_echo_consensus/signed_effects/pair_return/observer_bound.json",
+    "model/experiments/interval_echo_consensus/signed_effects/pair_return/test_observer_bound.py"
    ],
    "papers": [
     "extra/machine_checked_finite_event_algebras.pdf",
-    "flagship/from_observer_consensus_to_standard_physics.pdf"
+    "flagship/from_observer_consensus_to_standard_physics.pdf",
+    "paper/executable_observer_construction.pdf"
    ]
   },
   {
@@ -3165,7 +3172,9 @@
     "model/candidate_laws/interval_echo/openwave/row_14_profile/README.md",
     "model/candidate_laws/interval_echo/openwave/row_14_profile/records.json",
     "code/defect_particle_classes/PROOF.md",
-    "code/defect_particle_classes/results.json"
+    "code/defect_particle_classes/results.json",
+    "model/candidate_laws/interval_echo/openwave/row_14_profile/scattering/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_14_profile/scattering/results.json"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.pdf"
@@ -5429,9 +5438,16 @@
     "model/candidate_laws/interval_echo/openwave/row_14_profile/records.json",
     "model/candidate_laws/interval_echo/openwave/row_14_profile/test_profile.py",
     "model/candidate_laws/interval_echo/openwave/quark_winding/belt_walls/upper.json",
-    "model/candidate_laws/interval_echo/openwave/quark_winding/written_junction/mass_profile.json"
+    "model/candidate_laws/interval_echo/openwave/quark_winding/written_junction/mass_profile.json",
+    "model/candidate_laws/interval_echo/openwave/row_14_profile/scattering/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_14_profile/scattering/PROTOCOL.md",
+    "model/candidate_laws/interval_echo/openwave/row_14_profile/scattering/measure.py",
+    "model/candidate_laws/interval_echo/openwave/row_14_profile/scattering/readout.py",
+    "model/candidate_laws/interval_echo/openwave/row_14_profile/scattering/results.json"
    ],
-   "papers": []
+   "papers": [
+    "paper/deriving_the_particle_zoo_from_observer_consistency.pdf"
+   ]
   },
   {
    "id": "ow-15-baryon-exact-masses",
@@ -5919,7 +5935,12 @@
     "model/candidate_laws/interval_echo/openwave/row_30_collective/impulse/measure.py",
     "model/candidate_laws/interval_echo/openwave/row_30_collective/impulse/results.json",
     "model/candidate_laws/interval_echo/openwave/row_30_collective/impulse/counts.npz",
-    "model/candidate_laws/interval_echo/openwave/row_30_collective/impulse/test_impulse.py"
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/impulse/test_impulse.py",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/fork/interference/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/fork/interference/PROOF.md",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/fork/interference/experiment.py",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/fork/interference/certificate.py",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/fork/interference/results.json"
    ],
    "papers": [
     "paper/executable_observer_construction.pdf"
@@ -7580,7 +7601,7 @@
    "kind": "premise",
    "name": "declared five-mode exterior component and mask-selection grammar",
    "category": "Construction choices",
-   "status": "Open",
+   "status": "Demonstrated",
    "what": "Matter is drawn from the exterior algebra of a five-mode space, three colour plus two weak modes, filtered by anomaly cancellation.",
    "why": "Inside this grammar the scan leaves two conjugate fifteen-dimensional sectors, the size of one standard-model fermion generation.",
    "premises": [],
@@ -7603,10 +7624,19 @@
     "code/a5_closure/chiral_multiplicity/README.md",
     "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/README.md",
     "code/a5_closure/neutral_observer/README.md",
-    "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/neutral_response/README.md"
+    "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/neutral_response/README.md",
+    "model/experiments/interval_echo_gauge/exterior_register/PROTOCOL.md",
+    "model/experiments/interval_echo_gauge/exterior_register/README.md",
+    "model/experiments/interval_echo_gauge/exterior_register/measure.py",
+    "model/experiments/interval_echo_gauge/exterior_register/material.py",
+    "model/experiments/interval_echo_gauge/exterior_register/coherent.py",
+    "model/experiments/interval_echo_gauge/exterior_register/selection.py",
+    "model/experiments/interval_echo_gauge/exterior_register/results.json",
+    "model/experiments/interval_echo_gauge/exterior_register/test_exterior_register.py"
    ],
    "papers": [
-    "claims/assumption_dictionary.md"
+    "claims/assumption_dictionary.md",
+    "paper/deriving_the_particle_zoo_from_observer_consistency.pdf"
    ],
    "statement": "The exterior-matter receipts use the five-mode carrier V = C^3 + C^2 with charges q = 6Y = (-2, 3), the ten nontrivial isotypic rows of its exterior algebra, and the 2^10 subsets of that table; admissibility requires nonemptiness, no row with its conjugate and vanishing of the four displayed anomaly sums.",
    "premise_kind": "declared"
@@ -9082,7 +9112,8 @@
    "why": "This repeatability property supports the reconstruction of projective measurement and the Born rule from native instruments.",
    "premises": [],
    "lean": [
-    "Lean/EventAlgebra/FiniteProbeInstrumentSelection.lean"
+    "Lean/EventAlgebra/FiniteProbeInstrumentSelection.lean",
+    "Lean/EventAlgebra/ComplementaryReturnBound.lean"
    ],
    "model": [
     "model/experiments/interval_echo_consensus/signed_effects/README.md",
@@ -9092,9 +9123,16 @@
     "model/experiments/interval_echo_consensus/signed_effects/pair_return/README.md",
     "model/experiments/interval_echo_consensus/signed_effects/pair_return/measure.py",
     "model/experiments/interval_echo_consensus/signed_effects/pair_return/results.json",
-    "model/experiments/interval_echo_consensus/signed_effects/pair_return/test_return.py"
+    "model/experiments/interval_echo_consensus/signed_effects/pair_return/test_return.py",
+    "model/experiments/interval_echo_consensus/signed_effects/pair_return/BOUND_PROTOCOL.md",
+    "model/experiments/interval_echo_consensus/signed_effects/pair_return/OBSERVER_BOUND.md",
+    "model/experiments/interval_echo_consensus/signed_effects/pair_return/observer_bound.py",
+    "model/experiments/interval_echo_consensus/signed_effects/pair_return/observer_bound.json",
+    "model/experiments/interval_echo_consensus/signed_effects/pair_return/test_observer_bound.py"
    ],
-   "papers": [],
+   "papers": [
+    "paper/executable_observer_construction.pdf"
+   ],
    "statement": "Each outcome operation of a native measurement instrument leaves unchanged every state that is certain of that outcome. In the finite-probe form, the instrument returns the n coordinate states and their uniform superposition with probability one.",
    "premise_kind": "derivable"
   },

@@ -2579,7 +2579,7 @@
         "Mathlib_exterior_algebra_basis",
         "finite_Z6_character_enumeration"
       ],
-      "oph_specific_delta": "The exact five-mode exterior table, supplied partition sectors, and supplied central weights are connected by one explicit finite character action. Its central-parameter kernel, selected-support kernel, and six-element cardinality agree with the independent tensor-character arithmetic, while source and physical selection are separate. The four anomaly sums equate the five signed chiral multiplicities. Their common integer is fixed to three when the selected rank-three port band is attached to the matter sectors. Vectorlike pairs evade the net count.",
+      "oph_specific_delta": "The exact five-mode exterior table, supplied partition sectors, and supplied central weights are connected by one explicit finite character action. Its central-parameter kernel, selected-support kernel, and six-element cardinality agree with the independent tensor-character arithmetic, while source and physical selection are separate. The four anomaly sums equate the five signed chiral multiplicities. Their common integer is fixed to three when the selected rank-three port band is attached to the matter sectors. Vectorlike pairs evade the net count. On the supplied five-mode register, two stations recover all 32 occupations and agree on all 1,024 mask decisions. The only survivors are the two conjugate 15-dimensional sectors. All 80 remote sign probes distinguish ordered exterior insertion from ordinary insertion. The colour and weak blocks, primitive charges and selection rule are declared.",
       "novelty_type": "typed_finite_exterior_component_and_weight_bridge",
       "evidence": [
         "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
@@ -2589,11 +2589,19 @@
         "Lean/Screen/B10QuantumLimitations.lean",
         "Lean/docs/B10_QUANTUM_LIMITATIONS.md",
         "code/a5_closure/chiral_multiplicity/results.json",
-        "Lean/Screen/ExteriorMultiplicity.lean"
+        "Lean/Screen/ExteriorMultiplicity.lean",
+        "model/experiments/interval_echo_gauge/exterior_register/PROTOCOL.md",
+        "model/experiments/interval_echo_gauge/exterior_register/README.md",
+        "model/experiments/interval_echo_gauge/exterior_register/measure.py",
+        "model/experiments/interval_echo_gauge/exterior_register/material.py",
+        "model/experiments/interval_echo_gauge/exterior_register/coherent.py",
+        "model/experiments/interval_echo_gauge/exterior_register/selection.py",
+        "model/experiments/interval_echo_gauge/exterior_register/results.json",
+        "model/experiments/interval_echo_gauge/exterior_register/test_exterior_register.py"
       ],
       "falsifier": "The bounded package fails if the five-mode exterior census or any component binding changes, the supplied-weight action violates its group laws, its central-parameter kernel differs from the six-element tensor-character kernel, the mapped selected support is empty or noninvariant, its restricted kernel differs, a central element satisfies the excluded universal minus-one condition, or a nonvacuity or mutation control fails.",
       "scope_if_false": "Only the bounded exterior-component or supplied-weight integration packet falls. The abstract Standard Model Lie-type theorem, future source-selected matter, continuum quantum field theory, and every frozen prediction are separately assessed.",
-      "status": "exact_bounded_five_mode_exterior_and_supplied_weight_character_action_attained__source_and_physical_selection_open",
+      "status": "exact_bounded_five_mode_exterior_and_declared_native_character_action_attained__physical_selection_open",
       "claim_class": "conditional_implication",
       "premise_dependencies": {
         "classification": "explicit_edges",
@@ -8638,7 +8646,7 @@
         "kraus_representation_of_completely_positive_maps",
         "uniqueness_of_the_identity_channel_kraus_family_up_to_scalars"
       ],
-      "oph_specific_delta": "Gives a selection theorem where effects alone do not select an instrument: among Kraus-form outcome maps with projective induced effects, certain-state invariance is equivalent to the Lueders map, in both directions, instantiated on the committed phase instrument objects with the swap-twisted alternative as the failing witness, with the committed repeatability clause shown strictly weaker, and with the classical restriction-kernel specialization. A complete finite Kraus instrument can instead be selected by finitely many trusted joint calibration probabilities, without prescribing its induced effects. For a supplied orthonormal basis partitioned into outcome blocks, correct-label survival of each basis state and one uniform coherent state per block of rank greater than one determines every map Phi_y(X)=P_y X P_y exactly when all scores equal one. From certified basis/coherent failure bounds, an explicit outward rational estimate bounds the complete channel in half diamond norm, including arbitrary untouched references and terminal states. Adaptive histories of at most N uses obey the preparation error plus N times that uniform bound. Nonprojective-effect, dephasing, label-swap and repeatability controls retain complete outcomes. Finite zero-failure samples need a sampling contract; quantum semantics, trusted preparation/readback and source custody are not derived. The single-channel unit-return-probability theorem and its scalar-Kraus core are Lean checked in FiniteProbeInstrumentSelection.lean. Complete multi-label probability-one selection and reference-uniform stability are analytic and executable; their quantum and trusted-calibration premises are retained.",
+      "oph_specific_delta": "Gives a selection theorem where effects alone do not select an instrument: among Kraus-form outcome maps with projective induced effects, certain-state invariance is equivalent to the Lueders map, in both directions, instantiated on the committed phase instrument objects with the swap-twisted alternative as the failing witness, with the committed repeatability clause shown strictly weaker, and with the classical restriction-kernel specialization. A complete finite Kraus instrument can instead be selected by finitely many trusted joint calibration probabilities, without prescribing its induced effects. For a supplied orthonormal basis partitioned into outcome blocks, correct-label survival of each basis state and one uniform coherent state per block of rank greater than one determines every map Phi_y(X)=P_y X P_y exactly when all scores equal one. From certified basis/coherent failure bounds, an explicit outward rational estimate bounds the complete channel in half diamond norm, including arbitrary untouched references and terminal states. Adaptive histories of at most N uses obey the preparation error plus N times that uniform bound. Nonprojective-effect, dephasing, label-swap and repeatability controls retain complete outcomes. Finite zero-failure samples need a sampling contract; quantum semantics, trusted preparation/readback and source custody are not derived. The single-channel unit-return-probability theorem and its scalar-Kraus core are Lean checked in FiniteProbeInstrumentSelection.lean. Complete multi-label probability-one selection and reference-uniform stability are analytic and executable; their quantum and trusted-calibration premises are retained. For six rank-two outcomes, four fresh return cohorts per pair bound the error of any later event on the enrolled code by 0.0910, allowing an untouched reference. With the same published first label the fine-address writer exceeds 0.4813 on each pair. The joint confidence is 99% for the specified calibration and independent simulated launches.",
       "novelty_type": "machine_checked_two_sided_selection_of_the_lueders_instrument_by_certain_state_invariance",
       "evidence": [
         "Lean/EventAlgebra/InstrumentSelectionByCertainStates.lean",
@@ -8649,7 +8657,13 @@
         "code/finite_instrument_calibration/PROOF.md",
         "code/finite_instrument_calibration/results.json",
         "code/finite_instrument_calibration/test_certificate.py",
-        "Lean/EventAlgebra/FiniteProbeInstrumentSelection.lean"
+        "Lean/EventAlgebra/FiniteProbeInstrumentSelection.lean",
+        "model/experiments/interval_echo_consensus/signed_effects/pair_return/BOUND_PROTOCOL.md",
+        "model/experiments/interval_echo_consensus/signed_effects/pair_return/OBSERVER_BOUND.md",
+        "model/experiments/interval_echo_consensus/signed_effects/pair_return/observer_bound.py",
+        "model/experiments/interval_echo_consensus/signed_effects/pair_return/observer_bound.json",
+        "model/experiments/interval_echo_consensus/signed_effects/pair_return/test_observer_bound.py",
+        "Lean/EventAlgebra/ComplementaryReturnBound.lean"
       ],
       "falsifier": "A Kraus-form map with projective induced effect fixing the certain states differs from the Lueders map; the Lueders map fails either hypothesis; the swap witness satisfies certain-state invariance; the committed repeatability clause is shown equivalent to certain-state invariance; the phase-instrument instantiation or the classical specialization fails; or the conditional algebraic selection is presented as source selection of the events, preparation, producer, readback, or custody. A complete Kraus instrument passes every trusted finite joint probe but differs from the target outcome maps; the reference-uniform stability or history bound fails; or finite calibration counts are treated as exact probabilities without a sampling contract.",
       "scope_if_false": "Only the selection layer falls; the committed Lueders update, the declared phase instrument, and the effect-table nondetermination witness are separately certified.",
@@ -18352,6 +18366,12 @@
             "keys": [
               "luders1950zustandsanderung",
               "busch1998luders"
+            ]
+          },
+          {
+            "work": "Complementary classical fidelities for a quantum operation",
+            "keys": [
+              "hofmann2005complementary"
             ]
           }
         ]

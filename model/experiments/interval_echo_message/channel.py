@@ -445,6 +445,12 @@ REPLAY_EVALUATIONS = (
         "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
         "model/candidate_laws/interval_echo/EVALUATION.json": "917c60d978effebd6c25a0e0683964a9225ae077fbae05fb313b08ce462b8dcf",
     },
+    # Four-probe returns, exterior register, neutral scattering and remote fork comparison.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "a2bd7b6e64bc4d9948773ffd766c3ffc5d485fb5ae651bf148c49df401f5cf5a",
+    },
 )
 
 
