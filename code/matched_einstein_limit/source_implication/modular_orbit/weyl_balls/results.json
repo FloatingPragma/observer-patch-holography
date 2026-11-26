@@ -1,0 +1,156 @@
+{
+  "model": "stationary charge-symmetric Weyl comparison sector",
+  "box_length": 8.0,
+  "momentum_cutoff": 2.5,
+  "source_dipole": [
+    0.6,
+    -0.3,
+    0.2
+  ],
+  "runs": [
+    {
+      "grid_side": 32,
+      "spacing": 0.25,
+      "floor": 0.001875,
+      "energy_density": 0.040415539124524585,
+      "balls": [
+        {
+          "radius": 0.75,
+          "center": [
+            0,
+            0,
+            0
+          ],
+          "sites": 93,
+          "entropy_change": 0.042982114122509074,
+          "modular_change": 0.0438255262804825,
+          "product_reference_entropy_change": -0.00016374343255165513,
+          "product_reference_modular_change": 0.0,
+          "relative_entropy": 0.0008434121579734277,
+          "relative_entropy_upper_bound": 0.021873155137555778,
+          "weighted_hopping_energy": 0.0659644468242011,
+          "ball_energy_from_density": 0.06731190835016743,
+          "entropy_over_ball_energy": 0.6385514120162686,
+          "entropy_over_weighted_hopping": 0.6515951575711502,
+          "largest_onsite_source_change": 0.0
+        },
+        {
+          "radius": 0.6000000000000001,
+          "center": [
+            0.07500000000000001,
+            0,
+            0
+          ],
+          "sites": 65,
+          "entropy_change": 0.027352982313026075,
+          "modular_change": 0.027731810132906907,
+          "product_reference_entropy_change": -6.817061280628423e-05,
+          "product_reference_modular_change": 0.0,
+          "relative_entropy": 0.0003788278198808316,
+          "relative_entropy_upper_bound": 0.009106435393773309,
+          "weighted_hopping_energy": 0.027474853399992297,
+          "ball_energy_from_density": 0.027570957660228594,
+          "entropy_over_ball_energy": 0.9920940233600608,
+          "entropy_over_weighted_hopping": 0.9955642679801795,
+          "largest_onsite_source_change": 0.0
+        }
+      ]
+    },
+    {
+      "grid_side": 48,
+      "spacing": 0.16666666666666666,
+      "floor": 0.0015,
+      "energy_density": 0.04080164970020077,
+      "balls": [
+        {
+          "radius": 0.6,
+          "center": [
+            0,
+            0,
+            0
+          ],
+          "sites": 179,
+          "entropy_change": 0.022137222637056198,
+          "modular_change": 0.02240325382893492,
+          "product_reference_entropy_change": -4.166480565004349e-05,
+          "product_reference_modular_change": 0.0,
+          "relative_entropy": 0.00026603119187872115,
+          "relative_entropy_upper_bound": 0.006954540444479895,
+          "weighted_hopping_energy": 0.027799176903689212,
+          "ball_energy_from_density": 0.027834357297218074,
+          "entropy_over_ball_energy": 0.79532005717512,
+          "entropy_over_weighted_hopping": 0.7963265500180468,
+          "largest_onsite_source_change": 5.646886315028669e-22
+        },
+        {
+          "radius": 0.48,
+          "center": [
+            0.06,
+            0,
+            0
+          ],
+          "sites": 102,
+          "entropy_change": 0.010052110516028279,
+          "modular_change": 0.010105822426818999,
+          "product_reference_entropy_change": -1.0186764285435856e-05,
+          "product_reference_modular_change": 0.0,
+          "relative_entropy": 5.371191079072031e-05,
+          "relative_entropy_upper_bound": 0.001700343014275117,
+          "weighted_hopping_energy": 0.011466556047277778,
+          "ball_energy_from_density": 0.011400952748940521,
+          "entropy_over_ball_energy": 0.8816903935473648,
+          "entropy_over_weighted_hopping": 0.8766460020412759,
+          "largest_onsite_source_change": 5.646886315028669e-22
+        }
+      ]
+    },
+    {
+      "grid_side": 64,
+      "spacing": 0.125,
+      "floor": 0.00125,
+      "energy_density": 0.04094744752594485,
+      "balls": [
+        {
+          "radius": 0.5,
+          "center": [
+            0,
+            0,
+            0
+          ],
+          "sites": 251,
+          "entropy_change": 0.01123560629892495,
+          "modular_change": 0.01130742426188992,
+          "product_reference_entropy_change": -1.1155804088502919e-05,
+          "product_reference_modular_change": 0.0,
+          "relative_entropy": 7.181796296496998e-05,
+          "relative_entropy_upper_bound": 0.002233951044363465,
+          "weighted_hopping_energy": 0.013536114829726165,
+          "ball_energy_from_density": 0.01347117027718136,
+          "entropy_over_ball_energy": 0.8340482725511084,
+          "entropy_over_weighted_hopping": 0.8300466153146726,
+          "largest_onsite_source_change": 0.0
+        },
+        {
+          "radius": 0.4,
+          "center": [
+            0.05,
+            0,
+            0
+          ],
+          "sites": 134,
+          "entropy_change": 0.0047389199570133655,
+          "modular_change": 0.004752308843170266,
+          "product_reference_entropy_change": -2.2573663613911776e-06,
+          "product_reference_modular_change": 0.0,
+          "relative_entropy": 1.3388886156900058e-05,
+          "relative_entropy_upper_bound": 0.0004520382274854689,
+          "weighted_hopping_energy": 0.005469799533717365,
+          "ball_energy_from_density": 0.005517791345533486,
+          "entropy_over_ball_energy": 0.8588436314920467,
+          "entropy_over_weighted_hopping": 0.8663790926525453,
+          "largest_onsite_source_change": 0.0
+        }
+      ]
+    }
+  ]
+}

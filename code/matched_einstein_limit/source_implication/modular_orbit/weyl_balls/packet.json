@@ -1,0 +1,103 @@
+{
+  "grid_side": 32,
+  "box_length": 8.0,
+  "floor": 0.002,
+  "particle_fraction": 0.65,
+  "launch": [
+    0.0,
+    0.0,
+    -0.45
+  ],
+  "readings": [
+    {
+      "radius": 0.64,
+      "center": [
+        0.0,
+        0.0,
+        -0.45
+      ],
+      "time": 0.0,
+      "occupation_excess": 0.03796050997822607,
+      "weighted_hopping_energy": 0.07334276524087928,
+      "modular_change": 0.06824853016310085,
+      "entropy_change": 0.05794923636414495,
+      "relative_entropy": 0.010299293798955902,
+      "relative_entropy_upper_bound": 0.3609720234987478
+    },
+    {
+      "radius": 0.64,
+      "center": [
+        0.0,
+        0.0,
+        -0.45
+      ],
+      "time": 1.0,
+      "occupation_excess": 0.029176906618997637,
+      "weighted_hopping_energy": 0.05796550812280045,
+      "modular_change": 0.052972737425248405,
+      "entropy_change": 0.046523915905524404,
+      "relative_entropy": 0.006448821519724,
+      "relative_entropy_upper_bound": 0.2132494689012295
+    },
+    {
+      "radius": 0.64,
+      "center": [
+        0.0,
+        0.0,
+        0.45
+      ],
+      "time": 0.0,
+      "occupation_excess": 0.026923410596951615,
+      "weighted_hopping_energy": 0.05332352318076654,
+      "modular_change": 0.04850484195816802,
+      "entropy_change": 0.0429850294683618,
+      "relative_entropy": 0.005519812489806215,
+      "relative_entropy_upper_bound": 0.1815806708847812
+    },
+    {
+      "radius": 0.64,
+      "center": [
+        0.0,
+        0.0,
+        0.45
+      ],
+      "time": 1.0,
+      "occupation_excess": 0.036621433876556066,
+      "weighted_hopping_energy": 0.0709169996585814,
+      "modular_change": 0.06580583654172813,
+      "entropy_change": 0.056161342858523255,
+      "relative_entropy": 0.009644493683204872,
+      "relative_entropy_upper_bound": 0.33595426332038286
+    },
+    {
+      "radius": 0.8,
+      "center": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "time": 0.0,
+      "occupation_excess": 0.06333468228408573,
+      "weighted_hopping_energy": 0.15613524806753637,
+      "modular_change": 0.144767131499895,
+      "entropy_change": 0.10972877237006173,
+      "relative_entropy": 0.035038359129833274,
+      "relative_entropy_upper_bound": 1.004830155317155
+    },
+    {
+      "radius": 0.8,
+      "center": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "time": 1.0,
+      "occupation_excess": 0.06456607808907477,
+      "weighted_hopping_energy": 0.15968154164842205,
+      "modular_change": 0.14809093259560308,
+      "entropy_change": 0.11175173363776025,
+      "relative_entropy": 0.03633919895784282,
+      "relative_entropy_upper_bound": 1.0442831763037328
+    }
+  ]
+}
