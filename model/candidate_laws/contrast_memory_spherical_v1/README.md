@@ -31,8 +31,9 @@ realizes it, the constants on this carrier, and the tests on records.
 ## What comes out
 
 Two loads written on one seam by a local emitter stay together. The port observers of every seam report one
-agreed record, "both ends hold one load", and the pair is read on some seam with probability at least one minus a
-proven bound, at every reading, on one cell and on federations of 20, 80 and 320 cells. It is read on other seams
+agreed record, "both ends hold one load". At the first reading after any duration of free evolution, the pair is
+read on some seam with probability at least one minus the stated bound, on one cell and on federations of 20,
+80 and 320 cells. It is read on other seams
 than the first, and nothing holds it but the law. Remove the agreement energy
 and the pair falls apart (the largest "no pair" probability goes from 0.0096 to 0.80 on 20 cells). At `kappa = 8`:
 

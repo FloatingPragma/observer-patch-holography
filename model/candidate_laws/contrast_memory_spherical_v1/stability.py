@@ -3,11 +3,11 @@
 Observers and records. Every seam has two port observers; they report one agreed record, "both ends hold one
 load". The complete outcome set on the sector of two loads is one record per seam and "no pair"; fuel left in the
 emitter counts as "no pair". The claim is on these records: a pair written on one seam by the local emitter is
-read as a pair on some seam with probability at least one minus the bound at every reading, it is read on other
-seams than the first, nothing holds it but the law, and the law with the agreement energy removed loses it.
+read as a pair on some seam with probability at least one minus the bound at the first reading after free
+evolution. It is read on other seams than the first, and the law with the agreement energy removed loses it.
 
-The bound holds at every value of the evolution parameter, so it holds whenever an observer reads. The sampled
-parameter values, the levels and the state vectors below are audit.
+Each sample uses a fresh preparation and an uninterrupted free flight. The sampled parameter values, the levels
+and the state vectors below are audit.
 
     python -m model.candidate_laws.contrast_memory_spherical_v1.stability          # one cell and 20 cells
     python -m model.candidate_laws.contrast_memory_spherical_v1.stability --full   # also 80 and 320 cells, the face object on 20 cells

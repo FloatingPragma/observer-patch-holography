@@ -7,6 +7,7 @@ import math
 import numpy as np
 import pytest
 from scipy import sparse
+from scipy.linalg import expm
 
 from model.executable_model import carrier as cr
 from . import law, stability, theorem, verify
@@ -92,6 +93,31 @@ def test_probability_bound_against_a_run(key):
     da, db = (int(car.degree[v]) for v in seam)
     assert worst <= record_bound(KAPPA, c['adjacent_block_largest_level'], c['coupling_largest_singular_value'], da, db)
     assert worst <= theorem_bound(KAPPA, 64.0)
+
+
+def test_complete_repeated_readings_can_exceed_the_free_emitter_bound():
+    sector = PairSector(cr.cell())
+    h = sector.hamiltonian(KAPPA)
+    state, _ = emit(h, sector.index(0, 1), 64.0)
+    fuel = abs(state[0]) ** 2  # The fuel decouples after the emitter pulse.
+    rho = np.outer(state[1:], state[1:].conj())
+    flight = expm(-1j * (np.pi / 16) * h.toarray())
+    # Distinct seam outcomes are orthogonal. All separated pairs share one quiet outcome.
+    quiet = ~sector.adjacent
+    same_outcome = np.eye(sector.P, dtype=bool) | np.outer(quiet, quiet)
+    readings = {}
+    for n in range(1, 201):
+        rho = (flight @ rho @ flight.conj().T) * same_outcome
+        if n in (1, 100, 200):
+            readings[n] = fuel + rho.diagonal()[quiet].real.sum()
+    assert [readings[n] for n in (1, 100, 200)] == pytest.approx(
+        [0.012802793824, 0.448793890194, 0.506936158729], abs=1e-10, rel=0)
+
+    # Omit exchange during each finite window. The diagonal evolution preserves each outcome
+    # of the dephased material state. On one cell 0 <= K <= 10, also with the idle fuel level,
+    # so centering K at 5 costs at most 5*tau in trace distance per window (global phase).
+    tau = 1 / 16384
+    assert readings[200] - 200 * 5 * tau > theorem_bound(KAPPA, 64.0) + 12 * tau
 
 
 # ------------------------------------------------------------------------------------- headline and controls

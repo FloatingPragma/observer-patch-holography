@@ -156,9 +156,9 @@ predicate ``both ends hold one load'', and a record is admitted when both
 copies are valid and agree (Section~\ref{sec:instruments}). State vectors,
 levels of the law, the evolution parameter and positions in a sequence of
 events are tools of the calculation. A statement that uses them is labelled as audit, and no reader
-uses them. A bound that holds for every value of the evolution parameter
-holds at every reading in any observer's own history, and it is written in
-that form. No common clock is assumed: each port counts the events of its
+uses them. The free binding bound applies to the first complete seam
+reading after any duration of uninterrupted evolution. A previous reading
+changes the state supplied to the next one. Each port counts the events of its
 own seams, and that count is a local clock of its observer
 (Section~\ref{sec:events}). Under Interval Echo an observer patch carries
 its clock with it as it moves (Section~\ref{sec:echo}).
@@ -766,7 +766,8 @@ in the sector of two loads, and the complete seam reading of
 Section~\ref{sec:reader} has one outcome for each seam and the outcome ``no
 pair''. The left-hand side of \eqref{eq:binding} is the probability of ``no
 pair''. A pair that starts on a seam is therefore read as a pair on some
-seam with probability at least $1-40/(2\kappa-6)^2$ at every reading. The
+seam with probability at least $1-40/(2\kappa-6)^2$ at the first reading
+after any duration of free evolution. The
 value $t$ is audit. No translation invariance, preferred centre or global
 observer enters the proof.
 
@@ -819,7 +820,7 @@ $PH_\kappa P$ is $10\kappa+5$, the lowest level of $QH_\kappa Q$ is
 $\min\bigl(12\kappa+4-\sqrt6,\ 24\kappa\bigr)$, and
 $\lVert QH_\kappa P\rVert=2$. For $\kappa>(1+\sqrt6)/2$ a state supported in
 $\ran P$ is read as ``no pair'' with probability at most
-$16/(2\kappa-1-\sqrt6)^{2}$ at every reading.
+$16/(2\kappa-1-\sqrt6)^{2}$ at the first reading after any duration of free evolution.
 \end{proposition}
 
 \begin{proof}
@@ -971,6 +972,15 @@ reading is never used to hold the object in place: after an ideal complete
 reading the loads are in the mixture
 $\rho\mapsto\sum_eP_e\rho P_e+Q\rho Q$ with $P_e$ the projector on the pair
 on the seam $e$, which is a different state from the unread one.
+
+For example, on one cell let the emitter on seam $(0,1)$ act with
+$g=64$ and $\kappa=8$. Alternate free flights of duration $\pi/16$ with
+complete seam readings, retaining every outcome. Iterating the displayed
+map on the emitted state gives probabilities $0.012803$, $0.448794$ and
+$0.506936$ for ``no pair'' at the first, hundredth and two hundredth
+ideal readings. Fuel left in the emitter counts as ``no pair'' throughout.
+The free bound with emitter error is $0.431861$ rounded up. Thus even the
+unconditional probability in a monitored run can exceed the free bound.
 
 \subsection{Interference and Bell correlations in the observer records}
 
@@ -1325,17 +1335,20 @@ one record for each seam and the outcome ``no pair''; fuel left in the
 emitter counts as ``no pair''.
 
 \emph{Claim.} A pair of loads written on one seam by a local emitter is read
-as a pair on some seam with probability at least one minus the bound,
-whenever the observers read. It is read on other seams than the first.
+as a pair on some seam with probability at least one minus the emitter
+bound at the first ideal complete reading after free evolution.
+Proposition~\ref{prop:reader} gives the error of a finite reading.
+The pair is read on other seams than the first.
 Nothing holds it except the law. Under the same law without the agreement
 energy the record is lost.
 
-\emph{Clock.} The claim uses none. The bound holds at every value of the
-evolution parameter, hence at every reading in any observer's own history.
-The sampled values of the parameter below are audit.
+\emph{Clock.} The first reading may occur after any duration of free
+evolution. The sampled values of the evolution parameter below are audit.
+For a second reading the initial state is the output of the first instrument
+(Section~\ref{sec:reader}).
 
 \emph{What counts against the claim.} ``No pair'' above the bound at a
-reading; no level of two loads below the energy of two free loads, an
+first reading after free evolution; no level of two loads below the energy of two free loads, an
 audit on the spectrum; or a changed law with the same alphabet, routing and
 symmetry that gives the same answer on the whole property.
 
@@ -4276,7 +4289,7 @@ against each.}
 \toprule
 Experiment & Prediction & Counts against it \\
 \midrule
-A pair written on one seam, read later, $\kappa>3$ & no pair with probability at most $40/(2\kappa-6)^2$ on every federation; at most $0.0097$ at $\kappa=8$ on $1$ to $320$ cells & a larger probability at some reading \\
+A pair prepared on one seam, first read after free evolution, $\kappa>3$ & no pair with probability at most $40/(2\kappa-6)^2$ for ideal preparation and reading on every federation; largest computed value with the local emitter below $0.0097$ at $\kappa=8$ on $1$ to $320$ cells & a first-read probability above its bound \\
 The same law without the agreement energy & no pair with probability up to $0.80$ on $20$ cells & a pair that is kept \\
 Rounds of seam events in any order, with unequal rates of the ports & the pair is kept & a loss of the pair under rounds \\
 Two readings of a pair, $\kappa=8$, one cell & equal first answers; later records that differ by more than $0.0817$ in total variation; one event at $0.0183$ against $0.1029$ & equal laws of the later records \\

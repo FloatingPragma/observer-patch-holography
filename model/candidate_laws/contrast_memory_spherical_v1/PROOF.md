@@ -97,7 +97,7 @@ $a = 10\kappa + 6$, $c = 12\kappa$, $\beta = \sqrt{10}$, $\gamma = 2\kappa - 6$,
 
 $$\Pr(\text{no pair on a seam};\, t) \le \frac{40}{(2\kappa - 6)^2}$$
 
-at every value of the evolution parameter, hence at every reading of every observer. The bound does not depend on
+at the first ideal seam reading after any duration of free evolution. The bound does not depend on
 the number of cells or on the routing of the external seams. At $\kappa = 128$ it is $40/250^2 = 0.00064$.
 
 The dressed band $\operatorname{ran}\Pi$ is invariant under the law. The bare outcome "no pair" also contains its virtual
@@ -178,9 +178,10 @@ Duhamel's formula gives $\|U_{\rm actual} - U_{\rm ref}\| \le \tau_{\rm read}\|K
 nonnegative diagonal at most $\Delta = 6$ and off-diagonal absolute sum equal to it, so $\|K\| \le 12$, and the total
 variation between the public laws is at most $12\,\tau_{\rm read}$, for any number of seams read in parallel. At
 $\tau_{\rm read} = 1/16384$ this is $3/4096$, and the probability that the public records show no agreed pair after the
-emitter at $\kappa = 128$ is at most $64009/25600000 + 3/4096 = 0.0032327734375$ at every reading. After one complete
-read round the ideal reader acts as $\rho \mapsto \sum_e P_e \rho P_e + Q\rho Q$, each branch on a seam is a pair covered by
-Theorem 2, and later "no pair" stays below $0.0025003515625 + 0.00064 + 0.000732421875 = 0.0038727734375$.
+emitter at $\kappa = 128$ is at most $64009/25600000 + 3/4096 = 0.0032327734375$ at the first finite reading.
+The ideal complete reader acts as $\rho \mapsto \sum_e P_e \rho P_e + Q\rho Q$. Each seam branch is covered by
+Theorem 2. Including the error of the first finite reading gives a bound of
+$0.0025003515625 + 0.00064 + 0.000732421875 = 0.0038727734375$ for an ideal second reading after free evolution.
 
 The finite readout of one cell propagates all 161,792 states (78 two-load states, the fuel and 2048 reader words)
 with the law acting in every stage: the public total-variation error is $2.09 \times 10^{-7}$ against the bound

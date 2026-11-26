@@ -162,15 +162,16 @@ start of the window by at most $12\,\tau_{\rm read}$ in total variation on every
 **What the tests compare.** The state of the simulation does not contain the physical Universe or its spacetime.
 Every test of the model is a statement about the probabilities of admissible observer records: here the agreed
 seam records and the face records. The state vector, the levels, the evolution parameter and positions in a
-sequence of events are tools of the calculation (audit). A bound that holds at every value of the evolution
-parameter holds at every reading of every observer. A difference between state encodings is no failure of the
+sequence of events are tools of the calculation (audit). Free evolution for any duration supplies the state for
+the first seam reading. A later reading takes the output of the preceding instrument as its preparation.
+A difference between state encodings is no failure of the
 model, and a resemblance between them is no success. "Read on other seams" is the observable meaning of motion.
 
 **Particle stability, the observable.** A pair of loads written on one seam by the emitter is read as a pair on
-some seam with probability at least one minus the bound of the theorem at every reading; it is read on other
+some seam with probability at least one minus the emitter bound at the first complete reading after free evolution; it is read on other
 seams than the first; nothing holds it but the law; and the law with the agreement energy removed loses it. Audit
 on the spectrum adds that the lowest level of two loads lies below two free loads and is a pair on a seam with
-probability above one half. What counts against the claim: "no pair" above the bound at a reading; no level below
+probability above one half. What counts against the claim: "no pair" above the bound at that first reading; no level below
 two free loads; a changed law with the same alphabet, routing and symmetry that gives the same answer on the whole
 property. [stability.py](stability.py) implements the test; `test_model.py` checks that each part fails under a
 changed law, start or reader.
