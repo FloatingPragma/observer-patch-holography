@@ -3,6 +3,7 @@ import json
 
 import numpy as np
 
+from ..electron_field import replay
 from . import measure
 
 
@@ -49,7 +50,10 @@ def test_complete_records_and_previous_held_impulse_comparison():
     )
     for tag, panel in receipt["materials"].items():
         source = panel["sources"]
-        assert measure.compare(source) == panel["comparison"]
+        # Interval ends are binary64 dot products of the stored counts with their levels;
+        # the platform BLAS can differ in the last bit.
+        comparison = json.loads(json.dumps(measure.compare(source)))
+        replay.compare(comparison, panel["comparison"], f"row_15/{tag}")
         for row in source.values():
             for what in ("energy", "curvature"):
                 bank = row[what]
