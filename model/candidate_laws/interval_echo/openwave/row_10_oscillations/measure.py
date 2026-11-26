@@ -139,7 +139,7 @@ def enrol_matrix(states, strength, cut):
     return h8 / 8
 
 
-def sector_fields(strength, cut):
+def sector_fields(strength, cut, times=TIMES):
     """Each local vector is unnormalized. Outside the owner all other records match."""
     by_owner = {owner: [] for owner in OWNERS}
     for mask in range(4):
@@ -148,7 +148,7 @@ def sector_fields(strength, cut):
         if strength == 8 and not cut:
             np.testing.assert_array_equal(h, native)
         vals, vecs = eigh(h, driver="evd")
-        evolved = (np.exp(-1j * np.outer(TIMES, vals)) * vecs[0]) @ vecs.T
+        evolved = (np.exp(-1j * np.outer(times, vals)) * vecs[0]) @ vecs.T
         index = {s: i for i, s in enumerate(states)}
         for owner in OWNERS:
             ports = receiver(owner)
