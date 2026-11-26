@@ -34,6 +34,8 @@ $$P_{\rm home}(t)\ \ge\ 1-(7/8)^N-(E+\ell+N)2^{-N}.$$
 
 There are $E$ potential write timeouts, one commissioning hop, $\ell$ prefix hops and at most $N-1$ returns. The separate $(7/8)^N$ term accounts for no successful five-query word. For bare fuel replace $E2^{-N}$ by $E(3/4)^N$ on the stated strength range. The bound may be uninformative at small caps; the branch recurrence computes actual probabilities there. At $N=96$ the dominant loss is about $2.709\times10^{-6}$ from exhaustion. On the largest board the matched lower bound clears 0.94 first at $N=22$ and 0.98 at $N=30$. The conservative bare-fuel lower bound clears them at 43 and 47, respectively. The budget controls yield; an accepted source has the same signed ray for any positive cap.
 
+Stopping at first success on the same initial load instead of imposing a cap terminates almost surely for matched fuel. It takes $2E$ fuel exposures in expectation. Once the load reaches the parent, the two signs each take eight attempts, nineteen five-word query steps and three leaf resets in expectation. The mean counts follow by summing the five first-refusal rows: their mass at parent, left and right is $1/2,5/16,1/16$. A finite cap needs none of this stopping-time idealization.
+
 ## Why the load stays, and what escapes
 
 Write $A$ for the adjacency of actually flippable histories, $d$ for their degrees and $r=6-\deg_{\rm physical}$ for the original blank reference at the occupied port. Apart from the common seam energy, the free Hamiltonian on this sector is
@@ -50,6 +52,8 @@ This formula applies at $\kappa=0$ without division. Each target consists of two
 | Same populations, rate-matched independent swaps | 0.374998776339 | 0.374999202737 |
 
 The positive-phase controls cross the source cell boundary with probabilities 0.073053 and 0.044729 at that appointment. At zero coupling both flight laws are stationary and their agreement carries no discrimination. The two alternate orderings of the donor do not reach the named incoming histories. The donor also reported a staggered definition of spatial phase, with five spectral matches instead of one; it is separate from the primary wavelength measurement.
+
+**A terminal measurement of the phase and the path prefix.** A two-port location count alone cannot tell the two histories apart. On a fresh released copy, read the head bit on (0,1), reverse the five queries, and read parent occupation. Neither leaf is measured during the successful comparison. In the full accessible sector the click effect of this reader is exactly $|D\rangle\langle D|/8$ for the chosen normalized signed ray and prefix. At strength 8 and exposure 37 it gives 0.124999661403 over original starts on the matching source, 0.062499830702 after dephasing, and zero on the other prefix or initial positive sign. All failed comparisons and all preparation refusals are kept. [Selective effects and complementary records](phase_reader.py) · [Terminal records](phase.json)
 
 | Native cells | Written seams | Complete reachable configurations | Worst all-exposure lower bound, bare fuel, magnitude at most 128 |
 |---:|---:|---:|---:|
@@ -73,6 +77,7 @@ From the repository root with the `model/requirements.txt` environment:
 python -B -W error -m model.candidate_laws.interval_echo.openwave.row_04_spectral.experiment
 python -B -W error -m model.candidate_laws.interval_echo.openwave.row_04_spectral.budgets
 python -B -W error -m model.candidate_laws.interval_echo.openwave.row_04_spectral.transfer_clock
+python -B -W error -m model.candidate_laws.interval_echo.openwave.row_04_spectral.phase_reader
 python -B -W error -m pytest -q model/candidate_laws/interval_echo/openwave/row_04_spectral
 ```
 
