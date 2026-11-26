@@ -4127,7 +4127,8 @@
    ],
    "lean": [
     "Lean/ObserverPatchHolography/CapacityNonidentifiability.lean",
-    "Lean/ObserverPatchHolography/GlobalCapacityAttachment.lean"
+    "Lean/ObserverPatchHolography/GlobalCapacityAttachment.lean",
+    "model/experiments/interval_echo_consensus/publication_tree/mounted_capacity/Frame.lean"
    ],
    "model": [
     "model/candidate_laws/interval_echo/openwave/row_28_acceleration/README.md",
@@ -4155,7 +4156,9 @@
     "code/capacity_readback/runtime/global_capacity_attachment_receipt.json",
     "code/capacity_readback/verify_global_capacity_attachment_independent.py",
     "model/candidate_laws/interval_echo/openwave/row_28_acceleration/cut_code.py",
-    "code/cosmology/screen_coherence/observer_zero_capacity.json"
+    "code/cosmology/screen_coherence/observer_zero_capacity.json",
+    "model/experiments/interval_echo_consensus/publication_tree/mounted_capacity/README.md",
+    "model/experiments/interval_echo_consensus/publication_tree/mounted_capacity/veto.json.gz"
    ],
    "papers": [
     "cosmology/oph_cosmological_vacuum_and_structure_formation.pdf",
@@ -4165,7 +4168,8 @@
     "evidence/custody/falsification/frozen_targets/fz01_2026-07-17/frozen_target_capacity_band_2026-07-17.md",
     "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf",
     "paper/observers_are_all_you_need.pdf",
-    "claims/physical_identification_registry.json"
+    "claims/physical_identification_registry.json",
+    "paper/screen_microphysics_and_observer_synchronization.pdf"
    ]
   },
   {
@@ -5053,7 +5057,8 @@
     "PR-157"
    ],
    "lean": [
-    "model/candidate_laws/interval_echo/openwave/row_03_clock/released_direction/InternalBand.lean"
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/released_direction/InternalBand.lean",
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/wall_arrival/WallBand.lean"
    ],
    "model": [
     "model/evaluation/SCORECARD.md",
@@ -5073,7 +5078,17 @@
     "model/candidate_laws/interval_echo/openwave/row_03_clock/released_direction/flight.py",
     "model/candidate_laws/interval_echo/openwave/row_03_clock/released_direction/measure.py",
     "model/candidate_laws/interval_echo/openwave/row_03_clock/released_direction/records.json.gz",
-    "model/candidate_laws/interval_echo/openwave/row_03_clock/released_direction/test_direction.py"
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/released_direction/test_direction.py",
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/wall_arrival/PROOF.md",
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/wall_arrival/PROTOCOL.md",
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/wall_arrival/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/wall_arrival/apparatus.py",
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/wall_arrival/counts.npz",
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/wall_arrival/eighth_port.py",
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/wall_arrival/measure.py",
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/wall_arrival/rational_lines.py",
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/wall_arrival/results.json",
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/wall_arrival/test_clock.py"
    ],
    "papers": [
     "paper/executable_observer_construction.pdf"
@@ -5655,10 +5670,26 @@
     "code/cosmology/rar_deep_regime/double_ring_pressure/stress_conservation/README.md",
     "code/cosmology/rar_deep_regime/double_ring_pressure/stress_conservation/results.json",
     "code/cosmology/rar_deep_regime/double_ring_pressure/resolved_kinematics/README.md",
-    "code/cosmology/rar_deep_regime/double_ring_pressure/resolved_kinematics/results.json"
+    "code/cosmology/rar_deep_regime/double_ring_pressure/resolved_kinematics/results.json",
+    "model/experiments/material_inertia/pair_spectrum/neutral_guide/PROOF.md",
+    "model/experiments/material_inertia/pair_spectrum/neutral_guide/PROTOCOL.md",
+    "model/experiments/material_inertia/pair_spectrum/neutral_guide/README.md",
+    "model/experiments/material_inertia/pair_spectrum/neutral_guide/charge_identity.py",
+    "model/experiments/material_inertia/pair_spectrum/neutral_guide/free_reader.py",
+    "model/experiments/material_inertia/pair_spectrum/neutral_guide/free_results.json",
+    "model/experiments/material_inertia/pair_spectrum/neutral_guide/guide.py",
+    "model/experiments/material_inertia/pair_spectrum/neutral_guide/measure.py",
+    "model/experiments/material_inertia/pair_spectrum/neutral_guide/release.py",
+    "model/experiments/material_inertia/pair_spectrum/neutral_guide/rest.py",
+    "model/experiments/material_inertia/pair_spectrum/neutral_guide/rest_results.json",
+    "model/experiments/material_inertia/pair_spectrum/neutral_guide/results.json",
+    "model/experiments/material_inertia/pair_spectrum/neutral_guide/test_charge_identity.py",
+    "model/experiments/material_inertia/pair_spectrum/neutral_guide/test_guide.py",
+    "model/experiments/material_inertia/pair_spectrum/neutral_guide/CHARGE.md"
    ],
    "papers": [
-    "paper/executable_observer_construction.pdf"
+    "paper/executable_observer_construction.pdf",
+    "paper/deriving_the_particle_zoo_from_observer_consistency.pdf"
    ]
   },
   {
@@ -6238,7 +6269,7 @@
    "kind": "premise",
    "name": "confluent terminating repair contract",
    "category": "Construction choices",
-   "status": "Partial",
+   "status": "Demonstrated",
    "what": "Local repair moves fix every covered mismatch, overlapping repairs reconcile to a common result, and every accepted repair strictly lowers a well-founded measure.",
    "why": "It makes repair terminate and lets observers with equal protected readings reach the same final records whatever the order of repairs.",
    "premises": [],
@@ -6246,7 +6277,8 @@
     "model/experiments/interval_echo_consensus/routed_counts/Census.lean",
     "Lean/ObservableNormalForms/ObservableNormalForms/ObserverConfluence.lean",
     "model/experiments/interval_echo_consensus/flight_records/NormalForm.lean",
-    "Lean/ObserverPatchHolography/Execution/MeasuredRepairBallots.lean"
+    "Lean/ObserverPatchHolography/Execution/MeasuredRepairBallots.lean",
+    "model/experiments/interval_echo_consensus/transaction_component/confluence/Repair.lean"
    ],
    "model": [
     "model/experiments/interval_echo_consensus/routed_counts/README.md",
@@ -6258,10 +6290,17 @@
     "model/experiments/interval_echo_consensus/boolean_nodes/repair_ballots/README.md",
     "model/experiments/interval_echo_consensus/boolean_nodes/repair_ballots/measure.py",
     "model/experiments/interval_echo_consensus/boolean_nodes/repair_ballots/results.json",
-    "model/experiments/interval_echo_consensus/boolean_nodes/repair_ballots/test_ballots.py"
+    "model/experiments/interval_echo_consensus/boolean_nodes/repair_ballots/test_ballots.py",
+    "model/experiments/interval_echo_consensus/transaction_component/confluence/PROTOCOL.md",
+    "model/experiments/interval_echo_consensus/transaction_component/confluence/README.md",
+    "model/experiments/interval_echo_consensus/transaction_component/confluence/apparatus.py",
+    "model/experiments/interval_echo_consensus/transaction_component/confluence/measure.py",
+    "model/experiments/interval_echo_consensus/transaction_component/confluence/records.json.gz",
+    "model/experiments/interval_echo_consensus/transaction_component/confluence/test_confluence.py"
    ],
    "papers": [
-    "extra/observable_normal_forms.pdf"
+    "extra/observable_normal_forms.pdf",
+    "paper/reality_as_consensus_protocol.pdf"
    ],
    "statement": "Declared repair moves close every covered local mismatch, overlapping moves complete to a common local diamond on the protected observation quotient, and every accepted nontrivial transaction strictly lowers one declared well-founded measure. Normal endpoints from sources with equal protected observation then agree exactly when the observation identifies consistent states.",
    "premise_kind": "declared"
@@ -9363,16 +9402,29 @@
    "kind": "premise",
    "name": "capacity readback branch choices",
    "category": "Construction choices",
-   "status": "Open",
+   "status": "Partial",
    "what": "The capacity readback takes one option on each of six declared menus: reserve semantics, attachment, count effect, marking, symmetry quotient and readout family.",
    "why": "The numerical capacity, and the cosmological constant derived from it, depend on which option is taken on each menu.",
    "premises": [],
-   "lean": [],
+   "lean": [
+    "model/experiments/interval_echo_consensus/publication_tree/mounted_capacity/Frame.lean"
+   ],
    "model": [
     "code/capacity_readback/F_CONSTRUCTION_2026-07-14.md",
-    "code/capacity_readback/capacity_semantics_menu_certificate.py"
+    "code/capacity_readback/capacity_semantics_menu_certificate.py",
+    "model/experiments/interval_echo_consensus/publication_tree/mounted_capacity/PROTOCOL.md",
+    "model/experiments/interval_echo_consensus/publication_tree/mounted_capacity/README.md",
+    "model/experiments/interval_echo_consensus/publication_tree/mounted_capacity/VETO_PROTOCOL.md",
+    "model/experiments/interval_echo_consensus/publication_tree/mounted_capacity/apparatus.py",
+    "model/experiments/interval_echo_consensus/publication_tree/mounted_capacity/measure.py",
+    "model/experiments/interval_echo_consensus/publication_tree/mounted_capacity/records.json.gz",
+    "model/experiments/interval_echo_consensus/publication_tree/mounted_capacity/test_frames.py",
+    "model/experiments/interval_echo_consensus/publication_tree/mounted_capacity/veto.json.gz",
+    "model/experiments/interval_echo_consensus/publication_tree/mounted_capacity/veto.py"
    ],
-   "papers": [],
+   "papers": [
+    "paper/screen_microphysics_and_observer_synchronization.pdf"
+   ],
    "statement": "The capacity readback selects one branch on each declared menu: BR-1 reserve semantics (Poisson survival e^(-P/24), presence survival 1 - P/24, or no exclusion), BR-2 reserve attachment (one unit per equal-area cell, or reserve priced on the 3K shared edges), BR-3 count effect of the readback record (X+, X0, X-, X=), BR-4 subfederation marking (K0, K1, K2), BR-5 symmetry quotient (S-, S0, S+) and BR-6 the Cap_read family (CAP-L and three alternatives, CAP-B barred).",
    "premise_kind": "declared"
   },

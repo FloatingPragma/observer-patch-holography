@@ -278,3 +278,24 @@ def test_measured_premises_preserve_the_candidate_and_reject_duplicate_sources(t
     candidate.PREMISES['PR-1'] = {'status': 'open'}
     with pytest.raises(SystemExit, match='duplicate premise assessments'):
         ev.premise_rows(candidate, [premise], roles)
+
+    # A new observation may supersede exactly the historical assessment it names.
+    from hashlib import sha256
+    old = {'status': 'partial', 'evidence': ['first.json'], 'note': 'First source only.'}
+    (directory / 'first.json').write_text('{}')
+    candidate.PREMISES['PR-1'] = old
+    measured = json.loads(path.read_text())
+    measured['PR-1']['supersedes_sha256'] = sha256(
+        json.dumps(old, sort_keys=True, separators=(',', ':')).encode()
+    ).hexdigest()
+    path.write_text(json.dumps(measured))
+    updated = ev.premise_rows(candidate, [premise], roles)[0]
+    assert updated['status'] == 'fulfilled' and updated['evidence'] == ['first.json', 'receipt.json']
+    assert updated['note'] == 'First source only. Finite run with a complete public record.'
+    assert candidate.PREMISES['PR-1'] is old
+    candidate.PREMISES['PR-1'] = dict(old, status='fails')
+    with pytest.raises(SystemExit, match='prior premise assessment has changed'):
+        ev.premise_rows(candidate, [premise], roles)
+    del candidate.PREMISES['PR-1']
+    with pytest.raises(SystemExit, match='no prior premise assessment'):
+        ev.premise_rows(candidate, [premise], roles)

@@ -767,5 +767,35 @@
       "../../experiments/interval_echo_consensus/transaction_component/test_component.py"
     ],
     "note": "On the enrolled two-triangle program the two publications and their seals have four distinct identifiers, each read exactly once per completed run. Both observers recover the visible registers and writer versions. Two or three overlapping proposals share a single publication event. The subsequent seal cites that triangle’s data writer. Duplicate labels and an initially colliding writer fail enrollment."
+  },
+  "PR-01": {
+    "status": "fulfilled",
+    "evidence": [
+      "../../experiments/interval_echo_consensus/transaction_component/confluence/PROTOCOL.md",
+      "../../experiments/interval_echo_consensus/transaction_component/confluence/README.md",
+      "../../experiments/interval_echo_consensus/transaction_component/confluence/Repair.lean",
+      "../../experiments/interval_echo_consensus/transaction_component/confluence/apparatus.py",
+      "../../experiments/interval_echo_consensus/transaction_component/confluence/measure.py",
+      "../../experiments/interval_echo_consensus/transaction_component/confluence/records.json.gz",
+      "../../experiments/interval_echo_consensus/transaction_component/confluence/test_confluence.py"
+    ],
+    "note": "The two-triangle serial repair family has 256 inputs and 4,612 two-offer forks. Its measured overlapping repairs take 000 to 110 or 011 and then to 111. Each effective repair reduces the mismatch count. All four normal records are distinguished by the full boundary pair. A parity-only detector aliases distinct consistent endpoints. The proof covers every boundary readout on this family.",
+    "supersedes_sha256": "a1cb0fde14d3aa4d301517cc4f60548f6b53c3c485e3ba2338b57e9852619fbe"
+  },
+  "PR-128": {
+    "status": "partial",
+    "evidence": [
+      "../../experiments/interval_echo_consensus/publication_tree/mounted_capacity/Frame.lean",
+      "../../experiments/interval_echo_consensus/publication_tree/mounted_capacity/PROTOCOL.md",
+      "../../experiments/interval_echo_consensus/publication_tree/mounted_capacity/README.md",
+      "../../experiments/interval_echo_consensus/publication_tree/mounted_capacity/VETO_PROTOCOL.md",
+      "../../experiments/interval_echo_consensus/publication_tree/mounted_capacity/apparatus.py",
+      "../../experiments/interval_echo_consensus/publication_tree/mounted_capacity/measure.py",
+      "../../experiments/interval_echo_consensus/publication_tree/mounted_capacity/records.json.gz",
+      "../../experiments/interval_echo_consensus/publication_tree/mounted_capacity/test_frames.py",
+      "../../experiments/interval_echo_consensus/publication_tree/mounted_capacity/veto.json.gz",
+      "../../experiments/interval_echo_consensus/publication_tree/mounted_capacity/veto.py"
+    ],
+    "note": "Twelve material port registers admit 96, 832, 2,080 or 4,096 zero-error messages according to the reference retained under an unknown proper rotation. A marked-host presence veto is uniquely determined from host-marked records. With an unordered edge 1,024 distinguishable message classes admit both decisions. Duplicating the same tape preserves capacity. These finite log-count records implement specific marking and symmetry choices. The physical reserve trace, cell versus shared-edge pricing and cosmic capacity attachment remain open."
   }
 }

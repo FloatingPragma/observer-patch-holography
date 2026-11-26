@@ -6,6 +6,7 @@ experiment. Use --criterion ID for one question, --write to generate the compari
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import operator
 import sys
@@ -224,13 +225,23 @@ def premise_rows(cand, premises, roles):
     results_path = ROOT / 'model' / 'candidate_laws' / cand.NAME / 'premise_results.json'
     if results_path.is_file():
         measured = json.loads(results_path.read_text(encoding='utf-8'))
-        duplicates = declarations.keys() & measured.keys()
-        if duplicates:
-            fail(f'{cand.NAME}: duplicate premise assessments {sorted(duplicates)}')
         for key, result in measured.items():
             if not result.get('evidence') or not result.get('note', '').strip():
                 fail(f'{cand.NAME} {key}: measured assessment needs evidence and scope')
-        declarations.update(measured)
+            previous = declarations.get(key)
+            if previous is not None:
+                if 'supersedes_sha256' not in result:
+                    fail(f'{cand.NAME}: duplicate premise assessments {[key]}')
+                encoded = json.dumps(previous, sort_keys=True, separators=(',', ':')).encode('utf-8')
+                if hashlib.sha256(encoded).hexdigest() != result['supersedes_sha256']:
+                    fail(f'{cand.NAME} {key}: prior premise assessment has changed')
+                all_evidence = previous.get('evidence', []) + result['evidence']
+                scopes = [previous.get('note'), result['note']]
+                result = dict(result, evidence=list(dict.fromkeys(all_evidence)),
+                              note=' '.join(scope for scope in scopes if scope))
+            elif 'supersedes_sha256' in result:
+                fail(f'{cand.NAME} {key}: no prior premise assessment to supersede')
+            declarations[key] = result
     unknown = sorted(set(declarations) - ids)
     if unknown:
         fail(f'{cand.NAME}: premises not in the register: {unknown}')

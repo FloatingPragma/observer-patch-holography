@@ -540,6 +540,12 @@ REPLAY_EVALUATIONS = (
         "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
         "model/candidate_laws/interval_echo/EVALUATION.json": "fc97ff35b1ca1764c023a67d27d1defa4e23a6a78e264e4be6a769a51a1d6830",
     },
+    # Measured port frames, overlap repair forks, wall arrival clocks and free neutral-pair recoil.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "b382c1b89c133a97807b4203fdf97fa37fa028b25b4ba82de5e82aad101130e2",
+    },
 )
 
 
