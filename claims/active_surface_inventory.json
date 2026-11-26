@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 1341,
+  "surface_count": 1347,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -2807,6 +2807,36 @@
     },
     {
       "path": "model/candidate_laws/interval_echo/openwave/submission/row_30_confirmation/from_m10_4/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo_partition_repair/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo_partition_repair/REGIONAL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo_partition_repair/SPEC.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo_partition_repair/proper_balls/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo_partition_repair/surveyed_cells/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo_partition_repair/surveyed_cells/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },

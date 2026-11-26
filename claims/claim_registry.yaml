@@ -736,7 +736,7 @@
     },
     {
       "claim_id": "OPH-GR-D5",
-      "statement": "On a common source in ten timelike frames, the bulk modular first law for the propagating stress, fixed-proper-volume area expansion and generalized entropy stationarity bound the full Einstein tensor residual. If the three errors are o(ell^4), the geometric and stress readouts converge and the area coefficient tends to one positive constant, the limiting fields obey the semiclassical Einstein equation. Independent matter and geometric conservation fix the cosmological term up to a constant on each connected component.",
+      "statement": "On a common source in ten timelike frames, the bulk modular first law for the propagating stress, fixed-proper-volume area expansion and generalized entropy stationarity bound the full Einstein tensor residual. If the three errors are o(ell^4), the geometric and stress readouts converge and the area coefficient tends to one positive constant, the limiting fields obey the semiclassical Einstein equation. Independent matter and geometric conservation fix the cosmological term up to a constant on each connected component. A separate partition-repair candidate forces the stationarity premise on all enrolled finite endpoint regions, with independent cubical area checks and a smooth-ball comparison whose capacity is supplied. These finite comparisons supply no identification of propagating action stress or proper geometry on the active Interval Echo source.",
       "owner_paper": "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
       "tier": "conditional_scaling_theorem",
       "assumptions": [
@@ -787,7 +787,10 @@
         "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/formed_ranges/affine_stencil/README.md",
         "code/matched_einstein_limit/source_implication/full_algebra/reuse/retained_equilibrium/regional_energy/README.md",
         "Lean/ObserverPatchHolography/EinsteinBranch/QuantitativeSmallBall.lean",
-        "code/matched_einstein_limit/PROOF.md"
+        "code/matched_einstein_limit/PROOF.md",
+        "model/candidate_laws/interval_echo_partition_repair/REGIONAL.md",
+        "model/candidate_laws/interval_echo_partition_repair/surveyed_cells/README.md",
+        "model/candidate_laws/interval_echo_partition_repair/proper_balls/README.md"
       ],
       "falsifier": "The ten-frame bound fails on data satisfying its stated inequalities, or the claimed physical realization lacks matched proper-ball geometry, independently identified propagating stress, stationarity, or the uniform remainder control.",
       "scope_if_false": "The OPH gravity branch falls; fixed-cutoff consensus and purely gauge-sector results do not automatically fall.",

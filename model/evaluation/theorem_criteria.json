@@ -83,6 +83,14 @@
               "evidence": [
                 "model/candidate_laws/scalar_channel/OBLIGATIONS.json"
               ]
+            },
+            "interval_echo_partition_repair": {
+              "status": "partial",
+              "note": "All 65 strict restriction maps on the four-cell record cover agree on their complete marginals. Proper carrier rechartings and the projective holonomy of the joint repair require further construction.",
+              "evidence": [
+                "model/candidate_laws/interval_echo_partition_repair/REGIONAL.md",
+                "model/candidate_laws/interval_echo_partition_repair/regional_results.json"
+              ]
             }
           }
         },
@@ -1088,6 +1096,14 @@
               "evidence": [
                 "model/candidate_laws/scalar_channel/OBLIGATIONS.json"
               ]
+            },
+            "interval_echo_partition_repair": {
+              "status": "open",
+              "note": "The cubical rods and the ten-frame smooth metric are declared geometry inputs. A causal metric and its proper balls must be reconstructed from the active repair records.",
+              "evidence": [
+                "model/candidate_laws/interval_echo_partition_repair/surveyed_cells/README.md",
+                "model/candidate_laws/interval_echo_partition_repair/proper_balls/README.md"
+              ]
             }
           }
         },
@@ -1233,6 +1249,14 @@
                 "model/candidate_laws/scalar_channel/OBLIGATIONS.json",
                 "model/candidate_laws/scalar_channel/instruments.py"
               ]
+            },
+            "interval_echo_partition_repair": {
+              "status": "open",
+              "note": "The selected equilibrium determines regional entropy variations. A material action and an independent stress measurement with the diamond normalization on these same balls are required.",
+              "evidence": [
+                "model/candidate_laws/interval_echo_partition_repair/REGIONAL.md",
+                "model/candidate_laws/interval_echo_partition_repair/proper_balls/README.md"
+              ]
             }
           }
         },
@@ -1324,6 +1348,14 @@
               "evidence": [
                 "model/candidate_laws/scalar_channel/OBLIGATIONS.json",
                 "model/candidate_laws/scalar_channel/instruments.py"
+              ]
+            },
+            "interval_echo_partition_repair": {
+              "status": "open",
+              "note": "The repair specifies local stochastic transitions. A conserved, covariant propagating stress tensor on the same metric as those regional readings is an additional physical input.",
+              "evidence": [
+                "model/candidate_laws/interval_echo_partition_repair/REGIONAL.md",
+                "model/candidate_laws/interval_echo_partition_repair/SPEC.md"
               ]
             }
           }
@@ -1622,6 +1654,12 @@
                   "label": "A positive regional energy profile has a held material test",
                   "finding": "Holding the twelve-cell vacancy energy and surveyed volume fixed leaves a strictly negative excess-probe energy change while entropy increases. Even arbitrary nonnegative weights across all cells with equal maxima at both heads transfer less than 0.006 per unit ordinary response. The required ratio exceeds 0.564.",
                   "source": "code/matched_einstein_limit/source_implication/full_algebra/reuse/retained_equilibrium/regional_energy/README.md"
+                },
+                {
+                  "law": "Interval Echo with partition repair (experimental candidate)",
+                  "label": "One stationary law covers overlapping regions",
+                  "finding": "The added local repair selects an exact generalized-entropy maximum on every endpoint region at fixed recorded volume. A separate cubical realization verifies the ordinary excitation and held correlation at one gain. The supplied geometric readers and added repair define a comparison with the active law.",
+                  "source": "model/candidate_laws/interval_echo_partition_repair/surveyed_cells/README.md"
                 }
               ]
             },
@@ -1638,6 +1676,19 @@
               "evidence": [
                 "model/candidate_laws/scalar_channel/OBLIGATIONS.json"
               ]
+            },
+            "interval_echo_partition_repair": {
+              "status": "partial",
+              "note": "Reversible local repair selects one reference on overlapping region records. Separate cubical rods and bulk words verify the ordinary and held correlation area responses at fixed proper volume. On ten prescribed smooth balls the completion multiplicities bound the normalized stationarity error; their geometry and capacity calibration are supplied.",
+              "evidence": [
+                "model/candidate_laws/interval_echo_partition_repair/REGIONAL.md",
+                "model/candidate_laws/interval_echo_partition_repair/surveyed_cells/README.md",
+                "model/candidate_laws/interval_echo_partition_repair/proper_balls/README.md"
+              ],
+              "demonstrated_measurement": {
+                "label": "Exact stationarity for all cubical material cuts",
+                "source": "model/candidate_laws/interval_echo_partition_repair/surveyed_cells/README.md"
+              }
             }
           }
         },
@@ -1794,6 +1845,14 @@
               "note": "Local source and fuel measurements supply no shrinking-ball frame, angular tomography or uniform error estimate.",
               "evidence": [
                 "model/candidate_laws/scalar_channel/OBLIGATIONS.json"
+              ]
+            },
+            "interval_echo_partition_repair": {
+              "status": "partial",
+              "note": "On supplied smooth metrics and one endpoint law per finite truncation, the stationarity residual is bounded by 2ℓ⁵ times the ℓ¹ norm of the global preparation derivative. The area capacity and enrollment are inputs. A common source-derived metric, propagating stress and convergence of all three production errors require independent evidence.",
+              "evidence": [
+                "model/candidate_laws/interval_echo_partition_repair/proper_balls/README.md",
+                "model/candidate_laws/interval_echo_partition_repair/REGIONAL.md"
               ]
             }
           }
@@ -1983,6 +2042,19 @@
               "evidence": [
                 "model/candidate_laws/scalar_channel/OBLIGATIONS.json"
               ]
+            },
+            "interval_echo_partition_repair": {
+              "status": "partial",
+              "note": "The ordinary excitation on a four-cube region calibrates the common positive area coefficient. The frozen gain predicts the entropy change on a six-cube overlap at fixed ordinary energy. The physical mesh limit and ordinary plus collar action stress in a common evolving metric are separate requirements.",
+              "evidence": [
+                "model/candidate_laws/interval_echo_partition_repair/surveyed_cells/README.md",
+                "model/candidate_laws/interval_echo_partition_repair/REGIONAL.md",
+                "model/candidate_laws/interval_echo_partition_repair/proper_balls/README.md"
+              ],
+              "demonstrated_measurement": {
+                "label": "Ordinary gain predicts the held six-cube correlation",
+                "source": "model/candidate_laws/interval_echo_partition_repair/surveyed_cells/README.md"
+              }
             }
           }
         }

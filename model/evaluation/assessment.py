@@ -11,6 +11,9 @@ ROOT = HERE.parents[1]
 STATUS = {"demonstrated": "Demonstrated", "partial": "Partial", "open": "Open", "counterexample": "Counterexample"}
 FILES = ("theorem_criteria.json", "observer_criteria.json", "openwave_criteria.json", "gravitational_particle.json")
 READOUTS = {
+    "interval_echo_partition_repair": ("Entropy slope in nats at fixed volume and aperture under the biased-word control",
+                                       "model/candidate_laws/interval_echo_partition_repair/regional_results.json",
+                                       "changed_law/biased_pair_fixed_area_entropy_slope_nats", None),
     "private_record_walk": ("Home-pair probability with eight sharp comparison signs at exposure 37",
                             "model/candidate_laws/private_record_walk/results.json",
                             "appointments/37/sharp_home", None),
@@ -27,6 +30,7 @@ READOUTS = {
 }
 SHORT = {"interval_echo": "Interval Echo", "contrast_memory_spherical_v1": "Contrast memory", "scalar_channel": "Scalar channel"}
 DECISIONS = {
+    "interval_echo_partition_repair": "Experimental repair law with exact stationarity on overlapping records. One ordinary area calibration predicts a held correlation response on the cubical survey. Physical stress and a source-derived proper-ball metric require independent measurements.",
     "interval_echo": "Full federation generator, a transported and jointly read patch clock, and a current instrument on the bound pair. The 19-port ring comparator contradicts the common rest-energy and inertia assignment for its free clusters.",
     "contrast_memory_spherical_v1": "Reference for the shared seam dynamics, with an all-size binding theorem and local reader controls. The 19-port ring resolves different rest-energy and kinetic ratios for free clusters.",
     "scalar_channel": "Independent test of a stable cage clock and finite mode dispersion. Its registered generator covers one cell. The larger cage construction has its own apparatus.",

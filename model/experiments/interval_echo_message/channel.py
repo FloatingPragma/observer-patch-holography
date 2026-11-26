@@ -606,6 +606,12 @@ REPLAY_EVALUATIONS = (
         "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
         "model/candidate_laws/interval_echo/EVALUATION.json": "b4db621533e128c56b8cd6762a4a550f80c847f3a237f64724c4eab0e95a7904",
     },
+    # Experimental partition-repair comparison in the gravity scorecard.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "8bdcf34b11974c53e70a796fb1fc17b192968f992595d38c07ad0e4525ead159",
+    },
 )
 
 
