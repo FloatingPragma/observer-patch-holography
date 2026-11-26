@@ -67,3 +67,26 @@ def test_two_neutral_readings_recover_three_source_fractions():
             assert upper - lower < 0.012
         assert row["charged"]["excluded"] == 0
         assert row["cyclic"]["excluded"] == rejected
+
+
+def test_complementary_neutral_rates_identify_three_weight_triangle():
+    from . import hull
+
+    report = hull.run()
+    assert report["determinant"][0] > 2.80476e-5
+    assert report["infinity_condition_upper"] < 10.286
+    weights = ((0.75, 0.25, 0.0), (0.25, 0.75, 0.0), (0.25, 0.125, 0.625))
+    for row, truth, missed in zip(report["held"], weights, (47, 46, 44), strict=True):
+        assert all(
+            lo <= p <= hi for (lo, hi), p in zip(row["weights"], truth, strict=True)
+        )
+        assert row["charged"]["excluded"] == 0
+        assert row["cyclic"]["excluded"] == missed
+    exact = [
+        ((F(1), F(1)), (F(0), F(0))),
+        ((F(0), F(0)), (F(1), F(1))),
+        ((F(0), F(0)), (F(0), F(0))),
+    ]
+    assert hull.vertices(exact, ((F(1, 4), F(1, 4)), (F(1, 8), F(1, 8)))) == (
+        (F(1, 4), F(1, 8), F(5, 8)),
+    )
