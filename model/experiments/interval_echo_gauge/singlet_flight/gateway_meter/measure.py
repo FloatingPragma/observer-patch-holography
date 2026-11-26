@@ -17,6 +17,9 @@ HERE = Path(__file__).resolve().parent
 STARTS = 2**20
 SEED = 150177
 SCALES = {"native": 1.0, "half_exchange": 0.5}
+ACQUISITION = HERE / "acquisition.json.gz"
+# The normalization tolerance of every detector law.
+PROBABILITY_TOLERANCE = 1e-12
 
 
 def incidence(car):
@@ -129,7 +132,32 @@ def board_sites(board, car):
     return sites
 
 
-def replay():
+def gateway_states(ports):
+    eye = np.eye(12)
+    states = list(eye[ports])
+    for x, y in combinations(ports, 2):
+        states.extend([(eye[x] + eye[y]) / np.sqrt(2), (eye[x] - eye[y]) / np.sqrt(2)])
+    return states
+
+
+def acquisition_law(fresh, stored):
+    stored = np.asarray(stored, dtype=float)
+    gap = np.max(np.abs(fresh - stored)) if stored.shape == fresh.shape else np.inf
+    if gap > PROBABILITY_TOLERANCE:
+        raise ArithmeticError("detector probabilities differ from acquisition law")
+    return stored
+
+
+def acquisition():
+    return json.loads(gzip.decompress(ACQUISITION.read_bytes()))
+
+
+def replay(acquired=None):
+    """Return the seeded counts and the detector laws they were drawn from.
+
+    With an acquisition record the freshly computed laws must agree with the
+    stored binary64 probabilities, and the counts are drawn from the stored ones.
+    """
     car = cell()
     incidence(car)
     np.testing.assert_allclose(
@@ -146,43 +174,43 @@ def replay():
         atol=1e-13,
         rtol=0,
     )
-    eye = np.eye(12)
     rng = np.random.default_rng(SEED)
     records = {"seed": SEED, "starts_per_setting": STARTS, "boards": []}
+    laws = {"seed": SEED, "starts_per_setting": STARTS, "boards": []}
     for level in range(3):
         board = federation(level)
         sites = board_sites(board, car)
         faces = sorted(board.faces())
         assert len(faces) == 20 * board.cells
         bank = {"owners": board.cells, "gateways": sites, "arms": {}}
+        laws["boards"].append({"arms": {}})
         for name, scale in SCALES.items():
             filters = bright_filters(car, scale)
-            loop = loop_probs(scale)
-            owners = []
+            loop = np.array(loop_probs(scale))
+            gateway = np.array(
+                [[clock_probs(filters, s) for s in gateway_states(p)] for p in sites]
+            )
+            laws["boards"][-1]["arms"][name] = {
+                "gateway_probabilities": gateway.tolist(),
+                "loop_probabilities": loop.tolist(),
+            }
+            if acquired is not None:
+                stored = acquired["boards"][level]["arms"][name]
+                gateway = acquisition_law(gateway, stored["gateway_probabilities"])
+                loop = acquisition_law(loop, stored["loop_probabilities"])
             # Every consecutive group of three root settings follows the sorted face.
             rooted = [[i, *sorted(set(face) - {i})] for face in faces for i in face]
             face_counts = np.stack(
                 [rng.multinomial(STARTS, p, size=len(rooted)) for p in loop], axis=1
             )
-            for ports in sites:
-                vectors = list(eye[ports])
-                for x, y in combinations(ports, 2):
-                    vectors.extend(
-                        [(eye[x] + eye[y]) / np.sqrt(2), (eye[x] - eye[y]) / np.sqrt(2)]
-                    )
-                owners.append(
-                    [
-                        rng.multinomial(STARTS, clock_probs(filters, s)).tolist()
-                        for s in vectors
-                    ]
-                )
+            owners = [[rng.multinomial(STARTS, p).tolist() for p in o] for o in gateway]
             bank["arms"][name] = {
                 "gateway_counts": owners,
                 "loop_counts": face_counts.tolist(),
             }
         bank["rooted_faces"] = rooted
         records["boards"].append(bank)
-    return records
+    return records, laws
 
 
 def decode(data):
@@ -221,11 +249,13 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--write", action="store_true")
     args = parser.parse_args()
-    records = replay()
     path = HERE / "counts.json.gz"
     if args.write:
-        encoded = json.dumps(records, separators=(",", ":"), allow_nan=False).encode()
-        path.write_bytes(gzip.compress(encoded, mtime=0))
+        records, laws = replay()
+        for target, payload in ((path, records), (ACQUISITION, laws)):
+            encoded = json.dumps(payload, separators=(",", ":"), allow_nan=False)
+            target.write_bytes(gzip.compress(encoded.encode(), mtime=0))
     else:
+        records, _ = replay(acquisition())
         assert records == json.loads(gzip.decompress(path.read_bytes()))
     print(json.dumps(decode(records), indent=2))

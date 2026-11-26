@@ -2,6 +2,7 @@ import gzip
 import json
 
 import numpy as np
+import pytest
 from scipy.linalg import eigvalsh
 
 from model.executable_model import cell
@@ -32,7 +33,7 @@ def test_face_projection_and_changed_exchange():
 
 
 def test_archive_replay_and_simultaneous_gateway_bounds():
-    data = measure.replay()
+    data, _ = measure.replay(measure.acquisition())
     assert data == json.loads(
         gzip.decompress((measure.HERE / "counts.json.gz").read_bytes())
     )
@@ -47,3 +48,10 @@ def test_archive_replay_and_simultaneous_gateway_bounds():
         for arm in bank["arms"].values():
             for key in ("loop_counts", "gateway_counts"):
                 assert np.all(np.asarray(arm[key]).sum(axis=-1) == measure.STARTS)
+
+
+def test_replay_rejects_a_changed_acquisition_law():
+    acquired = measure.acquisition()
+    acquired["boards"][2]["arms"]["native"]["gateway_probabilities"][7][4][3] += 1e-10
+    with pytest.raises(ArithmeticError, match="differ from acquisition law"):
+        measure.replay(acquired)
