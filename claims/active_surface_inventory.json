@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 1206,
+  "surface_count": 1209,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -3426,12 +3426,27 @@
       "allowlisted": false
     },
     {
+      "path": "model/experiments/interval_echo_einstein_station/equilibrium_refinement/area_survey/joint_screen/relaxation/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_einstein_station/equilibrium_refinement/nested_volumes/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/experiments/interval_echo_einstein_station/equilibrium_refinement/rim_geometry/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
     {
       "path": "model/experiments/interval_echo_einstein_station/equilibrium_refinement/tracer_flux/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_einstein_station/equilibrium_refinement/tracer_flux/bearings/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },

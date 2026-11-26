@@ -1,0 +1,3190 @@
+{
+  "shots_per_setting": 17179869184,
+  "simultaneous_coverage": 0.99,
+  "probability_radius": 1.9475673068119847e-05,
+  "dwell_hands": [
+    {
+      "analyzer_counts": [
+        66847694,
+        37741423
+      ],
+      "phase_radians": 0.12510413013063798,
+      "theoretical_pointer_rates": [
+        0.9960988336146649,
+        0.5623373666926064
+      ]
+    },
+    {
+      "analyzer_counts": [
+        66064549,
+        41856109
+      ],
+      "phase_radians": 0.25001389742197944,
+      "theoretical_pointer_rates": [
+        0.984456210855323,
+        0.6237019796272589
+      ]
+    }
+  ],
+  "shutters": {
+    "rim": [
+      2,
+      4,
+      6,
+      8,
+      9
+    ],
+    "inner": [
+      0,
+      1,
+      5,
+      7,
+      10,
+      11
+    ],
+    "feeders": [
+      12,
+      13,
+      14,
+      15,
+      16
+    ],
+    "reader_gateway": 1,
+    "blank": 82,
+    "permutations_per_word": 120,
+    "native_gates": {
+      "pi_contacts": 383982,
+      "intercell_pi_contacts": 69600,
+      "echo_read_undo": 21690
+    },
+    "closed_word_histograms": [
+      {
+        "residents": [
+          0,
+          1
+        ],
+        "k": 0,
+        "stop": 5,
+        "permutations_by_inserted_prefix": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          120
+        ]
+      },
+      {
+        "residents": [
+          0,
+          2
+        ],
+        "k": 1,
+        "stop": 4,
+        "permutations_by_inserted_prefix": [
+          24,
+          24,
+          24,
+          24,
+          24
+        ]
+      },
+      {
+        "residents": [
+          0,
+          4
+        ],
+        "k": 1,
+        "stop": 4,
+        "permutations_by_inserted_prefix": [
+          24,
+          24,
+          24,
+          24,
+          24
+        ]
+      },
+      {
+        "residents": [
+          0,
+          5
+        ],
+        "k": 0,
+        "stop": 5,
+        "permutations_by_inserted_prefix": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          120
+        ]
+      },
+      {
+        "residents": [
+          0,
+          6
+        ],
+        "k": 1,
+        "stop": 4,
+        "permutations_by_inserted_prefix": [
+          24,
+          24,
+          24,
+          24,
+          24
+        ]
+      },
+      {
+        "residents": [
+          0,
+          7
+        ],
+        "k": 0,
+        "stop": 5,
+        "permutations_by_inserted_prefix": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          120
+        ]
+      },
+      {
+        "residents": [
+          0,
+          8
+        ],
+        "k": 1,
+        "stop": 4,
+        "permutations_by_inserted_prefix": [
+          24,
+          24,
+          24,
+          24,
+          24
+        ]
+      },
+      {
+        "residents": [
+          0,
+          9
+        ],
+        "k": 1,
+        "stop": 4,
+        "permutations_by_inserted_prefix": [
+          24,
+          24,
+          24,
+          24,
+          24
+        ]
+      },
+      {
+        "residents": [
+          0,
+          10
+        ],
+        "k": 0,
+        "stop": 5,
+        "permutations_by_inserted_prefix": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          120
+        ]
+      },
+      {
+        "residents": [
+          0,
+          11
+        ],
+        "k": 0,
+        "stop": 5,
+        "permutations_by_inserted_prefix": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          120
+        ]
+      },
+      {
+        "residents": [
+          1,
+          2
+        ],
+        "k": 1,
+        "stop": 4,
+        "permutations_by_inserted_prefix": [
+          24,
+          24,
+          24,
+          24,
+          24
+        ]
+      },
+      {
+        "residents": [
+          1,
+          4
+        ],
+        "k": 1,
+        "stop": 4,
+        "permutations_by_inserted_prefix": [
+          24,
+          24,
+          24,
+          24,
+          24
+        ]
+      },
+      {
+        "residents": [
+          1,
+          5
+        ],
+        "k": 0,
+        "stop": 5,
+        "permutations_by_inserted_prefix": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          120
+        ]
+      },
+      {
+        "residents": [
+          1,
+          6
+        ],
+        "k": 1,
+        "stop": 4,
+        "permutations_by_inserted_prefix": [
+          24,
+          24,
+          24,
+          24,
+          24
+        ]
+      },
+      {
+        "residents": [
+          1,
+          7
+        ],
+        "k": 0,
+        "stop": 5,
+        "permutations_by_inserted_prefix": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          120
+        ]
+      },
+      {
+        "residents": [
+          1,
+          8
+        ],
+        "k": 1,
+        "stop": 4,
+        "permutations_by_inserted_prefix": [
+          24,
+          24,
+          24,
+          24,
+          24
+        ]
+      },
+      {
+        "residents": [
+          1,
+          9
+        ],
+        "k": 1,
+        "stop": 4,
+        "permutations_by_inserted_prefix": [
+          24,
+          24,
+          24,
+          24,
+          24
+        ]
+      },
+      {
+        "residents": [
+          1,
+          10
+        ],
+        "k": 0,
+        "stop": 5,
+        "permutations_by_inserted_prefix": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          120
+        ]
+      },
+      {
+        "residents": [
+          1,
+          11
+        ],
+        "k": 0,
+        "stop": 5,
+        "permutations_by_inserted_prefix": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          120
+        ]
+      },
+      {
+        "residents": [
+          2,
+          4
+        ],
+        "k": 2,
+        "stop": 3,
+        "permutations_by_inserted_prefix": [
+          48,
+          36,
+          24,
+          12
+        ]
+      },
+      {
+        "residents": [
+          2,
+          5
+        ],
+        "k": 1,
+        "stop": 4,
+        "permutations_by_inserted_prefix": [
+          24,
+          24,
+          24,
+          24,
+          24
+        ]
+      },
+      {
+        "residents": [
+          2,
+          6
+        ],
+        "k": 2,
+        "stop": 3,
+        "permutations_by_inserted_prefix": [
+          48,
+          36,
+          24,
+          12
+        ]
+      },
+      {
+        "residents": [
+          2,
+          7
+        ],
+        "k": 1,
+        "stop": 4,
+        "permutations_by_inserted_prefix": [
+          24,
+          24,
+          24,
+          24,
+          24
+        ]
+      },
+      {
+        "residents": [
+          2,
+          8
+        ],
+        "k": 2,
+        "stop": 3,
+        "permutations_by_inserted_prefix": [
+          48,
+          36,
+          24,
+          12
+        ]
+      },
+      {
+        "residents": [
+          2,
+          9
+        ],
+        "k": 2,
+        "stop": 3,
+        "permutations_by_inserted_prefix": [
+          48,
+          36,
+          24,
+          12
+        ]
+      },
+      {
+        "residents": [
+          2,
+          10
+        ],
+        "k": 1,
+        "stop": 4,
+        "permutations_by_inserted_prefix": [
+          24,
+          24,
+          24,
+          24,
+          24
+        ]
+      },
+      {
+        "residents": [
+          2,
+          11
+        ],
+        "k": 1,
+        "stop": 4,
+        "permutations_by_inserted_prefix": [
+          24,
+          24,
+          24,
+          24,
+          24
+        ]
+      },
+      {
+        "residents": [
+          4,
+          5
+        ],
+        "k": 1,
+        "stop": 4,
+        "permutations_by_inserted_prefix": [
+          24,
+          24,
+          24,
+          24,
+          24
+        ]
+      },
+      {
+        "residents": [
+          4,
+          6
+        ],
+        "k": 2,
+        "stop": 3,
+        "permutations_by_inserted_prefix": [
+          48,
+          36,
+          24,
+          12
+        ]
+      },
+      {
+        "residents": [
+          4,
+          7
+        ],
+        "k": 1,
+        "stop": 4,
+        "permutations_by_inserted_prefix": [
+          24,
+          24,
+          24,
+          24,
+          24
+        ]
+      },
+      {
+        "residents": [
+          4,
+          8
+        ],
+        "k": 2,
+        "stop": 3,
+        "permutations_by_inserted_prefix": [
+          48,
+          36,
+          24,
+          12
+        ]
+      },
+      {
+        "residents": [
+          4,
+          9
+        ],
+        "k": 2,
+        "stop": 3,
+        "permutations_by_inserted_prefix": [
+          48,
+          36,
+          24,
+          12
+        ]
+      },
+      {
+        "residents": [
+          4,
+          10
+        ],
+        "k": 1,
+        "stop": 4,
+        "permutations_by_inserted_prefix": [
+          24,
+          24,
+          24,
+          24,
+          24
+        ]
+      },
+      {
+        "residents": [
+          4,
+          11
+        ],
+        "k": 1,
+        "stop": 4,
+        "permutations_by_inserted_prefix": [
+          24,
+          24,
+          24,
+          24,
+          24
+        ]
+      },
+      {
+        "residents": [
+          5,
+          6
+        ],
+        "k": 1,
+        "stop": 4,
+        "permutations_by_inserted_prefix": [
+          24,
+          24,
+          24,
+          24,
+          24
+        ]
+      },
+      {
+        "residents": [
+          5,
+          7
+        ],
+        "k": 0,
+        "stop": 5,
+        "permutations_by_inserted_prefix": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          120
+        ]
+      },
+      {
+        "residents": [
+          5,
+          8
+        ],
+        "k": 1,
+        "stop": 4,
+        "permutations_by_inserted_prefix": [
+          24,
+          24,
+          24,
+          24,
+          24
+        ]
+      },
+      {
+        "residents": [
+          5,
+          9
+        ],
+        "k": 1,
+        "stop": 4,
+        "permutations_by_inserted_prefix": [
+          24,
+          24,
+          24,
+          24,
+          24
+        ]
+      },
+      {
+        "residents": [
+          5,
+          10
+        ],
+        "k": 0,
+        "stop": 5,
+        "permutations_by_inserted_prefix": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          120
+        ]
+      },
+      {
+        "residents": [
+          5,
+          11
+        ],
+        "k": 0,
+        "stop": 5,
+        "permutations_by_inserted_prefix": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          120
+        ]
+      },
+      {
+        "residents": [
+          6,
+          7
+        ],
+        "k": 1,
+        "stop": 4,
+        "permutations_by_inserted_prefix": [
+          24,
+          24,
+          24,
+          24,
+          24
+        ]
+      },
+      {
+        "residents": [
+          6,
+          8
+        ],
+        "k": 2,
+        "stop": 3,
+        "permutations_by_inserted_prefix": [
+          48,
+          36,
+          24,
+          12
+        ]
+      },
+      {
+        "residents": [
+          6,
+          9
+        ],
+        "k": 2,
+        "stop": 3,
+        "permutations_by_inserted_prefix": [
+          48,
+          36,
+          24,
+          12
+        ]
+      },
+      {
+        "residents": [
+          6,
+          10
+        ],
+        "k": 1,
+        "stop": 4,
+        "permutations_by_inserted_prefix": [
+          24,
+          24,
+          24,
+          24,
+          24
+        ]
+      },
+      {
+        "residents": [
+          6,
+          11
+        ],
+        "k": 1,
+        "stop": 4,
+        "permutations_by_inserted_prefix": [
+          24,
+          24,
+          24,
+          24,
+          24
+        ]
+      },
+      {
+        "residents": [
+          7,
+          8
+        ],
+        "k": 1,
+        "stop": 4,
+        "permutations_by_inserted_prefix": [
+          24,
+          24,
+          24,
+          24,
+          24
+        ]
+      },
+      {
+        "residents": [
+          7,
+          9
+        ],
+        "k": 1,
+        "stop": 4,
+        "permutations_by_inserted_prefix": [
+          24,
+          24,
+          24,
+          24,
+          24
+        ]
+      },
+      {
+        "residents": [
+          7,
+          10
+        ],
+        "k": 0,
+        "stop": 5,
+        "permutations_by_inserted_prefix": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          120
+        ]
+      },
+      {
+        "residents": [
+          7,
+          11
+        ],
+        "k": 0,
+        "stop": 5,
+        "permutations_by_inserted_prefix": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          120
+        ]
+      },
+      {
+        "residents": [
+          8,
+          9
+        ],
+        "k": 2,
+        "stop": 3,
+        "permutations_by_inserted_prefix": [
+          48,
+          36,
+          24,
+          12
+        ]
+      },
+      {
+        "residents": [
+          8,
+          10
+        ],
+        "k": 1,
+        "stop": 4,
+        "permutations_by_inserted_prefix": [
+          24,
+          24,
+          24,
+          24,
+          24
+        ]
+      },
+      {
+        "residents": [
+          8,
+          11
+        ],
+        "k": 1,
+        "stop": 4,
+        "permutations_by_inserted_prefix": [
+          24,
+          24,
+          24,
+          24,
+          24
+        ]
+      },
+      {
+        "residents": [
+          9,
+          10
+        ],
+        "k": 1,
+        "stop": 4,
+        "permutations_by_inserted_prefix": [
+          24,
+          24,
+          24,
+          24,
+          24
+        ]
+      },
+      {
+        "residents": [
+          9,
+          11
+        ],
+        "k": 1,
+        "stop": 4,
+        "permutations_by_inserted_prefix": [
+          24,
+          24,
+          24,
+          24,
+          24
+        ]
+      },
+      {
+        "residents": [
+          10,
+          11
+        ],
+        "k": 0,
+        "stop": 5,
+        "permutations_by_inserted_prefix": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          120
+        ]
+      }
+    ],
+    "standards": {
+      "0": {
+        "capped_prefix_counts": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          17179869184
+        ],
+        "work_interval_nats": [
+          -0.0,
+          1.9375860778867513e-05
+        ]
+      },
+      "1": {
+        "capped_prefix_counts": [
+          3436080291,
+          3435947427,
+          3435963985,
+          3435964377,
+          3435913104
+        ],
+        "work_interval_nats": [
+          1.6093587127762792,
+          1.6095524729323878
+        ]
+      },
+      "2": {
+        "capped_prefix_counts": [
+          6871869932,
+          5153991389,
+          3436012453,
+          1717995410
+        ],
+        "work_interval_nats": [
+          2.30238641323976,
+          2.302773924790594
+        ]
+      }
+    },
+    "arms": {
+      "zero": {
+        "class_counts": [
+          17179869184,
+          0,
+          0
+        ],
+        "mean_work_nats": [
+          0.0,
+          9.517981799692302e-05
+        ],
+        "negative_log_pooled_success": -0.0
+      },
+      "one": {
+        "class_counts": [
+          0,
+          17179869184,
+          0
+        ],
+        "mean_work_nats": [
+          1.6093275303680112,
+          1.6095970911025246
+        ],
+        "negative_log_pooled_success": 1.6094379124341003
+      },
+      "split": {
+        "class_counts": [
+          0,
+          17179869184,
+          0
+        ],
+        "mean_work_nats": [
+          1.6093275303680112,
+          1.6095970911025246
+        ],
+        "negative_log_pooled_success": 1.6094379124341003
+      },
+      "spread": {
+        "class_counts": [
+          8589974667,
+          0,
+          8589894517
+        ],
+        "mean_work_nats": [
+          1.1511432256211156,
+          1.15146708308724
+        ],
+        "negative_log_pooled_success": 0.5978370007556204
+      }
+    },
+    "measured_ordinary_nats": [
+      1.6092323505500143,
+      1.6095970911025246
+    ],
+    "measured_held_nats": [
+      -0.458453865481409,
+      -0.45786044728077124
+    ]
+  },
+  "receiver": {
+    "verified_routed_transpositions": 25,
+    "ternary_pointer_error": 2.458132333844178e-14,
+    "sharp_swap_error": 2.4422398949098534e-14
+  },
+  "clock_radii": [
+    0,
+    1,
+    2,
+    3,
+    2,
+    1,
+    2,
+    1,
+    2,
+    2,
+    1,
+    1
+  ],
+  "independent_interior": {
+    "uniform_interior_counts": [
+      3123501136,
+      1561803850,
+      312355078,
+      312344353,
+      312356069,
+      312377223,
+      312357166,
+      1561856782,
+      312357627,
+      312402327,
+      312376666,
+      312345053,
+      1561870415,
+      312361014,
+      312350459,
+      312359063,
+      1561818259,
+      312355676,
+      312374719,
+      1561856329,
+      312335709,
+      1561754211
+    ],
+    "labels": [
+      [],
+      [
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        5
+      ],
+      [
+        0,
+        7
+      ],
+      [
+        0,
+        10
+      ],
+      [
+        0,
+        11
+      ],
+      [
+        1
+      ],
+      [
+        1,
+        5
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        10
+      ],
+      [
+        1,
+        11
+      ],
+      [
+        5
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        5,
+        10
+      ],
+      [
+        5,
+        11
+      ],
+      [
+        7
+      ],
+      [
+        7,
+        10
+      ],
+      [
+        7,
+        11
+      ],
+      [
+        10
+      ],
+      [
+        10,
+        11
+      ],
+      [
+        11
+      ]
+    ],
+    "held_arms": {
+      "zero": {
+        "counts": [
+          17179869184
+        ],
+        "log_probability": [
+          -4.008424727201154,
+          -4.006204334913283
+        ]
+      },
+      "one": {
+        "counts": [
+          17179869184
+        ],
+        "log_probability": [
+          -2.3981110904334435,
+          -2.3976359284672255
+        ]
+      },
+      "split": {
+        "counts": [
+          8589921170,
+          8589948014
+        ],
+        "log_probability": [
+          -2.398187550268121,
+          -2.397572290744374
+        ]
+      },
+      "spread": {
+        "counts": [
+          8589927379,
+          8589941805
+        ],
+        "log_probability": [
+          -2.85676811522841,
+          -2.855367316954746
+        ]
+      }
+    },
+    "measured_held_capacity_nats": [
+      -0.45919582448403595,
+      -0.4571797666866253
+    ],
+    "measured_ordinary_capacity_nats": [
+      1.6080932444798397,
+      1.6107887987339287
+    ]
+  },
+  "tagged_volumeters": [
+    {
+      "tags": 1,
+      "states": 660,
+      "reference_placements": 10,
+      "dynamics_bound": {
+        "terms": 72,
+        "centered_doubled_scale": 256,
+        "max_row_terms": 16,
+        "column_probability_error_upper": 2.330747032029336e-09
+      },
+      "times": [
+        {
+          "time": 0.125,
+          "arms": {
+            "zero": [
+              {
+                "radius": 1,
+                "forward": {
+                  "outcomes": [
+                    5671200044,
+                    8499112868,
+                    55532442,
+                    90707250,
+                    2863316580
+                  ],
+                  "expected": [
+                    0.33011226193559295,
+                    0.49470911050011235,
+                    0.003231810410532221,
+                    0.005280150487095847,
+                    0.16666666666666663
+                  ],
+                  "matched_after_source_changed": 0.0,
+                  "conditional_rate": 0.3961347143227115,
+                  "measured_conditional_interval": [
+                    0.39609625876306925,
+                    0.39616151610553924
+                  ]
+                },
+                "reverse": {
+                  "outcomes": [
+                    11342630495,
+                    0,
+                    110663924,
+                    0,
+                    5726574765
+                  ],
+                  "expected": [
+                    0.6602245238711859,
+                    0.0,
+                    0.00644214279548061,
+                    1.1102230246251565e-16,
+                    0.33333333333333337
+                  ],
+                  "matched_after_source_changed": 0.0,
+                  "conditional_rate": 0.9903367858067789,
+                  "measured_conditional_interval": [
+                    0.9902796656895043,
+                    0.9903959547045936
+                  ]
+                },
+                "recovered_placements": 4.0,
+                "independently_counted_99": [
+                  3.9994648026483217,
+                  4.000406465906417
+                ],
+                "without_source_match": 4.000128868153502,
+                "without_source_match_99": [
+                  3.9998427241698975,
+                  4.000310140323532
+                ]
+              },
+              {
+                "radius": 2,
+                "forward": {
+                  "outcomes": [
+                    12754346986,
+                    1416065981,
+                    130574649,
+                    15644796,
+                    2863236772
+                  ],
+                  "expected": [
+                    0.742399122632257,
+                    0.0824222498034483,
+                    0.007600973954277834,
+                    0.0009109869433501921,
+                    0.16666666666666663
+                  ],
+                  "matched_after_source_changed": 0.0,
+                  "conditional_rate": 0.8908789471587084,
+                  "measured_conditional_interval": [
+                    0.8908320033938956,
+                    0.8909203855401606
+                  ]
+                },
+                "reverse": {
+                  "outcomes": [
+                    13913732129,
+                    0,
+                    142468193,
+                    0,
+                    3123668862
+                  ],
+                  "expected": [
+                    0.8098899519624619,
+                    0.0,
+                    0.00829186621935629,
+                    0.0,
+                    0.18181818181818174
+                  ],
+                  "matched_after_source_changed": 0.0,
+                  "conditional_rate": 0.989865496843009,
+                  "measured_conditional_interval": [
+                    0.989817022976701,
+                    0.9899117552296244
+                  ]
+                },
+                "recovered_placements": 9.000000000000004,
+                "independently_counted_99": [
+                  8.999362518189539,
+                  9.000696043486858
+                ],
+                "without_source_match": 9.000001159038417,
+                "without_source_match_99": [
+                  8.999780085043342,
+                  9.000247501196979
+                ]
+              }
+            ],
+            "one": [
+              {
+                "radius": 1,
+                "forward": {
+                  "outcomes": [
+                    7047588809,
+                    7071944592,
+                    109524421,
+                    87561582,
+                    2863249780
+                  ],
+                  "expected": [
+                    0.4102230459403004,
+                    0.4116391633345003,
+                    0.006375235141822699,
+                    0.005095888916709979,
+                    0.16666666666666663
+                  ],
+                  "matched_after_source_changed": 0.0,
+                  "conditional_rate": 0.49226765512836046,
+                  "measured_conditional_interval": [
+                    0.4922313938199602,
+                    0.4923011444550813
+                  ]
+                },
+                "reverse": {
+                  "outcomes": [
+                    14095080484,
+                    0,
+                    221416976,
+                    0,
+                    2863371724
+                  ],
+                  "expected": [
+                    0.8204460918806008,
+                    0.0,
+                    0.012887241452732678,
+                    0.0,
+                    0.16666666666666663
+                  ],
+                  "matched_after_source_changed": 0.0,
+                  "conditional_rate": 0.9845353102567209,
+                  "measured_conditional_interval": [
+                    0.9844877585863224,
+                    0.9845805193077293
+                  ]
+                },
+                "recovered_placements": 5.0,
+                "independently_counted_99": [
+                  4.999540526361474,
+                  5.000486375745014
+                ],
+                "without_source_match": 4.999179372985477,
+                "without_source_match_99": [
+                  4.99895213205676,
+                  4.999419548210395
+                ]
+              },
+              {
+                "radius": 2,
+                "forward": {
+                  "outcomes": [
+                    12714438960,
+                    1405082062,
+                    172944617,
+                    24109636,
+                    2863293909
+                  ],
+                  "expected": [
+                    0.7400754795340444,
+                    0.08178672974075626,
+                    0.010067975606588675,
+                    0.0014031484519440307,
+                    0.16666666666666663
+                  ],
+                  "matched_after_source_changed": 0.0,
+                  "conditional_rate": 0.8880905754408532,
+                  "measured_conditional_interval": [
+                    0.8880480837555798,
+                    0.8881363361268015
+                  ]
+                },
+                "reverse": {
+                  "outcomes": [
+                    13870293936,
+                    0,
+                    186005416,
+                    0,
+                    3123569832
+                  ],
+                  "expected": [
+                    0.8073550685825939,
+                    0.0,
+                    0.01082674959922425,
+                    1.1102230246251565e-16,
+                    0.18181818181818177
+                  ],
+                  "matched_after_source_changed": 0.0,
+                  "conditional_rate": 0.9867673060453924,
+                  "measured_conditional_interval": [
+                    0.986719822412119,
+                    0.9868144065455042
+                  ]
+                },
+                "recovered_placements": 9.0,
+                "independently_counted_99": [
+                  8.99936123072559,
+                  9.000697590760844
+                ],
+                "without_source_match": 9.001721461687596,
+                "without_source_match_99": [
+                  9.001499731664838,
+                  9.001967147818474
+                ]
+              }
+            ],
+            "split": [
+              {
+                "radius": 1,
+                "forward": {
+                  "outcomes": [
+                    3536250407,
+                    3536126384,
+                    3619754043,
+                    3624378794,
+                    2863359556
+                  ],
+                  "expected": [
+                    0.2058368523964758,
+                    0.2058340443143272,
+                    0.21069648591489182,
+                    0.21096595070763854,
+                    0.16666666666666663
+                  ],
+                  "matched_after_source_changed": 1.2037791681792776e-09,
+                  "conditional_rate": 0.24700422287577095,
+                  "measured_conditional_interval": [
+                    0.24697592316877295,
+                    0.24703421039548712
+                  ]
+                },
+                "reverse": {
+                  "outcomes": [
+                    7072440227,
+                    0,
+                    7244068567,
+                    0,
+                    2863360390
+                  ],
+                  "expected": [
+                    0.41167370479295157,
+                    0.0,
+                    0.4216596285403819,
+                    0.0,
+                    0.16666666666666663
+                  ],
+                  "matched_after_source_changed": 2.4075583363585553e-09,
+                  "conditional_rate": 0.49400844575154185,
+                  "measured_conditional_interval": [
+                    0.4939710135844082,
+                    0.49404084607325427
+                  ]
+                },
+                "recovered_placements": 5.000000000000001,
+                "independently_counted_99": [
+                  4.999199330790101,
+                  5.000852307711188
+                ],
+                "without_source_match": 4.9984000597364115,
+                "without_source_match_99": [
+                  4.998177658173549,
+                  4.998645074327183
+                ]
+              },
+              {
+                "radius": 2,
+                "forward": {
+                  "outcomes": [
+                    6367923881,
+                    704516138,
+                    6520655252,
+                    723396103,
+                    2863377810
+                  ],
+                  "expected": [
+                    0.37066538940577237,
+                    0.04100550730503067,
+                    0.3795533611809983,
+                    0.04210907544153215,
+                    0.16666666666666666
+                  ],
+                  "matched_after_source_changed": 1.259472059832959e-09,
+                  "conditional_rate": 0.44479846728692685,
+                  "measured_conditional_interval": [
+                    0.44476263857026177,
+                    0.4448301710007381
+                  ]
+                },
+                "reverse": {
+                  "outcomes": [
+                    6946880219,
+                    0,
+                    7109345971,
+                    0,
+                    3123642994
+                  ],
+                  "expected": [
+                    0.4043622429881153,
+                    0.0,
+                    0.4138195751937026,
+                    3.3306690738754696e-16,
+                    0.18181818181818177
+                  ],
+                  "matched_after_source_changed": 1.3739695198177739e-09,
+                  "conditional_rate": 0.49422051920769644,
+                  "measured_conditional_interval": [
+                    0.4941852945713093,
+                    0.49425643039792316
+                  ]
+                },
+                "recovered_placements": 9.000000000000002,
+                "independently_counted_99": [
+                  8.998789831016643,
+                  9.001030999499303
+                ],
+                "without_source_match": 9.002625007041248,
+                "without_source_match_99": [
+                  9.00233481788385,
+                  9.002802234037487
+                ]
+              }
+            ],
+            "spread": [
+              {
+                "radius": 1,
+                "forward": {
+                  "outcomes": [
+                    3537244822,
+                    3535275758,
+                    3613024973,
+                    3630989636,
+                    2863333995
+                  ],
+                  "expected": [
+                    0.20589746055808522,
+                    0.20577343615271781,
+                    0.21030775159762927,
+                    0.21135468502490107,
+                    0.16666666666666663
+                  ],
+                  "matched_after_source_changed": 5.702908300074535e-11,
+                  "conditional_rate": 0.24707695266970225,
+                  "measured_conditional_interval": [
+                    0.24704493979487305,
+                    0.24710323014354676
+                  ]
+                },
+                "reverse": {
+                  "outcomes": [
+                    7074547826,
+                    0,
+                    7241995552,
+                    0,
+                    2863325806
+                  ],
+                  "expected": [
+                    0.41179492111617044,
+                    0.0,
+                    0.4215384122171628,
+                    1.1102230246251565e-16,
+                    0.16666666666666663
+                  ],
+                  "matched_after_source_changed": 1.1405816600149073e-10,
+                  "conditional_rate": 0.4941539053394045,
+                  "measured_conditional_interval": [
+                    0.4941170311387388,
+                    0.4941868702841516
+                  ]
+                },
+                "recovered_placements": 5.0,
+                "independently_counted_99": [
+                  4.9991276710880745,
+                  5.000780216753443
+                ],
+                "without_source_match": 4.994462545868574,
+                "without_source_match_99": [
+                  4.9941720479292,
+                  4.994639464082835
+                ]
+              },
+              {
+                "radius": 2,
+                "forward": {
+                  "outcomes": [
+                    6366785038,
+                    705622005,
+                    6518274239,
+                    725897217,
+                    2863290685
+                  ],
+                  "expected": [
+                    0.3705976535804053,
+                    0.04107324313039773,
+                    0.3794065904283782,
+                    0.042255846194152125,
+                    0.16666666666666663
+                  ],
+                  "matched_after_source_changed": 9.901169643312333e-10,
+                  "conditional_rate": 0.4447171842964863,
+                  "measured_conditional_interval": [
+                    0.4446803866953216,
+                    0.44474791487014304
+                  ]
+                },
+                "reverse": {
+                  "outcomes": [
+                    6945693429,
+                    0,
+                    7110569486,
+                    0,
+                    3123606269
+                  ],
+                  "expected": [
+                    0.40428834936044217,
+                    0.0,
+                    0.4138934688213762,
+                    0.0,
+                    0.18181818181818177
+                  ],
+                  "matched_after_source_changed": 1.0801275974522543e-09,
+                  "conditional_rate": 0.4941302047738737,
+                  "measured_conditional_interval": [
+                    0.4940995740436669,
+                    0.49417070560340914
+                  ]
+                },
+                "recovered_placements": 9.0,
+                "independently_counted_99": [
+                  8.998741157073162,
+                  9.000982629654875
+                ],
+                "without_source_match": 9.000050928105402,
+                "without_source_match_99": [
+                  8.999876226869704,
+                  9.00034364302334
+                ]
+              }
+            ]
+          },
+          "ordinary_to_held_first_variation_nats": [
+            -0.0027781012341298664,
+            0.0025465429568874006
+          ],
+          "entirely_counted_prediction_nats": [
+            -0.0027804330413202702,
+            0.0025486804049776974
+          ],
+          "measured_shell_volume_per_step": {
+            "zero": [
+              4.998956052283122,
+              5.001231240838536
+            ],
+            "one": [
+              3.998874854980576,
+              4.0011570643993695
+            ],
+            "split": [
+              3.9979375233054544,
+              4.001831668709202
+            ],
+            "spread": [
+              3.997960940319719,
+              4.0018549585668
+            ]
+          },
+          "finite_shell_secant_prediction_nats": [
+            -0.006324080215920146,
+            0.006248679351684227
+          ]
+        },
+        {
+          "time": 0.25,
+          "arms": {
+            "zero": [
+              {
+                "radius": 1,
+                "forward": {
+                  "outcomes": [
+                    5568132707,
+                    8299782116,
+                    159397256,
+                    289297289,
+                    2863259816
+                  ],
+                  "expected": [
+                    0.32410841400165574,
+                    0.48310682818146844,
+                    0.009279432879037486,
+                    0.016838658271171703,
+                    0.16666666666666663
+                  ],
+                  "matched_after_source_changed": 0.0,
+                  "conditional_rate": 0.38893009680198687,
+                  "measured_conditional_interval": [
+                    0.38889571224183234,
+                    0.38896063275373105
+                  ]
+                },
+                "reverse": {
+                  "outcomes": [
+                    11136225911,
+                    0,
+                    316982756,
+                    0,
+                    5726660517
+                  ],
+                  "expected": [
+                    0.6482168280033115,
+                    0.0,
+                    0.018449838663355256,
+                    0.0,
+                    0.33333333333333337
+                  ],
+                  "matched_after_source_changed": 0.0,
+                  "conditional_rate": 0.9723252420049673,
+                  "measured_conditional_interval": [
+                    0.9722660553230582,
+                    0.9723812926930988
+                  ]
+                },
+                "recovered_placements": 3.9999999999999996,
+                "independently_counted_99": [
+                  3.9995237336528664,
+                  4.000478524520071
+                ],
+                "without_source_match": 4.000654162568319,
+                "without_source_match_99": [
+                  4.000399755419525,
+                  4.00086717157316
+                ]
+              },
+              {
+                "radius": 2,
+                "forward": {
+                  "outcomes": [
+                    12486219593,
+                    1381631081,
+                    398864184,
+                    49859606,
+                    2863294720
+                  ],
+                  "expected": [
+                    0.7267910035549764,
+                    0.08042423862814783,
+                    0.023215567662978498,
+                    0.002902523487230649,
+                    0.16666666666666663
+                  ],
+                  "matched_after_source_changed": 0.0,
+                  "conditional_rate": 0.8721492042659716,
+                  "measured_conditional_interval": [
+                    0.872107586687397,
+                    0.8721950939624968
+                  ]
+                },
+                "reverse": {
+                  "outcomes": [
+                    13621314187,
+                    0,
+                    434984354,
+                    0,
+                    3123570643
+                  ],
+                  "expected": [
+                    0.7928629129690651,
+                    0.0,
+                    0.025318905212753262,
+                    0.0,
+                    0.18181818181818177
+                  ],
+                  "matched_after_source_changed": 0.0,
+                  "conditional_rate": 0.969054671406635,
+                  "measured_conditional_interval": [
+                    0.9690072630489729,
+                    0.9691010039248876
+                  ]
+                },
+                "recovered_placements": 9.000000000000002,
+                "independently_counted_99": [
+                  8.99936115072314,
+                  9.000714106681851
+                ],
+                "without_source_match": 9.000078854615458,
+                "without_source_match_99": [
+                  8.999893339922012,
+                  9.000360756075649
+                ]
+              }
+            ],
+            "one": [
+              {
+                "radius": 1,
+                "forward": {
+                  "outcomes": [
+                    6795215323,
+                    6885722762,
+                    361457826,
+                    274162187,
+                    2863311086
+                  ],
+                  "expected": [
+                    0.3955365822033675,
+                    0.4007999214335738,
+                    0.0210392713991584,
+                    0.015957558297233665,
+                    0.16666666666666663
+                  ],
+                  "matched_after_source_changed": 0.0,
+                  "conditional_rate": 0.474643898644041,
+                  "measured_conditional_interval": [
+                    0.4746058297558937,
+                    0.4746747568231413
+                  ]
+                },
+                "reverse": {
+                  "outcomes": [
+                    13590512164,
+                    0,
+                    726040433,
+                    0,
+                    2863316587
+                  ],
+                  "expected": [
+                    0.791073164406735,
+                    0.0,
+                    0.04226016892659801,
+                    3.3306690738754696e-16,
+                    0.16666666666666663
+                  ],
+                  "matched_after_source_changed": 0.0,
+                  "conditional_rate": 0.949287797288082,
+                  "measured_conditional_interval": [
+                    0.9492410883340887,
+                    0.9493322011728503
+                  ]
+                },
+                "recovered_placements": 5.0,
+                "independently_counted_99": [
+                  4.99948211840041,
+                  5.0004544037061365
+                ],
+                "without_source_match": 4.998910243230311,
+                "without_source_match_99": [
+                  4.998644739029291,
+                  4.999112155182925
+                ]
+              },
+              {
+                "radius": 2,
+                "forward": {
+                  "outcomes": [
+                    12335494610,
+                    1345492072,
+                    549497628,
+                    86041136,
+                    2863343738
+                  ],
+                  "expected": [
+                    0.7180169014808129,
+                    0.0783196021561285,
+                    0.031987264866388705,
+                    0.005009564830003422,
+                    0.16666666666666666
+                  ],
+                  "matched_after_source_changed": 0.0,
+                  "conditional_rate": 0.8616202817769754,
+                  "measured_conditional_interval": [
+                    0.8615827765225619,
+                    0.86166979213805
+                  ]
+                },
+                "reverse": {
+                  "outcomes": [
+                    13456890236,
+                    0,
+                    599389727,
+                    0,
+                    3123589221
+                  ],
+                  "expected": [
+                    0.7832911652517958,
+                    0.0,
+                    0.03489065293002258,
+                    0.0,
+                    0.18181818181818177
+                  ],
+                  "matched_after_source_changed": 0.0,
+                  "conditional_rate": 0.9573558686410837,
+                  "measured_conditional_interval": [
+                    0.9573112783459105,
+                    0.9574044625203024
+                  ]
+                },
+                "recovered_placements": 9.0,
+                "independently_counted_99": [
+                  8.99934153090068,
+                  9.00070578137365
+                ],
+                "without_source_match": 9.000049996166418,
+                "without_source_match_99": [
+                  8.999829400669144,
+                  9.00029681682278
+                ]
+              }
+            ],
+            "split": [
+              {
+                "radius": 1,
+                "forward": {
+                  "outcomes": [
+                    3444286788,
+                    3442941815,
+                    3701690722,
+                    3727696840,
+                    2863253019
+                  ],
+                  "expected": [
+                    0.20048115066633568,
+                    0.20040679947608026,
+                    0.21546870344173938,
+                    0.21697667974917817,
+                    0.16666666666666666
+                  ],
+                  "matched_after_source_changed": 1.3380425258079745e-08,
+                  "conditional_rate": 0.2405773807996028,
+                  "measured_conditional_interval": [
+                    0.24055067713341077,
+                    0.24060866359420047
+                  ]
+                },
+                "reverse": {
+                  "outcomes": [
+                    6888436848,
+                    0,
+                    7428079534,
+                    0,
+                    2863352802
+                  ],
+                  "expected": [
+                    0.40096230133267113,
+                    0.0,
+                    0.43237103200066224,
+                    0.0,
+                    0.16666666666666655
+                  ],
+                  "matched_after_source_changed": 2.676085051615949e-08,
+                  "conditional_rate": 0.4811547615992053,
+                  "measured_conditional_interval": [
+                    0.48111852754413675,
+                    0.4811877592342384
+                  ]
+                },
+                "recovered_placements": 5.0000000000000036,
+                "independently_counted_99": [
+                  4.9992394342846245,
+                  5.000930331438484
+                ],
+                "without_source_match": 4.991398249296901,
+                "without_source_match_99": [
+                  4.9911739214913124,
+                  4.991641337644947
+                ]
+              },
+              {
+                "radius": 2,
+                "forward": {
+                  "outcomes": [
+                    6207973418,
+                    679126192,
+                    6684380344,
+                    745085734,
+                    2863303496
+                  ],
+                  "expected": [
+                    0.3613572163816623,
+                    0.03953073376075359,
+                    0.38907604138154395,
+                    0.04336934180937354,
+                    0.16666666666666663
+                  ],
+                  "matched_after_source_changed": 1.3535847726232692e-08,
+                  "conditional_rate": 0.43362865965799474,
+                  "measured_conditional_interval": [
+                    0.4335881865597261,
+                    0.4336551963157971
+                  ]
+                },
+                "reverse": {
+                  "outcomes": [
+                    6772618342,
+                    0,
+                    7283667896,
+                    0,
+                    3123582946
+                  ],
+                  "expected": [
+                    0.3942078724163587,
+                    0.0,
+                    0.42397394576545955,
+                    0.0,
+                    0.18181818181818168
+                  ],
+                  "matched_after_source_changed": 1.4766379337708395e-08,
+                  "conditional_rate": 0.4818096218422161,
+                  "measured_conditional_interval": [
+                    0.4817860448528139,
+                    0.48185659006915216
+                  ]
+                },
+                "recovered_placements": 9.000000000000005,
+                "independently_counted_99": [
+                  8.99849814526367,
+                  9.000785918360851
+                ],
+                "without_source_match": 9.005199093158476,
+                "without_source_match_99": [
+                  9.004971365782724,
+                  9.00543878193636
+                ]
+              }
+            ],
+            "spread": [
+              {
+                "radius": 1,
+                "forward": {
+                  "outcomes": [
+                    3449970214,
+                    3437250166,
+                    3686671530,
+                    3742614651,
+                    2863362623
+                  ],
+                  "expected": [
+                    0.20081466247666332,
+                    0.2000732876657524,
+                    0.21459533805463046,
+                    0.2178500451362872,
+                    0.16666666666666663
+                  ],
+                  "matched_after_source_changed": 2.2183444510133508e-10,
+                  "conditional_rate": 0.24097759497199597,
+                  "measured_conditional_interval": [
+                    0.2409494935522275,
+                    0.24100749909878488
+                  ]
+                },
+                "reverse": {
+                  "outcomes": [
+                    6899910049,
+                    0,
+                    7416647015,
+                    0,
+                    2863312120
+                  ],
+                  "expected": [
+                    0.4016293249533267,
+                    0.0,
+                    0.43170400838000633,
+                    3.3306690738754696e-16,
+                    0.16666666666666663
+                  ],
+                  "matched_after_source_changed": 4.436688902026702e-10,
+                  "conditional_rate": 0.481955189943992,
+                  "measured_conditional_interval": [
+                    0.4819185355635625,
+                    0.4819878044514731
+                  ]
+                },
+                "recovered_placements": 4.999999999999999,
+                "independently_counted_99": [
+                  4.999177626915811,
+                  5.000866094090803
+                ],
+                "without_source_match": 4.984920006375526,
+                "without_source_match_99": [
+                  4.984652964270967,
+                  4.985120380424601
+                ]
+              },
+              {
+                "radius": 2,
+                "forward": {
+                  "outcomes": [
+                    6206573305,
+                    680606585,
+                    6678748082,
+                    750589209,
+                    2863352003
+                  ],
+                  "expected": [
+                    0.36126940373086447,
+                    0.03961854641155121,
+                    0.38875472021383684,
+                    0.04369066297708086,
+                    0.16666666666666663
+                  ],
+                  "matched_after_source_changed": 1.0303337462796999e-08,
+                  "conditional_rate": 0.43352328447703736,
+                  "measured_conditional_interval": [
+                    0.4334918608479048,
+                    0.4335588663284852
+                  ]
+                },
+                "reverse": {
+                  "outcomes": [
+                    6770764966,
+                    0,
+                    7285498316,
+                    0,
+                    3123605902
+                  ],
+                  "expected": [
+                    0.3941120767973067,
+                    0.0,
+                    0.4240697413845113,
+                    2.220446049250313e-16,
+                    0.18181818181818177
+                  ],
+                  "matched_after_source_changed": 1.1240004504869453e-08,
+                  "conditional_rate": 0.4816925383078193,
+                  "measured_conditional_interval": [
+                    0.48165498069800244,
+                    0.4817255197898114
+                  ]
+                },
+                "recovered_placements": 9.000000000000002,
+                "independently_counted_99": [
+                  8.998916366894736,
+                  9.00120470935062
+                ],
+                "without_source_match": 9.000289487336415,
+                "without_source_match_99": [
+                  9.000059308589728,
+                  9.000526724743365
+                ]
+              }
+            ]
+          },
+          "ordinary_to_held_first_variation_nats": [
+            -0.002823682642749604,
+            0.002620619163668344
+          ],
+          "entirely_counted_prediction_nats": [
+            -0.002826052708825272,
+            0.0026228187878339715
+          ],
+          "measured_shell_volume_per_step": {
+            "zero": [
+              4.998882626203068,
+              5.001190373028985
+            ],
+            "one": [
+              3.9988871271945428,
+              4.00122366297324
+            ],
+            "split": [
+              3.997567813825185,
+              4.0015464840762265
+            ],
+            "spread": [
+              3.9980502728039333,
+              4.002027082434809
+            ]
+          },
+          "finite_shell_secant_prediction_nats": [
+            -0.007199794911553949,
+            0.005644872810228809
+          ]
+        }
+      ]
+    },
+    {
+      "tags": 2,
+      "states": 2970,
+      "reference_placements": 45,
+      "dynamics_bound": {
+        "terms": 72,
+        "centered_doubled_scale": 256,
+        "max_row_terms": 20,
+        "column_probability_error_upper": 2.878642214068899e-09
+      },
+      "times": [
+        {
+          "time": 0.125,
+          "arms": {
+            "zero": [
+              {
+                "radius": 1,
+                "forward": {
+                  "outcomes": [
+                    1547126544,
+                    10044514379,
+                    14811064,
+                    107039464,
+                    5466377733
+                  ],
+                  "expected": [
+                    0.09005881178730471,
+                    0.5846668768100421,
+                    0.0008618662462249876,
+                    0.006230626974609965,
+                    0.31818181818181823
+                  ],
+                  "matched_after_source_changed": 0.0,
+                  "conditional_rate": 0.1320862572880469,
+                  "measured_conditional_interval": [
+                    0.13204839726442938,
+                    0.13211307180594434
+                  ]
+                },
+                "reverse": {
+                  "outcomes": [
+                    6807743561,
+                    0,
+                    64273309,
+                    0,
+                    10307852314
+                  ],
+                  "expected": [
+                    0.3962587718641407,
+                    0.0,
+                    0.003741228135859309,
+                    0.0,
+                    0.6
+                  ],
+                  "matched_after_source_changed": 0.0,
+                  "conditional_rate": 0.9906469296603517,
+                  "measured_conditional_interval": [
+                    0.9905501794525889,
+                    0.9907440234614054
+                  ]
+                },
+                "recovered_placements": 6.0,
+                "independently_counted_99": [
+                  5.997835166544258,
+                  6.001604216649279
+                ],
+                "without_source_match": 6.00076475021296,
+                "without_source_match_99": [
+                  5.999219092771625,
+                  6.001789881616617
+                ]
+              },
+              {
+                "radius": 2,
+                "forward": {
+                  "outcomes": [
+                    9273600120,
+                    2318099723,
+                    97240274,
+                    24592157,
+                    5466336910
+                  ],
+                  "expected": [
+                    0.5397936921268902,
+                    0.13493199647045662,
+                    0.005660974506636718,
+                    0.001431518714198221,
+                    0.31818181818181823
+                  ],
+                  "matched_after_source_changed": 0.0,
+                  "conditional_rate": 0.791697415119439,
+                  "measured_conditional_interval": [
+                    0.7916485340436347,
+                    0.7917508915434814
+                  ]
+                },
+                "reverse": {
+                  "outcomes": [
+                    11128276564,
+                    0,
+                    116683661,
+                    0,
+                    5934908959
+                  ],
+                  "expected": [
+                    0.6477524305522682,
+                    0.0,
+                    0.006793023993186376,
+                    0.0,
+                    0.34545454545454546
+                  ],
+                  "matched_after_source_changed": 0.0,
+                  "conditional_rate": 0.9896217688992985,
+                  "measured_conditional_interval": [
+                    0.9895642718161838,
+                    0.9896826727959058
+                  ]
+                },
+                "recovered_placements": 36.000000000000014,
+                "independently_counted_99": [
+                  35.9965444340355,
+                  36.00344930637902
+                ],
+                "without_source_match": 36.00000799781278,
+                "without_source_match_99": [
+                  35.998724814037075,
+                  36.00129560288207
+                ]
+              }
+            ],
+            "one": [
+              {
+                "radius": 1,
+                "forward": {
+                  "outcomes": [
+                    2563145402,
+                    8997050733,
+                    39145600,
+                    114221911,
+                    5466305538
+                  ],
+                  "expected": [
+                    0.14919727588388873,
+                    0.5236947331902227,
+                    0.002278690723792165,
+                    0.006647482020278095,
+                    0.31818181818181823
+                  ],
+                  "matched_after_source_changed": 0.0,
+                  "conditional_rate": 0.21882267129637015,
+                  "measured_conditional_interval": [
+                    0.21878376958356927,
+                    0.2188533989349797
+                  ]
+                },
+                "reverse": {
+                  "outcomes": [
+                    11278061417,
+                    0,
+                    175212084,
+                    0,
+                    5726595683
+                  ],
+                  "expected": [
+                    0.6564680138891104,
+                    0.0,
+                    0.010198652777556383,
+                    0.0,
+                    0.33333333333333337
+                  ],
+                  "matched_after_source_changed": 0.0,
+                  "conditional_rate": 0.9847020208336655,
+                  "measured_conditional_interval": [
+                    0.9846440299300266,
+                    0.9847599898752787
+                  ]
+                },
+                "recovered_placements": 10.000000000000002,
+                "independently_counted_99": [
+                  9.997933306881588,
+                  10.001721628884777
+                ],
+                "without_source_match": 9.997413796106938,
+                "without_source_match_99": [
+                  9.995950573588004,
+                  9.998521362432996
+                ]
+              },
+              {
+                "radius": 2,
+                "forward": {
+                  "outcomes": [
+                    9252229180,
+                    2307960474,
+                    122916759,
+                    30443907,
+                    5466318864
+                  ],
+                  "expected": [
+                    0.538547675039132,
+                    0.13434433403497947,
+                    0.007153826220619552,
+                    0.0017723465234507074,
+                    0.31818181818181823
+                  ],
+                  "matched_after_source_changed": 0.0,
+                  "conditional_rate": 0.789869923390727,
+                  "measured_conditional_interval": [
+                    0.7898229034988038,
+                    0.78992515654221
+                  ]
+                },
+                "reverse": {
+                  "outcomes": [
+                    11102572737,
+                    0,
+                    142386538,
+                    0,
+                    5934909909
+                  ],
+                  "expected": [
+                    0.6462572100469584,
+                    0.0,
+                    0.008288244498496078,
+                    1.1102230246251565e-16,
+                    0.34545454545454546
+                  ],
+                  "matched_after_source_changed": 0.0,
+                  "conditional_rate": 0.9873374042384085,
+                  "measured_conditional_interval": [
+                    0.9872786146138365,
+                    0.987396879581781
+                  ]
+                },
+                "recovered_placements": 36.00000000000001,
+                "independently_counted_99": [
+                  35.996726525648434,
+                  36.003642446293924
+                ],
+                "without_source_match": 36.01629908314361,
+                "without_source_match_99": [
+                  36.01526545046198,
+                  36.01783623930697
+                ]
+              }
+            ],
+            "split": [
+              {
+                "radius": 1,
+                "forward": {
+                  "outcomes": [
+                    1286745911,
+                    4501203168,
+                    1314871620,
+                    4610734063,
+                    5466314422
+                  ],
+                  "expected": [
+                    0.07489872586252472,
+                    0.2620056997300384,
+                    0.07653329321460886,
+                    0.2683804630110098,
+                    0.31818181818181823
+                  ],
+                  "matched_after_source_changed": 6.185988812649205e-10,
+                  "conditional_rate": 0.1098514645983696,
+                  "measured_conditional_interval": [
+                    0.10981931644402798,
+                    0.109882720683341
+                  ]
+                },
+                "reverse": {
+                  "outcomes": [
+                    5661766780,
+                    0,
+                    5791533824,
+                    0,
+                    5726568580
+                  ],
+                  "expected": [
+                    0.32955439379510876,
+                    0.0,
+                    0.337112272871558,
+                    0.0,
+                    0.33333333333333337
+                  ],
+                  "matched_after_source_changed": 2.72183507756565e-09,
+                  "conditional_rate": 0.49433159069266314,
+                  "measured_conditional_interval": [
+                    0.494291296591113,
+                    0.49437860571268555
+                  ]
+                },
+                "recovered_placements": 10.0,
+                "independently_counted_99": [
+                  9.996414785436759,
+                  10.003381460882052
+                ],
+                "without_source_match": 9.994513259090818,
+                "without_source_match_99": [
+                  9.993363296262203,
+                  9.995934085107194
+                ]
+              },
+              {
+                "radius": 2,
+                "forward": {
+                  "outcomes": [
+                    4632504810,
+                    1155471196,
+                    4744416236,
+                    1181140131,
+                    5466336811
+                  ],
+                  "expected": [
+                    0.26964671848598354,
+                    0.06725770710657952,
+                    0.2761606147965474,
+                    0.0687531414290713,
+                    0.31818181818181823
+                  ],
+                  "matched_after_source_changed": 1.0437747355103705e-09,
+                  "conditional_rate": 0.39548185377944256,
+                  "measured_conditional_interval": [
+                    0.3954433011154542,
+                    0.3955230232727627
+                  ]
+                },
+                "reverse": {
+                  "outcomes": [
+                    5558861017,
+                    0,
+                    5686075187,
+                    0,
+                    5934932980
+                  ],
+                  "expected": [
+                    0.32357606218318025,
+                    0.0,
+                    0.3309693923622742,
+                    1.1102230246251565e-16,
+                    0.34545454545454546
+                  ],
+                  "matched_after_source_changed": 1.252529682612445e-09,
+                  "conditional_rate": 0.4943523172243032,
+                  "measured_conditional_interval": [
+                    0.4942990284137632,
+                    0.4943879558484898
+                  ]
+                },
+                "recovered_placements": 36.00000000000001,
+                "independently_counted_99": [
+                  35.99487843434281,
+                  36.00655501211391
+                ],
+                "without_source_match": 36.023283996647045,
+                "without_source_match_99": [
+                  36.022084889000496,
+                  36.02465567784549
+                ]
+              }
+            ],
+            "spread": [
+              {
+                "radius": 1,
+                "forward": {
+                  "outcomes": [
+                    1352505533,
+                    4435453501,
+                    1374824765,
+                    4550730977,
+                    5466354408
+                  ],
+                  "expected": [
+                    0.07872493312346117,
+                    0.258179492469102,
+                    0.0800255801061323,
+                    0.26488817611948645,
+                    0.3181818181818183
+                  ],
+                  "matched_after_source_changed": 2.6114395431888057e-11,
+                  "conditional_rate": 0.11546323524774307,
+                  "measured_conditional_interval": [
+                    0.11543352669918032,
+                    0.11549725189719126
+                  ]
+                },
+                "reverse": {
+                  "outcomes": [
+                    5950915464,
+                    0,
+                    6074988281,
+                    0,
+                    5153965439
+                  ],
+                  "expected": [
+                    0.3463897057432291,
+                    0.0,
+                    0.353610294256771,
+                    0.0,
+                    0.3
+                  ],
+                  "matched_after_source_changed": 1.1490333990030742e-10,
+                  "conditional_rate": 0.49484243677604156,
+                  "measured_conditional_interval": [
+                    0.49479984588415443,
+                    0.494883026039681
+                  ]
+                },
+                "recovered_placements": 10.500000000000004,
+                "independently_counted_99": [
+                  10.496708191318831,
+                  10.503668392890253
+                ],
+                "without_source_match": 10.47753387315317,
+                "without_source_match_99": [
+                  10.476314739788165,
+                  10.478885528633157
+                ]
+              },
+              {
+                "radius": 2,
+                "forward": {
+                  "outcomes": [
+                    4631294105,
+                    1156659713,
+                    4739783707,
+                    1185860446,
+                    5466271213
+                  ],
+                  "expected": [
+                    0.26957881408538475,
+                    0.06732561150717833,
+                    0.27588865430651777,
+                    0.06902510191910091,
+                    0.31818181818181823
+                  ],
+                  "matched_after_source_changed": 7.08797726175501e-10,
+                  "conditional_rate": 0.39538226065856436,
+                  "measured_conditional_interval": [
+                    0.3953377306519674,
+                    0.3954174463315632
+                  ]
+                },
+                "reverse": {
+                  "outcomes": [
+                    5557504611,
+                    0,
+                    5687422917,
+                    0,
+                    5934941656
+                  ],
+                  "expected": [
+                    0.32349457690246175,
+                    0.0,
+                    0.3310508776429927,
+                    1.1102230246251565e-16,
+                    0.34545454545454546
+                  ],
+                  "matched_after_source_changed": 8.505572714106012e-10,
+                  "conditional_rate": 0.49422782582320546,
+                  "measured_conditional_interval": [
+                    0.49417878955694516,
+                    0.4942677099047289
+                  ]
+                },
+                "recovered_placements": 35.99999999999999,
+                "independently_counted_99": [
+                  35.99422507571014,
+                  36.00590386075493
+                ],
+                "without_source_match": 36.000852913865565,
+                "without_source_match_99": [
+                  35.99963690410203,
+                  36.002207692947024
+                ]
+              }
+            ]
+          },
+          "ordinary_to_held_first_variation_nats": [
+            0.1983020124696494,
+            0.20428577542575724
+          ],
+          "entirely_counted_prediction_nats": [
+            0.19813633328477792,
+            0.20445724327371856
+          ],
+          "measured_shell_volume_per_step": {
+            "zero": [
+              4.999135135499111,
+              5.0010243695714784
+            ],
+            "one": [
+              3.9992323087111057,
+              4.000887800867932
+            ],
+            "split": [
+              3.9986460684838843,
+              4.001567927803744
+            ],
+            "spread": [
+              3.888752623868892,
+              3.891636463713616
+            ]
+          },
+          "finite_shell_secant_prediction_nats": [
+            0.1717735937912471,
+            0.18204068430712447
+          ]
+        },
+        {
+          "time": 0.25,
+          "arms": {
+            "zero": [
+              {
+                "radius": 1,
+                "forward": {
+                  "outcomes": [
+                    1527859404,
+                    9833481915,
+                    34459256,
+                    317664747,
+                    5466403862
+                  ],
+                  "expected": [
+                    0.08893256087801536,
+                    0.5723893151647372,
+                    0.0020054828263292857,
+                    0.018490822949099872,
+                    0.31818181818181823
+                  ],
+                  "matched_after_source_changed": 0.0,
+                  "conditional_rate": 0.1304344226210892,
+                  "measured_conditional_interval": [
+                    0.13040386774771037,
+                    0.1304684484804211
+                  ]
+                },
+                "reverse": {
+                  "outcomes": [
+                    6722486250,
+                    0,
+                    149408696,
+                    0,
+                    10307974238
+                  ],
+                  "expected": [
+                    0.3913032678632675,
+                    0.0,
+                    0.008696732136732166,
+                    3.3306690738754696e-16,
+                    0.6
+                  ],
+                  "matched_after_source_changed": 0.0,
+                  "conditional_rate": 0.9782581696581688,
+                  "measured_conditional_interval": [
+                    0.9781616905757352,
+                    0.9783543315851865
+                  ]
+                },
+                "recovered_placements": 6.000000000000001,
+                "independently_counted_99": [
+                  5.998134290903904,
+                  6.001943758730661
+                ],
+                "without_source_match": 6.0019108844867475,
+                "without_source_match_99": [
+                  6.000682982381647,
+                  6.003253771226639
+                ]
+              },
+              {
+                "radius": 2,
+                "forward": {
+                  "outcomes": [
+                    9092249109,
+                    2269146046,
+                    278672649,
+                    73445937,
+                    5466355443
+                  ],
+                  "expected": [
+                    0.5292368386389044,
+                    0.13208503740384844,
+                    0.016221480669670444,
+                    0.004274825105758663,
+                    0.3181818181818183
+                  ],
+                  "matched_after_source_changed": 0.0,
+                  "conditional_rate": 0.7762140300037266,
+                  "measured_conditional_interval": [
+                    0.7761680246276709,
+                    0.7762694978812197
+                  ]
+                },
+                "reverse": {
+                  "outcomes": [
+                    10910579896,
+                    0,
+                    334373174,
+                    0,
+                    5934916114
+                  ],
+                  "expected": [
+                    0.6350842063666851,
+                    0.0,
+                    0.019461248178769264,
+                    2.220446049250313e-16,
+                    0.34545454545454546
+                  ],
+                  "matched_after_source_changed": 0.0,
+                  "conditional_rate": 0.9702675375046578,
+                  "measured_conditional_interval": [
+                    0.970205977545834,
+                    0.9703232265685139
+                  ]
+                },
+                "recovered_placements": 36.000000000000014,
+                "independently_counted_99": [
+                  35.9967257840579,
+                  36.00372570976443
+                ],
+                "without_source_match": 36.00024907436595,
+                "without_source_match_99": [
+                  35.999037390573164,
+                  36.001608179418156
+                ]
+              }
+            ],
+            "one": [
+              {
+                "radius": 1,
+                "forward": {
+                  "outcomes": [
+                    2487896463,
+                    8785742748,
+                    114358786,
+                    325555220,
+                    5466315967
+                  ],
+                  "expected": [
+                    0.14481151210676071,
+                    0.5113998703789732,
+                    0.006657092651067787,
+                    0.01894970668138019,
+                    0.3181818181818183
+                  ],
+                  "matched_after_source_changed": 0.0,
+                  "conditional_rate": 0.21239021775658243,
+                  "measured_conditional_interval": [
+                    0.21236005624885448,
+                    0.2124293186739539
+                  ]
+                },
+                "reverse": {
+                  "outcomes": [
+                    10946590709,
+                    0,
+                    506743592,
+                    0,
+                    5726534883
+                  ],
+                  "expected": [
+                    0.637170653269747,
+                    0.0,
+                    0.02949601339691954,
+                    1.1102230246251565e-16,
+                    0.33333333333333337
+                  ],
+                  "matched_after_source_changed": 0.0,
+                  "conditional_rate": 0.9557559799046205,
+                  "measured_conditional_interval": [
+                    0.9556986694934638,
+                    0.9558129375956087
+                  ]
+                },
+                "recovered_placements": 10.000000000000005,
+                "independently_counted_99": [
+                  9.998274823754862,
+                  10.00216022493031
+                ],
+                "without_source_match": 9.996927914016682,
+                "without_source_match_99": [
+                  9.995813221086962,
+                  9.998384009931954
+                ]
+              },
+              {
+                "radius": 2,
+                "forward": {
+                  "outcomes": [
+                    9032612053,
+                    2241103881,
+                    344279895,
+                    95648200,
+                    5466225155
+                  ],
+                  "expected": [
+                    0.5257633829430138,
+                    0.1304479995427199,
+                    0.020039500064667037,
+                    0.00556729926778099,
+                    0.31818181818181823
+                  ],
+                  "matched_after_source_changed": 0.0,
+                  "conditional_rate": 0.7711196283164203,
+                  "measured_conditional_interval": [
+                    0.7710682900861404,
+                    0.7711694708641781
+                  ]
+                },
+                "reverse": {
+                  "outcomes": [
+                    10838990788,
+                    0,
+                    405947141,
+                    0,
+                    5934931255
+                  ],
+                  "expected": [
+                    0.6309160595316166,
+                    0.0,
+                    0.023629395013837984,
+                    0.0,
+                    0.34545454545454546
+                  ],
+                  "matched_after_source_changed": 0.0,
+                  "conditional_rate": 0.9638995353955253,
+                  "measured_conditional_interval": [
+                    0.9638411324081599,
+                    0.963958002809602
+                  ]
+                },
+                "recovered_placements": 36.00000000000001,
+                "independently_counted_99": [
+                  35.99674570296618,
+                  36.003777715543784
+                ],
+                "without_source_match": 36.02299027850694,
+                "without_source_match_99": [
+                  36.02197310305036,
+                  36.02454389189535
+                ]
+              }
+            ],
+            "split": [
+              {
+                "radius": 1,
+                "forward": {
+                  "outcomes": [
+                    1260742738,
+                    4398150186,
+                    1336955089,
+                    4717783416,
+                    5466237755
+                  ],
+                  "expected": [
+                    0.07338403668541672,
+                    0.2559993006248661,
+                    0.0778217584654499,
+                    0.27461308604244905,
+                    0.31818181818181823
+                  ],
+                  "matched_after_source_changed": 5.897311359351623e-09,
+                  "conditional_rate": 0.10762992047194453,
+                  "measured_conditional_interval": [
+                    0.10759875404215496,
+                    0.10766203100604502
+                  ]
+                },
+                "reverse": {
+                  "outcomes": [
+                    5547252753,
+                    0,
+                    5906005475,
+                    0,
+                    5726610956
+                  ],
+                  "expected": [
+                    0.3228897614158336,
+                    0.0,
+                    0.34377690525083315,
+                    0.0,
+                    0.33333333333333337
+                  ],
+                  "matched_after_source_changed": 2.5948169981147147e-08,
+                  "conditional_rate": 0.4843346421237504,
+                  "measured_conditional_interval": [
+                    0.4842950375363188,
+                    0.4843817629128714
+                  ]
+                },
+                "recovered_placements": 10.0,
+                "independently_counted_99": [
+                  9.99648921291332,
+                  10.003587650579899
+                ],
+                "without_source_match": 9.979582479957198,
+                "without_source_match_99": [
+                  9.978304947375534,
+                  9.980875736220526
+                ]
+              },
+              {
+                "radius": 2,
+                "forward": {
+                  "outcomes": [
+                    4534332125,
+                    1124340916,
+                    4850610538,
+                    1204256950,
+                    5466328655
+                  ],
+                  "expected": [
+                    0.26393564917221896,
+                    0.0654476881380639,
+                    0.28234018233148234,
+                    0.07009466217641658,
+                    0.31818181818181823
+                  ],
+                  "matched_after_source_changed": 1.964781144147104e-08,
+                  "conditional_rate": 0.38710561878592115,
+                  "measured_conditional_interval": [
+                    0.38706213696249325,
+                    0.3871413802458239
+                  ]
+                },
+                "reverse": {
+                  "outcomes": [
+                    5441200340,
+                    0,
+                    5803686522,
+                    0,
+                    5934982322
+                  ],
+                  "expected": [
+                    0.31672277900666274,
+                    0.0,
+                    0.3378226755387918,
+                    0.0,
+                    0.34545454545454546
+                  ],
+                  "matched_after_source_changed": 2.3577373729765242e-08,
+                  "conditional_rate": 0.4838820234824014,
+                  "measured_conditional_interval": [
+                    0.48383802612896737,
+                    0.4839263314050391
+                  ]
+                },
+                "recovered_placements": 36.00000000000001,
+                "independently_counted_99": [
+                  35.993668217792106,
+                  36.005550747364644
+                ],
+                "without_source_match": 36.05420487924429,
+                "without_source_match_99": [
+                  36.0529015801132,
+                  36.05547236895819
+                ]
+              }
+            ],
+            "spread": [
+              {
+                "radius": 1,
+                "forward": {
+                  "outcomes": [
+                    1329401454,
+                    4329360491,
+                    1389924780,
+                    4664820933,
+                    5466361526
+                  ],
+                  "expected": [
+                    0.07738019117647182,
+                    0.2520031461338111,
+                    0.08090562076755606,
+                    0.2715292237403429,
+                    0.3181818181818183
+                  ],
+                  "matched_after_source_changed": 6.36828889129988e-11,
+                  "conditional_rate": 0.11349094705882537,
+                  "measured_conditional_interval": [
+                    0.11346122274835181,
+                    0.113524835306445
+                  ]
+                },
+                "reverse": {
+                  "outcomes": [
+                    5849256886,
+                    0,
+                    6176574181,
+                    0,
+                    5154038117
+                  ],
+                  "expected": [
+                    0.34047284117647597,
+                    0.0,
+                    0.359527158823524,
+                    0.0,
+                    0.30000000000000004
+                  ],
+                  "matched_after_source_changed": 2.802047112171947e-10,
+                  "conditional_rate": 0.4863897731092514,
+                  "measured_conditional_interval": [
+                    0.48634971973095753,
+                    0.48643243016767657
+                  ]
+                },
+                "recovered_placements": 10.500000000000005,
+                "independently_counted_99": [
+                  10.496593825517428,
+                  10.503664800506918
+                ],
+                "without_source_match": 10.446863588305842,
+                "without_source_match_99": [
+                  10.445565482134214,
+                  10.448136270979205
+                ]
+              },
+              {
+                "radius": 2,
+                "forward": {
+                  "outcomes": [
+                    4532640060,
+                    1126057362,
+                    4838756158,
+                    1215998111,
+                    5466417493
+                  ],
+                  "expected": [
+                    0.26383736552943904,
+                    0.06554597178084384,
+                    0.28165548145216346,
+                    0.07077936305573543,
+                    0.31818181818181823
+                  ],
+                  "matched_after_source_changed": 1.3747246901609288e-08,
+                  "conditional_rate": 0.3869614694431773,
+                  "measured_conditional_interval": [
+                    0.38692062173127945,
+                    0.3869998575307601
+                  ]
+                },
+                "reverse": {
+                  "outcomes": [
+                    5439113847,
+                    0,
+                    5805841780,
+                    0,
+                    5934913557
+                  ],
+                  "expected": [
+                    0.3166048386353268,
+                    0.0,
+                    0.33794061591012775,
+                    0.0,
+                    0.34545454545454546
+                  ],
+                  "matched_after_source_changed": 1.649669628193115e-08,
+                  "conditional_rate": 0.4837018368039715,
+                  "measured_conditional_interval": [
+                    0.4836495237354272,
+                    0.4837378172535072
+                  ]
+                },
+                "recovered_placements": 36.00000000000001,
+                "independently_counted_99": [
+                  35.994257173614955,
+                  36.0061435668799
+                ],
+                "without_source_match": 36.002527900785765,
+                "without_source_match_99": [
+                  36.00086012622177,
+                  36.00343091506676
+                ]
+              }
+            ]
+          },
+          "ordinary_to_held_first_variation_nats": [
+            0.19816625618373035,
+            0.20425425362731725
+          ],
+          "entirely_counted_prediction_nats": [
+            0.19800069042176624,
+            0.2044256950173672
+          ],
+          "measured_shell_volume_per_step": {
+            "zero": [
+              4.999059473812096,
+              5.00097140783619
+            ],
+            "one": [
+              3.999137108520742,
+              4.000827814335133
+            ],
+            "split": [
+              3.9984578667292787,
+              4.001433246568731
+            ],
+            "spread": [
+              3.8887571795569498,
+              3.8916894754198497
+            ]
+          },
+          "finite_shell_secant_prediction_nats": [
+            0.17137916809794868,
+            0.1818188642935539
+          ]
+        }
+      ]
+    }
+  ]
+}

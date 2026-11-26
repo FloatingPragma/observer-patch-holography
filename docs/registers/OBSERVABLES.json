@@ -4670,7 +4670,7 @@
    "category": "Dark Sector",
    "status": "Conditional",
    "what": "Galaxies, lensing and cosmic structure require more gravitating mass than luminous matter provides; the unseen component is called dark matter.",
-   "why": "OPH proposes that gravity counts records that never couple to light, so dark matter would be non-luminous modular charge.",
+   "why": "OPH proposes that gravity counts nonluminous modular charge, whose stress would have to satisfy the two-ring lens constraints under the adopted stellar and orbital model.",
    "premises": [
     "PR-134",
     "PR-100",
@@ -4722,7 +4722,9 @@
     "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/formed_ranges/README.md",
     "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/formed_ranges/results.json",
     "code/matched_einstein_limit/source_implication/full_geometry/station_balls/formed_optics/README.md",
-    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/formed_optics/certificate.json"
+    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/formed_optics/certificate.json",
+    "code/cosmology/rar_deep_regime/double_ring_pressure/stress_conservation/README.md",
+    "code/cosmology/rar_deep_regime/double_ring_pressure/stress_conservation/results.json"
    ],
    "papers": [
     "cosmology/oph_dark_matter_paper.pdf",
@@ -5532,7 +5534,7 @@
    "category": "OpenWave Recovery",
    "status": "Partial",
    "what": "A dark-matter particle would be a stable, electrically neutral, massive excitation that emits no light.",
-   "why": "Gravitational observations need such a component, and a stable neutral bound state in the model would be a candidate.",
+   "why": "The challenge tests a stable neutral massive excitation, while orbital and lensing records independently constrain the proposed nonluminous modular source.",
    "premises": [],
    "lean": [],
    "model": [
@@ -5558,7 +5560,9 @@
     "code/cosmology/rar_deep_regime/double_ring_pressure/elliptical.py",
     "code/cosmology/rar_deep_regime/double_ring_pressure/elliptical.json",
     "model/candidate_laws/interval_echo/openwave/row_27_metric/formed_pair_clocks/README.md",
-    "model/candidate_laws/interval_echo/openwave/row_27_metric/formed_pair_clocks/results.json"
+    "model/candidate_laws/interval_echo/openwave/row_27_metric/formed_pair_clocks/results.json",
+    "code/cosmology/rar_deep_regime/double_ring_pressure/stress_conservation/README.md",
+    "code/cosmology/rar_deep_regime/double_ring_pressure/stress_conservation/results.json"
    ],
    "papers": [
     "paper/executable_observer_construction.pdf"
@@ -5833,7 +5837,12 @@
     "code/matched_einstein_limit/source_implication/full_geometry/station_balls/formed_optics/README.md",
     "code/matched_einstein_limit/source_implication/full_geometry/station_balls/formed_optics/certificate.json",
     "model/candidate_laws/interval_echo/openwave/row_27_metric/formed_pair_clocks/README.md",
-    "model/candidate_laws/interval_echo/openwave/row_27_metric/formed_pair_clocks/results.json"
+    "model/candidate_laws/interval_echo/openwave/row_27_metric/formed_pair_clocks/results.json",
+    "model/experiments/interval_echo_einstein_station/equilibrium_refinement/tracer_flux/bearings/README.md",
+    "model/experiments/interval_echo_einstein_station/equilibrium_refinement/tracer_flux/bearings/results.json",
+    "model/experiments/interval_echo_einstein_station/equilibrium_refinement/tracer_flux/bearings/placements.json",
+    "code/matched_einstein_limit/fixed_volume/displaced_markers/README.md",
+    "code/matched_einstein_limit/fixed_volume/displaced_markers/results.json"
    ],
    "papers": [
     "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf",
@@ -6753,7 +6762,7 @@
    "category": "Physical premises",
    "status": "Partial",
    "what": "At fixed volume, first-order changes of bulk entropy balance changes of boundary area divided by four times Newton's constant.",
-   "why": "This stationarity of generalized entropy is the equilibrium condition from which OPH derives Einstein's equations in small regions.",
+   "why": "Stationarity gives the gravity premise when observers recover proper area, and on the five-rim source, plugs measure the balancing information while calibrated tracer volumes miss its sign.",
    "premises": [],
    "lean": [
     "Lean/ObserverPatchHolography/EinsteinBranch/Composition.lean",
@@ -6802,7 +6811,11 @@
     "model/experiments/interval_echo_einstein_station/equilibrium_refinement/tracer_flux/README.md",
     "model/experiments/interval_echo_einstein_station/equilibrium_refinement/tracer_flux/results.json",
     "model/experiments/interval_echo_einstein_station/equilibrium_refinement/area_survey/joint_screen/README.md",
-    "model/experiments/interval_echo_einstein_station/equilibrium_refinement/area_survey/joint_screen/certificate.json"
+    "model/experiments/interval_echo_einstein_station/equilibrium_refinement/area_survey/joint_screen/certificate.json",
+    "model/experiments/interval_echo_einstein_station/equilibrium_refinement/nested_volumes/README.md",
+    "model/experiments/interval_echo_einstein_station/equilibrium_refinement/nested_volumes/results.json",
+    "model/experiments/interval_echo_einstein_station/equilibrium_refinement/area_survey/joint_screen/relaxation/README.md",
+    "model/experiments/interval_echo_einstein_station/equilibrium_refinement/area_survey/joint_screen/relaxation/results.json"
    ],
    "papers": [],
    "statement": "The first-order bulk entropy variation balances the fixed-volume area variation over 4G, and the declared MaxEnt family has zero normalization rate, unit constraint speed and the Gibbs differential equation.",
@@ -6815,7 +6828,7 @@
    "category": "Physical premises",
    "status": "Open",
    "what": "Small geodesic balls of fixed volume obey the standard curvature correction to their area, with error terms vanishing as balls shrink.",
-   "why": "It converts entropy balance in small balls into the local Einstein equations with a positive Newton constant.",
+   "why": "Eight geodesically placed counts recover the curvature coefficient entering Einstein’s equation when observers share proper rulers, and native tag flights independently supply an angular frame.",
    "premises": [],
    "lean": [
     "Lean/ObserverPatchHolography/EinsteinBranch/SmallBall.lean",
@@ -6848,7 +6861,14 @@
     "code/matched_einstein_limit/finite_entropy_region/monitored_order/results.json",
     "code/matched_einstein_limit/finite_entropy_region/held_calibration.json",
     "model/experiments/interval_echo_einstein_station/equilibrium_refinement/rim_geometry/README.md",
-    "model/experiments/interval_echo_einstein_station/equilibrium_refinement/rim_geometry/results.json"
+    "model/experiments/interval_echo_einstein_station/equilibrium_refinement/rim_geometry/results.json",
+    "model/experiments/interval_echo_einstein_station/equilibrium_refinement/tracer_flux/bearings/README.md",
+    "model/experiments/interval_echo_einstein_station/equilibrium_refinement/tracer_flux/bearings/results.json",
+    "model/experiments/interval_echo_einstein_station/equilibrium_refinement/tracer_flux/bearings/placements.json",
+    "code/matched_einstein_limit/fixed_volume/displaced_markers/README.md",
+    "code/matched_einstein_limit/fixed_volume/displaced_markers/results.json",
+    "model/experiments/interval_echo_einstein_station/equilibrium_refinement/nested_volumes/README.md",
+    "model/experiments/interval_echo_einstein_station/equilibrium_refinement/nested_volumes/results.json"
    ],
    "papers": [],
    "statement": "The fixed-volume small-geodesic-ball area identity holds with coefficient 4*pi*ell^4/15, one cofinal shrinking family carries the collar, kernel and chart error terms as o(ell^4), the geometric side satisfies the contracted Bianchi identity, and the Newton constant and ball radius are positive.",
@@ -9221,7 +9241,9 @@
     "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/formed_ranges/README.md",
     "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/formed_ranges/results.json",
     "code/matched_einstein_limit/source_implication/full_geometry/station_balls/formed_optics/README.md",
-    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/formed_optics/certificate.json"
+    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/formed_optics/certificate.json",
+    "code/cosmology/rar_deep_regime/double_ring_pressure/stress_conservation/README.md",
+    "code/cosmology/rar_deep_regime/double_ring_pressure/stress_conservation/results.json"
    ],
    "papers": [],
    "statement": "The stress contraction entering the rest-frame Einstein relation equals the total modular charge of all screen sources, luminous or not, with no readout-dependent weight. A geometric excess over the luminous stress is then a non-luminous modular source.",
