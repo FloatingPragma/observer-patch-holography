@@ -87,7 +87,7 @@
   "law": {
    "fulfilled": 0,
    "partial": 0,
-   "open": 140,
+   "open": 143,
    "fails": 0
   },
   "designer": {
@@ -996,8 +996,8 @@
   },
   {
    "id": "PR-97",
-   "name": "quantum-particle conditions for a carrier mode",
-   "statement": "A classical carrier mode is a quantum particle only with (Q1) a positive-energy quantization with physical Hilbert space, (Q2) a two-point function whose Kallen-Lehmann measure contains a positive-residue one-particle pole, and (Q3) the asymptotic-state or LSZ hypotheses of the phase, including a deconfined sector for a coloured carrier.",
+   "name": "Stable one-particle interpretation of a carrier mode",
+   "statement": "For a stable asymptotic interpretation, Q1 requires positive-energy quantization on a physical Hilbert space, Q2 a positive-residue isolated one-particle contribution to the spectral measure, and Q3 the scattering or asymptotic hypotheses of the specified phase.",
    "type": "derivable",
    "role": "law",
    "status": "open",
@@ -1557,7 +1557,7 @@
   {
    "id": "PR-160",
    "name": "Step index to proper-time dictionary (source clock and duration)",
-   "statement": "One step index of the carrier dynamics corresponds to a fixed proper-time duration on the clock worldline of an observer: the seam-step time unit tau equals the scaled Maxwell step h, one internal step of a hosted process reads as one shared step index or as one rest step of proper length, and a clocked index counts accumulated proper length in a declared internal unit.",
+   "statement": "In the declared chart the shared step advances coordinate time by tau, with the Maxwell step h equal to tau under rest-clock calibration. A hosted rest process uses that step index, and a moving clock accumulates the proper intervals of its trajectory, including sqrt(tau^2-4) on a timelike hop of spatial length two.",
    "type": "derivable",
    "role": "law",
    "status": "open",
@@ -1838,6 +1838,36 @@
    "id": "PR-188",
    "name": "Canonical quantization of the classical field modes",
    "statement": "The quantum field sector of the native process is the canonical bosonic quantization, with a positive Planck parameter, of the positive classical normal modes of the declared Whitney field action, so that photon states are occupation states of those modes with energies ħω(n + 1/2).",
+   "type": "derivable",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-202",
+   "name": "Common source for photon and baryon transport",
+   "statement": "The same physical spacetime and matter history supply a perturbed FLRW metric, photon and baryon distributions, Thomson scattering with polarization, baryon loading and recombination visibility, on the domain of the tight-coupling and line-of-sight derivations.",
+   "type": "derivable",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-203",
+   "name": "Minimal spin coupling on the identified charged sector",
+   "statement": "On the identified spin-one-half charged sector the weak-field kinetic term is the minimal Dirac operator with calibrated covariant momenta and curvature, and at tree level there is no independent Pauli dipole operator or additional spin interaction at the order being compared.",
+   "type": "derivable",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-204",
+   "name": "Physical resonance interpretation of an unstable electroweak mode",
+   "statement": "The same physical sector supplies production and decay amplitudes with a gauge-independent complex resonance pole, a positive width and channel residues compatible with its quantum numbers and predicted couplings.",
    "type": "derivable",
    "role": "law",
    "status": "open",

@@ -1494,7 +1494,7 @@ The register records each theorem assumption and its formal consumers. The role 
 | PR-94 Protected-defect register on the native process | law | Open | Open | Open | Open | Open | Open |
 | PR-95 Gauss-sector central action and antisymmetric occupation | law | Open | Open | Open | Open | Open | Open |
 | PR-96 Continuous port phases on the twelve ports | law | Partial | Open | Open | Open | Open | Open |
-| PR-97 quantum-particle conditions for a carrier mode | law | Open | Open | Open | Open | Open | Open |
+| PR-97 Stable one-particle interpretation of a carrier mode | law | Open | Open | Open | Open | Open | Open |
 | PR-98 native realization of the declared scalar oscillator and quantum walk | law | Open | Open | Open | Open | Open | Open |
 | PR-99 fixed finite local patch as a domain of the model | law | Open | Open | Open | Open | Open | Open |
 | PR-100 anomalous collar charge as physical gravitating stress | law | Open | Open | Open | Open | Open | Open |
@@ -1579,3 +1579,6 @@ The register records each theorem assumption and its formal consumers. The role 
 | PR-186 Coherent state on the completed observer colimit | law | Open | Open | Open | Open | Open | Open |
 | PR-187 Euclidean cone geometry as the physical field metric | law | Open | Open | Open | Open | Open | Open |
 | PR-188 Canonical quantization of the classical field modes | law | Open | Open | Open | Open | Open | Open |
+| PR-202 Common source for photon and baryon transport | law | Open | Open | Open | Open | Open | Open |
+| PR-203 Minimal spin coupling on the identified charged sector | law | Open | Open | Open | Open | Open | Open |
+| PR-204 Physical resonance interpretation of an unstable electroweak mode | law | Open | Open | Open | Open | Open | Open |
