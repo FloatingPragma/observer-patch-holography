@@ -60,3 +60,10 @@ The stationarity columns are in units of $\ell^4$. The table rounds upper bounds
 PYTHONPATH=code:. python -m model.candidate_laws.interval_echo_partition_repair.published_strings.counted_tower.experiment
 PYTHONPATH=code:. python -m pytest -q model/candidate_laws/interval_echo_partition_repair/published_strings/counted_tower
 ~~~
+
+### A common calibration from the original count banks
+
+Let $x$ be the independent action stress times the measured regional kernel volume, in units absorbing $4\pi$ and the inverse fourth power of the proper radius. For each ordinary and held shape use its simultaneous signed outcome interval $[y_i^-,y_i^+]$ and its input interval $[x_i^-,x_i^+]$. A common positive gain $k$ and unknown offset $b$ fit these rectangles precisely when
+$y_i^- - y_j^+ \leq k(x_i^+ - x_j^-)$ for every ordered pair. The allowed intercepts at fixed gain are the intersection of the individual intercept intervals. This needs neither a fitted tensor nor a cross-stock choice of vacuum offset. Enlarging correlated errors into rectangles gives a conservative rejection test.
+
+With the seven separately acquired shapes, the entropy intervals at radii 1/32 and 1/512 admit disjoint slope ranges, even allowing a separate offset per radius. The finite entropy of the binary reader is curved in the work. The same raw terminal counts also give a monotone phase estimate before the entropy map. Expressing that phase in units of the entropy derivative at zero gives a joint slope interval of [78.95568802, 78.95804452] over all three scales, enclosing the apparatus value $8\pi^2$. The single rest-direction comparison of held and blind preparations has identical input and disjoint entropy intervals at each scale. These comparisons check detector calibration and the finite-size error budget. The Einstein argument still requires the actual entropy response at fixed proper volume. [Exact interval test and count replay](calibration_window.py)

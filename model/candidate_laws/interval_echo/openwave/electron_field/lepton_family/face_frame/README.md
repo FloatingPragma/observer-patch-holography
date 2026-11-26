@@ -63,3 +63,9 @@ python -m "$p.observers" --write
 python -m "$p.shared_report" --write
 (cd Lean && lake env lean -j1 ../model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/ClockLines.lean)
 ```
+
+### A three-face phase comparison
+
+Choose the positive winding projectors $P_a,P_b,P_c$ on the first three oriented faces in apparatus order. With unit weights define $A=I+P_a+P_b$ and $B=I+P_b+P_c$. For unit vectors spanning their ranges, let $G$ be their Gram matrix. Direct multiplication gives
+$\operatorname{Im}\operatorname{tr}([A,B]^3)=-6\det(G)\operatorname{Im}\operatorname{tr}(P_a P_b P_c)$.
+This equals 0.00881042 on the chosen faces. Conjugating their helicities reverses the sign. Repeating the first face gives zero. The imaginary part of the ordered projection amplitude is an interferometric target. Comparing it to an idle path gives a signed difference of −0.135872 per original start, with probability 0.371115 for declined projections. The operators, current, coherent reference and choice of faces specify a comparison apparatus. A quark interpretation requires independent evidence that the two physical mass operators and charged current implement it. [Executable phase and controls](three_face_phase.py)
