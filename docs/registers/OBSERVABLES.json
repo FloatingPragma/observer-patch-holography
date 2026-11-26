@@ -562,11 +562,14 @@
     "Lean/Geometry/SourceOrderFrameCompatibilityPacket.lean",
     "Lean/Geometry/SourceNetLayeredOrder.lean",
     "Lean/Geometry/OrderingFractionFourDimensional.lean",
-    "Lean/Time/SourceCountClockEnclosure.lean"
+    "Lean/Time/SourceCountClockEnclosure.lean",
+    "model/experiments/interval_echo_consensus/versioned_dispatch/cone_order/ArbitraryClock.lean"
    ],
    "model": [
     "model/experiments/seam_program/CLOCKED_FIELD.md",
-    "model/experiments/interval_echo_space/README.md"
+    "model/experiments/interval_echo_space/README.md",
+    "model/experiments/interval_echo_consensus/versioned_dispatch/cone_order/README.md",
+    "model/experiments/interval_echo_consensus/versioned_dispatch/cone_order/parity_log/README.md"
    ],
    "papers": [
     "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf",
@@ -674,11 +677,14 @@
     "Lean/Time/ClockComparison.lean",
     "Lean/ObserverPatchHolography/Provenance/GuardedRailRecords.lean",
     "model/experiments/interval_echo_consensus/versioned_dispatch/Support.lean",
-    "model/experiments/interval_echo_consensus/transaction_component/Component.lean"
+    "model/experiments/interval_echo_consensus/transaction_component/Component.lean",
+    "model/experiments/interval_echo_consensus/versioned_dispatch/cone_order/ArbitraryClock.lean"
    ],
    "model": [
     "model/experiments/interval_echo_consensus/versioned_dispatch/README.md",
-    "model/experiments/interval_echo_consensus/transaction_component/README.md"
+    "model/experiments/interval_echo_consensus/transaction_component/README.md",
+    "model/experiments/interval_echo_consensus/versioned_dispatch/cone_order/README.md",
+    "model/experiments/interval_echo_consensus/versioned_dispatch/cone_order/parity_log/README.md"
    ],
    "papers": [
     "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf",
@@ -1252,7 +1258,8 @@
     "Lean/Thermodynamics/EinsteinPremiseLink.lean",
     "Lean/Thermodynamics/HorizonThermalitySurface.lean",
     "Lean/Geometry/SourceOrderEinsteinComposition.lean",
-    "Lean/ObserverPatchHolography/EinsteinBranch/DarkSector.lean"
+    "Lean/ObserverPatchHolography/EinsteinBranch/DarkSector.lean",
+    "model/experiments/interval_echo_consensus/versioned_dispatch/cone_order/ArbitraryClock.lean"
    ],
    "model": [
     "model/evaluation/SCORECARD.md",
@@ -1302,7 +1309,9 @@
     "code/matched_einstein_limit/source_implication/full_algebra/reuse/retained_equilibrium/observer_banks/README.md",
     "code/matched_einstein_limit/source_implication/full_algebra/reuse/retained_equilibrium/observer_banks/records.json",
     "code/matched_einstein_limit/source_implication/full_algebra/reuse/retained_equilibrium/collar_family.py",
-    "code/matched_einstein_limit/source_implication/full_algebra/reuse/retained_equilibrium/observer_banks/certificate.json"
+    "code/matched_einstein_limit/source_implication/full_algebra/reuse/retained_equilibrium/observer_banks/certificate.json",
+    "model/experiments/interval_echo_consensus/versioned_dispatch/cone_order/README.md",
+    "model/experiments/interval_echo_consensus/versioned_dispatch/cone_order/parity_log/README.md"
    ],
    "papers": [
     "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf",
@@ -5365,7 +5374,7 @@
    "kind": "observable",
    "name": "Light neutral decay products (neutrinos)",
    "category": "OpenWave Recovery",
-   "status": "Open",
+   "status": "Partial",
    "what": "Neutrinos are light, electrically neutral particles released in weak decays.",
    "why": "A model of matter has to produce such light neutral states among decay products to recover the weak sector.",
    "premises": [],
@@ -5391,7 +5400,23 @@
     "model/candidate_laws/interval_echo/openwave/row_09_neutral/arrival_current/README.md",
     "model/candidate_laws/interval_echo/openwave/row_09_neutral/flight_calorimetry/README.md",
     "model/candidate_laws/interval_echo/openwave/row_09_neutral/flight_calorimetry/results.json",
-    "model/candidate_laws/interval_echo/openwave/row_09_neutral/flight_calorimetry/certificate.py"
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/flight_calorimetry/certificate.py",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/critical_emission/PROOF.md",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/critical_emission/PROTOCOL.md",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/critical_emission/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/critical_emission/apparatus.py",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/critical_emission/charge.json",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/critical_emission/charge.py",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/critical_emission/emitter.json",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/critical_emission/emitter.py",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/critical_emission/measure.py",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/critical_emission/mode_reader.py",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/critical_emission/readback.py",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/critical_emission/release.json",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/critical_emission/release.py",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/critical_emission/results.json",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/critical_emission/test_emission.py",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/critical_emission/test_release.py"
    ],
    "papers": [
     "paper/executable_observer_construction.pdf",
@@ -5798,12 +5823,13 @@
    "kind": "observable",
    "name": "Linear confinement of colour charges",
    "category": "OpenWave Recovery",
-   "status": "Open",
+   "status": "Partial",
    "what": "Quarks are confined by a potential that grows linearly with separation, with a string tension of about 1 GeV/fm.",
    "why": "Confinement explains why free quarks are never seen, so a model has to produce a linear potential between identified colour charges.",
    "premises": [],
    "lean": [
-    "Lean/Screen/EndpointGroundWork.lean"
+    "Lean/Screen/EndpointGroundWork.lean",
+    "model/candidate_laws/interval_echo/openwave/row_22_confinement/mobile_string/MobileString.lean"
    ],
    "model": [
     "model/evaluation/SCORECARD.md",
@@ -5817,7 +5843,20 @@
     "model/candidate_laws/interval_echo/openwave/row_22_confinement/parity_sources/released.json",
     "model/candidate_laws/interval_echo/openwave/row_22_confinement/parity_sources/half_filled.json",
     "model/candidate_laws/interval_echo/openwave/row_22_confinement/endpoint_work/README.md",
-    "model/candidate_laws/interval_echo/openwave/row_22_confinement/endpoint_work/records.json"
+    "model/candidate_laws/interval_echo/openwave/row_22_confinement/endpoint_work/records.json",
+    "model/candidate_laws/interval_echo/openwave/row_22_confinement/mobile_string/PROOF.md",
+    "model/candidate_laws/interval_echo/openwave/row_22_confinement/mobile_string/PROTOCOL.md",
+    "model/candidate_laws/interval_echo/openwave/row_22_confinement/mobile_string/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_22_confinement/mobile_string/RULER_PROTOCOL.md",
+    "model/candidate_laws/interval_echo/openwave/row_22_confinement/mobile_string/commission.json",
+    "model/candidate_laws/interval_echo/openwave/row_22_confinement/mobile_string/commission.py",
+    "model/candidate_laws/interval_echo/openwave/row_22_confinement/mobile_string/material.py",
+    "model/candidate_laws/interval_echo/openwave/row_22_confinement/mobile_string/measure.py",
+    "model/candidate_laws/interval_echo/openwave/row_22_confinement/mobile_string/receivers.npz",
+    "model/candidate_laws/interval_echo/openwave/row_22_confinement/mobile_string/results.json",
+    "model/candidate_laws/interval_echo/openwave/row_22_confinement/mobile_string/ruler.json",
+    "model/candidate_laws/interval_echo/openwave/row_22_confinement/mobile_string/ruler.py",
+    "model/candidate_laws/interval_echo/openwave/row_22_confinement/mobile_string/test_mobile_string.py"
    ],
    "papers": [
     "paper/executable_observer_construction.pdf"
@@ -9343,13 +9382,34 @@
    "kind": "premise",
    "name": "Fair-block contraction of noisy repair",
    "category": "Physical premises",
-   "status": "Open",
+   "status": "Partial",
    "what": "Noisy asynchronous repair acts in bounded fair blocks, each shrinking the expected distance to consensus by a fixed factor below one.",
    "why": "It gives convergence of noisy repair to consensus up to a small error, with explicit rates, as the noisy consensus theorem requires.",
    "premises": [],
-   "lean": [],
+   "lean": [
+    "model/experiments/interval_echo_consensus/transaction_component/confluence/noisy_blocks/Contraction.lean",
+    "model/experiments/interval_echo_consensus/transaction_component/confluence/noisy_blocks/autonomous_order/Adaptive.lean"
+   ],
    "model": [
-    "model/experiments/interval_echo_consensus/repair_budget/README.md"
+    "model/experiments/interval_echo_consensus/repair_budget/README.md",
+    "model/experiments/interval_echo_consensus/transaction_component/confluence/noisy_blocks/PROTOCOL.md",
+    "model/experiments/interval_echo_consensus/transaction_component/confluence/noisy_blocks/README.md",
+    "model/experiments/interval_echo_consensus/transaction_component/confluence/noisy_blocks/autonomous_order/PROTOCOL.md",
+    "model/experiments/interval_echo_consensus/transaction_component/confluence/noisy_blocks/autonomous_order/dispatcher.py",
+    "model/experiments/interval_echo_consensus/transaction_component/confluence/noisy_blocks/autonomous_order/measure.py",
+    "model/experiments/interval_echo_consensus/transaction_component/confluence/noisy_blocks/autonomous_order/records.json.gz",
+    "model/experiments/interval_echo_consensus/transaction_component/confluence/noisy_blocks/autonomous_order/scalar.py",
+    "model/experiments/interval_echo_consensus/transaction_component/confluence/noisy_blocks/autonomous_order/test_dispatcher.py",
+    "model/experiments/interval_echo_consensus/transaction_component/confluence/noisy_blocks/instrument.py",
+    "model/experiments/interval_echo_consensus/transaction_component/confluence/noisy_blocks/measure.py",
+    "model/experiments/interval_echo_consensus/transaction_component/confluence/noisy_blocks/records.json.gz",
+    "model/experiments/interval_echo_consensus/transaction_component/confluence/noisy_blocks/scalar.json.gz",
+    "model/experiments/interval_echo_consensus/transaction_component/confluence/noisy_blocks/scalar.py",
+    "model/experiments/interval_echo_consensus/transaction_component/confluence/noisy_blocks/test_blocks.py",
+    "model/experiments/interval_echo_consensus/transaction_component/confluence/noisy_blocks/autonomous_order/README.md",
+    "model/experiments/interval_echo_consensus/transaction_component/confluence/noisy_blocks/autonomous_order/SCANNER_PROTOCOL.md",
+    "model/experiments/interval_echo_consensus/transaction_component/confluence/noisy_blocks/autonomous_order/scan_records.json.gz",
+    "model/experiments/interval_echo_consensus/transaction_component/confluence/noisy_blocks/autonomous_order/scanner.py"
    ],
    "papers": [
     "paper/reality_as_consensus_protocol.pdf"
@@ -10334,7 +10394,7 @@
    "kind": "premise",
    "name": "Order-faithful placement of executed events",
    "category": "Physical premises",
-   "status": "Open",
+   "status": "Partial",
    "what": "Executed events can be placed in Minkowski spacetime so that causal ancestry coincides exactly with the future light-cone order.",
    "why": "It identifies the model's causal order with relativistic causality, the base of its spacetime emergence results.",
    "premises": [],
@@ -10343,12 +10403,43 @@
     "Lean/Geometry/SourceDerivedSpacetimeCarrier.lean",
     "Lean/Geometry/EventPopulationChartInterface.lean",
     "Lean/Geometry/SourceOrderFrameCompatibilityPacket.lean",
-    "Lean/Geometry/SourceOrderEinsteinComposition.lean"
+    "Lean/Geometry/SourceOrderEinsteinComposition.lean",
+    "model/experiments/interval_echo_consensus/versioned_dispatch/cone_order/ArbitraryClock.lean",
+    "model/experiments/interval_echo_consensus/versioned_dispatch/cone_order/FiveRoots.lean",
+    "model/experiments/interval_echo_consensus/versioned_dispatch/cone_order/Scale.lean"
    ],
    "model": [
-    "model/evaluation/theorem_criteria.json"
+    "model/evaluation/theorem_criteria.json",
+    "model/experiments/interval_echo_consensus/versioned_dispatch/cone_order/FIVE_ROOT_PROTOCOL.md",
+    "model/experiments/interval_echo_consensus/versioned_dispatch/cone_order/MATCHED_PROTOCOL.md",
+    "model/experiments/interval_echo_consensus/versioned_dispatch/cone_order/PROTOCOL.md",
+    "model/experiments/interval_echo_consensus/versioned_dispatch/cone_order/README.md",
+    "model/experiments/interval_echo_consensus/versioned_dispatch/cone_order/census.json",
+    "model/experiments/interval_echo_consensus/versioned_dispatch/cone_order/chart.py",
+    "model/experiments/interval_echo_consensus/versioned_dispatch/cone_order/five_roots.json.gz",
+    "model/experiments/interval_echo_consensus/versioned_dispatch/cone_order/five_roots.py",
+    "model/experiments/interval_echo_consensus/versioned_dispatch/cone_order/flights.json",
+    "model/experiments/interval_echo_consensus/versioned_dispatch/cone_order/matched.json.gz",
+    "model/experiments/interval_echo_consensus/versioned_dispatch/cone_order/matched.py",
+    "model/experiments/interval_echo_consensus/versioned_dispatch/cone_order/measure.py",
+    "model/experiments/interval_echo_consensus/versioned_dispatch/cone_order/order.py",
+    "model/experiments/interval_echo_consensus/versioned_dispatch/cone_order/parity_log/PROTOCOL.md",
+    "model/experiments/interval_echo_consensus/versioned_dispatch/cone_order/parity_log/README.md",
+    "model/experiments/interval_echo_consensus/versioned_dispatch/cone_order/parity_log/apparatus.py",
+    "model/experiments/interval_echo_consensus/versioned_dispatch/cone_order/parity_log/measure.py",
+    "model/experiments/interval_echo_consensus/versioned_dispatch/cone_order/parity_log/records.json.gz",
+    "model/experiments/interval_echo_consensus/versioned_dispatch/cone_order/parity_log/seven_roots/PROTOCOL.md",
+    "model/experiments/interval_echo_consensus/versioned_dispatch/cone_order/parity_log/seven_roots/README.md",
+    "model/experiments/interval_echo_consensus/versioned_dispatch/cone_order/parity_log/seven_roots/measure.py",
+    "model/experiments/interval_echo_consensus/versioned_dispatch/cone_order/parity_log/seven_roots/records.json.gz",
+    "model/experiments/interval_echo_consensus/versioned_dispatch/cone_order/parity_log/seven_roots/test_seven.py",
+    "model/experiments/interval_echo_consensus/versioned_dispatch/cone_order/parity_log/test_parity.py",
+    "model/experiments/interval_echo_consensus/versioned_dispatch/cone_order/records.json.gz",
+    "model/experiments/interval_echo_consensus/versioned_dispatch/cone_order/test_order.py"
    ],
-   "papers": [],
+   "papers": [
+    "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf"
+   ],
    "statement": "The authenticated executed events of the model admit a placement in the Lorentz module, with spatial readback in the rank-three source quotient and time coordinate equal to a positive scale times canonical source height, such that every authenticated parent edge stays inside the future cone and causally unrelated events lie at spacelike separation; generated ancestry then coincides with the future-causal cone order in both directions.",
    "premise_kind": "derivable"
   },

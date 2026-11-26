@@ -860,5 +860,67 @@
       "openwave/row_29_maxwell/seam_symbol/drifting_receiver/test_receiver.py"
     ],
     "note": "Randomly interleaved native dark, bright, signal and half-bright preparations isolate predictable detector drift. On 151 simulated banks all half-bright checks pass; the face-minus-port kinetic energy at four radians per chart edge has joint 99% interval [0.0982, 0.1431] in exchange-gap units. The blind bank returns [0,1]. A finite adaptive-tree proof bounds both tails on every enrolled bank. Source-label leakage can counterfeit a different exit on all four arms. Physical dispersion comparisons require their own frame, source and detector response."
+  },
+  "PR-121": {
+    "status": "fulfilled",
+    "evidence": [
+      "../../experiments/interval_echo_consensus/transaction_component/confluence/noisy_blocks/Contraction.lean",
+      "../../experiments/interval_echo_consensus/transaction_component/confluence/noisy_blocks/PROTOCOL.md",
+      "../../experiments/interval_echo_consensus/transaction_component/confluence/noisy_blocks/README.md",
+      "../../experiments/interval_echo_consensus/transaction_component/confluence/noisy_blocks/autonomous_order/Adaptive.lean",
+      "../../experiments/interval_echo_consensus/transaction_component/confluence/noisy_blocks/autonomous_order/PROTOCOL.md",
+      "../../experiments/interval_echo_consensus/transaction_component/confluence/noisy_blocks/autonomous_order/dispatcher.py",
+      "../../experiments/interval_echo_consensus/transaction_component/confluence/noisy_blocks/autonomous_order/measure.py",
+      "../../experiments/interval_echo_consensus/transaction_component/confluence/noisy_blocks/autonomous_order/records.json.gz",
+      "../../experiments/interval_echo_consensus/transaction_component/confluence/noisy_blocks/autonomous_order/scalar.py",
+      "../../experiments/interval_echo_consensus/transaction_component/confluence/noisy_blocks/autonomous_order/test_dispatcher.py",
+      "../../experiments/interval_echo_consensus/transaction_component/confluence/noisy_blocks/instrument.py",
+      "../../experiments/interval_echo_consensus/transaction_component/confluence/noisy_blocks/measure.py",
+      "../../experiments/interval_echo_consensus/transaction_component/confluence/noisy_blocks/records.json.gz",
+      "../../experiments/interval_echo_consensus/transaction_component/confluence/noisy_blocks/scalar.json.gz",
+      "../../experiments/interval_echo_consensus/transaction_component/confluence/noisy_blocks/scalar.py",
+      "../../experiments/interval_echo_consensus/transaction_component/confluence/noisy_blocks/test_blocks.py",
+      "../../experiments/interval_echo_consensus/transaction_component/confluence/noisy_blocks/autonomous_order/README.md",
+      "../../experiments/interval_echo_consensus/transaction_component/confluence/noisy_blocks/autonomous_order/SCANNER_PROTOCOL.md",
+      "../../experiments/interval_echo_consensus/transaction_component/confluence/noisy_blocks/autonomous_order/scan_records.json.gz",
+      "../../experiments/interval_echo_consensus/transaction_component/confluence/noisy_blocks/autonomous_order/scanner.py"
+    ],
+    "note": "On the 256-state two-triangle observer quotient, an eight-offer fair block with fresh native faults gives conditional mean terminal disagreement (27D+1878)/4096. The block-end mean approaches 6/13. All 40,320 orders fixed at block entry have strict-prefix allowance 465/1024 above the starting count. Both heads read the six disagreement flags. Distance counts mismatches of the repair payload relative to its normal records. The remaining-offer shelf and marker are visible controller coordinates. A single latched fault gives 3/2 at six starting mismatches in place of 255/512. A second dispatcher measures the remaining labels and present mismatch parity at each appointment. Three control dimers select the first remaining label from one end or the other and return to zero. From one input 6,561 fresh-noise branches give 20 different orders. Parking the parity swaps changes the first label from seven to zero. Every completed block retires all eight labels. The exact block endpoint holds for any nonanticipating selection without replacement. Before block completion the expected count is at most its starting count plus one. Continued service, the installed correction and fresh noise preparation are supplied."
+  },
+  "PR-165": {
+    "status": "fails",
+    "evidence": [
+      "../../experiments/interval_echo_consensus/versioned_dispatch/cone_order/ArbitraryClock.lean",
+      "../../experiments/interval_echo_consensus/versioned_dispatch/cone_order/FIVE_ROOT_PROTOCOL.md",
+      "../../experiments/interval_echo_consensus/versioned_dispatch/cone_order/FiveRoots.lean",
+      "../../experiments/interval_echo_consensus/versioned_dispatch/cone_order/MATCHED_PROTOCOL.md",
+      "../../experiments/interval_echo_consensus/versioned_dispatch/cone_order/PROTOCOL.md",
+      "../../experiments/interval_echo_consensus/versioned_dispatch/cone_order/README.md",
+      "../../experiments/interval_echo_consensus/versioned_dispatch/cone_order/Scale.lean",
+      "../../experiments/interval_echo_consensus/versioned_dispatch/cone_order/census.json",
+      "../../experiments/interval_echo_consensus/versioned_dispatch/cone_order/chart.py",
+      "../../experiments/interval_echo_consensus/versioned_dispatch/cone_order/five_roots.json.gz",
+      "../../experiments/interval_echo_consensus/versioned_dispatch/cone_order/five_roots.py",
+      "../../experiments/interval_echo_consensus/versioned_dispatch/cone_order/flights.json",
+      "../../experiments/interval_echo_consensus/versioned_dispatch/cone_order/matched.json.gz",
+      "../../experiments/interval_echo_consensus/versioned_dispatch/cone_order/matched.py",
+      "../../experiments/interval_echo_consensus/versioned_dispatch/cone_order/measure.py",
+      "../../experiments/interval_echo_consensus/versioned_dispatch/cone_order/order.py",
+      "../../experiments/interval_echo_consensus/versioned_dispatch/cone_order/parity_log/PROTOCOL.md",
+      "../../experiments/interval_echo_consensus/versioned_dispatch/cone_order/parity_log/README.md",
+      "../../experiments/interval_echo_consensus/versioned_dispatch/cone_order/parity_log/apparatus.py",
+      "../../experiments/interval_echo_consensus/versioned_dispatch/cone_order/parity_log/measure.py",
+      "../../experiments/interval_echo_consensus/versioned_dispatch/cone_order/parity_log/records.json.gz",
+      "../../experiments/interval_echo_consensus/versioned_dispatch/cone_order/parity_log/seven_roots/PROTOCOL.md",
+      "../../experiments/interval_echo_consensus/versioned_dispatch/cone_order/parity_log/seven_roots/README.md",
+      "../../experiments/interval_echo_consensus/versioned_dispatch/cone_order/parity_log/seven_roots/measure.py",
+      "../../experiments/interval_echo_consensus/versioned_dispatch/cone_order/parity_log/seven_roots/records.json.gz",
+      "../../experiments/interval_echo_consensus/versioned_dispatch/cone_order/parity_log/seven_roots/test_seven.py",
+      "../../experiments/interval_echo_consensus/versioned_dispatch/cone_order/parity_log/test_parity.py",
+      "../../experiments/interval_echo_consensus/versioned_dispatch/cone_order/records.json.gz",
+      "../../experiments/interval_echo_consensus/versioned_dispatch/cone_order/test_order.py"
+    ],
+    "note": "Independent short flights recover the rank-three port ruler. At seam midpoints all 25,260 ordered histories of up to three distinct contacts admit a positive canonical-height scale. Of 657,720 four-contact histories, 579,960 admit one, 4,800 tie the strict upper bound and 72,960 reverse it. The independent root intervention opens every subset of five spokes. A single executed parity program then writes five simultaneous roots and all 32 subset parities on separate material shelves. Both receiving heads authenticate 80 parent edges in each 37-event log across all 32 initial inputs. Closed balls cannot realize those 32 observed subsets of five simultaneous roots in three dimensions. The placement obstruction concerns registered semantic ancestry on these mounted services. A separate seven-root program writes all 128 subset outputs on one board. Its 448 direct dependencies also exclude an exact 1+3 Lorentz-cone order with arbitrary event times. Select a root of greatest assigned time and include it in both comparing cuts. All six other roots then precede both queries in coordinate time, and a signed affine dependence rules out the opposing cone classifications.",
+    "counterexample": "In one mounted 37-event log all 32 root subsets occur at distinct parity outputs, contradicting the closed-ball cuts required by every height-scaled rank-three placement. A separate seven-root log excludes free event times as well."
   }
 }

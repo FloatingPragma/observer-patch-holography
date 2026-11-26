@@ -4268,6 +4268,21 @@ for all eight offers also preserves the isolated one-offer probabilities.
 Starting with six mismatches, it gives an expected terminal count of
 \(3/2\) compared with \(255/512\) for fresh draws.
 
+A second instrument chooses the order as it runs. Two receiving heads
+read a material mask of outstanding offers and the parity of the current
+mismatch word. Three control dimers record parity and steer a scan to the
+first remaining label from either end. Parking the parity swaps changes the
+first selected label from seven to zero on the same mismatch word. The last
+retirement starts a new block. From one initial word,
+6,561 noise branches visit twenty distinct permutations. For a site with
+error flag $b$ and $r$ remaining exposures, the conditional expectation of
+$(3/16)^r(b-1/13)$ stays fixed under each fresh draw. Consequently every
+nonanticipating choice of the remaining label has the same block-end mean
+as above, even when the current mismatches influence the order. Before a
+block ends at most sixteen site exposures have occurred, each increasing
+expected error by at most $1/16$. This gives a prefix allowance of one.
+The hardware requires continued service and fresh fault preparations.
+
 \section{Interfaces to the higher layers}
 \label{sec:interfaces}
 

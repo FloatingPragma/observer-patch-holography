@@ -618,8 +618,8 @@
           ],
           "results": {
             "interval_echo": {
-              "status": "open",
-              "note": "Production in a decay, electric neutrality and lightness have yet to be established for the same excitation. On the same six-port annihilation receiver the attached first gap is 31.80076 against a parent exchange energy of 65.00001 ± 0.00015. Removing the source link with dimer guards retained gives a gap of 0.000945849. Its conditional line frequency is 22.0 percent after a wall launch and 50.0 percent with the ordered sham. Releasing the guards gives a first gap of 32.49358 with an analytic lower bound of 31.5. The soft line is present without the decaying source. These records leave production of a light electrically neutral excitation open. At full conversion all 2,493,659 neutral detections resolve opposite charges on the two measured ports. A remote observer can compare joint signed arrivals after free flight on the prepared route. A calibrated negative or positive weak daughter sorts the neutral inputs of the declared exterior doublet. An explicit pair of charged constituents gives exactly the same total gauge currents as the direct doublet. At two distant receivers, an inverse native ladder gives a signed daughter and a compensating donor read on the same projected neutral arrival. The two material orders respond to opposite fixed analyzer settings. A delayed energy clock followed by a distant signed coincidence resolves formation energies near 49 and 50 on the prepared 14-port guide. The filled guide reads zero and the separately launched charge reads 16 at zero translation phase. Every native vacancy–excess state in this guide sector costs at least 32, excluding this pair as a light product of a freely prepared bare charge.",
+              "status": "partial",
+              "note": "On the same six-port annihilation receiver the attached first gap is 31.80076 against a parent exchange energy of 65.00001 ± 0.00015. Removing the source link with dimer guards retained gives a gap of 0.000945849. Its conditional line frequency is 22.0 percent after a wall launch and 50.0 percent with the ordered sham. Releasing the guards gives a first gap of 32.49358 with an analytic lower bound of 31.5. The soft line is present without the decaying source. The six-port receiver alone leaves the origin of its soft line unresolved. At full conversion all 2,493,659 neutral detections resolve opposite charges on the two measured ports. A remote observer can compare joint signed arrivals after free flight on the prepared route. A calibrated negative or positive weak daughter sorts the neutral inputs of the declared exterior doublet. An explicit pair of charged constituents gives exactly the same total gauge currents as the direct doublet. At two distant receivers, an inverse native ladder gives a signed daughter and a compensating donor read on the same projected neutral arrival. The two material orders respond to opposite fixed analyzer settings. A delayed energy clock followed by a distant signed coincidence resolves formation energies near 49 and 50 on the prepared 14-port guide. The filled guide reads zero and the separately launched charge reads 16 at zero translation phase. Every native vacancy–excess state in this guide sector costs at least 32, excluding this pair as a light product of a freely prepared bare charge. A separately clocked excited dimer decays on a periodically serviced balanced guide. Parent ground, far-end acceptance in the low-frequency aperture and a terminal vacuum occur together in 28,871 and 8,608 of 67,108,864 simulated launches at lengths 23 and 45. Both yields exceed the upper bounds for a source entirely above one tenth of the parent gap. The calibrated signed detector preserves either neutral orientation coherently and resolves charged replacements. Shams and a disconnected initially excited parent give zero joint detections. The freely released guide line does not transfer at that yield to low ordinary energy on the unrestricted board. Its spectral weight within 0.1 exchange units of the sector ground is bounded by 0.000111 and 0.0000476, respectively. A freely emitted light neutral particle of the unrestricted law remains unresolved.",
               "evidence": [
                 "model/candidate_laws/interval_echo/SPEC.md",
                 "model/candidate_laws/interval_echo/openwave/row_09_neutral/README.md",
@@ -637,7 +637,23 @@
                 "model/candidate_laws/interval_echo/openwave/row_09_neutral/arrival_current/README.md",
                 "model/candidate_laws/interval_echo/openwave/row_09_neutral/flight_calorimetry/README.md",
                 "model/candidate_laws/interval_echo/openwave/row_09_neutral/flight_calorimetry/results.json",
-                "model/candidate_laws/interval_echo/openwave/row_09_neutral/flight_calorimetry/certificate.py"
+                "model/candidate_laws/interval_echo/openwave/row_09_neutral/flight_calorimetry/certificate.py",
+                "model/candidate_laws/interval_echo/openwave/row_09_neutral/critical_emission/PROOF.md",
+                "model/candidate_laws/interval_echo/openwave/row_09_neutral/critical_emission/PROTOCOL.md",
+                "model/candidate_laws/interval_echo/openwave/row_09_neutral/critical_emission/README.md",
+                "model/candidate_laws/interval_echo/openwave/row_09_neutral/critical_emission/apparatus.py",
+                "model/candidate_laws/interval_echo/openwave/row_09_neutral/critical_emission/charge.json",
+                "model/candidate_laws/interval_echo/openwave/row_09_neutral/critical_emission/charge.py",
+                "model/candidate_laws/interval_echo/openwave/row_09_neutral/critical_emission/emitter.json",
+                "model/candidate_laws/interval_echo/openwave/row_09_neutral/critical_emission/emitter.py",
+                "model/candidate_laws/interval_echo/openwave/row_09_neutral/critical_emission/measure.py",
+                "model/candidate_laws/interval_echo/openwave/row_09_neutral/critical_emission/mode_reader.py",
+                "model/candidate_laws/interval_echo/openwave/row_09_neutral/critical_emission/readback.py",
+                "model/candidate_laws/interval_echo/openwave/row_09_neutral/critical_emission/release.json",
+                "model/candidate_laws/interval_echo/openwave/row_09_neutral/critical_emission/release.py",
+                "model/candidate_laws/interval_echo/openwave/row_09_neutral/critical_emission/results.json",
+                "model/candidate_laws/interval_echo/openwave/row_09_neutral/critical_emission/test_emission.py",
+                "model/candidate_laws/interval_echo/openwave/row_09_neutral/critical_emission/test_release.py"
               ],
               "comparison": {
                 "law": "Written-field Laplacian extension",
@@ -645,8 +661,8 @@
                 "source": "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/README.md"
               },
               "demonstrated_measurement": {
-                "label": "Formation energy and signed charge coincidence at remote receivers on a prepared ring",
-                "source": "model/candidate_laws/interval_echo/openwave/row_09_neutral/flight_calorimetry/README.md"
+                "label": "Joint parent depletion, charge-neutral far absorption and terminal vacuum on two guide lengths",
+                "source": "model/candidate_laws/interval_echo/openwave/row_09_neutral/critical_emission/README.md"
               }
             },
             "contrast_memory_spherical_v1": {
@@ -1411,8 +1427,8 @@
           ],
           "results": {
             "interval_echo": {
-              "status": "open",
-              "note": "On the 20-, 80- and 320-cell federations a locally decoded triplet and antitriplet give a colour-dependent contact. On the largest board the selected octet contact is −0.176961 ± 0.000149 and the singlet contact −0.000015 ± 0.000049 exchange units. At separations of two through 22 owner steps the connected operator is zero on all nine allowed fixed-source colours. A separate domain in a prepared polarized medium costs 17 units per displaced cell. The same outer wall records also occur at cost 34 for every tested length of at least two when extra interior walls are admitted. With a fourth load freely moving on 924 exterior ports, the 80-cell singlet gains 0.10937 exchange units at two steps relative to its best isolated-source binding, 0.00305 at four and less than 0.000001 at ten. This finite-range attraction saturates on the tested placements. A colour-selected separation energy and a physical string tension require an independent measurement. The stationary determinant of three native compact orbitals has exactly zero connected energy on the nearest eligible owners and at pair distances 15, 15 and 16 on the 320-cell board. Its material has zero amplitude on the gateways. On a second fixed period-three string the measured rung contribution changes by −17 native units per translated material unit. Translating the whole ring removes the endpoints while retaining the full contribution. This measures a bulk bias in the supplied reference. Above any blank homogeneous host, the full native energy of an arbitrary state is at most 198 times its expected number of material deviations plus 33 times its expected number of written seams. Unbounded linear growth requires an increasing number of excitations. At fixed total load on the active exterior bridges, local mismatch records around each face give an exact static energy of 32d when precisely two faces are odd. Holding only the same two odd readings allows screening and gives 32 min(d,2). At eleven face steps the work meter gives 352.005 and 64.002 native energy units. Opening an interior native contact can create the additional odd pair. The face-parity source, exterior contact schedule and face-step ruler are specified. Independently identifying colour, distance and the physical tension remains open. Two bounded additive local sources on a common state family have connected ground work at most the smaller spectral width. For endpoint families related by transposing two whole owners and their internal records, the absolute relaxed energy shift is at most 390 at arbitrary occupancy and separation. On 20, 80 and 320 owners independent whole-board and boundary spectra agree in 18 native and exchange-only comparisons, including a positive private-port control. A nonlocal flux constraint can evade the relocation hypothesis. For the all-open, half-filled binary blank sector with private port services included, imposing just two odd-face readings costs less than 19,129 native units above the free ground, uniformly in separation. This bound admits a finite linear window.",
+              "status": "partial",
+              "note": "On the 20-, 80- and 320-cell federations a locally decoded triplet and antitriplet give a colour-dependent contact. On the largest board the selected octet contact is −0.176961 ± 0.000149 and the singlet contact −0.000015 ± 0.000049 exchange units. At separations of two through 22 owner steps the connected operator is zero on all nine allowed fixed-source colours. A separate domain in a prepared polarized medium costs 17 units per displaced cell. The same outer wall records also occur at cost 34 for every tested length of at least two when extra interior walls are admitted. With a fourth load freely moving on 924 exterior ports, the 80-cell singlet gains 0.10937 exchange units at two steps relative to its best isolated-source binding, 0.00305 at four and less than 0.000001 at ten. This finite-range attraction saturates on the tested placements. A colour-selected separation energy and a physical string tension require an independent measurement. The stationary determinant of three native compact orbitals has exactly zero connected energy on the nearest eligible owners and at pair distances 15, 15 and 16 on the 320-cell board. Its material has zero amplitude on the gateways. On a second fixed period-three string the measured rung contribution changes by −17 native units per translated material unit. Translating the whole ring removes the endpoints while retaining the full contribution. This measures a bulk bias in the supplied reference. Above any blank homogeneous host, the full native energy of an arbitrary state is at most 198 times its expected number of material deviations plus 33 times its expected number of written seams. Unbounded linear growth requires an increasing number of excitations. At fixed total load on the active exterior bridges, local mismatch records around each face give an exact static energy of 32d when precisely two faces are odd. Holding only the same two odd readings allows screening and gives 32 min(d,2). At eleven face steps the work meter gives 352.005 and 64.002 native energy units. Opening an interior native contact can create the additional odd pair. The face-parity source, exterior contact schedule and face-step ruler are specified. Independently identifying colour, distance and the physical tension remains open. Two bounded additive local sources on a common state family have connected ground work at most the smaller spectral width. For endpoint families related by transposing two whole owners and their internal records, the absolute relaxed energy shift is at most 390 at arbitrary occupancy and separation. On 20, 80 and 320 owners independent whole-board and boundary spectra agree in 18 native and exchange-only comparisons, including a positive private-port control. A nonlocal flux constraint can evade the relocation hypothesis. For the all-open, half-filled binary blank sector with private port services included, imposing just two odd-face readings costs less than 19,129 native units above the free ground, uniformly in separation. This bound admits a finite linear window. Holding two signed walls and relaxing the interior gives work 48.000000, 55.995837, 63.991657 and 71.987477 at material separations two through five. The screened minimum is 79.950127 by separation seven and remains there through twelve. Removing the degree bias gives 32 throughout. An unpinned release creates an additional pair while both original walls persist. Equal six-edge ambient distances can cost either 63.991657 or 71.987477. The strand tension is 7.996 exchange units per dimer. Independent colour identification, a potential determined by ambient separation and calibration to GeV/fm remain open.",
               "evidence": [
                 "model/candidate_laws/interval_echo/SPEC.md",
                 "model/candidate_laws/interval_echo/openwave/row_22_confinement/README.md",
@@ -1439,7 +1455,21 @@
                 "model/candidate_laws/interval_echo/openwave/row_22_confinement/parity_sources/HALF_FILLED.md",
                 "model/candidate_laws/interval_echo/openwave/row_22_confinement/parity_sources/HALF_FILLED_PROTOCOL.md",
                 "model/candidate_laws/interval_echo/openwave/row_22_confinement/parity_sources/half_filled.py",
-                "model/candidate_laws/interval_echo/openwave/row_22_confinement/parity_sources/half_filled.json"
+                "model/candidate_laws/interval_echo/openwave/row_22_confinement/parity_sources/half_filled.json",
+                "model/candidate_laws/interval_echo/openwave/row_22_confinement/mobile_string/MobileString.lean",
+                "model/candidate_laws/interval_echo/openwave/row_22_confinement/mobile_string/PROOF.md",
+                "model/candidate_laws/interval_echo/openwave/row_22_confinement/mobile_string/PROTOCOL.md",
+                "model/candidate_laws/interval_echo/openwave/row_22_confinement/mobile_string/README.md",
+                "model/candidate_laws/interval_echo/openwave/row_22_confinement/mobile_string/RULER_PROTOCOL.md",
+                "model/candidate_laws/interval_echo/openwave/row_22_confinement/mobile_string/commission.json",
+                "model/candidate_laws/interval_echo/openwave/row_22_confinement/mobile_string/commission.py",
+                "model/candidate_laws/interval_echo/openwave/row_22_confinement/mobile_string/material.py",
+                "model/candidate_laws/interval_echo/openwave/row_22_confinement/mobile_string/measure.py",
+                "model/candidate_laws/interval_echo/openwave/row_22_confinement/mobile_string/receivers.npz",
+                "model/candidate_laws/interval_echo/openwave/row_22_confinement/mobile_string/results.json",
+                "model/candidate_laws/interval_echo/openwave/row_22_confinement/mobile_string/ruler.json",
+                "model/candidate_laws/interval_echo/openwave/row_22_confinement/mobile_string/ruler.py",
+                "model/candidate_laws/interval_echo/openwave/row_22_confinement/mobile_string/test_mobile_string.py"
               ],
               "comparison": {
                 "law": "Directed ring extension",
@@ -1454,8 +1484,8 @@
                 }
               ],
               "demonstrated_measurement": {
-                "label": "Constrained string energy and screening from two face-parity records",
-                "source": "model/candidate_laws/interval_echo/openwave/row_22_confinement/parity_sources/README.md"
+                "label": "Signed-wall tension, screening and released pair creation on a mobile material strand",
+                "source": "model/candidate_laws/interval_echo/openwave/row_22_confinement/mobile_string/README.md"
               }
             },
             "contrast_memory_spherical_v1": {
