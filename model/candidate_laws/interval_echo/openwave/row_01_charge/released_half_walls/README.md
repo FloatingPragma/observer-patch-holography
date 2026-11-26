@@ -30,6 +30,8 @@ The two-valued order slip is visible directly in the alternating pattern. The si
 
 **OW-01 is Partial on this evidence.** The result establishes mobile, quantized material polarization and a concrete division of the ordinary port unit in that transport measurement. A sharp region still returns an integer port count. An integer topological electric charge and the exclusion of physical half-charge daughters require an additional identification. The voltage response alone establishes no general electric-force premise. [Mathematical scope and uniform retention bound](PROOF.md) · [OpenWave criterion and M10 decision](https://github.com/openwave-labs/openwave/blob/c531265eb6085725c6268e156804499c810ba5e4/MODELS.md#simplest-test-per-criterion)
 
+Two independently prepared mobile probes resolve the whole local contact detuning of an accepted wall. The same detector counts an ordinary load increment on each of two consecutive bonds. Fixing its total on known stocks assigns half a unit to each isolated wall for every additive local detector in the tested class. Leaving the ring mobile during readout also changes the probability of observing the two walls. [Calibrated material probes](material_probe/README.md) · [Finite calibration theorem](charge_identification/PROOF.md) · [Independent reconstruction and alternatives](probe_audit/README.md)
+
 ## Replay
 
 From the repository root, use one numerical thread.
