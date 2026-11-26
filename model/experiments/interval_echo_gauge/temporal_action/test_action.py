@@ -105,14 +105,24 @@ def test_independent_held_front_and_window_failures():
     assert archive["gauge"]["packet"]["action"] == 227472
 
 
-def test_original_starts_and_complete_replay():
+def test_seeded_binomial_counts_and_complete_replay():
     archive = deposited()
     assert run(archive["sampling_probabilities"]) == archive
     assert len(archive["fringes"]) == 720
     bound = sqrt(log(2 * 1441 / 0.01) / (2 * SHOTS))
+    metadata = archive["provenance"]
+    assert (
+        metadata["seed"] == 662901
+        and metadata["hoeffding"]["number_of_frequencies"] == 1441
+    )
+    assert metadata["hoeffding"]["half_width"] == bound
+    rng = np.random.Generator(np.random.PCG64(metadata["seed"]))
+    crossing_p = archive["source_records"]["open_swap"]["half_probabilities"][1]
+    assert rng.binomial(SHOTS, crossing_p) == archive["half_source_original_starts"][1]
     for row, p in zip(
         archive["fringes"], archive["sampling_probabilities"], strict=True
     ):
+        np.testing.assert_array_equal(rng.binomial(SHOTS, p), row[-1])
         assert np.max(abs(np.array(row[-1]) / SHOTS - p)) < bound
     quiet, swap = archive["half_source_original_starts"]
     assert quiet + swap == SHOTS and abs(swap / SHOTS - 0.5) < bound

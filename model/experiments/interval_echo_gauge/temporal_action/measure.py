@@ -1,8 +1,9 @@
-"""Acquire a declared Maxwell history and read its full window variation."""
+"""Evaluate the native-law source and action, then sample the calculated fringes."""
 
 import argparse
 import gzip
 import json
+from math import log, sqrt
 from pathlib import Path
 
 import numpy as np
@@ -13,6 +14,7 @@ from .rails import Meter, WIDTH, fringe, hardware
 
 HERE = Path(__file__).resolve().parent
 SHOTS = 2**20
+SEED = 662901
 
 
 def constraints(hist):
@@ -150,10 +152,25 @@ def run(reference=None):
         "reversed_current": audit(meter, gauged, dict(source_sign=-1)),
         "no_port_charge": audit(meter, gauged, dict(port_sign=0)),
     }
-    rng = np.random.default_rng(662901)
+    rng = np.random.Generator(np.random.PCG64(SEED))
     split = int(rng.binomial(SHOTS, source["open_swap"]["half_probabilities"][1]))
     fringes, probabilities = counts(flux, rng, reference)
+    num_sampled_rates = 1 + 2 * len(fringes)
     return dict(
+        provenance=dict(
+            field_words="Deterministic signed-word evaluations of the calibrated reduced native dimer law.",
+            source_records="Conditional ternary contact and census words calculated from the native seam law.",
+            half_source_original_starts="Seeded binomial sample from the native half-exchange crossing probability.",
+            fringes="Seeded binomial bright counts from the calculated X and Y probabilities, including the declared altered-contact controls.",
+            sampler="NumPy Generator.binomial with PCG64",
+            seed=SEED,
+            hoeffding=dict(
+                scope="Monte Carlo sampling resolution for the bright and branch frequencies conditional on the calculated probabilities.",
+                simultaneous_coverage=0.99,
+                number_of_frequencies=num_sampled_rates,
+                half_width=sqrt(log(2 * num_sampled_rates / 0.01) / (2 * SHOTS)),
+            ),
+        ),
         width=WIDTH,
         units=action.L,
         field_words=meter.words,
@@ -203,7 +220,7 @@ def main():
         if result != deposited:
             raise ArithmeticError("Maxwell source, action or receiver archive differs")
         print(
-            "Verified every source census, half-step cochain, action variation and phase bank."
+            "Verified calculated native-law words and probabilities, and replayed the seeded binomial counts."
         )
 
 
