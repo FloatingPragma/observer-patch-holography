@@ -2,6 +2,8 @@
 
 A home observer can retain the entire four-valued head record at one connector and a different owner still detects which wall was launched. At the four-radian appointment the source choice changes the remote click probability by **0.06750–0.06796** after the full read. A magnitude-only read gives **0.18187–0.18256** on the same strand. The actual remote trace thus distinguishes the instruments. One sharply resolved digit also admits an exact transport law: after a coin-only read, any remote source difference across this cut is half its original value, at every flight time.
 
+The same two owners can compare readings made during flight. At six exchange radians, reading the coin twice reverses which source gives more distant wall hits. The second reading has a measurable effect even after both local records are pooled. [In-flight read and remote detector counts](during_flight/README.md)
+
 ## Material preparation and head read
 
 The registered free generator acts on the 14-dimer open strand selected on the established 20-cell commissioning geometry. At hand zero the home observer in cell 2 reads the head of connector (31,32) immediately after the ordinary sharp wall preparation. The two sources place a wall at bond 4 or bond 1 and the same spectator at the far end. Both put the same local loads into the receiving half. The wall detector in cell 3 reads the inequality of the two facing loads at (42,43). The finite occupations, prepared collar memories and selected address are those of the existing strand. The protocol adds a supplied local projective instrument that retains its record; cosine and sine readings on independent blank dimers calibrate the four appointments. [Frozen protocol](PROTOCOL.md) · [Commissioned medium](../PROTOCOL.md)

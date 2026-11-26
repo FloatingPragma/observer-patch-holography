@@ -2,6 +2,8 @@
 
 On every initially blank, connected Interval Echo screen with enough spare seams, a routed strict-repair service reaches the minimum possible quadratic load at the given total load. Every ordering of successful repairs gives the same number of vacancies, doubles and published marks. This holds for **all ternary occupations**, with no fixed particle number. Offers may compete for either endpoint. An arbitrary all-open native flight can occur between completed transactions. The positions and signs of the written marks can distinguish the schedules. [Protocol](PROTOCOL.md) · [Count records](results.json)
 
+Two receiving stations can recover this quadratic quantity from the interference of a routed load with an empty reference. Six conservative repairs lower the observed square sum from 24 to 12. Each address uses the same physical read sequence throughout. [Reciprocal phase measurement](phase_cost/README.md)
+
 ## What the observer measures
 
 Let \(N\) be the number of material ports. The observer reads the counts \(v,d\) of ports holding zero and two loads, respectively. The other \(N-v-d\) ports each hold one. Let \(m\) count the occupied collars. A local blank/occupied guard or the initial count plus the published strict-write successes supplies this third reading. The detector can read the material and the flags at the terminal visit. Calibration copies supply the initial readings without making an intermediate position measurement on a coherent flight.
