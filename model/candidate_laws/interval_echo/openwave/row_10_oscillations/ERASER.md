@@ -17,6 +17,8 @@ A different instrument could compare a remote pair click with a coherent two-hea
 
 The marginal pair predictions agree with all 54 held native receiver banks across both sites, three appointments, three character preparations and three terminal pulse settings, using a simultaneous 99% binomial check. The table's joint columns are forecasts for an additional measurement. A fixed phase difference through parking would rotate the two columns; decoherence between the retained sectors could erase both. The earlier count banks verify the *charged* local analyzer and the *neutral* remote pair arrivals separately. A physical two-head analyzer on the released material would be a new experiment. [Count comparison and sharp standards](test_eraser.py)
 
+The subsequent two-head experiment tested this forecast with a borrowed vacancy and two material paths. The comparison at receiver 12, wait 256 resolved a 6.21 percentage point difference on the positive reference panel. A separate single-bypass construction supplied a finite bound for arbitrary stable parking phases. [Physical joint read](joint_receivers/README.md) · [One-bypass bound](theory/source_access/README.md)
+
 Run the checks with one numerical thread from the repository root.
 
 ~~~sh
