@@ -648,6 +648,12 @@ REPLAY_EVALUATIONS = (
         "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
         "model/candidate_laws/interval_echo/EVALUATION.json": "d193094eb38ef55f790bcc4ef3bdd45ed7960ae14398b9d5e69f0be94a43d105",
     },
+    # Gateway and census inputs, modal slots, publication, mass and weak current reads.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "df1ed65867c8bb6f07e9eb921d1f31dbc8fec98a12462447b8d9ee74d1238aa4",
+    },
 )
 
 

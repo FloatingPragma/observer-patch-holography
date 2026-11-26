@@ -163,15 +163,15 @@
  },
  "premise_counts": {
   "law": {
-   "fulfilled": 34,
-   "partial": 22,
-   "open": 84,
+   "fulfilled": 36,
+   "partial": 23,
+   "open": 81,
    "fails": 1
   },
   "designer": {
-   "fulfilled": 17,
+   "fulfilled": 20,
    "partial": 6,
-   "open": 8,
+   "open": 5,
    "fails": 0
   },
   "import": {
@@ -624,9 +624,25 @@
    "statement": "The joint index space of a two-observer regional construction is the Cartesian product of the two observers' label alphabets, with committed instances Fin 13 x Fin 14 for pair (86, 88) and Fin 13 x Fin 13 for pair (86, 247).",
    "type": "representation_choice",
    "role": "designer",
-   "status": "open",
-   "evidence": [],
-   "note": ""
+   "status": "fulfilled",
+   "evidence": [
+    "../../experiments/interval_echo_consensus/local_interface/modal_slots/ModalQuorum.lean",
+    "../../experiments/interval_echo_consensus/local_interface/modal_slots/PROTOCOL.md",
+    "../../experiments/interval_echo_consensus/local_interface/modal_slots/README.md",
+    "../../experiments/interval_echo_consensus/local_interface/modal_slots/layout.json",
+    "../../experiments/interval_echo_consensus/local_interface/modal_slots/measure.py",
+    "../../experiments/interval_echo_consensus/local_interface/modal_slots/records.json",
+    "../../experiments/interval_echo_consensus/local_interface/modal_slots/shared_vote/PROTOCOL.md",
+    "../../experiments/interval_echo_consensus/local_interface/modal_slots/shared_vote/README.md",
+    "../../experiments/interval_echo_consensus/local_interface/modal_slots/shared_vote/VoteThreshold.lean",
+    "../../experiments/interval_echo_consensus/local_interface/modal_slots/shared_vote/counts.json",
+    "../../experiments/interval_echo_consensus/local_interface/modal_slots/shared_vote/measure.py",
+    "../../experiments/interval_echo_consensus/local_interface/modal_slots/shared_vote/test_vote.py",
+    "../../experiments/interval_echo_consensus/local_interface/modal_slots/test_modal.py",
+    "../../../Lean/QFT/JointSlotFactorisation.lean",
+    "../../../Lean/QFT/StructuralNetAdequacySurface.lean"
+   ],
+   "note": "Both named product alphabets are implemented on one 320-owner Interval Echo board. Native material reads distinguish all 2,366 simultaneous triples, hence all 182 and 169 pair labels at every spectator label. Shared physical packets and full 96-packet histograms retain their declared incidence."
   },
   {
    "id": "PR-33",
@@ -634,9 +650,25 @@
    "statement": "The region system of the committed net is the four-region diamond bot < left, right < top, with the scalars at the bottom, the two slot-factor algebras at the sides and the joint algebra at the top.",
    "type": "selection_rule",
    "role": "designer",
-   "status": "open",
-   "evidence": [],
-   "note": ""
+   "status": "fulfilled",
+   "evidence": [
+    "../../experiments/interval_echo_consensus/local_interface/modal_slots/ModalQuorum.lean",
+    "../../experiments/interval_echo_consensus/local_interface/modal_slots/PROTOCOL.md",
+    "../../experiments/interval_echo_consensus/local_interface/modal_slots/README.md",
+    "../../experiments/interval_echo_consensus/local_interface/modal_slots/layout.json",
+    "../../experiments/interval_echo_consensus/local_interface/modal_slots/measure.py",
+    "../../experiments/interval_echo_consensus/local_interface/modal_slots/records.json",
+    "../../experiments/interval_echo_consensus/local_interface/modal_slots/shared_vote/PROTOCOL.md",
+    "../../experiments/interval_echo_consensus/local_interface/modal_slots/shared_vote/README.md",
+    "../../experiments/interval_echo_consensus/local_interface/modal_slots/shared_vote/VoteThreshold.lean",
+    "../../experiments/interval_echo_consensus/local_interface/modal_slots/shared_vote/counts.json",
+    "../../experiments/interval_echo_consensus/local_interface/modal_slots/shared_vote/measure.py",
+    "../../experiments/interval_echo_consensus/local_interface/modal_slots/shared_vote/test_vote.py",
+    "../../experiments/interval_echo_consensus/local_interface/modal_slots/test_modal.py",
+    "../../../Lean/QFT/JointSlotFactorisation.lean",
+    "../../../Lean/QFT/StructuralNetAdequacySurface.lean"
+   ],
+   "note": "On the declared material encoding, address projections and transpositions generate the individual matrix units of the two local factors. Their intersection consists of scalars and their products span the joint matrix algebra, giving the four-region diamond on both committed pairs. This is a statement about the algebra generated on the code."
   },
   {
    "id": "PR-34",
@@ -644,9 +676,25 @@
    "statement": "Two observers of a pair are read as the two tensor factors of the joint carrier through A -> A (x) 1 and B -> 1 (x) B. For the support-disjoint pair (86, 247) the split rests on a kernel-checked disjointness theorem; the designated pair (86, 88) has overlapping supports.",
    "type": "representation_choice",
    "role": "designer",
-   "status": "open",
-   "evidence": [],
-   "note": ""
+   "status": "fulfilled",
+   "evidence": [
+    "../../experiments/interval_echo_consensus/local_interface/modal_slots/ModalQuorum.lean",
+    "../../experiments/interval_echo_consensus/local_interface/modal_slots/PROTOCOL.md",
+    "../../experiments/interval_echo_consensus/local_interface/modal_slots/README.md",
+    "../../experiments/interval_echo_consensus/local_interface/modal_slots/layout.json",
+    "../../experiments/interval_echo_consensus/local_interface/modal_slots/measure.py",
+    "../../experiments/interval_echo_consensus/local_interface/modal_slots/records.json",
+    "../../experiments/interval_echo_consensus/local_interface/modal_slots/shared_vote/PROTOCOL.md",
+    "../../experiments/interval_echo_consensus/local_interface/modal_slots/shared_vote/README.md",
+    "../../experiments/interval_echo_consensus/local_interface/modal_slots/shared_vote/VoteThreshold.lean",
+    "../../experiments/interval_echo_consensus/local_interface/modal_slots/shared_vote/counts.json",
+    "../../experiments/interval_echo_consensus/local_interface/modal_slots/shared_vote/measure.py",
+    "../../experiments/interval_echo_consensus/local_interface/modal_slots/shared_vote/test_vote.py",
+    "../../experiments/interval_echo_consensus/local_interface/modal_slots/test_modal.py",
+    "../../../Lean/QFT/JointSlotFactorisation.lean",
+    "../../../Lean/QFT/StructuralNetAdequacySurface.lean"
+   ],
+   "note": "The registered slot instruments act as left and right matrix units with the spectator fixed, for the overlapping pair 86/88 and disjoint pair 86/247. As an off-code control, after 23 and 20 private edits a single common pulse at π/3 changes both overlapping labels on 66,092 of 262,144 starts with no mixed outcomes. Two separate probes on the disjoint pair give 49,201 and 49,634 mixed outcomes. The minimum private edit counts and the original protected voting margins follow from the physical packet supports."
   },
   {
    "id": "PR-35",
@@ -2063,9 +2111,23 @@
    "statement": "On an initially blank connected Interval Echo screen with a reserved blank spanning tree and enough blank chords, every accepted routed strict write maps the census (vacancies v, doubles d, occupied collars m) by (v+1, d+1, m) to (v, d, m+1), and refused requests and all-open native flight leave the census unchanged. At total load two with blank collars and a complete uninterrupted priority sweep, native states map to the three classes blank binary, blank double and marked binary, with one protected bit read from the source occupation on blank inputs and from the published marks on marked outputs.",
    "type": "derivable",
    "role": "law",
-   "status": "open",
-   "evidence": [],
-   "note": ""
+   "status": "fulfilled",
+   "evidence": [
+    "../../experiments/interval_echo_consensus/routed_counts/README.md",
+    "../../experiments/interval_echo_consensus/routed_counts/Census.lean",
+    "../../experiments/interval_echo_consensus/routed_counts/material.py",
+    "../../experiments/interval_echo_consensus/routed_counts/flight.py",
+    "../../experiments/interval_echo_consensus/routed_counts/protected_bit.py",
+    "../../experiments/interval_echo_consensus/routed_counts/test_routed.py",
+    "../../experiments/interval_echo_consensus/routed_counts/results.json",
+    "../../experiments/interval_echo_consensus/asynchronous.py",
+    "../../experiments/interval_echo_consensus/strict_pair.py",
+    "../../experiments/interval_echo_consensus/FLIGHT_CONFLUENCE.md",
+    "../../experiments/interval_echo_consensus/flight_records/check.py",
+    "../../experiments/interval_echo_consensus/flight_records/NormalForm.lean",
+    "../../experiments/interval_echo_consensus/flight_records/results.json"
+   ],
+   "note": "For every accepted protected strict write under the stated routing conditions, the native two-port instrument removes one vacancy and one double and deposits one mark. Its quiet branches preserve the supported counts. Exact 99-column seam identities conserve those counts in arbitrary all-open flight, including dirty collars. Under the stipulated uninterrupted total-two priority sweep, the occupied-mark effect pulls back to the initial one-double projector, with arbitrary untouched reference. The signed-coin support certificate covers all 5,040 doubled origins on the three stored federations. Sequence scheduling is supplied by this premise."
   },
   {
    "id": "PR-144",
@@ -2172,9 +2234,18 @@
    "statement": "The finite data that the gateway and loop-vacuum lemmas take as inputs are those of Interval Echo: the gateway columns of the isolated-cell triplet projector have Gram diagonal 1/4, antipodal entries -1/4 and other entries plus or minus 1/(4 sqrt 5) on the stored 20-, 80- and 320-cell boards, and on the ordered excess-vacancy sector the triangular-exchange read obeys 0 <= A_{r,ab} <= P_r with P_r the vacancy-at-root projector.",
    "type": "derivable",
    "role": "law",
-   "status": "open",
-   "evidence": [],
-   "note": ""
+   "status": "fulfilled",
+   "evidence": [
+    "../../experiments/interval_echo_gauge/singlet_flight/gateway_meter/GatewayRead.lean",
+    "../../experiments/interval_echo_gauge/singlet_flight/gateway_meter/PROTOCOL.md",
+    "../../experiments/interval_echo_gauge/singlet_flight/gateway_meter/README.md",
+    "../../experiments/interval_echo_gauge/singlet_flight/gateway_meter/counts.json.gz",
+    "../../experiments/interval_echo_gauge/singlet_flight/gateway_meter/measure.py",
+    "../../experiments/interval_echo_gauge/singlet_flight/gateway_meter/test_gateway.py",
+    "../../../Lean/SourceLaw/ColourSingletGateway.lean",
+    "../../../Lean/ObserverPatchHolography/LoopVacuumBounds.lean"
+   ],
+   "note": "The actual one-load generator and integer incidence give the complete first nonconstant triplet projector and the exact signed gateway Gram entries on every one of the 420 stored cells. Three time comparisons on all 1,260 distinct gateway pairs recover them within 0.00113. The native triangle permutes two excess addresses and restores its vacancy. Its root-gated dark weight is bounded by the vacancy projector on the complete ordered sector, including spectator references. The loop detector covers all 25,200 rooted faces. These results fulfill both finite inputs as stated."
   },
   {
    "id": "PR-151",
@@ -2516,9 +2587,20 @@
    "statement": "Publicization of records acts on the observer algebra as the conditional-expectation generator L = gamma (E - id), where E is the pinching onto a finite projective record partition and gamma >= 0 a common repair rate, written in GKSL form with the partition projectors as jump operators; several collars act with nonnegative rates.",
    "type": "derivable",
    "role": "law",
-   "status": "open",
-   "evidence": [],
-   "note": ""
+   "status": "partial",
+   "evidence": [
+    "../../experiments/interval_echo_consensus/publication_rate/PROTOCOL.md",
+    "../../experiments/interval_echo_consensus/publication_rate/Publication.lean",
+    "../../experiments/interval_echo_consensus/publication_rate/README.md",
+    "../../experiments/interval_echo_consensus/publication_rate/WAIT.md",
+    "../../experiments/interval_echo_consensus/publication_rate/apparatus.py",
+    "../../experiments/interval_echo_consensus/publication_rate/measure.py",
+    "../../experiments/interval_echo_consensus/publication_rate/records.json.gz",
+    "../../experiments/interval_echo_consensus/publication_rate/test_rate.py",
+    "../../experiments/interval_echo_consensus/publication_rate/wait.py",
+    "../../experiments/interval_echo_consensus/publication_rate/waits.json.gz"
+   ],
+   "note": "Two independently calibrated flags on a shared appointment calendar give per-appointment probabilities 0.250015 and 0.499706. With fresh independent flags, the positive pinching rates forecast all three native address-pair interferences to within 0.00129, including the two-collar composition. Reusing one flag misses by 0.3254. The uncorrected raw write maps the equal mixture of the total-two material words to 11. After six units of uninterrupted flag flight followed by one endpoint publication, every matched interference read returns bright, against an exponential forecast of 0.58827. The pinching description holds for the commissioned independent appointments. A continuous positive native repair rate remains open."
   },
   {
    "id": "PR-178",
@@ -5702,7 +5784,7 @@
       "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L116"
      ],
      "status": "open",
-     "note": "The neutron and proton identities, mass order and resolved electric profile remain open. Restoring the common native reference places the positive three-wall upper spectral line 32.86 to 33.25 exchange units above the neutral line. Assigning these raw lines as rest masses gives the opposite ordering. The sector difference also changes by 48 when the neutral preparation contains a compensating whole material unit at rest. On the coupled 15-port written extension the neutral minus positive selected-line energy is 76.571 exchange units. Its derivative under a reservoir energy shift is 0.96893. The gateway-centred neutral material profile has a positive outermost shell. Both the reference contribution and the choice of centre enter this measurement. On the native guarded filled cell, a neutral two-excess/two-vacancy preparation has a positive core and a negative antipode about each fixed gateway. Centering on the four defects reverses both signs. Of 2,970 neutral words, 1,260 are connected. Every state supported entirely on connected words costs at least 155, while an unrestricted trial costs 144. The local neutral-minus-positive energy is +23.059 ± 1.630 exchange units; including the independently measured storage vacancy gives −9.541 ± 1.729 at equal inventory. These are material profiles and endpoint energies; mobile baryons and a physical electric detector remain to be identified. A balanced traveling probe gives zero forward matches in 647,020,015 admitted neutral draws, while the positive source gives forward probability 0.00693190. The gateway reading gives a positive core and negative outer mean. With the recentered detector the signs reverse (core −0.0015864, outer +0.0040534). Its elastic core match is 0.51571 on connected four-defect sources and 0.0044960 across all admissions. These are load-dependent scattering records. Opening all contacts gives positive signed spreading about the launch owner on 20-, 80- and 320-owner boards. At t=1/4096 the full-source enclosure for the signed second moment divided by t² is [0.213479,0.285377], compared with [0.053943,0.070771] at half exchange. A separate local clock yields [0.211256,0.287600] for the native value. This graph-distance moment requires a separate electromagnetic and mass calibration for the nucleon comparison.",
+     "note": "An unsigned impulse applied only to the native data gives inverse inertias 0.04518 ± 0.00091 on the neutral stock and 0.02679 ± 0.00088 on the positive stock. The local recoil orders them oppositely to the formation energies. The nearest and farthest occupied shells of the neutral body give signed material charges −0.00401 ± 0.00062 and +0.00407 ± 0.00062. Driving a balancing storage vacancy with the positive body changes its inverse inertia to 0.06237 ± 0.00105. The apparent neutron and proton order depends on which material receives the impulse, and the native intrinsic profile has the opposite signs. The neutron and proton identities, mass order and resolved electric profile remain open. Restoring the common native reference places the positive three-wall upper spectral line 32.86 to 33.25 exchange units above the neutral line. Assigning these raw lines as rest masses gives the opposite ordering. The sector difference also changes by 48 when the neutral preparation contains a compensating whole material unit at rest. On the coupled 15-port written extension the neutral minus positive selected-line energy is 76.571 exchange units. Its derivative under a reservoir energy shift is 0.96893. The gateway-centred neutral material profile has a positive outermost shell. Both the reference contribution and the choice of centre enter this measurement. On the native guarded filled cell, a neutral two-excess/two-vacancy preparation has a positive core and a negative antipode about each fixed gateway. Centering on the four defects reverses both signs. Of 2,970 neutral words, 1,260 are connected. Every state supported entirely on connected words costs at least 155, while an unrestricted trial costs 144. The local neutral-minus-positive energy is +23.059 ± 1.630 exchange units; including the independently measured storage vacancy gives −9.541 ± 1.729 at equal inventory. These are material profiles and endpoint energies; mobile baryons and a physical electric detector remain to be identified. A balanced traveling probe gives zero forward matches in 647,020,015 admitted neutral draws, while the positive source gives forward probability 0.00693190. The gateway reading gives a positive core and negative outer mean. With the recentered detector the signs reverse (core −0.0015864, outer +0.0040534). Its elastic core match is 0.51571 on connected four-defect sources and 0.0044960 across all admissions. These are load-dependent scattering records. Opening all contacts gives positive signed spreading about the launch owner on 20-, 80- and 320-owner boards. At t=1/4096 the full-source enclosure for the signed second moment divided by t² is [0.213479,0.285377], compared with [0.053943,0.070771] at half exchange. A separate local clock yields [0.211256,0.287600] for the native value. This graph-distance moment requires a separate electromagnetic and mass calibration for the nucleon comparison.",
      "evidence": [
       "model/candidate_laws/interval_echo/SPEC.md",
       "model/candidate_laws/interval_echo/openwave/quark_winding/belt_walls/upper.json",
@@ -5727,11 +5809,34 @@
       "model/candidate_laws/interval_echo/openwave/row_14_profile/free_release/measure.py",
       "model/candidate_laws/interval_echo/openwave/row_14_profile/free_release/reader.py",
       "model/candidate_laws/interval_echo/openwave/row_14_profile/free_release/results.json",
-      "model/candidate_laws/interval_echo/openwave/row_14_profile/free_release/test_release.py"
+      "model/candidate_laws/interval_echo/openwave/row_14_profile/free_release/test_release.py",
+      "model/candidate_laws/interval_echo/openwave/row_14_profile/recoil_radius/PROTOCOL.md",
+      "model/candidate_laws/interval_echo/openwave/row_14_profile/recoil_radius/README.md",
+      "model/candidate_laws/interval_echo/openwave/row_14_profile/recoil_radius/RecoilRadius.lean",
+      "model/candidate_laws/interval_echo/openwave/row_14_profile/recoil_radius/STORAGE.md",
+      "model/candidate_laws/interval_echo/openwave/row_14_profile/recoil_radius/counts.json.gz",
+      "model/candidate_laws/interval_echo/openwave/row_14_profile/recoil_radius/measure.py",
+      "model/candidate_laws/interval_echo/openwave/row_14_profile/recoil_radius/storage.json.gz",
+      "model/candidate_laws/interval_echo/openwave/row_14_profile/recoil_radius/storage.py",
+      "model/candidate_laws/interval_echo/openwave/row_14_profile/recoil_radius/test_radius.py"
      ],
      "demonstrated_measurement": {
       "label": "Connected neutral four-defect configurations cost at least 11 exchange units above their sector ground",
       "source": "model/candidate_laws/interval_echo/openwave/row_14_profile/README.md"
+     },
+     "additional_comparisons": [
+      {
+       "law": "Interval Echo",
+       "finding": "The local positive stock recoils more heavily than the neutral stock. The neutral material has a negative inner and positive outer shell.",
+       "source": "model/candidate_laws/interval_echo/openwave/row_14_profile/recoil_radius/README.md"
+      }
+     ],
+     "filing": {
+      "official_status": "🚧 Not yet tested",
+      "decision": "https://github.com/openwave-labs/openwave/blob/c531265eb6085725c6268e156804499c810ba5e4/MODELS.md#oph-m10",
+      "stage_label": "Full-credit submission",
+      "resubmission": "HOLD",
+      "review": "model/candidate_laws/interval_echo/openwave/row_14_profile/recoil_radius/README.md"
      }
     },
     {
@@ -5745,10 +5850,32 @@
       "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L117"
      ],
      "status": "open",
-     "note": "A common field-based prediction for both identified baryon energies remains open.",
+     "note": "The target neutron-to-proton mass ratio is 939.6/938.3. On the same two native stocks a fresh zero-impulse curvature read gives a neutral-to-positive inertial mass ratio in [0.59331, 0.59446]. Equal impulse per defect including the balancing vacancy gives [1.38017, 1.38163]. Formation-energy ratios give [1.19292, 1.19397] on isolated stocks and [0.93675, 0.93755] on balanced stocks. The minimum-work allocation on fixed inventory gives [0.57300, 0.57409]. On each of these five conventions the simultaneous 99% ratio interval excludes matching both target masses with a common positive conversion. An adjustable impulse fraction on the positive data in [0.80858, 0.80881] can fit the native target by calibration. On the held half-contrast material the optimized ratio is at least 1.18864. Physical species and an independently fixed mass conversion remain open. A common field-based prediction for both identified baryon energies remains open.",
      "evidence": [
-      "model/candidate_laws/interval_echo/SPEC.md"
-     ]
+      "model/candidate_laws/interval_echo/SPEC.md",
+      "model/candidate_laws/interval_echo/openwave/row_15_common_unit/CommonScale.lean",
+      "model/candidate_laws/interval_echo/openwave/row_15_common_unit/MOMENTUM.md",
+      "model/candidate_laws/interval_echo/openwave/row_15_common_unit/PROTOCOL.md",
+      "model/candidate_laws/interval_echo/openwave/row_15_common_unit/README.md",
+      "model/candidate_laws/interval_echo/openwave/row_15_common_unit/counts.json.gz",
+      "model/candidate_laws/interval_echo/openwave/row_15_common_unit/measure.py",
+      "model/candidate_laws/interval_echo/openwave/row_15_common_unit/momentum.py",
+      "model/candidate_laws/interval_echo/openwave/row_15_common_unit/test_ratio.py"
+     ],
+     "additional_comparisons": [
+      {
+       "law": "Interval Echo",
+       "finding": "Five fixed energy or recoil conventions miss the requested mass ratio. Fitting the impulse share on native material fails on the held half-contrast material.",
+       "source": "model/candidate_laws/interval_echo/openwave/row_15_common_unit/README.md"
+      }
+     ],
+     "filing": {
+      "official_status": "🚧 Not yet tested",
+      "decision": "https://github.com/openwave-labs/openwave/blob/c531265eb6085725c6268e156804499c810ba5e4/MODELS.md#oph-m10",
+      "stage_label": "Full-credit submission",
+      "resubmission": "HOLD",
+      "review": "model/candidate_laws/interval_echo/openwave/row_15_common_unit/README.md"
+     }
     },
     {
      "id": "OW-16",
@@ -6619,7 +6746,7 @@
       "https://github.com/openwave-labs/openwave/blob/d4fc3e4046c472f4ad38468df8dddfa1f97bac97/MODELS.md#L135"
      ],
      "status": "open",
-     "note": "Two transverse components of a prepared material dipole arrive three cells away on the unshuttered 80-cell board, with measured transverse transfer singular values 0.17834 and 0.02821 at time 64. The longitudinal response is 0.17950. Across 23,608 exact-frequency, direction and material comparisons none meet the specified two-transverse and weak-longitudinal response criterion. The first sampled receiving-cell population above 0.5% occurs at 17.5 and 35.5 exchange units for the two transverse preparations, versus 13.5 for the independent sharp pulse. A separate face-circulation source on a five-cell loop conveys its orientation two cells away even when both loads start in the source cell. On a single bridge a source-cell reflection makes the two signs indistinguishable to every exterior measurement. The received orientation accompanies material. Neither a Maxwell field nor a common limiting speed is identified by these preparations. On an intact 80-cell board, an independently calibrated receiver three hops away at exposure 64 accepts 1.6354% of six-state polarization launches in its transverse plane, with conditional fidelity 0.770216. The excess of correct detections over twice the wrong detections per original launch lies in [0.004852, 0.005308] at simultaneous 99% coverage. This exceeds the measure-and-prepare ceiling with selective losses. The receiver also responds to longitudinal input. Separate sharp and polarization preparations cross their respective thresholds at different exposures. A physical electric and magnetic field readout on the same propagating mode and an independently timed limiting speed remain open. On the same three-boundary one-load polarization source, a separately injected double responds to captured material. For every one-cell injection seam and every admitted single-load state, reversing the probe velocity leaves its initial address accelerations equal. Independently measured face circulation gives a nonzero velocity cross circulation for both circular inputs under the matched admission gate. No nonzero scalar maps this circulation to the velocity-odd initial acceleration of that probe. Its finite-time scattering response supplies no calibrated electromagnetic force. From equal endpoint charge histories, a closed three-hop current and an idle give source-face flux difference −1.5 at the second declared half-step. A face two dual edges away records flux 1/8 on the third. A complete oriented source and programmed field update supply the finite Maxwell action; autonomous transverse electric and magnetic fields travelling at the limiting speed remain open. Concealed signal and calibration preparations resolve a face-minus-port directional kinetic energy excess of 0.0982 to 0.1431 exchange-gap units under detector drift. This comparison measures a grating energy and does not select a propagating electromagnetic mode.",
+     "note": "A weak pulse on the open one-load material produces resolved edge currents three hops away on the 20- and 80-owner boards. Reversing the source gives maximum odd terminal edge currents of 0.00112 and 0.00089 and observed odd circulation estimates with magnitude below 0.00000075 on the enrolled face banks. The simultaneous raw-current sampling allowance is 0.0000757. All first-order one-load currents about the uniform ground are gradients, so every closed-loop sum vanishes. Finite-amplitude circulation survives at even order. On each uniformly filled host an arbitrary local field operation confined to the collar memories has zero remote distinguishability at every free time, including entangled collar preparations. Independently detected propagating electric and magnetic fields remain open. Two transverse components of a prepared material dipole arrive three cells away on the unshuttered 80-cell board, with measured transverse transfer singular values 0.17834 and 0.02821 at time 64. The longitudinal response is 0.17950. Across 23,608 exact-frequency, direction and material comparisons none meet the specified two-transverse and weak-longitudinal response criterion. The first sampled receiving-cell population above 0.5% occurs at 17.5 and 35.5 exchange units for the two transverse preparations, versus 13.5 for the independent sharp pulse. A separate face-circulation source on a five-cell loop conveys its orientation two cells away even when both loads start in the source cell. On a single bridge a source-cell reflection makes the two signs indistinguishable to every exterior measurement. The received orientation accompanies material. Neither a Maxwell field nor a common limiting speed is identified by these preparations. On an intact 80-cell board, an independently calibrated receiver three hops away at exposure 64 accepts 1.6354% of six-state polarization launches in its transverse plane, with conditional fidelity 0.770216. The excess of correct detections over twice the wrong detections per original launch lies in [0.004852, 0.005308] at simultaneous 99% coverage. This exceeds the measure-and-prepare ceiling with selective losses. The receiver also responds to longitudinal input. Separate sharp and polarization preparations cross their respective thresholds at different exposures. A physical electric and magnetic field readout on the same propagating mode and an independently timed limiting speed remain open. On the same three-boundary one-load polarization source, a separately injected double responds to captured material. For every one-cell injection seam and every admitted single-load state, reversing the probe velocity leaves its initial address accelerations equal. Independently measured face circulation gives a nonzero velocity cross circulation for both circular inputs under the matched admission gate. No nonzero scalar maps this circulation to the velocity-odd initial acceleration of that probe. Its finite-time scattering response supplies no calibrated electromagnetic force. From equal endpoint charge histories, a closed three-hop current and an idle give source-face flux difference −1.5 at the second declared half-step. A face two dual edges away records flux 1/8 on the third. A complete oriented source and programmed field update supply the finite Maxwell action; autonomous transverse electric and magnetic fields travelling at the limiting speed remain open. Concealed signal and calibration preparations resolve a face-minus-port directional kinetic energy excess of 0.0982 to 0.1431 exchange-gap units under detector drift. This comparison measures a grating energy and does not select a propagating electromagnetic mode.",
      "evidence": [
       "model/candidate_laws/interval_echo/SPEC.md",
       "model/candidate_laws/interval_echo/openwave/row_29_maxwell/README.md",
@@ -6652,7 +6779,17 @@
       "model/candidate_laws/interval_echo/openwave/row_29_maxwell/seam_symbol/drifting_receiver/measure.py",
       "model/candidate_laws/interval_echo/openwave/row_29_maxwell/seam_symbol/drifting_receiver/read.py",
       "model/candidate_laws/interval_echo/openwave/row_29_maxwell/seam_symbol/drifting_receiver/records.json",
-      "model/candidate_laws/interval_echo/openwave/row_29_maxwell/seam_symbol/drifting_receiver/test_receiver.py"
+      "model/candidate_laws/interval_echo/openwave/row_29_maxwell/seam_symbol/drifting_receiver/test_receiver.py",
+      "model/candidate_laws/interval_echo/openwave/row_29_maxwell/linear_response/PROTOCOL.md",
+      "model/candidate_laws/interval_echo/openwave/row_29_maxwell/linear_response/README.md",
+      "model/candidate_laws/interval_echo/openwave/row_29_maxwell/linear_response/Response.lean",
+      "model/candidate_laws/interval_echo/openwave/row_29_maxwell/linear_response/collar.json",
+      "model/candidate_laws/interval_echo/openwave/row_29_maxwell/linear_response/flight.npy.gz",
+      "model/candidate_laws/interval_echo/openwave/row_29_maxwell/linear_response/ground.npy.gz",
+      "model/candidate_laws/interval_echo/openwave/row_29_maxwell/linear_response/measure.py",
+      "model/candidate_laws/interval_echo/openwave/row_29_maxwell/linear_response/parked.py",
+      "model/candidate_laws/interval_echo/openwave/row_29_maxwell/linear_response/results.json",
+      "model/candidate_laws/interval_echo/openwave/row_29_maxwell/linear_response/test_response.py"
      ],
      "comparison": {
       "law": "Written-field Laplacian extension",
@@ -6662,6 +6799,20 @@
      "demonstrated_measurement": {
       "label": "Coherent material polarization across three cell boundaries",
       "source": "model/candidate_laws/interval_echo/openwave/row_29_maxwell/polarization_channel/README.md"
+     },
+     "additional_comparisons": [
+      {
+       "law": "Interval Echo",
+       "finding": "Weak one-load signals produce longitudinal edge currents; the complete first-order circulation vanishes on every closed path.",
+       "source": "model/candidate_laws/interval_echo/openwave/row_29_maxwell/linear_response/README.md"
+      }
+     ],
+     "filing": {
+      "official_status": "🚧 Not yet tested",
+      "decision": "https://github.com/openwave-labs/openwave/blob/c531265eb6085725c6268e156804499c810ba5e4/MODELS.md#oph-m10",
+      "stage_label": "Full-credit submission",
+      "resubmission": "HOLD",
+      "review": "model/candidate_laws/interval_echo/openwave/row_29_maxwell/linear_response/README.md"
      }
     },
     {

@@ -5781,7 +5781,8 @@
    "why": "The mass ordering and charge profile test whether a model distinguishes proton and neutron states with physical detectors.",
    "premises": [],
    "lean": [
-    "Lean/Screen/NeutralClusterEnergy.lean"
+    "Lean/Screen/NeutralClusterEnergy.lean",
+    "model/candidate_laws/interval_echo/openwave/row_14_profile/recoil_radius/RecoilRadius.lean"
    ],
    "model": [
     "model/evaluation/SCORECARD.md",
@@ -5800,10 +5801,19 @@
     "model/candidate_laws/interval_echo/openwave/row_14_profile/scattering/readout.py",
     "model/candidate_laws/interval_echo/openwave/row_14_profile/scattering/results.json",
     "model/candidate_laws/interval_echo/openwave/row_14_profile/free_release/README.md",
-    "model/candidate_laws/interval_echo/openwave/row_14_profile/free_release/results.json"
+    "model/candidate_laws/interval_echo/openwave/row_14_profile/free_release/results.json",
+    "model/candidate_laws/interval_echo/openwave/row_14_profile/recoil_radius/PROTOCOL.md",
+    "model/candidate_laws/interval_echo/openwave/row_14_profile/recoil_radius/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_14_profile/recoil_radius/STORAGE.md",
+    "model/candidate_laws/interval_echo/openwave/row_14_profile/recoil_radius/counts.json.gz",
+    "model/candidate_laws/interval_echo/openwave/row_14_profile/recoil_radius/measure.py",
+    "model/candidate_laws/interval_echo/openwave/row_14_profile/recoil_radius/storage.json.gz",
+    "model/candidate_laws/interval_echo/openwave/row_14_profile/recoil_radius/storage.py",
+    "model/candidate_laws/interval_echo/openwave/row_14_profile/recoil_radius/test_radius.py"
    ],
    "papers": [
-    "paper/deriving_the_particle_zoo_from_observer_consistency.pdf"
+    "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
+    "paper/executable_observer_construction.pdf"
    ]
   },
   {
@@ -5815,13 +5825,24 @@
    "what": "The proton and neutron rest energies are measured to better than a part per billion.",
    "why": "Their precision makes them a sharp target for any field-based prediction of hadron masses from one common law.",
    "premises": [],
-   "lean": [],
+   "lean": [
+    "model/candidate_laws/interval_echo/openwave/row_15_common_unit/CommonScale.lean"
+   ],
    "model": [
     "model/evaluation/SCORECARD.md",
     "model/evaluation/openwave_criteria.json",
-    "model/candidate_laws/interval_echo/SPEC.md"
+    "model/candidate_laws/interval_echo/SPEC.md",
+    "model/candidate_laws/interval_echo/openwave/row_15_common_unit/MOMENTUM.md",
+    "model/candidate_laws/interval_echo/openwave/row_15_common_unit/PROTOCOL.md",
+    "model/candidate_laws/interval_echo/openwave/row_15_common_unit/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_15_common_unit/counts.json.gz",
+    "model/candidate_laws/interval_echo/openwave/row_15_common_unit/measure.py",
+    "model/candidate_laws/interval_echo/openwave/row_15_common_unit/momentum.py",
+    "model/candidate_laws/interval_echo/openwave/row_15_common_unit/test_ratio.py"
    ],
-   "papers": []
+   "papers": [
+    "paper/executable_observer_construction.pdf"
+   ]
   },
   {
    "id": "ow-16-deuteron",
@@ -6445,7 +6466,8 @@
    ],
    "lean": [
     "Lean/Screen/SeamCurrentDirichletGenerator.lean",
-    "model/experiments/interval_echo_gauge/temporal_action/ActionBridge.lean"
+    "model/experiments/interval_echo_gauge/temporal_action/ActionBridge.lean",
+    "model/candidate_laws/interval_echo/openwave/row_29_maxwell/linear_response/Response.lean"
    ],
    "model": [
     "model/evaluation/SCORECARD.md",
@@ -6465,7 +6487,16 @@
     "model/candidate_laws/interval_echo/openwave/row_29_maxwell/seam_symbol/transverse.json",
     "model/experiments/interval_echo_gauge/temporal_action/README.md",
     "model/experiments/interval_echo_gauge/temporal_action/action.py",
-    "model/experiments/interval_echo_gauge/temporal_action/records.json.gz"
+    "model/experiments/interval_echo_gauge/temporal_action/records.json.gz",
+    "model/candidate_laws/interval_echo/openwave/row_29_maxwell/linear_response/PROTOCOL.md",
+    "model/candidate_laws/interval_echo/openwave/row_29_maxwell/linear_response/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_29_maxwell/linear_response/collar.json",
+    "model/candidate_laws/interval_echo/openwave/row_29_maxwell/linear_response/flight.npy.gz",
+    "model/candidate_laws/interval_echo/openwave/row_29_maxwell/linear_response/ground.npy.gz",
+    "model/candidate_laws/interval_echo/openwave/row_29_maxwell/linear_response/measure.py",
+    "model/candidate_laws/interval_echo/openwave/row_29_maxwell/linear_response/parked.py",
+    "model/candidate_laws/interval_echo/openwave/row_29_maxwell/linear_response/results.json",
+    "model/candidate_laws/interval_echo/openwave/row_29_maxwell/linear_response/test_response.py"
    ],
    "papers": [
     "paper/executable_observer_construction.pdf",
@@ -7699,16 +7730,27 @@
     "Lean/QFT/JoinNetMorphism.lean",
     "Lean/QFT/OperatorLayerMorphismBoundary.lean",
     "Lean/QFT/TripleCarrierOperatorJoin.lean",
-    "model/experiments/interval_echo_consensus/local_interface/modal_slots/ModalQuorum.lean"
+    "model/experiments/interval_echo_consensus/local_interface/modal_slots/ModalQuorum.lean",
+    "model/experiments/interval_echo_consensus/local_interface/modal_slots/shared_vote/VoteThreshold.lean"
    ],
    "model": [
     "model/experiments/interval_echo_consensus/local_interface/README.md",
     "model/experiments/interval_echo_consensus/local_interface/results.json",
     "model/experiments/interval_echo_consensus/local_interface/modal_slots/README.md",
     "model/experiments/interval_echo_consensus/local_interface/modal_slots/records.json",
-    "model/experiments/interval_echo_consensus/local_interface/modal_slots/test_modal.py"
+    "model/experiments/interval_echo_consensus/local_interface/modal_slots/test_modal.py",
+    "model/experiments/interval_echo_consensus/local_interface/modal_slots/PROTOCOL.md",
+    "model/experiments/interval_echo_consensus/local_interface/modal_slots/layout.json",
+    "model/experiments/interval_echo_consensus/local_interface/modal_slots/measure.py",
+    "model/experiments/interval_echo_consensus/local_interface/modal_slots/shared_vote/PROTOCOL.md",
+    "model/experiments/interval_echo_consensus/local_interface/modal_slots/shared_vote/README.md",
+    "model/experiments/interval_echo_consensus/local_interface/modal_slots/shared_vote/counts.json",
+    "model/experiments/interval_echo_consensus/local_interface/modal_slots/shared_vote/measure.py",
+    "model/experiments/interval_echo_consensus/local_interface/modal_slots/shared_vote/test_vote.py"
    ],
-   "papers": [],
+   "papers": [
+    "paper/executable_observer_construction.pdf"
+   ],
    "statement": "The joint index space of a two-observer regional construction is the Cartesian product of the two observers' label alphabets, with committed instances Fin 13 x Fin 14 for pair (86, 88) and Fin 13 x Fin 13 for pair (86, 247).",
    "premise_kind": "declared"
   },
@@ -7726,15 +7768,28 @@
     "Lean/QFT/TwoSlotCPNetWitness.lean",
     "Lean/QFT/CarrierJoinTransport.lean",
     "Lean/QFT/JoinNetMorphism.lean",
-    "Lean/QFT/OperatorLayerMorphismBoundary.lean"
+    "Lean/QFT/OperatorLayerMorphismBoundary.lean",
+    "model/experiments/interval_echo_consensus/local_interface/modal_slots/ModalQuorum.lean",
+    "model/experiments/interval_echo_consensus/local_interface/modal_slots/shared_vote/VoteThreshold.lean",
+    "Lean/QFT/JointSlotFactorisation.lean"
    ],
    "model": [
     "model/experiments/interval_echo_consensus/local_interface/README.md",
     "model/experiments/interval_echo_consensus/local_interface/modal_slots/README.md",
     "model/experiments/interval_echo_consensus/local_interface/modal_slots/records.json",
-    "model/experiments/interval_echo_consensus/local_interface/modal_slots/test_modal.py"
+    "model/experiments/interval_echo_consensus/local_interface/modal_slots/test_modal.py",
+    "model/experiments/interval_echo_consensus/local_interface/modal_slots/PROTOCOL.md",
+    "model/experiments/interval_echo_consensus/local_interface/modal_slots/layout.json",
+    "model/experiments/interval_echo_consensus/local_interface/modal_slots/measure.py",
+    "model/experiments/interval_echo_consensus/local_interface/modal_slots/shared_vote/PROTOCOL.md",
+    "model/experiments/interval_echo_consensus/local_interface/modal_slots/shared_vote/README.md",
+    "model/experiments/interval_echo_consensus/local_interface/modal_slots/shared_vote/counts.json",
+    "model/experiments/interval_echo_consensus/local_interface/modal_slots/shared_vote/measure.py",
+    "model/experiments/interval_echo_consensus/local_interface/modal_slots/shared_vote/test_vote.py"
    ],
-   "papers": [],
+   "papers": [
+    "paper/executable_observer_construction.pdf"
+   ],
    "statement": "The region system of the committed net is the four-region diamond bot < left, right < top, with the scalars at the bottom, the two slot-factor algebras at the sides and the joint algebra at the top.",
    "premise_kind": "declared"
   },
@@ -7755,7 +7810,8 @@
     "Lean/QFT/JoinNetMorphism.lean",
     "Lean/QFT/OperatorLayerMorphismBoundary.lean",
     "Lean/QFT/TripleCarrierOperatorJoin.lean",
-    "model/experiments/interval_echo_consensus/local_interface/modal_slots/ModalQuorum.lean"
+    "model/experiments/interval_echo_consensus/local_interface/modal_slots/ModalQuorum.lean",
+    "model/experiments/interval_echo_consensus/local_interface/modal_slots/shared_vote/VoteThreshold.lean"
    ],
    "model": [
     "model/experiments/interval_echo_consensus/local_interface/README.md",
@@ -7763,9 +7819,19 @@
     "model/experiments/interval_echo_quantum/swapping/README.md",
     "model/experiments/interval_echo_consensus/local_interface/modal_slots/README.md",
     "model/experiments/interval_echo_consensus/local_interface/modal_slots/records.json",
-    "model/experiments/interval_echo_consensus/local_interface/modal_slots/test_modal.py"
+    "model/experiments/interval_echo_consensus/local_interface/modal_slots/test_modal.py",
+    "model/experiments/interval_echo_consensus/local_interface/modal_slots/PROTOCOL.md",
+    "model/experiments/interval_echo_consensus/local_interface/modal_slots/layout.json",
+    "model/experiments/interval_echo_consensus/local_interface/modal_slots/measure.py",
+    "model/experiments/interval_echo_consensus/local_interface/modal_slots/shared_vote/PROTOCOL.md",
+    "model/experiments/interval_echo_consensus/local_interface/modal_slots/shared_vote/README.md",
+    "model/experiments/interval_echo_consensus/local_interface/modal_slots/shared_vote/counts.json",
+    "model/experiments/interval_echo_consensus/local_interface/modal_slots/shared_vote/measure.py",
+    "model/experiments/interval_echo_consensus/local_interface/modal_slots/shared_vote/test_vote.py"
    ],
-   "papers": [],
+   "papers": [
+    "paper/executable_observer_construction.pdf"
+   ],
    "statement": "Two observers of a pair are read as the two tensor factors of the joint carrier through A -> A (x) 1 and B -> 1 (x) B. For the support-disjoint pair (86, 247) the split rests on a kernel-checked disjointness theorem; the designated pair (86, 88) has overlapping supports.",
    "premise_kind": "declared"
   },
@@ -10348,7 +10414,10 @@
    "what": "On a blank model screen, every accepted routed write updates the vacancy, double and occupied-collar counts by one fixed rule.",
    "why": "It lets the census results proved on the coarse quotient apply to native repair, including the protected bit at total load two.",
    "premises": [],
-   "lean": [],
+   "lean": [
+    "model/experiments/interval_echo_consensus/routed_counts/Census.lean",
+    "model/experiments/interval_echo_consensus/flight_records/NormalForm.lean"
+   ],
    "model": [
     "model/experiments/interval_echo_consensus/routed_counts/README.md",
     "model/experiments/interval_echo_consensus/routed_counts/material.py",
@@ -10357,9 +10426,15 @@
     "model/experiments/interval_echo_consensus/routed_counts/results.json",
     "model/experiments/interval_echo_consensus/flight_records/README.md",
     "model/experiments/interval_echo_consensus/flight_records/check.py",
-    "model/experiments/interval_echo_consensus/flight_records/results.json"
+    "model/experiments/interval_echo_consensus/flight_records/results.json",
+    "model/experiments/interval_echo_consensus/routed_counts/protected_bit.py",
+    "model/experiments/interval_echo_consensus/asynchronous.py",
+    "model/experiments/interval_echo_consensus/strict_pair.py",
+    "model/experiments/interval_echo_consensus/FLIGHT_CONFLUENCE.md"
    ],
-   "papers": [],
+   "papers": [
+    "paper/executable_observer_construction.pdf"
+   ],
    "statement": "On an initially blank connected Interval Echo screen with a reserved blank spanning tree and enough blank chords, every accepted routed strict write maps the census (vacancies v, doubles d, occupied collars m) by (v+1, d+1, m) to (v, d, m+1), and refused requests and all-open native flight leave the census unchanged. At total load two with blank collars and a complete uninterrupted priority sweep, native states map to the three classes blank binary, blank double and marked binary, with one protected bit read from the source occupation on blank inputs and from the published marks on marked outputs.",
    "premise_kind": "derivable"
   },
@@ -10535,16 +10610,27 @@
    "what": "The gateway Gram entries and the loop-exchange operator bound used as lemma inputs are the values computed on the model's cells and boards.",
    "why": "It connects the machine-checked gateway and loop-vacuum lemmas to the model's actual cells and boards.",
    "premises": [],
-   "lean": [],
+   "lean": [
+    "model/experiments/interval_echo_gauge/singlet_flight/gateway_meter/GatewayRead.lean",
+    "Lean/SourceLaw/ColourSingletGateway.lean",
+    "Lean/ObserverPatchHolography/LoopVacuumBounds.lean"
+   ],
    "model": [
     "model/experiments/interval_echo_gauge/singlet_flight/README.md",
     "model/experiments/interval_echo_gauge/singlet_flight/measure.py",
     "model/experiments/interval_echo_gauge/singlet_flight/results.json",
     "model/experiments/interval_echo_gauge/loop_transport/README.md",
     "model/experiments/interval_echo_gauge/loop_transport/measure.py",
-    "model/experiments/interval_echo_gauge/loop_transport/results.json"
+    "model/experiments/interval_echo_gauge/loop_transport/results.json",
+    "model/experiments/interval_echo_gauge/singlet_flight/gateway_meter/PROTOCOL.md",
+    "model/experiments/interval_echo_gauge/singlet_flight/gateway_meter/README.md",
+    "model/experiments/interval_echo_gauge/singlet_flight/gateway_meter/counts.json.gz",
+    "model/experiments/interval_echo_gauge/singlet_flight/gateway_meter/measure.py",
+    "model/experiments/interval_echo_gauge/singlet_flight/gateway_meter/test_gateway.py"
    ],
-   "papers": [],
+   "papers": [
+    "paper/executable_observer_construction.pdf"
+   ],
    "statement": "The finite data that the gateway and loop-vacuum lemmas take as inputs are those of Interval Echo: the gateway columns of the isolated-cell triplet projector have Gram diagonal 1/4, antipodal entries -1/4 and other entries plus or minus 1/(4 sqrt 5) on the stored 20-, 80- and 320-cell boards, and on the ordered excess-vacancy sector the triangular-exchange read obeys 0 <= A_{r,ab} <= P_r with P_r the vacancy-at-root projector.",
    "premise_kind": "derivable"
   },
@@ -11187,14 +11273,26 @@
    "why": "It produces decoherence between branches with distinct records, on which the emergence of classical outcomes relies.",
    "premises": [],
    "lean": [
-    "Lean/Dynamics/ConditionalExpectationGenerator.lean"
+    "Lean/Dynamics/ConditionalExpectationGenerator.lean",
+    "model/experiments/interval_echo_consensus/publication_rate/Publication.lean"
    ],
    "model": [
     "model/experiments/interval_echo_consensus/empty_full/README.md",
     "model/experiments/interval_echo_consensus/empty_full/results.json",
-    "model/evaluation/theorem_criteria.json"
+    "model/evaluation/theorem_criteria.json",
+    "model/experiments/interval_echo_consensus/publication_rate/PROTOCOL.md",
+    "model/experiments/interval_echo_consensus/publication_rate/README.md",
+    "model/experiments/interval_echo_consensus/publication_rate/WAIT.md",
+    "model/experiments/interval_echo_consensus/publication_rate/apparatus.py",
+    "model/experiments/interval_echo_consensus/publication_rate/measure.py",
+    "model/experiments/interval_echo_consensus/publication_rate/records.json.gz",
+    "model/experiments/interval_echo_consensus/publication_rate/test_rate.py",
+    "model/experiments/interval_echo_consensus/publication_rate/wait.py",
+    "model/experiments/interval_echo_consensus/publication_rate/waits.json.gz"
    ],
-   "papers": [],
+   "papers": [
+    "paper/executable_observer_construction.pdf"
+   ],
    "statement": "Publicization of records acts on the observer algebra as the conditional-expectation generator L = gamma (E - id), where E is the pinching onto a finite projective record partition and gamma >= 0 a common repair rate, written in GKSL form with the partition projectors as jump operators; several collars act with nonnegative rates.",
    "premise_kind": "derivable"
   },
