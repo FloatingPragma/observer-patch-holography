@@ -2,6 +2,7 @@
 
 import json
 from collections import Counter
+from decimal import Decimal, localcontext
 from fractions import Fraction
 from itertools import product
 from math import log, sqrt
@@ -110,9 +111,12 @@ def projection_slopes(cut, arm, biased=False):
     plus = tag_weights(arm, STEP)
     minus = tag_weights(arm, -STEP)
     hi, lo = histogram(cut, plus), histogram(cut, minus)
-    entropy = -sum(
-        float((hi[k] - lo[k]) / (2 * STEP)) * log(float(p)) for k, p in ref.items()
-    )
+    with localcontext() as ctx:
+        ctx.prec = 50
+        def decimal(q):
+            return Decimal(q.numerator)/Decimal(q.denominator)
+        entropy = -float(sum(decimal((hi[k]-lo[k])/(2*STEP))*decimal(p).ln()
+                             for k,p in ref.items()))
     dg = sum(sector(k) * (a - b) for k, a, b in zip(TAGS, plus, minus, strict=True)) / (
         2 * STEP
     )
@@ -147,12 +151,17 @@ def terminal_counts(cut, arm, rng):
 def concentrated_entropy(counts):
     # Bounded differences for the plug-in estimator, plus its standard
     # elementary bias bound 0<=H(p)-E H(phat)<=log(1+(k-1)/N).
-    n = sum(counts)
-    freq = np.asarray([c for c in counts if c]) / n
-    estimate = -float(freq @ np.log(freq))
-    radius = (log(n) + 1) * sqrt(5 / n)
-    bias = np.log1p((len(counts) - 1) / n)
-    return [estimate - radius, estimate + radius + float(bias)]
+    # Subtracting two bulk entropies and comparing the near-zero held
+    # residual magnifies platform differences in vectorized log/dot.
+    # Reduce the frozen integer counts with correctly rounded decimal logs.
+    with localcontext() as ctx:
+        ctx.prec = 50
+        n = Decimal(sum(counts))
+        probabilities = (Decimal(c)/n for c in counts if c)
+        estimate = -sum(p*p.ln() for p in probabilities)
+        radius = (n.ln()+1)*(5/n).sqrt()
+        bias = (1+Decimal(len(counts)-1)/n).ln()
+        return [float(estimate-radius), float(estimate+radius+bias)]
 
 
 def interval_subtract(a, b, scale):

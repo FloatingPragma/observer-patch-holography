@@ -7,6 +7,7 @@ from math import isclose, log
 
 import numpy as np
 
+from ..regional_check import check_saved
 from . import cropped
 from . import measure as m
 
@@ -91,8 +92,10 @@ def test_proof_on_arbitrary_nonuniform_law():
 
 def test_sector_control_and_frozen_banks():
     result = json.loads((m.HERE / "results.json").read_text())
-    replay = json.loads(json.dumps(m.run()))
-    assert result == replay
+    replay = m.run()
+    for name, row in replay["regions"].items():
+        assert row["records"] == result["regions"][name]["records"]
+    check_saved(replay, result)
     assert result["ordinary_eta_99"][0] < log(2) / 2 < result["ordinary_eta_99"][1]
     assert result["held_residual_99"][0] < 0 < result["held_residual_99"][1]
     for name, expected in [

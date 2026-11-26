@@ -156,19 +156,22 @@ def unequal_footprint_control(calibration):
     return [str(-ds/(a*da)) for a in (1, 2)]
 
 
-def check_saved(actual, saved):
+def check_saved(actual, saved, path="receipt"):
     if isinstance(actual, dict):
-        assert actual.keys() == saved.keys()
+        if not isinstance(saved, dict) or actual.keys() != saved.keys():
+            raise ValueError(f"{path}: receipt keys differ")
         for key, value in actual.items():
-            check_saved(value, saved[key])
+            check_saved(value, saved[key], f"{path}.{key}")
     elif isinstance(actual, (tuple, list)):
-        assert isinstance(saved, list)
-        for left, right in zip(actual, saved, strict=True):
-            check_saved(left, right)
+        if not isinstance(saved, list) or len(actual) != len(saved):
+            raise ValueError(f"{path}: list length differs")
+        for i, (left, right) in enumerate(zip(actual, saved, strict=True)):
+            check_saved(left, right, f"{path}[{i}]")
     elif isinstance(actual, float):
-        assert math.isclose(actual, saved, rel_tol=1e-12, abs_tol=1e-14)
-    else:
-        assert actual == saved
+        if not math.isclose(actual, saved, rel_tol=1e-12, abs_tol=1e-14):
+            raise ValueError(f"{path}: measured {actual!r}, archived {saved!r}")
+    elif actual != saved:
+        raise ValueError(f"{path}: measured {actual!r}, archived {saved!r}")
 
 
 def region_receipt():
