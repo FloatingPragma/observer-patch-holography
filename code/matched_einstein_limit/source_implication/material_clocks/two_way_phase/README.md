@@ -35,6 +35,14 @@ The raw archive preserves the plus and minus counts at each successful first-hit
 
 The preparation is the same finite entropy equilibrium used for the gravity comparison. Both input devices occupy fixed addresses and there is no registered meeting of independent moving clocks here. A proper timelike-frame measurement would have to carry a hand along a trajectory, establish its coincidence with another observer, verify the reception appointments locally, and calibrate relative motion there before comparing regional stress or area. A separate travelling-clock experiment achieves material handoff and reunion on a different routed source. [Travelling clocks and reciprocal pulse timings](../../../../../model/experiments/interval_echo_clock/README.md)
 
+## Does the arriving probe itself carry a clock hand?
+
+In this flight a single vacancy or excess of fixed charge $q$ occupies one of 960 ports. At a specified arrival port $j$ there is exactly one load word for the mobile: $1+q$ at $j$ and one everywhere else. The microscopic basis in each conserved reversal sector is $|j\rangle\otimes|c_L,c_R\rangle$. The two coin bits belong to the **parked source seams** $(0,1)$ and $(38,39)$. Blank hops act on position times the identity on both heads. In particular the actual gateway block is $2H_{38,1}=-I_4$ for both charges and both left reversals. Each marked contact acts on the coin at its own seam. [Native sector embedding and generator](../../../../../model/experiments/interval_echo_einstein_station/mobile_collar_source/measure.py)
+
+For any mobile-only effect $E$ and sharp arrival projector $P_j=|j\rangle\langle j|$, one has $P_jEP_j=\langle j|E|j\rangle P_j$. Thus after the hit its conditional expectation is independent of which path brought the load, its dwell time and its correlations with the heads. There is no second internal mobile state that could accumulate a readable relative phase during this flight. The hit *probability* and the conditional head state can depend on all three. A local detector acting jointly on the arrived load and a parked head reads that larger system.
+
+On an isolated blank dimer the two position eigenmodes of exchange have energies 8 and 9, with a phase detectable by retaining both orbitals. Compression of either energy projector to either endpoint gives $P_j/2$. Reading one sharp endpoint therefore erases that internal-phase interpretation. The two possible probe charges travel in separate total-load sectors; the source and terminal read admit no coherence measurement between them. A clock encoded in a coherently collected set of ports or in a multi-load object would use a different flight and arrival measurement. [Independent native fiber checks](test_measure.py) · [Clock phase carried by a moving pair on a different source](../../../../../model/candidate_laws/interval_echo/openwave/row_03_clock/moving_pair/README.md)
+
 Run from the RER root with one numerical thread.
 
 ~~~sh

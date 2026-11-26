@@ -54,3 +54,28 @@ def test_no_arrivals_and_incomplete_bank():
         m.phase_and_error([dict(by_hit=[[0, 0]], missed=m.SHOTS)] * 2)
     with pytest.raises(ValueError, match="incomplete"):
         m.phase_and_error([dict(by_hit=[[0, 1]], missed=m.SHOTS)] * 2)
+
+
+def test_single_charge_at_one_arrival_has_no_mobile_internal_fiber():
+    board = pairing.formation.federation(1)
+    marks = pairing.formation.region(board)
+    assert (board.n, marks) == (960, (0, 1, 38, 39))
+    for charge in (-1, 1):
+        words = ((1 + charge, 1), (1, 1 + charge))
+        for endpoint in (0, 1):
+            admitted = [word for word in words if word[endpoint] == 1 + charge]
+            assert len(admitted) == 1
+            at_endpoint = np.diag([int(i == endpoint) for i in (0, 1)])
+            for relative_sign in (-1, 1):
+                mode = np.array([1, relative_sign])
+                twice_energy_projector = np.outer(mode, mode)
+                np.testing.assert_array_equal(
+                    at_endpoint @ twice_energy_projector @ at_endpoint, at_endpoint
+                )
+        np.testing.assert_array_equal(2 * blank_clock(charge, 8), [[17, -1], [-1, 17]])
+        for odd in (False, True):
+            h = ranging.generator(board, marks, charge, 8, odd)
+            assert h.shape == (board.n * 4, board.n * 4)
+            # Native blank gateway transports the position, preserving the two parked coins.
+            src, dest = (slice(4 * j, 4 * j + 4) for j in marks[1:3])
+            np.testing.assert_array_equal(2 * h[dest, src].toarray(), -np.eye(4))
