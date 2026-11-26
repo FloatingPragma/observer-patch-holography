@@ -1,0 +1,1243 @@
+{
+ "seed": 26112609,
+ "shots_per_panel": 4194304,
+ "familywise_99_half_width": 0.0011000071498501747,
+ "boards_cells": 20,
+ "dimers": [
+  [
+   0,
+   5
+  ],
+  [
+   7,
+   6
+  ],
+  [
+   1,
+   82
+  ],
+  [
+   74,
+   78
+  ],
+  [
+   75,
+   76
+  ],
+  [
+   77,
+   81
+  ]
+ ],
+ "source_distances": [
+  4,
+  5
+ ],
+ "mount": {
+  "total_load": 234,
+  "operations": {
+   "blank_swap": 518,
+   "half_swap": 15,
+   "three_quarter_phase": 5,
+   "write": 15,
+   "quarter_phase": 10,
+   "write_idle": 23
+  },
+  "digest": "d8ae1a321fdb36105a0094424f3269e539079a0d0a05b5edce577383eca163ee"
+ },
+ "native_and_changed_column_errors": [
+  0.0,
+  0.0
+ ],
+ "retained_lower_core_levels": [
+  1,
+  2
+ ],
+ "core_gaps": [
+  0.0,
+  31.78359123738807,
+  32.67193028875514,
+  33.60603103562882
+ ],
+ "meter_clock": {
+  "holds": [
+   {
+    "wait": 0.015625,
+    "cos_sin_counts": [
+     4194075,
+     2127804
+    ]
+   },
+   {
+    "wait": 0.0625,
+    "cos_sin_counts": [
+     4190137,
+     2229948
+    ]
+   },
+   {
+    "wait": 0.25,
+    "cos_sin_counts": [
+     4128910,
+     2615335
+    ]
+   },
+   {
+    "wait": 1.0,
+    "cos_sin_counts": [
+     3230626,
+     3862245
+    ]
+   },
+   {
+    "wait": 4.0,
+    "cos_sin_counts": [
+     726014,
+     509997
+    ]
+   },
+   {
+    "wait": 16.0,
+    "cos_sin_counts": [
+     88731,
+     1492493
+    ]
+   },
+   {
+    "wait": 64.0,
+    "cos_sin_counts": [
+     2918480,
+     4027235
+    ]
+   }
+  ],
+  "gap": 1.0000050194464456,
+  "half_width": 4.861398562009474e-05
+ },
+ "meter_charge": [
+  {
+   "ports": [
+    77,
+    81
+   ],
+   "word_00_to_22": [
+    7,
+    0,
+    3,
+    0,
+    1,
+    4,
+    3,
+    4,
+    7
+   ],
+   "coherent_amplitude_error": 0.0
+  }
+ ],
+ "rows": [
+  {
+   "apparatus": "native",
+   "source": "pulse",
+   "wait": 0,
+   "core_by_meter": [
+    [
+     0,
+     0
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     4194303,
+     0
+    ]
+   ]
+  },
+  {
+   "apparatus": "native",
+   "source": "pulse",
+   "wait": 4,
+   "core_by_meter": [
+    [
+     0,
+     0
+    ],
+    [
+     17805,
+     3745
+    ],
+    [
+     2132137,
+     459072
+    ],
+    [
+     1322169,
+     259376
+    ]
+   ]
+  },
+  {
+   "apparatus": "native",
+   "source": "pulse",
+   "wait": 8,
+   "core_by_meter": [
+    [
+     0,
+     0
+    ],
+    [
+     46285,
+     6836
+    ],
+    [
+     3200793,
+     205879
+    ],
+    [
+     703552,
+     30959
+    ]
+   ]
+  },
+  {
+   "apparatus": "native",
+   "source": "pulse",
+   "wait": 16,
+   "core_by_meter": [
+    [
+     0,
+     0
+    ],
+    [
+     48279,
+     105854
+    ],
+    [
+     325618,
+     1155977
+    ],
+    [
+     2150414,
+     408162
+    ]
+   ]
+  },
+  {
+   "apparatus": "native",
+   "source": "pulse",
+   "wait": 32,
+   "core_by_meter": [
+    [
+     0,
+     0
+    ],
+    [
+     233864,
+     640694
+    ],
+    [
+     858869,
+     1290169
+    ],
+    [
+     530478,
+     640230
+    ]
+   ]
+  },
+  {
+   "apparatus": "native",
+   "source": "pulse",
+   "wait": 64,
+   "core_by_meter": [
+    [
+     0,
+     0
+    ],
+    [
+     469866,
+     655407
+    ],
+    [
+     1261991,
+     348558
+    ],
+    [
+     1364065,
+     94417
+    ]
+   ]
+  },
+  {
+   "apparatus": "native",
+   "source": "idle",
+   "wait": 0,
+   "core_by_meter": [
+    [
+     4194303,
+     0
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ]
+   ]
+  },
+  {
+   "apparatus": "native",
+   "source": "idle",
+   "wait": 4,
+   "core_by_meter": [
+    [
+     3491738,
+     702565
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ]
+   ]
+  },
+  {
+   "apparatus": "native",
+   "source": "idle",
+   "wait": 8,
+   "core_by_meter": [
+    [
+     4143072,
+     51231
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ]
+   ]
+  },
+  {
+   "apparatus": "native",
+   "source": "idle",
+   "wait": 16,
+   "core_by_meter": [
+    [
+     4134490,
+     59814
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ]
+   ]
+  },
+  {
+   "apparatus": "native",
+   "source": "idle",
+   "wait": 32,
+   "core_by_meter": [
+    [
+     3928862,
+     265442
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ]
+   ]
+  },
+  {
+   "apparatus": "native",
+   "source": "idle",
+   "wait": 64,
+   "core_by_meter": [
+    [
+     3618593,
+     575711
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ]
+   ]
+  },
+  {
+   "apparatus": "upstream_cut",
+   "source": "pulse",
+   "wait": 0,
+   "core_by_meter": [
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     4194304,
+     0
+    ]
+   ]
+  },
+  {
+   "apparatus": "upstream_cut",
+   "source": "pulse",
+   "wait": 4,
+   "core_by_meter": [
+    [
+     0,
+     0
+    ],
+    [
+     17501,
+     13216
+    ],
+    [
+     1511331,
+     1101246
+    ],
+    [
+     891138,
+     659872
+    ]
+   ]
+  },
+  {
+   "apparatus": "upstream_cut",
+   "source": "pulse",
+   "wait": 8,
+   "core_by_meter": [
+    [
+     0,
+     0
+    ],
+    [
+     35262,
+     41457
+    ],
+    [
+     1377607,
+     1483485
+    ],
+    [
+     544306,
+     712187
+    ]
+   ]
+  },
+  {
+   "apparatus": "upstream_cut",
+   "source": "pulse",
+   "wait": 16,
+   "core_by_meter": [
+    [
+     0,
+     0
+    ],
+    [
+     238350,
+     53134
+    ],
+    [
+     1256761,
+     280992
+    ],
+    [
+     1931860,
+     433207
+    ]
+   ]
+  },
+  {
+   "apparatus": "upstream_cut",
+   "source": "pulse",
+   "wait": 32,
+   "core_by_meter": [
+    [
+     0,
+     0
+    ],
+    [
+     102065,
+     19686
+    ],
+    [
+     2185060,
+     431923
+    ],
+    [
+     1214173,
+     241397
+    ]
+   ]
+  },
+  {
+   "apparatus": "upstream_cut",
+   "source": "pulse",
+   "wait": 64,
+   "core_by_meter": [
+    [
+     0,
+     0
+    ],
+    [
+     304269,
+     97817
+    ],
+    [
+     1672607,
+     540996
+    ],
+    [
+     1195430,
+     383185
+    ]
+   ]
+  },
+  {
+   "apparatus": "upstream_cut",
+   "source": "idle",
+   "wait": 0,
+   "core_by_meter": [
+    [
+     4194304,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ]
+   ]
+  },
+  {
+   "apparatus": "upstream_cut",
+   "source": "idle",
+   "wait": 4,
+   "core_by_meter": [
+    [
+     2419757,
+     1774546
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ]
+   ]
+  },
+  {
+   "apparatus": "upstream_cut",
+   "source": "idle",
+   "wait": 8,
+   "core_by_meter": [
+    [
+     1958014,
+     2236290
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ]
+   ]
+  },
+  {
+   "apparatus": "upstream_cut",
+   "source": "idle",
+   "wait": 16,
+   "core_by_meter": [
+    [
+     3427449,
+     766854
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ]
+   ]
+  },
+  {
+   "apparatus": "upstream_cut",
+   "source": "idle",
+   "wait": 32,
+   "core_by_meter": [
+    [
+     3500744,
+     693560
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ]
+   ]
+  },
+  {
+   "apparatus": "upstream_cut",
+   "source": "idle",
+   "wait": 64,
+   "core_by_meter": [
+    [
+     3171241,
+     1023063
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ]
+   ]
+  },
+  {
+   "apparatus": "detector_cut",
+   "source": "pulse",
+   "wait": 0,
+   "core_by_meter": [
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     4194304,
+     0
+    ]
+   ]
+  },
+  {
+   "apparatus": "detector_cut",
+   "source": "pulse",
+   "wait": 4,
+   "core_by_meter": [
+    [
+     0,
+     0
+    ],
+    [
+     19345,
+     0
+    ],
+    [
+     2590927,
+     0
+    ],
+    [
+     1584032,
+     0
+    ]
+   ]
+  },
+  {
+   "apparatus": "detector_cut",
+   "source": "pulse",
+   "wait": 8,
+   "core_by_meter": [
+    [
+     0,
+     0
+    ],
+    [
+     31388,
+     0
+    ],
+    [
+     3357719,
+     0
+    ],
+    [
+     805197,
+     0
+    ]
+   ]
+  },
+  {
+   "apparatus": "detector_cut",
+   "source": "pulse",
+   "wait": 16,
+   "core_by_meter": [
+    [
+     1,
+     0
+    ],
+    [
+     63702,
+     0
+    ],
+    [
+     827833,
+     0
+    ],
+    [
+     3302768,
+     0
+    ]
+   ]
+  },
+  {
+   "apparatus": "detector_cut",
+   "source": "pulse",
+   "wait": 32,
+   "core_by_meter": [
+    [
+     0,
+     0
+    ],
+    [
+     348479,
+     0
+    ],
+    [
+     1224984,
+     0
+    ],
+    [
+     2620841,
+     0
+    ]
+   ]
+  },
+  {
+   "apparatus": "detector_cut",
+   "source": "pulse",
+   "wait": 64,
+   "core_by_meter": [
+    [
+     0,
+     0
+    ],
+    [
+     421332,
+     0
+    ],
+    [
+     1185499,
+     0
+    ],
+    [
+     2587473,
+     0
+    ]
+   ]
+  },
+  {
+   "apparatus": "detector_cut",
+   "source": "idle",
+   "wait": 0,
+   "core_by_meter": [
+    [
+     4194303,
+     0
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ]
+   ]
+  },
+  {
+   "apparatus": "detector_cut",
+   "source": "idle",
+   "wait": 4,
+   "core_by_meter": [
+    [
+     4194304,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ]
+   ]
+  },
+  {
+   "apparatus": "detector_cut",
+   "source": "idle",
+   "wait": 8,
+   "core_by_meter": [
+    [
+     4194304,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ]
+   ]
+  },
+  {
+   "apparatus": "detector_cut",
+   "source": "idle",
+   "wait": 16,
+   "core_by_meter": [
+    [
+     4194304,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ]
+   ]
+  },
+  {
+   "apparatus": "detector_cut",
+   "source": "idle",
+   "wait": 32,
+   "core_by_meter": [
+    [
+     4194304,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ]
+   ]
+  },
+  {
+   "apparatus": "detector_cut",
+   "source": "idle",
+   "wait": 64,
+   "core_by_meter": [
+    [
+     4194304,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ]
+   ]
+  },
+  {
+   "apparatus": "no_reversal",
+   "source": "pulse",
+   "wait": 0,
+   "core_by_meter": [
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     4194304,
+     0
+    ]
+   ]
+  },
+  {
+   "apparatus": "no_reversal",
+   "source": "pulse",
+   "wait": 4,
+   "core_by_meter": [
+    [
+     0,
+     0
+    ],
+    [
+     366923,
+     0
+    ],
+    [
+     847283,
+     0
+    ],
+    [
+     2980098,
+     0
+    ]
+   ]
+  },
+  {
+   "apparatus": "no_reversal",
+   "source": "pulse",
+   "wait": 8,
+   "core_by_meter": [
+    [
+     1,
+     0
+    ],
+    [
+     115568,
+     0
+    ],
+    [
+     23747,
+     0
+    ],
+    [
+     4054988,
+     0
+    ]
+   ]
+  },
+  {
+   "apparatus": "no_reversal",
+   "source": "pulse",
+   "wait": 16,
+   "core_by_meter": [
+    [
+     0,
+     0
+    ],
+    [
+     328753,
+     0
+    ],
+    [
+     139037,
+     0
+    ],
+    [
+     3726514,
+     0
+    ]
+   ]
+  },
+  {
+   "apparatus": "no_reversal",
+   "source": "pulse",
+   "wait": 32,
+   "core_by_meter": [
+    [
+     0,
+     0
+    ],
+    [
+     353570,
+     0
+    ],
+    [
+     695873,
+     0
+    ],
+    [
+     3144861,
+     0
+    ]
+   ]
+  },
+  {
+   "apparatus": "no_reversal",
+   "source": "pulse",
+   "wait": 64,
+   "core_by_meter": [
+    [
+     0,
+     0
+    ],
+    [
+     541216,
+     0
+    ],
+    [
+     300093,
+     0
+    ],
+    [
+     3352995,
+     0
+    ]
+   ]
+  },
+  {
+   "apparatus": "no_reversal",
+   "source": "idle",
+   "wait": 0,
+   "core_by_meter": [
+    [
+     4194304,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ]
+   ]
+  },
+  {
+   "apparatus": "no_reversal",
+   "source": "idle",
+   "wait": 4,
+   "core_by_meter": [
+    [
+     4194302,
+     0
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     0,
+     0
+    ]
+   ]
+  },
+  {
+   "apparatus": "no_reversal",
+   "source": "idle",
+   "wait": 8,
+   "core_by_meter": [
+    [
+     4194302,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     2,
+     0
+    ],
+    [
+     0,
+     0
+    ]
+   ]
+  },
+  {
+   "apparatus": "no_reversal",
+   "source": "idle",
+   "wait": 16,
+   "core_by_meter": [
+    [
+     4194301,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     2,
+     0
+    ],
+    [
+     1,
+     0
+    ]
+   ]
+  },
+  {
+   "apparatus": "no_reversal",
+   "source": "idle",
+   "wait": 32,
+   "core_by_meter": [
+    [
+     4194302,
+     0
+    ],
+    [
+     2,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     0,
+     0
+    ]
+   ]
+  },
+  {
+   "apparatus": "no_reversal",
+   "source": "idle",
+   "wait": 64,
+   "core_by_meter": [
+    [
+     4194302,
+     0
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     1,
+     0
+    ]
+   ]
+  }
+ ]
+}
