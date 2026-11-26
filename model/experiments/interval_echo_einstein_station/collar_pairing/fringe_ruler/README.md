@@ -23,6 +23,20 @@ Four exposures at $0,\pi/2,\pi,3\pi/2$ read both quadratures. This determines th
 
 The phases compare $s=1$ with $s=0$. The ordinary standard gives an independent finite calibration on each baseline. Dividing the correlation response by twice the observed ordinary phase response gives the equivalent energy in units of the ordinary exchange gap. On 0–1 the vacancy gives −0.0855 to −0.0843 and the excess gives −0.0184 to −0.0153. On 0–38 they give +2.29 to +2.42 and +0.087 to +0.104. This calibration is a finite ratio against the half-unit standard.
 
+## Can the source change the wavelength?
+
+Allow the source to change both the three path differences $L_b(S)$ and each probe's scalar wavenumber $k_q(S)$. Let $\beta_{qb}$ be an arbitrary static phase offset for each material and baseline. The model $\Phi_{qb}(S)=\beta_{qb}+k_q(S)L_b(S)$ requires differentiability only along the two source preparations used below. Any source-dependent phase common to all four receivers has already canceled.
+
+At the **same fully formed stock**, interpolate toward the product stock or toward the ordinary half-dephased product stock. Both are convex preparations of the complete head state, including reversal parity. Label their three-baseline phase derivatives $g_q$ and $o_q$, respectively. The quadratures from the existing independent cohorts determine both derivatives because every receiver fringe is affine in the prepared density. In particular, its phase derivative toward stock $D$ is $\operatorname{Im}(F_D/F_{\rm formed})$. The two one-sided directions suffice, even if no opposite preparation is physically available.
+
+For $c=k_+/k_-$, differentiating the proposed phase law cancels each unknown length derivative. Both $g_+-cg_-$ and $o_+-co_-$ must be multiples of the **same** vector of three reference lengths. Their cross product must vanish. Expanding in $c$ gives the three columns
+
+$$M_0=g_+\times o_+,\quad
+M_1=-g_-\times o_+-g_+\times o_-,\quad
+M_2=g_-\times o_-.$$
+
+The count-only 99% interval for $\det[M_0,M_1,M_2]$ is **$[3.9470,6.2744]\times10^{-5}$**, including the stable-clock uncertainty. The independent integer-propagator enclosure is **$[5.0549772193,5.0549772603]\times10^{-5}$**. Since the columns are independent, no $c$ can make $M_0+cM_1+c^2M_2=0$. If the vacancy wavenumber vanishes at the reference, its two response directions themselves must be collinear, contradicted by $M_2\ne0$. Thus these two source changes also exclude source-dependent scalar dispersion in this common-length phase law. A control with varying wavenumbers and genuinely shared lengths gives zero determinant. [Two-direction test](dispersion.py) · [Coefficient and determinant intervals](certificate.json)
+
 ## Local theorem and precision
 
 The absence of a single calibration also holds at each endpoint as an infinitesimal statement. Wherever $F_y\ne0$, its phase has derivative $\operatorname{Im}(F'_y/F_y)$. The independent integer Chebyshev propagator encloses the complex four-tick amplitudes from both senders to all four ports, in both reversal sectors and for both probe charges. Its four-by-four operator error is below $10^{-19}$. The formed and product density errors in trace norm are below $10^{-18}$ and $2\times10^{-18}$ respectively. Quantizing each real and imaginary density entry to the nearest $2^{-80}$ changes its trace norm by less than $10^{-22}$. Contracting two blocks of norm at most one gives an error below $3\times10^{-18}$ per real component of $D$ and $F$. At the formed source the phase slope ratios on 0–1 and 0–38 lie within (0.115, 0.117) and (0.308, 0.310). The product reference also gives disjoint ratios. All 300 archived terminal-bin confidence intervals enclose the independently bounded native probabilities. [Integer replay](certificate.py) · [Derivative enclosures](certificate.json)
@@ -31,7 +45,7 @@ Each acquisition uses $2^{48}$ synthetic starts per setting. For each of the 300
 
 In detail, the integer generator has norm below 32 after a common scalar energy shift. A four-tick timing error $d$ changes a flight effect by at most $64d$. It changes the formed state by at most $64d$ in trace norm, and its product of marginals by at most $128d$. Each beam splitter uses 48 preparation ticks with traceless norm $1/2$. Each private pulse uses at most 21 such ticks with relative gap at most 24. The total per-probability allowance is therefore $192d+2(48/2+21\times24)\delta$, for single preparation tick uncertainty $\delta$. The receiver choices and fixed source/flight commands define this apparatus.
 
-This measures a transported phase and its source response. Interpreting it as a proper path length also requires an independently measured dispersion or null-propagation law. The excluded model assigns one scalar phase gain to common length variations across all baselines. Probe-dependent diffraction or a path-dependent refractive response can change these interferometric phases. The selection of a common proper metric and the OW-27 light-propagation criterion remain open.
+This measures a transported phase and its source response. A proper path length also requires an independently characterized propagation law. Probe-dependent diffraction or a refractive response that varies by path can change these interferometric phases. The selection of a common proper metric and the OW-27 light-propagation criterion remain open.
 
 From the repository root, use one thread and run
 

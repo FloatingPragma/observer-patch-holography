@@ -79,3 +79,30 @@ def test_shutter_uncertainty_preserves_material_discrepancy():
     for k, lower, upper in ((0, 0.104, 0.127), (1, 0.274, 0.319)):
         gain = ratio(changes["1"]["formed"][k], changes["-1"]["formed"][k])
         assert lower < gain[0] < gain[1] < upper
+
+
+def test_variable_wavenumber_on_the_same_two_source_directions():
+    from mpmath import iv
+
+    from . import dispersion
+
+    receipt = json.loads((measure.HERE / "results.json").read_text())
+    empirical = dispersion.counts_certificate(receipt, 2.55e-13)["determinant"]
+    exact = json.loads((measure.HERE / "certificate.json").read_text())[
+        "variable_wavenumber"
+    ]
+    assert 3.94e-5 < empirical[0] < exact["native"]["determinant"][0]
+    assert exact["native"]["determinant"][1] < empirical[1] < 6.28e-5
+    # A genuinely variable common-length model must pass the necessary test.
+    # F=1 at the reference, so Im(F_destination/F_reference) is its phase slope.
+    vectors = {}
+    for q, k, dk in ((-1, 2, [1, 3]), (1, 7, [4, -1])):
+        base = [0, 1, -1, 5]
+        tangents = ([0, -1, 3, 8], [0, 2, -5, 1])
+        vectors[q] = {"formed": [iv.mpc(1) for _ in base]}
+        for name, d, slope in zip(("product", "ordinary"), tangents, dk, strict=True):
+            vectors[q][name] = [
+                iv.mpc(1, slope * v + k * u) for v, u in zip(base, d, strict=True)
+            ]
+    low, high = dispersion.rule_out(vectors)["determinant"]
+    assert low <= 0 <= high

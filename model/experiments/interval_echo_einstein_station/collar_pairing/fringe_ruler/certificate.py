@@ -7,6 +7,7 @@ from mpmath import iv
 import numpy as np
 
 from . import measure
+from . import dispersion
 
 
 def contraction(left, right, coin):
@@ -40,6 +41,7 @@ def compute():
     err = iv.mpf(["-3e-18", "3e-18"])
     raw = json.loads((measure.HERE / "results.json").read_text())
     slopes = {}
+    fringes = {-1: {}, 1: {}}
     min_margin = 1
     from .readout import radius
 
@@ -93,6 +95,8 @@ def compute():
                 ]
             else:
                 panel = [(a, 0 if stock == "scrambled" else b) for a, b in base]
+            if stock in ("formed", "product", "ordinary"):
+                fringes[charge][stock] = [f for _, f in panel]
             for p, counts in zip(
                 measure.PHASES, raw["counts"][str(charge)][stock], strict=True
             ):
@@ -107,8 +111,16 @@ def compute():
                     )
                     min_margin = min(min_margin, radius(seen[j], raw["shots"]) - error)
     assert min_margin > 1e-14
+    native_test = dispersion.rule_out(fringes)
+    empirical_test = dispersion.counts_certificate(raw, 2.55e-13)
+    assert 0 < empirical_test["determinant"][0] < native_test["determinant"][0]
+    assert native_test["determinant"][1] < empirical_test["determinant"][1]
     return dict(
         phase_slopes_radians_per_pairing=slopes,
+        variable_wavenumber={
+            "native": native_test,
+            "counts_and_clocks": empirical_test,
+        },
         minimum_probability_margin=float(min_margin),
         real_component_operator_and_source_error=3e-18,
     )
@@ -133,6 +145,13 @@ def main():
                     atol=1e-13,
                     rtol=0,
                 )
+        for observation in ("native", "counts_and_clocks"):
+            np.testing.assert_allclose(
+                saved["variable_wavenumber"][observation]["determinant"],
+                result["variable_wavenumber"][observation]["determinant"],
+                atol=1e-14,
+                rtol=0,
+            )
         assert saved["minimum_probability_margin"] > 1e-14
         print(
             "Verified both species, four contacts, two pairing derivatives and all raw frequency intervals."
