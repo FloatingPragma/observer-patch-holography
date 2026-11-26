@@ -600,6 +600,12 @@ REPLAY_EVALUATIONS = (
         "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
         "model/candidate_laws/interval_echo/EVALUATION.json": "2c650facdabe24491ce98d1b6c5dd63834242b044efd0429cda3e97fab6bba1c",
     },
+    # Registered comparison of neutral source directions and remote phase-sensitive reads.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "b868980e17b9a107377f0a27b8f8c09c14465f79da729ba39fa1d74f1de0da71",
+    },
 )
 
 

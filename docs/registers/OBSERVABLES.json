@@ -2911,7 +2911,8 @@
    ],
    "lean": [
     "model/candidate_laws/interval_echo/openwave/row_09_neutral/charge_profile/ChargeRecords.lean",
-    "code/a5_closure/neutral_observer/NeutralProjectors.lean"
+    "code/a5_closure/neutral_observer/NeutralProjectors.lean",
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/theory/RemoteFlavour.lean"
    ],
    "model": [
     "model/evaluation/SCORECARD.md",
@@ -2927,7 +2928,12 @@
     "model/candidate_laws/interval_echo/openwave/row_09_neutral/arrival_current/README.md",
     "model/candidate_laws/interval_echo/openwave/row_09_neutral/flight_calorimetry/README.md",
     "model/candidate_laws/interval_echo/openwave/row_09_neutral/flight_calorimetry/results.json",
-    "model/candidate_laws/interval_echo/openwave/row_09_neutral/flight_calorimetry/certificate.py"
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/flight_calorimetry/certificate.py",
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/records.json",
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/mixture.json",
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/audit.py",
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/translated_pairs/counts.json",
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/translated_pairs/second_counts.json"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
@@ -2954,7 +2960,8 @@
    ],
    "lean": [
     "model/candidate_laws/interval_echo/openwave/row_09_neutral/charge_profile/ChargeRecords.lean",
-    "code/a5_closure/neutral_observer/NeutralProjectors.lean"
+    "code/a5_closure/neutral_observer/NeutralProjectors.lean",
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/theory/RemoteFlavour.lean"
    ],
    "model": [
     "model/evaluation/SCORECARD.md",
@@ -2970,7 +2977,12 @@
     "model/candidate_laws/interval_echo/openwave/row_09_neutral/arrival_current/README.md",
     "model/candidate_laws/interval_echo/openwave/row_09_neutral/flight_calorimetry/README.md",
     "model/candidate_laws/interval_echo/openwave/row_09_neutral/flight_calorimetry/results.json",
-    "model/candidate_laws/interval_echo/openwave/row_09_neutral/flight_calorimetry/certificate.py"
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/flight_calorimetry/certificate.py",
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/records.json",
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/mixture.json",
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/audit.py",
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/translated_pairs/counts.json",
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/translated_pairs/second_counts.json"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
@@ -2997,7 +3009,8 @@
    ],
    "lean": [
     "model/candidate_laws/interval_echo/openwave/row_09_neutral/charge_profile/ChargeRecords.lean",
-    "code/a5_closure/neutral_observer/NeutralProjectors.lean"
+    "code/a5_closure/neutral_observer/NeutralProjectors.lean",
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/theory/RemoteFlavour.lean"
    ],
    "model": [
     "model/evaluation/SCORECARD.md",
@@ -3013,7 +3026,12 @@
     "model/candidate_laws/interval_echo/openwave/row_09_neutral/arrival_current/README.md",
     "model/candidate_laws/interval_echo/openwave/row_09_neutral/flight_calorimetry/README.md",
     "model/candidate_laws/interval_echo/openwave/row_09_neutral/flight_calorimetry/results.json",
-    "model/candidate_laws/interval_echo/openwave/row_09_neutral/flight_calorimetry/certificate.py"
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/flight_calorimetry/certificate.py",
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/records.json",
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/mixture.json",
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/audit.py",
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/translated_pairs/counts.json",
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/translated_pairs/second_counts.json"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
@@ -3695,8 +3713,16 @@
    "premises": [
     "PR-50"
    ],
-   "lean": [],
-   "model": [],
+   "lean": [
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/theory/RemoteFlavour.lean"
+   ],
+   "model": [
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/records.json",
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/mixture.json",
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/audit.py",
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/translated_pairs/counts.json",
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/translated_pairs/second_counts.json"
+   ],
    "papers": [
     "docs/FROZEN_PREDICTION_LADDER.md",
     "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
@@ -5452,13 +5478,22 @@
    "what": "Neutrinos are produced in one of three flavours and oscillate between flavours in flight, governed by the PMNS mixing matrix.",
    "why": "Oscillations show that neutrinos have mass and mix, so a theory of the particle content has to reproduce the measured mixing angles.",
    "premises": [],
-   "lean": [],
+   "lean": [
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/theory/RemoteFlavour.lean"
+   ],
    "model": [
     "model/evaluation/SCORECARD.md",
     "model/evaluation/openwave_criteria.json",
-    "model/candidate_laws/interval_echo/SPEC.md"
+    "model/candidate_laws/interval_echo/SPEC.md",
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/records.json",
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/mixture.json",
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/audit.py",
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/translated_pairs/counts.json",
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/translated_pairs/second_counts.json"
    ],
-   "papers": []
+   "papers": [
+    "paper/deriving_the_particle_zoo_from_observer_consistency.pdf"
+   ]
   },
   {
    "id": "ow-11-lepton-spectrum",

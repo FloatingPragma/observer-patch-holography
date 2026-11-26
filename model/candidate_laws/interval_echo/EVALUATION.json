@@ -5301,10 +5301,26 @@
       "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L112"
      ],
      "status": "open",
-     "note": "A flavour-tagged source, transitions and a mixing-angle determination remain open.",
+     "note": "Three addressed source arms give distinct remote neutral-pair counts. Independently measured source directions and sharp transport standards predict all 1,296 held word probabilities. The opposite winding settings produce identical records for every receiver confined to the released guide away from the source records. Moving the launch by one bond also changes the signed-pair probabilities as predicted by the measured separation profile. Independently tagged weak flavours and their oscillation angles remain open.",
      "evidence": [
-      "model/candidate_laws/interval_echo/SPEC.md"
-     ]
+      "model/candidate_laws/interval_echo/SPEC.md",
+      "model/candidate_laws/interval_echo/openwave/row_10_oscillations/README.md",
+      "model/candidate_laws/interval_echo/openwave/row_10_oscillations/PROTOCOL.md",
+      "model/candidate_laws/interval_echo/openwave/row_10_oscillations/measure.py",
+      "model/candidate_laws/interval_echo/openwave/row_10_oscillations/MIXTURE.md",
+      "model/candidate_laws/interval_echo/openwave/row_10_oscillations/mixture.py",
+      "model/candidate_laws/interval_echo/openwave/row_10_oscillations/records.json",
+      "model/candidate_laws/interval_echo/openwave/row_10_oscillations/mixture.json",
+      "model/candidate_laws/interval_echo/openwave/row_10_oscillations/audit.py",
+      "model/candidate_laws/interval_echo/openwave/row_10_oscillations/translated_pairs/counts.json",
+      "model/candidate_laws/interval_echo/openwave/row_10_oscillations/translated_pairs/second_counts.json",
+      "model/candidate_laws/interval_echo/openwave/row_10_oscillations/eraser.py",
+      "model/candidate_laws/interval_echo/openwave/row_10_oscillations/theory/RemoteFlavour.lean"
+     ],
+     "demonstrated_measurement": {
+      "label": "Distant neutral-pair records distinguish three source-arm preparations and give identical outcomes for the two opposite windings",
+      "source": "model/candidate_laws/interval_echo/openwave/row_10_oscillations/README.md"
+     }
     },
     {
      "id": "OW-11",
@@ -6931,7 +6947,7 @@
       "claims/physical_identification_registry.json"
      ],
      "status": "open",
-     "note": "No species assignment is registered. At full conversion all 2,493,659 neutral detections resolve opposite charges on the two measured ports. A remote observer can compare joint signed arrivals after free flight on the prepared route. A calibrated negative or positive weak daughter sorts the neutral inputs of the declared exterior doublet. An explicit pair of charged constituents gives exactly the same total gauge currents as the direct doublet. An independently identified charged partner at production and detection is still needed for a flavour assignment. At two distant receivers, an inverse native ladder gives a signed daughter and a compensating donor read on the same projected neutral arrival. The two material orders respond to opposite fixed analyzer settings. A remote clock and signed coincidence on a driven neutral pair resolve energies near 49 and 50 on its filled guide. This source excludes a light pair in its charge sector and supplies no flavour identification.",
+     "note": "No species assignment is registered. At full conversion all 2,493,659 neutral detections resolve opposite charges on the two measured ports. A remote observer can compare joint signed arrivals after free flight on the prepared route. A calibrated negative or positive weak daughter sorts the neutral inputs of the declared exterior doublet. An explicit pair of charged constituents gives exactly the same total gauge currents as the direct doublet. An independently identified charged partner at production and detection is still needed for a flavour assignment. At two distant receivers, an inverse native ladder gives a signed daughter and a compensating donor read on the same projected neutral arrival. The two material orders respond to opposite fixed analyzer settings. A remote clock and signed coincidence on a driven neutral pair resolve energies near 49 and 50 on its filled guide. This source excludes a light pair in its charge sector and supplies no flavour identification. After free neutral release, the same local three-port receiver distinguishes three addressed-arm preparations. Measured source-direction weights and four calibrated transport responses explain the three distributions. The two conjugate winding inputs have exactly the same remote readout.",
      "evidence": [
       "model/candidate_laws/interval_echo/openwave/row_09_neutral/charge_profile/README.md",
       "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/cyclic_charge/neutral_ladder/release/README.md",
@@ -6940,7 +6956,11 @@
       "model/candidate_laws/interval_echo/openwave/row_09_neutral/arrival_current/README.md",
       "model/candidate_laws/interval_echo/openwave/row_09_neutral/flight_calorimetry/README.md",
       "model/candidate_laws/interval_echo/openwave/row_09_neutral/flight_calorimetry/results.json",
-      "model/candidate_laws/interval_echo/openwave/row_09_neutral/flight_calorimetry/certificate.py"
+      "model/candidate_laws/interval_echo/openwave/row_09_neutral/flight_calorimetry/certificate.py",
+      "model/candidate_laws/interval_echo/openwave/row_10_oscillations/README.md",
+      "model/candidate_laws/interval_echo/openwave/row_10_oscillations/records.json",
+      "model/candidate_laws/interval_echo/openwave/row_10_oscillations/mixture.json",
+      "model/candidate_laws/interval_echo/openwave/row_10_oscillations/audit.py"
      ]
     },
     {
@@ -6955,7 +6975,7 @@
       "claims/physical_identification_registry.json"
      ],
      "status": "open",
-     "note": "No species assignment is registered. At full conversion all 2,493,659 neutral detections resolve opposite charges on the two measured ports. A remote observer can compare joint signed arrivals after free flight on the prepared route. A calibrated negative or positive weak daughter sorts the neutral inputs of the declared exterior doublet. An explicit pair of charged constituents gives exactly the same total gauge currents as the direct doublet. An independently identified charged partner at production and detection is still needed for a flavour assignment. At two distant receivers, an inverse native ladder gives a signed daughter and a compensating donor read on the same projected neutral arrival. The two material orders respond to opposite fixed analyzer settings. A remote clock and signed coincidence on a driven neutral pair resolve energies near 49 and 50 on its filled guide. This source excludes a light pair in its charge sector and supplies no flavour identification.",
+     "note": "No species assignment is registered. At full conversion all 2,493,659 neutral detections resolve opposite charges on the two measured ports. A remote observer can compare joint signed arrivals after free flight on the prepared route. A calibrated negative or positive weak daughter sorts the neutral inputs of the declared exterior doublet. An explicit pair of charged constituents gives exactly the same total gauge currents as the direct doublet. An independently identified charged partner at production and detection is still needed for a flavour assignment. At two distant receivers, an inverse native ladder gives a signed daughter and a compensating donor read on the same projected neutral arrival. The two material orders respond to opposite fixed analyzer settings. A remote clock and signed coincidence on a driven neutral pair resolve energies near 49 and 50 on its filled guide. This source excludes a light pair in its charge sector and supplies no flavour identification. After free neutral release, the same local three-port receiver distinguishes three addressed-arm preparations. Measured source-direction weights and four calibrated transport responses explain the three distributions. The two conjugate winding inputs have exactly the same remote readout.",
      "evidence": [
       "model/candidate_laws/interval_echo/openwave/row_09_neutral/charge_profile/README.md",
       "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/cyclic_charge/neutral_ladder/release/README.md",
@@ -6964,7 +6984,11 @@
       "model/candidate_laws/interval_echo/openwave/row_09_neutral/arrival_current/README.md",
       "model/candidate_laws/interval_echo/openwave/row_09_neutral/flight_calorimetry/README.md",
       "model/candidate_laws/interval_echo/openwave/row_09_neutral/flight_calorimetry/results.json",
-      "model/candidate_laws/interval_echo/openwave/row_09_neutral/flight_calorimetry/certificate.py"
+      "model/candidate_laws/interval_echo/openwave/row_09_neutral/flight_calorimetry/certificate.py",
+      "model/candidate_laws/interval_echo/openwave/row_10_oscillations/README.md",
+      "model/candidate_laws/interval_echo/openwave/row_10_oscillations/records.json",
+      "model/candidate_laws/interval_echo/openwave/row_10_oscillations/mixture.json",
+      "model/candidate_laws/interval_echo/openwave/row_10_oscillations/audit.py"
      ]
     },
     {
@@ -6979,7 +7003,7 @@
       "claims/physical_identification_registry.json"
      ],
      "status": "open",
-     "note": "No species assignment is registered. At full conversion all 2,493,659 neutral detections resolve opposite charges on the two measured ports. A remote observer can compare joint signed arrivals after free flight on the prepared route. A calibrated negative or positive weak daughter sorts the neutral inputs of the declared exterior doublet. An explicit pair of charged constituents gives exactly the same total gauge currents as the direct doublet. An independently identified charged partner at production and detection is still needed for a flavour assignment. At two distant receivers, an inverse native ladder gives a signed daughter and a compensating donor read on the same projected neutral arrival. The two material orders respond to opposite fixed analyzer settings. A remote clock and signed coincidence on a driven neutral pair resolve energies near 49 and 50 on its filled guide. This source excludes a light pair in its charge sector and supplies no flavour identification.",
+     "note": "No species assignment is registered. At full conversion all 2,493,659 neutral detections resolve opposite charges on the two measured ports. A remote observer can compare joint signed arrivals after free flight on the prepared route. A calibrated negative or positive weak daughter sorts the neutral inputs of the declared exterior doublet. An explicit pair of charged constituents gives exactly the same total gauge currents as the direct doublet. An independently identified charged partner at production and detection is still needed for a flavour assignment. At two distant receivers, an inverse native ladder gives a signed daughter and a compensating donor read on the same projected neutral arrival. The two material orders respond to opposite fixed analyzer settings. A remote clock and signed coincidence on a driven neutral pair resolve energies near 49 and 50 on its filled guide. This source excludes a light pair in its charge sector and supplies no flavour identification. After free neutral release, the same local three-port receiver distinguishes three addressed-arm preparations. Measured source-direction weights and four calibrated transport responses explain the three distributions. The two conjugate winding inputs have exactly the same remote readout.",
      "evidence": [
       "model/candidate_laws/interval_echo/openwave/row_09_neutral/charge_profile/README.md",
       "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/cyclic_charge/neutral_ladder/release/README.md",
@@ -6988,7 +7012,11 @@
       "model/candidate_laws/interval_echo/openwave/row_09_neutral/arrival_current/README.md",
       "model/candidate_laws/interval_echo/openwave/row_09_neutral/flight_calorimetry/README.md",
       "model/candidate_laws/interval_echo/openwave/row_09_neutral/flight_calorimetry/results.json",
-      "model/candidate_laws/interval_echo/openwave/row_09_neutral/flight_calorimetry/certificate.py"
+      "model/candidate_laws/interval_echo/openwave/row_09_neutral/flight_calorimetry/certificate.py",
+      "model/candidate_laws/interval_echo/openwave/row_10_oscillations/README.md",
+      "model/candidate_laws/interval_echo/openwave/row_10_oscillations/records.json",
+      "model/candidate_laws/interval_echo/openwave/row_10_oscillations/mixture.json",
+      "model/candidate_laws/interval_echo/openwave/row_10_oscillations/audit.py"
      ]
     },
     {

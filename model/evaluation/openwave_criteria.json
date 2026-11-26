@@ -706,10 +706,26 @@
           "results": {
             "interval_echo": {
               "status": "open",
-              "note": "A flavour-tagged source, transitions and a mixing-angle determination remain open.",
+              "note": "Three addressed source arms give distinct remote neutral-pair counts. Independently measured source directions and sharp transport standards predict all 1,296 held word probabilities. The opposite winding settings produce identical records for every receiver confined to the released guide away from the source records. Moving the launch by one bond also changes the signed-pair probabilities as predicted by the measured separation profile. Independently tagged weak flavours and their oscillation angles remain open.",
               "evidence": [
-                "model/candidate_laws/interval_echo/SPEC.md"
-              ]
+                "model/candidate_laws/interval_echo/SPEC.md",
+                "model/candidate_laws/interval_echo/openwave/row_10_oscillations/README.md",
+                "model/candidate_laws/interval_echo/openwave/row_10_oscillations/PROTOCOL.md",
+                "model/candidate_laws/interval_echo/openwave/row_10_oscillations/measure.py",
+                "model/candidate_laws/interval_echo/openwave/row_10_oscillations/MIXTURE.md",
+                "model/candidate_laws/interval_echo/openwave/row_10_oscillations/mixture.py",
+                "model/candidate_laws/interval_echo/openwave/row_10_oscillations/records.json",
+                "model/candidate_laws/interval_echo/openwave/row_10_oscillations/mixture.json",
+                "model/candidate_laws/interval_echo/openwave/row_10_oscillations/audit.py",
+                "model/candidate_laws/interval_echo/openwave/row_10_oscillations/translated_pairs/counts.json",
+                "model/candidate_laws/interval_echo/openwave/row_10_oscillations/translated_pairs/second_counts.json",
+                "model/candidate_laws/interval_echo/openwave/row_10_oscillations/eraser.py",
+                "model/candidate_laws/interval_echo/openwave/row_10_oscillations/theory/RemoteFlavour.lean"
+              ],
+              "demonstrated_measurement": {
+                "label": "Distant neutral-pair records distinguish three source-arm preparations and give identical outcomes for the two opposite windings",
+                "source": "model/candidate_laws/interval_echo/openwave/row_10_oscillations/README.md"
+              }
             },
             "contrast_memory_spherical_v1": {
               "status": "open",
