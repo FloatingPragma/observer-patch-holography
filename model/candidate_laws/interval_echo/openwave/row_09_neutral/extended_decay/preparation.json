@@ -1,0 +1,43 @@
+{
+ "boards": [
+  {
+   "interior_cut": false,
+   "rows": 32,
+   "error_below_2e_12": true,
+   "native_gate_counts": {
+    "single-dimer Y rotation": 31,
+    "conditional contact (0, 7)": 38,
+    "conditional contact (0, 1)": 52,
+    "conditional contact (74, 82)": 56,
+    "conditional contact (74, 75)": 16
+   },
+   "diagonal_phase": [
+    "private",
+    "private",
+    "exterior unit pin",
+    "private",
+    "private"
+   ]
+  },
+  {
+   "interior_cut": true,
+   "rows": 32,
+   "error_below_2e_12": true,
+   "native_gate_counts": {
+    "single-dimer Y rotation": 31,
+    "conditional contact (0, 7)": 38,
+    "conditional contact (0, 1)": 52,
+    "conditional contact (74, 82)": 56,
+    "conditional contact (74, 75)": 16
+   },
+   "diagonal_phase": [
+    "private",
+    "private",
+    "exterior unit pin",
+    "private",
+    "private"
+   ]
+  }
+ ],
+ "local_pulse": "real two-source-dimer reader, outer-level reflection"
+}

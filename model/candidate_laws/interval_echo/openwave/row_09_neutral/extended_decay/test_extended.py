@@ -7,7 +7,7 @@ from scipy.linalg import expm
 from scipy.stats import beta
 from ..passive_decay.measure import compare_records, SHOTS
 from ..passive_decay.readers import charge
-from . import joint, measure, precision
+from . import joint, measure, precision, preparation
 from .material import route
 
 
@@ -54,6 +54,7 @@ class ExtendedDecay(unittest.TestCase):
         for name, params in precision.CASES.items():
             compare_records(bank(name), measure.run(*params))
         compare_records(bank("joint"), joint.run())
+        compare_records(bank("preparation"), preparation.run())
 
     def test_finite_aperture_and_folds(self):
         folded = bank("records")["panels"]
