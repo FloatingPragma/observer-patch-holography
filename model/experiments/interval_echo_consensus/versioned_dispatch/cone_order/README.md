@@ -1,0 +1,32 @@
+# Can observers reconstruct a light-cone order from the contacts they read?
+
+Two independent stations read which ports changed, their loads, and the writer versions on each port. A free-flight experiment on the same twelve-port cell supplies a spatial ruler. With a seam placed halfway between its endpoints, all ordered histories of up to three distinct contacts admit a positive clock scale. Of 657,720 four-contact histories, 579,960 admit a scale, 4,800 put an unrelated pair exactly on a null boundary, and 72,960 reverse a required inequality. These are counts of schedules, without a probability law on schedules. The measured examples use native simulated reads. [Protocol](PROTOCOL.md) · [Exact census](census.json) · [Two observing stations](records.json.gz)
+
+## Recovering the ruler and fitting the clock
+
+Each port launches an isolated double. Two independent banks of 4,194,304 draws per port count arrivals at a quarter exchange time. Each bank resolves the same 30 undirected contacts with simultaneous 99% coverage. With graph distance ordered from zero to three, the unit-radius port Gram has entries \(1,1/\sqrt5,-1/\sqrt5,-1\). Integer arithmetic verifies \(AG=\sqrt5\,G,\ G^2=4G,\ \mathrm{tr}\,G=12\), so its range is the three-dimensional slow carrier. A seam position is the midpoint of its two port vectors. The flight clock, enrollment, protected read routes, stamp protocol and this spatial readout are supplied. [Flight counts](flights.json) · [Gram reconstruction](chart.py)
+
+Each event reads and stamps both ports, including an unchanged load. Its parents are the last writers on those ports. Its height is the longest parent chain ending there, so independent roots all have height zero even when the instrument services them in sequence. Let \(k>0\) convert squared height to squared time. Every parent gives a closed lower bound \(d^2/(\Delta h)^2\) on \(k\). The triangle inequality then puts its entire ancestral chain inside the future cone. A pair of distinct equal-height events must have different spatial positions. Every unrelated pair at distinct heights gives a **strict** upper bound by the same ratio, since the light cone includes its boundary. These conditions are also necessary. [Faithful-placement construction and converse bounds](Scale.lean) · [Exact comparisons in the quadratic field](order.py)
+
+For contacts \(01,05,07,18\) (each numeral denotes a port), the allowed window is \([(5+\sqrt5)/10,1)\). Replacing \(18\) by the disjoint pair \(23\) retains the lower bound but demands \(k<(3+\sqrt5)/8\). No value meets both. The three- and four-contact witnesses have full readouts on a uniform host and a patterned host for every hidden coin string. The parked echo retains the registered order while suppressing material transfer. A shuttered second endpoint prevents a complete commit. A separate census enumerates every starting seam in ordinary Cartesian coordinates, computes transitive closure of the overlap relation, and checks all ancestral pairs. [Instrument](measure.py) · [Independent census and decoder tests](test_order.py)
+
+## Two observations with the same endpoint records
+
+The first and last contacts occupy the same ports, slots, and heights in two four-contact runs. On the empty host, their incoming and outgoing loads and their local writer stamps agree. The independently read intervening records show a causal path in just one run. Doubling the two first-contact loads delivers exactly one unit to the gathering contact on all sixteen coin strings along that path. The independent route and the muted bridge both deliver zero. A chart using only the endpoint coordinates derived from those local tags gives the same comparison in both histories, even with a different spatial dimension or a nonlinear clock. The complete records distinguish the histories. [Matched protocol](MATCHED_PROTOCOL.md) · [Both stations’ records](matched.json.gz) · [Matched comparison theorem](Scale.lean)
+
+## Five common roots and thirty-two continuations
+
+The fixed prefix operates five disjoint seams. Subsequent contacts choose any subset of those roots and feed the selected spokes into a gathering edge. All 32 recorded ancestries agree with the selected subsets. An independent intervention puts two doubles at one root on an otherwise empty cell. Across 160 root/subset banks, all 80 cases containing the root give a remote detection, with at least 16,274 detections in 65,536 simulated launches per bank. The 80 omitted-root banks and all 32 empty shams are dark. Parking one included spoke removes its signal while preserving its declared writer history. Each bank reports all outcomes. Later contacts on the same side halve the expected signal once each, which explains the observed variation across included roots. [Design](FIVE_ROOT_PROTOCOL.md) · [Material traces and counts](five_roots.json.gz) · [Acquisition](five_roots.py)
+
+A future cone cuts the common time-zero slice in a closed ball. Five fixed points in three-dimensional space cannot realize all their subsets as closed-ball intersections. Indeed, the five augmented vectors \((1,x_i)\) have a nonzero linear dependence with weights \(w_i\). Their positive and negative groups are both nonempty. Suppose two balls select the opposing groups. The difference of their squared-distance-minus-radius scores is an affine function of \(x_i\). Its weighted sum must vanish by the dependence. Each nonzero weight instead contributes with the same strict sign, a contradiction. This permits arbitrary centers and radii for the gathering events. The native five-root experiment rules out any placement that keeps the common root coordinates fixed across its continuations. A separate spatial placement chosen after each history has different quantifiers. [Three-dimensional obstruction](FiveRoots.lean)
+
+The comparisons concern canonical writer-chain height, registered semantic support and the specified material observations. They give no proper-time calibration, continuum density or test of empirical Lorentz causality.
+
+From the RER root, run the following in order. The acquisition modules compare their output to the archived receipts by default.
+
+```sh
+python -m model.experiments.interval_echo_consensus.versioned_dispatch.cone_order.measure
+python -m model.experiments.interval_echo_consensus.versioned_dispatch.cone_order.matched
+python -m model.experiments.interval_echo_consensus.versioned_dispatch.cone_order.five_roots
+python -m pytest -q model/experiments/interval_echo_consensus/versioned_dispatch/cone_order
+```
