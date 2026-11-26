@@ -69,7 +69,7 @@ Judging a premise:
 - When a premise loses or gains Demonstrated, re-judge the rows that list it. A Demonstrated row lists no
   premise that is not Demonstrated.
 
-The Einstein observable uses ten timelike frames on one observer-reconstructed spacetime. Regional modular energy identifies the propagating stress (PR-23), its independent conservation is PR-24, and fixed-proper-volume equilibrium, small-ball control and the common physical refinement are PR-26 through PR-28. On this route contracting the derived tensor equation with a lightlike direction gives the light-ray balance. Direct light-ray experiments remain independent checks of that prediction. [Exact finite bound and limiting hypotheses](../../code/matched_einstein_limit/PROOF.md#the-common-source-interface)
+The direct timelike Einstein test requires independent regional stress and its conservation (PR-23 and PR-24), equilibrium, controlled small balls and a common refinement (PR-26 through PR-28), and a physical spacetime interpretation (PR-16 and PR-52). Its universal-matter interpretation also needs PR-134. Half-line standardness (PR-92), geometric cap modular flow (PR-119) and a placement with time proportional to source height (PR-165) support particular constructions of those inputs. Dark-collar and screening laws (PR-135 through PR-137) enter the dark-matter predictions. The timelike test can measure the regional normalization directly. [Common-source hypotheses](../../code/matched_einstein_limit/PROOF.md#the-common-source-interface) Contracting the derived tensor equation along a light ray gives an independent optical check.
 
 ## Completion score
 

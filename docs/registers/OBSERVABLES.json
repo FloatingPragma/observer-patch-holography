@@ -1224,7 +1224,7 @@
    "category": "Gravity",
    "status": "Conditional",
    "what": "Einstein's equation G_ab + Lambda g_ab = 8 pi G T_ab ties spacetime curvature to the energy and momentum of matter.",
-   "why": "Ten observer frames relate the measured entropy and area of equal-volume proper balls to the curvature and stress of one shared spacetime description.",
+   "why": "Independent timelike measurements of stress, entropy and fixed-volume area must agree on one observer-reconstructed geometry across shrinking proper balls.",
    "premises": [
     "PR-23",
     "PR-24",
@@ -1233,9 +1233,6 @@
     "PR-28",
     "PR-16",
     "PR-52",
-    "PR-119",
-    "PR-165",
-    "PR-92",
     "PR-134"
    ],
    "lean": [
@@ -1316,7 +1313,9 @@
     "model/candidate_laws/interval_echo_partition_repair/published_strings/counted_tower/README.md",
     "model/candidate_laws/interval_echo_published_records/spherical_dust/clock_pairs/REFINEMENT.md",
     "model/candidate_laws/interval_echo_published_records/spherical_dust/clock_pairs/regions.json",
-    "model/candidate_laws/interval_echo_published_records/spherical_dust/clock_pairs/census.py"
+    "model/candidate_laws/interval_echo_published_records/spherical_dust/clock_pairs/census.py",
+    "code/matched_einstein_limit/test_frame.py",
+    "model/candidate_laws/interval_echo_partition_repair/published_strings/counted_tower/test_counted_tower.py"
    ],
    "papers": [
     "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf",
