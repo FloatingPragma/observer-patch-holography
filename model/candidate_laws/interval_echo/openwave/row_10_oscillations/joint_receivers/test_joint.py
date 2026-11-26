@@ -76,3 +76,23 @@ def test_original_start_banks_and_conjugate_sign_controls():
             sum(r["joint_given_far"]["resolved"] for r in results if r["mode"] == mode)
             == n
         )
+
+
+def test_blind_labels_are_frozen_by_training_and_the_validation_is_complete():
+    from .blind import decode
+
+    data = json.loads(Path(__file__).with_name("blind_counts.json").read_text())
+    results = decode(data)
+    assert len(results) == 6
+    assert all(r["label_count"] == 3 and r["limits"][0] > 1 / 3 for r in results)
+    assert sum(len(r["raw_pairwise_separations"]) == 3 for r in results) == 4
+    # Rolling the validation source labels must leave every decision unchanged.
+    for row in data["banks"]:
+        if row["key"][-1] == "validation":
+            row["key"][2] = (row["key"][2] + 1) % 3
+    reassigned = decode(data)
+    assert [r["decision"] for r in results] == [r["decision"] for r in reassigned]
+    assert not any(
+        x["balanced_success"] == y["balanced_success"]
+        for x, y in zip(results, reassigned, strict=True)
+    )

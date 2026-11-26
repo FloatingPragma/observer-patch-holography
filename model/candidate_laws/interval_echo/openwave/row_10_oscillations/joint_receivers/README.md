@@ -29,6 +29,17 @@ The entries give differences in local success frequency, positive minus negative
 
 The simultaneous binomial intervals resolve zero of twelve winding differences after a sharp first-head read and zero of twelve for the selected success click after suppressing the second marked crossing. In the latter circuit that click reads a single sharp word. The changed contrast resolves twelve of twelve. All 48 far-only comparisons include zero. The deciding observable is a correlation with an accessible source reference and depends on the neutral flight. Identifying an oscillating neutrino family requires three weak production/detection tags and held oscillation parameters. The original neutral receiver by itself cannot distinguish these two windings. [Receiver theorem](../theory/PROOF.md)
 
+## Three blind source labels
+
+In a separate test the receiver decodes the zero, positive or negative source recipe from a single paired record. Independent training cohorts fix which source label is most likely for each panel and each local exit. Six validation banks per site and appointment measure the resulting confusion matrix, balancing the three source priors *among received pairs*. All three labels occur in the decision rule at every appointment. The two panels are chosen equally often. [Registered decision rule](THREE_SOURCES.md) · [Independent training and validation counts](blind_counts.json) · [Confusion matrices and per-source efficiencies](blind.py)
+
+| Receiving owner | Appointment 256 | Appointment 512 | Appointment 2048 |
+| --- | ---: | ---: | ---: |
+| 12 | 35.57% [34.83, 36.33] | 35.51% [35.01, 36.01] | 35.22% [34.89, 35.55] |
+| 17 | 33.69% [33.345, 34.04] | 34.08% [33.396, 34.78] | 34.95% [34.33, 35.59] |
+
+The percentages are balanced correct decisions with conservative simultaneous 99% limits. The bare far-pair flag gives 33⅓% in this conditional experiment. At 12/256 the frequencies of a correct decision for the zero, positive and negative inputs are 91.78%, 7.38% and 7.56%. Across the two panels, validation recorded 38,617, 34,641 and 34,498 far pairs respectively from 2 × 2⁵² original starts per input. The decoder's advantage is measurable but small. As a separate retrospective check, simultaneous bin intervals distinguish *every* pair of recipes in four of the six appointment/site combinations, including all three at owner 12. At 17/256 and 17/512 they separate the zero recipe from either sign. This comparison uses both source and distant records.
+
 Run from the repository root with one numerical thread.
 
 ~~~sh
@@ -37,5 +48,8 @@ p=model.candidate_laws.interval_echo.openwave.row_10_oscillations.joint_receiver
 python -Bm "$p.measure" --acquire /tmp/oph-joint-receivers.json
 cmp /tmp/oph-joint-receivers.json model/candidate_laws/interval_echo/openwave/row_10_oscillations/joint_receivers/counts.json
 python -Bm "$p.readback"
+python -Bm "$p.blind" --acquire /tmp/oph-three-windings.json
+cmp /tmp/oph-three-windings.json model/candidate_laws/interval_echo/openwave/row_10_oscillations/joint_receivers/blind_counts.json
+python -Bm "$p.blind"
 python -Bm pytest -q --pyargs "$p.test_joint"
 ~~~

@@ -25,12 +25,12 @@ def bins(effect, density):
     return np.maximum(rates, 0)
 
 
-def sample(key, rates, n):
+def sample(key, rates, n, seed=SEED):
     p = np.asarray(rates, float)
     if p.min() < -2e-14 or abs(sum(p) - 1) > 2e-12:
         raise ValueError("incomplete instrument")
     p = np.maximum(p, 0)
-    digest = hashlib.sha256(json.dumps([SEED, *key]).encode()).digest()
+    digest = hashlib.sha256(json.dumps([seed, *key]).encode()).digest()
     rng = np.random.default_rng(int.from_bytes(digest[:16], "big"))
     order = np.argsort(p, kind="stable")
     return rng.multinomial(n, p[order] / sum(p))[np.argsort(order)].tolist()
