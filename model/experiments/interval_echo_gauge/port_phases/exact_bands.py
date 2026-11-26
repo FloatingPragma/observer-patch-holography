@@ -5,6 +5,8 @@ import numpy as np
 
 from model.executable_model import cell
 from model.experiments.interval_echo_angular.charged_orientation.flux_doublet.measure import (
+    face_edges,
+    faces,
     links,
 )
 
@@ -71,9 +73,10 @@ def certify():
         for a in range(2, prime)
         if pow(a, 20, prime) == 1 and pow(a, 10, prime) != 1 and pow(a, 4, prime) != 1
     )
-    assert (
+    if (
         pow(z, 8, prime) - pow(z, 6, prime) + pow(z, 4, prime) - pow(z, 2, prime) + 1
-    ) % prime == 0
+    ) % prime != 0:
+        raise ArithmeticError("The reduction does not annihilate Phi_20")
     gram = np.zeros((12, 12), dtype=object)
     outcomes = []
     identity = np.eye(12, dtype=object)
@@ -83,6 +86,10 @@ def certify():
     ]:
         A = np.zeros((D, 12, 12), dtype=object)
         field = links(k)
+        if any(
+            sum(field[a, b] for a, b in face_edges(face)) % 20 != k for face in faces()
+        ):
+            raise ValueError(f"Magnetic links do not realize face flux {k}")
         for a, b in cell().seams:
             A[:, b, a] = root(field[a, b])
             A[:, a, b] = root(-field[a, b])
@@ -94,20 +101,32 @@ def certify():
         # Three distinct real eigenvalues; alpha is largest for the physical root.
         Q = product(shifted(beta_k), shifted(gamma))
         denominator = product(alpha - beta_k, alpha - gamma)
-        assert not np.any(product(shifted(alpha), Q))
-        assert np.array_equal(product(Q, Q), product(denominator, Q))
+        if np.any(product(shifted(alpha), Q)):
+            raise ArithmeticError(f"Spectral polynomial fails at flux {k}")
+        if not np.array_equal(product(Q, Q), product(denominator, Q)):
+            raise ArithmeticError(f"Scaled projector is not idempotent at flux {k}")
         for p in range(12):
-            assert np.array_equal(12 * Q[:, p, p], rank * denominator)
+            if not np.array_equal(12 * Q[:, p, p], rank * denominator):
+                raise ArithmeticError(
+                    f"Incorrect rank or leverage at flux {k}, port {p}"
+                )
         den = int(evaluate(denominator, z, prime))
-        assert den
+        if den == 0:
+            raise ArithmeticError(
+                f"Spectral denominator vanishes modulo {prime} at flux {k}"
+            )
         P = evaluate(Q, z, prime) * pow(den, -1, prime) % prime
-        assert np.array_equal(P @ P % prime, P)
+        if not np.array_equal(P @ P % prime, P):
+            raise ArithmeticError(f"Reduced matrix is not a projector at flux {k}")
         gram = (gram + load**2 * P * P.T) % prime
         outcomes.append(
             dict(flux=k, leading_rank=rank, charge=load, denominator_mod_prime=den)
         )
     det = gram_determinant(gram, prime)
-    assert det
+    if det != 1:
+        raise ArithmeticError(
+            f"Current Gram determinant has residue {det}, expected 1 modulo {prime}"
+        )
     return dict(
         exact_leading_bands=outcomes,
         prime=prime,

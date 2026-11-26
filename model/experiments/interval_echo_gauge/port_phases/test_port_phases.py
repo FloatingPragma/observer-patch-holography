@@ -1,6 +1,8 @@
 """Regressions for signed gain, missing enrollments, Zeno branch and recorded charge."""
 
 import json
+import subprocess
+import sys
 from math import pi
 
 import numpy as np
@@ -63,3 +65,26 @@ def test_exact_spectral_projectors_and_current_rank():
     result = certify()
     assert result["compressed_current_gram_determinant_mod_prime"] == 1
     assert [row["leading_rank"] for row in result["exact_leading_bands"]] == [3, 2]
+
+
+def test_optimized_certificate_rejects_bad_residues():
+    replay = """
+from unittest.mock import patch
+from model.experiments.interval_echo_gauge.port_phases import exact_bands
+if __debug__:
+    raise RuntimeError("The certificate control requires optimized Python")
+if exact_bands.certify()["compressed_current_gram_determinant_mod_prime"] != 1:
+    raise RuntimeError("Positive control failed")
+for wrong in (0, 2):
+    with patch.object(exact_bands, "gram_determinant", return_value=wrong):
+        try:
+            exact_bands.certify()
+        except ArithmeticError as exc:
+            if f"residue {wrong}, expected 1" not in str(exc):
+                raise
+        else:
+            raise RuntimeError(f"Accepted corrupted residue {wrong}")
+"""
+    subprocess.run(
+        [sys.executable, "-O", "-c", replay], check=True, cwd=HERE.parents[3]
+    )
