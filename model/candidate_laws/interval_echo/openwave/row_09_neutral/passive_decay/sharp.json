@@ -1,6 +1,7 @@
 {
  "seed": 26092611,
  "shots": 4194304,
+ "sampling_grid_bits": 40,
  "address_order": [
   [
    0,
@@ -88,30 +89,30 @@
  "totals": {
   "joined_parent": {
    "starts": 4194304,
-   "coincidences": 632797,
+   "coincidences": 634703,
    "distal_starts": 4194304,
-   "distal_minus": 337252,
-   "two_link_coincidences": 449766
+   "distal_minus": 337470,
+   "two_link_coincidences": 450618
   },
   "joined_ground": {
    "starts": 4194304,
    "coincidences": 0,
    "distal_starts": 4194304,
-   "distal_minus": 146582,
+   "distal_minus": 146326,
    "two_link_coincidences": 0
   },
   "cut_parent": {
    "starts": 4194304,
    "coincidences": 0,
    "distal_starts": 4194304,
-   "distal_minus": 145947,
+   "distal_minus": 146711,
    "two_link_coincidences": 0
   },
   "cut_ground": {
    "starts": 4194304,
    "coincidences": 0,
    "distal_starts": 4194304,
-   "distal_minus": 146291,
+   "distal_minus": 146669,
    "two_link_coincidences": 0
   }
  }

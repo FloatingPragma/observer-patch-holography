@@ -7,6 +7,11 @@ from scipy.linalg import eigh
 from model.candidate_laws.interval_echo.openwave.row_30_collective.sharp_growth.growth import (
     instrument,
 )
+from model.experiments.interval_echo_consensus.signed_effects.sequential import (
+    GRID_BITS,
+    grid_binomial,
+    grid_counts,
+)
 from .material import commission, hardware, edge
 from .measure import HERE, SHOTS, hamiltonians, physical, compare_records
 
@@ -19,7 +24,10 @@ def run():
     size = 2 ** len(addresses)
     rng = np.random.default_rng(26092611)
     uniform = np.full(size, 1 / size)
-    starts = rng.multinomial(SHOTS, uniform, size=(4, 2))
+    # Integer draws on the 2**-40 grid give the same counts on every platform.
+    starts = np.array(
+        [[grid_counts(rng, SHOTS, uniform) for _ in range(2)] for _ in range(4)]
+    )
     # Every row stores preparation counts in joint, distal banks and their hits.
     banks = np.zeros((size, 4, 4), dtype=np.int64)
     far = np.kron(np.eye(8), np.array([[0.5, -0.5], [-0.5, 0.5]]))
@@ -58,9 +66,9 @@ def run():
                 n_joint, n_far = starts[arm, :, mask]
                 banks[mask, arm] = [
                     n_joint,
-                    rng.binomial(n_joint, joint),
+                    grid_binomial(rng, n_joint, joint),
                     n_far,
-                    rng.binomial(n_far, distal),
+                    grid_binomial(rng, n_far, distal),
                 ]
     m = np.array(masses)
     summaries = {
@@ -78,6 +86,7 @@ def run():
     return dict(
         seed=26092611,
         shots=SHOTS,
+        sampling_grid_bits=GRID_BITS,
         address_order=addresses,
         arms=ARMS,
         even_odd_pointer=instrument(),

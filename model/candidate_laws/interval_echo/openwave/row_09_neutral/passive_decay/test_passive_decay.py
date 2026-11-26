@@ -14,7 +14,7 @@ from .readers import circuit
 class PassiveDecay(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.record = measure.run()
+        cls.record = measure.run(measure.AcquisitionLaw(measure.ACQUISITION))
         cls.cal = calibration.run()
 
     def test_all_registered_receipts(self):
@@ -24,6 +24,12 @@ class PassiveDecay(unittest.TestCase):
         ):
             saved = json.loads((measure.HERE / filename).read_text())
             measure.compare_records(saved, current)
+
+    def test_replay_certifies_each_recomputed_law(self):
+        law = measure.AcquisitionLaw(measure.ACQUISITION)
+        law.archived[5] = law.archived[5] + 1e-9
+        with self.assertRaisesRegex(ArithmeticError, "differs from the acquisition"):
+            measure.run(law)
 
     def test_complete_geometry_native_heads_and_cut(self):
         board, dimers, heads = hardware()

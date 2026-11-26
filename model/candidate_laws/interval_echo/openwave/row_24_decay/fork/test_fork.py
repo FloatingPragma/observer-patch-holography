@@ -6,7 +6,17 @@ from scipy.linalg import eigh
 
 from . import calibration, identity
 from .material import SOURCE, X, Z, formation, generator, mount
-from .measure import HERE, N_CLOCK, PERIOD, SHOTS, Reader, local, run
+from .measure import (
+    ACQUISITION,
+    HERE,
+    N_CLOCK,
+    PERIOD,
+    SHOTS,
+    AcquisitionLaw,
+    Reader,
+    local,
+    run,
+)
 from .source import inlet
 
 
@@ -54,7 +64,7 @@ def test_independent_real_time_fourier_instrument():
 
 
 def test_all_count_banks_and_bounds():
-    result = run()
+    result = run(AcquisitionLaw(ACQUISITION))
     banks = {r["name"]: r for r in result["banks"]}
     for r in result["banks"]:
         old = next(a for a in data()["banks"] if a["name"] == r["name"])

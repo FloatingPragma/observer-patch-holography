@@ -23,6 +23,8 @@ A source-only pulse acting on a freely moving charge spectator could not change 
 
 The finite charged relaxation with two light neutral terminal records supports **Partial** local evidence for OW-24. The mass, electromagnetic flavor selection and one-way lifetime of physical muon decay require an independent charged-particle realization. OpenWave lists the M10 row as untested. [Published M10 decision](https://github.com/openwave-labs/openwave/blob/c531265eb6085725c6268e156804499c810ba5e4/MODELS.md#oph-m10)
 
+The `measure` replay recomputes every detector probability, certifies it within 10⁻¹¹ against the acquisition law in [acquisition.npz](acquisition.npz) and draws the archived counts from that law with seed 241109.
+
 For a single-thread replay from the repository root:
 
 ~~~sh

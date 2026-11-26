@@ -11,6 +11,48 @@ from .material import columns, commission, hardware
 HERE = Path(__file__).resolve().parent
 SHOTS = 2**22
 WAITS = [0, 1, 2, 4, 8, 16, 32, 64]
+ACQUISITION = HERE / "acquisition.npz"
+
+
+class AcquisitionLaw:
+    """Detector laws in draw order, as used at acquisition.
+
+    Linear algebra libraries change the last bits of a propagated probability
+    and the binomial sampler can then round its mode differently. A replay
+    therefore certifies each recomputed law against the archived binary64 law
+    and draws from the archived values with the original seed.
+    """
+
+    def __init__(self, archive=None, tolerance=1e-11):
+        self.archived = None
+        if archive is not None:
+            with np.load(archive, allow_pickle=False) as data:
+                self.archived = np.split(data["laws"], np.cumsum(data["sizes"])[:-1])
+        self.tolerance = tolerance
+        self.laws = []
+
+    def __call__(self, law):
+        law = np.asarray(law, dtype=float)
+        if self.archived is not None:
+            if len(self.laws) == len(self.archived):
+                raise ArithmeticError("replay draws more often than the acquisition")
+            saved = self.archived[len(self.laws)]
+            if saved.size != law.size or np.max(abs(saved - law.ravel())) > self.tolerance:
+                raise ArithmeticError("recomputed detector law differs from the acquisition law")
+            law = saved.reshape(law.shape)
+        self.laws.append(law)
+        return law if law.ndim else float(law)
+
+    def complete(self):
+        if self.archived is not None and len(self.laws) != len(self.archived):
+            raise ArithmeticError("replay leaves archived acquisition laws unused")
+
+    def save(self, archive):
+        np.savez_compressed(
+            archive,
+            laws=np.concatenate([law.ravel() for law in self.laws]),
+            sizes=np.array([law.size for law in self.laws]),
+        )
 
 
 def hamiltonians(n):
@@ -61,7 +103,12 @@ def energies(h, stock):
     )
 
 
-def run():
+def run(law=None):
+    """Acquire every arm. With an archived law, replay its draws."""
+    # Flights of at most 64 units on sixteen levels below 36 units accumulate
+    # eigenvalue roundoff below 1e-11 in any detector probability, far below
+    # one count in 2**22.
+    law = AcquisitionLaw() if law is None else law
     board, dimers, heads = hardware()
     n = len(dimers)
     s, r, split, j = hamiltonians(n)
@@ -93,13 +140,13 @@ def run():
                 psi = v @ (np.exp(-1j * e * wait) * amp0)
                 outcomes = abs(basis.T @ psi) ** 2
                 outcomes /= outcomes.sum()
-                counts = rng.multinomial(SHOTS, outcomes).reshape(4, nr)
+                counts = rng.multinomial(SHOTS, law(outcomes)).reshape(4, nr)
                 far = np.vdot(psi, far_minus @ psi).real
                 samples.append(
                     dict(
                         wait=wait,
                         joint=counts.tolist(),
-                        far_minus=int(rng.binomial(SHOTS, far)),
+                        far_minus=int(rng.binomial(SHOTS, law(far))),
                         interaction=round(
                             float(np.vdot(psi, (h - split) @ psi).real), 11
                         ),
@@ -114,6 +161,7 @@ def run():
                     settings=samples,
                 )
             )
+    law.complete()
     rel = er - er[0]
     lines = []
     for k in range(3):
@@ -178,10 +226,13 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path)
     args = parser.parse_args()
-    out = run()
     if args.output:
+        law = AcquisitionLaw()
+        out = run(law)
         args.output.write_text(json.dumps(out, indent=1) + "\n")
+        law.save(args.output.with_name(ACQUISITION.name))
     else:
+        out = run(AcquisitionLaw(ACQUISITION))
         old = json.loads((HERE / "records.json").read_text())
         compare_records(old, out)
         print(

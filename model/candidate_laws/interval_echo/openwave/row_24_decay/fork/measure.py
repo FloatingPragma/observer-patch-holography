@@ -15,10 +15,15 @@ from ...row_09_neutral.joined_decay.measure import (
     PERIOD,
 )
 from ...row_09_neutral.passive_decay.material import columns, edge
-from ...row_09_neutral.passive_decay.measure import SHOTS, compare_records
+from ...row_09_neutral.passive_decay.measure import (
+    AcquisitionLaw,
+    SHOTS,
+    compare_records,
+)
 from .material import formation, generator, mount, SOURCE, X, Z, IDENTITY
 
 HERE = Path(__file__).resolve().parent
+ACQUISITION = HERE / "acquisition.npz"
 WAITS = (0, 1, 2, 4, 8, 16, 32, 64, 128)
 XFRAME = np.array([[1.0, 1.0], [1.0, -1.0]]) / np.sqrt(2)
 SLEVELS, SFRAME = eigh(SOURCE)
@@ -30,10 +35,11 @@ def local(operator, site):
     return np.kron(terms[0], np.kron(*terms[1:]))
 
 
-def real_counts(rng, p):
+def real_counts(rng, p, law=None):
     p = np.real_if_close(p).real.ravel()
     assert p.min() > -2e-9 and abs(sum(p) - 1) < 1e-8, p
-    return draw(rng, np.maximum(0, p) / sum(np.maximum(0, p)))
+    p = np.maximum(0, p) / sum(np.maximum(0, p))
+    return draw(rng, p if law is None else law(p))
 
 
 class Reader:
@@ -82,7 +88,7 @@ def final_read(readers, rho, effect):
     return weights
 
 
-def bank(name, h, initial, cutoff, rng, address_rng, include_parking=True):
+def bank(name, h, initial, cutoff, rng, address_rng, law, include_parking=True):
     e, frame = eigh(h)
     core = local(np.outer(SFRAME[:, 0], SFRAME[:, 0]), 0)
     address = local(np.diag([1.0, 0.0]), 0)  # vacancy on primary when a=0
@@ -95,8 +101,8 @@ def bank(name, h, initial, cutoff, rng, address_rng, include_parking=True):
         flight.append(
             dict(
                 wait=t,
-                core_x_x=real_counts(rng, abs(energy_basis.T @ psi) ** 2),
-                vacancy_x_x=real_counts(rng, abs(address_basis.T @ psi) ** 2),
+                core_x_x=real_counts(rng, abs(energy_basis.T @ psi) ** 2, law),
+                vacancy_x_x=real_counts(rng, abs(address_basis.T @ psi) ** 2, law),
             )
         )
     readers = [Reader(e, frame, site, cutoff) for site in (1, 2)]
@@ -108,7 +114,7 @@ def bank(name, h, initial, cutoff, rng, address_rng, include_parking=True):
         core_effect = frame.T @ core @ frame
         raw = final_read(pair, rho, core_effect)
         result = dict(
-            arm_loss_core=real_counts(rng, raw),
+            arm_loss_core=real_counts(rng, raw, law),
             false_double_loss_lower_core=null_bound(*pair, core_effect),
         )
         if include_parking:
@@ -121,7 +127,7 @@ def bank(name, h, initial, cutoff, rng, address_rng, include_parking=True):
                     )
                 )
             result["initial_vacancy_arm_loss_final_vacancy"] = real_counts(
-                address_rng, np.array(conditioned)
+                address_rng, np.array(conditioned), law
             )
             result["false_double_loss_primary_vacancy"] = null_bound(
                 *pair, frame.T @ address @ frame
@@ -130,7 +136,7 @@ def bank(name, h, initial, cutoff, rng, address_rng, include_parking=True):
     return dict(name=name, flight=flight, signed=signed)
 
 
-def gap_clock(h, rng):
+def gap_clock(h, rng, law):
     e, v = eigh(h)
     gap = e[1] - e[0]
     rows = []
@@ -139,7 +145,7 @@ def gap_clock(h, rng):
         # Prepare and recombine equal amplitudes of the two local energy modes.
         psi = v @ (np.exp(-1j * e * t) / np.sqrt(2))
         z = (v[:, 0] @ psi) * (v[:, 1] @ psi).conj() * 2
-        counts = [int(rng.binomial(SHOTS, (1 + s) / 2)) for s in (z.real, z.imag)]
+        counts = [int(rng.binomial(SHOTS, law((1 + s) / 2))) for s in (z.real, z.imag)]
         c, s = 2 * np.array(counts) / SHOTS - 1
         angle = np.arctan2(s, c)
         prior = angle + 2 * np.pi * round(
@@ -151,7 +157,12 @@ def gap_clock(h, rng):
     return dict(time_cos_sin=rows, per_native_time=observed)
 
 
-def run():
+def run(law=None):
+    """Acquire every bank and clock. With an archived law, replay its draws."""
+    # Flights of at most 128 units and two 16,384-label clocks on eight
+    # levels of magnitude below 3.2 units accumulate eigenvalue roundoff below
+    # 1e-11 in any detector probability, far below one count in 2**22.
+    law = AcquisitionLaw() if law is None else law
     board, dimers, heads, stock = mount()
     form = formation(board, dimers, heads)
     levels = eigh(form, eigvals_only=True)
@@ -186,7 +197,7 @@ def run():
         for arm, initial in [("pulse", pulse @ ground), ("idle", ground)]:
             if not cuts:
                 stocks[arm] = initial
-            banks.append(bank(label + "_" + arm, h, initial, cutoff, rng, arng))
+            banks.append(bank(label + "_" + arm, h, initial, cutoff, rng, arng, law))
     h = generator(board, dimers, heads)
     for arm, initial in stocks.items():
         banks.append(
@@ -197,11 +208,17 @@ def run():
                 cutoff,
                 rng,
                 arng,
+                law,
             )
         )
         banks.append(
-            bank("parked_" + arm, h + local(X, 0) / 2, initial, cutoff, rng, arng)
+            bank(
+                "parked_" + arm, h + local(X, 0) / 2, initial, cutoff, rng, arng, law
+            )
         )
+    source_clock = gap_clock(form, rng, law)
+    receiver_clocks = [gap_clock(-X / 2, rng, law) for _ in (1, 2)]
+    law.complete()
     return dict(
         shots=SHOTS,
         dimers=dimers,
@@ -213,8 +230,8 @@ def run():
         changed_residual=columns(True),
         isolated_rail_probabilities=(SFRAME**2).T.tolist(),
         density_transition=float(abs(SFRAME[1, 0] * SFRAME[1, 1])),
-        source_clock=gap_clock(form, rng),
-        receiver_clocks=[gap_clock(-X / 2, rng) for _ in (1, 2)],
+        source_clock=source_clock,
+        receiver_clocks=receiver_clocks,
         ground_preparations=energies,
         banks=banks,
     )
@@ -224,10 +241,13 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--save", action="store_true")
     args = parser.parse_args()
-    result = run()
     target = HERE / "records.json"
     if args.save:
+        law = AcquisitionLaw()
+        result = run(law)
         target.write_text(json.dumps(result, indent=1) + "\n")
+        law.save(ACQUISITION)
     else:
+        result = run(AcquisitionLaw(ACQUISITION))
         compare_records(json.loads(target.read_text()), json.loads(json.dumps(result)))
     print("Verified native charged fork and all signed-energy and vacancy banks.")
