@@ -1,0 +1,201 @@
+{
+  "schema": "oph.one_bit_material_bath.v1",
+  "exact_ticks_per_pair": 3,
+  "native_banks": {
+    "survey": [
+      {
+        "stock": "held",
+        "shape": "rest",
+        "inverse_radius": 32,
+        "stress": 0.575757575758,
+        "work": 4.60068e-07,
+        "proper_area": 0.012268961429,
+        "dwell_increment": 1.3068579e-05
+      },
+      {
+        "stock": "held",
+        "shape": "xy",
+        "inverse_radius": 32,
+        "stress": 5.181818181818,
+        "work": 4.145452e-06,
+        "proper_area": 0.012245781329,
+        "dwell_increment": 0.00011775475
+      }
+    ],
+    "visible_records": [
+      "000",
+      "001",
+      "010",
+      "011",
+      "100",
+      "101",
+      "110",
+      "111"
+    ],
+    "joint_record_probabilities": [
+      [
+        0.016261275413,
+        0.0,
+        0.0,
+        0.02012959994,
+        0.0,
+        0.022787002299,
+        0.0,
+        0.023700213971
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.046001737045,
+        0.0,
+        0.0,
+        0.083813114587,
+        0.0,
+        0.059662709533,
+        0.0,
+        0.0664454021
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.039582500836,
+        0.0,
+        0.0,
+        0.041881082183,
+        0.0,
+        0.066490039232,
+        0.0,
+        0.065833507724
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.092619142342,
+        0.0,
+        0.0,
+        0.092266588983,
+        0.0,
+        0.132916875013,
+        0.0,
+        0.129609208799
+      ]
+    ],
+    "input_memories_partial_transpose_min_eigenvalue": -0.108815908426,
+    "nonzero_record_count": 16,
+    "worst_conditional_trace_distance_less_than": 4e-13,
+    "summed_reference_marginal_error_less_than": 4e-13,
+    "selected_cut_entropy_gains": [
+      2.890645e-06,
+      2.6042866e-05
+    ]
+  },
+  "skipped_address": [
+    {
+      "addresses": [
+        0,
+        1,
+        2
+      ],
+      "high_low_word_probabilities": [
+        [
+          0.625,
+          0.125,
+          0.125,
+          0.125
+        ],
+        [
+          0.625,
+          0.125,
+          0.125,
+          0.125
+        ]
+      ],
+      "distance_between_preparations": 0.0
+    },
+    {
+      "addresses": [
+        0,
+        1,
+        0
+      ],
+      "high_low_word_probabilities": [
+        [
+          1.0,
+          0,
+          0,
+          0
+        ],
+        [
+          0.25,
+          0.25,
+          0.25,
+          0.25
+        ]
+      ],
+      "distance_between_preparations": 0.75
+    }
+  ],
+  "stochastic_clock": [
+    {
+      "levels": 1,
+      "pairs": 7,
+      "inverse_smallest_radius": 32,
+      "with_replacement_ticks_per_pair": 87,
+      "failure_bound": 1.0052631361243688e-14,
+      "entropy_error_per_smallest_radius_fourth": 4.525756279230057e-07,
+      "modular_error_per_smallest_radius_fourth": 1.5343499586080131e-07
+    },
+    {
+      "levels": 3,
+      "pairs": 21,
+      "inverse_smallest_radius": 512,
+      "with_replacement_ticks_per_pair": 149,
+      "failure_bound": 3.645381205523382e-25,
+      "entropy_error_per_smallest_radius_fourth": 2.163977924560952e-12,
+      "modular_error_per_smallest_radius_fourth": 1.0939281661302977e-12
+    },
+    {
+      "levels": 6,
+      "pairs": 42,
+      "inverse_smallest_radius": 32768,
+      "with_replacement_ticks_per_pair": 236,
+      "failure_bound": 3.49006413622216e-40,
+      "entropy_error_per_smallest_radius_fourth": 6.03878736778018e-20,
+      "modular_error_per_smallest_radius_fourth": 3.514221682436519e-20
+    }
+  ]
+}
