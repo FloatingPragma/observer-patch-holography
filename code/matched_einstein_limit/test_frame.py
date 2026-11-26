@@ -10,6 +10,7 @@ import subprocess
 import sys
 
 import pytest
+from sympy import Matrix, Rational, eye, simplify, sqrt, symbols
 
 from . import frame, packet
 
@@ -48,6 +49,32 @@ def test_sharp_norm_on_all_extreme_charge_vectors():
         result = frame.decode(tuple(map(F, signs)))
         maximum = max(maximum, *map(abs, result))
     assert maximum == F(17, 8)
+
+
+def test_optimal_ten_probe_design_at_bounded_boost_and_equal_error():
+    axial = []
+    for axis in range(1, 4):
+        for sign in (1, -1):
+            observer = [3, 0, 0, 0]
+            observer[axis] = sign * sqrt(8)
+            axial.append(observer)
+    observers = [frame.FRAME[0], *axial, *frame.FRAME[7:]]
+    assert all(-u[0]**2 + sum(x*x for x in u[1:]) == -1 for u in observers)
+    forward = Matrix(frame.design(observers))
+    backward = forward.inv()
+    assert (backward * forward - eye(10)).applyfunc(simplify).is_zero_matrix
+    time_space = sqrt(2)/24
+    diagonal = Rational(5, 4)
+    mixed = (1 + sqrt(2))/8
+    row_norms = [simplify(sum(abs(x) for x in row)) for row in backward.tolist()]
+    assert row_norms == [1, time_space, time_space, time_space,
+                         diagonal, mixed, mixed, diagonal, mixed, diagonal]
+
+    # Either sign of this tensor can produce zero readings with unit error.
+    gamma = symbols('gamma', real=True)
+    charge = simplify(gamma**2 - diagonal * (gamma**2 - 1))
+    assert charge.diff(gamma) == -gamma/2
+    assert (charge.subs(gamma, 1), charge.subs(gamma, 3)) == (1, -1)
 
 
 @pytest.mark.parametrize('deleted', range(10))

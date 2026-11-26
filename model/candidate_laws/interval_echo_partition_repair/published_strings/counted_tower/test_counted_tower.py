@@ -4,7 +4,11 @@ import math
 
 import numpy as np
 import pytest
+from sympy import Matrix
 
+from matched_einstein_limit.frame import FRAME, PAIRS, design
+
+from .. import experiment as survey
 from ..memories import ENDPOINT_GAP, SENSITIVITY, THETA, Pair
 from ..native_pair import NativePair, endpoint
 from .experiment import (ALPHA, BANKS_PER_LEVEL, COEFFICIENT, FRAMES, GAIN, HERE, SHAPES,
@@ -53,6 +57,22 @@ def test_concentration_budget_and_signed_estimator_include_physical_probabilitie
         with pytest.raises(ValueError,match="incomplete"):
             read_count(2,0,cfg)
     assert math.isclose(ALPHA,0.01) and BANKS_PER_LEVEL==35 and len(FRAMES)==10
+
+
+def test_counted_directions_determine_only_the_parity_restricted_tensor():
+    # The emitter takes the first signed observer on each spatial cut.
+    survey_rays = survey._frames()
+    sampled_rays = [tuple(F(x).limit_denominator(3) for x in survey_rays[shape])
+                    for shape in SHAPES]
+    acquired = Matrix(design(sampled_rays))
+    parity_even = [k for k, (i, j) in enumerate(PAIRS) if (i, j) == (0, 0) or i > 0]
+    assert acquired.shape == (7, 10)
+    assert acquired[:, parity_even].rank() == 7
+
+    invisible = Matrix([0, 1, 0, 0, F(-5, 2), F(-1, 4), F(-1, 4), 0, 0, 0])
+    assert acquired * invisible == Matrix.zeros(7, 1)
+    signed_rays = dict(zip(FRAMES, FRAME, strict=True))
+    assert Matrix(design([signed_rays["-x"]])).dot(invisible) == F(-80, 9)
 
 
 def test_replayed_all_frame_and_scale_estimates_distinguish_both_controls():

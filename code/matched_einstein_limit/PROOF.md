@@ -491,6 +491,38 @@ both inverse compositions, all timelike norms, (3) and the sharpness witness.
 This is a coordinate maximum-norm bound in the stated orthonormal frame;
 it is not a Lorentz-invariant positive tensor norm.
 
+### Optimal probes at boost factor at most three
+
+Suppose every future unit observer with time component $1\le\gamma\le3$
+can measure a contraction with the same absolute error bound $\varepsilon$.
+Use the rest and three mixed probes of (2), and take the six axial probes
+to be $3e_0\pm\sqrt{8}\,e_i$. For their ten readings the inverse is
+
+$$
+\begin{aligned}
+R_{00} &= r_0,\\
+R_{0i} &= (r_{i+}-r_{i-})/(24\sqrt{2}),\\
+R_{ii} &= (r_{i+}+r_{i-}-18r_0)/16,\\
+R_{ij} &= r_{ij}/8
+ -(1+\sqrt2)(r_{i+}+r_{j+})/32
+ +(\sqrt2-1)(r_{i-}+r_{j-})/32 .
+\end{aligned}
+$$
+
+The absolute row sums are $1,\sqrt2/24,5/4,(1+\sqrt2)/8$ for the four
+component types. Thus the maximum component error is $5\varepsilon/4$.
+For any number of allowed probes, take $B=\mathrm{diag}(1,-5/4,-5/4,-5/4)$.
+The unit timelike condition gives $B(u,u)=(5-\gamma^2)/4\in[-1,1]$.
+The same all-zero data are compatible with both $\varepsilon B$ and
+$-\varepsilon B$. On their $11$ components any estimator has worst-case
+error at least $5\varepsilon/4$. The ten probes attain this lower bound.
+
+At equal directional precision this design reduces (3) by a factor of
+$10/17$ and gives a coefficient $75/(16\pi)$ in the small-ball bound
+with denominator $\eta\ell^4$. Applying it to source data requires separate
+measurements and error bounds for the higher axial boosts. The registered
+survey uses (2). [Exact inverse and worst-case tensor](test_frame.py)
+
 ### Velocities measured with finite precision
 
 Any ten measured timelike velocities with a controlled inverse serve the same purpose as (2). To see this, put `u=(1,v)/sqrt(1-|v|²)` and `q(v)=(1-|v|²)R(u,u)`. Then
