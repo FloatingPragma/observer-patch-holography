@@ -3,7 +3,7 @@
  "candidate": "interval_echo_published_records",
  "title": "Interval Echo with published records",
  "role": "experimental",
- "summary": "Published traveller and home records prepare a downstream parallel-sheet experiment. Its rods, material stress and endpoint entropy respond to the same archived coincidence.",
+ "summary": "Published traveller and home records prepare parallel strings or a finite spherical dust body. On each material the same stock supplies proper-ball geometry, regional entropy and action stress.",
  "parameters": {
   "kappa": {
    "value": 8.0,
@@ -97,14 +97,29 @@
    "quantity": "two-endpoint vacuum spectrum with a π/6 rotation of the even subspace"
   },
   "pulse_reading": {
-   "value": "weighted sheet work",
+   "value": "weighted material work",
    "provenance": "designed",
-   "quantity": "diamond-weighted work drives the endpoint rotation at its vacuum gap and susceptibility"
+   "quantity": "diamond-weighted sheet or dust work drives the endpoint rotation at its vacuum gap and susceptibility"
   },
   "material_equilibration": {
    "value": "three independent fair-bit exchanges per pair",
    "provenance": "designed",
    "quantity": "refresh each private ticket bit once before the material work reading"
+  },
+  "dust_flux": {
+   "value": "G=1/4, enclosed mass divided by area radius squared",
+   "provenance": "designed",
+   "quantity": "spherical pull per ordinary or coincidence mass unit"
+  },
+  "dust_clocks": {
+   "value": "local Lorentz clocks and signals relative to the incoming zero-energy dust flow",
+   "provenance": "designed",
+   "quantity": "clock and null propagation rule inside and outside the unit-radius stock"
+  },
+  "dust_pair_clocks": {
+   "value": "permanent separation bands and two local lag tables with response 1/(1-z²)",
+   "provenance": "designed",
+   "quantity": "stock-dependent change in the joint regional sign distribution at two locally recorded clock times"
   }
  },
  "checks": {
@@ -146,12 +161,14 @@
   },
   "einstein-together": {
    "requirement": "The stress that observers infer from modular flow is the stress carried by the excitations that propagate and interact under the law.",
-   "status": "partial",
+   "status": "fulfilled",
    "evidence": [
-    "../interval_echo_partition_repair/published_strings/README.md",
-    "../interval_echo_partition_repair/published_strings/GEOMETRY.md"
+    "spherical_dust/PROOF.md",
+    "spherical_dust/clock_pairs/REFINEMENT.md",
+    "spherical_dust/clock_pairs/regions.json",
+    "spherical_dust/null_beam.json"
    ],
-   "note": "The same archived density supplies two independently conserving sheet families, a rod survey and boundary memories. Their agreement relies on the added sheet, transport and material pulse laws. The active traveller or home excitation itself has no derived common proper-ball stress in this comparison."
+   "note": "On the homogeneous pressureless core, recorded clock pairs, proper balls and conserved material mass supply all three regional estimates at one ordinary coupling. The radial force, clock rules and material lag response are designed."
   },
   "matter-together": {
    "requirement": "Gauge currents act on those excitations through the law's operations; detector, generator, clock and currents refer to the same object.",
@@ -412,9 +429,11 @@
    "status": "partial",
    "evidence": [
     "../interval_echo_partition_repair/published_strings/README.md",
-    "../interval_echo_partition_repair/published_strings/memories.py"
+    "spherical_dust/PROOF.md",
+    "spherical_dust/clock_pairs/REFINEMENT.md",
+    "spherical_dust/endpoint_counts.json"
    ],
-   "note": "The finite endpoint density gives separate entropy, vacuum modular energy and relative entropy on the sheet menu. A central overlap decomposition for freely evolving native fields is open."
+   "note": "The sheet and spherical dust memories give the stress coefficient from regional entropy on their enrolled states. The pulse couples to independently weighted action work."
   },
   {
    "id": "PR-24",
@@ -424,9 +443,10 @@
    "role": "law",
    "status": "partial",
    "evidence": [
-    "../interval_echo_partition_repair/published_strings/GEOMETRY.md"
+    "../interval_echo_partition_repair/published_strings/GEOMETRY.md",
+    "spherical_dust/PROOF.md"
    ],
-   "note": "The two parallel sheet families have independently conserved label measures and Nambu–Goto action stress on the declared product geometry. Identifying the stress of native propagating loads and fields needs an additional measurement."
+   "note": "Worldsheet tension and pressureless worldline mass give separate conserved action stresses in their respective material modes. The native propagating-field identification is open."
   },
   {
    "id": "PR-26",
@@ -438,9 +458,11 @@
    "evidence": [
     "../interval_echo_partition_repair/published_strings/README.md",
     "../interval_echo_partition_repair/published_strings/results.json",
-    "../interval_echo_partition_repair/published_strings/nested_stress/selection/README.md"
+    "../interval_echo_partition_repair/published_strings/nested_stress/selection/README.md",
+    "spherical_dust/PROOF.md",
+    "spherical_dust/clock_pairs/regions.json"
    ],
-   "note": "Three local ticket exchanges per memory select the matched source on every recorded history and from arbitrary incoming memories. The rod transport and sheet work law supply its geometry and stress at completed appointments."
+   "note": "Two-time sign pairs on conserved spherical dust give fifth-order entropy–area balance throughout the regular core on the specified regional instrument. The single line of memories gives sixth-order balance only on its enrolled radii."
   },
   {
    "id": "PR-27",
@@ -451,9 +473,10 @@
    "status": "partial",
    "evidence": [
     "../interval_echo_partition_repair/published_strings/GEOMETRY.md",
-    "../interval_echo_partition_repair/published_strings/results.json"
+    "spherical_dust/survey.py",
+    "spherical_dust/results.json"
    ],
-   "note": "Direct fixed-volume areas and the ten independent timelike contractions give the small-ball curvature expansion on the product geometry. The active carrier does not select that smooth chart."
+   "note": "Six-axis finite shell surveys and five-stamp dust ranging independently recover fixed-volume areas through moving frames of the two declared geometries."
   },
   {
    "id": "PR-28",
@@ -463,10 +486,11 @@
    "role": "law",
    "status": "partial",
    "evidence": [
-    "../interval_echo_partition_repair/published_strings/README.md",
-    "../interval_echo_partition_repair/published_strings/ARCHIVE.md"
+    "../interval_echo_partition_repair/published_strings/counted_tower/README.md",
+    "spherical_dust/PROOF.md",
+    "spherical_dust/EXTERIOR_READER.md"
    ],
-   "note": "A positive ordinary calibration transfers to held sheet coincidences on one finite menu and its specified refinement. A source-derived common geometry and coupling for native matter remain open."
+   "note": "An ordinary dust release sets the coupling across the proper-ball refinements and predicts the held exterior clock and release. Extending the source to freely formed native mass requires an independent identification."
   },
   {
    "id": "PR-29",
@@ -1950,11 +1974,11 @@
   }
  ],
  "measurement": {
-  "label": "Ordinary transport curvature per unit parallel-sheet stress in the added sector",
-  "value": 6.283185307179586,
+  "label": "Received per emitted frequency between area radii 2 and 4 on the held spherical source",
+  "value": 0.9604420750840975,
   "standard_error": null,
-  "source": "model/candidate_laws/interval_echo_partition_repair/published_strings/geometry.json",
-  "pointer": "/measured_ordinary_gain",
+  "source": "model/candidate_laws/interval_echo_published_records/spherical_dust/exterior_reader.json",
+  "pointer": "/readouts/held/redshift_ratio",
   "error_pointer": null
  },
  "requirements": [
@@ -2238,12 +2262,22 @@
       "PR-72",
       "PR-74"
      ],
-     "status": "partial",
-     "note": "The parallel-sheet sector admits ten timelike frames and directly surveyed equal-volume geodesic balls. Its product geometry and rods are supplied. The preserved native clocks have yet to select those charts or volumes.",
+     "status": "demonstrated",
+     "note": "The spherical material's local dust clocks and tagged beacon emissions locate events in its regular homogeneous interior. Light arrivals and a measured scale history determine the causal cones and proper clock scale. Dust time increases along every future causal path. Six optical phase slopes per frame recover the ten timelike directions. The same clocks and proper rulers identify equal-volume geodesic balls. Translated and tilted clock-pair apertures use that geometry on the same dust stock.",
      "evidence": [
       "model/candidate_laws/interval_echo_partition_repair/published_strings/GEOMETRY.md",
-      "model/candidate_laws/interval_echo_partition_repair/published_strings/geometry.json"
-     ]
+      "model/candidate_laws/interval_echo_partition_repair/published_strings/geometry.json",
+      "model/candidate_laws/interval_echo_published_records/spherical_dust/PROOF.md",
+      "model/candidate_laws/interval_echo_published_records/spherical_dust/results.json",
+      "model/candidate_laws/interval_echo_partition_repair/published_strings/ARCHIVE.md",
+      "model/candidate_laws/interval_echo_published_records/spherical_dust/survey.py",
+      "model/candidate_laws/interval_echo_published_records/spherical_dust/clock_pairs/REFINEMENT.md",
+      "model/candidate_laws/interval_echo_published_records/spherical_dust/clock_pairs/regions.json"
+     ],
+     "demonstrated_measurement": {
+      "label": "Five-stamp event ranging and ten moving frames in the spherical material",
+      "source": "model/candidate_laws/interval_echo_published_records/spherical_dust/survey.py"
+     }
     },
     {
      "id": "G2",
@@ -2260,13 +2294,23 @@
       "PR-24",
       "PR-53"
      ],
-     "status": "partial",
-     "note": "A vacuum endpoint pair responds to weighted work from the same two sheet families whose independent action gives the bulk stress. The normalized finite bulk error vanishes under the stated shrinking-ball conditions. The endpoint coupling and sheet action are new physical inputs.",
+     "status": "demonstrated",
+     "note": "On the homogeneous dust stocks the observers weigh ordinary and coincidence mass by independent shell counts. Their worldline actions give T(u,u). Each clock pair supplies a fair local sign at each end. Its joint entropy changes with the two local appointments. Keeping one clock sample per selected end and completing missing slots from the same conditional blank gives a common regional register even when membership changes. Its entropy contrast is 2π Cℓ T(u,u)+O(ℓ⁵), uniformly on compact regular interiors and bounded boosts. The cutoff retains earlier clock tapes. The separate 21-pair array misses displaced balls.",
      "evidence": [
       "model/candidate_laws/interval_echo_partition_repair/published_strings/README.md",
       "model/candidate_laws/interval_echo_partition_repair/published_strings/memories.py",
       "model/candidate_laws/interval_echo_partition_repair/published_strings/results.json",
-      "model/candidate_laws/interval_echo_partition_repair/published_strings/nested_stress/README.md"
+      "model/candidate_laws/interval_echo_partition_repair/published_strings/nested_stress/README.md",
+      "model/candidate_laws/interval_echo_published_records/spherical_dust/PROOF.md",
+      "model/candidate_laws/interval_echo_published_records/spherical_dust/results.json",
+      "model/candidate_laws/interval_echo_partition_repair/published_strings/counted_tower/README.md",
+      "Lean/ObserverPatchHolography/EinsteinBranch/SphericalDust.lean",
+      "model/candidate_laws/interval_echo_published_records/spherical_dust/endpoint_counts.json",
+      "model/candidate_laws/interval_echo_published_records/spherical_dust/clock_pairs/REFINEMENT.md",
+      "model/candidate_laws/interval_echo_published_records/spherical_dust/clock_pairs/registered_reference.py",
+      "model/candidate_laws/interval_echo_published_records/spherical_dust/clock_pairs/results.json",
+      "model/candidate_laws/interval_echo_published_records/spherical_dust/clock_pairs/regions.json",
+      "model/candidate_laws/interval_echo_published_records/spherical_dust/test_scale_scope.py"
      ],
      "additional_comparisons": [
       {
@@ -2275,7 +2319,11 @@
        "finding": "At fixed full seam energy and load distributions the whole-pair entropy changes. The three radius kernels annihilate both inner stress moments and give a positive fourth-order error bound along the enrolled sequence.",
        "source": "model/candidate_laws/interval_echo_partition_repair/published_strings/nested_stress/README.md"
       }
-     ]
+     ],
+     "demonstrated_measurement": {
+      "label": "Regional clock-pair entropy equals the independently weighed dust stress to fifth-order accuracy",
+      "source": "model/candidate_laws/interval_echo_published_records/spherical_dust/clock_pairs/REFINEMENT.md"
+     }
     },
     {
      "id": "G3",
@@ -2289,12 +2337,19 @@
       "PR-24",
       "PR-28"
      ],
-     "status": "partial",
-     "note": "Variation of two parallel-sheet actions gives separate symmetric, covariantly conserved stresses in the product geometry. The result is restricted to its homogeneous parallel families; the stress of native freely propagating excitations remains unidentified.",
+     "status": "demonstrated",
+     "note": "Both pressureless stocks have a conserved mass measure on each comoving shell. The material worldlines are geodesic in the clock metric, so each action stress ρ UₐUᵦ is separately covariantly conserved throughout the regular dust region. The matched surface carries zero surface stress and the exterior is vacuum. The blank preparation fixes Λ=0. For the homogeneous sheet material, the worldsheet actions independently conserve the two string stresses.",
      "evidence": [
       "model/candidate_laws/interval_echo_partition_repair/published_strings/GEOMETRY.md",
-      "model/candidate_laws/interval_echo_partition_repair/published_strings/ARCHIVE.md"
-     ]
+      "model/candidate_laws/interval_echo_partition_repair/published_strings/ARCHIVE.md",
+      "Lean/ObserverPatchHolography/EinsteinBranch/SphericalDust.lean",
+      "model/candidate_laws/interval_echo_published_records/spherical_dust/body.py",
+      "model/candidate_laws/interval_echo_published_records/spherical_dust/PROOF.md"
+     ],
+     "demonstrated_measurement": {
+      "label": "Independent conservation of both spherical dust action stresses",
+      "source": "model/candidate_laws/interval_echo_published_records/spherical_dust/PROOF.md"
+     }
     },
     {
      "id": "G4",
@@ -2311,18 +2366,27 @@
       "PR-27",
       "PR-28"
      ],
-     "status": "partial",
-     "note": "The finite entropy deficit and separately integrated boundary area balance to fourth-order accuracy on a common volume-matched sheet survey. Half-strength transport and a coincidence-blind memory pulse fail separate held comparisons. The physical response of unsupplemented native matter remains open.",
+     "status": "demonstrated",
+     "note": "After preparation the local lag tables and the common blank fix the material sign law. For one sample per selected endpoint the signed change in its regional entropy plus η times the independently measured area is O(ℓ⁵) at fixed proper volume. The bound is uniform over the admitted dust stocks, bounded boosts and centers in compact regular interiors. Stock differences with amplitude tending to zero more slowly than ℓ therefore recover the first variation of the limiting readouts. For a displaced moving ball at ℓ=1/96 the finite survey estimates a normalized residual of +0.00494. Freezing the pair clocks gives −1.19784. These numerical estimates use sampled spatial addresses. The 21-pair array gives a fourth-order discrepancy on omitted balls.",
      "evidence": [
       "model/candidate_laws/interval_echo_partition_repair/published_strings/README.md",
       "model/candidate_laws/interval_echo_partition_repair/published_strings/results.json",
       "model/candidate_laws/interval_echo_partition_repair/published_strings/nested_stress/selection/README.md",
       "model/candidate_laws/interval_echo_partition_repair/published_strings/nested_stress/selection/results.json",
-      "Lean/ObserverPatchHolography/EinsteinBranch/TicketBath.lean"
+      "Lean/ObserverPatchHolography/EinsteinBranch/TicketBath.lean",
+      "model/candidate_laws/interval_echo_published_records/spherical_dust/PROOF.md",
+      "model/candidate_laws/interval_echo_published_records/spherical_dust/results.json",
+      "model/candidate_laws/interval_echo_partition_repair/published_strings/counted_tower/results.json",
+      "model/candidate_laws/interval_echo_published_records/spherical_dust/endpoint_counts.json",
+      "model/candidate_laws/interval_echo_published_records/spherical_dust/clock_pairs/REFINEMENT.md",
+      "model/candidate_laws/interval_echo_published_records/spherical_dust/clock_pairs/regions.py",
+      "model/candidate_laws/interval_echo_published_records/spherical_dust/clock_pairs/regions.json",
+      "model/candidate_laws/interval_echo_published_records/spherical_dust/clock_pairs/registered_reference.py",
+      "model/candidate_laws/interval_echo_published_records/spherical_dust/test_scale_scope.py"
      ],
      "demonstrated_measurement": {
-      "label": "Finite deficits on ten prescribed sheet observers",
-      "source": "model/candidate_laws/interval_echo_partition_repair/published_strings/results.json"
+      "label": "Fixed-volume clock-pair stationarity across translated and moving dust balls",
+      "source": "model/candidate_laws/interval_echo_published_records/spherical_dust/clock_pairs/REFINEMENT.md"
      },
      "additional_comparisons": [
       {
@@ -2347,15 +2411,25 @@
       "PR-27",
       "PR-28"
      ],
-     "status": "partial",
-     "note": "All three normalized deficits tend to zero on the ten timelike directions for the declared homogeneous sheet family. The action, rod geometry, material endpoints and refinement are supplied. A corresponding continuum reconstruction for the native carrier is open.",
+     "status": "demonstrated",
+     "note": "On a common cofinal refinement all earlier pair programs persist. Ten-frame optical surveys of equal-proper-volume balls give the fixed-volume area difference −Cℓ G(u,u)+O(ℓ⁶). On the same geometry, stocks and apertures the clock-pair bulk and stationarity errors are O(ℓ⁵), including the omitted short-separation tail. The three errors divided by ℓ⁴ vanish uniformly on compact regular interiors and bounded boosts. The measured timelike frame inverse gives O(ℓ) tensor error for this source. The worldline stress and the curvature of the clock metric agree with the separate regular-shell tensor proof. The finite angular and spatial surveys illustrate the analytic bounds.",
      "evidence": [
       "model/candidate_laws/interval_echo_partition_repair/published_strings/README.md",
       "model/candidate_laws/interval_echo_partition_repair/published_strings/GEOMETRY.md",
       "model/candidate_laws/interval_echo_partition_repair/published_strings/results.json",
       "model/candidate_laws/interval_echo_partition_repair/published_strings/nested_stress/selection/README.md",
       "model/candidate_laws/interval_echo_partition_repair/published_strings/nested_stress/selection/results.json",
-      "Lean/ObserverPatchHolography/EinsteinBranch/TicketBath.lean"
+      "Lean/ObserverPatchHolography/EinsteinBranch/TicketBath.lean",
+      "model/candidate_laws/interval_echo_published_records/spherical_dust/results.json",
+      "model/candidate_laws/interval_echo_published_records/spherical_dust/endpoint_counts.json",
+      "Lean/ObserverPatchHolography/EinsteinBranch/SphericalDust.lean",
+      "code/matched_einstein_limit/PROOF.md",
+      "model/candidate_laws/interval_echo_published_records/spherical_dust/PROOF.md",
+      "model/candidate_laws/interval_echo_published_records/spherical_dust/clock_pairs/REFINEMENT.md",
+      "model/candidate_laws/interval_echo_published_records/spherical_dust/clock_pairs/regions.json",
+      "model/candidate_laws/interval_echo_published_records/spherical_dust/clock_pairs/README.md",
+      "model/candidate_laws/interval_echo_published_records/spherical_dust/clock_pairs/registered_reference.py",
+      "model/candidate_laws/interval_echo_published_records/spherical_dust/test_scale_scope.py"
      ],
      "additional_comparisons": [
       {
@@ -2364,7 +2438,11 @@
        "finding": "Every displacement history yields the same sourced material after a complete three-address sweep. The ten-frame, equal-volume entropy, area and action residuals retain their sixth-order bound. Missing one address leaves output trace distance 3/4 for the registered control.",
        "source": "model/candidate_laws/interval_echo_partition_repair/published_strings/nested_stress/selection/README.md"
       }
-     ]
+     ],
+     "demonstrated_measurement": {
+      "label": "Uniform source, proper-area and stationarity bounds on the same shrinking dust balls",
+      "source": "model/candidate_laws/interval_echo_published_records/spherical_dust/clock_pairs/REFINEMENT.md"
+     }
     },
     {
      "id": "G6",
@@ -2380,16 +2458,24 @@
       "PR-15",
       "PR-28"
      ],
-     "status": "partial",
-     "note": "Ordinary sheet tension calibrates a positive coupling of 2π in rod units. With both native single-post frequencies fixed, the held archived coincidence contributes 8/33 units of sheet density at the same gain. Universal coupling to other sources and astrophysical collar stress needs separate evidence.",
+     "status": "demonstrated",
+     "note": "An ordinary exterior release sets G→1/4 in the specified units and hence η→1. The declared shell dynamics couple both pressureless stocks to one constant throughout the regular dust. At this gain the selected clock-pair material predicts signed proper-area and stress changes for 8/33 units of added coincidence mass on moving balls. Independently, clock spacing and free release give held GM of 0.14393939394 and 0.14393939392. Blinding light alone gives 0.08333333333 while release retains the held value. Calibrated interior null screens also resolve extra focusing. The coupling statement concerns the declared dust stocks and probes.",
      "evidence": [
       "model/candidate_laws/interval_echo_partition_repair/published_strings/ARCHIVE.md",
       "model/candidate_laws/interval_echo_partition_repair/published_strings/GEOMETRY.md",
-      "model/candidate_laws/interval_echo_partition_repair/published_strings/results.json"
+      "model/candidate_laws/interval_echo_partition_repair/published_strings/results.json",
+      "model/candidate_laws/interval_echo_published_records/spherical_dust/PROOF.md",
+      "model/candidate_laws/interval_echo_published_records/spherical_dust/endpoint_counts.json",
+      "model/candidate_laws/interval_echo_published_records/spherical_dust/exterior_reader.json",
+      "model/candidate_laws/interval_echo_published_records/spherical_dust/null_beam.json",
+      "Lean/ObserverPatchHolography/EinsteinBranch/SphericalDust.lean",
+      "model/candidate_laws/interval_echo_published_records/spherical_dust/EXTERIOR_READER.md",
+      "model/candidate_laws/interval_echo_published_records/spherical_dust/clock_pairs/REFINEMENT.md",
+      "model/candidate_laws/interval_echo_published_records/spherical_dust/clock_pairs/regions.json"
      ],
      "demonstrated_measurement": {
-      "label": "Ordinary stress predicts held sheet response",
-      "source": "model/candidate_laws/interval_echo_partition_repair/published_strings/GEOMETRY.md"
+      "label": "An ordinary calibration predicts held interior and exterior readings",
+      "source": "model/candidate_laws/interval_echo_published_records/spherical_dust/EXTERIOR_READER.md"
      }
     }
    ]
@@ -2946,12 +3032,19 @@
       "https://github.com/openwave-labs/openwave/blob/f8fd02b2e0d96cfa0d868259daec2c9822375d34/MODELS.md#L121",
       "https://github.com/openwave-labs/openwave/blob/f8fd02b2e0d96cfa0d868259daec2c9822375d34/MODELS.md#L454"
      ],
-     "status": "open",
-     "note": "The new source is a jointly published clock record carried into a parallel-sheet construction. It supplies no stable massive, electrically neutral particle identification. Original native excitation experiments retain their previously measured properties.",
+     "status": "partial",
+     "note": "The one-way publication channel preserves the native measurement of a stable free vacancy–excess pair with positive rest cost, recoil and material-charge neutrality. Electrical neutrality of this excitation requires an independently calibrated electromagnetic measurement. The spherical collar adds pressureless mass and changes light and release records at fixed individual post frequencies. Its gravitational response alone assigns neither an electromagnetic charge nor a galactic abundance.",
      "evidence": [
       "model/candidate_laws/interval_echo_partition_repair/published_strings/ARCHIVE.md",
-      "model/candidate_laws/interval_echo_partition_repair/published_strings/GEOMETRY.md"
-     ]
+      "model/candidate_laws/interval_echo_partition_repair/published_strings/GEOMETRY.md",
+      "model/candidate_laws/interval_echo_published_records/spherical_dust/PROOF.md",
+      "model/candidate_laws/interval_echo_published_records/spherical_dust/exterior_reader.json",
+      "model/experiments/material_inertia/pair_spectrum/neutral_guide/README.md"
+     ],
+     "demonstrated_measurement": {
+      "label": "Preserved native pair with stable binding, rest energy and measured material neutrality",
+      "source": "model/experiments/material_inertia/pair_spectrum/neutral_guide/README.md"
+     }
     },
     {
      "id": "OW-20",
@@ -3047,13 +3140,22 @@
      "sources": [
       "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L130"
      ],
-     "status": "open",
-     "note": "The controlled rod geometry responds to homogeneous parallel sheets at the positive ordinary calibration and detects a held coincidence contribution. Point-mass attraction, an inverse-square radial force and its absolute coupling in native matter are open. The selected homogeneous sheet material has zero inward acceleration for a body released from rest.",
+     "status": "partial",
+     "note": "Freely released clocks of two masses give the inward acceleration −GM/R² in the compact-source exterior. The spherical mechanism supplies the enclosed-mass pull and G=1/4 in model units. The ordinary-only calibration predicts the observed held acceleration from the same individual post rates and 8/33 additional coincidence mass. The release measures the static gravitoelectric response in the spherical test-probe limit. The full row requires an independently derived strength for credit on G.",
      "evidence": [
       "model/candidate_laws/interval_echo_partition_repair/published_strings/GEOMETRY.md",
       "model/candidate_laws/interval_echo_partition_repair/published_strings/geometry.json",
-      "model/candidate_laws/interval_echo_partition_repair/published_strings/nested_stress/selection/README.md"
-     ]
+      "model/candidate_laws/interval_echo_partition_repair/published_strings/nested_stress/selection/README.md",
+      "model/candidate_laws/interval_echo_published_records/spherical_dust/PROOF.md",
+      "model/candidate_laws/interval_echo_published_records/spherical_dust/results.json",
+      "model/candidate_laws/interval_echo_published_records/spherical_dust/exterior_reader.json",
+      "Lean/ObserverPatchHolography/EinsteinBranch/SphericalDust.lean",
+      "model/candidate_laws/interval_echo_published_records/spherical_dust/EXTERIOR_READER.md"
+     ],
+     "demonstrated_measurement": {
+      "label": "Exterior release of two probe masses with an ordinary-only calibration",
+      "source": "model/candidate_laws/interval_echo_published_records/spherical_dust/EXTERIOR_READER.md"
+     }
     },
     {
      "id": "OW-27",
@@ -3065,13 +3167,22 @@
      "sources": [
       "https://github.com/openwave-labs/openwave/blob/d4fc3e4046c472f4ad38468df8dddfa1f97bac97/MODELS.md#L131"
      ],
-     "status": "open",
-     "note": "Ten observers can compute proper-volume balls and curvature on the specified product geometry. Material-clock redshift, light deflection or propagation delay from a freely formed native gravitating source still need to be measured. Its static clocks have unit rate ratio even when the extra stock curves the spatial record.",
+     "status": "demonstrated",
+     "note": "In the spherical material, two clocks at area radii 2 and 4 record received-to-emitted frequency ratios 0.978019294 for the ordinary stock and 0.960442075 after adding collar mass. A propagated wave's local frequency independently agrees with pulse spacing within 1.3×10⁻¹⁰. The emitter also measures its own round-trip duration. A changed collar coupling separates the light and released-probe mass readings by 0.0606061. These local model measurements use the declared radial response and common Lorentz clock rule. The upstream M10 assessment concerns its pinned Interval Echo law.",
      "evidence": [
       "model/candidate_laws/interval_echo_partition_repair/published_strings/README.md",
       "model/candidate_laws/interval_echo_partition_repair/published_strings/GEOMETRY.md",
-      "model/candidate_laws/interval_echo_partition_repair/published_strings/nested_stress/selection/README.md"
-     ]
+      "model/candidate_laws/interval_echo_partition_repair/published_strings/nested_stress/selection/README.md",
+      "model/candidate_laws/interval_echo_published_records/spherical_dust/exterior_reader.json",
+      "model/candidate_laws/interval_echo_published_records/spherical_dust/PROOF.md",
+      "model/candidate_laws/interval_echo_published_records/spherical_dust/results.json",
+      "model/candidate_laws/interval_echo_published_records/spherical_dust/null_beam.json",
+      "model/candidate_laws/interval_echo_published_records/spherical_dust/EXTERIOR_READER.md"
+     ],
+     "demonstrated_measurement": {
+      "label": "Exterior gravitational redshift from two clocks and independently transported light",
+      "source": "model/candidate_laws/interval_echo_published_records/spherical_dust/EXTERIOR_READER.md"
+     }
     },
     {
      "id": "OW-28",

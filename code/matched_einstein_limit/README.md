@@ -9,6 +9,8 @@ The [derivation from patch records to gravity](PROOF.md#from-patch-records-to-gr
 [Lean theorem](../../Lean/ObserverPatchHolography/EinsteinBranch/QuantitativeSmallBall.lean)
 checks the tensor algebra, error bounds, scaling and conservation consequence.
 
+A pressureless spherical material in the published-records modification supplies all three physical estimates on compact subsets of its regular core. Local clocks determine which endpoint bits fall inside each moving proper ball. Their joint probabilities give regional entropy, independent shell counts give conserved stress, and a five-clock survey gives the area at equal volume. The local sign law and radial pull are constitutive inputs. The same ordinary coupling predicts null focusing, exterior redshift and a released probe's change in radius. [Source and measurement](../../model/candidate_laws/interval_echo_published_records/spherical_dust/README.md) · [Uniform estimates on overlapping balls](../../model/candidate_laws/interval_echo_published_records/spherical_dust/clock_pairs/REFINEMENT.md)
+
 The [galactic-outskirts example](PROOF.md#why-the-outskirts-of-a-galaxy-could-show-an-excess) explains what a local record retains and how a compact exterior makes an additional source visible in orbits.
 
 The required regional readouts must come from the same admitted state and

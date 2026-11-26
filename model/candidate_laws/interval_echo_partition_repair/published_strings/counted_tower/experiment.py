@@ -26,7 +26,7 @@ GAIN = 4096
 COEFFICIENT = 4*math.pi/15
 
 
-def settings(level):
+def settings(level, banks_per_level=BANKS_PER_LEVEL):
     if not isinstance(level, int) or level < 0:
         raise ValueError("expected a nonnegative enrollment level")
     d = 32*4**level
@@ -36,7 +36,7 @@ def settings(level):
     # A dyadic emitter contributes at most one probability-grid unit.
     with localcontext() as ctx:
         ctx.prec=65
-        correction=D(2*BANKS_PER_LEVEL*100*(level+1)*(level+2)).ln()/(2*shots)
+        correction=D(2*banks_per_level*100*(level+1)*(level+2)).ln()/(2*shots)
         error=math.nextafter(float(correction.sqrt()+D(2)**(-bits)),math.inf)
     rounding=2.**(-45)/(level+1)
     return dict(inverse_radius=d, coherent_repeats=d**4//GAIN, shots_per_bank=shots,
@@ -50,7 +50,7 @@ def _decimal(x):
 
 
 def _encoded_probability(rho, collar, pulse_rho, shape, design):
-    d, m, bits = (design[k] for k in ("inverse_radius", "coherent_repeats", "probability_bits"))
+    d = design["inverse_radius"]
     u = tuple(F(x).limit_denominator(3) for x in survey._frames()[shape])
     r = F(1,d)
     rod = finite_rods.read_ball(finite_rods.angle_gain(r)*(rho+collar), r, u)
@@ -58,6 +58,14 @@ def _encoded_probability(rho, collar, pulse_rho, shape, design):
     with localcontext() as ctx:
         ctx.prec = 65
         work = 4*PI*_decimal(rod.weighted_over_4pi*stress)
+    return phase_numerator(work, design)
+
+
+def phase_numerator(work, design):
+    """Read the dyadic terminal rate on the native work-driven seam for either material."""
+    m, bits = (design[k] for k in ("coherent_repeats", "probability_bits"))
+    with localcontext() as ctx:
+        ctx.prec = 65
         t = work*(2*PI)/(D(5)/3).ln()/(D(3).sqrt()/4)
         x = 2*m*t
         if abs(x) > D(1)/4:

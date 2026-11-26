@@ -630,6 +630,12 @@ REPLAY_EVALUATIONS = (
         "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
         "model/candidate_laws/interval_echo/EVALUATION.json": "955501de5ef40f14cc4d575d1364c63322990cc0b652345ede3be778d90c0971",
     },
+    # Charge-conjugate probes and the pressureless-source comparison.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "057389ca35503ff76e6982c8f0e162e91c4b310f01fceda4fbb8d99fba3d268a",
+    },
 )
 
 
