@@ -8,11 +8,7 @@ Let $A_j(t)$ be the return amplitude of the single-upper Fourier word with chara
 
 The sharp-host clock gives a rest cost in [39.9131416, 39.9131972]. The first forward spatial recoil on ten dimers lies in [0.00945271, 0.00945392]. Each of the three forecasts uses these two readings. For wave number $q$ and calibration wave number $q_0$, set $r=(q/q_0)^2$ for the ordinary relation or $r=\sin^2(q/2)/\sin^2(q_0/2)$ for the lattice. If $m$ is the rest cost and $d$ the first recoil, the predicted recoil is $\sqrt{m^2+d(2m+d)r}-m$. The hopping forecast is $dr$ with the lattice value of $r$. The decoder propagates the full calibration intervals. At fixed positive $d,r$ the square-root forecast is monotone in $m$ because its derivative has the sign of $r-1$. At fixed $m,r$ it increases with $d$.
 
-| Forecast | Held comparisons consistent with measurement | Largest gap between the predicted and measured intervals, exchange units |
-| --- | ---: | ---: |
-| Continuum Klein–Gordon | 1/15 | 0.061169 |
-| Lattice Klein–Gordon | 3/15 | 0.000347 |
-| Nearest-neighbour hopping | 3/15 | 0.000257 |
+The greatest separation between the predicted and measured intervals was 0.061169 exchange units for the continuum Klein–Gordon forecast, 0.000347 for its lattice version and 0.000257 for nearest-neighbour hopping. All three use the same two measured calibration values.
 
 The fifteen comparisons include the reverse of the calibration wavelength. They have shared calibration uncertainties. The result excludes these exact dispersions on the tested material and momentum domain. It leaves the near-rest effective mass and the dispersion of a different domain-wall preparation as separate measurements.
 
