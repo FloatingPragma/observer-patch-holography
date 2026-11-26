@@ -301,13 +301,16 @@ Two stations use the same three addresses to read a potential. Before
 normalization their amplitudes are $(h_u,h_d,1)$, with the last address
 as reference. On each of two independently prepared copies a scalar hit
 scores $+1$ and a reference hit $-1$. One copy travels to the second
-station. With a declared mean gain of $3/2$, dividing the mean weighted
+station. The reported counts are seeded multinomial draws from the
+calculated station probabilities. Their intervals quantify sampling variation.
+With a declared mean gain of $3/2$, dividing the mean weighted
 product by the two-reference probability gives
 $V(h)=\tfrac32(\lVert h\rVert^2-1)^2$. At the chosen point $h=(0,1)$
-the reading is $0.0034$, with simultaneous 99\% interval
+the calculated potential is zero. The sampled value is $0.0034$, with
+simultaneous 99\% interval
 $[-0.0749,0.0818]$. Preparing the second copy in the first recorded
-address keeps both single-station probabilities and raises the joint
-reading to $2.989$, with interval $[2.922,3.057]$.
+address keeps both single-station probabilities and raises the calculated
+potential to $3$. The sampled estimate is $2.989$ with interval $[2.922,3.057]$.
 
 Reference-path interference also gives both quadratures of one Yukawa
 line. The doublet $\psi$, scalar $h$ and singlet $\chi$ have declared
@@ -315,8 +318,8 @@ $6Y$ values $3,3,-6$. With coefficient $y=1/2$ the antisymmetric
 pairing reads $y(\psi_u h_d-\psi_d h_u)\chi$, reducing to
 $y\psi_u\chi$ at $(0,1)$. A held complex preparation gives
 $-0.396+0.299i$ against $-0.4+0.3i$. Exchanging the real upper and
-lower doublets reverses the measured sign. These are readings of
-specified finite preparations. A fermion mass in laboratory units requires
+lower doublets reverses the sign in both the calculated and sampled readings.
+A fermion mass in laboratory units requires
 a calibrated vacuum scale and a coupling to the corresponding propagating
 field (\path{model/experiments/interval_echo_gauge/scalar_grammar/shell_line/}).
 

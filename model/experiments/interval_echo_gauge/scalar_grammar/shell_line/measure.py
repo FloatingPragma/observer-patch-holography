@@ -167,6 +167,7 @@ def run():
     return dict(
         schema="Two-station scalar shell and oriented line 1",
         geometry=geometry,
+        sampling="Synthetic joint counts from PCG64 multinomial draws of the grid-rounded, propagated terminal probabilities.",
         shots=a.SHOTS,
         seed=a.SEED,
         cut_seed=a.SEED + 1,
