@@ -98,6 +98,7 @@ EVIDENCE_MEDIA_BY_SUFFIX = {
     ".json.gz": "emitted_record",
     ".npz": "emitted_record",
     ".npy": "numeric_data",
+    ".npy.gz": "numeric_data",
     ".tex": "paper_prose",
     ".md": "markdown_prose",
 }
