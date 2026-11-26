@@ -1,0 +1,2380 @@
+{
+ "source_sha256": {
+  "records.json": "0406c1c943df64f0a8711b441bab030aa4e2298871deaee9b26b9def78fde771",
+  "scattering/results.json": "eb0eb0cee57feafe368c21a9bf4e0b8b1172f4055d309b2c83c16c4ebc46fa7a"
+ },
+ "terminal_reader": {
+  "internal_seams": [
+   [
+    0,
+    1
+   ],
+   [
+    0,
+    5
+   ],
+   [
+    0,
+    7
+   ],
+   [
+    0,
+    10
+   ],
+   [
+    0,
+    11
+   ],
+   [
+    1,
+    8
+   ],
+   [
+    1,
+    9
+   ],
+   [
+    5,
+    4
+   ],
+   [
+    7,
+    6
+   ],
+   [
+    10,
+    2
+   ],
+   [
+    8,
+    3
+   ]
+  ],
+  "signed_rail_calibration": {
+   "0,0": 0,
+   "0,1": -1,
+   "0,2": -2,
+   "1,0": 1,
+   "1,1": 0,
+   "1,2": -1,
+   "2,0": 2,
+   "2,1": 1,
+   "2,2": 0
+  },
+  "decoded_local_words": 4579
+ },
+ "planted_full_flight": [
+  {
+   "plus": [
+    1,
+    3
+   ],
+   "minus": [
+    0,
+    2
+   ],
+   "denominator": 4096,
+   "degree_four_words": 4971,
+   "signed_radius_per_squared_time": 0.4999993809012684,
+   "truncation_radius_per_squared_time": 1.3797579136185013e-05
+  },
+  {
+   "plus": [
+    0,
+    2
+   ],
+   "minus": [
+    1,
+    3
+   ],
+   "denominator": 4096,
+   "degree_four_words": 4971,
+   "signed_radius_per_squared_time": -0.4999993806341002,
+   "truncation_radius_per_squared_time": 1.3797579132498319e-05
+  }
+ ],
+ "geometry": [
+  {
+   "owners": 20,
+   "exits": [
+    [
+     1,
+     82
+    ],
+    [
+     3,
+     48
+    ],
+    [
+     10,
+     20
+    ]
+   ],
+   "maximum_distance": 5
+  },
+  {
+   "owners": 80,
+   "exits": [
+    [
+     1,
+     38
+    ],
+    [
+     3,
+     192
+    ],
+    [
+     10,
+     56
+    ]
+   ],
+   "maximum_distance": 11
+  },
+  {
+   "owners": 320,
+   "exits": [
+    [
+     1,
+     38
+    ],
+    [
+     3,
+     768
+    ],
+    [
+     10,
+     200
+    ]
+   ],
+   "maximum_distance": 23
+  }
+ ],
+ "all_sharp_source_counts": [
+  [
+   15980,
+   6718641,
+   3379609
+  ],
+  [
+   16132,
+   6710668,
+   3378510
+  ],
+  [
+   16289,
+   6720005,
+   3378644
+  ]
+ ],
+ "source_charge_interval": [
+  [
+   0.330564,
+   0.334565
+  ],
+  [
+   0.330733,
+   0.334734
+  ],
+  [
+   0.330414,
+   0.334415
+  ]
+ ],
+ "full_flight_bounds_per_squared_exchange_time": {
+  "20": {
+   "1": {
+    "1/8192": {
+     "three_first_ports": [
+      [
+       0.07282,
+       0.093462
+      ],
+      [
+       0.072862,
+       0.093504
+      ],
+      [
+       0.072783,
+       0.093425
+      ]
+     ],
+     "net_exterior_charge": [
+      0.230893,
+      0.267964
+     ],
+     "diameter_only_squared_radius": [
+      0.226352,
+      0.272504
+     ],
+     "signed_squared_radius": [
+      0.230893,
+      0.267964
+     ],
+     "slope_in_squared_wave_number": [
+      -0.133982,
+      -0.115446
+     ]
+    },
+    "1/4096": {
+     "three_first_ports": [
+      [
+       0.06281,
+       0.103472
+      ],
+      [
+       0.062853,
+       0.103514
+      ],
+      [
+       0.062773,
+       0.103434
+      ]
+     ],
+     "net_exterior_charge": [
+      0.213479,
+      0.285377
+     ],
+     "diameter_only_squared_radius": [
+      0.195318,
+      0.303539
+     ],
+     "signed_squared_radius": [
+      0.213479,
+      0.285377
+     ],
+     "slope_in_squared_wave_number": [
+      -0.142689,
+      -0.106739
+     ]
+    },
+    "1/2048": {
+     "three_first_ports": [
+      [
+       0.042224,
+       0.124059
+      ],
+      [
+       0.042266,
+       0.124101
+      ],
+      [
+       0.042186,
+       0.124021
+      ]
+     ],
+     "net_exterior_charge": [
+      0.177518,
+      0.321339
+     ],
+     "diameter_only_squared_radius": [
+      0.104871,
+      0.393986
+     ],
+     "signed_squared_radius": [
+      0.177517,
+      0.321339
+     ],
+     "slope_in_squared_wave_number": [
+      -0.16067,
+      -0.088758
+     ]
+    },
+    "1/1024": {
+     "three_first_ports": [
+      [
+       -0.00122,
+       0.167502
+      ],
+      [
+       -0.001178,
+       0.167545
+      ],
+      [
+       -0.001258,
+       0.167465
+      ]
+     ],
+     "net_exterior_charge": [
+      0.101054,
+      0.397802
+     ],
+     "diameter_only_squared_radius": [
+      -0.189535,
+      0.688391
+     ],
+     "signed_squared_radius": [
+      0.101044,
+      0.397812
+     ],
+     "slope_in_squared_wave_number": [
+      -0.198906,
+      -0.050522
+     ]
+    }
+   },
+   "1/2": {
+    "1/8192": {
+     "three_first_ports": [
+      [
+       0.018366,
+       0.023204
+      ],
+      [
+       0.018377,
+       0.023215
+      ],
+      [
+       0.018357,
+       0.023195
+      ]
+     ],
+     "net_exterior_charge": [
+      0.058003,
+      0.066711
+     ],
+     "diameter_only_squared_radius": [
+      0.057012,
+      0.067703
+     ],
+     "signed_squared_radius": [
+      0.058003,
+      0.066711
+     ],
+     "slope_in_squared_wave_number": [
+      -0.033356,
+      -0.029001
+     ]
+    },
+    "1/4096": {
+     "three_first_ports": [
+      [
+       0.016031,
+       0.025539
+      ],
+      [
+       0.016042,
+       0.02555
+      ],
+      [
+       0.016022,
+       0.02553
+      ]
+     ],
+     "net_exterior_charge": [
+      0.053943,
+      0.070771
+     ],
+     "diameter_only_squared_radius": [
+      0.049975,
+      0.074739
+     ],
+     "signed_squared_radius": [
+      0.053943,
+      0.070771
+     ],
+     "slope_in_squared_wave_number": [
+      -0.035386,
+      -0.026971
+     ]
+    },
+    "1/2048": {
+     "three_first_ports": [
+      [
+       0.011238,
+       0.030333
+      ],
+      [
+       0.011248,
+       0.030344
+      ],
+      [
+       0.011228,
+       0.030324
+      ]
+     ],
+     "net_exterior_charge": [
+      0.045573,
+      0.079141
+     ],
+     "diameter_only_squared_radius": [
+      0.029703,
+      0.095011
+     ],
+     "signed_squared_radius": [
+      0.045573,
+      0.079141
+     ],
+     "slope_in_squared_wave_number": [
+      -0.039571,
+      -0.022786
+     ]
+    },
+    "1/1024": {
+     "three_first_ports": [
+      [
+       0.001154,
+       0.040416
+      ],
+      [
+       0.001165,
+       0.040427
+      ],
+      [
+       0.001145,
+       0.040407
+      ]
+     ],
+     "net_exterior_charge": [
+      0.027842,
+      0.096872
+     ],
+     "diameter_only_squared_radius": [
+      -0.035638,
+      0.160352
+     ],
+     "signed_squared_radius": [
+      0.02784,
+      0.096874
+     ],
+     "slope_in_squared_wave_number": [
+      -0.048437,
+      -0.01392
+     ]
+    }
+   },
+   "0": {
+    "1/8192": {
+     "three_first_ports": [
+      [
+       0.0,
+       0.0
+      ],
+      [
+       0.0,
+       0.0
+      ],
+      [
+       0.0,
+       0.0
+      ]
+     ],
+     "net_exterior_charge": [
+      0.0,
+      0.0
+     ],
+     "diameter_only_squared_radius": [
+      0.0,
+      0.0
+     ],
+     "signed_squared_radius": [
+      0.0,
+      0.0
+     ],
+     "slope_in_squared_wave_number": [
+      0.0,
+      0.0
+     ]
+    },
+    "1/4096": {
+     "three_first_ports": [
+      [
+       0.0,
+       0.0
+      ],
+      [
+       0.0,
+       0.0
+      ],
+      [
+       0.0,
+       0.0
+      ]
+     ],
+     "net_exterior_charge": [
+      0.0,
+      0.0
+     ],
+     "diameter_only_squared_radius": [
+      0.0,
+      0.0
+     ],
+     "signed_squared_radius": [
+      0.0,
+      0.0
+     ],
+     "slope_in_squared_wave_number": [
+      0.0,
+      0.0
+     ]
+    },
+    "1/2048": {
+     "three_first_ports": [
+      [
+       0.0,
+       0.0
+      ],
+      [
+       0.0,
+       0.0
+      ],
+      [
+       0.0,
+       0.0
+      ]
+     ],
+     "net_exterior_charge": [
+      0.0,
+      0.0
+     ],
+     "diameter_only_squared_radius": [
+      0.0,
+      0.0
+     ],
+     "signed_squared_radius": [
+      0.0,
+      0.0
+     ],
+     "slope_in_squared_wave_number": [
+      0.0,
+      0.0
+     ]
+    },
+    "1/1024": {
+     "three_first_ports": [
+      [
+       0.0,
+       0.0
+      ],
+      [
+       0.0,
+       0.0
+      ],
+      [
+       0.0,
+       0.0
+      ]
+     ],
+     "net_exterior_charge": [
+      0.0,
+      0.0
+     ],
+     "diameter_only_squared_radius": [
+      0.0,
+      0.0
+     ],
+     "signed_squared_radius": [
+      0.0,
+      0.0
+     ],
+     "slope_in_squared_wave_number": [
+      0.0,
+      0.0
+     ]
+    }
+   }
+  },
+  "80": {
+   "1": {
+    "1/8192": {
+     "three_first_ports": [
+      [
+       0.07282,
+       0.093462
+      ],
+      [
+       0.072862,
+       0.093504
+      ],
+      [
+       0.072783,
+       0.093425
+      ]
+     ],
+     "net_exterior_charge": [
+      0.230893,
+      0.267964
+     ],
+     "diameter_only_squared_radius": [
+      0.20819,
+      0.290666
+     ],
+     "signed_squared_radius": [
+      0.230893,
+      0.267964
+     ],
+     "slope_in_squared_wave_number": [
+      -0.133982,
+      -0.115446
+     ]
+    },
+    "1/4096": {
+     "three_first_ports": [
+      [
+       0.06281,
+       0.103472
+      ],
+      [
+       0.062853,
+       0.103514
+      ],
+      [
+       0.062773,
+       0.103434
+      ]
+     ],
+     "net_exterior_charge": [
+      0.213479,
+      0.285377
+     ],
+     "diameter_only_squared_radius": [
+      0.12267,
+      0.376186
+     ],
+     "signed_squared_radius": [
+      0.213479,
+      0.285377
+     ],
+     "slope_in_squared_wave_number": [
+      -0.142689,
+      -0.106739
+     ]
+    },
+    "1/2048": {
+     "three_first_ports": [
+      [
+       0.042224,
+       0.124059
+      ],
+      [
+       0.042266,
+       0.124101
+      ],
+      [
+       0.042186,
+       0.124021
+      ]
+     ],
+     "net_exterior_charge": [
+      0.177518,
+      0.321339
+     ],
+     "diameter_only_squared_radius": [
+      -0.185718,
+      0.684574
+     ],
+     "signed_squared_radius": [
+      0.177517,
+      0.321339
+     ],
+     "slope_in_squared_wave_number": [
+      -0.16067,
+      -0.088758
+     ]
+    },
+    "1/1024": {
+     "three_first_ports": [
+      [
+       -0.00122,
+       0.167502
+      ],
+      [
+       -0.001178,
+       0.167545
+      ],
+      [
+       -0.001258,
+       0.167465
+      ]
+     ],
+     "net_exterior_charge": [
+      0.101054,
+      0.397802
+     ],
+     "diameter_only_squared_radius": [
+      -1.35189,
+      1.850746
+     ],
+     "signed_squared_radius": [
+      0.101044,
+      0.397812
+     ],
+     "slope_in_squared_wave_number": [
+      -0.198906,
+      -0.050522
+     ]
+    }
+   },
+   "1/2": {
+    "1/8192": {
+     "three_first_ports": [
+      [
+       0.018366,
+       0.023204
+      ],
+      [
+       0.018377,
+       0.023215
+      ],
+      [
+       0.018357,
+       0.023195
+      ]
+     ],
+     "net_exterior_charge": [
+      0.058003,
+      0.066711
+     ],
+     "diameter_only_squared_radius": [
+      0.053044,
+      0.07167
+     ],
+     "signed_squared_radius": [
+      0.058003,
+      0.066711
+     ],
+     "slope_in_squared_wave_number": [
+      -0.033356,
+      -0.029001
+     ]
+    },
+    "1/4096": {
+     "three_first_ports": [
+      [
+       0.016031,
+       0.025539
+      ],
+      [
+       0.016042,
+       0.02555
+      ],
+      [
+       0.016022,
+       0.02553
+      ]
+     ],
+     "net_exterior_charge": [
+      0.053943,
+      0.070771
+     ],
+     "diameter_only_squared_radius": [
+      0.034105,
+      0.090609
+     ],
+     "signed_squared_radius": [
+      0.053943,
+      0.070771
+     ],
+     "slope_in_squared_wave_number": [
+      -0.035386,
+      -0.026971
+     ]
+    },
+    "1/2048": {
+     "three_first_ports": [
+      [
+       0.011238,
+       0.030333
+      ],
+      [
+       0.011248,
+       0.030344
+      ],
+      [
+       0.011228,
+       0.030324
+      ]
+     ],
+     "net_exterior_charge": [
+      0.045573,
+      0.079141
+     ],
+     "diameter_only_squared_radius": [
+      -0.033777,
+      0.158491
+     ],
+     "signed_squared_radius": [
+      0.045573,
+      0.079141
+     ],
+     "slope_in_squared_wave_number": [
+      -0.039571,
+      -0.022786
+     ]
+    },
+    "1/1024": {
+     "three_first_ports": [
+      [
+       0.001154,
+       0.040416
+      ],
+      [
+       0.001165,
+       0.040427
+      ],
+      [
+       0.001145,
+       0.040407
+      ]
+     ],
+     "net_exterior_charge": [
+      0.027842,
+      0.096872
+     ],
+     "diameter_only_squared_radius": [
+      -0.28956,
+      0.414274
+     ],
+     "signed_squared_radius": [
+      0.02784,
+      0.096874
+     ],
+     "slope_in_squared_wave_number": [
+      -0.048437,
+      -0.01392
+     ]
+    }
+   },
+   "0": {
+    "1/8192": {
+     "three_first_ports": [
+      [
+       0.0,
+       0.0
+      ],
+      [
+       0.0,
+       0.0
+      ],
+      [
+       0.0,
+       0.0
+      ]
+     ],
+     "net_exterior_charge": [
+      0.0,
+      0.0
+     ],
+     "diameter_only_squared_radius": [
+      0.0,
+      0.0
+     ],
+     "signed_squared_radius": [
+      0.0,
+      0.0
+     ],
+     "slope_in_squared_wave_number": [
+      0.0,
+      0.0
+     ]
+    },
+    "1/4096": {
+     "three_first_ports": [
+      [
+       0.0,
+       0.0
+      ],
+      [
+       0.0,
+       0.0
+      ],
+      [
+       0.0,
+       0.0
+      ]
+     ],
+     "net_exterior_charge": [
+      0.0,
+      0.0
+     ],
+     "diameter_only_squared_radius": [
+      0.0,
+      0.0
+     ],
+     "signed_squared_radius": [
+      0.0,
+      0.0
+     ],
+     "slope_in_squared_wave_number": [
+      0.0,
+      0.0
+     ]
+    },
+    "1/2048": {
+     "three_first_ports": [
+      [
+       0.0,
+       0.0
+      ],
+      [
+       0.0,
+       0.0
+      ],
+      [
+       0.0,
+       0.0
+      ]
+     ],
+     "net_exterior_charge": [
+      0.0,
+      0.0
+     ],
+     "diameter_only_squared_radius": [
+      0.0,
+      0.0
+     ],
+     "signed_squared_radius": [
+      0.0,
+      0.0
+     ],
+     "slope_in_squared_wave_number": [
+      0.0,
+      0.0
+     ]
+    },
+    "1/1024": {
+     "three_first_ports": [
+      [
+       0.0,
+       0.0
+      ],
+      [
+       0.0,
+       0.0
+      ],
+      [
+       0.0,
+       0.0
+      ]
+     ],
+     "net_exterior_charge": [
+      0.0,
+      0.0
+     ],
+     "diameter_only_squared_radius": [
+      0.0,
+      0.0
+     ],
+     "signed_squared_radius": [
+      0.0,
+      0.0
+     ],
+     "slope_in_squared_wave_number": [
+      0.0,
+      0.0
+     ]
+    }
+   }
+  },
+  "320": {
+   "1": {
+    "1/8192": {
+     "three_first_ports": [
+      [
+       0.07282,
+       0.093462
+      ],
+      [
+       0.072862,
+       0.093504
+      ],
+      [
+       0.072783,
+       0.093425
+      ]
+     ],
+     "net_exterior_charge": [
+      0.230893,
+      0.267964
+     ],
+     "diameter_only_squared_radius": [
+      0.131003,
+      0.367853
+     ],
+     "signed_squared_radius": [
+      0.230893,
+      0.267964
+     ],
+     "slope_in_squared_wave_number": [
+      -0.133982,
+      -0.115446
+     ]
+    },
+    "1/4096": {
+     "three_first_ports": [
+      [
+       0.06281,
+       0.103472
+      ],
+      [
+       0.062853,
+       0.103514
+      ],
+      [
+       0.062773,
+       0.103434
+      ]
+     ],
+     "net_exterior_charge": [
+      0.213479,
+      0.285377
+     ],
+     "diameter_only_squared_radius": [
+      -0.18608,
+      0.684936
+     ],
+     "signed_squared_radius": [
+      0.213479,
+      0.285377
+     ],
+     "slope_in_squared_wave_number": [
+      -0.142689,
+      -0.106739
+     ]
+    },
+    "1/2048": {
+     "three_first_ports": [
+      [
+       0.042224,
+       0.124059
+      ],
+      [
+       0.042266,
+       0.124101
+      ],
+      [
+       0.042186,
+       0.124021
+      ]
+     ],
+     "net_exterior_charge": [
+      0.177518,
+      0.321339
+     ],
+     "diameter_only_squared_radius": [
+      -1.420721,
+      1.919577
+     ],
+     "signed_squared_radius": [
+      0.177517,
+      0.321339
+     ],
+     "slope_in_squared_wave_number": [
+      -0.16067,
+      -0.088758
+     ]
+    },
+    "1/1024": {
+     "three_first_ports": [
+      [
+       -0.00122,
+       0.167502
+      ],
+      [
+       -0.001178,
+       0.167545
+      ],
+      [
+       -0.001258,
+       0.167465
+      ]
+     ],
+     "net_exterior_charge": [
+      0.101054,
+      0.397802
+     ],
+     "diameter_only_squared_radius": [
+      -6.291899,
+      6.790755
+     ],
+     "signed_squared_radius": [
+      0.101044,
+      0.397812
+     ],
+     "slope_in_squared_wave_number": [
+      -0.198906,
+      -0.050522
+     ]
+    }
+   },
+   "1/2": {
+    "1/8192": {
+     "three_first_ports": [
+      [
+       0.018366,
+       0.023204
+      ],
+      [
+       0.018377,
+       0.023215
+      ],
+      [
+       0.018357,
+       0.023195
+      ]
+     ],
+     "net_exterior_charge": [
+      0.058003,
+      0.066711
+     ],
+     "diameter_only_squared_radius": [
+      0.036182,
+      0.088532
+     ],
+     "signed_squared_radius": [
+      0.058003,
+      0.066711
+     ],
+     "slope_in_squared_wave_number": [
+      -0.033356,
+      -0.029001
+     ]
+    },
+    "1/4096": {
+     "three_first_ports": [
+      [
+       0.016031,
+       0.025539
+      ],
+      [
+       0.016042,
+       0.02555
+      ],
+      [
+       0.016022,
+       0.02553
+      ]
+     ],
+     "net_exterior_charge": [
+      0.053943,
+      0.070771
+     ],
+     "diameter_only_squared_radius": [
+      -0.033343,
+      0.158057
+     ],
+     "signed_squared_radius": [
+      0.053943,
+      0.070771
+     ],
+     "slope_in_squared_wave_number": [
+      -0.035386,
+      -0.026971
+     ]
+    },
+    "1/2048": {
+     "three_first_ports": [
+      [
+       0.011238,
+       0.030333
+      ],
+      [
+       0.011248,
+       0.030344
+      ],
+      [
+       0.011228,
+       0.030324
+      ]
+     ],
+     "net_exterior_charge": [
+      0.045573,
+      0.079141
+     ],
+     "diameter_only_squared_radius": [
+      -0.303569,
+      0.428283
+     ],
+     "signed_squared_radius": [
+      0.045573,
+      0.079141
+     ],
+     "slope_in_squared_wave_number": [
+      -0.039571,
+      -0.022786
+     ]
+    },
+    "1/1024": {
+     "three_first_ports": [
+      [
+       0.001154,
+       0.040416
+      ],
+      [
+       0.001165,
+       0.040427
+      ],
+      [
+       0.001145,
+       0.040407
+      ]
+     ],
+     "net_exterior_charge": [
+      0.027842,
+      0.096872
+     ],
+     "diameter_only_squared_radius": [
+      -1.368728,
+      1.493442
+     ],
+     "signed_squared_radius": [
+      0.02784,
+      0.096874
+     ],
+     "slope_in_squared_wave_number": [
+      -0.048437,
+      -0.01392
+     ]
+    }
+   },
+   "0": {
+    "1/8192": {
+     "three_first_ports": [
+      [
+       0.0,
+       0.0
+      ],
+      [
+       0.0,
+       0.0
+      ],
+      [
+       0.0,
+       0.0
+      ]
+     ],
+     "net_exterior_charge": [
+      0.0,
+      0.0
+     ],
+     "diameter_only_squared_radius": [
+      0.0,
+      0.0
+     ],
+     "signed_squared_radius": [
+      0.0,
+      0.0
+     ],
+     "slope_in_squared_wave_number": [
+      0.0,
+      0.0
+     ]
+    },
+    "1/4096": {
+     "three_first_ports": [
+      [
+       0.0,
+       0.0
+      ],
+      [
+       0.0,
+       0.0
+      ],
+      [
+       0.0,
+       0.0
+      ]
+     ],
+     "net_exterior_charge": [
+      0.0,
+      0.0
+     ],
+     "diameter_only_squared_radius": [
+      0.0,
+      0.0
+     ],
+     "signed_squared_radius": [
+      0.0,
+      0.0
+     ],
+     "slope_in_squared_wave_number": [
+      0.0,
+      0.0
+     ]
+    },
+    "1/2048": {
+     "three_first_ports": [
+      [
+       0.0,
+       0.0
+      ],
+      [
+       0.0,
+       0.0
+      ],
+      [
+       0.0,
+       0.0
+      ]
+     ],
+     "net_exterior_charge": [
+      0.0,
+      0.0
+     ],
+     "diameter_only_squared_radius": [
+      0.0,
+      0.0
+     ],
+     "signed_squared_radius": [
+      0.0,
+      0.0
+     ],
+     "slope_in_squared_wave_number": [
+      0.0,
+      0.0
+     ]
+    },
+    "1/1024": {
+     "three_first_ports": [
+      [
+       0.0,
+       0.0
+      ],
+      [
+       0.0,
+       0.0
+      ],
+      [
+       0.0,
+       0.0
+      ]
+     ],
+     "net_exterior_charge": [
+      0.0,
+      0.0
+     ],
+     "diameter_only_squared_radius": [
+      0.0,
+      0.0
+     ],
+     "signed_squared_radius": [
+      0.0,
+      0.0
+     ],
+     "slope_in_squared_wave_number": [
+      0.0,
+      0.0
+     ]
+    }
+   }
+  }
+ },
+ "local_clock_checks": {
+  "1/8192": {
+   "standard": {
+    "probabilities": [
+     0.0,
+     0.9999999962747097,
+     3.725290293835985e-09,
+     0.0
+    ],
+    "counts": [
+     0,
+     68719476494,
+     242,
+     0
+    ],
+    "grid": [
+     0,
+     1099511623680,
+     4096,
+     0
+    ]
+   },
+   "duration_interval": [
+    0.0001057537,
+    0.0001321673
+   ],
+   "full_native_radius_per_squared_time": [
+    0.229467,
+    0.26939
+   ]
+  },
+  "1/4096": {
+   "standard": {
+    "probabilities": [
+     0.0,
+     0.9999999850988389,
+     1.4901161119832789e-08,
+     0.0
+    ],
+    "counts": [
+     0,
+     68719475694,
+     1042,
+     0
+    ],
+    "grid": [
+     0,
+     1099511611392,
+     16384,
+     0
+    ]
+   },
+   "duration_interval": [
+    0.0002332836,
+    0.000259538
+   ],
+   "full_native_radius_per_squared_time": [
+    0.211256,
+    0.2876
+   ]
+  },
+  "1/2048": {
+   "standard": {
+    "probabilities": [
+     0.0,
+     0.9999999403953564,
+     5.960464359115274e-08,
+     0.0
+    ],
+    "counts": [
+     0,
+     68719472726,
+     4010,
+     0
+    ],
+    "grid": [
+     0,
+     1099511562240,
+     65536,
+     0
+    ]
+   },
+   "duration_interval": [
+    0.0004701074,
+    0.0004962857
+   ],
+   "full_native_radius_per_squared_time": [
+    0.176313,
+    0.322544
+   ]
+  },
+  "1/1024": {
+   "standard": {
+    "probabilities": [
+     0.0,
+     0.9999997615814399,
+     2.384185601537568e-07,
+     0.0
+    ],
+    "counts": [
+     0,
+     68719460448,
+     16288,
+     0
+    ],
+    "grid": [
+     0,
+     1099511365632,
+     262144,
+     0
+    ]
+   },
+   "duration_interval": [
+    0.0009606626,
+    0.0009868001
+   ],
+   "full_native_radius_per_squared_time": [
+    0.099376,
+    0.399481
+   ]
+  }
+ },
+ "bridge_only": {
+  "starts": 68719476736,
+  "grid": 1099511627776,
+  "seed": 140526,
+  "source_acceptance": 0.0005884536440785682,
+  "incoming_vacancy_unit_excess": [
+   [
+    0.0015997961564785668,
+    0.6642431963766331,
+    0.33415700746688837
+   ],
+   [
+    0.0015997961564828411,
+    0.6642431963788238,
+    0.33415700746469346
+   ],
+   [
+    0.001599796156483757,
+    0.6642431963790285,
+    0.33415700746448773
+   ]
+  ],
+  "outcomes": [
+   "vacancy",
+   "unit",
+   "excess",
+   "source refused"
+  ],
+  "forecasts": {
+   "exchange=1, duration_over_pi=0": {
+    "from_clock_and_sharp_source": [
+     0.0,
+     6.691417284130462e-06
+    ],
+    "receiving_score_interval": [
+     -0.001,
+     0.001
+    ]
+   },
+   "exchange=1, duration_over_pi=1/2": {
+    "from_clock_and_sharp_source": [
+     0.16527858618428246,
+     0.16729188618131455
+    ],
+    "receiving_score_interval": [
+     0.16515788920783336,
+     0.16715788920783337
+    ]
+   },
+   "exchange=1, duration_over_pi=1": {
+    "from_clock_and_sharp_source": [
+     0.330564252789239,
+     0.3345708642065231
+    ],
+    "receiving_score_interval": [
+     0.33161924198175763,
+     0.33361924198175763
+    ]
+   },
+   "exchange=1, duration_over_pi=2": {
+    "from_clock_and_sharp_source": [
+     0.0,
+     6.691417284130462e-06
+    ],
+    "receiving_score_interval": [
+     -0.001,
+     0.001
+    ]
+   },
+   "exchange=1/2, duration_over_pi=0": {
+    "from_clock_and_sharp_source": [
+     0.0,
+     6.691417284130462e-06
+    ],
+    "receiving_score_interval": [
+     -0.001,
+     0.001
+    ]
+   },
+   "exchange=1/2, duration_over_pi=1/2": {
+    "from_clock_and_sharp_source": [
+     0.04840483300048847,
+     0.04900392786526453
+    ],
+    "receiving_score_interval": [
+     0.047722599285235735,
+     0.04972259928523574
+    ]
+   },
+   "exchange=1/2, duration_over_pi=1": {
+    "from_clock_and_sharp_source": [
+     0.16527811337824028,
+     0.1672914076541869
+    ],
+    "receiving_score_interval": [
+     0.16525493761426369,
+     0.1672549376142637
+    ]
+   },
+   "exchange=1/2, duration_over_pi=2": {
+    "from_clock_and_sharp_source": [
+     0.330564252789239,
+     0.3345708642065231
+    ],
+    "receiving_score_interval": [
+     0.3315875389648932,
+     0.3335875389648932
+    ]
+   },
+   "exchange=0, duration_over_pi=0": {
+    "from_clock_and_sharp_source": [
+     0.0,
+     6.691417284130462e-06
+    ],
+    "receiving_score_interval": [
+     -0.001,
+     0.001
+    ]
+   },
+   "exchange=0, duration_over_pi=1/2": {
+    "from_clock_and_sharp_source": [
+     0.0,
+     6.691417284130462e-06
+    ],
+    "receiving_score_interval": [
+     -0.001,
+     0.001
+    ]
+   },
+   "exchange=0, duration_over_pi=1": {
+    "from_clock_and_sharp_source": [
+     0.0,
+     6.691417284130462e-06
+    ],
+    "receiving_score_interval": [
+     -0.001,
+     0.001
+    ]
+   },
+   "exchange=0, duration_over_pi=2": {
+    "from_clock_and_sharp_source": [
+     0.0,
+     6.691417284130462e-06
+    ],
+    "receiving_score_interval": [
+     -0.001,
+     0.001
+    ]
+   }
+  },
+  "banks": {
+   "exchange=1, duration_over_pi=0": {
+    "vacancy_standard": {
+     "probabilities": [
+      0,
+      1,
+      0,
+      0
+     ],
+     "counts": [
+      0,
+      68719476736,
+      0,
+      0
+     ],
+     "grid": [
+      0,
+      1099511627776,
+      0,
+      0
+     ]
+    },
+    "excess_standard": {
+     "probabilities": [
+      0,
+      1,
+      0,
+      0
+     ],
+     "counts": [
+      0,
+      68719476736,
+      0,
+      0
+     ],
+     "grid": [
+      0,
+      1099511627776,
+      0,
+      0
+     ]
+    },
+    "uniformly_chosen_first_receiver": {
+     "probabilities": [
+      0.0,
+      0.0005884536440785682,
+      0.0,
+      0.9994115463559214
+     ],
+     "counts": [
+      0,
+      40435305,
+      0,
+      68679041431
+     ],
+     "grid": [
+      0,
+      647011624,
+      0,
+      1098864616152
+     ]
+    }
+   },
+   "exchange=1, duration_over_pi=1/2": {
+    "vacancy_standard": {
+     "probabilities": [
+      0.5,
+      0.5,
+      0.0,
+      0.0
+     ],
+     "counts": [
+      34359530940,
+      34359945796,
+      0,
+      0
+     ],
+     "grid": [
+      549755813888,
+      549755813888,
+      0,
+      0
+     ]
+    },
+    "excess_standard": {
+     "probabilities": [
+      0.0,
+      0.5,
+      0.5,
+      0.0
+     ],
+     "counts": [
+      0,
+      34359628437,
+      34359848299,
+      0
+     ],
+     "grid": [
+      0,
+      549755813888,
+      549755813888,
+      0
+     ]
+    },
+    "uniformly_chosen_first_receiver": {
+     "probabilities": [
+      4.707029390322782e-07,
+      0.0004896649867708467,
+      9.83179543686892e-05,
+      0.9994115463559214
+     ],
+     "counts": [
+      32339,
+      33661698,
+      6752920,
+      68679029779
+     ],
+     "grid": [
+      517543,
+      538392347,
+      108101734,
+      1098864616152
+     ]
+    }
+   },
+   "exchange=1, duration_over_pi=1": {
+    "vacancy_standard": {
+     "probabilities": [
+      1,
+      0,
+      0,
+      0
+     ],
+     "counts": [
+      68719476736,
+      0,
+      0,
+      0
+     ],
+     "grid": [
+      1099511627776,
+      0,
+      0,
+      0
+     ]
+    },
+    "excess_standard": {
+     "probabilities": [
+      0,
+      0,
+      1,
+      0
+     ],
+     "counts": [
+      0,
+      0,
+      68719476736,
+      0
+     ],
+     "grid": [
+      0,
+      0,
+      1099511627776,
+      0
+     ]
+    },
+    "uniformly_chosen_first_receiver": {
+     "probabilities": [
+      9.414058780645564e-07,
+      0.0003908763294631253,
+      0.0001966359087373784,
+      0.9994115463559214
+     ],
+     "counts": [
+      64324,
+      26865039,
+      13517843,
+      68679029530
+     ],
+     "grid": [
+      1035087,
+      429773069,
+      216203468,
+      1098864616152
+     ]
+    }
+   },
+   "exchange=1, duration_over_pi=2": {
+    "vacancy_standard": {
+     "probabilities": [
+      0,
+      1,
+      0,
+      0
+     ],
+     "counts": [
+      0,
+      68719476736,
+      0,
+      0
+     ],
+     "grid": [
+      0,
+      1099511627776,
+      0,
+      0
+     ]
+    },
+    "excess_standard": {
+     "probabilities": [
+      0,
+      1,
+      0,
+      0
+     ],
+     "counts": [
+      0,
+      68719476736,
+      0,
+      0
+     ],
+     "grid": [
+      0,
+      1099511627776,
+      0,
+      0
+     ]
+    },
+    "uniformly_chosen_first_receiver": {
+     "probabilities": [
+      0.0,
+      0.0005884536440785682,
+      0.0,
+      0.9994115463559214
+     ],
+     "counts": [
+      0,
+      40443622,
+      0,
+      68679033114
+     ],
+     "grid": [
+      0,
+      647011624,
+      0,
+      1098864616152
+     ]
+    }
+   },
+   "exchange=1/2, duration_over_pi=0": {
+    "vacancy_standard": {
+     "probabilities": [
+      0,
+      1,
+      0,
+      0
+     ],
+     "counts": [
+      0,
+      68719476736,
+      0,
+      0
+     ],
+     "grid": [
+      0,
+      1099511627776,
+      0,
+      0
+     ]
+    },
+    "excess_standard": {
+     "probabilities": [
+      0,
+      1,
+      0,
+      0
+     ],
+     "counts": [
+      0,
+      68719476736,
+      0,
+      0
+     ],
+     "grid": [
+      0,
+      1099511627776,
+      0,
+      0
+     ]
+    },
+    "uniformly_chosen_first_receiver": {
+     "probabilities": [
+      0.0,
+      0.0005884536440785682,
+      0.0,
+      0.9994115463559214
+     ],
+     "counts": [
+      0,
+      40447073,
+      0,
+      68679029663
+     ],
+     "grid": [
+      0,
+      647011624,
+      0,
+      1098864616152
+     ]
+    }
+   },
+   "exchange=1/2, duration_over_pi=1/2": {
+    "vacancy_standard": {
+     "probabilities": [
+      0.1464466094067262,
+      0.8535533905932737,
+      0.0,
+      0.0
+     ],
+     "counts": [
+      10063791368,
+      58655685368,
+      0,
+      0
+     ],
+     "grid": [
+      161019749891,
+      938491877885,
+      0,
+      0
+     ]
+    },
+    "excess_standard": {
+     "probabilities": [
+      0.0,
+      0.8535533905932737,
+      0.1464466094067262,
+      0.0
+     ],
+     "counts": [
+      0,
+      58655607208,
+      10063869528,
+      0
+     ],
+     "grid": [
+      0,
+      938491877885,
+      161019749891,
+      0
+     ]
+    },
+    "uniformly_chosen_first_receiver": {
+     "probabilities": [
+      1.3786569891811623e-07,
+      0.0005595191162574506,
+      2.8796662122199516e-05,
+      0.9994115463559214
+     ],
+     "counts": [
+      9439,
+      38442972,
+      1979381,
+      68679044944
+     ],
+     "grid": [
+      151585,
+      615197774,
+      31662265,
+      1098864616152
+     ]
+    }
+   },
+   "exchange=1/2, duration_over_pi=1": {
+    "vacancy_standard": {
+     "probabilities": [
+      0.5,
+      0.5,
+      0.0,
+      0.0
+     ],
+     "counts": [
+      34359673777,
+      34359802959,
+      0,
+      0
+     ],
+     "grid": [
+      549755813888,
+      549755813888,
+      0,
+      0
+     ]
+    },
+    "excess_standard": {
+     "probabilities": [
+      0.0,
+      0.5,
+      0.5,
+      0.0
+     ],
+     "counts": [
+      0,
+      34359967849,
+      34359508887,
+      0
+     ],
+     "grid": [
+      0,
+      549755813888,
+      549755813888,
+      0
+     ]
+    },
+    "uniformly_chosen_first_receiver": {
+     "probabilities": [
+      4.707029390322782e-07,
+      0.0004896649867708467,
+      9.83179543686892e-05,
+      0.9994115463559214
+     ],
+     "counts": [
+      32397,
+      33650865,
+      6755549,
+      68679037925
+     ],
+     "grid": [
+      517543,
+      538392347,
+      108101734,
+      1098864616152
+     ]
+    }
+   },
+   "exchange=1/2, duration_over_pi=2": {
+    "vacancy_standard": {
+     "probabilities": [
+      1,
+      0,
+      0,
+      0
+     ],
+     "counts": [
+      68719476736,
+      0,
+      0,
+      0
+     ],
+     "grid": [
+      1099511627776,
+      0,
+      0,
+      0
+     ]
+    },
+    "excess_standard": {
+     "probabilities": [
+      0,
+      0,
+      1,
+      0
+     ],
+     "counts": [
+      0,
+      0,
+      68719476736,
+      0
+     ],
+     "grid": [
+      0,
+      0,
+      1099511627776,
+      0
+     ]
+    },
+    "uniformly_chosen_first_receiver": {
+     "probabilities": [
+      9.414058780645564e-07,
+      0.0003908763294631253,
+      0.0001966359087373784,
+      0.9994115463559214
+     ],
+     "counts": [
+      64621,
+      26858301,
+      13513157,
+      68679040657
+     ],
+     "grid": [
+      1035087,
+      429773069,
+      216203468,
+      1098864616152
+     ]
+    }
+   },
+   "exchange=0, duration_over_pi=0": {
+    "vacancy_standard": {
+     "probabilities": [
+      0,
+      1,
+      0,
+      0
+     ],
+     "counts": [
+      0,
+      68719476736,
+      0,
+      0
+     ],
+     "grid": [
+      0,
+      1099511627776,
+      0,
+      0
+     ]
+    },
+    "excess_standard": {
+     "probabilities": [
+      0,
+      1,
+      0,
+      0
+     ],
+     "counts": [
+      0,
+      68719476736,
+      0,
+      0
+     ],
+     "grid": [
+      0,
+      1099511627776,
+      0,
+      0
+     ]
+    },
+    "uniformly_chosen_first_receiver": {
+     "probabilities": [
+      0.0,
+      0.0005884536440785682,
+      0.0,
+      0.9994115463559214
+     ],
+     "counts": [
+      0,
+      40429213,
+      0,
+      68679047523
+     ],
+     "grid": [
+      0,
+      647011624,
+      0,
+      1098864616152
+     ]
+    }
+   },
+   "exchange=0, duration_over_pi=1/2": {
+    "vacancy_standard": {
+     "probabilities": [
+      0,
+      1,
+      0,
+      0
+     ],
+     "counts": [
+      0,
+      68719476736,
+      0,
+      0
+     ],
+     "grid": [
+      0,
+      1099511627776,
+      0,
+      0
+     ]
+    },
+    "excess_standard": {
+     "probabilities": [
+      0,
+      1,
+      0,
+      0
+     ],
+     "counts": [
+      0,
+      68719476736,
+      0,
+      0
+     ],
+     "grid": [
+      0,
+      1099511627776,
+      0,
+      0
+     ]
+    },
+    "uniformly_chosen_first_receiver": {
+     "probabilities": [
+      0.0,
+      0.0005884536440785682,
+      0.0,
+      0.9994115463559214
+     ],
+     "counts": [
+      0,
+      40440466,
+      0,
+      68679036270
+     ],
+     "grid": [
+      0,
+      647011624,
+      0,
+      1098864616152
+     ]
+    }
+   },
+   "exchange=0, duration_over_pi=1": {
+    "vacancy_standard": {
+     "probabilities": [
+      0,
+      1,
+      0,
+      0
+     ],
+     "counts": [
+      0,
+      68719476736,
+      0,
+      0
+     ],
+     "grid": [
+      0,
+      1099511627776,
+      0,
+      0
+     ]
+    },
+    "excess_standard": {
+     "probabilities": [
+      0,
+      1,
+      0,
+      0
+     ],
+     "counts": [
+      0,
+      68719476736,
+      0,
+      0
+     ],
+     "grid": [
+      0,
+      1099511627776,
+      0,
+      0
+     ]
+    },
+    "uniformly_chosen_first_receiver": {
+     "probabilities": [
+      0.0,
+      0.0005884536440785682,
+      0.0,
+      0.9994115463559214
+     ],
+     "counts": [
+      0,
+      40434251,
+      0,
+      68679042485
+     ],
+     "grid": [
+      0,
+      647011624,
+      0,
+      1098864616152
+     ]
+    }
+   },
+   "exchange=0, duration_over_pi=2": {
+    "vacancy_standard": {
+     "probabilities": [
+      0,
+      1,
+      0,
+      0
+     ],
+     "counts": [
+      0,
+      68719476736,
+      0,
+      0
+     ],
+     "grid": [
+      0,
+      1099511627776,
+      0,
+      0
+     ]
+    },
+    "excess_standard": {
+     "probabilities": [
+      0,
+      1,
+      0,
+      0
+     ],
+     "counts": [
+      0,
+      68719476736,
+      0,
+      0
+     ],
+     "grid": [
+      0,
+      1099511627776,
+      0,
+      0
+     ]
+    },
+    "uniformly_chosen_first_receiver": {
+     "probabilities": [
+      0.0,
+      0.0005884536440785682,
+      0.0,
+      0.9994115463559214
+     ],
+     "counts": [
+      0,
+      40445435,
+      0,
+      68679031301
+     ],
+     "grid": [
+      0,
+      647011624,
+      0,
+      1098864616152
+     ]
+    }
+   }
+  }
+ }
+}
