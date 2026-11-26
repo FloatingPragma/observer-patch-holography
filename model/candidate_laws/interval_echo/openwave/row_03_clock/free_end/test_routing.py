@@ -4,7 +4,7 @@ import numpy as np
 import pytest
 from scipy.linalg import eigh, expm
 
-from ...row_08_annihilation import experiment
+from ...row_08_annihilation import experiment, walls
 from . import measure as clock, routing
 
 
@@ -43,3 +43,22 @@ def test_control_target_memory_circuit(pin):
 def test_count_only_routing_decode():
     with np.load(clock.HERE/"routing_counts.npz",allow_pickle=False) as banks:
         routing.validate(routing.decode(banks))
+
+def test_post_clamp_native_instrument_factorizes_on_both_recorded_phases():
+    # Read the entire native joint generator, independently of the reduced routing model.
+    full = walls.operators(8, False, 3)
+    _, anchors, _ = walls.geometry()
+    for phase in (0,1):
+        bits = walls.reference(phase)
+        ring_index = int("".join(map(str,bits)),2)
+        slot = slice(64*ring_index,64*(ring_index+1))
+        pins = np.array(walls.loads(bits))[anchors]
+        left,right = (experiment.wing(8,3,int(pin)) for pin in pins)
+        disconnected = np.kron(left,np.eye(8)) + np.kron(np.eye(8),right)
+        # Native two-load terms have half-integral coefficients at integer kappa.
+        # Check rounding residuals before comparing the integer coefficient matrices.
+        scaled = 2*np.stack([full[slot,slot],disconnected])
+        integers = np.rint(scaled).astype(np.int64)
+        np.testing.assert_allclose(scaled,integers,rtol=0,atol=2e-12)
+        difference = integers[0]-integers[1]
+        np.testing.assert_array_equal(difference, np.eye(64,dtype=int)*difference[0,0])

@@ -35,6 +35,20 @@ theorem one_mode_width (j h a b : ℝ)
   rcases hb with ⟨_, _⟩
   exact abs_le.mpr ⟨by linarith, by linarith⟩
 
+/-- A product state has fidelity at most one half with the two equal
+Schmidt branches of routing an excitation coherent with its idle copy.
+Here a,b and c,d bound absolute overlaps on the two sides of the cut. -/
+theorem switched_product_fidelity (a b c d : ℝ)
+    (hx : a^2+b^2 ≤ 1) (hy : c^2+d^2 ≤ 1) :
+    (a*c+b*d)^2/2 ≤ 1/2 := by
+  have hc : (a*c+b*d)^2 ≤ (a^2+b^2)*(c^2+d^2) := by
+    nlinarith [sq_nonneg (a*d-b*c)]
+  have hb : (a^2+b^2)*(c^2+d^2) ≤ 1*1 :=
+    mul_le_mul hx hy (by positivity) (by norm_num)
+  linarith
+
+#print axioms switched_product_fidelity
+
 #print axioms signed_sandwich
 #print axioms odd_compression
 #print axioms one_mode_width
