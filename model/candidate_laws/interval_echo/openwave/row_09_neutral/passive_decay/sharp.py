@@ -2,7 +2,6 @@
 
 import argparse
 import json
-from pathlib import Path
 import numpy as np
 from scipy.linalg import eigh
 from model.candidate_laws.interval_echo.openwave.row_30_collective.sharp_growth.growth import (
