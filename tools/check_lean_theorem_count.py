@@ -79,7 +79,8 @@ def lean_source_files() -> list[Path]:
         path
         for path in paths
         if path.is_file()
-        and not any(part.startswith(".") or part == "lake-packages" for part in path.parts)
+        and not any(part.startswith(".") or part == "lake-packages"
+                    for part in path.relative_to(LEAN_ROOT).parts)
     )
 
 
