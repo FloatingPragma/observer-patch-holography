@@ -1,0 +1,3579 @@
+{
+  "ports": [
+    0,
+    5,
+    11
+  ],
+  "couplings": [
+    1.5,
+    1.25
+  ],
+  "dwell": 0.83,
+  "shots": 32768,
+  "seed": 641533,
+  "simultaneous_radius": 0.013474121089671292,
+  "sources": [
+    [
+      "upper"
+    ],
+    [
+      "lower"
+    ],
+    [
+      "ref"
+    ],
+    [
+      "pair",
+      0,
+      1,
+      0.0
+    ],
+    [
+      "pair",
+      0,
+      1,
+      1.5707963267948966
+    ],
+    [
+      "pair",
+      0,
+      2,
+      0.0
+    ],
+    [
+      "pair",
+      1,
+      2,
+      1.5707963267948966
+    ]
+  ],
+  "readers": [
+    [
+      "ports"
+    ],
+    [
+      "pair",
+      0,
+      1,
+      0.0
+    ],
+    [
+      "pair",
+      0,
+      1,
+      1.5707963267948966
+    ],
+    [
+      "pair",
+      0,
+      2,
+      0.0
+    ],
+    [
+      "pair",
+      0,
+      2,
+      1.5707963267948966
+    ],
+    [
+      "pair",
+      1,
+      2,
+      0.0
+    ],
+    [
+      "pair",
+      1,
+      2,
+      1.5707963267948966
+    ]
+  ],
+  "panels": [
+    {
+      "direction": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "banks": [
+        {
+          "source": 0,
+          "read": 0,
+          "counts": [
+            21459,
+            11309,
+            0
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 0,
+          "read": 1,
+          "counts": [
+            16525,
+            16243,
+            0
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 0,
+          "read": 2,
+          "counts": [
+            31905,
+            863,
+            0
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 0,
+          "read": 3,
+          "counts": [
+            10736,
+            11406,
+            10626
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 0,
+          "read": 4,
+          "counts": [
+            10868,
+            11214,
+            10686
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 0,
+          "read": 5,
+          "counts": [
+            21592,
+            5484,
+            5692
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 0,
+          "read": 6,
+          "counts": [
+            21739,
+            5494,
+            5535
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 1,
+          "read": 0,
+          "counts": [
+            11212,
+            21556,
+            0
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 1,
+          "read": 1,
+          "counts": [
+            16449,
+            16319,
+            0
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 1,
+          "read": 2,
+          "counts": [
+            860,
+            31908,
+            0
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 1,
+          "read": 3,
+          "counts": [
+            5584,
+            21660,
+            5524
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 1,
+          "read": 4,
+          "counts": [
+            5620,
+            21605,
+            5543
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 1,
+          "read": 5,
+          "counts": [
+            11145,
+            10930,
+            10693
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 1,
+          "read": 6,
+          "counts": [
+            11042,
+            10920,
+            10806
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 2,
+          "read": 0,
+          "counts": [
+            0,
+            0,
+            32768
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 2,
+          "read": 1,
+          "counts": [
+            0,
+            0,
+            32768
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 2,
+          "read": 2,
+          "counts": [
+            0,
+            0,
+            32768
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 2,
+          "read": 3,
+          "counts": [
+            16448,
+            0,
+            16320
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 2,
+          "read": 4,
+          "counts": [
+            16393,
+            0,
+            16375
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 2,
+          "read": 5,
+          "counts": [
+            0,
+            16359,
+            16409
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 2,
+          "read": 6,
+          "counts": [
+            0,
+            16365,
+            16403
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 3,
+          "read": 0,
+          "counts": [
+            16460,
+            16308,
+            0
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 3,
+          "read": 1,
+          "counts": [
+            32768,
+            0,
+            0
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 3,
+          "read": 2,
+          "counts": [
+            16344,
+            16424,
+            0
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 3,
+          "read": 3,
+          "counts": [
+            8205,
+            16389,
+            8174
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 3,
+          "read": 4,
+          "counts": [
+            8103,
+            16456,
+            8209
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 3,
+          "read": 5,
+          "counts": [
+            16357,
+            8112,
+            8299
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 3,
+          "read": 6,
+          "counts": [
+            16374,
+            8308,
+            8086
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 4,
+          "read": 0,
+          "counts": [
+            880,
+            31888,
+            0
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 4,
+          "read": 1,
+          "counts": [
+            16479,
+            16289,
+            0
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 4,
+          "read": 2,
+          "counts": [
+            21626,
+            11142,
+            0
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 4,
+          "read": 3,
+          "counts": [
+            395,
+            31925,
+            448
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 4,
+          "read": 4,
+          "counts": [
+            406,
+            31956,
+            406
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 4,
+          "read": 5,
+          "counts": [
+            890,
+            15916,
+            15962
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 4,
+          "read": 6,
+          "counts": [
+            867,
+            16077,
+            15824
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 5,
+          "read": 0,
+          "counts": [
+            10847,
+            5627,
+            16294
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 5,
+          "read": 1,
+          "counts": [
+            8211,
+            8292,
+            16265
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 5,
+          "read": 2,
+          "counts": [
+            16008,
+            430,
+            16330
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 5,
+          "read": 3,
+          "counts": [
+            26865,
+            5606,
+            297
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 5,
+          "read": 4,
+          "counts": [
+            13457,
+            5660,
+            13651
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 5,
+          "read": 5,
+          "counts": [
+            10752,
+            11165,
+            10851
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 5,
+          "read": 6,
+          "counts": [
+            10683,
+            1394,
+            20691
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 6,
+          "read": 0,
+          "counts": [
+            5475,
+            10652,
+            16641
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 6,
+          "read": 1,
+          "counts": [
+            8221,
+            8196,
+            16351
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 6,
+          "read": 2,
+          "counts": [
+            392,
+            16019,
+            16357
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 6,
+          "read": 3,
+          "counts": [
+            20520,
+            10810,
+            1438
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 6,
+          "read": 4,
+          "counts": [
+            10980,
+            10724,
+            11064
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 6,
+          "read": 5,
+          "counts": [
+            5575,
+            13608,
+            13585
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 6,
+          "read": 6,
+          "counts": [
+            5464,
+            27033,
+            271
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        }
+      ]
+    },
+    {
+      "direction": [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "banks": [
+        {
+          "source": 0,
+          "read": 0,
+          "counts": [
+            21569,
+            11199,
+            0
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 0,
+          "read": 1,
+          "counts": [
+            862,
+            31906,
+            0
+          ],
+          "matched": [
+            true,
+            false,
+            true
+          ]
+        },
+        {
+          "source": 0,
+          "read": 2,
+          "counts": [
+            16369,
+            16399,
+            0
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 0,
+          "read": 3,
+          "counts": [
+            10738,
+            11274,
+            10756
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 0,
+          "read": 4,
+          "counts": [
+            10885,
+            11015,
+            10868
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 0,
+          "read": 5,
+          "counts": [
+            21679,
+            5502,
+            5587
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 0,
+          "read": 6,
+          "counts": [
+            21678,
+            5557,
+            5533
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 1,
+          "read": 0,
+          "counts": [
+            11154,
+            21614,
+            0
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 1,
+          "read": 1,
+          "counts": [
+            31886,
+            882,
+            0
+          ],
+          "matched": [
+            true,
+            false,
+            true
+          ]
+        },
+        {
+          "source": 1,
+          "read": 2,
+          "counts": [
+            16283,
+            16485,
+            0
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 1,
+          "read": 3,
+          "counts": [
+            5701,
+            21380,
+            5687
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 1,
+          "read": 4,
+          "counts": [
+            5578,
+            21639,
+            5551
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 1,
+          "read": 5,
+          "counts": [
+            11170,
+            10650,
+            10948
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 1,
+          "read": 6,
+          "counts": [
+            11305,
+            10552,
+            10911
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 2,
+          "read": 0,
+          "counts": [
+            0,
+            0,
+            32768
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 2,
+          "read": 1,
+          "counts": [
+            0,
+            0,
+            32768
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 2,
+          "read": 2,
+          "counts": [
+            0,
+            0,
+            32768
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 2,
+          "read": 3,
+          "counts": [
+            16424,
+            0,
+            16344
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 2,
+          "read": 4,
+          "counts": [
+            16298,
+            0,
+            16470
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 2,
+          "read": 5,
+          "counts": [
+            0,
+            16322,
+            16446
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 2,
+          "read": 6,
+          "counts": [
+            0,
+            16384,
+            16384
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 3,
+          "read": 0,
+          "counts": [
+            31945,
+            823,
+            0
+          ],
+          "matched": [
+            true,
+            false,
+            true
+          ]
+        },
+        {
+          "source": 3,
+          "read": 1,
+          "counts": [
+            21607,
+            11161,
+            0
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 3,
+          "read": 2,
+          "counts": [
+            16600,
+            16168,
+            0
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 3,
+          "read": 3,
+          "counts": [
+            15895,
+            851,
+            16022
+          ],
+          "matched": [
+            true,
+            false,
+            true
+          ]
+        },
+        {
+          "source": 3,
+          "read": 4,
+          "counts": [
+            15783,
+            848,
+            16137
+          ],
+          "matched": [
+            true,
+            false,
+            true
+          ]
+        },
+        {
+          "source": 3,
+          "read": 5,
+          "counts": [
+            31924,
+            442,
+            402
+          ],
+          "matched": [
+            true,
+            false,
+            true
+          ]
+        },
+        {
+          "source": 3,
+          "read": 6,
+          "counts": [
+            31929,
+            406,
+            433
+          ],
+          "matched": [
+            true,
+            false,
+            true
+          ]
+        },
+        {
+          "source": 4,
+          "read": 0,
+          "counts": [
+            16413,
+            16355,
+            0
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 4,
+          "read": 1,
+          "counts": [
+            16450,
+            16318,
+            0
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 4,
+          "read": 2,
+          "counts": [
+            32768,
+            0,
+            0
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 4,
+          "read": 3,
+          "counts": [
+            8089,
+            16487,
+            8192
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 4,
+          "read": 4,
+          "counts": [
+            8321,
+            16230,
+            8217
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 4,
+          "read": 5,
+          "counts": [
+            16451,
+            8154,
+            8163
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 4,
+          "read": 6,
+          "counts": [
+            16385,
+            8143,
+            8240
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 5,
+          "read": 0,
+          "counts": [
+            10865,
+            5570,
+            16333
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 5,
+          "read": 1,
+          "counts": [
+            424,
+            16066,
+            16278
+          ],
+          "matched": [
+            true,
+            false,
+            true
+          ]
+        },
+        {
+          "source": 5,
+          "read": 2,
+          "counts": [
+            8171,
+            8145,
+            16452
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 5,
+          "read": 3,
+          "counts": [
+            26962,
+            5529,
+            277
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 5,
+          "read": 4,
+          "counts": [
+            13493,
+            5503,
+            13772
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 5,
+          "read": 5,
+          "counts": [
+            10689,
+            1440,
+            20639
+          ],
+          "matched": [
+            true,
+            false,
+            true
+          ]
+        },
+        {
+          "source": 5,
+          "read": 6,
+          "counts": [
+            10823,
+            11035,
+            10910
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 6,
+          "read": 0,
+          "counts": [
+            5659,
+            10848,
+            16261
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 6,
+          "read": 1,
+          "counts": [
+            15772,
+            441,
+            16555
+          ],
+          "matched": [
+            true,
+            false,
+            true
+          ]
+        },
+        {
+          "source": 6,
+          "read": 2,
+          "counts": [
+            8263,
+            8145,
+            16360
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 6,
+          "read": 3,
+          "counts": [
+            11047,
+            10856,
+            10865
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 6,
+          "read": 4,
+          "counts": [
+            20547,
+            10836,
+            1385
+          ],
+          "matched": [
+            true,
+            false,
+            true
+          ]
+        },
+        {
+          "source": 6,
+          "read": 5,
+          "counts": [
+            5584,
+            13649,
+            13535
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 6,
+          "read": 6,
+          "counts": [
+            5725,
+            26780,
+            263
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        }
+      ]
+    },
+    {
+      "direction": [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      "banks": [
+        {
+          "source": 0,
+          "read": 0,
+          "counts": [
+            32768,
+            0,
+            0
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 0,
+          "read": 1,
+          "counts": [
+            16302,
+            16466,
+            0
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 0,
+          "read": 2,
+          "counts": [
+            16261,
+            16507,
+            0
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 0,
+          "read": 3,
+          "counts": [
+            16370,
+            0,
+            16398
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 0,
+          "read": 4,
+          "counts": [
+            16380,
+            0,
+            16388
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 0,
+          "read": 5,
+          "counts": [
+            32768,
+            0,
+            0
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 0,
+          "read": 6,
+          "counts": [
+            32768,
+            0,
+            0
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 1,
+          "read": 0,
+          "counts": [
+            0,
+            32768,
+            0
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 1,
+          "read": 1,
+          "counts": [
+            16504,
+            16264,
+            0
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 1,
+          "read": 2,
+          "counts": [
+            16233,
+            16535,
+            0
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 1,
+          "read": 3,
+          "counts": [
+            0,
+            32768,
+            0
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 1,
+          "read": 4,
+          "counts": [
+            0,
+            32768,
+            0
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 1,
+          "read": 5,
+          "counts": [
+            0,
+            16263,
+            16505
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 1,
+          "read": 6,
+          "counts": [
+            0,
+            16434,
+            16334
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 2,
+          "read": 0,
+          "counts": [
+            0,
+            0,
+            32768
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 2,
+          "read": 1,
+          "counts": [
+            0,
+            0,
+            32768
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 2,
+          "read": 2,
+          "counts": [
+            0,
+            0,
+            32768
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 2,
+          "read": 3,
+          "counts": [
+            16346,
+            0,
+            16422
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 2,
+          "read": 4,
+          "counts": [
+            16332,
+            0,
+            16436
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 2,
+          "read": 5,
+          "counts": [
+            0,
+            16628,
+            16140
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 2,
+          "read": 6,
+          "counts": [
+            0,
+            16387,
+            16381
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 3,
+          "read": 0,
+          "counts": [
+            16461,
+            16307,
+            0
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 3,
+          "read": 1,
+          "counts": [
+            21708,
+            11060,
+            0
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 3,
+          "read": 2,
+          "counts": [
+            856,
+            31912,
+            0
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 3,
+          "read": 3,
+          "counts": [
+            8343,
+            16272,
+            8153
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 3,
+          "read": 4,
+          "counts": [
+            8118,
+            16342,
+            8308
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 3,
+          "read": 5,
+          "counts": [
+            16360,
+            8209,
+            8199
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 3,
+          "read": 6,
+          "counts": [
+            16522,
+            8156,
+            8090
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 4,
+          "read": 0,
+          "counts": [
+            16299,
+            16469,
+            0
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 4,
+          "read": 1,
+          "counts": [
+            31877,
+            891,
+            0
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 4,
+          "read": 2,
+          "counts": [
+            21480,
+            11288,
+            0
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 4,
+          "read": 3,
+          "counts": [
+            8212,
+            16306,
+            8250
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 4,
+          "read": 4,
+          "counts": [
+            8237,
+            16384,
+            8147
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 4,
+          "read": 5,
+          "counts": [
+            16357,
+            8151,
+            8260
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 4,
+          "read": 6,
+          "counts": [
+            16327,
+            8220,
+            8221
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 5,
+          "read": 0,
+          "counts": [
+            16507,
+            0,
+            16261
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 5,
+          "read": 1,
+          "counts": [
+            8314,
+            8199,
+            16255
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 5,
+          "read": 2,
+          "counts": [
+            8222,
+            8244,
+            16302
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 5,
+          "read": 3,
+          "counts": [
+            29660,
+            0,
+            3108
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 5,
+          "read": 4,
+          "counts": [
+            6818,
+            0,
+            25950
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 5,
+          "read": 5,
+          "counts": [
+            16430,
+            8240,
+            8098
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 5,
+          "read": 6,
+          "counts": [
+            16384,
+            8166,
+            8218
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 6,
+          "read": 0,
+          "counts": [
+            0,
+            16426,
+            16342
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 6,
+          "read": 1,
+          "counts": [
+            8143,
+            8187,
+            16438
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 6,
+          "read": 2,
+          "counts": [
+            8246,
+            8223,
+            16299
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 6,
+          "read": 3,
+          "counts": [
+            8101,
+            16398,
+            8269
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 6,
+          "read": 4,
+          "counts": [
+            8269,
+            16489,
+            8010
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 6,
+          "read": 5,
+          "counts": [
+            0,
+            6808,
+            25960
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 6,
+          "read": 6,
+          "counts": [
+            0,
+            29706,
+            3062
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        }
+      ]
+    },
+    {
+      "direction": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "banks": [
+        {
+          "source": 0,
+          "read": 0,
+          "counts": [
+            32768,
+            0,
+            0
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 0,
+          "read": 1,
+          "counts": [
+            16355,
+            16413,
+            0
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 0,
+          "read": 2,
+          "counts": [
+            16276,
+            16492,
+            0
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 0,
+          "read": 3,
+          "counts": [
+            16412,
+            0,
+            16356
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 0,
+          "read": 4,
+          "counts": [
+            16349,
+            0,
+            16419
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 0,
+          "read": 5,
+          "counts": [
+            32768,
+            0,
+            0
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 0,
+          "read": 6,
+          "counts": [
+            32768,
+            0,
+            0
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 1,
+          "read": 0,
+          "counts": [
+            0,
+            32768,
+            0
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 1,
+          "read": 1,
+          "counts": [
+            16396,
+            16372,
+            0
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 1,
+          "read": 2,
+          "counts": [
+            16411,
+            16357,
+            0
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 1,
+          "read": 3,
+          "counts": [
+            0,
+            32768,
+            0
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 1,
+          "read": 4,
+          "counts": [
+            0,
+            32768,
+            0
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 1,
+          "read": 5,
+          "counts": [
+            0,
+            16571,
+            16197
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 1,
+          "read": 6,
+          "counts": [
+            0,
+            16238,
+            16530
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 2,
+          "read": 0,
+          "counts": [
+            0,
+            0,
+            32768
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 2,
+          "read": 1,
+          "counts": [
+            0,
+            0,
+            32768
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 2,
+          "read": 2,
+          "counts": [
+            0,
+            0,
+            32768
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 2,
+          "read": 3,
+          "counts": [
+            16398,
+            0,
+            16370
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 2,
+          "read": 4,
+          "counts": [
+            16282,
+            0,
+            16486
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 2,
+          "read": 5,
+          "counts": [
+            0,
+            16578,
+            16190
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 2,
+          "read": 6,
+          "counts": [
+            0,
+            16372,
+            16396
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 3,
+          "read": 0,
+          "counts": [
+            16248,
+            16520,
+            0
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 3,
+          "read": 1,
+          "counts": [
+            32768,
+            0,
+            0
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 3,
+          "read": 2,
+          "counts": [
+            16269,
+            16499,
+            0
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 3,
+          "read": 3,
+          "counts": [
+            8244,
+            16337,
+            8187
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 3,
+          "read": 4,
+          "counts": [
+            8174,
+            16338,
+            8256
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 3,
+          "read": 5,
+          "counts": [
+            16404,
+            8153,
+            8211
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 3,
+          "read": 6,
+          "counts": [
+            16369,
+            8150,
+            8249
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 4,
+          "read": 0,
+          "counts": [
+            16440,
+            16328,
+            0
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 4,
+          "read": 1,
+          "counts": [
+            16546,
+            16222,
+            0
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 4,
+          "read": 2,
+          "counts": [
+            32768,
+            0,
+            0
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 4,
+          "read": 3,
+          "counts": [
+            8229,
+            16326,
+            8213
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 4,
+          "read": 4,
+          "counts": [
+            8217,
+            16239,
+            8312
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 4,
+          "read": 5,
+          "counts": [
+            16306,
+            8143,
+            8319
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 4,
+          "read": 6,
+          "counts": [
+            16401,
+            8270,
+            8097
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 5,
+          "read": 0,
+          "counts": [
+            16433,
+            0,
+            16335
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 5,
+          "read": 1,
+          "counts": [
+            8254,
+            8202,
+            16312
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 5,
+          "read": 2,
+          "counts": [
+            8210,
+            8156,
+            16402
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 5,
+          "read": 3,
+          "counts": [
+            30663,
+            0,
+            2105
+          ],
+          "matched": [
+            true,
+            true,
+            false
+          ]
+        },
+        {
+          "source": 5,
+          "read": 4,
+          "counts": [
+            8139,
+            0,
+            24629
+          ],
+          "matched": [
+            true,
+            true,
+            false
+          ]
+        },
+        {
+          "source": 5,
+          "read": 5,
+          "counts": [
+            16455,
+            8107,
+            8206
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 5,
+          "read": 6,
+          "counts": [
+            16483,
+            8233,
+            8052
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 6,
+          "read": 0,
+          "counts": [
+            0,
+            16282,
+            16486
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 6,
+          "read": 1,
+          "counts": [
+            8221,
+            8088,
+            16459
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 6,
+          "read": 2,
+          "counts": [
+            8227,
+            8036,
+            16505
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 6,
+          "read": 3,
+          "counts": [
+            8123,
+            16475,
+            8170
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 6,
+          "read": 4,
+          "counts": [
+            8164,
+            16389,
+            8215
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 6,
+          "read": 5,
+          "counts": [
+            0,
+            24389,
+            8379
+          ],
+          "matched": [
+            true,
+            true,
+            false
+          ]
+        },
+        {
+          "source": 6,
+          "read": 6,
+          "counts": [
+            0,
+            30608,
+            2160
+          ],
+          "matched": [
+            true,
+            true,
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "direction": [
+        0.6,
+        -0.8,
+        0.45,
+        0.7
+      ],
+      "banks": [
+        {
+          "source": 0,
+          "read": 0,
+          "counts": [
+            21700,
+            11068,
+            0
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 0,
+          "read": 1,
+          "counts": [
+            30942,
+            1826,
+            0
+          ],
+          "matched": [
+            true,
+            false,
+            true
+          ]
+        },
+        {
+          "source": 0,
+          "read": 2,
+          "counts": [
+            21268,
+            11500,
+            0
+          ],
+          "matched": [
+            true,
+            false,
+            true
+          ]
+        },
+        {
+          "source": 0,
+          "read": 3,
+          "counts": [
+            10926,
+            10819,
+            11023
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 0,
+          "read": 4,
+          "counts": [
+            10955,
+            10833,
+            10980
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 0,
+          "read": 5,
+          "counts": [
+            21809,
+            5377,
+            5582
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 0,
+          "read": 6,
+          "counts": [
+            21745,
+            5473,
+            5550
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 1,
+          "read": 0,
+          "counts": [
+            10829,
+            21939,
+            0
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 1,
+          "read": 1,
+          "counts": [
+            1706,
+            31062,
+            0
+          ],
+          "matched": [
+            true,
+            false,
+            true
+          ]
+        },
+        {
+          "source": 1,
+          "read": 2,
+          "counts": [
+            11526,
+            21242,
+            0
+          ],
+          "matched": [
+            true,
+            false,
+            true
+          ]
+        },
+        {
+          "source": 1,
+          "read": 3,
+          "counts": [
+            5324,
+            22018,
+            5426
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 1,
+          "read": 4,
+          "counts": [
+            5580,
+            21735,
+            5453
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 1,
+          "read": 5,
+          "counts": [
+            10764,
+            11086,
+            10918
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 1,
+          "read": 6,
+          "counts": [
+            10689,
+            11016,
+            11063
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 2,
+          "read": 0,
+          "counts": [
+            0,
+            0,
+            32768
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 2,
+          "read": 1,
+          "counts": [
+            0,
+            0,
+            32768
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 2,
+          "read": 2,
+          "counts": [
+            0,
+            0,
+            32768
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 2,
+          "read": 3,
+          "counts": [
+            16368,
+            0,
+            16400
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 2,
+          "read": 4,
+          "counts": [
+            16239,
+            0,
+            16529
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 2,
+          "read": 5,
+          "counts": [
+            0,
+            16461,
+            16307
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 2,
+          "read": 6,
+          "counts": [
+            0,
+            16477,
+            16291
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 3,
+          "read": 0,
+          "counts": [
+            7697,
+            25071,
+            0
+          ],
+          "matched": [
+            true,
+            false,
+            true
+          ]
+        },
+        {
+          "source": 3,
+          "read": 1,
+          "counts": [
+            23683,
+            9085,
+            0
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 3,
+          "read": 2,
+          "counts": [
+            4749,
+            28019,
+            0
+          ],
+          "matched": [
+            true,
+            false,
+            true
+          ]
+        },
+        {
+          "source": 3,
+          "read": 3,
+          "counts": [
+            3776,
+            25153,
+            3839
+          ],
+          "matched": [
+            true,
+            false,
+            true
+          ]
+        },
+        {
+          "source": 3,
+          "read": 4,
+          "counts": [
+            3809,
+            25251,
+            3708
+          ],
+          "matched": [
+            true,
+            false,
+            true
+          ]
+        },
+        {
+          "source": 3,
+          "read": 5,
+          "counts": [
+            7621,
+            12636,
+            12511
+          ],
+          "matched": [
+            true,
+            false,
+            true
+          ]
+        },
+        {
+          "source": 3,
+          "read": 6,
+          "counts": [
+            7563,
+            12669,
+            12536
+          ],
+          "matched": [
+            true,
+            false,
+            true
+          ]
+        },
+        {
+          "source": 4,
+          "read": 0,
+          "counts": [
+            3677,
+            29091,
+            0
+          ],
+          "matched": [
+            true,
+            false,
+            true
+          ]
+        },
+        {
+          "source": 4,
+          "read": 1,
+          "counts": [
+            17865,
+            14903,
+            0
+          ],
+          "matched": [
+            true,
+            false,
+            true
+          ]
+        },
+        {
+          "source": 4,
+          "read": 2,
+          "counts": [
+            26624,
+            6144,
+            0
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 4,
+          "read": 3,
+          "counts": [
+            1846,
+            29136,
+            1786
+          ],
+          "matched": [
+            true,
+            false,
+            true
+          ]
+        },
+        {
+          "source": 4,
+          "read": 4,
+          "counts": [
+            1868,
+            29010,
+            1890
+          ],
+          "matched": [
+            true,
+            false,
+            true
+          ]
+        },
+        {
+          "source": 4,
+          "read": 5,
+          "counts": [
+            3644,
+            14654,
+            14470
+          ],
+          "matched": [
+            true,
+            false,
+            true
+          ]
+        },
+        {
+          "source": 4,
+          "read": 6,
+          "counts": [
+            3752,
+            14525,
+            14491
+          ],
+          "matched": [
+            true,
+            false,
+            true
+          ]
+        },
+        {
+          "source": 5,
+          "read": 0,
+          "counts": [
+            10979,
+            5462,
+            16327
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 5,
+          "read": 1,
+          "counts": [
+            15410,
+            887,
+            16471
+          ],
+          "matched": [
+            true,
+            false,
+            true
+          ]
+        },
+        {
+          "source": 5,
+          "read": 2,
+          "counts": [
+            10662,
+            5779,
+            16327
+          ],
+          "matched": [
+            true,
+            false,
+            true
+          ]
+        },
+        {
+          "source": 5,
+          "read": 3,
+          "counts": [
+            24134,
+            5403,
+            3231
+          ],
+          "matched": [
+            true,
+            true,
+            false
+          ]
+        },
+        {
+          "source": 5,
+          "read": 4,
+          "counts": [
+            5272,
+            5460,
+            22036
+          ],
+          "matched": [
+            true,
+            true,
+            false
+          ]
+        },
+        {
+          "source": 5,
+          "read": 5,
+          "counts": [
+            10923,
+            15943,
+            5902
+          ],
+          "matched": [
+            true,
+            false,
+            false
+          ]
+        },
+        {
+          "source": 5,
+          "read": 6,
+          "counts": [
+            11227,
+            2855,
+            18686
+          ],
+          "matched": [
+            true,
+            false,
+            false
+          ]
+        },
+        {
+          "source": 6,
+          "read": 0,
+          "counts": [
+            5397,
+            10909,
+            16462
+          ],
+          "matched": [
+            true,
+            true,
+            true
+          ]
+        },
+        {
+          "source": 6,
+          "read": 1,
+          "counts": [
+            843,
+            15648,
+            16277
+          ],
+          "matched": [
+            true,
+            false,
+            true
+          ]
+        },
+        {
+          "source": 6,
+          "read": 2,
+          "counts": [
+            5743,
+            10611,
+            16414
+          ],
+          "matched": [
+            true,
+            false,
+            true
+          ]
+        },
+        {
+          "source": 6,
+          "read": 3,
+          "counts": [
+            13576,
+            11096,
+            8096
+          ],
+          "matched": [
+            true,
+            false,
+            false
+          ]
+        },
+        {
+          "source": 6,
+          "read": 4,
+          "counts": [
+            1771,
+            11103,
+            19894
+          ],
+          "matched": [
+            true,
+            false,
+            true
+          ]
+        },
+        {
+          "source": 6,
+          "read": 5,
+          "counts": [
+            5424,
+            14138,
+            13206
+          ],
+          "matched": [
+            true,
+            true,
+            false
+          ]
+        },
+        {
+          "source": 6,
+          "read": 6,
+          "counts": [
+            5495,
+            26986,
+            287
+          ],
+          "matched": [
+            true,
+            true,
+            false
+          ]
+        }
+      ]
+    }
+  ],
+  "matched_totals": [
+    245,
+    210,
+    234
+  ],
+  "held_changed_law_excluded": 42
+}
