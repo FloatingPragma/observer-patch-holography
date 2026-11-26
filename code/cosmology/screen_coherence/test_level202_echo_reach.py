@@ -3,6 +3,10 @@
 import json
 from pathlib import Path
 
+import pytest
+
+pytest.importorskip("strict_history", reason="needs the oph-model-sim checkout on PYTHONPATH")
+
 from observer_zero_radar import local_graph, outward
 from distance_redshift import inward
 from strict_history.wide_replay import WideReplay

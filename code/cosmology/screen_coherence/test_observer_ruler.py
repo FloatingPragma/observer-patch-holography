@@ -7,6 +7,8 @@ from pathlib import Path
 import numpy as np
 import pytest
 
+pytest.importorskip("strict_history", reason="needs the oph-model-sim checkout on PYTHONPATH")
+
 from observer_ruler import compare, sky_catalog
 from read_ruler_clock import pulse_reading
 from strict_history.wide_replay import WideReplay

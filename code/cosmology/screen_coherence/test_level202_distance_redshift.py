@@ -9,6 +9,8 @@ from pathlib import Path
 
 import pytest
 
+pytest.importorskip("strict_history", reason="needs the oph-model-sim checkout on PYTHONPATH")
+
 from level202_distance_redshift import clock_comparison
 from level202_vacuum_density import readout
 

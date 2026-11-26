@@ -3258,8 +3258,9 @@ def render(register: dict, rows: list[dict], bitcoin_upgrades: dict | None = Non
         "The main candidate law of the executable model, [Interval Echo](../model/candidate_laws/interval_echo/README.md),"
         " runs the contrast-memory seam of [A-contrast-memory-spherical-v1](../model/candidate_laws/contrast_memory_spherical_v1/README.md),"
         " which reproduces particle stability as an observable on the observers'"
-        " agreed records, and its travelling clocks follow the proper-time forecast"
-        " at reunion. Its results are finite mathematical and software results"
+        " agreed records, and its clock filter is calibrated to the proper-time"
+        " forecast on a routed reciprocal journey. Its results are finite"
+        " mathematical and software results"
         " under a declared law, declared calibrations and declared preparations,"
         " and none of them creates a frozen-prediction row."
     )

@@ -9,6 +9,8 @@ import pytest
 from scipy import sparse
 from scipy.sparse.linalg import expm_multiply
 
+pytest.importorskip("strict_history", reason="needs the oph-model-sim checkout on PYTHONPATH")
+
 from level202_gravimeter import WideReplay
 from matched_einstein_limit import observer_field
 
