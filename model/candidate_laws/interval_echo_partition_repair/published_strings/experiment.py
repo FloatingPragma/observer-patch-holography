@@ -108,11 +108,21 @@ def _tomography(rows):
             area_tensor = decode([-15*r["area_over_ell4"]/(4*math.pi) for r in arm])
             entropy_tensor = decode([15*r["entropy_over_ell4"]/(8*math.pi**2) for r in arm])
             stress = decode([r["action_stress"] for r in arm])
+            # QuantitativeSmallBall.small_ball_tensor_bound for eta=1, Lambda=0.
+            bulk, geometric, balance = [max(abs(r[field]) for r in arm) for field in
+                                       ("bulk_over_ell4", "geometric_over_ell4", "balance_over_ell4")]
+            theorem_bound = (17/8)*(15/(4*math.pi))*(bulk+geometric+balance)
+            metric = decode([r["metric_charge"] for r in arm])
+            residual = max(abs(g-2*math.pi*t) for g,t in zip(metric, stress, strict=True))
+            if residual > theorem_bound + 5e-12:
+                raise ArithmeticError("matched finite error budget does not cover its tensor")
             result.append(dict(inverse_ell=d, stock=stock, from_areas=list(area_tensor),
                                from_entropies=list(entropy_tensor), from_action=list(stress),
                                largest_metric_action_error=max(abs(g-2*math.pi*t) for g,t in zip(area_tensor,stress,strict=True)),
                                largest_entropy_action_error=max(abs(s-t) for s,t in zip(entropy_tensor,stress,strict=True)),
-                               largest_balance_over_ell4=max(abs(r["balance_over_ell4"]) for r in arm)))
+                               largest_balance_over_ell4=balance, largest_bulk_over_ell4=bulk,
+                               largest_geometry_over_ell4=geometric, finite_tensor_bound=theorem_bound,
+                               metric_vs_action_tensor_residual=residual))
     return result
 
 

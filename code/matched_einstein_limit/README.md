@@ -47,6 +47,8 @@ The Python receipt checks rational arithmetic and binds the Lean sources.
 The final command requires the repository's Lean toolchain and executes the
 kernel audit; the Lean build checks the same module through its umbrella import.
 
+A separate read-only candidate instantiates the three finite small-ball estimates on homogeneous straight sheets. Existing native clock publications choose the source. Finite rods, regional memory entropies and the conserved sheet action supply independent inputs at the same volume. The full native modular-flow and gravitating-matter identifications remain open. Replay the specific family with `PYTHONPATH=code:. python -m matched_einstein_limit --published-records`. [Source, bounds and countertests](../../model/candidate_laws/interval_echo_partition_repair/published_strings/README.md)
+
 ## Which inputs does Interval Echo supply?
 
 The quantifier in the Einstein result concerns one family of physical regions, states, clocks and matter readouts. The table gives the strongest conclusions of the listed experiments for each input.

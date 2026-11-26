@@ -132,7 +132,14 @@ def main():
     group.add_argument('--write', nargs='?', const=OUTPUT, type=Path)
     group.add_argument('--check', nargs='?', const=OUTPUT, type=Path)
     group.add_argument('--lean-check', action='store_true')
+    group.add_argument('--published-records', action='store_true',
+                       help='verify a nonvacuum instance on the separate parallel-sheet sector')
     args = parser.parse_args()
+    if args.published_records:
+        from model.candidate_laws.interval_echo_partition_repair.published_strings import experiment
+        experiment.main(['--check'])
+        print('Scalar small-ball premises verified on the prepared parallel-sheet family.')
+        return
     if args.lean_check:
         print(canonical(lean_replay()), end='')
         return
@@ -141,7 +148,7 @@ def main():
         args.write.write_text(canonical(value), encoding='utf-8', newline='\n')
     else:
         validate(strict_json.load(args.check), value)
-    print('matched regional Einstein implication: PASS; source premises uninstantiated')
+    print('Verified the conditional tensor theorem. Use --published-records for the prepared sheet source.')
 
 
 if __name__ == '__main__':
