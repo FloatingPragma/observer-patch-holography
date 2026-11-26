@@ -1,4 +1,5 @@
 import Mathlib.Data.List.Basic
+import Mathlib.Logic.Relation
 
 namespace OPH.SeamFlags
 
@@ -34,5 +35,36 @@ theorem arrival_close (first last : Bool) (tail : List Bool) :
   induction tail generalizing first with
   | nil => cases first <;> cases last <;> rfl
   | cons b xs ih => cases first <;> cases b <;> simp [flags, arrival, ih]
+
+/-- A connected receiver network determines a binary source word up to a common flip. -/
+theorem connected_source_fiber {V : Type*} (edge : V → V → Prop) (root : V)
+    (connected : ∀ v, Relation.ReflTransGen edge root v) (f g : V → Bool) :
+    (∀ a b, edge a b → ((f a).xor (f b) = (g a).xor (g b))) ↔
+      (f = g ∨ f = fun v => !(g v)) := by
+  constructor
+  · intro same
+    have step : ∀ a b, edge a b → ((f a).xor (g a) = (f b).xor (g b)) := by
+      intro a b hab
+      have h : ∀ x y z w : Bool, x.xor y = z.xor w → x.xor z = y.xor w := by decide
+      exact h _ _ _ _ (same a b hab)
+    have invariant : ∀ v, (f root).xor (g root) = (f v).xor (g v) := by
+      intro v
+      induction connected v with
+      | refl => rfl
+      | tail _ hab ih => exact ih.trans (step _ _ hab)
+    cases h : (f root).xor (g root) with
+    | false =>
+      left
+      funext v
+      have hv := (invariant v).symm.trans h
+      exact (show ∀ x y : Bool, x.xor y = false → x = y by decide) _ _ hv
+    | true =>
+      right
+      funext v
+      have hv := (invariant v).symm.trans h
+      exact (show ∀ x y : Bool, x.xor y = true → x = !y by decide) _ _ hv
+  · rintro (rfl | rfl) a b _
+    · rfl
+    · exact (show ∀ x y : Bool, (!x).xor (!y) = x.xor y by decide) _ _
 
 end OPH.SeamFlags
