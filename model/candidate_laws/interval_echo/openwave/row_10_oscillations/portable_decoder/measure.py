@@ -22,15 +22,15 @@ MODES = ("native", "which_head", "contrast_four")
 SEED = 26112673
 
 
-def acquire():
+def acquire(times=TIMES, seed=SEED):
     access()
     sources = eraser.launch()
     banks = []
     preserve = np.equal.outer(np.arange(4) % 2, np.arange(4) % 2)
     for strength, modes in [(8, MODES[:2]), (4, MODES[2:])]:
-        waves = sector_fields(strength, False, times=TIMES)
+        waves = sector_fields(strength, False, times=times)
         for owner, (t, time), recipe, panel in product(
-            OWNERS, enumerate(TIMES), range(3), PANELS
+            OWNERS, enumerate(times), range(3), PANELS
         ):
             field = waves[owner][:, t, :]
             coincidence = sources[recipe] * (field @ field.conj().T)
@@ -45,10 +45,10 @@ def acquire():
                     key,
                     [*outcomes, at_source - pair, 0, 1 / 3 - at_source, 2 / 3],
                     STARTS,
-                    seed=SEED,
+                    seed=seed,
                 )
                 banks.append(dict(key=key, counts=counts))
-    return dict(starts=STARTS, seed=SEED, banks=banks)
+    return dict(starts=STARTS, seed=seed, banks=banks)
 
 
 def calibrate(training, recipes):
