@@ -154,10 +154,12 @@ def private_phase_control():
         # The returned counts sum the two disjoint measured histories.
         resolved = sum(abs(close[source, j] * branch[j]) ** 2 for j in range(2))
         for setting, prob in [("unread", coherent), ("locally_read", resolved)]:
-            prob = float(np.clip(prob, 0, 1))
+            # The binomial generator switches to complementary counts above 1/2.
+            # Sample the recorded probability so roundoff at 1/2 cannot swap labels.
+            prob = round(float(np.clip(prob, 0, 1)), 12)
             restored = int(rng.binomial(SHOTS, prob))
             detectors[f"{source}/{setting}"] = dict(
-                restore_probability=round(prob, 12),
+                restore_probability=prob,
                 restored=restored,
                 changed=SHOTS - restored,
             )
