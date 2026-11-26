@@ -53,3 +53,7 @@ The replay regenerates the sources, both native measurements, the sharp-return p
 ## A neutral creation reference
 
 An exact native-operation check extends the reference question beyond one fixed terminal detector. Echoes, free contacts and sharp memory/load pointers preserve the filled, zero-contrast subspace, so finite adaptive programs in this grammar neither create a neutral pair there nor read its coherence with a filled reference. An extra coherent analyzer can resolve a 32-unit phase. Separately, a uniform charge-reference shift is invisible to complete fixed-total-load transcripts, including compensating references and classical feedback. The neutral creation energy fixes a sum, without selecting the two charged formation energies. [Native instruments, boundary controls and proof](neutral_reference/README.md)
+
+## A free-end clock on a collision daughter
+
+A three-dimer receiving wing can resolve all three of its one-quantum energy costs by comparing successive current signs at its free end. The same three frequencies appear on an ordered sham. A sharp one-quantum herald followed by silent waiting gives zero mean terminal current in the native material; inserting the initial current read removes about half the heralded excitations from that sector. This distinguishes local spectroscopy of the material from a freely arriving excitation carrying its own rest clock. [Counts, controls and proof](free_end/README.md)
