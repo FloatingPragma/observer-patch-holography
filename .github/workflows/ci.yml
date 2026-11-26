@@ -80,6 +80,7 @@ jobs:
           python -B -O -m model carrier
           python -B -m model --full
           python -B -O -m model run --law contrast_memory_spherical_v1
+          python -B -W error -m model run --law interval_echo_partition_repair --full
           python -B -O -m model run --law scalar_channel
           python -B -O -m model run --law scalar_channel --extended
           python -B -O -m model evaluate --check

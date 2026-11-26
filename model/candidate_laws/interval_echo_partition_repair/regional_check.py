@@ -161,7 +161,8 @@ def check_saved(actual, saved):
         assert actual.keys() == saved.keys()
         for key, value in actual.items():
             check_saved(value, saved[key])
-    elif isinstance(actual, list):
+    elif isinstance(actual, (tuple, list)):
+        assert isinstance(saved, list)
         for left, right in zip(actual, saved, strict=True):
             check_saved(left, right)
     elif isinstance(actual, float):
