@@ -11,6 +11,7 @@ from scipy.special import chndtr
 
 from .. import measure as muse
 from .strong_radial import evaluate as strong_radial
+from .frozen_slits import predictions as frozen_slits
 
 
 HERE = Path(__file__).resolve().parent
@@ -180,6 +181,7 @@ class Survey:
         return {
             "central_lower_keck_km_s": float(observed[centre]),
             "strong_radial_jeans_control": strong_radial(),
+            "fixed_isotropic_full_continuations": frozen_slits(),
             "muse_outer_upper_km_s": muse.OUTER_UPPER,
             "rectangular_center_tolerance_arcsec": CENTER_ERROR,
             "same_weight_outer_centroid": {

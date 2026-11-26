@@ -20,6 +20,28 @@ The independent outer second moment comes from the black marker nearest one arcs
 
 The first result column accepts any nonnegative MUSE bin weights on the previously adopted support. The optional last column adds a measurement condition. The quoted luminosity-weighted MUSE bin position must use the same effective light weights as its extracted second moment. Its centre has radius 1.010 arcsec. Allowing 0.010 arcsec in raster position and 0.142 arcsec for arbitrary within-spaxel light displacement implies $\mathbb E R\ge|\mathbb E\mathbf R|\ge0.85$ arcsec. If those weights differ, use the support-only column. The general sign-changing bound concerns **spherical** $\beta=1-\langle v_\theta^2\rangle/\langle v_r^2\rangle$ for uncentered velocities relative to systemic; spherical symmetry gives equal tangential components. Turner's fitted **cylindrical** Jeans anisotropy and its posterior do not supply a bound on this quantity. [All numerical bounds and slit offsets](results.json)
 
+## Predictions with no fit to Keck
+
+For each signed slit position integrate the nominal Chabrier and nominal Salpeter isotropic stellar field along the entire sightline with the same SPARC acceleration. Neither the stellar masses, the exterior force, the receipt's distance scale nor the angular shape is adjusted to these velocities. This is a separate prediction from the free-exterior envelope. The heavier calibration's earlier central MUSE and broad fibre comparisons used different apertures. The Keck prediction must use its own slit and seeing.
+
+| Signed Keck offset (arcsec) | Observed raw moment box (km/s) | Fixed Chabrier | Fixed Salpeter |
+|---:|---:|---:|---:|
+| −1.05 | 240.68–302.68 | 189.10 | 246.02 |
+| −0.84 | 264.17–308.03 | 194.46 | 255.00 |
+| −0.63 | 254.17–286.46 | 199.26 | 263.12 |
+| −0.42 | 266.75–292.75 | 202.63 | 268.83 |
+| −0.21 | 276.18–299.51 | 204.46 | 271.95 |
+| 0.00 | 276.00–298.14 | 205.02 | 272.91 |
+| +0.21 | 275.22–298.83 | 204.46 | 271.95 |
+| +0.42 | 289.21–319.11 | 202.63 | 268.83 |
+| +0.63 | 264.57–299.87 | 199.26 | 263.12 |
+| +0.84 | 257.51–301.27 | 194.46 | 255.00 |
+| +1.05 | 284.74–346.70 | 189.10 | 246.02 |
+
+Of the 11 nominal heavy predictions, three lie inside their individual boxes and eight below them. Seven of those eight stay below after allowing a centre error of up to 0.03 arcsec in either slit coordinate. At +0.63 the enclosing numerical interval [261.50,264.66] marginally overlaps the lower endpoint 264.57. The lighter calibration falls below every bin even after the centering allowance. The spherical model predicts identical moments on opposite sides. The two sides are separate measurements with different central values and uncertainties. These counts have no joint significance level; the paper does not publish a full covariance for the signed means, dispersions and inter-bin errors.
+
+The aperture integral of a decreasing circular field over a uniform rectangle decreases in either absolute center coordinate. Holding one displacement fixed, integrate the symmetric decreasing profile over the interval in the other coordinate and use the ordering of its two boundaries. Subdivide the possible center positions, bound both blurred moment and brightness at the opposing corners of each subrectangle, and integrate the slit with Gaussian quadrature. The numerical intervals include an additional 0.01 km/s outward allowance before rounding. A finer independent slit, seeing and line-of-sight integration changes every tabulated nominal prediction by at most 0.02 km/s. These are quadrature stability checks and no covariance-based goodness of fit is asserted. [Full numerical panel](results.json) · [Independent aperture calculation](frozen_slits.py)
+
 ## Why one stellar bin controls the exterior gravity
 
 Keep the stellar tracer density $\nu$ fixed. For a radial source shell at $s$, define

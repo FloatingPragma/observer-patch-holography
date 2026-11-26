@@ -8,6 +8,304 @@
     "held_muse_central_at_origin_km_s": 291.055,
     "held_muse_central_footprint_lower_km_s": 290.371
   },
+  "fixed_isotropic_full_continuations": {
+    "Chabrier": {
+      "inside_count": 0,
+      "panel": [
+        {
+          "offset_arcsec": -1.05,
+          "predicted_km_s": 189.1,
+          "center_box_km_s": [
+            188.02,
+            190.2
+          ],
+          "measured_component_box_km_s": [
+            240.68,
+            302.68
+          ],
+          "inside": false
+        },
+        {
+          "offset_arcsec": -0.84,
+          "predicted_km_s": 194.46,
+          "center_box_km_s": [
+            193.28,
+            195.62
+          ],
+          "measured_component_box_km_s": [
+            264.17,
+            308.03
+          ],
+          "inside": false
+        },
+        {
+          "offset_arcsec": -0.63,
+          "predicted_km_s": 199.26,
+          "center_box_km_s": [
+            198.21,
+            200.27
+          ],
+          "measured_component_box_km_s": [
+            254.17,
+            286.46
+          ],
+          "inside": false
+        },
+        {
+          "offset_arcsec": -0.42,
+          "predicted_km_s": 202.63,
+          "center_box_km_s": [
+            201.86,
+            203.33
+          ],
+          "measured_component_box_km_s": [
+            266.75,
+            292.75
+          ],
+          "inside": false
+        },
+        {
+          "offset_arcsec": -0.21,
+          "predicted_km_s": 204.46,
+          "center_box_km_s": [
+            204.03,
+            204.8
+          ],
+          "measured_component_box_km_s": [
+            276.18,
+            299.51
+          ],
+          "inside": false
+        },
+        {
+          "offset_arcsec": 0.0,
+          "predicted_km_s": 205.02,
+          "center_box_km_s": [
+            204.95,
+            205.06
+          ],
+          "measured_component_box_km_s": [
+            276.0,
+            298.14
+          ],
+          "inside": false
+        },
+        {
+          "offset_arcsec": 0.21,
+          "predicted_km_s": 204.46,
+          "center_box_km_s": [
+            204.03,
+            204.8
+          ],
+          "measured_component_box_km_s": [
+            275.22,
+            298.83
+          ],
+          "inside": false
+        },
+        {
+          "offset_arcsec": 0.42,
+          "predicted_km_s": 202.63,
+          "center_box_km_s": [
+            201.86,
+            203.33
+          ],
+          "measured_component_box_km_s": [
+            289.21,
+            319.11
+          ],
+          "inside": false
+        },
+        {
+          "offset_arcsec": 0.63,
+          "predicted_km_s": 199.26,
+          "center_box_km_s": [
+            198.21,
+            200.27
+          ],
+          "measured_component_box_km_s": [
+            264.57,
+            299.87
+          ],
+          "inside": false
+        },
+        {
+          "offset_arcsec": 0.84,
+          "predicted_km_s": 194.46,
+          "center_box_km_s": [
+            193.28,
+            195.62
+          ],
+          "measured_component_box_km_s": [
+            257.51,
+            301.27
+          ],
+          "inside": false
+        },
+        {
+          "offset_arcsec": 1.05,
+          "predicted_km_s": 189.1,
+          "center_box_km_s": [
+            188.02,
+            190.2
+          ],
+          "measured_component_box_km_s": [
+            284.74,
+            346.7
+          ],
+          "inside": false
+        }
+      ]
+    },
+    "Salpeter": {
+      "inside_count": 3,
+      "panel": [
+        {
+          "offset_arcsec": -1.05,
+          "predicted_km_s": 246.02,
+          "center_box_km_s": [
+            244.34,
+            247.73
+          ],
+          "measured_component_box_km_s": [
+            240.68,
+            302.68
+          ],
+          "inside": true
+        },
+        {
+          "offset_arcsec": -0.84,
+          "predicted_km_s": 255.0,
+          "center_box_km_s": [
+            253.18,
+            256.81
+          ],
+          "measured_component_box_km_s": [
+            264.17,
+            308.03
+          ],
+          "inside": false
+        },
+        {
+          "offset_arcsec": -0.63,
+          "predicted_km_s": 263.12,
+          "center_box_km_s": [
+            261.5,
+            264.66
+          ],
+          "measured_component_box_km_s": [
+            254.17,
+            286.46
+          ],
+          "inside": true
+        },
+        {
+          "offset_arcsec": -0.42,
+          "predicted_km_s": 268.83,
+          "center_box_km_s": [
+            267.66,
+            269.88
+          ],
+          "measured_component_box_km_s": [
+            266.75,
+            292.75
+          ],
+          "inside": true
+        },
+        {
+          "offset_arcsec": -0.21,
+          "predicted_km_s": 271.95,
+          "center_box_km_s": [
+            271.31,
+            272.46
+          ],
+          "measured_component_box_km_s": [
+            276.18,
+            299.51
+          ],
+          "inside": false
+        },
+        {
+          "offset_arcsec": 0.0,
+          "predicted_km_s": 272.91,
+          "center_box_km_s": [
+            272.82,
+            272.96
+          ],
+          "measured_component_box_km_s": [
+            276.0,
+            298.14
+          ],
+          "inside": false
+        },
+        {
+          "offset_arcsec": 0.21,
+          "predicted_km_s": 271.95,
+          "center_box_km_s": [
+            271.31,
+            272.46
+          ],
+          "measured_component_box_km_s": [
+            275.22,
+            298.83
+          ],
+          "inside": false
+        },
+        {
+          "offset_arcsec": 0.42,
+          "predicted_km_s": 268.83,
+          "center_box_km_s": [
+            267.66,
+            269.88
+          ],
+          "measured_component_box_km_s": [
+            289.21,
+            319.11
+          ],
+          "inside": false
+        },
+        {
+          "offset_arcsec": 0.63,
+          "predicted_km_s": 263.12,
+          "center_box_km_s": [
+            261.5,
+            264.66
+          ],
+          "measured_component_box_km_s": [
+            264.57,
+            299.87
+          ],
+          "inside": false
+        },
+        {
+          "offset_arcsec": 0.84,
+          "predicted_km_s": 255.0,
+          "center_box_km_s": [
+            253.18,
+            256.81
+          ],
+          "measured_component_box_km_s": [
+            257.51,
+            301.27
+          ],
+          "inside": false
+        },
+        {
+          "offset_arcsec": 1.05,
+          "predicted_km_s": 246.02,
+          "center_box_km_s": [
+            244.34,
+            247.73
+          ],
+          "measured_component_box_km_s": [
+            284.74,
+            346.7
+          ],
+          "inside": false
+        }
+      ]
+    }
+  },
   "muse_outer_upper_km_s": 247.0,
   "rectangular_center_tolerance_arcsec": 0.03,
   "same_weight_outer_centroid": {

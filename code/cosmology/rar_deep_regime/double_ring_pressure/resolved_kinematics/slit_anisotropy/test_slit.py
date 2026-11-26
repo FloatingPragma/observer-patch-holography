@@ -9,6 +9,7 @@ from scipy.optimize import linprog
 
 from . import measure
 from . import strong_radial
+from .frozen_slits import predictions as frozen_slits
 
 
 def integrated_kernel(R, s, beta, weight):
@@ -106,3 +107,29 @@ def test_counted_apertures_and_refinement():
     ):
         assert abs(original[key] - refined[key]) < 0.05
     assert original["held_muse_central_footprint_lower_km_s"] > 290
+
+
+def test_whole_held_panel_at_finer_resolution():
+    source = json.loads((measure.HERE / "results.json").read_text())[
+        "fixed_isotropic_full_continuations"
+    ]
+    refined = frozen_slits(refined=True)
+    assert source["Salpeter"]["inside_count"] == 3
+    assert source["Chabrier"]["inside_count"] == 0
+    for name in ("Salpeter", "Chabrier"):
+        rows = source[name]["panel"]
+        misses = sum(
+            r["center_box_km_s"][1] < r["measured_component_box_km_s"][0] for r in rows
+        )
+        assert misses == (7 if name == "Salpeter" else 11)
+        for a, b in zip(rows, refined[name]["panel"], strict=True):
+            assert abs(a["predicted_km_s"] - b["predicted_km_s"]) <= 0.02
+            assert (
+                max(
+                    abs(x - y)
+                    for x, y in zip(
+                        a["center_box_km_s"], b["center_box_km_s"], strict=True
+                    )
+                )
+                <= 0.03
+            )
