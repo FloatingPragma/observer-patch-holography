@@ -1,0 +1,25 @@
+# How many independent flags do neighboring observers read?
+
+On a loop of five owners, four shared-seam flags predicted the fifth on every one of 65,536 simulated launches on each of three board sizes. When the same ports instead used separate fair sources, the prediction succeeded on 32,852, 32,647 and 32,684 launches. The law, readout, and number of prepared source dimers were identical. In both preparations any four of the five flags have the same joint distribution. The fifth measurement distinguishes the two sources. [Frozen protocol](PROTOCOL.md) · [Endpoint records on every launch](records.json)
+
+Each owner prepares two dimers, reads their destination ports and uses those bits to switch outward stocks between zero and two loads. In the shared preparation both outward stocks use the same bit. In the split preparation each uses its own. A signed native repair then acts once across each external seam. Both endpoint owners ask whether their local load is one, using a one-load standard, the signed echo and its inverse. They share only their binary answers. If the two inputs differ, the repair puts one load on each side. Equal inputs retain their original loads. The flags agree separately at both ends of every link. The generator, routes, stocks and sharp response were checked on every address. [Native contacts and calibration](apparatus.py)
+
+On the 20-cell board the fair shared source gave 4,058 all-clear loops, against 1,983 with split sources. The corresponding probabilities are 1/16 and 1/32. When the calibrated source probability is 1/4 the predictions become 61/256 and (5/8)⁵; the counts were 15,679 and 6,321. The 80- and 320-cell measurements met the same forecasts. Each rate uses all 65,536 starts per setting. The simultaneous 99% error bound is 0.00946 for individual probabilities. A changed write that stores the initial contrast and preserves the loads left every flag quiet. Parking only the closing write reduced the fair shared path prediction to about one half. Across the three levels and six settings the simulated exposure was 1,179,648 starts. [Count-only score and replay](measure.py)
+
+## Counting from the observer records
+
+Write the private source bit at owner i as bᵢ. The two-end record on edge ij is bᵢ XOR bⱼ. Along a path the intermediate bits cancel, so the open path predicts the closing edge. Conversely, choosing a root bit and the flags on a spanning tree determines all other private bits. Every binary pattern on that tree occurs. In a graph with V vertices and c connected components, exactly 2ᶜ private assignments give each accessible flag word. Independent fair owner bits thus give 2^(V−c) public words, with probability 2^−(V−c) for an all-clear report. With independent owner probability p, the all-clear probability is the product of pˢ+(1−p)ˢ over components of size s. With independently prepared endpoint bits on each seam, each flag is independent, and the all-clear probability on E edges is (p²+(1−p)²)ᴱ. These formulas concern absence of a detected event. A logarithmic zero-error message count also requires distinct preparable inputs and a decoder. [Lean proof of path recovery, encoding and cycle closure](Loop.lean)
+
+On the complete 20-, 80- and 320-owner federations, two endpoint tapes for each individual sharp stock switch let a receiver reconstruct the inter-owner graph and the number of separately controllable flag bits. With one switch per owner the measured numbers were **19, 79 and 319**. A flip at every owner gave the same quiet report as a flip at none. With one independently switched end per seam the numbers were **30, 120 and 480**, and each single-seam flag was reachable. All 72 held compound interventions gave the predicted joint word. In the owner preparation the map is linear over binary addition, so its measured rank and a spanning forest certify the exact code size for arbitrary source words. The network measurements used sharp inputs. The very small whole-board all-clear probabilities follow analytically under independent fair source choices. [Network protocol](NETWORK_PROTOCOL.md) · [Complete sharp intervention tapes](network.json.gz) · [Elimination and held decoding](network.py)
+
+For PR-128 this gives an operational distinction between counting physical seams and counting independent exclusions. The actual registered inter-owner graphs have three neighbors per owner. The cosmological reserve construction assumes an equal-area, locally six-valent cellulation and a protected trace P/24. Each requires its own physical identification. This experiment assigns neither a value of N nor a value of Λ. [Reserve branch specification](../../../../../../code/capacity_readback/F_CONSTRUCTION_2026-07-14.md)
+
+Replay from the repository root with one numerical thread.
+
+~~~sh
+export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1
+pkg=model.experiments.interval_echo_consensus.publication_tree.mounted_capacity.seam_flags
+python -B -O -W error -m "$pkg.measure"
+python -B -O -W error -m "$pkg.network"
+python -B -m pytest -q -W error --pyargs "$pkg.test_seam_flags"
+~~~

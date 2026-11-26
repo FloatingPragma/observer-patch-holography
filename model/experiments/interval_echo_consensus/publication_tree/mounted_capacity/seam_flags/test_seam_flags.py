@@ -80,3 +80,28 @@ def test_meter_routes_and_spare_stocks_are_local():
                 )
             assert app.load_table(s, True).tolist() == [[0, 0], [0, 0], [1, 1], [1, 1]]
             assert app.load_table(s, False).tolist() == [[0, 0], [0, 1], [1, 0], [1, 1]]
+
+
+def test_network_rank_and_held_records():
+    import gzip
+    from . import network
+
+    saved = json.loads(gzip.decompress((m.HERE / "network.json.gz").read_bytes()))
+    assert network.acquire() == saved
+    result = network.score(saved)
+    for level in range(3):
+        n = 20 * 4**level
+        assert result[level, "owner"] == dict(
+            rank=n - 1, recoverable_single_flags=0, held=12, all_ports_flip=0
+        )
+        assert result[level, "seam"] == dict(
+            rank=3 * n // 2,
+            recoverable_single_flags=3 * n // 2,
+            held=12,
+            all_ports_flip=3 * n // 2,
+        )
+    bad = deepcopy(saved)
+    bits = int(bad[0]["held"][0][1][0], 16) ^ 1
+    bad[0]["held"][0][1] = [hex(bits), hex(bits)]
+    with pytest.raises(ValueError, match="Held word"):
+        network.score(bad)

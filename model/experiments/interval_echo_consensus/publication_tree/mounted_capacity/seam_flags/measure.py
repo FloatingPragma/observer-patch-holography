@@ -103,6 +103,8 @@ def score(data):
     keys = {(i, *menu) for i in range(3) for menu in MENUS}
     if data["starts"] != SHOTS or data["seed"] != SEED:
         raise ValueError("Unexpected exposure or seed")
+    if data["geometry"] != json.loads(json.dumps([board_layout(i) for i in range(3)])):
+        raise ValueError("Unidentified meter layout")
     tests = sum(
         len(MENUS) * ((1 << len(board_layout(i)["owners"])) + 2) for i in range(3)
     )
