@@ -6,9 +6,8 @@ from ..observer_banks import audit
 from .kernels import CAPS
 
 
-def read():
+def _read():
     iv = audit.iv
-    iv.dps = 42
     bank = json.loads((audit.HERE / "records.json").read_text())
     audit.marginal_check(bank)
     panels = {}
@@ -36,6 +35,16 @@ def read():
             s: audit.rounded(v) for s, v in zip(("area", "volume"), slopes, strict=True)
         }
     return dict(denominator=10**6, intervals=panels)
+
+
+def read():
+    iv = audit.iv
+    previous = iv.dps
+    try:
+        iv.dps = 42
+        return _read()
+    finally:
+        iv.dps = previous
 
 
 if __name__ == "__main__":
