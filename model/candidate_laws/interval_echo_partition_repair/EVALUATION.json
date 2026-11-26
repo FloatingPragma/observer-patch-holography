@@ -2256,6 +2256,7 @@
      ],
      "demonstrated_measurement": {
       "label": "Exact stationarity for all cubical material cuts",
+      "kind": "construction",
       "source": "model/candidate_laws/interval_echo_partition_repair/surveyed_cells/README.md"
      }
     },
@@ -2303,6 +2304,7 @@
      ],
      "demonstrated_measurement": {
       "label": "Ordinary gain predicts the held six-cube correlation",
+      "kind": "mixed",
       "source": "model/candidate_laws/interval_echo_partition_repair/surveyed_cells/README.md"
      }
     }
@@ -2603,7 +2605,8 @@
      "regime": "dynamic",
      "upstream_number": 3,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/d4fc3e4046c472f4ad38468df8dddfa1f97bac97/MODELS.md#L103"
+      "https://github.com/openwave-labs/openwave/blob/d4fc3e4046c472f4ad38468df8dddfa1f97bac97/MODELS.md#L103",
+      "https://github.com/openwave-labs/openwave/blob/c531265eb6085725c6268e156804499c810ba5e4/MODELS.md#oph-m10"
      ],
      "status": "open",
      "note": "Awaiting candidate-specific assessment.",
@@ -2612,7 +2615,7 @@
     {
      "id": "OW-04",
      "title": "Particle stability (Derrick escape)",
-     "requires": "Release the prepared particle state and measure its persistence under free evolution. Identify the excitation and the domain of the measurement. The separate SM-e entry assesses its identification as an electron.",
+     "requires": "Release the prepared particle state and measure its persistence under free evolution. Identify the excitation and the domain of the measurement. The separate SM-e entry assesses its identification as an electron. Identify the electron-sector preparation, control the calibration choice, and address free physical stability on that sector.",
      "domain": "PARTICLE - ELECTRON",
      "regime": "dynamic",
      "upstream_number": 4,
@@ -2620,7 +2623,8 @@
       "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L104",
       "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L438",
       "https://github.com/openwave-labs/openwave/pull/745#pullrequestreview-6005365373",
-      "https://github.com/openwave-labs/openwave/pull/746"
+      "https://github.com/openwave-labs/openwave/pull/746",
+      "https://github.com/openwave-labs/openwave/pull/749"
      ],
      "status": "open",
      "note": "Awaiting candidate-specific assessment.",
@@ -2662,7 +2666,8 @@
      "regime": "static",
      "upstream_number": 7,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L107"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L107",
+      "https://github.com/openwave-labs/openwave/blob/c531265eb6085725c6268e156804499c810ba5e4/MODELS.md#oph-m10"
      ],
      "status": "open",
      "note": "Awaiting candidate-specific assessment.",
@@ -2690,7 +2695,8 @@
      "regime": "both",
      "upstream_number": 9,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L111"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L111",
+      "https://github.com/openwave-labs/openwave/blob/c531265eb6085725c6268e156804499c810ba5e4/MODELS.md#oph-m10"
      ],
      "status": "open",
      "note": "Awaiting candidate-specific assessment.",
@@ -2704,7 +2710,8 @@
      "regime": "both",
      "upstream_number": 10,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L112"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L112",
+      "https://github.com/openwave-labs/openwave/blob/c531265eb6085725c6268e156804499c810ba5e4/MODELS.md#oph-m10"
      ],
      "status": "open",
      "note": "Awaiting candidate-specific assessment.",
@@ -2788,7 +2795,8 @@
      "regime": "static",
      "upstream_number": 16,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L118"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L118",
+      "https://github.com/openwave-labs/openwave/blob/c531265eb6085725c6268e156804499c810ba5e4/MODELS.md#oph-m10"
      ],
      "status": "open",
      "note": "Awaiting candidate-specific assessment.",
@@ -2802,7 +2810,8 @@
      "regime": "both",
      "upstream_number": 17,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L119"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L119",
+      "https://github.com/openwave-labs/openwave/blob/c531265eb6085725c6268e156804499c810ba5e4/MODELS.md#oph-m10"
      ],
      "status": "open",
      "note": "Awaiting candidate-specific assessment.",
@@ -2833,7 +2842,8 @@
       "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L121",
       "https://github.com/openwave-labs/openwave/blob/f8fd02b2e0d96cfa0d868259daec2c9822375d34/MODELS.md#L121",
       "https://github.com/openwave-labs/openwave/blob/f8fd02b2e0d96cfa0d868259daec2c9822375d34/MODELS.md#L121",
-      "https://github.com/openwave-labs/openwave/blob/f8fd02b2e0d96cfa0d868259daec2c9822375d34/MODELS.md#L454"
+      "https://github.com/openwave-labs/openwave/blob/f8fd02b2e0d96cfa0d868259daec2c9822375d34/MODELS.md#L454",
+      "https://github.com/openwave-labs/openwave/blob/c531265eb6085725c6268e156804499c810ba5e4/MODELS.md#L454"
      ],
      "status": "open",
      "note": "Awaiting candidate-specific assessment.",
@@ -2903,7 +2913,8 @@
      "regime": "dynamic",
      "upstream_number": 24,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L128"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L128",
+      "https://github.com/openwave-labs/openwave/blob/c531265eb6085725c6268e156804499c810ba5e4/MODELS.md#oph-m10"
      ],
      "status": "open",
      "note": "Awaiting candidate-specific assessment.",

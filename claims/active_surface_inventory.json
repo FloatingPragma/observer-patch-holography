@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 1499,
+  "surface_count": 1557,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -956,6 +956,11 @@
       "allowlisted": false
     },
     {
+      "path": "model/benchmarks/eight_slot_torus/six_station_source/SPEC.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/benchmarks/eight_slot_torus/transverse_clock/PROOF.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -1427,6 +1432,31 @@
     },
     {
       "path": "model/candidate_laws/interval_echo/openwave/row_03_clock/emitted_material/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_03_clock/free_end/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_03_clock/free_end/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_03_clock/free_end/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_03_clock/free_end/ROUTING.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_03_clock/free_end/ROUTING_PROTOCOL.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -3371,6 +3401,121 @@
       "allowlisted": false
     },
     {
+      "path": "model/candidate_laws/interval_echo_partition_repair/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo_partition_repair/REGIONAL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo_partition_repair/SPEC.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo_partition_repair/proper_balls/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo_partition_repair/published_strings/ARCHIVE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo_partition_repair/published_strings/GEOMETRY.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo_partition_repair/published_strings/NATIVE_PAIR.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo_partition_repair/published_strings/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo_partition_repair/published_strings/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo_partition_repair/published_strings/counted_tower/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo_partition_repair/published_strings/nested_stress/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo_partition_repair/published_strings/nested_stress/selection/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo_partition_repair/surveyed_cells/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo_partition_repair/surveyed_cells/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo_published_records/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo_published_records/spherical_dust/EXTERIOR_READER.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo_published_records/spherical_dust/NULL_BEAM.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo_published_records/spherical_dust/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo_published_records/spherical_dust/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo_published_records/spherical_dust/clock_pairs/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo_published_records/spherical_dust/clock_pairs/REFINEMENT.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo_published_records/spherical_dust/homogeneous_pairs/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/null_hopping/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/candidate_laws/private_record_walk/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -3547,6 +3692,11 @@
     },
     {
       "path": "model/experiments/interval_echo_angular/charged_orientation/adiabatic_exchange/host_parity/excited_motion/SHARP_PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_angular/charged_orientation/adiabatic_exchange/host_parity/excited_motion/STATISTICS_CONTROL.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -4111,6 +4261,21 @@
       "allowlisted": false
     },
     {
+      "path": "model/experiments/interval_echo_consensus/publication_tree/mounted_capacity/seam_flags/NETWORK_PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_consensus/publication_tree/mounted_capacity/seam_flags/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_consensus/publication_tree/mounted_capacity/seam_flags/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/experiments/interval_echo_consensus/publication_tree/repair_outputs/PROTOCOL.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -4621,6 +4786,51 @@
       "allowlisted": false
     },
     {
+      "path": "model/experiments/interval_echo_einstein_station/collar_scaling/station_clock/separated_sectors/angular_pair/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_einstein_station/critical_exchange/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_einstein_station/critical_exchange/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_einstein_station/critical_exchange/neutral_cell/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_einstein_station/critical_exchange/neutral_cell/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_einstein_station/critical_exchange/relaxation/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_einstein_station/critical_exchange/selection/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_einstein_station/critical_exchange/selection/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_einstein_station/critical_exchange/signal_ruler/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/experiments/interval_echo_einstein_station/dark_curvature/PROTOCOL.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -4742,6 +4952,26 @@
     },
     {
       "path": "model/experiments/interval_echo_einstein_station/field_stress_curvature/REPLAY_PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_einstein_station/field_stress_curvature/neutral_packet/HULL_PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_einstein_station/field_stress_curvature/neutral_packet/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_einstein_station/field_stress_curvature/neutral_packet/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_einstein_station/field_stress_curvature/neutral_packet/TRANSFER_PROTOCOL.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -5131,6 +5361,41 @@
       "allowlisted": false
     },
     {
+      "path": "model/experiments/interval_echo_gauge/matter_class/ring_current/independent_probe/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_gauge/matter_class/ring_current/independent_probe/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_gauge/matter_class/ring_current/independent_probe/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_gauge/port_phases/CODE_PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_gauge/port_phases/ON_CODE_READOUT.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_gauge/port_phases/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_gauge/port_phases/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/experiments/interval_echo_gauge/scalar_grammar/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -5427,6 +5692,16 @@
     },
     {
       "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/energy_source/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/energy_source/binding/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/energy_source/binding/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -6766,6 +7041,11 @@
       "allowlisted": false
     },
     {
+      "path": "Lean/ObserverPatchHolography/EinsteinBranch/ClockPairRecords.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
       "path": "Lean/ObserverPatchHolography/EinsteinBranch/CollarAdmission.lean",
       "glob": "Lean/ObserverPatchHolography/**/*.lean",
       "allowlisted": false
@@ -6906,6 +7186,11 @@
       "allowlisted": false
     },
     {
+      "path": "Lean/ObserverPatchHolography/EinsteinBranch/SphericalDust.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
       "path": "Lean/ObserverPatchHolography/EinsteinBranch/StaticAngularReadout.lean",
       "glob": "Lean/ObserverPatchHolography/**/*.lean",
       "allowlisted": false
@@ -6922,6 +7207,11 @@
     },
     {
       "path": "Lean/ObserverPatchHolography/EinsteinBranch/Tensor.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/EinsteinBranch/TicketBath.lean",
       "glob": "Lean/ObserverPatchHolography/**/*.lean",
       "allowlisted": false
     },

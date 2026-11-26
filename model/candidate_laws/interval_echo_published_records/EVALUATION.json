@@ -2306,6 +2306,7 @@
      ],
      "demonstrated_measurement": {
       "label": "Five-stamp event ranging and ten moving frames in the spherical material",
+      "kind": "construction",
       "source": "model/candidate_laws/interval_echo_published_records/spherical_dust/survey.py"
      }
     },
@@ -2352,6 +2353,7 @@
      ],
      "demonstrated_measurement": {
       "label": "Regional clock-pair entropy equals the independently weighed dust stress to fifth-order accuracy",
+      "kind": "construction",
       "source": "model/candidate_laws/interval_echo_published_records/spherical_dust/clock_pairs/REFINEMENT.md"
      }
     },
@@ -2378,6 +2380,7 @@
      ],
      "demonstrated_measurement": {
       "label": "Independent conservation of both spherical dust action stresses",
+      "kind": "construction",
       "source": "model/candidate_laws/interval_echo_published_records/spherical_dust/PROOF.md"
      }
     },
@@ -2416,6 +2419,7 @@
      ],
      "demonstrated_measurement": {
       "label": "Fixed-volume clock-pair stationarity across translated and moving dust balls",
+      "kind": "construction",
       "source": "model/candidate_laws/interval_echo_published_records/spherical_dust/clock_pairs/REFINEMENT.md"
      },
      "additional_comparisons": [
@@ -2471,6 +2475,7 @@
      ],
      "demonstrated_measurement": {
       "label": "Uniform source, proper-area and stationarity bounds on the same shrinking dust balls",
+      "kind": "construction",
       "source": "model/candidate_laws/interval_echo_published_records/spherical_dust/clock_pairs/REFINEMENT.md"
      }
     },
@@ -2505,6 +2510,7 @@
      ],
      "demonstrated_measurement": {
       "label": "An ordinary calibration predicts held interior and exterior readings",
+      "kind": "construction",
       "source": "model/candidate_laws/interval_echo_published_records/spherical_dust/EXTERIOR_READER.md"
      }
     }
@@ -2830,7 +2836,8 @@
      "regime": "dynamic",
      "upstream_number": 3,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/d4fc3e4046c472f4ad38468df8dddfa1f97bac97/MODELS.md#L103"
+      "https://github.com/openwave-labs/openwave/blob/d4fc3e4046c472f4ad38468df8dddfa1f97bac97/MODELS.md#L103",
+      "https://github.com/openwave-labs/openwave/blob/c531265eb6085725c6268e156804499c810ba5e4/MODELS.md#oph-m10"
      ],
      "status": "open",
      "note": "Awaiting candidate-specific assessment.",
@@ -2839,7 +2846,7 @@
     {
      "id": "OW-04",
      "title": "Particle stability (Derrick escape)",
-     "requires": "Release the prepared particle state and measure its persistence under free evolution. Identify the excitation and the domain of the measurement. The separate SM-e entry assesses its identification as an electron.",
+     "requires": "Release the prepared particle state and measure its persistence under free evolution. Identify the excitation and the domain of the measurement. The separate SM-e entry assesses its identification as an electron. Identify the electron-sector preparation, control the calibration choice, and address free physical stability on that sector.",
      "domain": "PARTICLE - ELECTRON",
      "regime": "dynamic",
      "upstream_number": 4,
@@ -2847,7 +2854,8 @@
       "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L104",
       "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L438",
       "https://github.com/openwave-labs/openwave/pull/745#pullrequestreview-6005365373",
-      "https://github.com/openwave-labs/openwave/pull/746"
+      "https://github.com/openwave-labs/openwave/pull/746",
+      "https://github.com/openwave-labs/openwave/pull/749"
      ],
      "status": "open",
      "note": "Awaiting candidate-specific assessment.",
@@ -2889,7 +2897,8 @@
      "regime": "static",
      "upstream_number": 7,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L107"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L107",
+      "https://github.com/openwave-labs/openwave/blob/c531265eb6085725c6268e156804499c810ba5e4/MODELS.md#oph-m10"
      ],
      "status": "open",
      "note": "Awaiting candidate-specific assessment.",
@@ -2917,7 +2926,8 @@
      "regime": "both",
      "upstream_number": 9,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L111"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L111",
+      "https://github.com/openwave-labs/openwave/blob/c531265eb6085725c6268e156804499c810ba5e4/MODELS.md#oph-m10"
      ],
      "status": "open",
      "note": "Awaiting candidate-specific assessment.",
@@ -2931,7 +2941,8 @@
      "regime": "both",
      "upstream_number": 10,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L112"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L112",
+      "https://github.com/openwave-labs/openwave/blob/c531265eb6085725c6268e156804499c810ba5e4/MODELS.md#oph-m10"
      ],
      "status": "open",
      "note": "Awaiting candidate-specific assessment.",
@@ -3015,7 +3026,8 @@
      "regime": "static",
      "upstream_number": 16,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L118"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L118",
+      "https://github.com/openwave-labs/openwave/blob/c531265eb6085725c6268e156804499c810ba5e4/MODELS.md#oph-m10"
      ],
      "status": "open",
      "note": "Awaiting candidate-specific assessment.",
@@ -3029,7 +3041,8 @@
      "regime": "both",
      "upstream_number": 17,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L119"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L119",
+      "https://github.com/openwave-labs/openwave/blob/c531265eb6085725c6268e156804499c810ba5e4/MODELS.md#oph-m10"
      ],
      "status": "open",
      "note": "Awaiting candidate-specific assessment.",
@@ -3060,7 +3073,8 @@
       "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L121",
       "https://github.com/openwave-labs/openwave/blob/f8fd02b2e0d96cfa0d868259daec2c9822375d34/MODELS.md#L121",
       "https://github.com/openwave-labs/openwave/blob/f8fd02b2e0d96cfa0d868259daec2c9822375d34/MODELS.md#L121",
-      "https://github.com/openwave-labs/openwave/blob/f8fd02b2e0d96cfa0d868259daec2c9822375d34/MODELS.md#L454"
+      "https://github.com/openwave-labs/openwave/blob/f8fd02b2e0d96cfa0d868259daec2c9822375d34/MODELS.md#L454",
+      "https://github.com/openwave-labs/openwave/blob/c531265eb6085725c6268e156804499c810ba5e4/MODELS.md#L454"
      ],
      "status": "partial",
      "note": "The one-way publication channel preserves the native measurement of a stable free vacancy–excess pair with positive rest cost, recoil and material-charge neutrality. Electrical neutrality of this excitation requires an independently calibrated electromagnetic measurement. The spherical collar adds pressureless mass and changes light and release records at fixed individual post frequencies. Its gravitational response alone assigns neither an electromagnetic charge nor a galactic abundance.",
@@ -3073,6 +3087,7 @@
      ],
      "demonstrated_measurement": {
       "label": "Preserved native pair with stable binding, rest energy and measured material neutrality",
+      "kind": "mixed",
       "source": "model/experiments/material_inertia/pair_spectrum/neutral_guide/README.md"
      }
     },
@@ -3140,7 +3155,8 @@
      "regime": "dynamic",
      "upstream_number": 24,
      "sources": [
-      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L128"
+      "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L128",
+      "https://github.com/openwave-labs/openwave/blob/c531265eb6085725c6268e156804499c810ba5e4/MODELS.md#oph-m10"
      ],
      "status": "open",
      "note": "Awaiting candidate-specific assessment.",
@@ -3184,6 +3200,7 @@
      ],
      "demonstrated_measurement": {
       "label": "Exterior release of two probe masses with an ordinary-only calibration",
+      "kind": "construction",
       "source": "model/candidate_laws/interval_echo_published_records/spherical_dust/EXTERIOR_READER.md"
      }
     },
@@ -3211,6 +3228,7 @@
      ],
      "demonstrated_measurement": {
       "label": "Exterior gravitational redshift from two clocks and independently transported light",
+      "kind": "construction",
       "source": "model/candidate_laws/interval_echo_published_records/spherical_dust/EXTERIOR_READER.md"
      }
     },
