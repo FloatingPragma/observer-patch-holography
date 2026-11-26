@@ -4244,6 +4244,30 @@ central-record error, detector noise and coarse-graining defect. The
 theorem does not follow from the exact finite repair theorem alone, which
 supplies only the target \(\mathcal N\).
 
+In a finite simulated instrument, two triangles each have three data bits,
+a protected boundary bit, and a bank address independently reporting the
+number of disagreements. On each offer a material dimer crosses with
+probability \(1/4\). A second draw after a crossing distinguishes a hold
+from a wrong write. Reading a fresh fault word at each appointment gives
+correction, hold, and corruption probabilities \(12/16,3/16,1/16\).
+Every block visits the three pairs and the triple of each triangle once,
+in any of the \(8!\) orders selected before its first draw. Each position
+is touched three times. A touched mismatch probability \(p\) becomes
+\((1+3p)/16\), so the total mismatch count read at the receiving station satisfies
+\[
+\mathbb E[D'\mid\mathcal F_{\rm start}]
+  = \frac{27}{4096}D+\frac{939}{2048}.
+\]
+The expected count at a strictly intermediate appointment is at most
+\(D+465/1024\). Starting at zero, the reverse order attains that upper
+bound at its seventh offer. The block-end mean tends to \(6/13\).
+Sharing a fault across the positions in one offer correlates their
+outcomes, so different orders can give different probabilities of exact
+agreement at the same mean distance. Retaining one material fault word
+for all eight offers also preserves the isolated one-offer probabilities.
+Starting with six mismatches, it gives an expected terminal count of
+\(3/2\) compared with \(255/512\) for fresh draws.
+
 \section{Interfaces to the higher layers}
 \label{sec:interfaces}
 
