@@ -42,7 +42,20 @@ For **each** of the five origin words, four inner and seven outer pairs have equ
 
 For this triad the four cross ranges for the first two axes are $(3,3,3,3)$. The other two combinations give $(2,2,2,2)$ and $(3,3,3,3)$. Direct substitution into the smooth formula returns the three contractions $-3,\ 3/4,\ -3/16$, hence the same spurious scalar $-39/8$ as in the nine other surviving triads. In a smooth metric with attained minimizing distances, choose one minimizing segment from the first endpoint to the origin. Concatenation with a minimizer to either endpoint of axis two attains length $1+2=3$, hence gives a minimizing geodesic. Its continuation at the origin with that unit tangent is unique, so the two distinct length-two endpoints would coincide. Their measured separation is four. This exact obstruction is independent of a sectional-curvature approximation or any assumed angle in a physical metric.
 
-There is a finite relative error test if these observed ratios persist down a shrinking sequence. To leading order in any bounded-curvature geometry, the RMS cross length of two opposite pairs with radii $r,s$ must be $\sqrt{r^2+s^2}$ irrespective of their angle. If every length ratio differs from the native readings by at most the fraction $e$, then $3(1-e)\le\sqrt5(1+e)+o(1)$ in units of the shorter radius along such a sequence. Consequently $\liminf e\ge(3-\sqrt5)/(3+\sqrt5)=0.145898\ldots$. A physical coarse-graining can change these ratios. The one-board experiment does not establish their behavior on a physical refinement or a universally coupled curvature response.
+## How much must a proper ruler change?
+
+Suppose the observed ratios persist on a shrinking sequence in bounded curvature. In normal coordinates centered on the reported origin, lengths normalized by the shorter native radius have Euclidean distances up to $o(1)$. Distinguish two ways of calibrating the endpoints.
+
+**Proper antipodes.** If the corrected pairs are genuine opposite geodesic displacements from the same center, the RMS of their four cross distances is $\sqrt{r^2+s^2}+o(1)$, regardless of their angle. For a fractional correction of at most $e$ on each individual measurement this requires $3(1-e)\le\sqrt5(1+e)+o(1)$. Consequently $\liminf e\ge(3-\sqrt5)/(3+\sqrt5)=0.145898\ldots$. Orthogonal Euclidean axes with radii 1 and 2 multiplied by $6/(3+\sqrt5)$ attain the bound. The corrected radii and diameters are scaled up by $1+e$, and the four cross ranges are reduced by $1-e$.
+
+**Freely placed endpoints.** Let $a,b,c,d$ denote all four candidate endpoints in Euclidean coordinates centered at the reported origin. The nominal center ranges are $1,1,2,2$, the diameters are $2,4$, and the four $a,b$ to $c,d$ cross ranges are $3$. The identity
+\[
+12(\|a\|^2+\|b\|^2)+6(\|c\|^2+\|d\|^2)
+-4\|a-b\|^2-\|c-d\|^2
+-2\!\sum_{x\in\{a,b\},y\in\{c,d\}}\!\|x-y\|^2
+=\|2a+2b+c+d\|^2
+\]
+places a constraint on all ten readings even if the two corrected diameters miss the center. The right side is nonnegative. Substituting the individual error bounds gives $9(1+e)^2\ge13(1-e)^2$ for $0\le e\le1$. The sharp minimum over arbitrary Euclidean placements is thus $e_*=(\sqrt{13}-3)/(\sqrt{13}+3)=0.091673\ldots$. To attain it, take $(\pm1,0,2/3)$ and $(0,\pm2,-4/3)$ and multiply every coordinate by $6/(3+\sqrt{13})$. The corrected center ranges have ratio $1+e_*$ to the measured lengths. Every other distance has ratio $1-e_*$. Multiplying the unscaled example by $0.9$ instead gives a rational-coordinate control within ten percent of every registered distance. These bounds apply asymptotically to shrinking configurations because the Euclidean normal-coordinate error tends to zero after normalization. The one-board experiment does not determine which correction a physical refinement implements. [Kernel-checked identities and range bounds](PolarizedRanges.lean)
 
 From the repository root run with one numerical thread.
 
