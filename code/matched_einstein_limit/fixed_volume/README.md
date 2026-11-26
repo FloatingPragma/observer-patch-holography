@@ -2,6 +2,9 @@
 
 A rest observer in a curved three-dimensional space counts markers inside a ball, then measures the area of its boundary with a second marker population. A separate triangle of mirrors measures curvature through round-trip light times. The two estimates of the rest-frame Einstein tensor agreed within 0.00063 curvature units at the smallest radius. Keeping the radius fixed gave about five thirds of the correct value. [Observer counts](measurements.json) · [Reproduction](measure.py) · [Experiment and thresholds](PROTOCOL.md)
 
+
+Eight geodesically placed interior counting banks determine the leading fixed-proper-volume area even when the marker intensity varies smoothly across the ball. The six displaced centers supply the spatial density information that centered bins leave ambiguous. [Estimator, hypotheses and independent area comparison](displaced_markers/README.md)
+
 ## Geometry and instruments
 
 The comparison supplies an ultrastatic spacetime with constant spatial sectional curvature $K$. On its time-symmetric rest slice the spatial scalar curvature is $6K$ and the Einstein contraction $G_{uu}$ is $3K$. Prepare curved charts with $K=-1,-1/2,0,1/2,1$ and a separately counted flat reference. Proper radial distance is $r$. The isotropic tangential radius is $S_K(r)$, equal to $\sin(\sqrt K r)/\sqrt K$ for positive curvature, $r$ at zero curvature and $\sinh(\sqrt{-K}r)/\sqrt{-K}$ for negative curvature. The proper volume is $4\pi\int_0^r S_K(s)^2\,ds$ and the boundary area is $4\pi S_K(r)^2$.

@@ -1272,7 +1272,11 @@
                 "model/experiments/interval_echo_einstein_station/equilibrium_refinement/tracer_flux/README.md",
                 "model/experiments/interval_echo_einstein_station/equilibrium_refinement/tracer_flux/results.json",
                 "model/experiments/interval_echo_einstein_station/equilibrium_refinement/area_survey/joint_screen/README.md",
-                "model/experiments/interval_echo_einstein_station/equilibrium_refinement/area_survey/joint_screen/certificate.json"
+                "model/experiments/interval_echo_einstein_station/equilibrium_refinement/area_survey/joint_screen/certificate.json",
+                "model/experiments/interval_echo_einstein_station/equilibrium_refinement/nested_volumes/README.md",
+                "model/experiments/interval_echo_einstein_station/equilibrium_refinement/nested_volumes/results.json",
+                "model/experiments/interval_echo_einstein_station/equilibrium_refinement/area_survey/joint_screen/relaxation/README.md",
+                "model/experiments/interval_echo_einstein_station/equilibrium_refinement/area_survey/joint_screen/relaxation/results.json"
               ],
               "demonstrated_measurement": {
                 "label": "Unique global entropy-plus-area maximum for one or arbitrarily many four-station surveys",
@@ -1374,6 +1378,18 @@
                   "label": "Interior entropy at fixed directional clock records and joint image",
                   "finding": "A rank-36 certificate preserves mean preparation energy, all twelve directional launch and return laws and twelve absolute joint terminal pixel probabilities. A positive source on this exact record fiber loses more than 0.004688 nats of interior entropy at the same clock volume. The separate apex-launch rates recover the missing boundary occupancy.",
                   "source": "model/experiments/interval_echo_einstein_station/equilibrium_refinement/area_survey/joint_screen/README.md"
+                },
+                {
+                  "law": "Interval Echo on the five-rim monitored source",
+                  "label": "Neighboring volumes and reversible aperture insertions",
+                  "finding": "Independently measured one- and two-tag volumes agree on the fixed outer ball. After ordinary calibration the two-tag neighboring-shell response predicts +0.1980 to +0.2045 nats on the held transfer at two exposures. Independently measured interior records give −0.45920 to −0.45717 nats. Reversible material plugs recover the balancing information from the conditional probability of filling every vacant rim slot.",
+                  "source": "model/experiments/interval_echo_einstein_station/equilibrium_refinement/nested_volumes/README.md"
+                },
+                {
+                  "law": "Interval Echo during free monitored relaxation on the 80-cell host",
+                  "label": "One unforced evolution interval at unchanged survey and coincidence readings",
+                  "finding": "A strictly positive source evolves one native half-step at fixed mean sharp energy, twelve complete three-outcome return laws and twelve joint pixels while interior entropy changes by more than 0.0008419 nats. A separate later clock herald resolves the two ages. The uniform preparation is the unique stationary law of this finite monitored sector.",
+                  "source": "model/experiments/interval_echo_einstein_station/equilibrium_refinement/area_survey/joint_screen/relaxation/README.md"
                 }
               ]
             },
@@ -1445,7 +1461,12 @@
                 "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/formed_ranges/README.md",
                 "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/formed_ranges/results.json",
                 "code/matched_einstein_limit/source_implication/full_geometry/station_balls/formed_optics/README.md",
-                "code/matched_einstein_limit/source_implication/full_geometry/station_balls/formed_optics/certificate.json"
+                "code/matched_einstein_limit/source_implication/full_geometry/station_balls/formed_optics/certificate.json",
+                "model/experiments/interval_echo_einstein_station/equilibrium_refinement/tracer_flux/bearings/README.md",
+                "model/experiments/interval_echo_einstein_station/equilibrium_refinement/tracer_flux/bearings/results.json",
+                "model/experiments/interval_echo_einstein_station/equilibrium_refinement/tracer_flux/bearings/placements.json",
+                "code/matched_einstein_limit/fixed_volume/displaced_markers/README.md",
+                "code/matched_einstein_limit/fixed_volume/displaced_markers/results.json"
               ],
               "demonstrated_measurement": {
                 "label": "Nine directions predict regional charge on the constant mode and slow triplet",
@@ -1469,6 +1490,18 @@
                   "label": "A reciprocal camera on one source and a held reversal failure",
                   "finding": "Conjugate product-head illumination makes both directions of a five-pixel material transmission reciprocal on the selected source. Vacancy and excess image-area gains differ by over 9,800 at identical dwell and pixel calibration. Even with six lengths and four clock gains held fixed, reciprocity across nearby sources forces every fixed terminal head analyzer to vanish at every nonzero real algebraic exposure. A separate fixed-length curve with varying clocks has zero entropy slope and negative finite entropy change at identical surveyed area and volume.",
                   "source": "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/README.md"
+                },
+                {
+                  "law": "Interval Echo on the one-cell two-resident source",
+                  "label": "Recovering six angular axes from freely arriving tags",
+                  "finding": "Thirty contacts and six antipodal axes are recovered on three resident stocks at two short exposures. Two-resident word positions on the inner measured shell supply an exactly isotropic average of every quadratic directional reading. The finite central and displaced counts give a scaled scalar estimate of −264/65 in their flat Gram chart, resolving the finite-density bias. Physical curvature requires independently calibrated radii and control of this error under refinement.",
+                  "source": "model/experiments/interval_echo_einstein_station/equilibrium_refinement/tracer_flux/bearings/README.md"
+                },
+                {
+                  "law": "Smooth three-dimensional rest charts with independent geodesic rulers",
+                  "label": "Eight interior counts identify fixed-volume area to leading order",
+                  "finding": "Two concentric counts and six neighboring-center counts remove an unknown smooth positive marker intensity. Across five prescribed geometries the largest mean scalar-curvature error falls from 0.34065 to 0.005082 over four refinements. Applying the estimate to native records requires the measured displacements and radii to be proper geodesic lengths on a common slice.",
+                  "source": "code/matched_einstein_limit/fixed_volume/displaced_markers/README.md"
                 }
               ]
             },

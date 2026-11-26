@@ -1154,7 +1154,9 @@
                 "code/cosmology/rar_deep_regime/double_ring_pressure/elliptical.py",
                 "code/cosmology/rar_deep_regime/double_ring_pressure/elliptical.json",
                 "model/candidate_laws/interval_echo/openwave/row_27_metric/formed_pair_clocks/README.md",
-                "model/candidate_laws/interval_echo/openwave/row_27_metric/formed_pair_clocks/results.json"
+                "model/candidate_laws/interval_echo/openwave/row_27_metric/formed_pair_clocks/results.json",
+                "code/cosmology/rar_deep_regime/double_ring_pressure/stress_conservation/README.md",
+                "code/cosmology/rar_deep_regime/double_ring_pressure/stress_conservation/results.json"
               ],
               "demonstrated_measurement": {
                 "label": "A signed pressure contrast across two rings of the same galaxy",
@@ -1166,6 +1168,12 @@
                   "label": "Optical and orbital contrasts in two circular apertures of J0946+1006",
                   "finding": "A two-plane elliptical optical fit to both observed arcs gives an optical aperture contrast at least 149 solar masses per square parsec above the spherical Chabrier orbital upper bound, or at least 61 with widened ring errors. The inference depends on the optical fit, stellar population and frozen orbital continuation.",
                   "source": "code/cosmology/rar_deep_regime/double_ring_pressure/README.md"
+                },
+                {
+                  "law": "Conserved spherical stress under the Chabrier orbital continuation",
+                  "label": "Tangential pressure required by the two rings in J0946+1006",
+                  "finding": "For the aligned rings and static attractive gravity, a nonnegative radial energy density plus pressure implies a weighted mean of tangential minus radial pressure divided by c² of at least 0.007570 solar masses per cubic parsec. The spherical interpretation of the elliptical optical apertures gives 0.009895. A heavier stellar calibration admits zero pressure. These conditional lens constraints test a proposed source stress.",
+                  "source": "code/cosmology/rar_deep_regime/double_ring_pressure/stress_conservation/README.md"
                 }
               ]
             },
@@ -1653,7 +1661,10 @@
                 "code/matched_einstein_limit/source_implication/full_geometry/station_balls/formed_optics/README.md",
                 "code/matched_einstein_limit/source_implication/full_geometry/station_balls/formed_optics/certificate.json",
                 "model/candidate_laws/interval_echo/openwave/row_27_metric/formed_pair_clocks/README.md",
-                "model/candidate_laws/interval_echo/openwave/row_27_metric/formed_pair_clocks/results.json"
+                "model/candidate_laws/interval_echo/openwave/row_27_metric/formed_pair_clocks/results.json",
+                "model/experiments/interval_echo_einstein_station/equilibrium_refinement/tracer_flux/bearings/README.md",
+                "model/experiments/interval_echo_einstein_station/equilibrium_refinement/tracer_flux/bearings/results.json",
+                "model/experiments/interval_echo_einstein_station/equilibrium_refinement/tracer_flux/bearings/placements.json"
               ],
               "demonstrated_measurement": {
                 "label": "A reciprocal camera on one source and a held reversal failure",
@@ -1671,6 +1682,12 @@
                   "label": "Three clock lines measured with a moving pair present",
                   "finding": "With a freely moving excess and vacancy present throughout clock interrogation, the unselected line-32 wrong-port probability exceeds 0.0104641 against an upper bound of 0.000000122 from the unit standard for every shared random elapsed time. A local clock–matter contact accounts for the effect. Proper null curvature of independently characterized mass remains unmeasured.",
                   "source": "model/candidate_laws/interval_echo/openwave/row_27_metric/formed_pair_clocks/README.md"
+                },
+                {
+                  "law": "Interval Echo on the one-cell two-resident source",
+                  "label": "Recovering six angular axes from freely arriving tags",
+                  "finding": "Thirty contacts and six antipodal axes are recovered on three resident stocks at two short exposures. Two-resident word positions on the inner measured shell supply an exactly isotropic average of every quadratic directional reading. The finite central and displaced counts give a scaled scalar estimate of −264/65 in their flat Gram chart, resolving the finite-density bias. Physical curvature requires independently calibrated radii and control of this error under refinement.",
+                  "source": "model/experiments/interval_echo_einstein_station/equilibrium_refinement/tracer_flux/bearings/README.md"
                 }
               ]
             },
