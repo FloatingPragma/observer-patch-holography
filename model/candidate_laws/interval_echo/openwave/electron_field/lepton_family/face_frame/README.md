@@ -28,6 +28,14 @@ The clock compares an evolved and a stored path of the same charge. Its two outp
 
 A six-reading fit poorly resolves the light line. A fresh equally spaced series fits 256 complex readings and holds 32 in reserve. Its frequencies use no mass-dependent settings. Three frequencies predict the held complex amplitudes at root-mean-square errors below 0.00083 for each source. The fitted two-tone comparisons miss by more than 0.57. Rank three is sufficient in this model, and the measured determinant excludes every two-line stationary clock under the stated instrument. The frequencies carry the field's chosen unit. The exact geometric ratios come from the operator. The finite counts have their own accuracy. [Clock counts and held errors](results.json)
 
+## Can two face choices account for quark mixing?
+
+Suppose the left-handed up- and down-quark mass eigenstates each use the three characters of one outward face. Take nondegenerate masses and a charged weak current that acts as the identity on the family factor. Then the CKM matrix is the overlap of the two face bases. Its CP-odd Jarlskog invariant vanishes for any two faces and any choice of the six masses.
+
+In the real rank-three band a face turn fixes its unit axis $n$. Choose a real unit vector $y$ perpendicular to both face axes and put $x_i=y\times n_i$ for each face. Its three normalized characters can be written as $n_i$ and $(x_i\pm i y)/\sqrt{2}$. All overlaps between these two bases are real because $y$ is perpendicular to both $n_i$ and $x_i$. Rephasing either basis leaves each quartet $V_{ik}V_{jl}\overline{V_{il}V_{jk}}$ unchanged. Parallel axes admit the same construction.
+
+For signed axis cosine $c$, the entry magnitudes are $|c|$, $\sqrt{(1-c^2)/2}$ and $(1\pm c)/2$. The icosahedron's face normals give $|c|\in\{1,1/3,\sqrt{5}/3\}$. Among all eight distinct entry magnitudes, the closest to the kaon leptonic determination $|V_{us}|=0.2250\pm0.0004$ is $(3-\sqrt5)/6=0.127322$. Thus even arbitrary permutations of the three species cannot produce that entry. The executable checks all 400 ordered face pairs against the exact menu and all 3,600 quartets. This exclusion applies to these two single-face mass bases and the stated current. [Mixing calculation](mixing.py) · [PDG 2024, section 12.2.2](https://pdg.lbl.gov/2024/reviews/rpp2024-rev-ckm-matrix.pdf#page=3)
+
 ## What do Alice and Bob actually compare?
 
 Alice sends a preparation and reports her source setting. Bob reads local charge, a weak-transition flag and an energy channel at his device. Their numerical components can differ. With local changes of basis Gₐ and Gᵦ, the link transporting a state becomes Gᵦ U Gₐ† and Bob's detector effect becomes Gᵦ D Gᵦ†. The scalar event probability is then identical. A family coordinate change acts on a different factor from the gauge transformation. Relabeling a family basis preserves the energy projectors and their probabilities when they are transformed together.
@@ -49,6 +57,7 @@ From the repository root run the following commands with one numerical thread.
 ```sh
 export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1
 p=model.candidate_laws.interval_echo.openwave.electron_field.lepton_family.face_frame
+python -m "$p.mixing"
 python -m "$p.measure" --write
 python -m "$p.observers" --write
 python -m "$p.shared_report" --write
