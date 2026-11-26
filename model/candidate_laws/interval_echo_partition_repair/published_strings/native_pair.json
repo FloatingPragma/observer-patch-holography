@@ -1,0 +1,278 @@
+{
+  "native_dimension": 99,
+  "kappa": 8.0,
+  "initial_tickets": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    2,
+    3
+  ],
+  "source_basis": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      0
+    ],
+    [
+      1,
+      1
+    ]
+  ],
+  "records": [
+    {
+      "low_load": 0,
+      "reversed_port": "left",
+      "physical": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "trials_per_independent_bank": 16384,
+      "restored": [
+        10186,
+        2097,
+        2077,
+        2024
+      ],
+      "marked": [
+        7224,
+        2085,
+        2042,
+        5033
+      ],
+      "exposures": [
+        {
+          "increment": -0.125,
+          "endpoint_one": 0.3253214188583525,
+          "whole_KL": 0.012508381776163535,
+          "cut_KL": 0.005370431968251932,
+          "cut_entropy_change": -0.030747524167742957,
+          "seam_energy": 6.374999999999999
+        },
+        {
+          "increment": 0.0,
+          "endpoint_one": 0.37500000000000006,
+          "whole_KL": 0.0,
+          "cut_KL": 0.0,
+          "cut_entropy_change": 0.0,
+          "seam_energy": 6.374999999999993
+        },
+        {
+          "increment": 0.125,
+          "endpoint_one": 0.4324504757139863,
+          "whole_KL": 0.01250838177616398,
+          "cut_KL": 0.006917074369088283,
+          "cut_entropy_change": 0.022430100723162094,
+          "seam_energy": 6.375000000000002
+        }
+      ]
+    },
+    {
+      "low_load": 0,
+      "reversed_port": "right",
+      "physical": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "trials_per_independent_bank": 16384,
+      "restored": [
+        10195,
+        2054,
+        2086,
+        2049
+      ],
+      "marked": [
+        7187,
+        2058,
+        2018,
+        5121
+      ],
+      "exposures": [
+        {
+          "increment": -0.125,
+          "endpoint_one": 0.3253214188583525,
+          "whole_KL": 0.012508381776163535,
+          "cut_KL": 0.005370431968251932,
+          "cut_entropy_change": -0.030747524167742957,
+          "seam_energy": 6.374999999999999
+        },
+        {
+          "increment": 0.0,
+          "endpoint_one": 0.37500000000000006,
+          "whole_KL": 0.0,
+          "cut_KL": 0.0,
+          "cut_entropy_change": 0.0,
+          "seam_energy": 6.374999999999993
+        },
+        {
+          "increment": 0.125,
+          "endpoint_one": 0.4324504757139863,
+          "whole_KL": 0.01250838177616398,
+          "cut_KL": 0.006917074369088283,
+          "cut_entropy_change": 0.022430100723162094,
+          "seam_energy": 6.375000000000002
+        }
+      ]
+    },
+    {
+      "low_load": 1,
+      "reversed_port": "left",
+      "physical": [
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "trials_per_independent_bank": 16384,
+      "restored": [
+        10279,
+        2107,
+        1974,
+        2024
+      ],
+      "marked": [
+        7289,
+        1996,
+        1995,
+        5104
+      ],
+      "exposures": [
+        {
+          "increment": -0.125,
+          "endpoint_one": 0.3253214188583525,
+          "whole_KL": 0.012508381776163535,
+          "cut_KL": 0.005370431968251932,
+          "cut_entropy_change": -0.030747524167742957,
+          "seam_energy": 6.374999999999999
+        },
+        {
+          "increment": 0.0,
+          "endpoint_one": 0.37500000000000006,
+          "whole_KL": 0.0,
+          "cut_KL": 0.0,
+          "cut_entropy_change": 0.0,
+          "seam_energy": 6.374999999999993
+        },
+        {
+          "increment": 0.125,
+          "endpoint_one": 0.4324504757139863,
+          "whole_KL": 0.01250838177616398,
+          "cut_KL": 0.006917074369088283,
+          "cut_entropy_change": 0.022430100723162094,
+          "seam_energy": 6.375000000000002
+        }
+      ]
+    },
+    {
+      "low_load": 1,
+      "reversed_port": "right",
+      "physical": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "trials_per_independent_bank": 16384,
+      "restored": [
+        10169,
+        2035,
+        2063,
+        2117
+      ],
+      "marked": [
+        7202,
+        2012,
+        2032,
+        5138
+      ],
+      "exposures": [
+        {
+          "increment": -0.125,
+          "endpoint_one": 0.3253214188583525,
+          "whole_KL": 0.012508381776163535,
+          "cut_KL": 0.005370431968251932,
+          "cut_entropy_change": -0.030747524167742957,
+          "seam_energy": 6.374999999999999
+        },
+        {
+          "increment": 0.0,
+          "endpoint_one": 0.37500000000000006,
+          "whole_KL": 0.0,
+          "cut_KL": 0.0,
+          "cut_entropy_change": 0.0,
+          "seam_energy": 6.374999999999993
+        },
+        {
+          "increment": 0.125,
+          "endpoint_one": 0.4324504757139863,
+          "whole_KL": 0.01250838177616398,
+          "cut_KL": 0.006917074369088283,
+          "cut_entropy_change": 0.022430100723162094,
+          "seam_energy": 6.375000000000002
+        }
+      ]
+    }
+  ]
+}
