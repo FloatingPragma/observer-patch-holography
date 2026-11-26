@@ -1,4 +1,4 @@
-# Does energy stored in a seam correlation gravitate?
+# Seam correlation energy and its curvature under a supplied coupling
 
 A four-word sector of the 99-state Interval Echo seam stores eight units of energy entirely in a change of correlation. Measuring each register separately gives exactly the same probabilities in both preparations. In a homogeneous gravitational model that couples to the measured seam Hamiltonian, the change in volume-weighted curvature is exactly eight times the coupling calibrated on ordinary loads. In the free Interval Echo law there are also correlations that change a modular reading while every permitted material probe gives the same records. The following calculations identify the physical premise that distinguishes the two cases. [Protocol](PROTOCOL.md)
 

@@ -14,7 +14,7 @@ from scipy.linalg import expm
 
 from model.candidate_laws.contrast_memory_spherical_v1 import law
 from model.candidate_laws.interval_echo import clock, cohorts, observations, replay
-from ..signed_effects.sequential import compare
+from .replay_validation import compare
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[3]

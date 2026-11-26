@@ -23,6 +23,10 @@ On every evaluation the common harness constructs each candidate’s cell genera
 
 A candidate can deposit measured premise assessments in `premise_results.json` beside its law module. Each entry gives the premise ID, status, evidence paths relative to the candidate, and scope in the same format as `PREMISES`. To revise an existing law-module assessment, include `supersedes_sha256` with the SHA-256 of the prior entry serialized as compact, key-sorted JSON (ASCII escaping, UTF-8 bytes). The evaluator retains the earlier evidence and scope and rejects ambiguous or stale revisions. This allows a run to pin the law module while subsequent measurements grade its premises.
 
+Each candidate retains its recorded criterion and premise assessments. The programme register has its own grades. When a candidate supplies a structured full-credit certificate, the evaluator checks the evidence, stated scope and listed premises. The rendered first label always gives the full criterion grade. Additional measurements appear after it with their apparatus and evidence.
+
+The scalar and contrast-memory results have separate apparatuses. The finite band test uses the candidate's declared register representation and the first distinct spectral level above its ground space. A sharp port probability has the same value under H and −H*. On a real uniform hopping this prevents a sign or oriented slow-energy assignment from positions alone. A calibrated phase-sensitive preparation can separate them. [Port reconstruction and coherence control](patch_spatial_readout.json)
+
 The remaining judgments are evidence-backed assessments. The evaluator checks their vocabulary, identifiers, premise crosswalk and evidence paths. The linked proofs and experimental receipts establish their scientific scope. Reproducing an experimental result requires running its instrument. For example:
 
 ```sh
@@ -36,7 +40,11 @@ python -m model.evaluation.patch_spatial_readout
 python -m model.evaluation.observer_encounter
 ```
 
-The band check measures the operator that carries the three slow directions. The patch readout reconstructs them from relabelled, exact port-detection probabilities and tests two held exposures. The encounter instrument evolves the complete two-load sector of the 20-cell sphere from a uniform ensemble of separated starts. It reports both the first detection rate and persistence conditional on that detection for the native contrast law and an exchange-only control.
+The band check measures the operator that carries the three slow directions. Spectral multiplicities use energy differences and a tolerance relative to the centered operator. The rotation check compares products on rays, so a common phase cancels and relative phases between registers enter the comparison.
+
+The patch readout reconstructs the slow directions from relabelled, exact port-detection probabilities and tests two held exposures. The records admit both $H$ and $-\overline H$ because their propagators are complex conjugates in the port basis. With a supplied phase reference, the preparation $(|0\rangle+i|1\rangle)/\sqrt{2}$ distinguishes them. At twice the calibration exposure the two predicted probabilities at port zero are 0.353601 and 0.585897. The reference belongs to this control. The original instrument uses sharp port preparations. [Patch readout](patch_spatial_readout.py)
+
+The encounter instrument evolves the complete two-load sector of the 20-cell sphere from a uniform ensemble of separated starts. It reports both the first detection rate and persistence conditional on that detection for the native contrast law and an exchange-only control.
 
 The archived eight-slot routing experiments supply the historical comparison. On the macOS arm64 replay, two tests still report seeded count differences in the electron-wall and loaded-clock archives. The historical rows identify the published results and apparatus. The registered candidate replays are independent of those count archives. [Electron-wall replay](../benchmarks/eight_slot_torus/electron_wall/test_electron_wall.py) · [Loaded-clock replay](../benchmarks/eight_slot_torus/formed_clocks/test_loaded_clock_archive.py)
 

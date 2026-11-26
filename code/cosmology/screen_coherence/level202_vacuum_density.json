@@ -1,0 +1,48 @@
+{
+  "source": "level202_distance_redshift.json",
+  "source_sha256": "3bed0dcce1a046302c3d109ca8e641fd856e7a8aef62c5d662de3160849be5fa",
+  "level": 202,
+  "receiver": [
+    0,
+    0
+  ],
+  "enrolled": 274,
+  "range_calibration_tick": 16,
+  "beacons_with_range_and_period_at_calibration": 95,
+  "range_in_light_ticks": [
+    2.0,
+    19.0
+  ],
+  "comparison_scope": "Only the calibrated beacons, using their reflection, echo, emission and reception stamps at every survey epoch. Beacon visibility and early routing have separate material dynamics.",
+  "static_geometries": {
+    "Minkowski": {
+      "curvature_radius_in_light_ticks": null,
+      "Lambda_times_light_tick_squared": "0",
+      "eight_pi_G_dust_mass_density_times_tick_squared": "0",
+      "exact_timestamp_matches_by_query_tick": {
+        "0": 60,
+        "4": 62,
+        "16": 95,
+        "96": 95
+      }
+    },
+    "Einstein_static_dust": {
+      "curvature_radius_in_light_ticks": 100,
+      "Lambda_times_light_tick_squared": "1/10000",
+      "eight_pi_G_dust_mass_density_times_tick_squared": "1/5000",
+      "exact_timestamp_matches_by_query_tick": {
+        "0": 60,
+        "4": 62,
+        "16": 95,
+        "96": 95
+      }
+    }
+  },
+  "last_query_tick": 96,
+  "static_geometries_matching_all_calibrated_beacons_at_last_query": [
+    "Minkowski",
+    "Einstein_static_dust"
+  ],
+  "observer_vacuum_energy_density_J_m3": null,
+  "interpretation": "The radial measurements test the optical path to each beacon. Inferring vacuum energy on the Einstein branch requires independent gravitational curvature and matter-stress readings or a measured de Sitter horizon with a physical calibration."
+}

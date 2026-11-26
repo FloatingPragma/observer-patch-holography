@@ -46,3 +46,5 @@ python -B -O -W error -m model.experiments.interval_echo_consensus.transaction_c
 python -B -m pytest -q model/experiments/interval_echo_consensus/transaction_component/confluence/noisy_blocks
 (cd Lean && lake env lean -j1 -DwarningAsError=true ../model/experiments/interval_echo_consensus/transaction_component/confluence/noisy_blocks/Contraction.lean)
 ~~~
+
+The original acquisition at `18ded9b5d` recorded the prepared-quorum transport module at SHA-256 `aeb002c8452ee9971d428d986158d8b3a92301999faed1715b36d3b43420c80b`. That module later let a lock retain an explicitly supplied layout. Reacquiring the experiment with its original default layout gives the same branch order, selector, contraction certificate, intermediate state tapes and terminal banks. The sole changed JSON value is the transport-module digest, now `d96b21535a97085f59f88b60bb5ffe0c5cb2b3f58a22b3dc85f0cfd7d9ad28ab`. [Acquisition code](measure.py) · [Reacquired records](records.json.gz)

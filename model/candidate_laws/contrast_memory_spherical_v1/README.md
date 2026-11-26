@@ -1,5 +1,7 @@
 # A-contrast-memory-spherical-v1
 
+On the native one-load boards the exact dimensions of states confined to individual cells are 40 of 240, 232 of 960 and 952 of 3,840. If a launch has weight w in its home cell’s compact eigenspace, its home-cell probability is at least w at every free-flight time. The compact component stays inside the cell and stays orthogonal to the rest, even after restricting the rest to the home cell. Each compact state vanishes at its three gateways. The registered sharp gateway release therefore has zero weight in these spaces. Two binary loads released on one internal seam can stay bound and rearrange inside the launch cell; the 19-port ring rest and kinetic ratios describe that separate carrier. [Exact exit-kernel certificate](../../experiments/interval_echo_encounter/confinement.json) · [Flight measurements](../../experiments/interval_echo_encounter/README.md)
+
 A-contrast-memory-spherical-v1 is the reference contrast-memory candidate for the executable model of OPH. Its law is the contrast-memory law,
 a candidate for the native repair law of the theory: the simple local rule
 by which neighbouring observers settle their disagreements. Each port of a twelve-port cell (the echosahedron)
@@ -31,8 +33,9 @@ realizes it, the constants on this carrier, and the tests on records.
 ## What comes out
 
 Two loads written on one seam by a local emitter stay together. The port observers of every seam report one
-agreed record, "both ends hold one load", and the pair is read on some seam with probability at least one minus a
-proven bound, at every reading, on one cell and on federations of 20, 80 and 320 cells. It is read on other seams
+agreed record, "both ends hold one load". At the first reading after any duration of free evolution, the pair is
+read on some seam with probability at least one minus the stated bound, on one cell and on federations of 20,
+80 and 320 cells. It is read on other seams
 than the first, and nothing holds it but the law. Remove the agreement energy
 and the pair falls apart (the largest "no pair" probability goes from 0.0096 to 0.80 on 20 cells). At `kappa = 8`:
 
@@ -46,8 +49,7 @@ and the pair falls apart (the largest "no pair" probability goes from 0.0096 to 
 The bounds of the table use the measured constants of each carrier and include the emitter. Behind them stands a
 theorem that needs no constant of the carrier: on every federation of complete cells and for `kappa > 3` the
 probability of "no pair" stays below `40 / (2 kappa - 6)^2`, whatever the number of cells ([PROOF.md](PROOF.md)).
-Three loads on a face, and bigger clusters, bind as well. Run as local events with no common clock, the pair holds
-when every observer serves each of its seams once per round, in any order.
+Three loads on a face, and bigger clusters, bind as well. Numerical finite-event programs also find binding for the schedules, event angles and waits tested. An all-time bound for finite event angles remains open.
 
 Two more results concern what observers do with the pair and with the memory of a seam. Asking "is a pair
 there?" and asking "where is it?" give the same first answer and different later records: the pair is one object

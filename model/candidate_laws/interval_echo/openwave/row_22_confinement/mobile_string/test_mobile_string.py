@@ -1,12 +1,58 @@
 """Rebuild the material from native ports, then check the held receiver bank."""
 
 import json
+from hashlib import sha256
 
 import numpy as np
 from scipy import sparse
 from scipy.sparse.linalg import expm_multiply
 
 from . import commission, material as mat, measure
+
+
+def test_original_analysis_and_unresolved_panels():
+    original = (measure.HERE / "results_original.json").read_bytes()
+    assert sha256(original).hexdigest() == "891326b7ed41924788fbd8922e0064b4a72d845bb2dbe1ff6d8d9b0ae4286237"
+    assert sha256((measure.HERE / "receivers.npz").read_bytes()).hexdigest() == (
+        "c397b7e535f3ba8b8373d48ad2684d7bddfa9e78ba20479a4b1814363b8e58b2")
+    archive = json.loads(original)["levels"]
+    current = measure.decode()["levels"]
+    unresolved = set()
+    for level, panel in current.items():
+        for channel in ("native", "degree_off"):
+            for length, row in panel[channel]["static"].items():
+                for prep in ("sharp_intact", "sharp_screened"):
+                    result = row[prep]
+                    historical = archive[str(level)][channel]["static"][str(length)][prep]
+                    assert result["min_visibility"] == historical["min_visibility"]
+                    if result["status"] == "unresolved":
+                        assert result["line"] is None and result["low_visibility_holds"]
+                        assert result["attempted_line"] == historical["line"]
+                        unresolved.add((level, channel, length, prep))
+                    else:
+                        assert result["line"] == historical["line"]
+    assert unresolved == {(l, "degree_off", n, "sharp_screened") for l in range(3) for n in (8, 10, 12)}
+
+
+def test_bright_half_turn_and_dark_return_cannot_supply_a_line_or_a_slope():
+    # A high-rate phase can sit on the nearest-integer boundary even at
+    # unit visibility. Multiple windings fit the quadrature error disks.
+    angles = np.zeros(len(mat.HOLDS))
+    angles[1] = np.pi
+    counts = np.rint((1 + measure.quadratures(angles)) * measure.SHOTS / 2).astype(int)
+    bright = measure.ramsey(counts, 1.0)
+    assert bright["status"] == "unresolved" and bright["line"] is None
+    assert not bright["low_visibility_holds"] and mat.HOLDS[1] in bright["ambiguous_turn_holds"]
+    # A vanishing vector must remain unresolved even if its arbitrary
+    # arctangent yields the expected zero line.
+    counts[:] = measure.SHOTS // 2
+    dark = measure.ramsey(counts, 1.0)
+    assert dark["status"] == "unresolved" and dark["line"] is None and dark["attempted_line"] == 0
+    static = {length: {"sharp_intact": {"line": 8 * length}} for length in (2, 3, 4, 5)}
+    static[4]["sharp_intact"] = bright
+    assert measure.intact_trend(static) == (8, {4: None, 5: 0})
+    static[3]["sharp_intact"] = dark
+    assert measure.intact_trend(static) == (None, {4: None, 5: None})
 
 
 def physical_sector(ports, board, g, h):
@@ -72,9 +118,7 @@ def test_unpinned_words_against_physical_short_flight():
 
 def test_receiver_enrollment():
     result = measure.decode()
-    assert json.loads(json.dumps(result)) == json.loads(
-        (measure.HERE / "results.json").read_text()
-    )
+    measure.check_analysis(json.loads(json.dumps(result)), json.loads((measure.HERE / "results.json").read_text()))
     for panel in result["levels"].values():
         native, off = panel["native"], panel["degree_off"]
         assert abs(native["slope_2_to_3"] - 8) < 0.01

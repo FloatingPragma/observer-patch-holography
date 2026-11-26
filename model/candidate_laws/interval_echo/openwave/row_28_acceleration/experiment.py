@@ -106,9 +106,11 @@ def layout(level):
 
 
 def history(n, edges, ranks, initial, probability, rng):
+    if not 0 < probability <= 1:
+        raise ValueError("a finite settlement history requires an offer probability in (0, 1]")
     word = initial.copy()
     a, b = edges.T
-    commit = np.zeros(len(a), dtype=np.int16)
+    commit = np.zeros(len(a), dtype=np.int64)
     sign = np.zeros(len(a), dtype=np.int8)
     epoch = 0
     while True:

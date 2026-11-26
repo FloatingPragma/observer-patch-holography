@@ -1,3 +1,4 @@
+import Tower.RepairRecordObserver
 import Tower.ConsensusTower
 import Tower.PublicWorldQuotient
 import Tower.FixedPointEndpoint

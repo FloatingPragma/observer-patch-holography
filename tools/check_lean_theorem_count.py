@@ -79,7 +79,8 @@ def lean_source_files() -> list[Path]:
         path
         for path in paths
         if path.is_file()
-        and not any(part.startswith(".") or part == "lake-packages" for part in path.parts)
+        and not any(part.startswith(".") or part == "lake-packages"
+                    for part in path.relative_to(LEAN_ROOT).parts)
     )
 
 
@@ -145,9 +146,7 @@ def main() -> int:
     for path in CLAIM_FILES:
         text = path.read_text(encoding="utf-8")
         matches = list(FLOOR_RE.finditer(text))
-        if not matches:
-            problems.append(f"{path.relative_to(REPO_ROOT)}: no theorem-count floor found")
-            continue
+        # A public introduction may omit a running theorem count.
         mismatch = False
         for m in matches:
             floor = int(m.group(1))

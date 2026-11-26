@@ -97,25 +97,32 @@ $a = 10\kappa + 6$, $c = 12\kappa$, $\beta = \sqrt{10}$, $\gamma = 2\kappa - 6$,
 
 $$\Pr(\text{no pair on a seam};\, t) \le \frac{40}{(2\kappa - 6)^2}$$
 
-at every value of the evolution parameter, hence at every reading of every observer. The bound does not depend on
+at the first ideal seam reading after any duration of free evolution. The bound does not depend on
 the number of cells or on the routing of the external seams. At $\kappa = 128$ it is $40/250^2 = 0.00064$.
 
 The dressed band $\operatorname{ran}\Pi$ is invariant under the law. The bare outcome "no pair" also contains its virtual
 dressing, so it need not vanish or decrease along the evolution: the pair may separate briefly and is read on
 other seams.
 
-**Measured constants.** The proof uses the bounds $a - 10\kappa \le 6$ and $\beta \le \sqrt{10}$. On the federations of the
-model the largest level of the adjacent block of the exchange, $\max \operatorname{spec}(PKP)$, and the largest singular value of
-the coupling, $\|QKP\|$, are
+**Sharper bound on the three enrolled boards.** Write $A=PKP$ and $B=QKP$. The eigenvalues below are numerical diagnostics. The last column gives an exact integer check for the common upper bound on $4\|B\|^2$.
 
-| Federation | $\max \operatorname{spec}(PKP)$ (bound 6) | $\|QKP\|$ (bound 3.1623) |
-| --- | ---: | ---: |
-| 20 cells | 5.7008 | 2.0821 |
-| 80 cells | 5.7000 | 2.0811 |
-| 320 cells | 5.7000 | 2.0822 |
+| Cells | Largest eigenvalue of $A$ | $4\|B\|^2$ | $\min_i(347x_i-20(Mx)_i)$ |
+| ---: | ---: | ---: | ---: |
+| 20 | 5.700775 | 17.340249 | 63 |
+| 80 | 5.699950 | 17.324154 | 420 |
+| 320 | 5.699950 | 17.342044 | 677 |
 
-With these constants the bound is $4\beta^2/(2\kappa - 5.70)^2 = 17.3/(2\kappa - 5.70)^2$: 0.163 at $\kappa = 8$ and 0.00028 at
-$\kappa = 128$ on 20 cells.
+A hop that preserves adjacency lies on a triangle. Triangles are internal to cells because the external seams form a matching. The components of $A$ are the internal seam blocks and isolated external seams. The exchange construction gives integer $2A$ and $2B$. On every component the integer matrix $5701 I-500(2A)$ has strictly positive leading principal minors, checked by fraction-free elimination. Hence $\lambda_{\max}(A)<5701/1000$.
+
+For $M=(2B)^\top(2B)$, all entries are nonnegative. Start with the integer vector $x_i=10000$. As long as any component of $347x-20Mx$ is nonpositive, replace $x$ by $10000\mathbf 1+\lfloor20Mx/347\rfloor$. The three boards obtain the displayed positive slacks after 1,037, 539 and 2,467 updates. Consequently the maximum row sum of $\mathrm{diag}(x)^{-1}M\,\mathrm{diag}(x)$ is strictly below $347/20$. This proves $4\|B\|^2<347/20$ on each complete board. Each witness also gives $10x^\top Mx-173x^\top x>0$, so the previous numerator 17.3 is below the actual $4\|B\|^2$ on all three boards. [Integer certificate and actual board construction](finite_spectral_certificate.py)
+
+For $\kappa>5701/2000=2.8505$ the certified gap is positive. Theorem 2 gives, for any initial state in $P$ and one ideal reading after free evolution,
+$$
+\Pr(\text{no pair on a seam};t)\le
+\min\!\left(1,\frac{17.35}{(2\kappa-5.701)^2}\right).
+$$
+The bound is strictly below one for $\kappa>(5.701+\sqrt{17.35})/2\simeq4.933167$.
+At $\kappa=8$ it is $17350000/106069401\simeq0.1635721503$; at $\kappa=128$ it is $17350000/62649589401\simeq0.0002769372$. The emitter and finite reader have separate errors. The preceding $40/(2\kappa-6)^2$ theorem covers other routings that satisfy its hypotheses.
 
 ## 4. One cell
 
@@ -178,9 +185,10 @@ Duhamel's formula gives $\|U_{\rm actual} - U_{\rm ref}\| \le \tau_{\rm read}\|K
 nonnegative diagonal at most $\Delta = 6$ and off-diagonal absolute sum equal to it, so $\|K\| \le 12$, and the total
 variation between the public laws is at most $12\,\tau_{\rm read}$, for any number of seams read in parallel. At
 $\tau_{\rm read} = 1/16384$ this is $3/4096$, and the probability that the public records show no agreed pair after the
-emitter at $\kappa = 128$ is at most $64009/25600000 + 3/4096 = 0.0032327734375$ at every reading. After one complete
-read round the ideal reader acts as $\rho \mapsto \sum_e P_e \rho P_e + Q\rho Q$, each branch on a seam is a pair covered by
-Theorem 2, and later "no pair" stays below $0.0025003515625 + 0.00064 + 0.000732421875 = 0.0038727734375$.
+emitter at $\kappa = 128$ is at most $64009/25600000 + 3/4096 = 0.0032327734375$ at the first finite reading.
+The ideal complete reader acts as $\rho \mapsto \sum_e P_e \rho P_e + Q\rho Q$. Each seam branch is covered by
+Theorem 2. Including the error of the first finite reading gives a bound of
+$0.0025003515625 + 0.00064 + 0.000732421875 = 0.0038727734375$ for an ideal second reading after free evolution.
 
 The finite readout of one cell propagates all 161,792 states (78 two-load states, the fuel and 2048 reader words)
 with the law acting in every stage: the public total-variation error is $2.09 \times 10^{-7}$ against the bound
@@ -188,9 +196,7 @@ $\tau_{\rm read}\|K\| = 4.2 \times 10^{-4}$ on the cell.
 
 ## 7. Scope
 
-The theorem concerns the sum of the seam terms with a continuous evolution parameter. As local events the same
-binding holds when each port observer serves each of its seams once per round, and it needs small event angles
-when seams act independently at random ([events.py](events.py)). The bound controls which seams the two loads are
+The theorem concerns the sum of the seam terms with a continuous evolution parameter. The listed event programs sample finite waits and event angles with round-robin or random seam choices. The continuous-time bound gives no uniform-in-time bound for these finite-angle products. [Sampled event programs](events.py) The bound controls which seams the two loads are
 read on; it states no speed of propagation, and no continuum limit.
 
 ## 8. Pair presence and the state after a reading
@@ -438,6 +444,27 @@ binding-only bound is below 0.096 for every size and wait. The observed discrepa
 The five-load low-momentum frequency is unresolved at the enrolled precision, although the separate
 large-momentum and direct position instruments resolve its motion. [Sealed forecast and held-out
 kinematics](../../experiments/material_inertia/records/challenge/) and [position measurements](../../experiments/material_inertia/records/flight/)
+
+### A locally conserved charge on written seams
+
+Orient each physical seam from $a$ to $b$. On a written label with coin $c$ and contrast $d$, let
+$f(c,d)=(1/2-c)(d\bmod 2)$. Both $n_a+f$ and $n_b-f$ commute with the native free seam term for every
+real contrast strength. In fact on the written subspace it is $E G_\kappa E$, with $E=I-WW^*$.
+For fixed repaired loads, the contrast reversal in $G$ sends $d$ to $-d$ and preserves $f$.
+Each column of $W$ has support on its two coin outcomes. For even total load their repaired endpoints agree
+and $f=0$. For odd total $s$, the repaired endpoints are $\lfloor s/2\rfloor+c$ and
+$\lfloor s/2\rfloor+1-c$, and $f=1/2-c$, so both compensated endpoint values equal $s/2$ on that column.
+Thus $WW^*$, $E$ and $G$ each commute with the two diagonal charges. The same column argument conserves
+the multiplicity of each load value in free flight on both memory blocks. The addressed echo itself can
+change those multiplicities.
+
+If every seam incident to $p$ is written, $Q_p=n_p+\sum_{e\ni p}\sigma_{ep}f_e$, with opposite signs at
+the two ends, commutes with the full generator, including diagonal degree terms. An initial kick
+$\exp(i\theta Q_p)$ consequently leaves every subsequent diagonal load-and-memory outcome unchanged under
+free evolution. The uncompensated port-load kick changes records on both written and blank seams.
+This is an Abelian symmetry of a specified written sector. It neither supplies dynamical ring exchange nor
+a non-Abelian group. The [local regression](test_written_charge.py) checks the integer numerators of both
+generator blocks on every written column and the two interventions on the native seam.
 
 ### What the written memory can change
 

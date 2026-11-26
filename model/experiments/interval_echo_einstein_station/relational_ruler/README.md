@@ -1,6 +1,6 @@
 # Can the radius between two material tags supply a third spatial coordinate?
 
-The anchor address and the distance to a second tag give nearly cubic growth in the number of distinct recorded outcomes on the finest three enrolled native boards. The count with uniformly prepared distinct tag addresses grows near the fourth power of radius. At a fixed anchor and measured radius, different unrecorded bearings give different radial flight probabilities. An equal-phase superposition over a shell also transfers amplitude outside the corresponding uniform radial modes.
+Anchor balls grow approximately quadratically on the tested boards. Counting one extra distance label for each allowed radius multiplies that count by the radius. Independent measurements would be needed to identify a third coordinate. The count with uniformly prepared distinct tag addresses grows near the fourth power of radius. At a fixed anchor and measured radius, different unrecorded bearings give different radial flight probabilities. An equal-phase superposition over a shell also transfers amplitude outside the corresponding uniform radial modes.
 
 ## Counting the same window in two ways
 

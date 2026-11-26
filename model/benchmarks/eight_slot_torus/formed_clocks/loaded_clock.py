@@ -257,7 +257,7 @@ def _records(payload, keys, words, trials):
     return weights, counts
 
 
-def experiment(archive=ARCHIVE, acquire=False, seed_replay=False):
+def experiment(archive=ARCHIVE, acquire=False, seed_replay=False, *, compare_seed=False):
     protocol = json.loads(BOOK.read_text(encoding="utf-8"))
     archive = Path(archive)
     # Authenticate the very bytes used to decode the records. Replaying a
@@ -280,9 +280,15 @@ def experiment(archive=ARCHIVE, acquire=False, seed_replay=False):
     weights, counts = _records(payload, keys, words, protocol["trials_per_setting"])
     if not acquire and digest != PUBLISHED_SHA256 and not np.array_equal(weights, [_grid(w) for w in words]):
         raise ValueError("unpublished integer source disagrees with the local acquisition grid")
-    if seed_replay and not np.array_equal(counts, counts_for(keys, weights, protocol)):
-        raise ValueError("the seeded acquisition disagrees with the archive")
     result = score(keys, words, counts, channels, protocol)
+    if seed_replay or compare_seed:
+        difference = counts_for(keys, weights, protocol) - counts
+        if seed_replay and np.any(difference):
+            raise ValueError("the seeded acquisition disagrees with the archive")
+        result["same_seed_replay"] = {
+            "differing_rows": int(np.any(difference != 0, axis=1).sum()),
+            "max_bin_difference": int(np.max(np.abs(difference))),
+        }
     result["archive_sha256"] = digest
     result["count_source"] = ("published simulated acquisition" if digest == PUBLISHED_SHA256
                               else "local simulated acquisition")
@@ -294,8 +300,10 @@ def main():
     parser.add_argument("--archive", type=Path, default=ARCHIVE)
     parser.add_argument("--acquire", action="store_true", help="create counts at an unused path")
     parser.add_argument("--seed-replay", action="store_true", help="redraw the stored counts; also verifies a local acquisition")
+    parser.add_argument("--compare-seed", action="store_true",
+                        help="report backend-specific multinomial differences on the authenticated archive")
     args = parser.parse_args()
-    result = experiment(args.archive, args.acquire, args.seed_replay)
+    result = experiment(args.archive, args.acquire, args.seed_replay, compare_seed=args.compare_seed)
     print(json.dumps(result, indent=2))
     return int(bool(result["failures"]))
 

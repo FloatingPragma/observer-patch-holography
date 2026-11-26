@@ -186,3 +186,25 @@ def test_saturated_age_releases_one_primary_then_fresh_unit_handoff_clears_it(wi
         assert reg.get(fields['age'], owner) == 0
         for name in ('closing', 'address', 'depth', 'attempt'):
             assert reg.get(fields[name], owner) == 1
+
+
+def test_relay_cadence_control_from_the_archived_six_observer_words():
+    import hashlib
+    import json
+    from pathlib import Path
+
+    source = Path(__file__).resolve().parents[2] / 'evaluation' / 'one_link_cadence_archive.json'
+    assert hashlib.sha256(source.read_bytes()).hexdigest() == '5f45de39e3e15102bcdd44c8bd76cfb340b3efd7e25b0d4e5d3f3c51be5ff8e2'
+    cohorts = json.loads(source.read_text())['measurements']
+    fast, slow = [row for row in cohorts if row['period'] == 4]
+    assert (fast['optical_period'], slow['optical_period']) == (1, 2)
+    for row in (fast, slow):
+        assert row['complete'] == row['enrolled'] == 8192
+        emit1, receive1, emit2, receive2, home, traveller = row['field_means']
+        speed = (receive2 - emit2 - receive1 + emit1) / (emit2 + receive2 - emit1 - receive1)
+        residual = traveller / home - np.sqrt(1 - speed**2)
+        archived = row['analysis']['observed_minus_prediction']
+        assert residual == pytest.approx(archived['value'], abs=1e-13)
+        assert abs(residual) < 4 * archived['jackknife_se'] if row is fast else residual > 78 * archived['jackknife_se']
+        assert interval_response(row['period'])['finite_rate'] == pytest.approx(row['finite_prediction']['cap_release_rate'])
+    assert interval_response(4)['finite_rate'] - np.sqrt(1 - (2/4)**2) == pytest.approx(0.102220433, abs=1e-9)

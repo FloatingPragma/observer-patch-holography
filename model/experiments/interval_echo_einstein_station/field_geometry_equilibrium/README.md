@@ -1,6 +1,6 @@
 # Can a charged ruler measure the boundary of the field vacuum?
 
-A stationary written field has a measurable quantum boundary entropy. Sign-resolved material crossings on the same patch can miss its variation entirely if the observer records only whether the charge entered or left. Preserving the launch and terminal port labels resolves the variation. All readings use the positive written ring law and the same 458-word neutral field sector. [Protocol](PROTOCOL.md) · [Field and charge measurements](measure.py) · [Counts](results.json)
+A stationary written field has a measurable quantum boundary entropy. Sign-resolved material crossings on the same patch can miss its variation entirely if the observer records only whether the charge entered or left. Preserving the launch and terminal port labels resolves the variation. All readings use the positive written-ring extension of Interval Echo and the same 458-word neutral field sector. [Protocol](PROTOCOL.md) · [Field and charge measurements](measure.py) · [Counts](results.json)
 
 ## The quantum entropy and the electric center
 

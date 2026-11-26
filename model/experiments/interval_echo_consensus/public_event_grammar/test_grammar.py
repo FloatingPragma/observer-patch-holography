@@ -152,6 +152,16 @@ def test_receipt_sources_discrete_records_and_floating_replay():
     with pytest.raises(ValueError):
         g.compare(damaged, actual)
 
+    source = "model/candidate_laws/interval_echo/observations.py"
+    for receipt, other, is_saved in ((saved, actual, True), (actual, saved, False)):
+        changed = copy.deepcopy(receipt)
+        changed["source_audit"]["source_sha256"][source] = "0" * 64
+        with pytest.raises(ValueError, match="source"):
+            if is_saved:
+                g.compare(changed, other)
+            else:
+                g.compare(other, changed)
+
 
 def test_literal_initial_law_and_actual_overflow_have_distinct_domains():
     from types import SimpleNamespace

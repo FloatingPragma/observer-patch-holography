@@ -1,0 +1,4804 @@
+{
+ "level": 13,
+ "seed": 20261126,
+ "board_size": 1342177280,
+ "service": "native sharp strict repair",
+ "enrollment": "Observer zero plus the central descendant of each base face. Each station and its three directly connected observers use port zero. Addresses select the instrument placements.",
+ "clock": "Equal paced local clocks, one tick per serviced material transfer. Both sides schedule labelled pulses. Differences of local arrival times measure received periods. Challenges trigger immediate replies. Every direction has a 12-tick flight window.",
+ "survey": "The three peer emitters and the two-way challenges run on separate matched histories. Late time 96 is a survey setting. Transparent control passes all contacts. Ratios compare round trips with common local send times.",
+ "input_sha256": {
+  "local_replay.py": "3c4cc5a994c72d531e852902c70d017f8957fd2b85510fd4245924d64d1c6df5",
+  "bigboard.py": "4d2dda5c3b30721d0dcf3e9b5f4cd69c7298411274ff4ce616793b7924c5ea90",
+  "boards.py": "14186325d771bd8c76a0d15497277a421a4aa117ea9494a63fb15600e2c29728",
+  "archive.py": "6b811727714d0f9bf386f3079e4a1a854a1241bcf82087858521342adff5ae80",
+  "repair.cu": "027a24121d62ef26380bc6016529e179a9f324f4061153ba46c0e612e2418c66",
+  "seams.json": "af2ef85c1f285894928ed23488cf0bc980338685063b3d2d85192dfb7020ae30"
+ },
+ "stations": [
+  {
+   "observer": 0,
+   "native": [
+    {
+     "send": 0,
+     "peer": 268435456,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 3,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 67108864,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 4,
+     "peer": 268435456,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 4,
+     "peer": 3,
+     "challenge_received": 8,
+     "echo_received": 13,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 4,
+     "peer": 67108864,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 16,
+     "peer": 268435456,
+     "challenge_received": 20,
+     "echo_received": 24,
+     "incoming_pulse": 20
+    },
+    {
+     "send": 16,
+     "peer": 3,
+     "challenge_received": 21,
+     "echo_received": 26,
+     "incoming_pulse": 21
+    },
+    {
+     "send": 16,
+     "peer": 67108864,
+     "challenge_received": 20,
+     "echo_received": 24,
+     "incoming_pulse": 20
+    },
+    {
+     "send": 20,
+     "peer": 268435456,
+     "challenge_received": 24,
+     "echo_received": 28,
+     "incoming_pulse": 24
+    },
+    {
+     "send": 20,
+     "peer": 3,
+     "challenge_received": 25,
+     "echo_received": 30,
+     "incoming_pulse": 25
+    },
+    {
+     "send": 20,
+     "peer": 67108864,
+     "challenge_received": 24,
+     "echo_received": 28,
+     "incoming_pulse": 24
+    },
+    {
+     "send": 96,
+     "peer": 268435456,
+     "challenge_received": 100,
+     "echo_received": 104,
+     "incoming_pulse": 100
+    },
+    {
+     "send": 96,
+     "peer": 3,
+     "challenge_received": 101,
+     "echo_received": 106,
+     "incoming_pulse": 101
+    },
+    {
+     "send": 96,
+     "peer": 67108864,
+     "challenge_received": 100,
+     "echo_received": 104,
+     "incoming_pulse": 100
+    },
+    {
+     "send": 100,
+     "peer": 268435456,
+     "challenge_received": 104,
+     "echo_received": 108,
+     "incoming_pulse": 104
+    },
+    {
+     "send": 100,
+     "peer": 3,
+     "challenge_received": 105,
+     "echo_received": 110,
+     "incoming_pulse": 105
+    },
+    {
+     "send": 100,
+     "peer": 67108864,
+     "challenge_received": 104,
+     "echo_received": 108,
+     "incoming_pulse": 104
+    }
+   ],
+   "transparent": [
+    {
+     "send": 0,
+     "peer": 268435456,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 3,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 67108864,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 4,
+     "peer": 268435456,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 4,
+     "peer": 3,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 4,
+     "peer": 67108864,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    }
+   ],
+   "native_summary": {
+    "0": {
+     "pulse_shifts": [
+      "0",
+      "0",
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "9/8",
+      "1",
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 2,
+     "eligible_echo_ratio_pairs": 3
+    },
+    "16": {
+     "pulse_shifts": [
+      "0",
+      "0",
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1",
+      "1",
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 3
+    },
+    "96": {
+     "pulse_shifts": [
+      "0",
+      "0",
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1",
+      "1",
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 3
+    }
+   },
+   "transparent_summary": {
+    "0": {
+     "pulse_shifts": [
+      "0",
+      "0",
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1",
+      "1",
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 3
+    }
+   }
+  },
+  {
+   "observer": 67108863,
+   "native": [
+    {
+     "send": 0,
+     "peer": 67108861,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 67108862,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 67108860,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 4,
+     "peer": 67108861,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 4,
+     "peer": 67108862,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 4,
+     "peer": 67108860,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 16,
+     "peer": 67108861,
+     "challenge_received": 21,
+     "echo_received": 26,
+     "incoming_pulse": 21
+    },
+    {
+     "send": 16,
+     "peer": 67108862,
+     "challenge_received": 20,
+     "echo_received": 24,
+     "incoming_pulse": 20
+    },
+    {
+     "send": 16,
+     "peer": 67108860,
+     "challenge_received": 20,
+     "echo_received": 24,
+     "incoming_pulse": 20
+    },
+    {
+     "send": 20,
+     "peer": 67108861,
+     "challenge_received": 25,
+     "echo_received": 30,
+     "incoming_pulse": 25
+    },
+    {
+     "send": 20,
+     "peer": 67108862,
+     "challenge_received": 24,
+     "echo_received": 28,
+     "incoming_pulse": 24
+    },
+    {
+     "send": 20,
+     "peer": 67108860,
+     "challenge_received": 24,
+     "echo_received": 28,
+     "incoming_pulse": 24
+    },
+    {
+     "send": 96,
+     "peer": 67108861,
+     "challenge_received": 101,
+     "echo_received": 106,
+     "incoming_pulse": 101
+    },
+    {
+     "send": 96,
+     "peer": 67108862,
+     "challenge_received": 100,
+     "echo_received": 104,
+     "incoming_pulse": 100
+    },
+    {
+     "send": 96,
+     "peer": 67108860,
+     "challenge_received": 100,
+     "echo_received": 104,
+     "incoming_pulse": 100
+    },
+    {
+     "send": 100,
+     "peer": 67108861,
+     "challenge_received": 105,
+     "echo_received": 110,
+     "incoming_pulse": 105
+    },
+    {
+     "send": 100,
+     "peer": 67108862,
+     "challenge_received": 104,
+     "echo_received": 108,
+     "incoming_pulse": 104
+    },
+    {
+     "send": 100,
+     "peer": 67108860,
+     "challenge_received": 104,
+     "echo_received": 108,
+     "incoming_pulse": 104
+    }
+   ],
+   "transparent": [
+    {
+     "send": 0,
+     "peer": 67108861,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 67108862,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 67108860,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 4,
+     "peer": 67108861,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 4,
+     "peer": 67108862,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 4,
+     "peer": 67108860,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    }
+   ],
+   "native_summary": {
+    "0": {
+     "pulse_shifts": [
+      "0",
+      "0",
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1",
+      "1",
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 3
+    },
+    "16": {
+     "pulse_shifts": [
+      "0",
+      "0",
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1",
+      "1",
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 3
+    },
+    "96": {
+     "pulse_shifts": [
+      "0",
+      "0",
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1",
+      "1",
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 3
+    }
+   },
+   "transparent_summary": {
+    "0": {
+     "pulse_shifts": [
+      "0",
+      "0",
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1",
+      "1",
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 3
+    }
+   }
+  },
+  {
+   "observer": 134217727,
+   "native": [
+    {
+     "send": 0,
+     "peer": 134217725,
+     "challenge_received": 3,
+     "echo_received": 6,
+     "incoming_pulse": 3
+    },
+    {
+     "send": 0,
+     "peer": 134217726,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 134217724,
+     "challenge_received": 4,
+     "echo_received": null,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 4,
+     "peer": 134217725,
+     "challenge_received": 7,
+     "echo_received": 10,
+     "incoming_pulse": 7
+    },
+    {
+     "send": 4,
+     "peer": 134217726,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 4,
+     "peer": 134217724,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 16,
+     "peer": 134217725,
+     "challenge_received": 19,
+     "echo_received": 22,
+     "incoming_pulse": 19
+    },
+    {
+     "send": 16,
+     "peer": 134217726,
+     "challenge_received": 20,
+     "echo_received": 24,
+     "incoming_pulse": 20
+    },
+    {
+     "send": 16,
+     "peer": 134217724,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 20,
+     "peer": 134217725,
+     "challenge_received": 23,
+     "echo_received": 26,
+     "incoming_pulse": 23
+    },
+    {
+     "send": 20,
+     "peer": 134217726,
+     "challenge_received": 24,
+     "echo_received": 28,
+     "incoming_pulse": 24
+    },
+    {
+     "send": 20,
+     "peer": 134217724,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 96,
+     "peer": 134217725,
+     "challenge_received": 99,
+     "echo_received": 102,
+     "incoming_pulse": 99
+    },
+    {
+     "send": 96,
+     "peer": 134217726,
+     "challenge_received": 100,
+     "echo_received": 104,
+     "incoming_pulse": 100
+    },
+    {
+     "send": 96,
+     "peer": 134217724,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 100,
+     "peer": 134217725,
+     "challenge_received": 103,
+     "echo_received": 106,
+     "incoming_pulse": 103
+    },
+    {
+     "send": 100,
+     "peer": 134217726,
+     "challenge_received": 104,
+     "echo_received": 108,
+     "incoming_pulse": 104
+    },
+    {
+     "send": 100,
+     "peer": 134217724,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    }
+   ],
+   "transparent": [
+    {
+     "send": 0,
+     "peer": 134217725,
+     "challenge_received": 3,
+     "echo_received": 6,
+     "incoming_pulse": 3
+    },
+    {
+     "send": 0,
+     "peer": 134217726,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 134217724,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 4,
+     "peer": 134217725,
+     "challenge_received": 7,
+     "echo_received": 10,
+     "incoming_pulse": 7
+    },
+    {
+     "send": 4,
+     "peer": 134217726,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 4,
+     "peer": 134217724,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    }
+   ],
+   "native_summary": {
+    "0": {
+     "pulse_shifts": [
+      "0",
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1",
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 1
+    },
+    "16": {
+     "pulse_shifts": [
+      "0",
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1",
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 1
+    },
+    "96": {
+     "pulse_shifts": [
+      "0",
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1",
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 1
+    }
+   },
+   "transparent_summary": {
+    "0": {
+     "pulse_shifts": [
+      "0",
+      "0",
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1",
+      "1",
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 3
+    }
+   }
+  },
+  {
+   "observer": 201326591,
+   "native": [
+    {
+     "send": 0,
+     "peer": 201326589,
+     "challenge_received": 4,
+     "echo_received": null,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 201326590,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": 3
+    },
+    {
+     "send": 0,
+     "peer": 201326588,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 4,
+     "peer": 201326589,
+     "challenge_received": 8,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 4,
+     "peer": 201326590,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 4,
+     "peer": 201326588,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 16,
+     "peer": 201326589,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 16,
+     "peer": 201326590,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 16,
+     "peer": 201326588,
+     "challenge_received": 20,
+     "echo_received": 24,
+     "incoming_pulse": 20
+    },
+    {
+     "send": 20,
+     "peer": 201326589,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 20,
+     "peer": 201326590,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 20,
+     "peer": 201326588,
+     "challenge_received": 24,
+     "echo_received": 28,
+     "incoming_pulse": 24
+    },
+    {
+     "send": 96,
+     "peer": 201326589,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 96,
+     "peer": 201326590,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 96,
+     "peer": 201326588,
+     "challenge_received": 100,
+     "echo_received": 104,
+     "incoming_pulse": 100
+    },
+    {
+     "send": 100,
+     "peer": 201326589,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 100,
+     "peer": 201326590,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 100,
+     "peer": 201326588,
+     "challenge_received": 104,
+     "echo_received": 108,
+     "incoming_pulse": 104
+    }
+   ],
+   "transparent": [
+    {
+     "send": 0,
+     "peer": 201326589,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 201326590,
+     "challenge_received": 3,
+     "echo_received": 6,
+     "incoming_pulse": 3
+    },
+    {
+     "send": 0,
+     "peer": 201326588,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 4,
+     "peer": 201326589,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 4,
+     "peer": 201326590,
+     "challenge_received": 7,
+     "echo_received": 10,
+     "incoming_pulse": 7
+    },
+    {
+     "send": 4,
+     "peer": 201326588,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    }
+   ],
+   "native_summary": {
+    "0": {
+     "pulse_shifts": [
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 0
+    },
+    "16": {
+     "pulse_shifts": [
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 0
+    },
+    "96": {
+     "pulse_shifts": [
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 0
+    }
+   },
+   "transparent_summary": {
+    "0": {
+     "pulse_shifts": [
+      "0",
+      "0",
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1",
+      "1",
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 3
+    }
+   }
+  },
+  {
+   "observer": 268435455,
+   "native": [
+    {
+     "send": 0,
+     "peer": 268435453,
+     "challenge_received": 5,
+     "echo_received": 10,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 268435454,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 268435452,
+     "challenge_received": 4,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 4,
+     "peer": 268435453,
+     "challenge_received": 9,
+     "echo_received": 14,
+     "incoming_pulse": 9
+    },
+    {
+     "send": 4,
+     "peer": 268435454,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 4,
+     "peer": 268435452,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 16,
+     "peer": 268435453,
+     "challenge_received": 21,
+     "echo_received": 26,
+     "incoming_pulse": 21
+    },
+    {
+     "send": 16,
+     "peer": 268435454,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 16,
+     "peer": 268435452,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 20,
+     "peer": 268435453,
+     "challenge_received": 25,
+     "echo_received": 30,
+     "incoming_pulse": 25
+    },
+    {
+     "send": 20,
+     "peer": 268435454,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 20,
+     "peer": 268435452,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 96,
+     "peer": 268435453,
+     "challenge_received": 101,
+     "echo_received": 106,
+     "incoming_pulse": 101
+    },
+    {
+     "send": 96,
+     "peer": 268435454,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 96,
+     "peer": 268435452,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 100,
+     "peer": 268435453,
+     "challenge_received": 105,
+     "echo_received": 110,
+     "incoming_pulse": 105
+    },
+    {
+     "send": 100,
+     "peer": 268435454,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 100,
+     "peer": 268435452,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    }
+   ],
+   "transparent": [
+    {
+     "send": 0,
+     "peer": 268435453,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 268435454,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 268435452,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 4,
+     "peer": 268435453,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 4,
+     "peer": 268435454,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 4,
+     "peer": 268435452,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    }
+   ],
+   "native_summary": {
+    "0": {
+     "pulse_shifts": [
+      "1/4"
+     ],
+     "timed_echo_ratios": [
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 0
+    },
+    "16": {
+     "pulse_shifts": [
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 0
+    },
+    "96": {
+     "pulse_shifts": [
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 0
+    }
+   },
+   "transparent_summary": {
+    "0": {
+     "pulse_shifts": [
+      "0",
+      "0",
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1",
+      "1",
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 3
+    }
+   }
+  },
+  {
+   "observer": 335544319,
+   "native": [
+    {
+     "send": 0,
+     "peer": 335544317,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 335544318,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 335544316,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 4,
+     "peer": 335544317,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 4,
+     "peer": 335544318,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 4,
+     "peer": 335544316,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 16,
+     "peer": 335544317,
+     "challenge_received": 20,
+     "echo_received": 24,
+     "incoming_pulse": 20
+    },
+    {
+     "send": 16,
+     "peer": 335544318,
+     "challenge_received": 20,
+     "echo_received": 24,
+     "incoming_pulse": 20
+    },
+    {
+     "send": 16,
+     "peer": 335544316,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 20,
+     "peer": 335544317,
+     "challenge_received": 24,
+     "echo_received": 28,
+     "incoming_pulse": 24
+    },
+    {
+     "send": 20,
+     "peer": 335544318,
+     "challenge_received": 24,
+     "echo_received": 28,
+     "incoming_pulse": 24
+    },
+    {
+     "send": 20,
+     "peer": 335544316,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 96,
+     "peer": 335544317,
+     "challenge_received": 100,
+     "echo_received": 104,
+     "incoming_pulse": 100
+    },
+    {
+     "send": 96,
+     "peer": 335544318,
+     "challenge_received": 100,
+     "echo_received": 104,
+     "incoming_pulse": 100
+    },
+    {
+     "send": 96,
+     "peer": 335544316,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 100,
+     "peer": 335544317,
+     "challenge_received": 104,
+     "echo_received": 108,
+     "incoming_pulse": 104
+    },
+    {
+     "send": 100,
+     "peer": 335544318,
+     "challenge_received": 104,
+     "echo_received": 108,
+     "incoming_pulse": 104
+    },
+    {
+     "send": 100,
+     "peer": 335544316,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    }
+   ],
+   "transparent": [
+    {
+     "send": 0,
+     "peer": 335544317,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 335544318,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 335544316,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 4,
+     "peer": 335544317,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 4,
+     "peer": 335544318,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 4,
+     "peer": 335544316,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    }
+   ],
+   "native_summary": {
+    "0": {
+     "pulse_shifts": [
+      "0",
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1",
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 1
+    },
+    "16": {
+     "pulse_shifts": [
+      "0",
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1",
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 1
+    },
+    "96": {
+     "pulse_shifts": [
+      "0",
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1",
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 1
+    }
+   },
+   "transparent_summary": {
+    "0": {
+     "pulse_shifts": [
+      "0",
+      "0",
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1",
+      "1",
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 3
+    }
+   }
+  },
+  {
+   "observer": 402653183,
+   "native": [
+    {
+     "send": 0,
+     "peer": 402653181,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 0,
+     "peer": 402653182,
+     "challenge_received": 4,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 0,
+     "peer": 402653180,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 4,
+     "peer": 402653181,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 4,
+     "peer": 402653182,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 4,
+     "peer": 402653180,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 16,
+     "peer": 402653181,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 16,
+     "peer": 402653182,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 16,
+     "peer": 402653180,
+     "challenge_received": 20,
+     "echo_received": 24,
+     "incoming_pulse": 20
+    },
+    {
+     "send": 20,
+     "peer": 402653181,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 20,
+     "peer": 402653182,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 20,
+     "peer": 402653180,
+     "challenge_received": 24,
+     "echo_received": 28,
+     "incoming_pulse": 24
+    },
+    {
+     "send": 96,
+     "peer": 402653181,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 96,
+     "peer": 402653182,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 96,
+     "peer": 402653180,
+     "challenge_received": 100,
+     "echo_received": 104,
+     "incoming_pulse": 100
+    },
+    {
+     "send": 100,
+     "peer": 402653181,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 100,
+     "peer": 402653182,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 100,
+     "peer": 402653180,
+     "challenge_received": 104,
+     "echo_received": 108,
+     "incoming_pulse": 104
+    }
+   ],
+   "transparent": [
+    {
+     "send": 0,
+     "peer": 402653181,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 402653182,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 402653180,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 4,
+     "peer": 402653181,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 4,
+     "peer": 402653182,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 4,
+     "peer": 402653180,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    }
+   ],
+   "native_summary": {
+    "0": {
+     "pulse_shifts": [
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 0
+    },
+    "16": {
+     "pulse_shifts": [
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 0
+    },
+    "96": {
+     "pulse_shifts": [
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 0
+    }
+   },
+   "transparent_summary": {
+    "0": {
+     "pulse_shifts": [
+      "0",
+      "0",
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1",
+      "1",
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 3
+    }
+   }
+  },
+  {
+   "observer": 469762047,
+   "native": [
+    {
+     "send": 0,
+     "peer": 469762045,
+     "challenge_received": 3,
+     "echo_received": 6,
+     "incoming_pulse": 3
+    },
+    {
+     "send": 0,
+     "peer": 469762046,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 469762044,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 4,
+     "peer": 469762045,
+     "challenge_received": 7,
+     "echo_received": 10,
+     "incoming_pulse": 7
+    },
+    {
+     "send": 4,
+     "peer": 469762046,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 4,
+     "peer": 469762044,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 16,
+     "peer": 469762045,
+     "challenge_received": 19,
+     "echo_received": 22,
+     "incoming_pulse": 19
+    },
+    {
+     "send": 16,
+     "peer": 469762046,
+     "challenge_received": 20,
+     "echo_received": 24,
+     "incoming_pulse": 20
+    },
+    {
+     "send": 16,
+     "peer": 469762044,
+     "challenge_received": 20,
+     "echo_received": 24,
+     "incoming_pulse": 20
+    },
+    {
+     "send": 20,
+     "peer": 469762045,
+     "challenge_received": 23,
+     "echo_received": 26,
+     "incoming_pulse": 23
+    },
+    {
+     "send": 20,
+     "peer": 469762046,
+     "challenge_received": 24,
+     "echo_received": 28,
+     "incoming_pulse": 24
+    },
+    {
+     "send": 20,
+     "peer": 469762044,
+     "challenge_received": 24,
+     "echo_received": 28,
+     "incoming_pulse": 24
+    },
+    {
+     "send": 96,
+     "peer": 469762045,
+     "challenge_received": 99,
+     "echo_received": 102,
+     "incoming_pulse": 99
+    },
+    {
+     "send": 96,
+     "peer": 469762046,
+     "challenge_received": 100,
+     "echo_received": 104,
+     "incoming_pulse": 100
+    },
+    {
+     "send": 96,
+     "peer": 469762044,
+     "challenge_received": 100,
+     "echo_received": 104,
+     "incoming_pulse": 100
+    },
+    {
+     "send": 100,
+     "peer": 469762045,
+     "challenge_received": 103,
+     "echo_received": 106,
+     "incoming_pulse": 103
+    },
+    {
+     "send": 100,
+     "peer": 469762046,
+     "challenge_received": 104,
+     "echo_received": 108,
+     "incoming_pulse": 104
+    },
+    {
+     "send": 100,
+     "peer": 469762044,
+     "challenge_received": 104,
+     "echo_received": 108,
+     "incoming_pulse": 104
+    }
+   ],
+   "transparent": [
+    {
+     "send": 0,
+     "peer": 469762045,
+     "challenge_received": 3,
+     "echo_received": 6,
+     "incoming_pulse": 3
+    },
+    {
+     "send": 0,
+     "peer": 469762046,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 469762044,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 4,
+     "peer": 469762045,
+     "challenge_received": 7,
+     "echo_received": 10,
+     "incoming_pulse": 7
+    },
+    {
+     "send": 4,
+     "peer": 469762046,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 4,
+     "peer": 469762044,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    }
+   ],
+   "native_summary": {
+    "0": {
+     "pulse_shifts": [
+      "0",
+      "0",
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1",
+      "1",
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 3
+    },
+    "16": {
+     "pulse_shifts": [
+      "0",
+      "0",
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1",
+      "1",
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 3
+    },
+    "96": {
+     "pulse_shifts": [
+      "0",
+      "0",
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1",
+      "1",
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 3
+    }
+   },
+   "transparent_summary": {
+    "0": {
+     "pulse_shifts": [
+      "0",
+      "0",
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1",
+      "1",
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 3
+    }
+   }
+  },
+  {
+   "observer": 536870911,
+   "native": [
+    {
+     "send": 0,
+     "peer": 536870909,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 536870910,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 536870908,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 4,
+     "peer": 536870909,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 4,
+     "peer": 536870910,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 4,
+     "peer": 536870908,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 16,
+     "peer": 536870909,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 16,
+     "peer": 536870910,
+     "challenge_received": 20,
+     "echo_received": 24,
+     "incoming_pulse": 20
+    },
+    {
+     "send": 16,
+     "peer": 536870908,
+     "challenge_received": 20,
+     "echo_received": 24,
+     "incoming_pulse": 20
+    },
+    {
+     "send": 20,
+     "peer": 536870909,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 20,
+     "peer": 536870910,
+     "challenge_received": 24,
+     "echo_received": 28,
+     "incoming_pulse": 24
+    },
+    {
+     "send": 20,
+     "peer": 536870908,
+     "challenge_received": 24,
+     "echo_received": 28,
+     "incoming_pulse": 24
+    },
+    {
+     "send": 96,
+     "peer": 536870909,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 96,
+     "peer": 536870910,
+     "challenge_received": 100,
+     "echo_received": 104,
+     "incoming_pulse": 100
+    },
+    {
+     "send": 96,
+     "peer": 536870908,
+     "challenge_received": 100,
+     "echo_received": 104,
+     "incoming_pulse": 100
+    },
+    {
+     "send": 100,
+     "peer": 536870909,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 100,
+     "peer": 536870910,
+     "challenge_received": 104,
+     "echo_received": 108,
+     "incoming_pulse": 104
+    },
+    {
+     "send": 100,
+     "peer": 536870908,
+     "challenge_received": 104,
+     "echo_received": 108,
+     "incoming_pulse": 104
+    }
+   ],
+   "transparent": [
+    {
+     "send": 0,
+     "peer": 536870909,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 536870910,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 536870908,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 4,
+     "peer": 536870909,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 4,
+     "peer": 536870910,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 4,
+     "peer": 536870908,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    }
+   ],
+   "native_summary": {
+    "0": {
+     "pulse_shifts": [
+      "0",
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1",
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 1
+    },
+    "16": {
+     "pulse_shifts": [
+      "0",
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1",
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 1
+    },
+    "96": {
+     "pulse_shifts": [
+      "0",
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1",
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 1
+    }
+   },
+   "transparent_summary": {
+    "0": {
+     "pulse_shifts": [
+      "0",
+      "0",
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1",
+      "1",
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 3
+    }
+   }
+  },
+  {
+   "observer": 603979775,
+   "native": [
+    {
+     "send": 0,
+     "peer": 603979773,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 603979774,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 603979772,
+     "challenge_received": 3,
+     "echo_received": 6,
+     "incoming_pulse": 3
+    },
+    {
+     "send": 4,
+     "peer": 603979773,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 4,
+     "peer": 603979774,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 4,
+     "peer": 603979772,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": 7
+    },
+    {
+     "send": 16,
+     "peer": 603979773,
+     "challenge_received": 20,
+     "echo_received": 24,
+     "incoming_pulse": 20
+    },
+    {
+     "send": 16,
+     "peer": 603979774,
+     "challenge_received": 20,
+     "echo_received": 24,
+     "incoming_pulse": 20
+    },
+    {
+     "send": 16,
+     "peer": 603979772,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 20,
+     "peer": 603979773,
+     "challenge_received": 24,
+     "echo_received": 28,
+     "incoming_pulse": 24
+    },
+    {
+     "send": 20,
+     "peer": 603979774,
+     "challenge_received": 24,
+     "echo_received": 28,
+     "incoming_pulse": 24
+    },
+    {
+     "send": 20,
+     "peer": 603979772,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 96,
+     "peer": 603979773,
+     "challenge_received": 100,
+     "echo_received": 104,
+     "incoming_pulse": 100
+    },
+    {
+     "send": 96,
+     "peer": 603979774,
+     "challenge_received": 100,
+     "echo_received": 104,
+     "incoming_pulse": 100
+    },
+    {
+     "send": 96,
+     "peer": 603979772,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 100,
+     "peer": 603979773,
+     "challenge_received": 104,
+     "echo_received": 108,
+     "incoming_pulse": 104
+    },
+    {
+     "send": 100,
+     "peer": 603979774,
+     "challenge_received": 104,
+     "echo_received": 108,
+     "incoming_pulse": 104
+    },
+    {
+     "send": 100,
+     "peer": 603979772,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    }
+   ],
+   "transparent": [
+    {
+     "send": 0,
+     "peer": 603979773,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 603979774,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 603979772,
+     "challenge_received": 3,
+     "echo_received": 6,
+     "incoming_pulse": 3
+    },
+    {
+     "send": 4,
+     "peer": 603979773,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 4,
+     "peer": 603979774,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 4,
+     "peer": 603979772,
+     "challenge_received": 7,
+     "echo_received": 10,
+     "incoming_pulse": 7
+    }
+   ],
+   "native_summary": {
+    "0": {
+     "pulse_shifts": [
+      "0",
+      "0",
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1",
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 1
+    },
+    "16": {
+     "pulse_shifts": [
+      "0",
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1",
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 1
+    },
+    "96": {
+     "pulse_shifts": [
+      "0",
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1",
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 1
+    }
+   },
+   "transparent_summary": {
+    "0": {
+     "pulse_shifts": [
+      "0",
+      "0",
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1",
+      "1",
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 3
+    }
+   }
+  },
+  {
+   "observer": 671088639,
+   "native": [
+    {
+     "send": 0,
+     "peer": 671088637,
+     "challenge_received": 4,
+     "echo_received": 9,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 671088638,
+     "challenge_received": 4,
+     "echo_received": null,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 671088636,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 4,
+     "peer": 671088637,
+     "challenge_received": 8,
+     "echo_received": 13,
+     "incoming_pulse": 9
+    },
+    {
+     "send": 4,
+     "peer": 671088638,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 4,
+     "peer": 671088636,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 16,
+     "peer": 671088637,
+     "challenge_received": 21,
+     "echo_received": 26,
+     "incoming_pulse": 21
+    },
+    {
+     "send": 16,
+     "peer": 671088638,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 16,
+     "peer": 671088636,
+     "challenge_received": 20,
+     "echo_received": 24,
+     "incoming_pulse": 20
+    },
+    {
+     "send": 20,
+     "peer": 671088637,
+     "challenge_received": 25,
+     "echo_received": 30,
+     "incoming_pulse": 25
+    },
+    {
+     "send": 20,
+     "peer": 671088638,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 20,
+     "peer": 671088636,
+     "challenge_received": 24,
+     "echo_received": 28,
+     "incoming_pulse": 24
+    },
+    {
+     "send": 96,
+     "peer": 671088637,
+     "challenge_received": 101,
+     "echo_received": 106,
+     "incoming_pulse": 101
+    },
+    {
+     "send": 96,
+     "peer": 671088638,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 96,
+     "peer": 671088636,
+     "challenge_received": 100,
+     "echo_received": 104,
+     "incoming_pulse": 100
+    },
+    {
+     "send": 100,
+     "peer": 671088637,
+     "challenge_received": 105,
+     "echo_received": 110,
+     "incoming_pulse": 105
+    },
+    {
+     "send": 100,
+     "peer": 671088638,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 100,
+     "peer": 671088636,
+     "challenge_received": 104,
+     "echo_received": 108,
+     "incoming_pulse": 104
+    }
+   ],
+   "transparent": [
+    {
+     "send": 0,
+     "peer": 671088637,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 671088638,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 671088636,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 4,
+     "peer": 671088637,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 4,
+     "peer": 671088638,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 4,
+     "peer": 671088636,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    }
+   ],
+   "native_summary": {
+    "0": {
+     "pulse_shifts": [
+      "0",
+      "1/4"
+     ],
+     "timed_echo_ratios": [
+      "1",
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 1
+    },
+    "16": {
+     "pulse_shifts": [
+      "0",
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1",
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 1
+    },
+    "96": {
+     "pulse_shifts": [
+      "0",
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1",
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 1
+    }
+   },
+   "transparent_summary": {
+    "0": {
+     "pulse_shifts": [
+      "0",
+      "0",
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1",
+      "1",
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 3
+    }
+   }
+  },
+  {
+   "observer": 738197503,
+   "native": [
+    {
+     "send": 0,
+     "peer": 738197501,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 738197502,
+     "challenge_received": 4,
+     "echo_received": null,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 738197500,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 4,
+     "peer": 738197501,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 4,
+     "peer": 738197502,
+     "challenge_received": 8,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 4,
+     "peer": 738197500,
+     "challenge_received": 9,
+     "echo_received": 14,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 16,
+     "peer": 738197501,
+     "challenge_received": 20,
+     "echo_received": 24,
+     "incoming_pulse": 20
+    },
+    {
+     "send": 16,
+     "peer": 738197502,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 16,
+     "peer": 738197500,
+     "challenge_received": 21,
+     "echo_received": 26,
+     "incoming_pulse": 21
+    },
+    {
+     "send": 20,
+     "peer": 738197501,
+     "challenge_received": 24,
+     "echo_received": 28,
+     "incoming_pulse": 24
+    },
+    {
+     "send": 20,
+     "peer": 738197502,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 20,
+     "peer": 738197500,
+     "challenge_received": 25,
+     "echo_received": 30,
+     "incoming_pulse": 25
+    },
+    {
+     "send": 96,
+     "peer": 738197501,
+     "challenge_received": 100,
+     "echo_received": 104,
+     "incoming_pulse": 100
+    },
+    {
+     "send": 96,
+     "peer": 738197502,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 96,
+     "peer": 738197500,
+     "challenge_received": 101,
+     "echo_received": 106,
+     "incoming_pulse": 101
+    },
+    {
+     "send": 100,
+     "peer": 738197501,
+     "challenge_received": 104,
+     "echo_received": 108,
+     "incoming_pulse": 104
+    },
+    {
+     "send": 100,
+     "peer": 738197502,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 100,
+     "peer": 738197500,
+     "challenge_received": 105,
+     "echo_received": 110,
+     "incoming_pulse": 105
+    }
+   ],
+   "transparent": [
+    {
+     "send": 0,
+     "peer": 738197501,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 738197502,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 738197500,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 4,
+     "peer": 738197501,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 4,
+     "peer": 738197502,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 4,
+     "peer": 738197500,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    }
+   ],
+   "native_summary": {
+    "0": {
+     "pulse_shifts": [
+      "0",
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "5/4",
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 1,
+     "eligible_echo_ratio_pairs": 1
+    },
+    "16": {
+     "pulse_shifts": [
+      "0",
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1",
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 1
+    },
+    "96": {
+     "pulse_shifts": [
+      "0",
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1",
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 1
+    }
+   },
+   "transparent_summary": {
+    "0": {
+     "pulse_shifts": [
+      "0",
+      "0",
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1",
+      "1",
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 3
+    }
+   }
+  },
+  {
+   "observer": 805306367,
+   "native": [
+    {
+     "send": 0,
+     "peer": 805306365,
+     "challenge_received": 3,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 0,
+     "peer": 805306366,
+     "challenge_received": 5,
+     "echo_received": 10,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 805306364,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 4,
+     "peer": 805306365,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 4,
+     "peer": 805306366,
+     "challenge_received": 9,
+     "echo_received": 14,
+     "incoming_pulse": 9
+    },
+    {
+     "send": 4,
+     "peer": 805306364,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 16,
+     "peer": 805306365,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 16,
+     "peer": 805306366,
+     "challenge_received": 21,
+     "echo_received": 26,
+     "incoming_pulse": 21
+    },
+    {
+     "send": 16,
+     "peer": 805306364,
+     "challenge_received": 20,
+     "echo_received": 24,
+     "incoming_pulse": 20
+    },
+    {
+     "send": 20,
+     "peer": 805306365,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 20,
+     "peer": 805306366,
+     "challenge_received": 25,
+     "echo_received": 30,
+     "incoming_pulse": 25
+    },
+    {
+     "send": 20,
+     "peer": 805306364,
+     "challenge_received": 24,
+     "echo_received": 28,
+     "incoming_pulse": 24
+    },
+    {
+     "send": 96,
+     "peer": 805306365,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 96,
+     "peer": 805306366,
+     "challenge_received": 101,
+     "echo_received": 106,
+     "incoming_pulse": 101
+    },
+    {
+     "send": 96,
+     "peer": 805306364,
+     "challenge_received": 100,
+     "echo_received": 104,
+     "incoming_pulse": 100
+    },
+    {
+     "send": 100,
+     "peer": 805306365,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 100,
+     "peer": 805306366,
+     "challenge_received": 105,
+     "echo_received": 110,
+     "incoming_pulse": 105
+    },
+    {
+     "send": 100,
+     "peer": 805306364,
+     "challenge_received": 104,
+     "echo_received": 108,
+     "incoming_pulse": 104
+    }
+   ],
+   "transparent": [
+    {
+     "send": 0,
+     "peer": 805306365,
+     "challenge_received": 3,
+     "echo_received": 6,
+     "incoming_pulse": 3
+    },
+    {
+     "send": 0,
+     "peer": 805306366,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 805306364,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 4,
+     "peer": 805306365,
+     "challenge_received": 7,
+     "echo_received": 10,
+     "incoming_pulse": 7
+    },
+    {
+     "send": 4,
+     "peer": 805306366,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 4,
+     "peer": 805306364,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    }
+   ],
+   "native_summary": {
+    "0": {
+     "pulse_shifts": [
+      "0",
+      "1/4"
+     ],
+     "timed_echo_ratios": [
+      "1",
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 1
+    },
+    "16": {
+     "pulse_shifts": [
+      "0",
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1",
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 1
+    },
+    "96": {
+     "pulse_shifts": [
+      "0",
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1",
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 1
+    }
+   },
+   "transparent_summary": {
+    "0": {
+     "pulse_shifts": [
+      "0",
+      "0",
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1",
+      "1",
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 3
+    }
+   }
+  },
+  {
+   "observer": 872415231,
+   "native": [
+    {
+     "send": 0,
+     "peer": 872415229,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 872415230,
+     "challenge_received": 3,
+     "echo_received": 6,
+     "incoming_pulse": 3
+    },
+    {
+     "send": 0,
+     "peer": 872415228,
+     "challenge_received": 4,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 4,
+     "peer": 872415229,
+     "challenge_received": 8,
+     "echo_received": null,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 4,
+     "peer": 872415230,
+     "challenge_received": 7,
+     "echo_received": 10,
+     "incoming_pulse": 7
+    },
+    {
+     "send": 4,
+     "peer": 872415228,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 16,
+     "peer": 872415229,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 16,
+     "peer": 872415230,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 16,
+     "peer": 872415228,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 20,
+     "peer": 872415229,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 20,
+     "peer": 872415230,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 20,
+     "peer": 872415228,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 96,
+     "peer": 872415229,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 96,
+     "peer": 872415230,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 96,
+     "peer": 872415228,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 100,
+     "peer": 872415229,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 100,
+     "peer": 872415230,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 100,
+     "peer": 872415228,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    }
+   ],
+   "transparent": [
+    {
+     "send": 0,
+     "peer": 872415229,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 872415230,
+     "challenge_received": 3,
+     "echo_received": 6,
+     "incoming_pulse": 3
+    },
+    {
+     "send": 0,
+     "peer": 872415228,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 4,
+     "peer": 872415229,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 4,
+     "peer": 872415230,
+     "challenge_received": 7,
+     "echo_received": 10,
+     "incoming_pulse": 7
+    },
+    {
+     "send": 4,
+     "peer": 872415228,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    }
+   ],
+   "native_summary": {
+    "0": {
+     "pulse_shifts": [
+      "0",
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 0
+    },
+    "16": {
+     "pulse_shifts": [],
+     "timed_echo_ratios": [],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 0
+    },
+    "96": {
+     "pulse_shifts": [],
+     "timed_echo_ratios": [],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 0
+    }
+   },
+   "transparent_summary": {
+    "0": {
+     "pulse_shifts": [
+      "0",
+      "0",
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1",
+      "1",
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 3
+    }
+   }
+  },
+  {
+   "observer": 939524095,
+   "native": [
+    {
+     "send": 0,
+     "peer": 939524093,
+     "challenge_received": 5,
+     "echo_received": 10,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 939524094,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 939524092,
+     "challenge_received": 4,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 4,
+     "peer": 939524093,
+     "challenge_received": 9,
+     "echo_received": 14,
+     "incoming_pulse": 9
+    },
+    {
+     "send": 4,
+     "peer": 939524094,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 4,
+     "peer": 939524092,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 16,
+     "peer": 939524093,
+     "challenge_received": 21,
+     "echo_received": 26,
+     "incoming_pulse": 21
+    },
+    {
+     "send": 16,
+     "peer": 939524094,
+     "challenge_received": 20,
+     "echo_received": 24,
+     "incoming_pulse": 20
+    },
+    {
+     "send": 16,
+     "peer": 939524092,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 20,
+     "peer": 939524093,
+     "challenge_received": 25,
+     "echo_received": 30,
+     "incoming_pulse": 25
+    },
+    {
+     "send": 20,
+     "peer": 939524094,
+     "challenge_received": 24,
+     "echo_received": 28,
+     "incoming_pulse": 24
+    },
+    {
+     "send": 20,
+     "peer": 939524092,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 96,
+     "peer": 939524093,
+     "challenge_received": 101,
+     "echo_received": 106,
+     "incoming_pulse": 101
+    },
+    {
+     "send": 96,
+     "peer": 939524094,
+     "challenge_received": 100,
+     "echo_received": 104,
+     "incoming_pulse": 100
+    },
+    {
+     "send": 96,
+     "peer": 939524092,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 100,
+     "peer": 939524093,
+     "challenge_received": 105,
+     "echo_received": 110,
+     "incoming_pulse": 105
+    },
+    {
+     "send": 100,
+     "peer": 939524094,
+     "challenge_received": 104,
+     "echo_received": 108,
+     "incoming_pulse": 104
+    },
+    {
+     "send": 100,
+     "peer": 939524092,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    }
+   ],
+   "transparent": [
+    {
+     "send": 0,
+     "peer": 939524093,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 939524094,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 939524092,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 4,
+     "peer": 939524093,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 4,
+     "peer": 939524094,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 4,
+     "peer": 939524092,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    }
+   ],
+   "native_summary": {
+    "0": {
+     "pulse_shifts": [
+      "1/4",
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1",
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 1
+    },
+    "16": {
+     "pulse_shifts": [
+      "0",
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1",
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 1
+    },
+    "96": {
+     "pulse_shifts": [
+      "0",
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1",
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 1
+    }
+   },
+   "transparent_summary": {
+    "0": {
+     "pulse_shifts": [
+      "0",
+      "0",
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1",
+      "1",
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 3
+    }
+   }
+  },
+  {
+   "observer": 1006632959,
+   "native": [
+    {
+     "send": 0,
+     "peer": 1006632957,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 1006632958,
+     "challenge_received": 4,
+     "echo_received": 9,
+     "incoming_pulse": 5
+    },
+    {
+     "send": 0,
+     "peer": 1006632956,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 4,
+     "peer": 1006632957,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 4,
+     "peer": 1006632958,
+     "challenge_received": 9,
+     "echo_received": 14,
+     "incoming_pulse": 9
+    },
+    {
+     "send": 4,
+     "peer": 1006632956,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 16,
+     "peer": 1006632957,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 16,
+     "peer": 1006632958,
+     "challenge_received": 21,
+     "echo_received": 26,
+     "incoming_pulse": 21
+    },
+    {
+     "send": 16,
+     "peer": 1006632956,
+     "challenge_received": 20,
+     "echo_received": 24,
+     "incoming_pulse": 20
+    },
+    {
+     "send": 20,
+     "peer": 1006632957,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 20,
+     "peer": 1006632958,
+     "challenge_received": 25,
+     "echo_received": 30,
+     "incoming_pulse": 25
+    },
+    {
+     "send": 20,
+     "peer": 1006632956,
+     "challenge_received": 24,
+     "echo_received": 28,
+     "incoming_pulse": 24
+    },
+    {
+     "send": 96,
+     "peer": 1006632957,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 96,
+     "peer": 1006632958,
+     "challenge_received": 101,
+     "echo_received": 106,
+     "incoming_pulse": 101
+    },
+    {
+     "send": 96,
+     "peer": 1006632956,
+     "challenge_received": 100,
+     "echo_received": 104,
+     "incoming_pulse": 100
+    },
+    {
+     "send": 100,
+     "peer": 1006632957,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 100,
+     "peer": 1006632958,
+     "challenge_received": 105,
+     "echo_received": 110,
+     "incoming_pulse": 105
+    },
+    {
+     "send": 100,
+     "peer": 1006632956,
+     "challenge_received": 104,
+     "echo_received": 108,
+     "incoming_pulse": 104
+    }
+   ],
+   "transparent": [
+    {
+     "send": 0,
+     "peer": 1006632957,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 1006632958,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 1006632956,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 4,
+     "peer": 1006632957,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 4,
+     "peer": 1006632958,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 4,
+     "peer": 1006632956,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    }
+   ],
+   "native_summary": {
+    "0": {
+     "pulse_shifts": [
+      "0",
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1",
+      "10/9"
+     ],
+     "unequal_echo_ratio_pairs": 1,
+     "eligible_echo_ratio_pairs": 1
+    },
+    "16": {
+     "pulse_shifts": [
+      "0",
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1",
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 1
+    },
+    "96": {
+     "pulse_shifts": [
+      "0",
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1",
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 1
+    }
+   },
+   "transparent_summary": {
+    "0": {
+     "pulse_shifts": [
+      "0",
+      "0",
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1",
+      "1",
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 3
+    }
+   }
+  },
+  {
+   "observer": 1073741823,
+   "native": [
+    {
+     "send": 0,
+     "peer": 1073741821,
+     "challenge_received": 3,
+     "echo_received": 6,
+     "incoming_pulse": 3
+    },
+    {
+     "send": 0,
+     "peer": 1073741822,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 1073741820,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 4,
+     "peer": 1073741821,
+     "challenge_received": 7,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 4,
+     "peer": 1073741822,
+     "challenge_received": 9,
+     "echo_received": 14,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 4,
+     "peer": 1073741820,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 16,
+     "peer": 1073741821,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 16,
+     "peer": 1073741822,
+     "challenge_received": 21,
+     "echo_received": 26,
+     "incoming_pulse": 21
+    },
+    {
+     "send": 16,
+     "peer": 1073741820,
+     "challenge_received": 20,
+     "echo_received": 24,
+     "incoming_pulse": 20
+    },
+    {
+     "send": 20,
+     "peer": 1073741821,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 20,
+     "peer": 1073741822,
+     "challenge_received": 25,
+     "echo_received": 30,
+     "incoming_pulse": 25
+    },
+    {
+     "send": 20,
+     "peer": 1073741820,
+     "challenge_received": 24,
+     "echo_received": 28,
+     "incoming_pulse": 24
+    },
+    {
+     "send": 96,
+     "peer": 1073741821,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 96,
+     "peer": 1073741822,
+     "challenge_received": 101,
+     "echo_received": 106,
+     "incoming_pulse": 101
+    },
+    {
+     "send": 96,
+     "peer": 1073741820,
+     "challenge_received": 100,
+     "echo_received": 104,
+     "incoming_pulse": 100
+    },
+    {
+     "send": 100,
+     "peer": 1073741821,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 100,
+     "peer": 1073741822,
+     "challenge_received": 105,
+     "echo_received": 110,
+     "incoming_pulse": 105
+    },
+    {
+     "send": 100,
+     "peer": 1073741820,
+     "challenge_received": 104,
+     "echo_received": 108,
+     "incoming_pulse": 104
+    }
+   ],
+   "transparent": [
+    {
+     "send": 0,
+     "peer": 1073741821,
+     "challenge_received": 3,
+     "echo_received": 6,
+     "incoming_pulse": 3
+    },
+    {
+     "send": 0,
+     "peer": 1073741822,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 1073741820,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 4,
+     "peer": 1073741821,
+     "challenge_received": 7,
+     "echo_received": 10,
+     "incoming_pulse": 7
+    },
+    {
+     "send": 4,
+     "peer": 1073741822,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 4,
+     "peer": 1073741820,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    }
+   ],
+   "native_summary": {
+    "0": {
+     "pulse_shifts": [
+      "0",
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1",
+      "5/4"
+     ],
+     "unequal_echo_ratio_pairs": 1,
+     "eligible_echo_ratio_pairs": 1
+    },
+    "16": {
+     "pulse_shifts": [
+      "0",
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1",
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 1
+    },
+    "96": {
+     "pulse_shifts": [
+      "0",
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1",
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 1
+    }
+   },
+   "transparent_summary": {
+    "0": {
+     "pulse_shifts": [
+      "0",
+      "0",
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1",
+      "1",
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 3
+    }
+   }
+  },
+  {
+   "observer": 1140850687,
+   "native": [
+    {
+     "send": 0,
+     "peer": 1140850685,
+     "challenge_received": 4,
+     "echo_received": 9,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 1140850686,
+     "challenge_received": 4,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 0,
+     "peer": 1140850684,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 4,
+     "peer": 1140850685,
+     "challenge_received": 9,
+     "echo_received": 14,
+     "incoming_pulse": 9
+    },
+    {
+     "send": 4,
+     "peer": 1140850686,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 4,
+     "peer": 1140850684,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 16,
+     "peer": 1140850685,
+     "challenge_received": 21,
+     "echo_received": 26,
+     "incoming_pulse": 21
+    },
+    {
+     "send": 16,
+     "peer": 1140850686,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 16,
+     "peer": 1140850684,
+     "challenge_received": 20,
+     "echo_received": 24,
+     "incoming_pulse": 20
+    },
+    {
+     "send": 20,
+     "peer": 1140850685,
+     "challenge_received": 25,
+     "echo_received": 30,
+     "incoming_pulse": 25
+    },
+    {
+     "send": 20,
+     "peer": 1140850686,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 20,
+     "peer": 1140850684,
+     "challenge_received": 24,
+     "echo_received": 28,
+     "incoming_pulse": 24
+    },
+    {
+     "send": 96,
+     "peer": 1140850685,
+     "challenge_received": 101,
+     "echo_received": 106,
+     "incoming_pulse": 101
+    },
+    {
+     "send": 96,
+     "peer": 1140850686,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 96,
+     "peer": 1140850684,
+     "challenge_received": 100,
+     "echo_received": 104,
+     "incoming_pulse": 100
+    },
+    {
+     "send": 100,
+     "peer": 1140850685,
+     "challenge_received": 105,
+     "echo_received": 110,
+     "incoming_pulse": 105
+    },
+    {
+     "send": 100,
+     "peer": 1140850686,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 100,
+     "peer": 1140850684,
+     "challenge_received": 104,
+     "echo_received": 108,
+     "incoming_pulse": 104
+    }
+   ],
+   "transparent": [
+    {
+     "send": 0,
+     "peer": 1140850685,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 1140850686,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 1140850684,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 4,
+     "peer": 1140850685,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 4,
+     "peer": 1140850686,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 4,
+     "peer": 1140850684,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    }
+   ],
+   "native_summary": {
+    "0": {
+     "pulse_shifts": [
+      "0",
+      "1/4"
+     ],
+     "timed_echo_ratios": [
+      "1",
+      "10/9"
+     ],
+     "unequal_echo_ratio_pairs": 1,
+     "eligible_echo_ratio_pairs": 1
+    },
+    "16": {
+     "pulse_shifts": [
+      "0",
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1",
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 1
+    },
+    "96": {
+     "pulse_shifts": [
+      "0",
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1",
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 1
+    }
+   },
+   "transparent_summary": {
+    "0": {
+     "pulse_shifts": [
+      "0",
+      "0",
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1",
+      "1",
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 3
+    }
+   }
+  },
+  {
+   "observer": 1207959551,
+   "native": [
+    {
+     "send": 0,
+     "peer": 1207959549,
+     "challenge_received": 4,
+     "echo_received": null,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 1207959550,
+     "challenge_received": 4,
+     "echo_received": null,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 1207959548,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 4,
+     "peer": 1207959549,
+     "challenge_received": 8,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 4,
+     "peer": 1207959550,
+     "challenge_received": 8,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 4,
+     "peer": 1207959548,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 16,
+     "peer": 1207959549,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 16,
+     "peer": 1207959550,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 16,
+     "peer": 1207959548,
+     "challenge_received": 20,
+     "echo_received": 24,
+     "incoming_pulse": 20
+    },
+    {
+     "send": 20,
+     "peer": 1207959549,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 20,
+     "peer": 1207959550,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 20,
+     "peer": 1207959548,
+     "challenge_received": 24,
+     "echo_received": 28,
+     "incoming_pulse": 24
+    },
+    {
+     "send": 96,
+     "peer": 1207959549,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 96,
+     "peer": 1207959550,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 96,
+     "peer": 1207959548,
+     "challenge_received": 100,
+     "echo_received": 104,
+     "incoming_pulse": 100
+    },
+    {
+     "send": 100,
+     "peer": 1207959549,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 100,
+     "peer": 1207959550,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 100,
+     "peer": 1207959548,
+     "challenge_received": 104,
+     "echo_received": 108,
+     "incoming_pulse": 104
+    }
+   ],
+   "transparent": [
+    {
+     "send": 0,
+     "peer": 1207959549,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 1207959550,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 1207959548,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 4,
+     "peer": 1207959549,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 4,
+     "peer": 1207959550,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 4,
+     "peer": 1207959548,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    }
+   ],
+   "native_summary": {
+    "0": {
+     "pulse_shifts": [
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 0
+    },
+    "16": {
+     "pulse_shifts": [
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 0
+    },
+    "96": {
+     "pulse_shifts": [
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 0
+    }
+   },
+   "transparent_summary": {
+    "0": {
+     "pulse_shifts": [
+      "0",
+      "0",
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1",
+      "1",
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 3
+    }
+   }
+  },
+  {
+   "observer": 1275068415,
+   "native": [
+    {
+     "send": 0,
+     "peer": 1275068413,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 1275068414,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 1275068412,
+     "challenge_received": 3,
+     "echo_received": null,
+     "incoming_pulse": 3
+    },
+    {
+     "send": 4,
+     "peer": 1275068413,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 4,
+     "peer": 1275068414,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 4,
+     "peer": 1275068412,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 16,
+     "peer": 1275068413,
+     "challenge_received": 20,
+     "echo_received": 24,
+     "incoming_pulse": 20
+    },
+    {
+     "send": 16,
+     "peer": 1275068414,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 16,
+     "peer": 1275068412,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 20,
+     "peer": 1275068413,
+     "challenge_received": 24,
+     "echo_received": 28,
+     "incoming_pulse": 24
+    },
+    {
+     "send": 20,
+     "peer": 1275068414,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 20,
+     "peer": 1275068412,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 96,
+     "peer": 1275068413,
+     "challenge_received": 100,
+     "echo_received": 104,
+     "incoming_pulse": 100
+    },
+    {
+     "send": 96,
+     "peer": 1275068414,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 96,
+     "peer": 1275068412,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 100,
+     "peer": 1275068413,
+     "challenge_received": 104,
+     "echo_received": 108,
+     "incoming_pulse": 104
+    },
+    {
+     "send": 100,
+     "peer": 1275068414,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 100,
+     "peer": 1275068412,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    }
+   ],
+   "transparent": [
+    {
+     "send": 0,
+     "peer": 1275068413,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 1275068414,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 1275068412,
+     "challenge_received": 3,
+     "echo_received": 6,
+     "incoming_pulse": 3
+    },
+    {
+     "send": 4,
+     "peer": 1275068413,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 4,
+     "peer": 1275068414,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 4,
+     "peer": 1275068412,
+     "challenge_received": 7,
+     "echo_received": 10,
+     "incoming_pulse": 7
+    }
+   ],
+   "native_summary": {
+    "0": {
+     "pulse_shifts": [
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 0
+    },
+    "16": {
+     "pulse_shifts": [
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 0
+    },
+    "96": {
+     "pulse_shifts": [
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 0
+    }
+   },
+   "transparent_summary": {
+    "0": {
+     "pulse_shifts": [
+      "0",
+      "0",
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1",
+      "1",
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 3
+    }
+   }
+  },
+  {
+   "observer": 1342177279,
+   "native": [
+    {
+     "send": 0,
+     "peer": 1342177277,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 1342177278,
+     "challenge_received": 4,
+     "echo_received": null,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 1342177276,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 4,
+     "peer": 1342177277,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 4,
+     "peer": 1342177278,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 4,
+     "peer": 1342177276,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 16,
+     "peer": 1342177277,
+     "challenge_received": 20,
+     "echo_received": 24,
+     "incoming_pulse": 20
+    },
+    {
+     "send": 16,
+     "peer": 1342177278,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 16,
+     "peer": 1342177276,
+     "challenge_received": 20,
+     "echo_received": 24,
+     "incoming_pulse": 20
+    },
+    {
+     "send": 20,
+     "peer": 1342177277,
+     "challenge_received": 24,
+     "echo_received": 28,
+     "incoming_pulse": 24
+    },
+    {
+     "send": 20,
+     "peer": 1342177278,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 20,
+     "peer": 1342177276,
+     "challenge_received": 24,
+     "echo_received": 28,
+     "incoming_pulse": 24
+    },
+    {
+     "send": 96,
+     "peer": 1342177277,
+     "challenge_received": 100,
+     "echo_received": 104,
+     "incoming_pulse": 100
+    },
+    {
+     "send": 96,
+     "peer": 1342177278,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 96,
+     "peer": 1342177276,
+     "challenge_received": 100,
+     "echo_received": 104,
+     "incoming_pulse": 100
+    },
+    {
+     "send": 100,
+     "peer": 1342177277,
+     "challenge_received": 104,
+     "echo_received": 108,
+     "incoming_pulse": 104
+    },
+    {
+     "send": 100,
+     "peer": 1342177278,
+     "challenge_received": null,
+     "echo_received": null,
+     "incoming_pulse": null
+    },
+    {
+     "send": 100,
+     "peer": 1342177276,
+     "challenge_received": 104,
+     "echo_received": 108,
+     "incoming_pulse": 104
+    }
+   ],
+   "transparent": [
+    {
+     "send": 0,
+     "peer": 1342177277,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 1342177278,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 0,
+     "peer": 1342177276,
+     "challenge_received": 4,
+     "echo_received": 8,
+     "incoming_pulse": 4
+    },
+    {
+     "send": 4,
+     "peer": 1342177277,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 4,
+     "peer": 1342177278,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    },
+    {
+     "send": 4,
+     "peer": 1342177276,
+     "challenge_received": 8,
+     "echo_received": 12,
+     "incoming_pulse": 8
+    }
+   ],
+   "native_summary": {
+    "0": {
+     "pulse_shifts": [
+      "0",
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1",
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 1
+    },
+    "16": {
+     "pulse_shifts": [
+      "0",
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1",
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 1
+    },
+    "96": {
+     "pulse_shifts": [
+      "0",
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1",
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 1
+    }
+   },
+   "transparent_summary": {
+    "0": {
+     "pulse_shifts": [
+      "0",
+      "0",
+      "0"
+     ],
+     "timed_echo_ratios": [
+      "1",
+      "1",
+      "1"
+     ],
+     "unequal_echo_ratio_pairs": 0,
+     "eligible_echo_ratio_pairs": 3
+    }
+   }
+  }
+ ]
+}

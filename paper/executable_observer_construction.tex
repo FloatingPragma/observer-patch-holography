@@ -131,8 +131,7 @@ three-dimensional lattice; a difference between microscopic state encodings
 is no failure of the model, and a resemblance between them is no success.
 Physical space, time, fields and particles are effective descriptions that
 the observers inside the computation use for the records they agree on. In
-the theory, observers who inhabit such a computation can describe their
-experience as a relativistic continuum spacetime with one time and three
+the theory, the finite-menu theorem takes a radial interval, hyperbolic service and admissible readouts as inputs to its relativistic continuum spacetime with one time and three
 space dimensions. For every fixed finite admissible menu of observer
 readouts on bounded wave times, a smooth static $(1+3)$-dimensional
 Lorentzian metric carries a free scalar field whose complete predictions
@@ -156,9 +155,9 @@ predicate ``both ends hold one load'', and a record is admitted when both
 copies are valid and agree (Section~\ref{sec:instruments}). State vectors,
 levels of the law, the evolution parameter and positions in a sequence of
 events are tools of the calculation. A statement that uses them is labelled as audit, and no reader
-uses them. A bound that holds for every value of the evolution parameter
-holds at every reading in any observer's own history, and it is written in
-that form. No common clock is assumed: each port counts the events of its
+uses them. The free binding bound applies to the first complete seam
+reading after any duration of uninterrupted evolution. A previous reading
+changes the state supplied to the next one. Each port counts the events of its
 own seams, and that count is a local clock of its observer
 (Section~\ref{sec:events}). Under Interval Echo an observer patch carries
 its clock with it as it moves (Section~\ref{sec:echo}).
@@ -194,8 +193,7 @@ stability: bound objects persist in free evolution, read on agreed seam
 records, and the same law without the agreement energy loses them
 (Section~\ref{sec:stability}). Interval Echo inherits this in its free
 sector. Its observer patches carry clocks: a travelling clock, compared at
-reunion with the clock kept at home, runs slow by the relativistic factor
-computed from the observers' own records, and overlapping observers agree
+reunion with the clock kept at home, reproduces the Lorentz factor built into its closing filter on the supplied relay, and overlapping observers agree
 on every shared checkpoint reading (Section~\ref{sec:echo}). The scalar
 channel holds an object on a ring of four seams. Its excitation is kept for
 every interval, which is particle stability for a second object, and its
@@ -540,8 +538,7 @@ used for both coins. All four give the seam term of \eqref{eq:reduction}.
 A write that keeps the order of its inputs, $y'_c(a,b)=(a,b)$, violates the
 first identity of \eqref{eq:intertwine}, and for it \eqref{eq:reduction}
 fails. The equalization of the loads, the fair coin and the value of the
-output therefore play no role in the induced law: the write is undone
-exactly. The native seam event contributes its symmetry under exchange of
+output leave the induced load law on initially blank memories unchanged. On written memories different output isometries can act differently. The native seam event contributes its symmetry under exchange of
 the two ports, and the binding of Section~\ref{sec:theorem} comes from the
 supplied memory generator.
 
@@ -766,7 +763,8 @@ in the sector of two loads, and the complete seam reading of
 Section~\ref{sec:reader} has one outcome for each seam and the outcome ``no
 pair''. The left-hand side of \eqref{eq:binding} is the probability of ``no
 pair''. A pair that starts on a seam is therefore read as a pair on some
-seam with probability at least $1-40/(2\kappa-6)^2$ at every reading. The
+seam with probability at least $1-40/(2\kappa-6)^2$ at the first reading
+after any duration of free evolution. The
 value $t$ is audit. No translation invariance, preferred centre or global
 observer enters the proof.
 
@@ -787,10 +785,12 @@ law of strict descent of $C$ would exclude this mechanism.
 
 The largest level of $PKP$ and the norm of $QKP$ were computed on the
 carriers of Table~\ref{tab:carriers}; Table~\ref{tab:constants} compares
-them with the bounds of the proof. With the computed constants, part (c) of
-Lemma~\ref{lem:blocks} gives $17.3/(2\kappa-5.70)^{2}$ on the federations:
-$0.163$ at $\kappa=8$ and $0.00028$ at $\kappa=128$, against $0.4$ and
-$0.00064$ from \eqref{eq:binding}.
+them with the bounds of the proof. On these three federations an integer certificate gives
+$\lambda_{\max}(PKP)<5.701$ and $4\lVert QKP\rVert^2<17.35$.
+Part (c) of Lemma~\ref{lem:blocks} therefore bounds the leakage by
+$17.35/(2\kappa-5.701)^2$ for $2\kappa>5.701$. At $\kappa=8$ and
+$128$ this is less than $0.16358$ and $0.000277$, respectively, against
+$0.4$ and $0.00064$ from \eqref{eq:binding}.
 
 \begin{table}[!htb]
 \centering
@@ -807,7 +807,7 @@ $20$ cells & $5.7008$ & $2.0821$ \\
 $80$ cells & $5.7000$ & $2.0811$ \\
 $320$ cells & $5.7000$ & $2.0822$ \\
 \midrule
-every federation of the theorem & at most $6$ & at most $\sqrt{10}=3.1623$ \\
+every federation of the theorem & at most $6$ & at most $\sqrt{10}\approx3.1623$ \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -819,7 +819,7 @@ $PH_\kappa P$ is $10\kappa+5$, the lowest level of $QH_\kappa Q$ is
 $\min\bigl(12\kappa+4-\sqrt6,\ 24\kappa\bigr)$, and
 $\lVert QH_\kappa P\rVert=2$. For $\kappa>(1+\sqrt6)/2$ a state supported in
 $\ran P$ is read as ``no pair'' with probability at most
-$16/(2\kappa-1-\sqrt6)^{2}$ at every reading.
+$16/(2\kappa-1-\sqrt6)^{2}$ at the first reading after any duration of free evolution.
 \end{proposition}
 
 \begin{proof}
@@ -868,7 +868,7 @@ H_{\mathrm{emit}}=H_\kappa+E_F\proj{F}+g\bigl(\ket{F}\bra{e}+\ket{e}\bra{F}\bigr
 \end{equation}
 and the coupling $g$ acts for the duration $\pi/(2g)$ while the law acts
 throughout. No eigenvector of the law is installed, and fuel left in the
-emitter is an outcome of every later reading.
+emitter counts as a missed pair at the first read after the free interval.
 
 \begin{proposition}[Emitter]
 \label{prop:emitter}
@@ -971,6 +971,15 @@ reading is never used to hold the object in place: after an ideal complete
 reading the loads are in the mixture
 $\rho\mapsto\sum_eP_e\rho P_e+Q\rho Q$ with $P_e$ the projector on the pair
 on the seam $e$, which is a different state from the unread one.
+
+For example, on one cell let the emitter on seam $(0,1)$ act with
+$g=64$ and $\kappa=8$. Alternate free flights of duration $\pi/16$ with
+complete seam readings, retaining every outcome. Iterating the displayed
+map on the emitted state gives probabilities $0.012803$, $0.448794$ and
+$0.506936$ for ``no pair'' at the first, hundredth and two hundredth
+ideal readings. Fuel left in the emitter counts as ``no pair'' throughout.
+The free bound with emitter error is $0.431861$ rounded up. Thus even the
+unconditional probability in a monitored run can exceed the free bound.
 
 How quickly does a publication remove an interference fringe? On a
 protected one-load triangle, a signed collar read and inverse echo
@@ -1365,17 +1374,20 @@ one record for each seam and the outcome ``no pair''; fuel left in the
 emitter counts as ``no pair''.
 
 \emph{Claim.} A pair of loads written on one seam by a local emitter is read
-as a pair on some seam with probability at least one minus the bound,
-whenever the observers read. It is read on other seams than the first.
+as a pair on some seam with probability at least one minus the emitter
+bound at the first ideal complete reading after free evolution.
+Proposition~\ref{prop:reader} gives the error of a finite reading.
+The pair is read on other seams than the first.
 Nothing holds it except the law. Under the same law without the agreement
 energy the record is lost.
 
-\emph{Clock.} The claim uses none. The bound holds at every value of the
-evolution parameter, hence at every reading in any observer's own history.
-The sampled values of the parameter below are audit.
+\emph{Clock.} The first reading may occur after any duration of free
+evolution. The sampled values of the evolution parameter below are audit.
+For a second reading the initial state is the output of the first instrument
+(Section~\ref{sec:reader}).
 
 \emph{What counts against the claim.} ``No pair'' above the bound at a
-reading; no level of two loads below the energy of two free loads, an
+first reading after free evolution; no level of two loads below the energy of two free loads, an
 audit on the spectrum; or a changed law with the same alphabet, routing and
 symmetry that gives the same answer on the whole property.
 
@@ -1399,7 +1411,7 @@ the largest level of $PKP$ and $\beta=\lVert QKP\rVert$.
 \begin{table}[!htb]
 \centering
 \caption{Particle stability on agreed seam records. The probabilities are
-the largest values over the readings of each run.}
+maxima over the sampled waits, each measured on a fresh preparation.}
 \label{tab:stability}
 \begin{tabular}{@{}lrrrr@{}}
 \toprule
@@ -2689,7 +2701,7 @@ probabilities at three accepted counts and two analysis phases.
 The correlated reference misses 22. This comparison uses protected
 hands, a published count and specified reference preparations.
 
-\paragraph{Moving clocks run slow.}
+\paragraph{Reunion of calibrated clocks.}
 The observers time the journeys themselves. A home patch takes half the
 round trip of a reciprocal light pulse as the one-way light time $d$. The
 receipt of a pulse that the traveller's arrival at the far end triggers,
@@ -2705,7 +2717,7 @@ traveller's proper time to the home time,
 For journeys with leg speeds $(1/2,1/6)$, $(1/6,1/2)$ and $(1/4,1/4)$ the
 measured ratio minus the forecast is $-0.00105\pm0.00068$,
 $+0.00019\pm0.00052$ and $+0.00087\pm0.00064$, each from $524{,}288$
-paired journeys with one standard error. The time dilation itself is $3.2$
+paired journeys with one standard error. For the uniform journey the first run gave $-0.00369\pm0.00120$ and the independent repeat gave $+0.00087\pm0.00064$. Their inverse-variance mean is $-0.00014\pm0.00056$. The runs differ by 3.35 combined standard errors. The slowing built into the filter is $3.2$
 to $4.4$ percent, a ratio of about $0.956$ on the fast journeys, so it is
 resolved at dozens of standard errors, and the clock follows the forecast
 within about one part in a thousand. Embeddings in federations of
@@ -2852,9 +2864,7 @@ $1/4$, realize the unique weighted projection to a uniform reference in
 both orders: each owner reads $(3/8,1/8,1/8,3/8)$.
 
 \paragraph{Scope.}
-Of the premises of the finite theorems, Interval Echo supplies observer
-clocks, the three directions and the time dilation of moving clocks from
-records that the observers themselves make. A comparison of clocks on held
+Of the premises of the finite theorems, Interval Echo supplies clock records for a filter calibrated to a routed signal and three response components on a cell. A comparison of clocks on held
 clock constructions and directions, the transport of the three directions
 by a moving observer's full records, a jointly authenticated causal order
 with its count-volume limit, one common measurement of current response
@@ -3777,13 +3787,7 @@ The two output ports together receive $9.984\%$ of original enrollments.
 A rank estimate from the two quadratures gives three frequencies. The
 same apparatus gives one when the mass effect is replaced by its scalar
 mean. Two filters set by the recorded frequency differences isolate the
-lowest line on $3.333\%$ of enrollments. The first acquisition gives
-$105.659416$ and $1776.985000$ MeV for the heavier lines if the lowest
-sets the scale at the measured electron energy. The corresponding
-generator values are $105.6594145$ and $1776.984971$ MeV. The tau
-difference is $+0.0550$ MeV against a quoted uncertainty of $0.09$ MeV.
-The middle ratio exceeds the measured muon-to-electron ratio by
-$9.83$ parts per million, independently of the common energy scale
+lowest line on $3.333\%$ of enrollments. The frequencies read back the supplied cyclic mass operator and phase. Matching its lowest line to the measured electron energy sets the laboratory scale. The middle ratio differs from the measured muon-to-electron ratio independently of that scale
 \cite{pdgleptons2026,codata2022ratio}. These lines are frequency
 differences between states carrying the same charge.
 
@@ -3797,8 +3801,7 @@ $2+2\sqrt{2}\,\mathrm{Re}(wc_1)+\mathrm{Re}(w^2c_2)$, with $w^3=1$.
 Taking only the phase of $c_1$ at $N=302$ gives a middle ratio of
 $206.768279$. Retaining all clock outcomes at that same cadence gives
 $149.041053$. Fitting the complete response to the muon ratio gives
-about $1.196\times10^7$ rounds per tick and a conditional heavy energy
-of $1776.9673$ MeV. The fit uses the muon as a second input. The clock
+about $1.196\times10^7$ rounds per tick with the muon ratio as a second input. The resulting heavy line is a conditional interpolation. The clock
 visibility supplies an independent observable for its cadence.
 
 \paragraph{Formation energy and the clock.}
@@ -4588,8 +4591,7 @@ the levels of the federation does not preserve seam adjacency
 of admissible observer records between levels; agreement of state encodings
 is no part of it.
 \item A comparison of clocks on held clock constructions and directions.
-The clocks of Section~\ref{sec:events} are counts of events, and the patch
-clock of Interval Echo follows the relativistic proper-time forecast on the
+The clocks of Section~\ref{sec:events} are counts of events, and the patch clock of Interval Echo reproduces its calibrated proper-time forecast on the
 journeys of Section~\ref{sec:echo}.
 \item The transport of the three directions by a moving observer's full
 records.
@@ -4600,14 +4602,12 @@ carrier of the theory (Section~\ref{sec:collar}).
 \end{itemize}
 
 These limits are measured against the test of Section~\ref{sec:intro}.
-Observers who inhabit the computation can describe their experience as a
-relativistic continuum spacetime with one time and three space dimensions,
+For a supplied radial interval, hyperbolic service and admissible readout class, the finite-menu field description takes the form of a relativistic continuum spacetime with one time and three space dimensions,
 by the proposition on smooth effective field descriptions of the flagship
 and the reconstruction of the spacetime paper, under their stated premises
 \cite{flagship,ophspacetime}. Of those premises the model supplies the
 carrier with its rank-three band, count clocks compared through shared
-readings (Section~\ref{sec:joins}) and, under Interval Echo, clocks carried
-by observer patches that run slow by the relativistic factor when they move
+readings (Section~\ref{sec:joins}) and, under Interval Echo, patch clocks calibrated to the relativistic factor on the supplied relay
 (Section~\ref{sec:echo}); the field readouts, a jointly authenticated order
 of events and the refinement family that the two results also consume are
 outputs it does not produce. The model is not required to contain three
@@ -4636,7 +4636,7 @@ against each.}
 \toprule
 Experiment & Prediction & Counts against it \\
 \midrule
-A pair written on one seam, read later, $\kappa>3$ & no pair with probability at most $40/(2\kappa-6)^2$ on every federation; at most $0.0097$ at $\kappa=8$ on $1$ to $320$ cells & a larger probability at some reading \\
+A pair prepared on one seam, first read after free evolution, $\kappa>3$ & no pair with probability at most $40/(2\kappa-6)^2$ for ideal preparation and reading on every federation; largest computed value with the local emitter below $0.0097$ at $\kappa=8$ on $1$ to $320$ cells & a first-read probability above its bound \\
 The same law without the agreement energy & no pair with probability up to $0.80$ on $20$ cells & a pair that is kept \\
 Rounds of seam events in any order, with unequal rates of the ports & the pair is kept & a loss of the pair under rounds \\
 Two readings of a pair, $\kappa=8$, one cell & equal first answers; later records that differ by more than $0.0817$ in total variation; one event at $0.0183$ against $0.1029$ & equal laws of the later records \\
@@ -4645,7 +4645,7 @@ The seam record of a cage after the coherent pulse & one line at $2\sqrt6=4.8990
 The fuel dial on the same cage & the level difference $4.8990$, equal to the line & a value away from the line \\
 The excitation of a cage after the sharp pulse & read above $0.99$ at waits of $0$ to $512$ steps, the same at every wait & a decrease with the wait \\
 The cage under seam hopping round every port & no single line; the excitation is lost & a single line, or a kept excitation \\
-Interval Echo: a travelling patch on journeys with leg speeds $(1/2,1/6)$, $(1/6,1/2)$ and $(1/4,1/4)$ & a ratio of its elapsed count to the home count at reunion within about $0.001$ of the forecast \eqref{eq:echo-forecast} & a residual far outside its standard error \\
+Interval Echo: a travelling patch on journeys with leg speeds $(1/2,1/6)$, $(1/6,1/2)$ and $(1/4,1/4)$ & a ratio of its elapsed count to the home count at reunion within about $0.001$ of the calibration target \eqref{eq:echo-forecast} & a residual far outside its standard error \\
 Interval Echo: overlapping single-cell and three-cell observers on $320$ cells & equal readings at every shared checkpoint & a shared checkpoint read differently \\
 \bottomrule
 \end{tabular}
@@ -4672,8 +4672,7 @@ single answer for the cell and one that keeps the seam, have the same first
 statistics and different later records. The main candidate law, Interval
 Echo, runs this seam at $\kappa=8$ and lets a finite observer patch carry
 its own clock. A travelling clock, compared at reunion with the clock kept
-at home, runs slow by the relativistic factor computed from the observers'
-own records, within about one part in a thousand. Overlapping observers
+at home, reproduces the Lorentz factor built into its closing filter on the supplied relay, within about one part in a thousand. Overlapping observers
 agree on every shared checkpoint reading, port currents selected by the
 rotations close on twelve directions, and two overlapping observers realize
 the unique information projection to a uniform reference. The second

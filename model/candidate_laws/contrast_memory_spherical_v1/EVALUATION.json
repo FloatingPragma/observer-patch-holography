@@ -92,7 +92,7 @@
   "law": {
    "fulfilled": 1,
    "partial": 0,
-   "open": 140,
+   "open": 143,
    "fails": 0
   },
   "designer": {
@@ -1021,8 +1021,8 @@
   },
   {
    "id": "PR-97",
-   "name": "quantum-particle conditions for a carrier mode",
-   "statement": "A classical carrier mode is a quantum particle only with (Q1) a positive-energy quantization with physical Hilbert space, (Q2) a two-point function whose Kallen-Lehmann measure contains a positive-residue one-particle pole, and (Q3) the asymptotic-state or LSZ hypotheses of the phase, including a deconfined sector for a coloured carrier.",
+   "name": "Stable one-particle interpretation of a carrier mode",
+   "statement": "For a stable asymptotic interpretation, Q1 requires positive-energy quantization on a physical Hilbert space, Q2 a positive-residue isolated one-particle contribution to the spectral measure, and Q3 the scattering or asymptotic hypotheses of the specified phase.",
    "type": "derivable",
    "role": "law",
    "status": "open",
@@ -1582,7 +1582,7 @@
   {
    "id": "PR-160",
    "name": "Step index to proper-time dictionary (source clock and duration)",
-   "statement": "One step index of the carrier dynamics corresponds to a fixed proper-time duration on the clock worldline of an observer: the seam-step time unit tau equals the scaled Maxwell step h, one internal step of a hosted process reads as one shared step index or as one rest step of proper length, and a clocked index counts accumulated proper length in a declared internal unit.",
+   "statement": "In the declared chart the shared step advances coordinate time by tau, with the Maxwell step h equal to tau under rest-clock calibration. A hosted rest process uses that step index, and a moving clock accumulates the proper intervals of its trajectory, including sqrt(tau^2-4) on a timelike hop of spatial length two.",
    "type": "derivable",
    "role": "law",
    "status": "open",
@@ -1868,6 +1868,36 @@
    "status": "open",
    "evidence": [],
    "note": ""
+  },
+  {
+   "id": "PR-202",
+   "name": "Common source for photon and baryon transport",
+   "statement": "The same physical spacetime and matter history supply a perturbed FLRW metric, photon and baryon distributions, Thomson scattering with polarization, baryon loading and recombination visibility, on the domain of the tight-coupling and line-of-sight derivations.",
+   "type": "derivable",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-203",
+   "name": "Minimal spin coupling on the identified charged sector",
+   "statement": "On the identified spin-one-half charged sector the weak-field kinetic term is the minimal Dirac operator with calibrated covariant momenta and curvature, and at tree level there is no independent Pauli dipole operator or additional spin interaction at the order being compared.",
+   "type": "derivable",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-204",
+   "name": "Physical resonance interpretation of an unstable electroweak mode",
+   "statement": "The same physical sector supplies production and decay amplitudes with a gauge-independent complex resonance pole, a positive width and channel residues compatible with its quantum numbers and predicted couplings.",
+   "type": "derivable",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
   }
  ],
  "measurement": {
@@ -1964,7 +1994,12 @@
      "evidence": [
       "model/candidate_laws/contrast_memory_spherical_v1/law.py",
       "model/candidate_laws/contrast_memory_spherical_v1/SPEC.md"
-     ]
+     ],
+     "full_credit": {
+      "kind": "construction",
+      "source": "model/candidate_laws/contrast_memory_spherical_v1/law.py",
+      "scope": "Exact balancing and strict squared-load descent on the nine endpoint inputs."
+     }
     },
     {
      "id": "FT-BAND",
@@ -1982,7 +2017,12 @@
       "model/evaluation/repair_band.py",
       "model/evaluation/repair_band.json",
       "model/candidate_laws/contrast_memory_spherical_v1/candidate.py"
-     ]
+     ],
+     "full_credit": {
+      "kind": "construction",
+      "source": "model/evaluation/repair_band.py",
+      "scope": "Finite one-cell response under uniform seam attempts."
+     }
     },
     {
      "id": "FT-RECORD",
@@ -1996,7 +2036,7 @@
       "PR-02"
      ],
      "status": "demonstrated",
-     "note": "The two-load seam and presence circuits produce orthogonal outcome labels and realize repeatable record effects on their declared windows.",
+     "note": "The two-load seam and presence circuits produce orthogonal outcome labels and realize repeatable record effects on their declared windows. Full credit requires the listed candidate premises and complete accessible operations on this construction.",
      "evidence": [
       "model/candidate_laws/contrast_memory_spherical_v1/presence_results.json",
       "model/candidate_laws/contrast_memory_spherical_v1/reader.py"
@@ -2014,7 +2054,7 @@
       "PR-44"
      ],
      "status": "demonstrated",
-     "note": "Seam events and their complete local readings satisfy the finite-factor no-signalling premise.",
+     "note": "Seam events and their complete local readings satisfy the finite-factor no-signalling premise. Full credit requires the listed candidate premises and complete accessible operations on this construction.",
      "evidence": [
       "model/candidate_laws/contrast_memory_spherical_v1/law.py",
       "model/candidate_laws/contrast_memory_spherical_v1/reader.py"
@@ -2036,7 +2076,12 @@
      "evidence": [
       "model/candidate_laws/contrast_memory_spherical_v1/PROOF.md",
       "model/candidate_laws/contrast_memory_spherical_v1/sectors.py"
-     ]
+     ],
+     "full_credit": {
+      "kind": "construction",
+      "source": "model/candidate_laws/contrast_memory_spherical_v1/sectors.py",
+      "scope": "Finite Hermitian generator on the declared sector."
+     }
     },
     {
      "id": "FT-PROJECTION",
@@ -2121,7 +2166,7 @@
       "PR-11"
      ],
      "status": "demonstrated",
-     "note": "On one cell the weighted load-plus-twist service on the one-load triplets yields the compact type u(3) ⊕ so(3), rank of the response 12, with positive Gram and the required rotational action.",
+     "note": "On one cell the weighted load-plus-twist service on the one-load triplets yields the compact type u(3) ⊕ so(3), rank of the response 12, with positive Gram and the required rotational action. Full credit requires the listed candidate premises and complete accessible operations on this construction.",
      "evidence": [
       "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json",
       "model/candidate_laws/contrast_memory_spherical_v1/port_response.py"
@@ -2510,12 +2555,17 @@
       "model/experiments/cage/PROOF.md"
      ],
      "status": "demonstrated",
-     "note": "The prepared seam pair has a uniform binding bound. On 20, 80 and 320 cells sampled no-pair probability stayed below 0.0097. On 20 cells exchange alone reached 0.80. A one-cell observer on that federation also detected post-herald persistence.",
+     "note": "The prepared seam pair has a uniform binding bound. On 20, 80 and 320 cells sampled no-pair probability stayed below 0.0097. On 20 cells exchange alone reached 0.80. A one-cell observer on that federation also detected post-herald persistence. For a sharp pair on one isolated cell at κ = 8, complete readings spaced π/16 apart give no-pair probability about 0.449 on read 100 and 0.545455 (36/66 to six decimals) on read 5,000.",
      "evidence": [
       "model/candidate_laws/contrast_memory_spherical_v1/PROOF.md",
       "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json",
       "model/evaluation/observer_encounter.json"
-     ]
+     ],
+     "full_credit": {
+      "kind": "mixed",
+      "source": "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json",
+      "scope": "Persistence at one later read on the declared preparation and apparatus."
+     }
     },
     {
      "id": "PATCH-04",
@@ -2533,7 +2583,12 @@
       "model/candidate_laws/contrast_memory_spherical_v1/README.md",
       "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json",
       "model/evaluation/observer_encounter.json"
-     ]
+     ],
+     "full_credit": {
+      "kind": "mixed",
+      "source": "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json",
+      "scope": "Prescribed preparation, receiving site and delay."
+     }
     },
     {
      "id": "PATCH-05",
@@ -2571,7 +2626,12 @@
       "model/evaluation/patch_spatial_readout.json",
       "model/evaluation/patch_spatial_readout.py",
       "model/candidate_laws/contrast_memory_spherical_v1/candidate.py"
-     ]
+     ],
+     "full_credit": {
+      "kind": "mixed",
+      "source": "model/evaluation/patch_spatial_readout.json",
+      "scope": "Finite exposure, aperture and fitted one-cell Gram."
+     }
     },
     {
      "id": "PATCH-07",
@@ -2588,7 +2648,12 @@
       "model/experiments/interval_echo_space/result.json",
       "model/experiments/interval_echo_space/forecast.json",
       "model/experiments/interval_echo_space/README.md"
-     ]
+     ],
+     "full_credit": {
+      "kind": "mixed",
+      "source": "model/experiments/interval_echo_space/result.json",
+      "scope": "Prepared components and enrolled readout sites on the declared carrier."
+     }
     },
     {
      "id": "PATCH-08",
@@ -2685,13 +2750,15 @@
       "https://github.com/openwave-labs/openwave/blob/c531265eb6085725c6268e156804499c810ba5e4/MODELS.md#oph-m10"
      ],
      "status": "open",
-     "note": "A spontaneously starting oscillation tied to an independently measured rest energy remains open.",
-     "evidence": []
+     "note": "A spontaneously starting oscillation tied to an independently measured rest energy remains open. The referenced Interval Echo material uses this same free seam generator, with its specified preparation and apparatus. Its extra patch-clock hardware was idle in these measurements.",
+     "evidence": [
+      "model/candidate_laws/interval_echo/openwave/row_03_clock/polar_island/README.md"
+     ]
     },
     {
      "id": "OW-04",
      "title": "Particle stability (Derrick escape)",
-     "requires": "Release the prepared particle state and measure its persistence under free evolution. Identify the excitation and the domain of the measurement. The separate SM-e entry assesses its identification as an electron.",
+     "requires": "Release the prepared particle state and measure its persistence under free evolution. Identify the excitation and the domain of the measurement. The separate SM-e entry assesses its identification as an electron. Identify the electron-sector preparation, control the calibration choice, and address free physical stability on that sector.",
      "domain": "PARTICLE - ELECTRON",
      "regime": "dynamic",
      "upstream_number": 4,
@@ -2699,10 +2766,11 @@
       "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L104",
       "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L438",
       "https://github.com/openwave-labs/openwave/pull/745#pullrequestreview-6005365373",
-      "https://github.com/openwave-labs/openwave/pull/746"
+      "https://github.com/openwave-labs/openwave/pull/746",
+      "https://github.com/openwave-labs/openwave/pull/749"
      ],
      "status": "demonstrated",
-     "note": "The registered seam emitter prepares a pair that retains adjacency during free flight. The finite records resolve the pair and the binding theorem bounds loss of adjacency for all times on the spherical federation.",
+     "note": "The registered seam emitter prepares a pair that retains adjacency during free flight. The finite records resolve the pair and the binding theorem bounds loss of adjacency for all times on the spherical federation. The wider electron-sector stability and independent calibration requirement is open for this construction.",
      "evidence": [
       "model/candidate_laws/contrast_memory_spherical_v1/PROOF.md",
       "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json"
@@ -2777,8 +2845,10 @@
       "https://github.com/openwave-labs/openwave/blob/c531265eb6085725c6268e156804499c810ba5e4/MODELS.md#oph-m10"
      ],
      "status": "open",
-     "note": "Production in a decay, electric neutrality and lightness have yet to be established for the same excitation.",
-     "evidence": []
+     "note": "Production in a decay, electric neutrality and lightness have yet to be established for the same excitation. The referenced Interval Echo material uses this same free seam generator, with its specified preparation and apparatus. Its extra patch-clock hardware was idle in these measurements.",
+     "evidence": [
+      "model/candidate_laws/interval_echo/openwave/row_09_neutral/extended_decay/passive_meter/README.md"
+     ]
     },
     {
      "id": "OW-10",
@@ -2895,8 +2965,10 @@
       "https://github.com/openwave-labs/openwave/blob/c531265eb6085725c6268e156804499c810ba5e4/MODELS.md#oph-m10"
      ],
      "status": "open",
-     "note": "Identified nuclear species with binding, spectroscopy and halo lifetime records remain open.",
-     "evidence": []
+     "note": "Identified nuclear species with binding, spectroscopy and halo lifetime records remain open. The referenced Interval Echo material uses this same free seam generator, with its specified preparation and apparatus. Its extra patch-clock hardware was idle in these measurements.",
+     "evidence": [
+      "model/candidate_laws/interval_echo/openwave/row_17_nuclei/like_stock/README.md"
+     ]
     },
     {
      "id": "OW-18",
@@ -2938,7 +3010,8 @@
      ],
      "demonstrated_measurement": {
       "label": "Binding and local motion of a load-neutral pair",
-      "source": "model/experiments/material_inertia/README.md"
+      "source": "model/experiments/material_inertia/README.md",
+      "kind": "mixed"
      }
     },
     {
@@ -2982,8 +3055,10 @@
       "https://github.com/openwave-labs/openwave/blob/d4fc3e4046c472f4ad38468df8dddfa1f97bac97/MODELS.md#L126"
      ],
      "status": "open",
-     "note": "A colour-source separation scan and a measured confining tension remain open.",
-     "evidence": []
+     "note": "A colour-source separation scan and a measured confining tension remain open. The referenced Interval Echo material uses this same free seam generator, with its specified preparation and apparatus. Its extra patch-clock hardware was idle in these measurements.",
+     "evidence": [
+      "model/candidate_laws/interval_echo/openwave/row_22_confinement/mobile_string/README.md"
+     ]
     },
     {
      "id": "OW-23",
@@ -3097,9 +3172,10 @@
       "https://github.com/openwave-labs/openwave/blob/c531265eb6085725c6268e156804499c810ba5e4/MODELS.md#L467"
      ],
      "status": "open",
-     "note": "Free bound clusters have measured resting and moving energies on a ring. The tested branches have incompatible kinetic and rest-mass ratios. A Klein–Gordon branch on the sphere remains open.",
+     "note": "Free bound clusters have measured resting and moving energies on a ring. The tested branches have incompatible kinetic and rest-mass ratios. A Klein–Gordon branch on the sphere remains open. The referenced Interval Echo material uses this same free seam generator, with its specified preparation and apparatus. Its extra patch-clock hardware was idle in these measurements.",
      "evidence": [
-      "model/experiments/material_inertia/README.md"
+      "model/experiments/material_inertia/README.md",
+      "model/candidate_laws/interval_echo/openwave/row_30_collective/sharp_growth/README.md"
      ]
     },
     {

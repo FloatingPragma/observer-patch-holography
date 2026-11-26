@@ -87,7 +87,7 @@
   "law": {
    "fulfilled": 1,
    "partial": 0,
-   "open": 140,
+   "open": 143,
    "fails": 0
   },
   "designer": {
@@ -1012,8 +1012,8 @@
   },
   {
    "id": "PR-97",
-   "name": "quantum-particle conditions for a carrier mode",
-   "statement": "A classical carrier mode is a quantum particle only with (Q1) a positive-energy quantization with physical Hilbert space, (Q2) a two-point function whose Kallen-Lehmann measure contains a positive-residue one-particle pole, and (Q3) the asymptotic-state or LSZ hypotheses of the phase, including a deconfined sector for a coloured carrier.",
+   "name": "Stable one-particle interpretation of a carrier mode",
+   "statement": "For a stable asymptotic interpretation, Q1 requires positive-energy quantization on a physical Hilbert space, Q2 a positive-residue isolated one-particle contribution to the spectral measure, and Q3 the scattering or asymptotic hypotheses of the specified phase.",
    "type": "derivable",
    "role": "law",
    "status": "open",
@@ -1573,7 +1573,7 @@
   {
    "id": "PR-160",
    "name": "Step index to proper-time dictionary (source clock and duration)",
-   "statement": "One step index of the carrier dynamics corresponds to a fixed proper-time duration on the clock worldline of an observer: the seam-step time unit tau equals the scaled Maxwell step h, one internal step of a hosted process reads as one shared step index or as one rest step of proper length, and a clocked index counts accumulated proper length in a declared internal unit.",
+   "statement": "In the declared chart the shared step advances coordinate time by tau, with the Maxwell step h equal to tau under rest-clock calibration. A hosted rest process uses that step index, and a moving clock accumulates the proper intervals of its trajectory, including sqrt(tau^2-4) on a timelike hop of spatial length two.",
    "type": "derivable",
    "role": "law",
    "status": "open",
@@ -1859,6 +1859,36 @@
    "status": "open",
    "evidence": [],
    "note": ""
+  },
+  {
+   "id": "PR-202",
+   "name": "Common source for photon and baryon transport",
+   "statement": "The same physical spacetime and matter history supply a perturbed FLRW metric, photon and baryon distributions, Thomson scattering with polarization, baryon loading and recombination visibility, on the domain of the tight-coupling and line-of-sight derivations.",
+   "type": "derivable",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-203",
+   "name": "Minimal spin coupling on the identified charged sector",
+   "statement": "On the identified spin-one-half charged sector the weak-field kinetic term is the minimal Dirac operator with calibrated covariant momenta and curvature, and at tree level there is no independent Pauli dipole operator or additional spin interaction at the order being compared.",
+   "type": "derivable",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
+  },
+  {
+   "id": "PR-204",
+   "name": "Physical resonance interpretation of an unstable electroweak mode",
+   "statement": "The same physical sector supplies production and decay amplitudes with a gauge-independent complex resonance pole, a positive width and channel residues compatible with its quantum numbers and predicted couplings.",
+   "type": "derivable",
+   "role": "law",
+   "status": "open",
+   "evidence": [],
+   "note": ""
   }
  ],
  "measurement": {
@@ -1986,7 +2016,7 @@
       "PR-02"
      ],
      "status": "demonstrated",
-     "note": "The supplied scalar apparatus writes the outcome and routing syndrome to distinguishable retained pointer labels in its finite instrument histories. The immediate reread is the diagonal read of those labels.",
+     "note": "The supplied scalar apparatus writes the outcome and routing syndrome to distinguishable retained pointer labels in its finite instrument histories. The immediate reread is the diagonal read of those labels. Full credit requires the listed candidate premises and complete accessible operations on this construction.",
      "evidence": [
       "model/candidate_laws/scalar_channel/instruments.py",
       "model/candidate_laws/scalar_channel/OBLIGATIONS.json"
@@ -2004,7 +2034,7 @@
       "PR-44"
      ],
      "status": "demonstrated",
-     "note": "On the declared scalar star and ancilla factors the complete outcomes sum to a trace-preserving operation. A disjoint untouched factor retains its reduced state.",
+     "note": "On the declared scalar star and ancilla factors the complete outcomes sum to a trace-preserving operation. A disjoint untouched factor retains its reduced state. Full credit requires the listed candidate premises and complete accessible operations on this construction.",
      "evidence": [
       "model/candidate_laws/scalar_channel/instruments.py",
       "model/candidate_laws/scalar_channel/compiler.py"
@@ -2026,7 +2056,12 @@
      "evidence": [
       "model/candidate_laws/scalar_channel/carrier.py",
       "model/candidate_laws/scalar_channel/results.json"
-     ]
+     ],
+     "full_credit": {
+      "kind": "construction",
+      "source": "model/candidate_laws/scalar_channel/carrier.py",
+      "scope": "Finite Hermitian generator on the declared sector."
+     }
     },
     {
      "id": "FT-PROJECTION",
@@ -2456,7 +2491,12 @@
      "evidence": [
       "model/experiments/cage/README.md",
       "model/experiments/cage/results.json"
-     ]
+     ],
+     "full_credit": {
+      "kind": "mixed",
+      "source": "model/experiments/cage/results.json",
+      "scope": "Prepared hand under its specified local readout and service."
+     }
     },
     {
      "id": "PATCH-02",
@@ -2489,7 +2529,12 @@
      "evidence": [
       "model/experiments/cage/PROOF.md",
       "model/experiments/cage/results.json"
-     ]
+     ],
+     "full_credit": {
+      "kind": "mixed",
+      "source": "model/experiments/cage/results.json",
+      "scope": "Persistence at one later read on the declared preparation and apparatus."
+     }
     },
     {
      "id": "PATCH-04",
@@ -2661,7 +2706,7 @@
     {
      "id": "OW-04",
      "title": "Particle stability (Derrick escape)",
-     "requires": "Release the prepared particle state and measure its persistence under free evolution. Identify the excitation and the domain of the measurement. The separate SM-e entry assesses its identification as an electron.",
+     "requires": "Release the prepared particle state and measure its persistence under free evolution. Identify the excitation and the domain of the measurement. The separate SM-e entry assesses its identification as an electron. Identify the electron-sector preparation, control the calibration choice, and address free physical stability on that sector.",
      "domain": "PARTICLE - ELECTRON",
      "regime": "dynamic",
      "upstream_number": 4,
@@ -2669,10 +2714,11 @@
       "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L104",
       "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L438",
       "https://github.com/openwave-labs/openwave/pull/745#pullrequestreview-6005365373",
-      "https://github.com/openwave-labs/openwave/pull/746"
+      "https://github.com/openwave-labs/openwave/pull/746",
+      "https://github.com/openwave-labs/openwave/pull/749"
      ],
      "status": "demonstrated",
-     "note": "With the registered cage preparation and terminal reader on one cell, the four-seam excitation persists at five free waits. Its invariant subspace keeps it localized for all times under the scalar channel's free generator.",
+     "note": "With the registered cage preparation and terminal reader on one cell, the four-seam excitation persists at five free waits. Its invariant subspace keeps it localized for all times under the scalar channel's free generator. The wider electron-sector stability and independent calibration requirement is open for this construction.",
      "evidence": [
       "model/experiments/cage/results.json",
       "model/experiments/cage/PROOF.md"

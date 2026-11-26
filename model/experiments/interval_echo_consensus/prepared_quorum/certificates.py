@@ -1,4 +1,4 @@
-"""Signed message grammar and the honest observer's local signing guards."""
+"""Signed message grammar and the nonfaulty observer's local signing guards."""
 
 from functools import lru_cache
 

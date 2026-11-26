@@ -40,8 +40,12 @@ def main(argv=None):
     if command == 'evaluate':
         from .evaluation.evaluate import main as evaluate
         return evaluate(rest)
-    from .executable_model import carrier
-    result = carrier.run(levels=(0, 1, 2))
+    from .executable_model import carrier, validation
+    try:
+        result = validation.run(levels=(0, 1, 2))
+    except ValueError as exc:
+        print(json.dumps({'checks': {}, 'problems': [str(exc)]}, indent=1))
+        return 1
     problems = carrier.check(result)
     summary = {key: {k: v for k, v in entry.items() if not isinstance(v, (list, dict)) or k == 'degrees'}
                for key, entry in result.items()}

@@ -21,7 +21,7 @@
           "results": {
             "interval_echo": {
               "status": "partial",
-              "note": "Prepared moving and home hands agree with independent reciprocal optical timing on held 3/5, 5/3 and 7/7 schedules across three physical home links on each of two screens. At 8/8 the original three-bit hand fails the frozen band; the five-bit hand passes on the same itinerary. The coherent hand passes separate accepted-event comparisons. Timing-equivalent embeddings share one cohort. An independently generated light cone and a common rate across other physical clock mechanisms are open.",
+              "note": "Prepared moving and home hands agree with reciprocal relay timing on the shared service cadence on held 3/5, 5/3 and 7/7 schedules across three physical home links on each of two screens. At 8/8 the original three-bit hand fails the frozen band; the five-bit hand passes on the same itinerary. The coherent hand passes separate accepted-event comparisons. Timing-equivalent embeddings share one cohort. An independently generated light cone and a common rate across other physical clock mechanisms are open. Under a slowed relay the residual is +0.102296 ± 0.001306.",
               "evidence": [
                 "model/candidate_laws/interval_echo/RESULTS.json",
                 "model/candidate_laws/interval_echo/SPEC.md",
@@ -35,7 +35,8 @@
                 "model/experiments/interval_echo_clock/PUBLICATION.md",
                 "model/experiments/interval_echo_clock/publication.json",
                 "model/experiments/interval_echo_clock/CAPACITY.md",
-                "model/experiments/interval_echo_clock/capacity.json"
+                "model/experiments/interval_echo_clock/capacity.json",
+                "model/evaluation/one_link_cadence_archive.json"
               ]
             },
             "contrast_memory_spherical_v1": {
@@ -83,7 +84,8 @@
               ],
               "demonstrated_measurement": {
                 "label": "Blind recovery of three programmed station directions",
-                "source": "model/experiments/seam_program/CLOCKED_FIELD.md"
+                "source": "model/experiments/seam_program/CLOCKED_FIELD.md",
+                "kind": "mixed"
               }
             },
             "contrast_memory_spherical_v1": {
@@ -148,7 +150,8 @@
               ],
               "demonstrated_measurement": {
                 "label": "Passive echoes predict a one-way bit read on the same material clock",
-                "source": "model/experiments/interval_echo_message/passive_echo/README.md"
+                "source": "model/experiments/interval_echo_message/passive_echo/README.md",
+                "kind": "mixed"
               }
             },
             "contrast_memory_spherical_v1": {
@@ -396,7 +399,12 @@
               "evidence": [
                 "model/experiments/cage/README.md",
                 "model/experiments/cage/results.json"
-              ]
+              ],
+              "full_credit": {
+                "kind": "mixed",
+                "source": "model/experiments/cage/results.json",
+                "scope": "Prepared hand under its specified local readout and service."
+              }
             }
           }
         },
@@ -454,22 +462,32 @@
           "results": {
             "interval_echo": {
               "status": "demonstrated",
-              "note": "Its idle-clock binary sector is precisely the reference interaction at κ = 8. The same patch reads an intact pair again with probability 0.993226 after heralding one locally, compared with 0.338671 for exchange alone. The reference’s prepared-pair theorem applies in this free sector.",
+              "note": "Its idle-clock binary sector is precisely the reference interaction at κ = 8. The same patch reads an intact pair again with probability 0.993226 after heralding one locally, compared with 0.338671 for exchange alone. The free bound applies to one later read. On one cell with emitter strength 64, complete readings spaced π/16 apart give no-pair probability 0.448794 on read 100.",
               "evidence": [
                 "model/evaluation/observer_encounter.json",
                 "model/candidate_laws/interval_echo/candidate.py",
                 "model/candidate_laws/interval_echo/test_currents.py",
                 "model/candidate_laws/contrast_memory_spherical_v1/PROOF.md"
-              ]
+              ],
+              "full_credit": {
+                "kind": "mixed",
+                "source": "model/evaluation/observer_encounter.json",
+                "scope": "Persistence at one later read on the declared preparation and apparatus."
+              }
             },
             "contrast_memory_spherical_v1": {
               "status": "demonstrated",
-              "note": "The prepared seam pair has a uniform binding bound. On 20, 80 and 320 cells sampled no-pair probability stayed below 0.0097. On 20 cells exchange alone reached 0.80. A one-cell observer on that federation also detected post-herald persistence.",
+              "note": "The prepared seam pair has a uniform binding bound. On 20, 80 and 320 cells sampled no-pair probability stayed below 0.0097. On 20 cells exchange alone reached 0.80. A one-cell observer on that federation also detected post-herald persistence. For a sharp pair on one isolated cell at κ = 8, complete readings spaced π/16 apart give no-pair probability about 0.449 on read 100 and 0.545455 (36/66 to six decimals) on read 5,000.",
               "evidence": [
                 "model/candidate_laws/contrast_memory_spherical_v1/PROOF.md",
                 "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json",
                 "model/evaluation/observer_encounter.json"
-              ]
+              ],
+              "full_credit": {
+                "kind": "mixed",
+                "source": "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json",
+                "scope": "Persistence at one later read on the declared preparation and apparatus."
+              }
             },
             "scalar_channel": {
               "status": "demonstrated",
@@ -477,7 +495,12 @@
               "evidence": [
                 "model/experiments/cage/PROOF.md",
                 "model/experiments/cage/results.json"
-              ]
+              ],
+              "full_credit": {
+                "kind": "mixed",
+                "source": "model/experiments/cage/results.json",
+                "scope": "Persistence at one later read on the declared preparation and apparatus."
+              }
             }
           }
         },
@@ -508,7 +531,12 @@
                 "model/candidate_laws/contrast_memory_spherical_v1/README.md",
                 "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json",
                 "model/evaluation/observer_encounter.json"
-              ]
+              ],
+              "full_credit": {
+                "kind": "mixed",
+                "source": "model/candidate_laws/contrast_memory_spherical_v1/RESULTS.json",
+                "scope": "Prescribed preparation, receiving site and delay."
+              }
             },
             "scalar_channel": {
               "status": "open",
@@ -553,7 +581,8 @@
               ],
               "demonstrated_measurement": {
                 "label": "Clocked scalar propagation on a programmed 3D chart",
-                "source": "model/experiments/seam_program/CLOCKED_FIELD.md"
+                "source": "model/experiments/seam_program/CLOCKED_FIELD.md",
+                "kind": "mixed"
               }
             },
             "contrast_memory_spherical_v1": {
@@ -590,7 +619,7 @@
           "results": {
             "interval_echo": {
               "status": "demonstrated",
-              "note": "A one-cell patch prepares and reads one load at twelve ports. From anonymous calibration probabilities the inverse infers 30 edges, a hop angle of 0.0625, and a Gram of rank three. Twice and three times the exposure reproduce that subspace and 288 individual held probabilities to below 10⁻¹⁰. The best rank-two Gram has relative error 0.57735. The shared free sector is measured with the clock idle. Thirty distinct protected seam offers average both endpoint histograms after one resolved input read. For each of 900 ordered seam pairs, twelve source ports give the predicted terminal distribution. The uniform repeated-offer response is I − L/60, whose slowest nonconstant level is 0.95393446629 with multiplicity three.",
+              "note": "Port counts constrain the three-component Gram on the cell under the declared instrument and exposure. A scalar shift and H versus −H* leave sharp probabilities invariant. A cell triplet does not count independent propagation dimensions. A one-cell patch prepares and reads one load at twelve ports. From anonymous calibration probabilities the inverse infers 30 edges, a hop angle of 0.0625, and a Gram of rank three. Twice and three times the exposure reproduce that subspace and 288 individual held probabilities to below 10⁻¹⁰. The best rank-two Gram has relative error 0.57735. The shared free sector is measured with the clock idle. Thirty distinct protected seam offers average both endpoint histograms after one resolved input read. For each of 900 ordered seam pairs, twelve source ports give the predicted terminal distribution. The uniform repeated-offer response is I − L/60, whose slowest nonconstant level is 0.95393446629 with multiplicity three.",
               "evidence": [
                 "model/evaluation/patch_spatial_readout.json",
                 "model/evaluation/patch_spatial_readout.py",
@@ -613,7 +642,12 @@
                 "model/evaluation/patch_spatial_readout.json",
                 "model/evaluation/patch_spatial_readout.py",
                 "model/candidate_laws/contrast_memory_spherical_v1/candidate.py"
-              ]
+              ],
+              "full_credit": {
+                "kind": "mixed",
+                "source": "model/evaluation/patch_spatial_readout.json",
+                "scope": "Finite exposure, aperture and fitted one-cell Gram."
+              }
             },
             "scalar_channel": {
               "status": "partial",
@@ -638,7 +672,7 @@
           "results": {
             "interval_echo": {
               "status": "demonstrated",
-              "note": "Relabelled local ports recover a rank-three Gram. On complete 20-, 80- and 320-cell screens, neighbouring patches decode all 144 held three-sign preparations. A short-range incidence survey plus the frozen hopping scale predicts 72 further words at held senders and previously untested dwell times. The signal is an occupation-probability contrast. Timing and addresses are supplied; a three-dimensional field with independently ranged physical scales and corresponding refined stations remains open.",
+              "note": "Decoding three components uses supplied exposure and addresses. It fails on cells with antipodal gateways; an independent spatial dimension remains open. Relabelled local ports recover a rank-three Gram. On complete 20-, 80- and 320-cell screens, neighbouring patches decode all 144 held three-sign preparations. A short-range incidence survey plus the frozen hopping scale predicts 72 further words at held senders and previously untested dwell times. The signal is an occupation-probability contrast. Timing and addresses are supplied; a three-dimensional field with independently ranged physical scales and corresponding refined stations remains open.",
               "evidence": [
                 "model/experiments/interval_echo_space/result.json",
                 "model/experiments/interval_echo_space/forecast.json",
@@ -652,7 +686,12 @@
                 "model/experiments/interval_echo_space/result.json",
                 "model/experiments/interval_echo_space/forecast.json",
                 "model/experiments/interval_echo_space/README.md"
-              ]
+              ],
+              "full_credit": {
+                "kind": "mixed",
+                "source": "model/experiments/interval_echo_space/result.json",
+                "scope": "Prepared components and enrolled readout sites on the declared carrier."
+              }
             },
             "scalar_channel": {
               "status": "open",
@@ -673,7 +712,7 @@
           "results": {
             "interval_echo": {
               "status": "demonstrated",
-              "note": "The two unequal-leg schedules meet the ±0.006 equivalence criterion. The initial equal-leg result was unresolved. An independent equal-leg replication gives oscillator minus hand +0.000046 ± 0.000497 (SE). The matched raw-positive oscillator disagrees by +0.03204 ± 0.00044. The guide and gate schedule are supplied. Both hands independently read the material posted bit. For one trip followed by rest the raw-minus-accepted fractional gap shrinks as 1/T. Sustained slow travel gives a 0.0520% gap that the tested terminal-only reader missed. At the separately derived 17-offer standard, 24 material journeys reproduce the published words, seeded pointers and both reunion quadratures within the recorded precision. A three-rail parked-arm test distinguishes the fair-parity control at coupling near four from the common signed-record standard.",
+              "note": "Both hands consume the same contingent published tick. Different physical pointers and a phase read validate transfer of that bit. Agreement cannot distinguish the closing filter or establish a universal rate. The two unequal-leg schedules meet the ±0.006 equivalence criterion. The initial equal-leg result was unresolved. An independent equal-leg replication gives oscillator minus hand +0.000046 ± 0.000497 (SE). The matched raw-positive oscillator disagrees by +0.03204 ± 0.00044. The guide and gate schedule are supplied. Both hands independently read the material posted bit. For one trip followed by rest the raw-minus-accepted fractional gap shrinks as 1/T. Sustained slow travel gives a 0.0520% gap that the tested terminal-only reader missed. At the separately derived 17-offer standard, 24 material journeys reproduce the published words, seeded pointers and both reunion quadratures within the recorded precision. A three-rail parked-arm test distinguishes the fair-parity control at coupling near four from the common signed-record standard.",
               "evidence": [
                 "model/experiments/interval_echo_clock/results.json",
                 "model/experiments/interval_echo_clock/replication.json",
@@ -710,10 +749,12 @@
           "results": {
             "interval_echo": {
               "status": "demonstrated",
-              "note": "Three-bit 3/5, 5/3 and 7/7 and five-bit 8/8 all met the frozen ±0.004 band including four paired standard errors. The narrow 8/8 overflow control and the raw-primary controls disagreed. Home read both words at one local reunion.",
+              "note": "The relay and the clock share the service schedule. In a held historical control the independently slowed relay gives +0.102296 ± 0.001306 residual across all 8,192 launches. Independent physical signal propagation remains open. Three-bit 3/5, 5/3 and 7/7 and five-bit 8/8 all met the frozen ±0.004 band including four paired standard errors. The narrow 8/8 overflow control and the raw-primary controls disagreed. Home read both words at one local reunion.",
               "evidence": [
                 "model/experiments/interval_echo_optics/results.json",
-                "model/experiments/interval_echo_optics/README.md"
+                "model/experiments/interval_echo_optics/README.md",
+                "model/evaluation/ONE_LINK_CLOCK.md",
+                "model/evaluation/one_link_cadence_archive.json"
               ]
             },
             "contrast_memory_spherical_v1": {
@@ -766,7 +807,8 @@
               ],
               "demonstrated_measurement": {
                 "label": "Two writes under one retained history measure its charge variance",
-                "source": "model/experiments/interval_echo_einstein_station/README.md"
+                "source": "model/experiments/interval_echo_einstein_station/README.md",
+                "kind": "mixed"
               }
             },
             "contrast_memory_spherical_v1": {

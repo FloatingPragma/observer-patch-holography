@@ -1,0 +1,180 @@
+{
+  "ports": [
+    4,
+    2,
+    5,
+    9
+  ],
+  "initial_stock": [
+    1,
+    0,
+    0,
+    1
+  ],
+  "direct_sharp_dark": {
+    "native": 0.0,
+    "antisymmetric": 1.0
+  },
+  "pumps": [
+    {
+      "detuning": 16,
+      "microstep": 0.0625,
+      "appointments": 49152,
+      "duration": 393216,
+      "statistics": "native",
+      "dark_once": 0.9968119624718184,
+      "dark_twice": 0.00029341352556847125,
+      "pinned_probabilities": [
+        1.0,
+        0.9989289292097797,
+        0.996538265050955,
+        0.9932638309585471
+      ],
+      "crossing_probabilities": [
+        0.9923896502804053,
+        0.9932014078326022,
+        0.994577343132819
+      ]
+    },
+    {
+      "detuning": 16,
+      "microstep": 0.0625,
+      "appointments": 49152,
+      "duration": 393216,
+      "statistics": "antisymmetric",
+      "dark_once": 0.003874260145789684,
+      "dark_twice": 0.0009578964531329129,
+      "pinned_probabilities": [
+        1.0,
+        0.9917759822206296,
+        0.9858990422081021,
+        0.9957392596293437
+      ],
+      "crossing_probabilities": [
+        0.9947571925582233,
+        0.9948964425052746,
+        0.9949432903796785
+      ]
+    },
+    {
+      "detuning": -16,
+      "microstep": 0.0625,
+      "appointments": 49152,
+      "duration": 393216,
+      "statistics": "native",
+      "dark_once": 0.003580524214545008,
+      "dark_twice": 0.010143649684756794,
+      "pinned_probabilities": [
+        1.0,
+        0.99769396038534,
+        0.9991635020226689,
+        0.9980902141324431
+      ],
+      "crossing_probabilities": [
+        0.9987745760607403,
+        0.9986112190085374,
+        0.9980771271035493
+      ]
+    },
+    {
+      "detuning": -16,
+      "microstep": 0.0625,
+      "appointments": 49152,
+      "duration": 393216,
+      "statistics": "antisymmetric",
+      "dark_once": 0.9971130895612733,
+      "dark_twice": 0.0007905495247525322,
+      "pinned_probabilities": [
+        1.0,
+        0.9969152034559438,
+        0.9943230734877762,
+        0.9973600630352576
+      ],
+      "crossing_probabilities": [
+        0.9987407344307058,
+        0.9935349780290152,
+        0.9939063777435337
+      ]
+    },
+    {
+      "detuning": 16,
+      "microstep": 0.03125,
+      "appointments": 98304,
+      "duration": 393216,
+      "statistics": "native",
+      "dark_once": 0.997005599540146,
+      "dark_twice": 0.0008936331432794736,
+      "pinned_probabilities": [
+        1.0,
+        0.9882597725976037,
+        0.9925212019980671,
+        0.9974050871791063
+      ],
+      "crossing_probabilities": [
+        0.9945099908246708,
+        0.9963893484701193,
+        0.9929240314464685
+      ]
+    },
+    {
+      "detuning": 16,
+      "microstep": 0.03125,
+      "appointments": 98304,
+      "duration": 393216,
+      "statistics": "antisymmetric",
+      "dark_once": 0.0038001558767683545,
+      "dark_twice": 0.0013439407292603115,
+      "pinned_probabilities": [
+        1.0,
+        0.9985148174051837,
+        0.9954274550375217,
+        0.9910745238219715
+      ],
+      "crossing_probabilities": [
+        0.9948977371650611,
+        0.9949049148336536,
+        0.9950863214087697
+      ]
+    },
+    {
+      "detuning": -16,
+      "microstep": 0.03125,
+      "appointments": 98304,
+      "duration": 393216,
+      "statistics": "native",
+      "dark_once": 0.0018098992436734968,
+      "dark_twice": 4.3438358791362384e-05,
+      "pinned_probabilities": [
+        1.0,
+        0.9957873990108116,
+        0.9970410929774545,
+        0.9978103376738615
+      ],
+      "crossing_probabilities": [
+        0.997938294737343,
+        0.9942600275073259,
+        0.9966871609190899
+      ]
+    },
+    {
+      "detuning": -16,
+      "microstep": 0.03125,
+      "appointments": 98304,
+      "duration": 393216,
+      "statistics": "antisymmetric",
+      "dark_once": 0.9980205986537205,
+      "dark_twice": 0.0016359752172468642,
+      "pinned_probabilities": [
+        1.0,
+        0.9997262938375364,
+        0.9989643118267837,
+        0.9978747698723568
+      ],
+      "crossing_probabilities": [
+        0.9933482983578943,
+        0.994030630718205,
+        0.9952492649023159
+      ]
+    }
+  ]
+}

@@ -63,6 +63,31 @@ def test_rotations_move_the_native_registers():
     assert ev.carrier_checks(cand)['rotations']['status'] == 'fail'
 
 
+@pytest.mark.parametrize('phase_on_all_registers', [True, False])
+def test_rotation_products_allow_common_phases_and_reject_relative_ones(phase_on_all_registers):
+    from scipy.linalg import block_diag
+    from model.executable_model import rotations
+
+    labels = [('port', p) for p in range(12)] + [('seam', edge) for edge in CELL_SEAMS]
+    positions = {label: i for i, label in enumerate(labels)}
+    involution = next(g for g in rotations() if g != tuple(range(12)) and all(g[g[p]] == p for p in range(12)))
+    candidate = toy(block_diag(laplacian(), 24 * np.eye(30)))
+    candidate.basis = lambda car: labels
+
+    def represent(rotation, car):
+        targets = [positions[ev.register_at(label, rotation.__getitem__)] for label in labels]
+        matrix = np.eye(len(labels), dtype=complex)[:, targets]
+        if tuple(rotation) == involution:
+            matrix[:, 0 if phase_on_all_registers else 12:] *= 1j
+        return matrix
+
+    candidate.represent = represent
+    result = ev.carrier_checks(candidate)['rotations']
+    assert result['status'] == ('pass' if phase_on_all_registers else 'fail')
+    if not phase_on_all_registers:
+        assert 'relative register phases' in result['detail']
+
+
 def test_complex_generators_use_the_adjoint_and_retain_imaginary_couplings():
     H = laplacian().astype(complex)
     a, b = next((a, b) for a in range(12) for b in range(a + 1, 12) if H[a, b] == 0)
@@ -78,6 +103,23 @@ def test_federation_requires_the_native_basis_in_each_cell():
     cand = toy(laplacian())
     cand.generator = lambda car: laplacian()
     assert ev.carrier_checks(cand)['federation']['status'] == 'fail'
+
+
+def test_an_isolated_owner_fails_the_live_carrier_command_and_candidate_evaluation(monkeypatch, capsys):
+    from model.__main__ import main
+    from model.executable_model.validation import require_three_gateways
+
+    fed = carrier.federation(0)
+    isolated = [(fed.n + a, fed.n + b) for a, b in CELL_SEAMS]
+    board = carrier.Carrier('one isolated owner', fed.n + 12, fed.seams + isolated)
+    monkeypatch.setattr(carrier, 'federation', lambda level: board)
+    assert main(['carrier']) == 1
+    assert 'owner 20 has 0 external ports' in capsys.readouterr().out
+    check = ev.carrier_checks(toy(laplacian()))['federation']
+    assert check['status'] == 'fail'
+    assert 'owner 20 has 0 external ports' in check['detail']
+    with pytest.raises(ValueError, match='owner 0 has 0 external ports'):
+        require_three_gateways(carrier.cell())
 
 
 def test_federation_rejects_a_link_between_unjoined_cells():
@@ -99,7 +141,40 @@ def test_federation_rejects_a_link_between_unjoined_cells():
 
 def test_the_slowest_response_must_have_rank_three():
     flat = np.diag([0.0] + [1.0] * 11)
-    assert ev.carrier_checks(toy(laplacian(), response=flat))['rank_three_response']['status'] == 'fail'
+    assert ev.carrier_checks(toy(flat))['rank_three_response']['status'] == 'fail'
+
+
+@pytest.mark.parametrize(('unit', 'origin'), [(1e-10, 0), (1, 1e12)])
+def test_energy_units_and_origin_preserve_the_threefold_band(unit, origin):
+    response = unit * laplacian() + origin * np.eye(12)
+    assert ev.carrier_checks(toy(response))['rank_three_response']['status'] == 'pass'
+
+
+def test_small_energy_units_preserve_nonlocal_couplings_and_response_mismatch():
+    h = laplacian()
+    a, b = next((0, b) for b in range(1, 12) if h[0, b] == 0)
+    h[a, b] = h[b, a] = -1
+    checks = ev.carrier_checks(toy(1e-15 * h, response=1e-15 * laplacian()))
+    assert checks['locality']['status'] == 'fail'
+    assert checks['rank_three_response']['status'] == 'fail'
+
+
+def test_a_zero_generator_cannot_borrow_the_cell_laplacian_response():
+    check = ev.carrier_checks(toy(np.zeros((12, 12)), response=laplacian()))['rank_three_response']
+    assert check['status'] == 'fail'
+    assert 'differs from the registered' in check['detail']
+
+
+def test_scalar_response_is_reconstructed_from_the_registered_seam_wedge_couplings(monkeypatch):
+    scalar = laws.load('scalar_channel')
+    checks = ev.carrier_checks(scalar)
+    assert checks['rank_three_response']['status'] == 'pass'
+    assert checks['federation']['status'] == 'partial'
+    generate = scalar.generator
+    monkeypatch.setattr(scalar, 'generator', lambda car: 2 * generate(car))
+    check = ev.carrier_checks(scalar)['rank_three_response']
+    assert check['status'] == 'fail'
+    assert 'seam-wedge Gram' in check['detail']
 
 
 def test_a_nonhermitian_response_cannot_pass_via_its_lower_triangle():
@@ -164,7 +239,7 @@ def test_readout_matches_the_original_measurement_and_scope_is_preserved():
     original = ev.json.loads((ev.ROOT / m['source']).read_text())
     measured = original['cohorts']['panels']['alternating_2_6']['three_bits']
     assert (m['value'], m['standard_error']) == (measured['ratio'], measured['standard_error'])
-    assert rows['PATCH-02']['status'] == 'demonstrated'
+    assert 'supplied' in rows['PATCH-02']['note'].lower()
     assert rows['OBS-01']['status'] == 'partial'
     assert rows['SM-e']['status'] == 'open'
     assert ev.criterion(result, 'JOINT-relativistic-matter')['status'] == 'fails'
@@ -192,29 +267,24 @@ def test_openwave_rows_distinguish_free_stability_from_electron_identity_and_dri
         measurement = row['demonstrated_measurement']
         assert measurement['source'] in row['evidence']
         link = f"[{measurement['label']}]({ev.report.local_link(measurement['source'])})"
-        grade = f"**Demonstrated** · {link}"
-        if key in ('OW-19', 'OW-30'):
-            if key == 'OW-30':
-                assert row['status'] == 'partial'
-                assert measurement['source'].endswith('row_30_collective/sharp_growth/README.md')
-                assert any(path.endswith('row_30_cautions/README.md') for path in row['evidence'])
-                assert any(path.endswith('polar_recoil/counts.json') for path in row['evidence'])
-                grade += '. Full criterion · Partial'
-            else:
-                assert row['status'] == 'demonstrated'
-                assert measurement['source'].endswith('neutral_guide/polar_ring/README.md')
-                assert any(path.endswith('polar_ring/Charge.lean') for path in row['evidence'])
-            filing = row['filing']
-            assert filing['decision'] in row['sources'] and filing['review'] in row['evidence']
-            grade += (f". OpenWave · [🚧 Not yet tested]({filing['decision']})"
-                      f". Full-credit submission · [HOLD]({ev.report.local_link(filing['review'])})")
-        else:
-            assert row['status'] == 'demonstrated'
-            assert ev.criterion(result, 'SM-e')['status'] == 'open'
-            filing = row['filing']
-            assert filing['decision'] in row['sources'] and filing['review'] in row['evidence']
-            grade += (f". OpenWave · [⚠️ Partial]({filing['decision']})"
-                      f". Resubmission · [HOLD]({ev.report.local_link(filing['review'])})")
+        assert measurement['kind'] == 'mixed'
+        expected_grade = 'partial' if key == 'OW-30' else 'demonstrated'
+        assert row['status'] == expected_grade
+        assert ev.criterion(result, 'SM-e')['status'] == 'open'
+        if key == 'OW-30':
+            assert measurement['source'].endswith('row_30_collective/sharp_growth/README.md')
+            assert any(path.endswith('row_30_cautions/README.md') for path in row['evidence'])
+            assert any(path.endswith('polar_recoil/counts.json') for path in row['evidence'])
+        if key == 'OW-19':
+            assert measurement['source'].endswith('neutral_guide/polar_ring/README.md')
+            assert any(path.endswith('polar_ring/Charge.lean') for path in row['evidence'])
+        filing = row['filing']
+        assert filing['decision'] in row['sources'] and filing['review'] in row['evidence']
+        expected_official = '⚠️ Partial' if key == 'OW-04' else '🚧 Not yet tested'
+        assert filing['official_status'] == expected_official
+        grade = (f"**{expected_grade.title()}**. Records on supplied settings · {link}. "
+                 f"OpenWave · [{expected_official}]({filing['decision']}). "
+                 f"{filing.get('stage_label', 'Resubmission')} · [HOLD]({ev.report.local_link(filing['review'])})")
         scorecard_row = next(line for line in scorecard.splitlines() if line.startswith(f'| [{key}]'))
         assert grade in scorecard_row
         assert grade in ledger.split(f'### {key}\n', 1)[1].split('\n### ', 1)[0]
@@ -227,7 +297,7 @@ def test_written_field_comparison_is_scoped_to_the_separate_generator():
     assert electron['status'] == 'open'
     study = electron['comparison']
     assert study['law'] == 'Written-field Laplacian extension'
-    assert 'Strong candidate for the electron’s charge and field response' in ev.report.comparison_link(study)
+    assert 'Screened flux in a separate signed-load construction' in ev.report.comparison_link(study)
     assert study['source'] not in electron['evidence']
     assert study['source'].endswith('interval_echo/openwave/electron_field/README.md')
     for row in rows:
@@ -262,6 +332,26 @@ def test_photon_comparisons_keep_each_construction_and_evidence_visible():
         assert ev.report.comparison_link(study) in scorecard
         assert study['finding'] in evidence
         assert study['source'] not in photon['evidence']
+
+
+@pytest.mark.parametrize("kind", ["derivable", "calibration"])
+def test_candidate_assessment_is_reported_independently_of_programme_register(tmp_path, monkeypatch, kind):
+    directory = tmp_path / "model" / "candidate_laws" / "interval_echo"
+    directory.mkdir(parents=True)
+    (directory / "readings.json").write_text("{}")
+    candidate = SimpleNamespace(NAME="interval_echo", PREMISES={
+        "PR-1": {"status": "fulfilled", "evidence": ["readings.json"],
+                 "note": "Two counters recover the prescribed finite ratio."}
+    })
+    premise = {"id": "PR-1", "name": "physical reading", "statement": "The physical reading is calibrated.",
+               "premise_kind": kind, "status": "Open"}
+    roles = {"types": {}, "overrides": {"PR-1": {"role": "designer"}},
+             "defaults": {kind: "law"}}
+    monkeypatch.setattr(ev, "ROOT", tmp_path)
+    result, = ev.premise_rows(candidate, [premise], roles)
+    assert result["role"] == "designer"
+    assert result["status"] == "fulfilled"
+    assert "prescribed finite ratio" in result["note"]
 
 
 def test_measured_premises_preserve_the_candidate_and_reject_duplicate_sources(tmp_path, monkeypatch):
@@ -304,3 +394,83 @@ def test_measured_premises_preserve_the_candidate_and_reject_duplicate_sources(t
     del candidate.PREMISES['PR-1']
     with pytest.raises(SystemExit, match='no prior premise assessment'):
         ev.premise_rows(candidate, [premise], roles)
+
+
+def test_explicit_full_credit_certificate_checks_its_stated_premises():
+    from .assessment import validate_support
+
+    source = 'model/evaluation/repair_band.json'
+    row = {'premises': ['PR-11'], 'sources': ['https://example.org/definition']}
+    record = {'status': 'demonstrated', 'evidence': [source], 'note': 'Finite family.'}
+    validate_support('FT', record, row, {'PR-11': 'partial'})
+    record['full_credit'] = {'kind': 'state', 'scope': 'Three slow eigenvectors of the cell.', 'source': source}
+    with pytest.raises(ValueError, match='undischarged'):
+        validate_support('FT', record, row, {'PR-11': 'partial'})
+    validate_support('FT', record, row, {'PR-11': 'fulfilled'})
+    record['evidence'].append('https://example.org/fabricated-study')
+    with pytest.raises(ValueError, match='external evidence'):
+        validate_support('FT', record, row, {'PR-11': 'fulfilled'})
+
+
+def test_evidence_requires_repository_files_and_resolves_line_ranges(tmp_path, monkeypatch):
+    from .assessment import check_source
+
+    d = tmp_path / 'model' / 'candidate_laws' / 'toy'
+    d.mkdir(parents=True)
+    (d / 'one.txt').write_text('only line')
+    monkeypatch.setattr(ev, 'ROOT', tmp_path)
+    cand = SimpleNamespace(NAME='toy')
+    ev.evidence_ok(cand, ['one.txt#L1'])
+    for item in ('.', '../', '/tmp', '../../../../outside.txt', 'one.txt#L2', 'one.txt#L1-L0'):
+        with pytest.raises(SystemExit):
+            ev.evidence_ok(cand, [item])
+    with pytest.raises(ValueError, match='Unknown repository'):
+        check_source('https://invalid.example/research', root=tmp_path, local=True)
+
+
+@pytest.mark.parametrize('name,quantity', [('electron_rest_energy', 'energy unit'), ('coefficient', 'electron rest mass')])
+def test_parameter_screen_includes_the_name_and_species_energy(name, quantity):
+    cand = toy(laplacian(), parameters={name: {'value': 1, 'quantity': quantity, 'provenance': 'designed'}})
+    assert ev.parameter_check(cand)['status'] == 'fail'
+
+
+def test_an_operator_calculation_cannot_discharge_a_physical_clock_row():
+    source = 'model/evaluation/repair_band.json'
+    row = {'sources': [], 'premises': []}
+    witness = {'kind': 'state', 'scope': 'A calculator diagonalizes the supplied matrix.', 'source': source}
+    record = {'status': 'demonstrated', 'evidence': [source], 'full_credit': witness}
+    with pytest.raises(ValueError, match='needs observer records'):
+        ev.assessment.validate_support('OBS-01', record, row, {})
+    witness['kind'] = 'record'
+    with pytest.raises(ValueError, match='identify the observer'):
+        ev.assessment.validate_support('OBS-01', record, row, {})
+
+
+def test_markdown_evidence_anchor_must_exist(tmp_path):
+    path = tmp_path / 'note.md'
+    path.write_text('# Note\n\n## Held acquisition\n')
+    ev.assessment.check_source('note.md#held-acquisition', root=tmp_path)
+    with pytest.raises(ValueError, match='Unknown Markdown evidence heading'):
+        ev.assessment.check_source('note.md#result-never-acquired', root=tmp_path)
+
+
+def test_one_law_full_grade_is_incompatible_with_an_open_law_premise():
+    candidate = SimpleNamespace(NAME='interval_echo', JOINT={'one-law': {
+        'status': 'fulfilled', 'note': 'Claimed discharge.', 'evidence': ['SPEC.md']}})
+    with pytest.raises(SystemExit, match="undischarged law premises"):
+        ev.joint_rows(candidate, [{'id': 'PR-01', 'role': 'law', 'status': 'partial'}])
+
+
+def test_every_supplemental_result_leads_with_its_full_criterion_grade():
+    from . import assessment, report
+
+    seen = set()
+    for group in assessment.definitions():
+        for row in group['criteria']:
+            for candidate, case in row['results'].items():
+                if 'demonstrated_measurement' in case:
+                    grade = report.criterion_grade(case)
+                    assert grade.startswith(f"**{assessment.STATUS[case['status']]}**. "), (row['id'], candidate)
+                    assert grade.count('**') == 2 and 'Demonstrated measurement' not in grade
+                    seen.add(case['status'])
+    assert {'open', 'partial'} <= seen

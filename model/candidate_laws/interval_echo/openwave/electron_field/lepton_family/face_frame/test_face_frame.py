@@ -2,7 +2,24 @@ import json
 
 import numpy as np
 
-from . import measure, observers
+from . import measure, mixing, observers
+
+
+def test_two_face_bases_exclude_the_cabibbo_entry_and_cp_violation():
+    result = mixing.run()
+    assert (result["face_pairs"], result["quartets"]) == (400, 3600)
+    assert result["maximum_absolute_imaginary_quartet"] < 1e-13
+    moduli = [float(value) for value in mixing.exact_moduli()]
+    assert len(moduli) == 8
+    assert min(abs(value - 0.2250) for value in moduli) > 0.09767
+
+    # The three-point Fourier matrix has the same size and a genuine complex phase.
+    phases = 2j * np.pi * np.outer(np.arange(3), np.arange(3)) / 3
+    complex_control = np.exp(phases) / np.sqrt(3)
+    np.testing.assert_allclose(
+        [abs(q.imag) for q in mixing.quartets(complex_control)],
+        np.sqrt(3) / 18, atol=1e-14, rtol=0,
+    )
 
 
 def test_field_spectroscopy_and_native_memory_reversal():

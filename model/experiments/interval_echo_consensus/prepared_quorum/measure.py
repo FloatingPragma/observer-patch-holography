@@ -230,7 +230,7 @@ def mixed_locks(auth):
 
 def silent(auth, q):
     t = Trial(auth, q)
-    # All honest owners enter the silent leader's view and advance on timeout.
+    # All nonfaulty owners enter the silent leader's view and advance on timeout.
     t.reports(0, [1, 2, 3])
     available = [1, 2, 3]
     changes = t.reports(1, available)
@@ -255,19 +255,19 @@ def equivocation(auth):
     x = t.sign_offer(0, 0, reports)
     y = t.sign_offer(0, 1, reports)
     pc, lc = t.prepare_lock(x, [0, 1, 2], [0, 1, 2])
-    must(t.vote("prepare", y, 1, 0) is None, "Honest second vote")
+    must(t.vote("prepare", y, 1, 0) is None, "Nonfaulty owner cast a second vote")
     must(
         t.collect("prepare", y, [0, 1, 3], 0) is None, "Two conflicting prepare quorums"
     )
     dc = t.collect("commit", lc, [0, 1, 2], 0)
-    must(t.decision(0, 4, dc) and t.decision(0, 5, dc), "Honest decision failed")
+    must(t.decision(0, 4, dc) and t.decision(0, 5, dc), "Nonfaulty decision failed")
     return t.archive()
 
 
 def conflicting(auth):
     t = Trial(auth, 2, faulty=[0])
-    for x, honest, final in [(0, 1, 4), (1, 2, 5)]:
-        dc = t.issue(0, x, [0, honest])
+    for x, nonfaulty, final in [(0, 1, 4), (1, 2, 5)]:
+        dc = t.issue(0, x, [0, nonfaulty])
         must(
             t.decision(0, final, dc),
             "Low threshold did not expose conflicting certificate",

@@ -14,7 +14,7 @@ import sympy as sp
 
 from model.candidate_laws.contrast_memory_spherical_v1 import law
 from model.executable_model import carrier
-from ..signed_effects.sequential import compare
+from .provenance import compare_replay as compare
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[3]

@@ -9,6 +9,8 @@ its two conserved rails. A station reads this phase from four local outcomes.
 Its elapsed-time reader receives counts from two appointments, with the
 birthplace, birth time and appointment labels removed.
 
+The loaded-clock archive binds the original integer sampling grid and every count bin by SHA-256. Its portable verifier decodes all published counts and checks the registered hand and null controls against the native probabilities. For this experiment, `--compare-seed` reports platform-dependent NumPy multinomial differences on the same PCG64 stream. `--seed-replay` requires bitwise agreement and remains mandatory to authenticate an unpublished local acquisition.
+
 ### From an incoming pair to an observer record
 
 | Question | Result on the declared apparatus |

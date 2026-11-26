@@ -36,11 +36,17 @@ jobs:
           cache: pip
           cache-dependency-path: requirements.txt
       - run: python -m pip install -r requirements.txt
+      - name: Report grade changes
+        if: github.event_name == 'pull_request' || (github.event_name == 'push' && github.ref == 'refs/heads/main' && github.event.before != '0000000000000000000000000000000000000000')
+        env:
+          LEDGER_BASE: ${{ github.event.pull_request.base.sha || github.event.before }}
+        run: python tools/report_grade_changes.py --base "$LEDGER_BASE"
       - name: Claim registry, premise countermodels, observables register and claim views
         run: |
           python tools/check_claim_registry.py
           python -W error code/audit/test_basis_principle_boundaries.py
           python tools/check_observables.py
+          python -m pytest -q tools/test_observable_completion.py tools/test_report_grade_changes.py
           python tools/build_claim_views.py --check
       - name: QFT/WZ theorem oracle
         working-directory: code/particles/calibration/q1_q4_wz_theorem_oracle

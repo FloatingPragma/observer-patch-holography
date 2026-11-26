@@ -41,3 +41,5 @@ python -Bm "$p.measure"
 python -Bm "$p.two"
 python -Bm pytest -q --pyargs "$p.test_stocks"
 ~~~
+
+The leading contact-count estimate for vacancy breakup is twice the contrast per shared seam. It omits hopping and the diagonal energy of private references. With nine referenced ports on the tested cell, the sizes two through six have breakup costs about 14.86, 30.59, 32.07, 32.14 and 41.00 in native units. The six-vacancy estimate from contact counting alone is 48. These are finite breakup energies on the reference material.

@@ -1,5 +1,7 @@
 # Consensus on two overlapping repairs
 
+The terminal record matters. Native strict writes without arbitration can end at different seam addresses. With free flight, the vacancy/double/mark census can agree while the addresses differ. A buffered priority service returns the same channel for reversed arrivals because its service order ignores arrival order. The native strict branch still lowers the squared loads on accepted unequal inputs. In the separate two-triangle comparison every accepted offer copies the same protected value. On the disagreement set its action is set subtraction, so those offers commute and are idempotent. The agreement across controller schedules is a comparison across runs. [Address control](../../experiments/interval_echo_consensus/FLIGHT_CONFLUENCE.md) · [Count quotient](../../experiments/interval_echo_consensus/routed_counts/README.md)
+
 A double at port 0 of one echosahedron can repair with either port 1 or port 10. Each repair leaves a different readable pair. The shared port ends with one load in either case. The two permitted repairs cannot join when the public record retains the seam on which the pair is read. A separate control gives one common endpoint for each prepared value of a local priority register. [Executable experiment](consensus.py) · [All preparations, attempts and terminal readings](consensus.json)
 
 ## Instrument and acceptance

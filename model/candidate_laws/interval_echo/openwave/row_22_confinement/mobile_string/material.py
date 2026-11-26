@@ -56,11 +56,11 @@ def route(level):
     raise ValueError("No prespecified eight-owner material route")
 
 
-def calibration_energies():
+def calibration_energies(kappa=strand.K):
     law = strand.candidate.native_law
     strand.native_checks()
     exchange, contrast = law.local_term_parts()
-    h = exchange + strand.K * contrast
+    h = exchange + kappa * contrast
     eye = np.eye(law.DIM)
 
     def state(ab):
@@ -77,7 +77,7 @@ def calibration_energies():
     gap = np.diff(np.linalg.eigvalsh(h[np.ix_(band, band)]))[0]
     # The degree reference has contrast alone with its other port held at zero.
     load = state((1, 0))
-    private = float(strand.K * load @ contrast @ load)
+    private = float(kappa * load @ contrast @ load)
     return np.array([cost((0, 0)) - cost((1, 1)), gap, private])
 
 
@@ -109,13 +109,17 @@ def core(length, pin, g, h=H):
 
 @cache
 def static_laws(length, g):
-    n = length - 2
-    e0, v0 = eigh(core(length, 0, g), driver="evd")
-    e1, v1 = eigh(core(length, 1, g), driver="evd")
+    return pinned_laws(core(length, 0, g), core(length, 1, g))
+
+
+def pinned_laws(lower, upper):
+    """Ground work and Ramsey quadratures from the two physical pinned interiors."""
+    e0, v0 = eigh(lower, driver="evd")
+    e1, v1 = eigh(upper, driver="evd")
     w0 = v0[0] ** 2
     a0 = np.exp(-1j * HOLDS[:, None] * e0) @ w0
     panels = []
-    for basis in ((1 << n) - 1, 0):
+    for basis in (len(e1) - 1, 0):
         w1 = v1[basis] ** 2
         a1 = np.exp(-1j * HOLDS[:, None] * e1) @ w1
         signal = a1 * a0.conj()

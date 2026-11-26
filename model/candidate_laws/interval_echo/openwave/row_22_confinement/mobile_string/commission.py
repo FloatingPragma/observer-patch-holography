@@ -12,9 +12,10 @@ from ...row_30_collective.formation import edge, native, path_to
 from .material import route
 
 
-def material_stock(level, n):
+def material_stock(level, n, sequence=None):
     board = federation(level)
-    sequence = route(level)[: 2 * n]
+    sequence = (route(level) if sequence is None else sequence)[: 2 * n]
+    assert len(sequence) == 2 * n
     dimers = list(zip(sequence[::2], sequence[1::2]))
     links = {edge(a, b) for a, b in zip(sequence[1:-1:2], sequence[2::2])}
     seams = {edge(a, b) for a, b in board.seams}
@@ -59,8 +60,9 @@ def material_stock(level, n):
             record("swap", x, y)
         record("echo-conditional", a, b)
         stock[a], stock[b] = 1, 1
-    # One hole on the degree-five end of every dimer gives lower everywhere.
-    holes = {p for p in sequence if board.degree[p] == 5}
+    # Empty the upper port. Alternating its side makes each connector
+    # touch two uppers or two lowers, including on equal-degree dimers.
+    holes = {pair[1 - (i % 2)] for i, pair in enumerate(dimers)}
     assert len(holes) == n
     for dest in sorted(holes):
         if stock[dest]:

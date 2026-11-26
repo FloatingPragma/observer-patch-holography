@@ -2,6 +2,8 @@
 
 Two identical vacancies move through three successive pairs of leaf ports on an unthreaded Y. Every other physical load is one. A balanced detector reads a negative relative phase in the slow, excited pair band. On **4,180,732 of 4,194,304 unfiltered simulated launches**, it returned dark for one exchange. The predicted dark fraction falls to **0.0293% after two exchanges**. A native direct exchange of the same two vacancies on the same four ports returns bright on every sharp launch. [All launch, position and exit records](records.json.gz) · [Derivation](PROOF.md)
 
+The six sharp two-vacancy configurations of the Y form a single cycle with six hopping edges. Relabelling them as positions of one particle on a hexagon gives the same time-dependent Hamiltonian and therefore every preparation, path probability and interference sign on this register. Inserting the fermionic exchange sign reverses the product of the six hoppings. The observed minus on the excited band identifies the geometric phase of this drive. [Basis and exchange-cycle checks](test_pump.py) · [Finite-time statistical-sign control on the same pump](STATISTICS_CONTROL.md)
+
 | 393,216 native flight units per turn | Sharp dark, once | Sharp dark, twice | Least sharp probability at a planned pair address |
 | --- | ---: | ---: | ---: |
 | Positive central bias, excited pair band | 99.6812% | 0.0293% | 99.3264% |

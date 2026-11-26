@@ -52,7 +52,8 @@ DIGEST = HERE / "six_station_records.sha256"
 SOURCE = "3db6e6d74416c26ca0f2e1be4bb3da2f6ad9d5fa"
 SOURCE_DIGESTS = {
     "law.py": "d0f1b4221671a4867cdcde097f484f6085bf334221b2a068be53f9cb5fd0dbd9",
-    "SPEC.md": "466b1dc20f278d83ec79796cacf75e2e3441c21e0680bcbc1a15b455745519e6",
+    # The relocated benchmark specification is pinned separately from the executable law.
+    "six_station_source/SPEC.md": "466b1dc20f278d83ec79796cacf75e2e3441c21e0680bcbc1a15b455745519e6",
 }
 CARRIER = (5, 5, 5, 1)
 MARK = (0, 0, 0, 0)

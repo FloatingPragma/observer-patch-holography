@@ -705,5 +705,12 @@
         ]
       ]
     }
-  ]
+  ],
+  "generator_sign_control": {
+    "alternative": "Negative complex conjugate of the registered generator in the port basis.",
+    "largest_sharp_port_error_below": 1e-12,
+    "coherent_probe": "Supplied (|0> + i|1>)/sqrt(2) in the original port labels, followed by a port read at twice the calibration exposure.",
+    "registered_probability_at_port_0": 0.353601367476,
+    "alternative_probability_at_port_0": 0.585896765044
+  }
 }

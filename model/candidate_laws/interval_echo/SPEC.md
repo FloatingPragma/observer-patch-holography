@@ -1,5 +1,7 @@
 # Interval Echo
 
+For initially blank memories the exact free generator reduces to endpoint swaps and a diagonal squared-contrast energy. On binary loads this is ferromagnetic XXZ with anisotropy 1 + 2κ. Free evolution preserves the blank memory on every seam; a writing operation or a nonblank input is needed to test memory. The eight equal-weight contrast witnesses in the calibration use the other seams of a shielded cell. An interior pair of degree-five ports has eight other incident seams; an external seam has ten. Applying the eight-witness standard everywhere is an explicit design choice. The one-load gap and curvature constrain that sector; finite-density and written-memory excitations require their own calculation.
+
 Interval Echo is a repair and memory process on the common spherical echosahedral carrier. It uses the reference contrast-memory interaction at κ = 8 and equips a finite patch with a material clock. The clock can distinguish two streams of repair events that contain the same number of positives and have different handoff histories. The one-load generator, its slow band and the freely evolving two-load sector are inherited from the reference interaction. [Reference interaction and state space](../contrast_memory_spherical_v1/SPEC.md) · [Candidate interface](candidate.py)
 
 ## Elementary repair

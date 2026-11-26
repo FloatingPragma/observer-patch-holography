@@ -162,15 +162,16 @@ start of the window by at most $12\,\tau_{\rm read}$ in total variation on every
 **What the tests compare.** The state of the simulation does not contain the physical Universe or its spacetime.
 Every test of the model is a statement about the probabilities of admissible observer records: here the agreed
 seam records and the face records. The state vector, the levels, the evolution parameter and positions in a
-sequence of events are tools of the calculation (audit). A bound that holds at every value of the evolution
-parameter holds at every reading of every observer. A difference between state encodings is no failure of the
+sequence of events are tools of the calculation (audit). Free evolution for any duration supplies the state for
+the first seam reading. A later reading takes the output of the preceding instrument as its preparation.
+A difference between state encodings is no failure of the
 model, and a resemblance between them is no success. "Read on other seams" is the observable meaning of motion.
 
 **Particle stability, the observable.** A pair of loads written on one seam by the emitter is read as a pair on
-some seam with probability at least one minus the bound of the theorem at every reading; it is read on other
+some seam with probability at least one minus the emitter bound at the first complete reading after free evolution; it is read on other
 seams than the first; nothing holds it but the law; and the law with the agreement energy removed loses it. Audit
 on the spectrum adds that the lowest level of two loads lies below two free loads and is a pair on a seam with
-probability above one half. What counts against the claim: "no pair" above the bound at a reading; no level below
+probability above one half. What counts against the claim: "no pair" above the bound at that first reading; no level below
 two free loads; a changed law with the same alphabet, routing and symmetry that gives the same answer on the whole
 property. [stability.py](stability.py) implements the test; `test_model.py` checks that each part fails under a
 changed law, start or reader.
@@ -200,15 +201,14 @@ holds a load) to a public record after every event.
 
 ## 9. The unrecovered seam
 
-A seam whose memory is not blank is unrecovered. By section 3 the label of a seam is conserved: a recovered start
+A seam whose memory is not blank is unrecovered. By section 3 blankness and the magnitude of the contrast are conserved: a recovered start
 stays recovered, and an unrecovered seam is a supplied preparation. With no load anywhere the ten records of a
 seam have the levels $0$, $\kappa$, $\kappa + 1$, $4\kappa$ and $4\kappa + 1$, each twice: $0$ for the records of
 zero contrast, $\kappa$ and $\kappa + 1$ for the symmetric and the antisymmetric record of contrast $\pm 1$, and
 $4\kappa$ and $4\kappa + 1$ for contrast $\pm 2$. A seam that holds a record of size one with empty ports holds no
 load and lies $\kappa$ above the blank seam.
 
-**A load beside it.** On a record that the loads of the seam can have written the local term vanishes, and on
-every other record it is the generator alone and exchanges nothing. Beside a record of size one a load on a port
+**A load beside it.** The local term vanishes on the coherent written code and equals the memory generator on its orthogonal complement in the labelled space. A product of a definite coin label and definite endpoint loads can overlap both subspaces. For example the matrix element from coin 0, contrast +1, loads (0,1) to coin 1, contrast +1, loads (1,0) is −κ/2 − 1/4. A written seam can therefore transfer a load while its contrast magnitude stays fixed. At contrast zero the entire labelled block has zero generator. Beside a record of size one a load on a port
 of the seam lies below a load elsewhere, by about $2\kappa$ where the record fits the load and by about $\kappa$
 where it does not, and it sits on a port of the seam. On one cell at $\kappa = 8$ a load elsewhere starts at
 56.38, two levels lie at 41.94 and six between 49.81 and 50.94 ([collar.py](collar.py)).
@@ -254,8 +254,7 @@ constraint problems and claims no polynomial bound for one.
 - the coherent generator $G_\kappa$ on the private seam memory;
 - the reference registers of the degree term;
 - the emitter with its fuel, coupling $g$ and duration $\pi/(2g)$;
-- the evolution parameter of the runs with a continuous parameter; as local events the pair needs each seam to act
-  once per round, or the limit of small event angle;
+- the evolution parameter of continuous-time runs and the independently specified schedules and angles of finite-event tests;
 - the routing of the external seams of the federation;
 - the reader's stage durations;
 - the unrecovered seam as a preparation, with its fuel and converter;

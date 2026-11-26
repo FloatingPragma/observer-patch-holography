@@ -1,0 +1,1625 @@
+{
+  "seed": 840622,
+  "steps": 12,
+  "address_attempts": 12,
+  "baseline_native": {
+    "binary_full_pi_swap_including_two_occupied": 6.188137565541493e-14,
+    "QND_flag_bit": [
+      2.7194799110210365e-16,
+      2.7194799110210365e-16
+    ],
+    "pointer_words": [
+      106,
+      1919
+    ],
+    "fair_probability": 0.49999999999999334,
+    "exact_count_increments": 511,
+    "terminal_five_rail_words": [
+      [
+        1919,
+        1919,
+        106,
+        106,
+        106
+      ],
+      [
+        106,
+        1919,
+        1919,
+        106,
+        106
+      ],
+      [
+        106,
+        106,
+        1919,
+        1919,
+        106
+      ],
+      [
+        106,
+        106,
+        106,
+        1919,
+        1919
+      ],
+      [
+        1919,
+        106,
+        106,
+        106,
+        1919
+      ]
+    ]
+  },
+  "hardware": [
+    {
+      "board": 1280,
+      "guide": [
+        0,
+        3,
+        1,
+        12,
+        6,
+        7,
+        5,
+        50,
+        62,
+        63,
+        60,
+        54,
+        21,
+        23,
+        20,
+        408,
+        432,
+        435,
+        434,
+        446,
+        441,
+        443,
+        440,
+        420,
+        968,
+        971,
+        969,
+        974,
+        962,
+        963,
+        960,
+        672,
+        675,
+        673,
+        684,
+        678,
+        679,
+        676,
+        696,
+        648,
+        651,
+        649,
+        654,
+        642
+      ],
+      "home_front": 55,
+      "immutable_home_timestamp_bits": [
+        [
+          [
+            506,
+            508,
+            515
+          ],
+          [
+            507,
+            512,
+            513
+          ],
+          [
+            510,
+            511,
+            514
+          ],
+          [
+            734,
+            736,
+            743
+          ],
+          [
+            735,
+            740,
+            741
+          ],
+          [
+            738,
+            739,
+            742
+          ],
+          [
+            4658,
+            4660,
+            4667
+          ],
+          [
+            4659,
+            4664,
+            4665
+          ],
+          [
+            4662,
+            4663,
+            4666
+          ]
+        ],
+        [
+          [
+            518,
+            520,
+            527
+          ],
+          [
+            519,
+            524,
+            525
+          ],
+          [
+            522,
+            523,
+            526
+          ],
+          [
+            542,
+            544,
+            551
+          ],
+          [
+            543,
+            548,
+            549
+          ],
+          [
+            546,
+            547,
+            550
+          ],
+          [
+            698,
+            700,
+            707
+          ],
+          [
+            699,
+            704,
+            705
+          ],
+          [
+            702,
+            703,
+            706
+          ]
+        ],
+        [
+          [
+            4694,
+            4696,
+            4703
+          ],
+          [
+            4695,
+            4700,
+            4701
+          ],
+          [
+            4698,
+            4699,
+            4702
+          ],
+          [
+            494,
+            496,
+            503
+          ],
+          [
+            495,
+            500,
+            501
+          ],
+          [
+            498,
+            499,
+            502
+          ],
+          [
+            446,
+            448,
+            455
+          ],
+          [
+            447,
+            452,
+            453
+          ],
+          [
+            450,
+            451,
+            454
+          ]
+        ],
+        [
+          [
+            566,
+            568,
+            575
+          ],
+          [
+            567,
+            572,
+            573
+          ],
+          [
+            570,
+            571,
+            574
+          ],
+          [
+            710,
+            712,
+            719
+          ],
+          [
+            711,
+            716,
+            717
+          ],
+          [
+            714,
+            715,
+            718
+          ],
+          [
+            4682,
+            4684,
+            4691
+          ],
+          [
+            4683,
+            4688,
+            4689
+          ],
+          [
+            4686,
+            4687,
+            4690
+          ]
+        ],
+        [
+          [
+            4670,
+            4672,
+            4679
+          ],
+          [
+            4671,
+            4676,
+            4677
+          ],
+          [
+            4674,
+            4675,
+            4678
+          ],
+          [
+            554,
+            556,
+            563
+          ],
+          [
+            555,
+            560,
+            561
+          ],
+          [
+            558,
+            559,
+            562
+          ],
+          [
+            470,
+            472,
+            479
+          ],
+          [
+            471,
+            476,
+            477
+          ],
+          [
+            474,
+            475,
+            478
+          ]
+        ],
+        [
+          [
+            530,
+            532,
+            539
+          ],
+          [
+            531,
+            536,
+            537
+          ],
+          [
+            534,
+            535,
+            538
+          ],
+          [
+            674,
+            676,
+            683
+          ],
+          [
+            675,
+            680,
+            681
+          ],
+          [
+            678,
+            679,
+            682
+          ],
+          [
+            686,
+            688,
+            695
+          ],
+          [
+            687,
+            692,
+            693
+          ],
+          [
+            690,
+            691,
+            694
+          ]
+        ]
+      ],
+      "home_counter_and_archive_snapshot_bound": 1940,
+      "home_optical_event_read_cost": 13,
+      "mobile_patch_cells": 12,
+      "stored_work_bit_count": 24,
+      "roles": {
+        "current_interval_length": 3,
+        "previous_interval_length": 3,
+        "temporary_random_address": 3,
+        "signed_walk_position": 5,
+        "depth": 4,
+        "address_attempt": 4,
+        "control_flags": 2
+      },
+      "previous_interval_encoding": "q-1 local waits followed by its closing positive handoff, indexed by retained length",
+      "real_train_transfer_cost_range": [
+        502,
+        524
+      ],
+      "worst_work_register_fold_including_read_update": 328,
+      "upper_bound_native_fair_offers_per_mark": 444,
+      "padded_extra_service_allocation_per_window": 2285516,
+      "modular_matrix_unit_error": 4.319345355516601e-14,
+      "all_32_extended_packet_permutations_verified": true,
+      "qualification": "Fold, transfer and native fair primitives are checked. The Boolean controller executes the transition table. Timing bound budgets bit scans and positive-duration source operations; no native proof of the controller source selecting the filter."
+    },
+    {
+      "board": 5120,
+      "guide": [
+        0,
+        256,
+        259,
+        257,
+        268,
+        262,
+        263,
+        260,
+        304,
+        280,
+        283,
+        281,
+        286,
+        274,
+        275,
+        272,
+        448,
+        451,
+        449,
+        460,
+        454,
+        455,
+        452,
+        496,
+        472,
+        475,
+        473,
+        478,
+        466,
+        467,
+        464,
+        416,
+        1296,
+        1299,
+        1297,
+        1308,
+        1302,
+        1303,
+        1300,
+        1332,
+        1320,
+        1323,
+        1321,
+        1326
+      ],
+      "home_front": 38,
+      "immutable_home_timestamp_bits": [
+        [
+          [
+            566,
+            568,
+            575
+          ],
+          [
+            567,
+            572,
+            573
+          ],
+          [
+            570,
+            571,
+            574
+          ],
+          [
+            434,
+            436,
+            443
+          ],
+          [
+            435,
+            440,
+            441
+          ],
+          [
+            438,
+            439,
+            442
+          ],
+          [
+            446,
+            448,
+            455
+          ],
+          [
+            447,
+            452,
+            453
+          ],
+          [
+            450,
+            451,
+            454
+          ]
+        ],
+        [
+          [
+            422,
+            424,
+            431
+          ],
+          [
+            423,
+            428,
+            429
+          ],
+          [
+            426,
+            427,
+            430
+          ],
+          [
+            542,
+            544,
+            551
+          ],
+          [
+            543,
+            548,
+            549
+          ],
+          [
+            546,
+            547,
+            550
+          ],
+          [
+            554,
+            556,
+            563
+          ],
+          [
+            555,
+            560,
+            561
+          ],
+          [
+            558,
+            559,
+            562
+          ]
+        ],
+        [
+          [
+            674,
+            676,
+            683
+          ],
+          [
+            675,
+            680,
+            681
+          ],
+          [
+            678,
+            679,
+            682
+          ],
+          [
+            698,
+            700,
+            707
+          ],
+          [
+            699,
+            704,
+            705
+          ],
+          [
+            702,
+            703,
+            706
+          ],
+          [
+            386,
+            388,
+            395
+          ],
+          [
+            387,
+            392,
+            393
+          ],
+          [
+            390,
+            391,
+            394
+          ]
+        ],
+        [
+          [
+            410,
+            412,
+            419
+          ],
+          [
+            411,
+            416,
+            417
+          ],
+          [
+            414,
+            415,
+            418
+          ],
+          [
+            506,
+            508,
+            515
+          ],
+          [
+            507,
+            512,
+            513
+          ],
+          [
+            510,
+            511,
+            514
+          ],
+          [
+            494,
+            496,
+            503
+          ],
+          [
+            495,
+            500,
+            501
+          ],
+          [
+            498,
+            499,
+            502
+          ]
+        ],
+        [
+          [
+            98,
+            100,
+            107
+          ],
+          [
+            99,
+            104,
+            105
+          ],
+          [
+            102,
+            103,
+            106
+          ],
+          [
+            710,
+            712,
+            719
+          ],
+          [
+            711,
+            716,
+            717
+          ],
+          [
+            714,
+            715,
+            718
+          ],
+          [
+            734,
+            736,
+            743
+          ],
+          [
+            735,
+            740,
+            741
+          ],
+          [
+            738,
+            739,
+            742
+          ]
+        ],
+        [
+          [
+            2690,
+            2692,
+            2699
+          ],
+          [
+            2691,
+            2696,
+            2697
+          ],
+          [
+            2694,
+            2695,
+            2698
+          ],
+          [
+            2702,
+            2704,
+            2711
+          ],
+          [
+            2703,
+            2708,
+            2709
+          ],
+          [
+            2706,
+            2707,
+            2710
+          ],
+          [
+            638,
+            640,
+            647
+          ],
+          [
+            639,
+            644,
+            645
+          ],
+          [
+            642,
+            643,
+            646
+          ]
+        ]
+      ],
+      "home_counter_and_archive_snapshot_bound": 1840,
+      "home_optical_event_read_cost": 21,
+      "mobile_patch_cells": 12,
+      "stored_work_bit_count": 24,
+      "roles": {
+        "current_interval_length": 3,
+        "previous_interval_length": 3,
+        "temporary_random_address": 3,
+        "signed_walk_position": 5,
+        "depth": 4,
+        "address_attempt": 4,
+        "control_flags": 2
+      },
+      "previous_interval_encoding": "q-1 local waits followed by its closing positive handoff, indexed by retained length",
+      "real_train_transfer_cost_range": [
+        494,
+        520
+      ],
+      "worst_work_register_fold_including_read_update": 288,
+      "upper_bound_native_fair_offers_per_mark": 444,
+      "padded_extra_service_allocation_per_window": 2009032,
+      "modular_matrix_unit_error": 4.319345355516601e-14,
+      "all_32_extended_packet_permutations_verified": true,
+      "qualification": "Fold, transfer and native fair primitives are checked. The Boolean controller executes the transition table. Timing bound budgets bit scans and positive-duration source operations; no native proof of the controller source selecting the filter."
+    }
+  ],
+  "measurements": [
+    {
+      "aliases_from_restricted_public_read": {
+        "2": {
+          "observed": [
+            1,
+            1,
+            1,
+            1,
+            0,
+            0
+          ],
+          "examples": [
+            [
+              3,
+              5,
+              11,
+              35,
+              60,
+              48
+            ],
+            [
+              5,
+              9,
+              19,
+              51,
+              74,
+              54
+            ]
+          ]
+        },
+        "5": {
+          "observed": [
+            1,
+            0,
+            2,
+            2,
+            2,
+            4
+          ],
+          "examples": [
+            [
+              1,
+              5,
+              12,
+              37,
+              57,
+              54
+            ],
+            [
+              1,
+              5,
+              12,
+              42,
+              62,
+              54
+            ]
+          ]
+        }
+      },
+      "policy": "stopped_signed_repair_walk",
+      "optical_period": 1,
+      "period": 2,
+      "stationary_control": false,
+      "enrolled": 8192,
+      "complete": 8192,
+      "physical_clock_fields": [
+        "emit1",
+        "receive1",
+        "emit2",
+        "receive2",
+        "home_reunion",
+        "traveller_reunion"
+      ],
+      "field_means": [
+        3.0025634765625,
+        8.0098876953125,
+        15.0069580078125,
+        44.040283203125,
+        64.0491943359375,
+        55.430908203125
+      ],
+      "material_hand_and_count_agree": [
+        8192,
+        8192
+      ],
+      "elapsed_marks_in_home_reunion_range": [
+        42,
+        84
+      ],
+      "pointer_first_four_trials": [
+        [
+          6,
+          10,
+          16,
+          47,
+          60,
+          54
+        ],
+        [
+          4,
+          10,
+          16,
+          47,
+          70,
+          59
+        ],
+        [
+          4,
+          10,
+          19,
+          40,
+          64,
+          61
+        ],
+        [
+          3,
+          9,
+          16,
+          42,
+          62,
+          53
+        ]
+      ],
+      "unique_local_packets": 8129,
+      "packet_sha256": "43af7a39d6ffb74ad0b272dd1fd84169a7e245ebbbf409af741e6609e757d0e1",
+      "analysis": {
+        "radar_beta": {
+          "value": 0.500179160916999,
+          "jackknife_se": 0.0008439513954059424
+        },
+        "observed_elapsed_ratio": {
+          "value": 0.8654427081844361,
+          "jackknife_se": 0.0012139840385187275
+        },
+        "inertial_prediction": {
+          "value": 0.8659219404682889,
+          "jackknife_se": 0.000487478007287527
+        },
+        "observed_minus_prediction": {
+          "value": -0.0004792322838527152,
+          "jackknife_se": 0.0012265020059035701
+        }
+      },
+      "zero_separation_radar_time": 0,
+      "measured_individual_secants_equal_or_above_light_speed": 0,
+      "audit_only_reflection_cells": [
+        5,
+        29
+      ],
+      "outbound_reflections": 2,
+      "audit_only_total_service_windows": 128,
+      "filter": {
+        "candidate_marks": 524296,
+        "fair_address_bits": 907800,
+        "address_timeouts": 0,
+        "signed_native_steps": 453745,
+        "first_returns": 70206,
+        "step_bound_releases": 35
+      },
+      "home_filter": {
+        "passed_no_recent_handoff": 524691
+      },
+      "finite_prediction": {
+        "interval": 2,
+        "per_step_handoff_probability": 0.5,
+        "cap_release_rate": 0.8660266399383545,
+        "infinite_unbiased_release_rate": 0.8660254037844386,
+        "address_rejection_failure_per_sample": 0.0
+      }
+    },
+    {
+      "aliases_from_restricted_public_read": {
+        "2": {
+          "observed": [
+            1,
+            1,
+            1,
+            0,
+            1,
+            1
+          ],
+          "examples": [
+            [
+              3,
+              3,
+              15,
+              32,
+              95,
+              81
+            ],
+            [
+              5,
+              9,
+              19,
+              32,
+              103,
+              87
+            ]
+          ]
+        },
+        "5": {
+          "observed": [
+            2,
+            0,
+            0,
+            4,
+            0,
+            3
+          ],
+          "examples": [
+            [
+              2,
+              5,
+              15,
+              29,
+              80,
+              98
+            ],
+            [
+              2,
+              5,
+              15,
+              29,
+              95,
+              83
+            ]
+          ]
+        }
+      },
+      "policy": "stopped_signed_repair_walk",
+      "optical_period": 1,
+      "period": 3,
+      "stationary_control": false,
+      "enrolled": 8192,
+      "complete": 8192,
+      "physical_clock_fields": [
+        "emit1",
+        "receive1",
+        "emit2",
+        "receive2",
+        "home_reunion",
+        "traveller_reunion"
+      ],
+      "field_means": [
+        3.0010986328125,
+        4.9989013671875,
+        15.0087890625,
+        29.0054931640625,
+        95.95703125,
+        90.5750732421875
+      ],
+      "material_hand_and_count_agree": [
+        8192,
+        8192
+      ],
+      "elapsed_marks_in_home_reunion_range": [
+        70,
+        121
+      ],
+      "pointer_first_four_trials": [
+        [
+          3,
+          3,
+          15,
+          32,
+          95,
+          81
+        ],
+        [
+          1,
+          2,
+          9,
+          23,
+          98,
+          100
+        ],
+        [
+          5,
+          6,
+          18,
+          32,
+          101,
+          86
+        ],
+        [
+          2,
+          4,
+          15,
+          31,
+          98,
+          92
+        ]
+      ],
+      "unique_local_packets": 8134,
+      "packet_sha256": "9d97d146defd4385108b3b0b00c14ec63e712ad7a39ace2d206f81dde56f56b2",
+      "analysis": {
+        "radar_beta": {
+          "value": 0.3331706374627579,
+          "jackknife_se": 0.0005526215426827655
+        },
+        "observed_elapsed_ratio": {
+          "value": 0.9439128332994098,
+          "jackknife_se": 0.0011182058618424589
+        },
+        "inertial_prediction": {
+          "value": 0.9428665474671691,
+          "jackknife_se": 0.0001952819298420666
+        },
+        "observed_minus_prediction": {
+          "value": 0.0010462858322406454,
+          "jackknife_se": 0.0011010824673725345
+        }
+      },
+      "zero_separation_radar_time": 0,
+      "measured_individual_secants_equal_or_above_light_speed": 0,
+      "audit_only_reflection_cells": [
+        2,
+        14
+      ],
+      "outbound_reflections": 2,
+      "audit_only_total_service_windows": 192,
+      "filter": {
+        "candidate_marks": 786641,
+        "fair_address_bits": 2966328,
+        "address_timeouts": 0,
+        "signed_native_steps": 369971,
+        "first_returns": 44650,
+        "step_bound_releases": 0
+      },
+      "home_filter": {
+        "passed_no_recent_handoff": 786080
+      },
+      "finite_prediction": {
+        "interval": 3,
+        "per_step_handoff_probability": 0.3333333134651184,
+        "cap_release_rate": 0.9428090523106603,
+        "infinite_unbiased_release_rate": 0.9428090415820634,
+        "address_rejection_failure_per_sample": 5.960464477539063e-08
+      }
+    },
+    {
+      "aliases_from_restricted_public_read": {
+        "2": {
+          "observed": [
+            1,
+            0,
+            1,
+            1,
+            1,
+            0
+          ],
+          "examples": [
+            [
+              3,
+              4,
+              17,
+              27,
+              121,
+              126
+            ],
+            [
+              3,
+              4,
+              11,
+              23,
+              113,
+              116
+            ]
+          ]
+        },
+        "5": {
+          "observed": [
+            3,
+            4,
+            3,
+            4,
+            3,
+            0
+          ],
+          "examples": [
+            [
+              3,
+              4,
+              18,
+              29,
+              128,
+              110
+            ],
+            [
+              3,
+              4,
+              18,
+              24,
+              138,
+              140
+            ]
+          ]
+        }
+      },
+      "policy": "stopped_signed_repair_walk",
+      "optical_period": 1,
+      "period": 4,
+      "stationary_control": false,
+      "enrolled": 8192,
+      "complete": 8192,
+      "physical_clock_fields": [
+        "emit1",
+        "receive1",
+        "emit2",
+        "receive2",
+        "home_reunion",
+        "traveller_reunion"
+      ],
+      "field_means": [
+        2.994140625,
+        3.9833984375,
+        14.9742431640625,
+        23.9552001953125,
+        128.0335693359375,
+        123.898193359375
+      ],
+      "material_hand_and_count_agree": [
+        8192,
+        8192
+      ],
+      "elapsed_marks_in_home_reunion_range": [
+        100,
+        155
+      ],
+      "pointer_first_four_trials": [
+        [
+          4,
+          5,
+          16,
+          25,
+          134,
+          115
+        ],
+        [
+          2,
+          4,
+          17,
+          26,
+          131,
+          117
+        ],
+        [
+          2,
+          3,
+          12,
+          19,
+          117,
+          129
+        ],
+        [
+          2,
+          4,
+          13,
+          22,
+          116,
+          124
+        ]
+      ],
+      "unique_local_packets": 8135,
+      "packet_sha256": "096e489a365d0f174ce79f7c71be070ac74779e3ea6da4f8a3df41c69c358c09",
+      "analysis": {
+        "radar_beta": {
+          "value": 0.250116523400191,
+          "jackknife_se": 0.0009215774453991365
+        },
+        "observed_elapsed_ratio": {
+          "value": 0.9677008459733556,
+          "jackknife_se": 0.0010400027914905456
+        },
+        "inertial_prediction": {
+          "value": 0.9682157428601342,
+          "jackknife_se": 0.0002380488726647529
+        },
+        "observed_minus_prediction": {
+          "value": -0.0005148968867786374,
+          "jackknife_se": 0.001172759216287483
+        }
+      },
+      "zero_separation_radar_time": 0,
+      "measured_individual_secants_equal_or_above_light_speed": 0,
+      "audit_only_reflection_cells": [
+        1,
+        9
+      ],
+      "outbound_reflections": 2,
+      "audit_only_total_service_windows": 256,
+      "filter": {
+        "candidate_marks": 1048408,
+        "fair_address_bits": 2705992,
+        "address_timeouts": 0,
+        "signed_native_steps": 338022,
+        "first_returns": 33434,
+        "step_bound_releases": 0
+      },
+      "home_filter": {
+        "passed_no_recent_handoff": 1048851
+      },
+      "finite_prediction": {
+        "interval": 4,
+        "per_step_handoff_probability": 0.25,
+        "cap_release_rate": 0.9682458366150968,
+        "infinite_unbiased_release_rate": 0.9682458365518543,
+        "address_rejection_failure_per_sample": 0.0
+      }
+    },
+    {
+      "aliases_from_restricted_public_read": {
+        "2": {
+          "observed": [
+            1,
+            1,
+            1,
+            1,
+            0,
+            0
+          ],
+          "examples": [
+            [
+              1,
+              1,
+              13,
+              19,
+              148,
+              152
+            ],
+            [
+              3,
+              3,
+              13,
+              21,
+              164,
+              152
+            ]
+          ]
+        },
+        "5": {
+          "observed": [
+            4,
+            0,
+            3,
+            4,
+            0,
+            0
+          ],
+          "examples": [
+            [
+              4,
+              5,
+              18,
+              24,
+              160,
+              145
+            ],
+            [
+              4,
+              5,
+              13,
+              19,
+              150,
+              160
+            ]
+          ]
+        }
+      },
+      "policy": "stopped_signed_repair_walk",
+      "optical_period": 1,
+      "period": 5,
+      "stationary_control": false,
+      "enrolled": 8192,
+      "complete": 8192,
+      "physical_clock_fields": [
+        "emit1",
+        "receive1",
+        "emit2",
+        "receive2",
+        "home_reunion",
+        "traveller_reunion"
+      ],
+      "field_means": [
+        3.002197265625,
+        4.0123291015625,
+        15.026611328125,
+        22.0390625,
+        159.946533203125,
+        156.905029296875
+      ],
+      "material_hand_and_count_agree": [
+        8192,
+        8192
+      ],
+      "elapsed_marks_in_home_reunion_range": [
+        130,
+        194
+      ],
+      "pointer_first_four_trials": [
+        [
+          1,
+          1,
+          8,
+          15,
+          158,
+          148
+        ],
+        [
+          3,
+          3,
+          17,
+          28,
+          158,
+          153
+        ],
+        [
+          3,
+          4,
+          14,
+          24,
+          157,
+          141
+        ],
+        [
+          3,
+          4,
+          14,
+          23,
+          154,
+          150
+        ]
+      ],
+      "unique_local_packets": 8136,
+      "packet_sha256": "67e4e71dea4d505e655284090b65262c5e651c1a64507eebdf7b4583d4fe6d2b",
+      "analysis": {
+        "radar_beta": {
+          "value": 0.19973677689811073,
+          "jackknife_se": 0.0006995343020463954
+        },
+        "observed_elapsed_ratio": {
+          "value": 0.9809842461393807,
+          "jackknife_se": 0.0008069104058723405
+        },
+        "inertial_prediction": {
+          "value": 0.979849590475168,
+          "jackknife_se": 0.00014263468942442807
+        },
+        "observed_minus_prediction": {
+          "value": 0.0011346556642127803,
+          "jackknife_se": 0.0007728752677702265
+        }
+      },
+      "zero_separation_radar_time": 0,
+      "measured_individual_secants_equal_or_above_light_speed": 0,
+      "audit_only_reflection_cells": [
+        1,
+        7
+      ],
+      "outbound_reflections": 2,
+      "audit_only_total_service_windows": 320,
+      "filter": {
+        "candidate_marks": 1311819,
+        "fair_address_bits": 7709409,
+        "address_timeouts": 8,
+        "signed_native_steps": 321371,
+        "first_returns": 26453,
+        "step_bound_releases": 0
+      },
+      "home_filter": {
+        "passed_no_recent_handoff": 1310282
+      },
+      "finite_prediction": {
+        "interval": 5,
+        "per_step_handoff_probability": 0.19999845330312382,
+        "cap_release_rate": 0.9797962128329059,
+        "infinite_unbiased_release_rate": 0.9797958971132712,
+        "address_rejection_failure_per_sample": 7.733484380878508e-06
+      }
+    },
+    {
+      "aliases_from_restricted_public_read": {
+        "2": {
+          "observed": [
+            1,
+            1,
+            1,
+            0,
+            1,
+            0
+          ],
+          "examples": [
+            [
+              3,
+              9,
+              17,
+              42,
+              121,
+              126
+            ],
+            [
+              3,
+              7,
+              13,
+              44,
+              135,
+              126
+            ]
+          ]
+        },
+        "5": {
+          "observed": [
+            3,
+            1,
+            3,
+            0,
+            1,
+            2
+          ],
+          "examples": [
+            [
+              3,
+              6,
+              13,
+              40,
+              121,
+              127
+            ],
+            [
+              3,
+              6,
+              18,
+              45,
+              121,
+              137
+            ]
+          ]
+        }
+      },
+      "policy": "stopped_signed_repair_walk",
+      "optical_period": 2,
+      "period": 4,
+      "stationary_control": false,
+      "enrolled": 8192,
+      "complete": 8192,
+      "physical_clock_fields": [
+        "emit1",
+        "receive1",
+        "emit2",
+        "receive2",
+        "home_reunion",
+        "traveller_reunion"
+      ],
+      "field_means": [
+        2.994140625,
+        6.9791259765625,
+        14.9742431640625,
+        42.9520263671875,
+        128.0335693359375,
+        123.9525146484375
+      ],
+      "material_hand_and_count_agree": [
+        8192,
+        8192
+      ],
+      "elapsed_marks_in_home_reunion_range": [
+        100,
+        155
+      ],
+      "pointer_first_four_trials": [
+        [
+          4,
+          9,
+          16,
+          44,
+          134,
+          119
+        ],
+        [
+          2,
+          7,
+          17,
+          41,
+          131,
+          112
+        ],
+        [
+          2,
+          5,
+          12,
+          40,
+          117,
+          135
+        ],
+        [
+          2,
+          6,
+          13,
+          42,
+          116,
+          124
+        ]
+      ],
+      "unique_local_packets": 8168,
+      "packet_sha256": "850849ebbc6d6797447274715cc8e96c41c7ef0b6e07a68d5c8e35a554367dc4",
+      "analysis": {
+        "radar_beta": {
+          "value": 0.5003398407966785,
+          "jackknife_se": 0.0010173372911599858
+        },
+        "observed_elapsed_ratio": {
+          "value": 0.968125119773924,
+          "jackknife_se": 0.0009515832399257956
+        },
+        "inertial_prediction": {
+          "value": 0.8658291076832393,
+          "jackknife_se": 0.0005877925522047222
+        },
+        "observed_minus_prediction": {
+          "value": 0.10229601209068473,
+          "jackknife_se": 0.0013056673103737197
+        }
+      },
+      "zero_separation_radar_time": 0,
+      "measured_individual_secants_equal_or_above_light_speed": 0,
+      "audit_only_reflection_cells": [
+        2,
+        14
+      ],
+      "outbound_reflections": 2,
+      "audit_only_total_service_windows": 256,
+      "filter": {
+        "candidate_marks": 1048408,
+        "fair_address_bits": 2706708,
+        "address_timeouts": 0,
+        "signed_native_steps": 337935,
+        "first_returns": 32989,
+        "step_bound_releases": 0
+      },
+      "home_filter": {
+        "passed_no_recent_handoff": 1048851
+      },
+      "finite_prediction": {
+        "interval": 4,
+        "per_step_handoff_probability": 0.25,
+        "cap_release_rate": 0.9682458366150968,
+        "infinite_unbiased_release_rate": 0.9682458365518543,
+        "address_rejection_failure_per_sample": 0.0
+      }
+    }
+  ]
+}

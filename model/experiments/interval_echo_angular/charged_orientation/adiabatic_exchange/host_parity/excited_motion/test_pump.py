@@ -73,3 +73,21 @@ def test_step_power_independent_of_spectral_acquisition():
         np.testing.assert_allclose(
             (q * np.exp(-7j * dt * e)) @ q.T, np.linalg.matrix_power(u, 7), atol=3e-14
         )
+
+
+def test_two_vacancy_path_is_a_single_hexagon_and_exchange_reverses_fermion_flux():
+    words = pump.stocks(2)
+    h, _, _ = pump.source_geometry(2)
+    # Positions here are pairs of vacancy addresses on the ordered Y (0,1,2,3).
+    path = [(0, 1), (1, 2), (0, 2), (2, 3), (0, 3), (1, 3)]
+    order = [words.index(tuple(int(i not in pair) for i in range(4))) for pair in path]
+    ordered = h[np.ix_(order, order)]
+    adjacency = np.roll(np.eye(6), 1, axis=0)
+    np.testing.assert_array_equal(ordered - np.diag(ordered.diagonal()), -(adjacency + adjacency.T)/2)
+    # Exterior-square hopping contributes a minus for every spectator crossed.
+    fermion_sign = 1
+    for src, dst in zip(path, path[1:] + path[:1]):
+        spectator, = set(src) & set(dst)
+        a, b = sorted(set(src) ^ set(dst))
+        fermion_sign *= -1 if a < spectator < b else 1
+    assert fermion_sign == -1

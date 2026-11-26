@@ -10,7 +10,29 @@ from scipy.linalg import expm
 from model.candidate_laws.interval_echo import candidate
 from model.executable_model import federation
 from model.experiments.interval_echo_consensus.asynchronous import SharpService
-from .experiment import HERE
+from .experiment import HERE, history
+
+
+def test_deferred_controller_offer_retains_the_actual_commit_round():
+    class LateOffer:
+        round = 0
+
+        def random(self, size):
+            self.round += 1
+            return np.full(size, 0.0 if self.round == 32768 else 0.75)
+
+    inputs = (2, np.array([[0, 1]]), np.array([0]), np.array([0, 2]))
+    ticks, signs, last = history(*inputs, 0.5, LateOffer())
+    assert ticks.tolist() == [32768] and signs.tolist() == [-2] and last == 32768
+    for p in (0, -1, 1.01, np.nan):
+        with pytest.raises(ValueError, match="offer probability"):
+            history(*inputs, p, LateOffer())
+
+
+def test_five_immediate_rounds_cover_every_cell_boundary_pattern():
+    from .immediate_depth import immediate_depth_counts
+
+    assert immediate_depth_counts() == [2, 83632, 708978, 396380, 35388, 324]
 
 
 def test_independent_sharp_controller_preserves_the_deposited_addresses():

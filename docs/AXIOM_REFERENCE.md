@@ -628,3 +628,7 @@ the branches.
 4. Retired principles (the former recovery bundle and the former economy
    axiom) never appear as premises of active claims; their surviving content
    is carried by classified interfaces with countermodels.
+
+## Executable domain of the axioms
+
+A1 asks for central projections in the specified public algebra. Occupation projectors distinguish ports in the one-load address algebra. The full tensor matrix algebra has scalar centre. The selected current service has dimension twelve. Plain accessible controls exhibit seventeen visible directions, excluding exhaustion on that larger menu. The Lean basis records propositions and supplied witnesses for A1–A3. Those types alone select no repair law. Relative-entropy minimization requires an explicit feasible family and reference on the same process.

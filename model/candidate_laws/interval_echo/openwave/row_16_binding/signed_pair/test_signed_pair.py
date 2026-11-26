@@ -106,3 +106,17 @@ def test_sampled_signs_and_contamination_on_the_selected_sources():
                 assert direction * value > radius + drift + 1e-6
             else:
                 assert direction * value > radius + 0.15
+
+
+def test_both_nominal_constituents_lie_above_their_sign_fragments():
+    from scipy.sparse.linalg import eigsh
+
+    def lowest(plus, minus):
+        h = Assembly(plus, minus).h
+        ground, = eigsh(h, k=1, which="SA", v0=np.ones(h.shape[0]), return_eigenvectors=False)
+        return ground
+
+    positive_fragment = lowest(2, 0)
+    for minus, difference in [(1, 1.86495172), (2, 7.18713)]:
+        excess = lowest(2, minus) - positive_fragment - lowest(0, minus)
+        np.testing.assert_allclose(excess, difference, atol=1e-5, rtol=0)

@@ -1,5 +1,7 @@
 # Two overlapping repairs with different intermediate records
 
+On sharp loads this programme uses a π exchange and a pointer whose outcome is one exactly when the input load plus its reference equals two. Replacing those primitives by classical swaps and that predicate gives the identical 50,256-byte decompressed receipt. Each protected-bit repair removes its offered subset from the disagreement set. The separately committed overlapping offers instantiate the abstract quotient repair presentation. The transaction-layer theorem additionally requires conflicting primitives to commit together and supplies its own recovery conditions.
+
 One triangle starts at 000 with protected boundary one. Repairing positions 0 and 1 gives the independent receiver 110. Repairing positions 1 and 2 first gives 011. Completing the other pair gives 111 in both orders. The receiver reads bank addresses 3, 1 and 0 on both trajectories. A parked publication leaves the original data and address visible. These are deterministic simulated readings on sharp ternary loads. [Frozen protocol](PROTOCOL.md) · [Complete raw receipt](records.json.gz)
 
 ## The declared repair relation

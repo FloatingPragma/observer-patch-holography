@@ -10,6 +10,8 @@ from . import material as mat
 
 HERE = Path(__file__).parent
 SHOTS = 1 << 22
+# Component Hoeffding radius 5/sqrt(N), enclosing complex-disk radius below.
+VISIBILITY_RADIUS = 5 * np.sqrt(2 / SHOTS)
 LAUNCHES = 1 << 24
 SEED = 2026112622
 TICK = np.arange(257) / 8
@@ -70,15 +72,58 @@ def port_phase(counts):
 
 
 def ramsey(counts, clock):
+    """Unwrap in the first hold's principal interval, with a resolved-turn check."""
     angles = port_phase(counts)
+    visibility = np.hypot(*(2 * counts.astype(float) / SHOTS - 1))
+    weak = visibility <= VISIBILITY_RADIUS
+    angular_error = np.full_like(visibility, np.pi)
+    angular_error[~weak] = np.arcsin(VISIBILITY_RADIUS / visibility[~weak])
+    ambiguous_holds = []
+    if abs(angles[0]) + angular_error[0] >= np.pi:
+        ambiguous_holds.append(float(mat.HOLDS[0]))
     rate = angles[0] / mat.HOLDS[0]
-    for phase, t in zip(angles[1:], mat.HOLDS[1:]):
-        rate = (phase + 2 * np.pi * round((t * rate - phase) / (2 * np.pi))) / t
-    visibility = np.hypot(*(2 * counts.astype(float) / SHOTS - 1)).min()
-    return {
-        "line": round(rate / clock, 7),
-        "min_visibility": round(float(visibility), 7),
-    }
+    for i, t in enumerate(mat.HOLDS[1:], 1):
+        predicted = t * rate
+        phase = angles[i] + 2 * np.pi * round((predicted - angles[i]) / (2 * np.pi))
+        uncertainty = angular_error[i] + t / mat.HOLDS[i - 1] * angular_error[i - 1]
+        if abs(phase - predicted) + uncertainty >= np.pi:
+            ambiguous_holds.append(float(t))
+        rate = phase / t
+    attempted = round(float(rate / clock), 7)
+    row = {"min_visibility": round(float(visibility.min()), 7)}
+    if weak.any() or ambiguous_holds:
+        return {**row, "status": "unresolved", "line": None, "attempted_line": attempted,
+                "low_visibility_holds": mat.HOLDS[weak].tolist(), "ambiguous_turn_holds": ambiguous_holds}
+    return {**row, "status": "resolved", "line": attempted}
+
+
+def intact_trend(static):
+    first = static[2]["sharp_intact"]["line"]
+    second = static[3]["sharp_intact"]["line"]
+    slope = second - first if first is not None and second is not None else None
+    held = {}
+    for length in (4, 5):
+        line = static[length]["sharp_intact"]["line"]
+        held[length] = line - (first + (length - 2) * slope) if line is not None and slope is not None else None
+    return slope, held
+
+
+def check_analysis(current, stored):
+    """Match every outcome and integer exactly, allowing numerical roundoff in computed floats."""
+    if type(current) is not type(stored):
+        raise ValueError("stored analysis changed a value type")
+    if isinstance(current, dict):
+        if current.keys() != stored.keys():
+            raise ValueError("stored analysis changed its fields")
+        for key, value in current.items():
+            check_analysis(value, stored[key])
+    elif isinstance(current, list):
+        for left, right in zip(current, stored, strict=True):
+            check_analysis(left, right)
+    elif isinstance(current, float):
+        np.testing.assert_allclose(current, stored, rtol=0, atol=1e-10, equal_nan=False)
+    elif current != stored:
+        raise ValueError(f"stored analysis differs: {stored!r}, expected {current!r}")
 
 
 def decode():
@@ -113,16 +158,7 @@ def decode():
                                 cal[0] + cal[2] * length, 2 * cal[0] + 2 * cal[2]
                             ),
                         }
-                    slope = (
-                        static[3]["sharp_intact"]["line"]
-                        - static[2]["sharp_intact"]["line"]
-                    )
-                    data["slope_2_to_3"] = slope
-                    data["held_intact_line_minus_extrapolated"] = {
-                        q: static[q]["sharp_intact"]["line"]
-                        - (static[2]["sharp_intact"]["line"] + (q - 2) * slope)
-                        for q in (4, 5)
-                    }
+                    data["slope_2_to_3"], data["held_intact_line_minus_extrapolated"] = intact_trend(static)
                 laws = arc["word_law_" + name]
                 words = arc[f"word_{lev}_{name}"]
                 event_table = data["release"] = []
@@ -146,6 +182,8 @@ def decode():
             "protocol": "a77043d82",
             "seed": SEED,
             "ramsey_trials_per_quadrature": SHOTS,
+            "ramsey_visibility_radius": float(VISIBILITY_RADIUS),
+            "ramsey_analysis": "A line requires every quadrature-vector disk to exclude zero and every nearest-turn choice to survive the angular error bounds. An unresolved attempt is retained only as a diagnostic.",
             "word_launches_per_preparation": LAUNCHES,
             "free_holds": mat.RELEASE.tolist(),
             "record_order": "upper and reversed launches; signed-endpoint survival, extra interior pair with surviving endpoints, enclosed opposite four-site island with surviving endpoints",
@@ -156,8 +194,20 @@ def decode():
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--acquire", action="store_true")
-    if parser.parse_args().acquire:
+    mode = parser.add_mutually_exclusive_group()
+    mode.add_argument("--acquire", action="store_true")
+    mode.add_argument("--check", action="store_true", help="verify the current analysis of the deposited bank")
+    args = parser.parse_args()
+    if args.acquire:
         acquire()
     result = decode()
-    (HERE / "results.json").write_text(json.dumps(result, indent=1) + "\n")
+    current = HERE / "results.json"
+    if args.check:
+        check_analysis(json.loads(json.dumps(result)), json.loads(current.read_text()))
+    else:
+        current.write_text(json.dumps(result, indent=1) + "\n")
+    panels = [rows[preparation] for level in result["levels"].values()
+              for law in FREE if "static" in level[law] for rows in level[law]["static"].values()
+              for preparation in ("sharp_intact", "sharp_screened")]
+    resolved = sum(row["status"] == "resolved" for row in panels)
+    print(f"Ramsey analysis: {resolved} resolved and {len(panels) - resolved} unresolved preparations.")

@@ -4,7 +4,7 @@ from __future__ import annotations
 import os
 from pathlib import Path
 
-from .assessment import ROOT, SHORT, STATUS, DECISIONS, comparison_studies
+from .assessment import ROOT, SHORT, STATUS, DECISIONS, EVIDENCE_KINDS, comparison_studies
 
 HERE = Path(__file__).resolve().parent
 CHECKS = {
@@ -12,9 +12,9 @@ CHECKS = {
     'hermitian': 'Cell generator is Hermitian',
     'locality': 'Every cell coupling joins incident registers',
     'rotations': 'All 60 proper rotations preserve the generator',
-    'rank_three_response': 'Lowest nonconstant cell response has multiplicity three',
-    'federation': 'Registered generator covers native 20-, 80- and 320-cell boards',
-    'parameters': 'Declared parameters pass provenance and forbidden-input checks',
+    'rank_three_response': 'First distinct cell response level above the ground level has multiplicity three',
+    'federation': 'Registered generator and basis cover native 20-, 80- and 320-cell boards',
+    'parameters': 'Parameter declarations pass the provenance and vocabulary screen',
 }
 GRADES = {**STATUS, 'pass': 'Pass', 'fail': 'Fail', 'fulfilled': 'Demonstrated', 'fails': 'Counterexample'}
 
@@ -49,8 +49,11 @@ def criterion_grade(case):
     measurement = case.get('demonstrated_measurement')
     if measurement is not None:
         source = local_link(measurement['source'])
-        linked = f"**Demonstrated** · [{measurement['label']}]({source})"
-        grade = linked if case['status'] == 'demonstrated' else f"{linked}. Full criterion · {grade}"
+        link = f"[{measurement['label']}]({source})"
+        kind = EVIDENCE_KINDS[measurement['kind']]
+        grade = f"**{grade}**. {kind} · {link}"
+    elif 'full_credit' in case:
+        grade += ' · ' + EVIDENCE_KINDS[case['full_credit']['kind']]
     filing = case.get('filing')
     if filing:
         grade += (f". OpenWave · [{filing['official_status']}]({local_link(filing['decision'])})"
@@ -79,7 +82,7 @@ def measured(result, directory):
 
 
 def candidate_table(results, directory):
-    lines = table('Candidate', 'Role', 'Measured example', 'Reason for its role')
+    lines = table('Candidate', 'Role', 'Example on its stated apparatus', 'Reason for its role')
     for r in results:
         doc = f"model/candidate_laws/{r['candidate']}/README.md"
         name = f"[{short(r)}]({local_link(doc, directory)})"
@@ -101,7 +104,7 @@ def scorecard(results):
              'Roles reflect the current investigation of patch clocks and bound matter on the spherical federation. Several rows use the same experiment at different scopes. Adding their grades would count the same evidence several times.', '',
              'The signed-defect experiment tests whether a transported orbital qubit acquires spinorial rotation and exchange phases. The gravity experiment tests how a second probe and an equal-energy seam source respond to a calibration on ordinary matter. The semiclassical comparison uses supplied Einstein evolution. [Matter and its controls](EVIDENCE.md#ft-matter) · [Universal coupling and its controls](EVIDENCE.md#g6) · [Null balance](EVIDENCE.md#gr-null)', '',
              '## Common carrier and parameter checks', '',
-             'These checks execute on each registered generator and its declared parameters at every evaluation. The cell spectral test concerns the finite response operator. Observer reconstruction is scored separately below.', '',
+             'These checks execute on the exposed generator, native register basis, declared rotations and parameter descriptions. A candidate that reuses a generator inherits its operator checks. Extra processes require separate tests. The multiplicity is a finite spectrum calculation. Uniform hopping on the icosahedron already has a triplet, and sharp port probabilities cannot distinguish H from −H*. Observer reconstruction is scored separately below.', '',
              *table('What is checked', *names)]
     for key, title in CHECKS.items():
         lines.append(table_row(title, *(GRADES.get(r['checks'].get(key, {}).get('status'), 'Unmeasured') for r in results)))
@@ -170,6 +173,9 @@ def evidence_ledger(results):
                     if 'demonstrated_measurement' in c:
                         heading = f"**{short(r)}** · {criterion_grade(c)}."
                     lines.append(f"- {heading} {c['note']} {links(c['evidence'])}".rstrip())
+                    if 'full_credit' in c:
+                        support = c['full_credit']
+                        lines.append(f"  - {EVIDENCE_KINDS[support['kind']]} · {support['scope']} {links([support['source']])}")
                     for comparison in comparison_studies(c):
                         lines.append(f"  - **{comparison['law']}** · {comparison['finding']} "
                                      f"[Comparison study]({local_link(comparison['source'])})")

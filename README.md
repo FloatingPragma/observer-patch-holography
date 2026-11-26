@@ -120,7 +120,7 @@ A history can be a common terminal record of local repairs. If a nonnegative dis
 The contrast-memory reference and the scalar channel supplied the following observer records. Interval Echo uses the same contrast-memory interaction and a clock filter calibrated to a guided reunion comparison.
 
 - **Particles that hold together.** A pair of loads written on one seam is
-  read as a pair at every later reading, with a probability that a theorem
+  read as a pair at any chosen first reading of a fresh run, with a probability that a theorem
   bounds on carriers of any size, and it moves from seam to seam. The same
   law without the agreement energy loses the pair.
 - **A clock inside an object.** An object held on four seams swings at one
@@ -133,9 +133,7 @@ The contrast-memory reference and the scalar channel supplied the following obse
   it. Its physical electric neutrality is a separate open question.
 - **Looking changes what comes later.** Asking "is a pair there?" and asking
   "where is it?" give the same first answer and different later records.
-- **Twelve force currents.** With one declared port service, the response of
-  a cell's ports has twelve generators with the algebra of the Standard
-  Model's forces.
+- **Twelve force currents.** A selected port service gives twelve generators of Standard Model Lie-algebra type. Plain accessible controls give seventeen visible directions. Global gauge symmetry and matter representations require further evidence.
 
 These outputs plug into the theorem library wherever an output has the form
 of a premise: the cell is the carrier of the three-direction theorem, the
@@ -149,11 +147,7 @@ shows what the program reproduces.
 
 Under stated premises, the theorem library and the finite constructions give:
 
-- **Spacetime and fields as effective descriptions.** Coarse-grained, the
-  observers' shared records are described by relativistic field theories in
-  three space dimensions and one time, together with gravity. The carrier's
-  slow response is exactly three-dimensional, and a Lorentzian (1+3)-dimensional
-  field theory reproduces the observers' joint readouts.
+- **Spacetime and fields as effective descriptions.** The field approximation assumes a radial interval, a hyperbolic evolution and an admissible readout menu. Identifying such a menu in Interval Echo is open.
 - **Agreement and stable records.** Under explicit termination and consistency
   conditions, local repairs reach one shared public result whatever their order.
   In an Interval Echo run with 240 ports, two opposite orders each made 74
@@ -202,8 +196,7 @@ what observers measure.
 
 ## Mathematics you can check
 
-The [Lean library](Lean/) holds more than 13400 public theorems and lemmas
-with no admitted proofs, covering consensus, quantum records, the gauge
+The [Lean library](Lean/) contains the formal proofs, covering consensus, quantum records, the gauge
 structure, thermodynamics and the Koide identity. Every computational result
 ships with a receipt that binds its inputs and replays.
 

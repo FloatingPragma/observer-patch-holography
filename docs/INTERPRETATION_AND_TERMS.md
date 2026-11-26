@@ -103,9 +103,7 @@ reproduces particle stability on its observers' agreed records, and under its
 second candidate law, the scalar channel, an object that carries a prepared
 clock; the other observations are work in progress. Every test compares distributions of
 admissible observer records with what observers in our world record: the
-state of the simulation is no physical space, and the theory proves that
-observers who inhabit the simulation can describe their experiences as
-relativistic 3+1D continuum spacetimes.
+state of the simulation is no physical space, and its field theorem approximates admissible readouts on a supplied radial interval with a supplied hyperbolic evolution.
 
 **The construction target is an executable realization of OPH's observer
 algebra whose shared measurement statistics reproduce the observable

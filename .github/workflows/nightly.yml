@@ -141,6 +141,51 @@ jobs:
             Lean/ObservableNormalForms/.lake/build
           key: lean-core-v3-${{ runner.os }}-${{ hashFiles('Lean/lean-toolchain', 'Lean/lakefile.lean', 'Lean/lake-manifest.json', 'Lean/ObservableNormalForms/lean-toolchain', 'Lean/ObservableNormalForms/lakefile.lean', 'Lean/ObservableNormalForms/lake-manifest.json') }}-${{ github.run_id }}-${{ github.run_attempt }}
 
+  experiment-proofs:
+    needs: lean-full
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3]
+    env:
+      LEAN_NUM_THREADS: "1"
+      EXPERIMENT_LEAN_SHARD: ${{ matrix.shard }}
+      EXPERIMENT_LEAN_SHARDS: "4"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Install elan
+        run: |
+          set -euo pipefail
+          # Pinned elan release, verified against its published sha256.
+          elan_version=v4.2.4
+          elan_sha256=42b94d4244e8353142c456ec0e4ca6528fd898a6c604d4059f494e706e431f63
+          cd "$RUNNER_TEMP"
+          curl -sSfL -o elan.tar.gz \
+            "https://github.com/leanprover/elan/releases/download/${elan_version}/elan-x86_64-unknown-linux-gnu.tar.gz"
+          echo "${elan_sha256}  elan.tar.gz" | sha256sum -c -
+          tar xzf elan.tar.gz
+          ./elan-init -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+
+      - name: Restore Lake build cache
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: |
+            Lean/.lake/build
+            Lean/ObservableNormalForms/.lake/build
+          key: lean-core-v3-${{ runner.os }}-${{ hashFiles('Lean/lean-toolchain', 'Lean/lakefile.lean', 'Lean/lake-manifest.json', 'Lean/ObservableNormalForms/lean-toolchain', 'Lean/ObservableNormalForms/lakefile.lean', 'Lean/ObservableNormalForms/lake-manifest.json') }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: |
+            lean-core-v3-${{ runner.os }}-${{ hashFiles('Lean/lean-toolchain', 'Lean/lakefile.lean', 'Lean/lake-manifest.json', 'Lean/ObservableNormalForms/lean-toolchain', 'Lean/ObservableNormalForms/lakefile.lean', 'Lean/ObservableNormalForms/lake-manifest.json') }}-
+
+      - name: Fetch pinned Mathlib artifacts
+        working-directory: Lean
+        run: lake exe cache get
+      - name: Type-check standalone experiment proofs
+        run: python3 tools/check_experiment_lean.py
+
   release-channel:
     if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
@@ -163,7 +208,7 @@ jobs:
   report:
     name: Report nightly failures
     if: always() && github.event_name == 'schedule' && contains(join(needs.*.result, ' '), 'failure')
-    needs: [lean-full, release-channel]
+    needs: [lean-full, experiment-proofs, release-channel]
     runs-on: ubuntu-latest
     timeout-minutes: 5
     permissions:

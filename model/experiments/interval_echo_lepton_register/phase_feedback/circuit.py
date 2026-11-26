@@ -130,11 +130,15 @@ def tick(phase):
     return 1 + np.expm1(1j * phase) * p
 
 
+def free_generator():
+    board = federation(0)
+    return board.laplacian() / 2 + diags(marked.KAPPA * (2 * board.degree - 6))
+
+
 def release():
     sites, _, _, _, _, F, _, _ = build()
-    board = federation(0)
-    h = board.laplacian() / 2 + diags(marked.KAPPA * (2 * board.degree - 6))
-    basis = np.eye(board.n)[:, sites[:, 0]]
+    h = free_generator()
+    basis = np.eye(h.shape[0])[:, sites[:, 0]]
     rest = h @ basis
     leak = rest - basis @ (basis.T @ rest)
     gram = leak.T @ leak

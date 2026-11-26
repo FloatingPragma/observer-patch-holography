@@ -118,7 +118,7 @@ There are two ways to finish this argument without a galaxy-sized simulation. On
 
 The same inference applied to native Interval Echo encounters an explicit pair of states. Each produces the same passive exterior record at all times. Internally they carry opposite stationary currents of magnitude √3/4 on one seam. A geometry read exclusively from that exterior cannot balance a nonzero universal multiple of this current as local momentum flux on both signed rays and both states. A macroscopic construction can evade this obstruction if its coarse stress averages away that current or its metric uses additional records. The necessary test is whether the independent metric and stress agree on the *same* coarse variations, including ones invisible to the exterior. [Native current experiment](../../model/experiments/interval_echo_null_balance/README.md#opposite-internal-currents-with-identical-exterior-records)
 
-On the live reciprocal-strain prototype both probe charges give the same leading round-trip ruler. Two physically preparable lotteries have identical readings on all 17,496 tested contacts of orders one through four, while their retained modular entropy changes differently. Nine finite-time bins recover all nine head-correlation changes and predict the independently measured Hamiltonian energy current. Counting the spent-mobile modes in the matter region still gives a strictly positive entropy slope with the interior census and both monitored boundary currents held fixed. These results constrain same-source realizations of the geometric and stationarity premises. [Proof, regional measurements and calibration](rate_geometry/seam_strain/weak_ruler/RESULTS.md)
+On the reciprocal-strain extension with an added bridge qubit, both probe charges give the same leading round-trip ruler. Two physically preparable lotteries have identical readings on all 17,496 tested contacts of orders one through four, while their retained modular entropy changes differently. Nine finite-time bins recover all nine head-correlation changes and predict the independently measured Hamiltonian energy current. Counting the spent-mobile modes in the matter region still gives a strictly positive entropy slope with the interior census and both monitored boundary currents held fixed. These results constrain same-source realizations of the geometric and stationarity premises. [Proof, regional measurements and calibration](rate_geometry/seam_strain/weak_ruler/RESULTS.md)
 
 ### Tests of the whole-seam clock coupling
 
@@ -220,7 +220,7 @@ Angular and radial identifications can be tested separately. In the monitored on
 
 ### Does spatial averaging supply the missing premise?
 
-On the 80-cell reciprocal-strain pump each observer in a specified continuum ensemble can fix the proper volume of their ball before its area is averaged. A cylinder of centers within reach of a radar hinge occupies a fraction proportional to the squared radius. Each affected ball has a second-power area loss. Their mean gives exactly the fourth power on the interior product neighborhoods. A curve of preparable source states holds this entire mean-area record and the twelve-port number fixed while the regional entropy increases by 0.01354 to 0.04251 nats per unit re-pairing. The independent ordinary calibration also misses the held geometric response by a factor greater than 59. A uniform small-ball bound would additionally have to suppress the source-dependent angle changes at isolated hinges proportionally to squared radius, or demonstrate a different geometry in the refinement used. [Exact area calculation, controls and proper-radius bound](rate_geometry/seam_strain/weak_ruler/center_average/README.md)
+On the 80-cell reciprocal-strain extension with an added bridge qubit, each observer in a specified continuum ensemble can fix the proper volume of their ball before its area is averaged. A cylinder of centers within reach of a radar hinge occupies a fraction proportional to the squared radius. Each affected ball has a second-power area loss. Their mean gives exactly the fourth power on the interior product neighborhoods. A curve of preparable source states holds this entire mean-area record and the twelve-port number fixed while the regional entropy increases by 0.01354 to 0.04251 nats per unit re-pairing. The independent ordinary calibration also misses the held geometric response by a factor greater than 59. A uniform small-ball bound would additionally have to suppress the source-dependent angle changes at isolated hinges proportionally to squared radius, or demonstrate a different geometry in the refinement used. [Exact area calculation, controls and proper-radius bound](rate_geometry/seam_strain/weak_ruler/center_average/README.md)
 
 There are two independent directional checks on the same pump. With unit lapse and zero shift the two tetrahedra sharing an open face give identical expansions of its intrinsic area. Their normal momentum-curvature jump vanishes exactly. A number-matched lottery changes the independently measured energy current on the graph cut by about −0.00004773 native units. An identification of that cut with the proper face requires a physical pullback of the stress. In a separate transport experiment all 24 signed intermediate occupation measurements conditioned on receiver arrival are negative, excluding a passive positive clock interpretation of this marked flight. The full detector event probabilities are positive. Neither experiment measures a complete common spacetime metric. [Face and current readouts](rate_geometry/seam_strain/weak_ruler/momentum_screen.json) · [Transport measurements](rate_geometry/seam_strain/weak_ruler/transport/README.md)
 
@@ -238,7 +238,7 @@ One can ask whether propagating probes supply those distances. In the four-tick 
 
 ### Which premises have a same-source measurement?
 
-On the four-tick 80-cell pump, the half-bond energy of each of the 960 ports obeys an exact continuity equation for every quantum state. Summing the antisymmetric currents gives the outward energy through any specified port partition, including the measured energy carried by a moving boundary. This supplies the temporal component of material conservation on the tested graph. A covariant stress tensor still requires spatial momentum and an identification of these boundaries and clocks with the proper geometric ones. [Operator identity and 24 independent endpoint comparisons](rate_geometry/seam_strain/weak_ruler/port_ward/README.md)
+On the four-tick 80-cell reciprocal-strain extension with an added bridge qubit, the half-bond energy of each of the 960 ports obeys an exact continuity equation for every quantum state. Summing the antisymmetric currents gives the outward energy through any specified port partition, including the measured energy carried by a moving boundary. This supplies the temporal component of material conservation on the tested graph. A covariant stress tensor still requires spatial momentum and an identification of these boundaries and clocks with the proper geometric ones. [Operator identity and 24 independent endpoint comparisons](rate_geometry/seam_strain/weak_ruler/port_ward/README.md)
 
 On the protected two-word source, the single and distinct-pair admission probabilities have full-sequence coefficients 27/16 and 729/256 for seven-appointment station crossings on the stated midpoint refinement. At the reversed reference the derivative of the full addressed regional entropy divided by the fourth power of radius tends to 0.0094118671 nats. The protected ranges agree exactly. Even a reader given the actual word slots must asymptotically attain an area coupling times copy count times outcome range of at least 0.23796918 nats to permit balance. The original fastest-swap instrument gives a positive convergent subsequence, with full-sequence coefficient unresolved. The clock family measures a two-dimensional screen. Source-dependent proper three-dimensional geometry remains a physical input. [Count, entropy and reader bound](../../model/experiments/interval_echo_einstein_station/collar_scaling/station_clock/README.md)
 
@@ -408,6 +408,48 @@ inverts the rational design by Gaussian elimination. The Lean proof checks
 both inverse compositions, all timelike norms, (3) and the sharpness witness.
 This is a coordinate maximum-norm bound in the stated orthonormal frame;
 it is not a Lorentz-invariant positive tensor norm.
+
+### Optimal probes at boost factor at most three
+
+Suppose every future unit observer with time component $1\le\gamma\le3$
+can measure a contraction with the same absolute error bound $\varepsilon$.
+Use the rest and three mixed probes of (2), and take the six axial probes
+to be $3e_0\pm\sqrt{8}\,e_i$. For their ten readings the inverse is
+
+$$
+\begin{aligned}
+R_{00} &= r_0,\\
+R_{0i} &= (r_{i+}-r_{i-})/(24\sqrt{2}),\\
+R_{ii} &= (r_{i+}+r_{i-}-18r_0)/16,\\
+R_{ij} &= r_{ij}/8
+ -(1+\sqrt2)(r_{i+}+r_{j+})/32
+ +(\sqrt2-1)(r_{i-}+r_{j-})/32 .
+\end{aligned}
+$$
+
+The absolute row sums are $1,\sqrt2/24,5/4,(1+\sqrt2)/8$ for the four
+component types. Thus the maximum component error is $5\varepsilon/4$.
+For any number of allowed probes, take $B=\mathrm{diag}(1,-5/4,-5/4,-5/4)$.
+The unit timelike condition gives $B(u,u)=(5-\gamma^2)/4\in[-1,1]$.
+The same all-zero data are compatible with both $\varepsilon B$ and
+$-\varepsilon B$. On their $11$ components any estimator has worst-case
+error at least $5\varepsilon/4$. The ten probes attain this lower bound.
+
+At equal directional precision this design reduces (3) by a factor of
+$10/17$ and gives a coefficient $75/(16\pi)$ in the small-ball bound
+with denominator $\eta\ell^4$. Applying it to source data requires separate
+measurements and error bounds for the higher axial boosts. The registered
+survey uses (2). [Exact inverse and worst-case tensor](test_frame.py)
+
+### Velocities measured with finite precision
+
+The fixed-volume argument follows Jacobson's entanglement-equilibrium derivation. Its finite ten-observer inverse quantifies how errors in independently measured bulk, area and stationarity data propagate into a tensor error. For a faithful reference \(\sigma\), the entropy identity \(\Delta S=\Delta\langle-\log\sigma\rangle-D(\rho\Vert\sigma)\) holds for every preparation. Identifying that modular reading with the normalized boost-weighted stress of the propagating matter is a separate measurement. [Jacobson, *Entanglement Equilibrium and the Einstein Equation*](https://doi.org/10.1103/PhysRevLett.116.201101)
+
+Any ten measured timelike velocities with a controlled inverse serve the same purpose as (2). To see this, put `u=(1,v)/sqrt(1-|v|²)` and `q(v)=(1-|v|²)R(u,u)`. Then
+`q(v)=R00 + 2 sum_i v_i R0i + sum_ij v_i v_j Rij`. One explicit menu uses rest, the six velocities `±b e_i`, and the three velocities `b(e_i+e_j)`, with `0<b<1/sqrt(2)`. Differences of the two axial readings give `R0i=(q(+i)-q(-i))/(4b)`. Their sum gives `Rii=(q(+i)+q(-i)-2q(0))/(2b²)`. A mixed spatial component satisfies `Rij=(q(ij)-q(+i)-q(+j)+q(0))/(2b²)`. The maximum row sum of this inverse acting on **unit-clock** readings is `K=2/b²-1`, attained by the diagonal spatial row. Thus even slow observers suffice if their directions span the tensor and their errors are small enough. Observers all moving along one line cannot sense either transverse diagonal component through these projections.
+
+For unequal velocities reported as intervals, let `D` map tensor components to the polynomial readings `q`, and let `A` invert the nominal design. If `||I-AD||∞ ≤ β < 1` throughout the boxes, the geometric series for the inverse gives
+`K ≤ sup ||A diag(1-|v|²)||∞ / (1-β)`. The executable bounds all products over the velocity boxes by rational intervals. At `b=1/4` the sharp gain for exact velocities is 31. A half-width of 1/2048 on each velocity component gives a certified gain below 35.13. These figures specify instrument tolerances for a proposed menu. For a statistical claim the velocity boxes and regional errors require joint coverage. The inverse bound certifies the size of a residual about zero even when the actual velocities within the boxes are unknown. For a refinement-dependent gain `K_n`, the product of that gain and the directional residual bound in (4) must tend to zero. [Rational interval certificate and reproducible calibration examples](measured_frames/measure.py) · [Exact gains](measured_frames/examples.json)
 
 ## Quantitative Einstein residual
 

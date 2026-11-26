@@ -119,6 +119,32 @@ def test_source_status_mutation_fails_closed(
     assert excinfo.value.code == "SOURCE_STATUS"
 
 
+@pytest.mark.parametrize(("key", "alternate"), [
+    ("P_cand", "1.6309682414"),
+    ("alpha_U_P_cand", "0.041"),
+])
+def test_recomputed_branch_must_use_the_pinned_source(key, alternate, monkeypatch):
+    documents, pins = cert._source_documents()
+    documents[0][key] = alternate
+    with monkeypatch.context() as patch:
+        patch.setattr(cert, "_source_documents", lambda **kwargs: (documents, pins))
+        alternative = cert.build()
+    for verify in (True, False):
+        with pytest.raises(cert.CertificateError, match="SOURCE_INPUT"):
+            cert.validate(alternative, verify_sources=verify)
+
+
+@pytest.mark.parametrize("gate", ["global_capacity_attachment", "physical_cosmological_constant"])
+def test_missing_qualification_is_rejected(payload, gate):
+    changed = copy.deepcopy(payload)
+    if gate == "global_capacity_attachment":
+        del changed["branches"][0]["open_gates"][gate]
+    else:
+        del changed["promotion_controls"][gate]
+    with pytest.raises(cert.CertificateError, match="PROMOTION"):
+        cert.validate(changed)
+
+
 def test_manifest_is_byte_exact_and_validates(payload: dict) -> None:
     assert cert.OUTPUT_PATH.read_bytes() == cert.canonical_json_bytes(payload)
     cert.validate(payload)

@@ -144,7 +144,9 @@ def public_read(loads, tag_index, flag, sign):
     ).astype(np.int8)
 
 
-def measure(level, services, seed, tables):
+def measure(level, services, seed, tables, *, provenance=False, shuffled_schedule=False,
+            owner_service_probability=1.0):
+    from .contact_history import ContactHistory, interval_summary
     car = federation(level)
     n = car.cells
     words = gateway_words(car)
@@ -161,23 +163,38 @@ def measure(level, services, seed, tables):
     loads[:, MATTER] = 2 * (prep.random(n) < 0.16)
     records = [public_read(loads, tag_index, flag, sign)]
     total = int(loads.sum())
+    history = ContactHistory(n) if provenance else None
+    scheduler = np.random.default_rng(np.random.SeedSequence([seed, level, 117]))
+    attendance_rng = np.random.default_rng(np.random.SeedSequence([seed, level, 118]))
+    attendance = None
+    if owner_service_probability < 1:
+        attendance = attendance_rng.random((services, n)) < owner_service_probability
     transfers = []
     for step in range(services):
         # Obtain the primary on the two-rail source with a real half contact, and
         # read rail 3 against 9. The stationary rule posts precisely a positive word.
         a, b = SOURCE
         changed = coin.random(n) < flip[loads[:, a], loads[:, b]]
+        if attendance is not None:
+            changed &= attendance[step]
         exchange(loads, changed, a, b)
         positive = flag[loads[:, b], loads[:, VACANCY]].astype(bool)
+        if attendance is not None:
+            positive &= attendance[step]
         for a, b in reversed(tuple(pairwise(RING))):
             exchange(loads, positive, a, b)
         # At most one external contact per cell. Both endpoint transpositions
         # return every borrowed rail before the local occupancy measurement.
-        x, y, ga, gb = groups[step % len(groups)]
+        x, y, ga, gb = groups[scheduler.integers(len(groups)) if shuffled_schedule else step % len(groups)]
+        if attendance is not None:
+            present = attendance[step, x] & attendance[step, y]
+            x, y, ga, gb = x[present], y[present], ga[present], gb[present]
         route(loads, x, ga, words)
         route(loads, y, gb, words)
         before_x, before_y = loads[x, ga], loads[y, gb]
         swapped = move.random(len(x)) < flip[before_x, before_y]
+        if history is not None:
+            history.record(x, y, swapped & (before_x != before_y), positive)
         loads[x, ga] = np.where(swapped, before_y, before_x)
         loads[y, gb] = np.where(swapped, before_x, before_y)
         route(loads, x, ga, words)
@@ -223,10 +240,22 @@ def measure(level, services, seed, tables):
         initial_tag_input=tag_index,
         transfers_per_service=np.asarray(transfers, np.int32),
     )
+    if history is not None:
+        raw["contact_history"] = history.array()
+        headers["contact_intervals"] = interval_summary(raw["contact_history"])
+    if attendance is not None:
+        raw["owner_service"] = attendance
+        headers["positive_marks"] = int(np.count_nonzero(records[1:, :, 2] & attendance))
+        headers["quiet_marks"] = int(attendance.sum()) - headers["positive_marks"]
+        owner_counts = attendance.sum(axis=0)
+        headers["owner_opportunity_range"] = [int(owner_counts.min()), int(owner_counts.max())]
     return headers, raw
 
 
-def run(levels=(0, 1, 2), *, seed=SEED, services=256, output=HERE):
+def run(levels=(0, 1, 2), *, seed=SEED, services=256, output=HERE, provenance=False,
+        shuffled_schedule=False, owner_service_probability=1.0):
+    if not 0 <= owner_service_probability <= 1:
+        raise ValueError("Owner service probability must lie in [0, 1]")
     if (
         services < 1
         or seed < 0
@@ -240,7 +269,8 @@ def run(levels=(0, 1, 2), *, seed=SEED, services=256, output=HERE):
     tables = instruments()
     boards, archive = [], {}
     for level in levels:
-        summary, raw = measure(level, services, seed, tables)
+        summary, raw = measure(level, services, seed, tables, provenance=provenance,
+                               shuffled_schedule=shuffled_schedule, owner_service_probability=owner_service_probability)
         boards.append(summary)
         archive.update({f"L{level}_{key}": value for key, value in raw.items()})
     result = dict(
@@ -259,6 +289,18 @@ def run(levels=(0, 1, 2), *, seed=SEED, services=256, output=HERE):
         shapes="singleton_history[service, cell, field], initial state at 0. triple_support[patch, site] names three cells with the owner of the hand in the middle. triple_checkpoint[patch, site, field] records all their terminal readings. initial_tag_input encodes two input occupancies as 2*(left occupied)+(right occupied).",
         scope="Stationary branch of the equipped clock during measured transport. Three-cell patches overlap. No distinct long-lived moving-object, intrinsic-abundance or gauge assignment is inferred.",
     )
+    if provenance:
+        result["contact_fields"] = ["first_owner", "second_owner", "first_previous_event", "second_previous_event", "first_elapsed_marks", "second_elapsed_marks"]
+    if shuffled_schedule:
+        result["schedule"] = "independent random matching selection with replacement"
+        result["supplied"] = result["supplied"].replace("cyclic matching", "shuffled matching")
+    if owner_service_probability < 1:
+        result["owner_service_probability"] = owner_service_probability
+        result["owner_service_control"] = (
+            "Independent Bernoulli attendance per owner and controller row. A source and hand service "
+            "requires that owner to attend; an external contact requires both endpoints. "
+            "owner_service[row,cell] records attendance. The positive_primary field reads the held rail."
+        )
     if output is not None:
         folder = Path(output)
         folder.mkdir(parents=True, exist_ok=True)
@@ -274,5 +316,8 @@ if __name__ == "__main__":
     parser.add_argument("--output", type=Path, default=HERE)
     parser.add_argument("--services", type=int, default=256)
     parser.add_argument("--seed", type=int, default=SEED)
+    parser.add_argument("--provenance", action="store_true")
+    parser.add_argument("--shuffled-schedule", action="store_true")
+    parser.add_argument("--owner-service-probability", type=float, default=1.0)
     options = parser.parse_args()
     print(json.dumps(run(**vars(options)), indent=2))

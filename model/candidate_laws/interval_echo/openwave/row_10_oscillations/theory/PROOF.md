@@ -16,6 +16,25 @@ Consider the three charged winding preparations labelled 0, + and − followed b
 
    Thus every matrix element on the guide depends only on the four original sector weights. Lean proves this identity for any finite launch, residual and guide alphabets. Contracting it with an arbitrary receiver effect gives identical outcome probabilities when the input weights agree. In particular a receiver can retain interference between different arriving words within each sector. A joint measurement that coherently reads the old source heads as well as the guide accesses other matrix elements. [Remote detector and source-dependent measurement](../ERASER_PROTOCOL.md)
 
+## Can the four launch sectors transmit entanglement?
+
+Fix the launch positions and either ordering of the vacancy and excess. The logical input is a superposition of the four sharp head words at these positions. Keep the entire released guide, including partial arrivals, and trace out the pendant leaves and their written heads. For a sharp input word $s$, let $\sigma_s$ denote the resulting guide state. The support identity above gives the channel at every free-flight time,
+
+$$
+\Phi(\rho)=\sum_s \langle s|\rho|s\rangle\,\sigma_s.
+$$
+
+This channel is entanglement-breaking. For an arbitrary reference $R$ initially entangled with the launch, the remote state is
+
+$$
+(\mathrm{id}_R\otimes\Phi)(\rho_{RS})
+=\sum_s (I_R\otimes\langle s|)\rho_{RS}(I_R\otimes |s\rangle)\otimes\sigma_s.
+$$
+
+Each reference factor is positive and its trace is the probability of that sector. The normalized joint state is therefore a mixture of product states. Any decoder acting on the guide preserves separability, including a detector that heralds success. For a logical dimension $d\ge2$, a product state has squared overlap at most $1/d$ with $|\Omega_d\rangle=d^{-1/2}\sum_j|j,j\rangle$ by Cauchy–Schwarz. Convexity gives the same bound for any mixture. Thus an encoded half of a maximally entangled qubit pair can pass its reference–receiver Bell projection with probability at most $1/2$, even conditional on a nonzero local success rate. The corresponding qutrit bound is $1/3$. A coherent read at the original source, an additional quantum channel, or a launch code using multiple spatial amplitudes within one sector has different hypotheses.
+
+The [native replay](../test_audit.py) builds all four propagated columns for each charge ordering at waits 0, 256 and 2048. It groups amplitudes by the physical residual leaf record and guide occupation. Across the 211 guide words all six independent off-diagonal input operators vanish after the partial trace. A coherent comparison with access to a superposition of source records retains a nonzero cross term. Run the replay with `python -B -m pytest -q -W error model/candidate_laws/interval_echo/openwave/row_10_oscillations/test_audit.py` from the repository root.
+
 ## The optimal chance of guessing the original label
 
 Give the three windings equal prior probability. For any fixed complete measurement let $p(o)$ be the distribution for label 0, and $q(o)$ the common distribution for + and −. On outcome $o$, write $a(o)$ for the probability of guessing 0. The other two guesses contribute $q(o)(1-a(o))/3$ to total success, regardless of how the observer divides them. The optimal decision takes $a(o)=1$ when $p(o)\ge q(o)$ and zero otherwise. Lean proves its exact success and the upper bound

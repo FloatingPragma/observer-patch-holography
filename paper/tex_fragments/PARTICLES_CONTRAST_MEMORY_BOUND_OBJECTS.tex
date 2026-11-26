@@ -112,14 +112,14 @@ parameter,
  \label{eq:cms-binding}
 \end{equation}
 The bound does not depend on the number of cells. The proof combines ordered-block
-min-max with the Sylvester equation for ordered spectra. With the constants measured on
-$20$, $80$ and $320$ cells, the largest level of the adjacent block of the exchange
-$5.70$ and the coupling $2.08$, the bound becomes $17.3/(2\kappa-5.70)^2$.
+min-max with the Sylvester equation for ordered spectra. On the $20$-, $80$- and $320$-cell carriers, exact upper bounds on the
+exchange block and coupling give $17.35/(2\kappa-5.701)^2$ for
+$2\kappa>5.701$.
 
 \paragraph{Emitter and reader.}
 A local emitter with one fuel state at a seam writes the pair with a stated error in
 norm; at $\kappa=128$ and emitter coupling $64$ the probability of no pair, a doubled load
-or fuel is at most $64009/25600000\approx0.0025004$ at every reading on every seam of the spherical family. Every
+or fuel is at most $64009/25600000\approx0.0025004$ at the first read after any chosen free interval, for any emitter seam of the spherical family. Every
 seam has two ends, and at each end the observer that owns the port copies the predicate
 ``both ends hold one load'' into a private pointer; a courier carries one copy, and a
 record is admitted only when both copies are valid and agree. The complete outcome set is one record per seam and one
@@ -132,19 +132,19 @@ a fresh run, so reading never holds the object in place \cite{ophmodel}.
 
 Particle stability is stated on the agreed records of the observers. A pair written on
 one seam by the local emitter is read as a pair on some seam with probability at least one
-minus the bound, at every reading. It is read on other seams than the first. Nothing holds
+minus the bound at the first read after any chosen free interval. The recorded seam can differ from the prepared seam. Nothing holds
 it except the law, and the same law without the agreement energy loses it. In this
 statement ``the pair moves'' means ``the pair is read on other seams''; a seam is a place
-in the hardware of the computation. The claim uses no clock, because the bound holds at
-every value of the evolution parameter and hence at every reading in any observer's own
-history. Table~\ref{tab:cms-stability} gives the largest probabilities over the readings
-of each run.
+in the hardware of the computation. The bound is uniform in the chosen free interval. An earlier measurement
+changes the state to which the next interval applies.
+Table~\ref{tab:cms-stability} gives the largest probabilities across the
+sampled waits, each on a fresh preparation.
 
 \begin{table}[htbp]
 \centering\small
-\caption{Particle stability on agreed seam records. Largest probabilities over the
-readings of each run; the bound is that of the binding theorem with the constants of
-the carrier and the emitter's error.}
+\caption{Particle stability on agreed seam records. Each column gives the largest probability across
+the sampled waits on fresh preparations. The bound includes the carrier
+constants and the emitter's error.}
 \label{tab:cms-stability}
 \begin{tabular}{@{}lrrrr@{}}
 \toprule
@@ -1081,11 +1081,13 @@ A single vacancy cannot reach the muon ratio at light energy 16 or 35.
 
 A compiled Dirac field supplies spin, fermion statistics and kinetic
 hopping. The separate first-order guide installs the cyclic mass operator.
-With the electron anchor $0.51099895069$ MeV it gives $105.65941450$
-and $1776.984971$ MeV. Laboratory values are $105.6583755(23)$ and
-$1776.93(9)$ MeV \cite{codataLepton2022,pdgLepton2026}. The heavy line
-agrees within uncertainty. The middle line is $1.0390$ keV high, or
-9.83 parts per million in the dimensionless ratio.
+Its three intensities are the Koide--Brannen phase formula with
+$\delta=2/9$ radians supplied by the pulse convention. With an electron
+anchor the middle-line ratio misses the measured muon ratio and the
+heavy-line ratio is compatible with the tau uncertainty
+\cite{codataLepton2022,pdgLepton2026}. The acquired clicks test that
+programmed phase and its readout. They do not identify muon or tau mass
+eigenstates of the native free law.
 
 \paragraph{What travels with the charge?}
 A vacancy loop around an orbital degeneracy gives $99.816\%$ dark
@@ -1477,8 +1479,8 @@ heavy target $3477.472837$ times this floor.
 Among 698,858 compact product energies on 320 cells, the closest to
 the muon ratio at light anchor 35 uses 72 vacancies and 71 excesses
 on distinct cells. Its measured 7236.87525 agrees with
-$7257-9\sqrt5$, a ratio of 206.76786823 and a $0.212$ keV
-anchored deficit. Its center has zero recoil under a phase impulse
+$7257-9\sqrt5$, a post-selection ratio of 206.76786823 within a dense
+family of additive energies. Its center has zero recoil under a phase impulse
 between adjacent owners; changing one orbital gives measurable beats.
 The largest compact energy is only 500.591 times the negative-unit floor.
 

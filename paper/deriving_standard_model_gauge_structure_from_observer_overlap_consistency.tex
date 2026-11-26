@@ -37,9 +37,9 @@ plaquette cost of one weak-centre flux gives the factor \(4\) in the law
 that sets the electroweak scale. The matter module is the Georgi--Glashow
 generation, and under a declared cost rule the exact Laplacian costs
 \(5-\sqrt5<6<5+\sqrt5\) select the rank-three band. In the executable model,
-the main candidate law, Interval Echo, gives one cell twelve independent port
-currents that close under commutators and respect the rotations of the cell,
-and prepared overlap transport realizes all sixty proper rechartings; the
+a supplied port service on one Interval Echo cell realizes twelve currents
+with image \(\mathrm U(3)\times\mathrm{SO}(3)\). The second triplet carries
+spin one. Prepared overlap transport realizes all sixty proper rechartings; the
 completeness of the physical control menu is a separate premise.
 \end{abstract}
 
@@ -229,7 +229,8 @@ dimension twelve by declaration; the content of the
 theorem is the exclusion of \(\mathfrak{su}(2)^4\) and a one-dimensional
 centre. The dimension arithmetic, the one-dimensional fixed subspace and the
 dimension-six exclusion below are machine checked in the accompanying Lean
-development~\cite{ophrepo}. The centre bound, the \(\mathfrak{su}(2)^{4}\)
+development~\cite{ophrepo}; in particular \texttt{A5PortModule.finrank\_fixed}
+checks that the fixed rational port vectors form one line. The centre bound, the \(\mathfrak{su}(2)^{4}\)
 fixed-space step and the compact-Lie classification enter Lean as declared hypotheses, and no
 source current or full Lie-algebra isomorphism is constructed there. The
 formal interface keeps the inputs separate: an injective port-response map
@@ -349,8 +350,8 @@ level, and none of the services computed on the composite gives twelve
 without knowledge of the target level~\cite{ophmodel}.
 
 \paragraph{The rotation-selected service of Interval Echo.}
-The main candidate law selects its port currents with the proper rotations
-of the cell~\cite{ophmodel}. Let \(P\) be the positive spectral projector of
+The prescribed port service selects the currents using the proper rotations
+of an Interval Echo cell~\cite{ophmodel}. Let \(P\) be the positive spectral projector of
 the sum of the permutation operators of the twelve proper rotations that turn
 the five neighbours of a port by one edge. The service at port \(p\) is the
 band-diagonal part of \(Pn_pP+J_p\) at unit gain, on one load and, lifted to
@@ -776,6 +777,12 @@ implement every persistent sector, with
 \(\mathcal A=\mathcal F_{\mathrm{net}}^{\,G}\).
 \end{corollary}
 
+Here $G$ is a global group of the transportable localized sectors. Obtaining a
+local Yang--Mills connection, its action and its forces requires
+additional physical records. Confinement precludes an isolated colour
+sector, and the electric flux at arbitrarily large distances precludes
+bounded localization of the charged QED sector.
+
 \begin{proof}
 Level (i) is Theorem~\ref{thm:tannaka-reconstruction}. Under (R1)--(R6) the
 localized transportable endomorphisms form a category equivalent to
@@ -925,8 +932,12 @@ Yukawa invariance gives \(Y_u=-(Y_Q+Y_H)\), \(Y_d=-Y_Q+Y_H\),
 \(2N_cY_Q+N_cY_u+N_cY_d+2Y_L+Y_e=0\) give \(Y_L=-N_cY_Q\), \(Y_H=N_cY_Q\),
 \(Y_u=-(N_c+1)Y_Q\), \(Y_d=(N_c-1)Y_Q\), \(Y_e=2N_cY_Q\); the
 \(\mathrm{SU}(N_c)^2\mathrm U(1)\) and cubic anomalies then vanish. The
-normalization gives \(Y_Q=1/(2N_c)\). Without the Yukawa channels the cubic
-anomaly leaves two branches exchanging \(Y_u\) and \(Y_d\).
+normalization gives \(Y_Q=1/(2N_c)\). With Yukawa invariance and the weak
+mixed anomaly, the cubic equation alone is \((Y_H-N_cY_Q)^3=0\), so it
+also fixes \(Y_H\). If Yukawa invariance and the electric normalization
+are dropped, the four anomaly equations additionally admit the exchanged
+solution \(Y_u\leftrightarrow Y_d\) and the branch
+\(Y_Q=Y_L=Y_e=0,\;Y_u=-Y_d\) of arbitrary magnitude.
 \end{proof}
 
 This is the textbook argument applied to the declared packet; the exact
@@ -1108,18 +1119,27 @@ of the relevant loop classes.
 \subsection{The global form from port phases}
 \label{sec:global-form-port-phases}
 
-The source selects the \(\mathbb Z_6\) quotient through a continuous symmetry of
-its own record law. The record law is covariant under independent phases on the twelve
-ports. The code is the leading flux-two triplet with load charge \(2\) plus the
-leading flux-seven doublet with load charge \(-3\); its compressed port load
-\(qPN_pP\) equals the current \(X_p\) after one fixed unitary. In the Zeno limit
-\((Pe^{i\theta N_p/n}P)^n\to e^{i\theta X_p}\), and the map
+Passive port rephasings transform both the recorded amplitudes and their
+comparison frames. An active bare-load kick can change later records under
+free exchange. The following projected phase operation is a specified control.
+The gauge construction chooses the leading flux-two triplet with load charge
+\(q=2\) and the leading flux-seven doublet with \(q=-3\). Identifying these
+choices with freely propagating material requires independent charge and flux
+measurements. In each block let \(P\) project onto the chosen band. In a fixed
+code basis its compressed port load is \(X_p=qPN_pP\). On \(\operatorname{ran}P\)
+the Zeno limit gives \((Pe^{iq\theta N_p/n}P)^n\to e^{i\theta X_p}\), and the map
 \(\theta\mapsto\exp(i\sum_p\theta_pX_p)\) carries \(\mathbb R^{12}\) onto
 \[
  G=\mathrm S(\mathrm U(3)\times\mathrm U(2))
  =\frac{\mathrm{SU}(3)\times\mathrm{SU}(2)\times\mathrm U(1)}{\mathbb Z_6}.
 \]
-Twelve relative port phases per seam therefore cover \(G\). The native transports
+For these two specified complex magnetic bands the compressed-load Gram
+matrix is $K_{pr}=\sum_s q_s^2 |(P_s)_{pr}|^2$. The
+\href{https://github.com/FloatingPragma/observer-patch-holography/blob/c2ba2faeaaf23fac1763c1bc925c8626b77d3bb9/model/experiments/interval_echo_gauge/port_phases/exact_bands.py}{exact projector certificate}
+gives $\det K=1$ modulo 41 with nonzero reduced projector denominators, so
+the twelve traceless Hermitian directions span the entire block algebra.
+The exponential of this algebra covers the connected compact group above.
+The native transports
 alone form a finite group of order at most \(3600\) on the code, because every native
 alphabet is a uniform port phase; the continuous port phases are the extension that
 makes the links continuous. The gauged currents are the twelve of \(G\): both code
@@ -1600,6 +1620,15 @@ K\"all\'en--Lehmann measure contains \(Z^{\rm pole}_X\delta(\mu^2)\) with
 phase, including a deconfined sector for a coloured carrier.
 \end{definition}
 
+This receipt tests an isolated stable massless particle in the stated
+phase. For finite-lifetime $W$, $Z$ and Higgs states, the corresponding
+experimental quantities are resonance poles and channel-dependent production
+and decay distributions. Confined colour is tested through colour-singlet
+final states and infrared-safe jet observables. Charged sectors with soft
+photons require dressed or inclusive observables. An isolated positive-residue
+pole and ordinary single-particle LSZ states cannot serve as a compulsory
+identification test in each of these sectors.
+
 \begin{theorem}[Action-level modes]
 (i) An unbroken \(\mathrm U(1)_Q\) connection with the Lorentzian Maxwell action
 \(S_Q=-\frac1{4g_Q^2}\int F_{Q,\mu\nu}F_Q^{\mu\nu}\), \(0<g_Q^2<\infty\), and no mass
@@ -1833,9 +1862,10 @@ local action and finite current identities join those algebraic data to
 explicit operators, and supplied classical links carry the compact band with a
 canonical integer occupation. A physical realization must additionally identify the
 same local gauge field, constrained state space and renormalized current on
-one interacting continuum limit. The port phases select the global form
-and equal cell couplings, and the protected defect classes are the particle centre
-classes. The scheme matching of the cell coupling, the vacuum and the
+one interacting continuum limit. On the declared five-level code the port
+phases yield the global quotient. The supplied common seam cost gives equal
+bare cell couplings. The protected defect classes match centre classes of
+the declared matter module. The scheme matching of the cell coupling, the vacuum and the
 gravitational response require that same realization.
 
 \def\OPHStandardModelDerivationPaper{1}

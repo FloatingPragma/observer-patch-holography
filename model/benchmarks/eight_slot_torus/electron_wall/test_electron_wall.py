@@ -5,23 +5,38 @@ import pytest
 
 from model.benchmarks.eight_slot_torus import law
 from model.benchmarks.eight_slot_torus.electron_wall import walk as w
-from model.benchmarks.eight_slot_torus.electron_wall.__main__ import HERE, digest, replay
+from model.benchmarks.eight_slot_torus.electron_wall.__main__ import HERE, archived_acquisition, replay
 from model.benchmarks.eight_slot_torus.electron_wall.gauge import flux_register
 from model.benchmarks.eight_slot_torus.electron_wall.native import native_rows
 
 
 def test_published_counts_all_settings():
     receipt = json.loads((HERE / "counts.json").read_text())
-    assert receipt["sources"] == digest()
-    _, result = replay(receipt)
+    assert archived_acquisition(receipt)
+    rechecked, result = replay(receipt)
+    assert rechecked == receipt
+    assert "max_bin_difference" in result["same_seed_replay"]
     assert result["settings"] == 192
 
 
 def test_reader_rejects_tampering():
     receipt = json.loads((HERE / "counts.json").read_text())
-    receipt["counts"][next(iter(receipt["counts"]))][0] += 1
+    # Transfer one count; the total and noise gate still pass, but custody fails.
+    counts = next(iter(receipt["counts"].values()))
+    counts[0] += 1
+    counts[1] -= 1
     with pytest.raises(ValueError, match="replay differs"):
         replay(receipt)
+
+
+def test_historical_archive_requires_unchanged_executable_input(monkeypatch):
+    from model.benchmarks.eight_slot_torus.electron_wall import __main__ as runner
+
+    receipt = json.loads((HERE / "counts.json").read_text())
+    changed = runner.digest() | {"walk.py": "0" * 64}
+    monkeypatch.setattr(runner, "digest", lambda: changed)
+    with pytest.raises(ValueError, match="source ancestry"):
+        runner.replay(receipt)
 
 
 def noise(shape):

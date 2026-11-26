@@ -23,7 +23,7 @@ $$
  m=2|J-h|,\quad c^2=4Jh .
 $$
 
-The endpoints select the discrete wave numbers. The observer recovers them independently. The intrinsic spatial unit is one dimer step. The coupling-meter observations give $m=15.000511$ and $c^2=16.001559$ in dimer and local clock units. The native values independently derived from the restriction are 15 and 16. [Native column and direct spin tests](experiment.py) · [Bench receipts](coupling_meter.json)
+The endpoints select the discrete wave numbers. The observer recovers them independently. The intrinsic spatial unit is one dimer step. The coupling-meter observations give $m=15.000511$ and $c^2=16.001559$ in dimer and local clock units. The native values independently derived from the restriction are 15 and 16. [Native 99-state local column checks and independent Jordan–Wigner spectrum check on the reduced spin chain](experiment.py) · [Bench receipts](coupling_meter.json)
 
 ## Recovering the line from physical records
 

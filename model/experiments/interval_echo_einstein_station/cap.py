@@ -842,6 +842,7 @@ class CapRestriction:
     """Partial trace in the native zero-, one- and two-load word algebra."""
 
     def __init__(self, parent_words, ports):
+        ports = frozenset(ports)
         self.ports = tuple(sorted(ports))
         self.words = (
             [()] + [(i,) for i in self.ports] + list(combinations(self.ports, 2))

@@ -3,11 +3,10 @@
 The main candidate law of the [executable model](../model/README.md) is
 [Interval Echo](../model/candidate_laws/interval_echo/README.md). It runs the contrast-memory law, a simple
 local rule by which neighbouring observers settle their disagreements. A finite observer patch carries a
-material clock. On calibrated reciprocal journeys, its elapsed count at reunion agrees with the
-special-relativistic rate within the stated precision. The contrast-memory law alone is the reference
+material clock. Its closing filter implements the special-relativistic rate for reciprocal relay journeys and reproduces the calibration within the stated precision. The contrast-memory law alone is the reference
 candidate, A-contrast-memory-spherical-v1, and the
 [scalar channel](../model/candidate_laws/scalar_channel/README.md) is a further candidate on the same carrier.
-In the experimental written-field extension the freely moving signed load and a separate boundary-flux reader agree at each transfer. A distant probe also detects the field from a confined source. These records give an explicit candidate for the charge and field part of the electron hypothesis. The four-face orbital states change the load’s motion and can separate from it during exchange. Three independently prepared written-field bands have energy ratios 1 : 4.56 : 10.40. A distinct first-order generator installing the cyclic register as a mass operator realizes its geometric hierarchy on a seven-cell path. One added degree-five port strongly compresses the ratios. Electron identification needs a medium-independent mass, a spin and a calibrated rest energy measured on the same mobile excitation. [Charged excitation and its controls](../model/candidate_laws/interval_echo/openwave/electron_field/README.md)
+In the experimental written-field extension the freely moving signed load and a separate boundary-flux reader agree at each transfer. A distant probe also detects the field from a confined source. These records give an explicit candidate for the charge and field part of the electron hypothesis. The four-face orbital states change the load’s motion and can separate from it during exchange. The three prepared bands belong to a written-field extension. A separate first-order generator takes its hierarchy from an installed mass operator. One added degree-five port strongly compresses the ratios. Electron identification needs a medium-independent mass, a spin and a calibrated rest energy measured on the same mobile excitation. [Charged excitation and its controls](../model/candidate_laws/interval_echo/openwave/electron_field/README.md)
 
 The executable observer is a candidate and may change as the research goes on.
 The hypothesis is
@@ -31,8 +30,7 @@ seam rule that four requirements single out. Its readers are complete
 instruments with orthogonal projectors, its reading of the presence of a
 pair is the projective instrument of that event, and its public records are
 never erased. Its observers count their own events and relate their counts
-through shared records. Under one declared port service its response has
-the Lie type of the gauge theorem. The
+through shared records. The selected port service closes on twelve generators of the stated Lie type. The plain menu has seventeen visible directions. The
 [executable-model paper](../paper/executable_observer_construction.pdf) lists
 these joins with what follows for the observers of the model, and names the
 outputs that the other theorems consume.
@@ -70,7 +68,7 @@ record only when the copies of its two port observers are valid and agree.
 
 On every federation of complete cells, for `kappa > 3`, a pair of loads
 written on one seam is read as a pair on some seam with probability at least
-`1 - 40/(2 kappa - 6)^2` at every reading, independent of the number of
+`1 - 40/(2 kappa - 6)^2` at any chosen first reading of a fresh preparation, independent of the number of
 cells. The pair is read on seams other than the first, nothing holds it but
 the law, and the same law without the agreement energy loses it. Run as local
 events with no common clock, the pair holds when every port observer serves
@@ -108,13 +106,11 @@ distributions of admissible observer records and what observers in our world
 record. A difference between microscopic state encodings is no failure of
 the model, and a resemblance between them is no success.
 
-The bridge is proved in the theory. The flagship's proposition on smooth
+The field approximation assumes a radial interval, a hyperbolic evolution and an admissible readout menu. Identifying such a menu in Interval Echo is open. The flagship's proposition on smooth
 effective field descriptions shows that for every finite admissible menu of
 observer readouts a smooth (1+3)-dimensional Lorentzian field theory
 reproduces their complete predictions, and the spacetime paper gives the
-rank-three spatial carrier and the causal and count limits. Observers who
-inhabit the simulation can describe their experiences as relativistic 3+1D
-continuum spacetimes. The executable model supplies part of the premises of
+rank-three spatial carrier and the causal and count limits. The programmed cube supplies a chart. A third spatial direction in freely exchanged records remains open. The executable model supplies part of the premises of
 those theorems with its own local clocks and records: the carrier with its
 rank-three band, complete instruments and the count clocks of its observers.
 The readouts in field form, the order of events with its placement and the

@@ -88,7 +88,7 @@ Two different multiparticle completions also agree on *every* single-excitation 
 
 ## Replay
 
-Run from the repository root with the model requirements. The grating replay authenticates the source and recomputes the retained counts. The initial magnetic command reproduces its recorded scientific failure. Passing `--require-gate` makes that command exit with status 1. The independent weak-field command checks the finer lines. The finite clock recomputes both complete magnetic series before using their transition frequencies and spectral weights. One BLAS thread suffices.
+Run from the repository root with the model requirements. The grating replay authenticates the complete historical count file and frozen scientific inputs, reconstructs both native and predicted amplitudes, and tests every deposited bin at the protocol’s eight-standard-deviation gate. It separately reports how many seeded multinomial draws differ on this platform and by how much. Use `--require-bitwise` to require exact historical samples. Acquisitions made with the current verifier retain strict same-seed replay. The initial magnetic command reproduces its recorded scientific failure. Passing `--require-gate` makes that command exit with status 1. The independent weak-field command checks the finer lines. The finite clock recomputes both complete magnetic series before using their transition frequencies and spectral weights. One BLAS thread suffices.
 
 ~~~sh
 python -B -m pytest -q -W error model/benchmarks/eight_slot_torus/electron_wall

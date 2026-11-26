@@ -186,7 +186,7 @@ def decode(bank):
             2 * asin(sqrt(max(0, min(1, data[1] + s * fraction_width))))
             for s in (-1, 1)
         ]
-        # A global Lipschitz bound on d sin²(ωt/2)/dω supplies honest
+        # A global Lipschitz bound on d sin²(ωt/2)/dω supplies direct
         # simultaneous transfer from the independent t=1 bank.
         w = 2 * asin(sqrt(data[1]))
         tests = [

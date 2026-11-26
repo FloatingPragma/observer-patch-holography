@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 1497,
+  "surface_count": 1499,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -5207,6 +5207,16 @@
     },
     {
       "path": "model/experiments/interval_echo_lepton_register/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_lepton_register/autonomous_family/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_lepton_register/native_spectroscopy/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
