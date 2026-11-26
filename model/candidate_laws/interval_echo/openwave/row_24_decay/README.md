@@ -1,0 +1,3 @@
+# Charged decay with neutral ejecta
+
+On the three-dimer Interval Echo fork, one charged vacancy loses orbital energy while two separate owners read positive light-energy transfers on an initially cold medium. A marked vacancy crosses the source bridge in coincidence with both losses. Ordinary charge-density pulses also convert the two levels with the receiving links cut. These levels and their recurrences establish a finite charged relaxation. Identifying physical muon decay calls for a distinct charged daughter, weak flavor measurements and a lifetime. [Signed-energy and charge experiment](fork/README.md) · [Earlier transfer with a stocked neutral pair](../row_11_spectrum/level_transfer/README.md)
