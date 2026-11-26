@@ -6106,7 +6106,9 @@
    "what": "Free matter waves obey the Klein-Gordon relation, frequency squared equals wave number squared plus mass squared in natural units.",
    "why": "Recovering this relation with independently measured space and time observables shows that a model's excitations behave as relativistic matter.",
    "premises": [],
-   "lean": [],
+   "lean": [
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/committed_heads/during_flight/array/SpatialPair.lean"
+   ],
    "model": [
     "model/evaluation/SCORECARD.md",
     "model/evaluation/openwave_criteria.json",
@@ -6142,7 +6144,12 @@
     "model/candidate_laws/interval_echo/openwave/row_30_collective/committed_heads/readback.py",
     "model/candidate_laws/interval_echo/openwave/row_30_collective/committed_heads/during_flight/README.md",
     "model/candidate_laws/interval_echo/openwave/row_30_collective/committed_heads/during_flight/records.json",
-    "model/candidate_laws/interval_echo/openwave/row_30_collective/committed_heads/during_flight/FREQUENT.md"
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/committed_heads/during_flight/FREQUENT.md",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/committed_heads/during_flight/array/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/committed_heads/during_flight/array/SPECTRUM.md",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/committed_heads/during_flight/array/readback.py",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/committed_heads/during_flight/array/counts.npz",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/committed_heads/during_flight/array/results.json"
    ],
    "papers": [
     "paper/executable_observer_construction.pdf"
@@ -6373,7 +6380,8 @@
     "Lean/EventAlgebra/FiniteBuschGleason.lean",
     "Lean/EventAlgebra/OperationalAdditivityBoundary.lean",
     "Lean/EventAlgebra/OperationalBornBridge.lean",
-    "Lean/EventAlgebra/NativePublicEventGrammar.lean"
+    "Lean/EventAlgebra/NativePublicEventGrammar.lean",
+    "model/experiments/interval_echo_consensus/inventory_effects/shared_reference/Bound.lean"
    ],
    "model": [
     "model/experiments/interval_echo_consensus/inventory_effects/README.md",
@@ -6382,9 +6390,15 @@
     "model/experiments/interval_echo_consensus/complex_effects.json",
     "model/experiments/interval_echo_consensus/public_event_grammar/README.md",
     "model/experiments/interval_echo_consensus/public_event_grammar/grammar.py",
-    "model/experiments/interval_echo_consensus/public_event_grammar/results.json"
+    "model/experiments/interval_echo_consensus/public_event_grammar/results.json",
+    "model/experiments/interval_echo_consensus/inventory_effects/shared_reference/README.md",
+    "model/experiments/interval_echo_consensus/inventory_effects/shared_reference/PROOF.md",
+    "model/experiments/interval_echo_consensus/inventory_effects/shared_reference/measure.py",
+    "model/experiments/interval_echo_consensus/inventory_effects/shared_reference/records.json"
    ],
-   "papers": [],
+   "papers": [
+    "paper/observers_are_all_you_need.pdf"
+   ],
    "statement": "A public frame valuation is additive on every required coexistent effect sum, v(A + B) = v(A) + v(B) whenever A + B is an effect, across measurement contexts. With it the finite Busch-Gleason theorem forces the Born trace form.",
    "premise_kind": "derivable"
   },
@@ -6625,7 +6639,8 @@
    "premises": [],
    "lean": [
     "model/experiments/interval_echo_gauge/matter_class/SpinBracket.lean",
-    "model/experiments/interval_echo_gauge/matter_class/port_pair/Ramsey.lean"
+    "model/experiments/interval_echo_gauge/matter_class/port_pair/Ramsey.lean",
+    "model/experiments/interval_echo_gauge/matter_class/ring_current/PortCurrent.lean"
    ],
    "model": [
     "code/b15_matter_freeze/matter_class_freeze_v1.json",
@@ -6636,7 +6651,12 @@
     "model/experiments/interval_echo_gauge/matter_class/records.json",
     "model/experiments/interval_echo_gauge/matter_class/MARKED_PORTS.md",
     "model/experiments/interval_echo_gauge/matter_class/port_pair/README.md",
-    "model/experiments/interval_echo_gauge/matter_class/port_pair/records.json"
+    "model/experiments/interval_echo_gauge/matter_class/port_pair/records.json",
+    "model/experiments/interval_echo_gauge/matter_class/ring_current/README.md",
+    "model/experiments/interval_echo_gauge/matter_class/ring_current/measure.py",
+    "model/experiments/interval_echo_gauge/matter_class/ring_current/source_check.py",
+    "model/experiments/interval_echo_gauge/matter_class/ring_current/records.json",
+    "model/experiments/interval_echo_gauge/matter_class/ring_current/source_counts.json"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.pdf"
@@ -9508,7 +9528,8 @@
    "premises": [],
    "lean": [
     "Lean/EventAlgebra/NoBroadcastingAdapter.lean",
-    "model/experiments/interval_echo_consensus/publication_tree/Publication.lean"
+    "model/experiments/interval_echo_consensus/publication_tree/Publication.lean",
+    "model/experiments/interval_echo_consensus/publication_tree/repair_outputs/Endpoints.lean"
    ],
    "model": [
     "model/candidate_laws/interval_echo/projection.json",
@@ -9516,7 +9537,11 @@
     "model/evaluation/theorem_criteria.json",
     "model/experiments/interval_echo_consensus/publication_tree/README.md",
     "model/experiments/interval_echo_consensus/publication_tree/measure.py",
-    "model/experiments/interval_echo_consensus/publication_tree/results.json"
+    "model/experiments/interval_echo_consensus/publication_tree/results.json",
+    "model/experiments/interval_echo_consensus/publication_tree/repair_outputs/README.md",
+    "model/experiments/interval_echo_consensus/publication_tree/repair_outputs/apparatus.py",
+    "model/experiments/interval_echo_consensus/publication_tree/repair_outputs/classify.py",
+    "model/experiments/interval_echo_consensus/publication_tree/repair_outputs/records.json.gz"
    ],
    "papers": [
     "paper/executable_observer_construction.pdf"
