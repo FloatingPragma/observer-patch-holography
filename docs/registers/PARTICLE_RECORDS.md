@@ -22,6 +22,8 @@ If Alice describes the source by ρ, the route by U and the receiver by D, Bob's
 
 A refused source, an empty detector and a calibrated zero charge are different records. A source or probe absent from an experiment gives an unmeasured observable. This distinction matters for the flavour labels. A neutrino flavour refers to the charged lepton identified at its production or detection vertex. Assigning the three windings the names electron, muon and tau would supply that association as an input.
 
+An energy reading can also split neutral candidates. On a 14-port filled guide, two receiving owners compare the order of arriving opposite charges with their formation energy. Their lines cluster near 49 and 50 in guide units. The entire same-inventory pair sector costs at least 32. A single bare charge has energy at most 18 on this guide, excluding its autonomous decay into a charged daughter and this pair. These readings give no neutrino flavour or vacuum mass. [Formation-energy measurements and exact bound](../../model/candidate_laws/interval_echo/openwave/row_09_neutral/flight_calorimetry/README.md)
+
 ## Which neutral products can observers distinguish?
 
 A receiver in the five-mode exterior construction can register three different responses from an electrically neutral source. A negative charged daughter marks one weak direction, a positive charged daughter marks its conjugate, and silence in both directions marks a third class. Calibration with charged standards sets the efficiency separately for each sign. A measured silence inherits that efficiency and the finite sample size. Naming the daughter electron, muon or tau requires an independent identification of that charged particle.

@@ -16,6 +16,8 @@ A scalar Interval Echo load carries a message across a cell boundary. In a singl
 
 The extension also transports three separately prepared orbital bands. Their scale-free energy ratios miss the charged-lepton hierarchy. The geometric Koide constraint rules out all energy triples in the two complete one-cell charge sectors tested. A first-order comparison using the cyclic read as a mass operator reaches the geometric ratios on a seven-cell degree-six guide. Adding one degree-five port compresses the hierarchy. [Charged-lepton family search](openwave/electron_field/lepton_family/README.md)
 
+The two-port electroweak doublet admits a phase reference on a third physical port. Across 245 simulated count banks the material obeys the declared four-direction action. On a separate scheduled publication circuit, all 320 enrolled readers retain the same event, even when the emitter refuses. A final reader that draws a fresh word with the same frequencies agrees on only three events in eight. [Doublet and reference](../../experiments/interval_echo_gauge/scalar_grammar/README.md) · [Public record comparisons](../../experiments/interval_echo_consensus/publication_tree/README.md)
+
 Interval Echo is the main candidate under test. Its elementary interaction is the κ = 8 contrast-memory seam. Its distinguishing rule is carried by an observer. The patch remembers how many of its own repair opportunities elapsed since the last verified handoff, then uses fresh local repairs to decide whether the closing mark advances its hand. Both patch owners read the two elapsed words on one signed seam at reunion. [Executable specification](SPEC.md) · [Reference interaction](../contrast_memory_spherical_v1/SPEC.md)
 
 ## Can observers measure gravity?

@@ -1891,9 +1891,14 @@
    "lean": [
     "Lean/Screen/ElectroweakBreakingComposition.lean",
     "Lean/Screen/NeutralCurrentDictionary.lean",
-    "Lean/Screen/ChargedCurrentDictionary.lean"
+    "Lean/Screen/ChargedCurrentDictionary.lean",
+    "model/experiments/interval_echo_gauge/scalar_grammar/ScalarGrammar.lean"
    ],
-   "model": [],
+   "model": [
+    "model/experiments/interval_echo_gauge/scalar_grammar/README.md",
+    "model/experiments/interval_echo_gauge/scalar_grammar/measure.py",
+    "model/experiments/interval_echo_gauge/scalar_grammar/results.json"
+   ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
     "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf"
@@ -2860,7 +2865,10 @@
     "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/cyclic_charge/neutral_ladder/release/README.md",
     "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/neutral_response/README.md",
     "code/a5_closure/neutral_observer/README.md",
-    "model/candidate_laws/interval_echo/openwave/row_09_neutral/arrival_current/README.md"
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/arrival_current/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/flight_calorimetry/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/flight_calorimetry/results.json",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/flight_calorimetry/certificate.py"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
@@ -2900,7 +2908,10 @@
     "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/cyclic_charge/neutral_ladder/release/README.md",
     "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/neutral_response/README.md",
     "code/a5_closure/neutral_observer/README.md",
-    "model/candidate_laws/interval_echo/openwave/row_09_neutral/arrival_current/README.md"
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/arrival_current/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/flight_calorimetry/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/flight_calorimetry/results.json",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/flight_calorimetry/certificate.py"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
@@ -2940,7 +2951,10 @@
     "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/cyclic_charge/neutral_ladder/release/README.md",
     "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/neutral_response/README.md",
     "code/a5_closure/neutral_observer/README.md",
-    "model/candidate_laws/interval_echo/openwave/row_09_neutral/arrival_current/README.md"
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/arrival_current/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/flight_calorimetry/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/flight_calorimetry/results.json",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/flight_calorimetry/certificate.py"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
@@ -3102,12 +3116,16 @@
     "PR-97"
    ],
    "lean": [
-    "Lean/Screen/ElectroweakBreakingComposition.lean"
+    "Lean/Screen/ElectroweakBreakingComposition.lean",
+    "model/experiments/interval_echo_gauge/scalar_grammar/ScalarGrammar.lean"
    ],
    "model": [
     "model/evaluation/SCORECARD.md",
     "code/defect_particle_classes/PROOF.md",
-    "code/defect_particle_classes/results.json"
+    "code/defect_particle_classes/results.json",
+    "model/experiments/interval_echo_gauge/scalar_grammar/README.md",
+    "model/experiments/interval_echo_gauge/scalar_grammar/measure.py",
+    "model/experiments/interval_echo_gauge/scalar_grammar/results.json"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
@@ -5246,10 +5264,14 @@
     "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/cyclic_charge/neutral_ladder/release/README.md",
     "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/neutral_response/README.md",
     "code/a5_closure/neutral_observer/README.md",
-    "model/candidate_laws/interval_echo/openwave/row_09_neutral/arrival_current/README.md"
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/arrival_current/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/flight_calorimetry/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/flight_calorimetry/results.json",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/flight_calorimetry/certificate.py"
    ],
    "papers": [
-    "paper/executable_observer_construction.pdf"
+    "paper/executable_observer_construction.pdf",
+    "paper/deriving_the_particle_zoo_from_observer_consistency.pdf"
    ]
   },
   {
@@ -5940,7 +5962,10 @@
     "model/candidate_laws/interval_echo/openwave/row_30_collective/fork/interference/PROOF.md",
     "model/candidate_laws/interval_echo/openwave/row_30_collective/fork/interference/experiment.py",
     "model/candidate_laws/interval_echo/openwave/row_30_collective/fork/interference/certificate.py",
-    "model/candidate_laws/interval_echo/openwave/row_30_collective/fork/interference/results.json"
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/fork/interference/results.json",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/committed_heads/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/committed_heads/results.json",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/committed_heads/readback.py"
    ],
    "papers": [
     "paper/executable_observer_construction.pdf"
@@ -7827,17 +7852,24 @@
    "kind": "premise",
    "name": "declared finite one-doublet electroweak grammar",
    "category": "Construction choices",
-   "status": "Open",
+   "status": "Demonstrated",
    "what": "The finite electroweak construction uses one complex doublet of hypercharge one half and a weak-hypercharge action with positive couplings.",
    "why": "It is the mathematical setting in which OPH composes electroweak symmetry, gauge-boson mixing and the Higgs doublet.",
    "premises": [],
    "lean": [
     "Lean/Screen/ElectroweakBreakingComposition.lean",
     "Lean/Screen/NeutralCurrentDictionary.lean",
-    "Lean/Screen/ChargedCurrentDictionary.lean"
+    "Lean/Screen/ChargedCurrentDictionary.lean",
+    "model/experiments/interval_echo_gauge/scalar_grammar/ScalarGrammar.lean"
    ],
-   "model": [],
-   "papers": [],
+   "model": [
+    "model/experiments/interval_echo_gauge/scalar_grammar/README.md",
+    "model/experiments/interval_echo_gauge/scalar_grammar/measure.py",
+    "model/experiments/interval_echo_gauge/scalar_grammar/results.json"
+   ],
+   "papers": [
+    "paper/deriving_the_particle_zoo_from_observer_consistency.pdf"
+   ],
    "statement": "The finite electroweak composition uses one declared complex doublet with q = 6Y = 3, a four-parameter weak-hypercharge infinitesimal action with declared positive couplings, and the displayed normalization.",
    "premise_kind": "declared"
   },
@@ -9091,14 +9123,20 @@
    "why": "By the no-broadcasting theorem this forces objective records to commute, which makes public records classical.",
    "premises": [],
    "lean": [
-    "Lean/EventAlgebra/NoBroadcastingAdapter.lean"
+    "Lean/EventAlgebra/NoBroadcastingAdapter.lean",
+    "model/experiments/interval_echo_consensus/publication_tree/Publication.lean"
    ],
    "model": [
     "model/candidate_laws/interval_echo/projection.json",
     "model/candidate_laws/interval_echo/projection.py",
-    "model/evaluation/theorem_criteria.json"
+    "model/evaluation/theorem_criteria.json",
+    "model/experiments/interval_echo_consensus/publication_tree/README.md",
+    "model/experiments/interval_echo_consensus/publication_tree/measure.py",
+    "model/experiments/interval_echo_consensus/publication_tree/results.json"
    ],
-   "papers": [],
+   "papers": [
+    "paper/executable_observer_construction.pdf"
+   ],
    "statement": "Every public record family of the native process is broadcastable: one physical record state yields, for every observer that reads it, a copy whose outcome statistics equal those of the original. The finite no-broadcasting step then forces the effects of an objective family to commute.",
    "premise_kind": "derivable"
   },

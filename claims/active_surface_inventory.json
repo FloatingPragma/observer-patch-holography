@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 1200,
+  "surface_count": 1215,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -1611,6 +1611,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/candidate_laws/interval_echo/openwave/row_09_neutral/flight_calorimetry/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_09_neutral/flight_calorimetry/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/candidate_laws/interval_echo/openwave/row_11_spectrum/PROTOCOL.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -1857,6 +1867,16 @@
     },
     {
       "path": "model/candidate_laws/interval_echo/openwave/row_14_profile/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_14_profile/scattering/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_14_profile/scattering/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -2291,6 +2311,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/candidate_laws/interval_echo/openwave/row_30_collective/committed_heads/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_30_collective/committed_heads/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/candidate_laws/interval_echo/openwave/row_30_collective/confirmation/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -2307,6 +2337,21 @@
     },
     {
       "path": "model/candidate_laws/interval_echo/openwave/row_30_collective/fork/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_30_collective/fork/interference/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_30_collective/fork/interference/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_30_collective/fork/interference/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -3101,6 +3146,11 @@
       "allowlisted": false
     },
     {
+      "path": "model/experiments/interval_echo_consensus/publication_tree/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/experiments/interval_echo_consensus/refined_projection/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -3212,6 +3262,16 @@
     },
     {
       "path": "model/experiments/interval_echo_consensus/signed_effects/full_address/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_consensus/signed_effects/pair_return/BOUND_PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_consensus/signed_effects/pair_return/OBSERVER_BOUND.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -3731,6 +3791,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/experiments/interval_echo_gauge/exterior_register/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_gauge/exterior_register/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/experiments/interval_echo_gauge/flag_measure/PROTOCOL.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -3772,6 +3842,11 @@
     },
     {
       "path": "model/experiments/interval_echo_gauge/loop_transport/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_gauge/scalar_grammar/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
