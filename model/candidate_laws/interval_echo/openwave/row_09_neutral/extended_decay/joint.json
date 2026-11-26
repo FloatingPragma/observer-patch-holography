@@ -1,0 +1,74 @@
+{
+ "seed": 26092616,
+ "shots": 4194304,
+ "labels": 65536,
+ "read_time": 16,
+ "common_final_free_duration": 3216.941789890736,
+ "joint": [
+  {
+   "arm": "joined_pulse",
+   "loss_core": [
+    0,
+    185807,
+    312649,
+    35971
+   ],
+   "gain_core": [
+    0,
+    86396,
+    965660,
+    1098757
+   ],
+   "other": 1509064
+  },
+  {
+   "arm": "joined_idle",
+   "loss_core": [
+    59,
+    0,
+    0,
+    0
+   ],
+   "gain_core": [
+    2313122,
+    0,
+    0,
+    0
+   ],
+   "other": 1881123
+  },
+  {
+   "arm": "cut_pulse",
+   "loss_core": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "gain_core": [
+    1,
+    186913,
+    3053281,
+    954109
+   ],
+   "other": 0
+  }
+ ],
+ "changed": [
+  {
+   "arm": "same_native_pulse",
+   "far_minus": 546162,
+   "loss": 547113,
+   "gain": 3647191,
+   "other": 0
+  },
+  {
+   "arm": "same_native_idle",
+   "far_minus": 545932,
+   "loss": 548214,
+   "gain": 3646090,
+   "other": 0
+  }
+ ],
+ "changed_seam_residual": 0.0
+}
