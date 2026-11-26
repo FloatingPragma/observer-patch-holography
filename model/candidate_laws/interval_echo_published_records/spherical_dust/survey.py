@@ -4,6 +4,7 @@ from decimal import Decimal as D, getcontext, localcontext
 from functools import lru_cache
 
 from model.candidate_laws.interval_echo_partition_repair.published_strings.finite_rods import RADIAL
+from .body import collapse_rate, gravitational_mass
 
 
 ZERO = D(0)
@@ -273,17 +274,20 @@ class Ball:
                 "epochs": [dict(zip(SCALE_FIELDS, row, strict=True)) for row in self._scale_epochs]}
 
 
-@lru_cache(maxsize=128)
 def read_ball(geometric_mass, time_component, denominator):
     """Prepare a source, emit its scale record, then perform the observer survey."""
     if not isinstance(denominator, int) or denominator < 32:
         raise ValueError("the local clock survey requires a small proper ball")
+    if not 0 <= geometric_mass <= 1:
+        raise ValueError("compact mass outside the registered stock")
+    return _read_ball(gravitational_mass(geometric_mass), time_component, denominator)
+
+
+@lru_cache(maxsize=128)
+def _read_ball(mu, time_component, denominator):
     with localcontext() as ctx:
         ctx.prec = 36 + 12*len(str(denominator))
-        m = D(geometric_mass.numerator)/geometric_mass.denominator
-        if not 0 <= m <= 1:
-            raise ValueError("compact mass outside the registered stock")
-        emitter = DustEmitter((m/2).sqrt())
+        emitter = DustEmitter(collapse_rate(mu))
         return survey_ball(emitter, time_component, denominator, emitter.calibration(denominator))
 
 

@@ -1,12 +1,42 @@
 """A falling sphere, its freely released probes and two stationary clocks."""
 from dataclasses import dataclass
-from decimal import Decimal as D, localcontext
-from math import cos, log1p, sin, sqrt
+from decimal import Decimal as D, getcontext, localcontext
+from fractions import Fraction
+from math import log1p, sqrt
 
 from model.candidate_laws.interval_echo_partition_repair.published_strings.archive import source_densities
 
 
 G = 1 / 4
+
+
+def gravitational_mass(mass):
+    """GM in the units of this material source, before any meter is read."""
+    return Fraction(G) * Fraction(mass)
+
+
+def collapse_rate(mu):
+    """Initial interior rate at unit radius for gravitational mass mu."""
+    return (D(2 * mu.numerator) / mu.denominator).sqrt()
+
+
+def _decimal(value):
+    if isinstance(value, D):
+        return value
+    rational = Fraction(value)
+    return D(rational.numerator) / rational.denominator
+
+
+def _sine(x):
+    term = total = x
+    k = 1
+    while True:
+        term *= -x*x / ((2*k)*(2*k+1))
+        updated = total + term
+        if updated == total:
+            return total
+        total = updated
+        k += 1
 
 
 def release_calibration(mass, denominator):
@@ -18,22 +48,14 @@ def release_calibration(mass, denominator):
         m = D(mass.numerator)/mass.denominator
         dt = D(1)/denominator
         tick, start = dt**10, D(2)
-        phase = dt*(m/(2*start**3)).sqrt()
-
-        def sine(x):
-            term = total = x
-            for k in range(1, 7):
-                term *= -x*x/((2*k)*(2*k+1))
-                total += term
-            return total
-
-        angle = phase/2
-        for _ in range(4):
-            angle -= (angle+sine(2*angle)/2-phase)/(2*(1-sine(angle)**2))
+        released = Body(mass, 0).radius_after_release(start, dt)
         rest = int(start/tick)
-        loss = int((start*sine(angle)**2/tick).to_integral_value())
+        released_tick = int((released/tick).to_integral_value())
+        loss = rest - released_tick
+        if loss <= 0:
+            raise ValueError("the release meter did not resolve a positive radius loss")
         gain = 2*loss*tick*start**2/(m*dt**2)
-        return {"duration": str(dt), "tick": str(tick), "start": rest, "released": rest-loss,
+        return {"duration": str(dt), "tick": str(tick), "start": rest, "released": released_tick,
                 "gain": float(gain), "eta": float(1/(4*gain))}
 
 
@@ -41,7 +63,7 @@ def release_calibration(mass, denominator):
 class Body:
     ordinary: float
     collar: float
-    collar_weight: float = 1.0
+    collar_weight: float = 1
 
     def __post_init__(self):
         if min(self.ordinary, self.collar, self.collar_weight) < 0:
@@ -62,9 +84,10 @@ class Body:
         return label * clock**(2 / 3)
 
     def lapse(self, radius):
-        if radius <= max(1, 2 * G * self.gravitating_count):
+        mu = gravitational_mass(self.gravitating_count)
+        if radius <= max(1, 2 * mu):
             raise ValueError("enroll stationary clocks outside the initial surface and horizon")
-        return sqrt(1 - 2 * G * self.gravitating_count / radius)
+        return sqrt(1 - 2 * mu / Fraction(radius))
 
     def outward_flight(self, inner, outer):
         """Time between two stationary spheres for an outgoing light signal."""
@@ -80,16 +103,24 @@ class Body:
         self.lapse(start)
         if self.gravitating_count == 0:
             return start
-        phase = abs(proper_time) * sqrt(2 * G * self.gravitating_count / start**3)
-        if phase >= 0.5:
+        # The calibration meter can resolve radii far below a binary64 ulp.
+        radius = _decimal(start)
+        phase = abs(_decimal(proper_time)) * collapse_rate(
+            gravitational_mass(self.gravitating_count) / Fraction(start)**3
+        )
+        if phase >= D("0.5"):
             raise ValueError("release interval exceeds the enrolled short arc")
         angle = phase / 2
-        for _ in range(6):
-            angle -= (angle + sin(angle)*cos(angle) - phase)/(2*cos(angle)**2)
-        radius = start * cos(angle)**2
+        for _ in range(getcontext().prec.bit_length() + 2):
+            correction = (angle + _sine(2*angle)/2 - phase)/(2*(1-_sine(angle)**2))
+            updated = angle - correction
+            if updated == angle:
+                break
+            angle = updated
+        radius *= 1 - _sine(angle)**2
         if radius <= 1:
             raise ValueError("the probe has reached the material surface")
-        return radius
+        return radius if isinstance(start, D) else float(radius)
 
     def exterior_records(self, inner=2.0, outer=4.0):
         """Integer emission, reception and areal-radius records for the two experiments."""

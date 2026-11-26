@@ -5,6 +5,7 @@ from decimal import Decimal, localcontext
 from fractions import Fraction
 from functools import cached_property
 from math import floor, isqrt, log, log1p
+from numbers import Integral
 
 
 VACUUM_CORRELATION = Fraction(1, 2)
@@ -103,11 +104,12 @@ class ClockPair:
         """Batch of the same dyadic channel, given differences of registered fine ticks."""
         import numpy as np
 
-        ticks = np.asarray(tick_difference)
-        if ticks.dtype.kind not in ("i", "u"):
+        ticks = np.asarray(tick_difference, dtype=object)
+        if any(not isinstance(t, Integral) or isinstance(t, bool) for t in ticks.flat):
             raise ValueError("Register each endpoint's fine tick before taking differences")
         n = self.grid.subphases
-        lo, rem = np.divmod(ticks, n)
+        lo = ticks // n
+        fraction = np.asarray(ticks % n, dtype=float) / n
 
         def mapped(values, operation):
             values = np.asarray(values)
@@ -116,7 +118,7 @@ class ClockPair:
                               for item in unique])
             return table[inverse].reshape(values.shape)
 
-        matched = (1-rem/n)*mapped(lo, self.class_ticks) + (rem/n)*mapped(lo+1, self.class_ticks)
+        matched = (1-fraction)*mapped(lo, self.class_ticks) + fraction*mapped(lo+1, self.class_ticks)
         sign = -1 if self.weight >= 0 else 1
         d = sign*matched*mapped(scale_a, self.gate)*mapped(scale_b, self.gate)
 

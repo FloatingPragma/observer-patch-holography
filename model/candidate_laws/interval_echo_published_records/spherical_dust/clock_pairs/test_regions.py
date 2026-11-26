@@ -35,6 +35,35 @@ def test_retained_pair_has_one_positive_finite_law_at_a_deep_cutoff():
     assert all(sum(row["word_counts"]) == period for row in arms.values())
 
 
+def test_deep_moving_aperture_preserves_endpoint_lags_at_nonzero_epochs():
+    band = regions.Band(30)
+    velocity = np.array([2., 1., 1., 1.])
+
+    def aperture(epoch, timed):
+        return regions._band_read(band, np.zeros(3), velocity, 1., 0., epoch,
+                                  4*band.width, F(1, 3), 9, timed)
+
+    reference, count = aperture(0, True)
+    frozen, frozen_count = aperture(0, False)
+    assert count == frozen_count and count > 0 and reference > 1.5*frozen
+    # An epoch shift changes either rounded lag by at most one fine tick.
+    # A huge epoch additionally tests that it is never added to an offset in float.
+    for epoch in (F(1, 32), -F(1, 32), D(2)**80):
+        with np.errstate(over="raise", invalid="raise"):
+            signal, retained = aperture(epoch, True)
+        assert retained == count
+        assert math.isclose(signal, reference, rel_tol=1/band.source(F(1, 3)).grid.bins)
+
+
+def test_pair_batch_accepts_signed_lags_wider_than_machine_integers():
+    pair = regions.Band(68).source(F(1, 3))
+    half = pair.grid.bins*pair.grid.subphases//2
+    assert half > 2**64
+    batch = pair.entropy_from_tick_differences([-half, 0, half])
+    for value, delay in zip(batch, (F(-1, 2), 0, F(1, 2)), strict=True):
+        assert math.isclose(value, pair.entropy_change(0, delay, 1), rel_tol=1e-13)
+
+
 def test_held_diagonal_separates_independent_controls():
     data = json.loads((regions.HERE/"regions.json").read_text())
     rows = data["held_out"]

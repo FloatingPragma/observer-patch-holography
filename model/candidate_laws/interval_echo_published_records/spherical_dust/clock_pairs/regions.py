@@ -12,7 +12,7 @@ import numpy as np
 from scipy.stats import qmc
 
 from .. import survey
-from ..body import archive_bodies, release_calibration
+from ..body import archive_bodies, collapse_rate, gravitational_mass, release_calibration
 from ..experiment import FRAME, NAMES, measured_frame
 from .channel import ClockPair, LagGrid
 
@@ -111,27 +111,33 @@ def _band_read(band, center, velocity, a0, h, epoch, radius, mass, power, timed)
     if not count or not mass:
         return 0., count
     pair = band.source(mass)
-    eta_a, eta_b, d = eta_a[enrolled]+epoch, eta_b[enrolled]+epoch, d[enrolled]
-    units = pair.grid.bins*pair.grid.subphases
-    tick_a = np.floor(eta_a*units/d).astype(np.int64)
-    tick_b = np.floor(eta_b*units/d).astype(np.int64)
     scale_tick = band.width/128
     scale_a = np.rint(scale_a[enrolled]/scale_tick)*scale_tick
     scale_b = np.rint(scale_b[enrolled]/scale_tick)*scale_tick
-    lag = tick_b-tick_a if timed else np.zeros_like(tick_a)
+    if timed:
+        # Add the common epoch exactly before flooring each local appointment.
+        # Even when their difference is small, the absolute ticks can exceed 2**63.
+        origin = F(epoch)
+        lag = [pair.grid.fine_tick(origin+F(b), distance) - pair.grid.fine_tick(origin+F(a), distance)
+               for a, b, distance in zip(eta_a[enrolled], eta_b[enrolled], d[enrolled], strict=True)]
+    else:
+        lag = np.zeros(count, dtype=int)
     changes = pair.entropy_from_tick_differences(lag, scale_a, scale_b)
     scaled_read = float(changes.sum()/len(samples)/float(pair.weight))
     # Convert normalized label sampling into the entropy sum of its population.
     return (2*mass/5)*scaled_read*(2*half)**3*gamma*(band.width/2), count
 
 
-@lru_cache(maxsize=128)
 def geometry(mass, frame, denominator, epoch_time):
+    return _geometry(gravitational_mass(mass), frame, denominator, epoch_time)
+
+
+@lru_cache(maxsize=128)
+def _geometry(mu, frame, denominator, epoch_time):
     with localcontext() as ctx:
         ctx.prec = 65
         ell, t0 = D(1)/denominator, D(str(epoch_time))
-        geometric = D(mass.numerator)/mass.denominator
-        source_h = (geometric/2).sqrt()
+        source_h = collapse_rate(mu)
         emitter = survey.DustEmitter(source_h)
         # Locate the time origin and the change in two circumferences independently.
         scale_tape = emitter.calibration(denominator)
@@ -147,7 +153,7 @@ def geometry(mass, frame, denominator, epoch_time):
         phase_stamps, _ = survey.frame_clocks(frame, local_source_h(source_h, t0), ell)
         observed = np.array(list(map(float, measured_frame(phase_stamps, denominator))))
         area = 4*math.pi*float((ball.area_over_solid_angle-flat.area_over_solid_angle)/ell**4)
-        return dict(a0=float(a0), h=float(h), epoch=float(survey.conformal(t0, read_h)),
+        return dict(a0=float(a0), h=float(h), epoch=survey.conformal(t0, read_h),
                     radius=float(ball.radius), area=area, velocity=observed,
                     phase_stamps=phase_stamps, shell_width_ticks=int(outer-inner))
 

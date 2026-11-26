@@ -7,7 +7,7 @@ import json
 from math import prod
 from pathlib import Path
 
-from .body import Body, archive_bodies, release_calibration
+from .body import Body, archive_bodies, collapse_rate, gravitational_mass, release_calibration
 from .survey import mass_tally
 
 
@@ -33,7 +33,7 @@ def acquire(body, den, include_collar=True):
     tick, phase_step = F(1, den**10), F(1, den**2)
     with localcontext() as ctx:
         ctx.prec = 65
-        h = decimal(mass(body.gravitating_count) / 2).sqrt()
+        h = collapse_rate(gravitational_mass(mass(body.gravitating_count)))
         quantum, step = decimal(tick), decimal(phase_step)
 
         def stamp(value):

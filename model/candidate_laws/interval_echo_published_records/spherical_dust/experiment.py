@@ -11,7 +11,7 @@ from model.candidate_laws.interval_echo_partition_repair.published_strings.memor
 from matched_einstein_limit.frame import apply, design, inverse
 
 from . import survey
-from .body import Body, archive_bodies, release_calibration
+from .body import Body, archive_bodies, collapse_rate, gravitational_mass, release_calibration
 
 
 HERE = Path(__file__).resolve().parent
@@ -69,7 +69,7 @@ def _trial(body, pairs, calibration, *, read_collar=True):
     intervals, rows = {}, []
     for denominator in SCALES:
         ell = D(1)/denominator
-        h = (_fraction(geometric)/2).sqrt()
+        h = collapse_rate(gravitational_mass(geometric))
         tickets = [survey.mass_tally(_counts(x), denominator) for x in (body.ordinary, body.collar)]
         masses = [F((hi-lo)*64, n*7) for n, lo, hi in tickets]
         metered = sum(masses)
@@ -93,7 +93,7 @@ def _trial(body, pairs, calibration, *, read_collar=True):
                 raise ArithmeticError(f"expected one common material cut at {denominator}, {label}")
             enclosed = [key for key, (_, right) in pairs.items() if right < boundary]
             stress = 3*float(metered*velocity[0]**2)/(4*pi)
-            curvature = 1.5*float(geometric*gamma**2)
+            curvature = float(6*gravitational_mass(geometric)*gamma**2)
             entropy = memory.cut_entropy_change/float(ell**4)
             readings.append(dict(frame=label, area_over_r4=area, entropy_over_r4=entropy,
                                  bulk_error_over_r4=entropy-(8*pi*pi/15)*stress,

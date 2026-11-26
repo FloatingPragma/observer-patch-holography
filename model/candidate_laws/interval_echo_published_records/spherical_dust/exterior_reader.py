@@ -10,11 +10,11 @@ from pathlib import Path
 from mpmath.ctx_iv import MPIntervalContext
 
 from model.candidate_laws.interval_echo_partition_repair.published_strings.archive import address_lotteries, posted_words
+from .body import gravitational_mass
 
 HERE = Path(__file__).resolve().parent
 INNER, OUTER = 2, 4
 TICK = 2.0**-44
-GAIN = F(1, 4)
 
 
 def velocity(mu, r):
@@ -195,7 +195,7 @@ def run():
     total = matter + collar
     sources = {"blank": (F(0), F(0)), "ordinary": (ordinary, ordinary), "held": (total, total),
                "both_collar_blind": (matter, matter), "light_alone_collar_blind": (matter, total)}
-    rows = {name: survey(GAIN * ml, GAIN * mm) for name, (ml, mm) in sources.items()}
+    rows = {name: survey(gravitational_mass(ml), gravitational_mass(mm)) for name, (ml, mm) in sources.items()}
     fitted = {meter: rows["ordinary"][meter] / float(ordinary)
               for meter in ("mu_from_clock_spacing", "mu_from_two_release_intervals")}
     forecast = {}

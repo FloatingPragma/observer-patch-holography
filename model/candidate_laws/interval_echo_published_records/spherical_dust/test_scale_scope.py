@@ -4,10 +4,40 @@ from decimal import Decimal as D, localcontext
 from fractions import Fraction as F
 from math import pi
 from types import SimpleNamespace
+import math
 
 import pytest
 
-from . import experiment, survey
+from . import body, experiment, survey
+from .clock_pairs import regions
+
+
+def test_ordinary_release_gain_and_both_interior_surveys_follow_the_source(monkeypatch):
+    mass = F(1, 3)
+    frame = (F(1), F(0), F(0), F(0))
+    for coupling in (F(1, 4), F(1, 2)):
+        monkeypatch.setattr(body, "G", coupling)
+        mounted = body.Body(mass, 0)
+        duration, radius = 1/128, 2
+        measured = 2*(radius-mounted.radius_after_release(radius, duration))*radius**2/(float(mass)*duration**2)
+        record = body.release_calibration(mass, 128)
+        assert record["gain"] == pytest.approx(measured, abs=1e-10)
+        assert record["gain"] == pytest.approx(float(coupling), abs=2e-7)
+        expected_h = math.sqrt(2*float(coupling*mass))
+        assert float(survey.read_ball(mass, F(1), 128).measured_h) == pytest.approx(expected_h)
+        assert regions.geometry(mass, frame, 128, 0)["h"] == pytest.approx(expected_h)
+
+
+def test_release_meter_uses_the_quantized_physical_radius(monkeypatch):
+    # One changed physical record must change the estimate even at sub-binary64 resolution.
+    def altered_release(self, start, duration):
+        return start - 11*duration**10
+
+    monkeypatch.setattr(body.Body, "radius_after_release", altered_release)
+    record = body.release_calibration(F(1, 3), 8192)
+    assert record["start"] - record["released"] == 11
+    expected_gain = 2*11*F(1, 8192)**8*4*3
+    assert record["gain"] == float(expected_gain)
 
 
 def test_dust_scale_from_three_clock_and_circumference_records():
