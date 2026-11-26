@@ -32,3 +32,5 @@ folder=model/candidate_laws/interval_echo/openwave/row_03_clock/polar_island
 .venv/bin/python -m pytest -q "$folder"
 (cd Lean && lake env lean -j1 "../$folder/PassiveRead.lean")
 ```
+
+The [acquisition laws](acquisition_laws.json) hold the binary64 probabilities of all eight outcomes in every bank. The record test recomputes each law, requires agreement with the stored law within 10⁻¹², and redraws the seeded counts from the stored law. The spectral summaries are compared within binary64 roundoff. A fresh acquisition through the output option draws from the recomputed laws, and the laws option writes them.

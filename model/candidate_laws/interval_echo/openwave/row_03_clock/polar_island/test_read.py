@@ -2,8 +2,10 @@ import json
 from pathlib import Path
 
 import numpy as np
+import pytest
 from scipy.linalg import eigh
 
+from model.candidate_laws.interval_echo.openwave.electron_field.replay import compare
 from model.candidate_laws.interval_echo.openwave.row_03_clock.polar_island import (
     measure,
 )
@@ -52,7 +54,16 @@ def test_block_filter_against_every_delay_and_two_local_projectors(monkeypatch):
 
 def test_all_banks_and_grade():
     archived = json.loads(Path(__file__).with_name("records.json").read_text())
-    assert measure.run() == archived
+    laws = json.loads(Path(__file__).with_name("acquisition_laws.json").read_text())
+    # Every bank law is recomputed and checked against the stored law within
+    # LAW_TOLERANCE. The seeded counts are then redrawn from the stored law.
+    replay, _ = measure.run(laws)
+    # Counts and every other integer replay exactly. The spectral summaries are
+    # binary64 results of eigh and matrix products.
+    compare(replay, archived, "polar_island")
+    laws[0]["laws"][0][0] += 2 * measure.LAW_TOLERANCE
+    with pytest.raises(ArithmeticError, match="differ from the acquisition law"):
+        measure.run(laws)
     for panel in archived["panels"]:
         assert panel["band_width"] < 0.2
         assert panel["rest_hand"] > 19

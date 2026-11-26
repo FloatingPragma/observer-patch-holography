@@ -59,7 +59,15 @@ def test_archived_counts_and_calibrated_profiles():
                     assert sum(bank["counts"]) + bank["refused"] == measure.STARTS
         for u in (0.25, 0.5):
             estimates = measure.recoil_decode(row["axes"], u)
-            np.testing.assert_array_equal(estimates, row["recoil"][str(u)])
+            # A read is a binary64 dot product of L integer counts below 2**53
+            # with levels, divided by their sum. Its error is below
+            # (L + 1) * 2**-53 * max|level|: 1e-14 for the energy levels {0, 30}
+            # and 7e-15 for the ten current levels below 6. The even work weights
+            # energy reads by 4 / u**2 <= 64, so each decoded value errs by less
+            # than 1e-12.
+            np.testing.assert_allclose(
+                estimates, row["recoil"][str(u)], rtol=0, atol=1e-12
+            )
             w, dw, j, dj = estimates
             assert abs(w - j) <= dw + dj
 

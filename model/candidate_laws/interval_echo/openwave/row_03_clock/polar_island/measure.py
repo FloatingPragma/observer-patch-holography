@@ -23,6 +23,8 @@ SIDES = (-1 / 16, 0, 1 / 16)
 SOURCES = ("one_upper", "two_alternative_sites", "all_lower")
 CONTROLS = ("free", "ground_dephased", "selected_island")
 BRANCHES = ("ground_island", "ground_other", "within_island", "remaining_excited")
+# Largest admitted difference between a recomputed and a stored outcome probability.
+LAW_TOLERANCE = 1e-12
 
 
 def reference(panel):
@@ -136,14 +138,19 @@ def joint(identity, moments):
     )
 
 
-def bank_counts(mean, signed, freq, length, rng):
+def bank_law(mean, signed, freq, length):
+    """Normalized probabilities of the eight retained joint outcomes."""
     ordinary = joint(1, mean)
     contrast = joint(kernel(freq, length), signed)
     p = np.stack([(ordinary + contrast) / 2, (ordinary - contrast) / 2], axis=1)
     if p.min() < -1e-12 or abs(p.sum() - 1) > 1e-12:
         raise ValueError(f"Invalid retained distribution {p}")
     p = np.maximum(p.ravel(), 0)
-    return rng.multinomial(SHOTS, p / p.sum()).reshape(4, 2)
+    return p / p.sum()
+
+
+def bank_counts(law, rng):
+    return rng.multinomial(SHOTS, law).reshape(4, 2)
 
 
 def tagged_contrast(counts):
@@ -152,19 +159,29 @@ def tagged_contrast(counts):
     return float((a[0, 0] - a[0, 1] - a[1, 0] + a[1, 1]) / SHOTS)
 
 
-def acquire(panel):
+def acquire(panel, acquired_laws=None):
+    """Draw every bank, from the stored acquisition laws when they are given."""
     rest = reference(panel)
     n, kappa = panel["n"], panel["kappa"]
     data, parts, weight, levels = block_measures(n, kappa, rest)
     rng = np.random.default_rng([SEED, n, int(kappa)])
-    banks = []
+    banks, laws = [], []
     for ci, control in enumerate(CONTROLS):
         for s, source in enumerate(SOURCES):
             for wi, w in enumerate(WINDOWS):
                 for ti, off in enumerate(SIDES, 1):
-                    counts = bank_counts(
-                        data[ci, wi, 0, s], data[ci, wi, ti, s], rest + off, w, rng
+                    law = bank_law(
+                        data[ci, wi, 0, s], data[ci, wi, ti, s], rest + off, w
                     )
+                    if acquired_laws is not None:
+                        stored = np.array(acquired_laws[len(laws)], dtype=float)
+                        if not np.max(abs(law - stored)) <= LAW_TOLERANCE:
+                            raise ArithmeticError(
+                                "Bank probabilities differ from the acquisition law"
+                            )
+                        law = stored
+                    laws.append(law.tolist())
+                    counts = bank_counts(law, rng)
                     banks.append(
                         dict(
                             control=control,
@@ -175,7 +192,7 @@ def acquire(panel):
                             tagged_contrast=tagged_contrast(counts),
                         )
                     )
-    return dict(
+    record = dict(
         n=n,
         kappa=kappa,
         rest_hand=rest,
@@ -187,27 +204,41 @@ def acquire(panel):
         },
         banks=banks,
     )
+    return record, dict(n=n, kappa=kappa, laws=laws)
 
 
-def run():
+def run(acquired_laws=None):
+    """Return the records and the eight-outcome law each bank was drawn from."""
     prior = json.loads(Path(fringes.__file__).with_name("fringes.json").read_text())
     panels = [p for p in prior["panels"] if p["cells"] == 80]
     assert {(p["n"], p["kappa"]) for p in panels} == {
         (n, g) for n in [10, 12] for g in [4, 8]
     }
-    return dict(
+    if acquired_laws is None:
+        acquired = [acquire(p) for p in panels]
+    else:
+        acquired = []
+        for p, stored in zip(panels, acquired_laws, strict=True):
+            assert (stored["n"], stored["kappa"]) == (p["n"], p["kappa"])
+            acquired.append(acquire(p, stored["laws"]))
+    records = dict(
         cells=80,
         seed=SEED,
         shots_per_bank=SHOTS,
         step=STEP,
         outcomes=["upper,+", "upper,-", "lower,+", "lower,-"],
         reference_signs=[1, -1],
-        panels=[acquire(p) for p in panels],
+        panels=[record for record, _ in acquired],
     )
+    return records, [laws for _, laws in acquired]
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--output", type=Path, required=True)
-    output = parser.parse_args().output
-    output.write_text(json.dumps(run(), indent=1, allow_nan=False) + "\n")
+    parser.add_argument("--laws", type=Path)
+    args = parser.parse_args()
+    records, laws = run()
+    args.output.write_text(json.dumps(records, indent=1, allow_nan=False) + "\n")
+    if args.laws:
+        args.laws.write_text(json.dumps(laws, allow_nan=False) + "\n")
