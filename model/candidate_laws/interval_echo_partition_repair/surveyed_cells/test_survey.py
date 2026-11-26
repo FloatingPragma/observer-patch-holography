@@ -6,6 +6,7 @@ import json
 from math import isclose, log
 
 import numpy as np
+import pytest
 
 from ..regional_check import check_saved
 from . import cropped
@@ -113,6 +114,59 @@ def test_sector_control_and_frozen_banks():
         observed = result["regions"][name]["measured_secant_99"]
         assert observed["entropy"][0] < si < observed["entropy"][1]
         assert observed["area"][0] < ai < observed["area"][1]
+
+
+def test_replay_rebuilds_all_derived_fields_without_using_a_sampler(monkeypatch):
+    saved = json.loads((m.HERE / "results.json").read_text())
+
+    def unexpected_generator(*args):
+        raise AssertionError("frozen bank replay used a sampler")
+
+    monkeypatch.setattr(m.np.random, "Generator", unexpected_generator)
+    only_counts = {key: saved[key] for key in ("seed", "trials_per_bank")}
+    only_counts["regions"] = {name: {"records": row["records"]} for name, row in saved["regions"].items()}
+    rebuilt = m.replay(only_counts)
+    check_saved(rebuilt, saved)
+    saved["held_residual_99"][0] += 1e-8
+    with pytest.raises(ValueError, match="held_residual_99"):
+        check_saved(rebuilt, saved)
+
+
+def test_balanced_count_tampering_fails_even_if_statistics_barely_change():
+    saved = json.loads((m.HERE / "results.json").read_text())
+    counts = saved["regions"]["ordinary_line"]["records"]["1"][m.BULK]
+    counts[0] -= 1
+    counts[1] += 1
+    assert sum(counts) == m.TRIALS
+    with pytest.raises(ValueError, match="SHA-256"):
+        m.replay(saved)
+
+
+def test_model_checks_word_order_detector_counts_and_exact_integers(monkeypatch):
+    cut, arm, sign = m.CUTS["ordinary_line"], "ordinary", 1
+    saved = json.loads((m.HERE / "results.json").read_text())
+    bank = saved["regions"]["ordinary_line"]["records"]["1"]
+    words, sector, energy = m.terminal_probabilities(cut, arm, sign)
+    with monkeypatch.context() as patch:
+        patch.setattr(m, "terminal_probabilities", lambda *args: (tuple(reversed(words)), sector, energy))
+        with pytest.raises(ValueError, match="bulk word"):
+            m.verify_model_bank(cut, arm, sign, bank)
+    for channel in ("rod_sector_hits", "ordinary_energy_hits"):
+        with pytest.raises(ValueError, match="probability bound"):
+            m.verify_model_bank(cut, arm, sign, dict(bank, **{channel: 0}))
+    with pytest.raises(ValueError, match="integer counts"):
+        m.verify_model_bank(cut, arm, sign, dict(bank, rod_sector_hits=float(bank["rod_sector_hits"])))
+
+
+def test_fresh_seed_generates_independent_records_and_obeys_the_model_bounds():
+    saved = json.loads((m.HERE / "results.json").read_text())
+    fresh = m.generate(m.SEED + 1)
+    assert fresh["seed"] == m.SEED + 1
+    for name, cut in m.CUTS.items():
+        banks = fresh["regions"][name]["records"]
+        assert banks != saved["regions"][name]["records"]
+        for sign in (-1, 1):
+            m.verify_model_bank(cut, "ordinary" if name == "ordinary_line" else "held", sign, banks[str(sign)])
 
 
 def test_actual_smooth_ball_cropping_depends_on_admission():

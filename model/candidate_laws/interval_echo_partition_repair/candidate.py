@@ -122,10 +122,11 @@ def run(argv=None):
     report["verified_restrictions"] = regional["strict_restrictions_verified"]
     if args.full:
         from .proper_balls.measure import measure, verify_saved
-        from .surveyed_cells.measure import run as survey
+        from .surveyed_cells.measure import replay as replay_survey
 
-        cube = survey()
-        check_saved(cube, json.loads((HERE / "surveyed_cells" / "results.json").read_text()))
+        cubical_receipt = json.loads((HERE / "surveyed_cells" / "results.json").read_text())
+        cube = replay_survey(cubical_receipt)
+        check_saved(cube, cubical_receipt)
         report["cubical_held_residual_99"] = cube["held_residual_99"]
         balls = measure()
         verify_saved(balls)

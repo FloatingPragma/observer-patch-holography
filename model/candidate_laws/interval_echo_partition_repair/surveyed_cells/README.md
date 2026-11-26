@@ -37,6 +37,13 @@ At $t=\pm1/8$ each bank independently samples $2^{32}$ terminal copies from the 
 
 These simultaneous intervals have at least 99% coverage. Changing one draw changes empirical entropy by at most $(1+\log N)/N$. McDiarmid's inequality bounds the sampling error about the mean by $(1+\log N)\sqrt{5/N}$ except with probability $2e^{-10}$. With $k$ possible words the downward bias is between zero and $\log(1+(k-1)/N)$ by the expected empirical relative entropy, its chi-squared bound and Jensen's inequality. Each geometric or energy sector frequency uses Hoeffding radius $\sqrt{5/N}$. A union bound over eighteen marginal intervals covers the transported held gain. This simulation draws compressed terminal multiplicities; it does not evolve billions of separate lattice arrays.
 
+The full candidate audit replays the published acquisition. The six signed integer histograms and their independent rod and energy counts have SHA-256 digest e8a9ddb4f80a9c8b412f57afb276b91824e6b88672a93f1b1aa34a5bd7e87eff in sorted compact JSON. The audit authenticates those integers, recomputes the exact finite model law, checks the trial totals and tests every measured binomial frequency and entropy against its population bound. It also checks each of the 518 word frequencies against its corresponding rational probability with Hoeffding radius $\sqrt{8/N}$. Those additional checks cost at most $2(518)e^{-16}$ in joint failure probability. It then reconstructs the rods, slopes, ordinary calibration and held endpoints from the counts and compares every field with the published receipt. A fresh PCG64 acquisition is available separately. The sampler can depend on the installed NumPy implementation. [Frozen counts](results.json) · [Replay and independent generation](measure.py)
+
+~~~sh
+python -m model run --law interval_echo_partition_repair --full
+python -m model.candidate_laws.interval_echo_partition_repair.surveyed_cells.measure --generate 63019
+~~~
+
 Biasing acceptance multiplies the equilibrium odds of sector 1 by two. The same tag and geometry proposals obey detailed balance with respect to these biased weights. For a region resolving the selector the extra term in the fixed-volume differential is exactly $-(\log2)\,\delta\Pr(g=1)$. The ordinary residual becomes $-(\log2)/2$ and the held residual $-(\log2)/4$. The sign also depends on the readout convention: counting all boundary face registers as bulk words adds $b\log2$ and reverses the sign of the area contribution. [Changed kernel and tests](test_survey.py)
 
 ## Cropping a genuinely smooth ball

@@ -1,5 +1,7 @@
 """Cubical rods, bulk face registers and an ordinary material excitation."""
 
+import argparse
+import hashlib
 import json
 from collections import Counter
 from decimal import Decimal, localcontext
@@ -28,6 +30,10 @@ CUTS = {
 }
 STEP = Fraction(1, 8)
 TRIALS = 2**32
+SEED = 63019
+BULK = "bulk_counts_in_tag_then_word_insertion_order"
+# SHA-256 of only the six integer banks in sorted, compact ASCII JSON.
+FROZEN_BANKS_SHA256 = "e8a9ddb4f80a9c8b412f57afb276b91824e6b88672a93f1b1aa34a5bd7e87eff"
 
 
 def sector(tag):
@@ -126,26 +132,27 @@ def projection_slopes(cut, arm, biased=False):
     return entropy, area, volume, dg
 
 
+def terminal_probabilities(cut, arm, sign):
+    weights = tag_weights(arm, sign * STEP)
+    words = histogram(cut, weights)
+    sector_probability = sum(p * sector(tag) for p, tag in zip(weights, TAGS, strict=True))
+    energy_probability = sum(p * tag[0] for p, tag in zip(weights, TAGS, strict=True))
+    return tuple(words.values()), sector_probability, energy_probability
+
+
 def terminal_counts(cut, arm, rng):
-    sectors = [rod_survey(positions(cut, g)) for g in (0, 1)]
     raw = {}
     for sign in (-1, 1):
-        weights = tag_weights(arm, sign * STEP)
-        distribution = histogram(cut, weights)
-        counts = rng.multinomial(TRIALS, list(map(float, distribution.values())))
-        area_hits = rng.binomial(
-            TRIALS,
-            float(sum(p * sector(tag) for p, tag in zip(weights, TAGS, strict=True))),
-        )
-        energy_hits = rng.binomial(
-            TRIALS, float(sum(p * tag[0] for p, tag in zip(weights, TAGS, strict=True)))
-        )
+        words, sector_probability, energy_probability = terminal_probabilities(cut, arm, sign)
+        counts = rng.multinomial(TRIALS, list(map(float, words)))
+        area_hits = rng.binomial(TRIALS, float(sector_probability))
+        energy_hits = rng.binomial(TRIALS, float(energy_probability))
         raw[str(sign)] = {
-            "bulk_counts_in_tag_then_word_insertion_order": counts.tolist(),
+            BULK: counts.tolist(),
             "rod_sector_hits": int(area_hits),
             "ordinary_energy_hits": int(energy_hits),
         }
-    return {"sector_area_volume": sectors, "records": raw}
+    return {"sector_area_volume": [rod_survey(positions(cut, g)) for g in (0, 1)], "records": raw}
 
 
 def concentrated_entropy(counts):
@@ -164,6 +171,38 @@ def concentrated_entropy(counts):
         return [float(estimate-radius), float(estimate+radius+bias)]
 
 
+def verify_model_bank(cut, arm, sign, bank):
+    """Test one observed integer bank against the law's exact probabilities."""
+    if set(bank) != {BULK, "rod_sector_hits", "ordinary_energy_hits"}:
+        raise ValueError("unexpected cubical detector keys")
+    words, sector_probability, energy_probability = terminal_probabilities(cut, arm, sign)
+    counts = bank[BULK]
+    if not isinstance(counts, list) or len(counts) != len(words):
+        raise ValueError("bulk counts disagree with the model alphabet")
+
+    def check_hits(hits, probability, squared_radius_factor, channel):
+        if type(hits) is not int or not 0 <= hits <= TRIALS:
+            raise ValueError(f"{channel} hits must be integer counts in the bank")
+        if (probability in (0, 1) and hits != TRIALS * probability) or (
+            (hits - TRIALS * probability) ** 2 > squared_radius_factor * TRIALS
+        ):
+            raise ValueError(f"{channel} counts lie outside the model probability bound")
+
+    for hits, probability in zip(counts, words, strict=True):
+        check_hits(hits, probability, 8, "bulk word")
+    if sum(counts) != TRIALS:
+        raise ValueError("bulk counts do not sum to the trial total")
+    check_hits(bank["rod_sector_hits"], sector_probability, 5, "rod")
+    check_hits(bank["ordinary_energy_hits"], energy_probability, 5, "ordinary energy")
+    with localcontext() as ctx:
+        ctx.prec = 50
+        probabilities = (Decimal(p.numerator) / Decimal(p.denominator) for p in words if p)
+        population_entropy = float(-sum(p * p.ln() for p in probabilities))
+    lo, hi = concentrated_entropy(counts)
+    if not lo <= population_entropy <= hi:
+        raise ValueError("bulk confidence interval excludes the model entropy")
+
+
 def interval_subtract(a, b, scale):
     return [(a[0] - b[1]) / scale, (a[1] - b[0]) / scale]
 
@@ -172,8 +211,8 @@ def read(packet):
     minus, plus = (packet["records"][str(i)] for i in (-1, 1))
     step = float(2 * STEP)
     s = interval_subtract(
-        concentrated_entropy(plus["bulk_counts_in_tag_then_word_insertion_order"]),
-        concentrated_entropy(minus["bulk_counts_in_tag_then_word_insertion_order"]),
+        concentrated_entropy(plus[BULK]),
+        concentrated_entropy(minus[BULK]),
         step,
     )
     e = sqrt(5 / TRIALS)
@@ -191,12 +230,11 @@ def read(packet):
     }
 
 
-def run():
-    rng = np.random.Generator(np.random.PCG64(63019))
+def analyze(banks, seed):
     out = {}
     for name, cut in CUTS.items():
         arm = "ordinary" if name == "ordinary_line" else "held"
-        report = terminal_counts(cut, arm, rng)
+        report = {"sector_area_volume": [rod_survey(positions(cut, g)) for g in (0, 1)], "records": banks[name]}
         s, a, v, _ = projection_slopes(cut, arm)
         cs, _, _, _ = projection_slopes(cut, arm, biased=True)
         report.update(
@@ -216,7 +254,7 @@ def run():
     eta = [so[0] / (-ao[0]), so[1] / (-ao[1])]
     hs, ha = (out["held_sheet"]["measured_secant_99"][k] for k in ("entropy", "area"))
     return {
-        "seed": 63019,
+        "seed": seed,
         "trials_per_bank": TRIALS,
         "ordinary_eta_99": eta,
         "held_residual_99": [hs[0] + eta[0] * ha[0], hs[1] + eta[1] * ha[1]],
@@ -224,5 +262,43 @@ def run():
     }
 
 
+def replay(saved):
+    """Authenticate the original observations, then recompute the entire receipt."""
+    settings = (saved["seed"], saved["trials_per_bank"])
+    if any(type(value) is not int for value in settings) or settings != (SEED, TRIALS):
+        raise ValueError("cubical frozen acquisition has unexpected seed or trial count")
+    if set(saved["regions"]) != set(CUTS):
+        raise ValueError("cubical frozen acquisition has unexpected settings or regions")
+    banks = {name: row["records"] for name, row in saved["regions"].items()}
+    encoded = json.dumps(banks, sort_keys=True, separators=(",", ":"), allow_nan=False).encode("ascii")
+    if hashlib.sha256(encoded).hexdigest() != FROZEN_BANKS_SHA256:
+        raise ValueError("cubical integer bank SHA-256 differs from the frozen acquisition")
+    for name, cut in CUTS.items():
+        if set(banks[name]) != {"-1", "1"}:
+            raise ValueError("cubical bank requires both signed settings")
+        arm = "ordinary" if name == "ordinary_line" else "held"
+        for sign in (-1, 1):
+            verify_model_bank(cut, arm, sign, banks[name][str(sign)])
+    return analyze(banks, SEED)
+
+
+def run():
+    return replay(json.loads((HERE / "results.json").read_text()))
+
+
+def generate(seed=SEED):
+    """Make an independent acquisition using the current NumPy sampling routines."""
+    rng = np.random.Generator(np.random.PCG64(seed))
+    banks = {}
+    for name, cut in CUTS.items():
+        arm = "ordinary" if name == "ordinary_line" else "held"
+        banks[name] = terminal_counts(cut, arm, rng)["records"]
+    return analyze(banks, seed)
+
+
 if __name__ == "__main__":
-    print(json.dumps(run(), indent=2, allow_nan=False))
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--generate", nargs="?", const=SEED, type=int, metavar="SEED",
+                        help="draw fresh counts using PCG64 (default seed 63019)")
+    args = parser.parse_args()
+    print(json.dumps(run() if args.generate is None else generate(args.generate), indent=2, allow_nan=False))
