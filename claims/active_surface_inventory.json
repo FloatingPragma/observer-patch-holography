@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 1200,
+  "surface_count": 1206,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -1611,6 +1611,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/candidate_laws/interval_echo/openwave/row_09_neutral/flight_calorimetry/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_09_neutral/flight_calorimetry/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/candidate_laws/interval_echo/openwave/row_11_spectrum/PROTOCOL.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -2287,6 +2297,16 @@
     },
     {
       "path": "model/candidate_laws/interval_echo/openwave/row_30_collective/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_30_collective/committed_heads/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_30_collective/committed_heads/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -3101,6 +3121,11 @@
       "allowlisted": false
     },
     {
+      "path": "model/experiments/interval_echo_consensus/publication_tree/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/experiments/interval_echo_consensus/refined_projection/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -3772,6 +3797,11 @@
     },
     {
       "path": "model/experiments/interval_echo_gauge/loop_transport/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_gauge/scalar_grammar/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },

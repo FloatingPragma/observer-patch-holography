@@ -1708,144 +1708,34 @@ One load, started off the seam & $0.502209$, $0.564749$ & $0.062540$ & $8.030$\\
 \subsection{The scalar channel: an object with a clock}
 \label{sec:cage}
 
-The same carrier holds a further candidate law, the scalar channel, with
-other registers. Its results stand beside those of Interval Echo and the
-contrast-memory law and are not added to them. A wedge is a pair of seams at one port; a port
-with five seams has ten wedges and a cell has $120$. Every seam and every
-wedge carries one mode that holds one object or none. With $C$ the signed
-seam-by-wedge incidence, $+1$ on the first and $-1$ on the second seam of a
-wedge, the law of one object and the law of many are
+In a separate candidate on the same carrier, a local observer can measure
+both an object's oscillation and the energy difference responsible for it.
+One mode lives on each seam and one on each pair of seams that meet at a
+port. Let $C$ be their signed incidence matrix. The one-object generator
+and its parameters are
 \begin{equation}
-D=\begin{pmatrix}m&c\,C\\ c\,C^{\top}&-m\end{pmatrix},
-\qquad
-H_0=\sum_{i,j}D_{ij}\,c_i^{\dagger}c_j,
-\qquad m=1,\quad c=\tfrac{1}{\sqrt2}.
-\label{eq:scalar}
+ D=\begin{pmatrix}m&cC\\ cC^{\top}&-m\end{pmatrix},
+ \qquad m=1,\quad c=1/\sqrt{2}.
+ \label{eq:scalar}
 \end{equation}
-An object on a seam and an object in transit at a port sit at opposite
-levels, so the mixed terms of $D^2$ cancel and
-$D^2=m^2+c^2\operatorname{diag}(CC^{\top},C^{\top}C)$. Every frequency
-$\omega$ of the law obeys $\omega^2=m^2+\lambda$, with $\lambda$ a level of
-half the Laplacian of the graph of seams, and on one cell the first four of
-these levels are the levels of $L/2$ of Section~\ref{sec:contrast-memory}.
-The reference state fills every level of $D$ below zero, and one object
-more costs at least $m$. On ordinary registers a cell is written on $432$
-two-state registers with $260$ loop conditions, $259$ of them independent;
-the reference is prepared by local loop measurements whose signs are kept
-and by local ramps.
+On four seams forming a ring of degree-five ports, take the alternating
+profile $e=(u_{ab}-u_{bc}+u_{cd}-u_{da})/2$. Its signed contributions
+cancel at each port. Hence $CC^{\top}e=10e$, and the span of $e$ and
+$C^{\top}e/\sqrt{10}$ has energies $\pm E$, with
+$E=\sqrt{m^2+10c^2}=\sqrt{6}$. Promotion from the occupied lower mode
+to the upper mode costs $2E$. Its occupation is conserved, while a
+superposition can produce an oscillating local reading. The specialist
+paper gives the proof for number-conserving measurements, the register
+construction and the pulse protocols \cite{ophspine}.
 
-\begin{proposition}[The pair of a ring]
-\label{prop:cage}
-Let four ports with five seams each form a ring $ab$, $bc$, $cd$, $da$, let
-$u_s$ be the unit vector of the seam $s$, and put
-$e=\tfrac12(u_{ab}-u_{bc}+u_{cd}-u_{da})$ and $e'=C^{\top}e/\sqrt{10}$.
-Then
-\begin{equation}
-D\,(e,\ e')=(e,\ e')
-\begin{pmatrix}m&\sigma\\ \sigma&-m\end{pmatrix},
-\qquad \sigma=\sqrt{10}\,c,\qquad E=\sqrt{m^2+\sigma^2}.
-\label{eq:cage}
-\end{equation}
-\end{proposition}
-
-\begin{proof}
-With $Q$ the port-by-seam incidence without signs and $d_a$ the number of
-seams at the port $a$, every graph obeys
-$CC^{\top}=\operatorname{diag}(d_a+d_b)-Q^{\top}Q$, since two seams that
-share a port lie in exactly one wedge, with opposite signs. At every port
-of the ring a seam with $+$ meets a seam with $-$, so $Qe=0$ and
-$CC^{\top}e=10\,e$. Hence $\lVert C^{\top}e\rVert^2=10$,
-$D(e,0)=m(e,0)+\sigma(0,e')$ and $D(0,e')=\sigma(e,0)-m(0,e')$.
-\end{proof}
-
-On one cell $\sigma=\sqrt5$ and $E=\sqrt6$. The law moves the profile $e$
-of the ring to its image $e'$ on the twenty-eight wedges at the four ports
-and back, and to no other place: the signs of the hop make a cage
-(Figure~\ref{fig:model-cage}). On the federations of $20$, $80$ and $320$
-cells $92$, $312$ and $1{,}272$ rings have five seams at each of their
-ports, each checked in integers. Let $a_\pm$ remove an object from the
-modes of the pair at $\pm E$; in the reference the lower mode holds an
-object and the upper mode is empty.
-
-\begin{theorem}[The excitation of a cage]
-\label{thm:cage}
-Let $X^{\dagger}=a_+^{\dagger}a_-$ and $P_X=n_+(1-n_-)$. Then
-$[H_0,X^{\dagger}]=2E\,X^{\dagger}$ and $[H_0,P_X]=0$. For every state the
-probability of the excitation is the same at every reading, and every
-record of the pair that conserves the number of objects is a constant plus
-one line at the frequency $2E$.
-\end{theorem}
-
-\begin{proof}
-For a law of the form \eqref{eq:scalar},
-$[H_0,a^{\dagger}(\phi)]=a^{\dagger}(D\phi)$, so
-$[H_0,a_+^{\dagger}]=E\,a_+^{\dagger}$ and $[H_0,a_-]=E\,a_-$, which gives
-the first identity; $n_+$ and $n_-$ commute with $H_0$. A number-conserving
-operator of the pair is a combination of $1$, $n_\pm$, $n_+n_-$,
-$X^{\dagger}$ and $X$, and only the last two carry a time dependence,
-$e^{\pm2iEt}$.
-\end{proof}
-
-\begin{figure}[!htb]
-\centering
-\includegraphics[width=\linewidth]{../paper/figures/model_cage.pdf}
-\caption{The cage of the scalar channel. (a) A ring of four seams on one
-cell with the signs $+,-,+,-$; at every port of the ring a plus meets a
-minus. (b) The two levels $\pm E$ of the pair of the ring and the
-excitation that lifts the object of the lower mode by $2E$. (c) The
-occupation of the profile after the coherent pulse,
-$1-(\sigma^2/E^2)\sin^2(Et)$, against the observer's own phase, with the
-line and the level difference read from counts.}
-\label{fig:model-cage}
-\end{figure}
-
-The observer of a cage holds two operators on the profile: the number
-$n(e)$ as a potential and a converter between $e$ and a local fuel at level
-zero. On the registers they are sums of $17$ and of $8$ Pauli words that
-commute with every loop condition. The observer's clock is the phase of a
-circulation of three wedges at one of its ports, which sits at the level
-$-m$ exactly; the observer reads it through its fuel with four phase
-settings and states every frequency in units of this reference. Three
-experiments run with the law acting throughout and are read from counts
-alone (Table~\ref{tab:cage}). After the coherent pulse the seam record
-swings with no drive at one line, read at $4.898982\pm0.000002$ of the
-observer's reference. A fuel whose level is set by a dial reads the level
-difference of the pair separately, at $4.898980\pm0.000008$; the law gives
-$2\sqrt6=4.898979$. A local detector with four analyzers reads the
-excitation at five waits up to $512$ steps. A changed law that adds seam
-hopping round every port keeps the alphabet, the routing, the number of
-objects and the symmetries of the cell; it has no single line and loses
-the excitation.
-
-\begin{table}[htbp]
-\centering\small
-\caption{Readings on a cage of one cell, from $10^8$ trials per setting of
-the clock and of the detector and $4\times10^6$ per setting of the dial.
-Frequencies are in units of the observer's own reference; the values of
-the law for the excitation are those of the prepared reference.}
-\label{tab:cage}
-\begin{tabular}{@{}L{0.55\linewidth}L{0.2\linewidth}r@{}}
-\toprule
-\textbf{Reading} & \textbf{From counts} & \textbf{The law}\\
-\midrule
-Line of the seam record, steps of equal length & $4.898982\pm0.000002$ & $4.898979$\\
-The same line, steps of unequal length & $4.898976\pm0.000002$ & $4.898979$\\
-Level difference of the pair, from the fuel dial & $4.898980\pm0.000008$ & $4.898979$\\
-Amplitude of the line; with no pulse & $0.4161$; $0.0019$ & \\
-Excitation at five waits after the sharp pulse & $0.9999$ to $1.0002$ & $0.999954$\\
-Excitation at five waits after the coherent pulse & $0.7059$ to $0.7060$ & $0.705932$\\
-Excitation at five waits with no pulse & $0.000004$ & $0.000004$\\
-Changed law: share of the variance in its best single line & $0.507$ & \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-Particle stability thus holds for a second object, and that object carries a
-clock: the equality of the line and the level difference is the frequency
-condition of two levels, read by an observer from its own counts. The pulse
-supplies the phase and the work of the swing, the reference by itself does
-not swing, the level of a cage is flat and the law has no term between two
-objects \cite{ophspine}.
+The observer uses a local circulating mode as a phase reference. After
+the preparation pulse, counts on the ring yield a free oscillation of
+$4.898982\pm0.000002$ in that reference's units. A separate adjustable
+fuel level resolves the gap at $4.898980\pm0.000008$. Both measurements
+agree with $2\sqrt{6}$. Adding hopping around each port preserves
+the cell symmetries and particle number, but the best single frequency
+then accounts for only $50.7\%$ of the variance. This comparison
+identifies a localized two-level clock in the scalar channel.
 
 \subsection{The model and the finite theorems}
 \label{sec:model-joins}
