@@ -78,10 +78,13 @@ under an equal-effect implementation. The calibrated pulses, isolation,
 sharp pointer readings and Born sampling rule belong to the apparatus.
 [Lean finite-probe theorem](../../../../../Lean/EventAlgebra/FiniteProbeInstrumentSelection.lean)
 
+Four independent return probes per pair put a simultaneous 99% bound of 0.0910 on any later public event on the calibrated code. The fine-address control exceeds 0.4813 on each pair. [Proof, held phase tests and raw counts](OBSERVER_BOUND.md)
+
 From the repository root, replay with one numerical thread.
 
 ```sh
 export OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 OMP_NUM_THREADS=1
 .venv/bin/python -B -O -W error -m model.experiments.interval_echo_consensus.signed_effects.pair_return.measure
+.venv/bin/python -B -O -W error -m model.experiments.interval_echo_consensus.signed_effects.pair_return.observer_bound
 .venv/bin/python -m pytest -q model/experiments/interval_echo_consensus/signed_effects/pair_return
 ```

@@ -1,0 +1,1344 @@
+{
+  "sha256": {
+    "results.json": "814ac55a706dbe6f8b0c91574bf6f73b241b3f75705adab19b9aa34a5cdb0ce1",
+    "BOUND_PROTOCOL.md": "d521455d2d28741042ba7cedba04e7c677913082a7d42088a1bbb9278c6a975e",
+    "measure.py": "f00d822155b6113fce67fc56477da071d3247222a9f56a36a3881f3a0a623cb2",
+    "observer_bound.py": "2fc1223a71f04352265ca8ab2c299251dfaf7fdec16a7255aeda60fd32f16763"
+  },
+  "seed_pcg64": 260611,
+  "attempts_per_bank": 8192,
+  "new_launches": 491520,
+  "fresh_seed_pcg64": 260612,
+  "fresh_calibration_banks": [
+    {
+      "pair_start": 0,
+      "instrument": "pair",
+      "probe": "port0",
+      "nonzero_joint_counts": [
+        [
+          0,
+          0,
+          8192
+        ]
+      ]
+    },
+    {
+      "pair_start": 0,
+      "instrument": "pair",
+      "probe": "port1",
+      "nonzero_joint_counts": [
+        [
+          0,
+          1,
+          8192
+        ]
+      ]
+    },
+    {
+      "pair_start": 0,
+      "instrument": "pair",
+      "probe": "plus",
+      "nonzero_joint_counts": [
+        [
+          0,
+          0,
+          8192
+        ]
+      ]
+    },
+    {
+      "pair_start": 0,
+      "instrument": "pair",
+      "probe": "minus",
+      "nonzero_joint_counts": [
+        [
+          0,
+          1,
+          8192
+        ]
+      ]
+    },
+    {
+      "pair_start": 2,
+      "instrument": "pair",
+      "probe": "port0",
+      "nonzero_joint_counts": [
+        [
+          2,
+          2,
+          8192
+        ]
+      ]
+    },
+    {
+      "pair_start": 2,
+      "instrument": "pair",
+      "probe": "port1",
+      "nonzero_joint_counts": [
+        [
+          2,
+          3,
+          8192
+        ]
+      ]
+    },
+    {
+      "pair_start": 2,
+      "instrument": "pair",
+      "probe": "plus",
+      "nonzero_joint_counts": [
+        [
+          2,
+          2,
+          8192
+        ]
+      ]
+    },
+    {
+      "pair_start": 2,
+      "instrument": "pair",
+      "probe": "minus",
+      "nonzero_joint_counts": [
+        [
+          2,
+          3,
+          8192
+        ]
+      ]
+    },
+    {
+      "pair_start": 4,
+      "instrument": "pair",
+      "probe": "port0",
+      "nonzero_joint_counts": [
+        [
+          4,
+          4,
+          8192
+        ]
+      ]
+    },
+    {
+      "pair_start": 4,
+      "instrument": "pair",
+      "probe": "port1",
+      "nonzero_joint_counts": [
+        [
+          4,
+          5,
+          8192
+        ]
+      ]
+    },
+    {
+      "pair_start": 4,
+      "instrument": "pair",
+      "probe": "plus",
+      "nonzero_joint_counts": [
+        [
+          4,
+          4,
+          8192
+        ]
+      ]
+    },
+    {
+      "pair_start": 4,
+      "instrument": "pair",
+      "probe": "minus",
+      "nonzero_joint_counts": [
+        [
+          4,
+          5,
+          8192
+        ]
+      ]
+    },
+    {
+      "pair_start": 6,
+      "instrument": "pair",
+      "probe": "port0",
+      "nonzero_joint_counts": [
+        [
+          6,
+          6,
+          8192
+        ]
+      ]
+    },
+    {
+      "pair_start": 6,
+      "instrument": "pair",
+      "probe": "port1",
+      "nonzero_joint_counts": [
+        [
+          6,
+          7,
+          8192
+        ]
+      ]
+    },
+    {
+      "pair_start": 6,
+      "instrument": "pair",
+      "probe": "plus",
+      "nonzero_joint_counts": [
+        [
+          6,
+          6,
+          8192
+        ]
+      ]
+    },
+    {
+      "pair_start": 6,
+      "instrument": "pair",
+      "probe": "minus",
+      "nonzero_joint_counts": [
+        [
+          6,
+          7,
+          8192
+        ]
+      ]
+    },
+    {
+      "pair_start": 8,
+      "instrument": "pair",
+      "probe": "port0",
+      "nonzero_joint_counts": [
+        [
+          8,
+          8,
+          8192
+        ]
+      ]
+    },
+    {
+      "pair_start": 8,
+      "instrument": "pair",
+      "probe": "port1",
+      "nonzero_joint_counts": [
+        [
+          8,
+          9,
+          8192
+        ]
+      ]
+    },
+    {
+      "pair_start": 8,
+      "instrument": "pair",
+      "probe": "plus",
+      "nonzero_joint_counts": [
+        [
+          8,
+          8,
+          8192
+        ]
+      ]
+    },
+    {
+      "pair_start": 8,
+      "instrument": "pair",
+      "probe": "minus",
+      "nonzero_joint_counts": [
+        [
+          8,
+          9,
+          8192
+        ]
+      ]
+    },
+    {
+      "pair_start": 10,
+      "instrument": "pair",
+      "probe": "port0",
+      "nonzero_joint_counts": [
+        [
+          10,
+          10,
+          8192
+        ]
+      ]
+    },
+    {
+      "pair_start": 10,
+      "instrument": "pair",
+      "probe": "port1",
+      "nonzero_joint_counts": [
+        [
+          10,
+          11,
+          8192
+        ]
+      ]
+    },
+    {
+      "pair_start": 10,
+      "instrument": "pair",
+      "probe": "plus",
+      "nonzero_joint_counts": [
+        [
+          10,
+          10,
+          8192
+        ]
+      ]
+    },
+    {
+      "pair_start": 10,
+      "instrument": "pair",
+      "probe": "minus",
+      "nonzero_joint_counts": [
+        [
+          10,
+          11,
+          8192
+        ]
+      ]
+    }
+  ],
+  "archival_bounds": [
+    {
+      "pair_start": 0,
+      "entanglement_fidelity_lower": 0.9979316436886614,
+      "any_event_error_upper": 0.09095837094712317,
+      "rival_any_event_error_lower": 0.49710574816533276
+    },
+    {
+      "pair_start": 2,
+      "entanglement_fidelity_lower": 0.9979316436886614,
+      "any_event_error_upper": 0.09095837094712317,
+      "rival_any_event_error_lower": 0.4857556970781571
+    },
+    {
+      "pair_start": 4,
+      "entanglement_fidelity_lower": 0.9979316436886614,
+      "any_event_error_upper": 0.09095837094712317,
+      "rival_any_event_error_lower": 0.48136468267250965
+    },
+    {
+      "pair_start": 6,
+      "entanglement_fidelity_lower": 0.9979316436886614,
+      "any_event_error_upper": 0.09095837094712317,
+      "rival_any_event_error_lower": 0.48136468267250965
+    },
+    {
+      "pair_start": 8,
+      "entanglement_fidelity_lower": 0.9979316436886614,
+      "any_event_error_upper": 0.09095837094712317,
+      "rival_any_event_error_lower": 0.4859996841045013
+    },
+    {
+      "pair_start": 10,
+      "entanglement_fidelity_lower": 0.9979316436886614,
+      "any_event_error_upper": 0.09095837094712317,
+      "rival_any_event_error_lower": 0.48587769004153947
+    }
+  ],
+  "grid_bits": 40,
+  "complete_raw_table_shape": [
+    17,
+    17
+  ],
+  "omitted_bins_have_zero_count": true,
+  "combined_confidence": 0.99,
+  "held_sampling_allowance": 0.024535063351648657,
+  "bounds": [
+    {
+      "pair_start": 0,
+      "entanglement_fidelity_lower": 0.9979316436886614,
+      "any_event_error_upper": 0.09095837094712317,
+      "rival_any_event_error_lower": 0.49710574816533276
+    },
+    {
+      "pair_start": 2,
+      "entanglement_fidelity_lower": 0.9979316436886614,
+      "any_event_error_upper": 0.09095837094712317,
+      "rival_any_event_error_lower": 0.4857556970781571
+    },
+    {
+      "pair_start": 4,
+      "entanglement_fidelity_lower": 0.9979316436886614,
+      "any_event_error_upper": 0.09095837094712317,
+      "rival_any_event_error_lower": 0.48136468267250965
+    },
+    {
+      "pair_start": 6,
+      "entanglement_fidelity_lower": 0.9979316436886614,
+      "any_event_error_upper": 0.09095837094712317,
+      "rival_any_event_error_lower": 0.48136468267250965
+    },
+    {
+      "pair_start": 8,
+      "entanglement_fidelity_lower": 0.9979316436886614,
+      "any_event_error_upper": 0.09095837094712317,
+      "rival_any_event_error_lower": 0.4859996841045013
+    },
+    {
+      "pair_start": 10,
+      "entanglement_fidelity_lower": 0.9979316436886614,
+      "any_event_error_upper": 0.09095837094712317,
+      "rival_any_event_error_lower": 0.48587769004153947
+    }
+  ],
+  "new_banks": [
+    {
+      "pair_start": 0,
+      "instrument": "pair",
+      "probe": "minus",
+      "nonzero_joint_counts": [
+        [
+          0,
+          1,
+          8192
+        ]
+      ]
+    },
+    {
+      "pair_start": 0,
+      "instrument": "pair",
+      "probe": "quarter",
+      "nonzero_joint_counts": [
+        [
+          0,
+          0,
+          7039
+        ],
+        [
+          0,
+          1,
+          1153
+        ]
+      ]
+    },
+    {
+      "pair_start": 0,
+      "instrument": "pair",
+      "probe": "three_quarters",
+      "nonzero_joint_counts": [
+        [
+          0,
+          0,
+          1207
+        ],
+        [
+          0,
+          1,
+          6985
+        ]
+      ]
+    },
+    {
+      "pair_start": 0,
+      "instrument": "address_then_forget",
+      "probe": "minus",
+      "nonzero_joint_counts": [
+        [
+          0,
+          0,
+          2142
+        ],
+        [
+          0,
+          1,
+          1977
+        ],
+        [
+          1,
+          0,
+          1991
+        ],
+        [
+          1,
+          1,
+          2082
+        ]
+      ]
+    },
+    {
+      "pair_start": 0,
+      "instrument": "address_then_forget",
+      "probe": "quarter",
+      "nonzero_joint_counts": [
+        [
+          0,
+          0,
+          2068
+        ],
+        [
+          0,
+          1,
+          2001
+        ],
+        [
+          1,
+          0,
+          2081
+        ],
+        [
+          1,
+          1,
+          2042
+        ]
+      ]
+    },
+    {
+      "pair_start": 0,
+      "instrument": "address_then_forget",
+      "probe": "three_quarters",
+      "nonzero_joint_counts": [
+        [
+          0,
+          0,
+          2013
+        ],
+        [
+          0,
+          1,
+          2144
+        ],
+        [
+          1,
+          0,
+          2068
+        ],
+        [
+          1,
+          1,
+          1967
+        ]
+      ]
+    },
+    {
+      "pair_start": 2,
+      "instrument": "pair",
+      "probe": "minus",
+      "nonzero_joint_counts": [
+        [
+          2,
+          3,
+          8192
+        ]
+      ]
+    },
+    {
+      "pair_start": 2,
+      "instrument": "pair",
+      "probe": "quarter",
+      "nonzero_joint_counts": [
+        [
+          2,
+          2,
+          7004
+        ],
+        [
+          2,
+          3,
+          1188
+        ]
+      ]
+    },
+    {
+      "pair_start": 2,
+      "instrument": "pair",
+      "probe": "three_quarters",
+      "nonzero_joint_counts": [
+        [
+          2,
+          2,
+          1210
+        ],
+        [
+          2,
+          3,
+          6982
+        ]
+      ]
+    },
+    {
+      "pair_start": 2,
+      "instrument": "address_then_forget",
+      "probe": "minus",
+      "nonzero_joint_counts": [
+        [
+          2,
+          2,
+          2045
+        ],
+        [
+          2,
+          3,
+          2115
+        ],
+        [
+          3,
+          2,
+          1946
+        ],
+        [
+          3,
+          3,
+          2086
+        ]
+      ]
+    },
+    {
+      "pair_start": 2,
+      "instrument": "address_then_forget",
+      "probe": "quarter",
+      "nonzero_joint_counts": [
+        [
+          2,
+          2,
+          2001
+        ],
+        [
+          2,
+          3,
+          2036
+        ],
+        [
+          3,
+          2,
+          2060
+        ],
+        [
+          3,
+          3,
+          2095
+        ]
+      ]
+    },
+    {
+      "pair_start": 2,
+      "instrument": "address_then_forget",
+      "probe": "three_quarters",
+      "nonzero_joint_counts": [
+        [
+          2,
+          2,
+          2056
+        ],
+        [
+          2,
+          3,
+          2039
+        ],
+        [
+          3,
+          2,
+          2022
+        ],
+        [
+          3,
+          3,
+          2075
+        ]
+      ]
+    },
+    {
+      "pair_start": 4,
+      "instrument": "pair",
+      "probe": "minus",
+      "nonzero_joint_counts": [
+        [
+          4,
+          5,
+          8192
+        ]
+      ]
+    },
+    {
+      "pair_start": 4,
+      "instrument": "pair",
+      "probe": "quarter",
+      "nonzero_joint_counts": [
+        [
+          4,
+          4,
+          6952
+        ],
+        [
+          4,
+          5,
+          1240
+        ]
+      ]
+    },
+    {
+      "pair_start": 4,
+      "instrument": "pair",
+      "probe": "three_quarters",
+      "nonzero_joint_counts": [
+        [
+          4,
+          4,
+          1192
+        ],
+        [
+          4,
+          5,
+          7000
+        ]
+      ]
+    },
+    {
+      "pair_start": 4,
+      "instrument": "address_then_forget",
+      "probe": "minus",
+      "nonzero_joint_counts": [
+        [
+          4,
+          4,
+          1996
+        ],
+        [
+          4,
+          5,
+          2071
+        ],
+        [
+          5,
+          4,
+          2026
+        ],
+        [
+          5,
+          5,
+          2099
+        ]
+      ]
+    },
+    {
+      "pair_start": 4,
+      "instrument": "address_then_forget",
+      "probe": "quarter",
+      "nonzero_joint_counts": [
+        [
+          4,
+          4,
+          2026
+        ],
+        [
+          4,
+          5,
+          2026
+        ],
+        [
+          5,
+          4,
+          2028
+        ],
+        [
+          5,
+          5,
+          2112
+        ]
+      ]
+    },
+    {
+      "pair_start": 4,
+      "instrument": "address_then_forget",
+      "probe": "three_quarters",
+      "nonzero_joint_counts": [
+        [
+          4,
+          4,
+          2012
+        ],
+        [
+          4,
+          5,
+          2085
+        ],
+        [
+          5,
+          4,
+          2019
+        ],
+        [
+          5,
+          5,
+          2076
+        ]
+      ]
+    },
+    {
+      "pair_start": 6,
+      "instrument": "pair",
+      "probe": "minus",
+      "nonzero_joint_counts": [
+        [
+          6,
+          7,
+          8192
+        ]
+      ]
+    },
+    {
+      "pair_start": 6,
+      "instrument": "pair",
+      "probe": "quarter",
+      "nonzero_joint_counts": [
+        [
+          6,
+          6,
+          6953
+        ],
+        [
+          6,
+          7,
+          1239
+        ]
+      ]
+    },
+    {
+      "pair_start": 6,
+      "instrument": "pair",
+      "probe": "three_quarters",
+      "nonzero_joint_counts": [
+        [
+          6,
+          6,
+          1225
+        ],
+        [
+          6,
+          7,
+          6967
+        ]
+      ]
+    },
+    {
+      "pair_start": 6,
+      "instrument": "address_then_forget",
+      "probe": "minus",
+      "nonzero_joint_counts": [
+        [
+          6,
+          6,
+          2008
+        ],
+        [
+          6,
+          7,
+          2083
+        ],
+        [
+          7,
+          6,
+          2014
+        ],
+        [
+          7,
+          7,
+          2087
+        ]
+      ]
+    },
+    {
+      "pair_start": 6,
+      "instrument": "address_then_forget",
+      "probe": "quarter",
+      "nonzero_joint_counts": [
+        [
+          6,
+          6,
+          2080
+        ],
+        [
+          6,
+          7,
+          2045
+        ],
+        [
+          7,
+          6,
+          1985
+        ],
+        [
+          7,
+          7,
+          2082
+        ]
+      ]
+    },
+    {
+      "pair_start": 6,
+      "instrument": "address_then_forget",
+      "probe": "three_quarters",
+      "nonzero_joint_counts": [
+        [
+          6,
+          6,
+          2039
+        ],
+        [
+          6,
+          7,
+          2081
+        ],
+        [
+          7,
+          6,
+          2053
+        ],
+        [
+          7,
+          7,
+          2019
+        ]
+      ]
+    },
+    {
+      "pair_start": 8,
+      "instrument": "pair",
+      "probe": "minus",
+      "nonzero_joint_counts": [
+        [
+          8,
+          9,
+          8192
+        ]
+      ]
+    },
+    {
+      "pair_start": 8,
+      "instrument": "pair",
+      "probe": "quarter",
+      "nonzero_joint_counts": [
+        [
+          8,
+          8,
+          7005
+        ],
+        [
+          8,
+          9,
+          1187
+        ]
+      ]
+    },
+    {
+      "pair_start": 8,
+      "instrument": "pair",
+      "probe": "three_quarters",
+      "nonzero_joint_counts": [
+        [
+          8,
+          8,
+          1167
+        ],
+        [
+          8,
+          9,
+          7025
+        ]
+      ]
+    },
+    {
+      "pair_start": 8,
+      "instrument": "address_then_forget",
+      "probe": "minus",
+      "nonzero_joint_counts": [
+        [
+          8,
+          8,
+          2061
+        ],
+        [
+          8,
+          9,
+          2065
+        ],
+        [
+          9,
+          8,
+          1994
+        ],
+        [
+          9,
+          9,
+          2072
+        ]
+      ]
+    },
+    {
+      "pair_start": 8,
+      "instrument": "address_then_forget",
+      "probe": "quarter",
+      "nonzero_joint_counts": [
+        [
+          8,
+          8,
+          2051
+        ],
+        [
+          8,
+          9,
+          2070
+        ],
+        [
+          9,
+          8,
+          2027
+        ],
+        [
+          9,
+          9,
+          2044
+        ]
+      ]
+    },
+    {
+      "pair_start": 8,
+      "instrument": "address_then_forget",
+      "probe": "three_quarters",
+      "nonzero_joint_counts": [
+        [
+          8,
+          8,
+          2075
+        ],
+        [
+          8,
+          9,
+          2016
+        ],
+        [
+          9,
+          8,
+          2032
+        ],
+        [
+          9,
+          9,
+          2069
+        ]
+      ]
+    },
+    {
+      "pair_start": 10,
+      "instrument": "pair",
+      "probe": "minus",
+      "nonzero_joint_counts": [
+        [
+          10,
+          11,
+          8192
+        ]
+      ]
+    },
+    {
+      "pair_start": 10,
+      "instrument": "pair",
+      "probe": "quarter",
+      "nonzero_joint_counts": [
+        [
+          10,
+          10,
+          6999
+        ],
+        [
+          10,
+          11,
+          1193
+        ]
+      ]
+    },
+    {
+      "pair_start": 10,
+      "instrument": "pair",
+      "probe": "three_quarters",
+      "nonzero_joint_counts": [
+        [
+          10,
+          10,
+          1186
+        ],
+        [
+          10,
+          11,
+          7006
+        ]
+      ]
+    },
+    {
+      "pair_start": 10,
+      "instrument": "address_then_forget",
+      "probe": "minus",
+      "nonzero_joint_counts": [
+        [
+          10,
+          10,
+          2034
+        ],
+        [
+          10,
+          11,
+          2077
+        ],
+        [
+          11,
+          10,
+          1983
+        ],
+        [
+          11,
+          11,
+          2098
+        ]
+      ]
+    },
+    {
+      "pair_start": 10,
+      "instrument": "address_then_forget",
+      "probe": "quarter",
+      "nonzero_joint_counts": [
+        [
+          10,
+          10,
+          2030
+        ],
+        [
+          10,
+          11,
+          2107
+        ],
+        [
+          11,
+          10,
+          2058
+        ],
+        [
+          11,
+          11,
+          1997
+        ]
+      ]
+    },
+    {
+      "pair_start": 10,
+      "instrument": "address_then_forget",
+      "probe": "three_quarters",
+      "nonzero_joint_counts": [
+        [
+          10,
+          10,
+          2061
+        ],
+        [
+          10,
+          11,
+          2068
+        ],
+        [
+          11,
+          10,
+          2058
+        ],
+        [
+          11,
+          11,
+          2005
+        ]
+      ]
+    }
+  ],
+  "held": [
+    {
+      "pair_start": 0,
+      "instrument": "pair",
+      "setting": "quarter",
+      "rate": 0.8592529296875,
+      "forecast": 0.8535533905932737,
+      "within_coarse_bound": true
+    },
+    {
+      "pair_start": 0,
+      "instrument": "pair",
+      "setting": "three_quarters",
+      "rate": 0.1473388671875,
+      "forecast": 0.1464466094067262,
+      "within_coarse_bound": true
+    },
+    {
+      "pair_start": 0,
+      "instrument": "address_then_forget",
+      "setting": "quarter",
+      "rate": 0.501708984375,
+      "forecast": 0.8535533905932737,
+      "within_coarse_bound": false
+    },
+    {
+      "pair_start": 0,
+      "instrument": "address_then_forget",
+      "setting": "three_quarters",
+      "rate": 0.48583984375,
+      "forecast": 0.1464466094067262,
+      "within_coarse_bound": false
+    },
+    {
+      "pair_start": 2,
+      "instrument": "pair",
+      "setting": "quarter",
+      "rate": 0.85498046875,
+      "forecast": 0.8535533905932737,
+      "within_coarse_bound": true
+    },
+    {
+      "pair_start": 2,
+      "instrument": "pair",
+      "setting": "three_quarters",
+      "rate": 0.147705078125,
+      "forecast": 0.1464466094067262,
+      "within_coarse_bound": true
+    },
+    {
+      "pair_start": 2,
+      "instrument": "address_then_forget",
+      "setting": "quarter",
+      "rate": 0.5,
+      "forecast": 0.8535533905932737,
+      "within_coarse_bound": false
+    },
+    {
+      "pair_start": 2,
+      "instrument": "address_then_forget",
+      "setting": "three_quarters",
+      "rate": 0.5042724609375,
+      "forecast": 0.1464466094067262,
+      "within_coarse_bound": false
+    },
+    {
+      "pair_start": 4,
+      "instrument": "pair",
+      "setting": "quarter",
+      "rate": 0.8486328125,
+      "forecast": 0.8535533905932737,
+      "within_coarse_bound": true
+    },
+    {
+      "pair_start": 4,
+      "instrument": "pair",
+      "setting": "three_quarters",
+      "rate": 0.1455078125,
+      "forecast": 0.1464466094067262,
+      "within_coarse_bound": true
+    },
+    {
+      "pair_start": 4,
+      "instrument": "address_then_forget",
+      "setting": "quarter",
+      "rate": 0.505126953125,
+      "forecast": 0.8535533905932737,
+      "within_coarse_bound": false
+    },
+    {
+      "pair_start": 4,
+      "instrument": "address_then_forget",
+      "setting": "three_quarters",
+      "rate": 0.4990234375,
+      "forecast": 0.1464466094067262,
+      "within_coarse_bound": false
+    },
+    {
+      "pair_start": 6,
+      "instrument": "pair",
+      "setting": "quarter",
+      "rate": 0.8487548828125,
+      "forecast": 0.8535533905932737,
+      "within_coarse_bound": true
+    },
+    {
+      "pair_start": 6,
+      "instrument": "pair",
+      "setting": "three_quarters",
+      "rate": 0.1495361328125,
+      "forecast": 0.1464466094067262,
+      "within_coarse_bound": true
+    },
+    {
+      "pair_start": 6,
+      "instrument": "address_then_forget",
+      "setting": "quarter",
+      "rate": 0.508056640625,
+      "forecast": 0.8535533905932737,
+      "within_coarse_bound": false
+    },
+    {
+      "pair_start": 6,
+      "instrument": "address_then_forget",
+      "setting": "three_quarters",
+      "rate": 0.495361328125,
+      "forecast": 0.1464466094067262,
+      "within_coarse_bound": false
+    },
+    {
+      "pair_start": 8,
+      "instrument": "pair",
+      "setting": "quarter",
+      "rate": 0.8551025390625,
+      "forecast": 0.8535533905932737,
+      "within_coarse_bound": true
+    },
+    {
+      "pair_start": 8,
+      "instrument": "pair",
+      "setting": "three_quarters",
+      "rate": 0.1424560546875,
+      "forecast": 0.1464466094067262,
+      "within_coarse_bound": true
+    },
+    {
+      "pair_start": 8,
+      "instrument": "address_then_forget",
+      "setting": "quarter",
+      "rate": 0.4998779296875,
+      "forecast": 0.8535533905932737,
+      "within_coarse_bound": false
+    },
+    {
+      "pair_start": 8,
+      "instrument": "address_then_forget",
+      "setting": "three_quarters",
+      "rate": 0.505859375,
+      "forecast": 0.1464466094067262,
+      "within_coarse_bound": false
+    },
+    {
+      "pair_start": 10,
+      "instrument": "pair",
+      "setting": "quarter",
+      "rate": 0.8543701171875,
+      "forecast": 0.8535533905932737,
+      "within_coarse_bound": true
+    },
+    {
+      "pair_start": 10,
+      "instrument": "pair",
+      "setting": "three_quarters",
+      "rate": 0.144775390625,
+      "forecast": 0.1464466094067262,
+      "within_coarse_bound": true
+    },
+    {
+      "pair_start": 10,
+      "instrument": "address_then_forget",
+      "setting": "quarter",
+      "rate": 0.4915771484375,
+      "forecast": 0.8535533905932737,
+      "within_coarse_bound": false
+    },
+    {
+      "pair_start": 10,
+      "instrument": "address_then_forget",
+      "setting": "three_quarters",
+      "rate": 0.496337890625,
+      "forecast": 0.1464466094067262,
+      "within_coarse_bound": false
+    }
+  ]
+}
