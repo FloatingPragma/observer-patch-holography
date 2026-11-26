@@ -12,6 +12,8 @@ Owner zero excites two adjacent source dimers with one local pulse. Owner six th
 
 At sixteen units the instantaneous distal excess is 15.15 percentage points. At 32 it reaches 22.09 points. The pulse-only arm begins in the exact joined ground and receives a source-local unitary that exchanges the bottom and top isolated core levels. The idle sham begins in that same ground. The cut arm starts in its own cold material, receives the same source-local pulse, and retains its near-source coupling throughout the flight. Its final dimer is stationary in X plus. All comparisons include every original launch. [Source pulse and timing control](../joined_decay/PROTOCOL.md)
 
+A separate cold calorimeter records energy gain with its own passive dimer. A simultaneous source measurement found a surviving lower heavy level and a hot meter on 46.04% of pulsed launches. Independent time samples of the contact power predict the same mean gain as the endpoint meter. [Calorimeter, controls and current check](passive_meter/README.md)
+
 ## Crossing the physical boundary
 
 The circuit has two source dimers A=(0,5) and B=(7,6) in owner zero. C=(1,82) straddles the external seam. Both D=(74,78) and the terminal E=(75,76) belong to owner six. Each terminal rail is four ordinary seams from the closest source rail on the entire carrier. The active sequence is A–C–D–E. All other contacts touching these dimers have stationary idle collars, apart from the substrate pins and the source contact. The deterministic geometric search took the first admissible cross-owner route on the 20-cell federation. Commissioning uses 235 conserved units, twelve active collar writes and twenty-one idle writes. [Geometry and construction](material.py) · [Frozen crossing test](CROSSING.md)

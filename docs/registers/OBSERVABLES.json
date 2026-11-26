@@ -3724,14 +3724,21 @@
     "PR-50"
    ],
    "lean": [
-    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/theory/RemoteFlavour.lean"
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/theory/RemoteFlavour.lean",
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/theory/source_access/SourceAccess.lean"
    ],
    "model": [
     "model/candidate_laws/interval_echo/openwave/row_10_oscillations/records.json",
     "model/candidate_laws/interval_echo/openwave/row_10_oscillations/mixture.json",
     "model/candidate_laws/interval_echo/openwave/row_10_oscillations/audit.py",
     "model/candidate_laws/interval_echo/openwave/row_10_oscillations/translated_pairs/counts.json",
-    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/translated_pairs/second_counts.json"
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/translated_pairs/second_counts.json",
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/joint_receivers/counts.json",
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/joint_receivers/blind_counts.json",
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/portable_decoder/counts.json",
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/portable_decoder/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/theory/source_access/probabilities.json",
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/kernel_check/README.md"
    ],
    "papers": [
     "docs/FROZEN_PREDICTION_LADDER.md",
@@ -5558,7 +5565,10 @@
     "model/candidate_laws/interval_echo/openwave/row_09_neutral/extended_decay/preparation.py",
     "model/candidate_laws/interval_echo/openwave/row_09_neutral/extended_decay/records.json",
     "model/candidate_laws/interval_echo/openwave/row_09_neutral/extended_decay/test_extended.py",
-    "model/candidate_laws/interval_echo/openwave/row_09_neutral/extended_decay/three.json"
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/extended_decay/three.json",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/extended_decay/passive_meter/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/extended_decay/passive_meter/records.json",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/extended_decay/passive_meter/power_counts.json"
    ],
    "papers": [
     "paper/executable_observer_construction.pdf",
@@ -5575,7 +5585,8 @@
    "why": "Oscillations show that neutrinos have mass and mix, so a theory of the particle content has to reproduce the measured mixing angles.",
    "premises": [],
    "lean": [
-    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/theory/RemoteFlavour.lean"
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/theory/RemoteFlavour.lean",
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/theory/source_access/SourceAccess.lean"
    ],
    "model": [
     "model/evaluation/SCORECARD.md",
@@ -5585,7 +5596,13 @@
     "model/candidate_laws/interval_echo/openwave/row_10_oscillations/mixture.json",
     "model/candidate_laws/interval_echo/openwave/row_10_oscillations/audit.py",
     "model/candidate_laws/interval_echo/openwave/row_10_oscillations/translated_pairs/counts.json",
-    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/translated_pairs/second_counts.json"
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/translated_pairs/second_counts.json",
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/joint_receivers/counts.json",
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/joint_receivers/blind_counts.json",
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/portable_decoder/counts.json",
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/portable_decoder/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/theory/source_access/probabilities.json",
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/kernel_check/README.md"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.pdf"
@@ -8015,10 +8032,12 @@
    ],
    "model": [
     "model/experiments/interval_echo_lepton_register/phase_feedback/README.md",
-    "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/README.md"
+    "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/kernel_check/README.md"
    ],
    "papers": [
-    "claims/assumption_dictionary.md"
+    "claims/assumption_dictionary.md",
+    "paper/deriving_the_particle_zoo_from_observer_consistency.pdf"
    ],
    "statement": "The gauge-invariant up, down and charged-lepton interaction lines are selected on the one-Higgs matter package and carry complete Yukawa matrices with family labels and physical chiral attachment.",
    "premise_kind": "derivable"

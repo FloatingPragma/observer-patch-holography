@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 1440,
+  "surface_count": 1466,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -1816,6 +1816,21 @@
       "allowlisted": false
     },
     {
+      "path": "model/candidate_laws/interval_echo/openwave/row_09_neutral/extended_decay/passive_meter/POWER.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_09_neutral/extended_decay/passive_meter/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_09_neutral/extended_decay/passive_meter/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/candidate_laws/interval_echo/openwave/row_09_neutral/flight_calorimetry/PROTOCOL.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -1881,7 +1896,47 @@
       "allowlisted": false
     },
     {
+      "path": "model/candidate_laws/interval_echo/openwave/row_10_oscillations/joint_receivers/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_10_oscillations/joint_receivers/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_10_oscillations/joint_receivers/THREE_SOURCES.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_10_oscillations/kernel_check/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_10_oscillations/portable_decoder/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_10_oscillations/portable_decoder/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/candidate_laws/interval_echo/openwave/row_10_oscillations/theory/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_10_oscillations/theory/source_access/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_10_oscillations/theory/source_access/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -2191,7 +2246,22 @@
       "allowlisted": false
     },
     {
+      "path": "model/candidate_laws/interval_echo/openwave/row_16_binding/signed_pair/APERTURE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_16_binding/signed_pair/FRAGMENTS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/candidate_laws/interval_echo/openwave/row_16_binding/signed_pair/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_16_binding/signed_pair/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -2441,12 +2511,42 @@
       "allowlisted": false
     },
     {
+      "path": "model/candidate_laws/interval_echo/openwave/row_24_decay/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/candidate_laws/interval_echo/openwave/row_24_decay/fork/ACCESS.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
     {
+      "path": "model/candidate_laws/interval_echo/openwave/row_24_decay/fork/CALORIMETRY.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_24_decay/fork/CHARGE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_24_decay/fork/IDENTITY.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_24_decay/fork/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/candidate_laws/interval_echo/openwave/row_24_decay/fork/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_24_decay/fork/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -2752,6 +2852,11 @@
     },
     {
       "path": "model/candidate_laws/interval_echo/openwave/row_30_collective/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_30_collective/beat_speed/PROTOCOL.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -3881,7 +3986,17 @@
       "allowlisted": false
     },
     {
+      "path": "model/experiments/interval_echo_consensus/record_lowering/dense_readout/PLACEMENT.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/experiments/interval_echo_consensus/record_lowering/dense_readout/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_consensus/record_lowering/dense_readout/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -5331,7 +5446,22 @@
       "allowlisted": false
     },
     {
+      "path": "model/experiments/material_inertia/pair_spectrum/neutral_guide/polar_ring/two_point/PAIR_PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/material_inertia/pair_spectrum/neutral_guide/polar_ring/two_point/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/experiments/material_inertia/pair_spectrum/neutral_guide/polar_ring/two_point/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/material_inertia/pair_spectrum/neutral_guide/polar_ring/two_point/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
