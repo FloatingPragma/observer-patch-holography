@@ -76,3 +76,25 @@ def test_interleaved_rest_balls_and_off_axis_centers_cut_no_enrolled_memory():
             errors.append(abs(signed-expected_deficit))
             assert abs((ball.volume_over_solid_angle-target**3/3)/target**5) < D("1e-10")
         assert errors[1] < errors[0]/8 < 2e-6
+
+
+def test_unenrolled_moving_clock_misses_every_pair_at_an_enrolled_radius():
+    with localcontext() as ctx:
+        ctx.prec = 85
+        frame = (F(25, 24), F(0), F(0), F(7, 24))
+        assert frame[0]**2-sum(x*x for x in frame[1:]) == 1
+        pairs = experiment.registered_pairs()
+        held_h = (D(19)/66).sqrt()
+        want = -38*pi/165*float(frame[0])**2
+        for denominator in (512, 2048):
+            ell = D(1)/denominator
+            held = survey.read_ball(F(19, 33), frame[0], denominator)
+            blank = survey.read_ball(F(0), frame[0], denominator)
+            stamps, _ = survey.frame_clocks(frame, held_h, ell)
+            velocity = experiment.measured_frame(stamps, denominator)
+            boundary = experiment._crossing(velocity, held.radius, held.measured_h)
+            assert all(right < boundary or boundary < left for left, right in pairs.values())
+            # The different moving observer still measures positive dust and the predicted area.
+            assert abs(velocity[0]-frame[0]) < F(1, denominator**3)
+            actual = 4*pi*float((held.area_over_solid_angle-blank.area_over_solid_angle)/ell**4)
+            assert abs(actual-want) < 4e-6
