@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 1435,
+  "surface_count": 1438,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -2191,6 +2191,11 @@
       "allowlisted": false
     },
     {
+      "path": "model/candidate_laws/interval_echo/openwave/row_16_binding/signed_pair/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/candidate_laws/interval_echo/openwave/row_20_electric/FLIGHT_PROTOCOL.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -2432,6 +2437,16 @@
     },
     {
       "path": "model/candidate_laws/interval_echo/openwave/row_23_coupling/timed_scattering/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_24_decay/fork/ACCESS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_24_decay/fork/PROTOCOL.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
