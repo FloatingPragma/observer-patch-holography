@@ -1108,12 +1108,11 @@ of the relevant loop classes.
 \subsection{The global form from port phases}
 \label{sec:global-form-port-phases}
 
-The source selects the \(\mathbb Z_6\) quotient through a continuous symmetry of
-its own record law. The record law is covariant under independent phases on the twelve
-ports. The code is the leading flux-two triplet with load charge \(2\) plus the
+The gauge construction selects the \(\mathbb Z_6\) quotient from its record law,
+which is covariant under independent phases on the twelve ports. The code is the leading flux-two triplet with load charge \(2\) plus the
 leading flux-seven doublet with load charge \(-3\); its compressed port load
 \(qPN_pP\) equals the current \(X_p\) after one fixed unitary. In the Zeno limit
-\((Pe^{i\theta N_p/n}P)^n\to e^{i\theta X_p}\), and the map
+\((Pe^{iq\theta N_p/n}P)^n\to e^{i\theta X_p}\), and the map
 \(\theta\mapsto\exp(i\sum_p\theta_pX_p)\) carries \(\mathbb R^{12}\) onto
 \[
  G=\mathrm S(\mathrm U(3)\times\mathrm U(2))
@@ -1124,6 +1123,36 @@ alone form a finite group of order at most \(3600\) on the code, because every n
 alphabet is a uniform port phase; the continuous port phases are the extension that
 makes the links continuous. The gauged currents are the twelve of \(G\): both code
 blocks carry definite load charge, so no native operation produces a leptoquark block.
+
+Interval Echo supplies a physical implementation of this construction on a
+protected preparation. A unit-filled cell carries either one excess or one
+vacancy. An addressed degree reference and a returned unit guard write
+independent ternary port phases. Applying these phases around individual
+contacts programs face flux two for the excess and seven for the vacancy.
+A single sequence rotates both magnetic bands into a common binary
+measurement. A neutral material pointer records admission while preserving
+coherence inside each admitted band. Comparison of both returned branch
+operators on all input columns with the specified spectral projectors gives
+maximum operator error below \(5\times10^{-13}\). This is a matrix check of
+the apparatus. The signed loads themselves are \(+1,-1\). The gain settings
+that produce \(+2,-3\), the two face fluxes and the isolation schedule are
+specified when building it.
+
+Two ordered port kicks tested the compressed currents in simulated
+observer records. Four sharp source positions per sign, two angles and
+both kick orders gave 32 banks of \(2^{18}\) original starts. Each bank
+retained the first failed admission or the final measured address. The
+gauge construction predicted all 47 outcome frequencies per bank within
+\(0.00212\), against a simultaneous 99 percent radius of \(0.00491\).
+Reversing the kick order missed by \(0.0153\); substituting the native
+unit gains missed by \(0.0167\). A free release also distinguishes an
+active port kick with fixed detectors. A passive change of local phase
+frame preserves records when transfers, sources and detectors transform
+together; its vertex phases telescope around every face. Connecting the
+programmed symmetry to the freely propagating material requires an
+independently identified record process with these fluxes and charge
+responses. The deposited protocol is in
+\path{model/experiments/interval_echo_gauge/port_phases/}.
 
 The centre of \(G\) is the circle
 \[

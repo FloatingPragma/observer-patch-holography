@@ -1,0 +1,139 @@
+{
+  "two_station_records": {
+    "banks": 728,
+    "starts": 95420416,
+    "simultaneous_frequency_radius": 0.00760832799356593,
+    "maximum_held_rate_residual": {
+      "native": 0.005099387839436531,
+      "square": 0.992645263671875,
+      "exchange_only": 0.45464734721463174
+    },
+    "held_bound": 0.029359475883964276,
+    "maximum_addressed_control_residual": 0.0051116943359375,
+    "maximum_nonunit_guard_fraction": {
+      "native": 0.0,
+      "square": 0.0,
+      "exchange_only": 0.10088348388671875
+    },
+    "phase_change_in_vacancy_at_zero": {
+      "native": [
+        0.000762939453125,
+        0.05126953125
+      ],
+      "park_exchange": [
+        0.00045013427734375,
+        -0.00074005126953125
+      ]
+    }
+  },
+  "projected_current_records": {
+    "banks": 32,
+    "starts": 8388608,
+    "maximum_raw_frequency_errors": {
+      "declared": 0.0021107991536306603,
+      "unit_load": 0.016663848623741123,
+      "exchanged_gains": 0.05089320465971949,
+      "zero": 0.028338523003904666,
+      "reversed_order": 0.015344578493392956,
+      "fine": 0.03555446229815656
+    },
+    "simultaneous_frequency_radius": 0.004905066644341785,
+    "malformed_or_spare_counts": 0
+  },
+  "native_operator_checks": {
+    "echo": {
+      "echo_rows": 99,
+      "exact_dressed_charge_commutators_zero": true,
+      "signed_contrast_witnesses": 18,
+      "compensated_hamiltonian_check_error": 1.93681055999817e-15
+    },
+    "code": {
+      "sectors": [
+        {
+          "rank": 2,
+          "native_load": -1,
+          "encoded_charge": -3,
+          "face_flux": 7,
+          "leverage": 0.16666666666666666,
+          "sign_kick_leakage": 0.5555555555555546,
+          "branch_error": 1.775614041591779e-13
+        },
+        {
+          "rank": 3,
+          "native_load": 1,
+          "encoded_charge": 2,
+          "face_flux": 2,
+          "leverage": 0.25,
+          "sign_kick_leakage": 0.7500000000000001,
+          "branch_error": 4.907735287255973e-13
+        }
+      ],
+      "compiled_frame_logical_pulses": 1138,
+      "membership_native_waits": 105,
+      "minimum_current_gram_eigenvalue": 0.09999999999999692,
+      "gram_rank": 12,
+      "symmetric_product_unit_time_errors": {
+        "8": [
+          1.0282354122017616,
+          1.0133128185509983
+        ],
+        "16": [
+          0.3367652436807426,
+          0.3306369618543698
+        ],
+        "32": [
+          0.08956557534524213,
+          0.08782386657548812
+        ]
+      },
+      "zeno": [
+        [
+          {
+            "n": 1,
+            "error": 0.53827865094687,
+            "bright_survival": 0.44444444444443654
+          },
+          {
+            "n": 4,
+            "error": 0.1585958753679251,
+            "bright_survival": 0.7121686766897773
+          },
+          {
+            "n": 16,
+            "error": 0.04195018517541765,
+            "bright_survival": 0.9179361239182525
+          },
+          {
+            "n": 64,
+            "error": 0.010652345895292497,
+            "bright_survival": 0.9788100348773173
+          }
+        ],
+        [
+          {
+            "n": 1,
+            "error": 0.3721046819423587,
+            "bright_survival": 0.4374999999999582
+          },
+          {
+            "n": 4,
+            "error": 0.09833967095718837,
+            "bright_survival": 0.8136818589376245
+          },
+          {
+            "n": 16,
+            "error": 0.025385119919706878,
+            "bright_survival": 0.9498859564033253
+          },
+          {
+            "n": 64,
+            "error": 0.006405090655637532,
+            "bright_survival": 0.9872310332083553
+          }
+        ]
+      ],
+      "expanded_frame_native_waits": 11392,
+      "zero_flux_leading_rank": 1
+    }
+  }
+}
