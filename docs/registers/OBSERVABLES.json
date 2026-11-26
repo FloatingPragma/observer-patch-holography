@@ -3725,7 +3725,9 @@
    ],
    "lean": [
     "model/candidate_laws/interval_echo/openwave/row_10_oscillations/theory/RemoteFlavour.lean",
-    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/theory/source_access/SourceAccess.lean"
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/theory/source_access/SourceAccess.lean",
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/fixed_detector/StationaryDetector.lean",
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/theory/charged_tags/ChargedTags.lean"
    ],
    "model": [
     "model/candidate_laws/interval_echo/openwave/row_10_oscillations/records.json",
@@ -3738,7 +3740,12 @@
     "model/candidate_laws/interval_echo/openwave/row_10_oscillations/portable_decoder/counts.json",
     "model/candidate_laws/interval_echo/openwave/row_10_oscillations/portable_decoder/README.md",
     "model/candidate_laws/interval_echo/openwave/row_10_oscillations/theory/source_access/probabilities.json",
-    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/kernel_check/README.md"
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/kernel_check/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/fixed_detector/counts.json",
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/fixed_detector/measure.py",
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/charged_partner/counts.json",
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/charged_partner/readback.py",
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/theory/charged_tags/counts.json"
    ],
    "papers": [
     "docs/FROZEN_PREDICTION_LADDER.md",
@@ -5494,7 +5501,8 @@
    "lean": [
     "Lean/Screen/ReleasedWingEnergy.lean",
     "model/candidate_laws/interval_echo/openwave/row_09_neutral/charge_profile/ChargeRecords.lean",
-    "code/a5_closure/neutral_observer/NeutralProjectors.lean"
+    "code/a5_closure/neutral_observer/NeutralProjectors.lean",
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/theory/charged_tags/ChargedTags.lean"
    ],
    "model": [
     "model/evaluation/SCORECARD.md",
@@ -5568,7 +5576,8 @@
     "model/candidate_laws/interval_echo/openwave/row_09_neutral/extended_decay/three.json",
     "model/candidate_laws/interval_echo/openwave/row_09_neutral/extended_decay/passive_meter/README.md",
     "model/candidate_laws/interval_echo/openwave/row_09_neutral/extended_decay/passive_meter/records.json",
-    "model/candidate_laws/interval_echo/openwave/row_09_neutral/extended_decay/passive_meter/power_counts.json"
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/extended_decay/passive_meter/power_counts.json",
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/charged_partner/counts.json"
    ],
    "papers": [
     "paper/executable_observer_construction.pdf",
@@ -5586,7 +5595,9 @@
    "premises": [],
    "lean": [
     "model/candidate_laws/interval_echo/openwave/row_10_oscillations/theory/RemoteFlavour.lean",
-    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/theory/source_access/SourceAccess.lean"
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/theory/source_access/SourceAccess.lean",
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/fixed_detector/StationaryDetector.lean",
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/theory/charged_tags/ChargedTags.lean"
    ],
    "model": [
     "model/evaluation/SCORECARD.md",
@@ -5602,7 +5613,12 @@
     "model/candidate_laws/interval_echo/openwave/row_10_oscillations/portable_decoder/counts.json",
     "model/candidate_laws/interval_echo/openwave/row_10_oscillations/portable_decoder/README.md",
     "model/candidate_laws/interval_echo/openwave/row_10_oscillations/theory/source_access/probabilities.json",
-    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/kernel_check/README.md"
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/kernel_check/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/fixed_detector/counts.json",
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/fixed_detector/measure.py",
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/charged_partner/counts.json",
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/charged_partner/readback.py",
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/theory/charged_tags/counts.json"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.pdf"
@@ -5817,7 +5833,8 @@
    "why": "The quadrupole moment reveals the tensor part of the nuclear force, which a model of nuclei has to reproduce.",
    "premises": [],
    "lean": [
-    "model/candidate_laws/interval_echo/openwave/row_16_binding/signed_pair/SignedPair.lean"
+    "model/candidate_laws/interval_echo/openwave/row_16_binding/signed_pair/SignedPair.lean",
+    "model/candidate_laws/interval_echo/openwave/row_17_nuclei/sign_fragments/SignedFragments.lean"
    ],
    "model": [
     "model/evaluation/SCORECARD.md",
@@ -5845,7 +5862,8 @@
     "model/candidate_laws/interval_echo/openwave/row_16_binding/signed_pair/records.json.gz",
     "model/candidate_laws/interval_echo/openwave/row_16_binding/signed_pair/standards.json",
     "model/candidate_laws/interval_echo/openwave/row_16_binding/signed_pair/standards.py",
-    "model/candidate_laws/interval_echo/openwave/row_16_binding/signed_pair/test_signed_pair.py"
+    "model/candidate_laws/interval_echo/openwave/row_16_binding/signed_pair/test_signed_pair.py",
+    "model/candidate_laws/interval_echo/openwave/row_17_nuclei/sign_fragments/collisions.json"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
@@ -5857,17 +5875,30 @@
    "kind": "observable",
    "name": "Nuclear binding, excitation levels and halo nuclei",
    "category": "OpenWave Recovery",
-   "status": "Open",
+   "status": "Partial",
    "what": "Nuclei have measured binding energies, excitation levels and, for halo nuclei, extended neutron clouds with measured lifetimes.",
-   "why": "Nuclear structure tests whether a model's hadrons bind into the many nuclear species with their observed spectra.",
+   "why": "Ten finite material inventories bind and a trimer has eight resolved subthreshold levels, while physical isotope assignments, nuclear spectra and halo lifetimes remain open.",
    "premises": [],
-   "lean": [],
+   "lean": [
+    "model/candidate_laws/interval_echo/openwave/row_17_nuclei/sign_fragments/SignedFragments.lean"
+   ],
    "model": [
     "model/evaluation/SCORECARD.md",
     "model/evaluation/openwave_criteria.json",
-    "model/candidate_laws/interval_echo/SPEC.md"
+    "model/candidate_laws/interval_echo/SPEC.md",
+    "model/candidate_laws/interval_echo/openwave/row_17_nuclei/like_stock/counts.json",
+    "model/candidate_laws/interval_echo/openwave/row_17_nuclei/like_stock/two_counts.json",
+    "model/candidate_laws/interval_echo/openwave/row_17_nuclei/like_stock/levels_counts.json.gz",
+    "model/candidate_laws/interval_echo/openwave/row_17_nuclei/like_stock/measure.py",
+    "model/candidate_laws/interval_echo/openwave/row_17_nuclei/like_stock/two.py",
+    "model/candidate_laws/interval_echo/openwave/row_17_nuclei/like_stock/levels.py",
+    "model/candidate_laws/interval_echo/openwave/row_17_nuclei/sign_fragments/counts.json",
+    "model/candidate_laws/interval_echo/openwave/row_17_nuclei/sign_fragments/collisions.json",
+    "model/candidate_laws/interval_echo/openwave/row_17_nuclei/sign_fragments/collisions.py"
    ],
-   "papers": []
+   "papers": [
+    "paper/deriving_the_particle_zoo_from_observer_consistency.pdf"
+   ]
   },
   {
    "id": "ow-18-mesons",
@@ -8072,12 +8103,16 @@
    "premises": [],
    "lean": [
     "Lean/Screen/ElectroweakBreakingComposition.lean",
-    "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/ClockLines.lean"
+    "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/ClockLines.lean",
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/fixed_detector/StationaryDetector.lean",
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/theory/charged_tags/ChargedTags.lean"
    ],
    "model": [
     "model/experiments/interval_echo_lepton_register/phase_feedback/README.md",
     "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/README.md",
-    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/kernel_check/README.md"
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/kernel_check/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/charged_partner/counts.json",
+    "model/candidate_laws/interval_echo/openwave/row_10_oscillations/fixed_detector/counts.json"
    ],
    "papers": [
     "claims/assumption_dictionary.md",

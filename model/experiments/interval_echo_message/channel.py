@@ -636,6 +636,12 @@ REPLAY_EVALUATIONS = (
         "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
         "model/candidate_laws/interval_echo/EVALUATION.json": "76033f17112c3f7a4f7e8c7934ebb5231a1d8fa177bc4de23397463a7e94d09e",
     },
+    # Finite signed-stock binding, level clocks and charged-daughter observations.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "41eb0a9357d20f43eac4906aadb3166868578ce61e310b9f49b0f332d0110242",
+    },
 )
 
 
