@@ -1,0 +1,246 @@
+{
+ "seed": 181831,
+ "shots": 16777216,
+ "clock_bins": 8192,
+ "energy_period": 512,
+ "clock_steps_per_filter": 256,
+ "physical_ports": [
+  1,
+  0,
+  7,
+  10,
+  20,
+  13,
+  12,
+  22,
+  68,
+  61,
+  65,
+  60,
+  190,
+  180,
+  181,
+  188,
+  121,
+  120,
+  127,
+  130,
+  140,
+  133,
+  132,
+  142,
+  200,
+  193,
+  197,
+  192,
+  80,
+  73,
+  77,
+  72
+ ],
+ "calibration": [
+  31.999999999999986,
+  1.0,
+  7.999999999999998
+ ],
+ "panels": [
+  {
+   "n": 8,
+   "mode": "native",
+   "ground": -0.05000130062920963,
+   "first_gap": 39.916952925351374,
+   "two_separated_lowest_products": 79.83390585070275,
+   "far_pair_conditioned_min": 63.93778308207036,
+   "two_pair_conditioned_min": 79.8020626832,
+   "band": {
+    "1": {
+     "states": 8,
+     "vacuum_relative_range": [
+      39.916952925351374,
+      40.012496425350285
+     ],
+     "single_pair_length_weight_lower": 0.982820539829503
+    },
+    "2": {
+     "states": 7,
+     "vacuum_relative_range": [
+      48.02442902394796,
+      48.04966339858344
+     ],
+     "single_pair_length_weight_lower": 0.9700942530363736
+    }
+   },
+   "input_words": {
+    "host": 0,
+    "one": 8,
+    "two": 24,
+    "four": 60,
+    "separated": 66
+   }
+  },
+  {
+   "n": 8,
+   "mode": "degree_off",
+   "ground": -0.06251145154806181,
+   "first_gap": 30.251424077860893,
+   "two_separated_lowest_products": 60.502848155721786,
+   "far_pair_conditioned_min": 30.538052781786917,
+   "two_pair_conditioned_min": 61.37583981091147,
+   "band": {
+    "1": {
+     "states": 0,
+     "vacuum_relative_range": [],
+     "single_pair_length_weight_lower": null
+    },
+    "2": {
+     "states": 0,
+     "vacuum_relative_range": [],
+     "single_pair_length_weight_lower": null
+    }
+   },
+   "input_words": {
+    "host": 0,
+    "one": 8,
+    "two": 24,
+    "four": 60,
+    "separated": 66
+   }
+  },
+  {
+   "n": 8,
+   "mode": "exchange_off",
+   "ground": 0.0,
+   "first_gap": 40.0,
+   "two_separated_lowest_products": 80.0,
+   "far_pair_conditioned_min": 63.99999999999999,
+   "two_pair_conditioned_min": 80.0,
+   "band": {
+    "1": {
+     "states": 8,
+     "vacuum_relative_range": [
+      40.0,
+      40.0
+     ],
+     "single_pair_length_weight_lower": 1.0
+    },
+    "2": {
+     "states": 7,
+     "vacuum_relative_range": [
+      48.0,
+      48.0
+     ],
+     "single_pair_length_weight_lower": 1.0
+    }
+   },
+   "input_words": {
+    "host": 0,
+    "one": 8,
+    "two": 24,
+    "four": 60,
+    "separated": 66
+   }
+  },
+  {
+   "n": 10,
+   "mode": "native",
+   "ground": -0.06250195138962339,
+   "first_gap": 39.9156016590808,
+   "two_separated_lowest_products": 79.8312033181616,
+   "far_pair_conditioned_min": 63.94458288822029,
+   "two_pair_conditioned_min": 79.76932729664338,
+   "band": {
+    "1": {
+     "states": 10,
+     "vacuum_relative_range": [
+      39.9156016590808,
+      40.01249623040575
+     ],
+     "single_pair_length_weight_lower": 0.9817290216469775
+    },
+    "2": {
+     "states": 9,
+     "vacuum_relative_range": [
+      48.02439741936721,
+      48.049663398568015
+     ],
+     "single_pair_length_weight_lower": 0.9692745084010673
+    }
+   },
+   "input_words": {
+    "host": 0,
+    "one": 16,
+    "two": 48,
+    "four": 120,
+    "separated": 258
+   }
+  },
+  {
+   "n": 10,
+   "mode": "degree_off",
+   "ground": -0.078140269976313,
+   "first_gap": 30.176697922108062,
+   "two_separated_lowest_products": 60.353395844216124,
+   "far_pair_conditioned_min": 30.372403206071425,
+   "two_pair_conditioned_min": 60.98852466574672,
+   "band": {
+    "1": {
+     "states": 0,
+     "vacuum_relative_range": [],
+     "single_pair_length_weight_lower": null
+    },
+    "2": {
+     "states": 0,
+     "vacuum_relative_range": [],
+     "single_pair_length_weight_lower": null
+    }
+   },
+   "input_words": {
+    "host": 0,
+    "one": 16,
+    "two": 48,
+    "four": 120,
+    "separated": 258
+   }
+  },
+  {
+   "n": 10,
+   "mode": "exchange_off",
+   "ground": 0.0,
+   "first_gap": 40.0,
+   "two_separated_lowest_products": 80.0,
+   "far_pair_conditioned_min": 63.99999999999999,
+   "two_pair_conditioned_min": 80.0,
+   "band": {
+    "1": {
+     "states": 10,
+     "vacuum_relative_range": [
+      40.0,
+      40.0
+     ],
+     "single_pair_length_weight_lower": 1.0
+    },
+    "2": {
+     "states": 9,
+     "vacuum_relative_range": [
+      48.0,
+      48.0
+     ],
+     "single_pair_length_weight_lower": 1.0
+    }
+   },
+   "input_words": {
+    "host": 0,
+    "one": 16,
+    "two": 48,
+    "four": 120,
+    "separated": 258
+   }
+  }
+ ],
+ "terminal_order": [
+  "input refusal (unused)",
+  "first temporal refusal",
+  "second temporal refusal",
+  "all orientation words as nonnegative integers, least bit first"
+ ]
+}
