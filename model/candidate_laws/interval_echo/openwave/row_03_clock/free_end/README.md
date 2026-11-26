@@ -22,3 +22,5 @@ python -B -O -W error -m model.candidate_laws.interval_echo.openwave.row_03_cloc
 python -B -m pytest -q model/candidate_laws/interval_echo/openwave/row_03_clock/free_end
 cd Lean && lake env lean -j1 ../model/candidate_laws/interval_echo/openwave/row_03_clock/free_end/FreeEnd.lean
 ```
+
+A second experiment starts with the same one-quantum herald and compares native waiting with idle storage through a supplied coherent switch. The pointer measures all three excitation energies relative to a ground memory while preserving every terminal number flag. Changing the memory to the middle level shifts the lines to −0.71494, −0.00019 and +0.69891. [Observer records and explicit reference controls](ROUTING.md)

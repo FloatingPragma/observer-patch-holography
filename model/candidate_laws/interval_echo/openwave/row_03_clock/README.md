@@ -57,3 +57,5 @@ An exact native-operation check extends the reference question beyond one fixed 
 ## A free-end clock on a collision daughter
 
 A three-dimer receiving wing can resolve all three of its one-quantum energy costs by comparing successive current signs at its free end. The same three frequencies appear on an ordered sham. A sharp one-quantum herald followed by silent waiting gives zero mean terminal current in the native material; inserting the initial current read removes about half the heralded excitations from that sector. This distinguishes local spectroscopy of the material from a freely arriving excitation carrying its own rest clock. [Counts, controls and proof](free_end/README.md)
+
+With a supplied coherent route and a ground-prepared memory, a second observer can measure the three relative energies on already heralded arrivals while preserving the one-quantum flag. Tuning the memory to the middle mode shifts the pointer by that reference energy. [Measurement against idle storage](free_end/ROUTING.md)
