@@ -52,10 +52,23 @@ def check_local():
         actual = u.T @ ((flag == seen)[:,None]*(u @ v))
         np.testing.assert_allclose(actual, v @ (twice_a/2 if seen else np.eye(6)-twice_a/2),
                                    atol=2e-14, rtol=0)
+    # Copy just the coin bit, never the unresolved signed contrast. After
+    # either blank-query branch the two head outcomes on a sharp active input
+    # are equiprobable sharp words, with the even sign superposition intact.
+    coin_one = np.repeat([False]+[c==1 for c,_ in law.LABELS],n)
+    for index in (2,4):
+        for seen in (False,True):
+            after = u.T @ ((flag==seen)*(u @ v[:,index]))/np.sqrt(2)
+            for coin,j in ((0,2),(1,4)):
+                part = (coin_one==coin)*after
+                np.testing.assert_allclose(abs(np.vdot(v[:,j]/np.sqrt(2),part))**2,.25,atol=2e-14,rtol=0)
+                np.testing.assert_allclose(np.vdot(part,part).real,.25,atol=2e-14,rtol=0)
     # Physical endpoint read on a blank private reference with vacant far end.
     nonzero = np.repeat([False]+[d != 0 for _,d in law.LABELS], n)
     ref = eye[:, [law.SRC.index((0,0)), law.SRC.index((1,0))]]
-    np.testing.assert_array_equal(h1 @ ref, 4*ref @ np.diag([0,1]))
+    fuel_rail = ref.T @ h1 @ ref / 4
+    np.testing.assert_array_equal(fuel_rail, np.diag([0,1]))
+    np.testing.assert_array_equal(h1 @ ref, 4*ref @ fuel_rail)
     for seen in (0,1):
         np.testing.assert_allclose(u.T @ ((nonzero==seen)[:,None]*(u @ ref)),
                                    ref @ np.diag([int(seen==0),int(seen==1)]), atol=2e-14, rtol=0)
@@ -90,7 +103,11 @@ def check_local():
             h = (h0+k*h1)/4
             for matched in (False,True):
                 ef = k if matched else 0
-                full = np.block([[h,collar.G*actor],[collar.G*actor.T,h+ef*eye]])
+                free_drift = np.kron(np.eye(2),h)
+                if matched:
+                    free_drift += k*np.kron(fuel_rail,eye)
+                zero = np.zeros_like(h)
+                full = free_drift+collar.G*np.block([[zero,actor],[actor.T,zero]])
                 small = np.array([[ef,collar.G],[collar.G,k]])
                 np.testing.assert_allclose(full @ embedding, embedding @ small, atol=1e-12, rtol=0)
                 state = embedding @ expm((-1j*pi/(4*collar.G))*small)[:,0]

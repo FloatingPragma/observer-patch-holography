@@ -99,7 +99,9 @@ def run():
     angles = np.array([s["angles"] for s in old["pulses"]]) @ masks
     ideal = targets(tree)
     baseline = run_word(tree,angles,old["step"],1)
-    fidelity = lambda state: abs((ideal.conj()*state).sum(axis=0))**2
+    def fidelity(state):
+        outside = state-ideal*(ideal.conj()*state).sum(axis=0)
+        return 1.-np.sum(abs(outside)**2,axis=0)
     # Bound non-target amplitude rather than subtracting two nearly equal
     # probabilities. Common scalar phase is irrelevant at negative strength.
     resid = np.linalg.norm(baseline-ideal*(ideal.conj()*baseline).sum(axis=0),axis=0)
@@ -122,9 +124,12 @@ def run():
             require(np.min(bounds)>.98 and np.all(observed+1e-11>=bounds),
                     "A transferred spatial analyzer failed the registered fidelity")
             later = expm(-.5j*37*k*tree.twice_scaled) @ actual
+            drift = max(np.max(abs(np.sum(abs(actual)**2,axis=0)-1)),
+                        np.max(abs(np.sum(abs(later)**2,axis=0)-1)))
+            require(drift<5e-12, "Phase propagation exceeds its norm allowance")
             row.update(fidelity=observed.round(10).tolist(),maximum_state_error=float(max(error)),
-                       minimum_bound=float(min(bounds)),returns_37=[
-                           float(np.sum(abs(later[np.isin(tree.sites,[p[-1] for p in c["paths"]]),c["analyzer"]])**2))
+                       minimum_bound=float(min(bounds)),maximum_column_norm_squared_drift=float(drift),returns_37=[
+                           float(1.-np.sum(abs(later[~np.isin(tree.sites,[p[-1] for p in c["paths"]]),c["analyzer"]])**2))
                            for c in select])
         rows.append(row)
     return {"schema":"oph.interval_echo.spectrometer_hop_clock.v1","shots_per_appointment":SHOTS,

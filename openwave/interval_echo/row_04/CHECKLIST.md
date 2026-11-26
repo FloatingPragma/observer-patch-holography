@@ -6,6 +6,8 @@ The separately versioned M10.5 packet now nominates the one-load excitation, pre
 
 ## Readiness by experiment
 
+**Independent spectral-material route.** The primary arrow-spectroscopy task fixed the written order and its two analyzer modes before the eleven-contact layout was proposed. A bounded echo/flag preparation gives an unconditional two-port detection floor above 0.999997291223 at every exposure and every coupling on three carriers. The alternate phase and a rate-matched swap law both lose the signal. This is a different candidate for a future owner decision; it assigns no official task, pin or mark. [Candidate and choice ledger](../../../model/candidate_laws/interval_echo/openwave/row_04_spectral/CANDIDATE.md) · [Full-source result and replay](../../../model/candidate_laws/interval_echo/openwave/row_04_spectral/README.md)
+
 For the proposed one-load state, the exact estimates cover every eligible home, port order and exposure. Coherent home probability is at least 0.999940596796, the dephased upper bound is 0.916447948118 and the random-swap upper bound is 0.559218518009. All three physical comparisons therefore follow before a task is selected. The registered numerical check compares two implementations on the 56 bins of the first official draw. M10's owner nominates the changed state and detector, and OpenWave adjudicates the candidate and the row. [Proofs and acquisition instructions](../../../model/candidate_laws/interval_echo/openwave/row_04_compact/README.md#dependence-on-the-source-order-and-the-flight-law)
 
 | Experiment | Replayed result | Filing decision |

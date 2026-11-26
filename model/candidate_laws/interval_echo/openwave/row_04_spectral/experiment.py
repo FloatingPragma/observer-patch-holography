@@ -9,6 +9,7 @@ import numpy as np
 from scipy.linalg import eigh
 
 from model.executable_model import federation
+from model.executable_model.carrier import HERE as CARRIER_DIR
 from tools.strict_json import load
 from .graph import DONOR_HASHES, History, donor_selection, donor_waits
 from .local import check_local, fuel_probability, require
@@ -20,6 +21,11 @@ ARCHIVE = HERE/"results.json"
 STRENGTHS = (0, .5, -.5, 8, -8)
 TIMES = (0, 1, 7, 37, 150)
 CAP = 96
+BOARD_SHA = (
+    "99870398e3d516f899c600e9bf25ba53c7f513142ba8facbe1cedd94b23f915b",
+    "c7d4ad87b09d9158a3d9be60c537d1aaecc69e951e6a9979e505e0162e134d4b",
+    "e7273bbd0e814abf49f3a333ecfe58a542262aee7d2399db677d15c19fcac673",
+)
 
 
 def terminal(tree, choices):
@@ -103,6 +109,8 @@ def run():
     boards = []
     selection = None
     for level in (0,1,2):
+        fixture = CARRIER_DIR/"carriers"/f"FEDERATION_LEVEL{level}.npz"
+        require(sha256(fixture.read_bytes()).hexdigest()==BOARD_SHA[level], "Different spherical carrier")
         board = federation(level)
         tri = triangles(board)
         heads,events = install(board,tri[0])

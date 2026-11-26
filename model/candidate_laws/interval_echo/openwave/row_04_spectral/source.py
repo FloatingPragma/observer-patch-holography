@@ -1,8 +1,9 @@
 """Install the historical arrow order and acquire a signed spatial difference."""
 
-from collections import Counter
+from decimal import Decimal as D, localcontext
 from fractions import Fraction as Q
-from math import expm1, log, log1p
+from functools import lru_cache
+from math import isfinite
 
 from .local import require
 
@@ -89,34 +90,59 @@ def attempt(sign):
     return prob,fail_at,first_wrong
 
 
-def branch_law(edges, depth, n, sign, p):
-    """All failure categories on the original trial, including the final exhausted attempt."""
-    if type(n) is not int or n<1 or not 0<=p<=1 or not 1 <= depth:
+def power_sum(x, n):
+    """x**n and 1+...+x**(n-1), without subtracting nearly equal numbers."""
+    if n==0:
+        return D(1),D(0)
+    y,g = power_sum(x,n//2)
+    y,g = y*y,g*(1+y)
+    return (x*y,g+y) if n%2 else (y,g)
+
+
+@lru_cache(maxsize=512)
+def decimal_branches(edges, depth, n, sign, p):
+    """Keep tiny but nonzero acceptances even on a 10,080-seam first attempt."""
+    if (type(n) is not int or n<1 or type(edges) is not int or edges<3 or
+            type(depth) is not int or depth<0 or not isfinite(p) or not 0<=p<=1):
         raise ValueError("Invalid finite source")
-    # With 0 < p <= 1 the failure after n fuel trials is (1-p)^n.
-    wf = (1-p)**n
-    hf = 2.0**(-n)
-    s,fail_at,_ = attempt(sign)
-    leaf = float(sum(fail_at[1:]))
-    retry = 1-float(s)-leaf*hf
-    def geom(k):
-        return -expm1(k*log(retry))/(1-retry) if k else 0.
-    left = 1.
-    failure = {}
-    def spend(key, q):
-        nonlocal left
-        failure[key] = left*q
-        left *= 1-q
-    # Before the commissioning hop only the final opposite edge remains blank.
-    spend("writer_before_return", -expm1((edges-1)*log1p(-wf)) if wf<1 else 1.)
-    spend("commissioning_hop", hf)
-    spend("last_write", wf)
-    spend("route_to_parent",-expm1(depth*log1p(-hf)))
-    failure["failed_reset"] = left*leaf*hf*geom(n-1)
-    failure["no_accepted_word"] = left*(1-float(s))*retry**(n-1)
-    accepted = left*float(s)*geom(n)
-    require(abs(accepted+sum(failure.values())-1)<5e-15, "Source lost a complementary outcome")
-    return accepted,failure
+    with localcontext() as ctx:
+        ctx.prec = 72
+        one = D(1)
+        w = D(str(p))
+        wf,opportunities = power_sum(one-w,n)
+        ws = w*opportunities
+        hf = D(2)**(-n)
+        hs = one-hf
+        s,fail_at,_ = attempt(sign)
+        s = D(s.numerator)/D(s.denominator)
+        leaf_q = sum(fail_at[1:])
+        leaf = D(leaf_q.numerator)/D(leaf_q.denominator)
+        retry = one-s-leaf*hf
+        left = one
+        failure = {}
+        def spend(key, keep, lost):
+            nonlocal left
+            failure[key] = left*lost
+            left *= keep
+        keep,trials = power_sum(ws,edges-1)
+        spend("writer_before_return", keep, wf*trials)
+        spend("commissioning_hop", hs, hf)
+        spend("last_write", ws, wf)
+        keep,trials = power_sum(hs,depth)
+        spend("route_to_parent",keep,hf*trials)
+        last,trials = power_sum(retry,n-1)
+        failure["failed_reset"] = left*leaf*hf*trials
+        failure["no_accepted_word"] = left*(one-s)*last
+        accept = left*s*(trials+last)
+        require(abs(accept+sum(failure.values())-one)<D("1e-60"), "Source lost a complementary outcome")
+        return accept,failure
+
+
+def branch_law(edges, depth, n, sign, p):
+    accept,fail = decimal_branches(edges,depth,n,sign,p)
+    # Terminal probability tables use binary64. The finite-cap ledger uses
+    # decimal_branches directly; cap-one acceptance can be below binary64.
+    return float(accept),{key:float(mass) for key,mass in fail.items()}
 
 
 def exact_floor(edges,depth,n):
