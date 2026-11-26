@@ -2,7 +2,7 @@
 
 A two-dimer source starts in its highest measured level. During sixteen clock units all contacts of the 20-cell Interval Echo federation act continuously. The two source dimers then read one specific lower level while a disjoint two-dimer receiver reads its first excitation on **1,236,356 of 4,194,304 simulated starts (29.477%)**. The same joint event has zero counts with the parent in its ground or with its coupling to the receiver removed. On independent copies the distal dimer alone changes its local reading, from 10.648% on the cold sham to 22.244% with the parent. [Frozen experiment](PROTOCOL.md) · [Full joint records](records.json)
 
-| Reading in native exchange units | Measured by two phase quadratures |
+| Component excitation | Simulated two-quadrature clock gap (native exchange units) |
 | --- | ---: |
 | Parent formation above the cold source | 33.606036 |
 | Surviving source level above the same vacuum | 32.671934 |

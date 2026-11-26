@@ -4,7 +4,7 @@ Two identical unit loads cross a Y junction by different routes and reach the sa
 
 The held charged-core transfer uses two **actual vacancies** on a passive four-port ring. At native time 64, odd-source launches give zero hits on the opposite vacancy pattern and the even-source hits exceed 7.30 million per bank of 16,777,216 unfiltered starts. A single vacancy winding through any three-host input has dark probability at most 3/4. A host-only permutation accounts for the full two-vacancy phase. [Charged-vacancy transfer](VACANCIES.md)
 
-| Observer comparison | Even material, dark probability | Odd material, dark probability |
+| Native operation on the junction | Dark-port probability on even material | Dark-port probability on odd material |
 | --- | ---: | ---: |
 | Two three-hop routes to the same two destinations | 0 | 1 |
 | Closed exchange versus retracing the route | 0 | 1 |

@@ -2,6 +2,8 @@
 
 Two identical vacancies hop on an eight-port circuit while private-reference exposures move two wells. At the slowest enrolled rate on the native guide, **4,156,124 of 4,194,304** plus-arm starts end with both vacancies at the two intended destinations. The two arms exchange the destination assignments. Interference gives **27,793 dark outcomes in 4,194,304 unfiltered starts**, consistent with the ordinary positive sign. The negative-statistics comparison gives **4,184,719 dark outcomes** with the same pulse calendar and energy costs. [Frozen protocol](PROTOCOL.md) · [All address and interferometer records](results.json.gz)
 
+A second native material lets the same two sharp vacancies exchange through the same sequence of positions in two ways. Slow transport in an excited band gives a negative phase. Direct contact swaps on the fixed material give a positive phase. [Two-vacancy experiment and controls](host_parity/excited_motion/README.md)
+
 | Guide law | Pair probability at destination | Pair dark probability | Single-winding dark probability |
 | --- | ---: | ---: | ---: |
 | Native | 0.990850 | 0.006572 | 0.009528 |
