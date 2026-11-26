@@ -50,3 +50,5 @@ python -B -m model.candidate_laws.interval_echo.openwave.row_14_profile.readout
 python -B -m model.candidate_laws.interval_echo.openwave.row_14_profile.compact
 python -B -m pytest -q model/candidate_laws/interval_echo/openwave/row_14_profile
 ```
+
+A common impulse and signed probe centred on the unsigned defect centroid compare the same two clock-selected stocks. The native neutral stock responds more strongly to a local kick even though its formation cost is higher. Including the balancing vacancy in a uniform impulse reverses the mechanical ordering at fixed total inventory. [Local recoil, storage and intrinsic charge radius](recoil_radius/README.md)
