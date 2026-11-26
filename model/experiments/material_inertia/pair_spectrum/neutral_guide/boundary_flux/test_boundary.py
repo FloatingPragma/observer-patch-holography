@@ -2,6 +2,7 @@ import json
 from pathlib import Path
 
 import numpy as np
+import pytest
 
 from model.candidate_laws.contrast_memory_spherical_v1 import law
 from model.executable_model.carrier import federation
@@ -58,7 +59,17 @@ def test_direct_native_work_on_all_cuts_and_reference_routes():
 def test_counts_and_field_identification():
     data = receipt()
     computed = intervals(data['boundary_work'], data['mobile_probe'])
-    assert computed == data['count_only_readback']
+    expected = data['count_only_readback'].copy()
+    # libm phase reductions and inverse beta quantiles differ in their last bits.
+    # Preserve exact equality for the counts, selected appointment and coverage.
+    tolerance = dict(rel=2e-14, abs=0)
+    for name in ('maximum_abs_charged_outer_ratio', 'maximum_abs_written_extreme_outer_ratio',
+                 'simultaneous_upper_on_abs_charged_outer_ratio'):
+        expected[name] = pytest.approx(expected[name], **tolerance)
+    bands = 'simultaneous_selected_endpoint_intervals'
+    expected[bands] = {source: pytest.approx(bounds, **tolerance)
+                       for source, bounds in expected[bands].items()}
+    assert computed == expected
     assert computed['simultaneous_upper_on_abs_charged_outer_ratio'] < .1
     a = computed['simultaneous_selected_endpoint_intervals']
     assert a['write02'][1] < a['write11'][0]
