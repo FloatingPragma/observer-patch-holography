@@ -33,3 +33,16 @@ def test_orientation_filter_every_matrix_unit():
                 tuple(Fraction(int(i == j and a == b), 3) for j in range(3))
                 for i in range(3)
             )
+
+
+def test_all_six_station_enrollments_and_both_source_arms():
+    from . import enrollment
+
+    result = enrollment.report()
+    assert result == json.loads((m.HERE / "enrollment.json").read_text())
+    assert result["pairs_per_comparison"] == 105
+    assert result["permutations_per_metric_pair"] == 24
+    gauge_free = result["lower_bounds"]["arbitrary_clock_gains"]
+    assert gauge_free["any_pair"]["lower_billionths"] >= 949460
+    for row in result["transferred_to_two_counted_endpoints"]:
+        assert row["reference_vs_any"]["lower_billionths"] > 136000000
