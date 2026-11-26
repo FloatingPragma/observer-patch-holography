@@ -79,6 +79,8 @@ def test_floor_replay_and_held_geometry():
         else:
             assert abs(old["area_slope_over_ell4"]) > 8
             assert abs(old["swapped_balance_over_ell4"]) > 17
+            ratio = old["homogeneous_line_area_slope_over_ell4"]/old["area_slope_over_ell4"]
+            assert -.668 < ratio < -.666
 
 
 def test_entropy_derivative_for_a_global_uneven_microstate_tangent():

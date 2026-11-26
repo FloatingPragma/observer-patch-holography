@@ -176,6 +176,10 @@ def measure():
                     assert dp == dm
                 logratio = (Decimal(dp)/dm).ln()
                 da = areas[0]-areas[1]
+                rp, rm = (Decimal(row[k]["radius"]) for k in ("plus", "minus"))
+                # A fixed homogeneous line flux on convex projected balls scales
+                # as r^2. Give it a separate correct flat calibration per frame.
+                crofton_area_change = 4*PI*(rp-rm)*(rp+rm)
                 norm = denominator**4
                 floor_margins = []
                 for area in areas:
@@ -186,6 +190,7 @@ def measure():
                            min_word_floor_margin=float(min(floor_margins)),
                            biased_reference_residual_nats=float(da-logratio-Decimal(2).ln()),
                            area_slope_over_ell4=float(da*norm),
+                           homogeneous_line_area_slope_over_ell4=float(crofton_area_change*norm),
                            entropy_slope_over_ell4=float(-logratio*norm),
                            balance_over_ell4=float((da-logratio)*norm),
                            swapped_balance_over_ell4=float((da+logratio)*norm),
@@ -198,6 +203,18 @@ def measure():
         return {"inverse_scales": list(SCALES), "frames": FRAMES, "gain": 1, "rows": rows}
 
 
+def verify_saved(output):
+    """Replay archived counts, the geometry-blind control and shared memberships."""
+    archived = json.loads((HERE / "results.json").read_text())
+    assert archived["frames"] == output["frames"] and archived["inverse_scales"] == output["inverse_scales"]
+    assert memberships(archived["rows"]) == [r["whole_bond_indices"] for r in archived["rows"]]
+    for old, new in zip(archived["rows"], output["rows"], strict=True):
+        for field in ("shape", "inverse_ell", "plus_d", "minus_d", "legal_pairs"):
+            assert old[field] == new[field]
+        for field in ("area_slope_over_ell4", "balance_over_ell4", "homogeneous_line_area_slope_over_ell4"):
+            assert abs(old[field]-new[field]) < 1e-9
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--write", action="store_true")
@@ -206,10 +223,5 @@ if __name__ == "__main__":
     if args.write:
         (HERE / "results.json").write_text(json.dumps(output, indent=2, allow_nan=False)+"\n")
     else:
-        archived = json.loads((HERE / "results.json").read_text())
-        assert memberships(archived["rows"]) == [r["whole_bond_indices"] for r in archived["rows"]]
-        for old, new in zip(archived["rows"], output["rows"], strict=True):
-            for field in ("shape", "inverse_ell", "plus_d", "minus_d", "legal_pairs"):
-                assert old[field] == new[field]
-            assert abs(old["balance_over_ell4"]-new["balance_over_ell4"]) < 1e-9
+        verify_saved(output)
         print("Verified 30 frame/radius surveys and their shared compatible-word branches.")
