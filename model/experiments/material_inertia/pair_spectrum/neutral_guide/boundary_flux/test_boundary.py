@@ -2,7 +2,6 @@ import json
 from pathlib import Path
 
 import numpy as np
-import pytest
 
 from model.candidate_laws.contrast_memory_spherical_v1 import law
 from model.executable_model.carrier import federation
@@ -59,17 +58,7 @@ def test_direct_native_work_on_all_cuts_and_reference_routes():
 def test_counts_and_field_identification():
     data = receipt()
     computed = intervals(data['boundary_work'], data['mobile_probe'])
-    expected = data['count_only_readback'].copy()
-    # libm phase reductions and inverse beta quantiles differ in their last bits.
-    # Preserve exact equality for the counts, selected appointment and coverage.
-    tolerance = dict(rel=2e-14, abs=0)
-    for name in ('maximum_abs_charged_outer_ratio', 'maximum_abs_written_extreme_outer_ratio',
-                 'simultaneous_upper_on_abs_charged_outer_ratio'):
-        expected[name] = pytest.approx(expected[name], **tolerance)
-    bands = 'simultaneous_selected_endpoint_intervals'
-    expected[bands] = {source: pytest.approx(bounds, **tolerance)
-                       for source, bounds in expected[bands].items()}
-    assert computed == expected
+    assert computed == data['count_only_readback']
     assert computed['simultaneous_upper_on_abs_charged_outer_ratio'] < .1
     a = computed['simultaneous_selected_endpoint_intervals']
     assert a['write02'][1] < a['write11'][0]
@@ -79,3 +68,30 @@ def test_counts_and_field_identification():
     for diag in data['mobile_probe']['diagnostics']:
         assert max(diag[key] for key in ('exact_barrier_twin_max_port_error', 'cut_max_port_error',
                                          'reversal_max_port_error')) < 5e-11
+
+
+def test_outward_binomial_grid_against_exact_rational_tails():
+    from fractions import Fraction
+    from math import comb
+    from mpmath.ctx_iv import MPIntervalContext
+    from .readback import GRID, endpoint_interval
+
+    iv = MPIntervalContext()
+    iv.dps = 50
+    target = Fraction(1, 19200)
+    n = 12
+
+    def cdf(k, p):
+        return sum(comb(n, j) * p**j * (1-p)**(n-j) for j in range(k + 1))
+
+    for k in (0, 1, 6, 11, n):
+        lo, hi = map(Fraction, endpoint_interval(iv, k, n, 1 / iv.mpf(19200)))
+        step = Fraction(1, GRID)
+        if k:
+            assert cdf(k-1, lo) >= 1-target > cdf(k-1, lo + step)
+        else:
+            assert lo == 0
+        if k < n:
+            assert cdf(k, hi) <= target < cdf(k, hi-step)
+        else:
+            assert hi == 1
