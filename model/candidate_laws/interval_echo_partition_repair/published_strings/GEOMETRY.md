@@ -62,7 +62,23 @@ The radial stress weight on the real slice is $W=\int_{B(r)}(r^2-s^2)/(2r)\,dV=\
 \]
 Thus an independently registered uniform sheet stress has weighted action readout $2\pi T_{uu}W$ with a controlled sixth-order geometric bias. Identifying this readout with the entropy of particular finite words requires their own state and dynamics; that identity is not assumed in this geometry calculation. [Checks of the derivatives, volume stops, action and second weighted integration](test_geometry.py)
 
+## A finite survey using neighboring rods
+
+The same held comparison can be read without calling the smooth area or volume integral. Along a transverse ray of total proper length $s$, place $N=\lceil 1/\ell\rceil$ adjacent radial rods of length $h=s/N$. Start the signed transverse separation at $J_0=0$, $J_1=h$. The material angle rule gives $J_{m+1}=2J_m-J_{m-1}-Kh^2J_m$. Two neighboring longitudinal differences and the locally enrolled angular defect determine the next pointer. This is an additional finite transport rule for the published sheets. Its geometry input is the density-dependent defect strength; supplying a continuum ball area to the procedure would make the test redundant.
+
+For $z=Ks^2$ the unrounded final ratio is the polynomial
+\[
+ {J_N\over s}=\sum_{k=0}^{N-1}{(-z)^k\over(2k+1)!}
+         \prod_{j=1}^k(1-j^2/N^2).
+\]
+Indeed the coefficient before division by $N$ in $J_N/h$ is $\binom{N+k}{2k+1}$ for powers of $-Kh^2$, by the recurrence and Pascal's rule. The alternating terms decrease for $0\le z\le1/2$. Thus $|J_N/s-1+(1-N^{-2})z/6|\le z^2/120$. The reader rounds each recurrence increment in units of $N^{-8}$ of the total radial length. An additive error at one step has at most $m$ times its amplitude after $m$ steps, since the recurrence impulse response is $\sin(m\theta)/\sin\theta$ with $2\cos\theta=2-z/N^2$. The bound follows by summing $m$ unit complex phases and includes $z=0$ by continuity. Accumulated rod error is at most $N^{-6}$. The axis-square-root pointer rounds down by less than $N^{-8}$. The smooth density stays above $\sqrt{5/6}$, so that square root is uniformly Lipschitz on the perturbed readings. For rational density registers the alternating Machin formula for $2\pi$ supplies a finite angle calibration with error below $\ell^4/16$.
+
+Take the six positive and negative principal rays of the transverse projection with equal positive weights. This cubature integrates every quadratic on the unit sphere exactly. Along their three axes the finite angular densities are, respectively, the rod ratio for $z=Kb^2r^2$, the square root of $1+b^2[(J_N/s)^2-1]$ at $z=Kr^2$, and one. Their mean is $1-(1-N^{-2})Hr^2/9+O(H^2r^4+N^{-6})$. Seven rational radial nodes with positive weights integrate each power through degree seven exactly. Relative to the true integral at any $r\le2\ell$, the difference in mean angular density is $O(Hr^2/N^2+H^2r^4+N^{-6})$. Consequently the volume has absolute error $O(\ell^7)$ uniformly over the enrolled bounded $K,b^2$. Stop against the rational target $\ell^3/3$ with the common solid-angle factor removed. Bisection localizes the final radius to a bin at most $\ell^5$ wide. The true volume derivative on $[\ell/2,2\ell]$ is bounded below by a constant times $\ell^2$. Every erroneous side decision is therefore within $O(\ell^5)$ of the true matched radius, which bounds the final radius error even with rounded readings. At that stop the inferred area differs from the ideal proper area by $O(\ell^6)$ and the weighted volume by $O(\ell^8)$. These bounds apply through refinement with growing finite pointer precision.
+
+On the archived $8/33$ coincidence increase the $xy$ area contrast per $\ell^4$ is $-11.536904$, $-11.486730$ and $-11.484776$ at $\ell=1/32,1/128,1/512$ respectively. The frozen stress forecast is $-11.484631$. All ten calibrated directions can be tested on the same radii. In reporting physical area the output multiplies the rational area register by the common solid-angle unit $4\pi$. [Finite rod and stopping registers](finite_rods.py) · [Polynomial, rounding and all-frame comparisons](test_finite_rods.py)
+
 ~~~sh
 python -m model.candidate_laws.interval_echo_partition_repair.published_strings.geometry
 python -m pytest -q model/candidate_laws/interval_echo_partition_repair/published_strings/test_geometry.py
+python -m pytest -q model/candidate_laws/interval_echo_partition_repair/published_strings/test_finite_rods.py
 ~~~
