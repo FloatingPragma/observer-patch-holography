@@ -11,7 +11,7 @@ T = 24
 HOLDS = (np.pi, np.pi - 0.4)
 
 
-def gates(exchange, contrast):
+def gates(exchange, contrast, *, holds=HOLDS):
     law = candidate.native_law
     a, b = law.local_term_parts()
     h = exchange * a + contrast * b
@@ -19,7 +19,7 @@ def gates(exchange, contrast):
     np.testing.assert_allclose(h[:, law.SRC.index((0, 0))], 0.0, atol=4e-13)
     reduced = basis.T @ h @ basis
     np.testing.assert_allclose(h @ basis, basis @ reduced, atol=4e-13)
-    return [expm(-1j * t * reduced) for t in HOLDS]
+    return [expm(-1j * t * reduced) for t in holds]
 
 
 def step(psi, layers):
@@ -56,8 +56,8 @@ def spin(layers, k, sign, rail, common):
     return vec * np.exp(-1j * np.angle(vec[rail]))
 
 
-def arms(n, kid, layers, exchange, contrast, plane=False):
-    common = -np.exp(-1j * (4 * contrast + exchange / 2) * sum(HOLDS))
+def arms(n, kid, layers, exchange, contrast, plane=False, *, holds=HOLDS):
+    common = -np.exp(-1j * (4 * contrast + exchange / 2) * sum(holds))
     rail = int(kid < 0)
     out = []
     offsets = [0] if plane else np.arange(-2, 3)
@@ -119,7 +119,7 @@ def go(a, n, layers):
     return a
 
 
-def radar(n, x0, x1, layers, shots, rng):
+def radar(n, x0, x1, layers, shots, rng, *, turn=T):
     dist = abs(x1 - x0)
     outgoing = int(x1 < x0)
     if 2 * dist >= n:
@@ -142,9 +142,9 @@ def radar(n, x0, x1, layers, shots, rng):
         ).tolist()
 
     return dict(
-        emission=T - dist,
-        turn=T,
-        receipt=T + dist,
+        emission=turn - dist,
+        turn=turn,
+        receipt=turn + dist,
         sites=[x0, x1],
         forward_then_return=joint(q),
         parked_turn=joint(parked),

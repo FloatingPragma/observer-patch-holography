@@ -36,6 +36,13 @@ def phase_read(rows, stations, rail, total):
     k = rows[
         np.arange(len(stations)), :, np.asarray(stations) % rows.shape[2], rail
     ].astype(float)
+    return phase_bins(k, total)
+
+
+def phase_bins(counts, total):
+    k = np.asarray(counts, dtype=float)
+    if np.any((k < 0) | (k > total)):
+        raise ValueError("Invalid terminal-bin total")
     sig = ((k[:, 0] - k[:, 2]) + 1j * (k[:, 3] - k[:, 1])) / total
     errors = uncertainty(k, total)
     radius = np.hypot(errors[:, 0] + errors[:, 2], errors[:, 1] + errors[:, 3])
