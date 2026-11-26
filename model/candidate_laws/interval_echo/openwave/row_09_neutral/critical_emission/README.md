@@ -35,7 +35,7 @@ Every allowed dimer on both the source-free host and the accepted flight contain
 
 On separate copies of the same decaying source, the parent-ground read is followed by a material normal-mode read that admits the lowest one-particle daughter and restores it before release. It is the only one-particle mode beneath the prespecified cutoff at both lengths. Its next neighbor lies at 0.20005 and 0.10185, respectively. Joint admission is 0.48695% and 0.29928% of original starts. Direct adjacent native holds implement the complete detector and its inverse. The host reference is the same coupled-guide vacuum. Disable the gates and guards and compare the ordinary generator energies of the two released stocks. Each variable contact has 2⁴² simulated original starts per arm, with every refusal counted. The unrestricted mount opens every contact of the 320-owner sphere; the path-only mount opens all path seams continuously. [Calorimeter and graph](release.py) · [Physical mode analyzer](mode_reader.py) · [Full histograms and both ground certificates](release.json)
 
-| Release comparison | 23 dimers | 45 dimers |
+| Energy or spectral weight on the released guide | 23 dimers | 45 dimers |
 | --- | ---: | ---: |
 | Static path energy, daughter minus same released host | −18.9520 ± 0.00194 | −19.4817 ± 0.00350 |
 | Full sphere energy, daughter minus same released host | −8.7098 ± 0.00245 | −12.9398 ± 0.00405 |

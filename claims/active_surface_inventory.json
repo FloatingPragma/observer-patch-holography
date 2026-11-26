@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 1319,
+  "surface_count": 1355,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -1331,6 +1331,21 @@
       "allowlisted": false
     },
     {
+      "path": "model/candidate_laws/interval_echo/openwave/row_01_charge/released_half_walls/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_01_charge/released_half_walls/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_01_charge/released_half_walls/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/candidate_laws/interval_echo/openwave/row_02_dressed/PROTOCOL.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -1677,6 +1692,21 @@
     },
     {
       "path": "model/candidate_laws/interval_echo/openwave/row_09_neutral/charge_profile/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_09_neutral/critical_emission/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_09_neutral/critical_emission/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_09_neutral/critical_emission/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -2032,6 +2062,41 @@
     },
     {
       "path": "model/candidate_laws/interval_echo/openwave/row_22_confinement/endpoint_work/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_22_confinement/mobile_string/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_22_confinement/mobile_string/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_22_confinement/mobile_string/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_22_confinement/mobile_string/RULER_PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_22_confinement/mobile_string/pair_spectroscopy/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_22_confinement/mobile_string/pair_spectroscopy/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_22_confinement/mobile_string/pair_spectroscopy/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -3411,6 +3476,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/experiments/interval_echo_consensus/record_lowering/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_consensus/record_lowering/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/experiments/interval_echo_consensus/refined_projection/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -3507,6 +3582,46 @@
     },
     {
       "path": "model/experiments/interval_echo_consensus/routed_counts/phase_cost/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_consensus/screen_count/CHECKPOINT.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_consensus/screen_count/CONTINUATIONS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_consensus/screen_count/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_consensus/screen_count/READBACK.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_consensus/screen_count/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_consensus/screen_count/SELECTOR.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_consensus/screen_count/free_inventory/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_consensus/screen_count/free_inventory/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -3646,12 +3761,77 @@
       "allowlisted": false
     },
     {
+      "path": "model/experiments/interval_echo_consensus/transaction_component/confluence/noisy_blocks/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_consensus/transaction_component/confluence/noisy_blocks/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_consensus/transaction_component/confluence/noisy_blocks/autonomous_order/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_consensus/transaction_component/confluence/noisy_blocks/autonomous_order/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_consensus/transaction_component/confluence/noisy_blocks/autonomous_order/SCANNER_PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/experiments/interval_echo_consensus/versioned_dispatch/PROTOCOL.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
     {
       "path": "model/experiments/interval_echo_consensus/versioned_dispatch/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_consensus/versioned_dispatch/cone_order/FIVE_ROOT_PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_consensus/versioned_dispatch/cone_order/MATCHED_PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_consensus/versioned_dispatch/cone_order/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_consensus/versioned_dispatch/cone_order/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_consensus/versioned_dispatch/cone_order/parity_log/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_consensus/versioned_dispatch/cone_order/parity_log/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_consensus/versioned_dispatch/cone_order/parity_log/seven_roots/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_consensus/versioned_dispatch/cone_order/parity_log/seven_roots/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },

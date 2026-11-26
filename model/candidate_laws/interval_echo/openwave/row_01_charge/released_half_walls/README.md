@@ -13,7 +13,7 @@ The event requires exactly two same-sign phase slips on the entire ring, one in 
 
 To identify the charge carried per displacement, a second preparation places both walls apart. Two neighbouring words differ by one native load exchange. A moving wall advances two bond spacings while the other stays fixed. A separate single-load preparation on those contacts advances just one site spacing. A linear site potential couples to the actual ternary load through two independently calibrated contact references. The observed relative phase divided by the measured displacement gives the following ranges over two held placements and four geometries. The calibration used sharp loads zero, one and two alone. [Calibration and gradient interferometers](readers.py)
 
-| Moving interface | Measured gradient response per bond spacing |
+| Moving interface | Gradient response per bond spacing in ordinary load units |
 |---|---:|
 | Equal occupied neighbours on the 0/1 host | +0.49980 to +0.50039 |
 | Equal vacant neighbours on the 0/1 host | −0.50037 to −0.49975 |
