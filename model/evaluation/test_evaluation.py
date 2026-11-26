@@ -187,18 +187,23 @@ def test_openwave_rows_distinguish_free_stability_from_electron_identity_and_dri
     result = ev.evaluate('interval_echo')
     scorecard = ev.report.scorecard([result])
     ledger = ev.report.evidence_ledger([result])
-    for key in ('OW-04', 'OW-30'):
+    for key in ('OW-04', 'OW-19', 'OW-30'):
         row = ev.criterion(result, key)
         measurement = row['demonstrated_measurement']
         assert measurement['source'] in row['evidence']
         link = f"[{measurement['label']}]({ev.report.local_link(measurement['source'])})"
         grade = f"**Demonstrated** · {link}"
-        if key == 'OW-30':
-            assert row['status'] == 'partial'
-            assert 'unread connector memories' in measurement['label']
-            assert any(path.endswith('row_30_cautions/README.md') for path in row['evidence'])
-            grade += '. Full criterion · Partial'
-            assert measurement['source'].endswith('row_30_collective/README.md')
+        if key in ('OW-19', 'OW-30'):
+            if key == 'OW-30':
+                assert row['status'] == 'partial'
+                assert measurement['source'].endswith('row_30_collective/sharp_growth/README.md')
+                assert any(path.endswith('row_30_cautions/README.md') for path in row['evidence'])
+                assert any(path.endswith('polar_recoil/counts.json') for path in row['evidence'])
+                grade += '. Full criterion · Partial'
+            else:
+                assert row['status'] == 'demonstrated'
+                assert measurement['source'].endswith('neutral_guide/polar_ring/README.md')
+                assert any(path.endswith('polar_ring/Charge.lean') for path in row['evidence'])
             filing = row['filing']
             assert filing['decision'] in row['sources'] and filing['review'] in row['evidence']
             grade += (f". OpenWave · [🚧 Not yet tested]({filing['decision']})"
