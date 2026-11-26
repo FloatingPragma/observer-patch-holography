@@ -11,6 +11,7 @@ from .certificate import local_certificate
 from .code_frame import N, evaluate, membership, unitary_word
 from .code_readout import instruments, read
 from .measure import HERE, decode, unpack
+from .exact_bands import certify
 
 
 def test_all_ternary_writes_return_guard_with_linear_relative_phase():
@@ -56,3 +57,9 @@ def test_all_held_code_frequencies_and_controls():
     raw[0][-1][-1] += 1
     with pytest.raises(ValueError):
         read(raw, ideal, fine)
+
+
+def test_exact_spectral_projectors_and_current_rank():
+    result = certify()
+    assert result["compressed_current_gram_determinant_mod_prime"] == 1
+    assert [row["leading_rank"] for row in result["exact_leading_bands"]] == [3, 2]

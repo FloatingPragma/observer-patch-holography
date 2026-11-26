@@ -6,6 +6,7 @@ import numpy as np
 
 from .apparatus import K, LAW
 from .code_frame import report
+from .exact_bands import certify
 
 
 def delivery(c, d):
@@ -48,4 +49,9 @@ def local_certificate():
 
 
 if __name__ == "__main__":
-    print(json.dumps(dict(echo=local_certificate(), code=report()), indent=2))
+    print(
+        json.dumps(
+            dict(echo=local_certificate(), code=report(), exact_currents=certify()),
+            indent=2,
+        )
+    )

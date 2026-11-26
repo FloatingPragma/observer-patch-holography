@@ -134,6 +134,26 @@
       ],
       "expanded_frame_native_waits": 11392,
       "zero_flux_leading_rank": 1
+    },
+    "exact_currents": {
+      "exact_leading_bands": [
+        {
+          "flux": 2,
+          "leading_rank": 3,
+          "charge": 2,
+          "denominator_mod_prime": 14
+        },
+        {
+          "flux": 7,
+          "leading_rank": 2,
+          "charge": -3,
+          "denominator_mod_prime": 13
+        }
+      ],
+      "prime": 41,
+      "primitive_root_image": 2,
+      "compressed_current_gram_determinant_mod_prime": 1,
+      "tracefree_current_dimension": 12
     }
   }
 }
