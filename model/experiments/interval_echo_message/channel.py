@@ -493,6 +493,12 @@ REPLAY_EVALUATIONS = (
         "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
         "model/candidate_laws/interval_echo/EVALUATION.json": "925c46aec84afd76bc5cac44b87a6058e2eafb9e7428784221bfdcca097a4d6f",
     },
+    # Matter-module readout, authorized twelve-reader records, square-sum phase and in-flight coin commitments.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "601b9cfd97b66e46fb5daf4fe05413c60039043c803fee8a446ffd9622e9e46f",
+    },
 )
 
 

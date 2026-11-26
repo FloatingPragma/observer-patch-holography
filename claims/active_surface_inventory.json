@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 1218,
+  "surface_count": 1260,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -1386,6 +1386,21 @@
       "allowlisted": false
     },
     {
+      "path": "model/candidate_laws/interval_echo/openwave/row_03_clock/released_direction/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_03_clock/released_direction/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_03_clock/released_direction/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/candidate_laws/interval_echo/openwave/row_03_clock/strand_internal/PROTOCOL.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -1432,6 +1447,16 @@
     },
     {
       "path": "model/candidate_laws/interval_echo/openwave/row_04/memory_intervention/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_04/seam_origin/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_04/seam_origin/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -1587,6 +1612,21 @@
     },
     {
       "path": "model/candidate_laws/interval_echo/openwave/row_08_annihilation/passive_receiver/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_08_annihilation/wall_charge/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_08_annihilation/wall_charge/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_08_annihilation/wall_charge/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -1871,6 +1911,21 @@
       "allowlisted": false
     },
     {
+      "path": "model/candidate_laws/interval_echo/openwave/row_14_profile/free_release/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_14_profile/free_release/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_14_profile/free_release/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/candidate_laws/interval_echo/openwave/row_14_profile/scattering/PROTOCOL.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -2111,6 +2166,21 @@
       "allowlisted": false
     },
     {
+      "path": "model/candidate_laws/interval_echo/openwave/row_27_metric/frequency_link/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_27_metric/frequency_link/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_27_metric/frequency_link/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/candidate_laws/interval_echo/openwave/row_28_acceleration/CAPACITY_CLOSURE.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -2321,6 +2391,21 @@
       "allowlisted": false
     },
     {
+      "path": "model/candidate_laws/interval_echo/openwave/row_30_collective/committed_heads/during_flight/FREQUENT.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_30_collective/committed_heads/during_flight/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_30_collective/committed_heads/during_flight/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/candidate_laws/interval_echo/openwave/row_30_collective/confirmation/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -2527,6 +2612,21 @@
     },
     {
       "path": "model/candidate_laws/interval_echo/openwave/row_31_orbitals/native_core_release/public_readback/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_31_orbitals/occupied_write/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_31_orbitals/occupied_write/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_31_orbitals/occupied_write/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -3036,6 +3136,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/experiments/interval_echo_consensus/boolean_nodes/repair_ballots/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_consensus/boolean_nodes/repair_ballots/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/experiments/interval_echo_consensus/conditional_bath/FIXED_TIME.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -3141,12 +3251,32 @@
       "allowlisted": false
     },
     {
+      "path": "model/experiments/interval_echo_consensus/prepared_quorum/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_consensus/prepared_quorum/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/experiments/interval_echo_consensus/public_event_grammar/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
     {
       "path": "model/experiments/interval_echo_consensus/publication_tree/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_consensus/publication_tree/authorized_sets/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_consensus/publication_tree/authorized_sets/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -3222,6 +3352,41 @@
     },
     {
       "path": "model/experiments/interval_echo_consensus/routed_counts/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_consensus/routed_counts/phase_choice/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_consensus/routed_counts/phase_choice/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_consensus/routed_counts/phase_choice/TRANSFER_PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_consensus/routed_counts/phase_cost/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_consensus/routed_counts/phase_cost/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_consensus/seam_word_meter/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_consensus/seam_word_meter/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -3816,6 +3981,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/experiments/interval_echo_gauge/exterior_register/baryon_labels/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_gauge/exterior_register/baryon_labels/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/experiments/interval_echo_gauge/flag_measure/PROTOCOL.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -3861,7 +4036,27 @@
       "allowlisted": false
     },
     {
+      "path": "model/experiments/interval_echo_gauge/matter_class/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_gauge/matter_class/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/experiments/interval_echo_gauge/scalar_grammar/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_gauge/scalar_grammar/shell_line/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_gauge/scalar_grammar/shell_line/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -3877,6 +4072,16 @@
     },
     {
       "path": "model/experiments/interval_echo_gauge/singlet_flight/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_gauge/temporal_action/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_gauge/temporal_action/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -5562,6 +5767,11 @@
     },
     {
       "path": "Lean/ObserverPatchHolography/Execution/CumulativeAttemptCapacityExamples.lean",
+      "glob": "Lean/ObserverPatchHolography/**/*.lean",
+      "allowlisted": false
+    },
+    {
+      "path": "Lean/ObserverPatchHolography/Execution/MeasuredRepairBallots.lean",
       "glob": "Lean/ObserverPatchHolography/**/*.lean",
       "allowlisted": false
     },

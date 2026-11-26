@@ -18,6 +18,8 @@ The extension also transports three separately prepared orbital bands. Their sca
 
 The two-port electroweak doublet admits a phase reference on a third physical port. Across 245 simulated count banks the material obeys the declared four-direction action. On a separate scheduled publication circuit, all 320 enrolled readers retain the same event, even when the emitter refuses. A final reader that draws a fresh word with the same frequencies agrees on only three events in eight. [Doublet and reference](../../experiments/interval_echo_gauge/scalar_grammar/README.md) · [Public record comparisons](../../experiments/interval_echo_consensus/publication_tree/README.md)
 
+A second observation of one connector during a wall’s flight reverses which launch gives more hits in another cell. On a separate prepared register, cells 0 and 13 can also distinguish opposite full-turn phases of a declared doublet and singlet. Four representations in the finite search give the same grading and turn signature. [Two in-flight readings](openwave/row_30_collective/committed_heads/during_flight/README.md) · [Matter representation search](../../experiments/interval_echo_gauge/matter_class/README.md)
+
 Interval Echo is the main candidate under test. Its elementary interaction is the κ = 8 contrast-memory seam. Its distinguishing rule is carried by an observer. The patch remembers how many of its own repair opportunities elapsed since the last verified handoff, then uses fresh local repairs to decide whether the closing mark advances its hand. Both patch owners read the two elapsed words on one signed seam at reunion. [Executable specification](SPEC.md) · [Reference interaction](../contrast_memory_spherical_v1/SPEC.md)
 
 ## Can observers measure gravity?
