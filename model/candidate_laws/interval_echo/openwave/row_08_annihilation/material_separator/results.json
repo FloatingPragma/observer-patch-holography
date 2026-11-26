@@ -1,0 +1,3055 @@
+{
+  "shots": 67108864,
+  "clock_shots": 4194304,
+  "routes": [
+    [
+      0,
+      1,
+      82,
+      74,
+      75,
+      76,
+      81
+    ],
+    [
+      4,
+      3,
+      48,
+      49,
+      53,
+      52,
+      51
+    ]
+  ],
+  "receiver_gap": 32.515380975778214,
+  "clock_step": 0.24999980714664036,
+  "clock_reads": [
+    2.622604369515907e-05,
+    8.00062056437735,
+    16.000385659996553,
+    31.999167817755385,
+    48.00014429250812,
+    64.00055786120227
+  ],
+  "field_hopping": 26.07531099854729,
+  "simultaneous_difference_halfwidth": 0.0004268934993894173,
+  "measurement": "Seeded draws from calculated finite Born probabilities. Bounds describe simulated sampling.",
+  "native": {
+    "open": {
+      "observed": [
+        {
+          "time": 0,
+          "left_excess": 0.0,
+          "right_excess": 0.0,
+          "both_excess": 0.0,
+          "largest_bin_difference": 0.0,
+          "receiver_energy_excess": 0.0,
+          "ordered_both_by_source": [
+            0.0,
+            0.0
+          ],
+          "ordered_both_born": [
+            5.660710596035778e-32,
+            3.9382298535003382e-31
+          ],
+          "ring_recovery_by_source": [
+            1.0,
+            0.0
+          ],
+          "ring_recovery_born": [
+            0.9999999999999996,
+            5.893175360271059e-30
+          ]
+        },
+        {
+          "time": 8,
+          "left_excess": 4.474818706512451e-05,
+          "right_excess": 4.711747169494629e-05,
+          "both_excess": 9.387731552124023e-07,
+          "largest_bin_difference": 9.09268856048584e-05,
+          "receiver_energy_excess": 0.0029870468931745392,
+          "ordered_both_by_source": [
+            0.0,
+            9.387731552124023e-07
+          ],
+          "ordered_both_born": [
+            4.346230620611365e-10,
+            9.813284151500543e-07
+          ],
+          "ring_recovery_by_source": [
+            0.9997218251228333,
+            0.0016925185918807983
+          ],
+          "ring_recovery_born": [
+            0.9997203841748704,
+            0.0016949890116710366
+          ]
+        },
+        {
+          "time": 16,
+          "left_excess": 0.0004902631044387817,
+          "right_excess": 0.0004950761795043945,
+          "both_excess": 1.0654330253601074e-05,
+          "largest_bin_difference": 0.0009746849536895752,
+          "receiver_energy_excess": 0.032038682207812884,
+          "ordered_both_by_source": [
+            0.0,
+            1.0654330253601074e-05
+          ],
+          "ordered_both_born": [
+            3.769709322931503e-09,
+            1.0697150638138708e-05
+          ],
+          "ring_recovery_by_source": [
+            0.9995698630809784,
+            0.007229849696159363
+          ],
+          "ring_recovery_born": [
+            0.9995676156358837,
+            0.007231252868322554
+          ]
+        },
+        {
+          "time": 32,
+          "left_excess": 0.0053159743547439575,
+          "right_excess": 0.005320265889167786,
+          "both_excess": 3.0800700187683105e-05,
+          "largest_bin_difference": 0.01060543954372406,
+          "receiver_energy_excess": 0.34584140368069455,
+          "ordered_both_by_source": [
+            0.0,
+            3.081560134887695e-05
+          ],
+          "ordered_both_born": [
+            3.6713052728500707e-09,
+            3.048273894187831e-05
+          ],
+          "ring_recovery_by_source": [
+            0.9994844049215317,
+            0.026064276695251465
+          ],
+          "ring_recovery_born": [
+            0.9994839894364841,
+            0.0260475737092692
+          ]
+        },
+        {
+          "time": 48,
+          "left_excess": 0.016652047634124756,
+          "right_excess": 0.016604840755462646,
+          "both_excess": 9.258091449737549e-05,
+          "largest_bin_difference": 0.03316430747509003,
+          "receiver_energy_excess": 1.0813603960563696,
+          "ordered_both_by_source": [
+            1.4901161193847656e-08,
+            9.259581565856934e-05
+          ],
+          "ordered_both_born": [
+            9.478838001410424e-09,
+            9.180324627005264e-05
+          ],
+          "ring_recovery_by_source": [
+            0.9998099654912949,
+            0.044276073575019836
+          ],
+          "ring_recovery_born": [
+            0.9998113720636989,
+            0.044273396981968895
+          ]
+        },
+        {
+          "time": 64,
+          "left_excess": 0.026422575116157532,
+          "right_excess": 0.026473835110664368,
+          "both_excess": 0.00040015578269958496,
+          "largest_bin_difference": 0.052496254444122314,
+          "receiver_energy_excess": 1.719946930776165,
+          "ordered_both_by_source": [
+            0.0,
+            0.00040015578269958496
+          ],
+          "ordered_both_born": [
+            3.806571607438454e-09,
+            0.00039735388019428576
+          ],
+          "ring_recovery_by_source": [
+            0.9997409880161285,
+            0.060333311557769775
+          ],
+          "ring_recovery_born": [
+            0.9997429336459963,
+            0.0603581158469763
+          ]
+        }
+      ],
+      "born": [
+        {
+          "time": 0,
+          "left_excess": -3.4805852589846377e-31,
+          "right_excess": -9.757850810226063e-31,
+          "both_excess": -1.5667065303198991e-30,
+          "largest_bin_difference": 7.327471962526033e-15,
+          "receiver_energy_excess": -4.3045279231386973e-29
+        },
+        {
+          "time": 8,
+          "left_excess": 4.601425021365385e-05,
+          "right_excess": 4.601425021358575e-05,
+          "both_excess": 9.810269208085216e-07,
+          "largest_bin_difference": 9.104747350552334e-05,
+          "receiver_energy_excess": 0.0029923417520212638
+        },
+        {
+          "time": 16,
+          "left_excess": 0.0004919216952511602,
+          "right_excess": 0.0004919216952504043,
+          "both_excess": 1.0694235188586298e-05,
+          "largest_bin_difference": 0.0009731491553108818,
+          "receiver_energy_excess": 0.03199004266265971
+        },
+        {
+          "time": 32,
+          "left_excess": 0.00532012158764381,
+          "right_excess": 0.005320121587635203,
+          "both_excess": 3.048173485820667e-05,
+          "largest_bin_difference": 0.010609761440421694,
+          "receiver_energy_excess": 0.3459715605191212
+        },
+        {
+          "time": 48,
+          "left_excess": 0.01662414653688531,
+          "right_excess": 0.016624146536856857,
+          "both_excess": 9.180754194239173e-05,
+          "largest_bin_difference": 0.033156485531797064,
+          "receiver_energy_excess": 1.0810809160870545
+        },
+        {
+          "time": 64,
+          "left_excess": 0.026459544978556203,
+          "right_excess": 0.026459544978505715,
+          "both_excess": 0.00039741540593205086,
+          "largest_bin_difference": 0.052521674551136766,
+          "receiver_energy_excess": 1.720684370845347
+        }
+      ],
+      "initial_source_surplus": 64.99999999999983
+    },
+    "left": {
+      "observed": [
+        {
+          "time": 0,
+          "left_excess": 0.0,
+          "right_excess": 0.0,
+          "both_excess": 0.0,
+          "largest_bin_difference": 0.0,
+          "receiver_energy_excess": 0.0,
+          "ordered_both_by_source": [
+            0.0,
+            0.0
+          ],
+          "ordered_both_born": [
+            7.159945786909087e-35,
+            4.522875474663286e-33
+          ],
+          "ring_recovery_by_source": [
+            1.0,
+            0.0
+          ],
+          "ring_recovery_born": [
+            0.999999999999998,
+            1.986985185626846e-30
+          ]
+        },
+        {
+          "time": 8,
+          "left_excess": 5.960464477539063e-08,
+          "right_excess": 5.717575550079346e-05,
+          "both_excess": 0.0,
+          "largest_bin_difference": 5.723536014556885e-05,
+          "receiver_energy_excess": 0.0018610295404190439,
+          "ordered_both_by_source": [
+            0.0,
+            0.0
+          ],
+          "ordered_both_born": [
+            2.0115046031324335e-11,
+            6.011997933824732e-10
+          ],
+          "ring_recovery_by_source": [
+            0.9996784031391144,
+            0.0014750957489013672
+          ],
+          "ring_recovery_born": [
+            0.9996818068403681,
+            0.0014741657817580606
+          ]
+        },
+        {
+          "time": 16,
+          "left_excess": -1.475214958190918e-06,
+          "right_excess": 0.00040772557258605957,
+          "both_excess": 4.470348358154297e-08,
+          "largest_bin_difference": 0.00040768086910247803,
+          "receiver_energy_excess": 0.013209385149816297,
+          "ordered_both_by_source": [
+            0.0,
+            2.9802322387695312e-08
+          ],
+          "ordered_both_born": [
+            1.1730468911344961e-10,
+            6.2429625191859775e-09
+          ],
+          "ring_recovery_by_source": [
+            0.9995757043361664,
+            0.0031135082244873047
+          ],
+          "ring_recovery_born": [
+            0.9995785059421088,
+            0.0031180928664627525
+          ]
+        },
+        {
+          "time": 32,
+          "left_excess": -7.450580596923828e-08,
+          "right_excess": 0.0005617588758468628,
+          "both_excess": 0.0,
+          "largest_bin_difference": 0.0005617588758468628,
+          "receiver_energy_excess": 0.01826338128001964,
+          "ordered_both_by_source": [
+            0.0,
+            0.0
+          ],
+          "ordered_both_born": [
+            5.977448815861633e-11,
+            1.9099211864755345e-09
+          ],
+          "ring_recovery_by_source": [
+            0.9994809329509735,
+            0.0013804137706756592
+          ],
+          "ring_recovery_born": [
+            0.9994793949589265,
+            0.0013831882497217709
+          ]
+        },
+        {
+          "time": 48,
+          "left_excess": -1.341104507446289e-07,
+          "right_excess": 0.0005907565355300903,
+          "both_excess": 0.0,
+          "largest_bin_difference": 0.0005907565355300903,
+          "receiver_energy_excess": 0.01920431316429295,
+          "ordered_both_by_source": [
+            0.0,
+            0.0
+          ],
+          "ordered_both_born": [
+            3.914171268393476e-12,
+            6.661703617777583e-10
+          ],
+          "ring_recovery_by_source": [
+            0.9998168349266052,
+            0.0011831223964691162
+          ],
+          "ring_recovery_born": [
+            0.9998177901536426,
+            0.0011777626987097465
+          ]
+        },
+        {
+          "time": 64,
+          "left_excess": -9.685754776000977e-07,
+          "right_excess": 0.00014884769916534424,
+          "both_excess": 0.0,
+          "largest_bin_difference": 0.00014884769916534424,
+          "receiver_energy_excess": 0.0048083460450712295,
+          "ordered_both_by_source": [
+            0.0,
+            0.0
+          ],
+          "ordered_both_born": [
+            8.933672553377301e-11,
+            4.205218871844141e-09
+          ],
+          "ring_recovery_by_source": [
+            0.9997125715017319,
+            0.0025283247232437134
+          ],
+          "ring_recovery_born": [
+            0.9997126707295769,
+            0.002530803652191851
+          ]
+        }
+      ],
+      "born": [
+        {
+          "time": 0,
+          "left_excess": 5.699970808299158e-30,
+          "right_excess": 3.761840979712575e-31,
+          "both_excess": 4.3341735757686756e-30,
+          "largest_bin_difference": 1.3322676295501878e-15,
+          "receiver_energy_excess": 1.9756849164522653e-28
+        },
+        {
+          "time": 8,
+          "left_excess": -4.8489108304996156e-18,
+          "right_excess": 5.705682543593085e-05,
+          "both_excess": 1.1374031015715923e-09,
+          "largest_bin_difference": 5.705568803282927e-05,
+          "receiver_energy_excess": 0.0018552244163176066
+        },
+        {
+          "time": 16,
+          "left_excess": -7.811405668389387e-18,
+          "right_excess": 0.00041062083982651925,
+          "both_excess": 1.097870050645089e-08,
+          "largest_bin_difference": 0.0004106098611260128,
+          "receiver_energy_excess": 0.013351493043553023
+        },
+        {
+          "time": 32,
+          "left_excess": 1.7552218387364837e-17,
+          "right_excess": 0.0005599569130324823,
+          "both_excess": 9.166122040793515e-09,
+          "largest_bin_difference": 0.0005599477469104416,
+          "receiver_energy_excess": 0.01820721235727244
+        },
+        {
+          "time": 48,
+          "left_excess": -8.050130820352803e-18,
+          "right_excess": 0.0005863419941406291,
+          "both_excess": 8.704648448577008e-10,
+          "largest_bin_difference": 0.0005863411236770588,
+          "receiver_energy_excess": 0.01906513332157981
+        },
+        {
+          "time": 64,
+          "left_excess": -1.0396784315522864e-17,
+          "right_excess": 0.0001461212064258206,
+          "both_excess": 6.1214564130601245e-09,
+          "largest_bin_difference": 0.00014611508496953363,
+          "receiver_energy_excess": 0.0047511866955755495
+        }
+      ],
+      "initial_source_surplus": 64.99999999999994,
+      "sparse_check_max_abs_error": 5.954015058762252e-12
+    },
+    "right": {
+      "observed": [
+        {
+          "time": 0,
+          "left_excess": 0.0,
+          "right_excess": 0.0,
+          "both_excess": 0.0,
+          "largest_bin_difference": 0.0,
+          "receiver_energy_excess": 0.0,
+          "ordered_both_by_source": [
+            0.0,
+            0.0
+          ],
+          "ordered_both_born": [
+            3.7636303675104476e-33,
+            2.2967226549161563e-31
+          ],
+          "ring_recovery_by_source": [
+            1.0,
+            0.0
+          ],
+          "ring_recovery_born": [
+            1.0000000000000044,
+            5.267286883975776e-30
+          ]
+        },
+        {
+          "time": 8,
+          "left_excess": 5.710124969482422e-05,
+          "right_excess": -2.5331974029541016e-07,
+          "both_excess": 0.0,
+          "largest_bin_difference": 5.710124969482422e-05,
+          "receiver_energy_excess": 0.0018484321001558585,
+          "ordered_both_by_source": [
+            0.0,
+            0.0
+          ],
+          "ordered_both_born": [
+            2.011504603128359e-11,
+            6.011997933875519e-10
+          ],
+          "ring_recovery_by_source": [
+            0.9996831715106964,
+            0.001474812626838684
+          ],
+          "ring_recovery_born": [
+            0.9996818068403744,
+            0.0014741657817430851
+          ]
+        },
+        {
+          "time": 16,
+          "left_excess": 0.00040912628173828125,
+          "right_excess": -2.5331974029541016e-07,
+          "both_excess": 0.0,
+          "largest_bin_difference": 0.00040912628173828125,
+          "receiver_energy_excess": 0.013294660130059397,
+          "ordered_both_by_source": [
+            0.0,
+            0.0
+          ],
+          "ordered_both_born": [
+            1.1730468911357095e-10,
+            6.242962519174581e-09
+          ],
+          "ring_recovery_by_source": [
+            0.9995779395103455,
+            0.0031240880489349365
+          ],
+          "ring_recovery_born": [
+            0.9995785059421156,
+            0.0031180928664201325
+          ]
+        },
+        {
+          "time": 32,
+          "left_excess": 0.0005564242601394653,
+          "right_excess": 1.3262033462524414e-06,
+          "both_excess": 2.9802322387695312e-08,
+          "largest_bin_difference": 0.0005577206611633301,
+          "receiver_energy_excess": 0.01813546880965499,
+          "ordered_both_by_source": [
+            0.0,
+            0.0
+          ],
+          "ordered_both_born": [
+            5.977448815871795e-11,
+            1.909921186463441e-09
+          ],
+          "ring_recovery_by_source": [
+            0.9994796365499496,
+            0.0013838112354278564
+          ],
+          "ring_recovery_born": [
+            0.9994793949589332,
+            0.0013831882497121043
+          ]
+        },
+        {
+          "time": 48,
+          "left_excess": 0.0005813390016555786,
+          "right_excess": 1.341104507446289e-07,
+          "both_excess": 0.0,
+          "largest_bin_difference": 0.0005814731121063232,
+          "receiver_energy_excess": 0.018906819767308496,
+          "ordered_both_by_source": [
+            0.0,
+            0.0
+          ],
+          "ordered_both_born": [
+            3.9141712685213365e-12,
+            6.661703617640424e-10
+          ],
+          "ring_recovery_by_source": [
+            0.9998198300600052,
+            0.0011748671531677246
+          ],
+          "ring_recovery_born": [
+            0.999817790153647,
+            0.0011777626986921696
+          ]
+        },
+        {
+          "time": 64,
+          "left_excess": 0.00014701485633850098,
+          "right_excess": 5.513429641723633e-07,
+          "both_excess": 0.0,
+          "largest_bin_difference": 0.00014756619930267334,
+          "receiver_energy_excess": 0.004798171189474041,
+          "ordered_both_by_source": [
+            0.0,
+            0.0
+          ],
+          "ordered_both_born": [
+            8.933672553365248e-11,
+            4.205218871832494e-09
+          ],
+          "ring_recovery_by_source": [
+            0.999713197350502,
+            0.0025365203619003296
+          ],
+          "ring_recovery_born": [
+            0.9997126707295807,
+            0.002530803652155949
+          ]
+        }
+      ],
+      "born": [
+        {
+          "time": 0,
+          "left_excess": -2.1202566869928376e-31,
+          "right_excess": 4.891636589157181e-30,
+          "both_excess": 6.132250319935425e-31,
+          "largest_bin_difference": 2.6645352591003757e-15,
+          "receiver_energy_excess": 1.5215933189710068e-28
+        },
+        {
+          "time": 8,
+          "left_excess": 5.7056825434744973e-05,
+          "right_excess": -5.342546577472273e-19,
+          "both_excess": 1.137403101579933e-09,
+          "largest_bin_difference": 5.705568803593408e-05,
+          "receiver_energy_excess": 0.001855224416279188
+        },
+        {
+          "time": 16,
+          "left_excess": 0.000410620839816583,
+          "right_excess": -9.591953295940407e-19,
+          "both_excess": 1.0978700506445521e-08,
+          "largest_bin_difference": 0.00041060986111840503,
+          "receiver_energy_excess": 0.013351493043230167
+        },
+        {
+          "time": 32,
+          "left_excess": 0.000559956913024543,
+          "right_excess": -1.5743844404007533e-18,
+          "both_excess": 9.166122040782752e-09,
+          "largest_bin_difference": 0.0005599477469039327,
+          "receiver_energy_excess": 0.018207212357013672
+        },
+        {
+          "time": 48,
+          "left_excess": 0.0005863419941294247,
+          "right_excess": 1.5756581227682048e-17,
+          "both_excess": 8.704648448407642e-10,
+          "largest_bin_difference": 0.0005863411236710636,
+          "receiver_energy_excess": 0.01906513332121627
+        },
+        {
+          "time": 64,
+          "left_excess": 0.0001461212064218941,
+          "right_excess": -2.99865718903712e-17,
+          "both_excess": 6.121456413060515e-09,
+          "largest_bin_difference": 0.00014611508496997772,
+          "receiver_energy_excess": 0.004751186695447242
+        }
+      ],
+      "initial_source_surplus": 64.99999999999989,
+      "sparse_check_max_abs_error": 5.97377702860058e-12
+    },
+    "both": {
+      "observed": [
+        {
+          "time": 0,
+          "left_excess": 0.0,
+          "right_excess": 0.0,
+          "both_excess": 0.0,
+          "largest_bin_difference": 0.0,
+          "receiver_energy_excess": 0.0,
+          "ordered_both_by_source": [
+            0.0,
+            0.0
+          ],
+          "ordered_both_born": [
+            8.35665270036212e-36,
+            1.9789501868889532e-33
+          ],
+          "ring_recovery_by_source": [
+            1.0,
+            0.0
+          ],
+          "ring_recovery_born": [
+            0.9999999999999989,
+            7.017727689048591e-31
+          ]
+        },
+        {
+          "time": 8,
+          "left_excess": 1.1324882507324219e-06,
+          "right_excess": -2.5331974029541016e-07,
+          "both_excess": 0.0,
+          "largest_bin_difference": 1.1324882507324219e-06,
+          "receiver_energy_excess": 2.858649905876688e-05,
+          "ordered_both_by_source": [
+            0.0,
+            0.0
+          ],
+          "ordered_both_born": [
+            2.2050760005264036e-10,
+            3.624555473490474e-14
+          ],
+          "ring_recovery_by_source": [
+            0.9996421784162521,
+            0.001498878002166748
+          ],
+          "ring_recovery_born": [
+            0.9996424084382128,
+            0.0014941455303225607
+          ]
+        },
+        {
+          "time": 16,
+          "left_excess": 5.066394805908203e-07,
+          "right_excess": -8.344650268554688e-07,
+          "both_excess": -1.4901161193847656e-08,
+          "largest_bin_difference": 8.195638656616211e-07,
+          "receiver_energy_excess": -1.065937253038765e-05,
+          "ordered_both_by_source": [
+            1.4901161193847656e-08,
+            0.0
+          ],
+          "ordered_both_born": [
+            2.0373648335942022e-09,
+            1.296828890061851e-12
+          ],
+          "ring_recovery_by_source": [
+            0.9995995461940765,
+            0.0011564642190933228
+          ],
+          "ring_recovery_born": [
+            0.9995942647278027,
+            0.0011608348072865199
+          ]
+        },
+        {
+          "time": 32,
+          "left_excess": -9.98377799987793e-07,
+          "right_excess": -7.748603820800781e-07,
+          "both_excess": 1.4901161193847656e-08,
+          "largest_bin_difference": 1.7881393432617188e-06,
+          "receiver_energy_excess": -5.7657515050733204e-05,
+          "ordered_both_by_source": [
+            0.0,
+            0.0
+          ],
+          "ordered_both_born": [
+            2.5117735526874364e-09,
+            4.2226468571497624e-13
+          ],
+          "ring_recovery_by_source": [
+            0.9994747489690781,
+            0.0018413066864013672
+          ],
+          "ring_recovery_born": [
+            0.9994762237492439,
+            0.001840210500896834
+          ]
+        },
+        {
+          "time": 48,
+          "left_excess": -2.384185791015625e-07,
+          "right_excess": -2.5331974029541016e-07,
+          "both_excess": 0.0,
+          "largest_bin_difference": 4.917383193969727e-07,
+          "receiver_energy_excess": -1.5989058795581477e-05,
+          "ordered_both_by_source": [
+            0.0,
+            0.0
+          ],
+          "ordered_both_born": [
+            6.167480122111988e-12,
+            3.706926652953323e-15
+          ],
+          "ring_recovery_by_source": [
+            0.9998260140419006,
+            0.0007964372634887695
+          ],
+          "ring_recovery_born": [
+            0.9998234677093878,
+            0.0007963713138044665
+          ]
+        },
+        {
+          "time": 64,
+          "left_excess": -5.21540641784668e-07,
+          "right_excess": -1.952052116394043e-06,
+          "both_excess": 0.0,
+          "largest_bin_difference": 2.473592758178711e-06,
+          "receiver_energy_excess": -8.042981091110682e-05,
+          "ordered_both_by_source": [
+            0.0,
+            0.0
+          ],
+          "ordered_both_born": [
+            1.3736499016612224e-09,
+            2.7784658977040325e-13
+          ],
+          "ring_recovery_by_source": [
+            0.999687522649765,
+            0.00034821033477783203
+          ],
+          "ring_recovery_born": [
+            0.9996859032966571,
+            0.00034792521603804066
+          ]
+        }
+      ],
+      "born": [
+        {
+          "time": 0,
+          "left_excess": 1.2982233244981334e-30,
+          "right_excess": 4.0641620526523406e-30,
+          "both_excess": 1.5036786216308173e-30,
+          "largest_bin_difference": 3.1086244689504383e-15,
+          "receiver_energy_excess": 1.743600034769898e-28
+        },
+        {
+          "time": 8,
+          "left_excess": 5.210960495084928e-18,
+          "right_excess": -1.484169749821338e-17,
+          "both_excess": 1.380357647197865e-23,
+          "largest_bin_difference": 3.9968028886505635e-15,
+          "receiver_energy_excess": -3.1314708273424614e-16
+        },
+        {
+          "time": 16,
+          "left_excess": 1.3057872736171789e-17,
+          "right_excess": -3.1367311281421756e-17,
+          "both_excess": 1.2821299494571929e-23,
+          "largest_bin_difference": 1.7763568394002505e-15,
+          "receiver_energy_excess": -5.953383697514012e-16
+        },
+        {
+          "time": 32,
+          "left_excess": -1.8770359298996153e-17,
+          "right_excess": 5.310546847321476e-17,
+          "both_excess": -1.0918784085699965e-22,
+          "largest_bin_difference": 1.9984014443252818e-15,
+          "receiver_energy_excess": 1.1164191556446556e-15
+        },
+        {
+          "time": 48,
+          "left_excess": -2.1861891160433698e-17,
+          "right_excess": 2.408159941511318e-17,
+          "both_excess": 2.92081997936449e-23,
+          "largest_bin_difference": 2.220446049250313e-15,
+          "receiver_energy_excess": 7.217465955598307e-17
+        },
+        {
+          "time": 64,
+          "left_excess": 6.774181274919392e-17,
+          "right_excess": -1.330117720136533e-16,
+          "both_excess": -4.94240416000434e-22,
+          "largest_bin_difference": 4.218847493575595e-15,
+          "receiver_energy_excess": -2.122277591757421e-15
+        }
+      ],
+      "initial_source_surplus": 65.00000000000017
+    }
+  },
+  "field": {
+    "00": {
+      "open": {
+        "source_work": [
+          22.714705096259294,
+          22.714705096259294
+        ],
+        "observed": [
+          {
+            "time": 0,
+            "left_excess": 0.0,
+            "right_excess": 0.0,
+            "both_excess": 0.0,
+            "largest_bin_difference": 0.0,
+            "receiver_energy_excess": 0.0
+          },
+          {
+            "time": 8,
+            "left_excess": 0.0017850100994110107,
+            "right_excess": 0.0017941296100616455,
+            "both_excess": 3.5315752029418945e-06,
+            "largest_bin_difference": 0.0035756081342697144,
+            "receiver_energy_excess": 0.11637709121903957
+          },
+          {
+            "time": 16,
+            "left_excess": 0.02425818145275116,
+            "right_excess": 0.024244442582130432,
+            "both_excess": 0.0005873888731002808,
+            "largest_bin_difference": 0.04791523516178131,
+            "receiver_energy_excess": 1.577081298819112
+          },
+          {
+            "time": 32,
+            "left_excess": 0.18974637985229492,
+            "right_excess": 0.18966591358184814,
+            "both_excess": 0.03600871562957764,
+            "largest_bin_difference": 0.34340357780456543,
+            "receiver_energy_excess": 12.336735267904917
+          },
+          {
+            "time": 48,
+            "left_excess": 0.2527198791503906,
+            "right_excess": 0.25283749401569366,
+            "both_excess": 0.06388638913631439,
+            "largest_bin_difference": 0.4416709840297699,
+            "receiver_energy_excess": 16.438390593608904
+          },
+          {
+            "time": 64,
+            "left_excess": 0.0764387845993042,
+            "right_excess": 0.07644738256931305,
+            "both_excess": 0.0058340877294540405,
+            "largest_bin_difference": 0.1470520794391632,
+            "receiver_energy_excess": 4.9711519714141055
+          },
+          {
+            "time": 96,
+            "left_excess": 0.00336398184299469,
+            "right_excess": 0.003366634249687195,
+            "both_excess": 1.1220574378967285e-05,
+            "largest_bin_difference": 0.0067193955183029175,
+            "receiver_energy_excess": 0.21884854645525526
+          },
+          {
+            "time": 128,
+            "left_excess": 0.26555775105953217,
+            "right_excess": 0.2656492739915848,
+            "both_excess": 0.07050664722919464,
+            "largest_bin_difference": 0.4607003778219223,
+            "receiver_energy_excess": 17.272398796546828
+          }
+        ],
+        "born": [
+          {
+            "time": 0,
+            "left_excess": -1.2474244618190543e-30,
+            "right_excess": -1.2474244618190543e-30,
+            "both_excess": -7.059555676776021e-60,
+            "largest_bin_difference": 1.2474244618190543e-30,
+            "receiver_energy_excess": -8.112096322910332e-29
+          },
+          {
+            "time": 8,
+            "left_excess": 0.0017977521690390966,
+            "right_excess": 0.0017977521690390966,
+            "both_excess": 3.2381194120831482e-06,
+            "largest_bin_difference": 0.0035922662186660403,
+            "receiver_energy_excess": 0.11690919335267573
+          },
+          {
+            "time": 16,
+            "left_excess": 0.024254705599533365,
+            "right_excess": 0.024254705599533365,
+            "both_excess": 0.0005884804245278715,
+            "largest_bin_difference": 0.04792093077453907,
+            "receiver_energy_excess": 1.577301986048337
+          },
+          {
+            "time": 32,
+            "left_excess": 0.18971684432706293,
+            "right_excess": 0.18971684432706293,
+            "both_excess": 0.035993179037848134,
+            "largest_bin_difference": 0.3434405096162777,
+            "receiver_energy_excess": 12.337430941633718
+          },
+          {
+            "time": 48,
+            "left_excess": 0.25280420508023516,
+            "right_excess": 0.25280420508023516,
+            "both_excess": 0.06391053689008244,
+            "largest_bin_difference": 0.441697873270388,
+            "receiver_energy_excess": 16.440050080925225
+          },
+          {
+            "time": 64,
+            "left_excess": 0.07647268866626974,
+            "right_excess": 0.07647268866626974,
+            "both_excess": 0.005848620858799219,
+            "largest_bin_difference": 0.1470967564737401,
+            "receiver_energy_excess": 4.973077212451675
+          },
+          {
+            "time": 96,
+            "left_excess": 0.003370704304407062,
+            "right_excess": 0.003370704304407062,
+            "both_excess": 1.1386498023329096e-05,
+            "largest_bin_difference": 0.006730022110790657,
+            "receiver_energy_excess": 0.21919946922898226
+          },
+          {
+            "time": 128,
+            "left_excess": 0.2655800758477425,
+            "right_excess": 0.2655800758477425,
+            "both_excess": 0.07053329270821819,
+            "largest_bin_difference": 0.46062685898726674,
+            "receiver_energy_excess": 17.270874691530846
+          }
+        ]
+      },
+      "left": {
+        "source_work": [
+          22.71470509625928,
+          22.714705096259294
+        ],
+        "observed": [
+          {
+            "time": 0,
+            "left_excess": 0.0,
+            "right_excess": 0.0,
+            "both_excess": 0.0,
+            "largest_bin_difference": 0.0,
+            "receiver_energy_excess": 0.0
+          },
+          {
+            "time": 8,
+            "left_excess": 3.427267074584961e-07,
+            "right_excess": 0.0018009692430496216,
+            "both_excess": 0.0,
+            "largest_bin_difference": 0.00180131196975708,
+            "receiver_energy_excess": 0.058570344952880944
+          },
+          {
+            "time": 16,
+            "left_excess": 3.129243850708008e-07,
+            "right_excess": 0.02427312731742859,
+            "both_excess": 1.9371509552001953e-07,
+            "largest_bin_difference": 0.02427324652671814,
+            "receiver_energy_excess": 0.7892601570553572
+          },
+          {
+            "time": 32,
+            "left_excess": -4.470348358154297e-08,
+            "right_excess": 0.1897767037153244,
+            "both_excess": 1.6987323760986328e-06,
+            "largest_bin_difference": 0.1897750049829483,
+            "receiver_energy_excess": 6.170660368080358
+          },
+          {
+            "time": 48,
+            "left_excess": 0.0,
+            "right_excess": 0.2528613656759262,
+            "both_excess": 3.8743019104003906e-07,
+            "largest_bin_difference": 0.25286097824573517,
+            "receiver_energy_excess": 8.22188363900831
+          },
+          {
+            "time": 64,
+            "left_excess": 1.043081283569336e-07,
+            "right_excess": 0.07647110521793365,
+            "both_excess": 7.003545761108398e-07,
+            "largest_bin_difference": 0.0764705091714859,
+            "receiver_energy_excess": 2.4864905114184666
+          },
+          {
+            "time": 96,
+            "left_excess": -4.470348358154297e-08,
+            "right_excess": 0.003363385796546936,
+            "both_excess": 1.4901161193847656e-08,
+            "largest_bin_difference": 0.003363370895385742,
+            "receiver_energy_excess": 0.1093603169924453
+          },
+          {
+            "time": 128,
+            "left_excess": -3.427267074584961e-07,
+            "right_excess": 0.26554684340953827,
+            "both_excess": 2.4139881134033203e-06,
+            "largest_bin_difference": 0.26554442942142487,
+            "receiver_energy_excess": 8.634345636486994
+          }
+        ],
+        "born": [
+          {
+            "time": 0,
+            "left_excess": 1.7450623256313061e-31,
+            "right_excess": -1.2474244618190543e-30,
+            "both_excess": -7.543292316627304e-62,
+            "largest_bin_difference": 1.2474244618190543e-30,
+            "receiver_energy_excess": -3.488634498011371e-29
+          },
+          {
+            "time": 8,
+            "left_excess": -3.7893888323605496e-19,
+            "right_excess": 0.0017977521690390969,
+            "both_excess": 5.829622199020345e-09,
+            "largest_bin_difference": 0.0017977463394169835,
+            "receiver_energy_excess": 0.05845459667633786
+          },
+          {
+            "time": 16,
+            "left_excess": 1.1189569931025324e-18,
+            "right_excess": 0.02425470559953337,
+            "both_excess": 2.2463287010296996e-07,
+            "largest_bin_difference": 0.024254480966663272,
+            "receiver_energy_excess": 0.7886509930241687
+          },
+          {
+            "time": 32,
+            "left_excess": 3.35192113052208e-18,
+            "right_excess": 0.18971684432706296,
+            "both_excess": 1.5482273480358445e-06,
+            "largest_bin_difference": 0.1897152960997149,
+            "receiver_energy_excess": 6.16871547081686
+          },
+          {
+            "time": 48,
+            "left_excess": -7.23265551792686e-18,
+            "right_excess": 0.2528042050802352,
+            "both_excess": 3.719105977576235e-07,
+            "largest_bin_difference": 0.2528038331696375,
+            "receiver_energy_excess": 8.220025040462614
+          },
+          {
+            "time": 64,
+            "left_excess": 1.062264019151618e-17,
+            "right_excess": 0.07647268866626973,
+            "both_excess": 6.258999127767681e-07,
+            "largest_bin_difference": 0.07647206276635696,
+            "receiver_energy_excess": 2.4865386062258374
+          },
+          {
+            "time": 96,
+            "left_excess": -1.1021136105974827e-17,
+            "right_excess": 0.0033707043044070616,
+            "both_excess": 1.337136952304114e-08,
+            "largest_bin_difference": 0.0033706909330375387,
+            "receiver_energy_excess": 0.10959973461449075
+          },
+          {
+            "time": 128,
+            "left_excess": -1.8958714941919377e-17,
+            "right_excess": 0.26558007584774257,
+            "both_excess": 2.5888025321595907e-06,
+            "largest_bin_difference": 0.2655774870452104,
+            "receiver_energy_excess": 8.635437345765423
+          }
+        ]
+      },
+      "right": {
+        "source_work": [
+          22.714705096259294,
+          22.71470509625928
+        ],
+        "observed": [
+          {
+            "time": 0,
+            "left_excess": 0.0,
+            "right_excess": 0.0,
+            "both_excess": 0.0,
+            "largest_bin_difference": 0.0,
+            "receiver_energy_excess": 0.0
+          },
+          {
+            "time": 8,
+            "left_excess": 0.0018085837364196777,
+            "right_excess": -8.940696716308594e-08,
+            "both_excess": 1.4901161193847656e-08,
+            "largest_bin_difference": 0.0018085688352584839,
+            "receiver_energy_excess": 0.05880388211468307
+          },
+          {
+            "time": 16,
+            "left_excess": 0.024300724267959595,
+            "right_excess": 1.6391277313232422e-07,
+            "both_excess": 2.384185791015625e-07,
+            "largest_bin_difference": 0.024300649762153625,
+            "receiver_energy_excess": 0.7901526372463106
+          },
+          {
+            "time": 32,
+            "left_excess": 0.18974214792251587,
+            "right_excess": 1.1920928955078125e-07,
+            "both_excess": 1.475214958190918e-06,
+            "largest_bin_difference": 0.18974079191684723,
+            "receiver_energy_excess": 6.169542102998534
+          },
+          {
+            "time": 48,
+            "left_excess": 0.2527797222137451,
+            "right_excess": -5.811452865600586e-07,
+            "both_excess": 3.5762786865234375e-07,
+            "largest_bin_difference": 0.25277936458587646,
+            "receiver_energy_excess": 8.219210074570915
+          },
+          {
+            "time": 64,
+            "left_excess": 0.07647705078125,
+            "right_excess": 5.066394805908203e-07,
+            "both_excess": 4.76837158203125e-07,
+            "largest_bin_difference": 0.07647708058357239,
+            "receiver_energy_excess": 2.4866969156320096
+          },
+          {
+            "time": 96,
+            "left_excess": 0.0033710896968841553,
+            "right_excess": -2.086162567138672e-07,
+            "both_excess": 1.4901161193847656e-08,
+            "largest_bin_difference": 0.0033710747957229614,
+            "receiver_energy_excess": 0.10960548256064422
+          },
+          {
+            "time": 128,
+            "left_excess": 0.26566849648952484,
+            "right_excess": -1.1920928955078125e-07,
+            "both_excess": 3.0547380447387695e-06,
+            "largest_bin_difference": 0.2656654417514801,
+            "receiver_energy_excess": 8.638308500483632
+          }
+        ],
+        "born": [
+          {
+            "time": 0,
+            "left_excess": -1.2474244618190543e-30,
+            "right_excess": 1.7450623256313061e-31,
+            "both_excess": -7.543292316627304e-62,
+            "largest_bin_difference": 1.2474244618190543e-30,
+            "receiver_energy_excess": -3.488634498011371e-29
+          },
+          {
+            "time": 8,
+            "left_excess": 0.0017977521690390969,
+            "right_excess": -3.7893888323605496e-19,
+            "both_excess": 5.829622199020345e-09,
+            "largest_bin_difference": 0.0017977463394169835,
+            "receiver_energy_excess": 0.05845459667633786
+          },
+          {
+            "time": 16,
+            "left_excess": 0.02425470559953337,
+            "right_excess": 1.1189569931025324e-18,
+            "both_excess": 2.2463287010296996e-07,
+            "largest_bin_difference": 0.024254480966663272,
+            "receiver_energy_excess": 0.7886509930241687
+          },
+          {
+            "time": 32,
+            "left_excess": 0.18971684432706296,
+            "right_excess": 3.35192113052208e-18,
+            "both_excess": 1.5482273480358445e-06,
+            "largest_bin_difference": 0.1897152960997149,
+            "receiver_energy_excess": 6.16871547081686
+          },
+          {
+            "time": 48,
+            "left_excess": 0.2528042050802352,
+            "right_excess": -7.23265551792686e-18,
+            "both_excess": 3.719105977576235e-07,
+            "largest_bin_difference": 0.2528038331696375,
+            "receiver_energy_excess": 8.220025040462614
+          },
+          {
+            "time": 64,
+            "left_excess": 0.07647268866626973,
+            "right_excess": 1.062264019151618e-17,
+            "both_excess": 6.258999127767681e-07,
+            "largest_bin_difference": 0.07647206276635696,
+            "receiver_energy_excess": 2.4865386062258374
+          },
+          {
+            "time": 96,
+            "left_excess": 0.0033707043044070616,
+            "right_excess": -1.1021136105974827e-17,
+            "both_excess": 1.337136952304114e-08,
+            "largest_bin_difference": 0.0033706909330375387,
+            "receiver_energy_excess": 0.10959973461449075
+          },
+          {
+            "time": 128,
+            "left_excess": 0.26558007584774257,
+            "right_excess": -1.8958714941919377e-17,
+            "both_excess": 2.5888025321595907e-06,
+            "largest_bin_difference": 0.2655774870452104,
+            "receiver_energy_excess": 8.635437345765423
+          }
+        ]
+      },
+      "both": {
+        "source_work": [
+          22.71470509625928,
+          22.71470509625928
+        ],
+        "observed": [
+          {
+            "time": 0,
+            "left_excess": 0.0,
+            "right_excess": 0.0,
+            "both_excess": 0.0,
+            "largest_bin_difference": 0.0,
+            "receiver_energy_excess": 0.0
+          },
+          {
+            "time": 8,
+            "left_excess": -8.940696716308594e-08,
+            "right_excess": -7.450580596923828e-08,
+            "both_excess": 0.0,
+            "largest_bin_difference": 1.6391277313232422e-07,
+            "receiver_energy_excess": -5.329686265193825e-06
+          },
+          {
+            "time": 16,
+            "left_excess": -4.470348358154297e-08,
+            "right_excess": 5.662441253662109e-07,
+            "both_excess": 0.0,
+            "largest_bin_difference": 5.662441253662109e-07,
+            "receiver_energy_excess": 1.6958092661980352e-05
+          },
+          {
+            "time": 32,
+            "left_excess": 4.470348358154297e-07,
+            "right_excess": 8.940696716308594e-08,
+            "both_excess": 0.0,
+            "largest_bin_difference": 5.364418029785156e-07,
+            "receiver_energy_excess": 1.7442609595179792e-05
+          },
+          {
+            "time": 48,
+            "left_excess": 4.470348358154297e-08,
+            "right_excess": -1.4901161193847656e-08,
+            "both_excess": 0.0,
+            "largest_bin_difference": 4.470348358154297e-08,
+            "receiver_energy_excess": 9.690338663988773e-07
+          },
+          {
+            "time": 64,
+            "left_excess": 3.725290298461914e-07,
+            "right_excess": -2.682209014892578e-07,
+            "both_excess": 0.0,
+            "largest_bin_difference": 3.725290298461914e-07,
+            "receiver_energy_excess": 3.3916185323960706e-06
+          },
+          {
+            "time": 96,
+            "left_excess": -5.811452865600586e-07,
+            "right_excess": 3.5762786865234375e-07,
+            "both_excess": 0.0,
+            "largest_bin_difference": 5.811452865600586e-07,
+            "receiver_energy_excess": -7.26775399799158e-06
+          },
+          {
+            "time": 128,
+            "left_excess": -6.109476089477539e-07,
+            "right_excess": 6.854534149169922e-07,
+            "both_excess": 0.0,
+            "largest_bin_difference": 6.854534149169922e-07,
+            "receiver_energy_excess": 2.4225846659971933e-06
+          }
+        ],
+        "born": [
+          {
+            "time": 0,
+            "left_excess": 1.7450623256313061e-31,
+            "right_excess": 1.7450623256313061e-31,
+            "both_excess": 1.5926142482116612e-61,
+            "largest_bin_difference": 1.7450623256313061e-31,
+            "receiver_energy_excess": 1.1348273268875892e-29
+          },
+          {
+            "time": 8,
+            "left_excess": -3.790497028199172e-19,
+            "right_excess": -3.790497028199172e-19,
+            "both_excess": -2.458923617784586e-24,
+            "largest_bin_difference": 3.790472438962994e-19,
+            "receiver_energy_excess": -2.4649890991890242e-17
+          },
+          {
+            "time": 16,
+            "left_excess": 1.1197983004089842e-18,
+            "right_excess": 1.1197983004089842e-18,
+            "both_excess": 2.0744138799181397e-23,
+            "largest_bin_difference": 1.119777556270185e-18,
+            "receiver_energy_excess": 7.282133670765413e-17
+          },
+          {
+            "time": 32,
+            "left_excess": 3.352611115475223e-18,
+            "right_excess": 3.352611115475223e-18,
+            "both_excess": 5.47102427021401e-23,
+            "largest_bin_difference": 3.3525564052325207e-18,
+            "receiver_energy_excess": 2.1802285536661127e-16
+          },
+          {
+            "time": 48,
+            "left_excess": -7.232623858881385e-18,
+            "right_excess": -7.232623858881385e-18,
+            "both_excess": -2.128051372763375e-23,
+            "largest_bin_difference": 7.232602578367657e-18,
+            "receiver_energy_excess": -4.703430404520628e-16
+          },
+          {
+            "time": 64,
+            "left_excess": 1.0621967034518624e-17,
+            "right_excess": 1.0621967034518624e-17,
+            "both_excess": 1.7387594969806065e-22,
+            "largest_bin_difference": 1.0621793158568926e-17,
+            "receiver_energy_excess": 6.907546096790604e-16
+          },
+          {
+            "time": 96,
+            "left_excess": -1.1021680151710991e-17,
+            "right_excess": -1.1021680151710991e-17,
+            "both_excess": -8.744203803480482e-23,
+            "largest_bin_difference": 1.1021592709672956e-17,
+            "receiver_energy_excess": -7.167482582521118e-16
+          },
+          {
+            "time": 128,
+            "left_excess": -1.8958661058857288e-17,
+            "right_excess": -1.8958661058857288e-17,
+            "both_excess": -3.696334115375631e-22,
+            "largest_bin_difference": 2.220446049250313e-16,
+            "receiver_energy_excess": -1.2328961742387911e-15
+          }
+        ]
+      }
+    },
+    "01": {
+      "open": {
+        "source_work": [
+          22.714705096259294,
+          22.71470509625925
+        ],
+        "observed": [
+          {
+            "time": 0,
+            "left_excess": 0.0,
+            "right_excess": 0.0,
+            "both_excess": 0.0,
+            "largest_bin_difference": 0.0,
+            "receiver_energy_excess": 0.0
+          },
+          {
+            "time": 8,
+            "left_excess": 0.0017963945865631104,
+            "right_excess": 0.0017977207899093628,
+            "both_excess": 3.0547380447387695e-06,
+            "largest_bin_difference": 0.0035910606384277344,
+            "receiver_energy_excess": 0.116864030736905
+          },
+          {
+            "time": 16,
+            "left_excess": 0.024279683828353882,
+            "right_excess": 0.024253636598587036,
+            "both_excess": 0.0005925595760345459,
+            "largest_bin_difference": 0.04794076085090637,
+            "receiver_energy_excess": 1.578079403701503
+          },
+          {
+            "time": 32,
+            "left_excess": 0.189769446849823,
+            "right_excess": 0.18973414599895477,
+            "both_excess": 0.03598456084728241,
+            "largest_bin_difference": 0.34351903200149536,
+            "receiver_energy_excess": 12.33970390315463
+          },
+          {
+            "time": 48,
+            "left_excess": 0.2528707683086395,
+            "right_excess": 0.25282689929008484,
+            "both_excess": 0.06389519572257996,
+            "largest_bin_difference": 0.4418024718761444,
+            "receiver_energy_excess": 16.442952320534978
+          },
+          {
+            "time": 64,
+            "left_excess": 0.07642082870006561,
+            "right_excess": 0.07644401490688324,
+            "both_excess": 0.005845680832862854,
+            "largest_bin_difference": 0.147019162774086,
+            "receiver_energy_excess": 4.970458627682697
+          },
+          {
+            "time": 96,
+            "left_excess": 0.0033677518367767334,
+            "right_excess": 0.00337374210357666,
+            "both_excess": 1.1548399925231934e-05,
+            "largest_bin_difference": 0.006729945540428162,
+            "receiver_energy_excess": 0.21920224381649084
+          },
+          {
+            "time": 128,
+            "left_excess": 0.2656037509441376,
+            "right_excess": 0.265640527009964,
+            "both_excess": 0.07056395709514618,
+            "largest_bin_difference": 0.4606803208589554,
+            "receiver_energy_excess": 17.273610088879828
+          }
+        ],
+        "born": [
+          {
+            "time": 0,
+            "left_excess": -1.2474244618190543e-30,
+            "right_excess": 8.534628462200832e-31,
+            "both_excess": 1.0326902638392415e-60,
+            "largest_bin_difference": 1.2474244618190543e-30,
+            "receiver_energy_excess": -1.2809812021033635e-29
+          },
+          {
+            "time": 8,
+            "left_excess": 0.0017977521690390966,
+            "right_excess": 0.0017977521690396648,
+            "both_excess": 3.2381194120841697e-06,
+            "largest_bin_difference": 0.0035922662186665955,
+            "receiver_energy_excess": 0.1169091933526942
+          },
+          {
+            "time": 16,
+            "left_excess": 0.02425470559953337,
+            "right_excess": 0.02425470559954073,
+            "both_excess": 0.0005884804245280501,
+            "largest_bin_difference": 0.04792093077454618,
+            "receiver_energy_excess": 1.5773019860485766
+          },
+          {
+            "time": 32,
+            "left_excess": 0.18971684432706296,
+            "right_excess": 0.18971684432709449,
+            "both_excess": 0.035993179037854116,
+            "largest_bin_difference": 0.34344050961630324,
+            "receiver_energy_excess": 12.337430941634745
+          },
+          {
+            "time": 48,
+            "left_excess": 0.2528042050802352,
+            "right_excess": 0.2528042050802077,
+            "both_excess": 0.06391053689007549,
+            "largest_bin_difference": 0.44169787327036747,
+            "receiver_energy_excess": 16.440050080924333
+          },
+          {
+            "time": 64,
+            "left_excess": 0.07647268866626974,
+            "right_excess": 0.07647268866620247,
+            "both_excess": 0.005848620858794073,
+            "largest_bin_difference": 0.14709675647367793,
+            "receiver_energy_excess": 4.973077212449487
+          },
+          {
+            "time": 96,
+            "left_excess": 0.003370704304407062,
+            "right_excess": 0.0033707043044156437,
+            "both_excess": 1.1386498023358045e-05,
+            "largest_bin_difference": 0.006730022110799205,
+            "receiver_energy_excess": 0.21919946922926128
+          },
+          {
+            "time": 128,
+            "left_excess": 0.2655800758477425,
+            "right_excess": 0.2655800758477664,
+            "both_excess": 0.07053329270822452,
+            "largest_bin_difference": 0.4606268589872843,
+            "receiver_energy_excess": 17.27087469153162
+          }
+        ]
+      },
+      "left": {
+        "source_work": [
+          22.71470509625928,
+          22.71470509625925
+        ],
+        "observed": [
+          {
+            "time": 0,
+            "left_excess": 0.0,
+            "right_excess": 0.0,
+            "both_excess": 0.0,
+            "largest_bin_difference": 0.0,
+            "receiver_energy_excess": 0.0
+          },
+          {
+            "time": 8,
+            "left_excess": 7.748603820800781e-07,
+            "right_excess": 0.001797601580619812,
+            "both_excess": 1.4901161193847656e-08,
+            "largest_bin_difference": 0.0017983615398406982,
+            "receiver_energy_excess": 0.058474895117040654
+          },
+          {
+            "time": 16,
+            "left_excess": -5.21540641784668e-07,
+            "right_excess": 0.02423536777496338,
+            "both_excess": 1.4901161193847656e-07,
+            "largest_bin_difference": 0.02423521876335144,
+            "receiver_energy_excess": 0.7880052581983706
+          },
+          {
+            "time": 32,
+            "left_excess": 4.470348358154297e-07,
+            "right_excess": 0.18969863653182983,
+            "both_excess": 1.6987323760986328e-06,
+            "largest_bin_difference": 0.18969738483428955,
+            "receiver_energy_excess": 6.168137972926122
+          },
+          {
+            "time": 48,
+            "left_excess": -2.980232238769531e-07,
+            "right_excess": 0.25276975333690643,
+            "both_excess": 4.76837158203125e-07,
+            "largest_bin_difference": 0.25276927649974823,
+            "receiver_energy_excess": 8.218895138564335
+          },
+          {
+            "time": 64,
+            "left_excess": -1.4901161193847656e-08,
+            "right_excess": 0.07647988200187683,
+            "both_excess": 7.599592208862305e-07,
+            "largest_bin_difference": 0.07647912204265594,
+            "receiver_energy_excess": 2.4867720157566553
+          },
+          {
+            "time": 96,
+            "left_excess": 2.8312206268310547e-07,
+            "right_excess": 0.003384217619895935,
+            "both_excess": 1.4901161193847656e-08,
+            "largest_bin_difference": 0.0033844858407974243,
+            "receiver_energy_excess": 0.1100483310375885
+          },
+          {
+            "time": 128,
+            "left_excess": -1.4901161193847656e-07,
+            "right_excess": 0.2654671221971512,
+            "both_excess": 2.6226043701171875e-06,
+            "largest_bin_difference": 0.26546449959278107,
+            "receiver_energy_excess": 8.631759769614508
+          }
+        ],
+        "born": [
+          {
+            "time": 0,
+            "left_excess": 1.7450623256313061e-31,
+            "right_excess": 8.534628462200832e-31,
+            "both_excess": 5.828285406061785e-61,
+            "largest_bin_difference": 8.534628462200832e-31,
+            "receiver_energy_excess": 3.3424806227955967e-29
+          },
+          {
+            "time": 8,
+            "left_excess": -3.787916450870205e-19,
+            "right_excess": 0.0017977521690396648,
+            "both_excess": 5.829622199022186e-09,
+            "largest_bin_difference": 0.0017977463394175386,
+            "receiver_energy_excess": 0.05845459667635632
+          },
+          {
+            "time": 16,
+            "left_excess": 1.1194069793557613e-18,
+            "right_excess": 0.024254705599540734,
+            "both_excess": 2.2463287010303817e-07,
+            "largest_bin_difference": 0.02425448096667063,
+            "receiver_energy_excess": 0.7886509930244081
+          },
+          {
+            "time": 32,
+            "left_excess": 3.352979921706148e-18,
+            "right_excess": 0.1897168443270945,
+            "both_excess": 1.5482273480361022e-06,
+            "largest_bin_difference": 0.18971529609974647,
+            "receiver_energy_excess": 6.168715470817886
+          },
+          {
+            "time": 48,
+            "left_excess": -7.23265551792686e-18,
+            "right_excess": 0.2528042050802077,
+            "both_excess": 3.7191059775758303e-07,
+            "largest_bin_difference": 0.25280383316960997,
+            "receiver_energy_excess": 8.220025040461719
+          },
+          {
+            "time": 64,
+            "left_excess": 1.0622534312397774e-17,
+            "right_excess": 0.07647268866620245,
+            "both_excess": 6.258999127762174e-07,
+            "largest_bin_difference": 0.07647206276628968,
+            "receiver_energy_excess": 2.48653860622365
+          },
+          {
+            "time": 96,
+            "left_excess": -1.1020973978574766e-17,
+            "right_excess": 0.0033707043044156433,
+            "both_excess": 1.3371369523075184e-08,
+            "largest_bin_difference": 0.0033706909330461204,
+            "receiver_energy_excess": 0.1095997346147698
+          },
+          {
+            "time": 128,
+            "left_excess": -1.8959561974866632e-17,
+            "right_excess": 0.2655800758477664,
+            "both_excess": 2.588802532159823e-06,
+            "largest_bin_difference": 0.2655774870452342,
+            "receiver_energy_excess": 8.635437345766196
+          }
+        ]
+      },
+      "right": {
+        "source_work": [
+          22.714705096259294,
+          22.71470509625928
+        ],
+        "observed": [
+          {
+            "time": 0,
+            "left_excess": 0.0,
+            "right_excess": 0.0,
+            "both_excess": 0.0,
+            "largest_bin_difference": 0.0,
+            "receiver_energy_excess": 0.0
+          },
+          {
+            "time": 8,
+            "left_excess": 0.0017925649881362915,
+            "right_excess": -4.3213367462158203e-07,
+            "both_excess": 1.4901161193847656e-08,
+            "largest_bin_difference": 0.0017925500869750977,
+            "receiver_energy_excess": 0.05827188252203009
+          },
+          {
+            "time": 16,
+            "left_excess": 0.02427564561367035,
+            "right_excess": 1.9371509552001953e-07,
+            "both_excess": 2.086162567138672e-07,
+            "largest_bin_difference": 0.024275630712509155,
+            "receiver_energy_excess": 0.7893381642816023
+          },
+          {
+            "time": 32,
+            "left_excess": 0.1897502988576889,
+            "right_excess": 5.066394805908203e-07,
+            "both_excess": 1.8328428268432617e-06,
+            "largest_bin_difference": 0.18974897265434265,
+            "receiver_energy_excess": 6.169819731201257
+          },
+          {
+            "time": 48,
+            "left_excess": 0.25274747610092163,
+            "right_excess": -1.341104507446289e-07,
+            "both_excess": 3.129243850708008e-07,
+            "largest_bin_difference": 0.25274716317653656,
+            "receiver_energy_excess": 8.218176115435467
+          },
+          {
+            "time": 64,
+            "left_excess": 0.0764571875333786,
+            "right_excess": 9.08970832824707e-07,
+            "both_excess": 6.556510925292969e-07,
+            "largest_bin_difference": 0.0764574408531189,
+            "receiver_energy_excess": 2.486064136517251
+          },
+          {
+            "time": 96,
+            "left_excess": 0.003371208906173706,
+            "right_excess": 1.4901161193847656e-08,
+            "both_excess": 5.960464477539063e-08,
+            "largest_bin_difference": 0.0033711642026901245,
+            "receiver_energy_excess": 0.1096166264501078
+          },
+          {
+            "time": 128,
+            "left_excess": 0.2655181288719177,
+            "right_excess": 5.066394805908203e-07,
+            "both_excess": 2.7418136596679688e-06,
+            "largest_bin_difference": 0.26551589369773865,
+            "receiver_energy_excess": 8.633439589821911
+          }
+        ],
+        "born": [
+          {
+            "time": 0,
+            "left_excess": -1.2474244618190543e-30,
+            "right_excess": -8.322762571790262e-31,
+            "both_excess": -3.697258659860402e-60,
+            "largest_bin_difference": 1.2474244618190543e-30,
+            "receiver_energy_excess": -6.762226119382245e-29
+          },
+          {
+            "time": 8,
+            "left_excess": 0.0017977521690390969,
+            "right_excess": 1.0217913952683785e-19,
+            "both_excess": 5.8296221990207714e-09,
+            "largest_bin_difference": 0.0017977463394169835,
+            "receiver_energy_excess": 0.05845459667633788
+          },
+          {
+            "time": 16,
+            "left_excess": 0.02425470559953337,
+            "right_excess": -3.3786026683605905e-19,
+            "both_excess": 2.2463287010293955e-07,
+            "largest_bin_difference": 0.024254480966663272,
+            "receiver_energy_excess": 0.7886509930241686
+          },
+          {
+            "time": 32,
+            "left_excess": 0.18971684432706296,
+            "right_excess": 2.4936649967166602e-18,
+            "both_excess": 1.54822734803548e-06,
+            "largest_bin_difference": 0.1897152960997149,
+            "receiver_energy_excess": 6.16871547081686
+          },
+          {
+            "time": 48,
+            "left_excess": 0.2528042050802352,
+            "right_excess": -5.502484844041545e-18,
+            "both_excess": 3.7191059775852885e-07,
+            "largest_bin_difference": 0.2528038331696375,
+            "receiver_energy_excess": 8.220025040462614
+          },
+          {
+            "time": 64,
+            "left_excess": 0.07647268866626973,
+            "right_excess": 7.398726915147907e-18,
+            "both_excess": 6.258999127763631e-07,
+            "largest_bin_difference": 0.07647206276635696,
+            "receiver_energy_excess": 2.486538606225837
+          },
+          {
+            "time": 96,
+            "left_excess": 0.0033707043044070616,
+            "right_excess": -7.554782809512161e-18,
+            "both_excess": 1.3371369523061764e-08,
+            "largest_bin_difference": 0.0033706909330375387,
+            "receiver_energy_excess": 0.10959973461449087
+          },
+          {
+            "time": 128,
+            "left_excess": 0.26558007584774257,
+            "right_excess": -1.1166011827179814e-17,
+            "both_excess": 2.5888025321626104e-06,
+            "largest_bin_difference": 0.2655774870452104,
+            "receiver_energy_excess": 8.635437345765423
+          }
+        ]
+      },
+      "both": {
+        "source_work": [
+          22.71470509625928,
+          22.71470509625928
+        ],
+        "observed": [
+          {
+            "time": 0,
+            "left_excess": 0.0,
+            "right_excess": 0.0,
+            "both_excess": 0.0,
+            "largest_bin_difference": 0.0,
+            "receiver_energy_excess": 0.0
+          },
+          {
+            "time": 8,
+            "left_excess": -4.6193599700927734e-07,
+            "right_excess": 1.4901161193847656e-08,
+            "both_excess": 0.0,
+            "largest_bin_difference": 4.6193599700927734e-07,
+            "receiver_energy_excess": -1.453550799598316e-05
+          },
+          {
+            "time": 16,
+            "left_excess": -3.5762786865234375e-07,
+            "right_excess": 9.08970832824707e-07,
+            "both_excess": 0.0,
+            "largest_bin_difference": 9.08970832824707e-07,
+            "receiver_energy_excess": 1.792712652837923e-05
+          },
+          {
+            "time": 32,
+            "left_excess": 2.384185791015625e-07,
+            "right_excess": -6.705522537231445e-07,
+            "both_excess": 0.0,
+            "largest_bin_difference": 6.705522537231445e-07,
+            "receiver_energy_excess": -1.4050991062783722e-05
+          },
+          {
+            "time": 48,
+            "left_excess": -5.960464477539063e-08,
+            "right_excess": 3.725290298461914e-07,
+            "both_excess": 0.0,
+            "largest_bin_difference": 3.725290298461914e-07,
+            "receiver_energy_excess": 1.0174855597188213e-05
+          },
+          {
+            "time": 64,
+            "left_excess": -8.642673492431641e-07,
+            "right_excess": -7.003545761108398e-07,
+            "both_excess": 0.0,
+            "largest_bin_difference": 1.564621925354004e-06,
+            "receiver_energy_excess": -5.087427798594106e-05
+          },
+          {
+            "time": 96,
+            "left_excess": -4.917383193969727e-07,
+            "right_excess": 4.470348358154297e-08,
+            "both_excess": 0.0,
+            "largest_bin_difference": 4.917383193969727e-07,
+            "receiver_energy_excess": -1.453550799598316e-05
+          },
+          {
+            "time": 128,
+            "left_excess": -2.8312206268310547e-07,
+            "right_excess": 5.364418029785156e-07,
+            "both_excess": 0.0,
+            "largest_bin_difference": 5.364418029785156e-07,
+            "receiver_energy_excess": 8.236787864390458e-06
+          }
+        ],
+        "born": [
+          {
+            "time": 0,
+            "left_excess": 1.7450623256313061e-31,
+            "right_excess": -8.322762571790262e-31,
+            "both_excess": -1.9201890824949186e-61,
+            "largest_bin_difference": 8.322762571790262e-31,
+            "receiver_energy_excess": -2.1387642944832862e-29
+          },
+          {
+            "time": 8,
+            "left_excess": -3.7904814216274585e-19,
+            "right_excess": 1.0206657187769675e-19,
+            "both_excess": -8.982664464443035e-25,
+            "largest_bin_difference": 3.790472438962994e-19,
+            "receiver_energy_excess": -9.006161281087662e-18
+          },
+          {
+            "time": 16,
+            "left_excess": 1.119784807025242e-18,
+            "right_excess": -3.3711186225215462e-19,
+            "both_excess": 7.250755056910133e-24,
+            "largest_bin_difference": 1.119777556270185e-18,
+            "receiver_energy_excess": 2.5448908978731158e-17
+          },
+          {
+            "time": 32,
+            "left_excess": 3.3526041102894103e-18,
+            "right_excess": 2.4937127017735498e-18,
+            "both_excess": 4.770505688958164e-23,
+            "largest_bin_difference": 3.3525564052325207e-18,
+            "receiver_energy_excess": 1.900952184493243e-16
+          },
+          {
+            "time": 48,
+            "left_excess": -7.232621313523855e-18,
+            "right_excess": -5.502344760520133e-18,
+            "both_excess": -1.873515619818591e-23,
+            "largest_bin_difference": 7.232602578367657e-18,
+            "receiver_energy_excess": -4.1408227361115087e-16
+          },
+          {
+            "time": 64,
+            "left_excess": 1.0621940642287205e-17,
+            "right_excess": 7.398133245037338e-18,
+            "both_excess": 1.474837182787906e-22,
+            "largest_bin_difference": 1.0621793158568926e-17,
+            "receiver_energy_excess": 5.859295676580303e-16
+          },
+          {
+            "time": 96,
+            "left_excess": -1.1021666403064481e-17,
+            "right_excess": -7.555607582899884e-18,
+            "both_excess": -7.369339152537852e-23,
+            "largest_bin_difference": 1.1021592709672956e-17,
+            "receiver_energy_excess": -6.040471411450453e-16
+          },
+          {
+            "time": 128,
+            "left_excess": -1.896027916630711e-17,
+            "right_excess": -1.1167576051567546e-17,
+            "both_excess": -2.936749668504671e-22,
+            "largest_bin_difference": 1.1102230246251565e-16,
+            "receiver_energy_excess": -9.79618690392282e-16
+          }
+        ]
+      }
+    },
+    "10": {
+      "open": {
+        "source_work": [
+          22.71470509625925,
+          22.714705096259294
+        ],
+        "observed": [
+          {
+            "time": 0,
+            "left_excess": 0.0,
+            "right_excess": 0.0,
+            "both_excess": 0.0,
+            "largest_bin_difference": 0.0,
+            "receiver_energy_excess": 0.0
+          },
+          {
+            "time": 8,
+            "left_excess": 0.0017933845520019531,
+            "right_excess": 0.0018024146556854248,
+            "both_excess": 3.159046173095703e-06,
+            "largest_bin_difference": 0.0035926401615142822,
+            "receiver_energy_excess": 0.11691878115035655
+          },
+          {
+            "time": 16,
+            "left_excess": 0.02422456443309784,
+            "right_excess": 0.024250149726867676,
+            "both_excess": 0.0005880594253540039,
+            "largest_bin_difference": 0.04788665473461151,
+            "receiver_energy_excess": 1.5761737986032296
+          },
+          {
+            "time": 32,
+            "left_excess": 0.18965031206607819,
+            "right_excess": 0.18965747952461243,
+            "both_excess": 0.035966962575912476,
+            "largest_bin_difference": 0.34334082901477814,
+            "receiver_energy_excess": 12.33333735065239
+          },
+          {
+            "time": 48,
+            "left_excess": 0.2527688294649124,
+            "right_excess": 0.25291013717651367,
+            "both_excess": 0.06393700838088989,
+            "largest_bin_difference": 0.4417419582605362,
+            "receiver_energy_excess": 16.442344251783812
+          },
+          {
+            "time": 64,
+            "left_excess": 0.0765053778886795,
+            "right_excess": 0.07643994688987732,
+            "both_excess": 0.005844771862030029,
+            "largest_bin_difference": 0.1471005529165268,
+            "receiver_energy_excess": 4.973075503638907
+          },
+          {
+            "time": 96,
+            "left_excess": 0.00336301326751709,
+            "right_excess": 0.0033723413944244385,
+            "both_excess": 1.1473894119262695e-05,
+            "largest_bin_difference": 0.006723880767822266,
+            "receiver_energy_excess": 0.21900262284001268
+          },
+          {
+            "time": 128,
+            "left_excess": 0.2656285911798477,
+            "right_excess": 0.2655705660581589,
+            "both_excess": 0.07053467631340027,
+            "largest_bin_difference": 0.4606644809246063,
+            "receiver_energy_excess": 17.2721429716061
+          }
+        ],
+        "born": [
+          {
+            "time": 0,
+            "left_excess": 8.534628462200832e-31,
+            "right_excess": -1.2474244618190543e-30,
+            "both_excess": 1.0326902638392415e-60,
+            "largest_bin_difference": 1.2474244618190543e-30,
+            "receiver_energy_excess": -1.2809812021033635e-29
+          },
+          {
+            "time": 8,
+            "left_excess": 0.0017977521690396648,
+            "right_excess": 0.0017977521690390966,
+            "both_excess": 3.2381194120841697e-06,
+            "largest_bin_difference": 0.0035922662186665955,
+            "receiver_energy_excess": 0.1169091933526942
+          },
+          {
+            "time": 16,
+            "left_excess": 0.02425470559954073,
+            "right_excess": 0.02425470559953337,
+            "both_excess": 0.0005884804245280501,
+            "largest_bin_difference": 0.04792093077454618,
+            "receiver_energy_excess": 1.5773019860485766
+          },
+          {
+            "time": 32,
+            "left_excess": 0.18971684432709449,
+            "right_excess": 0.18971684432706296,
+            "both_excess": 0.035993179037854116,
+            "largest_bin_difference": 0.34344050961630324,
+            "receiver_energy_excess": 12.337430941634745
+          },
+          {
+            "time": 48,
+            "left_excess": 0.2528042050802077,
+            "right_excess": 0.2528042050802352,
+            "both_excess": 0.06391053689007549,
+            "largest_bin_difference": 0.44169787327036747,
+            "receiver_energy_excess": 16.440050080924333
+          },
+          {
+            "time": 64,
+            "left_excess": 0.07647268866620247,
+            "right_excess": 0.07647268866626974,
+            "both_excess": 0.005848620858794073,
+            "largest_bin_difference": 0.14709675647367793,
+            "receiver_energy_excess": 4.973077212449487
+          },
+          {
+            "time": 96,
+            "left_excess": 0.0033707043044156437,
+            "right_excess": 0.003370704304407062,
+            "both_excess": 1.1386498023358045e-05,
+            "largest_bin_difference": 0.006730022110799205,
+            "receiver_energy_excess": 0.21919946922926128
+          },
+          {
+            "time": 128,
+            "left_excess": 0.2655800758477664,
+            "right_excess": 0.2655800758477425,
+            "both_excess": 0.07053329270822452,
+            "largest_bin_difference": 0.4606268589872843,
+            "receiver_energy_excess": 17.27087469153162
+          }
+        ]
+      },
+      "left": {
+        "source_work": [
+          22.71470509625928,
+          22.714705096259294
+        ],
+        "observed": [
+          {
+            "time": 0,
+            "left_excess": 0.0,
+            "right_excess": 0.0,
+            "both_excess": 0.0,
+            "largest_bin_difference": 0.0,
+            "receiver_energy_excess": 0.0
+          },
+          {
+            "time": 8,
+            "left_excess": 1.4901161193847656e-07,
+            "right_excess": 0.001802891492843628,
+            "both_excess": 2.9802322387695312e-08,
+            "largest_bin_difference": 0.0018030107021331787,
+            "receiver_energy_excess": 0.05862654891713208
+          },
+          {
+            "time": 16,
+            "left_excess": 3.129243850708008e-07,
+            "right_excess": 0.02421875298023224,
+            "both_excess": 1.4901161193847656e-07,
+            "largest_bin_difference": 0.02421891689300537,
+            "receiver_energy_excess": 0.7874921547661125
+          },
+          {
+            "time": 32,
+            "left_excess": -5.066394805908203e-07,
+            "right_excess": 0.18966853618621826,
+            "both_excess": 1.564621925354004e-06,
+            "largest_bin_difference": 0.1896669715642929,
+            "receiver_energy_excess": 6.167128239637334
+          },
+          {
+            "time": 48,
+            "left_excess": -2.2351741790771484e-07,
+            "right_excess": 0.2529328912496567,
+            "both_excess": 3.725290298461914e-07,
+            "largest_bin_difference": 0.25293251872062683,
+            "receiver_energy_excess": 8.224202052533668
+          },
+          {
+            "time": 64,
+            "left_excess": -3.8743019104003906e-07,
+            "right_excess": 0.07647374272346497,
+            "both_excess": 6.407499313354492e-07,
+            "largest_bin_difference": 0.07647310197353363,
+            "receiver_energy_excess": 2.486560281856847
+          },
+          {
+            "time": 96,
+            "left_excess": 2.9802322387695312e-08,
+            "right_excess": 0.003370508551597595,
+            "both_excess": 1.4901161193847656e-08,
+            "largest_bin_difference": 0.003370523452758789,
+            "receiver_energy_excess": 0.10959433867118062
+          },
+          {
+            "time": 128,
+            "left_excess": -4.3213367462158203e-07,
+            "right_excess": 0.26562240719795227,
+            "both_excess": 2.384185791015625e-06,
+            "largest_bin_difference": 0.26562002301216125,
+            "receiver_energy_excess": 8.636799714753648
+          }
+        ],
+        "born": [
+          {
+            "time": 0,
+            "left_excess": -8.322762571790262e-31,
+            "right_excess": -1.2474244618190543e-30,
+            "both_excess": -3.697258659860402e-60,
+            "largest_bin_difference": 1.2474244618190543e-30,
+            "receiver_energy_excess": -6.762226119382245e-29
+          },
+          {
+            "time": 8,
+            "left_excess": 1.0217913952683785e-19,
+            "right_excess": 0.0017977521690390969,
+            "both_excess": 5.8296221990207714e-09,
+            "largest_bin_difference": 0.0017977463394169835,
+            "receiver_energy_excess": 0.05845459667633788
+          },
+          {
+            "time": 16,
+            "left_excess": -3.3786026683605905e-19,
+            "right_excess": 0.02425470559953337,
+            "both_excess": 2.2463287010293955e-07,
+            "largest_bin_difference": 0.024254480966663272,
+            "receiver_energy_excess": 0.7886509930241686
+          },
+          {
+            "time": 32,
+            "left_excess": 2.4936649967166602e-18,
+            "right_excess": 0.18971684432706296,
+            "both_excess": 1.54822734803548e-06,
+            "largest_bin_difference": 0.1897152960997149,
+            "receiver_energy_excess": 6.16871547081686
+          },
+          {
+            "time": 48,
+            "left_excess": -5.502484844041545e-18,
+            "right_excess": 0.2528042050802352,
+            "both_excess": 3.7191059775852885e-07,
+            "largest_bin_difference": 0.2528038331696375,
+            "receiver_energy_excess": 8.220025040462614
+          },
+          {
+            "time": 64,
+            "left_excess": 7.398726915147907e-18,
+            "right_excess": 0.07647268866626973,
+            "both_excess": 6.258999127763631e-07,
+            "largest_bin_difference": 0.07647206276635696,
+            "receiver_energy_excess": 2.486538606225837
+          },
+          {
+            "time": 96,
+            "left_excess": -7.554782809512161e-18,
+            "right_excess": 0.0033707043044070616,
+            "both_excess": 1.3371369523061764e-08,
+            "largest_bin_difference": 0.0033706909330375387,
+            "receiver_energy_excess": 0.10959973461449087
+          },
+          {
+            "time": 128,
+            "left_excess": -1.1166011827179814e-17,
+            "right_excess": 0.26558007584774257,
+            "both_excess": 2.5888025321626104e-06,
+            "largest_bin_difference": 0.2655774870452104,
+            "receiver_energy_excess": 8.635437345765423
+          }
+        ]
+      },
+      "right": {
+        "source_work": [
+          22.71470509625925,
+          22.71470509625928
+        ],
+        "observed": [
+          {
+            "time": 0,
+            "left_excess": 0.0,
+            "right_excess": 0.0,
+            "both_excess": 0.0,
+            "largest_bin_difference": 0.0,
+            "receiver_energy_excess": 0.0
+          },
+          {
+            "time": 8,
+            "left_excess": 0.001791432499885559,
+            "right_excess": -3.427267074584961e-07,
+            "both_excess": 1.4901161193847656e-08,
+            "largest_bin_difference": 0.0017914175987243652,
+            "receiver_energy_excess": 0.05823796633670613
+          },
+          {
+            "time": 16,
+            "left_excess": 0.024250701069831848,
+            "right_excess": 1.4901161193847656e-08,
+            "both_excess": 2.5331974029541016e-07,
+            "largest_bin_difference": 0.024250462651252747,
+            "receiver_energy_excess": 0.788521268732228
+          },
+          {
+            "time": 32,
+            "left_excess": 0.1896778643131256,
+            "right_excess": 5.662441253662109e-07,
+            "both_excess": 1.6987323760986328e-06,
+            "largest_bin_difference": 0.18967673182487488,
+            "receiver_energy_excess": 6.167466432456708
+          },
+          {
+            "time": 48,
+            "left_excess": 0.252859890460968,
+            "right_excess": -3.427267074584961e-07,
+            "both_excess": 2.980232238769531e-07,
+            "largest_bin_difference": 0.25285959243774414,
+            "receiver_energy_excess": 8.22182452794246
+          },
+          {
+            "time": 64,
+            "left_excess": 0.07642289996147156,
+            "right_excess": 1.7881393432617188e-07,
+            "both_excess": 6.705522537231445e-07,
+            "largest_bin_difference": 0.07642240822315216,
+            "receiver_energy_excess": 2.4849255217242323
+          },
+          {
+            "time": 96,
+            "left_excess": 0.0033668875694274902,
+            "right_excess": -1.341104507446289e-07,
+            "both_excess": 1.4901161193847656e-08,
+            "largest_bin_difference": 0.0033668726682662964,
+            "receiver_energy_excess": 0.10947127137014798
+          },
+          {
+            "time": 128,
+            "left_excess": 0.26555025577545166,
+            "right_excess": 7.003545761108398e-07,
+            "both_excess": 2.86102294921875e-06,
+            "largest_bin_difference": 0.26554809510707855,
+            "receiver_energy_excess": 8.63449050705002
+          }
+        ],
+        "born": [
+          {
+            "time": 0,
+            "left_excess": 8.534628462200832e-31,
+            "right_excess": 1.7450623256313061e-31,
+            "both_excess": 5.828285406061785e-61,
+            "largest_bin_difference": 8.534628462200832e-31,
+            "receiver_energy_excess": 3.3424806227955967e-29
+          },
+          {
+            "time": 8,
+            "left_excess": 0.0017977521690396648,
+            "right_excess": -3.787916450870205e-19,
+            "both_excess": 5.829622199022186e-09,
+            "largest_bin_difference": 0.0017977463394175386,
+            "receiver_energy_excess": 0.05845459667635632
+          },
+          {
+            "time": 16,
+            "left_excess": 0.024254705599540734,
+            "right_excess": 1.1194069793557613e-18,
+            "both_excess": 2.2463287010303817e-07,
+            "largest_bin_difference": 0.02425448096667063,
+            "receiver_energy_excess": 0.7886509930244081
+          },
+          {
+            "time": 32,
+            "left_excess": 0.1897168443270945,
+            "right_excess": 3.352979921706148e-18,
+            "both_excess": 1.5482273480361022e-06,
+            "largest_bin_difference": 0.18971529609974647,
+            "receiver_energy_excess": 6.168715470817886
+          },
+          {
+            "time": 48,
+            "left_excess": 0.2528042050802077,
+            "right_excess": -7.23265551792686e-18,
+            "both_excess": 3.7191059775758303e-07,
+            "largest_bin_difference": 0.25280383316960997,
+            "receiver_energy_excess": 8.220025040461719
+          },
+          {
+            "time": 64,
+            "left_excess": 0.07647268866620245,
+            "right_excess": 1.0622534312397774e-17,
+            "both_excess": 6.258999127762174e-07,
+            "largest_bin_difference": 0.07647206276628968,
+            "receiver_energy_excess": 2.48653860622365
+          },
+          {
+            "time": 96,
+            "left_excess": 0.0033707043044156433,
+            "right_excess": -1.1020973978574766e-17,
+            "both_excess": 1.3371369523075184e-08,
+            "largest_bin_difference": 0.0033706909330461204,
+            "receiver_energy_excess": 0.1095997346147698
+          },
+          {
+            "time": 128,
+            "left_excess": 0.2655800758477664,
+            "right_excess": -1.8959561974866632e-17,
+            "both_excess": 2.588802532159823e-06,
+            "largest_bin_difference": 0.2655774870452342,
+            "receiver_energy_excess": 8.635437345766196
+          }
+        ]
+      },
+      "both": {
+        "source_work": [
+          22.71470509625928,
+          22.71470509625928
+        ],
+        "observed": [
+          {
+            "time": 0,
+            "left_excess": 0.0,
+            "right_excess": 0.0,
+            "both_excess": 0.0,
+            "largest_bin_difference": 0.0,
+            "receiver_energy_excess": 0.0
+          },
+          {
+            "time": 8,
+            "left_excess": 1.7881393432617188e-07,
+            "right_excess": 7.748603820800781e-07,
+            "both_excess": 0.0,
+            "largest_bin_difference": 9.5367431640625e-07,
+            "receiver_energy_excess": 3.1009083724764074e-05
+          },
+          {
+            "time": 16,
+            "left_excess": 1.6391277313232422e-07,
+            "right_excess": -5.811452865600586e-07,
+            "both_excess": 0.0,
+            "largest_bin_difference": 5.811452865600586e-07,
+            "receiver_energy_excess": -1.3566474129584283e-05
+          },
+          {
+            "time": 32,
+            "left_excess": -1.043081283569336e-07,
+            "right_excess": -5.960464477539062e-07,
+            "both_excess": 0.0,
+            "largest_bin_difference": 7.003545761108398e-07,
+            "receiver_energy_excess": -2.2772295860373616e-05
+          },
+          {
+            "time": 48,
+            "left_excess": -3.129243850708008e-07,
+            "right_excess": 6.854534149169922e-07,
+            "both_excess": 0.0,
+            "largest_bin_difference": 6.854534149169922e-07,
+            "receiver_energy_excess": 1.2112923329985967e-05
+          },
+          {
+            "time": 64,
+            "left_excess": 6.705522537231445e-07,
+            "right_excess": 1.4901161193847656e-08,
+            "both_excess": 0.0,
+            "largest_bin_difference": 6.854534149169922e-07,
+            "receiver_energy_excess": 2.2287778927174177e-05
+          },
+          {
+            "time": 96,
+            "left_excess": -2.2351741790771484e-07,
+            "right_excess": -2.384185791015625e-07,
+            "both_excess": 0.0,
+            "largest_bin_difference": 4.6193599700927734e-07,
+            "receiver_energy_excess": -1.5020024929182598e-05
+          },
+          {
+            "time": 128,
+            "left_excess": 2.086162567138672e-07,
+            "right_excess": -8.940696716308594e-07,
+            "both_excess": 0.0,
+            "largest_bin_difference": 8.940696716308594e-07,
+            "receiver_energy_excess": -2.2287778927174177e-05
+          }
+        ],
+        "born": [
+          {
+            "time": 0,
+            "left_excess": -8.322762571790262e-31,
+            "right_excess": 1.7450623256313061e-31,
+            "both_excess": -1.9201890824949186e-61,
+            "largest_bin_difference": 8.322762571790262e-31,
+            "receiver_energy_excess": -2.1387642944832862e-29
+          },
+          {
+            "time": 8,
+            "left_excess": 1.0206657187769675e-19,
+            "right_excess": -3.7904814216274585e-19,
+            "both_excess": -8.982664464443035e-25,
+            "largest_bin_difference": 3.790472438962994e-19,
+            "receiver_energy_excess": -9.006161281087662e-18
+          },
+          {
+            "time": 16,
+            "left_excess": -3.3711186225215462e-19,
+            "right_excess": 1.119784807025242e-18,
+            "both_excess": 7.250755056910133e-24,
+            "largest_bin_difference": 1.119777556270185e-18,
+            "receiver_energy_excess": 2.5448908978731158e-17
+          },
+          {
+            "time": 32,
+            "left_excess": 2.4937127017735498e-18,
+            "right_excess": 3.3526041102894103e-18,
+            "both_excess": 4.770505688958164e-23,
+            "largest_bin_difference": 3.3525564052325207e-18,
+            "receiver_energy_excess": 1.900952184493243e-16
+          },
+          {
+            "time": 48,
+            "left_excess": -5.502344760520133e-18,
+            "right_excess": -7.232621313523855e-18,
+            "both_excess": -1.873515619818591e-23,
+            "largest_bin_difference": 7.232602578367657e-18,
+            "receiver_energy_excess": -4.1408227361115087e-16
+          },
+          {
+            "time": 64,
+            "left_excess": 7.398133245037338e-18,
+            "right_excess": 1.0621940642287205e-17,
+            "both_excess": 1.474837182787906e-22,
+            "largest_bin_difference": 1.0621793158568926e-17,
+            "receiver_energy_excess": 5.859295676580303e-16
+          },
+          {
+            "time": 96,
+            "left_excess": -7.555607582899884e-18,
+            "right_excess": -1.1021666403064481e-17,
+            "both_excess": -7.369339152537852e-23,
+            "largest_bin_difference": 1.1021592709672956e-17,
+            "receiver_energy_excess": -6.040471411450453e-16
+          },
+          {
+            "time": 128,
+            "left_excess": -1.1167576051567546e-17,
+            "right_excess": -1.896027916630711e-17,
+            "both_excess": -2.936749668504671e-22,
+            "largest_bin_difference": 1.1102230246251565e-16,
+            "receiver_energy_excess": -9.79618690392282e-16
+          }
+        ]
+      }
+    },
+    "11": {
+      "open": {
+        "source_work": [
+          22.71470509625925,
+          22.71470509625925
+        ],
+        "observed": [
+          {
+            "time": 0,
+            "left_excess": 0.0,
+            "right_excess": 0.0,
+            "both_excess": 0.0,
+            "largest_bin_difference": 0.0,
+            "receiver_energy_excess": 0.0
+          },
+          {
+            "time": 8,
+            "left_excess": 0.0017936527729034424,
+            "right_excess": 0.0018005818128585815,
+            "both_excess": 3.471970558166504e-06,
+            "largest_bin_difference": 0.0035907626152038574,
+            "receiver_energy_excess": 0.1168679068723706
+          },
+          {
+            "time": 16,
+            "left_excess": 0.024260401725769043,
+            "right_excess": 0.02425481379032135,
+            "both_excess": 0.0005908459424972534,
+            "largest_bin_difference": 0.04792436957359314,
+            "receiver_energy_excess": 1.5774907156276656
+          },
+          {
+            "time": 32,
+            "left_excess": 0.18973812460899353,
+            "right_excess": 0.18968422710895538,
+            "both_excess": 0.03597690165042877,
+            "largest_bin_difference": 0.34344545006752014,
+            "receiver_energy_excess": 12.337062316834826
+          },
+          {
+            "time": 48,
+            "left_excess": 0.25282005965709686,
+            "right_excess": 0.25275078415870667,
+            "both_excess": 0.06391184031963348,
+            "largest_bin_difference": 0.44165900349617004,
+            "receiver_energy_excess": 16.438828596916515
+          },
+          {
+            "time": 64,
+            "left_excess": 0.07644133269786835,
+            "right_excess": 0.07646551728248596,
+            "both_excess": 0.005845695734024048,
+            "largest_bin_difference": 0.14706115424633026,
+            "receiver_energy_excess": 4.971824480917386
+          },
+          {
+            "time": 96,
+            "left_excess": 0.0033603310585021973,
+            "right_excess": 0.003368958830833435,
+            "both_excess": 1.0401010513305664e-05,
+            "largest_bin_difference": 0.006718888878822327,
+            "receiver_energy_excess": 0.2188054244482005
+          },
+          {
+            "time": 128,
+            "left_excess": 0.2656176835298538,
+            "right_excess": 0.26545606553554535,
+            "both_excess": 0.07050755620002747,
+            "largest_bin_difference": 0.4605661928653717,
+            "receiver_energy_excess": 17.268065277096294
+          }
+        ],
+        "born": [
+          {
+            "time": 0,
+            "left_excess": 8.534628462200832e-31,
+            "right_excess": 8.534628462200832e-31,
+            "both_excess": 1.8915018706549925e-60,
+            "largest_bin_difference": 8.534628462200832e-31,
+            "receiver_energy_excess": 5.550133918703604e-29
+          },
+          {
+            "time": 8,
+            "left_excess": 0.001797752169039665,
+            "right_excess": 0.001797752169039665,
+            "both_excess": 3.238119412085191e-06,
+            "largest_bin_difference": 0.0035922662186671506,
+            "receiver_energy_excess": 0.11690919335271269
+          },
+          {
+            "time": 16,
+            "left_excess": 0.02425470559954073,
+            "right_excess": 0.02425470559954073,
+            "both_excess": 0.0005884804245282288,
+            "largest_bin_difference": 0.047920930774553394,
+            "receiver_energy_excess": 1.577301986048816
+          },
+          {
+            "time": 32,
+            "left_excess": 0.1897168443270945,
+            "right_excess": 0.1897168443270945,
+            "both_excess": 0.035993179037860104,
+            "largest_bin_difference": 0.34344050961632877,
+            "receiver_energy_excess": 12.337430941635771
+          },
+          {
+            "time": 48,
+            "left_excess": 0.2528042050802077,
+            "right_excess": 0.2528042050802077,
+            "both_excess": 0.06391053689006852,
+            "largest_bin_difference": 0.44169787327034693,
+            "receiver_energy_excess": 16.440050080923438
+          },
+          {
+            "time": 64,
+            "left_excess": 0.07647268866620245,
+            "right_excess": 0.07647268866620245,
+            "both_excess": 0.005848620858788928,
+            "largest_bin_difference": 0.14709675647361575,
+            "receiver_energy_excess": 4.973077212447299
+          },
+          {
+            "time": 96,
+            "left_excess": 0.0033707043044156433,
+            "right_excess": 0.0033707043044156433,
+            "both_excess": 1.1386498023386993e-05,
+            "largest_bin_difference": 0.006730022110807754,
+            "receiver_energy_excess": 0.21919946922954028
+          },
+          {
+            "time": 128,
+            "left_excess": 0.26558007584776633,
+            "right_excess": 0.26558007584776633,
+            "both_excess": 0.07053329270823085,
+            "largest_bin_difference": 0.4606268589873018,
+            "receiver_energy_excess": 17.27087469153239
+          }
+        ]
+      },
+      "left": {
+        "source_work": [
+          22.71470509625928,
+          22.71470509625925
+        ],
+        "observed": [
+          {
+            "time": 0,
+            "left_excess": 0.0,
+            "right_excess": 0.0,
+            "both_excess": 0.0,
+            "largest_bin_difference": 0.0,
+            "receiver_energy_excess": 0.0
+          },
+          {
+            "time": 8,
+            "left_excess": 3.2782554626464844e-07,
+            "right_excess": 0.0017917901277542114,
+            "both_excess": 1.4901161193847656e-08,
+            "largest_bin_difference": 0.0017921030521392822,
+            "receiver_energy_excess": 0.05827139800509689
+          },
+          {
+            "time": 16,
+            "left_excess": -4.470348358154297e-07,
+            "right_excess": 0.024291574954986572,
+            "both_excess": 1.4901161193847656e-07,
+            "largest_bin_difference": 0.024291425943374634,
+            "receiver_energy_excess": 0.789835278655065
+          },
+          {
+            "time": 32,
+            "left_excess": -2.9802322387695312e-08,
+            "right_excess": 0.1897708624601364,
+            "both_excess": 1.6540288925170898e-06,
+            "largest_bin_difference": 0.1897692084312439,
+            "receiver_energy_excess": 6.1704709219594776
+          },
+          {
+            "time": 48,
+            "left_excess": 5.960464477539063e-08,
+            "right_excess": 0.2527695447206497,
+            "both_excess": 3.427267074584961e-07,
+            "largest_bin_difference": 0.25276926159858704,
+            "receiver_energy_excess": 8.218899983733667
+          },
+          {
+            "time": 64,
+            "left_excess": -3.8743019104003906e-07,
+            "right_excess": 0.07647863030433655,
+            "both_excess": 6.556510925292969e-07,
+            "largest_bin_difference": 0.07647797465324402,
+            "receiver_energy_excess": 2.4867192034109364
+          },
+          {
+            "time": 96,
+            "left_excess": -5.960464477539063e-08,
+            "right_excess": 0.0033742040395736694,
+            "both_excess": 1.4901161193847656e-08,
+            "largest_bin_difference": 0.0033741891384124756,
+            "receiver_energy_excess": 0.10971159176901489
+          },
+          {
+            "time": 128,
+            "left_excess": -4.470348358154297e-08,
+            "right_excess": 0.26554034650325775,
+            "both_excess": 2.294778823852539e-06,
+            "largest_bin_difference": 0.2655380517244339,
+            "receiver_energy_excess": 8.634144077442782
+          }
+        ],
+        "born": [
+          {
+            "time": 0,
+            "left_excess": -8.322762571790262e-31,
+            "right_excess": 8.534628462200832e-31,
+            "both_excess": -3.9628800298332677e-63,
+            "largest_bin_difference": 8.534628462200832e-31,
+            "receiver_energy_excess": 6.8889001424721644e-31
+          },
+          {
+            "time": 8,
+            "left_excess": 1.0232637767587229e-19,
+            "right_excess": 0.0017977521690396648,
+            "both_excess": 5.829622199022613e-09,
+            "largest_bin_difference": 0.0017977463394175386,
+            "receiver_energy_excess": 0.058454596676356343
+          },
+          {
+            "time": 16,
+            "left_excess": -3.374102805828302e-19,
+            "right_excess": 0.024254705599540734,
+            "both_excess": 2.2463287010300776e-07,
+            "largest_bin_difference": 0.02425448096667063,
+            "receiver_energy_excess": 0.7886509930244081
+          },
+          {
+            "time": 32,
+            "left_excess": 2.4936649967166602e-18,
+            "right_excess": 0.1897168443270945,
+            "both_excess": 1.5482273480357375e-06,
+            "largest_bin_difference": 0.18971529609974647,
+            "receiver_energy_excess": 6.168715470817886
+          },
+          {
+            "time": 48,
+            "left_excess": -5.5025377836007486e-18,
+            "right_excess": 0.2528042050802077,
+            "both_excess": 3.7191059775848835e-07,
+            "largest_bin_difference": 0.25280383316960997,
+            "receiver_energy_excess": 8.220025040461719
+          },
+          {
+            "time": 64,
+            "left_excess": 7.3986210360295e-18,
+            "right_excess": 0.07647268866620245,
+            "both_excess": 6.258999127758124e-07,
+            "largest_bin_difference": 0.07647206276628968,
+            "receiver_energy_excess": 2.4865386062236494
+          },
+          {
+            "time": 96,
+            "left_excess": -7.554619027750875e-18,
+            "right_excess": 0.0033707043044156433,
+            "both_excess": 1.3371369523095809e-08,
+            "largest_bin_difference": 0.0033706909330461204,
+            "receiver_energy_excess": 0.1095997346147699
+          },
+          {
+            "time": 128,
+            "left_excess": -1.1166858860127069e-17,
+            "right_excess": 0.2655800758477664,
+            "both_excess": 2.5888025321628425e-06,
+            "largest_bin_difference": 0.2655774870452342,
+            "receiver_energy_excess": 8.635437345766196
+          }
+        ]
+      },
+      "right": {
+        "source_work": [
+          22.71470509625925,
+          22.71470509625928
+        ],
+        "observed": [
+          {
+            "time": 0,
+            "left_excess": 0.0,
+            "right_excess": 0.0,
+            "both_excess": 0.0,
+            "largest_bin_difference": 0.0,
+            "receiver_energy_excess": 0.0
+          },
+          {
+            "time": 8,
+            "left_excess": 0.001791536808013916,
+            "right_excess": -1.9371509552001953e-07,
+            "both_excess": 0.0,
+            "largest_bin_difference": 0.001791536808013916,
+            "receiver_energy_excess": 0.05824620312457052
+          },
+          {
+            "time": 16,
+            "left_excess": 0.024244442582130432,
+            "right_excess": -8.940696716308594e-08,
+            "both_excess": 1.9371509552001953e-07,
+            "largest_bin_difference": 0.024244248867034912,
+            "receiver_energy_excess": 0.7883143800017519
+          },
+          {
+            "time": 32,
+            "left_excess": 0.18968653678894043,
+            "right_excess": 5.21540641784668e-07,
+            "both_excess": 1.773238182067871e-06,
+            "largest_bin_difference": 0.18968528509140015,
+            "receiver_energy_excess": 6.16774696776103
+          },
+          {
+            "time": 48,
+            "left_excess": 0.2527703493833542,
+            "right_excess": -2.2351741790771484e-07,
+            "both_excess": 3.2782554626464844e-07,
+            "largest_bin_difference": 0.2527700215578079,
+            "receiver_energy_excess": 8.218916941826329
+          },
+          {
+            "time": 64,
+            "left_excess": 0.07645510137081146,
+            "right_excess": 2.384185791015625e-07,
+            "both_excess": 5.066394805908203e-07,
+            "largest_bin_difference": 0.07645483314990997,
+            "receiver_energy_excess": 2.485974500884609
+          },
+          {
+            "time": 96,
+            "left_excess": 0.003368690609931946,
+            "right_excess": 3.8743019104003906e-07,
+            "both_excess": 2.9802322387695312e-08,
+            "largest_bin_difference": 0.003369048237800598,
+            "receiver_energy_excess": 0.10954685601172709
+          },
+          {
+            "time": 128,
+            "left_excess": 0.26558342576026917,
+            "right_excess": 0.0,
+            "both_excess": 2.428889274597168e-06,
+            "largest_bin_difference": 0.26558099687099457,
+            "receiver_energy_excess": 8.635546269447461
+          }
+        ],
+        "born": [
+          {
+            "time": 0,
+            "left_excess": 8.534628462200832e-31,
+            "right_excess": -8.322762571790262e-31,
+            "both_excess": -3.9628800298332677e-63,
+            "largest_bin_difference": 8.534628462200832e-31,
+            "receiver_energy_excess": 6.8889001424721644e-31
+          },
+          {
+            "time": 8,
+            "left_excess": 0.0017977521690396648,
+            "right_excess": 1.0232637767587229e-19,
+            "both_excess": 5.829622199022613e-09,
+            "largest_bin_difference": 0.0017977463394175386,
+            "receiver_energy_excess": 0.058454596676356343
+          },
+          {
+            "time": 16,
+            "left_excess": 0.024254705599540734,
+            "right_excess": -3.374102805828302e-19,
+            "both_excess": 2.2463287010300776e-07,
+            "largest_bin_difference": 0.02425448096667063,
+            "receiver_energy_excess": 0.7886509930244081
+          },
+          {
+            "time": 32,
+            "left_excess": 0.1897168443270945,
+            "right_excess": 2.4936649967166602e-18,
+            "both_excess": 1.5482273480357375e-06,
+            "largest_bin_difference": 0.18971529609974647,
+            "receiver_energy_excess": 6.168715470817886
+          },
+          {
+            "time": 48,
+            "left_excess": 0.2528042050802077,
+            "right_excess": -5.5025377836007486e-18,
+            "both_excess": 3.7191059775848835e-07,
+            "largest_bin_difference": 0.25280383316960997,
+            "receiver_energy_excess": 8.220025040461719
+          },
+          {
+            "time": 64,
+            "left_excess": 0.07647268866620245,
+            "right_excess": 7.3986210360295e-18,
+            "both_excess": 6.258999127758124e-07,
+            "largest_bin_difference": 0.07647206276628968,
+            "receiver_energy_excess": 2.4865386062236494
+          },
+          {
+            "time": 96,
+            "left_excess": 0.0033707043044156433,
+            "right_excess": -7.554619027750875e-18,
+            "both_excess": 1.3371369523095809e-08,
+            "largest_bin_difference": 0.0033706909330461204,
+            "receiver_energy_excess": 0.1095997346147699
+          },
+          {
+            "time": 128,
+            "left_excess": 0.2655800758477664,
+            "right_excess": -1.1166858860127069e-17,
+            "both_excess": 2.5888025321628425e-06,
+            "largest_bin_difference": 0.2655774870452342,
+            "receiver_energy_excess": 8.635437345766196
+          }
+        ]
+      },
+      "both": {
+        "source_work": [
+          22.71470509625928,
+          22.71470509625928
+        ],
+        "observed": [
+          {
+            "time": 0,
+            "left_excess": 0.0,
+            "right_excess": 0.0,
+            "both_excess": 0.0,
+            "largest_bin_difference": 0.0,
+            "receiver_energy_excess": 0.0
+          },
+          {
+            "time": 8,
+            "left_excess": -7.450580596923828e-07,
+            "right_excess": -2.980232238769531e-07,
+            "both_excess": 0.0,
+            "largest_bin_difference": 1.043081283569336e-06,
+            "receiver_energy_excess": -3.3916185323960705e-05
+          },
+          {
+            "time": 16,
+            "left_excess": -6.258487701416016e-07,
+            "right_excess": 1.4901161193847656e-07,
+            "both_excess": 0.0,
+            "largest_bin_difference": 6.258487701416016e-07,
+            "receiver_energy_excess": -1.5504541862382037e-05
+          },
+          {
+            "time": 32,
+            "left_excess": 2.2351741790771484e-07,
+            "right_excess": -6.258487701416016e-07,
+            "both_excess": 0.0,
+            "largest_bin_difference": 6.258487701416016e-07,
+            "receiver_energy_excess": -1.3081957196384843e-05
+          },
+          {
+            "time": 48,
+            "left_excess": 3.5762786865234375e-07,
+            "right_excess": 2.2351741790771484e-07,
+            "both_excess": 0.0,
+            "largest_bin_difference": 5.811452865600586e-07,
+            "receiver_energy_excess": 1.8896160394778107e-05
+          },
+          {
+            "time": 64,
+            "left_excess": -6.556510925292969e-07,
+            "right_excess": -1.1026859283447266e-06,
+            "both_excess": 0.0,
+            "largest_bin_difference": 1.7583370208740234e-06,
+            "receiver_energy_excess": -5.717299811753376e-05
+          },
+          {
+            "time": 96,
+            "left_excess": 2.5331974029541016e-07,
+            "right_excess": -1.043081283569336e-07,
+            "both_excess": 0.0,
+            "largest_bin_difference": 2.5331974029541016e-07,
+            "receiver_energy_excess": 4.845169331994387e-06
+          },
+          {
+            "time": 128,
+            "left_excess": 7.748603820800781e-07,
+            "right_excess": 4.470348358154297e-07,
+            "both_excess": 0.0,
+            "largest_bin_difference": 1.2218952178955078e-06,
+            "receiver_energy_excess": 3.973038852235397e-05
+          }
+        ],
+        "born": [
+          {
+            "time": 0,
+            "left_excess": -8.322762571790262e-31,
+            "right_excess": -8.322762571790262e-31,
+            "both_excess": -1.7910281962384865e-60,
+            "largest_bin_difference": 8.322762571790262e-31,
+            "receiver_energy_excess": -5.412355915854161e-29
+          },
+          {
+            "time": 8,
+            "left_excess": 1.0206813253486809e-19,
+            "right_excess": 1.0206813253486809e-19,
+            "both_excess": 6.623907248959792e-25,
+            "largest_bin_difference": 1.0206747014414319e-19,
+            "receiver_energy_excess": 6.6375684297149185e-18
+          },
+          {
+            "time": 16,
+            "left_excess": -3.371253556358969e-19,
+            "right_excess": -3.371253556358969e-19,
+            "both_excess": -6.242628685361131e-24,
+            "largest_bin_difference": 3.3711911300721153e-19,
+            "receiver_energy_excess": -2.1923518750191812e-17
+          },
+          {
+            "time": 32,
+            "left_excess": 2.4937056965877372e-18,
+            "right_excess": 2.4937056965877372e-18,
+            "both_excess": 4.069987107702319e-23,
+            "largest_bin_difference": 2.4936649967166602e-18,
+            "receiver_energy_excess": 1.6216758153203734e-16
+          },
+          {
+            "time": 48,
+            "left_excess": -5.502342214758707e-18,
+            "right_excess": -5.502342214758707e-18,
+            "both_excess": -1.6189394771954594e-23,
+            "largest_bin_difference": 5.502326025363935e-18,
+            "receiver_energy_excess": -3.5782150674397325e-16
+          },
+          {
+            "time": 64,
+            "left_excess": 7.398106865730616e-18,
+            "right_excess": 7.398106865730616e-18,
+            "both_excess": 1.211044115565917e-22,
+            "largest_bin_difference": 7.397985761319059e-18,
+            "receiver_energy_excess": 4.811045264775029e-16
+          },
+          {
+            "time": 96,
+            "left_excess": -7.555593834253375e-18,
+            "right_excess": -7.555593834253375e-18,
+            "both_excess": -5.994474501595222e-23,
+            "largest_bin_difference": 7.555533889508359e-18,
+            "receiver_energy_excess": -4.913460240379787e-16
+          },
+          {
+            "time": 128,
+            "left_excess": -1.1167500080198162e-17,
+            "right_excess": -1.1167500080198162e-17,
+            "both_excess": -2.1770359746629997e-22,
+            "largest_bin_difference": 1.1167282376600696e-17,
+            "receiver_energy_excess": -7.26231039309354e-16
+          }
+        ]
+      }
+    }
+  }
+}

@@ -47,9 +47,9 @@ PREMISE_DEPENDENCY_CLASSIFICATIONS = {
     "explicit_edges",
     "explicit_non_consumer",
 }
-PREMISE_ID = re.compile(r"^PR-[0-9]{2}$")
+PREMISE_ID = re.compile(r"^PR-(?:[0-9]{2}|[1-9][0-9]{2,})$")
 PREMISE_DEPENDENCY_PROJECTION_SHA256 = (
-    "73a85c64c41075669478e53cb8a11126133e7559e7d6cd406621bdc222923163"
+    "260529b0be5c787231f98ab59f4bb193c34611bc55934c862b04782f1853d761"
 )
 
 # Controlled claim classification (issue #512). `status` stays descriptive
@@ -469,7 +469,7 @@ def check_premise_dependencies(claim: dict, known_premises: set[str]) -> None:
         require(
             isinstance(values, list)
             and all(isinstance(value, str) and PREMISE_ID.fullmatch(value) for value in values),
-            f"{claim_id}: premise_dependencies.{field} must be a list of PR-xx ids",
+            f"{claim_id}: premise_dependencies.{field} must be a list of canonical PR ids",
         )
         require(
             len(values) == len(set(values)),
