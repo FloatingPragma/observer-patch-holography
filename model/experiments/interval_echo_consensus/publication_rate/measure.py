@@ -8,6 +8,7 @@ from pathlib import Path
 import numpy as np
 
 from . import apparatus as a
+from ..signed_effects.sequential import GRID_BITS, grid_counts
 
 HERE = Path(__file__).resolve().parent
 N = 2**20
@@ -20,11 +21,9 @@ def counts(probabilities, *ids, seed=SEED):
     p = np.asarray(probabilities).real.ravel()
     if p.min() < -1e-12 or abs(p.sum() - 1) > 1e-12:
         raise ArithmeticError("Incomplete probability accounting")
-    # Integer weights avoid platform-dependent changes at exact rational values.
-    p = np.maximum(p, 0)
-    w = np.rint(p * 2**40).astype(np.int64)
-    w[p.argmax()] += 2**40 - w.sum()
-    return np.random.default_rng([seed, *ids]).multinomial(N, w / 2**40).tolist()
+    # Integer draws on the 2**-40 grid give the same counts on every platform.
+    rng = np.random.default_rng([seed, *ids])
+    return grid_counts(rng, N, np.maximum(p, 0)).tolist()
 
 
 def read_bank(bank, analyser, ids, seed=SEED):
@@ -94,6 +93,7 @@ def acquire():
     free = [counts(abs(a.dimer(n * np.pi)[:, 0]) ** 2, 5, n) for n in (0, 1, 2)]
     return dict(
         shots=N,
+        sampling_grid_bits=GRID_BITS,
         addresses=a.PORTS,
         flags=flags,
         hand=hand,

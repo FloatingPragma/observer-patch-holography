@@ -78,8 +78,17 @@ def test_independent_conditional_counts_and_hidden_vs_indexed_grades():
         )
         expect = report_words[np.arange(256)[:, None] ^ shifts]
         np.testing.assert_array_equal(reported, expect)
-        reproduced = rng.multinomial(
-            SHOTS, np.full(len(shifts), 1 / len(shifts)), size=256
+        # Each start is one PCG64 integer below 2**40; its top `width` bits
+        # pick one of the equally weighted selector patterns.
+        reproduced = np.array(
+            [
+                np.bincount(
+                    rng.integers(0, 1 << 40, size=SHOTS, dtype=np.int64)
+                    >> (40 - width),
+                    minlength=len(shifts),
+                )
+                for _ in range(256)
+            ]
         )
         np.testing.assert_array_equal(counts, reproduced)
         hidden = np.zeros((256, 256), int)

@@ -22,6 +22,7 @@ from .apparatus import (
 )
 from .checkpoint import correct
 from ..seam_word_meter.finite_program.machine import digit_instruments
+from ..signed_effects.sequential import GRID_BITS, grid_counts
 
 HERE = Path(__file__).parent
 SHOTS = 16384
@@ -241,7 +242,7 @@ def acquire():
             ]
         )
         assert np.array_equal(prior, np.full(size, 1 / size))
-        samples = rng.multinomial(SHOTS, prior, size=256)
+        samples = np.array([grid_counts(rng, SHOTS, prior) for _ in range(256)])
         terminal_counts = np.zeros((256, 256), int)
         np.add.at(terminal_counts, (np.arange(256)[:, None], destination), samples)
         expected = np.zeros_like(terminal_counts, dtype=float)
@@ -272,13 +273,14 @@ def acquire():
     return dict(
         seed=SEED,
         shots_per_input_arm=SHOTS,
+        sampling_grid_bits=GRID_BITS,
         checked_terminal_bins=checked,
         dimers=dimers,
         station_routes=stations,
         selector_truth_table=labels,
         plate=plate,
         public_inputs=words,
-        provenance="Seeded multinomial draws from the native isolated selector product law. Both restored heads read the same sharp selector outcome. The terminal swap circuit is conditioned on those readings; a hidden receiver sees only cell parities.",
+        provenance="Seeded integer draws on the 2**-40 grid from the native isolated selector product law. Both restored heads read the same sharp selector outcome. The terminal swap circuit is conditioned on those readings; a hidden receiver sees only cell parities.",
         arms=panels,
     )
 

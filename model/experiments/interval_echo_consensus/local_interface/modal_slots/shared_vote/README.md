@@ -8,6 +8,8 @@ The simulator forms one physical packet per shared node. A field bit occupies a 
 
 The three declared premises PR-32, PR-33 and PR-34 concern the implemented finite construction. The two products and their independently addressable labels supply PR-32. For PR-33 the two factor algebras intersect in the scalars and generate the full joint matrix algebra. For PR-34 the measured local projections and swaps give all left and right matrix units on the code for both designated pairs. The existing kernel-checked support distinction is preserved by the material layout. The timing, modal rule and field encoding are part of the declaration. [Construction, matrix-unit argument and detector controls](../README.md) · [Formal pair construction](../../../../../../Lean/QFT/JointSlotFactorisation.lean)
 
+The archive keeps the binary64 branch law of every seeded draw. A replay recomputes each law, checks it against the stored values within 10⁻¹² and draws from the stored values, so a last-bit difference in the matrix exponential cannot shift the shared random stream. [Acquisition laws](acquisition_laws.json)
+
 From the repository root, use one numerical thread.
 
 ~~~sh

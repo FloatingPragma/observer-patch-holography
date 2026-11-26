@@ -35,7 +35,7 @@ def acquire():
                 obs = m.read_bank(bank, u, [11, appointment, k, phase], seed=177032)
                 readings.append(dict(pair=[i, j], phase=phase, **obs))
         banks.append(dict(delay=delay, hand=phases, readings=readings))
-    return banks
+    return dict(sampling_grid_bits=m.GRID_BITS, banks=banks)
 
 
 def forecast(data, commission):
@@ -44,7 +44,7 @@ def forecast(data, commission):
     angle = 2 * np.arcsin(np.sqrt(calibrated["flags"]["1.0"][0]))
     rate = calibrated["rates_per_radian"][0]
     result = []
-    for row in data:
+    for row in data["banks"]:
         cos, sin = (2 * x[0] / m.N - 1 for x in row["hand"])
         hand = np.arctan2(sin, cos)
         # Zero is a known rest preparation. A slightly negative statistical

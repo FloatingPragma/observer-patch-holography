@@ -1,13 +1,19 @@
 import json
 import numpy as np
+import pytest
 from . import measure
 
 
 def test_native_archive_and_tie_thresholds():
-    data = measure.acquire()
+    archived = measure.archived_laws()
+    data, laws = measure.acquire(archived)
+    assert laws == archived
     assert json.loads(json.dumps(data)) == json.loads(
         (measure.HERE / "counts.json").read_text()
     )
+    archived[4][0] += 1e-9
+    with pytest.raises(ArithmeticError, match="differ from the acquisition law"):
+        measure.acquire(archived)
     assert data["summary"] == {
         "sharp_triples": 2366,
         "minimum_private_edits": {"86": 23, "88": 20, "247": 45},

@@ -13,6 +13,14 @@ from .. import measure as modal
 
 HERE = Path(__file__).resolve().parent
 SHOTS, SEED = 2**18, 320177
+LAWS = HERE / "acquisition_laws.json"
+# expm on the 9x9 seam terms reproduces the rail probabilities to about
+# 1e-14; a larger difference is a changed law rather than roundoff.
+LAW_TOLERANCE = 1e-12
+
+
+def archived_laws():
+    return json.loads(LAWS.read_text())["branch_probabilities"]
 
 
 def label_pair(labels, observer):
@@ -112,7 +120,12 @@ def outcome_table(progs, choices, pair, deficit, board, mapping):
     return probes, branches
 
 
-def acquire():
+def acquire(archived=None):
+    """Return the counts and the branch laws drawn from.
+
+    A replay passes the archived laws. Fresh probabilities must agree with
+    them within LAW_TOLERANCE, and the seeded draws use the archived values.
+    """
     progs, _, mapping = modal.setup()
     choices = {o: label_pair(p["labels"], o) for o, p in progs.items()}
     summary = statistics(progs, choices)
@@ -124,7 +137,7 @@ def acquire():
         12 * owner + j not in addresses for owner in mapping.values() for j in range(12)
     )
     seed = np.random.default_rng(SEED)
-    banks = []
+    banks, laws = [], []
     for pair in [(86, 88), (86, 247)]:
         for name, deficit in [("code", None), ("one_short", 1), ("boundary", 0)]:
             probes, branches = outcome_table(
@@ -140,9 +153,18 @@ def acquire():
                             for b in branches
                         ]
                     )
-                    counts = seed.multinomial(
-                        SHOTS, probabilities / probabilities.sum()
-                    )
+                    branch_law = probabilities / probabilities.sum()
+                    if archived is not None:
+                        stored = np.asarray(archived[len(banks)], dtype=float)
+                        if stored.shape != branch_law.shape or not np.all(
+                            abs(branch_law - stored) <= LAW_TOLERANCE
+                        ):
+                            raise ArithmeticError(
+                                "branch probabilities differ from the acquisition law"
+                            )
+                        branch_law = stored
+                    laws.append(branch_law.tolist())
+                    counts = seed.multinomial(SHOTS, branch_law)
                     joint = [0] * 4
                     for branch, count in zip(branches, counts, strict=True):
                         joint[branch["joint_bin"]] += int(count)
@@ -158,13 +180,14 @@ def acquire():
                             "joint_counts": joint,
                         }
                     )
-    return {
+    data = {
         "starts_per_setting": SHOTS,
         "seed": SEED,
         "labels": choices,
         "summary": summary,
         "banks": banks,
     }
+    return data, laws
 
 
 if __name__ == "__main__":
@@ -173,10 +196,14 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--write", action="store_true")
     args = parser.parse_args()
-    data = acquire()
+    data, laws = acquire(None if args.write else archived_laws())
     text = json.dumps(data, indent=1, allow_nan=False) + "\n"
     if args.write:
         (HERE / "counts.json").write_text(text)
+        LAWS.write_text(
+            json.dumps({"branch_probabilities": laws}, indent=1, allow_nan=False)
+            + "\n"
+        )
     else:
         assert text == (HERE / "counts.json").read_text()
     print(data["summary"])
