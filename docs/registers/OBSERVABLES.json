@@ -5812,11 +5812,13 @@
    "kind": "observable",
    "name": "Deuteron binding and quadrupole moment",
    "category": "OpenWave Recovery",
-   "status": "Open",
+   "status": "Partial",
    "what": "The deuteron, a proton bound to a neutron by about 2.2 MeV, has a small electric quadrupole moment.",
    "why": "The quadrupole moment reveals the tensor part of the nuclear force, which a model of nuclei has to reproduce.",
    "premises": [],
-   "lean": [],
+   "lean": [
+    "model/candidate_laws/interval_echo/openwave/row_16_binding/signed_pair/SignedPair.lean"
+   ],
    "model": [
     "model/evaluation/SCORECARD.md",
     "model/evaluation/openwave_criteria.json",
@@ -5828,10 +5830,26 @@
     "model/candidate_laws/interval_echo/openwave/row_16_binding/certificates.py",
     "model/candidate_laws/interval_echo/openwave/row_16_binding/measure.py",
     "model/candidate_laws/interval_echo/openwave/row_16_binding/records.json.gz",
-    "model/candidate_laws/interval_echo/openwave/row_16_binding/test_binding.py"
+    "model/candidate_laws/interval_echo/openwave/row_16_binding/test_binding.py",
+    "model/candidate_laws/interval_echo/openwave/row_16_binding/signed_pair/APERTURE.md",
+    "model/candidate_laws/interval_echo/openwave/row_16_binding/signed_pair/FRAGMENTS.md",
+    "model/candidate_laws/interval_echo/openwave/row_16_binding/signed_pair/PROTOCOL.md",
+    "model/candidate_laws/interval_echo/openwave/row_16_binding/signed_pair/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_16_binding/signed_pair/aperture.py",
+    "model/candidate_laws/interval_echo/openwave/row_16_binding/signed_pair/fragments.json",
+    "model/candidate_laws/interval_echo/openwave/row_16_binding/signed_pair/fragments.py",
+    "model/candidate_laws/interval_echo/openwave/row_16_binding/signed_pair/joined_words.npy.gz",
+    "model/candidate_laws/interval_echo/openwave/row_16_binding/signed_pair/material.py",
+    "model/candidate_laws/interval_echo/openwave/row_16_binding/signed_pair/measure.py",
+    "model/candidate_laws/interval_echo/openwave/row_16_binding/signed_pair/probe.py",
+    "model/candidate_laws/interval_echo/openwave/row_16_binding/signed_pair/records.json.gz",
+    "model/candidate_laws/interval_echo/openwave/row_16_binding/signed_pair/standards.json",
+    "model/candidate_laws/interval_echo/openwave/row_16_binding/signed_pair/standards.py",
+    "model/candidate_laws/interval_echo/openwave/row_16_binding/signed_pair/test_signed_pair.py"
    ],
    "papers": [
-    "paper/deriving_the_particle_zoo_from_observer_consistency.pdf"
+    "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
+    "paper/executable_observer_construction.pdf"
    ]
   },
   {
@@ -6157,7 +6175,7 @@
    "kind": "observable",
    "name": "Muon decay",
    "category": "OpenWave Recovery",
-   "status": "Open",
+   "status": "Partial",
    "what": "The muon decays into an electron and two neutrinos with a mean lifetime of about 2.2 microseconds.",
    "why": "Muon decay is the cleanest weak process and fixes the Fermi constant, so a model has to reproduce it on identified states.",
    "premises": [],
@@ -6167,7 +6185,8 @@
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/daughter_shell/EnergyShell.lean",
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/resonant_delivery/ResonantTransfer.lean",
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/emission_channels/EmissionBound.lean",
-    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/level_transfer/ObserverTransfer.lean"
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/level_transfer/ObserverTransfer.lean",
+    "model/candidate_laws/interval_echo/openwave/row_24_decay/fork/ChargeWitness.lean"
    ],
    "model": [
     "model/evaluation/SCORECARD.md",
@@ -6182,10 +6201,27 @@
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/daughter_shell/README.md",
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/resonant_delivery/README.md",
     "model/candidate_laws/interval_echo/openwave/row_11_spectrum/emission_channels/README.md",
-    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/level_transfer/README.md"
+    "model/candidate_laws/interval_echo/openwave/row_11_spectrum/level_transfer/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_24_decay/fork/ACCESS.md",
+    "model/candidate_laws/interval_echo/openwave/row_24_decay/fork/CALORIMETRY.md",
+    "model/candidate_laws/interval_echo/openwave/row_24_decay/fork/CHARGE.md",
+    "model/candidate_laws/interval_echo/openwave/row_24_decay/fork/IDENTITY.md",
+    "model/candidate_laws/interval_echo/openwave/row_24_decay/fork/PROOF.md",
+    "model/candidate_laws/interval_echo/openwave/row_24_decay/fork/PROTOCOL.md",
+    "model/candidate_laws/interval_echo/openwave/row_24_decay/fork/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_24_decay/fork/calibration.json",
+    "model/candidate_laws/interval_echo/openwave/row_24_decay/fork/calibration.py",
+    "model/candidate_laws/interval_echo/openwave/row_24_decay/fork/identity.json",
+    "model/candidate_laws/interval_echo/openwave/row_24_decay/fork/identity.py",
+    "model/candidate_laws/interval_echo/openwave/row_24_decay/fork/material.py",
+    "model/candidate_laws/interval_echo/openwave/row_24_decay/fork/measure.py",
+    "model/candidate_laws/interval_echo/openwave/row_24_decay/fork/records.json",
+    "model/candidate_laws/interval_echo/openwave/row_24_decay/fork/source.py",
+    "model/candidate_laws/interval_echo/openwave/row_24_decay/fork/test_fork.py"
    ],
    "papers": [
-    "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
+    "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+    "paper/executable_observer_construction.pdf"
    ]
   },
   {
@@ -6415,7 +6451,8 @@
    "premises": [],
    "lean": [
     "model/candidate_laws/interval_echo/openwave/row_30_collective/committed_heads/during_flight/array/SpatialPair.lean",
-    "model/candidate_laws/interval_echo/openwave/row_30_collective/pinned_pair/PhaseRead.lean"
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/pinned_pair/PhaseRead.lean",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/beat_speed/Curvature.lean"
    ],
    "model": [
     "model/evaluation/SCORECARD.md",
@@ -6482,7 +6519,14 @@
     "model/candidate_laws/interval_echo/openwave/row_30_collective/polar_recoil/README.md",
     "model/candidate_laws/interval_echo/openwave/row_30_collective/polar_recoil/counts.json",
     "model/candidate_laws/interval_echo/openwave/row_30_collective/polar_recoil/measure.py",
-    "model/candidate_laws/interval_echo/openwave/row_30_collective/polar_recoil/test_measure.py"
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/polar_recoil/test_measure.py",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/beat_speed/PROTOCOL.md",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/beat_speed/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/beat_speed/counts.json.gz",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/beat_speed/measure.py",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/beat_speed/results.json",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/beat_speed/test_speed.py",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/beat_speed/wall.py"
    ],
    "papers": [
     "paper/executable_observer_construction.pdf"
@@ -9163,16 +9207,29 @@
    "kind": "premise",
    "name": "quantum-particle conditions for a carrier mode",
    "category": "Physical premises",
-   "status": "Open",
+   "status": "Partial",
    "what": "A classical carrier mode counts as a quantum particle only with positive-energy quantization, a one-particle pole in its two-point function, and asymptotic scattering states.",
    "why": "Every claim that a model excitation is a physical particle passes through these three conditions; a coloured carrier also needs a deconfined sector.",
    "premises": [],
-   "lean": [],
+   "lean": [
+    "model/experiments/material_inertia/pair_spectrum/neutral_guide/polar_ring/two_point/PoleWeight.lean"
+   ],
    "model": [
-    "model/candidate_laws/interval_echo/openwave/graviton_identity/README.md"
+    "model/candidate_laws/interval_echo/openwave/graviton_identity/README.md",
+    "model/experiments/material_inertia/pair_spectrum/neutral_guide/polar_ring/two_point/PAIR_PROTOCOL.md",
+    "model/experiments/material_inertia/pair_spectrum/neutral_guide/polar_ring/two_point/PROOF.md",
+    "model/experiments/material_inertia/pair_spectrum/neutral_guide/polar_ring/two_point/PROTOCOL.md",
+    "model/experiments/material_inertia/pair_spectrum/neutral_guide/polar_ring/two_point/README.md",
+    "model/experiments/material_inertia/pair_spectrum/neutral_guide/polar_ring/two_point/measure.py",
+    "model/experiments/material_inertia/pair_spectrum/neutral_guide/polar_ring/two_point/pairs.json",
+    "model/experiments/material_inertia/pair_spectrum/neutral_guide/polar_ring/two_point/pairs.py",
+    "model/experiments/material_inertia/pair_spectrum/neutral_guide/polar_ring/two_point/records.json",
+    "model/experiments/material_inertia/pair_spectrum/neutral_guide/polar_ring/two_point/test_pairs.py",
+    "model/experiments/material_inertia/pair_spectrum/neutral_guide/polar_ring/two_point/test_two_point.py"
    ],
    "papers": [
-    "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf"
+    "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf",
+    "paper/executable_observer_construction.pdf"
    ],
    "statement": "A classical carrier mode is a quantum particle only with (Q1) a positive-energy quantization with physical Hilbert space, (Q2) a two-point function whose Kallen-Lehmann measure contains a positive-residue one-particle pole, and (Q3) the asymptotic-state or LSZ hypotheses of the phase, including a deconfined sector for a coloured carrier.",
    "premise_kind": "derivable"
@@ -11007,15 +11064,27 @@
    "kind": "premise",
    "name": "Lossless independent interventions and dense observation",
    "category": "Physical premises",
-   "status": "Open",
+   "status": "Partial",
    "what": "Every input can be varied independently while all else stays fixed, and a decoder recovers it from the complete transcript.",
    "why": "It lets information-bandwidth bounds apply to the model, including the dense-observation limits on resolution and horizon.",
    "premises": [],
    "lean": [
-    "Lean/Geometry/RecordGluingPrinciple.lean"
+    "Lean/Geometry/RecordGluingPrinciple.lean",
+    "model/experiments/interval_echo_consensus/record_lowering/dense_readout/DenseRead.lean"
    ],
-   "model": [],
-   "papers": [],
+   "model": [
+    "model/experiments/interval_echo_consensus/record_lowering/dense_readout/PLACEMENT.md",
+    "model/experiments/interval_echo_consensus/record_lowering/dense_readout/PROTOCOL.md",
+    "model/experiments/interval_echo_consensus/record_lowering/dense_readout/README.md",
+    "model/experiments/interval_echo_consensus/record_lowering/dense_readout/apparatus.py",
+    "model/experiments/interval_echo_consensus/record_lowering/dense_readout/measure.py",
+    "model/experiments/interval_echo_consensus/record_lowering/dense_readout/placement.py",
+    "model/experiments/interval_echo_consensus/record_lowering/dense_readout/records.json.gz",
+    "model/experiments/interval_echo_consensus/record_lowering/dense_readout/test_dense.py"
+   ],
+   "papers": [
+    "paper/executable_observer_construction.pdf"
+   ],
    "statement": "Every named input tuple is independently variable at its publication boundary while all other records and caches stay fixed, and a decoder recovers it from the complete finite transcript including control, timing and metadata; the dense specialization supplies q = n^2 sites per axis, radius L/sqrt(q), layer duration L/(c sqrt(q)) and horizon L/c.",
    "premise_kind": "derivable"
   },
