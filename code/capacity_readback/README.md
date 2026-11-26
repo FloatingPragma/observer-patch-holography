@@ -28,6 +28,8 @@ It proves (M_0=60) on a complete bounded software packet and
 implementation-dependent. It is a no-go control for physical promotion, not a
 second physical packet or a cosmic selector.
 
+Two receivers on the twenty-owner Interval Echo board also test what a missing orientation reference costs. Under an unknown common rotation they distinguish 96 unmarked twelve-bit messages, 832 with one host marker and 4,096 with two ordered adjacent markers. The observed veto at the host has a unique interpretation for each host-marked message. The cosmological reserve and horizon attachment require separate evidence. [Measured messages, vetoes and frame proof](../../model/experiments/interval_echo_consensus/publication_tree/mounted_capacity/README.md)
+
 ## Canonical lane
 
 - [`CHECKPOINT_CHANNEL_AUDIT.md`](CHECKPOINT_CHANNEL_AUDIT.md) records the
