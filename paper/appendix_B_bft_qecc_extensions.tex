@@ -318,6 +318,29 @@ new-view quorum for $q=4$. The simulation supplies the routes and timeout
 appointments. A bound in elapsed time requires (A1) and (A4)
 (\path{model/experiments/interval_echo_consensus/prepared_quorum/}).
 
+Four validators can meet the strong connectivity assumption on a five-cell
+ring when one validator occupies two adjacent cells. No four individual cells
+work on the 20-, 80- or 320-cell board: their induced graph, if connected, is
+a tree. On the ring, the three surviving validators authenticate the same
+decision for each choice of one silent validator. Each sender can also send
+the signed decision along both three-validator routes containing its two
+endpoints. Of 72 transfers to participating validators, 48 returned two
+valid copies and 24 returned one. A separate material dimer counted the
+padded communication appointments; the three boards used between
+4,864,608 and 7,788,160 appointments per successful scheduled view.
+
+On a serial wire the absolute decimal view in an empty-lock change vote
+costs 150 fixed bytes plus its digits. With one fixed initial receiver
+record, a finite family of transcripts at a deadline cannot distinguish
+arbitrarily many views. A receiver can instead read ten local dimers and
+restore the view before checking all signatures. The complete fresh-view
+exchange then takes 14,766 wire bytes at views 1, 10, 100 and 1000 on
+both larger boards. A mismatched local view rejects the decision. A
+view-change report carrying an older lock requires more than the single
+stored view. Acquisition of the common view, a bound on local processing
+and the fault budget are separate hypotheses for the physical timing
+conclusion (\path{prepared_quorum/timed_routes/} in the same package).
+
 \subsection*{The Petz repair map}
 
 \begin{definition}[OPH Repair Map: Petz form]
