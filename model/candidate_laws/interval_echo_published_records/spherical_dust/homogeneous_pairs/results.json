@@ -1,0 +1,5578 @@
+{
+  "schema": "oph.dust.homogeneous_pairs.v1",
+  "determinant": 0.06994924248193361,
+  "orbit_weights": [
+    3.6101167632328655,
+    13.769378307601249,
+    -16.379495070834114
+  ],
+  "unenrolled_factor": -0.4618046439617692,
+  "weighed_shell_tickets": [
+    [
+      9288674231451648,
+      48378511622144,
+      387028092977152
+    ],
+    [
+      9288674231451648,
+      35184372088832,
+      281474976710656
+    ]
+  ],
+  "held_rest_density": 0.13745199630663688,
+  "surveys": [
+    {
+      "mesh_denominator": 256,
+      "radius": "1/64",
+      "center": [
+        "0",
+        "0",
+        "0"
+      ],
+      "frames": [
+        {
+          "frame": [
+            "1",
+            "0",
+            "0",
+            "0"
+          ],
+          "address_count": 257,
+          "complete_short_pairs": [
+            [
+              1920,
+              624
+            ],
+            [
+              2520,
+              1140
+            ],
+            [
+              1264,
+              688
+            ]
+          ],
+          "entropy_over_radius4": 1.178191590314722,
+          "relative_entropy_over_radius4": 5.622163234135321e-06,
+          "continuum_factor": 1.0,
+          "dust_factor": 1.0
+        },
+        {
+          "frame": [
+            "5/3",
+            "4/3",
+            "0",
+            "0"
+          ],
+          "address_count": 437,
+          "complete_short_pairs": [
+            [
+              4190,
+              1100
+            ],
+            [
+              5040,
+              2012
+            ],
+            [
+              2520,
+              1240
+            ]
+          ],
+          "entropy_over_radius4": 2.7488604919760413,
+          "relative_entropy_over_radius4": 9.559903947519345e-06,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "4/3",
+            "0"
+          ],
+          "address_count": 437,
+          "complete_short_pairs": [
+            [
+              4190,
+              1100
+            ],
+            [
+              5040,
+              2012
+            ],
+            [
+              2520,
+              1240
+            ]
+          ],
+          "entropy_over_radius4": 2.7488604919760413,
+          "relative_entropy_over_radius4": 9.559903947519345e-06,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "0",
+            "4/3"
+          ],
+          "address_count": 437,
+          "complete_short_pairs": [
+            [
+              4190,
+              1100
+            ],
+            [
+              5040,
+              2012
+            ],
+            [
+              2520,
+              1240
+            ]
+          ],
+          "entropy_over_radius4": 2.7488604919760413,
+          "relative_entropy_over_radius4": 9.559903947519345e-06,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "-4/3",
+            "0",
+            "0"
+          ],
+          "address_count": 437,
+          "complete_short_pairs": [
+            [
+              4190,
+              1100
+            ],
+            [
+              5040,
+              2012
+            ],
+            [
+              2520,
+              1240
+            ]
+          ],
+          "entropy_over_radius4": 2.7488604919760413,
+          "relative_entropy_over_radius4": 9.559903947519345e-06,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "-4/3",
+            "0"
+          ],
+          "address_count": 437,
+          "complete_short_pairs": [
+            [
+              4190,
+              1100
+            ],
+            [
+              5040,
+              2012
+            ],
+            [
+              2520,
+              1240
+            ]
+          ],
+          "entropy_over_radius4": 2.7488604919760413,
+          "relative_entropy_over_radius4": 9.559903947519345e-06,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "0",
+            "-4/3"
+          ],
+          "address_count": 437,
+          "complete_short_pairs": [
+            [
+              4190,
+              1100
+            ],
+            [
+              5040,
+              2012
+            ],
+            [
+              2520,
+              1240
+            ]
+          ],
+          "entropy_over_radius4": 2.7488604919760413,
+          "relative_entropy_over_radius4": 9.559903947519345e-06,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "3",
+            "2",
+            "2",
+            "0"
+          ],
+          "address_count": 777,
+          "complete_short_pairs": [
+            [
+              7424,
+              1972
+            ],
+            [
+              11708,
+              3662
+            ],
+            [
+              5278,
+              2276
+            ]
+          ],
+          "entropy_over_radius4": 7.696402399814432,
+          "relative_entropy_over_radius4": 1.6997902288558722e-05,
+          "continuum_factor": 9.0,
+          "dust_factor": 9.0
+        },
+        {
+          "frame": [
+            "3",
+            "2",
+            "0",
+            "2"
+          ],
+          "address_count": 777,
+          "complete_short_pairs": [
+            [
+              7424,
+              1972
+            ],
+            [
+              11708,
+              3662
+            ],
+            [
+              5278,
+              2276
+            ]
+          ],
+          "entropy_over_radius4": 7.696402399814432,
+          "relative_entropy_over_radius4": 1.6997902288558722e-05,
+          "continuum_factor": 9.0,
+          "dust_factor": 9.0
+        },
+        {
+          "frame": [
+            "3",
+            "0",
+            "2",
+            "2"
+          ],
+          "address_count": 777,
+          "complete_short_pairs": [
+            [
+              7424,
+              1972
+            ],
+            [
+              11708,
+              3662
+            ],
+            [
+              5278,
+              2276
+            ]
+          ],
+          "entropy_over_radius4": 7.696402399814432,
+          "relative_entropy_over_radius4": 1.6997902288558722e-05,
+          "continuum_factor": 9.0,
+          "dust_factor": 9.0
+        },
+        {
+          "frame": [
+            "2",
+            "1",
+            "1",
+            "1"
+          ],
+          "address_count": 537,
+          "complete_short_pairs": [
+            [
+              4806,
+              1356
+            ],
+            [
+              6750,
+              2502
+            ],
+            [
+              3762,
+              1574
+            ]
+          ],
+          "entropy_over_radius4": 0.2720556499441841,
+          "relative_entropy_over_radius4": 1.1747574298271263e-05,
+          "continuum_factor": -0.4618046439617692,
+          "dust_factor": 4.0
+        }
+      ]
+    },
+    {
+      "mesh_denominator": 256,
+      "radius": "3/256",
+      "center": [
+        "0",
+        "0",
+        "0"
+      ],
+      "frames": [
+        {
+          "frame": [
+            "1",
+            "0",
+            "0",
+            "0"
+          ],
+          "address_count": 123,
+          "complete_short_pairs": [
+            [
+              699,
+              282
+            ],
+            [
+              876,
+              480
+            ],
+            [
+              420,
+              272
+            ]
+          ],
+          "entropy_over_radius4": 1.9599494886552853,
+          "relative_entropy_over_radius4": 8.504075010440456e-06,
+          "continuum_factor": 1.0,
+          "dust_factor": 1.0
+        },
+        {
+          "frame": [
+            "5/3",
+            "4/3",
+            "0",
+            "0"
+          ],
+          "address_count": 183,
+          "complete_short_pairs": [
+            [
+              1253,
+              430
+            ],
+            [
+              1460,
+              752
+            ],
+            [
+              708,
+              448
+            ]
+          ],
+          "entropy_over_radius4": 3.170228025055233,
+          "relative_entropy_over_radius4": 1.2652438770821478e-05,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "4/3",
+            "0"
+          ],
+          "address_count": 183,
+          "complete_short_pairs": [
+            [
+              1253,
+              430
+            ],
+            [
+              1460,
+              752
+            ],
+            [
+              708,
+              448
+            ]
+          ],
+          "entropy_over_radius4": 3.170228025055233,
+          "relative_entropy_over_radius4": 1.2652438770821478e-05,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "0",
+            "4/3"
+          ],
+          "address_count": 183,
+          "complete_short_pairs": [
+            [
+              1253,
+              430
+            ],
+            [
+              1460,
+              752
+            ],
+            [
+              708,
+              448
+            ]
+          ],
+          "entropy_over_radius4": 3.170228025055233,
+          "relative_entropy_over_radius4": 1.2652438770821478e-05,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "-4/3",
+            "0",
+            "0"
+          ],
+          "address_count": 183,
+          "complete_short_pairs": [
+            [
+              1253,
+              430
+            ],
+            [
+              1460,
+              752
+            ],
+            [
+              708,
+              448
+            ]
+          ],
+          "entropy_over_radius4": 3.170228025055233,
+          "relative_entropy_over_radius4": 1.2652438770821478e-05,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "-4/3",
+            "0"
+          ],
+          "address_count": 183,
+          "complete_short_pairs": [
+            [
+              1253,
+              430
+            ],
+            [
+              1460,
+              752
+            ],
+            [
+              708,
+              448
+            ]
+          ],
+          "entropy_over_radius4": 3.170228025055233,
+          "relative_entropy_over_radius4": 1.2652438770821478e-05,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "0",
+            "-4/3"
+          ],
+          "address_count": 183,
+          "complete_short_pairs": [
+            [
+              1253,
+              430
+            ],
+            [
+              1460,
+              752
+            ],
+            [
+              708,
+              448
+            ]
+          ],
+          "entropy_over_radius4": 3.170228025055233,
+          "relative_entropy_over_radius4": 1.2652438770821478e-05,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "3",
+            "2",
+            "2",
+            "0"
+          ],
+          "address_count": 347,
+          "complete_short_pairs": [
+            [
+              2427,
+              826
+            ],
+            [
+              3758,
+              1488
+            ],
+            [
+              1618,
+              888
+            ]
+          ],
+          "entropy_over_radius4": 9.678139833048995,
+          "relative_entropy_over_radius4": 2.399133787429928e-05,
+          "continuum_factor": 9.0,
+          "dust_factor": 9.0
+        },
+        {
+          "frame": [
+            "3",
+            "2",
+            "0",
+            "2"
+          ],
+          "address_count": 347,
+          "complete_short_pairs": [
+            [
+              2427,
+              826
+            ],
+            [
+              3758,
+              1488
+            ],
+            [
+              1618,
+              888
+            ]
+          ],
+          "entropy_over_radius4": 9.678139833048995,
+          "relative_entropy_over_radius4": 2.399133787429928e-05,
+          "continuum_factor": 9.0,
+          "dust_factor": 9.0
+        },
+        {
+          "frame": [
+            "3",
+            "0",
+            "2",
+            "2"
+          ],
+          "address_count": 347,
+          "complete_short_pairs": [
+            [
+              2427,
+              826
+            ],
+            [
+              3758,
+              1488
+            ],
+            [
+              1618,
+              888
+            ]
+          ],
+          "entropy_over_radius4": 9.678139833048995,
+          "relative_entropy_over_radius4": 2.399133787429928e-05,
+          "continuum_factor": 9.0,
+          "dust_factor": 9.0
+        },
+        {
+          "frame": [
+            "2",
+            "1",
+            "1",
+            "1"
+          ],
+          "address_count": 259,
+          "complete_short_pairs": [
+            [
+              1719,
+              612
+            ],
+            [
+              2427,
+              1116
+            ],
+            [
+              1320,
+              684
+            ]
+          ],
+          "entropy_over_radius4": 0.9575590445260183,
+          "relative_entropy_over_radius4": 1.7907090052232418e-05,
+          "continuum_factor": -0.4618046439617692,
+          "dust_factor": 4.0
+        }
+      ]
+    },
+    {
+      "mesh_denominator": 256,
+      "radius": "1/64",
+      "center": [
+        "7/1021",
+        "-5/1021",
+        "3/1021"
+      ],
+      "frames": [
+        {
+          "frame": [
+            "1",
+            "0",
+            "0",
+            "0"
+          ],
+          "address_count": 272,
+          "complete_short_pairs": [
+            [
+              2055,
+              660
+            ],
+            [
+              2706,
+              1203
+            ],
+            [
+              1375,
+              739
+            ]
+          ],
+          "entropy_over_radius4": 1.1079097588159335,
+          "relative_entropy_over_radius4": 5.950308488815487e-06,
+          "continuum_factor": 1.0,
+          "dust_factor": 1.0
+        },
+        {
+          "frame": [
+            "5/3",
+            "4/3",
+            "0",
+            "0"
+          ],
+          "address_count": 451,
+          "complete_short_pairs": [
+            [
+              4290,
+              1131
+            ],
+            [
+              5292,
+              2084
+            ],
+            [
+              2681,
+              1291
+            ]
+          ],
+          "entropy_over_radius4": 2.5247910751977303,
+          "relative_entropy_over_radius4": 9.866177572534634e-06,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "4/3",
+            "0"
+          ],
+          "address_count": 451,
+          "complete_short_pairs": [
+            [
+              4290,
+              1131
+            ],
+            [
+              5292,
+              2084
+            ],
+            [
+              2681,
+              1291
+            ]
+          ],
+          "entropy_over_radius4": 2.5247910751977303,
+          "relative_entropy_over_radius4": 9.866177572534634e-06,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "0",
+            "4/3"
+          ],
+          "address_count": 451,
+          "complete_short_pairs": [
+            [
+              4290,
+              1131
+            ],
+            [
+              5292,
+              2084
+            ],
+            [
+              2681,
+              1291
+            ]
+          ],
+          "entropy_over_radius4": 2.5247910751977303,
+          "relative_entropy_over_radius4": 9.866177572534634e-06,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "-4/3",
+            "0",
+            "0"
+          ],
+          "address_count": 451,
+          "complete_short_pairs": [
+            [
+              4290,
+              1131
+            ],
+            [
+              5292,
+              2084
+            ],
+            [
+              2681,
+              1291
+            ]
+          ],
+          "entropy_over_radius4": 2.5247910751977303,
+          "relative_entropy_over_radius4": 9.866177572534634e-06,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "-4/3",
+            "0"
+          ],
+          "address_count": 451,
+          "complete_short_pairs": [
+            [
+              4290,
+              1131
+            ],
+            [
+              5292,
+              2084
+            ],
+            [
+              2681,
+              1291
+            ]
+          ],
+          "entropy_over_radius4": 2.5247910751977303,
+          "relative_entropy_over_radius4": 9.866177572534634e-06,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "0",
+            "-4/3"
+          ],
+          "address_count": 451,
+          "complete_short_pairs": [
+            [
+              4290,
+              1131
+            ],
+            [
+              5292,
+              2084
+            ],
+            [
+              2681,
+              1291
+            ]
+          ],
+          "entropy_over_radius4": 2.5247910751977303,
+          "relative_entropy_over_radius4": 9.866177572534634e-06,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "3",
+            "2",
+            "2",
+            "0"
+          ],
+          "address_count": 809,
+          "complete_short_pairs": [
+            [
+              7782,
+              2050
+            ],
+            [
+              12337,
+              3823
+            ],
+            [
+              5651,
+              2385
+            ]
+          ],
+          "entropy_over_radius4": 7.470009098659485,
+          "relative_entropy_over_radius4": 1.7697956855070282e-05,
+          "continuum_factor": 9.0,
+          "dust_factor": 9.0
+        },
+        {
+          "frame": [
+            "3",
+            "2",
+            "0",
+            "2"
+          ],
+          "address_count": 809,
+          "complete_short_pairs": [
+            [
+              7782,
+              2050
+            ],
+            [
+              12337,
+              3823
+            ],
+            [
+              5651,
+              2385
+            ]
+          ],
+          "entropy_over_radius4": 7.470009098659485,
+          "relative_entropy_over_radius4": 1.7697956855070282e-05,
+          "continuum_factor": 9.0,
+          "dust_factor": 9.0
+        },
+        {
+          "frame": [
+            "3",
+            "0",
+            "2",
+            "2"
+          ],
+          "address_count": 809,
+          "complete_short_pairs": [
+            [
+              7782,
+              2050
+            ],
+            [
+              12337,
+              3823
+            ],
+            [
+              5651,
+              2385
+            ]
+          ],
+          "entropy_over_radius4": 7.470009098659485,
+          "relative_entropy_over_radius4": 1.7697956855070282e-05,
+          "continuum_factor": 9.0,
+          "dust_factor": 9.0
+        },
+        {
+          "frame": [
+            "2",
+            "1",
+            "1",
+            "1"
+          ],
+          "address_count": 543,
+          "complete_short_pairs": [
+            [
+              4872,
+              1365
+            ],
+            [
+              6849,
+              2538
+            ],
+            [
+              3810,
+              1583
+            ]
+          ],
+          "entropy_over_radius4": 0.3550010493582853,
+          "relative_entropy_over_radius4": 1.1878832252627527e-05,
+          "continuum_factor": -0.4618046439617692,
+          "dust_factor": 4.0
+        }
+      ]
+    },
+    {
+      "mesh_denominator": 256,
+      "radius": "3/256",
+      "center": [
+        "7/1021",
+        "-5/1021",
+        "3/1021"
+      ],
+      "frames": [
+        {
+          "frame": [
+            "1",
+            "0",
+            "0",
+            "0"
+          ],
+          "address_count": 114,
+          "complete_short_pairs": [
+            [
+              603,
+              258
+            ],
+            [
+              774,
+              447
+            ],
+            [
+              381,
+              263
+            ]
+          ],
+          "entropy_over_radius4": 1.374161520914648,
+          "relative_entropy_over_radius4": 7.881824984486137e-06,
+          "continuum_factor": 1.0,
+          "dust_factor": 1.0
+        },
+        {
+          "frame": [
+            "5/3",
+            "4/3",
+            "0",
+            "0"
+          ],
+          "address_count": 191,
+          "complete_short_pairs": [
+            [
+              1300,
+              449
+            ],
+            [
+              1548,
+              793
+            ],
+            [
+              766,
+              477
+            ]
+          ],
+          "entropy_over_radius4": 2.9027240449244016,
+          "relative_entropy_over_radius4": 1.3205559316044316e-05,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "4/3",
+            "0"
+          ],
+          "address_count": 191,
+          "complete_short_pairs": [
+            [
+              1300,
+              449
+            ],
+            [
+              1548,
+              793
+            ],
+            [
+              766,
+              477
+            ]
+          ],
+          "entropy_over_radius4": 2.9027240449244016,
+          "relative_entropy_over_radius4": 1.3205559316044316e-05,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "0",
+            "4/3"
+          ],
+          "address_count": 191,
+          "complete_short_pairs": [
+            [
+              1300,
+              449
+            ],
+            [
+              1548,
+              793
+            ],
+            [
+              766,
+              477
+            ]
+          ],
+          "entropy_over_radius4": 2.9027240449244016,
+          "relative_entropy_over_radius4": 1.3205559316044316e-05,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "-4/3",
+            "0",
+            "0"
+          ],
+          "address_count": 191,
+          "complete_short_pairs": [
+            [
+              1300,
+              449
+            ],
+            [
+              1548,
+              793
+            ],
+            [
+              766,
+              477
+            ]
+          ],
+          "entropy_over_radius4": 2.9027240449244016,
+          "relative_entropy_over_radius4": 1.3205559316044316e-05,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "-4/3",
+            "0"
+          ],
+          "address_count": 191,
+          "complete_short_pairs": [
+            [
+              1300,
+              449
+            ],
+            [
+              1548,
+              793
+            ],
+            [
+              766,
+              477
+            ]
+          ],
+          "entropy_over_radius4": 2.9027240449244016,
+          "relative_entropy_over_radius4": 1.3205559316044316e-05,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "0",
+            "-4/3"
+          ],
+          "address_count": 191,
+          "complete_short_pairs": [
+            [
+              1300,
+              449
+            ],
+            [
+              1548,
+              793
+            ],
+            [
+              766,
+              477
+            ]
+          ],
+          "entropy_over_radius4": 2.9027240449244016,
+          "relative_entropy_over_radius4": 1.3205559316044316e-05,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "3",
+            "2",
+            "2",
+            "0"
+          ],
+          "address_count": 338,
+          "complete_short_pairs": [
+            [
+              2305,
+              803
+            ],
+            [
+              3626,
+              1459
+            ],
+            [
+              1615,
+              880
+            ]
+          ],
+          "entropy_over_radius4": 8.010676600358456,
+          "relative_entropy_over_radius4": 2.336909363701884e-05,
+          "continuum_factor": 9.0,
+          "dust_factor": 9.0
+        },
+        {
+          "frame": [
+            "3",
+            "2",
+            "0",
+            "2"
+          ],
+          "address_count": 338,
+          "complete_short_pairs": [
+            [
+              2305,
+              803
+            ],
+            [
+              3626,
+              1459
+            ],
+            [
+              1615,
+              880
+            ]
+          ],
+          "entropy_over_radius4": 8.010676600358456,
+          "relative_entropy_over_radius4": 2.336909363701884e-05,
+          "continuum_factor": 9.0,
+          "dust_factor": 9.0
+        },
+        {
+          "frame": [
+            "3",
+            "0",
+            "2",
+            "2"
+          ],
+          "address_count": 338,
+          "complete_short_pairs": [
+            [
+              2305,
+              803
+            ],
+            [
+              3626,
+              1459
+            ],
+            [
+              1615,
+              880
+            ]
+          ],
+          "entropy_over_radius4": 8.010676600358456,
+          "relative_entropy_over_radius4": 2.336909363701884e-05,
+          "continuum_factor": 9.0,
+          "dust_factor": 9.0
+        },
+        {
+          "frame": [
+            "2",
+            "1",
+            "1",
+            "1"
+          ],
+          "address_count": 223,
+          "complete_short_pairs": [
+            [
+              1431,
+              528
+            ],
+            [
+              1962,
+              942
+            ],
+            [
+              1047,
+              567
+            ]
+          ],
+          "entropy_over_radius4": 1.4197551488442521,
+          "relative_entropy_over_radius4": 1.541804593942367e-05,
+          "continuum_factor": -0.4618046439617692,
+          "dust_factor": 4.0
+        }
+      ]
+    },
+    {
+      "mesh_denominator": 256,
+      "radius": "1/64",
+      "center": [
+        "81/1021",
+        "-43/1021",
+        "31/1021"
+      ],
+      "frames": [
+        {
+          "frame": [
+            "1",
+            "0",
+            "0",
+            "0"
+          ],
+          "address_count": 273,
+          "complete_short_pairs": [
+            [
+              2064,
+              664
+            ],
+            [
+              2717,
+              1211
+            ],
+            [
+              1385,
+              743
+            ]
+          ],
+          "entropy_over_radius4": 1.0870465044503637,
+          "relative_entropy_over_radius4": 5.9721850795527525e-06,
+          "continuum_factor": 1.0,
+          "dust_factor": 1.0
+        },
+        {
+          "frame": [
+            "5/3",
+            "4/3",
+            "0",
+            "0"
+          ],
+          "address_count": 453,
+          "complete_short_pairs": [
+            [
+              4324,
+              1139
+            ],
+            [
+              5323,
+              2093
+            ],
+            [
+              2695,
+              1297
+            ]
+          ],
+          "entropy_over_radius4": 2.561108296011887,
+          "relative_entropy_over_radius4": 9.909930286674562e-06,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "4/3",
+            "0"
+          ],
+          "address_count": 450,
+          "complete_short_pairs": [
+            [
+              4286,
+              1131
+            ],
+            [
+              5262,
+              2074
+            ],
+            [
+              2668,
+              1288
+            ]
+          ],
+          "entropy_over_radius4": 2.510789921059464,
+          "relative_entropy_over_radius4": 9.844300632835296e-06,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "0",
+            "4/3"
+          ],
+          "address_count": 451,
+          "complete_short_pairs": [
+            [
+              4309,
+              1135
+            ],
+            [
+              5271,
+              2077
+            ],
+            [
+              2671,
+              1290
+            ]
+          ],
+          "entropy_over_radius4": 2.5429888588758756,
+          "relative_entropy_over_radius4": 9.866176590218609e-06,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "-4/3",
+            "0",
+            "0"
+          ],
+          "address_count": 453,
+          "complete_short_pairs": [
+            [
+              4324,
+              1139
+            ],
+            [
+              5323,
+              2093
+            ],
+            [
+              2695,
+              1297
+            ]
+          ],
+          "entropy_over_radius4": 2.561108296011887,
+          "relative_entropy_over_radius4": 9.909930286674562e-06,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "-4/3",
+            "0"
+          ],
+          "address_count": 450,
+          "complete_short_pairs": [
+            [
+              4286,
+              1131
+            ],
+            [
+              5262,
+              2074
+            ],
+            [
+              2668,
+              1288
+            ]
+          ],
+          "entropy_over_radius4": 2.510789921059464,
+          "relative_entropy_over_radius4": 9.844300632835296e-06,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "0",
+            "-4/3"
+          ],
+          "address_count": 451,
+          "complete_short_pairs": [
+            [
+              4309,
+              1135
+            ],
+            [
+              5271,
+              2077
+            ],
+            [
+              2671,
+              1290
+            ]
+          ],
+          "entropy_over_radius4": 2.5429888588758756,
+          "relative_entropy_over_radius4": 9.866176590218609e-06,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "3",
+            "2",
+            "2",
+            "0"
+          ],
+          "address_count": 808,
+          "complete_short_pairs": [
+            [
+              7751,
+              2047
+            ],
+            [
+              12327,
+              3820
+            ],
+            [
+              5647,
+              2383
+            ]
+          ],
+          "entropy_over_radius4": 7.4331517098212485,
+          "relative_entropy_over_radius4": 1.76760808155543e-05,
+          "continuum_factor": 9.0,
+          "dust_factor": 9.0
+        },
+        {
+          "frame": [
+            "3",
+            "2",
+            "0",
+            "2"
+          ],
+          "address_count": 807,
+          "complete_short_pairs": [
+            [
+              7731,
+              2041
+            ],
+            [
+              12278,
+              3806
+            ],
+            [
+              5636,
+              2377
+            ]
+          ],
+          "entropy_over_radius4": 7.334077621201821,
+          "relative_entropy_over_radius4": 1.765420343983721e-05,
+          "continuum_factor": 9.0,
+          "dust_factor": 9.0
+        },
+        {
+          "frame": [
+            "3",
+            "0",
+            "2",
+            "2"
+          ],
+          "address_count": 812,
+          "complete_short_pairs": [
+            [
+              7793,
+              2056
+            ],
+            [
+              12406,
+              3840
+            ],
+            [
+              5709,
+              2397
+            ]
+          ],
+          "entropy_over_radius4": 7.303083961953175,
+          "relative_entropy_over_radius4": 1.7763588559878337e-05,
+          "continuum_factor": 9.0,
+          "dust_factor": 9.0
+        },
+        {
+          "frame": [
+            "2",
+            "1",
+            "1",
+            "1"
+          ],
+          "address_count": 539,
+          "complete_short_pairs": [
+            [
+              4824,
+              1358
+            ],
+            [
+              6726,
+              2506
+            ],
+            [
+              3769,
+              1569
+            ]
+          ],
+          "entropy_over_radius4": 0.1996786687686064,
+          "relative_entropy_over_radius4": 1.1791325008301086e-05,
+          "continuum_factor": -0.4618046439617692,
+          "dust_factor": 4.0
+        }
+      ]
+    },
+    {
+      "mesh_denominator": 256,
+      "radius": "3/256",
+      "center": [
+        "81/1021",
+        "-43/1021",
+        "31/1021"
+      ],
+      "frames": [
+        {
+          "frame": [
+            "1",
+            "0",
+            "0",
+            "0"
+          ],
+          "address_count": 114,
+          "complete_short_pairs": [
+            [
+              601,
+              256
+            ],
+            [
+              772,
+              449
+            ],
+            [
+              381,
+              265
+            ]
+          ],
+          "entropy_over_radius4": 1.3345035672078371,
+          "relative_entropy_over_radius4": 7.881825442204063e-06,
+          "continuum_factor": 1.0,
+          "dust_factor": 1.0
+        },
+        {
+          "frame": [
+            "5/3",
+            "4/3",
+            "0",
+            "0"
+          ],
+          "address_count": 191,
+          "complete_short_pairs": [
+            [
+              1300,
+              449
+            ],
+            [
+              1548,
+              793
+            ],
+            [
+              766,
+              477
+            ]
+          ],
+          "entropy_over_radius4": 2.9027240449244016,
+          "relative_entropy_over_radius4": 1.3205559316044316e-05,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "4/3",
+            "0"
+          ],
+          "address_count": 193,
+          "complete_short_pairs": [
+            [
+              1315,
+              455
+            ],
+            [
+              1574,
+              804
+            ],
+            [
+              783,
+              486
+            ]
+          ],
+          "entropy_over_radius4": 2.821417795599691,
+          "relative_entropy_over_radius4": 1.3343840535992204e-05,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "0",
+            "4/3"
+          ],
+          "address_count": 193,
+          "complete_short_pairs": [
+            [
+              1315,
+              455
+            ],
+            [
+              1574,
+              804
+            ],
+            [
+              783,
+              486
+            ]
+          ],
+          "entropy_over_radius4": 2.821417795599691,
+          "relative_entropy_over_radius4": 1.3343840535992204e-05,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "-4/3",
+            "0",
+            "0"
+          ],
+          "address_count": 191,
+          "complete_short_pairs": [
+            [
+              1300,
+              449
+            ],
+            [
+              1548,
+              793
+            ],
+            [
+              766,
+              477
+            ]
+          ],
+          "entropy_over_radius4": 2.9027240449244016,
+          "relative_entropy_over_radius4": 1.3205559316044316e-05,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "-4/3",
+            "0"
+          ],
+          "address_count": 193,
+          "complete_short_pairs": [
+            [
+              1315,
+              455
+            ],
+            [
+              1574,
+              804
+            ],
+            [
+              783,
+              486
+            ]
+          ],
+          "entropy_over_radius4": 2.821417795599691,
+          "relative_entropy_over_radius4": 1.3343840535992204e-05,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "0",
+            "-4/3"
+          ],
+          "address_count": 193,
+          "complete_short_pairs": [
+            [
+              1315,
+              455
+            ],
+            [
+              1574,
+              804
+            ],
+            [
+              783,
+              486
+            ]
+          ],
+          "entropy_over_radius4": 2.821417795599691,
+          "relative_entropy_over_radius4": 1.3343840535992204e-05,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "3",
+            "2",
+            "2",
+            "0"
+          ],
+          "address_count": 338,
+          "complete_short_pairs": [
+            [
+              2299,
+              803
+            ],
+            [
+              3629,
+              1458
+            ],
+            [
+              1612,
+              880
+            ]
+          ],
+          "entropy_over_radius4": 8.073714346009366,
+          "relative_entropy_over_radius4": 2.3369093118064908e-05,
+          "continuum_factor": 9.0,
+          "dust_factor": 9.0
+        },
+        {
+          "frame": [
+            "3",
+            "2",
+            "0",
+            "2"
+          ],
+          "address_count": 341,
+          "complete_short_pairs": [
+            [
+              2326,
+              814
+            ],
+            [
+              3666,
+              1471
+            ],
+            [
+              1638,
+              891
+            ]
+          ],
+          "entropy_over_radius4": 7.951093685286136,
+          "relative_entropy_over_radius4": 2.3576514252974174e-05,
+          "continuum_factor": 9.0,
+          "dust_factor": 9.0
+        },
+        {
+          "frame": [
+            "3",
+            "0",
+            "2",
+            "2"
+          ],
+          "address_count": 344,
+          "complete_short_pairs": [
+            [
+              2355,
+              820
+            ],
+            [
+              3707,
+              1485
+            ],
+            [
+              1669,
+              905
+            ]
+          ],
+          "entropy_over_radius4": 7.737209062383284,
+          "relative_entropy_over_radius4": 2.37839371866406e-05,
+          "continuum_factor": 9.0,
+          "dust_factor": 9.0
+        },
+        {
+          "frame": [
+            "2",
+            "1",
+            "1",
+            "1"
+          ],
+          "address_count": 224,
+          "complete_short_pairs": [
+            [
+              1425,
+              529
+            ],
+            [
+              1939,
+              946
+            ],
+            [
+              1066,
+              574
+            ]
+          ],
+          "entropy_over_radius4": 0.7534247801230594,
+          "relative_entropy_over_radius4": 1.5487187517258146e-05,
+          "continuum_factor": -0.4618046439617692,
+          "dust_factor": 4.0
+        }
+      ]
+    },
+    {
+      "mesh_denominator": 512,
+      "radius": "1/64",
+      "center": [
+        "0",
+        "0",
+        "0"
+      ],
+      "frames": [
+        {
+          "frame": [
+            "1",
+            "0",
+            "0",
+            "0"
+          ],
+          "address_count": 2109,
+          "complete_short_pairs": [
+            [
+              34764,
+              5736
+            ],
+            [
+              47346,
+              10980
+            ],
+            [
+              24912,
+              7040
+            ]
+          ],
+          "entropy_over_radius4": 0.8494870642710698,
+          "relative_entropy_over_radius4": 6.94779735203035e-07,
+          "continuum_factor": 1.0,
+          "dust_factor": 1.0
+        },
+        {
+          "frame": [
+            "5/3",
+            "4/3",
+            "0",
+            "0"
+          ],
+          "address_count": 3559,
+          "complete_short_pairs": [
+            [
+              73279,
+              9818
+            ],
+            [
+              92754,
+              18844
+            ],
+            [
+              48396,
+              12176
+            ]
+          ],
+          "entropy_over_radius4": 2.207974458021408,
+          "relative_entropy_over_radius4": 1.1724636615830456e-06,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "4/3",
+            "0"
+          ],
+          "address_count": 3559,
+          "complete_short_pairs": [
+            [
+              73279,
+              9818
+            ],
+            [
+              92754,
+              18844
+            ],
+            [
+              48396,
+              12176
+            ]
+          ],
+          "entropy_over_radius4": 2.207974458021408,
+          "relative_entropy_over_radius4": 1.1724636615830456e-06,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "0",
+            "4/3"
+          ],
+          "address_count": 3559,
+          "complete_short_pairs": [
+            [
+              73279,
+              9818
+            ],
+            [
+              92754,
+              18844
+            ],
+            [
+              48396,
+              12176
+            ]
+          ],
+          "entropy_over_radius4": 2.207974458021408,
+          "relative_entropy_over_radius4": 1.1724636615830456e-06,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "-4/3",
+            "0",
+            "0"
+          ],
+          "address_count": 3559,
+          "complete_short_pairs": [
+            [
+              73279,
+              9818
+            ],
+            [
+              92754,
+              18844
+            ],
+            [
+              48396,
+              12176
+            ]
+          ],
+          "entropy_over_radius4": 2.207974458021408,
+          "relative_entropy_over_radius4": 1.1724636615830456e-06,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "-4/3",
+            "0"
+          ],
+          "address_count": 3559,
+          "complete_short_pairs": [
+            [
+              73279,
+              9818
+            ],
+            [
+              92754,
+              18844
+            ],
+            [
+              48396,
+              12176
+            ]
+          ],
+          "entropy_over_radius4": 2.207974458021408,
+          "relative_entropy_over_radius4": 1.1724636615830456e-06,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "0",
+            "-4/3"
+          ],
+          "address_count": 3559,
+          "complete_short_pairs": [
+            [
+              73279,
+              9818
+            ],
+            [
+              92754,
+              18844
+            ],
+            [
+              48396,
+              12176
+            ]
+          ],
+          "entropy_over_radius4": 2.207974458021408,
+          "relative_entropy_over_radius4": 1.1724636615830456e-06,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "3",
+            "2",
+            "2",
+            "0"
+          ],
+          "address_count": 6379,
+          "complete_short_pairs": [
+            [
+              131346,
+              17660
+            ],
+            [
+              211737,
+              34168
+            ],
+            [
+              100314,
+              22104
+            ]
+          ],
+          "entropy_over_radius4": 6.82867550119227,
+          "relative_entropy_over_radius4": 2.1014793074031844e-06,
+          "continuum_factor": 9.0,
+          "dust_factor": 9.0
+        },
+        {
+          "frame": [
+            "3",
+            "2",
+            "0",
+            "2"
+          ],
+          "address_count": 6379,
+          "complete_short_pairs": [
+            [
+              131346,
+              17660
+            ],
+            [
+              211737,
+              34168
+            ],
+            [
+              100314,
+              22104
+            ]
+          ],
+          "entropy_over_radius4": 6.82867550119227,
+          "relative_entropy_over_radius4": 2.1014793074031844e-06,
+          "continuum_factor": 9.0,
+          "dust_factor": 9.0
+        },
+        {
+          "frame": [
+            "3",
+            "0",
+            "2",
+            "2"
+          ],
+          "address_count": 6379,
+          "complete_short_pairs": [
+            [
+              131346,
+              17660
+            ],
+            [
+              211737,
+              34168
+            ],
+            [
+              100314,
+              22104
+            ]
+          ],
+          "entropy_over_radius4": 6.82867550119227,
+          "relative_entropy_over_radius4": 2.1014793074031844e-06,
+          "continuum_factor": 9.0,
+          "dust_factor": 9.0
+        },
+        {
+          "frame": [
+            "2",
+            "1",
+            "1",
+            "1"
+          ],
+          "address_count": 4285,
+          "complete_short_pairs": [
+            [
+              82611,
+              11808
+            ],
+            [
+              119277,
+              22794
+            ],
+            [
+              67785,
+              14790
+            ]
+          ],
+          "entropy_over_radius4": -0.14623625843828708,
+          "relative_entropy_over_radius4": 1.4116369342946126e-06,
+          "continuum_factor": -0.4618046439617692,
+          "dust_factor": 4.0
+        }
+      ]
+    },
+    {
+      "mesh_denominator": 512,
+      "radius": "3/256",
+      "center": [
+        "0",
+        "0",
+        "0"
+      ],
+      "frames": [
+        {
+          "frame": [
+            "1",
+            "0",
+            "0",
+            "0"
+          ],
+          "address_count": 925,
+          "complete_short_pairs": [
+            [
+              11322,
+              2436
+            ],
+            [
+              15168,
+              4584
+            ],
+            [
+              7860,
+              2904
+            ]
+          ],
+          "entropy_over_radius4": 1.014794593801717,
+          "relative_entropy_over_radius4": 9.630874625896997e-07,
+          "continuum_factor": 1.0,
+          "dust_factor": 1.0
+        },
+        {
+          "frame": [
+            "5/3",
+            "4/3",
+            "0",
+            "0"
+          ],
+          "address_count": 1501,
+          "complete_short_pairs": [
+            [
+              22618,
+              4020
+            ],
+            [
+              28408,
+              7616
+            ],
+            [
+              14628,
+              4848
+            ]
+          ],
+          "entropy_over_radius4": 2.3547449718806543,
+          "relative_entropy_over_radius4": 1.5628068019672042e-06,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "4/3",
+            "0"
+          ],
+          "address_count": 1501,
+          "complete_short_pairs": [
+            [
+              22618,
+              4020
+            ],
+            [
+              28408,
+              7616
+            ],
+            [
+              14628,
+              4848
+            ]
+          ],
+          "entropy_over_radius4": 2.3547449718806543,
+          "relative_entropy_over_radius4": 1.5628068019672042e-06,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "0",
+            "4/3"
+          ],
+          "address_count": 1501,
+          "complete_short_pairs": [
+            [
+              22618,
+              4020
+            ],
+            [
+              28408,
+              7616
+            ],
+            [
+              14628,
+              4848
+            ]
+          ],
+          "entropy_over_radius4": 2.3547449718806543,
+          "relative_entropy_over_radius4": 1.5628068019672042e-06,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "-4/3",
+            "0",
+            "0"
+          ],
+          "address_count": 1501,
+          "complete_short_pairs": [
+            [
+              22618,
+              4020
+            ],
+            [
+              28408,
+              7616
+            ],
+            [
+              14628,
+              4848
+            ]
+          ],
+          "entropy_over_radius4": 2.3547449718806543,
+          "relative_entropy_over_radius4": 1.5628068019672042e-06,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "-4/3",
+            "0"
+          ],
+          "address_count": 1501,
+          "complete_short_pairs": [
+            [
+              22618,
+              4020
+            ],
+            [
+              28408,
+              7616
+            ],
+            [
+              14628,
+              4848
+            ]
+          ],
+          "entropy_over_radius4": 2.3547449718806543,
+          "relative_entropy_over_radius4": 1.5628068019672042e-06,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "0",
+            "-4/3"
+          ],
+          "address_count": 1501,
+          "complete_short_pairs": [
+            [
+              22618,
+              4020
+            ],
+            [
+              28408,
+              7616
+            ],
+            [
+              14628,
+              4848
+            ]
+          ],
+          "entropy_over_radius4": 2.3547449718806543,
+          "relative_entropy_over_radius4": 1.5628068019672042e-06,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "3",
+            "2",
+            "2",
+            "0"
+          ],
+          "address_count": 2713,
+          "complete_short_pairs": [
+            [
+              41096,
+              7292
+            ],
+            [
+              65762,
+              13946
+            ],
+            [
+              30740,
+              8940
+            ]
+          ],
+          "entropy_over_radius4": 7.138832811555113,
+          "relative_entropy_over_radius4": 2.8247189132542375e-06,
+          "continuum_factor": 9.0,
+          "dust_factor": 9.0
+        },
+        {
+          "frame": [
+            "3",
+            "2",
+            "0",
+            "2"
+          ],
+          "address_count": 2713,
+          "complete_short_pairs": [
+            [
+              41096,
+              7292
+            ],
+            [
+              65762,
+              13946
+            ],
+            [
+              30740,
+              8940
+            ]
+          ],
+          "entropy_over_radius4": 7.138832811555113,
+          "relative_entropy_over_radius4": 2.8247189132542375e-06,
+          "continuum_factor": 9.0,
+          "dust_factor": 9.0
+        },
+        {
+          "frame": [
+            "3",
+            "0",
+            "2",
+            "2"
+          ],
+          "address_count": 2713,
+          "complete_short_pairs": [
+            [
+              41096,
+              7292
+            ],
+            [
+              65762,
+              13946
+            ],
+            [
+              30740,
+              8940
+            ]
+          ],
+          "entropy_over_radius4": 7.138832811555113,
+          "relative_entropy_over_radius4": 2.8247189132542375e-06,
+          "continuum_factor": 9.0,
+          "dust_factor": 9.0
+        },
+        {
+          "frame": [
+            "2",
+            "1",
+            "1",
+            "1"
+          ],
+          "address_count": 1837,
+          "complete_short_pairs": [
+            [
+              25992,
+              4914
+            ],
+            [
+              37362,
+              9384
+            ],
+            [
+              21051,
+              6030
+            ]
+          ],
+          "entropy_over_radius4": 0.005521363132678097,
+          "relative_entropy_over_radius4": 1.912645032840108e-06,
+          "continuum_factor": -0.4618046439617692,
+          "dust_factor": 4.0
+        }
+      ]
+    },
+    {
+      "mesh_denominator": 512,
+      "radius": "1/64",
+      "center": [
+        "7/1021",
+        "-5/1021",
+        "3/1021"
+      ],
+      "frames": [
+        {
+          "frame": [
+            "1",
+            "0",
+            "0",
+            "0"
+          ],
+          "address_count": 2176,
+          "complete_short_pairs": [
+            [
+              36144,
+              5904
+            ],
+            [
+              49392,
+              11328
+            ],
+            [
+              26076,
+              7308
+            ]
+          ],
+          "entropy_over_radius4": 0.8360256481013157,
+          "relative_entropy_over_radius4": 7.168520475525128e-07,
+          "continuum_factor": 1.0,
+          "dust_factor": 1.0
+        },
+        {
+          "frame": [
+            "5/3",
+            "4/3",
+            "0",
+            "0"
+          ],
+          "address_count": 3608,
+          "complete_short_pairs": [
+            [
+              74052,
+              9936
+            ],
+            [
+              94892,
+              19148
+            ],
+            [
+              49652,
+              12372
+            ]
+          ],
+          "entropy_over_radius4": 2.1421927723992,
+          "relative_entropy_over_radius4": 1.1886062235505949e-06,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "4/3",
+            "0"
+          ],
+          "address_count": 3608,
+          "complete_short_pairs": [
+            [
+              74052,
+              9936
+            ],
+            [
+              94892,
+              19148
+            ],
+            [
+              49652,
+              12372
+            ]
+          ],
+          "entropy_over_radius4": 2.1421927723992,
+          "relative_entropy_over_radius4": 1.1886062235505949e-06,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "0",
+            "4/3"
+          ],
+          "address_count": 3608,
+          "complete_short_pairs": [
+            [
+              74052,
+              9936
+            ],
+            [
+              94892,
+              19148
+            ],
+            [
+              49652,
+              12372
+            ]
+          ],
+          "entropy_over_radius4": 2.1421927723992,
+          "relative_entropy_over_radius4": 1.1886062235505949e-06,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "-4/3",
+            "0",
+            "0"
+          ],
+          "address_count": 3608,
+          "complete_short_pairs": [
+            [
+              74052,
+              9936
+            ],
+            [
+              94892,
+              19148
+            ],
+            [
+              49652,
+              12372
+            ]
+          ],
+          "entropy_over_radius4": 2.1421927723992,
+          "relative_entropy_over_radius4": 1.1886062235505949e-06,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "-4/3",
+            "0"
+          ],
+          "address_count": 3608,
+          "complete_short_pairs": [
+            [
+              74052,
+              9936
+            ],
+            [
+              94892,
+              19148
+            ],
+            [
+              49652,
+              12372
+            ]
+          ],
+          "entropy_over_radius4": 2.1421927723992,
+          "relative_entropy_over_radius4": 1.1886062235505949e-06,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "0",
+            "-4/3"
+          ],
+          "address_count": 3608,
+          "complete_short_pairs": [
+            [
+              74052,
+              9936
+            ],
+            [
+              94892,
+              19148
+            ],
+            [
+              49652,
+              12372
+            ]
+          ],
+          "entropy_over_radius4": 2.1421927723992,
+          "relative_entropy_over_radius4": 1.1886062235505949e-06,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "3",
+            "2",
+            "2",
+            "0"
+          ],
+          "address_count": 6460,
+          "complete_short_pairs": [
+            [
+              133454,
+              17870
+            ],
+            [
+              215054,
+              34604
+            ],
+            [
+              102344,
+              22428
+            ]
+          ],
+          "entropy_over_radius4": 6.749339450694209,
+          "relative_entropy_over_radius4": 2.1281639312940906e-06,
+          "continuum_factor": 9.0,
+          "dust_factor": 9.0
+        },
+        {
+          "frame": [
+            "3",
+            "2",
+            "0",
+            "2"
+          ],
+          "address_count": 6460,
+          "complete_short_pairs": [
+            [
+              133454,
+              17870
+            ],
+            [
+              215054,
+              34604
+            ],
+            [
+              102344,
+              22428
+            ]
+          ],
+          "entropy_over_radius4": 6.749339450694209,
+          "relative_entropy_over_radius4": 2.1281639312940906e-06,
+          "continuum_factor": 9.0,
+          "dust_factor": 9.0
+        },
+        {
+          "frame": [
+            "3",
+            "0",
+            "2",
+            "2"
+          ],
+          "address_count": 6460,
+          "complete_short_pairs": [
+            [
+              133454,
+              17870
+            ],
+            [
+              215054,
+              34604
+            ],
+            [
+              102344,
+              22428
+            ]
+          ],
+          "entropy_over_radius4": 6.749339450694209,
+          "relative_entropy_over_radius4": 2.1281639312940906e-06,
+          "continuum_factor": 9.0,
+          "dust_factor": 9.0
+        },
+        {
+          "frame": [
+            "2",
+            "1",
+            "1",
+            "1"
+          ],
+          "address_count": 4315,
+          "complete_short_pairs": [
+            [
+              83502,
+              11901
+            ],
+            [
+              120137,
+              22962
+            ],
+            [
+              68383,
+              14909
+            ]
+          ],
+          "entropy_over_radius4": -0.1727441334279743,
+          "relative_entropy_over_radius4": 1.4215200764821602e-06,
+          "continuum_factor": -0.4618046439617692,
+          "dust_factor": 4.0
+        }
+      ]
+    },
+    {
+      "mesh_denominator": 512,
+      "radius": "3/256",
+      "center": [
+        "7/1021",
+        "-5/1021",
+        "3/1021"
+      ],
+      "frames": [
+        {
+          "frame": [
+            "1",
+            "0",
+            "0",
+            "0"
+          ],
+          "address_count": 912,
+          "complete_short_pairs": [
+            [
+              11016,
+              2400
+            ],
+            [
+              14880,
+              4512
+            ],
+            [
+              7740,
+              2852
+            ]
+          ],
+          "entropy_over_radius4": 0.9426619860036105,
+          "relative_entropy_over_radius4": 9.495521464917105e-07,
+          "continuum_factor": 1.0,
+          "dust_factor": 1.0
+        },
+        {
+          "frame": [
+            "5/3",
+            "4/3",
+            "0",
+            "0"
+          ],
+          "address_count": 1528,
+          "complete_short_pairs": [
+            [
+              23092,
+              4088
+            ],
+            [
+              28996,
+              7752
+            ],
+            [
+              15032,
+              4956
+            ]
+          ],
+          "entropy_over_radius4": 2.2644657057175257,
+          "relative_entropy_over_radius4": 1.5909187164936538e-06,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "4/3",
+            "0"
+          ],
+          "address_count": 1528,
+          "complete_short_pairs": [
+            [
+              23092,
+              4088
+            ],
+            [
+              28996,
+              7752
+            ],
+            [
+              15032,
+              4956
+            ]
+          ],
+          "entropy_over_radius4": 2.2644657057175257,
+          "relative_entropy_over_radius4": 1.5909187164936538e-06,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "0",
+            "4/3"
+          ],
+          "address_count": 1528,
+          "complete_short_pairs": [
+            [
+              23092,
+              4088
+            ],
+            [
+              28996,
+              7752
+            ],
+            [
+              15032,
+              4956
+            ]
+          ],
+          "entropy_over_radius4": 2.2644657057175257,
+          "relative_entropy_over_radius4": 1.5909187164936538e-06,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "-4/3",
+            "0",
+            "0"
+          ],
+          "address_count": 1528,
+          "complete_short_pairs": [
+            [
+              23092,
+              4088
+            ],
+            [
+              28996,
+              7752
+            ],
+            [
+              15032,
+              4956
+            ]
+          ],
+          "entropy_over_radius4": 2.2644657057175257,
+          "relative_entropy_over_radius4": 1.5909187164936538e-06,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "-4/3",
+            "0"
+          ],
+          "address_count": 1528,
+          "complete_short_pairs": [
+            [
+              23092,
+              4088
+            ],
+            [
+              28996,
+              7752
+            ],
+            [
+              15032,
+              4956
+            ]
+          ],
+          "entropy_over_radius4": 2.2644657057175257,
+          "relative_entropy_over_radius4": 1.5909187164936538e-06,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "0",
+            "-4/3"
+          ],
+          "address_count": 1528,
+          "complete_short_pairs": [
+            [
+              23092,
+              4088
+            ],
+            [
+              28996,
+              7752
+            ],
+            [
+              15032,
+              4956
+            ]
+          ],
+          "entropy_over_radius4": 2.2644657057175257,
+          "relative_entropy_over_radius4": 1.5909187164936538e-06,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "3",
+            "2",
+            "2",
+            "0"
+          ],
+          "address_count": 2720,
+          "complete_short_pairs": [
+            [
+              41088,
+              7318
+            ],
+            [
+              66040,
+              14024
+            ],
+            [
+              31112,
+              8968
+            ]
+          ],
+          "entropy_over_radius4": 6.836225227062305,
+          "relative_entropy_over_radius4": 2.8320074050168172e-06,
+          "continuum_factor": 9.0,
+          "dust_factor": 9.0
+        },
+        {
+          "frame": [
+            "3",
+            "2",
+            "0",
+            "2"
+          ],
+          "address_count": 2720,
+          "complete_short_pairs": [
+            [
+              41088,
+              7318
+            ],
+            [
+              66040,
+              14024
+            ],
+            [
+              31112,
+              8968
+            ]
+          ],
+          "entropy_over_radius4": 6.836225227062305,
+          "relative_entropy_over_radius4": 2.8320074050168172e-06,
+          "continuum_factor": 9.0,
+          "dust_factor": 9.0
+        },
+        {
+          "frame": [
+            "3",
+            "0",
+            "2",
+            "2"
+          ],
+          "address_count": 2720,
+          "complete_short_pairs": [
+            [
+              41088,
+              7318
+            ],
+            [
+              66040,
+              14024
+            ],
+            [
+              31112,
+              8968
+            ]
+          ],
+          "entropy_over_radius4": 6.836225227062305,
+          "relative_entropy_over_radius4": 2.8320074050168172e-06,
+          "continuum_factor": 9.0,
+          "dust_factor": 9.0
+        },
+        {
+          "frame": [
+            "2",
+            "1",
+            "1",
+            "1"
+          ],
+          "address_count": 1802,
+          "complete_short_pairs": [
+            [
+              25602,
+              4836
+            ],
+            [
+              36354,
+              9198
+            ],
+            [
+              20401,
+              5890
+            ]
+          ],
+          "entropy_over_radius4": 0.18626447116973718,
+          "relative_entropy_over_radius4": 1.8762035368470254e-06,
+          "continuum_factor": -0.4618046439617692,
+          "dust_factor": 4.0
+        }
+      ]
+    },
+    {
+      "mesh_denominator": 512,
+      "radius": "1/64",
+      "center": [
+        "81/1021",
+        "-43/1021",
+        "31/1021"
+      ],
+      "frames": [
+        {
+          "frame": [
+            "1",
+            "0",
+            "0",
+            "0"
+          ],
+          "address_count": 2171,
+          "complete_short_pairs": [
+            [
+              35982,
+              5898
+            ],
+            [
+              49165,
+              11302
+            ],
+            [
+              26001,
+              7282
+            ]
+          ],
+          "entropy_over_radius4": 0.8161593412531645,
+          "relative_entropy_over_radius4": 7.152048571687561e-07,
+          "continuum_factor": 1.0,
+          "dust_factor": 1.0
+        },
+        {
+          "frame": [
+            "5/3",
+            "4/3",
+            "0",
+            "0"
+          ],
+          "address_count": 3598,
+          "complete_short_pairs": [
+            [
+              73813,
+              9914
+            ],
+            [
+              94390,
+              19083
+            ],
+            [
+              49373,
+              12322
+            ]
+          ],
+          "entropy_over_radius4": 2.1489725564988387,
+          "relative_entropy_over_radius4": 1.1853118112723212e-06,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "4/3",
+            "0"
+          ],
+          "address_count": 3594,
+          "complete_short_pairs": [
+            [
+              73765,
+              9904
+            ],
+            [
+              94187,
+              19059
+            ],
+            [
+              49274,
+              12308
+            ]
+          ],
+          "entropy_over_radius4": 2.1484244941275854,
+          "relative_entropy_over_radius4": 1.1839940512727539e-06,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "0",
+            "4/3"
+          ],
+          "address_count": 3591,
+          "complete_short_pairs": [
+            [
+              73708,
+              9897
+            ],
+            [
+              94055,
+              19041
+            ],
+            [
+              49202,
+              12297
+            ]
+          ],
+          "entropy_over_radius4": 2.149507145073902,
+          "relative_entropy_over_radius4": 1.1830057324795555e-06,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "-4/3",
+            "0",
+            "0"
+          ],
+          "address_count": 3598,
+          "complete_short_pairs": [
+            [
+              73813,
+              9914
+            ],
+            [
+              94390,
+              19083
+            ],
+            [
+              49373,
+              12322
+            ]
+          ],
+          "entropy_over_radius4": 2.1489725564988387,
+          "relative_entropy_over_radius4": 1.1853118112723212e-06,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "-4/3",
+            "0"
+          ],
+          "address_count": 3594,
+          "complete_short_pairs": [
+            [
+              73765,
+              9904
+            ],
+            [
+              94187,
+              19059
+            ],
+            [
+              49274,
+              12308
+            ]
+          ],
+          "entropy_over_radius4": 2.1484244941275854,
+          "relative_entropy_over_radius4": 1.1839940512727539e-06,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "0",
+            "-4/3"
+          ],
+          "address_count": 3591,
+          "complete_short_pairs": [
+            [
+              73708,
+              9897
+            ],
+            [
+              94055,
+              19041
+            ],
+            [
+              49202,
+              12297
+            ]
+          ],
+          "entropy_over_radius4": 2.149507145073902,
+          "relative_entropy_over_radius4": 1.1830057324795555e-06,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "3",
+            "2",
+            "2",
+            "0"
+          ],
+          "address_count": 6459,
+          "complete_short_pairs": [
+            [
+              133106,
+              17868
+            ],
+            [
+              215166,
+              34592
+            ],
+            [
+              102412,
+              22413
+            ]
+          ],
+          "entropy_over_radius4": 6.720942078032066,
+          "relative_entropy_over_radius4": 2.1278345144309587e-06,
+          "continuum_factor": 9.0,
+          "dust_factor": 9.0
+        },
+        {
+          "frame": [
+            "3",
+            "2",
+            "0",
+            "2"
+          ],
+          "address_count": 6476,
+          "complete_short_pairs": [
+            [
+              133777,
+              17911
+            ],
+            [
+              215824,
+              34692
+            ],
+            [
+              102865,
+              22485
+            ]
+          ],
+          "entropy_over_radius4": 6.701987267371881,
+          "relative_entropy_over_radius4": 2.1334349985296525e-06,
+          "continuum_factor": 9.0,
+          "dust_factor": 9.0
+        },
+        {
+          "frame": [
+            "3",
+            "0",
+            "2",
+            "2"
+          ],
+          "address_count": 6469,
+          "complete_short_pairs": [
+            [
+              133457,
+              17892
+            ],
+            [
+              215619,
+              34657
+            ],
+            [
+              102702,
+              22456
+            ]
+          ],
+          "entropy_over_radius4": 6.709875536341411,
+          "relative_entropy_over_radius4": 2.131128925631812e-06,
+          "continuum_factor": 9.0,
+          "dust_factor": 9.0
+        },
+        {
+          "frame": [
+            "2",
+            "1",
+            "1",
+            "1"
+          ],
+          "address_count": 4299,
+          "complete_short_pairs": [
+            [
+              83106,
+              11858
+            ],
+            [
+              119541,
+              22885
+            ],
+            [
+              68047,
+              14842
+            ]
+          ],
+          "entropy_over_radius4": -0.16942516598518614,
+          "relative_entropy_over_radius4": 1.416249057161871e-06,
+          "continuum_factor": -0.4618046439617692,
+          "dust_factor": 4.0
+        }
+      ]
+    },
+    {
+      "mesh_denominator": 512,
+      "radius": "3/256",
+      "center": [
+        "81/1021",
+        "-43/1021",
+        "31/1021"
+      ],
+      "frames": [
+        {
+          "frame": [
+            "1",
+            "0",
+            "0",
+            "0"
+          ],
+          "address_count": 919,
+          "complete_short_pairs": [
+            [
+              11094,
+              2413
+            ],
+            [
+              15010,
+              4554
+            ],
+            [
+              7833,
+              2887
+            ]
+          ],
+          "entropy_over_radius4": 0.9085478107192361,
+          "relative_entropy_over_radius4": 9.568404152936285e-07,
+          "continuum_factor": 1.0,
+          "dust_factor": 1.0
+        },
+        {
+          "frame": [
+            "5/3",
+            "4/3",
+            "0",
+            "0"
+          ],
+          "address_count": 1530,
+          "complete_short_pairs": [
+            [
+              23087,
+              4094
+            ],
+            [
+              29072,
+              7762
+            ],
+            [
+              15074,
+              4961
+            ]
+          ],
+          "entropy_over_radius4": 2.254666997243719,
+          "relative_entropy_over_radius4": 1.593001090629973e-06,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "4/3",
+            "0"
+          ],
+          "address_count": 1526,
+          "complete_short_pairs": [
+            [
+              22992,
+              4084
+            ],
+            [
+              28947,
+              7739
+            ],
+            [
+              15008,
+              4947
+            ]
+          ],
+          "entropy_over_radius4": 2.246565568678496,
+          "relative_entropy_over_radius4": 1.5888363531332844e-06,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "0",
+            "4/3"
+          ],
+          "address_count": 1528,
+          "complete_short_pairs": [
+            [
+              23027,
+              4090
+            ],
+            [
+              29004,
+              7749
+            ],
+            [
+              15044,
+              4956
+            ]
+          ],
+          "entropy_over_radius4": 2.2394041514738476,
+          "relative_entropy_over_radius4": 1.5909187245051834e-06,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "-4/3",
+            "0",
+            "0"
+          ],
+          "address_count": 1530,
+          "complete_short_pairs": [
+            [
+              23087,
+              4094
+            ],
+            [
+              29072,
+              7762
+            ],
+            [
+              15074,
+              4961
+            ]
+          ],
+          "entropy_over_radius4": 2.254666997243719,
+          "relative_entropy_over_radius4": 1.593001090629973e-06,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "-4/3",
+            "0"
+          ],
+          "address_count": 1526,
+          "complete_short_pairs": [
+            [
+              22992,
+              4084
+            ],
+            [
+              28947,
+              7739
+            ],
+            [
+              15008,
+              4947
+            ]
+          ],
+          "entropy_over_radius4": 2.246565568678496,
+          "relative_entropy_over_radius4": 1.5888363531332844e-06,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "0",
+            "-4/3"
+          ],
+          "address_count": 1528,
+          "complete_short_pairs": [
+            [
+              23027,
+              4090
+            ],
+            [
+              29004,
+              7749
+            ],
+            [
+              15044,
+              4956
+            ]
+          ],
+          "entropy_over_radius4": 2.2394041514738476,
+          "relative_entropy_over_radius4": 1.5909187245051834e-06,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "3",
+            "2",
+            "2",
+            "0"
+          ],
+          "address_count": 2729,
+          "complete_short_pairs": [
+            [
+              41237,
+              7344
+            ],
+            [
+              66318,
+              14054
+            ],
+            [
+              31263,
+              8999
+            ]
+          ],
+          "entropy_over_radius4": 6.829999212039479,
+          "relative_entropy_over_radius4": 2.8413780598794897e-06,
+          "continuum_factor": 9.0,
+          "dust_factor": 9.0
+        },
+        {
+          "frame": [
+            "3",
+            "2",
+            "0",
+            "2"
+          ],
+          "address_count": 2731,
+          "complete_short_pairs": [
+            [
+              41304,
+              7347
+            ],
+            [
+              66397,
+              14073
+            ],
+            [
+              31298,
+              9005
+            ]
+          ],
+          "entropy_over_radius4": 6.847794260621865,
+          "relative_entropy_over_radius4": 2.843460433436843e-06,
+          "continuum_factor": 9.0,
+          "dust_factor": 9.0
+        },
+        {
+          "frame": [
+            "3",
+            "0",
+            "2",
+            "2"
+          ],
+          "address_count": 2724,
+          "complete_short_pairs": [
+            [
+              41158,
+              7328
+            ],
+            [
+              66153,
+              14029
+            ],
+            [
+              31141,
+              8977
+            ]
+          ],
+          "entropy_over_radius4": 6.876653606086675,
+          "relative_entropy_over_radius4": 2.8361721055330946e-06,
+          "continuum_factor": 9.0,
+          "dust_factor": 9.0
+        },
+        {
+          "frame": [
+            "2",
+            "1",
+            "1",
+            "1"
+          ],
+          "address_count": 1805,
+          "complete_short_pairs": [
+            [
+              25564,
+              4833
+            ],
+            [
+              36349,
+              9204
+            ],
+            [
+              20489,
+              5899
+            ]
+          ],
+          "entropy_over_radius4": 0.06008060171162118,
+          "relative_entropy_over_radius4": 1.8793270968179016e-06,
+          "continuum_factor": -0.4618046439617692,
+          "dust_factor": 4.0
+        }
+      ]
+    },
+    {
+      "mesh_denominator": 1024,
+      "radius": "1/64",
+      "center": [
+        "0",
+        "0",
+        "0"
+      ],
+      "frames": [
+        {
+          "frame": [
+            "1",
+            "0",
+            "0",
+            "0"
+          ],
+          "address_count": 17077,
+          "complete_short_pairs": [
+            [
+              588876,
+              48840
+            ],
+            [
+              818214,
+              95712
+            ],
+            [
+              438588,
+              62736
+            ]
+          ],
+          "entropy_over_radius4": 0.7578393243908649,
+          "relative_entropy_over_radius4": 8.72291809369703e-08,
+          "continuum_factor": 1.0,
+          "dust_factor": 1.0
+        },
+        {
+          "frame": [
+            "5/3",
+            "4/3",
+            "0",
+            "0"
+          ],
+          "address_count": 28561,
+          "complete_short_pairs": [
+            [
+              1214822,
+              82220
+            ],
+            [
+              1575518,
+              161376
+            ],
+            [
+              835216,
+              106008
+            ]
+          ],
+          "entropy_over_radius4": 2.062100774588565,
+          "relative_entropy_over_radius4": 1.4588949904482803e-07,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "4/3",
+            "0"
+          ],
+          "address_count": 28561,
+          "complete_short_pairs": [
+            [
+              1214822,
+              82220
+            ],
+            [
+              1575518,
+              161376
+            ],
+            [
+              835216,
+              106008
+            ]
+          ],
+          "entropy_over_radius4": 2.062100774588565,
+          "relative_entropy_over_radius4": 1.4588949904482803e-07,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "0",
+            "4/3"
+          ],
+          "address_count": 28561,
+          "complete_short_pairs": [
+            [
+              1214822,
+              82220
+            ],
+            [
+              1575518,
+              161376
+            ],
+            [
+              835216,
+              106008
+            ]
+          ],
+          "entropy_over_radius4": 2.062100774588565,
+          "relative_entropy_over_radius4": 1.4588949904482803e-07,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "-4/3",
+            "0",
+            "0"
+          ],
+          "address_count": 28561,
+          "complete_short_pairs": [
+            [
+              1214822,
+              82220
+            ],
+            [
+              1575518,
+              161376
+            ],
+            [
+              835216,
+              106008
+            ]
+          ],
+          "entropy_over_radius4": 2.062100774588565,
+          "relative_entropy_over_radius4": 1.4588949904482803e-07,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "-4/3",
+            "0"
+          ],
+          "address_count": 28561,
+          "complete_short_pairs": [
+            [
+              1214822,
+              82220
+            ],
+            [
+              1575518,
+              161376
+            ],
+            [
+              835216,
+              106008
+            ]
+          ],
+          "entropy_over_radius4": 2.062100774588565,
+          "relative_entropy_over_radius4": 1.4588949904482803e-07,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "0",
+            "-4/3"
+          ],
+          "address_count": 28561,
+          "complete_short_pairs": [
+            [
+              1214822,
+              82220
+            ],
+            [
+              1575518,
+              161376
+            ],
+            [
+              835216,
+              106008
+            ]
+          ],
+          "entropy_over_radius4": 2.062100774588565,
+          "relative_entropy_over_radius4": 1.4588949904482803e-07,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "3",
+            "2",
+            "2",
+            "0"
+          ],
+          "address_count": 51305,
+          "complete_short_pairs": [
+            [
+              2190284,
+              147944
+            ],
+            [
+              3559950,
+              291294
+            ],
+            [
+              1719866,
+              191536
+            ]
+          ],
+          "entropy_over_radius4": 6.584533217753298,
+          "relative_entropy_over_radius4": 2.620661144338392e-07,
+          "continuum_factor": 9.0,
+          "dust_factor": 9.0
+        },
+        {
+          "frame": [
+            "3",
+            "2",
+            "0",
+            "2"
+          ],
+          "address_count": 51305,
+          "complete_short_pairs": [
+            [
+              2190284,
+              147944
+            ],
+            [
+              3559950,
+              291294
+            ],
+            [
+              1719866,
+              191536
+            ]
+          ],
+          "entropy_over_radius4": 6.584533217753298,
+          "relative_entropy_over_radius4": 2.620661144338392e-07,
+          "continuum_factor": 9.0,
+          "dust_factor": 9.0
+        },
+        {
+          "frame": [
+            "3",
+            "0",
+            "2",
+            "2"
+          ],
+          "address_count": 51305,
+          "complete_short_pairs": [
+            [
+              2190284,
+              147944
+            ],
+            [
+              3559950,
+              291294
+            ],
+            [
+              1719866,
+              191536
+            ]
+          ],
+          "entropy_over_radius4": 6.584533217753298,
+          "relative_entropy_over_radius4": 2.620661144338392e-07,
+          "continuum_factor": 9.0,
+          "dust_factor": 9.0
+        },
+        {
+          "frame": [
+            "2",
+            "1",
+            "1",
+            "1"
+          ],
+          "address_count": 34333,
+          "complete_short_pairs": [
+            [
+              1376118,
+              98820
+            ],
+            [
+              2009253,
+              194364
+            ],
+            [
+              1153299,
+              127944
+            ]
+          ],
+          "entropy_over_radius4": -0.287142109100463,
+          "relative_entropy_over_radius4": 1.7537301041227524e-07,
+          "continuum_factor": -0.4618046439617692,
+          "dust_factor": 4.0
+        }
+      ]
+    },
+    {
+      "mesh_denominator": 1024,
+      "radius": "3/256",
+      "center": [
+        "0",
+        "0",
+        "0"
+      ],
+      "frames": [
+        {
+          "frame": [
+            "1",
+            "0",
+            "0",
+            "0"
+          ],
+          "address_count": 7153,
+          "complete_short_pairs": [
+            [
+              182244,
+              20136
+            ],
+            [
+              251136,
+              39120
+            ],
+            [
+              134040,
+              25536
+            ]
+          ],
+          "entropy_over_radius4": 0.7632295927403838,
+          "relative_entropy_over_radius4": 1.1547623739234405e-07,
+          "continuum_factor": 1.0,
+          "dust_factor": 1.0
+        },
+        {
+          "frame": [
+            "5/3",
+            "4/3",
+            "0",
+            "0"
+          ],
+          "address_count": 11993,
+          "complete_short_pairs": [
+            [
+              378156,
+              34040
+            ],
+            [
+              486312,
+              66352
+            ],
+            [
+              256540,
+              43336
+            ]
+          ],
+          "entropy_over_radius4": 2.0916747969533516,
+          "relative_entropy_over_radius4": 1.9361211970883434e-07,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "4/3",
+            "0"
+          ],
+          "address_count": 11993,
+          "complete_short_pairs": [
+            [
+              378156,
+              34040
+            ],
+            [
+              486312,
+              66352
+            ],
+            [
+              256540,
+              43336
+            ]
+          ],
+          "entropy_over_radius4": 2.0916747969533516,
+          "relative_entropy_over_radius4": 1.9361211970883434e-07,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "0",
+            "4/3"
+          ],
+          "address_count": 11993,
+          "complete_short_pairs": [
+            [
+              378156,
+              34040
+            ],
+            [
+              486312,
+              66352
+            ],
+            [
+              256540,
+              43336
+            ]
+          ],
+          "entropy_over_radius4": 2.0916747969533516,
+          "relative_entropy_over_radius4": 1.9361211970883434e-07,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "-4/3",
+            "0",
+            "0"
+          ],
+          "address_count": 11993,
+          "complete_short_pairs": [
+            [
+              378156,
+              34040
+            ],
+            [
+              486312,
+              66352
+            ],
+            [
+              256540,
+              43336
+            ]
+          ],
+          "entropy_over_radius4": 2.0916747969533516,
+          "relative_entropy_over_radius4": 1.9361211970883434e-07,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "-4/3",
+            "0"
+          ],
+          "address_count": 11993,
+          "complete_short_pairs": [
+            [
+              378156,
+              34040
+            ],
+            [
+              486312,
+              66352
+            ],
+            [
+              256540,
+              43336
+            ]
+          ],
+          "entropy_over_radius4": 2.0916747969533516,
+          "relative_entropy_over_radius4": 1.9361211970883434e-07,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "0",
+            "-4/3"
+          ],
+          "address_count": 11993,
+          "complete_short_pairs": [
+            [
+              378156,
+              34040
+            ],
+            [
+              486312,
+              66352
+            ],
+            [
+              256540,
+              43336
+            ]
+          ],
+          "entropy_over_radius4": 2.0916747969533516,
+          "relative_entropy_over_radius4": 1.9361211970883434e-07,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "3",
+            "2",
+            "2",
+            "0"
+          ],
+          "address_count": 21607,
+          "complete_short_pairs": [
+            [
+              683138,
+              61472
+            ],
+            [
+              1108225,
+              120352
+            ],
+            [
+              532256,
+              78756
+            ]
+          ],
+          "entropy_over_radius4": 6.627651565575318,
+          "relative_entropy_over_radius4": 3.4881857116335075e-07,
+          "continuum_factor": 9.0,
+          "dust_factor": 9.0
+        },
+        {
+          "frame": [
+            "3",
+            "2",
+            "0",
+            "2"
+          ],
+          "address_count": 21607,
+          "complete_short_pairs": [
+            [
+              683138,
+              61472
+            ],
+            [
+              1108225,
+              120352
+            ],
+            [
+              532256,
+              78756
+            ]
+          ],
+          "entropy_over_radius4": 6.627651565575318,
+          "relative_entropy_over_radius4": 3.4881857116335075e-07,
+          "continuum_factor": 9.0,
+          "dust_factor": 9.0
+        },
+        {
+          "frame": [
+            "3",
+            "0",
+            "2",
+            "2"
+          ],
+          "address_count": 21607,
+          "complete_short_pairs": [
+            [
+              683138,
+              61472
+            ],
+            [
+              1108225,
+              120352
+            ],
+            [
+              532256,
+              78756
+            ]
+          ],
+          "entropy_over_radius4": 6.627651565575318,
+          "relative_entropy_over_radius4": 3.4881857116335075e-07,
+          "continuum_factor": 9.0,
+          "dust_factor": 9.0
+        },
+        {
+          "frame": [
+            "2",
+            "1",
+            "1",
+            "1"
+          ],
+          "address_count": 14361,
+          "complete_short_pairs": [
+            [
+              425385,
+              40776
+            ],
+            [
+              618426,
+              79680
+            ],
+            [
+              353844,
+              52208
+            ]
+          ],
+          "entropy_over_radius4": -0.24408153551526884,
+          "relative_entropy_over_radius4": 2.318406965922804e-07,
+          "continuum_factor": -0.4618046439617692,
+          "dust_factor": 4.0
+        }
+      ]
+    },
+    {
+      "mesh_denominator": 1024,
+      "radius": "1/64",
+      "center": [
+        "7/1021",
+        "-5/1021",
+        "3/1021"
+      ],
+      "frames": [
+        {
+          "frame": [
+            "1",
+            "0",
+            "0",
+            "0"
+          ],
+          "address_count": 17074,
+          "complete_short_pairs": [
+            [
+              588780,
+              48837
+            ],
+            [
+              818025,
+              95700
+            ],
+            [
+              438468,
+              62724
+            ]
+          ],
+          "entropy_over_radius4": 0.7583434726850891,
+          "relative_entropy_over_radius4": 8.721385691429222e-08,
+          "continuum_factor": 1.0,
+          "dust_factor": 1.0
+        },
+        {
+          "frame": [
+            "5/3",
+            "4/3",
+            "0",
+            "0"
+          ],
+          "address_count": 28560,
+          "complete_short_pairs": [
+            [
+              1214827,
+              82217
+            ],
+            [
+              1575254,
+              161371
+            ],
+            [
+              835052,
+              106001
+            ]
+          ],
+          "entropy_over_radius4": 2.063250925436441,
+          "relative_entropy_over_radius4": 1.4588439088628858e-07,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "4/3",
+            "0"
+          ],
+          "address_count": 28554,
+          "complete_short_pairs": [
+            [
+              1214489,
+              82199
+            ],
+            [
+              1574773,
+              161337
+            ],
+            [
+              834803,
+              105977
+            ]
+          ],
+          "entropy_over_radius4": 2.0626090111114244,
+          "relative_entropy_over_radius4": 1.4585374280716697e-07,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "0",
+            "4/3"
+          ],
+          "address_count": 28549,
+          "complete_short_pairs": [
+            [
+              1214145,
+              82183
+            ],
+            [
+              1574441,
+              161305
+            ],
+            [
+              834635,
+              105955
+            ]
+          ],
+          "entropy_over_radius4": 2.0616129298497787,
+          "relative_entropy_over_radius4": 1.4582820278464346e-07,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "-4/3",
+            "0",
+            "0"
+          ],
+          "address_count": 28560,
+          "complete_short_pairs": [
+            [
+              1214827,
+              82217
+            ],
+            [
+              1575254,
+              161371
+            ],
+            [
+              835052,
+              106001
+            ]
+          ],
+          "entropy_over_radius4": 2.063250925436441,
+          "relative_entropy_over_radius4": 1.4588439088628858e-07,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "-4/3",
+            "0"
+          ],
+          "address_count": 28554,
+          "complete_short_pairs": [
+            [
+              1214489,
+              82199
+            ],
+            [
+              1574773,
+              161337
+            ],
+            [
+              834803,
+              105977
+            ]
+          ],
+          "entropy_over_radius4": 2.0626090111114244,
+          "relative_entropy_over_radius4": 1.4585374280716697e-07,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "0",
+            "-4/3"
+          ],
+          "address_count": 28549,
+          "complete_short_pairs": [
+            [
+              1214145,
+              82183
+            ],
+            [
+              1574441,
+              161305
+            ],
+            [
+              834635,
+              105955
+            ]
+          ],
+          "entropy_over_radius4": 2.0616129298497787,
+          "relative_entropy_over_radius4": 1.4582820278464346e-07,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "3",
+            "2",
+            "2",
+            "0"
+          ],
+          "address_count": 51373,
+          "complete_short_pairs": [
+            [
+              2194652,
+              148138
+            ],
+            [
+              3566158,
+              291695
+            ],
+            [
+              1722928,
+              191804
+            ]
+          ],
+          "entropy_over_radius4": 6.596846609536583,
+          "relative_entropy_over_radius4": 2.6241345969896786e-07,
+          "continuum_factor": 9.0,
+          "dust_factor": 9.0
+        },
+        {
+          "frame": [
+            "3",
+            "2",
+            "0",
+            "2"
+          ],
+          "address_count": 51343,
+          "complete_short_pairs": [
+            [
+              2192333,
+              148050
+            ],
+            [
+              3563539,
+              291521
+            ],
+            [
+              1721699,
+              191683
+            ]
+          ],
+          "entropy_over_radius4": 6.58813151676894,
+          "relative_entropy_over_radius4": 2.6226021925948565e-07,
+          "continuum_factor": 9.0,
+          "dust_factor": 9.0
+        },
+        {
+          "frame": [
+            "3",
+            "0",
+            "2",
+            "2"
+          ],
+          "address_count": 51374,
+          "complete_short_pairs": [
+            [
+              2194201,
+              148140
+            ],
+            [
+              3566353,
+              291697
+            ],
+            [
+              1723171,
+              191806
+            ]
+          ],
+          "entropy_over_radius4": 6.591097531445849,
+          "relative_entropy_over_radius4": 2.6241856789736426e-07,
+          "continuum_factor": 9.0,
+          "dust_factor": 9.0
+        },
+        {
+          "frame": [
+            "2",
+            "1",
+            "1",
+            "1"
+          ],
+          "address_count": 34332,
+          "complete_short_pairs": [
+            [
+              1376057,
+              98817
+            ],
+            [
+              2009233,
+              194367
+            ],
+            [
+              1153232,
+              127939
+            ]
+          ],
+          "entropy_over_radius4": -0.2858851739207993,
+          "relative_entropy_over_radius4": 1.753679023883587e-07,
+          "continuum_factor": -0.4618046439617692,
+          "dust_factor": 4.0
+        }
+      ]
+    },
+    {
+      "mesh_denominator": 1024,
+      "radius": "3/256",
+      "center": [
+        "7/1021",
+        "-5/1021",
+        "3/1021"
+      ],
+      "frames": [
+        {
+          "frame": [
+            "1",
+            "0",
+            "0",
+            "0"
+          ],
+          "address_count": 7138,
+          "complete_short_pairs": [
+            [
+              181703,
+              20097
+            ],
+            [
+              250436,
+              39048
+            ],
+            [
+              133651,
+              25476
+            ]
+          ],
+          "entropy_over_radius4": 0.7622145880395128,
+          "relative_entropy_over_radius4": 1.1523408072082474e-07,
+          "continuum_factor": 1.0,
+          "dust_factor": 1.0
+        },
+        {
+          "frame": [
+            "5/3",
+            "4/3",
+            "0",
+            "0"
+          ],
+          "address_count": 12003,
+          "complete_short_pairs": [
+            [
+              378629,
+              34072
+            ],
+            [
+              486765,
+              66404
+            ],
+            [
+              256766,
+              43377
+            ]
+          ],
+          "entropy_over_radius4": 2.0960587553156276,
+          "relative_entropy_over_radius4": 1.937735574039299e-07,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "4/3",
+            "0"
+          ],
+          "address_count": 12002,
+          "complete_short_pairs": [
+            [
+              378555,
+              34068
+            ],
+            [
+              486731,
+              66398
+            ],
+            [
+              256758,
+              43373
+            ]
+          ],
+          "entropy_over_radius4": 2.094497040434747,
+          "relative_entropy_over_radius4": 1.93757413679806e-07,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "0",
+            "4/3"
+          ],
+          "address_count": 12003,
+          "complete_short_pairs": [
+            [
+              378604,
+              34071
+            ],
+            [
+              486767,
+              66402
+            ],
+            [
+              256778,
+              43378
+            ]
+          ],
+          "entropy_over_radius4": 2.0947693300471117,
+          "relative_entropy_over_radius4": 1.937735574388902e-07,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "-4/3",
+            "0",
+            "0"
+          ],
+          "address_count": 12003,
+          "complete_short_pairs": [
+            [
+              378629,
+              34072
+            ],
+            [
+              486765,
+              66404
+            ],
+            [
+              256766,
+              43377
+            ]
+          ],
+          "entropy_over_radius4": 2.0960587553156276,
+          "relative_entropy_over_radius4": 1.937735574039299e-07,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "-4/3",
+            "0"
+          ],
+          "address_count": 12002,
+          "complete_short_pairs": [
+            [
+              378555,
+              34068
+            ],
+            [
+              486731,
+              66398
+            ],
+            [
+              256758,
+              43373
+            ]
+          ],
+          "entropy_over_radius4": 2.094497040434747,
+          "relative_entropy_over_radius4": 1.93757413679806e-07,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "0",
+            "-4/3"
+          ],
+          "address_count": 12003,
+          "complete_short_pairs": [
+            [
+              378604,
+              34071
+            ],
+            [
+              486767,
+              66402
+            ],
+            [
+              256778,
+              43378
+            ]
+          ],
+          "entropy_over_radius4": 2.0947693300471117,
+          "relative_entropy_over_radius4": 1.937735574388902e-07,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "3",
+            "2",
+            "2",
+            "0"
+          ],
+          "address_count": 21622,
+          "complete_short_pairs": [
+            [
+              684107,
+              61522
+            ],
+            [
+              1109129,
+              120439
+            ],
+            [
+              532699,
+              78811
+            ]
+          ],
+          "entropy_over_radius4": 6.638027231966313,
+          "relative_entropy_over_radius4": 3.4906072813710067e-07,
+          "continuum_factor": 9.0,
+          "dust_factor": 9.0
+        },
+        {
+          "frame": [
+            "3",
+            "2",
+            "0",
+            "2"
+          ],
+          "address_count": 21606,
+          "complete_short_pairs": [
+            [
+              683149,
+              61472
+            ],
+            [
+              1108100,
+              120346
+            ],
+            [
+              532247,
+              78752
+            ]
+          ],
+          "entropy_over_radius4": 6.624051240376063,
+          "relative_entropy_over_radius4": 3.488024273899493e-07,
+          "continuum_factor": 9.0,
+          "dust_factor": 9.0
+        },
+        {
+          "frame": [
+            "3",
+            "0",
+            "2",
+            "2"
+          ],
+          "address_count": 21615,
+          "complete_short_pairs": [
+            [
+              683538,
+              61499
+            ],
+            [
+              1108732,
+              120398
+            ],
+            [
+              532601,
+              78788
+            ]
+          ],
+          "entropy_over_radius4": 6.6238453050040995,
+          "relative_entropy_over_radius4": 3.489477218705161e-07,
+          "continuum_factor": 9.0,
+          "dust_factor": 9.0
+        },
+        {
+          "frame": [
+            "2",
+            "1",
+            "1",
+            "1"
+          ],
+          "address_count": 14346,
+          "complete_short_pairs": [
+            [
+              424776,
+              40731
+            ],
+            [
+              617533,
+              79605
+            ],
+            [
+              353319,
+              52148
+            ]
+          ],
+          "entropy_over_radius4": -0.2423432555269342,
+          "relative_entropy_over_radius4": 2.3159853941462456e-07,
+          "continuum_factor": -0.4618046439617692,
+          "dust_factor": 4.0
+        }
+      ]
+    },
+    {
+      "mesh_denominator": 1024,
+      "radius": "1/64",
+      "center": [
+        "81/1021",
+        "-43/1021",
+        "31/1021"
+      ],
+      "frames": [
+        {
+          "frame": [
+            "1",
+            "0",
+            "0",
+            "0"
+          ],
+          "address_count": 17150,
+          "complete_short_pairs": [
+            [
+              591955,
+              49041
+            ],
+            [
+              822227,
+              96086
+            ],
+            [
+              441269,
+              63036
+            ]
+          ],
+          "entropy_over_radius4": 0.7486257988880739,
+          "relative_entropy_over_radius4": 8.760206521716925e-08,
+          "continuum_factor": 1.0,
+          "dust_factor": 1.0
+        },
+        {
+          "frame": [
+            "5/3",
+            "4/3",
+            "0",
+            "0"
+          ],
+          "address_count": 28574,
+          "complete_short_pairs": [
+            [
+              1214843,
+              82243
+            ],
+            [
+              1575799,
+              161417
+            ],
+            [
+              835812,
+              106061
+            ]
+          ],
+          "entropy_over_radius4": 2.0501615371514954,
+          "relative_entropy_over_radius4": 1.4595590309909156e-07,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "4/3",
+            "0"
+          ],
+          "address_count": 28569,
+          "complete_short_pairs": [
+            [
+              1214125,
+              82224
+            ],
+            [
+              1575390,
+              161386
+            ],
+            [
+              835850,
+              106052
+            ]
+          ],
+          "entropy_over_radius4": 2.0414086564380582,
+          "relative_entropy_over_radius4": 1.459303632511262e-07,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "0",
+            "4/3"
+          ],
+          "address_count": 28584,
+          "complete_short_pairs": [
+            [
+              1214835,
+              82268
+            ],
+            [
+              1576643,
+              161474
+            ],
+            [
+              836561,
+              106107
+            ]
+          ],
+          "entropy_over_radius4": 2.040890020466819,
+          "relative_entropy_over_radius4": 1.460069835290042e-07,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "-4/3",
+            "0",
+            "0"
+          ],
+          "address_count": 28574,
+          "complete_short_pairs": [
+            [
+              1214843,
+              82243
+            ],
+            [
+              1575799,
+              161417
+            ],
+            [
+              835812,
+              106061
+            ]
+          ],
+          "entropy_over_radius4": 2.0501615371514954,
+          "relative_entropy_over_radius4": 1.4595590309909156e-07,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "-4/3",
+            "0"
+          ],
+          "address_count": 28569,
+          "complete_short_pairs": [
+            [
+              1214125,
+              82224
+            ],
+            [
+              1575390,
+              161386
+            ],
+            [
+              835850,
+              106052
+            ]
+          ],
+          "entropy_over_radius4": 2.0414086564380582,
+          "relative_entropy_over_radius4": 1.459303632511262e-07,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "0",
+            "-4/3"
+          ],
+          "address_count": 28584,
+          "complete_short_pairs": [
+            [
+              1214835,
+              82268
+            ],
+            [
+              1576643,
+              161474
+            ],
+            [
+              836561,
+              106107
+            ]
+          ],
+          "entropy_over_radius4": 2.040890020466819,
+          "relative_entropy_over_radius4": 1.460069835290042e-07,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "3",
+            "2",
+            "2",
+            "0"
+          ],
+          "address_count": 51410,
+          "complete_short_pairs": [
+            [
+              2195133,
+              148233
+            ],
+            [
+              3569383,
+              291896
+            ],
+            [
+              1725608,
+              191975
+            ]
+          ],
+          "entropy_over_radius4": 6.568081272458347,
+          "relative_entropy_over_radius4": 2.6260245723901936e-07,
+          "continuum_factor": 9.0,
+          "dust_factor": 9.0
+        },
+        {
+          "frame": [
+            "3",
+            "2",
+            "0",
+            "2"
+          ],
+          "address_count": 51455,
+          "complete_short_pairs": [
+            [
+              2198173,
+              148364
+            ],
+            [
+              3573458,
+              292163
+            ],
+            [
+              1727904,
+              192131
+            ]
+          ],
+          "entropy_over_radius4": 6.570042106921785,
+          "relative_entropy_over_radius4": 2.628323182912701e-07,
+          "continuum_factor": 9.0,
+          "dust_factor": 9.0
+        },
+        {
+          "frame": [
+            "3",
+            "0",
+            "2",
+            "2"
+          ],
+          "address_count": 51501,
+          "complete_short_pairs": [
+            [
+              2200389,
+              148493
+            ],
+            [
+              3577697,
+              292426
+            ],
+            [
+              1730200,
+              192328
+            ]
+          ],
+          "entropy_over_radius4": 6.569850835749741,
+          "relative_entropy_over_radius4": 2.6306728735157547e-07,
+          "continuum_factor": 9.0,
+          "dust_factor": 9.0
+        },
+        {
+          "frame": [
+            "2",
+            "1",
+            "1",
+            "1"
+          ],
+          "address_count": 34318,
+          "complete_short_pairs": [
+            [
+              1374996,
+              98775
+            ],
+            [
+              2006987,
+              194265
+            ],
+            [
+              1152874,
+              127887
+            ]
+          ],
+          "entropy_over_radius4": -0.30708731424473945,
+          "relative_entropy_over_radius4": 1.7529639018494262e-07,
+          "continuum_factor": -0.4618046439617692,
+          "dust_factor": 4.0
+        }
+      ]
+    },
+    {
+      "mesh_denominator": 1024,
+      "radius": "3/256",
+      "center": [
+        "81/1021",
+        "-43/1021",
+        "31/1021"
+      ],
+      "frames": [
+        {
+          "frame": [
+            "1",
+            "0",
+            "0",
+            "0"
+          ],
+          "address_count": 7223,
+          "complete_short_pairs": [
+            [
+              184182,
+              20314
+            ],
+            [
+              254311,
+              39512
+            ],
+            [
+              135835,
+              25772
+            ]
+          ],
+          "entropy_over_radius4": 0.761138453917831,
+          "relative_entropy_over_radius4": 1.1660630158600121e-07,
+          "continuum_factor": 1.0,
+          "dust_factor": 1.0
+        },
+        {
+          "frame": [
+            "5/3",
+            "4/3",
+            "0",
+            "0"
+          ],
+          "address_count": 12031,
+          "complete_short_pairs": [
+            [
+              379061,
+              34139
+            ],
+            [
+              488405,
+              66559
+            ],
+            [
+              257894,
+              43511
+            ]
+          ],
+          "entropy_over_radius4": 2.0700552377777637,
+          "relative_entropy_over_radius4": 1.9422558456695672e-07,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "4/3",
+            "0"
+          ],
+          "address_count": 12056,
+          "complete_short_pairs": [
+            [
+              379811,
+              34208
+            ],
+            [
+              489873,
+              66700
+            ],
+            [
+              258707,
+              43598
+            ]
+          ],
+          "entropy_over_radius4": 2.0685276055340522,
+          "relative_entropy_over_radius4": 1.9462917961991708e-07,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "0",
+            "4/3"
+          ],
+          "address_count": 12055,
+          "complete_short_pairs": [
+            [
+              379769,
+              34208
+            ],
+            [
+              489851,
+              66691
+            ],
+            [
+              258731,
+              43596
+            ]
+          ],
+          "entropy_over_radius4": 2.065199286249077,
+          "relative_entropy_over_radius4": 1.9461303600102287e-07,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "-4/3",
+            "0",
+            "0"
+          ],
+          "address_count": 12031,
+          "complete_short_pairs": [
+            [
+              379061,
+              34139
+            ],
+            [
+              488405,
+              66559
+            ],
+            [
+              257894,
+              43511
+            ]
+          ],
+          "entropy_over_radius4": 2.0700552377777637,
+          "relative_entropy_over_radius4": 1.9422558456695672e-07,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "-4/3",
+            "0"
+          ],
+          "address_count": 12056,
+          "complete_short_pairs": [
+            [
+              379811,
+              34208
+            ],
+            [
+              489873,
+              66700
+            ],
+            [
+              258707,
+              43598
+            ]
+          ],
+          "entropy_over_radius4": 2.0685276055340522,
+          "relative_entropy_over_radius4": 1.9462917961991708e-07,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "5/3",
+            "0",
+            "0",
+            "-4/3"
+          ],
+          "address_count": 12055,
+          "complete_short_pairs": [
+            [
+              379769,
+              34208
+            ],
+            [
+              489851,
+              66691
+            ],
+            [
+              258731,
+              43596
+            ]
+          ],
+          "entropy_over_radius4": 2.065199286249077,
+          "relative_entropy_over_radius4": 1.9461303600102287e-07,
+          "continuum_factor": 2.7777777777777777,
+          "dust_factor": 2.7777777777777777
+        },
+        {
+          "frame": [
+            "3",
+            "2",
+            "2",
+            "0"
+          ],
+          "address_count": 21713,
+          "complete_short_pairs": [
+            [
+              687964,
+              61763
+            ],
+            [
+              1115029,
+              120949
+            ],
+            [
+              535821,
+              79153
+            ]
+          ],
+          "entropy_over_radius4": 6.653649584454884,
+          "relative_entropy_over_radius4": 3.505298150951357e-07,
+          "continuum_factor": 9.0,
+          "dust_factor": 9.0
+        },
+        {
+          "frame": [
+            "3",
+            "2",
+            "0",
+            "2"
+          ],
+          "address_count": 21706,
+          "complete_short_pairs": [
+            [
+              687325,
+              61745
+            ],
+            [
+              1114676,
+              120917
+            ],
+            [
+              535945,
+              79124
+            ]
+          ],
+          "entropy_over_radius4": 6.623062497149179,
+          "relative_entropy_over_radius4": 3.504168094612787e-07,
+          "continuum_factor": 9.0,
+          "dust_factor": 9.0
+        },
+        {
+          "frame": [
+            "3",
+            "0",
+            "2",
+            "2"
+          ],
+          "address_count": 21742,
+          "complete_short_pairs": [
+            [
+              688790,
+              61849
+            ],
+            [
+              1117120,
+              121137
+            ],
+            [
+              537584,
+              79273
+            ]
+          ],
+          "entropy_over_radius4": 6.600420987166255,
+          "relative_entropy_over_radius4": 3.509979879818625e-07,
+          "continuum_factor": 9.0,
+          "dust_factor": 9.0
+        },
+        {
+          "frame": [
+            "2",
+            "1",
+            "1",
+            "1"
+          ],
+          "address_count": 14465,
+          "complete_short_pairs": [
+            [
+              429493,
+              41051
+            ],
+            [
+              623705,
+              80248
+            ],
+            [
+              357157,
+              52577
+            ]
+          ],
+          "entropy_over_radius4": -0.2623253554468887,
+          "relative_entropy_over_radius4": 2.335196514188223e-07,
+          "continuum_factor": -0.4618046439617692,
+          "dust_factor": 4.0
+        }
+      ]
+    }
+  ],
+  "separately_enrolled_blank_control": {
+    "radius": "1/64",
+    "mesh_denominator": 256,
+    "witness_distance": "39063/2500000",
+    "flat_projected_radius": 0.015625000000000337,
+    "held_projected_radius": 0.015625439295516467,
+    "blank_endpoints_at_witness": 626,
+    "blank_entropy_increase_lower": 257.89923476483864
+  }
+}
