@@ -890,7 +890,9 @@
    "lean": [
     "Lean/Screen/A5PrimitivePortPrediction.lean",
     "Lean/Screen/A5OrbitRaySeparation.lean",
-    "Lean/Screen/DispersionArmingInterface.lean"
+    "Lean/Screen/DispersionArmingInterface.lean",
+    "model/candidate_laws/interval_echo/openwave/row_29_maxwell/seam_symbol/drifting_receiver/Coverage.lean",
+    "model/candidate_laws/interval_echo/openwave/row_29_maxwell/seam_symbol/drifting_receiver/Receiver.lean"
    ],
    "model": [
     "code/a5_fingerprint/runtime/spin_six_primitive_port_prediction_receipt.json",
@@ -904,13 +906,20 @@
     "code/a5_fingerprint/a5_multipole_persistence_stage4_independent_verifier.py",
     "model/candidate_laws/interval_echo/openwave/row_29_maxwell/seam_symbol/README.md",
     "model/candidate_laws/interval_echo/openwave/row_29_maxwell/seam_symbol/records.json",
-    "code/cosmology/release_horizon/transverse_clock/records.json"
+    "code/cosmology/release_horizon/transverse_clock/records.json",
+    "model/candidate_laws/interval_echo/openwave/row_29_maxwell/seam_symbol/drifting_receiver/PROTOCOL.md",
+    "model/candidate_laws/interval_echo/openwave/row_29_maxwell/seam_symbol/drifting_receiver/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_29_maxwell/seam_symbol/drifting_receiver/measure.py",
+    "model/candidate_laws/interval_echo/openwave/row_29_maxwell/seam_symbol/drifting_receiver/read.py",
+    "model/candidate_laws/interval_echo/openwave/row_29_maxwell/seam_symbol/drifting_receiver/records.json",
+    "model/candidate_laws/interval_echo/openwave/row_29_maxwell/seam_symbol/drifting_receiver/test_receiver.py"
    ],
    "papers": [
     "docs/FROZEN_PREDICTION_LADDER.md",
     "flagship/from_observer_consensus_to_standard_physics.pdf",
     "claims/frozen_prediction_register.json",
-    "cosmology/oph_boltzmann_transport_derivation.pdf"
+    "cosmology/oph_boltzmann_transport_derivation.pdf",
+    "paper/screen_microphysics_and_observer_synchronization.pdf"
    ]
   },
   {
@@ -5301,7 +5310,9 @@
    "what": "Every charged particle has an antiparticle with which it annihilates into radiation, as in positronium decay to two or three photons.",
    "why": "Producing conjugate pairs that annihilate into radiation quanta tests whether a model's matter carries charge conjugation and couples to light.",
    "premises": [],
-   "lean": [],
+   "lean": [
+    "model/candidate_laws/interval_echo/openwave/row_08_annihilation/material_separator/PinnedRead.lean"
+   ],
    "model": [
     "model/evaluation/SCORECARD.md",
     "model/evaluation/openwave_criteria.json",
@@ -5319,7 +5330,17 @@
     "model/candidate_laws/interval_echo/openwave/row_08_annihilation/passive_receiver/results.json",
     "model/candidate_laws/interval_echo/openwave/row_08_annihilation/contact_flight/results.json",
     "model/candidate_laws/interval_echo/openwave/row_08_annihilation/wall_charge/README.md",
-    "model/candidate_laws/interval_echo/openwave/row_08_annihilation/wall_charge/results.json"
+    "model/candidate_laws/interval_echo/openwave/row_08_annihilation/wall_charge/results.json",
+    "model/candidate_laws/interval_echo/openwave/row_08_annihilation/material_separator/PROOF.md",
+    "model/candidate_laws/interval_echo/openwave/row_08_annihilation/material_separator/PROTOCOL.md",
+    "model/candidate_laws/interval_echo/openwave/row_08_annihilation/material_separator/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_08_annihilation/material_separator/apparatus.py",
+    "model/candidate_laws/interval_echo/openwave/row_08_annihilation/material_separator/counts.npz",
+    "model/candidate_laws/interval_echo/openwave/row_08_annihilation/material_separator/measure.py",
+    "model/candidate_laws/interval_echo/openwave/row_08_annihilation/material_separator/neutral_field.py",
+    "model/candidate_laws/interval_echo/openwave/row_08_annihilation/material_separator/results.json",
+    "model/candidate_laws/interval_echo/openwave/row_08_annihilation/material_separator/separator.py",
+    "model/candidate_laws/interval_echo/openwave/row_08_annihilation/material_separator/test_separator.py"
    ],
    "papers": [
     "paper/executable_observer_construction.pdf",
@@ -5685,7 +5706,16 @@
     "model/experiments/material_inertia/pair_spectrum/neutral_guide/results.json",
     "model/experiments/material_inertia/pair_spectrum/neutral_guide/test_charge_identity.py",
     "model/experiments/material_inertia/pair_spectrum/neutral_guide/test_guide.py",
-    "model/experiments/material_inertia/pair_spectrum/neutral_guide/CHARGE.md"
+    "model/experiments/material_inertia/pair_spectrum/neutral_guide/CHARGE.md",
+    "model/experiments/material_inertia/pair_spectrum/neutral_guide/boundary_flux/PROOF.md",
+    "model/experiments/material_inertia/pair_spectrum/neutral_guide/boundary_flux/PROTOCOL.md",
+    "model/experiments/material_inertia/pair_spectrum/neutral_guide/boundary_flux/README.md",
+    "model/experiments/material_inertia/pair_spectrum/neutral_guide/boundary_flux/field.py",
+    "model/experiments/material_inertia/pair_spectrum/neutral_guide/boundary_flux/measure.py",
+    "model/experiments/material_inertia/pair_spectrum/neutral_guide/boundary_flux/readback.py",
+    "model/experiments/material_inertia/pair_spectrum/neutral_guide/boundary_flux/results.json",
+    "model/experiments/material_inertia/pair_spectrum/neutral_guide/boundary_flux/scatter.py",
+    "model/experiments/material_inertia/pair_spectrum/neutral_guide/boundary_flux/test_boundary.py"
    ],
    "papers": [
     "paper/executable_observer_construction.pdf",
@@ -8269,17 +8299,27 @@
    "kind": "premise",
    "name": "preregistered nuisance and coverage readout rules",
    "category": "Construction choices",
-   "status": "Open",
+   "status": "Partial",
    "what": "Each comparison separates nuisance parameters and calibrates its joint coverage with rules fixed before the data are seen.",
    "why": "Preregistered analysis rules keep comparisons with measurement free of choices tuned to the result.",
    "premises": [],
    "lean": [
-    "Lean/Screen/DispersionArmingInterface.lean"
+    "Lean/Screen/DispersionArmingInterface.lean",
+    "model/candidate_laws/interval_echo/openwave/row_29_maxwell/seam_symbol/drifting_receiver/Coverage.lean",
+    "model/candidate_laws/interval_echo/openwave/row_29_maxwell/seam_symbol/drifting_receiver/Receiver.lean"
    ],
-   "model": [],
+   "model": [
+    "model/candidate_laws/interval_echo/openwave/row_29_maxwell/seam_symbol/drifting_receiver/PROTOCOL.md",
+    "model/candidate_laws/interval_echo/openwave/row_29_maxwell/seam_symbol/drifting_receiver/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_29_maxwell/seam_symbol/drifting_receiver/measure.py",
+    "model/candidate_laws/interval_echo/openwave/row_29_maxwell/seam_symbol/drifting_receiver/read.py",
+    "model/candidate_laws/interval_echo/openwave/row_29_maxwell/seam_symbol/drifting_receiver/records.json",
+    "model/candidate_laws/interval_echo/openwave/row_29_maxwell/seam_symbol/drifting_receiver/test_receiver.py"
+   ],
    "papers": [
     "claims/frozen_prediction_register.json",
-    "docs/FROZEN_PREDICTION_LADDER.md"
+    "docs/FROZEN_PREDICTION_LADDER.md",
+    "paper/screen_microphysics_and_observer_synchronization.pdf"
    ],
    "statement": "The readout of every eligible comparison isolates nuisance parameters and calibrates joint coverage under rules fixed before exposure.",
    "premise_kind": "declared"
@@ -10560,7 +10600,7 @@
    "kind": "premise",
    "name": "pair-mean repair machine running declared observer programs",
    "category": "Construction choices",
-   "status": "Partial",
+   "status": "Demonstrated",
    "what": "Native repair averages real values on neighbouring registers, and observers run declared finite programs, such as accumulators and routers, on it.",
    "why": "The computation and observer-run constructions built from these programs rely on this averaging machine and its supplied controllers.",
    "premises": [],
@@ -10583,7 +10623,10 @@
     "Lean/Geometry/SourcePassiveReset.lean",
     "Lean/Geometry/SourceNonlinearRecord.lean",
     "Lean/Geometry/SourceRecordProtection.lean",
-    "model/experiments/interval_echo_consensus/seam_word_meter/RecordMeans.lean"
+    "model/experiments/interval_echo_consensus/seam_word_meter/RecordMeans.lean",
+    "model/experiments/interval_echo_consensus/seam_word_meter/finite_program/Programs.lean",
+    "model/experiments/interval_echo_consensus/seam_word_meter/finite_program/pooled_feedback/Publication.lean",
+    "model/experiments/interval_echo_consensus/seam_word_meter/finite_program/layout/Routing.lean"
    ],
    "model": [
     "model/evaluation/repair_band.json",
@@ -10595,7 +10638,35 @@
     "model/experiments/interval_echo_consensus/seam_word_meter/measure.py",
     "model/experiments/interval_echo_consensus/seam_word_meter/records.json.gz",
     "model/experiments/interval_echo_consensus/seam_word_meter/test_word_meter.py",
-    "model/experiments/interval_echo_consensus/seam_word_meter/test_chart.py"
+    "model/experiments/interval_echo_consensus/seam_word_meter/test_chart.py",
+    "model/experiments/interval_echo_consensus/seam_word_meter/finite_program/CHECKPOINT_PROTOCOL.md",
+    "model/experiments/interval_echo_consensus/seam_word_meter/finite_program/PROTOCOL.md",
+    "model/experiments/interval_echo_consensus/seam_word_meter/finite_program/README.md",
+    "model/experiments/interval_echo_consensus/seam_word_meter/finite_program/checkpoint.json.gz",
+    "model/experiments/interval_echo_consensus/seam_word_meter/finite_program/checkpoint.py",
+    "model/experiments/interval_echo_consensus/seam_word_meter/finite_program/layout/PROTOCOL.md",
+    "model/experiments/interval_echo_consensus/seam_word_meter/finite_program/layout/mount.py",
+    "model/experiments/interval_echo_consensus/seam_word_meter/finite_program/machine.py",
+    "model/experiments/interval_echo_consensus/seam_word_meter/finite_program/measure.py",
+    "model/experiments/interval_echo_consensus/seam_word_meter/finite_program/pooled_feedback/PROTOCOL.md",
+    "model/experiments/interval_echo_consensus/seam_word_meter/finite_program/pooled_feedback/measure.py",
+    "model/experiments/interval_echo_consensus/seam_word_meter/finite_program/pooled_feedback/publication.py",
+    "model/experiments/interval_echo_consensus/seam_word_meter/finite_program/pooled_feedback/readback.py",
+    "model/experiments/interval_echo_consensus/seam_word_meter/finite_program/pooled_feedback/results.json",
+    "model/experiments/interval_echo_consensus/seam_word_meter/finite_program/pooled_feedback/service.py",
+    "model/experiments/interval_echo_consensus/seam_word_meter/finite_program/pooled_feedback/test_feedback.py",
+    "model/experiments/interval_echo_consensus/seam_word_meter/finite_program/programs.py",
+    "model/experiments/interval_echo_consensus/seam_word_meter/finite_program/records.json.gz",
+    "model/experiments/interval_echo_consensus/seam_word_meter/finite_program/test_programs.py",
+    "model/experiments/interval_echo_consensus/seam_word_meter/finite_program/layout/README.md",
+    "model/experiments/interval_echo_consensus/seam_word_meter/finite_program/layout/legacy.py",
+    "model/experiments/interval_echo_consensus/seam_word_meter/finite_program/layout/level3.json",
+    "model/experiments/interval_echo_consensus/seam_word_meter/finite_program/layout/measure.py",
+    "model/experiments/interval_echo_consensus/seam_word_meter/finite_program/layout/original.json",
+    "model/experiments/interval_echo_consensus/seam_word_meter/finite_program/layout/records.json",
+    "model/experiments/interval_echo_consensus/seam_word_meter/finite_program/layout/test_layout.py",
+    "model/experiments/interval_echo_consensus/seam_word_meter/finite_program/pooled_feedback/PROOF.md",
+    "model/experiments/interval_echo_consensus/seam_word_meter/finite_program/pooled_feedback/README.md"
    ],
    "papers": [
     "paper/screen_microphysics_and_observer_synchronization.pdf"

@@ -30,7 +30,7 @@ The 30 distinct maps recovered from the repeated-offer terminal tables have unif
 
 In the held four-offer mixture the first two touching seams are 01 and 05, and the disjoint seam is 23. For source port 0 the complete receiving probabilities at ports 0, 1 and 5 are 0.30625, 0.35416667 and 0.33958333. The other nine ports are dark. Changing the pulse to π/3 raises the first reading to 0.430078125. Keeping π/2 while omitting the input read lowers it to 0.08125. Randomizing each position independently with its original marginal changes the total variation of the terminal record by 1159/27000. A uniform-amplitude quarter-phase input is uniform after the nominal calendar. Omitting the pre-read produces nonuniform outputs even there. [Program and complete schedule weights](measure.py)
 
-The result supplies PR-146 and PR-147 for the declared scalar observer process. It supplies the pair-mean primitive and fixed word programs of PR-180. A native realization of every adaptive read-select and publication program in that register remains open.
+The scalar observer process supplies PR-146 and PR-147. For PR-180, a second apparatus lets two stations read the exact midpoint of sharp material words and use it to choose their next seam. An independently prepared pooled apparatus makes sign decisions from fresh cohorts with simultaneous error coverage and can abstain near a threshold. [Sharp readout and branch theorem](finite_program/README.md) · [Pooled comparison](finite_program/pooled_feedback/README.md)
 
 ```sh
 OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 OMP_NUM_THREADS=1 python -B -O -W error -m model.experiments.interval_echo_consensus.seam_word_meter.measure
