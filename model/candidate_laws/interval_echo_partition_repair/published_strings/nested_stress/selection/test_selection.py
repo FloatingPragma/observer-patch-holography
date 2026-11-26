@@ -7,7 +7,7 @@ import pytest
 
 from ...memories import Pair, THETA
 from ...native_pair import NativePair
-from .experiment import HERE, correlated_source, deposit, forgotten_address_control, trace_distance
+from .experiment import HERE, correlated_source, forgotten_address_control, trace_distance, verify
 from .service import SWEEP, bath_branch, native_gate, output_without_conditioning, replacement_horizon, stock_read
 
 
@@ -29,10 +29,24 @@ def test_arbitrary_reference_factorizes_on_each_complete_displacement_record(add
 
 def test_every_joint_record_is_archived_and_no_postselection_is_needed():
     archived = json.loads((HERE/"results.json").read_text())
-    assert deposit() == archived
+    assert verify()["schema"] == archived["schema"]
     table = np.array(archived["native_banks"]["joint_record_probabilities"])
     assert table.shape == (8,8) and (table > 0).sum() == 16
     assert abs(table.sum()-1) < 5e-12
+
+
+def test_archive_check_rejects_changed_zero_record_and_tiny_error_bound(tmp_path):
+    path = tmp_path/"results.json"
+    archive = json.loads((HERE/"results.json").read_text())
+    archive["native_banks"]["joint_record_probabilities"][0][1] = 1e-14
+    path.write_text(json.dumps(archive))
+    with pytest.raises(ValueError, match="support changed"):
+        verify(path)
+    archive["native_banks"]["joint_record_probabilities"][0][1] = 0.0
+    archive["stochastic_clock"][-1]["failure_bound"] *= 1.01
+    path.write_text(json.dumps(archive))
+    with pytest.raises(ValueError, match="reading changed"):
+        verify(path)
 
 
 def test_control_retains_one_incoming_address():

@@ -112,17 +112,51 @@ def deposit():
                 native_banks=main_banks(), skipped_address=forgotten_address_control(), stochastic_clock=horizons)
 
 
+def _compare(actual, saved, path=()):
+    if isinstance(actual, dict):
+        if not isinstance(saved, dict) or actual.keys() != saved.keys():
+            raise ValueError(f"material bath fields changed at {path}")
+        for key, value in actual.items():
+            _compare(value, saved[key], path+(key,))
+    elif isinstance(actual, list):
+        if not isinstance(saved, list) or len(actual) != len(saved):
+            raise ValueError(f"material bath record length changed at {path}")
+        for i, (value, expected) in enumerate(zip(actual,saved,strict=True)):
+            _compare(value, expected, path+(i,))
+    elif isinstance(actual, float):
+        # Count zeros, probability support and fixed acceptance thresholds are exact.
+        numerical_bound = isinstance(path[-1], str) and path[-1].endswith("_less_than")
+        if type(saved) not in (int,float) or (actual == 0) != (saved == 0):
+            raise ValueError(f"material bath numerical support changed at {path}")
+        if numerical_bound:
+            matches = actual == saved
+        elif "stochastic_clock" in path:
+            # The smallest error certificates lie well below ordinary absolute tolerances.
+            matches = math.isclose(actual, saved, rel_tol=2e-12, abs_tol=0)
+        else:
+            matches = math.isclose(actual, saved, rel_tol=2e-12, abs_tol=2e-12)
+        if not matches:
+            raise ValueError(f"material bath numerical reading changed at {path}")
+    elif type(saved) is not type(actual) or actual != saved:
+        raise ValueError(f"material bath discrete reading changed at {path}")
+
+
+def verify(path=None):
+    """Replay the instruments and compare every archived record and precision bound."""
+    data = deposit()
+    saved = HERE/"results.json" if path is None else Path(path)
+    _compare(data, json.loads(saved.read_text()))
+    return data
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--write", action="store_true")
     args = parser.parse_args()
-    data = deposit()
-    out = HERE/"results.json"
     if args.write:
-        out.write_text(json.dumps(data, indent=2, allow_nan=False)+"\n")
-    elif json.loads(out.read_text()) != data:
-        raise ValueError("material bath, native source or observer records changed")
+        (HERE/"results.json").write_text(json.dumps(deposit(), indent=2, allow_nan=False)+"\n")
     else:
+        verify()
         print("Replayed every correlated two-memory bath record and the missed-address control.")
 
 
