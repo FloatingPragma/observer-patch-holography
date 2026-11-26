@@ -1,0 +1,46 @@
+# How fast does publishing a record erase a fringe?
+
+On a one-load Interval Echo triangle, an observer can read the rate of signed publications on a separate material flag. That single calibration predicts the interference between all three pairs of addresses. A second flag at a different collar gives a second rate. The two rates add on the pair distinguished by both records. Across the held appointments the largest probability errors were **0.00129** for one collar and **0.00128** for two. Each setting includes 1,048,576 simulated launches. These rates apply at complete appointments of an independently observed hand. [Frozen experiment](PROTOCOL.md) · [Phase, flag, clock and publication counts](records.json.gz)
+
+## Source, records and calibration
+
+One unit occupies one of ports 0, 1 and 5 of a registered cell. A balanced native exchange between a nominated pair and a local number phase prepare the relative phase 0 or π/2. The inverse preparation with either analyser phase maps a fringe to the final sharp port. The data ports are protected between publications. A full signed-difference read of seam (0,1) distinguishes all three addresses. At seams (0,7) and (1,8), the empty references instead single out port 0 and port 1, respectively. Other ports and references return to their prepared configurations.
+
+The source collar starts blank. The native echo writes a coin and the old endpoint difference d while balancing the endpoint loads. The reader retains d, leaving the coin unresolved. An inverse echo returns the load to its input ports. For an input word x and any retained value v, projecting the written collar onto d=v keeps the whole echo column if d(x)=v and annihilates it otherwise. The inverse therefore produces exactly the diagonal projector onto d=v on all nine local words. This holds with arbitrary spectator or reference amplitudes. The test independently compares the output on all 81 matrix units. Reading the coin as well would implement another instrument. [Native instrument](apparatus.py) · [Matrix-unit checks](test_rate.py)
+
+Two protected flag dimers and a clock dimer occupy disjoint internal edges of a separate cell. Each flag starts at its first port. A blank native hold and a sharp address read give a positive flag on arrival at its second port. Local readout, reset and classical routing of that flag to the nominated publication window are supplied. The same opportunities advance a separate protected hand by a π/16 hold. The address and a balanced inverse exchange on fresh copies give its cosine and sine readings. The two flag probabilities read **0.250015** and **0.499706**. The first hand increment reads **0.195607 radians**; at eight appointments it reads **1.570531**. Each full opportunity comprises the locally commissioned flag, write/read/inverse, reset and hand services. Their synchronisation is part of the apparatus. The experiment supplies no clock in laboratory seconds.
+
+| Record and clock | Rate per appointment | Rate per hand radian | Largest held fringe probability error |
+| --- | ---: | ---: | ---: |
+| Full signed collar with first flag | 0.28770 | 1.47082 | 0.00129 |
+| Two binary collars with independent flags | 0.28770 and 0.69256 | 1.47082 and 3.54058 | 0.00128 |
+| Magnitude-only collar with first flag | 0.28770 across distinct magnitudes | 1.47082 | 0.00147 |
+| Half exchange strength at unchanged flag exposure | 0.06917 | 0.3536 | 0.00156 |
+| One flag retained for all appointments, forecast assuming independent flags | 0.28770 from its single address read | 1.47082 | 0.32541 |
+
+The unchanged triangle preparation and readout isolate the weakened exchange on the flag. Its independent positive rate is 0.066833. Under the magnitude-only read both signs of the occupied seam yield the same value, preserving the 0/1 fringe. The two simultaneous binary collars resolve different pairs. All three sharp inputs remain at their prepared port on every registered bank. The archive retains the latest label from each collar, including a blank upon no publication, and all three terminal ports. Intermediate labels can be marginalized because the retained data channel after each projective publication has positive branches and no later operation depends on its sign. [Acquisition and forecast](measure.py)
+
+## Which generator does the apparatus realize?
+
+Let E map an operator to its blocks on equal signed outcomes. Summing over the recorded outcomes after one flag gives T=(1−p)I+pE. On a matrix unit with equal labels T acts identically. On one with unequal labels it multiplies by 1−p. After n fresh appointments of hand increment Δ the multiplier is exactly exp(−γnΔ) with γ=−log(1−p)/Δ. Two commuting collar partitions give the product of the multipliers, hence the sum of the rates on every entry distinguished by both. The actual two binary partitions act on the same three-dimensional matter algebra. At every integer appointment the full operator channel equals the sampled semigroup generated by the sum of γ(E−I). This identity includes states entangled with an untouched reference. The project's finite conditional-expectation theorem gives the corresponding Lindblad jumps √γ times the partition projectors. [Native multiplier lemma](Publication.lean) · [Finite generator theorem](../../../../Lean/Dynamics/ConditionalExpectationGenerator.lean)
+
+The source and reader phases cover both off-diagonal quadratures for every pair and 240 held banks over the five control modes. For a scale on sampling uncertainty, Hoeffding's bound over 4,096 preassigned scalar proportions gives simultaneous 99% error below 0.00255 for each commissioning frequency, hand quadrature port proportion or individual reported fringe proportion. The empirical maximum errors in the table compare two finite acquisitions. Propagating the calibration allowances gives native per-appointment rate intervals [0.2843,0.2912] and [0.6874,0.6977]. The finite-appointment generator has an exact analytic derivation independent of that sampling comparison. Reading a single flag once and reusing the decision leads to (1−p)I+pE after every positive number of appointments; its unchanged one-tick marginal cannot validate transport of the inferred rate to later appointments.
+
+## An uninterrupted wait and a bare write
+
+On a separate bank the flag travels freely until its single terminal read. After three standard delay units the hand angle is 0.58855 radians. The six enrolled matched analysers returned bright probabilities from **0.49964 to 0.50069**. After six units the hand reads 1.17907 radians and **every launch is bright**. The exponential extrapolated from the fresh-flag commission predicts 0.58827 there. The coherent single-flight forecast, based on the independently calibrated flag angle and hand, fits all eight delays within 0.0018. A terminal publication still retains its pointer sign and restores its source. The intervening opportunity structure determines the time law. [Uninterrupted-wait design](WAIT.md) · [Complete readouts](waits.json.gz) · [Clock-based predictions](wait.py)
+
+There is a short-time obstruction for any finite joint, time-independent Hamiltonian H. Prepare a balanced pair with a certainly bright source projector Q, extending Q by identity on every clock and environment. For each pure component ψ of the prepared ensemble let B=‖H−cI‖ for any scalar c. Since (I−Q)ψ=0, the dark amplitude after time t is bounded by ‖[exp(−it(H−cI))−I]ψ‖ ≤ B|t|. The same bound on dark probability B²t² holds for any mixture supported on Q. A positive-rate pinch distinguishing the two arms would give (1−exp(−γt))/2. For 0<γt≤1 this is at least γt/4. Every sufficiently small positive t with B²t<γ/4 therefore distinguishes these operations. An instantaneous scheduled read, singular reservoir or growing limit can change the hypotheses. [Checked short-time inequality](Publication.lean)
+
+Finally, the uncorrected native balance-and-write sends each of 02, 11 and 20 to a material 11 with certainty. Tracing the collar sends their uniform mixture to 11 on **every launch**. This disagrees with every projective pinching semigroup preserving that load sector, because each such channel fixes its identity. On the full nine-word algebra the uncorrected map multiplies the 11 diagonal of the identity by three. Ordinary free exchange on 10 also gives bright returns 1, 0 and 1 at holds 0, π and 2π, whereas every fixed-effect reading of a single common-rate pinching semigroup varies monotonically. On these ordinary native operations the same positive-rate interpretation fails. The controlled finite realization supports **Partial** for PR-177 on Interval Echo; a native continuous common repair rate on the full observer algebra requires additional dynamics.
+
+Replay from the repository root using one numerical thread.
+
+~~~sh
+export OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 OMP_NUM_THREADS=1
+p=model.experiments.interval_echo_consensus.publication_rate
+.venv/bin/python -m "$p.measure"
+.venv/bin/python -m "$p.wait"
+.venv/bin/python -m pytest -q model/experiments/interval_echo_consensus/publication_rate
+(cd Lean && lake env lean -j1 -DwarningAsError=true ../model/experiments/interval_echo_consensus/publication_rate/Publication.lean)
+~~~
