@@ -27,8 +27,14 @@ def test_routed_ports_match_seeded_half_board_intervention():
                     return 1 - initial
                 return prep.random(size)
 
+        # The scheduler and attendance streams are created but draw only for shuffled or partial service.
+        scheduler, attendance = (
+            np.random.default_rng(np.random.SeedSequence([6182, level, tag])) for tag in (117, 118)
+        )
         with patch.object(
-            np.random, "default_rng", side_effect=[SharpPreparation(), coin, move]
+            np.random,
+            "default_rng",
+            side_effect=[SharpPreparation(), coin, move, scheduler, attendance],
         ):
             _, raw = observations.measure(level, 24, 6182, tables)
         expected = raw["singleton_history"][:, :, 1]
