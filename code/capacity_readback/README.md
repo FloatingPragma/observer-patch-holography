@@ -150,6 +150,8 @@ python3 source_derived_public_checkpoint_packet.py --output-dir runtime
 This writes the complete terminal-fiber manifest, public checkpoint packet,
 and certificate as canonical JSON.
 
+In a finite Interval Echo screen experiment, two stations recover 2,048 or 4,096 whole words on twelve cells while all eleven-cell marginals agree. On an eight-cell tree the number of correctable messages ranges from 32 with two input parities and at most one unknown internal exchange to one with arbitrary internal and boundary exchanges. The joint kernels and their complete finite closure distinguish raw, Shannon and recoverable capacities. A physical horizon identification remains a separate premise. [Native screen readout](../../model/experiments/interval_echo_consensus/screen_count/README.md)
+
 ## Discrete spherical refinement
 
 Under the declared uniform fourfold icosahedral hierarchy, `C_L=20*4^L`.

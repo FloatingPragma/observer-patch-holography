@@ -164,8 +164,8 @@
  "premise_counts": {
   "law": {
    "fulfilled": 34,
-   "partial": 15,
-   "open": 91,
+   "partial": 19,
+   "open": 87,
    "fails": 1
   },
   "designer": {
@@ -1746,9 +1746,37 @@
    "statement": "The screen record count treats the cells of the screen as independent record carriers, so the count is the product of cell counts (reading (i) of the capacity construction). The alternative reading (ii) refuses the product structure and derives no count.",
    "type": "derivable",
    "role": "law",
-   "status": "open",
-   "evidence": [],
-   "note": ""
+   "status": "partial",
+   "evidence": [
+    "../../experiments/interval_echo_consensus/screen_count/CHECKPOINT.md",
+    "../../experiments/interval_echo_consensus/screen_count/CONTINUATIONS.md",
+    "../../experiments/interval_echo_consensus/screen_count/Checkpoint.lean",
+    "../../experiments/interval_echo_consensus/screen_count/PROTOCOL.md",
+    "../../experiments/interval_echo_consensus/screen_count/Product.lean",
+    "../../experiments/interval_echo_consensus/screen_count/READBACK.md",
+    "../../experiments/interval_echo_consensus/screen_count/README.md",
+    "../../experiments/interval_echo_consensus/screen_count/SELECTOR.md",
+    "../../experiments/interval_echo_consensus/screen_count/apparatus.py",
+    "../../experiments/interval_echo_consensus/screen_count/checkpoint.json.gz",
+    "../../experiments/interval_echo_consensus/screen_count/checkpoint.py",
+    "../../experiments/interval_echo_consensus/screen_count/continuations.json.gz",
+    "../../experiments/interval_echo_consensus/screen_count/continuations.py",
+    "../../experiments/interval_echo_consensus/screen_count/free_inventory/PROTOCOL.md",
+    "../../experiments/interval_echo_consensus/screen_count/free_inventory/README.md",
+    "../../experiments/interval_echo_consensus/screen_count/free_inventory/measure.py",
+    "../../experiments/interval_echo_consensus/screen_count/free_inventory/records.json.gz",
+    "../../experiments/interval_echo_consensus/screen_count/free_inventory/test_inventory.py",
+    "../../experiments/interval_echo_consensus/screen_count/measure.py",
+    "../../experiments/interval_echo_consensus/screen_count/readback.py",
+    "../../experiments/interval_echo_consensus/screen_count/records.json.gz",
+    "../../experiments/interval_echo_consensus/screen_count/selector.json.gz",
+    "../../experiments/interval_echo_consensus/screen_count/selector.py",
+    "../../experiments/interval_echo_consensus/screen_count/summary.json",
+    "../../experiments/interval_echo_consensus/screen_count/test_continuations.py",
+    "../../experiments/interval_echo_consensus/screen_count/test_count.py",
+    "../../experiments/interval_echo_consensus/screen_count/test_selector.py"
+   ],
+   "note": "Two distant ternary readers measure the same twelve owner parities. A parked boundary gives 2,048 possible complete words and a half-swap boundary gives 4,096. Every proper subscreen has the same uniform joint law in both cases. With a quarter transfer probability the 4,096-word distribution has Shannon entropy 11.811278 bits. A spanning-tree construction gives every permitted deterministic target. On a connected, unswitched six-cell region at one and two units of inventory the generic exact counts are six and sixteen. At time eight the two 65,536-launch panels each resolve five words. These finite preparations separate a full joint record count from the product of marginal counts. The physical screen cells and their proposed P/4 area allocation require an additional identification."
   },
   {
    "id": "PR-125",
@@ -1775,9 +1803,37 @@
    "statement": "For the direct capacity map N = log M_0(U_N), every terminal quotient is reachable with a completeness certificate for its fiber, the correctable capacity is equal on every state of one complete terminal fiber, and every counted public record ends an endogenous history that reads no capacity label, target record, measured Lambda, rho_op or electroweak value. Record algebras supply the atom readouts of the public sections, every authorized continuation supplies a complete joint checkpoint kernel, the compound confusability graph carries every support-overlap edge with a decoder certificate for M_epsilon(q), refinements create no new confusability, and trial-universe constructors do not expose the expected readback.",
    "type": "derivable",
    "role": "law",
-   "status": "open",
-   "evidence": [],
-   "note": ""
+   "status": "partial",
+   "evidence": [
+    "../../experiments/interval_echo_consensus/screen_count/CHECKPOINT.md",
+    "../../experiments/interval_echo_consensus/screen_count/CONTINUATIONS.md",
+    "../../experiments/interval_echo_consensus/screen_count/Checkpoint.lean",
+    "../../experiments/interval_echo_consensus/screen_count/PROTOCOL.md",
+    "../../experiments/interval_echo_consensus/screen_count/Product.lean",
+    "../../experiments/interval_echo_consensus/screen_count/READBACK.md",
+    "../../experiments/interval_echo_consensus/screen_count/README.md",
+    "../../experiments/interval_echo_consensus/screen_count/SELECTOR.md",
+    "../../experiments/interval_echo_consensus/screen_count/apparatus.py",
+    "../../experiments/interval_echo_consensus/screen_count/checkpoint.json.gz",
+    "../../experiments/interval_echo_consensus/screen_count/checkpoint.py",
+    "../../experiments/interval_echo_consensus/screen_count/continuations.json.gz",
+    "../../experiments/interval_echo_consensus/screen_count/continuations.py",
+    "../../experiments/interval_echo_consensus/screen_count/free_inventory/PROTOCOL.md",
+    "../../experiments/interval_echo_consensus/screen_count/free_inventory/README.md",
+    "../../experiments/interval_echo_consensus/screen_count/free_inventory/measure.py",
+    "../../experiments/interval_echo_consensus/screen_count/free_inventory/records.json.gz",
+    "../../experiments/interval_echo_consensus/screen_count/free_inventory/test_inventory.py",
+    "../../experiments/interval_echo_consensus/screen_count/measure.py",
+    "../../experiments/interval_echo_consensus/screen_count/readback.py",
+    "../../experiments/interval_echo_consensus/screen_count/records.json.gz",
+    "../../experiments/interval_echo_consensus/screen_count/selector.json.gz",
+    "../../experiments/interval_echo_consensus/screen_count/selector.py",
+    "../../experiments/interval_echo_consensus/screen_count/summary.json",
+    "../../experiments/interval_echo_consensus/screen_count/test_continuations.py",
+    "../../experiments/interval_echo_consensus/screen_count/test_count.py",
+    "../../experiments/interval_echo_consensus/screen_count/test_selector.py"
+   ],
+   "note": "On an eight-cell tree, native half swaps and a syndrome read generate the reachable words without a target message. The optimum common-decoder zero-error code for one hidden internal swap or idle has 16 messages in a fixed boundary class and 32 in both classes. Repeated hidden internal exchanges give one or two, respectively. Allowing the exterior exchange merges both classes. Visible exchange labels or separately indexed injective channels recover all 128 or 256 raw records. Independent auxiliary dimer reads generate each hidden kernel. The measured joint graphs have 3,584, 16,256 and 32,640 confusable pairs in the three combined menus. Held receiver words, the complete finite transition group, an optimal code and a packing bound specify these results on the mounted checkpoint. A cosmological terminal fiber, its joint continuation menu, all physical refinements and a selected capacity remain open."
   },
   {
    "id": "PR-127",
@@ -2339,9 +2395,18 @@
    "statement": "One complete source law realizes the generated graded process theory of cofinal independent classical registers, protected versions and finite local maps, with one retained-record flight and its translated, rotated and positively scaled family, waits, and finite sequential and parallel composition; every finite process has an intervention-faithful, refinement-compatible native lowering that keeps all intermediate events and costs.",
    "type": "derivable",
    "role": "law",
-   "status": "open",
-   "evidence": [],
-   "note": ""
+   "status": "partial",
+   "evidence": [
+    "../../experiments/interval_echo_consensus/record_lowering/Lowering.lean",
+    "../../experiments/interval_echo_consensus/record_lowering/PROTOCOL.md",
+    "../../experiments/interval_echo_consensus/record_lowering/README.md",
+    "../../experiments/interval_echo_consensus/record_lowering/compiler.py",
+    "../../experiments/interval_echo_consensus/record_lowering/hardware.py",
+    "../../experiments/interval_echo_consensus/record_lowering/measure.py",
+    "../../experiments/interval_echo_consensus/record_lowering/records.json.gz",
+    "../../experiments/interval_echo_consensus/record_lowering/test_lowering.py"
+   ],
+   "note": "A finite compiler realizes Boolean truth tables by native contact gates on a fitted clean workspace. Separate material heads check protected source versions, scratch cleanup and all intermediate gate records. Two disjoint lanes execute in parallel. On 20 and 80 cells the same logical inputs and local interventions agree, using 2,147 and 2,447 joint contact slots. A cached source gives the right answers without edits but fails all eight held interventions on its lane. Cofinal storage, a retained flight under arbitrary spatial transformations and refinement of the complete clock and costs remain open."
   },
   {
    "id": "PR-173",
@@ -2349,9 +2414,18 @@
    "statement": "Local clocks and records compose as declared: independent classical preparation, a clean cofinal workspace, reversible NOT and Toffoli gates and finite simultaneous composition with vanishing whole-program overhead (LC1); an affine operational attachment to the response ideal with local directional coverage, carrier-covariant latency and a positive uniform quadratic expansion of its square (LC2); complete dependency accounting, time-faithful small-step refinement and localized intermediate interventions with all other caches fixed (LC3).",
    "type": "derivable",
    "role": "law",
-   "status": "open",
-   "evidence": [],
-   "note": ""
+   "status": "partial",
+   "evidence": [
+    "../../experiments/interval_echo_consensus/record_lowering/Lowering.lean",
+    "../../experiments/interval_echo_consensus/record_lowering/PROTOCOL.md",
+    "../../experiments/interval_echo_consensus/record_lowering/README.md",
+    "../../experiments/interval_echo_consensus/record_lowering/compiler.py",
+    "../../experiments/interval_echo_consensus/record_lowering/hardware.py",
+    "../../experiments/interval_echo_consensus/record_lowering/measure.py",
+    "../../experiments/interval_echo_consensus/record_lowering/records.json.gz",
+    "../../experiments/interval_echo_consensus/record_lowering/test_lowering.py"
+   ],
+   "note": "Native reversible local gates, clean scratch and two disjoint parallel lanes realize a finite composition and localized edits with another cached record held fixed. All sixteen two-input truth tables pass the material detector tests. The two mounts have distinct elapsed contact counts. Vanishing whole-program overhead, the affine latency law and time-faithful refinement have separate hypotheses."
   },
   {
    "id": "PR-174",
@@ -4673,17 +4747,33 @@
      "sources": [
       "https://github.com/openwave-labs/openwave/blob/d4fc3e4046c472f4ad38468df8dddfa1f97bac97/MODELS.md#L101"
      ],
-     "status": "open",
-     "note": "Two compact vacancy modes share a single missing load over cells 5, 11 and 23 owner steps apart on three boards. Paired contact reads distinguish that state from independent preparations with the same local means on each board in a fresh precision replicate. At every free appointment the reduced state of the gateways and blank collars on either tested enclosing cut equals the filled host, even on a branch with the vacancy wholly inside. A single load and a doubled load also persist on empty hosts. The measurements select neither a topological electric unit nor an electric charge law excluding two half-charge daughters.",
+     "status": "partial",
+     "note": "Two compact vacancy modes share a single missing load over cells 5, 11 and 23 owner steps apart on three boards. Paired contact reads distinguish that state from independent preparations with the same local means on each board in a fresh precision replicate. At every free appointment the reduced state of the gateways and blank collars on either tested enclosing cut equals the filled host, even on a branch with the vacancy wholly inside. A single load and a doubled load also persist on empty hosts. The measurements select neither a topological electric unit nor an electric charge law excluding two half-charge daughters. One added port unit on an alternating ring produces two separated moving walls of the same sign. Independent probes read a half-unit polarization per wall displacement, while a sharp regional detector retains integer load readings. At time three, 1,789,126 of 4,194,304 starts on the fourteen-port native ring show both distant walls with the original pair gone; removing bulk contrast gives 66,814. The calibrated gradient, integral window and tapered detector distinguish sharp charge from material polarization. An indivisible topological electric charge identified by an independent electromagnetic response remains open.",
      "evidence": [
       "model/candidate_laws/interval_echo/SPEC.md",
       "model/candidate_laws/interval_echo/openwave/row_01_charge/README.md",
-      "model/candidate_laws/interval_echo/openwave/row_01_charge/results.json"
+      "model/candidate_laws/interval_echo/openwave/row_01_charge/results.json",
+      "model/candidate_laws/interval_echo/openwave/row_01_charge/released_half_walls/PROOF.md",
+      "model/candidate_laws/interval_echo/openwave/row_01_charge/released_half_walls/PROTOCOL.md",
+      "model/candidate_laws/interval_echo/openwave/row_01_charge/released_half_walls/README.md",
+      "model/candidate_laws/interval_echo/openwave/row_01_charge/released_half_walls/WallCharge.lean",
+      "model/candidate_laws/interval_echo/openwave/row_01_charge/released_half_walls/measure.py",
+      "model/candidate_laws/interval_echo/openwave/row_01_charge/released_half_walls/readers.py",
+      "model/candidate_laws/interval_echo/openwave/row_01_charge/released_half_walls/records.json",
+      "model/candidate_laws/interval_echo/openwave/row_01_charge/released_half_walls/ring.py",
+      "model/candidate_laws/interval_echo/openwave/row_01_charge/released_half_walls/stock.json",
+      "model/candidate_laws/interval_echo/openwave/row_01_charge/released_half_walls/stock.py",
+      "model/candidate_laws/interval_echo/openwave/row_01_charge/released_half_walls/test_half_walls.py",
+      "model/candidate_laws/interval_echo/openwave/row_01_charge/released_half_walls/words.npz"
      ],
      "comparison": {
       "law": "Written-field Laplacian extension",
       "finding": "In 18 half-transfer fixtures the sharp regional head flux follows the whole signed load. A head-independent control has 50% mismatch. The integer step is supplied by the alphabets.",
       "source": "model/candidate_laws/interval_echo/openwave/electron_field/README.md#which-preparation-carries-the-charge"
+     },
+     "demonstrated_measurement": {
+      "label": "Separate half-unit wall polarizations and sharp integer charge-window reads",
+      "source": "model/candidate_laws/interval_echo/openwave/row_01_charge/released_half_walls/README.md"
      }
     },
     {
@@ -5503,11 +5593,21 @@
       "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L120"
      ],
      "status": "open",
-     "note": "Meson assignments and a decay tagged by strangeness remain open. An exact stationary compact excess–vacancy orbital singlet costs 102 native units both on nearby and on distant owners. Its connected binding energy is zero. The homogeneous blank-owner census excludes an exactly one-owner stationary state with two deviations at registered contrast.",
+     "note": "Meson assignments and a decay tagged by strangeness remain open. An exact stationary compact excess–vacancy orbital singlet costs 102 native units both on nearby and on distant owners. Its connected binding energy is zero. The homogeneous blank-owner census excludes an exactly one-owner stationary state with two deviations at registered contrast. On ten mobile dimers the two opposite-wall bands cost 39.916–40.013 and 48.024–48.050 native units above the same ground. Both lie below the 79.831 two-light threshold and a local exchange interconverts them. In a separate colour experiment all 45,360 single-seam source/product amplitudes into the nine stationary conjugate-colour products vanish, so free capture from these local emissions is zero at all times. Addressed routing gives singlet fraction 0.046956; an independent contrast mark leaves the prepared singlet's energy and colour meter unchanged. This resolves internal wall levels and distinguishes a stored pair tag. Pion and kaon identification and a strangeness-changing decay remain open.",
      "evidence": [
       "model/candidate_laws/interval_echo/SPEC.md",
       "model/candidate_laws/interval_echo/openwave/quark_winding/belt_walls/orbital_singlet.json",
-      "model/candidate_laws/interval_echo/openwave/quark_winding/belt_walls/localized.json"
+      "model/candidate_laws/interval_echo/openwave/quark_winding/belt_walls/localized.json",
+      "model/candidate_laws/interval_echo/openwave/row_22_confinement/mobile_string/pair_spectroscopy/PROOF.md",
+      "model/candidate_laws/interval_echo/openwave/row_22_confinement/mobile_string/pair_spectroscopy/PROTOCOL.md",
+      "model/candidate_laws/interval_echo/openwave/row_22_confinement/mobile_string/pair_spectroscopy/README.md",
+      "model/candidate_laws/interval_echo/openwave/row_22_confinement/mobile_string/pair_spectroscopy/colour.json",
+      "model/candidate_laws/interval_echo/openwave/row_22_confinement/mobile_string/pair_spectroscopy/colour.py",
+      "model/candidate_laws/interval_echo/openwave/row_22_confinement/mobile_string/pair_spectroscopy/measure.py",
+      "model/candidate_laws/interval_echo/openwave/row_22_confinement/mobile_string/pair_spectroscopy/readback.py",
+      "model/candidate_laws/interval_echo/openwave/row_22_confinement/mobile_string/pair_spectroscopy/records.json",
+      "model/candidate_laws/interval_echo/openwave/row_22_confinement/mobile_string/pair_spectroscopy/records.npz",
+      "model/candidate_laws/interval_echo/openwave/row_22_confinement/mobile_string/pair_spectroscopy/test_spectroscopy.py"
      ],
      "additional_comparisons": [
       {
@@ -5515,7 +5615,11 @@
        "finding": "The two prepared pairs have opposite endpoint field responses and zero enclosed total. On the 18-port native written cycle, stationary weight on the respective pairs of anomalous gaps reaches at most 40.66% and 26.93%. No strange decay or pion/kaon identification is measured.",
        "source": "model/candidate_laws/interval_echo/openwave/quark_winding/written_junction/README.md"
       }
-     ]
+     ],
+     "demonstrated_measurement": {
+      "label": "Two internal bands of a signed wall pair and a tested conjugate-colour capture channel",
+      "source": "model/candidate_laws/interval_echo/openwave/row_22_confinement/mobile_string/pair_spectroscopy/README.md"
+     }
     },
     {
      "id": "OW-19",

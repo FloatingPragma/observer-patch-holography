@@ -1707,7 +1707,8 @@
     "code/a5_closure/exterior_sm_completion.json",
     "code/a5_closure/test_audit.py",
     "model/candidate_laws/interval_echo/openwave/row_01_charge/README.md",
-    "model/candidate_laws/interval_echo/openwave/row_01_charge/results.json"
+    "model/candidate_laws/interval_echo/openwave/row_01_charge/results.json",
+    "model/candidate_laws/interval_echo/openwave/row_01_charge/released_half_walls/README.md"
    ],
    "papers": [
     "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf"
@@ -3274,7 +3275,8 @@
     "model/evaluation/SCORECARD.md",
     "model/candidate_laws/interval_echo/openwave/quark_winding/belt_walls/orbital_singlet.json",
     "model/candidate_laws/interval_echo/openwave/quark_winding/belt_walls/localized.json",
-    "model/candidate_laws/interval_echo/openwave/quark_winding/written_junction/README.md"
+    "model/candidate_laws/interval_echo/openwave/quark_winding/written_junction/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_22_confinement/mobile_string/pair_spectroscopy/README.md"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.pdf"
@@ -4185,7 +4187,8 @@
     "model/candidate_laws/interval_echo/openwave/row_28_acceleration/cut_code.py",
     "code/cosmology/screen_coherence/observer_zero_capacity.json",
     "model/experiments/interval_echo_consensus/publication_tree/mounted_capacity/README.md",
-    "model/experiments/interval_echo_consensus/publication_tree/mounted_capacity/veto.json.gz"
+    "model/experiments/interval_echo_consensus/publication_tree/mounted_capacity/veto.json.gz",
+    "model/experiments/interval_echo_consensus/screen_count/README.md"
    ],
    "papers": [
     "cosmology/oph_cosmological_vacuum_and_structure_formation.pdf",
@@ -4991,21 +4994,36 @@
    "kind": "observable",
    "name": "Integer electric charge of free particles",
    "category": "OpenWave Recovery",
-   "status": "Open",
+   "status": "Partial",
    "what": "Every free electric charge ever measured is an integer multiple of the elementary charge e.",
    "why": "A recovery has to produce the unit charge from the dynamics and forbid splitting one unit into two half charges.",
    "premises": [
     "PR-151"
    ],
-   "lean": [],
+   "lean": [
+    "model/candidate_laws/interval_echo/openwave/row_01_charge/released_half_walls/WallCharge.lean"
+   ],
    "model": [
     "model/evaluation/SCORECARD.md",
     "model/evaluation/openwave_criteria.json",
     "model/candidate_laws/interval_echo/SPEC.md",
     "model/candidate_laws/interval_echo/openwave/row_01_charge/README.md",
-    "model/candidate_laws/interval_echo/openwave/row_01_charge/results.json"
+    "model/candidate_laws/interval_echo/openwave/row_01_charge/results.json",
+    "model/candidate_laws/interval_echo/openwave/row_01_charge/released_half_walls/PROOF.md",
+    "model/candidate_laws/interval_echo/openwave/row_01_charge/released_half_walls/PROTOCOL.md",
+    "model/candidate_laws/interval_echo/openwave/row_01_charge/released_half_walls/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_01_charge/released_half_walls/measure.py",
+    "model/candidate_laws/interval_echo/openwave/row_01_charge/released_half_walls/readers.py",
+    "model/candidate_laws/interval_echo/openwave/row_01_charge/released_half_walls/records.json",
+    "model/candidate_laws/interval_echo/openwave/row_01_charge/released_half_walls/ring.py",
+    "model/candidate_laws/interval_echo/openwave/row_01_charge/released_half_walls/stock.json",
+    "model/candidate_laws/interval_echo/openwave/row_01_charge/released_half_walls/stock.py",
+    "model/candidate_laws/interval_echo/openwave/row_01_charge/released_half_walls/test_half_walls.py",
+    "model/candidate_laws/interval_echo/openwave/row_01_charge/released_half_walls/words.npz"
    ],
-   "papers": []
+   "papers": [
+    "paper/executable_observer_construction.pdf"
+   ]
   },
   {
    "id": "ow-02-electron-rest-energy",
@@ -5688,9 +5706,21 @@
     "model/evaluation/openwave_criteria.json",
     "model/candidate_laws/interval_echo/SPEC.md",
     "model/candidate_laws/interval_echo/openwave/quark_winding/belt_walls/orbital_singlet.json",
-    "model/candidate_laws/interval_echo/openwave/quark_winding/belt_walls/localized.json"
+    "model/candidate_laws/interval_echo/openwave/quark_winding/belt_walls/localized.json",
+    "model/candidate_laws/interval_echo/openwave/row_22_confinement/mobile_string/pair_spectroscopy/PROOF.md",
+    "model/candidate_laws/interval_echo/openwave/row_22_confinement/mobile_string/pair_spectroscopy/PROTOCOL.md",
+    "model/candidate_laws/interval_echo/openwave/row_22_confinement/mobile_string/pair_spectroscopy/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_22_confinement/mobile_string/pair_spectroscopy/colour.json",
+    "model/candidate_laws/interval_echo/openwave/row_22_confinement/mobile_string/pair_spectroscopy/colour.py",
+    "model/candidate_laws/interval_echo/openwave/row_22_confinement/mobile_string/pair_spectroscopy/measure.py",
+    "model/candidate_laws/interval_echo/openwave/row_22_confinement/mobile_string/pair_spectroscopy/readback.py",
+    "model/candidate_laws/interval_echo/openwave/row_22_confinement/mobile_string/pair_spectroscopy/records.json",
+    "model/candidate_laws/interval_echo/openwave/row_22_confinement/mobile_string/pair_spectroscopy/records.npz",
+    "model/candidate_laws/interval_echo/openwave/row_22_confinement/mobile_string/pair_spectroscopy/test_spectroscopy.py"
    ],
-   "papers": []
+   "papers": [
+    "paper/deriving_the_particle_zoo_from_observer_consistency.pdf"
+   ]
   },
   {
    "id": "ow-19-dark-matter-candidate",
@@ -9470,15 +9500,45 @@
    "kind": "premise",
    "name": "screen cells as independent record carriers",
    "category": "Physical premises",
-   "status": "Open",
+   "status": "Partial",
    "what": "Screen cells are independent record carriers, so the total record count of the screen is the product of the per-cell counts.",
    "why": "The capacity construction derives the universe's record count, and from it dark energy, only under this product reading.",
    "premises": [],
-   "lean": [],
-   "model": [
-    "code/capacity_readback/F_CONSTRUCTION_2026-07-14.md"
+   "lean": [
+    "model/experiments/interval_echo_consensus/screen_count/Checkpoint.lean",
+    "model/experiments/interval_echo_consensus/screen_count/Product.lean"
    ],
-   "papers": [],
+   "model": [
+    "code/capacity_readback/F_CONSTRUCTION_2026-07-14.md",
+    "model/experiments/interval_echo_consensus/screen_count/CHECKPOINT.md",
+    "model/experiments/interval_echo_consensus/screen_count/CONTINUATIONS.md",
+    "model/experiments/interval_echo_consensus/screen_count/PROTOCOL.md",
+    "model/experiments/interval_echo_consensus/screen_count/READBACK.md",
+    "model/experiments/interval_echo_consensus/screen_count/README.md",
+    "model/experiments/interval_echo_consensus/screen_count/SELECTOR.md",
+    "model/experiments/interval_echo_consensus/screen_count/apparatus.py",
+    "model/experiments/interval_echo_consensus/screen_count/checkpoint.json.gz",
+    "model/experiments/interval_echo_consensus/screen_count/checkpoint.py",
+    "model/experiments/interval_echo_consensus/screen_count/continuations.json.gz",
+    "model/experiments/interval_echo_consensus/screen_count/continuations.py",
+    "model/experiments/interval_echo_consensus/screen_count/free_inventory/PROTOCOL.md",
+    "model/experiments/interval_echo_consensus/screen_count/free_inventory/README.md",
+    "model/experiments/interval_echo_consensus/screen_count/free_inventory/measure.py",
+    "model/experiments/interval_echo_consensus/screen_count/free_inventory/records.json.gz",
+    "model/experiments/interval_echo_consensus/screen_count/free_inventory/test_inventory.py",
+    "model/experiments/interval_echo_consensus/screen_count/measure.py",
+    "model/experiments/interval_echo_consensus/screen_count/readback.py",
+    "model/experiments/interval_echo_consensus/screen_count/records.json.gz",
+    "model/experiments/interval_echo_consensus/screen_count/selector.json.gz",
+    "model/experiments/interval_echo_consensus/screen_count/selector.py",
+    "model/experiments/interval_echo_consensus/screen_count/summary.json",
+    "model/experiments/interval_echo_consensus/screen_count/test_continuations.py",
+    "model/experiments/interval_echo_consensus/screen_count/test_count.py",
+    "model/experiments/interval_echo_consensus/screen_count/test_selector.py"
+   ],
+   "papers": [
+    "paper/screen_microphysics_and_observer_synchronization.pdf"
+   ],
    "statement": "The screen record count treats the cells of the screen as independent record carriers, so the count is the product of cell counts (reading (i) of the capacity construction). The alternative reading (ii) refuses the product structure and derives no count.",
    "premise_kind": "derivable"
   },
@@ -9517,17 +9577,46 @@
    "kind": "premise",
    "name": "complete target-blind capacity readback",
    "category": "Physical premises",
-   "status": "Open",
+   "status": "Partial",
    "what": "The record capacity is read back from complete, reachable terminal states with full decodability certificates and no access to target values.",
    "why": "These conditions ensure the capacity count, and the cosmological constant read from it, comes from the process without target values leaking in.",
    "premises": [],
-   "lean": [],
+   "lean": [
+    "model/experiments/interval_echo_consensus/screen_count/Checkpoint.lean",
+    "model/experiments/interval_echo_consensus/screen_count/Product.lean"
+   ],
    "model": [
     "code/capacity_readback/F_READBACK_SPEC.md",
-    "code/capacity_readback/correctable_public_record_capacity.py"
+    "code/capacity_readback/correctable_public_record_capacity.py",
+    "model/experiments/interval_echo_consensus/screen_count/CHECKPOINT.md",
+    "model/experiments/interval_echo_consensus/screen_count/CONTINUATIONS.md",
+    "model/experiments/interval_echo_consensus/screen_count/PROTOCOL.md",
+    "model/experiments/interval_echo_consensus/screen_count/READBACK.md",
+    "model/experiments/interval_echo_consensus/screen_count/README.md",
+    "model/experiments/interval_echo_consensus/screen_count/SELECTOR.md",
+    "model/experiments/interval_echo_consensus/screen_count/apparatus.py",
+    "model/experiments/interval_echo_consensus/screen_count/checkpoint.json.gz",
+    "model/experiments/interval_echo_consensus/screen_count/checkpoint.py",
+    "model/experiments/interval_echo_consensus/screen_count/continuations.json.gz",
+    "model/experiments/interval_echo_consensus/screen_count/continuations.py",
+    "model/experiments/interval_echo_consensus/screen_count/free_inventory/PROTOCOL.md",
+    "model/experiments/interval_echo_consensus/screen_count/free_inventory/README.md",
+    "model/experiments/interval_echo_consensus/screen_count/free_inventory/measure.py",
+    "model/experiments/interval_echo_consensus/screen_count/free_inventory/records.json.gz",
+    "model/experiments/interval_echo_consensus/screen_count/free_inventory/test_inventory.py",
+    "model/experiments/interval_echo_consensus/screen_count/measure.py",
+    "model/experiments/interval_echo_consensus/screen_count/readback.py",
+    "model/experiments/interval_echo_consensus/screen_count/records.json.gz",
+    "model/experiments/interval_echo_consensus/screen_count/selector.json.gz",
+    "model/experiments/interval_echo_consensus/screen_count/selector.py",
+    "model/experiments/interval_echo_consensus/screen_count/summary.json",
+    "model/experiments/interval_echo_consensus/screen_count/test_continuations.py",
+    "model/experiments/interval_echo_consensus/screen_count/test_count.py",
+    "model/experiments/interval_echo_consensus/screen_count/test_selector.py"
    ],
    "papers": [
-    "paper/observers_are_all_you_need.pdf"
+    "paper/observers_are_all_you_need.pdf",
+    "paper/screen_microphysics_and_observer_synchronization.pdf"
    ],
    "statement": "For the direct capacity map N = log M_0(U_N), every terminal quotient is reachable with a completeness certificate for its fiber, the correctable capacity is equal on every state of one complete terminal fiber, and every counted public record ends an endogenous history that reads no capacity label, target record, measured Lambda, rho_op or electroweak value. Record algebras supply the atom readouts of the public sections, every authorized continuation supplies a complete joint checkpoint kernel, the compound confusability graph carries every support-overlap edge with a decoder certificate for M_epsilon(q), refinements create no new confusability, and trial-universe constructors do not expose the expected readback.",
    "premise_kind": "derivable"
@@ -10580,15 +10669,26 @@
    "kind": "premise",
    "name": "faithful native lowering of classical record processes",
    "category": "Physical premises",
-   "status": "Open",
+   "status": "Partial",
    "what": "One source law realizes a full theory of classical registers and processes, each lowered faithfully to native steps keeping all events and costs.",
    "why": "It suffices for the causal count regulator limit of the classical record model.",
    "premises": [],
    "lean": [
-    "Lean/Geometry/SourceRecordGluing.lean"
+    "Lean/Geometry/SourceRecordGluing.lean",
+    "model/experiments/interval_echo_consensus/record_lowering/Lowering.lean"
    ],
-   "model": [],
-   "papers": [],
+   "model": [
+    "model/experiments/interval_echo_consensus/record_lowering/PROTOCOL.md",
+    "model/experiments/interval_echo_consensus/record_lowering/README.md",
+    "model/experiments/interval_echo_consensus/record_lowering/compiler.py",
+    "model/experiments/interval_echo_consensus/record_lowering/hardware.py",
+    "model/experiments/interval_echo_consensus/record_lowering/measure.py",
+    "model/experiments/interval_echo_consensus/record_lowering/records.json.gz",
+    "model/experiments/interval_echo_consensus/record_lowering/test_lowering.py"
+   ],
+   "papers": [
+    "paper/reality_as_consensus_protocol.pdf"
+   ],
    "statement": "One complete source law realizes the generated graded process theory of cofinal independent classical registers, protected versions and finite local maps, with one retained-record flight and its translated, rotated and positively scaled family, waits, and finite sequential and parallel composition; every finite process has an intervention-faithful, refinement-compatible native lowering that keeps all intermediate events and costs.",
    "premise_kind": "derivable"
   },
@@ -10597,15 +10697,26 @@
    "kind": "premise",
    "name": "composition rules for local clocks and records",
    "category": "Physical premises",
-   "status": "Open",
+   "status": "Partial",
    "what": "Local clocks and records compose cleanly: reversible logic with negligible overhead, a latency attached to responses, and time-faithful refinement.",
    "why": "These clauses let local clock readings define timing and causal structure that stay consistent under refinement and composition.",
    "premises": [],
    "lean": [
-    "Lean/Geometry/RecordGluingPrinciple.lean"
+    "Lean/Geometry/RecordGluingPrinciple.lean",
+    "model/experiments/interval_echo_consensus/record_lowering/Lowering.lean"
    ],
-   "model": [],
-   "papers": [],
+   "model": [
+    "model/experiments/interval_echo_consensus/record_lowering/PROTOCOL.md",
+    "model/experiments/interval_echo_consensus/record_lowering/README.md",
+    "model/experiments/interval_echo_consensus/record_lowering/compiler.py",
+    "model/experiments/interval_echo_consensus/record_lowering/hardware.py",
+    "model/experiments/interval_echo_consensus/record_lowering/measure.py",
+    "model/experiments/interval_echo_consensus/record_lowering/records.json.gz",
+    "model/experiments/interval_echo_consensus/record_lowering/test_lowering.py"
+   ],
+   "papers": [
+    "paper/reality_as_consensus_protocol.pdf"
+   ],
    "statement": "Local clocks and records compose as declared: independent classical preparation, a clean cofinal workspace, reversible NOT and Toffoli gates and finite simultaneous composition with vanishing whole-program overhead (LC1); an affine operational attachment to the response ideal with local directional coverage, carrier-covariant latency and a positive uniform quadratic expansion of its square (LC2); complete dependency accounting, time-faithful small-step refinement and localized intermediate interventions with all other caches fixed (LC3).",
    "premise_kind": "derivable"
   },
