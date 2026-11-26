@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 1208,
+  "surface_count": 1220,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -1881,6 +1881,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/candidate_laws/interval_echo/openwave/row_14_profile/scattering/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_14_profile/scattering/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/candidate_laws/interval_echo/openwave/row_20_electric/FLIGHT_PROTOCOL.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -2337,6 +2347,21 @@
     },
     {
       "path": "model/candidate_laws/interval_echo/openwave/row_30_collective/fork/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_30_collective/fork/interference/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_30_collective/fork/interference/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_30_collective/fork/interference/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -3251,6 +3276,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/experiments/interval_echo_consensus/signed_effects/pair_return/BOUND_PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_consensus/signed_effects/pair_return/OBSERVER_BOUND.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/experiments/interval_echo_consensus/signed_effects/pair_return/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -3436,12 +3471,27 @@
       "allowlisted": false
     },
     {
+      "path": "model/experiments/interval_echo_einstein_station/equilibrium_refinement/area_survey/joint_screen/relaxation/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_einstein_station/equilibrium_refinement/nested_volumes/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/experiments/interval_echo_einstein_station/equilibrium_refinement/rim_geometry/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
     {
       "path": "model/experiments/interval_echo_einstein_station/equilibrium_refinement/tracer_flux/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_einstein_station/equilibrium_refinement/tracer_flux/bearings/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -3762,6 +3812,16 @@
     },
     {
       "path": "model/experiments/interval_echo_gauge/doublet_flight/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_gauge/exterior_register/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_gauge/exterior_register/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },

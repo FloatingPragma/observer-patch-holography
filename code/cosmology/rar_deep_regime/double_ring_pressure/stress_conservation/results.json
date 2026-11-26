@@ -1,0 +1,59 @@
+{
+  "source_sha256": {
+    "results.json": "baaa2b884460547a85cd6b19250c29bc9508a0a299f509e4d90173892bf493da",
+    "elliptical.json": "600fca28b7bbe9c271be485db816390de227acdcf06d2a5df9be40f34cd6c851"
+  },
+  "spherical_chabrier_force_and_aligned_arcs": {
+    "ring_errors_1": {
+      "positive_pressure_column_difference_msun_pc2": 114,
+      "weighted_anisotropy_density_lower_millionths_msun_pc3": 7570,
+      "integrated_positive_anisotropy_lower_msun": 24000000000,
+      "orbital_mass_inside_second_ring_upper_msun": 407100000000,
+      "necessary_kinetic_speed_ceiling_in_thousandths_of_c": 343,
+      "kinetic_mass_lower_msun_if_every_speed_below_1000_km_s": 4314000000000000
+    },
+    "ring_errors_2": {
+      "positive_pressure_column_difference_msun_pc2": 76,
+      "weighted_anisotropy_density_lower_millionths_msun_pc3": 4830,
+      "integrated_positive_anisotropy_lower_msun": 15770000000,
+      "orbital_mass_inside_second_ring_upper_msun": 408100000000,
+      "necessary_kinetic_speed_ceiling_in_thousandths_of_c": 278,
+      "kinetic_mass_lower_msun_if_every_speed_below_1000_km_s": 2836000000000000
+    },
+    "extended_to_bolton_radii": {
+      "positive_pressure_column_difference_msun_pc2": 10,
+      "weighted_anisotropy_density_lower_millionths_msun_pc3": 609,
+      "integrated_positive_anisotropy_lower_msun": 1980000000,
+      "orbital_mass_inside_second_ring_upper_msun": 408100000000,
+      "necessary_kinetic_speed_ceiling_in_thousandths_of_c": 98,
+      "kinetic_mass_lower_msun_if_every_speed_below_1000_km_s": 357000000000000
+    }
+  },
+  "spherical_chabrier_force_and_primary_elliptical_fit": {
+    "ring_errors_1": {
+      "positive_pressure_column_difference_msun_pc2": 149,
+      "weighted_anisotropy_density_lower_millionths_msun_pc3": 9895,
+      "integrated_positive_anisotropy_lower_msun": 31370000000,
+      "orbital_mass_inside_second_ring_upper_msun": 407100000000,
+      "necessary_kinetic_speed_ceiling_in_thousandths_of_c": 392,
+      "kinetic_mass_lower_msun_if_every_speed_below_1000_km_s": 5639000000000000
+    },
+    "ring_errors_2": {
+      "positive_pressure_column_difference_msun_pc2": 61,
+      "weighted_anisotropy_density_lower_millionths_msun_pc3": 3877,
+      "integrated_positive_anisotropy_lower_msun": 12660000000,
+      "orbital_mass_inside_second_ring_upper_msun": 408100000000,
+      "necessary_kinetic_speed_ceiling_in_thousandths_of_c": 249,
+      "kinetic_mass_lower_msun_if_every_speed_below_1000_km_s": 2276000000000000
+    },
+    "extended_to_bolton_radii": {
+      "positive_pressure_column_difference_msun_pc2": 61,
+      "weighted_anisotropy_density_lower_millionths_msun_pc3": 3877,
+      "integrated_positive_anisotropy_lower_msun": 12660000000,
+      "orbital_mass_inside_second_ring_upper_msun": 408100000000,
+      "necessary_kinetic_speed_ceiling_in_thousandths_of_c": 249,
+      "kinetic_mass_lower_msun_if_every_speed_below_1000_km_s": 2276000000000000
+    }
+  },
+  "nominal_salpeter_zero_pressure_secondary_bend_arcsec": 0.10774986371847559
+}

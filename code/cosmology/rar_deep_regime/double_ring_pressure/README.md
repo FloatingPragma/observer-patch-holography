@@ -2,6 +2,9 @@
 
 The two sources behind this galaxy sample the primary lens at 5.115 and 7.404 kpc. On a centered spherical weak-field continuation of the SPARC acceleration law, the lighter of two published stellar-population models requires the inner line of sight to carry a **smaller integrated radial pressure** than the outer one. Even removing the entire halo outside the second ring cannot eliminate the deficit. The heavier stellar model admits zero pressure. Both statements depend on interpreting the observed partial arcs as aligned circular critical curves and on which radial orbital force the stars generate. [Input measurements and primary source fits](https://arxiv.org/abs/0801.1555) · [Stellar light and masses](https://arxiv.org/abs/1111.4215) · [Outer-source spectroscopy](https://doi.org/10.1093/mnras/stab1399)
 
+
+Static radial stress conservation turns the two aperture contrasts into a conditional lower bound on the weighted excess of tangential over radial pressure. Its aligned Chabrier value divided by $c^2$ is 0.007570 solar masses per cubic parsec. [Anisotropy bounds, stellar controls and assumptions](stress_conservation/README.md)
+
 ## Two lens planes
 
 Let $C_i=c^2D_i/(4\pi G D_lD_{li})$ be the primary critical surface density for each source. Write $R_i=D_l\theta_i$ and $b_{12}$ for the **reduced radial deflection of the second-source ray by the intervening first source**, in the same angular units as $\theta_2$. It includes the $D_{12}/D_2$ factor. Allow an unknown constant surface-density sheet $S$ on the primary lens plane external to the galaxy dynamics. The aligned thin-lens equations are

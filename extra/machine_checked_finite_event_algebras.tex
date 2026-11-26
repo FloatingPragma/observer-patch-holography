@@ -1158,6 +1158,26 @@ preparations, trusted readback and probability semantics are hypotheses.
 The algebraic examples are not source-authenticated calibration records,
 and the result does not identify native repair as a L\"uders instrument.
 
+For the calibrated rank-two pairs of Interval Echo, the two complementary
+basis tests give a sharper estimate. On the normalized Choi matrix $J$,
+the commuting matching projectors $Z,X$ intersect on the ideal Bell ray.
+The nonnegative weight of $(1-Z)(1-X)$ gives
+\[
+ \Pr_J(ZX)\ \geq\ \Pr_J(Z)+\Pr_J(X)-1 .
+\]
+The module \texttt{ComplementaryReturnBound} proves this inequality for
+arbitrary commuting finite events. The identification with complementary
+basis returns is the fidelity criterion of
+\href{https://doi.org/10.1103/PhysRevLett.94.160504}{Hofmann (2005)}.
+The companion experiment checks the projectors explicitly and compares
+two successive sets of four local pointer bits. All four probe settings
+on each pair returned correctly in $8{,}192$ independent simulated
+launches per setting. With exact first effects and output confinement,
+the resulting simultaneous $99\%$ bound on the difference in any later
+public event probability is $0.0910$ on the enrolled code. The
+trace-distance estimate for an arbitrary reference and the sampling
+inference are analytic.
+
 The companion module \texttt{SourcePhaseSelection} asks what phase-sensitive
 effect candidates can be built from source-attached algebraic fields. Its
 generator reads two inputs only, the six exact rows of the declared

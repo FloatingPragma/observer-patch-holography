@@ -2506,6 +2506,47 @@ profile. The parameter rectangle has no assigned joint confidence
 level. A radial-pressure interpretation requires a spherical effective
 stress description of both aperture measurements.
 
+\paragraph{The stress required by the two sightlines.}
+Let $L$ be the optical contrast above the upper bound on the truncated
+orbital contrast, in surface-density units. Write
+$W(r)=2[\sqrt{(r^2-R_1^2)_+}-\sqrt{(r^2-R_2^2)_+}]$.
+Integrating $p'_r$ between the two radii encountered at each
+line-of-sight position gives $P(R_2)-P(R_1)=\int W p'_r\,dr$.
+In a static spherical metric with lapse $e^\nu$, conservation of total
+stress gives $p'_r=-(\epsilon+p_r)\nu'+2(p_t-p_r)/r$, where $p_t$
+is either tangential pressure and $\epsilon$ is energy density.
+For an attractive field $\nu'\ge0$ and nonnegative radial enthalpy
+$\epsilon+p_r\ge0$, use $\int W\,dr/r=\pi(R_2-R_1)$ to obtain
+\[
+ \frac{\int (W/r)(p_t-p_r)\,dr}{c^2\pi(R_2-R_1)}
+ \ \ge\ \frac{L}{2\pi(R_2-R_1)} .
+\]
+The two Chabrier comparisons at the quoted radius errors require this
+weighted mean to be at least $0.007570\,M_\odot\,{\rm pc}^{-3}$ for
+the aligned arcs and $0.009895\,M_\odot\,{\rm pc}^{-3}$ for the
+elliptical optical fit under its spherical pressure interpretation.
+Both use the same images and the independently calibrated stellar
+force continuation. The bounds extend along the full sightlines.
+A static isotropic total stress cannot produce this sign under the
+stated conditions. The heavier stellar calibration admits zero pressure.
+
+There is a further test if the total source is collisionless with all
+local speeds bounded by $\beta c$. Its two tangential stresses obey
+$2p_t\le\beta^2\epsilon$ and $p_r\ge0$, so $m(r)\le M_o(r)$.
+Bounding $W/r^3$ above by a nonincreasing function permits the cumulative
+comparison $m\le M_o$ in the kinetic integral. For $\beta\le1/\sqrt2$,
+the combined exterior orbital shell kernel is then nonpositive, giving
+$\beta^2 M_o(R_2)\ge3\sqrt3\,\pi R_1^2 L$. The quoted radius box
+allows at most $4.071\times10^{11}\,M_\odot$ of orbital mass inside
+$R_2$, even placing both allowed stellar components wholly inside it.
+The necessary speed ceilings on the two respective branches are at
+least $0.343c$ and $0.392c$. These lower bounds test the kinetic
+interpretation of this particular force and optical model. Assigning
+the excess to an OPH collar requires its own radial and tangential
+stress predictions and the ordinary contributions on the same sightlines.
+The \href{https://github.com/FloatingPragma/observer-patch-holography/tree/main/code/cosmology/rar_deep_regime/double_ring_pressure/stress_conservation}{projected conservation calculation}
+gives the exterior-shell proof and the widened angular bounds.
+
 \paragraph{Where the excess must gravitate in a merger.}
 The western component of the Bullet Cluster supplies a position test
 independent of a rotation calibration. Consider a total projected

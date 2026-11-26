@@ -1739,6 +1739,95 @@ increment divided by $\delta$ gives its mean proper area; if
 $|dA/dr|\le M$, the difference from the inner boundary area is at most
 $M\delta/2$.
 
+\paragraph{Local density and the area of a proper ball.}
+Even exact counts of every angular sector at every radius can give the
+same result on spaces of opposite curvature. In a space of constant
+sectional curvature $K$ with circumference radius $S_K(r)$, a smooth
+marker density $m_K(r)=(r/S_K(r))^2$ converts proper volume to
+$r^2\,dr\,d\omega$. Its count at the center has the same calibration
+for every $K$. Neighboring observers can measure the missing geometric
+response if they share proper geodesic ranges and a common marker
+population. Normalize their counts by exposures and flat reference
+volumes. At the center let $C,H$ be the readings at radii $\ell,\ell/2$.
+Let $B$ be the mean of six half-radius balls displaced by $\pm\ell$
+along three orthonormal axes. In normal coordinates the normalized
+count at radius $s$ is $m+s^2(\Delta m/10-m\,\mathrm{Scal}/30)+O(s^4)$.
+Averaging the paired displacements gives
+$B-H=\ell^2\Delta m/6+O(\ell^4)$. Hence
+\[
+ \widehat{\mathrm{Scal}}
+ =\frac{18B+22H-40C}{[(4H-C)/3]\,\ell^2},\qquad
+ A\big|_{V=4\pi\ell^3/3}
+ =4\pi\ell^2-\frac{2\pi}{15}\,\mathrm{Scal}\,\ell^4+O(\ell^6).
+\]
+Per-reading errors $o(\ell^2)$ suffice for the reconstructed area to
+have error $o(\ell^4)$ for bounded geometry and positive smooth density.
+At $\ell=1/16$ on the supplied $K=-1,+1$ geometries, the
+\href{https://github.com/FloatingPragma/observer-patch-holography/tree/main/code/matched_einstein_limit/fixed_volume/displaced_markers}{displaced-marker counts}
+give scalar curvatures $-5.99771,+6.00579$. Independently counted
+surfaces at matched volume give $-5.99813,+6.00230$. The native test
+requires the displaced observers to realize the same proper-ball
+construction on the source used for the entropy reading.
+
+The one-cell, two-resident source supplies an angular component of this
+construction. Launch a separate load-one tag from each possible port
+and measure its short-time arrival at the other ports. The adjacent tag
+exchange has Hamiltonian matrix element $-1/2$ for either a resident or
+a vacancy. The first-order amplitude remainder is at most $441t^2/8$.
+It separates the 30 edges from every other pair at $t=1/512,1/256$ for
+every admitted resident state, including coherent preparations.
+At $t=1/512$ on the uniform ball, the largest non-neighbor upper bound
+was $1.06\times10^{-9}$ and the smallest neighbor lower bound was
+$8.95\times10^{-7}$, with simultaneous $99\%$ coverage across the
+survey. Both held correlation stocks gave the same graph. The
+icosahedral graph recovered by this
+\href{https://github.com/FloatingPragma/observer-patch-holography/tree/main/model/experiments/interval_echo_einstein_station/equilibrium_refinement/tracer_flux/bearings}{bearing measurement}
+has a canonical unit-sphere representation. Pair opposite vertices
+to obtain six unoriented unit axes and write $P_i=v_i v_i^\top$.
+Their Gram matrix has entries $1$ on the diagonal and $1/5$ elsewhere,
+so they span all six symmetric components and $\sum_i P_i/6=I/3$.
+The six opposite pairs can therefore replace the orthogonal triad.
+
+The 55 readable two-resident words give actual candidates for the
+displaced stations. For the twelve directed angular vertices $u_i$,
+word $(i,j)$ has load position $2(u_i+u_j)$. Five words share the origin, and two
+shells have 25 words each. Ten antipodal pairs on the inner shell
+admit positive weights whose directional second moment is $I/3$.
+On the outer shell every paired axis has squared projection below
+$1/3$ along the exterior bearing, excluding a positive isotropic
+average of those pairs. On the inner shell the
+uniform word counts in the full central, half-radius central and
+displaced half-radius balls are respectively $30$, $5$ and $1$.
+After normalization by aperture volume the estimate gives
+$\ell^2\widehat{\mathrm{Scal}}=-264/65$ on this flat coordinate
+realization. Thus the recorded positions implement a finite displaced
+survey. Their atomic populations require independent calibration
+before they can measure smooth proper volume.
+
+On the clock-defined one-cell ball, forward and reverse tag flights
+supply an independent nested-volume experiment. Launch one or two
+mobile markers among the two residents, retain every attempt, and
+compare the final resident word with an independent draw from the
+same preparation. Reciprocity recovers the mean number of allowed
+marker placements, $\mathbb E\binom{v_r}{j}$ for $j$ markers and $v_r$
+vacancies. At radius two all four preparations give nine single or
+36 double placements. At radius one the held change preserves the
+single-marker reading and raises double placements from $10$ to $10.5$.
+Calibration on the ordinary one-resident transfer then predicts zero
+or $+\log(5)/8$ nats respectively. Independent interior counts give the
+held completion contrast in $[-0.45920,-0.45717]$ nats at simultaneous
+$99\%$ coverage. The
+\href{https://github.com/FloatingPragma/observer-patch-holography/tree/main/model/experiments/interval_echo_einstein_station/equilibrium_refinement/nested_volumes}{reciprocal marker counts}
+distinguish available placements from the information stored in their
+correlations. A second instrument inserts physical plugs in a random
+rim order, reversing each trial. With $k$ occupied among $m$ remaining
+sites, the next insertion succeeds with probability $(m-k)/m$.
+Stopping at $m=k$ gives a total negative log success probability
+$\log\binom{5}{k}$. Independent class and insertion counts give the
+held change in $[-0.45846,-0.45785]$ nats. This is an operational
+measurement of completion information. Converting its dimensionless
+units to proper area requires a separate geometric measurement.
+
 A second experiment lets the two residents move during the range
 measurement. On the 80-cell host, four exterior-facing ports time
 resident signals that reach a second port and return home. The six
@@ -1786,6 +1875,26 @@ residents' correlations. The registered clocks and pair pixels leave
 the proper-area premise open. The
 \href{https://github.com/FloatingPragma/observer-patch-holography/tree/main/model/experiments/interval_echo_einstein_station/equilibrium_refinement/area_survey/joint_screen}{two-resident screen experiment}
 gives the acquisition, held predictions and finite-source bound.
+
+There is also a test along the source's own monitored evolution. Let
+$P$ be its half-unit transition on the 276 sharp words. Prepare a
+small two-sided perturbation of the uniform stock, release it, and
+compare its records before and after one further interval. A rank-36
+certificate applied to the clock and image responses of $P-I$ gives
+a physically admissible direction in which mean native energy, all
+twelve launch/return distributions and the twelve absolute pair
+pixels agree across that step. In units of the change in double
+rim occupancy, the first variation of the interior entropy difference
+is $4\log(4)/3-\log(6)=0.056633\ldots$ nats. On one exact positive
+preparation the step increases interior entropy by more than
+$0.00084$ nats while those records agree. The conditional
+stationarity test thus fails for every area formed solely from these
+readings on this class of preparations. On a finite-ticket preparation
+a second interval changes the first clock's launch probability by
+$[9.4077,9.6742]\times10^{-7}$ at simultaneous $99\%$ coverage. The
+\href{https://github.com/FloatingPragma/observer-patch-holography/tree/main/model/experiments/interval_echo_einstein_station/equilibrium_refinement/area_survey/joint_screen/relaxation}{timed comparison}
+resolves the age of the prepared source. The uniform stock itself is
+invariant under the monitored evolution.
 
 \paragraph{A clocked range and a freely evolving reference.}
 A material hand times a sharp tag routed by contact swaps. Balls defined

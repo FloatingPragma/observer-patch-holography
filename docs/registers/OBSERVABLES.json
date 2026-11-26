@@ -75,7 +75,8 @@
     "Lean/EventAlgebra/InstrumentSelectionByCertainStates.lean",
     "Lean/EventAlgebra/LuedersPhaseInstrument.lean",
     "Lean/EventAlgebra/FiniteProbeInstrumentSelection.lean",
-    "Lean/Dynamics/ChoiCPTP.lean"
+    "Lean/Dynamics/ChoiCPTP.lean",
+    "Lean/EventAlgebra/ComplementaryReturnBound.lean"
    ],
    "model": [
     "code/finite_instrument_calibration/PROOF.md",
@@ -87,11 +88,17 @@
     "model/experiments/interval_echo_consensus/signed_effects/pair_return/README.md",
     "model/experiments/interval_echo_consensus/signed_effects/pair_return/measure.py",
     "model/experiments/interval_echo_consensus/signed_effects/pair_return/results.json",
-    "model/experiments/interval_echo_consensus/signed_effects/pair_return/test_return.py"
+    "model/experiments/interval_echo_consensus/signed_effects/pair_return/test_return.py",
+    "model/experiments/interval_echo_consensus/signed_effects/pair_return/BOUND_PROTOCOL.md",
+    "model/experiments/interval_echo_consensus/signed_effects/pair_return/OBSERVER_BOUND.md",
+    "model/experiments/interval_echo_consensus/signed_effects/pair_return/observer_bound.py",
+    "model/experiments/interval_echo_consensus/signed_effects/pair_return/observer_bound.json",
+    "model/experiments/interval_echo_consensus/signed_effects/pair_return/test_observer_bound.py"
    ],
    "papers": [
     "extra/machine_checked_finite_event_algebras.pdf",
-    "flagship/from_observer_consensus_to_standard_physics.pdf"
+    "flagship/from_observer_consensus_to_standard_physics.pdf",
+    "paper/executable_observer_construction.pdf"
    ]
   },
   {
@@ -3183,7 +3190,9 @@
     "model/candidate_laws/interval_echo/openwave/row_14_profile/README.md",
     "model/candidate_laws/interval_echo/openwave/row_14_profile/records.json",
     "code/defect_particle_classes/PROOF.md",
-    "code/defect_particle_classes/results.json"
+    "code/defect_particle_classes/results.json",
+    "model/candidate_laws/interval_echo/openwave/row_14_profile/scattering/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_14_profile/scattering/results.json"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.pdf"
@@ -4670,7 +4679,7 @@
    "category": "Dark Sector",
    "status": "Conditional",
    "what": "Galaxies, lensing and cosmic structure require more gravitating mass than luminous matter provides; the unseen component is called dark matter.",
-   "why": "OPH proposes that gravity counts records that never couple to light, so dark matter would be non-luminous modular charge.",
+   "why": "OPH proposes that gravity counts nonluminous modular charge, whose stress would have to satisfy the two-ring lens constraints under the adopted stellar and orbital model.",
    "premises": [
     "PR-134",
     "PR-100",
@@ -4722,7 +4731,9 @@
     "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/formed_ranges/README.md",
     "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/formed_ranges/results.json",
     "code/matched_einstein_limit/source_implication/full_geometry/station_balls/formed_optics/README.md",
-    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/formed_optics/certificate.json"
+    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/formed_optics/certificate.json",
+    "code/cosmology/rar_deep_regime/double_ring_pressure/stress_conservation/README.md",
+    "code/cosmology/rar_deep_regime/double_ring_pressure/stress_conservation/results.json"
    ],
    "papers": [
     "cosmology/oph_dark_matter_paper.pdf",
@@ -5454,9 +5465,16 @@
     "model/candidate_laws/interval_echo/openwave/row_14_profile/records.json",
     "model/candidate_laws/interval_echo/openwave/row_14_profile/test_profile.py",
     "model/candidate_laws/interval_echo/openwave/quark_winding/belt_walls/upper.json",
-    "model/candidate_laws/interval_echo/openwave/quark_winding/written_junction/mass_profile.json"
+    "model/candidate_laws/interval_echo/openwave/quark_winding/written_junction/mass_profile.json",
+    "model/candidate_laws/interval_echo/openwave/row_14_profile/scattering/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_14_profile/scattering/PROTOCOL.md",
+    "model/candidate_laws/interval_echo/openwave/row_14_profile/scattering/measure.py",
+    "model/candidate_laws/interval_echo/openwave/row_14_profile/scattering/readout.py",
+    "model/candidate_laws/interval_echo/openwave/row_14_profile/scattering/results.json"
    ],
-   "papers": []
+   "papers": [
+    "paper/deriving_the_particle_zoo_from_observer_consistency.pdf"
+   ]
   },
   {
    "id": "ow-15-baryon-exact-masses",
@@ -5535,7 +5553,7 @@
    "category": "OpenWave Recovery",
    "status": "Partial",
    "what": "A dark-matter particle would be a stable, electrically neutral, massive excitation that emits no light.",
-   "why": "Gravitational observations need such a component, and a stable neutral bound state in the model would be a candidate.",
+   "why": "The challenge tests a stable neutral massive excitation, while orbital and lensing records independently constrain the proposed nonluminous modular source.",
    "premises": [],
    "lean": [],
    "model": [
@@ -5561,7 +5579,9 @@
     "code/cosmology/rar_deep_regime/double_ring_pressure/elliptical.py",
     "code/cosmology/rar_deep_regime/double_ring_pressure/elliptical.json",
     "model/candidate_laws/interval_echo/openwave/row_27_metric/formed_pair_clocks/README.md",
-    "model/candidate_laws/interval_echo/openwave/row_27_metric/formed_pair_clocks/results.json"
+    "model/candidate_laws/interval_echo/openwave/row_27_metric/formed_pair_clocks/results.json",
+    "code/cosmology/rar_deep_regime/double_ring_pressure/stress_conservation/README.md",
+    "code/cosmology/rar_deep_regime/double_ring_pressure/stress_conservation/results.json"
    ],
    "papers": [
     "paper/executable_observer_construction.pdf"
@@ -5836,7 +5856,12 @@
     "code/matched_einstein_limit/source_implication/full_geometry/station_balls/formed_optics/README.md",
     "code/matched_einstein_limit/source_implication/full_geometry/station_balls/formed_optics/certificate.json",
     "model/candidate_laws/interval_echo/openwave/row_27_metric/formed_pair_clocks/README.md",
-    "model/candidate_laws/interval_echo/openwave/row_27_metric/formed_pair_clocks/results.json"
+    "model/candidate_laws/interval_echo/openwave/row_27_metric/formed_pair_clocks/results.json",
+    "model/experiments/interval_echo_einstein_station/equilibrium_refinement/tracer_flux/bearings/README.md",
+    "model/experiments/interval_echo_einstein_station/equilibrium_refinement/tracer_flux/bearings/results.json",
+    "model/experiments/interval_echo_einstein_station/equilibrium_refinement/tracer_flux/bearings/placements.json",
+    "code/matched_einstein_limit/fixed_volume/displaced_markers/README.md",
+    "code/matched_einstein_limit/fixed_volume/displaced_markers/results.json"
    ],
    "papers": [
     "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf",
@@ -5945,6 +5970,11 @@
     "model/candidate_laws/interval_echo/openwave/row_30_collective/impulse/results.json",
     "model/candidate_laws/interval_echo/openwave/row_30_collective/impulse/counts.npz",
     "model/candidate_laws/interval_echo/openwave/row_30_collective/impulse/test_impulse.py",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/fork/interference/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/fork/interference/PROOF.md",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/fork/interference/experiment.py",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/fork/interference/certificate.py",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/fork/interference/results.json",
     "model/candidate_laws/interval_echo/openwave/row_30_collective/committed_heads/README.md",
     "model/candidate_laws/interval_echo/openwave/row_30_collective/committed_heads/results.json",
     "model/candidate_laws/interval_echo/openwave/row_30_collective/committed_heads/readback.py"
@@ -6756,7 +6786,7 @@
    "category": "Physical premises",
    "status": "Partial",
    "what": "At fixed volume, first-order changes of bulk entropy balance changes of boundary area divided by four times Newton's constant.",
-   "why": "This stationarity of generalized entropy is the equilibrium condition from which OPH derives Einstein's equations in small regions.",
+   "why": "Stationarity gives the gravity premise when observers recover proper area, and on the five-rim source, plugs measure the balancing information while calibrated tracer volumes miss its sign.",
    "premises": [],
    "lean": [
     "Lean/ObserverPatchHolography/EinsteinBranch/Composition.lean",
@@ -6805,7 +6835,11 @@
     "model/experiments/interval_echo_einstein_station/equilibrium_refinement/tracer_flux/README.md",
     "model/experiments/interval_echo_einstein_station/equilibrium_refinement/tracer_flux/results.json",
     "model/experiments/interval_echo_einstein_station/equilibrium_refinement/area_survey/joint_screen/README.md",
-    "model/experiments/interval_echo_einstein_station/equilibrium_refinement/area_survey/joint_screen/certificate.json"
+    "model/experiments/interval_echo_einstein_station/equilibrium_refinement/area_survey/joint_screen/certificate.json",
+    "model/experiments/interval_echo_einstein_station/equilibrium_refinement/nested_volumes/README.md",
+    "model/experiments/interval_echo_einstein_station/equilibrium_refinement/nested_volumes/results.json",
+    "model/experiments/interval_echo_einstein_station/equilibrium_refinement/area_survey/joint_screen/relaxation/README.md",
+    "model/experiments/interval_echo_einstein_station/equilibrium_refinement/area_survey/joint_screen/relaxation/results.json"
    ],
    "papers": [],
    "statement": "The first-order bulk entropy variation balances the fixed-volume area variation over 4G, and the declared MaxEnt family has zero normalization rate, unit constraint speed and the Gibbs differential equation.",
@@ -6818,7 +6852,7 @@
    "category": "Physical premises",
    "status": "Open",
    "what": "Small geodesic balls of fixed volume obey the standard curvature correction to their area, with error terms vanishing as balls shrink.",
-   "why": "It converts entropy balance in small balls into the local Einstein equations with a positive Newton constant.",
+   "why": "Eight geodesically placed counts recover the curvature coefficient entering Einstein’s equation when observers share proper rulers, and native tag flights independently supply an angular frame.",
    "premises": [],
    "lean": [
     "Lean/ObserverPatchHolography/EinsteinBranch/SmallBall.lean",
@@ -6851,7 +6885,14 @@
     "code/matched_einstein_limit/finite_entropy_region/monitored_order/results.json",
     "code/matched_einstein_limit/finite_entropy_region/held_calibration.json",
     "model/experiments/interval_echo_einstein_station/equilibrium_refinement/rim_geometry/README.md",
-    "model/experiments/interval_echo_einstein_station/equilibrium_refinement/rim_geometry/results.json"
+    "model/experiments/interval_echo_einstein_station/equilibrium_refinement/rim_geometry/results.json",
+    "model/experiments/interval_echo_einstein_station/equilibrium_refinement/tracer_flux/bearings/README.md",
+    "model/experiments/interval_echo_einstein_station/equilibrium_refinement/tracer_flux/bearings/results.json",
+    "model/experiments/interval_echo_einstein_station/equilibrium_refinement/tracer_flux/bearings/placements.json",
+    "code/matched_einstein_limit/fixed_volume/displaced_markers/README.md",
+    "code/matched_einstein_limit/fixed_volume/displaced_markers/results.json",
+    "model/experiments/interval_echo_einstein_station/equilibrium_refinement/nested_volumes/README.md",
+    "model/experiments/interval_echo_einstein_station/equilibrium_refinement/nested_volumes/results.json"
    ],
    "papers": [],
    "statement": "The fixed-volume small-geodesic-ball area identity holds with coefficient 4*pi*ell^4/15, one cofinal shrinking family carries the collar, kernel and chart error terms as o(ell^4), the geometric side satisfies the contracted Bianchi identity, and the Newton constant and ball radius are positive.",
@@ -7608,7 +7649,7 @@
    "kind": "premise",
    "name": "declared five-mode exterior component and mask-selection grammar",
    "category": "Construction choices",
-   "status": "Open",
+   "status": "Demonstrated",
    "what": "Matter is drawn from the exterior algebra of a five-mode space, three colour plus two weak modes, filtered by anomaly cancellation.",
    "why": "Inside this grammar the scan leaves two conjugate fifteen-dimensional sectors, the size of one standard-model fermion generation.",
    "premises": [],
@@ -7631,10 +7672,19 @@
     "code/a5_closure/chiral_multiplicity/README.md",
     "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/README.md",
     "code/a5_closure/neutral_observer/README.md",
-    "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/neutral_response/README.md"
+    "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/neutral_response/README.md",
+    "model/experiments/interval_echo_gauge/exterior_register/PROTOCOL.md",
+    "model/experiments/interval_echo_gauge/exterior_register/README.md",
+    "model/experiments/interval_echo_gauge/exterior_register/measure.py",
+    "model/experiments/interval_echo_gauge/exterior_register/material.py",
+    "model/experiments/interval_echo_gauge/exterior_register/coherent.py",
+    "model/experiments/interval_echo_gauge/exterior_register/selection.py",
+    "model/experiments/interval_echo_gauge/exterior_register/results.json",
+    "model/experiments/interval_echo_gauge/exterior_register/test_exterior_register.py"
    ],
    "papers": [
-    "claims/assumption_dictionary.md"
+    "claims/assumption_dictionary.md",
+    "paper/deriving_the_particle_zoo_from_observer_consistency.pdf"
    ],
    "statement": "The exterior-matter receipts use the five-mode carrier V = C^3 + C^2 with charges q = 6Y = (-2, 3), the ten nontrivial isotypic rows of its exterior algebra, and the 2^10 subsets of that table; admissibility requires nonemptiness, no row with its conjugate and vanishing of the four displayed anomaly sums.",
    "premise_kind": "declared"
@@ -9123,7 +9173,8 @@
    "why": "This repeatability property supports the reconstruction of projective measurement and the Born rule from native instruments.",
    "premises": [],
    "lean": [
-    "Lean/EventAlgebra/FiniteProbeInstrumentSelection.lean"
+    "Lean/EventAlgebra/FiniteProbeInstrumentSelection.lean",
+    "Lean/EventAlgebra/ComplementaryReturnBound.lean"
    ],
    "model": [
     "model/experiments/interval_echo_consensus/signed_effects/README.md",
@@ -9133,9 +9184,16 @@
     "model/experiments/interval_echo_consensus/signed_effects/pair_return/README.md",
     "model/experiments/interval_echo_consensus/signed_effects/pair_return/measure.py",
     "model/experiments/interval_echo_consensus/signed_effects/pair_return/results.json",
-    "model/experiments/interval_echo_consensus/signed_effects/pair_return/test_return.py"
+    "model/experiments/interval_echo_consensus/signed_effects/pair_return/test_return.py",
+    "model/experiments/interval_echo_consensus/signed_effects/pair_return/BOUND_PROTOCOL.md",
+    "model/experiments/interval_echo_consensus/signed_effects/pair_return/OBSERVER_BOUND.md",
+    "model/experiments/interval_echo_consensus/signed_effects/pair_return/observer_bound.py",
+    "model/experiments/interval_echo_consensus/signed_effects/pair_return/observer_bound.json",
+    "model/experiments/interval_echo_consensus/signed_effects/pair_return/test_observer_bound.py"
    ],
-   "papers": [],
+   "papers": [
+    "paper/executable_observer_construction.pdf"
+   ],
    "statement": "Each outcome operation of a native measurement instrument leaves unchanged every state that is certain of that outcome. In the finite-probe form, the instrument returns the n coordinate states and their uniform superposition with probability one.",
    "premise_kind": "derivable"
   },
@@ -9224,7 +9282,9 @@
     "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/formed_ranges/README.md",
     "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/formed_ranges/results.json",
     "code/matched_einstein_limit/source_implication/full_geometry/station_balls/formed_optics/README.md",
-    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/formed_optics/certificate.json"
+    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/formed_optics/certificate.json",
+    "code/cosmology/rar_deep_regime/double_ring_pressure/stress_conservation/README.md",
+    "code/cosmology/rar_deep_regime/double_ring_pressure/stress_conservation/results.json"
    ],
    "papers": [],
    "statement": "The stress contraction entering the rest-frame Einstein relation equals the total modular charge of all screen sources, luminous or not, with no readout-dependent weight. A geometric excess over the luminous stress is then a non-luminous modular source.",

@@ -445,11 +445,35 @@ REPLAY_EVALUATIONS = (
         "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
         "model/candidate_laws/interval_echo/EVALUATION.json": "917c60d978effebd6c25a0e0683964a9225ae077fbae05fb313b08ce462b8dcf",
     },
+    # Four-probe returns, exterior register, neutral scattering and remote fork comparison.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "a2bd7b6e64bc4d9948773ffd766c3ffc5d485fb5ae651bf148c49df401f5cf5a",
+    },
     # Doublet phase reference, neutral-pair calorimetry, connector read and public records.
     {
         "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
         "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
         "model/candidate_laws/interval_echo/EVALUATION.json": "900fc8721324c81d6eb3b86a0e0705169cba56821a4dc42cb06fb6e0080e7b5b",
+    },
+    # Combined native exterior and doublet records, calorimetry, fork, and public-read tests.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "0bf7b9a36bd729cd0f6cd0b274da9df3737767ed5765a38f51b519aa6317f539",
+    },
+    # Held lens stress, displaced marker positions and nested probe volumes.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "f53e608f2d76bc05adc46b095f6a7dc319c3903e03a722a152d94f6d28db2fa8",
+    },
+    # Joint observer doublet, exterior, clocked energy, geometry and lens-stress records.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "ff491c1ae410b79dc29667a14499e8ca7f63b4b9e8bd40ff63aa6e5c58bd1316",
     },
 )
 

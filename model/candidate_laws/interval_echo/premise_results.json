@@ -402,9 +402,15 @@
       "../../experiments/interval_echo_consensus/signed_effects/pair_return/measure.py",
       "../../experiments/interval_echo_consensus/signed_effects/pair_return/results.json",
       "../../experiments/interval_echo_consensus/signed_effects/pair_return/test_return.py",
-      "../../../Lean/EventAlgebra/FiniteProbeInstrumentSelection.lean"
+      "../../../Lean/EventAlgebra/FiniteProbeInstrumentSelection.lean",
+      "../../experiments/interval_echo_consensus/signed_effects/pair_return/BOUND_PROTOCOL.md",
+      "../../experiments/interval_echo_consensus/signed_effects/pair_return/OBSERVER_BOUND.md",
+      "../../experiments/interval_echo_consensus/signed_effects/pair_return/observer_bound.py",
+      "../../experiments/interval_echo_consensus/signed_effects/pair_return/observer_bound.json",
+      "../../experiments/interval_echo_consensus/signed_effects/pair_return/test_observer_bound.py",
+      "../../../Lean/EventAlgebra/ComplementaryReturnBound.lean"
     ],
-    "note": "One native six-outcome instrument resolves adjacent pairs of addresses. For every rank-two outcome the two coordinate inputs and their uniform coherent superposition return with certainty. Resolving the extra address bit and then forgetting it preserves the effects and coordinate returns but halves the uniform return. This is a property of the specified instrument."
+    "note": "One native six-outcome instrument resolves adjacent pairs of addresses. For every rank-two outcome the two coordinate inputs and their uniform coherent superposition return with certainty. Resolving the extra address bit and then forgetting it preserves the effects and coordinate returns but halves the uniform return. This is a property of the specified instrument. For six rank-two outcomes, four fresh return cohorts per pair bound the error of any later event on the enrolled code by 0.0910, allowing an untouched reference. With the same published first label the fine-address writer exceeds 0.4813 on each pair. The joint confidence is 99% for the specified calibration and independent simulated launches."
   },
   "PR-133": {
     "status": "partial",
@@ -496,5 +502,20 @@
       "../../../Lean/Computation/NativeBooleanNodes.lean"
     ],
     "note": "Sharp rail pairs implement Boolean registers. Each compiled node makes its local native query and conditionally repairs its output on a supplied calendar, including 112 tested scans across two board sizes."
+  },
+  "PR-59": {
+    "status": "fulfilled",
+    "evidence": [
+      "../../experiments/interval_echo_gauge/exterior_register/PROTOCOL.md",
+      "../../experiments/interval_echo_gauge/exterior_register/README.md",
+      "../../experiments/interval_echo_gauge/exterior_register/measure.py",
+      "../../experiments/interval_echo_gauge/exterior_register/material.py",
+      "../../experiments/interval_echo_gauge/exterior_register/coherent.py",
+      "../../experiments/interval_echo_gauge/exterior_register/selection.py",
+      "../../experiments/interval_echo_gauge/exterior_register/results.json",
+      "../../experiments/interval_echo_gauge/exterior_register/test_exterior_register.py",
+      "../../../Lean/Screen/ExteriorSelection.lean"
+    ],
+    "note": "On the supplied five-mode register, two stations recover all 32 occupations and agree on all 1,024 mask decisions. The only survivors are the two conjugate 15-dimensional sectors. All 80 remote sign probes distinguish ordered exterior insertion from ordinary insertion. The colour and weak blocks, primitive charges and selection rule are declared."
   }
 }

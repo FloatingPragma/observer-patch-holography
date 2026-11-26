@@ -24,6 +24,7 @@ import EventAlgebra.FiniteBuschGleason
 import EventAlgebra.OperationalBornBridge
 import EventAlgebra.NativePublicEventGrammar
 import EventAlgebra.FiniteProbeInstrumentSelection
+import EventAlgebra.ComplementaryReturnBound
 import EventAlgebra.InterlockingContexts
 import EventAlgebra.FiniteWebBornNoGo
 import EventAlgebra.FrequencyConcentration
