@@ -1,0 +1,644 @@
+{
+  "single_dish_target": {
+    "galaxy": "UGC06667",
+    "inclination_deg": 89.0,
+    "dish_to_wsrt_central": 1.0545454545454545,
+    "dish_to_wsrt_two_error_box": [
+      0.6101694915254238,
+      1.5686274509803921
+    ],
+    "catalogue_distance_Mpc": 18.0,
+    "catalogue_HI_mass_Msun": 809000000.0,
+    "catalogue_equivalent_flux_Jy_km_s": 10.598105179316272,
+    "smallest_dish_to_catalogue_two_error_ratio": 0.6793667243510507,
+    "largest_shape_allowed_flux_Jy_km_s": 3.3793193297482294,
+    "shared_gas_mass_suffices_at_two_errors": false
+  },
+  "total_pairs": 70,
+  "published_matches": {
+    "DDO154": {
+      "printed_centres": {
+        "gas": {
+          "lower": 1.1481536213,
+          "upper": 1.1481536216,
+          "endpoints_excluded": [
+            false,
+            false
+          ]
+        },
+        "nominal": "overlap",
+        "varied": "overlap",
+        "varied_requiring_original_cuts": "overlap"
+      },
+      "print_rounding": {
+        "gas": {
+          "lower": 1.0115794541,
+          "upper": 1.3031667786,
+          "endpoints_excluded": [
+            false,
+            false
+          ]
+        },
+        "nominal": "overlap",
+        "varied": "overlap",
+        "varied_requiring_original_cuts": "overlap"
+      },
+      "rounding_and_mass_errors": {
+        "gas": {
+          "lower": 0.8276559169909091,
+          "upper": 1.5927593960666666,
+          "endpoints_excluded": [
+            false,
+            false
+          ]
+        },
+        "nominal": "overlap",
+        "varied": "overlap",
+        "varied_requiring_original_cuts": "overlap"
+      }
+    },
+    "F565-V2": {
+      "printed_centres": {
+        "gas": {
+          "lower": 1.2022644345,
+          "upper": 1.2022644348,
+          "endpoints_excluded": [
+            false,
+            false
+          ]
+        },
+        "nominal": "overlap",
+        "varied": "overlap",
+        "varied_requiring_original_cuts": "overlap"
+      },
+      "print_rounding": {
+        "gas": {
+          "lower": 1.1748975548,
+          "upper": 1.230268771,
+          "endpoints_excluded": [
+            false,
+            false
+          ]
+        },
+        "nominal": "overlap",
+        "varied": "overlap",
+        "varied_requiring_original_cuts": "overlap"
+      },
+      "rounding_and_mass_errors": {
+        "gas": {
+          "lower": 0.9612798175636363,
+          "upper": 1.5036618312222223,
+          "endpoints_excluded": [
+            false,
+            false
+          ]
+        },
+        "nominal": "overlap",
+        "varied": "overlap",
+        "varied_requiring_original_cuts": "overlap"
+      }
+    },
+    "F568-V1": {
+      "printed_centres": {
+        "gas": {
+          "lower": 2.0417379445,
+          "upper": 2.0417379448,
+          "endpoints_excluded": [
+            false,
+            false
+          ]
+        },
+        "nominal": "overlap",
+        "varied": "overlap",
+        "varied_requiring_original_cuts": "no_eligible_force"
+      },
+      "print_rounding": {
+        "gas": {
+          "lower": 1.798870915,
+          "upper": 2.3173946501,
+          "endpoints_excluded": [
+            false,
+            false
+          ]
+        },
+        "nominal": "overlap",
+        "varied": "overlap",
+        "varied_requiring_original_cuts": "overlap"
+      },
+      "rounding_and_mass_errors": {
+        "gas": {
+          "lower": 1.471803475909091,
+          "upper": 2.832371239011111,
+          "endpoints_excluded": [
+            false,
+            false
+          ]
+        },
+        "nominal": "overlap",
+        "varied": "overlap",
+        "varied_requiring_original_cuts": "overlap"
+      }
+    },
+    "F571-V1": {
+      "printed_centres": {
+        "gas": {
+          "lower": 1.3489628824,
+          "upper": 1.3489628827,
+          "endpoints_excluded": [
+            false,
+            false
+          ]
+        },
+        "nominal": "overlap",
+        "varied": "overlap",
+        "varied_requiring_original_cuts": "overlap"
+      },
+      "print_rounding": {
+        "gas": {
+          "lower": 1.3182567384,
+          "upper": 1.3803842648,
+          "endpoints_excluded": [
+            false,
+            false
+          ]
+        },
+        "nominal": "overlap",
+        "varied": "overlap",
+        "varied_requiring_original_cuts": "overlap"
+      },
+      "rounding_and_mass_errors": {
+        "gas": {
+          "lower": 1.0785736950545455,
+          "upper": 1.6871363236444445,
+          "endpoints_excluded": [
+            false,
+            false
+          ]
+        },
+        "nominal": "overlap",
+        "varied": "overlap",
+        "varied_requiring_original_cuts": "overlap"
+      }
+    },
+    "F574-1": {
+      "printed_centres": {
+        "gas": {
+          "lower": 1.2589254116,
+          "upper": 1.2589254119,
+          "endpoints_excluded": [
+            false,
+            false
+          ]
+        },
+        "nominal": "overlap",
+        "varied": "overlap",
+        "varied_requiring_original_cuts": "overlap"
+      },
+      "print_rounding": {
+        "gas": {
+          "lower": 1.2302687707,
+          "upper": 1.2882495518,
+          "endpoints_excluded": [
+            false,
+            false
+          ]
+        },
+        "nominal": "overlap",
+        "varied": "overlap",
+        "varied_requiring_original_cuts": "overlap"
+      },
+      "rounding_and_mass_errors": {
+        "gas": {
+          "lower": 1.0065835396636365,
+          "upper": 1.5745272299777777,
+          "endpoints_excluded": [
+            false,
+            false
+          ]
+        },
+        "nominal": "overlap",
+        "varied": "overlap",
+        "varied_requiring_original_cuts": "overlap"
+      }
+    },
+    "NGC4559": {
+      "printed_centres": {
+        "gas": {
+          "lower": 0.9772372208,
+          "upper": 0.9772372211,
+          "endpoints_excluded": [
+            false,
+            false
+          ]
+        },
+        "nominal": "overlap",
+        "varied": "overlap",
+        "varied_requiring_original_cuts": "overlap"
+      },
+      "print_rounding": {
+        "gas": {
+          "lower": 0.9549925859,
+          "upper": 1.0000000002,
+          "endpoints_excluded": [
+            false,
+            false
+          ]
+        },
+        "nominal": "overlap",
+        "varied": "overlap",
+        "varied_requiring_original_cuts": "overlap"
+      },
+      "rounding_and_mass_errors": {
+        "gas": {
+          "lower": 0.7813575702818182,
+          "upper": 1.2222222224666666,
+          "endpoints_excluded": [
+            false,
+            false
+          ]
+        },
+        "nominal": "overlap",
+        "varied": "overlap",
+        "varied_requiring_original_cuts": "overlap"
+      }
+    },
+    "UGC05005": {
+      "printed_centres": {
+        "gas": {
+          "lower": 1.6218100972,
+          "upper": 1.6218100975,
+          "endpoints_excluded": [
+            false,
+            false
+          ]
+        },
+        "nominal": "overlap",
+        "varied": "overlap",
+        "varied_requiring_original_cuts": "overlap"
+      },
+      "print_rounding": {
+        "gas": {
+          "lower": 1.4288939584,
+          "upper": 1.8407720016,
+          "endpoints_excluded": [
+            false,
+            false
+          ]
+        },
+        "nominal": "overlap",
+        "varied": "overlap",
+        "varied_requiring_original_cuts": "overlap"
+      },
+      "rounding_and_mass_errors": {
+        "gas": {
+          "lower": 1.1690950568727272,
+          "upper": 2.2498324464,
+          "endpoints_excluded": [
+            false,
+            false
+          ]
+        },
+        "nominal": "overlap",
+        "varied": "overlap",
+        "varied_requiring_original_cuts": "overlap"
+      }
+    },
+    "UGC05750": {
+      "printed_centres": {
+        "gas": {
+          "lower": 2.2387211384,
+          "upper": 2.2387211387,
+          "endpoints_excluded": [
+            false,
+            false
+          ]
+        },
+        "nominal": "overlap",
+        "varied": "overlap",
+        "varied_requiring_original_cuts": "no_eligible_force"
+      },
+      "print_rounding": {
+        "gas": {
+          "lower": 2.1877616238,
+          "upper": 2.2908676529,
+          "endpoints_excluded": [
+            false,
+            false
+          ]
+        },
+        "nominal": "overlap",
+        "varied": "overlap",
+        "varied_requiring_original_cuts": "no_eligible_force"
+      },
+      "rounding_and_mass_errors": {
+        "gas": {
+          "lower": 1.789986783109091,
+          "upper": 2.7999493535444446,
+          "endpoints_excluded": [
+            false,
+            false
+          ]
+        },
+        "nominal": "overlap",
+        "varied": "overlap",
+        "varied_requiring_original_cuts": "no_eligible_force"
+      }
+    },
+    "UGC11820": {
+      "printed_centres": {
+        "gas": {
+          "lower": 0.9772372208,
+          "upper": 0.9772372211,
+          "endpoints_excluded": [
+            false,
+            false
+          ]
+        },
+        "nominal": "overlap",
+        "varied": "overlap",
+        "varied_requiring_original_cuts": "overlap"
+      },
+      "print_rounding": {
+        "gas": {
+          "lower": 0.860993752,
+          "upper": 1.1091748154,
+          "endpoints_excluded": [
+            false,
+            false
+          ]
+        },
+        "nominal": "overlap",
+        "varied": "overlap",
+        "varied_requiring_original_cuts": "overlap"
+      },
+      "rounding_and_mass_errors": {
+        "gas": {
+          "lower": 0.7044494334545455,
+          "upper": 1.3556581077111112,
+          "endpoints_excluded": [
+            false,
+            false
+          ]
+        },
+        "nominal": "overlap",
+        "varied": "overlap",
+        "varied_requiring_original_cuts": "overlap"
+      }
+    },
+    "UGC12732": {
+      "printed_centres": {
+        "gas": {
+          "lower": 0.9549925859,
+          "upper": 0.9549925862,
+          "endpoints_excluded": [
+            false,
+            false
+          ]
+        },
+        "nominal": "overlap",
+        "varied": "overlap",
+        "varied_requiring_original_cuts": "smaller_faint"
+      },
+      "print_rounding": {
+        "gas": {
+          "lower": 0.9332543006,
+          "upper": 0.9772372211,
+          "endpoints_excluded": [
+            false,
+            false
+          ]
+        },
+        "nominal": "overlap",
+        "varied": "overlap",
+        "varied_requiring_original_cuts": "smaller_faint"
+      },
+      "rounding_and_mass_errors": {
+        "gas": {
+          "lower": 0.763571700490909,
+          "upper": 1.1944010480111111,
+          "endpoints_excluded": [
+            false,
+            false
+          ]
+        },
+        "nominal": "overlap",
+        "varied": "overlap",
+        "varied_requiring_original_cuts": "smaller_faint"
+      }
+    }
+  },
+  "pairs_without_published_match": [
+    "CamB",
+    "D512-2",
+    "D564-8",
+    "D631-7",
+    "DDO064",
+    "DDO161",
+    "DDO168",
+    "DDO170",
+    "ESO444-G084",
+    "F568-3",
+    "F583-1",
+    "F583-4",
+    "IC2574",
+    "KK98-251",
+    "NGC0100",
+    "NGC0247",
+    "NGC0289",
+    "NGC0300",
+    "NGC1003",
+    "NGC2403",
+    "NGC2915",
+    "NGC3109",
+    "NGC3198",
+    "NGC4068",
+    "NGC6015",
+    "NGC6503",
+    "UGC00128",
+    "UGC00731",
+    "UGC00891",
+    "UGC01281",
+    "UGC02259",
+    "UGC02953",
+    "UGC04278",
+    "UGC04325",
+    "UGC04483",
+    "UGC04499",
+    "UGC05414",
+    "UGC05716",
+    "UGC05764",
+    "UGC05918",
+    "UGC06399",
+    "UGC06446",
+    "UGC06667",
+    "UGC06930",
+    "UGC06983",
+    "UGC07089",
+    "UGC07125",
+    "UGC07524",
+    "UGC07559",
+    "UGC07577",
+    "UGC07866",
+    "UGC08286",
+    "UGC08490",
+    "UGC08550",
+    "UGC08837",
+    "UGC09133",
+    "UGC10310",
+    "UGC12632",
+    "UGCA442",
+    "UGCA444"
+  ],
+  "lower_shape_gas_domains": {
+    "UGC00128": {
+      "fixed_annuli": {
+        "lower": 0.0,
+        "upper": 0.6307624396188367,
+        "endpoints_excluded": [
+          false,
+          false
+        ]
+      },
+      "retaining_cuts": null
+    },
+    "UGC02259": {
+      "fixed_annuli": {
+        "lower": 0.0,
+        "upper": 0.09227501780546338,
+        "endpoints_excluded": [
+          false,
+          false
+        ]
+      },
+      "retaining_cuts": null
+    },
+    "UGC04325": {
+      "fixed_annuli": {
+        "lower": 0.0,
+        "upper": 0.9945616884224627,
+        "endpoints_excluded": [
+          false,
+          false
+        ]
+      },
+      "retaining_cuts": {
+        "lower": 0.5654353611465285,
+        "upper": 0.9476198439704419,
+        "endpoints_excluded": [
+          false,
+          true
+        ]
+      }
+    },
+    "UGC05716": {
+      "fixed_annuli": {
+        "lower": 0.0,
+        "upper": 1.043808662433606,
+        "endpoints_excluded": [
+          false,
+          false
+        ]
+      },
+      "retaining_cuts": null
+    },
+    "UGC05764": {
+      "fixed_annuli": {
+        "lower": 0.0,
+        "upper": 0.6921997699904016,
+        "endpoints_excluded": [
+          false,
+          false
+        ]
+      },
+      "retaining_cuts": null
+    },
+    "UGC06667": {
+      "fixed_annuli": {
+        "lower": 0.0,
+        "upper": 0.3188607088315615,
+        "endpoints_excluded": [
+          false,
+          false
+        ]
+      },
+      "retaining_cuts": {
+        "lower": 0.0,
+        "upper": 0.3188607088315615,
+        "endpoints_excluded": [
+          false,
+          false
+        ]
+      }
+    },
+    "UGC07125": {
+      "fixed_annuli": {
+        "lower": 0.0,
+        "upper": 1.028010185873215,
+        "endpoints_excluded": [
+          false,
+          false
+        ]
+      },
+      "retaining_cuts": {
+        "lower": 0.5562722065941966,
+        "upper": 1.028010185873215,
+        "endpoints_excluded": [
+          false,
+          false
+        ]
+      }
+    },
+    "UGC12732": {
+      "fixed_annuli": {
+        "lower": 0.0,
+        "upper": 1.1720605561163608,
+        "endpoints_excluded": [
+          false,
+          false
+        ]
+      },
+      "retaining_cuts": null
+    }
+  },
+  "counts": {
+    "printed_centres": {
+      "nominal": {
+        "overlap": 10
+      },
+      "varied": {
+        "overlap": 10
+      },
+      "varied_requiring_original_cuts": {
+        "overlap": 7,
+        "no_eligible_force": 2,
+        "smaller_faint": 1
+      }
+    },
+    "print_rounding": {
+      "nominal": {
+        "overlap": 10
+      },
+      "varied": {
+        "overlap": 10
+      },
+      "varied_requiring_original_cuts": {
+        "overlap": 8,
+        "no_eligible_force": 1,
+        "smaller_faint": 1
+      }
+    },
+    "rounding_and_mass_errors": {
+      "nominal": {
+        "overlap": 10
+      },
+      "varied": {
+        "overlap": 10
+      },
+      "varied_requiring_original_cuts": {
+        "overlap": 8,
+        "no_eligible_force": 1,
+        "smaller_faint": 1
+      }
+    }
+  }
+}
