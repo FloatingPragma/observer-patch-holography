@@ -116,15 +116,16 @@ def count_panel(rng, appointments, setting):
     return counts
 
 
-def bound(reward, u, panels):
+def bound(reward, u, panels, releases=None, alpha=0.01):
     # Bound the second moment of an entire independent, deadline-stopped source
     # walk. A left or right read centered at 1/2 has square exactly 1/4.
     half_grid = 2**-33
     a = abs(reward) + half_grid
     remaining = parent.green.poisson(a, (1 / 8,) * 3)[1:-1, 1:-1, 1:-1]
     moment = np.sum(u * (0.25 + 2 * a * remaining))
-    x = np.log(2 * panels / 0.01)
-    n, h = PLAN["releases"], PLAN["maximum_appointments"]
+    x = np.log(2 * panels / alpha)
+    n = PLAN["releases"] if releases is None else releases
+    h = PLAN["maximum_appointments"]
     spectral = 1 - 0.75 * (1 - np.cos(np.pi / 11))
     tail = 0.5 * np.sqrt(u.size) * spectral**h / (1 - spectral)
     return float(
