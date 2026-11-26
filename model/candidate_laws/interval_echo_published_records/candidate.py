@@ -33,6 +33,9 @@ PARAMETERS = {
                        "quantity": "two-endpoint vacuum spectrum with a π/6 rotation of the even subspace"},
     "pulse_reading": {"value": "weighted sheet work", "provenance": "designed",
                       "quantity": "diamond-weighted work drives the endpoint rotation at its vacuum gap and susceptibility"},
+    "material_equilibration": {"value": "three independent fair-bit exchanges per pair",
+                               "provenance": "designed",
+                               "quantity": "refresh each private ticket bit once before the material work reading"},
 }
 
 PREMISES = {
@@ -40,8 +43,9 @@ PREMISES = {
               "note": "The finite endpoint density gives separate entropy, vacuum modular energy and relative entropy on the sheet menu. A central overlap decomposition for freely evolving native fields is open."},
     "PR-24": {"status": "partial", "evidence": [APPARATUS+"GEOMETRY.md"],
               "note": "The two parallel sheet families have independently conserved label measures and Nambu–Goto action stress on the declared product geometry. Identifying the stress of native propagating loads and fields needs an additional measurement."},
-    "PR-26": {"status": "partial", "evidence": [APPARATUS+"README.md", APPARATUS+"results.json"],
-              "note": "Regional endpoints and proper-volume stops belong to the same finite menu. The finite entropy and area deficit vanishes after fourth-order normalization on its shrinking family. Native observers would have to realize the rods, straight sheets and endpoint response."},
+    "PR-26": {"status": "partial", "evidence": [APPARATUS+"README.md", APPARATUS+"results.json",
+                                              APPARATUS+"nested_stress/selection/README.md"],
+              "note": "Three local ticket exchanges per memory select the matched source on every recorded history and from arbitrary incoming memories. The rod transport and sheet work law supply its geometry and stress at completed appointments."},
     "PR-27": {"status": "partial", "evidence": [APPARATUS+"GEOMETRY.md", APPARATUS+"results.json"],
               "note": "Direct fixed-volume areas and the ten independent timelike contractions give the small-ball curvature expansion on the product geometry. The active carrier does not select that smooth chart."},
     "PR-28": {"status": "partial", "evidence": [APPARATUS+"README.md", APPARATUS+"ARCHIVE.md"],
@@ -59,7 +63,12 @@ def run(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check", action="store_true", help="replay the finite observer survey")
     parser.add_argument("--full", action="store_true", help="also replay the original native law")
+    parser.add_argument("--selection", action="store_true", help="check all material bath outcomes and the missed-address control")
     args = parser.parse_args(argv)
     if args.full:
         echo.run(["--full"])
+    if args.selection or args.full:
+        from model.candidate_laws.interval_echo_partition_repair.published_strings.nested_stress.selection import experiment as bath
+        bath.verify()
+        print("Verified all 64 two-memory displacement records and the skipped-address control.")
     return experiment.main(["--check"])

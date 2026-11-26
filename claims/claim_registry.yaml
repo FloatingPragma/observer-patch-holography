@@ -736,7 +736,7 @@
     },
     {
       "claim_id": "OPH-GR-D5",
-      "statement": "On a common source in ten timelike frames, the bulk modular first law for the propagating stress, fixed-proper-volume area expansion and generalized entropy stationarity bound the full Einstein tensor residual. If the three errors are o(ell^4), the geometric and stress readouts converge and the area coefficient tends to one positive constant, the limiting fields obey the semiclassical Einstein equation. Independent matter and geometric conservation fix the cosmological term up to a constant on each connected component. A separate partition-repair candidate forces the stationarity premise on all enrolled finite endpoint regions, with independent cubical area checks and a smooth-ball comparison whose capacity is supplied. These finite comparisons supply no identification of propagating action stress or proper geometry on the active Interval Echo source.",
+      "statement": "On a common source in ten timelike frames, the bulk modular first law for the propagating stress, fixed-proper-volume area expansion and generalized entropy stationarity bound the full Einstein tensor residual. If the three errors are o(ell^4), the geometric and stress readouts converge and the area coefficient tends to one positive constant, the limiting fields obey the semiclassical Einstein equation. Independent matter and geometric conservation fix the cosmological term up to a constant on each connected component. A separate partition-repair candidate forces the stationarity premise on all enrolled finite endpoint regions, with independent cubical area checks and a smooth-ball comparison whose capacity is supplied. In a separate homogeneous string material, a fair local reservoir selects a family satisfying all three estimates on its declared proper balls. Its sheet transport and work response are constitutive inputs. Identification of corresponding stress and proper geometry on the active Interval Echo source is open.",
       "owner_paper": "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex",
       "tier": "conditional_scaling_theorem",
       "assumptions": [
@@ -790,10 +790,17 @@
         "code/matched_einstein_limit/PROOF.md",
         "model/candidate_laws/interval_echo_partition_repair/REGIONAL.md",
         "model/candidate_laws/interval_echo_partition_repair/surveyed_cells/README.md",
-        "model/candidate_laws/interval_echo_partition_repair/proper_balls/README.md"
+        "model/candidate_laws/interval_echo_partition_repair/proper_balls/README.md",
+        "code/matched_einstein_limit/source_implication/full_algebra/reuse/selection_test/results.json",
+        "model/experiments/interval_echo_einstein_station/critical_exchange/selection/README.md",
+        "code/matched_einstein_limit/source_implication/modular_orbit/weyl_balls/PROOF.md",
+        "model/candidate_laws/interval_echo_partition_repair/published_strings/GEOMETRY.md",
+        "model/candidate_laws/interval_echo_partition_repair/published_strings/nested_stress/README.md",
+        "model/candidate_laws/interval_echo_partition_repair/published_strings/nested_stress/selection/README.md",
+        "Lean/ObserverPatchHolography/EinsteinBranch/TicketBath.lean"
       ],
       "falsifier": "The ten-frame bound fails on data satisfying its stated inequalities, or the claimed physical realization lacks matched proper-ball geometry, independently identified propagating stress, stationarity, or the uniform remainder control.",
-      "scope_if_false": "The OPH gravity branch falls; fixed-cutoff consensus and purely gauge-sector results do not automatically fall.",
+      "scope_if_false": "A counterexample satisfying the inequalities invalidates the finite implication. A failed physical premise excludes its realization on the tested source and preparation domain. Other source realizations and the finite implication can be assessed independently.",
       "status": "proved_on_branch",
       "claim_class": "conditional_implication",
       "premise_dependencies": {

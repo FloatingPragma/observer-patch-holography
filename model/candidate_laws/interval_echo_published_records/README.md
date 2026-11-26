@@ -12,9 +12,10 @@ The carrier, free generator and existing observer results can be checked against
 
 The primary input is a deposited 80-cell, 33-service clock journey. The added sector can resample those addresses with both single-post distributions fixed while changing the frequency of jointly posted words from zero to $8/33$. It assigns the ordinary and coincidence densities to families of straight parallel sheets. A change in sheet length measures their action tension. Independent rod transport measures the transverse angle per sheet. Changing the coincidence transport strength or blinding the endpoint pulse disturbs the held comparison. [Archive inputs](../interval_echo_partition_repair/published_strings/ARCHIVE.md) · [Action and geometry](../interval_echo_partition_repair/published_strings/GEOMETRY.md) · [Independent records and controls](../interval_echo_partition_repair/published_strings/results.json)
 
-The common proper geometry, the sheet action, the ten observing frames, the prepared memory vacuum and its work-sensitive response are specified for this comparison. Native records alone have yet to identify this action with freely propagating matter, or its extra sheet source with a galactic mass discrepancy. Interval Echo remains the active law. [Full evaluation](../../evaluation/SCORECARD.md)
+At a completed material appointment a local reservoir has replaced three ticket bits per memory. Five of eight equally frequent tickets produce the first word. A single ticket produces each other word. The calibrated work pulse then sets the native output. This selects exactly the same material on every displacement record, even from arbitrary correlated incoming memories. Proper geometry, sheet action and work response are physical inputs to the comparison. An intervention between appointments can change the observed entropy with the stock and rods fixed. [Selection proof and controls](../interval_echo_partition_repair/published_strings/nested_stress/selection/README.md) · [Three nested surveys](../interval_echo_partition_repair/published_strings/nested_stress/README.md) · [Full evaluation](../../evaluation/SCORECARD.md)
 
 ~~~sh
 python -m model run --law interval_echo_published_records --check
+python -m model run --law interval_echo_published_records --selection
 python -m model evaluate --law interval_echo_published_records --criterion G5
 ~~~

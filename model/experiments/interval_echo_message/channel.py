@@ -618,6 +618,12 @@ REPLAY_EVALUATIONS = (
         "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
         "model/candidate_laws/interval_echo/EVALUATION.json": "712855337abb7646e1921828dda9e1812a6da3f5511a6832262455d509de9d22",
     },
+    # Native matter selection and the four-station equilibrium comparison.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "6925da341d38ab9fc871ea63c19a02d8d8e08e783449204a9c84ac2d65ef1461",
+    },
 )
 
 

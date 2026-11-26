@@ -6951,11 +6951,12 @@
    "category": "Physical premises",
    "status": "Partial",
    "what": "Entropy changes of regions equal modular-energy pairings, which split into 2 pi times a bulk term plus an edge term.",
-   "why": "Native three-register reads detect variations hidden from every pairwise marginal, and the separate sheet comparison reproduces the entropy response to sourced stress while an independent memory rotation exposes the stronger operator mismatch.",
+   "why": "Cooling a native guide selects a correlated state with signed interval energy responses, and a separate Weyl field gives the required small-ball entropy coefficient for freely moving packets on a common finite refinement.",
    "premises": [],
    "lean": [
     "Lean/ObserverPatchHolography/EinsteinBranch/RegisterSurface.lean",
-    "Lean/ObserverPatchHolography/EinsteinBranch/Composition.lean"
+    "Lean/ObserverPatchHolography/EinsteinBranch/Composition.lean",
+    "Lean/ObserverPatchHolography/EinsteinBranch/RegionalMoments.lean"
    ],
    "model": [
     "model/experiments/interval_echo_einstein_station/PAIR.md",
@@ -6966,7 +6967,11 @@
     "model/experiments/interval_echo_einstein_station/collar_scaling/station_clock/separated_sectors/angular_pair/README.md",
     "model/experiments/interval_echo_einstein_station/field_stress_curvature/neutral_packet/README.md",
     "code/matched_einstein_limit/source_implication/full_algebra/correlation_rank/shared_action/README.md",
-    "model/candidate_laws/interval_echo_partition_repair/published_strings/README.md"
+    "model/candidate_laws/interval_echo_partition_repair/published_strings/README.md",
+    "model/experiments/interval_echo_einstein_station/critical_exchange/selection/README.md",
+    "model/experiments/interval_echo_einstein_station/critical_exchange/results.json",
+    "code/matched_einstein_limit/source_implication/modular_orbit/weyl_balls/PROOF.md",
+    "model/candidate_laws/interval_echo_partition_repair/published_strings/nested_stress/README.md"
    ],
    "papers": [],
    "statement": "The finite first-law pairings satisfy the typed modular flow package: the entropy differential equals the modular pairing, the modular generator splits as 2*pi times the bulk pairing plus the central pairing, and the central pairing equals the edge differential. The continuum diamond-kernel identification reads the bulk entropy variation as the modular charge of the same symmetric regional stress that governs matter propagation, with its energy scale fixed independently of the area response.",
@@ -6987,7 +6992,8 @@
    ],
    "model": [
     "model/experiments/interval_echo_null_balance/README.md",
-    "model/candidate_laws/interval_echo_partition_repair/published_strings/GEOMETRY.md"
+    "model/candidate_laws/interval_echo_partition_repair/published_strings/GEOMETRY.md",
+    "code/matched_einstein_limit/source_implication/modular_orbit/weyl_balls/PROOF.md"
    ],
    "papers": [],
    "statement": "The symmetric stress of the propagating matter satisfies the weak Ward conservation identity on the reconstructed chart independently of the Einstein equation. Modular translation measurements give one way to test this identity.",
@@ -7000,12 +7006,13 @@
    "category": "Physical premises",
    "status": "Partial",
    "what": "At fixed volume, first-order changes of bulk entropy balance changes of boundary area divided by four times Newton's constant.",
-   "why": "Interval Echo has exact stationarity on a selected survey, partition repair proves it on overlapping records, and the published-record extension gives o(ℓ⁴) finite entropy–area residuals on equal-volume string-sector balls.",
+   "why": "Feedback selects the balanced native survey while uniform reuse misses it, and three fair-bit exchanges select the matched shrinking-ball family from every incoming memory in the separate homogeneous string material.",
    "premises": [],
    "lean": [
     "Lean/ObserverPatchHolography/EinsteinBranch/Composition.lean",
     "Lean/ObserverPatchHolography/EinsteinBranch/TileCapacity.lean",
-    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/RangeContraction.lean"
+    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/RangeContraction.lean",
+    "Lean/ObserverPatchHolography/EinsteinBranch/TicketBath.lean"
    ],
    "model": [
     "model/experiments/interval_echo_einstein_station/equilibrium_refinement/README.md",
@@ -7072,7 +7079,10 @@
     "model/candidate_laws/interval_echo_partition_repair/surveyed_cells/README.md",
     "model/candidate_laws/interval_echo_partition_repair/proper_balls/README.md",
     "model/candidate_laws/interval_echo_partition_repair/published_strings/README.md",
-    "model/candidate_laws/interval_echo_partition_repair/published_strings/results.json"
+    "model/candidate_laws/interval_echo_partition_repair/published_strings/results.json",
+    "code/matched_einstein_limit/source_implication/full_algebra/reuse/selection_test/results.json",
+    "model/candidate_laws/interval_echo_partition_repair/published_strings/nested_stress/selection/README.md",
+    "model/candidate_laws/interval_echo_partition_repair/published_strings/nested_stress/selection/results.json"
    ],
    "papers": [],
    "statement": "The first-order bulk entropy variation balances the fixed-volume area variation over 4G, and the declared MaxEnt family has zero normalization rate, unit constraint speed and the Gibbs differential equation.",

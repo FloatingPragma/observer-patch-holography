@@ -75,3 +75,7 @@ export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1
 python -m model.experiments.interval_echo_einstein_station.critical_exchange.measure
 python -m pytest -q model/experiments/interval_echo_einstein_station/critical_exchange
 ~~~
+
+## How observers select and disturb the reference
+
+Work comparisons select the half-filled reference from an arbitrary input with the same total load. The controller observes the hopping energies before it measures any interval entropy. Once the reference is cold, fixed guided propagation restores its local bond readings after a bounded disturbance, on a pre-return time window of the finite guide. The original all-open federation gives a different evolution. [Independent work selection](selection/README.md) · [Local return and control](relaxation/README.md)
