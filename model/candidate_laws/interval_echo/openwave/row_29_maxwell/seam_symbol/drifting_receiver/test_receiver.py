@@ -68,3 +68,10 @@ def test_complement_counts_and_failed_standards_are_retained():
         for _ in range(8)
     ]
     assert read_bank(impossible)[0] == "inconsistent"
+
+
+def test_blind_receiver_can_refute_the_shared_response():
+    per_arm = ENROLLMENT // 32
+    blind = [[[0, per_arm], [0, per_arm], [per_arm, 0], [0, per_arm]] for _ in range(8)]
+    status, interval, half_passes = read_bank(blind)
+    assert (status, interval, half_passes) == ("inconsistent", None, True)

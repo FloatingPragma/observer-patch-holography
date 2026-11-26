@@ -28,11 +28,16 @@ def read_bank(batches):
     span = bright - dark
     allowance = ENROLLMENT * TOLERANCE
     half_passes = abs(half - dark - span / 2) <= allowance
+    # Check feasibility on the ideal grid interval before widening it.
+    # Even a blind receiver can give incompatible signal and reference counts.
+    difference = signal - dark
+    if difference - allowance > max(0, span) or difference + allowance < min(0, span):
+        return "inconsistent", None, half_passes
     if span <= 4 * allowance:
         return "unresolved", (0.0, 1.0), half_passes
     lo = max(0.0, (signal - dark - allowance) / span - HALF_BIN)
     hi = min(1.0, (signal - dark + allowance) / span + HALF_BIN)
-    return ("resolved" if lo <= hi else "inconsistent"), (lo, hi), half_passes
+    return "resolved", (lo, hi), half_passes
 
 
 def report(records):
