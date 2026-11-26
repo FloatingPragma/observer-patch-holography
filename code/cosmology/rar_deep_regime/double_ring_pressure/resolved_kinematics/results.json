@@ -1,0 +1,44 @@
+{
+  "resolved_markers": 41,
+  "monotone_shell_upper_km_s": 261.74281,
+  "outward_upper_km_s": 262,
+  "lower_added_interior_orbital_mass_Msun": 843109137,
+  "central_lower_graphical_bar_km_s": 270,
+  "outer_upper_graphical_bar_km_s": 247.0,
+  "central_and_outer_radial_windows_arcsec": [
+    [
+      0,
+      0.16
+    ],
+    [
+      0.64,
+      1.37
+    ]
+  ],
+  "models": {
+    "Chabrier": {
+      "central_full_continuation_km_s": 207.962,
+      "inner_ring_full_continuation_km_s": 179.849,
+      "median_predicted_minus_observed_km_s": -66.769,
+      "median_absolute_residual_km_s": 66.769,
+      "predictions_below_marker_count": 41,
+      "central_upper_arbitrary_positive_exterior_km_s": 242.94
+    },
+    "Salpeter": {
+      "central_full_continuation_km_s": 278.089,
+      "inner_ring_full_continuation_km_s": 230.67,
+      "median_predicted_minus_observed_km_s": -6.98,
+      "median_absolute_residual_km_s": 8.326,
+      "predictions_below_marker_count": 28,
+      "central_upper_arbitrary_positive_exterior_km_s": 303.811
+    },
+    "upper_Chabrier": {
+      "central_full_continuation_km_s": 228.492,
+      "inner_ring_full_continuation_km_s": 195.748,
+      "median_predicted_minus_observed_km_s": -48.622,
+      "median_absolute_residual_km_s": 48.622,
+      "predictions_below_marker_count": 41,
+      "central_upper_arbitrary_positive_exterior_km_s": 260.303
+    }
+  }
+}
