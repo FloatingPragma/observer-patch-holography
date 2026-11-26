@@ -49,3 +49,47 @@ def test_full_receipt_and_two_opposite_shapes():
     by = {r["galaxy"]: r for r in deep["pairs"]}
     assert by["D631-7"]["speed_error_boxes"]["2"]["observed_range"][0] > 1.44
     assert by["UGC05764"]["speed_error_boxes"]["2"]["observed_range"][1] < 0.79
+
+
+def test_mass_rectangle_and_force_tolerance():
+    from . import sensitivity as s
+
+    result = s.run()
+    assert result == json.loads((m.HERE / "sensitivity.json").read_text())
+    stellar = {
+        r["galaxy"] for r in result if r["remains_below_through_stellar_rectangle"]
+    }
+    matched = {
+        r["galaxy"]
+        for r in result
+        if r["remains_below_for_any_ten_percent_force_match"]
+    }
+    assert len(stellar) == len(matched) == 5
+    assert len(stellar | matched) == 7
+    robust_eligible = [
+        r["galaxy"]
+        for r in result
+        if r["always_satisfies_deep_cut"]
+        and r["always_satisfies_pair_force_match"]
+        and r["galaxy"] in stellar
+    ]
+    assert robust_eligible == ["UGC06667"]
+    middle = next(r for r in result if r["galaxy"] == "UGC07125")
+    assert [0.6, 0.56] in middle["eligible_corners_reaching_shape_bound"]
+    source = (s.HERE.parent / "data/table2.dat").read_text().splitlines()
+    for row in result:
+        f, h = [
+            s.measured(source[row[k] - 1])
+            for k in ("faint_table_line", "bright_table_line")
+        ]
+        high = h[0] * (f[1] + 2 * f[2]) ** 2 / (f[0] * (h[1] - 2 * h[2]) ** 2)
+        t = s.force(f[3], F(".5"), F(".7")) / s.force(h[3], F(".5"), F(".7"))
+        limit = max(high, high * high)
+        e = (t - limit) / (t + limit)
+        assert row["minimum_independent_symmetric_fraction"] == float(e)
+        assert t * (1 - e) == limit * (1 + e)
+        for d in (F(".4"), F(".49"), F(".6")):
+            for b in (F(".56"), F(".73"), F(".84")):
+                trial = float(s.force(f[3], d, b) / s.force(h[3], d, b))
+                lo, hi = row["stellar_rectangle_baryonic_ratio"]
+                assert lo <= trial <= hi

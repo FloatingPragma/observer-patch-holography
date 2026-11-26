@@ -38,12 +38,21 @@ There were 83 eligible-quality/inclination galaxies with no qualifying deep pair
 
 Two examples have nearly the same catalogue distance. In D631-7 (7.72 Mpc), stellar brightness falls from 26.06 to 2.10 solar luminosities per square parsec. The entire two-error observed ratio exceeds 1.44, while the constant-amplitude shape ratio is at most 0.994. In UGC05764 (7.47 Mpc) brightness falls from 11.43 to 0.44 in the same units. Its observed ratio is below 0.783 throughout the two-error box, while the minimum ratio for *any* nondecreasing excess amplitude towards the fainter ring exceeds 1.008. These illustrative galaxies have distinct gas profiles and are members of the full 70-galaxy count. They are each seen from one distance. No record follows the same galaxy moved to a second distance. This test cannot separate low stellar light from large galactocentric radius in this enrollment. [Measured source rows](../data/table2.dat)
 
+## How much can stellar calibration change the eight lower ratios?
+
+Hold the eight original pairs and the two-error speed boxes fixed. Allow separate common disk and bulge mass-to-light ratios in $[0.4,0.6]$ and $[0.56,0.84]$ for each galaxy, with its signed gas contribution fixed. These ranges give a sensitivity test with no assigned probability. For a given annulus, the baryonic force is affine in the two mass-to-light ratios. Both annuli remain positive at all four corners. At an intermediate point, write the two affine forces as convex combinations of the corner values with the same weights. Their ratio is a weighted mean of the corner ratios, with weights proportional to the bright-ring forces. The extrema therefore occur at corners. The deep cut and both force-matching inequalities are also linear constraints on the forces. [Sensitivity protocol](PROTOCOL.md) · [Exact-rational calculation](sensitivity.py)
+
+Five pairs remain below the monotone bound throughout this stellar range. Independently, five pairs have a two-error orbital upper endpoint below $10/11$, the smallest possible lower shape bound for *any* positive forces satisfying the original 10% match. Three pairs belong to both groups. Thus seven conflicts persist at every allowed stellar calibration that also keeps their two forces matched. In UGC07125 a disk ratio of 0.6 permits the lower shape inequality while retaining the original cuts. Reaching that inequality establishes a necessary condition only. UGC06667 alone stays deep and matched and remains discrepant throughout the entire stellar range. This calculation keeps the original annuli and does not ask whether another pair would become the largest brightness contrast at a changed calibration. [Results for all eight galaxies](sensitivity.json)
+
+Even without a stellar model one can bound the force change needed. Let $H$ be the largest orbital ratio permitted by the two speed boxes. The lower shape bound can be reached only if the true force ratio is at most $q=\max(H,H^2)$. Independent relative changes of magnitude at most $e$ in both nominal baryonic accelerations can lower their ratio from $t$ to $t(1-e)/(1+e)$. Consequently the required tolerance is at least $(t-q)/(t+q)$, ranging from 0.807% in UGC12732 to 13.061% in UGC02259. This is the most favourable opposing adjustment at the two radii. Published speed errors alone supply no error budget for the inferred baryonic forces.
+
 ## Replay
 
 From the repository root, run:
 
 ```sh
 python code/cosmology/rar_deep_regime/brightness_pairs/measure.py
+python code/cosmology/rar_deep_regime/brightness_pairs/sensitivity.py
 python -m pytest -q code/cosmology/rar_deep_regime/brightness_pairs/
 ```
 
