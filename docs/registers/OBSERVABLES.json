@@ -1236,10 +1236,7 @@
     "PR-119",
     "PR-165",
     "PR-92",
-    "PR-134",
-    "PR-135",
-    "PR-136",
-    "PR-137"
+    "PR-134"
    ],
    "lean": [
     "Lean/docs/EINSTEIN_BRANCH_INDEX.md",
@@ -1599,12 +1596,13 @@
    "kind": "observable",
    "name": "Standard Model gauge algebra su(3)+su(2)+u(1)",
    "category": "Gauge Forces",
-   "status": "Demonstrated",
+   "status": "Conditional",
    "what": "The Standard Model's forces follow from the gauge symmetry algebra su(3)+su(2)+u(1): colour, weak isospin and hypercharge.",
-   "why": "OPH reads this algebra from the complete port response of its icosahedral observer cell; obtaining it fixes which forces the theory contains.",
+   "why": "The finite classification applies to the physical currents if the source has a complete faithful twelve-dimensional response closed under commutators and its proper rotations act internally.",
    "premises": [
     "PR-09",
-    "PR-10"
+    "PR-10",
+    "PR-54"
    ],
    "lean": [
     "Lean/Screen/A2HolonomyBridge.lean",
@@ -1631,7 +1629,9 @@
     "model/experiments/interval_echo_gauge/flag_measure/README.md",
     "model/experiments/interval_echo_gauge/flag_measure/measure.py",
     "model/experiments/interval_echo_gauge/flag_measure/records.json",
-    "model/experiments/interval_echo_gauge/flag_measure/test_flags.py"
+    "model/experiments/interval_echo_gauge/flag_measure/test_flags.py",
+    "model/experiments/interval_echo_gauge/port_phases/README.md",
+    "model/experiments/interval_echo_gauge/matter_class/ring_current/independent_probe/README.md"
    ],
    "papers": [
     "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf",
@@ -1915,9 +1915,9 @@
    "kind": "observable",
    "name": "No minimal grand unification",
    "category": "Gauge Forces",
-   "status": "Demonstrated",
+   "status": "Partial",
    "what": "Minimal grand unified theories such as SU(5) predict X and Y gauge bosons that would mediate proton decay, which experiments have not seen.",
-   "why": "OPH obtains the Standard Model product group directly, with no X/Y generators, so it predicts no proton decay through that channel.",
+   "why": "The selected connected gauge algebra lacks X and Y generators, while excluding additional heavy mediators requires evidence beyond that sector.",
    "premises": [],
    "lean": [],
    "model": [
