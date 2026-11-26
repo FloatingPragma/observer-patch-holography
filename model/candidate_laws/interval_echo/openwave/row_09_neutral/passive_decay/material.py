@@ -117,7 +117,7 @@ def columns(comparison=False):
     return float(residual)
 
 
-def commission(board, dimers, heads):
+def commission(board, dimers, heads, sharp=False):
     sites = set(sum(dimers, ()))
     seams = {edge(a, b) for a, b in board.seams}
     blanks = {edge(*x) for x in dimers}
@@ -155,20 +155,38 @@ def commission(board, dimers, heads):
         bring(a, 2, set())
         bring(b, 0, {a})
         assert (stock[a], stock[b]) == (2, 0)
-        record("half_swap", a, b)
-        route = path_to(b, paths, lambda q: board.degree[q] == 5)
-        pairs = list(zip(route, route[1:]))
-        for x, y in pairs:
-            swap(x, y)
-        record(
-            "quarter_phase" if cost == 32 else "three_quarter_phase",
-            route[-1],
-            route[-1],
-        )
-        for x, y in reversed(pairs):
-            swap(x, y)
-        record("write", a, b)
-        stock[a], stock[b] = 1, 1
+        if sharp:
+            neighbor = min(q for q in paths[a] if q != b)
+            route = path_to(
+                neighbor, paths, lambda q: q not in (a, b) and stock[q] == 0
+            )
+            chain = list(zip(route, route[1:]))
+            moves = chain + chain[-2::-1]
+            for x, y in moves:
+                swap(x, y)
+            assert stock[neighbor] == 0 and (stock[a], stock[b]) == (2, 0)
+            record("sharp_write", a, b)
+            stock[a], stock[b] = 1, 1
+            record("split_borrowed_hole", a, neighbor)
+            record("parity_wait", a, b)
+            record("recombine_read_restore", a, neighbor)
+            for x, y in reversed(moves):
+                swap(x, y)
+        else:
+            record("half_swap", a, b)
+            route = path_to(b, paths, lambda q: board.degree[q] == 5)
+            pairs = list(zip(route, route[1:]))
+            for x, y in pairs:
+                swap(x, y)
+            record(
+                "quarter_phase" if cost == 32 else "three_quarter_phase",
+                route[-1],
+                route[-1],
+            )
+            for x, y in reversed(pairs):
+                swap(x, y)
+            record("write", a, b)
+            stock[a], stock[b] = 1, 1
     holes = {pair[0] for pair in dimers}
     for p in sorted(holes):
         if stock[p]:

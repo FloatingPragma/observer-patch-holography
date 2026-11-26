@@ -6,7 +6,7 @@ import unittest
 import numpy as np
 from scipy.linalg import eigh
 
-from . import calibration, measure
+from . import calibration, measure, sharp
 from .material import columns, hardware
 from .readers import circuit
 
@@ -90,3 +90,27 @@ class PassiveDecay(unittest.TestCase):
                 / measure.SHOTS,
                 2 * radius,
             )
+
+
+class UnfilteredWrites(unittest.TestCase):
+    def test_every_repair_pattern_contributes_to_both_experiments(self):
+        summary, banks = sharp.run()
+        measure.compare_records(
+            json.loads((measure.HERE / "sharp.json").read_text()), summary
+        )
+        np.testing.assert_array_equal(
+            np.load(measure.HERE / "sharp_counts.npz")["banks"], banks
+        )
+        self.assertEqual(banks.shape, (512, 4, 4))
+        self.assertTrue(np.all(banks[:, :, 0] > 0))
+        self.assertTrue(np.all(banks[:, :, 2] > 0))
+        np.testing.assert_array_equal(banks[:, :, 0].sum(axis=0), [measure.SHOTS] * 4)
+        np.testing.assert_array_equal(banks[:, :, 2].sum(axis=0), [measure.SHOTS] * 4)
+        threshold = 0.01 + 2 * np.sqrt(np.log(2 * 20 / 0.01) / (2 * measure.SHOTS))
+        parent = summary["totals"]["joined_parent"]
+        for control in ("joined_ground", "cut_parent"):
+            other = summary["totals"][control]
+            for outcome in ("coincidences", "distal_minus", "two_link_coincidences"):
+                self.assertGreater(
+                    (parent[outcome] - other[outcome]) / measure.SHOTS, threshold
+                )

@@ -1,0 +1,118 @@
+{
+ "seed": 26092611,
+ "shots": 4194304,
+ "address_order": [
+  [
+   0,
+   1
+  ],
+  [
+   0,
+   5
+  ],
+  [
+   0,
+   11
+  ],
+  [
+   2,
+   11
+  ],
+  [
+   4,
+   5
+  ],
+  [
+   5,
+   9
+  ],
+  [
+   6,
+   7
+  ],
+  [
+   7,
+   8
+  ],
+  [
+   72,
+   82
+  ]
+ ],
+ "arms": [
+  "joined_parent",
+  "joined_ground",
+  "cut_parent",
+  "cut_ground"
+ ],
+ "even_odd_pointer": {
+  "sharp_pointer_laws": [
+   [
+    0.5,
+    0.5
+   ],
+   [
+    0.5,
+    0.5
+   ]
+  ],
+  "repeat_pointer_error": 0,
+  "parked_moved_probability": 0,
+  "contact_gaps": [
+   32.0,
+   33.0
+  ]
+ },
+ "commission": {
+  "total_load": 236,
+  "operations": {
+   "blank_swap": 404,
+   "sharp_write": 9,
+   "split_borrowed_hole": 9,
+   "parity_wait": 9,
+   "recombine_read_restore": 9,
+   "write_idle": 16
+  },
+  "digest": "cb059a78b161d49b58724296df6c246e843bf098bbc6599ace463599b0c942b5"
+ },
+ "material_histories": 512,
+ "both_links_nonzero": 128,
+ "parent_formation_range": [
+  32.155776716,
+  35.317926248
+ ],
+ "receiver_threshold_range": [
+  0.85463768,
+  1.048574246
+ ],
+ "totals": {
+  "joined_parent": {
+   "starts": 4194304,
+   "coincidences": 632797,
+   "distal_starts": 4194304,
+   "distal_minus": 337252,
+   "two_link_coincidences": 449766
+  },
+  "joined_ground": {
+   "starts": 4194304,
+   "coincidences": 0,
+   "distal_starts": 4194304,
+   "distal_minus": 146582,
+   "two_link_coincidences": 0
+  },
+  "cut_parent": {
+   "starts": 4194304,
+   "coincidences": 0,
+   "distal_starts": 4194304,
+   "distal_minus": 145947,
+   "two_link_coincidences": 0
+  },
+  "cut_ground": {
+   "starts": 4194304,
+   "coincidences": 0,
+   "distal_starts": 4194304,
+   "distal_minus": 146291,
+   "two_link_coincidences": 0
+  }
+ }
+}
