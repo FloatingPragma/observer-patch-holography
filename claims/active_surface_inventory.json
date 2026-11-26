@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 1385,
+  "surface_count": 1424,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -1366,6 +1366,16 @@
       "allowlisted": false
     },
     {
+      "path": "model/candidate_laws/interval_echo/openwave/row_03_clock/emitted_material/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_03_clock/emitted_material/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/candidate_laws/interval_echo/openwave/row_03_clock/moving_pair/PROTOCOL.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -1397,6 +1407,21 @@
     },
     {
       "path": "model/candidate_laws/interval_echo/openwave/row_03_clock/neutral_reference/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_03_clock/polar_island/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_03_clock/polar_island/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_03_clock/polar_island/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -1711,12 +1736,112 @@
       "allowlisted": false
     },
     {
+      "path": "model/candidate_laws/interval_echo/openwave/row_09_neutral/extended_decay/CROSSING.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_09_neutral/extended_decay/JOINT.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_09_neutral/extended_decay/PRECISION.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_09_neutral/extended_decay/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_09_neutral/extended_decay/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/candidate_laws/interval_echo/openwave/row_09_neutral/flight_calorimetry/PROTOCOL.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
     {
       "path": "model/candidate_laws/interval_echo/openwave/row_09_neutral/flight_calorimetry/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_09_neutral/joined_decay/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_09_neutral/joined_decay/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_09_neutral/passive_decay/CALIBRATION.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_09_neutral/passive_decay/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_09_neutral/passive_decay/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_09_neutral/passive_decay/SHARP.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_10_oscillations/ERASER.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_10_oscillations/ERASER_PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_10_oscillations/MIXTURE.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_10_oscillations/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_10_oscillations/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_10_oscillations/theory/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_10_oscillations/translated_pairs/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_10_oscillations/translated_pairs/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_10_oscillations/translated_pairs/SECOND_RECEIVER.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
@@ -3057,6 +3182,76 @@
     },
     {
       "path": "model/experiments/interval_echo_angular/charged_orientation/adiabatic_exchange/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_angular/charged_orientation/adiabatic_exchange/host_parity/ONE_VACANCY.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_angular/charged_orientation/adiabatic_exchange/host_parity/PASSIVE_PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_angular/charged_orientation/adiabatic_exchange/host_parity/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_angular/charged_orientation/adiabatic_exchange/host_parity/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_angular/charged_orientation/adiabatic_exchange/host_parity/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_angular/charged_orientation/adiabatic_exchange/host_parity/VACANCIES.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_angular/charged_orientation/adiabatic_exchange/host_parity/VACANCY_PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_angular/charged_orientation/adiabatic_exchange/host_parity/excited_motion/CONTROLS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_angular/charged_orientation/adiabatic_exchange/host_parity/excited_motion/PARKED_PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_angular/charged_orientation/adiabatic_exchange/host_parity/excited_motion/PROOF.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_angular/charged_orientation/adiabatic_exchange/host_parity/excited_motion/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_angular/charged_orientation/adiabatic_exchange/host_parity/excited_motion/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_angular/charged_orientation/adiabatic_exchange/host_parity/excited_motion/ROUTE_PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_angular/charged_orientation/adiabatic_exchange/host_parity/excited_motion/SHARP_PROTOCOL.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },

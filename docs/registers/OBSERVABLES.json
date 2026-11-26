@@ -5109,7 +5109,8 @@
    ],
    "lean": [
     "model/candidate_laws/interval_echo/openwave/row_03_clock/released_direction/InternalBand.lean",
-    "model/candidate_laws/interval_echo/openwave/row_03_clock/wall_arrival/WallBand.lean"
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/wall_arrival/WallBand.lean",
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/polar_island/PassiveRead.lean"
    ],
    "model": [
     "model/evaluation/SCORECARD.md",
@@ -5139,7 +5140,20 @@
     "model/candidate_laws/interval_echo/openwave/row_03_clock/wall_arrival/measure.py",
     "model/candidate_laws/interval_echo/openwave/row_03_clock/wall_arrival/rational_lines.py",
     "model/candidate_laws/interval_echo/openwave/row_03_clock/wall_arrival/results.json",
-    "model/candidate_laws/interval_echo/openwave/row_03_clock/wall_arrival/test_clock.py"
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/wall_arrival/test_clock.py",
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/polar_island/PROOF.md",
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/polar_island/PROTOCOL.md",
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/polar_island/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/polar_island/enclosures.json",
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/polar_island/exclusion.py",
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/polar_island/measure.py",
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/polar_island/records.json",
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/polar_island/test_read.py",
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/emitted_material/PROTOCOL.md",
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/emitted_material/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/emitted_material/frequencies.json",
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/emitted_material/measure.py",
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/emitted_material/test_emitted_clock.py"
    ],
    "papers": [
     "paper/executable_observer_construction.pdf"
@@ -5275,7 +5289,7 @@
    "kind": "observable",
    "name": "Spin-½ sign under 360° rotation and exchange",
    "category": "OpenWave Recovery",
-   "status": "Open",
+   "status": "Partial",
    "what": "Fermions change sign under a full 360-degree rotation and under exchange, returning to themselves only after 720 degrees.",
    "why": "This sign underlies the Pauli exclusion principle and atomic structure, so a model of matter has to produce it.",
    "premises": [
@@ -5336,11 +5350,37 @@
     "model/experiments/interval_echo_angular/charged_orientation/adiabatic_exchange/exchange.py",
     "model/experiments/interval_echo_angular/charged_orientation/adiabatic_exchange/measure.py",
     "model/experiments/interval_echo_angular/charged_orientation/adiabatic_exchange/results.json.gz",
-    "model/experiments/interval_echo_angular/charged_orientation/adiabatic_exchange/test_exchange.py"
+    "model/experiments/interval_echo_angular/charged_orientation/adiabatic_exchange/test_exchange.py",
+    "model/experiments/interval_echo_angular/charged_orientation/adiabatic_exchange/host_parity/ONE_VACANCY.md",
+    "model/experiments/interval_echo_angular/charged_orientation/adiabatic_exchange/host_parity/PASSIVE_PROTOCOL.md",
+    "model/experiments/interval_echo_angular/charged_orientation/adiabatic_exchange/host_parity/PROOF.md",
+    "model/experiments/interval_echo_angular/charged_orientation/adiabatic_exchange/host_parity/PROTOCOL.md",
+    "model/experiments/interval_echo_angular/charged_orientation/adiabatic_exchange/host_parity/README.md",
+    "model/experiments/interval_echo_angular/charged_orientation/adiabatic_exchange/host_parity/VACANCIES.md",
+    "model/experiments/interval_echo_angular/charged_orientation/adiabatic_exchange/host_parity/VACANCY_PROTOCOL.md",
+    "model/experiments/interval_echo_angular/charged_orientation/adiabatic_exchange/host_parity/excited_motion/CONTROLS.md",
+    "model/experiments/interval_echo_angular/charged_orientation/adiabatic_exchange/host_parity/excited_motion/PARKED_PROTOCOL.md",
+    "model/experiments/interval_echo_angular/charged_orientation/adiabatic_exchange/host_parity/excited_motion/PROOF.md",
+    "model/experiments/interval_echo_angular/charged_orientation/adiabatic_exchange/host_parity/excited_motion/PROTOCOL.md",
+    "model/experiments/interval_echo_angular/charged_orientation/adiabatic_exchange/host_parity/excited_motion/README.md",
+    "model/experiments/interval_echo_angular/charged_orientation/adiabatic_exchange/host_parity/excited_motion/ROUTE_PROTOCOL.md",
+    "model/experiments/interval_echo_angular/charged_orientation/adiabatic_exchange/host_parity/excited_motion/SHARP_PROTOCOL.md",
+    "model/experiments/interval_echo_angular/charged_orientation/adiabatic_exchange/host_parity/excited_motion/measure.py",
+    "model/experiments/interval_echo_angular/charged_orientation/adiabatic_exchange/host_parity/excited_motion/pump.py",
+    "model/experiments/interval_echo_angular/charged_orientation/adiabatic_exchange/host_parity/excited_motion/records.json.gz",
+    "model/experiments/interval_echo_angular/charged_orientation/adiabatic_exchange/host_parity/excited_motion/test_pump.py",
+    "model/experiments/interval_echo_angular/charged_orientation/adiabatic_exchange/host_parity/experiment.py",
+    "model/experiments/interval_echo_angular/charged_orientation/adiabatic_exchange/host_parity/measure.py",
+    "model/experiments/interval_echo_angular/charged_orientation/adiabatic_exchange/host_parity/passive.py",
+    "model/experiments/interval_echo_angular/charged_orientation/adiabatic_exchange/host_parity/results.json",
+    "model/experiments/interval_echo_angular/charged_orientation/adiabatic_exchange/host_parity/test_junction.py",
+    "model/experiments/interval_echo_angular/charged_orientation/adiabatic_exchange/host_parity/vacancies.json",
+    "model/experiments/interval_echo_angular/charged_orientation/adiabatic_exchange/host_parity/vacancies.py"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
-    "paper/deriving_the_particle_zoo_from_observer_consistency.pdf"
+    "paper/deriving_the_particle_zoo_from_observer_consistency.pdf",
+    "paper/executable_observer_construction.pdf"
    ]
   },
   {
@@ -5436,7 +5476,43 @@
     "model/candidate_laws/interval_echo/openwave/row_09_neutral/critical_emission/release.py",
     "model/candidate_laws/interval_echo/openwave/row_09_neutral/critical_emission/results.json",
     "model/candidate_laws/interval_echo/openwave/row_09_neutral/critical_emission/test_emission.py",
-    "model/candidate_laws/interval_echo/openwave/row_09_neutral/critical_emission/test_release.py"
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/critical_emission/test_release.py",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/passive_decay/CALIBRATION.md",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/passive_decay/PROTOCOL.md",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/passive_decay/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/passive_decay/SHARP.md",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/passive_decay/calibration.json",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/passive_decay/calibration.py",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/passive_decay/material.py",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/passive_decay/measure.py",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/passive_decay/readers.py",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/passive_decay/records.json",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/passive_decay/sharp.json",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/passive_decay/sharp.py",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/passive_decay/sharp_counts.npz",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/passive_decay/test_passive_decay.py",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/joined_decay/PROTOCOL.md",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/joined_decay/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/joined_decay/measure.py",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/joined_decay/records.json",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/joined_decay/test_joined.py",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/extended_decay/CROSSING.md",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/extended_decay/JOINT.md",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/extended_decay/PRECISION.md",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/extended_decay/PROTOCOL.md",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/extended_decay/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/extended_decay/crossing.json",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/extended_decay/four.json",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/extended_decay/joint.json",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/extended_decay/joint.py",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/extended_decay/material.py",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/extended_decay/measure.py",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/extended_decay/precision.py",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/extended_decay/preparation.json",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/extended_decay/preparation.py",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/extended_decay/records.json",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/extended_decay/test_extended.py",
+    "model/candidate_laws/interval_echo/openwave/row_09_neutral/extended_decay/three.json"
    ],
    "papers": [
     "paper/executable_observer_construction.pdf",
@@ -10406,7 +10482,8 @@
     "Lean/Geometry/InternalClockRestFrequency.lean",
     "Lean/Geometry/FreeEvolutionPersistence.lean",
     "Lean/Geometry/ProperTimeInternalAction.lean",
-    "model/candidate_laws/interval_echo/openwave/row_03_clock/released_direction/InternalBand.lean"
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/released_direction/InternalBand.lean",
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/polar_island/PassiveRead.lean"
    ],
    "model": [
     "model/candidate_laws/interval_echo/openwave/row_03_clock/moving_pair/README.md",
@@ -10417,7 +10494,20 @@
     "model/candidate_laws/interval_echo/openwave/row_03_clock/released_direction/flight.py",
     "model/candidate_laws/interval_echo/openwave/row_03_clock/released_direction/measure.py",
     "model/candidate_laws/interval_echo/openwave/row_03_clock/released_direction/records.json.gz",
-    "model/candidate_laws/interval_echo/openwave/row_03_clock/released_direction/test_direction.py"
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/released_direction/test_direction.py",
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/polar_island/PROOF.md",
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/polar_island/PROTOCOL.md",
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/polar_island/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/polar_island/enclosures.json",
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/polar_island/exclusion.py",
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/polar_island/measure.py",
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/polar_island/records.json",
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/polar_island/test_read.py",
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/emitted_material/PROTOCOL.md",
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/emitted_material/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/emitted_material/frequencies.json",
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/emitted_material/measure.py",
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/emitted_material/test_emitted_clock.py"
    ],
    "papers": [
     "paper/executable_observer_construction.pdf"
