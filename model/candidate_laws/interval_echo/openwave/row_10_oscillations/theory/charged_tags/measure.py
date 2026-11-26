@@ -17,6 +17,7 @@ from model.candidate_laws.interval_echo.openwave.row_10_oscillations.joint_recei
 from .apparatus import gate, inverse, ladder, stations, WORDS
 
 HERE = Path(__file__).resolve().parent
+LAW = HERE / "acquisition_law.json"
 STARTS = 2**18
 SEED = 26112694
 READS = ("sharp", "local_half_swap", "joint", "donor_read", "order_read")
@@ -75,7 +76,7 @@ def predictions(k, step):
     return readings, trace_distance(*daughter)
 
 
-def internal_tag(sites):
+def internal_tag(sites, draw):
     # The two carrier rails now share the same signed stock in both inputs.
     # Restore the charged daughter to the blank entrance before the two pulses.
     half, convert, _ = instruments(8, 2)
@@ -100,13 +101,35 @@ def internal_tag(sites):
             > 1 - 1e-12
         )
         key = [site["sensor"], sign, reverse, panel]
-        banks.append(
-            dict(key=key, counts=sample(["internal", *key], [*p, 0], STARTS, seed=SEED))
-        )
+        banks.append(dict(key=key, counts=draw(["internal", *key], [*p, 0])))
     return banks
 
 
-def acquire():
+def acquire(law=None, used=None):
+    """Draw every bank; a stored acquisition law fixes the probabilities of the draws.
+
+    Each freshly computed outcome probability must agree with the stored binary64
+    value within 1e-12. The seeded draws then use the stored values, so a different
+    roundoff in the last bit cannot reorder near-equal bins or shift the stream.
+    """
+    rows = None if law is None else iter(law)
+
+    def draw(key, probabilities):
+        p = [float(x) for x in probabilities]
+        if rows is not None:
+            row = next(rows, None)
+            if (
+                row is None
+                or row["key"] != key
+                or len(row["probabilities"]) != len(p)
+                or max(abs(a - b) for a, b in zip(p, row["probabilities"])) > 1e-12
+            ):
+                raise ArithmeticError(f"{key} differs from the acquisition law")
+            p = row["probabilities"]
+        if used is not None:
+            used.append(dict(key=key, probabilities=p))
+        return sample(key, p, STARTS, seed=SEED)
+
     sites = stations()
     banks = []
     distances = []
@@ -115,12 +138,10 @@ def acquire():
         distances.append(dict(strength=k, step=step, daughter_trace_distance=dist))
         for site, (source, read) in product(sites, readings):
             key = [site["sensor"], k, step, source, read]
-            banks.append(
-                dict(
-                    key=key,
-                    counts=sample(key, [*readings[source, read], 0], STARTS, seed=SEED),
-                )
-            )
+            banks.append(dict(key=key, counts=draw(key, [*readings[source, read], 0])))
+    control = internal_tag(sites, draw)
+    if rows is not None and next(rows, None) is not None:
+        raise ArithmeticError("Unused rows in the acquisition law")
     return dict(
         seed=SEED,
         starts=STARTS,
@@ -129,7 +150,7 @@ def acquire():
         final_bin="refused local bench setup",
         banks=banks,
         computed=distances,
-        same_charge_control=internal_tag(sites),
+        same_charge_control=control,
     )
 
 
@@ -179,11 +200,23 @@ def read(record):
 if __name__ == "__main__":
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--acquire", type=Path)
+    p.add_argument(
+        "--fresh-law",
+        type=Path,
+        help="draw from freshly computed probabilities and write them to this path",
+    )
     args = p.parse_args()
     if args.acquire:
+        used = []
+        law = None if args.fresh_law else json.loads(LAW.read_text())
         args.acquire.write_text(
-            json.dumps(acquire(), separators=(",", ":"), allow_nan=False) + "\n"
+            json.dumps(acquire(law, used), separators=(",", ":"), allow_nan=False)
+            + "\n"
         )
+        if args.fresh_law:
+            args.fresh_law.write_text(
+                json.dumps(used, separators=(",", ":"), allow_nan=False) + "\n"
+            )
     else:
         print(
             json.dumps(read(json.loads((HERE / "counts.json").read_text())), indent=2)

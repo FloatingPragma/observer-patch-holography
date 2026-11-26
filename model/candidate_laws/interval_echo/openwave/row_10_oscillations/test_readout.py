@@ -3,6 +3,7 @@ from itertools import permutations, product
 
 import numpy as np
 import pytest
+from scipy.stats import binom
 
 from model.executable_model import federation
 from model.experiments.interval_echo_angular.charged_orientation.three_arm_spin import (
@@ -14,8 +15,8 @@ from model.experiments.interval_echo_angular.charged_orientation.three_arm_spin.
     geometry,
 )
 
-from .measure import HERE, OWNERS, WORDS, analyzers, enrol_matrix, receiver
-from .mixture import decode
+from .measure import HERE, OWNERS, SIZE, WORDS, analyzers, enrol_matrix, receiver
+from .mixture import SUMMED, TAIL, decode, interval, saddle_tail, summed_tail
 from .readback import report
 
 
@@ -76,6 +77,23 @@ def test_local_half_swap_preserves_pure_sector_and_interferes():
     sample = (np.eye(6)[:, i] + 1j * np.eye(6)[:, j]) / np.sqrt(2)
     a = abs((unitary @ sample)[[i, j]]) ** 2
     np.testing.assert_allclose(sorted(a), [0, 1], atol=3e-13)
+
+
+def test_count_limits_hold_the_registered_tail():
+    n = 5000
+    for k in (1, SUMMED - 1, SUMMED, n // 3, n - SUMMED, n - 1):
+        lo, hi = interval(k, n)
+        below, above = summed_tail(k, n, lo, True), summed_tail(k, n, hi, False)
+        np.testing.assert_allclose(below, binom.sf(k - 1, n, lo), rtol=1e-9)
+        np.testing.assert_allclose(above, binom.cdf(k, n, hi), rtol=1e-9)
+        np.testing.assert_allclose([below, above], TAIL, rtol=1e-5)
+    # At 2^52 starts both tail evaluations agree where the decoder switches.
+    lo, hi = interval(SUMMED, SIZE)
+    np.testing.assert_allclose(
+        [saddle_tail(SUMMED, SIZE, lo, True), saddle_tail(SUMMED, SIZE, hi, False)],
+        [summed_tail(SUMMED, SIZE, lo, True), summed_tail(SUMMED, SIZE, hi, False)],
+        rtol=1e-5,
+    )
 
 
 def test_both_deposited_count_decoders_and_missing_bank():

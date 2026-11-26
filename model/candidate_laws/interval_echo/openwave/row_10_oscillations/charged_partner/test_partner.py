@@ -1,4 +1,5 @@
 import json
+from fractions import Fraction
 from math import sqrt
 
 import numpy as np
@@ -23,7 +24,18 @@ def test_physical_capture_and_independent_clock():
     assert station(17) == (212, 207, 206, 106, 96)
     balanced = [(51 - sqrt(297)) / 4, 8.5, (51 + sqrt(297)) / 4]
     np.testing.assert_allclose(instrument(False)[0], balanced, atol=5e-14)
-    np.testing.assert_array_equal(np.linalg.eigvalsh(hamiltonian(True)), [0, 8, 9])
+    # The half-integer entries are exact. det(H - x) vanishes at the three
+    # distinct roots 0, 8 and 9; LAPACK returns them within its backward error.
+    (a, b, c), (d, e, f), (g, h, i) = (
+        [Fraction(x) for x in row] for row in hamiltonian(True).tolist()
+    )
+    for x in (0, 8, 9):
+        assert (a - x) * ((e - x) * (i - x) - f * h) - b * (d * (i - x) - f * g) + c * (
+            d * h - (e - x) * g
+        ) == 0
+    np.testing.assert_allclose(
+        np.linalg.eigvalsh(hamiltonian(True)), [0, 8, 9], rtol=0, atol=1e-14
+    )
     delays = np.arange(N_CLOCK) * 2 * np.pi / RANGE
     amplitudes = np.exp(-1j * np.outer(balanced, delays))
     explicit = abs(np.fft.ifft(amplitudes, axis=1)) ** 2

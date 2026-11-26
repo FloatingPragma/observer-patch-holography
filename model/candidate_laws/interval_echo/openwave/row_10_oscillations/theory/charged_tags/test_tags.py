@@ -1,8 +1,10 @@
 import json
 from itertools import product
 import numpy as np
+import pytest
 from .measure import (
     HERE,
+    LAW,
     STARTS,
     SOURCES,
     WORDS,
@@ -16,7 +18,23 @@ from .measure import (
 
 def test_all_registered_cohorts_replay():
     record = json.loads((HERE / "counts.json").read_text())
-    assert json.loads(json.dumps(acquire())) == record
+    law = json.loads(LAW.read_text())
+    fresh = json.loads(json.dumps(acquire(law)))
+    # Trace distances are eigenvalue sums and carry library roundoff.
+    computed = fresh.pop("computed")
+    assert [(r["strength"], r["step"]) for r in computed] == [
+        (r["strength"], r["step"]) for r in record["computed"]
+    ]
+    np.testing.assert_allclose(
+        [r["daughter_trace_distance"] for r in computed],
+        [r["daughter_trace_distance"] for r in record["computed"]],
+        rtol=0,
+        atol=1e-12,
+    )
+    assert fresh == {k: v for k, v in record.items() if k != "computed"}
+    law[0]["probabilities"][7] -= 1e-8
+    with pytest.raises(ArithmeticError, match="acquisition law"):
+        acquire(law)
     rows = read(record)
     for r in rows:
         if r["k"] != 8 or r["step"] != 2:

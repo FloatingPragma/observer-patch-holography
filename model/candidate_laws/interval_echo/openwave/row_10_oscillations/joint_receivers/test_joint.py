@@ -20,7 +20,16 @@ def test_native_crossings_select_two_paths_with_the_registered_phase():
         np.testing.assert_allclose(
             pointer(sense, True)[0], np.diag([0, 1 / 4, 0, 0]), atol=3e-13
         )
-    assert access() == record()["source_apparatus"]
+    fresh, frozen = dict(access()), dict(record()["source_apparatus"])
+    # The converter amplitude is a product of matrix exponentials and carries
+    # library roundoff; access() checks its modulus within the same 3e-13.
+    np.testing.assert_allclose(
+        fresh.pop("conversion_amplitude"),
+        frozen.pop("conversion_amplitude"),
+        rtol=0,
+        atol=3e-13,
+    )
+    assert fresh == frozen
 
 
 def test_all_material_panel_standards_including_coherent_source_refusals():

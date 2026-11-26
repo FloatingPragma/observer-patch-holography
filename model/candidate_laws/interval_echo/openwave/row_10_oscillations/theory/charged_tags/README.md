@@ -18,6 +18,8 @@ For the enrolled pulse angles, write α=kθ/8 where θ is the programmed angle. 
 
 A separate internal-tag control starts with a full native converted daughter of either fixed sign. A blank exchange puts its signed load on either entrance rail with the same compensating donor. A half exchange prepares two orthogonal phase settings; a second half exchange then distinguishes them by the occupied rail on every simulated start. The charge read is identical for the two settings, and the internal rail records differ. Consequently the bound on reading a signed tag does not constrain an independent internal label at fixed charge. This establishes which phase information the addressed converter transfers. A physical weak-flavour tag still needs a separately identified charged species at a production or detection vertex. [Executable controls](test_tags.py)
 
+The replay draws from the stored outcome probabilities of the acquisition. Each freshly computed probability must agree with its stored binary64 value within 10⁻¹², and the six computed trace distances agree with the count file within 10⁻¹². The option `--fresh-law` draws from the fresh values instead and writes them. [Acquisition law](acquisition_law.json)
+
 Run from the repository root in the scientific Python environment with one numerical thread.
 
 ~~~sh

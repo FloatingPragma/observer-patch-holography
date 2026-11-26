@@ -2,11 +2,12 @@
 
 import argparse
 import json
+from functools import cache
 from itertools import product
+from math import copysign, erfc, exp, lgamma, log, log1p, pi, sqrt
 from pathlib import Path
 
 import numpy as np
-from scipy.special import betaincinv, betainccinv
 
 from .measure import (
     BASES,
@@ -22,15 +23,93 @@ from .measure import (
 
 FRESH = 26112611
 TAIL = 0.01 / (2 * 16384)
+SUMMED = 1000
+
+
+def excess(t):
+    """t - log(1 + t), without cancellation near zero."""
+    if abs(t) >= 0.1:
+        return t - log1p(t)
+    total, power = 0.0, t * t
+    for j in range(2, 24):
+        total += power / j if j % 2 == 0 else -power / j
+        power *= t
+    return total
+
+
+@cache
+def falling(k, n):
+    """log(n (n - 1) ... (n - k + 1) / (n^k k!))."""
+    return sum(log1p(-i / n) for i in range(k)) - lgamma(k + 1)
+
+
+def summed_tail(k, n, p, at_least):
+    """P(X >= k) or P(X <= k) for X ~ Bin(n, p), summed away from the mode n p."""
+    term = exp(k * log(n * p) + falling(k, n) + (n - k) * log1p(-p))
+    total, j = term, k
+    while term > total * 2**-60 and (j < n if at_least else j > 0):
+        if at_least:
+            term *= (n - j) / (j + 1) * p / (1 - p)
+            j += 1
+        else:
+            term *= j / (n - j + 1) * (1 - p) / p
+            j -= 1
+        total += term
+    return total
+
+
+def saddle_tail(k, n, p, at_least):
+    """Lugannani-Rice binomial tail with the second continuity correction."""
+    c = k - 0.5 if at_least else k + 0.5
+    a = n * p
+    b = n - a
+    d = c - a
+    divergence = n * d * d / (a * b) - c * excess(d / a) - (n - c) * excess(-d / b)
+    w = copysign(sqrt(2 * max(divergence, 0.0)), d)
+    u = d * sqrt(n / (a * b))
+    density = exp(-w * w / 2) / sqrt(2 * pi)
+    if at_least:
+        return erfc(w / sqrt(2)) / 2 - density * (1 / w - 1 / u)
+    return erfc(-w / sqrt(2)) / 2 + density * (1 / w - 1 / u)
+
+
+def tail(k, n, p, at_least):
+    if k < SUMMED:
+        return summed_tail(k, n, p, at_least)
+    if n - k < SUMMED:
+        return summed_tail(n - k, n, 1 - p, not at_least)
+    return saddle_tail(k, n, p, at_least)
+
+
+@cache
+def endpoint(k, n, upper):
+    """Bisect P(X >= k; p) = TAIL for the lower and P(X <= k; p) = TAIL for the upper end."""
+    inside, outside = (k - 0.5) / n, 0.0
+    if upper:
+        inside, outside = (k + 0.5) / n, 1.0
+    while True:
+        middle = (inside + outside) / 2
+        if middle in (inside, outside):
+            return outside
+        if tail(k, n, middle, not upper) > TAIL:
+            inside = middle
+        else:
+            outside = middle
 
 
 def interval(k, n):
+    """Clopper-Pearson limits at TAIL, bisected on the binomial tails.
+
+    Fewer than SUMMED counts (or misses) are summed term by term. Larger counts use
+    the saddle-point tail, whose relative error at TAIL is below 1e-5 there. The
+    library inverse of the incomplete beta function is inaccurate at 2^52 starts.
+    """
     if n <= 0 or not 0 <= k <= n:
         raise ValueError("Need a nonempty enrolled cohort and a valid count")
     return np.array(
         [
-            betaincinv(k, n - k + 1, TAIL) if k else 0.0,
-            betainccinv(k + 1, n - k, TAIL) if k < n else 1.0,
+            endpoint(k, n, False) if k else 0.0,
+            endpoint(k, n, True) if k < n else 1.0,
         ]
     )
 
