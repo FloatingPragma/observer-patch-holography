@@ -37,3 +37,13 @@ def test_marginals_cannot_certify_a_shared_record():
         assert (
             result["private_phase"][f"{source}/locally_read"]["restore_probability"] == 0.5
         )
+
+
+def test_phase_control_counts_are_stable_across_half_probability_roundoff(monkeypatch):
+    from . import measure
+
+    native_pulse = measure._dimer_pulse
+    reference = measure.private_phase_control()
+    for scale in (1.0 - 1e-14, 1.0 + 1e-14):
+        monkeypatch.setattr(measure, "_dimer_pulse", lambda t: native_pulse(t) * scale)
+        assert measure.private_phase_control() == reference
