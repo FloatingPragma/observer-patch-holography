@@ -92,19 +92,27 @@ def entropy_box(raw, root_boxes, head_error):
     return ans
 
 
-def geometry_box(raw, width):
+def clock_means(raw):
     weights = [*range(2, 13), 12]
-    ranges = [
+    return [
         sum(int(c) * k for c, k in zip(row, weights, strict=True)) * iv.mpf(1) / (4 * N)
         for row in raw
     ]
-    powers = [
+
+
+def range_powers():
+    return [
         [
             int((i, j) == e or (j, i) == e) - (int(i in e) - int(j in e)) / 4
             for i, j in ROUTES
         ]
         for e in EDGES
     ]
+
+
+def geometry_box(raw, width):
+    ranges = clock_means(raw)
+    powers = range_powers()
 
     def geometry(rs):
         log_r = [iv.ln(x) for x in rs]
@@ -164,14 +172,19 @@ def rounded(value):
     return [floor(float(scaled.a)) - 1, ceil(float(scaled.b)) + 1]
 
 
-def _audit(archive, frames):
-    marginal_check(archive)
+def instrument_widths():
     # Outward-rounded coverage for the continuum target, including tickets, finite settling,
     # and the explicitly registered numerical allowance (rather than RNG identity).
     tail = iv.sqrt(iv.ln(17600) / (2 * N))
     settle = 2 * (iv.mpf(7) / 8 + iv.mpf("0.00001")) ** 256
     head = 2 * (tail + iv.mpf(4) / Q + settle) + iv.mpf("1e-10")
     clock = iv.mpf("2.5") * (tail + iv.mpf(12) / Q + settle) + iv.mpf("1e-10")
+    return head, clock
+
+
+def _audit(archive, frames):
+    marginal_check(archive)
+    head, clock = instrument_widths()
     data = []
     for arm, boxes in zip(archive["counts"], frames, strict=True):
         data.append(
