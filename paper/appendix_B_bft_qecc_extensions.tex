@@ -295,6 +295,29 @@ remove each load-bearing safety or liveness premise. The lock-free
 one-value-per-validator in each view. The receipt is not a general
 protocol-model checker; the arbitrary-view induction is the proof above.
 
+A material implementation assigns four validators and two decision readers
+to six owners of a simulated Interval Echo board. The sender serializes the
+entire signed packet, including its certificate, in sharp two-rail words.
+At the receiver two echo readings recover each bit. Each validator keeps
+its signed certificates on a local classical tape and writes the value of
+its assembled lock to a persistent material pair before signing a commit.
+The next view-change report uses the value read from this pair.
+Authentication uses separately enrolled Ed25519 keys.
+
+With $q=3$, three provisional acknowledgements leave every durable lock
+untouched. A single validator then receives the assembled lock on zero.
+The next quorum omits that validator and reports no lock. The validator
+prepares one, retains its old lock through acceptance, and replaces it
+upon receipt of the assembled lock on one. Both decision readers verify
+one. In a separate view change the reports contain locks on opposite
+values from views zero and one. The verified proposal takes the newer
+value. With one equivocating signer and $q=2$, the two readers instead
+verify conflicting decisions. With one silent signer, three honest
+validators complete the scheduled phases for $q=3$ and cannot form the
+new-view quorum for $q=4$. The simulation supplies the routes and timeout
+appointments. A bound in elapsed time still requires (A1) and (A4)
+(\path{model/experiments/interval_echo_consensus/prepared_quorum/}).
+
 \subsection*{The Petz repair map}
 
 \begin{definition}[OPH Repair Map: Petz form]
