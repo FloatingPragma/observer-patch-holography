@@ -1432,6 +1432,47 @@
           }
         }
       ]
+    },
+    {
+      "path": "model/experiments/interval_echo_einstein_station/equilibrium_refinement/nested_volumes/README.md",
+      "heading": "## What the neighboring volumes predict",
+      "scope": "Authenticated one-tag and two-tag placements on the prepared five-rim source. The accompanying results.json records both timed acquisitions. Ordinary and held changes compare the same instrument on their respective stocks.",
+      "label_column": "Measured quantity",
+      "comparison_column": "Held split → spread",
+      "rows": [
+        {
+          "label": "$Q_1(2)$ outer slots",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-GR-E2E-BRANCH-ENTRY"
+          }
+        },
+        {
+          "label": "$Q_1(1)$ inner slots",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-GR-E2E-BRANCH-ENTRY"
+          }
+        },
+        {
+          "label": "$Q_2(2)$ outer unordered placements",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-GR-E2E-BRANCH-ENTRY"
+          }
+        },
+        {
+          "label": "$Q_2(1)$ inner unordered placements",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-GR-E2E-BRANCH-ENTRY"
+          }
+        }
+      ]
     }
   ]
 }
