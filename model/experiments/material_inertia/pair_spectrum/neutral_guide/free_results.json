@@ -1,0 +1,2884 @@
+{
+ "seed": 190028,
+ "shots_per_setting": 288230376151711744,
+ "geometry_edges": [
+  [
+   0,
+   1
+  ],
+  [
+   0,
+   4
+  ],
+  [
+   0,
+   6
+  ],
+  [
+   1,
+   2
+  ],
+  [
+   1,
+   5
+  ],
+  [
+   2,
+   3
+  ],
+  [
+   2,
+   9
+  ],
+  [
+   3,
+   4
+  ],
+  [
+   3,
+   8
+  ],
+  [
+   4,
+   7
+  ],
+  [
+   5,
+   15
+  ],
+  [
+   5,
+   19
+  ],
+  [
+   6,
+   15
+  ],
+  [
+   6,
+   16
+  ],
+  [
+   7,
+   16
+  ],
+  [
+   7,
+   17
+  ],
+  [
+   8,
+   17
+  ],
+  [
+   8,
+   18
+  ],
+  [
+   9,
+   18
+  ],
+  [
+   9,
+   19
+  ],
+  [
+   10,
+   11
+  ],
+  [
+   10,
+   14
+  ],
+  [
+   10,
+   15
+  ],
+  [
+   11,
+   12
+  ],
+  [
+   11,
+   16
+  ],
+  [
+   12,
+   13
+  ],
+  [
+   12,
+   17
+  ],
+  [
+   13,
+   14
+  ],
+  [
+   13,
+   18
+  ],
+  [
+   14,
+   19
+  ]
+ ],
+ "profiles": [
+  {
+   "shell": 1,
+   "center": 0,
+   "eigenvalue": 0.7639320225002098,
+   "values": [
+    1.0,
+    0.7453559924999296,
+    0.33333333333333326,
+    0.33333333333333265,
+    0.7453559924999286,
+    0.3333333333333333,
+    0.7453559924999298,
+    0.3333333333333329,
+    -0.3333333333333337,
+    -0.33333333333333365,
+    -0.3333333333333338,
+    -0.33333333333333337,
+    -0.7453559924999295,
+    -0.9999999999999994,
+    -0.7453559924999298,
+    0.33333333333333287,
+    0.33333333333333315,
+    -0.33333333333333326,
+    -0.7453559924999298,
+    -0.33333333333333376
+   ]
+  },
+  {
+   "shell": 3,
+   "center": 0,
+   "eigenvalue": 3.0000000000000004,
+   "values": [
+    0.9999999999999993,
+    -3.580899606795436e-16,
+    -0.4999999999999994,
+    -0.49999999999999967,
+    -8.607777634501899e-17,
+    -0.5,
+    8.984840989493653e-17,
+    -0.5,
+    0.4999999999999995,
+    0.5000000000000001,
+    0.49999999999999967,
+    0.4999999999999995,
+    1.724457484909383e-16,
+    -1.0,
+    4.44896704715695e-17,
+    -0.4999999999999997,
+    -0.4999999999999999,
+    0.5000000000000001,
+    -2.5552684481890165e-16,
+    0.49999999999999967
+   ]
+  }
+ ],
+ "band_projector_error": 5.366639831153256e-09,
+ "rest_projector_error": 1.8775960308284192e-05,
+ "normalized_source_projector": "lowest native doublet in the unrestricted 24-line band",
+ "calibration_and_held": {
+  "calibration": [
+   2.099591510899562e-06,
+   2.139124781180449e-06
+  ],
+  "operational_mass_interval": [
+   233740.45516133067,
+   238141.5610628836
+  ],
+  "relative_law_tolerance": 0.05,
+  "held": [
+   {
+    "source": "orientation_1_offset_0",
+    "law": "native",
+    "shell": 1,
+    "center": 0,
+    "kinetic_coefficient_interval": [
+     2.099591510899562e-06,
+     2.139124781180449e-06
+    ],
+    "outcome": "calibration"
+   },
+   {
+    "source": "orientation_1_offset_0",
+    "law": "native",
+    "shell": 3,
+    "center": 0,
+    "kinetic_coefficient_interval": [
+     1.694265864465186e-06,
+     1.7154448814869427e-06
+    ],
+    "outcome": "reject"
+   },
+   {
+    "source": "orientation_1_offset_0",
+    "law": "half_rate",
+    "shell": 1,
+    "center": 0,
+    "kinetic_coefficient_interval": [
+     1.0497734823301254e-06,
+     1.0695190967122847e-06
+    ],
+    "outcome": "reject"
+   },
+   {
+    "source": "orientation_1_offset_0",
+    "law": "half_rate",
+    "shell": 3,
+    "center": 0,
+    "kinetic_coefficient_interval": [
+     8.471521079695665e-07,
+     8.576355320614054e-07
+    ],
+    "outcome": "reject"
+   },
+   {
+    "source": "orientation_1_offset_1",
+    "law": "native",
+    "shell": 1,
+    "center": 0,
+    "kinetic_coefficient_interval": [
+     2.09983819275554e-06,
+     2.138854706983016e-06
+    ],
+    "outcome": "compatible"
+   },
+   {
+    "source": "orientation_1_offset_1",
+    "law": "native",
+    "shell": 3,
+    "center": 0,
+    "kinetic_coefficient_interval": [
+     1.6944893823243129e-06,
+     1.7152678793890371e-06
+    ],
+    "outcome": "reject"
+   },
+   {
+    "source": "orientation_1_offset_1",
+    "law": "half_rate",
+    "shell": 1,
+    "center": 0,
+    "kinetic_coefficient_interval": [
+     1.0499335595759688e-06,
+     1.069354634617401e-06
+    ],
+    "outcome": "reject"
+   },
+   {
+    "source": "orientation_1_offset_1",
+    "law": "half_rate",
+    "shell": 3,
+    "center": 0,
+    "kinetic_coefficient_interval": [
+     8.472534432799986e-07,
+     8.57525660386957e-07
+    ],
+    "outcome": "reject"
+   },
+   {
+    "source": "orientation_-1_offset_0",
+    "law": "native",
+    "shell": 1,
+    "center": 0,
+    "kinetic_coefficient_interval": [
+     1.991324681386809e-06,
+     2.2566656918269948e-06
+    ],
+    "outcome": "compatible"
+   },
+   {
+    "source": "orientation_-1_offset_0",
+    "law": "native",
+    "shell": 3,
+    "center": 0,
+    "kinetic_coefficient_interval": [
+     1.6082392506189356e-06,
+     1.8088020675836226e-06
+    ],
+    "outcome": "reject"
+   },
+   {
+    "source": "orientation_-1_offset_0",
+    "law": "half_rate",
+    "shell": 1,
+    "center": 0,
+    "kinetic_coefficient_interval": [
+     9.932071998898173e-07,
+     1.1302604106926476e-06
+    ],
+    "outcome": "reject"
+   },
+   {
+    "source": "orientation_-1_offset_0",
+    "law": "half_rate",
+    "shell": 3,
+    "center": 0,
+    "kinetic_coefficient_interval": [
+     8.031736061720653e-07,
+     9.048851816443762e-07
+    ],
+    "outcome": "reject"
+   },
+   {
+    "source": "orientation_-1_offset_1",
+    "law": "native",
+    "shell": 1,
+    "center": 0,
+    "kinetic_coefficient_interval": [
+     2.0966490742503888e-06,
+     2.1422082151385596e-06
+    ],
+    "outcome": "compatible"
+   },
+   {
+    "source": "orientation_-1_offset_1",
+    "law": "native",
+    "shell": 3,
+    "center": 0,
+    "kinetic_coefficient_interval": [
+     1.6919232919731843e-06,
+     1.717774277172253e-06
+    ],
+    "outcome": "reject"
+   },
+   {
+    "source": "orientation_-1_offset_1",
+    "law": "half_rate",
+    "shell": 1,
+    "center": 0,
+    "kinetic_coefficient_interval": [
+     1.0483034558613316e-06,
+     1.0710828774989753e-06
+    ],
+    "outcome": "reject"
+   },
+   {
+    "source": "orientation_-1_offset_1",
+    "law": "half_rate",
+    "shell": 3,
+    "center": 0,
+    "kinetic_coefficient_interval": [
+     8.459908815341727e-07,
+     8.588665443711637e-07
+    ],
+    "outcome": "reject"
+   }
+  ]
+ },
+ "mounted_sources": [
+  {
+   "admission": 0.002124255554991886,
+   "population": {
+    "raw_probabilities": [
+     4.5724697847248146e-05,
+     8.81263588216671e-09,
+     1.8963258207093966e-08,
+     0.00021006005651220874,
+     0.0008804843541143194,
+     4.3771856925865474e-13,
+     3.024811797296132e-08,
+     0.0008170876207292995,
+     2.0521429863082127e-08,
+     2.6070745780924684e-12,
+     2.4676729743339203e-12,
+     2.7918495931660248e-09,
+     1.601076869751078e-09,
+     3.1422931206122796e-13,
+     6.882425021169814e-12,
+     7.668861587419827e-15,
+     0.0001528455934145738,
+     1.7970275605521172e-05,
+     6.154020068468843e-15,
+     5.677384263375637e-12,
+     0.9978757444450082
+    ],
+    "normalization_correction": 0.0,
+    "counts": [
+     13179249395840,
+     2540111551,
+     5465749820,
+     60545683042444,
+     253782320385600,
+     126100,
+     8718270287,
+     235509481902458,
+     5914894163,
+     752710,
+     711023,
+     804673641,
+     461457384,
+     90339,
+     1984355,
+     2226,
+     44054750360986,
+     5179578632950,
+     1725,
+     1635933,
+     287618101177530209
+    ],
+    "conditional_owner_population": [
+     0.021525049939298106,
+     4.148645066533253e-06,
+     8.926952840603028e-06,
+     0.09888642455684078,
+     0.4144907616465072,
+     2.0595321598529401e-10,
+     1.42391419780863e-05,
+     0.3846465915372056,
+     9.660519231423425e-06,
+     1.2293659413504414e-09,
+     1.1612805193458503e-09,
+     1.314235719132006e-06,
+     7.536767032114255e-07,
+     1.4754645185484122e-10,
+     3.240953956435354e-09,
+     3.6356214019291397e-12,
+     0.0719525576231115,
+     0.008459562862052064,
+     2.8173615985299936e-12,
+     2.671892644619112e-09
+    ],
+    "owner_probability_bounds": [
+     [
+      0.02147887515263824,
+      0.021571274305163438
+     ],
+     [
+      3.8871344593099e-06,
+      4.417287547895148e-06
+     ],
+     [
+      8.585667929333331e-06,
+      9.27425560033505e-06
+     ],
+     [
+      0.09870165121177997,
+      0.09907137069160703
+     ],
+     [
+      0.4137672002022248,
+      0.41521495519005885
+     ],
+     [
+      0.0,
+      1.9131268644336628e-07
+     ],
+     [
+      1.3829967005245392e-05,
+      1.4653886568286766e-05
+     ],
+     [
+      0.38397341369643706,
+      0.38532035896512784
+     ],
+     [
+      9.308957379114021e-06,
+      1.0018012088165998e-05
+     ],
+     [
+      0.0,
+      3.3939547893987585e-07
+     ],
+     [
+      0.0,
+      3.8456420099753496e-07
+     ],
+     [
+      1.1225495612549319e-06,
+      1.5164751976515648e-06
+     ],
+     [
+      5.867134340333036e-07,
+      9.332556970665904e-07
+     ],
+     [
+      0.0,
+      2.322291742714423e-07
+     ],
+     [
+      0.0,
+      7.950247942155637e-07
+     ],
+     [
+      0.0,
+      1.329884395348214e-07
+     ],
+     [
+      0.07181512424981346,
+      0.07209012237451252
+     ],
+     [
+      0.008438777548169041,
+      0.008480373741660848
+     ],
+     [
+      0.0,
+      1.3338320769255098e-07
+     ],
+     [
+      0.0,
+      7.59581980146146e-07
+     ]
+    ],
+    "amplitude_systematic_bounds": [
+     0.00015708850016815675,
+     3.921142731672011e-05,
+     3.998626705181901e-05,
+     0.00029376254323271964,
+     0.0005621011028078172,
+     0.0001124900590632348,
+     4.0626421135759044e-05,
+     0.0005428640327217812,
+     4.008430251659143e-05,
+     0.0002561024359116077,
+     0.00029376254609317213,
+     3.998626708773687e-05,
+     3.921142764692225e-05,
+     0.00015708852075893684,
+     0.0005621011018475615,
+     4.0084302592207046e-05,
+     0.00025610244554834943,
+     0.00011249003706581819,
+     4.0626421015598646e-05,
+     0.0005428640283018445
+    ],
+    "sampling_halfwidth": 1.0535600495003812e-07,
+    "reader": "Read both native port addresses and choose excess/vacancy with an independent fair classical bit"
+   },
+   "response": {
+    "native": [
+     {
+      "shell": 1,
+      "center": 0,
+      "records": [
+       {
+        "raw_probabilities": [
+         0.0003351622778417064,
+         0.000332683614159057,
+         8.569138422019037e-08,
+         0.0014563239716069024,
+         0.9978757444450082
+        ],
+        "normalization_correction": 0.0,
+        "counts": [
+         96603938816212,
+         95889518963173,
+         24698822080,
+         419756812605363,
+         287618101182504916
+        ],
+        "tau": 4096,
+        "sine_moment": 2.8487022694934056e-07,
+        "sampling_halfwidth": 5.144336200099832e-11,
+        "numerical_systematic_bound": 1.969825780393889e-09,
+        "operator_approximation_bound": 1.8760979454793255e-09,
+        "coefficient_error": 0.0008147582615679738,
+        "response_operator_width": 2.6337778374184953e-11,
+        "rest_energy_width": 9.370637599204201e-11,
+        "band_energy_width": 1.237764339379055e-05,
+        "sinc_lower": 0.9995716598710689,
+        "first_moment_interval": [
+         2.8284895780694563e-07,
+         2.8701443589221064e-07
+        ],
+        "population_dirichlet_interval": [
+         0.13417376976663575,
+         0.13471618471431146
+        ],
+        "kinetic_coefficient_interval": [
+         2.099591510899562e-06,
+         2.139124781180449e-06
+        ],
+        "category_order": "Y plus; Y minus; grating passed but final band failed; grating failed; initial rest-filter failed"
+       },
+       {
+        "raw_probabilities": [
+         0.0003364006929131525,
+         0.0003314451990876108,
+         8.569138422019037e-08,
+         0.0014563239716069024,
+         0.9978757444450082
+        ],
+        "normalization_correction": 0.0,
+        "counts": [
+         96960907853739,
+         95532578178730,
+         24698707986,
+         419756845535038,
+         287618101121436251
+        ],
+        "tau": 8192,
+        "sine_moment": 2.8476851277590127e-07,
+        "sampling_halfwidth": 2.5721679717751467e-11,
+        "numerical_systematic_bound": 1.9698257862638027e-09,
+        "operator_approximation_bound": 1.8760979454793255e-09,
+        "coefficient_error": 0.0008147582615679738,
+        "response_operator_width": 2.6344982858763483e-11,
+        "rest_energy_width": 9.370637599204201e-11,
+        "band_energy_width": 1.237764339379055e-05,
+        "sinc_lower": 0.9982872999628956,
+        "first_moment_interval": [
+         2.827729653099197e-07,
+         2.8725604367854956e-07
+        ],
+        "population_dirichlet_interval": [
+         0.13417376976663575,
+         0.13471618471431146
+        ],
+        "kinetic_coefficient_interval": [
+         2.0990274176008458e-06,
+         2.1409254892231544e-06
+        ],
+        "category_order": "Y plus; Y minus; grating passed but final band failed; grating failed; initial rest-filter failed"
+       }
+      ]
+     },
+     {
+      "shell": 3,
+      "center": 0,
+      "records": [
+       {
+        "raw_probabilities": [
+         0.00017470575353720715,
+         0.00017019209043897025,
+         1.6444892303579016e-07,
+         0.0017791932620926727,
+         0.9978757444450082
+        ],
+        "normalization_correction": 0.0,
+        "counts": [
+         50355497398096,
+         49054525740294,
+         47398934349,
+         512817543634202,
+         287618101186004803
+        ],
+        "tau": 4096,
+        "sine_moment": 5.18753911939447e-07,
+        "sampling_halfwidth": 5.1443362148028624e-11,
+        "numerical_systematic_bound": 1.969895297310104e-09,
+        "operator_approximation_bound": 1.8760979454793255e-09,
+        "coefficient_error": 0.0008147582615679738,
+        "response_operator_width": 1.1165991561884787e-10,
+        "rest_energy_width": 9.370637599204201e-11,
+        "band_energy_width": 1.237764339379055e-05,
+        "sinc_lower": 0.9995716598710689,
+        "first_moment_interval": [
+         5.167325732799888e-07,
+         5.209984151272137e-07
+        ],
+        "population_dirichlet_interval": [
+         0.303710379010029,
+         0.3049890717376291
+        ],
+        "kinetic_coefficient_interval": [
+         1.694265864465186e-06,
+         1.7154448814869427e-06
+        ],
+        "category_order": "Y plus; Y minus; grating passed but final band failed; grating failed; initial rest-filter failed"
+       },
+       {
+        "raw_probabilities": [
+         0.0001769605190798988,
+         0.00016793732489627864,
+         1.6444892303579016e-07,
+         0.0017791932620926727,
+         0.9978757444450082
+        ],
+        "normalization_correction": 0.0,
+        "counts": [
+         51005400909865,
+         48404636841096,
+         47398928627,
+         512817512306961,
+         287618101202725195
+        ],
+        "tau": 8192,
+        "sine_moment": 5.185188176307012e-07,
+        "sampling_halfwidth": 2.5721681425226286e-11,
+        "numerical_systematic_bound": 1.969895250498531e-09,
+        "operator_approximation_bound": 1.8760979454793255e-09,
+        "coefficient_error": 0.0008147582615679738,
+        "response_operator_width": 1.1160246106465683e-10,
+        "rest_energy_width": 9.370637599204201e-11,
+        "band_energy_width": 1.237764339379055e-05,
+        "sinc_lower": 0.9982872999628956,
+        "first_moment_interval": [
+         5.165232006987774e-07,
+         5.214074491200795e-07
+        ],
+        "population_dirichlet_interval": [
+         0.303710379010029,
+         0.3049890717376291
+        ],
+        "kinetic_coefficient_interval": [
+         1.6935793723885403e-06,
+         1.716791671129757e-06
+        ],
+        "category_order": "Y plus; Y minus; grating passed but final band failed; grating failed; initial rest-filter failed"
+       }
+      ]
+     }
+    ],
+    "half_rate": [
+     {
+      "shell": 1,
+      "center": 0,
+      "records": [
+       {
+        "raw_probabilities": [
+         0.00033454266922873066,
+         0.00033330322277203255,
+         8.569138422019037e-08,
+         0.0014563239716069026,
+         0.9978757444450082
+        ],
+        "normalization_correction": 0.0,
+        "counts": [
+         96425356824774,
+         96068110346703,
+         24698918176,
+         419756819053515,
+         287618101166568576
+        ],
+        "tau": 4096,
+        "sine_moment": 1.4244968445821528e-07,
+        "sampling_halfwidth": 5.144336133151244e-11,
+        "numerical_systematic_bound": 9.849128894632943e-10,
+        "operator_approximation_bound": 9.380489727396628e-10,
+        "coefficient_error": 0.0008147582615679738,
+        "response_operator_width": 1.3167988735641827e-11,
+        "rest_energy_width": 4.6853187996021006e-11,
+        "band_energy_width": 6.188821696895275e-06,
+        "sinc_lower": 0.99989290464542,
+        "first_moment_interval": [
+         1.4141332820742047e-07,
+         1.4350140904329433e-07
+        ],
+        "population_dirichlet_interval": [
+         0.13417376976663575,
+         0.13471618471431146
+        ],
+        "kinetic_coefficient_interval": [
+         1.0497129836872343e-06,
+         1.0695190967122847e-06
+        ],
+        "category_order": "Y plus; Y minus; grating passed but final band failed; grating failed; initial rest-filter failed"
+       },
+       {
+        "raw_probabilities": [
+         0.0003351622778417064,
+         0.000332683614159057,
+         8.569138422019037e-08,
+         0.0014563239716069024,
+         0.9978757444450082
+        ],
+        "normalization_correction": 0.0,
+        "counts": [
+         96603945600240,
+         95889540788839,
+         24699092026,
+         419756790915938,
+         287618101175314701
+        ],
+        "tau": 8192,
+        "sine_moment": 1.4243211292481757e-07,
+        "sampling_halfwidth": 2.5721680849468635e-11,
+        "numerical_systematic_bound": 9.849128901969446e-10,
+        "operator_approximation_bound": 9.380489727396628e-10,
+        "coefficient_error": 0.0008147582615679738,
+        "response_operator_width": 1.3168889187092477e-11,
+        "rest_energy_width": 4.6853187996021006e-11,
+        "band_energy_width": 6.188821696895275e-06,
+        "sinc_lower": 0.9995716598710689,
+        "first_moment_interval": [
+         1.4142147835377114e-07,
+         1.4350421611029484e-07
+        ],
+        "population_dirichlet_interval": [
+         0.13417376976663575,
+         0.13471618471431146
+        ],
+        "kinetic_coefficient_interval": [
+         1.0497734823301254e-06,
+         1.0695400178431837e-06
+        ],
+        "category_order": "Y plus; Y minus; grating passed but final band failed; grating failed; initial rest-filter failed"
+       }
+      ]
+     },
+     {
+      "shell": 3,
+      "center": 0,
+      "records": [
+       {
+        "raw_probabilities": [
+         0.000173577466914614,
+         0.00017132037706156343,
+         1.6444892303579016e-07,
+         0.0017791932620926727,
+         0.9978757444450082
+        ],
+        "normalization_correction": 0.0,
+        "counts": [
+         50030298775140,
+         49379733811519,
+         47399077201,
+         512817497155894,
+         287618101222891990
+        ],
+        "tau": 4096,
+        "sine_moment": 2.594085260484193e-07,
+        "sampling_halfwidth": 5.144336369766001e-11,
+        "numerical_systematic_bound": 9.84947654507738e-10,
+        "operator_approximation_bound": 9.380489727396628e-10,
+        "coefficient_error": 0.0008147582615679738,
+        "response_operator_width": 5.583714114994252e-11,
+        "rest_energy_width": 4.6853187996021006e-11,
+        "band_energy_width": 6.188821696895275e-06,
+        "sinc_lower": 0.99989290464542,
+        "first_moment_interval": [
+         2.5837213503021384e-07,
+         2.604728124948373e-07
+        ],
+        "population_dirichlet_interval": [
+         0.303710379010029,
+         0.3049890717376291
+        ],
+        "kinetic_coefficient_interval": [
+         8.471521079695665e-07,
+         8.576355320614054e-07
+        ],
+        "category_order": "Y plus; Y minus; grating passed but final band failed; grating failed; initial rest-filter failed"
+       },
+       {
+        "raw_probabilities": [
+         0.00017470575353720715,
+         0.00017019209043897025,
+         1.6444892303579016e-07,
+         0.0017791932620926727,
+         0.9978757444450082
+        ],
+        "normalization_correction": 0.0,
+        "counts": [
+         50355509256025,
+         49054542830840,
+         47399069812,
+         512817546738369,
+         287618101153816698
+        ],
+        "tau": 8192,
+        "sine_moment": 2.593758990981424e-07,
+        "sampling_halfwidth": 2.5721680397902936e-11,
+        "numerical_systematic_bound": 9.84947648655052e-10,
+        "operator_approximation_bound": 9.380489727396628e-10,
+        "coefficient_error": 0.0008147582615679738,
+        "response_operator_width": 5.582995780942394e-11,
+        "rest_energy_width": 4.6853187996021006e-11,
+        "band_energy_width": 6.188821696895275e-06,
+        "sinc_lower": 0.9995716598710689,
+        "first_moment_interval": [
+         2.583652297690894e-07,
+         2.6049815023845486e-07
+        ],
+        "population_dirichlet_interval": [
+         0.303710379010029,
+         0.3049890717376291
+        ],
+        "kinetic_coefficient_interval": [
+         8.471294669579226e-07,
+         8.577189593835145e-07
+        ],
+        "category_order": "Y plus; Y minus; grating passed but final band failed; grating failed; initial rest-filter failed"
+       }
+      ]
+     }
+    ]
+   },
+   "which_arm_control": {
+    "raw_probabilities": [
+     0.00033392294600038166,
+     0.00033392294600038166,
+     8.569138422019037e-08,
+     0.0014563239716069024,
+     0.9978757444450082
+    ],
+    "normalization_correction": 0.0,
+    "counts": [
+     96246741561818,
+     96246732478664,
+     24699059382,
+     419756794114519,
+     287618101184497361
+    ],
+    "tau": 8192,
+    "sine_moment": 1.8109240237440472e-12,
+    "sampling_halfwidth": 2.572168104235048e-11,
+    "numerical_systematic_bound": 1.9698257862638027e-09,
+    "operator_approximation_bound": 1.8760979454793255e-09,
+    "coefficient_error": 0.0008147582615679738,
+    "response_operator_width": 2.6344982858763483e-11,
+    "rest_energy_width": 9.370637599204201e-11,
+    "band_energy_width": 1.237764339379055e-05,
+    "sinc_lower": 0.9982872999628956,
+    "first_moment_interval": [
+     0.0,
+     2.000785136106745e-09
+    ],
+    "population_dirichlet_interval": [
+     0.13417376976663575,
+     0.13471618471431146
+    ],
+    "kinetic_coefficient_interval": [
+     0.0,
+     1.4911894773372233e-08
+    ],
+    "category_order": "Y plus; Y minus; grating passed but final band failed; grating failed; initial rest-filter failed"
+   },
+   "label": "orientation_1_offset_0",
+   "orientation": 1,
+   "offset": 0,
+   "signed_remote": {
+    "owner": 0,
+    "time": 1000000,
+    "true_charge_probabilities_from_minus_to_plus": [
+     3.391604899383552e-05,
+     0.9999430892487621,
+     2.2994702229646537e-05
+    ],
+    "receiver_exits": [
+     "20",
+     "02",
+     "initial rest-filter refused"
+    ],
+    "records": {
+     "parity": {
+      "raw_probabilities": [
+       1.2089297942524304e-07,
+       0.0021241346620124607,
+       0.9978757444450082
+      ],
+      "normalization_correction": 0.0,
+      "counts": [
+       34844851409,
+       612240145734373,
+       287618101161125962
+      ]
+     },
+     "sign": {
+      "raw_probabilities": [
+       0.001062139377361709,
+       0.001062116177630177,
+       0.9978757444450082
+      ],
+      "normalization_correction": 0.0,
+      "counts": [
+       306140814303222,
+       306134169881641,
+       287618101167526881
+      ]
+     }
+    }
+   },
+   "remote_effect_probability_error": 0.0008563958056530683,
+   "within_source": {
+    "first": [
+     2.099591510899562e-06,
+     2.139124781180449e-06
+    ],
+    "third": [
+     1.694265864465186e-06,
+     1.7154448814869427e-06
+    ],
+    "result": "reject"
+   }
+  },
+  {
+   "admission": 0.0024268020105386733,
+   "population": {
+    "raw_probabilities": [
+     5.2237025908235946e-05,
+     1.0067776149974753e-08,
+     2.1664100604901724e-08,
+     0.00023997779754498746,
+     0.001005887075347279,
+     1.0853198658751134e-12,
+     3.455619649391351e-08,
+     0.0009334610817694602,
+     2.344418782647914e-08,
+     2.0115557173972496e-12,
+     1.638316617418328e-12,
+     3.1894838410287895e-09,
+     1.829112950793352e-09,
+     1.6797611034161082e-12,
+     2.0500672520191943e-12,
+     8.068289500467436e-15,
+     0.0001746145814618457,
+     2.0529687446674617e-05,
+     6.181067167243226e-15,
+     1.7230524580400966e-12,
+     0.9975731979894613
+    ],
+    "normalization_correction": 0.0,
+    "counts": [
+     15056290910600,
+     2901791433,
+     6244338191,
+     69168898594143,
+     289927220844104,
+     311656,
+     9959942477,
+     269051827564319,
+     6757294175,
+     579526,
+     473115,
+     919337254,
+     527241696,
+     483236,
+     590804,
+     2333,
+     50329233315229,
+     5917281895078,
+     1749,
+     497056,
+     287530898085703570
+    ],
+    "conditional_owner_population": [
+     0.021525036512616044,
+     4.148509544495267e-06,
+     8.927139383562929e-06,
+     0.09888644398655769,
+     0.41449079668599065,
+     4.4555507191037215e-10,
+     1.423910621506695e-05,
+     0.38464655382228224,
+     9.660480440170136e-06,
+     8.285120408525115e-10,
+     6.763828960356153e-10,
+     1.3143189167410673e-06,
+     7.537644446935934e-07,
+     6.908522561082752e-10,
+     8.446354913909423e-10,
+     3.3353440420428235e-12,
+     0.0719525539985136,
+     0.008459567472711649,
+     2.500435803486026e-12,
+     7.106098449042597e-10
+    ],
+    "owner_probability_bounds": [
+     [
+      0.021481125313187324,
+      0.021568992547113506
+     ],
+     [
+      3.894076978810637e-06,
+      4.409785626974515e-06
+     ],
+     [
+      8.593465699478923e-06,
+      9.266613872930122e-06
+     ],
+     [
+      0.09871204659316284,
+      0.09906099530039465
+     ],
+     [
+      0.413810707994765,
+      0.41517144377375864
+     ],
+     [
+      0.0,
+      1.7836350391965524e-07
+     ],
+     [
+      1.3838117390854223e-05,
+      1.4645476092478757e-05
+     ],
+     [
+      0.3840137190624975,
+      0.38527990959233044
+     ],
+     [
+      9.316612629842435e-06,
+      1.0010067780198938e-05
+     ],
+     [
+      0.0,
+      3.1058491698205335e-07
+     ],
+     [
+      0.0,
+      3.5081286678197936e-07
+     ],
+     [
+      1.1295023847215064e-06,
+      1.5091620897985372e-06
+     ],
+     [
+      5.934178258955097e-07,
+      9.260679434240237e-07
+     ],
+     [
+      0.0,
+      2.1571055385708147e-07
+     ],
+     [
+      0.0,
+      7.116892054874723e-07
+     ],
+     [
+      0.0,
+      1.2523485586025987e-07
+     ],
+     [
+      0.07182267216524829,
+      0.07208255316273213
+     ],
+     [
+      0.008439675736038666,
+      0.008479482622954337
+     ],
+     [
+      0.0,
+      1.255931529503681e-07
+     ],
+     [
+      0.0,
+      6.812952187157577e-07
+     ]
+    ],
+    "amplitude_systematic_bounds": [
+     0.00014938931312730627,
+     3.9104540767615715e-05,
+     3.982947413874144e-05,
+     0.00027726036864503885,
+     0.0005283156098569115,
+     0.00010766339640851967,
+     4.042839677666129e-05,
+     0.0005103175730547953,
+     3.9921195273768516e-05,
+     0.00024202589715298806,
+     0.0002772603713212535,
+     3.982947417234588e-05,
+     3.910454107654998e-05,
+     0.00014938933239186248,
+     0.0005283156089585044,
+     3.992119534451383e-05,
+     0.00024202590616904045,
+     0.00010766337582792651,
+     4.042839666424026e-05,
+     0.0005103175689195405
+    ],
+    "sampling_halfwidth": 9.85701682975221e-08,
+    "reader": "Read both native port addresses and choose excess/vacancy with an independent fair classical bit"
+   },
+   "response": {
+    "native": [
+     {
+      "shell": 1,
+      "center": 0,
+      "records": [
+       {
+        "raw_probabilities": [
+         0.00038289766479339594,
+         0.00038006597815789205,
+         9.789595300999447e-08,
+         0.0016637404716343751,
+         0.9975731979894613
+        ],
+        "normalization_correction": 0.0,
+        "counts": [
+         110362741170033,
+         109546573967865,
+         28216578196,
+         479540520615583,
+         287530898099380067
+        ],
+        "tau": 4096,
+        "sine_moment": 2.848689393149285e-07,
+        "sampling_halfwidth": 4.812996545955339e-11,
+        "numerical_systematic_bound": 1.9698243982541392e-09,
+        "operator_approximation_bound": 1.8760979454793255e-09,
+        "coefficient_error": 0.0007622808000878017,
+        "response_operator_width": 2.6337778374184953e-11,
+        "rest_energy_width": 9.370637599204201e-11,
+        "band_energy_width": 1.237764339379055e-05,
+        "sinc_lower": 0.9995716598710689,
+        "first_moment_interval": [
+         2.828509849512148e-07,
+         2.870098315068743e-07
+        ],
+        "population_dirichlet_interval": [
+         0.1341885592180869,
+         0.13470132409585328
+        ],
+        "kinetic_coefficient_interval": [
+         2.09983819275554e-06,
+         2.138854706983016e-06
+        ],
+        "category_order": "Y plus; Y minus; grating passed but final band failed; grating failed; initial rest-filter failed"
+       },
+       {
+        "raw_probabilities": [
+         0.00038431246077060363,
+         0.00037865118218068436,
+         9.789595300999447e-08,
+         0.0016637404716343751,
+         0.9975731979894613
+        ],
+        "normalization_correction": 0.0,
+        "counts": [
+         110770542012091,
+         109138766639435,
+         28216724505,
+         479540547355835,
+         287530898078979878
+        ],
+        "tau": 8192,
+        "sine_moment": 2.847713708765232e-07,
+        "sampling_halfwidth": 2.4064982378850613e-11,
+        "numerical_systematic_bound": 1.9698244037459795e-09,
+        "operator_approximation_bound": 1.8760979454793255e-09,
+        "coefficient_error": 0.0007622808000878017,
+        "response_operator_width": 2.6344982858763483e-11,
+        "rest_energy_width": 9.370637599204201e-11,
+        "band_energy_width": 1.237764339379055e-05,
+        "sinc_lower": 0.9982872999628956,
+        "first_moment_interval": [
+         2.8277748149039837e-07,
+         2.872572457581165e-07
+        ],
+        "population_dirichlet_interval": [
+         0.1341885592180869,
+         0.13470132409585328
+        ],
+        "kinetic_coefficient_interval": [
+         2.0992925154111646e-06,
+         2.1406984875011456e-06
+        ],
+        "category_order": "Y plus; Y minus; grating passed but final band failed; grating failed; initial rest-filter failed"
+       }
+      ]
+     },
+     {
+      "shell": 3,
+      "center": 0,
+      "records": [
+       {
+        "raw_probabilities": [
+         0.00019958816924979197,
+         0.00019443164893496887,
+         1.8787050946748057e-07,
+         0.0020325943218444447,
+         0.9975731979894613
+        ],
+        "normalization_correction": 0.0,
+        "counts": [
+         57527377464732,
+         56041094249965,
+         54150064102,
+         585855430181044,
+         287530898099751901
+        ],
+        "tau": 4096,
+        "sine_moment": 5.187612562875047e-07,
+        "sampling_halfwidth": 4.812996547234604e-11,
+        "numerical_systematic_bound": 1.9698894376811833e-09,
+        "operator_approximation_bound": 1.8760979454793255e-09,
+        "coefficient_error": 0.0007622808000878017,
+        "response_operator_width": 1.1165991561884787e-10,
+        "rest_energy_width": 9.370637599204201e-11,
+        "band_energy_width": 1.237764339379055e-05,
+        "sinc_lower": 0.9995716598710689,
+        "first_moment_interval": [
+         5.167432368843511e-07,
+         5.210024419438139e-07
+        ],
+        "population_dirichlet_interval": [
+         0.3037440671537499,
+         0.3049551341393122
+        ],
+        "kinetic_coefficient_interval": [
+         1.6944893823243129e-06,
+         1.7152678793890371e-06
+        ],
+        "category_order": "Y plus; Y minus; grating passed but final band failed; grating failed; initial rest-filter failed"
+       },
+       {
+        "raw_probabilities": [
+         0.0002021640691503771,
+         0.0001918557490343837,
+         1.8787050946748057e-07,
+         0.0020325943218444447,
+         0.9975731979894613
+        ],
+        "normalization_correction": 0.0,
+        "counts": [
+         58269823237970,
+         55298641965881,
+         54149865837,
+         585855451606972,
+         287530898085035084
+        ],
+        "tau": 8192,
+        "sine_moment": 5.185195128437242e-07,
+        "sampling_halfwidth": 2.406498248301287e-11,
+        "numerical_systematic_bound": 1.9698893938846797e-09,
+        "operator_approximation_bound": 1.8760979454793255e-09,
+        "coefficient_error": 0.0007622808000878017,
+        "response_operator_width": 1.1160246106465683e-10,
+        "rest_energy_width": 9.370637599204201e-11,
+        "band_energy_width": 1.237764339379055e-05,
+        "sinc_lower": 0.9982872999628956,
+        "first_moment_interval": [
+         5.165255584673565e-07,
+         5.214064801179363e-07
+        ],
+        "population_dirichlet_interval": [
+         0.3037440671537499,
+         0.3049551341393122
+        ],
+        "kinetic_coefficient_interval": [
+         1.6937755775949418e-06,
+         1.7165980721987552e-06
+        ],
+        "category_order": "Y plus; Y minus; grating passed but final band failed; grating failed; initial rest-filter failed"
+       }
+      ]
+     }
+    ],
+    "half_rate": [
+     {
+      "shell": 1,
+      "center": 0,
+      "records": [
+       {
+        "raw_probabilities": [
+         0.00038218980860423615,
+         0.0003807738343470519,
+         9.789595300999447e-08,
+         0.0016637404716343751,
+         0.9975731979894613
+        ],
+        "normalization_correction": 0.0,
+        "counts": [
+         110158712712408,
+         109750593923218,
+         28216529392,
+         479540546688495,
+         287530898081858231
+        ],
+        "tau": 4096,
+        "sine_moment": 1.4244674788439963e-07,
+        "sampling_halfwidth": 4.812996485672865e-11,
+        "numerical_systematic_bound": 9.849121984406727e-10,
+        "operator_approximation_bound": 9.380489727396628e-10,
+        "coefficient_error": 0.0007622808000878017,
+        "response_operator_width": 1.3167988735641827e-11,
+        "rest_energy_width": 4.6853187996021006e-11,
+        "band_energy_width": 6.188821696895275e-06,
+        "sinc_lower": 0.99989290464542,
+        "first_moment_interval": [
+         1.4141370572110222e-07,
+         1.434951577124928e-07
+        ],
+        "population_dirichlet_interval": [
+         0.1341885592180869,
+         0.13470132409585328
+        ],
+        "kinetic_coefficient_interval": [
+         1.0498315934925213e-06,
+         1.069354634617401e-06
+        ],
+        "category_order": "Y plus; Y minus; grating passed but final band failed; grating failed; initial rest-filter failed"
+       },
+       {
+        "raw_probabilities": [
+         0.00038289766479339594,
+         0.00038006597815789205,
+         9.789595300999447e-08,
+         0.0016637404716343751,
+         0.9975731979894613
+        ],
+        "normalization_correction": 0.0,
+        "counts": [
+         110362726584719,
+         109546548216608,
+         28216340645,
+         479540563286624,
+         287530898097283148
+        ],
+        "tau": 8192,
+        "sine_moment": 1.4243641786937624e-07,
+        "sampling_halfwidth": 2.4064982693705284e-11,
+        "numerical_systematic_bound": 9.849121991270696e-10,
+        "operator_approximation_bound": 9.380489727396628e-10,
+        "coefficient_error": 0.0007622808000878017,
+        "response_operator_width": 1.3168889187092477e-11,
+        "rest_energy_width": 4.6853187996021006e-11,
+        "band_energy_width": 6.188821696895275e-06,
+        "sinc_lower": 0.9995716598710689,
+        "first_moment_interval": [
+         1.4142744068755546e-07,
+         1.4350686480016804e-07
+        ],
+        "population_dirichlet_interval": [
+         0.1341885592180869,
+         0.13470132409585328
+        ],
+        "kinetic_coefficient_interval": [
+         1.0499335595759688e-06,
+         1.0694418781778318e-06
+        ],
+        "category_order": "Y plus; Y minus; grating passed but final band failed; grating failed; initial rest-filter failed"
+       }
+      ]
+     },
+     {
+      "shell": 3,
+      "center": 0,
+      "records": [
+       {
+        "raw_probabilities": [
+         0.0001982991867174856,
+         0.00019572063146727517,
+         1.8787050946748057e-07,
+         0.0020325943218444447,
+         0.9975731979894613
+        ],
+        "normalization_correction": 0.0,
+        "counts": [
+         57155846086072,
+         56412627903719,
+         54149930546,
+         585855409613608,
+         287530898118177799
+        ],
+        "tau": 4096,
+        "sine_moment": 2.594073621358687e-07,
+        "sampling_halfwidth": 4.8129966106274336e-11,
+        "numerical_systematic_bound": 9.84944724316314e-10,
+        "operator_approximation_bound": 9.380489727396628e-10,
+        "coefficient_error": 0.0007622808000878017,
+        "response_operator_width": 5.583714114994252e-11,
+        "rest_energy_width": 4.6853187996021006e-11,
+        "band_energy_width": 6.188821696895275e-06,
+        "sinc_lower": 0.99989290464542,
+        "first_moment_interval": [
+         2.583742874454461e-07,
+         2.604683317746396e-07
+        ],
+        "population_dirichlet_interval": [
+         0.3037440671537499,
+         0.3049551341393122
+        ],
+        "kinetic_coefficient_interval": [
+         8.472534432799986e-07,
+         8.57525660386957e-07
+        ],
+        "category_order": "Y plus; Y minus; grating passed but final band failed; grating failed; initial rest-filter failed"
+       },
+       {
+        "raw_probabilities": [
+         0.00019958816924979197,
+         0.00019443164893496887,
+         1.8787050946748057e-07,
+         0.0020325943218444447,
+         0.9975731979894613
+        ],
+        "normalization_correction": 0.0,
+        "counts": [
+         57527377014142,
+         56041108602282,
+         54149749307,
+         585855385996090,
+         287530898130349923
+        ],
+        "tau": 8192,
+        "sine_moment": 2.593780561416389e-07,
+        "sampling_halfwidth": 2.4064983262523274e-11,
+        "numerical_systematic_bound": 9.849447188405916e-10,
+        "operator_approximation_bound": 9.380489727396628e-10,
+        "coefficient_error": 0.0007622808000878017,
+        "response_operator_width": 5.582995780942394e-11,
+        "rest_energy_width": 4.6853187996021006e-11,
+        "band_energy_width": 6.188821696895275e-06,
+        "sinc_lower": 0.9995716598710689,
+        "first_moment_interval": [
+         2.583690464395358e-07,
+         2.6049864786815625e-07
+        ],
+        "population_dirichlet_interval": [
+         0.3037440671537499,
+         0.3049551341393122
+        ],
+        "kinetic_coefficient_interval": [
+         8.472362571259597e-07,
+         8.576254684055982e-07
+        ],
+        "category_order": "Y plus; Y minus; grating passed but final band failed; grating failed; initial rest-filter failed"
+       }
+      ]
+     }
+    ]
+   },
+   "which_arm_control": {
+    "raw_probabilities": [
+     0.00038148182147564405,
+     0.00038148182147564405,
+     9.789595300999447e-08,
+     0.0016637404716343751,
+     0.9975731979894613
+    ],
+    "normalization_correction": 0.0,
+    "counts": [
+     109954648029280,
+     109954640885955,
+     28216582194,
+     479540540705072,
+     287530898105509243
+    ],
+    "tau": 8192,
+    "sine_moment": 1.2466265664421143e-12,
+    "sampling_halfwidth": 2.4064982835211395e-11,
+    "numerical_systematic_bound": 1.9698244037459795e-09,
+    "operator_approximation_bound": 1.8760979454793255e-09,
+    "coefficient_error": 0.0007622808000878017,
+    "response_operator_width": 2.6344982858763483e-11,
+    "rest_energy_width": 9.370637599204201e-11,
+    "band_energy_width": 1.237764339379055e-05,
+    "sinc_lower": 0.9982872999628956,
+    "first_moment_interval": [
+     0.0,
+     1.998558945127108e-09
+    ],
+    "population_dirichlet_interval": [
+     0.1341885592180869,
+     0.13470132409585328
+    ],
+    "kinetic_coefficient_interval": [
+     0.0,
+     1.4893661253780923e-08
+    ],
+    "category_order": "Y plus; Y minus; grating passed but final band failed; grating failed; initial rest-filter failed"
+   },
+   "label": "orientation_1_offset_1",
+   "orientation": 1,
+   "offset": 1,
+   "signed_remote": {
+    "owner": 0,
+    "time": 1000000,
+    "true_charge_probabilities_from_minus_to_plus": [
+     3.3916049381065316e-05,
+     0.9999430892476654,
+     2.299470293671604e-05
+    ],
+    "receiver_exits": [
+     "20",
+     "02",
+     "initial rest-filter refused"
+    ],
+    "records": {
+     "parity": {
+      "raw_probabilities": [
+       1.3811112814606027e-07,
+       0.0024266638994105273,
+       0.9975731979894613
+      ],
+      "normalization_correction": 0.0,
+      "counts": [
+       39807962230,
+       699438253409964,
+       287530898090339550
+      ]
+     },
+     "sign": {
+      "raw_probabilities": [
+       0.001213414257242091,
+       0.0012133877532965822,
+       0.9975731979894613
+      ],
+      "normalization_correction": 0.0,
+      "counts": [
+       349742842343941,
+       349735209697894,
+       287530898099669909
+      ]
+     }
+    }
+   },
+   "remote_effect_probability_error": 0.0008039183441728962,
+   "within_source": {
+    "first": [
+     2.09983819275554e-06,
+     2.138854706983016e-06
+    ],
+    "third": [
+     1.6944893823243129e-06,
+     1.7152678793890371e-06
+    ],
+    "result": "reject"
+   }
+  },
+  {
+   "admission": 2.3195215383492054e-06,
+   "population": {
+    "raw_probabilities": [
+     4.992779268523863e-08,
+     9.622699474094069e-12,
+     2.070637706994907e-11,
+     2.293691713912531e-07,
+     9.614201323266983e-07,
+     1.8381876941950984e-15,
+     3.3028584044335754e-11,
+     8.921958498470193e-07,
+     2.240780015816875e-11,
+     3.421894649493921e-14,
+     4.5317478948332484e-14,
+     3.048465488197553e-12,
+     1.7482418779095843e-12,
+     4.365117197550498e-15,
+     1.8904796664410004e-13,
+     1.4461345067987946e-17,
+     1.6689544775370418e-07,
+     1.9622134800904524e-08,
+     1.512050521573538e-17,
+     1.7255899427818443e-13,
+     0.9999976804784616
+    ],
+    "normalization_correction": 0.0,
+    "counts": [
+     14390734983,
+     2770708,
+     5968911,
+     66111002885,
+     277110247205,
+     456,
+     9518631,
+     257157779723,
+     6456848,
+     9850,
+     13139,
+     880653,
+     504683,
+     1306,
+     53966,
+     0,
+     48104274747,
+     5655752748,
+     0,
+     49718,
+     288229707595690584
+    ],
+    "conditional_owner_population": [
+     0.02152509965886013,
+     4.144316874437228e-06,
+     8.92806408301199e-06,
+     0.09888625753499601,
+     0.4144906910331774,
+     6.820670004718562e-10,
+     1.4237596699053564e-05,
+     0.38464656899927396,
+     9.657901201453297e-06,
+     1.4733245514578472e-08,
+     1.965280333157833e-08,
+     1.3172463819441701e-06,
+     7.548851315770566e-07,
+     1.9534638215268514e-09,
+     8.072023628829867e-08,
+     0.0,
+     0.07195249646175515,
+     0.008459654193506179,
+     0.0,
+     7.436624370495559e-08
+    ],
+    "owner_probability_bounds": [
+     [
+      0.020462861483646747,
+      0.022614215070965216
+     ],
+     [
+      7.920496526781651e-07,
+      7.815710576409882e-06
+     ],
+     [
+      5.2191797015574424e-06,
+      1.2903058389279702e-05
+     ],
+     [
+      0.09404383291320263,
+      0.10385024308214165
+     ],
+     [
+      0.39425255766443595,
+      0.43523534630965915
+     ],
+     [
+      0.0,
+      1.6737470433042435e-05
+     ],
+     [
+      1.0198119379111104e-05,
+      1.853329608145494e-05
+     ],
+     [
+      0.36586373202738975,
+      0.4038995530346105
+     ],
+     [
+      5.901724958370596e-06,
+      1.3677810137659622e-05
+     ],
+     [
+      0.0,
+      7.125281948126689e-05
+     ],
+     [
+      0.0,
+      9.181855362895841e-05
+     ],
+     [
+      0.0,
+      4.9901134551962856e-06
+     ],
+     [
+      0.0,
+      4.299511822851312e-06
+     ],
+     [
+      0.0,
+      2.96062255566433e-05
+     ],
+     [
+      0.0,
+      0.0003139895724454344
+     ],
+     [
+      0.0,
+      3.609157742715176e-06
+     ],
+     [
+      0.06842527576181749,
+      0.07556835826078474
+     ],
+     [
+      0.008037782530055897,
+      0.00889231508720438
+     ],
+     [
+      0.0,
+      3.671761794662411e-06
+     ],
+     [
+      0.0,
+      0.0002936367322511088
+     ]
+    ],
+    "amplitude_systematic_bounds": [
+     0.003655022445522306,
+     8.777266974793907e-05,
+     0.00011122122343552694,
+     0.007791114712512257,
+     0.015911698667649188,
+     0.002305364066815117,
+     0.00013059385847944427,
+     0.015329537673225315,
+     0.00011418801741223277,
+     0.006651427357311379,
+     0.007791114799076575,
+     0.00011122122452248947,
+     8.777267974066687e-05,
+     0.0036550230686498903,
+     0.01591169863858949,
+     0.00011418801970054703,
+     0.006651427648942854,
+     0.002305363401119257,
+     0.0001305938548430954,
+     0.015329537539467171
+    ],
+    "sampling_halfwidth": 3.188332793434035e-06,
+    "reader": "Read both native port addresses and choose excess/vacancy with an independent fair classical bit"
+   },
+   "response": {
+    "native": [
+     {
+      "shell": 1,
+      "center": 0,
+      "records": [
+       {
+        "raw_probabilities": [
+         3.6597108797956514e-07,
+         3.632645804715739e-07,
+         9.35683166467624e-11,
+         1.5901923015814195e-06,
+         0.9999976804784616
+        ],
+        "normalization_correction": 0.0,
+        "counts": [
+         105484420656,
+         104704328797,
+         26970010,
+         458342087954,
+         288229707593904327
+        ],
+        "tau": 4096,
+        "sine_moment": 2.848700769040321e-07,
+        "sampling_halfwidth": 1.5568010420543344e-09,
+        "numerical_systematic_bound": 1.9704537211782166e-09,
+        "operator_approximation_bound": 1.8760979454793255e-09,
+        "coefficient_error": 0.024656586353749493,
+        "response_operator_width": 2.6337778374184953e-11,
+        "rest_energy_width": 9.370637599204201e-11,
+        "band_energy_width": 1.237764339379055e-05,
+        "sinc_lower": 0.9995716598710689,
+        "first_moment_interval": [
+         2.8134282214079956e-07,
+         2.885209167539464e-07
+        ],
+        "population_dirichlet_interval": [
+         0.1276000691491846,
+         0.1415940948227647
+        ],
+        "kinetic_coefficient_interval": [
+         1.9869672001008255e-06,
+         2.261134485880411e-06
+        ],
+        "category_order": "Y plus; Y minus; grating passed but final band failed; grating failed; initial rest-filter failed"
+       },
+       {
+        "raw_probabilities": [
+         3.673233406922661e-07,
+         3.61912327758873e-07,
+         9.35683166467624e-11,
+         1.5901923015814195e-06,
+         0.9999976804784616
+        ],
+        "normalization_correction": 0.0,
+        "counts": [
+         105874203488,
+         104314904873,
+         26967860,
+         458341256119,
+         288229707594379404
+        ],
+        "tau": 8192,
+        "sine_moment": 2.8470867045560463e-07,
+        "sampling_halfwidth": 7.784007975929162e-10,
+        "numerical_systematic_bound": 1.9704538988162127e-09,
+        "operator_approximation_bound": 1.8760979454793255e-09,
+        "coefficient_error": 0.024656586353749493,
+        "response_operator_width": 2.6344982858763483e-11,
+        "rest_energy_width": 9.370637599204201e-11,
+        "band_energy_width": 1.237764339379055e-05,
+        "sinc_lower": 0.9982872999628956,
+        "first_moment_interval": [
+         2.819598157591955e-07,
+         2.87950698323717e-07
+        ],
+        "population_dirichlet_interval": [
+         0.1276000691491846,
+         0.1415940948227647
+        ],
+        "kinetic_coefficient_interval": [
+         1.991324681386809e-06,
+         2.2566656918269948e-06
+        ],
+        "category_order": "Y plus; Y minus; grating passed but final band failed; grating failed; initial rest-filter failed"
+       }
+      ]
+     },
+     {
+      "shell": 3,
+      "center": 0,
+      "records": [
+       {
+        "raw_probabilities": [
+         1.9076506414155034e-07,
+         1.8583649613373686e-07,
+         1.795654154533167e-10,
+         1.942740412658465e-06,
+         0.9999976804784616
+        ],
+        "normalization_correction": 0.0,
+        "counts": [
+         54984262371,
+         53564025139,
+         51762506,
+         559955763916,
+         288229707595897812
+        ],
+        "tau": 4096,
+        "sine_moment": 5.186367364445915e-07,
+        "sampling_halfwidth": 1.5568033630701325e-09,
+        "numerical_systematic_bound": 1.972557473823076e-09,
+        "operator_approximation_bound": 1.8760979454793255e-09,
+        "coefficient_error": 0.024656586353749493,
+        "response_operator_width": 1.1165991561884787e-10,
+        "rest_energy_width": 9.370637599204201e-11,
+        "band_energy_width": 1.237764339379055e-05,
+        "sinc_lower": 0.9995716598710689,
+        "first_moment_interval": [
+         5.151073756076983e-07,
+         5.223898578205358e-07
+        ],
+        "population_dirichlet_interval": [
+         0.28867318990696766,
+         0.32069634953504506
+        ],
+        "kinetic_coefficient_interval": [
+         1.6062152760844207e-06,
+         1.8096237409123074e-06
+        ],
+        "category_order": "Y plus; Y minus; grating passed but final band failed; grating failed; initial rest-filter failed"
+       },
+       {
+        "raw_probabilities": [
+         1.9322709222762258e-07,
+         1.8337446804766465e-07,
+         1.795654154533167e-10,
+         1.942740412658465e-06,
+         0.9999976804784616
+        ],
+        "normalization_correction": 0.0,
+        "counts": [
+         55693765965,
+         52853998113,
+         51759819,
+         559956680929,
+         288229707595506918
+        ],
+        "tau": 8192,
+        "sine_moment": 5.185074143636346e-07,
+        "sampling_halfwidth": 7.78401453975596e-10,
+        "numerical_systematic_bound": 1.9725560571898994e-09,
+        "operator_approximation_bound": 1.8760979454793255e-09,
+        "coefficient_error": 0.024656586353749493,
+        "response_operator_width": 1.1160246106465683e-10,
+        "rest_energy_width": 9.370637599204201e-11,
+        "band_energy_width": 1.237764339379055e-05,
+        "sinc_lower": 0.9982872999628956,
+        "first_moment_interval": [
+         5.157564568524691e-07,
+         5.221526627596829e-07
+        ],
+        "population_dirichlet_interval": [
+         0.28867318990696766,
+         0.32069634953504506
+        ],
+        "kinetic_coefficient_interval": [
+         1.6082392506189356e-06,
+         1.8088020675836226e-06
+        ],
+        "category_order": "Y plus; Y minus; grating passed but final band failed; grating failed; initial rest-filter failed"
+       }
+      ]
+     }
+    ],
+    "half_rate": [
+     {
+      "shell": 1,
+      "center": 0,
+      "records": [
+       {
+        "raw_probabilities": [
+         3.6529452367809716e-07,
+         3.6394114477304185e-07,
+         9.35683166467624e-11,
+         1.5901923015814195e-06,
+         0.9999976804784616
+        ],
+        "normalization_correction": 0.0,
+        "counts": [
+         105288851149,
+         104898690667,
+         26962738,
+         458341512832,
+         288229707595694358
+        ],
+        "tau": 4096,
+        "sine_moment": 1.4247725164185462e-07,
+        "sampling_halfwidth": 1.5568031261880406e-09,
+        "numerical_systematic_bound": 9.852268383870494e-10,
+        "operator_approximation_bound": 9.380489727396628e-10,
+        "coefficient_error": 0.024656586353749493,
+        "response_operator_width": 1.3167988735641827e-11,
+        "rest_energy_width": 4.6853187996021006e-11,
+        "band_energy_width": 6.188821696895275e-06,
+        "sinc_lower": 0.99989290464542,
+        "first_moment_interval": [
+         1.3993522167727952e-07,
+         1.4503481416127877e-07
+        ],
+        "population_dirichlet_interval": [
+         0.1276000691491846,
+         0.1415940948227647
+        ],
+        "kinetic_coefficient_interval": [
+         9.882843055880148e-07,
+         1.136635858650752e-06
+        ],
+        "category_order": "Y plus; Y minus; grating passed but final band failed; grating failed; initial rest-filter failed"
+       },
+       {
+        "raw_probabilities": [
+         3.6597108797956514e-07,
+         3.632645804715739e-07,
+         9.35683166467624e-11,
+         1.5901923015814195e-06,
+         0.9999976804784616
+        ],
+        "normalization_correction": 0.0,
+        "counts": [
+         105483526453,
+         104703650522,
+         26970588,
+         458342298661,
+         288229707595265520
+        ],
+        "tau": 8192,
+        "sine_moment": 1.4239590261388603e-07,
+        "sampling_halfwidth": 7.78401313445524e-10,
+        "numerical_systematic_bound": 9.852268605891083e-10,
+        "operator_approximation_bound": 9.380489727396628e-10,
+        "coefficient_error": 0.024656586353749493,
+        "response_operator_width": 1.3168889187092477e-11,
+        "rest_energy_width": 4.6853187996021006e-11,
+        "band_energy_width": 6.188821696895275e-06,
+        "sinc_lower": 0.9995716598710689,
+        "first_moment_interval": [
+         1.406322744398514e-07,
+         1.442213065609676e-07
+        ],
+        "population_dirichlet_interval": [
+         0.1276000691491846,
+         0.1415940948227647
+        ],
+        "kinetic_coefficient_interval": [
+         9.932071998898173e-07,
+         1.1302604106926476e-06
+        ],
+        "category_order": "Y plus; Y minus; grating passed but final band failed; grating failed; initial rest-filter failed"
+       }
+      ]
+     },
+     {
+      "shell": 3,
+      "center": 0,
+      "records": [
+       {
+        "raw_probabilities": [
+         1.8953306316346788e-07,
+         1.8706849711181935e-07,
+         1.795654154533167e-10,
+         1.942740412658465e-06,
+         0.9999976804784616
+        ],
+        "normalization_correction": 0.0,
+        "counts": [
+         54629566019,
+         53918905031,
+         51767755,
+         559955930298,
+         288229707595542641
+        ],
+        "tau": 4096,
+        "sine_moment": 2.5951629166211065e-07,
+        "sampling_halfwidth": 1.5568029495435609e-09,
+        "numerical_systematic_bound": 9.862789140281937e-10,
+        "operator_approximation_bound": 9.380489727396628e-10,
+        "coefficient_error": 0.024656586353749493,
+        "response_operator_width": 5.583714114994252e-11,
+        "rest_energy_width": 4.6853187996021006e-11,
+        "band_energy_width": 6.188821696895275e-06,
+        "sinc_lower": 0.99989290464542,
+        "first_moment_interval": [
+         2.5697320979853893e-07,
+         2.6208744187320073e-07
+        ],
+        "population_dirichlet_interval": [
+         0.28867318990696766,
+         0.32069634953504506
+        ],
+        "kinetic_coefficient_interval": [
+         8.012975831221846e-07,
+         9.079036468806304e-07
+        ],
+        "category_order": "Y plus; Y minus; grating passed but final band failed; grating failed; initial rest-filter failed"
+       },
+       {
+        "raw_probabilities": [
+         1.9076506414155034e-07,
+         1.8583649613373686e-07,
+         1.795654154533167e-10,
+         1.942740412658465e-06,
+         0.9999976804784616
+        ],
+        "normalization_correction": 0.0,
+        "counts": [
+         54984233488,
+         53563877058,
+         51759642,
+         559957514490,
+         288229707594327066
+        ],
+        "tau": 8192,
+        "sine_moment": 2.593395230463152e-07,
+        "sampling_halfwidth": 7.78400767124371e-10,
+        "numerical_systematic_bound": 9.86278736911538e-10,
+        "operator_approximation_bound": 9.380489727396628e-10,
+        "coefficient_error": 0.024656586353749493,
+        "response_operator_width": 5.582995780942394e-11,
+        "rest_energy_width": 4.6853187996021006e-11,
+        "band_energy_width": 6.188821696895275e-06,
+        "sinc_lower": 0.9995716598710689,
+        "first_moment_interval": [
+         2.5757484354227927e-07,
+         2.6121609188482794e-07
+        ],
+        "population_dirichlet_interval": [
+         0.28867318990696766,
+         0.32069634953504506
+        ],
+        "kinetic_coefficient_interval": [
+         8.031736061720653e-07,
+         9.048851816443762e-07
+        ],
+        "category_order": "Y plus; Y minus; grating passed but final band failed; grating failed; initial rest-filter failed"
+       }
+      ]
+     }
+    ]
+   },
+   "which_arm_control": {
+    "raw_probabilities": [
+     3.6461783422556956e-07,
+     3.6461783422556956e-07,
+     9.35683166467624e-11,
+     1.5901923015814195e-06,
+     0.9999976804784616
+    ],
+    "normalization_correction": 0.0,
+    "counts": [
+     105093609283,
+     105094137901,
+     26962948,
+     458341621748,
+     288229707595379864
+    ],
+    "tau": 8192,
+    "sine_moment": -9.651926303901541e-11,
+    "sampling_halfwidth": 7.784013800109814e-10,
+    "numerical_systematic_bound": 1.9704538988162127e-09,
+    "operator_approximation_bound": 1.8760979454793255e-09,
+    "coefficient_error": 0.024656586353749493,
+    "response_operator_width": 2.6344982858763483e-11,
+    "rest_energy_width": 9.370637599204201e-11,
+    "band_energy_width": 1.237764339379055e-05,
+    "sinc_lower": 0.9982872999628956,
+    "first_moment_interval": [
+     0.0,
+     2.656886465335942e-09
+    ],
+    "population_dirichlet_interval": [
+     0.1276000691491846,
+     0.1415940948227647
+    ],
+    "kinetic_coefficient_interval": [
+     0.0,
+     2.0821982958564254e-08
+    ],
+    "category_order": "Y plus; Y minus; grating passed but final band failed; grating failed; initial rest-filter failed"
+   },
+   "label": "orientation_-1_offset_0",
+   "orientation": -1,
+   "offset": 0,
+   "signed_remote": {
+    "owner": 0,
+    "time": 1000000,
+    "true_charge_probabilities_from_minus_to_plus": [
+     3.391604151746862e-05,
+     0.9999430892628549,
+     2.2994695611460015e-05
+    ],
+    "receiver_exits": [
+     "20",
+     "02",
+     "initial rest-filter refused"
+    ],
+    "records": {
+     "parity": {
+      "raw_probabilities": [
+       1.320056805338798e-10,
+       2.3193895326686714e-06,
+       0.9999976804784616
+      ],
+      "normalization_correction": 0.0,
+      "counts": [
+       38051124,
+       668517612135,
+       288229707596048485
+      ]
+     },
+     "sign": {
+      "raw_probabilities": [
+       1.1597734353231312e-06,
+       1.1597481030260742e-06,
+       0.9999976804784616
+      ],
+      "normalization_correction": 0.0,
+      "counts": [
+       334281527395,
+       334273826102,
+       288229707596358247
+      ]
+     }
+    }
+   },
+   "remote_effect_probability_error": 0.02469822389783459,
+   "within_source": {
+    "first": [
+     1.991324681386809e-06,
+     2.2566656918269948e-06
+    ],
+    "third": [
+     1.6082392506189356e-06,
+     1.8088020675836226e-06
+    ],
+    "result": "reject"
+   }
+  },
+  {
+   "admission": 0.0006928437691991775,
+   "population": {
+    "raw_probabilities": [
+     1.4913494134546214e-05,
+     2.8743157382924656e-09,
+     6.18502689454074e-09,
+     6.851284985514134e-05,
+     0.0002871773592790809,
+     2.449639026173567e-13,
+     9.8656773335667e-09,
+     0.00026649998291128205,
+     6.693236417853147e-09,
+     6.003202713135162e-13,
+     4.891228137350794e-13,
+     9.105862711632234e-10,
+     5.22205249871748e-10,
+     3.308242223529611e-13,
+     7.58853516264532e-13,
+     2.3616996967294933e-15,
+     4.9851872661069946e-05,
+     5.861156290236418e-06,
+     1.8338065825855535e-15,
+     5.916346275690254e-13,
+     0.9993071562308008
+    ],
+    "normalization_correction": 0.0,
+    "counts": [
+     4298523563508,
+     828461125,
+     1782717156,
+     19747485472791,
+     82773250355206,
+     70647,
+     2843578993,
+     76813382921610,
+     1929195286,
+     173634,
+     140440,
+     262433072,
+     150519776,
+     95758,
+     218693,
+     640,
+     14368819840395,
+     1689364716993,
+     496,
+     170004,
+     288030677527065521
+    ],
+    "conditional_owner_population": [
+     0.02152505342048834,
+     4.148556989151348e-06,
+     8.927037725763913e-06,
+     0.09888643703868641,
+     0.41449083839131756,
+     3.5376808490872187e-10,
+     1.4239351913602585e-05,
+     0.3846465295276274,
+     9.660533663752941e-06,
+     8.694801995136526e-10,
+     7.032597257432149e-10,
+     1.3141456154989274e-06,
+     7.53734665256979e-07,
+     4.795125663466161e-10,
+     1.0951152036596476e-09,
+     3.2048292827944855e-12,
+     0.07195252278702544,
+     0.008459571116154665,
+     2.4837426941657263e-12,
+     8.513028084253026e-10
+    ],
+    "owner_probability_bounds": [
+     [
+      0.02145249438446582,
+      0.021597734957297835
+     ],
+     [
+      3.804613060535128e-06,
+      4.5031050987948386e-06
+     ],
+     [
+      8.497035527524153e-06,
+      9.365700640167431e-06
+     ],
+     [
+      0.09858072114426732,
+      0.09919262623829171
+     ],
+     [
+      0.41326055699787473,
+      0.41572294834478135
+     ],
+     [
+      0.0,
+      3.5842892455387164e-07
+     ],
+     [
+      1.3734789261535982e-05,
+      1.4751799570430332e-05
+     ],
+     [
+      0.3835031121791707,
+      0.3857916488933109
+     ],
+     [
+      9.219324887878044e-06,
+      1.0110252359290411e-05
+     ],
+     [
+      0.0,
+      7.237818987952025e-07
+     ],
+     [
+      0.0,
+      8.39978524971641e-07
+     ],
+     [
+      1.0425302091822023e-06,
+      1.6027493345796326e-06
+     ],
+     [
+      5.098433562519684e-07,
+      1.01822548230606e-06
+     ],
+     [
+      0.0,
+      4.582306858290379e-07
+     ],
+     [
+      0.0,
+      1.9232664843035095e-06
+     ],
+     [
+      0.0,
+      2.2231138479578703e-07
+     ],
+     [
+      0.07172706859052284,
+      0.07217833075396606
+     ],
+     [
+      0.008428370192834534,
+      0.00849082968204927
+     ],
+     [
+      0.0,
+      2.23206632232747e-07
+     ],
+     [
+      0.0,
+      1.830207646770654e-06
+     ]
+    ],
+    "amplitude_systematic_bounds": [
+     0.0002468602677340191,
+     4.045771402091444e-05,
+     4.181445707682965e-05,
+     0.0004861762842623071,
+     0.0009560366448584704,
+     0.00016876847335021243,
+     4.293536578705545e-05,
+     0.0009223525679157046,
+     4.198611700860435e-05,
+     0.0004202335005117828,
+     0.0004861762892709545,
+     4.181445713972176e-05,
+     4.045771459909782e-05,
+     0.00024686030378843994,
+     0.0009560366431770641,
+     4.198611714100716e-05,
+     0.0004202335173857011,
+     0.00016876843483277346,
+     4.29353655766548e-05,
+     0.0009223525601764029
+    ],
+    "sampling_halfwidth": 1.844781825798653e-07,
+    "reader": "Read both native port addresses and choose excess/vacancy with an independent fair classical bit"
+   },
+   "response": {
+    "native": [
+     {
+      "shell": 1,
+      "center": 0,
+      "records": [
+       {
+        "raw_probabilities": [
+         0.00010931598867616267,
+         0.00010850755171802319,
+         2.7948963676024482e-08,
+         0.0004749922798413156,
+         0.9993071562308008
+        ],
+        "normalization_correction": 0.0,
+        "counts": [
+         31508187629989,
+         31275168788450,
+         8055796612,
+         136907218756825,
+         288030677520739868
+        ],
+        "tau": 4096,
+        "sine_moment": 2.8487609220575617e-07,
+        "sampling_halfwidth": 9.007723616118175e-11,
+        "numerical_systematic_bound": 1.9698418960081394e-09,
+        "operator_approximation_bound": 1.8760979454793255e-09,
+        "coefficient_error": 0.0014266403277457184,
+        "response_operator_width": 2.6337778374184953e-11,
+        "rest_energy_width": 9.370637599204201e-11,
+        "band_energy_width": 1.237764339379055e-05,
+        "sinc_lower": 0.9995716598710689,
+        "first_moment_interval": [
+         2.8281617307358686e-07,
+         2.8705897021423787e-07
+        ],
+        "population_dirichlet_interval": [
+         0.134001432813883,
+         0.1348896086364389
+        ],
+        "kinetic_coefficient_interval": [
+         2.0966490742503888e-06,
+         2.1422082151385596e-06
+        ],
+        "category_order": "Y plus; Y minus; grating passed but final band failed; grating failed; initial rest-filter failed"
+       },
+       {
+        "raw_probabilities": [
+         0.0001097199081430473,
+         0.00010810363225113856,
+         2.7948963676024482e-08,
+         0.0004749922798413156,
+         0.9993071562308008
+        ],
+        "normalization_correction": 0.0,
+        "counts": [
+         31624605100742,
+         31158751208056,
+         8055841265,
+         136907205695240,
+         288030677533866441
+        ],
+        "tau": 8192,
+        "sine_moment": 2.8476376488280745e-07,
+        "sampling_halfwidth": 4.50386195608282e-11,
+        "numerical_systematic_bound": 1.9698419062863477e-09,
+        "operator_approximation_bound": 1.8760979454793255e-09,
+        "coefficient_error": 0.0014266403277457184,
+        "response_operator_width": 2.6344982858763483e-11,
+        "rest_energy_width": 9.370637599204201e-11,
+        "band_energy_width": 1.237764339379055e-05,
+        "sinc_lower": 0.9982872999628956,
+        "first_moment_interval": [
+         2.8274888435696027e-07,
+         2.8727065386819373e-07
+        ],
+        "population_dirichlet_interval": [
+         0.134001432813883,
+         0.1348896086364389
+        ],
+        "kinetic_coefficient_interval": [
+         2.0961502314017307e-06,
+         2.1437879270081324e-06
+        ],
+        "category_order": "Y plus; Y minus; grating passed but final band failed; grating failed; initial rest-filter failed"
+       }
+      ]
+     },
+     {
+      "shell": 3,
+      "center": 0,
+      "records": [
+       {
+        "raw_probabilities": [
+         5.698174737916142e-05,
+         5.550957827408534e-05,
+         5.363639544815838e-08,
+         0.0005802988071504826,
+         0.9993071562308008
+        ],
+        "normalization_correction": 0.0,
+        "counts": [
+         16423872390796,
+         15999554568907,
+         15459804700,
+         167259752142124,
+         288030677512805217
+        ],
+        "tau": 4096,
+        "sine_moment": 5.18747743108595e-07,
+        "sampling_halfwidth": 9.007723437165668e-11,
+        "numerical_systematic_bound": 1.969963620009982e-09,
+        "operator_approximation_bound": 1.8760979454793255e-09,
+        "coefficient_error": 0.0014266403277457184,
+        "response_operator_width": 1.1165991561884787e-10,
+        "rest_energy_width": 9.370637599204201e-11,
+        "band_energy_width": 1.237764339379055e-05,
+        "sinc_lower": 0.9995716598710689,
+        "first_moment_interval": [
+         5.166877022542134e-07,
+         5.210309624326021e-07
+        ],
+        "population_dirichlet_interval": [
+         0.3033174785282658,
+         0.30538482725870675
+        ],
+        "kinetic_coefficient_interval": [
+         1.6919232919731843e-06,
+         1.717774277172253e-06
+        ],
+        "category_order": "Y plus; Y minus; grating passed but final band failed; grating failed; initial rest-filter failed"
+       },
+       {
+        "raw_probabilities": [
+         5.771715808636104e-05,
+         5.4774167566885736e-05,
+         5.363639544815838e-08,
+         0.0005802988071504826,
+         0.9993071562308008
+        ],
+        "normalization_correction": 0.0,
+        "counts": [
+         16635839175759,
+         15787578685558,
+         15459627314,
+         167259740958972,
+         288030677533264141
+        ],
+        "tau": 8192,
+        "sine_moment": 5.185184751160813e-07,
+        "sampling_halfwidth": 4.503861949290896e-11,
+        "numerical_systematic_bound": 1.969963538042998e-09,
+        "operator_approximation_bound": 1.8760979454793255e-09,
+        "coefficient_error": 0.0014266403277457184,
+        "response_operator_width": 1.1160246106465683e-10,
+        "rest_energy_width": 9.370637599204201e-11,
+        "band_energy_width": 1.237764339379055e-05,
+        "sinc_lower": 0.9982872999628956,
+        "first_moment_interval": [
+         5.165034729585454e-07,
+         5.214265245014781e-07
+        ],
+        "population_dirichlet_interval": [
+         0.3033174785282658,
+         0.30538482725870675
+        ],
+        "kinetic_coefficient_interval": [
+         1.6913200226578039e-06,
+         1.7190783961132229e-06
+        ],
+        "category_order": "Y plus; Y minus; grating passed but final band failed; grating failed; initial rest-filter failed"
+       }
+      ]
+     }
+    ],
+    "half_rate": [
+     {
+      "shell": 1,
+      "center": 0,
+      "records": [
+       {
+        "raw_probabilities": [
+         0.00010911389812801049,
+         0.00010870964226617539,
+         2.7948963676024482e-08,
+         0.0004749922798413156,
+         0.9993071562308008
+        ],
+        "normalization_correction": 0.0,
+        "counts": [
+         31449936981697,
+         31333418795417,
+         8055676629,
+         136907199627643,
+         288030677540630358
+        ],
+        "tau": 4096,
+        "sine_moment": 1.4244877652490175e-07,
+        "sampling_halfwidth": 9.007724064714264e-11,
+        "numerical_systematic_bound": 9.849209467194493e-10,
+        "operator_approximation_bound": 9.380489727396628e-10,
+        "coefficient_error": 0.0014266403277457184,
+        "response_operator_width": 1.3167988735641827e-11,
+        "rest_energy_width": 4.6853187996021006e-11,
+        "band_energy_width": 6.188821696895275e-06,
+        "sinc_lower": 0.99989290464542,
+        "first_moment_interval": [
+         1.4137377833753516e-07,
+         1.4353914708812187e-07
+        ],
+        "population_dirichlet_interval": [
+         0.134001432813883,
+         0.1348896086364389
+        ],
+        "kinetic_coefficient_interval": [
+         1.0480701943362643e-06,
+         1.071176211134145e-06
+        ],
+        "category_order": "Y plus; Y minus; grating passed but final band failed; grating failed; initial rest-filter failed"
+       },
+       {
+        "raw_probabilities": [
+         0.00010931598867616267,
+         0.00010850755171802319,
+         2.7948963676024482e-08,
+         0.0004749922798413156,
+         0.9993071562308008
+        ],
+        "normalization_correction": 0.0,
+        "counts": [
+         31508187181837,
+         31275173003477,
+         8055895329,
+         136907205313312,
+         288030677530317789
+        ],
+        "tau": 8192,
+        "sine_moment": 1.4243520246052613e-07,
+        "sampling_halfwidth": 4.5038619160659224e-11,
+        "numerical_systematic_bound": 9.849209480040697e-10,
+        "operator_approximation_bound": 9.380489727396628e-10,
+        "coefficient_error": 0.0014266403277457184,
+        "response_operator_width": 1.3168889187092477e-11,
+        "rest_energy_width": 4.6853187996021006e-11,
+        "band_energy_width": 6.188821696895275e-06,
+        "sinc_lower": 0.9995716598710689,
+        "first_moment_interval": [
+         1.414052428933614e-07,
+         1.4352664024727941e-07
+        ],
+        "population_dirichlet_interval": [
+         0.134001432813883,
+         0.1348896086364389
+        ],
+        "kinetic_coefficient_interval": [
+         1.0483034558613316e-06,
+         1.0710828774989753e-06
+        ],
+        "category_order": "Y plus; Y minus; grating passed but final band failed; grating failed; initial rest-filter failed"
+       }
+      ]
+     },
+     {
+      "shell": 3,
+      "center": 0,
+      "records": [
+       {
+        "raw_probabilities": [
+         5.661374722689026e-05,
+         5.5877578426356516e-05,
+         5.363639544815838e-08,
+         0.0005802988071504826,
+         0.9993071562308008
+        ],
+        "normalization_correction": 0.0,
+        "counts": [
+         16317796483182,
+         16105611099610,
+         15459862929,
+         167259740128157,
+         288030677544137866
+        ],
+        "tau": 4096,
+        "sine_moment": 2.5940627624040093e-07,
+        "sampling_halfwidth": 9.007724143820134e-11,
+        "numerical_systematic_bound": 9.849818202530342e-10,
+        "operator_approximation_bound": 9.380489727396628e-10,
+        "coefficient_error": 0.0014266403277457184,
+        "response_operator_width": 5.583714114994252e-11,
+        "rest_energy_width": 4.6853187996021006e-11,
+        "band_energy_width": 6.188821696895275e-06,
+        "sinc_lower": 0.99989290464542,
+        "first_moment_interval": [
+         2.5833121717870974e-07,
+         2.605092346309463e-07
+        ],
+        "population_dirichlet_interval": [
+         0.3033174785282658,
+         0.30538482725870675
+        ],
+        "kinetic_coefficient_interval": [
+         8.459202754034157e-07,
+         8.588665443711637e-07
+        ],
+        "category_order": "Y plus; Y minus; grating passed but final band failed; grating failed; initial rest-filter failed"
+       },
+       {
+        "raw_probabilities": [
+         5.698174737916142e-05,
+         5.550957827408534e-05,
+         5.363639544815838e-08,
+         0.0005802988071504826,
+         0.9993071562308008
+        ],
+        "normalization_correction": 0.0,
+        "counts": [
+         16423875995159,
+         15999543621592,
+         15459540887,
+         167259734301396,
+         288030677538252710
+        ],
+        "tau": 8192,
+        "sine_moment": 2.593827996498148e-07,
+        "sampling_halfwidth": 4.503862005545232e-11,
+        "numerical_systematic_bound": 9.84981810004991e-10,
+        "operator_approximation_bound": 9.380489727396628e-10,
+        "coefficient_error": 0.0014266403277457184,
+        "response_operator_width": 5.582995780942394e-11,
+        "rest_energy_width": 4.6853187996021006e-11,
+        "band_energy_width": 6.188821696895275e-06,
+        "sinc_lower": 0.9995716598710689,
+        "first_moment_interval": [
+         2.583527792197544e-07,
+         2.6052441314058955e-07
+        ],
+        "population_dirichlet_interval": [
+         0.3033174785282658,
+         0.30538482725870675
+        ],
+        "kinetic_coefficient_interval": [
+         8.459908815341727e-07,
+         8.589165860295505e-07
+        ],
+        "category_order": "Y plus; Y minus; grating passed but final band failed; grating failed; initial rest-filter failed"
+       }
+      ]
+     }
+    ]
+   },
+   "which_arm_control": {
+    "raw_probabilities": [
+     0.00010891177019709294,
+     0.00010891177019709294,
+     2.7948963676024482e-08,
+     0.0004749922798413156,
+     0.9993071562308008
+    ],
+    "normalization_correction": 0.0,
+    "counts": [
+     31391678843312,
+     31391677872653,
+     8055867592,
+     136907204525340,
+     288030677534602847
+    ],
+    "tau": 8192,
+    "sine_moment": 5.933373459282637e-13,
+    "sampling_halfwidth": 4.5038619643870117e-11,
+    "numerical_systematic_bound": 1.9698419062863477e-09,
+    "operator_approximation_bound": 1.8760979454793255e-09,
+    "coefficient_error": 0.0014266403277457184,
+    "response_operator_width": 2.6344982858763483e-11,
+    "rest_energy_width": 9.370637599204201e-11,
+    "band_energy_width": 1.237764339379055e-05,
+    "sinc_lower": 0.9982872999628956,
+    "first_moment_interval": [
+     0.0,
+     2.0189316876525e-09
+    ],
+    "population_dirichlet_interval": [
+     0.134001432813883,
+     0.1348896086364389
+    ],
+    "kinetic_coefficient_interval": [
+     0.0,
+     1.506649328486383e-08
+    ],
+    "category_order": "Y plus; Y minus; grating passed but final band failed; grating failed; initial rest-filter failed"
+   },
+   "label": "orientation_-1_offset_1",
+   "orientation": -1,
+   "offset": 1,
+   "signed_remote": {
+    "owner": 0,
+    "time": 1000000,
+    "true_charge_probabilities_from_minus_to_plus": [
+     3.3916049234511526e-05,
+     0.9999430892480633,
+     2.2994702685975034e-05
+    ],
+    "receiver_exits": [
+     "20",
+     "02",
+     "initial rest-filter refused"
+    ],
+    "records": {
+     "parity": {
+      "raw_probabilities": [
+       3.943025986854924e-08,
+       0.0006928043389393089,
+       0.9993071562308008
+      ],
+      "normalization_correction": 0.0,
+      "counts": [
+       11364956470,
+       199687243281948,
+       288030677543473326
+      ]
+     },
+     "sign": {
+      "raw_probabilities": [
+       0.0003464256679930424,
+       0.0003464181012061351,
+       0.9993071562308008
+      ],
+      "normalization_correction": 0.0,
+      "counts": [
+       99850412398931,
+       99848229984346,
+       288030677509328467
+      ]
+     }
+    }
+   },
+   "remote_effect_probability_error": 0.0014682778718308129,
+   "within_source": {
+    "first": [
+     2.0966490742503888e-06,
+     2.1422082151385596e-06
+    ],
+    "third": [
+     1.6919232919731843e-06,
+     1.717774277172253e-06
+    ],
+    "result": "reject"
+   }
+  }
+ ]
+}
