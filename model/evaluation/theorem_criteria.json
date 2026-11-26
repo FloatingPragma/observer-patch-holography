@@ -1027,7 +1027,9 @@
                 "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/formed_ranges/affine_stencil/README.md",
                 "code/matched_einstein_limit/README.md",
                 "model/experiments/interval_echo_einstein_station/critical_exchange/signal_ruler/README.md",
-                "model/experiments/interval_echo_einstein_station/critical_exchange/signal_ruler/results.json"
+                "model/experiments/interval_echo_einstein_station/critical_exchange/signal_ruler/results.json",
+                "model/experiments/interval_echo_einstein_station/critical_exchange/neutral_cell/README.md",
+                "model/experiments/interval_echo_einstein_station/critical_exchange/neutral_cell/results.json"
               ],
               "demonstrated_measurement": {
                 "label": "Future survey volumes predicted from parked head readings on twelve held preparations",
@@ -1093,6 +1095,12 @@
                   "label": "A sender reset tests propagation on the same source at two occupancies",
                   "finding": "On the guided ring the reset signal is exactly independent of incoming matter despite the measured bond-energy change. On an interacting four-station native segment a spectator at station one changes the signed response at station two from +0.00319 to −0.98706. A common metric requires a clock and a second probe measuring the same change.",
                   "source": "model/experiments/interval_echo_einstein_station/critical_exchange/signal_ruler/README.md"
+                },
+                {
+                  "law": "Interval Echo with all thirty contacts open on one twelve-station cell",
+                  "label": "Two native material probes time the same evolving source",
+                  "finding": "A target-blind mixing law selects the neutral stock. On a charge-blind reading the excess and vacancy give the same complete radar histories by conjugation. One owner's near/quiet return-time ratios toward two neighbors have disjoint simultaneous 99 percent intervals. These finite routed records leave the moving-frame proper geometry undetermined.",
+                  "source": "model/experiments/interval_echo_einstein_station/critical_exchange/neutral_cell/README.md"
                 }
               ]
             },
@@ -1120,12 +1128,20 @@
               ]
             },
             "interval_echo_published_records": {
-              "status": "partial",
-              "note": "The parallel-sheet sector admits ten timelike frames and directly surveyed equal-volume geodesic balls. Its product geometry and rods are supplied. The preserved native clocks have yet to select those charts or volumes.",
+              "status": "demonstrated",
+              "note": "Inside the regular dust core, a local dust clock and four tagged beacon emissions locate each event. The ordered light arrivals and the measured scale history determine the causal cones and their proper clock scale, with dust time increasing along every future causal path. Six optical phase slopes per frame recover all ten timelike directions. The same located rays give equal-proper-volume geodesic balls on a common refinement. The law specifies the freely falling clocks, signals and survey standards.",
               "evidence": [
                 "model/candidate_laws/interval_echo_partition_repair/published_strings/GEOMETRY.md",
-                "model/candidate_laws/interval_echo_partition_repair/published_strings/geometry.json"
-              ]
+                "model/candidate_laws/interval_echo_partition_repair/published_strings/geometry.json",
+                "model/candidate_laws/interval_echo_published_records/spherical_dust/PROOF.md",
+                "model/candidate_laws/interval_echo_published_records/spherical_dust/results.json",
+                "model/candidate_laws/interval_echo_partition_repair/published_strings/ARCHIVE.md",
+                "model/candidate_laws/interval_echo_published_records/spherical_dust/survey.py"
+              ],
+              "demonstrated_measurement": {
+                "label": "Five-stamp event ranging and ten moving frames in the spherical material",
+                "source": "model/candidate_laws/interval_echo_published_records/spherical_dust/survey.py"
+              }
             }
           }
         },
@@ -1298,13 +1314,18 @@
               ]
             },
             "interval_echo_published_records": {
-              "status": "partial",
-              "note": "A vacuum endpoint pair responds to weighted work from the same two sheet families whose independent action gives the bulk stress. The normalized finite bulk error vanishes under the stated shrinking-ball conditions. The endpoint coupling and sheet action are new physical inputs.",
+              "status": "demonstrated",
+              "note": "Each conserved spherical dust stock contributes a rest mass independently weighed between tagged shells. Its worldline action and measured relative motion determine T(u,u) on the moving ball. The work-driven endpoint memory gives a regional entropy change of 2π Cℓ T(u,u) with O(ℓ⁶) error for the admitted stock variations. At ℓ=1/8192 terminal counts give the held rest density 0.137448 with simultaneous sampling radius 0.000154 per component. The action reading is 0.137452. The parallel-sheet instrument separately measures the stress of its declared string stocks.",
               "evidence": [
                 "model/candidate_laws/interval_echo_partition_repair/published_strings/README.md",
                 "model/candidate_laws/interval_echo_partition_repair/published_strings/memories.py",
                 "model/candidate_laws/interval_echo_partition_repair/published_strings/results.json",
-                "model/candidate_laws/interval_echo_partition_repair/published_strings/nested_stress/README.md"
+                "model/candidate_laws/interval_echo_partition_repair/published_strings/nested_stress/README.md",
+                "model/candidate_laws/interval_echo_published_records/spherical_dust/PROOF.md",
+                "model/candidate_laws/interval_echo_published_records/spherical_dust/results.json",
+                "model/candidate_laws/interval_echo_partition_repair/published_strings/counted_tower/README.md",
+                "Lean/ObserverPatchHolography/EinsteinBranch/SphericalDust.lean",
+                "model/candidate_laws/interval_echo_published_records/spherical_dust/endpoint_counts.json"
               ],
               "additional_comparisons": [
                 {
@@ -1313,7 +1334,11 @@
                   "finding": "At fixed full seam energy and load distributions the whole-pair entropy changes. The three radius kernels annihilate both inner stress moments and give a positive fourth-order error bound along the enrolled sequence.",
                   "source": "model/candidate_laws/interval_echo_partition_repair/published_strings/nested_stress/README.md"
                 }
-              ]
+              ],
+              "demonstrated_measurement": {
+                "label": "Regional endpoint counts and independently weighed spherical dust",
+                "source": "model/candidate_laws/interval_echo_published_records/spherical_dust/endpoint_counts.json"
+              }
             }
           }
         },
@@ -1416,12 +1441,19 @@
               ]
             },
             "interval_echo_published_records": {
-              "status": "partial",
-              "note": "Variation of two parallel-sheet actions gives separate symmetric, covariantly conserved stresses in the product geometry. The result is restricted to its homogeneous parallel families; the stress of native freely propagating excitations remains unidentified.",
+              "status": "demonstrated",
+              "note": "Both pressureless stocks have a conserved mass measure on each comoving shell. The material worldlines are geodesic in the clock metric, so each action stress ρ UₐUᵦ is separately covariantly conserved throughout the regular dust region. The matched surface carries zero surface stress and the exterior is vacuum. The blank preparation fixes Λ=0. For the homogeneous sheet material, the worldsheet actions independently conserve the two string stresses.",
               "evidence": [
                 "model/candidate_laws/interval_echo_partition_repair/published_strings/GEOMETRY.md",
-                "model/candidate_laws/interval_echo_partition_repair/published_strings/ARCHIVE.md"
-              ]
+                "model/candidate_laws/interval_echo_partition_repair/published_strings/ARCHIVE.md",
+                "Lean/ObserverPatchHolography/EinsteinBranch/SphericalDust.lean",
+                "model/candidate_laws/interval_echo_published_records/spherical_dust/body.py",
+                "model/candidate_laws/interval_echo_published_records/spherical_dust/PROOF.md"
+              ],
+              "demonstrated_measurement": {
+                "label": "Independent conservation of both spherical dust action stresses",
+                "source": "model/candidate_laws/interval_echo_published_records/spherical_dust/PROOF.md"
+              }
             }
           }
         },
@@ -1769,18 +1801,22 @@
               }
             },
             "interval_echo_published_records": {
-              "status": "partial",
-              "note": "The finite entropy deficit and separately integrated boundary area balance to fourth-order accuracy on a common volume-matched sheet survey. Half-strength transport and a coincidence-blind memory pulse fail separate held comparisons. The physical response of unsupplemented native matter remains open.",
+              "status": "demonstrated",
+              "note": "Three local exchanges select the reference endpoint memories, including for correlated inputs. On each stock variation the shell work acts on a shared material array and moving observers stop their rod survey at equal proper volume. The signed entropy plus η times area is O(ℓ⁶) in all ten frames. At ℓ=1/8192 the terminal counts bound the held normalized residual by 0.000156 at simultaneous 99 percent coverage. Halving collar gravity or excluding collar work gives lower bounds above 1.37 and 2.74 respectively. The result concerns the prepared spherical material and its registered variations.",
               "evidence": [
                 "model/candidate_laws/interval_echo_partition_repair/published_strings/README.md",
                 "model/candidate_laws/interval_echo_partition_repair/published_strings/results.json",
                 "model/candidate_laws/interval_echo_partition_repair/published_strings/nested_stress/selection/README.md",
                 "model/candidate_laws/interval_echo_partition_repair/published_strings/nested_stress/selection/results.json",
-                "Lean/ObserverPatchHolography/EinsteinBranch/TicketBath.lean"
+                "Lean/ObserverPatchHolography/EinsteinBranch/TicketBath.lean",
+                "model/candidate_laws/interval_echo_published_records/spherical_dust/PROOF.md",
+                "model/candidate_laws/interval_echo_published_records/spherical_dust/results.json",
+                "model/candidate_laws/interval_echo_partition_repair/published_strings/counted_tower/results.json",
+                "model/candidate_laws/interval_echo_published_records/spherical_dust/endpoint_counts.json"
               ],
               "demonstrated_measurement": {
-                "label": "Finite deficits on ten prescribed sheet observers",
-                "source": "model/candidate_laws/interval_echo_partition_repair/published_strings/results.json"
+                "label": "Counted fixed-volume stationarity and two resolved controls on the same dust",
+                "source": "model/candidate_laws/interval_echo_published_records/spherical_dust/endpoint_counts.json"
               },
               "additional_comparisons": [
                 {
@@ -1957,15 +1993,20 @@
               ]
             },
             "interval_echo_published_records": {
-              "status": "partial",
-              "note": "All three normalized deficits tend to zero on the ten timelike directions for the declared homogeneous sheet family. The action, rod geometry, material endpoints and refinement are supplied. A corresponding continuum reconstruction for the native carrier is open.",
+              "status": "demonstrated",
+              "note": "The spacelike exponential slice normal to each measured velocity has zero second fundamental form at the center. Proper-area and volume quadratures give the fixed-volume area difference −Cℓ G(u,u)+O(ℓ⁶). On the same regular dust source, the bulk and stationarity errors are also O(ℓ⁶) uniformly on the ten frames. The bounded inverse of the measured frame matrix gives O(ℓ²) deterministic tensor error. The separate count uncertainty also vanishes under refinement. The largest held area error divided by ℓ⁴ falls from 0.0002071 to 0.000000809 over the three scales. Lean checks the shell identities and the regular interior tensor residual.",
               "evidence": [
                 "model/candidate_laws/interval_echo_partition_repair/published_strings/README.md",
                 "model/candidate_laws/interval_echo_partition_repair/published_strings/GEOMETRY.md",
                 "model/candidate_laws/interval_echo_partition_repair/published_strings/results.json",
                 "model/candidate_laws/interval_echo_partition_repair/published_strings/nested_stress/selection/README.md",
                 "model/candidate_laws/interval_echo_partition_repair/published_strings/nested_stress/selection/results.json",
-                "Lean/ObserverPatchHolography/EinsteinBranch/TicketBath.lean"
+                "Lean/ObserverPatchHolography/EinsteinBranch/TicketBath.lean",
+                "model/candidate_laws/interval_echo_published_records/spherical_dust/results.json",
+                "model/candidate_laws/interval_echo_published_records/spherical_dust/endpoint_counts.json",
+                "Lean/ObserverPatchHolography/EinsteinBranch/SphericalDust.lean",
+                "code/matched_einstein_limit/PROOF.md",
+                "model/candidate_laws/interval_echo_published_records/spherical_dust/PROOF.md"
               ],
               "additional_comparisons": [
                 {
@@ -1974,7 +2015,11 @@
                   "finding": "Every displacement history yields the same sourced material after a complete three-address sweep. The ten-frame, equal-volume entropy, area and action residuals retain their sixth-order bound. Missing one address leaves output trace distance 3/4 for the registered control.",
                   "source": "model/candidate_laws/interval_echo_partition_repair/published_strings/nested_stress/selection/README.md"
                 }
-              ]
+              ],
+              "demonstrated_measurement": {
+                "label": "Sixth-order proper-ball bounds and tensor recovery on the spherical material",
+                "source": "model/candidate_laws/interval_echo_published_records/spherical_dust/PROOF.md"
+              }
             }
           }
         },
@@ -2073,7 +2118,9 @@
                 "code/matched_einstein_limit/source_implication/full_algebra/reuse/retained_equilibrium/bridge_stress/README.md",
                 "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/energy_source/binding/README.md",
                 "code/matched_einstein_limit/source_implication/full_algebra/reuse/retained_equilibrium/regional_energy/README.md",
-                "code/matched_einstein_limit/quantum_scalar_radar/species_transfer/correlation.json"
+                "code/matched_einstein_limit/quantum_scalar_radar/species_transfer/correlation.json",
+                "model/experiments/interval_echo_einstein_station/critical_exchange/neutral_cell/README.md",
+                "model/experiments/interval_echo_einstein_station/critical_exchange/neutral_cell/results.json"
               ],
               "demonstrated_measurement": {
                 "label": "Ordinary and fixed-energy pairing transfers give the same calibrated area response on a selected finite source",
@@ -2145,6 +2192,12 @@
                   "label": "Cross-correlation stress and two independent geometry readouts",
                   "finding": "At equal single-field density matrices, the measured cross covariance forecasts a timelike Einstein contrast of 0.00296540. Radar gives 0.00296837 and equal-volume area gives 0.00296947. With the bilinear interaction removed both geometry records coincide. The supplied classical metric dynamics couple to expected stress.",
                   "source": "code/matched_einstein_limit/quantum_scalar_radar/species_transfer/correlation.json"
+                },
+                {
+                  "law": "Interval Echo with all thirty contacts open on one twelve-station cell",
+                  "label": "A common two-probe return law with a charge-resolved control",
+                  "finding": "The neutral stock has independently metered incident energies 56.2143 and 9.7143 in two local cohorts. Both charge probes agree on each route of the charge-blind cohorts. Resolving a local vacancy separates the mean probe times by more than 0.10. Regional stress-to-curvature coupling requires additional readings on this source.",
+                  "source": "model/experiments/interval_echo_einstein_station/critical_exchange/neutral_cell/README.md"
                 }
               ]
             },
@@ -2178,16 +2231,22 @@
               }
             },
             "interval_echo_published_records": {
-              "status": "partial",
-              "note": "Ordinary sheet tension calibrates a positive coupling of 2π in rod units. With both native single-post frequencies fixed, the held archived coincidence contributes 8/33 units of sheet density at the same gain. Universal coupling to other sources and astrophysical collar stress needs separate evidence.",
+              "status": "demonstrated",
+              "note": "An ordinary release sets G→1/4 in the specified mass and length units and hence η→1. At this same gain, adding 8/33 units of coincidence mass predicts the signed area and stress changes in all ten dust frames. On the same compact body the independent clock-spacing and free-release readings of held GM are 0.14393939394 and 0.14393939392. A light instrument blind to the collar gives 0.08333333333 while release retains the held value. An interior null screen also recovers the collar focusing increase at the ordinary gain. Universality here ranges over the admitted spherical dust stocks, clocks and probes.",
               "evidence": [
                 "model/candidate_laws/interval_echo_partition_repair/published_strings/ARCHIVE.md",
                 "model/candidate_laws/interval_echo_partition_repair/published_strings/GEOMETRY.md",
-                "model/candidate_laws/interval_echo_partition_repair/published_strings/results.json"
+                "model/candidate_laws/interval_echo_partition_repair/published_strings/results.json",
+                "model/candidate_laws/interval_echo_published_records/spherical_dust/PROOF.md",
+                "model/candidate_laws/interval_echo_published_records/spherical_dust/endpoint_counts.json",
+                "model/candidate_laws/interval_echo_published_records/spherical_dust/exterior_reader.json",
+                "model/candidate_laws/interval_echo_published_records/spherical_dust/null_beam.json",
+                "Lean/ObserverPatchHolography/EinsteinBranch/SphericalDust.lean",
+                "model/candidate_laws/interval_echo_published_records/spherical_dust/EXTERIOR_READER.md"
               ],
               "demonstrated_measurement": {
-                "label": "Ordinary stress predicts held sheet response",
-                "source": "model/candidate_laws/interval_echo_partition_repair/published_strings/GEOMETRY.md"
+                "label": "An ordinary calibration predicts held interior and exterior readings",
+                "source": "model/candidate_laws/interval_echo_published_records/spherical_dust/EXTERIOR_READER.md"
               }
             }
           }

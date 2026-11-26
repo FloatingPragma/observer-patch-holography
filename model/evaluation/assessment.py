@@ -11,9 +11,9 @@ ROOT = HERE.parents[1]
 STATUS = {"demonstrated": "Demonstrated", "partial": "Partial", "open": "Open", "counterexample": "Counterexample"}
 FILES = ("theorem_criteria.json", "observer_criteria.json", "openwave_criteria.json", "gravitational_particle.json")
 READOUTS = {
-    "interval_echo_published_records": ("Ordinary transport curvature per unit parallel-sheet stress in the added sector",
-                                        "model/candidate_laws/interval_echo_partition_repair/published_strings/geometry.json",
-                                        "measured_ordinary_gain", None),
+    "interval_echo_published_records": ("Received per emitted frequency between area radii 2 and 4 on the held spherical source",
+                                       "model/candidate_laws/interval_echo_published_records/spherical_dust/exterior_reader.json",
+                                       "readouts/held/redshift_ratio", None),
     "interval_echo_partition_repair": ("Entropy slope in nats at fixed volume and aperture under the biased-word control",
                                        "model/candidate_laws/interval_echo_partition_repair/regional_results.json",
                                        "changed_law/biased_pair_fixed_area_entropy_slope_nats", None),
@@ -33,7 +33,7 @@ READOUTS = {
 }
 SHORT = {"interval_echo": "Interval Echo", "contrast_memory_spherical_v1": "Contrast memory", "scalar_channel": "Scalar channel"}
 DECISIONS = {
-    "interval_echo_published_records": "A downstream experiment preserves every original observer transcript. A common gain predicts the held sheet stress, proper area and entropy deficits on a ten-frame product geometry. The rods, sheet families and weighted memory coupling are supplied.",
+    "interval_echo_published_records": "A one-way archive preserves the native observer records. In the added spherical dust material, the same counts supply the ten-frame Einstein estimates and predict the held exterior redshift and release from ordinary calibration. The law specifies the radial pull, local clocks and work-driven memories. A separate parallel-sheet survey realizes the matched estimates for string stress.",
     "interval_echo_partition_repair": "Experimental repair law with exact stationarity on overlapping records. One ordinary area calibration predicts a held correlation response on the cubical survey. Physical stress and a source-derived proper-ball metric require independent measurements.",
     "interval_echo": "Full federation generator, a transported and jointly read patch clock, and a current instrument on the bound pair. The 19-port ring comparator contradicts the common rest-energy and inertia assignment for its free clusters.",
     "contrast_memory_spherical_v1": "Reference for the shared seam dynamics, with an all-size binding theorem and local reader controls. The 19-port ring resolves different rest-energy and kinetic ratios for free clusters.",
