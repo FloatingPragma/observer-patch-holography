@@ -6,7 +6,7 @@ from pathlib import Path
 import numpy as np
 from scipy.linalg import eigh
 from .material import columns, hardware
-from .measure import HERE, SHOTS, WAITS, hamiltonians
+from .measure import HERE, SHOTS, WAITS, compare_records, hamiltonians
 from .readers import clocks, charge
 
 
@@ -60,5 +60,5 @@ if __name__ == "__main__":
     if dest:
         dest.write_text(json.dumps(rec, indent=1) + "\n")
     else:
-        assert rec == json.loads((HERE / "calibration.json").read_text())
+        compare_records(json.loads((HERE / "calibration.json").read_text()), rec)
         print("Verified all independent clocks, charge bins and changed-law counts.")
