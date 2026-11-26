@@ -1129,14 +1129,16 @@
             },
             "interval_echo_published_records": {
               "status": "demonstrated",
-              "note": "The spherical material's local dust clocks and tagged beacon emissions locate events in its regular interior. The light arrivals and measured scale history determine the causal cones and proper clock scale. Dust time increases along every future causal path. Six optical phase slopes per frame recover all ten timelike directions at the enrolled central event. Proper rods and signal clocks identify the equal-volume geodesic balls on its fourfold refinement. The geometry applies throughout the regular core. The installed entropy memories have a more restricted coverage.",
+              "note": "The spherical material's local dust clocks and tagged beacon emissions locate events in its regular homogeneous interior. Light arrivals and a measured scale history determine the causal cones and proper clock scale. Dust time increases along every future causal path. Six optical phase slopes per frame recover the ten timelike directions. The same clocks and proper rulers identify equal-volume geodesic balls. Translated and tilted clock-pair apertures use that geometry on the same dust stock.",
               "evidence": [
                 "model/candidate_laws/interval_echo_partition_repair/published_strings/GEOMETRY.md",
                 "model/candidate_laws/interval_echo_partition_repair/published_strings/geometry.json",
                 "model/candidate_laws/interval_echo_published_records/spherical_dust/PROOF.md",
                 "model/candidate_laws/interval_echo_published_records/spherical_dust/results.json",
                 "model/candidate_laws/interval_echo_partition_repair/published_strings/ARCHIVE.md",
-                "model/candidate_laws/interval_echo_published_records/spherical_dust/survey.py"
+                "model/candidate_laws/interval_echo_published_records/spherical_dust/survey.py",
+                "model/candidate_laws/interval_echo_published_records/spherical_dust/clock_pairs/REFINEMENT.md",
+                "model/candidate_laws/interval_echo_published_records/spherical_dust/clock_pairs/regions.json"
               ],
               "demonstrated_measurement": {
                 "label": "Five-stamp event ranging and ten moving frames in the spherical material",
@@ -1314,8 +1316,8 @@
               ]
             },
             "interval_echo_published_records": {
-              "status": "partial",
-              "note": "On the central event's fourfold shrinking sequence, shell weighing and the worldline action give each stock's stress independently of entropy. The selected endpoint memories give 2π Cℓ T(u,u)+O(ℓ⁶) on the ten moving balls for admitted changes of stock. At ℓ=1/8192 terminal counts give held rest density 0.137448 with simultaneous sampling radius 0.000154 per component. The action reading is 0.137452. At intermediate radii 3ℓ and near centers displaced from the installed memory line, sufficiently small balls cut no pair. Their entropy contrast vanishes while the local dust stress is positive.",
+              "status": "demonstrated",
+              "note": "On the homogeneous dust stocks the observers weigh ordinary and coincidence mass by independent shell counts. Their worldline actions give T(u,u). Each clock pair supplies a fair local sign at each end. Its joint entropy changes with the two local appointments. Keeping one clock sample per selected end and completing missing slots from the same conditional blank gives a common regional register even when membership changes. Its entropy contrast is 2π Cℓ T(u,u)+O(ℓ⁵), uniformly on compact regular interiors and bounded boosts. The cutoff retains earlier clock tapes. The separate 21-pair array misses displaced balls.",
               "evidence": [
                 "model/candidate_laws/interval_echo_partition_repair/published_strings/README.md",
                 "model/candidate_laws/interval_echo_partition_repair/published_strings/memories.py",
@@ -1325,7 +1327,12 @@
                 "model/candidate_laws/interval_echo_published_records/spherical_dust/results.json",
                 "model/candidate_laws/interval_echo_partition_repair/published_strings/counted_tower/README.md",
                 "Lean/ObserverPatchHolography/EinsteinBranch/SphericalDust.lean",
-                "model/candidate_laws/interval_echo_published_records/spherical_dust/endpoint_counts.json"
+                "model/candidate_laws/interval_echo_published_records/spherical_dust/endpoint_counts.json",
+                "model/candidate_laws/interval_echo_published_records/spherical_dust/clock_pairs/REFINEMENT.md",
+                "model/candidate_laws/interval_echo_published_records/spherical_dust/clock_pairs/registered_reference.py",
+                "model/candidate_laws/interval_echo_published_records/spherical_dust/clock_pairs/results.json",
+                "model/candidate_laws/interval_echo_published_records/spherical_dust/clock_pairs/regions.json",
+                "model/candidate_laws/interval_echo_published_records/spherical_dust/test_scale_scope.py"
               ],
               "additional_comparisons": [
                 {
@@ -1336,8 +1343,8 @@
                 }
               ],
               "demonstrated_measurement": {
-                "label": "Regional dust entropy and weighed action stress on ten central frames at fourfold refinements",
-                "source": "model/candidate_laws/interval_echo_published_records/spherical_dust/endpoint_counts.json"
+                "label": "Regional clock-pair entropy equals the independently weighed dust stress to fifth-order accuracy",
+                "source": "model/candidate_laws/interval_echo_published_records/spherical_dust/clock_pairs/REFINEMENT.md"
               }
             }
           }
@@ -1801,8 +1808,8 @@
               }
             },
             "interval_echo_published_records": {
-              "status": "partial",
-              "note": "Three local exchanges select the reference endpoint memories on a shared array. At its enrolled central event and fourfold radii, all ten frames find that the signed generalized-entropy change at fixed proper volume is O(ℓ⁶) for admitted stock changes. At ℓ=1/8192 endpoint counts bound the largest held residual divided by ℓ⁴ below 0.000156 with simultaneous 99 percent coverage. Halving collar gravity or omitting collar work gives lower bounds above 1.37 and 2.74. Sufficiently small off-line balls and intermediate radii 3ℓ miss all pairs. Their independent area change has a nonzero fourth-order coefficient with zero entropy change.",
+              "status": "demonstrated",
+              "note": "After preparation the local lag tables and the common blank fix the material sign law. For one sample per selected endpoint the signed change in its regional entropy plus η times the independently measured area is O(ℓ⁵) at fixed proper volume. The bound is uniform over the admitted dust stocks, bounded boosts and centers in compact regular interiors. Stock differences with amplitude tending to zero more slowly than ℓ therefore recover the first variation of the limiting readouts. For a displaced moving ball at ℓ=1/96 the finite survey estimates a normalized residual of −0.0533. Freezing the pair clocks gives −1.2105. These numerical estimates use sampled spatial addresses. The 21-pair array gives a fourth-order discrepancy on omitted balls.",
               "evidence": [
                 "model/candidate_laws/interval_echo_partition_repair/published_strings/README.md",
                 "model/candidate_laws/interval_echo_partition_repair/published_strings/results.json",
@@ -1812,11 +1819,16 @@
                 "model/candidate_laws/interval_echo_published_records/spherical_dust/PROOF.md",
                 "model/candidate_laws/interval_echo_published_records/spherical_dust/results.json",
                 "model/candidate_laws/interval_echo_partition_repair/published_strings/counted_tower/results.json",
-                "model/candidate_laws/interval_echo_published_records/spherical_dust/endpoint_counts.json"
+                "model/candidate_laws/interval_echo_published_records/spherical_dust/endpoint_counts.json",
+                "model/candidate_laws/interval_echo_published_records/spherical_dust/clock_pairs/REFINEMENT.md",
+                "model/candidate_laws/interval_echo_published_records/spherical_dust/clock_pairs/regions.py",
+                "model/candidate_laws/interval_echo_published_records/spherical_dust/clock_pairs/regions.json",
+                "model/candidate_laws/interval_echo_published_records/spherical_dust/clock_pairs/registered_reference.py",
+                "model/candidate_laws/interval_echo_published_records/spherical_dust/test_scale_scope.py"
               ],
               "demonstrated_measurement": {
-                "label": "Counted stationarity and two resolved controls on the selected central dust balls",
-                "source": "model/candidate_laws/interval_echo_published_records/spherical_dust/endpoint_counts.json"
+                "label": "Fixed-volume clock-pair stationarity across translated and moving dust balls",
+                "source": "model/candidate_laws/interval_echo_published_records/spherical_dust/clock_pairs/REFINEMENT.md"
               },
               "additional_comparisons": [
                 {
@@ -1993,8 +2005,8 @@
               ]
             },
             "interval_echo_published_records": {
-              "status": "partial",
-              "note": "The geodesic slice orthogonal to each frame has vanishing second fundamental form at the center. On the ten enrolled central balls the fixed-volume area difference is −Cℓ G(u,u)+O(ℓ⁶). Bulk and stationarity errors are O(ℓ⁶) on the same fourfold radii, giving O(ℓ²) deterministic tensor error and a separate vanishing count uncertainty. The largest held area error divided by ℓ⁴ falls from 0.0002071 to 0.000000809. The installed memories miss sufficiently small balls about off-line centers, so the entropy estimates on one source do not cover a local domain. Independently, Lean checks the shell dynamics' Einstein tensor on the regular interior.",
+              "status": "demonstrated",
+              "note": "On a common cofinal refinement all earlier pair programs persist. Ten-frame optical surveys of equal-proper-volume balls give the fixed-volume area difference −Cℓ G(u,u)+O(ℓ⁶). On the same geometry, stocks and apertures the clock-pair bulk and stationarity errors are O(ℓ⁵), including the omitted short-separation tail. The three errors divided by ℓ⁴ vanish uniformly on compact regular interiors and bounded boosts. The measured timelike frame inverse gives O(ℓ) tensor error for this source. The worldline stress and the curvature of the clock metric agree with the separate regular-shell tensor proof. The finite angular and spatial surveys illustrate the analytic bounds.",
               "evidence": [
                 "model/candidate_laws/interval_echo_partition_repair/published_strings/README.md",
                 "model/candidate_laws/interval_echo_partition_repair/published_strings/GEOMETRY.md",
@@ -2006,7 +2018,12 @@
                 "model/candidate_laws/interval_echo_published_records/spherical_dust/endpoint_counts.json",
                 "Lean/ObserverPatchHolography/EinsteinBranch/SphericalDust.lean",
                 "code/matched_einstein_limit/PROOF.md",
-                "model/candidate_laws/interval_echo_published_records/spherical_dust/PROOF.md"
+                "model/candidate_laws/interval_echo_published_records/spherical_dust/PROOF.md",
+                "model/candidate_laws/interval_echo_published_records/spherical_dust/clock_pairs/REFINEMENT.md",
+                "model/candidate_laws/interval_echo_published_records/spherical_dust/clock_pairs/regions.json",
+                "model/candidate_laws/interval_echo_published_records/spherical_dust/clock_pairs/README.md",
+                "model/candidate_laws/interval_echo_published_records/spherical_dust/clock_pairs/registered_reference.py",
+                "model/candidate_laws/interval_echo_published_records/spherical_dust/test_scale_scope.py"
               ],
               "additional_comparisons": [
                 {
@@ -2017,8 +2034,8 @@
                 }
               ],
               "demonstrated_measurement": {
-                "label": "Sixth-order error bounds and the tensor limit at one event on its fourfold refinement",
-                "source": "model/candidate_laws/interval_echo_published_records/spherical_dust/PROOF.md"
+                "label": "Uniform source, proper-area and stationarity bounds on the same shrinking dust balls",
+                "source": "model/candidate_laws/interval_echo_published_records/spherical_dust/clock_pairs/REFINEMENT.md"
               }
             }
           }
@@ -2232,7 +2249,7 @@
             },
             "interval_echo_published_records": {
               "status": "demonstrated",
-              "note": "An ordinary release sets G→1/4 in the specified mass and length units and hence η→1. The shell dynamics couple both pressureless stocks to this same constant throughout the regular dust. At the selected memory array's central event and fourfold refinements, 8/33 units of added coincidence mass predict the signed proper-area and stress changes across all ten frames. On that body, clock spacing and free release give held GM of 0.14393939394 and 0.14393939392. Blinding light alone to collar mass gives 0.08333333333 while release retains the held value. A separate calibrated interior null screen resolves the collar focusing increase.",
+              "note": "An ordinary exterior release sets G→1/4 in the specified units and hence η→1. The declared shell dynamics couple both pressureless stocks to one constant throughout the regular dust. At this gain the selected clock-pair material predicts signed proper-area and stress changes for 8/33 units of added coincidence mass on moving balls. Independently, clock spacing and free release give held GM of 0.14393939394 and 0.14393939392. Blinding light alone gives 0.08333333333 while release retains the held value. Calibrated interior null screens also resolve extra focusing. The coupling statement concerns the declared dust stocks and probes.",
               "evidence": [
                 "model/candidate_laws/interval_echo_partition_repair/published_strings/ARCHIVE.md",
                 "model/candidate_laws/interval_echo_partition_repair/published_strings/GEOMETRY.md",
@@ -2242,7 +2259,9 @@
                 "model/candidate_laws/interval_echo_published_records/spherical_dust/exterior_reader.json",
                 "model/candidate_laws/interval_echo_published_records/spherical_dust/null_beam.json",
                 "Lean/ObserverPatchHolography/EinsteinBranch/SphericalDust.lean",
-                "model/candidate_laws/interval_echo_published_records/spherical_dust/EXTERIOR_READER.md"
+                "model/candidate_laws/interval_echo_published_records/spherical_dust/EXTERIOR_READER.md",
+                "model/candidate_laws/interval_echo_published_records/spherical_dust/clock_pairs/REFINEMENT.md",
+                "model/candidate_laws/interval_echo_published_records/spherical_dust/clock_pairs/regions.json"
               ],
               "demonstrated_measurement": {
                 "label": "An ordinary calibration predicts held interior and exterior readings",
