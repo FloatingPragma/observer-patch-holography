@@ -4913,7 +4913,7 @@
         "finite_dimensional_real_linear_algebra",
         "Lorentz_quadratic_form_algebra"
       ],
-      "oph_specific_delta": "The relativistic energy-momentum shell shape, its rest-frame mass identity, its oriented-chart invariance, and its massless branch are machine-checked as exact consequences of the committed frame-hyperboloid normalization, with the declared mass parameter and every missing physical attachment named rather than implied.",
+      "oph_specific_delta": "The relativistic energy-momentum shell shape, its rest-frame mass identity, its oriented-chart invariance, and its massless branch are machine-checked as exact consequences of the committed frame-hyperboloid normalization, with the declared mass parameter and every missing physical attachment named rather than implied. A whole-dimer charge comparison on polar rings identifies an excitation with the same conserved charge as its host, positive resting cost and independently measured recoil. The calibrated continuum mass shell misses fourteen of fifteen held spatial readings. Sharp-repair strands with two selected connector strengths reproduce two different measured lattice dispersions.",
       "novelty_type": "kinematic_mass_shell_from_frame_hyperboloid_normalization",
       "evidence": [
         "paper/observers_are_all_you_need.tex",
@@ -4934,7 +4934,45 @@
         "model/candidate_laws/interval_echo/openwave/row_30_collective/fork/counts.npz",
         "model/candidate_laws/interval_echo/openwave/row_30_collective/fork/scalar.json",
         "model/candidate_laws/interval_echo/openwave/row_30_collective/fork/scalar.py",
-        "model/candidate_laws/interval_echo/openwave/row_30_collective/fork/test_fork.py"
+        "model/candidate_laws/interval_echo/openwave/row_30_collective/fork/test_fork.py",
+        "model/experiments/material_inertia/pair_spectrum/neutral_guide/polar_ring/Charge.lean",
+        "model/experiments/material_inertia/pair_spectrum/neutral_guide/polar_ring/FRINGES.md",
+        "model/experiments/material_inertia/pair_spectrum/neutral_guide/polar_ring/PROOF.md",
+        "model/experiments/material_inertia/pair_spectrum/neutral_guide/polar_ring/PROTOCOL.md",
+        "model/experiments/material_inertia/pair_spectrum/neutral_guide/polar_ring/README.md",
+        "model/experiments/material_inertia/pair_spectrum/neutral_guide/polar_ring/fringe_counts.npz",
+        "model/experiments/material_inertia/pair_spectrum/neutral_guide/polar_ring/fringes.json",
+        "model/experiments/material_inertia/pair_spectrum/neutral_guide/polar_ring/fringes.py",
+        "model/experiments/material_inertia/pair_spectrum/neutral_guide/polar_ring/measure.py",
+        "model/experiments/material_inertia/pair_spectrum/neutral_guide/polar_ring/records.json",
+        "model/experiments/material_inertia/pair_spectrum/neutral_guide/polar_ring/source.py",
+        "model/experiments/material_inertia/pair_spectrum/neutral_guide/polar_ring/stock.py",
+        "model/experiments/material_inertia/pair_spectrum/neutral_guide/polar_ring/test_ring.py",
+        "model/experiments/material_inertia/pair_spectrum/neutral_guide/polar_ring/word_counts.npz",
+        "model/candidate_laws/interval_echo/openwave/row_30_collective/polar_recoil/PROTOCOL.md",
+        "model/candidate_laws/interval_echo/openwave/row_30_collective/polar_recoil/README.md",
+        "model/candidate_laws/interval_echo/openwave/row_30_collective/polar_recoil/counts.json",
+        "model/candidate_laws/interval_echo/openwave/row_30_collective/polar_recoil/measure.py",
+        "model/candidate_laws/interval_echo/openwave/row_30_collective/polar_recoil/test_measure.py",
+        "model/candidate_laws/interval_echo/openwave/row_30_collective/sharp_growth/PROTOCOL.md",
+        "model/candidate_laws/interval_echo/openwave/row_30_collective/sharp_growth/README.md",
+        "model/candidate_laws/interval_echo/openwave/row_30_collective/sharp_growth/SINGLE_WRITE.md",
+        "model/candidate_laws/interval_echo/openwave/row_30_collective/sharp_growth/UNSORTED_SPECTRUM.md",
+        "model/candidate_laws/interval_echo/openwave/row_30_collective/sharp_growth/growth.py",
+        "model/candidate_laws/interval_echo/openwave/row_30_collective/sharp_growth/measure.py",
+        "model/candidate_laws/interval_echo/openwave/row_30_collective/sharp_growth/records.json.gz",
+        "model/candidate_laws/interval_echo/openwave/row_30_collective/sharp_growth/single_write.json",
+        "model/candidate_laws/interval_echo/openwave/row_30_collective/sharp_growth/single_write.npz",
+        "model/candidate_laws/interval_echo/openwave/row_30_collective/sharp_growth/single_write.py",
+        "model/candidate_laws/interval_echo/openwave/row_30_collective/sharp_growth/test_growth.py",
+        "model/candidate_laws/interval_echo/openwave/row_30_collective/sharp_growth/unsorted.json",
+        "model/candidate_laws/interval_echo/openwave/row_30_collective/sharp_growth/unsorted.py",
+        "model/candidate_laws/interval_echo/openwave/row_30_collective/pinned_pair/PROTOCOL.md",
+        "model/candidate_laws/interval_echo/openwave/row_30_collective/pinned_pair/PhaseRead.lean",
+        "model/candidate_laws/interval_echo/openwave/row_30_collective/pinned_pair/README.md",
+        "model/candidate_laws/interval_echo/openwave/row_30_collective/pinned_pair/counts.json",
+        "model/candidate_laws/interval_echo/openwave/row_30_collective/pinned_pair/measure.py",
+        "model/candidate_laws/interval_echo/openwave/row_30_collective/pinned_pair/test_measure.py"
       ],
       "falsifier": "The claim fails if the Lorentz square of the scaled frame vector differs from the squared mass parameter, the squared scalar coordinate differs from the squared mass parameter plus the spatial squared norm, the rest characterization or standard-frame identity fails, an oriented Lorentz map changes the Lorentz square, or a future null vector violates the zero-mass identity.",
       "scope_if_false": "Only the kinematic mass-shell packet falls. The canonical Lorentz module, frame hyperboloid, soldering contract, and every physical energy, clock, or mass identification are assessed by their own claims and premises.",
@@ -8304,7 +8342,7 @@
         "finite_calculus_of_variations_on_a_window",
         "discrete_gauge_invariance_iff_current_conservation"
       ],
-      "oph_specific_delta": "Supplies the monopole route named open by the charge-fixed interaction: on the committed carrier and at a declared nonzero step, a hopping port charge is the first source with conserved total charge, its coupling is gauge invariant exactly when continuity holds on the interior steps, and the bridge theorem shows the committed polarization-type load is the step difference of this monopole load at the seam endpoints at exactly the committed charge fixing, with the off-endpoint spread exhibited.",
+      "oph_specific_delta": "Supplies the monopole route named open by the charge-fixed interaction: on the committed carrier and at a declared nonzero step, a hopping port charge is the first source with conserved total charge, its coupling is gauge invariant exactly when continuity holds on the interior steps, and the bridge theorem shows the committed polarization-type load is the step difference of this monopole load at the seam endpoints at exactly the committed charge fixing, with the off-endpoint spread exhibited. Two static signed sources give a transmitted interaction at first order in vacancy fugacity. The independent neutral propagation and fixed contact standards predict all twelve held readings, including the core window. Their response leaves the physical running gauge charge unidentified.",
       "novelty_type": "machine_checked_minimal_coupling_of_a_port_charge_with_gauge_conservation_equivalence_and_polarization_bridge",
       "evidence": [
         "Lean/Geometry/PortChargeMinimalCoupling.lean",
@@ -8322,7 +8360,20 @@
         "model/candidate_laws/interval_echo/openwave/row_23_coupling/tag_transfer/measure.py",
         "model/candidate_laws/interval_echo/openwave/row_23_coupling/tag_transfer/results.json",
         "model/candidate_laws/interval_echo/openwave/row_23_coupling/tag_transfer/counts.npz",
-        "model/candidate_laws/interval_echo/openwave/row_23_coupling/tag_transfer/test_transfer.py"
+        "model/candidate_laws/interval_echo/openwave/row_23_coupling/tag_transfer/test_transfer.py",
+        "model/candidate_laws/interval_echo/openwave/row_23_coupling/relaxed_charge/PROTOCOL.md",
+        "model/candidate_laws/interval_echo/openwave/row_23_coupling/relaxed_charge/README.md",
+        "model/candidate_laws/interval_echo/openwave/row_23_coupling/relaxed_charge/StaticWork.lean",
+        "model/candidate_laws/interval_echo/openwave/row_23_coupling/relaxed_charge/VIRIAL.md",
+        "model/candidate_laws/interval_echo/openwave/row_23_coupling/relaxed_charge/confirmation.json.gz",
+        "model/candidate_laws/interval_echo/openwave/row_23_coupling/relaxed_charge/confirmation.py",
+        "model/candidate_laws/interval_echo/openwave/row_23_coupling/relaxed_charge/measure.py",
+        "model/candidate_laws/interval_echo/openwave/row_23_coupling/relaxed_charge/readback.py",
+        "model/candidate_laws/interval_echo/openwave/row_23_coupling/relaxed_charge/records.json.gz",
+        "model/candidate_laws/interval_echo/openwave/row_23_coupling/relaxed_charge/test_static.py",
+        "model/candidate_laws/interval_echo/openwave/row_23_coupling/relaxed_charge/test_virial.py",
+        "model/candidate_laws/interval_echo/openwave/row_23_coupling/relaxed_charge/virial.json.gz",
+        "model/candidate_laws/interval_echo/openwave/row_23_coupling/relaxed_charge/virial.py"
       ],
       "falsifier": "At nonzero h, the hop indicator boundary identity, the continuity equation, the total-load identity, the augmented-source reduction, a stationarity equivalence, the gauge-change identity or its invariance equivalence, the energy-balance specialization, an endpoint bridge value, the off-endpoint exhibit, or the non-forcing statements fail; or any divided-step conclusion is asserted at h = 0, the module is presented as deriving the hopping path from the worldline, as a Lorentz force on the charge, or as a physical charge.",
       "scope_if_false": "Only the hopping-charge coupling falls. The charge-fixed interaction, the window action, and the committed Maxwell equivalences are separately assessed.",
@@ -15313,7 +15364,7 @@
         }
       ],
       "matrix_summary": {
-        "oph_specific_delta": "The shell identity, rest characterization, oriented-chart invariance, and massless branch are machine-checked consequences of the committed frame-hyperboloid normalization with the declared mass parameter and every missing physical attachment named",
+        "oph_specific_delta": "The shell identity, rest characterization, oriented-chart invariance, and massless branch are machine-checked consequences of the committed frame-hyperboloid normalization with the declared mass parameter and every missing physical attachment named A whole-dimer charge comparison on polar rings identifies an excitation with the same conserved charge as its host, positive resting cost and independently measured recoil. The calibrated continuum mass shell misses fourteen of fifteen held spatial readings. Sharp-repair strands with two selected connector strengths reproduce two different measured lattice dispersions.",
         "falsifier": "A shell, rest, transport, or null identity fails under its stated hypotheses"
       }
     },
@@ -18195,7 +18246,7 @@
         }
       ],
       "matrix_summary": {
-        "oph_specific_delta": "At a declared nonzero step, proves the equivalence on the committed carrier with the exact endpoint term, gives the first conserved-charge source with the committed continuity convention, and shows the committed polarization load is the endpoint step difference of this monopole load at exactly the committed charge fixing",
+        "oph_specific_delta": "At a declared nonzero step, proves the equivalence on the committed carrier with the exact endpoint term, gives the first conserved-charge source with the committed continuity convention, and shows the committed polarization load is the endpoint step difference of this monopole load at exactly the committed charge fixing Two static signed sources give a transmitted interaction at first order in vacancy fugacity. The independent neutral propagation and fixed contact standards predict all twelve held readings, including the core window. Their response leaves the physical running gauge charge unidentified.",
         "falsifier": "At nonzero step a boundary, continuity, reduction, gauge, energy, bridge, or non-forcing statement fails"
       }
     },

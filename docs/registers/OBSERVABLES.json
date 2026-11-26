@@ -5743,7 +5743,9 @@
    "what": "A dark-matter particle would be a stable, electrically neutral, massive excitation that emits no light.",
    "why": "The challenge tests a stable neutral massive excitation, while orbital and lensing records independently constrain the proposed nonluminous modular source.",
    "premises": [],
-   "lean": [],
+   "lean": [
+    "model/experiments/material_inertia/pair_spectrum/neutral_guide/polar_ring/Charge.lean"
+   ],
    "model": [
     "model/evaluation/SCORECARD.md",
     "model/evaluation/openwave_criteria.json",
@@ -5797,7 +5799,25 @@
     "model/experiments/material_inertia/pair_spectrum/neutral_guide/boundary_flux/scatter.py",
     "model/experiments/material_inertia/pair_spectrum/neutral_guide/boundary_flux/test_boundary.py",
     "code/cosmology/rar_deep_regime/double_ring_pressure/resolved_kinematics/slit_anisotropy/README.md",
-    "code/cosmology/rar_deep_regime/double_ring_pressure/resolved_kinematics/slit_anisotropy/results.json"
+    "code/cosmology/rar_deep_regime/double_ring_pressure/resolved_kinematics/slit_anisotropy/results.json",
+    "model/experiments/material_inertia/pair_spectrum/neutral_guide/polar_ring/FRINGES.md",
+    "model/experiments/material_inertia/pair_spectrum/neutral_guide/polar_ring/PROOF.md",
+    "model/experiments/material_inertia/pair_spectrum/neutral_guide/polar_ring/PROTOCOL.md",
+    "model/experiments/material_inertia/pair_spectrum/neutral_guide/polar_ring/README.md",
+    "model/experiments/material_inertia/pair_spectrum/neutral_guide/polar_ring/fringe_counts.npz",
+    "model/experiments/material_inertia/pair_spectrum/neutral_guide/polar_ring/fringes.json",
+    "model/experiments/material_inertia/pair_spectrum/neutral_guide/polar_ring/fringes.py",
+    "model/experiments/material_inertia/pair_spectrum/neutral_guide/polar_ring/measure.py",
+    "model/experiments/material_inertia/pair_spectrum/neutral_guide/polar_ring/records.json",
+    "model/experiments/material_inertia/pair_spectrum/neutral_guide/polar_ring/source.py",
+    "model/experiments/material_inertia/pair_spectrum/neutral_guide/polar_ring/stock.py",
+    "model/experiments/material_inertia/pair_spectrum/neutral_guide/polar_ring/test_ring.py",
+    "model/experiments/material_inertia/pair_spectrum/neutral_guide/polar_ring/word_counts.npz",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/polar_recoil/PROTOCOL.md",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/polar_recoil/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/polar_recoil/counts.json",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/polar_recoil/measure.py",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/polar_recoil/test_measure.py"
    ],
    "papers": [
     "paper/executable_observer_construction.pdf",
@@ -5933,7 +5953,8 @@
    "why": "Running couplings are central to gauge theories, so a model has to identify its scale-dependent interaction with a physical gauge coupling.",
    "premises": [],
    "lean": [
-    "model/candidate_laws/interval_echo/openwave/row_23_coupling/free_bath/SignedMoments.lean"
+    "model/candidate_laws/interval_echo/openwave/row_23_coupling/free_bath/SignedMoments.lean",
+    "model/candidate_laws/interval_echo/openwave/row_23_coupling/relaxed_charge/StaticWork.lean"
    ],
    "model": [
     "model/evaluation/SCORECARD.md",
@@ -5960,7 +5981,19 @@
     "model/candidate_laws/interval_echo/openwave/row_23_coupling/free_bath/measure.py",
     "model/candidate_laws/interval_echo/openwave/row_23_coupling/free_bath/native.py",
     "model/candidate_laws/interval_echo/openwave/row_23_coupling/free_bath/records.json.gz",
-    "model/candidate_laws/interval_echo/openwave/row_23_coupling/free_bath/test_free_bath.py"
+    "model/candidate_laws/interval_echo/openwave/row_23_coupling/free_bath/test_free_bath.py",
+    "model/candidate_laws/interval_echo/openwave/row_23_coupling/relaxed_charge/PROTOCOL.md",
+    "model/candidate_laws/interval_echo/openwave/row_23_coupling/relaxed_charge/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_23_coupling/relaxed_charge/VIRIAL.md",
+    "model/candidate_laws/interval_echo/openwave/row_23_coupling/relaxed_charge/confirmation.json.gz",
+    "model/candidate_laws/interval_echo/openwave/row_23_coupling/relaxed_charge/confirmation.py",
+    "model/candidate_laws/interval_echo/openwave/row_23_coupling/relaxed_charge/measure.py",
+    "model/candidate_laws/interval_echo/openwave/row_23_coupling/relaxed_charge/readback.py",
+    "model/candidate_laws/interval_echo/openwave/row_23_coupling/relaxed_charge/records.json.gz",
+    "model/candidate_laws/interval_echo/openwave/row_23_coupling/relaxed_charge/test_static.py",
+    "model/candidate_laws/interval_echo/openwave/row_23_coupling/relaxed_charge/test_virial.py",
+    "model/candidate_laws/interval_echo/openwave/row_23_coupling/relaxed_charge/virial.json.gz",
+    "model/candidate_laws/interval_echo/openwave/row_23_coupling/relaxed_charge/virial.py"
    ],
    "papers": [
     "paper/executable_observer_construction.pdf"
@@ -6228,7 +6261,8 @@
    "why": "Recovering this relation with independently measured space and time observables shows that a model's excitations behave as relativistic matter.",
    "premises": [],
    "lean": [
-    "model/candidate_laws/interval_echo/openwave/row_30_collective/committed_heads/during_flight/array/SpatialPair.lean"
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/committed_heads/during_flight/array/SpatialPair.lean",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/pinned_pair/PhaseRead.lean"
    ],
    "model": [
     "model/evaluation/SCORECARD.md",
@@ -6272,7 +6306,30 @@
     "model/candidate_laws/interval_echo/openwave/row_30_collective/committed_heads/during_flight/array/counts.npz",
     "model/candidate_laws/interval_echo/openwave/row_30_collective/committed_heads/during_flight/array/results.json",
     "model/candidate_laws/interval_echo/openwave/submission/row_30_confirmation/from_m10_4/README.md",
-    "model/candidate_laws/interval_echo/openwave/submission/row_30_confirmation/from_m10_4/receipt.json"
+    "model/candidate_laws/interval_echo/openwave/submission/row_30_confirmation/from_m10_4/receipt.json",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/sharp_growth/PROTOCOL.md",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/sharp_growth/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/sharp_growth/SINGLE_WRITE.md",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/sharp_growth/UNSORTED_SPECTRUM.md",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/sharp_growth/growth.py",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/sharp_growth/measure.py",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/sharp_growth/records.json.gz",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/sharp_growth/single_write.json",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/sharp_growth/single_write.npz",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/sharp_growth/single_write.py",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/sharp_growth/test_growth.py",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/sharp_growth/unsorted.json",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/sharp_growth/unsorted.py",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/pinned_pair/PROTOCOL.md",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/pinned_pair/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/pinned_pair/counts.json",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/pinned_pair/measure.py",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/pinned_pair/test_measure.py",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/polar_recoil/PROTOCOL.md",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/polar_recoil/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/polar_recoil/counts.json",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/polar_recoil/measure.py",
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/polar_recoil/test_measure.py"
    ],
    "papers": [
     "paper/executable_observer_construction.pdf"
