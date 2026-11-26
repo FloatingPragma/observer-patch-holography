@@ -1,5 +1,6 @@
 import Mathlib.Algebra.BigOperators.Ring.Finset
 import Mathlib.Algebra.Order.BigOperators.Group.Finset
+import Mathlib.Algebra.Order.BigOperators.Ring.Finset
 import Mathlib.Data.Real.Basic
 import Mathlib.Tactic.Linarith
 
@@ -24,5 +25,16 @@ theorem residue_lower {ι : Type*} [DecidableEq ι] (s : Finset ι)
   have small := mul_le_mul_of_nonneg_right rest hleak
   have target := mul_le_mul_of_nonneg_left transmission (hw i hi)
   linarith
+
+/-- A measured lower bound on the total pole weight controls its squared
+contributions to the long-time return, including coincident frequencies. -/
+theorem squared_weight_floor {ι : Type*} (s : Finset ι) (w : ι → ℝ)
+    (mass : ℝ) (hn : 0 ≤ mass) (hm : mass ≤ ∑ j ∈ s, w j) :
+    mass ^ 2 ≤ (s.card : ℝ) * ∑ j ∈ s, w j ^ 2 := by
+  have hsum : 0 ≤ (∑ j ∈ s, w j) + mass := by linarith
+  calc
+    mass ^ 2 ≤ (∑ j ∈ s, w j) ^ 2 := by
+      nlinarith [mul_nonneg (sub_nonneg.mpr hm) hsum]
+    _ ≤ _ := by simpa using Finset.sum_mul_sq_le_sq_mul_sq s (fun _ => (1 : ℝ)) w
 
 end IntervalEcho.PolarSpectralRead
