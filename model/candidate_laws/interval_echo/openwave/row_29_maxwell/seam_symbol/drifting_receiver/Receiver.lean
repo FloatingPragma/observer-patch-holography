@@ -29,4 +29,3 @@ theorem exposedLabel :
   norm_num [rate]
 
 end IntervalEcho.DriftingReceiver
-
