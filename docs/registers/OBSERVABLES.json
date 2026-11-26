@@ -46,7 +46,9 @@
     "model/experiments/interval_echo_consensus/signed_effects/common_record/verify.py",
     "model/experiments/interval_echo_consensus/public_event_grammar/README.md",
     "model/experiments/interval_echo_consensus/public_event_grammar/grammar.py",
-    "model/experiments/interval_echo_consensus/public_event_grammar/results.json"
+    "model/experiments/interval_echo_consensus/public_event_grammar/results.json",
+    "model/experiments/interval_echo_consensus/routed_counts/phase_choice/README.md",
+    "model/experiments/interval_echo_consensus/routed_counts/phase_choice/results.json"
    ],
    "papers": [
     "extra/machine_checked_finite_event_algebras.pdf",
@@ -249,10 +251,13 @@
     "model/experiments/interval_echo_consensus/COMPLEX_EFFECTS.md",
     "model/experiments/interval_echo_consensus/inventory_effects/README.md",
     "model/experiments/interval_echo_consensus/signed_effects/common_record/results.json",
-    "model/experiments/interval_echo_consensus/signed_effects/common_record/verify.py"
+    "model/experiments/interval_echo_consensus/signed_effects/common_record/verify.py",
+    "model/experiments/interval_echo_consensus/routed_counts/phase_choice/README.md",
+    "model/experiments/interval_echo_consensus/routed_counts/phase_choice/results.json"
    ],
    "papers": [
-    "extra/machine_checked_finite_event_algebras.pdf"
+    "extra/machine_checked_finite_event_algebras.pdf",
+    "paper/observers_are_all_you_need.pdf"
    ]
   },
   {
@@ -3192,7 +3197,9 @@
     "code/defect_particle_classes/PROOF.md",
     "code/defect_particle_classes/results.json",
     "model/candidate_laws/interval_echo/openwave/row_14_profile/scattering/README.md",
-    "model/candidate_laws/interval_echo/openwave/row_14_profile/scattering/results.json"
+    "model/candidate_laws/interval_echo/openwave/row_14_profile/scattering/results.json",
+    "model/candidate_laws/interval_echo/openwave/row_14_profile/free_release/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_14_profile/free_release/results.json"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.pdf"
@@ -3748,7 +3755,9 @@
     "code/a5_closure/receipts/port_current_inner_reference.receipt.json",
     "code/a5_closure/baryon_dimension_six_census.py",
     "code/a5_closure/verify_baryon_dimension_six_census_independent.py",
-    "code/a5_closure/receipts/baryon_dimension_six_census.receipt.json"
+    "code/a5_closure/receipts/baryon_dimension_six_census.receipt.json",
+    "model/experiments/interval_echo_gauge/exterior_register/baryon_labels/README.md",
+    "model/experiments/interval_echo_gauge/exterior_register/baryon_labels/results.json"
    ],
    "papers": [
     "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf"
@@ -5232,10 +5241,13 @@
     "model/candidate_laws/interval_echo/openwave/row_08_annihilation/daughter_spectrum/results.json",
     "model/candidate_laws/interval_echo/openwave/row_08_annihilation/passive_receiver/README.md",
     "model/candidate_laws/interval_echo/openwave/row_08_annihilation/passive_receiver/results.json",
-    "model/candidate_laws/interval_echo/openwave/row_08_annihilation/contact_flight/results.json"
+    "model/candidate_laws/interval_echo/openwave/row_08_annihilation/contact_flight/results.json",
+    "model/candidate_laws/interval_echo/openwave/row_08_annihilation/wall_charge/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_08_annihilation/wall_charge/results.json"
    ],
    "papers": [
-    "paper/executable_observer_construction.pdf"
+    "paper/executable_observer_construction.pdf",
+    "paper/deriving_the_particle_zoo_from_observer_consistency.pdf"
    ]
   },
   {
@@ -5467,7 +5479,9 @@
     "model/candidate_laws/interval_echo/openwave/row_14_profile/scattering/PROTOCOL.md",
     "model/candidate_laws/interval_echo/openwave/row_14_profile/scattering/measure.py",
     "model/candidate_laws/interval_echo/openwave/row_14_profile/scattering/readout.py",
-    "model/candidate_laws/interval_echo/openwave/row_14_profile/scattering/results.json"
+    "model/candidate_laws/interval_echo/openwave/row_14_profile/scattering/results.json",
+    "model/candidate_laws/interval_echo/openwave/row_14_profile/free_release/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_14_profile/free_release/results.json"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.pdf"
@@ -7562,7 +7576,7 @@
    "kind": "premise",
    "name": "declared baryon- and lepton-number labels",
    "category": "Construction choices",
-   "status": "Open",
+   "status": "Demonstrated",
    "what": "The ten fermion field labels of one generation carry baryon number and lepton number.",
    "why": "They classify baryon-violating operators and state the rule that baryon and lepton number change together in proton decay.",
    "premises": [],
@@ -7570,9 +7584,18 @@
     "Lean/Screen/BaryonDimensionSix.lean"
    ],
    "model": [
-    "code/a5_closure/baryon_dimension_six_census.py"
+    "code/a5_closure/baryon_dimension_six_census.py",
+    "model/experiments/interval_echo_gauge/exterior_register/baryon_labels/README.md",
+    "model/experiments/interval_echo_gauge/exterior_register/baryon_labels/PROTOCOL.md",
+    "model/experiments/interval_echo_gauge/exterior_register/baryon_labels/apparatus.py",
+    "model/experiments/interval_echo_gauge/exterior_register/baryon_labels/grammar.py",
+    "model/experiments/interval_echo_gauge/exterior_register/baryon_labels/measure.py",
+    "model/experiments/interval_echo_gauge/exterior_register/baryon_labels/results.json",
+    "model/experiments/interval_echo_gauge/exterior_register/baryon_labels/test_baryon_labels.py"
    ],
-   "papers": [],
+   "papers": [
+    "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf"
+   ],
    "statement": "The ten one-generation Weyl-field labels carry the accidental baryon number B and lepton number L used to classify baryon-violating dimension-six multisets and to state Delta B = Delta L.",
    "premise_kind": "declared"
   },
@@ -7581,7 +7604,7 @@
    "kind": "premise",
    "name": "dimension-six baryon-operator eligibility and contraction grammar",
    "category": "Construction choices",
-   "status": "Open",
+   "status": "Demonstrated",
    "what": "Candidate baryon-violating operators of dimension six are four-fermion combinations that respect the gauge charges and carry nonzero baryon number.",
    "why": "This census fixes which proton-decay channels OPH's matter content allows at lowest order.",
    "premises": [],
@@ -7589,9 +7612,18 @@
     "Lean/Screen/BaryonDimensionSix.lean"
    ],
    "model": [
-    "code/a5_closure/receipts/baryon_dimension_six_census.receipt.json"
+    "code/a5_closure/receipts/baryon_dimension_six_census.receipt.json",
+    "model/experiments/interval_echo_gauge/exterior_register/baryon_labels/README.md",
+    "model/experiments/interval_echo_gauge/exterior_register/baryon_labels/PROTOCOL.md",
+    "model/experiments/interval_echo_gauge/exterior_register/baryon_labels/apparatus.py",
+    "model/experiments/interval_echo_gauge/exterior_register/baryon_labels/grammar.py",
+    "model/experiments/interval_echo_gauge/exterior_register/baryon_labels/measure.py",
+    "model/experiments/interval_echo_gauge/exterior_register/baryon_labels/results.json",
+    "model/experiments/interval_echo_gauge/exterior_register/baryon_labels/test_baryon_labels.py"
    ],
-   "papers": [],
+   "papers": [
+    "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf"
+   ],
    "statement": "Candidate dimension-six baryon operators are ordered four-field multisets on the declared one-generation Weyl table, filtered by hypercharge neutrality, colour triality, weak parity, chirality parity and nonzero baryon label, and tested in the supplied contraction and exterior-algebra grammar.",
    "premise_kind": "declared"
   },
@@ -9120,7 +9152,7 @@
    "kind": "premise",
    "name": "Repair-count orientation statistic and phase-completion pairing",
    "category": "Construction choices",
-   "status": "Open",
+   "status": "Demonstrated",
    "what": "A repair-count statistic picks one orientation, and one of two conjugate complex phase completions is paired with it as the physical one.",
    "why": "It fixes which of the two complex-conjugate quantum phase conventions OPH treats as physical.",
    "premises": [],
@@ -9128,8 +9160,19 @@
     "Lean/QFT/SourceOrientedCompletion.lean",
     "Lean/Thermodynamics/RepairCurrentOrientation.lean"
    ],
-   "model": [],
-   "papers": [],
+   "model": [
+    "model/experiments/interval_echo_consensus/routed_counts/phase_choice/README.md",
+    "model/experiments/interval_echo_consensus/routed_counts/phase_choice/PROTOCOL.md",
+    "model/experiments/interval_echo_consensus/routed_counts/phase_choice/TRANSFER_PROTOCOL.md",
+    "model/experiments/interval_echo_consensus/routed_counts/phase_choice/measure.py",
+    "model/experiments/interval_echo_consensus/routed_counts/phase_choice/results.json",
+    "model/experiments/interval_echo_consensus/routed_counts/phase_choice/transfer.py",
+    "model/experiments/interval_echo_consensus/routed_counts/phase_choice/transfer.json",
+    "model/experiments/interval_echo_consensus/routed_counts/phase_choice/test_choice.py"
+   ],
+   "papers": [
+    "paper/observers_are_all_you_need.pdf"
+   ],
    "statement": "A post-hoc raw repair-count product-gap statistic, with its maximizing cycle and tie-break rule, yields a Bool orientation, and one of the two pairings of that Bool with the conjugate pair of complex phase completions is declared physical.",
    "premise_kind": "declared"
   },
