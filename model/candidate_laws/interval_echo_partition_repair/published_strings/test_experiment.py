@@ -1,4 +1,6 @@
 """Independent regional entropy, geometric admission, and changed source controls."""
+from copy import deepcopy
+from decimal import Decimal as D, localcontext
 from fractions import Fraction as F
 import json
 import math
@@ -7,6 +9,8 @@ import numpy as np
 import pytest
 
 from . import experiment
+from . import finite_rods
+from ..proper_balls.measure import PI
 from .memories import LOG_ODDS, P, SENSITIVITY, THETA, Pair
 
 
@@ -97,3 +101,74 @@ def test_counted_holdout_predicts_one_geometric_response(receipt):
     assert 0 < records["opposite_half_strength_area"] < low
     assert low < records["opposite_finite_rod_area"] < high
     assert len(set(records["one_counts"].values())) == 3
+
+
+def _decimal_fraction(x):
+    return D(x.numerator)/D(x.denominator)
+
+
+def _rest_series(K, ell):
+    # The rest-frame angular average of (1-mu²)^n equals product(2i/(2i+1)).
+    # Integrate the sinc series radially for area, volume and diamond weight.
+    moments = [D(1)]
+    for n in range(1,18):
+        moments.append(moments[-1]*(-K)*D(2*n)/D(2*n+1)/D((2*n)*(2*n+1)))
+
+    def data(r):
+        terms = [c*r**(2*n) for n,c in enumerate(moments)]
+        v = r**3*sum(t/D(2*n+3) for n,t in enumerate(terms))
+        a = r**2*sum(terms)
+        w = r**4*sum(t/D((2*n+3)*(2*n+5)) for n,t in enumerate(terms))
+        return v,a,w
+
+    r = ell
+    for _ in range(7):
+        v,a,_ = data(r)
+        r -= (v-ell**3/3)/a
+    _,a,w = data(r)
+    return 4*PI*(a-ell**2), 4*PI*w
+
+
+def _decimal_cut_entropy(work):
+    p = D(3)/8
+    angle = work*(2*PI)/(D(5)/3).ln()/(D(3).sqrt()/4)
+    x = 2*angle
+    sine = sum((-1)**n*x**(2*n+1)/D(math.factorial(2*n+1)) for n in range(12))
+    cosine = sum((-1)**n*x**(2*n)/D(math.factorial(2*n)) for n in range(12))
+    shifted = p + D(3).sqrt()*sine/8 + (1-cosine)/8
+    def h(q):
+        return -q*q.ln()-(1-q)*(1-q).ln()
+    return h(shifted)-h(p)
+
+
+def test_normalized_rest_residuals_against_high_precision_entropy_and_integrals(receipt):
+    with localcontext() as ctx:
+        ctx.prec = 65
+        for inverse in (32,512):
+            ell = D(1)/inverse
+            reference = F(1,inverse)
+            for stock, rho in (("ordinary",F(11,33)), ("held",F(19,33))):
+                density = _decimal_fraction(rho)
+                K = 2*PI*density
+                flat = finite_rods.read_ball(0, reference, (1,0,0,0))
+                rod = finite_rods.read_ball(finite_rods.angle_gain(reference)*rho, reference, (1,0,0,0))
+                inputs = {"rows": _rest_series(K,ell), "finite_rows": (
+                    4*PI*_decimal_fraction(rod.area_over_4pi-flat.area_over_4pi),
+                    4*PI*_decimal_fraction(rod.weighted_over_4pi))}
+                for field,(area,w) in inputs.items():
+                    row, = [r for r in receipt[field] if r["shape"] == "rest" and r["inverse_ell"] == inverse]
+                    t = row["trials"][stock]
+                    entropy = _decimal_cut_entropy(density*w)
+                    bulk = entropy/ell**4-8*PI**2*density/15
+                    assert math.isclose(t["bulk_over_ell4"], float(bulk), rel_tol=1e-12, abs_tol=1e-20)
+                    assert abs(t["geometric_over_ell4"]-float(area/ell**4+4*PI*K/15)) < 2e-14
+                    assert abs(t["balance_over_ell4"]-float((area+entropy)/ell**4)) < 2e-14
+
+
+@pytest.mark.parametrize("field", ["bulk_over_ell4", "geometric_over_ell4", "balance_over_ell4"])
+def test_small_residual_replay_detects_changed_fine_scale_ordinary_source(receipt, field):
+    row, = [r for r in receipt["rows"] if r["shape"] == "rest" and r["inverse_ell"] == 512]
+    changed = deepcopy(row)
+    changed["trials"]["ordinary"][field] += 1e-10
+    with pytest.raises(ValueError, match=field):
+        experiment._compare_boards([row], [changed])

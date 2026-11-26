@@ -1,6 +1,7 @@
 """Three same-source small-ball inputs with no feedback into Interval Echo."""
 import argparse
 from fractions import Fraction
+from functools import lru_cache
 import json
 import math
 from pathlib import Path
@@ -16,6 +17,49 @@ from .memories import Pair
 
 HERE = Path(__file__).resolve().parent
 SCALES = (32, 128, 512)
+
+
+@lru_cache(maxsize=128)
+def _ideal_contrasts(K, ell, stretch):
+    """The same product-chart quadratures with the flat constant integrated exactly."""
+    if not (0 <= K <= 2*geo.KAPPA and 0 < ell <= 1/32 and 1 <= stretch <= 9):
+        raise ValueError("ideal survey outside the enrolled curvature, radius or frame range")
+    if K == 0:
+        return geo.Ball(ell, 4*math.pi*ell**3/3, 4*math.pi*ell**2), 0., 0.
+    length, transverse, angular, nodes, weights = geo.quadrature(stretch, 16)
+    square = K*length**2
+    # sinc(sqrt(z))²-1. On the enrolled domain z<0.13 and the first omitted
+    # term is below 3e-21, with geometrically smaller subsequent terms.
+    coefficients = [(-1)**j*2**(2*j+1)/math.factorial(2*j+2) for j in range(1,9)]
+
+    def excess(radii):
+        z = np.asarray(radii)[:, None, None]**2 * square
+        x = transverse*z*np.polynomial.polynomial.polyval(z,coefficients)
+        return np.sum(angular*x/(1+np.sqrt(1+x)), axis=(1,2))
+
+    def volume_excess(r):
+        return float(weights @ (nodes**2 * excess(r*nodes)))
+
+    shift = 0.
+    for _ in range(24):
+        v = volume_excess(ell*(1+shift))
+        update = math.expm1(-math.log1p(3*v)/3)
+        if abs(update-shift) <= 2*math.ulp(update):
+            shift = update
+            break
+        shift = update
+    else:
+        raise ArithmeticError("excess-volume radius failed to converge")
+    r = ell*(1+shift)
+    t2_minus_one = shift*(2+shift)
+    t4_minus_one = t2_minus_one*(2+t2_minus_one)
+    boundary = float(excess([r])[0])
+    area = 4*math.pi*(t2_minus_one+(1+t2_minus_one)*boundary)/ell**2
+    # The archived integration by parts uses r * sum(w*u*V(r*u)).
+    inner = np.array([volume_excess(r*u) for u in nodes])
+    weighted = 4*math.pi*(t4_minus_one/15 + (1+t4_minus_one)*float(weights @ (nodes**4*inner)))
+    ball = geo.Ball(r, 4*math.pi*r**3*(1/3+volume_excess(r)), 4*math.pi*r*r*(1+boundary))
+    return ball, area, weighted
 
 
 def _frames():
@@ -58,14 +102,18 @@ def _board(densities, *, finite):
                     ball = geo.Ball(float(record.radius), 4*math.pi*float(record.volume_over_4pi),
                                     4*math.pi*float(record.area_over_4pi))
                     weighted_volume = 4*math.pi*float(record.weighted_over_4pi)
+                    flat = finite_rods.read_ball(0, Fraction(1, denominator), u)
+                    area = 4*math.pi*float((record.area_over_4pi-flat.area_over_4pi)*denominator**4)
+                    weighted = 4*math.pi*float(record.weighted_over_4pi*denominator**4-Fraction(1,15))
                 else:
-                    ball = geo.measured_ball(K, ell, u)
-                    weighted_volume = geo.weighted_volume(K, ball.radius, u)
+                    ball, area, weighted = _ideal_contrasts(K, ell, float(geo.spatial_stretch(u)))
+                    weighted_volume = ell**4*(4*math.pi/15+weighted)
                 stress = geo.project(geo.energy_tensor(rho, collar), u)
                 pulse = geo.project(geo.energy_tensor(rho, collar if pulse_reads_collar else 0), u)
                 pair = Pair.from_weighted_work(pulse*weighted_volume)
                 trials[key] = dict(proper_radius=ball.radius, proper_volume=ball.volume, proper_area=ball.area,
                                    weighted_volume=weighted_volume, angle=pair.angle_increment,
+                                   normalized_area_contrast=area, weighted_excess=weighted, pulse_stress=pulse,
                                    action_stress=stress, metric_charge=geo.project(geo.einstein_tensor(K), u))
             rows.append(dict(shape=name, inverse_ell=denominator, trials=trials,
                              worldlines=endpoint_positions(name, ell)))
@@ -73,8 +121,6 @@ def _board(densities, *, finite):
     for i, row in enumerate(rows):
         distance = np.linalg.norm(endpoints @ np.linalg.inv(lift(row["shape"])[1]), axis=2)
         ell = 1/row["inverse_ell"]
-        C = (4*math.pi/15)*ell**4
-        flat_area = row["trials"]["blank"]["proper_area"]
         reference = distance < ell
         whole = np.flatnonzero(reference.all(axis=1)).tolist()
         row["whole_pairs"] = whole
@@ -87,14 +133,18 @@ def _board(densities, *, finite):
             interior_kl = sum(Pair(rows[j]["trials"][key]["angle"]).whole_modular_change for j in whole)
             entropy = pair.cut_entropy_change
             modular = pair.cut_modular_change + interior_kl
-            area_change = trial["proper_area"]-flat_area
+            area = trial.pop("normalized_area_contrast")
+            pulse = trial.pop("pulse_stress")
+            # Subtract the flat weighted work before adding the nonlinear cut response.
+            bulk = math.fsum((pair.entropy_beyond_linear/ell**4,
+                              2*math.pi*pulse*trial.pop("weighted_excess"),
+                              (8*math.pi**2/15)*(pulse-trial["action_stress"])))
             trial.update(endpoint_one_probability=3/8+pair.probability_change,
                          entropy_change=entropy, vacuum_modular_change=modular,
                          relative_entropy=interior_kl+pair.cut_relative_entropy,
-                         area_over_ell4=area_change/ell**4, entropy_over_ell4=entropy/ell**4,
-                         bulk_over_ell4=(entropy-2*math.pi*C*trial["action_stress"])/ell**4,
-                         geometric_over_ell4=(area_change+C*trial["metric_charge"])/ell**4,
-                         balance_over_ell4=(entropy+area_change)/ell**4)
+                         area_over_ell4=area, entropy_over_ell4=entropy/ell**4, bulk_over_ell4=bulk,
+                         geometric_over_ell4=area+(4*math.pi/15)*trial["metric_charge"],
+                         balance_over_ell4=entropy/ell**4+area)
     return rows
 
 
@@ -180,7 +230,7 @@ def verify_saved(result):
             if (old["stock"], old["inverse_ell"]) != (new["stock"], new["inverse_ell"]):
                 raise ValueError("tensor source changed")
             for name in old.keys() - {"stock", "inverse_ell"}:
-                np.testing.assert_allclose(new[name], old[name], atol=1e-8, rtol=1e-9)
+                np.testing.assert_allclose(new[name], old[name], atol=4e-12, rtol=1e-9)
     for name in ("rows", "finite_rows"):
         _compare_boards(saved[name], result[name])
 
@@ -196,10 +246,15 @@ def _compare_boards(saved_rows, actual_rows):
             raise ValueError("registered controls changed")
         for key, trial in old["trials"].items():
             for field, expected in trial.items():
-                # Subtraction of proper areas in units of ell^4 loses precision.
-                # Entropy and KL are evaluated without that subtraction.
-                tol = 4e-8 if field in ("area_over_ell4", "geometric_over_ell4", "balance_over_ell4") else 1e-25
-                if not math.isclose(new["trials"][key][field], expected, abs_tol=tol, rel_tol=1e-9):
+                reading = new["trials"][key]
+                tol = 1e-25
+                if field in ("geometric_over_ell4", "balance_over_ell4"):
+                    # The last sum cancels two normalized O(1) readings. Budget
+                    # roundoff in those two operands, independently of radius.
+                    other = ((4*math.pi/15)*reading["metric_charge"] if field == "geometric_over_ell4"
+                             else reading["entropy_over_ell4"])
+                    tol = 64*math.ulp(abs(reading["area_over_ell4"])+abs(other))
+                if not math.isclose(reading[field], expected, abs_tol=tol, rel_tol=1e-9):
                     raise ValueError(f"changed {field} on {key}, {new['shape']}, 1/{new['inverse_ell']}")
 
 
