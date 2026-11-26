@@ -1473,6 +1473,194 @@
           }
         }
       ]
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_03_clock/wall_arrival/README.md",
+      "heading": "## Independent weak-kick response of the same source",
+      "scope": "Native opposite phase gradients on the same two finite strands. Measured half-gradients and velocities give finite kinetic masses. The material speed is calibrated separately.",
+      "label_column": "Strand and kick",
+      "comparison_column": "$(k/v)c^2$ ± sampler s.e.",
+      "rows": [
+        {
+          "label": "29 dimers, smaller kick",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-GEOMETRY-INTERNAL-ENERGY-INERTIA-PRECURSOR"
+          }
+        },
+        {
+          "label": "29 dimers, larger kick",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-GEOMETRY-INTERNAL-ENERGY-INERTIA-PRECURSOR"
+          }
+        },
+        {
+          "label": "49 dimers, smaller kick",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-GEOMETRY-INTERNAL-ENERGY-INERTIA-PRECURSOR"
+          }
+        },
+        {
+          "label": "49 dimers, larger kick",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-GEOMETRY-INTERNAL-ENERGY-INERTIA-PRECURSOR"
+          }
+        }
+      ]
+    },
+    {
+      "path": "model/experiments/interval_echo_consensus/publication_tree/mounted_capacity/README.md",
+      "heading": "# How many messages survive an unknown rotation?",
+      "scope": "Orbit counts of the actual twelve-port material alphabet under an unreported common rotation, with four different mounted references.",
+      "label_column": "Reference shared with the payload",
+      "comparison_column": "With exactly six bright ports",
+      "rows": [
+        {
+          "label": "None",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-GR-D6-CAPACITY"
+          }
+        },
+        {
+          "label": "One named host port",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-GR-D6-CAPACITY"
+          }
+        },
+        {
+          "label": "One unordered edge",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-GR-D6-CAPACITY"
+          }
+        },
+        {
+          "label": "Two ordered adjacent ports",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-GR-D6-CAPACITY"
+          }
+        }
+      ]
+    },
+    {
+      "path": "model/experiments/interval_echo_consensus/publication_tree/mounted_capacity/README.md",
+      "heading": "## Can a receiver reconstruct the veto?",
+      "scope": "Reserve decisions distinguishable under each mounted reference. A mixed orbit permits both decisions.",
+      "label_column": "Public reference",
+      "comparison_column": "Both decisions possible",
+      "rows": [
+        {
+          "label": "None",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-GR-D6-CAPACITY"
+          }
+        },
+        {
+          "label": "Host",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-GR-D6-CAPACITY"
+          }
+        },
+        {
+          "label": "Unordered edge",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-GR-D6-CAPACITY"
+          }
+        },
+        {
+          "label": "Ordered edge",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-GR-D6-CAPACITY"
+          }
+        }
+      ]
+    },
+    {
+      "path": "model/experiments/interval_echo_consensus/seam_word_meter/finite_program/pooled_feedback/README.md",
+      "heading": "# A finite-confidence controller on continuous material means",
+      "scope": "Exposures, repair offers, and simultaneous sampling errors in the declared finite feedback experiment on independent source cohorts.",
+      "label_column": "Resource or result",
+      "comparison_column": "Measurement",
+      "rows": [
+        {
+          "label": "Independently prepared real-valued inputs per cohort",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-COMPUTATION-NATIVE-PAIR-MEAN-PROGRAM"
+          }
+        },
+        {
+          "label": "Enrolled chart preparations over 18 panels",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-COMPUTATION-NATIVE-PAIR-MEAN-PROGRAM"
+          }
+        },
+        {
+          "label": "Consumed at 52 physical inspection appointments",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-COMPUTATION-NATIVE-PAIR-MEAN-PROGRAM"
+          }
+        },
+        {
+          "label": "Unmeasured at an early abstention, with their executed prefix retained",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-COMPUTATION-NATIVE-PAIR-MEAN-PROGRAM"
+          }
+        },
+        {
+          "label": "Copy-level native seam offers across the enrolled population",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-COMPUTATION-NATIVE-PAIR-MEAN-PROGRAM"
+          }
+        },
+        {
+          "label": "Simultaneous 99% half-width in the chart [−1,1]",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-COMPUTATION-NATIVE-PAIR-MEAN-PROGRAM"
+          }
+        },
+        {
+          "label": "Largest error among all 52 inspected means",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-COMPUTATION-NATIVE-PAIR-MEAN-PROGRAM"
+          }
+        }
+      ]
     }
   ]
 }

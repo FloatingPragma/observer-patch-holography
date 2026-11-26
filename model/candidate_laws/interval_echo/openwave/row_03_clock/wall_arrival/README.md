@@ -21,12 +21,12 @@ The native ceiling was 0.01 and the planted first-port minimum was 0.97. The pla
 
 Fresh copies of the near envelope receive opposite spatial phase gradients. Adjacent-wall phase quadratures measure the kicks. Separate bond clicks at four hand times determine the difference in the first moments of wall occupation. A single copy contributes its measured bond outcome at the assigned address. We retain every outcome, including additional walls during flight. For a measured half-gradient $k$ and a half-difference of velocities $v$, $k/v$ estimates a finite kinetic mass in dimer and clock units with $\hbar=1$. A separately calibrated material coefficient is $c^2=16.00156$ (95% sampler bootstrap interval 15.99361–16.00977). [Coupling meter](../../row_30_collective/coupling_meter.json) · [Independent ring rest spectroscopy](../../submission/row_30_cautions/README.md#the-ring-source)
 
-| Dimers | Measured $k$ | Measured $v$ | $k/v$ | $(k/v)c^2$ ± sampler s.e. |
+| Strand and kick | Measured $k$ | Measured $v$ | $k/v$ | $(k/v)c^2$ ± sampler s.e. |
 | ---: | ---: | ---: | ---: | ---: |
-| 29 | 0.09976 | 0.10374 | 0.96166 | 15.388 ± 0.084 |
-| 29 | 0.20014 | 0.20648 | 0.96927 | 15.510 ± 0.042 |
-| 49 | 0.10009 | 0.10415 | 0.96101 | 15.378 ± 0.085 |
-| 49 | 0.19919 | 0.20645 | 0.96483 | 15.439 ± 0.043 |
+| 29 dimers, smaller kick | 0.09976 | 0.10374 | 0.96166 | 15.388 ± 0.084 |
+| 29 dimers, larger kick | 0.20014 | 0.20648 | 0.96927 | 15.510 ± 0.042 |
+| 49 dimers, smaller kick | 0.10009 | 0.10415 | 0.96101 | 15.378 ± 0.085 |
+| 49 dimers, larger kick | 0.19919 | 0.20645 | 0.96483 | 15.439 ± 0.043 |
 
 These four recoil products are inside the exact silent interval. Each exceeds the independently reconstructed ring rest rates, 15.000082 and 14.999985. The tabulated standard errors propagate the kick, density and hand sampling at fixed coupling calibration. The finite envelope, boundary, momentum, flight time and changes in total wall number affect the measured response. The infinite-strand zero-momentum inverse curvature is $15/16$. The flight uses unheralded copies; measuring the endpoint to trigger a clock changes the state.
 

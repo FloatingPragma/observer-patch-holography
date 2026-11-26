@@ -975,6 +975,24 @@ sequence of durations \(\pi/2,\pi/12,3\pi/2\), transfer probabilities are
 and zero transferred. The tagged weight predicts \(3/16\) combined; the
 uncalibrated alternative gives \(3/40\).
 
+\paragraph{A shared material reference lets two stations read a phase.}
+A source splits one unit between the stations and writes one of two
+opposite relative phases. Each additional reference is an independently
+split unit. The first station mixes its rails and publishes its sharp
+word. The second uses that word to choose a local analyzer. With no
+reference, one unit, and two units, the observers correctly identified
+the sign on $50.16\%$, $75.13\%$, and $85.30\%$ of 262,144 simulated
+starts per setting. Reading the signal path early gave $49.90\%$ with
+two references. For a reference of total load $L$, write $r_n^2$ for
+the probability that the first station has $n$ reference units. Local
+load conservation makes only adjacent sectors interfere. The accessible
+trace distance is bounded by $\sum_n r_n r_{n+1}\leq\cos(\pi/(L+2))$,
+the largest eigenvalue of the path with off-diagonal entries $1/2$.
+The native instruments attain the resulting success bound for
+$L=0,1,2$. This tests a phase-sensitive read across local inventories
+using the supplied quantum record probabilities
+(\path{inventory_effects/shared_reference/}).
+
 \paragraph{Which fine observer reproduces the coarse material algebra?}
 A parent has four actual child cells. For local address \(a\) and sign \(s\)
 the protected isometry \(V|a,s\rangle=\sum_{c=0}^3|c,a,s\rangle/2\)

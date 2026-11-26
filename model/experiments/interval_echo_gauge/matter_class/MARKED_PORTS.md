@@ -32,6 +32,8 @@ Bright minus dark is $-c$ even for an arbitrary input doublet vector, since the 
 
 For identical normalized port generators up to one common doublet frame, every ordered pulse product and every equivalently mounted terminal measurement has the same probabilities. Operators in the representation kernel act trivially on both arms. Repetitions on this specimen cannot distinguish algebras that differ only inside that kernel. A second detector carrying the other factor, or an independent measurement of brackets of the twelve currents, supplies a different observable. For the classified compact sources their derived dimensions are 3 on P1, 6 on P2 and 11 on F2 or G2. The sector that acts on the five distinguishes the last two. This protocol concerns internal port currents. A physical charged-lepton assignment also requires identification of the same freely traveling charge, spatial spin response and rest energy.
 
+A separately calibrated native current now resolves both marked-port cosines on the isolated cell. A one- or two-turn pentagon launch gives opposite signed circulation at mark 1, with the sign verified by subsequent endpoint transfer. Moving the antipodal comparison from the receiver to the source reproduces the same isolated readings with an ordinary bond meter. Opening the federation changes the profiles. The coupling of either measured orbital current to a freely traveling charged doublet remains open. [Native sources, bare receivers and controls](ring_current/README.md)
+
 The following command checks the forecasts from the repository root.
 
 ~~~sh

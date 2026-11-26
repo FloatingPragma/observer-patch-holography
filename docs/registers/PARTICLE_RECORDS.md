@@ -28,6 +28,8 @@ A full turn in a programmed internal representation has a measurable relative ph
 
 Two half-turns about marked ports distinguish opposite programmed polarities at the receiving cell. The signed contrast for one prepared module is consistent with $-1/\sqrt{5}$. The sampled P1 module and compatible P2 and G2 assignments predict that same sign. Testing a naturally occurring charge requires an independent measurement of its port couplings and spatial rotation. [Two-port comparison and its retained empty readings](../../model/experiments/interval_echo_gauge/matter_class/port_pair/README.md)
 
+Native five-arm windings give two distinct marked-port orbital current profiles. A receiver measuring local exchanges after a separately prepared antipodal source recovers the same profiles on the isolated cell. When the connecting seams are opened, the angular response changes. A spin assignment to a freely propagating charged excitation requires a rotation measurement on that arriving charge. [Detector counts, source swap and controls](../../model/experiments/interval_echo_gauge/matter_class/ring_current/README.md)
+
 ## Which neutral products can observers distinguish?
 
 A receiver in the five-mode exterior construction can register three different responses from an electrically neutral source. A negative charged daughter marks one weak direction, a positive charged daughter marks its conjugate, and silence in both directions marks a third class. Calibration with charged standards sets the efficiency separately for each sign. A measured silence inherits that efficiency and the finite sample size. Naming the daughter electron, muon or tau requires an independent identification of that charged particle.

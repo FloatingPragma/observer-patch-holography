@@ -552,6 +552,12 @@ REPLAY_EVALUATIONS = (
         "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
         "model/candidate_laws/interval_echo/EVALUATION.json": "b54e30055901036a84cc290bfc36f5419c48033db9a7b2ef8f698f850bda76bd",
     },
+    # Shared-reference phase, intrinsic endpoint records, spatial wall beats and native orbital currents.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "2758ff61b991383ac4667cceb74c920910be002372a597ec25513dacd133d665",
+    },
 )
 
 

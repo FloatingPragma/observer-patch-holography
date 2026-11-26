@@ -35,6 +35,8 @@ Separate X, Y and Z counts on both the 111:68 mixture and a rotated version reco
 
 FT-BORN remains partial. The experiment disfavors this particular cubic prescription within the specified simulation. Physical record noncontextuality and coverage of arbitrary written memories, inter-inventory coherences and free histories remain open. In particular, an abstract unitary on the complement of one many-body word can touch the same physical ports as that word. The separate single-marker register in the proof supplies actual disjoint supports when applying the locality condition.
 
+Two separated stations can also read a phase between different local loads by sharing independently split reference units. With zero, one and two such units their optimal phase-guess probabilities are 1/2, 3/4 and (1+1/√2)/2. The all-start simulation tests those numbers and the loss of contrast after an early path read. [Separated stations and the finite-load bound](shared_reference/README.md)
+
 ## Replay
 
 Every bank draws from integer weights on a 2⁻⁴⁰ grid. All bins except the most probable are rounded, the most probable takes the complement, and each launch compares one PCG64 integer below 2⁴⁰ with the cumulative weights. With the 3×10⁻¹² norm budget of a read and its fair-bit product, the complement moves by less than 3×10⁻¹¹. The compiler sends phases within roundoff of a multiple of 2π to zero and arguments within roundoff of −π to π, and the two rank-one held effects keep an exact zero eigenvalue. The exchange-only pulse durations and all counts therefore replay identically on macOS and Linux. From the repository root, run each module with `OPENBLAS_NUM_THREADS=1 .venv/bin/python -m` followed by its module name.
