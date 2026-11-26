@@ -1734,10 +1734,11 @@
             },
             "interval_echo_published_records": {
               "status": "open",
-              "note": "The controlled rod geometry responds to homogeneous parallel sheets at the positive ordinary calibration and detects a held coincidence contribution. Point-mass attraction, an inverse-square radial force and its absolute coupling in native matter are open.",
+              "note": "The controlled rod geometry responds to homogeneous parallel sheets at the positive ordinary calibration and detects a held coincidence contribution. Point-mass attraction, an inverse-square radial force and its absolute coupling in native matter are open. The selected homogeneous sheet material has zero inward acceleration for a body released from rest.",
               "evidence": [
                 "model/candidate_laws/interval_echo_partition_repair/published_strings/GEOMETRY.md",
-                "model/candidate_laws/interval_echo_partition_repair/published_strings/geometry.json"
+                "model/candidate_laws/interval_echo_partition_repair/published_strings/geometry.json",
+                "model/candidate_laws/interval_echo_partition_repair/published_strings/nested_stress/selection/README.md"
               ]
             }
           }
@@ -1846,7 +1847,9 @@
                 "model/experiments/interval_echo_einstein_station/collar_pairing/fringe_ruler/results.json",
                 "model/experiments/interval_echo_einstein_station/collar_pairing/fringe_ruler/certificate.json",
                 "code/matched_einstein_limit/source_implication/full_algebra/reuse/retained_equilibrium/shape_readout/README.md",
-                "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/formed_ranges/affine_stencil/README.md"
+                "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/formed_ranges/affine_stencil/README.md",
+                "model/experiments/interval_echo_einstein_station/critical_exchange/signal_ruler/README.md",
+                "model/experiments/interval_echo_einstein_station/critical_exchange/signal_ruler/results.json"
               ],
               "demonstrated_measurement": {
                 "label": "Reciprocal frequency transfer on two materials sharing one stationary source",
@@ -1900,6 +1903,12 @@
                   "label": "Five formed-source clocks distinguish a change beyond common affine motion",
                   "finding": "Positions inferred from five stations at the registered spherical radii change in a way that no common affine displacement of the original tangent chart can reproduce. A weighted second difference cancels every affine field; two material probes give a positive return response to pairing. A local proper radius, a shrinking family and universal stress calibration are separate inputs.",
                   "source": "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/formed_ranges/affine_stencil/README.md"
+                },
+                {
+                  "law": "Active binary contact and echoed quadratic guide",
+                  "label": "A sender reset tests propagation on the same source at two occupancies",
+                  "finding": "On the guided ring the reset signal is exactly independent of incoming matter despite the measured bond-energy change. On an interacting four-station native segment a spectator at station one changes the signed response at station two from +0.00319 to −0.98706. A common metric requires a clock and a second probe measuring the same change.",
+                  "source": "model/experiments/interval_echo_einstein_station/critical_exchange/signal_ruler/README.md"
                 }
               ]
             },
@@ -1915,10 +1924,11 @@
             },
             "interval_echo_published_records": {
               "status": "open",
-              "note": "Ten observers can compute proper-volume balls and curvature on the specified product geometry. Material-clock redshift, light deflection or propagation delay from a freely formed native gravitating source still need to be measured.",
+              "note": "Ten observers can compute proper-volume balls and curvature on the specified product geometry. Material-clock redshift, light deflection or propagation delay from a freely formed native gravitating source still need to be measured. Its static clocks have unit rate ratio even when the extra stock curves the spatial record.",
               "evidence": [
                 "model/candidate_laws/interval_echo_partition_repair/published_strings/README.md",
-                "model/candidate_laws/interval_echo_partition_repair/published_strings/GEOMETRY.md"
+                "model/candidate_laws/interval_echo_partition_repair/published_strings/GEOMETRY.md",
+                "model/candidate_laws/interval_echo_partition_repair/published_strings/nested_stress/selection/README.md"
               ]
             }
           }
