@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 1275,
+  "surface_count": 1278,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -3586,6 +3586,11 @@
       "allowlisted": false
     },
     {
+      "path": "model/experiments/interval_echo_einstein_station/collar_pairing/fringe_ruler/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/experiments/interval_echo_einstein_station/collar_pairing/phase_geometry/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -4382,6 +4387,16 @@
     },
     {
       "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/common_receiver/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/energy_source/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/energy_source/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
