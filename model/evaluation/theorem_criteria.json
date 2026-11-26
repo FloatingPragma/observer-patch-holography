@@ -1466,7 +1466,11 @@
                 "model/experiments/interval_echo_einstein_station/equilibrium_refinement/tracer_flux/bearings/results.json",
                 "model/experiments/interval_echo_einstein_station/equilibrium_refinement/tracer_flux/bearings/placements.json",
                 "code/matched_einstein_limit/fixed_volume/displaced_markers/README.md",
-                "code/matched_einstein_limit/fixed_volume/displaced_markers/results.json"
+                "code/matched_einstein_limit/fixed_volume/displaced_markers/results.json",
+                "model/experiments/interval_echo_einstein_station/equilibrium_refinement/tracer_flux/bearings/round_trip/README.md",
+                "model/experiments/interval_echo_einstein_station/equilibrium_refinement/tracer_flux/bearings/round_trip/results.json",
+                "code/matched_einstein_limit/fixed_volume/polarized_ranges/README.md",
+                "code/matched_einstein_limit/fixed_volume/polarized_ranges/results.json"
               ],
               "demonstrated_measurement": {
                 "label": "Nine directions predict regional charge on the constant mode and slow triplet",
@@ -1502,6 +1506,18 @@
                   "label": "Eight interior counts identify fixed-volume area to leading order",
                   "finding": "Two concentric counts and six neighboring-center counts remove an unknown smooth positive marker intensity. Across five prescribed geometries the largest mean scalar-curvature error falls from 0.34065 to 0.005082 over four refinements. Applying the estimate to native records requires the measured displacements and radii to be proper geodesic lengths on a common slice.",
                   "source": "code/matched_einstein_limit/fixed_volume/displaced_markers/README.md"
+                },
+                {
+                  "law": "Interval Echo with a freely returning tag on two mobile residents",
+                  "label": "One independent three-dimensional frame from all 132 ordered return clocks",
+                  "finding": "Three stocks and two shutters distinguish three ranges and independently recover the angular frame. A flat three-dimensional fit to all durations converted by one speed needs more than 2.19% relative range distortion.",
+                  "source": "model/experiments/interval_echo_einstein_station/equilibrium_refinement/tracer_flux/bearings/round_trip/README.md"
+                },
+                {
+                  "law": "Proper geodesic ranges on smooth charts and returned native word transfers",
+                  "label": "Scalar curvature from four signed cross distances per axis pair",
+                  "finding": "Ten native angular frames pass radial midpoint checks but fail independent cross distances. Keeping the two measured radii and all four cross ranges in a shrinking bounded-curvature family needs at least 14.59% relative change. Smooth controls yield −1.999385 and +2.000615 for target curvatures −2 and +2.",
+                  "source": "code/matched_einstein_limit/fixed_volume/polarized_ranges/README.md"
                 }
               ]
             },
@@ -1605,7 +1621,10 @@
                 "code/cosmology/rar_deep_regime/aperture_virial/results.json",
                 "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/README.md",
                 "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/results.json",
-                "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/MaterialRecoil.lean"
+                "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/MaterialRecoil.lean",
+                "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/common_receiver/README.md",
+                "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/common_receiver/results.json",
+                "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/common_receiver/clock_results.json"
               ],
               "demonstrated_measurement": {
                 "label": "Ordinary and fixed-energy pairing transfers give the same calibrated area response on a selected finite source",
@@ -1641,6 +1660,12 @@
                   "label": "Separate load recoils toward the source in the three-guide chart",
                   "finding": "At the registered native flight time, an independent one-load receiver displaces by −520/4229 times the outward three-guide current per source release. The chart Green theorem supplies its inward inverse-square asymptotic. The held two-load receiver gives zero mean at the same interrogation clock although its complete bare position propagation is identical. Face routing, phase clock, mirrored pad bias and source activity enter the coupling.",
                   "source": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/README.md"
+                },
+                {
+                  "law": "Interval Echo ternary source comparison followed by free receiver release",
+                  "label": "A common inward response for both mobile loads across independently stocked guides",
+                  "finding": "Two different probe loads on the same vacancy edge give −0.0667115 and −0.0666379 receiver links on the first outward face, with a common prediction of −1/15. Their mean initial acceleration equals minus the outward current per supplied source release. An independent blind reference also transfers between two mixed guide stocks. The current has an inverse-square limit in the three-guide address chart; emitter mass, physical range and universal coupling require independent measurements. Two independent repeatable material clocks bound combined timing and sampling uncertainty below 0.000129 receiver links per release across 32 comparisons at 99% coverage.",
+                  "source": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/common_receiver/README.md"
                 }
               ]
             },
