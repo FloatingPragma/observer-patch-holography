@@ -534,6 +534,12 @@ REPLAY_EVALUATIONS = (
         "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
         "model/candidate_laws/interval_echo/EVALUATION.json": "0d758b17fbdaddd091f255b09c618e5b0c914d594ea4fb0e93d0d4fa052fe2bf",
     },
+    # The P1 report adds the signed two-port comparison and its changed-polarity control.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "fc97ff35b1ca1764c023a67d27d1defa4e23a6a78e264e4be6a769a51a1d6830",
+    },
 )
 
 

@@ -6555,7 +6555,8 @@
    "why": "It fixes the search space and negative controls for matter content, so any selected matter multiplet is checked against a predeclared class.",
    "premises": [],
    "lean": [
-    "model/experiments/interval_echo_gauge/matter_class/SpinBracket.lean"
+    "model/experiments/interval_echo_gauge/matter_class/SpinBracket.lean",
+    "model/experiments/interval_echo_gauge/matter_class/port_pair/Ramsey.lean"
    ],
    "model": [
     "code/b15_matter_freeze/matter_class_freeze_v1.json",
@@ -6563,7 +6564,10 @@
     "model/experiments/interval_echo_gauge/matter_class/README.md",
     "model/experiments/interval_echo_gauge/matter_class/bracket.py",
     "model/experiments/interval_echo_gauge/matter_class/compiler.py",
-    "model/experiments/interval_echo_gauge/matter_class/records.json"
+    "model/experiments/interval_echo_gauge/matter_class/records.json",
+    "model/experiments/interval_echo_gauge/matter_class/MARKED_PORTS.md",
+    "model/experiments/interval_echo_gauge/matter_class/port_pair/README.md",
+    "model/experiments/interval_echo_gauge/matter_class/port_pair/records.json"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.pdf"

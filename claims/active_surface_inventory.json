@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 1272,
+  "surface_count": 1275,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -4091,12 +4091,27 @@
       "allowlisted": false
     },
     {
+      "path": "model/experiments/interval_echo_gauge/matter_class/MARKED_PORTS.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/experiments/interval_echo_gauge/matter_class/PROTOCOL.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },
     {
       "path": "model/experiments/interval_echo_gauge/matter_class/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_gauge/matter_class/port_pair/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_gauge/matter_class/port_pair/README.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },

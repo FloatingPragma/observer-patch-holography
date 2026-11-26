@@ -26,6 +26,8 @@ An energy reading can also split neutral candidates. On a 14-port filled guide, 
 
 A full turn in a programmed internal representation has a measurable relative phase. The two-station doublet and singlet give opposite phases, yet four stratum-labelled candidates pass the same grading and turn filter. This experiment leaves the spatial rotation of a freely arriving excitation to a separate instrument. [Frozen matter search and native comparison](../../model/experiments/interval_echo_gauge/matter_class/README.md)
 
+Two half-turns about marked ports distinguish opposite programmed polarities at the receiving cell. The signed contrast for one prepared module is consistent with $-1/\sqrt{5}$. The sampled P1 module and compatible P2 and G2 assignments predict that same sign. Testing a naturally occurring charge requires an independent measurement of its port couplings and spatial rotation. [Two-port comparison and its retained empty readings](../../model/experiments/interval_echo_gauge/matter_class/port_pair/README.md)
+
 ## Which neutral products can observers distinguish?
 
 A receiver in the five-mode exterior construction can register three different responses from an electrically neutral source. A negative charged daughter marks one weak direction, a positive charged daughter marks its conjugate, and silence in both directions marks a third class. Calibration with charged standards sets the efficiency separately for each sign. A measured silence inherits that efficiency and the finite sample size. Naming the daughter electron, muon or tau requires an independent identification of that charged particle.
