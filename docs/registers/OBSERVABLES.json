@@ -672,9 +672,14 @@
     "Lean/ObserverPatchHolography/Provenance/SemanticEventProvenance.lean",
     "Lean/Time/ClockReadout.lean",
     "Lean/Time/ClockComparison.lean",
-    "Lean/ObserverPatchHolography/Provenance/GuardedRailRecords.lean"
+    "Lean/ObserverPatchHolography/Provenance/GuardedRailRecords.lean",
+    "model/experiments/interval_echo_consensus/versioned_dispatch/Support.lean",
+    "model/experiments/interval_echo_consensus/transaction_component/Component.lean"
    ],
-   "model": [],
+   "model": [
+    "model/experiments/interval_echo_consensus/versioned_dispatch/README.md",
+    "model/experiments/interval_echo_consensus/transaction_component/README.md"
+   ],
    "papers": [
     "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf",
     "paper/observers_are_all_you_need.pdf",
@@ -5257,10 +5262,19 @@
     "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/echo_turn/README.md",
     "model/experiments/interval_echo_angular/charged_orientation/three_arm_spin/flavor_search/PASSIVE_LOOPS.md",
     "model/experiments/interval_echo_angular/charged_orientation/aklt_edge/README.md",
-    "model/experiments/interval_echo_angular/charged_orientation/flux_doublet/passive_faces/README.md"
+    "model/experiments/interval_echo_angular/charged_orientation/flux_doublet/passive_faces/README.md",
+    "model/experiments/interval_echo_angular/charged_orientation/adiabatic_exchange/PROOF.md",
+    "model/experiments/interval_echo_angular/charged_orientation/adiabatic_exchange/PROTOCOL.md",
+    "model/experiments/interval_echo_angular/charged_orientation/adiabatic_exchange/README.md",
+    "model/experiments/interval_echo_angular/charged_orientation/adiabatic_exchange/certificate.py",
+    "model/experiments/interval_echo_angular/charged_orientation/adiabatic_exchange/exchange.py",
+    "model/experiments/interval_echo_angular/charged_orientation/adiabatic_exchange/measure.py",
+    "model/experiments/interval_echo_angular/charged_orientation/adiabatic_exchange/results.json.gz",
+    "model/experiments/interval_echo_angular/charged_orientation/adiabatic_exchange/test_exchange.py"
    ],
    "papers": [
-    "paper/deriving_the_particle_zoo_from_observer_consistency.tex"
+    "paper/deriving_the_particle_zoo_from_observer_consistency.tex",
+    "paper/deriving_the_particle_zoo_from_observer_consistency.pdf"
    ]
   },
   {
@@ -5742,7 +5756,9 @@
    "what": "Measured couplings change with the energy scale of the probe, with structure that sets in at the size of the scatterer.",
    "why": "Running couplings are central to gauge theories, so a model has to identify its scale-dependent interaction with a physical gauge coupling.",
    "premises": [],
-   "lean": [],
+   "lean": [
+    "model/candidate_laws/interval_echo/openwave/row_23_coupling/free_bath/SignedMoments.lean"
+   ],
    "model": [
     "model/evaluation/SCORECARD.md",
     "model/evaluation/openwave_criteria.json",
@@ -5761,7 +5777,14 @@
     "model/candidate_laws/interval_echo/openwave/row_23_coupling/static_host/measure.py",
     "model/candidate_laws/interval_echo/openwave/row_23_coupling/static_host/counts.npz",
     "model/candidate_laws/interval_echo/openwave/row_23_coupling/static_host/results.json",
-    "model/candidate_laws/interval_echo/openwave/row_23_coupling/static_host/test_static.py"
+    "model/candidate_laws/interval_echo/openwave/row_23_coupling/static_host/test_static.py",
+    "model/candidate_laws/interval_echo/openwave/row_23_coupling/free_bath/PROOF.md",
+    "model/candidate_laws/interval_echo/openwave/row_23_coupling/free_bath/PROTOCOL.md",
+    "model/candidate_laws/interval_echo/openwave/row_23_coupling/free_bath/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_23_coupling/free_bath/measure.py",
+    "model/candidate_laws/interval_echo/openwave/row_23_coupling/free_bath/native.py",
+    "model/candidate_laws/interval_echo/openwave/row_23_coupling/free_bath/records.json.gz",
+    "model/candidate_laws/interval_echo/openwave/row_23_coupling/free_bath/test_free_bath.py"
    ],
    "papers": [
     "paper/executable_observer_construction.pdf"
@@ -6965,7 +6988,8 @@
     "Lean/ObserverPatchHolography/EinsteinBranch/BisectedDiamonds.lean",
     "Lean/ObserverPatchHolography/EinsteinBranch/StaticMassFlux.lean",
     "Lean/ObserverPatchHolography/EinsteinBranch/StaticAngularReadout.lean",
-    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/RangeContraction.lean"
+    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/RangeContraction.lean",
+    "code/matched_einstein_limit/fixed_volume/polarized_ranges/PolarizedRanges.lean"
    ],
    "model": [
     "model/experiments/interval_echo_einstein_station/proper_ball_ruler/README.md",
@@ -8359,7 +8383,7 @@
    "kind": "premise",
    "name": "certified causal read support",
    "category": "Construction choices",
-   "status": "Partial",
+   "status": "Demonstrated",
    "what": "Each committed event declares exactly which register versions its enablement, payload, label and continuation depend on.",
    "why": "It makes the recorded parent edges a faithful causal graph, from which OPH reads causal order between events.",
    "premises": [],
@@ -8368,12 +8392,21 @@
     "Lean/ObserverPatchHolography/Provenance/SemanticEventProvenance.lean",
     "Lean/ObserverPatchHolography/Provenance/MismatchProvenance.lean",
     "Lean/QFT/SourceDerivedEventPrecedence.lean",
-    "Lean/ObserverPatchHolography/Provenance/GuardedRailRecords.lean"
+    "Lean/ObserverPatchHolography/Provenance/GuardedRailRecords.lean",
+    "model/experiments/interval_echo_consensus/versioned_dispatch/Support.lean"
    ],
    "model": [
-    "code/cosmology/guarded_slab/README.md"
+    "code/cosmology/guarded_slab/README.md",
+    "model/experiments/interval_echo_consensus/versioned_dispatch/PROTOCOL.md",
+    "model/experiments/interval_echo_consensus/versioned_dispatch/README.md",
+    "model/experiments/interval_echo_consensus/versioned_dispatch/apparatus.py",
+    "model/experiments/interval_echo_consensus/versioned_dispatch/measure.py",
+    "model/experiments/interval_echo_consensus/versioned_dispatch/records.json.gz",
+    "model/experiments/interval_echo_consensus/versioned_dispatch/test_dispatch.py"
    ],
-   "papers": [],
+   "papers": [
+    "paper/reality_as_consensus_protocol.pdf"
+   ],
    "statement": "Every semantic commit declares the register versions on which its enablement, payload, visible label or continuation depends, and the declared support is sound and complete for that dependence; parent edges require parent write-membership, the matching writer and value continuity.",
    "premise_kind": "declared"
   },
@@ -9143,15 +9176,24 @@
    "kind": "premise",
    "name": "Transactional commit contract of overlap repair",
    "category": "Construction choices",
-   "status": "Partial",
+   "status": "Demonstrated",
    "what": "Overlapping repairs commit atomically per conflict component, revalidate everything they read, and produce payloads fixed by their read snapshots.",
    "why": "These transaction rules make concurrent repairs reach one schedule-independent endpoint, which the consensus results rely on.",
    "premises": [],
-   "lean": [],
+   "lean": [
+    "model/experiments/interval_echo_consensus/transaction_component/Component.lean"
+   ],
    "model": [
     "model/candidate_laws/interval_echo/CONSENSUS.md",
     "model/experiments/interval_echo_consensus/routed_counts/README.md",
-    "model/evaluation/theorem_criteria.json"
+    "model/evaluation/theorem_criteria.json",
+    "model/experiments/interval_echo_consensus/transaction_component/PROTOCOL.md",
+    "model/experiments/interval_echo_consensus/transaction_component/README.md",
+    "model/experiments/interval_echo_consensus/transaction_component/board.py",
+    "model/experiments/interval_echo_consensus/transaction_component/contract.py",
+    "model/experiments/interval_echo_consensus/transaction_component/measure.py",
+    "model/experiments/interval_echo_consensus/transaction_component/records.json.gz",
+    "model/experiments/interval_echo_consensus/transaction_component/test_component.py"
    ],
    "papers": [
     "paper/reality_as_consensus_protocol.pdf"
@@ -9661,7 +9703,7 @@
    "kind": "premise",
    "name": "unique event labels and one commit per conflict",
    "category": "Construction choices",
-   "status": "Partial",
+   "status": "Demonstrated",
    "what": "Each executed event carries one unique label, its causal reads lie in registers observers can see, and overlapping repairs commit as one event.",
    "why": "It lets executed repairs be placed as a causal order of events, which the causal-placement and spacetime-ordering results use.",
    "premises": [],
@@ -9669,10 +9711,21 @@
     "Lean/Geometry/NativeRepairSemanticPlacement.lean",
     "Lean/ObserverPatchHolography/Provenance/HistoryCausalInvariance.lean",
     "Lean/ObserverPatchHolography/Provenance/SeamDeltaAggregation.lean",
-    "Lean/ObserverPatchHolography/Provenance/GuardedRailRecords.lean"
+    "Lean/ObserverPatchHolography/Provenance/GuardedRailRecords.lean",
+    "model/experiments/interval_echo_consensus/transaction_component/Component.lean"
    ],
-   "model": [],
-   "papers": [],
+   "model": [
+    "model/experiments/interval_echo_consensus/transaction_component/PROTOCOL.md",
+    "model/experiments/interval_echo_consensus/transaction_component/README.md",
+    "model/experiments/interval_echo_consensus/transaction_component/board.py",
+    "model/experiments/interval_echo_consensus/transaction_component/contract.py",
+    "model/experiments/interval_echo_consensus/transaction_component/measure.py",
+    "model/experiments/interval_echo_consensus/transaction_component/records.json.gz",
+    "model/experiments/interval_echo_consensus/transaction_component/test_component.py"
+   ],
+   "papers": [
+    "paper/reality_as_consensus_protocol.pdf"
+   ],
    "statement": "The instrumented native execution log starts with no writer label colliding with scheduled event identifiers, uses each event identifier once and covers the finite event carrier; every certified causal support lies in the quotient-visible registers; and the transaction layer treats mutually overlapping proposals as conflicting and commits one aggregate label per conflict component.",
    "premise_kind": "declared"
   },

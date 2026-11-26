@@ -511,6 +511,29 @@ REPLAY_EVALUATIONS = (
         "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
         "model/candidate_laws/interval_echo/EVALUATION.json": "d4b801e8a5dca900d05f5b17b3a4fbb8ecbb4dfb3156e1bf595ebc0b6b4ae893",
     },
+    # Causal supports, transactional collars and two OpenWave response controls.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "969fad0492196d75753557e48d730d43207118436d83fe4d2843d21223611307",
+    },
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "e38088966a14a7e869811bee13b43e078d116cf31e08f31154c6a61ccf4ec24d",
+    },
+    # Certified material acceleration and bounds on ten observer ranges (85c2a4a3f).
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "468a1f056c5f3cf8131d146d5418220bea4a4e86dd807a9bbc465a59e72f1de9",
+    },
+    # The same gravity evidence with the merged observer and OpenWave measurements.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "0d758b17fbdaddd091f255b09c618e5b0c914d594ea4fb0e93d0d4fa052fe2bf",
+    },
 )
 
 
