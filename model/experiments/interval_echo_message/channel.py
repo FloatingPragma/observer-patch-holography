@@ -570,6 +570,12 @@ REPLAY_EVALUATIONS = (
         "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
         "model/candidate_laws/interval_echo/EVALUATION.json": "af2b297f289e0b8becc9e672113ae029978a56fe368ed280dcaa54819e7b6f7f",
     },
+    # Signed ordinary and collar area on the persistent finite native survey.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "cae6b8902cc2160d4d8665149e3867a11d2c0a720f07e2dc9c88c68264df49ab",
+    },
 )
 
 
