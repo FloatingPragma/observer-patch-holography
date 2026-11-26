@@ -105,3 +105,28 @@ The next kernel term is \(q\sum_j(x_j X_j+y_j Y_j)\), with \(X_j=\partial_{x_j}F
  \qquad R^{-4}\Delta K\longrightarrow\frac{8\pi^2}{15}T_{uu}(0).
 \]
 The bounded smooth covariance kernel now gives \(\|\Delta C_B\|_{\rm HS}^2=O(R^6)\), so \(D=O(R^5)\) still drops out of the leading entropy response. The bounds hold for each named event, radius and frame on the same finite diagonal. Small fixed-radius smooth spinor probes also admit an operator check: first take the finite regulator to the continuum at fixed detector floor, then remove the floor on a fixed finite-dimensional span in the modular domain. Strong convergence on a basis gives uniform convergence on its unit sphere. The result concerns these smooth inputs; a norm estimate over all ultraviolet lattice modes would demand much more.
+
+## An axial area test distinguishes the existing rod geometry
+
+The published parallel-sheet apparatus has metric \(ds^2=-dt^2+dz^2+ds_\perp^2\), where the transverse curvature \(K\) depends on its registered sheet densities. In an orthonormal frame its Ricci tensor has diagonal \((0,K,K,0)\). Hence the two axial null vectors \(k_\pm=(1,0,0,\pm1)\) obey \({\rm Ric}(k_\pm,k_\pm)=0\) for every preparation. A cosmological term vanishes under both contractions. In the same conventions the covariant Weyl excitation stress is
+\[
+ T_{ab}=2\int f(p)\frac{p_a p_b}{|p|}\frac{d^3p}{(2\pi)^3},\qquad
+ p_a=(-|p|,\boldsymbol p).
+\]
+The half sum of its axial null contractions is \(\rho+T_{zz}\ge\rho>0\) for every nonzero positive-energy particle/hole occupation of this class. For the tested dipole \(T_{zz}=\rho/3\). Thus even calibrating sheet number to match the rest energy exactly cannot reproduce the two directional responses at any positive coupling. Equivalently, the stress difference for this Weyl source has zero spacetime trace and the change of the sheet Einstein trace is \(-2\Delta K\). [Parallel-sheet action and rod geometry](../../../../../model/candidate_laws/interval_echo_partition_repair/published_strings/GEOMETRY.md)
+
+There is a rest-and-moving-observer test using only equal-volume boundary readings. For a common excitation let \(\Delta A_u\) denote the area change at fixed proper volume \(4\pi R^3/3\); let \(u_0\) be at rest and \(u_\pm=(\cosh\eta,0,0,\pm\sinh\eta)\). A same-source Einstein response at coupling \(\kappa\) requires
+\[
+ \lim_{R\to0}-\frac{15}{4\pi R^4}
+ \left[\frac{\Delta A_{u_+}+\Delta A_{u_-}}{2}-\Delta A_{u_0}\right]
+ =\kappa(\rho+T_{zz})\sinh^2\eta .
+\]
+The difference of the two preparations removes a constant vacuum term. Averaging the opposite boosts removes the sign convention for momentum. A boost along the sheets is an exact isometry of their product metric. The three sheet areas therefore agree at every common proper volume and the left hand side vanishes exactly for that geometry. For the Weyl dipole at \(\eta=0.32\) the mean boosted stress is \(1.141258\) times the rest stress. Matching the rest densities at 0.041228 gives Weyl null readings 0.051620 and 0.058321, against the two zero sheet readings divided by the coupling. The numerical quadrature integrates the dipole's angular moments through degree three and its radial polynomials through degree eight. [Same-spectrum axial calculations](axial_response.json)
+
+The independently calibrated free Weyl signal itself gives a second check. The canonical anticommutator is an operator identity at every finite resolution,
+\[
+ \{b_i(t),b_j^\dagger(0)\}=(e^{-itH_a})_{ij} I .
+\]
+Indeed \(b_i(t)=\sum_m(e^{-itH_a})_{im}b_m(0)\). In a preparation of covariance \(C\) the two ordered correlations are \(e^{-itH_a}(I-C)\) and \(e^{-itH_a}C\) with the appropriate common row and column. A detector comparing them can measure a source-dependent occupation even as their sum, the causal linear signal for positive time, remains fixed. On the finite board the excitation changes regional entropy by 0.280740 and changes one ordered-signal column by up to 0.013161. The sum reproduces the free signal in both preparations to \(6\times10^{-17}\). A rod and clock protocol that uses only this summed kernel receives identical input on both runs. A source-dependent area would require an independently calibrated geometric response in another common record. [Finite signal readings](axial_response.json)
+
+The homogeneous Einstein–scalar radar experiment supplies equal-volume geodesic balls and a proper clock for six **scalar oscillator** modes. Its source evolution explicitly couples their stress to its metric. The spatially flat FLRW record-density construction reads a supplied conformal-factor profile and identifies the source law and physical clock as further inputs. The native critical exchange realizes a spatial interval mode and an energy analyzer. None of these protocols acquires both the Weyl covariance above and its independently shifting proper-ball boundaries on a single preparation. The three-area equality supplies a falsifiable target for any proposed identification before attempting the full tensor in additional frames. [Scalar field and radar source](../../../quantum_scalar_radar/PROTOCOL.md) · [Scalar equal-volume protocol](../../../quantum_scalar_radar/BALL_PROTOCOL.md) · [FLRW count-measure derivation](../../../../../paper/tex_fragments/SOURCE_NET_FLRW_RECORD_DENSITY.tex) · [Native interval selection](../../../../../model/experiments/interval_echo_einstein_station/critical_exchange/selection/README.md)

@@ -39,6 +39,8 @@ One other experiment prepares a localized particle with occupation 0.65 and lets
 
 This is an auxiliary Weyl sector with an explicit propagator, prepared vacuum, readout algebra and boost. An independent copy can be appended to an already published Interval Echo process while preserving the marginal distribution of every original observer protocol. Entropy differences on the added sector then have the properties above. For an Interval Echo gravity result, native observers still need to identify those fields and clocks in the published records, or an explicit joint law must connect this sector to their calibrated proper volume and area. These flat matter measurements supply no area susceptibility, ordinary universal gravitational coupling or independently measured collar stress. The homogeneous source's positive pressures also differ from those of a static set of parallel strings. [Einstein theorem and matching coefficients](../../../../../paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.tex) · [Earlier native modular-orbit controls](../README.md)
 
+Two opposite directions already distinguish the existing parallel-sheet rods from the response required by this Weyl source. Calibrate to equal rest energy. In the sheet geometry both axial null curvatures vanish. The independently calculated Weyl null stresses are 0.051620 and 0.058321. At rapidity 0.32 the mean of the two axial observers' stress readings exceeds the rest reading by 14.13%, while boosts along the sheets preserve their measured proper-ball area exactly. The same test can use three fixed-volume area readings with momentum-sign effects removed by the average. [Derivation](PROOF.md#an-axial-area-test-distinguishes-the-existing-rod-geometry) · [Directional and free-signal records](axial_response.json)
+
 ## Reproduction
 
 From the repository root, use NumPy and SciPy in the project Python environment.
@@ -48,5 +50,6 @@ export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 PYTHONP
 python -m matched_einstein_limit.source_implication.modular_orbit.weyl_balls.measure
 python -m matched_einstein_limit.source_implication.modular_orbit.weyl_balls.boosts
 python -m matched_einstein_limit.source_implication.modular_orbit.weyl_balls.packet
+python -m matched_einstein_limit.source_implication.modular_orbit.weyl_balls.axial_response
 python -m pytest -q code/matched_einstein_limit/source_implication/modular_orbit/weyl_balls
 ~~~

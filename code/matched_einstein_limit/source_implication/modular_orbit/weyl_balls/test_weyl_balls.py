@@ -4,6 +4,7 @@ from pathlib import Path
 import numpy as np
 from scipy import linalg
 
+from .axial_response import audit as axial_audit
 from .boosts import hopping, tilted_reading
 from .measure import make_board, read_ball, regional_covariances, sites_in_ball
 from .packet import audit as packet_audit
@@ -73,3 +74,20 @@ def test_free_charged_packet_arrives_with_a_measured_energy_response():
         assert receive_last[key] > receive_first[key] > 0
     for row in [launch_first, launch_last, receive_first, receive_last, *central]:
         assert 0 <= row["relative_entropy"] <= row["relative_entropy_upper_bound"]
+
+
+def test_equal_rest_energy_fails_axial_geometry_and_the_free_signal_is_invariant():
+    data = axial_audit()
+    matter = data["weyl_action"]
+    rods = data["sheet_einstein_over_coupling_at_equal_rest_energy"]
+    assert np.isclose(matter["rest"], data["cutoff"]**4 / (96 * np.pi**2))
+    assert np.isclose(rods["rest"], matter["rest"], rtol=1e-14, atol=0)
+    assert rods["axial_null"] == [0, 0] and min(matter["axial_null"]) > 0
+    assert np.isclose(np.mean(matter["axial_null"]), 4 * matter["rest"] / 3)
+    assert np.isclose(matter["trace"], 0, atol=1e-14)
+    assert np.isclose(rods["trace"], -2 * matter["rest"])
+    assert np.isclose(rods["mean_axial_boost_over_rest"], 1)
+    assert np.isclose(matter["mean_axial_boost_over_rest"], 1 + 4 * np.sinh(data["rapidity"])**2 / 3)
+    pulse = data["finite_signal_on_two_preparations"]
+    assert pulse["region_entropy_change"] > 0 and pulse["maximum_source_change_in_lesser_signal"] > 0.01
+    assert max(pulse["maximum_vacuum_sum_error"], pulse["maximum_source_sum_error"]) < 1e-14

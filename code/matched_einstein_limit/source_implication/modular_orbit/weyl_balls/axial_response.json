@@ -1,0 +1,53 @@
+{
+  "cutoff": 2.5,
+  "rapidity": 0.32,
+  "weyl_action": {
+    "rest": 0.041227695166966845,
+    "trace": 8.673617379884035e-18,
+    "axial_null": [
+      0.05161969198048166,
+      0.05832082846476327
+    ],
+    "mean_axial_boost_over_rest": 1.1412577677826667
+  },
+  "sheet_einstein_over_coupling_at_equal_rest_energy": {
+    "rest": 0.041227695166966845,
+    "trace": -0.08245539033393369,
+    "axial_null": [
+      0.0,
+      0.0
+    ],
+    "mean_axial_boost_over_rest": 1.0000000000000002
+  },
+  "finite_signal_on_two_preparations": {
+    "side": 4,
+    "time": 0.72,
+    "source_energy_density": 0.037776486280034396,
+    "region_entropy_change": 0.28074033774645546,
+    "selected_receiver": {
+      "vacuum_greater": [
+        0.15756238040052498,
+        0.12925287732890367
+      ],
+      "vacuum_lesser": [
+        0.15756238040052498,
+        -0.12925287732890367
+      ],
+      "source_greater": [
+        0.15756238040052498,
+        0.13353750606822798
+      ],
+      "source_lesser": [
+        0.15756238040052498,
+        -0.13353750606822798
+      ],
+      "free_signal": [
+        0.31512476080104995,
+        0.0
+      ]
+    },
+    "maximum_source_change_in_lesser_signal": 0.013161317179408008,
+    "maximum_vacuum_sum_error": 0.0,
+    "maximum_source_sum_error": 5.551115123125783e-17
+  }
+}
