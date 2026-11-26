@@ -2,6 +2,8 @@
 
 Two identical unit loads cross a Y junction by different routes and reach the same two exit ports with exchanged assignments. On the parity-odd material, one exchange gives a relative phase of −1 and two exchanges give +1. On the parity-even material one exchange gives +1. A native contact prepares either material from the same sharp loads. The first simulated bank of 16,777,216 launches gave 8,388,532 odd-source dark exits and 8,388,684 even-source bright exits for one exchange. Every launch entered the count. [Frozen protocol](PROTOCOL.md) · [Records](results.json)
 
+The held charged-core transfer uses two **actual vacancies** on a passive four-port ring. At native time 64, odd-source launches give zero hits on the opposite vacancy pattern and the even-source hits exceed 7.30 million per bank of 16,777,216 unfiltered starts. A single vacancy winding through any three-host input has dark probability at most 3/4. A host-only permutation accounts for the full two-vacancy phase. [Charged-vacancy transfer](VACANCIES.md)
+
 | Observer comparison | Even material, dark probability | Odd material, dark probability |
 | --- | ---: | ---: |
 | Two three-hop routes to the same two destinations | 0 | 1 |

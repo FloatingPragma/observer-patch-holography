@@ -86,7 +86,7 @@ def permutation(seq, n=4):
 
 def addressed():
     banks = [np.random.default_rng(seed) for seed in (702, 1702)]
-    spin_flip = np.array([np.exp(-1j*np.pi*w[0]**2/4) for w in WORDS])
+    spin_flip = np.array([np.exp(-1j * np.pi * w[0] ** 2 / 4) for w in WORDS])
     result = {}
     for sign in (1, -1):
         p, src = prepare(sign)
@@ -95,44 +95,66 @@ def addressed():
         left, right = evolved(src, LEFT), evolved(src, RIGHT)
         result[str(sign)] = dict(
             source_probability=p,
-            at_common_endpoint=float(sum(abs(left[i])**2 for i, w in enumerate(WORDS)
-                                         if positions(w) == (0, 3))),
+            at_common_endpoint=float(
+                sum(
+                    abs(left[i]) ** 2
+                    for i, w in enumerate(WORDS)
+                    if positions(w) == (0, 3)
+                )
+            ),
             half_paths_dark=dark(left, right),
             retraced_dark=dark(src, evolved(src, retraced)),
             once_dark=dark(evolved(src, closed), evolved(src, retraced)),
             twice_dark=dark(evolved(src, closed * 2), evolved(src, retraced * 2)),
             fixed_cores_host_swap_dark=dark(src, evolved(src, (3,))),
             matched_host_swap_dark=dark(evolved(src, closed), evolved(src, (3,))),
-            reads_by_step=[[list(positions(WORDS[int(np.argmax(abs(evolved(src, seq[:i]))))]))
-                            for i in range(len(seq)+1)] for seq in (LEFT, RIGHT)],
+            reads_by_step=[
+                [
+                    list(positions(WORDS[int(np.argmax(abs(evolved(src, seq[:i]))))]))
+                    for i in range(len(seq) + 1)
+                ]
+                for seq in (LEFT, RIGHT)
+            ],
             # A diagnostic phase plate on a host, never used on the native flight.
-            changed_host_preparation_dark=dark(evolved(spin_flip * src, LEFT),
-                                               evolved(spin_flip * src, RIGHT)),
+            changed_host_preparation_dark=dark(
+                evolved(spin_flip * src, LEFT), evolved(spin_flip * src, RIGHT)
+            ),
         )
-    result['sharp_unheralded_dark'] = dark(evolved(sharp(), LEFT), evolved(sharp(), RIGHT))
-    result['half_path_tags'] = [permutation(LEFT), permutation(RIGHT)]
-    result['closed_tags'] = permutation(LEFT + RIGHT[::-1])
-    result['joint_launch_counts'] = {}
-    for name in ('half_paths_dark', 'retraced_dark', 'once_dark', 'twice_dark',
-                 'fixed_cores_host_swap_dark', 'matched_host_swap_dark', 'changed_host_preparation_dark'):
+    result["sharp_unheralded_dark"] = dark(
+        evolved(sharp(), LEFT), evolved(sharp(), RIGHT)
+    )
+    result["half_path_tags"] = [permutation(LEFT), permutation(RIGHT)]
+    result["closed_tags"] = permutation(LEFT + RIGHT[::-1])
+    result["joint_launch_counts"] = {}
+    for name in (
+        "half_paths_dark",
+        "retraced_dark",
+        "once_dark",
+        "twice_dark",
+        "fixed_cores_host_swap_dark",
+        "matched_host_swap_dark",
+        "changed_host_preparation_dark",
+    ):
         law = []
-        for branch in ('1', '-1'):
-            p = result[branch]['source_probability']
-            dark_exit = float(np.clip(result[branch][name],0,1))
-            law.extend((p*(1-dark_exit), p*dark_exit))
-        result['joint_launch_counts'][name] = []
+        for branch in ("1", "-1"):
+            p = result[branch]["source_probability"]
+            dark_exit = float(np.clip(result[branch][name], 0, 1))
+            law.extend((p * (1 - dark_exit), p * dark_exit))
+        result["joint_launch_counts"][name] = []
         for bank in banks:
-            result['joint_launch_counts'][name].append(bank.multinomial(SHOTS, probabilities(law)).tolist())
+            result["joint_launch_counts"][name].append(
+                bank.multinomial(SHOTS, probabilities(law)).tolist()
+            )
     return result
 
 
 def effective(sign, k):
     # Compare against only the core coordinates, with the connection placed at
     # an arbitrary cut. All dynamical phases from the host contact are retained.
-    v = [2*k + 1 if 0 in pair else 6*k + 1 + (1-sign)/2 for pair in RING]
+    v = [2 * k + 1 if 0 in pair else 6 * k + 1 + (1 - sign) / 2 for pair in RING]
     h = np.diag(v)
     for i in range(6):
-        j = (i+1) % 6
+        j = (i + 1) % 6
         h[i, j] = h[j, i] = -0.5 * (sign if j == 0 else 1)
     return h
 
@@ -140,8 +162,12 @@ def effective(sign, k):
 def law_from_words(sign, k, t, kinetic=True):
     _, src = prepare(sign, k)
     wave = expm(-1j * t * word_matrix(k, kinetic=kinetic)) @ src
-    return np.array([sum(abs(wave[j])**2 for j,w in enumerate(WORDS) if positions(w) == pair)
-                     for pair in RING])
+    return np.array(
+        [
+            sum(abs(wave[j]) ** 2 for j, w in enumerate(WORDS) if positions(w) == pair)
+            for pair in RING
+        ]
+    )
 
 
 def probabilities(p):
@@ -156,11 +182,15 @@ def release():
     banks = [np.random.default_rng(seed) for seed in (701, 1701)]
     for k, sign, t in product((8, 4), (1, -1), TIMES):
         p = probabilities(law_from_words(sign, k, t))
-        q = abs(expm(-1j*t*effective(sign, k))[:, 0])**2
-        if np.max(abs(p-q)) > 1e-10:
-            raise ArithmeticError("Free position law disagrees with the independently signed ring")
+        q = abs(expm(-1j * t * effective(sign, k))[:, 0]) ** 2
+        if np.max(abs(p - q)) > 1e-10:
+            raise ArithmeticError(
+                "Free position law disagrees with the independently signed ring"
+            )
         sampled = [rng.multinomial(SHOTS, p).tolist() for rng in banks]
-        records.append(dict(k=k, host_sign=sign, time=t, law=p.tolist(), counts=sampled))
+        records.append(
+            dict(k=k, host_sign=sign, time=t, law=p.tolist(), counts=sampled)
+        )
     return records
 
 
@@ -175,23 +205,31 @@ def spectator():
         routes.append(tags)
         m = np.zeros((8, 8))
         host_ports = (0, 3, 4)
-        for j,w in enumerate(host_words):
+        for j, w in enumerate(host_words):
             final = tuple(w[host_ports.index(tags[p])] for p in host_ports)
             m[host_words.index(final), j] = 1
         host_swaps.append(m)
     identity = np.eye(8)
-    exits = [(identity-u)/2 for u in host_swaps]
+    exits = [(identity - u) / 2 for u in host_swaps]
     # Kernel intersection by full matrix diagonalization. Also test an extra
     # sharp 0 at D next to the four-site odd source, with both paths available.
     odd = np.zeros(8)
-    odd[host_words.index((0, 2, 0))] = 1/np.sqrt(2)
-    odd[host_words.index((2, 0, 0))] = -1/np.sqrt(2)
-    return dict(route_tags=routes,
-                odd_source_with_spectator=[float(odd @ m @ odd) for m in exits],
-                mean_exit_spectrum=np.linalg.eigvalsh(sum(exits)/2).tolist())
+    odd[host_words.index((0, 2, 0))] = 1 / np.sqrt(2)
+    odd[host_words.index((2, 0, 0))] = -1 / np.sqrt(2)
+    return dict(
+        route_tags=routes,
+        odd_source_with_spectator=[float(odd @ m @ odd) for m in exits],
+        mean_exit_spectrum=np.linalg.eigvalsh(sum(exits) / 2).tolist(),
+    )
 
 
 def run():
-    return dict(ports=list(ports()), core_word_order=RING, addressed=addressed(), free=release(),
-                free_parked=law_from_words(-1, 8, 128, kinetic=False).tolist(),
-                simultaneous_spectator=spectator(), trials_per_free_bank=SHOTS)
+    return dict(
+        ports=list(ports()),
+        core_word_order=RING,
+        addressed=addressed(),
+        free=release(),
+        free_parked=law_from_words(-1, 8, 128, kinetic=False).tolist(),
+        simultaneous_spectator=spectator(),
+        trials_per_free_bank=SHOTS,
+    )

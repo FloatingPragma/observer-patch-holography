@@ -9,7 +9,7 @@ from .passive import run_passive
 
 def serialize(x):
     if isinstance(x, dict):
-        return {k: serialize(v) for k,v in x.items()}
+        return {k: serialize(v) for k, v in x.items()}
     if isinstance(x, (list, tuple)):
         return [serialize(v) for v in x]
     if isinstance(x, float):
@@ -18,7 +18,7 @@ def serialize(x):
 
 
 if __name__ == "__main__":
-    out = Path(__file__).with_name('results.json')
+    out = Path(__file__).with_name("results.json")
     packet = run()
-    packet['passive_boards'] = run_passive()
-    out.write_text(json.dumps(serialize(packet), indent=1, allow_nan=False) + '\n')
+    packet["passive_boards"] = run_passive()
+    out.write_text(json.dumps(serialize(packet), indent=1, allow_nan=False) + "\n")
