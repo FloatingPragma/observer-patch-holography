@@ -505,6 +505,21 @@ writer labels. The calculation uses isolated read and commit appointments
 on sharp binary records
 (\path{model/experiments/interval_echo_consensus/transaction_component/}).
 
+A second triangle experiment allows each pair to repair separately.
+For a triangle starting at $000$ with protected bit one, the remote
+reader sees $110$ when positions zero and one are repaired first, and
+$011$ when positions one and two are repaired first. Completing the
+other pair gives $111$ in both orders. If $U$ denotes the unresolved
+positions and $S$ the offered pair or full triangle, the measured action
+is $U\mapsto U\setminus S$. Every accepted change strictly lowers
+$|U|$, and every pair of offers joins by removing their union.
+The full two-triangle graph has 256 states and 384 overlapping forks
+whose two branches each require a further write. The two boundary bits
+distinguish its four normal records. Reading only their disagreement
+returns zero for both $00$ and $11$, although the terminal data are all
+zero in the former case and all one in the latter
+(\path{model/experiments/interval_echo_consensus/transaction_component/confluence/}).
+
 \subsection{The quotient repair operator}
 
 The transactional layer above defines the physically accepted one-step relation.  The object used
