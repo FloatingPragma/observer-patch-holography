@@ -5088,7 +5088,8 @@
    ],
    "lean": [
     "model/candidate_laws/interval_echo/openwave/row_03_clock/released_direction/InternalBand.lean",
-    "model/candidate_laws/interval_echo/openwave/row_03_clock/wall_arrival/WallBand.lean"
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/wall_arrival/WallBand.lean",
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/free_end/FreeEnd.lean"
    ],
    "model": [
     "model/evaluation/SCORECARD.md",
@@ -5118,7 +5119,12 @@
     "model/candidate_laws/interval_echo/openwave/row_03_clock/wall_arrival/measure.py",
     "model/candidate_laws/interval_echo/openwave/row_03_clock/wall_arrival/rational_lines.py",
     "model/candidate_laws/interval_echo/openwave/row_03_clock/wall_arrival/results.json",
-    "model/candidate_laws/interval_echo/openwave/row_03_clock/wall_arrival/test_clock.py"
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/wall_arrival/test_clock.py",
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/free_end/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/free_end/ROUTING.md",
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/free_end/results.json",
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/free_end/routing_counts.npz",
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/free_end/routing_results.json"
    ],
    "papers": [
     "paper/executable_observer_construction.pdf"
@@ -6676,7 +6682,8 @@
    "lean": [
     "model/experiments/interval_echo_gauge/matter_class/SpinBracket.lean",
     "model/experiments/interval_echo_gauge/matter_class/port_pair/Ramsey.lean",
-    "model/experiments/interval_echo_gauge/matter_class/ring_current/PortCurrent.lean"
+    "model/experiments/interval_echo_gauge/matter_class/ring_current/PortCurrent.lean",
+    "model/experiments/interval_echo_gauge/matter_class/ring_current/independent_probe/OrderResponse.lean"
    ],
    "model": [
     "code/b15_matter_freeze/matter_class_freeze_v1.json",
@@ -6694,7 +6701,11 @@
     "model/experiments/interval_echo_gauge/matter_class/ring_current/records.json",
     "model/experiments/interval_echo_gauge/matter_class/ring_current/source_counts.json",
     "model/experiments/interval_echo_gauge/matter_class/ring_current/FIVE_COMMUTATOR.md",
-    "model/experiments/interval_echo_gauge/matter_class/ring_current/five_commutator.py"
+    "model/experiments/interval_echo_gauge/matter_class/ring_current/five_commutator.py",
+    "model/experiments/interval_echo_gauge/matter_class/ring_current/independent_probe/README.md",
+    "model/experiments/interval_echo_gauge/matter_class/ring_current/independent_probe/PROOF.md",
+    "model/experiments/interval_echo_gauge/matter_class/ring_current/independent_probe/readback.py",
+    "model/experiments/interval_echo_gauge/matter_class/ring_current/independent_probe/counts.npz"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.pdf"
@@ -8841,19 +8852,35 @@
    "kind": "premise",
    "name": "Continuous port phases on the twelve ports",
    "category": "Physical premises",
-   "status": "Open",
+   "status": "Partial",
    "what": "Each of the twelve ports carries its own continuous phase, enlarging the finite group of native transports to a continuous symmetry group.",
    "why": "Read on the five-level code these phases generate S(U(3) x U(2)), the Standard Model gauge group, so the gauge symmetry rests on them.",
    "premises": [],
-   "lean": [],
+   "lean": [
+    "Lean/SourceLaw/IntervalEchoHeadCharge.lean"
+   ],
    "model": [
-    "code/defect_particle_classes/flux_costs.py"
+    "code/defect_particle_classes/flux_costs.py",
+    "model/experiments/interval_echo_gauge/port_phases/README.md",
+    "model/experiments/interval_echo_gauge/port_phases/PROTOCOL.md",
+    "model/experiments/interval_echo_gauge/port_phases/apparatus.py",
+    "model/experiments/interval_echo_gauge/port_phases/measure.py",
+    "model/experiments/interval_echo_gauge/port_phases/records.json",
+    "model/experiments/interval_echo_gauge/port_phases/CODE_PROTOCOL.md",
+    "model/experiments/interval_echo_gauge/port_phases/code_frame.py",
+    "model/experiments/interval_echo_gauge/port_phases/code_records.json",
+    "model/experiments/interval_echo_gauge/port_phases/frame.json",
+    "model/experiments/interval_echo_gauge/port_phases/summary.json",
+    "model/experiments/interval_echo_gauge/port_phases/ON_CODE_READOUT.md",
+    "model/experiments/interval_echo_gauge/port_phases/code_readout.py",
+    "model/experiments/interval_echo_gauge/port_phases/certificate.py",
+    "model/experiments/interval_echo_gauge/port_phases/exact_bands.py"
    ],
    "papers": [
     "claims/claim_registry.yaml",
     "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf"
    ],
-   "statement": "Independent continuous phases on the twelve ports extend the finite group of native transports; read on the five-level code they generate S(U(3) x U(2)). No law that writes these phases is derived.",
+   "statement": "Independent continuous phases on the twelve ports extend the finite group of native transports; read on the five-level code they generate S(U(3) x U(2)).",
    "premise_kind": "derivable"
   },
   {
@@ -9520,7 +9547,8 @@
    "why": "The numerical capacity, and the cosmological constant derived from it, depend on which option is taken on each menu.",
    "premises": [],
    "lean": [
-    "model/experiments/interval_echo_consensus/publication_tree/mounted_capacity/Frame.lean"
+    "model/experiments/interval_echo_consensus/publication_tree/mounted_capacity/Frame.lean",
+    "model/experiments/interval_echo_consensus/publication_tree/mounted_capacity/seam_flags/Loop.lean"
    ],
    "model": [
     "code/capacity_readback/F_CONSTRUCTION_2026-07-14.md",
@@ -9533,7 +9561,12 @@
     "model/experiments/interval_echo_consensus/publication_tree/mounted_capacity/records.json.gz",
     "model/experiments/interval_echo_consensus/publication_tree/mounted_capacity/test_frames.py",
     "model/experiments/interval_echo_consensus/publication_tree/mounted_capacity/veto.json.gz",
-    "model/experiments/interval_echo_consensus/publication_tree/mounted_capacity/veto.py"
+    "model/experiments/interval_echo_consensus/publication_tree/mounted_capacity/veto.py",
+    "model/experiments/interval_echo_consensus/publication_tree/mounted_capacity/seam_flags/README.md",
+    "model/experiments/interval_echo_consensus/publication_tree/mounted_capacity/seam_flags/measure.py",
+    "model/experiments/interval_echo_consensus/publication_tree/mounted_capacity/seam_flags/records.json",
+    "model/experiments/interval_echo_consensus/publication_tree/mounted_capacity/seam_flags/network.py",
+    "model/experiments/interval_echo_consensus/publication_tree/mounted_capacity/seam_flags/network.json.gz"
    ],
    "papers": [
     "paper/screen_microphysics_and_observer_synchronization.pdf"
