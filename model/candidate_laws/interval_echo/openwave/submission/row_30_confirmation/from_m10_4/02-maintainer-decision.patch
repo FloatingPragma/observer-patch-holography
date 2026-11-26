@@ -1,0 +1,103 @@
+diff --git a/openwave/xperiments/m10_oph/research/m10_roadmap.md b/openwave/xperiments/m10_oph/research/m10_roadmap.md
+index a67f9f24025dc7e08823d771c948cd9fb20be94c..4e66a113a4462c991588fbfa8237e038e33454a3 100644
+--- a/openwave/xperiments/m10_oph/research/m10_roadmap.md
++++ b/openwave/xperiments/m10_oph/research/m10_roadmap.md
+@@ -9,6 +9,7 @@
+
+ | TaskID | Title | Description | Gated By |
+ | --- | --- | --- | --- |
++| 🔶 [M10.5](tasks/m10_5_task_details.md) | Matter-wave dispersion on a coherent strand | Prospectively test the wavelengths and frequencies read on three enrolled materials. | Public acquisition under the accepted candidate. [Author validation](findings/m10_5_author_validation.md) |
+
+ ## BACKLOG
+
+@@ -17,13 +18,12 @@
+
+ | TaskID | Title | Description | Gated By |
+ | --- | --- | --- | --- |
+-| 🚧 [M10.5 proposal](tasks/m10_5_proposal.md) | Matter-wave dispersion | Author request for a prepared coherent strand and an independent wavelength reader. | Maintainer decision on the candidate and task number. |
+
+ ## STATUS AT A GLANCE (2026-11-25)
+
+ | Question | Answer |
+ | --- | --- |
+-| Where is M10? | Registered column, admitted 2026-11-13 ([discussion #712](https://github.com/openwave-labs/openwave/discussions/712)). Scored on Interval Echo since 2026-11-21, on the M10.4 pin with eleven written seam records since 2026-11-25 ([M10.4](tasks/m10_4_task_details.md)); particle stability partial, every other `MODELS.md` cell not yet tested |
++| Where is M10? | The coherent strand is the M10.5 candidate for the prospective row-30 experiment. Row 30 awaits a public acquisition. The eleven-contact pair of M10.4 retains the partial row-4 finding in its history. [Registration](tasks/m10_5_task_details.md) · [M10.4 review](findings/m10_4_maintainer_review.md) |
+ | What kind of column? | Tier 2: a local repair and memory law on a screen of twelve-port carriers, written as update rules with no action |
+ | What decides the next cell? | In the words of [`m10_theory_canonical.md`](m10_theory_canonical.md) § 8: "Its observable computed on the carrier's own process in-platform. With something still supplied, that is a case for ⚠️ with the caveat in the cell. With the source derived from the carrier, it meets the bar for ✅ set in the #482 answer." Row 4 is the first, at partial, its record pattern chosen with the row's criterion known ([review](findings/m10_4_maintainer_review.md) § 5) |
+ | Who runs what? | M10.1, the certification gate, was the one maintainer-run task and is closed. The author and the co-author run and bring every task from here, on their own compute. Maintainers review, at maintainer pace |
+diff --git a/openwave/xperiments/m10_oph/research/m10_theory_canonical.md b/openwave/xperiments/m10_oph/research/m10_theory_canonical.md
+index 35e0adeddf4cb735458fdc2686d91b437eeb5548..31b0073543a0026ce825a4e9815aea787622bb02 100644
+--- a/openwave/xperiments/m10_oph/research/m10_theory_canonical.md
++++ b/openwave/xperiments/m10_oph/research/m10_theory_canonical.md
+@@ -12,7 +12,8 @@
+ | Item | Value |
+ | --- | --- |
+ | Author repository | [FloatingPragma/observer-patch-holography](https://github.com/FloatingPragma/observer-patch-holography) |
+-| Pinned candidate (M10.4) | [Interval Echo at `09f062f77f7f540f2783f128ae6314c5d8b818ea`](https://github.com/FloatingPragma/observer-patch-holography/tree/09f062f77f7f540f2783f128ae6314c5d8b818ea/model/candidate_laws/interval_echo/openwave/row_04), with the pair's eleven written seam records (§ 1.3), adopted on 2026-11-25 in the review of [pull request #749](https://github.com/openwave-labs/openwave/pull/749) ([maintainer review](findings/m10_4_maintainer_review.md)). The law and the board are the same bytes as at the M10.3 pin. Row 4 is the one row computed on it. |
++| Pinned candidate (M10.5) | [Coherent Interval Echo strand at `92370140edfbdb0ac2be647b2b8166d821e5f1a2`](https://github.com/FloatingPragma/observer-patch-holography/tree/92370140edfbdb0ac2be647b2b8166d821e5f1a2/model/candidate_laws/interval_echo/openwave/row_30_collective/confirmation). Its written coherent material, preparation and wave decoder are enrolled for the prospective row-30 task. [Terms](tasks/m10_5_task_details.md) · [Acceptance](tasks/m10_5_task_details.acceptance.json) |
++| Earlier pin, M10.4 (ancestry) | [Interval Echo at `09f062f77f7f540f2783f128ae6314c5d8b818ea`](https://github.com/FloatingPragma/observer-patch-holography/tree/09f062f77f7f540f2783f128ae6314c5d8b818ea/model/candidate_laws/interval_echo/openwave/row_04), with the pair's eleven written seam records (§ 1.3), adopted on 2026-11-25 in the review of [pull request #749](https://github.com/openwave-labs/openwave/pull/749) ([maintainer review](findings/m10_4_maintainer_review.md)). The law and the board are the same bytes as at the M10.3 pin. Row 4 is the one row computed on it. |
+ | Earlier pin, M10.3 (ancestry) | [Interval Echo at `4fe10f9ac3e81423155fb3ac7baaf0fdb4c0b11c`](https://github.com/FloatingPragma/observer-patch-holography/tree/4fe10f9ac3e81423155fb3ac7baaf0fdb4c0b11c/openwave/interval_echo), on blank memories, adopted on 2026-11-21 in the review of [pull request #745](https://github.com/openwave-labs/openwave/pull/745). The [registered task](tasks/m10_3_task_details.md) gives the source change, observer and controls. |
+ | Earlier candidate, M10.2 (ancestry) | [`c330c6e7f23506b5f87c339cd73906928c1a7cd9`](https://github.com/FloatingPragma/observer-patch-holography/tree/c330c6e7f23506b5f87c339cd73906928c1a7cd9/code/openwave_static_signed_source), `A-static-signed-source-v1`; its exact executable scope is § 1.1 |
+ | Admission pin (ancestry) | [`3c4e1e23fc32dd241e8c2bfba75de123fe5c6984`](https://github.com/FloatingPragma/observer-patch-holography/tree/3c4e1e23fc32dd241e8c2bfba75de123fe5c6984) (2026-11-13), the commit the application's links use in its short form `3c4e1e23fc32`; the full hash was resolved from the repository at scaffold time |
+@@ -63,7 +64,7 @@ rest energy and spin. Each of the three properties depended on a declared input.
+
+ ## 1.2 Interval Echo candidate for M10.3
+
+-Adopted as the column's pinned candidate on 2026-11-21 ([review of #745](https://github.com/openwave-labs/openwave/pull/745), [maintainer review](findings/m10_3_maintainer_review.md)). Since 2026-11-25 the pin is § 1.3's, on the same law and board; this section's blank-memory preparation is its ancestry.
++Adopted as the column's pinned candidate on 2026-11-21 ([review of #745](https://github.com/openwave-labs/openwave/pull/745), [maintainer review](findings/m10_3_maintainer_review.md)). On 2026-11-25 § 1.3 succeeded this blank-memory preparation on the same law and board.
+
+ | Element | Declaration or consequence |
+ | --- | --- |
+diff --git a/openwave/xperiments/m10_oph/research/tasks/m10_5_task_details.acceptance.json b/openwave/xperiments/m10_oph/research/tasks/m10_5_task_details.acceptance.json
+new file mode 100644
+index 0000000000000000000000000000000000000000..40857134c50cfccc06339ebb3f86754f325fec2c
+--- /dev/null
++++ b/openwave/xperiments/m10_oph/research/tasks/m10_5_task_details.acceptance.json
+@@ -0,0 +1,7 @@
++{
++  "protocol": "oph-ow30-confirmation-v3",
++  "row": "OW-30",
++  "decision": "accepted",
++  "source_commit": "92370140edfbdb0ac2be647b2b8166d821e5f1a2",
++  "candidate_sha256": "17486cf931c62cb4f5e2669dc062b69b4da5de1a4f8f6f39779f657ce0ac908a"
++}
+diff --git a/openwave/xperiments/m10_oph/research/tasks/m10_5_task_details.md b/openwave/xperiments/m10_oph/research/tasks/m10_5_task_details.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..85bca3ba881c7e5922c3f811562991c566c5b6a0
+--- /dev/null
++++ b/openwave/xperiments/m10_oph/research/tasks/m10_5_task_details.md
+@@ -0,0 +1,27 @@
++# M10.5 · Matter-wave dispersion on a prepared Interval Echo strand
++
++The OpenWave row asks for emergent Klein–Gordon dispersion for matter waves. This confirmation tests a change in an alternating pattern of dimer orientations, given by the choice of which end of each dimer is loaded. The measurable quantities are frequencies of products of orientation readings, spatial profiles across addressed receivers, a local clock and a remote difference between two source preparations. The distance unit is one dimer step along the material. The positive constituent frequency is inferred from pair transitions. [Official criterion](https://github.com/openwave-labs/openwave/blob/d4fc3e4046c472f4ad38468df8dddfa1f97bac97/MODELS.md#L136) · [M10 candidate rule](https://github.com/openwave-labs/openwave/blob/d4fc3e4046c472f4ad38468df8dddfa1f97bac97/openwave/xperiments/m10_oph/research/m10_theory_canonical.md#L22-L27)
++
++Frozen source manifest SHA-256 `a6be1385ba2df9783f3449d51052102fe6b07464f17694c9fcf60b7f914c3d80`. The source tree contains the declaration and code in `model/candidate_laws/interval_echo/openwave/row_30_collective/confirmation/`. The manifest hashes every computational input. The named candidate supplies the coherent, unread written connectors at coupling 8, two supplied port matchings, one unit per dimer, an addressed commissioning schedule, free flight and a particular decoder. The 20-, 80- and 320-cell substrates use the same seam law. The state and decoder differ from the M10.3 pair used for row 4.
++
++## Acceptance and one public draw
++
++The exact terms belong at `openwave/xperiments/m10_oph/research/tasks/m10_5_task_details.md`. On official OpenWave main take its first first-parent landing after `d4fc3e4046c472f4ad38468df8dddfa1f97bac97`. That landing must also contain the same-stem `.source` with the public RER release SHA and a final LF, and the same-stem `.acceptance.json` with protocol `oph-ow30-confirmation-v3`, row `OW-30`, decision `accepted`, the RER `source_commit` and the SHA-256 of the exact `candidate.json` in `candidate_sha256`. The canonical M10 table must single out that same RER pin. The acceptance concerns the state and decoder for this experiment. A cell decision is separate.
++
++Publish the proposed RER source for review before accepting the terms. Verify the committed bytes and their reachability on official RER main. The task, source pointer and acceptance record must have the same Git blobs on every first-parent snapshot from the landing through the verified official tip. The canonical candidate SHA must match in every such snapshot. An incomplete first landing or a changed and restored pin invalidates that release. An absent landing leaves the protocol awaiting acceptance.
++
++Only after these checks, for each level 0, 1 and 2, take SHA-256 of the ASCII prefix `OPH-OW30-collective-confirmation-v3:`, the 40 lowercase hex digits of the first landing, a colon and the decimal level. Use its first eight bytes as a big-endian integer with the high bit set. A collision invalidates the draw. Replays use the identical binding and selectors. Every enrolled board counts.
++
++## Physical records and thresholds
++
++1. Grow the two deterministic priority matchings from each board seed. Enroll the longest open component using the fixed traversal order. Verify the load-conserving commissioning circuit and the local binary seam restrictions. Keep a receipt for an enrolled geometry that cannot support the required measurements. Independently measured counts of dimer exchange and conditional link phase determine $h,J$, $m=2|J-h|$ and $c^2=4Jh$, with $J>h>0$ and absolute switched-off meter rates below 0.005.
++2. On every board measure both local clock hands over 16,384 holds, every stimulated pair and its unchanged-reader flight control, both position scans of each pair, and both arms of the remote wall test. Use the wave numbers from the even-hold fit in clause 4 in every wavelength-dependent calculation, including the lattice, continuum, coverage and shape gates. Independently inferred temporal pair frequencies remain fixed. Store the interior-recurrence estimates and their scores for comparison. Complement counts are the fixed shot budgets minus the recorded counts. The reader resolves pair sums in the upper half of the positive unaliased band. Three overlapping sums set the individual positive frequencies. Withheld pair sums must close within 0.0048 local clock units. Require every lattice frequency error below 0.0048, with squared gradient $2-2\cos k$. For ordinary $0<k\leq 0.50$ require at least two modes separated by at least 0.02 radian per dimer per board and every error against $\sqrt{m^2+c^2k^2}$ below 0.0048. Report residuals for all modes. For increments above the first line, require RMS lattice square-root error below half the matched lattice tangent's RMS. On the exposed low-wave-number lines a continuum parabola also meets the absolute tolerance.
++3. Require the native pair-line amplitudes above 0.40, the zero-flight-contrast amplitudes at those lines below 0.02, and the zero-contrast reader's amplitude at frequency 2 above 0.40. At exposure 2, 4 or 8 require a difference greater than 0.02 in a receiver cell distinct from both source cells and at least three strand bonds from both source positions. Every such difference under zero contrast must be below 0.005.
++4. Cross-check the wavelengths with disjoint spatial records. Use both quadrature-clock records and the pair frequencies from the separate temporal counters to demodulate each spatial scan at even and odd holds. Fit the wave numbers on even holds using both scans, every enrolled pair and all receiver addresses. For $n$ dimers there are $M=n+1$ addresses. With address $x=0,\ldots,M-1$, fit each measured pair to the span of $\sin[(M-x)k_a]$ and $\sin[(M-x)k_b]$. The supplied fixed end specifies a node at $x=M$. The independently recorded odd holds test that full spatial shape. For each pair and scan the two real amplitudes are free in every hypothesis. Divide each residual by the upper binomial standard deviation from its quadrature weights and shot budget. Sum their squares over the odd-hold scans to obtain $Q$. For $D=(M-2)\times\text{number of scans}$ and $t=\log(10^5)$, fix $T=D+2\sqrt{Dt}+2t$. Require the even-trained wave numbers carried into the frequency comparison to give $Q\leq T$. The source-only substitution $k_i=\pi i/(n+2)$ must give $Q>T$ on exactly the same odd records. A weak or unresolved signal earns no pass. The cutoff is an upper-tail bound for independent centered sub-Gaussian sign noise under a fixed, correct mean. It is an operational cutoff for this fitted finite experiment. Training uncertainty, finite-window leakage and shared clock uncertainty can affect its power.
++5. A complete physical miss on any board rejects the confirmation. Missing records, acquisition outages or unfinished output are incomplete. Corrupt counts, binding mismatches and replay discrepancies are invalid. The executable reports pass, rejection, incomplete and invalid with distinct statuses and exit codes 0, 2, 3 and 4. Pending official acceptance returns 5 before public selection. An existing release directory is inspected on retry. A separate replay regenerates the same selectors and compares all integer counts. The outer v3 binding and verdict in the release govern this experiment.
++
++## Exposure and scope
++
++The registration builds on development seeds 312141–312143 and the exposed material seed 927016 at all three sizes. The odd-hold test was designed using those exposed boards. An interior-only even-hold estimator missed on the 20-dimer exposed strand. The specified even-hold fit uses every measured address. The revised local two-ensemble instrument on two exposed rings recovered rest frequencies near 15 and near 7 at half contrast. These ring measurements are supplementary and use a different preparation. The v2 candidate at RER commit `f3c6d30df7ef81816eea64f553c4f57c506c4aa4` retained the full-record interior recurrence in its dispersion reader. On its prespecified local validation selectors 374621, 614357 and 801173 it passed on the 20-cell board and failed the odd-hold spatial requirement on the 80- and 320-cell boards. The full-record recurrence scores were 551.03 and 1252.79 against cutoffs 416.58 and 1166.64. Its even-trained profiles passed on all three. These data informed the v3 choice of the even-trained fit as the common wave-number estimator. The v2 verdict stays rejected. V3 retains these boards in `repeat` mode. Its separate one-shot validation fixes 785029, 514823 and 690271 in increasing board-size order. Pilot, repeat and validation all use identical scientific gates and preserve every board. There is no replacement draw. Each local run remains author-side evidence. The public selectors occupy the upper half of the uint64 domain.
++
++The claim concerns the propagating orientation branch on this prepared, one-dimensional material. The connecting memories are left coherent and unread through flight. The measurements do not identify a particle species, establish the same transport under committed repair, or set an energy scale in SI units.
+diff --git a/openwave/xperiments/m10_oph/research/tasks/m10_5_task_details.source b/openwave/xperiments/m10_oph/research/tasks/m10_5_task_details.source
+new file mode 100644
+index 0000000000000000000000000000000000000000..52873f8cd66c8a4b2cf96819076dfe9cf50abbd5
+--- /dev/null
++++ b/openwave/xperiments/m10_oph/research/tasks/m10_5_task_details.source
+@@ -0,0 +1 @@
++92370140edfbdb0ac2be647b2b8166d821e5f1a2
