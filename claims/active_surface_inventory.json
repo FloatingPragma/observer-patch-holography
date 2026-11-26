@@ -1,7 +1,7 @@
 {
   "schema": "oph.active_surface_inventory.v1",
   "generator": "tools/check_axiom_consistency.py --inventory",
-  "surface_count": 1336,
+  "surface_count": 1340,
   "entry_surfaces": [
     "README.md",
     "README_FR.md",
@@ -3821,6 +3821,11 @@
       "allowlisted": false
     },
     {
+      "path": "model/experiments/interval_echo_einstein_station/collar_scaling/station_clock/separated_sectors/angular_pair/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
       "path": "model/experiments/interval_echo_einstein_station/dark_curvature/PROTOCOL.md",
       "glob": "model/**/*.md",
       "allowlisted": false
@@ -3942,6 +3947,21 @@
     },
     {
       "path": "model/experiments/interval_echo_einstein_station/field_stress_curvature/REPLAY_PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_einstein_station/field_stress_curvature/neutral_packet/PROTOCOL.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_einstein_station/field_stress_curvature/neutral_packet/README.md",
+      "glob": "model/**/*.md",
+      "allowlisted": false
+    },
+    {
+      "path": "model/experiments/interval_echo_einstein_station/field_stress_curvature/neutral_packet/TRANSFER_PROTOCOL.md",
       "glob": "model/**/*.md",
       "allowlisted": false
     },

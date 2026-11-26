@@ -1053,6 +1053,18 @@
                   "label": "Coupled field and geometry from radar and scalar records",
                   "finding": "One calibration of the scalar mass squared, matter coupling and vacuum term predicts six held diagonal Einstein–scalar measurements. The largest Einstein-component error is 0.000279 in source units. Suppressing matter feedback raises the error to 0.5884. This comparison supplies the action, homogeneous geometry, scalar meter and proper clock.",
                   "source": "code/matched_einstein_limit/README.md"
+                },
+                {
+                  "law": "Interval Echo on the retained 80-cell equilibrium",
+                  "label": "Arrival clocks and delayed phase readings at two fixed stations",
+                  "finding": "For both probe charges and both exposure windows the prompt bilateral reading gives an absolute longitudinal speed below 0.000524 under a collinear Doppler interpretation. Delaying the later phase reading gives an apparent speed near 0.8 with the stations still parked. The full first-arrival and miss counts distinguish these protocols.",
+                  "source": "code/matched_einstein_limit/source_implication/material_clocks/two_way_phase/README.md"
+                },
+                {
+                  "law": "Rational reconstruction from independently measured timelike velocities",
+                  "label": "Tensor identifiability for slow observers with uncertain velocities",
+                  "finding": "A rest observer, six axial observers at speed 1/4 and three mixed directions with two components of 1/4 give sharp error amplification 31. Independent component half-widths of 1/2048 give an upper bound below 35.13. These computed instrument requirements allow general measured frames.",
+                  "source": "code/matched_einstein_limit/measured_frames/measure.py"
                 }
               ]
             },
@@ -1186,6 +1198,18 @@
                   "label": "Withheld ordinary field stress recovered from fixed-volume area",
                   "finding": "In a semiclassical control with one scalar axis withheld from the energy reader, fixed-volume area infers a source-density change of 0.00674881 at radius 0.1. A separate meter measures 0.00674591 for that axis. This is a prepared bulk scalar mode. A non-luminous anomalous collar charge, its physical radius and universal coupling require independent measurements.",
                   "source": "code/matched_einstein_limit/quantum_scalar_radar/partial_meter.json"
+                },
+                {
+                  "law": "Interval Echo with routed ranges and sector-tagged protected words",
+                  "label": "Regional energy correlations across five nested survey radii",
+                  "finding": "Reflection makes the entire unaddressed single-trial word and range distribution independent of the prepared change. Retaining the sector sign recovers the entropy derivative at all five radii with one reference coefficient. In the shrinking normalized screen family the sharp radial-only worst-case leading error on the two sources exceeds 1/1600. Three-dimensional proper length and the boost generator require an independent reading.",
+                  "source": "model/experiments/interval_echo_einstein_station/collar_scaling/station_clock/separated_sectors/angular_pair/README.md"
+                },
+                {
+                  "law": "Written-ring quantum field extension on one 458-word component",
+                  "label": "A neutral interference reading predicts charged endpoints on held sources",
+                  "finding": "On two held mixtures the remotely measured field coherence predicts all 96 charged endpoint probabilities within simultaneous intervals. Exchanging the source assignments misses 43 of 48 comparisons on each mixture. The two pure source calibrations identify the mixing weight on this family. The predicted quantities are probe transport probabilities.",
+                  "source": "model/experiments/interval_echo_einstein_station/field_stress_curvature/neutral_packet/README.md"
                 }
               ]
             },

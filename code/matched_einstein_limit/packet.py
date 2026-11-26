@@ -23,6 +23,9 @@ def canonical(value):
 def source_bindings():
     paths = {path.relative_to(ROOT).as_posix() for path in Path(__file__).parent.iterdir()
              if path.suffix in ('.py', '.md')}
+    measured = Path(__file__).parent / 'measured_frames'
+    paths.update(path.relative_to(ROOT).as_posix() for path in measured.iterdir()
+                 if path.suffix in ('.py', '.json'))
     paths.update(('tools/strict_json.py', 'model/requirements.txt',
                   'Lean/lakefile.lean', 'Lean/lake-manifest.json', 'Lean/lean-toolchain', LEAN))
     pending = [LEAN]

@@ -330,6 +330,18 @@ edge-area law meeting this interface. Its thermal coefficient depends on
 two selected geometry values, temperature and cutoff, so its positivity
 alone does not establish item 4.
 
+### How observers identify the same regional quantities
+
+A source preparation needs a reproducible event tag. The observers exchange timestamped signals and compare their clocks at the tagged crossing. Repeated preparations give separate copies for incompatible measurements. Calibrate lengths and the three components of each relative velocity in the same orthonormal frame, using independent clock and signal records. Coincidence of a schedule or agreement of two clock rates alone leaves the spatial components undetermined. Frames through the same event generally have different simultaneity slices.
+
+For each frame, reconstruct the induced spatial distances and the proper-volume measure from the clock and ranging records on that slice. Use those distances to enroll a geodesic ball around the event. Allow the boundary radius to change between the source and reference so that **enclosed proper volume agrees**. Measure the boundary area contrast on an independent copy with matching source and event tags. Record the uncertainty in this matching in the area and entropy bounds. A count of enrolled stations gives proper volume only with a separately justified volume rule.
+
+Read entropy from the region's joint records, retaining the correlations accessible to the observers. Measure the regional generator of the *same propagating field* independently, for instance by calibrated work, transfer or momentum-flux records whose regional weighting has been derived. Measure an ordinary perturbation first to fix the conversion between entropy and area. Then vary a boundary correlation at fixed ordinary preparation. This is a prediction for the signed area and stress responses at that same conversion. Inferring stress or a new conversion from the area under test would leave the prediction undetermined.
+
+Repeat on a family of smaller proper balls in common length units. The bounds in (1) include apparatus, volume-matching and discretization errors. A proof can bound these errors for the entire family without simulating its largest members. A finite sequence of successful readings tests the predicted rate over its reported range.
+
+Three observer comparisons give concrete checks on these identifications. On the 80-cell stationary entropy preparation a delayed phase reading reproduces the nominal 4/5 speed while both detectors remain parked. A separate 320-station survey has the same radial word and range observations for opposite signed leading entropy slopes. Keeping the angular address supplies the missing information at all five surveyed radii. In the written-ring field extension an independent neutral field reading predicts both charged probes' held endpoint distributions on the same mixture. The same signed neutral reading also occurs in a vacuum control for which that mixture calibration misses 46 of 48 charged bins. These results concern, respectively, a parked clock, a routed screen radius and material transport. Each experiment preserves the source identity within its own comparison. [First-arrival clocks](source_implication/material_clocks/two_way_phase/README.md) · [Resolved regional energy and entropy](../../model/experiments/interval_echo_einstein_station/collar_scaling/station_clock/separated_sectors/angular_pair/README.md) · [Held field-to-probe transfer](../../model/experiments/interval_echo_einstein_station/field_stress_curvature/neutral_packet/README.md)
+
 ## Geometric normalization and the three errors
 
 At a smooth point p and future unit timelike vector u, take spacetime normal
@@ -425,6 +437,14 @@ both inverse compositions, all timelike norms, (3) and the sharpness witness.
 This is a coordinate maximum-norm bound in the stated orthonormal frame;
 it is not a Lorentz-invariant positive tensor norm.
 
+### Velocities measured with finite precision
+
+Any ten measured timelike velocities with a controlled inverse serve the same purpose as (2). To see this, put `u=(1,v)/sqrt(1-|v|²)` and `q(v)=(1-|v|²)R(u,u)`. Then
+`q(v)=R00 + 2 sum_i v_i R0i + sum_ij v_i v_j Rij`. One explicit menu uses rest, the six velocities `±b e_i`, and the three velocities `b(e_i+e_j)`, with `0<b<1/sqrt(2)`. Differences of the two axial readings give `R0i=(q(+i)-q(-i))/(4b)`. Their sum gives `Rii=(q(+i)+q(-i)-2q(0))/(2b²)`. A mixed spatial component satisfies `Rij=(q(ij)-q(+i)-q(+j)+q(0))/(2b²)`. The maximum row sum of this inverse acting on **unit-clock** readings is `K=2/b²-1`, attained by the diagonal spatial row. Thus even slow observers suffice if their directions span the tensor and their errors are small enough. Observers all moving along one line cannot sense either transverse diagonal component through these projections.
+
+For unequal velocities reported as intervals, let `D` map tensor components to the polynomial readings `q`, and let `A` invert the nominal design. If `||I-AD||∞ ≤ β < 1` throughout the boxes, the geometric series for the inverse gives
+`K ≤ sup ||A diag(1-|v|²)||∞ / (1-β)`. The executable bounds all products over the velocity boxes by rational intervals. At `b=1/4` the sharp gain for exact velocities is 31. A half-width of 1/2048 on each velocity component gives a certified gain below 35.13. These figures specify instrument tolerances for a proposed menu. For a statistical claim the velocity boxes and regional errors require joint coverage. The inverse bound certifies the size of a residual about zero even when the actual velocities within the boxes are unknown. For a refinement-dependent gain `K_n`, the product of that gain and the directional residual bound in (4) must tend to zero. [Rational interval certificate and reproducible calibration examples](measured_frames/measure.py) · [Exact gains](measured_frames/examples.json)
+
 ## Quantitative Einstein residual
 
 Define `kappa=2 pi/eta` and the single residual tensor
@@ -450,6 +470,8 @@ Thus the tensor balance is derived from regional estimates, without a
 separate assumption of null-tensor balance or a fitted tensor equation.
 All quantities in (4) must be those supplied by the common source interface.
 Three unrelated scalar witnesses cannot be substituted into this identity.
+
+The radii may differ across observers when the three estimates for each observer refer to its **same proper ball**, and all ten estimates concern one central tensor, coupling and reference. Apply (4) separately at each positive radius. In (5) use the measured frame gain times the largest of the ten bounds `(e_bulk,i + eta e_area,i + e_stationarity,i)/(eta C_ell_i)`. For convergence every proper radius tends to zero and this product tends to zero. Any drift in the source, event identification or central tensors between copies has to be bounded in the directional readings before applying the inverse.
 
 For quantitative convergence to limiting components in a common tetrad,
 suppose `eta_n>=eta0>0`, `eta_*>=eta0` and `max|T_*|<=M_T`. Besides the
