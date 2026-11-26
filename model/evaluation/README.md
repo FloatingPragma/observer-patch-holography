@@ -58,11 +58,13 @@ The dark-sector test starts at the Einstein tower. One finite experiment now var
 
 | Source | Coverage |
 | --- | --- |
-| [Theorem criteria](theorem_criteria.json) | A1–A3, finite repair, consensus, quantum probabilities, current and matter premises, G1–G6 and their joint null balance |
+| [Theorem criteria](theorem_criteria.json) | A1–A3, finite repair, consensus, quantum probabilities, current and matter premises, G1–G6 for the ten-timelike-observer Einstein theorem |
 | [Observer criteria](observer_criteria.json) | Seven historical field, clock and pair experiments, plus finite patch measurements with their preparations and transfer limits |
 | [OpenWave criteria](openwave_criteria.json) | One row for each of 31 phenomena in the pinned OpenWave table, with its upstream number, dynamics, accepted outcome and local candidate evidence |
 | [Gravitational particle](gravitational_particle.json) | Separate assessment of the hypothetical graviton. The native contact and ideal tidal readers test different parts of the assignment |
 | [Particle criteria](particles.json) | A discriminator for each of 17 Standard Model particle types. A candidate can declare a species assignment in `PARTICLE_IDENTIFICATIONS` with a grade, evidence and explanation |
 | Premise rows of the [observables register](../../docs/registers/OBSERVABLES.json) and [roles](roles.json) | Complete formal assumption inventory and its law, designer or import owner. Each plugin declares evidence in `PREMISES` and same-process claims in `JOINT` |
+
+The six gravity grades use one source, common proper balls, and ten independent timelike observers. The three small-ball errors concern bulk entropy and independently measured matter stress, area and curvature, and entropy stationarity at fixed proper volume. Each error must vanish faster than the fourth power of the proper radius. Comparing opposite light rays can separately test pressure, flux and focusing on a calibrated optical instrument. Those comparisons have no score of their own. [Ten-observer theorem and normalizations](../../code/matched_einstein_limit/PROOF.md) · [Optional light-ray measurements and controls](null_direction_comparisons.json)
 
 `--write` generates the scorecard, evidence ledger, candidate index table and per-candidate `EVALUATION.json`. `--check` regenerates those views in memory and compares their contents. A new plugin defaults to open on reviewed criteria until it has evidence in the correct physical domain. Add narrowly scoped positive results where the data support them, and distinguish calibrations, held tests, earlier benchmark constructions and physical identifications.

@@ -1,0 +1,757 @@
+{
+  "schema": "oph.spherical.exterior_hamilton_reader.v1",
+  "proper_tick": 5.684341886080802e-14,
+  "areal_radii": [
+    2,
+    4
+  ],
+  "release_panels": [
+    1,
+    2,
+    4,
+    8,
+    16
+  ],
+  "ordinary_and_collar_counts": {
+    "blank": [
+      "0",
+      "0"
+    ],
+    "ordinary": [
+      "1/3",
+      "0"
+    ],
+    "held": [
+      "1/3",
+      "8/33"
+    ]
+  },
+  "readouts": {
+    "blank": {
+      "emitted_inner_ticks": [
+        0,
+        17592186044416
+      ],
+      "received_outer_ticks": [
+        35184372088832,
+        52776558133248
+      ],
+      "echo_inner_ticks": 70368744177664,
+      "redshift_ratio": 1.0,
+      "spectroscopic_ratio": 1.0,
+      "mirror_recovered_frequency_relative_error": 0.0,
+      "signed_rays": [
+        {
+          "panels": 4,
+          "outbound": 2.0,
+          "inbound": 2.0,
+          "exact_arithmetic_time_error_bound": 0.0,
+          "outbound_error_upper": 0.0,
+          "inbound_error_upper": 0.0
+        },
+        {
+          "panels": 8,
+          "outbound": 2.0,
+          "inbound": 2.0,
+          "exact_arithmetic_time_error_bound": 0.0,
+          "outbound_error_upper": 0.0,
+          "inbound_error_upper": 0.0
+        },
+        {
+          "panels": 16,
+          "outbound": 2.0,
+          "inbound": 2.0,
+          "exact_arithmetic_time_error_bound": 0.0,
+          "outbound_error_upper": 0.0,
+          "inbound_error_upper": 0.0
+        },
+        {
+          "panels": 32,
+          "outbound": 2.0,
+          "inbound": 2.0,
+          "exact_arithmetic_time_error_bound": 0.0,
+          "outbound_error_upper": 0.0,
+          "inbound_error_upper": 0.0
+        },
+        {
+          "panels": 64,
+          "outbound": 2.0,
+          "inbound": 2.0,
+          "exact_arithmetic_time_error_bound": 0.0,
+          "outbound_error_upper": 0.0,
+          "inbound_error_upper": 0.0
+        }
+      ],
+      "released_clocks": {
+        "1": {
+          "1/2": {
+            "radius_ticks": 35184372088832,
+            "action_time_ticks": 8796093022208,
+            "probe_proper_ticks": 8796093022208,
+            "radius_error_upper_by_refinement": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "inferred_radial_acceleration": 0.0
+          },
+          "1/16": {
+            "radius_ticks": 35184372088832,
+            "action_time_ticks": 1099511627776,
+            "probe_proper_ticks": 1099511627776,
+            "radius_error_upper_by_refinement": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "inferred_radial_acceleration": 0.0
+          },
+          "1/32": {
+            "radius_ticks": 35184372088832,
+            "action_time_ticks": 549755813888,
+            "probe_proper_ticks": 549755813888,
+            "radius_error_upper_by_refinement": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "inferred_radial_acceleration": 0.0
+          }
+        },
+        "3": {
+          "1/2": {
+            "radius_ticks": 35184372088832,
+            "action_time_ticks": 8796093022208,
+            "probe_proper_ticks": 8796093022208,
+            "radius_error_upper_by_refinement": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "inferred_radial_acceleration": 0.0
+          },
+          "1/16": {
+            "radius_ticks": 35184372088832,
+            "action_time_ticks": 1099511627776,
+            "probe_proper_ticks": 1099511627776,
+            "radius_error_upper_by_refinement": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "inferred_radial_acceleration": 0.0
+          },
+          "1/32": {
+            "radius_ticks": 35184372088832,
+            "action_time_ticks": 549755813888,
+            "probe_proper_ticks": 549755813888,
+            "radius_error_upper_by_refinement": [
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "inferred_radial_acceleration": 0.0
+          }
+        }
+      },
+      "mu_from_clock_spacing": 0.0,
+      "mu_from_two_release_intervals": -0.0
+    },
+    "ordinary": {
+      "emitted_inner_ticks": [
+        0,
+        17592186044416
+      ],
+      "received_outer_ticks": [
+        45314904462950,
+        63302469897654
+      ],
+      "echo_inner_ticks": 71514127524619,
+      "redshift_ratio": 0.9780192938436693,
+      "spectroscopic_ratio": 0.9780192937709263,
+      "mirror_recovered_frequency_relative_error": 9.840395165383597e-11,
+      "signed_rays": [
+        {
+          "panels": 4,
+          "outbound": 2.631259206960236,
+          "inbound": 1.614610592611845,
+          "exact_arithmetic_time_error_bound": 0.0001031996464515931,
+          "outbound_error_upper": 4.06221883597624e-06,
+          "inbound_error_upper": 5.770236806146302e-07
+        },
+        {
+          "panels": 8,
+          "outbound": 2.631255406479379,
+          "inbound": 1.6146111328831156,
+          "exact_arithmetic_time_error_bound": 6.449977903224569e-06,
+          "outbound_error_upper": 2.6173797884609945e-07,
+          "inbound_error_upper": 3.675241000422603e-08
+        },
+        {
+          "panels": 16,
+          "outbound": 2.631255161231295,
+          "inbound": 1.614611167327247,
+          "exact_arithmetic_time_error_bound": 4.0312361895153555e-07,
+          "outbound_error_upper": 1.6489894782978357e-08,
+          "inbound_error_upper": 2.3082786793082737e-09
+        },
+        {
+          "panels": 32,
+          "outbound": 2.631255145774107,
+          "inbound": 1.61461116949108,
+          "exact_arithmetic_time_error_bound": 2.5195226184470972e-08,
+          "outbound_error_upper": 1.0327068089566185e-09,
+          "inbound_error_upper": 1.4444556661885602e-10
+        },
+        {
+          "panels": 64,
+          "outbound": 2.6312551448059778,
+          "inbound": 1.6146111696264946,
+          "exact_arithmetic_time_error_bound": 1.5747016365294358e-09,
+          "outbound_error_upper": 6.457767653955672e-11,
+          "inbound_error_upper": 9.030998171510875e-12
+        }
+      ],
+      "released_clocks": {
+        "1": {
+          "1/2": {
+            "radius_ticks": 35138539201221,
+            "action_time_ticks": 9173143258210,
+            "probe_proper_ticks": 8796093022208,
+            "radius_error_upper_by_refinement": [
+              1.1671760447029557e-08,
+              6.972502575308682e-10,
+              4.254174790219168e-11,
+              2.6261215424483457e-12,
+              1.6320278461989804e-13
+            ],
+            "inferred_radial_acceleration": -0.02084238422457929
+          },
+          "1/16": {
+            "radius_ticks": 35183656256095,
+            "action_time_ticks": 1148177718973,
+            "probe_proper_ticks": 1099511627776,
+            "radius_error_upper_by_refinement": [
+              3.590461261637757e-13,
+              2.2648549702353197e-14,
+              1.776356839400251e-15,
+              2.2204460492503136e-16,
+              4.440892098500627e-16
+            ],
+            "inferred_radial_acceleration": -0.020833474613027647
+          },
+          "1/32": {
+            "radius_ticks": 35184193131558,
+            "action_time_ticks": 574144952069,
+            "probe_proper_ticks": 549755813888,
+            "radius_error_upper_by_refinement": [
+              1.1324274851176598e-14,
+              8.881784197001254e-16,
+              4.440892098500627e-16,
+              4.440892098500627e-16,
+              4.440892098500627e-16
+            ],
+            "inferred_radial_acceleration": -0.020833368645980954
+          }
+        },
+        "3": {
+          "1/2": {
+            "radius_ticks": 35138539201221,
+            "action_time_ticks": 9173143258210,
+            "probe_proper_ticks": 8796093022208,
+            "radius_error_upper_by_refinement": [
+              1.1671760447029557e-08,
+              6.972502575308682e-10,
+              4.254174790219168e-11,
+              2.6261215424483457e-12,
+              1.6342482922482307e-13
+            ],
+            "inferred_radial_acceleration": -0.02084238422457929
+          },
+          "1/16": {
+            "radius_ticks": 35183656256095,
+            "action_time_ticks": 1148177718973,
+            "probe_proper_ticks": 1099511627776,
+            "radius_error_upper_by_refinement": [
+              3.590461261637757e-13,
+              2.2648549702353197e-14,
+              1.776356839400251e-15,
+              2.2204460492503136e-16,
+              4.440892098500627e-16
+            ],
+            "inferred_radial_acceleration": -0.020833474613027647
+          },
+          "1/32": {
+            "radius_ticks": 35184193131558,
+            "action_time_ticks": 574144952069,
+            "probe_proper_ticks": 549755813888,
+            "radius_error_upper_by_refinement": [
+              1.1324274851176598e-14,
+              8.881784197001254e-16,
+              4.440892098500627e-16,
+              4.440892098500627e-16,
+              4.440892098500627e-16
+            ],
+            "inferred_radial_acceleration": -0.020833368645980954
+          }
+        }
+      },
+      "mu_from_clock_spacing": 0.08333333333326966,
+      "mu_from_two_release_intervals": 0.08333333329452823
+    },
+    "held": {
+      "emitted_inner_ticks": [
+        0,
+        17592186044416
+      ],
+      "received_outer_ticks": [
+        49536596938818,
+        67853355961350
+      ],
+      "echo_inner_ticks": 72360025552263,
+      "redshift_ratio": 0.9604420750840975,
+      "spectroscopic_ratio": 0.9604420749566275,
+      "mirror_recovered_frequency_relative_error": 1.6099221955556686e-10,
+      "signed_rays": [
+        {
+          "panels": 4,
+          "outbound": 2.922984747777799,
+          "inbound": 1.5225849202402384,
+          "exact_arithmetic_time_error_bound": 0.00026829764663994013,
+          "outbound_error_upper": 8.5411449743944e-06,
+          "inbound_error_upper": 6.138789165888171e-07
+        },
+        {
+          "panels": 8,
+          "outbound": 2.9229767596138623,
+          "inbound": 1.5225854950461475,
+          "exact_arithmetic_time_error_bound": 1.6768602914996258e-05,
+          "outbound_error_upper": 5.529810378490653e-07,
+          "inbound_error_upper": 3.907300749617094e-08
+        },
+        {
+          "panels": 16,
+          "outbound": 2.922976241517782,
+          "inbound": 1.522585531665573,
+          "exact_arithmetic_time_error_bound": 1.0480376821872661e-06,
+          "outbound_error_upper": 3.4884957589298444e-08,
+          "inbound_error_upper": 2.453582004235955e-09
+        },
+        {
+          "panels": 32,
+          "outbound": 2.9229762088183002,
+          "inbound": 1.5225855339656238,
+          "exact_arithmetic_time_error_bound": 6.550235513670413e-08,
+          "outbound_error_upper": 2.1854758003314605e-09,
+          "inbound_error_upper": 1.5353118776317845e-10
+        },
+        {
+          "panels": 64,
+          "outbound": 2.9229762067694987,
+          "inbound": 1.5225855341095564,
+          "exact_arithmetic_time_error_bound": 4.093897196044008e-09,
+          "outbound_error_upper": 1.3667422749108485e-10,
+          "inbound_error_upper": 9.598544181699255e-12
+        }
+      ],
+      "released_clocks": {
+        "1": {
+          "1/2": {
+            "radius_ticks": 35105181148439,
+            "action_time_ticks": 9472948165099,
+            "probe_proper_ticks": 8796093022208,
+            "radius_error_upper_by_refinement": [
+              5.933084579190507e-08,
+              3.527036218642366e-09,
+              2.1455326404407063e-10,
+              1.3222090089470841e-11,
+              8.204548151979908e-13
+            ],
+            "inferred_radial_acceleration": -0.036011870357924636
+          },
+          "1/16": {
+            "radius_ticks": 35183135644369,
+            "action_time_ticks": 1187813116096,
+            "probe_proper_ticks": 1099511627776,
+            "radius_error_upper_by_refinement": [
+              1.8383072841743346e-12,
+              1.1413092693146612e-13,
+              7.327471962526035e-15,
+              2.2204460492503136e-16,
+              2.2204460492503136e-16
+            ],
+            "inferred_radial_acceleration": -0.03598527002031915
+          },
+          "1/32": {
+            "radius_ticks": 35184062980432,
+            "action_time_ticks": 594042677814,
+            "probe_proper_ticks": 549755813888,
+            "radius_error_upper_by_refinement": [
+              5.750955267558312e-14,
+              3.774758283725533e-15,
+              2.2204460492503136e-16,
+              4.440892098500627e-16,
+              6.66133814775094e-16
+            ],
+            "inferred_radial_acceleration": -0.0359849538654089
+          }
+        },
+        "3": {
+          "1/2": {
+            "radius_ticks": 35105181148439,
+            "action_time_ticks": 9472948165099,
+            "probe_proper_ticks": 8796093022208,
+            "radius_error_upper_by_refinement": [
+              5.933084579190507e-08,
+              3.527036218642366e-09,
+              2.1455326404407063e-10,
+              1.3222090089470841e-11,
+              8.204548151979908e-13
+            ],
+            "inferred_radial_acceleration": -0.036011870357924636
+          },
+          "1/16": {
+            "radius_ticks": 35183135644369,
+            "action_time_ticks": 1187813116096,
+            "probe_proper_ticks": 1099511627776,
+            "radius_error_upper_by_refinement": [
+              1.8383072841743346e-12,
+              1.1413092693146612e-13,
+              7.327471962526035e-15,
+              2.2204460492503136e-16,
+              2.2204460492503136e-16
+            ],
+            "inferred_radial_acceleration": -0.03598527002031915
+          },
+          "1/32": {
+            "radius_ticks": 35184062980432,
+            "action_time_ticks": 594042677814,
+            "probe_proper_ticks": 549755813888,
+            "radius_error_upper_by_refinement": [
+              5.750955267558312e-14,
+              3.774758283725533e-15,
+              2.2204460492503136e-16,
+              4.440892098500627e-16,
+              6.66133814775094e-16
+            ],
+            "inferred_radial_acceleration": -0.0359849538654089
+          }
+        }
+      },
+      "mu_from_clock_spacing": 0.14393939393937585,
+      "mu_from_two_release_intervals": 0.14393939392175525
+    },
+    "both_collar_blind": {
+      "emitted_inner_ticks": [
+        0,
+        17592186044416
+      ],
+      "received_outer_ticks": [
+        45314904462950,
+        63302469897654
+      ],
+      "echo_inner_ticks": 71514127524619,
+      "redshift_ratio": 0.9780192938436693,
+      "spectroscopic_ratio": 0.9780192937709263,
+      "mirror_recovered_frequency_relative_error": 9.840395165383597e-11,
+      "signed_rays": [
+        {
+          "panels": 4,
+          "outbound": 2.631259206960236,
+          "inbound": 1.614610592611845,
+          "exact_arithmetic_time_error_bound": 0.0001031996464515931,
+          "outbound_error_upper": 4.06221883597624e-06,
+          "inbound_error_upper": 5.770236806146302e-07
+        },
+        {
+          "panels": 8,
+          "outbound": 2.631255406479379,
+          "inbound": 1.6146111328831156,
+          "exact_arithmetic_time_error_bound": 6.449977903224569e-06,
+          "outbound_error_upper": 2.6173797884609945e-07,
+          "inbound_error_upper": 3.675241000422603e-08
+        },
+        {
+          "panels": 16,
+          "outbound": 2.631255161231295,
+          "inbound": 1.614611167327247,
+          "exact_arithmetic_time_error_bound": 4.0312361895153555e-07,
+          "outbound_error_upper": 1.6489894782978357e-08,
+          "inbound_error_upper": 2.3082786793082737e-09
+        },
+        {
+          "panels": 32,
+          "outbound": 2.631255145774107,
+          "inbound": 1.61461116949108,
+          "exact_arithmetic_time_error_bound": 2.5195226184470972e-08,
+          "outbound_error_upper": 1.0327068089566185e-09,
+          "inbound_error_upper": 1.4444556661885602e-10
+        },
+        {
+          "panels": 64,
+          "outbound": 2.6312551448059778,
+          "inbound": 1.6146111696264946,
+          "exact_arithmetic_time_error_bound": 1.5747016365294358e-09,
+          "outbound_error_upper": 6.457767653955672e-11,
+          "inbound_error_upper": 9.030998171510875e-12
+        }
+      ],
+      "released_clocks": {
+        "1": {
+          "1/2": {
+            "radius_ticks": 35138539201221,
+            "action_time_ticks": 9173143258210,
+            "probe_proper_ticks": 8796093022208,
+            "radius_error_upper_by_refinement": [
+              1.1671760447029557e-08,
+              6.972502575308682e-10,
+              4.254174790219168e-11,
+              2.6261215424483457e-12,
+              1.6320278461989804e-13
+            ],
+            "inferred_radial_acceleration": -0.02084238422457929
+          },
+          "1/16": {
+            "radius_ticks": 35183656256095,
+            "action_time_ticks": 1148177718973,
+            "probe_proper_ticks": 1099511627776,
+            "radius_error_upper_by_refinement": [
+              3.590461261637757e-13,
+              2.2648549702353197e-14,
+              1.776356839400251e-15,
+              2.2204460492503136e-16,
+              4.440892098500627e-16
+            ],
+            "inferred_radial_acceleration": -0.020833474613027647
+          },
+          "1/32": {
+            "radius_ticks": 35184193131558,
+            "action_time_ticks": 574144952069,
+            "probe_proper_ticks": 549755813888,
+            "radius_error_upper_by_refinement": [
+              1.1324274851176598e-14,
+              8.881784197001254e-16,
+              4.440892098500627e-16,
+              4.440892098500627e-16,
+              4.440892098500627e-16
+            ],
+            "inferred_radial_acceleration": -0.020833368645980954
+          }
+        },
+        "3": {
+          "1/2": {
+            "radius_ticks": 35138539201221,
+            "action_time_ticks": 9173143258210,
+            "probe_proper_ticks": 8796093022208,
+            "radius_error_upper_by_refinement": [
+              1.1671760447029557e-08,
+              6.972502575308682e-10,
+              4.254174790219168e-11,
+              2.6261215424483457e-12,
+              1.6342482922482307e-13
+            ],
+            "inferred_radial_acceleration": -0.02084238422457929
+          },
+          "1/16": {
+            "radius_ticks": 35183656256095,
+            "action_time_ticks": 1148177718973,
+            "probe_proper_ticks": 1099511627776,
+            "radius_error_upper_by_refinement": [
+              3.590461261637757e-13,
+              2.2648549702353197e-14,
+              1.776356839400251e-15,
+              2.2204460492503136e-16,
+              4.440892098500627e-16
+            ],
+            "inferred_radial_acceleration": -0.020833474613027647
+          },
+          "1/32": {
+            "radius_ticks": 35184193131558,
+            "action_time_ticks": 574144952069,
+            "probe_proper_ticks": 549755813888,
+            "radius_error_upper_by_refinement": [
+              1.1324274851176598e-14,
+              8.881784197001254e-16,
+              4.440892098500627e-16,
+              4.440892098500627e-16,
+              4.440892098500627e-16
+            ],
+            "inferred_radial_acceleration": -0.020833368645980954
+          }
+        }
+      },
+      "mu_from_clock_spacing": 0.08333333333326966,
+      "mu_from_two_release_intervals": 0.08333333329452823
+    },
+    "light_alone_collar_blind": {
+      "emitted_inner_ticks": [
+        0,
+        17592186044416
+      ],
+      "received_outer_ticks": [
+        45314904462950,
+        63302469897654
+      ],
+      "echo_inner_ticks": 71514127524619,
+      "redshift_ratio": 0.9780192938436693,
+      "spectroscopic_ratio": 0.9780192937709263,
+      "mirror_recovered_frequency_relative_error": 9.840395165383597e-11,
+      "signed_rays": [
+        {
+          "panels": 4,
+          "outbound": 2.631259206960236,
+          "inbound": 1.614610592611845,
+          "exact_arithmetic_time_error_bound": 0.0001031996464515931,
+          "outbound_error_upper": 4.06221883597624e-06,
+          "inbound_error_upper": 5.770236806146302e-07
+        },
+        {
+          "panels": 8,
+          "outbound": 2.631255406479379,
+          "inbound": 1.6146111328831156,
+          "exact_arithmetic_time_error_bound": 6.449977903224569e-06,
+          "outbound_error_upper": 2.6173797884609945e-07,
+          "inbound_error_upper": 3.675241000422603e-08
+        },
+        {
+          "panels": 16,
+          "outbound": 2.631255161231295,
+          "inbound": 1.614611167327247,
+          "exact_arithmetic_time_error_bound": 4.0312361895153555e-07,
+          "outbound_error_upper": 1.6489894782978357e-08,
+          "inbound_error_upper": 2.3082786793082737e-09
+        },
+        {
+          "panels": 32,
+          "outbound": 2.631255145774107,
+          "inbound": 1.61461116949108,
+          "exact_arithmetic_time_error_bound": 2.5195226184470972e-08,
+          "outbound_error_upper": 1.0327068089566185e-09,
+          "inbound_error_upper": 1.4444556661885602e-10
+        },
+        {
+          "panels": 64,
+          "outbound": 2.6312551448059778,
+          "inbound": 1.6146111696264946,
+          "exact_arithmetic_time_error_bound": 1.5747016365294358e-09,
+          "outbound_error_upper": 6.457767653955672e-11,
+          "inbound_error_upper": 9.030998171510875e-12
+        }
+      ],
+      "released_clocks": {
+        "1": {
+          "1/2": {
+            "radius_ticks": 35105181148439,
+            "action_time_ticks": 9472948165099,
+            "probe_proper_ticks": 8796093022208,
+            "radius_error_upper_by_refinement": [
+              5.933084579190507e-08,
+              3.527036218642366e-09,
+              2.1455326404407063e-10,
+              1.3222090089470841e-11,
+              8.204548151979908e-13
+            ],
+            "inferred_radial_acceleration": -0.036011870357924636
+          },
+          "1/16": {
+            "radius_ticks": 35183135644369,
+            "action_time_ticks": 1187813116096,
+            "probe_proper_ticks": 1099511627776,
+            "radius_error_upper_by_refinement": [
+              1.8383072841743346e-12,
+              1.1413092693146612e-13,
+              7.327471962526035e-15,
+              2.2204460492503136e-16,
+              2.2204460492503136e-16
+            ],
+            "inferred_radial_acceleration": -0.03598527002031915
+          },
+          "1/32": {
+            "radius_ticks": 35184062980432,
+            "action_time_ticks": 594042677814,
+            "probe_proper_ticks": 549755813888,
+            "radius_error_upper_by_refinement": [
+              5.750955267558312e-14,
+              3.774758283725533e-15,
+              2.2204460492503136e-16,
+              4.440892098500627e-16,
+              6.66133814775094e-16
+            ],
+            "inferred_radial_acceleration": -0.0359849538654089
+          }
+        },
+        "3": {
+          "1/2": {
+            "radius_ticks": 35105181148439,
+            "action_time_ticks": 9472948165099,
+            "probe_proper_ticks": 8796093022208,
+            "radius_error_upper_by_refinement": [
+              5.933084579190507e-08,
+              3.527036218642366e-09,
+              2.1455326404407063e-10,
+              1.3222090089470841e-11,
+              8.204548151979908e-13
+            ],
+            "inferred_radial_acceleration": -0.036011870357924636
+          },
+          "1/16": {
+            "radius_ticks": 35183135644369,
+            "action_time_ticks": 1187813116096,
+            "probe_proper_ticks": 1099511627776,
+            "radius_error_upper_by_refinement": [
+              1.8383072841743346e-12,
+              1.1413092693146612e-13,
+              7.327471962526035e-15,
+              2.2204460492503136e-16,
+              2.2204460492503136e-16
+            ],
+            "inferred_radial_acceleration": -0.03598527002031915
+          },
+          "1/32": {
+            "radius_ticks": 35184062980432,
+            "action_time_ticks": 594042677814,
+            "probe_proper_ticks": 549755813888,
+            "radius_error_upper_by_refinement": [
+              5.750955267558312e-14,
+              3.774758283725533e-15,
+              2.2204460492503136e-16,
+              4.440892098500627e-16,
+              6.66133814775094e-16
+            ],
+            "inferred_radial_acceleration": -0.0359849538654089
+          }
+        }
+      },
+      "mu_from_clock_spacing": 0.08333333333326966,
+      "mu_from_two_release_intervals": 0.14393939392175525
+    }
+  },
+  "ordinary_gain_by_meter": {
+    "mu_from_clock_spacing": 0.249999999999809,
+    "mu_from_two_release_intervals": 0.2499999998835847
+  },
+  "held_forecasts_from_ordinary": {
+    "mu_from_clock_spacing": {
+      "mu": 0.14393939393928398,
+      "redshift_ratio": 0.9604420750841253,
+      "initial_radial_acceleration": -0.035984848484820996
+    },
+    "mu_from_two_release_intervals": {
+      "mu": 0.14393939387236696,
+      "redshift_ratio": 0.96044207510435,
+      "initial_radial_acceleration": -0.03598484846809174
+    }
+  }
+}

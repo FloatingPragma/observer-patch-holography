@@ -696,6 +696,66 @@ REPLAY_EVALUATIONS = (
         "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
         "model/candidate_laws/interval_echo/EVALUATION.json": "df1ed65867c8bb6f07e9eb921d1f31dbc8fec98a12462447b8d9ee74d1238aa4",
     },
+    # Six signed range responses, contact-current transfer and the matched SPARC rings.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "4e2631927bedb04dffa439a4e2158e536b19ca91f5b92aadb90fbcf3b2b3b5d6",
+    },
+    # Five-station formed geometry, regional energy, source binding and hydrogen comparisons.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "e5c31ad232fe9b287478e4dc5242f257452a26db417ed73f7b4d00fc2b0fdb13",
+    },
+    # Port phases, relative wing energies, two-ended seam flag counts and independent probe responses.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "9f6205509a100efc15a514168632b7a96f50737e729d1be458cb116a6d8cf05d",
+    },
+    # Ten timelike observers, two-way material clocks and resolved regional field comparisons.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "0f0ebf24e4bd4d2071374728370140ee3bd11d211edaa0f02eae5232acf18945",
+    },
+    # Two-port phase transport, vacuum identification and proper areas of tilted balls.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "b4db621533e128c56b8cd6762a4a550f80c847f3a237f64724c4eab0e95a7904",
+    },
+    # Experimental partition-repair comparison in the gravity scorecard.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "8bdcf34b11974c53e70a796fb1fc17b192968f992595d38c07ad0e4525ead159",
+    },
+    # Native two-appointment geometry and three-register action controls.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "712855337abb7646e1921828dda9e1812a6da3f5511a6832262455d509de9d22",
+    },
+    # Native matter selection and the four-station equilibrium comparison.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "6925da341d38ab9fc871ea63c19a02d8d8e08e783449204a9c84ac2d65ef1461",
+    },
+    # Joint signal and matter-energy measurements on the cooled guide.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "955501de5ef40f14cc4d575d1364c63322990cc0b652345ede3be778d90c0971",
+    },
+    # Charge-conjugate probes and the pressureless-source comparison.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "057389ca35503ff76e6982c8f0e162e91c4b310f01fceda4fbb8d99fba3d268a",
+    },
 )
 
 

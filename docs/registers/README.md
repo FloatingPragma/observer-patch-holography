@@ -69,6 +69,8 @@ Judging a premise:
 - When a premise loses or gains Demonstrated, re-judge the rows that list it. A Demonstrated row lists no
   premise that is not Demonstrated.
 
+The direct timelike Einstein test requires independent regional stress and its conservation (PR-23 and PR-24), equilibrium, controlled small balls and a common refinement (PR-26 through PR-28), and a physical spacetime interpretation (PR-16 and PR-52). Its universal-matter interpretation also needs PR-134. Half-line standardness (PR-92), geometric cap modular flow (PR-119) and a placement with time proportional to source height (PR-165) support particular constructions of those inputs. Dark-collar and screening laws (PR-135 through PR-137) enter the dark-matter predictions. The timelike test can measure the regional normalization directly. [Common-source hypotheses](../../code/matched_einstein_limit/PROOF.md#the-common-source-interface) Contracting the derived tensor equation along a light ray gives an independent optical check.
+
 ## Completion score
 
 Each observable scores Demonstrated 1, Partial 1/4, Open 0. A Conditional observable scores 1/2 plus half

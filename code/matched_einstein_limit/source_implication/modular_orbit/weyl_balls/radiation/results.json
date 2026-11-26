@@ -1,0 +1,933 @@
+{
+  "side": 48,
+  "length": 8.0,
+  "cutoff": 1.8,
+  "readout_floor": 0.0005,
+  "flipped_band_pairs": 56,
+  "comoving_energy_density": 0.30218170728759985,
+  "kinetic_stiffness": 3.0,
+  "ordinary_coupling": 1.9999999999999307,
+  "radiation_calibration": {
+    "cutoff": 1.25,
+    "flipped_band_pairs": 8,
+    "energy_density": 0.021240289275112678,
+    "clock_record": {
+      "optical_separation": 0.125,
+      "sender_times": [
+        -0.009994050169571729,
+        0.010005949830428271
+      ],
+      "receiver_times": [
+        0.11578686507413893,
+        0.1360843565955525
+      ],
+      "clock_ratio": 1.014874576070679,
+      "inferred_expansion_rate": 0.11899660856543193
+    }
+  },
+  "held_clock": {
+    "optical_separation": 0.125,
+    "sender_times": [
+      -0.00997755816008406,
+      0.01002244183991594
+    ],
+    "receiver_times": [
+      0.11796793332888304,
+      0.13909002532468004
+    ],
+    "clock_ratio": 1.0561045997898497,
+    "inferred_expansion_rate": 0.44883679831879775
+  },
+  "conformal_expansion_rate": 0.4488367983187949,
+  "proper_balls": [
+    {
+      "radius": 0.12,
+      "frame": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "proper_radius": 0.12002327704753309,
+      "volume_at_fixed_rod_radius": 0.007234020628751896,
+      "proper_area": 0.18085028512608325,
+      "diamond_coordinate_radius": 0.12005236242666943,
+      "diamond_area": 0.18085028556587035,
+      "area_coefficient": 0.6070298974671471,
+      "stress_forecast": 0.6043634145751787,
+      "diamond_minus_true_area_over_R4": 2.120886842349731e-06
+    },
+    {
+      "radius": 0.12,
+      "frame": [
+        1.6666666666666667,
+        1.3333333333333333,
+        0.0,
+        0.0
+      ],
+      "proper_radius": 0.12007958308803203,
+      "volume_at_fixed_rod_radius": 0.0072238668773419844,
+      "proper_area": 0.18059222701739727,
+      "diamond_coordinate_radius": 0.12017809065022293,
+      "diamond_area": 0.18059436770315307,
+      "area_coefficient": 2.0925342233612323,
+      "stress_forecast": 2.0369285454200465,
+      "diamond_minus_true_area_over_R4": 0.010323523127879377
+    },
+    {
+      "radius": 0.12,
+      "frame": [
+        1.6666666666666667,
+        -1.3333333333333333,
+        0.0,
+        0.0
+      ],
+      "proper_radius": 0.12007958308803203,
+      "volume_at_fixed_rod_radius": 0.0072238668773419844,
+      "proper_area": 0.18059222701739727,
+      "diamond_coordinate_radius": 0.12017809065022293,
+      "diamond_area": 0.18059436770315307,
+      "area_coefficient": 2.0925342233612323,
+      "stress_forecast": 2.0369285454200465,
+      "diamond_minus_true_area_over_R4": 0.010323523127879377
+    },
+    {
+      "radius": 0.12,
+      "frame": [
+        1.6666666666666667,
+        0.0,
+        1.3333333333333333,
+        0.0
+      ],
+      "proper_radius": 0.12007958308803203,
+      "volume_at_fixed_rod_radius": 0.0072238668773419844,
+      "proper_area": 0.18059222701739727,
+      "diamond_coordinate_radius": 0.12017809065022293,
+      "diamond_area": 0.18059436770315307,
+      "area_coefficient": 2.0925342233612323,
+      "stress_forecast": 2.0369285454200465,
+      "diamond_minus_true_area_over_R4": 0.010323523127879377
+    },
+    {
+      "radius": 0.12,
+      "frame": [
+        1.6666666666666667,
+        0.0,
+        -1.3333333333333333,
+        0.0
+      ],
+      "proper_radius": 0.12007958308803203,
+      "volume_at_fixed_rod_radius": 0.0072238668773419844,
+      "proper_area": 0.18059222701739727,
+      "diamond_coordinate_radius": 0.12017809065022293,
+      "diamond_area": 0.18059436770315307,
+      "area_coefficient": 2.0925342233612323,
+      "stress_forecast": 2.0369285454200465,
+      "diamond_minus_true_area_over_R4": 0.010323523127879377
+    },
+    {
+      "radius": 0.12,
+      "frame": [
+        1.6666666666666667,
+        0.0,
+        0.0,
+        1.3333333333333333
+      ],
+      "proper_radius": 0.12007958308803203,
+      "volume_at_fixed_rod_radius": 0.0072238668773419844,
+      "proper_area": 0.18059222701739727,
+      "diamond_coordinate_radius": 0.12017809065022293,
+      "diamond_area": 0.18059436770315307,
+      "area_coefficient": 2.0925342233612323,
+      "stress_forecast": 2.0369285454200465,
+      "diamond_minus_true_area_over_R4": 0.010323523127879377
+    },
+    {
+      "radius": 0.12,
+      "frame": [
+        1.6666666666666667,
+        0.0,
+        0.0,
+        -1.3333333333333333
+      ],
+      "proper_radius": 0.12007958308803203,
+      "volume_at_fixed_rod_radius": 0.0072238668773419844,
+      "proper_area": 0.18059222701739727,
+      "diamond_coordinate_radius": 0.12017809065022293,
+      "diamond_area": 0.18059436770315307,
+      "area_coefficient": 2.0925342233612323,
+      "stress_forecast": 2.0369285454200465,
+      "diamond_minus_true_area_over_R4": 0.010323523127879377
+    },
+    {
+      "radius": 0.12,
+      "frame": [
+        3.0,
+        2.0,
+        2.0,
+        0.0
+      ],
+      "proper_radius": 0.12029007815279184,
+      "volume_at_fixed_rod_radius": 0.007186258284034991,
+      "proper_area": 0.17958957695677807,
+      "diamond_coordinate_radius": 0.12063534870070759,
+      "diamond_area": 0.17963159341658727,
+      "area_coefficient": 7.86426141299281,
+      "stress_forecast": 7.050906503377087,
+      "diamond_minus_true_area_over_R4": 0.2026256742341655
+    },
+    {
+      "radius": 0.12,
+      "frame": [
+        3.0,
+        2.0,
+        0.0,
+        2.0
+      ],
+      "proper_radius": 0.12029007815279184,
+      "volume_at_fixed_rod_radius": 0.007186258284034991,
+      "proper_area": 0.17958957695677807,
+      "diamond_coordinate_radius": 0.12063534870070759,
+      "diamond_area": 0.17963159341658727,
+      "area_coefficient": 7.86426141299281,
+      "stress_forecast": 7.050906503377087,
+      "diamond_minus_true_area_over_R4": 0.2026256742341655
+    },
+    {
+      "radius": 0.12,
+      "frame": [
+        3.0,
+        0.0,
+        2.0,
+        2.0
+      ],
+      "proper_radius": 0.12029007815279184,
+      "volume_at_fixed_rod_radius": 0.007186258284034991,
+      "proper_area": 0.17958957695677807,
+      "diamond_coordinate_radius": 0.12063534870070759,
+      "diamond_area": 0.17963159341658727,
+      "area_coefficient": 7.86426141299281,
+      "stress_forecast": 7.050906503377087,
+      "diamond_minus_true_area_over_R4": 0.2026256742341655
+    },
+    {
+      "radius": 0.06,
+      "frame": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "proper_radius": 0.060002903110278845,
+      "volume_at_fixed_rod_radius": 0.0009046473760411934,
+      "proper_area": 0.04523236521598327,
+      "diamond_coordinate_radius": 0.0600065316591471,
+      "diamond_area": 0.045232365217691,
+      "area_coefficient": 0.6050278578449321,
+      "stress_forecast": 0.6043634145751787,
+      "diamond_minus_true_area_over_R4": 1.3176938107180619e-07
+    },
+    {
+      "radius": 0.06,
+      "frame": [
+        1.6666666666666667,
+        1.3333333333333333,
+        0.0,
+        0.0
+      ],
+      "proper_radius": 0.06000981915922826,
+      "volume_at_fixed_rod_radius": 0.0009043347671239695,
+      "proper_area": 0.045216671199788325,
+      "diamond_coordinate_radius": 0.060022064042526996,
+      "diamond_area": 0.04521670227825632,
+      "area_coefficient": 2.0505025420982457,
+      "stress_forecast": 2.0369285454200465,
+      "diamond_minus_true_area_over_R4": 0.00239802993777396
+    },
+    {
+      "radius": 0.06,
+      "frame": [
+        1.6666666666666667,
+        -1.3333333333333333,
+        0.0,
+        0.0
+      ],
+      "proper_radius": 0.06000981915922826,
+      "volume_at_fixed_rod_radius": 0.0009043347671239695,
+      "proper_area": 0.045216671199788325,
+      "diamond_coordinate_radius": 0.060022064042526996,
+      "diamond_area": 0.04521670227825632,
+      "area_coefficient": 2.0505025420982457,
+      "stress_forecast": 2.0369285454200465,
+      "diamond_minus_true_area_over_R4": 0.00239802993777396
+    },
+    {
+      "radius": 0.06,
+      "frame": [
+        1.6666666666666667,
+        0.0,
+        1.3333333333333333,
+        0.0
+      ],
+      "proper_radius": 0.06000981915922826,
+      "volume_at_fixed_rod_radius": 0.0009043347671239695,
+      "proper_area": 0.045216671199788325,
+      "diamond_coordinate_radius": 0.060022064042526996,
+      "diamond_area": 0.04521670227825632,
+      "area_coefficient": 2.0505025420982457,
+      "stress_forecast": 2.0369285454200465,
+      "diamond_minus_true_area_over_R4": 0.00239802993777396
+    },
+    {
+      "radius": 0.06,
+      "frame": [
+        1.6666666666666667,
+        0.0,
+        -1.3333333333333333,
+        0.0
+      ],
+      "proper_radius": 0.06000981915922826,
+      "volume_at_fixed_rod_radius": 0.0009043347671239695,
+      "proper_area": 0.045216671199788325,
+      "diamond_coordinate_radius": 0.060022064042526996,
+      "diamond_area": 0.04521670227825632,
+      "area_coefficient": 2.0505025420982457,
+      "stress_forecast": 2.0369285454200465,
+      "diamond_minus_true_area_over_R4": 0.00239802993777396
+    },
+    {
+      "radius": 0.06,
+      "frame": [
+        1.6666666666666667,
+        0.0,
+        0.0,
+        1.3333333333333333
+      ],
+      "proper_radius": 0.06000981915922826,
+      "volume_at_fixed_rod_radius": 0.0009043347671239695,
+      "proper_area": 0.045216671199788325,
+      "diamond_coordinate_radius": 0.060022064042526996,
+      "diamond_area": 0.04521670227825632,
+      "area_coefficient": 2.0505025420982457,
+      "stress_forecast": 2.0369285454200465,
+      "diamond_minus_true_area_over_R4": 0.00239802993777396
+    },
+    {
+      "radius": 0.06,
+      "frame": [
+        1.6666666666666667,
+        0.0,
+        0.0,
+        -1.3333333333333333
+      ],
+      "proper_radius": 0.06000981915922826,
+      "volume_at_fixed_rod_radius": 0.0009043347671239695,
+      "proper_area": 0.045216671199788325,
+      "diamond_coordinate_radius": 0.060022064042526996,
+      "diamond_area": 0.04521670227825632,
+      "area_coefficient": 2.0505025420982457,
+      "stress_forecast": 2.0369285454200465,
+      "diamond_minus_true_area_over_R4": 0.00239802993777396
+    },
+    {
+      "radius": 0.06,
+      "frame": [
+        3.0,
+        2.0,
+        2.0,
+        0.0
+      ],
+      "proper_radius": 0.06003440566547571,
+      "volume_at_fixed_rod_radius": 0.0009032257989442832,
+      "proper_area": 0.04516038106779267,
+      "diamond_coordinate_radius": 0.060076952333889086,
+      "diamond_area": 0.04516088267878095,
+      "area_coefficient": 7.235023812008095,
+      "stress_forecast": 7.050906503377087,
+      "diamond_minus_true_area_over_R4": 0.03870455156487471
+    },
+    {
+      "radius": 0.06,
+      "frame": [
+        3.0,
+        2.0,
+        0.0,
+        2.0
+      ],
+      "proper_radius": 0.06003440566547571,
+      "volume_at_fixed_rod_radius": 0.0009032257989442832,
+      "proper_area": 0.04516038106779267,
+      "diamond_coordinate_radius": 0.060076952333889086,
+      "diamond_area": 0.04516088267878095,
+      "area_coefficient": 7.235023812008095,
+      "stress_forecast": 7.050906503377087,
+      "diamond_minus_true_area_over_R4": 0.03870455156487471
+    },
+    {
+      "radius": 0.06,
+      "frame": [
+        3.0,
+        0.0,
+        2.0,
+        2.0
+      ],
+      "proper_radius": 0.06003440566547571,
+      "volume_at_fixed_rod_radius": 0.0009032257989442832,
+      "proper_area": 0.04516038106779267,
+      "diamond_coordinate_radius": 0.060076952333889086,
+      "diamond_area": 0.04516088267878095,
+      "area_coefficient": 7.235023812008095,
+      "stress_forecast": 7.050906503377087,
+      "diamond_minus_true_area_over_R4": 0.03870455156487471
+    },
+    {
+      "radius": 0.03,
+      "frame": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "proper_radius": 0.030000362685688023,
+      "volume_at_fixed_rod_radius": 0.00011309323384910404,
+      "proper_area": 0.011309323328943783,
+      "diamond_coordinate_radius": 0.030000816032225052,
+      "diamond_area": 0.01130932332895045,
+      "area_coefficient": 0.6045293898861573,
+      "stress_forecast": 0.6043634145751787,
+      "diamond_minus_true_area_over_R4": 8.23029915824552e-09
+    },
+    {
+      "radius": 0.03,
+      "frame": [
+        1.6666666666666667,
+        1.3333333333333333,
+        0.0,
+        0.0
+      ],
+      "proper_radius": 0.030001223460828987,
+      "volume_at_fixed_rod_radius": 0.0001130835007712325,
+      "proper_area": 0.011308349036431565,
+      "diamond_coordinate_radius": 0.030002751888281318,
+      "diamond_area": 0.01130834951318764,
+      "area_coefficient": 2.0403022541174174,
+      "stress_forecast": 2.0369285454200465,
+      "diamond_minus_true_area_over_R4": 0.0005885877476423197
+    },
+    {
+      "radius": 0.03,
+      "frame": [
+        1.6666666666666667,
+        -1.3333333333333333,
+        0.0,
+        0.0
+      ],
+      "proper_radius": 0.030001223460828987,
+      "volume_at_fixed_rod_radius": 0.0001130835007712325,
+      "proper_area": 0.011308349036431565,
+      "diamond_coordinate_radius": 0.030002751888281318,
+      "diamond_area": 0.01130834951318764,
+      "area_coefficient": 2.0403022541174174,
+      "stress_forecast": 2.0369285454200465,
+      "diamond_minus_true_area_over_R4": 0.0005885877476423197
+    },
+    {
+      "radius": 0.03,
+      "frame": [
+        1.6666666666666667,
+        0.0,
+        1.3333333333333333,
+        0.0
+      ],
+      "proper_radius": 0.030001223460828987,
+      "volume_at_fixed_rod_radius": 0.0001130835007712325,
+      "proper_area": 0.011308349036431565,
+      "diamond_coordinate_radius": 0.030002751888281318,
+      "diamond_area": 0.01130834951318764,
+      "area_coefficient": 2.0403022541174174,
+      "stress_forecast": 2.0369285454200465,
+      "diamond_minus_true_area_over_R4": 0.0005885877476423197
+    },
+    {
+      "radius": 0.03,
+      "frame": [
+        1.6666666666666667,
+        0.0,
+        -1.3333333333333333,
+        0.0
+      ],
+      "proper_radius": 0.030001223460828987,
+      "volume_at_fixed_rod_radius": 0.0001130835007712325,
+      "proper_area": 0.011308349036431565,
+      "diamond_coordinate_radius": 0.030002751888281318,
+      "diamond_area": 0.01130834951318764,
+      "area_coefficient": 2.0403022541174174,
+      "stress_forecast": 2.0369285454200465,
+      "diamond_minus_true_area_over_R4": 0.0005885877476423197
+    },
+    {
+      "radius": 0.03,
+      "frame": [
+        1.6666666666666667,
+        0.0,
+        0.0,
+        1.3333333333333333
+      ],
+      "proper_radius": 0.030001223460828987,
+      "volume_at_fixed_rod_radius": 0.0001130835007712325,
+      "proper_area": 0.011308349036431565,
+      "diamond_coordinate_radius": 0.030002751888281318,
+      "diamond_area": 0.01130834951318764,
+      "area_coefficient": 2.0403022541174174,
+      "stress_forecast": 2.0369285454200465,
+      "diamond_minus_true_area_over_R4": 0.0005885877476423197
+    },
+    {
+      "radius": 0.03,
+      "frame": [
+        1.6666666666666667,
+        0.0,
+        0.0,
+        -1.3333333333333333
+      ],
+      "proper_radius": 0.030001223460828987,
+      "volume_at_fixed_rod_radius": 0.0001130835007712325,
+      "proper_area": 0.011308349036431565,
+      "diamond_coordinate_radius": 0.030002751888281318,
+      "diamond_area": 0.01130834951318764,
+      "area_coefficient": 2.0403022541174174,
+      "stress_forecast": 2.0369285454200465,
+      "diamond_minus_true_area_over_R4": 0.0005885877476423197
+    },
+    {
+      "radius": 0.03,
+      "frame": [
+        3.0,
+        2.0,
+        2.0,
+        0.0
+      ],
+      "proper_radius": 0.030004247787259335,
+      "volume_at_fixed_rod_radius": 0.00011304932143419494,
+      "proper_area": 0.011304918395184698,
+      "diamond_coordinate_radius": 0.030009543688113684,
+      "diamond_area": 0.011304925727862371,
+      "area_coefficient": 7.095890332022946,
+      "stress_forecast": 7.050906503377087,
+      "diamond_minus_true_area_over_R4": 0.009052688485664706
+    },
+    {
+      "radius": 0.03,
+      "frame": [
+        3.0,
+        2.0,
+        0.0,
+        2.0
+      ],
+      "proper_radius": 0.030004247787259335,
+      "volume_at_fixed_rod_radius": 0.00011304932143419494,
+      "proper_area": 0.011304918395184698,
+      "diamond_coordinate_radius": 0.030009543688113684,
+      "diamond_area": 0.011304925727862371,
+      "area_coefficient": 7.095890332022946,
+      "stress_forecast": 7.050906503377087,
+      "diamond_minus_true_area_over_R4": 0.009052688485664706
+    },
+    {
+      "radius": 0.03,
+      "frame": [
+        3.0,
+        0.0,
+        2.0,
+        2.0
+      ],
+      "proper_radius": 0.030004247787259335,
+      "volume_at_fixed_rod_radius": 0.00011304932143419494,
+      "proper_area": 0.011304918395184698,
+      "diamond_coordinate_radius": 0.030009543688113684,
+      "diamond_area": 0.011304925727862371,
+      "area_coefficient": 7.095890332022946,
+      "stress_forecast": 7.050906503377087,
+      "diamond_minus_true_area_over_R4": 0.009052688485664706
+    },
+    {
+      "radius": 0.015,
+      "frame": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "proper_radius": 0.015000045329369471,
+      "volume_at_fixed_rod_radius": 1.413703877693062e-05,
+      "proper_area": 0.002827407754511902,
+      "diamond_coordinate_radius": 0.015000101990751063,
+      "diamond_area": 0.0028274077545119287,
+      "area_coefficient": 0.6044048999476286,
+      "stress_forecast": 0.6043634145751787,
+      "diamond_minus_true_area_over_R4": 5.311252123978373e-10
+    },
+    {
+      "radius": 0.015,
+      "frame": [
+        1.6666666666666667,
+        1.3333333333333333,
+        0.0,
+        0.0
+      ],
+      "proper_radius": 0.015000152810337017,
+      "volume_at_fixed_rod_radius": 1.4136734897712876e-05,
+      "proper_area": 0.0028273469633151496,
+      "diamond_coordinate_radius": 0.015000343795252852,
+      "diamond_area": 0.0028273469707302988,
+      "area_coefficient": 2.037770745814115,
+      "stress_forecast": 2.0369285454200465,
+      "diamond_minus_true_area_over_R4": 0.00014647208343329565
+    },
+    {
+      "radius": 0.015,
+      "frame": [
+        1.6666666666666667,
+        -1.3333333333333333,
+        0.0,
+        0.0
+      ],
+      "proper_radius": 0.015000152810337017,
+      "volume_at_fixed_rod_radius": 1.4136734897712876e-05,
+      "proper_area": 0.0028273469633151496,
+      "diamond_coordinate_radius": 0.015000343795252852,
+      "diamond_area": 0.0028273469707302988,
+      "area_coefficient": 2.037770745814115,
+      "stress_forecast": 2.0369285454200465,
+      "diamond_minus_true_area_over_R4": 0.00014647208343329565
+    },
+    {
+      "radius": 0.015,
+      "frame": [
+        1.6666666666666667,
+        0.0,
+        1.3333333333333333,
+        0.0
+      ],
+      "proper_radius": 0.015000152810337017,
+      "volume_at_fixed_rod_radius": 1.4136734897712876e-05,
+      "proper_area": 0.0028273469633151496,
+      "diamond_coordinate_radius": 0.015000343795252852,
+      "diamond_area": 0.0028273469707302988,
+      "area_coefficient": 2.037770745814115,
+      "stress_forecast": 2.0369285454200465,
+      "diamond_minus_true_area_over_R4": 0.00014647208343329565
+    },
+    {
+      "radius": 0.015,
+      "frame": [
+        1.6666666666666667,
+        0.0,
+        -1.3333333333333333,
+        0.0
+      ],
+      "proper_radius": 0.015000152810337017,
+      "volume_at_fixed_rod_radius": 1.4136734897712876e-05,
+      "proper_area": 0.0028273469633151496,
+      "diamond_coordinate_radius": 0.015000343795252852,
+      "diamond_area": 0.0028273469707302988,
+      "area_coefficient": 2.037770745814115,
+      "stress_forecast": 2.0369285454200465,
+      "diamond_minus_true_area_over_R4": 0.00014647208343329565
+    },
+    {
+      "radius": 0.015,
+      "frame": [
+        1.6666666666666667,
+        0.0,
+        0.0,
+        1.3333333333333333
+      ],
+      "proper_radius": 0.015000152810337017,
+      "volume_at_fixed_rod_radius": 1.4136734897712876e-05,
+      "proper_area": 0.0028273469633151496,
+      "diamond_coordinate_radius": 0.015000343795252852,
+      "diamond_area": 0.0028273469707302988,
+      "area_coefficient": 2.037770745814115,
+      "stress_forecast": 2.0369285454200465,
+      "diamond_minus_true_area_over_R4": 0.00014647208343329565
+    },
+    {
+      "radius": 0.015,
+      "frame": [
+        1.6666666666666667,
+        0.0,
+        0.0,
+        -1.3333333333333333
+      ],
+      "proper_radius": 0.015000152810337017,
+      "volume_at_fixed_rod_radius": 1.4136734897712876e-05,
+      "proper_area": 0.0028273469633151496,
+      "diamond_coordinate_radius": 0.015000343795252852,
+      "diamond_area": 0.0028273469707302988,
+      "area_coefficient": 2.037770745814115,
+      "stress_forecast": 2.0369285454200465,
+      "diamond_minus_true_area_over_R4": 0.00014647208343329565
+    },
+    {
+      "radius": 0.015,
+      "frame": [
+        3.0,
+        2.0,
+        2.0,
+        0.0
+      ],
+      "proper_radius": 0.01500052935457613,
+      "volume_at_fixed_rod_radius": 1.4135670437702412e-05,
+      "proper_area": 0.0028271338744290907,
+      "diamond_coordinate_radius": 0.01500119061970767,
+      "diamond_area": 0.0028271339871120075,
+      "area_coefficient": 7.06208919532764,
+      "stress_forecast": 7.050906503377087,
+      "diamond_minus_true_area_over_R4": 0.0022258353939135856
+    },
+    {
+      "radius": 0.015,
+      "frame": [
+        3.0,
+        2.0,
+        0.0,
+        2.0
+      ],
+      "proper_radius": 0.01500052935457613,
+      "volume_at_fixed_rod_radius": 1.4135670437702412e-05,
+      "proper_area": 0.0028271338744290907,
+      "diamond_coordinate_radius": 0.01500119061970767,
+      "diamond_area": 0.0028271339871120075,
+      "area_coefficient": 7.06208919532764,
+      "stress_forecast": 7.050906503377087,
+      "diamond_minus_true_area_over_R4": 0.0022258353939135856
+    },
+    {
+      "radius": 0.015,
+      "frame": [
+        3.0,
+        0.0,
+        2.0,
+        2.0
+      ],
+      "proper_radius": 0.01500052935457613,
+      "volume_at_fixed_rod_radius": 1.4135670437702412e-05,
+      "proper_area": 0.0028271338744290907,
+      "diamond_coordinate_radius": 0.01500119061970767,
+      "diamond_area": 0.0028271339871120075,
+      "area_coefficient": 7.06208919532764,
+      "stress_forecast": 7.050906503377087,
+      "diamond_minus_true_area_over_R4": 0.0022258353939135856
+    },
+    {
+      "radius": 0.0075,
+      "frame": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "proper_radius": 0.007500005665973051,
+      "volume_at_fixed_rod_radius": 1.7671418626160153e-06,
+      "proper_area": 0.000706856745032747,
+      "diamond_coordinate_radius": 0.007500012748429049,
+      "diamond_area": 0.0007068567450327478,
+      "area_coefficient": 0.6043737855149769,
+      "stress_forecast": 0.6043634145751787,
+      "diamond_minus_true_area_over_R4": 2.3986299914741043e-10
+    },
+    {
+      "radius": 0.0075,
+      "frame": [
+        1.6666666666666667,
+        1.3333333333333333,
+        0.0,
+        0.0
+      ],
+      "proper_radius": 0.007500019097476518,
+      "volume_at_fixed_rod_radius": 1.7671323685710701e-06,
+      "proper_area": 0.0007068529471750047,
+      "diamond_coordinate_radius": 0.007500042968447586,
+      "diamond_area": 0.0007068529472907335,
+      "area_coefficient": 2.03713901895914,
+      "stress_forecast": 2.0369285454200465,
+      "diamond_minus_true_area_over_R4": 3.6576023417133904e-05
+    },
+    {
+      "radius": 0.0075,
+      "frame": [
+        1.6666666666666667,
+        -1.3333333333333333,
+        0.0,
+        0.0
+      ],
+      "proper_radius": 0.007500019097476518,
+      "volume_at_fixed_rod_radius": 1.7671323685710701e-06,
+      "proper_area": 0.0007068529471750047,
+      "diamond_coordinate_radius": 0.007500042968447586,
+      "diamond_area": 0.0007068529472907335,
+      "area_coefficient": 2.03713901895914,
+      "stress_forecast": 2.0369285454200465,
+      "diamond_minus_true_area_over_R4": 3.6576023417133904e-05
+    },
+    {
+      "radius": 0.0075,
+      "frame": [
+        1.6666666666666667,
+        0.0,
+        1.3333333333333333,
+        0.0
+      ],
+      "proper_radius": 0.007500019097476518,
+      "volume_at_fixed_rod_radius": 1.7671323685710701e-06,
+      "proper_area": 0.0007068529471750047,
+      "diamond_coordinate_radius": 0.007500042968447586,
+      "diamond_area": 0.0007068529472907335,
+      "area_coefficient": 2.03713901895914,
+      "stress_forecast": 2.0369285454200465,
+      "diamond_minus_true_area_over_R4": 3.6576023417133904e-05
+    },
+    {
+      "radius": 0.0075,
+      "frame": [
+        1.6666666666666667,
+        0.0,
+        -1.3333333333333333,
+        0.0
+      ],
+      "proper_radius": 0.007500019097476518,
+      "volume_at_fixed_rod_radius": 1.7671323685710701e-06,
+      "proper_area": 0.0007068529471750047,
+      "diamond_coordinate_radius": 0.007500042968447586,
+      "diamond_area": 0.0007068529472907335,
+      "area_coefficient": 2.03713901895914,
+      "stress_forecast": 2.0369285454200465,
+      "diamond_minus_true_area_over_R4": 3.6576023417133904e-05
+    },
+    {
+      "radius": 0.0075,
+      "frame": [
+        1.6666666666666667,
+        0.0,
+        0.0,
+        1.3333333333333333
+      ],
+      "proper_radius": 0.007500019097476518,
+      "volume_at_fixed_rod_radius": 1.7671323685710701e-06,
+      "proper_area": 0.0007068529471750047,
+      "diamond_coordinate_radius": 0.007500042968447586,
+      "diamond_area": 0.0007068529472907335,
+      "area_coefficient": 2.03713901895914,
+      "stress_forecast": 2.0369285454200465,
+      "diamond_minus_true_area_over_R4": 3.6576023417133904e-05
+    },
+    {
+      "radius": 0.0075,
+      "frame": [
+        1.6666666666666667,
+        0.0,
+        0.0,
+        -1.3333333333333333
+      ],
+      "proper_radius": 0.007500019097476518,
+      "volume_at_fixed_rod_radius": 1.7671323685710701e-06,
+      "proper_area": 0.0007068529471750047,
+      "diamond_coordinate_radius": 0.007500042968447586,
+      "diamond_area": 0.0007068529472907335,
+      "area_coefficient": 2.03713901895914,
+      "stress_forecast": 2.0369285454200465,
+      "diamond_minus_true_area_over_R4": 3.6576023417133904e-05
+    },
+    {
+      "radius": 0.0075,
+      "frame": [
+        3.0,
+        2.0,
+        2.0,
+        0.0
+      ],
+      "proper_radius": 0.007500066118999259,
+      "volume_at_fixed_rod_radius": 1.767099132525976e-06,
+      "proper_area": 0.000706839649687123,
+      "diamond_coordinate_radius": 0.007500148754403124,
+      "diamond_area": 0.0007068396514404876,
+      "area_coefficient": 7.05369825349242,
+      "stress_forecast": 7.050906503377087,
+      "diamond_minus_true_area_over_R4": 0.0005541497987505682
+    },
+    {
+      "radius": 0.0075,
+      "frame": [
+        3.0,
+        2.0,
+        0.0,
+        2.0
+      ],
+      "proper_radius": 0.007500066118999259,
+      "volume_at_fixed_rod_radius": 1.767099132525976e-06,
+      "proper_area": 0.000706839649687123,
+      "diamond_coordinate_radius": 0.007500148754403124,
+      "diamond_area": 0.0007068396514404876,
+      "area_coefficient": 7.05369825349242,
+      "stress_forecast": 7.050906503377087,
+      "diamond_minus_true_area_over_R4": 0.0005541497987505682
+    },
+    {
+      "radius": 0.0075,
+      "frame": [
+        3.0,
+        0.0,
+        2.0,
+        2.0
+      ],
+      "proper_radius": 0.007500066118999259,
+      "volume_at_fixed_rod_radius": 1.767099132525976e-06,
+      "proper_area": 0.000706839649687123,
+      "diamond_coordinate_radius": 0.007500148754403124,
+      "diamond_area": 0.0007068396514404876,
+      "area_coefficient": 7.05369825349242,
+      "stress_forecast": 7.050906503377087,
+      "diamond_minus_true_area_over_R4": 0.0005541497987505682
+    }
+  ],
+  "finite_rest_entropy": [
+    {
+      "comoving_waist": 0.46819914112881056,
+      "vacuum_sites": 81,
+      "source_sites": 81,
+      "same_sites": true,
+      "all_reconstructed_sites_entropy_change": 0.0566012324364209,
+      "common_core_radius": 0.4531,
+      "common_core_sites": 81,
+      "registered_core_entropy_change": 0.0566012324364209,
+      "target_radius": 0.46,
+      "proper_boundary_area": 2.63481058964096,
+      "weighted_entropy_forecast": 0.07121934425407403,
+      "registered_entropy_plus_area_change": -0.01953034062898397
+    },
+    {
+      "comoving_waist": 0.5642985029418273,
+      "vacuum_sites": 147,
+      "source_sites": 171,
+      "same_sites": false,
+      "all_reconstructed_sites_entropy_change": 2.4629976135319325,
+      "common_core_radius": 0.5417500000000001,
+      "common_core_sites": 147,
+      "registered_core_entropy_change": 0.11824600612680314,
+      "target_radius": 0.55,
+      "proper_boundary_area": 3.7502889529735577,
+      "weighted_entropy_forecast": 0.14555174009860428,
+      "registered_entropy_plus_area_change": -0.04209509569064171
+    }
+  ],
+  "fixed_occupation_controls": {
+    "radius": 0.015,
+    "sinh_rapidity": 2.8284271247461903,
+    "area_coefficients": {
+      "declared": 7.06208919532764,
+      "doubled_stiffness": 3.528246308065951,
+      "flat_clock_and_rods": 1.0225548744417171e-11
+    }
+  }
+}

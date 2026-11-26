@@ -1661,6 +1661,87 @@
           }
         }
       ]
+    },
+    {
+      "path": "model/candidate_laws/interval_echo/openwave/row_03_clock/free_end/ROUTING.md",
+      "heading": "## How the energy origin is defined",
+      "scope": "Heralded daughter relative energy measured with a supplied coherent switch. Includes sham, reference change, matched evolution and pointer dephasing.",
+      "label_column": "Source and reference",
+      "comparison_column": "Measured switch record",
+      "rows": [
+        {
+          "label": "Wall source, ground memory",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-GEOMETRY-INTERNAL-CLOCK-REST-FREQUENCY"
+          }
+        },
+        {
+          "label": "Same wall, middle-mode memory",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-GEOMETRY-INTERNAL-CLOCK-REST-FREQUENCY"
+          }
+        },
+        {
+          "label": "Ordered sham, ground memory",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-GEOMETRY-INTERNAL-CLOCK-REST-FREQUENCY"
+          }
+        },
+        {
+          "label": "Same wall, identical evolution in both registers",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-GEOMETRY-INTERNAL-CLOCK-REST-FREQUENCY"
+          }
+        },
+        {
+          "label": "Same wall, dephased switch",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-GEOMETRY-INTERNAL-CLOCK-REST-FREQUENCY"
+          }
+        }
+      ]
+    },
+    {
+      "path": "model/candidate_laws/interval_echo_published_records/spherical_dust/README.md",
+      "heading": "## A single line of material memories",
+      "label_column": "Reference radius $\\ell$",
+      "comparison_column": "Largest held $\\lvert\\Delta S+\\eta_\\ell\\Delta A\\rvert/\\ell^4$ over ten frames",
+      "rows": [
+        {
+          "label": "1/512",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-GR-D5"
+          }
+        },
+        {
+          "label": "1/2048",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-GR-D5"
+          }
+        },
+        {
+          "label": "1/8192",
+          "role": "conditional_branch",
+          "lane": {
+            "kind": "registry_claim",
+            "claim_id": "OPH-GR-D5"
+          }
+        }
+      ]
     }
   ]
 }

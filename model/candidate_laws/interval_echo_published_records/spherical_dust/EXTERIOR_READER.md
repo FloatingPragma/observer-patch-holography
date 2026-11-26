@@ -1,0 +1,19 @@
+# Two exterior measurements of the same gravitating count
+
+The spherical candidate assigns a carrier speed \(v(r)=-\sqrt{2\mu/r}\) to the areal-radius labels in the observer survey. A clock with rest mass \(m\) and radial momentum \(p\) follows the local action \(H=vp+\sqrt{m^2+p^2}\). This experiment asks whether pulse observers and released clocks infer the same \(\mu\) on copies of the same posted source. The additional clock and carrier rules are inputs particular to this candidate. The counts and all readings below are synthetic. [Candidate](README.md) · [Recorded readings](exterior_reader.json)
+
+| Source | Received frequency / emitted frequency | Inner round-trip proper time | \(\mu\) from pulse spacing | \(\mu\) from free release |
+|---|---:|---:|---:|---:|
+| Blank | 1 | 4 | 0 | 0 |
+| Ordinary | 0.978019294 | 4.065107505 | 0.08333333333 | 0.08333333329 |
+| Same ordinary count plus collar | 0.960442075 | 4.113191241 | 0.14393939394 | 0.14393939392 |
+| Both meters blind to collar | 0.978019294 | 4.065107505 | 0.08333333333 | 0.08333333329 |
+| Light and its held clocks blind to collar | 0.978019294 | 4.065107505 | 0.08333333333 | 0.14393939392 |
+
+The two held clocks use radii 2 and 4. The inner clock emits twice, one proper-time unit apart, with different pulse momenta. The outer clock records the reception dates and reflects the first pulse at fixed local frequency. The inner clock dates its return. Hamilton's equations give \(dr/dt=v+\operatorname{sgn}p\) for light and \(dp/dt=vp/(2r)\). For a clock held at fixed radius, \(v+p/\sqrt{m^2+p^2}=0\) and \(d\tau/dt=m/\sqrt{m^2+p^2}\). The ratio \(z\) of emitted to received pulse spacings yields \(\mu=(1-z^2)/[2(1/r_{\rm in}-z^2/r_{\rm out})]\). Reading the propagated wave's local frequency gives an independent check within \(1.3\times10^{-10}\) of the pulse-spacing ratio.
+
+For free release, the inner observer removes the holding force. Probes of masses 1 and 3 report their radii at their own clock appointments. The two shortest appointments have \(\tau=1/16,1/32\). Combining the measured \(2[r(\tau)-2]/\tau^2\) at the two times gives the initial acceleration to fourth order in the time interval. Each mass reproduces all four archived short-arc radius tickets for the ordinary and held sources. The ordinary records calibrate \(G=0.2499999999998\) by clock spacing and \(0.249999999884\) by free release. The posted counts \(1/3+8/33\) then predict \(\mu=19/132\) to the displayed precision of each calibration. [Original radius tickets](results.json)
+
+The numerical readers integrate the Hamilton equations separately from the candidate's closed-form ticket generator. For a ray, the RK4 time update integrates \(1/(1\pm\sqrt{2\mu/r})\) by composite Simpson quadrature. With \(q=\sqrt{2\mu/r_{\rm in}}\), the geometric series bounds the fourth derivative by \(24q/[r_{\rm in}^4(1-q)^5]\). Multiplying by \((r_{\rm out}-r_{\rm in})h^4/2880\) bounds truncation at panel width \(h\). Direct interval evaluation of the exact flight integral bounds error including numerical rounding. The held outgoing error upper bound falls from \(8.55\times10^{-6}\) at four panels to \(1.37\times10^{-10}\) at 64. For each massive appointment an interval bisection encloses \(r=2\cos^2\theta\), where conservation of \(H\) gives \(\theta+\sin(2\theta)/2=\tau\sqrt{2\mu/2^3}\). The held half-unit release error bound falls from \(5.94\times10^{-8}\) to \(8.21\times10^{-13}\) over one to 16 steps.
+
+The split-coupling control gives the two meters different masses to infer while keeping the published words fixed. It resolves a difference \(0.06060606059\) and shows what a failure of common exterior coupling would look like in these observations. Deriving the carrier speed and the common action from unmodified Interval Echo would establish a separate model claim. [Executable](exterior_reader.py) · [Tests](test_exterior_reader.py)

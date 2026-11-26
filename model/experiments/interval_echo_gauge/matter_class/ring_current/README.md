@@ -28,6 +28,8 @@ Opening every seam of the 20-cell and 80-cell boards preserves the two signs at 
 
 A subsequent exact check separates the known meter operators from the proposed action on independent matter. The bare ring operators fail closure on one marked pair. The odd-sorted meter operators realize two commuting rotation algebras on orbital loads. Two held signed coordinates suffice to test the five-sector channel after an independent port coupling is available. [Exact marked commutator and independent-probe protocol](FIVE_COMMUTATOR.md)
 
+Two owners now offer independently prepared winding loads to a third observer’s probe. Its 66 signed port readings resolve at least thirteen directions among twelve single drives and two order differences. This native exchange instrument fails the proposed twelve-dimensional closure on the full probe. [Independent winding probe and every failed encounter](independent_probe/README.md)
+
 ## Replay
 
 From the repository root run the following commands. Two independent streams contain 2,294 terminal banks of 131,072 simulated starts each. The decoder includes every empty or elsewhere outcome. Radii use a union bound over the enrolled readouts with a conservative integer-grid allowance. Overlapping reconstructed circulations do not require independent errors.

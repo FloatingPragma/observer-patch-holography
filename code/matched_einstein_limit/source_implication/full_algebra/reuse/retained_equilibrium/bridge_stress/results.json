@@ -1,0 +1,129 @@
+{
+  "source_certificate": {
+    "vacancy": {
+      "work": [
+        88224,
+        93594
+      ],
+      "current": [
+        850427,
+        895325
+      ],
+      "work_over_current": [
+        98538,
+        110055
+      ]
+    },
+    "excess": {
+      "work": [
+        19209,
+        21069
+      ],
+      "current": [
+        555480,
+        584522
+      ],
+      "work_over_current": [
+        32864,
+        37929
+      ]
+    },
+    "determinant": [
+      30143,
+      38371
+    ]
+  },
+  "simulated_counts": {
+    "vacancy": {
+      "work": [
+        90792,
+        90905
+      ],
+      "current": [
+        811125,
+        929297
+      ],
+      "work_over_current": [
+        97700,
+        112073
+      ]
+    },
+    "excess": {
+      "work": [
+        20089,
+        20149
+      ],
+      "current": [
+        508659,
+        626620
+      ],
+      "work_over_current": [
+        32059,
+        39612
+      ]
+    },
+    "determinant": [
+      27458,
+      40668
+    ]
+  },
+  "count_only_material_calibration": {
+    "vacancy_pairing_over_ordinary": [
+      280500,
+      283000
+    ],
+    "vacancy_current_at_ratio_endpoints": [
+      [
+        -8173,
+        -41
+      ],
+      [
+        71,
+        7112
+      ]
+    ],
+    "held_excess_current": [
+      -18856,
+      -6141
+    ]
+  },
+  "fixed_vacancy_current_and_volume": {
+    "vacancy_current": [
+      0,
+      0
+    ],
+    "excess_current": [
+      -13878,
+      -10367
+    ],
+    "entropy": [
+      115484,
+      115912
+    ],
+    "area": [
+      -5017,
+      -4998
+    ],
+    "nominal_current_counts": {
+      "-1": [
+        -5138,
+        5290
+      ],
+      "1": [
+        -16767,
+        -7240
+      ]
+    }
+  },
+  "units": "outward endpoints in millionths",
+  "entropy_ratio": [
+    564323,
+    564529
+  ],
+  "parked_energy_derivative": [
+    -167984,
+    -167921
+  ],
+  "liminf_area_loss_per_step_squared_lower": 683,
+  "count_coverage": 0.99
+}

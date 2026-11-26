@@ -1,0 +1,166 @@
+{
+  "curve_record_sha256": "f1dd79b7489f8bd6b736b1ac036bd57357b26d07d611fd1093183a7d3e364767",
+  "reference": [
+    0,
+    1,
+    38,
+    39
+  ],
+  "subsets": 15,
+  "pairs_per_comparison": 105,
+  "permutations_per_metric_pair": 24,
+  "transferred_to_two_counted_endpoints": [
+    {
+      "source_trace_norm_upper_millionths": 852,
+      "excluded_of_105": 97,
+      "reference_vs_any": {
+        "lower_billionths": 138165856,
+        "station_sets": [
+          [
+            0,
+            1,
+            38,
+            39
+          ],
+          [
+            0,
+            1,
+            5,
+            6
+          ]
+        ]
+      }
+    },
+    {
+      "source_trace_norm_upper_millionths": 1156,
+      "excluded_of_105": 93,
+      "reference_vs_any": {
+        "lower_billionths": 136340270,
+        "station_sets": [
+          [
+            0,
+            1,
+            38,
+            39
+          ],
+          [
+            0,
+            1,
+            5,
+            6
+          ]
+        ]
+      }
+    }
+  ],
+  "lower_bounds": {
+    "published_five_plus_one": {
+      "any_pair": {
+        "lower_billionths": 10938310,
+        "station_sets": [
+          [
+            0,
+            38,
+            39,
+            5
+          ],
+          [
+            0,
+            38,
+            39,
+            6
+          ]
+        ]
+      },
+      "reference_vs_any": {
+        "lower_billionths": 1622671595,
+        "station_sets": [
+          [
+            0,
+            1,
+            38,
+            39
+          ],
+          [
+            0,
+            1,
+            5,
+            6
+          ]
+        ]
+      }
+    },
+    "separate_four_clock": {
+      "any_pair": {
+        "lower_billionths": 10400923,
+        "station_sets": [
+          [
+            0,
+            38,
+            5,
+            6
+          ],
+          [
+            0,
+            39,
+            5,
+            6
+          ]
+        ]
+      },
+      "reference_vs_any": {
+        "lower_billionths": 1622637658,
+        "station_sets": [
+          [
+            0,
+            1,
+            38,
+            39
+          ],
+          [
+            0,
+            1,
+            5,
+            6
+          ]
+        ]
+      }
+    },
+    "arbitrary_clock_gains": {
+      "any_pair": {
+        "lower_billionths": 949460,
+        "station_sets": [
+          [
+            0,
+            38,
+            39,
+            5
+          ],
+          [
+            0,
+            38,
+            39,
+            6
+          ]
+        ]
+      },
+      "reference_vs_any": {
+        "lower_billionths": 143283207,
+        "station_sets": [
+          [
+            0,
+            1,
+            38,
+            39
+          ],
+          [
+            0,
+            1,
+            5,
+            6
+          ]
+        ]
+      }
+    }
+  }
+}

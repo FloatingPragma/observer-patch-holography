@@ -1179,7 +1179,6 @@
    "premises": [
     "PR-24",
     "PR-179",
-    "PR-25",
     "PR-28",
     "PR-133"
    ],
@@ -1269,7 +1268,9 @@
     "Lean/Thermodynamics/HorizonThermalitySurface.lean",
     "Lean/Geometry/SourceOrderEinsteinComposition.lean",
     "Lean/ObserverPatchHolography/EinsteinBranch/DarkSector.lean",
-    "model/experiments/interval_echo_consensus/versioned_dispatch/cone_order/ArbitraryClock.lean"
+    "model/experiments/interval_echo_consensus/versioned_dispatch/cone_order/ArbitraryClock.lean",
+    "Lean/ObserverPatchHolography/EinsteinBranch/SphericalDust.lean",
+    "Lean/ObserverPatchHolography/EinsteinBranch/ClockPairRecords.lean"
    ],
    "model": [
     "model/evaluation/SCORECARD.md",
@@ -1322,7 +1323,27 @@
     "code/matched_einstein_limit/source_implication/full_algebra/reuse/retained_equilibrium/observer_banks/certificate.json",
     "model/experiments/interval_echo_consensus/versioned_dispatch/cone_order/README.md",
     "model/experiments/interval_echo_consensus/versioned_dispatch/cone_order/parity_log/README.md",
-    "code/matched_einstein_limit/test_frame.py"
+    "code/matched_einstein_limit/test_frame.py",
+    "code/matched_einstein_limit/source_implication/full_algebra/reuse/retained_equilibrium/shape_readout/README.md",
+    "code/matched_einstein_limit/source_implication/full_algebra/reuse/retained_equilibrium/nested_ranges/README.md",
+    "code/matched_einstein_limit/source_implication/full_algebra/reuse/retained_equilibrium/bridge_stress/README.md",
+    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/formed_ranges/affine_stencil/README.md",
+    "code/matched_einstein_limit/source_implication/full_algebra/reuse/retained_equilibrium/regional_energy/README.md",
+    "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/energy_source/binding/README.md",
+    "code/matched_einstein_limit/PROOF.md",
+    "code/matched_einstein_limit/source_implication/material_clocks/two_way_phase/README.md",
+    "model/experiments/interval_echo_einstein_station/collar_scaling/station_clock/separated_sectors/angular_pair/README.md",
+    "model/experiments/interval_echo_einstein_station/field_stress_curvature/neutral_packet/README.md",
+    "model/candidate_laws/interval_echo_published_records/spherical_dust/PROOF.md",
+    "model/candidate_laws/interval_echo_published_records/spherical_dust/endpoint_counts.json",
+    "model/candidate_laws/interval_echo_published_records/spherical_dust/null_beam.json",
+    "model/candidate_laws/interval_echo_partition_repair/published_strings/counted_tower/README.md",
+    "model/candidate_laws/interval_echo_published_records/spherical_dust/clock_pairs/REFINEMENT.md",
+    "model/candidate_laws/interval_echo_published_records/spherical_dust/clock_pairs/regions.json",
+    "model/candidate_laws/interval_echo_published_records/spherical_dust/clock_pairs/census.py",
+    "model/candidate_laws/interval_echo_partition_repair/published_strings/counted_tower/test_counted_tower.py",
+    "model/candidate_laws/interval_echo_partition_repair/published_strings/counted_tower/calibration_window.py",
+    "model/candidate_laws/interval_echo_partition_repair/published_strings/counted_tower/test_conserved_modes.py"
    ],
    "papers": [
     "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf",
@@ -1339,7 +1360,6 @@
    "what": "The graviton would be the massless spin-two quantum of the gravitational field, with two polarizations matching those of gravitational waves.",
    "why": "OPH treats gravity as part of one quantum record theory, so it has to carry massless spin-two excitations matching observed gravitational waves.",
    "premises": [
-    "PR-25",
     "PR-27",
     "PR-28",
     "PR-97",
@@ -1489,7 +1509,6 @@
    "why": "Variation of a specified covariant matter action gives a Hilbert stress and classical on-shell conservation, while its identification with independent regional matter readings remains open.",
    "premises": [
     "PR-24",
-    "PR-25",
     "PR-28",
     "PR-23",
     "PR-53",
@@ -1540,7 +1559,6 @@
    "why": "In OPH inertia and gravity would both read one record-level energy ledger; universal free fall is the observable consequence of that identity.",
    "premises": [
     "PR-15",
-    "PR-25",
     "PR-28"
    ],
    "lean": [
@@ -1641,7 +1659,9 @@
     "model/experiments/interval_echo_gauge/flag_measure/README.md",
     "model/experiments/interval_echo_gauge/flag_measure/measure.py",
     "model/experiments/interval_echo_gauge/flag_measure/records.json",
-    "model/experiments/interval_echo_gauge/flag_measure/test_flags.py"
+    "model/experiments/interval_echo_gauge/flag_measure/test_flags.py",
+    "model/experiments/interval_echo_gauge/port_phases/README.md",
+    "model/experiments/interval_echo_gauge/matter_class/ring_current/independent_probe/README.md"
    ],
    "papers": [
     "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf",
@@ -4932,7 +4952,12 @@
     "code/cosmology/rar_deep_regime/double_ring_pressure/resolved_kinematics/README.md",
     "code/cosmology/rar_deep_regime/double_ring_pressure/resolved_kinematics/results.json",
     "code/cosmology/rar_deep_regime/double_ring_pressure/resolved_kinematics/slit_anisotropy/README.md",
-    "code/cosmology/rar_deep_regime/double_ring_pressure/resolved_kinematics/slit_anisotropy/results.json"
+    "code/cosmology/rar_deep_regime/double_ring_pressure/resolved_kinematics/slit_anisotropy/results.json",
+    "code/cosmology/rar_deep_regime/brightness_pairs/README.md",
+    "code/cosmology/rar_deep_regime/brightness_pairs/hydrogen.json",
+    "model/candidate_laws/interval_echo_published_records/spherical_dust/EXTERIOR_READER.md",
+    "model/candidate_laws/interval_echo_published_records/spherical_dust/NULL_BEAM.md",
+    "model/candidate_laws/interval_echo_published_records/spherical_dust/clock_pairs/regions.json"
    ],
    "papers": [
     "cosmology/oph_dark_matter_paper.pdf",
@@ -5233,7 +5258,8 @@
    "lean": [
     "model/candidate_laws/interval_echo/openwave/row_03_clock/released_direction/InternalBand.lean",
     "model/candidate_laws/interval_echo/openwave/row_03_clock/wall_arrival/WallBand.lean",
-    "model/candidate_laws/interval_echo/openwave/row_03_clock/polar_island/PassiveRead.lean"
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/polar_island/PassiveRead.lean",
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/free_end/FreeEnd.lean"
    ],
    "model": [
     "model/evaluation/SCORECARD.md",
@@ -5276,7 +5302,12 @@
     "model/candidate_laws/interval_echo/openwave/row_03_clock/emitted_material/README.md",
     "model/candidate_laws/interval_echo/openwave/row_03_clock/emitted_material/frequencies.json",
     "model/candidate_laws/interval_echo/openwave/row_03_clock/emitted_material/measure.py",
-    "model/candidate_laws/interval_echo/openwave/row_03_clock/emitted_material/test_emitted_clock.py"
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/emitted_material/test_emitted_clock.py",
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/free_end/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/free_end/ROUTING.md",
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/free_end/results.json",
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/free_end/routing_counts.npz",
+    "model/candidate_laws/interval_echo/openwave/row_03_clock/free_end/routing_results.json"
    ],
    "papers": [
     "paper/executable_observer_construction.pdf"
@@ -6099,7 +6130,9 @@
     "model/candidate_laws/interval_echo/openwave/row_30_collective/polar_recoil/README.md",
     "model/candidate_laws/interval_echo/openwave/row_30_collective/polar_recoil/counts.json",
     "model/candidate_laws/interval_echo/openwave/row_30_collective/polar_recoil/measure.py",
-    "model/candidate_laws/interval_echo/openwave/row_30_collective/polar_recoil/test_measure.py"
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/polar_recoil/test_measure.py",
+    "code/cosmology/rar_deep_regime/brightness_pairs/README.md",
+    "code/cosmology/rar_deep_regime/brightness_pairs/hydrogen.json"
    ],
    "papers": [
     "paper/executable_observer_construction.pdf",
@@ -6364,9 +6397,9 @@
    "kind": "observable",
    "name": "Newtonian inverse-square gravity between masses",
    "category": "OpenWave Recovery",
-   "status": "Open",
+   "status": "Partial",
    "what": "Masses attract with an inverse-square force of strength G, the Newtonian limit of general relativity.",
-   "why": "Two mobile loads share an inward acceleration in a routed three-guide receiver, while the physical Newton coupling requires an independently measured source mass and separation.",
+   "why": "Calibrating on ordinary matter permits an independent check of how much attraction a change of source contributes at a measured radius.",
    "premises": [],
    "lean": [
     "Lean/ObserverPatchHolography/EinsteinBranch/NestedVolumes.lean",
@@ -6401,7 +6434,10 @@
     "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/common_receiver/README.md",
     "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/common_receiver/results.json",
     "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/energy_source/README.md",
-    "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/energy_source/results.json"
+    "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/energy_source/results.json",
+    "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/energy_source/binding/README.md",
+    "model/candidate_laws/interval_echo_published_records/spherical_dust/exterior_reader.json",
+    "model/candidate_laws/interval_echo_published_records/spherical_dust/EXTERIOR_READER.md"
    ],
    "papers": []
   },
@@ -6410,9 +6446,9 @@
    "kind": "observable",
    "name": "Light bending, gravitational redshift and Shapiro delay",
    "category": "OpenWave Recovery",
-   "status": "Open",
+   "status": "Partial",
    "what": "Gravity bends light, slows clocks and delays signals, observed as light deflection, gravitational redshift and Shapiro delay.",
-   "why": "These effects test whether a source curves spacetime for clocks and light together, as general relativity requires.",
+   "why": "A common relation between matter, clock frequencies and light propagation can be tested by independent measurements around one source.",
    "premises": [],
    "lean": [
     "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/RangeContraction.lean"
@@ -6477,7 +6513,13 @@
     "code/matched_einstein_limit/fixed_volume/polarized_ranges/results.json",
     "model/experiments/interval_echo_einstein_station/collar_pairing/fringe_ruler/README.md",
     "model/experiments/interval_echo_einstein_station/collar_pairing/fringe_ruler/results.json",
-    "model/experiments/interval_echo_einstein_station/collar_pairing/fringe_ruler/certificate.json"
+    "model/experiments/interval_echo_einstein_station/collar_pairing/fringe_ruler/certificate.json",
+    "code/matched_einstein_limit/source_implication/full_algebra/reuse/retained_equilibrium/shape_readout/README.md",
+    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/formed_ranges/affine_stencil/README.md",
+    "model/candidate_laws/interval_echo_published_records/spherical_dust/EXTERIOR_READER.md",
+    "model/candidate_laws/interval_echo_published_records/spherical_dust/exterior_reader.json",
+    "model/candidate_laws/interval_echo_published_records/spherical_dust/null_beam.json",
+    "model/experiments/interval_echo_einstein_station/critical_exchange/neutral_cell/README.md"
    ],
    "papers": [
     "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf",
@@ -7143,7 +7185,8 @@
    "lean": [
     "model/experiments/interval_echo_gauge/matter_class/SpinBracket.lean",
     "model/experiments/interval_echo_gauge/matter_class/port_pair/Ramsey.lean",
-    "model/experiments/interval_echo_gauge/matter_class/ring_current/PortCurrent.lean"
+    "model/experiments/interval_echo_gauge/matter_class/ring_current/PortCurrent.lean",
+    "model/experiments/interval_echo_gauge/matter_class/ring_current/independent_probe/OrderResponse.lean"
    ],
    "model": [
     "code/b15_matter_freeze/matter_class_freeze_v1.json",
@@ -7161,7 +7204,11 @@
     "model/experiments/interval_echo_gauge/matter_class/ring_current/records.json",
     "model/experiments/interval_echo_gauge/matter_class/ring_current/source_counts.json",
     "model/experiments/interval_echo_gauge/matter_class/ring_current/FIVE_COMMUTATOR.md",
-    "model/experiments/interval_echo_gauge/matter_class/ring_current/five_commutator.py"
+    "model/experiments/interval_echo_gauge/matter_class/ring_current/five_commutator.py",
+    "model/experiments/interval_echo_gauge/matter_class/ring_current/independent_probe/README.md",
+    "model/experiments/interval_echo_gauge/matter_class/ring_current/independent_probe/PROOF.md",
+    "model/experiments/interval_echo_gauge/matter_class/ring_current/independent_probe/readback.py",
+    "model/experiments/interval_echo_gauge/matter_class/ring_current/independent_probe/counts.npz"
    ],
    "papers": [
     "paper/deriving_the_particle_zoo_from_observer_consistency.pdf"
@@ -7408,101 +7455,60 @@
    "category": "Physical premises",
    "status": "Partial",
    "what": "Entropy changes of regions equal modular-energy pairings, which split into 2 pi times a bulk term plus an edge term.",
-   "why": "It links entanglement entropy to energy, the first-law step on OPH's route from entropy to Einstein's equations.",
+   "why": "The regional entropy measurement must respond to the energy independently measured on the same moving observer's ball.",
    "premises": [],
    "lean": [
     "Lean/ObserverPatchHolography/EinsteinBranch/RegisterSurface.lean",
-    "Lean/ObserverPatchHolography/EinsteinBranch/Composition.lean"
+    "Lean/ObserverPatchHolography/EinsteinBranch/Composition.lean",
+    "Lean/ObserverPatchHolography/EinsteinBranch/RegionalMoments.lean"
    ],
    "model": [
     "model/experiments/interval_echo_einstein_station/PAIR.md",
     "model/experiments/interval_echo_einstein_station/cap.json",
     "model/experiments/interval_echo_clock/reference_exchange/joint_time/README.md",
     "model/experiments/interval_echo_shell_flux/product_address/corner_source/README.md",
-    "model/experiments/interval_echo_shell_flux/product_address/corner_source/records.json"
+    "model/experiments/interval_echo_shell_flux/product_address/corner_source/records.json",
+    "model/experiments/interval_echo_einstein_station/collar_scaling/station_clock/separated_sectors/angular_pair/README.md",
+    "model/experiments/interval_echo_einstein_station/field_stress_curvature/neutral_packet/README.md",
+    "code/matched_einstein_limit/source_implication/full_algebra/correlation_rank/shared_action/README.md",
+    "model/candidate_laws/interval_echo_partition_repair/published_strings/README.md",
+    "model/experiments/interval_echo_einstein_station/critical_exchange/selection/README.md",
+    "model/experiments/interval_echo_einstein_station/critical_exchange/results.json",
+    "code/matched_einstein_limit/source_implication/modular_orbit/weyl_balls/PROOF.md",
+    "model/candidate_laws/interval_echo_partition_repair/published_strings/nested_stress/README.md",
+    "model/candidate_laws/interval_echo_published_records/spherical_dust/PROOF.md",
+    "model/candidate_laws/interval_echo_published_records/spherical_dust/endpoint_counts.json",
+    "model/candidate_laws/interval_echo_partition_repair/published_strings/counted_tower/README.md",
+    "model/candidate_laws/interval_echo_published_records/spherical_dust/clock_pairs/REFINEMENT.md",
+    "model/candidate_laws/interval_echo_published_records/spherical_dust/clock_pairs/modular_reader.py"
    ],
    "papers": [],
-   "statement": "The finite first-law pairings satisfy the typed modular flow package: the entropy differential equals the modular pairing, the modular generator splits as 2*pi times the bulk pairing plus the central pairing, and the central pairing equals the edge differential. The continuum diamond-kernel identification reads the bulk entropy variation as the modular charge of the stress.",
+   "statement": "The finite first-law pairings satisfy the typed modular flow package: the entropy differential equals the modular pairing, the modular generator splits as 2*pi times the bulk pairing plus the central pairing, and the central pairing equals the edge differential. The continuum diamond-kernel identification reads the bulk entropy variation as the modular charge of the same symmetric regional stress that governs matter propagation, with its energy scale fixed independently of the area response.",
    "premise_kind": "derivable"
   },
   {
    "id": "PR-24",
    "kind": "premise",
-   "name": "stress conservation under modular null translations",
+   "name": "Independent conservation of regional matter stress",
    "category": "Physical premises",
-   "status": "Open",
-   "what": "The reconstructed stress-energy satisfies a conservation identity under null translations generated by nested modular algebras.",
-   "why": "Stress-energy conservation along light-like directions is required on the entropy route to Einstein's equations.",
-   "premises": [],
-   "lean": [
-    "Lean/ObserverPatchHolography/EinsteinBranch/RegisterSurface.lean",
-    "Lean/ObserverPatchHolography/EinsteinBranch/Composition.lean"
-   ],
-   "model": [
-    "model/experiments/interval_echo_null_balance/README.md"
-   ],
-   "papers": [],
-   "statement": "The reconstructed stress readout satisfies the weak Ward identity under the chart coordinate steps, the conservation shadow of the null translations generated by half-sided modular inclusion.",
-   "premise_kind": "derivable"
-  },
-  {
-   "id": "PR-25",
-   "kind": "premise",
-   "name": "matched geometry and stress charges on light cones",
-   "category": "Physical premises",
-   "status": "Open",
-   "what": "On light cones, geometric and stress-energy charges match up to the coupling, and one stress source feeds both entropy and null measurements.",
-   "why": "It lets OPH read curvature and matter from the same source, a step toward Einstein's equations from entanglement.",
+   "status": "Partial",
+   "what": "The regional energy and momentum of the propagating matter obey the covariant conservation law on the common observer chart.",
+   "why": "Separate material mass conservation on a common chart is what permits a gravitational source to be inferred independently of curvature.",
    "premises": [],
    "lean": [
     "Lean/ObserverPatchHolography/EinsteinBranch/RegisterSurface.lean",
     "Lean/ObserverPatchHolography/EinsteinBranch/Composition.lean",
-    "Lean/ObserverPatchHolography/EinsteinBranch/CollarAdmission.lean",
-    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/RangeContraction.lean"
+    "Lean/ObserverPatchHolography/EinsteinBranch/SphericalDust.lean"
    ],
    "model": [
-    "model/experiments/interval_echo_angular/README.md",
-    "model/experiments/interval_echo_einstein_station/collar_scaling/ancestor.json",
-    "code/matched_einstein_limit/source_implication/directional_stress/regional_modular/README.md",
-    "code/matched_einstein_limit/rate_geometry/seam_strain/weak_ruler/port_ward/README.md",
-    "model/experiments/interval_echo_einstein_station/collar_scaling/station_clock/separated_sectors/results.json",
-    "code/matched_einstein_limit/source_implication/full_algebra/correlation_rank/README.md",
-    "model/experiments/interval_echo_shell_flux/product_address/corner_source/README.md",
-    "code/matched_einstein_limit/source_implication/full_algebra/correlation_rank/spatial_cuts/README.md",
-    "code/matched_einstein_limit/source_implication/full_algebra/correlation_rank/spatial_cuts/radial_profiles/README.md",
-    "code/matched_einstein_limit/source_implication/full_algebra/correlation_rank/spatial_cuts/radial_profiles/results.json",
-    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/README.md",
-    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/results.json",
-    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/DIRECTIONAL.md",
-    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/port_apertures.json",
-    "code/matched_einstein_limit/source_implication/full_algebra/correlation_rank/spatial_cuts/chart_transport/README.md",
-    "code/matched_einstein_limit/source_implication/full_algebra/correlation_rank/spatial_cuts/chart_transport/transfer.json",
-    "code/matched_einstein_limit/source_implication/full_algebra/correlation_rank/spatial_cuts/chart_transport/held.json",
-    "code/matched_einstein_limit/source_implication/full_algebra/correlation_rank/spatial_cuts/chart_transport/regional.json",
-    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/README.md",
-    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/results.json",
-    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/dwell.json",
-    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/fixed_volume.json",
-    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/README.md",
-    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/results.json",
-    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/live_reference/README.md",
-    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/live_reference/results.json",
-    "code/matched_einstein_limit/source_implication/full_algebra/correlation_rank/spatial_cuts/chart_transport/adaptive_optics/README.md",
-    "code/matched_einstein_limit/source_implication/full_algebra/correlation_rank/spatial_cuts/chart_transport/adaptive_optics/results.json",
-    "model/experiments/material_inertia/sourced_survey/README.md",
-    "model/experiments/material_inertia/sourced_survey/results.json",
-    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/formed_ranges/README.md",
-    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/formed_ranges/results.json",
-    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/formed_optics/README.md",
-    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/formed_optics/certificate.json",
-    "model/candidate_laws/interval_echo/openwave/row_27_metric/formed_pair_clocks/README.md",
-    "model/candidate_laws/interval_echo/openwave/row_27_metric/formed_pair_clocks/results.json",
-    "model/experiments/interval_echo_einstein_station/collar_pairing/fringe_ruler/README.md",
-    "model/experiments/interval_echo_einstein_station/collar_pairing/fringe_ruler/results.json",
-    "model/experiments/interval_echo_einstein_station/collar_pairing/fringe_ruler/certificate.json"
+    "model/experiments/interval_echo_null_balance/README.md",
+    "model/candidate_laws/interval_echo_partition_repair/published_strings/GEOMETRY.md",
+    "code/matched_einstein_limit/source_implication/modular_orbit/weyl_balls/PROOF.md",
+    "model/candidate_laws/interval_echo_published_records/spherical_dust/body.py",
+    "model/candidate_laws/interval_echo_published_records/spherical_dust/PROOF.md"
    ],
    "papers": [],
-   "statement": "On the null cone the geometry and stress quadratic charges match up to the coupling, both charge forms are symmetric, and one universal stress source feeds the entropy channel and the null tomography.",
+   "statement": "The symmetric stress of the propagating matter satisfies the weak Ward conservation identity on the reconstructed chart independently of the Einstein equation. Modular translation measurements give one way to test this identity.",
    "premise_kind": "derivable"
   },
   {
@@ -7512,12 +7518,13 @@
    "category": "Physical premises",
    "status": "Partial",
    "what": "At fixed volume, first-order changes of bulk entropy balance changes of boundary area divided by four times Newton's constant.",
-   "why": "Stationarity gives the gravity premise when observers recover proper area, and on the five-rim source, plugs measure the balancing information while calibrated tracer volumes miss its sign.",
+   "why": "At equal proper volume the regional entropy and boundary area of a selected material must respond with opposite signs at one ordinary-matter coupling.",
    "premises": [],
    "lean": [
     "Lean/ObserverPatchHolography/EinsteinBranch/Composition.lean",
     "Lean/ObserverPatchHolography/EinsteinBranch/TileCapacity.lean",
-    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/RangeContraction.lean"
+    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/RangeContraction.lean",
+    "Lean/ObserverPatchHolography/EinsteinBranch/TicketBath.lean"
    ],
    "model": [
     "model/experiments/interval_echo_einstein_station/equilibrium_refinement/README.md",
@@ -7575,7 +7582,25 @@
     "code/matched_einstein_limit/source_implication/full_algebra/reuse/retained_equilibrium/observer_banks/README.md",
     "code/matched_einstein_limit/source_implication/full_algebra/reuse/retained_equilibrium/observer_banks/records.json",
     "code/matched_einstein_limit/source_implication/full_algebra/reuse/retained_equilibrium/collar_family.py",
-    "code/matched_einstein_limit/source_implication/full_algebra/reuse/retained_equilibrium/observer_banks/certificate.json"
+    "code/matched_einstein_limit/source_implication/full_algebra/reuse/retained_equilibrium/observer_banks/certificate.json",
+    "code/matched_einstein_limit/source_implication/full_algebra/reuse/retained_equilibrium/shape_readout/README.md",
+    "code/matched_einstein_limit/source_implication/full_algebra/reuse/retained_equilibrium/nested_ranges/README.md",
+    "code/matched_einstein_limit/source_implication/full_algebra/reuse/retained_equilibrium/regional_energy/README.md",
+    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/formed_ranges/affine_stencil/README.md",
+    "model/candidate_laws/interval_echo_partition_repair/REGIONAL.md",
+    "model/candidate_laws/interval_echo_partition_repair/surveyed_cells/README.md",
+    "model/candidate_laws/interval_echo_partition_repair/proper_balls/README.md",
+    "model/candidate_laws/interval_echo_partition_repair/published_strings/README.md",
+    "model/candidate_laws/interval_echo_partition_repair/published_strings/results.json",
+    "code/matched_einstein_limit/source_implication/full_algebra/reuse/selection_test/results.json",
+    "model/candidate_laws/interval_echo_partition_repair/published_strings/nested_stress/selection/README.md",
+    "model/candidate_laws/interval_echo_partition_repair/published_strings/nested_stress/selection/results.json",
+    "model/candidate_laws/interval_echo_published_records/spherical_dust/PROOF.md",
+    "model/candidate_laws/interval_echo_published_records/spherical_dust/endpoint_counts.json",
+    "model/candidate_laws/interval_echo_partition_repair/published_strings/counted_tower/README.md",
+    "model/candidate_laws/interval_echo_published_records/spherical_dust/clock_pairs/registered_reference.py",
+    "model/candidate_laws/interval_echo_published_records/spherical_dust/clock_pairs/regions.json",
+    "model/candidate_laws/interval_echo_published_records/spherical_dust/clock_pairs/REFINEMENT.md"
    ],
    "papers": [],
    "statement": "The first-order bulk entropy variation balances the fixed-volume area variation over 4G, and the declared MaxEnt family has zero normalization rate, unit constraint speed and the Gibbs differential equation.",
@@ -7586,9 +7611,9 @@
    "kind": "premise",
    "name": "small-ball area law with positive Newton constant",
    "category": "Physical premises",
-   "status": "Open",
+   "status": "Partial",
    "what": "Small geodesic balls of fixed volume obey the standard curvature correction to their area, with error terms vanishing as balls shrink.",
-   "why": "Paired geodesic distances recover the smooth curvature coefficient, while independent native transit clocks recover the angular frame and fail a common proper-range test on the measured source.",
+   "why": "Surveying equal proper volumes in different moving frames recovers the directional curvature needed for the tensor equation.",
    "premises": [],
    "lean": [
     "Lean/ObserverPatchHolography/EinsteinBranch/SmallBall.lean",
@@ -7596,7 +7621,8 @@
     "Lean/ObserverPatchHolography/EinsteinBranch/StaticMassFlux.lean",
     "Lean/ObserverPatchHolography/EinsteinBranch/StaticAngularReadout.lean",
     "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/RangeContraction.lean",
-    "code/matched_einstein_limit/fixed_volume/polarized_ranges/PolarizedRanges.lean"
+    "code/matched_einstein_limit/fixed_volume/polarized_ranges/PolarizedRanges.lean",
+    "Lean/ObserverPatchHolography/EinsteinBranch/SphericalDust.lean"
    ],
    "model": [
     "model/experiments/interval_echo_einstein_station/proper_ball_ruler/README.md",
@@ -7633,10 +7659,24 @@
     "model/experiments/interval_echo_einstein_station/equilibrium_refinement/tracer_flux/bearings/round_trip/README.md",
     "model/experiments/interval_echo_einstein_station/equilibrium_refinement/tracer_flux/bearings/round_trip/results.json",
     "code/matched_einstein_limit/fixed_volume/polarized_ranges/README.md",
-    "code/matched_einstein_limit/fixed_volume/polarized_ranges/results.json"
+    "code/matched_einstein_limit/fixed_volume/polarized_ranges/results.json",
+    "code/matched_einstein_limit/source_implication/material_clocks/two_way_phase/README.md",
+    "code/matched_einstein_limit/measured_frames/measure.py",
+    "code/matched_einstein_limit/source_implication/material_clocks/transported_modes/README.md",
+    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/timelike_areas/README.md",
+    "model/candidate_laws/interval_echo_partition_repair/published_strings/GEOMETRY.md",
+    "model/candidate_laws/interval_echo_partition_repair/published_strings/finite_rods.py",
+    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/timelike_areas/exterior_screens/README.md",
+    "model/experiments/interval_echo_einstein_station/critical_exchange/signal_ruler/README.md",
+    "model/experiments/interval_echo_einstein_station/critical_exchange/signal_ruler/results.json",
+    "model/candidate_laws/interval_echo_published_records/spherical_dust/survey.py",
+    "model/candidate_laws/interval_echo_published_records/spherical_dust/results.json",
+    "model/candidate_laws/interval_echo_published_records/spherical_dust/PROOF.md",
+    "model/candidate_laws/interval_echo_published_records/spherical_dust/clock_pairs/regions.py",
+    "model/candidate_laws/interval_echo_published_records/spherical_dust/clock_pairs/regions.json"
    ],
    "papers": [],
-   "statement": "The fixed-volume small-geodesic-ball area identity holds with coefficient 4*pi*ell^4/15, one cofinal shrinking family carries the collar, kernel and chart error terms as o(ell^4), the geometric side satisfies the contracted Bianchi identity, and the Newton constant and ball radius are positive.",
+   "statement": "The fixed-volume small-geodesic-ball area identity holds with coefficient 4*pi*ell^4/15, the ten timelike frames use the same source and a cofinal shrinking family of proper balls carrying the collar, kernel and chart error terms as o(ell^4), the geometric side satisfies the contracted Bianchi identity, and the Newton constant and ball radius are positive.",
    "premise_kind": "derivable"
   },
   {
@@ -7644,15 +7684,17 @@
    "kind": "premise",
    "name": "physical refinement tower with Newton coupling",
    "category": "Physical premises",
-   "status": "Open",
+   "status": "Partial",
    "what": "A refinement tower exists with protected boundaries, common readouts and a vacuum reference, and its coupling equals 8 pi times Newton's constant.",
-   "why": "It attaches the finite entropy-gravity identities to physical spacetime and a gravitational coupling, closing the route to Einstein gravity.",
+   "why": "One ordinary calibration across smaller balls ties the coupling inferred from curvature to independent clocks, light signals and released probes.",
    "premises": [],
    "lean": [
     "Lean/ObserverPatchHolography/EinsteinBranch/RegisterSurface.lean",
     "Lean/Thermodynamics/EinsteinPremiseLink.lean",
     "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/MaterialRecoil.lean",
-    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/RangeContraction.lean"
+    "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/RangeContraction.lean",
+    "Lean/ObserverPatchHolography/EinsteinBranch/SphericalDust.lean",
+    "Lean/ObserverPatchHolography/EinsteinBranch/ClockPairRecords.lean"
    ],
    "model": [
     "model/experiments/interval_echo_einstein_station/native_tidal_response/README.md",
@@ -7679,7 +7721,15 @@
     "model/experiments/interval_echo_einstein_station/equilibrium_refinement/tracer_flux/bearings/round_trip/README.md",
     "model/experiments/interval_echo_einstein_station/equilibrium_refinement/tracer_flux/bearings/round_trip/results.json",
     "code/matched_einstein_limit/fixed_volume/polarized_ranges/README.md",
-    "code/matched_einstein_limit/fixed_volume/polarized_ranges/results.json"
+    "code/matched_einstein_limit/fixed_volume/polarized_ranges/results.json",
+    "model/candidate_laws/interval_echo_partition_repair/published_strings/README.md",
+    "model/candidate_laws/interval_echo_partition_repair/published_strings/ARCHIVE.md",
+    "model/candidate_laws/interval_echo_published_records/spherical_dust/PROOF.md",
+    "model/candidate_laws/interval_echo_published_records/spherical_dust/EXTERIOR_READER.md",
+    "model/candidate_laws/interval_echo_published_records/spherical_dust/NULL_BEAM.md",
+    "model/candidate_laws/interval_echo_published_records/spherical_dust/exterior_reader.json",
+    "model/candidate_laws/interval_echo_published_records/spherical_dust/clock_pairs/census.py",
+    "model/candidate_laws/interval_echo_published_records/spherical_dust/clock_pairs/REFINEMENT.md"
    ],
    "papers": [],
    "statement": "An Einstein-admissible tower exists with protected boundary fibre, typed common-domain readouts and refinement naturality; the chart is connected, the vacuum reference fixes the metric residue at the chart base, and the coupling carries kappa = 8*pi*G_N.",
@@ -9352,19 +9402,35 @@
    "kind": "premise",
    "name": "Continuous port phases on the twelve ports",
    "category": "Physical premises",
-   "status": "Open",
+   "status": "Partial",
    "what": "Each of the twelve ports carries its own continuous phase, enlarging the finite group of native transports to a continuous symmetry group.",
    "why": "Read on the five-level code these phases generate S(U(3) x U(2)), the Standard Model gauge group, so the gauge symmetry rests on them.",
    "premises": [],
-   "lean": [],
+   "lean": [
+    "Lean/SourceLaw/IntervalEchoHeadCharge.lean"
+   ],
    "model": [
-    "code/defect_particle_classes/flux_costs.py"
+    "code/defect_particle_classes/flux_costs.py",
+    "model/experiments/interval_echo_gauge/port_phases/README.md",
+    "model/experiments/interval_echo_gauge/port_phases/PROTOCOL.md",
+    "model/experiments/interval_echo_gauge/port_phases/apparatus.py",
+    "model/experiments/interval_echo_gauge/port_phases/measure.py",
+    "model/experiments/interval_echo_gauge/port_phases/records.json",
+    "model/experiments/interval_echo_gauge/port_phases/CODE_PROTOCOL.md",
+    "model/experiments/interval_echo_gauge/port_phases/code_frame.py",
+    "model/experiments/interval_echo_gauge/port_phases/code_records.json",
+    "model/experiments/interval_echo_gauge/port_phases/frame.json",
+    "model/experiments/interval_echo_gauge/port_phases/summary.json",
+    "model/experiments/interval_echo_gauge/port_phases/ON_CODE_READOUT.md",
+    "model/experiments/interval_echo_gauge/port_phases/code_readout.py",
+    "model/experiments/interval_echo_gauge/port_phases/certificate.py",
+    "model/experiments/interval_echo_gauge/port_phases/exact_bands.py"
    ],
    "papers": [
     "claims/claim_registry.yaml",
     "paper/deriving_standard_model_gauge_structure_from_observer_overlap_consistency.pdf"
    ],
-   "statement": "Independent continuous phases on the twelve ports extend the finite group of native transports; read on the five-level code they generate S(U(3) x U(2)). No law that writes these phases is derived.",
+   "statement": "Independent continuous phases on the twelve ports extend the finite group of native transports; read on the five-level code they generate S(U(3) x U(2)).",
    "premise_kind": "derivable"
   },
   {
@@ -10141,7 +10207,8 @@
    "why": "The numerical capacity, and the cosmological constant derived from it, depend on which option is taken on each menu.",
    "premises": [],
    "lean": [
-    "model/experiments/interval_echo_consensus/publication_tree/mounted_capacity/Frame.lean"
+    "model/experiments/interval_echo_consensus/publication_tree/mounted_capacity/Frame.lean",
+    "model/experiments/interval_echo_consensus/publication_tree/mounted_capacity/seam_flags/Loop.lean"
    ],
    "model": [
     "code/capacity_readback/F_CONSTRUCTION_2026-07-14.md",
@@ -10154,7 +10221,12 @@
     "model/experiments/interval_echo_consensus/publication_tree/mounted_capacity/records.json.gz",
     "model/experiments/interval_echo_consensus/publication_tree/mounted_capacity/test_frames.py",
     "model/experiments/interval_echo_consensus/publication_tree/mounted_capacity/veto.json.gz",
-    "model/experiments/interval_echo_consensus/publication_tree/mounted_capacity/veto.py"
+    "model/experiments/interval_echo_consensus/publication_tree/mounted_capacity/veto.py",
+    "model/experiments/interval_echo_consensus/publication_tree/mounted_capacity/seam_flags/README.md",
+    "model/experiments/interval_echo_consensus/publication_tree/mounted_capacity/seam_flags/measure.py",
+    "model/experiments/interval_echo_consensus/publication_tree/mounted_capacity/seam_flags/records.json",
+    "model/experiments/interval_echo_consensus/publication_tree/mounted_capacity/seam_flags/network.py",
+    "model/experiments/interval_echo_consensus/publication_tree/mounted_capacity/seam_flags/network.json.gz"
    ],
    "papers": [
     "paper/screen_microphysics_and_observer_synchronization.pdf"

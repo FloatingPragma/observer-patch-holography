@@ -1,0 +1,154 @@
+{
+  "grid_side": 24,
+  "length": 8.0,
+  "momentum_cutoff": 1.8,
+  "flipped_band_pairs": 56,
+  "kinetic_stiffness": 3.0,
+  "rho": 0.29726734270357813,
+  "readout_floor": 0.0005,
+  "target_radius": 0.51,
+  "packet_support_radius": 0.4386,
+  "mode_count": 8,
+  "frames": [
+    {
+      "direction": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rapidity": 0.0,
+      "true_proper_area": 3.231965740046688,
+      "sampled_optical_interior_clearance": 0.5136235146649154,
+      "registered_entropy_change": 0.03335270027590953,
+      "vacuum_transport_change_at_finite_cutoff": 2.2620073254042694e-05,
+      "weighted_stress_forecast": 0.1058586566970844,
+      "registered_entropy_plus_area_change": -0.08146389303288396
+    },
+    {
+      "direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "rapidity": 0.32,
+      "true_proper_area": 3.2255985300407315,
+      "sampled_optical_interior_clearance": 0.5119724904287283,
+      "registered_entropy_change": 0.037442193272647195,
+      "vacuum_transport_change_at_finite_cutoff": 0.00025921916890814245,
+      "weighted_stress_forecast": 0.12081201424258618,
+      "registered_entropy_plus_area_change": -0.09737758021472309
+    },
+    {
+      "direction": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "rapidity": 0.32,
+      "true_proper_area": 3.2255985300407315,
+      "sampled_optical_interior_clearance": 0.5119724904287283,
+      "registered_entropy_change": 0.037442193272649416,
+      "vacuum_transport_change_at_finite_cutoff": 0.00025921916891258334,
+      "weighted_stress_forecast": 0.12081201424258618,
+      "registered_entropy_plus_area_change": -0.09737758021472087
+    },
+    {
+      "direction": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "rapidity": 0.32,
+      "true_proper_area": 3.2255985300407315,
+      "sampled_optical_interior_clearance": 0.5119724904287283,
+      "registered_entropy_change": 0.03744219327268761,
+      "vacuum_transport_change_at_finite_cutoff": 0.00025921916894589003,
+      "weighted_stress_forecast": 0.12081201424258618,
+      "registered_entropy_plus_area_change": -0.09737758021468268
+    },
+    {
+      "direction": [
+        -1.0,
+        -0.0,
+        -0.0
+      ],
+      "rapidity": 0.32,
+      "true_proper_area": 3.2255985300407315,
+      "sampled_optical_interior_clearance": 0.5119724904287283,
+      "registered_entropy_change": 0.037442193272644975,
+      "vacuum_transport_change_at_finite_cutoff": 0.00025921916890458974,
+      "weighted_stress_forecast": 0.12081201424258618,
+      "registered_entropy_plus_area_change": -0.09737758021472531
+    },
+    {
+      "direction": [
+        -0.0,
+        -1.0,
+        -0.0
+      ],
+      "rapidity": 0.32,
+      "true_proper_area": 3.2255985300407315,
+      "sampled_optical_interior_clearance": 0.5119724904287283,
+      "registered_entropy_change": 0.03744219327264897,
+      "vacuum_transport_change_at_finite_cutoff": 0.00025921916891213925,
+      "weighted_stress_forecast": 0.12081201424258618,
+      "registered_entropy_plus_area_change": -0.09737758021472132
+    },
+    {
+      "direction": [
+        -0.0,
+        -0.0,
+        -1.0
+      ],
+      "rapidity": 0.32,
+      "true_proper_area": 3.2255985300407315,
+      "sampled_optical_interior_clearance": 0.5119724904287283,
+      "registered_entropy_change": 0.03744219327268539,
+      "vacuum_transport_change_at_finite_cutoff": 0.0002592191689463341,
+      "weighted_stress_forecast": 0.12081201424258618,
+      "registered_entropy_plus_area_change": -0.0973775802146849
+    },
+    {
+      "direction": [
+        0.7071067811865475,
+        0.7071067811865475,
+        0.0
+      ],
+      "rapidity": 0.32,
+      "true_proper_area": 3.2255985300407315,
+      "sampled_optical_interior_clearance": 0.5119724904287283,
+      "registered_entropy_change": 0.037503287189963874,
+      "vacuum_transport_change_at_finite_cutoff": 0.0002681509793727166,
+      "weighted_stress_forecast": 0.12081201424258618,
+      "registered_entropy_plus_area_change": -0.09731648629740641
+    },
+    {
+      "direction": [
+        0.0,
+        0.7071067811865475,
+        0.7071067811865475
+      ],
+      "rapidity": 0.32,
+      "true_proper_area": 3.2255985300407315,
+      "sampled_optical_interior_clearance": 0.5119724904287283,
+      "registered_entropy_change": 0.037503287190020274,
+      "vacuum_transport_change_at_finite_cutoff": 0.0002681509794308923,
+      "weighted_stress_forecast": 0.12081201424258618,
+      "registered_entropy_plus_area_change": -0.09731648629735001
+    },
+    {
+      "direction": [
+        0.7071067811865475,
+        0.0,
+        0.7071067811865475
+      ],
+      "rapidity": 0.32,
+      "true_proper_area": 3.2255985300407315,
+      "sampled_optical_interior_clearance": 0.5119724904287283,
+      "registered_entropy_change": 0.03750328719001805,
+      "vacuum_transport_change_at_finite_cutoff": 0.0002681509794255632,
+      "weighted_stress_forecast": 0.12081201424258618,
+      "registered_entropy_plus_area_change": -0.09731648629735223
+    }
+  ]
+}
