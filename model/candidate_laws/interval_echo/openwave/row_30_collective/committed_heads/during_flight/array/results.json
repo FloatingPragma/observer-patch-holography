@@ -1,0 +1,188 @@
+{
+  "summary": {
+    "peaks": [
+      1.4112619616943562,
+      1.1044658830651484
+    ],
+    "held_peaks": [
+      0.012180761577781002,
+      0.01164429639228434
+    ],
+    "selected_bins": [
+      115,
+      90
+    ],
+    "complex_radius": 0.00016396351695296943,
+    "second_spatial_singular": 0.011475829381435671,
+    "spatial_bound": 0.0006134953043685124,
+    "zero_contrast_max": 0.0037326812744140625,
+    "zero_contrast_bound": 0.0058375305907143625,
+    "sector_witnesses": {
+      "intact": 1,
+      "cut_right": 0
+    }
+  },
+  "decisions": {
+    "both_frequency_bins_resolved": true,
+    "profiles_require_more_than_one_spatial_vector": true,
+    "single_real_wavenumber_necessary_test": [
+      "excluded",
+      "excluded"
+    ],
+    "changed_law_zero_response": "compatible",
+    "nominal_cut_only_explanation": "excluded",
+    "nominal_intact_only_explanation": "unresolved",
+    "cut_only_on_meter_box": "excluded"
+  },
+  "clocks": {
+    "spacing": 0.1250000321662848,
+    "spacing_error": 9.515771884594973e-07,
+    "angle_error": 0.0019483542933708207,
+    "max_discrepancy": 0.000967304322202267
+  },
+  "bands": [
+    {
+      "bin": 115,
+      "angular_frequency": 1.4112619616943562,
+      "clock_half_width": 1.0743476538867386e-05,
+      "bin_spacing": 0.012271843145168316,
+      "strongest_bond": 9,
+      "held_peak": 0.012180761577781002,
+      "allowed_wave_numbers": [],
+      "profile_real": [
+        0.000942448074081719,
+        -0.006523209571464207,
+        0.01211323797058371,
+        -0.006369918417836199,
+        0.000511710358189677,
+        -0.005945557735820806,
+        0.011429405541248303
+      ],
+      "profile_imag": [
+        -0.0019069704052719662,
+        0.0003778924738428456,
+        0.001280788227130057,
+        -0.00011757584747996607,
+        -0.000940556322910957,
+        -0.0008838963942248606,
+        0.002642731615160959
+      ]
+    },
+    {
+      "bin": 90,
+      "angular_frequency": 1.1044658830651484,
+      "clock_half_width": 8.40793816085274e-06,
+      "bin_spacing": 0.012271843145168316,
+      "strongest_bond": 7,
+      "held_peak": 0.01164429639228434,
+      "allowed_wave_numbers": [],
+      "profile_real": [
+        0.009830398087375129,
+        -0.005842862306934052,
+        0.0077164189432628325,
+        -0.010420947557825707,
+        0.0017695526840581567,
+        0.0018441157574811953,
+        0.006032760128347652
+      ],
+      "profile_imag": [
+        0.00624122679567868,
+        -0.004584605542456545,
+        0.003991530337442695,
+        -0.004979600790996474,
+        0.002851860990034591,
+        -0.0010508483350736338,
+        0.0024064010989699597
+      ]
+    }
+  ],
+  "sector": {
+    "intact": {
+      "tested": 101,
+      "witnesses": 1,
+      "best_frequency": 0.3537809123794,
+      "best_receiver_index": 4,
+      "observed": 0.010630357804441834,
+      "other_sector_bound": 0.010102270520290751,
+      "margin": 0.00036412376719811347
+    },
+    "cut_right": {
+      "tested": 45,
+      "witnesses": 0,
+      "best_frequency": 0.7860897732216,
+      "best_receiver_index": 2,
+      "observed": 0.0006015352376341534,
+      "other_sector_bound": 0.3093937032094618,
+      "margin": -0.3089561314887806
+    }
+  },
+  "cut_contact_sensitivity": {
+    "contact_J": [
+      7.996,
+      8.004
+    ],
+    "exchange_h": [
+      0.4997,
+      0.5003
+    ],
+    "grid": [
+      33,
+      9
+    ],
+    "mode_entry_squared_upper": 0.15673218387378052,
+    "frequency_padding": 0.0006500000100005945,
+    "cut_only_ceiling": 0.006860500911679051
+  },
+  "dc_and_sum_only_bound": [
+    8.673156462771483e-10,
+    8.100861949336923e-10
+  ],
+  "frequency_unit": "per exchange radian",
+  "sources": [
+    4,
+    1
+  ],
+  "sites": [
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+  ],
+  "receiver_ports": [
+    [
+      42,
+      43
+    ],
+    [
+      44,
+      39
+    ],
+    [
+      104,
+      105
+    ],
+    [
+      101,
+      97
+    ],
+    [
+      103,
+      96
+    ],
+    [
+      106,
+      107
+    ],
+    [
+      100,
+      99
+    ]
+  ],
+  "outcomes": "00,01,10,11 (earlier coin then later coin), wall then no wall for each word",
+  "shots_per_source_site_menu": 524288,
+  "total_wall_starts": 120259084288,
+  "sampling": "Seeded conditional binomial quantiles of integer-grid joint outcome probabilities."
+}
