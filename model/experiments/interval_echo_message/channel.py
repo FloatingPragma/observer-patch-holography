@@ -588,6 +588,12 @@ REPLAY_EVALUATIONS = (
         "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
         "model/candidate_laws/interval_echo/EVALUATION.json": "7a105fe06ee5732a55f3dd7c34779181bb7400eac78a1df7df222583dc3e1199",
     },
+    # Finite carrier ruler, quorum timing, bound cap and moving-clock refinements.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "3bc3cf93d416a39aecacd10665778c8dfa392e1d97cf59005aed191740476f47",
+    },
 )
 
 

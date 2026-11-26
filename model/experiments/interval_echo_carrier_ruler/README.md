@@ -22,7 +22,7 @@ For an equal-amplitude pair with phase difference $z$, the conditional antisymme
 
 Write $w_e=x_v-x_u$ for the unit direction of edge $e=(u,v)$. The antisymmetric probability on a complete, uniformly illuminated grating is $(1-\cos(ka\,n\cdot w_e))/12$ per seam. The held experiment sums these unconditional readings at a separate fixed $kL=8/3$. In native exchange-gap units this gives $(5/12)\Lambda_1(ka n)=(5/12)a^2\Lambda_a(k n)$, with $\Lambda_1(z)=(1/5)\sum_e(1-\cos(z\cdot w_e))$. The exact equal-edge symbol fixes the entire Taylor packet. The finite directional counts test that symbol on held settings. [Underlying seam instrument](../../candidate_laws/interval_echo/openwave/row_29_maxwell/seam_symbol/README.md) · [Committed seam-moment identity](../../../Lean/Screen/SeamCurrentEdge30Moment.lean)
 
-| Held direction | $a=3L/2$, measured interval | $a=2L$, measured interval |
+| Held direction | Energy interval at $a=3L/2$ | Energy interval at $a=2L$ |
 |---|---:|---:|
 | Port | [2.8818336, 2.9134637] | [2.5864604, 2.6170322] |
 | Edge | [2.9817817, 3.0169372] | [2.9557532, 2.9905706] |

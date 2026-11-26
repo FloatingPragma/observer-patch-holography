@@ -1076,10 +1076,22 @@
           "results": {
             "interval_echo": {
               "status": "open",
-              "note": "No deuteron binding and electric quadrupole measurement exists on the identified constituents.",
+              "note": "No deuteron binding and electric quadrupole measurement exists on the identified constituents. A released six-load cap stays connected with probability at least 7/8 at every individual free time on the three native boards. Its energy is at most 134, below the paired three-load threshold of 192 in the same exchange units. A finite energy port admitted 66,953,343 of 67,108,864 cap preparations and 10 separated-trimer controls from the same number of starts. Only 611 accepted caps contained two disjoint triangular cores. The aligned material quadrupole vanishes about the cell centre and is negative about the equal-mass centroid. Separate proton and neutron identifications and a corresponding electric quadrupole are open.",
               "evidence": [
-                "model/candidate_laws/interval_echo/SPEC.md"
-              ]
+                "model/candidate_laws/interval_echo/SPEC.md",
+                "model/candidate_laws/interval_echo/openwave/row_16_binding/PROOF.md",
+                "model/candidate_laws/interval_echo/openwave/row_16_binding/PROTOCOL.md",
+                "model/candidate_laws/interval_echo/openwave/row_16_binding/README.md",
+                "model/candidate_laws/interval_echo/openwave/row_16_binding/apparatus.py",
+                "model/candidate_laws/interval_echo/openwave/row_16_binding/certificates.py",
+                "model/candidate_laws/interval_echo/openwave/row_16_binding/measure.py",
+                "model/candidate_laws/interval_echo/openwave/row_16_binding/records.json.gz",
+                "model/candidate_laws/interval_echo/openwave/row_16_binding/test_binding.py"
+              ],
+              "demonstrated_measurement": {
+                "label": "Six-load binding below two separated trimers and a polar quadrupole read",
+                "source": "model/candidate_laws/interval_echo/openwave/row_16_binding/README.md"
+              }
             },
             "contrast_memory_spherical_v1": {
               "status": "open",
@@ -1399,7 +1411,7 @@
           "results": {
             "interval_echo": {
               "status": "partial",
-              "note": "Guided finite-patch reunion counts track the calibrated time-dilation target on the tested service menu. A boost and a signal-speed limit on freely evolving spherical states remain open. Free contrast clusters retain the known ring inertia mismatch. In a spectrally selected bound pair on a supplied two-matching guide, the two endpoints contract with increasing centre speed. On 80 cells the measured length drops from 9.811 to 4.379 port spacings at 0.879 of the sharp single-load signal front. A midpoint fringe confirms the high-winding speed. The length ratio 0.446 misses the Lorentz forecast 0.477. Even allowing a free common speed misses the held widths on each board. These observations use the guide frame and its synchronized period-end appointments. On a separate 20-cell protocol, one addressed relay and a passive signal deliver different bit-decoding accuracies by the first or third local clock tick. Independently marked round trips also reach both windows. The two services have a supplied cadence. They establish finite message and clock records without defining a universal physical limiting speed or a boost law. On one 20-cell screen the addressed out-and-back service ranged three ports at two, four and six receiver ticks. A 52% decoding threshold chosen using the near pilot was fixed before testing the two farther ports. The near passive receiver decoded 137,471 of 262,144 bits by tick one. The middle decoded 132,275 at its forecast tick two and the held-out far port decoded 131,072 at tick three. Neither farther port qualified at any tested deadline through its forecast. Quiet outcomes and timeouts count. The addressed range specifies a service-dependent distance; passive ranging had zero marked returns at both farther ports. A stricter stationary hand requires the double at port 2 on every successive tick. The message and both echo legs use the same passive two-load flight. On the held-out sender, 57 and zero marked returns per 2³⁰ starts at six ticks forecast 50.00371–50.01474% one-way bit accuracy at three ticks. The independent test gave 50.01152%. The simultaneous 99% upper bound on the best classical reading of the full single-launch records is below 51.856% across the twelve native settings. The exposed practical threshold was 52%. The result identifies a reciprocal probability law under this clock read and supplied interrogation cadence. This single stationary clock does not establish a boost law or common physical speed. On the commissioned 49-dimer strand the fastest of seven measured packet speeds was 0.9903, against an exact maximum group speed of one and a long-wavelength dispersion coefficient c of four. The two smallest measured wave numbers give k/v of 0.948 and 0.954, compared with the inverse band curvature 15/16. At k=0.800 an independent energy read separates the initial bare-wall velocity from its accrued motion. Comparison with another signal is required to identify a common spacetime speed.",
+              "note": "Guided finite-patch reunion counts track the calibrated time-dilation target on the tested service menu. A boost and a signal-speed limit on freely evolving spherical states remain open. Free contrast clusters retain the known ring inertia mismatch. In a spectrally selected bound pair on a supplied two-matching guide, the two endpoints contract with increasing centre speed. On 80 cells the measured length drops from 9.811 to 4.379 port spacings at 0.879 of the sharp single-load signal front. A midpoint fringe confirms the high-winding speed. The length ratio 0.446 misses the Lorentz forecast 0.477. Even allowing a free common speed misses the held widths on each board. These observations use the guide frame and its synchronized period-end appointments. On a separate 20-cell protocol, one addressed relay and a passive signal deliver different bit-decoding accuracies by the first or third local clock tick. Independently marked round trips also reach both windows. The two services have a supplied cadence. They establish finite message and clock records without defining a universal physical limiting speed or a boost law. On one 20-cell screen the addressed out-and-back service ranged three ports at two, four and six receiver ticks. A 52% decoding threshold chosen using the near pilot was fixed before testing the two farther ports. The near passive receiver decoded 137,471 of 262,144 bits by tick one. The middle decoded 132,275 at its forecast tick two and the held-out far port decoded 131,072 at tick three. Neither farther port qualified at any tested deadline through its forecast. Quiet outcomes and timeouts count. The addressed range specifies a service-dependent distance; passive ranging had zero marked returns at both farther ports. A stricter stationary hand requires the double at port 2 on every successive tick. The message and both echo legs use the same passive two-load flight. On the held-out sender, 57 and zero marked returns per 2³⁰ starts at six ticks forecast 50.00371–50.01474% one-way bit accuracy at three ticks. The independent test gave 50.01152%. The simultaneous 99% upper bound on the best classical reading of the full single-launch records is below 51.856% across the twelve native settings. The exposed practical threshold was 52%. The result identifies a reciprocal probability law under this clock read and supplied interrogation cadence. This single stationary clock does not establish a boost law or common physical speed. On the commissioned 49-dimer strand the fastest of seven measured packet speeds was 0.9903, against an exact maximum group speed of one and a long-wavelength dispersion coefficient c of four. The two smallest measured wave numbers give k/v of 0.948 and 0.954, compared with the inverse band curvature 15/16. At k=0.800 an independent energy read separates the initial bare-wall velocity from its accrued motion. Comparison with another signal is required to identify a common spacetime speed. A two-way echo and a clock transported on the same guide compare the time assigned to the moving material. At winding +21 on the 320-cell board the held finite-packet clock fraction is [0.27033, 0.27169] against the radar fraction 0.28565. An independent current and wave-number read removes station rounding and gives [0.16865, 0.21541] against the Lorentz prediction [0.22448, 0.22510] with simultaneous 99% coverage. The finite guide has a supplied two-matching cadence. A common frame-independent action for matter and signals requires separate evidence. In a separately enrolled refinement on one board, the same 4/5 radar velocity gives forward clock fractions 0.547977, 0.587612 and 0.596942 at three spacings. Four successive shortfall ratios in the two directions have simultaneous 99% intervals within [0.22828, 0.26423] around the predicted limit 1/4. With mass phase and wave number scaled together, the rescaled local walk converges on bounded momenta and bounded times to a one-space-dimensional Dirac flow with Lorentz-invariant local action. The common cadence and spatial ruler are supplied.",
               "evidence": [
                 "model/candidate_laws/interval_echo/RESULTS.json",
                 "model/candidate_laws/interval_echo/SPEC.md",
@@ -1417,7 +1429,26 @@
                 "model/candidate_laws/interval_echo/openwave/row_30_collective/packet_speed/results.json",
                 "model/candidate_laws/interval_echo/openwave/row_30_collective/packet_speed/work_meter.py",
                 "model/candidate_laws/interval_echo/openwave/row_30_collective/packet_speed/work.json",
-                "model/candidate_laws/interval_echo/openwave/row_30_collective/packet_speed/test_speed.py"
+                "model/candidate_laws/interval_echo/openwave/row_30_collective/packet_speed/test_speed.py",
+                "model/candidate_laws/interval_echo/openwave/row_21_boost/moving_clock/PROOF.md",
+                "model/candidate_laws/interval_echo/openwave/row_21_boost/moving_clock/PROTOCOL.md",
+                "model/candidate_laws/interval_echo/openwave/row_21_boost/moving_clock/README.md",
+                "model/candidate_laws/interval_echo/openwave/row_21_boost/moving_clock/apparatus.py",
+                "model/candidate_laws/interval_echo/openwave/row_21_boost/moving_clock/current.json",
+                "model/candidate_laws/interval_echo/openwave/row_21_boost/moving_clock/current.py",
+                "model/candidate_laws/interval_echo/openwave/row_21_boost/moving_clock/measure.py",
+                "model/candidate_laws/interval_echo/openwave/row_21_boost/moving_clock/preparation.json",
+                "model/candidate_laws/interval_echo/openwave/row_21_boost/moving_clock/preparation.py",
+                "model/candidate_laws/interval_echo/openwave/row_21_boost/moving_clock/readback.py",
+                "model/candidate_laws/interval_echo/openwave/row_21_boost/moving_clock/records.json",
+                "model/candidate_laws/interval_echo/openwave/row_21_boost/moving_clock/records.npz",
+                "model/candidate_laws/interval_echo/openwave/row_21_boost/moving_clock/refinement/LIMIT.md",
+                "model/candidate_laws/interval_echo/openwave/row_21_boost/moving_clock/refinement/PROTOCOL.md",
+                "model/candidate_laws/interval_echo/openwave/row_21_boost/moving_clock/refinement/README.md",
+                "model/candidate_laws/interval_echo/openwave/row_21_boost/moving_clock/refinement/counts.json",
+                "model/candidate_laws/interval_echo/openwave/row_21_boost/moving_clock/refinement/measure.py",
+                "model/candidate_laws/interval_echo/openwave/row_21_boost/moving_clock/refinement/test_refinement.py",
+                "model/candidate_laws/interval_echo/openwave/row_21_boost/moving_clock/test_clock.py"
               ],
               "comparison": {
                 "law": "Directed ring extension",
@@ -1425,8 +1456,8 @@
                 "source": "model/candidate_laws/interval_echo/openwave/electron_field/README.md#rest-energy-and-the-other-openwave-observables"
               },
               "demonstrated_measurement": {
-                "label": "Motion-dependent shortening of a two-load state on a scheduled guide",
-                "source": "model/candidate_laws/interval_echo/openwave/row_21_boost/README.md"
+                "label": "A transported clock, two-way radar and a one-dimensional Lorentz limit",
+                "source": "model/candidate_laws/interval_echo/openwave/row_21_boost/moving_clock/README.md"
               }
             },
             "contrast_memory_spherical_v1": {

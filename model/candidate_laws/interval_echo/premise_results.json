@@ -1016,5 +1016,38 @@
       "../../experiments/interval_echo_consensus/record_lowering/test_lowering.py"
     ],
     "note": "Native reversible local gates, clean scratch and two disjoint parallel lanes realize a finite composition and localized edits with another cached record held fixed. All sixteen two-input truth tables pass the material detector tests. The two mounts have distinct elapsed contact counts. Vanishing whole-program overhead, the affine latency law and time-faithful refinement have separate hypotheses."
+  },
+  "PR-73": {
+    "status": "fulfilled",
+    "evidence": [
+      "../../experiments/interval_echo_carrier_ruler/PROTOCOL.md",
+      "../../experiments/interval_echo_carrier_ruler/README.md",
+      "../../experiments/interval_echo_carrier_ruler/Scale.lean",
+      "../../experiments/interval_echo_carrier_ruler/apparatus.py",
+      "../../experiments/interval_echo_carrier_ruler/measure.py",
+      "../../experiments/interval_echo_carrier_ruler/records.json.gz",
+      "../../experiments/interval_echo_carrier_ruler/test_ruler.py"
+    ],
+    "note": "Two receivers recover a/L in [1.4916694, 1.5081135] for a declared edge a = 3L/2, using an independently mounted material comparison rod. Dilating the chart to 2L gives [1.9902556, 2.0090145]. A common change in phase gain retains the nominal ratio. The thirty-edge energy read has positive face-minus-port contrast on a held input. The checked coefficient slots are C4 = -9L²/80, B0 = 27L⁴/4480 and B6 = -9L⁴/22400. Their ratios hold for every positive a. The declaration fills this finite calibration slot. A physical conversion of L, identification with a photon and an empirical dispersion test require separate inputs."
+  },
+  "PR-123": {
+    "status": "partial",
+    "evidence": [
+      "../../experiments/interval_echo_consensus/prepared_quorum/timed_routes/DUPLICATION.md",
+      "../../experiments/interval_echo_consensus/prepared_quorum/timed_routes/LOCAL_VIEW.md",
+      "../../experiments/interval_echo_consensus/prepared_quorum/timed_routes/PROTOCOL.md",
+      "../../experiments/interval_echo_consensus/prepared_quorum/timed_routes/README.md",
+      "../../experiments/interval_echo_consensus/prepared_quorum/timed_routes/Routes.lean",
+      "../../experiments/interval_echo_consensus/prepared_quorum/timed_routes/duplicate.py",
+      "../../experiments/interval_echo_consensus/prepared_quorum/timed_routes/duplication.json.gz",
+      "../../experiments/interval_echo_consensus/prepared_quorum/timed_routes/local_view.json.gz",
+      "../../experiments/interval_echo_consensus/prepared_quorum/timed_routes/local_view.py",
+      "../../experiments/interval_echo_consensus/prepared_quorum/timed_routes/measure.py",
+      "../../experiments/interval_echo_consensus/prepared_quorum/timed_routes/records.json.gz",
+      "../../experiments/interval_echo_consensus/prepared_quorum/timed_routes/routes.py",
+      "../../experiments/interval_echo_consensus/prepared_quorum/timed_routes/test_routes.py",
+      "../../experiments/interval_echo_consensus/prepared_quorum/timed_routes/test_wire_census.py"
+    ],
+    "note": "Four validators on five native cells provide a connected route inside every surviving triple on three boards. All three validators authenticated the same decision in each of twelve bounded, fail-silent calendars. Sending two signed copies on fixed routes before learning the silent validator delivered all 72 surviving directed decisions. For a fixed initial receiver record, a deadline with finitely many possible transcripts cannot identify every natural-number view. Independent ten-bit local view records allow a constant 14,766-byte fresh-view exchange at four enrolled view labels on the two larger boards. Mismatched receivers reject the decision, and an older lock requires another epoch. The law supplies no universal fault count, stabilization time, common epoch acquisition or processing bound."
   }
 }

@@ -751,7 +751,8 @@
     "model/candidate_laws/interval_echo/openwave/row_27_metric/frequency_link/readout.py",
     "model/candidate_laws/interval_echo/openwave/row_27_metric/frequency_link/measure.py",
     "model/candidate_laws/interval_echo/openwave/row_27_metric/frequency_link/results.json.gz",
-    "model/candidate_laws/interval_echo/openwave/row_27_metric/frequency_link/test_link.py"
+    "model/candidate_laws/interval_echo/openwave/row_27_metric/frequency_link/test_link.py",
+    "model/candidate_laws/interval_echo/openwave/row_21_boost/moving_clock/README.md"
    ],
    "papers": [
     "paper/recovering_observer_spacetime_and_einstein_dynamics_from_overlap_consistency.pdf",
@@ -918,7 +919,8 @@
     "model/candidate_laws/interval_echo/openwave/row_29_maxwell/seam_symbol/drifting_receiver/measure.py",
     "model/candidate_laws/interval_echo/openwave/row_29_maxwell/seam_symbol/drifting_receiver/read.py",
     "model/candidate_laws/interval_echo/openwave/row_29_maxwell/seam_symbol/drifting_receiver/records.json",
-    "model/candidate_laws/interval_echo/openwave/row_29_maxwell/seam_symbol/drifting_receiver/test_receiver.py"
+    "model/candidate_laws/interval_echo/openwave/row_29_maxwell/seam_symbol/drifting_receiver/test_receiver.py",
+    "model/experiments/interval_echo_carrier_ruler/README.md"
    ],
    "papers": [
     "docs/FROZEN_PREDICTION_LADDER.md",
@@ -5670,9 +5672,19 @@
    "model": [
     "model/evaluation/SCORECARD.md",
     "model/evaluation/openwave_criteria.json",
-    "model/candidate_laws/interval_echo/SPEC.md"
+    "model/candidate_laws/interval_echo/SPEC.md",
+    "model/candidate_laws/interval_echo/openwave/row_16_binding/PROOF.md",
+    "model/candidate_laws/interval_echo/openwave/row_16_binding/PROTOCOL.md",
+    "model/candidate_laws/interval_echo/openwave/row_16_binding/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_16_binding/apparatus.py",
+    "model/candidate_laws/interval_echo/openwave/row_16_binding/certificates.py",
+    "model/candidate_laws/interval_echo/openwave/row_16_binding/measure.py",
+    "model/candidate_laws/interval_echo/openwave/row_16_binding/records.json.gz",
+    "model/candidate_laws/interval_echo/openwave/row_16_binding/test_binding.py"
    ],
-   "papers": []
+   "papers": [
+    "paper/deriving_the_particle_zoo_from_observer_consistency.pdf"
+   ]
   },
   {
    "id": "ow-17-nuclear-structure",
@@ -5842,7 +5854,26 @@
     "model/experiments/interval_echo_message/passive_echo/README.md",
     "model/experiments/interval_echo_message/passive_echo/records.json",
     "model/candidate_laws/interval_echo/openwave/row_30_collective/packet_speed/README.md",
-    "model/candidate_laws/interval_echo/openwave/row_30_collective/packet_speed/results.json"
+    "model/candidate_laws/interval_echo/openwave/row_30_collective/packet_speed/results.json",
+    "model/candidate_laws/interval_echo/openwave/row_21_boost/moving_clock/PROOF.md",
+    "model/candidate_laws/interval_echo/openwave/row_21_boost/moving_clock/PROTOCOL.md",
+    "model/candidate_laws/interval_echo/openwave/row_21_boost/moving_clock/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_21_boost/moving_clock/apparatus.py",
+    "model/candidate_laws/interval_echo/openwave/row_21_boost/moving_clock/current.json",
+    "model/candidate_laws/interval_echo/openwave/row_21_boost/moving_clock/current.py",
+    "model/candidate_laws/interval_echo/openwave/row_21_boost/moving_clock/measure.py",
+    "model/candidate_laws/interval_echo/openwave/row_21_boost/moving_clock/preparation.json",
+    "model/candidate_laws/interval_echo/openwave/row_21_boost/moving_clock/preparation.py",
+    "model/candidate_laws/interval_echo/openwave/row_21_boost/moving_clock/readback.py",
+    "model/candidate_laws/interval_echo/openwave/row_21_boost/moving_clock/records.json",
+    "model/candidate_laws/interval_echo/openwave/row_21_boost/moving_clock/records.npz",
+    "model/candidate_laws/interval_echo/openwave/row_21_boost/moving_clock/refinement/LIMIT.md",
+    "model/candidate_laws/interval_echo/openwave/row_21_boost/moving_clock/refinement/PROTOCOL.md",
+    "model/candidate_laws/interval_echo/openwave/row_21_boost/moving_clock/refinement/README.md",
+    "model/candidate_laws/interval_echo/openwave/row_21_boost/moving_clock/refinement/counts.json",
+    "model/candidate_laws/interval_echo/openwave/row_21_boost/moving_clock/refinement/measure.py",
+    "model/candidate_laws/interval_echo/openwave/row_21_boost/moving_clock/refinement/test_refinement.py",
+    "model/candidate_laws/interval_echo/openwave/row_21_boost/moving_clock/test_clock.py"
    ],
    "papers": [
     "paper/executable_observer_construction.pdf"
@@ -8383,17 +8414,26 @@
    "kind": "premise",
    "name": "declared finite carrier scale",
    "category": "Calibration inputs",
-   "status": "Open",
+   "status": "Demonstrated",
    "what": "One positive length scale sets the size of the carrier's correction coefficients; the dimensionless ratios between them leave it free.",
    "why": "Every predicted size of carrier-induced corrections in physical units depends on this scale.",
    "premises": [],
    "lean": [
     "Lean/Screen/DispersionArmingInterface.lean",
-    "Lean/Screen/PrimitivePortScaleBoundary.lean"
+    "Lean/Screen/PrimitivePortScaleBoundary.lean",
+    "model/experiments/interval_echo_carrier_ruler/Scale.lean"
    ],
-   "model": [],
+   "model": [
+    "model/experiments/interval_echo_carrier_ruler/PROTOCOL.md",
+    "model/experiments/interval_echo_carrier_ruler/README.md",
+    "model/experiments/interval_echo_carrier_ruler/apparatus.py",
+    "model/experiments/interval_echo_carrier_ruler/measure.py",
+    "model/experiments/interval_echo_carrier_ruler/records.json.gz",
+    "model/experiments/interval_echo_carrier_ruler/test_ruler.py"
+   ],
    "papers": [
-    "claims/frozen_prediction_register.json"
+    "claims/frozen_prediction_register.json",
+    "paper/screen_microphysics_and_observer_synchronization.pdf"
    ],
    "statement": "One declared positive carrier scale a fills the coefficient slot, giving C4 = -a^2/20, B0 = a^4/840 and B6 = -a^4/12600. The manifold ratios are scale free and select no value.",
    "premise_kind": "calibration"
@@ -9482,12 +9522,28 @@
    "kind": "premise",
    "name": "Byzantine fault budget and partial synchrony",
    "category": "Physical premises",
-   "status": "Open",
+   "status": "Partial",
    "what": "At most f observers behave adversarially, and after some time all message delays and processing stay below one known bound.",
    "why": "Safety of agreement uses the fault bound; liveness also needs the eventual timing bound and fair leader rotation.",
    "premises": [],
-   "lean": [],
-   "model": [],
+   "lean": [
+    "model/experiments/interval_echo_consensus/prepared_quorum/timed_routes/Routes.lean"
+   ],
+   "model": [
+    "model/experiments/interval_echo_consensus/prepared_quorum/timed_routes/DUPLICATION.md",
+    "model/experiments/interval_echo_consensus/prepared_quorum/timed_routes/LOCAL_VIEW.md",
+    "model/experiments/interval_echo_consensus/prepared_quorum/timed_routes/PROTOCOL.md",
+    "model/experiments/interval_echo_consensus/prepared_quorum/timed_routes/README.md",
+    "model/experiments/interval_echo_consensus/prepared_quorum/timed_routes/duplicate.py",
+    "model/experiments/interval_echo_consensus/prepared_quorum/timed_routes/duplication.json.gz",
+    "model/experiments/interval_echo_consensus/prepared_quorum/timed_routes/local_view.json.gz",
+    "model/experiments/interval_echo_consensus/prepared_quorum/timed_routes/local_view.py",
+    "model/experiments/interval_echo_consensus/prepared_quorum/timed_routes/measure.py",
+    "model/experiments/interval_echo_consensus/prepared_quorum/timed_routes/records.json.gz",
+    "model/experiments/interval_echo_consensus/prepared_quorum/timed_routes/routes.py",
+    "model/experiments/interval_echo_consensus/prepared_quorum/timed_routes/test_routes.py",
+    "model/experiments/interval_echo_consensus/prepared_quorum/timed_routes/test_wire_census.py"
+   ],
    "papers": [
     "paper/appendix_B_bft_qecc_extensions.tex",
     "paper/reality_as_consensus_protocol.pdf"
