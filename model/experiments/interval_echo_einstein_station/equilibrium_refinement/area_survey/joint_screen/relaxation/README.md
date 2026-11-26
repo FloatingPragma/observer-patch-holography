@@ -1,0 +1,28 @@
+# Before and after one monitored interval
+
+Can a discrepancy between recorded area and entropy arise during ordinary evolution of one preparation? On the 80-cell two-resident region, one half-unit of the registered monitoring dynamics can preserve all twelve three-bin return clocks, all twelve true pair pixels and mean energy, while the interior entropy changes at first order. The same detector can distinguish the preparations one interval later. The observation concerns the original surveyed volume and the angular images determined by these records. [Native clock and screen protocol](../README.md) · [Certificate, counts and time sequence](results.json)
+
+Prepare a sharp-word lottery on matched copies. Some copies go directly to the clock, image or bulk assay; others evolve for one or two original monitoring intervals before the same assay. Each interval consists of free native two-resident propagation with parked exterior couplings and complete sharp-word monitoring. There is no choice of a new lottery, rejection, or reweighting between the two ages. This is a prepared, monitored source.
+
+## Which variations can time evolution produce?
+
+The exact transition on sharp records is the symmetric stochastic matrix $P_{ij}=|(e^{-iH/2})_{ij}|^2$. Integer wave enclosures put every native exchange probability above $0.00001478$ and every probability of staying in the same word above $0.52729$. The native exchanges connect the 276 words. Consequently the stationary eigenvalue 1 is simple, every other eigenvalue has modulus below 1, and the uniform law $u$ is stationary. For every positive integer $m$, $P^m-I$ is invertible on the space of vectors with zero sum. **Every infinitesimal redistribution of these recorded words can occur as an $m$-interval change** about $u$: solve $(P^m-I)v=w$ and start at $u+av$ for sufficiently small positive or negative $a$. This addresses accessible tangent directions; it does not assert that each perturbed preparation is an equilibrium.
+
+For one interval we impose the physical instrument constraints directly on $(P-I)v$. Keep fixed the energy, the original nine independent initial heralds (which span all twelve), the twelve return probabilities and the twelve joint pixels. Normalize the change of two-rim-resident probability to one per unit $a$. Including normalization, the propagated system has rank 36. The integer proposal for its right inverse has certified infinity-norm defect below $0.00016$. The resulting exact input is positive for $|a|<0.00000362$. At both ages the clocks and pair pixels then agree **exactly**. Their tetrahedral volume and recorded image areas agree at each $a$, including their first variations about $a=0$.
+
+If $p_j$ is the probability of $j$ rim residents, the fixed initial herald sum is $3p_1+4p_2$. Its age change is zero. Hence the age changes per unit $a$ of $p_2,p_1$ are $1,-4/3$. At uniform equilibrium each interior word has multiplicity $1,4$ or $6$. The difference between the two bulk entropy derivatives is $(4/3)\log 4-\log 6=0.0566330$ nats. An area computed solely from the fixed clock and pair-pixel probabilities has zero difference. This is a comparison of two tangents to the same stationary reference. A theorem restricted to a smaller class of equilibrium perturbations would need a reason to select that class. [Native transition and error bounds](measure.py)
+
+## One finite release and a delayed detection
+
+The [deposited source](lottery.json) uses fifty fair bits, with weights in the parent survey's published word order. At $a=2^{-19}$ each probability needs a correction below $6.74\times10^{-7}$ to reach the exact constant-record source. For the deposited source the native prediction for the interior entropy increase after one interval is $0.00138455$ nats. The independently sampled bulk word histograms and their simultaneous interval are in the receipt. Even after the correction to **exact** clock, pixel and energy matching, the increase exceeds **0.00084 nats**. The proof bounds the entropy gradient on both arms using the minimum and maximum interior probability. The finite change includes higher orders; its quotient by $a$ is not the first variation.
+
+The first-ray launch flag at ages one and two distinguishes the finite source at a later time. Its probability increases by $9.5448\times10^{-7}$ on the deposited lottery. All starts, including misses, are retained. The common sampling band covers every bulk bin and first-ray bank across the three ages. Counts are synthetic, drawn in batches from the enclosed finite kernel. Agreement at the two original ages leaves time-resolved records available to a richer instrument. A static area identification still needs a common geometric interpretation for whatever additional records enter.
+
+The certificate computes $L(P-I)$ from the existing integer wave and clock bounds. If a row of $L$ has entry error $e$ and $P$ has row-sum error $d$, its propagated entry error is bounded by $2e+d\|L_{\rm approx}\|_{\max}$ plus the final rounding term. Symmetry transfers the row-sum bound to columns. For the proposed right inverse $B$, $\|L_{\rm dyn}B-I\|<1$ certifies the exact inverse correction by a Neumann series. All feasibility and observation bounds use integer arithmetic or directed interval enclosures. The simulation only supplies counts and a proposal for the inverse.
+
+~~~sh
+export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1
+pkg=model.experiments.interval_echo_einstein_station.equilibrium_refinement.area_survey.joint_screen.relaxation
+python -m "$pkg.measure"
+python -m pytest -q --pyargs "$pkg"
+~~~
