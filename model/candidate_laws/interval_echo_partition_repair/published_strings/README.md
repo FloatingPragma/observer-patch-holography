@@ -34,6 +34,8 @@ Each pair has initial eigenweights $(5,1,1,1)/8$. Rotate the $00,11$ plane by $\
 \]
 This coupling uses stress and the radial exposure. It takes no boundary-area measurement, curvature tensor or fitted held-source coefficient. A regional observer with one endpoint reads the binary state. If both endpoints lie inside it can measure the joint quantum state. Separate sharp measurements at both ends would discard its coherences and define a different entropy.
 
+The memory gate itself also has an exact realization in unmodified Interval Echo. Reverse the numerical reading of the right endpoint of a binary native seam. The old exchange for a dwell of $2\theta$ implements the two-letter rotation up to a fixed phase. Both charge alphabets give the stated endpoint probabilities, spectrum and joint relative entropy. The mean native seam energy is $51/8$ throughout the dwell. Which signal sets the dwell and which worldlines fall inside a proper ball still come from the extension. The reference angle is a prepared setting that can be parked by ending the pulse. [Native 99-state seam proof and interference read](NATIVE_PAIR.md)
+
 The full regional state is a true marginal of the same product of pairs. All fully included pairs keep their entropy under rotation. The finite entropy deficit relative to the flat vacuum is therefore $s=h(p(\theta_0+t))-h(p_0)$ with $h$ binary entropy in nats. Since $h'(p_0)=k$ and $|t|=O(\ell^4)$,
 \[
  s=2\pi W T_{uu}+O(\ell^8)=2\pi C_\ell T_{uu}+O(\ell^6).
