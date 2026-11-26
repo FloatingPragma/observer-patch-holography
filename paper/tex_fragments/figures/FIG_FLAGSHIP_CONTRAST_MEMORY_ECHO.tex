@@ -8,7 +8,7 @@
 \draw[oph arrow=ophnative] (in)--(mid) node[midway, above, op, text=ophnative] {write};
 \draw[oph arrow=ophnative] (mid)--(out) node[midway, above, op, text=ophnative] {reverse\\write};
 \node[op, text=ophnative, anchor=south] at ($(mid.north)+(0,0.12)$) {phase $\tfrac12(I-R)+\kappa D^2$ on the label};
-\node[oph box=ophdeclared, text width=4.1cm, minimum height=11mm] (rec) at (5.6,-2.2) {public record of $(c,d)$\\[1pt]{\scriptsize committed repair, law E}};
+\node[oph box=ophdeclared, text width=4.1cm, minimum height=11mm] (rec) at (5.6,-2.2) {public record of $(c,d)$\\[1pt]{\scriptsize committed repair}};
 \draw[oph arrow=ophdeclared, dash pattern=on 2pt off 1.5pt] (mid)--(rec) node[midway, right, op, text=ophdeclared] {read};
 \node[oph label, anchor=west] at ($(in.west)+(0,-1.55)$) {the echo: the label stays private};
 \node[oph label, anchor=west] at ($(in.west)+(0,-1.95)$) {and the event stays coherent};
