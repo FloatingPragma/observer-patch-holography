@@ -158,6 +158,40 @@ theorem designatedCycle_lexLeast :
       (cycleGap repairCounts a b c).natAbs = 1239691068 →
         cycleLexCode 3 4 5 ≤ cycleLexCode a b c := by decide
 
+/-! ## Selection on a fresh observer history -/
+
+/-- Reversing any ordered table negates every signed three-cycle gap. -/
+theorem cycleGap_reversal (C : Fin 8 → Fin 8 → ℕ) (a b c : Fin 8) :
+    cycleGap (reversal C) a b c = -cycleGap C a b c := by
+  simp only [cycleGap, reversal_cycleForward]
+  omega
+
+/-- The maximum absolute raw gap with the declared lexical tie break. -/
+def IsFirstCycle (C : Fin 8 → Fin 8 → ℕ) (a b c : Fin 8) : Prop :=
+  ∀ i j k, (cycleGap C i j k).natAbs ≤ (cycleGap C a b c).natAbs ∧
+    ((cycleGap C i j k).natAbs = (cycleGap C a b c).natAbs →
+      cycleLexCode a b c ≤ cycleLexCode i j k)
+
+/-- The entire selection predicate is invariant under reversed reading. This
+includes ties between different unoriented triples. -/
+theorem isFirstCycle_reversal (C : Fin 8 → Fin 8 → ℕ) (a b c : Fin 8) :
+    IsFirstCycle (reversal C) a b c ↔ IsFirstCycle C a b c := by
+  simp only [IsFirstCycle, cycleGap_reversal, Int.natAbs_neg]
+
+/-- A strict selected gap dispatches opposite signs on the two readings. -/
+theorem strict_cycle_choice_reversal (C : Fin 8 → Fin 8 → ℕ) (a b c : Fin 8)
+    (h : cycleGap C a b c ≠ 0) :
+    decide (0 < cycleGap (reversal C) a b c) = !decide (0 < cycleGap C a b c) := by
+  rw [cycleGap_reversal]
+  by_cases hp : 0 < cycleGap C a b c <;> simp [hp] <;> omega
+
+/-- A symmetric count table cannot select an analyzer by a strict gap. -/
+theorem symmetric_cycleGap_zero (C : Fin 8 → Fin 8 → ℕ) (h : reversal C = C)
+    (a b c : Fin 8) : cycleGap C a b c = 0 := by
+  have hr := cycleGap_reversal C a b c
+  rw [h] at hr
+  omega
+
 /-! ## Exact row-normalized check
 
 Raw count products depend on row occupancies.  For the displayed selected
@@ -237,3 +271,7 @@ end OPH.Thermodynamics
 #print axioms OPH.Thermodynamics.repairOrientationBit_true
 #print axioms OPH.Thermodynamics.reversal_flips_orientation
 #print axioms OPH.Thermodynamics.reversibleControl_no_orientation
+
+#print axioms OPH.Thermodynamics.isFirstCycle_reversal
+#print axioms OPH.Thermodynamics.strict_cycle_choice_reversal
+#print axioms OPH.Thermodynamics.symmetric_cycleGap_zero
