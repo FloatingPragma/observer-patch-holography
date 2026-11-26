@@ -163,15 +163,15 @@
  },
  "premise_counts": {
   "law": {
-   "fulfilled": 23,
+   "fulfilled": 31,
    "partial": 16,
-   "open": 102,
+   "open": 94,
    "fails": 0
   },
   "designer": {
-   "fulfilled": 7,
-   "partial": 3,
-   "open": 21,
+   "fulfilled": 13,
+   "partial": 5,
+   "open": 13,
    "fails": 0
   },
   "import": {
@@ -352,9 +352,15 @@
    "statement": "A matter candidate is a pair (S, M): S a stratum of the classified compact locus of the fourteen-parameter equivariant Jacobi variety on the twelve-port carrier, and M a nonempty Z/2-graded complex module of the complexified semisimple bracket at S with zero abelian charges and total dimension at most twelve. The grammar, budget and decision rule are frozen in code/b15_matter_freeze/matter_class_freeze_v1.json.",
    "type": "selection_rule",
    "role": "law",
-   "status": "open",
-   "evidence": [],
-   "note": ""
+   "status": "fulfilled",
+   "evidence": [
+    "../../experiments/interval_echo_gauge/matter_class/README.md",
+    "../../experiments/interval_echo_gauge/matter_class/bracket.py",
+    "../../experiments/interval_echo_gauge/matter_class/compiler.py",
+    "../../experiments/interval_echo_gauge/matter_class/records.json",
+    "../../experiments/interval_echo_gauge/matter_class/SpinBracket.lean"
+   ],
+   "note": "A finite enumeration gives 23,396 stratum-labelled candidates under the frozen dimension and grading rules. At the supplied dimensions and relative full-turn signs, four candidates survive across the strata. Two stations implement one chosen P1 representation, with all 630 original and remounted count banks inside their simultaneous bounds. The grammar and representations are declared. Physical selection of a stratum and particle identification remain open."
   },
   {
    "id": "PR-14",
@@ -821,9 +827,17 @@
    "statement": "The ten one-generation Weyl-field labels carry the accidental baryon number B and lepton number L used to classify baryon-violating dimension-six multisets and to state Delta B = Delta L.",
    "type": "selection_rule",
    "role": "law",
-   "status": "open",
-   "evidence": [],
-   "note": ""
+   "status": "fulfilled",
+   "evidence": [
+    "../../experiments/interval_echo_gauge/exterior_register/baryon_labels/README.md",
+    "../../experiments/interval_echo_gauge/exterior_register/baryon_labels/PROTOCOL.md",
+    "../../experiments/interval_echo_gauge/exterior_register/baryon_labels/apparatus.py",
+    "../../experiments/interval_echo_gauge/exterior_register/baryon_labels/grammar.py",
+    "../../experiments/interval_echo_gauge/exterior_register/baryon_labels/measure.py",
+    "../../experiments/interval_echo_gauge/exterior_register/baryon_labels/results.json",
+    "../../experiments/interval_echo_gauge/exterior_register/baryon_labels/test_baryon_labels.py"
+   ],
+   "note": "Two stations separately read 3B and L on all 30 nontrivial occupation words of the declared field catalogue. Reversing the lepton meter preserves the admissions and reverses the signed relation between the two labels."
   },
   {
    "id": "PR-56",
@@ -831,9 +845,17 @@
    "statement": "Candidate dimension-six baryon operators are ordered four-field multisets on the declared one-generation Weyl table, filtered by hypercharge neutrality, colour triality, weak parity, chirality parity and nonzero baryon label, and tested in the supplied contraction and exterior-algebra grammar.",
    "type": "representation_choice",
    "role": "designer",
-   "status": "open",
-   "evidence": [],
-   "note": ""
+   "status": "fulfilled",
+   "evidence": [
+    "../../experiments/interval_echo_gauge/exterior_register/baryon_labels/README.md",
+    "../../experiments/interval_echo_gauge/exterior_register/baryon_labels/PROTOCOL.md",
+    "../../experiments/interval_echo_gauge/exterior_register/baryon_labels/apparatus.py",
+    "../../experiments/interval_echo_gauge/exterior_register/baryon_labels/grammar.py",
+    "../../experiments/interval_echo_gauge/exterior_register/baryon_labels/measure.py",
+    "../../experiments/interval_echo_gauge/exterior_register/baryon_labels/results.json",
+    "../../experiments/interval_echo_gauge/exterior_register/baryon_labels/test_baryon_labels.py"
+   ],
+   "note": "The received exterior signs for 24 orderings feed the declared four-field contraction calculation. Of 715 multisets, eight orientations in four conjugate pairs pass all filters. Each has a one-dimensional contraction space and ΔB = ΔL = ±1. Omitting the measured ordering sign removes the QQuReR class and its conjugate."
   },
   {
    "id": "PR-57",
@@ -986,9 +1008,17 @@
    "statement": "The temporal Maxwell packet is the Euler-Lagrange system of one declared discrete action: the local sourced face action with its seam-current coupling, the kinetic term (h/2)|E_n|^2 with E_n = -(A_{n+1}-A_n)/h - d phi_n, and the coupling h <rho_n, phi_n>. The kinetic term and the step h are the declared inputs.",
    "type": "structural_rule",
    "role": "law",
-   "status": "open",
-   "evidence": [],
-   "note": ""
+   "status": "fulfilled",
+   "evidence": [
+    "../../experiments/interval_echo_gauge/temporal_action/README.md",
+    "../../experiments/interval_echo_gauge/temporal_action/action.py",
+    "../../experiments/interval_echo_gauge/temporal_action/material.py",
+    "../../experiments/interval_echo_gauge/temporal_action/rails.py",
+    "../../experiments/interval_echo_gauge/temporal_action/measure.py",
+    "../../experiments/interval_echo_gauge/temporal_action/records.json.gz",
+    "../../experiments/interval_echo_gauge/temporal_action/ActionBridge.lean"
+   ],
+   "note": "A declared half-step updates the 12-port, 30-seam, 20-face complex from independently read charge and ordered crossings. On five native histories all 120 interior seam and 60 port variation readouts per history vanish for the complete discrete action. Removing the port-charge coupling leaves ten port directions nonstationary on the charged history. The action, field representation, address schedule and time step are supplied."
   },
   {
    "id": "PR-67",
@@ -1011,9 +1041,16 @@
    "statement": "The finite composition declares lambda > 0, a model-shell radius r > 0, the potential lambda (normSq(h) - r^2)^2 and the chosen point (0, r).",
    "type": "structural_rule",
    "role": "law",
-   "status": "open",
-   "evidence": [],
-   "note": ""
+   "status": "fulfilled",
+   "evidence": [
+    "../../experiments/interval_echo_gauge/scalar_grammar/shell_line/README.md",
+    "../../experiments/interval_echo_gauge/scalar_grammar/shell_line/apparatus.py",
+    "../../experiments/interval_echo_gauge/scalar_grammar/shell_line/measure.py",
+    "../../experiments/interval_echo_gauge/scalar_grammar/shell_line/results.json",
+    "../../experiments/interval_echo_gauge/scalar_grammar/shell_line/test_shell_line.py",
+    "../../experiments/interval_echo_gauge/scalar_grammar/shell_line/ShellLine.lean"
+   ],
+   "note": "Two independently prepared reference-chart doublets give the quartic potential for every finite coordinate by a joint-occupancy ratio. With declared λ = 3/2 and r = 1 the chosen vacuum reads 0.00338 with simultaneous 99% interval [−0.07493, 0.08183]. Matched one-station marginals with correlated addresses give 2.98895 [2.92226, 3.05692]. This is a finite potential measurement on prepared frames."
   },
   {
    "id": "PR-69",
@@ -1021,9 +1058,16 @@
    "statement": "The finite electroweak composition selects one epsilon-paired doublet-singlet Yukawa line with one declared real coefficient y and evaluates its bilinear at the declared vacuum.",
    "type": "selection_rule",
    "role": "law",
-   "status": "open",
-   "evidence": [],
-   "note": ""
+   "status": "fulfilled",
+   "evidence": [
+    "../../experiments/interval_echo_gauge/scalar_grammar/shell_line/README.md",
+    "../../experiments/interval_echo_gauge/scalar_grammar/shell_line/apparatus.py",
+    "../../experiments/interval_echo_gauge/scalar_grammar/shell_line/measure.py",
+    "../../experiments/interval_echo_gauge/scalar_grammar/shell_line/results.json",
+    "../../experiments/interval_echo_gauge/scalar_grammar/shell_line/test_shell_line.py",
+    "../../experiments/interval_echo_gauge/scalar_grammar/shell_line/ShellLine.lean"
+   ],
+   "note": "Transferred and local doublets with the declared singlet and real y = 1/2 give both quadratures of one ε-paired line. The held complex pair reads −0.396 + 0.299i against −0.4 + 0.3i. The exact finite identity specializes at the chosen vacuum. Physical fermion masses and family couplings require separate evidence."
   },
   {
    "id": "PR-70",
@@ -1101,9 +1145,15 @@
    "statement": "Along one canonical adaptive repair run, every site enabled at every step of a tail is eventually selected on that tail. The premise suffices for the eventual constant record to be normal.",
    "type": "structural_rule",
    "role": "law",
-   "status": "open",
-   "evidence": [],
-   "note": ""
+   "status": "fulfilled",
+   "evidence": [
+    "../../experiments/interval_echo_consensus/boolean_nodes/repair_ballots/README.md",
+    "../../experiments/interval_echo_consensus/boolean_nodes/repair_ballots/measure.py",
+    "../../experiments/interval_echo_consensus/boolean_nodes/repair_ballots/results.json",
+    "../../experiments/interval_echo_consensus/boolean_nodes/repair_ballots/test_ballots.py",
+    "../../../Lean/ObserverPatchHolography/Execution/MeasuredRepairBallots.lean"
+   ],
+   "note": "On the sharp Boolean overlap graph a covering scan of accurate, independently read eligibility flags supplies pathwise weak fairness. A formal proof covers every word and every start index. Both physical consultation orders on the path, pentagon and sphere reached a normal return."
   },
   {
    "id": "PR-78",
@@ -1111,9 +1161,15 @@
    "statement": "At every canonical adaptive repair state, whenever some site has an effective repair, the selected site has an effective repair. This gives a normal horizon bounded by the initial mismatch count.",
    "type": "structural_rule",
    "role": "law",
-   "status": "open",
-   "evidence": [],
-   "note": ""
+   "status": "fulfilled",
+   "evidence": [
+    "../../experiments/interval_echo_consensus/boolean_nodes/repair_ballots/README.md",
+    "../../experiments/interval_echo_consensus/boolean_nodes/repair_ballots/measure.py",
+    "../../experiments/interval_echo_consensus/boolean_nodes/repair_ballots/results.json",
+    "../../experiments/interval_echo_consensus/boolean_nodes/repair_ballots/test_ballots.py",
+    "../../../Lean/ObserverPatchHolography/Execution/MeasuredRepairBallots.lean"
+   ],
+   "note": "Both ends of each overlap report whether their extremal rails differ. A canonical Boolean repair is possible precisely where all incident comparisons differ and at least one exists. After a change, withdrawing the selected and neighboring ballots preserves exact eligibility. Across 120 native trials every productive opportunity was served. The order, sharp records and contacts are declared."
   },
   {
    "id": "PR-79",
@@ -1121,9 +1177,15 @@
    "statement": "From every scheduler index and every reducible canonical repair record, at least one genuine record change occurs among the next q+1 attempts for one declared natural q. The normal horizon is then at most (q+1) times the initial mismatch count.",
    "type": "structural_rule",
    "role": "law",
-   "status": "open",
-   "evidence": [],
-   "note": ""
+   "status": "fulfilled",
+   "evidence": [
+    "../../experiments/interval_echo_consensus/boolean_nodes/repair_ballots/README.md",
+    "../../experiments/interval_echo_consensus/boolean_nodes/repair_ballots/measure.py",
+    "../../experiments/interval_echo_consensus/boolean_nodes/repair_ballots/results.json",
+    "../../experiments/interval_echo_consensus/boolean_nodes/repair_ballots/test_ballots.py",
+    "../../../Lean/ObserverPatchHolography/Execution/MeasuredRepairBallots.lean"
+   ],
+   "note": "On every reducible Boolean equality word the covering scan changes a record on its first invocation, so the bounded-waste parameter is q = 0 at every index. Blind offers wasted 226 charged attempts while a repair was possible. Withholding neighbor withdrawals produced 48 stale grants."
   },
   {
    "id": "PR-80",
@@ -1131,9 +1193,15 @@
    "statement": "The declared attempt budget B is at least (q+1) times the initial mismatch count for the same bounded-waste value q; every scheduler invocation, including equality stutter, costs one unit.",
    "type": "numerical_input",
    "role": "designer",
-   "status": "open",
-   "evidence": [],
-   "note": ""
+   "status": "fulfilled",
+   "evidence": [
+    "../../experiments/interval_echo_consensus/boolean_nodes/repair_ballots/README.md",
+    "../../experiments/interval_echo_consensus/boolean_nodes/repair_ballots/measure.py",
+    "../../experiments/interval_echo_consensus/boolean_nodes/repair_ballots/results.json",
+    "../../experiments/interval_echo_consensus/boolean_nodes/repair_ballots/test_ballots.py",
+    "../../../Lean/ObserverPatchHolography/Execution/MeasuredRepairBallots.lean"
+   ],
+   "note": "The two endpoint surveys give the initial mismatch count. The declared budget supplies one invocation per broken edge with q = 0. All 458 native invocations were charged, including 346 normal-record stutters. Every native run reached normality within budget; the zero-budget control leaves initially enabled words reducible."
   },
   {
    "id": "PR-81",
@@ -1523,9 +1591,14 @@
    "statement": "Port loads on a twelve-port cell are integer record counts with total load twelve, generated by signed append-only events and changed only by conservative whole-unit seam repairs. The physical readback cost of a load vector q is H(q) = sum_i q_i^2. Under these realization premises the all-one split is the unique minimizer, with floor 12 and gap 2.",
    "type": "declared",
    "role": "designer",
-   "status": "open",
-   "evidence": [],
-   "note": ""
+   "status": "partial",
+   "evidence": [
+    "../../experiments/interval_echo_consensus/routed_counts/phase_cost/README.md",
+    "../../experiments/interval_echo_consensus/routed_counts/phase_cost/measure.py",
+    "../../experiments/interval_echo_consensus/routed_counts/phase_cost/records.json",
+    "../../experiments/interval_echo_consensus/routed_counts/phase_cost/Readback.lean"
+   ],
+   "note": "Independent reciprocal phase meters read the quadratic load on a twelve-port ternary source of total twelve. Each of six signed strict repairs lowers the measured square sum by two within the simultaneous error, and the same-address reading uses the same gate count on both endpoints. The full signed integer fiber and a universal physical readback cost remain unverified."
   },
   {
    "id": "PR-118",
@@ -1573,9 +1646,18 @@
    "statement": "Observers run the raw-prepared, lock and decision certificate protocol: certificates carry a quorum of distinct authenticated votes for one value and view, a nonfaulty validator supports one value per view, never signs for a lower view after entering a higher one, records a durable lock only from an assembled lock certificate before committing, and finalizes only on a valid decision certificate. A new leader proposes the value of the highest valid lock certificate under a checked q-message justification, with quorum thresholds 2q >= n + f + 1 for safety and q <= n - f for liveness.",
    "type": "declared",
    "role": "designer",
-   "status": "open",
-   "evidence": [],
-   "note": ""
+   "status": "fulfilled",
+   "evidence": [
+    "../../experiments/interval_echo_consensus/prepared_quorum/README.md",
+    "../../experiments/interval_echo_consensus/prepared_quorum/PROTOCOL.md",
+    "../../experiments/interval_echo_consensus/prepared_quorum/certificates.py",
+    "../../experiments/interval_echo_consensus/prepared_quorum/transport.py",
+    "../../experiments/interval_echo_consensus/prepared_quorum/measure.py",
+    "../../experiments/interval_echo_consensus/prepared_quorum/records.json.gz",
+    "../../experiments/interval_echo_consensus/prepared_quorum/test_quorum.py",
+    "../../experiments/interval_echo_consensus/prepared_quorum/Quorum.lean"
+   ],
+   "note": "Four validators exchange authenticated preparations, acceptances and commits through independently decoded native bit slots. A recipient verifies the assembled lock certificate and writes a persistent local lock before signing a commit. Two receiving observers agree at quorum three despite one equivocating or silent signer. Quorum two admits contradictory decisions and quorum four stalls under silence. Authentication, enrollment, routing and eventual delivery in a live view are declared."
   },
   {
    "id": "PR-123",
@@ -1608,9 +1690,13 @@
     "../../../code/cosmology/guarded_slab/energy_exchange/README.md",
     "../../../code/cosmology/guarded_slab/energy_exchange/protocol.json",
     "../../../code/cosmology/guarded_slab/energy_exchange/energy_routes.py",
-    "../../../code/cosmology/guarded_slab/energy_exchange/energy.json"
+    "../../../code/cosmology/guarded_slab/energy_exchange/energy.json",
+    "../../experiments/interval_echo_consensus/publication_tree/authorized_sets/README.md",
+    "../../experiments/interval_echo_consensus/publication_tree/authorized_sets/apparatus.py",
+    "../../experiments/interval_echo_consensus/publication_tree/authorized_sets/records.json",
+    "../../experiments/interval_echo_consensus/publication_tree/authorized_sets/Access.lean"
    ],
-   "note": "The independently committed protocol fixes one nonempty publicness family consisting of the three material readers together. All eight reachable energy words decode exactly through every reported ring stroke. Counterfactual singleton and pair access give code sizes two and four. This design choice concerns publicness, and supplies no global value of N."
+   "note": "The independently committed protocol fixes one nonempty publicness family consisting of the three material readers together. All eight reachable energy words decode exactly through every reported ring stroke. Counterfactual singleton and pair access give code sizes two and four. This design choice concerns publicness, and supplies no global value of N. Twelve named owners implement the frozen collective policy on all 24 oriented words and 40 continuations on three boards. Under a separate deletion test, every group of eleven recovers all 24 words. Only two messages can be chosen to survive every possible pair of missing readers. This finite record experiment supplies no cosmological capacity scale."
   },
   {
    "id": "PR-126",
@@ -1648,9 +1734,18 @@
    "statement": "A post-hoc raw repair-count product-gap statistic, with its maximizing cycle and tie-break rule, yields a Bool orientation, and one of the two pairings of that Bool with the conjugate pair of complex phase completions is declared physical.",
    "type": "declared",
    "role": "designer",
-   "status": "open",
-   "evidence": [],
-   "note": ""
+   "status": "fulfilled",
+   "evidence": [
+    "../../experiments/interval_echo_consensus/routed_counts/phase_choice/README.md",
+    "../../experiments/interval_echo_consensus/routed_counts/phase_choice/PROTOCOL.md",
+    "../../experiments/interval_echo_consensus/routed_counts/phase_choice/TRANSFER_PROTOCOL.md",
+    "../../experiments/interval_echo_consensus/routed_counts/phase_choice/measure.py",
+    "../../experiments/interval_echo_consensus/routed_counts/phase_choice/results.json",
+    "../../experiments/interval_echo_consensus/routed_counts/phase_choice/transfer.py",
+    "../../experiments/interval_echo_consensus/routed_counts/phase_choice/transfer.json",
+    "../../experiments/interval_echo_consensus/routed_counts/phase_choice/test_choice.py"
+   ],
+   "note": "Two chronological repair logs select negative signed cycle gaps, and reading them backwards selects the opposite gaps. A remote station receives the decision on material rails and switches between conjugate phase effects on the same stocks. All 32 held phase cohorts meet the forecasts. Pooled and disconnected reports give a refusal. The pairing, clock and replenishments are declared."
   },
   {
    "id": "PR-130",
@@ -1830,9 +1925,19 @@
    "statement": "The primitive repair attempts of the native process are exactly the seam moves of the cell, listed once each up to the observer quotient, and each acts on a real scalar load workspace as a linear map supported on its two endpoints that conserves their sum and leaves them equal.",
    "type": "declared",
    "role": "designer",
-   "status": "open",
-   "evidence": [],
-   "note": ""
+   "status": "fulfilled",
+   "evidence": [
+    "../../experiments/interval_echo_consensus/seam_word_meter/README.md",
+    "../../experiments/interval_echo_consensus/seam_word_meter/PROTOCOL.md",
+    "../../experiments/interval_echo_consensus/seam_word_meter/apparatus.py",
+    "../../experiments/interval_echo_consensus/seam_word_meter/chart.py",
+    "../../experiments/interval_echo_consensus/seam_word_meter/measure.py",
+    "../../experiments/interval_echo_consensus/seam_word_meter/records.json.gz",
+    "../../experiments/interval_echo_consensus/seam_word_meter/test_word_meter.py",
+    "../../experiments/interval_echo_consensus/seam_word_meter/test_chart.py",
+    "../../experiments/interval_echo_consensus/seam_word_meter/RecordMeans.lean"
+   ],
+   "note": "The 30 distinct protected seam offers act as pair averages on the pooled ternary port distributions. The first owner resolves its endpoint before the half-exchange. Opposite input phases give unread first-port means of zero and one, and both give one half after the read. The exact effect identity covers arbitrary coherences and spectator systems. Every finite real vector fits a common calibrated chart fixed for its run. Conditional readouts and bare coherent evolution are separate instruments."
   },
   {
    "id": "PR-147",
@@ -1840,9 +1945,19 @@
    "statement": "Every probability law on every finite word space of the native attempt alphabet is a temporally admissible schedule: the native process imposes no state-dependent deletion of attempts and no cross-position coupling on schedules.",
    "type": "declared",
    "role": "designer",
-   "status": "open",
-   "evidence": [],
-   "note": ""
+   "status": "fulfilled",
+   "evidence": [
+    "../../experiments/interval_echo_consensus/seam_word_meter/README.md",
+    "../../experiments/interval_echo_consensus/seam_word_meter/PROTOCOL.md",
+    "../../experiments/interval_echo_consensus/seam_word_meter/apparatus.py",
+    "../../experiments/interval_echo_consensus/seam_word_meter/chart.py",
+    "../../experiments/interval_echo_consensus/seam_word_meter/measure.py",
+    "../../experiments/interval_echo_consensus/seam_word_meter/records.json.gz",
+    "../../experiments/interval_echo_consensus/seam_word_meter/test_word_meter.py",
+    "../../experiments/interval_echo_consensus/seam_word_meter/test_chart.py",
+    "../../experiments/interval_echo_consensus/seam_word_meter/RecordMeans.lean"
+   ],
+   "note": "An isolated one-load dimer samples a prescribed next-symbol probability at each positive prefix, reads which endpoint holds the load and resets for reuse. Prefix mass multiplication gives any finite joint word law with ideal real control angles. The working ports never veto an offer. The exact iterative controller preserves a branch of weight 10⁻⁴⁰⁰ and records the limit of its binary64 pulse check. Replacing a held joint schedule by independently sampled positions changes the terminal port law by 1159/27000."
   },
   {
    "id": "PR-148",
@@ -2185,9 +2300,19 @@
    "statement": "The native repair acts as the deterministic scalar pair mean on seam-adjacent real registers, and observers run declared finite programs on it with supplied preparations, rail embeddings, routes and supported layouts, schedules, controllers, publication instruments, possible-observation relations and error allowances, as in the source-native accumulator, bank, bus, shuttle, checkpoint, publication, read-selection and routing constructions.",
    "type": "declared",
    "role": "designer",
-   "status": "open",
-   "evidence": [],
-   "note": ""
+   "status": "partial",
+   "evidence": [
+    "../../experiments/interval_echo_consensus/seam_word_meter/README.md",
+    "../../experiments/interval_echo_consensus/seam_word_meter/PROTOCOL.md",
+    "../../experiments/interval_echo_consensus/seam_word_meter/apparatus.py",
+    "../../experiments/interval_echo_consensus/seam_word_meter/chart.py",
+    "../../experiments/interval_echo_consensus/seam_word_meter/measure.py",
+    "../../experiments/interval_echo_consensus/seam_word_meter/records.json.gz",
+    "../../experiments/interval_echo_consensus/seam_word_meter/test_word_meter.py",
+    "../../experiments/interval_echo_consensus/seam_word_meter/test_chart.py",
+    "../../experiments/interval_echo_consensus/seam_word_meter/RecordMeans.lean"
+   ],
+   "note": "The pooled scalar workspace implements any fixed word of addressed pair means on the cell. Two receiving stations and 10,800 ordered two-offer comparisons reproduce the predicted distributions. A common chart prepares twelve real coordinates. Conditional read-selection, publication and the complete registered observer-program family require further realizations."
   },
   {
    "id": "PR-181",
@@ -2426,7 +2551,7 @@
       "PR-02"
      ],
      "status": "demonstrated",
-     "note": "The cell-patch clock reads a sharp material rail; repeated protected readings of the reported states agree. Both owners reread the same physical digit in the projection test. For one fresh write in the 78-word total-two sector, the native reduced Interval Echo channel equals the historical E record law on all 6,084 matrix units. A total-sensitive control equals T. All sharp words agree and 110 matrix units distinguish the laws. A four-port empty/full preparation gives 786,931 returns in 1,048,576 simulated starts at the held phase π/3, versus 524,005 with the control. Routing the spectators to the original historical ports (2,3) gives a held bright fraction of 0.749959 against 0.749434 predicted from the other ports. This settles the model-side empty/full multiplier; physical E/T selection requires independent laboratory records. On the historical empty/single preparation the native contrast record gives a bright probability of 3/8 at every phase. The coin-and-current control gives 5/8 and 1/8 at opposite phases. All 78 terminal words and nine held forecasts were checked across 5,505,024 launches. For six rank-two outcomes, four fresh return cohorts per pair bound the error of any later event on the enrolled code by 0.0910, allowing an untouched reference. With the same published first label the fine-address writer exceeds 0.4813 on each pair. The joint confidence is 99% for the specified calibration and independent simulated launches. A supplied publication schedule delivers the same signed or refused word to every owner on three boards through 320 cells while retaining its correlation with a separate source bit. An independently redrawn word at the final reader has the same frequencies and agrees on only 3/8 of events. Which record families the native process makes public remains open.",
+     "note": "The cell-patch clock reads a sharp material rail; repeated protected readings of the reported states agree. Both owners reread the same physical digit in the projection test. For one fresh write in the 78-word total-two sector, the native reduced Interval Echo channel equals the historical E record law on all 6,084 matrix units. A total-sensitive control equals T. All sharp words agree and 110 matrix units distinguish the laws. A four-port empty/full preparation gives 786,931 returns in 1,048,576 simulated starts at the held phase π/3, versus 524,005 with the control. Routing the spectators to the original historical ports (2,3) gives a held bright fraction of 0.749959 against 0.749434 predicted from the other ports. This settles the model-side empty/full multiplier; physical E/T selection requires independent laboratory records. On the historical empty/single preparation the native contrast record gives a bright probability of 3/8 at every phase. The coin-and-current control gives 5/8 and 1/8 at opposite phases. All 78 terminal words and nine held forecasts were checked across 5,505,024 launches. For six rank-two outcomes, four fresh return cohorts per pair bound the error of any later event on the enrolled code by 0.0910, allowing an untouched reference. With the same published first label the fine-address writer exceeds 0.4813 on each pair. The joint confidence is 99% for the specified calibration and independent simulated launches. A supplied publication schedule delivers the same signed or refused word to every owner on three boards through 320 cells while retaining its correlation with a separate source bit. An independently redrawn word at the final reader has the same frequencies and agrees on only 3/8 of events. Which record families the native process makes public remains open. Twelve named owners implement the frozen collective policy on all 24 oriented words and 40 continuations on three boards. Under a separate deletion test, every group of eleven recovers all 24 words. Only two messages can be chosen to survive every possible pair of missing readers. This finite record experiment supplies no cosmological capacity scale.",
      "evidence": [
       "model/candidate_laws/interval_echo/projection.json",
       "model/candidate_laws/interval_echo/clock.py",
@@ -2448,7 +2573,10 @@
       "Lean/EventAlgebra/ComplementaryReturnBound.lean",
       "model/experiments/interval_echo_consensus/publication_tree/README.md",
       "model/experiments/interval_echo_consensus/publication_tree/measure.py",
-      "model/experiments/interval_echo_consensus/publication_tree/results.json"
+      "model/experiments/interval_echo_consensus/publication_tree/results.json",
+      "model/experiments/interval_echo_consensus/publication_tree/authorized_sets/README.md",
+      "model/experiments/interval_echo_consensus/publication_tree/authorized_sets/apparatus.py",
+      "model/experiments/interval_echo_consensus/publication_tree/authorized_sets/records.json"
      ]
     },
     {
@@ -2524,7 +2652,7 @@
       "PR-01"
      ],
      "status": "demonstrated",
-     "note": "Occupied and ready flags determine the consistent asynchronous sharp endpoint. All 284 one-step forks on 19,683 path states join. For one protected coherent sweep, stored local priorities order conflicting visits. Disjoint visits commute, giving exactly the same full addressed instrument for every legal schedule, including arbitrary untouched references. Five legal schedules agree on 3,888 path inputs. Removing precedence changes 192 endpoints. With free flight and one sharp double, even a fixed priority sweep gives different permanent addresses when the same flight and sweep are interchanged. At a quarter exchange time the probability of a different address is at least 529/16384 throughout the degree-five/six federation family. Uniform random seam attempts terminate almost surely on this sector. Protected closed vacancy walks generate all excess-position permutations. The largest linear observation algebra forgetting every closed transport is the span of the uniform-position projector and its complement. Counting a distinguishable reversible loop and its inverse as strict repairs makes a two-step descent cycle. Every weakly fair guarded request schedule gives the same full terminal isometry on a fixed initial joint public flag eigenspace, including coherent inputs entangled with a spectator. On arbitrary coherent inputs the occupied-address and untouched-spectator instrument is schedule-independent. Across different initial flags a premature probe can erase a relative phase. Free flight still changes some protected endpoints. At total load two and blank collars, a full priority sweep writes one mark for a double and none for two singles, in either order with all-open flight. The three-state quotient has completeness, strict descent and a unique consistent endpoint for each of its two protected values. On the doubled sector of the 20-, 80- and 320-cell screens, scalar effects are the only fixed terminal effects giving the same input probabilities for both orders at every sufficiently small exposure. The address and coherent sign record can distinguish the schedules. The routed strict-write service discharges all normal-form premises on the public vacancy, double and occupied-seam census. It admits arbitrary ternary loads, protected initialized routing capacity, and arbitrary native flight between transactions. Each accepted write consumes one vacancy and one double, adds one mark and lowers excess quadratic load by two. Every competing successful request has the same census successor. Normality is equivalent to attaining the global quadratic-load minimum at fixed load. The two invariants, vacancies plus marks and doubles plus marks, identify every normal endpoint on this quotient. An uninterrupted scan of all 28,680 pairs of 240 ports, starting with eleven occupied collars, made 74 further writes in either order and attained the minimum 224. Positions, signs, arbitrary dirty routing trees and the joint clock history lie outside this conclusion. If the pair is freshly uniform after each preceding flight, the exact write probability at fixed census is vd/C, where C counts unordered port pairs. The time to completion is a sum of geometric waits with mean strictly below N(N−1) requests on N ports. Every refused request counts. All 16 four-port count banks on sharp or coherent starts agree with the independent forecast. A finite deadline has an explicit risk bound. A protected deterministic scan permits at most C requests and parks free flight during that scan. These are bounds for this apparatus and observable.",
+     "note": "Occupied and ready flags determine the consistent asynchronous sharp endpoint. All 284 one-step forks on 19,683 path states join. For one protected coherent sweep, stored local priorities order conflicting visits. Disjoint visits commute, giving exactly the same full addressed instrument for every legal schedule, including arbitrary untouched references. Five legal schedules agree on 3,888 path inputs. Removing precedence changes 192 endpoints. With free flight and one sharp double, even a fixed priority sweep gives different permanent addresses when the same flight and sweep are interchanged. At a quarter exchange time the probability of a different address is at least 529/16384 throughout the degree-five/six federation family. Uniform random seam attempts terminate almost surely on this sector. Protected closed vacancy walks generate all excess-position permutations. The largest linear observation algebra forgetting every closed transport is the span of the uniform-position projector and its complement. Counting a distinguishable reversible loop and its inverse as strict repairs makes a two-step descent cycle. Every weakly fair guarded request schedule gives the same full terminal isometry on a fixed initial joint public flag eigenspace, including coherent inputs entangled with a spectator. On arbitrary coherent inputs the occupied-address and untouched-spectator instrument is schedule-independent. Across different initial flags a premature probe can erase a relative phase. Free flight still changes some protected endpoints. At total load two and blank collars, a full priority sweep writes one mark for a double and none for two singles, in either order with all-open flight. The three-state quotient has completeness, strict descent and a unique consistent endpoint for each of its two protected values. On the doubled sector of the 20-, 80- and 320-cell screens, scalar effects are the only fixed terminal effects giving the same input probabilities for both orders at every sufficiently small exposure. The address and coherent sign record can distinguish the schedules. The routed strict-write service discharges all normal-form premises on the public vacancy, double and occupied-seam census. It admits arbitrary ternary loads, protected initialized routing capacity, and arbitrary native flight between transactions. Each accepted write consumes one vacancy and one double, adds one mark and lowers excess quadratic load by two. Every competing successful request has the same census successor. Normality is equivalent to attaining the global quadratic-load minimum at fixed load. The two invariants, vacancies plus marks and doubles plus marks, identify every normal endpoint on this quotient. An uninterrupted scan of all 28,680 pairs of 240 ports, starting with eleven occupied collars, made 74 further writes in either order and attained the minimum 224. Positions, signs, arbitrary dirty routing trees and the joint clock history lie outside this conclusion. If the pair is freshly uniform after each preceding flight, the exact write probability at fixed census is vd/C, where C counts unordered port pairs. The time to completion is a sum of geometric waits with mean strictly below N(N−1) requests on N ports. Every refused request counts. All 16 four-port count banks on sharp or coherent starts agree with the independent forecast. A finite deadline has an explicit risk bound. A protected deterministic scan permits at most C requests and parks free flight during that scan. These are bounds for this apparatus and observable. On sharp equality graphs the ballot scan reaches a canonical normal word within one charged attempt per initial mismatch. On the 20-owner board 133,630 words are normal, only two agree on every edge, and 474,412 inputs have more than one terminal word across service orders. Of the 1,048,576 sphere inputs, 11,656 can reach unanimity and 7,736 reach it under every covering order. Independent reciprocal phase meters read the quadratic load on a twelve-port ternary source of total twelve. Each of six signed strict repairs lowers the measured square sum by two within the simultaneous error, and the same-address reading uses the same gate count on both endpoints. The full signed integer fiber and a universal physical readback cost remain unverified.",
      "evidence": [
       "model/candidate_laws/interval_echo/consensus.json",
       "model/candidate_laws/interval_echo/CONSENSUS.md",
@@ -2560,7 +2688,15 @@
       "model/experiments/interval_echo_consensus/repair_budget/measure.py",
       "model/experiments/interval_echo_consensus/repair_budget/counts.json",
       "model/experiments/interval_echo_consensus/repair_budget/test_budget.py",
-      "Lean/Screen/RoutedAttemptBudget.lean"
+      "Lean/Screen/RoutedAttemptBudget.lean",
+      "model/experiments/interval_echo_consensus/boolean_nodes/repair_ballots/README.md",
+      "model/experiments/interval_echo_consensus/boolean_nodes/repair_ballots/measure.py",
+      "model/experiments/interval_echo_consensus/boolean_nodes/repair_ballots/results.json",
+      "model/experiments/interval_echo_consensus/boolean_nodes/repair_ballots/test_ballots.py",
+      "Lean/ObserverPatchHolography/Execution/MeasuredRepairBallots.lean",
+      "model/experiments/interval_echo_consensus/routed_counts/phase_cost/README.md",
+      "model/experiments/interval_echo_consensus/routed_counts/phase_cost/measure.py",
+      "model/experiments/interval_echo_consensus/routed_counts/phase_cost/records.json"
      ],
      "demonstrated_measurement": {
       "label": "Unique minimum-load census after routed repair on the federation",
@@ -2602,7 +2738,7 @@
       "PR-65"
      ],
      "status": "demonstrated",
-     "note": "Every complete finite native program induces a positive normalized state on its generated public effects. The branch theorem includes free evolution, written collars, adaptive reads, finite stopping and labelled refusals. It gives equal weights to operator-equivalent readings on every admitted input and adds disjoint public events. A full 99-state replay resolves all 9,801 Hermitian coordinates and checks a nine-history program against a 17-history refinement. Quantum preparation, instruments and branch sampling are supplied. Deriving the Born rule from scalar observer records and realizing every ambient matrix-effect pair on arbitrary hardware are separate questions.",
+     "note": "Every complete finite native program induces a positive normalized state on its generated public effects. The branch theorem includes free evolution, written collars, adaptive reads, finite stopping and labelled refusals. It gives equal weights to operator-equivalent readings on every admitted input and adds disjoint public events. A full 99-state replay resolves all 9,801 Hermitian coordinates and checks a nine-history program against a 17-history refinement. Quantum preparation, instruments and branch sampling are supplied. Deriving the Born rule from scalar observer records and realizing every ambient matrix-effect pair on arbitrary hardware are separate questions. Two chronological repair logs select negative signed cycle gaps, and reading them backwards selects the opposite gaps. A remote station receives the decision on material rails and switches between conjugate phase effects on the same stocks. All 32 held phase cohorts meet the forecasts. Pooled and disconnected reports give a refusal. The pairing, clock and replenishments are declared.",
      "evidence": [
       "model/candidate_laws/interval_echo/clock.py",
       "model/candidate_laws/interval_echo/projection.json",
@@ -2660,7 +2796,15 @@
       "model/experiments/interval_echo_consensus/public_event_grammar/grammar.py",
       "model/experiments/interval_echo_consensus/public_event_grammar/results.json",
       "model/experiments/interval_echo_consensus/public_event_grammar/test_grammar.py",
-      "Lean/EventAlgebra/NativePublicEventGrammar.lean"
+      "Lean/EventAlgebra/NativePublicEventGrammar.lean",
+      "model/experiments/interval_echo_consensus/routed_counts/phase_choice/README.md",
+      "model/experiments/interval_echo_consensus/routed_counts/phase_choice/PROTOCOL.md",
+      "model/experiments/interval_echo_consensus/routed_counts/phase_choice/TRANSFER_PROTOCOL.md",
+      "model/experiments/interval_echo_consensus/routed_counts/phase_choice/measure.py",
+      "model/experiments/interval_echo_consensus/routed_counts/phase_choice/results.json",
+      "model/experiments/interval_echo_consensus/routed_counts/phase_choice/transfer.py",
+      "model/experiments/interval_echo_consensus/routed_counts/phase_choice/transfer.json",
+      "model/experiments/interval_echo_consensus/routed_counts/phase_choice/test_choice.py"
      ],
      "demonstrated_measurement": {
       "label": "Complete finite public-event grammar, with full 99-state branch replay",
@@ -2703,7 +2847,7 @@
       "PR-54"
      ],
      "status": "partial",
-     "note": "The registered pair's two triplets carry the faithful connected image U(3) × SO(3). Across all 36 central test words a pure weak full turn acts trivially. A weak doublet, a Standard Model loop/flux action, and a common faithful representation with the Standard Model global quotient remain to be realized. In the registered one-load colour representation the leading arrival from one cell has one-quarter triplet weight. A reference-tagged orbital remains coherent after singlet projections at both endpoints for both material signs under the specified extension of this meter. Applying identical pulse strengths to the one-load and two-load bound-pair triplets gives a 23-dimensional joint connected current image. The full central turn that is identity on the pair moves the one-load launch off both input ports. These two registered carriers do not realize a common twelve-dimensional action at those strengths. On a unit-filled material carrying a vacancy and one excess, the protected π-pulse loop image is exactly S_m for m=11,239,959,3839. The mark representation is faithful and only identity acts as a scalar; the free leading crossing words have scalar kernel {I,-I}. This source-specific loop action has trivial permutation center and does not realize the required Z6 gluing-to-kernel identity. In the joint address action, a pair-source line defines an orthogonal plane supporting a controllable two-state rotation. With the rotation triplets held fixed, the native uniform circle and the independent colour and plane controls have faithful image SU(3) × SU(2) × U(1). Imposing equality of the bright-line phase and the colour determinant selects a different subgroup with diagonal order-six covering kernel. An allowed antipodal pulse has exact colour determinant i and a measured pair bright cosine between −0.656 and −0.622. This excludes every continuous single-valued colour character as the phase rule for all line-preserving native controls. The selection of a physical loop and global form is unresolved. Both modes of the registered pair plane transmit into the adjacent plane on an all-open 20-cell screen except at isolated exposures. A launch phase changes 29 of 30 receiving seam frequencies at exposure 32. An exact calculation proves unequal mode efficiencies outside a discrete set. A single bridge between two isolated cells blocks both modes by fivefold symmetry. The global gauge identification requires compatible transports and a common action on matter. Two coherent remote apertures with a signed turnaround give the same successful rotation for every input in the registered pair plane. The home observer measured a relative path phase of 0.458 radians (joint interval 0.360–0.563). For any coherent aperture and any antisymmetric turnaround K, reciprocity makes the two-dimensional return matrix TᵀKT a scalar times the same antisymmetric matrix. This controlled family has commuting projective image and cannot select the order-six global form. On connected protected blank ports native contacts give independent special-unitary blocks and a two-parameter determinant torus; a four-port two-load meter has a cyclic ambiguity of order 59 resolved by a single-load read. On the bound trimer four held three-label tables match an independent inverse-word calibration. The phases on one arm and the complementary pair are conjugate and cancel across the three arms. The physical six-axis gluing and full electroweak kernel require a separate attachment.",
+     "note": "The registered pair's two triplets carry the faithful connected image U(3) × SO(3). Across all 36 central test words a pure weak full turn acts trivially. A weak doublet, a Standard Model loop/flux action, and a common faithful representation with the Standard Model global quotient remain to be realized. In the registered one-load colour representation the leading arrival from one cell has one-quarter triplet weight. A reference-tagged orbital remains coherent after singlet projections at both endpoints for both material signs under the specified extension of this meter. Applying identical pulse strengths to the one-load and two-load bound-pair triplets gives a 23-dimensional joint connected current image. The full central turn that is identity on the pair moves the one-load launch off both input ports. These two registered carriers do not realize a common twelve-dimensional action at those strengths. On a unit-filled material carrying a vacancy and one excess, the protected π-pulse loop image is exactly S_m for m=11,239,959,3839. The mark representation is faithful and only identity acts as a scalar; the free leading crossing words have scalar kernel {I,-I}. This source-specific loop action has trivial permutation center and does not realize the required Z6 gluing-to-kernel identity. In the joint address action, a pair-source line defines an orthogonal plane supporting a controllable two-state rotation. With the rotation triplets held fixed, the native uniform circle and the independent colour and plane controls have faithful image SU(3) × SU(2) × U(1). Imposing equality of the bright-line phase and the colour determinant selects a different subgroup with diagonal order-six covering kernel. An allowed antipodal pulse has exact colour determinant i and a measured pair bright cosine between −0.656 and −0.622. This excludes every continuous single-valued colour character as the phase rule for all line-preserving native controls. The selection of a physical loop and global form is unresolved. Both modes of the registered pair plane transmit into the adjacent plane on an all-open 20-cell screen except at isolated exposures. A launch phase changes 29 of 30 receiving seam frequencies at exposure 32. An exact calculation proves unequal mode efficiencies outside a discrete set. A single bridge between two isolated cells blocks both modes by fivefold symmetry. The global gauge identification requires compatible transports and a common action on matter. Two coherent remote apertures with a signed turnaround give the same successful rotation for every input in the registered pair plane. The home observer measured a relative path phase of 0.458 radians (joint interval 0.360–0.563). For any coherent aperture and any antisymmetric turnaround K, reciprocity makes the two-dimensional return matrix TᵀKT a scalar times the same antisymmetric matrix. This controlled family has commuting projective image and cannot select the order-six global form. On connected protected blank ports native contacts give independent special-unitary blocks and a two-parameter determinant torus; a four-port two-load meter has a cyclic ambiguity of order 59 resolved by a single-load read. On the bound trimer four held three-label tables match an independent inverse-word calibration. The phases on one arm and the complementary pair are conjugate and cancel across the three arms. The physical six-axis gluing and full electroweak kernel require a separate attachment. A reference-chart measurement gives the declared quartic at the selected vacuum and both quadratures of one ε-paired doublet–singlet line. On a held complex input the signed line reads −0.396 + 0.299i against −0.4 + 0.3i. The roles, real coefficient and vacuum point are supplied.",
      "evidence": [
       "model/candidate_laws/interval_echo/CURRENTS.md",
       "model/experiments/interval_echo_gauge/README.md",
@@ -2738,7 +2882,13 @@
       "model/experiments/interval_echo_gauge/inventory_periods/README.md",
       "model/experiments/interval_echo_gauge/inventory_periods/measure.py",
       "model/experiments/interval_echo_gauge/inventory_periods/records.json",
-      "model/experiments/interval_echo_gauge/inventory_periods/test_periods.py"
+      "model/experiments/interval_echo_gauge/inventory_periods/test_periods.py",
+      "model/experiments/interval_echo_gauge/scalar_grammar/shell_line/README.md",
+      "model/experiments/interval_echo_gauge/scalar_grammar/shell_line/apparatus.py",
+      "model/experiments/interval_echo_gauge/scalar_grammar/shell_line/measure.py",
+      "model/experiments/interval_echo_gauge/scalar_grammar/shell_line/results.json",
+      "model/experiments/interval_echo_gauge/scalar_grammar/shell_line/test_shell_line.py",
+      "model/experiments/interval_echo_gauge/scalar_grammar/shell_line/ShellLine.lean"
      ],
      "demonstrated_measurement": {
       "label": "Two remote apertures return every input of the pair doublet with a common rotation",
@@ -2761,7 +2911,7 @@
       "PR-59"
      ],
      "status": "open",
-     "note": "The measured pair has a current triplet insensitive to the pure weak centre. On the unit-filled material a separate signed defect freely carries a coherent spatial orientation across two cell boundaries. Its full template turn has positive phase and its controlled exchange permutes the two orbitals with positive sign. Spacetime spin half, chirality and joint gauge-sector selection on one excitation remain open. On the 80-owner board a driven 210-contact route transports a local S3 zero-sum doublet between distinct owners and conjugates both of its generators on the entire fiber. Opposite triangle orders give 244,476 versus 17,555 clicks in 262,144 simulated starts each. Under all protected closed paths the only irreducible subspaces have dimensions one and 958 on this board, so its local doublet cannot be a common invariant weak or spin doublet for that full loop action. A vacancy can carry a locally detectable relative phase between two winding histories, and two arriving position–head amplitudes remain coherent within one foreign owner. Rigid exchange of two independently prepared alternating trimers gives positive sign after calibrating single-trimer winding and internal reflection. A single receiving gateway supports a local winding qubit after the source heads are traced out. All sixteen poles of this prepared sector are simple. A two-unit uniform forgotten wait leaves 40.3% arrival while making the accepted channel entanglement-breaking. The 64 native preparations of the two connected triangles have 464 simple and 24 double positive formation lines in total. A complete sharp-line channel on every one is positive under partial transpose, ruling out entangled qubit transmission between these owners when any single line is selected. Broadband transfer survives at 32 settings at the tested time. Two written-head vacancies exchange with positive sign relative to winding one charge around a parked charge. The two arms finish with the same fifteen direction heads. Free port-only return distinguishes their statistics from negative exchange with the same contact energies. Both original receiver ports see every resolved energy of the 96- and 144-port guide. Each energy carries one amplitude on their combined readout for either charge sign. The same apertures distinguish two spin states of an unsplit reference. A split-spin reference gives one state per resolved line. On a three-arm material, local sources in either of two owners can send an unknown two-state winding signal with a traveling vacancy to a single receiving port. The source memories are discarded. At 32 native time units both directions pass the receiver entanglement test at simultaneous 99% confidence and the full erasure yield is 1.55 in ten million starts. The two terminals use supplied local coherent controls. A supplied coherent clock also selects an equal-energy pair at 16.43120649 native units following a discovery scan. The remote winding signal survives. Four charge counters read a finite standing wavelength on the same filtered excitation. Its center-of-mass rest mass and physical spin require independent measurements. An independent local probe reads opposite phase shifts for like and unlike loads of either sign on the traveling winding doublet. A two-state channel inferred from one sign predicts all 48 fresh record intervals at oblique settings on both signs. The interaction measured here is contact. The complete 3,584-state three-arm chart has matched-host formation energies in [8,27]. For every three positive lines, the heavy-to-light ratio is at most 3.375 and the Koide quotient is at most 3/8. Three detectable lines in this chart therefore cannot reproduce the charged-lepton mass hierarchy. Four charge intensities on the interior of the same guide fix a smooth standing-wave profile that predicts all eight held counter intervals, with two observationally equivalent spatial aliases. Independently built vacancy-path and pointer instruments agree in both source and detector roles, at free arrival and in the same fixed energy window. On any connected blank host the zero-energy space has only commuting compressed local endpoint observables. An intermediate owner conditioned on being empty has the same local state as the idle material. After a passage the written direction heads at the receiver can keep a record even after every local charge counter is empty. Projecting thirty phase-prepared material heads during motion realizes a magnetic spinor doublet on a twelve-port shell. Free removal of the monitors immediately couples both states out of the selected head space. On the three physical lengths the lowest extended winding modes occur at 16.01329, 16.01201 and 16.01091. Interference with a neighboring mode moves the charge in free flight. The uniform arm has a lower propagating-band edge of 16 native units, and the lower 8.93818 line is localized at the source. After free flight a single negative charge carries three coherent winding amplitudes. Independent local phase and arm conventions reproduce ninety complete source and receiver banks. The conjugate windings have identical energy spectra. On one cell, a phase-sensitive written face gives different spectral weights to opposite windings but every native charged formation energy is between 8 and 45. In the separate covariant Dirac field, calibrations made without mass data predict all 24 held two-observer weak-basis comparisons. One terminal instrument couples each of the three arriving winding states to the same net-neutral pair, records donor compensation, and preserves the unknown winding. The full pulse gives conditional Schmidt-number-three fidelity lower bounds above 0.733 for both charge signs. At full conversion all 2,493,659 neutral detections resolve opposite charges on the two measured ports. A remote observer can compare joint signed arrivals after free flight on the prepared route. A calibrated negative or positive weak daughter sorts the neutral inputs of the declared exterior doublet. An explicit pair of charged constituents gives exactly the same total gauge currents as the direct doublet. At two distant receivers, an inverse native ladder gives a signed daughter and a compensating donor read on the same projected neutral arrival. The two material orders respond to opposite fixed analyzer settings. On the supplied five-mode register, two stations recover all 32 occupations and agree on all 1,024 mask decisions. The only survivors are the two conjugate 15-dimensional sectors. All 80 remote sign probes distinguish ordered exterior insertion from ordinary insertion. The colour and weak blocks, primitive charges and selection rule are declared. On a physical three-port triangle, a reference path makes the common hypercharge phase of a declared doublet observable. Seven preparations and seven analyzers give 245 count banks consistent with five weak and hypercharge settings at simultaneous 99% coverage. The four normalized generators agree exactly with the finite composition for any supplied positive couplings. Vacuum selection and physical gauge couplings require separate measurements.",
+     "note": "The measured pair has a current triplet insensitive to the pure weak centre. On the unit-filled material a separate signed defect freely carries a coherent spatial orientation across two cell boundaries. Its full template turn has positive phase and its controlled exchange permutes the two orbitals with positive sign. Spacetime spin half, chirality and joint gauge-sector selection on one excitation remain open. On the 80-owner board a driven 210-contact route transports a local S3 zero-sum doublet between distinct owners and conjugates both of its generators on the entire fiber. Opposite triangle orders give 244,476 versus 17,555 clicks in 262,144 simulated starts each. Under all protected closed paths the only irreducible subspaces have dimensions one and 958 on this board, so its local doublet cannot be a common invariant weak or spin doublet for that full loop action. A vacancy can carry a locally detectable relative phase between two winding histories, and two arriving position–head amplitudes remain coherent within one foreign owner. Rigid exchange of two independently prepared alternating trimers gives positive sign after calibrating single-trimer winding and internal reflection. A single receiving gateway supports a local winding qubit after the source heads are traced out. All sixteen poles of this prepared sector are simple. A two-unit uniform forgotten wait leaves 40.3% arrival while making the accepted channel entanglement-breaking. The 64 native preparations of the two connected triangles have 464 simple and 24 double positive formation lines in total. A complete sharp-line channel on every one is positive under partial transpose, ruling out entangled qubit transmission between these owners when any single line is selected. Broadband transfer survives at 32 settings at the tested time. Two written-head vacancies exchange with positive sign relative to winding one charge around a parked charge. The two arms finish with the same fifteen direction heads. Free port-only return distinguishes their statistics from negative exchange with the same contact energies. Both original receiver ports see every resolved energy of the 96- and 144-port guide. Each energy carries one amplitude on their combined readout for either charge sign. The same apertures distinguish two spin states of an unsplit reference. A split-spin reference gives one state per resolved line. On a three-arm material, local sources in either of two owners can send an unknown two-state winding signal with a traveling vacancy to a single receiving port. The source memories are discarded. At 32 native time units both directions pass the receiver entanglement test at simultaneous 99% confidence and the full erasure yield is 1.55 in ten million starts. The two terminals use supplied local coherent controls. A supplied coherent clock also selects an equal-energy pair at 16.43120649 native units following a discovery scan. The remote winding signal survives. Four charge counters read a finite standing wavelength on the same filtered excitation. Its center-of-mass rest mass and physical spin require independent measurements. An independent local probe reads opposite phase shifts for like and unlike loads of either sign on the traveling winding doublet. A two-state channel inferred from one sign predicts all 48 fresh record intervals at oblique settings on both signs. The interaction measured here is contact. The complete 3,584-state three-arm chart has matched-host formation energies in [8,27]. For every three positive lines, the heavy-to-light ratio is at most 3.375 and the Koide quotient is at most 3/8. Three detectable lines in this chart therefore cannot reproduce the charged-lepton mass hierarchy. Four charge intensities on the interior of the same guide fix a smooth standing-wave profile that predicts all eight held counter intervals, with two observationally equivalent spatial aliases. Independently built vacancy-path and pointer instruments agree in both source and detector roles, at free arrival and in the same fixed energy window. On any connected blank host the zero-energy space has only commuting compressed local endpoint observables. An intermediate owner conditioned on being empty has the same local state as the idle material. After a passage the written direction heads at the receiver can keep a record even after every local charge counter is empty. Projecting thirty phase-prepared material heads during motion realizes a magnetic spinor doublet on a twelve-port shell. Free removal of the monitors immediately couples both states out of the selected head space. On the three physical lengths the lowest extended winding modes occur at 16.01329, 16.01201 and 16.01091. Interference with a neighboring mode moves the charge in free flight. The uniform arm has a lower propagating-band edge of 16 native units, and the lower 8.93818 line is localized at the source. After free flight a single negative charge carries three coherent winding amplitudes. Independent local phase and arm conventions reproduce ninety complete source and receiver banks. The conjugate windings have identical energy spectra. On one cell, a phase-sensitive written face gives different spectral weights to opposite windings but every native charged formation energy is between 8 and 45. In the separate covariant Dirac field, calibrations made without mass data predict all 24 held two-observer weak-basis comparisons. One terminal instrument couples each of the three arriving winding states to the same net-neutral pair, records donor compensation, and preserves the unknown winding. The full pulse gives conditional Schmidt-number-three fidelity lower bounds above 0.733 for both charge signs. At full conversion all 2,493,659 neutral detections resolve opposite charges on the two measured ports. A remote observer can compare joint signed arrivals after free flight on the prepared route. A calibrated negative or positive weak daughter sorts the neutral inputs of the declared exterior doublet. An explicit pair of charged constituents gives exactly the same total gauge currents as the direct doublet. At two distant receivers, an inverse native ladder gives a signed daughter and a compensating donor read on the same projected neutral arrival. The two material orders respond to opposite fixed analyzer settings. On the supplied five-mode register, two stations recover all 32 occupations and agree on all 1,024 mask decisions. The only survivors are the two conjugate 15-dimensional sectors. All 80 remote sign probes distinguish ordered exterior insertion from ordinary insertion. The colour and weak blocks, primitive charges and selection rule are declared. On a physical three-port triangle, a reference path makes the common hypercharge phase of a declared doublet observable. Seven preparations and seven analyzers give 245 count banks consistent with five weak and hypercharge settings at simultaneous 99% coverage. The four normalized generators agree exactly with the finite composition for any supplied positive couplings. Vacuum selection and physical gauge couplings require separate measurements. Two stations separately read 3B and L on all 30 nontrivial occupation words of the declared field catalogue. Reversing the lepton meter preserves the admissions and reverses the signed relation between the two labels. The received exterior signs for 24 orderings feed the declared four-field contraction calculation. Of 715 multisets, eight orientations in four conjugate pairs pass all filters. Each has a one-dimensional contraction space and ΔB = ΔL = ±1. Omitting the measured ordering sign removes the QQuReR class and its conjugate. A reference-chart measurement gives the declared quartic at the selected vacuum and both quadratures of one ε-paired doublet–singlet line. On a held complex input the signed line reads −0.396 + 0.299i against −0.4 + 0.3i. The roles, real coefficient and vacuum point are supplied. A finite enumeration gives 23,396 stratum-labelled candidates under the frozen dimension and grading rules. At the supplied dimensions and relative full-turn signs, four candidates survive across the strata. Two stations implement one chosen P1 representation, with all 630 original and remounted count banks inside their simultaneous bounds. The grammar and representations are declared. Physical selection of a stratum and particle identification remain open.",
      "evidence": [
       "model/candidate_laws/interval_echo/CURRENTS.md",
       "model/candidate_laws/interval_echo/RESULTS.json",
@@ -2814,7 +2964,24 @@
       "model/experiments/interval_echo_gauge/exterior_register/test_exterior_register.py",
       "model/experiments/interval_echo_gauge/scalar_grammar/README.md",
       "model/experiments/interval_echo_gauge/scalar_grammar/measure.py",
-      "model/experiments/interval_echo_gauge/scalar_grammar/results.json"
+      "model/experiments/interval_echo_gauge/scalar_grammar/results.json",
+      "model/experiments/interval_echo_gauge/exterior_register/baryon_labels/README.md",
+      "model/experiments/interval_echo_gauge/exterior_register/baryon_labels/PROTOCOL.md",
+      "model/experiments/interval_echo_gauge/exterior_register/baryon_labels/apparatus.py",
+      "model/experiments/interval_echo_gauge/exterior_register/baryon_labels/grammar.py",
+      "model/experiments/interval_echo_gauge/exterior_register/baryon_labels/measure.py",
+      "model/experiments/interval_echo_gauge/exterior_register/baryon_labels/results.json",
+      "model/experiments/interval_echo_gauge/exterior_register/baryon_labels/test_baryon_labels.py",
+      "model/experiments/interval_echo_gauge/scalar_grammar/shell_line/README.md",
+      "model/experiments/interval_echo_gauge/scalar_grammar/shell_line/apparatus.py",
+      "model/experiments/interval_echo_gauge/scalar_grammar/shell_line/measure.py",
+      "model/experiments/interval_echo_gauge/scalar_grammar/shell_line/results.json",
+      "model/experiments/interval_echo_gauge/scalar_grammar/shell_line/test_shell_line.py",
+      "model/experiments/interval_echo_gauge/scalar_grammar/shell_line/ShellLine.lean",
+      "model/experiments/interval_echo_gauge/matter_class/README.md",
+      "model/experiments/interval_echo_gauge/matter_class/bracket.py",
+      "model/experiments/interval_echo_gauge/matter_class/compiler.py",
+      "model/experiments/interval_echo_gauge/matter_class/records.json"
      ]
     }
    ]
@@ -3387,7 +3554,11 @@
       "model/experiments/interval_echo_einstein_station/equilibrium_refinement/tracer_flux/bearings/results.json",
       "model/experiments/interval_echo_einstein_station/equilibrium_refinement/tracer_flux/bearings/placements.json",
       "code/matched_einstein_limit/fixed_volume/displaced_markers/README.md",
-      "code/matched_einstein_limit/fixed_volume/displaced_markers/results.json"
+      "code/matched_einstein_limit/fixed_volume/displaced_markers/results.json",
+      "model/experiments/interval_echo_einstein_station/equilibrium_refinement/tracer_flux/bearings/round_trip/README.md",
+      "model/experiments/interval_echo_einstein_station/equilibrium_refinement/tracer_flux/bearings/round_trip/results.json",
+      "code/matched_einstein_limit/fixed_volume/polarized_ranges/README.md",
+      "code/matched_einstein_limit/fixed_volume/polarized_ranges/results.json"
      ],
      "demonstrated_measurement": {
       "label": "Nine directions predict regional charge on the constant mode and slow triplet",
@@ -3423,6 +3594,18 @@
        "label": "Eight interior counts identify fixed-volume area to leading order",
        "finding": "Two concentric counts and six neighboring-center counts remove an unknown smooth positive marker intensity. Across five prescribed geometries the largest mean scalar-curvature error falls from 0.34065 to 0.005082 over four refinements. Applying the estimate to native records requires the measured displacements and radii to be proper geodesic lengths on a common slice.",
        "source": "code/matched_einstein_limit/fixed_volume/displaced_markers/README.md"
+      },
+      {
+       "law": "Interval Echo with a freely returning tag on two mobile residents",
+       "label": "One independent three-dimensional frame from all 132 ordered return clocks",
+       "finding": "Three stocks and two shutters distinguish three ranges and independently recover the angular frame. A flat three-dimensional fit to all durations converted by one speed needs more than 2.19% relative range distortion.",
+       "source": "model/experiments/interval_echo_einstein_station/equilibrium_refinement/tracer_flux/bearings/round_trip/README.md"
+      },
+      {
+       "law": "Proper geodesic ranges on smooth charts and returned native word transfers",
+       "label": "Scalar curvature from four signed cross distances per axis pair",
+       "finding": "Ten native angular frames pass radial midpoint checks but fail independent cross distances. Keeping the two measured radii and all four cross ranges in a shrinking bounded-curvature family needs at least 14.59% relative change. Smooth controls yield −1.999385 and +2.000615 for target curvatures −2 and +2.",
+       "source": "code/matched_einstein_limit/fixed_volume/polarized_ranges/README.md"
       }
      ]
     },
@@ -3508,7 +3691,10 @@
       "code/cosmology/rar_deep_regime/aperture_virial/results.json",
       "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/README.md",
       "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/results.json",
-      "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/MaterialRecoil.lean"
+      "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/MaterialRecoil.lean",
+      "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/common_receiver/README.md",
+      "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/common_receiver/results.json",
+      "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/common_receiver/clock_results.json"
      ],
      "demonstrated_measurement": {
       "label": "Ordinary and fixed-energy pairing transfers give the same calibrated area response on a selected finite source",
@@ -3544,6 +3730,12 @@
        "label": "Separate load recoils toward the source in the three-guide chart",
        "finding": "At the registered native flight time, an independent one-load receiver displaces by −520/4229 times the outward three-guide current per source release. The chart Green theorem supplies its inward inverse-square asymptotic. The held two-load receiver gives zero mean at the same interrogation clock although its complete bare position propagation is identical. Face routing, phase clock, mirrored pad bias and source activity enter the coupling.",
        "source": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/README.md"
+      },
+      {
+       "law": "Interval Echo ternary source comparison followed by free receiver release",
+       "label": "A common inward response for both mobile loads across independently stocked guides",
+       "finding": "Two different probe loads on the same vacancy edge give −0.0667115 and −0.0666379 receiver links on the first outward face, with a common prediction of −1/15. Their mean initial acceleration equals minus the outward current per supplied source release. An independent blind reference also transfers between two mixed guide stocks. The current has an inverse-square limit in the three-guide address chart; emitter mass, physical range and universal coupling require independent measurements. Two independent repeatable material clocks bound combined timing and sampling uncertainty below 0.000129 receiver links per release across 32 comparisons at 99% coverage.",
+       "source": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/common_receiver/README.md"
       }
      ]
     },
@@ -4099,11 +4291,20 @@
       "model/evaluation/repair_band.py"
      ],
      "status": "demonstrated",
-     "note": "A one-cell patch prepares and reads one load at twelve ports. From anonymous calibration probabilities the inverse infers 30 edges, a hop angle of 0.0625, and a Gram of rank three. Twice and three times the exposure reproduce that subspace and 288 individual held probabilities to below 10⁻¹⁰. The best rank-two Gram has relative error 0.57735. The shared free sector is measured with the clock idle.",
+     "note": "A one-cell patch prepares and reads one load at twelve ports. From anonymous calibration probabilities the inverse infers 30 edges, a hop angle of 0.0625, and a Gram of rank three. Twice and three times the exposure reproduce that subspace and 288 individual held probabilities to below 10⁻¹⁰. The best rank-two Gram has relative error 0.57735. The shared free sector is measured with the clock idle. Thirty distinct protected seam offers average both endpoint histograms after one resolved input read. For each of 900 ordered seam pairs, twelve source ports give the predicted terminal distribution. The uniform repeated-offer response is I − L/60, whose slowest nonconstant level is 0.95393446629 with multiplicity three.",
      "evidence": [
       "model/evaluation/patch_spatial_readout.json",
       "model/evaluation/patch_spatial_readout.py",
-      "model/candidate_laws/interval_echo/candidate.py"
+      "model/candidate_laws/interval_echo/candidate.py",
+      "model/experiments/interval_echo_consensus/seam_word_meter/README.md",
+      "model/experiments/interval_echo_consensus/seam_word_meter/PROTOCOL.md",
+      "model/experiments/interval_echo_consensus/seam_word_meter/apparatus.py",
+      "model/experiments/interval_echo_consensus/seam_word_meter/chart.py",
+      "model/experiments/interval_echo_consensus/seam_word_meter/measure.py",
+      "model/experiments/interval_echo_consensus/seam_word_meter/records.json.gz",
+      "model/experiments/interval_echo_consensus/seam_word_meter/test_word_meter.py",
+      "model/experiments/interval_echo_consensus/seam_word_meter/test_chart.py",
+      "model/experiments/interval_echo_consensus/seam_word_meter/RecordMeans.lean"
      ]
     },
     {
@@ -4328,7 +4529,7 @@
       "https://github.com/openwave-labs/openwave/blob/d4fc3e4046c472f4ad38468df8dddfa1f97bac97/MODELS.md#L103"
      ],
      "status": "partial",
-     "note": "A sharp vacancy with monitored gateways gives a free internal beat at 2.237 and 2.232 per independently timed exchange unit on 80 and 320 cells. Halving the contrast shifts its mean energy relative to the uniform host from 34.62 to 18.62 while leaving the beat at 2.234. The full blank one-vacancy spectrum is contained in [32,54] on all three boards, so an internal frequency equal to the separately measured 35-unit vacancy transfer is excluded in this sector. Even without monitoring, a sharp vacancy on each larger board contributes a cosine at √5 with coefficient at least 1/40 in its free return probability. The material timer and terminal reads are supplied apparatus. On the exposed 17- and 20-dimer closed strands, pair-transition spectroscopy gives a rest frequency near 15. On those free rings every energy difference, including differences between flip sectors, lies within 12.421 or 14.613 units respectively of a multiple of 32. A single-copy internal reading with a fixed detector therefore cannot oscillate at any frequency in the measured rest interval [14.99, 15.01]. The one-dimer record resolves a pair beat near 32 and a planted line at 15 on a changed law. On uniformly filled material with blank or zero-contrast memories, the primitive seam operations and sharp reads preserve the filled subspace under classical feedback. A prepared neutral pair can carry a 32-unit relative phase that those reads cannot detect. An external coherent analyzer resolves it. For an entire apparatus at fixed total excess load Q, a uniform energy shift λQ leaves every charge-preserving transcript invariant. The vacancy and excess energy assignments (35, 67) and (51, 51) both give neutral energy 102. These readings leave the individual rest energy undetermined. On a unit-filled host, one coin reading starts a free local beat on a written neutral seam. At native contrast eight, the even and odd preparations give angular frequencies 31.995 and 33.001 in independent dimer-clock units. A separate instrument resolves the excited formation lines at 32.007 and 32.990. The same preparations have mean energies 15.982 and 16.467 because half the weight is on the zero-energy branch. The mark has no free transfer between seams. This measures a stationary excitation gap; assigning a particle rest energy requires independent inertia. On the all-open 20-cell screen a bound pair of unequal loads carries its prepared ordering phase to detectors across three owner boundaries. The peak intact arrival probabilities are 0.48–1.25 per million launches. Fresh phase comparisons at each bridge exclude the isolated clock rate even with varying visibility and an arbitrary fixed phase origin. A separate energy read on these ordered-pair launches gives 212.988–213.010 in empty-host exchange units. The full two-amount sector has spectral width at most 44, excluding an internal beat at that formation energy. Its inertial mass needs an independent motional measurement.",
+     "note": "A sharp vacancy with monitored gateways gives a free internal beat at 2.237 and 2.232 per independently timed exchange unit on 80 and 320 cells. Halving the contrast shifts its mean energy relative to the uniform host from 34.62 to 18.62 while leaving the beat at 2.234. The full blank one-vacancy spectrum is contained in [32,54] on all three boards, so an internal frequency equal to the separately measured 35-unit vacancy transfer is excluded in this sector. Even without monitoring, a sharp vacancy on each larger board contributes a cosine at √5 with coefficient at least 1/40 in its free return probability. The material timer and terminal reads are supplied apparatus. On the exposed 17- and 20-dimer closed strands, pair-transition spectroscopy gives a rest frequency near 15. On those free rings every energy difference, including differences between flip sectors, lies within 12.421 or 14.613 units respectively of a multiple of 32. A single-copy internal reading with a fixed detector therefore cannot oscillate at any frequency in the measured rest interval [14.99, 15.01]. The one-dimer record resolves a pair beat near 32 and a planted line at 15 on a changed law. On uniformly filled material with blank or zero-contrast memories, the primitive seam operations and sharp reads preserve the filled subspace under classical feedback. A prepared neutral pair can carry a 32-unit relative phase that those reads cannot detect. An external coherent analyzer resolves it. For an entire apparatus at fixed total excess load Q, a uniform energy shift λQ leaves every charge-preserving transcript invariant. The vacancy and excess energy assignments (35, 67) and (51, 51) both give neutral energy 102. These readings leave the individual rest energy undetermined. On a unit-filled host, one coin reading starts a free local beat on a written neutral seam. At native contrast eight, the even and odd preparations give angular frequencies 31.995 and 33.001 in independent dimer-clock units. A separate instrument resolves the excited formation lines at 32.007 and 32.990. The same preparations have mean energies 15.982 and 16.467 because half the weight is on the zero-energy branch. The mark has no free transfer between seams. This measures a stationary excitation gap; assigning a particle rest energy requires independent inertia. On the all-open 20-cell screen a bound pair of unequal loads carries its prepared ordering phase to detectors across three owner boundaries. The peak intact arrival probabilities are 0.48–1.25 per million launches. Fresh phase comparisons at each bridge exclude the isolated clock rate even with varying visibility and an arbitrary fixed phase origin. A separate energy read on these ordered-pair launches gives 212.988–213.010 in empty-host exchange units. The full two-amount sector has spectral width at most 44, excluding an internal beat at that formation energy. Its inertial mass needs an independent motional measurement. One occupied native write starts a signed core clock under free flight. On 20 and 320 cells its measured frequencies are 0.00510886 and 0.00510821 radians per exchange unit. The independent component instrument gives mean formation energy 42.25 relative to the empty host. Throughout the single unit-load, naturally writable one-core class the formation energy lies in [40,63] and every fixed internal detector frequency is at most 23. The inertial mass of this source remains unmeasured.",
      "evidence": [
       "model/candidate_laws/interval_echo/SPEC.md",
       "model/candidate_laws/interval_echo/openwave/row_03_clock/README.md",
@@ -4346,7 +4547,14 @@
       "model/candidate_laws/interval_echo/openwave/row_03_clock/moving_pair/README.md",
       "model/candidate_laws/interval_echo/openwave/row_03_clock/moving_pair/measure.py",
       "model/candidate_laws/interval_echo/openwave/row_03_clock/moving_pair/records.json",
-      "model/candidate_laws/interval_echo/openwave/row_03_clock/moving_pair/test_moving_pair.py"
+      "model/candidate_laws/interval_echo/openwave/row_03_clock/moving_pair/test_moving_pair.py",
+      "model/candidate_laws/interval_echo/openwave/row_03_clock/released_direction/README.md",
+      "model/candidate_laws/interval_echo/openwave/row_03_clock/released_direction/PROOF.md",
+      "model/candidate_laws/interval_echo/openwave/row_03_clock/released_direction/flight.py",
+      "model/candidate_laws/interval_echo/openwave/row_03_clock/released_direction/measure.py",
+      "model/candidate_laws/interval_echo/openwave/row_03_clock/released_direction/records.json.gz",
+      "model/candidate_laws/interval_echo/openwave/row_03_clock/released_direction/test_direction.py",
+      "model/candidate_laws/interval_echo/openwave/row_03_clock/released_direction/InternalBand.lean"
      ],
      "comparison": {
       "law": "Written-field Laplacian extension",
@@ -4354,8 +4562,8 @@
       "source": "model/candidate_laws/interval_echo/openwave/electron_field/README.md#rest-energy-and-the-other-openwave-observables"
      },
      "demonstrated_measurement": {
-      "label": "The relative phase of two bound loads reaches three remote seam detectors",
-      "source": "model/candidate_laws/interval_echo/openwave/row_03_clock/moving_pair/README.md"
+      "label": "A free signed clock with an independent formation-energy comparison",
+      "source": "model/candidate_laws/interval_echo/openwave/row_03_clock/released_direction/README.md"
      }
     },
     {
@@ -4585,7 +4793,7 @@
       "https://github.com/openwave-labs/openwave/blob/d4fc3e4046c472f4ad38468df8dddfa1f97bac97/MODELS.md#L110"
      ],
      "status": "partial",
-     "note": "Observers prepare opposite phase walls on a closed four-dimer ring. During free registered evolution with fixed number guards the walls can disappear. On three-dimer wings 8,245,757 of 268,435,456 launches gave an ordered ring and excitation on both sides, against 914 on the ordered sham. After the source measurement the local energy rose at two radii on each side. The regional current has zero matrix elements within the wall-free wing subspace. These records identify annihilation of opposite order defects and energy transfer in neutral material. An electric particle–antiparticle assignment and outgoing radiation quanta remain open. A separate registered coincidence service erases an excess and a vacancy, whose free numbers are individually conserved. Before a source measurement the 65-unit wall surplus left 62.9782 units inside the ring and 1.1321 in the two guide interiors at exposure 32. On initially uniform unguarded receivers, restoring the ring consumes all four vacancies and doubles and excludes positive receiver energy. Remote material counts verify both receivers are active. A single final contact readout locates two material mismatches outside the ordered ring on 2,061,173 of 2,065,048 ordered-ring wall launches at exposure 32. On 646,526 of these launches each far guide contact carries one 32.5-unit mismatch. The same joint outcome occurred 72 times on the ordered sham and zero times with disconnected wings, each from 67,108,864 launches. The zero-contrast arm also produces distal mismatches, on 316,129 of 22,089,847 ordered-ring wall launches. On the same wall source, a calibrated far-dimer swap resolves three downward transitions near 32 exchange units. At exposure 32 four of nine frequency pairs give a resolved excess of double detections above the ordered sham. The strongest frequency pair gives 0.0010251 excess probability per launch. Cutting the guides or removing contrast eliminates a resolved excess. These readings identify energy in material transitions under a supplied timing and readout apparatus. OpenWave’s accepted liquid-crystal example leaves the outgoing radiation type open. With a fixed ring boundary, the native three-dimer guide has a single material branch and three finite normal frequencies. In 2,064,278 of 2,066,989 ordered-ring outcomes at exposure 32, one excitation reaches each wing out of 67,108,864 total wall launches. A local phase read after the ordered-ring and two-mode filters gives a simultaneous 99% lower bound of 1.9574 on the two correlations against a separable limit of one. Two supplied passive detectors both take up energy on 36,025 wall launches and seven sham launches per 67,108,864 starts. The energy accounting includes the ring read and hold. The guide has a native gap of 31.5 exchange units. Identifying the incoming walls as physical conjugate particles and demonstrating emission of radiation remain open.",
+     "note": "Observers prepare opposite phase walls on a closed four-dimer ring. During free registered evolution with fixed number guards the walls can disappear. On three-dimer wings 8,245,757 of 268,435,456 launches gave an ordered ring and excitation on both sides, against 914 on the ordered sham. After the source measurement the local energy rose at two radii on each side. The regional current has zero matrix elements within the wall-free wing subspace. These records identify annihilation of opposite order defects and energy transfer in neutral material. An electric particle–antiparticle assignment and outgoing radiation quanta remain open. A separate registered coincidence service erases an excess and a vacancy, whose free numbers are individually conserved. Before a source measurement the 65-unit wall surplus left 62.9782 units inside the ring and 1.1321 in the two guide interiors at exposure 32. On initially uniform unguarded receivers, restoring the ring consumes all four vacancies and doubles and excludes positive receiver energy. Remote material counts verify both receivers are active. A single final contact readout locates two material mismatches outside the ordered ring on 2,061,173 of 2,065,048 ordered-ring wall launches at exposure 32. On 646,526 of these launches each far guide contact carries one 32.5-unit mismatch. The same joint outcome occurred 72 times on the ordered sham and zero times with disconnected wings, each from 67,108,864 launches. The zero-contrast arm also produces distal mismatches, on 316,129 of 22,089,847 ordered-ring wall launches. On the same wall source, a calibrated far-dimer swap resolves three downward transitions near 32 exchange units. At exposure 32 four of nine frequency pairs give a resolved excess of double detections above the ordered sham. The strongest frequency pair gives 0.0010251 excess probability per launch. Cutting the guides or removing contrast eliminates a resolved excess. These readings identify energy in material transitions under a supplied timing and readout apparatus. OpenWave’s accepted liquid-crystal example leaves the outgoing radiation type open. With a fixed ring boundary, the native three-dimer guide has a single material branch and three finite normal frequencies. In 2,064,278 of 2,066,989 ordered-ring outcomes at exposure 32, one excitation reaches each wing out of 67,108,864 total wall launches. A local phase read after the ordered-ring and two-mode filters gives a simultaneous 99% lower bound of 1.9574 on the two correlations against a separable limit of one. Two supplied passive detectors both take up energy on 36,025 wall launches and seven sham launches per 67,108,864 starts. The energy accounting includes the ring read and hold. The guide has a native gap of 31.5 exchange units. Identifying the incoming walls as physical conjugate particles and demonstrating emission of radiation remain open. Independent sum and difference pickups find both incident walls locally neutral with opposite gradients. All 646,075 selected far-contact coincidences in 67,108,864 native starts are also locally neutral with opposite gradients. An ordered opposite ring on the same guide stock gives 42,894,181 coincidences with the same signs. Subtracting the ordered controls and reversing the incoming orientation gives a remote polarization response of −0.05789 across all starts, versus exactly zero with the wings detached. Incident electric conjugacy and a radiative exit are unresolved.",
      "evidence": [
       "model/candidate_laws/interval_echo/SPEC.md",
       "model/candidate_laws/interval_echo/openwave/row_08_annihilation/README.md",
@@ -4606,7 +4814,16 @@
       "model/candidate_laws/interval_echo/openwave/row_08_annihilation/daughter_modes/results.json",
       "model/candidate_laws/interval_echo/openwave/row_08_annihilation/passive_receiver/README.md",
       "model/candidate_laws/interval_echo/openwave/row_08_annihilation/passive_receiver/measure.py",
-      "model/candidate_laws/interval_echo/openwave/row_08_annihilation/passive_receiver/results.json"
+      "model/candidate_laws/interval_echo/openwave/row_08_annihilation/passive_receiver/results.json",
+      "model/candidate_laws/interval_echo/openwave/row_08_annihilation/wall_charge/README.md",
+      "model/candidate_laws/interval_echo/openwave/row_08_annihilation/wall_charge/PROTOCOL.md",
+      "model/candidate_laws/interval_echo/openwave/row_08_annihilation/wall_charge/pickup.py",
+      "model/candidate_laws/interval_echo/openwave/row_08_annihilation/wall_charge/measure.py",
+      "model/candidate_laws/interval_echo/openwave/row_08_annihilation/wall_charge/calibration.json",
+      "model/candidate_laws/interval_echo/openwave/row_08_annihilation/wall_charge/results.json",
+      "model/candidate_laws/interval_echo/openwave/row_08_annihilation/wall_charge/counts.npz",
+      "model/candidate_laws/interval_echo/openwave/row_08_annihilation/wall_charge/test_wall_charge.py",
+      "model/candidate_laws/interval_echo/openwave/row_08_annihilation/wall_charge/PROOF.md"
      ],
      "comparison": {
       "law": "Written-field Laplacian extension",
@@ -4901,7 +5118,7 @@
       "https://github.com/openwave-labs/openwave/blob/753232cac4976ab2ca208eb99d73fe7ac88ef333/MODELS.md#L116"
      ],
      "status": "open",
-     "note": "The neutron and proton identities, mass order and resolved electric profile remain open. Restoring the common native reference places the positive three-wall upper spectral line 32.86 to 33.25 exchange units above the neutral line. Assigning these raw lines as rest masses gives the opposite ordering. The sector difference also changes by 48 when the neutral preparation contains a compensating whole material unit at rest. On the coupled 15-port written extension the neutral minus positive selected-line energy is 76.571 exchange units. Its derivative under a reservoir energy shift is 0.96893. The gateway-centred neutral material profile has a positive outermost shell. Both the reference contribution and the choice of centre enter this measurement. On the native guarded filled cell, a neutral two-excess/two-vacancy preparation has a positive core and a negative antipode about each fixed gateway. Centering on the four defects reverses both signs. Of 2,970 neutral words, 1,260 are connected. Every state supported entirely on connected words costs at least 155, while an unrestricted trial costs 144. The local neutral-minus-positive energy is +23.059 ± 1.630 exchange units; including the independently measured storage vacancy gives −9.541 ± 1.729 at equal inventory. These are material profiles and endpoint energies; mobile baryons and a physical electric detector remain to be identified. A balanced traveling probe gives zero forward matches in 647,020,015 admitted neutral draws, while the positive source gives forward probability 0.00693190. The gateway reading gives a positive core and negative outer mean. With the recentered detector the signs reverse (core −0.0015864, outer +0.0040534). Its elastic core match is 0.51571 on connected four-defect sources and 0.0044960 across all admissions. These are load-dependent scattering records.",
+     "note": "The neutron and proton identities, mass order and resolved electric profile remain open. Restoring the common native reference places the positive three-wall upper spectral line 32.86 to 33.25 exchange units above the neutral line. Assigning these raw lines as rest masses gives the opposite ordering. The sector difference also changes by 48 when the neutral preparation contains a compensating whole material unit at rest. On the coupled 15-port written extension the neutral minus positive selected-line energy is 76.571 exchange units. Its derivative under a reservoir energy shift is 0.96893. The gateway-centred neutral material profile has a positive outermost shell. Both the reference contribution and the choice of centre enter this measurement. On the native guarded filled cell, a neutral two-excess/two-vacancy preparation has a positive core and a negative antipode about each fixed gateway. Centering on the four defects reverses both signs. Of 2,970 neutral words, 1,260 are connected. Every state supported entirely on connected words costs at least 155, while an unrestricted trial costs 144. The local neutral-minus-positive energy is +23.059 ± 1.630 exchange units; including the independently measured storage vacancy gives −9.541 ± 1.729 at equal inventory. These are material profiles and endpoint energies; mobile baryons and a physical electric detector remain to be identified. A balanced traveling probe gives zero forward matches in 647,020,015 admitted neutral draws, while the positive source gives forward probability 0.00693190. The gateway reading gives a positive core and negative outer mean. With the recentered detector the signs reverse (core −0.0015864, outer +0.0040534). Its elastic core match is 0.51571 on connected four-defect sources and 0.0044960 across all admissions. These are load-dependent scattering records. Opening all contacts gives positive signed spreading about the launch owner on 20-, 80- and 320-owner boards. At t=1/4096 the full-source enclosure for the signed second moment divided by t² is [0.213479,0.285377], compared with [0.053943,0.070771] at half exchange. A separate local clock yields [0.211256,0.287600] for the native value. This graph-distance moment requires a separate electromagnetic and mass calibration for the nucleon comparison.",
      "evidence": [
       "model/candidate_laws/interval_echo/SPEC.md",
       "model/candidate_laws/interval_echo/openwave/quark_winding/belt_walls/upper.json",
@@ -4918,7 +5135,15 @@
       "model/candidate_laws/interval_echo/openwave/row_14_profile/scattering/PROTOCOL.md",
       "model/candidate_laws/interval_echo/openwave/row_14_profile/scattering/measure.py",
       "model/candidate_laws/interval_echo/openwave/row_14_profile/scattering/readout.py",
-      "model/candidate_laws/interval_echo/openwave/row_14_profile/scattering/results.json"
+      "model/candidate_laws/interval_echo/openwave/row_14_profile/scattering/results.json",
+      "model/candidate_laws/interval_echo/openwave/row_14_profile/free_release/README.md",
+      "model/candidate_laws/interval_echo/openwave/row_14_profile/free_release/PROTOCOL.md",
+      "model/candidate_laws/interval_echo/openwave/row_14_profile/free_release/PROOF.md",
+      "model/candidate_laws/interval_echo/openwave/row_14_profile/free_release/words.py",
+      "model/candidate_laws/interval_echo/openwave/row_14_profile/free_release/measure.py",
+      "model/candidate_laws/interval_echo/openwave/row_14_profile/free_release/reader.py",
+      "model/candidate_laws/interval_echo/openwave/row_14_profile/free_release/results.json",
+      "model/candidate_laws/interval_echo/openwave/row_14_profile/free_release/test_release.py"
      ],
      "demonstrated_measurement": {
       "label": "Connected neutral four-defect configurations cost at least 11 exchange units above their sector ground",
@@ -5076,7 +5301,9 @@
       "model/candidate_laws/interval_echo/openwave/row_27_metric/formed_pair_clocks/README.md",
       "model/candidate_laws/interval_echo/openwave/row_27_metric/formed_pair_clocks/results.json",
       "code/cosmology/rar_deep_regime/double_ring_pressure/stress_conservation/README.md",
-      "code/cosmology/rar_deep_regime/double_ring_pressure/stress_conservation/results.json"
+      "code/cosmology/rar_deep_regime/double_ring_pressure/stress_conservation/results.json",
+      "code/cosmology/rar_deep_regime/double_ring_pressure/resolved_kinematics/README.md",
+      "code/cosmology/rar_deep_regime/double_ring_pressure/resolved_kinematics/results.json"
      ],
      "demonstrated_measurement": {
       "label": "A signed pressure contrast across two rings of the same galaxy",
@@ -5094,6 +5321,12 @@
        "label": "Tangential pressure required by the two rings in J0946+1006",
        "finding": "For the aligned rings and static attractive gravity, a nonnegative radial energy density plus pressure implies a weighted mean of tangential minus radial pressure divided by c² of at least 0.007570 solar masses per cubic parsec. The spherical interpretation of the elliptical optical apertures gives 0.009895. A heavier stellar calibration admits zero pressure. These conditional lens constraints test a proposed source stress.",
        "source": "code/cosmology/rar_deep_regime/double_ring_pressure/stress_conservation/README.md"
+      },
+      {
+       "law": "Spherical isotropic stellar tracers and a Chabrier orbital continuation",
+       "label": "Independent resolved stellar velocities in the two-ring lens J0946+1006",
+       "finding": "Given the outer plotted stellar second-moment speed at most 247 km/s, the upper Chabrier stellar masses and acceleration calibration permit at most 262 km/s in the central aperture for any nonnegative exterior force, against a conservative plotted central lower endpoint of 270 km/s. This comparison uses the stated seeing, distance and bin footprints; heavier stellar masses can pass the two-bin check. A nonnegative interior force correction needs at least 8.4×10^8 solar masses in spherical gravitational-mass equivalents somewhere inside the second ring.",
+       "source": "code/cosmology/rar_deep_regime/double_ring_pressure/resolved_kinematics/README.md"
       }
      ]
     },
@@ -5360,12 +5593,23 @@
       "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/README.md",
       "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/range_contraction/results.json",
       "model/experiments/material_inertia/sourced_survey/README.md",
-      "model/experiments/material_inertia/sourced_survey/results.json"
+      "model/experiments/material_inertia/sourced_survey/results.json",
+      "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/common_receiver/README.md",
+      "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/common_receiver/results.json",
+      "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/common_receiver/clock_results.json"
      ],
      "demonstrated_measurement": {
-      "label": "Separate load recoils toward the source in the three-guide chart",
-      "source": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/README.md"
-     }
+      "label": "Both mobile loads accelerate inward in the same three-guide receiver",
+      "source": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/common_receiver/README.md"
+     },
+     "additional_comparisons": [
+      {
+       "law": "Interval Echo ternary source comparison followed by free receiver release",
+       "label": "A common inward response for both mobile loads across independently stocked guides",
+       "finding": "Two different probe loads on the same vacancy edge give −0.0667115 and −0.0666379 receiver links on the first outward face, with a common prediction of −1/15. Their mean initial acceleration equals minus the outward current per supplied source release. An independent blind reference also transfers between two mixed guide stocks. The current has an inverse-square limit in the three-guide address chart; emitter mass, physical range and universal coupling require independent measurements. Two independent repeatable material clocks bound combined timing and sampling uncertainty below 0.000129 receiver links per release across 32 comparisons at 99% coverage.",
+       "source": "model/experiments/interval_echo_shell_flux/product_address/green_response/material_recoil/common_receiver/README.md"
+      }
+     ]
     },
     {
      "id": "OW-27",
@@ -5378,7 +5622,7 @@
       "https://github.com/openwave-labs/openwave/blob/d4fc3e4046c472f4ad38468df8dddfa1f97bac97/MODELS.md#L131"
      ],
      "status": "open",
-     "note": "The guided reunion experiment changes the motion of the patch. Testing gravitational clock rates or light paths requires a measured source of curvature. The two co-located hands agree in vacuum. Following a release across one boundary the occupied meter lags the empty one by about 0.00028 radians on the 20-, 80- and 320-cell screens. The lag follows from double occupation of the meter contact. This readout distinguishes a probe-dependent lag from a common gravitational lapse. A parked source changes the frequencies of co-located excess and vacancy dimer clocks by factors of 0.06438 and 0.06764 in one orientation and 2.09341 and 1.93679 in the reverse orientation. Both ratios are exactly one beyond contact on the four enrolled separations. A common gravitational rate and matter-sensitive optical propagation require different evidence. Equilibrating the hidden directions after the first of two native flights misses 38.9–39.3% of departures on the 327680-cell material. Preserving the conditional state and varying a midpoint phase predicts 32 held radial returns. Converting these radial records to proper distances and measuring curvature with independent clocks and light require additional evidence. Opposite native load signs share an ordinary-source calibration over 13,992 held frequencies. A uniform mixture over all ports responds locally to a freely formed collar on 20 and 80 cells. Neither a source-dependent unitary geometry of that complete propagation space nor a classical mixture of such geometries can account for this polarization. Independent proper clocks and ranges are needed to identify a geometric contribution. On a ten-port guide a source of fixed energy gives two locally calibrated clocks frequency ratios of 32.016 and 1 beside an even-parity collar. Of 268,435,456 launches per tag, 2,763 and 195,545,892 complete a two-leg signal by 64 emitter ticks. An empty write delays both tags, with 52.611% and 52.508% of attempts completing, against 72.85% on the blank. The difference in source-induced shifts exceeds a simultaneous 99% counting bound at two detector cadences. Both signals are material. On two adjacent cells a freely moving mediator communicates a parked source change to radar probes three to six links away. Out of every launch, the fraction of unit probes returning by 64 ticks falls by 3.923 percentage points for a mediator launched at the receiver-side gateway and rises by 10.314 points for the reverse launch. The double tag and empty-mediator controls show no resolved shift. An independent calibration with a stored mediator predicts held clock and return probabilities. Extracting gravity requires independent exterior clocks, ranges and signal propagation on the same source. The correlated collar changes the calculated probability of a completed material return from 0.053209 to 0.038839 on the 80-cell excess pair of source and probe settings. The first two probe energy moments fix the uniform clock rescaling to one. A common metric and independent optical signal are unverified. The full eight-dimensional head algebra admits a certified, prepared maximum of entropy plus area at fixed survey volume and independently calibrated gain. An ordinary energy addition and a fixed-energy correlation change both shrink the matched-volume area. On that source the clock cycles violate static reciprocity, a fifth station gives fourth/first centered Gram ratio 0.66437, and changing the timeout gives residual 0.7264. Proper light bending and gravitational time dilation or Shapiro delay remain open. Transverse optical images sense head correlations. On the identical ensemble and clock appointment a seam energy-to-image calibration on ordinary matter predicts the opposite sign for the excess pairing intervention. Six independent radar stations reject a common three-dimensional space-form chart for their fitted distances. With sharp trace optics and the Hamiltonian bridge current the signed focusing equations have a finite residual for every common clock and scalar flux conversion across the two tags and their fair mixture. The single untagged image also excludes clocks whose rate depends on time and the two bridge occupations at fixed flux conversion. A freely launched excess changes two clocks on the all-open 20-cell screen. For launches one link away, their count intervals exclude a common deterministic elapsed time at 125 of 193 matched appointments. At every appointment both marginal readings admit a shared distribution of times. Changing only the clock species gives 1,681 versus 1,280 source arrivals at the same endpoint detector in 1,048,576 starts each. This measures reciprocal material coupling. An independent geometric redshift is unresolved. Changing contrast as a control gives an odd frequency in [16.996,17.004], against [16.480,16.527] from a common rescaling of both clock species (joint 99% intervals). A native echo prepares either local load order in a degenerate blank-energy subspace. Any positive distribution of elapsed times acting on that blank clock preserves its order. With an excess launched one link away, both orientations reverse at every one of five held appointments in an independent simulation at 2^30 launches per setting. At exposure four the public detector counts 666 and 642 reversals. Blank, parked and reversal-disabled controls give zero. Simultaneous exact binomial intervals resolve the effect, which the 2^20 one-link pilot missed. The clock has a material response. A geometric delay and a shared coupling require independent ranging and calibration. A uniform ten-site launch on the active two-cell source also distinguishes material backaction from an ensemble of lossless exterior propagators. The held eight-launch mixture agrees with the joint-source forecast. A common clock and ray metric remains unresolved. The three-guide parallel-arrival metric needs at least √2 distortion in any inner-product space. Source-weighted travel times do respond to a three-guide correlation, with alternating signs on body diagonals, while the diffusion norm is quadratic. These instruments distinguish the source but supply no common proper ruler for the local metric tests. Fifteen reciprocal six-station lengths on the prepared source admit a smooth spatial three-sphere. Exact length-preserving deformations change the fixed-volume area at order r⁴ and the null curvature at the measured station. Even every centered rest-ball area and volume can agree while a tagged null response differs. Proper areas of twelve tagged sectors on an affinely normalized null wavefront can distinguish the nine independent directional curvature coefficients. The observed station clocks do not supply these areas on shrinking scales. An independent thirteen-bin count on this source resolves an angular response of rank nine with signed weights and rank four without them. Its native observable is occupation. The twelve-cap curvature test also requires proper wavefront areas at matched affine distances and an independent regional stress. Conjugate product-head illumination makes both directions of a five-pixel material transmission reciprocal on the selected source. Vacancy and excess image-area gains differ by over 9,800 at identical dwell and pixel calibration. Even with six lengths and four clock gains held fixed, reciprocity across nearby sources forces every fixed terminal head analyzer to vanish at every nonzero real algebraic exposure. A separate fixed-length curve with varying clocks has zero entropy slope and negative finite entropy change at identical surveyed area and volume. A second independent unlabelled source and two native Bell comparisons give reciprocal material transmission for every reachable source at any exposure. A retained stale reference breaks reciprocity on a held source rotation. Shifts and whole-boundary fluxes on three detector mounts determine a positive conjugate analyzer from mobile records alone. The finite count test uses 2¹⁴⁸ simulated starts per interferometer setting. The two material probe species still have different angular image gains. On six stations, the ordinary write contracts 12 of 15 surveyed tetrahedra and expands 3. Replacing a correlated record at fixed parked energy contracts 7 and expands 8. The intervals jointly resolve every sign. On freely formed, stored correlations the two charge probes give opposite signs in 18 of 45 comparisons of source-induced four-station range ratios. All endpoint gains and stable edge factors cancel. On two independently prepared copies of the formed reference, the held image tensors relative to ordinary-energy response have determinants −1.276 and +3.886 at one gateway. Fixed image coordinates and gain conventions preserve their opposite signs. With a freely moving excess and vacancy present throughout clock interrogation, the unselected line-32 wrong-port probability exceeds 0.0104641 against an upper bound of 0.000000122 from the unit standard for every shared random elapsed time. A local clock–matter contact accounts for the effect. Proper null curvature of independently characterized mass remains unmeasured.",
+     "note": "The guided reunion experiment changes the motion of the patch. Testing gravitational clock rates or light paths requires a measured source of curvature. The two co-located hands agree in vacuum. Following a release across one boundary the occupied meter lags the empty one by about 0.00028 radians on the 20-, 80- and 320-cell screens. The lag follows from double occupation of the meter contact. This readout distinguishes a probe-dependent lag from a common gravitational lapse. A parked source changes the frequencies of co-located excess and vacancy dimer clocks by factors of 0.06438 and 0.06764 in one orientation and 2.09341 and 1.93679 in the reverse orientation. Both ratios are exactly one beyond contact on the four enrolled separations. A common gravitational rate and matter-sensitive optical propagation require different evidence. Equilibrating the hidden directions after the first of two native flights misses 38.9–39.3% of departures on the 327680-cell material. Preserving the conditional state and varying a midpoint phase predicts 32 held radial returns. Converting these radial records to proper distances and measuring curvature with independent clocks and light require additional evidence. Opposite native load signs share an ordinary-source calibration over 13,992 held frequencies. A uniform mixture over all ports responds locally to a freely formed collar on 20 and 80 cells. Neither a source-dependent unitary geometry of that complete propagation space nor a classical mixture of such geometries can account for this polarization. Independent proper clocks and ranges are needed to identify a geometric contribution. On a ten-port guide a source of fixed energy gives two locally calibrated clocks frequency ratios of 32.016 and 1 beside an even-parity collar. Of 268,435,456 launches per tag, 2,763 and 195,545,892 complete a two-leg signal by 64 emitter ticks. An empty write delays both tags, with 52.611% and 52.508% of attempts completing, against 72.85% on the blank. The difference in source-induced shifts exceeds a simultaneous 99% counting bound at two detector cadences. Both signals are material. On two adjacent cells a freely moving mediator communicates a parked source change to radar probes three to six links away. Out of every launch, the fraction of unit probes returning by 64 ticks falls by 3.923 percentage points for a mediator launched at the receiver-side gateway and rises by 10.314 points for the reverse launch. The double tag and empty-mediator controls show no resolved shift. An independent calibration with a stored mediator predicts held clock and return probabilities. Extracting gravity requires independent exterior clocks, ranges and signal propagation on the same source. The correlated collar changes the calculated probability of a completed material return from 0.053209 to 0.038839 on the 80-cell excess pair of source and probe settings. The first two probe energy moments fix the uniform clock rescaling to one. A common metric and independent optical signal are unverified. The full eight-dimensional head algebra admits a certified, prepared maximum of entropy plus area at fixed survey volume and independently calibrated gain. An ordinary energy addition and a fixed-energy correlation change both shrink the matched-volume area. On that source the clock cycles violate static reciprocity, a fifth station gives fourth/first centered Gram ratio 0.66437, and changing the timeout gives residual 0.7264. Proper light bending and gravitational time dilation or Shapiro delay remain open. Transverse optical images sense head correlations. On the identical ensemble and clock appointment a seam energy-to-image calibration on ordinary matter predicts the opposite sign for the excess pairing intervention. Six independent radar stations reject a common three-dimensional space-form chart for their fitted distances. With sharp trace optics and the Hamiltonian bridge current the signed focusing equations have a finite residual for every common clock and scalar flux conversion across the two tags and their fair mixture. The single untagged image also excludes clocks whose rate depends on time and the two bridge occupations at fixed flux conversion. A freely launched excess changes two clocks on the all-open 20-cell screen. For launches one link away, their count intervals exclude a common deterministic elapsed time at 125 of 193 matched appointments. At every appointment both marginal readings admit a shared distribution of times. Changing only the clock species gives 1,681 versus 1,280 source arrivals at the same endpoint detector in 1,048,576 starts each. This measures reciprocal material coupling. An independent geometric redshift is unresolved. Changing contrast as a control gives an odd frequency in [16.996,17.004], against [16.480,16.527] from a common rescaling of both clock species (joint 99% intervals). A native echo prepares either local load order in a degenerate blank-energy subspace. Any positive distribution of elapsed times acting on that blank clock preserves its order. With an excess launched one link away, both orientations reverse at every one of five held appointments in an independent simulation at 2^30 launches per setting. At exposure four the public detector counts 666 and 642 reversals. Blank, parked and reversal-disabled controls give zero. Simultaneous exact binomial intervals resolve the effect, which the 2^20 one-link pilot missed. The clock has a material response. A geometric delay and a shared coupling require independent ranging and calibration. A uniform ten-site launch on the active two-cell source also distinguishes material backaction from an ensemble of lossless exterior propagators. The held eight-launch mixture agrees with the joint-source forecast. A common clock and ray metric remains unresolved. The three-guide parallel-arrival metric needs at least √2 distortion in any inner-product space. Source-weighted travel times do respond to a three-guide correlation, with alternating signs on body diagonals, while the diffusion norm is quadratic. These instruments distinguish the source but supply no common proper ruler for the local metric tests. Fifteen reciprocal six-station lengths on the prepared source admit a smooth spatial three-sphere. Exact length-preserving deformations change the fixed-volume area at order r⁴ and the null curvature at the measured station. Even every centered rest-ball area and volume can agree while a tagged null response differs. Proper areas of twelve tagged sectors on an affinely normalized null wavefront can distinguish the nine independent directional curvature coefficients. The observed station clocks do not supply these areas on shrinking scales. An independent thirteen-bin count on this source resolves an angular response of rank nine with signed weights and rank four without them. Its native observable is occupation. The twelve-cap curvature test also requires proper wavefront areas at matched affine distances and an independent regional stress. Conjugate product-head illumination makes both directions of a five-pixel material transmission reciprocal on the selected source. Vacancy and excess image-area gains differ by over 9,800 at identical dwell and pixel calibration. Even with six lengths and four clock gains held fixed, reciprocity across nearby sources forces every fixed terminal head analyzer to vanish at every nonzero real algebraic exposure. A separate fixed-length curve with varying clocks has zero entropy slope and negative finite entropy change at identical surveyed area and volume. A second independent unlabelled source and two native Bell comparisons give reciprocal material transmission for every reachable source at any exposure. A retained stale reference breaks reciprocity on a held source rotation. Shifts and whole-boundary fluxes on three detector mounts determine a positive conjugate analyzer from mobile records alone. The finite count test uses 2¹⁴⁸ simulated starts per interferometer setting. The two material probe species still have different angular image gains. On six stations, the ordinary write contracts 12 of 15 surveyed tetrahedra and expands 3. Replacing a correlated record at fixed parked energy contracts 7 and expands 8. The intervals jointly resolve every sign. On freely formed, stored correlations the two charge probes give opposite signs in 18 of 45 comparisons of source-induced four-station range ratios. All endpoint gains and stable edge factors cancel. On two independently prepared copies of the formed reference, the held image tensors relative to ordinary-energy response have determinants −1.276 and +3.886 at one gateway. Fixed image coordinates and gain conventions preserve their opposite signs. With a freely moving excess and vacancy present throughout clock interrogation, the unselected line-32 wrong-port probability exceeds 0.0104641 against an upper bound of 0.000000122 from the unit standard for every shared random elapsed time. A local clock–matter contact accounts for the effect. Proper null curvature of independently characterized mass remains unmeasured. The emitting clock sends its own material load through a stationary collar to a second clock. With the same source, guide and appointments, unit loads transfer frequency at 32.01586 near-to-far and 0.0312348 far-to-near. Double loads give 1.000007 and 1.000003. The held arrivals resolve the material modulation and exclude one common lapse for both tags. A gravitational redshift requires independent light and exterior proper clocks on the same source.",
      "evidence": [
       "model/candidate_laws/interval_echo/SPEC.md",
       "model/candidate_laws/interval_echo/RESULTS.json",
@@ -5452,11 +5696,22 @@
       "model/candidate_laws/interval_echo/openwave/row_27_metric/formed_pair_clocks/results.json",
       "model/experiments/interval_echo_einstein_station/equilibrium_refinement/tracer_flux/bearings/README.md",
       "model/experiments/interval_echo_einstein_station/equilibrium_refinement/tracer_flux/bearings/results.json",
-      "model/experiments/interval_echo_einstein_station/equilibrium_refinement/tracer_flux/bearings/placements.json"
+      "model/experiments/interval_echo_einstein_station/equilibrium_refinement/tracer_flux/bearings/placements.json",
+      "model/candidate_laws/interval_echo/openwave/row_27_metric/frequency_link/README.md",
+      "model/candidate_laws/interval_echo/openwave/row_27_metric/frequency_link/PROOF.md",
+      "model/candidate_laws/interval_echo/openwave/row_27_metric/frequency_link/native.py",
+      "model/candidate_laws/interval_echo/openwave/row_27_metric/frequency_link/readout.py",
+      "model/candidate_laws/interval_echo/openwave/row_27_metric/frequency_link/measure.py",
+      "model/candidate_laws/interval_echo/openwave/row_27_metric/frequency_link/results.json.gz",
+      "model/candidate_laws/interval_echo/openwave/row_27_metric/frequency_link/test_link.py",
+      "model/experiments/interval_echo_einstein_station/equilibrium_refinement/tracer_flux/bearings/round_trip/README.md",
+      "model/experiments/interval_echo_einstein_station/equilibrium_refinement/tracer_flux/bearings/round_trip/results.json",
+      "code/matched_einstein_limit/fixed_volume/polarized_ranges/README.md",
+      "code/matched_einstein_limit/fixed_volume/polarized_ranges/results.json"
      ],
      "demonstrated_measurement": {
-      "label": "A reciprocal camera on one source and a held reversal failure",
-      "source": "code/matched_einstein_limit/source_implication/full_geometry/station_balls/reciprocal_screen/README.md"
+      "label": "Reciprocal frequency transfer on two materials sharing one stationary source",
+      "source": "model/candidate_laws/interval_echo/openwave/row_27_metric/frequency_link/README.md"
      },
      "additional_comparisons": [
       {
@@ -5476,6 +5731,18 @@
        "label": "Recovering six angular axes from freely arriving tags",
        "finding": "Thirty contacts and six antipodal axes are recovered on three resident stocks at two short exposures. Two-resident word positions on the inner measured shell supply an exactly isotropic average of every quadratic directional reading. The finite central and displaced counts give a scaled scalar estimate of −264/65 in their flat Gram chart, resolving the finite-density bias. Physical curvature requires independently calibrated radii and control of this error under refinement.",
        "source": "model/experiments/interval_echo_einstein_station/equilibrium_refinement/tracer_flux/bearings/README.md"
+      },
+      {
+       "law": "Interval Echo with a freely returning tag on two mobile residents",
+       "label": "One independent three-dimensional frame from all 132 ordered return clocks",
+       "finding": "Three stocks and two shutters distinguish three ranges and independently recover the angular frame. A flat three-dimensional fit to all durations converted by one speed needs more than 2.19% relative range distortion.",
+       "source": "model/experiments/interval_echo_einstein_station/equilibrium_refinement/tracer_flux/bearings/round_trip/README.md"
+      },
+      {
+       "law": "Proper geodesic ranges on smooth charts and returned native word transfers",
+       "label": "Scalar curvature from four signed cross distances per axis pair",
+       "finding": "Ten native angular frames pass radial midpoint checks but fail independent cross distances. Keeping the two measured radii and all four cross ranges in a shrinking bounded-curvature family needs at least 14.59% relative change. Smooth controls yield −1.999385 and +2.000615 for target curvatures −2 and +2.",
+       "source": "code/matched_einstein_limit/fixed_volume/polarized_ranges/README.md"
       }
      ]
     },
@@ -5530,7 +5797,7 @@
       "https://github.com/openwave-labs/openwave/blob/d4fc3e4046c472f4ad38468df8dddfa1f97bac97/MODELS.md#L135"
      ],
      "status": "open",
-     "note": "Two transverse components of a prepared material dipole arrive three cells away on the unshuttered 80-cell board, with measured transverse transfer singular values 0.17834 and 0.02821 at time 64. The longitudinal response is 0.17950. Across 23,608 exact-frequency, direction and material comparisons none meet the specified two-transverse and weak-longitudinal response criterion. The first sampled receiving-cell population above 0.5% occurs at 17.5 and 35.5 exchange units for the two transverse preparations, versus 13.5 for the independent sharp pulse. A separate face-circulation source on a five-cell loop conveys its orientation two cells away even when both loads start in the source cell. On a single bridge a source-cell reflection makes the two signs indistinguishable to every exterior measurement. The received orientation accompanies material. Neither a Maxwell field nor a common limiting speed is identified by these preparations. On an intact 80-cell board, an independently calibrated receiver three hops away at exposure 64 accepts 1.6354% of six-state polarization launches in its transverse plane, with conditional fidelity 0.770216. The excess of correct detections over twice the wrong detections per original launch lies in [0.004852, 0.005308] at simultaneous 99% coverage. This exceeds the measure-and-prepare ceiling with selective losses. The receiver also responds to longitudinal input. Separate sharp and polarization preparations cross their respective thresholds at different exposures. A physical electric and magnetic field readout on the same propagating mode and an independently timed limiting speed remain open. On the same three-boundary one-load polarization source, a separately injected double responds to captured material. For every one-cell injection seam and every admitted single-load state, reversing the probe velocity leaves its initial address accelerations equal. Independently measured face circulation gives a nonzero velocity cross circulation for both circular inputs under the matched admission gate. No nonzero scalar maps this circulation to the velocity-odd initial acceleration of that probe. Its finite-time scattering response supplies no calibrated electromagnetic force.",
+     "note": "Two transverse components of a prepared material dipole arrive three cells away on the unshuttered 80-cell board, with measured transverse transfer singular values 0.17834 and 0.02821 at time 64. The longitudinal response is 0.17950. Across 23,608 exact-frequency, direction and material comparisons none meet the specified two-transverse and weak-longitudinal response criterion. The first sampled receiving-cell population above 0.5% occurs at 17.5 and 35.5 exchange units for the two transverse preparations, versus 13.5 for the independent sharp pulse. A separate face-circulation source on a five-cell loop conveys its orientation two cells away even when both loads start in the source cell. On a single bridge a source-cell reflection makes the two signs indistinguishable to every exterior measurement. The received orientation accompanies material. Neither a Maxwell field nor a common limiting speed is identified by these preparations. On an intact 80-cell board, an independently calibrated receiver three hops away at exposure 64 accepts 1.6354% of six-state polarization launches in its transverse plane, with conditional fidelity 0.770216. The excess of correct detections over twice the wrong detections per original launch lies in [0.004852, 0.005308] at simultaneous 99% coverage. This exceeds the measure-and-prepare ceiling with selective losses. The receiver also responds to longitudinal input. Separate sharp and polarization preparations cross their respective thresholds at different exposures. A physical electric and magnetic field readout on the same propagating mode and an independently timed limiting speed remain open. On the same three-boundary one-load polarization source, a separately injected double responds to captured material. For every one-cell injection seam and every admitted single-load state, reversing the probe velocity leaves its initial address accelerations equal. Independently measured face circulation gives a nonzero velocity cross circulation for both circular inputs under the matched admission gate. No nonzero scalar maps this circulation to the velocity-odd initial acceleration of that probe. Its finite-time scattering response supplies no calibrated electromagnetic force. From equal endpoint charge histories, a closed three-hop current and an idle give source-face flux difference −1.5 at the second declared half-step. A face two dual edges away records flux 1/8 on the third. A complete oriented source and programmed field update supply the finite Maxwell action; autonomous transverse electric and magnetic fields travelling at the limiting speed remain open.",
      "evidence": [
       "model/candidate_laws/interval_echo/SPEC.md",
       "model/candidate_laws/interval_echo/openwave/row_29_maxwell/README.md",
@@ -5548,7 +5815,14 @@
       "model/candidate_laws/interval_echo/openwave/row_29_maxwell/arrival_probe/README.md",
       "model/candidate_laws/interval_echo/openwave/row_29_maxwell/arrival_probe/measure.py",
       "model/candidate_laws/interval_echo/openwave/row_29_maxwell/arrival_probe/onset.py",
-      "model/candidate_laws/interval_echo/openwave/row_29_maxwell/arrival_probe/records.json"
+      "model/candidate_laws/interval_echo/openwave/row_29_maxwell/arrival_probe/records.json",
+      "model/experiments/interval_echo_gauge/temporal_action/README.md",
+      "model/experiments/interval_echo_gauge/temporal_action/action.py",
+      "model/experiments/interval_echo_gauge/temporal_action/material.py",
+      "model/experiments/interval_echo_gauge/temporal_action/rails.py",
+      "model/experiments/interval_echo_gauge/temporal_action/measure.py",
+      "model/experiments/interval_echo_gauge/temporal_action/records.json.gz",
+      "model/experiments/interval_echo_gauge/temporal_action/ActionBridge.lean"
      ],
      "comparison": {
       "law": "Written-field Laplacian extension",
@@ -5583,7 +5857,7 @@
       "resubmission": "HOLD",
       "review": "model/candidate_laws/interval_echo/openwave/submission/ROW_30_DECISION.md"
      },
-     "note": "The v3 coherent-strand observer uses wave numbers fitted on even receiver holds for every dispersion forecast and tests the spatial profiles on odd holds. On three local validation materials fixed before acquisition, all 22 frequencies agree within 0.000575 with the lattice law predicted by independent coupling meters. A range-two hopping forecast also fits those 22 frequencies. On the same three exposed strands, a new acquisition resolved 22 shorter wavelengths. The largest absolute frequency error of the lattice square-root forecast was 0.000739. The hopping forecast missed each line by at least 0.0110 against a tolerance of 0.0048. This comparison distinguishes the two lattice descriptions outside the continuum test window. Fourteen ordinary low-wave-number lines agree within 0.003165. Measured profiles pass and launch labels fail on all three. On two of its own validation boards the separate v2 full-record recurrence failed its spatial threshold. The v3 source, declaration and decoder are frozen for a public candidate decision. The verifier distinguishes completed rejection, missing records, corrupt evidence and unaccepted binding. These measurements require coherent unread connecting memories. A two-ensemble local readout on exposed 17- and 20-dimer rings gave rest frequencies 15.000082 and 14.999985, and near 7 at half contrast. On the prepared 194-cell channel the continuum Klein–Gordon envelope fits four held frequencies within 1.19% using packet speed. The competing parabola misses by 6.68% at the last held point. The continuum misses by 18.03% at the separate microscopic challenge. In the published candidate an empty-seam measurement forecasts rest and all five moving frequencies from the exact four-site dispersion within 0.036%. The later eight-witness common-unit standard forecasts those same archived frequencies within 0.032%, with its scale fixed by the comparison rule. Fair parity gives about 50% discrepancies. The forecasts share the prepared one-dimensional material background. This single-load gap depends on the prepared route. Shortest internal paths joining the same gateway port pairs through the same 194 cells put 62 modes in the original gap. Locally commissioned empty repairs split a single-load spectrum into coordination bands on 20, 80 and 320 cells in two independent preparations per size. In the selected one-write band, all 30 constant and low spatial-mode preparations fail the single-frequency test. The strongest two adjacent clock bins hold 34.23–50.07% of the tagged zero-mode counts, below the 80% pure-line floor after leakage accounting. A uniform preparation restricted to connected one-write ports passes the frequency filter on over 97% of launches. The joint frequency and spatial return counts still reject a single rest frequency on all six media at simultaneous 99% confidence. Free transport depends strongly on the deposited records. On 27 independently prepared local sharp-repair histories, a uniform wave gave 36.48–59.11% home misses at one quarter exchange unit, with zero on exchange-only material. The squared frequency width is κ² times the spatial variance of the incident write count on that wave. A separate frequency-gated detector four cells from the source gave 2,220 of 4,194,304 mid-gap arrivals on the shortest path and zero anywhere on the repeated path. On the commissioned 49-dimer strand the fastest of seven measured packet speeds was 0.9903, against an exact maximum group speed of one and a long-wavelength dispersion coefficient c of four. The two smallest measured wave numbers give k/v of 0.948 and 0.954, compared with the inverse band curvature 15/16. At k=0.800 an independent energy read separates the initial bare-wall velocity from its accrued motion. At a native three-arm dimer junction the two outgoing cells jointly recorded walls on 10,470,504 of 268,435,456 incident-wall starts versus 71,370 on the zero-wall control. A scalar continuation of the calibrated strand predicts an exclusive turn probability of at least 0.000615; all eight held settings had at most one detection per 268,435,456 starts. Four straight-arm controls agreed. The single-wall graph continuation fails at this fork. The one-dimensional dispersion result keeps its stated domain. A 14-dimer, three-cell strand yields a signed impulse response at 15 positions and 61 times from even two-time products. The largest displacement error against the independently calibrated discrete wave operator is 0.001513; matched hopping misses by 0.21674 against its 0.07548 allowance. On the two measured long-wave modes the ordinary continuum comparison differs by 0.001701 within a separate 0.03963 allowance. The lattice result concerns the prepared strand, and public state/decoder admission and a prospective upstream acquisition remain outstanding. On the seven-dimer fork the remote owner alone detects the relative phase of two incoming arms. At six exchange radians the local contrast is 0.47821, versus exactly zero under exchange alone. At the short held time neither orientation yields an exclusive bright turn in 268,435,456 starts each, although the calibrated scalar continuation predicts at least 0.0015609. A home observer retaining all four labels of one connector before flight still resolves the two source choices at a distant wall detector. Reading only its coin halves the remote source difference at every flight time for these preparations. The four appointments test measurement disturbance on the strand.",
+     "note": "The v3 coherent-strand observer uses wave numbers fitted on even receiver holds for every dispersion forecast and tests the spatial profiles on odd holds. On three local validation materials fixed before acquisition, all 22 frequencies agree within 0.000575 with the lattice law predicted by independent coupling meters. A range-two hopping forecast also fits those 22 frequencies. On the same three exposed strands, a new acquisition resolved 22 shorter wavelengths. The largest absolute frequency error of the lattice square-root forecast was 0.000739. The hopping forecast missed each line by at least 0.0110 against a tolerance of 0.0048. This comparison distinguishes the two lattice descriptions outside the continuum test window. Fourteen ordinary low-wave-number lines agree within 0.003165. Measured profiles pass and launch labels fail on all three. On two of its own validation boards the separate v2 full-record recurrence failed its spatial threshold. The v3 source, declaration and decoder are frozen for a public candidate decision. The verifier distinguishes completed rejection, missing records, corrupt evidence and unaccepted binding. These measurements require coherent unread connecting memories. A two-ensemble local readout on exposed 17- and 20-dimer rings gave rest frequencies 15.000082 and 14.999985, and near 7 at half contrast. On the prepared 194-cell channel the continuum Klein–Gordon envelope fits four held frequencies within 1.19% using packet speed. The competing parabola misses by 6.68% at the last held point. The continuum misses by 18.03% at the separate microscopic challenge. In the published candidate an empty-seam measurement forecasts rest and all five moving frequencies from the exact four-site dispersion within 0.036%. The later eight-witness common-unit standard forecasts those same archived frequencies within 0.032%, with its scale fixed by the comparison rule. Fair parity gives about 50% discrepancies. The forecasts share the prepared one-dimensional material background. This single-load gap depends on the prepared route. Shortest internal paths joining the same gateway port pairs through the same 194 cells put 62 modes in the original gap. Locally commissioned empty repairs split a single-load spectrum into coordination bands on 20, 80 and 320 cells in two independent preparations per size. In the selected one-write band, all 30 constant and low spatial-mode preparations fail the single-frequency test. The strongest two adjacent clock bins hold 34.23–50.07% of the tagged zero-mode counts, below the 80% pure-line floor after leakage accounting. A uniform preparation restricted to connected one-write ports passes the frequency filter on over 97% of launches. The joint frequency and spatial return counts still reject a single rest frequency on all six media at simultaneous 99% confidence. Free transport depends strongly on the deposited records. On 27 independently prepared local sharp-repair histories, a uniform wave gave 36.48–59.11% home misses at one quarter exchange unit, with zero on exchange-only material. The squared frequency width is κ² times the spatial variance of the incident write count on that wave. A separate frequency-gated detector four cells from the source gave 2,220 of 4,194,304 mid-gap arrivals on the shortest path and zero anywhere on the repeated path. On the commissioned 49-dimer strand the fastest of seven measured packet speeds was 0.9903, against an exact maximum group speed of one and a long-wavelength dispersion coefficient c of four. The two smallest measured wave numbers give k/v of 0.948 and 0.954, compared with the inverse band curvature 15/16. At k=0.800 an independent energy read separates the initial bare-wall velocity from its accrued motion. At a native three-arm dimer junction the two outgoing cells jointly recorded walls on 10,470,504 of 268,435,456 incident-wall starts versus 71,370 on the zero-wall control. A scalar continuation of the calibrated strand predicts an exclusive turn probability of at least 0.000615; all eight held settings had at most one detection per 268,435,456 starts. Four straight-arm controls agreed. The single-wall graph continuation fails at this fork. The one-dimensional dispersion result keeps its stated domain. A 14-dimer, three-cell strand yields a signed impulse response at 15 positions and 61 times from even two-time products. The largest displacement error against the independently calibrated discrete wave operator is 0.001513; matched hopping misses by 0.21674 against its 0.07548 allowance. On the two measured long-wave modes the ordinary continuum comparison differs by 0.001701 within a separate 0.03963 allowance. The lattice result concerns the prepared strand, and public state/decoder admission and a prospective upstream acquisition remain outstanding. On the seven-dimer fork the remote owner alone detects the relative phase of two incoming arms. At six exchange radians the local contrast is 0.47821, versus exactly zero under exchange alone. At the short held time neither orientation yields an exclusive bright turn in 268,435,456 starts each, although the calibrated scalar continuation predicts at least 0.0015609. A home observer retaining all four labels of one connector before flight still resolves the two source choices at a distant wall detector. Reading only its coin halves the remote source difference at every flight time for these preparations. The four appointments test measurement disturbance on the strand. With two sharp in-flight coin readings instead of one on the same prepared strand, the remote probability difference at six exchange radians reverses sign. All coin histories and wall outcomes are included. Frequent ideal readings on this single connector converge to evolution with half its interaction. Spatial dispersion under this schedule and prospective platform confirmation remain open.",
      "evidence": [
       "model/candidate_laws/interval_echo/openwave/submission/row_30_confirmation/README.md",
       "model/candidate_laws/interval_echo/openwave/submission/row_30_confirmation/PACKAGE.json",
@@ -5661,7 +5935,10 @@
       "model/candidate_laws/interval_echo/openwave/row_30_collective/fork/interference/PROTOCOL.md",
       "model/candidate_laws/interval_echo/openwave/row_30_collective/committed_heads/README.md",
       "model/candidate_laws/interval_echo/openwave/row_30_collective/committed_heads/results.json",
-      "model/candidate_laws/interval_echo/openwave/row_30_collective/committed_heads/readback.py"
+      "model/candidate_laws/interval_echo/openwave/row_30_collective/committed_heads/readback.py",
+      "model/candidate_laws/interval_echo/openwave/row_30_collective/committed_heads/during_flight/README.md",
+      "model/candidate_laws/interval_echo/openwave/row_30_collective/committed_heads/during_flight/records.json",
+      "model/candidate_laws/interval_echo/openwave/row_30_collective/committed_heads/during_flight/FREQUENT.md"
      ],
      "comparison": {
       "law": "Directed ring extension",
@@ -5680,7 +5957,7 @@
       "https://github.com/openwave-labs/openwave/blob/d4fc3e4046c472f4ad38468df8dddfa1f97bac97/MODELS.md#L137"
      ],
      "status": "partial",
-     "note": "A load bound to a static seam has discrete levels in the free contrast interaction. The computed spacings and shell multiplicities fail the hydrogenic comparison, and the level count at fixed record number is bounded under refinement. A freely moving amount-one and amount-two pair gives 1,032,974 adjacent detections among 1,034,018 bound-window clicks on the 20-cell board. An isolated cell has a relative standing-wave level at −30.1213. On 20, 80 and 320 cells all negative levels of the mixed pair lie in [−32,−24] relative to the separated reference. The second and third hydrogenic levels would fall in the empty spectral gap. The analogous test also excludes these two levels for each equal-amount pair on the empty host. A separate mobile load mediates attraction between two stationary written cores. Calibrating an inverse-distance law at three links predicts 0.05415 exchange units at four; the gains are 0.001893 and 0.000204 on 20 and 80 cells. All 18 held distance settings miss that prediction. Other media and longer-range interactions are outside these experiments. With a single stationary written seam and a mobile load, exactly two levels lie below the blank dissociation reference on the 20-, 80- and 320-cell boards. An endpoint phase pulse resolves their transition at 0.47994 and 0.47993 exchange units on the two smaller boards. The measured ground binding predicts a hydrogenic transition of 4.6021, which would place the final energy near −1.534 in the empty spectral interval. This rules out that spectrum for this supplied core and preparation. A native vacuum echo prepares the stationary core. A local sharp load and a calibrated finite energy tag prepare its ground orbital with about 96% admission. On 20 and 80 cells the endpoint pulse resolves the 0.47993 transition and gives zero clicks at the 4.602 hydrogenic forecast in 4,194,304 launches per board. A native π contact converts blank versus vacuum-written core memory into a public terminal load position. After one attempted erase and 64 units of flight this gives 74,603 of 4,028,408 and 74,590 of 4,028,686 admitted blank-core readings. For one mobile load and any stationary pattern of empty writes, the negative index equals the number of touched ports. Relative to the blank-host reference, the full spectra exclude (−3,0) for amount one and (−27,0) for amount two. A hydrogenic accumulation at that threshold is impossible on this family across refinements. Mobile cores and other matter sectors lie outside the bound. For any two disjoint stationary empty-written cores the ground attraction mediated by a single unit load has an upper bound proportional to (6/17)^d in the separation d of the nearest written ports, uniformly in board size and core shape. At two held separations on 320 cells both core shapes returned zero dark exits in 1,048,576 launches each, against independently calibrated inverse-distance forecasts above 99.88%.",
+     "note": "A load bound to a static seam has discrete levels in the free contrast interaction. The computed spacings and shell multiplicities fail the hydrogenic comparison, and the level count at fixed record number is bounded under refinement. A freely moving amount-one and amount-two pair gives 1,032,974 adjacent detections among 1,034,018 bound-window clicks on the 20-cell board. An isolated cell has a relative standing-wave level at −30.1213. On 20, 80 and 320 cells all negative levels of the mixed pair lie in [−32,−24] relative to the separated reference. The second and third hydrogenic levels would fall in the empty spectral gap. The analogous test also excludes these two levels for each equal-amount pair on the empty host. A separate mobile load mediates attraction between two stationary written cores. Calibrating an inverse-distance law at three links predicts 0.05415 exchange units at four; the gains are 0.001893 and 0.000204 on 20 and 80 cells. All 18 held distance settings miss that prediction. Other media and longer-range interactions are outside these experiments. With a single stationary written seam and a mobile load, exactly two levels lie below the blank dissociation reference on the 20-, 80- and 320-cell boards. An endpoint phase pulse resolves their transition at 0.47994 and 0.47993 exchange units on the two smaller boards. The measured ground binding predicts a hydrogenic transition of 4.6021, which would place the final energy near −1.534 in the empty spectral interval. This rules out that spectrum for this supplied core and preparation. A native vacuum echo prepares the stationary core. A local sharp load and a calibrated finite energy tag prepare its ground orbital with about 96% admission. On 20 and 80 cells the endpoint pulse resolves the 0.47993 transition and gives zero clicks at the 4.602 hydrogenic forecast in 4,194,304 launches per board. A native π contact converts blank versus vacuum-written core memory into a public terminal load position. After one attempted erase and 64 units of flight this gives 74,603 of 4,028,408 and 74,590 of 4,028,686 admitted blank-core readings. For one mobile load and any stationary pattern of empty writes, the negative index equals the number of touched ports. Relative to the blank-host reference, the full spectra exclude (−3,0) for amount one and (−27,0) for amount two. A hydrogenic accumulation at that threshold is impossible on this family across refinements. Mobile cores and other matter sectors lie outside the bound. For any two disjoint stationary empty-written cores the ground attraction mediated by a single unit load has an upper bound proportional to (6/17)^d in the separation d of the nearest written ports, uniformly in board size and core shape. At two held separations on 320 cells both core shapes returned zero dark exits in 1,048,576 launches each, against independently calibrated inverse-distance forecasts above 99.88%. A native occupied-core write gives four sector-bound orbital levels. Reversing one endpoint phase at fixed launch populations moves the dominant even-parity clock bin from −13.83037 to −5.89049 on both 20 and 80 owners. Across the entire eleven-state core with one mobile load, the six levels below the lowest common dissociation threshold all lie at relative energies from −8 to −5.5. The measured branch excludes the held hydrogenic second binding.",
      "evidence": [
       "model/candidate_laws/interval_echo/SPEC.md",
       "model/candidate_laws/contrast_memory_spherical_v1/collar.py",
@@ -5702,7 +5979,13 @@
       "model/candidate_laws/interval_echo/openwave/row_31_orbitals/mediator_range/PROTOCOL.md",
       "model/candidate_laws/interval_echo/openwave/row_31_orbitals/mediator_range/measure.py",
       "model/candidate_laws/interval_echo/openwave/row_31_orbitals/mediator_range/results.json",
-      "model/candidate_laws/interval_echo/openwave/row_31_orbitals/mediator_range/test_range.py"
+      "model/candidate_laws/interval_echo/openwave/row_31_orbitals/mediator_range/test_range.py",
+      "model/candidate_laws/interval_echo/openwave/row_31_orbitals/occupied_write/README.md",
+      "model/candidate_laws/interval_echo/openwave/row_31_orbitals/occupied_write/core.py",
+      "model/candidate_laws/interval_echo/openwave/row_31_orbitals/occupied_write/measure.py",
+      "model/candidate_laws/interval_echo/openwave/row_31_orbitals/occupied_write/results.json.gz",
+      "model/candidate_laws/interval_echo/openwave/row_31_orbitals/occupied_write/test_occupied.py",
+      "model/candidate_laws/interval_echo/openwave/row_31_orbitals/occupied_write/PROOF.md"
      ],
      "comparison": {
       "law": "Written-field Laplacian extension",
@@ -5710,8 +5993,8 @@
       "source": "model/candidate_laws/interval_echo/openwave/electron_field/README.md#rest-energy-and-the-other-openwave-observables"
      },
      "demonstrated_measurement": {
-      "label": "Local orbital spectroscopy and a public read of core erasure",
-      "source": "model/candidate_laws/interval_echo/openwave/row_31_orbitals/native_core_release/README.md"
+      "label": "Standing orbital levels and an excluded hydrogenic spacing across all eleven core records",
+      "source": "model/candidate_laws/interval_echo/openwave/row_31_orbitals/occupied_write/README.md"
      }
     }
    ]

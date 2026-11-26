@@ -475,6 +475,42 @@ REPLAY_EVALUATIONS = (
         "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
         "model/candidate_laws/interval_echo/EVALUATION.json": "ff491c1ae410b79dc29667a14499e8ca7f63b4b9e8bd40ff63aa6e5c58bd1316",
     },
+    # Native repair-directed phase readings, field charges and free polarization measurements.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "cdddae3912d2717372d0da596a3609fb7eef93b5d35e70356f6eb2bfa89ea695",
+    },
+    # Surveyed repair ballots, finite electroweak and sourced Maxwell instruments, and occupied orbital readings.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "eca810f64c150045b22d9c8e0ece5b27f6cddbb6f4a6259de79684cd20e797ff",
+    },
+    # Routed quorum decisions, resolved seam means, a free signed clock and reciprocal frequency transfer.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "925c46aec84afd76bc5cac44b87a6058e2eafb9e7428784221bfdcca097a4d6f",
+    },
+    # Matter-module readout, authorized twelve-reader records, square-sum phase and in-flight coin commitments.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "601b9cfd97b66e46fb5daf4fe05413c60039043c803fee8a446ffd9622e9e46f",
+    },
+    # Gravity release be76c3f10 adds common material clocks, proper-range and stellar tests.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "c3a2bc2d66ca2cfe7a75b56e55bb246df7a30e737130a35a2928fc7fd7a9202e",
+    },
+    # Common receiver, round-trip clocks, distant wall readings and finite matter comparisons.
+    {
+        "model/candidate_laws/interval_echo/SPEC.md": "283ba8edc3a924b12fc71faf54c7daa5a4b90e919892a446c13fde268978808d",
+        "model/candidate_laws/interval_echo/candidate.py": "ab125475fd254ce3900a3f71643f9081de37fafe626632788c5e3c1bb5e61106",
+        "model/candidate_laws/interval_echo/EVALUATION.json": "d4b801e8a5dca900d05f5b17b3a4fbb8ecbb4dfb3156e1bf595ebc0b6b4ae893",
+    },
 )
 
 

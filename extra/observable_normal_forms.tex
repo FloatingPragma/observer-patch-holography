@@ -2405,6 +2405,49 @@ existing canonical raw and public fixed-point endpoint at an index
 It is not a physical clock, rate, energy, bandwidth allocation, hardware
 quota, fee, or stochastic policy.
 
+\subsection{Reading the canonical repair ballot}
+
+On a finite loop-free overlap graph, let each owner publish one Boolean record
+and let each edge compare its two endpoint records for equality. An owner
+lights a ballot if it has a neighbor and every incident comparison reports a
+difference. This gives the exact firing condition for canonical single-site
+repair. The only alternative Boolean value is the complement of the current
+record, and it solves all incident comparisons exactly in this case.
+Following a change, every touching edge agrees. The selected owner and its
+neighbors can withdraw their ballots, while every other ballot retains its
+truth value. A covering scan that selects the first lit ballot thus has zero
+waste on every reducible word. Counting every invocation, including stutter,
+the initial number of broken edges pays for a run to a normal record.
+
+The terminal word has a direct description. Each productive invocation
+removes one vertex and its neighbors from the graph of initially lit ballots.
+The changed vertices therefore form a maximal independent set of that graph.
+Conversely, consulting the vertices of any such set first realizes its word.
+Adjacent initially lit vertices give two different terminal words by extending
+each singleton to a maximal independent set. When there are no adjacent lit
+vertices, the set of changes is unique.
+
+In the executable experiment both owners of each overlap read it with a
+strict echo, retain a local ballot on a second rail pair, and check the grant
+against their neighbors before the exchange. A remote owner rereads the
+final records. Across 120 routed trials on a path, a pentagon and a
+twenty-owner sphere, all 112 productive invocations lowered the mismatch
+count. All 346 remaining invocations occurred at normal records. Opposite
+consultation orders take the path word $0010$ to $0000$ and $0011$.
+Exhausting the $2^{20}$ sharp words by the calibrated rule gives 133,630
+normal words on the sphere. Only two give complete edge agreement, and
+474,412 initial words allow more than one terminal record. For a given
+unanimous target, the initially opposite owners must form an independent
+set, since neither end of an agreeing edge can be the first to change.
+Conversely, consulting those owners first suffices. The sphere has 5,828
+independent sets and contains an odd cycle, so exactly 11,656 initial
+words admit a unanimous endpoint under some service order. To force the
+target, every owner carrying that value at the start must be
+disabled, since a first grant there makes a permanent change. This
+leaves 7,736 words that reach unanimity under every covering order. These counts
+distinguish the operational guarantee of a normal return from the additional
+hypotheses needed for a common public endpoint.
+
 \subsection{Fixed computation federations}
 
 The computation compiler has a second, distinct asynchronous surface.  For a

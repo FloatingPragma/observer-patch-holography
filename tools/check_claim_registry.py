@@ -95,6 +95,7 @@ EVIDENCE_MEDIA_BY_SUFFIX = {
     ".py": "executed_program",
     ".cpp": "executed_program",
     ".json": "emitted_record",
+    ".json.gz": "emitted_record",
     ".npz": "emitted_record",
     ".npy": "numeric_data",
     ".tex": "paper_prose",
@@ -563,7 +564,10 @@ def evidence_medium(evidence: str) -> str | None:
     caller fails closed: a new artifact kind must be classified before it can
     back a claim.
     """
-    suffix = Path(evidence.split("#", 1)[0]).suffix.casefold()
+    path = Path(evidence.split("#", 1)[0])
+    suffix = path.suffix.casefold()
+    if suffix == ".gz":
+        suffix = Path(path.stem).suffix.casefold() + suffix
     return EVIDENCE_MEDIA_BY_SUFFIX.get(suffix)
 
 

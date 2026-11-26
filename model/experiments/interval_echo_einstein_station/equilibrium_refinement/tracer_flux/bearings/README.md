@@ -2,6 +2,8 @@
 
 An independently launched material tag identifies the same twelve bearings in the presence of either held boundary correlation. Its short-flight arrival records recover the angular information needed to average out an unknown marker-density Hessian. Two residents can also supply actual displaced marker records on one finite shell. Applying the curvature estimator directly to the available discrete word counts gives a measurable bias even in the flat record-coordinate description. [Flight counts](results.json) · [Marker placements and counts](placements.json)
 
+Observers can also time a freely monitored tag to a remote station and back. The full table recovers the same angular frame, with a quantified obstruction to converting every diffusive return time to proper length at one speed. [Independent transit clocks](round_trip/README.md)
+
 ## A reading independent of the resident preparation
 
 Use the [five-rim tracer apparatus](../README.md), including its three-symbol terminal test, calibrated dimer hand, two mobile load-two residents, independent load-one tag and parked exterior contacts. On each fresh copy attempt to inject the tag at a named station. Record a blocked launch or its terminal station after the supplied shutter dwell. The two transfers exchange correlations between residents. Every station admits launches on both held preparations and the uniform 55-word ball. The reader receives anonymous transmitter and receiver labels throughout.

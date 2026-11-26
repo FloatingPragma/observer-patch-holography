@@ -5,6 +5,8 @@ The two sources behind this galaxy sample the primary lens at 5.115 and 7.404 kp
 
 Static radial stress conservation turns the two aperture contrasts into a conditional lower bound on the weighted excess of tangential over radial pressure. Its aligned Chabrier value divided by $c^2$ is 0.007570 solar masses per cubic parsec. [Anisotropy bounds, stellar controls and assumptions](stress_conservation/README.md)
 
+The lens also has resolved MUSE stellar spectra. The outer spectrum bounds how much extra central velocity can be attributed to any nonnegative force outside the second ring in an isotropic tracer model. [Independent stellar-velocity check](resolved_kinematics/README.md)
+
 ## Two lens planes
 
 Let $C_i=c^2D_i/(4\pi G D_lD_{li})$ be the primary critical surface density for each source. Write $R_i=D_l\theta_i$ and $b_{12}$ for the **reduced radial deflection of the second-source ray by the intervening first source**, in the same angular units as $\theta_2$. It includes the $D_{12}/D_2$ factor. Allow an unknown constant surface-density sheet $S$ on the primary lens plane external to the galaxy dynamics. The aligned thin-lens equations are

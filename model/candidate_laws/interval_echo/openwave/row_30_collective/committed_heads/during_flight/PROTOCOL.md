@@ -1,0 +1,16 @@
+# A second local coin reading during propagation
+
+On the 20-cell, 14-dimer commissioned strand use the two sharp sources at bonds 4 and 1 and the wall receiver at bond 7 of the [single-read experiment](../PROTOCOL.md). The home observer at connector 31–32 measures magnitude or sharp coin without resolving the sign. The remote observer measures whether loads on 42–43 are unequal. These enrollment choices come from that experiment, which has an exposed before-flight result. This experiment probes two later readings on the same connector; the law, material, site, sources and detector were specified with the wall experiment known. No spatial selector used for public confirmation is consumed.
+
+Choose two equally spaced hand readings inside the established flight window, at 1 and 2 exchange radians. At both appointments retain the observed head outcome. Place the terminal wall read after the second operation at 2, 4 or 6. Use fresh preparations at each terminal read. Compare these menus in advance:
+
+* magnitude at 1 and 2 (stationary magnitude two);
+* coin at 1 and magnitude at 2;
+* coin twice at 1 with zero flight between its repeated readings, then magnitude at 2;
+* coin at 1 and coin at 2.
+
+Keep both sources and all head and remote yes/no words on both the native eight-contrast flight and the matched zero-contrast flight. The second sharp reading at the same appointment must repeat the first. Spaced coin reads can have changed outcomes. The pre-flight half-response result is known. At every read test whether a second coin read simply halves the one-read remote source difference. Test whether the second reading leaves it intact, whether remote source differences survive on the full ensemble, and whether the local changed-coin frequency distinguishes the launches. A difference excludes zero when its conservative simultaneous 99% count interval does. A comparison may remain unresolved. The local second read alone cannot alter an equal-time remote marginal, at the two-radian appointment, when all of its labels are retained.
+
+Use 2^24 seeded simulated starts per law, launch, appointment and menu and retain the probability as well as each drawn count. Working from count banks, take binomial intervals for remote hits and local changes over all starts and remote hits conditional on each recorded word. Difference intervals subtract endpoints. Use the shared tail 0.01/(2 × 1024) for each primitive estimate, including independent clock quadrature cohorts. Time is calibrated from the same magnitude-independent blank exchange dimer as the [strand experiment](../README.md), with ordered hand readings 0,1,2,4,6 and independent cosine/sine cohorts. Distinct schedules and the projective head instruments are supplied. No secondary criterion claims a new measurement of dispersion from three appointments.
+
+The pre-run sources are local RER ab22d7439, public RER 404f2a0ff and OpenWave c531265eb. The current M10 column has no tested OW-30 cell. The parent strand already tests held spatial phases and spectral lines; its [filing decision](../../../submission/ROW_30_DECISION.md) specifies what is owed. The present time-ordered detector comparison has its own falsifiable targets and is supplementary.

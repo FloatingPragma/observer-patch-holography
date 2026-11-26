@@ -1,0 +1,54 @@
+# A common inward acceleration for two material probes
+
+Two nonzero mobile loads give the same mean inward acceleration at release in the three-guide observer chart. Its coefficient is minus one times the outward guide current in receiver-link and exchange-clock units. The first outward face gave displacements of −0.0667115 and −0.0666379 links per source release, against a prediction of −1/15 at that shutter. Reversing the face gave +0.0666934 and +0.0666343. The largest simultaneous 99% half-width over these four means was 0.000118 links. Independent source releases and routed contacts between guides and receiver are parts of the apparatus. [Frozen settings](protocol.json) · [Recorded left and right outcomes](results.json)
+
+## What the observer measures
+
+Three material guides supply the addresses and the terminating source walks of the [Green experiment](../../README.md). The candidate's isolated full exchange interchanges any two sharp loads, so the recorded walks have the same law with either nonzero load in each guide. An independent receiver carries one load on two empty adjacent ports. A fair coin selects the near or far address of the chosen face. The receiver starts in the real antisymmetric standing wave for the near address or the real symmetric standing wave for the far address. An isolated half exchange takes a left load to amplitudes proportional to $(1,i)$. Parking it at the blank-edge detuning for $3\pi$ or $\pi$ prepares the two signs. Both preparations have right-port probability one half and zero initial probability current. The exchange contribution gives them bare flight energies one unit apart. Their opposite coherences supply the receiver polarity. A phase-preserving permutation can carry the same preparation to the equal-degree control. Supplied preparations and address routing distinguish this receiver from two freely falling bodies.
+
+For each guide coordinate a route interchanges its sharp selected port with a sensing pad beside the left receiver leg. The two legs are held while the full diagonal accumulates phase. A native isolated swap exchanges the legs. The same dwell with a sharp reference material on the sensing pad then precedes the inverse swap. All other neighboring loads agree at the two dwells. The routes restore the borrowed ports before the free release. During each leg swap the orientations have equal diagonal energy and the same swap amplitude, so its phase is common to the two paths. Routing and receiver swaps isolate the active seam and park all spectator evolution. The full blank-memory swap columns agree in complex amplitude with the sharp ternary permutation at both tested stiffnesses. The terminal transposition of sharp labels is checked separately for every route. The source walk pauses for the supplied operations and a fresh receiver is read at each live appointment. The receiver gets a binary left/right outcome even when its arm never encounters the desired address.
+
+Each coordinate can draw a fresh sharp reference independently from a blind material stock and route it to the reference rail. It needs no copy of the guide record. Independent exchange clocks read the elementary sensing subpulse on its first monotone branch; an observer counts zero, four or eight such subpulses for an exposure. The short and long release shutters have separate reference readings on that same branch. A calibration bank on the ordinary probe gives 241,590,443 right reads in 268,435,456 full matches and 134,220,120 in the same number of single misses. No held probe is used to set the gain. [Native Hamiltonian, restored paths and channels](receiver.py)
+
+## Why the comparison sees both loads
+
+Let the probe carry load $Q$ and let $p$ be a nonzero source or reference load. The native contact diagonal is $e(Q,p)=\kappa(Q-p)^2+\tfrac12{\bf1}_{Q\ne p}$. The difference of the two rail splittings between a vacant and an occupied sensing pad is
+
+$$d(Q,p)=e(Q,0)-e(0,0)-e(Q,p)+e(0,p)=2\kappa Qp+\tfrac12(1+{\bf1}_{Q=p}).$$
+
+Set $d(Q,0)=0$. Two equal clock windows with the legs exchanged remove the common blank-background splitting. For the sensed load $s$ and a reference $p$, the surviving relative phase is, up to conjugation, $\exp[i(d(Q,s)-d(Q,p))t]$. Each coordinate independently draws $t$ uniformly from $0,4\pi/3,8\pi/3$. Averaging the three phases retains a coherence precisely when the two integers $2d$ are congruent modulo three.
+
+At the active stiffness eight the two rows of $2d$, including the vacant column, are $(0,34,65)$ and $(0,65,130)$. Each is a permutation of the three residues modulo three. With a reference drawn from the corresponding guide stock, the coherence survives a triple match with weight one for any of the eight sharp material assignments. Independent random nonzero references give each occupied match weight $1/2$ and each vacancy weight zero, hence weight $1/8$ for an occupied triple. This second protocol uses exactly the same program and standard distribution for both sources and both probes. The measurement is diagonal in the sharp guide material labels. Holding the guide labels sharp is sufficient for the experiment. Changing the stiffness to four at the fixed clock makes all residues zero. The two face arms then cancel even in the presence of the source.
+
+## Why the probed link moves
+
+The release edge is chosen independently of source values. Its blank endpoints have six and five neighbors. These are circuit data used to derive the release generator. The observer measures the displacement by reading the occupied port. Retaining the degree-completing onsite term, the blank sector has diagonal $6\kappa Q^2+\deg/2$. Clamping exterior exchanges leaves the two-leg restriction, up to an irrelevant scalar,
+
+$$H=(D Z-X)/2,\qquad D=1/2.$$
+
+The native exchange amplitude is $-1/2$ for either probe. The sign of the prepared real coherence gives opposite changes in right-port population. For a unit positive coherence the change after release time $t$ is
+
+$$a(t)=\frac{D}{2(1+D^2)}[1-\cos(t\sqrt{1+D^2})].$$
+
+Let $u(x)$ be mean guide visits per release at address $x$, with per-direction step probability $q=1/8$ fixed by the independently tested guide pulse. The outward current across the face from $x$ to $y$ is $J=q[u(x)-u(y)]$. Under matched material references the mean unconditional displacement per source release is $B=a(t)[u(y)-u(x)]/2$. Thus $B''(0)=-J$ and $B(\pi/\sqrt{1+D^2})=-8J/5$. A blind standard divides both results by eight. The [three-guide limit theorem](../../README.md) gives $J_i=x_i/(4\pi r^3)+o(r^{-2})$ with drains far enough away. This inverse-square limit uses the material guide chart and is distinct from fitting a power to four finite radii.
+
+At the third face with mixed source $(1,2,1)$, the blind instrument gave −0.0017545 and −0.0017266, against −0.0017498 links. The complementary mixture $(2,1,2)$ gave −0.0017372 and −0.0017494 with the identical reader. Halving the release time halves the predicted finite displacement. Parking exchange, using an equal-degree edge, or leaving a blind guide vacant gives zero mean. Preparing both arms with the positive standing wave gives the sum of the endpoint visits and a positive displacement. In the vacant-guide control the source appointment schedule is retained as a separate reference while the corresponding sensing input is empty. A comparison with the [two-window material instrument](../README.md) identifies why a different observer can give a different reading on these guides.
+
+This measures a common response for the two mobile material labels. Its amplitude is proportional to supplied source activity. An observer's independent determination of active gravitating mass, proper separation and the coupling of an uninstrumented body would be needed to identify Newton's constant. The ring-lens stress or the small-ball entropy responses do not enter this calibration.
+
+## Independent counts and precision
+
+The source panels share the measured guide trajectories. The phase-preserving full-swap identity transfers the very same address record to each sharp nonzero load assignment, including mixed guides. The simulation propagates integer cohorts for $2^{34}$ independent source releases; all walks reached a drain by appointment 771. Each of 32 panels retains 906,359,897,029 binary outcomes, grouped by arm and the three sensed flags. Marginalizing fair trits and reference choices before drawing the binary outcomes gives their exact material mixture; raw switch choices are unobserved. Green predictions come from an independent boundary-value solve. The forward acquisition computes the phases by summing all native incident diagonal terms and exponentiating the restricted release generator.
+
+For one capped walk write $f$ for the centered conditional mean of a binary read at an address. Each such read has squared value $1/4$. With $G=(I-P)^{-1}$ for the killed guide walk, $u$ its expected occupation row, and $b=|f|+2^{-33}$ covering dyadic detector rounding, its second moment is at most $u(1/4+2b\,Gb)$ with pointwise multiplication. This follows by summing ordered time pairs conditioned on an occupied address and bounding the remaining absolute rewards by $Gb$. Independent-walk Bernstein bounds at the 2,048-step cap include the killed spectral tail and rounding error. A union bound covers all 32 panels at 99%. These intervals use the specified shutter durations. The five independent calibration banks have their own simultaneous Hoeffding check; uncertainty from interpreting a clock of unknown accuracy would require propagation through the phase gates. [Acquisition and error bounds](measure.py) · [Regression tests](test_common_receiver.py)
+
+Independent observers on each arm can propagate their shutter errors through the comparison. Two isolated material clocks count repeated firings of each address, preparation and release command. Successive count intervals resolve the cycle number of the longer pulse trains. For the registered repeatable commands, including accumulated routing errors up to the deadline, the largest systematic displacement bound is $9.31\times10^{-6}$ receiver links per release. Combining those readings with sampling variation gives simultaneous 99% half-width below 0.000129 links across the 32 comparisons. The longest full-exchange bank uses 1,064,332,261 coherent firings. The timing proof assumes a coherent hand throughout each train and the same stable commands at the hand and at the material apparatus. [Clock measurements and assumptions](clock_transfer.py) · [All timing intervals](clock_results.json)
+
+From the repository root, with one numerical thread, run
+
+~~~sh
+export OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1
+pkg=model.experiments.interval_echo_shell_flux.product_address.green_response.material_recoil.common_receiver
+python -m "$pkg.measure"
+python -m pytest -q --pyargs "$pkg"
+~~~

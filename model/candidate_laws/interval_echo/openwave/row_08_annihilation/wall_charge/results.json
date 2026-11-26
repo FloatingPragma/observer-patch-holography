@@ -1,0 +1,1203 @@
+{
+  "times": {
+    "read": [
+      -3.5703182205288496e-05,
+      1.000018664068014,
+      1.9999426678526337,
+      3.000122128462621,
+      4.000040097329428,
+      5.000018218477151,
+      5.999846565397658,
+      7.00006588634542,
+      7.999861414533196,
+      8.99995536720889,
+      10.000046958143697,
+      11.000043522693247,
+      12.000014334339529,
+      12.999790328650853,
+      14.000140725572157,
+      14.99990731227328,
+      15.999900279416783,
+      16.999889780566377,
+      17.999926828527375,
+      19.000268392484678,
+      20.000057237921936,
+      21.000107488902007,
+      21.999973345466746,
+      23.000052510340716,
+      23.999998354565207,
+      24.999977231542314,
+      25.99997300140778,
+      26.999981301651207,
+      27.99995662406175,
+      29.000021044496364,
+      30.00011384354458,
+      30.999989229438075,
+      32.000087565019456,
+      32.99994021414518,
+      34.000208797264904,
+      34.99989232225547,
+      35.999986846254615,
+      37.000077745685026,
+      38.000130395040664,
+      39.00015324537577,
+      40.00000372174188
+    ],
+    "bound": 0.0009519763337367237
+  },
+  "source": {
+    "r0_wall0": {
+      "common_mode": [
+        -2,
+        -2
+      ],
+      "gradient": [
+        0,
+        0
+      ],
+      "source_pointer_counts_per_cohort": {
+        "common_mode": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            67108864,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            67108864,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "gradient": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            67108864,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            67108864,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    "r0_wall1": {
+      "common_mode": [
+        0,
+        0
+      ],
+      "gradient": [
+        2,
+        -2
+      ],
+      "source_pointer_counts_per_cohort": {
+        "common_mode": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            67108864,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            67108864,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "gradient": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            67108864,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            67108864,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    "r1_wall0": {
+      "common_mode": [
+        2,
+        2
+      ],
+      "gradient": [
+        0,
+        0
+      ],
+      "source_pointer_counts_per_cohort": {
+        "common_mode": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            67108864,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            67108864,
+            0,
+            0
+          ]
+        ],
+        "gradient": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            67108864,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            67108864,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    "r1_wall1": {
+      "common_mode": [
+        0,
+        0
+      ],
+      "gradient": [
+        -2,
+        2
+      ],
+      "source_pointer_counts_per_cohort": {
+        "common_mode": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            67108864,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            67108864,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "gradient": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            67108864,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            67108864,
+            0,
+            0
+          ]
+        ]
+      }
+    }
+  },
+  "single_mean_error": 0.0006731488194398118,
+  "settings": {
+    "k8_cut0_g0": {
+      "near": {
+        "earliest": 34,
+        "peak": 39,
+        "interval": [
+          -0.0059621186599461366,
+          -0.0005769281044276423
+        ],
+        "measured_peak": -0.0032695233821868896,
+        "peak_law": -0.0032369683030992746,
+        "signs_at_32": [
+          {
+            "ring": 0,
+            "wall": 0,
+            "positive": 2,
+            "negative": 0,
+            "dark_or_other": 67108862
+          },
+          {
+            "ring": 0,
+            "wall": 1,
+            "positive": 4510,
+            "negative": 0,
+            "dark_or_other": 67104354
+          },
+          {
+            "ring": 1,
+            "wall": 0,
+            "positive": 2021057,
+            "negative": 52,
+            "dark_or_other": 65087755
+          },
+          {
+            "ring": 1,
+            "wall": 1,
+            "positive": 2112800,
+            "negative": 42889,
+            "dark_or_other": 64953175
+          }
+        ]
+      },
+      "far": {
+        "earliest": 12,
+        "peak": 40,
+        "interval": [
+          -0.06050731257054489,
+          -0.0551221220150264
+        ],
+        "measured_peak": -0.057814717292785645,
+        "peak_law": -0.05788634141208604,
+        "signs_at_32": [
+          {
+            "ring": 0,
+            "wall": 0,
+            "positive": 4,
+            "negative": 71,
+            "dark_or_other": 67108789
+          },
+          {
+            "ring": 0,
+            "wall": 1,
+            "positive": 0,
+            "negative": 646269,
+            "dark_or_other": 66462595
+          },
+          {
+            "ring": 1,
+            "wall": 0,
+            "positive": 0,
+            "negative": 42916591,
+            "dark_or_other": 24192273
+          },
+          {
+            "ring": 1,
+            "wall": 1,
+            "positive": 0,
+            "negative": 42309777,
+            "dark_or_other": 24799087
+          }
+        ]
+      }
+    },
+    "k8_cut0_g1": {
+      "near": {
+        "earliest": 34,
+        "peak": 39,
+        "interval": [
+          -0.005924791251155548,
+          -0.0005396006956370539
+        ],
+        "measured_peak": -0.0032321959733963013,
+        "peak_law": -0.0032369683613069355,
+        "signs_at_32": [
+          {
+            "ring": 0,
+            "wall": 0,
+            "positive": 53,
+            "negative": 2020742,
+            "dark_or_other": 65088069
+          },
+          {
+            "ring": 0,
+            "wall": 1,
+            "positive": 42736,
+            "negative": 2108630,
+            "dark_or_other": 64957498
+          },
+          {
+            "ring": 1,
+            "wall": 0,
+            "positive": 0,
+            "negative": 2,
+            "dark_or_other": 67108862
+          },
+          {
+            "ring": 1,
+            "wall": 1,
+            "positive": 1,
+            "negative": 4414,
+            "dark_or_other": 67104449
+          }
+        ]
+      },
+      "far": {
+        "earliest": 12,
+        "peak": 40,
+        "interval": [
+          -0.06054039314839523,
+          -0.05515520259287674
+        ],
+        "measured_peak": -0.057847797870635986,
+        "peak_law": -0.05788634141208604,
+        "signs_at_32": [
+          {
+            "ring": 0,
+            "wall": 0,
+            "positive": 42912077,
+            "negative": 1,
+            "dark_or_other": 24196786
+          },
+          {
+            "ring": 0,
+            "wall": 1,
+            "positive": 42308608,
+            "negative": 0,
+            "dark_or_other": 24800256
+          },
+          {
+            "ring": 1,
+            "wall": 0,
+            "positive": 62,
+            "negative": 6,
+            "dark_or_other": 67108796
+          },
+          {
+            "ring": 1,
+            "wall": 1,
+            "positive": 646528,
+            "negative": 5,
+            "dark_or_other": 66462331
+          }
+        ]
+      }
+    },
+    "k8_cut1_g0": {
+      "near": {
+        "earliest": null,
+        "peak": 18,
+        "interval": [
+          -0.0026923866615025335,
+          0.002692803894015961
+        ],
+        "measured_peak": 2.086162567138672e-07,
+        "peak_law": -5.820766091346741e-11,
+        "signs_at_32": [
+          {
+            "ring": 0,
+            "wall": 0,
+            "positive": 1,
+            "negative": 2,
+            "dark_or_other": 67108861
+          },
+          {
+            "ring": 0,
+            "wall": 1,
+            "positive": 4,
+            "negative": 1,
+            "dark_or_other": 67108859
+          },
+          {
+            "ring": 1,
+            "wall": 0,
+            "positive": 0,
+            "negative": 1,
+            "dark_or_other": 67108863
+          },
+          {
+            "ring": 1,
+            "wall": 1,
+            "positive": 1,
+            "negative": 0,
+            "dark_or_other": 67108863
+          }
+        ]
+      },
+      "far": {
+        "earliest": null,
+        "peak": 4,
+        "interval": [
+          -0.002692744289371186,
+          0.002692446266147309
+        ],
+        "measured_peak": -1.4901161193847656e-07,
+        "peak_law": -1.1641532182693481e-10,
+        "signs_at_32": [
+          {
+            "ring": 0,
+            "wall": 0,
+            "positive": 4,
+            "negative": 2,
+            "dark_or_other": 67108858
+          },
+          {
+            "ring": 0,
+            "wall": 1,
+            "positive": 1,
+            "negative": 1,
+            "dark_or_other": 67108862
+          },
+          {
+            "ring": 1,
+            "wall": 0,
+            "positive": 4,
+            "negative": 1,
+            "dark_or_other": 67108859
+          },
+          {
+            "ring": 1,
+            "wall": 1,
+            "positive": 3,
+            "negative": 0,
+            "dark_or_other": 67108861
+          }
+        ]
+      }
+    },
+    "k8_cut1_g1": {
+      "near": {
+        "earliest": null,
+        "peak": 13,
+        "interval": [
+          -0.0026923866615025335,
+          0.002692803894015961
+        ],
+        "measured_peak": 2.086162567138672e-07,
+        "peak_law": 5.820766091346741e-11,
+        "signs_at_32": [
+          {
+            "ring": 0,
+            "wall": 0,
+            "positive": 0,
+            "negative": 2,
+            "dark_or_other": 67108862
+          },
+          {
+            "ring": 0,
+            "wall": 1,
+            "positive": 0,
+            "negative": 0,
+            "dark_or_other": 67108864
+          },
+          {
+            "ring": 1,
+            "wall": 0,
+            "positive": 0,
+            "negative": 0,
+            "dark_or_other": 67108864
+          },
+          {
+            "ring": 1,
+            "wall": 1,
+            "positive": 0,
+            "negative": 2,
+            "dark_or_other": 67108862
+          }
+        ]
+      },
+      "far": {
+        "earliest": null,
+        "peak": 33,
+        "interval": [
+          -0.0026927740916935735,
+          0.002692416463824921
+        ],
+        "measured_peak": -1.7881393432617188e-07,
+        "peak_law": 0.0,
+        "signs_at_32": [
+          {
+            "ring": 0,
+            "wall": 0,
+            "positive": 0,
+            "negative": 5,
+            "dark_or_other": 67108859
+          },
+          {
+            "ring": 0,
+            "wall": 1,
+            "positive": 0,
+            "negative": 3,
+            "dark_or_other": 67108861
+          },
+          {
+            "ring": 1,
+            "wall": 0,
+            "positive": 0,
+            "negative": 2,
+            "dark_or_other": 67108862
+          },
+          {
+            "ring": 1,
+            "wall": 1,
+            "positive": 0,
+            "negative": 3,
+            "dark_or_other": 67108861
+          }
+        ]
+      }
+    },
+    "k0_cut0_g0": {
+      "near": {
+        "earliest": 5,
+        "peak": 9,
+        "interval": [
+          -0.06040595487210434,
+          -0.05502076431658585
+        ],
+        "measured_peak": -0.05771335959434509,
+        "peak_law": -0.05782447411911562,
+        "signs_at_32": [
+          {
+            "ring": 0,
+            "wall": 0,
+            "positive": 2081848,
+            "negative": 3222283,
+            "dark_or_other": 61804733
+          },
+          {
+            "ring": 0,
+            "wall": 1,
+            "positive": 2219173,
+            "negative": 4801007,
+            "dark_or_other": 60088684
+          },
+          {
+            "ring": 1,
+            "wall": 0,
+            "positive": 1704260,
+            "negative": 4254774,
+            "dark_or_other": 61149830
+          },
+          {
+            "ring": 1,
+            "wall": 1,
+            "positive": 3251506,
+            "negative": 4387441,
+            "dark_or_other": 59469917
+          }
+        ]
+      },
+      "far": {
+        "earliest": 5,
+        "peak": 38,
+        "interval": [
+          0.04866307958510239,
+          0.05404827014062088
+        ],
+        "measured_peak": 0.05135567486286163,
+        "peak_law": 0.051378596981521696,
+        "signs_at_32": [
+          {
+            "ring": 0,
+            "wall": 0,
+            "positive": 1227321,
+            "negative": 996087,
+            "dark_or_other": 64885456
+          },
+          {
+            "ring": 0,
+            "wall": 1,
+            "positive": 2176996,
+            "negative": 2054978,
+            "dark_or_other": 62876890
+          },
+          {
+            "ring": 1,
+            "wall": 0,
+            "positive": 2040487,
+            "negative": 1878677,
+            "dark_or_other": 63189700
+          },
+          {
+            "ring": 1,
+            "wall": 1,
+            "positive": 5135429,
+            "negative": 4270519,
+            "dark_or_other": 57702916
+          }
+        ]
+      }
+    },
+    "k0_cut0_g1": {
+      "near": {
+        "earliest": 5,
+        "peak": 9,
+        "interval": [
+          -0.06053550556752365,
+          -0.05515031501200516
+        ],
+        "measured_peak": -0.057842910289764404,
+        "peak_law": -0.05782447411911562,
+        "signs_at_32": [
+          {
+            "ring": 0,
+            "wall": 0,
+            "positive": 4252680,
+            "negative": 1703994,
+            "dark_or_other": 61152190
+          },
+          {
+            "ring": 0,
+            "wall": 1,
+            "positive": 4386123,
+            "negative": 3252943,
+            "dark_or_other": 59469798
+          },
+          {
+            "ring": 1,
+            "wall": 0,
+            "positive": 3224122,
+            "negative": 2080265,
+            "dark_or_other": 61804477
+          },
+          {
+            "ring": 1,
+            "wall": 1,
+            "positive": 4800914,
+            "negative": 2220368,
+            "dark_or_other": 60087582
+          }
+        ]
+      },
+      "far": {
+        "earliest": 5,
+        "peak": 38,
+        "interval": [
+          0.04875107094195206,
+          0.05413626149747055
+        ],
+        "measured_peak": 0.051443666219711304,
+        "peak_law": 0.051378596981521696,
+        "signs_at_32": [
+          {
+            "ring": 0,
+            "wall": 0,
+            "positive": 1877925,
+            "negative": 2039700,
+            "dark_or_other": 63191239
+          },
+          {
+            "ring": 0,
+            "wall": 1,
+            "positive": 4273085,
+            "negative": 5138778,
+            "dark_or_other": 57697001
+          },
+          {
+            "ring": 1,
+            "wall": 0,
+            "positive": 998948,
+            "negative": 1227620,
+            "dark_or_other": 64882296
+          },
+          {
+            "ring": 1,
+            "wall": 1,
+            "positive": 2052174,
+            "negative": 2178133,
+            "dark_or_other": 62878557
+          }
+        ]
+      }
+    }
+  },
+  "at32": {
+    "k8_cut0_g0_r0_wall0": {
+      "distal": 73,
+      "far_gradient_counts": [
+        0,
+        69,
+        4,
+        0
+      ],
+      "other": 67108791
+    },
+    "k8_cut0_g0_r0_wall1": {
+      "distal": 646075,
+      "far_gradient_counts": [
+        0,
+        646075,
+        0,
+        0
+      ],
+      "other": 66462789
+    },
+    "k8_cut0_g0_r1_wall0": {
+      "distal": 42894181,
+      "far_gradient_counts": [
+        0,
+        42894181,
+        0,
+        0
+      ],
+      "other": 24214683
+    },
+    "k8_cut0_g0_r1_wall1": {
+      "distal": 1715,
+      "far_gradient_counts": [
+        0,
+        1715,
+        0,
+        0
+      ],
+      "other": 67107149
+    },
+    "k8_cut0_g1_r0_wall0": {
+      "distal": 42889954,
+      "far_gradient_counts": [
+        0,
+        0,
+        42889954,
+        0
+      ],
+      "other": 24218910
+    },
+    "k8_cut0_g1_r0_wall1": {
+      "distal": 1771,
+      "far_gradient_counts": [
+        0,
+        0,
+        1771,
+        0
+      ],
+      "other": 67107093
+    },
+    "k8_cut0_g1_r1_wall0": {
+      "distal": 68,
+      "far_gradient_counts": [
+        0,
+        6,
+        62,
+        0
+      ],
+      "other": 67108796
+    },
+    "k8_cut0_g1_r1_wall1": {
+      "distal": 646334,
+      "far_gradient_counts": [
+        0,
+        0,
+        646334,
+        0
+      ],
+      "other": 66462530
+    },
+    "k8_cut1_g0_r0_wall0": {
+      "distal": 4,
+      "far_gradient_counts": [
+        0,
+        0,
+        4,
+        0
+      ],
+      "other": 67108860
+    },
+    "k8_cut1_g0_r0_wall1": {
+      "distal": 0,
+      "far_gradient_counts": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "other": 67108864
+    },
+    "k8_cut1_g0_r1_wall0": {
+      "distal": 0,
+      "far_gradient_counts": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "other": 67108864
+    },
+    "k8_cut1_g0_r1_wall1": {
+      "distal": 0,
+      "far_gradient_counts": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "other": 67108864
+    },
+    "k8_cut1_g1_r0_wall0": {
+      "distal": 0,
+      "far_gradient_counts": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "other": 67108864
+    },
+    "k8_cut1_g1_r0_wall1": {
+      "distal": 0,
+      "far_gradient_counts": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "other": 67108864
+    },
+    "k8_cut1_g1_r1_wall0": {
+      "distal": 2,
+      "far_gradient_counts": [
+        0,
+        2,
+        0,
+        0
+      ],
+      "other": 67108862
+    },
+    "k8_cut1_g1_r1_wall1": {
+      "distal": 0,
+      "far_gradient_counts": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "other": 67108864
+    },
+    "k0_cut0_g0_r0_wall0": {
+      "distal": 169992,
+      "far_gradient_counts": [
+        0,
+        58128,
+        111864,
+        0
+      ],
+      "other": 66938872
+    },
+    "k0_cut0_g0_r0_wall1": {
+      "distal": 315747,
+      "far_gradient_counts": [
+        0,
+        215579,
+        100168,
+        0
+      ],
+      "other": 66793117
+    },
+    "k0_cut0_g0_r1_wall0": {
+      "distal": 425040,
+      "far_gradient_counts": [
+        0,
+        176023,
+        249017,
+        0
+      ],
+      "other": 66683824
+    },
+    "k0_cut0_g0_r1_wall1": {
+      "distal": 361969,
+      "far_gradient_counts": [
+        0,
+        296051,
+        65918,
+        0
+      ],
+      "other": 66746895
+    },
+    "k0_cut0_g1_r0_wall0": {
+      "distal": 424346,
+      "far_gradient_counts": [
+        0,
+        248496,
+        175850,
+        0
+      ],
+      "other": 66684518
+    },
+    "k0_cut0_g1_r0_wall1": {
+      "distal": 362593,
+      "far_gradient_counts": [
+        0,
+        66149,
+        296444,
+        0
+      ],
+      "other": 66746271
+    },
+    "k0_cut0_g1_r1_wall0": {
+      "distal": 169813,
+      "far_gradient_counts": [
+        0,
+        111637,
+        58176,
+        0
+      ],
+      "other": 66939051
+    },
+    "k0_cut0_g1_r1_wall1": {
+      "distal": 314816,
+      "far_gradient_counts": [
+        0,
+        99891,
+        214925,
+        0
+      ],
+      "other": 66794048
+    }
+  },
+  "launch_energy_relative_to_matching_sham": [
+    {
+      "guide": 0,
+      "relative_expected": [
+        [
+          0.0,
+          65.0
+        ],
+        [
+          64.99230676767183,
+          129.99230676767183
+        ]
+      ],
+      "relative_sample": [
+        [
+          0.0,
+          64.99999903142452
+        ],
+        [
+          64.99236520379782,
+          129.99228481203318
+        ]
+      ]
+    },
+    {
+      "guide": 1,
+      "relative_expected": [
+        [
+          64.99230676767183,
+          129.99230676767183
+        ],
+        [
+          0.0,
+          65.0
+        ]
+      ],
+      "relative_sample": [
+        [
+          64.99231435358524,
+          129.99230563640594
+        ],
+        [
+          0.0,
+          64.99998643994331
+        ]
+      ]
+    }
+  ]
+}

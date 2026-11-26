@@ -1,0 +1,1882 @@
+{
+  "owners": {
+    "alice": 0,
+    "bob": 13
+  },
+  "message_contacts": 438,
+  "message_bridge_contacts": 140,
+  "seed": 129005,
+  "angles_over_pi": [
+    "1/6",
+    "-1/6",
+    "1/3",
+    "-1/3"
+  ],
+  "shots_per_angle": 8192,
+  "simultaneous_99_radius": 0.023657197362477497,
+  "records": [
+    {
+      "source": "129002:forward",
+      "selection": {
+        "triple": [
+          0,
+          2,
+          5
+        ],
+        "gap": -8728,
+        "sign": -1
+      },
+      "bridge_cut": false,
+      "sent_clicks": "01000100010001000100",
+      "received_clicks": "01000100010001000100",
+      "received_word": 0,
+      "stock_conversion": {
+        "writes": [
+          {
+            "source": [
+              0,
+              12
+            ],
+            "chord": [
+              1,
+              5
+            ],
+            "routing_pulses": 20
+          },
+          {
+            "source": [
+              1,
+              13
+            ],
+            "chord": [
+              1,
+              7
+            ],
+            "routing_pulses": 14
+          }
+        ],
+        "endpoint_swaps": [
+          [
+            0,
+            14,
+            7
+          ],
+          [
+            2,
+            17,
+            7
+          ],
+          [
+            3,
+            28,
+            19
+          ],
+          [
+            8,
+            29,
+            15
+          ],
+          [
+            15,
+            52,
+            17
+          ],
+          [
+            28,
+            48,
+            21
+          ],
+          [
+            48,
+            53,
+            1
+          ],
+          [
+            64,
+            226,
+            29
+          ],
+          [
+            65,
+            82,
+            9
+          ],
+          [
+            170,
+            239,
+            43
+          ]
+        ]
+      },
+      "banks": [
+        {
+          "theta_over_pi": "1/6",
+          "dwell_over_pi": "1/2",
+          "raw": [
+            2024,
+            6168,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "forecast": 0.25
+        },
+        {
+          "theta_over_pi": "-1/6",
+          "dwell_over_pi": "1/2",
+          "raw": [
+            6106,
+            2086,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "forecast": 0.75
+        },
+        {
+          "theta_over_pi": "1/3",
+          "dwell_over_pi": "1/2",
+          "raw": [
+            546,
+            7646,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "forecast": 0.06698729810778
+        },
+        {
+          "theta_over_pi": "-1/3",
+          "dwell_over_pi": "1/2",
+          "raw": [
+            7599,
+            593,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "forecast": 0.93301270189222
+        }
+      ]
+    },
+    {
+      "source": "129002:forward",
+      "selection": {
+        "triple": [
+          0,
+          2,
+          5
+        ],
+        "gap": -8728,
+        "sign": -1
+      },
+      "bridge_cut": true,
+      "sent_clicks": "01000100010001000100",
+      "received_clicks": "00000000000000000000",
+      "received_word": null,
+      "no_read_per_angle": [
+        8192,
+        8192,
+        8192,
+        8192
+      ]
+    },
+    {
+      "source": "129002:backward",
+      "selection": {
+        "triple": [
+          0,
+          2,
+          5
+        ],
+        "gap": 8728,
+        "sign": 1
+      },
+      "bridge_cut": false,
+      "sent_clicks": "00010001000100010001",
+      "received_clicks": "00010001000100010001",
+      "received_word": 31,
+      "stock_conversion": {
+        "writes": [
+          {
+            "source": [
+              4,
+              12
+            ],
+            "chord": [
+              1,
+              5
+            ],
+            "routing_pulses": 28
+          },
+          {
+            "source": [
+              5,
+              13
+            ],
+            "chord": [
+              1,
+              7
+            ],
+            "routing_pulses": 20
+          }
+        ],
+        "endpoint_swaps": [
+          [
+            0,
+            14,
+            7
+          ],
+          [
+            6,
+            17,
+            11
+          ],
+          [
+            7,
+            28,
+            15
+          ],
+          [
+            9,
+            29,
+            15
+          ],
+          [
+            15,
+            52,
+            17
+          ],
+          [
+            28,
+            48,
+            21
+          ],
+          [
+            48,
+            53,
+            1
+          ],
+          [
+            64,
+            226,
+            29
+          ],
+          [
+            65,
+            82,
+            9
+          ],
+          [
+            170,
+            239,
+            43
+          ]
+        ]
+      },
+      "banks": [
+        {
+          "theta_over_pi": "1/6",
+          "dwell_over_pi": "3/2",
+          "raw": [
+            6187,
+            2005,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "forecast": 0.75
+        },
+        {
+          "theta_over_pi": "-1/6",
+          "dwell_over_pi": "3/2",
+          "raw": [
+            2081,
+            6111,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "forecast": 0.25
+        },
+        {
+          "theta_over_pi": "1/3",
+          "dwell_over_pi": "3/2",
+          "raw": [
+            7605,
+            587,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "forecast": 0.93301270189222
+        },
+        {
+          "theta_over_pi": "-1/3",
+          "dwell_over_pi": "3/2",
+          "raw": [
+            558,
+            7634,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "forecast": 0.06698729810778
+        }
+      ]
+    },
+    {
+      "source": "129002:backward",
+      "selection": {
+        "triple": [
+          0,
+          2,
+          5
+        ],
+        "gap": 8728,
+        "sign": 1
+      },
+      "bridge_cut": true,
+      "sent_clicks": "00010001000100010001",
+      "received_clicks": "00000000000000000000",
+      "received_word": null,
+      "no_read_per_angle": [
+        8192,
+        8192,
+        8192,
+        8192
+      ]
+    },
+    {
+      "source": "129002:pooled",
+      "selection": {
+        "triple": null,
+        "gap": 0,
+        "sign": 0
+      },
+      "bridge_cut": false,
+      "sent_clicks": "00010100010001000100",
+      "received_clicks": "00010100010001000100",
+      "received_word": 1,
+      "no_read_per_angle": [
+        8192,
+        8192,
+        8192,
+        8192
+      ]
+    },
+    {
+      "source": "129002:pooled",
+      "selection": {
+        "triple": null,
+        "gap": 0,
+        "sign": 0
+      },
+      "bridge_cut": true,
+      "sent_clicks": "00010100010001000100",
+      "received_clicks": "00000000000000000000",
+      "received_word": null,
+      "no_read_per_angle": [
+        8192,
+        8192,
+        8192,
+        8192
+      ]
+    },
+    {
+      "source": "129002:disconnected",
+      "selection": {
+        "triple": null,
+        "gap": 0,
+        "sign": 0
+      },
+      "bridge_cut": false,
+      "sent_clicks": "00010100010001000100",
+      "received_clicks": "00010100010001000100",
+      "received_word": 1,
+      "no_read_per_angle": [
+        8192,
+        8192,
+        8192,
+        8192
+      ]
+    },
+    {
+      "source": "129002:disconnected",
+      "selection": {
+        "triple": null,
+        "gap": 0,
+        "sign": 0
+      },
+      "bridge_cut": true,
+      "sent_clicks": "00010100010001000100",
+      "received_clicks": "00000000000000000000",
+      "received_word": null,
+      "no_read_per_angle": [
+        8192,
+        8192,
+        8192,
+        8192
+      ]
+    },
+    {
+      "source": "129002:within_episode",
+      "selection": {
+        "triple": [
+          0,
+          1,
+          2
+        ],
+        "gap": 388,
+        "sign": 1
+      },
+      "bridge_cut": false,
+      "sent_clicks": "00010001000100010001",
+      "received_clicks": "00010001000100010001",
+      "received_word": 31,
+      "stock_conversion": {
+        "writes": [
+          {
+            "source": [
+              4,
+              12
+            ],
+            "chord": [
+              1,
+              5
+            ],
+            "routing_pulses": 28
+          },
+          {
+            "source": [
+              5,
+              13
+            ],
+            "chord": [
+              1,
+              7
+            ],
+            "routing_pulses": 20
+          }
+        ],
+        "endpoint_swaps": [
+          [
+            0,
+            14,
+            7
+          ],
+          [
+            6,
+            17,
+            11
+          ],
+          [
+            7,
+            28,
+            15
+          ],
+          [
+            9,
+            29,
+            15
+          ],
+          [
+            15,
+            52,
+            17
+          ],
+          [
+            28,
+            48,
+            21
+          ],
+          [
+            48,
+            53,
+            1
+          ],
+          [
+            64,
+            226,
+            29
+          ],
+          [
+            65,
+            82,
+            9
+          ],
+          [
+            170,
+            239,
+            43
+          ]
+        ]
+      },
+      "banks": [
+        {
+          "theta_over_pi": "1/6",
+          "dwell_over_pi": "3/2",
+          "raw": [
+            6125,
+            2067,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "forecast": 0.75
+        },
+        {
+          "theta_over_pi": "-1/6",
+          "dwell_over_pi": "3/2",
+          "raw": [
+            2075,
+            6117,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "forecast": 0.25
+        },
+        {
+          "theta_over_pi": "1/3",
+          "dwell_over_pi": "3/2",
+          "raw": [
+            7676,
+            516,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "forecast": 0.93301270189222
+        },
+        {
+          "theta_over_pi": "-1/3",
+          "dwell_over_pi": "3/2",
+          "raw": [
+            593,
+            7599,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "forecast": 0.06698729810778
+        }
+      ]
+    },
+    {
+      "source": "129002:within_episode",
+      "selection": {
+        "triple": [
+          0,
+          1,
+          2
+        ],
+        "gap": 388,
+        "sign": 1
+      },
+      "bridge_cut": true,
+      "sent_clicks": "00010001000100010001",
+      "received_clicks": "00000000000000000000",
+      "received_word": null,
+      "no_read_per_angle": [
+        8192,
+        8192,
+        8192,
+        8192
+      ]
+    },
+    {
+      "source": "129003:forward",
+      "selection": {
+        "triple": [
+          0,
+          1,
+          5
+        ],
+        "gap": -2902,
+        "sign": -1
+      },
+      "bridge_cut": false,
+      "sent_clicks": "01000100010001000100",
+      "received_clicks": "01000100010001000100",
+      "received_word": 0,
+      "stock_conversion": {
+        "writes": [
+          {
+            "source": [
+              0,
+              12
+            ],
+            "chord": [
+              1,
+              5
+            ],
+            "routing_pulses": 20
+          },
+          {
+            "source": [
+              1,
+              13
+            ],
+            "chord": [
+              1,
+              7
+            ],
+            "routing_pulses": 14
+          }
+        ],
+        "endpoint_swaps": [
+          [
+            0,
+            14,
+            7
+          ],
+          [
+            2,
+            17,
+            7
+          ],
+          [
+            3,
+            28,
+            19
+          ],
+          [
+            8,
+            29,
+            15
+          ],
+          [
+            15,
+            52,
+            17
+          ],
+          [
+            28,
+            48,
+            21
+          ],
+          [
+            48,
+            53,
+            1
+          ],
+          [
+            64,
+            226,
+            29
+          ],
+          [
+            65,
+            82,
+            9
+          ],
+          [
+            170,
+            239,
+            43
+          ]
+        ]
+      },
+      "banks": [
+        {
+          "theta_over_pi": "1/6",
+          "dwell_over_pi": "1/2",
+          "raw": [
+            2111,
+            6081,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "forecast": 0.25
+        },
+        {
+          "theta_over_pi": "-1/6",
+          "dwell_over_pi": "1/2",
+          "raw": [
+            6169,
+            2023,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "forecast": 0.75
+        },
+        {
+          "theta_over_pi": "1/3",
+          "dwell_over_pi": "1/2",
+          "raw": [
+            567,
+            7625,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "forecast": 0.06698729810778
+        },
+        {
+          "theta_over_pi": "-1/3",
+          "dwell_over_pi": "1/2",
+          "raw": [
+            7668,
+            524,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "forecast": 0.93301270189222
+        }
+      ]
+    },
+    {
+      "source": "129003:forward",
+      "selection": {
+        "triple": [
+          0,
+          1,
+          5
+        ],
+        "gap": -2902,
+        "sign": -1
+      },
+      "bridge_cut": true,
+      "sent_clicks": "01000100010001000100",
+      "received_clicks": "00000000000000000000",
+      "received_word": null,
+      "no_read_per_angle": [
+        8192,
+        8192,
+        8192,
+        8192
+      ]
+    },
+    {
+      "source": "129003:backward",
+      "selection": {
+        "triple": [
+          0,
+          1,
+          5
+        ],
+        "gap": 2902,
+        "sign": 1
+      },
+      "bridge_cut": false,
+      "sent_clicks": "00010001000100010001",
+      "received_clicks": "00010001000100010001",
+      "received_word": 31,
+      "stock_conversion": {
+        "writes": [
+          {
+            "source": [
+              4,
+              12
+            ],
+            "chord": [
+              1,
+              5
+            ],
+            "routing_pulses": 28
+          },
+          {
+            "source": [
+              5,
+              13
+            ],
+            "chord": [
+              1,
+              7
+            ],
+            "routing_pulses": 20
+          }
+        ],
+        "endpoint_swaps": [
+          [
+            0,
+            14,
+            7
+          ],
+          [
+            6,
+            17,
+            11
+          ],
+          [
+            7,
+            28,
+            15
+          ],
+          [
+            9,
+            29,
+            15
+          ],
+          [
+            15,
+            52,
+            17
+          ],
+          [
+            28,
+            48,
+            21
+          ],
+          [
+            48,
+            53,
+            1
+          ],
+          [
+            64,
+            226,
+            29
+          ],
+          [
+            65,
+            82,
+            9
+          ],
+          [
+            170,
+            239,
+            43
+          ]
+        ]
+      },
+      "banks": [
+        {
+          "theta_over_pi": "1/6",
+          "dwell_over_pi": "3/2",
+          "raw": [
+            6150,
+            2042,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "forecast": 0.75
+        },
+        {
+          "theta_over_pi": "-1/6",
+          "dwell_over_pi": "3/2",
+          "raw": [
+            2067,
+            6125,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "forecast": 0.25
+        },
+        {
+          "theta_over_pi": "1/3",
+          "dwell_over_pi": "3/2",
+          "raw": [
+            7672,
+            520,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "forecast": 0.93301270189222
+        },
+        {
+          "theta_over_pi": "-1/3",
+          "dwell_over_pi": "3/2",
+          "raw": [
+            542,
+            7650,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "forecast": 0.06698729810778
+        }
+      ]
+    },
+    {
+      "source": "129003:backward",
+      "selection": {
+        "triple": [
+          0,
+          1,
+          5
+        ],
+        "gap": 2902,
+        "sign": 1
+      },
+      "bridge_cut": true,
+      "sent_clicks": "00010001000100010001",
+      "received_clicks": "00000000000000000000",
+      "received_word": null,
+      "no_read_per_angle": [
+        8192,
+        8192,
+        8192,
+        8192
+      ]
+    },
+    {
+      "source": "129003:pooled",
+      "selection": {
+        "triple": null,
+        "gap": 0,
+        "sign": 0
+      },
+      "bridge_cut": false,
+      "sent_clicks": "00010100010001000100",
+      "received_clicks": "00010100010001000100",
+      "received_word": 1,
+      "no_read_per_angle": [
+        8192,
+        8192,
+        8192,
+        8192
+      ]
+    },
+    {
+      "source": "129003:pooled",
+      "selection": {
+        "triple": null,
+        "gap": 0,
+        "sign": 0
+      },
+      "bridge_cut": true,
+      "sent_clicks": "00010100010001000100",
+      "received_clicks": "00000000000000000000",
+      "received_word": null,
+      "no_read_per_angle": [
+        8192,
+        8192,
+        8192,
+        8192
+      ]
+    },
+    {
+      "source": "129003:disconnected",
+      "selection": {
+        "triple": null,
+        "gap": 0,
+        "sign": 0
+      },
+      "bridge_cut": false,
+      "sent_clicks": "00010100010001000100",
+      "received_clicks": "00010100010001000100",
+      "received_word": 1,
+      "no_read_per_angle": [
+        8192,
+        8192,
+        8192,
+        8192
+      ]
+    },
+    {
+      "source": "129003:disconnected",
+      "selection": {
+        "triple": null,
+        "gap": 0,
+        "sign": 0
+      },
+      "bridge_cut": true,
+      "sent_clicks": "00010100010001000100",
+      "received_clicks": "00000000000000000000",
+      "received_word": null,
+      "no_read_per_angle": [
+        8192,
+        8192,
+        8192,
+        8192
+      ]
+    },
+    {
+      "source": "129003:within_episode",
+      "selection": {
+        "triple": [
+          0,
+          1,
+          2
+        ],
+        "gap": 544,
+        "sign": 1
+      },
+      "bridge_cut": false,
+      "sent_clicks": "00010001000100010001",
+      "received_clicks": "00010001000100010001",
+      "received_word": 31,
+      "stock_conversion": {
+        "writes": [
+          {
+            "source": [
+              4,
+              12
+            ],
+            "chord": [
+              1,
+              5
+            ],
+            "routing_pulses": 28
+          },
+          {
+            "source": [
+              5,
+              13
+            ],
+            "chord": [
+              1,
+              7
+            ],
+            "routing_pulses": 20
+          }
+        ],
+        "endpoint_swaps": [
+          [
+            0,
+            14,
+            7
+          ],
+          [
+            6,
+            17,
+            11
+          ],
+          [
+            7,
+            28,
+            15
+          ],
+          [
+            9,
+            29,
+            15
+          ],
+          [
+            15,
+            52,
+            17
+          ],
+          [
+            28,
+            48,
+            21
+          ],
+          [
+            48,
+            53,
+            1
+          ],
+          [
+            64,
+            226,
+            29
+          ],
+          [
+            65,
+            82,
+            9
+          ],
+          [
+            170,
+            239,
+            43
+          ]
+        ]
+      },
+      "banks": [
+        {
+          "theta_over_pi": "1/6",
+          "dwell_over_pi": "3/2",
+          "raw": [
+            6113,
+            2079,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "forecast": 0.75
+        },
+        {
+          "theta_over_pi": "-1/6",
+          "dwell_over_pi": "3/2",
+          "raw": [
+            2054,
+            6138,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "forecast": 0.25
+        },
+        {
+          "theta_over_pi": "1/3",
+          "dwell_over_pi": "3/2",
+          "raw": [
+            7659,
+            533,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "forecast": 0.93301270189222
+        },
+        {
+          "theta_over_pi": "-1/3",
+          "dwell_over_pi": "3/2",
+          "raw": [
+            527,
+            7665,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "forecast": 0.06698729810778
+        }
+      ]
+    },
+    {
+      "source": "129003:within_episode",
+      "selection": {
+        "triple": [
+          0,
+          1,
+          2
+        ],
+        "gap": 544,
+        "sign": 1
+      },
+      "bridge_cut": true,
+      "sent_clicks": "00010001000100010001",
+      "received_clicks": "00000000000000000000",
+      "received_word": null,
+      "no_read_per_angle": [
+        8192,
+        8192,
+        8192,
+        8192
+      ]
+    },
+    {
+      "source": "archive:forward",
+      "selection": {
+        "triple": [
+          3,
+          4,
+          5
+        ],
+        "gap": 1239691068,
+        "sign": 1
+      },
+      "bridge_cut": false,
+      "sent_clicks": "00010001000100010001",
+      "received_clicks": "00010001000100010001",
+      "received_word": 31,
+      "stock_conversion": {
+        "writes": [
+          {
+            "source": [
+              4,
+              12
+            ],
+            "chord": [
+              1,
+              5
+            ],
+            "routing_pulses": 28
+          },
+          {
+            "source": [
+              5,
+              13
+            ],
+            "chord": [
+              1,
+              7
+            ],
+            "routing_pulses": 20
+          }
+        ],
+        "endpoint_swaps": [
+          [
+            0,
+            14,
+            7
+          ],
+          [
+            6,
+            17,
+            11
+          ],
+          [
+            7,
+            28,
+            15
+          ],
+          [
+            9,
+            29,
+            15
+          ],
+          [
+            15,
+            52,
+            17
+          ],
+          [
+            28,
+            48,
+            21
+          ],
+          [
+            48,
+            53,
+            1
+          ],
+          [
+            64,
+            226,
+            29
+          ],
+          [
+            65,
+            82,
+            9
+          ],
+          [
+            170,
+            239,
+            43
+          ]
+        ]
+      },
+      "banks": [
+        {
+          "theta_over_pi": "1/6",
+          "dwell_over_pi": "3/2",
+          "raw": [
+            6092,
+            2100,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "forecast": 0.75
+        },
+        {
+          "theta_over_pi": "-1/6",
+          "dwell_over_pi": "3/2",
+          "raw": [
+            2040,
+            6152,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "forecast": 0.25
+        },
+        {
+          "theta_over_pi": "1/3",
+          "dwell_over_pi": "3/2",
+          "raw": [
+            7662,
+            530,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "forecast": 0.93301270189222
+        },
+        {
+          "theta_over_pi": "-1/3",
+          "dwell_over_pi": "3/2",
+          "raw": [
+            551,
+            7641,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "forecast": 0.06698729810778
+        }
+      ]
+    },
+    {
+      "source": "archive:forward",
+      "selection": {
+        "triple": [
+          3,
+          4,
+          5
+        ],
+        "gap": 1239691068,
+        "sign": 1
+      },
+      "bridge_cut": true,
+      "sent_clicks": "00010001000100010001",
+      "received_clicks": "00000000000000000000",
+      "received_word": null,
+      "no_read_per_angle": [
+        8192,
+        8192,
+        8192,
+        8192
+      ]
+    },
+    {
+      "source": "archive:backward",
+      "selection": {
+        "triple": [
+          3,
+          4,
+          5
+        ],
+        "gap": -1239691068,
+        "sign": -1
+      },
+      "bridge_cut": false,
+      "sent_clicks": "01000100010001000100",
+      "received_clicks": "01000100010001000100",
+      "received_word": 0,
+      "stock_conversion": {
+        "writes": [
+          {
+            "source": [
+              0,
+              12
+            ],
+            "chord": [
+              1,
+              5
+            ],
+            "routing_pulses": 20
+          },
+          {
+            "source": [
+              1,
+              13
+            ],
+            "chord": [
+              1,
+              7
+            ],
+            "routing_pulses": 14
+          }
+        ],
+        "endpoint_swaps": [
+          [
+            0,
+            14,
+            7
+          ],
+          [
+            2,
+            17,
+            7
+          ],
+          [
+            3,
+            28,
+            19
+          ],
+          [
+            8,
+            29,
+            15
+          ],
+          [
+            15,
+            52,
+            17
+          ],
+          [
+            28,
+            48,
+            21
+          ],
+          [
+            48,
+            53,
+            1
+          ],
+          [
+            64,
+            226,
+            29
+          ],
+          [
+            65,
+            82,
+            9
+          ],
+          [
+            170,
+            239,
+            43
+          ]
+        ]
+      },
+      "banks": [
+        {
+          "theta_over_pi": "1/6",
+          "dwell_over_pi": "1/2",
+          "raw": [
+            2021,
+            6171,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "forecast": 0.25
+        },
+        {
+          "theta_over_pi": "-1/6",
+          "dwell_over_pi": "1/2",
+          "raw": [
+            6175,
+            2017,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "forecast": 0.75
+        },
+        {
+          "theta_over_pi": "1/3",
+          "dwell_over_pi": "1/2",
+          "raw": [
+            556,
+            7636,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "forecast": 0.06698729810778
+        },
+        {
+          "theta_over_pi": "-1/3",
+          "dwell_over_pi": "1/2",
+          "raw": [
+            7646,
+            546,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "forecast": 0.93301270189222
+        }
+      ]
+    },
+    {
+      "source": "archive:backward",
+      "selection": {
+        "triple": [
+          3,
+          4,
+          5
+        ],
+        "gap": -1239691068,
+        "sign": -1
+      },
+      "bridge_cut": true,
+      "sent_clicks": "01000100010001000100",
+      "received_clicks": "00000000000000000000",
+      "received_word": null,
+      "no_read_per_angle": [
+        8192,
+        8192,
+        8192,
+        8192
+      ]
+    }
+  ],
+  "source_sha256": {
+    "model/experiments/interval_echo_consensus/routed_counts/phase_choice/results.json": "23e5a9c8067ab09bed4d6d4a6959398ecfd700a29303a4f38bc11b777774cfe4",
+    "model/experiments/interval_echo_consensus/routed_counts/phase_choice/transfer.py": "637bbda923dfd4b050697cdaf0b6881244e020cbc8e6f5ec33792c766730018e",
+    "model/experiments/interval_echo_gauge/exterior_register/material.py": "bcfa4b29441e877ee20722c8b66f6fecf0bf9ec66e88c4aa293a18b0d96554fc",
+    "model/candidate_laws/interval_echo/openwave/electron_field/lepton_family/face_frame/shared_report.py": "b210e99554b7f36cc73fdf19fc4f0aa7ca33bb9b3f99f67ab9ada17b1470a85b",
+    "model/experiments/interval_echo_consensus/routed_counts/phase_choice/TRANSFER_PROTOCOL.md": "2565cbfecfa39cfd1d13492e17d049235f6af6e0210157342efd82eb0881978a"
+  }
+}

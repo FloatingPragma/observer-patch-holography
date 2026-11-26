@@ -60,6 +60,8 @@ collar labels are simulator diagnostics; a separate native material
 readback tests erasure through the load's public endpoint response.
 [Native formation, orbital records and erasure](native_core_release/README.md)
 
+A native echo on an occupied seam entangles its recording coin with the position of a released load. A one-endpoint phase reversal shifts the dominant even-parity clock reading from −13.83037 to −5.89049 on two board sizes. With a common separated reference, all coherent states of this eleven-state core and one mobile unit have just six negative eigenvalues, counted with multiplicity, in [−8, −5.5]. Relative to its own higher threshold, each occupied direction parity gives four levels below −5.5 and no hydrogenic second or third shell. [Occupied-core formation, independent material records and full-sector proof](occupied_write/README.md)
+
 ## Replay
 
 From the RER root with the scientific Python environment, run

@@ -1,0 +1,28 @@
+# What a stationary link can transfer
+
+An amount-$q$ hand starts on the first site of a shuttered bond. All remaining guide links are shut. On blank endpoints the two native exchange amplitudes are $-1/2$. Subtract a scalar energy. For the enrolled source the diagonal difference is $v$, so the gap is $\omega=\sqrt{1+v^2}$ and the opposite-site clock probability is
+
+$$
+ C(t)=\frac{1-\cos(\omega t)}{2(1+v^2)}.
+$$
+
+The actual 99-state collar, with a sharp unit at the pole, reduces on all enrolled words to a stationary memory times a sharp material word. Each of its two marked contacts contributes energy 32 to the separated coin-even or coin-odd source. In the coin-even source the word with a unit tag at its belt endpoint has energy zero; the word with a double tag has energy 32. Thus the near unit hand sees $v=-32$ and the double hand sees zero. Both far hands see zero. Reversing the coin, replacing the source with zero-direction memory, or turning off contrast gives zero for both hands. The dose, source and clock construction were independently specified before these link settings. The tag-dependent local gaps were known. The new data test whether the hand signal reaches the other station, whether its frequency can be recovered there, and whether the two materials give compatible ratios. [Native source and original local spectra](../README.md)
+
+Let $D_i(d,x)$ be the measured probability for a sharp released tag from the emission port of station $i$ to reach site $x$ after duration $d$. An observer enrolls a fair unrecorded choice of $d=2$ or $2.25$, lets the sender's hand run until $t-d$, and releases its load if its pointed end is occupied. The sharp read restores that material word. The stationary source survives the clock stage in its initial state, conditional on either pointer outcome. The law of total probability gives the exact complete receiving law
+
+$$
+ P_t(x)=\tfrac12\sum_d D_i(d,x)C_i(t-d),\qquad
+ P_t(\text{silent})=1-\tfrac12\sum_d C_i(t-d).
+$$
+
+Time translation therefore preserves the frequency of a transmitted *intensity modulation* whenever $\sum_d D_i(d,x)e^{-i\omega_i d}\ne0$. The amplitude can vanish through destructive temporal averaging or loss of the transport channel. The denominator includes all silent trials. The exact temporal-convolution identity applies more generally to any stationary positive impulse kernel independent of the emission epoch. The geometry and clock tests use the same source preparation; the local reference restarts its hand on separate copies. This does not treat a conditional intensity modulation as an optical carrier phase.
+
+Frequencies in common appointment units divide to give a measured station ratio. Reciprocal transfer for one material is compatible with the lapse $N_i$ proportional to its local gap, even when the change comes from detuning a bond. A shared scalar lapse for co-located rate standards requires the same ratio for the independent tag. The conservative lower near-to-far ratio for the unit is 31.796, whereas the upper double ratio is 1.01006. Any common ratio incurs a multiplicative error of at least $\sqrt{31.796/1.01006}>5.60$ for at least one material. This excludes a lapse-only account of these records. The experiment does not separate a small shared lapse from material responses.
+
+## Frequency enclosure from counts alone
+
+The native gap bound places all tones in the enrolled alias-free domain $0.4\le f\le45$ with sample spacing $1/16$. On the first 512 samples, for each trial frequency fit the centered sine, centered cosine and constant by least squares. The acquisition carries a physical nonnegative response at all times; for a sinusoid of amplitude $A$ and offset $B$, $A\le B$. On this uniform prefix the geometric sum of the positive-frequency complex exponential has mean magnitude at most $1/[512\sin(0.4/32)]$. The observed mean plus its count uncertainty therefore bounds $A$ by dividing by $1-1/[512\sin(0.4/32)]$.
+
+For a sample rate $y$ from $M=2^{24}$ starts, put $a=\log(2\cdot10^6/0.01)/M$ and $c=2a/3$. Inverting the Bernoulli Bernstein bound $|y-p|\le\sqrt{2ap}+c$ gives radius $a+c+\sqrt{a^2+2a(y+c)}$. Add $12/2^{32}$ for the finite categorical sampling grid. A union bound covers every enrolled probability used by the readers simultaneously with probability at least 99% under the sampler. Let $e$ be the RMS of the individual radii. Moving frequency by $\delta$ changes a centered sinusoid by at most $A|\delta|$ times the RMS of the centered appointment indices in exchange units. Therefore every possible frequency lies in a grid cell whose center has least-squares residual at most $e+0.005 A\operatorname{RMS}(t-\bar t)$. The receipt retains the union of all such intervals on the 0.01 grid. A constant is rejected only if the observed standard deviation exceeds $e$. Dividing acceptable remote frequencies by the receiving clock's interval gives the reported ratios. The held 512 samples enter neither the frequency fit nor this enclosure.
+
+An independent check uses the two logged local hand counts at the actual emission epochs and the sharp-launch impulse counts. If two probability estimates $p,q$ have errors $e_p,e_q$, the product error is bounded by $(p+e_p)e_q+qe_p$. Add the remote count error and average the two delay terms. Each held remote probability can then be compared directly to the prediction with its own simultaneous budget. A second prediction extrapolates the *prefix* local clock fit and measured impulse response, requiring no held clock read. [Count-only fitting](readout.py) · [Joint records and predictions](measure.py)
