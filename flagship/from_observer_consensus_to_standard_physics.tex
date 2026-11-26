@@ -69,32 +69,21 @@ Finite Consensus and the Reconstruction of Standard Physics}
 \end{center}
 
 \begin{abstract}
-Observer Patch Holography formulates self-creation as a fixed-point
-condition. Observers discover the laws of their history and build a
-realization that reproduces it, including the builders. We implement
-a finite computation on a spherical network of twelve-port cells.
-From detector records alone the three spatial directions of a programmed
-scalar wave can be recovered. With a material clock, the prescribed
-refinement has a flat relativistic $3{+}1$-dimensional field limit on
-bounded times and momentum bands.
-
-Lean proofs give one public outcome for terminating, locally confluent
-repairs from a fixed record. On a finite complex measurement algebra,
-normalized probabilities additive on coexisting effects obey the Born
-rule for a unique density matrix. Averaging local measurement outcomes
-preserves the remote state. Quantum correlations attain the sharp CHSH
-bound $2\sqrt{2}$. The cell has three independent slow responses. Twelve
-independent port currents that close in a faithful, complete compact
-algebra and implement cell rotations internally have the Standard Model
-gauge Lie type.
-
-Given the small-region area and matter-entropy relations, entropy
-stationarity at fixed proper volume in every local frame yields the
-Einstein equation up to a cosmological constant on a common Lorentzian
-spacetime with conserved stress. In a separate semiclassical model,
-two quantum fields source independently measured geometry under supplied
-Einstein evolution. Deriving universal curvature and realizing the
-closure condition on our observable history are tests of the full theory.
+Observer Patch Holography asks whether observers can discover the laws of
+their history and build a realization that reproduces their measurements,
+including the records of the builders themselves. On a finite network of
+twelve-port cells, observers recover three spatial directions from pulse
+records and forecast later arrivals. With a material clock, a prescribed
+refinement gives a flat relativistic scalar field on bounded times and
+momentum bands. Sequential measurements distinguish instruments that give
+the same first answer. Finite proofs identify conditions for agreement on
+a public outcome and for Born probabilities on a complex measurement
+algebra. Twelve independent port currents that close in a faithful,
+complete compact algebra and implement cell rotations internally select
+the Standard Model gauge Lie type. On a common Lorentzian spacetime with
+conserved stress, small-region area and matter-entropy relations yield the
+Einstein equation from entropy stationarity at fixed volume. These results
+connect mathematical implications to measurements observers can repeat.
 \end{abstract}
 
 
@@ -1575,36 +1564,23 @@ reading $(3/8,1/8,1/8,3/8)$ \cite{ophmodel}.
 \subsection{What a reading leaves}
 \label{sec:presence}
 
-The reader of Section~\ref{sec:measurement-process} keeps one record for
-every seam. A second instrument keeps one answer for the whole cell. On one
-cell with the fuel, let $P_e$ be the projector on the pair on the seam $e$,
-$P=\sum_eP_e$ the projector on the thirty pairs on seams and $Q=I-P$. The
-presence reading runs the reader on every seam, combines the thirty public
-words by a tree of reversible OR gates of depth five, copies the root into
-a fresh public register, and runs the tree and the readers backwards
-(Figure~\ref{fig:model-run}). Every gate is an involution on its register,
-so the scratch registers return to blank for every state of the loads, and
-orthogonal record labels are copied and nothing else. For a state $X$ of
-the loads a positive answer acts as
+Two instruments agree on the first answer to the question of whether
+a pair occupies some seam. For the thirty seam projectors $P_e$, put
+$P=\sum_e P_e$. One instrument combines the seam readings, copies a single
+answer and reverses its scratch work. The other keeps the individual
+seam records (Figure~\ref{fig:model-run}). Their respective positive
+operations are
 \begin{equation}
 X\longmapsto PXP
 \qquad\text{and}\qquad
-X\longmapsto\sum_eP_eXP_e
+X\longmapsto\sum_eP_eXP_e .
 \label{eq:presence}
 \end{equation}
-for the presence reading and for the reader with seam records, and a
-negative answer acts as $X\mapsto QXQ$ for both. Both find a pair with the
-same probability. The presence reading leaves the pair spread over the
-seams as it was, and the reader with seam records places it on one seam.
-On the uniform superposition of the thirty pairs the two positive outputs
-differ by $29/30$ in trace distance, the largest value over all inputs.
-A Kraus map with effect $P$ that leaves every state certain for $P$
-unchanged is the map $X\mapsto PXP$, and conversely; the statement is
-machine-checked \cite{ophrepo}. The presence reading meets its condition,
-so it is the projective instrument of the event ``a pair on some seam'' and
-executes the update of Theorem~\ref{thm:born} as a circuit. The reader with
-seam records has the same effect and fails the condition on the uniform
-superposition, so it is another instrument.
+Both give the same first probability. Four further units of exchange
+make their difference visible. A positive first answer followed by a
+return to the emitting seam has probabilities $0.0182640$ and $0.1029264$.
+Including finite read windows, the two public histories differ by more
+than $0.0817$ in total variation \cite{ophspine}.
 
 \begin{figure}[!htb]
 \centering
@@ -1616,47 +1592,21 @@ into two pointers, agreement of the two copies, and the agreed record whose
 count is the observer's clock. (b) Two readings of the same pair on one
 cell. The presence reading combines the thirty seam words by a reversible
 tree, copies one answer and unwrites the words; the reader with seam
-records keeps thirty records. Table~\ref{tab:presence} gives the laws of
-the later records.}
+records keeps thirty records. The next reading distinguishes the two histories.}
 \label{fig:model-run}
 \end{figure}
 
-The difference shows in later records. The emitter writes the pair on one
-seam of one cell at $\kappa=8$ and $g=64$. After four units of the exchange
-the observers take a first reading with one of the two instruments, and
-after four further units a final reading with seam records. The seam of the
-first reading is hidden before the two histories are compared, so both show
-the same public alphabet. The first answer has the same law under both
-instruments, and the laws of the complete histories differ
-(Table~\ref{tab:presence}). With the exchange acting through read windows
-of length $w=1/16384$, the law of one experiment differs from this
-calculation by at most $24w$ in total variation. One event is certified in
-exact arithmetic with every such error counted: a positive first answer
-followed by a final record on the emitting seam has the probability
-$0.0182640$ under the presence reading and $0.1029264$ under the reader with
-seam records, and the total variation between the two public histories
-exceeds $0.0817$ \cite{ophspine}. The pair is one object spread over seams;
-an instrument that asks where it is places it, and the later records show
-the difference.
-
-\begin{table}[htbp]
-\centering\small
-\caption{Two readings of a pair on one cell: the probability of a positive
-first answer, equal under both instruments, and the total variation between
-the laws of the two public histories.}
-\label{tab:presence}
-\begin{tabular}{@{}L{0.52\linewidth}rr@{}}
-\toprule
-\textbf{Run} & \textbf{First answer positive} & \textbf{Total variation}\\
-\midrule
-Contrast-memory law, $\kappa=8$ & $0.992329$ & $0.440513$\\
-Exchange alone, $\kappa=0$ & $0.647174$ & $0.196148$\\
-Agreement energy reversed, $\kappa=-8$ & $0.987884$ & $0.249676$\\
-$\kappa=8$, first-seam reports mismatch or are unavailable & $0.747346$ & $0.260336$\\
-$\kappa=8$, every predicate flipped in agreement & $1$ & $0.446650$\\
-\bottomrule
-\end{tabular}
-\end{table}
+On Interval Echo, observers test the same distinction for six pairs of
+addresses. Four stations each read a bit twice. Comparing their first
+reports identifies the pair. Comparing their later reports tests the
+return after a reversible mixing operation. In four independently
+sampled preparations per pair, all $8{,}192$ launches per setting returned
+the prepared answer. With calibrated preparations, analyzers and exact
+first pair effects, these simulated records bound the difference in
+unconditional probability of any later public event on the enrolled code,
+even with a reference, relative to the ideal pair reading, to $0.0910$ at joint $99\%$ confidence. A reader that
+also records the address and forgets it publishes the same pair name. On
+each pair its error for a tested event exceeds $0.4813$ \cite{ophspine}.
 
 \subsection{A record that holds no load}
 \label{sec:collar-reading}
@@ -1935,37 +1885,23 @@ member of the model has to produce before the theorem applies to it.
 \subsection{Supplied parts and resources}
 \label{sec:supplied}
 
-The following parts of the construction are supplied:
-\begin{itemize}[leftmargin=1.6em,itemsep=1pt,topsep=3pt]
-\item the coupling $\kappa$;
-\item the coherent generator on the private seam memory;
-\item the reference registers of the degree term;
-\item the emitter with its fuel, coupling and duration, and the timing of
-the reader;
-\item the evolution parameter of the runs with a continuous parameter (as
-local events the pair needs each seam to act once per round, or the limit
-of small event angle);
-\item the tangent-frame routing of the federation;
-\item the tree of the presence reading with its wiring and pulse schedule,
-and the fuel and converter that read an unrecovered seam;
-\item for Interval Echo, the guide, custody transfers, gate selection,
-relative cadence and read windows of the travelling clock, its hand, elapsed
-and interval widths and walk budget, the closing filter, calibrated on the
-reunion ratio of a reciprocal relay, and the gain and pulse of the
-rotation-selected port service;
-\item for the scalar channel, its coefficients $m$ and $c$, the prepared
-reference with its ramps, the apparatus registers and penalties of the
-register form, the two operators on a profile, the pulses, the fuel dial and
-the bounds on a step of the observer's reference.
-\end{itemize}
-On $20$ cells the literal allocation is $240$ load registers of three
-states, $630$ seam memories of eleven states, $180$ reference registers
-with $180$ further memories, one two-state fuel and $630$ reader blocks of
-eleven bits. The sector of two loads on $V$ ports has $V(V+1)/2$ states,
-$78$ on one cell and $28{,}920$ on $240$ ports, so these tests are
-polynomial in the number of ports. The
-construction is no solver for general constraint problems and claims no
-polynomial bound for one \cite{ophspine,ophmodel}.
+The construction supplies the coupling $\kappa$, the private seam
+generator, the degree references and the preparation and timing of the
+emitter and reader. The federation uses a supplied tangent-frame route.
+The presence circuit supplies its reversible tree and schedule. The
+unrecovered-seam reader supplies its fuel and converter. Interval Echo
+specifies the clock's guide, hand, custody transfers, gate cadence, read
+windows, widths and walk budget. Its closing filter is calibrated on a
+reciprocal relay, and its port service specifies a gain and pulse.
+The scalar comparison supplies $m,c$, the reference ramps, register
+penalties, profile operators, pulses, fuel dial and reference step bound.
+Continuous-time runs specify their evolution parameter. Local rounds
+specify a visit to each seam or a small-angle limit.
+
+On $20$ cells the literal allocation includes $240$ three-state load
+registers and $630$ eleven-bit reader blocks. The two-load sector on $V$
+ports has $V(V+1)/2$ basis elements, including $28{,}920$ on $240$
+ports \cite{ophspine,ophmodel}.
 
 %=====================================================================
 \section{Fields, clocks and causal order}
