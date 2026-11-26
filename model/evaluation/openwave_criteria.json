@@ -1238,7 +1238,8 @@
                 "model/experiments/material_inertia/pair_spectrum/neutral_guide/boundary_flux/scatter.py",
                 "model/experiments/material_inertia/pair_spectrum/neutral_guide/boundary_flux/test_boundary.py",
                 "code/cosmology/rar_deep_regime/double_ring_pressure/resolved_kinematics/slit_anisotropy/README.md",
-                "code/cosmology/rar_deep_regime/double_ring_pressure/resolved_kinematics/slit_anisotropy/results.json"
+                "code/cosmology/rar_deep_regime/double_ring_pressure/resolved_kinematics/slit_anisotropy/results.json",
+                "code/cosmology/rar_deep_regime/brightness_pairs/README.md"
               ],
               "demonstrated_measurement": {
                 "label": "A stable free pair with material-charge neutrality, positive rest energy and measured recoil",
@@ -1268,6 +1269,12 @@
                   "label": "Two telescopes test the inner force of J0946+1006",
                   "finding": "At the adopted Chabrier stellar masses and isotropy the centered Keck aperture is bounded above by 265.4 km/s, against 287 ± 11 km/s. An arbitrary attractive exterior force cannot close the isotropic difference under the outer MUSE constraint. The unadjusted nominal Salpeter field gives 272.91 km/s centrally and lies within three of eleven Keck aperture intervals. The measured speeds constrain the inner field under the declared stellar assumptions.",
                   "source": "code/cosmology/rar_deep_regime/double_ring_pressure/resolved_kinematics/slit_anisotropy/README.md"
+                },
+                {
+                  "law": "SPARC galaxy photometry and rotation curves with nominal baryonic forces",
+                  "label": "A within-galaxy brightness test on seventy low-acceleration ring pairs",
+                  "finding": "With twice each speed error, two faint-ring accelerations exceed every constant-amplitude square-root prediction and eight fall below. Five of the eight still conflict throughout the specified stellar mass-to-light ranges with fixed gas. The common distance cancels. Stellar brightness has no independent calibration to local record retention.",
+                  "source": "code/cosmology/rar_deep_regime/brightness_pairs/README.md"
                 }
               ]
             },
@@ -1801,7 +1808,8 @@
                 "code/matched_einstein_limit/fixed_volume/polarized_ranges/PolarizedRanges.lean",
                 "model/experiments/interval_echo_einstein_station/collar_pairing/fringe_ruler/README.md",
                 "model/experiments/interval_echo_einstein_station/collar_pairing/fringe_ruler/results.json",
-                "model/experiments/interval_echo_einstein_station/collar_pairing/fringe_ruler/certificate.json"
+                "model/experiments/interval_echo_einstein_station/collar_pairing/fringe_ruler/certificate.json",
+                "code/matched_einstein_limit/source_implication/full_algebra/reuse/retained_equilibrium/shape_readout/README.md"
               ],
               "demonstrated_measurement": {
                 "label": "Reciprocal frequency transfer on two materials sharing one stationary source",
@@ -1843,6 +1851,12 @@
                   "label": "Two materials resolve the collar phase on independent baselines",
                   "finding": "Two physical perturbations of the same formed source exclude a common path difference times any differentiable scalar wavenumber for each material, even with arbitrary static phase offsets. The clock-inclusive determinant interval is strictly positive. A more general propagation law must independently predict these phase records.",
                   "source": "model/experiments/interval_echo_einstein_station/collar_pairing/fringe_ruler/README.md"
+                },
+                {
+                  "law": "Interval Echo at the retained 80-cell survey",
+                  "label": "Six independent ranges resolve the shape of the changing tetrahedron",
+                  "finding": "Two edges grow and four shrink as the measured area falls. A flat tetrahedron realizes the six lengths at each endpoint. Twelve independently enrolled orientations would cancel any common affine strain to first order.",
+                  "source": "code/matched_einstein_limit/source_implication/full_algebra/reuse/retained_equilibrium/shape_readout/README.md"
                 }
               ]
             },
