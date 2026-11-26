@@ -198,7 +198,7 @@ def test_openwave_rows_distinguish_free_stability_from_electron_identity_and_dri
             assert row['status'] == 'partial'
             assert 'unread connector memories' in measurement['label']
             assert any(path.endswith('row_30_cautions/README.md') for path in row['evidence'])
-            grade += '. Full criterion · Partial'
+            grade = f"**Partial**. Demonstrated measurement · {link}"
             assert measurement['source'].endswith('row_30_collective/README.md')
             filing = row['filing']
             assert filing['decision'] in row['sources'] and filing['review'] in row['evidence']
