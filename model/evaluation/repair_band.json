@@ -1,4 +1,17 @@
 {
+  "contrast_memory_spherical_v1": {
+    "port_to_candidate_map": "identity",
+    "response": "one-load Hamiltonian",
+    "one_load_scalar_offset": 48.0,
+    "lifted_rank": 3,
+    "frobenius_errors": {
+      "binary_unit_rate_mean": 0.0,
+      "projector_idempotence": 1.415262216750919e-16,
+      "gram_eigenrelation": 2.830524433501838e-16,
+      "full_operator_intertwining": 0.0,
+      "candidate_band_eigenrelation": 2.830524433501838e-16
+    }
+  },
   "interval_echo": {
     "port_to_candidate_map": "identity",
     "response": "one-load Hamiltonian",
@@ -12,10 +25,49 @@
       "candidate_band_eigenrelation": 2.830524433501838e-16
     }
   },
-  "contrast_memory_spherical_v1": {
+  "interval_echo_partition_repair": {
     "port_to_candidate_map": "identity",
     "response": "one-load Hamiltonian",
     "one_load_scalar_offset": 48.0,
+    "lifted_rank": 3,
+    "frobenius_errors": {
+      "binary_unit_rate_mean": 0.0,
+      "projector_idempotence": 1.415262216750919e-16,
+      "gram_eigenrelation": 2.830524433501838e-16,
+      "full_operator_intertwining": 0.0,
+      "candidate_band_eigenrelation": 2.830524433501838e-16
+    }
+  },
+  "interval_echo_published_records": {
+    "port_to_candidate_map": "identity",
+    "response": "one-load Hamiltonian",
+    "one_load_scalar_offset": 48.0,
+    "lifted_rank": 3,
+    "frobenius_errors": {
+      "binary_unit_rate_mean": 0.0,
+      "projector_idempotence": 1.415262216750919e-16,
+      "gram_eigenrelation": 2.830524433501838e-16,
+      "full_operator_intertwining": 0.0,
+      "candidate_band_eigenrelation": 2.830524433501838e-16
+    }
+  },
+  "null_hopping": {
+    "port_to_candidate_map": "identity",
+    "response": "one-load Hamiltonian",
+    "one_load_scalar_offset": 0.0,
+    "lifted_rank": 3,
+    "frobenius_errors": {
+      "binary_unit_rate_mean": 0.0,
+      "projector_idempotence": 1.415262216750919e-16,
+      "gram_eigenrelation": 2.830524433501838e-16,
+      "full_operator_intertwining": 0.0,
+      "candidate_band_eigenrelation": 2.830524433501838e-16
+    }
+  },
+  "private_record_walk": {
+    "port_to_candidate_map": "identity",
+    "response": "one-load Hamiltonian",
+    "one_load_scalar_offset": 40.0,
     "lifted_rank": 3,
     "frobenius_errors": {
       "binary_unit_rate_mean": 0.0,

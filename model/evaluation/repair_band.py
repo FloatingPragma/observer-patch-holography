@@ -6,9 +6,8 @@ import numpy as np
 from scipy.sparse.csgraph import shortest_path
 
 from model.candidate_laws.contrast_memory_spherical_v1 import candidate as contrast
-from model.candidate_laws.interval_echo import candidate as echo
-from model.candidate_laws.scalar_channel import candidate as scalar
-from model.executable_model import cell
+from model.executable_model import cell, laws
+from .evaluate import dense, rank_check
 
 
 def measure(candidate):
@@ -35,14 +34,28 @@ def measure(candidate):
     for a, b in edges:
         mean_generator[[a, b], a] += conditional[1, 0]
         mean_generator[[a, b], b] += conditional[0, 1]
-    response = candidate.response(cell())
-    if candidate is scalar:
+    board = cell()
+    generator = dense(candidate.generator(board))
+    response = dense(candidate.response(board))
+    labels = candidate.basis(board)
+    if not np.isfinite(generator).all() or not np.isfinite(response).all():
+        raise ArithmeticError(f"{candidate.NAME}: nonfinite candidate operator")
+    check = rank_check(response, generator, labels)
+    if check["status"] != "pass":
+        raise ArithmeticError(f"{candidate.NAME}: {check['detail']}")
+    is_seam_response = response.shape != generator.shape
+    if is_seam_response:
         # The scalar lives on seams. The endpoint sum maps port amplitudes to seam amplitudes.
-        embedding = incidence
+        seams = [where for kind, where in labels if kind == "seam"]
+        embedding = np.zeros((len(seams), 12))
+        for i, (a, b) in enumerate(seams):
+            embedding[i, [a, b]] = 1
         offset = 0
     else:
-        embedding = np.eye(12)
-        offset = float(np.sum(response[0]))
+        if set(labels) != {("port", i) for i in range(12)} or len(labels) != 12:
+            raise ValueError(f"{candidate.NAME}: no port-to-response map for this basis")
+        embedding = np.eye(12)[[v for _, v in labels]]
+        offset = float(response[0].sum().real)
     centered = response - offset * np.eye(len(response))
     lifted = embedding @ projector
     errors = {
@@ -56,8 +69,9 @@ def measure(candidate):
     if rank != 3 or max(errors.values()) > 1e-10:
         raise ArithmeticError(f"{candidate.NAME}: incompatible generator or Gram frame")
     return {
-        "port_to_candidate_map": "unsigned seam-port incidence" if candidate is scalar else "identity",
-        "response": "squared frequency minus squared rest level" if candidate is scalar else "one-load Hamiltonian",
+        "port_to_candidate_map": ("unsigned seam-port incidence" if is_seam_response else
+                                  "identity" if np.array_equal(embedding, np.eye(12)) else "registered port order"),
+        "response": "squared frequency minus squared rest level" if is_seam_response else "one-load Hamiltonian",
         "one_load_scalar_offset": offset,
         "lifted_rank": int(rank),
         "frobenius_errors": {name: float(value) for name, value in errors.items()},
@@ -65,7 +79,7 @@ def measure(candidate):
 
 
 def run():
-    return {candidate.NAME: measure(candidate) for candidate in (echo, contrast, scalar)}
+    return {name: measure(laws.load(name)) for name in laws.names()}
 
 
 if __name__ == "__main__":
