@@ -2,6 +2,7 @@
 import argparse
 import json
 from pathlib import Path
+import shutil
 import tempfile
 import sys
 from zipfile import BadZipFile
@@ -76,6 +77,41 @@ def artifact_errors(generated, full):
     return failures
 
 
+def check_output(directory, full):
+    if not full and any((directory / name).exists() for name in set(artifacts(True)) - set(artifacts(False))):
+        raise ValueError("a quick replay needs an output directory without full-only measurements")
+    for name in artifacts(full):
+        target = directory / name
+        if (target.exists() or target.is_symlink()) and not target.is_file():
+            raise ValueError(f"output measurement is not a file: {target}")
+
+
+def publish(stage, directory, full):
+    # The backup directory also excludes simultaneous publishers. Backups
+    # remain available if the filesystem prevents a rollback.
+    backup = directory / ".interval-echo-publication"
+    backup.mkdir()
+    replaced = []
+    try:
+        check_output(directory, full)
+        for name in artifacts(full):
+            if (directory / name).is_file():
+                shutil.copy2(directory / name, backup / name, follow_symlinks=False)
+        for name in artifacts(full):
+            (stage / name).replace(directory / name)
+            replaced.append(name)
+    except BaseException:
+        for name in reversed(replaced):
+            prior = backup / name
+            if prior.exists() or prior.is_symlink():
+                prior.replace(directory / name)
+            else:
+                (directory / name).unlink()
+        shutil.rmtree(backup)
+        raise
+    shutil.rmtree(backup)
+
+
 def verify(generated, reference, full):
     failures = artifact_errors(generated, full)
     for name in artifacts(full):
@@ -128,9 +164,10 @@ def main(argv=None):
     if args.output:
         if args.output.resolve() == HERE and (not args.full or args.seed != cohorts.SEED):
             parser.error("a partial or alternative-seed run needs its own output directory")
-        if not args.full and any((args.output / name).exists()
-                                 for name in set(artifacts(True)) - set(artifacts(False))):
-            parser.error("a quick replay needs an output directory without full-only measurements")
+        try:
+            check_output(args.output, args.full)
+        except ValueError as exc:
+            parser.error(str(exc))
         args.output.mkdir(parents=True, exist_ok=True)
         # Complete the measurements before replacing any published data. Publish the run summary last.
         with tempfile.TemporaryDirectory(dir=args.output) as scratch:
@@ -139,8 +176,10 @@ def main(argv=None):
             failures = artifact_errors(stage, args.full)
             if failures:
                 parser.error(", ".join(failures))
-            for name in artifacts(args.full):
-                (stage / name).replace(args.output / name)
+            try:
+                publish(stage, args.output, args.full)
+            except (OSError, ValueError) as exc:
+                parser.error(str(exc))
         print(json.dumps({"candidate": candidate.NAME, "written": str(args.output), "full": args.full}))
         return 0
     with tempfile.TemporaryDirectory() as scratch:

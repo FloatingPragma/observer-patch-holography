@@ -68,6 +68,40 @@ def test_quick_publication_preserves_an_existing_full_receipt(tmp_path, monkeypa
     assert (tmp_path / "observations.json").read_text() == "prior observations"
 
 
+@pytest.mark.parametrize("late_failure", [False, True])
+def test_failed_publication_restores_the_prior_artifact_set(tmp_path, monkeypatch, late_failure):
+    from pathlib import Path
+    from . import replay
+
+    np.savez(tmp_path / "reunions.npz", witness=np.arange(5))
+    prior = (tmp_path / "reunions.npz").read_bytes()
+    summary = tmp_path / "RESULTS.json"
+    flags = ["--full"] if late_failure else []
+    if late_failure:
+        summary.write_text("{}")
+        replace = Path.replace
+        def fail_summary(path, target):
+            if target == summary:
+                raise OSError("late summary failure")
+            return replace(path, target)
+        monkeypatch.setattr(Path, "replace", fail_summary)
+    else:
+        summary.mkdir()
+
+    def generate(stage, full, seed):
+        for name in replay.artifacts(full):
+            (stage / name).write_bytes(b"new data")
+    monkeypatch.setattr(replay, "generate", generate)
+    with pytest.raises(SystemExit):
+        replay.main([*flags, "--output", str(tmp_path)])
+    assert (tmp_path / "reunions.npz").read_bytes() == prior
+    assert set(tmp_path.iterdir()) == {tmp_path / "reunions.npz", summary}
+    if late_failure:
+        assert summary.read_text() == "{}"
+    else:
+        assert summary.is_dir()
+
+
 def reference_suppression(q):
     """Independent killed-walk propagation, counting all probability mass at first return."""
     if q == 1:
