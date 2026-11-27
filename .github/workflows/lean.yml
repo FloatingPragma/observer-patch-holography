@@ -190,8 +190,8 @@ jobs:
               esac
               module="${rel%.lean}"
               module="${module//\//.}"
-              targets+=("$module")
-            done < <(git diff --name-only --diff-filter=d "$base" "$head" -- 'Lean/**/*.lean')
+              targets+=("+$module")
+            done < <(git diff --name-only --diff-filter=d "$base" "$head" -- ':(glob)Lean/**/*.lean')
           fi
 
           {

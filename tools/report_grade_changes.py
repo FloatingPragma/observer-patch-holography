@@ -1,9 +1,13 @@
 """Show register and candidate grade changes from a Git revision to the current checkout."""
 
 import argparse
-import json
 from pathlib import Path
 import subprocess
+
+if __package__:
+    from .strict_json import loads
+else:
+    from strict_json import loads
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = Path("docs/registers/OBSERVABLES.json")
@@ -19,7 +23,7 @@ def is_grade_file(path):
 
 
 def grades(path, raw):
-    data = json.loads(raw)
+    data = loads(raw)
     result = {}
 
     def add(scope, key, status):
@@ -34,6 +38,8 @@ def grades(path, raw):
         law = data["candidate"]
         if law != path.parent.name:
             raise ValueError(f"{path}: candidate identifier {law!r} differs from directory")
+        for key, row in data.get("checks", {}).items():
+            add(f"{law}/check", key, row["status"])
         for section in data.get("requirements", ()):
             for row in section["criteria"]:
                 add(f"{law}/criterion", row["id"], row["status"])

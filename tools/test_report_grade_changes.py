@@ -58,3 +58,10 @@ def test_duplicate_criterion_or_misnamed_law_is_an_error():
         grades(path, json.dumps(data))
     with pytest.raises(ValueError, match="differs from directory"):
         grades(Path("model/candidate_laws/other/EVALUATION.json"), json.dumps(data))
+
+
+def test_executable_checks_are_included_in_the_grade_diff():
+    path = CANDIDATES / "test" / "EVALUATION.json"
+    data = law(path, [("OW-01", "partial")])
+    data["checks"] = {"hermitian": {"status": "pass", "detail": "zero residual"}}
+    assert grades(path, json.dumps(data))["test/check", "hermitian"] == "pass"

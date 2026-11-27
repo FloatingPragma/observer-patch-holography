@@ -23,11 +23,16 @@ Usage: python tools/check_observables.py
 
 from __future__ import annotations
 
-import json
 import re
 import sys
 from collections import Counter
 from pathlib import Path
+
+if __package__:
+    from .strict_json import load
+else:
+    from strict_json import load
+
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER = ROOT / "docs" / "registers" / "OBSERVABLES.json"
@@ -72,7 +77,7 @@ def completion(rows: list[dict]) -> float:
 
 def main() -> int:
     errors: list[str] = []
-    data = json.loads(LEDGER.read_text(encoding="utf-8"))
+    data = load(LEDGER)
     if data.get("schema") != SCHEMA:
         errors.append(f"schema must be {SCHEMA!r}")
     statuses = data.get("statuses", {})
@@ -83,7 +88,10 @@ def main() -> int:
         print("check_observables: rows must be a non-empty list", file=sys.stderr)
         return 1
 
-    ids = Counter(r.get("id") for r in rows)
+    if any(not isinstance(r, dict) or not isinstance(r.get("id"), str) for r in rows):
+        print("check_observables: each row must be an object with a text id", file=sys.stderr)
+        return 1
+    ids = Counter(r["id"] for r in rows)
     errors += [f"duplicate id {i}" for i, n in ids.items() if n > 1]
     premise_status = {r["id"]: r.get("status") for r in rows if r.get("kind") == "premise" and "id" in r}
 
@@ -108,9 +116,15 @@ def main() -> int:
                 errors.append(f"{rid}: {key} is longer than {MAX_SHORT} characters; keep it to one sentence")
         if kind == "premise" and r["premise_kind"] not in PREMISE_KINDS:
             errors.append(f"{rid}: premise_kind must be one of {sorted(PREMISE_KINDS)}")
+        valid_lists = True
         for key in ("premises", "lean", "model", "papers"):
             if not (isinstance(r[key], list) and all(isinstance(x, str) and x for x in r[key])):
                 errors.append(f"{rid}: {key} must be a list of non-empty strings")
+                valid_lists = False
+            elif len(set(r[key])) != len(r[key]):
+                errors.append(f"{rid}: {key} contains repeated entries")
+        if not valid_lists:
+            continue
         for p in r["premises"]:
             if p not in premise_status:
                 errors.append(f"{rid}: premise {p} is not a premise row")
@@ -127,20 +141,20 @@ def main() -> int:
                     continue
                 if link_group(path) != key:
                     errors.append(f"{rid}: {path} belongs in {link_group(path)}, not {key}")
-                if not (ROOT / path.split("#", 1)[0]).exists():
-                    errors.append(f"{rid}: path {path} does not exist")
+                if not (ROOT / path.split("#", 1)[0]).is_file():
+                    errors.append(f"{rid}: evidence path {path} must name a file")
         for key in ("name", "what", "why") + (("statement",) if kind == "premise" else ()):
             for pattern, label in BANNED:
                 if pattern.search(r.get(key) or ""):
                     errors.append(f"{rid}: {key} contains {label}")
 
     cited: set[str] = set()
-    for claim in json.loads(CLAIMS.read_text(encoding="utf-8"))["claims"]:
+    for claim in load(CLAIMS)["claims"]:
         deps = claim.get("premise_dependencies") or {}
         for key in ("consumed", "open", "boundary"):
             cited.update(x for x in deps.get(key, []) if isinstance(x, str) and x.startswith("PR-"))
     if THEOREM_CRITERIA.exists():
-        for group in json.loads(THEOREM_CRITERIA.read_text(encoding="utf-8"))["groups"]:
+        for group in load(THEOREM_CRITERIA)["groups"]:
             for criterion in group["criteria"]:
                 cited.update(criterion.get("premises", []))
     for p in sorted(cited - set(premise_status)):
