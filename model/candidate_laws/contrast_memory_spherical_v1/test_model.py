@@ -223,6 +223,9 @@ def test_emitted_flight_observes_each_requested_exposure_on_its_own_copy():
         expected = fuel + np.linalg.norm(evolved[~sector.adjacent])**2
         assert row["t"] == t and row["no_pair"] == pytest.approx(expected, abs=1e-14)
     np.testing.assert_allclose(last, evolved, rtol=0, atol=1e-14)
+    empty, empty_fuel, empty_state, _ = stability.emitted_run(sector, h, (0, 1), ())
+    assert empty == [] and empty_fuel == fuel
+    np.testing.assert_array_equal(empty_state, state[1:])
     for invalid in ((0, 0), (-1, 0), (0, sector.n), (0, 2)):
         with pytest.raises(ValueError, match="seam"):
             stability.emitted_run(sector, h, invalid, (0,))
