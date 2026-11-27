@@ -144,6 +144,33 @@ def test_the_slowest_response_must_have_rank_three():
     assert ev.carrier_checks(toy(flat))['rank_three_response']['status'] == 'fail'
 
 
+def test_spatial_inverse_checks_the_entire_anonymous_calibration():
+    from .patch_spatial_readout import infer, slow_projector, transitions
+
+    labels = np.random.default_rng(22).permutation(12)
+    lap = laplacian()[np.ix_(labels, labels)]
+    observed = transitions(lap, 1 / 16)
+    angle, inferred, projector, rank, _ = infer(observed)
+    assert angle == pytest.approx(1 / 16)
+    assert np.array_equal(inferred, lap) and rank == 3
+
+    # Two fast modes can exchange weight without changing the mean edge reading,
+    # the slow space, or either forecast on the independent held record.
+    adjacency = np.diag(np.diag(lap)) - lap
+    levels, modes = np.linalg.eigh(adjacency)
+    u, v = modes[:, np.isclose(levels, -1)].T[:2]
+    shift = np.outer(u, u) - np.outer(v, v)
+    negative = shift < -1e-12
+    perturbed = observed + shift * (.5 * np.min(observed[negative] / -shift[negative]))
+    assert np.min(perturbed) > 0 and np.max(abs(perturbed - observed)) > 1e-9
+    np.testing.assert_allclose(perturbed.sum(axis=0), 1, rtol=0, atol=1e-12)
+    np.testing.assert_allclose(perturbed, perturbed.T, rtol=0, atol=1e-12)
+    assert np.mean(perturbed[adjacency > 0] - observed[adjacency > 0]) == pytest.approx(0, abs=1e-15)
+    np.testing.assert_allclose(slow_projector(perturbed)[0], projector, rtol=0, atol=1e-12)
+    with pytest.raises(ValueError, match="does not reproduce the calibration"):
+        infer(perturbed)
+
+
 @pytest.mark.parametrize(('unit', 'origin'), [(1e-10, 0), (1, 1e12)])
 def test_energy_units_and_origin_preserve_the_threefold_band(unit, origin):
     response = unit * laplacian() + origin * np.eye(12)
