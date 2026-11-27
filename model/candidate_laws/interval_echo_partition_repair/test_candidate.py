@@ -30,3 +30,21 @@ def test_record_service_and_native_reservoir_act_locally():
         np.testing.assert_allclose(np.trace(serviced, axis1=0, axis2=2), np.eye(2)/2)
         expected = np.einsum("ij,ab->iajb", np.eye(n)/n, np.eye(2)/2)
         np.testing.assert_allclose(candidate.prepare_reference_payload(density), expected)
+
+
+def test_native_gates_preserve_a_slowest_repair_mode():
+    # Check the sharp witness with the full native contrast gate on all
+    # seam/word columns, including coherent states of the seam memory.
+    size = candidate.material.DIM
+    mode = np.cos((2*np.pi/5) * (np.arange(5) - 0.5))
+    mode /= max(abs(mode))
+    weights = (1 + 0.5*mode)/5
+    diagonal = np.tile(weights/size, size)
+    joint = np.eye(size*5).reshape(size, 5, size*5)
+    gate = candidate.contrast_aperture(joint).reshape(size*5, size*5)
+    np.testing.assert_allclose(diagonal[:, None]*gate, gate*diagonal, atol=2e-17, rtol=0)
+
+    after = candidate.repair_record(np.diag(weights).reshape(5, 1, 5, 1))
+    deviation = np.diag(after[:, 0, :, 0]) - 1/5
+    np.testing.assert_allclose(deviation, (3+np.sqrt(5))/8 * (weights-1/5),
+                               atol=1e-16, rtol=0)
