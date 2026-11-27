@@ -258,6 +258,44 @@ class InstrumentTests(unittest.TestCase):
                     checked += 1
             self.assertEqual(checked, expected_count)
 
+    def test_cycle_equivalent_representatives_and_code_leakage(self):
+        from .test_compiler import dense_pauli
+
+        graph = c.encode_graph(4, list(combinations(range(4), 2)))
+        cycles, _ = c.fundamental_cycles(graph)
+        size = 1 << graph["M"]
+        code = np.eye(size, dtype=complex)
+        for _, _, stabilizer in cycles:
+            code = code @ (np.eye(size) + dense_pauli(stabilizer, graph["M"])) / 2
+        rng = np.random.default_rng(617)
+        matrix = rng.integers(-5, 5, (4, 4)) + 1j * rng.integers(-4, 4, (4, 4))
+        matrix = matrix + matrix.conj().T
+        original = i.compile_matrix(graph, matrix)
+        terms = {}
+        for word, coefficient in original.items():
+            # Split each coefficient between two representatives, applying
+            # different stabilizer products to real and imaginary hoppings.
+            terms[word] = terms.get(word, 0.) + coefficient / 2
+            other = word
+            for _, _, stabilizer in cycles:
+                if rng.integers(2):
+                    other = c.mul(other, stabilizer)
+            key, phase = i.canonical(other)
+            terms[key] = terms.get(key, 0.) + phase.real * coefficient / 2
+        def action(values):
+            return sum(a * dense_pauli(p, graph["M"]) for p, a in values.items()) @ code
+        np.testing.assert_array_equal(action(terms), action(original))
+        result = read_one_body(graph, terms)
+        np.testing.assert_array_equal(result.matrix, matrix)
+        self.assertEqual(result.pauli_residual, 0.)
+
+        # A single chord Z anticommutes with its cycle and leaves the code.
+        # Its compression vanishes, but its action must enter the residual.
+        leak = (0, 0, 1 << cycles[0][0])
+        np.testing.assert_array_equal(code @ dense_pauli(leak, graph["M"]) @ code, np.zeros_like(code))
+        terms[leak] = 1.
+        self.assertEqual(read_one_body(graph, terms).pauli_residual, 1.)
+
     def test_compile_decode_detects_unsupported_and_malformed_laws(self):
         graph = c.build()
         source = i.source_matrix(graph)

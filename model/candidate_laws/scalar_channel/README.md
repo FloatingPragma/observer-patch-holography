@@ -16,7 +16,9 @@ To decode a one-body operator on a connected test graph, call
 `model.candidate_laws.scalar_channel.one_body.read_one_body(graph, terms)`.
 It returns the one-body matrix on three or more modes. On a two-mode edge
 it returns the identifiable trace and sets `matrix` to `None`. Both results
-include the maximum residual in the Pauli coefficients. The archived
+include the maximum residual in the Pauli coefficients acting on the cycle-$+1$
+code. Multiplying a term by a cycle stabilizer gives the same action there.
+Terms that send the input outside the code enter the residual. The archived
 `instruments.decode_paulis` assumes three or more modes and runs on 174
 in the registered instrument. [Even-sector identification proof](PROOF.md)
 

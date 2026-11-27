@@ -57,6 +57,17 @@ $2\lambda_i=s_{ij}+s_{ik}-s_{jk}$, so a vanishing restriction forces
 $h=h'$. This argument proves injectivity from the restricted **operator**.
 A list of eigenvalues alone does not specify its eigenvectors in the port basis.
 
+The reader accepts different Pauli representatives of the same encoded action.
+Each fundamental cycle contains its own chord and no other chord. Right
+multiplication by its stabilizer clears the chord's $X$ bit while preserving
+the action on every cycle-$+1$ input. Tracking the Pauli phase and adding
+coefficients at the resulting common representatives identifies equivalent
+terms. The identity, number and hopping words of the compiler remain distinct
+under this reduction on a connected simple graph with at least three modes.
+Their $X$ masks are empty or single edges. The difference of two such distinct
+masks cannot form a cycle. Two different $Z$ masks at a fixed $X$ mask cannot
+differ by a cycle either, since every nonempty cycle uses a chord.
+
 At $n=2$, the even sector contains the vacuum and the doubly occupied
 state. Their energies are $0$ and $\operatorname{Tr}(h)$. The hopping and
 diagonal imbalance disappear, and the encoded one-qubit operator is
