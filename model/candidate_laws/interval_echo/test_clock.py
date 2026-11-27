@@ -34,10 +34,13 @@ def test_replay_requires_every_measurement_in_the_selected_mode(tmp_path, monkey
         summary["material"] = {"0": {}}
         replay.write_json(generated / "RESULTS.json", summary)
     assert replay.verify(generated, reference, full) == []
+    (generated / "unexpected.json").write_text("{}")
+    assert replay.verify(generated, reference, full) == ["unexpected unexpected.json in replay"]
+    (generated / "unexpected.json").unlink()
     for name in replay.artifacts(full):
-        (generated / name).rename(generated / "held")
+        (generated / name).rename(tmp_path / "held")
         assert replay.verify(generated, reference, full) == [f"missing {name} in replay"]
-        (generated / "held").rename(generated / name)
+        (tmp_path / "held").rename(generated / name)
     del summary["cohorts"]["size"]
     replay.write_json(generated / "RESULTS.json", summary)
     assert any("cohorts.size" in error for error in replay.verify(generated, reference, full))
@@ -52,6 +55,17 @@ def test_replay_requires_every_measurement_in_the_selected_mode(tmp_path, monkey
     with pytest.raises(SystemExit):
         replay.main([*flags, "--output", str(generated)])
     assert (generated / "reunions.npz").read_bytes() == b"prior run"
+
+
+def test_quick_publication_preserves_an_existing_full_receipt(tmp_path, monkeypatch, capsys):
+    from . import replay
+
+    (tmp_path / "observations.json").write_text("prior observations")
+    monkeypatch.setattr(replay, "generate", lambda *args: pytest.fail("unexpected quick acquisition"))
+    with pytest.raises(SystemExit):
+        replay.main(["--output", str(tmp_path)])
+    assert "full-only measurements" in capsys.readouterr().err
+    assert (tmp_path / "observations.json").read_text() == "prior observations"
 
 
 def reference_suppression(q):

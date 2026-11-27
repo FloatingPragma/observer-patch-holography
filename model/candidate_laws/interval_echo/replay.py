@@ -68,12 +68,22 @@ def artifacts(full):
     return (*names, "RESULTS.json")
 
 
+def artifact_errors(generated, full):
+    expected = set(artifacts(full))
+    present = {path.name for path in generated.iterdir()} if generated.is_dir() else set()
+    failures = [f"missing {name} in replay" for name in sorted(expected) if not (generated / name).is_file()]
+    failures.extend(f"unexpected {name} in replay" for name in sorted(present - expected))
+    return failures
+
+
 def verify(generated, reference, full):
-    failures = []
+    failures = artifact_errors(generated, full)
     for name in artifacts(full):
         path, target = generated / name, reference / name
-        if not path.is_file() or not target.is_file():
-            failures.append(f"missing {name} in {'replay' if not path.is_file() else 'reference'}")
+        if not path.is_file():
+            continue
+        if not target.is_file():
+            failures.append(f"missing {name} in reference")
             continue
         try:
             if path.suffix == ".json":
@@ -118,16 +128,18 @@ def main(argv=None):
     if args.output:
         if args.output.resolve() == HERE and (not args.full or args.seed != cohorts.SEED):
             parser.error("a partial or alternative-seed run needs its own output directory")
+        if not args.full and any((args.output / name).exists()
+                                 for name in set(artifacts(True)) - set(artifacts(False))):
+            parser.error("a quick replay needs an output directory without full-only measurements")
         args.output.mkdir(parents=True, exist_ok=True)
         # Complete the measurements before replacing any published data. Publish the run summary last.
         with tempfile.TemporaryDirectory(dir=args.output) as scratch:
             stage = Path(scratch)
             generate(stage, args.full, args.seed)
-            names = artifacts(args.full)
-            missing = [name for name in names if not (stage / name).is_file()]
-            if missing:
-                parser.error("incomplete replay: missing " + ", ".join(missing))
-            for name in names:
+            failures = artifact_errors(stage, args.full)
+            if failures:
+                parser.error(", ".join(failures))
+            for name in artifacts(args.full):
                 (stage / name).replace(args.output / name)
         print(json.dumps({"candidate": candidate.NAME, "written": str(args.output), "full": args.full}))
         return 0
