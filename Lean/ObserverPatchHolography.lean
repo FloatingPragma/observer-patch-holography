@@ -173,5 +173,5 @@ projective-partition adaptor proves only that an existing finite fiber can be
 packaged. No nonconstant source tower, repair endpoint, causal net, geometry,
 clock, continuum limit, or physical evolution is constructed.
 
-See `../README.md` and `../PROOF_INDEX.md` for scope and proof coverage.
+See [the repository overview](../README.md) and [the proof index](docs/PROOF_INDEX.md) for scope and proof coverage.
 -/

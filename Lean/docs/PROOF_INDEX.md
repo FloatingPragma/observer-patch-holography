@@ -42,7 +42,7 @@ archived paper *Paradise as Fixed-Point Consensus* (source in
   instance satisfies the full schedule-independence packet, and `demoLR` is
   nonconfluent, so no source-realized physical world or global uniqueness is
   claimed.
-- Abstract-rewriting skeleton (preliminary): 8 / 8 public theorems → 100%
+- Abstract rewriting: deterministic and commuting schedules are confluent. A natural-valued strict descent potential bounds the number of deterministic iterations to a normal form.
 - OPH primitive and constructed-repair layer: admission-free. This status does
   not assert universal confluence or completeness.
 - Part-A coupling algebra (`BridgeEquivalence.lean`, `CapacityFixedPoint.lean`,
@@ -1717,7 +1717,7 @@ Paper: `paper/archive/paradise_as_fixed_point_consensus.tex` §4, lines 321–32
 
 | Lean name | Module | Status | Notes |
 |---|---|---|---|
-| `OPH.Confluence` | `Primitives` | 🟡 | Typed OPH-specific property. No universal confluence theorem is asserted. |
+| `OPH.Confluence`, `OPH.confluence_of_commuting_enabled_moves` | `Primitives` | 🟡 | Any two finite accepted schedules can be joined when updates commute at every state where both fire. |
 | `OPH.LyapunovDescent`, `OPH.lyapunovDescent_holds` | `Primitives` | ✅ | Every accepted step strictly lowers the exact mismatch potential. |
 | `OPH.Termination`, `OPH.termination_holds` | `Primitives` | ✅ | The accepted-step relation is well founded for the constructed repair. |
 | `OPH.Completeness` | `Primitives` | 🟡 | Typed property equating normal forms with consistent states. No universal proof is asserted. |
@@ -1735,7 +1735,8 @@ proof instantiates after the concrete repair layer is supplied.
 | `OPH.AbstractRewriting.newman_lemma` | `AbstractRewriting` | 🟡 | Terminating + locally confluent → confluent. Generic. |
 | `OPH.AbstractRewriting.unique_normal_form` | `AbstractRewriting` | 🟡 | Confluent → unique normal forms. |
 | `OPH.AbstractRewriting.newman_unique_nf` | `AbstractRewriting` | 🟡 | Combined: terminating + locally confluent → unique normal forms. |
-| `OPH.AbstractRewriting.deterministic_full` | `AbstractRewriting` | 🟡 | Deterministic op with descent potential → unique fixed-point reached. |
+| `OPH.AbstractRewriting.deterministic_confluent` | `AbstractRewriting` | 🟡 | Finite trajectories of a deterministic operator are joinable. |
+| `OPH.AbstractRewriting.iterate_reducesToNF_of_descent`, `OPH.AbstractRewriting.deterministic_full` | `AbstractRewriting` | 🟡 | With natural-valued strict descent, at most the initial potential many iterations suffice to reach the unique fixed point reachable from the initial state. |
 | `OPH.AbstractRewriting.fixedPt_zero_potential` | `AbstractRewriting` | 🔸 | Any fixed point of a repair op has `Φ = 0`. **No paper anchor**: the passage at lines 330-334 is prose, not a labelled corollary; paper makes no formal `Φ(W) = 0` claim. Kept as preliminary ARS decoration only. |
 
 ## #304: Boundary-fiber observer uniqueness: Rule 90 carrier witness
