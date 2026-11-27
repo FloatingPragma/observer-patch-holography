@@ -325,6 +325,11 @@ décrivent ce travail. Les publications d’articles suivent le
 les PDF de la branche principale sont des aperçus des sources, et les versions
 déposées conservent leurs octets d’origine.
 
+## Contact
+
+Questions, collaborations et presse : [info@floatingpragma.ai](mailto:info@floatingpragma.ai),
+le contact officiel de Pragma Research.
+
 ## Licence
 
 Le logiciel, y compris Lean et le code du modèle, est publié sous

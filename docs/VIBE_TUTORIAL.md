@@ -456,3 +456,5 @@ commits appears in the author list of the next
   way to find out whether they have earned it.
 - Before starting a new piece of work, bring your clone up to date with the
   main repository: `git switch main && git pull upstream main`.
+- Questions about this tutorial or a contribution go to
+  [info@floatingpragma.ai](mailto:info@floatingpragma.ai).

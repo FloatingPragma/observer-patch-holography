@@ -284,6 +284,11 @@ keep their original bytes.
 
 Ce README existe aussi [en français](README_FR.md).
 
+## Contact
+
+Questions, collaboration and press: [info@floatingpragma.ai](mailto:info@floatingpragma.ai),
+the official contact of Pragma Research.
+
 ## License
 
 Software, including Lean and the model code, uses [Apache-2.0](code/LICENSE).
