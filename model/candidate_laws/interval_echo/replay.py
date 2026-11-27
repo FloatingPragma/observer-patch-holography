@@ -2,12 +2,15 @@
 import argparse
 import json
 from pathlib import Path
+import shutil
 import tempfile
 import sys
+from zipfile import BadZipFile
 
 import numpy as np
 
 from model.executable_model import carrier
+from tools.strict_json import load
 from ..contrast_memory_spherical_v1.verify import compare
 from . import candidate, clock, cohorts
 
@@ -59,22 +62,84 @@ def generate(directory, full, seed):
         write_json(directory / "projection.json", projection.run())
 
 
+def artifacts(full):
+    names = ("reunions.npz",)
+    if full:
+        names += ("observations.json", "patch_records.npz", "consensus.json", "currents.json", "projection.json")
+    return (*names, "RESULTS.json")
+
+
+def artifact_errors(generated, full):
+    expected = set(artifacts(full))
+    present = {path.name for path in generated.iterdir()} if generated.is_dir() else set()
+    failures = [f"missing {name} in replay" for name in sorted(expected) if not (generated / name).is_file()]
+    failures.extend(f"unexpected {name} in replay" for name in sorted(present - expected))
+    return failures
+
+
+def check_output(directory, full):
+    if not full and any((directory / name).exists() for name in set(artifacts(True)) - set(artifacts(False))):
+        raise ValueError("a quick replay needs an output directory without full-only measurements")
+    for name in artifacts(full):
+        target = directory / name
+        if (target.exists() or target.is_symlink()) and not target.is_file():
+            raise ValueError(f"output measurement is not a file: {target}")
+
+
+def publish(stage, directory, full):
+    # The backup directory also excludes simultaneous publishers. Backups
+    # remain available if the filesystem prevents a rollback.
+    backup = directory / ".interval-echo-publication"
+    backup.mkdir()
+    replaced = []
+    try:
+        check_output(directory, full)
+        for name in artifacts(full):
+            if (directory / name).is_file():
+                shutil.copy2(directory / name, backup / name, follow_symlinks=False)
+        for name in artifacts(full):
+            (stage / name).replace(directory / name)
+            replaced.append(name)
+    except BaseException:
+        for name in reversed(replaced):
+            prior = backup / name
+            if prior.exists() or prior.is_symlink():
+                prior.replace(directory / name)
+            else:
+                (directory / name).unlink()
+        shutil.rmtree(backup)
+        raise
+    shutil.rmtree(backup)
+
+
 def verify(generated, reference, full):
-    failures = []
-    for path in sorted(generated.iterdir()):
-        target = reference / path.name
+    failures = artifact_errors(generated, full)
+    for name in artifacts(full):
+        path, target = generated / name, reference / name
+        if not path.is_file():
+            continue
         if not target.is_file():
-            failures.append(f"missing {path.name}")
-        elif path.suffix == ".json":
-            compare(json.loads(target.read_text()), json.loads(path.read_text()), "", failures, full)
-        elif path.suffix == ".npz":
-            with np.load(target, allow_pickle=False) as saved, np.load(path, allow_pickle=False) as replay:
-                if set(saved.files) != set(replay.files):
-                    failures.append(f"{path.name}: archive keys")
-                    continue
-                for key in replay.files:
-                    if saved[key].dtype != replay[key].dtype or not np.array_equal(saved[key], replay[key]):
-                        failures.append(f"{path.name}: {key}")
+            failures.append(f"missing {name} in reference")
+            continue
+        try:
+            if path.suffix == ".json":
+                expected, actual = load(target), load(path)
+                if not full and name == "RESULTS.json" and isinstance(expected, dict):
+                    # Only the 80- and 320-cell material trips are absent in the quick measurement.
+                    if isinstance(expected.get("material"), dict):
+                        expected["material"] = {k: v for k, v in expected["material"].items() if k not in ("1", "2")}
+                compare(expected, actual, name, failures, True)
+            else:
+                with np.load(target, allow_pickle=False) as saved, np.load(path, allow_pickle=False) as replay:
+                    keys = set(saved.files)
+                    if keys != set(replay.files) or len(keys) != len(saved.files) or len(keys) != len(replay.files):
+                        failures.append(f"{name}: archive keys")
+                        continue
+                    for key in replay.files:
+                        if saved[key].dtype != replay[key].dtype or not np.array_equal(saved[key], replay[key]):
+                            failures.append(f"{name}: {key}")
+        except (ValueError, OSError, EOFError, TypeError, BadZipFile) as exc:
+            failures.append(f"{name}: {exc}")
     return failures
 
 
@@ -99,13 +164,22 @@ def main(argv=None):
     if args.output:
         if args.output.resolve() == HERE and (not args.full or args.seed != cohorts.SEED):
             parser.error("a partial or alternative-seed run needs its own output directory")
+        try:
+            check_output(args.output, args.full)
+        except ValueError as exc:
+            parser.error(str(exc))
         args.output.mkdir(parents=True, exist_ok=True)
         # Complete the measurements before replacing any published data. Publish the run summary last.
         with tempfile.TemporaryDirectory(dir=args.output) as scratch:
             stage = Path(scratch)
             generate(stage, args.full, args.seed)
-            for artifact in sorted(stage.iterdir(), key=lambda f: f.name == "RESULTS.json"):
-                artifact.replace(args.output / artifact.name)
+            failures = artifact_errors(stage, args.full)
+            if failures:
+                parser.error(", ".join(failures))
+            try:
+                publish(stage, args.output, args.full)
+            except (OSError, ValueError) as exc:
+                parser.error(str(exc))
         print(json.dumps({"candidate": candidate.NAME, "written": str(args.output), "full": args.full}))
         return 0
     with tempfile.TemporaryDirectory() as scratch:

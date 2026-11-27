@@ -122,6 +122,22 @@ def test_an_isolated_owner_fails_the_live_carrier_command_and_candidate_evaluati
         require_three_gateways(carrier.cell())
 
 
+def test_swapping_gateway_partners_preserves_counts_but_changes_the_labelled_federation(monkeypatch, capsys):
+    from model.__main__ import main
+
+    original = carrier.federation(0)
+    (a, b), (c, d) = [seam for seam in original.external if seam[0] // 12 == 3][:2]
+    changed = carrier.Carrier('crossed gateways', original.n,
+                              [s for s in original.seams if s not in {(a, b), (c, d)}] + [(a, d), (c, b)])
+    assert np.array_equal(original.degree, changed.degree)
+    assert carrier.federation_checks(original) == carrier.federation_checks(changed)
+    monkeypatch.setattr(carrier, 'federation', lambda level: changed)
+    assert main(['carrier']) == 1
+    assert 'labelled seams differ from registered level 0' in capsys.readouterr().out
+    check = ev.carrier_checks(toy(laplacian()))['federation']
+    assert check['status'] == 'fail' and 'labelled seams' in check['detail']
+
+
 def test_federation_rejects_a_link_between_unjoined_cells():
     cand = toy(laplacian())
     cand.basis = lambda car: [('port', p) for p in range(car.n)]
@@ -142,6 +158,33 @@ def test_federation_rejects_a_link_between_unjoined_cells():
 def test_the_slowest_response_must_have_rank_three():
     flat = np.diag([0.0] + [1.0] * 11)
     assert ev.carrier_checks(toy(flat))['rank_three_response']['status'] == 'fail'
+
+
+def test_spatial_inverse_checks_the_entire_anonymous_calibration():
+    from .patch_spatial_readout import infer, slow_projector, transitions
+
+    labels = np.random.default_rng(22).permutation(12)
+    lap = laplacian()[np.ix_(labels, labels)]
+    observed = transitions(lap, 1 / 16)
+    angle, inferred, projector, rank, _ = infer(observed)
+    assert angle == pytest.approx(1 / 16)
+    assert np.array_equal(inferred, lap) and rank == 3
+
+    # Two fast modes can exchange weight without changing the mean edge reading,
+    # the slow space, or either forecast on the independent held record.
+    adjacency = np.diag(np.diag(lap)) - lap
+    levels, modes = np.linalg.eigh(adjacency)
+    u, v = modes[:, np.isclose(levels, -1)].T[:2]
+    shift = np.outer(u, u) - np.outer(v, v)
+    negative = shift < -1e-12
+    perturbed = observed + shift * (.5 * np.min(observed[negative] / -shift[negative]))
+    assert np.min(perturbed) > 0 and np.max(abs(perturbed - observed)) > 1e-9
+    np.testing.assert_allclose(perturbed.sum(axis=0), 1, rtol=0, atol=1e-12)
+    np.testing.assert_allclose(perturbed, perturbed.T, rtol=0, atol=1e-12)
+    assert np.mean(perturbed[adjacency > 0] - observed[adjacency > 0]) == pytest.approx(0, abs=1e-15)
+    np.testing.assert_allclose(slow_projector(perturbed)[0], projector, rtol=0, atol=1e-12)
+    with pytest.raises(ValueError, match="does not reproduce the calibration"):
+        infer(perturbed)
 
 
 @pytest.mark.parametrize(('unit', 'origin'), [(1e-10, 0), (1, 1e12)])

@@ -8,6 +8,100 @@ from model.executable_model import cell, federation
 from .clock import Registers, closing_tick, interval_response, material_replay
 
 
+@pytest.mark.parametrize("full", [False, True])
+def test_replay_requires_every_measurement_in_the_selected_mode(tmp_path, monkeypatch, capsys, full):
+    import json
+    from . import replay
+
+    generated, reference = tmp_path / "generated", tmp_path / "reference"
+    generated.mkdir()
+    reference.mkdir()
+    flags = ["--full"] if full else []
+    summary = {"material": {"0": {}, "1": {}, "2": {}}, "cohorts": {"size": 5}}
+    for name in replay.artifacts(True):
+        if name.endswith(".npz"):
+            np.savez(reference / name, records=np.arange(4))
+        else:
+            replay.write_json(reference / name, summary if name == "RESULTS.json" else {"size": 5})
+    monkeypatch.setattr(replay, "generate", lambda directory, full, seed: None)
+    assert replay.main([*flags, "--verify", str(reference)]) == 1
+    assert len(json.loads(capsys.readouterr().out)["failures"]) == len(replay.artifacts(full))
+
+    from shutil import copyfile
+    for name in replay.artifacts(full):
+        copyfile(reference / name, generated / name)
+    if not full:
+        summary["material"] = {"0": {}}
+        replay.write_json(generated / "RESULTS.json", summary)
+    assert replay.verify(generated, reference, full) == []
+    (generated / "unexpected.json").write_text("{}")
+    assert replay.verify(generated, reference, full) == ["unexpected unexpected.json in replay"]
+    (generated / "unexpected.json").unlink()
+    for name in replay.artifacts(full):
+        (generated / name).rename(tmp_path / "held")
+        assert replay.verify(generated, reference, full) == [f"missing {name} in replay"]
+        (tmp_path / "held").rename(generated / name)
+    del summary["cohorts"]["size"]
+    replay.write_json(generated / "RESULTS.json", summary)
+    assert any("cohorts.size" in error for error in replay.verify(generated, reference, full))
+    (generated / "RESULTS.json").write_text('{"seed":1,"seed":2}')
+    assert any("duplicate JSON key" in error for error in replay.verify(generated, reference, full))
+
+    # Publication also requires the entire staged set before replacing the first artifact.
+    (generated / "reunions.npz").write_bytes(b"prior run")
+    def incomplete(directory, full, seed):
+        (directory / "reunions.npz").write_bytes(b"new run")
+    monkeypatch.setattr(replay, "generate", incomplete)
+    with pytest.raises(SystemExit):
+        replay.main([*flags, "--output", str(generated)])
+    assert (generated / "reunions.npz").read_bytes() == b"prior run"
+
+
+def test_quick_publication_preserves_an_existing_full_receipt(tmp_path, monkeypatch, capsys):
+    from . import replay
+
+    (tmp_path / "observations.json").write_text("prior observations")
+    monkeypatch.setattr(replay, "generate", lambda *args: pytest.fail("unexpected quick acquisition"))
+    with pytest.raises(SystemExit):
+        replay.main(["--output", str(tmp_path)])
+    assert "full-only measurements" in capsys.readouterr().err
+    assert (tmp_path / "observations.json").read_text() == "prior observations"
+
+
+@pytest.mark.parametrize("late_failure", [False, True])
+def test_failed_publication_restores_the_prior_artifact_set(tmp_path, monkeypatch, late_failure):
+    from pathlib import Path
+    from . import replay
+
+    np.savez(tmp_path / "reunions.npz", witness=np.arange(5))
+    prior = (tmp_path / "reunions.npz").read_bytes()
+    summary = tmp_path / "RESULTS.json"
+    flags = ["--full"] if late_failure else []
+    if late_failure:
+        summary.write_text("{}")
+        replace = Path.replace
+        def fail_summary(path, target):
+            if target == summary:
+                raise OSError("late summary failure")
+            return replace(path, target)
+        monkeypatch.setattr(Path, "replace", fail_summary)
+    else:
+        summary.mkdir()
+
+    def generate(stage, full, seed):
+        for name in replay.artifacts(full):
+            (stage / name).write_bytes(b"new data")
+    monkeypatch.setattr(replay, "generate", generate)
+    with pytest.raises(SystemExit):
+        replay.main([*flags, "--output", str(tmp_path)])
+    assert (tmp_path / "reunions.npz").read_bytes() == prior
+    assert set(tmp_path.iterdir()) == {tmp_path / "reunions.npz", summary}
+    if late_failure:
+        assert summary.read_text() == "{}"
+    else:
+        assert summary.is_dir()
+
+
 def reference_suppression(q):
     """Independent killed-walk propagation, counting all probability mass at first return."""
     if q == 1:

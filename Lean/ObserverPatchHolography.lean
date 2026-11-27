@@ -84,6 +84,13 @@ import Computation.FixedFederationExecutionExamples
 import Computation.FixedFederationComplexity
 import Computation.FixedFederationFanoutControl
 import ObserverPatchHolography.Execution.RankedAttemptCapacity
+import QFT.MaterialReleaseSlices
+
+import ObserverPatchHolography.Provenance.ReleaseRelay
+import ObserverPatchHolography.Provenance.MeteredEnergyCone
+import ObserverPatchHolography.Provenance.RoutedOctant
+import ObserverPatchHolography.Provenance.ScreenAngularTransfer
+import ObserverPatchHolography.Provenance.ScreenDensityClock
 
 /-!
 # Observer-Patch Holography : Lean 4 umbrella root
@@ -166,12 +173,5 @@ projective-partition adaptor proves only that an existing finite fiber can be
 packaged. No nonconstant source tower, repair endpoint, causal net, geometry,
 clock, continuum limit, or physical evolution is constructed.
 
-See `../README.md` and `../PROOF_INDEX.md` for scope and proof coverage.
+See [the repository overview](../README.md) and [the proof index](docs/PROOF_INDEX.md) for scope and proof coverage.
 -/
-import QFT.MaterialReleaseSlices
-
-import ObserverPatchHolography.Provenance.ReleaseRelay
-import ObserverPatchHolography.Provenance.MeteredEnergyCone
-import ObserverPatchHolography.Provenance.RoutedOctant
-import ObserverPatchHolography.Provenance.ScreenAngularTransfer
-import ObserverPatchHolography.Provenance.ScreenDensityClock

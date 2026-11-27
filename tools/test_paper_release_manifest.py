@@ -691,14 +691,13 @@ def test_bump_helper_points_to_strict_publication_wrapper() -> None:
     )
 
 
-def test_reproduce_marks_release_channel_integrity_check_as_publication_only() -> None:
-    guide = (REPO_ROOT / "REPRODUCE.md").read_text(encoding="utf-8")
-    normalized = " ".join(guide.split())
-    assert (
-        "The manually dispatched `Release Channel Integrity` workflow is a "
-        "post-publication integrity check."
-    ) in normalized
-    assert "Do not use it to validate a same-release preview." in normalized
+def test_nightly_verifies_the_published_tag_and_preview_builds_the_branch() -> None:
+    guide = " ".join((REPO_ROOT / "REPRODUCE.md").read_text(encoding="utf-8").split())
+    assert "compares the published assets with its manifest, PDF files and Git commit" in guide
+    workflow = (REPO_ROOT / ".github/workflows/nightly.yml").read_text(encoding="utf-8")
+    assert 'gh release view --repo "$GITHUB_REPOSITORY" --json tagName' in workflow
+    assert "ref: refs/tags/${{ steps.publication.outputs.tag }}" in workflow
+    assert '--repo-root published --expected-commit "$(git -C published rev-parse HEAD)"' in workflow
 
 
 def test_content_inventory_names_only_tracked_sources() -> None:

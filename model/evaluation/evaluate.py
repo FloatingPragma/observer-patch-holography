@@ -216,7 +216,7 @@ def rank_check(response, generator, labels):
 
 
 def federation_check(cand, cell_keys, iso, fixed):
-    from model.executable_model.validation import require_three_gateways
+    from model.executable_model.validation import registered_seam_digest
 
     def relabel(p):
         return 12 * (p // 12) + iso[p % 12]
@@ -226,7 +226,7 @@ def federation_check(cand, cell_keys, iso, fixed):
     for level in (0, 1, 2):
         fed = fixed.federation(level)
         try:
-            require_three_gateways(fed)
+            registered_seam_digest(fed, level)
         except ValueError as exc:
             status, note = 'fail', str(exc)
             break

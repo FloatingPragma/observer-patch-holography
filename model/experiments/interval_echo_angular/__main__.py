@@ -17,6 +17,21 @@ from model.executable_model import cell
 HERE = Path(__file__).resolve().parent
 
 
+def match_detectors(counts):
+    """Match each source to its strict-majority return row under weak exchange."""
+    counts = np.asarray(counts)
+    if (counts.ndim != 2 or counts.shape[0] != counts.shape[1] or not len(counts)
+            or counts.dtype.kind not in "iu" or np.any(counts < 0)):
+        raise ValueError("Expected a square nonnegative integer count table")
+    peaks = counts.argmax(axis=0)
+    # Use exact totals for every integer count dtype.
+    totals = counts.sum(axis=0, dtype=object)
+    majorities = counts[peaks, np.arange(len(counts))].astype(object) * 2 > totals
+    if not np.all(majorities) or len(set(peaks)) != len(counts):
+        return None
+    return peaks
+
+
 def reconstruct(counts):
     symmetric = counts + counts.T
     upper = symmetric[np.triu_indices(len(counts), k=1)]
@@ -93,7 +108,13 @@ def run():
             labels = rng.permutation(car.n)
             renamed = probabilities[np.ix_(labels, labels)]
             counts = np.column_stack([rng.multinomial(budget, column) for column in renamed.T])
-            rebuilt = reconstruct(counts)
+            # Additional detector permutation after the original deposit's draws.
+            rows = np.random.default_rng([54831, budget, repeat]).permutation(car.n)
+            anonymous = counts[rows]
+            matching = match_detectors(anonymous)
+            if matching is None or not np.array_equal(rows[matching], np.arange(car.n)):
+                raise ArithmeticError("independent detector addresses were not recovered")
+            rebuilt = reconstruct(anonymous[matching])
             if rebuilt is None:
                 counts_by_outcome["abstained"] += 1
                 continue

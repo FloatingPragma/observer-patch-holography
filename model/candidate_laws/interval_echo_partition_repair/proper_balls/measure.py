@@ -8,6 +8,7 @@ from pathlib import Path
 
 import numpy as np
 from numpy.polynomial.legendre import leggauss
+from tools.strict_json import load
 
 HERE = Path(__file__).resolve().parent
 PI = Decimal("3.14159265358979323846264338327950288419716939937510582097494")
@@ -145,9 +146,10 @@ def memberships(rows):
         L = lift(row["shape"])[1]
         distance = np.linalg.norm(x @ np.linalg.inv(L), axis=2)
         plus, minus = (distance < float(row[label]["radius"]) for label in ("plus", "minus"))
-        assert np.array_equal(plus, minus)
-        assert np.array_equal(np.where(plus[:, 0] != plus[:, 1])[0], [i])
-        assert plus[i, 0] and not plus[i, 1]
+        if (not np.array_equal(plus, minus)
+                or not np.array_equal(np.flatnonzero(plus[:, 0] != plus[:, 1]), [i])
+                or not plus[i, 0]):
+            raise ValueError("Ball must cut its own pair in order on both geometries")
         whole.append(np.flatnonzero(plus[:, 0] & plus[:, 1]).tolist())
     return whole
 
@@ -170,10 +172,11 @@ def measure():
                     residuals.append(residual)
                     row[label] = {"radius": str(radius), "area": str(area)}
                 M, dp, dm, N = multiplicities(denominator, areas)
-                assert (M, dp, dm, N) == multiplicities(denominator, comparisons)
+                if (M, dp, dm, N) != multiplicities(denominator, comparisons):
+                    raise ArithmeticError("The two quadratures select different endpoint counts")
                 # Antisymmetric area vanishes under (x,y) exchange for these planes.
-                if name in ("rest", "z", "xy"):
-                    assert dp == dm
+                if name in ("rest", "z", "xy") and dp != dm:
+                    raise ArithmeticError("A symmetry-related pair of areas selects different counts")
                 logratio = (Decimal(dp)/dm).ln()
                 da = areas[0]-areas[1]
                 rp, rm = (Decimal(row[k]["radius"]) for k in ("plus", "minus"))
@@ -203,16 +206,51 @@ def measure():
         return {"inverse_scales": list(SCALES), "frames": FRAMES, "gain": 1, "rows": rows}
 
 
-def verify_saved(output):
-    """Replay archived counts, the geometry-blind control and shared memberships."""
-    archived = json.loads((HERE / "results.json").read_text())
-    assert archived["frames"] == output["frames"] and archived["inverse_scales"] == output["inverse_scales"]
-    assert memberships(archived["rows"]) == [r["whole_bond_indices"] for r in archived["rows"]]
+def verify_saved(output, path=HERE / "results.json"):
+    """Replay all survey fields, including raw geometry and the reversed-degree control."""
+    archived = load(path)
+    if archived.keys() != output.keys() or any(type(archived[k]) is not type(output[k])
+            or archived[k] != output[k] for k in ("gain", "frames", "inverse_scales")):
+        raise ValueError("Different proper-ball calibration or frames")
     for old, new in zip(archived["rows"], output["rows"], strict=True):
-        for field in ("shape", "inverse_ell", "plus_d", "minus_d", "legal_pairs"):
-            assert old[field] == new[field]
-        for field in ("area_slope_over_ell4", "balance_over_ell4", "homogeneous_line_area_slope_over_ell4"):
-            assert abs(old[field]-new[field]) < 1e-9
+        if old.keys() != new.keys():
+            raise ValueError("Different survey fields")
+        for key, expected in new.items():
+            actual = old[key]
+            if key in ("plus", "minus"):
+                if actual.keys() != expected.keys():
+                    raise ValueError(f"Different {key} geometry fields")
+                for quantity, value in expected.items():
+                    # Resolve changes well below the ell^4 area signal; allow
+                    # backend roundoff in the integrated correction to flat space.
+                    if not isinstance(actual[quantity], str):
+                        raise ValueError(f"Expected decimal survey reading for {quantity}")
+                    err = abs(Decimal(actual[quantity])-Decimal(value))
+                    if not err.is_finite() or err * new["inverse_ell"]**4 > Decimal("1e-9"):
+                        raise ValueError(f"Different {key} {quantity} at {new['shape']}")
+            elif key == "worldlines":
+                coords = np.asarray(actual)
+                if coords.shape != (2, 3) or not np.allclose(coords, expected, rtol=0, atol=1.1e-14):
+                    raise ValueError("Different surveyed worldlines")
+            elif isinstance(expected, float):
+                # The two error diagnostics resolve numerical quadrature and
+                # Newton drift. Each backend must meet the same survey budget.
+                if type(actual) is not float or not math.isfinite(actual):
+                    raise ValueError(f"Invalid survey quantity {key}")
+                if key == "M_times_max_area_order_change":
+                    valid = (0 <= actual < old["min_word_floor_margin"]/100
+                             and 0 <= expected < new["min_word_floor_margin"]/100)
+                elif key == "max_relative_volume_residual":
+                    valid = 0 <= actual < 1e-16 and 0 <= expected < 1e-16
+                else:
+                    tolerance = 1e-7 if key == "min_word_floor_margin" else 1e-9
+                    valid = abs(actual-expected) < tolerance
+                if not valid:
+                    raise ValueError(f"Different or out-of-budget survey quantity {key}")
+            elif type(actual) is not type(expected) or actual != expected:
+                raise ValueError(f"Different survey reading {key}")
+    if memberships(archived["rows"]) != [r["whole_bond_indices"] for r in archived["rows"]]:
+        raise ValueError("Different memberships at the archived worldlines")
 
 
 if __name__ == "__main__":

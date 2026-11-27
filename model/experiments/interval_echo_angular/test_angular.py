@@ -1,7 +1,20 @@
 import numpy as np
 
 from model.executable_model import cell
-from .__main__ import angular_coverage, reconstruct
+from .__main__ import angular_coverage, match_detectors, reconstruct
+
+
+def test_detector_matching_recovers_the_chart_from_counts_and_abstains_on_ambiguity():
+    # Different row and column addresses, with unequal per-source budgets.
+    counts = np.array([[1, 15, 2], [6, 0, 1], [3, 4, 7]], dtype=np.uint64)
+    order = match_detectors(counts)
+    np.testing.assert_array_equal(order, [1, 0, 2])
+    np.testing.assert_array_equal(match_detectors(np.iinfo(np.uint64).max * np.eye(3, dtype=np.uint64)),
+                                  np.arange(3))
+    counts[0, 0] = 3
+    assert match_detectors(counts) is None  # exactly half the column
+    counts[0, 0] = 20
+    assert match_detectors(counts) is None  # two sources claim the same row
 
 
 def test_reciprocal_readout_abstains_on_uniform_outcomes():

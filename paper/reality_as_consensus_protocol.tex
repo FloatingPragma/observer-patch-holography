@@ -3963,8 +3963,9 @@ finite repair theorem on that quotient. Define
 \[
 D(q):=d_Q(q,\mathcal N)=\inf_{n\in\mathcal N}d_Q(q,n).
 \]
-Let \(q_{t+1}=\widetilde T_{i_t,t}(q_t)\) be a noisy asynchronous repair process adapted to a
-filtration \((\mathcal F_t)_t\). Assume:
+Fix an initial state \(q_0\) of finite distance to \(\mathcal N\).
+Let \(q_{t+1}=\widetilde T_{i_t,t}(q_t)\) be a noisy asynchronous repair
+process adapted to a filtration \((\mathcal F_t)_t\). Assume:
 \begin{enumerate}[(G1)]
 \item \textbf{Exact quotient target.} The ideal repair relation on \(Q\) has the exact OPH
 normal-form package: finite exact descent, the semantic-complete transactional local-diamond
@@ -4105,6 +4106,42 @@ be substituted into the estimate for a fixed block index. Random block
 endpoints need their own occupation-time or conditional sampling bound to
 obtain a calendar-time constant.
 \end{remark}
+
+\begin{corollary}[Occupation and convergence for stopping-time blocks]
+For random endpoints write (G4) in a form that counts visits within the
+block. For each offset \(0\le j<L\), assume
+\[
+\mathbb E\!\left[D(q_{\tau_m+j})\,
+  \mathbf1_{\{j<\tau_{m+1}-\tau_m\}}\mid\mathcal F_{\tau_m}\right]
+\le A D(q_{\tau_m})+\beta .
+\]
+Then the limiting upper bound on the time-averaged expected distance is
+\[
+\limsup_{T\to\infty}\frac1T\sum_{t=0}^{T-1}\mathbb E D(q_t)
+\le L\left(\frac{A\varepsilon}{1-\lambda}+\beta\right).
+\]
+When \(\varepsilon=\beta=0\), \(D(q_t)\to0\) almost surely and in
+\(L^1\) along the full asynchronous run, even for state-dependent block
+lengths.
+\end{corollary}
+
+\begin{proof}
+Each visit before time \(T\) belongs to one of the first \(T\) blocks.
+Summing the offset bound over those blocks gives
+\(\sum_{t<T}\mathbb E D(q_t)\le
+L\sum_{m<T}(A\mathbb E D(q_{\tau_m})+\beta)\).
+Insert the geometric block bound and divide by \(T\).
+When both additive errors vanish, a visit at or beyond \(T\) belongs
+to a block with index at least \(\lfloor T/L\rfloor\), since
+\(\tau_{m+1}\le(m+1)L\). Summing the geometric tail gives
+\[
+\mathbb E\sum_{t\ge T}D(q_t)
+\le \frac{LA D(q_0)}{1-\lambda}\,\lambda^{\lfloor T/L\rfloor}.
+\]
+At \(T=0\) the nonnegative series has finite expectation and hence is
+finite almost surely. Its terms tend to zero, and the tail estimate
+also bounds \(\mathbb E D(q_T)\).
+\end{proof}
 
 \begin{corollary}[Approximate observer-facing schedule independence]
 \label{cor:approx-schedule-independence}

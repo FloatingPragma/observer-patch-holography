@@ -17,14 +17,16 @@ from __future__ import annotations
 import argparse
 import json
 import math
+from operator import index
 
 import numpy as np
+from scipy import sparse
 from scipy.sparse.linalg import eigsh, expm_multiply
 
 from model.executable_model import carrier as cr
 from . import theorem
 from .common import clean
-from .sectors import (G_EMIT, PairSector, SeamEvents, TripleSector, emit, free_run, layers, pulse_period,
+from .sectors import (G_EMIT, PairSector, SeamEvents, TripleSector, emit, layers, pulse_period,
                       record_bound, start_vector, theorem_bound)
 
 TIMES = (0, 4, 8, 12, 16, 20, 24, 28, 32)
@@ -93,10 +95,39 @@ def law_run(key, kappa, kind='law'):
 
 
 def emitted_run(ps, H, seam, times=TIMES):
-    p = ps.index(*seam)
+    """Read fresh copies at each specified exposure; keep the fuel as its own refusal."""
+    a, b = sorted(index(v) for v in seam)
+    if not (0 <= a < b < ps.n and b in ps.car.neighbours[a]):
+        raise ValueError("Emitter needs a seam between two distinct ports of the carrier")
+    times = tuple(float(t) for t in times)
+    if any(not math.isfinite(t) or t < 0 for t in times):
+        raise ValueError("Free exposures must be finite and nonnegative")
+    p = ps.index(a, b)
     state, Ef = emit(H, p)
-    lines, psi = free_run(ps, H, state[1:], times, first=p, shift=Ef)
-    return lines, float(abs(state[0]) ** 2), psi, Ef
+    fuel = float(abs(state[0])**2)
+    psi = last_state = state[1:]
+    flight = H - Ef*sparse.eye(ps.P, format="csr")
+    other_seams = ps.seam_states[ps.seam_states != p]
+    previous = 0.
+    records = {}
+    for t in sorted(set(times)):
+        if t > previous:
+            psi = expm_multiply((-1j*(t-previous))*flight, psi)
+        previous = t
+        prob = np.abs(psi)**2
+        material = prob.sum()
+        if not math.isclose(material + fuel, 1., rel_tol=0, abs_tol=1e-8):
+            raise ArithmeticError("Pair flight lost preparation probability")
+        cells = ps.cell_weights(prob/material) if material else None
+        records[t] = {
+            "t": t, "no_pair": float(fuel + prob[~ps.adjacent].sum()),
+            "pair_on_first_seam": float(prob[p]),
+            "pair_on_another_seam": float(prob[other_seams].sum()),
+            "cells_covered": float(1/(cells @ cells)) if cells is not None else None,
+        }
+        if t == times[-1]:
+            last_state = psi
+    return [records[t].copy() for t in times], fuel, last_state, Ef
 
 
 def law_table(key, kappas, consts=None):

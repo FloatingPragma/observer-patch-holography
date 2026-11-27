@@ -1041,46 +1041,41 @@ theorem boundary_fiber_observer_unique {x y nfx nfy : Records C}
 variable
   (H4 : ∀ (i j : C.Patch) (x : Records C), lr i (lr j x) = lr j (lr i x))
 
--- H4 is used only inside the proofs below (the statements quantify over the
--- abstract relation `acceptedStepLR lr`), so force its inclusion explicitly.
+omit H1 H2 H3 in
+/-- Site updates commuting at every common firing state join any two finite
+accepted schedules. Each one-step fork closes after at most one further
+accepted update on either side. A quiescent update contributes zero steps. -/
+theorem confluence_of_commuting_enabled_moves
+    (hcomm : ∀ (i j : C.Patch) (x : Records C), lr i x ≠ x → lr j x ≠ x →
+      lr i (lr j x) = lr j (lr i x)) :
+    AbstractRewriting.Confluent (acceptedStepLR lr) := by
+  have optional (i : C.Patch) (x : Records C) :
+      ReflGen (acceptedStepLR lr) x (lr i x) := by
+    by_cases h : lr i x = x
+    · rw [h]
+    · exact .single ⟨i, rfl, h⟩
+  intro x y z hy hz
+  apply Relation.church_rosser _ hy hz
+  rintro x _ _ ⟨i, rfl, hi⟩ ⟨j, rfl, hj⟩
+  exact ⟨lr j (lr i x), optional j (lr i x),
+    hcomm i j x hi hj ▸ (optional i (lr j x)).to_reflTransGen⟩
+
 include H4
 
--- H1/H2/H3 are unused by the diamond argument (it needs only `H4`); drop them
--- from THIS lemma so its type explicitly reads "commuting moves are locally
--- confluent". `confluence_of_commute` below carries them (for `termination`).
 omit H1 H2 H3 in
-/-- **Local confluence from single-step commutation** (the diamond condition).
-    From two accepted steps at sites `i`, `j`, the common join is
-    `lr j (lr i x) = lr i (lr j x)` (by `H4`); each side reaches it in ≤ 1 step
-    (zero if that site is quiescent there). -/
+/-- Two single-site firings are a special case of confluence. -/
 theorem locallyConfluent_of_commute :
-    AbstractRewriting.LocallyConfluent (acceptedStepLR lr) := by
-  rintro x _ _ ⟨i, rfl, _⟩ ⟨j, rfl, _⟩
-  refine ⟨lr j (lr i x), ?_, ?_⟩
-  · rcases eq_or_ne (lr j (lr i x)) (lr i x) with h | h
-    · rw [h]
-    · exact ReflTransGen.single ⟨j, rfl, h⟩
-  · rw [← H4 i j x]
-    rcases eq_or_ne (lr i (lr j x)) (lr j x) with h | h
-    · rw [h]
-    · exact ReflTransGen.single ⟨i, rfl, h⟩
+    AbstractRewriting.LocallyConfluent (acceptedStepLR lr) :=
+  fun x y z hy hz =>
+    confluence_of_commuting_enabled_moves lr (fun i j x _ _ => H4 i j x)
+      x y z (.single hy) (.single hz)
 
-/-- **THEOREM : Confluence (Church–Rosser) under commutation.** Termination
-    (H1–H3, via `termination`) together with local confluence (H4, via
-    `locallyConfluent_of_commute`) yields global confluence, through Newman's
-    lemma. With `termination` this further gives UNIQUE normal forms (the repo's
-    `AbstractRewriting.newman_unique_nf`) : a schedule-independent "objective
-    public reality". Only the join property `Confluent` is concluded here.
-    CAVEAT (read with `demoCarrier_not_confluent`): this is the SUFFICIENT
-    direction, conditional on the strong, GLOBAL law `H4`, which has no
-    non-trivial witness in this file : the only carrier, `demoCarrier`, provably
-    violates `H4` and is in fact non-confluent. So this theorem says precisely
-    "IF every pair of repairs commutes, schedules agree"; the witnessed,
-    load-bearing fact is the negative one. -/
+/-- Confluence on the terminating local repair model. H1–H3 separately
+establish descent and identify its normal forms with consistent records. -/
 theorem confluence_of_commute :
     AbstractRewriting.Confluent (acceptedStepLR lr) :=
-  AbstractRewriting.newman_lemma (acceptedStepLR lr)
-    (termination lr H1 H2 H3) (locallyConfluent_of_commute lr H4)
+  AbstractRewriting.newman_lemma _ (termination lr H1 H2 H3)
+    (locallyConfluent_of_commute lr H4)
 
 end LocalRepairDynamics
 
@@ -1385,16 +1380,11 @@ theorem demoDirΦ_desc (x : Records demoCarrier) :
   rw [key]
   cases hxf : x false <;> decide
 
-/-- **ROUTE B : the SELECTING repair is CONFLUENT (positive twin of `demoCarrier_not_confluent`).**
-    `demoDirT` is deterministic, so its induced rewriting reaches a UNIQUE normal form per input,
-    schedule-independent (Newman's lemma via the `DeterministicRepair` route). This is CONFLUENCE :
-    the lever a directional/selecting repair actually buys. It is a DIFFERENT theorem from the `Hfib`
-    boundary route above. The symmetric `demoLR` provably fails it (`demoCarrier_not_confluent`). -/
+/-- The directional repair joins finite schedules by determinism. Its
+descent potential also guarantees arrival at a fixed point. -/
 theorem demoCarrier_dir_confluent :
     AbstractRewriting.Confluent (AbstractRewriting.stepRel demoDirT) :=
-  AbstractRewriting.newman_lemma (AbstractRewriting.stepRel demoDirT)
-    (AbstractRewriting.descent_terminating demoDirT demoDirΦ demoDirΦ_desc)
-    (AbstractRewriting.deterministic_locally_confluent demoDirT)
+  AbstractRewriting.deterministic_confluent demoDirT
 
 /-- **THE CRUX : confluence ALONE is not observer-uniqueness.** `demoDirT` is confluent
     (`demoCarrier_dir_confluent`: same input → one normal form). But that is a property of the REPAIR,
@@ -1494,6 +1484,7 @@ repair layer audited above; the file carries no `sorry`, so the
 #print axioms demoCarrier_Hfib_fails
 #print axioms demoCarrier_Hfib_holds_finerB
 #print axioms demoCarrier_Hfib_holds_seed
+#print axioms confluence_of_commuting_enabled_moves
 #print axioms demoCarrier_dir_confluent
 #print axioms demoCarrier_dir_not_observer_unique
 #print axioms demoCarrier_dir_observer_unique_under_seed

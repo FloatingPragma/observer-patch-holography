@@ -284,10 +284,9 @@ path, and selected release ID into the shared manifest before final
 validation. Publication remains a separate maintainer action after the
 candidate is committed, pushed, and inspected.
 
-The manually dispatched `Release Channel Integrity` workflow is a
-post-publication integrity check. Do not use it to validate a same-release preview. A
-preview manifest describes the local bytes under review, while the tagged
-GitHub Release remains fixed until the maintainer publishes a new release.
+A manual dispatch of the `Nightly` workflow resolves the GitHub Release tag
+and compares the published assets with its manifest, PDF files and Git commit.
+The paper preview job in `CI` rebuilds the manuscripts on the branch under review.
 
 Both builders derive `SOURCE_DATE_EPOCH` from the visible date in
 `paper/release_info.tex`, force UTC, avoid host-font selection, and retain the

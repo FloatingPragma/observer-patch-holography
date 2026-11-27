@@ -258,6 +258,33 @@
                 "model/evaluation/repair_band.json",
                 "model/candidate_laws/scalar_channel/candidate.py"
               ]
+            },
+            "interval_echo_partition_repair": {
+              "status": "partial",
+              "note": "With the repair bath idle, its addressed one-load response minus 48 I equals the cell Laplacian divided by two. The identity carries all three Gram modes. A complete partition-repair sweep also resets the payload and mixes the aperture and volume records.",
+              "evidence": [
+                "model/candidate_laws/interval_echo_partition_repair/candidate.py",
+                "model/evaluation/repair_band.py",
+                "model/evaluation/repair_band.json"
+              ]
+            },
+            "interval_echo_published_records": {
+              "status": "partial",
+              "note": "The one-load response before publication minus 48 I equals the cell Laplacian divided by two and carries all three Gram modes. Propagation of this projector through the separate published sheet and dust records requires a further map.",
+              "evidence": [
+                "model/candidate_laws/interval_echo_published_records/candidate.py",
+                "model/evaluation/repair_band.py",
+                "model/evaluation/repair_band.json"
+              ]
+            },
+            "private_record_walk": {
+              "status": "partial",
+              "note": "With all private signs odd, the one-load comparison count adds 40 I on the cell. The centered operator carries the three Gram modes exactly. Independent balanced load-repair attempts would be a separate dynamics from the graph Hamiltonian.",
+              "evidence": [
+                "model/candidate_laws/private_record_walk/candidate.py",
+                "model/evaluation/repair_band.py",
+                "model/evaluation/repair_band.json"
+              ]
             }
           }
         },
@@ -370,6 +397,20 @@
                 "model/candidate_laws/scalar_channel/instruments.py",
                 "model/candidate_laws/scalar_channel/compiler.py"
               ]
+            },
+            "interval_echo_partition_repair": {
+              "status": "demonstrated",
+              "note": "The bond and volume repairs and the tracial reservoir each have a complete Kraus family on the addressed factor. The native contrast gate is unitary there. Summing outcomes preserves the marginal of every disjoint reference, including entangled inputs. Selecting one outcome can change its conditional state.",
+              "evidence": [
+                "model/candidate_laws/interval_echo_partition_repair/SPEC.md",
+                "model/candidate_laws/interval_echo_partition_repair/candidate.py",
+                "model/candidate_laws/interval_echo_partition_repair/test_candidate.py"
+              ],
+              "full_credit": {
+                "kind": "construction",
+                "source": "model/candidate_laws/interval_echo_partition_repair/test_candidate.py",
+                "scope": "Finite local bond, volume and payload channels on the declared tensor split, checked on their complete channel matrices and native gate."
+              }
             }
           }
         },

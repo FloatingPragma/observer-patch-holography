@@ -9,6 +9,7 @@ from scipy.linalg import expm
 
 from . import compiler as c
 from . import instruments as i
+from .one_body import read_one_body
 
 
 def fermions(n):
@@ -214,6 +215,86 @@ class InstrumentTests(unittest.TestCase):
             gate[fuel + 2 * i.pointer_permutation(fuel, word), fuel + 2 * word] = 1
         joint = np.kron(np.eye(2), gate)
         np.testing.assert_allclose(joint.conj().T @ joint @ vector, vector, atol=1e-15, rtol=0)
+
+    def test_two_modes_identify_only_the_trace(self):
+        graph = c.encode_graph(2, [(0, 1)])
+        annihilators = fermions(2)
+        for matrix in (np.diag([3., -1.]), np.array([[0, 1j], [-1j, 2]])):
+            fock = second_quantize(matrix, annihilators)[np.ix_([0, 3], [0, 3])]
+            np.testing.assert_array_equal(fock, np.diag([0, 2]))
+            words = i.compile_matrix(graph, matrix)
+            self.assertEqual(words, {(0, 0, 0): 1., (0, 0, 1): -1.})
+            read = read_one_body(graph, words)
+            self.assertIsNone(read.matrix)
+            self.assertEqual((read.trace, read.pauli_residual), (2., 0.))
+        # An encoded X changes vacuum into double occupancy and cannot be
+        # produced by a number-conserving one-body Hamiltonian.
+        outside = read_one_body(graph, {(0, 1, 0): .25})
+        self.assertEqual((outside.trace, outside.pauli_residual), (0., .25))
+        for malformed in ({(1, 1, 0): 1.}, {(0, 0, 0): np.nan}):
+            with self.assertRaises(ValueError):
+                read_one_body(graph, malformed)
+
+    def test_one_body_identification_on_all_connected_three_and_four_mode_graphs(self):
+        rng = np.random.default_rng(1252)
+        for size, expected_count in ((3, 4), (4, 38)):
+            edges = list(combinations(range(size), 2))
+            checked = 0
+            for count in range(size-1, len(edges)+1):
+                for links in combinations(edges, count):
+                    try:
+                        graph = c.encode_graph(size, links)
+                    except ValueError as error:
+                        self.assertIn("connected", str(error))
+                        continue
+                    matrix = np.diag(rng.normal(size=size)).astype(complex)
+                    for a, b in links:
+                        matrix[a, b] = rng.normal() + 1j*rng.normal()
+                        matrix[b, a] = matrix[a, b].conjugate()
+                    read = read_one_body(graph, i.compile_matrix(graph, matrix))
+                    np.testing.assert_array_equal(read.matrix, matrix)
+                    self.assertEqual(read.trace, np.trace(matrix).real)
+                    self.assertEqual(read.pauli_residual, 0.)
+                    checked += 1
+            self.assertEqual(checked, expected_count)
+
+    def test_cycle_equivalent_representatives_and_code_leakage(self):
+        from .test_compiler import dense_pauli
+
+        graph = c.encode_graph(4, list(combinations(range(4), 2)))
+        cycles, _ = c.fundamental_cycles(graph)
+        size = 1 << graph["M"]
+        code = np.eye(size, dtype=complex)
+        for _, _, stabilizer in cycles:
+            code = code @ (np.eye(size) + dense_pauli(stabilizer, graph["M"])) / 2
+        rng = np.random.default_rng(617)
+        matrix = rng.integers(-5, 5, (4, 4)) + 1j * rng.integers(-4, 4, (4, 4))
+        matrix = matrix + matrix.conj().T
+        original = i.compile_matrix(graph, matrix)
+        terms = {}
+        for word, coefficient in original.items():
+            # Split each coefficient between two representatives, applying
+            # different stabilizer products to real and imaginary hoppings.
+            terms[word] = terms.get(word, 0.) + coefficient / 2
+            other = word
+            for _, _, stabilizer in cycles:
+                if rng.integers(2):
+                    other = c.mul(other, stabilizer)
+            key, phase = i.canonical(other)
+            terms[key] = terms.get(key, 0.) + phase.real * coefficient / 2
+        def action(values):
+            return sum(a * dense_pauli(p, graph["M"]) for p, a in values.items()) @ code
+        np.testing.assert_array_equal(action(terms), action(original))
+        result = read_one_body(graph, terms)
+        np.testing.assert_array_equal(result.matrix, matrix)
+        self.assertEqual(result.pauli_residual, 0.)
+
+        # A single chord Z anticommutes with its cycle and leaves the code.
+        # Its compression vanishes, but its action must enter the residual.
+        leak = (0, 0, 1 << cycles[0][0])
+        np.testing.assert_array_equal(code @ dense_pauli(leak, graph["M"]) @ code, np.zeros_like(code))
+        terms[leak] = 1.
+        self.assertEqual(read_one_body(graph, terms).pauli_residual, 1.)
 
     def test_compile_decode_detects_unsupported_and_malformed_laws(self):
         graph = c.build()

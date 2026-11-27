@@ -6,10 +6,10 @@ throughout the box, by convexity. One such five-point obstruction excludes
 a three-dimensional fit of all six stations. Failure of this sufficient
 test does not establish a fit.
 
-An inner-box positive definite midpoint and an indefinite corner give a
-different certificate: the first loss of positive definiteness along their
-segment is positive semidefinite of rank at most three. This proves a fit
-for that subset within that box, without combining different subsets. For
+If one endpoint of a midpoint-to-corner segment is positive definite and
+the other is indefinite, the first singular Gram matrix starting from the
+positive endpoint is positive semidefinite of rank at most three. A singular
+positive semidefinite corner or midpoint also realizes that five-point subset. For
 confidence envelopes it proves compatibility with some values in the
 envelope, not a fit of every possible underlying distance matrix.
 
@@ -20,11 +20,14 @@ the floating propagation that produced them.
 
 from fractions import Fraction
 from itertools import combinations
-from math import isfinite
 
 import numpy as np
 
-from model.candidate_laws.scalar_channel.carrier import require
+
+def require(condition, message):
+    if not condition:
+        raise ValueError(message)
+
 
 THRESHOLDS = (Fraction(0), Fraction(3, 100), Fraction(1, 20), Fraction(3, 40), Fraction(1, 10))
 GRID = 10 ** 12
@@ -37,7 +40,7 @@ def rational(value):
     if value is None:
         return None
     if isinstance(value, (float, np.floating)):
-        return Fraction.from_float(float(value)) if isfinite(float(value)) else None
+        return Fraction(*value.as_integer_ratio()) if np.isfinite(value) else None
     require(not isinstance(value, (bool, np.bool_)), "boolean distance or bound")
     return Fraction(int(value)) if isinstance(value, np.integer) else Fraction(value)
 
@@ -101,6 +104,15 @@ def _corner(lower, upper, mask):
     return [upper[k] if mask & (1 << k) else lower[k] for k in range(10)]
 
 
+def distinct_corners(lower, upper):
+    """Canonical masks in ascending order; fixed coordinates have their low bit set to zero."""
+    masks = [0]
+    for k, (a, b) in enumerate(zip(lower, upper, strict=True)):
+        if a != b:
+            masks += [mask | (1 << k) for mask in masks]
+    return masks
+
+
 def five_point_box(lower_squared, upper_squared, denominator=GRID):
     """Certify one rational squared-distance box, with outward and inward grids.
 
@@ -117,12 +129,14 @@ def five_point_box(lower_squared, upper_squared, denominator=GRID):
     outer_hi = [ceil(x * denominator) for x in upper]
     minima = [None] * 4
     failed, first_bad, eigen_bound = 0, None, None
-    for mask in range(1 << 10):
+    masks = distinct_corners(outer_lo, outer_hi)
+    multiplicity = (1 << 10) // len(masks)
+    for mask in masks:
         gram = gram_integer(_corner(outer_lo, outer_hi, mask))
         minors = leading_minors(gram)
         minima = [x if old is None else min(old, x) for old, x in zip(minima, minors)]
         if min(minors) <= 0:
-            failed += 1
+            failed += multiplicity
             if first_bad is None:
                 first_bad = mask
         else:
@@ -156,21 +170,25 @@ def five_point_box(lower_squared, upper_squared, denominator=GRID):
     if min(center_minors) >= 0 and center_minors[-1] == 0:
         witness = dict(kind="positive_semidefinite_inner_midpoint", rank_at_most=3,
                        midpoint_integral_principal_minors=[str(x) for x in center_minors])
-    elif min(leading_minors(middle)) > 0:
+    else:
+        center_positive = min(leading_minors(middle)) > 0
         witness = None
-        for mask in range(1 << 10):
+        for mask in distinct_corners(inner_lo, inner_hi):
             gram = gram_integer(_corner(inner_lo, inner_hi, mask))
             minors = principal_minors(gram)
             if min(minors) >= 0 and minors[-1] == 0:
                 witness = dict(kind="positive_semidefinite_inner_corner", corner=mask, rank_at_most=3)
                 break
-            if min(minors) < 0:
+            if center_positive and min(minors) < 0:
                 witness = dict(kind="positive_definite_midpoint_to_negative_direction_corner",
                                corner=mask, negative_principal_minor=str(min(minors)), rank_at_most=3,
                                parameter="first loss of positive definiteness on the segment, in (0,1)")
                 break
-    else:
-        witness = None
+            if not center_positive and min(leading_minors(gram)) > 0:
+                witness = dict(kind="positive_definite_corner_to_negative_direction_midpoint",
+                               corner=mask, negative_principal_minor=str(min(center_minors)), rank_at_most=3,
+                               parameter="first loss of positive definiteness on the segment, in (0,1)")
+                break
     if witness is not None:
         witness.update(inner_squared_lower_numerators=[str(x) for x in inner_lo],
                        inner_squared_upper_numerators=[str(x) for x in inner_hi],

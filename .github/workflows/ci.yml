@@ -57,16 +57,19 @@ jobs:
         run: |
           python tools/check_lean_native_decide_inventory.py
           python tools/check_lean_ci_budget.py
-          python -m pytest -q tools/test_check_lean_ci_budget.py tools/test_mandatory_suite_shards.py tools/test_ci_lanes.py
+          python -m pytest -q tools/test_check_lean_ci_budget.py tools/test_check_lean_native_decide_inventory.py tools/test_mandatory_suite_shards.py tools/test_ci_lanes.py
       - name: Documentation policy on changed files
         if: github.event_name == 'pull_request'
         run: python tools/check_docs_policy.py --changed "${{ github.event.pull_request.base.sha }}"
 
   model:
-    name: Executable model and candidate laws
+    name: Executable model and candidate laws (${{ matrix.suite }})
     runs-on: ubuntu-latest
-    # The single-threaded model suite took 16 minutes before the final replays.
-    timeout-minutes: 40
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        suite: [tests, replays]
     env:
       OPENBLAS_NUM_THREADS: '1'
       OMP_NUM_THREADS: '1'
@@ -82,6 +85,7 @@ jobs:
             model/requirements-tests.txt
       - run: python -m pip install -r model/requirements-tests.txt
       - name: Fixed carrier, candidate laws and their evaluation
+        if: matrix.suite == 'replays'
         run: |
           python -B -O -m model carrier
           python -B -m model --full
@@ -92,6 +96,7 @@ jobs:
           python -B -O -m model run --law scalar_channel --extended
           python -B -O -m model evaluate --check
       - name: Experiments
+        if: matrix.suite == 'replays'
         run: |
           python -B -O -W error -m model.experiments.interval_echo_encounter.gateway
           python -B -O -W error -m model.experiments.interval_echo_encounter.gateway_complement
@@ -113,10 +118,13 @@ jobs:
           python -B -O -W error -m model.experiments.interval_echo_space.shell_spectroscopy
           python -B -O -W error -m model.experiments.interval_echo_space.shell_beats
       - name: Tests of the model
+        if: matrix.suite == 'tests'
         run: python -B -m pytest -q -W error model
       - name: Regenerate private-record joint outcomes and continuous-time bounds
+        if: matrix.suite == 'replays'
         run: python -B -O -W error -m model run --law private_record_walk --check
       - name: Formed-pair return and torus detector acquisitions
+        if: matrix.suite == 'replays'
         run: |
           python -B -O -W error -m model.experiments.interval_echo_encounter.return_lines
           python -B -O -W error -m model.benchmarks.eight_slot_torus.formed_clocks.fringe
@@ -124,6 +132,7 @@ jobs:
           python -B -O -W error -m model.benchmarks.eight_slot_torus.formed_clocks.fringe_flight
           python -B -O -W error -m model.benchmarks.eight_slot_torus.formed_clocks.fringe_reference
       - name: Theory certificates on the model pins
+        if: matrix.suite == 'replays'
         run: python tools/ci_lanes.py run --tier push --profile model --buckets 1 --bucket 0
 
   einstein:

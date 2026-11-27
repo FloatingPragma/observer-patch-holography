@@ -5,10 +5,9 @@ Everything here is fixed for every candidate law.
 | File | What it fixes |
 | --- | --- |
 | [carrier.py](carrier.py) | one cell, the echosahedron: 12 ports, 30 seams and 20 faces with the incidence of the icosahedron; the federations of 20, 80 and 320 cells, in which every cell is complete and external seams join three ports of each cell; the emitter seam of each carrier; the checks of these facts |
-| [validation.py](validation.py) | the live federation check counts external ports on every owner. The carrier command, candidate evaluator and contrast-memory verification use it. Frozen campaigns pin the carrier source, whose gateway summary counts owners appearing on external seams. |
+| [validation.py](validation.py) | the carrier command, candidate evaluator and contrast-memory verification count external ports on every owner and check the labelled seam list against its registered digest at each level |
 | [carriers/](carriers/) | the federation arrays `FEDERATION_LEVEL{0,1,2}.npz` and `CELL.npz`, one cell with its seams and its 120 wedges |
 | [refinement.py](refinement.py) | optional reader for a supplied Openwave L0–L7 refinement at its deposited SHA-256. It returns read-only labelled external seams and the shared cell incidence. |
-| [refinement.py](refinement.py) | loads an explicitly supplied deposited spherical board at levels 0 through 7, verifies its identity and native external matching and returns read-only seam addresses |
 | [symmetry.py](symmetry.py) | the sixty rotations of the cell as port permutations, and the incidence of ports, seams and wedges that decides which registers a local term may couple |
 | [laws.py](laws.py) | the registry of candidate laws: every package in [candidate_laws/](../candidate_laws/CANDIDATE.md) with a `candidate.py` |
 

@@ -51,6 +51,11 @@ import re
 import subprocess
 from pathlib import Path
 
+if __package__:
+    from .lean_source import code_view, comment_view
+else:
+    from lean_source import code_view, comment_view
+
 
 ROOT = Path(__file__).resolve().parents[1]
 LEAN_ROOT = ROOT / "Lean"
@@ -217,111 +222,6 @@ H_WORD_PATTERN: list[tuple[re.Pattern[str], str]] = [
 ]
 
 PROSE_PATTERNS = PROGRESS_PATTERNS + AI_TELL_PATTERNS + H_WORD_PATTERN
-
-
-# ---------------------------------------------------------------------------
-# Comment masking
-# ---------------------------------------------------------------------------
-
-
-def comment_view(text: str) -> str:
-    """Return ``text`` with every non-comment character replaced by a space.
-
-    Line breaks survive everywhere, so an offset in the result has the same
-    line and column as the same offset in the source. Lean comment forms:
-
-    * ``--`` to end of line;
-    * ``/- ... -/`` block comments, which nest;
-    * ``/-- ... -/`` declaration docstrings and ``/-! ... -/`` module
-      docstrings, which are block comments with a marked opener and nest the
-      same way.
-
-    String literals are skipped before comment openers are considered, so a
-    ``--`` or a ``/-`` inside a literal never starts a comment. Character
-    literals are not treated specially: ``'`` is a legal identifier character
-    in Lean, so a general rule would misread ``h'`` and ``σ'``. The narrow
-    three-character forms that could matter are handled explicitly.
-    """
-
-    length = len(text)
-    out = ["\n" if char == "\n" else " " for char in text]
-    index = 0
-
-    def keep(start: int, stop: int) -> None:
-        for cursor in range(start, min(stop, length)):
-            out[cursor] = text[cursor]
-
-    while index < length:
-        char = text[index]
-
-        # Comment openers first: a block comment swallows string syntax.
-        if char == "/" and text.startswith("/-", index):
-            start = index
-            depth = 0
-            while index < length:
-                if text.startswith("/-", index):
-                    depth += 1
-                    index += 2
-                    continue
-                if text.startswith("-/", index):
-                    depth -= 1
-                    index += 2
-                    if depth == 0:
-                        break
-                    continue
-                index += 1
-            keep(start, index)
-            continue
-
-        if char == "-" and text.startswith("--", index):
-            start = index
-            while index < length and text[index] != "\n":
-                index += 1
-            keep(start, index)
-            continue
-
-        if char == '"':
-            index += 1
-            while index < length:
-                if text[index] == "\\":
-                    index += 2
-                    continue
-                if text[index] == '"':
-                    index += 1
-                    break
-                index += 1
-            continue
-
-        # ``'-'`` and ``'"'`` are the only character literals whose payload
-        # could otherwise open a comment or a string.
-        if char == "'" and text[index : index + 3] in ("'-'", "'\"'"):
-            index += 3
-            continue
-
-        index += 1
-
-    return "".join(out)
-
-
-def code_view(text: str) -> str:
-    """Return ``text`` with every comment character replaced by a space.
-
-    The exact complement of :func:`comment_view`, so section 2 reads
-    declarations from code alone. Without it a docstring sentence such as "the
-    general matrix theorem in this module" parses as a declaration named
-    ``in``, and the coverage count is wrong in both directions.
-    """
-
-    comments = comment_view(text)
-    out = []
-    for source_char, comment_char in zip(text, comments):
-        if source_char == "\n":
-            out.append("\n")
-        elif comment_char == " ":
-            out.append(source_char)
-        else:
-            out.append(" ")
-    return "".join(out)
 
 
 # ---------------------------------------------------------------------------

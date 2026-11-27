@@ -60,6 +60,8 @@ numbers are in [RESULTS.json](RESULTS.json) and [presence_results.json](presence
 
 ## Run it
 
+For a pair emitted on a physical seam, `stability.emitted_run` accepts finite nonnegative exposures in any order, including repeats. Each reading includes the measured fuel refusal and the probability on separated pairs. An empty schedule returns the state immediately after preparation. The deposited `sectors.free_run` helper used in historical calculations assumes a nondecreasing exposure list and represents fuel through the missing norm of its input. Its pair indices require two distinct in-range ports. [Pair acquisition and readout](stability.py)
+
 From the repository root, with NumPy, SciPy and SymPy:
 
 ```sh

@@ -97,6 +97,13 @@ def finite_repair():
     vol = [[F(sum(PartitionRepair.advance_volume(i, c) == j for c in range(4)), 4)
             for j in (0, 1)] for i in (0, 1)]
     assert F(2, 3)*vol[0][1] == F(1, 3)*vol[1][0]
+    # With A = 4K the five-cycle satisfies A² − 3A + I = 11ᵀ.
+    # On zero-sum modes this gives the two roots (3 ± sqrt(5))/8 for K.
+    if not all(16*two[i][j] - 12*k[i][j] + int(i == j) == 1
+               for i in range(5) for j in range(5)):
+        raise ArithmeticError("Interface repair fails the five-cycle spectral identity")
+    if sum(vol[i][i] for i in range(2)) - 1 != F(1, 4):
+        raise ArithmeticError("Unexpected volume relaxation factor")
     p = [F(1), F(0), F(0), F(0), F(0)]
     pvol = F(0)
     blanks = []

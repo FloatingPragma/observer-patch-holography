@@ -252,9 +252,17 @@ variation obeys \(\one^T\delta d=0\), and hence
 \delta d^T(\Hess\mathcal A)\delta d
 =\frac{\|\delta d\|^2}{nd^2}>0
 \]
-for every nonzero tangent variation. The symmetric point is locally
-minimizing along the fixed-\(M\) redistribution directions. The negative
-eigenvalue belongs to the homogeneous direction, which changes \(M\).
+for every nonzero tangent variation. In fact the finite comparison is
+global. Write \(w_i=d_i/M\), \(H(w)=-\sum_iw_i\log w_i\), and let \(u\)
+be uniform on the \(n\) sectors. Then
+\[
+\mathcal A(d)=\log M-H(w)=\log(M/n)+\KL(w\Vert u).
+\]
+At fixed \(M\) the uniform partition attains the lower bound whenever
+it is admissible. For integer dimensions, strict convexity of
+\(x\log x\) makes every minimizing partition as equal as possible:
+moving a unit from a larger sector to a smaller one lowers their sum
+of \(d_i\log d_i\) whenever their dimensions differ by at least two.
 
 \subsection{The one-sided budget maximum}
 
@@ -280,6 +288,15 @@ and
 \label{eq:areadrop}
 \end{equation}
 Both relations are exact.
+
+For a nonuniform transfer with final total \(M_h\) and sector fractions
+\(w'_i\), the change in the entropy maximum is again \(\log(M_h/M_0)\).
+The sector observable instead changes by
+\(\log(M_h/M_0)+H(w)-H(w')\). Removing one unit from the smaller sector
+of \((8,2)\) gives \((8,1)\): \(\mathcal A\) rises from
+\((13/5)\log 2\) to \((8/3)\log 2\) while the entropy maximum falls.
+Thus the two readings distinguish a change in total capacity from a
+change in its distribution.
 
 \begin{theorem}[Finite transfer law and analytic one-sided maximum]
 \label{thm:transfersign}

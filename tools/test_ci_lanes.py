@@ -43,6 +43,18 @@ def test_ci_runs_every_lane_once():
     assert "ci_lanes.py run --tier push --profile model --buckets 1 --bucket 0" in model
 
 
+def test_model_tests_and_replays_run_once_and_both_gate_ci():
+    job = _job("model")
+    suites = job["strategy"]["matrix"]["suite"]
+    assert sorted(suites) == ["replays", "tests"] and job["strategy"]["fail-fast"] is False
+    assert "model" in _job("ci-ok")["needs"]
+    for step in job["steps"]:
+        if "run" in step and not step["run"].startswith("python -m pip install"):
+            expected = "tests" if step["run"] == "python -B -m pytest -q -W error model" else "replays"
+            assert step["if"] == f"matrix.suite == '{expected}'"
+    assert sum(s.get("if") == "matrix.suite == 'tests'" for s in job["steps"]) == 1
+
+
 def test_every_referenced_repository_path_exists():
     missing = []
     for lane in ci_lanes.LANES:

@@ -48,6 +48,33 @@ algebra” in a compilation claim must name the selected parity sector.
 Indeed the even monomials span exactly the matrix units between occupation
 words of equal parity, giving the two full matrix blocks directly.
 
+For a number-conserving one-body Hamiltonian $h$, the restriction of
+$d\Gamma(h)$ to two-particle states already determines $h$ for $n\geq3$.
+In an eigenbasis of a Hermitian difference $h-h'$, the two-particle
+eigenvalues are $s_{ij}=\lambda_i+\lambda_j$. For each $i$, choose two
+distinct other modes $j,k$. Then
+$2\lambda_i=s_{ij}+s_{ik}-s_{jk}$, so a vanishing restriction forces
+$h=h'$. This argument proves injectivity from the restricted **operator**.
+A list of eigenvalues alone does not specify its eigenvectors in the port basis.
+
+The reader accepts different Pauli representatives of the same encoded action.
+Each fundamental cycle contains its own chord and no other chord. Right
+multiplication by its stabilizer clears the chord's $X$ bit while preserving
+the action on every cycle-$+1$ input. Tracking the Pauli phase and adding
+coefficients at the resulting common representatives identifies equivalent
+terms. The identity, number and hopping words of the compiler remain distinct
+under this reduction on a connected simple graph with at least three modes.
+Their $X$ masks are empty or single edges. The difference of two such distinct
+masks cannot form a cycle. Two different $Z$ masks at a fixed $X$ mask cannot
+differ by a cycle either, since every nonempty cycle uses a chord.
+
+At $n=2$, the even sector contains the vacuum and the doubly occupied
+state. Their energies are $0$ and $\operatorname{Tr}(h)$. The hopping and
+diagonal imbalance disappear, and the encoded one-qubit operator is
+$\operatorname{Tr}(h)(I-Z)/2$. The general reader returns this identifiable
+trace and leaves the one-body matrix undetermined. [Reader](one_body/__init__.py) ·
+[Finite Fock and encoded-graph checks](test_instruments.py)
+
 Both fuel inputs are available in this same architecture. Start with 120
 occupied source modes and set the selected fuel and its decoupled reference
 both to zero or both to one. Total occupation is respectively 120 or 122.

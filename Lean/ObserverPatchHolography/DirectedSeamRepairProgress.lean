@@ -147,6 +147,41 @@ theorem shellEnergy_eq_iff_balanced
     rw [(shellDefect12_eq_zero_iff x q).mpr hshell]
     ring
 
+/-- In every Euclidean remainder sector an explicit balanced configuration
+attains the lower bound. The first `r` ports carry the extra unit. -/
+theorem shellEnergy_attained (q : ℤ) (r : Fin 12) :
+    ∃ x : Fin 12 → ℤ, totalLoad12 x = 12 * q + (r.val : ℤ) ∧
+      quadraticLoad12 x = (12 - (r.val : ℤ)) * q ^ 2 + r.val * (q + 1) ^ 2 := by
+  let x (i : Fin 12) : ℤ := q + if i ∈ Finset.Iio r then 1 else 0
+  have htotal : totalLoad12 x = 12 * q + (r.val : ℤ) := by
+    have hfilter : Finset.univ.filter (fun i : Fin 12 => i < r) = Finset.Iio r := by
+      ext i
+      simp
+    simp [totalLoad12, x, Finset.sum_add_distrib, hfilter, Fin.card_Iio]
+  refine ⟨x, htotal, (shellEnergy_eq_iff_balanced x q r.val htotal).2 ?_⟩
+  intro i
+  by_cases h : i ∈ Finset.Iio r
+  · exact Or.inr (by simp only [x, if_pos h])
+  · exact Or.inl (by simp only [x, if_neg h, add_zero])
+
+/-- Each signed load contributes an even shell defect. The first possible
+positive excess of quadratic load is therefore at least two. -/
+theorem quadraticLoad12_gap_off_shell (x : Fin 12 → ℤ) (q r : ℤ)
+    (htotal : totalLoad12 x = 12 * q + r)
+    (hout : ¬ ∀ port, x port = q ∨ x port = q + 1) :
+    (12 - r) * q ^ 2 + r * (q + 1) ^ 2 + 2 ≤ quadraticLoad12 x := by
+  have heven : 2 ∣ shellDefect12 x q := by
+    apply Finset.dvd_sum
+    intro i _
+    have h : (2 : ℤ) ∣ x i - q ∨ (2 : ℤ) ∣ x i - q - 1 := by omega
+    rcases h with h | h
+    · exact dvd_mul_of_dvd_left h _
+    · exact dvd_mul_of_dvd_right h _
+  have hne : shellDefect12 x q ≠ 0 := fun hz => hout ((shellDefect12_eq_zero_iff x q).1 hz)
+  have hnonneg := shellDefect12_nonnegative x q
+  rw [quadraticLoad12_eq_shellEnergy_add_defect x q r htotal]
+  omega
+
 /-- Nearest balancing never increases the local quadratic load. -/
 theorem quadraticLoad_forward_le (a b : ℤ) :
     quadraticLoad (balanceForward a b) ≤ quadraticLoad (a, b) := by
@@ -235,4 +270,6 @@ end ObserverPatchHolography.DirectedSeamRepair
 #print axioms ObserverPatchHolography.DirectedSeamRepair.quadraticLoad_forward_le
 #print axioms ObserverPatchHolography.DirectedSeamRepair.carrier_path_length_at_most_three
 #print axioms ObserverPatchHolography.DirectedSeamRepair.shellEnergy_eq_iff_balanced
+#print axioms ObserverPatchHolography.DirectedSeamRepair.shellEnergy_attained
+#print axioms ObserverPatchHolography.DirectedSeamRepair.quadraticLoad12_gap_off_shell
 #print axioms ObserverPatchHolography.DirectedSeamRepair.path_three_forward_strict

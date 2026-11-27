@@ -12,6 +12,11 @@ import sys
 from collections import Counter
 from pathlib import Path
 
+if __package__:
+    from .lean_source import code_view
+else:
+    from lean_source import code_view
+
 REPO_ROOT = Path(__file__).resolve().parent.parent
 LEAN_ROOT = REPO_ROOT / "Lean"
 
@@ -23,49 +28,6 @@ EXPECTED = Counter(
 )
 
 NATIVE_TOKEN_RE = re.compile(r"\bnative_decide\b")
-
-
-def code_view(text: str) -> str:
-    """Lean source with block comments, line comments and string literals blanked.
-
-    Block comments nest. Blanking keeps every other byte in place, so a match
-    inside a tactic block, a term-mode ``(by native_decide)`` or a one-line
-    ``exact`` counts, while prose that merely names the tactic does not.
-    """
-
-    out: list[str] = []
-    i = 0
-    depth = 0
-    n = len(text)
-    while i < n:
-        two = text[i : i + 2]
-        if depth:
-            if two == "/-":
-                depth += 1
-                i += 2
-            elif two == "-/":
-                depth -= 1
-                i += 2
-            else:
-                i += 1
-            continue
-        if two == "/-":
-            depth = 1
-            i += 2
-            continue
-        if two == "--":
-            end = text.find("\n", i)
-            i = n if end < 0 else end
-            continue
-        if text[i] == '"':
-            j = i + 1
-            while j < n and text[j] != '"':
-                j += 2 if text[j] == "\\" else 1
-            i = min(j + 1, n)
-            continue
-        out.append(text[i])
-        i += 1
-    return "".join(out)
 
 
 def inventory() -> Counter[str]:

@@ -47,6 +47,13 @@ def slow_projector(table):
 
 def infer(calibration):
     """The reader sees anonymous square arrival tables and a uniform-hopping model class."""
+    calibration = np.asarray(calibration)
+    if (calibration.ndim != 2 or calibration.shape[0] != calibration.shape[1]
+            or len(calibration) < 3 or not np.isrealobj(calibration)
+            or not np.all(np.isfinite(calibration)) or np.any(calibration < 0)
+            or not np.allclose(calibration.sum(axis=0), 1, rtol=0, atol=1e-12)
+            or not np.allclose(calibration, calibration.T, rtol=0, atol=1e-12)):
+        raise ValueError("Expected a complete reciprocal sharp-port probability table")
     n = len(calibration)
     off_diagonal = np.sort(calibration[np.triu_indices(n, k=1)])
     gap = np.argmax(np.diff(off_diagonal))
@@ -59,6 +66,8 @@ def infer(calibration):
         return np.mean(transitions(laplacian, angle)[neighbors] - calibration[neighbors])
 
     angle = brentq(residual, 0, .2, xtol=1e-14)
+    if not np.allclose(transitions(laplacian, angle), calibration, rtol=0, atol=1e-10):
+        raise ValueError("The fitted equal-hop generator does not reproduce the calibration table")
     projector, rank = slow_projector(calibration)
     scale = np.sqrt(projector.diagonal())
     gram = projector / np.outer(scale, scale)

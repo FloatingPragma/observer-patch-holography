@@ -134,6 +134,35 @@ theorem deterministic_locally_confluent :
       intro x y z hxy hxz;
       cases hxy ; cases hxz ; aesop
 
+/-- Any two finite trajectories of a deterministic operator can be joined,
+including when the operator runs forever. -/
+theorem deterministic_confluent : Confluent (stepRel T) := by
+  intro x y z hy hz
+  apply Relation.church_rosser _ hy hz
+  rintro a _ _ ⟨rfl, _⟩ ⟨rfl, _⟩
+  exact ⟨T a, .refl, .refl⟩
+
+/-- After at most the initial natural-valued potential many iterations,
+the trajectory reaches a normal form. Quiescent iterations leave it there. -/
+theorem iterate_reducesToNF_of_descent (Φ : X → ℕ)
+    (hdesc : ∀ x, T x ≠ x → Φ (T x) < Φ x) (n : ℕ) (x : X) (hn : Φ x ≤ n) :
+    ReducesToNF (stepRel T) x (T^[n] x) := by
+  induction n generalizing x with
+  | zero =>
+    have h : T x = x := by
+      by_contra hne
+      have := hdesc x hne
+      omega
+    exact ⟨.refl, fun _ hs => hs.2 h⟩
+  | succ n ih =>
+    by_cases h : T x = x
+    · rw [Function.iterate_fixed h]
+      exact ⟨.refl, fun _ hs => hs.2 h⟩
+    · have hdrop := hdesc x h
+      obtain ⟨hpath, hnormal⟩ := ih (T x) (by omega)
+      rw [Function.iterate_succ_apply]
+      exact ⟨hpath.head ⟨rfl, h⟩, hnormal⟩
+
 /-- Combined: for a terminating deterministic repair operator the normal
     form is a fixed point of `T` and is unique (schedule-independent). -/
 theorem deterministic_full
@@ -172,5 +201,7 @@ end OPH.AbstractRewriting
 #print axioms OPH.AbstractRewriting.nf_is_fixedPt
 #print axioms OPH.AbstractRewriting.descent_terminating
 #print axioms OPH.AbstractRewriting.deterministic_locally_confluent
+#print axioms OPH.AbstractRewriting.deterministic_confluent
+#print axioms OPH.AbstractRewriting.iterate_reducesToNF_of_descent
 #print axioms OPH.AbstractRewriting.deterministic_full
 #print axioms OPH.AbstractRewriting.fixedPt_zero_potential

@@ -27,6 +27,11 @@ import subprocess
 import sys
 from pathlib import Path
 
+if __package__:
+    from .lean_source import code_view as strip_comments
+else:
+    from lean_source import code_view as strip_comments
+
 REPO_ROOT = Path(__file__).resolve().parent.parent
 LEAN_ROOT = REPO_ROOT / "Lean"
 
@@ -82,42 +87,6 @@ def lean_source_files() -> list[Path]:
         and not any(part.startswith(".") or part == "lake-packages"
                     for part in path.relative_to(LEAN_ROOT).parts)
     )
-
-
-def strip_comments(source: str) -> str:
-    """Return ``source`` with Lean comments blanked out.
-
-    Doc comments and block comments (``/- ... -/``, nested) and line comments
-    (``-- ...``) are replaced by spaces, newlines kept, so that a prose line
-    inside a docstring that happens to start with ``theorem`` or ``lemma`` is
-    never counted as a declaration.
-    """
-    out: list[str] = []
-    i = 0
-    depth = 0
-    n = len(source)
-    while i < n:
-        two = source[i : i + 2]
-        if depth == 0 and two == "--":
-            end = source.find("\n", i)
-            end = n if end == -1 else end
-            out.append(" " * (end - i))
-            i = end
-            continue
-        if two == "/-":
-            depth += 1
-            out.append("  ")
-            i += 2
-            continue
-        if depth > 0 and two == "-/":
-            depth -= 1
-            out.append("  ")
-            i += 2
-            continue
-        ch = source[i]
-        out.append(ch if depth == 0 or ch == "\n" else " ")
-        i += 1
-    return "".join(out)
 
 
 def count_declarations() -> int:

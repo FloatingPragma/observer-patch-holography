@@ -10,6 +10,19 @@ def _inputs() -> tuple[str, str]:
     )
 
 
+def test_changed_module_selector_includes_root_and_nested_modules():
+    import re
+    import subprocess
+
+    workflow, _ = _inputs()
+    pattern = re.search(r"git diff --name-only --diff-filter=d .*? -- '([^']+)'", workflow).group(1)
+    paths = subprocess.check_output(
+        ["git", "ls-files", "--", pattern], cwd=WORKFLOW.parents[2], text=True
+    ).splitlines()
+    assert "Lean/ObserverPatchHolography.lean" in paths
+    assert "Lean/Dynamics/PrivateInner.lean" in paths
+
+
 def test_current_wiring_passes() -> None:
     workflow, lakefile = _inputs()
     assert validate(workflow, lakefile) == []
