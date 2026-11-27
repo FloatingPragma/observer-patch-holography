@@ -44,12 +44,24 @@ def measure(candidate):
     if check["status"] != "pass":
         raise ArithmeticError(f"{candidate.NAME}: {check['detail']}")
     is_seam_response = response.shape != generator.shape
+    errors = {}
     if is_seam_response:
         # The scalar lives on seams. The endpoint sum maps port amplitudes to seam amplitudes.
-        seams = [where for kind, where in labels if kind == "seam"]
+        seams = [index for index, (kind, _) in enumerate(labels) if kind == "seam"]
         embedding = np.zeros((len(seams), 12))
-        for i, (a, b) in enumerate(seams):
+        for i, index in enumerate(seams):
+            a, b = labels[index][1]
             embedding[i, [a, b]] = 1
+        # A changed diagonal block leaves the coupling Gram intact but can mix
+        # seams and wedges after two applications of the registered generator.
+        mass = candidate.PARAMETERS["m"]["value"]
+        if not isinstance(mass, (float, int)) or not np.isfinite(mass):
+            raise ValueError(f"{candidate.NAME}: a finite registered rest level is required")
+        squared = generator @ generator[:, seams]
+        expected = np.zeros_like(squared)
+        expected[seams] = response + mass**2 * np.eye(len(seams))
+        errors["generator_hermiticity"] = np.linalg.norm(generator - generator.conj().T)
+        errors["squared_generator_on_seams"] = np.linalg.norm(squared - expected)
         offset = 0
     else:
         if set(labels) != {("port", i) for i in range(12)} or len(labels) != 12:
@@ -58,15 +70,15 @@ def measure(candidate):
         offset = float(response[0].sum().real)
     centered = response - offset * np.eye(len(response))
     lifted = embedding @ projector
-    errors = {
+    errors.update({
         "binary_unit_rate_mean": np.linalg.norm(mean_generator + kinetic),
         "projector_idempotence": np.linalg.norm(projector @ projector - projector),
         "gram_eigenrelation": np.linalg.norm(kinetic @ projector - slow * projector),
         "full_operator_intertwining": np.linalg.norm(centered @ embedding - embedding @ kinetic),
         "candidate_band_eigenrelation": np.linalg.norm(centered @ lifted - slow * lifted),
-    }
+    })
     rank = np.linalg.matrix_rank(lifted)
-    if rank != 3 or max(errors.values()) > 1e-10:
+    if rank != 3 or not all(np.isfinite(error) and error <= 1e-10 for error in errors.values()):
         raise ArithmeticError(f"{candidate.NAME}: incompatible generator or Gram frame")
     return {
         "port_to_candidate_map": ("unsigned seam-port incidence" if is_seam_response else

@@ -34,3 +34,18 @@ def test_wrong_slow_projector_fails_even_with_the_same_spectrum(monkeypatch):
     monkeypatch.setattr(candidate, "response", lambda _: kinetic)
     with pytest.raises(ArithmeticError, match="declared response differs"):
         repair_band.measure(candidate)
+
+
+def test_known_coupling_gram_does_not_fix_scalar_squared_energies(monkeypatch):
+    candidate = laws.load("scalar_channel")
+    board = cell()
+    original = candidate.generator(board)
+    response = candidate.response(board)
+    seams = [i for i, (kind, _) in enumerate(candidate.basis(board)) if kind == "seam"]
+    changed = original.copy()
+    # This extra rotationally covariant term leaves the seam–wedge coupling
+    # and its Gram untouched, but D² no longer preserves seam states.
+    changed[np.ix_(seams, seams)] += .1 * response
+    monkeypatch.setattr(candidate, "generator", lambda _: changed)
+    with pytest.raises(ArithmeticError, match="incompatible generator or Gram frame"):
+        repair_band.measure(candidate)
