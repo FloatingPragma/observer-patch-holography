@@ -68,8 +68,9 @@ statement, and at balance it holds exactly for \(|\delta|\le\pi/12\) modulo
 algebra on one declared event, and reading the result through a cyclic
 response map, produces the balance exactly; the event treats its two blocks
 asymmetrically, and that choice carries the balance. A residual threefold or
-fivefold rotation symmetry forces a repeated eigenvalue, while a twofold
-symmetry leaves two scale-free coordinates and selects neither. The
+fivefold rotation symmetry forces a repeated eigenvalue. Under a twofold
+symmetry one scale-free coordinate controls the traceless spectrum and a
+second orients its eigenvectors. The
 algebraic core is formalized in Lean~4.
 \end{abstract}
 
@@ -249,9 +250,12 @@ conditioned trace, and cyclic response map are premises. The block choice is
 asymmetric: the neutral line is paired with the full two-state orientation
 record and the charged plane with one oriented event. Treating the two blocks
 alike, both with \(I_{\mathrm{or}}\) or both with \(q_+\), gives
-\(p_c/p_0=2\), hence \(\rho/a=1\) and \(Q=1\). The normalized trace fixes the
-probabilities only after the asymmetric event has been chosen, so the
-balanced modulus is the content of that choice.
+\(p_c/p_0=2\), hence \(\rho/a=1\). In the nonnegative chamber the sum of
+the squared eigenvalues then equals the square of their sum. All pairwise
+products must vanish, giving the rank-one spectrum \((3a,0,0)\) up to
+permutation and \(Q=1\). This requires \(\delta=0\) modulo \(2\pi/3\).
+For example, at \(\delta=\pi/3\) the signed spectrum is
+\((2a,-a,2a)\), whose squared masses have \(Q=9/25\).
 
 \section{Why residual symmetry does not finish the ratios}
 
@@ -292,10 +296,14 @@ This space has dimension three and contains matrices with three distinct
 eigenvalues.
 \end{proof}
 
-Threefold and fivefold symmetry cannot produce three distinct eigenvalues.
-Twofold symmetry leaves two scale-free coordinates, exactly enough to carry
-the two scale-free ratios of a spectrum without selecting them. A numerical
-spectrum therefore requires a specific invariant potential.
+To separate shape from orientation, put \(s=(u+w)/2\) and
+\(r=\sqrt{((u-w)/2)^2+v^2}\). The three eigenvalues are \(s+r,s-r,-2s\).
+Up to overall scale the spectrum therefore depends on the single ratio
+\([s:r]\). For \(r>0\), varying the polar angle of \(((u-w)/2,v)\)
+rotates the two planar eigendirections and preserves every eigenvalue.
+A response with three unconstrained positive levels also needs a scalar
+part, whose size relative to the traceless splitting supplies a second
+spectral parameter. The half-turn fixes neither splitting nor scalar part.
 
 \section{Formal proof boundary}
 
