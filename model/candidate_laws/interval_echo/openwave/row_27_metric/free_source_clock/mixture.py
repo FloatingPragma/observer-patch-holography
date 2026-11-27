@@ -9,12 +9,12 @@ from scipy.spatial import ConvexHull
 from scipy.stats import hypergeom
 
 from model.experiments.count_intervals import clopper_pearson
+from .measure import SHOTS, TIMER_SHOTS, TIMES
 
 HERE = Path(__file__).resolve().parent
 SETTINGS = ["blank"] + [
     f"{mode}{d}" for mode in ("free", "park") for d in (0, 1, 2, 3, 14)
 ]
-SHOTS, TIMER_SHOTS = 2**20, 2**26
 
 
 def hands(times):
@@ -75,7 +75,7 @@ def witness(low, high, ceiling):
 
 
 def compare(archive):
-    appointments = len(archive["k8_even_blank"])
+    appointments = len(TIMES)
     trials = appointments * len(SETTINGS)
     # Four binomial readings per panel and appointment, with two tails each.
     tail = 0.01 / (8 * trials)
@@ -86,10 +86,14 @@ def compare(archive):
         for kind in ("even", "odd"):
             key = f"k8_{kind}_{setting}"
             counts = archive[key]
-            if np.any(np.sum(counts, axis=1) != SHOTS) or np.min(counts) < 0:
-                raise ValueError("Incomplete coin and endpoint record")
+            if (counts.shape != (appointments, 4) or not np.issubdtype(counts.dtype, np.integer)
+                    or np.any((counts < 0) | (counts > SHOTS)) or np.any(counts.sum(axis=1) != SHOTS)):
+                raise ValueError(f"Incomplete coin and endpoint record: {key}")
+            timer_counts = archive[key + "_timer"]
+            if timer_counts.shape != (appointments,) or not np.issubdtype(timer_counts.dtype, np.integer):
+                raise ValueError(f"Incomplete timing record: {key}")
             bands.append(clopper_pearson(counts[:, 2:].sum(axis=1), SHOTS, tail))
-            timer = clopper_pearson(archive[key + "_timer"], TIMER_SHOTS, tail)
+            timer = clopper_pearson(timer_counts, TIMER_SHOTS, tail)
             reference.append(16 * np.arcsin(np.sqrt(timer)))
             arrivals.append(counts[:, [1, 3]].sum(axis=1))
         low = np.column_stack([1 - 2 * upper for _, upper in bands])
@@ -99,7 +103,7 @@ def compare(archive):
         if np.any(lower_timer > upper_timer):
             raise ValueError("The timing references disagree")
         found = 0
-        for i, (lo, hi, limit) in enumerate(zip(low, high, upper_timer)):
+        for i, (lo, hi, limit) in enumerate(zip(low, high, upper_timer, strict=True)):
             sample = witness(lo, hi, limit)
             if sample is not None:
                 found += 1
