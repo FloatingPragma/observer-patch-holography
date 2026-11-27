@@ -193,8 +193,28 @@ jobs:
     permissions:
       contents: read
     steps:
-      - name: Checkout
+      - name: Check out the current release verifier
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          sparse-checkout: tools
+      - name: Resolve the latest published release
+        id: publication
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          tag=$(gh release view --repo "$GITHUB_REPOSITORY" --json tagName --jq '.tagName')
+          git check-ref-format "refs/tags/$tag"
+          printf 'tag=%s\n' "$tag" >> "$GITHUB_OUTPUT"
+      - name: Check out the tagged release bundle
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: refs/tags/${{ steps.publication.outputs.tag }}
+          path: published
+          sparse-checkout: |
+            paper
+            flagship
+            book
       - name: Set up Python
         uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:
@@ -203,7 +223,7 @@ jobs:
       - name: Check latest public release assets
         env:
           GITHUB_TOKEN: ${{ github.token }}
-        run: python tools/check_github_release_channel.py
+        run: python tools/check_github_release_channel.py --repo "$GITHUB_REPOSITORY" --repo-root published --expected-commit "$(git -C published rev-parse HEAD)"
 
   report:
     name: Report nightly failures

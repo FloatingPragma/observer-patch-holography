@@ -12,7 +12,7 @@ The repository runs three workflows.
   `tools/check_lean_ci_budget.py` keeps every job under 30 minutes.
 * `.github/workflows/nightly.yml` runs the full Lean build on a schedule and on dispatch. A failed scheduled run
   opens or updates one issue labelled `nightly-failure`. Dispatch it on a branch with
-  `gh workflow run nightly.yml --ref <branch>`.
+  `gh workflow run nightly.yml --ref <branch>`. Dispatches also compare the latest public release assets with their tagged commit.
 
 The exhaustive certificate suites run on demand: `python tools/run_mandatory_suite.py --certificates-only`.
 
